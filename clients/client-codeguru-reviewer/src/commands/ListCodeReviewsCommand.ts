@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import {
-  ListCodeReviewsRequest,
-  ListCodeReviewsRequestFilterSensitiveLog,
-  ListCodeReviewsResponse,
-  ListCodeReviewsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCodeReviewsCommand,
-  serializeAws_restJson1ListCodeReviewsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCodeReviewsRequest, ListCodeReviewsResponse } from "../models/models_0";
+import { de_ListCodeReviewsCommand, se_ListCodeReviewsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCodeReviewsCommand}.
  */
 export interface ListCodeReviewsCommandInput extends ListCodeReviewsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCodeReviewsCommand}.
  */
 export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the code reviews that the customer has created in the past 90 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  * import { CodeGuruReviewerClient, ListCodeReviewsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, ListCodeReviewsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = { // ListCodeReviewsRequest
+ *   ProviderTypes: [ // ProviderTypes
+ *     "CodeCommit" || "GitHub" || "Bitbucket" || "GitHubEnterpriseServer" || "S3Bucket",
+ *   ],
+ *   States: [ // JobStates
+ *     "Completed" || "Pending" || "Failed" || "Deleting",
+ *   ],
+ *   RepositoryNames: [ // RepositoryNames
+ *     "STRING_VALUE",
+ *   ],
+ *   Type: "PullRequest" || "RepositoryAnalysis", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCodeReviewsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCodeReviewsCommandInput - {@link ListCodeReviewsCommandInput}
+ * @returns {@link ListCodeReviewsCommandOutput}
  * @see {@link ListCodeReviewsCommandInput} for command's `input` shape.
  * @see {@link ListCodeReviewsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -81,6 +94,9 @@ export class ListCodeReviewsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCodeReviewsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +125,8 @@ export class ListCodeReviewsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCodeReviewsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCodeReviewsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +136,18 @@ export class ListCodeReviewsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCodeReviewsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCodeReviewsCommand(input, context);
+    return se_ListCodeReviewsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCodeReviewsCommandOutput> {
-    return deserializeAws_restJson1ListCodeReviewsCommand(output, context);
+    return de_ListCodeReviewsCommand(output, context);
   }
 
   // Start section: command_body_extra

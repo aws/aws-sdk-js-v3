@@ -25,15 +25,19 @@ import {
   CreateMediaLiveConnectorPipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommand,
-  serializeAws_restJson1CreateMediaLiveConnectorPipelineCommand,
+  de_CreateMediaLiveConnectorPipelineCommand,
+  se_CreateMediaLiveConnectorPipelineCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMediaLiveConnectorPipelineCommand}.
  */
 export interface CreateMediaLiveConnectorPipelineCommandInput extends CreateMediaLiveConnectorPipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMediaLiveConnectorPipelineCommand}.
  */
 export interface CreateMediaLiveConnectorPipelineCommandOutput
@@ -41,17 +45,68 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a streaming media pipeline in an Amazon Chime SDK meeting.</p>
+ * @public
+ * <p>Creates a media live connector pipeline in an Amazon Chime SDK meeting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeSDKMediaPipelinesClient, CreateMediaLiveConnectorPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaLiveConnectorPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
+ * const input = { // CreateMediaLiveConnectorPipelineRequest
+ *   Sources: [ // LiveConnectorSourceList // required
+ *     { // LiveConnectorSourceConfiguration
+ *       SourceType: "ChimeSdkMeeting", // required
+ *       ChimeSdkMeetingLiveConnectorConfiguration: { // ChimeSdkMeetingLiveConnectorConfiguration
+ *         Arn: "STRING_VALUE", // required
+ *         MuxType: "AudioWithCompositedVideo" || "AudioWithActiveSpeakerVideo", // required
+ *         CompositedVideo: { // CompositedVideoArtifactsConfiguration
+ *           Layout: "GridView",
+ *           Resolution: "HD" || "FHD",
+ *           GridViewConfiguration: { // GridViewConfiguration
+ *             ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
+ *             PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
+ *               PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
+ *             },
+ *           },
+ *         },
+ *         SourceConfiguration: { // SourceConfiguration
+ *           SelectedVideoStreams: { // SelectedVideoStreams
+ *             AttendeeIds: [ // AttendeeIdList
+ *               "STRING_VALUE",
+ *             ],
+ *             ExternalUserIds: [ // ExternalUserIdList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   Sinks: [ // LiveConnectorSinkList // required
+ *     { // LiveConnectorSinkConfiguration
+ *       SinkType: "RTMP", // required
+ *       RTMPConfiguration: { // LiveConnectorRTMPConfiguration
+ *         Url: "STRING_VALUE", // required
+ *         AudioChannels: "Stereo" || "Mono",
+ *         AudioSampleRate: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMediaLiveConnectorPipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMediaLiveConnectorPipelineCommandInput - {@link CreateMediaLiveConnectorPipelineCommandInput}
+ * @returns {@link CreateMediaLiveConnectorPipelineCommandOutput}
  * @see {@link CreateMediaLiveConnectorPipelineCommandInput} for command's `input` shape.
  * @see {@link CreateMediaLiveConnectorPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
@@ -96,6 +151,9 @@ export class CreateMediaLiveConnectorPipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMediaLiveConnectorPipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,18 +193,24 @@ export class CreateMediaLiveConnectorPipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateMediaLiveConnectorPipelineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMediaLiveConnectorPipelineCommand(input, context);
+    return se_CreateMediaLiveConnectorPipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMediaLiveConnectorPipelineCommandOutput> {
-    return deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommand(output, context);
+    return de_CreateMediaLiveConnectorPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

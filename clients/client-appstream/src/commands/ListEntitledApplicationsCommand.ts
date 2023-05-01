@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  ListEntitledApplicationsRequest,
-  ListEntitledApplicationsRequestFilterSensitiveLog,
-  ListEntitledApplicationsResult,
-  ListEntitledApplicationsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEntitledApplicationsCommand,
-  serializeAws_json1_1ListEntitledApplicationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEntitledApplicationsRequest, ListEntitledApplicationsResult } from "../models/models_0";
+import { de_ListEntitledApplicationsCommand, se_ListEntitledApplicationsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntitledApplicationsCommand}.
  */
 export interface ListEntitledApplicationsCommandInput extends ListEntitledApplicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntitledApplicationsCommand}.
  */
 export interface ListEntitledApplicationsCommandOutput extends ListEntitledApplicationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of entitled applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListEntitledApplicationsCommandOutput extends ListEntitledAppli
  * import { AppStreamClient, ListEntitledApplicationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, ListEntitledApplicationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // ListEntitledApplicationsRequest
+ *   StackName: "STRING_VALUE", // required
+ *   EntitlementName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEntitledApplicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntitledApplicationsCommandInput - {@link ListEntitledApplicationsCommandInput}
+ * @returns {@link ListEntitledApplicationsCommandOutput}
  * @see {@link ListEntitledApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListEntitledApplicationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -78,6 +83,9 @@ export class ListEntitledApplicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitledApplicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class ListEntitledApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntitledApplicationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEntitledApplicationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +125,18 @@ export class ListEntitledApplicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitledApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntitledApplicationsCommand(input, context);
+    return se_ListEntitledApplicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitledApplicationsCommandOutput> {
-    return deserializeAws_json1_1ListEntitledApplicationsCommand(output, context);
+    return de_ListEntitledApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,23 +23,24 @@ import {
   AdminListUserAuthEventsRequest,
   AdminListUserAuthEventsRequestFilterSensitiveLog,
   AdminListUserAuthEventsResponse,
-  AdminListUserAuthEventsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminListUserAuthEventsCommand,
-  serializeAws_json1_1AdminListUserAuthEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminListUserAuthEventsCommand, se_AdminListUserAuthEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminListUserAuthEventsCommand}.
  */
 export interface AdminListUserAuthEventsCommandInput extends AdminListUserAuthEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminListUserAuthEventsCommand}.
  */
 export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A history of user activity and any risks detected as part of Amazon Cognito advanced
  *             security.</p>
  * @example
@@ -48,10 +49,18 @@ export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthE
  * import { CognitoIdentityProviderClient, AdminListUserAuthEventsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminListUserAuthEventsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminListUserAuthEventsRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new AdminListUserAuthEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminListUserAuthEventsCommandInput - {@link AdminListUserAuthEventsCommandInput}
+ * @returns {@link AdminListUserAuthEventsCommandOutput}
  * @see {@link AdminListUserAuthEventsCommandInput} for command's `input` shape.
  * @see {@link AdminListUserAuthEventsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -99,6 +108,9 @@ export class AdminListUserAuthEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminListUserAuthEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,7 +141,7 @@ export class AdminListUserAuthEventsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminListUserAuthEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminListUserAuthEventsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +151,18 @@ export class AdminListUserAuthEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminListUserAuthEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminListUserAuthEventsCommand(input, context);
+    return se_AdminListUserAuthEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminListUserAuthEventsCommandOutput> {
-    return deserializeAws_json1_1AdminListUserAuthEventsCommand(output, context);
+    return de_AdminListUserAuthEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

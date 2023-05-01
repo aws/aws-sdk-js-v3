@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  SubmitJobRequest,
-  SubmitJobRequestFilterSensitiveLog,
-  SubmitJobResponse,
-  SubmitJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SubmitJobCommand,
-  serializeAws_restJson1SubmitJobCommand,
-} from "../protocols/Aws_restJson1";
+import { SubmitJobRequest, SubmitJobResponse } from "../models/models_0";
+import { de_SubmitJobCommand, se_SubmitJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SubmitJobCommand}.
  */
 export interface SubmitJobCommandInput extends SubmitJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubmitJobCommand}.
  */
 export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a>
  *    override parameters defined in the job definition. vCPU and memory requirements that are specified in the
  *     <code>resourceRequirements</code> objects in the job definition are the exception. They can't be overridden this way
@@ -54,10 +51,131 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * import { BatchClient, SubmitJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, SubmitJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // SubmitJobRequest
+ *   jobName: "STRING_VALUE", // required
+ *   jobQueue: "STRING_VALUE", // required
+ *   shareIdentifier: "STRING_VALUE",
+ *   schedulingPriorityOverride: Number("int"),
+ *   arrayProperties: { // ArrayProperties
+ *     size: Number("int"),
+ *   },
+ *   dependsOn: [ // JobDependencyList
+ *     { // JobDependency
+ *       jobId: "STRING_VALUE",
+ *       type: "N_TO_N" || "SEQUENTIAL",
+ *     },
+ *   ],
+ *   jobDefinition: "STRING_VALUE", // required
+ *   parameters: { // ParametersMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   containerOverrides: { // ContainerOverrides
+ *     vcpus: Number("int"),
+ *     memory: Number("int"),
+ *     command: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     instanceType: "STRING_VALUE",
+ *     environment: [ // EnvironmentVariables
+ *       { // KeyValuePair
+ *         name: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     resourceRequirements: [ // ResourceRequirements
+ *       { // ResourceRequirement
+ *         value: "STRING_VALUE", // required
+ *         type: "GPU" || "VCPU" || "MEMORY", // required
+ *       },
+ *     ],
+ *   },
+ *   nodeOverrides: { // NodeOverrides
+ *     numNodes: Number("int"),
+ *     nodePropertyOverrides: [ // NodePropertyOverrides
+ *       { // NodePropertyOverride
+ *         targetNodes: "STRING_VALUE", // required
+ *         containerOverrides: {
+ *           vcpus: Number("int"),
+ *           memory: Number("int"),
+ *           command: [
+ *             "STRING_VALUE",
+ *           ],
+ *           instanceType: "STRING_VALUE",
+ *           environment: [
+ *             {
+ *               name: "STRING_VALUE",
+ *               value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           resourceRequirements: [
+ *             {
+ *               value: "STRING_VALUE", // required
+ *               type: "GPU" || "VCPU" || "MEMORY", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   retryStrategy: { // RetryStrategy
+ *     attempts: Number("int"),
+ *     evaluateOnExit: [ // EvaluateOnExitList
+ *       { // EvaluateOnExit
+ *         onStatusReason: "STRING_VALUE",
+ *         onReason: "STRING_VALUE",
+ *         onExitCode: "STRING_VALUE",
+ *         action: "RETRY" || "EXIT", // required
+ *       },
+ *     ],
+ *   },
+ *   propagateTags: true || false,
+ *   timeout: { // JobTimeout
+ *     attemptDurationSeconds: Number("int"),
+ *   },
+ *   tags: { // TagrisTagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   eksPropertiesOverride: { // EksPropertiesOverride
+ *     podProperties: { // EksPodPropertiesOverride
+ *       containers: [ // EksContainerOverrideList
+ *         { // EksContainerOverride
+ *           image: "STRING_VALUE",
+ *           command: [
+ *             "STRING_VALUE",
+ *           ],
+ *           args: [
+ *             "STRING_VALUE",
+ *           ],
+ *           env: [ // EksContainerEnvironmentVariables
+ *             { // EksContainerEnvironmentVariable
+ *               name: "STRING_VALUE", // required
+ *               value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           resources: { // EksContainerResourceRequirements
+ *             limits: { // EksLimits
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             requests: { // EksRequests
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       metadata: { // EksMetadata
+ *         labels: { // EksLabelsMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new SubmitJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitJobCommandInput - {@link SubmitJobCommandInput}
+ * @returns {@link SubmitJobCommandOutput}
  * @see {@link SubmitJobCommandInput} for command's `input` shape.
  * @see {@link SubmitJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -108,6 +226,9 @@ export class SubmitJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +255,8 @@ export class SubmitJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubmitJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +266,18 @@ export class SubmitJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubmitJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SubmitJobCommand(input, context);
+    return se_SubmitJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitJobCommandOutput> {
-    return deserializeAws_restJson1SubmitJobCommand(output, context);
+    return de_SubmitJobCommand(output, context);
   }
 
   // Start section: command_body_extra

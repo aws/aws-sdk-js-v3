@@ -3,12 +3,24 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { RoboMakerServiceException as __BaseException } from "./RoboMakerServiceException";
 
-export enum Architecture {
-  ARM64 = "ARM64",
-  ARMHF = "ARMHF",
-  X86_64 = "X86_64",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Architecture = {
+  ARM64: "ARM64",
+  ARMHF: "ARMHF",
+  X86_64: "X86_64",
+} as const;
 
+/**
+ * @public
+ */
+export type Architecture = (typeof Architecture)[keyof typeof Architecture];
+
+/**
+ * @public
+ */
 export interface BatchDeleteWorldsRequest {
   /**
    * <p>A list of Amazon Resource Names (arns) that correspond to worlds to delete.</p>
@@ -16,6 +28,9 @@ export interface BatchDeleteWorldsRequest {
   worlds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteWorldsResponse {
   /**
    * <p>A list of unprocessed worlds associated with the call. These worlds were not
@@ -25,6 +40,7 @@ export interface BatchDeleteWorldsResponse {
 }
 
 /**
+ * @public
  * <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -44,6 +60,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
  *          returned message provides an explanation of the error value.</p>
  */
@@ -64,6 +81,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -82,6 +100,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeSimulationJobRequest {
   /**
    * <p>A list of Amazon Resource Names (ARNs) of simulation jobs to describe.</p>
@@ -89,12 +110,22 @@ export interface BatchDescribeSimulationJobRequest {
   jobs: string[] | undefined;
 }
 
-export enum ComputeType {
-  CPU = "CPU",
-  GPU_AND_CPU = "GPU_AND_CPU",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComputeType = {
+  CPU: "CPU",
+  GPU_AND_CPU: "GPU_AND_CPU",
+} as const;
 
 /**
+ * @public
+ */
+export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
+
+/**
+ * @public
  * <p>Compute information for the simulation job</p>
  */
 export interface ComputeResponse {
@@ -119,6 +150,7 @@ export interface ComputeResponse {
 }
 
 /**
+ * @public
  * <p>Information about S3 keys.</p>
  */
 export interface S3KeyOutput {
@@ -133,13 +165,23 @@ export interface S3KeyOutput {
   etag?: string;
 }
 
-export enum DataSourceType {
-  Archive = "Archive",
-  File = "File",
-  Prefix = "Prefix",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceType = {
+  Archive: "Archive",
+  File: "File",
+  Prefix: "Prefix",
+} as const;
 
 /**
+ * @public
+ */
+export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
+
+/**
+ * @public
  * <p>Information about a data source.</p>
  */
 export interface DataSource {
@@ -180,46 +222,65 @@ export interface DataSource {
   destination?: string;
 }
 
-export enum FailureBehavior {
-  Continue = "Continue",
-  Fail = "Fail",
-}
-
-export enum SimulationJobErrorCode {
-  BadPermissionsCloudwatchLogs = "BadPermissionsCloudwatchLogs",
-  BadPermissionsRobotApplication = "BadPermissionsRobotApplication",
-  BadPermissionsS3Object = "BadPermissionsS3Object",
-  BadPermissionsS3Output = "BadPermissionsS3Output",
-  BadPermissionsSimulationApplication = "BadPermissionsSimulationApplication",
-  BadPermissionsUserCredentials = "BadPermissionsUserCredentials",
-  BatchCanceled = "BatchCanceled",
-  BatchTimedOut = "BatchTimedOut",
-  ENILimitExceeded = "ENILimitExceeded",
-  InternalServiceError = "InternalServiceError",
-  InvalidBundleRobotApplication = "InvalidBundleRobotApplication",
-  InvalidBundleSimulationApplication = "InvalidBundleSimulationApplication",
-  InvalidInput = "InvalidInput",
-  InvalidS3Resource = "InvalidS3Resource",
-  LimitExceeded = "LimitExceeded",
-  MismatchedEtag = "MismatchedEtag",
-  RequestThrottled = "RequestThrottled",
-  ResourceNotFound = "ResourceNotFound",
-  RobotApplicationCrash = "RobotApplicationCrash",
-  RobotApplicationHealthCheckFailure = "RobotApplicationHealthCheckFailure",
-  RobotApplicationVersionMismatchedEtag = "RobotApplicationVersionMismatchedEtag",
-  SimulationApplicationCrash = "SimulationApplicationCrash",
-  SimulationApplicationHealthCheckFailure = "SimulationApplicationHealthCheckFailure",
-  SimulationApplicationVersionMismatchedEtag = "SimulationApplicationVersionMismatchedEtag",
-  SubnetIpLimitExceeded = "SubnetIpLimitExceeded",
-  ThrottlingError = "ThrottlingError",
-  UploadContentMismatchError = "UploadContentMismatchError",
-  WrongRegionRobotApplication = "WrongRegionRobotApplication",
-  WrongRegionS3Bucket = "WrongRegionS3Bucket",
-  WrongRegionS3Output = "WrongRegionS3Output",
-  WrongRegionSimulationApplication = "WrongRegionSimulationApplication",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FailureBehavior = {
+  Continue: "Continue",
+  Fail: "Fail",
+} as const;
 
 /**
+ * @public
+ */
+export type FailureBehavior = (typeof FailureBehavior)[keyof typeof FailureBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const SimulationJobErrorCode = {
+  BadPermissionsCloudwatchLogs: "BadPermissionsCloudwatchLogs",
+  BadPermissionsRobotApplication: "BadPermissionsRobotApplication",
+  BadPermissionsS3Object: "BadPermissionsS3Object",
+  BadPermissionsS3Output: "BadPermissionsS3Output",
+  BadPermissionsSimulationApplication: "BadPermissionsSimulationApplication",
+  BadPermissionsUserCredentials: "BadPermissionsUserCredentials",
+  BatchCanceled: "BatchCanceled",
+  BatchTimedOut: "BatchTimedOut",
+  ENILimitExceeded: "ENILimitExceeded",
+  InternalServiceError: "InternalServiceError",
+  InvalidBundleRobotApplication: "InvalidBundleRobotApplication",
+  InvalidBundleSimulationApplication: "InvalidBundleSimulationApplication",
+  InvalidInput: "InvalidInput",
+  InvalidS3Resource: "InvalidS3Resource",
+  LimitExceeded: "LimitExceeded",
+  MismatchedEtag: "MismatchedEtag",
+  RequestThrottled: "RequestThrottled",
+  ResourceNotFound: "ResourceNotFound",
+  RobotApplicationCrash: "RobotApplicationCrash",
+  RobotApplicationHealthCheckFailure: "RobotApplicationHealthCheckFailure",
+  RobotApplicationVersionMismatchedEtag: "RobotApplicationVersionMismatchedEtag",
+  SimulationApplicationCrash: "SimulationApplicationCrash",
+  SimulationApplicationHealthCheckFailure: "SimulationApplicationHealthCheckFailure",
+  SimulationApplicationVersionMismatchedEtag: "SimulationApplicationVersionMismatchedEtag",
+  SubnetIpLimitExceeded: "SubnetIpLimitExceeded",
+  ThrottlingError: "ThrottlingError",
+  UploadContentMismatchError: "UploadContentMismatchError",
+  WrongRegionRobotApplication: "WrongRegionRobotApplication",
+  WrongRegionS3Bucket: "WrongRegionS3Bucket",
+  WrongRegionS3Output: "WrongRegionS3Output",
+  WrongRegionSimulationApplication: "WrongRegionSimulationApplication",
+} as const;
+
+/**
+ * @public
+ */
+export type SimulationJobErrorCode = (typeof SimulationJobErrorCode)[keyof typeof SimulationJobErrorCode];
+
+/**
+ * @public
  * <p>The logging configuration.</p>
  */
 export interface LoggingConfig {
@@ -235,6 +296,7 @@ export interface LoggingConfig {
 }
 
 /**
+ * @public
  * <p>Describes a network interface.</p>
  */
 export interface NetworkInterface {
@@ -255,6 +317,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>The output location.</p>
  */
 export interface OutputLocation {
@@ -270,6 +333,7 @@ export interface OutputLocation {
 }
 
 /**
+ * @public
  * <p>An object representing a port mapping.</p>
  */
 export interface PortMapping {
@@ -291,6 +355,7 @@ export interface PortMapping {
 }
 
 /**
+ * @public
  * <p>Configuration information for port forwarding.</p>
  */
 export interface PortForwardingConfig {
@@ -301,6 +366,7 @@ export interface PortForwardingConfig {
 }
 
 /**
+ * @public
  * <p>Information about a launch configuration.</p>
  */
 export interface LaunchConfig {
@@ -339,12 +405,22 @@ export interface LaunchConfig {
   command?: string[];
 }
 
-export enum ExitBehavior {
-  FAIL = "FAIL",
-  RESTART = "RESTART",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExitBehavior = {
+  FAIL: "FAIL",
+  RESTART: "RESTART",
+} as const;
 
 /**
+ * @public
+ */
+export type ExitBehavior = (typeof ExitBehavior)[keyof typeof ExitBehavior];
+
+/**
+ * @public
  * <p>Information about a tool. Tools are used in a simulation job.</p>
  */
 export interface Tool {
@@ -380,12 +456,22 @@ export interface Tool {
   exitBehavior?: ExitBehavior | string;
 }
 
-export enum UploadBehavior {
-  UPLOAD_ON_TERMINATE = "UPLOAD_ON_TERMINATE",
-  UPLOAD_ROLLING_AUTO_REMOVE = "UPLOAD_ROLLING_AUTO_REMOVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UploadBehavior = {
+  UPLOAD_ON_TERMINATE: "UPLOAD_ON_TERMINATE",
+  UPLOAD_ROLLING_AUTO_REMOVE: "UPLOAD_ROLLING_AUTO_REMOVE",
+} as const;
 
 /**
+ * @public
+ */
+export type UploadBehavior = (typeof UploadBehavior)[keyof typeof UploadBehavior];
+
+/**
+ * @public
  * <p>Provides upload configuration information. Files are uploaded from the simulation job to
  *          a location you specify. </p>
  */
@@ -430,6 +516,7 @@ export interface UploadConfiguration {
 }
 
 /**
+ * @public
  * <p>Application configuration information for a robot.</p>
  */
 export interface RobotApplicationConfig {
@@ -484,6 +571,7 @@ export interface RobotApplicationConfig {
 }
 
 /**
+ * @public
  * <p>Configuration information for a world.</p>
  */
 export interface WorldConfig {
@@ -494,6 +582,7 @@ export interface WorldConfig {
 }
 
 /**
+ * @public
  * <p>Information about a simulation application configuration.</p>
  */
 export interface SimulationApplicationConfig {
@@ -552,20 +641,30 @@ export interface SimulationApplicationConfig {
   useDefaultTools?: boolean;
 }
 
-export enum SimulationJobStatus {
-  Canceled = "Canceled",
-  Completed = "Completed",
-  Failed = "Failed",
-  Pending = "Pending",
-  Preparing = "Preparing",
-  Restarting = "Restarting",
-  Running = "Running",
-  RunningFailed = "RunningFailed",
-  Terminated = "Terminated",
-  Terminating = "Terminating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SimulationJobStatus = {
+  Canceled: "Canceled",
+  Completed: "Completed",
+  Failed: "Failed",
+  Pending: "Pending",
+  Preparing: "Preparing",
+  Restarting: "Restarting",
+  Running: "Running",
+  RunningFailed: "RunningFailed",
+  Terminated: "Terminated",
+  Terminating: "Terminating",
+} as const;
 
 /**
+ * @public
+ */
+export type SimulationJobStatus = (typeof SimulationJobStatus)[keyof typeof SimulationJobStatus];
+
+/**
+ * @public
  * <p>VPC configuration associated with your simulation job.</p>
  */
 export interface VPCConfigResponse {
@@ -591,6 +690,7 @@ export interface VPCConfigResponse {
 }
 
 /**
+ * @public
  * <p>Information about a simulation job.</p>
  */
 export interface SimulationJob {
@@ -717,6 +817,9 @@ export interface SimulationJob {
   compute?: ComputeResponse;
 }
 
+/**
+ * @public
+ */
 export interface BatchDescribeSimulationJobResponse {
   /**
    * <p>A list of simulation jobs.</p>
@@ -730,6 +833,7 @@ export interface BatchDescribeSimulationJobResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -749,6 +853,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about the batch policy.</p>
  */
 export interface BatchPolicy {
@@ -774,6 +879,9 @@ export interface BatchPolicy {
   maxConcurrency?: number;
 }
 
+/**
+ * @public
+ */
 export interface CancelDeploymentJobRequest {
   /**
    * <p>The deployment job ARN to cancel.</p>
@@ -781,8 +889,14 @@ export interface CancelDeploymentJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelDeploymentJobResponse {}
 
+/**
+ * @public
+ */
 export interface CancelSimulationJobRequest {
   /**
    * <p>The simulation job ARN to cancel.</p>
@@ -790,8 +904,14 @@ export interface CancelSimulationJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelSimulationJobResponse {}
 
+/**
+ * @public
+ */
 export interface CancelSimulationJobBatchRequest {
   /**
    * <p>The id of the batch to cancel.</p>
@@ -799,8 +919,14 @@ export interface CancelSimulationJobBatchRequest {
   batch: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelSimulationJobBatchResponse {}
 
+/**
+ * @public
+ */
 export interface CancelWorldExportJobRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world export job to cancel.</p>
@@ -808,8 +934,14 @@ export interface CancelWorldExportJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelWorldExportJobResponse {}
 
+/**
+ * @public
+ */
 export interface CancelWorldGenerationJobRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world generator job to cancel.</p>
@@ -817,9 +949,13 @@ export interface CancelWorldGenerationJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelWorldGenerationJobResponse {}
 
 /**
+ * @public
  * <p>Compute information for the simulation job.</p>
  */
 export interface Compute {
@@ -844,6 +980,7 @@ export interface Compute {
 }
 
 /**
+ * @public
  * <p>The failure percentage threshold percentage was met.</p>
  */
 export class ConcurrentDeploymentException extends __BaseException {
@@ -863,6 +1000,7 @@ export class ConcurrentDeploymentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Configuration information for a deployment launch.</p>
  */
 export interface DeploymentLaunchConfig {
@@ -896,6 +1034,7 @@ export interface DeploymentLaunchConfig {
 }
 
 /**
+ * @public
  * <p>Information about a deployment application configuration.</p>
  */
 export interface DeploymentApplicationConfig {
@@ -916,6 +1055,7 @@ export interface DeploymentApplicationConfig {
 }
 
 /**
+ * @public
  * <p>Information about an S3 object.</p>
  */
 export interface S3Object {
@@ -936,6 +1076,7 @@ export interface S3Object {
 }
 
 /**
+ * @public
  * <p>Information about a deployment configuration.</p>
  */
 export interface DeploymentConfig {
@@ -961,6 +1102,9 @@ export interface DeploymentConfig {
   downloadConditionFile?: S3Object;
 }
 
+/**
+ * @public
+ */
 export interface CreateDeploymentJobRequest {
   /**
    * <p>The requested deployment configuration.</p>
@@ -990,42 +1134,63 @@ export interface CreateDeploymentJobRequest {
   tags?: Record<string, string>;
 }
 
-export enum DeploymentJobErrorCode {
-  BadLambdaAssociated = "BadLambdaAssociated",
-  BadPermissionError = "BadPermissionError",
-  DeploymentFleetDoesNotExist = "DeploymentFleetDoesNotExist",
-  DownloadConditionFailed = "DownloadConditionFailed",
-  EnvironmentSetupError = "EnvironmentSetupError",
-  EtagMismatch = "EtagMismatch",
-  ExtractingBundleFailure = "ExtractingBundleFailure",
-  FailureThresholdBreached = "FailureThresholdBreached",
-  FleetDeploymentTimeout = "FleetDeploymentTimeout",
-  GreengrassDeploymentFailed = "GreengrassDeploymentFailed",
-  GreengrassGroupVersionDoesNotExist = "GreengrassGroupVersionDoesNotExist",
-  InternalServerError = "InternalServerError",
-  InvalidGreengrassGroup = "InvalidGreengrassGroup",
-  LambdaDeleted = "LambdaDeleted",
-  MissingRobotApplicationArchitecture = "MissingRobotApplicationArchitecture",
-  MissingRobotArchitecture = "MissingRobotArchitecture",
-  MissingRobotDeploymentResource = "MissingRobotDeploymentResource",
-  PostLaunchFileFailure = "PostLaunchFileFailure",
-  PreLaunchFileFailure = "PreLaunchFileFailure",
-  ResourceNotFound = "ResourceNotFound",
-  RobotAgentConnectionTimeout = "RobotAgentConnectionTimeout",
-  RobotApplicationDoesNotExist = "RobotApplicationDoesNotExist",
-  RobotDeploymentAborted = "RobotDeploymentAborted",
-  RobotDeploymentNoResponse = "RobotDeploymentNoResponse",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentJobErrorCode = {
+  BadLambdaAssociated: "BadLambdaAssociated",
+  BadPermissionError: "BadPermissionError",
+  DeploymentFleetDoesNotExist: "DeploymentFleetDoesNotExist",
+  DownloadConditionFailed: "DownloadConditionFailed",
+  EnvironmentSetupError: "EnvironmentSetupError",
+  EtagMismatch: "EtagMismatch",
+  ExtractingBundleFailure: "ExtractingBundleFailure",
+  FailureThresholdBreached: "FailureThresholdBreached",
+  FleetDeploymentTimeout: "FleetDeploymentTimeout",
+  GreengrassDeploymentFailed: "GreengrassDeploymentFailed",
+  GreengrassGroupVersionDoesNotExist: "GreengrassGroupVersionDoesNotExist",
+  InternalServerError: "InternalServerError",
+  InvalidGreengrassGroup: "InvalidGreengrassGroup",
+  LambdaDeleted: "LambdaDeleted",
+  MissingRobotApplicationArchitecture: "MissingRobotApplicationArchitecture",
+  MissingRobotArchitecture: "MissingRobotArchitecture",
+  MissingRobotDeploymentResource: "MissingRobotDeploymentResource",
+  PostLaunchFileFailure: "PostLaunchFileFailure",
+  PreLaunchFileFailure: "PreLaunchFileFailure",
+  ResourceNotFound: "ResourceNotFound",
+  RobotAgentConnectionTimeout: "RobotAgentConnectionTimeout",
+  RobotApplicationDoesNotExist: "RobotApplicationDoesNotExist",
+  RobotDeploymentAborted: "RobotDeploymentAborted",
+  RobotDeploymentNoResponse: "RobotDeploymentNoResponse",
+} as const;
 
-export enum DeploymentStatus {
-  Canceled = "Canceled",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  Preparing = "Preparing",
-  Succeeded = "Succeeded",
-}
+/**
+ * @public
+ */
+export type DeploymentJobErrorCode = (typeof DeploymentJobErrorCode)[keyof typeof DeploymentJobErrorCode];
 
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentStatus = {
+  Canceled: "Canceled",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  Preparing: "Preparing",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
+
+/**
+ * @public
+ */
 export interface CreateDeploymentJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
@@ -1134,6 +1299,7 @@ export interface CreateDeploymentJobResponse {
 }
 
 /**
+ * @public
  * <p>The request uses the same client token as a previous, but non-identical request. Do not
  *          reuse a client token with different requests, unless the requests are identical. </p>
  */
@@ -1154,6 +1320,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
  *          stream requests exceeds the maximum number allowed. </p>
  */
@@ -1173,6 +1340,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -1185,6 +1355,9 @@ export interface CreateFleetRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -1207,6 +1380,9 @@ export interface CreateFleetResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotRequest {
   /**
    * <p>The name for the robot.</p>
@@ -1229,6 +1405,9 @@ export interface CreateRobotRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot.</p>
@@ -1262,6 +1441,7 @@ export interface CreateRobotResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource already exists.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -1281,6 +1461,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The object that contains the Docker image URI for either your robot or simulation
  *          applications.</p>
  */
@@ -1291,20 +1472,40 @@ export interface Environment {
   uri?: string;
 }
 
-export enum RobotSoftwareSuiteType {
-  General = "General",
-  ROS = "ROS",
-  ROS2 = "ROS2",
-}
-
-export enum RobotSoftwareSuiteVersionType {
-  Dashing = "Dashing",
-  Foxy = "Foxy",
-  Kinetic = "Kinetic",
-  Melodic = "Melodic",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RobotSoftwareSuiteType = {
+  General: "General",
+  ROS: "ROS",
+  ROS2: "ROS2",
+} as const;
 
 /**
+ * @public
+ */
+export type RobotSoftwareSuiteType = (typeof RobotSoftwareSuiteType)[keyof typeof RobotSoftwareSuiteType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RobotSoftwareSuiteVersionType = {
+  Dashing: "Dashing",
+  Foxy: "Foxy",
+  Kinetic: "Kinetic",
+  Melodic: "Melodic",
+} as const;
+
+/**
+ * @public
+ */
+export type RobotSoftwareSuiteVersionType =
+  (typeof RobotSoftwareSuiteVersionType)[keyof typeof RobotSoftwareSuiteVersionType];
+
+/**
+ * @public
  * <p>Information about a robot software suite (ROS distribution).</p>
  */
 export interface RobotSoftwareSuite {
@@ -1320,6 +1521,7 @@ export interface RobotSoftwareSuite {
 }
 
 /**
+ * @public
  * <p>Information about a source configuration.</p>
  */
 export interface SourceConfig {
@@ -1339,6 +1541,9 @@ export interface SourceConfig {
   architecture?: Architecture | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotApplicationRequest {
   /**
    * <p>The name of the robot application.</p>
@@ -1369,6 +1574,7 @@ export interface CreateRobotApplicationRequest {
 }
 
 /**
+ * @public
  * <p>Information about a source.</p>
  */
 export interface Source {
@@ -1393,6 +1599,9 @@ export interface Source {
   architecture?: Architecture | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -1442,6 +1651,9 @@ export interface CreateRobotApplicationResponse {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotApplicationVersionRequest {
   /**
    * <p>The application information for the robot application.</p>
@@ -1466,6 +1678,9 @@ export interface CreateRobotApplicationVersionRequest {
   imageDigest?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRobotApplicationVersionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -1510,11 +1725,21 @@ export interface CreateRobotApplicationVersionResponse {
   environment?: Environment;
 }
 
-export enum RenderingEngineType {
-  OGRE = "OGRE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RenderingEngineType = {
+  OGRE: "OGRE",
+} as const;
 
 /**
+ * @public
+ */
+export type RenderingEngineType = (typeof RenderingEngineType)[keyof typeof RenderingEngineType];
+
+/**
+ * @public
  * <p>Information about a rendering engine.</p>
  */
 export interface RenderingEngine {
@@ -1529,13 +1754,24 @@ export interface RenderingEngine {
   version?: string;
 }
 
-export enum SimulationSoftwareSuiteType {
-  Gazebo = "Gazebo",
-  RosbagPlay = "RosbagPlay",
-  SimulationRuntime = "SimulationRuntime",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SimulationSoftwareSuiteType = {
+  Gazebo: "Gazebo",
+  RosbagPlay: "RosbagPlay",
+  SimulationRuntime: "SimulationRuntime",
+} as const;
 
 /**
+ * @public
+ */
+export type SimulationSoftwareSuiteType =
+  (typeof SimulationSoftwareSuiteType)[keyof typeof SimulationSoftwareSuiteType];
+
+/**
+ * @public
  * <p>Information about a simulation software suite.</p>
  */
 export interface SimulationSoftwareSuite {
@@ -1550,6 +1786,9 @@ export interface SimulationSoftwareSuite {
   version?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationApplicationRequest {
   /**
    * <p>The name of the simulation application.</p>
@@ -1589,6 +1828,9 @@ export interface CreateSimulationApplicationRequest {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
@@ -1648,6 +1890,9 @@ export interface CreateSimulationApplicationResponse {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationApplicationVersionRequest {
   /**
    * <p>The application information for the simulation application.</p>
@@ -1673,6 +1918,9 @@ export interface CreateSimulationApplicationVersionRequest {
   imageDigest?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationApplicationVersionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
@@ -1728,6 +1976,7 @@ export interface CreateSimulationApplicationVersionResponse {
 }
 
 /**
+ * @public
  * <p>Information about a data source.</p>
  */
 export interface DataSourceConfig {
@@ -1769,6 +2018,7 @@ export interface DataSourceConfig {
 }
 
 /**
+ * @public
  * <p>If your simulation job accesses resources in a VPC, you provide this parameter
  *          identifying the list of security group IDs and subnet IDs. These must belong to the same
  *          VPC. You must provide at least one security group and two subnet IDs.</p>
@@ -1790,6 +2040,9 @@ export interface VPCConfig {
   assignPublicIp?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationJobRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1876,6 +2129,9 @@ export interface CreateSimulationJobRequest {
   compute?: Compute;
 }
 
+/**
+ * @public
+ */
 export interface CreateSimulationJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
@@ -2034,6 +2290,7 @@ export interface CreateSimulationJobResponse {
 }
 
 /**
+ * @public
  * <p>The request has failed due to a temporary failure of the server.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -2053,6 +2310,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a simulation job request.</p>
  */
 export interface SimulationJobRequest {
@@ -2140,6 +2398,9 @@ export interface SimulationJobRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorldExportJobRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2170,24 +2431,45 @@ export interface CreateWorldExportJobRequest {
   tags?: Record<string, string>;
 }
 
-export enum WorldExportJobErrorCode {
-  AccessDenied = "AccessDenied",
-  InternalServiceError = "InternalServiceError",
-  InvalidInput = "InvalidInput",
-  LimitExceeded = "LimitExceeded",
-  RequestThrottled = "RequestThrottled",
-  ResourceNotFound = "ResourceNotFound",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorldExportJobErrorCode = {
+  AccessDenied: "AccessDenied",
+  InternalServiceError: "InternalServiceError",
+  InvalidInput: "InvalidInput",
+  LimitExceeded: "LimitExceeded",
+  RequestThrottled: "RequestThrottled",
+  ResourceNotFound: "ResourceNotFound",
+} as const;
 
-export enum WorldExportJobStatus {
-  Canceled = "Canceled",
-  Canceling = "Canceling",
-  Completed = "Completed",
-  Failed = "Failed",
-  Pending = "Pending",
-  Running = "Running",
-}
+/**
+ * @public
+ */
+export type WorldExportJobErrorCode = (typeof WorldExportJobErrorCode)[keyof typeof WorldExportJobErrorCode];
 
+/**
+ * @public
+ * @enum
+ */
+export const WorldExportJobStatus = {
+  Canceled: "Canceled",
+  Canceling: "Canceling",
+  Completed: "Completed",
+  Failed: "Failed",
+  Pending: "Pending",
+  Running: "Running",
+} as const;
+
+/**
+ * @public
+ */
+export type WorldExportJobStatus = (typeof WorldExportJobStatus)[keyof typeof WorldExportJobStatus];
+
+/**
+ * @public
+ */
 export interface CreateWorldExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world export job.</p>
@@ -2290,6 +2572,7 @@ export interface CreateWorldExportJobResponse {
 }
 
 /**
+ * @public
  * <p>The number of worlds that will be created. You can configure the number of unique
  *          floorplans and the number of unique interiors for each floor plan. For example, if you want
  *          1 world with 20 unique interiors, you set <code>floorplanCount = 1</code> and
@@ -2310,6 +2593,9 @@ export interface WorldCount {
   interiorCountPerFloorplan?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorldGenerationJobRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2341,25 +2627,47 @@ export interface CreateWorldGenerationJobRequest {
   worldTags?: Record<string, string>;
 }
 
-export enum WorldGenerationJobErrorCode {
-  AllWorldGenerationFailed = "AllWorldGenerationFailed",
-  InternalServiceError = "InternalServiceError",
-  InvalidInput = "InvalidInput",
-  LimitExceeded = "LimitExceeded",
-  RequestThrottled = "RequestThrottled",
-  ResourceNotFound = "ResourceNotFound",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorldGenerationJobErrorCode = {
+  AllWorldGenerationFailed: "AllWorldGenerationFailed",
+  InternalServiceError: "InternalServiceError",
+  InvalidInput: "InvalidInput",
+  LimitExceeded: "LimitExceeded",
+  RequestThrottled: "RequestThrottled",
+  ResourceNotFound: "ResourceNotFound",
+} as const;
 
-export enum WorldGenerationJobStatus {
-  Canceled = "Canceled",
-  Canceling = "Canceling",
-  Completed = "Completed",
-  Failed = "Failed",
-  PartialFailed = "PartialFailed",
-  Pending = "Pending",
-  Running = "Running",
-}
+/**
+ * @public
+ */
+export type WorldGenerationJobErrorCode =
+  (typeof WorldGenerationJobErrorCode)[keyof typeof WorldGenerationJobErrorCode];
 
+/**
+ * @public
+ * @enum
+ */
+export const WorldGenerationJobStatus = {
+  Canceled: "Canceled",
+  Canceling: "Canceling",
+  Completed: "Completed",
+  Failed: "Failed",
+  PartialFailed: "PartialFailed",
+  Pending: "Pending",
+  Running: "Running",
+} as const;
+
+/**
+ * @public
+ */
+export type WorldGenerationJobStatus = (typeof WorldGenerationJobStatus)[keyof typeof WorldGenerationJobStatus];
+
+/**
+ * @public
+ */
 export interface CreateWorldGenerationJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world generator job.</p>
@@ -2466,6 +2774,7 @@ export interface CreateWorldGenerationJobResponse {
 }
 
 /**
+ * @public
  * <p>Information about a template location.</p>
  */
 export interface TemplateLocation {
@@ -2480,6 +2789,9 @@ export interface TemplateLocation {
   s3Key: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorldTemplateRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2509,6 +2821,9 @@ export interface CreateWorldTemplateRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorldTemplateResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world template.</p>
@@ -2538,6 +2853,9 @@ export interface CreateWorldTemplateResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -2545,8 +2863,14 @@ export interface DeleteFleetRequest {
   fleet: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFleetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRobotRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot.</p>
@@ -2554,8 +2878,14 @@ export interface DeleteRobotRequest {
   robot: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRobotResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRobotApplicationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the the robot application.</p>
@@ -2568,8 +2898,14 @@ export interface DeleteRobotApplicationRequest {
   applicationVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRobotApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSimulationApplicationRequest {
   /**
    * <p>The application information for the simulation application to delete.</p>
@@ -2582,8 +2918,14 @@ export interface DeleteSimulationApplicationRequest {
   applicationVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSimulationApplicationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteWorldTemplateRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world template you want to delete.</p>
@@ -2591,9 +2933,13 @@ export interface DeleteWorldTemplateRequest {
   template: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorldTemplateResponse {}
 
 /**
+ * @public
  * <p>Information about a deployment job.</p>
  */
 export interface DeploymentJob {
@@ -2638,6 +2984,9 @@ export interface DeploymentJob {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterRobotRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -2650,6 +2999,9 @@ export interface DeregisterRobotRequest {
   robot: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterRobotResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -2662,6 +3014,9 @@ export interface DeregisterRobotResponse {
   robot?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeploymentJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
@@ -2669,17 +3024,27 @@ export interface DescribeDeploymentJobRequest {
   job: string | undefined;
 }
 
-export enum RobotDeploymentStep {
-  DownloadingExtractingStep = "DownloadingExtracting",
-  ExecutingDownloadCondition = "ExecutingDownloadCondition",
-  FinishedStep = "Finished",
-  LaunchingStep = "Launching",
-  PostLaunchStep = "ExecutingPostLaunch",
-  PreLaunchStep = "ExecutingPreLaunch",
-  ValidatingStep = "Validating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RobotDeploymentStep = {
+  DownloadingExtractingStep: "DownloadingExtracting",
+  ExecutingDownloadCondition: "ExecutingDownloadCondition",
+  FinishedStep: "Finished",
+  LaunchingStep: "Launching",
+  PostLaunchStep: "ExecutingPostLaunch",
+  PreLaunchStep: "ExecutingPreLaunch",
+  ValidatingStep: "Validating",
+} as const;
 
 /**
+ * @public
+ */
+export type RobotDeploymentStep = (typeof RobotDeploymentStep)[keyof typeof RobotDeploymentStep];
+
+/**
+ * @public
  * <p>Information about the progress of a deployment job.</p>
  */
 export interface ProgressDetail {
@@ -2734,17 +3099,27 @@ export interface ProgressDetail {
   targetResource?: string;
 }
 
-export enum RobotStatus {
-  Available = "Available",
-  Deploying = "Deploying",
-  Failed = "Failed",
-  InSync = "InSync",
-  NoResponse = "NoResponse",
-  PendingNewDeployment = "PendingNewDeployment",
-  Registered = "Registered",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RobotStatus = {
+  Available: "Available",
+  Deploying: "Deploying",
+  Failed: "Failed",
+  InSync: "InSync",
+  NoResponse: "NoResponse",
+  PendingNewDeployment: "PendingNewDeployment",
+  Registered: "Registered",
+} as const;
 
 /**
+ * @public
+ */
+export type RobotStatus = (typeof RobotStatus)[keyof typeof RobotStatus];
+
+/**
+ * @public
  * <p>Information about a robot deployment.</p>
  */
 export interface RobotDeployment {
@@ -2784,6 +3159,9 @@ export interface RobotDeployment {
   failureCode?: DeploymentJobErrorCode | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeploymentJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the deployment job.</p>
@@ -2836,6 +3214,9 @@ export interface DescribeDeploymentJobResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -2844,6 +3225,7 @@ export interface DescribeFleetRequest {
 }
 
 /**
+ * @public
  * <p>Information about a robot.</p>
  */
 export interface Robot {
@@ -2893,6 +3275,9 @@ export interface Robot {
   lastDeploymentTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFleetResponse {
   /**
    * <p>The name of the fleet.</p>
@@ -2935,6 +3320,9 @@ export interface DescribeFleetResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRobotRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot to be described.</p>
@@ -2942,6 +3330,9 @@ export interface DescribeRobotRequest {
   robot: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRobotResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot.</p>
@@ -2994,6 +3385,9 @@ export interface DescribeRobotResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRobotApplicationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -3006,6 +3400,9 @@ export interface DescribeRobotApplicationRequest {
   applicationVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRobotApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -3060,6 +3457,9 @@ export interface DescribeRobotApplicationResponse {
   imageDigest?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationApplicationRequest {
   /**
    * <p>The application information for the simulation application.</p>
@@ -3072,6 +3472,9 @@ export interface DescribeSimulationApplicationRequest {
   applicationVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the robot simulation application.</p>
@@ -3137,6 +3540,9 @@ export interface DescribeSimulationApplicationResponse {
   imageDigest?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation job to be described.</p>
@@ -3144,6 +3550,9 @@ export interface DescribeSimulationJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
@@ -3318,6 +3727,9 @@ export interface DescribeSimulationJobResponse {
   compute?: ComputeResponse;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationJobBatchRequest {
   /**
    * <p>The id of the batch to describe.</p>
@@ -3326,6 +3738,7 @@ export interface DescribeSimulationJobBatchRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for a simulation job.</p>
  */
 export interface SimulationJobSummary {
@@ -3372,6 +3785,7 @@ export interface SimulationJobSummary {
 }
 
 /**
+ * @public
  * <p>Information about a failed create simulation job request.</p>
  */
 export interface FailedCreateSimulationJobRequest {
@@ -3396,22 +3810,44 @@ export interface FailedCreateSimulationJobRequest {
   failedAt?: Date;
 }
 
-export enum SimulationJobBatchErrorCode {
-  InternalServiceError = "InternalServiceError",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SimulationJobBatchErrorCode = {
+  InternalServiceError: "InternalServiceError",
+} as const;
 
-export enum SimulationJobBatchStatus {
-  Canceled = "Canceled",
-  Canceling = "Canceling",
-  Completed = "Completed",
-  Completing = "Completing",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  TimedOut = "TimedOut",
-  TimingOut = "TimingOut",
-}
+/**
+ * @public
+ */
+export type SimulationJobBatchErrorCode =
+  (typeof SimulationJobBatchErrorCode)[keyof typeof SimulationJobBatchErrorCode];
 
+/**
+ * @public
+ * @enum
+ */
+export const SimulationJobBatchStatus = {
+  Canceled: "Canceled",
+  Canceling: "Canceling",
+  Completed: "Completed",
+  Completing: "Completing",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  TimedOut: "TimedOut",
+  TimingOut: "TimingOut",
+} as const;
+
+/**
+ * @public
+ */
+export type SimulationJobBatchStatus = (typeof SimulationJobBatchStatus)[keyof typeof SimulationJobBatchStatus];
+
+/**
+ * @public
+ */
 export interface DescribeSimulationJobBatchResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the batch.</p>
@@ -3529,6 +3965,9 @@ export interface DescribeSimulationJobBatchResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world you want to describe.</p>
@@ -3536,6 +3975,9 @@ export interface DescribeWorldRequest {
   world: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldResponse {
   /**
    * <p>The Amazon Resource Name (arn) of the world.</p>
@@ -3569,6 +4011,9 @@ export interface DescribeWorldResponse {
   worldDescriptionBody?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldExportJobRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world export job to describe.</p>
@@ -3576,6 +4021,9 @@ export interface DescribeWorldExportJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world export job.</p>
@@ -3681,6 +4129,9 @@ export interface DescribeWorldExportJobResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldGenerationJobRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world generation job to describe.</p>
@@ -3689,6 +4140,7 @@ export interface DescribeWorldGenerationJobRequest {
 }
 
 /**
+ * @public
  * <p>Information about a failed world.</p>
  */
 export interface WorldFailure {
@@ -3733,6 +4185,7 @@ export interface WorldFailure {
 }
 
 /**
+ * @public
  * <p>Information about worlds that failed.</p>
  */
 export interface FailureSummary {
@@ -3748,6 +4201,7 @@ export interface FailureSummary {
 }
 
 /**
+ * @public
  * <p>Information about worlds that finished.</p>
  */
 export interface FinishedWorldsSummary {
@@ -3767,6 +4221,9 @@ export interface FinishedWorldsSummary {
   failureSummary?: FailureSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldGenerationJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world generation job.</p>
@@ -3882,6 +4339,9 @@ export interface DescribeWorldGenerationJobResponse {
   worldTags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldTemplateRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world template you want to describe.</p>
@@ -3889,6 +4349,9 @@ export interface DescribeWorldTemplateRequest {
   template: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorldTemplateResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the world template.</p>
@@ -3930,6 +4393,7 @@ export interface DescribeWorldTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Information about a filter.</p>
  */
 export interface Filter {
@@ -3945,6 +4409,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>Information about a fleet.</p>
  */
 export interface Fleet {
@@ -3979,6 +4444,9 @@ export interface Fleet {
   lastDeploymentTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetWorldTemplateBodyRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world template.</p>
@@ -3991,6 +4459,9 @@ export interface GetWorldTemplateBodyRequest {
   generationJob?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetWorldTemplateBodyResponse {
   /**
    * <p>The world template body.</p>
@@ -3998,6 +4469,9 @@ export interface GetWorldTemplateBodyResponse {
   templateBody?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListDeploymentJobsRequest {
   /**
    * <p>Optional filters to limit results.</p>
@@ -4029,6 +4503,9 @@ export interface ListDeploymentJobsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDeploymentJobsResponse {
   /**
    * <p>A list of deployment jobs that meet the criteria of the request.</p>
@@ -4045,6 +4522,9 @@ export interface ListDeploymentJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4078,6 +4558,9 @@ export interface ListFleetsRequest {
   filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListFleetsResponse {
   /**
    * <p>A list of fleet details meeting the request criteria.</p>
@@ -4094,6 +4577,9 @@ export interface ListFleetsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRobotApplicationsRequest {
   /**
    * <p>The version qualifier of the robot application.</p>
@@ -4129,6 +4615,7 @@ export interface ListRobotApplicationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for a robot application.</p>
  */
 export interface RobotApplicationSummary {
@@ -4159,6 +4646,9 @@ export interface RobotApplicationSummary {
   robotSoftwareSuite?: RobotSoftwareSuite;
 }
 
+/**
+ * @public
+ */
 export interface ListRobotApplicationsResponse {
   /**
    * <p>A list of robot application summaries that meet the criteria of the request.</p>
@@ -4175,6 +4665,9 @@ export interface ListRobotApplicationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRobotsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4206,6 +4699,9 @@ export interface ListRobotsRequest {
   filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListRobotsResponse {
   /**
    * <p>A list of robots that meet the criteria of the request.</p>
@@ -4222,6 +4718,9 @@ export interface ListRobotsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationApplicationsRequest {
   /**
    * <p>The version qualifier of the simulation application.</p>
@@ -4257,6 +4756,7 @@ export interface ListSimulationApplicationsRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for a simulation application.</p>
  */
 export interface SimulationApplicationSummary {
@@ -4292,6 +4792,9 @@ export interface SimulationApplicationSummary {
   simulationSoftwareSuite?: SimulationSoftwareSuite;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationApplicationsResponse {
   /**
    * <p>A list of simulation application summaries that meet the criteria of the request.</p>
@@ -4308,6 +4811,9 @@ export interface ListSimulationApplicationsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationJobBatchesRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4334,6 +4840,7 @@ export interface ListSimulationJobBatchesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a simulation job batch.</p>
  */
 export interface SimulationJobBatchSummary {
@@ -4424,6 +4931,9 @@ export interface SimulationJobBatchSummary {
   createdRequestCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationJobBatchesResponse {
   /**
    * <p>A list of simulation job batch summaries.</p>
@@ -4440,6 +4950,9 @@ export interface ListSimulationJobBatchesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationJobsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4472,6 +4985,9 @@ export interface ListSimulationJobsRequest {
   filters?: Filter[];
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationJobsResponse {
   /**
    * <p>A list of simulation job summaries that meet the criteria of the request.</p>
@@ -4488,6 +5004,9 @@ export interface ListSimulationJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The AWS RoboMaker Amazon Resource Name (ARN) with tags to be listed.</p>
@@ -4495,6 +5014,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of all tags added to the specified resource.</p>
@@ -4502,6 +5024,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldExportJobsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4531,6 +5056,7 @@ export interface ListWorldExportJobsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a world export job.</p>
  */
 export interface WorldExportJobSummary {
@@ -4587,6 +5113,9 @@ export interface WorldExportJobSummary {
   outputLocation?: OutputLocation;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldExportJobsResponse {
   /**
    * <p>Summary information for world export jobs.</p>
@@ -4603,6 +5132,9 @@ export interface ListWorldExportJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldGenerationJobsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4632,6 +5164,7 @@ export interface ListWorldGenerationJobsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a world generator job.</p>
  */
 export interface WorldGenerationJobSummary {
@@ -4703,6 +5236,9 @@ export interface WorldGenerationJobSummary {
   failedWorldCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldGenerationJobsResponse {
   /**
    * <p>Summary information for world generator jobs.</p>
@@ -4719,6 +5255,9 @@ export interface ListWorldGenerationJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldsRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4747,6 +5286,7 @@ export interface ListWorldsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a world.</p>
  */
 export interface WorldSummary {
@@ -4771,6 +5311,9 @@ export interface WorldSummary {
   template?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldsResponse {
   /**
    * <p>Summary information for worlds.</p>
@@ -4787,6 +5330,9 @@ export interface ListWorldsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldTemplatesRequest {
   /**
    * <p>If the previous paginated request did not return all of the remaining results, the
@@ -4810,6 +5356,7 @@ export interface ListWorldTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for a template.</p>
  */
 export interface TemplateSummary {
@@ -4839,6 +5386,9 @@ export interface TemplateSummary {
   version?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorldTemplatesResponse {
   /**
    * <p>Summary information for templates.</p>
@@ -4855,6 +5405,9 @@ export interface ListWorldTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface RegisterRobotRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -4867,6 +5420,9 @@ export interface RegisterRobotRequest {
   robot: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterRobotResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet that the robot will join.</p>
@@ -4879,6 +5435,9 @@ export interface RegisterRobotResponse {
   robot?: string;
 }
 
+/**
+ * @public
+ */
 export interface RestartSimulationJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
@@ -4886,8 +5445,14 @@ export interface RestartSimulationJobRequest {
   job: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestartSimulationJobResponse {}
 
+/**
+ * @public
+ */
 export interface StartSimulationJobBatchRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -4912,6 +5477,9 @@ export interface StartSimulationJobBatchRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartSimulationJobBatchResponse {
   /**
    * <p>The Amazon Resource Name (arn) of the batch.</p>
@@ -5023,6 +5591,9 @@ export interface StartSimulationJobBatchResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SyncDeploymentJobRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -5036,6 +5607,9 @@ export interface SyncDeploymentJobRequest {
   fleet: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SyncDeploymentJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the synchronization request.</p>
@@ -5139,6 +5713,9 @@ export interface SyncDeploymentJobResponse {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are tagging.</p>
@@ -5151,8 +5728,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are removing
@@ -5167,8 +5750,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRobotApplicationRequest {
   /**
    * <p>The application information for the robot application.</p>
@@ -5196,6 +5785,9 @@ export interface UpdateRobotApplicationRequest {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateRobotApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated robot application.</p>
@@ -5239,6 +5831,9 @@ export interface UpdateRobotApplicationResponse {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSimulationApplicationRequest {
   /**
    * <p>The application information for the simulation application.</p>
@@ -5276,6 +5871,9 @@ export interface UpdateSimulationApplicationRequest {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSimulationApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated simulation application.</p>
@@ -5330,6 +5928,9 @@ export interface UpdateSimulationApplicationResponse {
   environment?: Environment;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorldTemplateRequest {
   /**
    * <p>The Amazon Resource Name (arn) of the world template to update.</p>
@@ -5352,6 +5953,9 @@ export interface UpdateWorldTemplateRequest {
   templateLocation?: TemplateLocation;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorldTemplateResponse {
   /**
    * <p>The Amazon Resource Name (arn) of the world template.</p>
@@ -5374,1176 +5978,3 @@ export interface UpdateWorldTemplateResponse {
    */
   lastUpdatedAt?: Date;
 }
-
-/**
- * @internal
- */
-export const BatchDeleteWorldsRequestFilterSensitiveLog = (obj: BatchDeleteWorldsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteWorldsResponseFilterSensitiveLog = (obj: BatchDeleteWorldsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDescribeSimulationJobRequestFilterSensitiveLog = (obj: BatchDescribeSimulationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComputeResponseFilterSensitiveLog = (obj: ComputeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3KeyOutputFilterSensitiveLog = (obj: S3KeyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingConfigFilterSensitiveLog = (obj: LoggingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputLocationFilterSensitiveLog = (obj: OutputLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortMappingFilterSensitiveLog = (obj: PortMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortForwardingConfigFilterSensitiveLog = (obj: PortForwardingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchConfigFilterSensitiveLog = (obj: LaunchConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ToolFilterSensitiveLog = (obj: Tool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadConfigurationFilterSensitiveLog = (obj: UploadConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RobotApplicationConfigFilterSensitiveLog = (obj: RobotApplicationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorldConfigFilterSensitiveLog = (obj: WorldConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationApplicationConfigFilterSensitiveLog = (obj: SimulationApplicationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VPCConfigResponseFilterSensitiveLog = (obj: VPCConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationJobFilterSensitiveLog = (obj: SimulationJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDescribeSimulationJobResponseFilterSensitiveLog = (obj: BatchDescribeSimulationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchPolicyFilterSensitiveLog = (obj: BatchPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDeploymentJobRequestFilterSensitiveLog = (obj: CancelDeploymentJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDeploymentJobResponseFilterSensitiveLog = (obj: CancelDeploymentJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelSimulationJobRequestFilterSensitiveLog = (obj: CancelSimulationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelSimulationJobResponseFilterSensitiveLog = (obj: CancelSimulationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelSimulationJobBatchRequestFilterSensitiveLog = (obj: CancelSimulationJobBatchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelSimulationJobBatchResponseFilterSensitiveLog = (obj: CancelSimulationJobBatchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelWorldExportJobRequestFilterSensitiveLog = (obj: CancelWorldExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelWorldExportJobResponseFilterSensitiveLog = (obj: CancelWorldExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelWorldGenerationJobRequestFilterSensitiveLog = (obj: CancelWorldGenerationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelWorldGenerationJobResponseFilterSensitiveLog = (obj: CancelWorldGenerationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComputeFilterSensitiveLog = (obj: Compute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentLaunchConfigFilterSensitiveLog = (obj: DeploymentLaunchConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentApplicationConfigFilterSensitiveLog = (obj: DeploymentApplicationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentConfigFilterSensitiveLog = (obj: DeploymentConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentJobRequestFilterSensitiveLog = (obj: CreateDeploymentJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentJobResponseFilterSensitiveLog = (obj: CreateDeploymentJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetRequestFilterSensitiveLog = (obj: CreateFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetResponseFilterSensitiveLog = (obj: CreateFleetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRobotRequestFilterSensitiveLog = (obj: CreateRobotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRobotResponseFilterSensitiveLog = (obj: CreateRobotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RobotSoftwareSuiteFilterSensitiveLog = (obj: RobotSoftwareSuite): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceConfigFilterSensitiveLog = (obj: SourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRobotApplicationRequestFilterSensitiveLog = (obj: CreateRobotApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceFilterSensitiveLog = (obj: Source): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRobotApplicationResponseFilterSensitiveLog = (obj: CreateRobotApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRobotApplicationVersionRequestFilterSensitiveLog = (
-  obj: CreateRobotApplicationVersionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRobotApplicationVersionResponseFilterSensitiveLog = (
-  obj: CreateRobotApplicationVersionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenderingEngineFilterSensitiveLog = (obj: RenderingEngine): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationSoftwareSuiteFilterSensitiveLog = (obj: SimulationSoftwareSuite): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSimulationApplicationRequestFilterSensitiveLog = (obj: CreateSimulationApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSimulationApplicationResponseFilterSensitiveLog = (
-  obj: CreateSimulationApplicationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSimulationApplicationVersionRequestFilterSensitiveLog = (
-  obj: CreateSimulationApplicationVersionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSimulationApplicationVersionResponseFilterSensitiveLog = (
-  obj: CreateSimulationApplicationVersionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceConfigFilterSensitiveLog = (obj: DataSourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VPCConfigFilterSensitiveLog = (obj: VPCConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSimulationJobRequestFilterSensitiveLog = (obj: CreateSimulationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSimulationJobResponseFilterSensitiveLog = (obj: CreateSimulationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationJobRequestFilterSensitiveLog = (obj: SimulationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorldExportJobRequestFilterSensitiveLog = (obj: CreateWorldExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorldExportJobResponseFilterSensitiveLog = (obj: CreateWorldExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorldCountFilterSensitiveLog = (obj: WorldCount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorldGenerationJobRequestFilterSensitiveLog = (obj: CreateWorldGenerationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorldGenerationJobResponseFilterSensitiveLog = (obj: CreateWorldGenerationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateLocationFilterSensitiveLog = (obj: TemplateLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorldTemplateRequestFilterSensitiveLog = (obj: CreateWorldTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorldTemplateResponseFilterSensitiveLog = (obj: CreateWorldTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetRequestFilterSensitiveLog = (obj: DeleteFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFleetResponseFilterSensitiveLog = (obj: DeleteFleetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRobotRequestFilterSensitiveLog = (obj: DeleteRobotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRobotResponseFilterSensitiveLog = (obj: DeleteRobotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRobotApplicationRequestFilterSensitiveLog = (obj: DeleteRobotApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRobotApplicationResponseFilterSensitiveLog = (obj: DeleteRobotApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSimulationApplicationRequestFilterSensitiveLog = (obj: DeleteSimulationApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSimulationApplicationResponseFilterSensitiveLog = (
-  obj: DeleteSimulationApplicationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorldTemplateRequestFilterSensitiveLog = (obj: DeleteWorldTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorldTemplateResponseFilterSensitiveLog = (obj: DeleteWorldTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentJobFilterSensitiveLog = (obj: DeploymentJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterRobotRequestFilterSensitiveLog = (obj: DeregisterRobotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterRobotResponseFilterSensitiveLog = (obj: DeregisterRobotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeploymentJobRequestFilterSensitiveLog = (obj: DescribeDeploymentJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProgressDetailFilterSensitiveLog = (obj: ProgressDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RobotDeploymentFilterSensitiveLog = (obj: RobotDeployment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeploymentJobResponseFilterSensitiveLog = (obj: DescribeDeploymentJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetRequestFilterSensitiveLog = (obj: DescribeFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RobotFilterSensitiveLog = (obj: Robot): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFleetResponseFilterSensitiveLog = (obj: DescribeFleetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRobotRequestFilterSensitiveLog = (obj: DescribeRobotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRobotResponseFilterSensitiveLog = (obj: DescribeRobotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRobotApplicationRequestFilterSensitiveLog = (obj: DescribeRobotApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRobotApplicationResponseFilterSensitiveLog = (obj: DescribeRobotApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSimulationApplicationRequestFilterSensitiveLog = (
-  obj: DescribeSimulationApplicationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSimulationApplicationResponseFilterSensitiveLog = (
-  obj: DescribeSimulationApplicationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSimulationJobRequestFilterSensitiveLog = (obj: DescribeSimulationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSimulationJobResponseFilterSensitiveLog = (obj: DescribeSimulationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSimulationJobBatchRequestFilterSensitiveLog = (obj: DescribeSimulationJobBatchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationJobSummaryFilterSensitiveLog = (obj: SimulationJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailedCreateSimulationJobRequestFilterSensitiveLog = (obj: FailedCreateSimulationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSimulationJobBatchResponseFilterSensitiveLog = (obj: DescribeSimulationJobBatchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorldRequestFilterSensitiveLog = (obj: DescribeWorldRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorldResponseFilterSensitiveLog = (obj: DescribeWorldResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorldExportJobRequestFilterSensitiveLog = (obj: DescribeWorldExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorldExportJobResponseFilterSensitiveLog = (obj: DescribeWorldExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorldGenerationJobRequestFilterSensitiveLog = (obj: DescribeWorldGenerationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorldFailureFilterSensitiveLog = (obj: WorldFailure): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailureSummaryFilterSensitiveLog = (obj: FailureSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FinishedWorldsSummaryFilterSensitiveLog = (obj: FinishedWorldsSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorldGenerationJobResponseFilterSensitiveLog = (obj: DescribeWorldGenerationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorldTemplateRequestFilterSensitiveLog = (obj: DescribeWorldTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorldTemplateResponseFilterSensitiveLog = (obj: DescribeWorldTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetFilterSensitiveLog = (obj: Fleet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorldTemplateBodyRequestFilterSensitiveLog = (obj: GetWorldTemplateBodyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorldTemplateBodyResponseFilterSensitiveLog = (obj: GetWorldTemplateBodyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentJobsRequestFilterSensitiveLog = (obj: ListDeploymentJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentJobsResponseFilterSensitiveLog = (obj: ListDeploymentJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFleetsRequestFilterSensitiveLog = (obj: ListFleetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFleetsResponseFilterSensitiveLog = (obj: ListFleetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRobotApplicationsRequestFilterSensitiveLog = (obj: ListRobotApplicationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RobotApplicationSummaryFilterSensitiveLog = (obj: RobotApplicationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRobotApplicationsResponseFilterSensitiveLog = (obj: ListRobotApplicationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRobotsRequestFilterSensitiveLog = (obj: ListRobotsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRobotsResponseFilterSensitiveLog = (obj: ListRobotsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSimulationApplicationsRequestFilterSensitiveLog = (obj: ListSimulationApplicationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationApplicationSummaryFilterSensitiveLog = (obj: SimulationApplicationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSimulationApplicationsResponseFilterSensitiveLog = (obj: ListSimulationApplicationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSimulationJobBatchesRequestFilterSensitiveLog = (obj: ListSimulationJobBatchesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationJobBatchSummaryFilterSensitiveLog = (obj: SimulationJobBatchSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSimulationJobBatchesResponseFilterSensitiveLog = (obj: ListSimulationJobBatchesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSimulationJobsRequestFilterSensitiveLog = (obj: ListSimulationJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSimulationJobsResponseFilterSensitiveLog = (obj: ListSimulationJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorldExportJobsRequestFilterSensitiveLog = (obj: ListWorldExportJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorldExportJobSummaryFilterSensitiveLog = (obj: WorldExportJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorldExportJobsResponseFilterSensitiveLog = (obj: ListWorldExportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorldGenerationJobsRequestFilterSensitiveLog = (obj: ListWorldGenerationJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorldGenerationJobSummaryFilterSensitiveLog = (obj: WorldGenerationJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorldGenerationJobsResponseFilterSensitiveLog = (obj: ListWorldGenerationJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorldsRequestFilterSensitiveLog = (obj: ListWorldsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorldSummaryFilterSensitiveLog = (obj: WorldSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorldsResponseFilterSensitiveLog = (obj: ListWorldsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorldTemplatesRequestFilterSensitiveLog = (obj: ListWorldTemplatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateSummaryFilterSensitiveLog = (obj: TemplateSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorldTemplatesResponseFilterSensitiveLog = (obj: ListWorldTemplatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterRobotRequestFilterSensitiveLog = (obj: RegisterRobotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterRobotResponseFilterSensitiveLog = (obj: RegisterRobotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestartSimulationJobRequestFilterSensitiveLog = (obj: RestartSimulationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestartSimulationJobResponseFilterSensitiveLog = (obj: RestartSimulationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSimulationJobBatchRequestFilterSensitiveLog = (obj: StartSimulationJobBatchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSimulationJobBatchResponseFilterSensitiveLog = (obj: StartSimulationJobBatchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SyncDeploymentJobRequestFilterSensitiveLog = (obj: SyncDeploymentJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SyncDeploymentJobResponseFilterSensitiveLog = (obj: SyncDeploymentJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRobotApplicationRequestFilterSensitiveLog = (obj: UpdateRobotApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRobotApplicationResponseFilterSensitiveLog = (obj: UpdateRobotApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSimulationApplicationRequestFilterSensitiveLog = (obj: UpdateSimulationApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSimulationApplicationResponseFilterSensitiveLog = (
-  obj: UpdateSimulationApplicationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorldTemplateRequestFilterSensitiveLog = (obj: UpdateWorldTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorldTemplateResponseFilterSensitiveLog = (obj: UpdateWorldTemplateResponse): any => ({
-  ...obj,
-});

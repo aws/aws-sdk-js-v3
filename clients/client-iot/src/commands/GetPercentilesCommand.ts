@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetPercentilesRequest,
-  GetPercentilesRequestFilterSensitiveLog,
-  GetPercentilesResponse,
-  GetPercentilesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetPercentilesCommand,
-  serializeAws_restJson1GetPercentilesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPercentilesRequest, GetPercentilesResponse } from "../models/models_1";
+import { de_GetPercentilesCommand, se_GetPercentilesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPercentilesCommand}.
  */
 export interface GetPercentilesCommandInput extends GetPercentilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPercentilesCommand}.
  */
 export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Groups the aggregated values that match the query into percentile groupings. The default
  *         percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own
  *         when you call <code>GetPercentiles</code>. This function returns a value for each
@@ -51,10 +48,21 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  * import { IoTClient, GetPercentilesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetPercentilesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // GetPercentilesRequest
+ *   indexName: "STRING_VALUE",
+ *   queryString: "STRING_VALUE", // required
+ *   aggregationField: "STRING_VALUE",
+ *   queryVersion: "STRING_VALUE",
+ *   percents: [ // PercentList
+ *     Number("double"),
+ *   ],
+ * };
  * const command = new GetPercentilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPercentilesCommandInput - {@link GetPercentilesCommandInput}
+ * @returns {@link GetPercentilesCommandOutput}
  * @see {@link GetPercentilesCommandInput} for command's `input` shape.
  * @see {@link GetPercentilesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -105,6 +113,9 @@ export class GetPercentilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPercentilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +144,8 @@ export class GetPercentilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPercentilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPercentilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +155,18 @@ export class GetPercentilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPercentilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPercentilesCommand(input, context);
+    return se_GetPercentilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPercentilesCommandOutput> {
-    return deserializeAws_restJson1GetPercentilesCommand(output, context);
+    return de_GetPercentilesCommand(output, context);
   }
 
   // Start section: command_body_extra

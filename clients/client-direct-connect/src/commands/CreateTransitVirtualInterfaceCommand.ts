@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { CreateTransitVirtualInterfaceRequest, CreateTransitVirtualInterfaceResult } from "../models/models_0";
 import {
-  CreateTransitVirtualInterfaceRequest,
-  CreateTransitVirtualInterfaceRequestFilterSensitiveLog,
-  CreateTransitVirtualInterfaceResult,
-  CreateTransitVirtualInterfaceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTransitVirtualInterfaceCommand,
-  serializeAws_json1_1CreateTransitVirtualInterfaceCommand,
+  de_CreateTransitVirtualInterfaceCommand,
+  se_CreateTransitVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTransitVirtualInterfaceCommand}.
  */
 export interface CreateTransitVirtualInterfaceCommandInput extends CreateTransitVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTransitVirtualInterfaceCommand}.
  */
 export interface CreateTransitVirtualInterfaceCommandOutput
@@ -37,6 +36,7 @@ export interface CreateTransitVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a transit virtual interface. A transit virtual interface should be used to access one or more transit gateways associated with Direct Connect gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.</p>
  *          <important>
  *             <p>If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both your the transit gateway and Direct Connect gateway, the association request fails.</p>
@@ -53,10 +53,33 @@ export interface CreateTransitVirtualInterfaceCommandOutput
  * import { DirectConnectClient, CreateTransitVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateTransitVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // CreateTransitVirtualInterfaceRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   newTransitVirtualInterface: { // NewTransitVirtualInterface
+ *     virtualInterfaceName: "STRING_VALUE",
+ *     vlan: Number("int"),
+ *     asn: Number("int"),
+ *     mtu: Number("int"),
+ *     authKey: "STRING_VALUE",
+ *     amazonAddress: "STRING_VALUE",
+ *     customerAddress: "STRING_VALUE",
+ *     addressFamily: "ipv4" || "ipv6",
+ *     directConnectGatewayId: "STRING_VALUE",
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     enableSiteLink: true || false,
+ *   },
+ * };
  * const command = new CreateTransitVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTransitVirtualInterfaceCommandInput - {@link CreateTransitVirtualInterfaceCommandInput}
+ * @returns {@link CreateTransitVirtualInterfaceCommandOutput}
  * @see {@link CreateTransitVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreateTransitVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -92,6 +115,9 @@ export class CreateTransitVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTransitVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +146,8 @@ export class CreateTransitVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTransitVirtualInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTransitVirtualInterfaceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +157,21 @@ export class CreateTransitVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTransitVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTransitVirtualInterfaceCommand(input, context);
+    return se_CreateTransitVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1CreateTransitVirtualInterfaceCommand(output, context);
+    return de_CreateTransitVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

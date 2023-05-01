@@ -20,20 +20,22 @@ import {
 } from "../MigrationHubStrategyClient";
 import {
   StartRecommendationReportGenerationRequest,
-  StartRecommendationReportGenerationRequestFilterSensitiveLog,
   StartRecommendationReportGenerationResponse,
-  StartRecommendationReportGenerationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartRecommendationReportGenerationCommand,
-  serializeAws_restJson1StartRecommendationReportGenerationCommand,
+  de_StartRecommendationReportGenerationCommand,
+  se_StartRecommendationReportGenerationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartRecommendationReportGenerationCommand}.
  */
 export interface StartRecommendationReportGenerationCommandInput extends StartRecommendationReportGenerationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartRecommendationReportGenerationCommand}.
  */
 export interface StartRecommendationReportGenerationCommandOutput
@@ -41,6 +43,7 @@ export interface StartRecommendationReportGenerationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts generating a recommendation report. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +51,21 @@ export interface StartRecommendationReportGenerationCommandOutput
  * import { MigrationHubStrategyClient, StartRecommendationReportGenerationCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, StartRecommendationReportGenerationCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // StartRecommendationReportGenerationRequest
+ *   outputFormat: "STRING_VALUE",
+ *   groupIdFilter: [ // GroupIds
+ *     { // Group
+ *       name: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new StartRecommendationReportGenerationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRecommendationReportGenerationCommandInput - {@link StartRecommendationReportGenerationCommandInput}
+ * @returns {@link StartRecommendationReportGenerationCommandOutput}
  * @see {@link StartRecommendationReportGenerationCommandInput} for command's `input` shape.
  * @see {@link StartRecommendationReportGenerationCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -92,6 +106,9 @@ export class StartRecommendationReportGenerationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRecommendationReportGenerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +137,8 @@ export class StartRecommendationReportGenerationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRecommendationReportGenerationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRecommendationReportGenerationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +148,24 @@ export class StartRecommendationReportGenerationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartRecommendationReportGenerationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartRecommendationReportGenerationCommand(input, context);
+    return se_StartRecommendationReportGenerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartRecommendationReportGenerationCommandOutput> {
-    return deserializeAws_restJson1StartRecommendationReportGenerationCommand(output, context);
+    return de_StartRecommendationReportGenerationCommand(output, context);
   }
 
   // Start section: command_body_extra

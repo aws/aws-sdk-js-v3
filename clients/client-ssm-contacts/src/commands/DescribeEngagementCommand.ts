@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEngagementRequest,
-  DescribeEngagementRequestFilterSensitiveLog,
-  DescribeEngagementResult,
-  DescribeEngagementResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEngagementCommand,
-  serializeAws_json1_1DescribeEngagementCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEngagementRequest, DescribeEngagementResult } from "../models/models_0";
+import { de_DescribeEngagementCommand, se_DescribeEngagementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEngagementCommand}.
  */
 export interface DescribeEngagementCommandInput extends DescribeEngagementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEngagementCommand}.
  */
 export interface DescribeEngagementCommandOutput extends DescribeEngagementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Incident Manager uses engagements to engage contacts and escalation plans during an incident.
  *          Use this command to describe the engagement that occurred during an incident.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  * import { SSMContactsClient, DescribeEngagementCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, DescribeEngagementCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // DescribeEngagementRequest
+ *   EngagementId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEngagementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEngagementCommandInput - {@link DescribeEngagementCommandInput}
+ * @returns {@link DescribeEngagementCommandOutput}
  * @see {@link DescribeEngagementCommandInput} for command's `input` shape.
  * @see {@link DescribeEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -58,8 +60,7 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  *  <p>The operation failed to due an encryption key error.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>
@@ -71,29 +72,6 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
- *
- * @example To describe the details of an engagement
- * ```javascript
- * // The following describe-engagement example lists the details of an engagement to a contact or escalation plan. The subject and content are sent to the contact channels.
- * const input = {
- *   "EngagementId": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/example_escalation/69e40ce1-8dbb-4d57-8962-5fbe7fc53356"
- * };
- * const command = new DescribeEngagementCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/example_escalation",
- *   "Content": "Testing engagements",
- *   "EngagementArn": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/example_escalation/69e40ce1-8dbb-4d57-8962-5fbe7fc53356",
- *   "PublicContent": "Testing engagements",
- *   "PublicSubject": "test",
- *   "Sender": "tester",
- *   "StartTime": "2021-05-18T18:25:41.151000+00:00",
- *   "Subject": "test"
- * }
- * *\/
- * // example id: to-describe-the-details-of-an-engagement-1630364719475
- * ```
  *
  */
 export class DescribeEngagementCommand extends $Command<
@@ -113,6 +91,9 @@ export class DescribeEngagementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEngagementCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +122,8 @@ export class DescribeEngagementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEngagementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEngagementResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +133,18 @@ export class DescribeEngagementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEngagementCommand(input, context);
+    return se_DescribeEngagementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEngagementCommandOutput> {
-    return deserializeAws_json1_1DescribeEngagementCommand(output, context);
+    return de_DescribeEngagementCommand(output, context);
   }
 
   // Start section: command_body_extra

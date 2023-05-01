@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateDevicePolicyConfigurationRequest, UpdateDevicePolicyConfigurationResponse } from "../models/models_0";
 import {
-  UpdateDevicePolicyConfigurationRequest,
-  UpdateDevicePolicyConfigurationRequestFilterSensitiveLog,
-  UpdateDevicePolicyConfigurationResponse,
-  UpdateDevicePolicyConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDevicePolicyConfigurationCommand,
-  serializeAws_restJson1UpdateDevicePolicyConfigurationCommand,
+  de_UpdateDevicePolicyConfigurationCommand,
+  se_UpdateDevicePolicyConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDevicePolicyConfigurationCommand}.
  */
 export interface UpdateDevicePolicyConfigurationCommandInput extends UpdateDevicePolicyConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDevicePolicyConfigurationCommand}.
  */
 export interface UpdateDevicePolicyConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateDevicePolicyConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates the device policy configuration for the fleet.</p>
@@ -46,10 +46,16 @@ export interface UpdateDevicePolicyConfigurationCommandOutput
  * import { WorkLinkClient, UpdateDevicePolicyConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UpdateDevicePolicyConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // UpdateDevicePolicyConfigurationRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   DeviceCaCertificate: "STRING_VALUE",
+ * };
  * const command = new UpdateDevicePolicyConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDevicePolicyConfigurationCommandInput - {@link UpdateDevicePolicyConfigurationCommandInput}
+ * @returns {@link UpdateDevicePolicyConfigurationCommandOutput}
  * @see {@link UpdateDevicePolicyConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateDevicePolicyConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -88,6 +94,9 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDevicePolicyConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +125,8 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDevicePolicyConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDevicePolicyConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +136,24 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateDevicePolicyConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDevicePolicyConfigurationCommand(input, context);
+    return se_UpdateDevicePolicyConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDevicePolicyConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateDevicePolicyConfigurationCommand(output, context);
+    return de_UpdateDevicePolicyConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

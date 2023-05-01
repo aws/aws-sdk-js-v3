@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  StopQueryExecutionInput,
-  StopQueryExecutionInputFilterSensitiveLog,
-  StopQueryExecutionOutput,
-  StopQueryExecutionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopQueryExecutionCommand,
-  serializeAws_json1_1StopQueryExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { StopQueryExecutionInput, StopQueryExecutionOutput } from "../models/models_0";
+import { de_StopQueryExecutionCommand, se_StopQueryExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopQueryExecutionCommand}.
  */
 export interface StopQueryExecutionCommandInput extends StopQueryExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StopQueryExecutionCommand}.
  */
 export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a query execution. Requires you to have access to the workgroup in which the
  *             query ran.</p>
  *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
@@ -46,10 +43,15 @@ export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutpu
  * import { AthenaClient, StopQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StopQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // StopQueryExecutionInput
+ *   QueryExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new StopQueryExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopQueryExecutionCommandInput - {@link StopQueryExecutionCommandInput}
+ * @returns {@link StopQueryExecutionCommandOutput}
  * @see {@link StopQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link StopQueryExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +83,9 @@ export class StopQueryExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopQueryExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class StopQueryExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopQueryExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopQueryExecutionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class StopQueryExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopQueryExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopQueryExecutionCommand(input, context);
+    return se_StopQueryExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopQueryExecutionCommandOutput> {
-    return deserializeAws_json1_1StopQueryExecutionCommand(output, context);
+    return de_StopQueryExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

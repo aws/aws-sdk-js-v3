@@ -7,7 +7,6 @@ import {
   AuditContext,
   Blueprint,
   Column,
-  Compatibility,
   ConnectionsList,
   ConnectionType,
   Crawler,
@@ -20,6 +19,7 @@ import {
   DevEndpoint,
   ErrorDetail,
   EventBatchingCondition,
+  FederatedDatabase,
   GlueTable,
   JobRun,
   Partition,
@@ -28,7 +28,6 @@ import {
   PhysicalConnectionRequirements,
   Predicate,
   PrincipalPermissions,
-  RegistryId,
   SchemaId,
   StorageDescriptor,
   TaskStatusType,
@@ -42,19 +41,195 @@ import {
   WorkflowRun,
 } from "./models_0";
 
-export enum SchemaStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  PENDING = "PENDING",
+/**
+ * @public
+ */
+export interface CreateRegistryInput {
+  /**
+   * <p>Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.</p>
+   */
+  RegistryName: string | undefined;
+
+  /**
+   * <p>A description of the registry. If description is not provided, there will not be any default value for this.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
-export enum SchemaVersionStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  FAILURE = "FAILURE",
-  PENDING = "PENDING",
+/**
+ * @public
+ */
+export interface CreateRegistryResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the newly created registry.</p>
+   */
+  RegistryArn?: string;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>A description of the registry.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags for the registry.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ * @enum
+ */
+export const Compatibility = {
+  BACKWARD: "BACKWARD",
+  BACKWARD_ALL: "BACKWARD_ALL",
+  DISABLED: "DISABLED",
+  FORWARD: "FORWARD",
+  FORWARD_ALL: "FORWARD_ALL",
+  FULL: "FULL",
+  FULL_ALL: "FULL_ALL",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Compatibility = (typeof Compatibility)[keyof typeof Compatibility];
+
+/**
+ * @public
+ * <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+ */
+export interface RegistryId {
+  /**
+   * <p>Name of the registry. Used only for lookup. One of <code>RegistryArn</code> or <code>RegistryName</code> has to be provided. </p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>Arn of the registry to be updated. One of <code>RegistryArn</code> or <code>RegistryName</code> has to be provided.</p>
+   */
+  RegistryArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateSchemaInput {
+  /**
+   * <p> This is a wrapper shape to contain the registry identity fields. If this is not provided, the default registry will be used. The ARN format for the same will be: <code>arn:aws:glue:us-east-2:<customer id>:registry/default-registry:random-5-letter-id</code>.</p>
+   */
+  RegistryId?: RegistryId;
+
+  /**
+   * <p>Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.</p>
+   */
+  SchemaName: string | undefined;
+
+  /**
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
+   */
+  DataFormat: DataFormat | string | undefined;
+
+  /**
+   * <p>The compatibility mode of the schema. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>NONE</i>: No compatibility mode applies. You can use this choice in development scenarios or if you do not know the compatibility mode that you want to apply to schemas. Any new version added will be accepted without undergoing a compatibility check.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>DISABLED</i>: This compatibility choice prevents versioning for a particular schema. You can use this choice to prevent future versioning of a schema.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>BACKWARD</i>: This compatibility choice is recommended as it allows data receivers to read both the current and one previous schema version. This means that for instance, a new schema version cannot drop data fields or change the type of these fields, so they can't be read by readers using the previous version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>BACKWARD_ALL</i>: This compatibility choice allows data receivers to read both the current and all previous schema versions. You can use this choice when you need to delete fields or add optional fields, and check compatibility against all previous schema versions. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>FORWARD</i>: This compatibility choice allows data receivers to read both the current and one next schema version, but not necessarily later versions. You can use this choice when you need to add fields or delete optional fields, but only check compatibility against the last schema version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>FORWARD_ALL</i>: This compatibility choice allows data receivers to read written by producers of any new registered schema. You can use this choice when you need to add fields or delete optional fields, and check compatibility against all previous schema versions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>FULL</i>: This compatibility choice allows data receivers to read data written by producers using the previous or next version of the schema, but not necessarily earlier or later versions. You can use this choice when you need to add or remove optional fields, but only check compatibility against the last schema version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>FULL_ALL</i>: This compatibility choice allows data receivers to read data written by producers using all previous schema versions. You can use this choice when you need to add or remove optional fields, and check compatibility against all previous schema versions.</p>
+   *             </li>
+   *          </ul>
+   */
+  Compatibility?: Compatibility | string;
+
+  /**
+   * <p>An optional description of the schema. If description is not provided, there will not be any automatic default value for this.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API. If specified, follows the Amazon Web Services tags-on-create pattern.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>The schema definition using the <code>DataFormat</code> setting for <code>SchemaName</code>.</p>
+   */
+  SchemaDefinition?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SchemaStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaStatus = (typeof SchemaStatus)[keyof typeof SchemaStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SchemaVersionStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+  FAILURE: "FAILURE",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaVersionStatus = (typeof SchemaVersionStatus)[keyof typeof SchemaVersionStatus];
+
+/**
+ * @public
+ */
 export interface CreateSchemaResponse {
   /**
    * <p>The name of the registry.</p>
@@ -128,6 +303,7 @@ export interface CreateSchemaResponse {
 }
 
 /**
+ * @public
  * <p>Represents a directional edge in a directed acyclic graph (DAG).</p>
  */
 export interface CodeGenEdge {
@@ -148,6 +324,7 @@ export interface CodeGenEdge {
 }
 
 /**
+ * @public
  * <p>An argument or property of a node.</p>
  */
 export interface CodeGenNodeArg {
@@ -168,6 +345,7 @@ export interface CodeGenNodeArg {
 }
 
 /**
+ * @public
  * <p>Represents a node in a directed acyclic graph (DAG)</p>
  */
 export interface CodeGenNode {
@@ -192,11 +370,23 @@ export interface CodeGenNode {
   LineNumber?: number;
 }
 
-export enum Language {
-  PYTHON = "PYTHON",
-  SCALA = "SCALA",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Language = {
+  PYTHON: "PYTHON",
+  SCALA: "SCALA",
+} as const;
 
+/**
+ * @public
+ */
+export type Language = (typeof Language)[keyof typeof Language];
+
+/**
+ * @public
+ */
 export interface CreateScriptRequest {
   /**
    * <p>A list of the nodes in the DAG.</p>
@@ -214,6 +404,9 @@ export interface CreateScriptRequest {
   Language?: Language | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateScriptResponse {
   /**
    * <p>The Python script generated from the DAG.</p>
@@ -226,12 +419,22 @@ export interface CreateScriptResponse {
   ScalaCode?: string;
 }
 
-export enum CloudWatchEncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CloudWatchEncryptionMode = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+} as const;
 
 /**
+ * @public
+ */
+export type CloudWatchEncryptionMode = (typeof CloudWatchEncryptionMode)[keyof typeof CloudWatchEncryptionMode];
+
+/**
+ * @public
  * <p>Specifies how Amazon CloudWatch data should be encrypted.</p>
  */
 export interface CloudWatchEncryption {
@@ -246,12 +449,22 @@ export interface CloudWatchEncryption {
   KmsKeyArn?: string;
 }
 
-export enum JobBookmarksEncryptionMode {
-  CSEKMS = "CSE-KMS",
-  DISABLED = "DISABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobBookmarksEncryptionMode = {
+  CSEKMS: "CSE-KMS",
+  DISABLED: "DISABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type JobBookmarksEncryptionMode = (typeof JobBookmarksEncryptionMode)[keyof typeof JobBookmarksEncryptionMode];
+
+/**
+ * @public
  * <p>Specifies how job bookmark data should be encrypted.</p>
  */
 export interface JobBookmarksEncryption {
@@ -266,13 +479,23 @@ export interface JobBookmarksEncryption {
   KmsKeyArn?: string;
 }
 
-export enum S3EncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-  SSES3 = "SSE-S3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const S3EncryptionMode = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+  SSES3: "SSE-S3",
+} as const;
 
 /**
+ * @public
+ */
+export type S3EncryptionMode = (typeof S3EncryptionMode)[keyof typeof S3EncryptionMode];
+
+/**
+ * @public
  * <p>Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.</p>
  */
 export interface S3Encryption {
@@ -288,6 +511,7 @@ export interface S3Encryption {
 }
 
 /**
+ * @public
  * <p>Specifies an encryption configuration.</p>
  */
 export interface EncryptionConfiguration {
@@ -307,6 +531,9 @@ export interface EncryptionConfiguration {
   JobBookmarksEncryption?: JobBookmarksEncryption;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityConfigurationRequest {
   /**
    * <p>The name for the new security configuration.</p>
@@ -319,6 +546,9 @@ export interface CreateSecurityConfigurationRequest {
   EncryptionConfiguration: EncryptionConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSecurityConfigurationResponse {
   /**
    * <p>The name assigned to the new security configuration.</p>
@@ -332,6 +562,7 @@ export interface CreateSecurityConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>The <code>SessionCommand</code> that runs the job.</p>
  */
 export interface SessionCommand {
@@ -347,6 +578,7 @@ export interface SessionCommand {
 }
 
 /**
+ * @public
  * <p>Request to create a new session.</p>
  */
 export interface CreateSessionRequest {
@@ -371,12 +603,20 @@ export interface CreateSessionRequest {
   Command: SessionCommand | undefined;
 
   /**
-   * <p>The number of seconds before request times out. </p>
+   * <p>
+   *         The number of minutes before session times out. Default for Spark ETL
+   *         jobs is 48 hours (2880 minutes), the maximum session lifetime for this job type.
+   *         Consult the documentation for other job types.
+   *     </p>
    */
   Timeout?: number;
 
   /**
-   * <p>The number of seconds when idle before request times out. </p>
+   * <p>
+   *         The number of minutes when idle before session times out. Default for
+   *         Spark ETL jobs is value of Timeout. Consult the documentation
+   *         for other job types.
+   *     </p>
    */
   IdleTimeout?: number;
 
@@ -442,16 +682,26 @@ export interface CreateSessionRequest {
   RequestOrigin?: string;
 }
 
-export enum SessionStatus {
-  FAILED = "FAILED",
-  PROVISIONING = "PROVISIONING",
-  READY = "READY",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TIMEOUT = "TIMEOUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SessionStatus = {
+  FAILED: "FAILED",
+  PROVISIONING: "PROVISIONING",
+  READY: "READY",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TIMEOUT: "TIMEOUT",
+} as const;
 
 /**
+ * @public
+ */
+export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
+
+/**
+ * @public
  * <p>The period in which a remote Spark runtime environment is running.</p>
  */
 export interface Session {
@@ -523,6 +773,9 @@ export interface Session {
   GlueVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSessionResponse {
   /**
    * <p>Returns the session object in the response.</p>
@@ -531,6 +784,7 @@ export interface CreateSessionResponse {
 }
 
 /**
+ * @public
  * <p>A structure that describes a target table for resource linking.</p>
  */
 export interface TableIdentifier {
@@ -551,6 +805,7 @@ export interface TableIdentifier {
 }
 
 /**
+ * @public
  * <p>A structure used to define a table.</p>
  */
 export interface TableInput {
@@ -645,6 +900,9 @@ export interface TableInput {
   TargetTable?: TableIdentifier;
 }
 
+/**
+ * @public
+ */
 export interface CreateTableRequest {
   /**
    * <p>The ID of the Data Catalog in which to create the <code>Table</code>.
@@ -675,8 +933,14 @@ export interface CreateTableRequest {
   TransactionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTableResponse {}
 
+/**
+ * @public
+ */
 export interface CreateTriggerRequest {
   /**
    * <p>The name of the trigger.</p>
@@ -737,6 +1001,9 @@ export interface CreateTriggerRequest {
   EventBatchingCondition?: EventBatchingCondition;
 }
 
+/**
+ * @public
+ */
 export interface CreateTriggerResponse {
   /**
    * <p>The name of the trigger.</p>
@@ -744,19 +1011,38 @@ export interface CreateTriggerResponse {
   Name?: string;
 }
 
-export enum PrincipalType {
-  GROUP = "GROUP",
-  ROLE = "ROLE",
-  USER = "USER",
-}
-
-export enum ResourceType {
-  ARCHIVE = "ARCHIVE",
-  FILE = "FILE",
-  JAR = "JAR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalType = {
+  GROUP: "GROUP",
+  ROLE: "ROLE",
+  USER: "USER",
+} as const;
 
 /**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  ARCHIVE: "ARCHIVE",
+  FILE: "FILE",
+  JAR: "JAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>The URIs for function resources.</p>
  */
 export interface ResourceUri {
@@ -772,6 +1058,7 @@ export interface ResourceUri {
 }
 
 /**
+ * @public
  * <p>A structure used to create or update a user-defined function.</p>
  */
 export interface UserDefinedFunctionInput {
@@ -801,6 +1088,9 @@ export interface UserDefinedFunctionInput {
   ResourceUris?: ResourceUri[];
 }
 
+/**
+ * @public
+ */
 export interface CreateUserDefinedFunctionRequest {
   /**
    * <p>The ID of the Data Catalog in which to create the function. If none is provided, the Amazon Web Services
@@ -820,8 +1110,14 @@ export interface CreateUserDefinedFunctionRequest {
   FunctionInput: UserDefinedFunctionInput | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserDefinedFunctionResponse {}
 
+/**
+ * @public
+ */
 export interface CreateWorkflowRequest {
   /**
    * <p>The name to be assigned to the workflow. It should be unique within your account.</p>
@@ -849,6 +1145,9 @@ export interface CreateWorkflowRequest {
   MaxConcurrentRuns?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowResponse {
   /**
    * <p>The name of the workflow which was provided as part of the request.</p>
@@ -856,6 +1155,9 @@ export interface CreateWorkflowResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBlueprintRequest {
   /**
    * <p>The name of the blueprint to delete.</p>
@@ -863,6 +1165,9 @@ export interface DeleteBlueprintRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBlueprintResponse {
   /**
    * <p>Returns the name of the blueprint that was deleted.</p>
@@ -870,6 +1175,9 @@ export interface DeleteBlueprintResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClassifierRequest {
   /**
    * <p>Name of the classifier to remove.</p>
@@ -877,8 +1185,14 @@ export interface DeleteClassifierRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClassifierResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteColumnStatisticsForPartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -907,8 +1221,14 @@ export interface DeleteColumnStatisticsForPartitionRequest {
   ColumnName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteColumnStatisticsForPartitionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteColumnStatisticsForTableRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -932,8 +1252,14 @@ export interface DeleteColumnStatisticsForTableRequest {
   ColumnName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteColumnStatisticsForTableResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteConnectionRequest {
   /**
    * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services
@@ -947,9 +1273,13 @@ export interface DeleteConnectionRequest {
   ConnectionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionResponse {}
 
 /**
+ * @public
  * <p>The operation cannot be performed because the crawler is already running.</p>
  */
 export class CrawlerRunningException extends __BaseException {
@@ -973,6 +1303,9 @@ export class CrawlerRunningException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCrawlerRequest {
   /**
    * <p>The name of the crawler to remove.</p>
@@ -980,9 +1313,13 @@ export interface DeleteCrawlerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCrawlerResponse {}
 
 /**
+ * @public
  * <p>The specified scheduler is transitioning.</p>
  */
 export class SchedulerTransitioningException extends __BaseException {
@@ -1006,6 +1343,9 @@ export class SchedulerTransitioningException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomEntityTypeRequest {
   /**
    * <p>The name of the custom pattern that you want to delete.</p>
@@ -1013,6 +1353,9 @@ export interface DeleteCustomEntityTypeRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomEntityTypeResponse {
   /**
    * <p>The name of the custom pattern you deleted.</p>
@@ -1020,6 +1363,9 @@ export interface DeleteCustomEntityTypeResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatabaseRequest {
   /**
    * <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services
@@ -1034,8 +1380,14 @@ export interface DeleteDatabaseRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatabaseResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDataQualityRulesetRequest {
   /**
    * <p>A name for the data quality ruleset.</p>
@@ -1043,8 +1395,14 @@ export interface DeleteDataQualityRulesetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataQualityRulesetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDevEndpointRequest {
   /**
    * <p>The name of the <code>DevEndpoint</code>.</p>
@@ -1052,8 +1410,14 @@ export interface DeleteDevEndpointRequest {
   EndpointName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDevEndpointResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteJobRequest {
   /**
    * <p>The name of the job definition to delete.</p>
@@ -1061,6 +1425,9 @@ export interface DeleteJobRequest {
   JobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJobResponse {
   /**
    * <p>The name of the job definition that was deleted.</p>
@@ -1068,6 +1435,9 @@ export interface DeleteJobResponse {
   JobName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMLTransformRequest {
   /**
    * <p>The unique identifier of the transform to delete.</p>
@@ -1075,6 +1445,9 @@ export interface DeleteMLTransformRequest {
   TransformId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMLTransformResponse {
   /**
    * <p>The unique identifier of the transform that was deleted.</p>
@@ -1082,6 +1455,9 @@ export interface DeleteMLTransformResponse {
   TransformId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partition to be deleted resides. If none is provided,
@@ -1106,9 +1482,13 @@ export interface DeletePartitionRequest {
   PartitionValues: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePartitionResponse {}
 
 /**
+ * @public
  * <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
  */
 export class ConflictException extends __BaseException {
@@ -1132,6 +1512,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeletePartitionIndexRequest {
   /**
    * <p>The catalog ID where the table resides.</p>
@@ -1154,8 +1537,14 @@ export interface DeletePartitionIndexRequest {
   IndexName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePartitionIndexResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteRegistryInput {
   /**
    * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
@@ -1163,11 +1552,23 @@ export interface DeleteRegistryInput {
   RegistryId: RegistryId | undefined;
 }
 
-export enum RegistryStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RegistryStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+} as const;
 
+/**
+ * @public
+ */
+export type RegistryStatus = (typeof RegistryStatus)[keyof typeof RegistryStatus];
+
+/**
+ * @public
+ */
 export interface DeleteRegistryResponse {
   /**
    * <p>The name of the registry being deleted.</p>
@@ -1186,6 +1587,7 @@ export interface DeleteRegistryResponse {
 }
 
 /**
+ * @public
  * <p>A specified condition was not satisfied.</p>
  */
 export class ConditionCheckFailureException extends __BaseException {
@@ -1209,6 +1611,9 @@ export class ConditionCheckFailureException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The hash value returned when this policy was set.</p>
@@ -1221,8 +1626,14 @@ export interface DeleteResourcePolicyRequest {
   ResourceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSchemaInput {
   /**
    * <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
@@ -1230,6 +1641,9 @@ export interface DeleteSchemaInput {
   SchemaId: SchemaId | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSchemaResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the schema being deleted.</p>
@@ -1247,6 +1661,9 @@ export interface DeleteSchemaResponse {
   Status?: SchemaStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSchemaVersionsInput {
   /**
    * <p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
@@ -1268,6 +1685,7 @@ export interface DeleteSchemaVersionsInput {
 }
 
 /**
+ * @public
  * <p>An object containing error details.</p>
  */
 export interface ErrorDetails {
@@ -1283,6 +1701,7 @@ export interface ErrorDetails {
 }
 
 /**
+ * @public
  * <p>An object that contains the error details for an operation on a schema version.</p>
  */
 export interface SchemaVersionErrorItem {
@@ -1297,6 +1716,9 @@ export interface SchemaVersionErrorItem {
   ErrorDetails?: ErrorDetails;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSchemaVersionsResponse {
   /**
    * <p>A list of <code>SchemaVersionErrorItem</code> objects, each containing an error and schema version.</p>
@@ -1304,6 +1726,9 @@ export interface DeleteSchemaVersionsResponse {
   SchemaVersionErrors?: SchemaVersionErrorItem[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityConfigurationRequest {
   /**
    * <p>The name of the security configuration to delete.</p>
@@ -1311,8 +1736,14 @@ export interface DeleteSecurityConfigurationRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSecurityConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSessionRequest {
   /**
    * <p>The ID of the session to be deleted.</p>
@@ -1325,6 +1756,9 @@ export interface DeleteSessionRequest {
   RequestOrigin?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSessionResponse {
   /**
    * <p>Returns the ID of the deleted session.</p>
@@ -1332,6 +1766,9 @@ export interface DeleteSessionResponse {
   Id?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTableRequest {
   /**
    * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
@@ -1357,8 +1794,14 @@ export interface DeleteTableRequest {
   TransactionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTableResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteTableVersionRequest {
   /**
    * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
@@ -1384,8 +1827,14 @@ export interface DeleteTableVersionRequest {
   VersionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTableVersionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteTriggerRequest {
   /**
    * <p>The name of the trigger to delete.</p>
@@ -1393,6 +1842,9 @@ export interface DeleteTriggerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTriggerResponse {
   /**
    * <p>The name of the trigger that was deleted.</p>
@@ -1400,6 +1852,9 @@ export interface DeleteTriggerResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserDefinedFunctionRequest {
   /**
    * <p>The ID of the Data Catalog where the function to be deleted is
@@ -1418,8 +1873,14 @@ export interface DeleteUserDefinedFunctionRequest {
   FunctionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserDefinedFunctionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowRequest {
   /**
    * <p>Name of the workflow to be deleted.</p>
@@ -1427,6 +1888,9 @@ export interface DeleteWorkflowRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowResponse {
   /**
    * <p>Name of the workflow specified in input.</p>
@@ -1434,6 +1898,9 @@ export interface DeleteWorkflowResponse {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBlueprintRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -1451,6 +1918,9 @@ export interface GetBlueprintRequest {
   IncludeParameterSpec?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetBlueprintResponse {
   /**
    * <p>Returns a <code>Blueprint</code> object.</p>
@@ -1458,6 +1928,9 @@ export interface GetBlueprintResponse {
   Blueprint?: Blueprint;
 }
 
+/**
+ * @public
+ */
 export interface GetBlueprintRunRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -1470,14 +1943,24 @@ export interface GetBlueprintRunRequest {
   RunId: string | undefined;
 }
 
-export enum BlueprintRunState {
-  FAILED = "FAILED",
-  ROLLING_BACK = "ROLLING_BACK",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BlueprintRunState = {
+  FAILED: "FAILED",
+  ROLLING_BACK: "ROLLING_BACK",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type BlueprintRunState = (typeof BlueprintRunState)[keyof typeof BlueprintRunState];
+
+/**
+ * @public
  * <p>The details of a blueprint run.</p>
  */
 export interface BlueprintRun {
@@ -1546,6 +2029,9 @@ export interface BlueprintRun {
   RoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBlueprintRunResponse {
   /**
    * <p>Returns a <code>BlueprintRun</code> object.</p>
@@ -1553,6 +2039,9 @@ export interface GetBlueprintRunResponse {
   BlueprintRun?: BlueprintRun;
 }
 
+/**
+ * @public
+ */
 export interface GetBlueprintRunsRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -1570,6 +2059,9 @@ export interface GetBlueprintRunsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetBlueprintRunsResponse {
   /**
    * <p>Returns a list of <code>BlueprintRun</code> objects.</p>
@@ -1582,6 +2074,9 @@ export interface GetBlueprintRunsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCatalogImportStatusRequest {
   /**
    * <p>The ID of the catalog to migrate. Currently, this should be the Amazon Web Services account ID.</p>
@@ -1590,6 +2085,7 @@ export interface GetCatalogImportStatusRequest {
 }
 
 /**
+ * @public
  * <p>A structure containing migration status information.</p>
  */
 export interface CatalogImportStatus {
@@ -1610,6 +2106,9 @@ export interface CatalogImportStatus {
   ImportedBy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCatalogImportStatusResponse {
   /**
    * <p>The status of the specified catalog migration.</p>
@@ -1617,6 +2116,9 @@ export interface GetCatalogImportStatusResponse {
   ImportStatus?: CatalogImportStatus;
 }
 
+/**
+ * @public
+ */
 export interface GetClassifierRequest {
   /**
    * <p>Name of the classifier to retrieve.</p>
@@ -1625,6 +2127,7 @@ export interface GetClassifierRequest {
 }
 
 /**
+ * @public
  * <p>A classifier for custom <code>CSV</code> content.</p>
  */
 export interface CsvClassifier {
@@ -1692,6 +2195,7 @@ export interface CsvClassifier {
 }
 
 /**
+ * @public
  * <p>A classifier that uses <code>grok</code> patterns.</p>
  */
 export interface GrokClassifier {
@@ -1735,6 +2239,7 @@ export interface GrokClassifier {
 }
 
 /**
+ * @public
  * <p>A classifier for <code>JSON</code> content.</p>
  */
 export interface JsonClassifier {
@@ -1766,6 +2271,7 @@ export interface JsonClassifier {
 }
 
 /**
+ * @public
  * <p>A classifier for <code>XML</code> content.</p>
  */
 export interface XMLClassifier {
@@ -1805,6 +2311,7 @@ export interface XMLClassifier {
 }
 
 /**
+ * @public
  * <p>Classifiers are triggered during a crawl task. A classifier checks whether a given file is
  *       in a format it can handle. If it is, the classifier creates a schema in the form of a
  *         <code>StructType</code> object that matches that data format.</p>
@@ -1836,6 +2343,9 @@ export interface Classifier {
   CsvClassifier?: CsvClassifier;
 }
 
+/**
+ * @public
+ */
 export interface GetClassifierResponse {
   /**
    * <p>The requested classifier.</p>
@@ -1843,6 +2353,9 @@ export interface GetClassifierResponse {
   Classifier?: Classifier;
 }
 
+/**
+ * @public
+ */
 export interface GetClassifiersRequest {
   /**
    * <p>The size of the list to return (optional).</p>
@@ -1855,6 +2368,9 @@ export interface GetClassifiersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetClassifiersResponse {
   /**
    * <p>The requested list of classifier
@@ -1868,6 +2384,9 @@ export interface GetClassifiersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetColumnStatisticsForPartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -1897,6 +2416,7 @@ export interface GetColumnStatisticsForPartitionRequest {
 }
 
 /**
+ * @public
  * <p>Defines column statistics supported for bit sequence data values.</p>
  */
 export interface BinaryColumnStatisticsData {
@@ -1917,6 +2437,7 @@ export interface BinaryColumnStatisticsData {
 }
 
 /**
+ * @public
  * <p>Defines column statistics supported for Boolean data columns.</p>
  */
 export interface BooleanColumnStatisticsData {
@@ -1937,6 +2458,7 @@ export interface BooleanColumnStatisticsData {
 }
 
 /**
+ * @public
  * <p>Defines column statistics supported for timestamp data columns.</p>
  */
 export interface DateColumnStatisticsData {
@@ -1962,6 +2484,7 @@ export interface DateColumnStatisticsData {
 }
 
 /**
+ * @public
  * <p>Contains a numeric value in decimal format.</p>
  */
 export interface DecimalNumber {
@@ -1978,6 +2501,7 @@ export interface DecimalNumber {
 }
 
 /**
+ * @public
  * <p>Defines column statistics supported for fixed-point number data columns.</p>
  */
 export interface DecimalColumnStatisticsData {
@@ -2003,6 +2527,7 @@ export interface DecimalColumnStatisticsData {
 }
 
 /**
+ * @public
  * <p>Defines column statistics supported for floating-point number data columns.</p>
  */
 export interface DoubleColumnStatisticsData {
@@ -2028,6 +2553,7 @@ export interface DoubleColumnStatisticsData {
 }
 
 /**
+ * @public
  * <p>Defines column statistics supported for integer data columns.</p>
  */
 export interface LongColumnStatisticsData {
@@ -2053,6 +2579,7 @@ export interface LongColumnStatisticsData {
 }
 
 /**
+ * @public
  * <p>Defines column statistics supported for character sequence data values.</p>
  */
 export interface StringColumnStatisticsData {
@@ -2077,17 +2604,27 @@ export interface StringColumnStatisticsData {
   NumberOfDistinctValues: number | undefined;
 }
 
-export enum ColumnStatisticsType {
-  BINARY = "BINARY",
-  BOOLEAN = "BOOLEAN",
-  DATE = "DATE",
-  DECIMAL = "DECIMAL",
-  DOUBLE = "DOUBLE",
-  LONG = "LONG",
-  STRING = "STRING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ColumnStatisticsType = {
+  BINARY: "BINARY",
+  BOOLEAN: "BOOLEAN",
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  DOUBLE: "DOUBLE",
+  LONG: "LONG",
+  STRING: "STRING",
+} as const;
 
 /**
+ * @public
+ */
+export type ColumnStatisticsType = (typeof ColumnStatisticsType)[keyof typeof ColumnStatisticsType];
+
+/**
+ * @public
  * <p>Contains the individual types of column statistics data. Only one data object should be set and indicated by the <code>Type</code> attribute.</p>
  */
 export interface ColumnStatisticsData {
@@ -2107,7 +2644,11 @@ export interface ColumnStatisticsData {
   DateColumnStatisticsData?: DateColumnStatisticsData;
 
   /**
-   * <p>Decimal column statistics data.</p>
+   * <p>
+   *         Decimal column statistics data. UnscaledValues within are Base64-encoded
+   *         binary objects storing big-endian, two's complement representations of
+   *         the decimal's unscaled value.
+   *     </p>
    */
   DecimalColumnStatisticsData?: DecimalColumnStatisticsData;
 
@@ -2133,6 +2674,7 @@ export interface ColumnStatisticsData {
 }
 
 /**
+ * @public
  * <p>Represents the generated column-level statistics for a table or partition.</p>
  */
 export interface ColumnStatistics {
@@ -2158,6 +2700,7 @@ export interface ColumnStatistics {
 }
 
 /**
+ * @public
  * <p>Encapsulates a column name that failed and the reason for failure.</p>
  */
 export interface ColumnError {
@@ -2172,6 +2715,9 @@ export interface ColumnError {
   Error?: ErrorDetail;
 }
 
+/**
+ * @public
+ */
 export interface GetColumnStatisticsForPartitionResponse {
   /**
    * <p>List of ColumnStatistics that failed to be retrieved.</p>
@@ -2184,6 +2730,9 @@ export interface GetColumnStatisticsForPartitionResponse {
   Errors?: ColumnError[];
 }
 
+/**
+ * @public
+ */
 export interface GetColumnStatisticsForTableRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -2207,9 +2756,12 @@ export interface GetColumnStatisticsForTableRequest {
   ColumnNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetColumnStatisticsForTableResponse {
   /**
-   * <p>List of ColumnStatistics that failed to be retrieved.</p>
+   * <p>List of ColumnStatistics.</p>
    */
   ColumnStatisticsList?: ColumnStatistics[];
 
@@ -2219,6 +2771,9 @@ export interface GetColumnStatisticsForTableResponse {
   Errors?: ColumnError[];
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionRequest {
   /**
    * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services
@@ -2242,6 +2797,7 @@ export interface GetConnectionRequest {
 }
 
 /**
+ * @public
  * <p>Defines a connection to a data source.</p>
  */
 export interface Connection {
@@ -2455,6 +3011,9 @@ export interface Connection {
   LastUpdatedBy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionResponse {
   /**
    * <p>The requested connection definition.</p>
@@ -2463,6 +3022,7 @@ export interface GetConnectionResponse {
 }
 
 /**
+ * @public
  * <p>Filters the connection definitions that are returned by the <code>GetConnections</code>
  *       API operation.</p>
  */
@@ -2479,6 +3039,9 @@ export interface GetConnectionsFilter {
   ConnectionType?: ConnectionType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionsRequest {
   /**
    * <p>The ID of the Data Catalog in which the connections reside. If none is provided, the Amazon Web Services
@@ -2511,6 +3074,9 @@ export interface GetConnectionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionsResponse {
   /**
    * <p>A list of requested connection definitions.</p>
@@ -2524,6 +3090,9 @@ export interface GetConnectionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCrawlerRequest {
   /**
    * <p>The name of the crawler to retrieve metadata for.</p>
@@ -2531,6 +3100,9 @@ export interface GetCrawlerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCrawlerResponse {
   /**
    * <p>The metadata for the specified crawler.</p>
@@ -2538,6 +3110,9 @@ export interface GetCrawlerResponse {
   Crawler?: Crawler;
 }
 
+/**
+ * @public
+ */
 export interface GetCrawlerMetricsRequest {
   /**
    * <p>A list of the names of crawlers about which to retrieve metrics.</p>
@@ -2556,6 +3131,7 @@ export interface GetCrawlerMetricsRequest {
 }
 
 /**
+ * @public
  * <p>Metrics for a specified crawler.</p>
  */
 export interface CrawlerMetrics {
@@ -2600,6 +3176,9 @@ export interface CrawlerMetrics {
   TablesDeleted?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetCrawlerMetricsResponse {
   /**
    * <p>A list of metrics for the specified crawler.</p>
@@ -2613,6 +3192,9 @@ export interface GetCrawlerMetricsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCrawlersRequest {
   /**
    * <p>The number of crawlers to return on each call.</p>
@@ -2625,6 +3207,9 @@ export interface GetCrawlersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCrawlersResponse {
   /**
    * <p>A list of crawler metadata.</p>
@@ -2638,6 +3223,9 @@ export interface GetCrawlersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCustomEntityTypeRequest {
   /**
    * <p>The name of the custom pattern that you want to retrieve.</p>
@@ -2645,6 +3233,9 @@ export interface GetCustomEntityTypeRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCustomEntityTypeResponse {
   /**
    * <p>The name of the custom pattern that you retrieved.</p>
@@ -2662,6 +3253,9 @@ export interface GetCustomEntityTypeResponse {
   ContextWords?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetDatabaseRequest {
   /**
    * <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services
@@ -2677,6 +3271,7 @@ export interface GetDatabaseRequest {
 }
 
 /**
+ * @public
  * <p>The <code>Database</code> object represents a logical grouping of tables that might reside
  *       in a Hive metastore or an RDBMS.</p>
  */
@@ -2722,8 +3317,16 @@ export interface Database {
    * <p>The ID of the Data Catalog in which the database resides.</p>
    */
   CatalogId?: string;
+
+  /**
+   * <p>A <code>FederatedDatabase</code> structure that references an entity outside the Glue Data Catalog.</p>
+   */
+  FederatedDatabase?: FederatedDatabase;
 }
 
+/**
+ * @public
+ */
 export interface GetDatabaseResponse {
   /**
    * <p>The definition of the specified database in the Data Catalog.</p>
@@ -2731,11 +3334,24 @@ export interface GetDatabaseResponse {
   Database?: Database;
 }
 
-export enum ResourceShareType {
-  ALL = "ALL",
-  FOREIGN = "FOREIGN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceShareType = {
+  ALL: "ALL",
+  FEDERATED: "FEDERATED",
+  FOREIGN: "FOREIGN",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceShareType = (typeof ResourceShareType)[keyof typeof ResourceShareType];
+
+/**
+ * @public
+ */
 export interface GetDatabasesRequest {
   /**
    * <p>The ID of the Data Catalog from which to retrieve <code>Databases</code>. If none is
@@ -2754,8 +3370,11 @@ export interface GetDatabasesRequest {
   MaxResults?: number;
 
   /**
-   * <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
+   * <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FEDERATED</code>, <code>FOREIGN</code> or <code>ALL</code>. </p>
    *          <ul>
+   *             <li>
+   *                <p>If set to <code>FEDERATED</code>, will list the federated databases (referencing an external entity) shared with your account.</p>
+   *             </li>
    *             <li>
    *                <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p>
    *             </li>
@@ -2767,6 +3386,9 @@ export interface GetDatabasesRequest {
   ResourceShareType?: ResourceShareType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetDatabasesResponse {
   /**
    * <p>A list of <code>Database</code> objects from the specified catalog.</p>
@@ -2780,6 +3402,9 @@ export interface GetDatabasesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDataCatalogEncryptionSettingsRequest {
   /**
    * <p>The ID of the Data Catalog to retrieve the security configuration for. If none is
@@ -2789,6 +3414,7 @@ export interface GetDataCatalogEncryptionSettingsRequest {
 }
 
 /**
+ * @public
  * <p>The data structure used by the Data Catalog to encrypt the password as part of
  *         <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the
  *         <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog
@@ -2816,12 +3442,22 @@ export interface ConnectionPasswordEncryption {
   AwsKmsKeyId?: string;
 }
 
-export enum CatalogEncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CatalogEncryptionMode = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+} as const;
 
 /**
+ * @public
+ */
+export type CatalogEncryptionMode = (typeof CatalogEncryptionMode)[keyof typeof CatalogEncryptionMode];
+
+/**
+ * @public
  * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
  */
 export interface EncryptionAtRest {
@@ -2837,6 +3473,7 @@ export interface EncryptionAtRest {
 }
 
 /**
+ * @public
  * <p>Contains configuration information for maintaining Data Catalog security.</p>
  */
 export interface DataCatalogEncryptionSettings {
@@ -2855,6 +3492,9 @@ export interface DataCatalogEncryptionSettings {
   ConnectionPasswordEncryption?: ConnectionPasswordEncryption;
 }
 
+/**
+ * @public
+ */
 export interface GetDataCatalogEncryptionSettingsResponse {
   /**
    * <p>The requested security configuration.</p>
@@ -2862,6 +3502,9 @@ export interface GetDataCatalogEncryptionSettingsResponse {
   DataCatalogEncryptionSettings?: DataCatalogEncryptionSettings;
 }
 
+/**
+ * @public
+ */
 export interface GetDataflowGraphRequest {
   /**
    * <p>The Python script to transform.</p>
@@ -2869,6 +3512,9 @@ export interface GetDataflowGraphRequest {
   PythonScript?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDataflowGraphResponse {
   /**
    * <p>A list of the nodes in the resulting DAG.</p>
@@ -2881,6 +3527,9 @@ export interface GetDataflowGraphResponse {
   DagEdges?: CodeGenEdge[];
 }
 
+/**
+ * @public
+ */
 export interface GetDataQualityResultRequest {
   /**
    * <p>A unique result ID for the data quality result.</p>
@@ -2888,6 +3537,9 @@ export interface GetDataQualityResultRequest {
   ResultId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataQualityResultResponse {
   /**
    * <p>A unique result ID for the data quality result.</p>
@@ -2945,6 +3597,9 @@ export interface GetDataQualityResultResponse {
   RuleResults?: DataQualityRuleResult[];
 }
 
+/**
+ * @public
+ */
 export interface GetDataQualityRuleRecommendationRunRequest {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -2952,6 +3607,9 @@ export interface GetDataQualityRuleRecommendationRunRequest {
   RunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataQualityRuleRecommendationRunResponse {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -3019,6 +3677,9 @@ export interface GetDataQualityRuleRecommendationRunResponse {
   CreatedRulesetName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDataQualityRulesetRequest {
   /**
    * <p>The name of the ruleset.</p>
@@ -3026,6 +3687,9 @@ export interface GetDataQualityRulesetRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDataQualityRulesetResponse {
   /**
    * <p>The name of the ruleset.</p>
@@ -3063,6 +3727,9 @@ export interface GetDataQualityRulesetResponse {
   RecommendationRunId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDataQualityRulesetEvaluationRunRequest {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -3071,6 +3738,7 @@ export interface GetDataQualityRulesetEvaluationRunRequest {
 }
 
 /**
+ * @public
  * <p>Additional run options you can specify for an evaluation run.</p>
  */
 export interface DataQualityEvaluationRunAdditionalRunOptions {
@@ -3085,6 +3753,9 @@ export interface DataQualityEvaluationRunAdditionalRunOptions {
   ResultsS3Prefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDataQualityRulesetEvaluationRunResponse {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -3157,6 +3828,9 @@ export interface GetDataQualityRulesetEvaluationRunResponse {
   ResultIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetDevEndpointRequest {
   /**
    * <p>Name of the <code>DevEndpoint</code> to retrieve information for.</p>
@@ -3164,6 +3838,9 @@ export interface GetDevEndpointRequest {
   EndpointName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDevEndpointResponse {
   /**
    * <p>A <code>DevEndpoint</code> definition.</p>
@@ -3171,6 +3848,9 @@ export interface GetDevEndpointResponse {
   DevEndpoint?: DevEndpoint;
 }
 
+/**
+ * @public
+ */
 export interface GetDevEndpointsRequest {
   /**
    * <p>The maximum size of information to return.</p>
@@ -3183,6 +3863,9 @@ export interface GetDevEndpointsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDevEndpointsResponse {
   /**
    * <p>A list of <code>DevEndpoint</code> definitions.</p>
@@ -3196,6 +3879,9 @@ export interface GetDevEndpointsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetJobRequest {
   /**
    * <p>The name of the job definition to retrieve.</p>
@@ -3203,6 +3889,9 @@ export interface GetJobRequest {
   JobName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetJobBookmarkRequest {
   /**
    * <p>The name of the job in question.</p>
@@ -3216,6 +3905,7 @@ export interface GetJobBookmarkRequest {
 }
 
 /**
+ * @public
  * <p>Defines a point that a job can resume processing.</p>
  */
 export interface JobBookmarkEntry {
@@ -3255,6 +3945,9 @@ export interface JobBookmarkEntry {
   JobBookmark?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetJobBookmarkResponse {
   /**
    * <p>A structure that defines a point that a job can resume processing.</p>
@@ -3262,6 +3955,9 @@ export interface GetJobBookmarkResponse {
   JobBookmarkEntry?: JobBookmarkEntry;
 }
 
+/**
+ * @public
+ */
 export interface GetJobRunRequest {
   /**
    * <p>Name of the job definition being run.</p>
@@ -3279,6 +3975,9 @@ export interface GetJobRunRequest {
   PredecessorsIncluded?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetJobRunResponse {
   /**
    * <p>The requested job-run metadata.</p>
@@ -3286,6 +3985,9 @@ export interface GetJobRunResponse {
   JobRun?: JobRun;
 }
 
+/**
+ * @public
+ */
 export interface GetJobRunsRequest {
   /**
    * <p>The name of the job definition for which to retrieve all job runs.</p>
@@ -3303,6 +4005,9 @@ export interface GetJobRunsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetJobRunsResponse {
   /**
    * <p>A list of job-run metadata objects.</p>
@@ -3315,6 +4020,9 @@ export interface GetJobRunsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetJobsRequest {
   /**
    * <p>A continuation token, if this is a continuation call.</p>
@@ -3328,6 +4036,7 @@ export interface GetJobsRequest {
 }
 
 /**
+ * @public
  * <p>The location of resources.</p>
  */
 export interface Location {
@@ -3348,6 +4057,7 @@ export interface Location {
 }
 
 /**
+ * @public
  * <p>Specifies a table definition in the Glue Data Catalog.</p>
  */
 export interface CatalogEntry {
@@ -3362,6 +4072,9 @@ export interface CatalogEntry {
   TableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMappingRequest {
   /**
    * <p>Specifies the source table.</p>
@@ -3380,6 +4093,7 @@ export interface GetMappingRequest {
 }
 
 /**
+ * @public
  * <p>Defines a mapping.</p>
  */
 export interface MappingEntry {
@@ -3414,6 +4128,9 @@ export interface MappingEntry {
   TargetType?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMappingResponse {
   /**
    * <p>A list of mappings to the specified targets.</p>
@@ -3421,6 +4138,9 @@ export interface GetMappingResponse {
   Mapping: MappingEntry[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMLTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -3434,6 +4154,7 @@ export interface GetMLTaskRunRequest {
 }
 
 /**
+ * @public
  * <p>Specifies configuration properties for an exporting labels task run.</p>
  */
 export interface ExportLabelsTaskRunProperties {
@@ -3445,6 +4166,7 @@ export interface ExportLabelsTaskRunProperties {
 }
 
 /**
+ * @public
  * <p>Specifies configuration properties for a Find Matches task run.</p>
  */
 export interface FindMatchesTaskRunProperties {
@@ -3465,6 +4187,7 @@ export interface FindMatchesTaskRunProperties {
 }
 
 /**
+ * @public
  * <p>Specifies configuration properties for an importing labels task run.</p>
  */
 export interface ImportLabelsTaskRunProperties {
@@ -3481,6 +4204,7 @@ export interface ImportLabelsTaskRunProperties {
 }
 
 /**
+ * @public
  * <p>Specifies configuration properties for a labeling set generation task run.</p>
  */
 export interface LabelingSetGenerationTaskRunProperties {
@@ -3491,15 +4215,25 @@ export interface LabelingSetGenerationTaskRunProperties {
   OutputS3Path?: string;
 }
 
-export enum TaskType {
-  EVALUATION = "EVALUATION",
-  EXPORT_LABELS = "EXPORT_LABELS",
-  FIND_MATCHES = "FIND_MATCHES",
-  IMPORT_LABELS = "IMPORT_LABELS",
-  LABELING_SET_GENERATION = "LABELING_SET_GENERATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskType = {
+  EVALUATION: "EVALUATION",
+  EXPORT_LABELS: "EXPORT_LABELS",
+  FIND_MATCHES: "FIND_MATCHES",
+  IMPORT_LABELS: "IMPORT_LABELS",
+  LABELING_SET_GENERATION: "LABELING_SET_GENERATION",
+} as const;
 
 /**
+ * @public
+ */
+export type TaskType = (typeof TaskType)[keyof typeof TaskType];
+
+/**
+ * @public
  * <p>The configuration properties for the task run.</p>
  */
 export interface TaskRunProperties {
@@ -3529,6 +4263,9 @@ export interface TaskRunProperties {
   FindMatchesTaskRunProperties?: FindMatchesTaskRunProperties;
 }
 
+/**
+ * @public
+ */
 export interface GetMLTaskRunResponse {
   /**
    * <p>The unique identifier of the task run.</p>
@@ -3582,6 +4319,7 @@ export interface GetMLTaskRunResponse {
 }
 
 /**
+ * @public
  * <p>The criteria that are used to filter the task runs for the machine learning
  *       transform.</p>
  */
@@ -3607,18 +4345,37 @@ export interface TaskRunFilterCriteria {
   StartedAfter?: Date;
 }
 
-export enum TaskRunSortColumnType {
-  STARTED = "STARTED",
-  STATUS = "STATUS",
-  TASK_RUN_TYPE = "TASK_RUN_TYPE",
-}
-
-export enum SortDirectionType {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskRunSortColumnType = {
+  STARTED: "STARTED",
+  STATUS: "STATUS",
+  TASK_RUN_TYPE: "TASK_RUN_TYPE",
+} as const;
 
 /**
+ * @public
+ */
+export type TaskRunSortColumnType = (typeof TaskRunSortColumnType)[keyof typeof TaskRunSortColumnType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortDirectionType = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortDirectionType = (typeof SortDirectionType)[keyof typeof SortDirectionType];
+
+/**
+ * @public
  * <p>The sorting criteria that are used to sort the list of task runs for the machine learning
  *       transform.</p>
  */
@@ -3636,6 +4393,9 @@ export interface TaskRunSortCriteria {
   SortDirection: SortDirectionType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMLTaskRunsRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -3664,6 +4424,7 @@ export interface GetMLTaskRunsRequest {
 }
 
 /**
+ * @public
  * <p>The sampling parameters that are associated with the machine learning transform.</p>
  */
 export interface TaskRun {
@@ -3718,6 +4479,9 @@ export interface TaskRun {
   ExecutionTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetMLTaskRunsResponse {
   /**
    * <p>A list of task runs that are associated with the transform.</p>
@@ -3730,6 +4494,9 @@ export interface GetMLTaskRunsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMLTransformRequest {
   /**
    * <p>The unique identifier of the transform, generated at the time that the transform was
@@ -3739,6 +4506,7 @@ export interface GetMLTransformRequest {
 }
 
 /**
+ * @public
  * <p>A structure containing the column name and column importance score for a column. </p>
  *          <p>Column importance helps you understand how columns contribute to your model, by identifying which columns in your records are more important than others.</p>
  */
@@ -3755,6 +4523,7 @@ export interface ColumnImportance {
 }
 
 /**
+ * @public
  * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
  *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
  */
@@ -3783,6 +4552,7 @@ export interface ConfusionMatrix {
 }
 
 /**
+ * @public
  * <p>The evaluation metrics for the find matches algorithm. The quality of your machine
  *       learning transform is measured by getting your transform to predict some matches and comparing
  *       the results to known matches from the same dataset. The quality metrics are based on a subset
@@ -3830,6 +4600,7 @@ export interface FindMatchesMetrics {
 }
 
 /**
+ * @public
  * <p>Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
  */
 export interface EvaluationMetrics {
@@ -3845,6 +4616,7 @@ export interface EvaluationMetrics {
 }
 
 /**
+ * @public
  * <p>A key-value pair representing a column and data type that this transform can
  *       run against. The <code>Schema</code> parameter of the <code>MLTransform</code> may contain up to 100 of these structures.</p>
  */
@@ -3860,12 +4632,24 @@ export interface SchemaColumn {
   DataType?: string;
 }
 
-export enum TransformStatusType {
-  DELETING = "DELETING",
-  NOT_READY = "NOT_READY",
-  READY = "READY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransformStatusType = {
+  DELETING: "DELETING",
+  NOT_READY: "NOT_READY",
+  READY: "READY",
+} as const;
 
+/**
+ * @public
+ */
+export type TransformStatusType = (typeof TransformStatusType)[keyof typeof TransformStatusType];
+
+/**
+ * @public
+ */
 export interface GetMLTransformResponse {
   /**
    * <p>The unique identifier of the transform, generated at the time that the transform was
@@ -3982,6 +4766,7 @@ export interface GetMLTransformResponse {
 }
 
 /**
+ * @public
  * <p>The criteria used to filter the machine learning transforms.</p>
  */
 export interface TransformFilterCriteria {
@@ -4035,15 +4820,25 @@ export interface TransformFilterCriteria {
   Schema?: SchemaColumn[];
 }
 
-export enum TransformSortColumnType {
-  CREATED = "CREATED",
-  LAST_MODIFIED = "LAST_MODIFIED",
-  NAME = "NAME",
-  STATUS = "STATUS",
-  TRANSFORM_TYPE = "TRANSFORM_TYPE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransformSortColumnType = {
+  CREATED: "CREATED",
+  LAST_MODIFIED: "LAST_MODIFIED",
+  NAME: "NAME",
+  STATUS: "STATUS",
+  TRANSFORM_TYPE: "TRANSFORM_TYPE",
+} as const;
 
 /**
+ * @public
+ */
+export type TransformSortColumnType = (typeof TransformSortColumnType)[keyof typeof TransformSortColumnType];
+
+/**
+ * @public
  * <p>The sorting criteria that are associated with the machine learning transform.</p>
  */
 export interface TransformSortCriteria {
@@ -4060,6 +4855,9 @@ export interface TransformSortCriteria {
   SortDirection: SortDirectionType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMLTransformsRequest {
   /**
    * <p>A paginated token to offset the results.</p>
@@ -4083,6 +4881,7 @@ export interface GetMLTransformsRequest {
 }
 
 /**
+ * @public
  * <p>A structure for a machine learning transform.</p>
  */
 export interface MLTransform {
@@ -4247,6 +5046,9 @@ export interface MLTransform {
   TransformEncryption?: TransformEncryption;
 }
 
+/**
+ * @public
+ */
 export interface GetMLTransformsResponse {
   /**
    * <p>A list of machine learning transforms.</p>
@@ -4259,6 +5061,9 @@ export interface GetMLTransformsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partition in question resides. If none is provided,
@@ -4282,6 +5087,9 @@ export interface GetPartitionRequest {
   PartitionValues: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPartitionResponse {
   /**
    * <p>The requested information, in the form of a <code>Partition</code>
@@ -4290,6 +5098,9 @@ export interface GetPartitionResponse {
   Partition?: Partition;
 }
 
+/**
+ * @public
+ */
 export interface GetPartitionIndexesRequest {
   /**
    * <p>The catalog ID where the table resides.</p>
@@ -4312,15 +5123,25 @@ export interface GetPartitionIndexesRequest {
   NextToken?: string;
 }
 
-export enum BackfillErrorCode {
-  ENCRYPTED_PARTITION_ERROR = "ENCRYPTED_PARTITION_ERROR",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_PARTITION_TYPE_DATA_ERROR = "INVALID_PARTITION_TYPE_DATA_ERROR",
-  MISSING_PARTITION_VALUE_ERROR = "MISSING_PARTITION_VALUE_ERROR",
-  UNSUPPORTED_PARTITION_CHARACTER_ERROR = "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BackfillErrorCode = {
+  ENCRYPTED_PARTITION_ERROR: "ENCRYPTED_PARTITION_ERROR",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_PARTITION_TYPE_DATA_ERROR: "INVALID_PARTITION_TYPE_DATA_ERROR",
+  MISSING_PARTITION_VALUE_ERROR: "MISSING_PARTITION_VALUE_ERROR",
+  UNSUPPORTED_PARTITION_CHARACTER_ERROR: "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
+} as const;
 
 /**
+ * @public
+ */
+export type BackfillErrorCode = (typeof BackfillErrorCode)[keyof typeof BackfillErrorCode];
+
+/**
+ * @public
  * <p>A list of errors that can occur when registering partition indexes for an existing table.</p>
  *          <p>These errors give the details about why an index registration failed and provide a limited number of partitions in the response, so that you can fix the partitions at fault and try registering the index again. The most common set of errors that can occur are categorized as follows:</p>
  *          <ul>
@@ -4353,14 +5174,24 @@ export interface BackfillError {
   Partitions?: PartitionValueList[];
 }
 
-export enum PartitionIndexStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PartitionIndexStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type PartitionIndexStatus = (typeof PartitionIndexStatus)[keyof typeof PartitionIndexStatus];
+
+/**
+ * @public
  * <p>A partition key pair consisting of a name and a type.</p>
  */
 export interface KeySchemaElement {
@@ -4376,6 +5207,7 @@ export interface KeySchemaElement {
 }
 
 /**
+ * @public
  * <p>A descriptor for a partition index in a table.</p>
  */
 export interface PartitionIndexDescriptor {
@@ -4415,6 +5247,9 @@ export interface PartitionIndexDescriptor {
   BackfillErrors?: BackfillError[];
 }
 
+/**
+ * @public
+ */
 export interface GetPartitionIndexesResponse {
   /**
    * <p>A list of index descriptors.</p>
@@ -4428,6 +5263,7 @@ export interface GetPartitionIndexesResponse {
 }
 
 /**
+ * @public
  * <p>Defines a non-overlapping region of a table's partitions, allowing
  *       multiple requests to be run in parallel.</p>
  */
@@ -4444,6 +5280,9 @@ export interface Segment {
   TotalSegments: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPartitionsRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside. If none is provided,
@@ -4602,6 +5441,9 @@ export interface GetPartitionsRequest {
   QueryAsOfTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetPartitionsResponse {
   /**
    * <p>A list of requested partitions.</p>
@@ -4615,6 +5457,9 @@ export interface GetPartitionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPlanRequest {
   /**
    * <p>The list of mappings from a source table to target tables.</p>
@@ -4649,7 +5494,7 @@ export interface GetPlanRequest {
    *                <p>
    *                   <code>inferSchema</code>  —  Specifies whether to set <code>inferSchema</code> to true or false for the default script generated by an Glue job. For example, to set <code>inferSchema</code> to true, pass the following key value pair:</p>
    *                <p>
-   *                   <code>--additional-plan-options-map '{"inferSchema":"true"}'</code>
+   *                   <code>--additional-plan-options-map '\{"inferSchema":"true"\}'</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -4657,6 +5502,9 @@ export interface GetPlanRequest {
   AdditionalPlanOptionsMap?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetPlanResponse {
   /**
    * <p>A Python script to perform the mapping.</p>
@@ -4669,6 +5517,9 @@ export interface GetPlanResponse {
   ScalaCode?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRegistryInput {
   /**
    * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
@@ -4676,6 +5527,9 @@ export interface GetRegistryInput {
   RegistryId: RegistryId | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRegistryResponse {
   /**
    * <p>The name of the registry.</p>
@@ -4708,6 +5562,9 @@ export interface GetRegistryResponse {
   UpdatedTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePoliciesRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -4721,6 +5578,7 @@ export interface GetResourcePoliciesRequest {
 }
 
 /**
+ * @public
  * <p>A structure for returning a resource policy.</p>
  */
 export interface GluePolicy {
@@ -4745,6 +5603,9 @@ export interface GluePolicy {
   UpdateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePoliciesResponse {
   /**
    * <p>A list of the individual resource policies and the account-level resource policy.</p>
@@ -4757,6 +5618,9 @@ export interface GetResourcePoliciesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyRequest {
   /**
    * <p>The ARN of the Glue resource for which to retrieve the resource policy. If not
@@ -4767,6 +5631,9 @@ export interface GetResourcePolicyRequest {
   ResourceArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyResponse {
   /**
    * <p>Contains the requested policy document, in JSON format.</p>
@@ -4789,6 +5656,9 @@ export interface GetResourcePolicyResponse {
   UpdateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
@@ -4804,6 +5674,9 @@ export interface GetSchemaInput {
   SchemaId: SchemaId | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaResponse {
   /**
    * <p>The name of the registry.</p>
@@ -4871,6 +5744,9 @@ export interface GetSchemaResponse {
   UpdatedTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaByDefinitionInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
@@ -4891,6 +5767,9 @@ export interface GetSchemaByDefinitionInput {
   SchemaDefinition: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaByDefinitionResponse {
   /**
    * <p>The schema ID of the schema version.</p>
@@ -4919,6 +5798,7 @@ export interface GetSchemaByDefinitionResponse {
 }
 
 /**
+ * @public
  * <p>A structure containing the schema version information.</p>
  */
 export interface SchemaVersionNumber {
@@ -4933,6 +5813,9 @@ export interface SchemaVersionNumber {
   VersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaVersionInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
@@ -4958,6 +5841,9 @@ export interface GetSchemaVersionInput {
   SchemaVersionNumber?: SchemaVersionNumber;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaVersionResponse {
   /**
    * <p>The <code>SchemaVersionId</code> of the schema version.</p>
@@ -4995,10 +5881,22 @@ export interface GetSchemaVersionResponse {
   CreatedTime?: string;
 }
 
-export enum SchemaDiffType {
-  SYNTAX_DIFF = "SYNTAX_DIFF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SchemaDiffType = {
+  SYNTAX_DIFF: "SYNTAX_DIFF",
+} as const;
 
+/**
+ * @public
+ */
+export type SchemaDiffType = (typeof SchemaDiffType)[keyof typeof SchemaDiffType];
+
+/**
+ * @public
+ */
 export interface GetSchemaVersionsDiffInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
@@ -5029,6 +5927,9 @@ export interface GetSchemaVersionsDiffInput {
   SchemaDiffType: SchemaDiffType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaVersionsDiffResponse {
   /**
    * <p>The difference between schemas as a string in JsonPatch format.</p>
@@ -5036,6 +5937,9 @@ export interface GetSchemaVersionsDiffResponse {
   Diff?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityConfigurationRequest {
   /**
    * <p>The name of the security configuration to retrieve.</p>
@@ -5044,6 +5948,7 @@ export interface GetSecurityConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a security configuration.</p>
  */
 export interface SecurityConfiguration {
@@ -5063,6 +5968,9 @@ export interface SecurityConfiguration {
   EncryptionConfiguration?: EncryptionConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityConfigurationResponse {
   /**
    * <p>The requested security configuration.</p>
@@ -5070,6 +5978,9 @@ export interface GetSecurityConfigurationResponse {
   SecurityConfiguration?: SecurityConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityConfigurationsRequest {
   /**
    * <p>The maximum number of results to return.</p>
@@ -5082,6 +5993,9 @@ export interface GetSecurityConfigurationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSecurityConfigurationsResponse {
   /**
    * <p>A list of security configurations.</p>
@@ -5095,6 +6009,9 @@ export interface GetSecurityConfigurationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionRequest {
   /**
    * <p>The ID of the session. </p>
@@ -5107,6 +6024,9 @@ export interface GetSessionRequest {
   RequestOrigin?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSessionResponse {
   /**
    * <p>The session object is returned in the response.</p>
@@ -5114,6 +6034,9 @@ export interface GetSessionResponse {
   Session?: Session;
 }
 
+/**
+ * @public
+ */
 export interface GetStatementRequest {
   /**
    * <p>The Session ID of the statement.</p>
@@ -5132,6 +6055,7 @@ export interface GetStatementRequest {
 }
 
 /**
+ * @public
  * <p>The code execution output in JSON format.</p>
  */
 export interface StatementOutputData {
@@ -5141,16 +6065,26 @@ export interface StatementOutputData {
   TextPlain?: string;
 }
 
-export enum StatementState {
-  AVAILABLE = "AVAILABLE",
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  ERROR = "ERROR",
-  RUNNING = "RUNNING",
-  WAITING = "WAITING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StatementState = {
+  AVAILABLE: "AVAILABLE",
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  ERROR: "ERROR",
+  RUNNING: "RUNNING",
+  WAITING: "WAITING",
+} as const;
 
 /**
+ * @public
+ */
+export type StatementState = (typeof StatementState)[keyof typeof StatementState];
+
+/**
+ * @public
  * <p>The code execution output in JSON format.</p>
  */
 export interface StatementOutput {
@@ -5186,6 +6120,7 @@ export interface StatementOutput {
 }
 
 /**
+ * @public
  * <p>The statement or request for a particular action to occur in a session.</p>
  */
 export interface Statement {
@@ -5225,6 +6160,9 @@ export interface Statement {
   CompletedOn?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetStatementResponse {
   /**
    * <p>Returns the statement.</p>
@@ -5232,6 +6170,9 @@ export interface GetStatementResponse {
   Statement?: Statement;
 }
 
+/**
+ * @public
+ */
 export interface GetTableRequest {
   /**
    * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
@@ -5263,6 +6204,28 @@ export interface GetTableRequest {
 }
 
 /**
+ * @public
+ * <p>A table that points to an entity outside the Glue Data Catalog.</p>
+ */
+export interface FederatedTable {
+  /**
+   * <p>A unique identifier for the federated table.</p>
+   */
+  Identifier?: string;
+
+  /**
+   * <p>A unique identifier for the federated database.</p>
+   */
+  DatabaseIdentifier?: string;
+
+  /**
+   * <p>The name of the connection to the external metastore.</p>
+   */
+  ConnectionName?: string;
+}
+
+/**
+ * @public
  * <p>Represents a collection of related data organized in columns and rows.</p>
  */
 export interface Table {
@@ -5392,8 +6355,16 @@ export interface Table {
    * <p>The ID of the table version.</p>
    */
   VersionId?: string;
+
+  /**
+   * <p>A <code>FederatedTable</code> structure that references an entity outside the Glue Data Catalog.</p>
+   */
+  FederatedTable?: FederatedTable;
 }
 
+/**
+ * @public
+ */
 export interface GetTableResponse {
   /**
    * <p>The <code>Table</code> object that defines the specified table.</p>
@@ -5401,6 +6372,9 @@ export interface GetTableResponse {
   Table?: Table;
 }
 
+/**
+ * @public
+ */
 export interface GetTablesRequest {
   /**
    * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
@@ -5441,6 +6415,9 @@ export interface GetTablesRequest {
   QueryAsOfTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetTablesResponse {
   /**
    * <p>A list of the requested <code>Table</code> objects.</p>
@@ -5454,6 +6431,9 @@ export interface GetTablesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTableVersionRequest {
   /**
    * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
@@ -5480,6 +6460,7 @@ export interface GetTableVersionRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a version of a table.</p>
  */
 export interface TableVersion {
@@ -5494,6 +6475,9 @@ export interface TableVersion {
   VersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTableVersionResponse {
   /**
    * <p>The requested table version.</p>
@@ -5501,6 +6485,9 @@ export interface GetTableVersionResponse {
   TableVersion?: TableVersion;
 }
 
+/**
+ * @public
+ */
 export interface GetTableVersionsRequest {
   /**
    * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
@@ -5531,6 +6518,9 @@ export interface GetTableVersionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetTableVersionsResponse {
   /**
    * <p>A list of strings identifying available versions of the
@@ -5545,6 +6535,9 @@ export interface GetTableVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTagsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which to retrieve tags.</p>
@@ -5552,6 +6545,9 @@ export interface GetTagsRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTagsResponse {
   /**
    * <p>The requested tags.</p>
@@ -5559,6 +6555,9 @@ export interface GetTagsResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetTriggerRequest {
   /**
    * <p>The name of the trigger to retrieve.</p>
@@ -5566,6 +6565,9 @@ export interface GetTriggerRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTriggerResponse {
   /**
    * <p>The requested trigger definition.</p>
@@ -5573,6 +6575,9 @@ export interface GetTriggerResponse {
   Trigger?: Trigger;
 }
 
+/**
+ * @public
+ */
 export interface GetTriggersRequest {
   /**
    * <p>A continuation token, if this is a continuation call.</p>
@@ -5591,6 +6596,9 @@ export interface GetTriggersRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetTriggersResponse {
   /**
    * <p>A list of triggers for the specified job.</p>
@@ -5604,11 +6612,23 @@ export interface GetTriggersResponse {
   NextToken?: string;
 }
 
-export enum PermissionType {
-  CELL_FILTER_PERMISSION = "CELL_FILTER_PERMISSION",
-  COLUMN_PERMISSION = "COLUMN_PERMISSION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PermissionType = {
+  CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
+  COLUMN_PERMISSION: "COLUMN_PERMISSION",
+} as const;
 
+/**
+ * @public
+ */
+export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
+
+/**
+ * @public
+ */
 export interface GetUnfilteredPartitionMetadataRequest {
   /**
    * <p>The catalog ID where the partition resides.</p>
@@ -5641,6 +6661,9 @@ export interface GetUnfilteredPartitionMetadataRequest {
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetUnfilteredPartitionMetadataResponse {
   /**
    * <p>A Partition object containing the partition metadata.</p>
@@ -5659,9 +6682,17 @@ export interface GetUnfilteredPartitionMetadataResponse {
   IsRegisteredWithLakeFormation?: boolean;
 }
 
+/**
+ * @public
+ * <p>The operation timed out.</p>
+ */
 export class PermissionTypeMismatchException extends __BaseException {
   readonly name: "PermissionTypeMismatchException" = "PermissionTypeMismatchException";
   readonly $fault: "client" = "client";
+  /**
+   * <p>There is a mismatch between the SupportedPermissionType used in the query request
+   *           and the permissions defined on the target table.</p>
+   */
   Message?: string;
   /**
    * @internal
@@ -5677,6 +6708,9 @@ export class PermissionTypeMismatchException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetUnfilteredPartitionsMetadataRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside. If none is provided,
@@ -5826,6 +6860,7 @@ export interface GetUnfilteredPartitionsMetadataRequest {
 }
 
 /**
+ * @public
  * <p>A partition that contains unfiltered metadata.</p>
  */
 export interface UnfilteredPartition {
@@ -5845,6 +6880,9 @@ export interface UnfilteredPartition {
   IsRegisteredWithLakeFormation?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetUnfilteredPartitionsMetadataResponse {
   /**
    * <p>A list of requested partitions.</p>
@@ -5858,6 +6896,9 @@ export interface GetUnfilteredPartitionsMetadataResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetUnfilteredTableMetadataRequest {
   /**
    * <p>The catalog ID where the table resides.</p>
@@ -5886,6 +6927,7 @@ export interface GetUnfilteredTableMetadataRequest {
 }
 
 /**
+ * @public
  * <p>A filter that uses both column-level and row-level filtering.</p>
  */
 export interface ColumnRowFilter {
@@ -5900,6 +6942,9 @@ export interface ColumnRowFilter {
   RowFilterExpression?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetUnfilteredTableMetadataResponse {
   /**
    * <p>A Table object containing the table metadata.</p>
@@ -5923,6 +6968,9 @@ export interface GetUnfilteredTableMetadataResponse {
   CellFilters?: ColumnRowFilter[];
 }
 
+/**
+ * @public
+ */
 export interface GetUserDefinedFunctionRequest {
   /**
    * <p>The ID of the Data Catalog where the function to be retrieved is located. If none is
@@ -5942,6 +6990,7 @@ export interface GetUserDefinedFunctionRequest {
 }
 
 /**
+ * @public
  * <p>Represents the equivalent of a Hive user-defined function
  *       (<code>UDF</code>) definition.</p>
  */
@@ -5987,6 +7036,9 @@ export interface UserDefinedFunction {
   CatalogId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetUserDefinedFunctionResponse {
   /**
    * <p>The requested function definition.</p>
@@ -5994,6 +7046,9 @@ export interface GetUserDefinedFunctionResponse {
   UserDefinedFunction?: UserDefinedFunction;
 }
 
+/**
+ * @public
+ */
 export interface GetUserDefinedFunctionsRequest {
   /**
    * <p>The ID of the Data Catalog where the functions to be retrieved are located. If none is
@@ -6024,6 +7079,9 @@ export interface GetUserDefinedFunctionsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetUserDefinedFunctionsResponse {
   /**
    * <p>A list of requested function definitions.</p>
@@ -6037,6 +7095,9 @@ export interface GetUserDefinedFunctionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowRequest {
   /**
    * <p>The name of the workflow to retrieve.</p>
@@ -6049,6 +7110,9 @@ export interface GetWorkflowRequest {
   IncludeGraph?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowResponse {
   /**
    * <p>The resource metadata for the workflow.</p>
@@ -6056,6 +7120,9 @@ export interface GetWorkflowResponse {
   Workflow?: Workflow;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowRunRequest {
   /**
    * <p>Name of the workflow being run.</p>
@@ -6073,2010 +7140,12 @@ export interface GetWorkflowRunRequest {
   IncludeGraph?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowRunResponse {
   /**
    * <p>The requested workflow run metadata.</p>
    */
   Run?: WorkflowRun;
 }
-
-export interface GetWorkflowRunPropertiesRequest {
-  /**
-   * <p>Name of the workflow which was run.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the workflow run whose run properties should be returned.</p>
-   */
-  RunId: string | undefined;
-}
-
-export interface GetWorkflowRunPropertiesResponse {
-  /**
-   * <p>The workflow run properties which were set during the specified run.</p>
-   */
-  RunProperties?: Record<string, string>;
-}
-
-export interface GetWorkflowRunsRequest {
-  /**
-   * <p>Name of the workflow whose metadata of runs should be returned.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Specifies whether to include the workflow graph in response or not.</p>
-   */
-  IncludeGraph?: boolean;
-
-  /**
-   * <p>The maximum size of the response.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of workflow runs to be included in the response.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface GetWorkflowRunsResponse {
-  /**
-   * <p>A list of workflow run metadata objects.</p>
-   */
-  Runs?: WorkflowRun[];
-
-  /**
-   * <p>A continuation token, if not all requested workflow runs have been returned.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ImportCatalogToGlueRequest {
-  /**
-   * <p>The ID of the catalog to import. Currently, this should be the Amazon Web Services account ID.</p>
-   */
-  CatalogId?: string;
-}
-
-export interface ImportCatalogToGlueResponse {}
-
-/**
- * @internal
- */
-export const CreateSchemaResponseFilterSensitiveLog = (obj: CreateSchemaResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeGenEdgeFilterSensitiveLog = (obj: CodeGenEdge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeGenNodeArgFilterSensitiveLog = (obj: CodeGenNodeArg): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeGenNodeFilterSensitiveLog = (obj: CodeGenNode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScriptRequestFilterSensitiveLog = (obj: CreateScriptRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScriptResponseFilterSensitiveLog = (obj: CreateScriptResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchEncryptionFilterSensitiveLog = (obj: CloudWatchEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobBookmarksEncryptionFilterSensitiveLog = (obj: JobBookmarksEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3EncryptionFilterSensitiveLog = (obj: S3Encryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityConfigurationRequestFilterSensitiveLog = (obj: CreateSecurityConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSecurityConfigurationResponseFilterSensitiveLog = (
-  obj: CreateSecurityConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SessionCommandFilterSensitiveLog = (obj: SessionCommand): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSessionRequestFilterSensitiveLog = (obj: CreateSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SessionFilterSensitiveLog = (obj: Session): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSessionResponseFilterSensitiveLog = (obj: CreateSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableIdentifierFilterSensitiveLog = (obj: TableIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableInputFilterSensitiveLog = (obj: TableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTableRequestFilterSensitiveLog = (obj: CreateTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTableResponseFilterSensitiveLog = (obj: CreateTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTriggerRequestFilterSensitiveLog = (obj: CreateTriggerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTriggerResponseFilterSensitiveLog = (obj: CreateTriggerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceUriFilterSensitiveLog = (obj: ResourceUri): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserDefinedFunctionInputFilterSensitiveLog = (obj: UserDefinedFunctionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserDefinedFunctionRequestFilterSensitiveLog = (obj: CreateUserDefinedFunctionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserDefinedFunctionResponseFilterSensitiveLog = (obj: CreateUserDefinedFunctionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkflowRequestFilterSensitiveLog = (obj: CreateWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkflowResponseFilterSensitiveLog = (obj: CreateWorkflowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBlueprintRequestFilterSensitiveLog = (obj: DeleteBlueprintRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBlueprintResponseFilterSensitiveLog = (obj: DeleteBlueprintResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClassifierRequestFilterSensitiveLog = (obj: DeleteClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClassifierResponseFilterSensitiveLog = (obj: DeleteClassifierResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteColumnStatisticsForPartitionRequestFilterSensitiveLog = (
-  obj: DeleteColumnStatisticsForPartitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteColumnStatisticsForPartitionResponseFilterSensitiveLog = (
-  obj: DeleteColumnStatisticsForPartitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteColumnStatisticsForTableRequestFilterSensitiveLog = (
-  obj: DeleteColumnStatisticsForTableRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteColumnStatisticsForTableResponseFilterSensitiveLog = (
-  obj: DeleteColumnStatisticsForTableResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectionRequestFilterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectionResponseFilterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCrawlerRequestFilterSensitiveLog = (obj: DeleteCrawlerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCrawlerResponseFilterSensitiveLog = (obj: DeleteCrawlerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomEntityTypeRequestFilterSensitiveLog = (obj: DeleteCustomEntityTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomEntityTypeResponseFilterSensitiveLog = (obj: DeleteCustomEntityTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatabaseRequestFilterSensitiveLog = (obj: DeleteDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatabaseResponseFilterSensitiveLog = (obj: DeleteDatabaseResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataQualityRulesetRequestFilterSensitiveLog = (obj: DeleteDataQualityRulesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataQualityRulesetResponseFilterSensitiveLog = (obj: DeleteDataQualityRulesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDevEndpointRequestFilterSensitiveLog = (obj: DeleteDevEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDevEndpointResponseFilterSensitiveLog = (obj: DeleteDevEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobRequestFilterSensitiveLog = (obj: DeleteJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobResponseFilterSensitiveLog = (obj: DeleteJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMLTransformRequestFilterSensitiveLog = (obj: DeleteMLTransformRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMLTransformResponseFilterSensitiveLog = (obj: DeleteMLTransformResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePartitionRequestFilterSensitiveLog = (obj: DeletePartitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePartitionResponseFilterSensitiveLog = (obj: DeletePartitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePartitionIndexRequestFilterSensitiveLog = (obj: DeletePartitionIndexRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePartitionIndexResponseFilterSensitiveLog = (obj: DeletePartitionIndexResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRegistryInputFilterSensitiveLog = (obj: DeleteRegistryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRegistryResponseFilterSensitiveLog = (obj: DeleteRegistryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSchemaInputFilterSensitiveLog = (obj: DeleteSchemaInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSchemaResponseFilterSensitiveLog = (obj: DeleteSchemaResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSchemaVersionsInputFilterSensitiveLog = (obj: DeleteSchemaVersionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorDetailsFilterSensitiveLog = (obj: ErrorDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaVersionErrorItemFilterSensitiveLog = (obj: SchemaVersionErrorItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSchemaVersionsResponseFilterSensitiveLog = (obj: DeleteSchemaVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSecurityConfigurationRequestFilterSensitiveLog = (obj: DeleteSecurityConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSecurityConfigurationResponseFilterSensitiveLog = (
-  obj: DeleteSecurityConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSessionRequestFilterSensitiveLog = (obj: DeleteSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSessionResponseFilterSensitiveLog = (obj: DeleteSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTableRequestFilterSensitiveLog = (obj: DeleteTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTableResponseFilterSensitiveLog = (obj: DeleteTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTableVersionRequestFilterSensitiveLog = (obj: DeleteTableVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTableVersionResponseFilterSensitiveLog = (obj: DeleteTableVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTriggerRequestFilterSensitiveLog = (obj: DeleteTriggerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTriggerResponseFilterSensitiveLog = (obj: DeleteTriggerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserDefinedFunctionRequestFilterSensitiveLog = (obj: DeleteUserDefinedFunctionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserDefinedFunctionResponseFilterSensitiveLog = (obj: DeleteUserDefinedFunctionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkflowRequestFilterSensitiveLog = (obj: DeleteWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkflowResponseFilterSensitiveLog = (obj: DeleteWorkflowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBlueprintRequestFilterSensitiveLog = (obj: GetBlueprintRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBlueprintResponseFilterSensitiveLog = (obj: GetBlueprintResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBlueprintRunRequestFilterSensitiveLog = (obj: GetBlueprintRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlueprintRunFilterSensitiveLog = (obj: BlueprintRun): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBlueprintRunResponseFilterSensitiveLog = (obj: GetBlueprintRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBlueprintRunsRequestFilterSensitiveLog = (obj: GetBlueprintRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBlueprintRunsResponseFilterSensitiveLog = (obj: GetBlueprintRunsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCatalogImportStatusRequestFilterSensitiveLog = (obj: GetCatalogImportStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CatalogImportStatusFilterSensitiveLog = (obj: CatalogImportStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCatalogImportStatusResponseFilterSensitiveLog = (obj: GetCatalogImportStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetClassifierRequestFilterSensitiveLog = (obj: GetClassifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CsvClassifierFilterSensitiveLog = (obj: CsvClassifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrokClassifierFilterSensitiveLog = (obj: GrokClassifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JsonClassifierFilterSensitiveLog = (obj: JsonClassifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const XMLClassifierFilterSensitiveLog = (obj: XMLClassifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClassifierFilterSensitiveLog = (obj: Classifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetClassifierResponseFilterSensitiveLog = (obj: GetClassifierResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetClassifiersRequestFilterSensitiveLog = (obj: GetClassifiersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetClassifiersResponseFilterSensitiveLog = (obj: GetClassifiersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetColumnStatisticsForPartitionRequestFilterSensitiveLog = (
-  obj: GetColumnStatisticsForPartitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BinaryColumnStatisticsDataFilterSensitiveLog = (obj: BinaryColumnStatisticsData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BooleanColumnStatisticsDataFilterSensitiveLog = (obj: BooleanColumnStatisticsData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DateColumnStatisticsDataFilterSensitiveLog = (obj: DateColumnStatisticsData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DecimalNumberFilterSensitiveLog = (obj: DecimalNumber): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DecimalColumnStatisticsDataFilterSensitiveLog = (obj: DecimalColumnStatisticsData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DoubleColumnStatisticsDataFilterSensitiveLog = (obj: DoubleColumnStatisticsData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LongColumnStatisticsDataFilterSensitiveLog = (obj: LongColumnStatisticsData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StringColumnStatisticsDataFilterSensitiveLog = (obj: StringColumnStatisticsData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnStatisticsDataFilterSensitiveLog = (obj: ColumnStatisticsData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnStatisticsFilterSensitiveLog = (obj: ColumnStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnErrorFilterSensitiveLog = (obj: ColumnError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetColumnStatisticsForPartitionResponseFilterSensitiveLog = (
-  obj: GetColumnStatisticsForPartitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetColumnStatisticsForTableRequestFilterSensitiveLog = (obj: GetColumnStatisticsForTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetColumnStatisticsForTableResponseFilterSensitiveLog = (
-  obj: GetColumnStatisticsForTableResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectionRequestFilterSensitiveLog = (obj: GetConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionFilterSensitiveLog = (obj: Connection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectionResponseFilterSensitiveLog = (obj: GetConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectionsFilterFilterSensitiveLog = (obj: GetConnectionsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectionsRequestFilterSensitiveLog = (obj: GetConnectionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectionsResponseFilterSensitiveLog = (obj: GetConnectionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCrawlerRequestFilterSensitiveLog = (obj: GetCrawlerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCrawlerResponseFilterSensitiveLog = (obj: GetCrawlerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCrawlerMetricsRequestFilterSensitiveLog = (obj: GetCrawlerMetricsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrawlerMetricsFilterSensitiveLog = (obj: CrawlerMetrics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCrawlerMetricsResponseFilterSensitiveLog = (obj: GetCrawlerMetricsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCrawlersRequestFilterSensitiveLog = (obj: GetCrawlersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCrawlersResponseFilterSensitiveLog = (obj: GetCrawlersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCustomEntityTypeRequestFilterSensitiveLog = (obj: GetCustomEntityTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCustomEntityTypeResponseFilterSensitiveLog = (obj: GetCustomEntityTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatabaseRequestFilterSensitiveLog = (obj: GetDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseFilterSensitiveLog = (obj: Database): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatabaseResponseFilterSensitiveLog = (obj: GetDatabaseResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatabasesRequestFilterSensitiveLog = (obj: GetDatabasesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatabasesResponseFilterSensitiveLog = (obj: GetDatabasesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataCatalogEncryptionSettingsRequestFilterSensitiveLog = (
-  obj: GetDataCatalogEncryptionSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionPasswordEncryptionFilterSensitiveLog = (obj: ConnectionPasswordEncryption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionAtRestFilterSensitiveLog = (obj: EncryptionAtRest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataCatalogEncryptionSettingsFilterSensitiveLog = (obj: DataCatalogEncryptionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataCatalogEncryptionSettingsResponseFilterSensitiveLog = (
-  obj: GetDataCatalogEncryptionSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataflowGraphRequestFilterSensitiveLog = (obj: GetDataflowGraphRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataflowGraphResponseFilterSensitiveLog = (obj: GetDataflowGraphResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataQualityResultRequestFilterSensitiveLog = (obj: GetDataQualityResultRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataQualityResultResponseFilterSensitiveLog = (obj: GetDataQualityResultResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataQualityRuleRecommendationRunRequestFilterSensitiveLog = (
-  obj: GetDataQualityRuleRecommendationRunRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataQualityRuleRecommendationRunResponseFilterSensitiveLog = (
-  obj: GetDataQualityRuleRecommendationRunResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataQualityRulesetRequestFilterSensitiveLog = (obj: GetDataQualityRulesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataQualityRulesetResponseFilterSensitiveLog = (obj: GetDataQualityRulesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataQualityRulesetEvaluationRunRequestFilterSensitiveLog = (
-  obj: GetDataQualityRulesetEvaluationRunRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataQualityEvaluationRunAdditionalRunOptionsFilterSensitiveLog = (
-  obj: DataQualityEvaluationRunAdditionalRunOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataQualityRulesetEvaluationRunResponseFilterSensitiveLog = (
-  obj: GetDataQualityRulesetEvaluationRunResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDevEndpointRequestFilterSensitiveLog = (obj: GetDevEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDevEndpointResponseFilterSensitiveLog = (obj: GetDevEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDevEndpointsRequestFilterSensitiveLog = (obj: GetDevEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDevEndpointsResponseFilterSensitiveLog = (obj: GetDevEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobRequestFilterSensitiveLog = (obj: GetJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobBookmarkRequestFilterSensitiveLog = (obj: GetJobBookmarkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobBookmarkEntryFilterSensitiveLog = (obj: JobBookmarkEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobBookmarkResponseFilterSensitiveLog = (obj: GetJobBookmarkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobRunRequestFilterSensitiveLog = (obj: GetJobRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobRunResponseFilterSensitiveLog = (obj: GetJobRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobRunsRequestFilterSensitiveLog = (obj: GetJobRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobRunsResponseFilterSensitiveLog = (obj: GetJobRunsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobsRequestFilterSensitiveLog = (obj: GetJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationFilterSensitiveLog = (obj: Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CatalogEntryFilterSensitiveLog = (obj: CatalogEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMappingRequestFilterSensitiveLog = (obj: GetMappingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MappingEntryFilterSensitiveLog = (obj: MappingEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMappingResponseFilterSensitiveLog = (obj: GetMappingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMLTaskRunRequestFilterSensitiveLog = (obj: GetMLTaskRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportLabelsTaskRunPropertiesFilterSensitiveLog = (obj: ExportLabelsTaskRunProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindMatchesTaskRunPropertiesFilterSensitiveLog = (obj: FindMatchesTaskRunProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportLabelsTaskRunPropertiesFilterSensitiveLog = (obj: ImportLabelsTaskRunProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LabelingSetGenerationTaskRunPropertiesFilterSensitiveLog = (
-  obj: LabelingSetGenerationTaskRunProperties
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskRunPropertiesFilterSensitiveLog = (obj: TaskRunProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMLTaskRunResponseFilterSensitiveLog = (obj: GetMLTaskRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskRunFilterCriteriaFilterSensitiveLog = (obj: TaskRunFilterCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskRunSortCriteriaFilterSensitiveLog = (obj: TaskRunSortCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMLTaskRunsRequestFilterSensitiveLog = (obj: GetMLTaskRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TaskRunFilterSensitiveLog = (obj: TaskRun): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMLTaskRunsResponseFilterSensitiveLog = (obj: GetMLTaskRunsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMLTransformRequestFilterSensitiveLog = (obj: GetMLTransformRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnImportanceFilterSensitiveLog = (obj: ColumnImportance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfusionMatrixFilterSensitiveLog = (obj: ConfusionMatrix): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindMatchesMetricsFilterSensitiveLog = (obj: FindMatchesMetrics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EvaluationMetricsFilterSensitiveLog = (obj: EvaluationMetrics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaColumnFilterSensitiveLog = (obj: SchemaColumn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMLTransformResponseFilterSensitiveLog = (obj: GetMLTransformResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformFilterCriteriaFilterSensitiveLog = (obj: TransformFilterCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransformSortCriteriaFilterSensitiveLog = (obj: TransformSortCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMLTransformsRequestFilterSensitiveLog = (obj: GetMLTransformsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MLTransformFilterSensitiveLog = (obj: MLTransform): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMLTransformsResponseFilterSensitiveLog = (obj: GetMLTransformsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPartitionRequestFilterSensitiveLog = (obj: GetPartitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPartitionResponseFilterSensitiveLog = (obj: GetPartitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPartitionIndexesRequestFilterSensitiveLog = (obj: GetPartitionIndexesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackfillErrorFilterSensitiveLog = (obj: BackfillError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeySchemaElementFilterSensitiveLog = (obj: KeySchemaElement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartitionIndexDescriptorFilterSensitiveLog = (obj: PartitionIndexDescriptor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPartitionIndexesResponseFilterSensitiveLog = (obj: GetPartitionIndexesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentFilterSensitiveLog = (obj: Segment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPartitionsRequestFilterSensitiveLog = (obj: GetPartitionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPartitionsResponseFilterSensitiveLog = (obj: GetPartitionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPlanRequestFilterSensitiveLog = (obj: GetPlanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPlanResponseFilterSensitiveLog = (obj: GetPlanResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegistryInputFilterSensitiveLog = (obj: GetRegistryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegistryResponseFilterSensitiveLog = (obj: GetRegistryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePoliciesRequestFilterSensitiveLog = (obj: GetResourcePoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GluePolicyFilterSensitiveLog = (obj: GluePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePoliciesResponseFilterSensitiveLog = (obj: GetResourcePoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePolicyRequestFilterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePolicyResponseFilterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaInputFilterSensitiveLog = (obj: GetSchemaInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaResponseFilterSensitiveLog = (obj: GetSchemaResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaByDefinitionInputFilterSensitiveLog = (obj: GetSchemaByDefinitionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaByDefinitionResponseFilterSensitiveLog = (obj: GetSchemaByDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaVersionNumberFilterSensitiveLog = (obj: SchemaVersionNumber): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaVersionInputFilterSensitiveLog = (obj: GetSchemaVersionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaVersionResponseFilterSensitiveLog = (obj: GetSchemaVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaVersionsDiffInputFilterSensitiveLog = (obj: GetSchemaVersionsDiffInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaVersionsDiffResponseFilterSensitiveLog = (obj: GetSchemaVersionsDiffResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSecurityConfigurationRequestFilterSensitiveLog = (obj: GetSecurityConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityConfigurationFilterSensitiveLog = (obj: SecurityConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSecurityConfigurationResponseFilterSensitiveLog = (obj: GetSecurityConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSecurityConfigurationsRequestFilterSensitiveLog = (obj: GetSecurityConfigurationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSecurityConfigurationsResponseFilterSensitiveLog = (obj: GetSecurityConfigurationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSessionRequestFilterSensitiveLog = (obj: GetSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSessionResponseFilterSensitiveLog = (obj: GetSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStatementRequestFilterSensitiveLog = (obj: GetStatementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatementOutputDataFilterSensitiveLog = (obj: StatementOutputData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatementOutputFilterSensitiveLog = (obj: StatementOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatementFilterSensitiveLog = (obj: Statement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStatementResponseFilterSensitiveLog = (obj: GetStatementResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTableRequestFilterSensitiveLog = (obj: GetTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFilterSensitiveLog = (obj: Table): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTableResponseFilterSensitiveLog = (obj: GetTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTablesRequestFilterSensitiveLog = (obj: GetTablesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTablesResponseFilterSensitiveLog = (obj: GetTablesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTableVersionRequestFilterSensitiveLog = (obj: GetTableVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableVersionFilterSensitiveLog = (obj: TableVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTableVersionResponseFilterSensitiveLog = (obj: GetTableVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTableVersionsRequestFilterSensitiveLog = (obj: GetTableVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTableVersionsResponseFilterSensitiveLog = (obj: GetTableVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTagsRequestFilterSensitiveLog = (obj: GetTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTagsResponseFilterSensitiveLog = (obj: GetTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTriggerRequestFilterSensitiveLog = (obj: GetTriggerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTriggerResponseFilterSensitiveLog = (obj: GetTriggerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTriggersRequestFilterSensitiveLog = (obj: GetTriggersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTriggersResponseFilterSensitiveLog = (obj: GetTriggersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUnfilteredPartitionMetadataRequestFilterSensitiveLog = (
-  obj: GetUnfilteredPartitionMetadataRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUnfilteredPartitionMetadataResponseFilterSensitiveLog = (
-  obj: GetUnfilteredPartitionMetadataResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUnfilteredPartitionsMetadataRequestFilterSensitiveLog = (
-  obj: GetUnfilteredPartitionsMetadataRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnfilteredPartitionFilterSensitiveLog = (obj: UnfilteredPartition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUnfilteredPartitionsMetadataResponseFilterSensitiveLog = (
-  obj: GetUnfilteredPartitionsMetadataResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUnfilteredTableMetadataRequestFilterSensitiveLog = (obj: GetUnfilteredTableMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnRowFilterFilterSensitiveLog = (obj: ColumnRowFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUnfilteredTableMetadataResponseFilterSensitiveLog = (obj: GetUnfilteredTableMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserDefinedFunctionRequestFilterSensitiveLog = (obj: GetUserDefinedFunctionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserDefinedFunctionFilterSensitiveLog = (obj: UserDefinedFunction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserDefinedFunctionResponseFilterSensitiveLog = (obj: GetUserDefinedFunctionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserDefinedFunctionsRequestFilterSensitiveLog = (obj: GetUserDefinedFunctionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserDefinedFunctionsResponseFilterSensitiveLog = (obj: GetUserDefinedFunctionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowRequestFilterSensitiveLog = (obj: GetWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowResponseFilterSensitiveLog = (obj: GetWorkflowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowRunRequestFilterSensitiveLog = (obj: GetWorkflowRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowRunResponseFilterSensitiveLog = (obj: GetWorkflowRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowRunPropertiesRequestFilterSensitiveLog = (obj: GetWorkflowRunPropertiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowRunPropertiesResponseFilterSensitiveLog = (obj: GetWorkflowRunPropertiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowRunsRequestFilterSensitiveLog = (obj: GetWorkflowRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowRunsResponseFilterSensitiveLog = (obj: GetWorkflowRunsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportCatalogToGlueRequestFilterSensitiveLog = (obj: ImportCatalogToGlueRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportCatalogToGlueResponseFilterSensitiveLog = (obj: ImportCatalogToGlueResponse): any => ({
-  ...obj,
-});

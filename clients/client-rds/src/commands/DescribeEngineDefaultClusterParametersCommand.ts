@@ -15,22 +15,24 @@ import {
 
 import {
   DescribeEngineDefaultClusterParametersMessage,
-  DescribeEngineDefaultClusterParametersMessageFilterSensitiveLog,
   DescribeEngineDefaultClusterParametersResult,
-  DescribeEngineDefaultClusterParametersResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_queryDescribeEngineDefaultClusterParametersCommand,
-  serializeAws_queryDescribeEngineDefaultClusterParametersCommand,
+  de_DescribeEngineDefaultClusterParametersCommand,
+  se_DescribeEngineDefaultClusterParametersCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEngineDefaultClusterParametersCommand}.
  */
 export interface DescribeEngineDefaultClusterParametersCommandInput
   extends DescribeEngineDefaultClusterParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEngineDefaultClusterParametersCommand}.
  */
 export interface DescribeEngineDefaultClusterParametersCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the default engine and system parameter information for the cluster database engine.</p>
  *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -48,29 +51,58 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * import { RDSClient, DescribeEngineDefaultClusterParametersCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeEngineDefaultClusterParametersCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeEngineDefaultClusterParametersMessage
+ *   DBParameterGroupFamily: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEngineDefaultClusterParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEngineDefaultClusterParametersCommandInput - {@link DescribeEngineDefaultClusterParametersCommandInput}
+ * @returns {@link DescribeEngineDefaultClusterParametersCommandOutput}
  * @see {@link DescribeEngineDefaultClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineDefaultClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  *
- * @example To list default parameters for a DB cluster engine
+ * @example To describe the default engine and system parameter information for the Aurora database engine
  * ```javascript
- * // This example lists default parameters for the specified DB cluster engine.
+ * // The following example retrieves the details of the default engine and system parameter information for Aurora DB clusters with MySQL 5.7 compatibility.
  * const input = {
- *   "DBParameterGroupFamily": "aurora5.6"
+ *   "DBParameterGroupFamily": "aurora-mysql5.7"
  * };
  * const command = new DescribeEngineDefaultClusterParametersCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "EngineDefaults": {}
+ *   "EngineDefaults": {
+ *     "Parameters": [
+ *       {
+ *         "ApplyType": "dynamic",
+ *         "DataType": "string",
+ *         "Description": "IAM role ARN used to load data from AWS S3",
+ *         "IsModifiable": true,
+ *         "ParameterName": "aurora_load_from_s3_role",
+ *         "Source": "engine-default",
+ *         "SupportedEngineModes": [
+ *           "provisioned"
+ *         ]
+ *       }
+ *     ]
+ *   }
  * }
  * *\/
- * // example id: describe-engine-default-cluster-parameters-f130374a-7bee-434b-b51d-da20b6e000e0
+ * // example id: to-describe-the-default-engine-and-system-parameter-information-for-the-aurora-database-engine-1680280902332
  * ```
  *
  */
@@ -91,6 +123,9 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEngineDefaultClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +154,8 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEngineDefaultClusterParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEngineDefaultClusterParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +165,24 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEngineDefaultClusterParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEngineDefaultClusterParametersCommand(input, context);
+    return se_DescribeEngineDefaultClusterParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeEngineDefaultClusterParametersCommand(output, context);
+    return de_DescribeEngineDefaultClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { ApplyEnvironmentManagedActionRequest, ApplyEnvironmentManagedActionResult } from "../models/models_0";
 import {
-  ApplyEnvironmentManagedActionRequest,
-  ApplyEnvironmentManagedActionRequestFilterSensitiveLog,
-  ApplyEnvironmentManagedActionResult,
-  ApplyEnvironmentManagedActionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryApplyEnvironmentManagedActionCommand,
-  serializeAws_queryApplyEnvironmentManagedActionCommand,
+  de_ApplyEnvironmentManagedActionCommand,
+  se_ApplyEnvironmentManagedActionCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ApplyEnvironmentManagedActionCommand}.
  */
 export interface ApplyEnvironmentManagedActionCommandInput extends ApplyEnvironmentManagedActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ApplyEnvironmentManagedActionCommand}.
  */
 export interface ApplyEnvironmentManagedActionCommandOutput
@@ -37,6 +36,7 @@ export interface ApplyEnvironmentManagedActionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a scheduled managed action immediately. A managed action can be applied only if
  *       its status is <code>Scheduled</code>. Get the status and action ID of a managed action with
  *         <a>DescribeEnvironmentManagedActions</a>.</p>
@@ -46,10 +46,17 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  * import { ElasticBeanstalkClient, ApplyEnvironmentManagedActionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ApplyEnvironmentManagedActionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // ApplyEnvironmentManagedActionRequest
+ *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   ActionId: "STRING_VALUE", // required
+ * };
  * const command = new ApplyEnvironmentManagedActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ApplyEnvironmentManagedActionCommandInput - {@link ApplyEnvironmentManagedActionCommandInput}
+ * @returns {@link ApplyEnvironmentManagedActionCommandOutput}
  * @see {@link ApplyEnvironmentManagedActionCommandInput} for command's `input` shape.
  * @see {@link ApplyEnvironmentManagedActionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -79,6 +86,9 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApplyEnvironmentManagedActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +117,8 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApplyEnvironmentManagedActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplyEnvironmentManagedActionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +128,21 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApplyEnvironmentManagedActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryApplyEnvironmentManagedActionCommand(input, context);
+    return se_ApplyEnvironmentManagedActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplyEnvironmentManagedActionCommandOutput> {
-    return deserializeAws_queryApplyEnvironmentManagedActionCommand(output, context);
+    return de_ApplyEnvironmentManagedActionCommand(output, context);
   }
 
   // Start section: command_body_extra

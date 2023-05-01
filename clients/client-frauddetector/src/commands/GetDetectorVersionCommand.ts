@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetDetectorVersionRequest,
-  GetDetectorVersionRequestFilterSensitiveLog,
-  GetDetectorVersionResult,
-  GetDetectorVersionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDetectorVersionCommand,
-  serializeAws_json1_1GetDetectorVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDetectorVersionRequest, GetDetectorVersionResult } from "../models/models_0";
+import { de_GetDetectorVersionCommand, se_GetDetectorVersionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDetectorVersionCommand}.
  */
 export interface GetDetectorVersionCommandInput extends GetDetectorVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDetectorVersionCommand}.
  */
 export interface GetDetectorVersionCommandOutput extends GetDetectorVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a particular detector version. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetDetectorVersionCommandOutput extends GetDetectorVersionResul
  * import { FraudDetectorClient, GetDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetDetectorVersionRequest
+ *   detectorId: "STRING_VALUE", // required
+ *   detectorVersionId: "STRING_VALUE", // required
+ * };
  * const command = new GetDetectorVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDetectorVersionCommandInput - {@link GetDetectorVersionCommandInput}
+ * @returns {@link GetDetectorVersionCommandOutput}
  * @see {@link GetDetectorVersionCommandInput} for command's `input` shape.
  * @see {@link GetDetectorVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetDetectorVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDetectorVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetDetectorVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDetectorVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDetectorVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetDetectorVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDetectorVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDetectorVersionCommand(input, context);
+    return se_GetDetectorVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDetectorVersionCommandOutput> {
-    return deserializeAws_json1_1GetDetectorVersionCommand(output, context);
+    return de_GetDetectorVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

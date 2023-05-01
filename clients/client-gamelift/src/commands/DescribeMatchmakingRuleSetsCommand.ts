@@ -14,37 +14,34 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeMatchmakingRuleSetsInput,
-  DescribeMatchmakingRuleSetsInputFilterSensitiveLog,
-  DescribeMatchmakingRuleSetsOutput,
-  DescribeMatchmakingRuleSetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMatchmakingRuleSetsCommand,
-  serializeAws_json1_1DescribeMatchmakingRuleSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeMatchmakingRuleSetsInput, DescribeMatchmakingRuleSetsOutput } from "../models/models_0";
+import { de_DescribeMatchmakingRuleSetsCommand, se_DescribeMatchmakingRuleSetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMatchmakingRuleSetsCommand}.
  */
 export interface DescribeMatchmakingRuleSetsCommandInput extends DescribeMatchmakingRuleSetsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMatchmakingRuleSetsCommand}.
  */
 export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchmakingRuleSetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details for FlexMatch matchmaking rule sets. You can request all existing
  *             rule sets for the Region, or provide a list of one or more rule set names. When
  *             requesting multiple items, use the pagination parameters to retrieve results as a set of
  *             sequential pages. If successful, a rule set is returned for each requested name. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build a rule
  *                         set</a>
  *                </p>
@@ -56,10 +53,19 @@ export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchm
  * import { GameLiftClient, DescribeMatchmakingRuleSetsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeMatchmakingRuleSetsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeMatchmakingRuleSetsInput
+ *   Names: [ // MatchmakingRuleSetNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMatchmakingRuleSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMatchmakingRuleSetsCommandInput - {@link DescribeMatchmakingRuleSetsCommandInput}
+ * @returns {@link DescribeMatchmakingRuleSetsCommandOutput}
  * @see {@link DescribeMatchmakingRuleSetsCommandInput} for command's `input` shape.
  * @see {@link DescribeMatchmakingRuleSetsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -97,6 +103,9 @@ export class DescribeMatchmakingRuleSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMatchmakingRuleSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +134,8 @@ export class DescribeMatchmakingRuleSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMatchmakingRuleSetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMatchmakingRuleSetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +145,21 @@ export class DescribeMatchmakingRuleSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMatchmakingRuleSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMatchmakingRuleSetsCommand(input, context);
+    return se_DescribeMatchmakingRuleSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMatchmakingRuleSetsCommandOutput> {
-    return deserializeAws_json1_1DescribeMatchmakingRuleSetsCommand(output, context);
+    return de_DescribeMatchmakingRuleSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

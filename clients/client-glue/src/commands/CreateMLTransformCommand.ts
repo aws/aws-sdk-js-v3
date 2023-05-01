@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateMLTransformRequest,
-  CreateMLTransformRequestFilterSensitiveLog,
-  CreateMLTransformResponse,
-  CreateMLTransformResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateMLTransformCommand,
-  serializeAws_json1_1CreateMLTransformCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateMLTransformRequest, CreateMLTransformResponse } from "../models/models_0";
+import { de_CreateMLTransformCommand, se_CreateMLTransformCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMLTransformCommand}.
  */
 export interface CreateMLTransformCommandInput extends CreateMLTransformRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMLTransformCommand}.
  */
 export interface CreateMLTransformCommandOutput extends CreateMLTransformResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Glue machine learning transform. This operation creates the transform and
  *       all the necessary parameters to train it.</p>
  *          <p>Call this operation as the first step in the process of using a machine learning transform
@@ -52,10 +49,53 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * import { GlueClient, CreateMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateMLTransformRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   InputRecordTables: [ // GlueTables // required
+ *     { // GlueTable
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       CatalogId: "STRING_VALUE",
+ *       ConnectionName: "STRING_VALUE",
+ *       AdditionalOptions: { // GlueTableAdditionalOptions
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   Parameters: { // TransformParameters
+ *     TransformType: "FIND_MATCHES", // required
+ *     FindMatchesParameters: { // FindMatchesParameters
+ *       PrimaryKeyColumnName: "STRING_VALUE",
+ *       PrecisionRecallTradeoff: Number("double"),
+ *       AccuracyCostTradeoff: Number("double"),
+ *       EnforceProvidedLabels: true || false,
+ *     },
+ *   },
+ *   Role: "STRING_VALUE", // required
+ *   GlueVersion: "STRING_VALUE",
+ *   MaxCapacity: Number("double"),
+ *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ *   NumberOfWorkers: Number("int"),
+ *   Timeout: Number("int"),
+ *   MaxRetries: Number("int"),
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TransformEncryption: { // TransformEncryption
+ *     MlUserDataEncryption: { // MLUserDataEncryption
+ *       MlUserDataEncryptionMode: "DISABLED" || "SSE-KMS", // required
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *     TaskRunSecurityConfigurationName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateMLTransformCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMLTransformCommandInput - {@link CreateMLTransformCommandInput}
+ * @returns {@link CreateMLTransformCommandOutput}
  * @see {@link CreateMLTransformCommandInput} for command's `input` shape.
  * @see {@link CreateMLTransformCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -100,6 +140,9 @@ export class CreateMLTransformCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMLTransformCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +171,8 @@ export class CreateMLTransformCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMLTransformRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMLTransformResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +182,18 @@ export class CreateMLTransformCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMLTransformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMLTransformCommand(input, context);
+    return se_CreateMLTransformCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMLTransformCommandOutput> {
-    return deserializeAws_json1_1CreateMLTransformCommand(output, context);
+    return de_CreateMLTransformCommand(output, context);
   }
 
   // Start section: command_body_extra

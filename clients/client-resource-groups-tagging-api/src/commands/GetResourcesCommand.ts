@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourcesInput,
-  GetResourcesInputFilterSensitiveLog,
-  GetResourcesOutput,
-  GetResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetResourcesCommand,
-  serializeAws_json1_1GetResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetResourcesInput, GetResourcesOutput } from "../models/models_0";
+import { de_GetResourcesCommand, se_GetResourcesCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcesCommand}.
  */
 export interface GetResourcesCommandInput extends GetResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcesCommand}.
  */
 export interface GetResourcesCommandOutput extends GetResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all the tagged or previously tagged resources that are located in the
  *             specified Amazon Web Services Region for the account.</p>
  *         <p>Depending on what information you want returned, you can also specify the
@@ -69,10 +66,33 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * import { ResourceGroupsTaggingAPIClient, GetResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, GetResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const input = { // GetResourcesInput
+ *   PaginationToken: "STRING_VALUE",
+ *   TagFilters: [ // TagFilterList
+ *     { // TagFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // TagValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ResourcesPerPage: Number("int"),
+ *   TagsPerPage: Number("int"),
+ *   ResourceTypeFilters: [ // ResourceTypeFilterList
+ *     "STRING_VALUE",
+ *   ],
+ *   IncludeComplianceDetails: true || false,
+ *   ExcludeCompliantResources: true || false,
+ *   ResourceARNList: [ // ResourceARNListForGet
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcesCommandInput - {@link GetResourcesCommandInput}
+ * @returns {@link GetResourcesCommandOutput}
  * @see {@link GetResourcesCommandInput} for command's `input` shape.
  * @see {@link GetResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -130,6 +150,9 @@ export class GetResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,8 +179,8 @@ export class GetResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -167,12 +190,18 @@ export class GetResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourcesCommand(input, context);
+    return se_GetResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcesCommandOutput> {
-    return deserializeAws_json1_1GetResourcesCommand(output, context);
+    return de_GetResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

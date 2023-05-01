@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DescribeSlotTypeRequest,
-  DescribeSlotTypeRequestFilterSensitiveLog,
-  DescribeSlotTypeResponse,
-  DescribeSlotTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSlotTypeCommand,
-  serializeAws_restJson1DescribeSlotTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSlotTypeRequest, DescribeSlotTypeResponse } from "../models/models_0";
+import { de_DescribeSlotTypeCommand, se_DescribeSlotTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSlotTypeCommand}.
  */
 export interface DescribeSlotTypeCommandInput extends DescribeSlotTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSlotTypeCommand}.
  */
 export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets metadata information about a slot type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  * import { LexModelsV2Client, DescribeSlotTypeCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeSlotTypeCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DescribeSlotTypeRequest
+ *   slotTypeId: "STRING_VALUE", // required
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSlotTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSlotTypeCommandInput - {@link DescribeSlotTypeCommandInput}
+ * @returns {@link DescribeSlotTypeCommandOutput}
  * @see {@link DescribeSlotTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -88,6 +93,9 @@ export class DescribeSlotTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSlotTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class DescribeSlotTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSlotTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSlotTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +135,18 @@ export class DescribeSlotTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSlotTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSlotTypeCommand(input, context);
+    return se_DescribeSlotTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSlotTypeCommandOutput> {
-    return deserializeAws_restJson1DescribeSlotTypeCommand(output, context);
+    return de_DescribeSlotTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

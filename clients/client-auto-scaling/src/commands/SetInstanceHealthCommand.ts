@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { SetInstanceHealthQuery, SetInstanceHealthQueryFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_querySetInstanceHealthCommand,
-  serializeAws_querySetInstanceHealthCommand,
-} from "../protocols/Aws_query";
+import { SetInstanceHealthQuery } from "../models/models_0";
+import { de_SetInstanceHealthCommand, se_SetInstanceHealthCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetInstanceHealthCommand}.
  */
 export interface SetInstanceHealthCommandInput extends SetInstanceHealthQuery {}
 /**
+ * @public
+ *
  * The output of {@link SetInstanceHealthCommand}.
  */
 export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the health status of the specified instance.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling
  *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -39,10 +41,17 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, SetInstanceHealthCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, SetInstanceHealthCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // SetInstanceHealthQuery
+ *   InstanceId: "STRING_VALUE", // required
+ *   HealthStatus: "STRING_VALUE", // required
+ *   ShouldRespectGracePeriod: true || false,
+ * };
  * const command = new SetInstanceHealthCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetInstanceHealthCommandInput - {@link SetInstanceHealthCommandInput}
+ * @returns {@link SetInstanceHealthCommandOutput}
  * @see {@link SetInstanceHealthCommandInput} for command's `input` shape.
  * @see {@link SetInstanceHealthCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -82,6 +91,9 @@ export class SetInstanceHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetInstanceHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +122,8 @@ export class SetInstanceHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetInstanceHealthQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +133,18 @@ export class SetInstanceHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetInstanceHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetInstanceHealthCommand(input, context);
+    return se_SetInstanceHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetInstanceHealthCommandOutput> {
-    return deserializeAws_querySetInstanceHealthCommand(output, context);
+    return de_SetInstanceHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

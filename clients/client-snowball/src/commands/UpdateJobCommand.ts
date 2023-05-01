@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateJobRequest,
-  UpdateJobRequestFilterSensitiveLog,
-  UpdateJobResult,
-  UpdateJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1UpdateJobCommand, serializeAws_json1_1UpdateJobCommand } from "../protocols/Aws_json1_1";
+import { UpdateJobRequest, UpdateJobResult } from "../models/models_0";
+import { de_UpdateJobCommand, se_UpdateJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobCommand}.
  */
 export interface UpdateJobCommandInput extends UpdateJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobCommand}.
  */
 export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>While a job's <code>JobState</code> value is <code>New</code>, you can update some of
  *       the information associated with a job. Once the job changes to a different job state, usually
  *       within 60 minutes of the job being created, this action is no longer available.</p>
@@ -41,10 +41,81 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * import { SnowballClient, UpdateJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, UpdateJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // UpdateJobRequest
+ *   JobId: "STRING_VALUE", // required
+ *   RoleARN: "STRING_VALUE",
+ *   Notification: { // Notification
+ *     SnsTopicARN: "STRING_VALUE",
+ *     JobStatesToNotify: [ // JobStateList
+ *       "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
+ *     ],
+ *     NotifyAll: true || false,
+ *   },
+ *   Resources: { // JobResource
+ *     S3Resources: [ // S3ResourceList
+ *       { // S3Resource
+ *         BucketArn: "STRING_VALUE",
+ *         KeyRange: { // KeyRange
+ *           BeginMarker: "STRING_VALUE",
+ *           EndMarker: "STRING_VALUE",
+ *         },
+ *         TargetOnDeviceServices: [ // TargetOnDeviceServiceList
+ *           { // TargetOnDeviceService
+ *             ServiceName: "NFS_ON_DEVICE_SERVICE" || "S3_ON_DEVICE_SERVICE",
+ *             TransferOption: "IMPORT" || "EXPORT" || "LOCAL_USE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     LambdaResources: [ // LambdaResourceList
+ *       { // LambdaResource
+ *         LambdaArn: "STRING_VALUE",
+ *         EventTriggers: [ // EventTriggerDefinitionList
+ *           { // EventTriggerDefinition
+ *             EventResourceARN: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Ec2AmiResources: [ // Ec2AmiResourceList
+ *       { // Ec2AmiResource
+ *         AmiId: "STRING_VALUE", // required
+ *         SnowballAmiId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   OnDeviceServiceConfiguration: { // OnDeviceServiceConfiguration
+ *     NFSOnDeviceService: { // NFSOnDeviceServiceConfiguration
+ *       StorageLimit: Number("int"),
+ *       StorageUnit: "TB",
+ *     },
+ *     TGWOnDeviceService: { // TGWOnDeviceServiceConfiguration
+ *       StorageLimit: Number("int"),
+ *       StorageUnit: "TB",
+ *     },
+ *     EKSOnDeviceService: { // EKSOnDeviceServiceConfiguration
+ *       KubernetesVersion: "STRING_VALUE",
+ *       EKSAnywhereVersion: "STRING_VALUE",
+ *     },
+ *     S3OnDeviceService: { // S3OnDeviceServiceConfiguration
+ *       StorageLimit: Number("double"),
+ *       StorageUnit: "TB",
+ *       ServiceSize: Number("int"),
+ *       FaultTolerance: Number("int"),
+ *     },
+ *   },
+ *   AddressId: "STRING_VALUE",
+ *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
+ *   Description: "STRING_VALUE",
+ *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
+ *   ForwardingAddressId: "STRING_VALUE",
+ * };
  * const command = new UpdateJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobCommandInput - {@link UpdateJobCommandInput}
+ * @returns {@link UpdateJobCommandOutput}
  * @see {@link UpdateJobCommandInput} for command's `input` shape.
  * @see {@link UpdateJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -55,7 +126,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  *       create jobs until your cluster has exactly five nodes.</p>
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
  *
  * @throws {@link InvalidInputCombinationException} (client fault)
@@ -107,6 +178,9 @@ export class UpdateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +207,8 @@ export class UpdateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +218,18 @@ export class UpdateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateJobCommand(input, context);
+    return se_UpdateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobCommandOutput> {
-    return deserializeAws_json1_1UpdateJobCommand(output, context);
+    return de_UpdateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

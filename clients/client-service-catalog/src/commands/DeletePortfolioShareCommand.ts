@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeletePortfolioShareInput,
-  DeletePortfolioShareInputFilterSensitiveLog,
-  DeletePortfolioShareOutput,
-  DeletePortfolioShareOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePortfolioShareCommand,
-  serializeAws_json1_1DeletePortfolioShareCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePortfolioShareInput, DeletePortfolioShareOutput } from "../models/models_0";
+import { de_DeletePortfolioShareCommand, se_DeletePortfolioShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePortfolioShareCommand}.
  */
 export interface DeletePortfolioShareCommandInput extends DeletePortfolioShareInput {}
 /**
+ * @public
+ *
  * The output of {@link DeletePortfolioShareCommand}.
  */
 export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops sharing the specified portfolio with the specified account or organization
  *          node. Shares to an organization node can only be deleted by the management account of an
  *          organization or by a delegated administrator.</p>
@@ -45,10 +42,21 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  * import { ServiceCatalogClient, DeletePortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeletePortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DeletePortfolioShareInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ *   OrganizationNode: { // OrganizationNode
+ *     Type: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT",
+ *     Value: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DeletePortfolioShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePortfolioShareCommandInput - {@link DeletePortfolioShareCommandInput}
+ * @returns {@link DeletePortfolioShareCommandOutput}
  * @see {@link DeletePortfolioShareCommandInput} for command's `input` shape.
  * @see {@link DeletePortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -85,6 +93,9 @@ export class DeletePortfolioShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePortfolioShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +124,8 @@ export class DeletePortfolioShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePortfolioShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePortfolioShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +135,18 @@ export class DeletePortfolioShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePortfolioShareCommand(input, context);
+    return se_DeletePortfolioShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePortfolioShareCommandOutput> {
-    return deserializeAws_json1_1DeletePortfolioShareCommand(output, context);
+    return de_DeletePortfolioShareCommand(output, context);
   }
 
   // Start section: command_body_extra

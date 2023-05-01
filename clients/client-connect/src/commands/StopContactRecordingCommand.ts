@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  StopContactRecordingRequest,
-  StopContactRecordingRequestFilterSensitiveLog,
-  StopContactRecordingResponse,
-  StopContactRecordingResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1StopContactRecordingCommand,
-  serializeAws_restJson1StopContactRecordingCommand,
-} from "../protocols/Aws_restJson1";
+import { StopContactRecordingRequest, StopContactRecordingResponse } from "../models/models_1";
+import { de_StopContactRecordingCommand, se_StopContactRecordingCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopContactRecordingCommand}.
  */
 export interface StopContactRecordingCommandInput extends StopContactRecordingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopContactRecordingCommand}.
  */
 export interface StopContactRecordingCommandOutput extends StopContactRecordingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops recording a call when a contact is being recorded. StopContactRecording is a one-time
  *    action. If you use StopContactRecording to stop recording an ongoing call, you can't use
  *    StartContactRecording to restart it. For scenarios where the recording has started and you want
@@ -47,10 +44,17 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  * import { ConnectClient, StopContactRecordingCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StopContactRecordingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // StopContactRecordingRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   InitialContactId: "STRING_VALUE", // required
+ * };
  * const command = new StopContactRecordingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopContactRecordingCommandInput - {@link StopContactRecordingCommandInput}
+ * @returns {@link StopContactRecordingCommandOutput}
  * @see {@link StopContactRecordingCommandInput} for command's `input` shape.
  * @see {@link StopContactRecordingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +87,9 @@ export class StopContactRecordingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopContactRecordingCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class StopContactRecordingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopContactRecordingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopContactRecordingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +129,18 @@ export class StopContactRecordingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopContactRecordingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopContactRecordingCommand(input, context);
+    return se_StopContactRecordingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopContactRecordingCommandOutput> {
-    return deserializeAws_restJson1StopContactRecordingCommand(output, context);
+    return de_StopContactRecordingCommand(output, context);
   }
 
   // Start section: command_body_extra

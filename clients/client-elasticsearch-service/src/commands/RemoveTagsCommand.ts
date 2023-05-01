@@ -18,22 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { RemoveTagsRequest, RemoveTagsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveTagsCommand,
-  serializeAws_restJson1RemoveTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveTagsRequest } from "../models/models_0";
+import { de_RemoveTagsCommand, se_RemoveTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTagsCommand}.
  */
 export interface RemoveTagsCommandInput extends RemoveTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTagsCommand}.
  */
 export interface RemoveTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified set of tags from the specified Elasticsearch domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,10 +43,18 @@ export interface RemoveTagsCommandOutput extends __MetadataBearer {}
  * import { ElasticsearchServiceClient, RemoveTagsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, RemoveTagsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // RemoveTagsRequest
+ *   ARN: "STRING_VALUE", // required
+ *   TagKeys: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
+ * @returns {@link RemoveTagsCommandOutput}
  * @see {@link RemoveTagsCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -77,6 +87,9 @@ export class RemoveTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +116,8 @@ export class RemoveTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +127,18 @@ export class RemoveTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveTagsCommand(input, context);
+    return se_RemoveTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsCommandOutput> {
-    return deserializeAws_restJson1RemoveTagsCommand(output, context);
+    return de_RemoveTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeBandwidthRateLimitScheduleInput, DescribeBandwidthRateLimitScheduleOutput } from "../models/models_0";
 import {
-  DescribeBandwidthRateLimitScheduleInput,
-  DescribeBandwidthRateLimitScheduleInputFilterSensitiveLog,
-  DescribeBandwidthRateLimitScheduleOutput,
-  DescribeBandwidthRateLimitScheduleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand,
-  serializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand,
+  de_DescribeBandwidthRateLimitScheduleCommand,
+  se_DescribeBandwidthRateLimitScheduleCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBandwidthRateLimitScheduleCommand}.
  */
 export interface DescribeBandwidthRateLimitScheduleCommandInput extends DescribeBandwidthRateLimitScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBandwidthRateLimitScheduleCommand}.
  */
 export interface DescribeBandwidthRateLimitScheduleCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns information about the bandwidth rate limit schedule of a gateway. By default,
  *          gateways do not have bandwidth rate limit schedules, which means no bandwidth rate limiting
  *          is in effect. This operation is supported only for volume, tape and S3 file gateways. FSx
@@ -60,10 +60,15 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
  * import { StorageGatewayClient, DescribeBandwidthRateLimitScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeBandwidthRateLimitScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeBandwidthRateLimitScheduleInput
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBandwidthRateLimitScheduleCommandInput - {@link DescribeBandwidthRateLimitScheduleCommandInput}
+ * @returns {@link DescribeBandwidthRateLimitScheduleCommandOutput}
  * @see {@link DescribeBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -95,6 +100,9 @@ export class DescribeBandwidthRateLimitScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBandwidthRateLimitScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +131,8 @@ export class DescribeBandwidthRateLimitScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBandwidthRateLimitScheduleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBandwidthRateLimitScheduleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +142,24 @@ export class DescribeBandwidthRateLimitScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeBandwidthRateLimitScheduleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand(input, context);
+    return se_DescribeBandwidthRateLimitScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBandwidthRateLimitScheduleCommandOutput> {
-    return deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand(output, context);
+    return de_DescribeBandwidthRateLimitScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

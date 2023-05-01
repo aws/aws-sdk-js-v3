@@ -3,6 +3,9 @@ import { Readable } from "stream";
 
 import { HashCalculator } from "./HashCalculator";
 
+/**
+ * @internal
+ */
 export const readableStreamHasher: StreamHasher<Readable> = (hashCtor: HashConstructor, readableStream: Readable) => {
   // Throw if readableStream is already flowing.
   if (readableStream.readableFlowing !== null) {

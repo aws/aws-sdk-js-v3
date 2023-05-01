@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListPhoneNumbersV2Request,
-  ListPhoneNumbersV2RequestFilterSensitiveLog,
-  ListPhoneNumbersV2Response,
-  ListPhoneNumbersV2ResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListPhoneNumbersV2Command,
-  serializeAws_restJson1ListPhoneNumbersV2Command,
-} from "../protocols/Aws_restJson1";
+import { ListPhoneNumbersV2Request, ListPhoneNumbersV2Response } from "../models/models_1";
+import { de_ListPhoneNumbersV2Command, se_ListPhoneNumbersV2Command } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPhoneNumbersV2Command}.
  */
 export interface ListPhoneNumbersV2CommandInput extends ListPhoneNumbersV2Request {}
 /**
+ * @public
+ *
  * The output of {@link ListPhoneNumbersV2Command}.
  */
 export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided
  *     <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions
  *    associated with traffic distribution group.</p>
@@ -47,10 +44,24 @@ export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Respo
  * import { ConnectClient, ListPhoneNumbersV2Command } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListPhoneNumbersV2Command } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListPhoneNumbersV2Request
+ *   TargetArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   PhoneNumberCountryCodes: [ // PhoneNumberCountryCodes
+ *     "AF" || "AL" || "DZ" || "AS" || "AD" || "AO" || "AI" || "AQ" || "AG" || "AR" || "AM" || "AW" || "AU" || "AT" || "AZ" || "BS" || "BH" || "BD" || "BB" || "BY" || "BE" || "BZ" || "BJ" || "BM" || "BT" || "BO" || "BA" || "BW" || "BR" || "IO" || "VG" || "BN" || "BG" || "BF" || "BI" || "KH" || "CM" || "CA" || "CV" || "KY" || "CF" || "TD" || "CL" || "CN" || "CX" || "CC" || "CO" || "KM" || "CK" || "CR" || "HR" || "CU" || "CW" || "CY" || "CZ" || "CD" || "DK" || "DJ" || "DM" || "DO" || "TL" || "EC" || "EG" || "SV" || "GQ" || "ER" || "EE" || "ET" || "FK" || "FO" || "FJ" || "FI" || "FR" || "PF" || "GA" || "GM" || "GE" || "DE" || "GH" || "GI" || "GR" || "GL" || "GD" || "GU" || "GT" || "GG" || "GN" || "GW" || "GY" || "HT" || "HN" || "HK" || "HU" || "IS" || "IN" || "ID" || "IR" || "IQ" || "IE" || "IM" || "IL" || "IT" || "CI" || "JM" || "JP" || "JE" || "JO" || "KZ" || "KE" || "KI" || "KW" || "KG" || "LA" || "LV" || "LB" || "LS" || "LR" || "LY" || "LI" || "LT" || "LU" || "MO" || "MK" || "MG" || "MW" || "MY" || "MV" || "ML" || "MT" || "MH" || "MR" || "MU" || "YT" || "MX" || "FM" || "MD" || "MC" || "MN" || "ME" || "MS" || "MA" || "MZ" || "MM" || "NA" || "NR" || "NP" || "NL" || "AN" || "NC" || "NZ" || "NI" || "NE" || "NG" || "NU" || "KP" || "MP" || "NO" || "OM" || "PK" || "PW" || "PA" || "PG" || "PY" || "PE" || "PH" || "PN" || "PL" || "PT" || "PR" || "QA" || "CG" || "RE" || "RO" || "RU" || "RW" || "BL" || "SH" || "KN" || "LC" || "MF" || "PM" || "VC" || "WS" || "SM" || "ST" || "SA" || "SN" || "RS" || "SC" || "SL" || "SG" || "SX" || "SK" || "SI" || "SB" || "SO" || "ZA" || "KR" || "ES" || "LK" || "SD" || "SR" || "SJ" || "SZ" || "SE" || "CH" || "SY" || "TW" || "TJ" || "TZ" || "TH" || "TG" || "TK" || "TO" || "TT" || "TN" || "TR" || "TM" || "TC" || "TV" || "VI" || "UG" || "UA" || "AE" || "GB" || "US" || "UY" || "UZ" || "VU" || "VA" || "VE" || "VN" || "WF" || "EH" || "YE" || "ZM" || "ZW",
+ *   ],
+ *   PhoneNumberTypes: [ // PhoneNumberTypes
+ *     "TOLL_FREE" || "DID",
+ *   ],
+ *   PhoneNumberPrefix: "STRING_VALUE",
+ * };
  * const command = new ListPhoneNumbersV2Command(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPhoneNumbersV2CommandInput - {@link ListPhoneNumbersV2CommandInput}
+ * @returns {@link ListPhoneNumbersV2CommandOutput}
  * @see {@link ListPhoneNumbersV2CommandInput} for command's `input` shape.
  * @see {@link ListPhoneNumbersV2CommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -89,6 +100,9 @@ export class ListPhoneNumbersV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPhoneNumbersV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +131,8 @@ export class ListPhoneNumbersV2Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPhoneNumbersV2RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPhoneNumbersV2ResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +142,18 @@ export class ListPhoneNumbersV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPhoneNumbersV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPhoneNumbersV2Command(input, context);
+    return se_ListPhoneNumbersV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPhoneNumbersV2CommandOutput> {
-    return deserializeAws_restJson1ListPhoneNumbersV2Command(output, context);
+    return de_ListPhoneNumbersV2Command(output, context);
   }
 
   // Start section: command_body_extra

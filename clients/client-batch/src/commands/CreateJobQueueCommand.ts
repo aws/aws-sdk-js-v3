@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  CreateJobQueueRequest,
-  CreateJobQueueRequestFilterSensitiveLog,
-  CreateJobQueueResponse,
-  CreateJobQueueResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateJobQueueCommand,
-  serializeAws_restJson1CreateJobQueueCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateJobQueueRequest, CreateJobQueueResponse } from "../models/models_0";
+import { de_CreateJobQueueCommand, se_CreateJobQueueCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobQueueCommand}.
  */
 export interface CreateJobQueueCommandInput extends CreateJobQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobQueueCommand}.
  */
 export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Batch job queue. When you create a job queue, you associate one or more compute environments to the
  *    queue and assign an order of preference for the compute environments.</p>
  *          <p>You also set a priority to the job queue that determines the order that the Batch scheduler places jobs onto
@@ -47,10 +44,27 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * import { BatchClient, CreateJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, CreateJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // CreateJobQueueRequest
+ *   jobQueueName: "STRING_VALUE", // required
+ *   state: "ENABLED" || "DISABLED",
+ *   schedulingPolicyArn: "STRING_VALUE",
+ *   priority: Number("int"), // required
+ *   computeEnvironmentOrder: [ // ComputeEnvironmentOrders // required
+ *     { // ComputeEnvironmentOrder
+ *       order: Number("int"), // required
+ *       computeEnvironment: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   tags: { // TagrisTagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateJobQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobQueueCommandInput - {@link CreateJobQueueCommandInput}
+ * @returns {@link CreateJobQueueCommandOutput}
  * @see {@link CreateJobQueueCommandInput} for command's `input` shape.
  * @see {@link CreateJobQueueCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -136,6 +150,9 @@ export class CreateJobQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,8 +181,8 @@ export class CreateJobQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateJobQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateJobQueueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -175,12 +192,18 @@ export class CreateJobQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateJobQueueCommand(input, context);
+    return se_CreateJobQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobQueueCommandOutput> {
-    return deserializeAws_restJson1CreateJobQueueCommand(output, context);
+    return de_CreateJobQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

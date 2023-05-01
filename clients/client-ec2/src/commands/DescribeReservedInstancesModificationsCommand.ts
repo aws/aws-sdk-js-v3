@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeReservedInstancesModificationsRequest,
-  DescribeReservedInstancesModificationsRequestFilterSensitiveLog,
   DescribeReservedInstancesModificationsResult,
-  DescribeReservedInstancesModificationsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeReservedInstancesModificationsCommand,
-  serializeAws_ec2DescribeReservedInstancesModificationsCommand,
+  de_DescribeReservedInstancesModificationsCommand,
+  se_DescribeReservedInstancesModificationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedInstancesModificationsCommand}.
  */
 export interface DescribeReservedInstancesModificationsCommandInput
   extends DescribeReservedInstancesModificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedInstancesModificationsCommand}.
  */
 export interface DescribeReservedInstancesModificationsCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeReservedInstancesModificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -46,10 +49,26 @@ export interface DescribeReservedInstancesModificationsCommandOutput
  * import { EC2Client, DescribeReservedInstancesModificationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeReservedInstancesModificationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeReservedInstancesModificationsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ReservedInstancesModificationIds: [ // ReservedInstancesModificationIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedInstancesModificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedInstancesModificationsCommandInput - {@link DescribeReservedInstancesModificationsCommandInput}
+ * @returns {@link DescribeReservedInstancesModificationsCommandOutput}
  * @see {@link DescribeReservedInstancesModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstancesModificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +92,9 @@ export class DescribeReservedInstancesModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedInstancesModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +123,8 @@ export class DescribeReservedInstancesModificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedInstancesModificationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservedInstancesModificationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +134,24 @@ export class DescribeReservedInstancesModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedInstancesModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeReservedInstancesModificationsCommand(input, context);
+    return se_DescribeReservedInstancesModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedInstancesModificationsCommandOutput> {
-    return deserializeAws_ec2DescribeReservedInstancesModificationsCommand(output, context);
+    return de_DescribeReservedInstancesModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

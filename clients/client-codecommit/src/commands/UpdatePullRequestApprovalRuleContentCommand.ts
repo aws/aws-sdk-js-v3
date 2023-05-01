@@ -16,20 +16,22 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import {
   UpdatePullRequestApprovalRuleContentInput,
-  UpdatePullRequestApprovalRuleContentInputFilterSensitiveLog,
   UpdatePullRequestApprovalRuleContentOutput,
-  UpdatePullRequestApprovalRuleContentOutputFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand,
-  serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand,
+  de_UpdatePullRequestApprovalRuleContentCommand,
+  se_UpdatePullRequestApprovalRuleContentCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePullRequestApprovalRuleContentCommand}.
  */
 export interface UpdatePullRequestApprovalRuleContentCommandInput extends UpdatePullRequestApprovalRuleContentInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePullRequestApprovalRuleContentCommand}.
  */
 export interface UpdatePullRequestApprovalRuleContentCommandOutput
@@ -37,6 +39,7 @@ export interface UpdatePullRequestApprovalRuleContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the structure of an approval rule created specifically for a pull request. For example, you can change the number of required approvers and
  *             the approval pool for approvers. </p>
  * @example
@@ -45,10 +48,18 @@ export interface UpdatePullRequestApprovalRuleContentCommandOutput
  * import { CodeCommitClient, UpdatePullRequestApprovalRuleContentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdatePullRequestApprovalRuleContentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // UpdatePullRequestApprovalRuleContentInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   approvalRuleName: "STRING_VALUE", // required
+ *   existingRuleContentSha256: "STRING_VALUE",
+ *   newRuleContent: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePullRequestApprovalRuleContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePullRequestApprovalRuleContentCommandInput - {@link UpdatePullRequestApprovalRuleContentCommandInput}
+ * @returns {@link UpdatePullRequestApprovalRuleContentCommandOutput}
  * @see {@link UpdatePullRequestApprovalRuleContentCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestApprovalRuleContentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -121,6 +132,9 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePullRequestApprovalRuleContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +163,8 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePullRequestApprovalRuleContentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePullRequestApprovalRuleContentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,18 +174,24 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdatePullRequestApprovalRuleContentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand(input, context);
+    return se_UpdatePullRequestApprovalRuleContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> {
-    return deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand(output, context);
+    return de_UpdatePullRequestApprovalRuleContentCommand(output, context);
   }
 
   // Start section: command_body_extra

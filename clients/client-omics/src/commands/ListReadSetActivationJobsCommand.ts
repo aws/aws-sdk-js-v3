@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReadSetActivationJobsRequest,
-  ListReadSetActivationJobsRequestFilterSensitiveLog,
-  ListReadSetActivationJobsResponse,
-  ListReadSetActivationJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListReadSetActivationJobsRequest, ListReadSetActivationJobsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListReadSetActivationJobsCommand,
-  serializeAws_restJson1ListReadSetActivationJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListReadSetActivationJobsCommand, se_ListReadSetActivationJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReadSetActivationJobsCommand}.
  */
 export interface ListReadSetActivationJobsCommandInput extends ListReadSetActivationJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReadSetActivationJobsCommand}.
  */
 export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActivationJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of read set activation jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActiv
  * import { OmicsClient, ListReadSetActivationJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReadSetActivationJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // ListReadSetActivationJobsRequest
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filter: { // ActivateReadSetFilter
+ *     status: "STRING_VALUE",
+ *     createdAfter: new Date("TIMESTAMP"),
+ *     createdBefore: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new ListReadSetActivationJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReadSetActivationJobsCommandInput - {@link ListReadSetActivationJobsCommandInput}
+ * @returns {@link ListReadSetActivationJobsCommandOutput}
  * @see {@link ListReadSetActivationJobsCommandInput} for command's `input` shape.
  * @see {@link ListReadSetActivationJobsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +96,9 @@ export class ListReadSetActivationJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReadSetActivationJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +127,8 @@ export class ListReadSetActivationJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReadSetActivationJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReadSetActivationJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +138,21 @@ export class ListReadSetActivationJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReadSetActivationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReadSetActivationJobsCommand(input, context);
+    return se_ListReadSetActivationJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReadSetActivationJobsCommandOutput> {
-    return deserializeAws_restJson1ListReadSetActivationJobsCommand(output, context);
+    return de_ListReadSetActivationJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

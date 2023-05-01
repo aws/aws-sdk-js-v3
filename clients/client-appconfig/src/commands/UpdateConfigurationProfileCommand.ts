@@ -20,21 +20,23 @@ import {
   UpdateConfigurationProfileRequest,
   UpdateConfigurationProfileRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConfigurationProfileCommand,
-  serializeAws_restJson1UpdateConfigurationProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateConfigurationProfileCommand, se_UpdateConfigurationProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationProfileCommand}.
  */
 export interface UpdateConfigurationProfileCommandInput extends UpdateConfigurationProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationProfileCommand}.
  */
 export interface UpdateConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a configuration profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,25 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  * import { AppConfigClient, UpdateConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, UpdateConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // UpdateConfigurationProfileRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RetrievalRoleArn: "STRING_VALUE",
+ *   Validators: [ // ValidatorList
+ *     { // Validator
+ *       Type: "JSON_SCHEMA" || "LAMBDA", // required
+ *       Content: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateConfigurationProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationProfileCommandInput - {@link UpdateConfigurationProfileCommandInput}
+ * @returns {@link UpdateConfigurationProfileCommandOutput}
  * @see {@link UpdateConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -101,6 +118,9 @@ export class UpdateConfigurationProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,15 +160,21 @@ export class UpdateConfigurationProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConfigurationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConfigurationProfileCommand(input, context);
+    return se_UpdateConfigurationProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateConfigurationProfileCommand(output, context);
+    return de_UpdateConfigurationProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

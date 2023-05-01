@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import {
-  UpdateProjectRequest,
-  UpdateProjectRequestFilterSensitiveLog,
-  UpdateProjectResult,
-  UpdateProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateProjectCommand,
-  serializeAws_restJson1UpdateProjectCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateProjectRequest, UpdateProjectResult } from "../models/models_0";
+import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandOutput extends UpdateProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Update an existing project.
  *         </p>
@@ -44,10 +41,16 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * import { MobileClient, UpdateProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, UpdateProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = { // UpdateProjectRequest
+ *   contents: "BLOB_VALUE",
+ *   projectId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
+ * @returns {@link UpdateProjectCommandOutput}
  * @see {@link UpdateProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
@@ -118,6 +121,9 @@ export class UpdateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +150,8 @@ export class UpdateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +161,18 @@ export class UpdateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProjectCommand(input, context);
+    return se_UpdateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectCommandOutput> {
-    return deserializeAws_restJson1UpdateProjectCommand(output, context);
+    return de_UpdateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

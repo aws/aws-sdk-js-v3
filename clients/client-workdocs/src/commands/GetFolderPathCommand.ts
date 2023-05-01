@@ -19,22 +19,24 @@ import {
   GetFolderPathResponse,
   GetFolderPathResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFolderPathCommand,
-  serializeAws_restJson1GetFolderPathCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetFolderPathCommand, se_GetFolderPathCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFolderPathCommand}.
  */
 export interface GetFolderPathCommandInput extends GetFolderPathRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFolderPathCommand}.
  */
 export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the path information (the hierarchy from the root folder) for the
  *             specified folder.</p>
  *          <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
@@ -47,10 +49,19 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  * import { WorkDocsClient, GetFolderPathCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetFolderPathCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // GetFolderPathRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   FolderId: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   Fields: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new GetFolderPathCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFolderPathCommandInput - {@link GetFolderPathCommandInput}
+ * @returns {@link GetFolderPathCommandOutput}
  * @see {@link GetFolderPathCommandInput} for command's `input` shape.
  * @see {@link GetFolderPathCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -91,6 +102,9 @@ export class GetFolderPathCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFolderPathCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,12 +142,18 @@ export class GetFolderPathCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFolderPathCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFolderPathCommand(input, context);
+    return se_GetFolderPathCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFolderPathCommandOutput> {
-    return deserializeAws_restJson1GetFolderPathCommand(output, context);
+    return de_GetFolderPathCommand(output, context);
   }
 
   // Start section: command_body_extra

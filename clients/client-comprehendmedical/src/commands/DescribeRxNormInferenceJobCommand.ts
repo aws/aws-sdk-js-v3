@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  DescribeRxNormInferenceJobRequest,
-  DescribeRxNormInferenceJobRequestFilterSensitiveLog,
-  DescribeRxNormInferenceJobResponse,
-  DescribeRxNormInferenceJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRxNormInferenceJobCommand,
-  serializeAws_json1_1DescribeRxNormInferenceJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeRxNormInferenceJobRequest, DescribeRxNormInferenceJobResponse } from "../models/models_0";
+import { de_DescribeRxNormInferenceJobCommand, se_DescribeRxNormInferenceJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRxNormInferenceJobCommand}.
  */
 export interface DescribeRxNormInferenceJobCommandInput extends DescribeRxNormInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRxNormInferenceJobCommand}.
  */
 export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with an InferRxNorm job. Use this operation to get the
  *       status of an inference job.</p>
  * @example
@@ -47,10 +44,15 @@ export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormI
  * import { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // DescribeRxNormInferenceJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRxNormInferenceJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRxNormInferenceJobCommandInput - {@link DescribeRxNormInferenceJobCommandInput}
+ * @returns {@link DescribeRxNormInferenceJobCommandOutput}
  * @see {@link DescribeRxNormInferenceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeRxNormInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -90,6 +92,9 @@ export class DescribeRxNormInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRxNormInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class DescribeRxNormInferenceJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRxNormInferenceJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRxNormInferenceJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +134,21 @@ export class DescribeRxNormInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRxNormInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRxNormInferenceJobCommand(input, context);
+    return se_DescribeRxNormInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRxNormInferenceJobCommandOutput> {
-    return deserializeAws_json1_1DescribeRxNormInferenceJobCommand(output, context);
+    return de_DescribeRxNormInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

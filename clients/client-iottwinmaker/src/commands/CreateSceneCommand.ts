@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  CreateSceneRequest,
-  CreateSceneRequestFilterSensitiveLog,
-  CreateSceneResponse,
-  CreateSceneResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSceneCommand,
-  serializeAws_restJson1CreateSceneCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateSceneRequest, CreateSceneResponse } from "../models/models_0";
+import { de_CreateSceneCommand, se_CreateSceneCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSceneCommand}.
  */
 export interface CreateSceneCommandInput extends CreateSceneRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSceneCommand}.
  */
 export interface CreateSceneCommandOutput extends CreateSceneResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a scene.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface CreateSceneCommandOutput extends CreateSceneResponse, __Metadat
  * import { IoTTwinMakerClient, CreateSceneCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CreateSceneCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // CreateSceneRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   sceneId: "STRING_VALUE", // required
+ *   contentLocation: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   capabilities: [ // SceneCapabilities
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   sceneMetadata: { // SceneMetadataMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSceneCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSceneCommandInput - {@link CreateSceneCommandInput}
+ * @returns {@link CreateSceneCommandOutput}
  * @see {@link CreateSceneCommandInput} for command's `input` shape.
  * @see {@link CreateSceneCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -87,6 +101,9 @@ export class CreateSceneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSceneCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +130,8 @@ export class CreateSceneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSceneRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSceneResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +141,18 @@ export class CreateSceneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSceneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSceneCommand(input, context);
+    return se_CreateSceneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSceneCommandOutput> {
-    return deserializeAws_restJson1CreateSceneCommand(output, context);
+    return de_CreateSceneCommand(output, context);
   }
 
   // Start section: command_body_extra

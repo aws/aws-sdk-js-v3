@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  CreateIntegrationWorkflowRequest,
-  CreateIntegrationWorkflowRequestFilterSensitiveLog,
-  CreateIntegrationWorkflowResponse,
-  CreateIntegrationWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateIntegrationWorkflowCommand,
-  serializeAws_restJson1CreateIntegrationWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateIntegrationWorkflowRequest, CreateIntegrationWorkflowResponse } from "../models/models_0";
+import { de_CreateIntegrationWorkflowCommand, se_CreateIntegrationWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIntegrationWorkflowCommand}.
  */
 export interface CreateIntegrationWorkflowCommandInput extends CreateIntegrationWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIntegrationWorkflowCommand}.
  */
 export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegrationWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * 	Creates an integration workflow. An integration workflow is an async process which ingests historic data and sets up an integration for ongoing updates. The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo.
  * 	</p>
@@ -44,10 +41,96 @@ export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegratio
  * import { CustomerProfilesClient, CreateIntegrationWorkflowCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, CreateIntegrationWorkflowCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // CreateIntegrationWorkflowRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   WorkflowType: "APPFLOW_INTEGRATION", // required
+ *   IntegrationConfig: { // IntegrationConfig
+ *     AppflowIntegration: { // AppflowIntegration
+ *       FlowDefinition: { // FlowDefinition
+ *         Description: "STRING_VALUE",
+ *         FlowName: "STRING_VALUE", // required
+ *         KmsArn: "STRING_VALUE", // required
+ *         SourceFlowConfig: { // SourceFlowConfig
+ *           ConnectorProfileName: "STRING_VALUE",
+ *           ConnectorType: "Salesforce" || "Marketo" || "Zendesk" || "Servicenow" || "S3", // required
+ *           IncrementalPullConfig: { // IncrementalPullConfig
+ *             DatetimeTypeFieldName: "STRING_VALUE",
+ *           },
+ *           SourceConnectorProperties: { // SourceConnectorProperties
+ *             Marketo: { // MarketoSourceProperties
+ *               Object: "STRING_VALUE", // required
+ *             },
+ *             S3: { // S3SourceProperties
+ *               BucketName: "STRING_VALUE", // required
+ *               BucketPrefix: "STRING_VALUE",
+ *             },
+ *             Salesforce: { // SalesforceSourceProperties
+ *               Object: "STRING_VALUE", // required
+ *               EnableDynamicFieldUpdate: true || false,
+ *               IncludeDeletedRecords: true || false,
+ *             },
+ *             ServiceNow: { // ServiceNowSourceProperties
+ *               Object: "STRING_VALUE", // required
+ *             },
+ *             Zendesk: { // ZendeskSourceProperties
+ *               Object: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *         Tasks: [ // Tasks // required
+ *           { // Task
+ *             ConnectorOperator: { // ConnectorOperator
+ *               Marketo: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *               S3: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *               Salesforce: "PROJECTION" || "LESS_THAN" || "CONTAINS" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *               ServiceNow: "PROJECTION" || "CONTAINS" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *               Zendesk: "PROJECTION" || "GREATER_THAN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *             },
+ *             DestinationField: "STRING_VALUE",
+ *             SourceFields: [ // SourceFields // required
+ *               "STRING_VALUE",
+ *             ],
+ *             TaskProperties: { // TaskPropertiesMap
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             TaskType: "Arithmetic" || "Filter" || "Map" || "Mask" || "Merge" || "Truncate" || "Validate", // required
+ *           },
+ *         ],
+ *         TriggerConfig: { // TriggerConfig
+ *           TriggerType: "Scheduled" || "Event" || "OnDemand", // required
+ *           TriggerProperties: { // TriggerProperties
+ *             Scheduled: { // ScheduledTriggerProperties
+ *               ScheduleExpression: "STRING_VALUE", // required
+ *               DataPullMode: "Incremental" || "Complete",
+ *               ScheduleStartTime: new Date("TIMESTAMP"),
+ *               ScheduleEndTime: new Date("TIMESTAMP"),
+ *               Timezone: "STRING_VALUE",
+ *               ScheduleOffset: Number("long"),
+ *               FirstExecutionFrom: new Date("TIMESTAMP"),
+ *             },
+ *           },
+ *         },
+ *       },
+ *       Batches: [ // Batches
+ *         { // Batch
+ *           StartTime: new Date("TIMESTAMP"), // required
+ *           EndTime: new Date("TIMESTAMP"), // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   ObjectTypeName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateIntegrationWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIntegrationWorkflowCommandInput - {@link CreateIntegrationWorkflowCommandInput}
+ * @returns {@link CreateIntegrationWorkflowCommandOutput}
  * @see {@link CreateIntegrationWorkflowCommandInput} for command's `input` shape.
  * @see {@link CreateIntegrationWorkflowCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -86,6 +169,9 @@ export class CreateIntegrationWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIntegrationWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +200,8 @@ export class CreateIntegrationWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIntegrationWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIntegrationWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +211,21 @@ export class CreateIntegrationWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIntegrationWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIntegrationWorkflowCommand(input, context);
+    return se_CreateIntegrationWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIntegrationWorkflowCommandOutput> {
-    return deserializeAws_restJson1CreateIntegrationWorkflowCommand(output, context);
+    return de_CreateIntegrationWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,25 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  AllowCustomRoutingTrafficRequest,
-  AllowCustomRoutingTrafficRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AllowCustomRoutingTrafficCommand,
-  serializeAws_json1_1AllowCustomRoutingTrafficCommand,
-} from "../protocols/Aws_json1_1";
+import { AllowCustomRoutingTrafficRequest } from "../models/models_0";
+import { de_AllowCustomRoutingTrafficCommand, se_AllowCustomRoutingTrafficCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AllowCustomRoutingTrafficCommand}.
  */
 export interface AllowCustomRoutingTrafficCommandInput extends AllowCustomRoutingTrafficRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllowCustomRoutingTrafficCommand}.
  */
 export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC subnet endpoint that can receive traffic
  * 			for a custom routing accelerator. You can allow traffic to all destinations in the subnet endpoint, or allow traffic to a
  * 			specified list of destination IP addresses and ports in the subnet. Note that you cannot specify IP addresses or ports
@@ -49,10 +48,23 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  * import { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // AllowCustomRoutingTrafficRequest
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ *   EndpointId: "STRING_VALUE", // required
+ *   DestinationAddresses: [ // DestinationAddresses
+ *     "STRING_VALUE",
+ *   ],
+ *   DestinationPorts: [ // DestinationPorts
+ *     Number("int"),
+ *   ],
+ *   AllowAllTrafficToEndpoint: true || false,
+ * };
  * const command = new AllowCustomRoutingTrafficCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AllowCustomRoutingTrafficCommandInput - {@link AllowCustomRoutingTrafficCommandInput}
+ * @returns {@link AllowCustomRoutingTrafficCommandOutput}
  * @see {@link AllowCustomRoutingTrafficCommandInput} for command's `input` shape.
  * @see {@link AllowCustomRoutingTrafficCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -85,6 +97,9 @@ export class AllowCustomRoutingTrafficCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllowCustomRoutingTrafficCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +128,8 @@ export class AllowCustomRoutingTrafficCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllowCustomRoutingTrafficRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +139,21 @@ export class AllowCustomRoutingTrafficCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AllowCustomRoutingTrafficCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllowCustomRoutingTrafficCommand(input, context);
+    return se_AllowCustomRoutingTrafficCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllowCustomRoutingTrafficCommandOutput> {
-    return deserializeAws_json1_1AllowCustomRoutingTrafficCommand(output, context);
+    return de_AllowCustomRoutingTrafficCommand(output, context);
   }
 
   // Start section: command_body_extra

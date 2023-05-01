@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelDeploymentJobRequest,
-  CancelDeploymentJobRequestFilterSensitiveLog,
-  CancelDeploymentJobResponse,
-  CancelDeploymentJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelDeploymentJobCommand,
-  serializeAws_restJson1CancelDeploymentJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelDeploymentJobRequest, CancelDeploymentJobResponse } from "../models/models_0";
+import { de_CancelDeploymentJobCommand, se_CancelDeploymentJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelDeploymentJobCommand}.
  */
 export interface CancelDeploymentJobCommandInput extends CancelDeploymentJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelDeploymentJobCommand}.
  */
 export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Cancels the specified deployment job.</p>
@@ -47,10 +44,15 @@ export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobRes
  * import { RoboMakerClient, CancelDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CancelDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // CancelDeploymentJobRequest
+ *   job: "STRING_VALUE", // required
+ * };
  * const command = new CancelDeploymentJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelDeploymentJobCommandInput - {@link CancelDeploymentJobCommandInput}
+ * @returns {@link CancelDeploymentJobCommandOutput}
  * @see {@link CancelDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link CancelDeploymentJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -87,6 +89,9 @@ export class CancelDeploymentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelDeploymentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class CancelDeploymentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelDeploymentJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelDeploymentJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class CancelDeploymentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelDeploymentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelDeploymentJobCommand(input, context);
+    return se_CancelDeploymentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelDeploymentJobCommandOutput> {
-    return deserializeAws_restJson1CancelDeploymentJobCommand(output, context);
+    return de_CancelDeploymentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

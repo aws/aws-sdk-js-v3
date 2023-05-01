@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  GetCampaignStateBatchRequest,
-  GetCampaignStateBatchRequestFilterSensitiveLog,
-  GetCampaignStateBatchResponse,
-  GetCampaignStateBatchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCampaignStateBatchCommand,
-  serializeAws_restJson1GetCampaignStateBatchCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCampaignStateBatchRequest, GetCampaignStateBatchResponse } from "../models/models_0";
+import { de_GetCampaignStateBatchCommand, se_GetCampaignStateBatchCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCampaignStateBatchCommand}.
  */
 export interface GetCampaignStateBatchCommandInput extends GetCampaignStateBatchRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCampaignStateBatchCommand}.
  */
 export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Get state of campaigns for the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  * import { ConnectCampaignsClient, GetCampaignStateBatchCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, GetCampaignStateBatchCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // GetCampaignStateBatchRequest
+ *   campaignIds: [ // CampaignIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetCampaignStateBatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCampaignStateBatchCommandInput - {@link GetCampaignStateBatchCommandInput}
+ * @returns {@link GetCampaignStateBatchCommandOutput}
  * @see {@link GetCampaignStateBatchCommandInput} for command's `input` shape.
  * @see {@link GetCampaignStateBatchCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -81,6 +85,9 @@ export class GetCampaignStateBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCampaignStateBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class GetCampaignStateBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCampaignStateBatchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCampaignStateBatchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class GetCampaignStateBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCampaignStateBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCampaignStateBatchCommand(input, context);
+    return se_GetCampaignStateBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignStateBatchCommandOutput> {
-    return deserializeAws_restJson1GetCampaignStateBatchCommand(output, context);
+    return de_GetCampaignStateBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

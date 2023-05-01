@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateThingGroupRequest,
-  UpdateThingGroupRequestFilterSensitiveLog,
-  UpdateThingGroupResponse,
-  UpdateThingGroupResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateThingGroupCommand,
-  serializeAws_restJson1UpdateThingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateThingGroupRequest, UpdateThingGroupResponse } from "../models/models_2";
+import { de_UpdateThingGroupCommand, se_UpdateThingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateThingGroupCommand}.
  */
 export interface UpdateThingGroupCommandInput extends UpdateThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateThingGroupCommand}.
  */
 export interface UpdateThingGroupCommandOutput extends UpdateThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingGroup</a> action.</p>
  * @example
@@ -43,10 +40,25 @@ export interface UpdateThingGroupCommandOutput extends UpdateThingGroupResponse,
  * import { IoTClient, UpdateThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateThingGroupRequest
+ *   thingGroupName: "STRING_VALUE", // required
+ *   thingGroupProperties: { // ThingGroupProperties
+ *     thingGroupDescription: "STRING_VALUE",
+ *     attributePayload: { // AttributePayload
+ *       attributes: { // Attributes
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       merge: true || false,
+ *     },
+ *   },
+ *   expectedVersion: Number("long"),
+ * };
  * const command = new UpdateThingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateThingGroupCommandInput - {@link UpdateThingGroupCommandInput}
+ * @returns {@link UpdateThingGroupCommandOutput}
  * @see {@link UpdateThingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +99,9 @@ export class UpdateThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +130,8 @@ export class UpdateThingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateThingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateThingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +141,18 @@ export class UpdateThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateThingGroupCommand(input, context);
+    return se_UpdateThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThingGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateThingGroupCommand(output, context);
+    return de_UpdateThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

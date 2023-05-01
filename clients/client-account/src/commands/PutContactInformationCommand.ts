@@ -15,21 +15,23 @@ import {
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { PutContactInformationRequest, PutContactInformationRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutContactInformationCommand,
-  serializeAws_restJson1PutContactInformationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutContactInformationCommand, se_PutContactInformationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutContactInformationCommand}.
  */
 export interface PutContactInformationCommandInput extends PutContactInformationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutContactInformationCommand}.
  */
 export interface PutContactInformationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the primary contact information of an Amazon Web Services account.</p>
  *          <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
  *             the primary and alternate contact information</a>.</p>
@@ -39,10 +41,29 @@ export interface PutContactInformationCommandOutput extends __MetadataBearer {}
  * import { AccountClient, PutContactInformationCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, PutContactInformationCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
+ * const input = { // PutContactInformationRequest
+ *   ContactInformation: { // ContactInformation
+ *     FullName: "STRING_VALUE", // required
+ *     AddressLine1: "STRING_VALUE", // required
+ *     AddressLine2: "STRING_VALUE",
+ *     AddressLine3: "STRING_VALUE",
+ *     City: "STRING_VALUE", // required
+ *     StateOrRegion: "STRING_VALUE",
+ *     DistrictOrCounty: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE", // required
+ *     CountryCode: "STRING_VALUE", // required
+ *     PhoneNumber: "STRING_VALUE", // required
+ *     CompanyName: "STRING_VALUE",
+ *     WebsiteUrl: "STRING_VALUE",
+ *   },
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new PutContactInformationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutContactInformationCommandInput - {@link PutContactInformationCommandInput}
+ * @returns {@link PutContactInformationCommandOutput}
  * @see {@link PutContactInformationCommandInput} for command's `input` shape.
  * @see {@link PutContactInformationCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -81,6 +102,9 @@ export class PutContactInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutContactInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +134,7 @@ export class PutContactInformationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutContactInformationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +144,18 @@ export class PutContactInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutContactInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutContactInformationCommand(input, context);
+    return se_PutContactInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutContactInformationCommandOutput> {
-    return deserializeAws_restJson1PutContactInformationCommand(output, context);
+    return de_PutContactInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

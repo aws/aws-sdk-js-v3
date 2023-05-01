@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResolverDnssecConfigsRequest,
-  ListResolverDnssecConfigsRequestFilterSensitiveLog,
-  ListResolverDnssecConfigsResponse,
-  ListResolverDnssecConfigsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResolverDnssecConfigsCommand,
-  serializeAws_json1_1ListResolverDnssecConfigsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResolverDnssecConfigsRequest, ListResolverDnssecConfigsResponse } from "../models/models_0";
+import { de_ListResolverDnssecConfigsCommand, se_ListResolverDnssecConfigsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolverDnssecConfigsCommand}.
  */
 export interface ListResolverDnssecConfigsCommandInput extends ListResolverDnssecConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolverDnssecConfigsCommand}.
  */
 export interface ListResolverDnssecConfigsCommandOutput extends ListResolverDnssecConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the configurations for DNSSEC validation that are associated with the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListResolverDnssecConfigsCommandOutput extends ListResolverDnss
  * import { Route53ResolverClient, ListResolverDnssecConfigsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListResolverDnssecConfigsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // ListResolverDnssecConfigsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListResolverDnssecConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolverDnssecConfigsCommandInput - {@link ListResolverDnssecConfigsCommandInput}
+ * @returns {@link ListResolverDnssecConfigsCommandOutput}
  * @see {@link ListResolverDnssecConfigsCommandInput} for command's `input` shape.
  * @see {@link ListResolverDnssecConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -87,6 +98,9 @@ export class ListResolverDnssecConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolverDnssecConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +129,8 @@ export class ListResolverDnssecConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResolverDnssecConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResolverDnssecConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +140,21 @@ export class ListResolverDnssecConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolverDnssecConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResolverDnssecConfigsCommand(input, context);
+    return se_ListResolverDnssecConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResolverDnssecConfigsCommandOutput> {
-    return deserializeAws_json1_1ListResolverDnssecConfigsCommand(output, context);
+    return de_ListResolverDnssecConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

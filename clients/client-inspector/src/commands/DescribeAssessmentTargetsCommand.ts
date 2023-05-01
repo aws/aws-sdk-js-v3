@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  DescribeAssessmentTargetsRequest,
-  DescribeAssessmentTargetsRequestFilterSensitiveLog,
-  DescribeAssessmentTargetsResponse,
-  DescribeAssessmentTargetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAssessmentTargetsCommand,
-  serializeAws_json1_1DescribeAssessmentTargetsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeAssessmentTargetsRequest, DescribeAssessmentTargetsResponse } from "../models/models_0";
+import { de_DescribeAssessmentTargetsCommand, se_DescribeAssessmentTargetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAssessmentTargetsCommand}.
  */
 export interface DescribeAssessmentTargetsCommandInput extends DescribeAssessmentTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAssessmentTargetsCommand}.
  */
 export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessmentTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the assessment targets that are specified by the ARNs of the assessment
  *          targets.</p>
  * @example
@@ -43,10 +40,17 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  * import { InspectorClient, DescribeAssessmentTargetsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeAssessmentTargetsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // DescribeAssessmentTargetsRequest
+ *   assessmentTargetArns: [ // BatchDescribeArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeAssessmentTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssessmentTargetsCommandInput - {@link DescribeAssessmentTargetsCommandInput}
+ * @returns {@link DescribeAssessmentTargetsCommandOutput}
  * @see {@link DescribeAssessmentTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeAssessmentTargetsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -104,6 +108,9 @@ export class DescribeAssessmentTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssessmentTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +139,8 @@ export class DescribeAssessmentTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAssessmentTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAssessmentTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,15 +150,21 @@ export class DescribeAssessmentTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAssessmentTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAssessmentTargetsCommand(input, context);
+    return se_DescribeAssessmentTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAssessmentTargetsCommandOutput> {
-    return deserializeAws_json1_1DescribeAssessmentTargetsCommand(output, context);
+    return de_DescribeAssessmentTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

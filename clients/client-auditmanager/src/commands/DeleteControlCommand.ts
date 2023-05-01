@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  DeleteControlRequest,
-  DeleteControlRequestFilterSensitiveLog,
-  DeleteControlResponse,
-  DeleteControlResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteControlCommand,
-  serializeAws_restJson1DeleteControlCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteControlRequest, DeleteControlResponse } from "../models/models_0";
+import { de_DeleteControlCommand, se_DeleteControlCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteControlCommand}.
  */
 export interface DeleteControlCommandInput extends DeleteControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteControlCommand}.
  */
 export interface DeleteControlCommandOutput extends DeleteControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a custom control in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteControlCommandOutput extends DeleteControlResponse, __Met
  * import { AuditManagerClient, DeleteControlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DeleteControlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // DeleteControlRequest
+ *   controlId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteControlCommandInput - {@link DeleteControlCommandInput}
+ * @returns {@link DeleteControlCommandOutput}
  * @see {@link DeleteControlCommandInput} for command's `input` shape.
  * @see {@link DeleteControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +85,9 @@ export class DeleteControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteControlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteControlCommand(input, context);
+    return se_DeleteControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteControlCommandOutput> {
-    return deserializeAws_restJson1DeleteControlCommand(output, context);
+    return de_DeleteControlCommand(output, context);
   }
 
   // Start section: command_body_extra

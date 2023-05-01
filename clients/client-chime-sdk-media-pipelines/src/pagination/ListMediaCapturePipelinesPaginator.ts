@@ -10,7 +10,7 @@ import {
 import { ChimeSDKMediaPipelinesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeSDKMediaPipelinesClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMediaCapturePipelinesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMediaCapturePipelines(
   config: ChimeSDKMediaPipelinesPaginationConfiguration,
   input: ListMediaCapturePipelinesCommandInput,

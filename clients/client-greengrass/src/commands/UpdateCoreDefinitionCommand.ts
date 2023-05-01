@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  UpdateCoreDefinitionRequest,
-  UpdateCoreDefinitionRequestFilterSensitiveLog,
-  UpdateCoreDefinitionResponse,
-  UpdateCoreDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateCoreDefinitionCommand,
-  serializeAws_restJson1UpdateCoreDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateCoreDefinitionRequest, UpdateCoreDefinitionResponse } from "../models/models_0";
+import { de_UpdateCoreDefinitionCommand, se_UpdateCoreDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCoreDefinitionCommand}.
  */
 export interface UpdateCoreDefinitionCommandInput extends UpdateCoreDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCoreDefinitionCommand}.
  */
 export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a core definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionR
  * import { GreengrassClient, UpdateCoreDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateCoreDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // UpdateCoreDefinitionRequest
+ *   CoreDefinitionId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateCoreDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCoreDefinitionCommandInput - {@link UpdateCoreDefinitionCommandInput}
+ * @returns {@link UpdateCoreDefinitionCommandOutput}
  * @see {@link UpdateCoreDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateCoreDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +75,9 @@ export class UpdateCoreDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCoreDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class UpdateCoreDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCoreDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCoreDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class UpdateCoreDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCoreDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCoreDefinitionCommand(input, context);
+    return se_UpdateCoreDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCoreDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateCoreDefinitionCommand(output, context);
+    return de_UpdateCoreDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

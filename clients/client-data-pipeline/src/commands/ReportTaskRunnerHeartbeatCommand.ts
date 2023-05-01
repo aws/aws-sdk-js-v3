@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import {
-  ReportTaskRunnerHeartbeatInput,
-  ReportTaskRunnerHeartbeatInputFilterSensitiveLog,
-  ReportTaskRunnerHeartbeatOutput,
-  ReportTaskRunnerHeartbeatOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand,
-  serializeAws_json1_1ReportTaskRunnerHeartbeatCommand,
-} from "../protocols/Aws_json1_1";
+import { ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput } from "../models/models_0";
+import { de_ReportTaskRunnerHeartbeatCommand, se_ReportTaskRunnerHeartbeatCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ReportTaskRunnerHeartbeatCommand}.
  */
 export interface ReportTaskRunnerHeartbeatCommandInput extends ReportTaskRunnerHeartbeatInput {}
 /**
+ * @public
+ *
  * The output of {@link ReportTaskRunnerHeartbeatCommand}.
  */
 export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunnerHeartbeatOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational.
  *             If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use
  *             this call to detect when the task runner application has failed and restart a new instance.</p>
@@ -50,9 +47,9 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"taskrunnerId": "1234567890",
+ * \{"taskrunnerId": "1234567890",
  *  "workerGroup": "wg-12345",
- *  "hostname": "example.com"}
+ *  "hostname": "example.com"\}
  *
  *             </request>
  *
@@ -64,7 +61,7 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  * Content-Length: 20
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {"terminate": false}
+ * \{"terminate": false\}
  *
  *             </response>
  *         </examples>
@@ -74,10 +71,17 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  * import { DataPipelineClient, ReportTaskRunnerHeartbeatCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ReportTaskRunnerHeartbeatCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = { // ReportTaskRunnerHeartbeatInput
+ *   taskrunnerId: "STRING_VALUE", // required
+ *   workerGroup: "STRING_VALUE",
+ *   hostname: "STRING_VALUE",
+ * };
  * const command = new ReportTaskRunnerHeartbeatCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReportTaskRunnerHeartbeatCommandInput - {@link ReportTaskRunnerHeartbeatCommandInput}
+ * @returns {@link ReportTaskRunnerHeartbeatCommandOutput}
  * @see {@link ReportTaskRunnerHeartbeatCommandInput} for command's `input` shape.
  * @see {@link ReportTaskRunnerHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -107,6 +111,9 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReportTaskRunnerHeartbeatCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +142,8 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReportTaskRunnerHeartbeatInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ReportTaskRunnerHeartbeatOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,15 +153,21 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReportTaskRunnerHeartbeatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReportTaskRunnerHeartbeatCommand(input, context);
+    return se_ReportTaskRunnerHeartbeatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReportTaskRunnerHeartbeatCommandOutput> {
-    return deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand(output, context);
+    return de_ReportTaskRunnerHeartbeatCommand(output, context);
   }
 
   // Start section: command_body_extra

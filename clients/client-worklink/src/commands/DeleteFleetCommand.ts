@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteFleetRequest,
-  DeleteFleetRequestFilterSensitiveLog,
-  DeleteFleetResponse,
-  DeleteFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFleetCommand,
-  serializeAws_restJson1DeleteFleetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFleetRequest, DeleteFleetResponse } from "../models/models_0";
+import { de_DeleteFleetCommand, se_DeleteFleetCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandInput extends DeleteFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>
@@ -44,10 +41,15 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * import { WorkLinkClient, DeleteFleetCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DeleteFleetCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // DeleteFleetRequest
+ *   FleetArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
+ * @returns {@link DeleteFleetCommandOutput}
  * @see {@link DeleteFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -86,6 +88,9 @@ export class DeleteFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DeleteFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DeleteFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFleetCommand(input, context);
+    return se_DeleteFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetCommandOutput> {
-    return deserializeAws_restJson1DeleteFleetCommand(output, context);
+    return de_DeleteFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

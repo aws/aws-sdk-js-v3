@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  CreateOpenIDConnectProviderRequest,
-  CreateOpenIDConnectProviderRequestFilterSensitiveLog,
-  CreateOpenIDConnectProviderResponse,
-  CreateOpenIDConnectProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateOpenIDConnectProviderCommand,
-  serializeAws_queryCreateOpenIDConnectProviderCommand,
-} from "../protocols/Aws_query";
+import { CreateOpenIDConnectProviderRequest, CreateOpenIDConnectProviderResponse } from "../models/models_0";
+import { de_CreateOpenIDConnectProviderCommand, se_CreateOpenIDConnectProviderCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOpenIDConnectProviderCommand}.
  */
 export interface CreateOpenIDConnectProviderCommandInput extends CreateOpenIDConnectProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOpenIDConnectProviderCommand}.
  */
 export interface CreateOpenIDConnectProviderCommandOutput
@@ -37,6 +33,7 @@ export interface CreateOpenIDConnectProviderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>
  *          <p>The OIDC provider that you create with this operation can be used as a principal in a
  *             role's trust policy. Such a policy establishes a trust relationship between Amazon Web Services and
@@ -85,10 +82,27 @@ export interface CreateOpenIDConnectProviderCommandOutput
  * import { IAMClient, CreateOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // CreateOpenIDConnectProviderRequest
+ *   Url: "STRING_VALUE", // required
+ *   ClientIDList: [ // clientIDListType
+ *     "STRING_VALUE",
+ *   ],
+ *   ThumbprintList: [ // thumbprintListType // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOpenIDConnectProviderCommandInput - {@link CreateOpenIDConnectProviderCommandInput}
+ * @returns {@link CreateOpenIDConnectProviderCommandOutput}
  * @see {@link CreateOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link CreateOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -154,6 +168,9 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,8 +199,8 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOpenIDConnectProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOpenIDConnectProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -193,15 +210,21 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateOpenIDConnectProviderCommand(input, context);
+    return se_CreateOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryCreateOpenIDConnectProviderCommand(output, context);
+    return de_CreateOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

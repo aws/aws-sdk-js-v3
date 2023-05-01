@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBotAliasesRequest,
-  GetBotAliasesRequestFilterSensitiveLog,
-  GetBotAliasesResponse,
-  GetBotAliasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBotAliasesCommand,
-  serializeAws_restJson1GetBotAliasesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBotAliasesRequest, GetBotAliasesResponse } from "../models/models_0";
+import { de_GetBotAliasesCommand, se_GetBotAliasesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBotAliasesCommand}.
  */
 export interface GetBotAliasesCommandInput extends GetBotAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBotAliasesCommand}.
  */
 export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of aliases for a specified Amazon Lex bot.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:GetBotAliases</code> action.</p>
@@ -48,10 +45,18 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  * import { LexModelBuildingServiceClient, GetBotAliasesCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBotAliasesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetBotAliasesRequest
+ *   botName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nameContains: "STRING_VALUE",
+ * };
  * const command = new GetBotAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotAliasesCommandInput - {@link GetBotAliasesCommandInput}
+ * @returns {@link GetBotAliasesCommandOutput}
  * @see {@link GetBotAliasesCommandInput} for command's `input` shape.
  * @see {@link GetBotAliasesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -86,6 +91,9 @@ export class GetBotAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class GetBotAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBotAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBotAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class GetBotAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBotAliasesCommand(input, context);
+    return se_GetBotAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotAliasesCommandOutput> {
-    return deserializeAws_restJson1GetBotAliasesCommand(output, context);
+    return de_GetBotAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

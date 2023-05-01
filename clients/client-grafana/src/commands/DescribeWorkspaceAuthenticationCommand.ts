@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
+import { DescribeWorkspaceAuthenticationRequest, DescribeWorkspaceAuthenticationResponse } from "../models/models_0";
 import {
-  DescribeWorkspaceAuthenticationRequest,
-  DescribeWorkspaceAuthenticationRequestFilterSensitiveLog,
-  DescribeWorkspaceAuthenticationResponse,
-  DescribeWorkspaceAuthenticationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeWorkspaceAuthenticationCommand,
-  serializeAws_restJson1DescribeWorkspaceAuthenticationCommand,
+  de_DescribeWorkspaceAuthenticationCommand,
+  se_DescribeWorkspaceAuthenticationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceAuthenticationCommand}.
  */
 export interface DescribeWorkspaceAuthenticationCommandInput extends DescribeWorkspaceAuthenticationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceAuthenticationCommand}.
  */
 export interface DescribeWorkspaceAuthenticationCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays information about the authentication methods used in one Amazon Managed Grafana
  *             workspace.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
  * import { GrafanaClient, DescribeWorkspaceAuthenticationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DescribeWorkspaceAuthenticationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // DescribeWorkspaceAuthenticationRequest
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorkspaceAuthenticationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceAuthenticationCommandInput - {@link DescribeWorkspaceAuthenticationCommandInput}
+ * @returns {@link DescribeWorkspaceAuthenticationCommandOutput}
  * @see {@link DescribeWorkspaceAuthenticationCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceAuthenticationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -87,6 +92,9 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceAuthenticationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceAuthenticationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspaceAuthenticationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +134,24 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeWorkspaceAuthenticationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorkspaceAuthenticationCommand(input, context);
+    return se_DescribeWorkspaceAuthenticationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceAuthenticationCommandOutput> {
-    return deserializeAws_restJson1DescribeWorkspaceAuthenticationCommand(output, context);
+    return de_DescribeWorkspaceAuthenticationCommand(output, context);
   }
 
   // Start section: command_body_extra

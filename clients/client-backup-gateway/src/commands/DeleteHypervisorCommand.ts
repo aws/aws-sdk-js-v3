@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  DeleteHypervisorInput,
-  DeleteHypervisorInputFilterSensitiveLog,
-  DeleteHypervisorOutput,
-  DeleteHypervisorOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteHypervisorCommand,
-  serializeAws_json1_0DeleteHypervisorCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteHypervisorInput, DeleteHypervisorOutput } from "../models/models_0";
+import { de_DeleteHypervisorCommand, se_DeleteHypervisorCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHypervisorCommand}.
  */
 export interface DeleteHypervisorCommandInput extends DeleteHypervisorInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHypervisorCommand}.
  */
 export interface DeleteHypervisorCommandOutput extends DeleteHypervisorOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a hypervisor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteHypervisorCommandOutput extends DeleteHypervisorOutput, _
  * import { BackupGatewayClient, DeleteHypervisorCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, DeleteHypervisorCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // DeleteHypervisorInput
+ *   HypervisorArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHypervisorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHypervisorCommandInput - {@link DeleteHypervisorCommandInput}
+ * @returns {@link DeleteHypervisorCommandOutput}
  * @see {@link DeleteHypervisorCommandInput} for command's `input` shape.
  * @see {@link DeleteHypervisorCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -88,6 +90,9 @@ export class DeleteHypervisorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHypervisorCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class DeleteHypervisorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHypervisorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHypervisorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class DeleteHypervisorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHypervisorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteHypervisorCommand(input, context);
+    return se_DeleteHypervisorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHypervisorCommandOutput> {
-    return deserializeAws_json1_0DeleteHypervisorCommand(output, context);
+    return de_DeleteHypervisorCommand(output, context);
   }
 
   // Start section: command_body_extra

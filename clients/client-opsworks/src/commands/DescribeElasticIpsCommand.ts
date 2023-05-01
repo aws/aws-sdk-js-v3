@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeElasticIpsRequest,
-  DescribeElasticIpsRequestFilterSensitiveLog,
-  DescribeElasticIpsResult,
-  DescribeElasticIpsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeElasticIpsRequest, DescribeElasticIpsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeElasticIpsCommand,
-  serializeAws_json1_1DescribeElasticIpsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeElasticIpsCommand, se_DescribeElasticIpsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeElasticIpsCommand}.
  */
 export interface DescribeElasticIpsCommandInput extends DescribeElasticIpsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeElasticIpsCommand}.
  */
 export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP addresses</a>.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -50,10 +47,19 @@ export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResul
  * import { OpsWorksClient, DescribeElasticIpsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeElasticIpsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeElasticIpsRequest
+ *   InstanceId: "STRING_VALUE",
+ *   StackId: "STRING_VALUE",
+ *   Ips: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeElasticIpsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeElasticIpsCommandInput - {@link DescribeElasticIpsCommandInput}
+ * @returns {@link DescribeElasticIpsCommandOutput}
  * @see {@link DescribeElasticIpsCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticIpsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -83,6 +89,9 @@ export class DescribeElasticIpsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticIpsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +120,8 @@ export class DescribeElasticIpsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeElasticIpsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeElasticIpsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +131,18 @@ export class DescribeElasticIpsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeElasticIpsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeElasticIpsCommand(input, context);
+    return se_DescribeElasticIpsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeElasticIpsCommandOutput> {
-    return deserializeAws_json1_1DescribeElasticIpsCommand(output, context);
+    return de_DescribeElasticIpsCommand(output, context);
   }
 
   // Start section: command_body_extra

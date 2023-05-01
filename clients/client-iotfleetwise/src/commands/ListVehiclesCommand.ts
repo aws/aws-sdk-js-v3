@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  ListVehiclesRequest,
-  ListVehiclesRequestFilterSensitiveLog,
-  ListVehiclesResponse,
-  ListVehiclesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListVehiclesCommand,
-  serializeAws_json1_0ListVehiclesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListVehiclesRequest, ListVehiclesResponse } from "../models/models_0";
+import { de_ListVehiclesCommand, se_ListVehiclesCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListVehiclesCommand}.
  */
 export interface ListVehiclesCommandInput extends ListVehiclesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVehiclesCommand}.
  */
 export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a list of summaries of created vehicles. </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -45,10 +42,17 @@ export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __Metad
  * import { IoTFleetWiseClient, ListVehiclesCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListVehiclesCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // ListVehiclesRequest
+ *   modelManifestArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListVehiclesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVehiclesCommandInput - {@link ListVehiclesCommandInput}
+ * @returns {@link ListVehiclesCommandOutput}
  * @see {@link ListVehiclesCommandInput} for command's `input` shape.
  * @see {@link ListVehiclesCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListVehiclesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVehiclesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListVehiclesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVehiclesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVehiclesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class ListVehiclesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVehiclesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListVehiclesCommand(input, context);
+    return se_ListVehiclesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVehiclesCommandOutput> {
-    return deserializeAws_json1_0ListVehiclesCommand(output, context);
+    return de_ListVehiclesCommand(output, context);
   }
 
   // Start section: command_body_extra

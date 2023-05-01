@@ -18,23 +18,24 @@ import {
   StartTableDataImportJobRequest,
   StartTableDataImportJobRequestFilterSensitiveLog,
   StartTableDataImportJobResult,
-  StartTableDataImportJobResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartTableDataImportJobCommand,
-  serializeAws_restJson1StartTableDataImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartTableDataImportJobCommand, se_StartTableDataImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTableDataImportJobCommand}.
  */
 export interface StartTableDataImportJobCommandInput extends StartTableDataImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTableDataImportJobCommand}.
  */
 export interface StartTableDataImportJobCommandOutput extends StartTableDataImportJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The StartTableDataImportJob API allows you to start an import job on a table. This API will only return
  *             the id of the job that was started. To find out the status of the import request, you need to call the
@@ -46,10 +47,38 @@ export interface StartTableDataImportJobCommandOutput extends StartTableDataImpo
  * import { HoneycodeClient, StartTableDataImportJobCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, StartTableDataImportJobCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = { // StartTableDataImportJobRequest
+ *   workbookId: "STRING_VALUE", // required
+ *   dataSource: { // ImportDataSource
+ *     dataSourceConfig: { // ImportDataSourceConfig
+ *       dataSourceUrl: "STRING_VALUE",
+ *     },
+ *   },
+ *   dataFormat: "STRING_VALUE", // required
+ *   destinationTableId: "STRING_VALUE", // required
+ *   importOptions: { // ImportOptions
+ *     destinationOptions: { // DestinationOptions
+ *       columnMap: { // ImportColumnMap
+ *         "<keys>": { // SourceDataColumnProperties
+ *           columnIndex: Number("int"),
+ *         },
+ *       },
+ *     },
+ *     delimitedTextOptions: { // DelimitedTextImportOptions
+ *       delimiter: "STRING_VALUE", // required
+ *       hasHeaderRow: true || false,
+ *       ignoreEmptyRows: true || false,
+ *       dataCharacterEncoding: "STRING_VALUE",
+ *     },
+ *   },
+ *   clientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new StartTableDataImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTableDataImportJobCommandInput - {@link StartTableDataImportJobCommandInput}
+ * @returns {@link StartTableDataImportJobCommandOutput}
  * @see {@link StartTableDataImportJobCommandInput} for command's `input` shape.
  * @see {@link StartTableDataImportJobCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -104,6 +133,9 @@ export class StartTableDataImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTableDataImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,7 +165,7 @@ export class StartTableDataImportJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartTableDataImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartTableDataImportJobResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +175,18 @@ export class StartTableDataImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTableDataImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartTableDataImportJobCommand(input, context);
+    return se_StartTableDataImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTableDataImportJobCommandOutput> {
-    return deserializeAws_restJson1StartTableDataImportJobCommand(output, context);
+    return de_StartTableDataImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

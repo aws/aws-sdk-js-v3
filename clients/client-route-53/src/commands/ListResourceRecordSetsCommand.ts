@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResourceRecordSetsRequest,
-  ListResourceRecordSetsRequestFilterSensitiveLog,
-  ListResourceRecordSetsResponse,
-  ListResourceRecordSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListResourceRecordSetsCommand,
-  serializeAws_restXmlListResourceRecordSetsCommand,
-} from "../protocols/Aws_restXml";
+import { ListResourceRecordSetsRequest, ListResourceRecordSetsResponse } from "../models/models_0";
+import { de_ListResourceRecordSetsCommand, se_ListResourceRecordSetsCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceRecordSetsCommand}.
  */
 export interface ListResourceRecordSetsCommandInput extends ListResourceRecordSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceRecordSetsCommand}.
  */
 export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resource record sets in a specified hosted zone.</p>
  *          <p>
  *             <code>ListResourceRecordSets</code> returns up to 300 resource record sets at a time
@@ -113,10 +110,19 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * import { Route53Client, ListResourceRecordSetsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListResourceRecordSetsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListResourceRecordSetsRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   StartRecordName: "STRING_VALUE",
+ *   StartRecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ *   StartRecordIdentifier: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListResourceRecordSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceRecordSetsCommandInput - {@link ListResourceRecordSetsCommandInput}
+ * @returns {@link ListResourceRecordSetsCommandOutput}
  * @see {@link ListResourceRecordSetsCommandInput} for command's `input` shape.
  * @see {@link ListResourceRecordSetsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -146,6 +152,9 @@ export class ListResourceRecordSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceRecordSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,8 +184,8 @@ export class ListResourceRecordSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceRecordSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceRecordSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -186,12 +195,18 @@ export class ListResourceRecordSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceRecordSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListResourceRecordSetsCommand(input, context);
+    return se_ListResourceRecordSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceRecordSetsCommandOutput> {
-    return deserializeAws_restXmlListResourceRecordSetsCommand(output, context);
+    return de_ListResourceRecordSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

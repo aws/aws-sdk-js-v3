@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListObjectsV2Output,
-  ListObjectsV2OutputFilterSensitiveLog,
-  ListObjectsV2Request,
-  ListObjectsV2RequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListObjectsV2Command,
-  serializeAws_restXmlListObjectsV2Command,
-} from "../protocols/Aws_restXml";
+import { ListObjectsV2Output, ListObjectsV2Request } from "../models/models_0";
+import { de_ListObjectsV2Command, se_ListObjectsV2Command } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectsV2Command}.
  */
 export interface ListObjectsV2CommandInput extends ListObjectsV2Request {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectsV2Command}.
  */
 export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns some or all (up to 1,000) of the objects in a bucket with each request. You can use
  *          the request parameters as selection criteria to return a subset of the objects in a bucket. A
  *          <code>200 OK</code> response can contain valid or invalid XML. Make sure to design your
@@ -79,10 +76,24 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListObjectsV2Command } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // ListObjectsV2Request
+ *   Bucket: "STRING_VALUE", // required
+ *   Delimiter: "STRING_VALUE",
+ *   EncodingType: "url",
+ *   MaxKeys: Number("int"),
+ *   Prefix: "STRING_VALUE",
+ *   ContinuationToken: "STRING_VALUE",
+ *   FetchOwner: true || false,
+ *   StartAfter: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new ListObjectsV2Command(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectsV2CommandInput - {@link ListObjectsV2CommandInput}
+ * @returns {@link ListObjectsV2CommandOutput}
  * @see {@link ListObjectsV2CommandInput} for command's `input` shape.
  * @see {@link ListObjectsV2CommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -95,7 +106,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * ```javascript
  * // The following example retrieves object list. The request specifies max keys to limit response to include only 2 object keys.
  * const input = {
- *   "Bucket": "examplebucket",
+ *   "Bucket": "DOC-EXAMPLE-BUCKET",
  *   "MaxKeys": "2"
  * };
  * const command = new ListObjectsV2Command(input);
@@ -121,7 +132,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *   "IsTruncated": true,
  *   "KeyCount": "2",
  *   "MaxKeys": "2",
- *   "Name": "examplebucket",
+ *   "Name": "DOC-EXAMPLE-BUCKET",
  *   "NextContinuationToken": "1w41l63U0xa8q7smH50vCxyTQqdxo69O3EmK28Bi5PcROI4wI/EyIJg==",
  *   "Prefix": ""
  * }
@@ -153,6 +164,9 @@ export class ListObjectsV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectsV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -179,8 +193,8 @@ export class ListObjectsV2Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObjectsV2RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListObjectsV2OutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -190,12 +204,18 @@ export class ListObjectsV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectsV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListObjectsV2Command(input, context);
+    return se_ListObjectsV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectsV2CommandOutput> {
-    return deserializeAws_restXmlListObjectsV2Command(output, context);
+    return de_ListObjectsV2Command(output, context);
   }
 
   // Start section: command_body_extra

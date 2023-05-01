@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  UpdateWorkerRequest,
-  UpdateWorkerRequestFilterSensitiveLog,
-  UpdateWorkerResponse,
-  UpdateWorkerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkerCommand,
-  serializeAws_restJson1UpdateWorkerCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateWorkerRequest, UpdateWorkerResponse } from "../models/models_0";
+import { de_UpdateWorkerCommand, se_UpdateWorkerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkerCommand}.
  */
 export interface UpdateWorkerCommandInput extends UpdateWorkerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkerCommand}.
  */
 export interface UpdateWorkerCommandOutput extends UpdateWorkerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to update a worker
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,34 @@ export interface UpdateWorkerCommandOutput extends UpdateWorkerResponse, __Metad
  * import { IoTRoboRunnerClient, UpdateWorkerCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, UpdateWorkerCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // UpdateWorkerRequest
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   additionalTransientProperties: "STRING_VALUE",
+ *   additionalFixedProperties: "STRING_VALUE",
+ *   vendorProperties: { // VendorProperties
+ *     vendorWorkerId: "STRING_VALUE", // required
+ *     vendorWorkerIpAddress: "STRING_VALUE",
+ *     vendorAdditionalTransientProperties: "STRING_VALUE",
+ *     vendorAdditionalFixedProperties: "STRING_VALUE",
+ *   },
+ *   position: { // PositionCoordinates Union: only one key present
+ *     cartesianCoordinates: { // CartesianCoordinates
+ *       x: Number("double"), // required
+ *       y: Number("double"), // required
+ *       z: Number("double"),
+ *     },
+ *   },
+ *   orientation: { // Orientation Union: only one key present
+ *     degrees: Number("double"),
+ *   },
+ * };
  * const command = new UpdateWorkerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkerCommandInput - {@link UpdateWorkerCommandInput}
+ * @returns {@link UpdateWorkerCommandOutput}
  * @see {@link UpdateWorkerCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkerCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -84,6 +105,9 @@ export class UpdateWorkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +134,8 @@ export class UpdateWorkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +145,18 @@ export class UpdateWorkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkerCommand(input, context);
+    return se_UpdateWorkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkerCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkerCommand(output, context);
+    return de_UpdateWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

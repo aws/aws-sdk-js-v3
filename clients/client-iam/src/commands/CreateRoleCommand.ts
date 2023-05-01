@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  CreateRoleRequest,
-  CreateRoleRequestFilterSensitiveLog,
-  CreateRoleResponse,
-  CreateRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryCreateRoleCommand, serializeAws_queryCreateRoleCommand } from "../protocols/Aws_query";
+import { CreateRoleRequest, CreateRoleResponse } from "../models/models_0";
+import { de_CreateRoleCommand, se_CreateRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRoleCommand}.
  */
 export interface CreateRoleCommandInput extends CreateRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRoleCommand}.
  */
 export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new role for your Amazon Web Services account. For more information about roles, see
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
  *                 roles</a>. For information about quotas for role names and the number of roles
@@ -43,10 +43,26 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  * import { IAMClient, CreateRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // CreateRoleRequest
+ *   Path: "STRING_VALUE",
+ *   RoleName: "STRING_VALUE", // required
+ *   AssumeRolePolicyDocument: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   MaxSessionDuration: Number("int"),
+ *   PermissionsBoundary: "STRING_VALUE",
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRoleCommandInput - {@link CreateRoleCommandInput}
+ * @returns {@link CreateRoleCommandOutput}
  * @see {@link CreateRoleCommandInput} for command's `input` shape.
  * @see {@link CreateRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -119,6 +135,9 @@ export class CreateRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +164,8 @@ export class CreateRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +175,18 @@ export class CreateRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateRoleCommand(input, context);
+    return se_CreateRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoleCommandOutput> {
-    return deserializeAws_queryCreateRoleCommand(output, context);
+    return de_CreateRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

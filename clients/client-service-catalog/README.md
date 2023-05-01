@@ -783,6 +783,30 @@ ListTagOptions
 </details>
 <details>
 <summary>
+NotifyProvisionProductEngineWorkflowResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/notifyprovisionproductengineworkflowresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyprovisionproductengineworkflowresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyprovisionproductengineworkflowresultcommandoutput.html)
+
+</details>
+<details>
+<summary>
+NotifyTerminateProvisionedProductEngineWorkflowResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/notifyterminateprovisionedproductengineworkflowresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyterminateprovisionedproductengineworkflowresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyterminateprovisionedproductengineworkflowresultcommandoutput.html)
+
+</details>
+<details>
+<summary>
+NotifyUpdateProvisionedProductEngineWorkflowResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/notifyupdateprovisionedproductengineworkflowresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyupdateprovisionedproductengineworkflowresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyupdateprovisionedproductengineworkflowresultcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ProvisionProduct
 </summary>
 

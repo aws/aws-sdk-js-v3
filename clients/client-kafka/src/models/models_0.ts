@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { KafkaServiceException as __BaseException } from "./KafkaServiceException";
 
 /**
+ * @public
  * <p>Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.</p>
  */
 export interface ProvisionedThroughput {
@@ -19,6 +20,7 @@ export interface ProvisionedThroughput {
 }
 
 /**
+ * @public
  * <p>Specifies the EBS volume upgrade information. The broker identifier must be set to the keyword ALL. This means the changes apply to all the brokers in the cluster.</p>
  */
 export interface BrokerEBSVolumeInfo {
@@ -38,16 +40,86 @@ export interface BrokerEBSVolumeInfo {
   VolumeSizeGB?: number;
 }
 
-export enum ClusterType {
-  PROVISIONED = "PROVISIONED",
-  SERVERLESS = "SERVERLESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VpcConnectionState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DEACTIVATING: "DEACTIVATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  REJECTED: "REJECTED",
+  REJECTING: "REJECTING",
+} as const;
 
-export enum BrokerAZDistribution {
-  DEFAULT = "DEFAULT",
+/**
+ * @public
+ */
+export type VpcConnectionState = (typeof VpcConnectionState)[keyof typeof VpcConnectionState];
+
+/**
+ * @public
+ * <p>The client VPC connection object.</p>
+ */
+export interface ClientVpcConnection {
+  /**
+   * <p>Information about the auth scheme of Vpc Connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * <p>Creation time of the Vpc Connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>State of the Vpc Connection.</p>
+   */
+  State?: VpcConnectionState | string;
+
+  /**
+   * <p>The ARN that identifies the Vpc Connection.</p>
+   */
+  VpcConnectionArn: string | undefined;
+
+  /**
+   * <p>The Owner of the Vpc Connection.</p>
+   */
+  Owner?: string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ClusterType = {
+  PROVISIONED: "PROVISIONED",
+  SERVERLESS: "SERVERLESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BrokerAZDistribution = {
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type BrokerAZDistribution = (typeof BrokerAZDistribution)[keyof typeof BrokerAZDistribution];
+
+/**
+ * @public
  * Public access control for brokers.
  */
 export interface PublicAccess {
@@ -58,6 +130,83 @@ export interface PublicAccess {
 }
 
 /**
+ * @public
+ * <p>Details for IAM access control for VPC connectivity.</p>
+ */
+export interface VpcConnectivityIam {
+  /**
+   * <p>SASL/IAM authentication is on or off for VPC connectivity.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details for SASL/SCRAM client authentication for VPC connectivity.</p>
+ */
+export interface VpcConnectivityScram {
+  /**
+   * <p>SASL/SCRAM authentication is on or off for VPC connectivity.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details for SASL client authentication for VPC connectivity.</p>
+ */
+export interface VpcConnectivitySasl {
+  /**
+   * <p>Details for SASL/SCRAM client authentication for VPC connectivity.</p>
+   */
+  Scram?: VpcConnectivityScram;
+
+  /**
+   * <p>Details for SASL/IAM client authentication for VPC connectivity.</p>
+   */
+  Iam?: VpcConnectivityIam;
+}
+
+/**
+ * @public
+ * <p>Details for TLS client authentication for VPC connectivity.</p>
+ */
+export interface VpcConnectivityTls {
+  /**
+   * <p>TLS authentication is on or off for VPC connectivity.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Includes all client authentication information for VPC connectivity.</p>
+ */
+export interface VpcConnectivityClientAuthentication {
+  /**
+   * <p>SASL authentication type details for VPC connectivity.</p>
+   */
+  Sasl?: VpcConnectivitySasl;
+
+  /**
+   * <p>TLS authentication type details for VPC connectivity.</p>
+   */
+  Tls?: VpcConnectivityTls;
+}
+
+/**
+ * @public
+ * VPC connectivity access control for brokers.
+ */
+export interface VpcConnectivity {
+  /**
+   * <p>Includes all client authentication information for VPC connectivity.</p>
+   */
+  ClientAuthentication?: VpcConnectivityClientAuthentication;
+}
+
+/**
+ * @public
  * <p>Information about the broker access configuration.</p>
  */
 export interface ConnectivityInfo {
@@ -65,9 +214,15 @@ export interface ConnectivityInfo {
    * <p>Public access control for brokers.</p>
    */
   PublicAccess?: PublicAccess;
+
+  /**
+   * <p>VPC connectivity access control for brokers.</p>
+   */
+  VpcConnectivity?: VpcConnectivity;
 }
 
 /**
+ * @public
  * <p>Contains information about the EBS storage volumes attached to Apache Kafka broker nodes.</p>
  */
 export interface EBSStorageInfo {
@@ -83,6 +238,7 @@ export interface EBSStorageInfo {
 }
 
 /**
+ * @public
  * <p>Contains information about storage volumes attached to MSK broker nodes.</p>
  */
 export interface StorageInfo {
@@ -93,6 +249,7 @@ export interface StorageInfo {
 }
 
 /**
+ * @public
  * <p>Describes the setup to be used for Apache Kafka broker nodes in the cluster.</p>
  */
 export interface BrokerNodeGroupInfo {
@@ -127,9 +284,15 @@ export interface BrokerNodeGroupInfo {
    * <p>Information about the broker access configuration.</p>
    */
   ConnectivityInfo?: ConnectivityInfo;
+
+  /**
+   * <p>The list of zoneIds for the cluster in the virtual private cloud (VPC).</p>
+   */
+  ZoneIds?: string[];
 }
 
 /**
+ * @public
  * <p>Details for IAM access control.</p>
  */
 export interface Iam {
@@ -140,6 +303,7 @@ export interface Iam {
 }
 
 /**
+ * @public
  * <p>Details for SASL/SCRAM client authentication.</p>
  */
 export interface Scram {
@@ -150,6 +314,7 @@ export interface Scram {
 }
 
 /**
+ * @public
  * <p>Details for client authentication using SASL.</p>
  */
 export interface Sasl {
@@ -165,6 +330,7 @@ export interface Sasl {
 }
 
 /**
+ * @public
  * <p>Details for client authentication using TLS.</p>
  */
 export interface Tls {
@@ -179,6 +345,9 @@ export interface Tls {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface Unauthenticated {
   /**
    * <p>Specifies whether you want to turn on or turn off unauthenticated traffic to your cluster.</p>
@@ -187,6 +356,7 @@ export interface Unauthenticated {
 }
 
 /**
+ * @public
  * <p>Includes all client authentication information.</p>
  */
 export interface ClientAuthentication {
@@ -207,6 +377,7 @@ export interface ClientAuthentication {
 }
 
 /**
+ * @public
  * <p>Information about the current software installed on the cluster.</p>
  */
 export interface BrokerSoftwareInfo {
@@ -227,6 +398,7 @@ export interface BrokerSoftwareInfo {
 }
 
 /**
+ * @public
  * <p>The data-volume encryption details.</p>
  */
 export interface EncryptionAtRest {
@@ -236,13 +408,23 @@ export interface EncryptionAtRest {
   DataVolumeKMSKeyId: string | undefined;
 }
 
-export enum ClientBroker {
-  PLAINTEXT = "PLAINTEXT",
-  TLS = "TLS",
-  TLS_PLAINTEXT = "TLS_PLAINTEXT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClientBroker = {
+  PLAINTEXT: "PLAINTEXT",
+  TLS: "TLS",
+  TLS_PLAINTEXT: "TLS_PLAINTEXT",
+} as const;
 
 /**
+ * @public
+ */
+export type ClientBroker = (typeof ClientBroker)[keyof typeof ClientBroker];
+
+/**
+ * @public
  * <p>The settings for encrypting data in transit.</p>
  */
 export interface EncryptionInTransit {
@@ -266,6 +448,7 @@ export interface EncryptionInTransit {
 }
 
 /**
+ * @public
  * <p>Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.</p>
  */
 export interface EncryptionInfo {
@@ -280,40 +463,65 @@ export interface EncryptionInfo {
   EncryptionInTransit?: EncryptionInTransit;
 }
 
-export enum EnhancedMonitoring {
-  DEFAULT = "DEFAULT",
-  PER_BROKER = "PER_BROKER",
-  PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER",
-  PER_TOPIC_PER_PARTITION = "PER_TOPIC_PER_PARTITION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnhancedMonitoring = {
+  DEFAULT: "DEFAULT",
+  PER_BROKER: "PER_BROKER",
+  PER_TOPIC_PER_BROKER: "PER_TOPIC_PER_BROKER",
+  PER_TOPIC_PER_PARTITION: "PER_TOPIC_PER_PARTITION",
+} as const;
 
+/**
+ * @public
+ */
+export type EnhancedMonitoring = (typeof EnhancedMonitoring)[keyof typeof EnhancedMonitoring];
+
+/**
+ * @public
+ */
 export interface CloudWatchLogs {
   Enabled: boolean | undefined;
   LogGroup?: string;
 }
 
+/**
+ * @public
+ */
 export interface Firehose {
   DeliveryStream?: string;
   Enabled: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface S3 {
   Bucket?: string;
   Enabled: boolean | undefined;
   Prefix?: string;
 }
 
+/**
+ * @public
+ */
 export interface BrokerLogs {
   CloudWatchLogs?: CloudWatchLogs;
   Firehose?: Firehose;
   S3?: S3;
 }
 
+/**
+ * @public
+ */
 export interface LoggingInfo {
   BrokerLogs: BrokerLogs | undefined;
 }
 
 /**
+ * @public
  * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
  */
 export interface JmxExporterInfo {
@@ -324,6 +532,7 @@ export interface JmxExporterInfo {
 }
 
 /**
+ * @public
  * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
  */
 export interface NodeExporterInfo {
@@ -334,6 +543,7 @@ export interface NodeExporterInfo {
 }
 
 /**
+ * @public
  * <p>Prometheus settings.</p>
  */
 export interface PrometheusInfo {
@@ -349,6 +559,7 @@ export interface PrometheusInfo {
 }
 
 /**
+ * @public
  * <p>JMX and Node monitoring for the MSK cluster.</p>
  */
 export interface OpenMonitoringInfo {
@@ -358,12 +569,22 @@ export interface OpenMonitoringInfo {
   Prometheus: PrometheusInfo | undefined;
 }
 
-export enum StorageMode {
-  LOCAL = "LOCAL",
-  TIERED = "TIERED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StorageMode = {
+  LOCAL: "LOCAL",
+  TIERED: "TIERED",
+} as const;
 
 /**
+ * @public
+ */
+export type StorageMode = (typeof StorageMode)[keyof typeof StorageMode];
+
+/**
+ * @public
  * <p>Provisioned cluster.</p>
  */
 export interface Provisioned {
@@ -424,6 +645,7 @@ export interface Provisioned {
 }
 
 /**
+ * @public
  * <p>Details for client authentication using SASL.</p>
  */
 export interface ServerlessSasl {
@@ -434,6 +656,7 @@ export interface ServerlessSasl {
 }
 
 /**
+ * @public
  * <p>Includes all client authentication information.</p>
  */
 export interface ServerlessClientAuthentication {
@@ -444,6 +667,7 @@ export interface ServerlessClientAuthentication {
 }
 
 /**
+ * @public
  * <p>The configuration of the Amazon VPCs for the cluster.</p>
  */
 export interface VpcConfig {
@@ -459,6 +683,7 @@ export interface VpcConfig {
 }
 
 /**
+ * @public
  * <p>Serverless cluster.</p>
  */
 export interface Serverless {
@@ -473,23 +698,36 @@ export interface Serverless {
   ClientAuthentication?: ServerlessClientAuthentication;
 }
 
-export enum ClusterState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  HEALING = "HEALING",
-  MAINTENANCE = "MAINTENANCE",
-  REBOOTING_BROKER = "REBOOTING_BROKER",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClusterState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  HEALING: "HEALING",
+  MAINTENANCE: "MAINTENANCE",
+  REBOOTING_BROKER: "REBOOTING_BROKER",
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
+
+/**
+ * @public
+ */
 export interface StateInfo {
   Code?: string;
   Message?: string;
 }
 
 /**
+ * @public
  * <p>Returns information about a cluster.</p>
  */
 export interface Cluster {
@@ -550,6 +788,7 @@ export interface Cluster {
 }
 
 /**
+ * @public
  * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
  */
 export interface JmxExporter {
@@ -560,6 +799,7 @@ export interface JmxExporter {
 }
 
 /**
+ * @public
  * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
  */
 export interface NodeExporter {
@@ -570,6 +810,7 @@ export interface NodeExporter {
 }
 
 /**
+ * @public
  * <p>Prometheus settings.</p>
  */
 export interface Prometheus {
@@ -585,6 +826,7 @@ export interface Prometheus {
 }
 
 /**
+ * @public
  * <p>JMX and Node monitoring for the MSK cluster.</p>
  */
 export interface OpenMonitoring {
@@ -595,6 +837,7 @@ export interface OpenMonitoring {
 }
 
 /**
+ * @public
  * <p>Returns information about a cluster.</p>
  */
 export interface ClusterInfo {
@@ -687,6 +930,7 @@ export interface ClusterInfo {
 }
 
 /**
+ * @public
  * <p>Returns information about an error state of the cluster.</p>
  */
 export interface ErrorInfo {
@@ -702,6 +946,7 @@ export interface ErrorInfo {
 }
 
 /**
+ * @public
  * <p>State information about the operation step.</p>
  */
 export interface ClusterOperationStepInfo {
@@ -712,6 +957,7 @@ export interface ClusterOperationStepInfo {
 }
 
 /**
+ * @public
  * <p>Step taken during a cluster operation.</p>
  */
 export interface ClusterOperationStep {
@@ -727,6 +973,7 @@ export interface ClusterOperationStep {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration to use for the brokers.</p>
  */
 export interface ConfigurationInfo {
@@ -742,6 +989,7 @@ export interface ConfigurationInfo {
 }
 
 /**
+ * @public
  * <p>Information about cluster attributes that can be updated via update APIs.</p>
  */
 export interface MutableClusterInfo {
@@ -807,6 +1055,63 @@ export interface MutableClusterInfo {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const UserIdentityType = {
+  AWSACCOUNT: "AWSACCOUNT",
+  AWSSERVICE: "AWSSERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type UserIdentityType = (typeof UserIdentityType)[keyof typeof UserIdentityType];
+
+/**
+ * @public
+ * <p>Description of the requester that calls the API operation.</p>
+ */
+export interface UserIdentity {
+  /**
+   * <p>The identity type of the requester that calls the API operation.</p>
+   */
+  Type?: UserIdentityType | string;
+
+  /**
+   * <p>A unique identifier for the requester that calls the API operation.</p>
+   */
+  PrincipalId?: string;
+}
+
+/**
+ * @public
+ * <p>Description of the VPC connection.</p>
+ */
+export interface VpcConnectionInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * <p>The owner of the VPC Connection.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>Description of the requester that calls the API operation.</p>
+   */
+  UserIdentity?: UserIdentity;
+
+  /**
+   * <p>The time when Amazon MSK creates the VPC Connnection.</p>
+   */
+  CreationTime?: Date;
+}
+
+/**
+ * @public
  * <p>Returns information about a cluster operation.</p>
  */
 export interface ClusterOperationInfo {
@@ -864,9 +1169,15 @@ export interface ClusterOperationInfo {
    * <p>Information about cluster attributes after a cluster is updated.</p>
    */
   TargetClusterInfo?: MutableClusterInfo;
+
+  /**
+   * <p>Description of the VPC connection for CreateVpcConnection and DeleteVpcConnection operations.</p>
+   */
+  VpcConnectionInfo?: VpcConnectionInfo;
 }
 
 /**
+ * @public
  * <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>
  */
 export interface CompatibleKafkaVersion {
@@ -882,6 +1193,7 @@ export interface CompatibleKafkaVersion {
 }
 
 /**
+ * @public
  * <p>Describes a configuration revision.</p>
  */
 export interface ConfigurationRevision {
@@ -901,13 +1213,23 @@ export interface ConfigurationRevision {
   Revision: number | undefined;
 }
 
-export enum ConfigurationState {
-  ACTIVE = "ACTIVE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationState = {
+  ACTIVE: "ACTIVE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
 
 /**
+ * @public
+ */
+export type ConfigurationState = (typeof ConfigurationState)[keyof typeof ConfigurationState];
+
+/**
+ * @public
  * <p>Represents an MSK Configuration.</p>
  */
 export interface Configuration {
@@ -947,17 +1269,30 @@ export interface Configuration {
   State: ConfigurationState | string | undefined;
 }
 
-export enum KafkaVersionStatus {
-  ACTIVE = "ACTIVE",
-  DEPRECATED = "DEPRECATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const KafkaVersionStatus = {
+  ACTIVE: "ACTIVE",
+  DEPRECATED: "DEPRECATED",
+} as const;
 
+/**
+ * @public
+ */
+export type KafkaVersionStatus = (typeof KafkaVersionStatus)[keyof typeof KafkaVersionStatus];
+
+/**
+ * @public
+ */
 export interface KafkaVersion {
   Version?: string;
   Status?: KafkaVersionStatus | string;
 }
 
 /**
+ * @public
  * <p>BrokerNodeInfo</p>
  */
 export interface BrokerNodeInfo {
@@ -992,11 +1327,21 @@ export interface BrokerNodeInfo {
   Endpoints?: string[];
 }
 
-export enum NodeType {
-  BROKER = "BROKER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeType = {
+  BROKER: "BROKER",
+} as const;
 
 /**
+ * @public
+ */
+export type NodeType = (typeof NodeType)[keyof typeof NodeType];
+
+/**
+ * @public
  * <p>Zookeeper node information.</p>
  */
 export interface ZookeeperNodeInfo {
@@ -1027,6 +1372,7 @@ export interface ZookeeperNodeInfo {
 }
 
 /**
+ * @public
  * <p>The node information object.</p>
  */
 export interface NodeInfo {
@@ -1062,6 +1408,7 @@ export interface NodeInfo {
 }
 
 /**
+ * @public
  * <p>Error info for scram secret associate/disassociate failure.</p>
  */
 export interface UnprocessedScramSecret {
@@ -1082,6 +1429,43 @@ export interface UnprocessedScramSecret {
 }
 
 /**
+ * @public
+ * <p>The VPC connection object.</p>
+ */
+export interface VpcConnection {
+  /**
+   * <p>The ARN that identifies the Vpc Connection.</p>
+   */
+  VpcConnectionArn: string | undefined;
+
+  /**
+   * <p>The ARN that identifies the Cluster which the Vpc Connection belongs to.</p>
+   */
+  TargetClusterArn: string | undefined;
+
+  /**
+   * <p>Creation time of the Vpc Connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the auth scheme of Vpc Connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * <p>The vpcId that belongs to the Vpc Connection.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>State of the Vpc Connection.</p>
+   */
+  State?: VpcConnectionState | string;
+}
+
+/**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -1112,6 +1496,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Associates sasl scram secrets to cluster.</p>
  */
 export interface BatchAssociateScramSecretRequest {
@@ -1126,6 +1511,9 @@ export interface BatchAssociateScramSecretRequest {
   SecretArnList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateScramSecretResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -1139,6 +1527,7 @@ export interface BatchAssociateScramSecretResponse {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -1169,6 +1558,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -1199,6 +1589,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -1229,6 +1620,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -1259,6 +1651,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -1289,6 +1682,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class UnauthorizedException extends __BaseException {
@@ -1319,6 +1713,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Disassociates sasl scram secrets to cluster.</p>
  */
 export interface BatchDisassociateScramSecretRequest {
@@ -1333,6 +1728,9 @@ export interface BatchDisassociateScramSecretRequest {
   SecretArnList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateScramSecretResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -1346,6 +1744,7 @@ export interface BatchDisassociateScramSecretResponse {
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class ConflictException extends __BaseException {
@@ -1375,6 +1774,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterRequest {
   /**
    * <p>Information about the broker nodes in the cluster.</p>
@@ -1433,6 +1835,9 @@ export interface CreateClusterRequest {
   StorageMode?: StorageMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -1451,6 +1856,7 @@ export interface CreateClusterResponse {
 }
 
 /**
+ * @public
  * <p>Provisioned cluster request.</p>
  */
 export interface ProvisionedRequest {
@@ -1506,6 +1912,7 @@ export interface ProvisionedRequest {
 }
 
 /**
+ * @public
  * <p>Serverless cluster request.</p>
  */
 export interface ServerlessRequest {
@@ -1520,6 +1927,9 @@ export interface ServerlessRequest {
   ClientAuthentication?: ServerlessClientAuthentication;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterV2Request {
   /**
    * <p>The name of the cluster.</p>
@@ -1542,6 +1952,9 @@ export interface CreateClusterV2Request {
   Serverless?: ServerlessRequest;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterV2Response {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -1564,6 +1977,9 @@ export interface CreateClusterV2Response {
   ClusterType?: ClusterType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfigurationRequest {
   /**
    * <p>The description of the configuration.</p>
@@ -1587,6 +2003,9 @@ export interface CreateConfigurationRequest {
   ServerProperties: Uint8Array | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
@@ -1614,6 +2033,89 @@ export interface CreateConfigurationResponse {
   State?: ConfigurationState | string;
 }
 
+/**
+ * @public
+ */
+export interface CreateVpcConnectionRequest {
+  /**
+   * <p>The cluster Amazon Resource Name (ARN) for the VPC connection.</p>
+   */
+  TargetClusterArn: string | undefined;
+
+  /**
+   * <p>The authentication type of VPC connection.</p>
+   */
+  Authentication: string | undefined;
+
+  /**
+   * <p>The VPC ID of VPC connection.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The list of client subnets.</p>
+   */
+  ClientSubnets: string[] | undefined;
+
+  /**
+   * <p>The list of security groups.</p>
+   */
+  SecurityGroups: string[] | undefined;
+
+  /**
+   * <p>A map of tags for the VPC connection.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcConnectionResponse {
+  /**
+   * <p>The VPC connection ARN.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * <p>The State of Vpc Connection.</p>
+   */
+  State?: VpcConnectionState | string;
+
+  /**
+   * <p>The authentication type of VPC connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * <p>The VPC ID of the VPC connection.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The list of client subnets.</p>
+   */
+  ClientSubnets?: string[];
+
+  /**
+   * <p>The list of security groups.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>The creation time of VPC connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>A map of tags for the VPC connection.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -1626,6 +2128,9 @@ export interface DeleteClusterRequest {
   CurrentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -1638,6 +2143,24 @@ export interface DeleteClusterResponse {
   State?: ClusterState | string;
 }
 
+/**
+ * @public
+ */
+export interface DeleteClusterPolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteClusterPolicyResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>
@@ -1645,6 +2168,9 @@ export interface DeleteConfigurationRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>
@@ -1657,6 +2183,34 @@ export interface DeleteConfigurationResponse {
   State?: ConfigurationState | string;
 }
 
+/**
+ * @public
+ */
+export interface DeleteVpcConnectionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK VPC connection.</p>
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVpcConnectionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK VPC connection.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * <p>The state of the VPC connection.</p>
+   */
+  State?: VpcConnectionState | string;
+}
+
+/**
+ * @public
+ */
 export interface DescribeClusterRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -1664,6 +2218,9 @@ export interface DescribeClusterRequest {
   ClusterArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClusterResponse {
   /**
    * <p>The cluster information.</p>
@@ -1671,6 +2228,9 @@ export interface DescribeClusterResponse {
   ClusterInfo?: ClusterInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClusterOperationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the MSK cluster operation.</p>
@@ -1678,6 +2238,9 @@ export interface DescribeClusterOperationRequest {
   ClusterOperationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClusterOperationResponse {
   /**
    * <p>Cluster operation information</p>
@@ -1685,6 +2248,9 @@ export interface DescribeClusterOperationResponse {
   ClusterOperationInfo?: ClusterOperationInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClusterV2Request {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -1692,6 +2258,9 @@ export interface DescribeClusterV2Request {
   ClusterArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClusterV2Response {
   /**
    * <p>The cluster information.</p>
@@ -1699,6 +2268,9 @@ export interface DescribeClusterV2Response {
   ClusterInfo?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
@@ -1706,6 +2278,9 @@ export interface DescribeConfigurationRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
@@ -1743,6 +2318,9 @@ export interface DescribeConfigurationResponse {
   State?: ConfigurationState | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationRevisionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
@@ -1755,6 +2333,9 @@ export interface DescribeConfigurationRevisionRequest {
   Revision: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConfigurationRevisionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
@@ -1783,6 +2364,69 @@ export interface DescribeConfigurationRevisionResponse {
   ServerProperties?: Uint8Array;
 }
 
+/**
+ * @public
+ */
+export interface DescribeVpcConnectionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.</p>
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcConnectionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK cluster.</p>
+   */
+  TargetClusterArn?: string;
+
+  /**
+   * <p>The state of VPC connection.</p>
+   */
+  State?: VpcConnectionState | string;
+
+  /**
+   * <p>The authentication type of VPC connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * <p>The VPC Id for the VPC connection.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The list of subnets for the VPC connection.</p>
+   */
+  Subnets?: string[];
+
+  /**
+   * <p>The list of security groups for the VPC connection.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>The creation time of the VPC connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>A map of tags for the VPC connection.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
 export interface GetBootstrapBrokersRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -1790,6 +2434,9 @@ export interface GetBootstrapBrokersRequest {
   ClusterArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBootstrapBrokersResponse {
   /**
    * <p>A string containing one or more hostname:port pairs.</p>
@@ -1825,8 +2472,51 @@ export interface GetBootstrapBrokersResponse {
    * <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>
    */
   BootstrapBrokerStringPublicSaslIam?: string;
+
+  /**
+   * <p>A string containing one or more DNS names (or IP) and TLS port pairs for VPC connectivity.</p>
+   */
+  BootstrapBrokerStringVpcConnectivityTls?: string;
+
+  /**
+   * <p>A string containing one or more DNS names (or IP) and SASL/SCRAM port pairs for VPC connectivity.</p>
+   */
+  BootstrapBrokerStringVpcConnectivitySaslScram?: string;
+
+  /**
+   * <p>A string containing one or more DNS names (or IP) and SASL/IAM port pairs for VPC connectivity.</p>
+   */
+  BootstrapBrokerStringVpcConnectivitySaslIam?: string;
 }
 
+/**
+ * @public
+ */
+export interface GetClusterPolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClusterPolicyResponse {
+  /**
+   * <p>The version of cluster policy.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * <p>The cluster policy.</p>
+   */
+  Policy?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetCompatibleKafkaVersionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster check.</p>
@@ -1834,6 +2524,9 @@ export interface GetCompatibleKafkaVersionsRequest {
   ClusterArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCompatibleKafkaVersionsResponse {
   /**
    * <p>A list of CompatibleKafkaVersion objects.</p>
@@ -1841,6 +2534,46 @@ export interface GetCompatibleKafkaVersionsResponse {
   CompatibleKafkaVersions?: CompatibleKafkaVersion[];
 }
 
+/**
+ * @public
+ */
+export interface ListClientVpcConnectionsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListClientVpcConnectionsResponse {
+  /**
+   * <p>List of client VPC connections.</p>
+   */
+  ClientVpcConnections?: ClientVpcConnection[];
+
+  /**
+   * <p>The paginated results marker. When the result of a ListClientVpcConnections operation is truncated, the call returns NextToken in the response.
+   *                To get another batch of configurations, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListClusterOperationsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -1859,6 +2592,9 @@ export interface ListClusterOperationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClusterOperationsResponse {
   /**
    * <p>An array of cluster operation information objects.</p>
@@ -1871,6 +2607,9 @@ export interface ListClusterOperationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClustersRequest {
   /**
    * <p>Specify a prefix of the name of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>
@@ -1889,6 +2628,9 @@ export interface ListClustersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClustersResponse {
   /**
    * <p>Information on each of the MSK clusters in the response.</p>
@@ -1902,6 +2644,9 @@ export interface ListClustersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClustersV2Request {
   /**
    * <p>Specify a prefix of the names of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>
@@ -1925,6 +2670,9 @@ export interface ListClustersV2Request {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListClustersV2Response {
   /**
    * <p>Information on each of the MSK clusters in the response.</p>
@@ -1938,6 +2686,9 @@ export interface ListClustersV2Response {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationRevisionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
@@ -1956,6 +2707,9 @@ export interface ListConfigurationRevisionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationRevisionsResponse {
   /**
    * <p>Paginated results marker.</p>
@@ -1968,6 +2722,9 @@ export interface ListConfigurationRevisionsResponse {
   Revisions?: ConfigurationRevision[];
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationsRequest {
   /**
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
@@ -1981,6 +2738,9 @@ export interface ListConfigurationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationsResponse {
   /**
    * <p>An array of MSK configurations.</p>
@@ -1994,6 +2754,9 @@ export interface ListConfigurationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListKafkaVersionsRequest {
   /**
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
@@ -2006,11 +2769,17 @@ export interface ListKafkaVersionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListKafkaVersionsResponse {
   KafkaVersions?: KafkaVersion[];
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -2029,6 +2798,9 @@ export interface ListNodesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNodesResponse {
   /**
    * <p>The paginated results marker. When the result of a ListNodes operation is truncated, the call returns NextToken in the response.
@@ -2042,6 +2814,9 @@ export interface ListNodesResponse {
   NodeInfoList?: NodeInfo[];
 }
 
+/**
+ * @public
+ */
 export interface ListScramSecretsRequest {
   /**
    * <p>The arn of the cluster.</p>
@@ -2059,6 +2834,9 @@ export interface ListScramSecretsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListScramSecretsResponse {
   /**
    * <p>Paginated results marker.</p>
@@ -2071,6 +2849,9 @@ export interface ListScramSecretsResponse {
   SecretArnList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
@@ -2078,6 +2859,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The key-value pair for the resource tag.</p>
@@ -2086,6 +2870,69 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListVpcConnectionsRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcConnectionsResponse {
+  /**
+   * <p>List of VPC connections.</p>
+   */
+  VpcConnections?: VpcConnection[];
+
+  /**
+   * <p>The paginated results marker. When the result of a ListClientVpcConnections operation is truncated, the call returns NextToken in the response.
+   *                To get another batch of configurations, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutClusterPolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The policy version.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * <p>The policy.</p>
+   */
+  Policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutClusterPolicyResponse {
+  /**
+   * <p>The policy version.</p>
+   */
+  CurrentVersion?: string;
+}
+
+/**
+ * @public
  * Reboots a node.
  */
 export interface RebootBrokerRequest {
@@ -2100,6 +2947,9 @@ export interface RebootBrokerRequest {
   ClusterArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RebootBrokerResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2112,6 +2962,29 @@ export interface RebootBrokerResponse {
   ClusterOperationArn?: string;
 }
 
+/**
+ * @public
+ */
+export interface RejectClientVpcConnectionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The VPC connection ARN.</p>
+   */
+  VpcConnectionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectClientVpcConnectionResponse {}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
@@ -2124,6 +2997,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
@@ -2155,6 +3031,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBrokerCountRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -2172,6 +3051,9 @@ export interface UpdateBrokerCountRequest {
   TargetNumberOfBrokerNodes: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBrokerCountResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2184,6 +3066,9 @@ export interface UpdateBrokerCountResponse {
   ClusterOperationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBrokerStorageRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -2201,6 +3086,9 @@ export interface UpdateBrokerStorageRequest {
   TargetBrokerEBSVolumeInfo: BrokerEBSVolumeInfo[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBrokerStorageResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2213,6 +3101,9 @@ export interface UpdateBrokerStorageResponse {
   ClusterOperationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBrokerTypeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -2230,6 +3121,9 @@ export interface UpdateBrokerTypeRequest {
   TargetInstanceType: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBrokerTypeResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2242,6 +3136,9 @@ export interface UpdateBrokerTypeResponse {
   ClusterOperationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -2259,6 +3156,9 @@ export interface UpdateClusterConfigurationRequest {
   CurrentVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2271,6 +3171,9 @@ export interface UpdateClusterConfigurationResponse {
   ClusterOperationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterKafkaVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
@@ -2293,6 +3196,9 @@ export interface UpdateClusterKafkaVersionRequest {
   TargetKafkaVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterKafkaVersionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2305,6 +3211,9 @@ export interface UpdateClusterKafkaVersionResponse {
   ClusterOperationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
@@ -2323,6 +3232,9 @@ export interface UpdateConfigurationRequest {
   ServerProperties: Uint8Array | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
@@ -2336,6 +3248,7 @@ export interface UpdateConfigurationResponse {
 }
 
 /**
+ * @public
  * Request body for UpdateConnectivity.
  */
 export interface UpdateConnectivityRequest {
@@ -2355,6 +3268,9 @@ export interface UpdateConnectivityRequest {
   CurrentVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectivityResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2368,6 +3284,7 @@ export interface UpdateConnectivityResponse {
 }
 
 /**
+ * @public
  * Request body for UpdateMonitoring.
  */
 export interface UpdateMonitoringRequest {
@@ -2394,6 +3311,9 @@ export interface UpdateMonitoringRequest {
   LoggingInfo?: LoggingInfo;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitoringResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2406,6 +3326,9 @@ export interface UpdateMonitoringResponse {
   ClusterOperationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityRequest {
   /**
    * <p>Includes all client authentication related information.</p>
@@ -2428,6 +3351,9 @@ export interface UpdateSecurityRequest {
   EncryptionInfo?: EncryptionInfo;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2441,6 +3367,7 @@ export interface UpdateSecurityResponse {
 }
 
 /**
+ * @public
  * <p>Request object for UpdateStorage api. Its used to update the storage attributes for the cluster.</p>
  */
 export interface UpdateStorageRequest {
@@ -2470,6 +3397,9 @@ export interface UpdateStorageRequest {
   VolumeSizeGB?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStorageResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2481,879 +3411,3 @@ export interface UpdateStorageResponse {
    */
   ClusterOperationArn?: string;
 }
-
-/**
- * @internal
- */
-export const ProvisionedThroughputFilterSensitiveLog = (obj: ProvisionedThroughput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BrokerEBSVolumeInfoFilterSensitiveLog = (obj: BrokerEBSVolumeInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublicAccessFilterSensitiveLog = (obj: PublicAccess): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectivityInfoFilterSensitiveLog = (obj: ConnectivityInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EBSStorageInfoFilterSensitiveLog = (obj: EBSStorageInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StorageInfoFilterSensitiveLog = (obj: StorageInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BrokerNodeGroupInfoFilterSensitiveLog = (obj: BrokerNodeGroupInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IamFilterSensitiveLog = (obj: Iam): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScramFilterSensitiveLog = (obj: Scram): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SaslFilterSensitiveLog = (obj: Sasl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TlsFilterSensitiveLog = (obj: Tls): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnauthenticatedFilterSensitiveLog = (obj: Unauthenticated): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientAuthenticationFilterSensitiveLog = (obj: ClientAuthentication): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BrokerSoftwareInfoFilterSensitiveLog = (obj: BrokerSoftwareInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionAtRestFilterSensitiveLog = (obj: EncryptionAtRest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionInTransitFilterSensitiveLog = (obj: EncryptionInTransit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionInfoFilterSensitiveLog = (obj: EncryptionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogsFilterSensitiveLog = (obj: CloudWatchLogs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirehoseFilterSensitiveLog = (obj: Firehose): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3FilterSensitiveLog = (obj: S3): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BrokerLogsFilterSensitiveLog = (obj: BrokerLogs): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingInfoFilterSensitiveLog = (obj: LoggingInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JmxExporterInfoFilterSensitiveLog = (obj: JmxExporterInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeExporterInfoFilterSensitiveLog = (obj: NodeExporterInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrometheusInfoFilterSensitiveLog = (obj: PrometheusInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpenMonitoringInfoFilterSensitiveLog = (obj: OpenMonitoringInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedFilterSensitiveLog = (obj: Provisioned): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerlessSaslFilterSensitiveLog = (obj: ServerlessSasl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerlessClientAuthenticationFilterSensitiveLog = (obj: ServerlessClientAuthentication): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigFilterSensitiveLog = (obj: VpcConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerlessFilterSensitiveLog = (obj: Serverless): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StateInfoFilterSensitiveLog = (obj: StateInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JmxExporterFilterSensitiveLog = (obj: JmxExporter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeExporterFilterSensitiveLog = (obj: NodeExporter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrometheusFilterSensitiveLog = (obj: Prometheus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpenMonitoringFilterSensitiveLog = (obj: OpenMonitoring): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterInfoFilterSensitiveLog = (obj: ClusterInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorInfoFilterSensitiveLog = (obj: ErrorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterOperationStepInfoFilterSensitiveLog = (obj: ClusterOperationStepInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterOperationStepFilterSensitiveLog = (obj: ClusterOperationStep): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationInfoFilterSensitiveLog = (obj: ConfigurationInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MutableClusterInfoFilterSensitiveLog = (obj: MutableClusterInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterOperationInfoFilterSensitiveLog = (obj: ClusterOperationInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompatibleKafkaVersionFilterSensitiveLog = (obj: CompatibleKafkaVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationRevisionFilterSensitiveLog = (obj: ConfigurationRevision): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KafkaVersionFilterSensitiveLog = (obj: KafkaVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BrokerNodeInfoFilterSensitiveLog = (obj: BrokerNodeInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ZookeeperNodeInfoFilterSensitiveLog = (obj: ZookeeperNodeInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeInfoFilterSensitiveLog = (obj: NodeInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnprocessedScramSecretFilterSensitiveLog = (obj: UnprocessedScramSecret): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateScramSecretRequestFilterSensitiveLog = (obj: BatchAssociateScramSecretRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateScramSecretResponseFilterSensitiveLog = (obj: BatchAssociateScramSecretResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateScramSecretRequestFilterSensitiveLog = (
-  obj: BatchDisassociateScramSecretRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateScramSecretResponseFilterSensitiveLog = (
-  obj: BatchDisassociateScramSecretResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterRequestFilterSensitiveLog = (obj: CreateClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterResponseFilterSensitiveLog = (obj: CreateClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedRequestFilterSensitiveLog = (obj: ProvisionedRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerlessRequestFilterSensitiveLog = (obj: ServerlessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterV2RequestFilterSensitiveLog = (obj: CreateClusterV2Request): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterV2ResponseFilterSensitiveLog = (obj: CreateClusterV2Response): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationRequestFilterSensitiveLog = (obj: CreateConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationResponseFilterSensitiveLog = (obj: CreateConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterRequestFilterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterResponseFilterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationRequestFilterSensitiveLog = (obj: DeleteConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationResponseFilterSensitiveLog = (obj: DeleteConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterRequestFilterSensitiveLog = (obj: DescribeClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterResponseFilterSensitiveLog = (obj: DescribeClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterOperationRequestFilterSensitiveLog = (obj: DescribeClusterOperationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterOperationResponseFilterSensitiveLog = (obj: DescribeClusterOperationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterV2RequestFilterSensitiveLog = (obj: DescribeClusterV2Request): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterV2ResponseFilterSensitiveLog = (obj: DescribeClusterV2Response): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationRequestFilterSensitiveLog = (obj: DescribeConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationResponseFilterSensitiveLog = (obj: DescribeConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationRevisionRequestFilterSensitiveLog = (
-  obj: DescribeConfigurationRevisionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConfigurationRevisionResponseFilterSensitiveLog = (
-  obj: DescribeConfigurationRevisionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBootstrapBrokersRequestFilterSensitiveLog = (obj: GetBootstrapBrokersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBootstrapBrokersResponseFilterSensitiveLog = (obj: GetBootstrapBrokersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCompatibleKafkaVersionsRequestFilterSensitiveLog = (obj: GetCompatibleKafkaVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCompatibleKafkaVersionsResponseFilterSensitiveLog = (obj: GetCompatibleKafkaVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClusterOperationsRequestFilterSensitiveLog = (obj: ListClusterOperationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClusterOperationsResponseFilterSensitiveLog = (obj: ListClusterOperationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClustersRequestFilterSensitiveLog = (obj: ListClustersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClustersResponseFilterSensitiveLog = (obj: ListClustersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClustersV2RequestFilterSensitiveLog = (obj: ListClustersV2Request): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListClustersV2ResponseFilterSensitiveLog = (obj: ListClustersV2Response): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationRevisionsRequestFilterSensitiveLog = (obj: ListConfigurationRevisionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationRevisionsResponseFilterSensitiveLog = (obj: ListConfigurationRevisionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationsRequestFilterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationsResponseFilterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKafkaVersionsRequestFilterSensitiveLog = (obj: ListKafkaVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKafkaVersionsResponseFilterSensitiveLog = (obj: ListKafkaVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNodesRequestFilterSensitiveLog = (obj: ListNodesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNodesResponseFilterSensitiveLog = (obj: ListNodesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListScramSecretsRequestFilterSensitiveLog = (obj: ListScramSecretsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListScramSecretsResponseFilterSensitiveLog = (obj: ListScramSecretsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootBrokerRequestFilterSensitiveLog = (obj: RebootBrokerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RebootBrokerResponseFilterSensitiveLog = (obj: RebootBrokerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBrokerCountRequestFilterSensitiveLog = (obj: UpdateBrokerCountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBrokerCountResponseFilterSensitiveLog = (obj: UpdateBrokerCountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBrokerStorageRequestFilterSensitiveLog = (obj: UpdateBrokerStorageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBrokerStorageResponseFilterSensitiveLog = (obj: UpdateBrokerStorageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBrokerTypeRequestFilterSensitiveLog = (obj: UpdateBrokerTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBrokerTypeResponseFilterSensitiveLog = (obj: UpdateBrokerTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterConfigurationRequestFilterSensitiveLog = (obj: UpdateClusterConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterConfigurationResponseFilterSensitiveLog = (obj: UpdateClusterConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterKafkaVersionRequestFilterSensitiveLog = (obj: UpdateClusterKafkaVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterKafkaVersionResponseFilterSensitiveLog = (obj: UpdateClusterKafkaVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationRequestFilterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationResponseFilterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectivityRequestFilterSensitiveLog = (obj: UpdateConnectivityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectivityResponseFilterSensitiveLog = (obj: UpdateConnectivityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMonitoringRequestFilterSensitiveLog = (obj: UpdateMonitoringRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMonitoringResponseFilterSensitiveLog = (obj: UpdateMonitoringResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityRequestFilterSensitiveLog = (obj: UpdateSecurityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityResponseFilterSensitiveLog = (obj: UpdateSecurityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStorageRequestFilterSensitiveLog = (obj: UpdateStorageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStorageResponseFilterSensitiveLog = (obj: UpdateStorageResponse): any => ({
-  ...obj,
-});

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DeleteTableInput,
-  DeleteTableInputFilterSensitiveLog,
-  DeleteTableOutput,
-  DeleteTableOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteTableCommand,
-  serializeAws_json1_0DeleteTableCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteTableInput, DeleteTableOutput } from "../models/models_0";
+import { de_DeleteTableCommand, se_DeleteTableCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTableCommand}.
  */
 export interface DeleteTableCommandInput extends DeleteTableInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTableCommand}.
  */
 export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>DeleteTable</code> operation deletes a table and all of its items. After a
  *                 <code>DeleteTable</code> request, the specified table is in the
  *                 <code>DELETING</code> state until DynamoDB completes the deletion. If the table is
@@ -64,10 +61,15 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * import { DynamoDBClient, DeleteTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DeleteTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // DeleteTableInput
+ *   TableName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTableCommandInput - {@link DeleteTableCommandInput}
+ * @returns {@link DeleteTableCommandOutput}
  * @see {@link DeleteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -144,6 +146,9 @@ export class DeleteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,8 +175,8 @@ export class DeleteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -181,12 +186,18 @@ export class DeleteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteTableCommand(input, context);
+    return se_DeleteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTableCommandOutput> {
-    return deserializeAws_json1_0DeleteTableCommand(output, context);
+    return de_DeleteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

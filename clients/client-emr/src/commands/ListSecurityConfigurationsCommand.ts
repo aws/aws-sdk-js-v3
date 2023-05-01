@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ListSecurityConfigurationsInput,
-  ListSecurityConfigurationsInputFilterSensitiveLog,
-  ListSecurityConfigurationsOutput,
-  ListSecurityConfigurationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSecurityConfigurationsCommand,
-  serializeAws_json1_1ListSecurityConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSecurityConfigurationsInput, ListSecurityConfigurationsOutput } from "../models/models_0";
+import { de_ListSecurityConfigurationsCommand, se_ListSecurityConfigurationsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityConfigurationsCommand}.
  */
 export interface ListSecurityConfigurationsCommandInput extends ListSecurityConfigurationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityConfigurationsCommand}.
  */
 export interface ListSecurityConfigurationsCommandOutput extends ListSecurityConfigurationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the security configurations visible to this account, providing their creation
  *          dates and times, and their names. This call returns a maximum of 50 clusters per call, but
  *          returns a marker to track the paging of the cluster list across multiple
@@ -45,10 +42,15 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * import { EMRClient, ListSecurityConfigurationsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListSecurityConfigurationsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ListSecurityConfigurationsInput
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListSecurityConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityConfigurationsCommandInput - {@link ListSecurityConfigurationsCommandInput}
+ * @returns {@link ListSecurityConfigurationsCommandOutput}
  * @see {@link ListSecurityConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -79,6 +81,9 @@ export class ListSecurityConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class ListSecurityConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecurityConfigurationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSecurityConfigurationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +123,21 @@ export class ListSecurityConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecurityConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSecurityConfigurationsCommand(input, context);
+    return se_ListSecurityConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSecurityConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListSecurityConfigurationsCommand(output, context);
+    return de_ListSecurityConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteNetworkSettingsRequest,
-  DeleteNetworkSettingsRequestFilterSensitiveLog,
-  DeleteNetworkSettingsResponse,
-  DeleteNetworkSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteNetworkSettingsCommand,
-  serializeAws_restJson1DeleteNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteNetworkSettingsRequest, DeleteNetworkSettingsResponse } from "../models/models_0";
+import { de_DeleteNetworkSettingsCommand, se_DeleteNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkSettingsCommand}.
  */
 export interface DeleteNetworkSettingsCommandInput extends DeleteNetworkSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkSettingsCommand}.
  */
 export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes network settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * import { WorkSpacesWebClient, DeleteNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // DeleteNetworkSettingsRequest
+ *   networkSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNetworkSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkSettingsCommandInput - {@link DeleteNetworkSettingsCommandInput}
+ * @returns {@link DeleteNetworkSettingsCommandOutput}
  * @see {@link DeleteNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeleteNetworkSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DeleteNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DeleteNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNetworkSettingsCommand(input, context);
+    return se_DeleteNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1DeleteNetworkSettingsCommand(output, context);
+    return de_DeleteNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

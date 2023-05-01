@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DisassociateSecurityKeyRequest, DisassociateSecurityKeyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateSecurityKeyCommand,
-  serializeAws_restJson1DisassociateSecurityKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateSecurityKeyRequest } from "../models/models_0";
+import { de_DisassociateSecurityKeyCommand, se_DisassociateSecurityKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateSecurityKeyCommand}.
  */
 export interface DisassociateSecurityKeyCommandInput extends DisassociateSecurityKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateSecurityKeyCommand}.
  */
 export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Deletes the specified security key.</p>
  * @example
@@ -38,10 +40,16 @@ export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {
  * import { ConnectClient, DisassociateSecurityKeyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateSecurityKeyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DisassociateSecurityKeyRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   AssociationId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateSecurityKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSecurityKeyCommandInput - {@link DisassociateSecurityKeyCommandInput}
+ * @returns {@link DisassociateSecurityKeyCommandOutput}
  * @see {@link DisassociateSecurityKeyCommandInput} for command's `input` shape.
  * @see {@link DisassociateSecurityKeyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -80,6 +88,9 @@ export class DisassociateSecurityKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSecurityKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +119,8 @@ export class DisassociateSecurityKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSecurityKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +130,18 @@ export class DisassociateSecurityKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateSecurityKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateSecurityKeyCommand(input, context);
+    return se_DisassociateSecurityKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateSecurityKeyCommandOutput> {
-    return deserializeAws_restJson1DisassociateSecurityKeyCommand(output, context);
+    return de_DisassociateSecurityKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

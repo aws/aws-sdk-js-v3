@@ -18,23 +18,24 @@ import {
   ImportSourceCredentialsInput,
   ImportSourceCredentialsInputFilterSensitiveLog,
   ImportSourceCredentialsOutput,
-  ImportSourceCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportSourceCredentialsCommand,
-  serializeAws_json1_1ImportSourceCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportSourceCredentialsCommand, se_ImportSourceCredentialsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportSourceCredentialsCommand}.
  */
 export interface ImportSourceCredentialsCommandInput extends ImportSourceCredentialsInput {}
 /**
+ * @public
+ *
  * The output of {@link ImportSourceCredentialsCommand}.
  */
 export interface ImportSourceCredentialsCommandOutput extends ImportSourceCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Imports the source repository credentials for an CodeBuild project that has its
  *             source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>
  * @example
@@ -43,10 +44,19 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * import { CodeBuildClient, ImportSourceCredentialsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ImportSourceCredentialsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // ImportSourceCredentialsInput
+ *   username: "STRING_VALUE",
+ *   token: "STRING_VALUE", // required
+ *   serverType: "STRING_VALUE", // required
+ *   authType: "STRING_VALUE", // required
+ *   shouldOverwrite: true || false,
+ * };
  * const command = new ImportSourceCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportSourceCredentialsCommandInput - {@link ImportSourceCredentialsCommandInput}
+ * @returns {@link ImportSourceCredentialsCommandOutput}
  * @see {@link ImportSourceCredentialsCommandInput} for command's `input` shape.
  * @see {@link ImportSourceCredentialsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -80,6 +90,9 @@ export class ImportSourceCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportSourceCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,7 +122,7 @@ export class ImportSourceCredentialsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportSourceCredentialsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportSourceCredentialsOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +132,18 @@ export class ImportSourceCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportSourceCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportSourceCredentialsCommand(input, context);
+    return se_ImportSourceCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportSourceCredentialsCommandOutput> {
-    return deserializeAws_json1_1ImportSourceCredentialsCommand(output, context);
+    return de_ImportSourceCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

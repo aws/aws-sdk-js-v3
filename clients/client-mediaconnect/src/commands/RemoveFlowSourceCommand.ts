@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  RemoveFlowSourceRequest,
-  RemoveFlowSourceRequestFilterSensitiveLog,
-  RemoveFlowSourceResponse,
-  RemoveFlowSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveFlowSourceCommand,
-  serializeAws_restJson1RemoveFlowSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveFlowSourceRequest, RemoveFlowSourceResponse } from "../models/models_0";
+import { de_RemoveFlowSourceCommand, se_RemoveFlowSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFlowSourceCommand}.
  */
 export interface RemoveFlowSourceCommandInput extends RemoveFlowSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFlowSourceCommand}.
  */
 export interface RemoveFlowSourceCommandOutput extends RemoveFlowSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Removes a source from an existing flow. This request can be made only if there is more than one source on the flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface RemoveFlowSourceCommandOutput extends RemoveFlowSourceResponse,
  * import { MediaConnectClient, RemoveFlowSourceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, RemoveFlowSourceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // RemoveFlowSourceRequest
+ *   FlowArn: "STRING_VALUE", // required
+ *   SourceArn: "STRING_VALUE", // required
+ * };
  * const command = new RemoveFlowSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFlowSourceCommandInput - {@link RemoveFlowSourceCommandInput}
+ * @returns {@link RemoveFlowSourceCommandOutput}
  * @see {@link RemoveFlowSourceCommandInput} for command's `input` shape.
  * @see {@link RemoveFlowSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +90,9 @@ export class RemoveFlowSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFlowSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class RemoveFlowSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveFlowSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveFlowSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class RemoveFlowSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFlowSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveFlowSourceCommand(input, context);
+    return se_RemoveFlowSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFlowSourceCommandOutput> {
-    return deserializeAws_restJson1RemoveFlowSourceCommand(output, context);
+    return de_RemoveFlowSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

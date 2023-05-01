@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  ListKeysRequest,
-  ListKeysRequestFilterSensitiveLog,
-  ListKeysResponse,
-  ListKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListKeysCommand,
-  serializeAws_restJson1ListKeysCommand,
-} from "../protocols/Aws_restJson1";
+import { ListKeysRequest, ListKeysResponse } from "../models/models_0";
+import { de_ListKeysCommand, se_ListKeysCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListKeysCommand}.
  */
 export interface ListKeysCommandInput extends ListKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListKeysCommand}.
  */
 export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists API key resources in your Amazon Web Services account.</p>
  *          <important>
  *             <p>The API keys feature is in preview. We may add, change, or remove
@@ -47,10 +44,19 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * import { LocationClient, ListKeysCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListKeysCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // ListKeysRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filter: { // ApiKeyFilter
+ *     KeyStatus: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListKeysCommandInput - {@link ListKeysCommandInput}
+ * @returns {@link ListKeysCommandOutput}
  * @see {@link ListKeysCommandInput} for command's `input` shape.
  * @see {@link ListKeysCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -87,6 +93,9 @@ export class ListKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class ListKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class ListKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListKeysCommand(input, context);
+    return se_ListKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKeysCommandOutput> {
-    return deserializeAws_restJson1ListKeysCommand(output, context);
+    return de_ListKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

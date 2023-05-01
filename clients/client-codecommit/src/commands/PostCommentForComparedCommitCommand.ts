@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { PostCommentForComparedCommitInput, PostCommentForComparedCommitOutput } from "../models/models_1";
 import {
-  PostCommentForComparedCommitInput,
-  PostCommentForComparedCommitInputFilterSensitiveLog,
-  PostCommentForComparedCommitOutput,
-  PostCommentForComparedCommitOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PostCommentForComparedCommitCommand,
-  serializeAws_json1_1PostCommentForComparedCommitCommand,
+  de_PostCommentForComparedCommitCommand,
+  se_PostCommentForComparedCommitCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PostCommentForComparedCommitCommand}.
  */
 export interface PostCommentForComparedCommitCommandInput extends PostCommentForComparedCommitInput {}
 /**
+ * @public
+ *
  * The output of {@link PostCommentForComparedCommitCommand}.
  */
 export interface PostCommentForComparedCommitCommandOutput
@@ -37,6 +36,7 @@ export interface PostCommentForComparedCommitCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Posts a comment on the comparison between two commits.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,24 @@ export interface PostCommentForComparedCommitCommandOutput
  * import { CodeCommitClient, PostCommentForComparedCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PostCommentForComparedCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // PostCommentForComparedCommitInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   beforeCommitId: "STRING_VALUE",
+ *   afterCommitId: "STRING_VALUE", // required
+ *   location: { // Location
+ *     filePath: "STRING_VALUE",
+ *     filePosition: Number("long"),
+ *     relativeFileVersion: "STRING_VALUE",
+ *   },
+ *   content: "STRING_VALUE", // required
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new PostCommentForComparedCommitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PostCommentForComparedCommitCommandInput - {@link PostCommentForComparedCommitCommandInput}
+ * @returns {@link PostCommentForComparedCommitCommandOutput}
  * @see {@link PostCommentForComparedCommitCommandInput} for command's `input` shape.
  * @see {@link PostCommentForComparedCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -152,6 +166,9 @@ export class PostCommentForComparedCommitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PostCommentForComparedCommitCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,8 +197,8 @@ export class PostCommentForComparedCommitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PostCommentForComparedCommitInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PostCommentForComparedCommitOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -191,15 +208,21 @@ export class PostCommentForComparedCommitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostCommentForComparedCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PostCommentForComparedCommitCommand(input, context);
+    return se_PostCommentForComparedCommitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PostCommentForComparedCommitCommandOutput> {
-    return deserializeAws_json1_1PostCommentForComparedCommitCommand(output, context);
+    return de_PostCommentForComparedCommitCommand(output, context);
   }
 
   // Start section: command_body_extra

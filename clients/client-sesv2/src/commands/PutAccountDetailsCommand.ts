@@ -17,24 +17,25 @@ import {
   PutAccountDetailsRequest,
   PutAccountDetailsRequestFilterSensitiveLog,
   PutAccountDetailsResponse,
-  PutAccountDetailsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAccountDetailsCommand,
-  serializeAws_restJson1PutAccountDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutAccountDetailsCommand, se_PutAccountDetailsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountDetailsCommand}.
  */
 export interface PutAccountDetailsCommandInput extends PutAccountDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountDetailsCommand}.
  */
 export interface PutAccountDetailsCommandOutput extends PutAccountDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update your Amazon SES account details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,22 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  * import { SESv2Client, PutAccountDetailsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutAccountDetailsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutAccountDetailsRequest
+ *   MailType: "MARKETING" || "TRANSACTIONAL", // required
+ *   WebsiteURL: "STRING_VALUE", // required
+ *   ContactLanguage: "EN" || "JA",
+ *   UseCaseDescription: "STRING_VALUE", // required
+ *   AdditionalContactEmailAddresses: [ // AdditionalContactEmailAddresses
+ *     "STRING_VALUE",
+ *   ],
+ *   ProductionAccessEnabled: true || false,
+ * };
  * const command = new PutAccountDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountDetailsCommandInput - {@link PutAccountDetailsCommandInput}
+ * @returns {@link PutAccountDetailsCommandOutput}
  * @see {@link PutAccountDetailsCommandInput} for command's `input` shape.
  * @see {@link PutAccountDetailsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -78,6 +91,9 @@ export class PutAccountDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +123,7 @@ export class PutAccountDetailsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutAccountDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountDetailsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +133,18 @@ export class PutAccountDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccountDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountDetailsCommand(input, context);
+    return se_PutAccountDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountDetailsCommandOutput> {
-    return deserializeAws_restJson1PutAccountDetailsCommand(output, context);
+    return de_PutAccountDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

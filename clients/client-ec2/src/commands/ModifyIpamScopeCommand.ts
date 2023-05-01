@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyIpamScopeRequest,
-  ModifyIpamScopeRequestFilterSensitiveLog,
-  ModifyIpamScopeResult,
-  ModifyIpamScopeResultFilterSensitiveLog,
-} from "../models/models_6";
-import { deserializeAws_ec2ModifyIpamScopeCommand, serializeAws_ec2ModifyIpamScopeCommand } from "../protocols/Aws_ec2";
+import { ModifyIpamScopeRequest, ModifyIpamScopeResult } from "../models/models_6";
+import { de_ModifyIpamScopeCommand, se_ModifyIpamScopeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyIpamScopeCommand}.
  */
 export interface ModifyIpamScopeCommandInput extends ModifyIpamScopeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyIpamScopeCommand}.
  */
 export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify an IPAM scope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,17 @@ export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __M
  * import { EC2Client, ModifyIpamScopeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyIpamScopeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyIpamScopeRequest
+ *   DryRun: true || false,
+ *   IpamScopeId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new ModifyIpamScopeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyIpamScopeCommandInput - {@link ModifyIpamScopeCommandInput}
+ * @returns {@link ModifyIpamScopeCommandOutput}
  * @see {@link ModifyIpamScopeCommandInput} for command's `input` shape.
  * @see {@link ModifyIpamScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -66,6 +73,9 @@ export class ModifyIpamScopeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyIpamScopeCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +104,8 @@ export class ModifyIpamScopeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyIpamScopeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyIpamScopeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +115,18 @@ export class ModifyIpamScopeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyIpamScopeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyIpamScopeCommand(input, context);
+    return se_ModifyIpamScopeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyIpamScopeCommandOutput> {
-    return deserializeAws_ec2ModifyIpamScopeCommand(output, context);
+    return de_ModifyIpamScopeCommand(output, context);
   }
 
   // Start section: command_body_extra

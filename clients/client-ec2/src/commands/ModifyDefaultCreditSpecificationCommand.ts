@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyDefaultCreditSpecificationRequest, ModifyDefaultCreditSpecificationResult } from "../models/models_6";
 import {
-  ModifyDefaultCreditSpecificationRequest,
-  ModifyDefaultCreditSpecificationRequestFilterSensitiveLog,
-  ModifyDefaultCreditSpecificationResult,
-  ModifyDefaultCreditSpecificationResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyDefaultCreditSpecificationCommand,
-  serializeAws_ec2ModifyDefaultCreditSpecificationCommand,
+  de_ModifyDefaultCreditSpecificationCommand,
+  se_ModifyDefaultCreditSpecificationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDefaultCreditSpecificationCommand}.
  */
 export interface ModifyDefaultCreditSpecificationCommandInput extends ModifyDefaultCreditSpecificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDefaultCreditSpecificationCommand}.
  */
 export interface ModifyDefaultCreditSpecificationCommandOutput
@@ -37,6 +36,7 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the default credit option for CPU usage of burstable performance instances.
  *             The default credit option is set at the account level per Amazon Web Services Region, and
  *             is specified per instance family. All new burstable performance instances in the account
@@ -57,10 +57,17 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
  * import { EC2Client, ModifyDefaultCreditSpecificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyDefaultCreditSpecificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyDefaultCreditSpecificationRequest
+ *   DryRun: true || false,
+ *   InstanceFamily: "t2" || "t3" || "t3a" || "t4g", // required
+ *   CpuCredits: "STRING_VALUE", // required
+ * };
  * const command = new ModifyDefaultCreditSpecificationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDefaultCreditSpecificationCommandInput - {@link ModifyDefaultCreditSpecificationCommandInput}
+ * @returns {@link ModifyDefaultCreditSpecificationCommandOutput}
  * @see {@link ModifyDefaultCreditSpecificationCommandInput} for command's `input` shape.
  * @see {@link ModifyDefaultCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -84,6 +91,9 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDefaultCreditSpecificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDefaultCreditSpecificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDefaultCreditSpecificationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +133,24 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyDefaultCreditSpecificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyDefaultCreditSpecificationCommand(input, context);
+    return se_ModifyDefaultCreditSpecificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDefaultCreditSpecificationCommandOutput> {
-    return deserializeAws_ec2ModifyDefaultCreditSpecificationCommand(output, context);
+    return de_ModifyDefaultCreditSpecificationCommand(output, context);
   }
 
   // Start section: command_body_extra

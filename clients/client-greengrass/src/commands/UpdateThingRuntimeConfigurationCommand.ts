@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { UpdateThingRuntimeConfigurationRequest, UpdateThingRuntimeConfigurationResponse } from "../models/models_0";
 import {
-  UpdateThingRuntimeConfigurationRequest,
-  UpdateThingRuntimeConfigurationRequestFilterSensitiveLog,
-  UpdateThingRuntimeConfigurationResponse,
-  UpdateThingRuntimeConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateThingRuntimeConfigurationCommand,
-  serializeAws_restJson1UpdateThingRuntimeConfigurationCommand,
+  de_UpdateThingRuntimeConfigurationCommand,
+  se_UpdateThingRuntimeConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateThingRuntimeConfigurationCommand}.
  */
 export interface UpdateThingRuntimeConfigurationCommandInput extends UpdateThingRuntimeConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateThingRuntimeConfigurationCommand}.
  */
 export interface UpdateThingRuntimeConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateThingRuntimeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Updates the runtime configuration of a thing.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,18 @@ export interface UpdateThingRuntimeConfigurationCommandOutput
  * import { GreengrassClient, UpdateThingRuntimeConfigurationCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateThingRuntimeConfigurationCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // UpdateThingRuntimeConfigurationRequest
+ *   TelemetryConfiguration: { // TelemetryConfigurationUpdate
+ *     Telemetry: "On" || "Off", // required
+ *   },
+ *   ThingName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateThingRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateThingRuntimeConfigurationCommandInput - {@link UpdateThingRuntimeConfigurationCommandInput}
+ * @returns {@link UpdateThingRuntimeConfigurationCommandOutput}
  * @see {@link UpdateThingRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateThingRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -77,6 +85,9 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateThingRuntimeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +116,8 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateThingRuntimeConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateThingRuntimeConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +127,24 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateThingRuntimeConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateThingRuntimeConfigurationCommand(input, context);
+    return se_UpdateThingRuntimeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateThingRuntimeConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateThingRuntimeConfigurationCommand(output, context);
+    return de_UpdateThingRuntimeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

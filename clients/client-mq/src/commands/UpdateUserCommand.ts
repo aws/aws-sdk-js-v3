@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateUserRequest,
-  UpdateUserRequestFilterSensitiveLog,
-  UpdateUserResponse,
-  UpdateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateUserRequest, UpdateUserResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1UpdateUserCommand,
-  serializeAws_restJson1UpdateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateUserCommand, se_UpdateUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserCommand}.
  */
 export interface UpdateUserCommandInput extends UpdateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserCommand}.
  */
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the information for an ActiveMQ user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * import { MqClient, UpdateUserCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, UpdateUserCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = { // UpdateUserRequest
+ *   BrokerId: "STRING_VALUE", // required
+ *   ConsoleAccess: true || false,
+ *   Groups: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   Password: "STRING_VALUE",
+ *   Username: "STRING_VALUE", // required
+ * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
+ * @returns {@link UpdateUserCommandOutput}
  * @see {@link UpdateUserCommandInput} for command's `input` shape.
  * @see {@link UpdateUserCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -84,6 +92,9 @@ export class UpdateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class UpdateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class UpdateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserCommand(input, context);
+    return se_UpdateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserCommandOutput> {
-    return deserializeAws_restJson1UpdateUserCommand(output, context);
+    return de_UpdateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

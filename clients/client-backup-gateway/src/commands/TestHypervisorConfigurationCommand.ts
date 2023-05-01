@@ -18,23 +18,24 @@ import {
   TestHypervisorConfigurationInput,
   TestHypervisorConfigurationInputFilterSensitiveLog,
   TestHypervisorConfigurationOutput,
-  TestHypervisorConfigurationOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0TestHypervisorConfigurationCommand,
-  serializeAws_json1_0TestHypervisorConfigurationCommand,
-} from "../protocols/Aws_json1_0";
+import { de_TestHypervisorConfigurationCommand, se_TestHypervisorConfigurationCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link TestHypervisorConfigurationCommand}.
  */
 export interface TestHypervisorConfigurationCommandInput extends TestHypervisorConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link TestHypervisorConfigurationCommand}.
  */
 export interface TestHypervisorConfigurationCommandOutput extends TestHypervisorConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests your hypervisor configuration to validate that backup gateway can connect with the
  *       hypervisor and its resources.</p>
  * @example
@@ -43,10 +44,18 @@ export interface TestHypervisorConfigurationCommandOutput extends TestHypervisor
  * import { BackupGatewayClient, TestHypervisorConfigurationCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, TestHypervisorConfigurationCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // TestHypervisorConfigurationInput
+ *   GatewayArn: "STRING_VALUE", // required
+ *   Host: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE",
+ *   Password: "STRING_VALUE",
+ * };
  * const command = new TestHypervisorConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestHypervisorConfigurationCommandInput - {@link TestHypervisorConfigurationCommandInput}
+ * @returns {@link TestHypervisorConfigurationCommandOutput}
  * @see {@link TestHypervisorConfigurationCommandInput} for command's `input` shape.
  * @see {@link TestHypervisorConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -86,6 +95,9 @@ export class TestHypervisorConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestHypervisorConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +127,7 @@ export class TestHypervisorConfigurationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TestHypervisorConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TestHypervisorConfigurationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +137,21 @@ export class TestHypervisorConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestHypervisorConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0TestHypervisorConfigurationCommand(input, context);
+    return se_TestHypervisorConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TestHypervisorConfigurationCommandOutput> {
-    return deserializeAws_json1_0TestHypervisorConfigurationCommand(output, context);
+    return de_TestHypervisorConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

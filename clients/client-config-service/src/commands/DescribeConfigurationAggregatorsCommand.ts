@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DescribeConfigurationAggregatorsRequest, DescribeConfigurationAggregatorsResponse } from "../models/models_0";
 import {
-  DescribeConfigurationAggregatorsRequest,
-  DescribeConfigurationAggregatorsRequestFilterSensitiveLog,
-  DescribeConfigurationAggregatorsResponse,
-  DescribeConfigurationAggregatorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConfigurationAggregatorsCommand,
-  serializeAws_json1_1DescribeConfigurationAggregatorsCommand,
+  de_DescribeConfigurationAggregatorsCommand,
+  se_DescribeConfigurationAggregatorsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationAggregatorsCommand}.
  */
 export interface DescribeConfigurationAggregatorsCommandInput extends DescribeConfigurationAggregatorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationAggregatorsCommand}.
  */
 export interface DescribeConfigurationAggregatorsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeConfigurationAggregatorsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of one or more configuration aggregators.
  * 			If the configuration aggregator is not specified, this action
  * 			returns the details for all the configuration aggregators associated
@@ -47,10 +47,19 @@ export interface DescribeConfigurationAggregatorsCommandOutput
  * import { ConfigServiceClient, DescribeConfigurationAggregatorsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigurationAggregatorsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeConfigurationAggregatorsRequest
+ *   ConfigurationAggregatorNames: [ // ConfigurationAggregatorNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeConfigurationAggregatorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationAggregatorsCommandInput - {@link DescribeConfigurationAggregatorsCommandInput}
+ * @returns {@link DescribeConfigurationAggregatorsCommandOutput}
  * @see {@link DescribeConfigurationAggregatorsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationAggregatorsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -89,6 +98,9 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationAggregatorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +129,8 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationAggregatorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationAggregatorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +140,24 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeConfigurationAggregatorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigurationAggregatorsCommand(input, context);
+    return se_DescribeConfigurationAggregatorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationAggregatorsCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigurationAggregatorsCommand(output, context);
+    return de_DescribeConfigurationAggregatorsCommand(output, context);
   }
 
   // Start section: command_body_extra

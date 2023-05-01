@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  ListDataIngestionJobsRequest,
-  ListDataIngestionJobsRequestFilterSensitiveLog,
-  ListDataIngestionJobsResponse,
-  ListDataIngestionJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListDataIngestionJobsCommand,
-  serializeAws_json1_0ListDataIngestionJobsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListDataIngestionJobsRequest, ListDataIngestionJobsResponse } from "../models/models_0";
+import { de_ListDataIngestionJobsCommand, se_ListDataIngestionJobsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataIngestionJobsCommand}.
  */
 export interface ListDataIngestionJobsCommandInput extends ListDataIngestionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataIngestionJobsCommand}.
  */
 export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of all data ingestion jobs, including dataset name and ARN, S3 location
  *          of the input data, status, and so on. </p>
  * @example
@@ -43,10 +40,18 @@ export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJob
  * import { LookoutEquipmentClient, ListDataIngestionJobsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListDataIngestionJobsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // ListDataIngestionJobsRequest
+ *   DatasetName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ * };
  * const command = new ListDataIngestionJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataIngestionJobsCommandInput - {@link ListDataIngestionJobsCommandInput}
+ * @returns {@link ListDataIngestionJobsCommandOutput}
  * @see {@link ListDataIngestionJobsCommandInput} for command's `input` shape.
  * @see {@link ListDataIngestionJobsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -85,6 +90,9 @@ export class ListDataIngestionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataIngestionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class ListDataIngestionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataIngestionJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataIngestionJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +132,18 @@ export class ListDataIngestionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataIngestionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListDataIngestionJobsCommand(input, context);
+    return se_ListDataIngestionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataIngestionJobsCommandOutput> {
-    return deserializeAws_json1_0ListDataIngestionJobsCommand(output, context);
+    return de_ListDataIngestionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

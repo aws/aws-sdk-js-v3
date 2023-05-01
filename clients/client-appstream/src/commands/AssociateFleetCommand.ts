@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  AssociateFleetRequest,
-  AssociateFleetRequestFilterSensitiveLog,
-  AssociateFleetResult,
-  AssociateFleetResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateFleetCommand,
-  serializeAws_json1_1AssociateFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateFleetRequest, AssociateFleetResult } from "../models/models_0";
+import { de_AssociateFleetCommand, se_AssociateFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateFleetCommand}.
  */
 export interface AssociateFleetCommandInput extends AssociateFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateFleetCommand}.
  */
 export interface AssociateFleetCommandOutput extends AssociateFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified fleet with the specified stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface AssociateFleetCommandOutput extends AssociateFleetResult, __Met
  * import { AppStreamClient, AssociateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, AssociateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // AssociateFleetRequest
+ *   FleetName: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE", // required
+ * };
  * const command = new AssociateFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateFleetCommandInput - {@link AssociateFleetCommandInput}
+ * @returns {@link AssociateFleetCommandOutput}
  * @see {@link AssociateFleetCommandInput} for command's `input` shape.
  * @see {@link AssociateFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -87,6 +90,9 @@ export class AssociateFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class AssociateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class AssociateFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateFleetCommand(input, context);
+    return se_AssociateFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateFleetCommandOutput> {
-    return deserializeAws_json1_1AssociateFleetCommand(output, context);
+    return de_AssociateFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

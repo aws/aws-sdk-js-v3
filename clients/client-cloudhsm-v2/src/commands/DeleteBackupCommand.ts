@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import {
-  DeleteBackupRequest,
-  DeleteBackupRequestFilterSensitiveLog,
-  DeleteBackupResponse,
-  DeleteBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBackupCommand,
-  serializeAws_json1_1DeleteBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteBackupRequest, DeleteBackupResponse } from "../models/models_0";
+import { de_DeleteBackupCommand, se_DeleteBackupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupCommand}.
  */
 export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupCommand}.
  */
 export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days
  *             after the DeleteBackup request is made. For more information on restoring a backup, see
  *                 <a>RestoreBackup</a>.</p>
@@ -44,10 +41,15 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * import { CloudHSMV2Client, DeleteBackupCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, DeleteBackupCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = { // DeleteBackupRequest
+ *   BackupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
+ * @returns {@link DeleteBackupCommandOutput}
  * @see {@link DeleteBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -89,6 +91,9 @@ export class DeleteBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DeleteBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DeleteBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBackupCommand(input, context);
+    return se_DeleteBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupCommandOutput> {
-    return deserializeAws_json1_1DeleteBackupCommand(output, context);
+    return de_DeleteBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

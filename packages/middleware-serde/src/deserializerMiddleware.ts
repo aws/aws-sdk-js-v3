@@ -22,10 +22,17 @@ export const deserializerMiddleware =
         output: parsed as Output,
       };
     } catch (error) {
+      // For security reasons, the error response is not completely visible by default.
       Object.defineProperty(error, "$response", {
-        // configurable and enumerable defaults to `false` in Object.defineProperty
         value: response,
       });
+
+      if (!('$metadata' in error)) {
+        // only apply this to non-ServiceException.
+        const hint = `Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.`;
+        error.message += "\n  " + hint;
+      }
+
       throw error;
     }
   };

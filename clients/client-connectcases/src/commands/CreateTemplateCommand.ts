@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  CreateTemplateRequest,
-  CreateTemplateRequestFilterSensitiveLog,
-  CreateTemplateResponse,
-  CreateTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTemplateCommand,
-  serializeAws_restJson1CreateTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateTemplateRequest, CreateTemplateResponse } from "../models/models_0";
+import { de_CreateTemplateCommand, se_CreateTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTemplateCommand}.
  */
 export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTemplateCommand}.
  */
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a template in the Cases domain. This template is used to define the case object
  *       model (that is, to define what data can be captured on cases) in a Cases domain. A template
  *       must have a unique name within a domain, and it must reference existing field IDs and layout
@@ -47,10 +44,26 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * import { ConnectCasesClient, CreateTemplateCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateTemplateCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // CreateTemplateRequest
+ *   domainId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   layoutConfiguration: { // LayoutConfiguration
+ *     defaultLayout: "STRING_VALUE",
+ *   },
+ *   requiredFields: [ // RequiredFieldList
+ *     { // RequiredField
+ *       fieldId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   status: "STRING_VALUE",
+ * };
  * const command = new CreateTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTemplateCommandInput - {@link CreateTemplateCommandInput}
+ * @returns {@link CreateTemplateCommandOutput}
  * @see {@link CreateTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -100,6 +113,9 @@ export class CreateTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +144,8 @@ export class CreateTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +155,18 @@ export class CreateTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTemplateCommand(input, context);
+    return se_CreateTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateTemplateCommand(output, context);
+    return de_CreateTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

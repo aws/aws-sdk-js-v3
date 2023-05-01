@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchDisableStandardsRequest,
-  BatchDisableStandardsRequestFilterSensitiveLog,
-  BatchDisableStandardsResponse,
-  BatchDisableStandardsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchDisableStandardsCommand,
-  serializeAws_restJson1BatchDisableStandardsCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchDisableStandardsRequest, BatchDisableStandardsResponse } from "../models/models_1";
+import { de_BatchDisableStandardsCommand, se_BatchDisableStandardsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisableStandardsCommand}.
  */
 export interface BatchDisableStandardsCommandInput extends BatchDisableStandardsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisableStandardsCommand}.
  */
 export interface BatchDisableStandardsCommandOutput extends BatchDisableStandardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the standards specified by the provided
  *          <code>StandardsSubscriptionArns</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security Standards</a> section of the <i>Security Hub User
@@ -45,10 +42,17 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  * import { SecurityHubClient, BatchDisableStandardsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchDisableStandardsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // BatchDisableStandardsRequest
+ *   StandardsSubscriptionArns: [ // StandardsSubscriptionArns // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDisableStandardsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisableStandardsCommandInput - {@link BatchDisableStandardsCommandInput}
+ * @returns {@link BatchDisableStandardsCommandOutput}
  * @see {@link BatchDisableStandardsCommandInput} for command's `input` shape.
  * @see {@link BatchDisableStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -68,6 +72,31 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To disable one or more security standards
+ * ```javascript
+ * // The following example disables a security standard in Security Hub.
+ * const input = {
+ *   "StandardsSubscriptionArns": [
+ *     "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+ *   ]
+ * };
+ * const command = new BatchDisableStandardsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "StandardsSubscriptions": [
+ *     {
+ *       "StandardsArn": "arn:aws:securityhub:eu-central-1::standards/pci-dss/v/3.2.1",
+ *       "StandardsInput": {},
+ *       "StandardsStatus": "DELETING",
+ *       "StandardsSubscriptionArn": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-disable-one-or-more-security-standards-1674851507200
+ * ```
+ *
  */
 export class BatchDisableStandardsCommand extends $Command<
   BatchDisableStandardsCommandInput,
@@ -86,6 +115,9 @@ export class BatchDisableStandardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisableStandardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +146,8 @@ export class BatchDisableStandardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisableStandardsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisableStandardsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +157,18 @@ export class BatchDisableStandardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDisableStandardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisableStandardsCommand(input, context);
+    return se_BatchDisableStandardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDisableStandardsCommandOutput> {
-    return deserializeAws_restJson1BatchDisableStandardsCommand(output, context);
+    return de_BatchDisableStandardsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,21 +25,23 @@ import {
   GetUICustomizationResponse,
   GetUICustomizationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetUICustomizationCommand,
-  serializeAws_json1_1GetUICustomizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetUICustomizationCommand, se_GetUICustomizationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUICustomizationCommand}.
  */
 export interface GetUICustomizationCommandInput extends GetUICustomizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUICustomizationCommand}.
  */
 export interface GetUICustomizationCommandOutput extends GetUICustomizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the user interface (UI) Customization information for a particular app client's
  *             app UI, if any such information exists for the client. If nothing is set for the
  *             particular client, but there is an existing pool level customization (the app
@@ -51,10 +53,16 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  * import { CognitoIdentityProviderClient, GetUICustomizationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetUICustomizationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // GetUICustomizationRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE",
+ * };
  * const command = new GetUICustomizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUICustomizationCommandInput - {@link GetUICustomizationCommandInput}
+ * @returns {@link GetUICustomizationCommandOutput}
  * @see {@link GetUICustomizationCommandInput} for command's `input` shape.
  * @see {@link GetUICustomizationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -96,6 +104,9 @@ export class GetUICustomizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUICustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,12 +147,18 @@ export class GetUICustomizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUICustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUICustomizationCommand(input, context);
+    return se_GetUICustomizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUICustomizationCommandOutput> {
-    return deserializeAws_json1_1GetUICustomizationCommand(output, context);
+    return de_GetUICustomizationCommand(output, context);
   }
 
   // Start section: command_body_extra

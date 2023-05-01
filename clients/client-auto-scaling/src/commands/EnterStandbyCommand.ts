@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  EnterStandbyAnswer,
-  EnterStandbyAnswerFilterSensitiveLog,
-  EnterStandbyQuery,
-  EnterStandbyQueryFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryEnterStandbyCommand, serializeAws_queryEnterStandbyCommand } from "../protocols/Aws_query";
+import { EnterStandbyAnswer, EnterStandbyQuery } from "../models/models_0";
+import { de_EnterStandbyCommand, se_EnterStandbyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link EnterStandbyCommand}.
  */
 export interface EnterStandbyCommandInput extends EnterStandbyQuery {}
 /**
+ * @public
+ *
  * The output of {@link EnterStandbyCommand}.
  */
 export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Moves the specified instances into the standby state.</p>
  *          <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can
  *             enter standby as long as the desired capacity of the Auto Scaling group after the instances are
@@ -48,10 +48,19 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  * import { AutoScalingClient, EnterStandbyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, EnterStandbyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // EnterStandbyQuery
+ *   InstanceIds: [ // InstanceIds
+ *     "STRING_VALUE",
+ *   ],
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ShouldDecrementDesiredCapacity: true || false, // required
+ * };
  * const command = new EnterStandbyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnterStandbyCommandInput - {@link EnterStandbyCommandInput}
+ * @returns {@link EnterStandbyCommandOutput}
  * @see {@link EnterStandbyCommandInput} for command's `input` shape.
  * @see {@link EnterStandbyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -110,6 +119,9 @@ export class EnterStandbyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnterStandbyCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +148,8 @@ export class EnterStandbyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnterStandbyQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: EnterStandbyAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +159,18 @@ export class EnterStandbyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnterStandbyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnterStandbyCommand(input, context);
+    return se_EnterStandbyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnterStandbyCommandOutput> {
-    return deserializeAws_queryEnterStandbyCommand(output, context);
+    return de_EnterStandbyCommand(output, context);
   }
 
   // Start section: command_body_extra

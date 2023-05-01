@@ -10,7 +10,7 @@ import { IoTFleetWiseClient } from "../IoTFleetWiseClient";
 import { IoTFleetWisePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTFleetWiseClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDecoderManifestNetworkInterfacesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDecoderManifestNetworkInterfaces(
   config: IoTFleetWisePaginationConfiguration,
   input: ListDecoderManifestNetworkInterfacesCommandInput,

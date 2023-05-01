@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTimelineEventsInput,
-  ListTimelineEventsInputFilterSensitiveLog,
-  ListTimelineEventsOutput,
-  ListTimelineEventsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTimelineEventsCommand,
-  serializeAws_restJson1ListTimelineEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTimelineEventsInput, ListTimelineEventsOutput } from "../models/models_0";
+import { de_ListTimelineEventsCommand, se_ListTimelineEventsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTimelineEventsCommand}.
  */
 export interface ListTimelineEventsCommandInput extends ListTimelineEventsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTimelineEventsCommand}.
  */
 export interface ListTimelineEventsCommandOutput extends ListTimelineEventsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists timeline events for the specified incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,36 @@ export interface ListTimelineEventsCommandOutput extends ListTimelineEventsOutpu
  * import { SSMIncidentsClient, ListTimelineEventsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, ListTimelineEventsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // ListTimelineEventsInput
+ *   incidentRecordArn: "STRING_VALUE", // required
+ *   filters: [ // FilterList
+ *     { // Filter
+ *       key: "STRING_VALUE", // required
+ *       condition: { // Condition Union: only one key present
+ *         before: new Date("TIMESTAMP"),
+ *         after: new Date("TIMESTAMP"),
+ *         equals: { // AttributeValueList Union: only one key present
+ *           stringValues: [ // StringList
+ *             "STRING_VALUE",
+ *           ],
+ *           integerValues: [ // IntegerList
+ *             Number("int"),
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   sortBy: "STRING_VALUE",
+ *   sortOrder: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTimelineEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTimelineEventsCommandInput - {@link ListTimelineEventsCommandInput}
+ * @returns {@link ListTimelineEventsCommandOutput}
  * @see {@link ListTimelineEventsCommandInput} for command's `input` shape.
  * @see {@link ListTimelineEventsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -83,6 +106,9 @@ export class ListTimelineEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTimelineEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +137,8 @@ export class ListTimelineEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTimelineEventsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTimelineEventsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +148,18 @@ export class ListTimelineEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTimelineEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTimelineEventsCommand(input, context);
+    return se_ListTimelineEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTimelineEventsCommandOutput> {
-    return deserializeAws_restJson1ListTimelineEventsCommand(output, context);
+    return de_ListTimelineEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

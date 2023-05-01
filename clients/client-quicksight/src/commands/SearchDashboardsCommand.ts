@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchDashboardsRequest,
-  SearchDashboardsRequestFilterSensitiveLog,
-  SearchDashboardsResponse,
-  SearchDashboardsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1SearchDashboardsCommand,
-  serializeAws_restJson1SearchDashboardsCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchDashboardsRequest, SearchDashboardsResponse } from "../models/models_3";
+import { de_SearchDashboardsCommand, se_SearchDashboardsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchDashboardsCommand}.
  */
 export interface SearchDashboardsCommandInput extends SearchDashboardsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchDashboardsCommand}.
  */
 export interface SearchDashboardsCommandOutput extends SearchDashboardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for dashboards that belong to a user. </p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -45,10 +42,24 @@ export interface SearchDashboardsCommandOutput extends SearchDashboardsResponse,
  * import { QuickSightClient, SearchDashboardsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchDashboardsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // SearchDashboardsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Filters: [ // DashboardSearchFilterList // required
+ *     { // DashboardSearchFilter
+ *       Operator: "StringEquals" || "StringLike", // required
+ *       Name: "QUICKSIGHT_USER" || "QUICKSIGHT_VIEWER_OR_OWNER" || "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" || "QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_SOLE_OWNER" || "DASHBOARD_NAME",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new SearchDashboardsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchDashboardsCommandInput - {@link SearchDashboardsCommandInput}
+ * @returns {@link SearchDashboardsCommandOutput}
  * @see {@link SearchDashboardsCommandInput} for command's `input` shape.
  * @see {@link SearchDashboardsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +104,9 @@ export class SearchDashboardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchDashboardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +135,8 @@ export class SearchDashboardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchDashboardsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchDashboardsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +146,18 @@ export class SearchDashboardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchDashboardsCommand(input, context);
+    return se_SearchDashboardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDashboardsCommandOutput> {
-    return deserializeAws_restJson1SearchDashboardsCommand(output, context);
+    return de_SearchDashboardsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-sso",
-  "version": "3.296.0",
+  "version": "3.321.1",
   "description": "AWS credential provider that exchanges a resolved SSO login token file for temporary AWS credentials",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -52,7 +52,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/credential-provider-sso",
   "repository": {

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetManagedRuleSetRequest,
-  GetManagedRuleSetRequestFilterSensitiveLog,
-  GetManagedRuleSetResponse,
-  GetManagedRuleSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetManagedRuleSetCommand,
-  serializeAws_json1_1GetManagedRuleSetCommand,
-} from "../protocols/Aws_json1_1";
+import { GetManagedRuleSetRequest, GetManagedRuleSetResponse } from "../models/models_0";
+import { de_GetManagedRuleSetCommand, se_GetManagedRuleSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetManagedRuleSetCommand}.
  */
 export interface GetManagedRuleSetCommandInput extends GetManagedRuleSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetManagedRuleSetCommand}.
  */
 export interface GetManagedRuleSetCommandOutput extends GetManagedRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified managed rule set. </p>
  *          <note>
  *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers. </p>
@@ -46,10 +43,17 @@ export interface GetManagedRuleSetCommandOutput extends GetManagedRuleSetRespons
  * import { WAFV2Client, GetManagedRuleSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetManagedRuleSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // GetManagedRuleSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetManagedRuleSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetManagedRuleSetCommandInput - {@link GetManagedRuleSetCommandInput}
+ * @returns {@link GetManagedRuleSetCommandOutput}
  * @see {@link GetManagedRuleSetCommandInput} for command's `input` shape.
  * @see {@link GetManagedRuleSetCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -107,6 +111,9 @@ export class GetManagedRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetManagedRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +142,8 @@ export class GetManagedRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetManagedRuleSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetManagedRuleSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +153,18 @@ export class GetManagedRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetManagedRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetManagedRuleSetCommand(input, context);
+    return se_GetManagedRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetManagedRuleSetCommandOutput> {
-    return deserializeAws_json1_1GetManagedRuleSetCommand(output, context);
+    return de_GetManagedRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

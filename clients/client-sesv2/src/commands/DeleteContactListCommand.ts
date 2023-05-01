@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteContactListRequest,
-  DeleteContactListRequestFilterSensitiveLog,
-  DeleteContactListResponse,
-  DeleteContactListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteContactListCommand,
-  serializeAws_restJson1DeleteContactListCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteContactListRequest, DeleteContactListResponse } from "../models/models_0";
+import { de_DeleteContactListCommand, se_DeleteContactListCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContactListCommand}.
  */
 export interface DeleteContactListCommandInput extends DeleteContactListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContactListCommand}.
  */
 export interface DeleteContactListCommandOutput extends DeleteContactListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a contact list and all of the contacts on that list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteContactListCommandOutput extends DeleteContactListRespons
  * import { SESv2Client, DeleteContactListCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteContactListCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // DeleteContactListRequest
+ *   ContactListName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContactListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContactListCommandInput - {@link DeleteContactListCommandInput}
+ * @returns {@link DeleteContactListCommandOutput}
  * @see {@link DeleteContactListCommandInput} for command's `input` shape.
  * @see {@link DeleteContactListCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteContactListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContactListCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteContactListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContactListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContactListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteContactListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContactListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteContactListCommand(input, context);
+    return se_DeleteContactListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactListCommandOutput> {
-    return deserializeAws_restJson1DeleteContactListCommand(output, context);
+    return de_DeleteContactListCommand(output, context);
   }
 
   // Start section: command_body_extra

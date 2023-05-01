@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourceMetricsRequest,
-  GetResourceMetricsRequestFilterSensitiveLog,
-  GetResourceMetricsResponse,
-  GetResourceMetricsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetResourceMetricsRequest, GetResourceMetricsResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import {
-  deserializeAws_json1_1GetResourceMetricsCommand,
-  serializeAws_json1_1GetResourceMetricsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetResourceMetricsCommand, se_GetResourceMetricsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceMetricsCommand}.
  */
 export interface GetResourceMetricsCommandInput extends GetResourceMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceMetricsCommand}.
  */
 export interface GetResourceMetricsCommandOutput extends GetResourceMetricsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieve Performance Insights metrics for a set of data sources over a time period. You can provide
  *       specific dimension groups and dimensions, and provide aggregation and filtering criteria for
  *       each group.</p>
@@ -48,10 +45,37 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  * import { PIClient, GetResourceMetricsCommand } from "@aws-sdk/client-pi"; // ES Modules import
  * // const { PIClient, GetResourceMetricsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
  * const client = new PIClient(config);
+ * const input = { // GetResourceMetricsRequest
+ *   ServiceType: "RDS" || "DOCDB", // required
+ *   Identifier: "STRING_VALUE", // required
+ *   MetricQueries: [ // MetricQueryList // required
+ *     { // MetricQuery
+ *       Metric: "STRING_VALUE", // required
+ *       GroupBy: { // DimensionGroup
+ *         Group: "STRING_VALUE", // required
+ *         Dimensions: [ // RequestStringList
+ *           "STRING_VALUE",
+ *         ],
+ *         Limit: Number("int"),
+ *       },
+ *       Filter: { // MetricQueryFilterMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   PeriodInSeconds: Number("int"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   PeriodAlignment: "END_TIME" || "START_TIME",
+ * };
  * const command = new GetResourceMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceMetricsCommandInput - {@link GetResourceMetricsCommandInput}
+ * @returns {@link GetResourceMetricsCommandOutput}
  * @see {@link GetResourceMetricsCommandInput} for command's `input` shape.
  * @see {@link GetResourceMetricsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
@@ -84,6 +108,9 @@ export class GetResourceMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +139,8 @@ export class GetResourceMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +150,18 @@ export class GetResourceMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourceMetricsCommand(input, context);
+    return se_GetResourceMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceMetricsCommandOutput> {
-    return deserializeAws_json1_1GetResourceMetricsCommand(output, context);
+    return de_GetResourceMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

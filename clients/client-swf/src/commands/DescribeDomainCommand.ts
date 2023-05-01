@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDomainInput,
-  DescribeDomainInputFilterSensitiveLog,
-  DomainDetail,
-  DomainDetailFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeDomainCommand,
-  serializeAws_json1_0DescribeDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeDomainInput, DomainDetail } from "../models/models_0";
+import { de_DescribeDomainCommand, se_DescribeDomainCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainCommand}.
  */
 export interface DescribeDomainCommandInput extends DescribeDomainInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainCommand}.
  */
 export interface DescribeDomainCommandOutput extends DomainDetail, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified domain, including description and
  *       status.</p>
  *          <p>
@@ -66,10 +63,15 @@ export interface DescribeDomainCommandOutput extends DomainDetail, __MetadataBea
  * import { SWFClient, DescribeDomainCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DescribeDomainCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // DescribeDomainInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainCommandInput - {@link DescribeDomainCommandInput}
+ * @returns {@link DescribeDomainCommandOutput}
  * @see {@link DescribeDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -99,6 +101,9 @@ export class DescribeDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +132,8 @@ export class DescribeDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DomainDetailFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +143,18 @@ export class DescribeDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeDomainCommand(input, context);
+    return se_DescribeDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainCommandOutput> {
-    return deserializeAws_json1_0DescribeDomainCommand(output, context);
+    return de_DescribeDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  StartExportRequest,
-  StartExportRequestFilterSensitiveLog,
-  StartExportResponse,
-  StartExportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartExportCommand,
-  serializeAws_restJson1StartExportCommand,
-} from "../protocols/Aws_restJson1";
+import { StartExportRequest, StartExportResponse } from "../models/models_0";
+import { de_StartExportCommand, se_StartExportCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartExportCommand}.
  */
 export interface StartExportCommandInput extends StartExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartExportCommand}.
  */
 export interface StartExportCommandOutput extends StartExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Start export.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface StartExportCommandOutput extends StartExportResponse, __Metadat
  * import { MgnClient, StartExportCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartExportCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // StartExportRequest
+ *   s3Bucket: "STRING_VALUE", // required
+ *   s3Key: "STRING_VALUE", // required
+ *   s3BucketOwner: "STRING_VALUE",
+ * };
  * const command = new StartExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartExportCommandInput - {@link StartExportCommandInput}
+ * @returns {@link StartExportCommandOutput}
  * @see {@link StartExportCommandInput} for command's `input` shape.
  * @see {@link StartExportCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +82,9 @@ export class StartExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class StartExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartExportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class StartExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartExportCommand(input, context);
+    return se_StartExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExportCommandOutput> {
-    return deserializeAws_restJson1StartExportCommand(output, context);
+    return de_StartExportCommand(output, context);
   }
 
   // Start section: command_body_extra

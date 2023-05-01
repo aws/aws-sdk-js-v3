@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  LifecycleConfigurationDescription,
-  LifecycleConfigurationDescriptionFilterSensitiveLog,
-  PutLifecycleConfigurationRequest,
-  PutLifecycleConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutLifecycleConfigurationCommand,
-  serializeAws_restJson1PutLifecycleConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { LifecycleConfigurationDescription, PutLifecycleConfigurationRequest } from "../models/models_0";
+import { de_PutLifecycleConfigurationCommand, se_PutLifecycleConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutLifecycleConfigurationCommand}.
  */
 export interface PutLifecycleConfigurationCommandInput extends PutLifecycleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutLifecycleConfigurationCommand}.
  */
 export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigurationDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this action to manage EFS lifecycle management and EFS Intelligent-Tiering. A
  *         <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code>
  *       objects that define the following:</p>
@@ -88,10 +85,21 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * import { EFSClient, PutLifecycleConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutLifecycleConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // PutLifecycleConfigurationRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ *   LifecyclePolicies: [ // LifecyclePolicies // required
+ *     { // LifecyclePolicy
+ *       TransitionToIA: "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_1_DAY",
+ *       TransitionToPrimaryStorageClass: "AFTER_1_ACCESS",
+ *     },
+ *   ],
+ * };
  * const command = new PutLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLifecycleConfigurationCommandInput - {@link PutLifecycleConfigurationCommandInput}
+ * @returns {@link PutLifecycleConfigurationCommandOutput}
  * @see {@link PutLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -154,6 +162,9 @@ export class PutLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,8 +193,8 @@ export class PutLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLifecycleConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LifecycleConfigurationDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -193,15 +204,21 @@ export class PutLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLifecycleConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutLifecycleConfigurationCommand(input, context);
+    return se_PutLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutLifecycleConfigurationCommand(output, context);
+    return de_PutLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

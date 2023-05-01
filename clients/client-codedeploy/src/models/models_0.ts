@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { CodeDeployServiceException as __BaseException } from "./CodeDeployServiceException";
 
 /**
+ * @public
  * <p>Information about a tag.</p>
  */
 export interface Tag {
@@ -19,6 +20,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Represents the input of, and adds tags to, an on-premises instance operation.</p>
  */
 export interface AddTagsToOnPremisesInstancesInput {
@@ -36,6 +38,7 @@ export interface AddTagsToOnPremisesInstancesInput {
 }
 
 /**
+ * @public
  * <p>The maximum number of allowed on-premises instances in a single call was
  *             exceeded.</p>
  */
@@ -56,6 +59,7 @@ export class InstanceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An on-premises instance name was not specified.</p>
  */
 export class InstanceNameRequiredException extends __BaseException {
@@ -75,6 +79,7 @@ export class InstanceNameRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified on-premises instance is not registered.</p>
  */
 export class InstanceNotRegisteredException extends __BaseException {
@@ -94,6 +99,7 @@ export class InstanceNotRegisteredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The on-premises instance name was specified in an invalid format.</p>
  */
 export class InvalidInstanceNameException extends __BaseException {
@@ -113,6 +119,7 @@ export class InvalidInstanceNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The tag was specified in an invalid format.</p>
  */
 export class InvalidTagException extends __BaseException {
@@ -132,6 +139,7 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum allowed number of tags was exceeded.</p>
  */
 export class TagLimitExceededException extends __BaseException {
@@ -151,6 +159,7 @@ export class TagLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A tag was not specified.</p>
  */
 export class TagRequiredException extends __BaseException {
@@ -170,6 +179,7 @@ export class TagRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about an alarm.</p>
  */
 export interface Alarm {
@@ -181,6 +191,7 @@ export interface Alarm {
 }
 
 /**
+ * @public
  * <p>Information about alarms associated with a deployment or deployment group.</p>
  */
 export interface AlarmConfiguration {
@@ -215,6 +226,7 @@ export interface AlarmConfiguration {
 }
 
 /**
+ * @public
  * <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
  */
 export class AlarmsLimitExceededException extends __BaseException {
@@ -234,6 +246,7 @@ export class AlarmsLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An application with the specified name with the IAM user or Amazon Web Services account already exists.</p>
  */
 export class ApplicationAlreadyExistsException extends __BaseException {
@@ -253,6 +266,7 @@ export class ApplicationAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
  */
 export class ApplicationDoesNotExistException extends __BaseException {
@@ -271,13 +285,23 @@ export class ApplicationDoesNotExistException extends __BaseException {
   }
 }
 
-export enum ComputePlatform {
-  ECS = "ECS",
-  LAMBDA = "Lambda",
-  SERVER = "Server",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComputePlatform = {
+  ECS: "ECS",
+  LAMBDA: "Lambda",
+  SERVER: "Server",
+} as const;
 
 /**
+ * @public
+ */
+export type ComputePlatform = (typeof ComputePlatform)[keyof typeof ComputePlatform];
+
+/**
+ * @public
  * <p>Information about an application.</p>
  */
 export interface ApplicationInfo {
@@ -314,6 +338,7 @@ export interface ApplicationInfo {
 }
 
 /**
+ * @public
  * <p>More applications were attempted to be created than are allowed.</p>
  */
 export class ApplicationLimitExceededException extends __BaseException {
@@ -333,6 +358,7 @@ export class ApplicationLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The minimum number of required application names was not specified.</p>
  */
 export class ApplicationNameRequiredException extends __BaseException {
@@ -351,13 +377,23 @@ export class ApplicationNameRequiredException extends __BaseException {
   }
 }
 
-export enum ApplicationRevisionSortBy {
-  FirstUsedTime = "firstUsedTime",
-  LastUsedTime = "lastUsedTime",
-  RegisterTime = "registerTime",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationRevisionSortBy = {
+  FirstUsedTime: "firstUsedTime",
+  LastUsedTime: "lastUsedTime",
+  RegisterTime: "registerTime",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationRevisionSortBy = (typeof ApplicationRevisionSortBy)[keyof typeof ApplicationRevisionSortBy];
+
+/**
+ * @public
  * <p> A revision for an Lambda or Amazon ECS deployment that is a
  *             YAML-formatted or JSON-formatted string. For Lambda and Amazon ECS deployments, the revision is the same as the AppSpec file. This method replaces the
  *             deprecated <code>RawString</code> data type. </p>
@@ -383,6 +419,7 @@ export interface AppSpecContent {
 }
 
 /**
+ * @public
  * <p> The specified ARN is not supported. For example, it might be an ARN for a resource
  *             that is not expected. </p>
  */
@@ -402,13 +439,23 @@ export class ArnNotSupportedException extends __BaseException {
   }
 }
 
-export enum AutoRollbackEvent {
-  DEPLOYMENT_FAILURE = "DEPLOYMENT_FAILURE",
-  DEPLOYMENT_STOP_ON_ALARM = "DEPLOYMENT_STOP_ON_ALARM",
-  DEPLOYMENT_STOP_ON_REQUEST = "DEPLOYMENT_STOP_ON_REQUEST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoRollbackEvent = {
+  DEPLOYMENT_FAILURE: "DEPLOYMENT_FAILURE",
+  DEPLOYMENT_STOP_ON_ALARM: "DEPLOYMENT_STOP_ON_ALARM",
+  DEPLOYMENT_STOP_ON_REQUEST: "DEPLOYMENT_STOP_ON_REQUEST",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoRollbackEvent = (typeof AutoRollbackEvent)[keyof typeof AutoRollbackEvent];
+
+/**
+ * @public
  * <p>Information about a configuration for automatically rolling back to a previous version
  *             of an application revision when a deployment is not completed successfully.</p>
  */
@@ -426,6 +473,7 @@ export interface AutoRollbackConfiguration {
 }
 
 /**
+ * @public
  * <p>Information about an Auto Scaling group.</p>
  */
 export interface AutoScalingGroup {
@@ -441,6 +489,7 @@ export interface AutoScalingGroup {
 }
 
 /**
+ * @public
  * <p>Information about the location of application artifacts stored in GitHub.</p>
  */
 export interface GitHubLocation {
@@ -458,22 +507,41 @@ export interface GitHubLocation {
   commitId?: string;
 }
 
-export enum RevisionLocationType {
-  AppSpecContent = "AppSpecContent",
-  GitHub = "GitHub",
-  S3 = "S3",
-  String = "String",
-}
-
-export enum BundleType {
-  JSON = "JSON",
-  Tar = "tar",
-  TarGZip = "tgz",
-  YAML = "YAML",
-  Zip = "zip",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RevisionLocationType = {
+  AppSpecContent: "AppSpecContent",
+  GitHub: "GitHub",
+  S3: "S3",
+  String: "String",
+} as const;
 
 /**
+ * @public
+ */
+export type RevisionLocationType = (typeof RevisionLocationType)[keyof typeof RevisionLocationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BundleType = {
+  JSON: "JSON",
+  Tar: "tar",
+  TarGZip: "tgz",
+  YAML: "YAML",
+  Zip: "zip",
+} as const;
+
+/**
+ * @public
+ */
+export type BundleType = (typeof BundleType)[keyof typeof BundleType];
+
+/**
+ * @public
  * <p>Information about the location of application artifacts stored in Amazon S3.</p>
  */
 export interface S3Location {
@@ -526,6 +594,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * @deprecated
  *
  * <p>A revision for an Lambda deployment that is a YAML-formatted or
@@ -547,6 +616,7 @@ export interface RawString {
 }
 
 /**
+ * @public
  * <p>Information about the location of an application revision.</p>
  */
 export interface RevisionLocation {
@@ -600,6 +670,7 @@ export interface RevisionLocation {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>BatchGetApplicationRevisions</code> operation.</p>
  */
 export interface BatchGetApplicationRevisionsInput {
@@ -618,6 +689,7 @@ export interface BatchGetApplicationRevisionsInput {
 }
 
 /**
+ * @public
  * <p>Information about an application revision.</p>
  */
 export interface GenericRevisionInfo {
@@ -648,6 +720,7 @@ export interface GenericRevisionInfo {
 }
 
 /**
+ * @public
  * <p>Information about an application revision.</p>
  */
 export interface RevisionInfo {
@@ -664,6 +737,7 @@ export interface RevisionInfo {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>BatchGetApplicationRevisions</code> operation.</p>
  */
 export interface BatchGetApplicationRevisionsOutput {
@@ -684,6 +758,7 @@ export interface BatchGetApplicationRevisionsOutput {
 }
 
 /**
+ * @public
  * <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
  */
 export class BatchLimitExceededException extends __BaseException {
@@ -703,6 +778,7 @@ export class BatchLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The application name was specified in an invalid format.</p>
  */
 export class InvalidApplicationNameException extends __BaseException {
@@ -722,6 +798,7 @@ export class InvalidApplicationNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The revision was specified in an invalid format.</p>
  */
 export class InvalidRevisionException extends __BaseException {
@@ -741,6 +818,7 @@ export class InvalidRevisionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The revision ID was not specified.</p>
  */
 export class RevisionRequiredException extends __BaseException {
@@ -760,6 +838,7 @@ export class RevisionRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>BatchGetApplications</code> operation.</p>
  */
 export interface BatchGetApplicationsInput {
@@ -771,6 +850,7 @@ export interface BatchGetApplicationsInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>BatchGetApplications</code> operation.</p>
  */
 export interface BatchGetApplicationsOutput {
@@ -781,6 +861,7 @@ export interface BatchGetApplicationsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>BatchGetDeploymentGroups</code> operation.</p>
  */
 export interface BatchGetDeploymentGroupsInput {
@@ -796,12 +877,22 @@ export interface BatchGetDeploymentGroupsInput {
   deploymentGroupNames: string[] | undefined;
 }
 
-export enum DeploymentReadyAction {
-  CONTINUE_DEPLOYMENT = "CONTINUE_DEPLOYMENT",
-  STOP_DEPLOYMENT = "STOP_DEPLOYMENT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentReadyAction = {
+  CONTINUE_DEPLOYMENT: "CONTINUE_DEPLOYMENT",
+  STOP_DEPLOYMENT: "STOP_DEPLOYMENT",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentReadyAction = (typeof DeploymentReadyAction)[keyof typeof DeploymentReadyAction];
+
+/**
+ * @public
  * <p>Information about how traffic is rerouted to instances in a replacement environment in
  *             a blue/green deployment.</p>
  */
@@ -833,12 +924,23 @@ export interface DeploymentReadyOption {
   waitTimeInMinutes?: number;
 }
 
-export enum GreenFleetProvisioningAction {
-  COPY_AUTO_SCALING_GROUP = "COPY_AUTO_SCALING_GROUP",
-  DISCOVER_EXISTING = "DISCOVER_EXISTING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GreenFleetProvisioningAction = {
+  COPY_AUTO_SCALING_GROUP: "COPY_AUTO_SCALING_GROUP",
+  DISCOVER_EXISTING: "DISCOVER_EXISTING",
+} as const;
 
 /**
+ * @public
+ */
+export type GreenFleetProvisioningAction =
+  (typeof GreenFleetProvisioningAction)[keyof typeof GreenFleetProvisioningAction];
+
+/**
+ * @public
  * <p>Information about the instances that belong to the replacement environment in a
  *             blue/green deployment.</p>
  */
@@ -861,12 +963,22 @@ export interface GreenFleetProvisioningOption {
   action?: GreenFleetProvisioningAction | string;
 }
 
-export enum InstanceAction {
-  KEEP_ALIVE = "KEEP_ALIVE",
-  TERMINATE = "TERMINATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceAction = {
+  KEEP_ALIVE: "KEEP_ALIVE",
+  TERMINATE: "TERMINATE",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceAction = (typeof InstanceAction)[keyof typeof InstanceAction];
+
+/**
+ * @public
  * <p>Information about whether instances in the original environment are terminated when a
  *             blue/green deployment is successful. <code>BlueInstanceTerminationOption</code> does not
  *             apply to Lambda deployments. </p>
@@ -905,6 +1017,7 @@ export interface BlueInstanceTerminationOption {
 }
 
 /**
+ * @public
  * <p>Information about blue/green deployment options for a deployment group.</p>
  */
 export interface BlueGreenDeploymentConfiguration {
@@ -927,17 +1040,36 @@ export interface BlueGreenDeploymentConfiguration {
   greenFleetProvisioningOption?: GreenFleetProvisioningOption;
 }
 
-export enum DeploymentOption {
-  WITHOUT_TRAFFIC_CONTROL = "WITHOUT_TRAFFIC_CONTROL",
-  WITH_TRAFFIC_CONTROL = "WITH_TRAFFIC_CONTROL",
-}
-
-export enum DeploymentType {
-  BLUE_GREEN = "BLUE_GREEN",
-  IN_PLACE = "IN_PLACE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentOption = {
+  WITHOUT_TRAFFIC_CONTROL: "WITHOUT_TRAFFIC_CONTROL",
+  WITH_TRAFFIC_CONTROL: "WITH_TRAFFIC_CONTROL",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentOption = (typeof DeploymentOption)[keyof typeof DeploymentOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentType = {
+  BLUE_GREEN: "BLUE_GREEN",
+  IN_PLACE: "IN_PLACE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
+
+/**
+ * @public
  * <p>Information about the type of deployment, either in-place or blue/green, you want to
  *             run and whether to route deployment traffic behind a load balancer.</p>
  */
@@ -953,13 +1085,23 @@ export interface DeploymentStyle {
   deploymentOption?: DeploymentOption | string;
 }
 
-export enum EC2TagFilterType {
-  KEY_AND_VALUE = "KEY_AND_VALUE",
-  KEY_ONLY = "KEY_ONLY",
-  VALUE_ONLY = "VALUE_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EC2TagFilterType = {
+  KEY_AND_VALUE: "KEY_AND_VALUE",
+  KEY_ONLY: "KEY_ONLY",
+  VALUE_ONLY: "VALUE_ONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type EC2TagFilterType = (typeof EC2TagFilterType)[keyof typeof EC2TagFilterType];
+
+/**
+ * @public
  * <p>Information about an EC2 tag filter.</p>
  */
 export interface EC2TagFilter {
@@ -994,6 +1136,7 @@ export interface EC2TagFilter {
 }
 
 /**
+ * @public
  * <p>Information about groups of Amazon EC2 instance tags.</p>
  */
 export interface EC2TagSet {
@@ -1006,6 +1149,7 @@ export interface EC2TagSet {
 }
 
 /**
+ * @public
  * <p> Contains the service and cluster names used to identify an Amazon ECS
  *             deployment's target. </p>
  */
@@ -1022,18 +1166,28 @@ export interface ECSService {
   clusterName?: string;
 }
 
-export enum DeploymentStatus {
-  BAKING = "Baking",
-  CREATED = "Created",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  QUEUED = "Queued",
-  READY = "Ready",
-  STOPPED = "Stopped",
-  SUCCEEDED = "Succeeded",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentStatus = {
+  BAKING: "Baking",
+  CREATED: "Created",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  QUEUED: "Queued",
+  READY: "Ready",
+  STOPPED: "Stopped",
+  SUCCEEDED: "Succeeded",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
+
+/**
+ * @public
  * <p>Information about the most recent attempted or successful deployment to a deployment
  *             group.</p>
  */
@@ -1062,6 +1216,7 @@ export interface LastDeploymentInfo {
 }
 
 /**
+ * @public
  * <p>Information about a load balancer in Elastic Load Balancing to use in a deployment.
  *             Instances are registered directly with a load balancer, and traffic is routed to the
  *             load balancer.</p>
@@ -1078,6 +1233,7 @@ export interface ELBInfo {
 }
 
 /**
+ * @public
  * <p>Information about a target group in Elastic Load Balancing to use in a deployment.
  *             Instances are registered as targets in a target group, and traffic is routed to the
  *             target group.</p>
@@ -1094,6 +1250,7 @@ export interface TargetGroupInfo {
 }
 
 /**
+ * @public
  * <p> Information about a listener. The listener contains the path used to route traffic
  *             that is received from the load balancer to a target group. </p>
  */
@@ -1107,6 +1264,7 @@ export interface TrafficRoute {
 }
 
 /**
+ * @public
  * <p> Information about two target groups and how traffic is routed during an Amazon ECS deployment. An optional test traffic route can be specified. </p>
  */
 export interface TargetGroupPairInfo {
@@ -1130,6 +1288,7 @@ export interface TargetGroupPairInfo {
 }
 
 /**
+ * @public
  * <p>Information about the Elastic Load Balancing load balancer or target group used in a
  *             deployment.</p>
  */
@@ -1161,13 +1320,23 @@ export interface LoadBalancerInfo {
   targetGroupPairInfoList?: TargetGroupPairInfo[];
 }
 
-export enum TagFilterType {
-  KEY_AND_VALUE = "KEY_AND_VALUE",
-  KEY_ONLY = "KEY_ONLY",
-  VALUE_ONLY = "VALUE_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TagFilterType = {
+  KEY_AND_VALUE: "KEY_AND_VALUE",
+  KEY_ONLY: "KEY_ONLY",
+  VALUE_ONLY: "VALUE_ONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type TagFilterType = (typeof TagFilterType)[keyof typeof TagFilterType];
+
+/**
+ * @public
  * <p>Information about an on-premises instance tag filter.</p>
  */
 export interface TagFilter {
@@ -1199,6 +1368,7 @@ export interface TagFilter {
 }
 
 /**
+ * @public
  * <p>Information about groups of on-premises instance tags.</p>
  */
 export interface OnPremisesTagSet {
@@ -1210,25 +1380,44 @@ export interface OnPremisesTagSet {
   onPremisesTagSetList?: TagFilter[][];
 }
 
-export enum OutdatedInstancesStrategy {
-  Ignore = "IGNORE",
-  Update = "UPDATE",
-}
-
-export enum TriggerEventType {
-  DEPLOYMENT_FAILURE = "DeploymentFailure",
-  DEPLOYMENT_READY = "DeploymentReady",
-  DEPLOYMENT_ROLLBACK = "DeploymentRollback",
-  DEPLOYMENT_START = "DeploymentStart",
-  DEPLOYMENT_STOP = "DeploymentStop",
-  DEPLOYMENT_SUCCESS = "DeploymentSuccess",
-  INSTANCE_FAILURE = "InstanceFailure",
-  INSTANCE_READY = "InstanceReady",
-  INSTANCE_START = "InstanceStart",
-  INSTANCE_SUCCESS = "InstanceSuccess",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OutdatedInstancesStrategy = {
+  Ignore: "IGNORE",
+  Update: "UPDATE",
+} as const;
 
 /**
+ * @public
+ */
+export type OutdatedInstancesStrategy = (typeof OutdatedInstancesStrategy)[keyof typeof OutdatedInstancesStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const TriggerEventType = {
+  DEPLOYMENT_FAILURE: "DeploymentFailure",
+  DEPLOYMENT_READY: "DeploymentReady",
+  DEPLOYMENT_ROLLBACK: "DeploymentRollback",
+  DEPLOYMENT_START: "DeploymentStart",
+  DEPLOYMENT_STOP: "DeploymentStop",
+  DEPLOYMENT_SUCCESS: "DeploymentSuccess",
+  INSTANCE_FAILURE: "InstanceFailure",
+  INSTANCE_READY: "InstanceReady",
+  INSTANCE_START: "InstanceStart",
+  INSTANCE_SUCCESS: "InstanceSuccess",
+} as const;
+
+/**
+ * @public
+ */
+export type TriggerEventType = (typeof TriggerEventType)[keyof typeof TriggerEventType];
+
+/**
+ * @public
  * <p>Information about notification triggers for the deployment group.</p>
  */
 export interface TriggerConfig {
@@ -1250,6 +1439,7 @@ export interface TriggerConfig {
 }
 
 /**
+ * @public
  * <p>Information about a deployment group.</p>
  */
 export interface DeploymentGroupInfo {
@@ -1387,6 +1577,7 @@ export interface DeploymentGroupInfo {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>BatchGetDeploymentGroups</code> operation.</p>
  */
 export interface BatchGetDeploymentGroupsOutput {
@@ -1402,6 +1593,7 @@ export interface BatchGetDeploymentGroupsOutput {
 }
 
 /**
+ * @public
  * <p>The deployment configuration does not exist with the IAM user or
  *                 Amazon Web Services account.</p>
  */
@@ -1422,6 +1614,7 @@ export class DeploymentConfigDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The deployment group name was not specified.</p>
  */
 export class DeploymentGroupNameRequiredException extends __BaseException {
@@ -1441,6 +1634,7 @@ export class DeploymentGroupNameRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The deployment group name was specified in an invalid format.</p>
  */
 export class InvalidDeploymentGroupNameException extends __BaseException {
@@ -1460,6 +1654,7 @@ export class InvalidDeploymentGroupNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Represents the input of a <code>BatchGetDeploymentInstances</code> operation. </p>
  */
 export interface BatchGetDeploymentInstancesInput {
@@ -1475,21 +1670,40 @@ export interface BatchGetDeploymentInstancesInput {
   instanceIds: string[] | undefined;
 }
 
-export enum _InstanceType {
-  BLUE = "Blue",
-  GREEN = "Green",
-}
-
-export enum LifecycleErrorCode {
-  SCRIPT_FAILED = "ScriptFailed",
-  SCRIPT_MISSING = "ScriptMissing",
-  SCRIPT_NOT_EXECUTABLE = "ScriptNotExecutable",
-  SCRIPT_TIMED_OUT = "ScriptTimedOut",
-  SUCCESS = "Success",
-  UNKNOWN_ERROR = "UnknownError",
-}
+/**
+ * @public
+ * @enum
+ */
+export const _InstanceType = {
+  BLUE: "Blue",
+  GREEN: "Green",
+} as const;
 
 /**
+ * @public
+ */
+export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecycleErrorCode = {
+  SCRIPT_FAILED: "ScriptFailed",
+  SCRIPT_MISSING: "ScriptMissing",
+  SCRIPT_NOT_EXECUTABLE: "ScriptNotExecutable",
+  SCRIPT_TIMED_OUT: "ScriptTimedOut",
+  SUCCESS: "Success",
+  UNKNOWN_ERROR: "UnknownError",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecycleErrorCode = (typeof LifecycleErrorCode)[keyof typeof LifecycleErrorCode];
+
+/**
+ * @public
  * <p>Diagnostic information about executable scripts that are part of a deployment.</p>
  */
 export interface Diagnostics {
@@ -1539,16 +1753,26 @@ export interface Diagnostics {
   logTail?: string;
 }
 
-export enum LifecycleEventStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SKIPPED = "Skipped",
-  SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LifecycleEventStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SKIPPED: "Skipped",
+  SUCCEEDED: "Succeeded",
+  UNKNOWN: "Unknown",
+} as const;
 
 /**
+ * @public
+ */
+export type LifecycleEventStatus = (typeof LifecycleEventStatus)[keyof typeof LifecycleEventStatus];
+
+/**
+ * @public
  * <p>Information about a deployment lifecycle event.</p>
  */
 export interface LifecycleEvent {
@@ -1600,17 +1824,27 @@ export interface LifecycleEvent {
   status?: LifecycleEventStatus | string;
 }
 
-export enum InstanceStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  READY = "Ready",
-  SKIPPED = "Skipped",
-  SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  READY: "Ready",
+  SKIPPED: "Skipped",
+  SUCCEEDED: "Succeeded",
+  UNKNOWN: "Unknown",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus];
+
+/**
+ * @public
  * @deprecated
  *
  * <p>Information about an instance in a deployment.</p>
@@ -1688,6 +1922,7 @@ export interface InstanceSummary {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>BatchGetDeploymentInstances</code> operation.</p>
  */
 export interface BatchGetDeploymentInstancesOutput {
@@ -1703,6 +1938,7 @@ export interface BatchGetDeploymentInstancesOutput {
 }
 
 /**
+ * @public
  * <p>The deployment with the IAM user or Amazon Web Services account does not
  *             exist.</p>
  */
@@ -1723,6 +1959,7 @@ export class DeploymentDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>At least one deployment ID must be specified.</p>
  */
 export class DeploymentIdRequiredException extends __BaseException {
@@ -1742,6 +1979,7 @@ export class DeploymentIdRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * @deprecated
  *
  * <p>The instance ID was not specified.</p>
@@ -1763,6 +2001,7 @@ export class InstanceIdRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
  */
 export class InvalidComputePlatformException extends __BaseException {
@@ -1782,6 +2021,7 @@ export class InvalidComputePlatformException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>At least one of the deployment IDs was specified in an invalid format.</p>
  */
 export class InvalidDeploymentIdException extends __BaseException {
@@ -1801,6 +2041,7 @@ export class InvalidDeploymentIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Represents the input of a <code>BatchGetDeployments</code> operation. </p>
  */
 export interface BatchGetDeploymentsInput {
@@ -1811,17 +2052,27 @@ export interface BatchGetDeploymentsInput {
   deploymentIds: string[] | undefined;
 }
 
-export enum DeploymentCreator {
-  Autoscaling = "autoscaling",
-  CloudFormation = "CloudFormation",
-  CloudFormationRollback = "CloudFormationRollback",
-  CodeDeploy = "CodeDeploy",
-  CodeDeployAutoUpdate = "CodeDeployAutoUpdate",
-  CodeDeployRollback = "codeDeployRollback",
-  User = "user",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentCreator = {
+  Autoscaling: "autoscaling",
+  CloudFormation: "CloudFormation",
+  CloudFormationRollback: "CloudFormationRollback",
+  CodeDeploy: "CodeDeploy",
+  CodeDeployAutoUpdate: "CodeDeployAutoUpdate",
+  CodeDeployRollback: "codeDeployRollback",
+  User: "user",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentCreator = (typeof DeploymentCreator)[keyof typeof DeploymentCreator];
+
+/**
+ * @public
  * <p>Information about the deployment status of the instances in the deployment.</p>
  */
 export interface DeploymentOverview {
@@ -1858,44 +2109,54 @@ export interface DeploymentOverview {
   Ready?: number;
 }
 
-export enum ErrorCode {
-  AGENT_ISSUE = "AGENT_ISSUE",
-  ALARM_ACTIVE = "ALARM_ACTIVE",
-  APPLICATION_MISSING = "APPLICATION_MISSING",
-  AUTOSCALING_VALIDATION_ERROR = "AUTOSCALING_VALIDATION_ERROR",
-  AUTO_SCALING_CONFIGURATION = "AUTO_SCALING_CONFIGURATION",
-  AUTO_SCALING_IAM_ROLE_PERMISSIONS = "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
-  CLOUDFORMATION_STACK_FAILURE = "CLOUDFORMATION_STACK_FAILURE",
-  CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND = "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND",
-  CUSTOMER_APPLICATION_UNHEALTHY = "CUSTOMER_APPLICATION_UNHEALTHY",
-  DEPLOYMENT_GROUP_MISSING = "DEPLOYMENT_GROUP_MISSING",
-  ECS_UPDATE_ERROR = "ECS_UPDATE_ERROR",
-  ELASTIC_LOAD_BALANCING_INVALID = "ELASTIC_LOAD_BALANCING_INVALID",
-  ELB_INVALID_INSTANCE = "ELB_INVALID_INSTANCE",
-  HEALTH_CONSTRAINTS = "HEALTH_CONSTRAINTS",
-  HEALTH_CONSTRAINTS_INVALID = "HEALTH_CONSTRAINTS_INVALID",
-  HOOK_EXECUTION_FAILURE = "HOOK_EXECUTION_FAILURE",
-  IAM_ROLE_MISSING = "IAM_ROLE_MISSING",
-  IAM_ROLE_PERMISSIONS = "IAM_ROLE_PERMISSIONS",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_ECS_SERVICE = "INVALID_ECS_SERVICE",
-  INVALID_LAMBDA_CONFIGURATION = "INVALID_LAMBDA_CONFIGURATION",
-  INVALID_LAMBDA_FUNCTION = "INVALID_LAMBDA_FUNCTION",
-  INVALID_REVISION = "INVALID_REVISION",
-  MANUAL_STOP = "MANUAL_STOP",
-  MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION = "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION",
-  MISSING_ELB_INFORMATION = "MISSING_ELB_INFORMATION",
-  MISSING_GITHUB_TOKEN = "MISSING_GITHUB_TOKEN",
-  NO_EC2_SUBSCRIPTION = "NO_EC2_SUBSCRIPTION",
-  NO_INSTANCES = "NO_INSTANCES",
-  OVER_MAX_INSTANCES = "OVER_MAX_INSTANCES",
-  RESOURCE_LIMIT_EXCEEDED = "RESOURCE_LIMIT_EXCEEDED",
-  REVISION_MISSING = "REVISION_MISSING",
-  THROTTLED = "THROTTLED",
-  TIMEOUT = "TIMEOUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  AGENT_ISSUE: "AGENT_ISSUE",
+  ALARM_ACTIVE: "ALARM_ACTIVE",
+  APPLICATION_MISSING: "APPLICATION_MISSING",
+  AUTOSCALING_VALIDATION_ERROR: "AUTOSCALING_VALIDATION_ERROR",
+  AUTO_SCALING_CONFIGURATION: "AUTO_SCALING_CONFIGURATION",
+  AUTO_SCALING_IAM_ROLE_PERMISSIONS: "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
+  CLOUDFORMATION_STACK_FAILURE: "CLOUDFORMATION_STACK_FAILURE",
+  CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND: "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND",
+  CUSTOMER_APPLICATION_UNHEALTHY: "CUSTOMER_APPLICATION_UNHEALTHY",
+  DEPLOYMENT_GROUP_MISSING: "DEPLOYMENT_GROUP_MISSING",
+  ECS_UPDATE_ERROR: "ECS_UPDATE_ERROR",
+  ELASTIC_LOAD_BALANCING_INVALID: "ELASTIC_LOAD_BALANCING_INVALID",
+  ELB_INVALID_INSTANCE: "ELB_INVALID_INSTANCE",
+  HEALTH_CONSTRAINTS: "HEALTH_CONSTRAINTS",
+  HEALTH_CONSTRAINTS_INVALID: "HEALTH_CONSTRAINTS_INVALID",
+  HOOK_EXECUTION_FAILURE: "HOOK_EXECUTION_FAILURE",
+  IAM_ROLE_MISSING: "IAM_ROLE_MISSING",
+  IAM_ROLE_PERMISSIONS: "IAM_ROLE_PERMISSIONS",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_ECS_SERVICE: "INVALID_ECS_SERVICE",
+  INVALID_LAMBDA_CONFIGURATION: "INVALID_LAMBDA_CONFIGURATION",
+  INVALID_LAMBDA_FUNCTION: "INVALID_LAMBDA_FUNCTION",
+  INVALID_REVISION: "INVALID_REVISION",
+  MANUAL_STOP: "MANUAL_STOP",
+  MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION: "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION",
+  MISSING_ELB_INFORMATION: "MISSING_ELB_INFORMATION",
+  MISSING_GITHUB_TOKEN: "MISSING_GITHUB_TOKEN",
+  NO_EC2_SUBSCRIPTION: "NO_EC2_SUBSCRIPTION",
+  NO_INSTANCES: "NO_INSTANCES",
+  OVER_MAX_INSTANCES: "OVER_MAX_INSTANCES",
+  RESOURCE_LIMIT_EXCEEDED: "RESOURCE_LIMIT_EXCEEDED",
+  REVISION_MISSING: "REVISION_MISSING",
+  THROTTLED: "THROTTLED",
+  TIMEOUT: "TIMEOUT",
+} as const;
 
 /**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
  * <p>Information about a deployment error.</p>
  */
 export interface ErrorInformation {
@@ -1963,13 +2224,23 @@ export interface ErrorInformation {
   message?: string;
 }
 
-export enum FileExistsBehavior {
-  DISALLOW = "DISALLOW",
-  OVERWRITE = "OVERWRITE",
-  RETAIN = "RETAIN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FileExistsBehavior = {
+  DISALLOW: "DISALLOW",
+  OVERWRITE: "OVERWRITE",
+  RETAIN: "RETAIN",
+} as const;
 
 /**
+ * @public
+ */
+export type FileExistsBehavior = (typeof FileExistsBehavior)[keyof typeof FileExistsBehavior];
+
+/**
+ * @public
  * <p>Information about deployments related to the specified deployment.</p>
  */
 export interface RelatedDeployments {
@@ -1986,6 +2257,7 @@ export interface RelatedDeployments {
 }
 
 /**
+ * @public
  * <p>Information about a deployment rollback.</p>
  */
 export interface RollbackInfo {
@@ -2008,6 +2280,7 @@ export interface RollbackInfo {
 }
 
 /**
+ * @public
  * <p>Information about the instances to be used in the replacement environment in a
  *             blue/green deployment.</p>
  */
@@ -2035,6 +2308,7 @@ export interface TargetInstances {
 }
 
 /**
+ * @public
  * <p>Information about a deployment.</p>
  */
 export interface DeploymentInfo {
@@ -2270,6 +2544,7 @@ export interface DeploymentInfo {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>BatchGetDeployments</code> operation. </p>
  */
 export interface BatchGetDeploymentsOutput {
@@ -2279,6 +2554,9 @@ export interface BatchGetDeploymentsOutput {
   deploymentsInfo?: DeploymentInfo[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDeploymentTargetsInput {
   /**
    * <p> The unique ID of a deployment. </p>
@@ -2316,17 +2594,27 @@ export interface BatchGetDeploymentTargetsInput {
   targetIds?: string[];
 }
 
-export enum TargetStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  READY = "Ready",
-  SKIPPED = "Skipped",
-  SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  READY: "Ready",
+  SKIPPED: "Skipped",
+  SUCCEEDED: "Succeeded",
+  UNKNOWN: "Unknown",
+} as const;
 
 /**
+ * @public
+ */
+export type TargetStatus = (typeof TargetStatus)[keyof typeof TargetStatus];
+
+/**
+ * @public
  * <p> Information about the target to be updated by an CloudFormation blue/green
  *             deployment. This target type is used for all deployments initiated by a CloudFormation stack update.</p>
  */
@@ -2372,19 +2660,38 @@ export interface CloudFormationTarget {
   targetVersionWeight?: number;
 }
 
-export enum DeploymentTargetType {
-  CLOUDFORMATION_TARGET = "CloudFormationTarget",
-  ECS_TARGET = "ECSTarget",
-  INSTANCE_TARGET = "InstanceTarget",
-  LAMBDA_TARGET = "LambdaTarget",
-}
-
-export enum TargetLabel {
-  BLUE = "Blue",
-  GREEN = "Green",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentTargetType = {
+  CLOUDFORMATION_TARGET: "CloudFormationTarget",
+  ECS_TARGET: "ECSTarget",
+  INSTANCE_TARGET: "InstanceTarget",
+  LAMBDA_TARGET: "LambdaTarget",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentTargetType = (typeof DeploymentTargetType)[keyof typeof DeploymentTargetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetLabel = {
+  BLUE: "Blue",
+  GREEN: "Green",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetLabel = (typeof TargetLabel)[keyof typeof TargetLabel];
+
+/**
+ * @public
  * <p> Information about a set of Amazon ECS tasks in an CodeDeploy
  *             deployment. An Amazon ECS task set includes details such as the desired number
  *             of tasks, how many tasks are running, and whether the task set serves production
@@ -2462,6 +2769,7 @@ export interface ECSTaskSet {
 }
 
 /**
+ * @public
  * <p> Information about the target of an Amazon ECS deployment. </p>
  */
 export interface ECSTarget {
@@ -2505,6 +2813,7 @@ export interface ECSTarget {
 }
 
 /**
+ * @public
  * <p> A target Amazon EC2 or on-premises instance during a deployment that uses the
  *             EC2/On-premises compute platform. </p>
  */
@@ -2548,6 +2857,7 @@ export interface InstanceTarget {
 }
 
 /**
+ * @public
  * <p> Information about a Lambda function specified in a deployment. </p>
  */
 export interface LambdaFunctionInfo {
@@ -2582,6 +2892,7 @@ export interface LambdaFunctionInfo {
 }
 
 /**
+ * @public
  * <p> Information about the target Lambda function during an Lambda deployment. </p>
  */
 export interface LambdaTarget {
@@ -2627,6 +2938,7 @@ export interface LambdaTarget {
 }
 
 /**
+ * @public
  * <p> Information about the deployment target. </p>
  */
 export interface DeploymentTarget {
@@ -2661,6 +2973,9 @@ export interface DeploymentTarget {
   cloudFormationTarget?: CloudFormationTarget;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetDeploymentTargetsOutput {
   /**
    * <p> A list of target objects for a deployment. Each target object contains details about
@@ -2693,6 +3008,7 @@ export interface BatchGetDeploymentTargetsOutput {
 }
 
 /**
+ * @public
  * <p>The specified deployment has not started.</p>
  */
 export class DeploymentNotStartedException extends __BaseException {
@@ -2712,6 +3028,7 @@ export class DeploymentNotStartedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The provided target ID does not belong to the attempted deployment. </p>
  */
 export class DeploymentTargetDoesNotExistException extends __BaseException {
@@ -2731,6 +3048,7 @@ export class DeploymentTargetDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> A deployment target ID was not provided. </p>
  */
 export class DeploymentTargetIdRequiredException extends __BaseException {
@@ -2750,6 +3068,7 @@ export class DeploymentTargetIdRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The maximum number of targets that can be associated with an Amazon ECS or
  *                 Lambda deployment was exceeded. The target list of both types of
  *             deployments must have exactly one item. This exception does not apply to EC2/On-premises
@@ -2772,6 +3091,7 @@ export class DeploymentTargetListSizeExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * @deprecated
  *
  * <p>The specified instance does not exist in the deployment group.</p>
@@ -2793,6 +3113,7 @@ export class InstanceDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The target ID provided was not valid. </p>
  */
 export class InvalidDeploymentTargetIdException extends __BaseException {
@@ -2812,6 +3133,7 @@ export class InvalidDeploymentTargetIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>BatchGetOnPremisesInstances</code> operation.</p>
  */
 export interface BatchGetOnPremisesInstancesInput {
@@ -2823,6 +3145,7 @@ export interface BatchGetOnPremisesInstancesInput {
 }
 
 /**
+ * @public
  * <p>Information about an on-premises instance.</p>
  */
 export interface InstanceInfo {
@@ -2864,6 +3187,7 @@ export interface InstanceInfo {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>BatchGetOnPremisesInstances</code> operation.</p>
  */
 export interface BatchGetOnPremisesInstancesOutput {
@@ -2874,6 +3198,7 @@ export interface BatchGetOnPremisesInstancesOutput {
 }
 
 /**
+ * @public
  * <p>A bucket name is required, but was not provided.</p>
  */
 export class BucketNameFilterRequiredException extends __BaseException {
@@ -2892,11 +3217,23 @@ export class BucketNameFilterRequiredException extends __BaseException {
   }
 }
 
-export enum DeploymentWaitType {
-  READY_WAIT = "READY_WAIT",
-  TERMINATION_WAIT = "TERMINATION_WAIT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentWaitType = {
+  READY_WAIT: "READY_WAIT",
+  TERMINATION_WAIT: "TERMINATION_WAIT",
+} as const;
 
+/**
+ * @public
+ */
+export type DeploymentWaitType = (typeof DeploymentWaitType)[keyof typeof DeploymentWaitType];
+
+/**
+ * @public
+ */
 export interface ContinueDeploymentInput {
   /**
    * <p> The unique ID of a blue/green deployment for which you want to start rerouting
@@ -2914,6 +3251,7 @@ export interface ContinueDeploymentInput {
 }
 
 /**
+ * @public
  * <p>The deployment is already complete.</p>
  */
 export class DeploymentAlreadyCompletedException extends __BaseException {
@@ -2933,6 +3271,7 @@ export class DeploymentAlreadyCompletedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The deployment does not have a status of Ready and can't continue yet.</p>
  */
 export class DeploymentIsNotInReadyStateException extends __BaseException {
@@ -2952,6 +3291,7 @@ export class DeploymentIsNotInReadyStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified deployment status doesn't exist or cannot be determined.</p>
  */
 export class InvalidDeploymentStatusException extends __BaseException {
@@ -2971,6 +3311,7 @@ export class InvalidDeploymentStatusException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The wait type is invalid. </p>
  */
 export class InvalidDeploymentWaitTypeException extends __BaseException {
@@ -2990,6 +3331,7 @@ export class InvalidDeploymentWaitTypeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A call was submitted that is not supported for the specified deployment type.</p>
  */
 export class UnsupportedActionForDeploymentTypeException extends __BaseException {
@@ -3009,6 +3351,7 @@ export class UnsupportedActionForDeploymentTypeException extends __BaseException
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateApplication</code> operation.</p>
  */
 export interface CreateApplicationInput {
@@ -3032,6 +3375,7 @@ export interface CreateApplicationInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>CreateApplication</code> operation.</p>
  */
 export interface CreateApplicationOutput {
@@ -3042,6 +3386,7 @@ export interface CreateApplicationOutput {
 }
 
 /**
+ * @public
  * <p> The specified tags are not valid. </p>
  */
 export class InvalidTagsToAddException extends __BaseException {
@@ -3061,6 +3406,7 @@ export class InvalidTagsToAddException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateDeployment</code> operation.</p>
  */
 export interface CreateDeploymentInput {
@@ -3183,6 +3529,7 @@ export interface CreateDeploymentInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>CreateDeployment</code> operation. </p>
  */
 export interface CreateDeploymentOutput {
@@ -3193,6 +3540,7 @@ export interface CreateDeploymentOutput {
 }
 
 /**
+ * @public
  * <p>The named deployment group with the IAM user or Amazon Web Services account does not exist.</p>
  */
 export class DeploymentGroupDoesNotExistException extends __BaseException {
@@ -3212,6 +3560,7 @@ export class DeploymentGroupDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of allowed deployments was exceeded.</p>
  */
 export class DeploymentLimitExceededException extends __BaseException {
@@ -3231,6 +3580,7 @@ export class DeploymentLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The description is too long.</p>
  */
 export class DescriptionTooLongException extends __BaseException {
@@ -3250,6 +3600,7 @@ export class DescriptionTooLongException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The format of the alarm configuration is invalid. Possible causes include:</p>
  *         <ul>
  *             <li>
@@ -3286,6 +3637,7 @@ export class InvalidAlarmConfigException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The automatic rollback configuration was specified in an invalid format. For example,
  *             automatic rollback is enabled, but an invalid triggering event type or no event types
  *             were listed.</p>
@@ -3307,6 +3659,7 @@ export class InvalidAutoRollbackConfigException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Auto Scaling group was specified in an invalid format or does not
  *             exist.</p>
  */
@@ -3327,6 +3680,7 @@ export class InvalidAutoScalingGroupException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The deployment configuration name was specified in an invalid format.</p>
  */
 export class InvalidDeploymentConfigNameException extends __BaseException {
@@ -3346,6 +3700,7 @@ export class InvalidDeploymentConfigNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An invalid fileExistsBehavior option was specified to determine how CodeDeploy handles files or directories that already exist in a deployment
  *             target location, but weren't part of the previous successful deployment. Valid values
  *             include "DISALLOW," "OVERWRITE," and "RETAIN."</p>
@@ -3367,6 +3722,7 @@ export class InvalidFileExistsBehaviorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The GitHub token is not valid.</p>
  */
 export class InvalidGitHubAccountTokenException extends __BaseException {
@@ -3386,6 +3742,7 @@ export class InvalidGitHubAccountTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The IgnoreApplicationStopFailures value is invalid. For Lambda
  *             deployments, <code>false</code> is expected. For EC2/On-premises deployments,
  *                 <code>true</code> or <code>false</code> is expected.</p>
@@ -3408,6 +3765,7 @@ export class InvalidIgnoreApplicationStopFailuresValueException extends __BaseEx
 }
 
 /**
+ * @public
  * <p>An invalid load balancer name, or no load balancer name, was specified.</p>
  */
 export class InvalidLoadBalancerInfoException extends __BaseException {
@@ -3427,6 +3785,7 @@ export class InvalidLoadBalancerInfoException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling
  *             group was specified, the specified service role does not grant the appropriate
  *             permissions to Amazon EC2 Auto Scaling.</p>
@@ -3448,6 +3807,7 @@ export class InvalidRoleException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The target instance configuration is invalid. Possible causes include:</p>
  *         <ul>
  *             <li>
@@ -3482,6 +3842,7 @@ export class InvalidTargetInstancesException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The configuration that specifies how traffic is routed during a deployment is
  *             invalid.</p>
  */
@@ -3502,6 +3863,7 @@ export class InvalidTrafficRoutingConfigurationException extends __BaseException
 }
 
 /**
+ * @public
  * <p>The UpdateOutdatedInstancesOnly value is invalid. For Lambda
  *             deployments, <code>false</code> is expected. For EC2/On-premises deployments,
  *                 <code>true</code> or <code>false</code> is expected.</p>
@@ -3524,6 +3886,7 @@ export class InvalidUpdateOutdatedInstancesOnlyValueException extends __BaseExce
 }
 
 /**
+ * @public
  * <p>The named revision does not exist with the IAM user or Amazon Web Services account.</p>
  */
 export class RevisionDoesNotExistException extends __BaseException {
@@ -3543,6 +3906,7 @@ export class RevisionDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An API function was called too frequently.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -3561,12 +3925,22 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
-export enum MinimumHealthyHostsType {
-  FLEET_PERCENT = "FLEET_PERCENT",
-  HOST_COUNT = "HOST_COUNT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MinimumHealthyHostsType = {
+  FLEET_PERCENT: "FLEET_PERCENT",
+  HOST_COUNT: "HOST_COUNT",
+} as const;
 
 /**
+ * @public
+ */
+export type MinimumHealthyHostsType = (typeof MinimumHealthyHostsType)[keyof typeof MinimumHealthyHostsType];
+
+/**
+ * @public
  * <p>Information about minimum healthy instance.</p>
  */
 export interface MinimumHealthyHosts {
@@ -3614,6 +3988,7 @@ export interface MinimumHealthyHosts {
 }
 
 /**
+ * @public
  * <p>A configuration that shifts traffic from one version of a Lambda function
  *             or Amazon ECS task set to another in two increments. The original and target
  *                 Lambda function versions or ECS task sets are specified in the
@@ -3634,6 +4009,7 @@ export interface TimeBasedCanary {
 }
 
 /**
+ * @public
  * <p>A configuration that shifts traffic from one version of a Lambda function
  *             or ECS task set to another in equal increments, with an equal number of minutes between
  *             each increment. The original and target Lambda function versions or ECS task
@@ -3653,13 +4029,23 @@ export interface TimeBasedLinear {
   linearInterval?: number;
 }
 
-export enum TrafficRoutingType {
-  AllAtOnce = "AllAtOnce",
-  TimeBasedCanary = "TimeBasedCanary",
-  TimeBasedLinear = "TimeBasedLinear",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TrafficRoutingType = {
+  AllAtOnce: "AllAtOnce",
+  TimeBasedCanary: "TimeBasedCanary",
+  TimeBasedLinear: "TimeBasedLinear",
+} as const;
 
 /**
+ * @public
+ */
+export type TrafficRoutingType = (typeof TrafficRoutingType)[keyof typeof TrafficRoutingType];
+
+/**
+ * @public
  * <p>The configuration that specifies how traffic is shifted from one version of a Lambda function to another version during an Lambda deployment,
  *             or from one Amazon ECS task set to another during an Amazon ECS
  *             deployment.</p>
@@ -3690,6 +4076,7 @@ export interface TrafficRoutingConfig {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateDeploymentConfig</code> operation.</p>
  */
 export interface CreateDeploymentConfigInput {
@@ -3733,6 +4120,7 @@ export interface CreateDeploymentConfigInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>CreateDeploymentConfig</code> operation.</p>
  */
 export interface CreateDeploymentConfigOutput {
@@ -3743,6 +4131,7 @@ export interface CreateDeploymentConfigOutput {
 }
 
 /**
+ * @public
  * <p>A deployment configuration with the specified name with the IAM user or
  *                 Amazon Web Services account already exists.</p>
  */
@@ -3763,6 +4152,7 @@ export class DeploymentConfigAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The deployment configurations limit was exceeded.</p>
  */
 export class DeploymentConfigLimitExceededException extends __BaseException {
@@ -3782,6 +4172,7 @@ export class DeploymentConfigLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The deployment configuration name was not specified.</p>
  */
 export class DeploymentConfigNameRequiredException extends __BaseException {
@@ -3801,6 +4192,7 @@ export class DeploymentConfigNameRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The minimum healthy instance value was specified in an invalid format.</p>
  */
 export class InvalidMinimumHealthyHostValueException extends __BaseException {
@@ -3820,6 +4212,7 @@ export class InvalidMinimumHealthyHostValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateDeploymentGroup</code> operation.</p>
  */
 export interface CreateDeploymentGroupInput {
@@ -3948,6 +4341,7 @@ export interface CreateDeploymentGroupInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>CreateDeploymentGroup</code> operation.</p>
  */
 export interface CreateDeploymentGroupOutput {
@@ -3958,6 +4352,7 @@ export interface CreateDeploymentGroupOutput {
 }
 
 /**
+ * @public
  * <p>A deployment group with the specified name with the IAM user or Amazon Web Services account already exists.</p>
  */
 export class DeploymentGroupAlreadyExistsException extends __BaseException {
@@ -3977,6 +4372,7 @@ export class DeploymentGroupAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The deployment groups limit was exceeded.</p>
  */
 export class DeploymentGroupLimitExceededException extends __BaseException {
@@ -3996,6 +4392,7 @@ export class DeploymentGroupLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The Amazon ECS service is associated with more than one deployment groups. An
  *             Amazon ECS service can be associated with only one deployment group. </p>
  */
@@ -4016,6 +4413,7 @@ export class ECSServiceMappingLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The configuration for the blue/green deployment group was provided in an invalid
  *             format. For information about deployment configuration format, see <a>CreateDeploymentConfig</a>.</p>
  */
@@ -4037,6 +4435,7 @@ export class InvalidBlueGreenDeploymentConfigurationException extends __BaseExce
 }
 
 /**
+ * @public
  * <p>An invalid deployment style was specified. Valid deployment types include "IN_PLACE"
  *             and "BLUE_GREEN." Valid deployment options include "WITH_TRAFFIC_CONTROL" and
  *             "WITHOUT_TRAFFIC_CONTROL."</p>
@@ -4058,6 +4457,7 @@ export class InvalidDeploymentStyleException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of
  *             these data types can be used in a single call.</p>
  */
@@ -4078,6 +4478,7 @@ export class InvalidEC2TagCombinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The tag was specified in an invalid format.</p>
  */
 export class InvalidEC2TagException extends __BaseException {
@@ -4097,6 +4498,7 @@ export class InvalidEC2TagException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The Amazon ECS service identifier is not valid. </p>
  */
 export class InvalidECSServiceException extends __BaseException {
@@ -4116,6 +4518,7 @@ export class InvalidECSServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input was specified in an invalid format.</p>
  */
 export class InvalidInputException extends __BaseException {
@@ -4135,6 +4538,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet,
  *             but only one of these data types can be used in a single call.</p>
  */
@@ -4155,6 +4559,7 @@ export class InvalidOnPremisesTagCombinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> A target group pair associated with this deployment is not valid. </p>
  */
 export class InvalidTargetGroupPairException extends __BaseException {
@@ -4174,6 +4579,7 @@ export class InvalidTargetGroupPairException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The trigger was specified in an invalid format.</p>
  */
 export class InvalidTriggerConfigException extends __BaseException {
@@ -4193,6 +4599,7 @@ export class InvalidTriggerConfigException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The limit for lifecycle hooks was exceeded.</p>
  */
 export class LifecycleHookLimitExceededException extends __BaseException {
@@ -4212,6 +4619,7 @@ export class LifecycleHookLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The role ID was not specified.</p>
  */
 export class RoleRequiredException extends __BaseException {
@@ -4231,6 +4639,7 @@ export class RoleRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of tag groups included in the tag set list exceeded the maximum allowed
  *             limit of 3.</p>
  */
@@ -4251,6 +4660,7 @@ export class TagSetListLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum allowed number of triggers was exceeded.</p>
  */
 export class TriggerTargetsLimitExceededException extends __BaseException {
@@ -4270,6 +4680,7 @@ export class TriggerTargetsLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteApplication</code> operation.</p>
  */
 export interface DeleteApplicationInput {
@@ -4280,6 +4691,7 @@ export interface DeleteApplicationInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteDeploymentConfig</code> operation.</p>
  */
 export interface DeleteDeploymentConfigInput {
@@ -4291,6 +4703,7 @@ export interface DeleteDeploymentConfigInput {
 }
 
 /**
+ * @public
  * <p>The deployment configuration is still in use.</p>
  */
 export class DeploymentConfigInUseException extends __BaseException {
@@ -4310,6 +4723,7 @@ export class DeploymentConfigInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An invalid operation was detected.</p>
  */
 export class InvalidOperationException extends __BaseException {
@@ -4329,6 +4743,7 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteDeploymentGroup</code> operation.</p>
  */
 export interface DeleteDeploymentGroupInput {
@@ -4344,6 +4759,7 @@ export interface DeleteDeploymentGroupInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DeleteDeploymentGroup</code> operation.</p>
  */
 export interface DeleteDeploymentGroupOutput {
@@ -4358,6 +4774,7 @@ export interface DeleteDeploymentGroupOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteGitHubAccount</code> operation.</p>
  */
 export interface DeleteGitHubAccountTokenInput {
@@ -4368,6 +4785,7 @@ export interface DeleteGitHubAccountTokenInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DeleteGitHubAccountToken</code> operation.</p>
  */
 export interface DeleteGitHubAccountTokenOutput {
@@ -4378,6 +4796,7 @@ export interface DeleteGitHubAccountTokenOutput {
 }
 
 /**
+ * @public
  * <p>No GitHub account connection exists with the named specified in the call.</p>
  */
 export class GitHubAccountTokenDoesNotExistException extends __BaseException {
@@ -4397,6 +4816,7 @@ export class GitHubAccountTokenDoesNotExistException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The call is missing a required GitHub account connection name.</p>
  */
 export class GitHubAccountTokenNameRequiredException extends __BaseException {
@@ -4416,6 +4836,7 @@ export class GitHubAccountTokenNameRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The format of the specified GitHub account connection name is invalid.</p>
  */
 export class InvalidGitHubAccountTokenNameException extends __BaseException {
@@ -4435,6 +4856,7 @@ export class InvalidGitHubAccountTokenNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The API used does not support the deployment.</p>
  */
 export class OperationNotSupportedException extends __BaseException {
@@ -4454,6 +4876,7 @@ export class OperationNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource could not be validated.</p>
  */
 export class ResourceValidationException extends __BaseException {
@@ -4472,6 +4895,9 @@ export class ResourceValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcesByExternalIdInput {
   /**
    * <p>The unique ID of an external resource (for example, a CloudFormation stack
@@ -4480,9 +4906,13 @@ export interface DeleteResourcesByExternalIdInput {
   externalId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcesByExternalIdOutput {}
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeregisterOnPremisesInstance</code> operation.</p>
  */
 export interface DeregisterOnPremisesInstanceInput {
@@ -4493,6 +4923,7 @@ export interface DeregisterOnPremisesInstanceInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetApplication</code> operation.</p>
  */
 export interface GetApplicationInput {
@@ -4503,6 +4934,7 @@ export interface GetApplicationInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetApplication</code> operation.</p>
  */
 export interface GetApplicationOutput {
@@ -4513,6 +4945,7 @@ export interface GetApplicationOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetApplicationRevision</code> operation.</p>
  */
 export interface GetApplicationRevisionInput {
@@ -4528,6 +4961,7 @@ export interface GetApplicationRevisionInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetApplicationRevision</code> operation.</p>
  */
 export interface GetApplicationRevisionOutput {
@@ -4548,6 +4982,7 @@ export interface GetApplicationRevisionOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetDeployment</code> operation.</p>
  */
 export interface GetDeploymentInput {
@@ -4558,6 +4993,7 @@ export interface GetDeploymentInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetDeployment</code> operation.</p>
  */
 export interface GetDeploymentOutput {
@@ -4568,6 +5004,7 @@ export interface GetDeploymentOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetDeploymentConfig</code> operation.</p>
  */
 export interface GetDeploymentConfigInput {
@@ -4579,6 +5016,7 @@ export interface GetDeploymentConfigInput {
 }
 
 /**
+ * @public
  * <p>Information about a deployment configuration.</p>
  */
 export interface DeploymentConfigInfo {
@@ -4617,6 +5055,7 @@ export interface DeploymentConfigInfo {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetDeploymentConfig</code> operation.</p>
  */
 export interface GetDeploymentConfigOutput {
@@ -4627,6 +5066,7 @@ export interface GetDeploymentConfigOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetDeploymentGroup</code> operation.</p>
  */
 export interface GetDeploymentGroupInput {
@@ -4642,6 +5082,7 @@ export interface GetDeploymentGroupInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetDeploymentGroup</code> operation.</p>
  */
 export interface GetDeploymentGroupOutput {
@@ -4652,6 +5093,7 @@ export interface GetDeploymentGroupOutput {
 }
 
 /**
+ * @public
  * <p> Represents the input of a <code>GetDeploymentInstance</code> operation. </p>
  */
 export interface GetDeploymentInstanceInput {
@@ -4667,6 +5109,7 @@ export interface GetDeploymentInstanceInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>GetDeploymentInstance</code> operation. </p>
  */
 export interface GetDeploymentInstanceOutput {
@@ -4678,6 +5121,9 @@ export interface GetDeploymentInstanceOutput {
   instanceSummary?: InstanceSummary;
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentTargetInput {
   /**
    * <p> The unique ID of a deployment. </p>
@@ -4690,6 +5136,9 @@ export interface GetDeploymentTargetInput {
   targetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDeploymentTargetOutput {
   /**
    * <p> A deployment target that contains information about a deployment such as its status,
@@ -4702,6 +5151,7 @@ export interface GetDeploymentTargetOutput {
 }
 
 /**
+ * @public
  * <p> Represents the input of a <code>GetOnPremisesInstance</code> operation. </p>
  */
 export interface GetOnPremisesInstanceInput {
@@ -4712,6 +5162,7 @@ export interface GetOnPremisesInstanceInput {
 }
 
 /**
+ * @public
  * <p> Represents the output of a <code>GetOnPremisesInstance</code> operation. </p>
  */
 export interface GetOnPremisesInstanceOutput {
@@ -4722,6 +5173,7 @@ export interface GetOnPremisesInstanceOutput {
 }
 
 /**
+ * @public
  * <p>The bucket name either doesn't exist or was specified in an invalid format.</p>
  */
 export class InvalidBucketNameFilterException extends __BaseException {
@@ -4741,6 +5193,7 @@ export class InvalidBucketNameFilterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The deployed state filter was specified in an invalid format.</p>
  */
 export class InvalidDeployedStateFilterException extends __BaseException {
@@ -4760,6 +5213,7 @@ export class InvalidDeployedStateFilterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified key prefix filter was specified in an invalid format.</p>
  */
 export class InvalidKeyPrefixFilterException extends __BaseException {
@@ -4779,6 +5233,7 @@ export class InvalidKeyPrefixFilterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The next token was specified in an invalid format.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -4798,6 +5253,7 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The column name to sort by is either not present or was specified in an invalid
  *             format.</p>
  */
@@ -4818,6 +5274,7 @@ export class InvalidSortByException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The sort order was specified in an invalid format.</p>
  */
 export class InvalidSortOrderException extends __BaseException {
@@ -4836,18 +5293,37 @@ export class InvalidSortOrderException extends __BaseException {
   }
 }
 
-export enum ListStateFilterAction {
-  Exclude = "exclude",
-  Ignore = "ignore",
-  Include = "include",
-}
-
-export enum SortOrder {
-  Ascending = "ascending",
-  Descending = "descending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListStateFilterAction = {
+  Exclude: "exclude",
+  Ignore: "ignore",
+  Include: "include",
+} as const;
 
 /**
+ * @public
+ */
+export type ListStateFilterAction = (typeof ListStateFilterAction)[keyof typeof ListStateFilterAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  Ascending: "ascending",
+  Descending: "descending",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
  * <p> Represents the input of a <code>ListApplicationRevisions</code> operation. </p>
  */
 export interface ListApplicationRevisionsInput {
@@ -4939,6 +5415,7 @@ export interface ListApplicationRevisionsInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListApplicationRevisions</code> operation.</p>
  */
 export interface ListApplicationRevisionsOutput {
@@ -4956,6 +5433,7 @@ export interface ListApplicationRevisionsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ListApplications</code> operation.</p>
  */
 export interface ListApplicationsInput {
@@ -4967,6 +5445,7 @@ export interface ListApplicationsInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a ListApplications operation.</p>
  */
 export interface ListApplicationsOutput {
@@ -4984,6 +5463,7 @@ export interface ListApplicationsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ListDeploymentConfigs</code> operation.</p>
  */
 export interface ListDeploymentConfigsInput {
@@ -4995,6 +5475,7 @@ export interface ListDeploymentConfigsInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListDeploymentConfigs</code> operation.</p>
  */
 export interface ListDeploymentConfigsOutput {
@@ -5013,6 +5494,7 @@ export interface ListDeploymentConfigsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ListDeploymentGroups</code> operation.</p>
  */
 export interface ListDeploymentGroupsInput {
@@ -5029,6 +5511,7 @@ export interface ListDeploymentGroupsInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListDeploymentGroups</code> operation.</p>
  */
 export interface ListDeploymentGroupsOutput {
@@ -5051,6 +5534,7 @@ export interface ListDeploymentGroupsOutput {
 }
 
 /**
+ * @public
  * <p>An instance type was specified for an in-place deployment. Instance types are
  *             supported for blue/green deployments only.</p>
  */
@@ -5071,6 +5555,7 @@ export class InvalidDeploymentInstanceTypeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified instance status does not exist.</p>
  */
 export class InvalidInstanceStatusException extends __BaseException {
@@ -5090,6 +5575,7 @@ export class InvalidInstanceStatusException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An invalid instance type was specified for instances in a blue/green deployment. Valid
  *             values include "Blue" for an original environment and "Green" for a replacement
  *             environment.</p>
@@ -5111,6 +5597,7 @@ export class InvalidInstanceTypeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The target filter name is invalid. </p>
  */
 export class InvalidTargetFilterNameException extends __BaseException {
@@ -5130,6 +5617,7 @@ export class InvalidTargetFilterNameException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Represents the input of a <code>ListDeploymentInstances</code> operation. </p>
  */
 export interface ListDeploymentInstancesInput {
@@ -5187,6 +5675,7 @@ export interface ListDeploymentInstancesInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListDeploymentInstances</code> operation.</p>
  */
 export interface ListDeploymentInstancesOutput {
@@ -5204,6 +5693,7 @@ export interface ListDeploymentInstancesOutput {
 }
 
 /**
+ * @public
  * <p>The external ID was specified in an invalid format.</p>
  */
 export class InvalidExternalIdException extends __BaseException {
@@ -5223,6 +5713,7 @@ export class InvalidExternalIdException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified time range was specified in an invalid format.</p>
  */
 export class InvalidTimeRangeException extends __BaseException {
@@ -5242,6 +5733,7 @@ export class InvalidTimeRangeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a time range.</p>
  */
 export interface TimeRange {
@@ -5263,6 +5755,7 @@ export interface TimeRange {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ListDeployments</code> operation.</p>
  */
 export interface ListDeploymentsInput {
@@ -5340,6 +5833,7 @@ export interface ListDeploymentsInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListDeployments</code> operation.</p>
  */
 export interface ListDeploymentsOutput {
@@ -5356,11 +5850,23 @@ export interface ListDeploymentsOutput {
   nextToken?: string;
 }
 
-export enum TargetFilterName {
-  SERVER_INSTANCE_LABEL = "ServerInstanceLabel",
-  TARGET_STATUS = "TargetStatus",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetFilterName = {
+  SERVER_INSTANCE_LABEL: "ServerInstanceLabel",
+  TARGET_STATUS: "TargetStatus",
+} as const;
 
+/**
+ * @public
+ */
+export type TargetFilterName = (typeof TargetFilterName)[keyof typeof TargetFilterName];
+
+/**
+ * @public
+ */
 export interface ListDeploymentTargetsInput {
   /**
    * <p> The unique ID of a deployment. </p>
@@ -5393,6 +5899,9 @@ export interface ListDeploymentTargetsInput {
   targetFilters?: Record<string, string[]>;
 }
 
+/**
+ * @public
+ */
 export interface ListDeploymentTargetsOutput {
   /**
    * <p> The unique IDs of deployment targets. </p>
@@ -5408,6 +5917,7 @@ export interface ListDeploymentTargetsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ListGitHubAccountTokenNames</code> operation.</p>
  */
 export interface ListGitHubAccountTokenNamesInput {
@@ -5419,6 +5929,7 @@ export interface ListGitHubAccountTokenNamesInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListGitHubAccountTokenNames</code> operation.</p>
  */
 export interface ListGitHubAccountTokenNamesOutput {
@@ -5436,6 +5947,7 @@ export interface ListGitHubAccountTokenNamesOutput {
 }
 
 /**
+ * @public
  * <p>The registration status was specified in an invalid format.</p>
  */
 export class InvalidRegistrationStatusException extends __BaseException {
@@ -5455,6 +5967,7 @@ export class InvalidRegistrationStatusException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The tag filter was specified in an invalid format.</p>
  */
 export class InvalidTagFilterException extends __BaseException {
@@ -5473,12 +5986,22 @@ export class InvalidTagFilterException extends __BaseException {
   }
 }
 
-export enum RegistrationStatus {
-  Deregistered = "Deregistered",
-  Registered = "Registered",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RegistrationStatus = {
+  Deregistered: "Deregistered",
+  Registered: "Registered",
+} as const;
 
 /**
+ * @public
+ */
+export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof RegistrationStatus];
+
+/**
+ * @public
  * <p>Represents the input of a <code>ListOnPremisesInstances</code> operation.</p>
  */
 export interface ListOnPremisesInstancesInput {
@@ -5513,6 +6036,7 @@ export interface ListOnPremisesInstancesInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of the list on-premises instances operation.</p>
  */
 export interface ListOnPremisesInstancesOutput {
@@ -5530,6 +6054,7 @@ export interface ListOnPremisesInstancesOutput {
 }
 
 /**
+ * @public
  * <p> The specified ARN is not in a valid format. </p>
  */
 export class InvalidArnException extends __BaseException {
@@ -5548,6 +6073,9 @@ export class InvalidArnException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p> The ARN of a CodeDeploy resource. <code>ListTagsForResource</code> returns all the
@@ -5563,6 +6091,9 @@ export interface ListTagsForResourceInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p> A list of tags returned by <code>ListTagsForResource</code>. The tags are associated
@@ -5579,6 +6110,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p> The ARN of a resource is required, but was not found. </p>
  */
 export class ResourceArnRequiredException extends __BaseException {
@@ -5598,6 +6130,7 @@ export class ResourceArnRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A lifecycle event hook is invalid. Review the <code>hooks</code> section in your
  *             AppSpec file to ensure the lifecycle events and <code>hooks</code> functions are
  *             valid.</p>
@@ -5619,6 +6152,7 @@ export class InvalidLifecycleEventHookExecutionIdException extends __BaseExcepti
 }
 
 /**
+ * @public
  * <p>The result of a Lambda validation function that verifies a lifecycle event
  *             is invalid. It should return <code>Succeeded</code> or <code>Failed</code>.</p>
  */
@@ -5640,6 +6174,7 @@ export class InvalidLifecycleEventHookExecutionStatusException extends __BaseExc
 }
 
 /**
+ * @public
  * <p>An attempt to return the status of an already completed lifecycle event
  *             occurred.</p>
  */
@@ -5659,6 +6194,9 @@ export class LifecycleEventAlreadyCompletedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutLifecycleEventHookExecutionStatusInput {
   /**
    * <p> The unique ID of a deployment. Pass this ID to a Lambda function that
@@ -5681,6 +6219,9 @@ export interface PutLifecycleEventHookExecutionStatusInput {
   status?: LifecycleEventStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface PutLifecycleEventHookExecutionStatusOutput {
   /**
    * <p>The execution ID of the lifecycle event hook. A hook is specified in the
@@ -5690,6 +6231,7 @@ export interface PutLifecycleEventHookExecutionStatusOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a RegisterApplicationRevision operation.</p>
  */
 export interface RegisterApplicationRevisionInput {
@@ -5711,6 +6253,7 @@ export interface RegisterApplicationRevisionInput {
 }
 
 /**
+ * @public
  * <p>No IAM ARN was included in the request. You must use an IAM session ARN or IAM user ARN in the request.</p>
  */
 export class IamArnRequiredException extends __BaseException {
@@ -5730,6 +6273,7 @@ export class IamArnRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request included an IAM session ARN that has already been used to
  *             register a different instance.</p>
  */
@@ -5750,6 +6294,7 @@ export class IamSessionArnAlreadyRegisteredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified IAM user ARN is already registered with an on-premises
  *             instance.</p>
  */
@@ -5770,6 +6315,7 @@ export class IamUserArnAlreadyRegisteredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An IAM user ARN was not specified.</p>
  */
 export class IamUserArnRequiredException extends __BaseException {
@@ -5789,6 +6335,7 @@ export class IamUserArnRequiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified on-premises instance name is already registered.</p>
  */
 export class InstanceNameAlreadyRegisteredException extends __BaseException {
@@ -5808,6 +6355,7 @@ export class InstanceNameAlreadyRegisteredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The IAM session ARN was specified in an invalid format.</p>
  */
 export class InvalidIamSessionArnException extends __BaseException {
@@ -5827,6 +6375,7 @@ export class InvalidIamSessionArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The IAM user ARN was specified in an invalid format.</p>
  */
 export class InvalidIamUserArnException extends __BaseException {
@@ -5846,6 +6395,7 @@ export class InvalidIamUserArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Both an IAM user ARN and an IAM session ARN were
  *             included in the request. Use only one ARN type.</p>
  */
@@ -5866,6 +6416,7 @@ export class MultipleIamArnsProvidedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of the register on-premises instance operation.</p>
  */
 export interface RegisterOnPremisesInstanceInput {
@@ -5888,6 +6439,7 @@ export interface RegisterOnPremisesInstanceInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>RemoveTagsFromOnPremisesInstances</code>
  *             operation.</p>
  */
@@ -5903,6 +6455,9 @@ export interface RemoveTagsFromOnPremisesInstancesInput {
   instanceNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SkipWaitTimeForInstanceTerminationInput {
   /**
    * <p> The unique ID of a blue/green deployment for which you want to skip the instance
@@ -5912,6 +6467,7 @@ export interface SkipWaitTimeForInstanceTerminationInput {
 }
 
 /**
+ * @public
  * <p> Represents the input of a <code>StopDeployment</code> operation. </p>
  */
 export interface StopDeploymentInput {
@@ -5927,12 +6483,22 @@ export interface StopDeploymentInput {
   autoRollbackEnabled?: boolean;
 }
 
-export enum StopStatus {
-  PENDING = "Pending",
-  SUCCEEDED = "Succeeded",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StopStatus = {
+  PENDING: "Pending",
+  SUCCEEDED: "Succeeded",
+} as const;
 
 /**
+ * @public
+ */
+export type StopStatus = (typeof StopStatus)[keyof typeof StopStatus];
+
+/**
+ * @public
  * <p> Represents the output of a <code>StopDeployment</code> operation. </p>
  */
 export interface StopDeploymentOutput {
@@ -5955,6 +6521,9 @@ export interface StopDeploymentOutput {
   statusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p> The ARN of a resource, such as a CodeDeploy application or deployment group. </p>
@@ -5968,8 +6537,14 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p> The Amazon Resource Name (ARN) that specifies from which resource to disassociate the
@@ -5985,9 +6560,13 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
 
 /**
+ * @public
  * <p>Represents the input of an <code>UpdateApplication</code> operation.</p>
  */
 export interface UpdateApplicationInput {
@@ -6003,6 +6582,7 @@ export interface UpdateApplicationInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of an <code>UpdateDeploymentGroup</code> operation.</p>
  */
 export interface UpdateDeploymentGroupInput {
@@ -6132,6 +6712,7 @@ export interface UpdateDeploymentGroupInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>UpdateDeploymentGroup</code> operation.</p>
  */
 export interface UpdateDeploymentGroupOutput {
@@ -6142,977 +6723,3 @@ export interface UpdateDeploymentGroupOutput {
    */
   hooksNotCleanedUp?: AutoScalingGroup[];
 }
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsToOnPremisesInstancesInputFilterSensitiveLog = (obj: AddTagsToOnPremisesInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlarmConfigurationFilterSensitiveLog = (obj: AlarmConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationInfoFilterSensitiveLog = (obj: ApplicationInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppSpecContentFilterSensitiveLog = (obj: AppSpecContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoRollbackConfigurationFilterSensitiveLog = (obj: AutoRollbackConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingGroupFilterSensitiveLog = (obj: AutoScalingGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GitHubLocationFilterSensitiveLog = (obj: GitHubLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RawStringFilterSensitiveLog = (obj: RawString): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevisionLocationFilterSensitiveLog = (obj: RevisionLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetApplicationRevisionsInputFilterSensitiveLog = (obj: BatchGetApplicationRevisionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenericRevisionInfoFilterSensitiveLog = (obj: GenericRevisionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevisionInfoFilterSensitiveLog = (obj: RevisionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetApplicationRevisionsOutputFilterSensitiveLog = (obj: BatchGetApplicationRevisionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetApplicationsInputFilterSensitiveLog = (obj: BatchGetApplicationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetApplicationsOutputFilterSensitiveLog = (obj: BatchGetApplicationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDeploymentGroupsInputFilterSensitiveLog = (obj: BatchGetDeploymentGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentReadyOptionFilterSensitiveLog = (obj: DeploymentReadyOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GreenFleetProvisioningOptionFilterSensitiveLog = (obj: GreenFleetProvisioningOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlueInstanceTerminationOptionFilterSensitiveLog = (obj: BlueInstanceTerminationOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlueGreenDeploymentConfigurationFilterSensitiveLog = (obj: BlueGreenDeploymentConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentStyleFilterSensitiveLog = (obj: DeploymentStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EC2TagFilterFilterSensitiveLog = (obj: EC2TagFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EC2TagSetFilterSensitiveLog = (obj: EC2TagSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ECSServiceFilterSensitiveLog = (obj: ECSService): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LastDeploymentInfoFilterSensitiveLog = (obj: LastDeploymentInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ELBInfoFilterSensitiveLog = (obj: ELBInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetGroupInfoFilterSensitiveLog = (obj: TargetGroupInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficRouteFilterSensitiveLog = (obj: TrafficRoute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetGroupPairInfoFilterSensitiveLog = (obj: TargetGroupPairInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadBalancerInfoFilterSensitiveLog = (obj: LoadBalancerInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterFilterSensitiveLog = (obj: TagFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OnPremisesTagSetFilterSensitiveLog = (obj: OnPremisesTagSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TriggerConfigFilterSensitiveLog = (obj: TriggerConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentGroupInfoFilterSensitiveLog = (obj: DeploymentGroupInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDeploymentGroupsOutputFilterSensitiveLog = (obj: BatchGetDeploymentGroupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDeploymentInstancesInputFilterSensitiveLog = (obj: BatchGetDeploymentInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DiagnosticsFilterSensitiveLog = (obj: Diagnostics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LifecycleEventFilterSensitiveLog = (obj: LifecycleEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceSummaryFilterSensitiveLog = (obj: InstanceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDeploymentInstancesOutputFilterSensitiveLog = (obj: BatchGetDeploymentInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDeploymentsInputFilterSensitiveLog = (obj: BatchGetDeploymentsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentOverviewFilterSensitiveLog = (obj: DeploymentOverview): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorInformationFilterSensitiveLog = (obj: ErrorInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelatedDeploymentsFilterSensitiveLog = (obj: RelatedDeployments): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RollbackInfoFilterSensitiveLog = (obj: RollbackInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetInstancesFilterSensitiveLog = (obj: TargetInstances): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentInfoFilterSensitiveLog = (obj: DeploymentInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDeploymentsOutputFilterSensitiveLog = (obj: BatchGetDeploymentsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDeploymentTargetsInputFilterSensitiveLog = (obj: BatchGetDeploymentTargetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudFormationTargetFilterSensitiveLog = (obj: CloudFormationTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ECSTaskSetFilterSensitiveLog = (obj: ECSTaskSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ECSTargetFilterSensitiveLog = (obj: ECSTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTargetFilterSensitiveLog = (obj: InstanceTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaFunctionInfoFilterSensitiveLog = (obj: LambdaFunctionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaTargetFilterSensitiveLog = (obj: LambdaTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentTargetFilterSensitiveLog = (obj: DeploymentTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetDeploymentTargetsOutputFilterSensitiveLog = (obj: BatchGetDeploymentTargetsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetOnPremisesInstancesInputFilterSensitiveLog = (obj: BatchGetOnPremisesInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceInfoFilterSensitiveLog = (obj: InstanceInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetOnPremisesInstancesOutputFilterSensitiveLog = (obj: BatchGetOnPremisesInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContinueDeploymentInputFilterSensitiveLog = (obj: ContinueDeploymentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApplicationInputFilterSensitiveLog = (obj: CreateApplicationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApplicationOutputFilterSensitiveLog = (obj: CreateApplicationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentInputFilterSensitiveLog = (obj: CreateDeploymentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentOutputFilterSensitiveLog = (obj: CreateDeploymentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MinimumHealthyHostsFilterSensitiveLog = (obj: MinimumHealthyHosts): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeBasedCanaryFilterSensitiveLog = (obj: TimeBasedCanary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeBasedLinearFilterSensitiveLog = (obj: TimeBasedLinear): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficRoutingConfigFilterSensitiveLog = (obj: TrafficRoutingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentConfigInputFilterSensitiveLog = (obj: CreateDeploymentConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentConfigOutputFilterSensitiveLog = (obj: CreateDeploymentConfigOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentGroupInputFilterSensitiveLog = (obj: CreateDeploymentGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentGroupOutputFilterSensitiveLog = (obj: CreateDeploymentGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationInputFilterSensitiveLog = (obj: DeleteApplicationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeploymentConfigInputFilterSensitiveLog = (obj: DeleteDeploymentConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeploymentGroupInputFilterSensitiveLog = (obj: DeleteDeploymentGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeploymentGroupOutputFilterSensitiveLog = (obj: DeleteDeploymentGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGitHubAccountTokenInputFilterSensitiveLog = (obj: DeleteGitHubAccountTokenInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGitHubAccountTokenOutputFilterSensitiveLog = (obj: DeleteGitHubAccountTokenOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcesByExternalIdInputFilterSensitiveLog = (obj: DeleteResourcesByExternalIdInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcesByExternalIdOutputFilterSensitiveLog = (obj: DeleteResourcesByExternalIdOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterOnPremisesInstanceInputFilterSensitiveLog = (obj: DeregisterOnPremisesInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationInputFilterSensitiveLog = (obj: GetApplicationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationOutputFilterSensitiveLog = (obj: GetApplicationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationRevisionInputFilterSensitiveLog = (obj: GetApplicationRevisionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationRevisionOutputFilterSensitiveLog = (obj: GetApplicationRevisionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentInputFilterSensitiveLog = (obj: GetDeploymentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentOutputFilterSensitiveLog = (obj: GetDeploymentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentConfigInputFilterSensitiveLog = (obj: GetDeploymentConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentConfigInfoFilterSensitiveLog = (obj: DeploymentConfigInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentConfigOutputFilterSensitiveLog = (obj: GetDeploymentConfigOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentGroupInputFilterSensitiveLog = (obj: GetDeploymentGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentGroupOutputFilterSensitiveLog = (obj: GetDeploymentGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentInstanceInputFilterSensitiveLog = (obj: GetDeploymentInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentInstanceOutputFilterSensitiveLog = (obj: GetDeploymentInstanceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentTargetInputFilterSensitiveLog = (obj: GetDeploymentTargetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeploymentTargetOutputFilterSensitiveLog = (obj: GetDeploymentTargetOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOnPremisesInstanceInputFilterSensitiveLog = (obj: GetOnPremisesInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOnPremisesInstanceOutputFilterSensitiveLog = (obj: GetOnPremisesInstanceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationRevisionsInputFilterSensitiveLog = (obj: ListApplicationRevisionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationRevisionsOutputFilterSensitiveLog = (obj: ListApplicationRevisionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsInputFilterSensitiveLog = (obj: ListApplicationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsOutputFilterSensitiveLog = (obj: ListApplicationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentConfigsInputFilterSensitiveLog = (obj: ListDeploymentConfigsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentConfigsOutputFilterSensitiveLog = (obj: ListDeploymentConfigsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentGroupsInputFilterSensitiveLog = (obj: ListDeploymentGroupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentGroupsOutputFilterSensitiveLog = (obj: ListDeploymentGroupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentInstancesInputFilterSensitiveLog = (obj: ListDeploymentInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentInstancesOutputFilterSensitiveLog = (obj: ListDeploymentInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentsInputFilterSensitiveLog = (obj: ListDeploymentsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentsOutputFilterSensitiveLog = (obj: ListDeploymentsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentTargetsInputFilterSensitiveLog = (obj: ListDeploymentTargetsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeploymentTargetsOutputFilterSensitiveLog = (obj: ListDeploymentTargetsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGitHubAccountTokenNamesInputFilterSensitiveLog = (obj: ListGitHubAccountTokenNamesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGitHubAccountTokenNamesOutputFilterSensitiveLog = (obj: ListGitHubAccountTokenNamesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOnPremisesInstancesInputFilterSensitiveLog = (obj: ListOnPremisesInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOnPremisesInstancesOutputFilterSensitiveLog = (obj: ListOnPremisesInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutLifecycleEventHookExecutionStatusInputFilterSensitiveLog = (
-  obj: PutLifecycleEventHookExecutionStatusInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutLifecycleEventHookExecutionStatusOutputFilterSensitiveLog = (
-  obj: PutLifecycleEventHookExecutionStatusOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterApplicationRevisionInputFilterSensitiveLog = (obj: RegisterApplicationRevisionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterOnPremisesInstanceInputFilterSensitiveLog = (obj: RegisterOnPremisesInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsFromOnPremisesInstancesInputFilterSensitiveLog = (
-  obj: RemoveTagsFromOnPremisesInstancesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SkipWaitTimeForInstanceTerminationInputFilterSensitiveLog = (
-  obj: SkipWaitTimeForInstanceTerminationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopDeploymentInputFilterSensitiveLog = (obj: StopDeploymentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopDeploymentOutputFilterSensitiveLog = (obj: StopDeploymentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationInputFilterSensitiveLog = (obj: UpdateApplicationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeploymentGroupInputFilterSensitiveLog = (obj: UpdateDeploymentGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDeploymentGroupOutputFilterSensitiveLog = (obj: UpdateDeploymentGroupOutput): any => ({
-  ...obj,
-});

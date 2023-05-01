@@ -6,7 +6,7 @@ import { SchemasClient } from "../SchemasClient";
 import { SchemasPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SchemasClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSchemasCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSchemas(
   config: SchemasPaginationConfiguration,
   input: ListSchemasCommandInput,

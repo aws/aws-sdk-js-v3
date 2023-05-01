@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import {
-  CancelZonalShiftRequest,
-  CancelZonalShiftRequestFilterSensitiveLog,
-  ZonalShift,
-  ZonalShiftFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelZonalShiftCommand,
-  serializeAws_restJson1CancelZonalShiftCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelZonalShiftRequest, ZonalShift } from "../models/models_0";
+import { de_CancelZonalShiftCommand, se_CancelZonalShiftCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelZonalShiftCommand}.
  */
 export interface CancelZonalShiftCommandInput extends CancelZonalShiftRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelZonalShiftCommand}.
  */
 export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancel a zonal shift in Amazon Route 53 Application Recovery Controller that you've started for a resource in your AWS account in an AWS Region. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * import { ARCZonalShiftClient, CancelZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, CancelZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
+ * const input = { // CancelZonalShiftRequest
+ *   zonalShiftId: "STRING_VALUE", // required
+ * };
  * const command = new CancelZonalShiftCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelZonalShiftCommandInput - {@link CancelZonalShiftCommandInput}
+ * @returns {@link CancelZonalShiftCommandOutput}
  * @see {@link CancelZonalShiftCommandInput} for command's `input` shape.
  * @see {@link CancelZonalShiftCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
@@ -87,6 +89,9 @@ export class CancelZonalShiftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelZonalShiftCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class CancelZonalShiftCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelZonalShiftRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ZonalShiftFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class CancelZonalShiftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelZonalShiftCommand(input, context);
+    return se_CancelZonalShiftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelZonalShiftCommandOutput> {
-    return deserializeAws_restJson1CancelZonalShiftCommand(output, context);
+    return de_CancelZonalShiftCommand(output, context);
   }
 
   // Start section: command_body_extra

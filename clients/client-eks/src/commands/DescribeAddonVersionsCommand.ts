@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  DescribeAddonVersionsRequest,
-  DescribeAddonVersionsRequestFilterSensitiveLog,
-  DescribeAddonVersionsResponse,
-  DescribeAddonVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAddonVersionsCommand,
-  serializeAws_restJson1DescribeAddonVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAddonVersionsRequest, DescribeAddonVersionsResponse } from "../models/models_0";
+import { de_DescribeAddonVersionsCommand, se_DescribeAddonVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAddonVersionsCommand}.
  */
 export interface DescribeAddonVersionsCommandInput extends DescribeAddonVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAddonVersionsCommand}.
  */
 export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the versions for an add-on. Information such as the Kubernetes versions that you
  *             can use the add-on with, the <code>owner</code>, <code>publisher</code>, and the
  *                 <code>type</code> of the add-on are returned. </p>
@@ -44,10 +41,27 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  * import { EKSClient, DescribeAddonVersionsCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeAddonVersionsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // DescribeAddonVersionsRequest
+ *   kubernetesVersion: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   addonName: "STRING_VALUE",
+ *   types: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   publishers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   owners: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeAddonVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAddonVersionsCommandInput - {@link DescribeAddonVersionsCommandInput}
+ * @returns {@link DescribeAddonVersionsCommandOutput}
  * @see {@link DescribeAddonVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAddonVersionsCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -84,6 +98,9 @@ export class DescribeAddonVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAddonVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +129,8 @@ export class DescribeAddonVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAddonVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAddonVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +140,18 @@ export class DescribeAddonVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAddonVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAddonVersionsCommand(input, context);
+    return se_DescribeAddonVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddonVersionsCommandOutput> {
-    return deserializeAws_restJson1DescribeAddonVersionsCommand(output, context);
+    return de_DescribeAddonVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

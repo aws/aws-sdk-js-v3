@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  MergePullRequestByThreeWayInput,
-  MergePullRequestByThreeWayInputFilterSensitiveLog,
-  MergePullRequestByThreeWayOutput,
-  MergePullRequestByThreeWayOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1MergePullRequestByThreeWayCommand,
-  serializeAws_json1_1MergePullRequestByThreeWayCommand,
-} from "../protocols/Aws_json1_1";
+import { MergePullRequestByThreeWayInput, MergePullRequestByThreeWayOutput } from "../models/models_1";
+import { de_MergePullRequestByThreeWayCommand, se_MergePullRequestByThreeWayCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergePullRequestByThreeWayCommand}.
  */
 export interface MergePullRequestByThreeWayCommandInput extends MergePullRequestByThreeWayInput {}
 /**
+ * @public
+ *
  * The output of {@link MergePullRequestByThreeWayCommand}.
  */
 export interface MergePullRequestByThreeWayCommandOutput extends MergePullRequestByThreeWayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to merge the source commit of a pull request into the specified destination
  *             branch for that pull request at the specified commit using the three-way merge strategy. If the merge is successful, it closes the pull request.</p>
  * @example
@@ -43,10 +40,44 @@ export interface MergePullRequestByThreeWayCommandOutput extends MergePullReques
  * import { CodeCommitClient, MergePullRequestByThreeWayCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergePullRequestByThreeWayCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // MergePullRequestByThreeWayInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   repositoryName: "STRING_VALUE", // required
+ *   sourceCommitId: "STRING_VALUE",
+ *   conflictDetailLevel: "STRING_VALUE",
+ *   conflictResolutionStrategy: "STRING_VALUE",
+ *   commitMessage: "STRING_VALUE",
+ *   authorName: "STRING_VALUE",
+ *   email: "STRING_VALUE",
+ *   keepEmptyFolders: true || false,
+ *   conflictResolution: { // ConflictResolution
+ *     replaceContents: [ // ReplaceContentEntries
+ *       { // ReplaceContentEntry
+ *         filePath: "STRING_VALUE", // required
+ *         replacementType: "STRING_VALUE", // required
+ *         content: "BLOB_VALUE",
+ *         fileMode: "STRING_VALUE",
+ *       },
+ *     ],
+ *     deleteFiles: [ // DeleteFileEntries
+ *       { // DeleteFileEntry
+ *         filePath: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     setFileModes: [ // SetFileModeEntries
+ *       { // SetFileModeEntry
+ *         filePath: "STRING_VALUE", // required
+ *         fileMode: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new MergePullRequestByThreeWayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MergePullRequestByThreeWayCommandInput - {@link MergePullRequestByThreeWayCommandInput}
+ * @returns {@link MergePullRequestByThreeWayCommandOutput}
  * @see {@link MergePullRequestByThreeWayCommandInput} for command's `input` shape.
  * @see {@link MergePullRequestByThreeWayCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -197,6 +228,9 @@ export class MergePullRequestByThreeWayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergePullRequestByThreeWayCommandInput) {
     // Start section: command_constructor
     super();
@@ -225,8 +259,8 @@ export class MergePullRequestByThreeWayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergePullRequestByThreeWayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: MergePullRequestByThreeWayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -236,15 +270,21 @@ export class MergePullRequestByThreeWayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergePullRequestByThreeWayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergePullRequestByThreeWayCommand(input, context);
+    return se_MergePullRequestByThreeWayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MergePullRequestByThreeWayCommandOutput> {
-    return deserializeAws_json1_1MergePullRequestByThreeWayCommand(output, context);
+    return de_MergePullRequestByThreeWayCommand(output, context);
   }
 
   // Start section: command_body_extra

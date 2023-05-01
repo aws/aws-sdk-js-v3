@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_0";
 import {
-  DisassociateFromMasterAccountRequest,
-  DisassociateFromMasterAccountRequestFilterSensitiveLog,
-  DisassociateFromMasterAccountResponse,
-  DisassociateFromMasterAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateFromMasterAccountCommand,
-  serializeAws_restJson1DisassociateFromMasterAccountCommand,
+  de_DisassociateFromMasterAccountCommand,
+  se_DisassociateFromMasterAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateFromMasterAccountCommand}.
  */
 export interface DisassociateFromMasterAccountCommandInput extends DisassociateFromMasterAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateFromMasterAccountCommand}.
  */
 export interface DisassociateFromMasterAccountCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociateFromMasterAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the <link  linkend="DisassociateFromAdministratorAccount">DisassociateFromAdministratorAccount</link> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,13 @@ export interface DisassociateFromMasterAccountCommandOutput
  * import { Macie2Client, DisassociateFromMasterAccountCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DisassociateFromMasterAccountCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new DisassociateFromMasterAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFromMasterAccountCommandInput - {@link DisassociateFromMasterAccountCommandInput}
+ * @returns {@link DisassociateFromMasterAccountCommandOutput}
  * @see {@link DisassociateFromMasterAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateFromMasterAccountCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -92,6 +95,9 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFromMasterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +126,8 @@ export class DisassociateFromMasterAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFromMasterAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFromMasterAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +137,21 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateFromMasterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateFromMasterAccountCommand(input, context);
+    return se_DisassociateFromMasterAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateFromMasterAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateFromMasterAccountCommand(output, context);
+    return de_DisassociateFromMasterAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

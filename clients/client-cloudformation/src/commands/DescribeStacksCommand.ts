@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribeStacksInput,
-  DescribeStacksInputFilterSensitiveLog,
-  DescribeStacksOutput,
-  DescribeStacksOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeStacksCommand,
-  serializeAws_queryDescribeStacksCommand,
-} from "../protocols/Aws_query";
+import { DescribeStacksInput, DescribeStacksOutput } from "../models/models_0";
+import { de_DescribeStacksCommand, se_DescribeStacksCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStacksCommand}.
  */
 export interface DescribeStacksCommandInput extends DescribeStacksInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStacksCommand}.
  */
 export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description for the specified stack; if no stack name was specified, then it
  *          returns the description for all the stacks created.</p>
  *          <note>
@@ -46,10 +43,16 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * import { CloudFormationClient, DescribeStacksCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStacksCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeStacksInput
+ *   StackName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeStacksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStacksCommandInput - {@link DescribeStacksCommandInput}
+ * @returns {@link DescribeStacksCommandOutput}
  * @see {@link DescribeStacksCommandInput} for command's `input` shape.
  * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -73,6 +76,9 @@ export class DescribeStacksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +107,8 @@ export class DescribeStacksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStacksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStacksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +118,18 @@ export class DescribeStacksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeStacksCommand(input, context);
+    return se_DescribeStacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStacksCommandOutput> {
-    return deserializeAws_queryDescribeStacksCommand(output, context);
+    return de_DescribeStacksCommand(output, context);
   }
 
   // Start section: command_body_extra

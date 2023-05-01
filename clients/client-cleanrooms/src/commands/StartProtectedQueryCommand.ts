@@ -20,21 +20,23 @@ import {
   StartProtectedQueryOutput,
   StartProtectedQueryOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartProtectedQueryCommand,
-  serializeAws_restJson1StartProtectedQueryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartProtectedQueryCommand, se_StartProtectedQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartProtectedQueryCommand}.
  */
 export interface StartProtectedQueryCommandInput extends StartProtectedQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link StartProtectedQueryCommand}.
  */
 export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a protected query that is started by AWS Clean Rooms.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,28 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * import { CleanRoomsClient, StartProtectedQueryCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, StartProtectedQueryCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // StartProtectedQueryInput
+ *   type: "STRING_VALUE", // required
+ *   membershipIdentifier: "STRING_VALUE", // required
+ *   sqlParameters: { // ProtectedQuerySQLParameters
+ *     queryString: "STRING_VALUE", // required
+ *   },
+ *   resultConfiguration: { // ProtectedQueryResultConfiguration
+ *     outputConfiguration: { // ProtectedQueryOutputConfiguration Union: only one key present
+ *       s3: { // ProtectedQueryS3OutputConfiguration
+ *         resultFormat: "STRING_VALUE", // required
+ *         bucket: "STRING_VALUE", // required
+ *         keyPrefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new StartProtectedQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartProtectedQueryCommandInput - {@link StartProtectedQueryCommandInput}
+ * @returns {@link StartProtectedQueryCommandOutput}
  * @see {@link StartProtectedQueryCommandInput} for command's `input` shape.
  * @see {@link StartProtectedQueryCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -87,6 +107,9 @@ export class StartProtectedQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartProtectedQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,12 +149,18 @@ export class StartProtectedQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartProtectedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartProtectedQueryCommand(input, context);
+    return se_StartProtectedQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProtectedQueryCommandOutput> {
-    return deserializeAws_restJson1StartProtectedQueryCommand(output, context);
+    return de_StartProtectedQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

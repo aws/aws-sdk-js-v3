@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CompareFacesRequest,
-  CompareFacesRequestFilterSensitiveLog,
-  CompareFacesResponse,
-  CompareFacesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CompareFacesCommand,
-  serializeAws_json1_1CompareFacesCommand,
-} from "../protocols/Aws_json1_1";
+import { CompareFacesRequest, CompareFacesResponse } from "../models/models_0";
+import { de_CompareFacesCommand, se_CompareFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link CompareFacesCommand}.
  */
 export interface CompareFacesCommandInput extends CompareFacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link CompareFacesCommand}.
  */
 export interface CompareFacesCommandOutput extends CompareFacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Compares a face in the <i>source</i> input image with each of the 100
  *       largest faces detected in the <i>target</i> input image. </p>
  *          <p> If the source image contains multiple faces, the service detects the largest face and
@@ -92,10 +89,32 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  * import { RekognitionClient, CompareFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CompareFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // CompareFacesRequest
+ *   SourceImage: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   TargetImage: {
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   SimilarityThreshold: Number("float"),
+ *   QualityFilter: "NONE" || "AUTO" || "LOW" || "MEDIUM" || "HIGH",
+ * };
  * const command = new CompareFacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CompareFacesCommandInput - {@link CompareFacesCommandInput}
+ * @returns {@link CompareFacesCommandOutput}
  * @see {@link CompareFacesCommandInput} for command's `input` shape.
  * @see {@link CompareFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -198,6 +217,9 @@ export class CompareFacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompareFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -224,8 +246,8 @@ export class CompareFacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompareFacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CompareFacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -235,12 +257,18 @@ export class CompareFacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompareFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CompareFacesCommand(input, context);
+    return se_CompareFacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompareFacesCommandOutput> {
-    return deserializeAws_json1_1CompareFacesCommand(output, context);
+    return de_CompareFacesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,27 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  AddCustomAttributesRequest,
-  AddCustomAttributesRequestFilterSensitiveLog,
-  AddCustomAttributesResponse,
-  AddCustomAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddCustomAttributesCommand,
-  serializeAws_json1_1AddCustomAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { AddCustomAttributesRequest, AddCustomAttributesResponse } from "../models/models_0";
+import { de_AddCustomAttributesCommand, se_AddCustomAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddCustomAttributesCommand}.
  */
 export interface AddCustomAttributesCommandInput extends AddCustomAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddCustomAttributesCommand}.
  */
 export interface AddCustomAttributesCommandOutput extends AddCustomAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds additional user attributes to the user pool schema.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +44,32 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
  * import { CognitoIdentityProviderClient, AddCustomAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AddCustomAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AddCustomAttributesRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   CustomAttributes: [ // CustomAttributesListType // required
+ *     { // SchemaAttributeType
+ *       Name: "STRING_VALUE",
+ *       AttributeDataType: "String" || "Number" || "DateTime" || "Boolean",
+ *       DeveloperOnlyAttribute: true || false,
+ *       Mutable: true || false,
+ *       Required: true || false,
+ *       NumberAttributeConstraints: { // NumberAttributeConstraintsType
+ *         MinValue: "STRING_VALUE",
+ *         MaxValue: "STRING_VALUE",
+ *       },
+ *       StringAttributeConstraints: { // StringAttributeConstraintsType
+ *         MinLength: "STRING_VALUE",
+ *         MaxLength: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new AddCustomAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddCustomAttributesCommandInput - {@link AddCustomAttributesCommandInput}
+ * @returns {@link AddCustomAttributesCommandOutput}
  * @see {@link AddCustomAttributesCommandInput} for command's `input` shape.
  * @see {@link AddCustomAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -96,6 +115,9 @@ export class AddCustomAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddCustomAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +147,8 @@ export class AddCustomAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddCustomAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddCustomAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +158,18 @@ export class AddCustomAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddCustomAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddCustomAttributesCommand(input, context);
+    return se_AddCustomAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddCustomAttributesCommandOutput> {
-    return deserializeAws_json1_1AddCustomAttributesCommand(output, context);
+    return de_AddCustomAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

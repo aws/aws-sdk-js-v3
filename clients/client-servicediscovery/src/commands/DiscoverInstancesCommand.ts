@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DiscoverInstancesRequest,
-  DiscoverInstancesRequestFilterSensitiveLog,
-  DiscoverInstancesResponse,
-  DiscoverInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DiscoverInstancesCommand,
-  serializeAws_json1_1DiscoverInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { DiscoverInstancesRequest, DiscoverInstancesResponse } from "../models/models_0";
+import { de_DiscoverInstancesCommand, se_DiscoverInstancesCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link DiscoverInstancesCommand}.
  */
 export interface DiscoverInstancesCommandInput extends DiscoverInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DiscoverInstancesCommand}.
  */
 export interface DiscoverInstancesCommandOutput extends DiscoverInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Discovers registered instances for a specified namespace and service. You can use
  *     <code>DiscoverInstances</code> to discover instances for any type of namespace. For public and
  *    private DNS namespaces, you can also use DNS queries to discover instances.</p>
@@ -44,10 +41,24 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * import { ServiceDiscoveryClient, DiscoverInstancesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, DiscoverInstancesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // DiscoverInstancesRequest
+ *   NamespaceName: "STRING_VALUE", // required
+ *   ServiceName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   QueryParameters: { // Attributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   OptionalParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   HealthStatus: "HEALTHY" || "UNHEALTHY" || "ALL" || "HEALTHY_OR_ELSE_ALL",
+ * };
  * const command = new DiscoverInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DiscoverInstancesCommandInput - {@link DiscoverInstancesCommandInput}
+ * @returns {@link DiscoverInstancesCommandOutput}
  * @see {@link DiscoverInstancesCommandInput} for command's `input` shape.
  * @see {@link DiscoverInstancesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -117,6 +128,9 @@ export class DiscoverInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DiscoverInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +159,8 @@ export class DiscoverInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DiscoverInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DiscoverInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +170,18 @@ export class DiscoverInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DiscoverInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DiscoverInstancesCommand(input, context);
+    return se_DiscoverInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DiscoverInstancesCommandOutput> {
-    return deserializeAws_json1_1DiscoverInstancesCommand(output, context);
+    return de_DiscoverInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

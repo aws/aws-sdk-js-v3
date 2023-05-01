@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CacheSubnetGroupMessage,
-  CacheSubnetGroupMessageFilterSensitiveLog,
-  DescribeCacheSubnetGroupsMessage,
-  DescribeCacheSubnetGroupsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeCacheSubnetGroupsCommand,
-  serializeAws_queryDescribeCacheSubnetGroupsCommand,
-} from "../protocols/Aws_query";
+import { CacheSubnetGroupMessage, DescribeCacheSubnetGroupsMessage } from "../models/models_0";
+import { de_DescribeCacheSubnetGroupsCommand, se_DescribeCacheSubnetGroupsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheSubnetGroupsCommand}.
  */
 export interface DescribeCacheSubnetGroupsCommandInput extends DescribeCacheSubnetGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheSubnetGroupsCommand}.
  */
 export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of cache subnet group
  *             descriptions. If a subnet group name is specified, the list  contains only the
  *             description of that group. This is applicable only when you have ElastiCache in VPC setup. All ElastiCache clusters now launch in VPC by default.
@@ -45,10 +42,17 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  * import { ElastiCacheClient, DescribeCacheSubnetGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheSubnetGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeCacheSubnetGroupsMessage
+ *   CacheSubnetGroupName: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeCacheSubnetGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheSubnetGroupsCommandInput - {@link DescribeCacheSubnetGroupsCommandInput}
+ * @returns {@link DescribeCacheSubnetGroupsCommandOutput}
  * @see {@link DescribeCacheSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -124,6 +128,9 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheSubnetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,8 +159,8 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCacheSubnetGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CacheSubnetGroupMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -163,15 +170,21 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeCacheSubnetGroupsCommand(input, context);
+    return se_DescribeCacheSubnetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCacheSubnetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeCacheSubnetGroupsCommand(output, context);
+    return de_DescribeCacheSubnetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

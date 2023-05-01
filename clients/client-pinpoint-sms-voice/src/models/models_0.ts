@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { PinpointSMSVoiceServiceException as __BaseException } from "./PinpointSMSVoiceServiceException";
 
 /**
+ * @public
  * The resource specified in your request already exists.
  */
 export class AlreadyExistsException extends __BaseException {
@@ -25,6 +26,7 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * The input you provided is invalid.
  */
 export class BadRequestException extends __BaseException {
@@ -46,6 +48,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.
  */
 export interface CallInstructionsMessageType {
@@ -56,6 +59,7 @@ export interface CallInstructionsMessageType {
 }
 
 /**
+ * @public
  * An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.
  */
 export interface CloudWatchLogsDestination {
@@ -71,6 +75,7 @@ export interface CloudWatchLogsDestination {
 }
 
 /**
+ * @public
  * A request to create a new configuration set.
  */
 export interface CreateConfigurationSetRequest {
@@ -81,11 +86,13 @@ export interface CreateConfigurationSetRequest {
 }
 
 /**
+ * @public
  * An empty object that indicates that the configuration set was successfully created.
  */
 export interface CreateConfigurationSetResponse {}
 
 /**
+ * @public
  * The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -107,6 +114,7 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * There are too many instances of the specified resource type.
  */
 export class LimitExceededException extends __BaseException {
@@ -128,6 +136,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * You've issued too many requests to the resource. Wait a few minutes, and then try again.
  */
 export class TooManyRequestsException extends __BaseException {
@@ -149,6 +158,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.
  */
 export interface KinesisFirehoseDestination {
@@ -163,17 +173,27 @@ export interface KinesisFirehoseDestination {
   IamRoleArn?: string;
 }
 
-export enum EventType {
-  ANSWERED = "ANSWERED",
-  BUSY = "BUSY",
-  COMPLETED_CALL = "COMPLETED_CALL",
-  FAILED = "FAILED",
-  INITIATED_CALL = "INITIATED_CALL",
-  NO_ANSWER = "NO_ANSWER",
-  RINGING = "RINGING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  ANSWERED: "ANSWERED",
+  BUSY: "BUSY",
+  COMPLETED_CALL: "COMPLETED_CALL",
+  FAILED: "FAILED",
+  INITIATED_CALL: "INITIATED_CALL",
+  NO_ANSWER: "NO_ANSWER",
+  RINGING: "RINGING",
+} as const;
 
 /**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
  * An object that contains information about an event destination that sends data to Amazon SNS.
  */
 export interface SnsDestination {
@@ -184,6 +204,7 @@ export interface SnsDestination {
 }
 
 /**
+ * @public
  * An object that defines a single event destination.
  */
 export interface EventDestinationDefinition {
@@ -214,6 +235,7 @@ export interface EventDestinationDefinition {
 }
 
 /**
+ * @public
  * Create a new event destination in a configuration set.
  */
 export interface CreateConfigurationSetEventDestinationRequest {
@@ -234,11 +256,13 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * An empty object that indicates that the event destination was created successfully.
  */
 export interface CreateConfigurationSetEventDestinationResponse {}
 
 /**
+ * @public
  * The resource you attempted to access doesn't exist.
  */
 export class NotFoundException extends __BaseException {
@@ -259,6 +283,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfigurationSetRequest {
   /**
    * ConfigurationSetName
@@ -267,10 +294,14 @@ export interface DeleteConfigurationSetRequest {
 }
 
 /**
+ * @public
  * An empty object that indicates that the configuration set was deleted successfully.
  */
 export interface DeleteConfigurationSetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteConfigurationSetEventDestinationRequest {
   /**
    * ConfigurationSetName
@@ -284,11 +315,13 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * An empty object that indicates that the event destination was deleted successfully.
  */
 export interface DeleteConfigurationSetEventDestinationResponse {}
 
 /**
+ * @public
  * An object that defines an event destination.
  */
 export interface EventDestination {
@@ -323,6 +356,9 @@ export interface EventDestination {
   SnsDestination?: SnsDestination;
 }
 
+/**
+ * @public
+ */
 export interface GetConfigurationSetEventDestinationsRequest {
   /**
    * ConfigurationSetName
@@ -331,6 +367,7 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 /**
+ * @public
  * An object that contains information about an event destination.
  */
 export interface GetConfigurationSetEventDestinationsResponse {
@@ -340,6 +377,9 @@ export interface GetConfigurationSetEventDestinationsResponse {
   EventDestinations?: EventDestination[];
 }
 
+/**
+ * @public
+ */
 export interface ListConfigurationSetsRequest {
   /**
    * A token returned from a previous call to the API that indicates the position in the list of results.
@@ -353,6 +393,7 @@ export interface ListConfigurationSetsRequest {
 }
 
 /**
+ * @public
  * An object that contains information about the configuration sets for your account in the current region.
  */
 export interface ListConfigurationSetsResponse {
@@ -368,6 +409,7 @@ export interface ListConfigurationSetsResponse {
 }
 
 /**
+ * @public
  * An object that defines a message that contains unformatted text.
  */
 export interface PlainTextMessageType {
@@ -388,6 +430,7 @@ export interface PlainTextMessageType {
 }
 
 /**
+ * @public
  * An object that defines a message that contains SSML-formatted text.
  */
 export interface SSMLMessageType {
@@ -408,6 +451,7 @@ export interface SSMLMessageType {
 }
 
 /**
+ * @public
  * An object that contains a voice message and information about the recipient that you want to send it to.
  */
 export interface VoiceMessageContent {
@@ -428,6 +472,7 @@ export interface VoiceMessageContent {
 }
 
 /**
+ * @public
  * SendVoiceMessageRequest
  */
 export interface SendVoiceMessageRequest {
@@ -458,6 +503,7 @@ export interface SendVoiceMessageRequest {
 }
 
 /**
+ * @public
  * An object that that contains the Message ID of a Voice message that was sent successfully.
  */
 export interface SendVoiceMessageResponse {
@@ -468,6 +514,7 @@ export interface SendVoiceMessageResponse {
 }
 
 /**
+ * @public
  * UpdateConfigurationSetEventDestinationRequest
  */
 export interface UpdateConfigurationSetEventDestinationRequest {
@@ -488,197 +535,7 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 /**
+ * @public
  * An empty object that indicates that the event destination was updated successfully.
  */
 export interface UpdateConfigurationSetEventDestinationResponse {}
-
-/**
- * @internal
- */
-export const CallInstructionsMessageTypeFilterSensitiveLog = (obj: CallInstructionsMessageType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogsDestinationFilterSensitiveLog = (obj: CloudWatchLogsDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationSetRequestFilterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationSetResponseFilterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KinesisFirehoseDestinationFilterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnsDestinationFilterSensitiveLog = (obj: SnsDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventDestinationDefinitionFilterSensitiveLog = (obj: EventDestinationDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationSetEventDestinationRequestFilterSensitiveLog = (
-  obj: CreateConfigurationSetEventDestinationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfigurationSetEventDestinationResponseFilterSensitiveLog = (
-  obj: CreateConfigurationSetEventDestinationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationSetRequestFilterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationSetResponseFilterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationSetEventDestinationRequestFilterSensitiveLog = (
-  obj: DeleteConfigurationSetEventDestinationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfigurationSetEventDestinationResponseFilterSensitiveLog = (
-  obj: DeleteConfigurationSetEventDestinationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventDestinationFilterSensitiveLog = (obj: EventDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfigurationSetEventDestinationsRequestFilterSensitiveLog = (
-  obj: GetConfigurationSetEventDestinationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfigurationSetEventDestinationsResponseFilterSensitiveLog = (
-  obj: GetConfigurationSetEventDestinationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationSetsRequestFilterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfigurationSetsResponseFilterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlainTextMessageTypeFilterSensitiveLog = (obj: PlainTextMessageType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SSMLMessageTypeFilterSensitiveLog = (obj: SSMLMessageType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoiceMessageContentFilterSensitiveLog = (obj: VoiceMessageContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendVoiceMessageRequestFilterSensitiveLog = (obj: SendVoiceMessageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendVoiceMessageResponseFilterSensitiveLog = (obj: SendVoiceMessageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog = (
-  obj: UpdateConfigurationSetEventDestinationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog = (
-  obj: UpdateConfigurationSetEventDestinationResponse
-): any => ({
-  ...obj,
-});

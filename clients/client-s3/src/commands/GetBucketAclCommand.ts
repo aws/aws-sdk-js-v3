@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketAclOutput,
-  GetBucketAclOutputFilterSensitiveLog,
-  GetBucketAclRequest,
-  GetBucketAclRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketAclCommand,
-  serializeAws_restXmlGetBucketAclCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketAclOutput, GetBucketAclRequest } from "../models/models_0";
+import { de_GetBucketAclCommand, se_GetBucketAclCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketAclCommand}.
  */
 export interface GetBucketAclCommandInput extends GetBucketAclRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketAclCommand}.
  */
 export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This implementation of the <code>GET</code> action uses the <code>acl</code>
  *          subresource to return the access control list (ACL) of a bucket. To use <code>GET</code> to
  *          return the ACL of the bucket, you must have <code>READ_ACP</code> access to the bucket. If
@@ -63,10 +60,16 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
  * import { S3Client, GetBucketAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketAclRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketAclCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketAclCommandInput - {@link GetBucketAclCommandInput}
+ * @returns {@link GetBucketAclCommandOutput}
  * @see {@link GetBucketAclCommandInput} for command's `input` shape.
  * @see {@link GetBucketAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -96,6 +99,9 @@ export class GetBucketAclCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +128,8 @@ export class GetBucketAclCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketAclRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketAclOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +139,18 @@ export class GetBucketAclCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketAclCommand(input, context);
+    return se_GetBucketAclCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketAclCommandOutput> {
-    return deserializeAws_restXmlGetBucketAclCommand(output, context);
+    return de_GetBucketAclCommand(output, context);
   }
 
   // Start section: command_body_extra

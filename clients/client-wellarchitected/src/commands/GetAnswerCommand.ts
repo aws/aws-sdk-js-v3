@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAnswerInput,
-  GetAnswerInputFilterSensitiveLog,
-  GetAnswerOutput,
-  GetAnswerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAnswerCommand,
-  serializeAws_restJson1GetAnswerCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAnswerInput, GetAnswerOutput } from "../models/models_0";
+import { de_GetAnswerCommand, se_GetAnswerCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAnswerCommand}.
  */
 export interface GetAnswerCommandInput extends GetAnswerInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAnswerCommand}.
  */
 export interface GetAnswerCommandOutput extends GetAnswerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the answer to a specific question in a workload review.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetAnswerCommandOutput extends GetAnswerOutput, __MetadataBeare
  * import { WellArchitectedClient, GetAnswerCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetAnswerCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // GetAnswerInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   LensAlias: "STRING_VALUE", // required
+ *   QuestionId: "STRING_VALUE", // required
+ *   MilestoneNumber: Number("int"),
+ * };
  * const command = new GetAnswerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnswerCommandInput - {@link GetAnswerCommandInput}
+ * @returns {@link GetAnswerCommandOutput}
  * @see {@link GetAnswerCommandInput} for command's `input` shape.
  * @see {@link GetAnswerCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +89,9 @@ export class GetAnswerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnswerCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +118,8 @@ export class GetAnswerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAnswerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAnswerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +129,18 @@ export class GetAnswerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnswerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAnswerCommand(input, context);
+    return se_GetAnswerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnswerCommandOutput> {
-    return deserializeAws_restJson1GetAnswerCommand(output, context);
+    return de_GetAnswerCommand(output, context);
   }
 
   // Start section: command_body_extra

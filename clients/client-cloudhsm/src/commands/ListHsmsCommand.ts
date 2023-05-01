@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  ListHsmsRequest,
-  ListHsmsRequestFilterSensitiveLog,
-  ListHsmsResponse,
-  ListHsmsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ListHsmsCommand, serializeAws_json1_1ListHsmsCommand } from "../protocols/Aws_json1_1";
+import { ListHsmsRequest, ListHsmsResponse } from "../models/models_0";
+import { de_ListHsmsCommand, se_ListHsmsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHsmsCommand}.
  */
 export interface ListHsmsCommandInput extends ListHsmsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHsmsCommand}.
  */
 export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -54,10 +54,15 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  * import { CloudHSMClient, ListHsmsCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ListHsmsCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // ListHsmsRequest
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListHsmsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHsmsCommandInput - {@link ListHsmsCommandInput}
+ * @returns {@link ListHsmsCommandOutput}
  * @see {@link ListHsmsCommandInput} for command's `input` shape.
  * @see {@link ListHsmsCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -90,6 +95,9 @@ export class ListHsmsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHsmsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class ListHsmsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHsmsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHsmsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +135,18 @@ export class ListHsmsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHsmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHsmsCommand(input, context);
+    return se_ListHsmsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHsmsCommandOutput> {
-    return deserializeAws_json1_1ListHsmsCommand(output, context);
+    return de_ListHsmsCommand(output, context);
   }
 
   // Start section: command_body_extra

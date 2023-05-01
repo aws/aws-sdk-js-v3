@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListImageVersionsRequest,
-  ListImageVersionsRequestFilterSensitiveLog,
-  ListImageVersionsResponse,
-  ListImageVersionsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListImageVersionsCommand,
-  serializeAws_json1_1ListImageVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListImageVersionsRequest, ListImageVersionsResponse } from "../models/models_3";
+import { de_ListImageVersionsCommand, se_ListImageVersionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListImageVersionsCommand}.
  */
 export interface ListImageVersionsCommandInput extends ListImageVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListImageVersionsCommand}.
  */
 export interface ListImageVersionsCommandOutput extends ListImageVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the versions of a specified image and their properties. The list can be filtered
  *         by creation time or modified time.</p>
  * @example
@@ -43,10 +40,23 @@ export interface ListImageVersionsCommandOutput extends ListImageVersionsRespons
  * import { SageMakerClient, ListImageVersionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListImageVersionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListImageVersionsRequest
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   ImageName: "STRING_VALUE", // required
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "CREATION_TIME" || "LAST_MODIFIED_TIME" || "VERSION",
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ * };
  * const command = new ListImageVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListImageVersionsCommandInput - {@link ListImageVersionsCommandInput}
+ * @returns {@link ListImageVersionsCommandOutput}
  * @see {@link ListImageVersionsCommandInput} for command's `input` shape.
  * @see {@link ListImageVersionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +83,9 @@ export class ListImageVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListImageVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +114,8 @@ export class ListImageVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImageVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImageVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +125,18 @@ export class ListImageVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListImageVersionsCommand(input, context);
+    return se_ListImageVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImageVersionsCommandOutput> {
-    return deserializeAws_json1_1ListImageVersionsCommand(output, context);
+    return de_ListImageVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

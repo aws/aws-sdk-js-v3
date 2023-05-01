@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DeleteBackupInput,
-  DeleteBackupInputFilterSensitiveLog,
-  DeleteBackupOutput,
-  DeleteBackupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteBackupCommand,
-  serializeAws_json1_0DeleteBackupCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteBackupInput, DeleteBackupOutput } from "../models/models_0";
+import { de_DeleteBackupCommand, se_DeleteBackupCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupCommand}.
  */
 export interface DeleteBackupCommandInput extends DeleteBackupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupCommand}.
  */
 export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing backup of a table.</p>
  *          <p>You can call <code>DeleteBackup</code> at a maximum rate of 10 times per
  *             second.</p>
@@ -44,10 +41,15 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
  * import { DynamoDBClient, DeleteBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DeleteBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // DeleteBackupInput
+ *   BackupArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
+ * @returns {@link DeleteBackupCommandOutput}
  * @see {@link DeleteBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -96,6 +98,9 @@ export class DeleteBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +127,8 @@ export class DeleteBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBackupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +138,18 @@ export class DeleteBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteBackupCommand(input, context);
+    return se_DeleteBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupCommandOutput> {
-    return deserializeAws_json1_0DeleteBackupCommand(output, context);
+    return de_DeleteBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

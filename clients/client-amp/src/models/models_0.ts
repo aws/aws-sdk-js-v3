@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AmpServiceException as __BaseException } from "./AmpServiceException";
 
 /**
+ * @public
  * User does not have sufficient access to perform this action.
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * Updating or deleting a resource can cause an inconsistent state.
  */
 export class ConflictException extends __BaseException {
@@ -54,6 +56,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * Represents the input of a CreateAlertManagerDefinition operation.
  */
 export interface CreateAlertManagerDefinitionRequest {
@@ -73,34 +76,45 @@ export interface CreateAlertManagerDefinitionRequest {
   clientToken?: string;
 }
 
-export enum AlertManagerDefinitionStatusCode {
+/**
+ * @public
+ * @enum
+ */
+export const AlertManagerDefinitionStatusCode = {
   /**
    * Definition has been created/updated. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Definition is being created. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Definition creation failed.
    */
-  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_FAILED: "CREATION_FAILED",
   /**
    * Definition is being deleting. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Definition update failed.
    */
-  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
   /**
    * Definition is being updated. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type AlertManagerDefinitionStatusCode =
+  (typeof AlertManagerDefinitionStatusCode)[keyof typeof AlertManagerDefinitionStatusCode];
+
+/**
+ * @public
  * Represents the status of a definition.
  */
 export interface AlertManagerDefinitionStatus {
@@ -116,6 +130,7 @@ export interface AlertManagerDefinitionStatus {
 }
 
 /**
+ * @public
  * Represents the output of a CreateAlertManagerDefinition operation.
  */
 export interface CreateAlertManagerDefinitionResponse {
@@ -126,6 +141,7 @@ export interface CreateAlertManagerDefinitionResponse {
 }
 
 /**
+ * @public
  * Unexpected error during processing of request.
  */
 export class InternalServerException extends __BaseException {
@@ -152,6 +168,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * Request references a resource which does not exist.
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -183,6 +200,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * Request would cause a service quota to be exceeded.
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -226,6 +244,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * Request was denied due to request throttling.
  */
 export class ThrottlingException extends __BaseException {
@@ -264,6 +283,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * Stores information about a field passed inside a request that resulted in an exception.
  */
 export interface ValidationExceptionField {
@@ -278,14 +298,24 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * The input fails to satisfy the constraints specified by an AWS service.
  */
 export class ValidationException extends __BaseException {
@@ -317,6 +347,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * Represents the input of a DeleteAlertManagerDefinition operation.
  */
 export interface DeleteAlertManagerDefinitionRequest {
@@ -332,6 +363,7 @@ export interface DeleteAlertManagerDefinitionRequest {
 }
 
 /**
+ * @public
  * Represents the input of a DescribeAlertManagerDefinition operation.
  */
 export interface DescribeAlertManagerDefinitionRequest {
@@ -342,6 +374,7 @@ export interface DescribeAlertManagerDefinitionRequest {
 }
 
 /**
+ * @public
  * Represents the properties of an alert manager definition.
  */
 export interface AlertManagerDefinitionDescription {
@@ -367,6 +400,7 @@ export interface AlertManagerDefinitionDescription {
 }
 
 /**
+ * @public
  * Represents the output of a DescribeAlertManagerDefinition operation.
  */
 export interface DescribeAlertManagerDefinitionResponse {
@@ -377,6 +411,7 @@ export interface DescribeAlertManagerDefinitionResponse {
 }
 
 /**
+ * @public
  * Represents the input of a PutAlertManagerDefinition operation.
  */
 export interface PutAlertManagerDefinitionRequest {
@@ -397,6 +432,7 @@ export interface PutAlertManagerDefinitionRequest {
 }
 
 /**
+ * @public
  * Represents the output of a PutAlertManagerDefinition operation.
  */
 export interface PutAlertManagerDefinitionResponse {
@@ -406,6 +442,9 @@ export interface PutAlertManagerDefinitionResponse {
   status: AlertManagerDefinitionStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * The ARN of the resource.
@@ -413,6 +452,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * The list of tags assigned to the resource.
@@ -420,6 +462,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * The ARN of the resource.
@@ -432,8 +477,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * The ARN of the resource.
@@ -446,9 +497,13 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * Represents the input of a CreateWorkspace operation.
  */
 export interface CreateWorkspaceRequest {
@@ -468,30 +523,40 @@ export interface CreateWorkspaceRequest {
   tags?: Record<string, string>;
 }
 
-export enum WorkspaceStatusCode {
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceStatusCode = {
   /**
    * Workspace has been created and is usable.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Workspace is being created. Deletion is disallowed until status is ACTIVE.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Workspace creation failed. Refer to WorkspaceStatus.failureReason for more details.
    */
-  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_FAILED: "CREATION_FAILED",
   /**
    * Workspace is being deleted. Deletions are allowed only when status is ACTIVE.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Workspace is being updated. Updates are allowed only when status is ACTIVE.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkspaceStatusCode = (typeof WorkspaceStatusCode)[keyof typeof WorkspaceStatusCode];
+
+/**
+ * @public
  * Represents the status of a workspace.
  */
 export interface WorkspaceStatus {
@@ -502,6 +567,7 @@ export interface WorkspaceStatus {
 }
 
 /**
+ * @public
  * Represents the output of a CreateWorkspace operation.
  */
 export interface CreateWorkspaceResponse {
@@ -527,6 +593,7 @@ export interface CreateWorkspaceResponse {
 }
 
 /**
+ * @public
  * Represents the input of a DeleteWorkspace operation.
  */
 export interface DeleteWorkspaceRequest {
@@ -542,6 +609,7 @@ export interface DeleteWorkspaceRequest {
 }
 
 /**
+ * @public
  * Represents the input of a DescribeWorkspace operation.
  */
 export interface DescribeWorkspaceRequest {
@@ -552,6 +620,7 @@ export interface DescribeWorkspaceRequest {
 }
 
 /**
+ * @public
  * Represents the properties of a workspace.
  */
 export interface WorkspaceDescription {
@@ -592,6 +661,7 @@ export interface WorkspaceDescription {
 }
 
 /**
+ * @public
  * Represents the output of a DescribeWorkspace operation.
  */
 export interface DescribeWorkspaceResponse {
@@ -602,6 +672,7 @@ export interface DescribeWorkspaceResponse {
 }
 
 /**
+ * @public
  * Represents the input of a ListWorkspaces operation.
  */
 export interface ListWorkspacesRequest {
@@ -622,6 +693,7 @@ export interface ListWorkspacesRequest {
 }
 
 /**
+ * @public
  * Represents a summary of the properties of a workspace.
  */
 export interface WorkspaceSummary {
@@ -657,6 +729,7 @@ export interface WorkspaceSummary {
 }
 
 /**
+ * @public
  * Represents the output of a ListWorkspaces operation.
  */
 export interface ListWorkspacesResponse {
@@ -672,6 +745,7 @@ export interface ListWorkspacesResponse {
 }
 
 /**
+ * @public
  * Represents the input of a CreateLoggingConfiguration operation.
  */
 export interface CreateLoggingConfigurationRequest {
@@ -691,34 +765,45 @@ export interface CreateLoggingConfigurationRequest {
   clientToken?: string;
 }
 
-export enum LoggingConfigurationStatusCode {
+/**
+ * @public
+ * @enum
+ */
+export const LoggingConfigurationStatusCode = {
   /**
    * Logging configuration has been created/updated. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Logging configuration is being created. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Logging configuration creation failed.
    */
-  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_FAILED: "CREATION_FAILED",
   /**
    * Logging configuration is being deleting. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Logging configuration update failed.
    */
-  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
   /**
    * Logging configuration is being updated. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type LoggingConfigurationStatusCode =
+  (typeof LoggingConfigurationStatusCode)[keyof typeof LoggingConfigurationStatusCode];
+
+/**
+ * @public
  * Represents the status of a logging configuration.
  */
 export interface LoggingConfigurationStatus {
@@ -734,6 +819,7 @@ export interface LoggingConfigurationStatus {
 }
 
 /**
+ * @public
  * Represents the output of a CreateLoggingConfiguration operation.
  */
 export interface CreateLoggingConfigurationResponse {
@@ -744,6 +830,7 @@ export interface CreateLoggingConfigurationResponse {
 }
 
 /**
+ * @public
  * Represents the input of a DeleteLoggingConfiguration operation.
  */
 export interface DeleteLoggingConfigurationRequest {
@@ -759,6 +846,7 @@ export interface DeleteLoggingConfigurationRequest {
 }
 
 /**
+ * @public
  * Represents the input of a DescribeLoggingConfiguration operation.
  */
 export interface DescribeLoggingConfigurationRequest {
@@ -769,6 +857,7 @@ export interface DescribeLoggingConfigurationRequest {
 }
 
 /**
+ * @public
  * Represents the properties of a logging configuration metadata.
  */
 export interface LoggingConfigurationMetadata {
@@ -799,6 +888,7 @@ export interface LoggingConfigurationMetadata {
 }
 
 /**
+ * @public
  * Represents the output of a DescribeLoggingConfiguration operation.
  */
 export interface DescribeLoggingConfigurationResponse {
@@ -809,6 +899,7 @@ export interface DescribeLoggingConfigurationResponse {
 }
 
 /**
+ * @public
  * Represents the input of an UpdateLoggingConfiguration operation.
  */
 export interface UpdateLoggingConfigurationRequest {
@@ -829,6 +920,7 @@ export interface UpdateLoggingConfigurationRequest {
 }
 
 /**
+ * @public
  * Represents the output of an UpdateLoggingConfiguration operation.
  */
 export interface UpdateLoggingConfigurationResponse {
@@ -839,6 +931,7 @@ export interface UpdateLoggingConfigurationResponse {
 }
 
 /**
+ * @public
  * Represents the input of a CreateRuleGroupsNamespace operation.
  */
 export interface CreateRuleGroupsNamespaceRequest {
@@ -868,34 +961,45 @@ export interface CreateRuleGroupsNamespaceRequest {
   tags?: Record<string, string>;
 }
 
-export enum RuleGroupsNamespaceStatusCode {
+/**
+ * @public
+ * @enum
+ */
+export const RuleGroupsNamespaceStatusCode = {
   /**
    * Namespace has been created/updated. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Namespace is being created. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Namespace creation failed.
    */
-  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_FAILED: "CREATION_FAILED",
   /**
    * Namespace is being deleting. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Namespace update failed.
    */
-  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
   /**
    * Namespace is being updated. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type RuleGroupsNamespaceStatusCode =
+  (typeof RuleGroupsNamespaceStatusCode)[keyof typeof RuleGroupsNamespaceStatusCode];
+
+/**
+ * @public
  * Represents the status of a namespace.
  */
 export interface RuleGroupsNamespaceStatus {
@@ -911,6 +1015,7 @@ export interface RuleGroupsNamespaceStatus {
 }
 
 /**
+ * @public
  * Represents the output of a CreateRuleGroupsNamespace operation.
  */
 export interface CreateRuleGroupsNamespaceResponse {
@@ -936,6 +1041,7 @@ export interface CreateRuleGroupsNamespaceResponse {
 }
 
 /**
+ * @public
  * Represents the input of a DeleteRuleGroupsNamespace operation.
  */
 export interface DeleteRuleGroupsNamespaceRequest {
@@ -956,6 +1062,7 @@ export interface DeleteRuleGroupsNamespaceRequest {
 }
 
 /**
+ * @public
  * Represents the input of a DescribeRuleGroupsNamespace operation.
  */
 export interface DescribeRuleGroupsNamespaceRequest {
@@ -971,6 +1078,7 @@ export interface DescribeRuleGroupsNamespaceRequest {
 }
 
 /**
+ * @public
  * Represents a description of the rule groups namespace.
  */
 export interface RuleGroupsNamespaceDescription {
@@ -1011,6 +1119,7 @@ export interface RuleGroupsNamespaceDescription {
 }
 
 /**
+ * @public
  * Represents the output of a DescribeRuleGroupsNamespace operation.
  */
 export interface DescribeRuleGroupsNamespaceResponse {
@@ -1021,6 +1130,7 @@ export interface DescribeRuleGroupsNamespaceResponse {
 }
 
 /**
+ * @public
  * Represents the input of a ListRuleGroupsNamespaces operation.
  */
 export interface ListRuleGroupsNamespacesRequest {
@@ -1046,6 +1156,7 @@ export interface ListRuleGroupsNamespacesRequest {
 }
 
 /**
+ * @public
  * Represents a summary of the rule groups namespace.
  */
 export interface RuleGroupsNamespaceSummary {
@@ -1081,6 +1192,7 @@ export interface RuleGroupsNamespaceSummary {
 }
 
 /**
+ * @public
  * Represents the output of a ListRuleGroupsNamespaces operation.
  */
 export interface ListRuleGroupsNamespacesResponse {
@@ -1096,6 +1208,7 @@ export interface ListRuleGroupsNamespacesResponse {
 }
 
 /**
+ * @public
  * Represents the input of a PutRuleGroupsNamespace operation.
  */
 export interface PutRuleGroupsNamespaceRequest {
@@ -1121,6 +1234,7 @@ export interface PutRuleGroupsNamespaceRequest {
 }
 
 /**
+ * @public
  * Represents the output of a PutRuleGroupsNamespace operation.
  */
 export interface PutRuleGroupsNamespaceResponse {
@@ -1146,6 +1260,7 @@ export interface PutRuleGroupsNamespaceResponse {
 }
 
 /**
+ * @public
  * Represents the input of an UpdateWorkspaceAlias operation.
  */
 export interface UpdateWorkspaceAliasRequest {
@@ -1164,355 +1279,3 @@ export interface UpdateWorkspaceAliasRequest {
    */
   clientToken?: string;
 }
-
-/**
- * @internal
- */
-export const CreateAlertManagerDefinitionRequestFilterSensitiveLog = (
-  obj: CreateAlertManagerDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlertManagerDefinitionStatusFilterSensitiveLog = (obj: AlertManagerDefinitionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAlertManagerDefinitionResponseFilterSensitiveLog = (
-  obj: CreateAlertManagerDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAlertManagerDefinitionRequestFilterSensitiveLog = (
-  obj: DeleteAlertManagerDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlertManagerDefinitionRequestFilterSensitiveLog = (
-  obj: DescribeAlertManagerDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlertManagerDefinitionDescriptionFilterSensitiveLog = (obj: AlertManagerDefinitionDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlertManagerDefinitionResponseFilterSensitiveLog = (
-  obj: DescribeAlertManagerDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAlertManagerDefinitionRequestFilterSensitiveLog = (obj: PutAlertManagerDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAlertManagerDefinitionResponseFilterSensitiveLog = (obj: PutAlertManagerDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkspaceRequestFilterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspaceStatusFilterSensitiveLog = (obj: WorkspaceStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkspaceResponseFilterSensitiveLog = (obj: CreateWorkspaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkspaceRequestFilterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceRequestFilterSensitiveLog = (obj: DescribeWorkspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspaceDescriptionFilterSensitiveLog = (obj: WorkspaceDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceResponseFilterSensitiveLog = (obj: DescribeWorkspaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkspacesRequestFilterSensitiveLog = (obj: ListWorkspacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkspaceSummaryFilterSensitiveLog = (obj: WorkspaceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkspacesResponseFilterSensitiveLog = (obj: ListWorkspacesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLoggingConfigurationRequestFilterSensitiveLog = (obj: CreateLoggingConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingConfigurationStatusFilterSensitiveLog = (obj: LoggingConfigurationStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLoggingConfigurationResponseFilterSensitiveLog = (obj: CreateLoggingConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLoggingConfigurationRequestFilterSensitiveLog = (obj: DeleteLoggingConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoggingConfigurationRequestFilterSensitiveLog = (
-  obj: DescribeLoggingConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingConfigurationMetadataFilterSensitiveLog = (obj: LoggingConfigurationMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLoggingConfigurationResponseFilterSensitiveLog = (
-  obj: DescribeLoggingConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLoggingConfigurationRequestFilterSensitiveLog = (obj: UpdateLoggingConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLoggingConfigurationResponseFilterSensitiveLog = (obj: UpdateLoggingConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRuleGroupsNamespaceRequestFilterSensitiveLog = (obj: CreateRuleGroupsNamespaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupsNamespaceStatusFilterSensitiveLog = (obj: RuleGroupsNamespaceStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRuleGroupsNamespaceResponseFilterSensitiveLog = (obj: CreateRuleGroupsNamespaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRuleGroupsNamespaceRequestFilterSensitiveLog = (obj: DeleteRuleGroupsNamespaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRuleGroupsNamespaceRequestFilterSensitiveLog = (obj: DescribeRuleGroupsNamespaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupsNamespaceDescriptionFilterSensitiveLog = (obj: RuleGroupsNamespaceDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRuleGroupsNamespaceResponseFilterSensitiveLog = (
-  obj: DescribeRuleGroupsNamespaceResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRuleGroupsNamespacesRequestFilterSensitiveLog = (obj: ListRuleGroupsNamespacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupsNamespaceSummaryFilterSensitiveLog = (obj: RuleGroupsNamespaceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRuleGroupsNamespacesResponseFilterSensitiveLog = (obj: ListRuleGroupsNamespacesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRuleGroupsNamespaceRequestFilterSensitiveLog = (obj: PutRuleGroupsNamespaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRuleGroupsNamespaceResponseFilterSensitiveLog = (obj: PutRuleGroupsNamespaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkspaceAliasRequestFilterSensitiveLog = (obj: UpdateWorkspaceAliasRequest): any => ({
-  ...obj,
-});

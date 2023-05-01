@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSecretRequest,
-  CreateSecretRequestFilterSensitiveLog,
-  CreateSecretResponse,
-  CreateSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSecretCommand,
-  serializeAws_json1_1CreateSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSecretRequest, CreateSecretRequestFilterSensitiveLog, CreateSecretResponse } from "../models/models_0";
+import { de_CreateSecretCommand, se_CreateSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSecretCommand}.
  */
 export interface CreateSecretCommandInput extends CreateSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSecretCommand}.
  */
 export interface CreateSecretCommandOutput extends CreateSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new secret. A <i>secret</i> can be a password, a set of
  *       credentials such as a user name and password, an OAuth token, or other secret information
  *       that you store in an encrypted form in Secrets Manager. The secret also
@@ -77,10 +74,33 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * import { SecretsManagerClient, CreateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, CreateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // CreateSecretRequest
+ *   Name: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   SecretBinary: "BLOB_VALUE",
+ *   SecretString: "STRING_VALUE",
+ *   Tags: [ // TagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AddReplicaRegions: [ // AddReplicaRegionListType
+ *     { // ReplicaRegionType
+ *       Region: "STRING_VALUE",
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ForceOverwriteReplicaSecret: true || false,
+ * };
  * const command = new CreateSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSecretCommandInput - {@link CreateSecretCommandInput}
+ * @returns {@link CreateSecretCommandOutput}
  * @see {@link CreateSecretCommandInput} for command's `input` shape.
  * @see {@link CreateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -172,6 +192,9 @@ export class CreateSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -199,7 +222,7 @@ export class CreateSecretCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSecretResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -209,12 +232,18 @@ export class CreateSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSecretCommand(input, context);
+    return se_CreateSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecretCommandOutput> {
-    return deserializeAws_json1_1CreateSecretCommand(output, context);
+    return de_CreateSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

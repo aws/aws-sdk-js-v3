@@ -6,7 +6,7 @@ import { TransferClient } from "../TransferClient";
 import { TransferPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TransferClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListServersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListServers(
   config: TransferPaginationConfiguration,
   input: ListServersCommandInput,

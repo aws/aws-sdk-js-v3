@@ -125,7 +125,7 @@ module.exports = {
   cacheBucketName: function (bucket) {
     const fs = require("fs");
     const path = require("path");
-    const filePath = path.resolve("integ.buckets.json");
+    const filePath = path.resolve("e2e.buckets.json");
     let cache;
     if (fs.existsSync(filePath)) {
       try {

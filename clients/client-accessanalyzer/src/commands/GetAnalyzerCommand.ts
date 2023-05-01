@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import {
-  GetAnalyzerRequest,
-  GetAnalyzerRequestFilterSensitiveLog,
-  GetAnalyzerResponse,
-  GetAnalyzerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAnalyzerCommand,
-  serializeAws_restJson1GetAnalyzerCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAnalyzerRequest, GetAnalyzerResponse } from "../models/models_0";
+import { de_GetAnalyzerCommand, se_GetAnalyzerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAnalyzerCommand}.
  */
 export interface GetAnalyzerCommandInput extends GetAnalyzerRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAnalyzerCommand}.
  */
 export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified analyzer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __Metadat
  * import { AccessAnalyzerClient, GetAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // GetAnalyzerRequest
+ *   analyzerName: "STRING_VALUE", // required
+ * };
  * const command = new GetAnalyzerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnalyzerCommandInput - {@link GetAnalyzerCommandInput}
+ * @returns {@link GetAnalyzerCommandOutput}
  * @see {@link GetAnalyzerCommandInput} for command's `input` shape.
  * @see {@link GetAnalyzerCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetAnalyzerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnalyzerCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetAnalyzerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAnalyzerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAnalyzerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetAnalyzerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnalyzerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAnalyzerCommand(input, context);
+    return se_GetAnalyzerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnalyzerCommandOutput> {
-    return deserializeAws_restJson1GetAnalyzerCommand(output, context);
+    return de_GetAnalyzerCommand(output, context);
   }
 
   // Start section: command_body_extra

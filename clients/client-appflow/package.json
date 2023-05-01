@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-appflow",
   "description": "AWS SDK for JavaScript Appflow Client for Node.js, Browser and React Native",
-  "version": "3.296.0",
+  "version": "3.323.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -11,6 +11,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "extract:docs": "api-extractor run --local",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo appflow"
   },
   "main": "./dist-cjs/index.js",
@@ -52,12 +53,14 @@
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
     "@aws-sdk/util-utf8": "*",
-    "tslib": "^2.5.0"
+    "tslib": "^2.5.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@aws-sdk/service-client-documentation-generator": "*",
     "@tsconfig/node14": "1.0.3",
     "@types/node": "^14.14.31",
+    "@types/uuid": "^8.3.0",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
@@ -75,7 +78,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "author": {
     "name": "AWS SDK for JavaScript Team",

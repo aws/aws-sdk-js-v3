@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkAclEntryRequest, DeleteNetworkAclEntryRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteNetworkAclEntryCommand,
-  serializeAws_ec2DeleteNetworkAclEntryCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteNetworkAclEntryRequest } from "../models/models_2";
+import { de_DeleteNetworkAclEntryCommand, se_DeleteNetworkAclEntryCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkAclEntryCommand}.
  */
 export interface DeleteNetworkAclEntryCommandInput extends DeleteNetworkAclEntryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkAclEntryCommand}.
  */
 export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified ingress or egress entry (rule) from the specified network ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,18 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteNetworkAclEntryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkAclEntryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteNetworkAclEntryRequest
+ *   DryRun: true || false,
+ *   Egress: true || false, // required
+ *   NetworkAclId: "STRING_VALUE", // required
+ *   RuleNumber: Number("int"), // required
+ * };
  * const command = new DeleteNetworkAclEntryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkAclEntryCommandInput - {@link DeleteNetworkAclEntryCommandInput}
+ * @returns {@link DeleteNetworkAclEntryCommandOutput}
  * @see {@link DeleteNetworkAclEntryCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +87,9 @@ export class DeleteNetworkAclEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkAclEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +118,8 @@ export class DeleteNetworkAclEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkAclEntryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +129,18 @@ export class DeleteNetworkAclEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkAclEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkAclEntryCommand(input, context);
+    return se_DeleteNetworkAclEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkAclEntryCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkAclEntryCommand(output, context);
+    return de_DeleteNetworkAclEntryCommand(output, context);
   }
 
   // Start section: command_body_extra

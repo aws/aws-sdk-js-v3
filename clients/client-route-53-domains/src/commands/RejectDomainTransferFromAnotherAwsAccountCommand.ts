@@ -15,22 +15,24 @@ import {
 
 import {
   RejectDomainTransferFromAnotherAwsAccountRequest,
-  RejectDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog,
   RejectDomainTransferFromAnotherAwsAccountResponse,
-  RejectDomainTransferFromAnotherAwsAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand,
-  serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand,
+  de_RejectDomainTransferFromAnotherAwsAccountCommand,
+  se_RejectDomainTransferFromAnotherAwsAccountCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link RejectDomainTransferFromAnotherAwsAccountCommand}.
  */
 export interface RejectDomainTransferFromAnotherAwsAccountCommandInput
   extends RejectDomainTransferFromAnotherAwsAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectDomainTransferFromAnotherAwsAccountCommand}.
  */
 export interface RejectDomainTransferFromAnotherAwsAccountCommandOutput
@@ -38,6 +40,7 @@ export interface RejectDomainTransferFromAnotherAwsAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects the transfer of a domain from another Amazon Web Services account to the
  * 			current Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>. </p>
  *          <p>Use either <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a> or <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> to determine whether the operation succeeded. <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> provides additional information, for example,
@@ -48,10 +51,15 @@ export interface RejectDomainTransferFromAnotherAwsAccountCommandOutput
  * import { Route53DomainsClient, RejectDomainTransferFromAnotherAwsAccountCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, RejectDomainTransferFromAnotherAwsAccountCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // RejectDomainTransferFromAnotherAwsAccountRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new RejectDomainTransferFromAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectDomainTransferFromAnotherAwsAccountCommandInput - {@link RejectDomainTransferFromAnotherAwsAccountCommandInput}
+ * @returns {@link RejectDomainTransferFromAnotherAwsAccountCommandOutput}
  * @see {@link RejectDomainTransferFromAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link RejectDomainTransferFromAnotherAwsAccountCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -88,6 +96,9 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectDomainTransferFromAnotherAwsAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +133,8 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectDomainTransferFromAnotherAwsAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +144,24 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RejectDomainTransferFromAnotherAwsAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand(input, context);
+    return se_RejectDomainTransferFromAnotherAwsAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectDomainTransferFromAnotherAwsAccountCommandOutput> {
-    return deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand(output, context);
+    return de_RejectDomainTransferFromAnotherAwsAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

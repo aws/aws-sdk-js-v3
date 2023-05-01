@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  ListLaunchesRequest,
-  ListLaunchesRequestFilterSensitiveLog,
-  ListLaunchesResponse,
-  ListLaunchesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLaunchesCommand,
-  serializeAws_restJson1ListLaunchesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListLaunchesRequest, ListLaunchesResponse } from "../models/models_0";
+import { de_ListLaunchesCommand, se_ListLaunchesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLaunchesCommand}.
  */
 export interface ListLaunchesCommandInput extends ListLaunchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLaunchesCommand}.
  */
 export interface ListLaunchesCommandOutput extends ListLaunchesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration details about all the launches in the specified project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListLaunchesCommandOutput extends ListLaunchesResponse, __Metad
  * import { EvidentlyClient, ListLaunchesCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, ListLaunchesCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // ListLaunchesRequest
+ *   project: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ * };
  * const command = new ListLaunchesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLaunchesCommandInput - {@link ListLaunchesCommandInput}
+ * @returns {@link ListLaunchesCommandOutput}
  * @see {@link ListLaunchesCommandInput} for command's `input` shape.
  * @see {@link ListLaunchesCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -78,6 +83,9 @@ export class ListLaunchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLaunchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +112,8 @@ export class ListLaunchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLaunchesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLaunchesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +123,18 @@ export class ListLaunchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLaunchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLaunchesCommand(input, context);
+    return se_ListLaunchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLaunchesCommandOutput> {
-    return deserializeAws_restJson1ListLaunchesCommand(output, context);
+    return de_ListLaunchesCommand(output, context);
   }
 
   // Start section: command_body_extra

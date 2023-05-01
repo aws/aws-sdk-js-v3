@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  ListCampaignsRequest,
-  ListCampaignsRequestFilterSensitiveLog,
-  ListCampaignsResponse,
-  ListCampaignsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCampaignsCommand,
-  serializeAws_restJson1ListCampaignsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCampaignsRequest, ListCampaignsResponse } from "../models/models_0";
+import { de_ListCampaignsCommand, se_ListCampaignsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCampaignsCommand}.
  */
 export interface ListCampaignsCommandInput extends ListCampaignsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCampaignsCommand}.
  */
 export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Provides summary information about the campaigns under the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * import { ConnectCampaignsClient, ListCampaignsCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, ListCampaignsCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // ListCampaignsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filters: { // CampaignFilters
+ *     instanceIdFilter: { // InstanceIdFilter
+ *       value: "STRING_VALUE", // required
+ *       operator: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCampaignsCommandInput - {@link ListCampaignsCommandInput}
+ * @returns {@link ListCampaignsCommandOutput}
  * @see {@link ListCampaignsCommandInput} for command's `input` shape.
  * @see {@link ListCampaignsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -78,6 +87,9 @@ export class ListCampaignsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCampaignsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +116,8 @@ export class ListCampaignsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCampaignsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCampaignsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +127,18 @@ export class ListCampaignsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCampaignsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCampaignsCommand(input, context);
+    return se_ListCampaignsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCampaignsCommandOutput> {
-    return deserializeAws_restJson1ListCampaignsCommand(output, context);
+    return de_ListCampaignsCommand(output, context);
   }
 
   // Start section: command_body_extra

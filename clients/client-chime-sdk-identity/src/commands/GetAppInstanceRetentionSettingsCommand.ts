@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
+import { GetAppInstanceRetentionSettingsRequest, GetAppInstanceRetentionSettingsResponse } from "../models/models_0";
 import {
-  GetAppInstanceRetentionSettingsRequest,
-  GetAppInstanceRetentionSettingsRequestFilterSensitiveLog,
-  GetAppInstanceRetentionSettingsResponse,
-  GetAppInstanceRetentionSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand,
-  serializeAws_restJson1GetAppInstanceRetentionSettingsCommand,
+  de_GetAppInstanceRetentionSettingsCommand,
+  se_GetAppInstanceRetentionSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppInstanceRetentionSettingsCommand}.
  */
 export interface GetAppInstanceRetentionSettingsCommandInput extends GetAppInstanceRetentionSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppInstanceRetentionSettingsCommand}.
  */
 export interface GetAppInstanceRetentionSettingsCommandOutput
@@ -37,6 +36,7 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the retention settings for an <code>AppInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
  * import { ChimeSDKIdentityClient, GetAppInstanceRetentionSettingsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, GetAppInstanceRetentionSettingsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = { // GetAppInstanceRetentionSettingsRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetAppInstanceRetentionSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppInstanceRetentionSettingsCommandInput - {@link GetAppInstanceRetentionSettingsCommandInput}
+ * @returns {@link GetAppInstanceRetentionSettingsCommandOutput}
  * @see {@link GetAppInstanceRetentionSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAppInstanceRetentionSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -89,6 +94,9 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppInstanceRetentionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppInstanceRetentionSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAppInstanceRetentionSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +136,24 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAppInstanceRetentionSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAppInstanceRetentionSettingsCommand(input, context);
+    return se_GetAppInstanceRetentionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAppInstanceRetentionSettingsCommandOutput> {
-    return deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand(output, context);
+    return de_GetAppInstanceRetentionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  UpdateCapacityProviderRequest,
-  UpdateCapacityProviderRequestFilterSensitiveLog,
-  UpdateCapacityProviderResponse,
-  UpdateCapacityProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCapacityProviderCommand,
-  serializeAws_json1_1UpdateCapacityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCapacityProviderRequest, UpdateCapacityProviderResponse } from "../models/models_0";
+import { de_UpdateCapacityProviderCommand, se_UpdateCapacityProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCapacityProviderCommand}.
  */
 export interface UpdateCapacityProviderCommandInput extends UpdateCapacityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCapacityProviderCommand}.
  */
 export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters for a capacity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * import { ECSClient, UpdateCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // UpdateCapacityProviderRequest
+ *   name: "STRING_VALUE", // required
+ *   autoScalingGroupProvider: { // AutoScalingGroupProviderUpdate
+ *     managedScaling: { // ManagedScaling
+ *       status: "ENABLED" || "DISABLED",
+ *       targetCapacity: Number("int"),
+ *       minimumScalingStepSize: Number("int"),
+ *       maximumScalingStepSize: Number("int"),
+ *       instanceWarmupPeriod: Number("int"),
+ *     },
+ *     managedTerminationProtection: "ENABLED" || "DISABLED",
+ *   },
+ * };
  * const command = new UpdateCapacityProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCapacityProviderCommandInput - {@link UpdateCapacityProviderCommandInput}
+ * @returns {@link UpdateCapacityProviderCommandOutput}
  * @see {@link UpdateCapacityProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateCapacityProviderCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -81,6 +93,9 @@ export class UpdateCapacityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCapacityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +124,8 @@ export class UpdateCapacityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCapacityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCapacityProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +135,18 @@ export class UpdateCapacityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCapacityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCapacityProviderCommand(input, context);
+    return se_UpdateCapacityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCapacityProviderCommandOutput> {
-    return deserializeAws_json1_1UpdateCapacityProviderCommand(output, context);
+    return de_UpdateCapacityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

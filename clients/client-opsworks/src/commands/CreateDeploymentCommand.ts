@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDeploymentRequest,
-  CreateDeploymentRequestFilterSensitiveLog,
-  CreateDeploymentResult,
-  CreateDeploymentResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDeploymentRequest, CreateDeploymentResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1CreateDeploymentCommand,
-  serializeAws_json1_1CreateDeploymentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDeploymentCommand, se_CreateDeploymentCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs deployment or stack commands. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html">Deploying
  *         Apps</a> and <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html">Run Stack Commands</a>.</p>
  *          <p>
@@ -48,10 +45,32 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * import { OpsWorksClient, CreateDeploymentCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CreateDeploymentCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // CreateDeploymentRequest
+ *   StackId: "STRING_VALUE", // required
+ *   AppId: "STRING_VALUE",
+ *   InstanceIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ *   LayerIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Command: { // DeploymentCommand
+ *     Name: "STRING_VALUE", // required
+ *     Args: { // DeploymentCommandArgs
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   Comment: "STRING_VALUE",
+ *   CustomJson: "STRING_VALUE",
+ * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
+ * @returns {@link CreateDeploymentCommandOutput}
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -81,6 +100,9 @@ export class CreateDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +131,8 @@ export class CreateDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeploymentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +142,18 @@ export class CreateDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDeploymentCommand(input, context);
+    return se_CreateDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentCommandOutput> {
-    return deserializeAws_json1_1CreateDeploymentCommand(output, context);
+    return de_CreateDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

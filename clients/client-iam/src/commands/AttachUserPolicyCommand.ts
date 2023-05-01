@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { AttachUserPolicyRequest, AttachUserPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryAttachUserPolicyCommand,
-  serializeAws_queryAttachUserPolicyCommand,
-} from "../protocols/Aws_query";
+import { AttachUserPolicyRequest } from "../models/models_0";
+import { de_AttachUserPolicyCommand, se_AttachUserPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link AttachUserPolicyCommand}.
  */
 export interface AttachUserPolicyCommandInput extends AttachUserPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachUserPolicyCommand}.
  */
 export interface AttachUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches the specified managed policy to the specified user.</p>
  *          <p>You use this operation to attach a <i>managed</i> policy to a user. To
  *             embed an inline policy in a user, use <a>PutUserPolicy</a>.</p>
@@ -44,10 +46,16 @@ export interface AttachUserPolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, AttachUserPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, AttachUserPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // AttachUserPolicyRequest
+ *   UserName: "STRING_VALUE", // required
+ *   PolicyArn: "STRING_VALUE", // required
+ * };
  * const command = new AttachUserPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachUserPolicyCommandInput - {@link AttachUserPolicyCommandInput}
+ * @returns {@link AttachUserPolicyCommandOutput}
  * @see {@link AttachUserPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -103,6 +111,9 @@ export class AttachUserPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachUserPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +142,8 @@ export class AttachUserPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachUserPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +153,18 @@ export class AttachUserPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachUserPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAttachUserPolicyCommand(input, context);
+    return se_AttachUserPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachUserPolicyCommandOutput> {
-    return deserializeAws_queryAttachUserPolicyCommand(output, context);
+    return de_AttachUserPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

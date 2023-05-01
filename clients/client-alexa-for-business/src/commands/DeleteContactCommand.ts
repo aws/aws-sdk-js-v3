@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteContactRequest,
-  DeleteContactRequestFilterSensitiveLog,
-  DeleteContactResponse,
-  DeleteContactResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteContactCommand,
-  serializeAws_json1_1DeleteContactCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteContactRequest, DeleteContactResponse } from "../models/models_0";
+import { de_DeleteContactCommand, se_DeleteContactCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContactCommand}.
  */
 export interface DeleteContactCommandInput extends DeleteContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContactCommand}.
  */
 export interface DeleteContactCommandOutput extends DeleteContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a contact by the contact ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  * import { AlexaForBusinessClient, DeleteContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteContactRequest
+ *   ContactArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContactCommandInput - {@link DeleteContactCommandInput}
+ * @returns {@link DeleteContactCommandOutput}
  * @see {@link DeleteContactCommandInput} for command's `input` shape.
  * @see {@link DeleteContactCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +77,9 @@ export class DeleteContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +106,8 @@ export class DeleteContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +117,18 @@ export class DeleteContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteContactCommand(input, context);
+    return se_DeleteContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactCommandOutput> {
-    return deserializeAws_json1_1DeleteContactCommand(output, context);
+    return de_DeleteContactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetMethodRequest,
-  GetMethodRequestFilterSensitiveLog,
-  Method,
-  MethodFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMethodCommand,
-  serializeAws_restJson1GetMethodCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMethodRequest, Method } from "../models/models_0";
+import { de_GetMethodCommand, se_GetMethodCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMethodCommand}.
  */
 export interface GetMethodCommandInput extends GetMethodRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMethodCommand}.
  */
 export interface GetMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe an existing Method resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetMethodCommandOutput extends Method, __MetadataBearer {}
  * import { APIGatewayClient, GetMethodCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetMethodCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetMethodRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ * };
  * const command = new GetMethodCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMethodCommandInput - {@link GetMethodCommandInput}
+ * @returns {@link GetMethodCommandOutput}
  * @see {@link GetMethodCommandInput} for command's `input` shape.
  * @see {@link GetMethodCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -78,6 +82,9 @@ export class GetMethodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMethodCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class GetMethodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMethodRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MethodFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class GetMethodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMethodCommand(input, context);
+    return se_GetMethodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMethodCommandOutput> {
-    return deserializeAws_restJson1GetMethodCommand(output, context);
+    return de_GetMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   ListRelatedResourcesForAuditFindingRequest,
-  ListRelatedResourcesForAuditFindingRequestFilterSensitiveLog,
   ListRelatedResourcesForAuditFindingResponse,
-  ListRelatedResourcesForAuditFindingResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListRelatedResourcesForAuditFindingCommand,
-  serializeAws_restJson1ListRelatedResourcesForAuditFindingCommand,
+  de_ListRelatedResourcesForAuditFindingCommand,
+  se_ListRelatedResourcesForAuditFindingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRelatedResourcesForAuditFindingCommand}.
  */
 export interface ListRelatedResourcesForAuditFindingCommandInput extends ListRelatedResourcesForAuditFindingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRelatedResourcesForAuditFindingCommand}.
  */
 export interface ListRelatedResourcesForAuditFindingCommandOutput
@@ -37,6 +39,7 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>The related resources of an Audit finding.
  *       The following resources can be returned from calling this API:</p>
  *          <ul>
@@ -80,10 +83,17 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
  * import { IoTClient, ListRelatedResourcesForAuditFindingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListRelatedResourcesForAuditFindingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListRelatedResourcesForAuditFindingRequest
+ *   findingId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRelatedResourcesForAuditFindingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRelatedResourcesForAuditFindingCommandInput - {@link ListRelatedResourcesForAuditFindingCommandInput}
+ * @returns {@link ListRelatedResourcesForAuditFindingCommandOutput}
  * @see {@link ListRelatedResourcesForAuditFindingCommandInput} for command's `input` shape.
  * @see {@link ListRelatedResourcesForAuditFindingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -119,6 +129,9 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRelatedResourcesForAuditFindingCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +160,8 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRelatedResourcesForAuditFindingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRelatedResourcesForAuditFindingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,18 +171,24 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListRelatedResourcesForAuditFindingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRelatedResourcesForAuditFindingCommand(input, context);
+    return se_ListRelatedResourcesForAuditFindingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRelatedResourcesForAuditFindingCommandOutput> {
-    return deserializeAws_restJson1ListRelatedResourcesForAuditFindingCommand(output, context);
+    return de_ListRelatedResourcesForAuditFindingCommand(output, context);
   }
 
   // Start section: command_body_extra

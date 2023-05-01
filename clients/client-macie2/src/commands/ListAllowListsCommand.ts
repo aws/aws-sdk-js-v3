@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  ListAllowListsRequest,
-  ListAllowListsRequestFilterSensitiveLog,
-  ListAllowListsResponse,
-  ListAllowListsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAllowListsCommand,
-  serializeAws_restJson1ListAllowListsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAllowListsRequest, ListAllowListsResponse } from "../models/models_0";
+import { de_ListAllowListsCommand, se_ListAllowListsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAllowListsCommand}.
  */
 export interface ListAllowListsCommandInput extends ListAllowListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAllowListsCommand}.
  */
 export interface ListAllowListsCommandOutput extends ListAllowListsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a subset of information about all the allow lists for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListAllowListsCommandOutput extends ListAllowListsResponse, __M
  * import { Macie2Client, ListAllowListsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListAllowListsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // ListAllowListsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListAllowListsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAllowListsCommandInput - {@link ListAllowListsCommandInput}
+ * @returns {@link ListAllowListsCommandOutput}
  * @see {@link ListAllowListsCommandInput} for command's `input` shape.
  * @see {@link ListAllowListsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -81,6 +84,9 @@ export class ListAllowListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAllowListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListAllowListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAllowListsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAllowListsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListAllowListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAllowListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAllowListsCommand(input, context);
+    return se_ListAllowListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAllowListsCommandOutput> {
-    return deserializeAws_restJson1ListAllowListsCommand(output, context);
+    return de_ListAllowListsCommand(output, context);
   }
 
   // Start section: command_body_extra

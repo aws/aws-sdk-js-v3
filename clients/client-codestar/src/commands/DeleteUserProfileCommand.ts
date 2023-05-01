@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  DeleteUserProfileRequest,
-  DeleteUserProfileRequestFilterSensitiveLog,
-  DeleteUserProfileResult,
-  DeleteUserProfileResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteUserProfileCommand,
-  serializeAws_json1_1DeleteUserProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteUserProfileRequest, DeleteUserProfileResult } from "../models/models_0";
+import { de_DeleteUserProfileCommand, se_DeleteUserProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserProfileCommand}.
  */
 export interface DeleteUserProfileCommandInput extends DeleteUserProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserProfileCommand}.
  */
 export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a user profile in AWS CodeStar, including all personal preference data associated with
  *       that profile, such as display name and email address. It does not delete the history of that
  *       user, for example the history of commits made by that user.</p>
@@ -44,10 +41,15 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  * import { CodeStarClient, DeleteUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, DeleteUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // DeleteUserProfileRequest
+ *   userArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
+ * @returns {@link DeleteUserProfileCommandOutput}
  * @see {@link DeleteUserProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -74,6 +76,9 @@ export class DeleteUserProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +107,8 @@ export class DeleteUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +118,18 @@ export class DeleteUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUserProfileCommand(input, context);
+    return se_DeleteUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserProfileCommandOutput> {
-    return deserializeAws_json1_1DeleteUserProfileCommand(output, context);
+    return de_DeleteUserProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

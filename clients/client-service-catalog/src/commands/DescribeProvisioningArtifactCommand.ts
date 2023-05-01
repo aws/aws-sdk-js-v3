@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeProvisioningArtifactInput, DescribeProvisioningArtifactOutput } from "../models/models_0";
 import {
-  DescribeProvisioningArtifactInput,
-  DescribeProvisioningArtifactInputFilterSensitiveLog,
-  DescribeProvisioningArtifactOutput,
-  DescribeProvisioningArtifactOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProvisioningArtifactCommand,
-  serializeAws_json1_1DescribeProvisioningArtifactCommand,
+  de_DescribeProvisioningArtifactCommand,
+  se_DescribeProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProvisioningArtifactCommand}.
  */
 export interface DescribeProvisioningArtifactCommandInput extends DescribeProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProvisioningArtifactCommand}.
  */
 export interface DescribeProvisioningArtifactCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeProvisioningArtifactCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified provisioning artifact (also known as a version) for the specified product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,20 @@ export interface DescribeProvisioningArtifactCommandOutput
  * import { ServiceCatalogClient, DescribeProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeProvisioningArtifactInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProvisioningArtifactId: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE",
+ *   ProvisioningArtifactName: "STRING_VALUE",
+ *   ProductName: "STRING_VALUE",
+ *   Verbose: true || false,
+ * };
  * const command = new DescribeProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProvisioningArtifactCommandInput - {@link DescribeProvisioningArtifactCommandInput}
+ * @returns {@link DescribeProvisioningArtifactCommandOutput}
  * @see {@link DescribeProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -77,6 +87,9 @@ export class DescribeProvisioningArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +118,8 @@ export class DescribeProvisioningArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProvisioningArtifactInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProvisioningArtifactOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +129,21 @@ export class DescribeProvisioningArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProvisioningArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProvisioningArtifactCommand(input, context);
+    return se_DescribeProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1DescribeProvisioningArtifactCommand(output, context);
+    return de_DescribeProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

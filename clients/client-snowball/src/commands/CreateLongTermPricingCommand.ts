@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateLongTermPricingRequest,
-  CreateLongTermPricingRequestFilterSensitiveLog,
-  CreateLongTermPricingResult,
-  CreateLongTermPricingResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLongTermPricingCommand,
-  serializeAws_json1_1CreateLongTermPricingCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLongTermPricingRequest, CreateLongTermPricingResult } from "../models/models_0";
+import { de_CreateLongTermPricingCommand, se_CreateLongTermPricingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLongTermPricingCommand}.
  */
 export interface CreateLongTermPricingCommandInput extends CreateLongTermPricingRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLongTermPricingCommand}.
  */
 export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job with the long-term usage option for a device. The long-term usage is a
  *       1-year or 3-year long-term pricing type for the device. You are billed upfront, and Amazon Web Services provides discounts for long-term pricing.
  *       </p>
@@ -44,10 +41,17 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
  * import { SnowballClient, CreateLongTermPricingCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CreateLongTermPricingCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // CreateLongTermPricingRequest
+ *   LongTermPricingType: "OneYear" || "ThreeYear" || "OneMonth", // required
+ *   IsLongTermPricingAutoRenew: true || false,
+ *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ * };
  * const command = new CreateLongTermPricingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLongTermPricingCommandInput - {@link CreateLongTermPricingCommandInput}
+ * @returns {@link CreateLongTermPricingCommandOutput}
  * @see {@link CreateLongTermPricingCommandInput} for command's `input` shape.
  * @see {@link CreateLongTermPricingCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -75,6 +79,9 @@ export class CreateLongTermPricingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLongTermPricingCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +110,8 @@ export class CreateLongTermPricingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLongTermPricingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLongTermPricingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +121,18 @@ export class CreateLongTermPricingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLongTermPricingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLongTermPricingCommand(input, context);
+    return se_CreateLongTermPricingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLongTermPricingCommandOutput> {
-    return deserializeAws_json1_1CreateLongTermPricingCommand(output, context);
+    return de_CreateLongTermPricingCommand(output, context);
   }
 
   // Start section: command_body_extra

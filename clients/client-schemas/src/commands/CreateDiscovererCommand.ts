@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDiscovererRequest,
-  CreateDiscovererRequestFilterSensitiveLog,
-  CreateDiscovererResponse,
-  CreateDiscovererResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDiscovererCommand,
-  serializeAws_restJson1CreateDiscovererCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDiscovererRequest, CreateDiscovererResponse } from "../models/models_0";
+import { de_CreateDiscovererCommand, se_CreateDiscovererCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDiscovererCommand}.
  */
 export interface CreateDiscovererCommandInput extends CreateDiscovererRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDiscovererCommand}.
  */
 export interface CreateDiscovererCommandOutput extends CreateDiscovererResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a discoverer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface CreateDiscovererCommandOutput extends CreateDiscovererResponse,
  * import { SchemasClient, CreateDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, CreateDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // CreateDiscovererRequest
+ *   Description: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE", // required
+ *   CrossAccount: true || false,
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDiscovererCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDiscovererCommandInput - {@link CreateDiscovererCommandInput}
+ * @returns {@link CreateDiscovererCommandOutput}
  * @see {@link CreateDiscovererCommandInput} for command's `input` shape.
  * @see {@link CreateDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateDiscovererCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDiscovererCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class CreateDiscovererCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDiscovererRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDiscovererResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class CreateDiscovererCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDiscovererCommand(input, context);
+    return se_CreateDiscovererCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDiscovererCommandOutput> {
-    return deserializeAws_restJson1CreateDiscovererCommand(output, context);
+    return de_CreateDiscovererCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import {
-  UpdateEnrollmentStatusRequest,
-  UpdateEnrollmentStatusRequestFilterSensitiveLog,
-  UpdateEnrollmentStatusResponse,
-  UpdateEnrollmentStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateEnrollmentStatusCommand,
-  serializeAws_json1_0UpdateEnrollmentStatusCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateEnrollmentStatusRequest, UpdateEnrollmentStatusResponse } from "../models/models_0";
+import { de_UpdateEnrollmentStatusCommand, se_UpdateEnrollmentStatusCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEnrollmentStatusCommand}.
  */
 export interface UpdateEnrollmentStatusCommandInput extends UpdateEnrollmentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEnrollmentStatusCommand}.
  */
 export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the enrollment (opt in and opt out) status of an account to the Compute Optimizer service.</p>
  *          <p>If the account is a management account of an organization, this action can also be
  *             used to enroll member accounts of the organization.</p>
@@ -49,10 +46,16 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  * import { ComputeOptimizerClient, UpdateEnrollmentStatusCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, UpdateEnrollmentStatusCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // UpdateEnrollmentStatusRequest
+ *   status: "Active" || "Inactive" || "Pending" || "Failed", // required
+ *   includeMemberAccounts: true || false,
+ * };
  * const command = new UpdateEnrollmentStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnrollmentStatusCommandInput - {@link UpdateEnrollmentStatusCommandInput}
+ * @returns {@link UpdateEnrollmentStatusCommandOutput}
  * @see {@link UpdateEnrollmentStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateEnrollmentStatusCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -95,6 +98,9 @@ export class UpdateEnrollmentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnrollmentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class UpdateEnrollmentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEnrollmentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEnrollmentStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class UpdateEnrollmentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEnrollmentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateEnrollmentStatusCommand(input, context);
+    return se_UpdateEnrollmentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnrollmentStatusCommandOutput> {
-    return deserializeAws_json1_0UpdateEnrollmentStatusCommand(output, context);
+    return de_UpdateEnrollmentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

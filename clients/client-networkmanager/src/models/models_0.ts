@@ -7,6 +7,9 @@ import {
 
 import { NetworkManagerServiceException as __BaseException } from "./NetworkManagerServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptAttachmentRequest {
   /**
    * <p>The ID of the attachment. </p>
@@ -14,14 +17,24 @@ export interface AcceptAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
-export enum AttachmentType {
-  CONNECT = "CONNECT",
-  SITE_TO_SITE_VPN = "SITE_TO_SITE_VPN",
-  TRANSIT_GATEWAY_ROUTE_TABLE = "TRANSIT_GATEWAY_ROUTE_TABLE",
-  VPC = "VPC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AttachmentType = {
+  CONNECT: "CONNECT",
+  SITE_TO_SITE_VPN: "SITE_TO_SITE_VPN",
+  TRANSIT_GATEWAY_ROUTE_TABLE: "TRANSIT_GATEWAY_ROUTE_TABLE",
+  VPC: "VPC",
+} as const;
 
 /**
+ * @public
+ */
+export type AttachmentType = (typeof AttachmentType)[keyof typeof AttachmentType];
+
+/**
+ * @public
  * <p>Describes a tag.</p>
  */
 export interface Tag {
@@ -39,6 +52,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Describes a proposed segment change. In some cases, the segment change must first be evaluated and accepted. </p>
  */
 export interface ProposedSegmentChange {
@@ -58,19 +72,29 @@ export interface ProposedSegmentChange {
   SegmentName?: string;
 }
 
-export enum AttachmentState {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING_ATTACHMENT_ACCEPTANCE = "PENDING_ATTACHMENT_ACCEPTANCE",
-  PENDING_NETWORK_UPDATE = "PENDING_NETWORK_UPDATE",
-  PENDING_TAG_ACCEPTANCE = "PENDING_TAG_ACCEPTANCE",
-  REJECTED = "REJECTED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AttachmentState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING_ATTACHMENT_ACCEPTANCE: "PENDING_ATTACHMENT_ACCEPTANCE",
+  PENDING_NETWORK_UPDATE: "PENDING_NETWORK_UPDATE",
+  PENDING_TAG_ACCEPTANCE: "PENDING_TAG_ACCEPTANCE",
+  REJECTED: "REJECTED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type AttachmentState = (typeof AttachmentState)[keyof typeof AttachmentState];
+
+/**
+ * @public
  * <p>Describes a core network attachment.</p>
  */
 export interface Attachment {
@@ -145,6 +169,9 @@ export interface Attachment {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AcceptAttachmentResponse {
   /**
    * <p>The response to the attachment request. </p>
@@ -153,6 +180,7 @@ export interface AcceptAttachmentResponse {
 }
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -174,6 +202,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was a conflict processing the request. Updating or deleting the resource can
  *             cause an inconsistent state.</p>
  */
@@ -207,6 +236,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request has failed due to an internal error.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -233,6 +263,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource could not be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -271,6 +302,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -297,6 +329,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a validation exception for a field.</p>
  */
 export interface ValidationExceptionField {
@@ -311,14 +344,24 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CannotParse",
-  FIELD_VALIDATION_FAILED = "FieldValidationFailed",
-  OTHER = "Other",
-  UNKNOWN_OPERATION = "UnknownOperation",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CannotParse",
+  FIELD_VALIDATION_FAILED: "FieldValidationFailed",
+  OTHER: "Other",
+  UNKNOWN_OPERATION: "UnknownOperation",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The input fails to satisfy the constraints.</p>
  */
 export class ValidationException extends __BaseException {
@@ -351,6 +394,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes the current status of an account within an Amazon Web Services Organization, including service-linked roles (SLRs).</p>
  */
 export interface AccountStatus {
@@ -365,6 +409,9 @@ export interface AccountStatus {
   SLRDeploymentStatus?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateConnectPeerRequest {
   /**
    * <p>The ID of your global network.</p>
@@ -387,14 +434,25 @@ export interface AssociateConnectPeerRequest {
   LinkId?: string;
 }
 
-export enum ConnectPeerAssociationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  pending = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectPeerAssociationState = {
+  available: "AVAILABLE",
+  deleted: "DELETED",
+  deleting: "DELETING",
+  pending: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectPeerAssociationState =
+  (typeof ConnectPeerAssociationState)[keyof typeof ConnectPeerAssociationState];
+
+/**
+ * @public
  * <p>Describes a core network Connect peer association.</p>
  */
 export interface ConnectPeerAssociation {
@@ -424,6 +482,9 @@ export interface ConnectPeerAssociation {
   State?: ConnectPeerAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateConnectPeerResponse {
   /**
    * <p>The response to the Connect peer request.</p>
@@ -432,6 +493,7 @@ export interface AssociateConnectPeerResponse {
 }
 
 /**
+ * @public
  * <p>A service limit was exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -479,6 +541,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateCustomerGatewayRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the customer gateway.</p>
@@ -501,14 +566,25 @@ export interface AssociateCustomerGatewayRequest {
   LinkId?: string;
 }
 
-export enum CustomerGatewayAssociationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  pending = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomerGatewayAssociationState = {
+  available: "AVAILABLE",
+  deleted: "DELETED",
+  deleting: "DELETING",
+  pending: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomerGatewayAssociationState =
+  (typeof CustomerGatewayAssociationState)[keyof typeof CustomerGatewayAssociationState];
+
+/**
+ * @public
  * <p>Describes the association between a customer gateway, a device, and a link.</p>
  */
 export interface CustomerGatewayAssociation {
@@ -538,6 +614,9 @@ export interface CustomerGatewayAssociation {
   State?: CustomerGatewayAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateCustomerGatewayResponse {
   /**
    * <p>The customer gateway association.</p>
@@ -545,6 +624,9 @@ export interface AssociateCustomerGatewayResponse {
   CustomerGatewayAssociation?: CustomerGatewayAssociation;
 }
 
+/**
+ * @public
+ */
 export interface AssociateLinkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -562,14 +644,24 @@ export interface AssociateLinkRequest {
   LinkId: string | undefined;
 }
 
-export enum LinkAssociationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  pending = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LinkAssociationState = {
+  available: "AVAILABLE",
+  deleted: "DELETED",
+  deleting: "DELETING",
+  pending: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type LinkAssociationState = (typeof LinkAssociationState)[keyof typeof LinkAssociationState];
+
+/**
+ * @public
  * <p>Describes the association between a device and a link.</p>
  */
 export interface LinkAssociation {
@@ -594,6 +686,9 @@ export interface LinkAssociation {
   LinkAssociationState?: LinkAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateLinkResponse {
   /**
    * <p>The link association.</p>
@@ -601,6 +696,9 @@ export interface AssociateLinkResponse {
   LinkAssociation?: LinkAssociation;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayConnectPeerRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -623,14 +721,25 @@ export interface AssociateTransitGatewayConnectPeerRequest {
   LinkId?: string;
 }
 
-export enum TransitGatewayConnectPeerAssociationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  pending = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayConnectPeerAssociationState = {
+  available: "AVAILABLE",
+  deleted: "DELETED",
+  deleting: "DELETING",
+  pending: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type TransitGatewayConnectPeerAssociationState =
+  (typeof TransitGatewayConnectPeerAssociationState)[keyof typeof TransitGatewayConnectPeerAssociationState];
+
+/**
+ * @public
  * <p>Describes a transit gateway Connect peer association.</p>
  */
 export interface TransitGatewayConnectPeerAssociation {
@@ -660,6 +769,9 @@ export interface TransitGatewayConnectPeerAssociation {
   State?: TransitGatewayConnectPeerAssociationState | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateTransitGatewayConnectPeerResponse {
   /**
    * <p>The transit gateway Connect peer association.</p>
@@ -668,6 +780,7 @@ export interface AssociateTransitGatewayConnectPeerResponse {
 }
 
 /**
+ * @public
  * <p>Specifies a location in Amazon Web Services.</p>
  */
 export interface AWSLocation {
@@ -684,6 +797,7 @@ export interface AWSLocation {
 }
 
 /**
+ * @public
  * <p>Describes bandwidth information.</p>
  */
 export interface Bandwidth {
@@ -699,6 +813,7 @@ export interface Bandwidth {
 }
 
 /**
+ * @public
  * <p>Describes the BGP options.</p>
  */
 export interface BgpOptions {
@@ -708,45 +823,91 @@ export interface BgpOptions {
   PeerAsn?: number;
 }
 
-export enum ChangeAction {
-  ADD = "ADD",
-  MODIFY = "MODIFY",
-  REMOVE = "REMOVE",
-}
-
-export enum ChangeSetState {
-  EXECUTING = "EXECUTING",
-  EXECUTION_SUCCEEDED = "EXECUTION_SUCCEEDED",
-  FAILED_GENERATION = "FAILED_GENERATION",
-  OUT_OF_DATE = "OUT_OF_DATE",
-  PENDING_GENERATION = "PENDING_GENERATION",
-  READY_TO_EXECUTE = "READY_TO_EXECUTE",
-}
-
-export enum ChangeStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
-
-export enum ChangeType {
-  ATTACHMENT_MAPPING = "ATTACHMENT_MAPPING",
-  ATTACHMENT_POLICIES_CONFIGURATION = "ATTACHMENT_POLICIES_CONFIGURATION",
-  ATTACHMENT_ROUTE_PROPAGATION = "ATTACHMENT_ROUTE_PROPAGATION",
-  ATTACHMENT_ROUTE_STATIC = "ATTACHMENT_ROUTE_STATIC",
-  CORE_NETWORK_CONFIGURATION = "CORE_NETWORK_CONFIGURATION",
-  CORE_NETWORK_EDGE = "CORE_NETWORK_EDGE",
-  CORE_NETWORK_SEGMENT = "CORE_NETWORK_SEGMENT",
-  SEGMENTS_CONFIGURATION = "SEGMENTS_CONFIGURATION",
-  SEGMENT_ACTIONS_CONFIGURATION = "SEGMENT_ACTIONS_CONFIGURATION",
-}
-
-export enum TunnelProtocol {
-  GRE = "GRE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeAction = {
+  ADD: "ADD",
+  MODIFY: "MODIFY",
+  REMOVE: "REMOVE",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeSetState = {
+  EXECUTING: "EXECUTING",
+  EXECUTION_SUCCEEDED: "EXECUTION_SUCCEEDED",
+  FAILED_GENERATION: "FAILED_GENERATION",
+  OUT_OF_DATE: "OUT_OF_DATE",
+  PENDING_GENERATION: "PENDING_GENERATION",
+  READY_TO_EXECUTE: "READY_TO_EXECUTE",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeSetState = (typeof ChangeSetState)[keyof typeof ChangeSetState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeStatus = (typeof ChangeStatus)[keyof typeof ChangeStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeType = {
+  ATTACHMENT_MAPPING: "ATTACHMENT_MAPPING",
+  ATTACHMENT_POLICIES_CONFIGURATION: "ATTACHMENT_POLICIES_CONFIGURATION",
+  ATTACHMENT_ROUTE_PROPAGATION: "ATTACHMENT_ROUTE_PROPAGATION",
+  ATTACHMENT_ROUTE_STATIC: "ATTACHMENT_ROUTE_STATIC",
+  CORE_NETWORK_CONFIGURATION: "CORE_NETWORK_CONFIGURATION",
+  CORE_NETWORK_EDGE: "CORE_NETWORK_EDGE",
+  CORE_NETWORK_SEGMENT: "CORE_NETWORK_SEGMENT",
+  SEGMENTS_CONFIGURATION: "SEGMENTS_CONFIGURATION",
+  SEGMENT_ACTIONS_CONFIGURATION: "SEGMENT_ACTIONS_CONFIGURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TunnelProtocol = {
+  GRE: "GRE",
+} as const;
+
+/**
+ * @public
+ */
+export type TunnelProtocol = (typeof TunnelProtocol)[keyof typeof TunnelProtocol];
+
+/**
+ * @public
  * <p>Describes a core network Connect attachment options.</p>
  */
 export interface ConnectAttachmentOptions {
@@ -757,6 +918,7 @@ export interface ConnectAttachmentOptions {
 }
 
 /**
+ * @public
  * <p>Describes a core network Connect attachment.</p>
  */
 export interface ConnectAttachment {
@@ -776,14 +938,24 @@ export interface ConnectAttachment {
   Options?: ConnectAttachmentOptions;
 }
 
-export enum ConnectionState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionState = {
+  available: "AVAILABLE",
+  deleting: "DELETING",
+  pending: "PENDING",
+  updating: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectionState = (typeof ConnectionState)[keyof typeof ConnectionState];
+
+/**
+ * @public
  * <p>Describes a connection.</p>
  */
 export interface Connection {
@@ -843,17 +1015,36 @@ export interface Connection {
   Tags?: Tag[];
 }
 
-export enum ConnectionStatus {
-  DOWN = "DOWN",
-  UP = "UP",
-}
-
-export enum ConnectionType {
-  BGP = "BGP",
-  IPSEC = "IPSEC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionStatus = {
+  DOWN: "DOWN",
+  UP: "UP",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionType = {
+  BGP: "BGP",
+  IPSEC: "IPSEC",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * @public
  * <p>Describes connection health.</p>
  */
 export interface ConnectionHealth {
@@ -874,6 +1065,7 @@ export interface ConnectionHealth {
 }
 
 /**
+ * @public
  * <p>Describes a core network BGP configuration.</p>
  */
 export interface ConnectPeerBgpConfiguration {
@@ -899,6 +1091,7 @@ export interface ConnectPeerBgpConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes a core network Connect peer configuration.</p>
  */
 export interface ConnectPeerConfiguration {
@@ -928,14 +1121,24 @@ export interface ConnectPeerConfiguration {
   BgpConfigurations?: ConnectPeerBgpConfiguration[];
 }
 
-export enum ConnectPeerState {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectPeerState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectPeerState = (typeof ConnectPeerState)[keyof typeof ConnectPeerState];
+
+/**
+ * @public
  * <p>Describes a core network Connect peer.</p>
  */
 export interface ConnectPeer {
@@ -981,6 +1184,7 @@ export interface ConnectPeer {
 }
 
 /**
+ * @public
  * <p>Summary description of a Connect peer.</p>
  */
 export interface ConnectPeerSummary {
@@ -1021,6 +1225,7 @@ export interface ConnectPeerSummary {
 }
 
 /**
+ * @public
  * <p>Describes a core network edge.</p>
  */
 export interface CoreNetworkEdge {
@@ -1041,6 +1246,7 @@ export interface CoreNetworkEdge {
 }
 
 /**
+ * @public
  * <p>Describes a core network segment, which are dedicated routes. Only attachments within this segment can communicate with each other.</p>
  */
 export interface CoreNetworkSegment {
@@ -1060,14 +1266,24 @@ export interface CoreNetworkSegment {
   SharedSegments?: string[];
 }
 
-export enum CoreNetworkState {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CoreNetworkState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type CoreNetworkState = (typeof CoreNetworkState)[keyof typeof CoreNetworkState];
+
+/**
+ * @public
  * <p>Describes a core network.</p>
  */
 export interface CoreNetwork {
@@ -1118,6 +1334,7 @@ export interface CoreNetwork {
 }
 
 /**
+ * @public
  * <p>Describes a core network change.</p>
  */
 export interface CoreNetworkChangeValues {
@@ -1158,6 +1375,7 @@ export interface CoreNetworkChangeValues {
 }
 
 /**
+ * @public
  * <p>Details describing a core network change.</p>
  */
 export interface CoreNetworkChange {
@@ -1193,6 +1411,7 @@ export interface CoreNetworkChange {
 }
 
 /**
+ * @public
  * <p>Describes a core network change event.</p>
  */
 export interface CoreNetworkChangeEventValues {
@@ -1218,6 +1437,7 @@ export interface CoreNetworkChangeEventValues {
 }
 
 /**
+ * @public
  * <p>Describes a core network change event. This can be a change to a segment, attachment, route, etc.</p>
  */
 export interface CoreNetworkChangeEvent {
@@ -1252,12 +1472,22 @@ export interface CoreNetworkChangeEvent {
   Values?: CoreNetworkChangeEventValues;
 }
 
-export enum CoreNetworkPolicyAlias {
-  LATEST = "LATEST",
-  LIVE = "LIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CoreNetworkPolicyAlias = {
+  LATEST: "LATEST",
+  LIVE: "LIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type CoreNetworkPolicyAlias = (typeof CoreNetworkPolicyAlias)[keyof typeof CoreNetworkPolicyAlias];
+
+/**
+ * @public
  * <p>Provides details about an error in a core network policy.</p>
  */
 export interface CoreNetworkPolicyError {
@@ -1278,6 +1508,7 @@ export interface CoreNetworkPolicyError {
 }
 
 /**
+ * @public
  * <p>Describes a core network policy. You can have only one LIVE Core Policy.</p>
  */
 export interface CoreNetworkPolicy {
@@ -1323,6 +1554,7 @@ export interface CoreNetworkPolicy {
 }
 
 /**
+ * @public
  * <p>Describes a core network policy exception.</p>
  */
 export class CoreNetworkPolicyException extends __BaseException {
@@ -1349,6 +1581,7 @@ export class CoreNetworkPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a core network policy version.</p>
  */
 export interface CoreNetworkPolicyVersion {
@@ -1384,6 +1617,7 @@ export interface CoreNetworkPolicyVersion {
 }
 
 /**
+ * @public
  * <p>Returns details about a core network edge.</p>
  */
 export interface CoreNetworkSegmentEdgeIdentifier {
@@ -1404,6 +1638,7 @@ export interface CoreNetworkSegmentEdgeIdentifier {
 }
 
 /**
+ * @public
  * <p>Returns summary information about a core network.</p>
  */
 export interface CoreNetworkSummary {
@@ -1443,6 +1678,9 @@ export interface CoreNetworkSummary {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectAttachmentRequest {
   /**
    * <p>The ID of a core network where you want to create the attachment. </p>
@@ -1475,6 +1713,9 @@ export interface CreateConnectAttachmentRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectAttachmentResponse {
   /**
    * <p>The response to a Connect attachment request.</p>
@@ -1482,6 +1723,9 @@ export interface CreateConnectAttachmentResponse {
   ConnectAttachment?: ConnectAttachment;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -1520,6 +1764,9 @@ export interface CreateConnectionRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectionResponse {
   /**
    * <p>Information about the connection.</p>
@@ -1527,6 +1774,9 @@ export interface CreateConnectionResponse {
   Connection?: Connection;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectPeerRequest {
   /**
    * <p>The ID of the connection attachment.</p>
@@ -1564,6 +1814,9 @@ export interface CreateConnectPeerRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectPeerResponse {
   /**
    * <p>The response to the request.</p>
@@ -1571,6 +1824,9 @@ export interface CreateConnectPeerResponse {
   ConnectPeer?: ConnectPeer;
 }
 
+/**
+ * @public
+ */
 export interface CreateCoreNetworkRequest {
   /**
    * <p>The ID of the global network that a core network will be a part of. </p>
@@ -1598,6 +1854,9 @@ export interface CreateCoreNetworkRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCoreNetworkResponse {
   /**
    * <p>Returns details about a core network.</p>
@@ -1606,6 +1865,7 @@ export interface CreateCoreNetworkResponse {
 }
 
 /**
+ * @public
  * <p>Describes a location.</p>
  */
 export interface Location {
@@ -1625,6 +1885,9 @@ export interface Location {
   Longitude?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateDeviceRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -1681,14 +1944,24 @@ export interface CreateDeviceRequest {
   Tags?: Tag[];
 }
 
-export enum DeviceState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceState = {
+  available: "AVAILABLE",
+  deleting: "DELETING",
+  pending: "PENDING",
+  updating: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceState = (typeof DeviceState)[keyof typeof DeviceState];
+
+/**
+ * @public
  * <p>Describes a device.</p>
  */
 export interface Device {
@@ -1763,6 +2036,9 @@ export interface Device {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDeviceResponse {
   /**
    * <p>Information about the device.</p>
@@ -1770,6 +2046,9 @@ export interface CreateDeviceResponse {
   Device?: Device;
 }
 
+/**
+ * @public
+ */
 export interface CreateGlobalNetworkRequest {
   /**
    * <p>A description of the global network.</p>
@@ -1783,14 +2062,24 @@ export interface CreateGlobalNetworkRequest {
   Tags?: Tag[];
 }
 
-export enum GlobalNetworkState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GlobalNetworkState = {
+  available: "AVAILABLE",
+  deleting: "DELETING",
+  pending: "PENDING",
+  updating: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type GlobalNetworkState = (typeof GlobalNetworkState)[keyof typeof GlobalNetworkState];
+
+/**
+ * @public
  * <p>Describes a global network. This is a single private network acting as a high-level container for your network objects, including an Amazon Web Services-managed Core Network.</p>
  */
 export interface GlobalNetwork {
@@ -1825,6 +2114,9 @@ export interface GlobalNetwork {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateGlobalNetworkResponse {
   /**
    * <p>Information about the global network object.</p>
@@ -1832,6 +2124,9 @@ export interface CreateGlobalNetworkResponse {
   GlobalNetwork?: GlobalNetwork;
 }
 
+/**
+ * @public
+ */
 export interface CreateLinkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -1872,14 +2167,24 @@ export interface CreateLinkRequest {
   Tags?: Tag[];
 }
 
-export enum LinkState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LinkState = {
+  available: "AVAILABLE",
+  deleting: "DELETING",
+  pending: "PENDING",
+  updating: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type LinkState = (typeof LinkState)[keyof typeof LinkState];
+
+/**
+ * @public
  * <p>Describes a link.</p>
  */
 export interface Link {
@@ -1939,6 +2244,9 @@ export interface Link {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLinkResponse {
   /**
    * <p>Information about the link.</p>
@@ -1946,6 +2254,9 @@ export interface CreateLinkResponse {
   Link?: Link;
 }
 
+/**
+ * @public
+ */
 export interface CreateSiteRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -1983,14 +2294,24 @@ export interface CreateSiteRequest {
   Tags?: Tag[];
 }
 
-export enum SiteState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SiteState = {
+  available: "AVAILABLE",
+  deleting: "DELETING",
+  pending: "PENDING",
+  updating: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type SiteState = (typeof SiteState)[keyof typeof SiteState];
+
+/**
+ * @public
  * <p>Describes a site.</p>
  */
 export interface Site {
@@ -2035,6 +2356,9 @@ export interface Site {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSiteResponse {
   /**
    * <p>Information about the site.</p>
@@ -2042,6 +2366,9 @@ export interface CreateSiteResponse {
   Site?: Site;
 }
 
+/**
+ * @public
+ */
 export interface CreateSiteToSiteVpnAttachmentRequest {
   /**
    * <p>The ID of a core network where you're creating a site-to-site VPN attachment.</p>
@@ -2065,6 +2392,7 @@ export interface CreateSiteToSiteVpnAttachmentRequest {
 }
 
 /**
+ * @public
  * <p>Creates a site-to-site VPN attachment.</p>
  */
 export interface SiteToSiteVpnAttachment {
@@ -2079,6 +2407,9 @@ export interface SiteToSiteVpnAttachment {
   VpnConnectionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSiteToSiteVpnAttachmentResponse {
   /**
    * <p>Details about a site-to-site VPN attachment.</p>
@@ -2086,6 +2417,9 @@ export interface CreateSiteToSiteVpnAttachmentResponse {
   SiteToSiteVpnAttachment?: SiteToSiteVpnAttachment;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayPeeringRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2108,18 +2442,37 @@ export interface CreateTransitGatewayPeeringRequest {
   ClientToken?: string;
 }
 
-export enum PeeringType {
-  TRANSIT_GATEWAY = "TRANSIT_GATEWAY",
-}
-
-export enum PeeringState {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PeeringType = {
+  TRANSIT_GATEWAY: "TRANSIT_GATEWAY",
+} as const;
 
 /**
+ * @public
+ */
+export type PeeringType = (typeof PeeringType)[keyof typeof PeeringType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PeeringState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type PeeringState = (typeof PeeringState)[keyof typeof PeeringState];
+
+/**
+ * @public
  * <p>Describes a peering connection.</p>
  */
 export interface Peering {
@@ -2175,6 +2528,7 @@ export interface Peering {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway peering attachment.</p>
  */
 export interface TransitGatewayPeering {
@@ -2194,6 +2548,9 @@ export interface TransitGatewayPeering {
   TransitGatewayPeeringAttachmentId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayPeeringResponse {
   /**
    * <p>Returns information about the transit gateway peering connection request.</p>
@@ -2201,6 +2558,9 @@ export interface CreateTransitGatewayPeeringResponse {
   TransitGatewayPeering?: TransitGatewayPeering;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayRouteTableAttachmentRequest {
   /**
    * <p>The ID of the peer for the </p>
@@ -2208,7 +2568,7 @@ export interface CreateTransitGatewayRouteTableAttachmentRequest {
   PeeringId: string | undefined;
 
   /**
-   * <p>The ARN of the transit gateway route table for the attachment request.</p>
+   * <p>The ARN of the transit gateway route table for the attachment request. For example, <code>"TransitGatewayRouteTableArn": "arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table/tgw-rtb-9876543210123456"</code>.</p>
    */
   TransitGatewayRouteTableArn: string | undefined;
 
@@ -2224,6 +2584,7 @@ export interface CreateTransitGatewayRouteTableAttachmentRequest {
 }
 
 /**
+ * @public
  * <p>Describes a transit gateway route table attachment.</p>
  */
 export interface TransitGatewayRouteTableAttachment {
@@ -2243,6 +2604,9 @@ export interface TransitGatewayRouteTableAttachment {
   TransitGatewayRouteTableArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTransitGatewayRouteTableAttachmentResponse {
   /**
    * <p>The route table associated with the create transit gateway route table attachment request.</p>
@@ -2251,6 +2615,7 @@ export interface CreateTransitGatewayRouteTableAttachmentResponse {
 }
 
 /**
+ * @public
  * <p>Describes the VPC options.</p>
  */
 export interface VpcOptions {
@@ -2265,6 +2630,9 @@ export interface VpcOptions {
   ApplianceModeSupport?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcAttachmentRequest {
   /**
    * <p>The ID of a core network for the VPC attachment.</p>
@@ -2298,6 +2666,7 @@ export interface CreateVpcAttachmentRequest {
 }
 
 /**
+ * @public
  * <p>Describes a VPC attachment.</p>
  */
 export interface VpcAttachment {
@@ -2317,6 +2686,9 @@ export interface VpcAttachment {
   Options?: VpcOptions;
 }
 
+/**
+ * @public
+ */
 export interface CreateVpcAttachmentResponse {
   /**
    * <p>Provides details about the VPC attachment.</p>
@@ -2324,6 +2696,9 @@ export interface CreateVpcAttachmentResponse {
   VpcAttachment?: VpcAttachment;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAttachmentRequest {
   /**
    * <p>The ID of the attachment to delete.</p>
@@ -2331,6 +2706,9 @@ export interface DeleteAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAttachmentResponse {
   /**
    * <p>Information about the deleted attachment.</p>
@@ -2338,6 +2716,9 @@ export interface DeleteAttachmentResponse {
   Attachment?: Attachment;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2350,6 +2731,9 @@ export interface DeleteConnectionRequest {
   ConnectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectionResponse {
   /**
    * <p>Information about the connection.</p>
@@ -2357,6 +2741,9 @@ export interface DeleteConnectionResponse {
   Connection?: Connection;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectPeerRequest {
   /**
    * <p>The ID of the deleted Connect peer.</p>
@@ -2364,6 +2751,9 @@ export interface DeleteConnectPeerRequest {
   ConnectPeerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectPeerResponse {
   /**
    * <p>Information about the deleted Connect peer.</p>
@@ -2371,6 +2761,9 @@ export interface DeleteConnectPeerResponse {
   ConnectPeer?: ConnectPeer;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoreNetworkRequest {
   /**
    * <p>The network ID of the deleted core network.</p>
@@ -2378,6 +2771,9 @@ export interface DeleteCoreNetworkRequest {
   CoreNetworkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoreNetworkResponse {
   /**
    * <p>Information about the deleted core network.</p>
@@ -2385,6 +2781,9 @@ export interface DeleteCoreNetworkResponse {
   CoreNetwork?: CoreNetwork;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoreNetworkPolicyVersionRequest {
   /**
    * <p>The ID of a core network for the deleted policy.</p>
@@ -2397,6 +2796,9 @@ export interface DeleteCoreNetworkPolicyVersionRequest {
   PolicyVersionId: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCoreNetworkPolicyVersionResponse {
   /**
    * <p>Returns information about the deleted policy version. </p>
@@ -2404,6 +2806,9 @@ export interface DeleteCoreNetworkPolicyVersionResponse {
   CoreNetworkPolicy?: CoreNetworkPolicy;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeviceRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2416,6 +2821,9 @@ export interface DeleteDeviceRequest {
   DeviceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDeviceResponse {
   /**
    * <p>Information about the device.</p>
@@ -2423,6 +2831,9 @@ export interface DeleteDeviceResponse {
   Device?: Device;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGlobalNetworkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2430,6 +2841,9 @@ export interface DeleteGlobalNetworkRequest {
   GlobalNetworkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGlobalNetworkResponse {
   /**
    * <p>Information about the global network.</p>
@@ -2437,6 +2851,9 @@ export interface DeleteGlobalNetworkResponse {
   GlobalNetwork?: GlobalNetwork;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLinkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2449,6 +2866,9 @@ export interface DeleteLinkRequest {
   LinkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLinkResponse {
   /**
    * <p>Information about the link.</p>
@@ -2456,6 +2876,9 @@ export interface DeleteLinkResponse {
   Link?: Link;
 }
 
+/**
+ * @public
+ */
 export interface DeletePeeringRequest {
   /**
    * <p>The ID of the peering connection to delete.</p>
@@ -2463,6 +2886,9 @@ export interface DeletePeeringRequest {
   PeeringId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePeeringResponse {
   /**
    * <p>Information about a deleted peering connection.</p>
@@ -2470,6 +2896,9 @@ export interface DeletePeeringResponse {
   Peering?: Peering;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The ARN of the policy to delete.</p>
@@ -2477,8 +2906,14 @@ export interface DeleteResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSiteRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2491,6 +2926,9 @@ export interface DeleteSiteRequest {
   SiteId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSiteResponse {
   /**
    * <p>Information about the site.</p>
@@ -2498,6 +2936,9 @@ export interface DeleteSiteResponse {
   Site?: Site;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTransitGatewayRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2510,15 +2951,26 @@ export interface DeregisterTransitGatewayRequest {
   TransitGatewayArn: string | undefined;
 }
 
-export enum TransitGatewayRegistrationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  failed = "FAILED",
-  pending = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayRegistrationState = {
+  available: "AVAILABLE",
+  deleted: "DELETED",
+  deleting: "DELETING",
+  failed: "FAILED",
+  pending: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type TransitGatewayRegistrationState =
+  (typeof TransitGatewayRegistrationState)[keyof typeof TransitGatewayRegistrationState];
+
+/**
+ * @public
  * <p>Describes the status of a transit gateway registration.</p>
  */
 export interface TransitGatewayRegistrationStateReason {
@@ -2534,6 +2986,7 @@ export interface TransitGatewayRegistrationStateReason {
 }
 
 /**
+ * @public
  * <p>Describes the registration of a transit gateway to a global network.</p>
  */
 export interface TransitGatewayRegistration {
@@ -2553,6 +3006,9 @@ export interface TransitGatewayRegistration {
   State?: TransitGatewayRegistrationStateReason;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterTransitGatewayResponse {
   /**
    * <p>The transit gateway registration information.</p>
@@ -2560,6 +3016,9 @@ export interface DeregisterTransitGatewayResponse {
   TransitGatewayRegistration?: TransitGatewayRegistration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalNetworksRequest {
   /**
    * <p>The IDs of one or more global networks. The maximum is 10.</p>
@@ -2577,6 +3036,9 @@ export interface DescribeGlobalNetworksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalNetworksResponse {
   /**
    * <p>Information about the global networks.</p>
@@ -2589,6 +3051,9 @@ export interface DescribeGlobalNetworksResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateConnectPeerRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2601,6 +3066,9 @@ export interface DisassociateConnectPeerRequest {
   ConnectPeerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateConnectPeerResponse {
   /**
    * <p>Describes the Connect peer association.</p>
@@ -2608,6 +3076,9 @@ export interface DisassociateConnectPeerResponse {
   ConnectPeerAssociation?: ConnectPeerAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCustomerGatewayRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2620,6 +3091,9 @@ export interface DisassociateCustomerGatewayRequest {
   CustomerGatewayArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateCustomerGatewayResponse {
   /**
    * <p>Information about the customer gateway association.</p>
@@ -2627,6 +3101,9 @@ export interface DisassociateCustomerGatewayResponse {
   CustomerGatewayAssociation?: CustomerGatewayAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateLinkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2644,6 +3121,9 @@ export interface DisassociateLinkRequest {
   LinkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateLinkResponse {
   /**
    * <p>Information about the link association.</p>
@@ -2651,6 +3131,9 @@ export interface DisassociateLinkResponse {
   LinkAssociation?: LinkAssociation;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTransitGatewayConnectPeerRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2663,6 +3146,9 @@ export interface DisassociateTransitGatewayConnectPeerRequest {
   TransitGatewayConnectPeerArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTransitGatewayConnectPeerResponse {
   /**
    * <p>The transit gateway Connect peer association.</p>
@@ -2670,6 +3156,9 @@ export interface DisassociateTransitGatewayConnectPeerResponse {
   TransitGatewayConnectPeerAssociation?: TransitGatewayConnectPeerAssociation;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteCoreNetworkChangeSetRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2682,8 +3171,14 @@ export interface ExecuteCoreNetworkChangeSetRequest {
   PolicyVersionId: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteCoreNetworkChangeSetResponse {}
 
+/**
+ * @public
+ */
 export interface GetConnectAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -2691,6 +3186,9 @@ export interface GetConnectAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectAttachmentResponse {
   /**
    * <p>Details about the Connect attachment.</p>
@@ -2698,6 +3196,9 @@ export interface GetConnectAttachmentResponse {
   ConnectAttachment?: ConnectAttachment;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2725,6 +3226,9 @@ export interface GetConnectionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionsResponse {
   /**
    * <p>Information about the connections.</p>
@@ -2737,6 +3241,9 @@ export interface GetConnectionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectPeerRequest {
   /**
    * <p>The ID of the Connect peer.</p>
@@ -2744,6 +3251,9 @@ export interface GetConnectPeerRequest {
   ConnectPeerId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectPeerResponse {
   /**
    * <p>Returns information about a core network Connect peer.</p>
@@ -2751,6 +3261,9 @@ export interface GetConnectPeerResponse {
   ConnectPeer?: ConnectPeer;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectPeerAssociationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2773,6 +3286,9 @@ export interface GetConnectPeerAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetConnectPeerAssociationsResponse {
   /**
    * <p>Displays a list of Connect peer associations.</p>
@@ -2785,6 +3301,9 @@ export interface GetConnectPeerAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2792,6 +3311,9 @@ export interface GetCoreNetworkRequest {
   CoreNetworkId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkResponse {
   /**
    * <p>Details about a core network.</p>
@@ -2799,6 +3321,9 @@ export interface GetCoreNetworkResponse {
   CoreNetwork?: CoreNetwork;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkChangeEventsRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2821,6 +3346,9 @@ export interface GetCoreNetworkChangeEventsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkChangeEventsResponse {
   /**
    * <p>The response to <code>GetCoreNetworkChangeEventsRequest</code>.</p>
@@ -2833,6 +3361,9 @@ export interface GetCoreNetworkChangeEventsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkChangeSetRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2855,6 +3386,9 @@ export interface GetCoreNetworkChangeSetRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkChangeSetResponse {
   /**
    * <p>Describes a core network changes.</p>
@@ -2867,6 +3401,9 @@ export interface GetCoreNetworkChangeSetResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkPolicyRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -2884,6 +3421,9 @@ export interface GetCoreNetworkPolicyRequest {
   Alias?: CoreNetworkPolicyAlias | string;
 }
 
+/**
+ * @public
+ */
 export interface GetCoreNetworkPolicyResponse {
   /**
    * <p>The details about a core network policy.</p>
@@ -2891,6 +3431,9 @@ export interface GetCoreNetworkPolicyResponse {
   CoreNetworkPolicy?: CoreNetworkPolicy;
 }
 
+/**
+ * @public
+ */
 export interface GetCustomerGatewayAssociationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2913,6 +3456,9 @@ export interface GetCustomerGatewayAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCustomerGatewayAssociationsResponse {
   /**
    * <p>The customer gateway associations.</p>
@@ -2925,6 +3471,9 @@ export interface GetCustomerGatewayAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicesRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2952,6 +3501,9 @@ export interface GetDevicesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDevicesResponse {
   /**
    * <p>The devices.</p>
@@ -2964,6 +3516,9 @@ export interface GetDevicesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLinkAssociationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2991,6 +3546,9 @@ export interface GetLinkAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLinkAssociationsResponse {
   /**
    * <p>The link associations.</p>
@@ -3003,6 +3561,9 @@ export interface GetLinkAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLinksRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3040,6 +3601,9 @@ export interface GetLinksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetLinksResponse {
   /**
    * <p>The links.</p>
@@ -3052,6 +3616,9 @@ export interface GetLinksResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceCountsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3149,6 +3716,7 @@ export interface GetNetworkResourceCountsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a resource count.</p>
  */
 export interface NetworkResourceCount {
@@ -3163,6 +3731,9 @@ export interface NetworkResourceCount {
   Count?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceCountsResponse {
   /**
    * <p>The count of resources.</p>
@@ -3175,6 +3746,9 @@ export interface GetNetworkResourceCountsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceRelationshipsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3297,6 +3871,7 @@ export interface GetNetworkResourceRelationshipsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a resource relationship.</p>
  */
 export interface Relationship {
@@ -3311,6 +3886,9 @@ export interface Relationship {
   To?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourceRelationshipsResponse {
   /**
    * <p>The resource relationships.</p>
@@ -3323,6 +3901,9 @@ export interface GetNetworkResourceRelationshipsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourcesRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3445,6 +4026,7 @@ export interface GetNetworkResourcesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a network resource.</p>
  */
 export interface NetworkResource {
@@ -3578,6 +4160,9 @@ export interface NetworkResource {
   Metadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkResourcesResponse {
   /**
    * <p>The network resources.</p>
@@ -3591,6 +4176,7 @@ export interface GetNetworkResourcesResponse {
 }
 
 /**
+ * @public
  * <p>Describes a route table.</p>
  */
 export interface RouteTableIdentifier {
@@ -3605,16 +4191,37 @@ export interface RouteTableIdentifier {
   CoreNetworkSegmentEdge?: CoreNetworkSegmentEdgeIdentifier;
 }
 
-export enum RouteState {
-  ACTIVE = "ACTIVE",
-  BLACKHOLE = "BLACKHOLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RouteState = {
+  ACTIVE: "ACTIVE",
+  BLACKHOLE: "BLACKHOLE",
+} as const;
 
-export enum RouteType {
-  PROPAGATED = "PROPAGATED",
-  STATIC = "STATIC",
-}
+/**
+ * @public
+ */
+export type RouteState = (typeof RouteState)[keyof typeof RouteState];
 
+/**
+ * @public
+ * @enum
+ */
+export const RouteType = {
+  PROPAGATED: "PROPAGATED",
+  STATIC: "STATIC",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteType = (typeof RouteType)[keyof typeof RouteType];
+
+/**
+ * @public
+ */
 export interface GetNetworkRoutesRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3668,6 +4275,7 @@ export interface GetNetworkRoutesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the destination of a network route.</p>
  */
 export interface NetworkRouteDestination {
@@ -3703,6 +4311,7 @@ export interface NetworkRouteDestination {
 }
 
 /**
+ * @public
  * <p>Describes a network route.</p>
  */
 export interface NetworkRoute {
@@ -3732,11 +4341,23 @@ export interface NetworkRoute {
   Type?: RouteType | string;
 }
 
-export enum RouteTableType {
-  CORE_NETWORK_SEGMENT = "CORE_NETWORK_SEGMENT",
-  TRANSIT_GATEWAY_ROUTE_TABLE = "TRANSIT_GATEWAY_ROUTE_TABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RouteTableType = {
+  CORE_NETWORK_SEGMENT: "CORE_NETWORK_SEGMENT",
+  TRANSIT_GATEWAY_ROUTE_TABLE: "TRANSIT_GATEWAY_ROUTE_TABLE",
+} as const;
 
+/**
+ * @public
+ */
+export type RouteTableType = (typeof RouteTableType)[keyof typeof RouteTableType];
+
+/**
+ * @public
+ */
 export interface GetNetworkRoutesResponse {
   /**
    * <p>The ARN of the route table.</p>
@@ -3764,6 +4385,9 @@ export interface GetNetworkRoutesResponse {
   NetworkRoutes?: NetworkRoute[];
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkTelemetryRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3886,6 +4510,7 @@ export interface GetNetworkTelemetryRequest {
 }
 
 /**
+ * @public
  * <p>Describes the telemetry information for a resource.</p>
  */
 export interface NetworkTelemetry {
@@ -3935,6 +4560,9 @@ export interface NetworkTelemetry {
   Health?: ConnectionHealth;
 }
 
+/**
+ * @public
+ */
 export interface GetNetworkTelemetryResponse {
   /**
    * <p>The network telemetry.</p>
@@ -3947,6 +4575,9 @@ export interface GetNetworkTelemetryResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -3954,6 +4585,9 @@ export interface GetResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcePolicyResponse {
   /**
    * <p>The resource policy document.</p>
@@ -3961,6 +4595,9 @@ export interface GetResourcePolicyResponse {
   PolicyDocument?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteAnalysisRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -3974,6 +4611,7 @@ export interface GetRouteAnalysisRequest {
 }
 
 /**
+ * @public
  * <p>Describes a source or a destination.</p>
  */
 export interface RouteAnalysisEndpointOptions {
@@ -3993,26 +4631,47 @@ export interface RouteAnalysisEndpointOptions {
   IpAddress?: string;
 }
 
-export enum RouteAnalysisCompletionReasonCode {
-  BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND = "BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND",
-  CYCLIC_PATH_DETECTED = "CYCLIC_PATH_DETECTED",
-  INACTIVE_ROUTE_FOR_DESTINATION_FOUND = "INACTIVE_ROUTE_FOR_DESTINATION_FOUND",
-  MAX_HOPS_EXCEEDED = "MAX_HOPS_EXCEEDED",
-  NO_DESTINATION_ARN_PROVIDED = "NO_DESTINATION_ARN_PROVIDED",
-  POSSIBLE_MIDDLEBOX = "POSSIBLE_MIDDLEBOX",
-  ROUTE_NOT_FOUND = "ROUTE_NOT_FOUND",
-  TRANSIT_GATEWAY_ATTACHMENT = "TRANSIT_GATEWAY_ATTACHMENT_ATTACH_ARN_NO_MATCH",
-  TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND = "TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND",
-  TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY = "TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY",
-  TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND = "TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND",
-}
-
-export enum RouteAnalysisCompletionResultCode {
-  CONNECTED = "CONNECTED",
-  NOT_CONNECTED = "NOT_CONNECTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RouteAnalysisCompletionReasonCode = {
+  BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND: "BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND",
+  CYCLIC_PATH_DETECTED: "CYCLIC_PATH_DETECTED",
+  INACTIVE_ROUTE_FOR_DESTINATION_FOUND: "INACTIVE_ROUTE_FOR_DESTINATION_FOUND",
+  MAX_HOPS_EXCEEDED: "MAX_HOPS_EXCEEDED",
+  NO_DESTINATION_ARN_PROVIDED: "NO_DESTINATION_ARN_PROVIDED",
+  POSSIBLE_MIDDLEBOX: "POSSIBLE_MIDDLEBOX",
+  ROUTE_NOT_FOUND: "ROUTE_NOT_FOUND",
+  TRANSIT_GATEWAY_ATTACHMENT: "TRANSIT_GATEWAY_ATTACHMENT_ATTACH_ARN_NO_MATCH",
+  TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND: "TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND",
+  TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY: "TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY",
+  TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND: "TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type RouteAnalysisCompletionReasonCode =
+  (typeof RouteAnalysisCompletionReasonCode)[keyof typeof RouteAnalysisCompletionReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteAnalysisCompletionResultCode = {
+  CONNECTED: "CONNECTED",
+  NOT_CONNECTED: "NOT_CONNECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteAnalysisCompletionResultCode =
+  (typeof RouteAnalysisCompletionResultCode)[keyof typeof RouteAnalysisCompletionResultCode];
+
+/**
+ * @public
  * <p>Describes the status of an analysis at completion.</p>
  */
 export interface RouteAnalysisCompletion {
@@ -4072,6 +4731,7 @@ export interface RouteAnalysisCompletion {
 }
 
 /**
+ * @public
  * <p>Describes a network resource.</p>
  */
 export interface NetworkResourceSummary {
@@ -4107,6 +4767,7 @@ export interface NetworkResourceSummary {
 }
 
 /**
+ * @public
  * <p>Describes a path component.</p>
  */
 export interface PathComponent {
@@ -4127,6 +4788,7 @@ export interface PathComponent {
 }
 
 /**
+ * @public
  * <p>Describes a route analysis path.</p>
  */
 export interface RouteAnalysisPath {
@@ -4141,13 +4803,23 @@ export interface RouteAnalysisPath {
   Path?: PathComponent[];
 }
 
-export enum RouteAnalysisStatus {
-  completed = "COMPLETED",
-  failed = "FAILED",
-  running = "RUNNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RouteAnalysisStatus = {
+  completed: "COMPLETED",
+  failed: "FAILED",
+  running: "RUNNING",
+} as const;
 
 /**
+ * @public
+ */
+export type RouteAnalysisStatus = (typeof RouteAnalysisStatus)[keyof typeof RouteAnalysisStatus];
+
+/**
+ * @public
  * <p>Describes a route analysis.</p>
  */
 export interface RouteAnalysis {
@@ -4208,6 +4880,9 @@ export interface RouteAnalysis {
   ReturnPath?: RouteAnalysisPath;
 }
 
+/**
+ * @public
+ */
 export interface GetRouteAnalysisResponse {
   /**
    * <p>The route analysis.</p>
@@ -4215,6 +4890,9 @@ export interface GetRouteAnalysisResponse {
   RouteAnalysis?: RouteAnalysis;
 }
 
+/**
+ * @public
+ */
 export interface GetSitesRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4237,6 +4915,9 @@ export interface GetSitesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSitesResponse {
   /**
    * <p>The sites.</p>
@@ -4249,6 +4930,9 @@ export interface GetSitesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSiteToSiteVpnAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -4256,6 +4940,9 @@ export interface GetSiteToSiteVpnAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSiteToSiteVpnAttachmentResponse {
   /**
    * <p>Describes the site-to-site attachment.</p>
@@ -4263,6 +4950,9 @@ export interface GetSiteToSiteVpnAttachmentResponse {
   SiteToSiteVpnAttachment?: SiteToSiteVpnAttachment;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayConnectPeerAssociationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4285,6 +4975,9 @@ export interface GetTransitGatewayConnectPeerAssociationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayConnectPeerAssociationsResponse {
   /**
    * <p>Information about the transit gateway Connect peer associations.</p>
@@ -4297,6 +4990,9 @@ export interface GetTransitGatewayConnectPeerAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayPeeringRequest {
   /**
    * <p>The ID of the peering request.</p>
@@ -4304,6 +5000,9 @@ export interface GetTransitGatewayPeeringRequest {
   PeeringId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayPeeringResponse {
   /**
    * <p>Returns information about a transit gateway peering. </p>
@@ -4311,6 +5010,9 @@ export interface GetTransitGatewayPeeringResponse {
   TransitGatewayPeering?: TransitGatewayPeering;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRegistrationsRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4334,6 +5036,9 @@ export interface GetTransitGatewayRegistrationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRegistrationsResponse {
   /**
    * <p>The transit gateway registrations.</p>
@@ -4346,6 +5051,9 @@ export interface GetTransitGatewayRegistrationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRouteTableAttachmentRequest {
   /**
    * <p>The ID of the transit gateway route table attachment.</p>
@@ -4353,6 +5061,9 @@ export interface GetTransitGatewayRouteTableAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTransitGatewayRouteTableAttachmentResponse {
   /**
    * <p>Returns information about the transit gateway route table attachment.</p>
@@ -4360,6 +5071,9 @@ export interface GetTransitGatewayRouteTableAttachmentResponse {
   TransitGatewayRouteTableAttachment?: TransitGatewayRouteTableAttachment;
 }
 
+/**
+ * @public
+ */
 export interface GetVpcAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -4367,6 +5081,9 @@ export interface GetVpcAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetVpcAttachmentResponse {
   /**
    * <p>Returns details about a VPC attachment.</p>
@@ -4374,6 +5091,9 @@ export interface GetVpcAttachmentResponse {
   VpcAttachment?: VpcAttachment;
 }
 
+/**
+ * @public
+ */
 export interface ListAttachmentsRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4406,6 +5126,9 @@ export interface ListAttachmentsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAttachmentsResponse {
   /**
    * <p>Describes the list of attachments.</p>
@@ -4418,6 +5141,9 @@ export interface ListAttachmentsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectPeersRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4440,6 +5166,9 @@ export interface ListConnectPeersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectPeersResponse {
   /**
    * <p>Describes the Connect peers.</p>
@@ -4452,6 +5181,9 @@ export interface ListConnectPeersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoreNetworkPolicyVersionsRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4469,6 +5201,9 @@ export interface ListCoreNetworkPolicyVersionsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoreNetworkPolicyVersionsResponse {
   /**
    * <p>Describes core network policy versions.</p>
@@ -4481,6 +5216,9 @@ export interface ListCoreNetworkPolicyVersionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoreNetworksRequest {
   /**
    * <p>The maximum number of results to return.</p>
@@ -4493,6 +5231,9 @@ export interface ListCoreNetworksRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCoreNetworksResponse {
   /**
    * <p>Describes the list of core networks.</p>
@@ -4505,6 +5246,9 @@ export interface ListCoreNetworksResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationServiceAccessStatusRequest {
   /**
    * <p>The maximum number of results to return.</p>
@@ -4518,6 +5262,7 @@ export interface ListOrganizationServiceAccessStatusRequest {
 }
 
 /**
+ * @public
  * <p>The status of an Amazon Web Services Organization and the accounts within that organization.</p>
  */
 export interface OrganizationStatus {
@@ -4542,6 +5287,9 @@ export interface OrganizationStatus {
   AccountStatusList?: AccountStatus[];
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationServiceAccessStatusResponse {
   /**
    * <p>Displays the status of an Amazon Web Services Organization.</p>
@@ -4554,6 +5302,9 @@ export interface ListOrganizationServiceAccessStatusResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPeeringsRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4586,6 +5337,9 @@ export interface ListPeeringsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPeeringsResponse {
   /**
    * <p>Lists the transit gateway peerings for the <code>ListPeerings</code> request.</p>
@@ -4598,6 +5352,9 @@ export interface ListPeeringsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -4605,6 +5362,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags.</p>
@@ -4612,6 +5372,9 @@ export interface ListTagsForResourceResponse {
   TagList?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutCoreNetworkPolicyRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4639,6 +5402,9 @@ export interface PutCoreNetworkPolicyRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutCoreNetworkPolicyResponse {
   /**
    * <p>Describes the changed core network policy.</p>
@@ -4646,6 +5412,9 @@ export interface PutCoreNetworkPolicyResponse {
   CoreNetworkPolicy?: CoreNetworkPolicy;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>The JSON resource policy document.</p>
@@ -4658,8 +5427,14 @@ export interface PutResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResponse {}
 
+/**
+ * @public
+ */
 export interface RegisterTransitGatewayRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4672,6 +5447,9 @@ export interface RegisterTransitGatewayRequest {
   TransitGatewayArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RegisterTransitGatewayResponse {
   /**
    * <p>Information about the transit gateway registration.</p>
@@ -4679,6 +5457,9 @@ export interface RegisterTransitGatewayResponse {
   TransitGatewayRegistration?: TransitGatewayRegistration;
 }
 
+/**
+ * @public
+ */
 export interface RejectAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -4686,6 +5467,9 @@ export interface RejectAttachmentRequest {
   AttachmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RejectAttachmentResponse {
   /**
    * <p>Describes the rejected attachment request.</p>
@@ -4693,6 +5477,9 @@ export interface RejectAttachmentResponse {
   Attachment?: Attachment;
 }
 
+/**
+ * @public
+ */
 export interface RestoreCoreNetworkPolicyVersionRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4705,6 +5492,9 @@ export interface RestoreCoreNetworkPolicyVersionRequest {
   PolicyVersionId: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RestoreCoreNetworkPolicyVersionResponse {
   /**
    * <p>Describes the restored core network policy.</p>
@@ -4712,6 +5502,9 @@ export interface RestoreCoreNetworkPolicyVersionResponse {
   CoreNetworkPolicy?: CoreNetworkPolicy;
 }
 
+/**
+ * @public
+ */
 export interface StartOrganizationServiceAccessUpdateRequest {
   /**
    * <p>The action to take for the update request. This can be either <code>ENABLE</code> or <code>DISABLE</code>.</p>
@@ -4719,6 +5512,9 @@ export interface StartOrganizationServiceAccessUpdateRequest {
   Action: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartOrganizationServiceAccessUpdateResponse {
   /**
    * <p>The status of the service access update request for an Amazon Web Services Organization.</p>
@@ -4727,6 +5523,7 @@ export interface StartOrganizationServiceAccessUpdateResponse {
 }
 
 /**
+ * @public
  * <p>Describes a source or a destination.</p>
  */
 export interface RouteAnalysisEndpointOptionsSpecification {
@@ -4741,6 +5538,9 @@ export interface RouteAnalysisEndpointOptionsSpecification {
   IpAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartRouteAnalysisRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4769,6 +5569,9 @@ export interface StartRouteAnalysisRequest {
   UseMiddleboxes?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface StartRouteAnalysisResponse {
   /**
    * <p>The route analysis.</p>
@@ -4776,6 +5579,9 @@ export interface StartRouteAnalysisResponse {
   RouteAnalysis?: RouteAnalysis;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -4788,8 +5594,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -4802,8 +5614,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateConnectionRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4832,6 +5650,9 @@ export interface UpdateConnectionRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectionResponse {
   /**
    * <p>Information about the connection.</p>
@@ -4839,6 +5660,9 @@ export interface UpdateConnectionResponse {
   Connection?: Connection;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCoreNetworkRequest {
   /**
    * <p>The ID of a core network.</p>
@@ -4851,6 +5675,9 @@ export interface UpdateCoreNetworkRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCoreNetworkResponse {
   /**
    * <p>Returns information about a core network update.</p>
@@ -4858,6 +5685,9 @@ export interface UpdateCoreNetworkResponse {
   CoreNetwork?: CoreNetwork;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeviceRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4914,6 +5744,9 @@ export interface UpdateDeviceRequest {
   SiteId?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDeviceResponse {
   /**
    * <p>Information about the device.</p>
@@ -4921,6 +5754,9 @@ export interface UpdateDeviceResponse {
   Device?: Device;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalNetworkRequest {
   /**
    * <p>The ID of your global network.</p>
@@ -4934,6 +5770,9 @@ export interface UpdateGlobalNetworkRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalNetworkResponse {
   /**
    * <p>Information about the global network object.</p>
@@ -4941,6 +5780,9 @@ export interface UpdateGlobalNetworkResponse {
   GlobalNetwork?: GlobalNetwork;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLinkRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -4976,6 +5818,9 @@ export interface UpdateLinkRequest {
   Provider?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateLinkResponse {
   /**
    * <p>Information about the link.</p>
@@ -4983,6 +5828,9 @@ export interface UpdateLinkResponse {
   Link?: Link;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkResourceMetadataRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -5000,6 +5848,9 @@ export interface UpdateNetworkResourceMetadataRequest {
   Metadata: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNetworkResourceMetadataResponse {
   /**
    * <p>The ARN of the resource.</p>
@@ -5012,6 +5863,9 @@ export interface UpdateNetworkResourceMetadataResponse {
   Metadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSiteRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -5049,6 +5903,9 @@ export interface UpdateSiteRequest {
   Location?: Location;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSiteResponse {
   /**
    * <p>Information about the site.</p>
@@ -5056,6 +5913,9 @@ export interface UpdateSiteResponse {
   Site?: Site;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcAttachmentRequest {
   /**
    * <p>The ID of the attachment.</p>
@@ -5078,368 +5938,15 @@ export interface UpdateVpcAttachmentRequest {
   Options?: VpcOptions;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVpcAttachmentResponse {
   /**
    * <p>Describes the updated VPC attachment.</p>
    */
   VpcAttachment?: VpcAttachment;
 }
-
-/**
- * @internal
- */
-export const AcceptAttachmentRequestFilterSensitiveLog = (obj: AcceptAttachmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProposedSegmentChangeFilterSensitiveLog = (obj: ProposedSegmentChange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachmentFilterSensitiveLog = (obj: Attachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptAttachmentResponseFilterSensitiveLog = (obj: AcceptAttachmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountStatusFilterSensitiveLog = (obj: AccountStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateConnectPeerRequestFilterSensitiveLog = (obj: AssociateConnectPeerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectPeerAssociationFilterSensitiveLog = (obj: ConnectPeerAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateConnectPeerResponseFilterSensitiveLog = (obj: AssociateConnectPeerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateCustomerGatewayRequestFilterSensitiveLog = (obj: AssociateCustomerGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomerGatewayAssociationFilterSensitiveLog = (obj: CustomerGatewayAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateCustomerGatewayResponseFilterSensitiveLog = (obj: AssociateCustomerGatewayResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateLinkRequestFilterSensitiveLog = (obj: AssociateLinkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LinkAssociationFilterSensitiveLog = (obj: LinkAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateLinkResponseFilterSensitiveLog = (obj: AssociateLinkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTransitGatewayConnectPeerRequestFilterSensitiveLog = (
-  obj: AssociateTransitGatewayConnectPeerRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayConnectPeerAssociationFilterSensitiveLog = (
-  obj: TransitGatewayConnectPeerAssociation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTransitGatewayConnectPeerResponseFilterSensitiveLog = (
-  obj: AssociateTransitGatewayConnectPeerResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AWSLocationFilterSensitiveLog = (obj: AWSLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BandwidthFilterSensitiveLog = (obj: Bandwidth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BgpOptionsFilterSensitiveLog = (obj: BgpOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectAttachmentOptionsFilterSensitiveLog = (obj: ConnectAttachmentOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectAttachmentFilterSensitiveLog = (obj: ConnectAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionFilterSensitiveLog = (obj: Connection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionHealthFilterSensitiveLog = (obj: ConnectionHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectPeerBgpConfigurationFilterSensitiveLog = (obj: ConnectPeerBgpConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectPeerConfigurationFilterSensitiveLog = (obj: ConnectPeerConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectPeerFilterSensitiveLog = (obj: ConnectPeer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectPeerSummaryFilterSensitiveLog = (obj: ConnectPeerSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkEdgeFilterSensitiveLog = (obj: CoreNetworkEdge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkSegmentFilterSensitiveLog = (obj: CoreNetworkSegment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkFilterSensitiveLog = (obj: CoreNetwork): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkChangeValuesFilterSensitiveLog = (obj: CoreNetworkChangeValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkChangeFilterSensitiveLog = (obj: CoreNetworkChange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkChangeEventValuesFilterSensitiveLog = (obj: CoreNetworkChangeEventValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkChangeEventFilterSensitiveLog = (obj: CoreNetworkChangeEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkPolicyErrorFilterSensitiveLog = (obj: CoreNetworkPolicyError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkPolicyFilterSensitiveLog = (obj: CoreNetworkPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkPolicyVersionFilterSensitiveLog = (obj: CoreNetworkPolicyVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkSegmentEdgeIdentifierFilterSensitiveLog = (obj: CoreNetworkSegmentEdgeIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoreNetworkSummaryFilterSensitiveLog = (obj: CoreNetworkSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectAttachmentRequestFilterSensitiveLog = (obj: CreateConnectAttachmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectAttachmentResponseFilterSensitiveLog = (obj: CreateConnectAttachmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectionResponseFilterSensitiveLog = (obj: CreateConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectPeerRequestFilterSensitiveLog = (obj: CreateConnectPeerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConnectPeerResponseFilterSensitiveLog = (obj: CreateConnectPeerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoreNetworkRequestFilterSensitiveLog = (obj: CreateCoreNetworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoreNetworkResponseFilterSensitiveLog = (obj: CreateCoreNetworkResponse): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -5475,48 +5982,6 @@ export const CreateDeviceResponseFilterSensitiveLog = (obj: CreateDeviceResponse
 /**
  * @internal
  */
-export const CreateGlobalNetworkRequestFilterSensitiveLog = (obj: CreateGlobalNetworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalNetworkFilterSensitiveLog = (obj: GlobalNetwork): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGlobalNetworkResponseFilterSensitiveLog = (obj: CreateGlobalNetworkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLinkRequestFilterSensitiveLog = (obj: CreateLinkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LinkFilterSensitiveLog = (obj: Link): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLinkResponseFilterSensitiveLog = (obj: CreateLinkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateSiteRequestFilterSensitiveLog = (obj: CreateSiteRequest): any => ({
   ...obj,
   ...(obj.Location && { Location: SENSITIVE_STRING }),
@@ -5541,261 +6006,9 @@ export const CreateSiteResponseFilterSensitiveLog = (obj: CreateSiteResponse): a
 /**
  * @internal
  */
-export const CreateSiteToSiteVpnAttachmentRequestFilterSensitiveLog = (
-  obj: CreateSiteToSiteVpnAttachmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SiteToSiteVpnAttachmentFilterSensitiveLog = (obj: SiteToSiteVpnAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSiteToSiteVpnAttachmentResponseFilterSensitiveLog = (
-  obj: CreateSiteToSiteVpnAttachmentResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTransitGatewayPeeringRequestFilterSensitiveLog = (obj: CreateTransitGatewayPeeringRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PeeringFilterSensitiveLog = (obj: Peering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayPeeringFilterSensitiveLog = (obj: TransitGatewayPeering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTransitGatewayPeeringResponseFilterSensitiveLog = (
-  obj: CreateTransitGatewayPeeringResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTransitGatewayRouteTableAttachmentRequestFilterSensitiveLog = (
-  obj: CreateTransitGatewayRouteTableAttachmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayRouteTableAttachmentFilterSensitiveLog = (obj: TransitGatewayRouteTableAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTransitGatewayRouteTableAttachmentResponseFilterSensitiveLog = (
-  obj: CreateTransitGatewayRouteTableAttachmentResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcOptionsFilterSensitiveLog = (obj: VpcOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcAttachmentRequestFilterSensitiveLog = (obj: CreateVpcAttachmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcAttachmentFilterSensitiveLog = (obj: VpcAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcAttachmentResponseFilterSensitiveLog = (obj: CreateVpcAttachmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAttachmentRequestFilterSensitiveLog = (obj: DeleteAttachmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAttachmentResponseFilterSensitiveLog = (obj: DeleteAttachmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectionRequestFilterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectionResponseFilterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectPeerRequestFilterSensitiveLog = (obj: DeleteConnectPeerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectPeerResponseFilterSensitiveLog = (obj: DeleteConnectPeerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCoreNetworkRequestFilterSensitiveLog = (obj: DeleteCoreNetworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCoreNetworkResponseFilterSensitiveLog = (obj: DeleteCoreNetworkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCoreNetworkPolicyVersionRequestFilterSensitiveLog = (
-  obj: DeleteCoreNetworkPolicyVersionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCoreNetworkPolicyVersionResponseFilterSensitiveLog = (
-  obj: DeleteCoreNetworkPolicyVersionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeviceRequestFilterSensitiveLog = (obj: DeleteDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteDeviceResponseFilterSensitiveLog = (obj: DeleteDeviceResponse): any => ({
   ...obj,
   ...(obj.Device && { Device: DeviceFilterSensitiveLog(obj.Device) }),
-});
-
-/**
- * @internal
- */
-export const DeleteGlobalNetworkRequestFilterSensitiveLog = (obj: DeleteGlobalNetworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGlobalNetworkResponseFilterSensitiveLog = (obj: DeleteGlobalNetworkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLinkRequestFilterSensitiveLog = (obj: DeleteLinkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLinkResponseFilterSensitiveLog = (obj: DeleteLinkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePeeringRequestFilterSensitiveLog = (obj: DeletePeeringRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePeeringResponseFilterSensitiveLog = (obj: DeletePeeringResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSiteRequestFilterSensitiveLog = (obj: DeleteSiteRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5809,265 +6022,6 @@ export const DeleteSiteResponseFilterSensitiveLog = (obj: DeleteSiteResponse): a
 /**
  * @internal
  */
-export const DeregisterTransitGatewayRequestFilterSensitiveLog = (obj: DeregisterTransitGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayRegistrationStateReasonFilterSensitiveLog = (
-  obj: TransitGatewayRegistrationStateReason
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayRegistrationFilterSensitiveLog = (obj: TransitGatewayRegistration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTransitGatewayResponseFilterSensitiveLog = (obj: DeregisterTransitGatewayResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGlobalNetworksRequestFilterSensitiveLog = (obj: DescribeGlobalNetworksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGlobalNetworksResponseFilterSensitiveLog = (obj: DescribeGlobalNetworksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateConnectPeerRequestFilterSensitiveLog = (obj: DisassociateConnectPeerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateConnectPeerResponseFilterSensitiveLog = (obj: DisassociateConnectPeerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateCustomerGatewayRequestFilterSensitiveLog = (obj: DisassociateCustomerGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateCustomerGatewayResponseFilterSensitiveLog = (
-  obj: DisassociateCustomerGatewayResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateLinkRequestFilterSensitiveLog = (obj: DisassociateLinkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateLinkResponseFilterSensitiveLog = (obj: DisassociateLinkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayConnectPeerRequestFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayConnectPeerRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayConnectPeerResponseFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayConnectPeerResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteCoreNetworkChangeSetRequestFilterSensitiveLog = (obj: ExecuteCoreNetworkChangeSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteCoreNetworkChangeSetResponseFilterSensitiveLog = (
-  obj: ExecuteCoreNetworkChangeSetResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectAttachmentRequestFilterSensitiveLog = (obj: GetConnectAttachmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectAttachmentResponseFilterSensitiveLog = (obj: GetConnectAttachmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectionsRequestFilterSensitiveLog = (obj: GetConnectionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectionsResponseFilterSensitiveLog = (obj: GetConnectionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectPeerRequestFilterSensitiveLog = (obj: GetConnectPeerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectPeerResponseFilterSensitiveLog = (obj: GetConnectPeerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectPeerAssociationsRequestFilterSensitiveLog = (obj: GetConnectPeerAssociationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectPeerAssociationsResponseFilterSensitiveLog = (obj: GetConnectPeerAssociationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoreNetworkRequestFilterSensitiveLog = (obj: GetCoreNetworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoreNetworkResponseFilterSensitiveLog = (obj: GetCoreNetworkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoreNetworkChangeEventsRequestFilterSensitiveLog = (obj: GetCoreNetworkChangeEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoreNetworkChangeEventsResponseFilterSensitiveLog = (obj: GetCoreNetworkChangeEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoreNetworkChangeSetRequestFilterSensitiveLog = (obj: GetCoreNetworkChangeSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoreNetworkChangeSetResponseFilterSensitiveLog = (obj: GetCoreNetworkChangeSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoreNetworkPolicyRequestFilterSensitiveLog = (obj: GetCoreNetworkPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCoreNetworkPolicyResponseFilterSensitiveLog = (obj: GetCoreNetworkPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCustomerGatewayAssociationsRequestFilterSensitiveLog = (
-  obj: GetCustomerGatewayAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCustomerGatewayAssociationsResponseFilterSensitiveLog = (
-  obj: GetCustomerGatewayAssociationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDevicesRequestFilterSensitiveLog = (obj: GetDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetDevicesResponseFilterSensitiveLog = (obj: GetDevicesResponse): any => ({
   ...obj,
   ...(obj.Devices && { Devices: obj.Devices.map((item) => DeviceFilterSensitiveLog(item)) }),
@@ -6076,617 +6030,9 @@ export const GetDevicesResponseFilterSensitiveLog = (obj: GetDevicesResponse): a
 /**
  * @internal
  */
-export const GetLinkAssociationsRequestFilterSensitiveLog = (obj: GetLinkAssociationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLinkAssociationsResponseFilterSensitiveLog = (obj: GetLinkAssociationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLinksRequestFilterSensitiveLog = (obj: GetLinksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLinksResponseFilterSensitiveLog = (obj: GetLinksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkResourceCountsRequestFilterSensitiveLog = (obj: GetNetworkResourceCountsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkResourceCountFilterSensitiveLog = (obj: NetworkResourceCount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkResourceCountsResponseFilterSensitiveLog = (obj: GetNetworkResourceCountsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkResourceRelationshipsRequestFilterSensitiveLog = (
-  obj: GetNetworkResourceRelationshipsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationshipFilterSensitiveLog = (obj: Relationship): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkResourceRelationshipsResponseFilterSensitiveLog = (
-  obj: GetNetworkResourceRelationshipsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkResourcesRequestFilterSensitiveLog = (obj: GetNetworkResourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkResourceFilterSensitiveLog = (obj: NetworkResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkResourcesResponseFilterSensitiveLog = (obj: GetNetworkResourcesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteTableIdentifierFilterSensitiveLog = (obj: RouteTableIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkRoutesRequestFilterSensitiveLog = (obj: GetNetworkRoutesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkRouteDestinationFilterSensitiveLog = (obj: NetworkRouteDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkRouteFilterSensitiveLog = (obj: NetworkRoute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkRoutesResponseFilterSensitiveLog = (obj: GetNetworkRoutesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkTelemetryRequestFilterSensitiveLog = (obj: GetNetworkTelemetryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkTelemetryFilterSensitiveLog = (obj: NetworkTelemetry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkTelemetryResponseFilterSensitiveLog = (obj: GetNetworkTelemetryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePolicyRequestFilterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePolicyResponseFilterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRouteAnalysisRequestFilterSensitiveLog = (obj: GetRouteAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteAnalysisEndpointOptionsFilterSensitiveLog = (obj: RouteAnalysisEndpointOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteAnalysisCompletionFilterSensitiveLog = (obj: RouteAnalysisCompletion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkResourceSummaryFilterSensitiveLog = (obj: NetworkResourceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PathComponentFilterSensitiveLog = (obj: PathComponent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteAnalysisPathFilterSensitiveLog = (obj: RouteAnalysisPath): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteAnalysisFilterSensitiveLog = (obj: RouteAnalysis): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRouteAnalysisResponseFilterSensitiveLog = (obj: GetRouteAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSitesRequestFilterSensitiveLog = (obj: GetSitesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetSitesResponseFilterSensitiveLog = (obj: GetSitesResponse): any => ({
   ...obj,
   ...(obj.Sites && { Sites: obj.Sites.map((item) => SiteFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetSiteToSiteVpnAttachmentRequestFilterSensitiveLog = (obj: GetSiteToSiteVpnAttachmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSiteToSiteVpnAttachmentResponseFilterSensitiveLog = (obj: GetSiteToSiteVpnAttachmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayConnectPeerAssociationsRequestFilterSensitiveLog = (
-  obj: GetTransitGatewayConnectPeerAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayConnectPeerAssociationsResponseFilterSensitiveLog = (
-  obj: GetTransitGatewayConnectPeerAssociationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayPeeringRequestFilterSensitiveLog = (obj: GetTransitGatewayPeeringRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayPeeringResponseFilterSensitiveLog = (obj: GetTransitGatewayPeeringResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayRegistrationsRequestFilterSensitiveLog = (
-  obj: GetTransitGatewayRegistrationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayRegistrationsResponseFilterSensitiveLog = (
-  obj: GetTransitGatewayRegistrationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayRouteTableAttachmentRequestFilterSensitiveLog = (
-  obj: GetTransitGatewayRouteTableAttachmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTransitGatewayRouteTableAttachmentResponseFilterSensitiveLog = (
-  obj: GetTransitGatewayRouteTableAttachmentResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVpcAttachmentRequestFilterSensitiveLog = (obj: GetVpcAttachmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVpcAttachmentResponseFilterSensitiveLog = (obj: GetVpcAttachmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAttachmentsRequestFilterSensitiveLog = (obj: ListAttachmentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAttachmentsResponseFilterSensitiveLog = (obj: ListAttachmentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConnectPeersRequestFilterSensitiveLog = (obj: ListConnectPeersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConnectPeersResponseFilterSensitiveLog = (obj: ListConnectPeersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCoreNetworkPolicyVersionsRequestFilterSensitiveLog = (
-  obj: ListCoreNetworkPolicyVersionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCoreNetworkPolicyVersionsResponseFilterSensitiveLog = (
-  obj: ListCoreNetworkPolicyVersionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCoreNetworksRequestFilterSensitiveLog = (obj: ListCoreNetworksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCoreNetworksResponseFilterSensitiveLog = (obj: ListCoreNetworksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationServiceAccessStatusRequestFilterSensitiveLog = (
-  obj: ListOrganizationServiceAccessStatusRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OrganizationStatusFilterSensitiveLog = (obj: OrganizationStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationServiceAccessStatusResponseFilterSensitiveLog = (
-  obj: ListOrganizationServiceAccessStatusResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPeeringsRequestFilterSensitiveLog = (obj: ListPeeringsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPeeringsResponseFilterSensitiveLog = (obj: ListPeeringsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutCoreNetworkPolicyRequestFilterSensitiveLog = (obj: PutCoreNetworkPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutCoreNetworkPolicyResponseFilterSensitiveLog = (obj: PutCoreNetworkPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterTransitGatewayRequestFilterSensitiveLog = (obj: RegisterTransitGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterTransitGatewayResponseFilterSensitiveLog = (obj: RegisterTransitGatewayResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectAttachmentRequestFilterSensitiveLog = (obj: RejectAttachmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectAttachmentResponseFilterSensitiveLog = (obj: RejectAttachmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreCoreNetworkPolicyVersionRequestFilterSensitiveLog = (
-  obj: RestoreCoreNetworkPolicyVersionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreCoreNetworkPolicyVersionResponseFilterSensitiveLog = (
-  obj: RestoreCoreNetworkPolicyVersionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartOrganizationServiceAccessUpdateRequestFilterSensitiveLog = (
-  obj: StartOrganizationServiceAccessUpdateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartOrganizationServiceAccessUpdateResponseFilterSensitiveLog = (
-  obj: StartOrganizationServiceAccessUpdateResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteAnalysisEndpointOptionsSpecificationFilterSensitiveLog = (
-  obj: RouteAnalysisEndpointOptionsSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRouteAnalysisRequestFilterSensitiveLog = (obj: StartRouteAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartRouteAnalysisResponseFilterSensitiveLog = (obj: StartRouteAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionRequestFilterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectionResponseFilterSensitiveLog = (obj: UpdateConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCoreNetworkRequestFilterSensitiveLog = (obj: UpdateCoreNetworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCoreNetworkResponseFilterSensitiveLog = (obj: UpdateCoreNetworkResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -6708,52 +6054,6 @@ export const UpdateDeviceResponseFilterSensitiveLog = (obj: UpdateDeviceResponse
 /**
  * @internal
  */
-export const UpdateGlobalNetworkRequestFilterSensitiveLog = (obj: UpdateGlobalNetworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGlobalNetworkResponseFilterSensitiveLog = (obj: UpdateGlobalNetworkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLinkRequestFilterSensitiveLog = (obj: UpdateLinkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLinkResponseFilterSensitiveLog = (obj: UpdateLinkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNetworkResourceMetadataRequestFilterSensitiveLog = (
-  obj: UpdateNetworkResourceMetadataRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNetworkResourceMetadataResponseFilterSensitiveLog = (
-  obj: UpdateNetworkResourceMetadataResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateSiteRequestFilterSensitiveLog = (obj: UpdateSiteRequest): any => ({
   ...obj,
   ...(obj.Location && { Location: SENSITIVE_STRING }),
@@ -6765,18 +6065,4 @@ export const UpdateSiteRequestFilterSensitiveLog = (obj: UpdateSiteRequest): any
 export const UpdateSiteResponseFilterSensitiveLog = (obj: UpdateSiteResponse): any => ({
   ...obj,
   ...(obj.Site && { Site: SiteFilterSensitiveLog(obj.Site) }),
-});
-
-/**
- * @internal
- */
-export const UpdateVpcAttachmentRequestFilterSensitiveLog = (obj: UpdateVpcAttachmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVpcAttachmentResponseFilterSensitiveLog = (obj: UpdateVpcAttachmentResponse): any => ({
-  ...obj,
 });

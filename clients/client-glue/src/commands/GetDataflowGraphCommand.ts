@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetDataflowGraphRequest,
-  GetDataflowGraphRequestFilterSensitiveLog,
-  GetDataflowGraphResponse,
-  GetDataflowGraphResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDataflowGraphCommand,
-  serializeAws_json1_1GetDataflowGraphCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDataflowGraphRequest, GetDataflowGraphResponse } from "../models/models_1";
+import { de_GetDataflowGraphCommand, se_GetDataflowGraphCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataflowGraphCommand}.
  */
 export interface GetDataflowGraphCommandInput extends GetDataflowGraphRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataflowGraphCommand}.
  */
 export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transforms a Python script into a directed acyclic graph (DAG). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse,
  * import { GlueClient, GetDataflowGraphCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataflowGraphCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetDataflowGraphRequest
+ *   PythonScript: "STRING_VALUE",
+ * };
  * const command = new GetDataflowGraphCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataflowGraphCommandInput - {@link GetDataflowGraphCommandInput}
+ * @returns {@link GetDataflowGraphCommandOutput}
  * @see {@link GetDataflowGraphCommandInput} for command's `input` shape.
  * @see {@link GetDataflowGraphCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +80,9 @@ export class GetDataflowGraphCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataflowGraphCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class GetDataflowGraphCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataflowGraphRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataflowGraphResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class GetDataflowGraphCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataflowGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataflowGraphCommand(input, context);
+    return se_GetDataflowGraphCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataflowGraphCommandOutput> {
-    return deserializeAws_json1_1GetDataflowGraphCommand(output, context);
+    return de_GetDataflowGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import {
-  ListRecommendationsRequest,
-  ListRecommendationsRequestFilterSensitiveLog,
-  ListRecommendationsResponse,
-  ListRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecommendationsCommand,
-  serializeAws_restJson1ListRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRecommendationsRequest, ListRecommendationsResponse } from "../models/models_0";
+import { de_ListRecommendationsCommand, se_ListRecommendationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecommendationsCommand}.
  */
 export interface ListRecommendationsCommandInput extends ListRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecommendationsCommand}.
  */
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of all recommendations for a completed code review.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * import { CodeGuruReviewerClient, ListRecommendationsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, ListRecommendationsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = { // ListRecommendationsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CodeReviewArn: "STRING_VALUE", // required
+ * };
  * const command = new ListRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecommendationsCommandInput - {@link ListRecommendationsCommandInput}
+ * @returns {@link ListRecommendationsCommandOutput}
  * @see {@link ListRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class ListRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class ListRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecommendationsCommand(input, context);
+    return se_ListRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListRecommendationsCommand(output, context);
+    return de_ListRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

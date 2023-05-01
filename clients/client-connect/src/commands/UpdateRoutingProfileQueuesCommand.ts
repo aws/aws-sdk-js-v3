@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateRoutingProfileQueuesRequest,
-  UpdateRoutingProfileQueuesRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateRoutingProfileQueuesCommand,
-  serializeAws_restJson1UpdateRoutingProfileQueuesCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRoutingProfileQueuesRequest } from "../models/models_1";
+import { de_UpdateRoutingProfileQueuesCommand, se_UpdateRoutingProfileQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoutingProfileQueuesCommand}.
  */
 export interface UpdateRoutingProfileQueuesCommandInput extends UpdateRoutingProfileQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoutingProfileQueuesCommand}.
  */
 export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties associated with a set of queues for a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +39,26 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
  * import { ConnectClient, UpdateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateRoutingProfileQueuesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   RoutingProfileId: "STRING_VALUE", // required
+ *   QueueConfigs: [ // RoutingProfileQueueConfigList // required
+ *     { // RoutingProfileQueueConfig
+ *       QueueReference: { // RoutingProfileQueueReference
+ *         QueueId: "STRING_VALUE", // required
+ *         Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       },
+ *       Priority: Number("int"), // required
+ *       Delay: Number("int"), // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoutingProfileQueuesCommandInput - {@link UpdateRoutingProfileQueuesCommandInput}
+ * @returns {@link UpdateRoutingProfileQueuesCommandOutput}
  * @see {@link UpdateRoutingProfileQueuesCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -82,6 +97,9 @@ export class UpdateRoutingProfileQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoutingProfileQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +128,8 @@ export class UpdateRoutingProfileQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoutingProfileQueuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +139,21 @@ export class UpdateRoutingProfileQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoutingProfileQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoutingProfileQueuesCommand(input, context);
+    return se_UpdateRoutingProfileQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRoutingProfileQueuesCommandOutput> {
-    return deserializeAws_restJson1UpdateRoutingProfileQueuesCommand(output, context);
+    return de_UpdateRoutingProfileQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

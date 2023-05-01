@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
+import { UpdateWorkspaceAuthenticationRequest, UpdateWorkspaceAuthenticationResponse } from "../models/models_0";
 import {
-  UpdateWorkspaceAuthenticationRequest,
-  UpdateWorkspaceAuthenticationRequestFilterSensitiveLog,
-  UpdateWorkspaceAuthenticationResponse,
-  UpdateWorkspaceAuthenticationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkspaceAuthenticationCommand,
-  serializeAws_restJson1UpdateWorkspaceAuthenticationCommand,
+  de_UpdateWorkspaceAuthenticationCommand,
+  se_UpdateWorkspaceAuthenticationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceAuthenticationCommand}.
  */
 export interface UpdateWorkspaceAuthenticationCommandInput extends UpdateWorkspaceAuthenticationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceAuthenticationCommand}.
  */
 export interface UpdateWorkspaceAuthenticationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to define the identity provider (IdP) that this workspace
  *             authenticates users from, using SAML. You can also map SAML assertion attributes to
  *             workspace user information and define which groups in the assertion attribute are to
@@ -51,10 +51,44 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
  * import { GrafanaClient, UpdateWorkspaceAuthenticationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdateWorkspaceAuthenticationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // UpdateWorkspaceAuthenticationRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   authenticationProviders: [ // AuthenticationProviders // required
+ *     "STRING_VALUE",
+ *   ],
+ *   samlConfiguration: { // SamlConfiguration
+ *     idpMetadata: { // IdpMetadata Union: only one key present
+ *       url: "STRING_VALUE",
+ *       xml: "STRING_VALUE",
+ *     },
+ *     assertionAttributes: { // AssertionAttributes
+ *       name: "STRING_VALUE",
+ *       login: "STRING_VALUE",
+ *       email: "STRING_VALUE",
+ *       groups: "STRING_VALUE",
+ *       role: "STRING_VALUE",
+ *       org: "STRING_VALUE",
+ *     },
+ *     roleValues: { // RoleValues
+ *       editor: [ // RoleValueList
+ *         "STRING_VALUE",
+ *       ],
+ *       admin: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     allowedOrganizations: [ // AllowedOrganizations
+ *       "STRING_VALUE",
+ *     ],
+ *     loginValidityDuration: Number("int"),
+ *   },
+ * };
  * const command = new UpdateWorkspaceAuthenticationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceAuthenticationCommandInput - {@link UpdateWorkspaceAuthenticationCommandInput}
+ * @returns {@link UpdateWorkspaceAuthenticationCommandOutput}
  * @see {@link UpdateWorkspaceAuthenticationCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceAuthenticationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -96,6 +130,9 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceAuthenticationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +161,8 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkspaceAuthenticationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkspaceAuthenticationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,15 +172,21 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkspaceAuthenticationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkspaceAuthenticationCommand(input, context);
+    return se_UpdateWorkspaceAuthenticationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateWorkspaceAuthenticationCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkspaceAuthenticationCommand(output, context);
+    return de_UpdateWorkspaceAuthenticationCommand(output, context);
   }
 
   // Start section: command_body_extra

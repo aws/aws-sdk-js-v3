@@ -14,39 +14,33 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  BatchSuspendUserRequest,
-  BatchSuspendUserRequestFilterSensitiveLog,
-  BatchSuspendUserResponse,
-  BatchSuspendUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchSuspendUserCommand,
-  serializeAws_restJson1BatchSuspendUserCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchSuspendUserRequest, BatchSuspendUserResponse } from "../models/models_0";
+import { de_BatchSuspendUserCommand, se_BatchSuspendUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchSuspendUserCommand}.
  */
 export interface BatchSuspendUserCommandInput extends BatchSuspendUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchSuspendUserCommand}.
  */
 export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon Chime
  *             account. For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
  *                 Guide</i>.</p>
- *
  *          <p>Users suspended from a <code>Team</code> account are disassociated from the account,but they
  *             can continue to use Amazon Chime as free users. To remove the suspension from suspended
  *                 <code>Team</code> account users, invite them to the <code>Team</code> account again.
  *             You can use the <a>InviteUsers</a> action to do so.</p>
- *
  *          <p>Users suspended from an <code>EnterpriseLWA</code> account are immediately signed out of
  *             Amazon Chime and can no longer sign in. To remove the suspension from suspended <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a> action.</p>
- *
  *          <p>
  * To sign out users without suspending them, use the
  * <a>LogoutUser</a>
@@ -58,10 +52,18 @@ export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse,
  * import { ChimeClient, BatchSuspendUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, BatchSuspendUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // BatchSuspendUserRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   UserIdList: [ // UserIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchSuspendUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchSuspendUserCommandInput - {@link BatchSuspendUserCommandInput}
+ * @returns {@link BatchSuspendUserCommandOutput}
  * @see {@link BatchSuspendUserCommandInput} for command's `input` shape.
  * @see {@link BatchSuspendUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -106,6 +108,9 @@ export class BatchSuspendUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchSuspendUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +139,8 @@ export class BatchSuspendUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchSuspendUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchSuspendUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +150,18 @@ export class BatchSuspendUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchSuspendUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchSuspendUserCommand(input, context);
+    return se_BatchSuspendUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchSuspendUserCommandOutput> {
-    return deserializeAws_restJson1BatchSuspendUserCommand(output, context);
+    return de_BatchSuspendUserCommand(output, context);
   }
 
   // Start section: command_body_extra

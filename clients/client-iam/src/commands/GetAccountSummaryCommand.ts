@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetAccountSummaryResponse, GetAccountSummaryResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryGetAccountSummaryCommand,
-  serializeAws_queryGetAccountSummaryCommand,
-} from "../protocols/Aws_query";
+import { GetAccountSummaryResponse } from "../models/models_0";
+import { de_GetAccountSummaryCommand, se_GetAccountSummaryCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountSummaryCommand}.
  */
 export interface GetAccountSummaryCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountSummaryCommand}.
  */
 export interface GetAccountSummaryCommandOutput extends GetAccountSummaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about IAM entity usage and IAM quotas in the Amazon Web Services
  *             account.</p>
  *          <p> For information about IAM quotas, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS quotas</a> in the
@@ -40,10 +42,13 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * import { IAMClient, GetAccountSummaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetAccountSummaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {};
  * const command = new GetAccountSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountSummaryCommandInput - {@link GetAccountSummaryCommandInput}
+ * @returns {@link GetAccountSummaryCommandOutput}
  * @see {@link GetAccountSummaryCommandInput} for command's `input` shape.
  * @see {@link GetAccountSummaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -112,6 +117,9 @@ export class GetAccountSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +148,8 @@ export class GetAccountSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetAccountSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +159,18 @@ export class GetAccountSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccountSummaryCommand(input, context);
+    return se_GetAccountSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSummaryCommandOutput> {
-    return deserializeAws_queryGetAccountSummaryCommand(output, context);
+    return de_GetAccountSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

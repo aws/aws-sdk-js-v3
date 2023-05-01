@@ -74,6 +74,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DescribeReportCreationCommandInput
   | GetComplianceSummaryCommandInput
@@ -84,6 +87,9 @@ export type ServiceInputTypes =
   | TagResourcesCommandInput
   | UntagResourcesCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DescribeReportCreationCommandOutput
   | GetComplianceSummaryCommandOutput
@@ -94,6 +100,9 @@ export type ServiceOutputTypes =
   | TagResourcesCommandOutput
   | UntagResourcesCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -101,7 +110,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -210,11 +219,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ResourceGroupsTaggingAPIClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -225,10 +237,15 @@ type ResourceGroupsTaggingAPIClientConfigType = Partial<__SmithyConfiguration<__
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ResourceGroupsTaggingAPIClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ResourceGroupsTaggingAPIClient class constructor that set the region, credentials and other options.
  */
 export interface ResourceGroupsTaggingAPIClientConfig extends ResourceGroupsTaggingAPIClientConfigType {}
 
+/**
+ * @public
+ */
 type ResourceGroupsTaggingAPIClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -239,12 +256,15 @@ type ResourceGroupsTaggingAPIClientResolvedConfigType = __SmithyResolvedConfigur
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ResourceGroupsTaggingAPIClient class. This is resolved and normalized from the {@link ResourceGroupsTaggingAPIClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ResourceGroupsTaggingAPIClient class. This is resolved and normalized from the {@link ResourceGroupsTaggingAPIClientConfig | constructor configuration interface}.
  */
 export interface ResourceGroupsTaggingAPIClientResolvedConfig
   extends ResourceGroupsTaggingAPIClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Resource Groups Tagging API</fullname>
  */
 export class ResourceGroupsTaggingAPIClient extends __Client<

@@ -23,23 +23,24 @@ import {
   AdminSetUserMFAPreferenceRequest,
   AdminSetUserMFAPreferenceRequestFilterSensitiveLog,
   AdminSetUserMFAPreferenceResponse,
-  AdminSetUserMFAPreferenceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminSetUserMFAPreferenceCommand,
-  serializeAws_json1_1AdminSetUserMFAPreferenceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminSetUserMFAPreferenceCommand, se_AdminSetUserMFAPreferenceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminSetUserMFAPreferenceCommand}.
  */
 export interface AdminSetUserMFAPreferenceCommandInput extends AdminSetUserMFAPreferenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminSetUserMFAPreferenceCommand}.
  */
 export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAPreferenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The user's multi-factor authentication (MFA) preference, including which MFA options
  *             are activated, and if any are preferred. Only one factor can be set as preferred. The
  *             preferred MFA factor will be used to authenticate a user if multiple factors are
@@ -51,10 +52,24 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  * import { CognitoIdentityProviderClient, AdminSetUserMFAPreferenceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminSetUserMFAPreferenceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminSetUserMFAPreferenceRequest
+ *   SMSMfaSettings: { // SMSMfaSettingsType
+ *     Enabled: true || false,
+ *     PreferredMfa: true || false,
+ *   },
+ *   SoftwareTokenMfaSettings: { // SoftwareTokenMfaSettingsType
+ *     Enabled: true || false,
+ *     PreferredMfa: true || false,
+ *   },
+ *   Username: "STRING_VALUE", // required
+ *   UserPoolId: "STRING_VALUE", // required
+ * };
  * const command = new AdminSetUserMFAPreferenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminSetUserMFAPreferenceCommandInput - {@link AdminSetUserMFAPreferenceCommandInput}
+ * @returns {@link AdminSetUserMFAPreferenceCommandOutput}
  * @see {@link AdminSetUserMFAPreferenceCommandInput} for command's `input` shape.
  * @see {@link AdminSetUserMFAPreferenceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -101,6 +116,9 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminSetUserMFAPreferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,7 +149,7 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminSetUserMFAPreferenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminSetUserMFAPreferenceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,15 +159,21 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminSetUserMFAPreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminSetUserMFAPreferenceCommand(input, context);
+    return se_AdminSetUserMFAPreferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminSetUserMFAPreferenceCommandOutput> {
-    return deserializeAws_json1_1AdminSetUserMFAPreferenceCommand(output, context);
+    return de_AdminSetUserMFAPreferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

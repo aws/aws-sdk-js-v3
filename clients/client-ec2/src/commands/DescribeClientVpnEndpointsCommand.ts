@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeClientVpnEndpointsRequest,
-  DescribeClientVpnEndpointsRequestFilterSensitiveLog,
-  DescribeClientVpnEndpointsResult,
-  DescribeClientVpnEndpointsResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeClientVpnEndpointsCommand,
-  serializeAws_ec2DescribeClientVpnEndpointsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeClientVpnEndpointsRequest, DescribeClientVpnEndpointsResult } from "../models/models_3";
+import { de_DescribeClientVpnEndpointsCommand, se_DescribeClientVpnEndpointsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClientVpnEndpointsCommand}.
  */
 export interface DescribeClientVpnEndpointsCommandInput extends DescribeClientVpnEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClientVpnEndpointsCommand}.
  */
 export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientVpnEndpointsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Client VPN endpoints in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientV
  * import { EC2Client, DescribeClientVpnEndpointsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeClientVpnEndpointsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeClientVpnEndpointsRequest
+ *   ClientVpnEndpointIds: [ // ClientVpnEndpointIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeClientVpnEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientVpnEndpointsCommandInput - {@link DescribeClientVpnEndpointsCommandInput}
+ * @returns {@link DescribeClientVpnEndpointsCommandOutput}
  * @see {@link DescribeClientVpnEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeClientVpnEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +84,9 @@ export class DescribeClientVpnEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientVpnEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +115,8 @@ export class DescribeClientVpnEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClientVpnEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClientVpnEndpointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +126,21 @@ export class DescribeClientVpnEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClientVpnEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeClientVpnEndpointsCommand(input, context);
+    return se_DescribeClientVpnEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClientVpnEndpointsCommandOutput> {
-    return deserializeAws_ec2DescribeClientVpnEndpointsCommand(output, context);
+    return de_DescribeClientVpnEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

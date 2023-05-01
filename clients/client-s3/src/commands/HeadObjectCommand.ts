@@ -20,22 +20,24 @@ import {
   HeadObjectRequest,
   HeadObjectRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlHeadObjectCommand,
-  serializeAws_restXmlHeadObjectCommand,
-} from "../protocols/Aws_restXml";
+import { de_HeadObjectCommand, se_HeadObjectCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link HeadObjectCommand}.
  */
 export interface HeadObjectCommandInput extends HeadObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link HeadObjectCommand}.
  */
 export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The HEAD action retrieves metadata from an object without returning the object
  *          itself. This action is useful if you're only interested in an object's metadata. To use
  *          HEAD, you must have READ access to the object.</p>
@@ -152,10 +154,29 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * import { S3Client, HeadObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, HeadObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // HeadObjectRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ *   IfModifiedSince: new Date("TIMESTAMP"),
+ *   IfNoneMatch: "STRING_VALUE",
+ *   IfUnmodifiedSince: new Date("TIMESTAMP"),
+ *   Key: "STRING_VALUE", // required
+ *   Range: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   PartNumber: Number("int"),
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ChecksumMode: "ENABLED",
+ * };
  * const command = new HeadObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param HeadObjectCommandInput - {@link HeadObjectCommandInput}
+ * @returns {@link HeadObjectCommandOutput}
  * @see {@link HeadObjectCommandInput} for command's `input` shape.
  * @see {@link HeadObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -211,6 +232,9 @@ export class HeadObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: HeadObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -249,12 +273,18 @@ export class HeadObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HeadObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHeadObjectCommand(input, context);
+    return se_HeadObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HeadObjectCommandOutput> {
-    return deserializeAws_restXmlHeadObjectCommand(output, context);
+    return de_HeadObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetMembersRequest,
-  GetMembersRequestFilterSensitiveLog,
-  GetMembersResponse,
-  GetMembersResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1GetMembersCommand,
-  serializeAws_restJson1GetMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMembersRequest, GetMembersResponse } from "../models/models_2";
+import { de_GetMembersCommand, se_GetMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMembersCommand}.
  */
 export interface GetMembersCommandInput extends GetMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMembersCommand}.
  */
 export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details for the Security Hub member accounts for the specified account IDs.</p>
  *          <p>An administrator account can be either the delegated Security Hub administrator account for an
  *          organization or an administrator account that enabled Security Hub manually.</p>
@@ -46,10 +43,17 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * import { SecurityHubClient, GetMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // GetMembersRequest
+ *   AccountIds: [ // AccountIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMembersCommandInput - {@link GetMembersCommandInput}
+ * @returns {@link GetMembersCommandOutput}
  * @see {@link GetMembersCommandInput} for command's `input` shape.
  * @see {@link GetMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -72,6 +76,43 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To get member account details
+ * ```javascript
+ * // The following example returns details for the Security Hub member accounts with the specified AWS account IDs. An administrator account may be the delegated Security Hub administrator account for an organization or an administrator account that enabled Security Hub manually. The Security Hub administrator must call this operation.
+ * const input = {
+ *   "AccountIds": [
+ *     "444455556666",
+ *     "777788889999"
+ *   ]
+ * };
+ * const command = new GetMembersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Members": [
+ *     {
+ *       "AccountId": "444455556666",
+ *       "AdministratorId": "123456789012",
+ *       "InvitedAt": "2020-06-01T20:15:15.289000+00:00",
+ *       "MasterId": "123456789012",
+ *       "MemberStatus": "ASSOCIATED",
+ *       "UpdatedAt": "2020-06-01T20:15:15.289000+00:00"
+ *     },
+ *     {
+ *       "AccountId": "777788889999",
+ *       "AdministratorId": "123456789012",
+ *       "InvitedAt": "2020-06-01T20:15:15.289000+00:00",
+ *       "MasterId": "123456789012",
+ *       "MemberStatus": "ASSOCIATED",
+ *       "UpdatedAt": "2020-06-01T20:15:15.289000+00:00"
+ *     }
+ *   ],
+ *   "UnprocessedAccounts": []
+ * }
+ * *\/
+ * // example id: to-get-member-account-details-1677774956489
+ * ```
+ *
  */
 export class GetMembersCommand extends $Command<
   GetMembersCommandInput,
@@ -90,6 +131,9 @@ export class GetMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +160,8 @@ export class GetMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +171,18 @@ export class GetMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMembersCommand(input, context);
+    return se_GetMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMembersCommandOutput> {
-    return deserializeAws_restJson1GetMembersCommand(output, context);
+    return de_GetMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

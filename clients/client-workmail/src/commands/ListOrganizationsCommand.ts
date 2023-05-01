@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOrganizationsRequest,
-  ListOrganizationsRequestFilterSensitiveLog,
-  ListOrganizationsResponse,
-  ListOrganizationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListOrganizationsCommand,
-  serializeAws_json1_1ListOrganizationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListOrganizationsRequest, ListOrganizationsResponse } from "../models/models_0";
+import { de_ListOrganizationsCommand, se_ListOrganizationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrganizationsCommand}.
  */
 export interface ListOrganizationsCommandInput extends ListOrganizationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOrganizationsCommand}.
  */
 export interface ListOrganizationsCommandOutput extends ListOrganizationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summaries of the customer's organizations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  * import { WorkMailClient, ListOrganizationsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListOrganizationsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListOrganizationsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListOrganizationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationsCommandInput - {@link ListOrganizationsCommandInput}
+ * @returns {@link ListOrganizationsCommandOutput}
  * @see {@link ListOrganizationsCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -72,6 +75,9 @@ export class ListOrganizationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class ListOrganizationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOrganizationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOrganizationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class ListOrganizationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOrganizationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOrganizationsCommand(input, context);
+    return se_ListOrganizationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOrganizationsCommandOutput> {
-    return deserializeAws_json1_1ListOrganizationsCommand(output, context);
+    return de_ListOrganizationsCommand(output, context);
   }
 
   // Start section: command_body_extra

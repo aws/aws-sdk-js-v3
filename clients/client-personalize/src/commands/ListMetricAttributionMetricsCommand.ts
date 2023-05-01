@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMetricAttributionMetricsRequest,
-  ListMetricAttributionMetricsRequestFilterSensitiveLog,
-  ListMetricAttributionMetricsResponse,
-  ListMetricAttributionMetricsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListMetricAttributionMetricsRequest, ListMetricAttributionMetricsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
-  deserializeAws_json1_1ListMetricAttributionMetricsCommand,
-  serializeAws_json1_1ListMetricAttributionMetricsCommand,
+  de_ListMetricAttributionMetricsCommand,
+  se_ListMetricAttributionMetricsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMetricAttributionMetricsCommand}.
  */
 export interface ListMetricAttributionMetricsCommandInput extends ListMetricAttributionMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMetricAttributionMetricsCommand}.
  */
 export interface ListMetricAttributionMetricsCommandOutput
@@ -37,6 +36,7 @@ export interface ListMetricAttributionMetricsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the metrics for the metric attribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface ListMetricAttributionMetricsCommandOutput
  * import { PersonalizeClient, ListMetricAttributionMetricsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListMetricAttributionMetricsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListMetricAttributionMetricsRequest
+ *   metricAttributionArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListMetricAttributionMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMetricAttributionMetricsCommandInput - {@link ListMetricAttributionMetricsCommandInput}
+ * @returns {@link ListMetricAttributionMetricsCommandOutput}
  * @see {@link ListMetricAttributionMetricsCommandInput} for command's `input` shape.
  * @see {@link ListMetricAttributionMetricsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -77,6 +84,9 @@ export class ListMetricAttributionMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMetricAttributionMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +115,8 @@ export class ListMetricAttributionMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMetricAttributionMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMetricAttributionMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +126,21 @@ export class ListMetricAttributionMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMetricAttributionMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMetricAttributionMetricsCommand(input, context);
+    return se_ListMetricAttributionMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMetricAttributionMetricsCommandOutput> {
-    return deserializeAws_json1_1ListMetricAttributionMetricsCommand(output, context);
+    return de_ListMetricAttributionMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

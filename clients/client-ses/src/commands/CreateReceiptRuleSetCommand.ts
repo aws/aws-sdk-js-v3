@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateReceiptRuleSetRequest,
-  CreateReceiptRuleSetRequestFilterSensitiveLog,
-  CreateReceiptRuleSetResponse,
-  CreateReceiptRuleSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateReceiptRuleSetCommand,
-  serializeAws_queryCreateReceiptRuleSetCommand,
-} from "../protocols/Aws_query";
+import { CreateReceiptRuleSetRequest, CreateReceiptRuleSetResponse } from "../models/models_0";
+import { de_CreateReceiptRuleSetCommand, se_CreateReceiptRuleSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReceiptRuleSetCommand}.
  */
 export interface CreateReceiptRuleSetCommandInput extends CreateReceiptRuleSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReceiptRuleSetCommand}.
  */
 export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty receipt rule set.</p>
  *         <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -45,10 +42,15 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * import { SESClient, CreateReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CreateReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // CreateReceiptRuleSetRequest
+ *   RuleSetName: "STRING_VALUE", // required
+ * };
  * const command = new CreateReceiptRuleSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReceiptRuleSetCommandInput - {@link CreateReceiptRuleSetCommandInput}
+ * @returns {@link CreateReceiptRuleSetCommandOutput}
  * @see {@link CreateReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link CreateReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -91,6 +93,9 @@ export class CreateReceiptRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class CreateReceiptRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReceiptRuleSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReceiptRuleSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class CreateReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateReceiptRuleSetCommand(input, context);
+    return se_CreateReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReceiptRuleSetCommandOutput> {
-    return deserializeAws_queryCreateReceiptRuleSetCommand(output, context);
+    return de_CreateReceiptRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

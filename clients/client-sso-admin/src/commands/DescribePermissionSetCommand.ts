@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePermissionSetRequest,
-  DescribePermissionSetRequestFilterSensitiveLog,
-  DescribePermissionSetResponse,
-  DescribePermissionSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePermissionSetCommand,
-  serializeAws_json1_1DescribePermissionSetCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePermissionSetRequest, DescribePermissionSetResponse } from "../models/models_0";
+import { de_DescribePermissionSetCommand, se_DescribePermissionSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePermissionSetCommand}.
  */
 export interface DescribePermissionSetCommandInput extends DescribePermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePermissionSetCommand}.
  */
 export interface DescribePermissionSetCommandOutput extends DescribePermissionSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of the permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribePermissionSetCommandOutput extends DescribePermissionSe
  * import { SSOAdminClient, DescribePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DescribePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // DescribePermissionSetRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribePermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePermissionSetCommandInput - {@link DescribePermissionSetCommandInput}
+ * @returns {@link DescribePermissionSetCommandOutput}
  * @see {@link DescribePermissionSetCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -86,6 +89,9 @@ export class DescribePermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class DescribePermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class DescribePermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePermissionSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePermissionSetCommand(input, context);
+    return se_DescribePermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePermissionSetCommandOutput> {
-    return deserializeAws_json1_1DescribePermissionSetCommand(output, context);
+    return de_DescribePermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateUserSecurityProfilesRequest,
-  UpdateUserSecurityProfilesRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateUserSecurityProfilesCommand,
-  serializeAws_restJson1UpdateUserSecurityProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateUserSecurityProfilesRequest } from "../models/models_1";
+import { de_UpdateUserSecurityProfilesCommand, se_UpdateUserSecurityProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserSecurityProfilesCommand}.
  */
 export interface UpdateUserSecurityProfilesCommandInput extends UpdateUserSecurityProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserSecurityProfilesCommand}.
  */
 export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the specified security profiles to the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +39,19 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
  * import { ConnectClient, UpdateUserSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateUserSecurityProfilesRequest
+ *   SecurityProfileIds: [ // SecurityProfileIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   UserId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateUserSecurityProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserSecurityProfilesCommandInput - {@link UpdateUserSecurityProfilesCommandInput}
+ * @returns {@link UpdateUserSecurityProfilesCommandOutput}
  * @see {@link UpdateUserSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link UpdateUserSecurityProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -82,6 +90,9 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserSecurityProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserSecurityProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +132,21 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserSecurityProfilesCommand(input, context);
+    return se_UpdateUserSecurityProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserSecurityProfilesCommandOutput> {
-    return deserializeAws_restJson1UpdateUserSecurityProfilesCommand(output, context);
+    return de_UpdateUserSecurityProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

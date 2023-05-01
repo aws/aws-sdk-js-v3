@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSMSSandboxPhoneNumberInput,
-  DeleteSMSSandboxPhoneNumberInputFilterSensitiveLog,
-  DeleteSMSSandboxPhoneNumberResult,
-  DeleteSMSSandboxPhoneNumberResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSMSSandboxPhoneNumberCommand,
-  serializeAws_queryDeleteSMSSandboxPhoneNumberCommand,
-} from "../protocols/Aws_query";
+import { DeleteSMSSandboxPhoneNumberInput, DeleteSMSSandboxPhoneNumberResult } from "../models/models_0";
+import { de_DeleteSMSSandboxPhoneNumberCommand, se_DeleteSMSSandboxPhoneNumberCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSMSSandboxPhoneNumberCommand}.
  */
 export interface DeleteSMSSandboxPhoneNumberCommandInput extends DeleteSMSSandboxPhoneNumberInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSMSSandboxPhoneNumberCommand}.
  */
 export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Web Services account's verified or pending phone number from the SMS
  *             sandbox.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -51,10 +48,15 @@ export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandb
  * import { SNSClient, DeleteSMSSandboxPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, DeleteSMSSandboxPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // DeleteSMSSandboxPhoneNumberInput
+ *   PhoneNumber: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSMSSandboxPhoneNumberCommandInput - {@link DeleteSMSSandboxPhoneNumberCommandInput}
+ * @returns {@link DeleteSMSSandboxPhoneNumberCommandOutput}
  * @see {@link DeleteSMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link DeleteSMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -99,6 +101,9 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSMSSandboxPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +132,8 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSMSSandboxPhoneNumberInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSMSSandboxPhoneNumberResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +143,21 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSMSSandboxPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSMSSandboxPhoneNumberCommand(input, context);
+    return se_DeleteSMSSandboxPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> {
-    return deserializeAws_queryDeleteSMSSandboxPhoneNumberCommand(output, context);
+    return de_DeleteSMSSandboxPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

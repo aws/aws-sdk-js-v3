@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  GetServerStrategiesRequest,
-  GetServerStrategiesRequestFilterSensitiveLog,
-  GetServerStrategiesResponse,
-  GetServerStrategiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServerStrategiesCommand,
-  serializeAws_restJson1GetServerStrategiesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetServerStrategiesRequest, GetServerStrategiesResponse } from "../models/models_0";
+import { de_GetServerStrategiesCommand, se_GetServerStrategiesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetServerStrategiesCommand}.
  */
 export interface GetServerStrategiesCommandInput extends GetServerStrategiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServerStrategiesCommand}.
  */
 export interface GetServerStrategiesCommandOutput extends GetServerStrategiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves recommended strategies and tools for the specified server. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface GetServerStrategiesCommandOutput extends GetServerStrategiesRes
  * import { MigrationHubStrategyClient, GetServerStrategiesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetServerStrategiesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // GetServerStrategiesRequest
+ *   serverId: "STRING_VALUE", // required
+ * };
  * const command = new GetServerStrategiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServerStrategiesCommandInput - {@link GetServerStrategiesCommandInput}
+ * @returns {@link GetServerStrategiesCommandOutput}
  * @see {@link GetServerStrategiesCommandInput} for command's `input` shape.
  * @see {@link GetServerStrategiesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -89,6 +91,9 @@ export class GetServerStrategiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServerStrategiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class GetServerStrategiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServerStrategiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServerStrategiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class GetServerStrategiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServerStrategiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServerStrategiesCommand(input, context);
+    return se_GetServerStrategiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServerStrategiesCommandOutput> {
-    return deserializeAws_restJson1GetServerStrategiesCommand(output, context);
+    return de_GetServerStrategiesCommand(output, context);
   }
 
   // Start section: command_body_extra

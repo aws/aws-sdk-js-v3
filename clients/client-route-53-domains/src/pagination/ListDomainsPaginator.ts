@@ -6,7 +6,7 @@ import { Route53DomainsClient } from "../Route53DomainsClient";
 import { Route53DomainsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Route53DomainsClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDomainsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDomains(
   config: Route53DomainsPaginationConfiguration,
   input: ListDomainsCommandInput,

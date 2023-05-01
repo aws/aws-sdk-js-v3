@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  QuerySchemaVersionMetadataInput,
-  QuerySchemaVersionMetadataInputFilterSensitiveLog,
-  QuerySchemaVersionMetadataResponse,
-  QuerySchemaVersionMetadataResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1QuerySchemaVersionMetadataCommand,
-  serializeAws_json1_1QuerySchemaVersionMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { QuerySchemaVersionMetadataInput, QuerySchemaVersionMetadataResponse } from "../models/models_2";
+import { de_QuerySchemaVersionMetadataCommand, se_QuerySchemaVersionMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link QuerySchemaVersionMetadataCommand}.
  */
 export interface QuerySchemaVersionMetadataCommandInput extends QuerySchemaVersionMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link QuerySchemaVersionMetadataCommand}.
  */
 export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Queries for the schema version metadata information. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,32 @@ export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVers
  * import { GlueClient, QuerySchemaVersionMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, QuerySchemaVersionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // QuerySchemaVersionMetadataInput
+ *   SchemaId: { // SchemaId
+ *     SchemaArn: "STRING_VALUE",
+ *     SchemaName: "STRING_VALUE",
+ *     RegistryName: "STRING_VALUE",
+ *   },
+ *   SchemaVersionNumber: { // SchemaVersionNumber
+ *     LatestVersion: true || false,
+ *     VersionNumber: Number("long"),
+ *   },
+ *   SchemaVersionId: "STRING_VALUE",
+ *   MetadataList: [ // MetadataList
+ *     { // MetadataKeyValuePair
+ *       MetadataKey: "STRING_VALUE",
+ *       MetadataValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new QuerySchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param QuerySchemaVersionMetadataCommandInput - {@link QuerySchemaVersionMetadataCommandInput}
+ * @returns {@link QuerySchemaVersionMetadataCommandOutput}
  * @see {@link QuerySchemaVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link QuerySchemaVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +97,9 @@ export class QuerySchemaVersionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QuerySchemaVersionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +128,8 @@ export class QuerySchemaVersionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QuerySchemaVersionMetadataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: QuerySchemaVersionMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +139,21 @@ export class QuerySchemaVersionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QuerySchemaVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1QuerySchemaVersionMetadataCommand(input, context);
+    return se_QuerySchemaVersionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<QuerySchemaVersionMetadataCommandOutput> {
-    return deserializeAws_json1_1QuerySchemaVersionMetadataCommand(output, context);
+    return de_QuerySchemaVersionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse } from "../models/models_0";
 import {
-  DescribeConfigurationRevisionRequest,
-  DescribeConfigurationRevisionRequestFilterSensitiveLog,
-  DescribeConfigurationRevisionResponse,
-  DescribeConfigurationRevisionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeConfigurationRevisionCommand,
-  serializeAws_restJson1DescribeConfigurationRevisionCommand,
+  de_DescribeConfigurationRevisionCommand,
+  se_DescribeConfigurationRevisionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationRevisionCommand}.
  */
 export interface DescribeConfigurationRevisionCommandInput extends DescribeConfigurationRevisionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationRevisionCommand}.
  */
 export interface DescribeConfigurationRevisionCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeConfigurationRevisionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of this revision of the configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DescribeConfigurationRevisionCommandOutput
  * import { KafkaClient, DescribeConfigurationRevisionCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DescribeConfigurationRevisionCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // DescribeConfigurationRevisionRequest
+ *   Arn: "STRING_VALUE", // required
+ *   Revision: Number("long"), // required
+ * };
  * const command = new DescribeConfigurationRevisionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationRevisionCommandInput - {@link DescribeConfigurationRevisionCommandInput}
+ * @returns {@link DescribeConfigurationRevisionCommandOutput}
  * @see {@link DescribeConfigurationRevisionCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationRevisionCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -89,6 +95,9 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationRevisionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +126,8 @@ export class DescribeConfigurationRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationRevisionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationRevisionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +137,21 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeConfigurationRevisionCommand(input, context);
+    return se_DescribeConfigurationRevisionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationRevisionCommandOutput> {
-    return deserializeAws_restJson1DescribeConfigurationRevisionCommand(output, context);
+    return de_DescribeConfigurationRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

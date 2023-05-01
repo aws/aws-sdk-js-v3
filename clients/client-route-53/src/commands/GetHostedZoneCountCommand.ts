@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetHostedZoneCountRequest,
-  GetHostedZoneCountRequestFilterSensitiveLog,
-  GetHostedZoneCountResponse,
-  GetHostedZoneCountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetHostedZoneCountCommand,
-  serializeAws_restXmlGetHostedZoneCountCommand,
-} from "../protocols/Aws_restXml";
+import { GetHostedZoneCountRequest, GetHostedZoneCountResponse } from "../models/models_0";
+import { de_GetHostedZoneCountCommand, se_GetHostedZoneCountCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetHostedZoneCountCommand}.
  */
 export interface GetHostedZoneCountCommandInput extends GetHostedZoneCountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetHostedZoneCountCommand}.
  */
 export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the number of hosted zones that are associated with the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountRespo
  * import { Route53Client, GetHostedZoneCountCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetHostedZoneCountCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {};
  * const command = new GetHostedZoneCountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostedZoneCountCommandInput - {@link GetHostedZoneCountCommandInput}
+ * @returns {@link GetHostedZoneCountCommandOutput}
  * @see {@link GetHostedZoneCountCommandInput} for command's `input` shape.
  * @see {@link GetHostedZoneCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -72,6 +72,9 @@ export class GetHostedZoneCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostedZoneCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +103,8 @@ export class GetHostedZoneCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHostedZoneCountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHostedZoneCountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +114,18 @@ export class GetHostedZoneCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostedZoneCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHostedZoneCountCommand(input, context);
+    return se_GetHostedZoneCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostedZoneCountCommandOutput> {
-    return deserializeAws_restXmlGetHostedZoneCountCommand(output, context);
+    return de_GetHostedZoneCountCommand(output, context);
   }
 
   // Start section: command_body_extra

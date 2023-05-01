@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  GetVaultNotificationsInput,
-  GetVaultNotificationsInputFilterSensitiveLog,
-  GetVaultNotificationsOutput,
-  GetVaultNotificationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetVaultNotificationsCommand,
-  serializeAws_restJson1GetVaultNotificationsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetVaultNotificationsInput, GetVaultNotificationsOutput } from "../models/models_0";
+import { de_GetVaultNotificationsCommand, se_GetVaultNotificationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVaultNotificationsCommand}.
  */
 export interface GetVaultNotificationsCommandInput extends GetVaultNotificationsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetVaultNotificationsCommand}.
  */
 export interface GetVaultNotificationsCommandOutput extends GetVaultNotificationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation retrieves the <code>notification-configuration</code> subresource of
  *          the specified vault.</p>
  *
@@ -57,10 +54,16 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  * import { GlacierClient, GetVaultNotificationsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, GetVaultNotificationsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // GetVaultNotificationsInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new GetVaultNotificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVaultNotificationsCommandInput - {@link GetVaultNotificationsCommandInput}
+ * @returns {@link GetVaultNotificationsCommandOutput}
  * @see {@link GetVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link GetVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -120,6 +123,9 @@ export class GetVaultNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVaultNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +154,8 @@ export class GetVaultNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVaultNotificationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVaultNotificationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +165,18 @@ export class GetVaultNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVaultNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVaultNotificationsCommand(input, context);
+    return se_GetVaultNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1GetVaultNotificationsCommand(output, context);
+    return de_GetVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

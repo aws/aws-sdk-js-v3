@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutAccountSuppressionAttributesRequest, PutAccountSuppressionAttributesResponse } from "../models/models_0";
 import {
-  PutAccountSuppressionAttributesRequest,
-  PutAccountSuppressionAttributesRequestFilterSensitiveLog,
-  PutAccountSuppressionAttributesResponse,
-  PutAccountSuppressionAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAccountSuppressionAttributesCommand,
-  serializeAws_restJson1PutAccountSuppressionAttributesCommand,
+  de_PutAccountSuppressionAttributesCommand,
+  se_PutAccountSuppressionAttributesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccountSuppressionAttributesCommand}.
  */
 export interface PutAccountSuppressionAttributesCommandInput extends PutAccountSuppressionAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccountSuppressionAttributesCommand}.
  */
 export interface PutAccountSuppressionAttributesCommandOutput
@@ -37,6 +36,7 @@ export interface PutAccountSuppressionAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Change the settings for the account-level suppression list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface PutAccountSuppressionAttributesCommandOutput
  * import { SESv2Client, PutAccountSuppressionAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutAccountSuppressionAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutAccountSuppressionAttributesRequest
+ *   SuppressedReasons: [ // SuppressionListReasons
+ *     "BOUNCE" || "COMPLAINT",
+ *   ],
+ * };
  * const command = new PutAccountSuppressionAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccountSuppressionAttributesCommandInput - {@link PutAccountSuppressionAttributesCommandInput}
+ * @returns {@link PutAccountSuppressionAttributesCommandOutput}
  * @see {@link PutAccountSuppressionAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountSuppressionAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -77,6 +84,9 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccountSuppressionAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +115,8 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountSuppressionAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountSuppressionAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +126,24 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutAccountSuppressionAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountSuppressionAttributesCommand(input, context);
+    return se_PutAccountSuppressionAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountSuppressionAttributesCommandOutput> {
-    return deserializeAws_restJson1PutAccountSuppressionAttributesCommand(output, context);
+    return de_PutAccountSuppressionAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

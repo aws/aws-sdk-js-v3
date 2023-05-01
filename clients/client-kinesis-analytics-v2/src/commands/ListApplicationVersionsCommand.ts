@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import {
-  ListApplicationVersionsRequest,
-  ListApplicationVersionsRequestFilterSensitiveLog,
-  ListApplicationVersionsResponse,
-  ListApplicationVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApplicationVersionsCommand,
-  serializeAws_json1_1ListApplicationVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListApplicationVersionsRequest, ListApplicationVersionsResponse } from "../models/models_0";
+import { de_ListApplicationVersionsCommand, se_ListApplicationVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationVersionsCommand}.
  */
 export interface ListApplicationVersionsCommandInput extends ListApplicationVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationVersionsCommand}.
  */
 export interface ListApplicationVersionsCommandOutput extends ListApplicationVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the versions for the specified application, including versions that were rolled back. The response also includes a summary of the configuration
  *       associated with each version.</p>
  *
@@ -52,10 +49,17 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * import { KinesisAnalyticsV2Client, ListApplicationVersionsCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, ListApplicationVersionsCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // ListApplicationVersionsRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListApplicationVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationVersionsCommandInput - {@link ListApplicationVersionsCommandInput}
+ * @returns {@link ListApplicationVersionsCommandOutput}
  * @see {@link ListApplicationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationVersionsCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -89,6 +93,9 @@ export class ListApplicationVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +124,8 @@ export class ListApplicationVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +135,18 @@ export class ListApplicationVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApplicationVersionsCommand(input, context);
+    return se_ListApplicationVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationVersionsCommandOutput> {
-    return deserializeAws_json1_1ListApplicationVersionsCommand(output, context);
+    return de_ListApplicationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

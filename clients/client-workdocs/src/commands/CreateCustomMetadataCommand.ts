@@ -17,24 +17,25 @@ import {
   CreateCustomMetadataRequest,
   CreateCustomMetadataRequestFilterSensitiveLog,
   CreateCustomMetadataResponse,
-  CreateCustomMetadataResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCustomMetadataCommand,
-  serializeAws_restJson1CreateCustomMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCustomMetadataCommand, se_CreateCustomMetadataCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomMetadataCommand}.
  */
 export interface CreateCustomMetadataCommandInput extends CreateCustomMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomMetadataCommand}.
  */
 export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more custom properties to the specified resource (a folder, document,
  *             or version).</p>
  * @example
@@ -43,10 +44,20 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * import { WorkDocsClient, CreateCustomMetadataCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateCustomMetadataCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // CreateCustomMetadataRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   CustomMetadata: { // CustomMetadataMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateCustomMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomMetadataCommandInput - {@link CreateCustomMetadataCommandInput}
+ * @returns {@link CreateCustomMetadataCommandOutput}
  * @see {@link CreateCustomMetadataCommandInput} for command's `input` shape.
  * @see {@link CreateCustomMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -94,6 +105,9 @@ export class CreateCustomMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +137,7 @@ export class CreateCustomMetadataCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateCustomMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomMetadataResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +147,18 @@ export class CreateCustomMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCustomMetadataCommand(input, context);
+    return se_CreateCustomMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomMetadataCommandOutput> {
-    return deserializeAws_restJson1CreateCustomMetadataCommand(output, context);
+    return de_CreateCustomMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { UpdatePrimaryRegionRequest, UpdatePrimaryRegionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePrimaryRegionCommand,
-  serializeAws_json1_1UpdatePrimaryRegionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdatePrimaryRegionRequest } from "../models/models_0";
+import { de_UpdatePrimaryRegionCommand, se_UpdatePrimaryRegionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePrimaryRegionCommand}.
  */
 export interface UpdatePrimaryRegionCommandInput extends UpdatePrimaryRegionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePrimaryRegionCommand}.
  */
 export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the primary key of a multi-Region key. </p>
  *          <p>This operation changes the replica key in the specified Region to a primary key and
  *       changes the former primary key to a replica key. For example, suppose you have a primary key
@@ -101,10 +103,16 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  * import { KMSClient, UpdatePrimaryRegionCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, UpdatePrimaryRegionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // UpdatePrimaryRegionRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   PrimaryRegion: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePrimaryRegionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePrimaryRegionCommandInput - {@link UpdatePrimaryRegionCommandInput}
+ * @returns {@link UpdatePrimaryRegionCommandOutput}
  * @see {@link UpdatePrimaryRegionCommandInput} for command's `input` shape.
  * @see {@link UpdatePrimaryRegionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -181,6 +189,9 @@ export class UpdatePrimaryRegionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePrimaryRegionCommandInput) {
     // Start section: command_constructor
     super();
@@ -209,8 +220,8 @@ export class UpdatePrimaryRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePrimaryRegionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -220,12 +231,18 @@ export class UpdatePrimaryRegionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePrimaryRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePrimaryRegionCommand(input, context);
+    return se_UpdatePrimaryRegionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePrimaryRegionCommandOutput> {
-    return deserializeAws_json1_1UpdatePrimaryRegionCommand(output, context);
+    return de_UpdatePrimaryRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

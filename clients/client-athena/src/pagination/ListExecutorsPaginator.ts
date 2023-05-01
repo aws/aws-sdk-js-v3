@@ -10,7 +10,7 @@ import {
 import { AthenaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AthenaClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListExecutorsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListExecutors(
   config: AthenaPaginationConfiguration,
   input: ListExecutorsCommandInput,

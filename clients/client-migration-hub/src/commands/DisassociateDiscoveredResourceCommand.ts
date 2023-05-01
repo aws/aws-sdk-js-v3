@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { DisassociateDiscoveredResourceRequest, DisassociateDiscoveredResourceResult } from "../models/models_0";
 import {
-  DisassociateDiscoveredResourceRequest,
-  DisassociateDiscoveredResourceRequestFilterSensitiveLog,
-  DisassociateDiscoveredResourceResult,
-  DisassociateDiscoveredResourceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateDiscoveredResourceCommand,
-  serializeAws_json1_1DisassociateDiscoveredResourceCommand,
+  de_DisassociateDiscoveredResourceCommand,
+  se_DisassociateDiscoveredResourceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateDiscoveredResourceCommand}.
  */
 export interface DisassociateDiscoveredResourceCommandInput extends DisassociateDiscoveredResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateDiscoveredResourceCommand}.
  */
 export interface DisassociateDiscoveredResourceCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociateDiscoveredResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociate an Application Discovery Service discovered resource from a migration
  *          task.</p>
  * @example
@@ -45,10 +45,18 @@ export interface DisassociateDiscoveredResourceCommandOutput
  * import { MigrationHubClient, DisassociateDiscoveredResourceCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, DisassociateDiscoveredResourceCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // DisassociateDiscoveredResourceRequest
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   ConfigurationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateDiscoveredResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDiscoveredResourceCommandInput - {@link DisassociateDiscoveredResourceCommandInput}
+ * @returns {@link DisassociateDiscoveredResourceCommandOutput}
  * @see {@link DisassociateDiscoveredResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateDiscoveredResourceCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -106,6 +114,9 @@ export class DisassociateDiscoveredResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDiscoveredResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +145,8 @@ export class DisassociateDiscoveredResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDiscoveredResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDiscoveredResourceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +156,24 @@ export class DisassociateDiscoveredResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateDiscoveredResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateDiscoveredResourceCommand(input, context);
+    return se_DisassociateDiscoveredResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateDiscoveredResourceCommandOutput> {
-    return deserializeAws_json1_1DisassociateDiscoveredResourceCommand(output, context);
+    return de_DisassociateDiscoveredResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

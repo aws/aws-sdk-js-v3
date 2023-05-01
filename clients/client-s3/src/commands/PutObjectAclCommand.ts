@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutObjectAclOutput,
-  PutObjectAclOutputFilterSensitiveLog,
-  PutObjectAclRequest,
-  PutObjectAclRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutObjectAclCommand,
-  serializeAws_restXmlPutObjectAclCommand,
-} from "../protocols/Aws_restXml";
+import { PutObjectAclOutput, PutObjectAclRequest } from "../models/models_0";
+import { de_PutObjectAclCommand, se_PutObjectAclCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutObjectAclCommand}.
  */
 export interface PutObjectAclCommandInput extends PutObjectAclRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutObjectAclCommand}.
  */
 export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions
  *          for a new or existing object in an S3 bucket. You must have <code>WRITE_ACP</code>
  *          permission to set the ACL of an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#permissions">What
@@ -221,10 +218,45 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * import { S3Client, PutObjectAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutObjectAclRequest
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *   AccessControlPolicy: { // AccessControlPolicy
+ *     Grants: [ // Grants
+ *       { // Grant
+ *         Grantee: { // Grantee
+ *           DisplayName: "STRING_VALUE",
+ *           EmailAddress: "STRING_VALUE",
+ *           ID: "STRING_VALUE",
+ *           URI: "STRING_VALUE",
+ *           Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *         },
+ *         Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *       },
+ *     ],
+ *     Owner: { // Owner
+ *       DisplayName: "STRING_VALUE",
+ *       ID: "STRING_VALUE",
+ *     },
+ *   },
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWrite: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   Key: "STRING_VALUE", // required
+ *   RequestPayer: "requester",
+ *   VersionId: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutObjectAclCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectAclCommandInput - {@link PutObjectAclCommandInput}
+ * @returns {@link PutObjectAclCommandOutput}
  * @see {@link PutObjectAclCommandInput} for command's `input` shape.
  * @see {@link PutObjectAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -272,6 +304,9 @@ export class PutObjectAclCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -305,8 +340,8 @@ export class PutObjectAclCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutObjectAclRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectAclOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -316,12 +351,18 @@ export class PutObjectAclCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutObjectAclCommand(input, context);
+    return se_PutObjectAclCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectAclCommandOutput> {
-    return deserializeAws_restXmlPutObjectAclCommand(output, context);
+    return de_PutObjectAclCommand(output, context);
   }
 
   // Start section: command_body_extra

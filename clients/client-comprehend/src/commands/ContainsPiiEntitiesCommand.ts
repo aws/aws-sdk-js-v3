@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ContainsPiiEntitiesRequest,
-  ContainsPiiEntitiesRequestFilterSensitiveLog,
-  ContainsPiiEntitiesResponse,
-  ContainsPiiEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ContainsPiiEntitiesCommand,
-  serializeAws_json1_1ContainsPiiEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { ContainsPiiEntitiesRequest, ContainsPiiEntitiesResponse } from "../models/models_0";
+import { de_ContainsPiiEntitiesCommand, se_ContainsPiiEntitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ContainsPiiEntitiesCommand}.
  */
 export interface ContainsPiiEntitiesCommandInput extends ContainsPiiEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ContainsPiiEntitiesCommand}.
  */
 export interface ContainsPiiEntitiesCommandOutput extends ContainsPiiEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Analyzes input text for the presence of personally identifiable information (PII) and
  *       returns the labels of identified PII entity types such as name, address, bank account number,
  *       or phone number.</p>
@@ -44,10 +41,16 @@ export interface ContainsPiiEntitiesCommandOutput extends ContainsPiiEntitiesRes
  * import { ComprehendClient, ContainsPiiEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ContainsPiiEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ContainsPiiEntitiesRequest
+ *   Text: "STRING_VALUE", // required
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ * };
  * const command = new ContainsPiiEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ContainsPiiEntitiesCommandInput - {@link ContainsPiiEntitiesCommandInput}
+ * @returns {@link ContainsPiiEntitiesCommandOutput}
  * @see {@link ContainsPiiEntitiesCommandInput} for command's `input` shape.
  * @see {@link ContainsPiiEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -87,6 +90,9 @@ export class ContainsPiiEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ContainsPiiEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class ContainsPiiEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ContainsPiiEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ContainsPiiEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class ContainsPiiEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ContainsPiiEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ContainsPiiEntitiesCommand(input, context);
+    return se_ContainsPiiEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ContainsPiiEntitiesCommandOutput> {
-    return deserializeAws_json1_1ContainsPiiEntitiesCommand(output, context);
+    return de_ContainsPiiEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  UpdateProjectRequest,
-  UpdateProjectRequestFilterSensitiveLog,
-  UpdateProjectResponse,
-  UpdateProjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateProjectCommand,
-  serializeAws_restJson1UpdateProjectCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateProjectRequest, UpdateProjectResponse } from "../models/models_0";
+import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * import { IoTSiteWiseClient, UpdateProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // UpdateProjectRequest
+ *   projectId: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   projectDescription: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
+ * @returns {@link UpdateProjectCommandOutput}
  * @see {@link UpdateProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +90,9 @@ export class UpdateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +119,8 @@ export class UpdateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +130,18 @@ export class UpdateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProjectCommand(input, context);
+    return se_UpdateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectCommandOutput> {
-    return deserializeAws_restJson1UpdateProjectCommand(output, context);
+    return de_UpdateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

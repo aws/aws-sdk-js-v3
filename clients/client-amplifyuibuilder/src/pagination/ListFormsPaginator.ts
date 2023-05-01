@@ -6,7 +6,7 @@ import { ListFormsCommand, ListFormsCommandInput, ListFormsCommandOutput } from 
 import { AmplifyUIBuilderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AmplifyUIBuilderClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFormsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListForms(
   config: AmplifyUIBuilderPaginationConfiguration,
   input: ListFormsCommandInput,

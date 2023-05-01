@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  CreateEventDataStoreRequest,
-  CreateEventDataStoreRequestFilterSensitiveLog,
-  CreateEventDataStoreResponse,
-  CreateEventDataStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEventDataStoreCommand,
-  serializeAws_json1_1CreateEventDataStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateEventDataStoreRequest, CreateEventDataStoreResponse } from "../models/models_0";
+import { de_CreateEventDataStoreCommand, se_CreateEventDataStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventDataStoreCommand}.
  */
 export interface CreateEventDataStoreCommandInput extends CreateEventDataStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventDataStoreCommand}.
  */
 export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new event data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,52 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  * import { CloudTrailClient, CreateEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, CreateEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // CreateEventDataStoreRequest
+ *   Name: "STRING_VALUE", // required
+ *   AdvancedEventSelectors: [ // AdvancedEventSelectors
+ *     { // AdvancedEventSelector
+ *       Name: "STRING_VALUE",
+ *       FieldSelectors: [ // AdvancedFieldSelectors // required
+ *         { // AdvancedFieldSelector
+ *           Field: "STRING_VALUE", // required
+ *           Equals: [ // Operator
+ *             "STRING_VALUE",
+ *           ],
+ *           StartsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           EndsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotEquals: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotStartsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotEndsWith: "<Operator>",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MultiRegionEnabled: true || false,
+ *   OrganizationEnabled: true || false,
+ *   RetentionPeriod: Number("int"),
+ *   TerminationProtectionEnabled: true || false,
+ *   TagsList: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ * };
  * const command = new CreateEventDataStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventDataStoreCommandInput - {@link CreateEventDataStoreCommandInput}
+ * @returns {@link CreateEventDataStoreCommandOutput}
  * @see {@link CreateEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link CreateEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -167,6 +206,9 @@ export class CreateEventDataStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -195,8 +237,8 @@ export class CreateEventDataStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEventDataStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEventDataStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -206,12 +248,18 @@ export class CreateEventDataStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEventDataStoreCommand(input, context);
+    return se_CreateEventDataStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventDataStoreCommandOutput> {
-    return deserializeAws_json1_1CreateEventDataStoreCommand(output, context);
+    return de_CreateEventDataStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

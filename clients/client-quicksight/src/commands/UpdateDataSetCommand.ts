@@ -17,24 +17,25 @@ import {
   UpdateDataSetRequest,
   UpdateDataSetRequestFilterSensitiveLog,
   UpdateDataSetResponse,
-  UpdateDataSetResponseFilterSensitiveLog,
 } from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateDataSetCommand,
-  serializeAws_restJson1UpdateDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDataSetCommand, se_UpdateDataSetCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataSetCommand}.
  */
 export interface UpdateDataSetCommandInput extends UpdateDataSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataSetCommand}.
  */
 export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a dataset. This operation doesn't support datasets that include uploaded files as a source. Partial updates are not supported by this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,185 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * import { QuickSightClient, UpdateDataSetCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateDataSetCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // UpdateDataSetRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   PhysicalTableMap: { // PhysicalTableMap // required
+ *     "<keys>": { // PhysicalTable Union: only one key present
+ *       RelationalTable: { // RelationalTable
+ *         DataSourceArn: "STRING_VALUE", // required
+ *         Catalog: "STRING_VALUE",
+ *         Schema: "STRING_VALUE",
+ *         Name: "STRING_VALUE", // required
+ *         InputColumns: [ // InputColumnList // required
+ *           { // InputColumn
+ *             Name: "STRING_VALUE", // required
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *           },
+ *         ],
+ *       },
+ *       CustomSql: { // CustomSql
+ *         DataSourceArn: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *         SqlQuery: "STRING_VALUE", // required
+ *         Columns: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *           },
+ *         ],
+ *       },
+ *       S3Source: { // S3Source
+ *         DataSourceArn: "STRING_VALUE", // required
+ *         UploadSettings: { // UploadSettings
+ *           Format: "CSV" || "TSV" || "CLF" || "ELF" || "XLSX" || "JSON",
+ *           StartFromRow: Number("int"),
+ *           ContainsHeader: true || false,
+ *           TextQualifier: "DOUBLE_QUOTE" || "SINGLE_QUOTE",
+ *           Delimiter: "STRING_VALUE",
+ *         },
+ *         InputColumns: [ // required
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   LogicalTableMap: { // LogicalTableMap
+ *     "<keys>": { // LogicalTable
+ *       Alias: "STRING_VALUE", // required
+ *       DataTransforms: [ // TransformOperationList
+ *         { // TransformOperation Union: only one key present
+ *           ProjectOperation: { // ProjectOperation
+ *             ProjectedColumns: [ // ProjectedColumnList // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           FilterOperation: { // FilterOperation
+ *             ConditionExpression: "STRING_VALUE", // required
+ *           },
+ *           CreateColumnsOperation: { // CreateColumnsOperation
+ *             Columns: [ // CalculatedColumnList // required
+ *               { // CalculatedColumn
+ *                 ColumnName: "STRING_VALUE", // required
+ *                 ColumnId: "STRING_VALUE", // required
+ *                 Expression: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *           RenameColumnOperation: { // RenameColumnOperation
+ *             ColumnName: "STRING_VALUE", // required
+ *             NewColumnName: "STRING_VALUE", // required
+ *           },
+ *           CastColumnTypeOperation: { // CastColumnTypeOperation
+ *             ColumnName: "STRING_VALUE", // required
+ *             NewColumnType: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME", // required
+ *             Format: "STRING_VALUE",
+ *           },
+ *           TagColumnOperation: { // TagColumnOperation
+ *             ColumnName: "STRING_VALUE", // required
+ *             Tags: [ // ColumnTagList // required
+ *               { // ColumnTag
+ *                 ColumnGeographicRole: "COUNTRY" || "STATE" || "COUNTY" || "CITY" || "POSTCODE" || "LONGITUDE" || "LATITUDE",
+ *                 ColumnDescription: { // ColumnDescription
+ *                   Text: "STRING_VALUE",
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *           UntagColumnOperation: { // UntagColumnOperation
+ *             ColumnName: "STRING_VALUE", // required
+ *             TagNames: [ // ColumnTagNames // required
+ *               "COLUMN_GEOGRAPHIC_ROLE" || "COLUMN_DESCRIPTION",
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       Source: { // LogicalTableSource
+ *         JoinInstruction: { // JoinInstruction
+ *           LeftOperand: "STRING_VALUE", // required
+ *           RightOperand: "STRING_VALUE", // required
+ *           LeftJoinKeyProperties: { // JoinKeyProperties
+ *             UniqueKey: true || false,
+ *           },
+ *           RightJoinKeyProperties: {
+ *             UniqueKey: true || false,
+ *           },
+ *           Type: "INNER" || "OUTER" || "LEFT" || "RIGHT", // required
+ *           OnClause: "STRING_VALUE", // required
+ *         },
+ *         PhysicalTableId: "STRING_VALUE",
+ *         DataSetArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ImportMode: "SPICE" || "DIRECT_QUERY", // required
+ *   ColumnGroups: [ // ColumnGroupList
+ *     { // ColumnGroup
+ *       GeoSpatialColumnGroup: { // GeoSpatialColumnGroup
+ *         Name: "STRING_VALUE", // required
+ *         CountryCode: "US",
+ *         Columns: [ // ColumnList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   FieldFolders: { // FieldFolderMap
+ *     "<keys>": { // FieldFolder
+ *       description: "STRING_VALUE",
+ *       columns: [ // FolderColumnList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   RowLevelPermissionDataSet: { // RowLevelPermissionDataSet
+ *     Namespace: "STRING_VALUE",
+ *     Arn: "STRING_VALUE", // required
+ *     PermissionPolicy: "GRANT_ACCESS" || "DENY_ACCESS", // required
+ *     FormatVersion: "VERSION_1" || "VERSION_2",
+ *     Status: "ENABLED" || "DISABLED",
+ *   },
+ *   RowLevelPermissionTagConfiguration: { // RowLevelPermissionTagConfiguration
+ *     Status: "ENABLED" || "DISABLED",
+ *     TagRules: [ // RowLevelPermissionTagRuleList // required
+ *       { // RowLevelPermissionTagRule
+ *         TagKey: "STRING_VALUE", // required
+ *         ColumnName: "STRING_VALUE", // required
+ *         TagMultiValueDelimiter: "STRING_VALUE",
+ *         MatchAllValue: "STRING_VALUE",
+ *       },
+ *     ],
+ *     TagRuleConfigurations: [ // RowLevelPermissionTagRuleConfigurationList
+ *       [ // RowLevelPermissionTagRuleConfiguration
+ *         "STRING_VALUE",
+ *       ],
+ *     ],
+ *   },
+ *   ColumnLevelPermissionRules: [ // ColumnLevelPermissionRuleList
+ *     { // ColumnLevelPermissionRule
+ *       Principals: [ // PrincipalList
+ *         "STRING_VALUE",
+ *       ],
+ *       ColumnNames: [ // ColumnNameList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DataSetUsageConfiguration: { // DataSetUsageConfiguration
+ *     DisableUseAsDirectQuerySource: true || false,
+ *     DisableUseAsImportedSource: true || false,
+ *   },
+ * };
  * const command = new UpdateDataSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataSetCommandInput - {@link UpdateDataSetCommandInput}
+ * @returns {@link UpdateDataSetCommandOutput}
  * @see {@link UpdateDataSetCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSetCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -99,6 +275,9 @@ export class UpdateDataSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,7 +305,7 @@ export class UpdateDataSetCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateDataSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataSetResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +315,18 @@ export class UpdateDataSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataSetCommand(input, context);
+    return se_UpdateDataSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSetCommandOutput> {
-    return deserializeAws_restJson1UpdateDataSetCommand(output, context);
+    return de_UpdateDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

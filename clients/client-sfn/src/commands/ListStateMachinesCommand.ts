@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListStateMachinesInput,
-  ListStateMachinesInputFilterSensitiveLog,
-  ListStateMachinesOutput,
-  ListStateMachinesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListStateMachinesCommand,
-  serializeAws_json1_0ListStateMachinesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListStateMachinesInput, ListStateMachinesOutput } from "../models/models_0";
+import { de_ListStateMachinesCommand, se_ListStateMachinesCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListStateMachinesCommand}.
  */
 export interface ListStateMachinesCommandInput extends ListStateMachinesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStateMachinesCommand}.
  */
 export interface ListStateMachinesCommandOutput extends ListStateMachinesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the existing state machines.</p>
  *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
  *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
@@ -47,10 +44,16 @@ export interface ListStateMachinesCommandOutput extends ListStateMachinesOutput,
  * import { SFNClient, ListStateMachinesCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, ListStateMachinesCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // ListStateMachinesInput
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListStateMachinesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStateMachinesCommandInput - {@link ListStateMachinesCommandInput}
+ * @returns {@link ListStateMachinesCommandOutput}
  * @see {@link ListStateMachinesCommandInput} for command's `input` shape.
  * @see {@link ListStateMachinesCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -77,6 +80,9 @@ export class ListStateMachinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStateMachinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +111,8 @@ export class ListStateMachinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStateMachinesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStateMachinesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +122,18 @@ export class ListStateMachinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStateMachinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListStateMachinesCommand(input, context);
+    return se_ListStateMachinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStateMachinesCommandOutput> {
-    return deserializeAws_json1_0ListStateMachinesCommand(output, context);
+    return de_ListStateMachinesCommand(output, context);
   }
 
   // Start section: command_body_extra

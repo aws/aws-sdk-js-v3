@@ -18,21 +18,26 @@ import {
   PutBucketInventoryConfigurationRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlPutBucketInventoryConfigurationCommand,
-  serializeAws_restXmlPutBucketInventoryConfigurationCommand,
+  de_PutBucketInventoryConfigurationCommand,
+  se_PutBucketInventoryConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketInventoryConfigurationCommand}.
  */
 export interface PutBucketInventoryConfigurationCommandInput extends PutBucketInventoryConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketInventoryConfigurationCommand}.
  */
 export interface PutBucketInventoryConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This implementation of the <code>PUT</code> action adds an inventory configuration
  *          (identified by the inventory ID) to the bucket. You can have up to 1,000 inventory
  *          configurations per bucket. </p>
@@ -138,10 +143,45 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  * import { S3Client, PutBucketInventoryConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketInventoryConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketInventoryConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   InventoryConfiguration: { // InventoryConfiguration
+ *     Destination: { // InventoryDestination
+ *       S3BucketDestination: { // InventoryS3BucketDestination
+ *         AccountId: "STRING_VALUE",
+ *         Bucket: "STRING_VALUE", // required
+ *         Format: "CSV" || "ORC" || "Parquet", // required
+ *         Prefix: "STRING_VALUE",
+ *         Encryption: { // InventoryEncryption
+ *           SSES3: {},
+ *           SSEKMS: { // SSEKMS
+ *             KeyId: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *     IsEnabled: true || false, // required
+ *     Filter: { // InventoryFilter
+ *       Prefix: "STRING_VALUE", // required
+ *     },
+ *     Id: "STRING_VALUE", // required
+ *     IncludedObjectVersions: "All" || "Current", // required
+ *     OptionalFields: [ // InventoryOptionalFields
+ *       "Size" || "LastModifiedDate" || "StorageClass" || "ETag" || "IsMultipartUploaded" || "ReplicationStatus" || "EncryptionStatus" || "ObjectLockRetainUntilDate" || "ObjectLockMode" || "ObjectLockLegalHoldStatus" || "IntelligentTieringAccessTier" || "BucketKeyStatus" || "ChecksumAlgorithm",
+ *     ],
+ *     Schedule: { // InventorySchedule
+ *       Frequency: "Daily" || "Weekly", // required
+ *     },
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketInventoryConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketInventoryConfigurationCommandInput - {@link PutBucketInventoryConfigurationCommandInput}
+ * @returns {@link PutBucketInventoryConfigurationCommandOutput}
  * @see {@link PutBucketInventoryConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketInventoryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -171,6 +211,9 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketInventoryConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -200,7 +243,7 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutBucketInventoryConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -210,18 +253,24 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketInventoryConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketInventoryConfigurationCommand(input, context);
+    return se_PutBucketInventoryConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketInventoryConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketInventoryConfigurationCommand(output, context);
+    return de_PutBucketInventoryConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

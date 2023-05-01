@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListConflictingAliasesRequest,
-  ListConflictingAliasesRequestFilterSensitiveLog,
-  ListConflictingAliasesResult,
-  ListConflictingAliasesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListConflictingAliasesCommand,
-  serializeAws_restXmlListConflictingAliasesCommand,
-} from "../protocols/Aws_restXml";
+import { ListConflictingAliasesRequest, ListConflictingAliasesResult } from "../models/models_1";
+import { de_ListConflictingAliasesCommand, se_ListConflictingAliasesCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListConflictingAliasesCommand}.
  */
 export interface ListConflictingAliasesCommandInput extends ListConflictingAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConflictingAliasesCommand}.
  */
 export interface ListConflictingAliasesCommandOutput extends ListConflictingAliasesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of aliases (also called CNAMEs or alternate domain names) that conflict or
  * 			overlap with the provided alias, and the associated CloudFront distributions and Amazon Web Services
  * 			accounts for each conflicting alias. In the returned list, the distribution and account
@@ -64,10 +61,18 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  * import { CloudFrontClient, ListConflictingAliasesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListConflictingAliasesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListConflictingAliasesRequest
+ *   DistributionId: "STRING_VALUE", // required
+ *   Alias: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListConflictingAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConflictingAliasesCommandInput - {@link ListConflictingAliasesCommandInput}
+ * @returns {@link ListConflictingAliasesCommandOutput}
  * @see {@link ListConflictingAliasesCommandInput} for command's `input` shape.
  * @see {@link ListConflictingAliasesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -97,6 +102,9 @@ export class ListConflictingAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConflictingAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +133,8 @@ export class ListConflictingAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConflictingAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConflictingAliasesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +144,18 @@ export class ListConflictingAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConflictingAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListConflictingAliasesCommand(input, context);
+    return se_ListConflictingAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConflictingAliasesCommandOutput> {
-    return deserializeAws_restXmlListConflictingAliasesCommand(output, context);
+    return de_ListConflictingAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

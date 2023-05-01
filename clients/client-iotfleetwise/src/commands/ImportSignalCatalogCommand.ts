@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  ImportSignalCatalogRequest,
-  ImportSignalCatalogRequestFilterSensitiveLog,
-  ImportSignalCatalogResponse,
-  ImportSignalCatalogResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ImportSignalCatalogCommand,
-  serializeAws_json1_0ImportSignalCatalogCommand,
-} from "../protocols/Aws_json1_0";
+import { ImportSignalCatalogRequest, ImportSignalCatalogResponse } from "../models/models_0";
+import { de_ImportSignalCatalogCommand, se_ImportSignalCatalogCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ImportSignalCatalogCommand}.
  */
 export interface ImportSignalCatalogCommandInput extends ImportSignalCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportSignalCatalogCommand}.
  */
 export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a signal catalog using your existing VSS formatted content from your local
  *             device. </p>
  * @example
@@ -43,10 +40,25 @@ export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogRes
  * import { IoTFleetWiseClient, ImportSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ImportSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // ImportSignalCatalogRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   vss: { // FormattedVss Union: only one key present
+ *     vssJson: "STRING_VALUE",
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ImportSignalCatalogCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportSignalCatalogCommandInput - {@link ImportSignalCatalogCommandInput}
+ * @returns {@link ImportSignalCatalogCommandOutput}
  * @see {@link ImportSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link ImportSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -95,6 +107,9 @@ export class ImportSignalCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportSignalCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +138,8 @@ export class ImportSignalCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportSignalCatalogRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportSignalCatalogResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +149,18 @@ export class ImportSignalCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportSignalCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ImportSignalCatalogCommand(input, context);
+    return se_ImportSignalCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportSignalCatalogCommandOutput> {
-    return deserializeAws_json1_0ImportSignalCatalogCommand(output, context);
+    return de_ImportSignalCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

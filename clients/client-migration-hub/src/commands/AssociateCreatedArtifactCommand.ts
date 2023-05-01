@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  AssociateCreatedArtifactRequest,
-  AssociateCreatedArtifactRequestFilterSensitiveLog,
-  AssociateCreatedArtifactResult,
-  AssociateCreatedArtifactResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateCreatedArtifactCommand,
-  serializeAws_json1_1AssociateCreatedArtifactCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateCreatedArtifactRequest, AssociateCreatedArtifactResult } from "../models/models_0";
+import { de_AssociateCreatedArtifactCommand, se_AssociateCreatedArtifactCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateCreatedArtifactCommand}.
  */
 export interface AssociateCreatedArtifactCommandInput extends AssociateCreatedArtifactRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateCreatedArtifactCommand}.
  */
 export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedArtifactResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a created artifact of an AWS cloud resource, the target receiving the
  *          migration, with the migration task performed by a migration tool. This API has the
  *          following traits:</p>
@@ -59,10 +56,21 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  * import { MigrationHubClient, AssociateCreatedArtifactCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, AssociateCreatedArtifactCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // AssociateCreatedArtifactRequest
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   CreatedArtifact: { // CreatedArtifact
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *   },
+ *   DryRun: true || false,
+ * };
  * const command = new AssociateCreatedArtifactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateCreatedArtifactCommandInput - {@link AssociateCreatedArtifactCommandInput}
+ * @returns {@link AssociateCreatedArtifactCommandOutput}
  * @see {@link AssociateCreatedArtifactCommandInput} for command's `input` shape.
  * @see {@link AssociateCreatedArtifactCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -120,6 +128,9 @@ export class AssociateCreatedArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateCreatedArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +159,8 @@ export class AssociateCreatedArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateCreatedArtifactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateCreatedArtifactResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +170,18 @@ export class AssociateCreatedArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateCreatedArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateCreatedArtifactCommand(input, context);
+    return se_AssociateCreatedArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCreatedArtifactCommandOutput> {
-    return deserializeAws_json1_1AssociateCreatedArtifactCommand(output, context);
+    return de_AssociateCreatedArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

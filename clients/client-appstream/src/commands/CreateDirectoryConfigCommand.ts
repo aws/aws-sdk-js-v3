@@ -20,21 +20,23 @@ import {
   CreateDirectoryConfigResult,
   CreateDirectoryConfigResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDirectoryConfigCommand,
-  serializeAws_json1_1CreateDirectoryConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDirectoryConfigCommand, se_CreateDirectoryConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDirectoryConfigCommand}.
  */
 export interface CreateDirectoryConfigCommandInput extends CreateDirectoryConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDirectoryConfigCommand}.
  */
 export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,26 @@ export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfi
  * import { AppStreamClient, CreateDirectoryConfigCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateDirectoryConfigCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // CreateDirectoryConfigRequest
+ *   DirectoryName: "STRING_VALUE", // required
+ *   OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceAccountCredentials: { // ServiceAccountCredentials
+ *     AccountName: "STRING_VALUE", // required
+ *     AccountPassword: "STRING_VALUE", // required
+ *   },
+ *   CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
+ *     Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+ *     CertificateAuthorityArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDirectoryConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDirectoryConfigCommandInput - {@link CreateDirectoryConfigCommandInput}
+ * @returns {@link CreateDirectoryConfigCommandOutput}
  * @see {@link CreateDirectoryConfigCommandInput} for command's `input` shape.
  * @see {@link CreateDirectoryConfigCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -87,6 +105,9 @@ export class CreateDirectoryConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectoryConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,12 +147,18 @@ export class CreateDirectoryConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDirectoryConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDirectoryConfigCommand(input, context);
+    return se_CreateDirectoryConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDirectoryConfigCommandOutput> {
-    return deserializeAws_json1_1CreateDirectoryConfigCommand(output, context);
+    return de_CreateDirectoryConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

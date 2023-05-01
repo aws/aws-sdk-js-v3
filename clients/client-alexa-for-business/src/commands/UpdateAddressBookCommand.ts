@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  UpdateAddressBookRequest,
-  UpdateAddressBookRequestFilterSensitiveLog,
-  UpdateAddressBookResponse,
-  UpdateAddressBookResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAddressBookCommand,
-  serializeAws_json1_1UpdateAddressBookCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateAddressBookRequest, UpdateAddressBookResponse } from "../models/models_0";
+import { de_UpdateAddressBookCommand, se_UpdateAddressBookCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAddressBookCommand}.
  */
 export interface UpdateAddressBookCommandInput extends UpdateAddressBookRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAddressBookCommand}.
  */
 export interface UpdateAddressBookCommandOutput extends UpdateAddressBookResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates address book details by the address book ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateAddressBookCommandOutput extends UpdateAddressBookRespons
  * import { AlexaForBusinessClient, UpdateAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // UpdateAddressBookRequest
+ *   AddressBookArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateAddressBookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAddressBookCommandInput - {@link UpdateAddressBookCommandInput}
+ * @returns {@link UpdateAddressBookCommandOutput}
  * @see {@link UpdateAddressBookCommandInput} for command's `input` shape.
  * @see {@link UpdateAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -78,6 +82,9 @@ export class UpdateAddressBookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAddressBookCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class UpdateAddressBookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAddressBookRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAddressBookResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class UpdateAddressBookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAddressBookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAddressBookCommand(input, context);
+    return se_UpdateAddressBookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAddressBookCommandOutput> {
-    return deserializeAws_json1_1UpdateAddressBookCommand(output, context);
+    return de_UpdateAddressBookCommand(output, context);
   }
 
   // Start section: command_body_extra

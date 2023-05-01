@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateLocationInput,
-  CreateLocationInputFilterSensitiveLog,
-  CreateLocationOutput,
-  CreateLocationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationCommand,
-  serializeAws_json1_1CreateLocationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLocationInput, CreateLocationOutput } from "../models/models_0";
+import { de_CreateLocationCommand, se_CreateLocationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationCommand}.
  */
 export interface CreateLocationCommandInput extends CreateLocationInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationCommand}.
  */
 export interface CreateLocationCommandOutput extends CreateLocationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom location for use in an Anywhere fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface CreateLocationCommandOutput extends CreateLocationOutput, __Met
  * import { GameLiftClient, CreateLocationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateLocationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreateLocationInput
+ *   LocationName: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationCommandInput - {@link CreateLocationCommandInput}
+ * @returns {@link CreateLocationCommandOutput}
  * @see {@link CreateLocationCommandInput} for command's `input` shape.
  * @see {@link CreateLocationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -54,7 +62,7 @@ export interface CreateLocationCommandOutput extends CreateLocationOutput, __Met
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>The service encountered an unrecoverable internal failure while processing the
@@ -95,6 +103,9 @@ export class CreateLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +134,8 @@ export class CreateLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +145,18 @@ export class CreateLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationCommand(input, context);
+    return se_CreateLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationCommandOutput> {
-    return deserializeAws_json1_1CreateLocationCommand(output, context);
+    return de_CreateLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { GetFieldLevelEncryptionProfileRequest, GetFieldLevelEncryptionProfileResult } from "../models/models_1";
 import {
-  GetFieldLevelEncryptionProfileRequest,
-  GetFieldLevelEncryptionProfileRequestFilterSensitiveLog,
-  GetFieldLevelEncryptionProfileResult,
-  GetFieldLevelEncryptionProfileResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetFieldLevelEncryptionProfileCommand,
-  serializeAws_restXmlGetFieldLevelEncryptionProfileCommand,
+  de_GetFieldLevelEncryptionProfileCommand,
+  se_GetFieldLevelEncryptionProfileCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetFieldLevelEncryptionProfileCommand}.
  */
 export interface GetFieldLevelEncryptionProfileCommandInput extends GetFieldLevelEncryptionProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFieldLevelEncryptionProfileCommand}.
  */
 export interface GetFieldLevelEncryptionProfileCommandOutput
@@ -37,6 +36,7 @@ export interface GetFieldLevelEncryptionProfileCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the field-level encryption profile information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetFieldLevelEncryptionProfileCommandOutput
  * import { CloudFrontClient, GetFieldLevelEncryptionProfileCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetFieldLevelEncryptionProfileCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetFieldLevelEncryptionProfileRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFieldLevelEncryptionProfileCommandInput - {@link GetFieldLevelEncryptionProfileCommandInput}
+ * @returns {@link GetFieldLevelEncryptionProfileCommandOutput}
  * @see {@link GetFieldLevelEncryptionProfileCommandInput} for command's `input` shape.
  * @see {@link GetFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +82,9 @@ export class GetFieldLevelEncryptionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFieldLevelEncryptionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class GetFieldLevelEncryptionProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFieldLevelEncryptionProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFieldLevelEncryptionProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +124,24 @@ export class GetFieldLevelEncryptionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetFieldLevelEncryptionProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetFieldLevelEncryptionProfileCommand(input, context);
+    return se_GetFieldLevelEncryptionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFieldLevelEncryptionProfileCommandOutput> {
-    return deserializeAws_restXmlGetFieldLevelEncryptionProfileCommand(output, context);
+    return de_GetFieldLevelEncryptionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

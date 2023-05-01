@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  ListByoipCidrsRequest,
-  ListByoipCidrsRequestFilterSensitiveLog,
-  ListByoipCidrsResponse,
-  ListByoipCidrsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListByoipCidrsCommand,
-  serializeAws_json1_1ListByoipCidrsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListByoipCidrsRequest, ListByoipCidrsResponse } from "../models/models_0";
+import { de_ListByoipCidrsCommand, se_ListByoipCidrsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListByoipCidrsCommand}.
  */
 export interface ListByoipCidrsCommandInput extends ListByoipCidrsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListByoipCidrsCommand}.
  */
 export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the IP address ranges that were specified in calls to <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/ProvisionByoipCidr.html">ProvisionByoipCidr</a>, including
  * 			the current state and a history of state changes.</p>
  * @example
@@ -47,10 +44,16 @@ export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __M
  * import { GlobalAcceleratorClient, ListByoipCidrsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListByoipCidrsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // ListByoipCidrsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListByoipCidrsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListByoipCidrsCommandInput - {@link ListByoipCidrsCommandInput}
+ * @returns {@link ListByoipCidrsCommandOutput}
  * @see {@link ListByoipCidrsCommandInput} for command's `input` shape.
  * @see {@link ListByoipCidrsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -86,6 +89,9 @@ export class ListByoipCidrsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListByoipCidrsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class ListByoipCidrsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListByoipCidrsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListByoipCidrsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class ListByoipCidrsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListByoipCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListByoipCidrsCommand(input, context);
+    return se_ListByoipCidrsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListByoipCidrsCommandOutput> {
-    return deserializeAws_json1_1ListByoipCidrsCommand(output, context);
+    return de_ListByoipCidrsCommand(output, context);
   }
 
   // Start section: command_body_extra

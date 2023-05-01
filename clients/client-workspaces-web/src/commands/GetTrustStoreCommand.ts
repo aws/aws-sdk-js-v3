@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTrustStoreRequest,
-  GetTrustStoreRequestFilterSensitiveLog,
-  GetTrustStoreResponse,
-  GetTrustStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTrustStoreCommand,
-  serializeAws_restJson1GetTrustStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTrustStoreRequest, GetTrustStoreResponse } from "../models/models_0";
+import { de_GetTrustStoreCommand, se_GetTrustStoreCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTrustStoreCommand}.
  */
 export interface GetTrustStoreCommandInput extends GetTrustStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTrustStoreCommand}.
  */
 export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __Met
  * import { WorkSpacesWebClient, GetTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // GetTrustStoreRequest
+ *   trustStoreArn: "STRING_VALUE", // required
+ * };
  * const command = new GetTrustStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTrustStoreCommandInput - {@link GetTrustStoreCommandInput}
+ * @returns {@link GetTrustStoreCommandOutput}
  * @see {@link GetTrustStoreCommandInput} for command's `input` shape.
  * @see {@link GetTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetTrustStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetTrustStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTrustStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTrustStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTrustStoreCommand(input, context);
+    return se_GetTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrustStoreCommandOutput> {
-    return deserializeAws_restJson1GetTrustStoreCommand(output, context);
+    return de_GetTrustStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

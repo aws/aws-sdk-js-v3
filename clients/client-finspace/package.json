@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-finspace",
   "description": "AWS SDK for JavaScript Finspace Client for Node.js, Browser and React Native",
-  "version": "3.296.0",
+  "version": "3.321.1",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -11,6 +11,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "extract:docs": "api-extractor run --local",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo finspace"
   },
   "main": "./dist-cjs/index.js",
@@ -75,7 +76,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "author": {
     "name": "AWS SDK for JavaScript Team",

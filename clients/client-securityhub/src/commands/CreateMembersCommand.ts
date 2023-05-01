@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateMembersRequest,
-  CreateMembersRequestFilterSensitiveLog,
-  CreateMembersResponse,
-  CreateMembersResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateMembersCommand,
-  serializeAws_restJson1CreateMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMembersRequest, CreateMembersResponse } from "../models/models_2";
+import { de_CreateMembersCommand, se_CreateMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMembersCommand}.
  */
 export interface CreateMembersCommandInput extends CreateMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMembersCommand}.
  */
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a member association in Security Hub between the specified accounts and the account
  *          used to make the request, which is the administrator account. If you are integrated with
  *          Organizations, then the administrator account is designated by the organization management account.</p>
@@ -76,10 +73,20 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * import { SecurityHubClient, CreateMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, CreateMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // CreateMembersRequest
+ *   AccountDetails: [ // AccountDetailsList // required
+ *     { // AccountDetails
+ *       AccountId: "STRING_VALUE", // required
+ *       Email: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMembersCommandInput - {@link CreateMembersCommandInput}
+ * @returns {@link CreateMembersCommandOutput}
  * @see {@link CreateMembersCommandInput} for command's `input` shape.
  * @see {@link CreateMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -102,6 +109,29 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
  *
+ * @example To add a member account
+ * ```javascript
+ * // The following example creates a member association between the specified accounts and the administrator account (the account that makes the request). This operation is used to add accounts that aren't part of an organization.
+ * const input = {
+ *   "AccountDetails": [
+ *     {
+ *       "AccountId": "123456789012"
+ *     },
+ *     {
+ *       "AccountId": "111122223333"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateMembersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "UnprocessedAccounts": []
+ * }
+ * *\/
+ * // example id: to-add-a-member-account-1675354709996
+ * ```
+ *
  */
 export class CreateMembersCommand extends $Command<
   CreateMembersCommandInput,
@@ -120,6 +150,9 @@ export class CreateMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +179,8 @@ export class CreateMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +190,18 @@ export class CreateMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMembersCommand(input, context);
+    return se_CreateMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMembersCommandOutput> {
-    return deserializeAws_restJson1CreateMembersCommand(output, context);
+    return de_CreateMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

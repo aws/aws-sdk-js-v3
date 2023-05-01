@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DescribeVolumesRequest,
-  DescribeVolumesRequestFilterSensitiveLog,
-  DescribeVolumesResponse,
-  DescribeVolumesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeVolumesCommand,
-  serializeAws_json1_1DescribeVolumesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeVolumesRequest, DescribeVolumesResponse } from "../models/models_0";
+import { de_DescribeVolumesCommand, se_DescribeVolumesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVolumesCommand}.
  */
 export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVolumesCommand}.
  */
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Amazon FSx for NetApp ONTAP or Amazon FSx for
  *             OpenZFS volumes.</p>
  * @example
@@ -43,10 +40,27 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * import { FSxClient, DescribeVolumesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeVolumesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DescribeVolumesRequest
+ *   VolumeIds: [ // VolumeIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // VolumeFilters
+ *     { // VolumeFilter
+ *       Name: "file-system-id" || "storage-virtual-machine-id",
+ *       Values: [ // VolumeFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeVolumesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVolumesCommandInput - {@link DescribeVolumesCommandInput}
+ * @returns {@link DescribeVolumesCommandOutput}
  * @see {@link DescribeVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -79,6 +93,9 @@ export class DescribeVolumesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVolumesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +124,8 @@ export class DescribeVolumesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVolumesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVolumesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +135,18 @@ export class DescribeVolumesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVolumesCommand(input, context);
+    return se_DescribeVolumesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumesCommandOutput> {
-    return deserializeAws_json1_1DescribeVolumesCommand(output, context);
+    return de_DescribeVolumesCommand(output, context);
   }
 
   // Start section: command_body_extra

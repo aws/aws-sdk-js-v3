@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTagsMessage,
-  DescribeTagsMessageFilterSensitiveLog,
-  TaggedResourceListMessage,
-  TaggedResourceListMessageFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_queryDescribeTagsCommand, serializeAws_queryDescribeTagsCommand } from "../protocols/Aws_query";
+import { DescribeTagsMessage, TaggedResourceListMessage } from "../models/models_1";
+import { de_DescribeTagsCommand, se_DescribeTagsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandInput extends DescribeTagsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tags. You can return tags from a specific resource by specifying
  *             an ARN, or you can return all tags for a given type of resource, such as clusters,
  *             snapshots, and so on.</p>
@@ -63,10 +63,24 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  * import { RedshiftClient, DescribeTagsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeTagsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeTagsMessage
+ *   ResourceName: "STRING_VALUE",
+ *   ResourceType: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   TagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [ // TagValueList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
+ * @returns {@link DescribeTagsCommandOutput}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -96,6 +110,9 @@ export class DescribeTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +139,8 @@ export class DescribeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTagsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: TaggedResourceListMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +150,18 @@ export class DescribeTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTagsCommand(input, context);
+    return se_DescribeTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
-    return deserializeAws_queryDescribeTagsCommand(output, context);
+    return de_DescribeTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

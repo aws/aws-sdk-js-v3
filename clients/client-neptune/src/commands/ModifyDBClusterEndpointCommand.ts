@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBClusterEndpointMessage,
-  ModifyDBClusterEndpointMessageFilterSensitiveLog,
-  ModifyDBClusterEndpointOutput,
-  ModifyDBClusterEndpointOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyDBClusterEndpointMessage, ModifyDBClusterEndpointOutput } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryModifyDBClusterEndpointCommand,
-  serializeAws_queryModifyDBClusterEndpointCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBClusterEndpointCommand, se_ModifyDBClusterEndpointCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBClusterEndpointCommand}.
  */
 export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndpointMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBClusterEndpointCommand}.
  */
 export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the properties of an endpoint in an Amazon Neptune DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEnd
  * import { NeptuneClient, ModifyDBClusterEndpointCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBClusterEndpointCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // ModifyDBClusterEndpointMessage
+ *   DBClusterEndpointIdentifier: "STRING_VALUE", // required
+ *   EndpointType: "STRING_VALUE",
+ *   StaticMembers: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   ExcludedMembers: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyDBClusterEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterEndpointCommandInput - {@link ModifyDBClusterEndpointCommandInput}
+ * @returns {@link ModifyDBClusterEndpointCommandOutput}
  * @see {@link ModifyDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -85,6 +94,9 @@ export class ModifyDBClusterEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +125,8 @@ export class ModifyDBClusterEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBClusterEndpointMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBClusterEndpointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +136,18 @@ export class ModifyDBClusterEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterEndpointCommand(input, context);
+    return se_ModifyDBClusterEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBClusterEndpointCommandOutput> {
-    return deserializeAws_queryModifyDBClusterEndpointCommand(output, context);
+    return de_ModifyDBClusterEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

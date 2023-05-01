@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateConnectionRequest,
-  UpdateConnectionRequestFilterSensitiveLog,
-  UpdateConnectionResponse,
-  UpdateConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateConnectionRequest, UpdateConnectionResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1UpdateConnectionCommand,
-  serializeAws_restJson1UpdateConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateConnectionCommand, se_UpdateConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectionCommand}.
  */
 export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectionCommand}.
  */
 export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the information for an existing connection. To remove information for any of the parameters,
  *             specify an empty string.</p>
  * @example
@@ -43,10 +40,19 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * import { NetworkManagerClient, UpdateConnectionCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateConnectionCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // UpdateConnectionRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   ConnectionId: "STRING_VALUE", // required
+ *   LinkId: "STRING_VALUE",
+ *   ConnectedLinkId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectionCommandInput - {@link UpdateConnectionCommandInput}
+ * @returns {@link UpdateConnectionCommandOutput}
  * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +95,9 @@ export class UpdateConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +126,8 @@ export class UpdateConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +137,18 @@ export class UpdateConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConnectionCommand(input, context);
+    return se_UpdateConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectionCommandOutput> {
-    return deserializeAws_restJson1UpdateConnectionCommand(output, context);
+    return de_UpdateConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

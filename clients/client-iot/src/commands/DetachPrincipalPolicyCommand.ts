@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DetachPrincipalPolicyRequest, DetachPrincipalPolicyRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1DetachPrincipalPolicyCommand,
-  serializeAws_restJson1DetachPrincipalPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DetachPrincipalPolicyRequest } from "../models/models_1";
+import { de_DetachPrincipalPolicyCommand, se_DetachPrincipalPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachPrincipalPolicyCommand}.
  */
 export interface DetachPrincipalPolicyCommandInput extends DetachPrincipalPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachPrincipalPolicyCommand}.
  */
 export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Removes the specified policy from the specified certificate.</p>
@@ -43,10 +45,16 @@ export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * import { IoTClient, DetachPrincipalPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DetachPrincipalPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DetachPrincipalPolicyRequest
+ *   policyName: "STRING_VALUE", // required
+ *   principal: "STRING_VALUE", // required
+ * };
  * const command = new DetachPrincipalPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachPrincipalPolicyCommandInput - {@link DetachPrincipalPolicyCommandInput}
+ * @returns {@link DetachPrincipalPolicyCommandOutput}
  * @see {@link DetachPrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link DetachPrincipalPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +96,9 @@ export class DetachPrincipalPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachPrincipalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +127,8 @@ export class DetachPrincipalPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachPrincipalPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +138,18 @@ export class DetachPrincipalPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachPrincipalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DetachPrincipalPolicyCommand(input, context);
+    return se_DetachPrincipalPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachPrincipalPolicyCommandOutput> {
-    return deserializeAws_restJson1DetachPrincipalPolicyCommand(output, context);
+    return de_DetachPrincipalPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

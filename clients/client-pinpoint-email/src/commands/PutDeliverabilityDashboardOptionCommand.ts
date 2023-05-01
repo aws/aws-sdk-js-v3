@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutDeliverabilityDashboardOptionRequest,
-  PutDeliverabilityDashboardOptionRequestFilterSensitiveLog,
-  PutDeliverabilityDashboardOptionResponse,
-  PutDeliverabilityDashboardOptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutDeliverabilityDashboardOptionRequest, PutDeliverabilityDashboardOptionResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand,
-  serializeAws_restJson1PutDeliverabilityDashboardOptionCommand,
+  de_PutDeliverabilityDashboardOptionCommand,
+  se_PutDeliverabilityDashboardOptionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDeliverabilityDashboardOptionCommand}.
  */
 export interface PutDeliverabilityDashboardOptionCommandInput extends PutDeliverabilityDashboardOptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDeliverabilityDashboardOptionCommand}.
  */
 export interface PutDeliverabilityDashboardOptionCommandOutput
@@ -37,6 +36,7 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enable or disable the Deliverability dashboard for your Amazon Pinpoint account. When you enable the
  *             Deliverability dashboard, you gain access to reputation, deliverability, and other metrics for
  *             the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform
@@ -50,10 +50,27 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * import { PinpointEmailClient, PutDeliverabilityDashboardOptionCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutDeliverabilityDashboardOptionCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // PutDeliverabilityDashboardOptionRequest
+ *   DashboardEnabled: true || false, // required
+ *   SubscribedDomains: [ // DomainDeliverabilityTrackingOptions
+ *     { // DomainDeliverabilityTrackingOption
+ *       Domain: "STRING_VALUE",
+ *       SubscriptionStartDate: new Date("TIMESTAMP"),
+ *       InboxPlacementTrackingOption: { // InboxPlacementTrackingOption
+ *         Global: true || false,
+ *         TrackedIsps: [ // IspNameList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutDeliverabilityDashboardOptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDeliverabilityDashboardOptionCommandInput - {@link PutDeliverabilityDashboardOptionCommandInput}
+ * @returns {@link PutDeliverabilityDashboardOptionCommandOutput}
  * @see {@link PutDeliverabilityDashboardOptionCommandInput} for command's `input` shape.
  * @see {@link PutDeliverabilityDashboardOptionCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -92,6 +109,9 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDeliverabilityDashboardOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +140,8 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDeliverabilityDashboardOptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDeliverabilityDashboardOptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +151,24 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutDeliverabilityDashboardOptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDeliverabilityDashboardOptionCommand(input, context);
+    return se_PutDeliverabilityDashboardOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDeliverabilityDashboardOptionCommandOutput> {
-    return deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand(output, context);
+    return de_PutDeliverabilityDashboardOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

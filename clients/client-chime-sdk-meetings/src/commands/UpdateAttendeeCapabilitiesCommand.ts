@@ -16,26 +16,27 @@ import {
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import {
   UpdateAttendeeCapabilitiesRequest,
-  UpdateAttendeeCapabilitiesRequestFilterSensitiveLog,
   UpdateAttendeeCapabilitiesResponse,
   UpdateAttendeeCapabilitiesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAttendeeCapabilitiesCommand,
-  serializeAws_restJson1UpdateAttendeeCapabilitiesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAttendeeCapabilitiesCommand, se_UpdateAttendeeCapabilitiesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAttendeeCapabilitiesCommand}.
  */
 export interface UpdateAttendeeCapabilitiesCommandInput extends UpdateAttendeeCapabilitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAttendeeCapabilitiesCommand}.
  */
 export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeCapabilitiesResponse, __MetadataBearer {}
 
 /**
- * <p>The capabilties that you want to update.</p>
+ * @public
+ * <p>The capabilities that you want to update.</p>
  *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
  *             .</p>
@@ -53,7 +54,7 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  *             </li>
  *             <li>
  *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
- *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
+ *                     and if the attendee turned on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
  *             </li>
  *          </ul>
  * @example
@@ -62,10 +63,21 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  * import { ChimeSDKMeetingsClient, UpdateAttendeeCapabilitiesCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, UpdateAttendeeCapabilitiesCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = { // UpdateAttendeeCapabilitiesRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   AttendeeId: "STRING_VALUE", // required
+ *   Capabilities: { // AttendeeCapabilities
+ *     Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ *     Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ *     Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ *   },
+ * };
  * const command = new UpdateAttendeeCapabilitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAttendeeCapabilitiesCommandInput - {@link UpdateAttendeeCapabilitiesCommandInput}
+ * @returns {@link UpdateAttendeeCapabilitiesCommandOutput}
  * @see {@link UpdateAttendeeCapabilitiesCommandInput} for command's `input` shape.
  * @see {@link UpdateAttendeeCapabilitiesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
@@ -107,6 +119,9 @@ export class UpdateAttendeeCapabilitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAttendeeCapabilitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,7 +150,7 @@ export class UpdateAttendeeCapabilitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAttendeeCapabilitiesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateAttendeeCapabilitiesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -146,15 +161,21 @@ export class UpdateAttendeeCapabilitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAttendeeCapabilitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAttendeeCapabilitiesCommand(input, context);
+    return se_UpdateAttendeeCapabilitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAttendeeCapabilitiesCommandOutput> {
-    return deserializeAws_restJson1UpdateAttendeeCapabilitiesCommand(output, context);
+    return de_UpdateAttendeeCapabilitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,23 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
   DescribeDirectConnectGatewayAttachmentsRequest,
-  DescribeDirectConnectGatewayAttachmentsRequestFilterSensitiveLog,
   DescribeDirectConnectGatewayAttachmentsResult,
-  DescribeDirectConnectGatewayAttachmentsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand,
-  serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand,
+  de_DescribeDirectConnectGatewayAttachmentsCommand,
+  se_DescribeDirectConnectGatewayAttachmentsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDirectConnectGatewayAttachmentsCommand}.
  */
 export interface DescribeDirectConnectGatewayAttachmentsCommandInput
   extends DescribeDirectConnectGatewayAttachmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDirectConnectGatewayAttachmentsCommand}.
  */
 export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify
  *       a Direct Connect gateway, a virtual interface, or both. If you specify a Direct Connect gateway, the response contains
  *       all virtual interfaces attached to the Direct Connect gateway. If you specify a virtual interface, the
@@ -49,10 +52,18 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
  * import { DirectConnectClient, DescribeDirectConnectGatewayAttachmentsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeDirectConnectGatewayAttachmentsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeDirectConnectGatewayAttachmentsRequest
+ *   directConnectGatewayId: "STRING_VALUE",
+ *   virtualInterfaceId: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeDirectConnectGatewayAttachmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDirectConnectGatewayAttachmentsCommandInput - {@link DescribeDirectConnectGatewayAttachmentsCommandInput}
+ * @returns {@link DescribeDirectConnectGatewayAttachmentsCommandOutput}
  * @see {@link DescribeDirectConnectGatewayAttachmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewayAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -82,6 +93,9 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDirectConnectGatewayAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +130,8 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDirectConnectGatewayAttachmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDirectConnectGatewayAttachmentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +141,24 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDirectConnectGatewayAttachmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand(input, context);
+    return se_DescribeDirectConnectGatewayAttachmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand(output, context);
+    return de_DescribeDirectConnectGatewayAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

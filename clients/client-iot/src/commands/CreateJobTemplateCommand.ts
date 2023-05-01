@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateJobTemplateRequest,
-  CreateJobTemplateRequestFilterSensitiveLog,
-  CreateJobTemplateResponse,
-  CreateJobTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateJobTemplateCommand,
-  serializeAws_restJson1CreateJobTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateJobTemplateRequest, CreateJobTemplateResponse } from "../models/models_0";
+import { de_CreateJobTemplateCommand, se_CreateJobTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobTemplateCommand}.
  */
 export interface CreateJobTemplateCommandInput extends CreateJobTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobTemplateCommand}.
  */
 export interface CreateJobTemplateCommandOutput extends CreateJobTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a job template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJobTemplate</a> action.</p>
  * @example
@@ -43,10 +40,67 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * import { IoTClient, CreateJobTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateJobTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateJobTemplateRequest
+ *   jobTemplateId: "STRING_VALUE", // required
+ *   jobArn: "STRING_VALUE",
+ *   documentSource: "STRING_VALUE",
+ *   document: "STRING_VALUE",
+ *   description: "STRING_VALUE", // required
+ *   presignedUrlConfig: { // PresignedUrlConfig
+ *     roleArn: "STRING_VALUE",
+ *     expiresInSec: Number("long"),
+ *   },
+ *   jobExecutionsRolloutConfig: { // JobExecutionsRolloutConfig
+ *     maximumPerMinute: Number("int"),
+ *     exponentialRate: { // ExponentialRolloutRate
+ *       baseRatePerMinute: Number("int"), // required
+ *       incrementFactor: Number("double"), // required
+ *       rateIncreaseCriteria: { // RateIncreaseCriteria
+ *         numberOfNotifiedThings: Number("int"),
+ *         numberOfSucceededThings: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   abortConfig: { // AbortConfig
+ *     criteriaList: [ // AbortCriteriaList // required
+ *       { // AbortCriteria
+ *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ *         action: "CANCEL", // required
+ *         thresholdPercentage: Number("double"), // required
+ *         minNumberOfExecutedThings: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ *   timeoutConfig: { // TimeoutConfig
+ *     inProgressTimeoutInMinutes: Number("long"),
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   jobExecutionsRetryConfig: { // JobExecutionsRetryConfig
+ *     criteriaList: [ // RetryCriteriaList // required
+ *       { // RetryCriteria
+ *         failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
+ *         numberOfRetries: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ *   maintenanceWindows: [ // MaintenanceWindows
+ *     { // MaintenanceWindow
+ *       startTime: "STRING_VALUE", // required
+ *       durationInMinutes: Number("int"), // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobTemplateCommandInput - {@link CreateJobTemplateCommandInput}
+ * @returns {@link CreateJobTemplateCommandOutput}
  * @see {@link CreateJobTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -88,6 +142,9 @@ export class CreateJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +173,8 @@ export class CreateJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateJobTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateJobTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +184,18 @@ export class CreateJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateJobTemplateCommand(input, context);
+    return se_CreateJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateJobTemplateCommand(output, context);
+    return de_CreateJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartHumanLoopRequest,
-  StartHumanLoopRequestFilterSensitiveLog,
-  StartHumanLoopResponse,
-  StartHumanLoopResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartHumanLoopCommand,
-  serializeAws_restJson1StartHumanLoopCommand,
-} from "../protocols/Aws_restJson1";
+import { StartHumanLoopRequest, StartHumanLoopResponse } from "../models/models_0";
+import { de_StartHumanLoopCommand, se_StartHumanLoopCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../SageMakerA2IRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartHumanLoopCommand}.
  */
 export interface StartHumanLoopCommandInput extends StartHumanLoopRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartHumanLoopCommand}.
  */
 export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a human loop, provided that at least one activation condition is met.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,24 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  * import { SageMakerA2IRuntimeClient, StartHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
  * // const { SageMakerA2IRuntimeClient, StartHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
  * const client = new SageMakerA2IRuntimeClient(config);
+ * const input = { // StartHumanLoopRequest
+ *   HumanLoopName: "STRING_VALUE", // required
+ *   FlowDefinitionArn: "STRING_VALUE", // required
+ *   HumanLoopInput: { // HumanLoopInput
+ *     InputContent: "STRING_VALUE", // required
+ *   },
+ *   DataAttributes: { // HumanLoopDataAttributes
+ *     ContentClassifiers: [ // ContentClassifiers // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new StartHumanLoopCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartHumanLoopCommandInput - {@link StartHumanLoopCommandInput}
+ * @returns {@link StartHumanLoopCommandOutput}
  * @see {@link StartHumanLoopCommandInput} for command's `input` shape.
  * @see {@link StartHumanLoopCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.
@@ -98,6 +109,9 @@ export class StartHumanLoopCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartHumanLoopCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +140,8 @@ export class StartHumanLoopCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartHumanLoopRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartHumanLoopResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +151,18 @@ export class StartHumanLoopCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartHumanLoopCommand(input, context);
+    return se_StartHumanLoopCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartHumanLoopCommandOutput> {
-    return deserializeAws_restJson1StartHumanLoopCommand(output, context);
+    return de_StartHumanLoopCommand(output, context);
   }
 
   // Start section: command_body_extra

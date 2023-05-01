@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLensReviewReportInput,
-  GetLensReviewReportInputFilterSensitiveLog,
-  GetLensReviewReportOutput,
-  GetLensReviewReportOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLensReviewReportCommand,
-  serializeAws_restJson1GetLensReviewReportCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLensReviewReportInput, GetLensReviewReportOutput } from "../models/models_0";
+import { de_GetLensReviewReportCommand, se_GetLensReviewReportCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetLensReviewReportCommand}.
  */
 export interface GetLensReviewReportCommandInput extends GetLensReviewReportInput {}
 /**
+ * @public
+ *
  * The output of {@link GetLensReviewReportCommand}.
  */
 export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get lens review report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOut
  * import { WellArchitectedClient, GetLensReviewReportCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetLensReviewReportCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // GetLensReviewReportInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   LensAlias: "STRING_VALUE", // required
+ *   MilestoneNumber: Number("int"),
+ * };
  * const command = new GetLensReviewReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLensReviewReportCommandInput - {@link GetLensReviewReportCommandInput}
+ * @returns {@link GetLensReviewReportCommandOutput}
  * @see {@link GetLensReviewReportCommandInput} for command's `input` shape.
  * @see {@link GetLensReviewReportCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +88,9 @@ export class GetLensReviewReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLensReviewReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class GetLensReviewReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLensReviewReportInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLensReviewReportOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class GetLensReviewReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLensReviewReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLensReviewReportCommand(input, context);
+    return se_GetLensReviewReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLensReviewReportCommandOutput> {
-    return deserializeAws_restJson1GetLensReviewReportCommand(output, context);
+    return de_GetLensReviewReportCommand(output, context);
   }
 
   // Start section: command_body_extra

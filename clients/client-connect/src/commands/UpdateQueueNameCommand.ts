@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQueueNameRequest, UpdateQueueNameRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateQueueNameCommand,
-  serializeAws_restJson1UpdateQueueNameCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateQueueNameRequest } from "../models/models_1";
+import { de_UpdateQueueNameCommand, se_UpdateQueueNameCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQueueNameCommand}.
  */
 export interface UpdateQueueNameCommandInput extends UpdateQueueNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQueueNameCommand}.
  */
 export interface UpdateQueueNameCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the name and description of a queue. At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
@@ -38,10 +40,18 @@ export interface UpdateQueueNameCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateQueueNameCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQueueNameCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateQueueNameRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   QueueId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateQueueNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQueueNameCommandInput - {@link UpdateQueueNameCommandInput}
+ * @returns {@link UpdateQueueNameCommandOutput}
  * @see {@link UpdateQueueNameCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +93,9 @@ export class UpdateQueueNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQueueNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +124,8 @@ export class UpdateQueueNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQueueNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +135,18 @@ export class UpdateQueueNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQueueNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateQueueNameCommand(input, context);
+    return se_UpdateQueueNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQueueNameCommandOutput> {
-    return deserializeAws_restJson1UpdateQueueNameCommand(output, context);
+    return de_UpdateQueueNameCommand(output, context);
   }
 
   // Start section: command_body_extra

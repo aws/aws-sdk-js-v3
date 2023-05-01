@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutAppLaunchConfigurationRequest,
-  PutAppLaunchConfigurationRequestFilterSensitiveLog,
-  PutAppLaunchConfigurationResponse,
-  PutAppLaunchConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAppLaunchConfigurationCommand,
-  serializeAws_json1_1PutAppLaunchConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { PutAppLaunchConfigurationRequest, PutAppLaunchConfigurationResponse } from "../models/models_0";
+import { de_PutAppLaunchConfigurationCommand, se_PutAppLaunchConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutAppLaunchConfigurationCommand}.
  */
 export interface PutAppLaunchConfigurationCommandInput extends PutAppLaunchConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAppLaunchConfigurationCommand}.
  */
 export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the launch configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,62 @@ export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConf
  * import { SMSClient, PutAppLaunchConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, PutAppLaunchConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // PutAppLaunchConfigurationRequest
+ *   appId: "STRING_VALUE",
+ *   roleName: "STRING_VALUE",
+ *   autoLaunch: true || false,
+ *   serverGroupLaunchConfigurations: [ // ServerGroupLaunchConfigurations
+ *     { // ServerGroupLaunchConfiguration
+ *       serverGroupId: "STRING_VALUE",
+ *       launchOrder: Number("int"),
+ *       serverLaunchConfigurations: [ // ServerLaunchConfigurations
+ *         { // ServerLaunchConfiguration
+ *           server: { // Server
+ *             serverId: "STRING_VALUE",
+ *             serverType: "VIRTUAL_MACHINE",
+ *             vmServer: { // VmServer
+ *               vmServerAddress: { // VmServerAddress
+ *                 vmManagerId: "STRING_VALUE",
+ *                 vmId: "STRING_VALUE",
+ *               },
+ *               vmName: "STRING_VALUE",
+ *               vmManagerName: "STRING_VALUE",
+ *               vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
+ *               vmPath: "STRING_VALUE",
+ *             },
+ *             replicationJobId: "STRING_VALUE",
+ *             replicationJobTerminated: true || false,
+ *           },
+ *           logicalId: "STRING_VALUE",
+ *           vpc: "STRING_VALUE",
+ *           subnet: "STRING_VALUE",
+ *           securityGroup: "STRING_VALUE",
+ *           ec2KeyName: "STRING_VALUE",
+ *           userData: { // UserData
+ *             s3Location: { // S3Location
+ *               bucket: "STRING_VALUE",
+ *               key: "STRING_VALUE",
+ *             },
+ *           },
+ *           instanceType: "STRING_VALUE",
+ *           associatePublicIpAddress: true || false,
+ *           iamInstanceProfileName: "STRING_VALUE",
+ *           configureScript: {
+ *             bucket: "STRING_VALUE",
+ *             key: "STRING_VALUE",
+ *           },
+ *           configureScriptType: "SHELL_SCRIPT" || "POWERSHELL_SCRIPT",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutAppLaunchConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAppLaunchConfigurationCommandInput - {@link PutAppLaunchConfigurationCommandInput}
+ * @returns {@link PutAppLaunchConfigurationCommandOutput}
  * @see {@link PutAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAppLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -85,6 +134,9 @@ export class PutAppLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAppLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +165,8 @@ export class PutAppLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAppLaunchConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAppLaunchConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +176,21 @@ export class PutAppLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAppLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAppLaunchConfigurationCommand(input, context);
+    return se_PutAppLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAppLaunchConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutAppLaunchConfigurationCommand(output, context);
+    return de_PutAppLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

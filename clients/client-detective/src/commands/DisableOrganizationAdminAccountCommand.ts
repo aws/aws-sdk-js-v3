@@ -15,20 +15,25 @@ import {
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import {
-  deserializeAws_restJson1DisableOrganizationAdminAccountCommand,
-  serializeAws_restJson1DisableOrganizationAdminAccountCommand,
+  de_DisableOrganizationAdminAccountCommand,
+  se_DisableOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableOrganizationAdminAccountCommand}.
  */
 export interface DisableOrganizationAdminAccountCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableOrganizationAdminAccountCommand}.
  */
 export interface DisableOrganizationAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the Detective administrator account in the current Region. Deletes the
  *          organization behavior graph.</p>
  *          <p>Can only be called by the organization management account.</p>
@@ -41,10 +46,13 @@ export interface DisableOrganizationAdminAccountCommandOutput extends __Metadata
  * import { DetectiveClient, DisableOrganizationAdminAccountCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, DisableOrganizationAdminAccountCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {};
  * const command = new DisableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableOrganizationAdminAccountCommandInput - {@link DisableOrganizationAdminAccountCommandInput}
+ * @returns {@link DisableOrganizationAdminAccountCommandOutput}
  * @see {@link DisableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisableOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -82,6 +90,9 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableOrganizationAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +132,24 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableOrganizationAdminAccountCommand(input, context);
+    return se_DisableOrganizationAdminAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_restJson1DisableOrganizationAdminAccountCommand(output, context);
+    return de_DisableOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

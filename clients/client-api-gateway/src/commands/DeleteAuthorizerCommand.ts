@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteAuthorizerRequest, DeleteAuthorizerRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAuthorizerCommand,
-  serializeAws_restJson1DeleteAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAuthorizerRequest } from "../models/models_0";
+import { de_DeleteAuthorizerCommand, se_DeleteAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAuthorizerCommand}.
  */
 export interface DeleteAuthorizerCommandInput extends DeleteAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAuthorizerCommand}.
  */
 export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Authorizer resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteAuthorizerRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   authorizerId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAuthorizerCommandInput - {@link DeleteAuthorizerCommandInput}
+ * @returns {@link DeleteAuthorizerCommandOutput}
  * @see {@link DeleteAuthorizerCommandInput} for command's `input` shape.
  * @see {@link DeleteAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +87,9 @@ export class DeleteAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +118,8 @@ export class DeleteAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +129,18 @@ export class DeleteAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAuthorizerCommand(input, context);
+    return se_DeleteAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAuthorizerCommandOutput> {
-    return deserializeAws_restJson1DeleteAuthorizerCommand(output, context);
+    return de_DeleteAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

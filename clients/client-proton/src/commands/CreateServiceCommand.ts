@@ -19,35 +19,57 @@ import {
   CreateServiceOutput,
   CreateServiceOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateServiceCommand,
-  serializeAws_json1_0CreateServiceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandInput extends CreateServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandOutput extends CreateServiceOutput, __MetadataBearer {}
 
 /**
- * <p>Create an Proton service. An Proton service is an instantiation of a service template and often includes several service instances and pipeline.
- *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html">Services</a> in the <i>Proton User
- *         Guide</i>.</p>
+ * @public
+ * <p>Create an Proton service. An Proton service is an instantiation of a service
+ *       template and often includes several service instances and pipeline. For more information, see
+ *         <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html">Services</a>
+ *       in the <i>Proton User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ProtonClient, CreateServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // CreateServiceInput
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   templateName: "STRING_VALUE", // required
+ *   templateMajorVersion: "STRING_VALUE", // required
+ *   templateMinorVersion: "STRING_VALUE",
+ *   spec: "STRING_VALUE", // required
+ *   repositoryConnectionArn: "STRING_VALUE",
+ *   repositoryId: "STRING_VALUE",
+ *   branchName: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
+ * @returns {@link CreateServiceCommandOutput}
  * @see {@link CreateServiceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -93,6 +115,9 @@ export class CreateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,12 +155,18 @@ export class CreateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateServiceCommand(input, context);
+    return se_CreateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceCommandOutput> {
-    return deserializeAws_json1_0CreateServiceCommand(output, context);
+    return de_CreateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

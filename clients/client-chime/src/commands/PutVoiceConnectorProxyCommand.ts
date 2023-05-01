@@ -20,21 +20,23 @@ import {
   PutVoiceConnectorProxyResponse,
   PutVoiceConnectorProxyResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1PutVoiceConnectorProxyCommand,
-  serializeAws_restJson1PutVoiceConnectorProxyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutVoiceConnectorProxyCommand, se_PutVoiceConnectorProxyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutVoiceConnectorProxyCommand}.
  */
 export interface PutVoiceConnectorProxyCommandInput extends PutVoiceConnectorProxyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutVoiceConnectorProxyCommand}.
  */
 export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorProxyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,21 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  * import { ChimeClient, PutVoiceConnectorProxyCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorProxyCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // PutVoiceConnectorProxyRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   DefaultSessionExpiryMinutes: Number("int"), // required
+ *   PhoneNumberPoolCountries: [ // CountryList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   FallBackPhoneNumber: "STRING_VALUE",
+ *   Disabled: true || false,
+ * };
  * const command = new PutVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVoiceConnectorProxyCommandInput - {@link PutVoiceConnectorProxyCommandInput}
+ * @returns {@link PutVoiceConnectorProxyCommandOutput}
  * @see {@link PutVoiceConnectorProxyCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorProxyCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +106,9 @@ export class PutVoiceConnectorProxyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorProxyCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,12 +148,18 @@ export class PutVoiceConnectorProxyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutVoiceConnectorProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorProxyCommand(input, context);
+    return se_PutVoiceConnectorProxyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutVoiceConnectorProxyCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorProxyCommand(output, context);
+    return de_PutVoiceConnectorProxyCommand(output, context);
   }
 
   // Start section: command_body_extra

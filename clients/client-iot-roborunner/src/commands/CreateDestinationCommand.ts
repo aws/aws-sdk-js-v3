@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  CreateDestinationRequest,
-  CreateDestinationRequestFilterSensitiveLog,
-  CreateDestinationResponse,
-  CreateDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDestinationCommand,
-  serializeAws_restJson1CreateDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDestinationRequest, CreateDestinationResponse } from "../models/models_0";
+import { de_CreateDestinationCommand, se_CreateDestinationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDestinationCommand}.
  */
 export interface CreateDestinationCommandInput extends CreateDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDestinationCommand}.
  */
 export interface CreateDestinationCommandOutput extends CreateDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to create a destination
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  * import { IoTRoboRunnerClient, CreateDestinationCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, CreateDestinationCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // CreateDestinationRequest
+ *   clientToken: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   site: "STRING_VALUE", // required
+ *   state: "STRING_VALUE",
+ *   additionalFixedProperties: "STRING_VALUE",
+ * };
  * const command = new CreateDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDestinationCommandInput - {@link CreateDestinationCommandInput}
+ * @returns {@link CreateDestinationCommandOutput}
  * @see {@link CreateDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -90,6 +96,9 @@ export class CreateDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class CreateDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +138,18 @@ export class CreateDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDestinationCommand(input, context);
+    return se_CreateDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDestinationCommandOutput> {
-    return deserializeAws_restJson1CreateDestinationCommand(output, context);
+    return de_CreateDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

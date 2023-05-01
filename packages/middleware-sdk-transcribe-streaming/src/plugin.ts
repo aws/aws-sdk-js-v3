@@ -1,12 +1,18 @@
-import { Pluggable } from "@aws-sdk/types";
+import { Pluggable, RequestHandler } from "@aws-sdk/types";
 
-import { WebSocketResolvedConfig } from "./configuration";
-import { websocketURLMiddleware, websocketURLMiddlewareOptions } from "./middleware-endpoint";
-import { injectSessionIdMiddleware, injectSessionIdMiddlewareOptions } from "./middleware-session-id";
+import {
+  injectResponseValuesMiddleware,
+  injectResponseValuesMiddlewareOptions,
+} from "./middleware-inject-response-values";
+import { websocketPortMiddleware, websocketPortMiddlewareOptions } from "./middleware-port";
 
-export const getWebSocketPlugin = (config: WebSocketResolvedConfig): Pluggable<any, any> => ({
+interface PreviouslyResolved {
+  requestHandler: RequestHandler<any, any>;
+}
+
+export const getTranscribeStreamingPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
-    clientStack.addRelativeTo(websocketURLMiddleware(config), websocketURLMiddlewareOptions);
-    clientStack.add(injectSessionIdMiddleware(config), injectSessionIdMiddlewareOptions);
+    clientStack.addRelativeTo(websocketPortMiddleware(config), websocketPortMiddlewareOptions);
+    clientStack.add(injectResponseValuesMiddleware(config), injectResponseValuesMiddlewareOptions);
   },
 });

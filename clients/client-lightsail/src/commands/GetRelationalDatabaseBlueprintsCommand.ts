@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetRelationalDatabaseBlueprintsRequest, GetRelationalDatabaseBlueprintsResult } from "../models/models_1";
 import {
-  GetRelationalDatabaseBlueprintsRequest,
-  GetRelationalDatabaseBlueprintsRequestFilterSensitiveLog,
-  GetRelationalDatabaseBlueprintsResult,
-  GetRelationalDatabaseBlueprintsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetRelationalDatabaseBlueprintsCommand,
-  serializeAws_json1_1GetRelationalDatabaseBlueprintsCommand,
+  de_GetRelationalDatabaseBlueprintsCommand,
+  se_GetRelationalDatabaseBlueprintsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseBlueprintsCommand}.
  */
 export interface GetRelationalDatabaseBlueprintsCommandInput extends GetRelationalDatabaseBlueprintsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseBlueprintsCommand}.
  */
 export interface GetRelationalDatabaseBlueprintsCommandOutput
@@ -37,6 +36,7 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of available database blueprints in Amazon Lightsail. A blueprint describes
  *       the major engine version of a database.</p>
  *          <p>You can use a blueprint ID to create a new database that runs a specific database
@@ -47,10 +47,15 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
  * import { LightsailClient, GetRelationalDatabaseBlueprintsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseBlueprintsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetRelationalDatabaseBlueprintsRequest
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetRelationalDatabaseBlueprintsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseBlueprintsCommandInput - {@link GetRelationalDatabaseBlueprintsCommandInput}
+ * @returns {@link GetRelationalDatabaseBlueprintsCommandOutput}
  * @see {@link GetRelationalDatabaseBlueprintsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseBlueprintsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +109,9 @@ export class GetRelationalDatabaseBlueprintsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseBlueprintsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +140,8 @@ export class GetRelationalDatabaseBlueprintsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRelationalDatabaseBlueprintsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRelationalDatabaseBlueprintsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,18 +151,24 @@ export class GetRelationalDatabaseBlueprintsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRelationalDatabaseBlueprintsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseBlueprintsCommand(input, context);
+    return se_GetRelationalDatabaseBlueprintsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseBlueprintsCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseBlueprintsCommand(output, context);
+    return de_GetRelationalDatabaseBlueprintsCommand(output, context);
   }
 
   // Start section: command_body_extra

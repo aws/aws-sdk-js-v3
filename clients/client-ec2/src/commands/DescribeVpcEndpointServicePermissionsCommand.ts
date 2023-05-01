@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeVpcEndpointServicePermissionsRequest,
-  DescribeVpcEndpointServicePermissionsRequestFilterSensitiveLog,
   DescribeVpcEndpointServicePermissionsResult,
-  DescribeVpcEndpointServicePermissionsResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommand,
-  serializeAws_ec2DescribeVpcEndpointServicePermissionsCommand,
+  de_DescribeVpcEndpointServicePermissionsCommand,
+  se_DescribeVpcEndpointServicePermissionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcEndpointServicePermissionsCommand}.
  */
 export interface DescribeVpcEndpointServicePermissionsCommandInput
   extends DescribeVpcEndpointServicePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcEndpointServicePermissionsCommand}.
  */
 export interface DescribeVpcEndpointServicePermissionsCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the principals (service consumers) that are permitted to discover your VPC
  *             endpoint service.</p>
  * @example
@@ -46,10 +49,26 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
  * import { EC2Client, DescribeVpcEndpointServicePermissionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcEndpointServicePermissionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVpcEndpointServicePermissionsRequest
+ *   DryRun: true || false,
+ *   ServiceId: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeVpcEndpointServicePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcEndpointServicePermissionsCommandInput - {@link DescribeVpcEndpointServicePermissionsCommandInput}
+ * @returns {@link DescribeVpcEndpointServicePermissionsCommandOutput}
  * @see {@link DescribeVpcEndpointServicePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointServicePermissionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +92,9 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcEndpointServicePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +123,8 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcEndpointServicePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcEndpointServicePermissionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +134,24 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcEndpointServicePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointServicePermissionsCommand(input, context);
+    return se_DescribeVpcEndpointServicePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcEndpointServicePermissionsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommand(output, context);
+    return de_DescribeVpcEndpointServicePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

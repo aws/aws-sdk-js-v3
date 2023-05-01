@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  DeletePolicyRequest,
-  DeletePolicyRequestFilterSensitiveLog,
-  DeletePolicyResponse,
-  DeletePolicyResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeletePolicyCommand,
-  serializeAws_restJson1DeletePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeletePolicyRequest, DeletePolicyResponse } from "../models/models_1";
+import { de_DeletePolicyCommand, se_DeletePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePolicyCommand}.
  */
 export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePolicyCommand}.
  */
 export interface DeletePolicyCommandOutput extends DeletePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Permanently delete a policy that you created.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface DeletePolicyCommandOutput extends DeletePolicyResponse, __Metad
  * import { MediaConvertClient, DeletePolicyCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, DeletePolicyCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = {};
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePolicyCommandInput - {@link DeletePolicyCommandInput}
+ * @returns {@link DeletePolicyCommandOutput}
  * @see {@link DeletePolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +87,9 @@ export class DeletePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +116,8 @@ export class DeletePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +127,18 @@ export class DeletePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePolicyCommand(input, context);
+    return se_DeletePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePolicyCommandOutput> {
-    return deserializeAws_restJson1DeletePolicyCommand(output, context);
+    return de_DeletePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

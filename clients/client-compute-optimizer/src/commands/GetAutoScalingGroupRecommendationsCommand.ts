@@ -16,20 +16,22 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   GetAutoScalingGroupRecommendationsRequest,
-  GetAutoScalingGroupRecommendationsRequestFilterSensitiveLog,
   GetAutoScalingGroupRecommendationsResponse,
-  GetAutoScalingGroupRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand,
-  serializeAws_json1_0GetAutoScalingGroupRecommendationsCommand,
+  de_GetAutoScalingGroupRecommendationsCommand,
+  se_GetAutoScalingGroupRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetAutoScalingGroupRecommendationsCommand}.
  */
 export interface GetAutoScalingGroupRecommendationsCommandInput extends GetAutoScalingGroupRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAutoScalingGroupRecommendationsCommand}.
  */
 export interface GetAutoScalingGroupRecommendationsCommandOutput
@@ -37,6 +39,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns Auto Scaling group recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups that
  *             meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
@@ -48,10 +51,35 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * import { ComputeOptimizerClient, GetAutoScalingGroupRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetAutoScalingGroupRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetAutoScalingGroupRecommendationsRequest
+ *   accountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ *   autoScalingGroupArns: [ // AutoScalingGroupArns
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "Finding" || "FindingReasonCodes" || "RecommendationSourceType" || "InferredWorkloadTypes",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   recommendationPreferences: { // RecommendationPreferences
+ *     cpuVendorArchitectures: [ // CpuVendorArchitectures
+ *       "AWS_ARM64" || "CURRENT",
+ *     ],
+ *   },
+ * };
  * const command = new GetAutoScalingGroupRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAutoScalingGroupRecommendationsCommandInput - {@link GetAutoScalingGroupRecommendationsCommandInput}
+ * @returns {@link GetAutoScalingGroupRecommendationsCommandOutput}
  * @see {@link GetAutoScalingGroupRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetAutoScalingGroupRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -100,6 +128,9 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAutoScalingGroupRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +159,8 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAutoScalingGroupRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAutoScalingGroupRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,18 +170,24 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAutoScalingGroupRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetAutoScalingGroupRecommendationsCommand(input, context);
+    return se_GetAutoScalingGroupRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAutoScalingGroupRecommendationsCommandOutput> {
-    return deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand(output, context);
+    return de_GetAutoScalingGroupRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

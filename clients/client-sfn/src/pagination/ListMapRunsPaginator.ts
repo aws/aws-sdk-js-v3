@@ -6,7 +6,7 @@ import { SFNClient } from "../SFNClient";
 import { SFNPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SFNClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMapRunsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMapRuns(
   config: SFNPaginationConfiguration,
   input: ListMapRunsCommandInput,

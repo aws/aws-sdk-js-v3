@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
+import { DescribeOrganizationOverviewRequest, DescribeOrganizationOverviewResponse } from "../models/models_0";
 import {
-  DescribeOrganizationOverviewRequest,
-  DescribeOrganizationOverviewRequestFilterSensitiveLog,
-  DescribeOrganizationOverviewResponse,
-  DescribeOrganizationOverviewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeOrganizationOverviewCommand,
-  serializeAws_restJson1DescribeOrganizationOverviewCommand,
+  de_DescribeOrganizationOverviewCommand,
+  se_DescribeOrganizationOverviewCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationOverviewCommand}.
  */
 export interface DescribeOrganizationOverviewCommandInput extends DescribeOrganizationOverviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationOverviewCommand}.
  */
 export interface DescribeOrganizationOverviewCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeOrganizationOverviewCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an overview of your organization's history based on the specified time range.
  * 			The overview includes the total reactive and proactive insights.</p>
  * @example
@@ -45,10 +45,22 @@ export interface DescribeOrganizationOverviewCommandOutput
  * import { DevOpsGuruClient, DescribeOrganizationOverviewCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeOrganizationOverviewCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // DescribeOrganizationOverviewRequest
+ *   FromTime: new Date("TIMESTAMP"), // required
+ *   ToTime: new Date("TIMESTAMP"),
+ *   AccountIds: [ // AccountIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   OrganizationalUnitIds: [ // OrganizationalUnitIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeOrganizationOverviewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationOverviewCommandInput - {@link DescribeOrganizationOverviewCommandInput}
+ * @returns {@link DescribeOrganizationOverviewCommandOutput}
  * @see {@link DescribeOrganizationOverviewCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationOverviewCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -88,6 +100,9 @@ export class DescribeOrganizationOverviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationOverviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +131,8 @@ export class DescribeOrganizationOverviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationOverviewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationOverviewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +142,21 @@ export class DescribeOrganizationOverviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOrganizationOverviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOrganizationOverviewCommand(input, context);
+    return se_DescribeOrganizationOverviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationOverviewCommandOutput> {
-    return deserializeAws_restJson1DescribeOrganizationOverviewCommand(output, context);
+    return de_DescribeOrganizationOverviewCommand(output, context);
   }
 
   // Start section: command_body_extra

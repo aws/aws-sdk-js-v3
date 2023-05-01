@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { BatchAssociateProjectAssetsRequest, BatchAssociateProjectAssetsResponse } from "../models/models_0";
 import {
-  BatchAssociateProjectAssetsRequest,
-  BatchAssociateProjectAssetsRequestFilterSensitiveLog,
-  BatchAssociateProjectAssetsResponse,
-  BatchAssociateProjectAssetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchAssociateProjectAssetsCommand,
-  serializeAws_restJson1BatchAssociateProjectAssetsCommand,
+  de_BatchAssociateProjectAssetsCommand,
+  se_BatchAssociateProjectAssetsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateProjectAssetsCommand}.
  */
 export interface BatchAssociateProjectAssetsCommandInput extends BatchAssociateProjectAssetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateProjectAssetsCommand}.
  */
 export interface BatchAssociateProjectAssetsCommandOutput
@@ -37,6 +36,7 @@ export interface BatchAssociateProjectAssetsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a group (batch) of assets with an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,19 @@ export interface BatchAssociateProjectAssetsCommandOutput
  * import { IoTSiteWiseClient, BatchAssociateProjectAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, BatchAssociateProjectAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // BatchAssociateProjectAssetsRequest
+ *   projectId: "STRING_VALUE", // required
+ *   assetIds: [ // IDs // required
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new BatchAssociateProjectAssetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateProjectAssetsCommandInput - {@link BatchAssociateProjectAssetsCommandInput}
+ * @returns {@link BatchAssociateProjectAssetsCommandOutput}
  * @see {@link BatchAssociateProjectAssetsCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateProjectAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -93,6 +102,9 @@ export class BatchAssociateProjectAssetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateProjectAssetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +133,8 @@ export class BatchAssociateProjectAssetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchAssociateProjectAssetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchAssociateProjectAssetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +144,21 @@ export class BatchAssociateProjectAssetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchAssociateProjectAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchAssociateProjectAssetsCommand(input, context);
+    return se_BatchAssociateProjectAssetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateProjectAssetsCommandOutput> {
-    return deserializeAws_restJson1BatchAssociateProjectAssetsCommand(output, context);
+    return de_BatchAssociateProjectAssetsCommand(output, context);
   }
 
   // Start section: command_body_extra

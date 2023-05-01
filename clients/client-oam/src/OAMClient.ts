@@ -75,6 +75,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateLinkCommandInput
   | CreateSinkCommandInput
@@ -92,6 +95,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateLinkCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateLinkCommandOutput
   | CreateSinkCommandOutput
@@ -109,6 +115,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateLinkCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -116,7 +125,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -225,11 +234,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type OAMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -240,10 +252,15 @@ type OAMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of OAMClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of OAMClient class constructor that set the region, credentials and other options.
  */
 export interface OAMClientConfig extends OAMClientConfigType {}
 
+/**
+ * @public
+ */
 type OAMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -254,11 +271,14 @@ type OAMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of OAMClient class. This is resolved and normalized from the {@link OAMClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of OAMClient class. This is resolved and normalized from the {@link OAMClientConfig | constructor configuration interface}.
  */
 export interface OAMClientResolvedConfig extends OAMClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Use Amazon CloudWatch Observability Access Manager to create and manage links between source accounts and
  *             monitoring accounts by using <i>CloudWatch cross-account observability</i>. With
  *             CloudWatch cross-account observability, you can monitor and troubleshoot applications that span

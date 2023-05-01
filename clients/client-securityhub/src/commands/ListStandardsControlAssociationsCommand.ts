@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListStandardsControlAssociationsRequest, ListStandardsControlAssociationsResponse } from "../models/models_2";
 import {
-  ListStandardsControlAssociationsRequest,
-  ListStandardsControlAssociationsRequestFilterSensitiveLog,
-  ListStandardsControlAssociationsResponse,
-  ListStandardsControlAssociationsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListStandardsControlAssociationsCommand,
-  serializeAws_restJson1ListStandardsControlAssociationsCommand,
+  de_ListStandardsControlAssociationsCommand,
+  se_ListStandardsControlAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListStandardsControlAssociationsCommand}.
  */
 export interface ListStandardsControlAssociationsCommandInput extends ListStandardsControlAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStandardsControlAssociationsCommand}.
  */
 export interface ListStandardsControlAssociationsCommandOutput
@@ -37,6 +36,7 @@ export interface ListStandardsControlAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Specifies whether a control is currently enabled or disabled in each enabled standard in the calling account.
  *       </p>
@@ -46,10 +46,17 @@ export interface ListStandardsControlAssociationsCommandOutput
  * import { SecurityHubClient, ListStandardsControlAssociationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListStandardsControlAssociationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // ListStandardsControlAssociationsRequest
+ *   SecurityControlId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStandardsControlAssociationsCommandInput - {@link ListStandardsControlAssociationsCommandInput}
+ * @returns {@link ListStandardsControlAssociationsCommandOutput}
  * @see {@link ListStandardsControlAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListStandardsControlAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -69,6 +76,50 @@ export interface ListStandardsControlAssociationsCommandOutput
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To say whether standard
+ * ```javascript
+ * // The following example specifies whether a control is currently enabled or disabled in each enabled standard in the calling account. The response also provides other details about the control.
+ * const input = {
+ *   "SecurityControlId": "S3.1"
+ * };
+ * const command = new ListStandardsControlAssociationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "StandardsControlAssociationSummaries": [
+ *     {
+ *       "AssociationStatus": "ENABLED",
+ *       "RelatedRequirements": [
+ *         "PCI DSS 1.2.1",
+ *         "PCI DSS 1.3.1",
+ *         "PCI DSS 1.3.2",
+ *         "PCI DSS 1.3.4",
+ *         "PCI DSS 1.3.6"
+ *       ],
+ *       "SecurityControlArn": "arn:aws:securityhub:us-west-2:110479873537:security-control/S3.1",
+ *       "SecurityControlId": "S3.1",
+ *       "StandardsArn": "arn:aws:securityhub:us-west-2::standards/pci-dss/v/3.2.1",
+ *       "StandardsControlDescription": "This AWS control checks whether the following public access block settings are configured from account level: ignorePublicAcls: True, blockPublicPolicy: True, blockPublicAcls: True, restrictPublicBuckets: True.",
+ *       "StandardsControlTitle": "S3 Block Public Access setting should be enabled",
+ *       "UpdatedAt": "2022-01-13T23:03:46.648000+00:00"
+ *     },
+ *     {
+ *       "AssociationStatus": "DISABLED",
+ *       "RelatedRequirements": [],
+ *       "SecurityControlArn": "arn:aws:securityhub:us-west-2:110479873537:security-control/S3.1",
+ *       "SecurityControlId": "S3.1",
+ *       "StandardsArn": "arn:aws:securityhub:us-west-2::standards/aws-foundational-security-best-practices/v/1.0.0",
+ *       "StandardsControlDescription": "This AWS control checks whether the following public access block settings are configured from account level: ignorePublicAcls: True, blockPublicPolicy: True, blockPublicAcls: True, restrictPublicBuckets: True.",
+ *       "StandardsControlTitle": "S3 Block Public Access setting should be enabled",
+ *       "UpdatedAt": "2022-08-12T22:59:04.924000+00:00",
+ *       "UpdatedReason": "Not relevant to environment"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-say-whether-standard-1678389297986
+ * ```
+ *
  */
 export class ListStandardsControlAssociationsCommand extends $Command<
   ListStandardsControlAssociationsCommandInput,
@@ -87,6 +138,9 @@ export class ListStandardsControlAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStandardsControlAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +169,8 @@ export class ListStandardsControlAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStandardsControlAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStandardsControlAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +180,24 @@ export class ListStandardsControlAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListStandardsControlAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStandardsControlAssociationsCommand(input, context);
+    return se_ListStandardsControlAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStandardsControlAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListStandardsControlAssociationsCommand(output, context);
+    return de_ListStandardsControlAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

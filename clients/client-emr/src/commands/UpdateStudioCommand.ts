@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { UpdateStudioInput, UpdateStudioInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateStudioCommand,
-  serializeAws_json1_1UpdateStudioCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateStudioInput } from "../models/models_0";
+import { de_UpdateStudioCommand, se_UpdateStudioCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStudioCommand}.
  */
 export interface UpdateStudioCommandInput extends UpdateStudioInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStudioCommand}.
  */
 export interface UpdateStudioCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon EMR Studio configuration, including attributes such as name,
  *          description, and subnets.</p>
  * @example
@@ -38,10 +40,21 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  * import { EMRClient, UpdateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, UpdateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // UpdateStudioInput
+ *   StudioId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   SubnetIds: [ // SubnetIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DefaultS3Location: "STRING_VALUE",
+ * };
  * const command = new UpdateStudioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStudioCommandInput - {@link UpdateStudioCommandInput}
+ * @returns {@link UpdateStudioCommandOutput}
  * @see {@link UpdateStudioCommandInput} for command's `input` shape.
  * @see {@link UpdateStudioCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -72,6 +85,9 @@ export class UpdateStudioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +114,8 @@ export class UpdateStudioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStudioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +125,18 @@ export class UpdateStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStudioCommand(input, context);
+    return se_UpdateStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStudioCommandOutput> {
-    return deserializeAws_json1_1UpdateStudioCommand(output, context);
+    return de_UpdateStudioCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  CreateDeploymentRequest,
-  CreateDeploymentRequestFilterSensitiveLog,
-  Deployment,
-  DeploymentFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDeploymentCommand,
-  serializeAws_restJson1CreateDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDeploymentRequest, Deployment } from "../models/models_0";
+import { de_CreateDeploymentCommand, se_CreateDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Deployment resource, which makes a specified RestApi callable over the internet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,31 @@ export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBea
  * import { APIGatewayClient, CreateDeploymentCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateDeploymentCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // CreateDeploymentRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE",
+ *   stageDescription: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   cacheClusterEnabled: true || false,
+ *   cacheClusterSize: "0.5" || "1.6" || "6.1" || "13.5" || "28.4" || "58.2" || "118" || "237",
+ *   variables: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   canarySettings: { // DeploymentCanarySettings
+ *     percentTraffic: Number("double"),
+ *     stageVariableOverrides: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     useStageCache: true || false,
+ *   },
+ *   tracingEnabled: true || false,
+ * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
+ * @returns {@link CreateDeploymentCommandOutput}
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -90,6 +108,9 @@ export class CreateDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +139,8 @@ export class CreateDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeploymentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +150,18 @@ export class CreateDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeploymentCommand(input, context);
+    return se_CreateDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentCommandOutput> {
-    return deserializeAws_restJson1CreateDeploymentCommand(output, context);
+    return de_CreateDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

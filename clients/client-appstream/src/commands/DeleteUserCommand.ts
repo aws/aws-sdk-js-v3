@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DeleteUserRequest,
-  DeleteUserRequestFilterSensitiveLog,
-  DeleteUserResult,
-  DeleteUserResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteUserCommand,
-  serializeAws_json1_1DeleteUserCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteUserRequest, DeleteUserRequestFilterSensitiveLog, DeleteUserResult } from "../models/models_0";
+import { de_DeleteUserCommand, se_DeleteUserCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserCommand}.
  */
 export interface DeleteUserCommandInput extends DeleteUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserCommand}.
  */
 export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a user from the user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBea
  * import { AppStreamClient, DeleteUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DeleteUserRequest
+ *   UserName: "STRING_VALUE", // required
+ *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
+ * @returns {@link DeleteUserCommandOutput}
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -72,6 +75,9 @@ export class DeleteUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,7 +105,7 @@ export class DeleteUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +115,18 @@ export class DeleteUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUserCommand(input, context);
+    return se_DeleteUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserCommandOutput> {
-    return deserializeAws_json1_1DeleteUserCommand(output, context);
+    return de_DeleteUserCommand(output, context);
   }
 
   // Start section: command_body_extra

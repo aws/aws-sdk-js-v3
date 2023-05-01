@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartLabelDetectionRequest,
-  StartLabelDetectionRequestFilterSensitiveLog,
-  StartLabelDetectionResponse,
-  StartLabelDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartLabelDetectionCommand,
-  serializeAws_json1_1StartLabelDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartLabelDetectionRequest, StartLabelDetectionResponse } from "../models/models_0";
+import { de_StartLabelDetectionCommand, se_StartLabelDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartLabelDetectionCommand}.
  */
 export interface StartLabelDetectionCommandInput extends StartLabelDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartLabelDetectionCommand}.
  */
 export interface StartLabelDetectionCommandOutput extends StartLabelDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts asynchronous detection of labels in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect labels in a video. Labels are instances of real-world entities.
  *        This includes objects like flower, tree, and table; events like
@@ -66,10 +63,47 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  * import { RekognitionClient, StartLabelDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartLabelDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartLabelDetectionRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   MinConfidence: Number("float"),
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ *   Features: [ // LabelDetectionFeatureList
+ *     "GENERAL_LABELS",
+ *   ],
+ *   Settings: { // LabelDetectionSettings
+ *     GeneralLabels: { // GeneralLabelsSettings
+ *       LabelInclusionFilters: [ // GeneralLabelsFilterList
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelExclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelCategoryInclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelCategoryExclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new StartLabelDetectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartLabelDetectionCommandInput - {@link StartLabelDetectionCommandInput}
+ * @returns {@link StartLabelDetectionCommandOutput}
  * @see {@link StartLabelDetectionCommandInput} for command's `input` shape.
  * @see {@link StartLabelDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -126,6 +160,9 @@ export class StartLabelDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartLabelDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +191,8 @@ export class StartLabelDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartLabelDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartLabelDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +202,18 @@ export class StartLabelDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartLabelDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartLabelDetectionCommand(input, context);
+    return se_StartLabelDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartLabelDetectionCommandOutput> {
-    return deserializeAws_json1_1StartLabelDetectionCommand(output, context);
+    return de_StartLabelDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

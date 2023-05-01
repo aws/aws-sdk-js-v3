@@ -10,7 +10,7 @@ import { MediaConvertClient } from "../MediaConvertClient";
 import { MediaConvertPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaConvertClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeEndpointsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeEndpoints(
   config: MediaConvertPaginationConfiguration,
   input: DescribeEndpointsCommandInput,

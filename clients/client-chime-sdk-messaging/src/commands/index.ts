@@ -38,6 +38,7 @@ export * from "./ListChannelsCommand";
 export * from "./ListChannelsModeratedByAppInstanceUserCommand";
 export * from "./ListSubChannelsCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./PutChannelExpirationSettingsCommand";
 export * from "./PutChannelMembershipPreferencesCommand";
 export * from "./PutMessagingStreamingConfigurationsCommand";
 export * from "./RedactChannelMessageCommand";

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMembersRequest,
-  ListMembersRequestFilterSensitiveLog,
-  ListMembersResponse,
-  ListMembersResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListMembersCommand,
-  serializeAws_restJson1ListMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMembersRequest, ListMembersResponse } from "../models/models_2";
+import { de_ListMembersCommand, se_ListMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMembersCommand}.
  */
 export interface ListMembersCommandInput extends ListMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMembersCommand}.
  */
 export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists details about all member accounts for the current Security Hub administrator
  *          account.</p>
  *          <p>The results include both member accounts that belong to an organization and member
@@ -45,10 +42,17 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * import { SecurityHubClient, ListMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // ListMembersRequest
+ *   OnlyAssociated: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMembersCommandInput - {@link ListMembersCommandInput}
+ * @returns {@link ListMembersCommandOutput}
  * @see {@link ListMembersCommandInput} for command's `input` shape.
  * @see {@link ListMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -68,6 +72,37 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To list member account details
+ * ```javascript
+ * // The following example returns details about member accounts for the calling Security Hub administrator account. The response includes member accounts that are managed through AWS Organizations and those that were invited manually.
+ * const input = undefined;
+ * const command = new ListMembersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Members": [
+ *     {
+ *       "AccountId": "111122223333",
+ *       "AdministratorId": "123456789012",
+ *       "InvitedAt": "2020-06-01T20:15:15.289000+00:00",
+ *       "MasterId": "123456789012",
+ *       "MemberStatus": "ASSOCIATED",
+ *       "UpdatedAt": "2020-06-01T20:15:15.289000+00:00"
+ *     },
+ *     {
+ *       "AccountId": "444455556666",
+ *       "AdministratorId": "123456789012",
+ *       "InvitedAt": "2020-06-01T20:15:15.289000+00:00",
+ *       "MasterId": "123456789012",
+ *       "MemberStatus": "ASSOCIATED",
+ *       "UpdatedAt": "2020-06-01T20:15:15.289000+00:00"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-member-account-details-1678385639113
+ * ```
+ *
  */
 export class ListMembersCommand extends $Command<
   ListMembersCommandInput,
@@ -86,6 +121,9 @@ export class ListMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +150,8 @@ export class ListMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +161,18 @@ export class ListMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMembersCommand(input, context);
+    return se_ListMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMembersCommandOutput> {
-    return deserializeAws_restJson1ListMembersCommand(output, context);
+    return de_ListMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

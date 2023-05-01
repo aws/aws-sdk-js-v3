@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRuleRequest,
-  UpdateRuleRequestFilterSensitiveLog,
-  UpdateRuleResponse,
-  UpdateRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRuleCommand,
-  serializeAws_restJson1UpdateRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRuleRequest, UpdateRuleResponse } from "../models/models_0";
+import { de_UpdateRuleCommand, se_UpdateRuleCommand } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuleCommand}.
  */
 export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuleCommand}.
  */
 export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Recycle Bin retention rule. You can update a retention rule's description,
  *       resource tags, and retention period at any time after creation. You can't update a retention rule's
  *       resource type after creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule">
@@ -45,10 +42,27 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * import { RbinClient, UpdateRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, UpdateRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
+ * const input = { // UpdateRuleRequest
+ *   Identifier: "STRING_VALUE", // required
+ *   RetentionPeriod: { // RetentionPeriod
+ *     RetentionPeriodValue: Number("int"), // required
+ *     RetentionPeriodUnit: "DAYS", // required
+ *   },
+ *   Description: "STRING_VALUE",
+ *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
+ *   ResourceTags: [ // ResourceTags
+ *     { // ResourceTag
+ *       ResourceTagKey: "STRING_VALUE", // required
+ *       ResourceTagValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuleCommandInput - {@link UpdateRuleCommandInput}
+ * @returns {@link UpdateRuleCommandOutput}
  * @see {@link UpdateRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
@@ -84,6 +98,9 @@ export class UpdateRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +127,8 @@ export class UpdateRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +138,18 @@ export class UpdateRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRuleCommand(input, context);
+    return se_UpdateRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleCommandOutput> {
-    return deserializeAws_restJson1UpdateRuleCommand(output, context);
+    return de_UpdateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,27 +15,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  DeleteIdentitiesInput,
-  DeleteIdentitiesInputFilterSensitiveLog,
-  DeleteIdentitiesResponse,
-  DeleteIdentitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteIdentitiesCommand,
-  serializeAws_json1_1DeleteIdentitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteIdentitiesInput, DeleteIdentitiesResponse } from "../models/models_0";
+import { de_DeleteIdentitiesCommand, se_DeleteIdentitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIdentitiesCommand}.
  */
 export interface DeleteIdentitiesCommandInput extends DeleteIdentitiesInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIdentitiesCommand}.
  */
 export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes identities from an identity pool. You can specify a list of 1-60 identities
  *          that you want to delete.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -45,10 +42,17 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * import { CognitoIdentityClient, DeleteIdentitiesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, DeleteIdentitiesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // DeleteIdentitiesInput
+ *   IdentityIdsToDelete: [ // IdentityIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteIdentitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIdentitiesCommandInput - {@link DeleteIdentitiesCommandInput}
+ * @returns {@link DeleteIdentitiesCommandOutput}
  * @see {@link DeleteIdentitiesCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -81,6 +85,9 @@ export class DeleteIdentitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class DeleteIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIdentitiesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIdentitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class DeleteIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteIdentitiesCommand(input, context);
+    return se_DeleteIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentitiesCommandOutput> {
-    return deserializeAws_json1_1DeleteIdentitiesCommand(output, context);
+    return de_DeleteIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

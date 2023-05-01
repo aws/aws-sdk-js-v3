@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTimelineEventInput,
-  GetTimelineEventInputFilterSensitiveLog,
-  GetTimelineEventOutput,
-  GetTimelineEventOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTimelineEventCommand,
-  serializeAws_restJson1GetTimelineEventCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTimelineEventInput, GetTimelineEventOutput } from "../models/models_0";
+import { de_GetTimelineEventCommand, se_GetTimelineEventCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTimelineEventCommand}.
  */
 export interface GetTimelineEventCommandInput extends GetTimelineEventInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTimelineEventCommand}.
  */
 export interface GetTimelineEventCommandOutput extends GetTimelineEventOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a timeline event based on its ID and incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetTimelineEventCommandOutput extends GetTimelineEventOutput, _
  * import { SSMIncidentsClient, GetTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, GetTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // GetTimelineEventInput
+ *   incidentRecordArn: "STRING_VALUE", // required
+ *   eventId: "STRING_VALUE", // required
+ * };
  * const command = new GetTimelineEventCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTimelineEventCommandInput - {@link GetTimelineEventCommandInput}
+ * @returns {@link GetTimelineEventCommandOutput}
  * @see {@link GetTimelineEventCommandInput} for command's `input` shape.
  * @see {@link GetTimelineEventCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -86,6 +89,9 @@ export class GetTimelineEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTimelineEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class GetTimelineEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTimelineEventInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTimelineEventOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class GetTimelineEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTimelineEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTimelineEventCommand(input, context);
+    return se_GetTimelineEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTimelineEventCommandOutput> {
-    return deserializeAws_restJson1GetTimelineEventCommand(output, context);
+    return de_GetTimelineEventCommand(output, context);
   }
 
   // Start section: command_body_extra

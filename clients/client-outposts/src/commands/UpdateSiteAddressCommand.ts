@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSiteAddressInput,
-  UpdateSiteAddressInputFilterSensitiveLog,
-  UpdateSiteAddressOutput,
-  UpdateSiteAddressOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSiteAddressInput, UpdateSiteAddressOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1UpdateSiteAddressCommand,
-  serializeAws_restJson1UpdateSiteAddressCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSiteAddressCommand, se_UpdateSiteAddressCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSiteAddressCommand}.
  */
 export interface UpdateSiteAddressCommandInput extends UpdateSiteAddressInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSiteAddressCommand}.
  */
 export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the address of the specified site.</p>
  *          <p>You can't update a site address if there is an order in progress. You must wait for the
  *       order to complete or cancel the order.</p>
@@ -46,10 +43,29 @@ export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput,
  * import { OutpostsClient, UpdateSiteAddressCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, UpdateSiteAddressCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // UpdateSiteAddressInput
+ *   SiteId: "STRING_VALUE", // required
+ *   AddressType: "SHIPPING_ADDRESS" || "OPERATING_ADDRESS", // required
+ *   Address: { // Address
+ *     ContactName: "STRING_VALUE",
+ *     ContactPhoneNumber: "STRING_VALUE",
+ *     AddressLine1: "STRING_VALUE", // required
+ *     AddressLine2: "STRING_VALUE",
+ *     AddressLine3: "STRING_VALUE",
+ *     City: "STRING_VALUE", // required
+ *     StateOrRegion: "STRING_VALUE", // required
+ *     DistrictOrCounty: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE", // required
+ *     CountryCode: "STRING_VALUE", // required
+ *     Municipality: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateSiteAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSiteAddressCommandInput - {@link UpdateSiteAddressCommandInput}
+ * @returns {@link UpdateSiteAddressCommandOutput}
  * @see {@link UpdateSiteAddressCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteAddressCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -88,6 +104,9 @@ export class UpdateSiteAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSiteAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +135,8 @@ export class UpdateSiteAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSiteAddressInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSiteAddressOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +146,18 @@ export class UpdateSiteAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSiteAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSiteAddressCommand(input, context);
+    return se_UpdateSiteAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSiteAddressCommandOutput> {
-    return deserializeAws_restJson1UpdateSiteAddressCommand(output, context);
+    return de_UpdateSiteAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

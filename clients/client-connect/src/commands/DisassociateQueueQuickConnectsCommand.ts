@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { DisassociateQueueQuickConnectsRequest } from "../models/models_0";
 import {
-  DisassociateQueueQuickConnectsRequest,
-  DisassociateQueueQuickConnectsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateQueueQuickConnectsCommand,
-  serializeAws_restJson1DisassociateQueueQuickConnectsCommand,
+  de_DisassociateQueueQuickConnectsCommand,
+  se_DisassociateQueueQuickConnectsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateQueueQuickConnectsCommand}.
  */
 export interface DisassociateQueueQuickConnectsCommandInput extends DisassociateQueueQuickConnectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateQueueQuickConnectsCommand}.
  */
 export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Disassociates a set of quick connects from a queue.</p>
  * @example
@@ -41,10 +43,19 @@ export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataB
  * import { ConnectClient, DisassociateQueueQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateQueueQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DisassociateQueueQuickConnectsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   QueueId: "STRING_VALUE", // required
+ *   QuickConnectIds: [ // QuickConnectsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateQueueQuickConnectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateQueueQuickConnectsCommandInput - {@link DisassociateQueueQuickConnectsCommandInput}
+ * @returns {@link DisassociateQueueQuickConnectsCommandOutput}
  * @see {@link DisassociateQueueQuickConnectsCommandInput} for command's `input` shape.
  * @see {@link DisassociateQueueQuickConnectsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +94,9 @@ export class DisassociateQueueQuickConnectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateQueueQuickConnectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +125,8 @@ export class DisassociateQueueQuickConnectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateQueueQuickConnectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +136,24 @@ export class DisassociateQueueQuickConnectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateQueueQuickConnectsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateQueueQuickConnectsCommand(input, context);
+    return se_DisassociateQueueQuickConnectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateQueueQuickConnectsCommandOutput> {
-    return deserializeAws_restJson1DisassociateQueueQuickConnectsCommand(output, context);
+    return de_DisassociateQueueQuickConnectsCommand(output, context);
   }
 
   // Start section: command_body_extra

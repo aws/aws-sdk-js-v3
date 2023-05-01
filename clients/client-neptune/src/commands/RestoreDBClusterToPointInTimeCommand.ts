@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreDBClusterToPointInTimeMessage,
-  RestoreDBClusterToPointInTimeMessageFilterSensitiveLog,
-  RestoreDBClusterToPointInTimeResult,
-  RestoreDBClusterToPointInTimeResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryRestoreDBClusterToPointInTimeCommand,
-  serializeAws_queryRestoreDBClusterToPointInTimeCommand,
+  de_RestoreDBClusterToPointInTimeCommand,
+  se_RestoreDBClusterToPointInTimeCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBClusterToPointInTimeCommand}.
  */
 export interface RestoreDBClusterToPointInTimeCommandInput extends RestoreDBClusterToPointInTimeMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBClusterToPointInTimeCommand}.
  */
 export interface RestoreDBClusterToPointInTimeCommandOutput
@@ -37,6 +36,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in
  *       time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code>
  *       days. The target DB cluster is created from the source DB cluster with the same configuration
@@ -56,10 +56,42 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * import { NeptuneClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // RestoreDBClusterToPointInTimeMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   RestoreType: "STRING_VALUE",
+ *   SourceDBClusterIdentifier: "STRING_VALUE", // required
+ *   RestoreToTime: new Date("TIMESTAMP"),
+ *   UseLatestRestorableTime: true || false,
+ *   Port: Number("int"),
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
+ * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBClusterToPointInTimeCommandInput - {@link RestoreDBClusterToPointInTimeCommandInput}
+ * @returns {@link RestoreDBClusterToPointInTimeCommandOutput}
  * @see {@link RestoreDBClusterToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -145,6 +177,9 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBClusterToPointInTimeCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,8 +208,8 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBClusterToPointInTimeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBClusterToPointInTimeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -184,15 +219,21 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDBClusterToPointInTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBClusterToPointInTimeCommand(input, context);
+    return se_RestoreDBClusterToPointInTimeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBClusterToPointInTimeCommandOutput> {
-    return deserializeAws_queryRestoreDBClusterToPointInTimeCommand(output, context);
+    return de_RestoreDBClusterToPointInTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

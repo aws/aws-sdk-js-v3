@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetOrderRequest,
-  GetOrderRequestFilterSensitiveLog,
-  GetOrderResponse,
-  GetOrderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetOrderRequest, GetOrderResponse, GetOrderResponseFilterSensitiveLog } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1GetOrderCommand,
-  serializeAws_restJson1GetOrderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetOrderCommand, se_GetOrderCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOrderCommand}.
  */
 export interface GetOrderCommandInput extends GetOrderRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetOrderCommand}.
  */
 export interface GetOrderCommandOutput extends GetOrderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetOrderCommandOutput extends GetOrderResponse, __MetadataBeare
  * import { PrivateNetworksClient, GetOrderCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, GetOrderCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // GetOrderRequest
+ *   orderArn: "STRING_VALUE", // required
+ * };
  * const command = new GetOrderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOrderCommandInput - {@link GetOrderCommandInput}
+ * @returns {@link GetOrderCommandOutput}
  * @see {@link GetOrderCommandInput} for command's `input` shape.
  * @see {@link GetOrderCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -78,6 +80,9 @@ export class GetOrderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOrderCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,7 +109,7 @@ export class GetOrderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOrderRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetOrderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -115,12 +120,18 @@ export class GetOrderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetOrderCommand(input, context);
+    return se_GetOrderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOrderCommandOutput> {
-    return deserializeAws_restJson1GetOrderCommand(output, context);
+    return de_GetOrderCommand(output, context);
   }
 
   // Start section: command_body_extra

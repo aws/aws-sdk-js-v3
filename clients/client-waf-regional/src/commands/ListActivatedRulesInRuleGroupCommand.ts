@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListActivatedRulesInRuleGroupRequest, ListActivatedRulesInRuleGroupResponse } from "../models/models_0";
 import {
-  ListActivatedRulesInRuleGroupRequest,
-  ListActivatedRulesInRuleGroupRequestFilterSensitiveLog,
-  ListActivatedRulesInRuleGroupResponse,
-  ListActivatedRulesInRuleGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand,
-  serializeAws_json1_1ListActivatedRulesInRuleGroupCommand,
+  de_ListActivatedRulesInRuleGroupCommand,
+  se_ListActivatedRulesInRuleGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListActivatedRulesInRuleGroupCommand}.
  */
 export interface ListActivatedRulesInRuleGroupCommandInput extends ListActivatedRulesInRuleGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListActivatedRulesInRuleGroupCommand}.
  */
 export interface ListActivatedRulesInRuleGroupCommandOutput
@@ -37,6 +36,7 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -52,10 +52,17 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  * import { WAFRegionalClient, ListActivatedRulesInRuleGroupCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListActivatedRulesInRuleGroupCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // ListActivatedRulesInRuleGroupRequest
+ *   RuleGroupId: "STRING_VALUE",
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListActivatedRulesInRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListActivatedRulesInRuleGroupCommandInput - {@link ListActivatedRulesInRuleGroupCommandInput}
+ * @returns {@link ListActivatedRulesInRuleGroupCommandOutput}
  * @see {@link ListActivatedRulesInRuleGroupCommandInput} for command's `input` shape.
  * @see {@link ListActivatedRulesInRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -125,6 +132,9 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListActivatedRulesInRuleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,8 +163,8 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListActivatedRulesInRuleGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListActivatedRulesInRuleGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -164,15 +174,21 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActivatedRulesInRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(input, context);
+    return se_ListActivatedRulesInRuleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListActivatedRulesInRuleGroupCommandOutput> {
-    return deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand(output, context);
+    return de_ListActivatedRulesInRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

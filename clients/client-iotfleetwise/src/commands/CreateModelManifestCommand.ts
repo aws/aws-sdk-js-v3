@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  CreateModelManifestRequest,
-  CreateModelManifestRequestFilterSensitiveLog,
-  CreateModelManifestResponse,
-  CreateModelManifestResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateModelManifestCommand,
-  serializeAws_json1_0CreateModelManifestCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateModelManifestRequest, CreateModelManifestResponse } from "../models/models_0";
+import { de_CreateModelManifestCommand, se_CreateModelManifestCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelManifestCommand}.
  */
 export interface CreateModelManifestCommandInput extends CreateModelManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelManifestCommand}.
  */
 export interface CreateModelManifestCommandOutput extends CreateModelManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a vehicle model (model manifest) that specifies signals (attributes,
  *             branches, sensors, and actuators). </p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html">Vehicle models</a>
@@ -45,10 +42,26 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  * import { IoTFleetWiseClient, CreateModelManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateModelManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // CreateModelManifestRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   nodes: [ // listOfStrings // required
+ *     "STRING_VALUE",
+ *   ],
+ *   signalCatalogArn: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateModelManifestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelManifestCommandInput - {@link CreateModelManifestCommandInput}
+ * @returns {@link CreateModelManifestCommandOutput}
  * @see {@link CreateModelManifestCommandInput} for command's `input` shape.
  * @see {@link CreateModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -97,6 +110,9 @@ export class CreateModelManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +141,8 @@ export class CreateModelManifestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateModelManifestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelManifestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +152,18 @@ export class CreateModelManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateModelManifestCommand(input, context);
+    return se_CreateModelManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelManifestCommandOutput> {
-    return deserializeAws_json1_0CreateModelManifestCommand(output, context);
+    return de_CreateModelManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

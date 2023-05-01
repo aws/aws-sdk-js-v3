@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { DescribeRecommendationExportJobsRequest, DescribeRecommendationExportJobsResponse } from "../models/models_0";
 import {
-  DescribeRecommendationExportJobsRequest,
-  DescribeRecommendationExportJobsRequestFilterSensitiveLog,
-  DescribeRecommendationExportJobsResponse,
-  DescribeRecommendationExportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeRecommendationExportJobsCommand,
-  serializeAws_json1_0DescribeRecommendationExportJobsCommand,
+  de_DescribeRecommendationExportJobsCommand,
+  se_DescribeRecommendationExportJobsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecommendationExportJobsCommand}.
  */
 export interface DescribeRecommendationExportJobsCommandInput extends DescribeRecommendationExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecommendationExportJobsCommand}.
  */
 export interface DescribeRecommendationExportJobsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeRecommendationExportJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes recommendation export jobs created in the last seven days.</p>
  *          <p>Use the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions to request an export of your
  *             recommendations. Then use the <a>DescribeRecommendationExportJobs</a> action
@@ -47,10 +47,27 @@ export interface DescribeRecommendationExportJobsCommandOutput
  * import { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // DescribeRecommendationExportJobsRequest
+ *   jobIds: [ // JobIds
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [ // JobFilters
+ *     { // JobFilter
+ *       name: "ResourceType" || "JobStatus",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeRecommendationExportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecommendationExportJobsCommandInput - {@link DescribeRecommendationExportJobsCommandInput}
+ * @returns {@link DescribeRecommendationExportJobsCommandOutput}
  * @see {@link DescribeRecommendationExportJobsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationExportJobsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -99,6 +116,9 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecommendationExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +147,8 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecommendationExportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecommendationExportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,18 +158,24 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeRecommendationExportJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeRecommendationExportJobsCommand(input, context);
+    return se_DescribeRecommendationExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRecommendationExportJobsCommandOutput> {
-    return deserializeAws_json1_0DescribeRecommendationExportJobsCommand(output, context);
+    return de_DescribeRecommendationExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

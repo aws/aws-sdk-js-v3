@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPricesRequest,
-  ListPricesRequestFilterSensitiveLog,
-  ListPricesResponse,
-  ListPricesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPricesCommand,
-  serializeAws_json1_1ListPricesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPricesRequest, ListPricesResponse } from "../models/models_0";
+import { de_ListPricesCommand, se_ListPricesCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPricesCommand}.
  */
 export interface ListPricesCommandInput extends ListPricesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPricesCommand}.
  */
 export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the following prices for either all the TLDs supported by Route 53, or
  * 			the specified TLD:</p>
  *          <ul>
@@ -60,10 +57,17 @@ export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataB
  * import { Route53DomainsClient, ListPricesCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ListPricesCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // ListPricesRequest
+ *   Tld: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListPricesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPricesCommandInput - {@link ListPricesCommandInput}
+ * @returns {@link ListPricesCommandOutput}
  * @see {@link ListPricesCommandInput} for command's `input` shape.
  * @see {@link ListPricesCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -96,6 +100,9 @@ export class ListPricesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPricesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +129,8 @@ export class ListPricesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPricesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPricesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +140,18 @@ export class ListPricesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPricesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPricesCommand(input, context);
+    return se_ListPricesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPricesCommandOutput> {
-    return deserializeAws_json1_1ListPricesCommand(output, context);
+    return de_ListPricesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
   UpdateGatewayCapabilityConfigurationRequest,
-  UpdateGatewayCapabilityConfigurationRequestFilterSensitiveLog,
   UpdateGatewayCapabilityConfigurationResponse,
-  UpdateGatewayCapabilityConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand,
-  serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand,
+  de_UpdateGatewayCapabilityConfigurationCommand,
+  se_UpdateGatewayCapabilityConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewayCapabilityConfigurationCommand}.
  */
 export interface UpdateGatewayCapabilityConfigurationCommandInput extends UpdateGatewayCapabilityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewayCapabilityConfigurationCommand}.
  */
 export interface UpdateGatewayCapabilityConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface UpdateGatewayCapabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a gateway capability configuration or defines a new capability configuration.
  *       Each gateway capability defines data sources for a gateway. A capability configuration
  *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
@@ -48,10 +51,17 @@ export interface UpdateGatewayCapabilityConfigurationCommandOutput
  * import { IoTSiteWiseClient, UpdateGatewayCapabilityConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateGatewayCapabilityConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // UpdateGatewayCapabilityConfigurationRequest
+ *   gatewayId: "STRING_VALUE", // required
+ *   capabilityNamespace: "STRING_VALUE", // required
+ *   capabilityConfiguration: "STRING_VALUE", // required
+ * };
  * const command = new UpdateGatewayCapabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayCapabilityConfigurationCommandInput - {@link UpdateGatewayCapabilityConfigurationCommandInput}
+ * @returns {@link UpdateGatewayCapabilityConfigurationCommandOutput}
  * @see {@link UpdateGatewayCapabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayCapabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -101,6 +111,9 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayCapabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +142,8 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewayCapabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewayCapabilityConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +153,24 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateGatewayCapabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand(input, context);
+    return se_UpdateGatewayCapabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateGatewayCapabilityConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand(output, context);
+    return de_UpdateGatewayCapabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

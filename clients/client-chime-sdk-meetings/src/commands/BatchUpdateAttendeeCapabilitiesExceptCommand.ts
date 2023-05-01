@@ -14,26 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
+import { BatchUpdateAttendeeCapabilitiesExceptRequest } from "../models/models_0";
 import {
-  BatchUpdateAttendeeCapabilitiesExceptRequest,
-  BatchUpdateAttendeeCapabilitiesExceptRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand,
-  serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand,
+  de_BatchUpdateAttendeeCapabilitiesExceptCommand,
+  se_BatchUpdateAttendeeCapabilitiesExceptCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateAttendeeCapabilitiesExceptCommand}.
  */
 export interface BatchUpdateAttendeeCapabilitiesExceptCommandInput
   extends BatchUpdateAttendeeCapabilitiesExceptRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateAttendeeCapabilitiesExceptCommand}.
  */
 export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates <code>AttendeeCapabilities</code> except the capabilities listed in an <code>ExcludedAttendeeIds</code> table.</p>
  *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
@@ -52,7 +54,7 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  *             </li>
  *             <li>
  *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
- *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
+ *                     and if the attendee turned on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
  *             </li>
  *          </ul>
  * @example
@@ -61,10 +63,25 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  * import { ChimeSDKMeetingsClient, BatchUpdateAttendeeCapabilitiesExceptCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, BatchUpdateAttendeeCapabilitiesExceptCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = { // BatchUpdateAttendeeCapabilitiesExceptRequest
+ *   MeetingId: "STRING_VALUE", // required
+ *   ExcludedAttendeeIds: [ // AttendeeIdsList // required
+ *     { // AttendeeIdItem
+ *       AttendeeId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Capabilities: { // AttendeeCapabilities
+ *     Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ *     Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ *     Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ *   },
+ * };
  * const command = new BatchUpdateAttendeeCapabilitiesExceptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateAttendeeCapabilitiesExceptCommandInput - {@link BatchUpdateAttendeeCapabilitiesExceptCommandInput}
+ * @returns {@link BatchUpdateAttendeeCapabilitiesExceptCommandOutput}
  * @see {@link BatchUpdateAttendeeCapabilitiesExceptCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateAttendeeCapabilitiesExceptCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
@@ -106,6 +123,9 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateAttendeeCapabilitiesExceptCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +154,8 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateAttendeeCapabilitiesExceptRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +165,24 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchUpdateAttendeeCapabilitiesExceptCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand(input, context);
+    return se_BatchUpdateAttendeeCapabilitiesExceptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdateAttendeeCapabilitiesExceptCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand(output, context);
+    return de_BatchUpdateAttendeeCapabilitiesExceptCommand(output, context);
   }
 
   // Start section: command_body_extra

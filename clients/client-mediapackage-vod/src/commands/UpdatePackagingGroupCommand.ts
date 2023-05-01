@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import {
-  UpdatePackagingGroupRequest,
-  UpdatePackagingGroupRequestFilterSensitiveLog,
-  UpdatePackagingGroupResponse,
-  UpdatePackagingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePackagingGroupCommand,
-  serializeAws_restJson1UpdatePackagingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePackagingGroupRequest, UpdatePackagingGroupResponse } from "../models/models_0";
+import { de_UpdatePackagingGroupCommand, se_UpdatePackagingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePackagingGroupCommand}.
  */
 export interface UpdatePackagingGroupCommandInput extends UpdatePackagingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePackagingGroupCommand}.
  */
 export interface UpdatePackagingGroupCommandOutput extends UpdatePackagingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates a specific packaging group. You can't change the id attribute or any other system-generated attributes.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdatePackagingGroupCommandOutput extends UpdatePackagingGroupR
  * import { MediaPackageVodClient, UpdatePackagingGroupCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, UpdatePackagingGroupCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
+ * const input = { // UpdatePackagingGroupRequest
+ *   Authorization: { // Authorization
+ *     CdnIdentifierSecret: "STRING_VALUE", // required
+ *     SecretsRoleArn: "STRING_VALUE", // required
+ *   },
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePackagingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePackagingGroupCommandInput - {@link UpdatePackagingGroupCommandInput}
+ * @returns {@link UpdatePackagingGroupCommandOutput}
  * @see {@link UpdatePackagingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdatePackagingGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
@@ -87,6 +93,9 @@ export class UpdatePackagingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePackagingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class UpdatePackagingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePackagingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePackagingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +135,18 @@ export class UpdatePackagingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePackagingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePackagingGroupCommand(input, context);
+    return se_UpdatePackagingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePackagingGroupCommandOutput> {
-    return deserializeAws_restJson1UpdatePackagingGroupCommand(output, context);
+    return de_UpdatePackagingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

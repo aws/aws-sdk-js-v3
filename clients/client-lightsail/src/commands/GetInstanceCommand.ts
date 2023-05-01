@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetInstanceRequest,
-  GetInstanceRequestFilterSensitiveLog,
-  GetInstanceResult,
-  GetInstanceResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetInstanceCommand,
-  serializeAws_json1_1GetInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { GetInstanceRequest, GetInstanceResult } from "../models/models_1";
+import { de_GetInstanceCommand, se_GetInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceCommand}.
  */
 export interface GetInstanceCommandInput extends GetInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceCommand}.
  */
 export interface GetInstanceCommandOutput extends GetInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific Amazon Lightsail instance, which is a virtual private
  *       server.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetInstanceCommandOutput extends GetInstanceResult, __MetadataB
  * import { LightsailClient, GetInstanceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstanceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetInstanceRequest
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new GetInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceCommandInput - {@link GetInstanceCommandInput}
+ * @returns {@link GetInstanceCommandOutput}
  * @see {@link GetInstanceCommandInput} for command's `input` shape.
  * @see {@link GetInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -100,6 +102,9 @@ export class GetInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +131,8 @@ export class GetInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +142,18 @@ export class GetInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceCommand(input, context);
+    return se_GetInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceCommandOutput> {
-    return deserializeAws_json1_1GetInstanceCommand(output, context);
+    return de_GetInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

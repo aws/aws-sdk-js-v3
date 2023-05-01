@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  CreateDomainRequest,
-  CreateDomainRequestFilterSensitiveLog,
-  CreateDomainResponse,
-  CreateDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryCreateDomainCommand, serializeAws_queryCreateDomainCommand } from "../protocols/Aws_query";
+import { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
+import { de_CreateDomainCommand, se_CreateDomainCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDomainCommand}.
  */
 export interface CreateDomainCommandInput extends CreateDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDomainCommand}.
  */
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new search domain. For more information,
  *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html" target="_blank">Creating a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
@@ -40,10 +40,15 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * import { CloudSearchClient, CreateDomainCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, CreateDomainCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // CreateDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
+ * @returns {@link CreateDomainCommandOutput}
  * @see {@link CreateDomainCommandInput} for command's `input` shape.
  * @see {@link CreateDomainCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -83,6 +88,9 @@ export class CreateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class CreateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class CreateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDomainCommand(input, context);
+    return se_CreateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainCommandOutput> {
-    return deserializeAws_queryCreateDomainCommand(output, context);
+    return de_CreateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

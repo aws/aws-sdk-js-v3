@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  ListLogSubscriptionsRequest,
-  ListLogSubscriptionsRequestFilterSensitiveLog,
-  ListLogSubscriptionsResult,
-  ListLogSubscriptionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLogSubscriptionsCommand,
-  serializeAws_json1_1ListLogSubscriptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLogSubscriptionsRequest, ListLogSubscriptionsResult } from "../models/models_0";
+import { de_ListLogSubscriptionsCommand, se_ListLogSubscriptionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLogSubscriptionsCommand}.
  */
 export interface ListLogSubscriptionsCommandInput extends ListLogSubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLogSubscriptionsCommand}.
  */
 export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the active log subscriptions for the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsR
  * import { DirectoryServiceClient, ListLogSubscriptionsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ListLogSubscriptionsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // ListLogSubscriptionsRequest
+ *   DirectoryId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListLogSubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLogSubscriptionsCommandInput - {@link ListLogSubscriptionsCommandInput}
+ * @returns {@link ListLogSubscriptionsCommandOutput}
  * @see {@link ListLogSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListLogSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -81,6 +85,9 @@ export class ListLogSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLogSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class ListLogSubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLogSubscriptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLogSubscriptionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class ListLogSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLogSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLogSubscriptionsCommand(input, context);
+    return se_ListLogSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogSubscriptionsCommandOutput> {
-    return deserializeAws_json1_1ListLogSubscriptionsCommand(output, context);
+    return de_ListLogSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

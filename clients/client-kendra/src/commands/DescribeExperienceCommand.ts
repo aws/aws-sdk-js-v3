@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  DescribeExperienceRequest,
-  DescribeExperienceRequestFilterSensitiveLog,
-  DescribeExperienceResponse,
-  DescribeExperienceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeExperienceCommand,
-  serializeAws_json1_1DescribeExperienceCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeExperienceRequest, DescribeExperienceResponse } from "../models/models_0";
+import { de_DescribeExperienceCommand, se_DescribeExperienceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeExperienceCommand}.
  */
 export interface DescribeExperienceCommandInput extends DescribeExperienceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeExperienceCommand}.
  */
 export interface DescribeExperienceCommandOutput extends DescribeExperienceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about your Amazon Kendra experience such as a search application.
  *             For more information on creating a search application experience,
  *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
@@ -45,10 +42,16 @@ export interface DescribeExperienceCommandOutput extends DescribeExperienceRespo
  * import { KendraClient, DescribeExperienceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeExperienceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DescribeExperienceRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeExperienceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExperienceCommandInput - {@link DescribeExperienceCommandInput}
+ * @returns {@link DescribeExperienceCommandOutput}
  * @see {@link DescribeExperienceCommandInput} for command's `input` shape.
  * @see {@link DescribeExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -59,7 +62,7 @@ export interface DescribeExperienceCommandOutput extends DescribeExperienceRespo
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -92,6 +95,9 @@ export class DescribeExperienceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExperienceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +126,8 @@ export class DescribeExperienceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExperienceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExperienceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +137,18 @@ export class DescribeExperienceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExperienceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExperienceCommand(input, context);
+    return se_DescribeExperienceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExperienceCommandOutput> {
-    return deserializeAws_json1_1DescribeExperienceCommand(output, context);
+    return de_DescribeExperienceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  ListJobsInput,
-  ListJobsInputFilterSensitiveLog,
-  ListJobsOutput,
-  ListJobsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListJobsCommand,
-  serializeAws_restJson1ListJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListJobsInput, ListJobsOutput } from "../models/models_0";
+import { de_ListJobsCommand, se_ListJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobsCommand}.
  */
 export interface ListJobsCommandInput extends ListJobsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListJobsCommand}.
  */
 export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists jobs for a vault, including jobs that are in-progress and jobs
  *          that have recently finished. The List Job operation returns a list of these jobs sorted by job initiation
  *          time.</p>
@@ -77,10 +74,20 @@ export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer 
  * import { GlacierClient, ListJobsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListJobsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // ListJobsInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   limit: Number("int"),
+ *   marker: "STRING_VALUE",
+ *   statuscode: "STRING_VALUE",
+ *   completed: "STRING_VALUE",
+ * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobsCommandInput - {@link ListJobsCommandInput}
+ * @returns {@link ListJobsCommandOutput}
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -161,6 +168,9 @@ export class ListJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -187,8 +197,8 @@ export class ListJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJobsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -198,12 +208,18 @@ export class ListJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJobsCommand(input, context);
+    return se_ListJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobsCommandOutput> {
-    return deserializeAws_restJson1ListJobsCommand(output, context);
+    return de_ListJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

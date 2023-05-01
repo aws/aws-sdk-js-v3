@@ -18,22 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { StartRecommendationsRequest, StartRecommendationsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartRecommendationsCommand,
-  serializeAws_json1_1StartRecommendationsCommand,
-} from "../protocols/Aws_json1_1";
+import { StartRecommendationsRequest } from "../models/models_0";
+import { de_StartRecommendationsCommand, se_StartRecommendationsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartRecommendationsCommand}.
  */
 export interface StartRecommendationsCommandInput extends StartRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartRecommendationsCommand}.
  */
 export interface StartRecommendationsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the analysis of your source database to provide recommendations of target
  *             engines.</p>
  *          <p>You can create recommendations for multiple source databases using <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_BatchStartRecommendations.html">BatchStartRecommendations</a>.</p>
@@ -43,10 +45,19 @@ export interface StartRecommendationsCommandOutput extends __MetadataBearer {}
  * import { DatabaseMigrationServiceClient, StartRecommendationsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StartRecommendationsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // StartRecommendationsRequest
+ *   DatabaseId: "STRING_VALUE", // required
+ *   Settings: { // RecommendationSettings
+ *     InstanceSizingType: "STRING_VALUE", // required
+ *     WorkloadType: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new StartRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRecommendationsCommandInput - {@link StartRecommendationsCommandInput}
+ * @returns {@link StartRecommendationsCommandOutput}
  * @see {@link StartRecommendationsCommandInput} for command's `input` shape.
  * @see {@link StartRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -80,6 +91,9 @@ export class StartRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +122,8 @@ export class StartRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +133,18 @@ export class StartRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartRecommendationsCommand(input, context);
+    return se_StartRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecommendationsCommandOutput> {
-    return deserializeAws_json1_1StartRecommendationsCommand(output, context);
+    return de_StartRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

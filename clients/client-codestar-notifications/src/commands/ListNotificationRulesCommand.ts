@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import {
-  ListNotificationRulesRequest,
-  ListNotificationRulesRequestFilterSensitiveLog,
-  ListNotificationRulesResult,
-  ListNotificationRulesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNotificationRulesCommand,
-  serializeAws_restJson1ListNotificationRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListNotificationRulesRequest, ListNotificationRulesResult } from "../models/models_0";
+import { de_ListNotificationRulesCommand, se_ListNotificationRulesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNotificationRulesCommand}.
  */
 export interface ListNotificationRulesCommandInput extends ListNotificationRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNotificationRulesCommand}.
  */
 export interface ListNotificationRulesCommandOutput extends ListNotificationRulesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the notification rules for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,22 @@ export interface ListNotificationRulesCommandOutput extends ListNotificationRule
  * import { CodestarNotificationsClient, ListNotificationRulesCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, ListNotificationRulesCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
+ * const input = { // ListNotificationRulesRequest
+ *   Filters: [ // ListNotificationRulesFilters
+ *     { // ListNotificationRulesFilter
+ *       Name: "EVENT_TYPE_ID" || "CREATED_BY" || "RESOURCE" || "TARGET_ADDRESS", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListNotificationRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotificationRulesCommandInput - {@link ListNotificationRulesCommandInput}
+ * @returns {@link ListNotificationRulesCommandOutput}
  * @see {@link ListNotificationRulesCommandInput} for command's `input` shape.
  * @see {@link ListNotificationRulesCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -79,6 +88,9 @@ export class ListNotificationRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotificationRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +119,8 @@ export class ListNotificationRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotificationRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNotificationRulesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +130,18 @@ export class ListNotificationRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotificationRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNotificationRulesCommand(input, context);
+    return se_ListNotificationRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotificationRulesCommandOutput> {
-    return deserializeAws_restJson1ListNotificationRulesCommand(output, context);
+    return de_ListNotificationRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

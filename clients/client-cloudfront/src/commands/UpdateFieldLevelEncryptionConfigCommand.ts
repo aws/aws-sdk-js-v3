@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { UpdateFieldLevelEncryptionConfigRequest, UpdateFieldLevelEncryptionConfigResult } from "../models/models_1";
 import {
-  UpdateFieldLevelEncryptionConfigRequest,
-  UpdateFieldLevelEncryptionConfigRequestFilterSensitiveLog,
-  UpdateFieldLevelEncryptionConfigResult,
-  UpdateFieldLevelEncryptionConfigResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand,
-  serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand,
+  de_UpdateFieldLevelEncryptionConfigCommand,
+  se_UpdateFieldLevelEncryptionConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFieldLevelEncryptionConfigCommand}.
  */
 export interface UpdateFieldLevelEncryptionConfigCommandInput extends UpdateFieldLevelEncryptionConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFieldLevelEncryptionConfigCommand}.
  */
 export interface UpdateFieldLevelEncryptionConfigCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateFieldLevelEncryptionConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a field-level encryption configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,45 @@ export interface UpdateFieldLevelEncryptionConfigCommandOutput
  * import { CloudFrontClient, UpdateFieldLevelEncryptionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateFieldLevelEncryptionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // UpdateFieldLevelEncryptionConfigRequest
+ *   FieldLevelEncryptionConfig: { // FieldLevelEncryptionConfig
+ *     CallerReference: "STRING_VALUE", // required
+ *     Comment: "STRING_VALUE",
+ *     QueryArgProfileConfig: { // QueryArgProfileConfig
+ *       ForwardWhenQueryArgProfileIsUnknown: true || false, // required
+ *       QueryArgProfiles: { // QueryArgProfiles
+ *         Quantity: Number("int"), // required
+ *         Items: [ // QueryArgProfileList
+ *           { // QueryArgProfile
+ *             QueryArg: "STRING_VALUE", // required
+ *             ProfileId: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     ContentTypeProfileConfig: { // ContentTypeProfileConfig
+ *       ForwardWhenContentTypeIsUnknown: true || false, // required
+ *       ContentTypeProfiles: { // ContentTypeProfiles
+ *         Quantity: Number("int"), // required
+ *         Items: [ // ContentTypeProfileList
+ *           { // ContentTypeProfile
+ *             Format: "URLEncoded", // required
+ *             ProfileId: "STRING_VALUE",
+ *             ContentType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new UpdateFieldLevelEncryptionConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFieldLevelEncryptionConfigCommandInput - {@link UpdateFieldLevelEncryptionConfigCommandInput}
+ * @returns {@link UpdateFieldLevelEncryptionConfigCommandOutput}
  * @see {@link UpdateFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -108,6 +143,9 @@ export class UpdateFieldLevelEncryptionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFieldLevelEncryptionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +174,8 @@ export class UpdateFieldLevelEncryptionConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFieldLevelEncryptionConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFieldLevelEncryptionConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,18 +185,24 @@ export class UpdateFieldLevelEncryptionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFieldLevelEncryptionConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand(input, context);
+    return se_UpdateFieldLevelEncryptionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> {
-    return deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand(output, context);
+    return de_UpdateFieldLevelEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

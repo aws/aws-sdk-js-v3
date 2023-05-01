@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  GetLifecyclePolicyPreviewRequest,
-  GetLifecyclePolicyPreviewRequestFilterSensitiveLog,
-  GetLifecyclePolicyPreviewResponse,
-  GetLifecyclePolicyPreviewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLifecyclePolicyPreviewCommand,
-  serializeAws_json1_1GetLifecyclePolicyPreviewCommand,
-} from "../protocols/Aws_json1_1";
+import { GetLifecyclePolicyPreviewRequest, GetLifecyclePolicyPreviewResponse } from "../models/models_0";
+import { de_GetLifecyclePolicyPreviewCommand, se_GetLifecyclePolicyPreviewCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLifecyclePolicyPreviewCommand}.
  */
 export interface GetLifecyclePolicyPreviewCommandInput extends GetLifecyclePolicyPreviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLifecyclePolicyPreviewCommand}.
  */
 export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePolicyPreviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the results of the lifecycle policy preview request for the specified
  *             repository.</p>
  * @example
@@ -43,10 +40,27 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * import { ECRClient, GetLifecyclePolicyPreviewCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetLifecyclePolicyPreviewCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // GetLifecyclePolicyPreviewRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageIds: [ // ImageIdentifierList
+ *     { // ImageIdentifier
+ *       imageDigest: "STRING_VALUE",
+ *       imageTag: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: { // LifecyclePolicyPreviewFilter
+ *     tagStatus: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetLifecyclePolicyPreviewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLifecyclePolicyPreviewCommandInput - {@link GetLifecyclePolicyPreviewCommandInput}
+ * @returns {@link GetLifecyclePolicyPreviewCommandOutput}
  * @see {@link GetLifecyclePolicyPreviewCommandInput} for command's `input` shape.
  * @see {@link GetLifecyclePolicyPreviewCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -84,6 +98,9 @@ export class GetLifecyclePolicyPreviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLifecyclePolicyPreviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +129,8 @@ export class GetLifecyclePolicyPreviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLifecyclePolicyPreviewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLifecyclePolicyPreviewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +140,21 @@ export class GetLifecyclePolicyPreviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLifecyclePolicyPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLifecyclePolicyPreviewCommand(input, context);
+    return se_GetLifecyclePolicyPreviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLifecyclePolicyPreviewCommandOutput> {
-    return deserializeAws_json1_1GetLifecyclePolicyPreviewCommand(output, context);
+    return de_GetLifecyclePolicyPreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

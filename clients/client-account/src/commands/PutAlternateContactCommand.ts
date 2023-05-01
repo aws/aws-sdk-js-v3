@@ -15,21 +15,23 @@ import {
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { PutAlternateContactRequest, PutAlternateContactRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAlternateContactCommand,
-  serializeAws_restJson1PutAlternateContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutAlternateContactCommand, se_PutAlternateContactCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAlternateContactCommand}.
  */
 export interface PutAlternateContactCommandInput extends PutAlternateContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAlternateContactCommand}.
  */
 export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p>
  *          <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
  *                 updating the alternate contacts</a>.</p>
@@ -45,10 +47,20 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  * import { AccountClient, PutAlternateContactCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, PutAlternateContactCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
+ * const input = { // PutAlternateContactRequest
+ *   Name: "STRING_VALUE", // required
+ *   Title: "STRING_VALUE", // required
+ *   EmailAddress: "STRING_VALUE", // required
+ *   PhoneNumber: "STRING_VALUE", // required
+ *   AlternateContactType: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new PutAlternateContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAlternateContactCommandInput - {@link PutAlternateContactCommandInput}
+ * @returns {@link PutAlternateContactCommandOutput}
  * @see {@link PutAlternateContactCommandInput} for command's `input` shape.
  * @see {@link PutAlternateContactCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -87,6 +99,9 @@ export class PutAlternateContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAlternateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +131,7 @@ export class PutAlternateContactCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutAlternateContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +141,18 @@ export class PutAlternateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAlternateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAlternateContactCommand(input, context);
+    return se_PutAlternateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAlternateContactCommandOutput> {
-    return deserializeAws_restJson1PutAlternateContactCommand(output, context);
+    return de_PutAlternateContactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  DescribeStreamInput,
-  DescribeStreamInputFilterSensitiveLog,
-  DescribeStreamOutput,
-  DescribeStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeStreamCommand,
-  serializeAws_restJson1DescribeStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeStreamInput, DescribeStreamOutput } from "../models/models_0";
+import { de_DescribeStreamCommand, se_DescribeStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStreamCommand}.
  */
 export interface DescribeStreamCommandInput extends DescribeStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStreamCommand}.
  */
 export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the most current information about the specified stream. You must specify
  *             either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
  * @example
@@ -43,10 +40,16 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * import { KinesisVideoClient, DescribeStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // DescribeStreamInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStreamCommandInput - {@link DescribeStreamCommandInput}
+ * @returns {@link DescribeStreamCommandOutput}
  * @see {@link DescribeStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -83,6 +86,9 @@ export class DescribeStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class DescribeStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class DescribeStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeStreamCommand(input, context);
+    return se_DescribeStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamCommandOutput> {
-    return deserializeAws_restJson1DescribeStreamCommand(output, context);
+    return de_DescribeStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

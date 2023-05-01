@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  StopImportRequest,
-  StopImportRequestFilterSensitiveLog,
-  StopImportResponse,
-  StopImportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopImportCommand,
-  serializeAws_json1_1StopImportCommand,
-} from "../protocols/Aws_json1_1";
+import { StopImportRequest, StopImportResponse } from "../models/models_0";
+import { de_StopImportCommand, se_StopImportCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopImportCommand}.
  */
 export interface StopImportCommandInput extends StopImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopImportCommand}.
  */
 export interface StopImportCommandOutput extends StopImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Stops a specified import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StopImportCommandOutput extends StopImportResponse, __MetadataB
  * import { CloudTrailClient, StopImportCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StopImportCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // StopImportRequest
+ *   ImportId: "STRING_VALUE", // required
+ * };
  * const command = new StopImportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopImportCommandInput - {@link StopImportCommandInput}
+ * @returns {@link StopImportCommandOutput}
  * @see {@link StopImportCommandInput} for command's `input` shape.
  * @see {@link StopImportCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -81,6 +83,9 @@ export class StopImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class StopImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class StopImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopImportCommand(input, context);
+    return se_StopImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopImportCommandOutput> {
-    return deserializeAws_json1_1StopImportCommand(output, context);
+    return de_StopImportCommand(output, context);
   }
 
   // Start section: command_body_extra

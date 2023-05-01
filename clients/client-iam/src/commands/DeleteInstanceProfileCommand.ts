@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteInstanceProfileRequest, DeleteInstanceProfileRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteInstanceProfileCommand,
-  serializeAws_queryDeleteInstanceProfileCommand,
-} from "../protocols/Aws_query";
+import { DeleteInstanceProfileRequest } from "../models/models_0";
+import { de_DeleteInstanceProfileCommand, se_DeleteInstanceProfileCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceProfileCommand}.
  */
 export interface DeleteInstanceProfileCommandInput extends DeleteInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceProfileCommand}.
  */
 export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified instance profile. The instance profile must not have an
  *             associated role.</p>
  *          <important>
@@ -46,10 +48,15 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteInstanceProfileRequest
+ *   InstanceProfileName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceProfileCommandInput - {@link DeleteInstanceProfileCommandInput}
+ * @returns {@link DeleteInstanceProfileCommandOutput}
  * @see {@link DeleteInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -100,6 +107,9 @@ export class DeleteInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +138,8 @@ export class DeleteInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +149,18 @@ export class DeleteInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteInstanceProfileCommand(input, context);
+    return se_DeleteInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceProfileCommandOutput> {
-    return deserializeAws_queryDeleteInstanceProfileCommand(output, context);
+    return de_DeleteInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

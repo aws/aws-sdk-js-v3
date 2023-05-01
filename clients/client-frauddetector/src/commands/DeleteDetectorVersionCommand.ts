@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DeleteDetectorVersionRequest,
-  DeleteDetectorVersionRequestFilterSensitiveLog,
-  DeleteDetectorVersionResult,
-  DeleteDetectorVersionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDetectorVersionCommand,
-  serializeAws_json1_1DeleteDetectorVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDetectorVersionRequest, DeleteDetectorVersionResult } from "../models/models_0";
+import { de_DeleteDetectorVersionCommand, se_DeleteDetectorVersionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDetectorVersionCommand}.
  */
 export interface DeleteDetectorVersionCommandInput extends DeleteDetectorVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDetectorVersionCommand}.
  */
 export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>
  *          <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  * import { FraudDetectorClient, DeleteDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // DeleteDetectorVersionRequest
+ *   detectorId: "STRING_VALUE", // required
+ *   detectorVersionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDetectorVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDetectorVersionCommandInput - {@link DeleteDetectorVersionCommandInput}
+ * @returns {@link DeleteDetectorVersionCommandOutput}
  * @see {@link DeleteDetectorVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -88,6 +91,9 @@ export class DeleteDetectorVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDetectorVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DeleteDetectorVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDetectorVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDetectorVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class DeleteDetectorVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDetectorVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDetectorVersionCommand(input, context);
+    return se_DeleteDetectorVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDetectorVersionCommandOutput> {
-    return deserializeAws_json1_1DeleteDetectorVersionCommand(output, context);
+    return de_DeleteDetectorVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

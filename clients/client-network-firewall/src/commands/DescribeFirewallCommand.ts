@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeFirewallRequest,
-  DescribeFirewallRequestFilterSensitiveLog,
-  DescribeFirewallResponse,
-  DescribeFirewallResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFirewallRequest, DescribeFirewallResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DescribeFirewallCommand,
-  serializeAws_json1_0DescribeFirewallCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeFirewallCommand, se_DescribeFirewallCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFirewallCommand}.
  */
 export interface DescribeFirewallCommandInput extends DescribeFirewallRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFirewallCommand}.
  */
 export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the data objects for the specified firewall. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * import { NetworkFirewallClient, DescribeFirewallCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeFirewallCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // DescribeFirewallRequest
+ *   FirewallName: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ * };
  * const command = new DescribeFirewallCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFirewallCommandInput - {@link DescribeFirewallCommandInput}
+ * @returns {@link DescribeFirewallCommandOutput}
  * @see {@link DescribeFirewallCommandInput} for command's `input` shape.
  * @see {@link DescribeFirewallCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -95,6 +98,9 @@ export class DescribeFirewallCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFirewallCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class DescribeFirewallCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFirewallRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFirewallResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class DescribeFirewallCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFirewallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeFirewallCommand(input, context);
+    return se_DescribeFirewallCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFirewallCommandOutput> {
-    return deserializeAws_json1_0DescribeFirewallCommand(output, context);
+    return de_DescribeFirewallCommand(output, context);
   }
 
   // Start section: command_body_extra

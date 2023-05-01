@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListSAMLProvidersRequest,
-  ListSAMLProvidersRequestFilterSensitiveLog,
-  ListSAMLProvidersResponse,
-  ListSAMLProvidersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListSAMLProvidersCommand,
-  serializeAws_queryListSAMLProvidersCommand,
-} from "../protocols/Aws_query";
+import { ListSAMLProvidersRequest, ListSAMLProvidersResponse } from "../models/models_0";
+import { de_ListSAMLProvidersCommand, se_ListSAMLProvidersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListSAMLProvidersCommand}.
  */
 export interface ListSAMLProvidersCommandInput extends ListSAMLProvidersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSAMLProvidersCommand}.
  */
 export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the SAML provider resource objects defined in IAM in the account.
  *             IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a SAML provider, see <a>GetSAMLProvider</a>.</p>
@@ -47,10 +44,13 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  * import { IAMClient, ListSAMLProvidersCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListSAMLProvidersCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {};
  * const command = new ListSAMLProvidersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSAMLProvidersCommandInput - {@link ListSAMLProvidersCommandInput}
+ * @returns {@link ListSAMLProvidersCommandOutput}
  * @see {@link ListSAMLProvidersCommandInput} for command's `input` shape.
  * @see {@link ListSAMLProvidersCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -78,6 +78,9 @@ export class ListSAMLProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSAMLProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +109,8 @@ export class ListSAMLProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSAMLProvidersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSAMLProvidersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +120,18 @@ export class ListSAMLProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSAMLProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListSAMLProvidersCommand(input, context);
+    return se_ListSAMLProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSAMLProvidersCommandOutput> {
-    return deserializeAws_queryListSAMLProvidersCommand(output, context);
+    return de_ListSAMLProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ListSupportedPhoneNumberCountriesRequest,
-  ListSupportedPhoneNumberCountriesRequestFilterSensitiveLog,
   ListSupportedPhoneNumberCountriesResponse,
-  ListSupportedPhoneNumberCountriesResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommand,
-  serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand,
+  de_ListSupportedPhoneNumberCountriesCommand,
+  se_ListSupportedPhoneNumberCountriesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSupportedPhoneNumberCountriesCommand}.
  */
 export interface ListSupportedPhoneNumberCountriesCommandInput extends ListSupportedPhoneNumberCountriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSupportedPhoneNumberCountriesCommand}.
  */
 export interface ListSupportedPhoneNumberCountriesCommandOutput
@@ -37,6 +39,7 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists supported phone number countries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
  * import { ChimeClient, ListSupportedPhoneNumberCountriesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListSupportedPhoneNumberCountriesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListSupportedPhoneNumberCountriesRequest
+ *   ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn", // required
+ * };
  * const command = new ListSupportedPhoneNumberCountriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSupportedPhoneNumberCountriesCommandInput - {@link ListSupportedPhoneNumberCountriesCommandInput}
+ * @returns {@link ListSupportedPhoneNumberCountriesCommandOutput}
  * @see {@link ListSupportedPhoneNumberCountriesCommandInput} for command's `input` shape.
  * @see {@link ListSupportedPhoneNumberCountriesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +100,9 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSupportedPhoneNumberCountriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +131,8 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSupportedPhoneNumberCountriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSupportedPhoneNumberCountriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +142,24 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSupportedPhoneNumberCountriesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand(input, context);
+    return se_ListSupportedPhoneNumberCountriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSupportedPhoneNumberCountriesCommandOutput> {
-    return deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommand(output, context);
+    return de_ListSupportedPhoneNumberCountriesCommand(output, context);
   }
 
   // Start section: command_body_extra

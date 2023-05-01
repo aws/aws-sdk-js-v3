@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { GetReservedInstancesExchangeQuoteRequest, GetReservedInstancesExchangeQuoteResult } from "../models/models_5";
 import {
-  GetReservedInstancesExchangeQuoteRequest,
-  GetReservedInstancesExchangeQuoteRequestFilterSensitiveLog,
-  GetReservedInstancesExchangeQuoteResult,
-  GetReservedInstancesExchangeQuoteResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetReservedInstancesExchangeQuoteCommand,
-  serializeAws_ec2GetReservedInstancesExchangeQuoteCommand,
+  de_GetReservedInstancesExchangeQuoteCommand,
+  se_GetReservedInstancesExchangeQuoteCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetReservedInstancesExchangeQuoteCommand}.
  */
 export interface GetReservedInstancesExchangeQuoteCommandInput extends GetReservedInstancesExchangeQuoteRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReservedInstancesExchangeQuoteCommand}.
  */
 export interface GetReservedInstancesExchangeQuoteCommandOutput
@@ -37,6 +36,7 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a quote and exchange information for exchanging one or more specified
  *             Convertible Reserved Instances for a new Convertible Reserved Instance. If the exchange
  *             cannot be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a> to perform the exchange.</p>
@@ -46,10 +46,24 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
  * import { EC2Client, GetReservedInstancesExchangeQuoteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetReservedInstancesExchangeQuoteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetReservedInstancesExchangeQuoteRequest
+ *   DryRun: true || false,
+ *   ReservedInstanceIds: [ // ReservedInstanceIdSet // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TargetConfigurations: [ // TargetConfigurationRequestSet
+ *     { // TargetConfigurationRequest
+ *       InstanceCount: Number("int"),
+ *       OfferingId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new GetReservedInstancesExchangeQuoteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReservedInstancesExchangeQuoteCommandInput - {@link GetReservedInstancesExchangeQuoteCommandInput}
+ * @returns {@link GetReservedInstancesExchangeQuoteCommandOutput}
  * @see {@link GetReservedInstancesExchangeQuoteCommandInput} for command's `input` shape.
  * @see {@link GetReservedInstancesExchangeQuoteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +87,9 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReservedInstancesExchangeQuoteCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +118,8 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReservedInstancesExchangeQuoteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReservedInstancesExchangeQuoteResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +129,24 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetReservedInstancesExchangeQuoteCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetReservedInstancesExchangeQuoteCommand(input, context);
+    return se_GetReservedInstancesExchangeQuoteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReservedInstancesExchangeQuoteCommandOutput> {
-    return deserializeAws_ec2GetReservedInstancesExchangeQuoteCommand(output, context);
+    return de_GetReservedInstancesExchangeQuoteCommand(output, context);
   }
 
   // Start section: command_body_extra

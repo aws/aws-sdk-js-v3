@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateInstanceEventWindowRequest,
-  AssociateInstanceEventWindowRequestFilterSensitiveLog,
-  AssociateInstanceEventWindowResult,
-  AssociateInstanceEventWindowResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateInstanceEventWindowCommand,
-  serializeAws_ec2AssociateInstanceEventWindowCommand,
-} from "../protocols/Aws_ec2";
+import { AssociateInstanceEventWindowRequest, AssociateInstanceEventWindowResult } from "../models/models_0";
+import { de_AssociateInstanceEventWindowCommand, se_AssociateInstanceEventWindowCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateInstanceEventWindowCommand}.
  */
 export interface AssociateInstanceEventWindowCommandInput extends AssociateInstanceEventWindowRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateInstanceEventWindowCommand}.
  */
 export interface AssociateInstanceEventWindowCommandOutput
@@ -37,6 +33,7 @@ export interface AssociateInstanceEventWindowCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates one or more targets with an event window. Only one type of target (instance IDs,
  *          Dedicated Host IDs, or tags) can be specified with an event window.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
@@ -47,10 +44,30 @@ export interface AssociateInstanceEventWindowCommandOutput
  * import { EC2Client, AssociateInstanceEventWindowCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateInstanceEventWindowCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssociateInstanceEventWindowRequest
+ *   DryRun: true || false,
+ *   InstanceEventWindowId: "STRING_VALUE", // required
+ *   AssociationTarget: { // InstanceEventWindowAssociationRequest
+ *     InstanceIds: [ // InstanceIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     InstanceTags: [ // TagList
+ *       { // Tag
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     DedicatedHostIds: [ // DedicatedHostIdList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new AssociateInstanceEventWindowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateInstanceEventWindowCommandInput - {@link AssociateInstanceEventWindowCommandInput}
+ * @returns {@link AssociateInstanceEventWindowCommandOutput}
  * @see {@link AssociateInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link AssociateInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +91,9 @@ export class AssociateInstanceEventWindowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateInstanceEventWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +122,8 @@ export class AssociateInstanceEventWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateInstanceEventWindowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateInstanceEventWindowResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +133,21 @@ export class AssociateInstanceEventWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateInstanceEventWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateInstanceEventWindowCommand(input, context);
+    return se_AssociateInstanceEventWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateInstanceEventWindowCommandOutput> {
-    return deserializeAws_ec2AssociateInstanceEventWindowCommand(output, context);
+    return de_AssociateInstanceEventWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

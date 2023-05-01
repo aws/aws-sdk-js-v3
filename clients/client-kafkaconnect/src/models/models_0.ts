@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { KafkaConnectServiceException as __BaseException } from "./KafkaConnectServiceException";
 
 /**
+ * @public
  * <p>The description of the scale-in policy for the connector.</p>
  */
 export interface ScaleInPolicyDescription {
@@ -15,6 +16,7 @@ export interface ScaleInPolicyDescription {
 }
 
 /**
+ * @public
  * <p>The description of the scale-out policy for the connector.</p>
  */
 export interface ScaleOutPolicyDescription {
@@ -26,6 +28,7 @@ export interface ScaleOutPolicyDescription {
 }
 
 /**
+ * @public
  * <p>Information about the auto scaling parameters for the connector.</p>
  */
 export interface AutoScalingDescription {
@@ -57,6 +60,7 @@ export interface AutoScalingDescription {
 }
 
 /**
+ * @public
  * <p>The description of a connector's provisioned capacity.</p>
  */
 export interface ProvisionedCapacityDescription {
@@ -73,6 +77,7 @@ export interface ProvisionedCapacityDescription {
 }
 
 /**
+ * @public
  * <p>A description of the connector's capacity.</p>
  */
 export interface CapacityDescription {
@@ -87,15 +92,25 @@ export interface CapacityDescription {
   provisionedCapacity?: ProvisionedCapacityDescription;
 }
 
-export enum ConnectorState {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorState = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type ConnectorState = (typeof ConnectorState)[keyof typeof ConnectorState];
+
+/**
+ * @public
  * <p>The description of the VPC in which the connector resides.</p>
  */
 export interface VpcDescription {
@@ -111,6 +126,7 @@ export interface VpcDescription {
 }
 
 /**
+ * @public
  * <p>The description of the Apache Kafka cluster to which the connector is connected.</p>
  */
 export interface ApacheKafkaClusterDescription {
@@ -127,6 +143,7 @@ export interface ApacheKafkaClusterDescription {
 }
 
 /**
+ * @public
  * <p>Details of how to connect to the Apache Kafka cluster.</p>
  */
 export interface KafkaClusterDescription {
@@ -136,12 +153,23 @@ export interface KafkaClusterDescription {
   apacheKafkaCluster?: ApacheKafkaClusterDescription;
 }
 
-export enum KafkaClusterClientAuthenticationType {
-  IAM = "IAM",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const KafkaClusterClientAuthenticationType = {
+  IAM: "IAM",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type KafkaClusterClientAuthenticationType =
+  (typeof KafkaClusterClientAuthenticationType)[keyof typeof KafkaClusterClientAuthenticationType];
+
+/**
+ * @public
  * <p>The client authentication information used in order to authenticate with the Apache
  *          Kafka cluster.</p>
  */
@@ -153,12 +181,23 @@ export interface KafkaClusterClientAuthenticationDescription {
   authenticationType?: KafkaClusterClientAuthenticationType | string;
 }
 
-export enum KafkaClusterEncryptionInTransitType {
-  PLAINTEXT = "PLAINTEXT",
-  TLS = "TLS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const KafkaClusterEncryptionInTransitType = {
+  PLAINTEXT: "PLAINTEXT",
+  TLS: "TLS",
+} as const;
 
 /**
+ * @public
+ */
+export type KafkaClusterEncryptionInTransitType =
+  (typeof KafkaClusterEncryptionInTransitType)[keyof typeof KafkaClusterEncryptionInTransitType];
+
+/**
+ * @public
  * <p>The description of the encryption in transit to the Apache Kafka cluster.</p>
  */
 export interface KafkaClusterEncryptionInTransitDescription {
@@ -169,6 +208,7 @@ export interface KafkaClusterEncryptionInTransitDescription {
 }
 
 /**
+ * @public
  * <p>A description of the log delivery settings.</p>
  */
 export interface CloudWatchLogsLogDeliveryDescription {
@@ -184,6 +224,7 @@ export interface CloudWatchLogsLogDeliveryDescription {
 }
 
 /**
+ * @public
  * <p>A description of the settings for delivering logs to Amazon Kinesis Data
  *          Firehose.</p>
  */
@@ -201,6 +242,7 @@ export interface FirehoseLogDeliveryDescription {
 }
 
 /**
+ * @public
  * <p>The description of the details about delivering logs to Amazon S3.</p>
  */
 export interface S3LogDeliveryDescription {
@@ -221,6 +263,7 @@ export interface S3LogDeliveryDescription {
 }
 
 /**
+ * @public
  * <p>Workers can send worker logs to different destination types. This configuration
  *          specifies the details of these destinations.</p>
  */
@@ -242,6 +285,7 @@ export interface WorkerLogDeliveryDescription {
 }
 
 /**
+ * @public
  * <p>The description of the log delivery settings.</p>
  */
 export interface LogDeliveryDescription {
@@ -253,6 +297,7 @@ export interface LogDeliveryDescription {
 }
 
 /**
+ * @public
  * <p>Details about a custom plugin.</p>
  */
 export interface CustomPluginDescription {
@@ -268,6 +313,7 @@ export interface CustomPluginDescription {
 }
 
 /**
+ * @public
  * <p>The description of the plugin.</p>
  */
 export interface PluginDescription {
@@ -278,6 +324,7 @@ export interface PluginDescription {
 }
 
 /**
+ * @public
  * <p>The description of the worker configuration.</p>
  */
 export interface WorkerConfigurationDescription {
@@ -293,6 +340,7 @@ export interface WorkerConfigurationDescription {
 }
 
 /**
+ * @public
  * <p>Summary of a connector.</p>
  */
 export interface ConnectorSummary {
@@ -375,21 +423,40 @@ export interface ConnectorSummary {
   workerConfiguration?: WorkerConfigurationDescription;
 }
 
-export enum CustomPluginState {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
-
-export enum CustomPluginContentType {
-  JAR = "JAR",
-  ZIP = "ZIP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomPluginState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomPluginState = (typeof CustomPluginState)[keyof typeof CustomPluginState];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomPluginContentType = {
+  JAR: "JAR",
+  ZIP: "ZIP",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomPluginContentType = (typeof CustomPluginContentType)[keyof typeof CustomPluginContentType];
+
+/**
+ * @public
  * <p>Details about a custom plugin file.</p>
  */
 export interface CustomPluginFileDescription {
@@ -406,6 +473,7 @@ export interface CustomPluginFileDescription {
 }
 
 /**
+ * @public
  * <p>The description of the location of an object in Amazon S3.</p>
  */
 export interface S3LocationDescription {
@@ -426,6 +494,7 @@ export interface S3LocationDescription {
 }
 
 /**
+ * @public
  * <p>Information about the location of a custom plugin.</p>
  */
 export interface CustomPluginLocationDescription {
@@ -437,6 +506,7 @@ export interface CustomPluginLocationDescription {
 }
 
 /**
+ * @public
  * <p>Details about the revision of a custom plugin.</p>
  */
 export interface CustomPluginRevisionSummary {
@@ -472,6 +542,7 @@ export interface CustomPluginRevisionSummary {
 }
 
 /**
+ * @public
  * <p>A summary of the custom plugin.</p>
  */
 export interface CustomPluginSummary {
@@ -507,6 +578,7 @@ export interface CustomPluginSummary {
 }
 
 /**
+ * @public
  * <p>A plugin is an AWS resource that contains the code that defines a connector's
  *          logic.</p>
  */
@@ -523,6 +595,7 @@ export interface CustomPlugin {
 }
 
 /**
+ * @public
  * <p>A plugin is an AWS resource that contains the code that defines your connector logic.
  *       </p>
  */
@@ -534,6 +607,7 @@ export interface Plugin {
 }
 
 /**
+ * @public
  * <p>The summary of a worker configuration revision.</p>
  */
 export interface WorkerConfigurationRevisionSummary {
@@ -554,6 +628,7 @@ export interface WorkerConfigurationRevisionSummary {
 }
 
 /**
+ * @public
  * <p>The summary of a worker configuration.</p>
  */
 export interface WorkerConfigurationSummary {
@@ -584,6 +659,7 @@ export interface WorkerConfigurationSummary {
 }
 
 /**
+ * @public
  * <p>Information about the VPC in which the connector resides.</p>
  */
 export interface Vpc {
@@ -599,6 +675,7 @@ export interface Vpc {
 }
 
 /**
+ * @public
  * <p>The details of the Apache Kafka cluster to which the connector is connected.</p>
  */
 export interface ApacheKafkaCluster {
@@ -615,6 +692,7 @@ export interface ApacheKafkaCluster {
 }
 
 /**
+ * @public
  * <p>The scale-in policy for the connector.</p>
  */
 export interface ScaleInPolicy {
@@ -626,6 +704,7 @@ export interface ScaleInPolicy {
 }
 
 /**
+ * @public
  * <p>The scale-out policy for the connector.</p>
  */
 export interface ScaleOutPolicy {
@@ -637,6 +716,7 @@ export interface ScaleOutPolicy {
 }
 
 /**
+ * @public
  * <p>Specifies how the connector scales.</p>
  */
 export interface AutoScaling {
@@ -668,6 +748,7 @@ export interface AutoScaling {
 }
 
 /**
+ * @public
  * <p>An update to the connector's scale-in policy.</p>
  */
 export interface ScaleInPolicyUpdate {
@@ -679,6 +760,7 @@ export interface ScaleInPolicyUpdate {
 }
 
 /**
+ * @public
  * <p>An update to the connector's scale-out policy.</p>
  */
 export interface ScaleOutPolicyUpdate {
@@ -690,6 +772,7 @@ export interface ScaleOutPolicyUpdate {
 }
 
 /**
+ * @public
  * <p>The updates to the auto scaling parameters for the connector.</p>
  */
 export interface AutoScalingUpdate {
@@ -721,6 +804,7 @@ export interface AutoScalingUpdate {
 }
 
 /**
+ * @public
  * <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then
  *          retry it.</p>
  */
@@ -741,6 +825,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Details about a connector's provisioned capacity.</p>
  */
 export interface ProvisionedCapacity {
@@ -757,6 +842,7 @@ export interface ProvisionedCapacity {
 }
 
 /**
+ * @public
  * <p>Information about the capacity of the connector, whether it is auto scaled or
  *          provisioned.</p>
  */
@@ -773,6 +859,7 @@ export interface Capacity {
 }
 
 /**
+ * @public
  * <p>An update to a connector's fixed capacity.</p>
  */
 export interface ProvisionedCapacityUpdate {
@@ -789,6 +876,7 @@ export interface ProvisionedCapacityUpdate {
 }
 
 /**
+ * @public
  * <p>The target capacity for the connector. The capacity can be auto scaled or
  *          provisioned.</p>
  */
@@ -805,6 +893,7 @@ export interface CapacityUpdate {
 }
 
 /**
+ * @public
  * <p>The settings for delivering connector logs to Amazon CloudWatch Logs.</p>
  */
 export interface CloudWatchLogsLogDelivery {
@@ -820,6 +909,7 @@ export interface CloudWatchLogsLogDelivery {
 }
 
 /**
+ * @public
  * <p>HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your
  *          request with another name.</p>
  */
@@ -840,6 +930,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The details of the Apache Kafka cluster to which the connector is connected.</p>
  */
 export interface KafkaCluster {
@@ -850,6 +941,7 @@ export interface KafkaCluster {
 }
 
 /**
+ * @public
  * <p>The client authentication information used in order to authenticate with the Apache
  *          Kafka cluster.</p>
  */
@@ -862,6 +954,7 @@ export interface KafkaClusterClientAuthentication {
 }
 
 /**
+ * @public
  * <p>Details of encryption in transit to the Apache Kafka cluster.</p>
  */
 export interface KafkaClusterEncryptionInTransit {
@@ -872,6 +965,7 @@ export interface KafkaClusterEncryptionInTransit {
 }
 
 /**
+ * @public
  * <p>The settings for delivering logs to Amazon Kinesis Data Firehose.</p>
  */
 export interface FirehoseLogDelivery {
@@ -888,6 +982,7 @@ export interface FirehoseLogDelivery {
 }
 
 /**
+ * @public
  * <p>Details about delivering logs to Amazon S3.</p>
  */
 export interface S3LogDelivery {
@@ -908,6 +1003,7 @@ export interface S3LogDelivery {
 }
 
 /**
+ * @public
  * <p>Workers can send worker logs to different destination types. This configuration
  *          specifies the details of these destinations.</p>
  */
@@ -929,6 +1025,7 @@ export interface WorkerLogDelivery {
 }
 
 /**
+ * @public
  * <p>Details about log delivery.</p>
  */
 export interface LogDelivery {
@@ -940,6 +1037,7 @@ export interface LogDelivery {
 }
 
 /**
+ * @public
  * <p>The configuration of the workers, which are the processes that run the connector
  *          logic.</p>
  */
@@ -955,6 +1053,9 @@ export interface WorkerConfiguration {
   workerConfigurationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectorRequest {
   /**
    * <p>Information about the capacity allocated to the connector. Exactly one of the two
@@ -1022,6 +1123,9 @@ export interface CreateConnectorRequest {
   workerConfiguration?: WorkerConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateConnectorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) that Amazon assigned to the connector.</p>
@@ -1040,6 +1144,7 @@ export interface CreateConnectorResponse {
 }
 
 /**
+ * @public
  * <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your
  *          request.</p>
  */
@@ -1060,6 +1165,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might
  *          resolve the issue.</p>
  */
@@ -1080,6 +1186,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request
  *          and then retry it.</p>
  */
@@ -1100,6 +1207,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might
  *          resolve the issue.</p>
  */
@@ -1120,6 +1228,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -1139,6 +1248,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  */
@@ -1159,6 +1269,7 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The location of an object in Amazon S3.</p>
  */
 export interface S3Location {
@@ -1179,6 +1290,7 @@ export interface S3Location {
 }
 
 /**
+ * @public
  * <p>Information about the location of a custom plugin.</p>
  */
 export interface CustomPluginLocation {
@@ -1189,6 +1301,9 @@ export interface CustomPluginLocation {
   s3Location: S3Location | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomPluginRequest {
   /**
    * <p>The type of the plugin file.</p>
@@ -1211,6 +1326,9 @@ export interface CreateCustomPluginRequest {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomPluginResponse {
   /**
    * <p>The Amazon Resource Name (ARN) that Amazon assigned to the custom plugin.</p>
@@ -1233,6 +1351,9 @@ export interface CreateCustomPluginResponse {
   revision?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkerConfigurationRequest {
   /**
    * <p>A summary description of the worker configuration.</p>
@@ -1250,6 +1371,9 @@ export interface CreateWorkerConfigurationRequest {
   propertiesFileContent: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkerConfigurationResponse {
   /**
    * <p>The time that the worker configuration was created.</p>
@@ -1272,6 +1396,9 @@ export interface CreateWorkerConfigurationResponse {
   workerConfigurationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the connector that you want to delete.</p>
@@ -1284,6 +1411,9 @@ export interface DeleteConnectorRequest {
   currentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConnectorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the connector that you requested to delete.</p>
@@ -1296,6 +1426,9 @@ export interface DeleteConnectorResponse {
   connectorState?: ConnectorState | string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomPluginRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom plugin that you want to delete.</p>
@@ -1303,6 +1436,9 @@ export interface DeleteCustomPluginRequest {
   customPluginArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomPluginResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom plugin that you requested to delete.</p>
@@ -1315,6 +1451,9 @@ export interface DeleteCustomPluginResponse {
   customPluginState?: CustomPluginState | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the connector that you want to describe.</p>
@@ -1323,6 +1462,7 @@ export interface DescribeConnectorRequest {
 }
 
 /**
+ * @public
  * <p>Details about the state of a resource.</p>
  */
 export interface StateDescription {
@@ -1337,6 +1477,9 @@ export interface StateDescription {
   message?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeConnectorResponse {
   /**
    * <p>Information about the capacity of the connector, whether it is auto scaled or
@@ -1428,6 +1571,9 @@ export interface DescribeConnectorResponse {
   stateDescription?: StateDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCustomPluginRequest {
   /**
    * <p>Returns information about a custom plugin.</p>
@@ -1435,6 +1581,9 @@ export interface DescribeCustomPluginRequest {
   customPluginArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCustomPluginResponse {
   /**
    * <p>The time that the custom plugin was created.</p>
@@ -1473,6 +1622,9 @@ export interface DescribeCustomPluginResponse {
   stateDescription?: StateDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkerConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the worker configuration that you want to get
@@ -1482,6 +1634,7 @@ export interface DescribeWorkerConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>The description of the worker configuration revision.</p>
  */
 export interface WorkerConfigurationRevisionDescription {
@@ -1506,6 +1659,9 @@ export interface WorkerConfigurationRevisionDescription {
   revision?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkerConfigurationResponse {
   /**
    * <p>The time that the worker configuration was created.</p>
@@ -1533,6 +1689,9 @@ export interface DescribeWorkerConfigurationResponse {
   workerConfigurationArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectorsRequest {
   /**
    * <p>The name prefix that you want to use to search for and list connectors.</p>
@@ -1552,6 +1711,9 @@ export interface ListConnectorsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListConnectorsResponse {
   /**
    * <p>An array of connector descriptions.</p>
@@ -1566,6 +1728,9 @@ export interface ListConnectorsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomPluginsRequest {
   /**
    * <p>The maximum number of custom plugins to list in one response.</p>
@@ -1580,6 +1745,9 @@ export interface ListCustomPluginsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomPluginsResponse {
   /**
    * <p>An array of custom plugin descriptions.</p>
@@ -1594,6 +1762,9 @@ export interface ListCustomPluginsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkerConfigurationsRequest {
   /**
    * <p>The maximum number of worker configurations to list in one response.</p>
@@ -1608,6 +1779,9 @@ export interface ListWorkerConfigurationsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkerConfigurationsResponse {
   /**
    * <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a
@@ -1622,6 +1796,9 @@ export interface ListWorkerConfigurationsResponse {
   workerConfigurations?: WorkerConfigurationSummary[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectorRequest {
   /**
    * <p>The target capacity.</p>
@@ -1639,6 +1816,9 @@ export interface UpdateConnectorRequest {
   currentVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConnectorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the connector.</p>
@@ -1654,393 +1834,9 @@ export interface UpdateConnectorResponse {
 /**
  * @internal
  */
-export const ScaleInPolicyDescriptionFilterSensitiveLog = (obj: ScaleInPolicyDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScaleOutPolicyDescriptionFilterSensitiveLog = (obj: ScaleOutPolicyDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingDescriptionFilterSensitiveLog = (obj: AutoScalingDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedCapacityDescriptionFilterSensitiveLog = (obj: ProvisionedCapacityDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityDescriptionFilterSensitiveLog = (obj: CapacityDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcDescriptionFilterSensitiveLog = (obj: VpcDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApacheKafkaClusterDescriptionFilterSensitiveLog = (obj: ApacheKafkaClusterDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KafkaClusterDescriptionFilterSensitiveLog = (obj: KafkaClusterDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KafkaClusterClientAuthenticationDescriptionFilterSensitiveLog = (
-  obj: KafkaClusterClientAuthenticationDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KafkaClusterEncryptionInTransitDescriptionFilterSensitiveLog = (
-  obj: KafkaClusterEncryptionInTransitDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogsLogDeliveryDescriptionFilterSensitiveLog = (
-  obj: CloudWatchLogsLogDeliveryDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirehoseLogDeliveryDescriptionFilterSensitiveLog = (obj: FirehoseLogDeliveryDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LogDeliveryDescriptionFilterSensitiveLog = (obj: S3LogDeliveryDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkerLogDeliveryDescriptionFilterSensitiveLog = (obj: WorkerLogDeliveryDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogDeliveryDescriptionFilterSensitiveLog = (obj: LogDeliveryDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomPluginDescriptionFilterSensitiveLog = (obj: CustomPluginDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PluginDescriptionFilterSensitiveLog = (obj: PluginDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkerConfigurationDescriptionFilterSensitiveLog = (obj: WorkerConfigurationDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectorSummaryFilterSensitiveLog = (obj: ConnectorSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomPluginFileDescriptionFilterSensitiveLog = (obj: CustomPluginFileDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationDescriptionFilterSensitiveLog = (obj: S3LocationDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomPluginLocationDescriptionFilterSensitiveLog = (obj: CustomPluginLocationDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomPluginRevisionSummaryFilterSensitiveLog = (obj: CustomPluginRevisionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomPluginSummaryFilterSensitiveLog = (obj: CustomPluginSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomPluginFilterSensitiveLog = (obj: CustomPlugin): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PluginFilterSensitiveLog = (obj: Plugin): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkerConfigurationRevisionSummaryFilterSensitiveLog = (obj: WorkerConfigurationRevisionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkerConfigurationSummaryFilterSensitiveLog = (obj: WorkerConfigurationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcFilterSensitiveLog = (obj: Vpc): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApacheKafkaClusterFilterSensitiveLog = (obj: ApacheKafkaCluster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScaleInPolicyFilterSensitiveLog = (obj: ScaleInPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScaleOutPolicyFilterSensitiveLog = (obj: ScaleOutPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingFilterSensitiveLog = (obj: AutoScaling): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScaleInPolicyUpdateFilterSensitiveLog = (obj: ScaleInPolicyUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScaleOutPolicyUpdateFilterSensitiveLog = (obj: ScaleOutPolicyUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingUpdateFilterSensitiveLog = (obj: AutoScalingUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedCapacityFilterSensitiveLog = (obj: ProvisionedCapacity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityFilterSensitiveLog = (obj: Capacity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedCapacityUpdateFilterSensitiveLog = (obj: ProvisionedCapacityUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityUpdateFilterSensitiveLog = (obj: CapacityUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogsLogDeliveryFilterSensitiveLog = (obj: CloudWatchLogsLogDelivery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KafkaClusterFilterSensitiveLog = (obj: KafkaCluster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KafkaClusterClientAuthenticationFilterSensitiveLog = (obj: KafkaClusterClientAuthentication): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KafkaClusterEncryptionInTransitFilterSensitiveLog = (obj: KafkaClusterEncryptionInTransit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirehoseLogDeliveryFilterSensitiveLog = (obj: FirehoseLogDelivery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LogDeliveryFilterSensitiveLog = (obj: S3LogDelivery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkerLogDeliveryFilterSensitiveLog = (obj: WorkerLogDelivery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogDeliveryFilterSensitiveLog = (obj: LogDelivery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkerConfigurationFilterSensitiveLog = (obj: WorkerConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateConnectorRequestFilterSensitiveLog = (obj: CreateConnectorRequest): any => ({
   ...obj,
   ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateConnectorResponseFilterSensitiveLog = (obj: CreateConnectorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomPluginLocationFilterSensitiveLog = (obj: CustomPluginLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomPluginRequestFilterSensitiveLog = (obj: CreateCustomPluginRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomPluginResponseFilterSensitiveLog = (obj: CreateCustomPluginResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -2054,79 +1850,9 @@ export const CreateWorkerConfigurationRequestFilterSensitiveLog = (obj: CreateWo
 /**
  * @internal
  */
-export const CreateWorkerConfigurationResponseFilterSensitiveLog = (obj: CreateWorkerConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectorRequestFilterSensitiveLog = (obj: DeleteConnectorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConnectorResponseFilterSensitiveLog = (obj: DeleteConnectorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomPluginRequestFilterSensitiveLog = (obj: DeleteCustomPluginRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomPluginResponseFilterSensitiveLog = (obj: DeleteCustomPluginResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeConnectorRequestFilterSensitiveLog = (obj: DescribeConnectorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StateDescriptionFilterSensitiveLog = (obj: StateDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeConnectorResponseFilterSensitiveLog = (obj: DescribeConnectorResponse): any => ({
   ...obj,
   ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeCustomPluginRequestFilterSensitiveLog = (obj: DescribeCustomPluginRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCustomPluginResponseFilterSensitiveLog = (obj: DescribeCustomPluginResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkerConfigurationRequestFilterSensitiveLog = (obj: DescribeWorkerConfigurationRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2149,60 +1875,4 @@ export const DescribeWorkerConfigurationResponseFilterSensitiveLog = (
   ...(obj.latestRevision && {
     latestRevision: WorkerConfigurationRevisionDescriptionFilterSensitiveLog(obj.latestRevision),
   }),
-});
-
-/**
- * @internal
- */
-export const ListConnectorsRequestFilterSensitiveLog = (obj: ListConnectorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConnectorsResponseFilterSensitiveLog = (obj: ListConnectorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomPluginsRequestFilterSensitiveLog = (obj: ListCustomPluginsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomPluginsResponseFilterSensitiveLog = (obj: ListCustomPluginsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkerConfigurationsRequestFilterSensitiveLog = (obj: ListWorkerConfigurationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkerConfigurationsResponseFilterSensitiveLog = (obj: ListWorkerConfigurationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectorRequestFilterSensitiveLog = (obj: UpdateConnectorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConnectorResponseFilterSensitiveLog = (obj: UpdateConnectorResponse): any => ({
-  ...obj,
 });

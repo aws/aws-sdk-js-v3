@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateReservedInstancesListingRequest, CreateReservedInstancesListingResult } from "../models/models_2";
 import {
-  CreateReservedInstancesListingRequest,
-  CreateReservedInstancesListingRequestFilterSensitiveLog,
-  CreateReservedInstancesListingResult,
-  CreateReservedInstancesListingResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2CreateReservedInstancesListingCommand,
-  serializeAws_ec2CreateReservedInstancesListingCommand,
+  de_CreateReservedInstancesListingCommand,
+  se_CreateReservedInstancesListingCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReservedInstancesListingCommand}.
  */
 export interface CreateReservedInstancesListingCommandInput extends CreateReservedInstancesListingRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReservedInstancesListingCommand}.
  */
 export interface CreateReservedInstancesListingCommandOutput
@@ -37,6 +36,7 @@ export interface CreateReservedInstancesListingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance
  * 			Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your
  * 			Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p>
@@ -59,10 +59,24 @@ export interface CreateReservedInstancesListingCommandOutput
  * import { EC2Client, CreateReservedInstancesListingCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateReservedInstancesListingCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateReservedInstancesListingRequest
+ *   ClientToken: "STRING_VALUE", // required
+ *   InstanceCount: Number("int"), // required
+ *   PriceSchedules: [ // PriceScheduleSpecificationList // required
+ *     { // PriceScheduleSpecification
+ *       CurrencyCode: "USD",
+ *       Price: Number("double"),
+ *       Term: Number("long"),
+ *     },
+ *   ],
+ *   ReservedInstancesId: "STRING_VALUE", // required
+ * };
  * const command = new CreateReservedInstancesListingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReservedInstancesListingCommandInput - {@link CreateReservedInstancesListingCommandInput}
+ * @returns {@link CreateReservedInstancesListingCommandOutput}
  * @see {@link CreateReservedInstancesListingCommandInput} for command's `input` shape.
  * @see {@link CreateReservedInstancesListingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -86,6 +100,9 @@ export class CreateReservedInstancesListingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReservedInstancesListingCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +131,8 @@ export class CreateReservedInstancesListingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReservedInstancesListingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReservedInstancesListingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +142,24 @@ export class CreateReservedInstancesListingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateReservedInstancesListingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateReservedInstancesListingCommand(input, context);
+    return se_CreateReservedInstancesListingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReservedInstancesListingCommandOutput> {
-    return deserializeAws_ec2CreateReservedInstancesListingCommand(output, context);
+    return de_CreateReservedInstancesListingCommand(output, context);
   }
 
   // Start section: command_body_extra

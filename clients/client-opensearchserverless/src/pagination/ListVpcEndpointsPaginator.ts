@@ -10,7 +10,7 @@ import { OpenSearchServerlessClient } from "../OpenSearchServerlessClient";
 import { OpenSearchServerlessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpenSearchServerlessClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVpcEndpointsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListVpcEndpoints(
   config: OpenSearchServerlessPaginationConfiguration,
   input: ListVpcEndpointsCommandInput,

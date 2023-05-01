@@ -15,22 +15,24 @@ import {
 
 import {
   DeleteSubscriptionNotificationConfigurationRequest,
-  DeleteSubscriptionNotificationConfigurationRequestFilterSensitiveLog,
   DeleteSubscriptionNotificationConfigurationResponse,
-  DeleteSubscriptionNotificationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand,
-  serializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand,
+  de_DeleteSubscriptionNotificationConfigurationCommand,
+  se_DeleteSubscriptionNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubscriptionNotificationConfigurationCommand}.
  */
 export interface DeleteSubscriptionNotificationConfigurationCommandInput
   extends DeleteSubscriptionNotificationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubscriptionNotificationConfigurationCommand}.
  */
 export interface DeleteSubscriptionNotificationConfigurationCommandOutput
@@ -38,6 +40,7 @@ export interface DeleteSubscriptionNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
  *          you specify.</p>
  * @example
@@ -46,10 +49,15 @@ export interface DeleteSubscriptionNotificationConfigurationCommandOutput
  * import { SecurityLakeClient, DeleteSubscriptionNotificationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteSubscriptionNotificationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // DeleteSubscriptionNotificationConfigurationRequest
+ *   subscriptionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSubscriptionNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubscriptionNotificationConfigurationCommandInput - {@link DeleteSubscriptionNotificationConfigurationCommandInput}
+ * @returns {@link DeleteSubscriptionNotificationConfigurationCommandOutput}
  * @see {@link DeleteSubscriptionNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -101,6 +109,9 @@ export class DeleteSubscriptionNotificationConfigurationCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubscriptionNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +146,8 @@ export class DeleteSubscriptionNotificationConfigurationCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubscriptionNotificationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubscriptionNotificationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,18 +157,24 @@ export class DeleteSubscriptionNotificationConfigurationCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteSubscriptionNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand(input, context);
+    return se_DeleteSubscriptionNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSubscriptionNotificationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand(output, context);
+    return de_DeleteSubscriptionNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

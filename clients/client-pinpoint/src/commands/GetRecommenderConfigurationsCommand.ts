@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRecommenderConfigurationsRequest,
-  GetRecommenderConfigurationsRequestFilterSensitiveLog,
-  GetRecommenderConfigurationsResponse,
-  GetRecommenderConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetRecommenderConfigurationsRequest, GetRecommenderConfigurationsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1GetRecommenderConfigurationsCommand,
-  serializeAws_restJson1GetRecommenderConfigurationsCommand,
+  de_GetRecommenderConfigurationsCommand,
+  se_GetRecommenderConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommenderConfigurationsCommand}.
  */
 export interface GetRecommenderConfigurationsCommandInput extends GetRecommenderConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommenderConfigurationsCommand}.
  */
 export interface GetRecommenderConfigurationsCommandOutput
@@ -37,6 +36,7 @@ export interface GetRecommenderConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface GetRecommenderConfigurationsCommandOutput
  * import { PinpointClient, GetRecommenderConfigurationsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetRecommenderConfigurationsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetRecommenderConfigurationsRequest
+ *   PageSize: "STRING_VALUE",
+ *   Token: "STRING_VALUE",
+ * };
  * const command = new GetRecommenderConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommenderConfigurationsCommandInput - {@link GetRecommenderConfigurationsCommandInput}
+ * @returns {@link GetRecommenderConfigurationsCommandOutput}
  * @see {@link GetRecommenderConfigurationsCommandInput} for command's `input` shape.
  * @see {@link GetRecommenderConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -92,6 +98,9 @@ export class GetRecommenderConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommenderConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +129,8 @@ export class GetRecommenderConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommenderConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommenderConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +140,21 @@ export class GetRecommenderConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommenderConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecommenderConfigurationsCommand(input, context);
+    return se_GetRecommenderConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecommenderConfigurationsCommandOutput> {
-    return deserializeAws_restJson1GetRecommenderConfigurationsCommand(output, context);
+    return de_GetRecommenderConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  ListDetectorsRequest,
-  ListDetectorsRequestFilterSensitiveLog,
-  ListDetectorsResponse,
-  ListDetectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDetectorsCommand,
-  serializeAws_restJson1ListDetectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDetectorsRequest, ListDetectorsResponse } from "../models/models_0";
+import { de_ListDetectorsCommand, se_ListDetectorsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDetectorsCommand}.
  */
 export interface ListDetectorsCommandInput extends ListDetectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDetectorsCommand}.
  */
 export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists detectorIds of all the existing Amazon GuardDuty detector resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * import { GuardDutyClient, ListDetectorsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListDetectorsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // ListDetectorsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDetectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDetectorsCommandInput - {@link ListDetectorsCommandInput}
+ * @returns {@link ListDetectorsCommandOutput}
  * @see {@link ListDetectorsCommandInput} for command's `input` shape.
  * @see {@link ListDetectorsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +78,9 @@ export class ListDetectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +107,8 @@ export class ListDetectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDetectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDetectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +118,18 @@ export class ListDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDetectorsCommand(input, context);
+    return se_ListDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDetectorsCommandOutput> {
-    return deserializeAws_restJson1ListDetectorsCommand(output, context);
+    return de_ListDetectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

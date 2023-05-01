@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteScheduledAuditRequest,
-  DeleteScheduledAuditRequestFilterSensitiveLog,
-  DeleteScheduledAuditResponse,
-  DeleteScheduledAuditResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteScheduledAuditCommand,
-  serializeAws_restJson1DeleteScheduledAuditCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteScheduledAuditRequest, DeleteScheduledAuditResponse } from "../models/models_1";
+import { de_DeleteScheduledAuditCommand, se_DeleteScheduledAuditCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScheduledAuditCommand}.
  */
 export interface DeleteScheduledAuditCommandInput extends DeleteScheduledAuditRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScheduledAuditCommand}.
  */
 export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a scheduled audit.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteScheduledAudit</a> action.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditR
  * import { IoTClient, DeleteScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteScheduledAuditRequest
+ *   scheduledAuditName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteScheduledAuditCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScheduledAuditCommandInput - {@link DeleteScheduledAuditCommandInput}
+ * @returns {@link DeleteScheduledAuditCommandOutput}
  * @see {@link DeleteScheduledAuditCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledAuditCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +84,9 @@ export class DeleteScheduledAuditCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScheduledAuditCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DeleteScheduledAuditCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduledAuditRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScheduledAuditResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DeleteScheduledAuditCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScheduledAuditCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteScheduledAuditCommand(input, context);
+    return se_DeleteScheduledAuditCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledAuditCommandOutput> {
-    return deserializeAws_restJson1DeleteScheduledAuditCommand(output, context);
+    return de_DeleteScheduledAuditCommand(output, context);
   }
 
   // Start section: command_body_extra

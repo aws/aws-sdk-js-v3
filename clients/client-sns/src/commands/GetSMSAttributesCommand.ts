@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSMSAttributesInput,
-  GetSMSAttributesInputFilterSensitiveLog,
-  GetSMSAttributesResponse,
-  GetSMSAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetSMSAttributesCommand,
-  serializeAws_queryGetSMSAttributesCommand,
-} from "../protocols/Aws_query";
+import { GetSMSAttributesInput, GetSMSAttributesResponse } from "../models/models_0";
+import { de_GetSMSAttributesCommand, se_GetSMSAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSMSAttributesCommand}.
  */
 export interface GetSMSAttributesCommandInput extends GetSMSAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSMSAttributesCommand}.
  */
 export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the settings for sending SMS messages from your Amazon Web Services account.</p>
  *          <p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
  * @example
@@ -43,10 +40,17 @@ export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse,
  * import { SNSClient, GetSMSAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetSMSAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // GetSMSAttributesInput
+ *   attributes: [ // ListString
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetSMSAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSMSAttributesCommandInput - {@link GetSMSAttributesCommandInput}
+ * @returns {@link GetSMSAttributesCommandOutput}
  * @see {@link GetSMSAttributesCommandInput} for command's `input` shape.
  * @see {@link GetSMSAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -83,6 +87,9 @@ export class GetSMSAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSMSAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class GetSMSAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSMSAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSMSAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +129,18 @@ export class GetSMSAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSMSAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSMSAttributesCommand(input, context);
+    return se_GetSMSAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSMSAttributesCommandOutput> {
-    return deserializeAws_queryGetSMSAttributesCommand(output, context);
+    return de_GetSMSAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteMethodRequest, DeleteMethodRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMethodCommand,
-  serializeAws_restJson1DeleteMethodCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMethodRequest } from "../models/models_0";
+import { de_DeleteMethodCommand, se_DeleteMethodCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMethodCommand}.
  */
 export interface DeleteMethodCommandInput extends DeleteMethodRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMethodCommand}.
  */
 export interface DeleteMethodCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Method resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,17 @@ export interface DeleteMethodCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteMethodCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteMethodCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteMethodRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMethodCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMethodCommandInput - {@link DeleteMethodCommandInput}
+ * @returns {@link DeleteMethodCommandOutput}
  * @see {@link DeleteMethodCommandInput} for command's `input` shape.
  * @see {@link DeleteMethodCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -76,6 +85,9 @@ export class DeleteMethodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMethodCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +114,8 @@ export class DeleteMethodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMethodRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +125,18 @@ export class DeleteMethodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMethodCommand(input, context);
+    return se_DeleteMethodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMethodCommandOutput> {
-    return deserializeAws_restJson1DeleteMethodCommand(output, context);
+    return de_DeleteMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

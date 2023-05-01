@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyTrafficMirrorSessionRequest,
-  ModifyTrafficMirrorSessionRequestFilterSensitiveLog,
-  ModifyTrafficMirrorSessionResult,
-  ModifyTrafficMirrorSessionResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyTrafficMirrorSessionCommand,
-  serializeAws_ec2ModifyTrafficMirrorSessionCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyTrafficMirrorSessionRequest, ModifyTrafficMirrorSessionResult } from "../models/models_6";
+import { de_ModifyTrafficMirrorSessionCommand, se_ModifyTrafficMirrorSessionCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyTrafficMirrorSessionCommand}.
  */
 export interface ModifyTrafficMirrorSessionCommandInput extends ModifyTrafficMirrorSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyTrafficMirrorSessionCommand}.
  */
 export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMirrorSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a Traffic Mirror session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMi
  * import { EC2Client, ModifyTrafficMirrorSessionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTrafficMirrorSessionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyTrafficMirrorSessionRequest
+ *   TrafficMirrorSessionId: "STRING_VALUE", // required
+ *   TrafficMirrorTargetId: "STRING_VALUE",
+ *   TrafficMirrorFilterId: "STRING_VALUE",
+ *   PacketLength: Number("int"),
+ *   SessionNumber: Number("int"),
+ *   VirtualNetworkId: Number("int"),
+ *   Description: "STRING_VALUE",
+ *   RemoveFields: [ // TrafficMirrorSessionFieldList
+ *     "packet-length" || "description" || "virtual-network-id",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyTrafficMirrorSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTrafficMirrorSessionCommandInput - {@link ModifyTrafficMirrorSessionCommandInput}
+ * @returns {@link ModifyTrafficMirrorSessionCommandOutput}
  * @see {@link ModifyTrafficMirrorSessionCommandInput} for command's `input` shape.
  * @see {@link ModifyTrafficMirrorSessionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +81,9 @@ export class ModifyTrafficMirrorSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTrafficMirrorSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +112,8 @@ export class ModifyTrafficMirrorSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyTrafficMirrorSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyTrafficMirrorSessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +123,21 @@ export class ModifyTrafficMirrorSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyTrafficMirrorSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyTrafficMirrorSessionCommand(input, context);
+    return se_ModifyTrafficMirrorSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTrafficMirrorSessionCommandOutput> {
-    return deserializeAws_ec2ModifyTrafficMirrorSessionCommand(output, context);
+    return de_ModifyTrafficMirrorSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

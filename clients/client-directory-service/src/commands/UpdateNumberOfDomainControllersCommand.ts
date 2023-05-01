@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
+import { UpdateNumberOfDomainControllersRequest, UpdateNumberOfDomainControllersResult } from "../models/models_0";
 import {
-  UpdateNumberOfDomainControllersRequest,
-  UpdateNumberOfDomainControllersRequestFilterSensitiveLog,
-  UpdateNumberOfDomainControllersResult,
-  UpdateNumberOfDomainControllersResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateNumberOfDomainControllersCommand,
-  serializeAws_json1_1UpdateNumberOfDomainControllersCommand,
+  de_UpdateNumberOfDomainControllersCommand,
+  se_UpdateNumberOfDomainControllersCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNumberOfDomainControllersCommand}.
  */
 export interface UpdateNumberOfDomainControllersCommandInput extends UpdateNumberOfDomainControllersRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNumberOfDomainControllersCommand}.
  */
 export interface UpdateNumberOfDomainControllersCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateNumberOfDomainControllersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or removes domain controllers to or from the directory. Based on the difference
  *       between current value and new value (provided through this API call), domain controllers will
  *       be added or removed. It may take up to 45 minutes for any new domain controllers to become
@@ -48,10 +48,16 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  * import { DirectoryServiceClient, UpdateNumberOfDomainControllersCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UpdateNumberOfDomainControllersCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // UpdateNumberOfDomainControllersRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   DesiredNumber: Number("int"), // required
+ * };
  * const command = new UpdateNumberOfDomainControllersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNumberOfDomainControllersCommandInput - {@link UpdateNumberOfDomainControllersCommandInput}
+ * @returns {@link UpdateNumberOfDomainControllersCommandOutput}
  * @see {@link UpdateNumberOfDomainControllersCommandInput} for command's `input` shape.
  * @see {@link UpdateNumberOfDomainControllersCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -97,6 +103,9 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNumberOfDomainControllersCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +134,8 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNumberOfDomainControllersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNumberOfDomainControllersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +145,24 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateNumberOfDomainControllersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNumberOfDomainControllersCommand(input, context);
+    return se_UpdateNumberOfDomainControllersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNumberOfDomainControllersCommandOutput> {
-    return deserializeAws_json1_1UpdateNumberOfDomainControllersCommand(output, context);
+    return de_UpdateNumberOfDomainControllersCommand(output, context);
   }
 
   // Start section: command_body_extra

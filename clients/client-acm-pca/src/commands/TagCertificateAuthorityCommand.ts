@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { TagCertificateAuthorityRequest, TagCertificateAuthorityRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1TagCertificateAuthorityCommand,
-  serializeAws_json1_1TagCertificateAuthorityCommand,
-} from "../protocols/Aws_json1_1";
+import { TagCertificateAuthorityRequest } from "../models/models_0";
+import { de_TagCertificateAuthorityCommand, se_TagCertificateAuthorityCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link TagCertificateAuthorityCommand}.
  */
 export interface TagCertificateAuthorityCommandInput extends TagCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagCertificateAuthorityCommand}.
  */
 export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to your private CA. Tags are labels that you can use to identify
  * 			and organize your Amazon Web Services resources. Each tag consists of a key and an optional value. You
  * 			specify the private CA on input by its Amazon Resource Name (ARN). You specify the tag
@@ -51,10 +53,21 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
  * import { ACMPCAClient, TagCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, TagCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // TagCertificateAuthorityRequest
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new TagCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagCertificateAuthorityCommandInput - {@link TagCertificateAuthorityCommandInput}
+ * @returns {@link TagCertificateAuthorityCommandOutput}
  * @see {@link TagCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link TagCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -97,6 +110,9 @@ export class TagCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +141,8 @@ export class TagCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagCertificateAuthorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +152,18 @@ export class TagCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagCertificateAuthorityCommand(input, context);
+    return se_TagCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1TagCertificateAuthorityCommand(output, context);
+    return de_TagCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

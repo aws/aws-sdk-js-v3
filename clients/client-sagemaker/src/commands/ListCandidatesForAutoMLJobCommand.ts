@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCandidatesForAutoMLJobRequest,
-  ListCandidatesForAutoMLJobRequestFilterSensitiveLog,
-  ListCandidatesForAutoMLJobResponse,
-  ListCandidatesForAutoMLJobResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListCandidatesForAutoMLJobCommand,
-  serializeAws_json1_1ListCandidatesForAutoMLJobCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCandidatesForAutoMLJobRequest, ListCandidatesForAutoMLJobResponse } from "../models/models_3";
+import { de_ListCandidatesForAutoMLJobCommand, se_ListCandidatesForAutoMLJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCandidatesForAutoMLJobCommand}.
  */
 export interface ListCandidatesForAutoMLJobCommandInput extends ListCandidatesForAutoMLJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCandidatesForAutoMLJobCommand}.
  */
 export interface ListCandidatesForAutoMLJobCommandOutput extends ListCandidatesForAutoMLJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the candidates created for the job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListCandidatesForAutoMLJobCommandOutput extends ListCandidatesF
  * import { SageMakerClient, ListCandidatesForAutoMLJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListCandidatesForAutoMLJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListCandidatesForAutoMLJobRequest
+ *   AutoMLJobName: "STRING_VALUE", // required
+ *   StatusEquals: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping",
+ *   CandidateNameEquals: "STRING_VALUE",
+ *   SortOrder: "Ascending" || "Descending",
+ *   SortBy: "CreationTime" || "Status" || "FinalObjectiveMetricValue",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCandidatesForAutoMLJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCandidatesForAutoMLJobCommandInput - {@link ListCandidatesForAutoMLJobCommandInput}
+ * @returns {@link ListCandidatesForAutoMLJobCommandOutput}
  * @see {@link ListCandidatesForAutoMLJobCommandInput} for command's `input` shape.
  * @see {@link ListCandidatesForAutoMLJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +80,9 @@ export class ListCandidatesForAutoMLJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCandidatesForAutoMLJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +111,8 @@ export class ListCandidatesForAutoMLJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCandidatesForAutoMLJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCandidatesForAutoMLJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +122,21 @@ export class ListCandidatesForAutoMLJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCandidatesForAutoMLJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCandidatesForAutoMLJobCommand(input, context);
+    return se_ListCandidatesForAutoMLJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCandidatesForAutoMLJobCommandOutput> {
-    return deserializeAws_json1_1ListCandidatesForAutoMLJobCommand(output, context);
+    return de_ListCandidatesForAutoMLJobCommand(output, context);
   }
 
   // Start section: command_body_extra

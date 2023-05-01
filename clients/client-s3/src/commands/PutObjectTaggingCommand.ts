@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutObjectTaggingOutput,
-  PutObjectTaggingOutputFilterSensitiveLog,
-  PutObjectTaggingRequest,
-  PutObjectTaggingRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlPutObjectTaggingCommand,
-  serializeAws_restXmlPutObjectTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/models_1";
+import { de_PutObjectTaggingCommand, se_PutObjectTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutObjectTaggingCommand}.
  */
 export interface PutObjectTaggingCommandInput extends PutObjectTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutObjectTaggingCommand}.
  */
 export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the supplied tag-set to an object that already exists in a bucket.</p>
  *          <p>A tag is a key-value pair. You can associate tags with an object by sending a PUT
  *          request against the tagging subresource that is associated with the object. You can
@@ -134,10 +131,29 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  * import { S3Client, PutObjectTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutObjectTaggingRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   Tagging: { // Tagging
+ *     TagSet: [ // TagSet // required
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ * };
  * const command = new PutObjectTaggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectTaggingCommandInput - {@link PutObjectTaggingCommandInput}
+ * @returns {@link PutObjectTaggingCommandOutput}
  * @see {@link PutObjectTaggingCommandInput} for command's `input` shape.
  * @see {@link PutObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -196,6 +212,9 @@ export class PutObjectTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -231,8 +250,8 @@ export class PutObjectTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutObjectTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectTaggingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -242,12 +261,18 @@ export class PutObjectTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutObjectTaggingCommand(input, context);
+    return se_PutObjectTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectTaggingCommandOutput> {
-    return deserializeAws_restXmlPutObjectTaggingCommand(output, context);
+    return de_PutObjectTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

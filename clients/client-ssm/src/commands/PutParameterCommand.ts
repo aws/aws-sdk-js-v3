@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutParameterRequest,
-  PutParameterRequestFilterSensitiveLog,
-  PutParameterResult,
-  PutParameterResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutParameterCommand,
-  serializeAws_json1_1PutParameterCommand,
-} from "../protocols/Aws_json1_1";
+import { PutParameterRequest, PutParameterRequestFilterSensitiveLog, PutParameterResult } from "../models/models_1";
+import { de_PutParameterCommand, se_PutParameterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutParameterCommand}.
  */
 export interface PutParameterCommandInput extends PutParameterRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutParameterCommand}.
  */
 export interface PutParameterCommandOutput extends PutParameterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Add a parameter to the system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,30 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  * import { SSMClient, PutParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, PutParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // PutParameterRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Value: "STRING_VALUE", // required
+ *   Type: "String" || "StringList" || "SecureString",
+ *   KeyId: "STRING_VALUE",
+ *   Overwrite: true || false,
+ *   AllowedPattern: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Tier: "Standard" || "Advanced" || "Intelligent-Tiering",
+ *   Policies: "STRING_VALUE",
+ *   DataType: "STRING_VALUE",
+ * };
  * const command = new PutParameterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutParameterCommandInput - {@link PutParameterCommandInput}
+ * @returns {@link PutParameterCommandOutput}
  * @see {@link PutParameterCommandInput} for command's `input` shape.
  * @see {@link PutParameterCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -136,6 +153,9 @@ export class PutParameterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutParameterCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,7 +183,7 @@ export class PutParameterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutParameterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutParameterResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -173,12 +193,18 @@ export class PutParameterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutParameterCommand(input, context);
+    return se_PutParameterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutParameterCommandOutput> {
-    return deserializeAws_json1_1PutParameterCommand(output, context);
+    return de_PutParameterCommand(output, context);
   }
 
   // Start section: command_body_extra

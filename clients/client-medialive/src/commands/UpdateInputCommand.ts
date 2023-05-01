@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  UpdateInputRequest,
-  UpdateInputRequestFilterSensitiveLog,
-  UpdateInputResponse,
-  UpdateInputResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateInputCommand,
-  serializeAws_restJson1UpdateInputCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateInputRequest, UpdateInputResponse } from "../models/models_2";
+import { de_UpdateInputCommand, se_UpdateInputCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInputCommand}.
  */
 export interface UpdateInputCommandInput extends UpdateInputRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInputCommand}.
  */
 export interface UpdateInputCommandOutput extends UpdateInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates an input.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,42 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * import { MediaLiveClient, UpdateInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // UpdateInputRequest
+ *   Destinations: [ // __listOfInputDestinationRequest
+ *     { // InputDestinationRequest
+ *       StreamName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   InputDevices: [ // __listOfInputDeviceRequest
+ *     { // InputDeviceRequest
+ *       Id: "STRING_VALUE",
+ *     },
+ *   ],
+ *   InputId: "STRING_VALUE", // required
+ *   InputSecurityGroups: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   MediaConnectFlows: [ // __listOfMediaConnectFlowRequest
+ *     { // MediaConnectFlowRequest
+ *       FlowArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   Sources: [ // __listOfInputSourceRequest
+ *     { // InputSourceRequest
+ *       PasswordParam: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *       Username: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateInputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInputCommandInput - {@link UpdateInputCommandInput}
+ * @returns {@link UpdateInputCommandOutput}
  * @see {@link UpdateInputCommandInput} for command's `input` shape.
  * @see {@link UpdateInputCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +119,9 @@ export class UpdateInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +148,8 @@ export class UpdateInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +159,18 @@ export class UpdateInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInputCommand(input, context);
+    return se_UpdateInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInputCommandOutput> {
-    return deserializeAws_restJson1UpdateInputCommand(output, context);
+    return de_UpdateInputCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  DescribeImagesRequest,
-  DescribeImagesRequestFilterSensitiveLog,
-  DescribeImagesResponse,
-  DescribeImagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImagesCommand,
-  serializeAws_json1_1DescribeImagesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeImagesRequest, DescribeImagesResponse } from "../models/models_0";
+import { de_DescribeImagesCommand, se_DescribeImagesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImagesCommand}.
  */
 export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImagesCommand}.
  */
 export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about the images in a repository.</p>
  *         <note>
  *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers
@@ -48,10 +45,27 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * import { ECRClient, DescribeImagesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribeImagesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // DescribeImagesRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageIds: [ // ImageIdentifierList
+ *     { // ImageIdentifier
+ *       imageDigest: "STRING_VALUE",
+ *       imageTag: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: { // DescribeImagesFilter
+ *     tagStatus: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DescribeImagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImagesCommandInput - {@link DescribeImagesCommandInput}
+ * @returns {@link DescribeImagesCommandOutput}
  * @see {@link DescribeImagesCommandInput} for command's `input` shape.
  * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -89,6 +103,9 @@ export class DescribeImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +134,8 @@ export class DescribeImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +145,18 @@ export class DescribeImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImagesCommand(input, context);
+    return se_DescribeImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImagesCommandOutput> {
-    return deserializeAws_json1_1DescribeImagesCommand(output, context);
+    return de_DescribeImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

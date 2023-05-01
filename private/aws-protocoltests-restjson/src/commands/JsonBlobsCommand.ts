@@ -12,23 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { JsonBlobsInputOutput, JsonBlobsInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1JsonBlobsCommand,
-  serializeAws_restJson1JsonBlobsCommand,
-} from "../protocols/Aws_restJson1";
+import { JsonBlobsInputOutput } from "../models/models_0";
+import { de_JsonBlobsCommand, se_JsonBlobsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link JsonBlobsCommand}.
  */
 export interface JsonBlobsCommandInput extends JsonBlobsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link JsonBlobsCommand}.
  */
 export interface JsonBlobsCommandOutput extends JsonBlobsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Blobs are base64 encoded
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -36,10 +38,15 @@ export interface JsonBlobsCommandOutput extends JsonBlobsInputOutput, __Metadata
  * import { RestJsonProtocolClient, JsonBlobsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonBlobsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // JsonBlobsInputOutput
+ *   data: "BLOB_VALUE",
+ * };
  * const command = new JsonBlobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param JsonBlobsCommandInput - {@link JsonBlobsCommandInput}
+ * @returns {@link JsonBlobsCommandOutput}
  * @see {@link JsonBlobsCommandInput} for command's `input` shape.
  * @see {@link JsonBlobsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -54,6 +61,9 @@ export class JsonBlobsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: JsonBlobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +89,8 @@ export class JsonBlobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JsonBlobsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: JsonBlobsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +100,18 @@ export class JsonBlobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JsonBlobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1JsonBlobsCommand(input, context);
+    return se_JsonBlobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonBlobsCommandOutput> {
-    return deserializeAws_restJson1JsonBlobsCommand(output, context);
+    return de_JsonBlobsCommand(output, context);
   }
 
   // Start section: command_body_extra

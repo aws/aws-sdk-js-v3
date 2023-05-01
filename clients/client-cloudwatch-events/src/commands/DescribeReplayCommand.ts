@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  DescribeReplayRequest,
-  DescribeReplayRequestFilterSensitiveLog,
-  DescribeReplayResponse,
-  DescribeReplayResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReplayCommand,
-  serializeAws_json1_1DescribeReplayCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeReplayRequest, DescribeReplayResponse } from "../models/models_0";
+import { de_DescribeReplayCommand, se_DescribeReplayCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplayCommand}.
  */
 export interface DescribeReplayCommandInput extends DescribeReplayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplayCommand}.
  */
 export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about a replay. Use <code>DescribeReplay</code> to determine the
  *       progress of a running replay. A replay processes events to replay based on the time in the
  *       event, and replays them using 1 minute intervals. If you use <code>StartReplay</code> and
@@ -50,10 +47,15 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  * import { CloudWatchEventsClient, DescribeReplayCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DescribeReplayCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // DescribeReplayRequest
+ *   ReplayName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeReplayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplayCommandInput - {@link DescribeReplayCommandInput}
+ * @returns {@link DescribeReplayCommandOutput}
  * @see {@link DescribeReplayCommandInput} for command's `input` shape.
  * @see {@link DescribeReplayCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -83,6 +85,9 @@ export class DescribeReplayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplayCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DescribeReplayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DescribeReplayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReplayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplayCommand(input, context);
+    return se_DescribeReplayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReplayCommandOutput> {
-    return deserializeAws_json1_1DescribeReplayCommand(output, context);
+    return de_DescribeReplayCommand(output, context);
   }
 
   // Start section: command_body_extra

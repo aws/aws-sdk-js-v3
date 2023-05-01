@@ -10,7 +10,7 @@ import { IvsClient } from "../IvsClient";
 import { IvsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IvsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListStreamKeysCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListStreamKeys(
   config: IvsPaginationConfiguration,
   input: ListStreamKeysCommandInput,

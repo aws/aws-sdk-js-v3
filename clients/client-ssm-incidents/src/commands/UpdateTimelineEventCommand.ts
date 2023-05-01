@@ -13,40 +13,52 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTimelineEventInput,
-  UpdateTimelineEventInputFilterSensitiveLog,
-  UpdateTimelineEventOutput,
-  UpdateTimelineEventOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateTimelineEventCommand,
-  serializeAws_restJson1UpdateTimelineEventCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateTimelineEventInput, UpdateTimelineEventOutput } from "../models/models_0";
+import { de_UpdateTimelineEventCommand, se_UpdateTimelineEventCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTimelineEventCommand}.
  */
 export interface UpdateTimelineEventCommandInput extends UpdateTimelineEventInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTimelineEventCommand}.
  */
 export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a timeline event. You can update events of type <code>Custom
- *             Event</code>.</p>
+ * @public
+ * <p>Updates a timeline event. You can update events of type <code>Custom Event</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMIncidentsClient, UpdateTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // UpdateTimelineEventInput
+ *   clientToken: "STRING_VALUE",
+ *   incidentRecordArn: "STRING_VALUE", // required
+ *   eventId: "STRING_VALUE", // required
+ *   eventTime: new Date("TIMESTAMP"),
+ *   eventType: "STRING_VALUE",
+ *   eventData: "STRING_VALUE",
+ *   eventReferences: [ // EventReferenceList
+ *     { // EventReference Union: only one key present
+ *       resource: "STRING_VALUE",
+ *       relatedItemId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateTimelineEventCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTimelineEventCommandInput - {@link UpdateTimelineEventCommandInput}
+ * @returns {@link UpdateTimelineEventCommandOutput}
  * @see {@link UpdateTimelineEventCommandInput} for command's `input` shape.
  * @see {@link UpdateTimelineEventCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -90,6 +102,9 @@ export class UpdateTimelineEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTimelineEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +133,8 @@ export class UpdateTimelineEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTimelineEventInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTimelineEventOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +144,18 @@ export class UpdateTimelineEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTimelineEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTimelineEventCommand(input, context);
+    return se_UpdateTimelineEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTimelineEventCommandOutput> {
-    return deserializeAws_restJson1UpdateTimelineEventCommand(output, context);
+    return de_UpdateTimelineEventCommand(output, context);
   }
 
   // Start section: command_body_extra

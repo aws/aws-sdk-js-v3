@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateQualificationWithWorkerRequest,
-  AssociateQualificationWithWorkerRequestFilterSensitiveLog,
-  AssociateQualificationWithWorkerResponse,
-  AssociateQualificationWithWorkerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateQualificationWithWorkerRequest, AssociateQualificationWithWorkerResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
-  deserializeAws_json1_1AssociateQualificationWithWorkerCommand,
-  serializeAws_json1_1AssociateQualificationWithWorkerCommand,
+  de_AssociateQualificationWithWorkerCommand,
+  se_AssociateQualificationWithWorkerCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateQualificationWithWorkerCommand}.
  */
 export interface AssociateQualificationWithWorkerCommandInput extends AssociateQualificationWithWorkerRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateQualificationWithWorkerCommand}.
  */
 export interface AssociateQualificationWithWorkerCommandOutput
@@ -37,6 +36,7 @@ export interface AssociateQualificationWithWorkerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>AssociateQualificationWithWorker</code> operation gives a Worker a
  *             Qualification. <code>AssociateQualificationWithWorker</code> does not require that the Worker
@@ -64,10 +64,18 @@ export interface AssociateQualificationWithWorkerCommandOutput
  * import { MTurkClient, AssociateQualificationWithWorkerCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, AssociateQualificationWithWorkerCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // AssociateQualificationWithWorkerRequest
+ *   QualificationTypeId: "STRING_VALUE", // required
+ *   WorkerId: "STRING_VALUE", // required
+ *   IntegerValue: Number("int"),
+ *   SendNotification: true || false,
+ * };
  * const command = new AssociateQualificationWithWorkerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateQualificationWithWorkerCommandInput - {@link AssociateQualificationWithWorkerCommandInput}
+ * @returns {@link AssociateQualificationWithWorkerCommandOutput}
  * @see {@link AssociateQualificationWithWorkerCommandInput} for command's `input` shape.
  * @see {@link AssociateQualificationWithWorkerCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -97,6 +105,9 @@ export class AssociateQualificationWithWorkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateQualificationWithWorkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +136,8 @@ export class AssociateQualificationWithWorkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateQualificationWithWorkerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateQualificationWithWorkerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +147,24 @@ export class AssociateQualificationWithWorkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateQualificationWithWorkerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateQualificationWithWorkerCommand(input, context);
+    return se_AssociateQualificationWithWorkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateQualificationWithWorkerCommandOutput> {
-    return deserializeAws_json1_1AssociateQualificationWithWorkerCommand(output, context);
+    return de_AssociateQualificationWithWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

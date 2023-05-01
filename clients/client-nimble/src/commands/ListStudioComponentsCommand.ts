@@ -15,26 +15,27 @@ import {
 
 import {
   ListStudioComponentsRequest,
-  ListStudioComponentsRequestFilterSensitiveLog,
   ListStudioComponentsResponse,
   ListStudioComponentsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1ListStudioComponentsCommand,
-  serializeAws_restJson1ListStudioComponentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListStudioComponentsCommand, se_ListStudioComponentsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStudioComponentsCommand}.
  */
 export interface ListStudioComponentsCommandInput extends ListStudioComponentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStudioComponentsCommand}.
  */
 export interface ListStudioComponentsCommandOutput extends ListStudioComponentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the <code>StudioComponents</code> in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,23 @@ export interface ListStudioComponentsCommandOutput extends ListStudioComponentsR
  * import { NimbleClient, ListStudioComponentsCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStudioComponentsCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // ListStudioComponentsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   states: [ // StudioComponentStateList
+ *     "CREATE_IN_PROGRESS" || "READY" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DELETE_FAILED" || "CREATE_FAILED" || "UPDATE_FAILED",
+ *   ],
+ *   studioId: "STRING_VALUE", // required
+ *   types: [ // StudioComponentTypeList
+ *     "ACTIVE_DIRECTORY" || "SHARED_FILE_SYSTEM" || "COMPUTE_FARM" || "LICENSE_SERVICE" || "CUSTOM",
+ *   ],
+ * };
  * const command = new ListStudioComponentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStudioComponentsCommandInput - {@link ListStudioComponentsCommandInput}
+ * @returns {@link ListStudioComponentsCommandOutput}
  * @see {@link ListStudioComponentsCommandInput} for command's `input` shape.
  * @see {@link ListStudioComponentsCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +107,9 @@ export class ListStudioComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStudioComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,7 +138,7 @@ export class ListStudioComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStudioComponentsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListStudioComponentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -132,12 +149,18 @@ export class ListStudioComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStudioComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStudioComponentsCommand(input, context);
+    return se_ListStudioComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStudioComponentsCommandOutput> {
-    return deserializeAws_restJson1ListStudioComponentsCommand(output, context);
+    return de_ListStudioComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

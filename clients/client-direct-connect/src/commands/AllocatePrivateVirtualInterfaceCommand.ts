@@ -14,27 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { AllocatePrivateVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
 import {
-  AllocatePrivateVirtualInterfaceRequest,
-  AllocatePrivateVirtualInterfaceRequestFilterSensitiveLog,
-  VirtualInterface,
-  VirtualInterfaceFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommand,
-  serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand,
+  de_AllocatePrivateVirtualInterfaceCommand,
+  se_AllocatePrivateVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AllocatePrivateVirtualInterfaceCommand}.
  */
 export interface AllocatePrivateVirtualInterfaceCommandInput extends AllocatePrivateVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocatePrivateVirtualInterfaceCommand}.
  */
 export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provisions a private virtual interface to be owned by the specified Amazon Web Services account.</p>
  *          <p>Virtual interfaces created using this action must be confirmed by the owner using <a>ConfirmPrivateVirtualInterface</a>.
  *       Until then, the virtual interface is in the <code>Confirming</code> state and is not available to handle traffic.</p>
@@ -44,10 +44,32 @@ export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInt
  * import { DirectConnectClient, AllocatePrivateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AllocatePrivateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // AllocatePrivateVirtualInterfaceRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   ownerAccount: "STRING_VALUE", // required
+ *   newPrivateVirtualInterfaceAllocation: { // NewPrivateVirtualInterfaceAllocation
+ *     virtualInterfaceName: "STRING_VALUE", // required
+ *     vlan: Number("int"), // required
+ *     asn: Number("int"), // required
+ *     mtu: Number("int"),
+ *     authKey: "STRING_VALUE",
+ *     amazonAddress: "STRING_VALUE",
+ *     addressFamily: "ipv4" || "ipv6",
+ *     customerAddress: "STRING_VALUE",
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new AllocatePrivateVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocatePrivateVirtualInterfaceCommandInput - {@link AllocatePrivateVirtualInterfaceCommandInput}
+ * @returns {@link AllocatePrivateVirtualInterfaceCommandOutput}
  * @see {@link AllocatePrivateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AllocatePrivateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -83,6 +105,9 @@ export class AllocatePrivateVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocatePrivateVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +136,8 @@ export class AllocatePrivateVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocatePrivateVirtualInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VirtualInterfaceFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +147,24 @@ export class AllocatePrivateVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AllocatePrivateVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand(input, context);
+    return se_AllocatePrivateVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllocatePrivateVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommand(output, context);
+    return de_AllocatePrivateVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BeginTransactionRequest,
-  BeginTransactionRequestFilterSensitiveLog,
-  BeginTransactionResponse,
-  BeginTransactionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BeginTransactionCommand,
-  serializeAws_restJson1BeginTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { BeginTransactionRequest, BeginTransactionResponse } from "../models/models_0";
+import { de_BeginTransactionCommand, se_BeginTransactionCommand } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
+ * @public
+ *
  * The input for {@link BeginTransactionCommand}.
  */
 export interface BeginTransactionCommandInput extends BeginTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BeginTransactionCommand}.
  */
 export interface BeginTransactionCommandOutput extends BeginTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a SQL transaction.</p>
  *         <note>
  *             <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24
@@ -50,10 +47,18 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  * import { RDSDataClient, BeginTransactionCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
  * // const { RDSDataClient, BeginTransactionCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
  * const client = new RDSDataClient(config);
+ * const input = { // BeginTransactionRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   secretArn: "STRING_VALUE", // required
+ *   database: "STRING_VALUE",
+ *   schema: "STRING_VALUE",
+ * };
  * const command = new BeginTransactionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BeginTransactionCommandInput - {@link BeginTransactionCommandInput}
+ * @returns {@link BeginTransactionCommandOutput}
  * @see {@link BeginTransactionCommandInput} for command's `input` shape.
  * @see {@link BeginTransactionCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
@@ -96,6 +101,9 @@ export class BeginTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BeginTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +132,8 @@ export class BeginTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BeginTransactionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BeginTransactionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +143,18 @@ export class BeginTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BeginTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BeginTransactionCommand(input, context);
+    return se_BeginTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BeginTransactionCommandOutput> {
-    return deserializeAws_restJson1BeginTransactionCommand(output, context);
+    return de_BeginTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

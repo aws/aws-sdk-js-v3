@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTapeArchivesInput,
-  DescribeTapeArchivesInputFilterSensitiveLog,
-  DescribeTapeArchivesOutput,
-  DescribeTapeArchivesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTapeArchivesCommand,
-  serializeAws_json1_1DescribeTapeArchivesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTapeArchivesInput, DescribeTapeArchivesOutput } from "../models/models_0";
+import { de_DescribeTapeArchivesCommand, se_DescribeTapeArchivesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTapeArchivesCommand}.
  */
 export interface DescribeTapeArchivesCommandInput extends DescribeTapeArchivesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTapeArchivesCommand}.
  */
 export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This
  *          operation is only supported in the tape gateway type.</p>
  *
@@ -46,10 +43,19 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  * import { StorageGatewayClient, DescribeTapeArchivesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeTapeArchivesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeTapeArchivesInput
+ *   TapeARNs: [ // TapeARNs
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeTapeArchivesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTapeArchivesCommandInput - {@link DescribeTapeArchivesCommandInput}
+ * @returns {@link DescribeTapeArchivesCommandOutput}
  * @see {@link DescribeTapeArchivesCommandInput} for command's `input` shape.
  * @see {@link DescribeTapeArchivesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -118,6 +124,9 @@ export class DescribeTapeArchivesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTapeArchivesCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +155,8 @@ export class DescribeTapeArchivesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTapeArchivesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTapeArchivesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +166,18 @@ export class DescribeTapeArchivesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTapeArchivesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTapeArchivesCommand(input, context);
+    return se_DescribeTapeArchivesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTapeArchivesCommandOutput> {
-    return deserializeAws_json1_1DescribeTapeArchivesCommand(output, context);
+    return de_DescribeTapeArchivesCommand(output, context);
   }
 
   // Start section: command_body_extra

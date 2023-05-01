@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListDevelopmentSchemaArnsRequest,
-  ListDevelopmentSchemaArnsRequestFilterSensitiveLog,
-  ListDevelopmentSchemaArnsResponse,
-  ListDevelopmentSchemaArnsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDevelopmentSchemaArnsCommand,
-  serializeAws_restJson1ListDevelopmentSchemaArnsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDevelopmentSchemaArnsRequest, ListDevelopmentSchemaArnsResponse } from "../models/models_0";
+import { de_ListDevelopmentSchemaArnsCommand, se_ListDevelopmentSchemaArnsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDevelopmentSchemaArnsCommand}.
  */
 export interface ListDevelopmentSchemaArnsCommandInput extends ListDevelopmentSchemaArnsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDevelopmentSchemaArnsCommand}.
  */
 export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentSchemaArnsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves each Amazon Resource Name (ARN) of schemas in the development
  *       state.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  * import { CloudDirectoryClient, ListDevelopmentSchemaArnsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListDevelopmentSchemaArnsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListDevelopmentSchemaArnsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDevelopmentSchemaArnsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevelopmentSchemaArnsCommandInput - {@link ListDevelopmentSchemaArnsCommandInput}
+ * @returns {@link ListDevelopmentSchemaArnsCommandOutput}
  * @see {@link ListDevelopmentSchemaArnsCommandInput} for command's `input` shape.
  * @see {@link ListDevelopmentSchemaArnsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -95,6 +98,9 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevelopmentSchemaArnsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevelopmentSchemaArnsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDevelopmentSchemaArnsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,15 +140,21 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevelopmentSchemaArnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDevelopmentSchemaArnsCommand(input, context);
+    return se_ListDevelopmentSchemaArnsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDevelopmentSchemaArnsCommandOutput> {
-    return deserializeAws_restJson1ListDevelopmentSchemaArnsCommand(output, context);
+    return de_ListDevelopmentSchemaArnsCommand(output, context);
   }
 
   // Start section: command_body_extra

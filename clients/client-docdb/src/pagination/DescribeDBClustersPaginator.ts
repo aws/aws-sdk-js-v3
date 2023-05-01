@@ -10,7 +10,7 @@ import { DocDBClient } from "../DocDBClient";
 import { DocDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DocDBClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeDBClustersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeDBClusters(
   config: DocDBPaginationConfiguration,
   input: DescribeDBClustersCommandInput,

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  CreateRecipeJobRequest,
-  CreateRecipeJobRequestFilterSensitiveLog,
-  CreateRecipeJobResponse,
-  CreateRecipeJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRecipeJobCommand,
-  serializeAws_restJson1CreateRecipeJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRecipeJobRequest, CreateRecipeJobResponse } from "../models/models_0";
+import { de_CreateRecipeJobCommand, se_CreateRecipeJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRecipeJobCommand}.
  */
 export interface CreateRecipeJobCommandInput extends CreateRecipeJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRecipeJobCommand}.
  */
 export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new job to transform input data, using steps defined in an existing Glue DataBrew recipe</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,89 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  * import { DataBrewClient, CreateRecipeJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateRecipeJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // CreateRecipeJobRequest
+ *   DatasetName: "STRING_VALUE",
+ *   EncryptionKeyArn: "STRING_VALUE",
+ *   EncryptionMode: "SSE-KMS" || "SSE-S3",
+ *   Name: "STRING_VALUE", // required
+ *   LogSubscription: "ENABLE" || "DISABLE",
+ *   MaxCapacity: Number("int"),
+ *   MaxRetries: Number("int"),
+ *   Outputs: [ // OutputList
+ *     { // Output
+ *       CompressionFormat: "GZIP" || "LZ4" || "SNAPPY" || "BZIP2" || "DEFLATE" || "LZO" || "BROTLI" || "ZSTD" || "ZLIB",
+ *       Format: "CSV" || "JSON" || "PARQUET" || "GLUEPARQUET" || "AVRO" || "ORC" || "XML" || "TABLEAUHYPER",
+ *       PartitionColumns: [ // ColumnNameList
+ *         "STRING_VALUE",
+ *       ],
+ *       Location: { // S3Location
+ *         Bucket: "STRING_VALUE", // required
+ *         Key: "STRING_VALUE",
+ *         BucketOwner: "STRING_VALUE",
+ *       },
+ *       Overwrite: true || false,
+ *       FormatOptions: { // OutputFormatOptions
+ *         Csv: { // CsvOutputOptions
+ *           Delimiter: "STRING_VALUE",
+ *         },
+ *       },
+ *       MaxOutputFiles: Number("int"),
+ *     },
+ *   ],
+ *   DataCatalogOutputs: [ // DataCatalogOutputList
+ *     { // DataCatalogOutput
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       S3Options: { // S3TableOutputOptions
+ *         Location: {
+ *           Bucket: "STRING_VALUE", // required
+ *           Key: "STRING_VALUE",
+ *           BucketOwner: "STRING_VALUE",
+ *         },
+ *       },
+ *       DatabaseOptions: { // DatabaseTableOutputOptions
+ *         TempDirectory: {
+ *           Bucket: "STRING_VALUE", // required
+ *           Key: "STRING_VALUE",
+ *           BucketOwner: "STRING_VALUE",
+ *         },
+ *         TableName: "STRING_VALUE", // required
+ *       },
+ *       Overwrite: true || false,
+ *     },
+ *   ],
+ *   DatabaseOutputs: [ // DatabaseOutputList
+ *     { // DatabaseOutput
+ *       GlueConnectionName: "STRING_VALUE", // required
+ *       DatabaseOptions: {
+ *         TempDirectory: {
+ *           Bucket: "STRING_VALUE", // required
+ *           Key: "STRING_VALUE",
+ *           BucketOwner: "STRING_VALUE",
+ *         },
+ *         TableName: "STRING_VALUE", // required
+ *       },
+ *       DatabaseOutputMode: "NEW_TABLE",
+ *     },
+ *   ],
+ *   ProjectName: "STRING_VALUE",
+ *   RecipeReference: { // RecipeReference
+ *     Name: "STRING_VALUE", // required
+ *     RecipeVersion: "STRING_VALUE",
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Timeout: Number("int"),
+ * };
  * const command = new CreateRecipeJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRecipeJobCommandInput - {@link CreateRecipeJobCommandInput}
+ * @returns {@link CreateRecipeJobCommandOutput}
  * @see {@link CreateRecipeJobCommandInput} for command's `input` shape.
  * @see {@link CreateRecipeJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -84,6 +160,9 @@ export class CreateRecipeJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRecipeJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +191,8 @@ export class CreateRecipeJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRecipeJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRecipeJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +202,18 @@ export class CreateRecipeJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRecipeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRecipeJobCommand(input, context);
+    return se_CreateRecipeJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRecipeJobCommandOutput> {
-    return deserializeAws_restJson1CreateRecipeJobCommand(output, context);
+    return de_CreateRecipeJobCommand(output, context);
   }
 
   // Start section: command_body_extra

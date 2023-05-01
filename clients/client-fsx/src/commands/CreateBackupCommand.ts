@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateBackupRequest,
-  CreateBackupRequestFilterSensitiveLog,
-  CreateBackupResponse,
-  CreateBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBackupCommand,
-  serializeAws_json1_1CreateBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateBackupRequest, CreateBackupResponse } from "../models/models_0";
+import { de_CreateBackupCommand, se_CreateBackupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBackupCommand}.
  */
 export interface CreateBackupCommandInput extends CreateBackupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBackupCommand}.
  */
 export interface CreateBackupCommandOutput extends CreateBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a backup of an existing Amazon FSx for Windows File Server file
  *             system, Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP
  *             volume, or Amazon FSx for OpenZFS file system. We recommend creating regular
@@ -97,10 +94,23 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * import { FSxClient, CreateBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // CreateBackupRequest
+ *   FileSystemId: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   VolumeId: "STRING_VALUE",
+ * };
  * const command = new CreateBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackupCommandInput - {@link CreateBackupCommandInput}
+ * @returns {@link CreateBackupCommandOutput}
  * @see {@link CreateBackupCommandInput} for command's `input` shape.
  * @see {@link CreateBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -198,6 +208,9 @@ export class CreateBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -224,8 +237,8 @@ export class CreateBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -235,12 +248,18 @@ export class CreateBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBackupCommand(input, context);
+    return se_CreateBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupCommandOutput> {
-    return deserializeAws_json1_1CreateBackupCommand(output, context);
+    return de_CreateBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -24,25 +24,27 @@ import {
   ListChannelBansResponse,
   ListChannelBansResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChannelBansCommand,
-  serializeAws_restJson1ListChannelBansCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChannelBansCommand, se_ListChannelBansCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChannelBansCommand}.
  */
 export interface ListChannelBansCommandInput extends ListChannelBansRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChannelBansCommand}.
  */
 export interface ListChannelBansCommandOutput extends ListChannelBansResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the users banned from a particular channel.</p>
+ * @public
+ * <p>Lists all the users and bots banned from a particular channel.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -51,10 +53,18 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
  * import { ChimeSDKMessagingClient, ListChannelBansCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelBansCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // ListChannelBansRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new ListChannelBansCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelBansCommandInput - {@link ListChannelBansCommandInput}
+ * @returns {@link ListChannelBansCommandOutput}
  * @see {@link ListChannelBansCommandInput} for command's `input` shape.
  * @see {@link ListChannelBansCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -96,6 +106,9 @@ export class ListChannelBansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelBansCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,12 +148,18 @@ export class ListChannelBansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelBansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelBansCommand(input, context);
+    return se_ListChannelBansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelBansCommandOutput> {
-    return deserializeAws_restJson1ListChannelBansCommand(output, context);
+    return de_ListChannelBansCommand(output, context);
   }
 
   // Start section: command_body_extra

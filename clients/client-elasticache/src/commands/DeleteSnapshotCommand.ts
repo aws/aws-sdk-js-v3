@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DeleteSnapshotMessage,
-  DeleteSnapshotMessageFilterSensitiveLog,
-  DeleteSnapshotResult,
-  DeleteSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSnapshotCommand,
-  serializeAws_queryDeleteSnapshotCommand,
-} from "../protocols/Aws_query";
+import { DeleteSnapshotMessage, DeleteSnapshotResult } from "../models/models_0";
+import { de_DeleteSnapshotCommand, se_DeleteSnapshotCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSnapshotCommand}.
  */
 export interface DeleteSnapshotCommandInput extends DeleteSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSnapshotCommand}.
  */
 export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing snapshot. When you receive a
  *             successful response from this operation, ElastiCache immediately begins deleting the snapshot;
  *             you cannot cancel or revert this operation.</p>
@@ -47,10 +44,15 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * import { ElastiCacheClient, DeleteSnapshotCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteSnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DeleteSnapshotMessage
+ *   SnapshotName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
+ * @returns {@link DeleteSnapshotCommandOutput}
  * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -129,6 +131,9 @@ export class DeleteSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,8 +162,8 @@ export class DeleteSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,12 +173,18 @@ export class DeleteSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSnapshotCommand(input, context);
+    return se_DeleteSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotCommandOutput> {
-    return deserializeAws_queryDeleteSnapshotCommand(output, context);
+    return de_DeleteSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

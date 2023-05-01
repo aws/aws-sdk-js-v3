@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import {
-  GetDeviceRequest,
-  GetDeviceRequestFilterSensitiveLog,
-  GetDeviceResponse,
-  GetDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeviceCommand,
-  serializeAws_restJson1GetDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDeviceRequest, GetDeviceResponse } from "../models/models_0";
+import { de_GetDeviceCommand, se_GetDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeviceCommand}.
  */
 export interface GetDeviceCommandInput extends GetDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeviceCommand}.
  */
 export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the devices available in Amazon Braket.</p>
  *          <note>
  *             <p>For backwards compatibility with older versions of BraketSchemas, OpenQASM
@@ -51,10 +48,15 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * import { BraketClient, GetDeviceCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, GetDeviceCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
+ * const input = { // GetDeviceRequest
+ *   deviceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeviceCommandInput - {@link GetDeviceCommandInput}
+ * @returns {@link GetDeviceCommandOutput}
  * @see {@link GetDeviceCommandInput} for command's `input` shape.
  * @see {@link GetDeviceCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
@@ -94,6 +96,9 @@ export class GetDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +125,8 @@ export class GetDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +136,18 @@ export class GetDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeviceCommand(input, context);
+    return se_GetDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceCommandOutput> {
-    return deserializeAws_restJson1GetDeviceCommand(output, context);
+    return de_GetDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

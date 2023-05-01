@@ -13,28 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListClosedWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/models_0";
 import {
-  ListClosedWorkflowExecutionsInput,
-  ListClosedWorkflowExecutionsInputFilterSensitiveLog,
-  WorkflowExecutionInfos,
-  WorkflowExecutionInfosFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListClosedWorkflowExecutionsCommand,
-  serializeAws_json1_0ListClosedWorkflowExecutionsCommand,
+  de_ListClosedWorkflowExecutionsCommand,
+  se_ListClosedWorkflowExecutionsCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListClosedWorkflowExecutionsCommand}.
  */
 export interface ListClosedWorkflowExecutionsCommandInput extends ListClosedWorkflowExecutionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListClosedWorkflowExecutionsCommand}.
  */
 export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecutionInfos, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of closed workflow executions in the specified domain that meet the
  *       filtering criteria. The results may be split into multiple pages. To retrieve subsequent
  *       pages, make the call again using the nextPageToken returned by the initial call.</p>
@@ -89,10 +89,39 @@ export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecu
  * import { SWFClient, ListClosedWorkflowExecutionsCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, ListClosedWorkflowExecutionsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // ListClosedWorkflowExecutionsInput
+ *   domain: "STRING_VALUE", // required
+ *   startTimeFilter: { // ExecutionTimeFilter
+ *     oldestDate: new Date("TIMESTAMP"), // required
+ *     latestDate: new Date("TIMESTAMP"),
+ *   },
+ *   closeTimeFilter: {
+ *     oldestDate: new Date("TIMESTAMP"), // required
+ *     latestDate: new Date("TIMESTAMP"),
+ *   },
+ *   executionFilter: { // WorkflowExecutionFilter
+ *     workflowId: "STRING_VALUE", // required
+ *   },
+ *   closeStatusFilter: { // CloseStatusFilter
+ *     status: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT", // required
+ *   },
+ *   typeFilter: { // WorkflowTypeFilter
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE",
+ *   },
+ *   tagFilter: { // TagFilter
+ *     tag: "STRING_VALUE", // required
+ *   },
+ *   nextPageToken: "STRING_VALUE",
+ *   maximumPageSize: Number("int"),
+ *   reverseOrder: true || false,
+ * };
  * const command = new ListClosedWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClosedWorkflowExecutionsCommandInput - {@link ListClosedWorkflowExecutionsCommandInput}
+ * @returns {@link ListClosedWorkflowExecutionsCommandOutput}
  * @see {@link ListClosedWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListClosedWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -122,6 +151,9 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClosedWorkflowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,8 +182,8 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClosedWorkflowExecutionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: WorkflowExecutionInfosFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -161,15 +193,21 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClosedWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListClosedWorkflowExecutionsCommand(input, context);
+    return se_ListClosedWorkflowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListClosedWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0ListClosedWorkflowExecutionsCommand(output, context);
+    return de_ListClosedWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

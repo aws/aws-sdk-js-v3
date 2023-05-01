@@ -156,6 +156,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | ActivateEventSourceCommandInput
   | CancelReplayCommandInput
@@ -209,6 +212,9 @@ export type ServiceInputTypes =
   | UpdateArchiveCommandInput
   | UpdateConnectionCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | ActivateEventSourceCommandOutput
   | CancelReplayCommandOutput
@@ -262,6 +268,9 @@ export type ServiceOutputTypes =
   | UpdateArchiveCommandOutput
   | UpdateConnectionCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -269,7 +278,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -378,11 +387,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CloudWatchEventsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -393,10 +405,15 @@ type CloudWatchEventsClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CloudWatchEventsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CloudWatchEventsClient class constructor that set the region, credentials and other options.
  */
 export interface CloudWatchEventsClientConfig extends CloudWatchEventsClientConfigType {}
 
+/**
+ * @public
+ */
 type CloudWatchEventsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -407,11 +424,14 @@ type CloudWatchEventsClientResolvedConfigType = __SmithyResolvedConfiguration<__
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CloudWatchEventsClient class. This is resolved and normalized from the {@link CloudWatchEventsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CloudWatchEventsClient class. This is resolved and normalized from the {@link CloudWatchEventsClientConfig | constructor configuration interface}.
  */
 export interface CloudWatchEventsClientResolvedConfig extends CloudWatchEventsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon EventBridge helps you to respond to state changes in your Amazon Web Services resources. When your
  *       resources change state, they automatically send events to an event stream. You can create
  *       rules that match selected events in the stream and route them to targets to take action. You

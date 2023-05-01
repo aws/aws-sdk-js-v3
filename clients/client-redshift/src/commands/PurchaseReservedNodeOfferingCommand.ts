@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PurchaseReservedNodeOfferingMessage,
-  PurchaseReservedNodeOfferingMessageFilterSensitiveLog,
-  PurchaseReservedNodeOfferingResult,
-  PurchaseReservedNodeOfferingResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryPurchaseReservedNodeOfferingCommand,
-  serializeAws_queryPurchaseReservedNodeOfferingCommand,
-} from "../protocols/Aws_query";
+import { PurchaseReservedNodeOfferingMessage, PurchaseReservedNodeOfferingResult } from "../models/models_1";
+import { de_PurchaseReservedNodeOfferingCommand, se_PurchaseReservedNodeOfferingCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link PurchaseReservedNodeOfferingCommand}.
  */
 export interface PurchaseReservedNodeOfferingCommandInput extends PurchaseReservedNodeOfferingMessage {}
 /**
+ * @public
+ *
  * The output of {@link PurchaseReservedNodeOfferingCommand}.
  */
 export interface PurchaseReservedNodeOfferingCommandOutput
@@ -37,6 +33,7 @@ export interface PurchaseReservedNodeOfferingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of
  *             reserved node offerings. You can purchase one or more of the offerings. You can call the
  *                 <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved
@@ -52,10 +49,16 @@ export interface PurchaseReservedNodeOfferingCommandOutput
  * import { RedshiftClient, PurchaseReservedNodeOfferingCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, PurchaseReservedNodeOfferingCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // PurchaseReservedNodeOfferingMessage
+ *   ReservedNodeOfferingId: "STRING_VALUE", // required
+ *   NodeCount: Number("int"),
+ * };
  * const command = new PurchaseReservedNodeOfferingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PurchaseReservedNodeOfferingCommandInput - {@link PurchaseReservedNodeOfferingCommandInput}
+ * @returns {@link PurchaseReservedNodeOfferingCommandOutput}
  * @see {@link PurchaseReservedNodeOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedNodeOfferingCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -94,6 +97,9 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PurchaseReservedNodeOfferingCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +128,8 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedNodeOfferingMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedNodeOfferingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +139,21 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PurchaseReservedNodeOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPurchaseReservedNodeOfferingCommand(input, context);
+    return se_PurchaseReservedNodeOfferingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedNodeOfferingCommandOutput> {
-    return deserializeAws_queryPurchaseReservedNodeOfferingCommand(output, context);
+    return de_PurchaseReservedNodeOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

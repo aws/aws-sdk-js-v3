@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  DeleteLFTagRequest,
-  DeleteLFTagRequestFilterSensitiveLog,
-  DeleteLFTagResponse,
-  DeleteLFTagResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLFTagCommand,
-  serializeAws_restJson1DeleteLFTagCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteLFTagRequest, DeleteLFTagResponse } from "../models/models_0";
+import { de_DeleteLFTagCommand, se_DeleteLFTagCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLFTagCommand}.
  */
 export interface DeleteLFTagCommandInput extends DeleteLFTagRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLFTagCommand}.
  */
 export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified LF-tag given a key name. If the input parameter tag key was not found, then the operation will throw an exception. When you delete an LF-tag, the <code>LFTagPolicy</code> attached to the LF-tag becomes invalid. If the deleted LF-tag was still assigned to any resource, the tag policy attach to the deleted LF-tag will no longer be applied to the resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  * import { LakeFormationClient, DeleteLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DeleteLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // DeleteLFTagRequest
+ *   CatalogId: "STRING_VALUE",
+ *   TagKey: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLFTagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLFTagCommandInput - {@link DeleteLFTagCommandInput}
+ * @returns {@link DeleteLFTagCommandOutput}
  * @see {@link DeleteLFTagCommandInput} for command's `input` shape.
  * @see {@link DeleteLFTagCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -54,7 +57,7 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  *  <p>Access to a resource was denied.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -84,6 +87,9 @@ export class DeleteLFTagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLFTagCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class DeleteLFTagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLFTagRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLFTagResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class DeleteLFTagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLFTagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLFTagCommand(input, context);
+    return se_DeleteLFTagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLFTagCommandOutput> {
-    return deserializeAws_restJson1DeleteLFTagCommand(output, context);
+    return de_DeleteLFTagCommand(output, context);
   }
 
   // Start section: command_body_extra

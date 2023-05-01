@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListContainerInstancesRequest,
-  ListContainerInstancesRequestFilterSensitiveLog,
-  ListContainerInstancesResponse,
-  ListContainerInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListContainerInstancesCommand,
-  serializeAws_json1_1ListContainerInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListContainerInstancesRequest, ListContainerInstancesResponse } from "../models/models_0";
+import { de_ListContainerInstancesCommand, se_ListContainerInstancesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListContainerInstancesCommand}.
  */
 export interface ListContainerInstancesCommandInput extends ListContainerInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContainerInstancesCommand}.
  */
 export interface ListContainerInstancesCommandOutput extends ListContainerInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of container instances in a specified cluster. You can filter the
  * 			results of a <code>ListContainerInstances</code> operation with cluster query language
  * 			statements inside the <code>filter</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -44,10 +41,19 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  * import { ECSClient, ListContainerInstancesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListContainerInstancesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // ListContainerInstancesRequest
+ *   cluster: "STRING_VALUE",
+ *   filter: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   status: "ACTIVE" || "DRAINING" || "REGISTERING" || "DEREGISTERING" || "REGISTRATION_FAILED",
+ * };
  * const command = new ListContainerInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContainerInstancesCommandInput - {@link ListContainerInstancesCommandInput}
+ * @returns {@link ListContainerInstancesCommandOutput}
  * @see {@link ListContainerInstancesCommandInput} for command's `input` shape.
  * @see {@link ListContainerInstancesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -105,6 +111,9 @@ export class ListContainerInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContainerInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +142,8 @@ export class ListContainerInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContainerInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContainerInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +153,18 @@ export class ListContainerInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContainerInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListContainerInstancesCommand(input, context);
+    return se_ListContainerInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContainerInstancesCommandOutput> {
-    return deserializeAws_json1_1ListContainerInstancesCommand(output, context);
+    return de_ListContainerInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  ListVirtualServicesInput,
-  ListVirtualServicesInputFilterSensitiveLog,
-  ListVirtualServicesOutput,
-  ListVirtualServicesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVirtualServicesCommand,
-  serializeAws_restJson1ListVirtualServicesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListVirtualServicesInput, ListVirtualServicesOutput } from "../models/models_0";
+import { de_ListVirtualServicesCommand, se_ListVirtualServicesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVirtualServicesCommand}.
  */
 export interface ListVirtualServicesCommandInput extends ListVirtualServicesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListVirtualServicesCommand}.
  */
 export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing virtual services in a service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOut
  * import { AppMeshClient, ListVirtualServicesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListVirtualServicesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // ListVirtualServicesInput
+ *   meshName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new ListVirtualServicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVirtualServicesCommandInput - {@link ListVirtualServicesCommandInput}
+ * @returns {@link ListVirtualServicesCommandOutput}
  * @see {@link ListVirtualServicesCommandInput} for command's `input` shape.
  * @see {@link ListVirtualServicesCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -90,6 +95,9 @@ export class ListVirtualServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVirtualServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class ListVirtualServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVirtualServicesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVirtualServicesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +137,18 @@ export class ListVirtualServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVirtualServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVirtualServicesCommand(input, context);
+    return se_ListVirtualServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualServicesCommandOutput> {
-    return deserializeAws_restJson1ListVirtualServicesCommand(output, context);
+    return de_ListVirtualServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

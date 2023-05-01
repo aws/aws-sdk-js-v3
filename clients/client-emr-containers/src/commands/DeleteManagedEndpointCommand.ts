@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  DeleteManagedEndpointRequest,
-  DeleteManagedEndpointRequestFilterSensitiveLog,
-  DeleteManagedEndpointResponse,
-  DeleteManagedEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteManagedEndpointCommand,
-  serializeAws_restJson1DeleteManagedEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteManagedEndpointRequest, DeleteManagedEndpointResponse } from "../models/models_0";
+import { de_DeleteManagedEndpointCommand, se_DeleteManagedEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteManagedEndpointCommand}.
  */
 export interface DeleteManagedEndpointCommandInput extends DeleteManagedEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteManagedEndpointCommand}.
  */
 export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR Studio to
  *             Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual
  *          cluster.</p>
@@ -44,10 +41,16 @@ export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpoin
  * import { EMRContainersClient, DeleteManagedEndpointCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DeleteManagedEndpointCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = { // DeleteManagedEndpointRequest
+ *   id: "STRING_VALUE", // required
+ *   virtualClusterId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteManagedEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteManagedEndpointCommandInput - {@link DeleteManagedEndpointCommandInput}
+ * @returns {@link DeleteManagedEndpointCommandOutput}
  * @see {@link DeleteManagedEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteManagedEndpointCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
@@ -77,6 +80,9 @@ export class DeleteManagedEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteManagedEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +111,8 @@ export class DeleteManagedEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteManagedEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteManagedEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +122,18 @@ export class DeleteManagedEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteManagedEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteManagedEndpointCommand(input, context);
+    return se_DeleteManagedEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteManagedEndpointCommandOutput> {
-    return deserializeAws_restJson1DeleteManagedEndpointCommand(output, context);
+    return de_DeleteManagedEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

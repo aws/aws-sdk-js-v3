@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import {
-  UpdateCertificateAuthorityRequest,
-  UpdateCertificateAuthorityRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCertificateAuthorityCommand,
-  serializeAws_json1_1UpdateCertificateAuthorityCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCertificateAuthorityRequest } from "../models/models_0";
+import { de_UpdateCertificateAuthorityCommand, se_UpdateCertificateAuthorityCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCertificateAuthorityCommand}.
  */
 export interface UpdateCertificateAuthorityCommandInput extends UpdateCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCertificateAuthorityCommand}.
  */
 export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status or configuration of a private certificate authority (CA). Your
  * 			private CA must be in the <code>ACTIVE</code> or <code>DISABLED</code> state before you
  * 			can update it. You can disable a private CA that is in the <code>ACTIVE</code> state or
@@ -50,10 +49,29 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  * import { ACMPCAClient, UpdateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, UpdateCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // UpdateCertificateAuthorityRequest
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   RevocationConfiguration: { // RevocationConfiguration
+ *     CrlConfiguration: { // CrlConfiguration
+ *       Enabled: true || false, // required
+ *       ExpirationInDays: Number("int"),
+ *       CustomCname: "STRING_VALUE",
+ *       S3BucketName: "STRING_VALUE",
+ *       S3ObjectAcl: "PUBLIC_READ" || "BUCKET_OWNER_FULL_CONTROL",
+ *     },
+ *     OcspConfiguration: { // OcspConfiguration
+ *       Enabled: true || false, // required
+ *       OcspCustomCname: "STRING_VALUE",
+ *     },
+ *   },
+ *   Status: "CREATING" || "PENDING_CERTIFICATE" || "ACTIVE" || "DELETED" || "DISABLED" || "EXPIRED" || "FAILED",
+ * };
  * const command = new UpdateCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCertificateAuthorityCommandInput - {@link UpdateCertificateAuthorityCommandInput}
+ * @returns {@link UpdateCertificateAuthorityCommandOutput}
  * @see {@link UpdateCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -98,6 +116,9 @@ export class UpdateCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +147,8 @@ export class UpdateCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCertificateAuthorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,15 +158,21 @@ export class UpdateCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCertificateAuthorityCommand(input, context);
+    return se_UpdateCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1UpdateCertificateAuthorityCommand(output, context);
+    return de_UpdateCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

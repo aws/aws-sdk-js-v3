@@ -7,9 +7,7 @@ import {
   AccountSettings,
   AdHocFilteringOption,
   AmazonElasticsearchParameters,
-  AmazonElasticsearchParametersFilterSensitiveLog,
   AmazonOpenSearchParameters,
-  AmazonOpenSearchParametersFilterSensitiveLog,
   Analysis,
   AnalysisDefaults,
   AnalysisError,
@@ -29,21 +27,15 @@ import {
 import {
   AnalysisDefinition,
   AnalysisSourceEntity,
-  AnonymousUserEmbeddingExperienceConfiguration,
   AssignmentStatus,
   AthenaParameters,
-  AthenaParametersFilterSensitiveLog,
   AuroraParameters,
-  AuroraParametersFilterSensitiveLog,
   AuroraPostgreSqlParameters,
-  AuroraPostgreSqlParametersFilterSensitiveLog,
   AwsIotAnalyticsParameters,
-  AwsIotAnalyticsParametersFilterSensitiveLog,
   BorderStyle,
   CalculatedColumn,
   CalculatedColumnFilterSensitiveLog,
   CastColumnTypeOperation,
-  CastColumnTypeOperationFilterSensitiveLog,
   ColumnDataType,
   ColumnGroup,
   ColumnGroupSchema,
@@ -51,7 +43,6 @@ import {
   ColumnSchema,
   ColumnTag,
   ColumnTagName,
-  DashboardVisualId,
   DataSetReference,
   ExceptionResourceType,
   FilterOperator,
@@ -61,6 +52,7 @@ import {
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**
+ * @public
  * <p>One or more preconditions aren't met.</p>
  */
 export class PreconditionNotMetException extends __BaseException {
@@ -87,6 +79,7 @@ export class PreconditionNotMetException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A date-time parameter.</p>
  */
 export interface DateTimeParameter {
@@ -102,6 +95,7 @@ export interface DateTimeParameter {
 }
 
 /**
+ * @public
  * <p>A decimal parameter.</p>
  */
 export interface DecimalParameter {
@@ -117,6 +111,7 @@ export interface DecimalParameter {
 }
 
 /**
+ * @public
  * <p>An integer parameter.</p>
  */
 export interface IntegerParameter {
@@ -132,6 +127,7 @@ export interface IntegerParameter {
 }
 
 /**
+ * @public
  * <p>A string parameter.</p>
  */
 export interface StringParameter {
@@ -147,6 +143,7 @@ export interface StringParameter {
 }
 
 /**
+ * @public
  * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
  */
 export interface _Parameters {
@@ -172,6 +169,7 @@ export interface _Parameters {
 }
 
 /**
+ * @public
  * <p>Permission for the resource.</p>
  */
 export interface ResourcePermission {
@@ -200,6 +198,9 @@ export interface ResourcePermission {
   Actions: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAnalysisRequest {
   /**
    * <p>The ID of the Amazon Web Services account where you are creating an analysis.</p>
@@ -262,6 +263,9 @@ export interface CreateAnalysisRequest {
   Definition?: AnalysisDefinition;
 }
 
+/**
+ * @public
+ */
 export interface CreateAnalysisResponse {
   /**
    * <p>The ARN for the analysis.</p>
@@ -290,6 +294,7 @@ export interface CreateAnalysisResponse {
 }
 
 /**
+ * @public
  * <p>A limit is exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -322,6 +327,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This error indicates that you are calling an operation on an Amazon QuickSight
  * 			subscription where the edition doesn't include support for that operation. Amazon
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
@@ -351,6 +357,7 @@ export class UnsupportedUserEditionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A transform operation that creates calculated columns. Columns created in one such
  *             operation form a lexical closure.</p>
  */
@@ -362,6 +369,7 @@ export interface CreateColumnsOperation {
 }
 
 /**
+ * @public
  * <p>The drill down options for data points in a dashbaord.</p>
  */
 export interface DataPointDrillUpDownOption {
@@ -372,6 +380,7 @@ export interface DataPointDrillUpDownOption {
 }
 
 /**
+ * @public
  * <p>The data point menu options of a dashboard.</p>
  */
 export interface DataPointMenuLabelOption {
@@ -382,6 +391,7 @@ export interface DataPointMenuLabelOption {
 }
 
 /**
+ * @public
  * <p>The data point tooltip options.</p>
  */
 export interface DataPointTooltipOption {
@@ -392,6 +402,7 @@ export interface DataPointTooltipOption {
 }
 
 /**
+ * @public
  * <p>Export to .csv option.</p>
  */
 export interface ExportToCSVOption {
@@ -402,6 +413,7 @@ export interface ExportToCSVOption {
 }
 
 /**
+ * @public
  * <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
  */
 export interface ExportWithHiddenFieldsOption {
@@ -411,12 +423,22 @@ export interface ExportWithHiddenFieldsOption {
   AvailabilityStatus?: DashboardBehavior | string;
 }
 
-export enum DashboardUIState {
-  COLLAPSED = "COLLAPSED",
-  EXPANDED = "EXPANDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DashboardUIState = {
+  COLLAPSED: "COLLAPSED",
+  EXPANDED: "EXPANDED",
+} as const;
 
 /**
+ * @public
+ */
+export type DashboardUIState = (typeof DashboardUIState)[keyof typeof DashboardUIState];
+
+/**
+ * @public
  * <p>Sheet controls option.</p>
  */
 export interface SheetControlsOption {
@@ -427,6 +449,7 @@ export interface SheetControlsOption {
 }
 
 /**
+ * @public
  * <p>The sheet layout maximization options of a dashbaord.</p>
  */
 export interface SheetLayoutElementMaximizationOption {
@@ -437,6 +460,7 @@ export interface SheetLayoutElementMaximizationOption {
 }
 
 /**
+ * @public
  * <p>The axis sort options for a visual.</p>
  */
 export interface VisualAxisSortOption {
@@ -447,6 +471,7 @@ export interface VisualAxisSortOption {
 }
 
 /**
+ * @public
  * <p>The menu options for a visual.</p>
  */
 export interface VisualMenuOption {
@@ -457,6 +482,7 @@ export interface VisualMenuOption {
 }
 
 /**
+ * @public
  * <p>Determines if hidden fields are included in an exported dashboard.</p>
  */
 export interface ExportHiddenFieldsOption {
@@ -467,6 +493,7 @@ export interface ExportHiddenFieldsOption {
 }
 
 /**
+ * @public
  * <p>The visual publish options of a visual in a dashboard</p>
  */
 export interface DashboardVisualPublishOptions {
@@ -477,6 +504,7 @@ export interface DashboardVisualPublishOptions {
 }
 
 /**
+ * @public
  * <p>Dashboard publish options.</p>
  */
 export interface DashboardPublishOptions {
@@ -539,6 +567,7 @@ export interface DashboardPublishOptions {
 }
 
 /**
+ * @public
  * <p>The contents of a dashboard.</p>
  */
 export interface DashboardVersionDefinition {
@@ -584,6 +613,7 @@ export interface DashboardVersionDefinition {
 }
 
 /**
+ * @public
  * <p>Dashboard source template.</p>
  */
 export interface DashboardSourceTemplate {
@@ -599,6 +629,7 @@ export interface DashboardSourceTemplate {
 }
 
 /**
+ * @public
  * <p>Dashboard source entity.</p>
  */
 export interface DashboardSourceEntity {
@@ -608,6 +639,9 @@ export interface DashboardSourceEntity {
   SourceTemplate?: DashboardSourceTemplate;
 }
 
+/**
+ * @public
+ */
 export interface CreateDashboardRequest {
   /**
    * <p>The ID of the Amazon Web Services account where you want to create the dashboard.</p>
@@ -715,6 +749,9 @@ export interface CreateDashboardRequest {
   Definition?: DashboardVersionDefinition;
 }
 
+/**
+ * @public
+ */
 export interface CreateDashboardResponse {
   /**
    * <p>The ARN of the dashboard.</p>
@@ -749,6 +786,7 @@ export interface CreateDashboardResponse {
 }
 
 /**
+ * @public
  * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
  */
 export interface DataSetUsageConfiguration {
@@ -764,6 +802,7 @@ export interface DataSetUsageConfiguration {
 }
 
 /**
+ * @public
  * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
  */
 export interface FieldFolder {
@@ -778,12 +817,22 @@ export interface FieldFolder {
   columns?: string[];
 }
 
-export enum DataSetImportMode {
-  DIRECT_QUERY = "DIRECT_QUERY",
-  SPICE = "SPICE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataSetImportMode = {
+  DIRECT_QUERY: "DIRECT_QUERY",
+  SPICE: "SPICE",
+} as const;
 
 /**
+ * @public
+ */
+export type DataSetImportMode = (typeof DataSetImportMode)[keyof typeof DataSetImportMode];
+
+/**
+ * @public
  * <p>A transform operation that filters rows based on a condition.</p>
  */
 export interface FilterOperation {
@@ -795,6 +844,7 @@ export interface FilterOperation {
 }
 
 /**
+ * @public
  * <p>A transform operation that projects columns. Operations that come after a projection
  *             can only refer to projected columns.</p>
  */
@@ -806,6 +856,7 @@ export interface ProjectOperation {
 }
 
 /**
+ * @public
  * <p>A transform operation that renames a column.</p>
  */
 export interface RenameColumnOperation {
@@ -821,6 +872,7 @@ export interface RenameColumnOperation {
 }
 
 /**
+ * @public
  * <p>A transform operation that tags a column with additional information.</p>
  */
 export interface TagColumnOperation {
@@ -839,6 +891,7 @@ export interface TagColumnOperation {
 }
 
 /**
+ * @public
  * <p>A transform operation that removes tags associated with a column.</p>
  */
 export interface UntagColumnOperation {
@@ -854,6 +907,7 @@ export interface UntagColumnOperation {
 }
 
 /**
+ * @public
  * <p>A data transformation on a logical table. This is a variant type structure. For this
  *             structure to be valid, only one of the attributes can be non-null.</p>
  */
@@ -867,6 +921,9 @@ export type TransformOperation =
   | TransformOperation.UntagColumnOperationMember
   | TransformOperation.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace TransformOperation {
   /**
    * <p>An operation that projects columns. Operations that come after a projection can only
@@ -1004,6 +1061,7 @@ export namespace TransformOperation {
 }
 
 /**
+ * @public
  * <p>Properties associated with the columns participating in a join.</p>
  */
 export interface JoinKeyProperties {
@@ -1014,14 +1072,24 @@ export interface JoinKeyProperties {
   UniqueKey?: boolean;
 }
 
-export enum JoinType {
-  INNER = "INNER",
-  LEFT = "LEFT",
-  OUTER = "OUTER",
-  RIGHT = "RIGHT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JoinType = {
+  INNER: "INNER",
+  LEFT: "LEFT",
+  OUTER: "OUTER",
+  RIGHT: "RIGHT",
+} as const;
 
 /**
+ * @public
+ */
+export type JoinType = (typeof JoinType)[keyof typeof JoinType];
+
+/**
+ * @public
  * <p>The instructions associated with a join. </p>
  */
 export interface JoinInstruction {
@@ -1057,6 +1125,7 @@ export interface JoinInstruction {
 }
 
 /**
+ * @public
  * <p>Information about the source of a logical table. This is a variant type structure. For
  *             this structure to be valid, only one of the attributes can be non-null.</p>
  */
@@ -1078,6 +1147,7 @@ export interface LogicalTableSource {
 }
 
 /**
+ * @public
  * <p>A <i>logical table</i> is a unit that joins and that data
  *             transformations operate on. A logical table has a source, which can be either a physical
  *             table or result of a join. When a logical table points to a physical table, the logical
@@ -1100,17 +1170,27 @@ export interface LogicalTable {
   Source: LogicalTableSource | undefined;
 }
 
-export enum InputColumnDataType {
-  BIT = "BIT",
-  BOOLEAN = "BOOLEAN",
-  DATETIME = "DATETIME",
-  DECIMAL = "DECIMAL",
-  INTEGER = "INTEGER",
-  JSON = "JSON",
-  STRING = "STRING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InputColumnDataType = {
+  BIT: "BIT",
+  BOOLEAN: "BOOLEAN",
+  DATETIME: "DATETIME",
+  DECIMAL: "DECIMAL",
+  INTEGER: "INTEGER",
+  JSON: "JSON",
+  STRING: "STRING",
+} as const;
 
 /**
+ * @public
+ */
+export type InputColumnDataType = (typeof InputColumnDataType)[keyof typeof InputColumnDataType];
+
+/**
+ * @public
  * <p>Metadata for a column that is used as the input of a transform operation.</p>
  */
 export interface InputColumn {
@@ -1126,6 +1206,7 @@ export interface InputColumn {
 }
 
 /**
+ * @public
  * <p>A physical table type built from the results of the custom SQL query.</p>
  */
 export interface CustomSql {
@@ -1151,6 +1232,7 @@ export interface CustomSql {
 }
 
 /**
+ * @public
  * <p>A physical table type for relational data sources.</p>
  */
 export interface RelationalTable {
@@ -1180,21 +1262,40 @@ export interface RelationalTable {
   InputColumns: InputColumn[] | undefined;
 }
 
-export enum FileFormat {
-  CLF = "CLF",
-  CSV = "CSV",
-  ELF = "ELF",
-  JSON = "JSON",
-  TSV = "TSV",
-  XLSX = "XLSX",
-}
-
-export enum TextQualifier {
-  DOUBLE_QUOTE = "DOUBLE_QUOTE",
-  SINGLE_QUOTE = "SINGLE_QUOTE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FileFormat = {
+  CLF: "CLF",
+  CSV: "CSV",
+  ELF: "ELF",
+  JSON: "JSON",
+  TSV: "TSV",
+  XLSX: "XLSX",
+} as const;
 
 /**
+ * @public
+ */
+export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const TextQualifier = {
+  DOUBLE_QUOTE: "DOUBLE_QUOTE",
+  SINGLE_QUOTE: "SINGLE_QUOTE",
+} as const;
+
+/**
+ * @public
+ */
+export type TextQualifier = (typeof TextQualifier)[keyof typeof TextQualifier];
+
+/**
+ * @public
  * <p>Information about the format for a source file or files.</p>
  */
 export interface UploadSettings {
@@ -1225,6 +1326,7 @@ export interface UploadSettings {
 }
 
 /**
+ * @public
  * <p>A physical table type for an S3 data source.</p>
  */
 export interface S3Source {
@@ -1248,6 +1350,7 @@ export interface S3Source {
 }
 
 /**
+ * @public
  * <p>A view of a data source that contains information about the shape of the data in the
  *             underlying source. This is a variant type structure. For this structure to be valid,
  *             only one of the attributes can be non-null.</p>
@@ -1258,6 +1361,9 @@ export type PhysicalTable =
   | PhysicalTable.S3SourceMember
   | PhysicalTable.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace PhysicalTable {
   /**
    * <p>A physical table type for relational data sources.</p>
@@ -1311,22 +1417,51 @@ export namespace PhysicalTable {
   };
 }
 
-export enum RowLevelPermissionFormatVersion {
-  VERSION_1 = "VERSION_1",
-  VERSION_2 = "VERSION_2",
-}
-
-export enum RowLevelPermissionPolicy {
-  DENY_ACCESS = "DENY_ACCESS",
-  GRANT_ACCESS = "GRANT_ACCESS",
-}
-
-export enum Status {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RowLevelPermissionFormatVersion = {
+  VERSION_1: "VERSION_1",
+  VERSION_2: "VERSION_2",
+} as const;
 
 /**
+ * @public
+ */
+export type RowLevelPermissionFormatVersion =
+  (typeof RowLevelPermissionFormatVersion)[keyof typeof RowLevelPermissionFormatVersion];
+
+/**
+ * @public
+ * @enum
+ */
+export const RowLevelPermissionPolicy = {
+  DENY_ACCESS: "DENY_ACCESS",
+  GRANT_ACCESS: "GRANT_ACCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type RowLevelPermissionPolicy = (typeof RowLevelPermissionPolicy)[keyof typeof RowLevelPermissionPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
  * <p>Information about a dataset that contains permissions for row-level security (RLS).
  *             The permissions dataset maps fields to users or groups. For more information, see
  *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
@@ -1364,6 +1499,7 @@ export interface RowLevelPermissionDataSet {
 }
 
 /**
+ * @public
  * <p>A set of rules associated with a tag.</p>
  */
 export interface RowLevelPermissionTagRule {
@@ -1389,6 +1525,7 @@ export interface RowLevelPermissionTagRule {
 }
 
 /**
+ * @public
  * <p>The configuration of tags on a dataset to set row-level security. </p>
  */
 export interface RowLevelPermissionTagConfiguration {
@@ -1401,8 +1538,16 @@ export interface RowLevelPermissionTagConfiguration {
    * <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
    */
   TagRules: RowLevelPermissionTagRule[] | undefined;
+
+  /**
+   * <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
+   */
+  TagRuleConfigurations?: string[][];
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSetRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -1477,6 +1622,9 @@ export interface CreateDataSetRequest {
   DataSetUsageConfiguration?: DataSetUsageConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -1512,6 +1660,7 @@ export interface CreateDataSetResponse {
 }
 
 /**
+ * @public
  * <p>The required parameters that are needed to connect to a Databricks data source.</p>
  */
 export interface DatabricksParameters {
@@ -1532,6 +1681,7 @@ export interface DatabricksParameters {
 }
 
 /**
+ * @public
  * <p>The required parameters for connecting to an Exasol data source.</p>
  */
 export interface ExasolParameters {
@@ -1547,6 +1697,7 @@ export interface ExasolParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Jira.</p>
  */
 export interface JiraParameters {
@@ -1557,6 +1708,7 @@ export interface JiraParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for MariaDB.</p>
  */
 export interface MariaDbParameters {
@@ -1577,6 +1729,7 @@ export interface MariaDbParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for MySQL.</p>
  */
 export interface MySqlParameters {
@@ -1597,6 +1750,7 @@ export interface MySqlParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Oracle.</p>
  */
 export interface OracleParameters {
@@ -1617,6 +1771,7 @@ export interface OracleParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for PostgreSQL.</p>
  */
 export interface PostgreSqlParameters {
@@ -1637,6 +1792,7 @@ export interface PostgreSqlParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Presto.</p>
  */
 export interface PrestoParameters {
@@ -1657,6 +1813,7 @@ export interface PrestoParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Amazon RDS.</p>
  */
 export interface RdsParameters {
@@ -1672,6 +1829,7 @@ export interface RdsParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
  *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
  *             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
@@ -1700,6 +1858,7 @@ export interface RedshiftParameters {
 }
 
 /**
+ * @public
  * <p>Amazon S3 manifest file location.</p>
  */
 export interface ManifestFileLocation {
@@ -1715,6 +1874,7 @@ export interface ManifestFileLocation {
 }
 
 /**
+ * @public
  * <p>The parameters for S3.</p>
  */
 export interface S3Parameters {
@@ -1731,6 +1891,7 @@ export interface S3Parameters {
 }
 
 /**
+ * @public
  * <p>The parameters for ServiceNow.</p>
  */
 export interface ServiceNowParameters {
@@ -1741,6 +1902,7 @@ export interface ServiceNowParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Snowflake.</p>
  */
 export interface SnowflakeParameters {
@@ -1761,6 +1923,7 @@ export interface SnowflakeParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Spark.</p>
  */
 export interface SparkParameters {
@@ -1776,6 +1939,7 @@ export interface SparkParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for SQL Server.</p>
  */
 export interface SqlServerParameters {
@@ -1796,6 +1960,7 @@ export interface SqlServerParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Teradata.</p>
  */
 export interface TeradataParameters {
@@ -1816,6 +1981,7 @@ export interface TeradataParameters {
 }
 
 /**
+ * @public
  * <p>The parameters for Twitter.</p>
  */
 export interface TwitterParameters {
@@ -1831,6 +1997,7 @@ export interface TwitterParameters {
 }
 
 /**
+ * @public
  * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
  *             This is a variant type structure. For this structure to be valid, only one of the
  *             attributes can be non-null.</p>
@@ -1861,6 +2028,9 @@ export type DataSourceParameters =
   | DataSourceParameters.TwitterParametersMember
   | DataSourceParameters.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace DataSourceParameters {
   /**
    * <p>The parameters for OpenSearch.</p>
@@ -2639,6 +2809,7 @@ export namespace DataSourceParameters {
 }
 
 /**
+ * @public
  * <p>The combination of user name and password that are used as credentials.</p>
  */
 export interface CredentialPair {
@@ -2667,6 +2838,7 @@ export interface CredentialPair {
 }
 
 /**
+ * @public
  * <p>Data source credentials. This is a variant type structure. For this structure to be
  *             valid, only one of the attributes can be non-null.</p>
  */
@@ -2694,6 +2866,7 @@ export interface DataSourceCredentials {
 }
 
 /**
+ * @public
  * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
  *             underlying data source.</p>
  */
@@ -2704,36 +2877,46 @@ export interface SslProperties {
   DisableSsl?: boolean;
 }
 
-export enum DataSourceType {
-  ADOBE_ANALYTICS = "ADOBE_ANALYTICS",
-  AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
-  AMAZON_OPENSEARCH = "AMAZON_OPENSEARCH",
-  ATHENA = "ATHENA",
-  AURORA = "AURORA",
-  AURORA_POSTGRESQL = "AURORA_POSTGRESQL",
-  AWS_IOT_ANALYTICS = "AWS_IOT_ANALYTICS",
-  DATABRICKS = "DATABRICKS",
-  EXASOL = "EXASOL",
-  GITHUB = "GITHUB",
-  JIRA = "JIRA",
-  MARIADB = "MARIADB",
-  MYSQL = "MYSQL",
-  ORACLE = "ORACLE",
-  POSTGRESQL = "POSTGRESQL",
-  PRESTO = "PRESTO",
-  REDSHIFT = "REDSHIFT",
-  S3 = "S3",
-  SALESFORCE = "SALESFORCE",
-  SERVICENOW = "SERVICENOW",
-  SNOWFLAKE = "SNOWFLAKE",
-  SPARK = "SPARK",
-  SQLSERVER = "SQLSERVER",
-  TERADATA = "TERADATA",
-  TIMESTREAM = "TIMESTREAM",
-  TWITTER = "TWITTER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceType = {
+  ADOBE_ANALYTICS: "ADOBE_ANALYTICS",
+  AMAZON_ELASTICSEARCH: "AMAZON_ELASTICSEARCH",
+  AMAZON_OPENSEARCH: "AMAZON_OPENSEARCH",
+  ATHENA: "ATHENA",
+  AURORA: "AURORA",
+  AURORA_POSTGRESQL: "AURORA_POSTGRESQL",
+  AWS_IOT_ANALYTICS: "AWS_IOT_ANALYTICS",
+  DATABRICKS: "DATABRICKS",
+  EXASOL: "EXASOL",
+  GITHUB: "GITHUB",
+  JIRA: "JIRA",
+  MARIADB: "MARIADB",
+  MYSQL: "MYSQL",
+  ORACLE: "ORACLE",
+  POSTGRESQL: "POSTGRESQL",
+  PRESTO: "PRESTO",
+  REDSHIFT: "REDSHIFT",
+  S3: "S3",
+  SALESFORCE: "SALESFORCE",
+  SERVICENOW: "SERVICENOW",
+  SNOWFLAKE: "SNOWFLAKE",
+  SPARK: "SPARK",
+  SQLSERVER: "SQLSERVER",
+  TERADATA: "TERADATA",
+  TIMESTREAM: "TIMESTREAM",
+  TWITTER: "TWITTER",
+} as const;
 
 /**
+ * @public
+ */
+export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
+
+/**
+ * @public
  * <p>VPC connection properties.</p>
  */
 export interface VpcConnectionProperties {
@@ -2743,6 +2926,9 @@ export interface VpcConnectionProperties {
   VpcConnectionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSourceRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -2799,6 +2985,9 @@ export interface CreateDataSourceRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDataSourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -2826,10 +3015,22 @@ export interface CreateDataSourceResponse {
   Status?: number;
 }
 
-export enum FolderType {
-  SHARED = "SHARED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FolderType = {
+  SHARED: "SHARED",
+} as const;
 
+/**
+ * @public
+ */
+export type FolderType = (typeof FolderType)[keyof typeof FolderType];
+
+/**
+ * @public
+ */
 export interface CreateFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account where you want to create the folder.</p>
@@ -2870,6 +3071,9 @@ export interface CreateFolderRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFolderResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -2892,12 +3096,24 @@ export interface CreateFolderResponse {
   RequestId?: string;
 }
 
-export enum MemberType {
-  ANALYSIS = "ANALYSIS",
-  DASHBOARD = "DASHBOARD",
-  DATASET = "DATASET",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MemberType = {
+  ANALYSIS: "ANALYSIS",
+  DASHBOARD: "DASHBOARD",
+  DATASET: "DATASET",
+} as const;
 
+/**
+ * @public
+ */
+export type MemberType = (typeof MemberType)[keyof typeof MemberType];
+
+/**
+ * @public
+ */
 export interface CreateFolderMembershipRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -2921,6 +3137,7 @@ export interface CreateFolderMembershipRequest {
 }
 
 /**
+ * @public
  * <p>An asset in a Amazon QuickSight folder, such as a dashboard, analysis, or dataset.</p>
  */
 export interface FolderMember {
@@ -2935,6 +3152,9 @@ export interface FolderMember {
   MemberType?: MemberType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFolderMembershipResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -2953,6 +3173,7 @@ export interface CreateFolderMembershipResponse {
 }
 
 /**
+ * @public
  * <p>The request object for this operation. </p>
  */
 export interface CreateGroupRequest {
@@ -2979,6 +3200,7 @@ export interface CreateGroupRequest {
 }
 
 /**
+ * @public
  * <p>A <i>group</i> in Amazon QuickSight consists of a set of users. You can
  *             use groups to make it easier to manage access and security. </p>
  */
@@ -3005,6 +3227,7 @@ export interface Group {
 }
 
 /**
+ * @public
  * <p>The response object for this operation.</p>
  */
 export interface CreateGroupResponse {
@@ -3024,6 +3247,9 @@ export interface CreateGroupResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupMembershipRequest {
   /**
    * <p>The name of the user that you want to add to the group membership.</p>
@@ -3048,6 +3274,7 @@ export interface CreateGroupMembershipRequest {
 }
 
 /**
+ * @public
  * <p>A member of an Amazon QuickSight group. Currently, group members must be users. Groups
  *             can't be members of another group. .</p>
  */
@@ -3063,6 +3290,9 @@ export interface GroupMember {
   MemberName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupMembershipResponse {
   /**
    * <p>The group member.</p>
@@ -3080,6 +3310,9 @@ export interface CreateGroupMembershipResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateIAMPolicyAssignmentRequest {
   /**
    * <p>The ID of the Amazon Web Services account where you want to assign an IAM policy to Amazon QuickSight users or
@@ -3130,6 +3363,9 @@ export interface CreateIAMPolicyAssignmentRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateIAMPolicyAssignmentResponse {
   /**
    * <p>The name of the assignment. This name must be unique within the Amazon Web Services account.</p>
@@ -3183,11 +3419,23 @@ export interface CreateIAMPolicyAssignmentResponse {
   Status?: number;
 }
 
-export enum IngestionType {
-  FULL_REFRESH = "FULL_REFRESH",
-  INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IngestionType = {
+  FULL_REFRESH: "FULL_REFRESH",
+  INCREMENTAL_REFRESH: "INCREMENTAL_REFRESH",
+} as const;
 
+/**
+ * @public
+ */
+export type IngestionType = (typeof IngestionType)[keyof typeof IngestionType];
+
+/**
+ * @public
+ */
 export interface CreateIngestionRequest {
   /**
    * <p>The ID of the dataset used in the ingestion.</p>
@@ -3210,15 +3458,27 @@ export interface CreateIngestionRequest {
   IngestionType?: IngestionType | string;
 }
 
-export enum IngestionStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IngestionStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+} as const;
 
+/**
+ * @public
+ */
+export type IngestionStatus = (typeof IngestionStatus)[keyof typeof IngestionStatus];
+
+/**
+ * @public
+ */
 export interface CreateIngestionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
@@ -3246,10 +3506,22 @@ export interface CreateIngestionResponse {
   Status?: number;
 }
 
-export enum IdentityStore {
-  QUICKSIGHT = "QUICKSIGHT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IdentityStore = {
+  QUICKSIGHT: "QUICKSIGHT",
+} as const;
 
+/**
+ * @public
+ */
+export type IdentityStore = (typeof IdentityStore)[keyof typeof IdentityStore];
+
+/**
+ * @public
+ */
 export interface CreateNamespaceRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to create the Amazon QuickSight namespace in.</p>
@@ -3273,14 +3545,26 @@ export interface CreateNamespaceRequest {
   Tags?: Tag[];
 }
 
-export enum NamespaceStatus {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  NON_RETRYABLE_FAILURE = "NON_RETRYABLE_FAILURE",
-  RETRYABLE_FAILURE = "RETRYABLE_FAILURE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NamespaceStatus = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  NON_RETRYABLE_FAILURE: "NON_RETRYABLE_FAILURE",
+  RETRYABLE_FAILURE: "RETRYABLE_FAILURE",
+} as const;
 
+/**
+ * @public
+ */
+export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceStatus];
+
+/**
+ * @public
+ */
 export interface CreateNamespaceResponse {
   /**
    * <p>The ARN of the Amazon QuickSight namespace you created. </p>
@@ -3325,6 +3609,199 @@ export interface CreateNamespaceResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RefreshInterval = {
+  DAILY: "DAILY",
+  HOURLY: "HOURLY",
+  MINUTE15: "MINUTE15",
+  MINUTE30: "MINUTE30",
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+} as const;
+
+/**
+ * @public
+ */
+export type RefreshInterval = (typeof RefreshInterval)[keyof typeof RefreshInterval];
+
+/**
+ * @public
+ * @enum
+ */
+export const DayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+
+/**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+/**
+ * @public
+ * <p>The refresh on entity for weekly or monthly schedules.</p>
+ */
+export interface ScheduleRefreshOnEntity {
+  /**
+   * <p>The day of the week that you want to schedule a refresh on.</p>
+   */
+  DayOfWeek?: DayOfWeek | string;
+
+  /**
+   * <p>The day of the month that you want to schedule refresh on.</p>
+   */
+  DayOfMonth?: string;
+}
+
+/**
+ * @public
+ * <p>Specifies the interval between each scheduled refresh of a dataset.</p>
+ */
+export interface RefreshFrequency {
+  /**
+   * <p>The interval between scheduled refreshes. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MINUTE15</code>: The dataset refreshes every 15 minutes. This value is only supported for incremental refreshes. This interval can only be used for one schedule per dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MINUTE30</code>:The dataset refreshes every 30 minutes. This value is only supported for incremental refreshes. This interval can only be used for one schedule per dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOURLY</code>: The dataset refreshes every hour. This interval can only be used for one schedule per dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DAILY</code>: The dataset refreshes every day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WEEKLY</code>: The dataset refreshes every week.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MONTHLY</code>: The dataset refreshes every month.</p>
+   *             </li>
+   *          </ul>
+   */
+  Interval: RefreshInterval | string | undefined;
+
+  /**
+   * <p>The day of the week that you want to schedule the refresh on. This value is required for weekly and monthly refresh intervals.</p>
+   */
+  RefreshOnDay?: ScheduleRefreshOnEntity;
+
+  /**
+   * <p>The timezone that you want the refresh schedule to use. The timezone ID must match a corresponding ID found on <code>java.util.time.getAvailableIDs()</code>.</p>
+   */
+  Timezone?: string;
+
+  /**
+   * <p>The time of day that you want the datset to refresh. This value is expressed in HH:MM format. This field is not required for schedules that refresh hourly.</p>
+   */
+  TimeOfTheDay?: string;
+}
+
+/**
+ * @public
+ * <p>The refresh schedule of a dataset.</p>
+ */
+export interface RefreshSchedule {
+  /**
+   * <p>An identifier for the refresh schedule.</p>
+   */
+  ScheduleId: string | undefined;
+
+  /**
+   * <p>The frequency for the refresh schedule.</p>
+   */
+  ScheduleFrequency: RefreshFrequency | undefined;
+
+  /**
+   * <p>Time after which the refresh schedule can be started, expressed in <code>YYYY-MM-DDTHH:MM:SS</code> format.</p>
+   */
+  StartAfterDateTime?: Date;
+
+  /**
+   * <p>The type of refresh that a datset undergoes. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FULL_REFRESH</code>: A complete refresh of a dataset.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INCREMENTAL_REFRESH</code>: A partial refresh of some rows of a dataset, based on the time window specified.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information on full and incremental refreshes, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html">Refreshing SPICE data</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   */
+  RefreshType: IngestionType | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateRefreshScheduleRequest {
+  /**
+   * <p>The ID of the dataset.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The refresh schedule.</p>
+   */
+  Schedule: RefreshSchedule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRefreshScheduleResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The ID of the refresh schedule.</p>
+   */
+  ScheduleId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
  * <p>Dataset schema.</p>
  */
 export interface DataSetSchema {
@@ -3335,6 +3812,7 @@ export interface DataSetSchema {
 }
 
 /**
+ * @public
  * <p>Dataset configuration.</p>
  */
 export interface DataSetConfiguration {
@@ -3355,6 +3833,7 @@ export interface DataSetConfiguration {
 }
 
 /**
+ * @public
  * <p>The detailed definition of a template.</p>
  */
 export interface TemplateVersionDefinition {
@@ -3403,6 +3882,7 @@ export interface TemplateVersionDefinition {
 }
 
 /**
+ * @public
  * <p>The source analysis of the template.</p>
  */
 export interface TemplateSourceAnalysis {
@@ -3419,6 +3899,7 @@ export interface TemplateSourceAnalysis {
 }
 
 /**
+ * @public
  * <p>The source template of the template.</p>
  */
 export interface TemplateSourceTemplate {
@@ -3429,6 +3910,7 @@ export interface TemplateSourceTemplate {
 }
 
 /**
+ * @public
  * <p>The source entity of the template.</p>
  */
 export interface TemplateSourceEntity {
@@ -3443,6 +3925,9 @@ export interface TemplateSourceEntity {
   SourceTemplate?: TemplateSourceTemplate;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateRequest {
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon QuickSight account.</p>
@@ -3503,6 +3988,9 @@ export interface CreateTemplateRequest {
   Definition?: TemplateVersionDefinition;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateResponse {
   /**
    * <p>The ARN for the template.</p>
@@ -3536,6 +4024,9 @@ export interface CreateTemplateResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you creating an alias for.</p>
@@ -3561,6 +4052,7 @@ export interface CreateTemplateAliasRequest {
 }
 
 /**
+ * @public
  * <p>The template alias.</p>
  */
 export interface TemplateAlias {
@@ -3580,6 +4072,9 @@ export interface TemplateAlias {
   TemplateVersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateTemplateAliasResponse {
   /**
    * <p>Information about the template alias.</p>
@@ -3598,6 +4093,7 @@ export interface CreateTemplateAliasResponse {
 }
 
 /**
+ * @public
  * <p>The theme colors that are used for data colors in charts. The colors description is a
  *             hexadecimal color code that consists of six alphanumerical characters, prefixed with
  *                 <code>#</code>, for example #37BFF5. </p>
@@ -3621,6 +4117,7 @@ export interface DataColorPalette {
 }
 
 /**
+ * @public
  * <p>Display options related to tiles on a sheet.</p>
  */
 export interface TileStyle {
@@ -3631,6 +4128,7 @@ export interface TileStyle {
 }
 
 /**
+ * @public
  * <p>The display options for gutter spacing between tiles on a sheet.</p>
  */
 export interface GutterStyle {
@@ -3642,6 +4140,7 @@ export interface GutterStyle {
 }
 
 /**
+ * @public
  * <p>The display options for margins around the outside edge of sheets.</p>
  */
 export interface MarginStyle {
@@ -3652,6 +4151,7 @@ export interface MarginStyle {
 }
 
 /**
+ * @public
  * <p>The display options for the layout of tiles on a sheet.</p>
  */
 export interface TileLayoutStyle {
@@ -3667,6 +4167,7 @@ export interface TileLayoutStyle {
 }
 
 /**
+ * @public
  * <p>The theme display options for sheets. </p>
  */
 export interface SheetStyle {
@@ -3682,6 +4183,7 @@ export interface SheetStyle {
 }
 
 /**
+ * @public
  * <p>Determines the font settings.</p>
  */
 export interface Font {
@@ -3692,6 +4194,7 @@ export interface Font {
 }
 
 /**
+ * @public
  * <p>Determines the typography options.</p>
  */
 export interface Typography {
@@ -3702,6 +4205,7 @@ export interface Typography {
 }
 
 /**
+ * @public
  * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
  *             description is a hexadecimal color code that consists of six alphanumerical characters,
  *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
@@ -3801,6 +4305,7 @@ export interface UIColorPalette {
 }
 
 /**
+ * @public
  * <p>The theme configuration. This configuration contains all of the display properties for
  *             a theme.</p>
  */
@@ -3827,6 +4332,9 @@ export interface ThemeConfiguration {
   Typography?: Typography;
 }
 
+/**
+ * @public
+ */
 export interface CreateThemeRequest {
   /**
    * <p>The ID of the Amazon Web Services account where you want to store the new theme. </p>
@@ -3878,6 +4386,9 @@ export interface CreateThemeRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateThemeResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the theme.</p>
@@ -3910,6 +4421,9 @@ export interface CreateThemeResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateThemeAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme for the new theme alias.</p>
@@ -3935,6 +4449,7 @@ export interface CreateThemeAliasRequest {
 }
 
 /**
+ * @public
  * <p>An alias for a theme.</p>
  */
 export interface ThemeAlias {
@@ -3954,6 +4469,9 @@ export interface ThemeAlias {
   ThemeVersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateThemeAliasResponse {
   /**
    * <p>Information about the theme alias.</p>
@@ -3971,20 +4489,30 @@ export interface CreateThemeAliasResponse {
   RequestId?: string;
 }
 
-export enum DashboardErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH = "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DashboardErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
+  COLUMN_REPLACEMENT_MISSING: "COLUMN_REPLACEMENT_MISSING",
+  COLUMN_TYPE_MISMATCH: "COLUMN_TYPE_MISMATCH",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  PARAMETER_NOT_FOUND: "PARAMETER_NOT_FOUND",
+  PARAMETER_TYPE_INVALID: "PARAMETER_TYPE_INVALID",
+  PARAMETER_VALUE_INCOMPATIBLE: "PARAMETER_VALUE_INCOMPATIBLE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type DashboardErrorType = (typeof DashboardErrorType)[keyof typeof DashboardErrorType];
+
+/**
+ * @public
  * <p>Dashboard error.</p>
  */
 export interface DashboardError {
@@ -4005,6 +4533,7 @@ export interface DashboardError {
 }
 
 /**
+ * @public
  * <p>Dashboard version.</p>
  */
 export interface DashboardVersion {
@@ -4061,6 +4590,7 @@ export interface DashboardVersion {
 }
 
 /**
+ * @public
  * <p>Dashboard.</p>
  */
 export interface Dashboard {
@@ -4100,17 +4630,27 @@ export interface Dashboard {
   LastUpdatedTime?: Date;
 }
 
-export enum DashboardFilterAttribute {
-  DASHBOARD_NAME = "DASHBOARD_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_USER = "QUICKSIGHT_USER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DashboardFilterAttribute = {
+  DASHBOARD_NAME: "DASHBOARD_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_USER: "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
 
 /**
+ * @public
+ */
+export type DashboardFilterAttribute = (typeof DashboardFilterAttribute)[keyof typeof DashboardFilterAttribute];
+
+/**
+ * @public
  * <p>A filter that you apply when searching for dashboards. </p>
  */
 export interface DashboardSearchFilter {
@@ -4163,6 +4703,7 @@ export interface DashboardSearchFilter {
 }
 
 /**
+ * @public
  * <p>Dashboard summary.</p>
  */
 export interface DashboardSummary {
@@ -4203,6 +4744,7 @@ export interface DashboardSummary {
 }
 
 /**
+ * @public
  * <p>Dashboard version summary.</p>
  */
 export interface DashboardVersionSummary {
@@ -4238,6 +4780,7 @@ export interface DashboardVersionSummary {
 }
 
 /**
+ * @public
  * <p>Output column.</p>
  */
 export interface OutputColumn {
@@ -4258,6 +4801,7 @@ export interface OutputColumn {
 }
 
 /**
+ * @public
  * <p>Dataset.</p>
  */
 export interface DataSet {
@@ -4348,16 +4892,95 @@ export interface DataSet {
   DataSetUsageConfiguration?: DataSetUsageConfiguration;
 }
 
-export enum DataSetFilterAttribute {
-  DATASET_NAME = "DATASET_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
+/**
+ * @public
+ * @enum
+ */
+export const DataSetFilterAttribute = {
+  DATASET_NAME: "DATASET_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetFilterAttribute = (typeof DataSetFilterAttribute)[keyof typeof DataSetFilterAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const LookbackWindowSizeUnit = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  WEEK: "WEEK",
+} as const;
+
+/**
+ * @public
+ */
+export type LookbackWindowSizeUnit = (typeof LookbackWindowSizeUnit)[keyof typeof LookbackWindowSizeUnit];
+
+/**
+ * @public
+ * <p>The lookback window setup of an incremental refresh configuration.</p>
+ */
+export interface LookbackWindow {
+  /**
+   * <p>The name of the lookback window column.</p>
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The lookback window column size.</p>
+   */
+  Size: number | undefined;
+
+  /**
+   * <p>The size unit that is used for the lookback window column. Valid values for this structure are <code>HOUR</code>, <code>DAY</code>, and <code>WEEK</code>.</p>
+   */
+  SizeUnit: LookbackWindowSizeUnit | string | undefined;
 }
 
 /**
+ * @public
+ * <p>The incremental refresh configuration for a dataset.</p>
+ */
+export interface IncrementalRefresh {
+  /**
+   * <p>The lookback window setup for an incremental refresh configuration.</p>
+   */
+  LookbackWindow: LookbackWindow | undefined;
+}
+
+/**
+ * @public
+ * <p>The refresh configuration of a dataset.</p>
+ */
+export interface RefreshConfiguration {
+  /**
+   * <p>The incremental refresh for the dataset.</p>
+   */
+  IncrementalRefresh: IncrementalRefresh | undefined;
+}
+
+/**
+ * @public
+ * <p>The refresh properties of a dataset.</p>
+ */
+export interface DataSetRefreshProperties {
+  /**
+   * <p>The refresh configuration for a dataset.</p>
+   */
+  RefreshConfiguration: RefreshConfiguration | undefined;
+}
+
+/**
+ * @public
  * <p>A filter that you apply when searching for datasets.</p>
  */
 export interface DataSetSearchFilter {
@@ -4410,6 +5033,7 @@ export interface DataSetSearchFilter {
 }
 
 /**
+ * @public
  * <p>Dataset summary.</p>
  */
 export interface DataSetSummary {
@@ -4459,18 +5083,28 @@ export interface DataSetSummary {
   ColumnLevelPermissionRulesApplied?: boolean;
 }
 
-export enum DataSourceErrorInfoType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  CONFLICT = "CONFLICT",
-  COPY_SOURCE_NOT_FOUND = "COPY_SOURCE_NOT_FOUND",
-  ENGINE_VERSION_NOT_SUPPORTED = "ENGINE_VERSION_NOT_SUPPORTED",
-  GENERIC_SQL_FAILURE = "GENERIC_SQL_FAILURE",
-  TIMEOUT = "TIMEOUT",
-  UNKNOWN = "UNKNOWN",
-  UNKNOWN_HOST = "UNKNOWN_HOST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceErrorInfoType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  CONFLICT: "CONFLICT",
+  COPY_SOURCE_NOT_FOUND: "COPY_SOURCE_NOT_FOUND",
+  ENGINE_VERSION_NOT_SUPPORTED: "ENGINE_VERSION_NOT_SUPPORTED",
+  GENERIC_SQL_FAILURE: "GENERIC_SQL_FAILURE",
+  TIMEOUT: "TIMEOUT",
+  UNKNOWN: "UNKNOWN",
+  UNKNOWN_HOST: "UNKNOWN_HOST",
+} as const;
 
 /**
+ * @public
+ */
+export type DataSourceErrorInfoType = (typeof DataSourceErrorInfoType)[keyof typeof DataSourceErrorInfoType];
+
+/**
+ * @public
  * <p>Error information for the data source creation or update.</p>
  */
 export interface DataSourceErrorInfo {
@@ -4486,6 +5120,7 @@ export interface DataSourceErrorInfo {
 }
 
 /**
+ * @public
  * <p>The structure of a data source.</p>
  */
 export interface DataSource {
@@ -4569,14 +5204,24 @@ export interface DataSource {
   SecretArn?: string;
 }
 
-export enum DataSourceFilterAttribute {
-  DATASOURCE_NAME = "DATASOURCE_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceFilterAttribute = {
+  DATASOURCE_NAME: "DATASOURCE_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
 
 /**
+ * @public
+ */
+export type DataSourceFilterAttribute = (typeof DataSourceFilterAttribute)[keyof typeof DataSourceFilterAttribute];
+
+/**
+ * @public
  * <p>A filter that you apply when searching for data sources.</p>
  */
 export interface DataSourceSearchFilter {
@@ -4621,6 +5266,7 @@ export interface DataSourceSearchFilter {
 }
 
 /**
+ * @public
  * <p>A <code>DataSourceSummary</code> object that returns a summary of a data source.</p>
  */
 export interface DataSourceSummary {
@@ -4655,6 +5301,9 @@ export interface DataSourceSummary {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountCustomizationRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to delete Amazon QuickSight customizations from in
@@ -4668,6 +5317,9 @@ export interface DeleteAccountCustomizationRequest {
   Namespace?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountCustomizationResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -4680,6 +5332,9 @@ export interface DeleteAccountCustomizationResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountSubscriptionRequest {
   /**
    * <p>The Amazon Web Services account ID of the account that you want to delete.</p>
@@ -4687,6 +5342,9 @@ export interface DeleteAccountSubscriptionRequest {
   AwsAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAccountSubscriptionResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -4699,6 +5357,9 @@ export interface DeleteAccountSubscriptionResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAnalysisRequest {
   /**
    * <p>The ID of the Amazon Web Services account where you want to delete an analysis.</p>
@@ -4725,6 +5386,9 @@ export interface DeleteAnalysisRequest {
   ForceDeleteWithoutRecovery?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAnalysisResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -4752,6 +5416,9 @@ export interface DeleteAnalysisResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDashboardRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -4771,6 +5438,9 @@ export interface DeleteDashboardRequest {
   VersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDashboardResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -4793,6 +5463,9 @@ export interface DeleteDashboardResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataSetRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -4805,6 +5478,9 @@ export interface DeleteDataSetRequest {
   DataSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataSetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -4827,6 +5503,39 @@ export interface DeleteDataSetResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
+export interface DeleteDataSetRefreshPropertiesRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   */
+  DataSetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSetRefreshPropertiesResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
 export interface DeleteDataSourceRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -4839,6 +5548,9 @@ export interface DeleteDataSourceRequest {
   DataSourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDataSourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data source that you deleted.</p>
@@ -4861,6 +5573,9 @@ export interface DeleteDataSourceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -4873,6 +5588,9 @@ export interface DeleteFolderRequest {
   FolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFolderResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -4895,6 +5613,9 @@ export interface DeleteFolderResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFolderMembershipRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -4918,6 +5639,9 @@ export interface DeleteFolderMembershipRequest {
   MemberType: MemberType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFolderMembershipResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -4930,6 +5654,9 @@ export interface DeleteFolderMembershipResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupRequest {
   /**
    * <p>The name of the group that you want to delete.</p>
@@ -4948,6 +5675,9 @@ export interface DeleteGroupRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -4960,6 +5690,9 @@ export interface DeleteGroupResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupMembershipRequest {
   /**
    * <p>The name of the user that you want to delete from the group membership.</p>
@@ -4983,6 +5716,9 @@ export interface DeleteGroupMembershipRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupMembershipResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -4995,6 +5731,9 @@ export interface DeleteGroupMembershipResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIAMPolicyAssignmentRequest {
   /**
    * <p>The Amazon Web Services account ID where you want to delete the IAM policy assignment.</p>
@@ -5012,6 +5751,9 @@ export interface DeleteIAMPolicyAssignmentRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteIAMPolicyAssignmentResponse {
   /**
    * <p>The name of the assignment. </p>
@@ -5029,6 +5771,9 @@ export interface DeleteIAMPolicyAssignmentResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to delete the Amazon QuickSight namespace from.</p>
@@ -5041,6 +5786,9 @@ export interface DeleteNamespaceRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -5053,6 +5801,54 @@ export interface DeleteNamespaceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
+export interface DeleteRefreshScheduleRequest {
+  /**
+   * <p>The ID of the dataset.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the refresh schedule.</p>
+   */
+  ScheduleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRefreshScheduleResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The ID of the refresh schedule.</p>
+   */
+  ScheduleId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ */
 export interface DeleteTemplateRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you're deleting.</p>
@@ -5072,6 +5868,9 @@ export interface DeleteTemplateRequest {
   VersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTemplateResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -5094,6 +5893,9 @@ export interface DeleteTemplateResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTemplateAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the item to delete.</p>
@@ -5114,6 +5916,9 @@ export interface DeleteTemplateAliasRequest {
   AliasName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTemplateAliasResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -5141,6 +5946,9 @@ export interface DeleteTemplateAliasResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteThemeRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme that you're deleting.</p>
@@ -5161,6 +5969,9 @@ export interface DeleteThemeRequest {
   VersionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteThemeResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -5183,6 +5994,9 @@ export interface DeleteThemeResponse {
   ThemeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteThemeAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme alias to delete.</p>
@@ -5200,6 +6014,9 @@ export interface DeleteThemeAliasRequest {
   AliasName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteThemeAliasResponse {
   /**
    * <p>The name for the theme alias.</p>
@@ -5227,6 +6044,9 @@ export interface DeleteThemeAliasResponse {
   ThemeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The name of the user that you want to delete.</p>
@@ -5245,6 +6065,9 @@ export interface DeleteUserRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -5258,6 +6081,7 @@ export interface DeleteUserResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteUserByPrincipalIdRequest {
@@ -5278,6 +6102,9 @@ export interface DeleteUserByPrincipalIdRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserByPrincipalIdResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -5290,6 +6117,9 @@ export interface DeleteUserByPrincipalIdResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountCustomizationRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to describe Amazon QuickSight customizations
@@ -5313,6 +6143,9 @@ export interface DescribeAccountCustomizationRequest {
   Resolved?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountCustomizationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the customization that's associated with this Amazon Web Services account.</p>
@@ -5345,6 +6178,9 @@ export interface DescribeAccountCustomizationResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountSettingsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the settings that you want to list.</p>
@@ -5352,6 +6188,9 @@ export interface DescribeAccountSettingsRequest {
   AwsAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountSettingsResponse {
   /**
    * <p>The Amazon QuickSight settings for this Amazon Web Services account. This information
@@ -5375,6 +6214,9 @@ export interface DescribeAccountSettingsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountSubscriptionRequest {
   /**
    * <p>The Amazon Web Services account ID associated with your Amazon QuickSight account.</p>
@@ -5382,6 +6224,9 @@ export interface DescribeAccountSubscriptionRequest {
   AwsAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountSubscriptionResponse {
   /**
    * <p>A structure that contains the following elements:</p>
@@ -5418,6 +6263,9 @@ export interface DescribeAccountSubscriptionResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
@@ -5432,6 +6280,9 @@ export interface DescribeAnalysisRequest {
   AnalysisId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisResponse {
   /**
    * <p>A metadata structure that contains summary information for the analysis that you're
@@ -5450,6 +6301,9 @@ export interface DescribeAnalysisResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisDefinitionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
@@ -5464,6 +6318,9 @@ export interface DescribeAnalysisDefinitionRequest {
   AnalysisId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisDefinitionResponse {
   /**
    * <p>The ID of the analysis described.</p>
@@ -5544,6 +6401,9 @@ export interface DescribeAnalysisDefinitionResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisPermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
@@ -5558,6 +6418,9 @@ export interface DescribeAnalysisPermissionsRequest {
   AnalysisId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnalysisPermissionsResponse {
   /**
    * <p>The ID of the analysis whose permissions you're describing.</p>
@@ -5587,6 +6450,9 @@ export interface DescribeAnalysisPermissionsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -5611,6 +6477,9 @@ export interface DescribeDashboardRequest {
   AliasName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardResponse {
   /**
    * <p>Information about the dashboard.</p>
@@ -5628,6 +6497,9 @@ export interface DescribeDashboardResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardDefinitionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -5652,6 +6524,9 @@ export interface DescribeDashboardDefinitionRequest {
   AliasName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardDefinitionResponse {
   /**
    * <p>The ID of the dashboard described.</p>
@@ -5760,6 +6635,9 @@ export interface DescribeDashboardDefinitionResponse {
   DashboardPublishOptions?: DashboardPublishOptions;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardPermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're describing
@@ -5774,6 +6652,7 @@ export interface DescribeDashboardPermissionsRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains the configuration of a shareable link to the dashboard.</p>
  */
 export interface LinkSharingConfiguration {
@@ -5783,6 +6662,9 @@ export interface LinkSharingConfiguration {
   Permissions?: ResourcePermission[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeDashboardPermissionsResponse {
   /**
    * <p>The ID for the dashboard.</p>
@@ -5818,6 +6700,9 @@ export interface DescribeDashboardPermissionsResponse {
   LinkSharingConfiguration?: LinkSharingConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSetRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -5830,6 +6715,9 @@ export interface DescribeDataSetRequest {
   DataSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSetResponse {
   /**
    * <p>Information on the dataset.</p>
@@ -5847,6 +6735,9 @@ export interface DescribeDataSetResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSetPermissionsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -5859,6 +6750,9 @@ export interface DescribeDataSetPermissionsRequest {
   DataSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSetPermissionsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -5886,6 +6780,44 @@ export interface DescribeDataSetPermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
+export interface DescribeDataSetRefreshPropertiesRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   */
+  DataSetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataSetRefreshPropertiesResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The dataset refresh properties.</p>
+   */
+  DataSetRefreshProperties?: DataSetRefreshProperties;
+}
+
+/**
+ * @public
+ */
 export interface DescribeDataSourceRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -5898,6 +6830,9 @@ export interface DescribeDataSourceRequest {
   DataSourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSourceResponse {
   /**
    * <p>The information on the data source.</p>
@@ -5915,6 +6850,9 @@ export interface DescribeDataSourceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSourcePermissionsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -5927,6 +6865,9 @@ export interface DescribeDataSourcePermissionsRequest {
   DataSourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSourcePermissionsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -5954,6 +6895,9 @@ export interface DescribeDataSourcePermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -5967,6 +6911,7 @@ export interface DescribeFolderRequest {
 }
 
 /**
+ * @public
  * <p>A folder in Amazon QuickSight.</p>
  */
 export interface Folder {
@@ -6006,6 +6951,9 @@ export interface Folder {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -6023,6 +6971,9 @@ export interface DescribeFolderResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderPermissionsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -6035,6 +6986,9 @@ export interface DescribeFolderPermissionsRequest {
   FolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderPermissionsResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -6062,6 +7016,9 @@ export interface DescribeFolderPermissionsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderResolvedPermissionsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -6074,6 +7031,9 @@ export interface DescribeFolderResolvedPermissionsRequest {
   FolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderResolvedPermissionsResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -6101,6 +7061,9 @@ export interface DescribeFolderResolvedPermissionsResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupRequest {
   /**
    * <p>The name of the group that you want to describe.</p>
@@ -6119,6 +7082,9 @@ export interface DescribeGroupRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupResponse {
   /**
    * <p>The name of the group.</p>
@@ -6136,6 +7102,9 @@ export interface DescribeGroupResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupMembershipRequest {
   /**
    * <p>The user name of the user that you want to search for.</p>
@@ -6159,6 +7128,9 @@ export interface DescribeGroupMembershipRequest {
   Namespace: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupMembershipResponse {
   /**
    * <p>A member of an Amazon QuickSight group. Currently, group members must be users. Groups
@@ -6177,6 +7149,9 @@ export interface DescribeGroupMembershipResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIAMPolicyAssignmentRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the assignment that you want to describe.</p>
@@ -6195,6 +7170,7 @@ export interface DescribeIAMPolicyAssignmentRequest {
 }
 
 /**
+ * @public
  * <p>An Identity and Access Management (IAM) policy assignment.</p>
  */
 export interface IAMPolicyAssignment {
@@ -6229,6 +7205,9 @@ export interface IAMPolicyAssignment {
   AssignmentStatus?: AssignmentStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIAMPolicyAssignmentResponse {
   /**
    * <p>Information describing the IAM policy assignment.</p>
@@ -6247,6 +7226,7 @@ export interface DescribeIAMPolicyAssignmentResponse {
 }
 
 /**
+ * @public
  * <p>The <code>NextToken</code> value isn't valid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -6272,6 +7252,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeIngestionRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -6289,54 +7272,65 @@ export interface DescribeIngestionRequest {
   IngestionId: string | undefined;
 }
 
-export enum IngestionErrorType {
-  ACCOUNT_CAPACITY_LIMIT_EXCEEDED = "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
-  CONNECTION_FAILURE = "CONNECTION_FAILURE",
-  CURSOR_NOT_ENABLED = "CURSOR_NOT_ENABLED",
-  CUSTOMER_ERROR = "CUSTOMER_ERROR",
-  DATA_SET_DELETED = "DATA_SET_DELETED",
-  DATA_SET_NOT_SPICE = "DATA_SET_NOT_SPICE",
-  DATA_SET_SIZE_LIMIT_EXCEEDED = "DATA_SET_SIZE_LIMIT_EXCEEDED",
-  DATA_SOURCE_AUTH_FAILED = "DATA_SOURCE_AUTH_FAILED",
-  DATA_SOURCE_CONNECTION_FAILED = "DATA_SOURCE_CONNECTION_FAILED",
-  DATA_SOURCE_NOT_FOUND = "DATA_SOURCE_NOT_FOUND",
-  DATA_TOLERANCE_EXCEPTION = "DATA_TOLERANCE_EXCEPTION",
-  ELASTICSEARCH_CURSOR_NOT_ENABLED = "ELASTICSEARCH_CURSOR_NOT_ENABLED",
-  FAILURE_TO_ASSUME_ROLE = "FAILURE_TO_ASSUME_ROLE",
-  FAILURE_TO_PROCESS_JSON_FILE = "FAILURE_TO_PROCESS_JSON_FILE",
-  IAM_ROLE_NOT_AVAILABLE = "IAM_ROLE_NOT_AVAILABLE",
-  INGESTION_CANCELED = "INGESTION_CANCELED",
-  INGESTION_SUPERSEDED = "INGESTION_SUPERSEDED",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  INVALID_DATAPREP_SYNTAX = "INVALID_DATAPREP_SYNTAX",
-  INVALID_DATA_SOURCE_CONFIG = "INVALID_DATA_SOURCE_CONFIG",
-  INVALID_DATE_FORMAT = "INVALID_DATE_FORMAT",
-  IOT_DATA_SET_FILE_EMPTY = "IOT_DATA_SET_FILE_EMPTY",
-  IOT_FILE_NOT_FOUND = "IOT_FILE_NOT_FOUND",
-  OAUTH_TOKEN_FAILURE = "OAUTH_TOKEN_FAILURE",
-  PASSWORD_AUTHENTICATION_FAILURE = "PASSWORD_AUTHENTICATION_FAILURE",
-  PERMISSION_DENIED = "PERMISSION_DENIED",
-  PERMISSION_NOT_FOUND = "PERMISSION_NOT_FOUND",
-  QUERY_TIMEOUT = "QUERY_TIMEOUT",
-  REFRESH_SUPPRESSED_BY_EDIT = "REFRESH_SUPPRESSED_BY_EDIT",
-  ROW_SIZE_LIMIT_EXCEEDED = "ROW_SIZE_LIMIT_EXCEEDED",
-  S3_FILE_INACCESSIBLE = "S3_FILE_INACCESSIBLE",
-  S3_MANIFEST_ERROR = "S3_MANIFEST_ERROR",
-  S3_UPLOADED_FILE_DELETED = "S3_UPLOADED_FILE_DELETED",
-  SOURCE_API_LIMIT_EXCEEDED_FAILURE = "SOURCE_API_LIMIT_EXCEEDED_FAILURE",
-  SOURCE_RESOURCE_LIMIT_EXCEEDED = "SOURCE_RESOURCE_LIMIT_EXCEEDED",
-  SPICE_TABLE_NOT_FOUND = "SPICE_TABLE_NOT_FOUND",
-  SQL_EXCEPTION = "SQL_EXCEPTION",
-  SQL_INVALID_PARAMETER_VALUE = "SQL_INVALID_PARAMETER_VALUE",
-  SQL_NUMERIC_OVERFLOW = "SQL_NUMERIC_OVERFLOW",
-  SQL_SCHEMA_MISMATCH_ERROR = "SQL_SCHEMA_MISMATCH_ERROR",
-  SQL_TABLE_NOT_FOUND = "SQL_TABLE_NOT_FOUND",
-  SSL_CERTIFICATE_VALIDATION_FAILURE = "SSL_CERTIFICATE_VALIDATION_FAILURE",
-  UNRESOLVABLE_HOST = "UNRESOLVABLE_HOST",
-  UNROUTABLE_HOST = "UNROUTABLE_HOST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IngestionErrorType = {
+  ACCOUNT_CAPACITY_LIMIT_EXCEEDED: "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
+  CONNECTION_FAILURE: "CONNECTION_FAILURE",
+  CURSOR_NOT_ENABLED: "CURSOR_NOT_ENABLED",
+  CUSTOMER_ERROR: "CUSTOMER_ERROR",
+  DATA_SET_DELETED: "DATA_SET_DELETED",
+  DATA_SET_NOT_SPICE: "DATA_SET_NOT_SPICE",
+  DATA_SET_SIZE_LIMIT_EXCEEDED: "DATA_SET_SIZE_LIMIT_EXCEEDED",
+  DATA_SOURCE_AUTH_FAILED: "DATA_SOURCE_AUTH_FAILED",
+  DATA_SOURCE_CONNECTION_FAILED: "DATA_SOURCE_CONNECTION_FAILED",
+  DATA_SOURCE_NOT_FOUND: "DATA_SOURCE_NOT_FOUND",
+  DATA_TOLERANCE_EXCEPTION: "DATA_TOLERANCE_EXCEPTION",
+  DUPLICATE_COLUMN_NAMES_FOUND: "DUPLICATE_COLUMN_NAMES_FOUND",
+  ELASTICSEARCH_CURSOR_NOT_ENABLED: "ELASTICSEARCH_CURSOR_NOT_ENABLED",
+  FAILURE_TO_ASSUME_ROLE: "FAILURE_TO_ASSUME_ROLE",
+  FAILURE_TO_PROCESS_JSON_FILE: "FAILURE_TO_PROCESS_JSON_FILE",
+  IAM_ROLE_NOT_AVAILABLE: "IAM_ROLE_NOT_AVAILABLE",
+  INGESTION_CANCELED: "INGESTION_CANCELED",
+  INGESTION_SUPERSEDED: "INGESTION_SUPERSEDED",
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  INVALID_DATAPREP_SYNTAX: "INVALID_DATAPREP_SYNTAX",
+  INVALID_DATA_SOURCE_CONFIG: "INVALID_DATA_SOURCE_CONFIG",
+  INVALID_DATE_FORMAT: "INVALID_DATE_FORMAT",
+  IOT_DATA_SET_FILE_EMPTY: "IOT_DATA_SET_FILE_EMPTY",
+  IOT_FILE_NOT_FOUND: "IOT_FILE_NOT_FOUND",
+  OAUTH_TOKEN_FAILURE: "OAUTH_TOKEN_FAILURE",
+  PASSWORD_AUTHENTICATION_FAILURE: "PASSWORD_AUTHENTICATION_FAILURE",
+  PERMISSION_DENIED: "PERMISSION_DENIED",
+  PERMISSION_NOT_FOUND: "PERMISSION_NOT_FOUND",
+  QUERY_TIMEOUT: "QUERY_TIMEOUT",
+  REFRESH_SUPPRESSED_BY_EDIT: "REFRESH_SUPPRESSED_BY_EDIT",
+  ROW_SIZE_LIMIT_EXCEEDED: "ROW_SIZE_LIMIT_EXCEEDED",
+  S3_FILE_INACCESSIBLE: "S3_FILE_INACCESSIBLE",
+  S3_MANIFEST_ERROR: "S3_MANIFEST_ERROR",
+  S3_UPLOADED_FILE_DELETED: "S3_UPLOADED_FILE_DELETED",
+  SOURCE_API_LIMIT_EXCEEDED_FAILURE: "SOURCE_API_LIMIT_EXCEEDED_FAILURE",
+  SOURCE_RESOURCE_LIMIT_EXCEEDED: "SOURCE_RESOURCE_LIMIT_EXCEEDED",
+  SPICE_TABLE_NOT_FOUND: "SPICE_TABLE_NOT_FOUND",
+  SQL_EXCEPTION: "SQL_EXCEPTION",
+  SQL_INVALID_PARAMETER_VALUE: "SQL_INVALID_PARAMETER_VALUE",
+  SQL_NUMERIC_OVERFLOW: "SQL_NUMERIC_OVERFLOW",
+  SQL_SCHEMA_MISMATCH_ERROR: "SQL_SCHEMA_MISMATCH_ERROR",
+  SQL_TABLE_NOT_FOUND: "SQL_TABLE_NOT_FOUND",
+  SSL_CERTIFICATE_VALIDATION_FAILURE: "SSL_CERTIFICATE_VALIDATION_FAILURE",
+  UNRESOLVABLE_HOST: "UNRESOLVABLE_HOST",
+  UNROUTABLE_HOST: "UNROUTABLE_HOST",
+} as const;
 
 /**
+ * @public
+ */
+export type IngestionErrorType = (typeof IngestionErrorType)[keyof typeof IngestionErrorType];
+
+/**
+ * @public
  * <p>Error information for the SPICE ingestion of a dataset.</p>
  */
 export interface ErrorInfo {
@@ -6352,6 +7346,7 @@ export interface ErrorInfo {
 }
 
 /**
+ * @public
  * <p>Information about a queued dataset SPICE ingestion.</p>
  */
 export interface QueueInfo {
@@ -6367,19 +7362,38 @@ export interface QueueInfo {
   QueuedIngestion: string | undefined;
 }
 
-export enum IngestionRequestSource {
-  MANUAL = "MANUAL",
-  SCHEDULED = "SCHEDULED",
-}
-
-export enum IngestionRequestType {
-  EDIT = "EDIT",
-  FULL_REFRESH = "FULL_REFRESH",
-  INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
-  INITIAL_INGESTION = "INITIAL_INGESTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IngestionRequestSource = {
+  MANUAL: "MANUAL",
+  SCHEDULED: "SCHEDULED",
+} as const;
 
 /**
+ * @public
+ */
+export type IngestionRequestSource = (typeof IngestionRequestSource)[keyof typeof IngestionRequestSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const IngestionRequestType = {
+  EDIT: "EDIT",
+  FULL_REFRESH: "FULL_REFRESH",
+  INCREMENTAL_REFRESH: "INCREMENTAL_REFRESH",
+  INITIAL_INGESTION: "INITIAL_INGESTION",
+} as const;
+
+/**
+ * @public
+ */
+export type IngestionRequestType = (typeof IngestionRequestType)[keyof typeof IngestionRequestType];
+
+/**
+ * @public
  * <p>Information about rows for a data set SPICE ingestion.</p>
  */
 export interface RowInfo {
@@ -6400,6 +7414,7 @@ export interface RowInfo {
 }
 
 /**
+ * @public
  * <p>Information about the SPICE ingestion for a dataset.</p>
  */
 export interface Ingestion {
@@ -6459,6 +7474,9 @@ export interface Ingestion {
   RequestType?: IngestionRequestType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIngestionResponse {
   /**
    * <p>Information about the ingestion.</p>
@@ -6476,6 +7494,9 @@ export interface DescribeIngestionResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpRestrictionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
@@ -6483,6 +7504,9 @@ export interface DescribeIpRestrictionRequest {
   AwsAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeIpRestrictionResponse {
   /**
    * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
@@ -6510,6 +7534,9 @@ export interface DescribeIpRestrictionResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNamespaceRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespace that you want to describe.</p>
@@ -6522,12 +7549,22 @@ export interface DescribeNamespaceRequest {
   Namespace: string | undefined;
 }
 
-export enum NamespaceErrorType {
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  PERMISSION_DENIED = "PERMISSION_DENIED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NamespaceErrorType = {
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  PERMISSION_DENIED: "PERMISSION_DENIED",
+} as const;
 
 /**
+ * @public
+ */
+export type NamespaceErrorType = (typeof NamespaceErrorType)[keyof typeof NamespaceErrorType];
+
+/**
+ * @public
  * <p>Errors that occur during namespace creation.</p>
  */
 export interface NamespaceError {
@@ -6543,6 +7580,7 @@ export interface NamespaceError {
 }
 
 /**
+ * @public
  * <p>The error type.</p>
  */
 export interface NamespaceInfoV2 {
@@ -6577,6 +7615,9 @@ export interface NamespaceInfoV2 {
   NamespaceError?: NamespaceError;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNamespaceResponse {
   /**
    * <p>The information about the namespace that you're describing. The response includes
@@ -6597,6 +7638,54 @@ export interface DescribeNamespaceResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
+export interface DescribeRefreshScheduleRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The ID of the refresh schedule.</p>
+   */
+  ScheduleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRefreshScheduleResponse {
+  /**
+   * <p>The refresh schedule.</p>
+   */
+  RefreshSchedule?: RefreshSchedule;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ */
 export interface DescribeTemplateRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
@@ -6623,14 +7712,24 @@ export interface DescribeTemplateRequest {
   AliasName?: string;
 }
 
-export enum TemplateErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TemplateErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type TemplateErrorType = (typeof TemplateErrorType)[keyof typeof TemplateErrorType];
+
+/**
+ * @public
  * <p>List of errors that occurred when the template version creation failed.</p>
  */
 export interface TemplateError {
@@ -6651,6 +7750,7 @@ export interface TemplateError {
 }
 
 /**
+ * @public
  * <p>A version of a template.</p>
  */
 export interface TemplateVersion {
@@ -6741,6 +7841,7 @@ export interface TemplateVersion {
 }
 
 /**
+ * @public
  * <p>A template object. A <i>template</i> is an entity in Amazon QuickSight that
  *             encapsulates the metadata required to create an analysis and that you can use to create
  *             a dashboard. A template adds a layer of abstraction by using placeholders to replace the
@@ -6782,6 +7883,9 @@ export interface Template {
   CreatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplateResponse {
   /**
    * <p>The template structure for the object you want to describe.</p>
@@ -6799,6 +7903,9 @@ export interface DescribeTemplateResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplateAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template alias that you're
@@ -6820,6 +7927,9 @@ export interface DescribeTemplateAliasRequest {
   AliasName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplateAliasResponse {
   /**
    * <p>Information about the template alias.</p>
@@ -6837,6 +7947,9 @@ export interface DescribeTemplateAliasResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplateDefinitionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template. You must be using the
@@ -6863,6 +7976,9 @@ export interface DescribeTemplateDefinitionRequest {
   AliasName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplateDefinitionResponse {
   /**
    * <p>The descriptive name of the template.</p>
@@ -6943,6 +8059,9 @@ export interface DescribeTemplateDefinitionResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplatePermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
@@ -6955,6 +8074,9 @@ export interface DescribeTemplatePermissionsRequest {
   TemplateId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTemplatePermissionsResponse {
   /**
    * <p>The ID for the template.</p>
@@ -6982,6 +8104,9 @@ export interface DescribeTemplatePermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemeRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
@@ -7008,17 +8133,36 @@ export interface DescribeThemeRequest {
   AliasName?: string;
 }
 
-export enum ThemeType {
-  ALL = "ALL",
-  CUSTOM = "CUSTOM",
-  QUICKSIGHT = "QUICKSIGHT",
-}
-
-export enum ThemeErrorType {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ThemeType = {
+  ALL: "ALL",
+  CUSTOM: "CUSTOM",
+  QUICKSIGHT: "QUICKSIGHT",
+} as const;
 
 /**
+ * @public
+ */
+export type ThemeType = (typeof ThemeType)[keyof typeof ThemeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThemeErrorType = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type ThemeErrorType = (typeof ThemeErrorType)[keyof typeof ThemeErrorType];
+
+/**
+ * @public
  * <p>Theme error.</p>
  */
 export interface ThemeError {
@@ -7034,6 +8178,7 @@ export interface ThemeError {
 }
 
 /**
+ * @public
  * <p>A version of a theme.</p>
  */
 export interface ThemeVersion {
@@ -7080,6 +8225,7 @@ export interface ThemeVersion {
 }
 
 /**
+ * @public
  * <p>Summary information about a theme.</p>
  */
 export interface Theme {
@@ -7120,6 +8266,9 @@ export interface Theme {
   Type?: ThemeType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemeResponse {
   /**
    * <p>The information about the theme that you are describing.</p>
@@ -7137,6 +8286,9 @@ export interface DescribeThemeResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemeAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme alias that you're
@@ -7155,6 +8307,9 @@ export interface DescribeThemeAliasRequest {
   AliasName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemeAliasResponse {
   /**
    * <p>Information about the theme alias.</p>
@@ -7172,6 +8327,9 @@ export interface DescribeThemeAliasResponse {
   RequestId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemePermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
@@ -7184,6 +8342,9 @@ export interface DescribeThemePermissionsRequest {
   ThemeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeThemePermissionsResponse {
   /**
    * <p>The ID for the theme.</p>
@@ -7211,6 +8372,9 @@ export interface DescribeThemePermissionsResponse {
   Status?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserRequest {
   /**
    * <p>The name of the user that you want to describe.</p>
@@ -7229,20 +8393,39 @@ export interface DescribeUserRequest {
   Namespace: string | undefined;
 }
 
-export enum IdentityType {
-  IAM = "IAM",
-  QUICKSIGHT = "QUICKSIGHT",
-}
-
-export enum UserRole {
-  ADMIN = "ADMIN",
-  AUTHOR = "AUTHOR",
-  READER = "READER",
-  RESTRICTED_AUTHOR = "RESTRICTED_AUTHOR",
-  RESTRICTED_READER = "RESTRICTED_READER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IdentityType = {
+  IAM: "IAM",
+  QUICKSIGHT: "QUICKSIGHT",
+} as const;
 
 /**
+ * @public
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserRole = {
+  ADMIN: "ADMIN",
+  AUTHOR: "AUTHOR",
+  READER: "READER",
+  RESTRICTED_AUTHOR: "RESTRICTED_AUTHOR",
+  RESTRICTED_READER: "RESTRICTED_READER",
+} as const;
+
+/**
+ * @public
+ */
+export type UserRole = (typeof UserRole)[keyof typeof UserRole];
+
+/**
+ * @public
  * <p>A registered user of Amazon QuickSight. </p>
  */
 export interface User {
@@ -7343,6 +8526,9 @@ export interface User {
   ExternalLoginId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserResponse {
   /**
    * <p>The user name.</p>
@@ -7361,6 +8547,7 @@ export interface DescribeUserResponse {
 }
 
 /**
+ * @public
  * <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
  * 			added to the approved list by an Amazon QuickSight admin.</p>
  */
@@ -7387,607 +8574,39 @@ export class DomainNotWhitelistedException extends __BaseException {
   }
 }
 
-export enum EmbeddingIdentityType {
-  ANONYMOUS = "ANONYMOUS",
-  IAM = "IAM",
-  QUICKSIGHT = "QUICKSIGHT",
-}
-
-export enum FolderFilterAttribute {
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  FOLDER_NAME = "FOLDER_NAME",
-  PARENT_FOLDER_ARN = "PARENT_FOLDER_ARN",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EmbeddingIdentityType = {
+  ANONYMOUS: "ANONYMOUS",
+  IAM: "IAM",
+  QUICKSIGHT: "QUICKSIGHT",
+} as const;
 
 /**
- * <p>An object that consists of a member Amazon Resource Name (ARN) and a member ID.</p>
+ * @public
  */
-export interface MemberIdArnPair {
-  /**
-   * <p>The ID of the member.</p>
-   */
-  MemberId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the member.</p>
-   */
-  MemberArn?: string;
-}
+export type EmbeddingIdentityType = (typeof EmbeddingIdentityType)[keyof typeof EmbeddingIdentityType];
 
 /**
- * <p>A filter to use to search an Amazon QuickSight folder.</p>
+ * @public
+ * @enum
  */
-export interface FolderSearchFilter {
-  /**
-   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are  <code>"StringEquals"</code>  and  <code>"StringLike"</code>.</p>
-   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"FOLDER_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>FOLDER_NAME</code>.</p>
-   */
-  Operator?: FilterOperator | string;
-
-  /**
-   * <p>The name of a value that you want to use in the filter. For example, <code>"Name": "QUICKSIGHT_OWNER"</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any folders with that ARN listed as one of the folder's owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any folders with that ARN listed as one of the owners of the folders are returned. Implicit permissions from folders or groups are considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any folders with that ARN listed as the only owner of the folder are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any folders with that ARN listed as one of the owners of the folders are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any folders with that ARN listed as one of the owners or viewers of the folders are returned. Implicit permissions from folders or groups are not considered. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FOLDER_NAME</code>: Any folders whose names have a substring match to this value will be returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PARENT_FOLDER_ARN</code>: Provide an ARN of a folder, and any folders that are directly under that parent folder are returned. If you choose to use this option and leave the value blank, all root-level folders in the account are returned. </p>
-   *             </li>
-   *          </ul>
-   */
-  Name?: FolderFilterAttribute | string;
-
-  /**
-   * <p>The value of the named item (in this example, <code>PARENT_FOLDER_ARN</code>), that you want to use as a filter. For example, <code>"Value": "arn:aws:quicksight:us-east-1:1:folder/folderId"</code>.</p>
-   */
-  Value?: string;
-}
+export const FolderFilterAttribute = {
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  FOLDER_NAME: "FOLDER_NAME",
+  PARENT_FOLDER_ARN: "PARENT_FOLDER_ARN",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
 
 /**
- * <p>A summary of information about an existing Amazon QuickSight folder. </p>
+ * @public
  */
-export interface FolderSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the folder.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the folder.</p>
-   */
-  FolderId?: string;
-
-  /**
-   * <p>The display name of the folder.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of folder.</p>
-   */
-  FolderType?: FolderType | string;
-
-  /**
-   * <p>The time that the folder was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The time that the folder was last updated.</p>
-   */
-  LastUpdatedTime?: Date;
-}
-
-/**
- * <p>The key-value pair used for the row-level security tags feature.</p>
- */
-export interface SessionTag {
-  /**
-   * <p>The key for the tag.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The value that you want to assign the tag.</p>
-   */
-  Value: string | undefined;
-}
-
-export interface GenerateEmbedUrlForAnonymousUserRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>How many minutes the session is valid. The session lifetime must be in [15-600] minutes range.</p>
-   */
-  SessionLifetimeInMinutes?: number;
-
-  /**
-   * <p>The Amazon QuickSight namespace that the anonymous user virtually belongs to. If you are not using an Amazon QuickSight custom namespace, set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The session tags used for row-level security. Before you use this parameter, make sure that you have configured the relevant datasets using the <code>DataSet$RowLevelPermissionTagConfiguration</code> parameter so that session tags can be used to provide row-level security.</p>
-   *          <p>These are not the tags used for the Amazon Web Services resource tagging feature. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</p>
-   */
-  SessionTags?: SessionTag[];
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) for the Amazon QuickSight resources that the user
-   *             is authorized to access during the lifetime of the session. If you choose
-   *                 <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the
-   *             account that you want the user to be able to view. Currently, you can pass up to 25
-   *             dashboard ARNs in each API call.</p>
-   */
-  AuthorizedResourceArns: string[] | undefined;
-
-  /**
-   * <p>The configuration of the experience that you are embedding.</p>
-   */
-  ExperienceConfiguration: AnonymousUserEmbeddingExperienceConfiguration | undefined;
-
-  /**
-   * <p>The domains that you want to add to the allow list for access to the generated URL that
-   *             is then embedded. This optional parameter overrides the static domains that are
-   *             configured in the Manage QuickSight menu in the Amazon QuickSight console. Instead, it
-   *             allows only the domains that you include in this parameter. You can list up to three
-   *             domains or subdomains in each API call.</p>
-   *          <p>To include all subdomains under a specific domain to the allow list, use <code>*</code>.
-   *             For example, <code>https://*.sapp.amazon.com</code> includes all subdomains under
-   *             <code>https://sapp.amazon.com</code>.</p>
-   */
-  AllowedDomains?: string[];
-}
-
-export interface GenerateEmbedUrlForAnonymousUserResponse {
-  /**
-   * <p>The embed URL for the dashboard.</p>
-   */
-  EmbedUrl: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) to use for the anonymous Amazon QuickSight user.</p>
-   */
-  AnonymousUserArn: string | undefined;
-}
-
-/**
- * <p>The number of minutes specified for the lifetime of a session isn't valid. The session
- * 			lifetime must be 15-600 minutes.</p>
- */
-export class SessionLifetimeInMinutesInvalidException extends __BaseException {
-  readonly name: "SessionLifetimeInMinutesInvalidException" = "SessionLifetimeInMinutesInvalidException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<SessionLifetimeInMinutesInvalidException, __BaseException>) {
-    super({
-      name: "SessionLifetimeInMinutesInvalidException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, SessionLifetimeInMinutesInvalidException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
- * 			without the required pricing plan on your Amazon Web Services account. Before you can use embedding
- * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to Amazon QuickSight. You
- * 		    can do this on the <b>Manage Amazon QuickSight</b> page. </p>
- *          <p>After capacity pricing is added, you can use the
- *             <code>
- *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html">GetDashboardEmbedUrl</a>
- *             </code> API operation with the
- *             <code>--identity-type ANONYMOUS</code> option.</p>
- */
-export class UnsupportedPricingPlanException extends __BaseException {
-  readonly name: "UnsupportedPricingPlanException" = "UnsupportedPricingPlanException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedPricingPlanException, __BaseException>) {
-    super({
-      name: "UnsupportedPricingPlanException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedPricingPlanException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>The state perssitence configuration of an embedded dashboard.</p>
- */
-export interface StatePersistenceConfigurations {
-  /**
-   * <p>Determines if a Amazon QuickSight dashboard's state persistence settings are turned on or off.</p>
-   */
-  Enabled: boolean | undefined;
-}
-
-/**
- * <p>The feature configuration for an embedded dashboard.</p>
- */
-export interface RegisteredUserDashboardFeatureConfigurations {
-  /**
-   * <p>The state persistence settings of an embedded dashboard.</p>
-   */
-  StatePersistence?: StatePersistenceConfigurations;
-}
-
-/**
- * <p>Information about the dashboard you want to embed.</p>
- */
-export interface RegisteredUserDashboardEmbeddingConfiguration {
-  /**
-   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this dashboard if the user has permissions to view it.</p>
-   *          <p>If the user does not have permission to view this dashboard, they see a permissions error message.</p>
-   */
-  InitialDashboardId: string | undefined;
-
-  /**
-   * <p>The feature configurations of an embbedded Amazon QuickSight dashboard.</p>
-   */
-  FeatureConfigurations?: RegisteredUserDashboardFeatureConfigurations;
-}
-
-/**
- * <p>The experience that you are embedding. You can use this object to generate a url that embeds a visual into your application.</p>
- */
-export interface RegisteredUserDashboardVisualEmbeddingConfiguration {
-  /**
-   * <p>The visual ID for the visual that you want the user to embed. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this visual.</p>
-   *          <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
-   */
-  InitialDashboardVisualId: DashboardVisualId | undefined;
-}
-
-/**
- * <p>Information about the Q search bar embedding experience.</p>
- */
-export interface RegisteredUserQSearchBarEmbeddingConfiguration {
-  /**
-   * <p>The ID of the Q topic that you want to make the starting topic in the Q search bar.
-   *       You can find a topic ID by navigating to the Topics pane in the Amazon QuickSight application and opening
-   *       a topic. The ID is in the URL for the topic that you open.</p>
-   *          <p>If you don't specify an initial topic, a list of all shared topics is shown in the Q bar
-   *       for your readers. When you select an initial topic, you can specify whether or not readers
-   *       are allowed to select other topics from the available ones in the list.</p>
-   */
-  InitialTopicId?: string;
-}
-
-/**
- * <p>The feature configurations of an embedded Amazon QuickSight console.</p>
- */
-export interface RegisteredUserConsoleFeatureConfigurations {
-  /**
-   * <p>The state persistence configurations of an embedded Amazon QuickSight console.</p>
-   */
-  StatePersistence?: StatePersistenceConfigurations;
-}
-
-/**
- * <p>Information about the Amazon QuickSight console that you want to embed.</p>
- */
-export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
-  /**
-   * <p>The initial URL path for the Amazon QuickSight console. <code>InitialPath</code> is required.</p>
-   *          <p>The entry point URL is constrained to the following paths:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>/start</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/analyses</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/dashboards</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/start/favorites</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/dashboards/DashboardId</code>. <i>DashboardId</i> is the actual ID key from the Amazon QuickSight console URL of the dashboard.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/analyses/AnalysisId</code>. <i>AnalysisId</i> is the actual ID key from the Amazon QuickSight console URL of the analysis.</p>
-   *             </li>
-   *          </ul>
-   */
-  InitialPath?: string;
-
-  /**
-   * <p>The embedding configuration of an embedded Amazon QuickSight console.</p>
-   */
-  FeatureConfigurations?: RegisteredUserConsoleFeatureConfigurations;
-}
-
-/**
- * <p>The type of experience you want to embed. For registered users, you can embed Amazon QuickSight dashboards or the Amazon QuickSight console.</p>
- *          <note>
- *             <p>Exactly one of the experience configurations is required. You can choose
- *                     <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more
- *                 than one experience configuration.</p>
- *          </note>
- */
-export interface RegisteredUserEmbeddingExperienceConfiguration {
-  /**
-   * <p>The configuration details for providing a dashboard embedding experience.</p>
-   */
-  Dashboard?: RegisteredUserDashboardEmbeddingConfiguration;
-
-  /**
-   * <p>The configuration details for providing each Amazon QuickSight console embedding experience. This can be used along with custom permissions to restrict access to certain features. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a> in the <i>Amazon QuickSight User
-   *             Guide</i>.</p>
-   *          <p>Use <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html">GenerateEmbedUrlForRegisteredUser</a>
-   *             </code>
-   *             where
-   *             you want to provide an authoring portal that allows users to create data sources,
-   *             datasets, analyses, and dashboards. The users who accesses an embedded Amazon QuickSight console
-   *             needs to belong to the author or admin security cohort. If you want to restrict permissions
-   *             to some of these features, add a custom permissions profile to the user with the
-   *             <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
-   *             </code> API operation. Use the <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a>
-   *             </code> API operation to add a new user with a custom permission profile attached. For more
-   *             information, see the following sections in the <i>Amazon QuickSight User
-   *             Guide</i>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users.html">Embedding the Full Functionality of the Amazon QuickSight Console for Authenticated Users</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
-   */
-  QuickSightConsole?: RegisteredUserQuickSightConsoleEmbeddingConfiguration;
-
-  /**
-   * <p>The configuration details for embedding the Q search bar.</p>
-   *          <p>For more information about embedding the Q search bar, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a> in
-   *             the <i>Amazon QuickSight User Guide</i>.</p>
-   */
-  QSearchBar?: RegisteredUserQSearchBarEmbeddingConfiguration;
-
-  /**
-   * <p>The type of embedding experience. In this case, Amazon QuickSight visuals.</p>
-   */
-  DashboardVisual?: RegisteredUserDashboardVisualEmbeddingConfiguration;
-}
-
-export interface GenerateEmbedUrlForRegisteredUserRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>How many minutes the session is valid. The session lifetime must be in [15-600] minutes range.</p>
-   */
-  SessionLifetimeInMinutes?: number;
-
-  /**
-   * <p>The Amazon Resource Name for the registered user.</p>
-   */
-  UserArn: string | undefined;
-
-  /**
-   * <p>The experience you are embedding. For registered users, you can embed Amazon QuickSight dashboards, Amazon QuickSight visuals, the Amazon QuickSight Q search bar, or the entire Amazon QuickSight console.</p>
-   */
-  ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
-
-  /**
-   * <p>The domains that you want to add to the allow list for access to the generated URL that
-   *           is then embedded. This optional parameter overrides the static domains that are
-   *           configured in the Manage QuickSight menu in the Amazon QuickSight console. Instead, it
-   *           allows only the domains that you include in this parameter. You can list up to three
-   *           domains or subdomains in each API call.</p>
-   *          <p>To include all subdomains under a specific domain to the allow list, use <code>*</code>.
-   *             For example, <code>https://*.sapp.amazon.com</code> includes all subdomains under
-   *             <code>https://sapp.amazon.com</code>.</p>
-   */
-  AllowedDomains?: string[];
-}
-
-export interface GenerateEmbedUrlForRegisteredUserResponse {
-  /**
-   * <p>The embed URL for the Amazon QuickSight dashboard, visual, Q search bar, or console.</p>
-   */
-  EmbedUrl: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId: string | undefined;
-}
-
-/**
- * <p>The user with the provided name isn't found. This error can happen in any operation
- * 			that requires finding a user based on a provided user name, such as
- * 				<code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
- */
-export class QuickSightUserNotFoundException extends __BaseException {
-  readonly name: "QuickSightUserNotFoundException" = "QuickSightUserNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<QuickSightUserNotFoundException, __BaseException>) {
-    super({
-      name: "QuickSightUserNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, QuickSightUserNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-export interface GetDashboardEmbedUrlRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard, also added to the Identity and Access Management (IAM)
-   *             policy.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The authentication method that the user uses to sign in.</p>
-   */
-  IdentityType: EmbeddingIdentityType | string | undefined;
-
-  /**
-   * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
-   */
-  SessionLifetimeInMinutes?: number;
-
-  /**
-   * <p>Remove the undo/redo button on the embedded dashboard. The default is FALSE, which enables
-   * 			the undo/redo button.</p>
-   */
-  UndoRedoDisabled?: boolean;
-
-  /**
-   * <p>Remove the reset button on the embedded dashboard. The default is FALSE, which enables the
-   * 			reset button.</p>
-   */
-  ResetDisabled?: boolean;
-
-  /**
-   * <p>Adds persistence of state for the user session in an embedded dashboard. Persistence
-   *             applies to the sheet and the parameter settings. These are control settings that the
-   *             dashboard subscriber (Amazon QuickSight reader) chooses while viewing the dashboard. If this is
-   *             set to <code>TRUE</code>, the settings are the same when the subscriber reopens the same
-   *             dashboard URL. The state is stored in Amazon QuickSight, not in a browser cookie. If this is
-   *             set to FALSE, the state of the user session is not persisted. The default is
-   *                 <code>FALSE</code>.</p>
-   */
-  StatePersistenceEnabled?: boolean;
-
-  /**
-   * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
-   * 			You can use this for any Amazon QuickSight users in your account (readers, authors, or
-   * 			admins) authenticated as one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Active Directory (AD) users or group members</p>
-   *             </li>
-   *             <li>
-   *                <p>Invited nonfederated users</p>
-   *             </li>
-   *             <li>
-   *                <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using
-   * 					SAML, OpenID Connect, or IAM federation.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Omit this parameter for users in the third group – IAM users and IAM
-   *             role-based sessions.</p>
-   */
-  UserArn?: string;
-
-  /**
-   * <p>The Amazon QuickSight namespace that contains the dashboard IDs in this request.
-   *     	   If you're not using a custom namespace, set <code>Namespace = default</code>.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p>A list of one or more dashboard IDs that you want anonymous users to have tempporary access to. Currently, the <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code> because other identity types authenticate as Amazon QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session can access all three dashboards.</p>
-   */
-  AdditionalDashboardIds?: string[];
-}
+export type FolderFilterAttribute = (typeof FolderFilterAttribute)[keyof typeof FolderFilterAttribute];
 
 /**
  * @internal
@@ -8043,13 +8662,6 @@ export const _ParametersFilterSensitiveLog = (obj: _Parameters): any => ({
 /**
  * @internal
  */
-export const ResourcePermissionFilterSensitiveLog = (obj: ResourcePermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateAnalysisRequestFilterSensitiveLog = (obj: CreateAnalysisRequest): any => ({
   ...obj,
   ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
@@ -8058,102 +8670,9 @@ export const CreateAnalysisRequestFilterSensitiveLog = (obj: CreateAnalysisReque
 /**
  * @internal
  */
-export const CreateAnalysisResponseFilterSensitiveLog = (obj: CreateAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateColumnsOperationFilterSensitiveLog = (obj: CreateColumnsOperation): any => ({
   ...obj,
   ...(obj.Columns && { Columns: obj.Columns.map((item) => CalculatedColumnFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const DataPointDrillUpDownOptionFilterSensitiveLog = (obj: DataPointDrillUpDownOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataPointMenuLabelOptionFilterSensitiveLog = (obj: DataPointMenuLabelOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataPointTooltipOptionFilterSensitiveLog = (obj: DataPointTooltipOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportToCSVOptionFilterSensitiveLog = (obj: ExportToCSVOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportWithHiddenFieldsOptionFilterSensitiveLog = (obj: ExportWithHiddenFieldsOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetControlsOptionFilterSensitiveLog = (obj: SheetControlsOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetLayoutElementMaximizationOptionFilterSensitiveLog = (
-  obj: SheetLayoutElementMaximizationOption
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VisualAxisSortOptionFilterSensitiveLog = (obj: VisualAxisSortOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VisualMenuOptionFilterSensitiveLog = (obj: VisualMenuOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportHiddenFieldsOptionFilterSensitiveLog = (obj: ExportHiddenFieldsOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardVisualPublishOptionsFilterSensitiveLog = (obj: DashboardVisualPublishOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardPublishOptionsFilterSensitiveLog = (obj: DashboardPublishOptions): any => ({
-  ...obj,
 });
 
 /**
@@ -8175,44 +8694,9 @@ export const DashboardVersionDefinitionFilterSensitiveLog = (obj: DashboardVersi
 /**
  * @internal
  */
-export const DashboardSourceTemplateFilterSensitiveLog = (obj: DashboardSourceTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardSourceEntityFilterSensitiveLog = (obj: DashboardSourceEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateDashboardRequestFilterSensitiveLog = (obj: CreateDashboardRequest): any => ({
   ...obj,
   ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
-});
-
-/**
- * @internal
- */
-export const CreateDashboardResponseFilterSensitiveLog = (obj: CreateDashboardResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSetUsageConfigurationFilterSensitiveLog = (obj: DataSetUsageConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldFolderFilterSensitiveLog = (obj: FieldFolder): any => ({
-  ...obj,
 });
 
 /**
@@ -8226,72 +8710,18 @@ export const FilterOperationFilterSensitiveLog = (obj: FilterOperation): any => 
 /**
  * @internal
  */
-export const ProjectOperationFilterSensitiveLog = (obj: ProjectOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenameColumnOperationFilterSensitiveLog = (obj: RenameColumnOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagColumnOperationFilterSensitiveLog = (obj: TagColumnOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagColumnOperationFilterSensitiveLog = (obj: UntagColumnOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TransformOperationFilterSensitiveLog = (obj: TransformOperation): any => {
-  if (obj.ProjectOperation !== undefined)
-    return { ProjectOperation: ProjectOperationFilterSensitiveLog(obj.ProjectOperation) };
+  if (obj.ProjectOperation !== undefined) return { ProjectOperation: obj.ProjectOperation };
   if (obj.FilterOperation !== undefined)
     return { FilterOperation: FilterOperationFilterSensitiveLog(obj.FilterOperation) };
   if (obj.CreateColumnsOperation !== undefined)
     return { CreateColumnsOperation: CreateColumnsOperationFilterSensitiveLog(obj.CreateColumnsOperation) };
-  if (obj.RenameColumnOperation !== undefined)
-    return { RenameColumnOperation: RenameColumnOperationFilterSensitiveLog(obj.RenameColumnOperation) };
-  if (obj.CastColumnTypeOperation !== undefined)
-    return { CastColumnTypeOperation: CastColumnTypeOperationFilterSensitiveLog(obj.CastColumnTypeOperation) };
-  if (obj.TagColumnOperation !== undefined)
-    return { TagColumnOperation: TagColumnOperationFilterSensitiveLog(obj.TagColumnOperation) };
-  if (obj.UntagColumnOperation !== undefined)
-    return { UntagColumnOperation: UntagColumnOperationFilterSensitiveLog(obj.UntagColumnOperation) };
+  if (obj.RenameColumnOperation !== undefined) return { RenameColumnOperation: obj.RenameColumnOperation };
+  if (obj.CastColumnTypeOperation !== undefined) return { CastColumnTypeOperation: obj.CastColumnTypeOperation };
+  if (obj.TagColumnOperation !== undefined) return { TagColumnOperation: obj.TagColumnOperation };
+  if (obj.UntagColumnOperation !== undefined) return { UntagColumnOperation: obj.UntagColumnOperation };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const JoinKeyPropertiesFilterSensitiveLog = (obj: JoinKeyProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JoinInstructionFilterSensitiveLog = (obj: JoinInstruction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogicalTableSourceFilterSensitiveLog = (obj: LogicalTableSource): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -8301,59 +8731,6 @@ export const LogicalTableFilterSensitiveLog = (obj: LogicalTable): any => ({
   ...(obj.DataTransforms && {
     DataTransforms: obj.DataTransforms.map((item) => TransformOperationFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const InputColumnFilterSensitiveLog = (obj: InputColumn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomSqlFilterSensitiveLog = (obj: CustomSql): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelationalTableFilterSensitiveLog = (obj: RelationalTable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadSettingsFilterSensitiveLog = (obj: UploadSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3SourceFilterSensitiveLog = (obj: S3Source): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PhysicalTableFilterSensitiveLog = (obj: PhysicalTable): any => {
-  if (obj.RelationalTable !== undefined)
-    return { RelationalTable: RelationalTableFilterSensitiveLog(obj.RelationalTable) };
-  if (obj.CustomSql !== undefined) return { CustomSql: CustomSqlFilterSensitiveLog(obj.CustomSql) };
-  if (obj.S3Source !== undefined) return { S3Source: S3SourceFilterSensitiveLog(obj.S3Source) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const RowLevelPermissionDataSetFilterSensitiveLog = (obj: RowLevelPermissionDataSet): any => ({
-  ...obj,
 });
 
 /**
@@ -8379,7 +8756,7 @@ export const CreateDataSetRequestFilterSensitiveLog = (obj: CreateDataSetRequest
   ...obj,
   ...(obj.PhysicalTableMap && {
     PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = PhysicalTableFilterSensitiveLog(value)), acc),
+      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = value), acc),
       {}
     ),
   }),
@@ -8399,220 +8776,9 @@ export const CreateDataSetRequestFilterSensitiveLog = (obj: CreateDataSetRequest
 /**
  * @internal
  */
-export const CreateDataSetResponseFilterSensitiveLog = (obj: CreateDataSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabricksParametersFilterSensitiveLog = (obj: DatabricksParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExasolParametersFilterSensitiveLog = (obj: ExasolParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JiraParametersFilterSensitiveLog = (obj: JiraParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MariaDbParametersFilterSensitiveLog = (obj: MariaDbParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MySqlParametersFilterSensitiveLog = (obj: MySqlParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OracleParametersFilterSensitiveLog = (obj: OracleParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostgreSqlParametersFilterSensitiveLog = (obj: PostgreSqlParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrestoParametersFilterSensitiveLog = (obj: PrestoParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RdsParametersFilterSensitiveLog = (obj: RdsParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftParametersFilterSensitiveLog = (obj: RedshiftParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManifestFileLocationFilterSensitiveLog = (obj: ManifestFileLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ParametersFilterSensitiveLog = (obj: S3Parameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceNowParametersFilterSensitiveLog = (obj: ServiceNowParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnowflakeParametersFilterSensitiveLog = (obj: SnowflakeParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SparkParametersFilterSensitiveLog = (obj: SparkParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SqlServerParametersFilterSensitiveLog = (obj: SqlServerParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TeradataParametersFilterSensitiveLog = (obj: TeradataParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TwitterParametersFilterSensitiveLog = (obj: TwitterParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceParametersFilterSensitiveLog = (obj: DataSourceParameters): any => {
-  if (obj.AmazonElasticsearchParameters !== undefined)
-    return {
-      AmazonElasticsearchParameters: AmazonElasticsearchParametersFilterSensitiveLog(obj.AmazonElasticsearchParameters),
-    };
-  if (obj.AthenaParameters !== undefined)
-    return { AthenaParameters: AthenaParametersFilterSensitiveLog(obj.AthenaParameters) };
-  if (obj.AuroraParameters !== undefined)
-    return { AuroraParameters: AuroraParametersFilterSensitiveLog(obj.AuroraParameters) };
-  if (obj.AuroraPostgreSqlParameters !== undefined)
-    return { AuroraPostgreSqlParameters: AuroraPostgreSqlParametersFilterSensitiveLog(obj.AuroraPostgreSqlParameters) };
-  if (obj.AwsIotAnalyticsParameters !== undefined)
-    return { AwsIotAnalyticsParameters: AwsIotAnalyticsParametersFilterSensitiveLog(obj.AwsIotAnalyticsParameters) };
-  if (obj.JiraParameters !== undefined) return { JiraParameters: JiraParametersFilterSensitiveLog(obj.JiraParameters) };
-  if (obj.MariaDbParameters !== undefined)
-    return { MariaDbParameters: MariaDbParametersFilterSensitiveLog(obj.MariaDbParameters) };
-  if (obj.MySqlParameters !== undefined)
-    return { MySqlParameters: MySqlParametersFilterSensitiveLog(obj.MySqlParameters) };
-  if (obj.OracleParameters !== undefined)
-    return { OracleParameters: OracleParametersFilterSensitiveLog(obj.OracleParameters) };
-  if (obj.PostgreSqlParameters !== undefined)
-    return { PostgreSqlParameters: PostgreSqlParametersFilterSensitiveLog(obj.PostgreSqlParameters) };
-  if (obj.PrestoParameters !== undefined)
-    return { PrestoParameters: PrestoParametersFilterSensitiveLog(obj.PrestoParameters) };
-  if (obj.RdsParameters !== undefined) return { RdsParameters: RdsParametersFilterSensitiveLog(obj.RdsParameters) };
-  if (obj.RedshiftParameters !== undefined)
-    return { RedshiftParameters: RedshiftParametersFilterSensitiveLog(obj.RedshiftParameters) };
-  if (obj.S3Parameters !== undefined) return { S3Parameters: S3ParametersFilterSensitiveLog(obj.S3Parameters) };
-  if (obj.ServiceNowParameters !== undefined)
-    return { ServiceNowParameters: ServiceNowParametersFilterSensitiveLog(obj.ServiceNowParameters) };
-  if (obj.SnowflakeParameters !== undefined)
-    return { SnowflakeParameters: SnowflakeParametersFilterSensitiveLog(obj.SnowflakeParameters) };
-  if (obj.SparkParameters !== undefined)
-    return { SparkParameters: SparkParametersFilterSensitiveLog(obj.SparkParameters) };
-  if (obj.SqlServerParameters !== undefined)
-    return { SqlServerParameters: SqlServerParametersFilterSensitiveLog(obj.SqlServerParameters) };
-  if (obj.TeradataParameters !== undefined)
-    return { TeradataParameters: TeradataParametersFilterSensitiveLog(obj.TeradataParameters) };
-  if (obj.TwitterParameters !== undefined)
-    return { TwitterParameters: TwitterParametersFilterSensitiveLog(obj.TwitterParameters) };
-  if (obj.AmazonOpenSearchParameters !== undefined)
-    return { AmazonOpenSearchParameters: AmazonOpenSearchParametersFilterSensitiveLog(obj.AmazonOpenSearchParameters) };
-  if (obj.ExasolParameters !== undefined)
-    return { ExasolParameters: ExasolParametersFilterSensitiveLog(obj.ExasolParameters) };
-  if (obj.DatabricksParameters !== undefined)
-    return { DatabricksParameters: DatabricksParametersFilterSensitiveLog(obj.DatabricksParameters) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CredentialPairFilterSensitiveLog = (obj: CredentialPair): any => ({
-  ...obj,
-  ...(obj.AlternateDataSourceParameters && {
-    AlternateDataSourceParameters: obj.AlternateDataSourceParameters.map((item) =>
-      DataSourceParametersFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
 export const DataSourceCredentialsFilterSensitiveLog = (obj: DataSourceCredentials): any => ({
   ...obj,
-  ...(obj.CredentialPair && { CredentialPair: CredentialPairFilterSensitiveLog(obj.CredentialPair) }),
-});
-
-/**
- * @internal
- */
-export const SslPropertiesFilterSensitiveLog = (obj: SslProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConnectionPropertiesFilterSensitiveLog = (obj: VpcConnectionProperties): any => ({
-  ...obj,
+  ...(obj.CredentialPair && { CredentialPair: obj.CredentialPair }),
 });
 
 /**
@@ -8620,150 +8786,8 @@ export const VpcConnectionPropertiesFilterSensitiveLog = (obj: VpcConnectionProp
  */
 export const CreateDataSourceRequestFilterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
   ...obj,
-  ...(obj.DataSourceParameters && {
-    DataSourceParameters: DataSourceParametersFilterSensitiveLog(obj.DataSourceParameters),
-  }),
+  ...(obj.DataSourceParameters && { DataSourceParameters: obj.DataSourceParameters }),
   ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateDataSourceResponseFilterSensitiveLog = (obj: CreateDataSourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFolderRequestFilterSensitiveLog = (obj: CreateFolderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFolderResponseFilterSensitiveLog = (obj: CreateFolderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFolderMembershipRequestFilterSensitiveLog = (obj: CreateFolderMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FolderMemberFilterSensitiveLog = (obj: FolderMember): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFolderMembershipResponseFilterSensitiveLog = (obj: CreateFolderMembershipResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGroupRequestFilterSensitiveLog = (obj: CreateGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GroupFilterSensitiveLog = (obj: Group): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGroupResponseFilterSensitiveLog = (obj: CreateGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGroupMembershipRequestFilterSensitiveLog = (obj: CreateGroupMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GroupMemberFilterSensitiveLog = (obj: GroupMember): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGroupMembershipResponseFilterSensitiveLog = (obj: CreateGroupMembershipResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIAMPolicyAssignmentRequestFilterSensitiveLog = (obj: CreateIAMPolicyAssignmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIAMPolicyAssignmentResponseFilterSensitiveLog = (obj: CreateIAMPolicyAssignmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIngestionRequestFilterSensitiveLog = (obj: CreateIngestionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIngestionResponseFilterSensitiveLog = (obj: CreateIngestionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNamespaceRequestFilterSensitiveLog = (obj: CreateNamespaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNamespaceResponseFilterSensitiveLog = (obj: CreateNamespaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSetSchemaFilterSensitiveLog = (obj: DataSetSchema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSetConfigurationFilterSensitiveLog = (obj: DataSetConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -8785,210 +8809,7 @@ export const TemplateVersionDefinitionFilterSensitiveLog = (obj: TemplateVersion
 /**
  * @internal
  */
-export const TemplateSourceAnalysisFilterSensitiveLog = (obj: TemplateSourceAnalysis): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateSourceTemplateFilterSensitiveLog = (obj: TemplateSourceTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateSourceEntityFilterSensitiveLog = (obj: TemplateSourceEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateTemplateRequestFilterSensitiveLog = (obj: CreateTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTemplateResponseFilterSensitiveLog = (obj: CreateTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTemplateAliasRequestFilterSensitiveLog = (obj: CreateTemplateAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateAliasFilterSensitiveLog = (obj: TemplateAlias): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTemplateAliasResponseFilterSensitiveLog = (obj: CreateTemplateAliasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataColorPaletteFilterSensitiveLog = (obj: DataColorPalette): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TileStyleFilterSensitiveLog = (obj: TileStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GutterStyleFilterSensitiveLog = (obj: GutterStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MarginStyleFilterSensitiveLog = (obj: MarginStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TileLayoutStyleFilterSensitiveLog = (obj: TileLayoutStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetStyleFilterSensitiveLog = (obj: SheetStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FontFilterSensitiveLog = (obj: Font): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TypographyFilterSensitiveLog = (obj: Typography): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UIColorPaletteFilterSensitiveLog = (obj: UIColorPalette): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThemeConfigurationFilterSensitiveLog = (obj: ThemeConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateThemeRequestFilterSensitiveLog = (obj: CreateThemeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateThemeResponseFilterSensitiveLog = (obj: CreateThemeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateThemeAliasRequestFilterSensitiveLog = (obj: CreateThemeAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThemeAliasFilterSensitiveLog = (obj: ThemeAlias): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateThemeAliasResponseFilterSensitiveLog = (obj: CreateThemeAliasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardErrorFilterSensitiveLog = (obj: DashboardError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardVersionFilterSensitiveLog = (obj: DashboardVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardFilterSensitiveLog = (obj: Dashboard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardSearchFilterFilterSensitiveLog = (obj: DashboardSearchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardSummaryFilterSensitiveLog = (obj: DashboardSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardVersionSummaryFilterSensitiveLog = (obj: DashboardVersionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputColumnFilterSensitiveLog = (obj: OutputColumn): any => ({
   ...obj,
 });
 
@@ -8999,7 +8820,7 @@ export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
   ...obj,
   ...(obj.PhysicalTableMap && {
     PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = PhysicalTableFilterSensitiveLog(value)), acc),
+      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = value), acc),
       {}
     ),
   }),
@@ -9019,415 +8840,7 @@ export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
 /**
  * @internal
  */
-export const DataSetSearchFilterFilterSensitiveLog = (obj: DataSetSearchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSetSummaryFilterSensitiveLog = (obj: DataSetSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceErrorInfoFilterSensitiveLog = (obj: DataSourceErrorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
-  ...obj,
-  ...(obj.DataSourceParameters && {
-    DataSourceParameters: DataSourceParametersFilterSensitiveLog(obj.DataSourceParameters),
-  }),
-  ...(obj.AlternateDataSourceParameters && {
-    AlternateDataSourceParameters: obj.AlternateDataSourceParameters.map((item) =>
-      DataSourceParametersFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const DataSourceSearchFilterFilterSensitiveLog = (obj: DataSourceSearchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceSummaryFilterSensitiveLog = (obj: DataSourceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccountCustomizationRequestFilterSensitiveLog = (obj: DeleteAccountCustomizationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccountCustomizationResponseFilterSensitiveLog = (obj: DeleteAccountCustomizationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccountSubscriptionRequestFilterSensitiveLog = (obj: DeleteAccountSubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccountSubscriptionResponseFilterSensitiveLog = (obj: DeleteAccountSubscriptionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAnalysisRequestFilterSensitiveLog = (obj: DeleteAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAnalysisResponseFilterSensitiveLog = (obj: DeleteAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDashboardRequestFilterSensitiveLog = (obj: DeleteDashboardRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDashboardResponseFilterSensitiveLog = (obj: DeleteDashboardResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataSetRequestFilterSensitiveLog = (obj: DeleteDataSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataSetResponseFilterSensitiveLog = (obj: DeleteDataSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataSourceRequestFilterSensitiveLog = (obj: DeleteDataSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDataSourceResponseFilterSensitiveLog = (obj: DeleteDataSourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFolderRequestFilterSensitiveLog = (obj: DeleteFolderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFolderResponseFilterSensitiveLog = (obj: DeleteFolderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFolderMembershipRequestFilterSensitiveLog = (obj: DeleteFolderMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFolderMembershipResponseFilterSensitiveLog = (obj: DeleteFolderMembershipResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGroupResponseFilterSensitiveLog = (obj: DeleteGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGroupMembershipRequestFilterSensitiveLog = (obj: DeleteGroupMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGroupMembershipResponseFilterSensitiveLog = (obj: DeleteGroupMembershipResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIAMPolicyAssignmentRequestFilterSensitiveLog = (obj: DeleteIAMPolicyAssignmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIAMPolicyAssignmentResponseFilterSensitiveLog = (obj: DeleteIAMPolicyAssignmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNamespaceRequestFilterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNamespaceResponseFilterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTemplateRequestFilterSensitiveLog = (obj: DeleteTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTemplateResponseFilterSensitiveLog = (obj: DeleteTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTemplateAliasRequestFilterSensitiveLog = (obj: DeleteTemplateAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTemplateAliasResponseFilterSensitiveLog = (obj: DeleteTemplateAliasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteThemeRequestFilterSensitiveLog = (obj: DeleteThemeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteThemeResponseFilterSensitiveLog = (obj: DeleteThemeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteThemeAliasRequestFilterSensitiveLog = (obj: DeleteThemeAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteThemeAliasResponseFilterSensitiveLog = (obj: DeleteThemeAliasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserResponseFilterSensitiveLog = (obj: DeleteUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserByPrincipalIdRequestFilterSensitiveLog = (obj: DeleteUserByPrincipalIdRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserByPrincipalIdResponseFilterSensitiveLog = (obj: DeleteUserByPrincipalIdResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountCustomizationRequestFilterSensitiveLog = (
-  obj: DescribeAccountCustomizationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountCustomizationResponseFilterSensitiveLog = (
-  obj: DescribeAccountCustomizationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountSettingsRequestFilterSensitiveLog = (obj: DescribeAccountSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountSettingsResponseFilterSensitiveLog = (obj: DescribeAccountSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountSubscriptionRequestFilterSensitiveLog = (obj: DescribeAccountSubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountSubscriptionResponseFilterSensitiveLog = (
-  obj: DescribeAccountSubscriptionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnalysisRequestFilterSensitiveLog = (obj: DescribeAnalysisRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnalysisResponseFilterSensitiveLog = (obj: DescribeAnalysisResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnalysisDefinitionRequestFilterSensitiveLog = (obj: DescribeAnalysisDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeAnalysisDefinitionResponseFilterSensitiveLog = (obj: DescribeAnalysisDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnalysisPermissionsRequestFilterSensitiveLog = (obj: DescribeAnalysisPermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnalysisPermissionsResponseFilterSensitiveLog = (
-  obj: DescribeAnalysisPermissionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardRequestFilterSensitiveLog = (obj: DescribeDashboardRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardResponseFilterSensitiveLog = (obj: DescribeDashboardResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardDefinitionRequestFilterSensitiveLog = (obj: DescribeDashboardDefinitionRequest): any => ({
   ...obj,
 });
 
@@ -9443,38 +8856,6 @@ export const DescribeDashboardDefinitionResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const DescribeDashboardPermissionsRequestFilterSensitiveLog = (
-  obj: DescribeDashboardPermissionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LinkSharingConfigurationFilterSensitiveLog = (obj: LinkSharingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDashboardPermissionsResponseFilterSensitiveLog = (
-  obj: DescribeDashboardPermissionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSetRequestFilterSensitiveLog = (obj: DescribeDataSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeDataSetResponseFilterSensitiveLog = (obj: DescribeDataSetResponse): any => ({
   ...obj,
   ...(obj.DataSet && { DataSet: DataSetFilterSensitiveLog(obj.DataSet) }),
@@ -9483,542 +8864,6 @@ export const DescribeDataSetResponseFilterSensitiveLog = (obj: DescribeDataSetRe
 /**
  * @internal
  */
-export const DescribeDataSetPermissionsRequestFilterSensitiveLog = (obj: DescribeDataSetPermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSetPermissionsResponseFilterSensitiveLog = (obj: DescribeDataSetPermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSourceRequestFilterSensitiveLog = (obj: DescribeDataSourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSourceResponseFilterSensitiveLog = (obj: DescribeDataSourceResponse): any => ({
-  ...obj,
-  ...(obj.DataSource && { DataSource: DataSourceFilterSensitiveLog(obj.DataSource) }),
-});
-
-/**
- * @internal
- */
-export const DescribeDataSourcePermissionsRequestFilterSensitiveLog = (
-  obj: DescribeDataSourcePermissionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSourcePermissionsResponseFilterSensitiveLog = (
-  obj: DescribeDataSourcePermissionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFolderRequestFilterSensitiveLog = (obj: DescribeFolderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FolderFilterSensitiveLog = (obj: Folder): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFolderResponseFilterSensitiveLog = (obj: DescribeFolderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFolderPermissionsRequestFilterSensitiveLog = (obj: DescribeFolderPermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFolderPermissionsResponseFilterSensitiveLog = (obj: DescribeFolderPermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFolderResolvedPermissionsRequestFilterSensitiveLog = (
-  obj: DescribeFolderResolvedPermissionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFolderResolvedPermissionsResponseFilterSensitiveLog = (
-  obj: DescribeFolderResolvedPermissionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGroupRequestFilterSensitiveLog = (obj: DescribeGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGroupResponseFilterSensitiveLog = (obj: DescribeGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGroupMembershipRequestFilterSensitiveLog = (obj: DescribeGroupMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGroupMembershipResponseFilterSensitiveLog = (obj: DescribeGroupMembershipResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIAMPolicyAssignmentRequestFilterSensitiveLog = (obj: DescribeIAMPolicyAssignmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IAMPolicyAssignmentFilterSensitiveLog = (obj: IAMPolicyAssignment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIAMPolicyAssignmentResponseFilterSensitiveLog = (
-  obj: DescribeIAMPolicyAssignmentResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIngestionRequestFilterSensitiveLog = (obj: DescribeIngestionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorInfoFilterSensitiveLog = (obj: ErrorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueueInfoFilterSensitiveLog = (obj: QueueInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RowInfoFilterSensitiveLog = (obj: RowInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IngestionFilterSensitiveLog = (obj: Ingestion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIngestionResponseFilterSensitiveLog = (obj: DescribeIngestionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpRestrictionRequestFilterSensitiveLog = (obj: DescribeIpRestrictionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpRestrictionResponseFilterSensitiveLog = (obj: DescribeIpRestrictionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNamespaceRequestFilterSensitiveLog = (obj: DescribeNamespaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NamespaceErrorFilterSensitiveLog = (obj: NamespaceError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NamespaceInfoV2FilterSensitiveLog = (obj: NamespaceInfoV2): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNamespaceResponseFilterSensitiveLog = (obj: DescribeNamespaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateRequestFilterSensitiveLog = (obj: DescribeTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateErrorFilterSensitiveLog = (obj: TemplateError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateVersionFilterSensitiveLog = (obj: TemplateVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateFilterSensitiveLog = (obj: Template): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateResponseFilterSensitiveLog = (obj: DescribeTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateAliasRequestFilterSensitiveLog = (obj: DescribeTemplateAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateAliasResponseFilterSensitiveLog = (obj: DescribeTemplateAliasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateDefinitionRequestFilterSensitiveLog = (obj: DescribeTemplateDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeTemplateDefinitionResponseFilterSensitiveLog = (obj: DescribeTemplateDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplatePermissionsRequestFilterSensitiveLog = (obj: DescribeTemplatePermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplatePermissionsResponseFilterSensitiveLog = (
-  obj: DescribeTemplatePermissionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeThemeRequestFilterSensitiveLog = (obj: DescribeThemeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThemeErrorFilterSensitiveLog = (obj: ThemeError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThemeVersionFilterSensitiveLog = (obj: ThemeVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThemeFilterSensitiveLog = (obj: Theme): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeThemeResponseFilterSensitiveLog = (obj: DescribeThemeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeThemeAliasRequestFilterSensitiveLog = (obj: DescribeThemeAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeThemeAliasResponseFilterSensitiveLog = (obj: DescribeThemeAliasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeThemePermissionsRequestFilterSensitiveLog = (obj: DescribeThemePermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeThemePermissionsResponseFilterSensitiveLog = (obj: DescribeThemePermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserRequestFilterSensitiveLog = (obj: DescribeUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserFilterSensitiveLog = (obj: User): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberIdArnPairFilterSensitiveLog = (obj: MemberIdArnPair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FolderSearchFilterFilterSensitiveLog = (obj: FolderSearchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FolderSummaryFilterSensitiveLog = (obj: FolderSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SessionTagFilterSensitiveLog = (obj: SessionTag): any => ({
-  ...obj,
-  ...(obj.Value && { Value: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForAnonymousUserRequest
-): any => ({
-  ...obj,
-  ...(obj.SessionTags && { SessionTags: obj.SessionTags.map((item) => SessionTagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForAnonymousUserResponse
-): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StatePersistenceConfigurationsFilterSensitiveLog = (obj: StatePersistenceConfigurations): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisteredUserDashboardFeatureConfigurationsFilterSensitiveLog = (
-  obj: RegisteredUserDashboardFeatureConfigurations
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisteredUserDashboardEmbeddingConfigurationFilterSensitiveLog = (
-  obj: RegisteredUserDashboardEmbeddingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisteredUserDashboardVisualEmbeddingConfigurationFilterSensitiveLog = (
-  obj: RegisteredUserDashboardVisualEmbeddingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisteredUserQSearchBarEmbeddingConfigurationFilterSensitiveLog = (
-  obj: RegisteredUserQSearchBarEmbeddingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisteredUserConsoleFeatureConfigurationsFilterSensitiveLog = (
-  obj: RegisteredUserConsoleFeatureConfigurations
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisteredUserQuickSightConsoleEmbeddingConfigurationFilterSensitiveLog = (
-  obj: RegisteredUserQuickSightConsoleEmbeddingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisteredUserEmbeddingExperienceConfigurationFilterSensitiveLog = (
-  obj: RegisteredUserEmbeddingExperienceConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForRegisteredUserRequestFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForRegisteredUserRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog = (
-  obj: GenerateEmbedUrlForRegisteredUserResponse
-): any => ({
-  ...obj,
-  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetDashboardEmbedUrlRequestFilterSensitiveLog = (obj: GetDashboardEmbedUrlRequest): any => ({
   ...obj,
 });

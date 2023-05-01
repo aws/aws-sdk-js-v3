@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListExperimentsRequest,
-  ListExperimentsRequestFilterSensitiveLog,
-  ListExperimentsResponse,
-  ListExperimentsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListExperimentsCommand,
-  serializeAws_json1_1ListExperimentsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListExperimentsRequest, ListExperimentsResponse } from "../models/models_3";
+import { de_ListExperimentsCommand, se_ListExperimentsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListExperimentsCommand}.
  */
 export interface ListExperimentsCommandInput extends ListExperimentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExperimentsCommand}.
  */
 export interface ListExperimentsCommandOutput extends ListExperimentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the experiments in your account. The list can be filtered to show only
  *       experiments that were created in a specific time range. The list can be sorted by experiment
  *       name or creation time.</p>
@@ -44,10 +41,20 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * import { SageMakerClient, ListExperimentsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListExperimentsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListExperimentsRequest
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListExperimentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExperimentsCommandInput - {@link ListExperimentsCommandInput}
+ * @returns {@link ListExperimentsCommandOutput}
  * @see {@link ListExperimentsCommandInput} for command's `input` shape.
  * @see {@link ListExperimentsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListExperimentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExperimentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +109,8 @@ export class ListExperimentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExperimentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExperimentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +120,18 @@ export class ListExperimentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExperimentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListExperimentsCommand(input, context);
+    return se_ListExperimentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExperimentsCommandOutput> {
-    return deserializeAws_json1_1ListExperimentsCommand(output, context);
+    return de_ListExperimentsCommand(output, context);
   }
 
   // Start section: command_body_extra

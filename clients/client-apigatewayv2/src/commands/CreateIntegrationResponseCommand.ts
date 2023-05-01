@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  CreateIntegrationResponseRequest,
-  CreateIntegrationResponseRequestFilterSensitiveLog,
-  CreateIntegrationResponseResponse,
-  CreateIntegrationResponseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateIntegrationResponseCommand,
-  serializeAws_restJson1CreateIntegrationResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateIntegrationResponseRequest, CreateIntegrationResponseResponse } from "../models/models_0";
+import { de_CreateIntegrationResponseCommand, se_CreateIntegrationResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIntegrationResponseCommand}.
  */
 export interface CreateIntegrationResponseCommandInput extends CreateIntegrationResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIntegrationResponseCommand}.
  */
 export interface CreateIntegrationResponseCommandOutput extends CreateIntegrationResponseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IntegrationResponses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface CreateIntegrationResponseCommandOutput extends CreateIntegratio
  * import { ApiGatewayV2Client, CreateIntegrationResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateIntegrationResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // CreateIntegrationResponseRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   ContentHandlingStrategy: "STRING_VALUE",
+ *   IntegrationId: "STRING_VALUE", // required
+ *   IntegrationResponseKey: "STRING_VALUE", // required
+ *   ResponseParameters: { // IntegrationParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ResponseTemplates: { // TemplateMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TemplateSelectionExpression: "STRING_VALUE",
+ * };
  * const command = new CreateIntegrationResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIntegrationResponseCommandInput - {@link CreateIntegrationResponseCommandInput}
+ * @returns {@link CreateIntegrationResponseCommandOutput}
  * @see {@link CreateIntegrationResponseCommandInput} for command's `input` shape.
  * @see {@link CreateIntegrationResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +93,9 @@ export class CreateIntegrationResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIntegrationResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +124,8 @@ export class CreateIntegrationResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIntegrationResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIntegrationResponseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +135,21 @@ export class CreateIntegrationResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIntegrationResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIntegrationResponseCommand(input, context);
+    return se_CreateIntegrationResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1CreateIntegrationResponseCommand(output, context);
+    return de_CreateIntegrationResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  GetSpaceRequest,
-  GetSpaceRequestFilterSensitiveLog,
-  GetSpaceResponse,
-  GetSpaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSpaceCommand,
-  serializeAws_restJson1GetSpaceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSpaceRequest, GetSpaceResponse } from "../models/models_0";
+import { de_GetSpaceCommand, se_GetSpaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSpaceCommand}.
  */
 export interface GetSpaceCommandInput extends GetSpaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSpaceCommand}.
  */
 export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBeare
  * import { CodeCatalystClient, GetSpaceCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetSpaceCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // GetSpaceRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetSpaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSpaceCommandInput - {@link GetSpaceCommandInput}
+ * @returns {@link GetSpaceCommandOutput}
  * @see {@link GetSpaceCommandInput} for command's `input` shape.
  * @see {@link GetSpaceCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +90,9 @@ export class GetSpaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSpaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class GetSpaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSpaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSpaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class GetSpaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSpaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSpaceCommand(input, context);
+    return se_GetSpaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSpaceCommandOutput> {
-    return deserializeAws_restJson1GetSpaceCommand(output, context);
+    return de_GetSpaceCommand(output, context);
   }
 
   // Start section: command_body_extra

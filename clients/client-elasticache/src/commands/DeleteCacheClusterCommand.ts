@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DeleteCacheClusterMessage,
-  DeleteCacheClusterMessageFilterSensitiveLog,
-  DeleteCacheClusterResult,
-  DeleteCacheClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteCacheClusterCommand,
-  serializeAws_queryDeleteCacheClusterCommand,
-} from "../protocols/Aws_query";
+import { DeleteCacheClusterMessage, DeleteCacheClusterResult } from "../models/models_0";
+import { de_DeleteCacheClusterCommand, se_DeleteCacheClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCacheClusterCommand}.
  */
 export interface DeleteCacheClusterCommandInput extends DeleteCacheClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCacheClusterCommand}.
  */
 export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously provisioned cluster.
  *                 <code>DeleteCacheCluster</code> deletes all associated cache nodes, node endpoints and the
  *             cluster itself. When you receive a successful response from this operation,
@@ -70,10 +67,16 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * import { ElastiCacheClient, DeleteCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DeleteCacheClusterMessage
+ *   CacheClusterId: "STRING_VALUE", // required
+ *   FinalSnapshotIdentifier: "STRING_VALUE",
+ * };
  * const command = new DeleteCacheClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCacheClusterCommandInput - {@link DeleteCacheClusterCommandInput}
+ * @returns {@link DeleteCacheClusterCommandOutput}
  * @see {@link DeleteCacheClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -168,6 +171,9 @@ export class DeleteCacheClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCacheClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -196,8 +202,8 @@ export class DeleteCacheClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCacheClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCacheClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -207,12 +213,18 @@ export class DeleteCacheClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteCacheClusterCommand(input, context);
+    return se_DeleteCacheClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCacheClusterCommandOutput> {
-    return deserializeAws_queryDeleteCacheClusterCommand(output, context);
+    return de_DeleteCacheClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

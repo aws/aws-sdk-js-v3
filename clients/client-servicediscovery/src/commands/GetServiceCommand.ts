@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetServiceRequest,
-  GetServiceRequestFilterSensitiveLog,
-  GetServiceResponse,
-  GetServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetServiceCommand,
-  serializeAws_json1_1GetServiceCommand,
-} from "../protocols/Aws_json1_1";
+import { GetServiceRequest, GetServiceResponse } from "../models/models_0";
+import { de_GetServiceCommand, se_GetServiceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceCommand}.
  */
 export interface GetServiceCommandInput extends GetServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceCommand}.
  */
 export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the settings for a specified service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * import { ServiceDiscoveryClient, GetServiceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, GetServiceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // GetServiceRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceCommandInput - {@link GetServiceCommandInput}
+ * @returns {@link GetServiceCommandOutput}
  * @see {@link GetServiceCommandInput} for command's `input` shape.
  * @see {@link GetServiceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -54,11 +56,6 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
@@ -111,6 +108,9 @@ export class GetServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +137,8 @@ export class GetServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +148,18 @@ export class GetServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetServiceCommand(input, context);
+    return se_GetServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceCommandOutput> {
-    return deserializeAws_json1_1GetServiceCommand(output, context);
+    return de_GetServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

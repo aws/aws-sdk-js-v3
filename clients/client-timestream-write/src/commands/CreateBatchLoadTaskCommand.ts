@@ -18,24 +18,25 @@ import {
   CreateBatchLoadTaskRequest,
   CreateBatchLoadTaskRequestFilterSensitiveLog,
   CreateBatchLoadTaskResponse,
-  CreateBatchLoadTaskResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateBatchLoadTaskCommand,
-  serializeAws_json1_0CreateBatchLoadTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateBatchLoadTaskCommand, se_CreateBatchLoadTaskCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBatchLoadTaskCommand}.
  */
 export interface CreateBatchLoadTaskCommandInput extends CreateBatchLoadTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBatchLoadTaskCommand}.
  */
 export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Timestream batch load task. A batch load task processes data from
  *          a CSV source in an S3 location and writes to a Timestream table. A mapping from
  *          source to target is defined in a batch load task. Errors and events are written to a report
@@ -51,10 +52,82 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  * import { TimestreamWriteClient, CreateBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, CreateBatchLoadTaskCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = { // CreateBatchLoadTaskRequest
+ *   ClientToken: "STRING_VALUE",
+ *   DataModelConfiguration: { // DataModelConfiguration
+ *     DataModel: { // DataModel
+ *       TimeColumn: "STRING_VALUE",
+ *       TimeUnit: "MILLISECONDS" || "SECONDS" || "MICROSECONDS" || "NANOSECONDS",
+ *       DimensionMappings: [ // DimensionMappings // required
+ *         { // DimensionMapping
+ *           SourceColumn: "STRING_VALUE",
+ *           DestinationColumn: "STRING_VALUE",
+ *         },
+ *       ],
+ *       MultiMeasureMappings: { // MultiMeasureMappings
+ *         TargetMultiMeasureName: "STRING_VALUE",
+ *         MultiMeasureAttributeMappings: [ // MultiMeasureAttributeMappingList // required
+ *           { // MultiMeasureAttributeMapping
+ *             SourceColumn: "STRING_VALUE", // required
+ *             TargetMultiMeasureAttributeName: "STRING_VALUE",
+ *             MeasureValueType: "DOUBLE" || "BIGINT" || "BOOLEAN" || "VARCHAR" || "TIMESTAMP",
+ *           },
+ *         ],
+ *       },
+ *       MixedMeasureMappings: [ // MixedMeasureMappingList
+ *         { // MixedMeasureMapping
+ *           MeasureName: "STRING_VALUE",
+ *           SourceColumn: "STRING_VALUE",
+ *           TargetMeasureName: "STRING_VALUE",
+ *           MeasureValueType: "DOUBLE" || "BIGINT" || "VARCHAR" || "BOOLEAN" || "TIMESTAMP" || "MULTI", // required
+ *           MultiMeasureAttributeMappings: [
+ *             {
+ *               SourceColumn: "STRING_VALUE", // required
+ *               TargetMultiMeasureAttributeName: "STRING_VALUE",
+ *               MeasureValueType: "DOUBLE" || "BIGINT" || "BOOLEAN" || "VARCHAR" || "TIMESTAMP",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       MeasureNameColumn: "STRING_VALUE",
+ *     },
+ *     DataModelS3Configuration: { // DataModelS3Configuration
+ *       BucketName: "STRING_VALUE",
+ *       ObjectKey: "STRING_VALUE",
+ *     },
+ *   },
+ *   DataSourceConfiguration: { // DataSourceConfiguration
+ *     DataSourceS3Configuration: { // DataSourceS3Configuration
+ *       BucketName: "STRING_VALUE", // required
+ *       ObjectKeyPrefix: "STRING_VALUE",
+ *     },
+ *     CsvConfiguration: { // CsvConfiguration
+ *       ColumnSeparator: "STRING_VALUE",
+ *       EscapeChar: "STRING_VALUE",
+ *       QuoteChar: "STRING_VALUE",
+ *       NullValue: "STRING_VALUE",
+ *       TrimWhiteSpace: true || false,
+ *     },
+ *     DataFormat: "CSV", // required
+ *   },
+ *   ReportConfiguration: { // ReportConfiguration
+ *     ReportS3Configuration: { // ReportS3Configuration
+ *       BucketName: "STRING_VALUE", // required
+ *       ObjectKeyPrefix: "STRING_VALUE",
+ *       EncryptionOption: "SSE_S3" || "SSE_KMS",
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *   },
+ *   TargetDatabaseName: "STRING_VALUE", // required
+ *   TargetTableName: "STRING_VALUE", // required
+ *   RecordVersion: Number("long"),
+ * };
  * const command = new CreateBatchLoadTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBatchLoadTaskCommandInput - {@link CreateBatchLoadTaskCommandInput}
+ * @returns {@link CreateBatchLoadTaskCommandOutput}
  * @see {@link CreateBatchLoadTaskCommandInput} for command's `input` shape.
  * @see {@link CreateBatchLoadTaskCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -107,6 +180,9 @@ export class CreateBatchLoadTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBatchLoadTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,7 +215,7 @@ export class CreateBatchLoadTaskCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateBatchLoadTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBatchLoadTaskResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +225,18 @@ export class CreateBatchLoadTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBatchLoadTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateBatchLoadTaskCommand(input, context);
+    return se_CreateBatchLoadTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchLoadTaskCommandOutput> {
-    return deserializeAws_json1_0CreateBatchLoadTaskCommand(output, context);
+    return de_CreateBatchLoadTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

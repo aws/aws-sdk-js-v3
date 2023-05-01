@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ACMServiceException as __BaseException } from "./ACMServiceException";
 
 /**
+ * @public
  * <p>You do not have access required to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A key-value pair that identifies or specifies metadata about an ACM resource.</p>
  */
 export interface Tag {
@@ -39,6 +41,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddTagsToCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate to which the tag is to be applied.
@@ -57,6 +62,7 @@ export interface AddTagsToCertificateRequest {
 }
 
 /**
+ * @public
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  */
 export class InvalidArnException extends __BaseException {
@@ -76,6 +82,7 @@ export class InvalidArnException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An input parameter was invalid.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -95,6 +102,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or both of the values that make up the key-value pair is not valid. For example, you
  *       cannot specify a tag value that begins with <code>aws:</code>.</p>
  */
@@ -115,6 +123,7 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  */
@@ -135,6 +144,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
  */
 export class TagPolicyException extends __BaseException {
@@ -154,6 +164,7 @@ export class TagPolicyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied because it exceeded a quota.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -173,6 +184,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request contains too many tags. Try the request again with fewer tags.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -191,11 +203,21 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
-export enum RecordType {
-  CNAME = "CNAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecordType = {
+  CNAME: "CNAME",
+} as const;
 
 /**
+ * @public
+ */
+export type RecordType = (typeof RecordType)[keyof typeof RecordType];
+
+/**
+ * @public
  * <p>Contains a DNS record value that you can use to validate ownership or control of a domain.
  *       This is used by the <a>DescribeCertificate</a> action. </p>
  */
@@ -217,18 +239,37 @@ export interface ResourceRecord {
   Value: string | undefined;
 }
 
-export enum ValidationMethod {
-  DNS = "DNS",
-  EMAIL = "EMAIL",
-}
-
-export enum DomainStatus {
-  FAILED = "FAILED",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationMethod = {
+  DNS: "DNS",
+  EMAIL: "EMAIL",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationMethod = (typeof ValidationMethod)[keyof typeof ValidationMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const DomainStatus = {
+  FAILED: "FAILED",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
+
+/**
+ * @public
  * <p>Contains information about the validation of each domain name in the certificate.</p>
  */
 export interface DomainValidation {
@@ -284,22 +325,32 @@ export interface DomainValidation {
   ValidationMethod?: ValidationMethod | string;
 }
 
-export enum ExtendedKeyUsageName {
-  ANY = "ANY",
-  CODE_SIGNING = "CODE_SIGNING",
-  CUSTOM = "CUSTOM",
-  EMAIL_PROTECTION = "EMAIL_PROTECTION",
-  IPSEC_END_SYSTEM = "IPSEC_END_SYSTEM",
-  IPSEC_TUNNEL = "IPSEC_TUNNEL",
-  IPSEC_USER = "IPSEC_USER",
-  NONE = "NONE",
-  OCSP_SIGNING = "OCSP_SIGNING",
-  TIME_STAMPING = "TIME_STAMPING",
-  TLS_WEB_CLIENT_AUTHENTICATION = "TLS_WEB_CLIENT_AUTHENTICATION",
-  TLS_WEB_SERVER_AUTHENTICATION = "TLS_WEB_SERVER_AUTHENTICATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExtendedKeyUsageName = {
+  ANY: "ANY",
+  CODE_SIGNING: "CODE_SIGNING",
+  CUSTOM: "CUSTOM",
+  EMAIL_PROTECTION: "EMAIL_PROTECTION",
+  IPSEC_END_SYSTEM: "IPSEC_END_SYSTEM",
+  IPSEC_TUNNEL: "IPSEC_TUNNEL",
+  IPSEC_USER: "IPSEC_USER",
+  NONE: "NONE",
+  OCSP_SIGNING: "OCSP_SIGNING",
+  TIME_STAMPING: "TIME_STAMPING",
+  TLS_WEB_CLIENT_AUTHENTICATION: "TLS_WEB_CLIENT_AUTHENTICATION",
+  TLS_WEB_SERVER_AUTHENTICATION: "TLS_WEB_SERVER_AUTHENTICATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ExtendedKeyUsageName = (typeof ExtendedKeyUsageName)[keyof typeof ExtendedKeyUsageName];
+
+/**
+ * @public
  * <p>The Extended Key Usage X.509 v3 extension defines one or more purposes for which the
  *       public key can be used. This is in addition to or in place of the basic purposes specified by
  *       the Key Usage extension. </p>
@@ -364,51 +415,79 @@ export interface ExtendedKeyUsage {
   OID?: string;
 }
 
-export enum FailureReason {
-  ADDITIONAL_VERIFICATION_REQUIRED = "ADDITIONAL_VERIFICATION_REQUIRED",
-  CAA_ERROR = "CAA_ERROR",
-  DOMAIN_NOT_ALLOWED = "DOMAIN_NOT_ALLOWED",
-  DOMAIN_VALIDATION_DENIED = "DOMAIN_VALIDATION_DENIED",
-  INVALID_PUBLIC_DOMAIN = "INVALID_PUBLIC_DOMAIN",
-  NO_AVAILABLE_CONTACTS = "NO_AVAILABLE_CONTACTS",
-  OTHER = "OTHER",
-  PCA_ACCESS_DENIED = "PCA_ACCESS_DENIED",
-  PCA_INVALID_ARGS = "PCA_INVALID_ARGS",
-  PCA_INVALID_ARN = "PCA_INVALID_ARN",
-  PCA_INVALID_DURATION = "PCA_INVALID_DURATION",
-  PCA_INVALID_STATE = "PCA_INVALID_STATE",
-  PCA_LIMIT_EXCEEDED = "PCA_LIMIT_EXCEEDED",
-  PCA_NAME_CONSTRAINTS_VALIDATION = "PCA_NAME_CONSTRAINTS_VALIDATION",
-  PCA_REQUEST_FAILED = "PCA_REQUEST_FAILED",
-  PCA_RESOURCE_NOT_FOUND = "PCA_RESOURCE_NOT_FOUND",
-  SLR_NOT_FOUND = "SLR_NOT_FOUND",
-}
-
-export enum KeyAlgorithm {
-  EC_prime256v1 = "EC_prime256v1",
-  EC_secp384r1 = "EC_secp384r1",
-  EC_secp521r1 = "EC_secp521r1",
-  RSA_1024 = "RSA_1024",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-}
-
-export enum KeyUsageName {
-  ANY = "ANY",
-  CERTIFICATE_SIGNING = "CERTIFICATE_SIGNING",
-  CRL_SIGNING = "CRL_SIGNING",
-  CUSTOM = "CUSTOM",
-  DATA_ENCIPHERMENT = "DATA_ENCIPHERMENT",
-  DECIPHER_ONLY = "DECIPHER_ONLY",
-  DIGITAL_SIGNATURE = "DIGITAL_SIGNATURE",
-  ENCHIPER_ONLY = "ENCIPHER_ONLY",
-  KEY_AGREEMENT = "KEY_AGREEMENT",
-  KEY_ENCIPHERMENT = "KEY_ENCIPHERMENT",
-  NON_REPUDATION = "NON_REPUDIATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FailureReason = {
+  ADDITIONAL_VERIFICATION_REQUIRED: "ADDITIONAL_VERIFICATION_REQUIRED",
+  CAA_ERROR: "CAA_ERROR",
+  DOMAIN_NOT_ALLOWED: "DOMAIN_NOT_ALLOWED",
+  DOMAIN_VALIDATION_DENIED: "DOMAIN_VALIDATION_DENIED",
+  INVALID_PUBLIC_DOMAIN: "INVALID_PUBLIC_DOMAIN",
+  NO_AVAILABLE_CONTACTS: "NO_AVAILABLE_CONTACTS",
+  OTHER: "OTHER",
+  PCA_ACCESS_DENIED: "PCA_ACCESS_DENIED",
+  PCA_INVALID_ARGS: "PCA_INVALID_ARGS",
+  PCA_INVALID_ARN: "PCA_INVALID_ARN",
+  PCA_INVALID_DURATION: "PCA_INVALID_DURATION",
+  PCA_INVALID_STATE: "PCA_INVALID_STATE",
+  PCA_LIMIT_EXCEEDED: "PCA_LIMIT_EXCEEDED",
+  PCA_NAME_CONSTRAINTS_VALIDATION: "PCA_NAME_CONSTRAINTS_VALIDATION",
+  PCA_REQUEST_FAILED: "PCA_REQUEST_FAILED",
+  PCA_RESOURCE_NOT_FOUND: "PCA_RESOURCE_NOT_FOUND",
+  SLR_NOT_FOUND: "SLR_NOT_FOUND",
+} as const;
 
 /**
+ * @public
+ */
+export type FailureReason = (typeof FailureReason)[keyof typeof FailureReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyAlgorithm = {
+  EC_prime256v1: "EC_prime256v1",
+  EC_secp384r1: "EC_secp384r1",
+  EC_secp521r1: "EC_secp521r1",
+  RSA_1024: "RSA_1024",
+  RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyAlgorithm = (typeof KeyAlgorithm)[keyof typeof KeyAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyUsageName = {
+  ANY: "ANY",
+  CERTIFICATE_SIGNING: "CERTIFICATE_SIGNING",
+  CRL_SIGNING: "CRL_SIGNING",
+  CUSTOM: "CUSTOM",
+  DATA_ENCIPHERMENT: "DATA_ENCIPHERMENT",
+  DECIPHER_ONLY: "DECIPHER_ONLY",
+  DIGITAL_SIGNATURE: "DIGITAL_SIGNATURE",
+  ENCHIPER_ONLY: "ENCIPHER_ONLY",
+  KEY_AGREEMENT: "KEY_AGREEMENT",
+  KEY_ENCIPHERMENT: "KEY_ENCIPHERMENT",
+  NON_REPUDATION: "NON_REPUDIATION",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyUsageName = (typeof KeyUsageName)[keyof typeof KeyUsageName];
+
+/**
+ * @public
  * <p>The Key Usage X.509 v3 extension defines the purpose of the public key contained in the
  *       certificate.</p>
  */
@@ -419,12 +498,23 @@ export interface KeyUsage {
   Name?: KeyUsageName | string;
 }
 
-export enum CertificateTransparencyLoggingPreference {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CertificateTransparencyLoggingPreference = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type CertificateTransparencyLoggingPreference =
+  (typeof CertificateTransparencyLoggingPreference)[keyof typeof CertificateTransparencyLoggingPreference];
+
+/**
+ * @public
  * <p>Structure that contains options for your certificate. Currently, you can use this only to
  *       specify whether to opt in to or out of certificate transparency logging. Some browsers require
  *       that public certificates issued for your domain be recorded in a log. Certificates that are
@@ -441,19 +531,38 @@ export interface CertificateOptions {
   CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | string;
 }
 
-export enum RenewalEligibility {
-  ELIGIBLE = "ELIGIBLE",
-  INELIGIBLE = "INELIGIBLE",
-}
-
-export enum RenewalStatus {
-  FAILED = "FAILED",
-  PENDING_AUTO_RENEWAL = "PENDING_AUTO_RENEWAL",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RenewalEligibility = {
+  ELIGIBLE: "ELIGIBLE",
+  INELIGIBLE: "INELIGIBLE",
+} as const;
 
 /**
+ * @public
+ */
+export type RenewalEligibility = (typeof RenewalEligibility)[keyof typeof RenewalEligibility];
+
+/**
+ * @public
+ * @enum
+ */
+export const RenewalStatus = {
+  FAILED: "FAILED",
+  PENDING_AUTO_RENEWAL: "PENDING_AUTO_RENEWAL",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type RenewalStatus = (typeof RenewalStatus)[keyof typeof RenewalStatus];
+
+/**
+ * @public
  * <p>Contains information about the status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for the certificate. This
  *       structure exists only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
  */
@@ -483,36 +592,64 @@ export interface RenewalSummary {
   UpdatedAt: Date | undefined;
 }
 
-export enum RevocationReason {
-  AFFILIATION_CHANGED = "AFFILIATION_CHANGED",
-  A_A_COMPROMISE = "A_A_COMPROMISE",
-  CA_COMPROMISE = "CA_COMPROMISE",
-  CERTIFICATE_HOLD = "CERTIFICATE_HOLD",
-  CESSATION_OF_OPERATION = "CESSATION_OF_OPERATION",
-  KEY_COMPROMISE = "KEY_COMPROMISE",
-  PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
-  REMOVE_FROM_CRL = "REMOVE_FROM_CRL",
-  SUPERCEDED = "SUPERCEDED",
-  UNSPECIFIED = "UNSPECIFIED",
-}
-
-export enum CertificateStatus {
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  ISSUED = "ISSUED",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-  REVOKED = "REVOKED",
-  VALIDATION_TIMED_OUT = "VALIDATION_TIMED_OUT",
-}
-
-export enum CertificateType {
-  AMAZON_ISSUED = "AMAZON_ISSUED",
-  IMPORTED = "IMPORTED",
-  PRIVATE = "PRIVATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RevocationReason = {
+  AFFILIATION_CHANGED: "AFFILIATION_CHANGED",
+  A_A_COMPROMISE: "A_A_COMPROMISE",
+  CA_COMPROMISE: "CA_COMPROMISE",
+  CERTIFICATE_HOLD: "CERTIFICATE_HOLD",
+  CESSATION_OF_OPERATION: "CESSATION_OF_OPERATION",
+  KEY_COMPROMISE: "KEY_COMPROMISE",
+  PRIVILEGE_WITHDRAWN: "PRIVILEGE_WITHDRAWN",
+  REMOVE_FROM_CRL: "REMOVE_FROM_CRL",
+  SUPERCEDED: "SUPERCEDED",
+  UNSPECIFIED: "UNSPECIFIED",
+} as const;
 
 /**
+ * @public
+ */
+export type RevocationReason = (typeof RevocationReason)[keyof typeof RevocationReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateStatus = {
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  ISSUED: "ISSUED",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+  REVOKED: "REVOKED",
+  VALIDATION_TIMED_OUT: "VALIDATION_TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateStatus = (typeof CertificateStatus)[keyof typeof CertificateStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateType = {
+  AMAZON_ISSUED: "AMAZON_ISSUED",
+  IMPORTED: "IMPORTED",
+  PRIVATE: "PRIVATE",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateType = (typeof CertificateType)[keyof typeof CertificateType];
+
+/**
+ * @public
  * <p>Contains metadata about an ACM certificate. This structure is returned in the response
  *       to a <a>DescribeCertificate</a> request. </p>
  */
@@ -690,6 +827,7 @@ export interface CertificateDetail {
 }
 
 /**
+ * @public
  * <p>You are trying to update a resource or configuration that is already being created or
  *       updated. Wait for the previous operation to finish and try again.</p>
  */
@@ -709,6 +847,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate to be deleted. This must be of the
@@ -722,6 +863,7 @@ export interface DeleteCertificateRequest {
 }
 
 /**
+ * @public
  * <p>The certificate is in use by another Amazon Web Services service in the caller's account. Remove the
  *       association and try again.</p>
  */
@@ -741,6 +883,9 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following
@@ -753,6 +898,9 @@ export interface DescribeCertificateRequest {
   CertificateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCertificateResponse {
   /**
    * <p>Metadata about an ACM certificate.</p>
@@ -760,6 +908,9 @@ export interface DescribeCertificateResponse {
   Certificate?: CertificateDetail;
 }
 
+/**
+ * @public
+ */
 export interface ExportCertificateRequest {
   /**
    * <p>An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:</p>
@@ -784,6 +935,9 @@ export interface ExportCertificateRequest {
   Passphrase: Uint8Array | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExportCertificateResponse {
   /**
    * <p>The base64 PEM-encoded certificate.</p>
@@ -804,6 +958,7 @@ export interface ExportCertificateResponse {
 }
 
 /**
+ * @public
  * <p>The certificate request is in process and the certificate in your account has not yet been
  *       issued.</p>
  */
@@ -824,6 +979,7 @@ export class RequestInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Object containing expiration events options associated with an Amazon Web Services account.</p>
  */
 export interface ExpiryEventsConfiguration {
@@ -836,6 +992,9 @@ export interface ExpiryEventsConfiguration {
   DaysBeforeExpiry?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAccountConfigurationResponse {
   /**
    * <p>Expiration events configuration options associated with the Amazon Web Services account.</p>
@@ -843,6 +1002,9 @@ export interface GetAccountConfigurationResponse {
   ExpiryEvents?: ExpiryEventsConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificateRequest {
   /**
    * <p>String that contains a certificate ARN in the following format:</p>
@@ -854,6 +1016,9 @@ export interface GetCertificateRequest {
   CertificateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCertificateResponse {
   /**
    * <p>The ACM-issued certificate corresponding to the ARN specified as input.</p>
@@ -868,6 +1033,9 @@ export interface GetCertificateResponse {
   CertificateChain?: string;
 }
 
+/**
+ * @public
+ */
 export interface ImportCertificateRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name
@@ -898,6 +1066,9 @@ export interface ImportCertificateRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportCertificateResponse {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name
@@ -907,6 +1078,7 @@ export interface ImportCertificateResponse {
 }
 
 /**
+ * @public
  * <p>An ACM quota has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -926,6 +1098,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of of request parameters specified is not valid.</p>
  */
 export class InvalidArgsException extends __BaseException {
@@ -945,6 +1118,7 @@ export class InvalidArgsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This structure can be used in the <a>ListCertificates</a> action to filter the
  *       output of the certificate list. </p>
  */
@@ -970,15 +1144,36 @@ export interface Filters {
   keyTypes?: (KeyAlgorithm | string)[];
 }
 
-export enum SortBy {
-  CREATED_AT = "CREATED_AT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortBy = {
+  CREATED_AT: "CREATED_AT",
+} as const;
 
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ */
+export type SortBy = (typeof SortBy)[keyof typeof SortBy];
 
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
 export interface ListCertificatesRequest {
   /**
    * <p>Filter the certificate list by status value.</p>
@@ -1020,6 +1215,7 @@ export interface ListCertificatesRequest {
 }
 
 /**
+ * @public
  * <p>This structure is returned in the response object of <a>ListCertificates</a>
  *       action. </p>
  */
@@ -1151,6 +1347,9 @@ export interface CertificateSummary {
   RevokedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListCertificatesResponse {
   /**
    * <p>When the list is truncated, this value is present and contains the value to use for the
@@ -1165,6 +1364,7 @@ export interface ListCertificatesResponse {
 }
 
 /**
+ * @public
  * <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -1183,6 +1383,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate for which you want to list the tags.
@@ -1195,6 +1398,9 @@ export interface ListTagsForCertificateRequest {
   CertificateArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForCertificateResponse {
   /**
    * <p>The key-value pairs that define the applied tags.</p>
@@ -1202,6 +1408,9 @@ export interface ListTagsForCertificateResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutAccountConfigurationRequest {
   /**
    * <p>Specifies expiration events associated with an account.</p>
@@ -1218,6 +1427,9 @@ export interface PutAccountConfigurationRequest {
   IdempotencyToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveTagsFromCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM Certificate with one or more tags that you want
@@ -1235,6 +1447,9 @@ export interface RemoveTagsFromCertificateRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RenewCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate to be renewed. This must be of the
@@ -1248,6 +1463,7 @@ export interface RenewCertificateRequest {
 }
 
 /**
+ * @public
  * <p>One or more values in the <a>DomainValidationOption</a> structure is
  *       incorrect.</p>
  */
@@ -1268,6 +1484,7 @@ export class InvalidDomainValidationOptionsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about the domain names that you want ACM to use to send you emails
  *       that enable you to validate domain ownership.</p>
  */
@@ -1305,6 +1522,9 @@ export interface DomainValidationOption {
   ValidationDomain: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RequestCertificateRequest {
   /**
    * <p>Fully qualified domain name (FQDN), such as www.example.com, that you want to secure with
@@ -1409,6 +1629,9 @@ export interface RequestCertificateRequest {
   KeyAlgorithm?: KeyAlgorithm | string;
 }
 
+/**
+ * @public
+ */
 export interface RequestCertificateResponse {
   /**
    * <p>String that contains the ARN of the issued certificate. This must be of the form:</p>
@@ -1420,6 +1643,7 @@ export interface RequestCertificateResponse {
 }
 
 /**
+ * @public
  * <p>Processing has reached an invalid state.</p>
  */
 export class InvalidStateException extends __BaseException {
@@ -1438,6 +1662,9 @@ export class InvalidStateException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ResendValidationEmailRequest {
   /**
    * <p>String that contains the ARN of the requested certificate. The certificate ARN is
@@ -1484,6 +1711,9 @@ export interface ResendValidationEmailRequest {
   ValidationDomain: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCertificateOptionsRequest {
   /**
    * <p>ARN of the requested certificate to update. This must be of the form:</p>
@@ -1506,90 +1736,6 @@ export interface UpdateCertificateOptionsRequest {
 /**
  * @internal
  */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsToCertificateRequestFilterSensitiveLog = (obj: AddTagsToCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceRecordFilterSensitiveLog = (obj: ResourceRecord): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainValidationFilterSensitiveLog = (obj: DomainValidation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtendedKeyUsageFilterSensitiveLog = (obj: ExtendedKeyUsage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyUsageFilterSensitiveLog = (obj: KeyUsage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateOptionsFilterSensitiveLog = (obj: CertificateOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenewalSummaryFilterSensitiveLog = (obj: RenewalSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateDetailFilterSensitiveLog = (obj: CertificateDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCertificateRequestFilterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCertificateRequestFilterSensitiveLog = (obj: DescribeCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCertificateResponseFilterSensitiveLog = (obj: DescribeCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ExportCertificateRequestFilterSensitiveLog = (obj: ExportCertificateRequest): any => ({
   ...obj,
   ...(obj.Passphrase && { Passphrase: SENSITIVE_STRING }),
@@ -1606,140 +1752,7 @@ export const ExportCertificateResponseFilterSensitiveLog = (obj: ExportCertifica
 /**
  * @internal
  */
-export const ExpiryEventsConfigurationFilterSensitiveLog = (obj: ExpiryEventsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountConfigurationResponseFilterSensitiveLog = (obj: GetAccountConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCertificateRequestFilterSensitiveLog = (obj: GetCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCertificateResponseFilterSensitiveLog = (obj: GetCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ImportCertificateRequestFilterSensitiveLog = (obj: ImportCertificateRequest): any => ({
   ...obj,
   ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportCertificateResponseFilterSensitiveLog = (obj: ImportCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FiltersFilterSensitiveLog = (obj: Filters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCertificatesRequestFilterSensitiveLog = (obj: ListCertificatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateSummaryFilterSensitiveLog = (obj: CertificateSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCertificatesResponseFilterSensitiveLog = (obj: ListCertificatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForCertificateRequestFilterSensitiveLog = (obj: ListTagsForCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForCertificateResponseFilterSensitiveLog = (obj: ListTagsForCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAccountConfigurationRequestFilterSensitiveLog = (obj: PutAccountConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsFromCertificateRequestFilterSensitiveLog = (obj: RemoveTagsFromCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenewCertificateRequestFilterSensitiveLog = (obj: RenewCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainValidationOptionFilterSensitiveLog = (obj: DomainValidationOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RequestCertificateRequestFilterSensitiveLog = (obj: RequestCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RequestCertificateResponseFilterSensitiveLog = (obj: RequestCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResendValidationEmailRequestFilterSensitiveLog = (obj: ResendValidationEmailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCertificateOptionsRequestFilterSensitiveLog = (obj: UpdateCertificateOptionsRequest): any => ({
-  ...obj,
 });

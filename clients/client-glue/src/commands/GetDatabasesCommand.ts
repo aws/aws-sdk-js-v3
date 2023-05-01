@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetDatabasesRequest,
-  GetDatabasesRequestFilterSensitiveLog,
-  GetDatabasesResponse,
-  GetDatabasesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDatabasesCommand,
-  serializeAws_json1_1GetDatabasesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDatabasesRequest, GetDatabasesResponse } from "../models/models_1";
+import { de_GetDatabasesCommand, se_GetDatabasesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatabasesCommand}.
  */
 export interface GetDatabasesCommandInput extends GetDatabasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDatabasesCommand}.
  */
 export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all databases defined in a given Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __Metad
  * import { GlueClient, GetDatabasesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDatabasesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetDatabasesRequest
+ *   CatalogId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ResourceShareType: "FOREIGN" || "ALL" || "FEDERATED",
+ * };
  * const command = new GetDatabasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatabasesCommandInput - {@link GetDatabasesCommandInput}
+ * @returns {@link GetDatabasesCommandOutput}
  * @see {@link GetDatabasesCommandInput} for command's `input` shape.
  * @see {@link GetDatabasesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +86,9 @@ export class GetDatabasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatabasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +115,8 @@ export class GetDatabasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatabasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDatabasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +126,18 @@ export class GetDatabasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDatabasesCommand(input, context);
+    return se_GetDatabasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatabasesCommandOutput> {
-    return deserializeAws_json1_1GetDatabasesCommand(output, context);
+    return de_GetDatabasesCommand(output, context);
   }
 
   // Start section: command_body_extra

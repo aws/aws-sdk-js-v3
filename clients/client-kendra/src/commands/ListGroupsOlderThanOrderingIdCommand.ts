@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { ListGroupsOlderThanOrderingIdRequest, ListGroupsOlderThanOrderingIdResponse } from "../models/models_0";
 import {
-  ListGroupsOlderThanOrderingIdRequest,
-  ListGroupsOlderThanOrderingIdRequestFilterSensitiveLog,
-  ListGroupsOlderThanOrderingIdResponse,
-  ListGroupsOlderThanOrderingIdResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGroupsOlderThanOrderingIdCommand,
-  serializeAws_json1_1ListGroupsOlderThanOrderingIdCommand,
+  de_ListGroupsOlderThanOrderingIdCommand,
+  se_ListGroupsOlderThanOrderingIdCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupsOlderThanOrderingIdCommand}.
  */
 export interface ListGroupsOlderThanOrderingIdCommandInput extends ListGroupsOlderThanOrderingIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupsOlderThanOrderingIdCommand}.
  */
 export interface ListGroupsOlderThanOrderingIdCommandOutput
@@ -37,21 +36,30 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides a list of groups that are mapped to users before a
- *             given ordering or timestamp identifier.</p>
+ * @public
+ * <p>Provides a list of groups that are mapped to users before a given ordering or
+ *             timestamp identifier.</p>
  *          <p>
- *             <code>ListGroupsOlderThanOrderingId</code> is currently not supported in the
- *             Amazon Web Services GovCloud (US-West) region.</p>
+ *             <code>ListGroupsOlderThanOrderingId</code> is currently not supported in the Amazon Web Services GovCloud (US-West) region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, ListGroupsOlderThanOrderingIdCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListGroupsOlderThanOrderingIdCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // ListGroupsOlderThanOrderingIdRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   DataSourceId: "STRING_VALUE",
+ *   OrderingId: Number("long"), // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListGroupsOlderThanOrderingIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupsOlderThanOrderingIdCommandInput - {@link ListGroupsOlderThanOrderingIdCommandInput}
+ * @returns {@link ListGroupsOlderThanOrderingIdCommandOutput}
  * @see {@link ListGroupsOlderThanOrderingIdCommandInput} for command's `input` shape.
  * @see {@link ListGroupsOlderThanOrderingIdCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -66,7 +74,7 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -99,6 +107,9 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupsOlderThanOrderingIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +138,8 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupsOlderThanOrderingIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupsOlderThanOrderingIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +149,21 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupsOlderThanOrderingIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGroupsOlderThanOrderingIdCommand(input, context);
+    return se_ListGroupsOlderThanOrderingIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGroupsOlderThanOrderingIdCommandOutput> {
-    return deserializeAws_json1_1ListGroupsOlderThanOrderingIdCommand(output, context);
+    return de_ListGroupsOlderThanOrderingIdCommand(output, context);
   }
 
   // Start section: command_body_extra

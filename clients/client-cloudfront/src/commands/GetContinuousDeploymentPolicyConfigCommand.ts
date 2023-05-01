@@ -16,20 +16,22 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   GetContinuousDeploymentPolicyConfigRequest,
-  GetContinuousDeploymentPolicyConfigRequestFilterSensitiveLog,
   GetContinuousDeploymentPolicyConfigResult,
-  GetContinuousDeploymentPolicyConfigResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand,
-  serializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand,
+  de_GetContinuousDeploymentPolicyConfigCommand,
+  se_GetContinuousDeploymentPolicyConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetContinuousDeploymentPolicyConfigCommand}.
  */
 export interface GetContinuousDeploymentPolicyConfigCommandInput extends GetContinuousDeploymentPolicyConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContinuousDeploymentPolicyConfigCommand}.
  */
 export interface GetContinuousDeploymentPolicyConfigCommandOutput
@@ -37,6 +39,7 @@ export interface GetContinuousDeploymentPolicyConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets configuration information about a continuous deployment policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface GetContinuousDeploymentPolicyConfigCommandOutput
  * import { CloudFrontClient, GetContinuousDeploymentPolicyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetContinuousDeploymentPolicyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetContinuousDeploymentPolicyConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetContinuousDeploymentPolicyConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContinuousDeploymentPolicyConfigCommandInput - {@link GetContinuousDeploymentPolicyConfigCommandInput}
+ * @returns {@link GetContinuousDeploymentPolicyConfigCommandOutput}
  * @see {@link GetContinuousDeploymentPolicyConfigCommandInput} for command's `input` shape.
  * @see {@link GetContinuousDeploymentPolicyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +85,9 @@ export class GetContinuousDeploymentPolicyConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContinuousDeploymentPolicyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +116,8 @@ export class GetContinuousDeploymentPolicyConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContinuousDeploymentPolicyConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContinuousDeploymentPolicyConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +127,24 @@ export class GetContinuousDeploymentPolicyConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetContinuousDeploymentPolicyConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand(input, context);
+    return se_GetContinuousDeploymentPolicyConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContinuousDeploymentPolicyConfigCommandOutput> {
-    return deserializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand(output, context);
+    return de_GetContinuousDeploymentPolicyConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

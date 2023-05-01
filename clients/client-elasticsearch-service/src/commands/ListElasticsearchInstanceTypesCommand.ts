@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
+import { ListElasticsearchInstanceTypesRequest, ListElasticsearchInstanceTypesResponse } from "../models/models_0";
 import {
-  ListElasticsearchInstanceTypesRequest,
-  ListElasticsearchInstanceTypesRequestFilterSensitiveLog,
-  ListElasticsearchInstanceTypesResponse,
-  ListElasticsearchInstanceTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListElasticsearchInstanceTypesCommand,
-  serializeAws_restJson1ListElasticsearchInstanceTypesCommand,
+  de_ListElasticsearchInstanceTypesCommand,
+  se_ListElasticsearchInstanceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListElasticsearchInstanceTypesCommand}.
  */
 export interface ListElasticsearchInstanceTypesCommandInput extends ListElasticsearchInstanceTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListElasticsearchInstanceTypesCommand}.
  */
 export interface ListElasticsearchInstanceTypesCommandOutput
@@ -41,6 +40,7 @@ export interface ListElasticsearchInstanceTypesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +48,18 @@ export interface ListElasticsearchInstanceTypesCommandOutput
  * import { ElasticsearchServiceClient, ListElasticsearchInstanceTypesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, ListElasticsearchInstanceTypesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // ListElasticsearchInstanceTypesRequest
+ *   ElasticsearchVersion: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListElasticsearchInstanceTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListElasticsearchInstanceTypesCommandInput - {@link ListElasticsearchInstanceTypesCommandInput}
+ * @returns {@link ListElasticsearchInstanceTypesCommandOutput}
  * @see {@link ListElasticsearchInstanceTypesCommandInput} for command's `input` shape.
  * @see {@link ListElasticsearchInstanceTypesCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -87,6 +95,9 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListElasticsearchInstanceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListElasticsearchInstanceTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListElasticsearchInstanceTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +137,24 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListElasticsearchInstanceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListElasticsearchInstanceTypesCommand(input, context);
+    return se_ListElasticsearchInstanceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListElasticsearchInstanceTypesCommandOutput> {
-    return deserializeAws_restJson1ListElasticsearchInstanceTypesCommand(output, context);
+    return de_ListElasticsearchInstanceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

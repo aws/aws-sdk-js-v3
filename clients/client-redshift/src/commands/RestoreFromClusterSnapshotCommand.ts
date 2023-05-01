@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreFromClusterSnapshotMessage,
-  RestoreFromClusterSnapshotMessageFilterSensitiveLog,
-  RestoreFromClusterSnapshotResult,
-  RestoreFromClusterSnapshotResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRestoreFromClusterSnapshotCommand,
-  serializeAws_queryRestoreFromClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { RestoreFromClusterSnapshotMessage, RestoreFromClusterSnapshotResult } from "../models/models_1";
+import { de_RestoreFromClusterSnapshotCommand, se_RestoreFromClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreFromClusterSnapshotCommand}.
  */
 export interface RestoreFromClusterSnapshotCommandInput extends RestoreFromClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreFromClusterSnapshotCommand}.
  */
 export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting
  *             cluster with the same configuration as the original cluster from which the snapshot was
  *             created, except that the new cluster is created with the default cluster security and
@@ -53,10 +50,53 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * import { RedshiftClient, RestoreFromClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RestoreFromClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // RestoreFromClusterSnapshotMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   SnapshotIdentifier: "STRING_VALUE",
+ *   SnapshotArn: "STRING_VALUE",
+ *   SnapshotClusterIdentifier: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   AvailabilityZone: "STRING_VALUE",
+ *   AllowVersionUpgrade: true || false,
+ *   ClusterSubnetGroupName: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   OwnerAccount: "STRING_VALUE",
+ *   HsmClientCertificateIdentifier: "STRING_VALUE",
+ *   HsmConfigurationIdentifier: "STRING_VALUE",
+ *   ElasticIp: "STRING_VALUE",
+ *   ClusterParameterGroupName: "STRING_VALUE",
+ *   ClusterSecurityGroups: [ // ClusterSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   AutomatedSnapshotRetentionPeriod: Number("int"),
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   KmsKeyId: "STRING_VALUE",
+ *   NodeType: "STRING_VALUE",
+ *   EnhancedVpcRouting: true || false,
+ *   AdditionalInfo: "STRING_VALUE",
+ *   IamRoles: [ // IamRoleArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaintenanceTrackName: "STRING_VALUE",
+ *   SnapshotScheduleIdentifier: "STRING_VALUE",
+ *   NumberOfNodes: Number("int"),
+ *   AvailabilityZoneRelocation: true || false,
+ *   AquaConfigurationStatus: "enabled" || "disabled" || "auto",
+ *   DefaultIamRoleArn: "STRING_VALUE",
+ *   ReservedNodeId: "STRING_VALUE",
+ *   TargetReservedNodeOfferingId: "STRING_VALUE",
+ *   Encrypted: true || false,
+ * };
  * const command = new RestoreFromClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreFromClusterSnapshotCommandInput - {@link RestoreFromClusterSnapshotCommandInput}
+ * @returns {@link RestoreFromClusterSnapshotCommandOutput}
  * @see {@link RestoreFromClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreFromClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -193,6 +233,9 @@ export class RestoreFromClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreFromClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -221,8 +264,8 @@ export class RestoreFromClusterSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreFromClusterSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreFromClusterSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -232,15 +275,21 @@ export class RestoreFromClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreFromClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreFromClusterSnapshotCommand(input, context);
+    return se_RestoreFromClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreFromClusterSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreFromClusterSnapshotCommand(output, context);
+    return de_RestoreFromClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

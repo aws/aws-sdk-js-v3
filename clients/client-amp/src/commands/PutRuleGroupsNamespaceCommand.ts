@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import {
-  PutRuleGroupsNamespaceRequest,
-  PutRuleGroupsNamespaceRequestFilterSensitiveLog,
-  PutRuleGroupsNamespaceResponse,
-  PutRuleGroupsNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRuleGroupsNamespaceCommand,
-  serializeAws_restJson1PutRuleGroupsNamespaceCommand,
-} from "../protocols/Aws_restJson1";
+import { PutRuleGroupsNamespaceRequest, PutRuleGroupsNamespaceResponse } from "../models/models_0";
+import { de_PutRuleGroupsNamespaceCommand, se_PutRuleGroupsNamespaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRuleGroupsNamespaceCommand}.
  */
 export interface PutRuleGroupsNamespaceCommandInput extends PutRuleGroupsNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRuleGroupsNamespaceCommand}.
  */
 export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Update a rule groups namespace.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
  * import { AmpClient, PutRuleGroupsNamespaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, PutRuleGroupsNamespaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // PutRuleGroupsNamespaceRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   data: "BLOB_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new PutRuleGroupsNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRuleGroupsNamespaceCommandInput - {@link PutRuleGroupsNamespaceCommandInput}
+ * @returns {@link PutRuleGroupsNamespaceCommandOutput}
  * @see {@link PutRuleGroupsNamespaceCommandInput} for command's `input` shape.
  * @see {@link PutRuleGroupsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -90,6 +95,9 @@ export class PutRuleGroupsNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRuleGroupsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class PutRuleGroupsNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRuleGroupsNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRuleGroupsNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +137,18 @@ export class PutRuleGroupsNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRuleGroupsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRuleGroupsNamespaceCommand(input, context);
+    return se_PutRuleGroupsNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRuleGroupsNamespaceCommandOutput> {
-    return deserializeAws_restJson1PutRuleGroupsNamespaceCommand(output, context);
+    return de_PutRuleGroupsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

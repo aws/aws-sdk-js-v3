@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDataSetRequest,
-  DeleteDataSetRequestFilterSensitiveLog,
-  DeleteDataSetResponse,
-  DeleteDataSetResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteDataSetCommand,
-  serializeAws_restJson1DeleteDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDataSetRequest, DeleteDataSetResponse } from "../models/models_2";
+import { de_DeleteDataSetCommand, se_DeleteDataSetCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataSetCommand}.
  */
 export interface DeleteDataSetCommandInput extends DeleteDataSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataSetCommand}.
  */
 export interface DeleteDataSetCommandOutput extends DeleteDataSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteDataSetCommandOutput extends DeleteDataSetResponse, __Met
  * import { QuickSightClient, DeleteDataSetCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteDataSetCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteDataSetRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataSetCommandInput - {@link DeleteDataSetCommandInput}
+ * @returns {@link DeleteDataSetCommandOutput}
  * @see {@link DeleteDataSetCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSetCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -87,6 +90,9 @@ export class DeleteDataSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class DeleteDataSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class DeleteDataSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDataSetCommand(input, context);
+    return se_DeleteDataSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataSetCommandOutput> {
-    return deserializeAws_restJson1DeleteDataSetCommand(output, context);
+    return de_DeleteDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

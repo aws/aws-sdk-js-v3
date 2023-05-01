@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { PutMetricAlarmInput, PutMetricAlarmInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryPutMetricAlarmCommand,
-  serializeAws_queryPutMetricAlarmCommand,
-} from "../protocols/Aws_query";
+import { PutMetricAlarmInput } from "../models/models_0";
+import { de_PutMetricAlarmCommand, se_PutMetricAlarmCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutMetricAlarmCommand}.
  */
 export interface PutMetricAlarmCommandInput extends PutMetricAlarmInput {}
 /**
+ * @public
+ *
  * The output of {@link PutMetricAlarmCommand}.
  */
 export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an alarm and associates it with the specified metric, metric math expression,
  * 			anomaly detection model, or Metrics Insights query. For more information about using
  * 			a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create alarms on Metrics Insights queries</a>.</p>
@@ -43,11 +45,11 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * 			Amazon EC2 permissions for some alarm operations:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions</p>
+ *                <p>The <code>iam:CreateServiceLinkedRole</code> permission for all alarms with EC2 actions</p>
  *             </li>
  *             <li>
- *                <p>The <code>iam:CreateServiceLinkedRole</code> to create an alarm
- * 					with Systems Manager OpsItem actions.</p>
+ *                <p>The <code>iam:CreateServiceLinkedRole</code> permissions to create an alarm
+ * 					with Systems Manager OpsItem or response plan actions.</p>
  *             </li>
  *          </ul>
  *          <p>The first time you create an alarm in the
@@ -88,10 +90,76 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, PutMetricAlarmCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricAlarmCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // PutMetricAlarmInput
+ *   AlarmName: "STRING_VALUE", // required
+ *   AlarmDescription: "STRING_VALUE",
+ *   ActionsEnabled: true || false,
+ *   OKActions: [ // ResourceList
+ *     "STRING_VALUE",
+ *   ],
+ *   AlarmActions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   InsufficientDataActions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MetricName: "STRING_VALUE",
+ *   Namespace: "STRING_VALUE",
+ *   Statistic: "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
+ *   ExtendedStatistic: "STRING_VALUE",
+ *   Dimensions: [ // Dimensions
+ *     { // Dimension
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Period: Number("int"),
+ *   Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *   EvaluationPeriods: Number("int"), // required
+ *   DatapointsToAlarm: Number("int"),
+ *   Threshold: Number("double"),
+ *   ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold" || "LessThanLowerOrGreaterThanUpperThreshold" || "LessThanLowerThreshold" || "GreaterThanUpperThreshold", // required
+ *   TreatMissingData: "STRING_VALUE",
+ *   EvaluateLowSampleCountPercentile: "STRING_VALUE",
+ *   Metrics: [ // MetricDataQueries
+ *     { // MetricDataQuery
+ *       Id: "STRING_VALUE", // required
+ *       MetricStat: { // MetricStat
+ *         Metric: { // Metric
+ *           Namespace: "STRING_VALUE",
+ *           MetricName: "STRING_VALUE",
+ *           Dimensions: [
+ *             {
+ *               Name: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         Period: Number("int"), // required
+ *         Stat: "STRING_VALUE", // required
+ *         Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *       },
+ *       Expression: "STRING_VALUE",
+ *       Label: "STRING_VALUE",
+ *       ReturnData: true || false,
+ *       Period: Number("int"),
+ *       AccountId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ThresholdMetricId: "STRING_VALUE",
+ * };
  * const command = new PutMetricAlarmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMetricAlarmCommandInput - {@link PutMetricAlarmCommandInput}
+ * @returns {@link PutMetricAlarmCommandOutput}
  * @see {@link PutMetricAlarmCommandInput} for command's `input` shape.
  * @see {@link PutMetricAlarmCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -118,6 +186,9 @@ export class PutMetricAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMetricAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +217,8 @@ export class PutMetricAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMetricAlarmInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +228,18 @@ export class PutMetricAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMetricAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutMetricAlarmCommand(input, context);
+    return se_PutMetricAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricAlarmCommandOutput> {
-    return deserializeAws_queryPutMetricAlarmCommand(output, context);
+    return de_PutMetricAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

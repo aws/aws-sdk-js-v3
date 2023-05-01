@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteFunctionRequest, DeleteFunctionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFunctionCommand,
-  serializeAws_restJson1DeleteFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFunctionRequest } from "../models/models_0";
+import { de_DeleteFunctionCommand, se_DeleteFunctionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFunctionCommand}.
  */
 export interface DeleteFunctionCommandInput extends DeleteFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFunctionCommand}.
  */
 export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter.
  *       Otherwise, all versions and aliases are deleted.</p>
  *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services and resources that invoke your function
@@ -40,10 +42,16 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * import { LambdaClient, DeleteFunctionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteFunctionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // DeleteFunctionRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ * };
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFunctionCommandInput - {@link DeleteFunctionCommandInput}
+ * @returns {@link DeleteFunctionCommandOutput}
  * @see {@link DeleteFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +90,9 @@ export class DeleteFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class DeleteFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class DeleteFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFunctionCommand(input, context);
+    return se_DeleteFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFunctionCommandOutput> {
-    return deserializeAws_restJson1DeleteFunctionCommand(output, context);
+    return de_DeleteFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTagOptionsInput,
-  ListTagOptionsInputFilterSensitiveLog,
-  ListTagOptionsOutput,
-  ListTagOptionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagOptionsCommand,
-  serializeAws_json1_1ListTagOptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTagOptionsInput, ListTagOptionsOutput } from "../models/models_0";
+import { de_ListTagOptionsCommand, se_ListTagOptionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagOptionsCommand}.
  */
 export interface ListTagOptionsCommandInput extends ListTagOptionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListTagOptionsCommand}.
  */
 export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the specified TagOptions or all TagOptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __Met
  * import { ServiceCatalogClient, ListTagOptionsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListTagOptionsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListTagOptionsInput
+ *   Filters: { // ListTagOptionsFilters
+ *     Key: "STRING_VALUE",
+ *     Value: "STRING_VALUE",
+ *     Active: true || false,
+ *   },
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new ListTagOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagOptionsCommandInput - {@link ListTagOptionsCommandInput}
+ * @returns {@link ListTagOptionsCommandOutput}
  * @see {@link ListTagOptionsCommandInput} for command's `input` shape.
  * @see {@link ListTagOptionsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -77,6 +85,9 @@ export class ListTagOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +116,8 @@ export class ListTagOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagOptionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagOptionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +127,18 @@ export class ListTagOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagOptionsCommand(input, context);
+    return se_ListTagOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagOptionsCommandOutput> {
-    return deserializeAws_json1_1ListTagOptionsCommand(output, context);
+    return de_ListTagOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

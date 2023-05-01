@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  GetDeviceMethodsRequest,
-  GetDeviceMethodsRequestFilterSensitiveLog,
-  GetDeviceMethodsResponse,
-  GetDeviceMethodsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeviceMethodsCommand,
-  serializeAws_restJson1GetDeviceMethodsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDeviceMethodsRequest, GetDeviceMethodsResponse } from "../models/models_0";
+import { de_GetDeviceMethodsCommand, se_GetDeviceMethodsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeviceMethodsCommand}.
  */
 export interface GetDeviceMethodsCommandInput extends GetDeviceMethodsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeviceMethodsCommand}.
  */
 export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a device ID, returns the invokable methods associated with the device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  * import { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = { // GetDeviceMethodsRequest
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new GetDeviceMethodsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeviceMethodsCommandInput - {@link GetDeviceMethodsCommandInput}
+ * @returns {@link GetDeviceMethodsCommandOutput}
  * @see {@link GetDeviceMethodsCommandInput} for command's `input` shape.
  * @see {@link GetDeviceMethodsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
@@ -79,6 +81,9 @@ export class GetDeviceMethodsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceMethodsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class GetDeviceMethodsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceMethodsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeviceMethodsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class GetDeviceMethodsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceMethodsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeviceMethodsCommand(input, context);
+    return se_GetDeviceMethodsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceMethodsCommandOutput> {
-    return deserializeAws_restJson1GetDeviceMethodsCommand(output, context);
+    return de_GetDeviceMethodsCommand(output, context);
   }
 
   // Start section: command_body_extra

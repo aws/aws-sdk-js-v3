@@ -13,40 +13,60 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListIncidentRecordsInput,
-  ListIncidentRecordsInputFilterSensitiveLog,
-  ListIncidentRecordsOutput,
-  ListIncidentRecordsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIncidentRecordsCommand,
-  serializeAws_restJson1ListIncidentRecordsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListIncidentRecordsInput, ListIncidentRecordsOutput } from "../models/models_0";
+import { de_ListIncidentRecordsCommand, se_ListIncidentRecordsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListIncidentRecordsCommand}.
  */
 export interface ListIncidentRecordsCommandInput extends ListIncidentRecordsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListIncidentRecordsCommand}.
  */
 export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all incident records in your account. Use this command to retrieve the Amazon
- *             Resource Name (ARN) of the incident record you want to update. </p>
+ *       Resource Name (ARN) of the incident record you want to update. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMIncidentsClient, ListIncidentRecordsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, ListIncidentRecordsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // ListIncidentRecordsInput
+ *   filters: [ // FilterList
+ *     { // Filter
+ *       key: "STRING_VALUE", // required
+ *       condition: { // Condition Union: only one key present
+ *         before: new Date("TIMESTAMP"),
+ *         after: new Date("TIMESTAMP"),
+ *         equals: { // AttributeValueList Union: only one key present
+ *           stringValues: [ // StringList
+ *             "STRING_VALUE",
+ *           ],
+ *           integerValues: [ // IntegerList
+ *             Number("int"),
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListIncidentRecordsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIncidentRecordsCommandInput - {@link ListIncidentRecordsCommandInput}
+ * @returns {@link ListIncidentRecordsCommandOutput}
  * @see {@link ListIncidentRecordsCommandInput} for command's `input` shape.
  * @see {@link ListIncidentRecordsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -84,6 +104,9 @@ export class ListIncidentRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIncidentRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +135,8 @@ export class ListIncidentRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIncidentRecordsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIncidentRecordsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +146,18 @@ export class ListIncidentRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIncidentRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIncidentRecordsCommand(input, context);
+    return se_ListIncidentRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIncidentRecordsCommandOutput> {
-    return deserializeAws_restJson1ListIncidentRecordsCommand(output, context);
+    return de_ListIncidentRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

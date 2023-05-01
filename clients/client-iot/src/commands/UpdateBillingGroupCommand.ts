@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateBillingGroupRequest,
-  UpdateBillingGroupRequestFilterSensitiveLog,
-  UpdateBillingGroupResponse,
-  UpdateBillingGroupResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateBillingGroupCommand,
-  serializeAws_restJson1UpdateBillingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateBillingGroupRequest, UpdateBillingGroupResponse } from "../models/models_2";
+import { de_UpdateBillingGroupCommand, se_UpdateBillingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBillingGroupCommand}.
  */
 export interface UpdateBillingGroupCommandInput extends UpdateBillingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBillingGroupCommand}.
  */
 export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about the billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateBillingGroup</a> action.</p>
  * @example
@@ -43,10 +40,19 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupRespo
  * import { IoTClient, UpdateBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateBillingGroupRequest
+ *   billingGroupName: "STRING_VALUE", // required
+ *   billingGroupProperties: { // BillingGroupProperties
+ *     billingGroupDescription: "STRING_VALUE",
+ *   },
+ *   expectedVersion: Number("long"),
+ * };
  * const command = new UpdateBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBillingGroupCommandInput - {@link UpdateBillingGroupCommandInput}
+ * @returns {@link UpdateBillingGroupCommandOutput}
  * @see {@link UpdateBillingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +93,9 @@ export class UpdateBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class UpdateBillingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBillingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBillingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +135,18 @@ export class UpdateBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBillingGroupCommand(input, context);
+    return se_UpdateBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBillingGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateBillingGroupCommand(output, context);
+    return de_UpdateBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

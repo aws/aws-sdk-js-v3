@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  ListSNOMEDCTInferenceJobsRequest,
-  ListSNOMEDCTInferenceJobsRequestFilterSensitiveLog,
-  ListSNOMEDCTInferenceJobsResponse,
-  ListSNOMEDCTInferenceJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSNOMEDCTInferenceJobsCommand,
-  serializeAws_json1_1ListSNOMEDCTInferenceJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSNOMEDCTInferenceJobsRequest, ListSNOMEDCTInferenceJobsResponse } from "../models/models_0";
+import { de_ListSNOMEDCTInferenceJobsCommand, se_ListSNOMEDCTInferenceJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSNOMEDCTInferenceJobsCommand}.
  */
 export interface ListSNOMEDCTInferenceJobsCommandInput extends ListSNOMEDCTInferenceJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSNOMEDCTInferenceJobsCommand}.
  */
 export interface ListSNOMEDCTInferenceJobsCommandOutput extends ListSNOMEDCTInferenceJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Gets a list of InferSNOMEDCT jobs a user has submitted.
  *     </p>
@@ -48,10 +45,22 @@ export interface ListSNOMEDCTInferenceJobsCommandOutput extends ListSNOMEDCTInfe
  * import { ComprehendMedicalClient, ListSNOMEDCTInferenceJobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, ListSNOMEDCTInferenceJobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // ListSNOMEDCTInferenceJobsRequest
+ *   Filter: { // ComprehendMedicalAsyncJobFilter
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "PARTIAL_SUCCESS" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSNOMEDCTInferenceJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSNOMEDCTInferenceJobsCommandInput - {@link ListSNOMEDCTInferenceJobsCommandInput}
+ * @returns {@link ListSNOMEDCTInferenceJobsCommandOutput}
  * @see {@link ListSNOMEDCTInferenceJobsCommandInput} for command's `input` shape.
  * @see {@link ListSNOMEDCTInferenceJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -91,6 +100,9 @@ export class ListSNOMEDCTInferenceJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSNOMEDCTInferenceJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +131,8 @@ export class ListSNOMEDCTInferenceJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSNOMEDCTInferenceJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSNOMEDCTInferenceJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +142,21 @@ export class ListSNOMEDCTInferenceJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSNOMEDCTInferenceJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSNOMEDCTInferenceJobsCommand(input, context);
+    return se_ListSNOMEDCTInferenceJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSNOMEDCTInferenceJobsCommandOutput> {
-    return deserializeAws_json1_1ListSNOMEDCTInferenceJobsCommand(output, context);
+    return de_ListSNOMEDCTInferenceJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse } from "../models/models_0";
 import {
-  UpdateContainerInstancesStateRequest,
-  UpdateContainerInstancesStateRequestFilterSensitiveLog,
-  UpdateContainerInstancesStateResponse,
-  UpdateContainerInstancesStateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateContainerInstancesStateCommand,
-  serializeAws_json1_1UpdateContainerInstancesStateCommand,
+  de_UpdateContainerInstancesStateCommand,
+  se_UpdateContainerInstancesStateCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContainerInstancesStateCommand}.
  */
 export interface UpdateContainerInstancesStateCommandInput extends UpdateContainerInstancesStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContainerInstancesStateCommand}.
  */
 export interface UpdateContainerInstancesStateCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateContainerInstancesStateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the status of an Amazon ECS container instance.</p>
  *          <p>Once a container instance has reached an <code>ACTIVE</code> state, you can change the
  * 			status of a container instance to <code>DRAINING</code> to manually remove an instance
@@ -92,10 +92,19 @@ export interface UpdateContainerInstancesStateCommandOutput
  * import { ECSClient, UpdateContainerInstancesStateCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateContainerInstancesStateCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // UpdateContainerInstancesStateRequest
+ *   cluster: "STRING_VALUE",
+ *   containerInstances: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   status: "ACTIVE" || "DRAINING" || "REGISTERING" || "DEREGISTERING" || "REGISTRATION_FAILED", // required
+ * };
  * const command = new UpdateContainerInstancesStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContainerInstancesStateCommandInput - {@link UpdateContainerInstancesStateCommandInput}
+ * @returns {@link UpdateContainerInstancesStateCommandOutput}
  * @see {@link UpdateContainerInstancesStateCommandInput} for command's `input` shape.
  * @see {@link UpdateContainerInstancesStateCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -134,6 +143,9 @@ export class UpdateContainerInstancesStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContainerInstancesStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,8 +174,8 @@ export class UpdateContainerInstancesStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContainerInstancesStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContainerInstancesStateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -173,15 +185,21 @@ export class UpdateContainerInstancesStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContainerInstancesStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateContainerInstancesStateCommand(input, context);
+    return se_UpdateContainerInstancesStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateContainerInstancesStateCommandOutput> {
-    return deserializeAws_json1_1UpdateContainerInstancesStateCommand(output, context);
+    return de_UpdateContainerInstancesStateCommand(output, context);
   }
 
   // Start section: command_body_extra

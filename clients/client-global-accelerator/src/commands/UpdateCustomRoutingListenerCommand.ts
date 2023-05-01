@@ -18,22 +18,18 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  UpdateCustomRoutingListenerRequest,
-  UpdateCustomRoutingListenerRequestFilterSensitiveLog,
-  UpdateCustomRoutingListenerResponse,
-  UpdateCustomRoutingListenerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCustomRoutingListenerCommand,
-  serializeAws_json1_1UpdateCustomRoutingListenerCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCustomRoutingListenerRequest, UpdateCustomRoutingListenerResponse } from "../models/models_0";
+import { de_UpdateCustomRoutingListenerCommand, se_UpdateCustomRoutingListenerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCustomRoutingListenerCommand}.
  */
 export interface UpdateCustomRoutingListenerCommandInput extends UpdateCustomRoutingListenerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCustomRoutingListenerCommand}.
  */
 export interface UpdateCustomRoutingListenerCommandOutput
@@ -41,6 +37,7 @@ export interface UpdateCustomRoutingListenerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a listener for a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +45,21 @@ export interface UpdateCustomRoutingListenerCommandOutput
  * import { GlobalAcceleratorClient, UpdateCustomRoutingListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateCustomRoutingListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // UpdateCustomRoutingListenerRequest
+ *   ListenerArn: "STRING_VALUE", // required
+ *   PortRanges: [ // PortRanges // required
+ *     { // PortRange
+ *       FromPort: Number("int"),
+ *       ToPort: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new UpdateCustomRoutingListenerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomRoutingListenerCommandInput - {@link UpdateCustomRoutingListenerCommandInput}
+ * @returns {@link UpdateCustomRoutingListenerCommandOutput}
  * @see {@link UpdateCustomRoutingListenerCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomRoutingListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -90,6 +98,9 @@ export class UpdateCustomRoutingListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomRoutingListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +129,8 @@ export class UpdateCustomRoutingListenerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCustomRoutingListenerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCustomRoutingListenerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +140,21 @@ export class UpdateCustomRoutingListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCustomRoutingListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCustomRoutingListenerCommand(input, context);
+    return se_UpdateCustomRoutingListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCustomRoutingListenerCommandOutput> {
-    return deserializeAws_json1_1UpdateCustomRoutingListenerCommand(output, context);
+    return de_UpdateCustomRoutingListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

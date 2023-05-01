@@ -10,7 +10,7 @@ import { MediaPackageClient } from "../MediaPackageClient";
 import { MediaPackagePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaPackageClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListOriginEndpointsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListOriginEndpoints(
   config: MediaPackagePaginationConfiguration,
   input: ListOriginEndpointsCommandInput,

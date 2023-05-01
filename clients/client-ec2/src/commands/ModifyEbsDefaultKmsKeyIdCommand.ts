@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyEbsDefaultKmsKeyIdRequest,
-  ModifyEbsDefaultKmsKeyIdRequestFilterSensitiveLog,
-  ModifyEbsDefaultKmsKeyIdResult,
-  ModifyEbsDefaultKmsKeyIdResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,
-  serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyEbsDefaultKmsKeyIdRequest, ModifyEbsDefaultKmsKeyIdResult } from "../models/models_6";
+import { de_ModifyEbsDefaultKmsKeyIdCommand, se_ModifyEbsDefaultKmsKeyIdCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyEbsDefaultKmsKeyIdCommand}.
  */
 export interface ModifyEbsDefaultKmsKeyIdCommandInput extends ModifyEbsDefaultKmsKeyIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyEbsDefaultKmsKeyIdCommand}.
  */
 export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the default KMS key for EBS encryption by default for your account in this Region.</p>
  *          <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If
  *       you change the default KMS key to a symmetric customer managed KMS key, it is used instead of the Amazon Web Services
@@ -49,10 +46,16 @@ export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultK
  * import { EC2Client, ModifyEbsDefaultKmsKeyIdCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyEbsDefaultKmsKeyIdCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyEbsDefaultKmsKeyIdRequest
+ *   KmsKeyId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyEbsDefaultKmsKeyIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyEbsDefaultKmsKeyIdCommandInput - {@link ModifyEbsDefaultKmsKeyIdCommandInput}
+ * @returns {@link ModifyEbsDefaultKmsKeyIdCommandOutput}
  * @see {@link ModifyEbsDefaultKmsKeyIdCommandInput} for command's `input` shape.
  * @see {@link ModifyEbsDefaultKmsKeyIdCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +79,9 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyEbsDefaultKmsKeyIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyEbsDefaultKmsKeyIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyEbsDefaultKmsKeyIdResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyEbsDefaultKmsKeyIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand(input, context);
+    return se_ModifyEbsDefaultKmsKeyIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEbsDefaultKmsKeyIdCommandOutput> {
-    return deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand(output, context);
+    return de_ModifyEbsDefaultKmsKeyIdCommand(output, context);
   }
 
   // Start section: command_body_extra

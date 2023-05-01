@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateDRTLogBucketRequest,
-  AssociateDRTLogBucketRequestFilterSensitiveLog,
-  AssociateDRTLogBucketResponse,
-  AssociateDRTLogBucketResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateDRTLogBucketCommand,
-  serializeAws_json1_1AssociateDRTLogBucketCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateDRTLogBucketRequest, AssociateDRTLogBucketResponse } from "../models/models_0";
+import { de_AssociateDRTLogBucketCommand, se_AssociateDRTLogBucketCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDRTLogBucketCommand}.
  */
 export interface AssociateDRTLogBucketCommandInput extends AssociateDRTLogBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDRTLogBucketCommand}.
  */
 export interface AssociateDRTLogBucketCommandOutput extends AssociateDRTLogBucketResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.</p>
  *          <p>To use the services of the SRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href="http://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="http://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface AssociateDRTLogBucketCommandOutput extends AssociateDRTLogBucke
  * import { ShieldClient, AssociateDRTLogBucketCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, AssociateDRTLogBucketCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // AssociateDRTLogBucketRequest
+ *   LogBucket: "STRING_VALUE", // required
+ * };
  * const command = new AssociateDRTLogBucketCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDRTLogBucketCommandInput - {@link AssociateDRTLogBucketCommandInput}
+ * @returns {@link AssociateDRTLogBucketCommandOutput}
  * @see {@link AssociateDRTLogBucketCommandInput} for command's `input` shape.
  * @see {@link AssociateDRTLogBucketCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -95,6 +97,9 @@ export class AssociateDRTLogBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDRTLogBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +128,8 @@ export class AssociateDRTLogBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDRTLogBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDRTLogBucketResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +139,18 @@ export class AssociateDRTLogBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDRTLogBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDRTLogBucketCommand(input, context);
+    return se_AssociateDRTLogBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDRTLogBucketCommandOutput> {
-    return deserializeAws_json1_1AssociateDRTLogBucketCommand(output, context);
+    return de_AssociateDRTLogBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

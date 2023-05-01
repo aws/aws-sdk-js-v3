@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { DeleteBackupVaultAccessPolicyInput } from "../models/models_0";
 import {
-  DeleteBackupVaultAccessPolicyInput,
-  DeleteBackupVaultAccessPolicyInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommand,
-  serializeAws_restJson1DeleteBackupVaultAccessPolicyCommand,
+  de_DeleteBackupVaultAccessPolicyCommand,
+  se_DeleteBackupVaultAccessPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupVaultAccessPolicyCommand}.
  */
 export interface DeleteBackupVaultAccessPolicyCommandInput extends DeleteBackupVaultAccessPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupVaultAccessPolicyCommand}.
  */
 export interface DeleteBackupVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the policy document that manages permissions on a backup vault.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,15 @@ export interface DeleteBackupVaultAccessPolicyCommandOutput extends __MetadataBe
  * import { BackupClient, DeleteBackupVaultAccessPolicyCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupVaultAccessPolicyCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DeleteBackupVaultAccessPolicyInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBackupVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupVaultAccessPolicyCommandInput - {@link DeleteBackupVaultAccessPolicyCommandInput}
+ * @returns {@link DeleteBackupVaultAccessPolicyCommandOutput}
  * @see {@link DeleteBackupVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteBackupVaultAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupVaultAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class DeleteBackupVaultAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupVaultAccessPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +129,21 @@ export class DeleteBackupVaultAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackupVaultAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackupVaultAccessPolicyCommand(input, context);
+    return se_DeleteBackupVaultAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommand(output, context);
+    return de_DeleteBackupVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

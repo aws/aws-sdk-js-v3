@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  AttachPolicyRequest,
-  AttachPolicyRequestFilterSensitiveLog,
-  AttachPolicyResponse,
-  AttachPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AttachPolicyCommand,
-  serializeAws_restJson1AttachPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { AttachPolicyRequest, AttachPolicyResponse } from "../models/models_0";
+import { de_AttachPolicyCommand, se_AttachPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachPolicyCommand}.
  */
 export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachPolicyCommand}.
  */
 export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a policy object to a regular object. An object can have a limited number of attached
  *       policies.</p>
  * @example
@@ -43,10 +40,21 @@ export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __Metad
  * import { CloudDirectoryClient, AttachPolicyCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AttachPolicyCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // AttachPolicyRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   PolicyReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   ObjectReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ * };
  * const command = new AttachPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachPolicyCommandInput - {@link AttachPolicyCommandInput}
+ * @returns {@link AttachPolicyCommandOutput}
  * @see {@link AttachPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +106,9 @@ export class AttachPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +135,8 @@ export class AttachPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +146,18 @@ export class AttachPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AttachPolicyCommand(input, context);
+    return se_AttachPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachPolicyCommandOutput> {
-    return deserializeAws_restJson1AttachPolicyCommand(output, context);
+    return de_AttachPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

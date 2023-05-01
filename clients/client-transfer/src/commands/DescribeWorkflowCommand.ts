@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeWorkflowRequest,
-  DescribeWorkflowRequestFilterSensitiveLog,
-  DescribeWorkflowResponse,
-  DescribeWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkflowCommand,
-  serializeAws_json1_1DescribeWorkflowCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeWorkflowRequest, DescribeWorkflowResponse } from "../models/models_0";
+import { de_DescribeWorkflowCommand, se_DescribeWorkflowCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkflowCommand}.
  */
 export interface DescribeWorkflowCommandInput extends DescribeWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkflowCommand}.
  */
 export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse,
  * import { TransferClient, DescribeWorkflowCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeWorkflowCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DescribeWorkflowRequest
+ *   WorkflowId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkflowCommandInput - {@link DescribeWorkflowCommandInput}
+ * @returns {@link DescribeWorkflowCommandOutput}
  * @see {@link DescribeWorkflowCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkflowCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -82,6 +84,9 @@ export class DescribeWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DescribeWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkflowCommand(input, context);
+    return se_DescribeWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkflowCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkflowCommand(output, context);
+    return de_DescribeWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

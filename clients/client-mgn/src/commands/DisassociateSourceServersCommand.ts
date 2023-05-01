@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  DisassociateSourceServersRequest,
-  DisassociateSourceServersRequestFilterSensitiveLog,
-  DisassociateSourceServersResponse,
-  DisassociateSourceServersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateSourceServersCommand,
-  serializeAws_restJson1DisassociateSourceServersCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateSourceServersRequest, DisassociateSourceServersResponse } from "../models/models_0";
+import { de_DisassociateSourceServersCommand, se_DisassociateSourceServersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateSourceServersCommand}.
  */
 export interface DisassociateSourceServersCommandInput extends DisassociateSourceServersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateSourceServersCommand}.
  */
 export interface DisassociateSourceServersCommandOutput extends DisassociateSourceServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociate source servers from application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DisassociateSourceServersCommandOutput extends DisassociateSour
  * import { MgnClient, DisassociateSourceServersCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DisassociateSourceServersCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // DisassociateSourceServersRequest
+ *   applicationID: "STRING_VALUE", // required
+ *   sourceServerIDs: [ // DisassociateSourceServersRequestSourceServerIDs // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateSourceServersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSourceServersCommandInput - {@link DisassociateSourceServersCommandInput}
+ * @returns {@link DisassociateSourceServersCommandOutput}
  * @see {@link DisassociateSourceServersCommandInput} for command's `input` shape.
  * @see {@link DisassociateSourceServersCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +83,9 @@ export class DisassociateSourceServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSourceServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class DisassociateSourceServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSourceServersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateSourceServersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +125,21 @@ export class DisassociateSourceServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateSourceServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateSourceServersCommand(input, context);
+    return se_DisassociateSourceServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSourceServersCommandOutput> {
-    return deserializeAws_restJson1DisassociateSourceServersCommand(output, context);
+    return de_DisassociateSourceServersCommand(output, context);
   }
 
   // Start section: command_body_extra

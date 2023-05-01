@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTrafficPolicyVersionRequest,
-  CreateTrafficPolicyVersionRequestFilterSensitiveLog,
-  CreateTrafficPolicyVersionResponse,
-  CreateTrafficPolicyVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateTrafficPolicyVersionCommand,
-  serializeAws_restXmlCreateTrafficPolicyVersionCommand,
-} from "../protocols/Aws_restXml";
+import { CreateTrafficPolicyVersionRequest, CreateTrafficPolicyVersionResponse } from "../models/models_0";
+import { de_CreateTrafficPolicyVersionCommand, se_CreateTrafficPolicyVersionCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficPolicyVersionCommand}.
  */
 export interface CreateTrafficPolicyVersionCommandInput extends CreateTrafficPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficPolicyVersionCommand}.
  */
 export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPolicyVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of an existing traffic policy. When you create a new version of
  * 			a traffic policy, you specify the ID of the traffic policy that you want to update and a
  * 			JSON-formatted document that describes the new version. You use traffic policies to
@@ -49,10 +46,17 @@ export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPo
  * import { Route53Client, CreateTrafficPolicyVersionCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateTrafficPolicyVersionCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // CreateTrafficPolicyVersionRequest
+ *   Id: "STRING_VALUE", // required
+ *   Document: "STRING_VALUE", // required
+ *   Comment: "STRING_VALUE",
+ * };
  * const command = new CreateTrafficPolicyVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficPolicyVersionCommandInput - {@link CreateTrafficPolicyVersionCommandInput}
+ * @returns {@link CreateTrafficPolicyVersionCommandOutput}
  * @see {@link CreateTrafficPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -98,6 +102,9 @@ export class CreateTrafficPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +134,8 @@ export class CreateTrafficPolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrafficPolicyVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrafficPolicyVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +145,21 @@ export class CreateTrafficPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrafficPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateTrafficPolicyVersionCommand(input, context);
+    return se_CreateTrafficPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTrafficPolicyVersionCommandOutput> {
-    return deserializeAws_restXmlCreateTrafficPolicyVersionCommand(output, context);
+    return de_CreateTrafficPolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

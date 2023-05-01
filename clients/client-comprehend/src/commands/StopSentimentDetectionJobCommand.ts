@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  StopSentimentDetectionJobRequest,
-  StopSentimentDetectionJobRequestFilterSensitiveLog,
-  StopSentimentDetectionJobResponse,
-  StopSentimentDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopSentimentDetectionJobCommand,
-  serializeAws_json1_1StopSentimentDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopSentimentDetectionJobRequest, StopSentimentDetectionJobResponse } from "../models/models_1";
+import { de_StopSentimentDetectionJobCommand, se_StopSentimentDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopSentimentDetectionJobCommand}.
  */
 export interface StopSentimentDetectionJobCommandInput extends StopSentimentDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopSentimentDetectionJobCommand}.
  */
 export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a sentiment detection job in progress.</p>
  *          <p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put
  *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
@@ -51,10 +48,15 @@ export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDet
  * import { ComprehendClient, StopSentimentDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopSentimentDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // StopSentimentDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopSentimentDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopSentimentDetectionJobCommandInput - {@link StopSentimentDetectionJobCommandInput}
+ * @returns {@link StopSentimentDetectionJobCommandOutput}
  * @see {@link StopSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -87,6 +89,9 @@ export class StopSentimentDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopSentimentDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class StopSentimentDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopSentimentDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopSentimentDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +131,21 @@ export class StopSentimentDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopSentimentDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopSentimentDetectionJobCommand(input, context);
+    return se_StopSentimentDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopSentimentDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopSentimentDetectionJobCommand(output, context);
+    return de_StopSentimentDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

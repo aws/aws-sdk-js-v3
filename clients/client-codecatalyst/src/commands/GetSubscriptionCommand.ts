@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  GetSubscriptionRequest,
-  GetSubscriptionRequestFilterSensitiveLog,
-  GetSubscriptionResponse,
-  GetSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSubscriptionCommand,
-  serializeAws_restJson1GetSubscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSubscriptionRequest, GetSubscriptionResponse } from "../models/models_0";
+import { de_GetSubscriptionCommand, se_GetSubscriptionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSubscriptionCommand}.
  */
 export interface GetSubscriptionCommandInput extends GetSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSubscriptionCommand}.
  */
 export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the Amazon Web Services account used for billing purposes
  *       and the billing plan for the space.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, _
  * import { CodeCatalystClient, GetSubscriptionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetSubscriptionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // GetSubscriptionRequest
+ *   spaceName: "STRING_VALUE", // required
+ * };
  * const command = new GetSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSubscriptionCommandInput - {@link GetSubscriptionCommandInput}
+ * @returns {@link GetSubscriptionCommandOutput}
  * @see {@link GetSubscriptionCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -89,6 +91,9 @@ export class GetSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class GetSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class GetSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSubscriptionCommand(input, context);
+    return se_GetSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSubscriptionCommandOutput> {
-    return deserializeAws_restJson1GetSubscriptionCommand(output, context);
+    return de_GetSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListInstanceProfilesForRoleRequest,
-  ListInstanceProfilesForRoleRequestFilterSensitiveLog,
-  ListInstanceProfilesForRoleResponse,
-  ListInstanceProfilesForRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListInstanceProfilesForRoleCommand,
-  serializeAws_queryListInstanceProfilesForRoleCommand,
-} from "../protocols/Aws_query";
+import { ListInstanceProfilesForRoleRequest, ListInstanceProfilesForRoleResponse } from "../models/models_0";
+import { de_ListInstanceProfilesForRoleCommand, se_ListInstanceProfilesForRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceProfilesForRoleCommand}.
  */
 export interface ListInstanceProfilesForRoleCommandInput extends ListInstanceProfilesForRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceProfilesForRoleCommand}.
  */
 export interface ListInstanceProfilesForRoleCommandOutput
@@ -37,6 +33,7 @@ export interface ListInstanceProfilesForRoleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the instance profiles that have the specified associated IAM role. If there
  *             are none, the operation returns an empty list. For more information about instance
  *             profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
@@ -49,10 +46,17 @@ export interface ListInstanceProfilesForRoleCommandOutput
  * import { IAMClient, ListInstanceProfilesForRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListInstanceProfilesForRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListInstanceProfilesForRoleRequest
+ *   RoleName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListInstanceProfilesForRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceProfilesForRoleCommandInput - {@link ListInstanceProfilesForRoleCommandInput}
+ * @returns {@link ListInstanceProfilesForRoleCommandOutput}
  * @see {@link ListInstanceProfilesForRoleCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfilesForRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceProfilesForRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstanceProfilesForRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInstanceProfilesForRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +130,21 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceProfilesForRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListInstanceProfilesForRoleCommand(input, context);
+    return se_ListInstanceProfilesForRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListInstanceProfilesForRoleCommandOutput> {
-    return deserializeAws_queryListInstanceProfilesForRoleCommand(output, context);
+    return de_ListInstanceProfilesForRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

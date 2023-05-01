@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
+import { CreateObservabilityConfigurationRequest, CreateObservabilityConfigurationResponse } from "../models/models_0";
 import {
-  CreateObservabilityConfigurationRequest,
-  CreateObservabilityConfigurationRequestFilterSensitiveLog,
-  CreateObservabilityConfigurationResponse,
-  CreateObservabilityConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateObservabilityConfigurationCommand,
-  serializeAws_json1_0CreateObservabilityConfigurationCommand,
+  de_CreateObservabilityConfigurationCommand,
+  se_CreateObservabilityConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateObservabilityConfigurationCommand}.
  */
 export interface CreateObservabilityConfigurationCommandInput extends CreateObservabilityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateObservabilityConfigurationCommand}.
  */
 export interface CreateObservabilityConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface CreateObservabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an App Runner observability configuration resource. App Runner requires this resource when you create or update App Runner services and you want to enable
  *       non-default observability features. You can share an observability configuration across multiple services.</p>
  *          <p>Create multiple revisions of a configuration by calling this action multiple times using the same <code>ObservabilityConfigurationName</code>. The
@@ -52,10 +52,24 @@ export interface CreateObservabilityConfigurationCommandOutput
  * import { AppRunnerClient, CreateObservabilityConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, CreateObservabilityConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // CreateObservabilityConfigurationRequest
+ *   ObservabilityConfigurationName: "STRING_VALUE", // required
+ *   TraceConfiguration: { // TraceConfiguration
+ *     Vendor: "AWSXRAY", // required
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateObservabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateObservabilityConfigurationCommandInput - {@link CreateObservabilityConfigurationCommandInput}
+ * @returns {@link CreateObservabilityConfigurationCommandOutput}
  * @see {@link CreateObservabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateObservabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -90,6 +104,9 @@ export class CreateObservabilityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateObservabilityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +135,8 @@ export class CreateObservabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateObservabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateObservabilityConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +146,24 @@ export class CreateObservabilityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateObservabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateObservabilityConfigurationCommand(input, context);
+    return se_CreateObservabilityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateObservabilityConfigurationCommandOutput> {
-    return deserializeAws_json1_0CreateObservabilityConfigurationCommand(output, context);
+    return de_CreateObservabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

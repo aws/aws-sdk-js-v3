@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  AssociateConnectionWithLagRequest,
-  AssociateConnectionWithLagRequestFilterSensitiveLog,
-  Connection,
-  ConnectionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateConnectionWithLagCommand,
-  serializeAws_json1_1AssociateConnectionWithLagCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateConnectionWithLagRequest, Connection } from "../models/models_0";
+import { de_AssociateConnectionWithLagCommand, se_AssociateConnectionWithLagCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateConnectionWithLagCommand}.
  */
 export interface AssociateConnectionWithLagCommandInput extends AssociateConnectionWithLagRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateConnectionWithLagCommand}.
  */
 export interface AssociateConnectionWithLagCommandOutput extends Connection, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an existing connection with a link aggregation group (LAG). The connection
  *       is interrupted and re-established as a member of the LAG (connectivity to Amazon Web Services is
  *       interrupted). The connection must be hosted on the same Direct Connect endpoint as the LAG, and its
@@ -55,10 +52,16 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  * import { DirectConnectClient, AssociateConnectionWithLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AssociateConnectionWithLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // AssociateConnectionWithLagRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   lagId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateConnectionWithLagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateConnectionWithLagCommandInput - {@link AssociateConnectionWithLagCommandInput}
+ * @returns {@link AssociateConnectionWithLagCommandOutput}
  * @see {@link AssociateConnectionWithLagCommandInput} for command's `input` shape.
  * @see {@link AssociateConnectionWithLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -88,6 +91,9 @@ export class AssociateConnectionWithLagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateConnectionWithLagCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class AssociateConnectionWithLagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateConnectionWithLagRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +133,21 @@ export class AssociateConnectionWithLagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateConnectionWithLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateConnectionWithLagCommand(input, context);
+    return se_AssociateConnectionWithLagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateConnectionWithLagCommandOutput> {
-    return deserializeAws_json1_1AssociateConnectionWithLagCommand(output, context);
+    return de_AssociateConnectionWithLagCommand(output, context);
   }
 
   // Start section: command_body_extra

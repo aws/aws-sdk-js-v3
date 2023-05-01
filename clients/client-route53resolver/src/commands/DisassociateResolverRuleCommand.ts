@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateResolverRuleRequest,
-  DisassociateResolverRuleRequestFilterSensitiveLog,
-  DisassociateResolverRuleResponse,
-  DisassociateResolverRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateResolverRuleCommand,
-  serializeAws_json1_1DisassociateResolverRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateResolverRuleRequest, DisassociateResolverRuleResponse } from "../models/models_0";
+import { de_DisassociateResolverRuleCommand, se_DisassociateResolverRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateResolverRuleCommand}.
  */
 export interface DisassociateResolverRuleCommandInput extends DisassociateResolverRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateResolverRuleCommand}.
  */
 export interface DisassociateResolverRuleCommandOutput extends DisassociateResolverRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association between a specified Resolver rule and a specified VPC.</p>
  *          <important>
  *             <p>If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
@@ -46,10 +43,16 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  * import { Route53ResolverClient, DisassociateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DisassociateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // DisassociateResolverRuleRequest
+ *   VPCId: "STRING_VALUE", // required
+ *   ResolverRuleId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateResolverRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResolverRuleCommandInput - {@link DisassociateResolverRuleCommandInput}
+ * @returns {@link DisassociateResolverRuleCommandOutput}
  * @see {@link DisassociateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link DisassociateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -85,6 +88,9 @@ export class DisassociateResolverRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResolverRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class DisassociateResolverRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResolverRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResolverRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class DisassociateResolverRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateResolverRuleCommand(input, context);
+    return se_DisassociateResolverRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateResolverRuleCommandOutput> {
-    return deserializeAws_json1_1DisassociateResolverRuleCommand(output, context);
+    return de_DisassociateResolverRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

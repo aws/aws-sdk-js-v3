@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  ListBotLocalesRequest,
-  ListBotLocalesRequestFilterSensitiveLog,
-  ListBotLocalesResponse,
-  ListBotLocalesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBotLocalesCommand,
-  serializeAws_restJson1ListBotLocalesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBotLocalesRequest, ListBotLocalesResponse } from "../models/models_0";
+import { de_ListBotLocalesCommand, se_ListBotLocalesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBotLocalesCommand}.
  */
 export interface ListBotLocalesCommandInput extends ListBotLocalesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBotLocalesCommand}.
  */
 export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of locales for the specified bot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,31 @@ export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __M
  * import { LexModelsV2Client, ListBotLocalesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBotLocalesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // ListBotLocalesRequest
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   sortBy: { // BotLocaleSortBy
+ *     attribute: "BotLocaleName", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   filters: [ // BotLocaleFilters
+ *     { // BotLocaleFilter
+ *       name: "BotLocaleName", // required
+ *       values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       operator: "CO" || "EQ", // required
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBotLocalesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBotLocalesCommandInput - {@link ListBotLocalesCommandInput}
+ * @returns {@link ListBotLocalesCommandOutput}
  * @see {@link ListBotLocalesCommandInput} for command's `input` shape.
  * @see {@link ListBotLocalesCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -84,6 +102,9 @@ export class ListBotLocalesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBotLocalesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +133,8 @@ export class ListBotLocalesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBotLocalesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBotLocalesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +144,18 @@ export class ListBotLocalesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBotLocalesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBotLocalesCommand(input, context);
+    return se_ListBotLocalesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotLocalesCommandOutput> {
-    return deserializeAws_restJson1ListBotLocalesCommand(output, context);
+    return de_ListBotLocalesCommand(output, context);
   }
 
   // Start section: command_body_extra

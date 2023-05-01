@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
+import { DescribeTableReplicaAutoScalingInput, DescribeTableReplicaAutoScalingOutput } from "../models/models_0";
 import {
-  DescribeTableReplicaAutoScalingInput,
-  DescribeTableReplicaAutoScalingInputFilterSensitiveLog,
-  DescribeTableReplicaAutoScalingOutput,
-  DescribeTableReplicaAutoScalingOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand,
-  serializeAws_json1_0DescribeTableReplicaAutoScalingCommand,
+  de_DescribeTableReplicaAutoScalingCommand,
+  se_DescribeTableReplicaAutoScalingCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTableReplicaAutoScalingCommand}.
  */
 export interface DescribeTableReplicaAutoScalingCommandInput extends DescribeTableReplicaAutoScalingInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTableReplicaAutoScalingCommand}.
  */
 export interface DescribeTableReplicaAutoScalingCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes auto scaling settings across replicas of the global table at once.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
@@ -48,10 +48,15 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
  * import { DynamoDBClient, DescribeTableReplicaAutoScalingCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeTableReplicaAutoScalingCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // DescribeTableReplicaAutoScalingInput
+ *   TableName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTableReplicaAutoScalingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTableReplicaAutoScalingCommandInput - {@link DescribeTableReplicaAutoScalingCommandInput}
+ * @returns {@link DescribeTableReplicaAutoScalingCommandOutput}
  * @see {@link DescribeTableReplicaAutoScalingCommandInput} for command's `input` shape.
  * @see {@link DescribeTableReplicaAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -82,6 +87,9 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTableReplicaAutoScalingCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +118,8 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTableReplicaAutoScalingInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTableReplicaAutoScalingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +129,24 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTableReplicaAutoScalingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeTableReplicaAutoScalingCommand(input, context);
+    return se_DescribeTableReplicaAutoScalingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTableReplicaAutoScalingCommandOutput> {
-    return deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand(output, context);
+    return de_DescribeTableReplicaAutoScalingCommand(output, context);
   }
 
   // Start section: command_body_extra

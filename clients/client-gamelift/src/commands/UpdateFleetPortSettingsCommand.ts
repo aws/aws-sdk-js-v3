@@ -14,39 +14,41 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateFleetPortSettingsInput, UpdateFleetPortSettingsInputFilterSensitiveLog } from "../models/models_0";
-import { UpdateFleetPortSettingsOutput, UpdateFleetPortSettingsOutputFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateFleetPortSettingsCommand,
-  serializeAws_json1_1UpdateFleetPortSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFleetPortSettingsInput } from "../models/models_0";
+import { UpdateFleetPortSettingsOutput } from "../models/models_1";
+import { de_UpdateFleetPortSettingsCommand, se_UpdateFleetPortSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFleetPortSettingsCommand}.
  */
 export interface UpdateFleetPortSettingsCommandInput extends UpdateFleetPortSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFleetPortSettingsCommand}.
  */
 export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates permissions that allow inbound traffic to connect to game sessions that are
  *             being hosted on instances in the fleet. </p>
- *         <p>To update settings, specify the fleet ID to be updated and specify the changes to be
+ *          <p>To update settings, specify the fleet ID to be updated and specify the changes to be
  *             made. List the permissions you want to add in
  *                 <code>InboundPermissionAuthorizations</code>, and permissions you want to remove in
  *                 <code>InboundPermissionRevocations</code>. Permissions to be removed must match
  *             existing fleet permissions. </p>
- *         <p>If successful, the fleet ID for the updated fleet is returned. For fleets with remote
+ *          <p>If successful, the fleet ID for the updated fleet is returned. For fleets with remote
  *             locations, port setting updates can take time to propagate across all locations. You can
  *             check the status of updates in each location by calling
  *                 <code>DescribeFleetPortSettings</code> with a location name.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
- *                 <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example
@@ -55,10 +57,31 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  * import { GameLiftClient, UpdateFleetPortSettingsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateFleetPortSettingsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // UpdateFleetPortSettingsInput
+ *   FleetId: "STRING_VALUE", // required
+ *   InboundPermissionAuthorizations: [ // IpPermissionsList
+ *     { // IpPermission
+ *       FromPort: Number("int"), // required
+ *       ToPort: Number("int"), // required
+ *       IpRange: "STRING_VALUE", // required
+ *       Protocol: "TCP" || "UDP", // required
+ *     },
+ *   ],
+ *   InboundPermissionRevocations: [
+ *     {
+ *       FromPort: Number("int"), // required
+ *       ToPort: Number("int"), // required
+ *       IpRange: "STRING_VALUE", // required
+ *       Protocol: "TCP" || "UDP", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateFleetPortSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFleetPortSettingsCommandInput - {@link UpdateFleetPortSettingsCommandInput}
+ * @returns {@link UpdateFleetPortSettingsCommandOutput}
  * @see {@link UpdateFleetPortSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetPortSettingsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -67,7 +90,7 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>The service encountered an unrecoverable internal failure while processing the
@@ -111,6 +134,9 @@ export class UpdateFleetPortSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFleetPortSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +165,8 @@ export class UpdateFleetPortSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFleetPortSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFleetPortSettingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +176,18 @@ export class UpdateFleetPortSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFleetPortSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFleetPortSettingsCommand(input, context);
+    return se_UpdateFleetPortSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetPortSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateFleetPortSettingsCommand(output, context);
+    return de_UpdateFleetPortSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

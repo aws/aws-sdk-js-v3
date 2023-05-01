@@ -20,21 +20,23 @@ import {
   CreateSipMediaApplicationResponse,
   CreateSipMediaApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSipMediaApplicationCommand,
-  serializeAws_restJson1CreateSipMediaApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSipMediaApplicationCommand, se_CreateSipMediaApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSipMediaApplicationCommand}.
  */
 export interface CreateSipMediaApplicationCommandInput extends CreateSipMediaApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSipMediaApplicationCommand}.
  */
 export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a SIP media application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,21 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
  * import { ChimeClient, CreateSipMediaApplicationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateSipMediaApplicationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateSipMediaApplicationRequest
+ *   AwsRegion: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Endpoints: [ // SipMediaApplicationEndpointList // required
+ *     { // SipMediaApplicationEndpoint
+ *       LambdaArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateSipMediaApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSipMediaApplicationCommandInput - {@link CreateSipMediaApplicationCommandInput}
+ * @returns {@link CreateSipMediaApplicationCommandOutput}
  * @see {@link CreateSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateSipMediaApplicationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +110,9 @@ export class CreateSipMediaApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSipMediaApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,15 +152,21 @@ export class CreateSipMediaApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSipMediaApplicationCommand(input, context);
+    return se_CreateSipMediaApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSipMediaApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateSipMediaApplicationCommand(output, context);
+    return de_CreateSipMediaApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

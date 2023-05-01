@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  DeleteBackendStorageRequest,
-  DeleteBackendStorageRequestFilterSensitiveLog,
-  DeleteBackendStorageResponse,
-  DeleteBackendStorageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBackendStorageCommand,
-  serializeAws_restJson1DeleteBackendStorageCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBackendStorageRequest, DeleteBackendStorageResponse } from "../models/models_0";
+import { de_DeleteBackendStorageCommand, se_DeleteBackendStorageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackendStorageCommand}.
  */
 export interface DeleteBackendStorageCommandInput extends DeleteBackendStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackendStorageCommand}.
  */
 export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageR
  * import { AmplifyBackendClient, DeleteBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, DeleteBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // DeleteBackendStorageRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   ResourceName: "STRING_VALUE", // required
+ *   ServiceName: "S3", // required
+ * };
  * const command = new DeleteBackendStorageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackendStorageCommandInput - {@link DeleteBackendStorageCommandInput}
+ * @returns {@link DeleteBackendStorageCommandOutput}
  * @see {@link DeleteBackendStorageCommandInput} for command's `input` shape.
  * @see {@link DeleteBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +86,9 @@ export class DeleteBackendStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackendStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class DeleteBackendStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackendStorageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBackendStorageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class DeleteBackendStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackendStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackendStorageCommand(input, context);
+    return se_DeleteBackendStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackendStorageCommandOutput> {
-    return deserializeAws_restJson1DeleteBackendStorageCommand(output, context);
+    return de_DeleteBackendStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

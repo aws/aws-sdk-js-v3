@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ListGameServerGroupsInput,
-  ListGameServerGroupsInputFilterSensitiveLog,
-  ListGameServerGroupsOutput,
-  ListGameServerGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGameServerGroupsCommand,
-  serializeAws_json1_1ListGameServerGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListGameServerGroupsInput, ListGameServerGroupsOutput } from "../models/models_0";
+import { de_ListGameServerGroupsCommand, se_ListGameServerGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGameServerGroupsCommand}.
  */
 export interface ListGameServerGroupsCommandInput extends ListGameServerGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListGameServerGroupsCommand}.
  */
 export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists a game server groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsO
  * import { GameLiftClient, ListGameServerGroupsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListGameServerGroupsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ListGameServerGroupsInput
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListGameServerGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGameServerGroupsCommandInput - {@link ListGameServerGroupsCommandInput}
+ * @returns {@link ListGameServerGroupsCommandOutput}
  * @see {@link ListGameServerGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGameServerGroupsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -80,6 +83,9 @@ export class ListGameServerGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGameServerGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class ListGameServerGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGameServerGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGameServerGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class ListGameServerGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGameServerGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGameServerGroupsCommand(input, context);
+    return se_ListGameServerGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGameServerGroupsCommandOutput> {
-    return deserializeAws_json1_1ListGameServerGroupsCommand(output, context);
+    return de_ListGameServerGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

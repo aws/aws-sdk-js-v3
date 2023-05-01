@@ -15,22 +15,24 @@ import {
 
 import {
   BatchUpdateStandardsControlAssociationsRequest,
-  BatchUpdateStandardsControlAssociationsRequestFilterSensitiveLog,
   BatchUpdateStandardsControlAssociationsResponse,
-  BatchUpdateStandardsControlAssociationsResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand,
-  serializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand,
+  de_BatchUpdateStandardsControlAssociationsCommand,
+  se_BatchUpdateStandardsControlAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateStandardsControlAssociationsCommand}.
  */
 export interface BatchUpdateStandardsControlAssociationsCommandInput
   extends BatchUpdateStandardsControlAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateStandardsControlAssociationsCommand}.
  */
 export interface BatchUpdateStandardsControlAssociationsCommandOutput
@@ -38,6 +40,7 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          For a batch of security controls and standards, this operation updates the enablement status of a control in a standard.
  *       </p>
@@ -47,10 +50,22 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  * import { SecurityHubClient, BatchUpdateStandardsControlAssociationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchUpdateStandardsControlAssociationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // BatchUpdateStandardsControlAssociationsRequest
+ *   StandardsControlAssociationUpdates: [ // StandardsControlAssociationUpdates // required
+ *     { // StandardsControlAssociationUpdate
+ *       StandardsArn: "STRING_VALUE", // required
+ *       SecurityControlId: "STRING_VALUE", // required
+ *       AssociationStatus: "ENABLED" || "DISABLED", // required
+ *       UpdatedReason: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchUpdateStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateStandardsControlAssociationsCommandInput - {@link BatchUpdateStandardsControlAssociationsCommandInput}
+ * @returns {@link BatchUpdateStandardsControlAssociationsCommandOutput}
  * @see {@link BatchUpdateStandardsControlAssociationsCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateStandardsControlAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -88,6 +103,9 @@ export class BatchUpdateStandardsControlAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateStandardsControlAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +140,8 @@ export class BatchUpdateStandardsControlAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateStandardsControlAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateStandardsControlAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +151,24 @@ export class BatchUpdateStandardsControlAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchUpdateStandardsControlAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand(input, context);
+    return se_BatchUpdateStandardsControlAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdateStandardsControlAssociationsCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand(output, context);
+    return de_BatchUpdateStandardsControlAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

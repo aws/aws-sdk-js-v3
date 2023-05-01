@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  CreateAccountRequest,
-  CreateAccountRequestFilterSensitiveLog,
-  CreateAccountResponse,
-  CreateAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAccountCommand,
-  serializeAws_restJson1CreateAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAccountRequest, CreateAccountResponse } from "../models/models_0";
+import { de_CreateAccountCommand, se_CreateAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccountCommand}.
  */
 export interface CreateAccountCommandInput extends CreateAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccountCommand}.
  */
 export interface CreateAccountCommandOutput extends CreateAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Chime account under the administrator's AWS account. Only <code>Team</code>
  *             account types are currently supported for this action. For more information about different account types, see
  *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.</p>
@@ -44,10 +41,15 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * import { ChimeClient, CreateAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateAccountRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new CreateAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccountCommandInput - {@link CreateAccountCommandInput}
+ * @returns {@link CreateAccountCommandOutput}
  * @see {@link CreateAccountCommandInput} for command's `input` shape.
  * @see {@link CreateAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +94,9 @@ export class CreateAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class CreateAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class CreateAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccountCommand(input, context);
+    return se_CreateAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccountCommandOutput> {
-    return deserializeAws_restJson1CreateAccountCommand(output, context);
+    return de_CreateAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SavingsplansServiceException as __BaseException } from "./SavingsplansServiceException";
 
+/**
+ * @public
+ */
 export interface CreateSavingsPlanRequest {
   /**
    * <p>The ID of the offering.</p>
@@ -37,6 +40,9 @@ export interface CreateSavingsPlanRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSavingsPlanResponse {
   /**
    * <p>The ID of the Savings Plan.</p>
@@ -45,6 +51,7 @@ export interface CreateSavingsPlanResponse {
 }
 
 /**
+ * @public
  * <p>An unexpected error occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -64,6 +71,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -83,6 +91,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A service quota has been exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -102,6 +111,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One of the input parameters is not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -120,6 +130,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueuedSavingsPlanRequest {
   /**
    * <p>The ID of the Savings Plan.</p>
@@ -127,20 +140,33 @@ export interface DeleteQueuedSavingsPlanRequest {
   savingsPlanId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueuedSavingsPlanResponse {}
 
-export enum SavingsPlanRateFilterName {
-  INSTANCE_TYPE = "instanceType",
-  OPERATION = "operation",
-  PRODUCT_DESCRIPTION = "productDescription",
-  PRODUCT_TYPE = "productType",
-  REGION = "region",
-  SERVICE_CODE = "serviceCode",
-  TENANCY = "tenancy",
-  USAGE_TYPE = "usageType",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanRateFilterName = {
+  INSTANCE_TYPE: "instanceType",
+  OPERATION: "operation",
+  PRODUCT_DESCRIPTION: "productDescription",
+  PRODUCT_TYPE: "productType",
+  REGION: "region",
+  SERVICE_CODE: "serviceCode",
+  TENANCY: "tenancy",
+  USAGE_TYPE: "usageType",
+} as const;
 
 /**
+ * @public
+ */
+export type SavingsPlanRateFilterName = (typeof SavingsPlanRateFilterName)[keyof typeof SavingsPlanRateFilterName];
+
+/**
+ * @public
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanRateFilter {
@@ -155,6 +181,9 @@ export interface SavingsPlanRateFilter {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlanRatesRequest {
   /**
    * <p>The ID of the Savings Plan.</p>
@@ -178,24 +207,46 @@ export interface DescribeSavingsPlanRatesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export type CurrencyCode = "CNY" | "USD";
 
-export enum SavingsPlanProductType {
-  EC2 = "EC2",
-  FARGATE = "Fargate",
-  LAMBDA = "Lambda",
-  SAGEMAKER = "SageMaker",
-}
-
-export enum SavingsPlanRatePropertyKey {
-  INSTANCE_FAMILY = "instanceFamily",
-  INSTANCE_TYPE = "instanceType",
-  PRODUCT_DESCRIPTION = "productDescription",
-  REGION = "region",
-  TENANCY = "tenancy",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanProductType = {
+  EC2: "EC2",
+  FARGATE: "Fargate",
+  LAMBDA: "Lambda",
+  SAGEMAKER: "SageMaker",
+} as const;
 
 /**
+ * @public
+ */
+export type SavingsPlanProductType = (typeof SavingsPlanProductType)[keyof typeof SavingsPlanProductType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanRatePropertyKey = {
+  INSTANCE_FAMILY: "instanceFamily",
+  INSTANCE_TYPE: "instanceType",
+  PRODUCT_DESCRIPTION: "productDescription",
+  REGION: "region",
+  TENANCY: "tenancy",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlanRatePropertyKey = (typeof SavingsPlanRatePropertyKey)[keyof typeof SavingsPlanRatePropertyKey];
+
+/**
+ * @public
  * <p>Information about a property.</p>
  */
 export interface SavingsPlanRateProperty {
@@ -210,21 +261,40 @@ export interface SavingsPlanRateProperty {
   value?: string;
 }
 
-export enum SavingsPlanRateServiceCode {
-  EC2 = "AmazonEC2",
-  FARGATE = "AmazonECS",
-  FARGATE_EKS = "AmazonEKS",
-  LAMBDA = "AWSLambda",
-  SAGEMAKER = "AmazonSageMaker",
-}
-
-export enum SavingsPlanRateUnit {
-  HOURS = "Hrs",
-  LAMBDA_GB_SECOND = "Lambda-GB-Second",
-  REQUEST = "Request",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanRateServiceCode = {
+  EC2: "AmazonEC2",
+  FARGATE: "AmazonECS",
+  FARGATE_EKS: "AmazonEKS",
+  LAMBDA: "AWSLambda",
+  SAGEMAKER: "AmazonSageMaker",
+} as const;
 
 /**
+ * @public
+ */
+export type SavingsPlanRateServiceCode = (typeof SavingsPlanRateServiceCode)[keyof typeof SavingsPlanRateServiceCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanRateUnit = {
+  HOURS: "Hrs",
+  LAMBDA_GB_SECOND: "Lambda-GB-Second",
+  REQUEST: "Request",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlanRateUnit = (typeof SavingsPlanRateUnit)[keyof typeof SavingsPlanRateUnit];
+
+/**
+ * @public
  * <p>Information about a Savings Plan rate.</p>
  */
 export interface SavingsPlanRate {
@@ -269,6 +339,9 @@ export interface SavingsPlanRate {
   properties?: SavingsPlanRateProperty[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlanRatesResponse {
   /**
    * <p>The ID of the Savings Plan.</p>
@@ -287,19 +360,29 @@ export interface DescribeSavingsPlanRatesResponse {
   nextToken?: string;
 }
 
-export enum SavingsPlansFilterName {
-  COMMITMENT = "commitment",
-  EC2_INSTANCE_FAMILY = "ec2-instance-family",
-  END = "end",
-  PAYMENT_OPTION = "payment-option",
-  REGION = "region",
-  SAVINGS_PLAN_TYPE = "savings-plan-type",
-  START = "start",
-  TERM = "term",
-  UPFRONT = "upfront",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlansFilterName = {
+  COMMITMENT: "commitment",
+  EC2_INSTANCE_FAMILY: "ec2-instance-family",
+  END: "end",
+  PAYMENT_OPTION: "payment-option",
+  REGION: "region",
+  SAVINGS_PLAN_TYPE: "savings-plan-type",
+  START: "start",
+  TERM: "term",
+  UPFRONT: "upfront",
+} as const;
 
 /**
+ * @public
+ */
+export type SavingsPlansFilterName = (typeof SavingsPlansFilterName)[keyof typeof SavingsPlansFilterName];
+
+/**
+ * @public
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanFilter {
@@ -314,15 +397,27 @@ export interface SavingsPlanFilter {
   values?: string[];
 }
 
-export enum SavingsPlanState {
-  ACTIVE = "active",
-  PAYMENT_FAILED = "payment-failed",
-  PAYMENT_PENDING = "payment-pending",
-  QUEUED = "queued",
-  QUEUED_DELETED = "queued-deleted",
-  RETIRED = "retired",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanState = {
+  ACTIVE: "active",
+  PAYMENT_FAILED: "payment-failed",
+  PAYMENT_PENDING: "payment-pending",
+  QUEUED: "queued",
+  QUEUED_DELETED: "queued-deleted",
+  RETIRED: "retired",
+} as const;
 
+/**
+ * @public
+ */
+export type SavingsPlanState = (typeof SavingsPlanState)[keyof typeof SavingsPlanState];
+
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansRequest {
   /**
    * <p>The Amazon Resource Names (ARN) of the Savings Plans.</p>
@@ -356,19 +451,38 @@ export interface DescribeSavingsPlansRequest {
   filters?: SavingsPlanFilter[];
 }
 
-export enum SavingsPlanPaymentOption {
-  ALL_UPFRONT = "All Upfront",
-  NO_UPFRONT = "No Upfront",
-  PARTIAL_UPFRONT = "Partial Upfront",
-}
-
-export enum SavingsPlanType {
-  COMPUTE = "Compute",
-  EC2_INSTANCE = "EC2Instance",
-  SAGEMAKER = "SageMaker",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanPaymentOption = {
+  ALL_UPFRONT: "All Upfront",
+  NO_UPFRONT: "No Upfront",
+  PARTIAL_UPFRONT: "Partial Upfront",
+} as const;
 
 /**
+ * @public
+ */
+export type SavingsPlanPaymentOption = (typeof SavingsPlanPaymentOption)[keyof typeof SavingsPlanPaymentOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanType = {
+  COMPUTE: "Compute",
+  EC2_INSTANCE: "EC2Instance",
+  SAGEMAKER: "SageMaker",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsPlanType = (typeof SavingsPlanType)[keyof typeof SavingsPlanType];
+
+/**
+ * @public
  * <p>Information about a Savings Plan.</p>
  */
 export interface SavingsPlan {
@@ -463,6 +577,9 @@ export interface SavingsPlan {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansResponse {
   /**
    * <p>Information about the Savings Plans.</p>
@@ -476,16 +593,27 @@ export interface DescribeSavingsPlansResponse {
   nextToken?: string;
 }
 
-export enum SavingsPlanRateFilterAttribute {
-  INSTANCE_FAMILY = "instanceFamily",
-  INSTANCE_TYPE = "instanceType",
-  PRODUCT_DESCRIPTION = "productDescription",
-  PRODUCT_ID = "productId",
-  REGION = "region",
-  TENANCY = "tenancy",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanRateFilterAttribute = {
+  INSTANCE_FAMILY: "instanceFamily",
+  INSTANCE_TYPE: "instanceType",
+  PRODUCT_DESCRIPTION: "productDescription",
+  PRODUCT_ID: "productId",
+  REGION: "region",
+  TENANCY: "tenancy",
+} as const;
 
 /**
+ * @public
+ */
+export type SavingsPlanRateFilterAttribute =
+  (typeof SavingsPlanRateFilterAttribute)[keyof typeof SavingsPlanRateFilterAttribute];
+
+/**
+ * @public
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanOfferingRateFilterElement {
@@ -500,6 +628,9 @@ export interface SavingsPlanOfferingRateFilterElement {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansOfferingRatesRequest {
   /**
    * <p>The IDs of the offerings.</p>
@@ -554,6 +685,7 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a property.</p>
  */
 export interface SavingsPlanOfferingRateProperty {
@@ -569,6 +701,7 @@ export interface SavingsPlanOfferingRateProperty {
 }
 
 /**
+ * @public
  * <p>Information about a Savings Plan offering.</p>
  */
 export interface ParentSavingsPlanOffering {
@@ -604,6 +737,7 @@ export interface ParentSavingsPlanOffering {
 }
 
 /**
+ * @public
  * <p>Information about a Savings Plan offering rate.</p>
  */
 export interface SavingsPlanOfferingRate {
@@ -648,6 +782,9 @@ export interface SavingsPlanOfferingRate {
   properties?: SavingsPlanOfferingRateProperty[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansOfferingRatesResponse {
   /**
    * <p>Information about the Savings Plans offering rates.</p>
@@ -661,12 +798,23 @@ export interface DescribeSavingsPlansOfferingRatesResponse {
   nextToken?: string;
 }
 
-export enum SavingsPlanOfferingFilterAttribute {
-  instanceFamily = "instanceFamily",
-  region = "region",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanOfferingFilterAttribute = {
+  instanceFamily: "instanceFamily",
+  region: "region",
+} as const;
 
 /**
+ * @public
+ */
+export type SavingsPlanOfferingFilterAttribute =
+  (typeof SavingsPlanOfferingFilterAttribute)[keyof typeof SavingsPlanOfferingFilterAttribute];
+
+/**
+ * @public
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanOfferingFilterElement {
@@ -681,6 +829,9 @@ export interface SavingsPlanOfferingFilterElement {
   values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansOfferingsRequest {
   /**
    * <p>The IDs of the offerings.</p>
@@ -749,12 +900,23 @@ export interface DescribeSavingsPlansOfferingsRequest {
   maxResults?: number;
 }
 
-export enum SavingsPlanOfferingPropertyKey {
-  INSTANCE_FAMILY = "instanceFamily",
-  REGION = "region",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SavingsPlanOfferingPropertyKey = {
+  INSTANCE_FAMILY: "instanceFamily",
+  REGION: "region",
+} as const;
 
 /**
+ * @public
+ */
+export type SavingsPlanOfferingPropertyKey =
+  (typeof SavingsPlanOfferingPropertyKey)[keyof typeof SavingsPlanOfferingPropertyKey];
+
+/**
+ * @public
  * <p>Information about a property.</p>
  */
 export interface SavingsPlanOfferingProperty {
@@ -770,6 +932,7 @@ export interface SavingsPlanOfferingProperty {
 }
 
 /**
+ * @public
  * <p>Information about a Savings Plan offering.</p>
  */
 export interface SavingsPlanOffering {
@@ -829,6 +992,9 @@ export interface SavingsPlanOffering {
   properties?: SavingsPlanOfferingProperty[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSavingsPlansOfferingsResponse {
   /**
    * <p>Information about the Savings Plans offerings.</p>
@@ -842,6 +1008,9 @@ export interface DescribeSavingsPlansOfferingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -849,6 +1018,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
@@ -856,6 +1028,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -863,13 +1038,19 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+   * <p>One or more tags. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -882,224 +1063,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const CreateSavingsPlanRequestFilterSensitiveLog = (obj: CreateSavingsPlanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSavingsPlanResponseFilterSensitiveLog = (obj: CreateSavingsPlanResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteQueuedSavingsPlanRequestFilterSensitiveLog = (obj: DeleteQueuedSavingsPlanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteQueuedSavingsPlanResponseFilterSensitiveLog = (obj: DeleteQueuedSavingsPlanResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlanRateFilterFilterSensitiveLog = (obj: SavingsPlanRateFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSavingsPlanRatesRequestFilterSensitiveLog = (obj: DescribeSavingsPlanRatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlanRatePropertyFilterSensitiveLog = (obj: SavingsPlanRateProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlanRateFilterSensitiveLog = (obj: SavingsPlanRate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSavingsPlanRatesResponseFilterSensitiveLog = (obj: DescribeSavingsPlanRatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlanFilterFilterSensitiveLog = (obj: SavingsPlanFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSavingsPlansRequestFilterSensitiveLog = (obj: DescribeSavingsPlansRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlanFilterSensitiveLog = (obj: SavingsPlan): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSavingsPlansResponseFilterSensitiveLog = (obj: DescribeSavingsPlansResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlanOfferingRateFilterElementFilterSensitiveLog = (
-  obj: SavingsPlanOfferingRateFilterElement
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSavingsPlansOfferingRatesRequestFilterSensitiveLog = (
-  obj: DescribeSavingsPlansOfferingRatesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlanOfferingRatePropertyFilterSensitiveLog = (obj: SavingsPlanOfferingRateProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParentSavingsPlanOfferingFilterSensitiveLog = (obj: ParentSavingsPlanOffering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlanOfferingRateFilterSensitiveLog = (obj: SavingsPlanOfferingRate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSavingsPlansOfferingRatesResponseFilterSensitiveLog = (
-  obj: DescribeSavingsPlansOfferingRatesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlanOfferingFilterElementFilterSensitiveLog = (obj: SavingsPlanOfferingFilterElement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSavingsPlansOfferingsRequestFilterSensitiveLog = (
-  obj: DescribeSavingsPlansOfferingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlanOfferingPropertyFilterSensitiveLog = (obj: SavingsPlanOfferingProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SavingsPlanOfferingFilterSensitiveLog = (obj: SavingsPlanOffering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSavingsPlansOfferingsResponseFilterSensitiveLog = (
-  obj: DescribeSavingsPlansOfferingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});

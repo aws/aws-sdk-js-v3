@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  LookupPolicyRequest,
-  LookupPolicyRequestFilterSensitiveLog,
-  LookupPolicyResponse,
-  LookupPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1LookupPolicyCommand,
-  serializeAws_restJson1LookupPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { LookupPolicyRequest, LookupPolicyResponse } from "../models/models_0";
+import { de_LookupPolicyCommand, se_LookupPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link LookupPolicyCommand}.
  */
 export interface LookupPolicyCommandInput extends LookupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link LookupPolicyCommand}.
  */
 export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all policies from the root of the <a>Directory</a> to the object
  *       specified. If there are no policies present, an empty list is returned. If policies are
  *       present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>
@@ -47,10 +44,20 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  * import { CloudDirectoryClient, LookupPolicyCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, LookupPolicyCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // LookupPolicyRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ObjectReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new LookupPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param LookupPolicyCommandInput - {@link LookupPolicyCommandInput}
+ * @returns {@link LookupPolicyCommandOutput}
  * @see {@link LookupPolicyCommandInput} for command's `input` shape.
  * @see {@link LookupPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +109,9 @@ export class LookupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LookupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +138,8 @@ export class LookupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LookupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LookupPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +149,18 @@ export class LookupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LookupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1LookupPolicyCommand(input, context);
+    return se_LookupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LookupPolicyCommandOutput> {
-    return deserializeAws_restJson1LookupPolicyCommand(output, context);
+    return de_LookupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

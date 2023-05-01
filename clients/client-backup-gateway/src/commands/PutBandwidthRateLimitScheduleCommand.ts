@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
+import { PutBandwidthRateLimitScheduleInput, PutBandwidthRateLimitScheduleOutput } from "../models/models_0";
 import {
-  PutBandwidthRateLimitScheduleInput,
-  PutBandwidthRateLimitScheduleInputFilterSensitiveLog,
-  PutBandwidthRateLimitScheduleOutput,
-  PutBandwidthRateLimitScheduleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0PutBandwidthRateLimitScheduleCommand,
-  serializeAws_json1_0PutBandwidthRateLimitScheduleCommand,
+  de_PutBandwidthRateLimitScheduleCommand,
+  se_PutBandwidthRateLimitScheduleCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link PutBandwidthRateLimitScheduleCommand}.
  */
 export interface PutBandwidthRateLimitScheduleCommandInput extends PutBandwidthRateLimitScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link PutBandwidthRateLimitScheduleCommand}.
  */
 export interface PutBandwidthRateLimitScheduleCommandOutput
@@ -37,6 +36,7 @@ export interface PutBandwidthRateLimitScheduleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action sets the bandwidth rate limit schedule for a specified gateway.
  *       By default, gateways do not have a bandwidth rate limit schedule, which means
  *       no bandwidth rate limiting is in effect. Use this to initiate a
@@ -47,10 +47,27 @@ export interface PutBandwidthRateLimitScheduleCommandOutput
  * import { BackupGatewayClient, PutBandwidthRateLimitScheduleCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, PutBandwidthRateLimitScheduleCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // PutBandwidthRateLimitScheduleInput
+ *   GatewayArn: "STRING_VALUE", // required
+ *   BandwidthRateLimitIntervals: [ // BandwidthRateLimitIntervals // required
+ *     { // BandwidthRateLimitInterval
+ *       AverageUploadRateLimitInBitsPerSec: Number("long"),
+ *       StartHourOfDay: Number("int"), // required
+ *       EndHourOfDay: Number("int"), // required
+ *       StartMinuteOfHour: Number("int"), // required
+ *       EndMinuteOfHour: Number("int"), // required
+ *       DaysOfWeek: [ // DaysOfWeek // required
+ *         Number("int"),
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBandwidthRateLimitScheduleCommandInput - {@link PutBandwidthRateLimitScheduleCommandInput}
+ * @returns {@link PutBandwidthRateLimitScheduleCommandOutput}
  * @see {@link PutBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
  * @see {@link PutBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -87,6 +104,9 @@ export class PutBandwidthRateLimitScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBandwidthRateLimitScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +135,8 @@ export class PutBandwidthRateLimitScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBandwidthRateLimitScheduleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutBandwidthRateLimitScheduleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +146,21 @@ export class PutBandwidthRateLimitScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBandwidthRateLimitScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutBandwidthRateLimitScheduleCommand(input, context);
+    return se_PutBandwidthRateLimitScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBandwidthRateLimitScheduleCommandOutput> {
-    return deserializeAws_json1_0PutBandwidthRateLimitScheduleCommand(output, context);
+    return de_PutBandwidthRateLimitScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

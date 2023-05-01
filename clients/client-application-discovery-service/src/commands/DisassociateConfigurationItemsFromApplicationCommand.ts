@@ -20,21 +20,23 @@ import {
 } from "../ApplicationDiscoveryServiceClient";
 import {
   DisassociateConfigurationItemsFromApplicationRequest,
-  DisassociateConfigurationItemsFromApplicationRequestFilterSensitiveLog,
   DisassociateConfigurationItemsFromApplicationResponse,
-  DisassociateConfigurationItemsFromApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand,
-  serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand,
+  de_DisassociateConfigurationItemsFromApplicationCommand,
+  se_DisassociateConfigurationItemsFromApplicationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateConfigurationItemsFromApplicationCommand}.
  */
 export interface DisassociateConfigurationItemsFromApplicationCommandInput
   extends DisassociateConfigurationItemsFromApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateConfigurationItemsFromApplicationCommand}.
  */
 export interface DisassociateConfigurationItemsFromApplicationCommandOutput
@@ -42,6 +44,7 @@ export interface DisassociateConfigurationItemsFromApplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates one or more configuration items from an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +52,18 @@ export interface DisassociateConfigurationItemsFromApplicationCommandOutput
  * import { ApplicationDiscoveryServiceClient, DisassociateConfigurationItemsFromApplicationCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DisassociateConfigurationItemsFromApplicationCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // DisassociateConfigurationItemsFromApplicationRequest
+ *   applicationConfigurationId: "STRING_VALUE", // required
+ *   configurationIds: [ // ConfigurationIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateConfigurationItemsFromApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateConfigurationItemsFromApplicationCommandInput - {@link DisassociateConfigurationItemsFromApplicationCommandInput}
+ * @returns {@link DisassociateConfigurationItemsFromApplicationCommandOutput}
  * @see {@link DisassociateConfigurationItemsFromApplicationCommandInput} for command's `input` shape.
  * @see {@link DisassociateConfigurationItemsFromApplicationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -93,6 +104,9 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateConfigurationItemsFromApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +141,8 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateConfigurationItemsFromApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateConfigurationItemsFromApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,18 +152,24 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateConfigurationItemsFromApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand(input, context);
+    return se_DisassociateConfigurationItemsFromApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> {
-    return deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand(output, context);
+    return de_DisassociateConfigurationItemsFromApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRunTasksRequest,
-  ListRunTasksRequestFilterSensitiveLog,
-  ListRunTasksResponse,
-  ListRunTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRunTasksRequest, ListRunTasksResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListRunTasksCommand,
-  serializeAws_restJson1ListRunTasksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRunTasksCommand, se_ListRunTasksCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRunTasksCommand}.
  */
 export interface ListRunTasksCommandInput extends ListRunTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRunTasksCommand}.
  */
 export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of tasks for a run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  * import { OmicsClient, ListRunTasksCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListRunTasksCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // ListRunTasksRequest
+ *   id: "STRING_VALUE", // required
+ *   status: "STRING_VALUE",
+ *   startingToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRunTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRunTasksCommandInput - {@link ListRunTasksCommandInput}
+ * @returns {@link ListRunTasksCommandOutput}
  * @see {@link ListRunTasksCommandInput} for command's `input` shape.
  * @see {@link ListRunTasksCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -93,6 +98,9 @@ export class ListRunTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRunTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class ListRunTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRunTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRunTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +138,18 @@ export class ListRunTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRunTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRunTasksCommand(input, context);
+    return se_ListRunTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRunTasksCommandOutput> {
-    return deserializeAws_restJson1ListRunTasksCommand(output, context);
+    return de_ListRunTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

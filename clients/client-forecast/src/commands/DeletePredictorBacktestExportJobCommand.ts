@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { DeletePredictorBacktestExportJobRequest } from "../models/models_0";
 import {
-  DeletePredictorBacktestExportJobRequest,
-  DeletePredictorBacktestExportJobRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePredictorBacktestExportJobCommand,
-  serializeAws_json1_1DeletePredictorBacktestExportJobCommand,
+  de_DeletePredictorBacktestExportJobCommand,
+  se_DeletePredictorBacktestExportJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePredictorBacktestExportJobCommand}.
  */
 export interface DeletePredictorBacktestExportJobCommandInput extends DeletePredictorBacktestExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePredictorBacktestExportJobCommand}.
  */
 export interface DeletePredictorBacktestExportJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a predictor backtest export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,15 @@ export interface DeletePredictorBacktestExportJobCommandOutput extends __Metadat
  * import { ForecastClient, DeletePredictorBacktestExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeletePredictorBacktestExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DeletePredictorBacktestExportJobRequest
+ *   PredictorBacktestExportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DeletePredictorBacktestExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePredictorBacktestExportJobCommandInput - {@link DeletePredictorBacktestExportJobCommandInput}
+ * @returns {@link DeletePredictorBacktestExportJobCommandOutput}
  * @see {@link DeletePredictorBacktestExportJobCommandInput} for command's `input` shape.
  * @see {@link DeletePredictorBacktestExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeletePredictorBacktestExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePredictorBacktestExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +116,8 @@ export class DeletePredictorBacktestExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePredictorBacktestExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +127,24 @@ export class DeletePredictorBacktestExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeletePredictorBacktestExportJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePredictorBacktestExportJobCommand(input, context);
+    return se_DeletePredictorBacktestExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePredictorBacktestExportJobCommandOutput> {
-    return deserializeAws_json1_1DeletePredictorBacktestExportJobCommand(output, context);
+    return de_DeletePredictorBacktestExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

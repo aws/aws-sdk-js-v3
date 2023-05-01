@@ -13,41 +13,102 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateResponsePlanInput,
-  CreateResponsePlanInputFilterSensitiveLog,
-  CreateResponsePlanOutput,
-  CreateResponsePlanOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateResponsePlanCommand,
-  serializeAws_restJson1CreateResponsePlanCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateResponsePlanInput, CreateResponsePlanOutput } from "../models/models_0";
+import { de_CreateResponsePlanCommand, se_CreateResponsePlanCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResponsePlanCommand}.
  */
 export interface CreateResponsePlanCommandInput extends CreateResponsePlanInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateResponsePlanCommand}.
  */
 export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a response plan that automates the initial response to incidents. A response
- *             plan engages contacts, starts chat channel collaboration, and initiates runbooks at the
- *             beginning of an incident.</p>
+ * @public
+ * <p>Creates a response plan that automates the initial response to incidents. A response plan
+ *       engages contacts, starts chat channel collaboration, and initiates runbooks at the beginning
+ *       of an incident.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMIncidentsClient, CreateResponsePlanCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, CreateResponsePlanCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // CreateResponsePlanInput
+ *   clientToken: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   incidentTemplate: { // IncidentTemplate
+ *     title: "STRING_VALUE", // required
+ *     impact: Number("int"), // required
+ *     summary: "STRING_VALUE",
+ *     dedupeString: "STRING_VALUE",
+ *     notificationTargets: [ // NotificationTargetSet
+ *       { // NotificationTargetItem Union: only one key present
+ *         snsTopicArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     incidentTags: { // TagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   chatChannel: { // ChatChannel Union: only one key present
+ *     empty: {},
+ *     chatbotSns: [ // ChatbotSnsConfigurationSet
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   engagements: [ // EngagementSet
+ *     "STRING_VALUE",
+ *   ],
+ *   actions: [ // ActionsList
+ *     { // Action Union: only one key present
+ *       ssmAutomation: { // SsmAutomation
+ *         roleArn: "STRING_VALUE", // required
+ *         documentName: "STRING_VALUE", // required
+ *         documentVersion: "STRING_VALUE",
+ *         targetAccount: "STRING_VALUE",
+ *         parameters: { // SsmParameters
+ *           "<keys>": [ // SsmParameterValues
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         dynamicParameters: { // DynamicSsmParameters
+ *           "<keys>": { // DynamicSsmParameterValue Union: only one key present
+ *             variable: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   integrations: [ // Integrations
+ *     { // Integration Union: only one key present
+ *       pagerDutyConfiguration: { // PagerDutyConfiguration
+ *         name: "STRING_VALUE", // required
+ *         secretId: "STRING_VALUE", // required
+ *         pagerDutyIncidentConfiguration: { // PagerDutyIncidentConfiguration
+ *           serviceId: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateResponsePlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResponsePlanCommandInput - {@link CreateResponsePlanCommandInput}
+ * @returns {@link CreateResponsePlanCommandOutput}
  * @see {@link CreateResponsePlanCommandInput} for command's `input` shape.
  * @see {@link CreateResponsePlanCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -91,6 +152,9 @@ export class CreateResponsePlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResponsePlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +183,8 @@ export class CreateResponsePlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResponsePlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateResponsePlanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +194,18 @@ export class CreateResponsePlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResponsePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateResponsePlanCommand(input, context);
+    return se_CreateResponsePlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResponsePlanCommandOutput> {
-    return deserializeAws_restJson1CreateResponsePlanCommand(output, context);
+    return de_CreateResponsePlanCommand(output, context);
   }
 
   // Start section: command_body_extra

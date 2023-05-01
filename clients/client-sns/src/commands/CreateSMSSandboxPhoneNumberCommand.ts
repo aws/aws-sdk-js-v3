@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSMSSandboxPhoneNumberInput,
-  CreateSMSSandboxPhoneNumberInputFilterSensitiveLog,
-  CreateSMSSandboxPhoneNumberResult,
-  CreateSMSSandboxPhoneNumberResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateSMSSandboxPhoneNumberCommand,
-  serializeAws_queryCreateSMSSandboxPhoneNumberCommand,
-} from "../protocols/Aws_query";
+import { CreateSMSSandboxPhoneNumberInput, CreateSMSSandboxPhoneNumberResult } from "../models/models_0";
+import { de_CreateSMSSandboxPhoneNumberCommand, se_CreateSMSSandboxPhoneNumberCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSMSSandboxPhoneNumberCommand}.
  */
 export interface CreateSMSSandboxPhoneNumberCommandInput extends CreateSMSSandboxPhoneNumberInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSMSSandboxPhoneNumberCommand}.
  */
 export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a destination phone number to an Amazon Web Services account in the SMS sandbox and sends a
  *             one-time password (OTP) to that phone number.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -51,10 +48,16 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  * import { SNSClient, CreateSMSSandboxPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, CreateSMSSandboxPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // CreateSMSSandboxPhoneNumberInput
+ *   PhoneNumber: "STRING_VALUE", // required
+ *   LanguageCode: "en-US" || "en-GB" || "es-419" || "es-ES" || "de-DE" || "fr-CA" || "fr-FR" || "it-IT" || "ja-JP" || "pt-BR" || "kr-KR" || "zh-CN" || "zh-TW",
+ * };
  * const command = new CreateSMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSMSSandboxPhoneNumberCommandInput - {@link CreateSMSSandboxPhoneNumberCommandInput}
+ * @returns {@link CreateSMSSandboxPhoneNumberCommandOutput}
  * @see {@link CreateSMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link CreateSMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -99,6 +102,9 @@ export class CreateSMSSandboxPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSMSSandboxPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +133,8 @@ export class CreateSMSSandboxPhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSMSSandboxPhoneNumberInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSMSSandboxPhoneNumberResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +144,21 @@ export class CreateSMSSandboxPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSMSSandboxPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateSMSSandboxPhoneNumberCommand(input, context);
+    return se_CreateSMSSandboxPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSMSSandboxPhoneNumberCommandOutput> {
-    return deserializeAws_queryCreateSMSSandboxPhoneNumberCommand(output, context);
+    return de_CreateSMSSandboxPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

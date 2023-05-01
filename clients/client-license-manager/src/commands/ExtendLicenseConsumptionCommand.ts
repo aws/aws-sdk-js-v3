@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  ExtendLicenseConsumptionRequest,
-  ExtendLicenseConsumptionRequestFilterSensitiveLog,
-  ExtendLicenseConsumptionResponse,
-  ExtendLicenseConsumptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ExtendLicenseConsumptionCommand,
-  serializeAws_json1_1ExtendLicenseConsumptionCommand,
-} from "../protocols/Aws_json1_1";
+import { ExtendLicenseConsumptionRequest, ExtendLicenseConsumptionResponse } from "../models/models_0";
+import { de_ExtendLicenseConsumptionCommand, se_ExtendLicenseConsumptionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExtendLicenseConsumptionCommand}.
  */
 export interface ExtendLicenseConsumptionCommandInput extends ExtendLicenseConsumptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExtendLicenseConsumptionCommand}.
  */
 export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseConsumptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Extends the expiration date for license consumption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
  * import { LicenseManagerClient, ExtendLicenseConsumptionCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ExtendLicenseConsumptionCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ExtendLicenseConsumptionRequest
+ *   LicenseConsumptionToken: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ExtendLicenseConsumptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExtendLicenseConsumptionCommandInput - {@link ExtendLicenseConsumptionCommandInput}
+ * @returns {@link ExtendLicenseConsumptionCommandOutput}
  * @see {@link ExtendLicenseConsumptionCommandInput} for command's `input` shape.
  * @see {@link ExtendLicenseConsumptionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +94,9 @@ export class ExtendLicenseConsumptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExtendLicenseConsumptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class ExtendLicenseConsumptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExtendLicenseConsumptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtendLicenseConsumptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +136,18 @@ export class ExtendLicenseConsumptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExtendLicenseConsumptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExtendLicenseConsumptionCommand(input, context);
+    return se_ExtendLicenseConsumptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExtendLicenseConsumptionCommandOutput> {
-    return deserializeAws_json1_1ExtendLicenseConsumptionCommand(output, context);
+    return de_ExtendLicenseConsumptionCommand(output, context);
   }
 
   // Start section: command_body_extra

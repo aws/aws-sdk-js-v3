@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeScheduleRequest,
-  DescribeScheduleRequestFilterSensitiveLog,
-  DescribeScheduleResponse,
-  DescribeScheduleResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeScheduleCommand,
-  serializeAws_restJson1DescribeScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeScheduleRequest, DescribeScheduleResponse } from "../models/models_1";
+import { de_DescribeScheduleCommand, se_DescribeScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduleCommand}.
  */
 export interface DescribeScheduleCommandInput extends DescribeScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduleCommand}.
  */
 export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Get a channel schedule
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * import { MediaLiveClient, DescribeScheduleCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeScheduleCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DescribeScheduleRequest
+ *   ChannelId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduleCommandInput - {@link DescribeScheduleCommandInput}
+ * @returns {@link DescribeScheduleCommandOutput}
  * @see {@link DescribeScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +94,9 @@ export class DescribeScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class DescribeScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class DescribeScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeScheduleCommand(input, context);
+    return se_DescribeScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduleCommandOutput> {
-    return deserializeAws_restJson1DescribeScheduleCommand(output, context);
+    return de_DescribeScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

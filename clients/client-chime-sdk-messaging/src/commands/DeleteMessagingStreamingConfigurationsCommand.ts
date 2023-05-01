@@ -18,26 +18,28 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
+import { DeleteMessagingStreamingConfigurationsRequest } from "../models/models_0";
 import {
-  DeleteMessagingStreamingConfigurationsRequest,
-  DeleteMessagingStreamingConfigurationsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand,
-  serializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand,
+  de_DeleteMessagingStreamingConfigurationsCommand,
+  se_DeleteMessagingStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMessagingStreamingConfigurationsCommand}.
  */
 export interface DeleteMessagingStreamingConfigurationsCommandInput
   extends DeleteMessagingStreamingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMessagingStreamingConfigurationsCommand}.
  */
 export interface DeleteMessagingStreamingConfigurationsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see
  *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
  * @example
@@ -46,13 +48,21 @@ export interface DeleteMessagingStreamingConfigurationsCommandOutput extends __M
  * import { ChimeSDKMessagingClient, DeleteMessagingStreamingConfigurationsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DeleteMessagingStreamingConfigurationsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // DeleteMessagingStreamingConfigurationsRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMessagingStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMessagingStreamingConfigurationsCommandInput - {@link DeleteMessagingStreamingConfigurationsCommandInput}
+ * @returns {@link DeleteMessagingStreamingConfigurationsCommandOutput}
  * @see {@link DeleteMessagingStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DeleteMessagingStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
@@ -88,6 +98,9 @@ export class DeleteMessagingStreamingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMessagingStreamingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +129,8 @@ export class DeleteMessagingStreamingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMessagingStreamingConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +140,24 @@ export class DeleteMessagingStreamingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteMessagingStreamingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand(input, context);
+    return se_DeleteMessagingStreamingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand(output, context);
+    return de_DeleteMessagingStreamingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

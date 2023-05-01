@@ -20,21 +20,23 @@ import {
   CreateConfigurationProfileRequest,
   CreateConfigurationProfileRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateConfigurationProfileCommand,
-  serializeAws_restJson1CreateConfigurationProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateConfigurationProfileCommand, se_CreateConfigurationProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationProfileCommand}.
  */
 export interface CreateConfigurationProfileCommandInput extends CreateConfigurationProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationProfileCommand}.
  */
 export interface CreateConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a configuration profile, which is information that enables AppConfig
  *          to access the configuration source. Valid configuration sources include the
  *          following:</p>
@@ -81,10 +83,29 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * import { AppConfigClient, CreateConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // CreateConfigurationProfileRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   LocationUri: "STRING_VALUE", // required
+ *   RetrievalRoleArn: "STRING_VALUE",
+ *   Validators: [ // ValidatorList
+ *     { // Validator
+ *       Type: "JSON_SCHEMA" || "LAMBDA", // required
+ *       Content: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Type: "STRING_VALUE",
+ * };
  * const command = new CreateConfigurationProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationProfileCommandInput - {@link CreateConfigurationProfileCommandInput}
+ * @returns {@link CreateConfigurationProfileCommandOutput}
  * @see {@link CreateConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -140,6 +161,9 @@ export class CreateConfigurationProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -179,15 +203,21 @@ export class CreateConfigurationProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConfigurationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConfigurationProfileCommand(input, context);
+    return se_CreateConfigurationProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfigurationProfileCommandOutput> {
-    return deserializeAws_restJson1CreateConfigurationProfileCommand(output, context);
+    return de_CreateConfigurationProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

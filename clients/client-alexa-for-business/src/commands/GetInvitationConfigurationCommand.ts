@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetInvitationConfigurationRequest,
-  GetInvitationConfigurationRequestFilterSensitiveLog,
-  GetInvitationConfigurationResponse,
-  GetInvitationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetInvitationConfigurationCommand,
-  serializeAws_json1_1GetInvitationConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetInvitationConfigurationRequest, GetInvitationConfigurationResponse } from "../models/models_0";
+import { de_GetInvitationConfigurationCommand, se_GetInvitationConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInvitationConfigurationCommand}.
  */
 export interface GetInvitationConfigurationCommandInput extends GetInvitationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInvitationConfigurationCommand}.
  */
 export interface GetInvitationConfigurationCommandOutput extends GetInvitationConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the configured values for the user enrollment invitation email
  *          template.</p>
  * @example
@@ -43,10 +40,13 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
  * import { AlexaForBusinessClient, GetInvitationConfigurationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetInvitationConfigurationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {};
  * const command = new GetInvitationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInvitationConfigurationCommandInput - {@link GetInvitationConfigurationCommandInput}
+ * @returns {@link GetInvitationConfigurationCommandOutput}
  * @see {@link GetInvitationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetInvitationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -73,6 +73,9 @@ export class GetInvitationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInvitationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +104,8 @@ export class GetInvitationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInvitationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInvitationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,15 +115,21 @@ export class GetInvitationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInvitationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInvitationConfigurationCommand(input, context);
+    return se_GetInvitationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInvitationConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetInvitationConfigurationCommand(output, context);
+    return de_GetInvitationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

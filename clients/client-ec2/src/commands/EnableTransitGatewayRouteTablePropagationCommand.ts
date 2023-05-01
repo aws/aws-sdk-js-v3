@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   EnableTransitGatewayRouteTablePropagationRequest,
-  EnableTransitGatewayRouteTablePropagationRequestFilterSensitiveLog,
   EnableTransitGatewayRouteTablePropagationResult,
-  EnableTransitGatewayRouteTablePropagationResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand,
-  serializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand,
+  de_EnableTransitGatewayRouteTablePropagationCommand,
+  se_EnableTransitGatewayRouteTablePropagationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableTransitGatewayRouteTablePropagationCommand}.
  */
 export interface EnableTransitGatewayRouteTablePropagationCommandInput
   extends EnableTransitGatewayRouteTablePropagationRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableTransitGatewayRouteTablePropagationCommand}.
  */
 export interface EnableTransitGatewayRouteTablePropagationCommandOutput
@@ -38,6 +40,7 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified attachment to propagate routes to the specified
  *          propagation route table.</p>
  * @example
@@ -46,10 +49,18 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput
  * import { EC2Client, EnableTransitGatewayRouteTablePropagationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableTransitGatewayRouteTablePropagationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableTransitGatewayRouteTablePropagationRequest
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
+ * };
  * const command = new EnableTransitGatewayRouteTablePropagationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableTransitGatewayRouteTablePropagationCommandInput - {@link EnableTransitGatewayRouteTablePropagationCommandInput}
+ * @returns {@link EnableTransitGatewayRouteTablePropagationCommandOutput}
  * @see {@link EnableTransitGatewayRouteTablePropagationCommandInput} for command's `input` shape.
  * @see {@link EnableTransitGatewayRouteTablePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +84,9 @@ export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableTransitGatewayRouteTablePropagationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +121,8 @@ export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableTransitGatewayRouteTablePropagationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableTransitGatewayRouteTablePropagationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +132,24 @@ export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableTransitGatewayRouteTablePropagationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand(input, context);
+    return se_EnableTransitGatewayRouteTablePropagationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableTransitGatewayRouteTablePropagationCommandOutput> {
-    return deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand(output, context);
+    return de_EnableTransitGatewayRouteTablePropagationCommand(output, context);
   }
 
   // Start section: command_body_extra

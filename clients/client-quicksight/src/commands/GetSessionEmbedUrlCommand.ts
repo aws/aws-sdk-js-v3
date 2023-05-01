@@ -15,26 +15,27 @@ import {
 
 import {
   GetSessionEmbedUrlRequest,
-  GetSessionEmbedUrlRequestFilterSensitiveLog,
   GetSessionEmbedUrlResponse,
   GetSessionEmbedUrlResponseFilterSensitiveLog,
 } from "../models/models_3";
-import {
-  deserializeAws_restJson1GetSessionEmbedUrlCommand,
-  serializeAws_restJson1GetSessionEmbedUrlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSessionEmbedUrlCommand, se_GetSessionEmbedUrlCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSessionEmbedUrlCommand}.
  */
 export interface GetSessionEmbedUrlCommandInput extends GetSessionEmbedUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSessionEmbedUrlCommand}.
  */
 export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a session URL and authorization code that you can use to embed the Amazon
  *             Amazon QuickSight console in your web server code. Use <code>GetSessionEmbedUrl</code> where
  *             you want to provide an authoring portal that allows users to create data sources,
@@ -67,10 +68,18 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * import { QuickSightClient, GetSessionEmbedUrlCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, GetSessionEmbedUrlCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // GetSessionEmbedUrlRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   EntryPoint: "STRING_VALUE",
+ *   SessionLifetimeInMinutes: Number("long"),
+ *   UserArn: "STRING_VALUE",
+ * };
  * const command = new GetSessionEmbedUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionEmbedUrlCommandInput - {@link GetSessionEmbedUrlCommandInput}
+ * @returns {@link GetSessionEmbedUrlCommandOutput}
  * @see {@link GetSessionEmbedUrlCommandInput} for command's `input` shape.
  * @see {@link GetSessionEmbedUrlCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -130,6 +139,9 @@ export class GetSessionEmbedUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionEmbedUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,7 +170,7 @@ export class GetSessionEmbedUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionEmbedUrlRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSessionEmbedUrlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -169,12 +181,18 @@ export class GetSessionEmbedUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionEmbedUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSessionEmbedUrlCommand(input, context);
+    return se_GetSessionEmbedUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionEmbedUrlCommandOutput> {
-    return deserializeAws_restJson1GetSessionEmbedUrlCommand(output, context);
+    return de_GetSessionEmbedUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

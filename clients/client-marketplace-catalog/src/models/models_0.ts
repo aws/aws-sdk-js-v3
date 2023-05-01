@@ -4,7 +4,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MarketplaceCatalogServiceException as __BaseException } from "./MarketplaceCatalogServiceException";
 
 /**
+ * @public
  * <p>Access is denied.</p>
+ *          <p>HTTP status code: 403</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,6 +26,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelChangeSetRequest {
   /**
    * <p>Required. The catalog related to the request. Fixed value:
@@ -38,6 +43,9 @@ export interface CancelChangeSetRequest {
   ChangeSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CancelChangeSetResponse {
   /**
    * <p>The unique identifier for the change set referenced in this request.</p>
@@ -51,7 +59,9 @@ export interface CancelChangeSetResponse {
 }
 
 /**
+ * @public
  * <p>There was an internal service exception.</p>
+ *          <p>HTTP status code: 500</p>
  */
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
@@ -72,6 +82,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource is currently in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -93,7 +104,9 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource wasn't found.</p>
+ *          <p>HTTP status code: 404</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -114,7 +127,9 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Too many requests.</p>
+ *          <p>HTTP status code: 429</p>
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -135,7 +150,9 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error occurred during validation.</p>
+ *          <p>HTTP status code: 422</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -155,6 +172,25 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Entity resource that is associated with the
+   *             resource policy.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyResponse {}
+
+/**
+ * @public
+ */
 export interface DescribeChangeSetRequest {
   /**
    * <p>Required. The catalog related to the request. Fixed value:
@@ -171,6 +207,7 @@ export interface DescribeChangeSetRequest {
 }
 
 /**
+ * @public
  * <p>An entity contains data that describes your product, its supported features, and how
  *             it can be used or launched by your customer. </p>
  */
@@ -187,6 +224,7 @@ export interface Entity {
 }
 
 /**
+ * @public
  * <p>Details about the error.</p>
  */
 export interface ErrorDetail {
@@ -202,6 +240,7 @@ export interface ErrorDetail {
 }
 
 /**
+ * @public
  * <p>This object is a container for common summary information about the change. The
  *             summary doesn't contain the whole change structure.</p>
  */
@@ -233,19 +272,40 @@ export interface ChangeSummary {
   ChangeName?: string;
 }
 
-export enum FailureCode {
-  ClientError = "CLIENT_ERROR",
-  ServerFault = "SERVER_FAULT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FailureCode = {
+  ClientError: "CLIENT_ERROR",
+  ServerFault: "SERVER_FAULT",
+} as const;
 
-export enum ChangeStatus {
-  APPLYING = "APPLYING",
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  PREPARING = "PREPARING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ */
+export type FailureCode = (typeof FailureCode)[keyof typeof FailureCode];
 
+/**
+ * @public
+ * @enum
+ */
+export const ChangeStatus = {
+  APPLYING: "APPLYING",
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  PREPARING: "PREPARING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ChangeStatus = (typeof ChangeStatus)[keyof typeof ChangeStatus];
+
+/**
+ * @public
+ */
 export interface DescribeChangeSetResponse {
   /**
    * <p>Required. The unique identifier for the change set referenced in this request.</p>
@@ -302,6 +362,9 @@ export interface DescribeChangeSetResponse {
   ChangeSet?: ChangeSummary[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntityRequest {
   /**
    * <p>Required. The catalog related to the request. Fixed value:
@@ -316,6 +379,9 @@ export interface DescribeEntityRequest {
   EntityId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEntityResponse {
   /**
    * <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>
@@ -347,6 +413,7 @@ export interface DescribeEntityResponse {
 }
 
 /**
+ * @public
  * <p>Currently, the specified resource is not supported.</p>
  */
 export class ResourceNotSupportedException extends __BaseException {
@@ -368,6 +435,28 @@ export class ResourceNotSupportedException extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Entity resource that is associated with the
+   *             resource policy.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResponse {
+  /**
+   * <p>The policy document to set; formatted in JSON.</p>
+   */
+  Policy?: string;
+}
+
+/**
+ * @public
  * <p>A filter object, used to optionally filter results from calls to the
  *                 <code>ListEntities</code> and <code>ListChangeSets</code> actions.</p>
  */
@@ -375,50 +464,50 @@ export interface Filter {
   /**
    * <p>For <code>ListEntities</code>, the supported value for this is an
    *                 <code>EntityId</code>.</p>
-   *         <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>
+   *          <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>
    */
   Name?: string;
 
   /**
    * <p>
    *             <code>ListEntities</code> - This is a list of unique <code>EntityId</code>s.</p>
-   *         <p>
+   *          <p>
    *             <code>ListChangeSets</code> - The supported filter names and associated
    *                 <code>ValueList</code>s is as follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ChangeSetName</code> - The supported <code>ValueList</code> is a list of
    *                     non-unique <code>ChangeSetName</code>s. These are defined when you call the
    *                         <code>StartChangeSet</code> action.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Status</code> - The supported <code>ValueList</code> is a list of
    *                     statuses for all change set requests.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>EntityId</code> - The supported <code>ValueList</code> is a list of
    *                     unique <code>EntityId</code>s.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BeforeStartTime</code> - The supported <code>ValueList</code> is a list
    *                     of all change sets that started before the filter value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AfterStartTime</code> - The supported <code>ValueList</code> is a list
    *                     of all change sets that started after the filter value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BeforeEndTime</code> - The supported <code>ValueList</code> is a list of
    *                     all change sets that ended before the filter value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AfterEndTime</code> - The supported <code>ValueList</code> is a list of
    *                     all change sets that ended after the filter value.</p>
    *             </li>
@@ -427,12 +516,22 @@ export interface Filter {
   ValueList?: string[];
 }
 
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
  * <p>An object that contains two attributes, <code>SortBy</code> and
  *             <code>SortOrder</code>.</p>
  */
@@ -441,7 +540,7 @@ export interface Sort {
    * <p>For <code>ListEntities</code>, supported attributes include
    *                 <code>LastModifiedDate</code> (default), <code>Visibility</code>,
    *                 <code>EntityId</code>, and <code>Name</code>.</p>
-   *         <p>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
+   *          <p>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
    *             and <code>EndTime</code>.</p>
    */
   SortBy?: string;
@@ -453,6 +552,9 @@ export interface Sort {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface ListChangeSetsRequest {
   /**
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
@@ -486,6 +588,7 @@ export interface ListChangeSetsRequest {
 }
 
 /**
+ * @public
  * <p>A summary of a change set returned in a list of change sets when the
  *                 <code>ListChangeSets</code> action is called.</p>
  */
@@ -539,6 +642,9 @@ export interface ChangeSetSummaryListItem {
   FailureCode?: FailureCode | string;
 }
 
+/**
+ * @public
+ */
 export interface ListChangeSetsResponse {
   /**
    * <p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>
@@ -551,6 +657,23 @@ export interface ListChangeSetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ * @enum
+ */
+export const OwnershipType = {
+  SELF: "SELF",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type OwnershipType = (typeof OwnershipType)[keyof typeof OwnershipType];
+
+/**
+ * @public
+ */
 export interface ListEntitiesRequest {
   /**
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
@@ -585,9 +708,12 @@ export interface ListEntitiesRequest {
    *             the default value is 20.</p>
    */
   MaxResults?: number;
+
+  OwnershipType?: OwnershipType | string;
 }
 
 /**
+ * @public
  * <p>This object is a container for common summary information about the entity. The
  *             summary doesn't contain the whole entity structure, but it does contain information
  *             common across all entities.</p>
@@ -628,6 +754,9 @@ export interface EntitySummary {
   Visibility?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListEntitiesResponse {
   /**
    * <p> Array of <code>EntitySummary</code> object.</p>
@@ -640,6 +769,9 @@ export interface ListEntitiesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to list
@@ -649,6 +781,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>A list of objects specifying each key name and value.</p>
  */
 export interface Tag {
@@ -663,6 +796,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Required. The ARN associated with the resource you want to list tags on.</p>
@@ -677,6 +813,28 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Entity resource you want to associate with a
+   *             resource policy. </p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The policy document to set; formatted in JSON.</p>
+   */
+  Policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {}
+
+/**
+ * @public
  * <p>The maximum number of open requests per account has been exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -698,6 +856,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object that contains the <code>ChangeType</code>, <code>Details</code>, and
  *                 <code>Entity</code>.</p>
  */
@@ -705,7 +864,9 @@ export interface Change {
   /**
    * <p>Change types are single string values that describe your intention for the change.
    *             Each change type is unique for each <code>EntityType</code> provided in the change's
-   *             scope.</p>
+   *             scope. For more information on change types available for single-AMI products, see
+   *                 <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information on change
+   *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
    */
   ChangeType: string | undefined;
 
@@ -721,7 +882,9 @@ export interface Change {
 
   /**
    * <p>This object contains details specific to the change type of the requested
-   *             change.</p>
+   *             change. For more
+   *             information on change types available for single-AMI products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information on change
+   *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
    */
   Details: string | undefined;
 
@@ -731,6 +894,9 @@ export interface Change {
   ChangeName?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartChangeSetRequest {
   /**
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
@@ -761,6 +927,9 @@ export interface StartChangeSetRequest {
   ChangeSetTags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface StartChangeSetResponse {
   /**
    * <p>Unique identifier generated for the request.</p>
@@ -773,6 +942,9 @@ export interface StartChangeSetResponse {
   ChangeSetArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to
@@ -787,8 +959,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to
@@ -803,193 +981,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const CancelChangeSetRequestFilterSensitiveLog = (obj: CancelChangeSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelChangeSetResponseFilterSensitiveLog = (obj: CancelChangeSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChangeSetRequestFilterSensitiveLog = (obj: DescribeChangeSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EntityFilterSensitiveLog = (obj: Entity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorDetailFilterSensitiveLog = (obj: ErrorDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeSummaryFilterSensitiveLog = (obj: ChangeSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChangeSetResponseFilterSensitiveLog = (obj: DescribeChangeSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEntityRequestFilterSensitiveLog = (obj: DescribeEntityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEntityResponseFilterSensitiveLog = (obj: DescribeEntityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SortFilterSensitiveLog = (obj: Sort): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChangeSetsRequestFilterSensitiveLog = (obj: ListChangeSetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeSetSummaryListItemFilterSensitiveLog = (obj: ChangeSetSummaryListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChangeSetsResponseFilterSensitiveLog = (obj: ListChangeSetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEntitiesRequestFilterSensitiveLog = (obj: ListEntitiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EntitySummaryFilterSensitiveLog = (obj: EntitySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEntitiesResponseFilterSensitiveLog = (obj: ListEntitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeFilterSensitiveLog = (obj: Change): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartChangeSetRequestFilterSensitiveLog = (obj: StartChangeSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartChangeSetResponseFilterSensitiveLog = (obj: StartChangeSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});

@@ -10,7 +10,7 @@ import { RedshiftClient } from "../RedshiftClient";
 import { RedshiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RedshiftClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeDefaultClusterParametersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeDefaultClusterParameters(
   config: RedshiftPaginationConfiguration,
   input: DescribeDefaultClusterParametersCommandInput,

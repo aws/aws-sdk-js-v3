@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  SubmitTaskStateChangeRequest,
-  SubmitTaskStateChangeRequestFilterSensitiveLog,
-  SubmitTaskStateChangeResponse,
-  SubmitTaskStateChangeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SubmitTaskStateChangeCommand,
-  serializeAws_json1_1SubmitTaskStateChangeCommand,
-} from "../protocols/Aws_json1_1";
+import { SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse } from "../models/models_0";
+import { de_SubmitTaskStateChangeCommand, se_SubmitTaskStateChangeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SubmitTaskStateChangeCommand}.
  */
 export interface SubmitTaskStateChangeCommandInput extends SubmitTaskStateChangeRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubmitTaskStateChangeCommand}.
  */
 export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChangeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
@@ -45,10 +42,55 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * import { ECSClient, SubmitTaskStateChangeCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, SubmitTaskStateChangeCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // SubmitTaskStateChangeRequest
+ *   cluster: "STRING_VALUE",
+ *   task: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   reason: "STRING_VALUE",
+ *   containers: [ // ContainerStateChanges
+ *     { // ContainerStateChange
+ *       containerName: "STRING_VALUE",
+ *       imageDigest: "STRING_VALUE",
+ *       runtimeId: "STRING_VALUE",
+ *       exitCode: Number("int"),
+ *       networkBindings: [ // NetworkBindings
+ *         { // NetworkBinding
+ *           bindIP: "STRING_VALUE",
+ *           containerPort: Number("int"),
+ *           hostPort: Number("int"),
+ *           protocol: "tcp" || "udp",
+ *           containerPortRange: "STRING_VALUE",
+ *           hostPortRange: "STRING_VALUE",
+ *         },
+ *       ],
+ *       reason: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *     },
+ *   ],
+ *   attachments: [ // AttachmentStateChanges
+ *     { // AttachmentStateChange
+ *       attachmentArn: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   managedAgents: [ // ManagedAgentStateChanges
+ *     { // ManagedAgentStateChange
+ *       containerName: "STRING_VALUE", // required
+ *       managedAgentName: "ExecuteCommandAgent", // required
+ *       status: "STRING_VALUE", // required
+ *       reason: "STRING_VALUE",
+ *     },
+ *   ],
+ *   pullStartedAt: new Date("TIMESTAMP"),
+ *   pullStoppedAt: new Date("TIMESTAMP"),
+ *   executionStoppedAt: new Date("TIMESTAMP"),
+ * };
  * const command = new SubmitTaskStateChangeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubmitTaskStateChangeCommandInput - {@link SubmitTaskStateChangeCommandInput}
+ * @returns {@link SubmitTaskStateChangeCommandOutput}
  * @see {@link SubmitTaskStateChangeCommandInput} for command's `input` shape.
  * @see {@link SubmitTaskStateChangeCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -87,6 +129,9 @@ export class SubmitTaskStateChangeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubmitTaskStateChangeCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +160,8 @@ export class SubmitTaskStateChangeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitTaskStateChangeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubmitTaskStateChangeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +171,18 @@ export class SubmitTaskStateChangeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubmitTaskStateChangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubmitTaskStateChangeCommand(input, context);
+    return se_SubmitTaskStateChangeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubmitTaskStateChangeCommandOutput> {
-    return deserializeAws_json1_1SubmitTaskStateChangeCommand(output, context);
+    return de_SubmitTaskStateChangeCommand(output, context);
   }
 
   // Start section: command_body_extra

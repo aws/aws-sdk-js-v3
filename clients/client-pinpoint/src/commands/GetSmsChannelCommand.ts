@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSmsChannelRequest,
-  GetSmsChannelRequestFilterSensitiveLog,
-  GetSmsChannelResponse,
-  GetSmsChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetSmsChannelRequest, GetSmsChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetSmsChannelCommand,
-  serializeAws_restJson1GetSmsChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSmsChannelCommand, se_GetSmsChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSmsChannelCommand}.
  */
 export interface GetSmsChannelCommandInput extends GetSmsChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSmsChannelCommand}.
  */
 export interface GetSmsChannelCommandOutput extends GetSmsChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the SMS channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetSmsChannelCommandOutput extends GetSmsChannelResponse, __Met
  * import { PinpointClient, GetSmsChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetSmsChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetSmsChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetSmsChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSmsChannelCommandInput - {@link GetSmsChannelCommandInput}
+ * @returns {@link GetSmsChannelCommandOutput}
  * @see {@link GetSmsChannelCommandInput} for command's `input` shape.
  * @see {@link GetSmsChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +92,9 @@ export class GetSmsChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSmsChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class GetSmsChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSmsChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSmsChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class GetSmsChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSmsChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSmsChannelCommand(input, context);
+    return se_GetSmsChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSmsChannelCommandOutput> {
-    return deserializeAws_restJson1GetSmsChannelCommand(output, context);
+    return de_GetSmsChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

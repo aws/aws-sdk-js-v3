@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAppImageConfigRequest, DeleteAppImageConfigRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteAppImageConfigCommand,
-  serializeAws_json1_1DeleteAppImageConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAppImageConfigRequest } from "../models/models_1";
+import { de_DeleteAppImageConfigCommand, se_DeleteAppImageConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppImageConfigCommand}.
  */
 export interface DeleteAppImageConfigCommandInput extends DeleteAppImageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppImageConfigCommand}.
  */
 export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an AppImageConfig.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteAppImageConfigRequest
+ *   AppImageConfigName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAppImageConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppImageConfigCommandInput - {@link DeleteAppImageConfigCommandInput}
+ * @returns {@link DeleteAppImageConfigCommandOutput}
  * @see {@link DeleteAppImageConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteAppImageConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class DeleteAppImageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppImageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +105,8 @@ export class DeleteAppImageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppImageConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +116,18 @@ export class DeleteAppImageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppImageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppImageConfigCommand(input, context);
+    return se_DeleteAppImageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppImageConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteAppImageConfigCommand(output, context);
+    return de_DeleteAppImageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

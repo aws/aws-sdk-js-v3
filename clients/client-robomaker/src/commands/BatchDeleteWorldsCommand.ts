@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchDeleteWorldsRequest,
-  BatchDeleteWorldsRequestFilterSensitiveLog,
-  BatchDeleteWorldsResponse,
-  BatchDeleteWorldsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDeleteWorldsCommand,
-  serializeAws_restJson1BatchDeleteWorldsCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchDeleteWorldsRequest, BatchDeleteWorldsResponse } from "../models/models_0";
+import { de_BatchDeleteWorldsCommand, se_BatchDeleteWorldsCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteWorldsCommand}.
  */
 export interface BatchDeleteWorldsCommandInput extends BatchDeleteWorldsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteWorldsCommand}.
  */
 export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more worlds in a batch operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
  * import { RoboMakerClient, BatchDeleteWorldsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, BatchDeleteWorldsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // BatchDeleteWorldsRequest
+ *   worlds: [ // Arns // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDeleteWorldsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteWorldsCommandInput - {@link BatchDeleteWorldsCommandInput}
+ * @returns {@link BatchDeleteWorldsCommandOutput}
  * @see {@link BatchDeleteWorldsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteWorldsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -79,6 +83,9 @@ export class BatchDeleteWorldsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteWorldsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class BatchDeleteWorldsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteWorldsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteWorldsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class BatchDeleteWorldsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteWorldsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteWorldsCommand(input, context);
+    return se_BatchDeleteWorldsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteWorldsCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteWorldsCommand(output, context);
+    return de_BatchDeleteWorldsCommand(output, context);
   }
 
   // Start section: command_body_extra

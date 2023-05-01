@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  GetFindingsStatisticsRequest,
-  GetFindingsStatisticsRequestFilterSensitiveLog,
-  GetFindingsStatisticsResponse,
-  GetFindingsStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFindingsStatisticsCommand,
-  serializeAws_restJson1GetFindingsStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFindingsStatisticsRequest, GetFindingsStatisticsResponse } from "../models/models_0";
+import { de_GetFindingsStatisticsCommand, se_GetFindingsStatisticsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFindingsStatisticsCommand}.
  */
 export interface GetFindingsStatisticsCommandInput extends GetFindingsStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFindingsStatisticsCommand}.
  */
 export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists Amazon GuardDuty findings statistics for the specified detector ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,44 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * import { GuardDutyClient, GetFindingsStatisticsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetFindingsStatisticsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // GetFindingsStatisticsRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   FindingStatisticTypes: [ // FindingStatisticTypes // required
+ *     "COUNT_BY_SEVERITY",
+ *   ],
+ *   FindingCriteria: { // FindingCriteria
+ *     Criterion: { // Criterion
+ *       "<keys>": { // Condition
+ *         Eq: [ // Eq
+ *           "STRING_VALUE",
+ *         ],
+ *         Neq: [ // Neq
+ *           "STRING_VALUE",
+ *         ],
+ *         Gt: Number("int"),
+ *         Gte: Number("int"),
+ *         Lt: Number("int"),
+ *         Lte: Number("int"),
+ *         Equals: [ // Equals
+ *           "STRING_VALUE",
+ *         ],
+ *         NotEquals: [ // NotEquals
+ *           "STRING_VALUE",
+ *         ],
+ *         GreaterThan: Number("long"),
+ *         GreaterThanOrEqual: Number("long"),
+ *         LessThan: Number("long"),
+ *         LessThanOrEqual: Number("long"),
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new GetFindingsStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingsStatisticsCommandInput - {@link GetFindingsStatisticsCommandInput}
+ * @returns {@link GetFindingsStatisticsCommandOutput}
  * @see {@link GetFindingsStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetFindingsStatisticsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +106,9 @@ export class GetFindingsStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingsStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +137,8 @@ export class GetFindingsStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingsStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingsStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +148,18 @@ export class GetFindingsStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingsStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingsStatisticsCommand(input, context);
+    return se_GetFindingsStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingsStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetFindingsStatisticsCommand(output, context);
+    return de_GetFindingsStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

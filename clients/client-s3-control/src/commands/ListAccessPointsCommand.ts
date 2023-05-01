@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAccessPointsRequest,
-  ListAccessPointsRequestFilterSensitiveLog,
-  ListAccessPointsResult,
-  ListAccessPointsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListAccessPointsCommand,
-  serializeAws_restXmlListAccessPointsCommand,
-} from "../protocols/Aws_restXml";
+import { ListAccessPointsRequest, ListAccessPointsResult } from "../models/models_0";
+import { de_ListAccessPointsCommand, se_ListAccessPointsCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessPointsCommand}.
  */
 export interface ListAccessPointsCommandInput extends ListAccessPointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessPointsCommand}.
  */
 export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the access points
  *          that are
  *          owned by the current account
@@ -70,10 +67,18 @@ export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, _
  * import { S3ControlClient, ListAccessPointsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, ListAccessPointsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // ListAccessPointsRequest
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAccessPointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessPointsCommandInput - {@link ListAccessPointsCommandInput}
+ * @returns {@link ListAccessPointsCommandOutput}
  * @see {@link ListAccessPointsCommandInput} for command's `input` shape.
  * @see {@link ListAccessPointsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -101,6 +106,9 @@ export class ListAccessPointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessPointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +138,8 @@ export class ListAccessPointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessPointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessPointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +149,18 @@ export class ListAccessPointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListAccessPointsCommand(input, context);
+    return se_ListAccessPointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessPointsCommandOutput> {
-    return deserializeAws_restXmlListAccessPointsCommand(output, context);
+    return de_ListAccessPointsCommand(output, context);
   }
 
   // Start section: command_body_extra

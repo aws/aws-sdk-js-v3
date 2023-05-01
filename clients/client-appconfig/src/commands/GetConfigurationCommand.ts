@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  Configuration,
-  ConfigurationFilterSensitiveLog,
-  GetConfigurationRequest,
-  GetConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConfigurationCommand,
-  serializeAws_restJson1GetConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { Configuration, ConfigurationFilterSensitiveLog, GetConfigurationRequest } from "../models/models_0";
+import { de_GetConfigurationCommand, se_GetConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfigurationCommand}.
  */
 export interface GetConfigurationCommandInput extends GetConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConfigurationCommand}.
  */
 export interface GetConfigurationCommandOutput extends Configuration, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>(Deprecated) Retrieves the latest deployed configuration.</p>
@@ -58,10 +55,19 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  * import { AppConfigClient, GetConfigurationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetConfigurationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // GetConfigurationRequest
+ *   Application: "STRING_VALUE", // required
+ *   Environment: "STRING_VALUE", // required
+ *   Configuration: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE", // required
+ *   ClientConfigurationVersion: "STRING_VALUE",
+ * };
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
+ * @returns {@link GetConfigurationCommandOutput}
  * @see {@link GetConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -114,6 +120,9 @@ export class GetConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,7 +151,7 @@ export class GetConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ConfigurationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -153,12 +162,18 @@ export class GetConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConfigurationCommand(input, context);
+    return se_GetConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetConfigurationCommand(output, context);
+    return de_GetConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

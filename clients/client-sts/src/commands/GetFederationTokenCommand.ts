@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetFederationTokenRequest,
-  GetFederationTokenRequestFilterSensitiveLog,
-  GetFederationTokenResponse,
-  GetFederationTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetFederationTokenCommand,
-  serializeAws_queryGetFederationTokenCommand,
-} from "../protocols/Aws_query";
+import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/models_0";
+import { de_GetFederationTokenCommand, se_GetFederationTokenCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFederationTokenCommand}.
  */
 export interface GetFederationTokenCommandInput extends GetFederationTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFederationTokenCommand}.
  */
 export interface GetFederationTokenCommandOutput extends GetFederationTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary security credentials (consisting of an access key ID, a
  *          secret access key, and a security token) for a federated user. A typical use is in a proxy
  *          application that gets temporary security credentials on behalf of distributed applications
@@ -129,10 +126,28 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * import { STSClient, GetFederationTokenCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetFederationTokenCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = { // GetFederationTokenRequest
+ *   Name: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE",
+ *   PolicyArns: [ // policyDescriptorListType
+ *     { // PolicyDescriptorType
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DurationSeconds: Number("int"),
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFederationTokenCommandInput - {@link GetFederationTokenCommandInput}
+ * @returns {@link GetFederationTokenCommandOutput}
  * @see {@link GetFederationTokenCommandInput} for command's `input` shape.
  * @see {@link GetFederationTokenCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -217,6 +232,9 @@ export class GetFederationTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFederationTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -246,8 +264,8 @@ export class GetFederationTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFederationTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFederationTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -257,12 +275,18 @@ export class GetFederationTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFederationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetFederationTokenCommand(input, context);
+    return se_GetFederationTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFederationTokenCommandOutput> {
-    return deserializeAws_queryGetFederationTokenCommand(output, context);
+    return de_GetFederationTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

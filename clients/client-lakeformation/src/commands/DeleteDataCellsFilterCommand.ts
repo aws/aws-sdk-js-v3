@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  DeleteDataCellsFilterRequest,
-  DeleteDataCellsFilterRequestFilterSensitiveLog,
-  DeleteDataCellsFilterResponse,
-  DeleteDataCellsFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDataCellsFilterCommand,
-  serializeAws_restJson1DeleteDataCellsFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDataCellsFilterRequest, DeleteDataCellsFilterResponse } from "../models/models_0";
+import { de_DeleteDataCellsFilterCommand, se_DeleteDataCellsFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataCellsFilterCommand}.
  */
 export interface DeleteDataCellsFilterCommandInput extends DeleteDataCellsFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataCellsFilterCommand}.
  */
 export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a data cell filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilte
  * import { LakeFormationClient, DeleteDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DeleteDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // DeleteDataCellsFilterRequest
+ *   TableCatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE",
+ *   TableName: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new DeleteDataCellsFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataCellsFilterCommandInput - {@link DeleteDataCellsFilterCommandInput}
+ * @returns {@link DeleteDataCellsFilterCommandOutput}
  * @see {@link DeleteDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -54,7 +59,7 @@ export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilte
  *  <p>Access to a resource was denied.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -84,6 +89,9 @@ export class DeleteDataCellsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataCellsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class DeleteDataCellsFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataCellsFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataCellsFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class DeleteDataCellsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDataCellsFilterCommand(input, context);
+    return se_DeleteDataCellsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataCellsFilterCommandOutput> {
-    return deserializeAws_restJson1DeleteDataCellsFilterCommand(output, context);
+    return de_DeleteDataCellsFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

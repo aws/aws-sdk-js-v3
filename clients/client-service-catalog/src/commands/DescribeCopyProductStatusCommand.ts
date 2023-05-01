@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeCopyProductStatusInput,
-  DescribeCopyProductStatusInputFilterSensitiveLog,
-  DescribeCopyProductStatusOutput,
-  DescribeCopyProductStatusOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCopyProductStatusCommand,
-  serializeAws_json1_1DescribeCopyProductStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeCopyProductStatusInput, DescribeCopyProductStatusOutput } from "../models/models_0";
+import { de_DescribeCopyProductStatusCommand, se_DescribeCopyProductStatusCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCopyProductStatusCommand}.
  */
 export interface DescribeCopyProductStatusCommandInput extends DescribeCopyProductStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCopyProductStatusCommand}.
  */
 export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProductStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of the specified copy product operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProd
  * import { ServiceCatalogClient, DescribeCopyProductStatusCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeCopyProductStatusCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeCopyProductStatusInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   CopyProductToken: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCopyProductStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCopyProductStatusCommandInput - {@link DescribeCopyProductStatusCommandInput}
+ * @returns {@link DescribeCopyProductStatusCommandOutput}
  * @see {@link DescribeCopyProductStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeCopyProductStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -72,6 +75,9 @@ export class DescribeCopyProductStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCopyProductStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class DescribeCopyProductStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCopyProductStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCopyProductStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +117,21 @@ export class DescribeCopyProductStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCopyProductStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCopyProductStatusCommand(input, context);
+    return se_DescribeCopyProductStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCopyProductStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeCopyProductStatusCommand(output, context);
+    return de_DescribeCopyProductStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,25 +16,29 @@ import {
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
   GetReplicationConfigurationRequest,
-  GetReplicationConfigurationRequestFilterSensitiveLog,
   ReplicationConfiguration,
   ReplicationConfigurationFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetReplicationConfigurationCommand,
-  serializeAws_restJson1GetReplicationConfigurationCommand,
+  de_GetReplicationConfigurationCommand,
+  se_GetReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReplicationConfigurationCommand}.
  */
 export interface GetReplicationConfigurationCommandInput extends GetReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReplicationConfigurationCommand}.
  */
 export interface GetReplicationConfigurationCommandOutput extends ReplicationConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all ReplicationConfigurations, filtered by Source Server ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +46,15 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * import { MgnClient, GetReplicationConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, GetReplicationConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // GetReplicationConfigurationRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new GetReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReplicationConfigurationCommandInput - {@link GetReplicationConfigurationCommandInput}
+ * @returns {@link GetReplicationConfigurationCommandOutput}
  * @see {@link GetReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -75,6 +84,9 @@ export class GetReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,7 +115,7 @@ export class GetReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReplicationConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ReplicationConfigurationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -114,15 +126,21 @@ export class GetReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReplicationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReplicationConfigurationCommand(input, context);
+    return se_GetReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetReplicationConfigurationCommand(output, context);
+    return de_GetReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

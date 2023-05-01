@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import {
-  StopApplicationRequest,
-  StopApplicationRequestFilterSensitiveLog,
-  StopApplicationResponse,
-  StopApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopApplicationCommand,
-  serializeAws_restJson1StopApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { StopApplicationRequest, StopApplicationResponse } from "../models/models_0";
+import { de_StopApplicationCommand, se_StopApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopApplicationCommand}.
  */
 export interface StopApplicationCommandInput extends StopApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopApplicationCommand}.
  */
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a specified application and releases initial capacity if configured. All scheduled
  *          and running jobs must be completed or cancelled before stopping an application.</p>
  * @example
@@ -43,10 +40,15 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * import { EMRServerlessClient, StopApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, StopApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
+ * const input = { // StopApplicationRequest
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
+ * @returns {@link StopApplicationCommandOutput}
  * @see {@link StopApplicationCommandInput} for command's `input` shape.
  * @see {@link StopApplicationCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
@@ -58,7 +60,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
  *
  *
  */
@@ -79,6 +82,9 @@ export class StopApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class StopApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class StopApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopApplicationCommand(input, context);
+    return se_StopApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopApplicationCommandOutput> {
-    return deserializeAws_restJson1StopApplicationCommand(output, context);
+    return de_StopApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

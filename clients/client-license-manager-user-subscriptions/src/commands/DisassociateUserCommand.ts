@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  DisassociateUserRequest,
-  DisassociateUserRequestFilterSensitiveLog,
-  DisassociateUserResponse,
-  DisassociateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateUserCommand,
-  serializeAws_restJson1DisassociateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateUserRequest, DisassociateUserResponse } from "../models/models_0";
+import { de_DisassociateUserCommand, se_DisassociateUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateUserCommand}.
  */
 export interface DisassociateUserCommandInput extends DisassociateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateUserCommand}.
  */
 export interface DisassociateUserCommandOutput extends DisassociateUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the user from an EC2 instance providing user-based subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,22 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  * import { LicenseManagerUserSubscriptionsClient, DisassociateUserCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, DisassociateUserCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
+ * const input = { // DisassociateUserRequest
+ *   Username: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   IdentityProvider: { // IdentityProvider Union: only one key present
+ *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ *       DirectoryId: "STRING_VALUE",
+ *     },
+ *   },
+ *   Domain: "STRING_VALUE",
+ * };
  * const command = new DisassociateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateUserCommandInput - {@link DisassociateUserCommandInput}
+ * @returns {@link DisassociateUserCommandOutput}
  * @see {@link DisassociateUserCommandInput} for command's `input` shape.
  * @see {@link DisassociateUserCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -95,6 +104,9 @@ export class DisassociateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +135,8 @@ export class DisassociateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +146,18 @@ export class DisassociateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateUserCommand(input, context);
+    return se_DisassociateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateUserCommandOutput> {
-    return deserializeAws_restJson1DisassociateUserCommand(output, context);
+    return de_DisassociateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

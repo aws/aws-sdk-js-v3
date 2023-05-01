@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import {
-  AddTagsInput,
-  AddTagsInputFilterSensitiveLog,
-  AddTagsOutput,
-  AddTagsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1AddTagsCommand, serializeAws_json1_1AddTagsCommand } from "../protocols/Aws_json1_1";
+import { AddTagsInput, AddTagsOutput } from "../models/models_0";
+import { de_AddTagsCommand, se_AddTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsCommand}.
  */
 export interface AddTagsCommandInput extends AddTagsInput {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsCommand}.
  */
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or modifies tags for the specified pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,21 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * import { DataPipelineClient, AddTagsCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, AddTagsCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = { // AddTagsInput
+ *   pipelineId: "STRING_VALUE", // required
+ *   tags: [ // tagList // required
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsCommandInput - {@link AddTagsCommandInput}
+ * @returns {@link AddTagsCommandOutput}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -78,6 +89,9 @@ export class AddTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +118,8 @@ export class AddTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +129,18 @@ export class AddTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddTagsCommand(input, context);
+    return se_AddTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
-    return deserializeAws_json1_1AddTagsCommand(output, context);
+    return de_AddTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

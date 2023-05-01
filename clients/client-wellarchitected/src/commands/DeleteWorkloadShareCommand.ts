@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteWorkloadShareInput, DeleteWorkloadShareInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkloadShareCommand,
-  serializeAws_restJson1DeleteWorkloadShareCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteWorkloadShareInput } from "../models/models_0";
+import { de_DeleteWorkloadShareCommand, se_DeleteWorkloadShareCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorkloadShareCommand}.
  */
 export interface DeleteWorkloadShareCommandInput extends DeleteWorkloadShareInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorkloadShareCommand}.
  */
 export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a workload share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,17 @@ export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
  * import { WellArchitectedClient, DeleteWorkloadShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, DeleteWorkloadShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // DeleteWorkloadShareInput
+ *   ShareId: "STRING_VALUE", // required
+ *   WorkloadId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkloadShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorkloadShareCommandInput - {@link DeleteWorkloadShareCommandInput}
+ * @returns {@link DeleteWorkloadShareCommandOutput}
  * @see {@link DeleteWorkloadShareCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkloadShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -49,7 +58,7 @@ export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
@@ -82,6 +91,9 @@ export class DeleteWorkloadShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorkloadShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +122,8 @@ export class DeleteWorkloadShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkloadShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +133,18 @@ export class DeleteWorkloadShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorkloadShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkloadShareCommand(input, context);
+    return se_DeleteWorkloadShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkloadShareCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkloadShareCommand(output, context);
+    return de_DeleteWorkloadShareCommand(output, context);
   }
 
   // Start section: command_body_extra

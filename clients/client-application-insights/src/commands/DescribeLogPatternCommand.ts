@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  DescribeLogPatternRequest,
-  DescribeLogPatternRequestFilterSensitiveLog,
-  DescribeLogPatternResponse,
-  DescribeLogPatternResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLogPatternCommand,
-  serializeAws_json1_1DescribeLogPatternCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLogPatternRequest, DescribeLogPatternResponse } from "../models/models_0";
+import { de_DescribeLogPatternCommand, se_DescribeLogPatternCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLogPatternCommand}.
  */
 export interface DescribeLogPatternCommandInput extends DescribeLogPatternRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLogPatternCommand}.
  */
 export interface DescribeLogPatternCommandOutput extends DescribeLogPatternResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe a specific log pattern from a <code>LogPatternSet</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  * import { ApplicationInsightsClient, DescribeLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // DescribeLogPatternRequest
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   PatternSetName: "STRING_VALUE", // required
+ *   PatternName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLogPatternCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLogPatternCommandInput - {@link DescribeLogPatternCommandInput}
+ * @returns {@link DescribeLogPatternCommandOutput}
  * @see {@link DescribeLogPatternCommandInput} for command's `input` shape.
  * @see {@link DescribeLogPatternCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -82,6 +86,9 @@ export class DescribeLogPatternCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLogPatternCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class DescribeLogPatternCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLogPatternRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLogPatternResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class DescribeLogPatternCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLogPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLogPatternCommand(input, context);
+    return se_DescribeLogPatternCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLogPatternCommandOutput> {
-    return deserializeAws_json1_1DescribeLogPatternCommand(output, context);
+    return de_DescribeLogPatternCommand(output, context);
   }
 
   // Start section: command_body_extra

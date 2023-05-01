@@ -1,3 +1,6 @@
+/**
+ * @internal
+ */
 export interface Endpoint {
   /**
    * <p>An endpoint address.</p>

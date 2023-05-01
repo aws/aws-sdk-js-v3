@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTrialComponentRequest,
-  DescribeTrialComponentRequestFilterSensitiveLog,
-  DescribeTrialComponentResponse,
-  DescribeTrialComponentResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeTrialComponentCommand,
-  serializeAws_json1_1DescribeTrialComponentCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTrialComponentRequest, DescribeTrialComponentResponse } from "../models/models_2";
+import { de_DescribeTrialComponentCommand, se_DescribeTrialComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrialComponentCommand}.
  */
 export interface DescribeTrialComponentCommandInput extends DescribeTrialComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrialComponentCommand}.
  */
 export interface DescribeTrialComponentCommandOutput extends DescribeTrialComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of a trials component's properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeTrialComponentCommandOutput extends DescribeTrialCompon
  * import { SageMakerClient, DescribeTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeTrialComponentRequest
+ *   TrialComponentName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTrialComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrialComponentCommandInput - {@link DescribeTrialComponentCommandInput}
+ * @returns {@link DescribeTrialComponentCommandOutput}
  * @see {@link DescribeTrialComponentCommandInput} for command's `input` shape.
  * @see {@link DescribeTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +74,9 @@ export class DescribeTrialComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrialComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class DescribeTrialComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrialComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrialComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +116,18 @@ export class DescribeTrialComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrialComponentCommand(input, context);
+    return se_DescribeTrialComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrialComponentCommandOutput> {
-    return deserializeAws_json1_1DescribeTrialComponentCommand(output, context);
+    return de_DescribeTrialComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateStandbyWorkspacesRequest,
-  CreateStandbyWorkspacesRequestFilterSensitiveLog,
-  CreateStandbyWorkspacesResult,
-  CreateStandbyWorkspacesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStandbyWorkspacesCommand,
-  serializeAws_json1_1CreateStandbyWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateStandbyWorkspacesRequest, CreateStandbyWorkspacesResult } from "../models/models_0";
+import { de_CreateStandbyWorkspacesCommand, se_CreateStandbyWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStandbyWorkspacesCommand}.
  */
 export interface CreateStandbyWorkspacesCommandInput extends CreateStandbyWorkspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStandbyWorkspacesCommand}.
  */
 export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a standby WorkSpace in a secondary Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorks
  * import { WorkSpacesClient, CreateStandbyWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateStandbyWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // CreateStandbyWorkspacesRequest
+ *   PrimaryRegion: "STRING_VALUE", // required
+ *   StandbyWorkspaces: [ // StandbyWorkspacesList // required
+ *     { // StandbyWorkspace
+ *       PrimaryWorkspaceId: "STRING_VALUE", // required
+ *       VolumeEncryptionKey: "STRING_VALUE",
+ *       DirectoryId: "STRING_VALUE", // required
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateStandbyWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStandbyWorkspacesCommandInput - {@link CreateStandbyWorkspacesCommandInput}
+ * @returns {@link CreateStandbyWorkspacesCommandOutput}
  * @see {@link CreateStandbyWorkspacesCommandInput} for command's `input` shape.
  * @see {@link CreateStandbyWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -84,6 +99,9 @@ export class CreateStandbyWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStandbyWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +130,8 @@ export class CreateStandbyWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStandbyWorkspacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStandbyWorkspacesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +141,18 @@ export class CreateStandbyWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStandbyWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStandbyWorkspacesCommand(input, context);
+    return se_CreateStandbyWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStandbyWorkspacesCommandOutput> {
-    return deserializeAws_json1_1CreateStandbyWorkspacesCommand(output, context);
+    return de_CreateStandbyWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

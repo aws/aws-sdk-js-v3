@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  UpdatePortalRequest,
-  UpdatePortalRequestFilterSensitiveLog,
-  UpdatePortalResponse,
-  UpdatePortalResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePortalCommand,
-  serializeAws_restJson1UpdatePortalCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePortalRequest, UpdatePortalResponse } from "../models/models_0";
+import { de_UpdatePortalCommand, se_UpdatePortalCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePortalCommand}.
  */
 export interface UpdatePortalCommandInput extends UpdatePortalRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePortalCommand}.
  */
 export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an IoT SiteWise Monitor portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,32 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * import { IoTSiteWiseClient, UpdatePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdatePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // UpdatePortalRequest
+ *   portalId: "STRING_VALUE", // required
+ *   portalName: "STRING_VALUE", // required
+ *   portalDescription: "STRING_VALUE",
+ *   portalContactEmail: "STRING_VALUE", // required
+ *   portalLogoImage: { // Image
+ *     id: "STRING_VALUE",
+ *     file: { // ImageFile
+ *       data: "BLOB_VALUE", // required
+ *       type: "PNG", // required
+ *     },
+ *   },
+ *   roleArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   notificationSenderEmail: "STRING_VALUE",
+ *   alarms: { // Alarms
+ *     alarmRoleArn: "STRING_VALUE", // required
+ *     notificationLambdaArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdatePortalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePortalCommandInput - {@link UpdatePortalCommandInput}
+ * @returns {@link UpdatePortalCommandOutput}
  * @see {@link UpdatePortalCommandInput} for command's `input` shape.
  * @see {@link UpdatePortalCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -89,6 +108,9 @@ export class UpdatePortalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePortalCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +137,8 @@ export class UpdatePortalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePortalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePortalResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +148,18 @@ export class UpdatePortalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePortalCommand(input, context);
+    return se_UpdatePortalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePortalCommandOutput> {
-    return deserializeAws_restJson1UpdatePortalCommand(output, context);
+    return de_UpdatePortalCommand(output, context);
   }
 
   // Start section: command_body_extra

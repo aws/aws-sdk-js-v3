@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { ListIntegrationAssociationsRequest, ListIntegrationAssociationsResponse } from "../models/models_1";
 import {
-  ListIntegrationAssociationsRequest,
-  ListIntegrationAssociationsRequestFilterSensitiveLog,
-  ListIntegrationAssociationsResponse,
-  ListIntegrationAssociationsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListIntegrationAssociationsCommand,
-  serializeAws_restJson1ListIntegrationAssociationsCommand,
+  de_ListIntegrationAssociationsCommand,
+  se_ListIntegrationAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIntegrationAssociationsCommand}.
  */
 export interface ListIntegrationAssociationsCommandInput extends ListIntegrationAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIntegrationAssociationsCommand}.
  */
 export interface ListIntegrationAssociationsCommandOutput
@@ -37,6 +36,7 @@ export interface ListIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides summary information about the Amazon Web Services resource associations for the
  *    specified Amazon Connect instance.</p>
  * @example
@@ -45,10 +45,18 @@ export interface ListIntegrationAssociationsCommandOutput
  * import { ConnectClient, ListIntegrationAssociationsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListIntegrationAssociationsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListIntegrationAssociationsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "CASES_DOMAIN",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIntegrationAssociationsCommandInput - {@link ListIntegrationAssociationsCommandInput}
+ * @returns {@link ListIntegrationAssociationsCommandOutput}
  * @see {@link ListIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListIntegrationAssociationsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +92,9 @@ export class ListIntegrationAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIntegrationAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +123,8 @@ export class ListIntegrationAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIntegrationAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIntegrationAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +134,21 @@ export class ListIntegrationAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIntegrationAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIntegrationAssociationsCommand(input, context);
+    return se_ListIntegrationAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListIntegrationAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListIntegrationAssociationsCommand(output, context);
+    return de_ListIntegrationAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

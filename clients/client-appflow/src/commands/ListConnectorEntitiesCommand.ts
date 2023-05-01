@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  ListConnectorEntitiesRequest,
-  ListConnectorEntitiesRequestFilterSensitiveLog,
-  ListConnectorEntitiesResponse,
-  ListConnectorEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConnectorEntitiesCommand,
-  serializeAws_restJson1ListConnectorEntitiesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListConnectorEntitiesRequest, ListConnectorEntitiesResponse } from "../models/models_0";
+import { de_ListConnectorEntitiesCommand, se_ListConnectorEntitiesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConnectorEntitiesCommand}.
  */
 export interface ListConnectorEntitiesCommandInput extends ListConnectorEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConnectorEntitiesCommand}.
  */
 export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the list of available connector entities supported by Amazon AppFlow. For
  *       example, you can query Salesforce for <i>Account</i> and
  *         <i>Opportunity</i> entities, or query ServiceNow for the
@@ -45,10 +42,20 @@ export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitie
  * import { AppflowClient, ListConnectorEntitiesCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, ListConnectorEntitiesCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = { // ListConnectorEntitiesRequest
+ *   connectorProfileName: "STRING_VALUE",
+ *   connectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot",
+ *   entitiesPath: "STRING_VALUE",
+ *   apiVersion: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectorEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectorEntitiesCommandInput - {@link ListConnectorEntitiesCommandInput}
+ * @returns {@link ListConnectorEntitiesCommandOutput}
  * @see {@link ListConnectorEntitiesCommandInput} for command's `input` shape.
  * @see {@link ListConnectorEntitiesCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListConnectorEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectorEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class ListConnectorEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConnectorEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConnectorEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +138,18 @@ export class ListConnectorEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConnectorEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConnectorEntitiesCommand(input, context);
+    return se_ListConnectorEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectorEntitiesCommandOutput> {
-    return deserializeAws_restJson1ListConnectorEntitiesCommand(output, context);
+    return de_ListConnectorEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

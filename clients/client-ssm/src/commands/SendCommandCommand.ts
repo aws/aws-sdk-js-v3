@@ -19,22 +19,24 @@ import {
   SendCommandResult,
   SendCommandResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1SendCommandCommand,
-  serializeAws_json1_1SendCommandCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SendCommandCommand, se_SendCommandCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendCommandCommand}.
  */
 export interface SendCommandCommandInput extends SendCommandRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendCommandCommand}.
  */
 export interface SendCommandCommandOutput extends SendCommandResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs commands on one or more managed nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,61 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * import { SSMClient, SendCommandCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, SendCommandCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // SendCommandRequest
+ *   InstanceIds: [ // InstanceIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Targets: [ // Targets
+ *     { // Target
+ *       Key: "STRING_VALUE",
+ *       Values: [ // TargetValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DocumentName: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE",
+ *   DocumentHash: "STRING_VALUE",
+ *   DocumentHashType: "Sha256" || "Sha1",
+ *   TimeoutSeconds: Number("int"),
+ *   Comment: "STRING_VALUE",
+ *   Parameters: { // Parameters
+ *     "<keys>": [ // ParameterValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   OutputS3Region: "STRING_VALUE",
+ *   OutputS3BucketName: "STRING_VALUE",
+ *   OutputS3KeyPrefix: "STRING_VALUE",
+ *   MaxConcurrency: "STRING_VALUE",
+ *   MaxErrors: "STRING_VALUE",
+ *   ServiceRoleArn: "STRING_VALUE",
+ *   NotificationConfig: { // NotificationConfig
+ *     NotificationArn: "STRING_VALUE",
+ *     NotificationEvents: [ // NotificationEventList
+ *       "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
+ *     ],
+ *     NotificationType: "Command" || "Invocation",
+ *   },
+ *   CloudWatchOutputConfig: { // CloudWatchOutputConfig
+ *     CloudWatchLogGroupName: "STRING_VALUE",
+ *     CloudWatchOutputEnabled: true || false,
+ *   },
+ *   AlarmConfiguration: { // AlarmConfiguration
+ *     IgnorePollAlarmFailure: true || false,
+ *     Alarms: [ // AlarmList // required
+ *       { // Alarm
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new SendCommandCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendCommandCommandInput - {@link SendCommandCommandInput}
+ * @returns {@link SendCommandCommandOutput}
  * @see {@link SendCommandCommandInput} for command's `input` shape.
  * @see {@link SendCommandCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -124,6 +177,9 @@ export class SendCommandCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendCommandCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,12 +217,18 @@ export class SendCommandCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendCommandCommand(input, context);
+    return se_SendCommandCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendCommandCommandOutput> {
-    return deserializeAws_json1_1SendCommandCommand(output, context);
+    return de_SendCommandCommand(output, context);
   }
 
   // Start section: command_body_extra

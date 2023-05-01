@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartStreamProcessorRequest,
-  StartStreamProcessorRequestFilterSensitiveLog,
-  StartStreamProcessorResponse,
-  StartStreamProcessorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartStreamProcessorCommand,
-  serializeAws_json1_1StartStreamProcessorCommand,
-} from "../protocols/Aws_json1_1";
+import { StartStreamProcessorRequest, StartStreamProcessorResponse } from "../models/models_0";
+import { de_StartStreamProcessorCommand, se_StartStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartStreamProcessorCommand}.
  */
 export interface StartStreamProcessorCommandInput extends StartStreamProcessorRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartStreamProcessorCommand}.
  */
 export interface StartStreamProcessorCommandOutput extends StartStreamProcessorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.
  *             To tell <code>StartStreamProcessor</code> which stream processor to start, use the value of the <code>Name</code> field specified in the call to
  *             <code>CreateStreamProcessor</code>.</p>
@@ -45,10 +42,24 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  * import { RekognitionClient, StartStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartStreamProcessorRequest
+ *   Name: "STRING_VALUE", // required
+ *   StartSelector: { // StreamProcessingStartSelector
+ *     KVSStreamStartSelector: { // KinesisVideoStreamStartSelector
+ *       ProducerTimestamp: Number("long"),
+ *       FragmentNumber: "STRING_VALUE",
+ *     },
+ *   },
+ *   StopSelector: { // StreamProcessingStopSelector
+ *     MaxDurationInSeconds: Number("long"),
+ *   },
+ * };
  * const command = new StartStreamProcessorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStreamProcessorCommandInput - {@link StartStreamProcessorCommandInput}
+ * @returns {@link StartStreamProcessorCommandOutput}
  * @see {@link StartStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link StartStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -95,6 +106,9 @@ export class StartStreamProcessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStreamProcessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +137,8 @@ export class StartStreamProcessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartStreamProcessorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartStreamProcessorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +148,18 @@ export class StartStreamProcessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartStreamProcessorCommand(input, context);
+    return se_StartStreamProcessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1StartStreamProcessorCommand(output, context);
+    return de_StartStreamProcessorCommand(output, context);
   }
 
   // Start section: command_body_extra

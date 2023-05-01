@@ -10,7 +10,7 @@ import {
 import { CloudWatchLogsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudWatchLogsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeMetricFiltersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeMetricFilters(
   config: CloudWatchLogsPaginationConfiguration,
   input: DescribeMetricFiltersCommandInput,

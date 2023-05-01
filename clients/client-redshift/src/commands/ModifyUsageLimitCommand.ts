@@ -13,24 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UsageLimit, UsageLimitFilterSensitiveLog } from "../models/models_0";
-import { ModifyUsageLimitMessage, ModifyUsageLimitMessageFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryModifyUsageLimitCommand,
-  serializeAws_queryModifyUsageLimitCommand,
-} from "../protocols/Aws_query";
+import { UsageLimit } from "../models/models_0";
+import { ModifyUsageLimitMessage } from "../models/models_1";
+import { de_ModifyUsageLimitCommand, se_ModifyUsageLimitCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyUsageLimitCommand}.
  */
 export interface ModifyUsageLimitCommandInput extends ModifyUsageLimitMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyUsageLimitCommand}.
  */
 export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a usage limit in a cluster.
  *             You can't modify the feature type or period of a usage limit.</p>
  * @example
@@ -39,10 +41,17 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * import { RedshiftClient, ModifyUsageLimitCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyUsageLimitCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifyUsageLimitMessage
+ *   UsageLimitId: "STRING_VALUE", // required
+ *   Amount: Number("long"),
+ *   BreachAction: "log" || "emit-metric" || "disable",
+ * };
  * const command = new ModifyUsageLimitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyUsageLimitCommandInput - {@link ModifyUsageLimitCommandInput}
+ * @returns {@link ModifyUsageLimitCommandOutput}
  * @see {@link ModifyUsageLimitCommandInput} for command's `input` shape.
  * @see {@link ModifyUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -75,6 +84,9 @@ export class ModifyUsageLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyUsageLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +115,8 @@ export class ModifyUsageLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyUsageLimitMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: UsageLimitFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +126,18 @@ export class ModifyUsageLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyUsageLimitCommand(input, context);
+    return se_ModifyUsageLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyUsageLimitCommandOutput> {
-    return deserializeAws_queryModifyUsageLimitCommand(output, context);
+    return de_ModifyUsageLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

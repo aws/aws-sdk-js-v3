@@ -20,21 +20,23 @@ import {
 } from "../ApplicationInsightsClient";
 import {
   DescribeComponentConfigurationRecommendationRequest,
-  DescribeComponentConfigurationRecommendationRequestFilterSensitiveLog,
   DescribeComponentConfigurationRecommendationResponse,
-  DescribeComponentConfigurationRecommendationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommand,
-  serializeAws_json1_1DescribeComponentConfigurationRecommendationCommand,
+  de_DescribeComponentConfigurationRecommendationCommand,
+  se_DescribeComponentConfigurationRecommendationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeComponentConfigurationRecommendationCommand}.
  */
 export interface DescribeComponentConfigurationRecommendationCommandInput
   extends DescribeComponentConfigurationRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeComponentConfigurationRecommendationCommand}.
  */
 export interface DescribeComponentConfigurationRecommendationCommandOutput
@@ -42,6 +44,7 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the recommended monitoring configuration of the component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +52,17 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
  * import { ApplicationInsightsClient, DescribeComponentConfigurationRecommendationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeComponentConfigurationRecommendationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // DescribeComponentConfigurationRecommendationRequest
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   ComponentName: "STRING_VALUE", // required
+ *   Tier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeComponentConfigurationRecommendationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComponentConfigurationRecommendationCommandInput - {@link DescribeComponentConfigurationRecommendationCommandInput}
+ * @returns {@link DescribeComponentConfigurationRecommendationCommandOutput}
  * @see {@link DescribeComponentConfigurationRecommendationCommandInput} for command's `input` shape.
  * @see {@link DescribeComponentConfigurationRecommendationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -85,6 +95,9 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComponentConfigurationRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +132,8 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeComponentConfigurationRecommendationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeComponentConfigurationRecommendationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +143,24 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeComponentConfigurationRecommendationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeComponentConfigurationRecommendationCommand(input, context);
+    return se_DescribeComponentConfigurationRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeComponentConfigurationRecommendationCommandOutput> {
-    return deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommand(output, context);
+    return de_DescribeComponentConfigurationRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

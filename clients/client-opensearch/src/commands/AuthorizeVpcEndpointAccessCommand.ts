@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AuthorizeVpcEndpointAccessRequest,
-  AuthorizeVpcEndpointAccessRequestFilterSensitiveLog,
-  AuthorizeVpcEndpointAccessResponse,
-  AuthorizeVpcEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AuthorizeVpcEndpointAccessRequest, AuthorizeVpcEndpointAccessResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1AuthorizeVpcEndpointAccessCommand,
-  serializeAws_restJson1AuthorizeVpcEndpointAccessCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AuthorizeVpcEndpointAccessCommand, se_AuthorizeVpcEndpointAccessCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeVpcEndpointAccessCommand}.
  */
 export interface AuthorizeVpcEndpointAccessCommandInput extends AuthorizeVpcEndpointAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeVpcEndpointAccessCommand}.
  */
 export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides access to an Amazon OpenSearch Service domain through the use of an interface VPC
  *    endpoint.</p>
  * @example
@@ -43,10 +40,16 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * import { OpenSearchClient, AuthorizeVpcEndpointAccessCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, AuthorizeVpcEndpointAccessCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // AuthorizeVpcEndpointAccessRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   Account: "STRING_VALUE", // required
+ * };
  * const command = new AuthorizeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeVpcEndpointAccessCommandInput - {@link AuthorizeVpcEndpointAccessCommandInput}
+ * @returns {@link AuthorizeVpcEndpointAccessCommandOutput}
  * @see {@link AuthorizeVpcEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link AuthorizeVpcEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -88,6 +91,9 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeVpcEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeVpcEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeVpcEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +133,21 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeVpcEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AuthorizeVpcEndpointAccessCommand(input, context);
+    return se_AuthorizeVpcEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeVpcEndpointAccessCommandOutput> {
-    return deserializeAws_restJson1AuthorizeVpcEndpointAccessCommand(output, context);
+    return de_AuthorizeVpcEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

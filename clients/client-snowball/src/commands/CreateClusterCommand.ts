@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateClusterRequest,
-  CreateClusterRequestFilterSensitiveLog,
-  CreateClusterResult,
-  CreateClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateClusterCommand,
-  serializeAws_json1_1CreateClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateClusterRequest, CreateClusterResult } from "../models/models_0";
+import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandInput extends CreateClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateClusterCommand}.
  */
 export interface CreateClusterCommandOutput extends CreateClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty cluster. Each cluster supports five nodes. You use the <a>CreateJob</a> action separately to create the jobs for each of these nodes. The
  *       cluster does not ship until these five node jobs have been created.</p>
  * @example
@@ -43,16 +40,100 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * import { SnowballClient, CreateClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CreateClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // CreateClusterRequest
+ *   JobType: "IMPORT" || "EXPORT" || "LOCAL_USE", // required
+ *   Resources: { // JobResource
+ *     S3Resources: [ // S3ResourceList
+ *       { // S3Resource
+ *         BucketArn: "STRING_VALUE",
+ *         KeyRange: { // KeyRange
+ *           BeginMarker: "STRING_VALUE",
+ *           EndMarker: "STRING_VALUE",
+ *         },
+ *         TargetOnDeviceServices: [ // TargetOnDeviceServiceList
+ *           { // TargetOnDeviceService
+ *             ServiceName: "NFS_ON_DEVICE_SERVICE" || "S3_ON_DEVICE_SERVICE",
+ *             TransferOption: "IMPORT" || "EXPORT" || "LOCAL_USE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     LambdaResources: [ // LambdaResourceList
+ *       { // LambdaResource
+ *         LambdaArn: "STRING_VALUE",
+ *         EventTriggers: [ // EventTriggerDefinitionList
+ *           { // EventTriggerDefinition
+ *             EventResourceARN: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Ec2AmiResources: [ // Ec2AmiResourceList
+ *       { // Ec2AmiResource
+ *         AmiId: "STRING_VALUE", // required
+ *         SnowballAmiId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   OnDeviceServiceConfiguration: { // OnDeviceServiceConfiguration
+ *     NFSOnDeviceService: { // NFSOnDeviceServiceConfiguration
+ *       StorageLimit: Number("int"),
+ *       StorageUnit: "TB",
+ *     },
+ *     TGWOnDeviceService: { // TGWOnDeviceServiceConfiguration
+ *       StorageLimit: Number("int"),
+ *       StorageUnit: "TB",
+ *     },
+ *     EKSOnDeviceService: { // EKSOnDeviceServiceConfiguration
+ *       KubernetesVersion: "STRING_VALUE",
+ *       EKSAnywhereVersion: "STRING_VALUE",
+ *     },
+ *     S3OnDeviceService: { // S3OnDeviceServiceConfiguration
+ *       StorageLimit: Number("double"),
+ *       StorageUnit: "TB",
+ *       ServiceSize: Number("int"),
+ *       FaultTolerance: Number("int"),
+ *     },
+ *   },
+ *   Description: "STRING_VALUE",
+ *   AddressId: "STRING_VALUE", // required
+ *   KmsKeyARN: "STRING_VALUE",
+ *   RoleARN: "STRING_VALUE",
+ *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S", // required
+ *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD", // required
+ *   Notification: { // Notification
+ *     SnsTopicARN: "STRING_VALUE",
+ *     JobStatesToNotify: [ // JobStateList
+ *       "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
+ *     ],
+ *     NotifyAll: true || false,
+ *   },
+ *   ForwardingAddressId: "STRING_VALUE",
+ *   TaxDocuments: { // TaxDocuments
+ *     IND: { // INDTaxDocuments
+ *       GSTIN: "STRING_VALUE",
+ *     },
+ *   },
+ *   RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART",
+ *   InitialClusterSize: Number("int"),
+ *   ForceCreateJobs: true || false,
+ *   LongTermPricingIds: [ // LongTermPricingIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
+ * @returns {@link CreateClusterCommandOutput}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
  *
  * @throws {@link InvalidInputCombinationException} (client fault)
@@ -119,6 +200,9 @@ export class CreateClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +229,8 @@ export class CreateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +240,18 @@ export class CreateClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateClusterCommand(input, context);
+    return se_CreateClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
-    return deserializeAws_json1_1CreateClusterCommand(output, context);
+    return de_CreateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

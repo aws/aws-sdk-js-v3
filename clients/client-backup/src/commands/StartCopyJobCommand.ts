@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  StartCopyJobInput,
-  StartCopyJobInputFilterSensitiveLog,
-  StartCopyJobOutput,
-  StartCopyJobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartCopyJobCommand,
-  serializeAws_restJson1StartCopyJobCommand,
-} from "../protocols/Aws_restJson1";
+import { StartCopyJobInput, StartCopyJobOutput } from "../models/models_0";
+import { de_StartCopyJobCommand, se_StartCopyJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartCopyJobCommand}.
  */
 export interface StartCopyJobCommandInput extends StartCopyJobInput {}
 /**
+ * @public
+ *
  * The output of {@link StartCopyJobCommand}.
  */
 export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a job to create a one-time copy of the specified resource.</p>
  *          <p>Does not support continuous backups.</p>
  * @example
@@ -43,10 +40,23 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * import { BackupClient, StartCopyJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, StartCopyJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // StartCopyJobInput
+ *   RecoveryPointArn: "STRING_VALUE", // required
+ *   SourceBackupVaultName: "STRING_VALUE", // required
+ *   DestinationBackupVaultArn: "STRING_VALUE", // required
+ *   IamRoleArn: "STRING_VALUE", // required
+ *   IdempotencyToken: "STRING_VALUE",
+ *   Lifecycle: { // Lifecycle
+ *     MoveToColdStorageAfterDays: Number("long"),
+ *     DeleteAfterDays: Number("long"),
+ *   },
+ * };
  * const command = new StartCopyJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCopyJobCommandInput - {@link StartCopyJobCommandInput}
+ * @returns {@link StartCopyJobCommandOutput}
  * @see {@link StartCopyJobCommandInput} for command's `input` shape.
  * @see {@link StartCopyJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -91,6 +101,9 @@ export class StartCopyJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCopyJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +130,8 @@ export class StartCopyJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartCopyJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartCopyJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +141,18 @@ export class StartCopyJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCopyJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartCopyJobCommand(input, context);
+    return se_StartCopyJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCopyJobCommandOutput> {
-    return deserializeAws_restJson1StartCopyJobCommand(output, context);
+    return de_StartCopyJobCommand(output, context);
   }
 
   // Start section: command_body_extra

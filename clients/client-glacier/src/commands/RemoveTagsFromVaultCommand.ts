@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { RemoveTagsFromVaultInput, RemoveTagsFromVaultInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveTagsFromVaultCommand,
-  serializeAws_restJson1RemoveTagsFromVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveTagsFromVaultInput } from "../models/models_0";
+import { de_RemoveTagsFromVaultCommand, se_RemoveTagsFromVaultCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTagsFromVaultCommand}.
  */
 export interface RemoveTagsFromVaultCommandInput extends RemoveTagsFromVaultInput {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTagsFromVaultCommand}.
  */
 export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation removes one or more tags from the set of tags attached to a vault. For
  *          more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier Resources</a>.
  *          This operation is idempotent. The operation will be successful, even if there are no tags
@@ -40,10 +42,19 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, RemoveTagsFromVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, RemoveTagsFromVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // RemoveTagsFromVaultInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   TagKeys: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveTagsFromVaultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsFromVaultCommandInput - {@link RemoveTagsFromVaultCommandInput}
+ * @returns {@link RemoveTagsFromVaultCommandOutput}
  * @see {@link RemoveTagsFromVaultCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -96,6 +107,9 @@ export class RemoveTagsFromVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsFromVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +138,8 @@ export class RemoveTagsFromVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromVaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +149,18 @@ export class RemoveTagsFromVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsFromVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveTagsFromVaultCommand(input, context);
+    return se_RemoveTagsFromVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsFromVaultCommandOutput> {
-    return deserializeAws_restJson1RemoveTagsFromVaultCommand(output, context);
+    return de_RemoveTagsFromVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

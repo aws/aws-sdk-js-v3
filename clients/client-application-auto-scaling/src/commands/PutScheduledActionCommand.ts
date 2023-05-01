@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  PutScheduledActionRequest,
-  PutScheduledActionRequestFilterSensitiveLog,
-  PutScheduledActionResponse,
-  PutScheduledActionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutScheduledActionCommand,
-  serializeAws_json1_1PutScheduledActionCommand,
-} from "../protocols/Aws_json1_1";
+import { PutScheduledActionRequest, PutScheduledActionResponse } from "../models/models_0";
+import { de_PutScheduledActionCommand, se_PutScheduledActionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutScheduledActionCommand}.
  */
 export interface PutScheduledActionCommandInput extends PutScheduledActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutScheduledActionCommand}.
  */
 export interface PutScheduledActionCommandOutput extends PutScheduledActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a scheduled action for an Application Auto Scaling scalable target. </p>
  *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
  *          dimension. A scheduled action applies to the scalable target identified by those three
@@ -60,10 +57,26 @@ export interface PutScheduledActionCommandOutput extends PutScheduledActionRespo
  * import { ApplicationAutoScalingClient, PutScheduledActionCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, PutScheduledActionCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
+ * const input = { // PutScheduledActionRequest
+ *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   Schedule: "STRING_VALUE",
+ *   Timezone: "STRING_VALUE",
+ *   ScheduledActionName: "STRING_VALUE", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount", // required
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   ScalableTargetAction: { // ScalableTargetAction
+ *     MinCapacity: Number("int"),
+ *     MaxCapacity: Number("int"),
+ *   },
+ * };
  * const command = new PutScheduledActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutScheduledActionCommandInput - {@link PutScheduledActionCommandInput}
+ * @returns {@link PutScheduledActionCommandOutput}
  * @see {@link PutScheduledActionCommandInput} for command's `input` shape.
  * @see {@link PutScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -126,6 +139,9 @@ export class PutScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +170,8 @@ export class PutScheduledActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutScheduledActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutScheduledActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +181,18 @@ export class PutScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutScheduledActionCommand(input, context);
+    return se_PutScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScheduledActionCommandOutput> {
-    return deserializeAws_json1_1PutScheduledActionCommand(output, context);
+    return de_PutScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

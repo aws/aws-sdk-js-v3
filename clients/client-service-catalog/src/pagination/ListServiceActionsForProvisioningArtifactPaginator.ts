@@ -10,7 +10,7 @@ import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceCatalogClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListServiceActionsForProvisioningArtifactCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListServiceActionsForProvisioningArtifact(
   config: ServiceCatalogPaginationConfiguration,
   input: ListServiceActionsForProvisioningArtifactCommandInput,

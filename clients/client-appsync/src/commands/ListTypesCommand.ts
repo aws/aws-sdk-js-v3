@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  ListTypesRequest,
-  ListTypesRequestFilterSensitiveLog,
-  ListTypesResponse,
-  ListTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTypesCommand,
-  serializeAws_restJson1ListTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTypesRequest, ListTypesResponse } from "../models/models_0";
+import { de_ListTypesCommand, se_ListTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTypesCommand}.
  */
 export interface ListTypesCommandInput extends ListTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTypesCommand}.
  */
 export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the types for a given API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  * import { AppSyncClient, ListTypesCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListTypesCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // ListTypesRequest
+ *   apiId: "STRING_VALUE", // required
+ *   format: "SDL" || "JSON", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTypesCommandInput - {@link ListTypesCommandInput}
+ * @returns {@link ListTypesCommandOutput}
  * @see {@link ListTypesCommandInput} for command's `input` shape.
  * @see {@link ListTypesCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +91,9 @@ export class ListTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class ListTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class ListTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTypesCommand(input, context);
+    return se_ListTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTypesCommandOutput> {
-    return deserializeAws_restJson1ListTypesCommand(output, context);
+    return de_ListTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

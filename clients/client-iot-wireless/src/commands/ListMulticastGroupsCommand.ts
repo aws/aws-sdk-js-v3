@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  ListMulticastGroupsRequest,
-  ListMulticastGroupsRequestFilterSensitiveLog,
-  ListMulticastGroupsResponse,
-  ListMulticastGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMulticastGroupsCommand,
-  serializeAws_restJson1ListMulticastGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMulticastGroupsRequest, ListMulticastGroupsResponse } from "../models/models_0";
+import { de_ListMulticastGroupsCommand, se_ListMulticastGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMulticastGroupsCommand}.
  */
 export interface ListMulticastGroupsCommandInput extends ListMulticastGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMulticastGroupsCommand}.
  */
 export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the multicast groups registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsRes
  * import { IoTWirelessClient, ListMulticastGroupsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListMulticastGroupsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListMulticastGroupsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMulticastGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMulticastGroupsCommandInput - {@link ListMulticastGroupsCommandInput}
+ * @returns {@link ListMulticastGroupsCommandOutput}
  * @see {@link ListMulticastGroupsCommandInput} for command's `input` shape.
  * @see {@link ListMulticastGroupsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListMulticastGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMulticastGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListMulticastGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMulticastGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMulticastGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListMulticastGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMulticastGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMulticastGroupsCommand(input, context);
+    return se_ListMulticastGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMulticastGroupsCommandOutput> {
-    return deserializeAws_restJson1ListMulticastGroupsCommand(output, context);
+    return de_ListMulticastGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

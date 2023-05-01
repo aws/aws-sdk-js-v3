@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSafetyRulesRequest,
-  ListSafetyRulesRequestFilterSensitiveLog,
-  ListSafetyRulesResponse,
-  ListSafetyRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSafetyRulesCommand,
-  serializeAws_restJson1ListSafetyRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSafetyRulesRequest, ListSafetyRulesResponse } from "../models/models_0";
+import { de_ListSafetyRulesCommand, se_ListSafetyRulesCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSafetyRulesCommand}.
  */
 export interface ListSafetyRulesCommandInput extends ListSafetyRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSafetyRulesCommand}.
  */
 export interface ListSafetyRulesCommandOutput extends ListSafetyRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the safety rules (the assertion rules and gating rules) that you've defined for the routing controls in a control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface ListSafetyRulesCommandOutput extends ListSafetyRulesResponse, _
  * import { Route53RecoveryControlConfigClient, ListSafetyRulesCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, ListSafetyRulesCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // ListSafetyRulesRequest
+ *   ControlPanelArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSafetyRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSafetyRulesCommandInput - {@link ListSafetyRulesCommandInput}
+ * @returns {@link ListSafetyRulesCommandOutput}
  * @see {@link ListSafetyRulesCommandInput} for command's `input` shape.
  * @see {@link ListSafetyRulesCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -88,6 +92,9 @@ export class ListSafetyRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSafetyRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class ListSafetyRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSafetyRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSafetyRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class ListSafetyRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSafetyRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSafetyRulesCommand(input, context);
+    return se_ListSafetyRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSafetyRulesCommandOutput> {
-    return deserializeAws_restJson1ListSafetyRulesCommand(output, context);
+    return de_ListSafetyRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

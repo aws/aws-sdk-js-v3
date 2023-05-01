@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  WithdrawByoipCidrRequest,
-  WithdrawByoipCidrRequestFilterSensitiveLog,
-  WithdrawByoipCidrResponse,
-  WithdrawByoipCidrResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1WithdrawByoipCidrCommand,
-  serializeAws_json1_1WithdrawByoipCidrCommand,
-} from "../protocols/Aws_json1_1";
+import { WithdrawByoipCidrRequest, WithdrawByoipCidrResponse } from "../models/models_0";
+import { de_WithdrawByoipCidrCommand, se_WithdrawByoipCidrCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link WithdrawByoipCidrCommand}.
  */
 export interface WithdrawByoipCidrCommandInput extends WithdrawByoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link WithdrawByoipCidrCommand}.
  */
 export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops advertising an address range that is provisioned as an address pool.
  * 			You can perform this operation at most once every 10 seconds, even if you specify different address
  * 			ranges each time.</p>
@@ -52,10 +49,15 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrRespons
  * import { GlobalAcceleratorClient, WithdrawByoipCidrCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, WithdrawByoipCidrCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // WithdrawByoipCidrRequest
+ *   Cidr: "STRING_VALUE", // required
+ * };
  * const command = new WithdrawByoipCidrCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param WithdrawByoipCidrCommandInput - {@link WithdrawByoipCidrCommandInput}
+ * @returns {@link WithdrawByoipCidrCommandOutput}
  * @see {@link WithdrawByoipCidrCommandInput} for command's `input` shape.
  * @see {@link WithdrawByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -95,6 +97,9 @@ export class WithdrawByoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: WithdrawByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +128,8 @@ export class WithdrawByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: WithdrawByoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: WithdrawByoipCidrResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +139,18 @@ export class WithdrawByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: WithdrawByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1WithdrawByoipCidrCommand(input, context);
+    return se_WithdrawByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WithdrawByoipCidrCommandOutput> {
-    return deserializeAws_json1_1WithdrawByoipCidrCommand(output, context);
+    return de_WithdrawByoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

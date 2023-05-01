@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteIPSetRequest,
-  DeleteIPSetRequestFilterSensitiveLog,
-  DeleteIPSetResponse,
-  DeleteIPSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteIPSetCommand,
-  serializeAws_json1_1DeleteIPSetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/models_0";
+import { de_DeleteIPSetCommand, se_DeleteIPSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIPSetCommand}.
  */
 export interface DeleteIPSetCommandInput extends DeleteIPSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIPSetCommand}.
  */
 export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified <a>IPSet</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * import { WAFV2Client, DeleteIPSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DeleteIPSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // DeleteIPSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Id: "STRING_VALUE", // required
+ *   LockToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIPSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIPSetCommandInput - {@link DeleteIPSetCommandInput}
+ * @returns {@link DeleteIPSetCommandOutput}
  * @see {@link DeleteIPSetCommandInput} for command's `input` shape.
  * @see {@link DeleteIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -119,6 +124,9 @@ export class DeleteIPSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +153,8 @@ export class DeleteIPSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIPSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIPSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +164,18 @@ export class DeleteIPSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteIPSetCommand(input, context);
+    return se_DeleteIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIPSetCommandOutput> {
-    return deserializeAws_json1_1DeleteIPSetCommand(output, context);
+    return de_DeleteIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

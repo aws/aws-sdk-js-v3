@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListObjectPoliciesRequest,
-  ListObjectPoliciesRequestFilterSensitiveLog,
-  ListObjectPoliciesResponse,
-  ListObjectPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListObjectPoliciesCommand,
-  serializeAws_restJson1ListObjectPoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListObjectPoliciesRequest, ListObjectPoliciesResponse } from "../models/models_0";
+import { de_ListObjectPoliciesCommand, se_ListObjectPoliciesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectPoliciesCommand}.
  */
 export interface ListObjectPoliciesCommandInput extends ListObjectPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectPoliciesCommand}.
  */
 export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns policies attached to an object in pagination fashion.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesRespo
  * import { CloudDirectoryClient, ListObjectPoliciesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListObjectPoliciesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListObjectPoliciesRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ObjectReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ * };
  * const command = new ListObjectPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectPoliciesCommandInput - {@link ListObjectPoliciesCommandInput}
+ * @returns {@link ListObjectPoliciesCommandOutput}
  * @see {@link ListObjectPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListObjectPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -97,6 +105,9 @@ export class ListObjectPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +136,8 @@ export class ListObjectPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObjectPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListObjectPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +147,18 @@ export class ListObjectPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListObjectPoliciesCommand(input, context);
+    return se_ListObjectPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectPoliciesCommandOutput> {
-    return deserializeAws_restJson1ListObjectPoliciesCommand(output, context);
+    return de_ListObjectPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  GetRecordingConfigurationRequest,
-  GetRecordingConfigurationRequestFilterSensitiveLog,
-  GetRecordingConfigurationResponse,
-  GetRecordingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRecordingConfigurationCommand,
-  serializeAws_restJson1GetRecordingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRecordingConfigurationRequest, GetRecordingConfigurationResponse } from "../models/models_0";
+import { de_GetRecordingConfigurationCommand, se_GetRecordingConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecordingConfigurationCommand}.
  */
 export interface GetRecordingConfigurationCommandInput extends GetRecordingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecordingConfigurationCommand}.
  */
 export interface GetRecordingConfigurationCommandOutput extends GetRecordingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the recording configuration for the specified ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * import { IvsClient, GetRecordingConfigurationCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetRecordingConfigurationCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // GetRecordingConfigurationRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetRecordingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecordingConfigurationCommandInput - {@link GetRecordingConfigurationCommandInput}
+ * @returns {@link GetRecordingConfigurationCommandOutput}
  * @see {@link GetRecordingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetRecordingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -81,6 +83,9 @@ export class GetRecordingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecordingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class GetRecordingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecordingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecordingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +125,21 @@ export class GetRecordingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecordingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecordingConfigurationCommand(input, context);
+    return se_GetRecordingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecordingConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetRecordingConfigurationCommand(output, context);
+    return de_GetRecordingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

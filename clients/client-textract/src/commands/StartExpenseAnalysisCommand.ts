@@ -13,31 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartExpenseAnalysisRequest,
-  StartExpenseAnalysisRequestFilterSensitiveLog,
-  StartExpenseAnalysisResponse,
-  StartExpenseAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartExpenseAnalysisCommand,
-  serializeAws_json1_1StartExpenseAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { StartExpenseAnalysisRequest, StartExpenseAnalysisResponse } from "../models/models_0";
+import { de_StartExpenseAnalysisCommand, se_StartExpenseAnalysisCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartExpenseAnalysisCommand}.
  */
 export interface StartExpenseAnalysisCommandInput extends StartExpenseAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartExpenseAnalysisCommand}.
  */
 export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the asynchronous analysis of invoices or receipts for data like contact information,
  *    items purchased, and vendor names.</p>
- *
  *          <p>
  *             <code>StartExpenseAnalysis</code> can analyze text in documents that are in JPEG, PNG, and
  *    PDF format. The documents must be stored in an Amazon S3 bucket. Use the <a>DocumentLocation</a> parameter to specify the name of your S3 bucket and the name of the
@@ -57,10 +53,32 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  * import { TextractClient, StartExpenseAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, StartExpenseAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // StartExpenseAnalysisRequest
+ *   DocumentLocation: { // DocumentLocation
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   JobTag: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   OutputConfig: { // OutputConfig
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Prefix: "STRING_VALUE",
+ *   },
+ *   KMSKeyId: "STRING_VALUE",
+ * };
  * const command = new StartExpenseAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartExpenseAnalysisCommandInput - {@link StartExpenseAnalysisCommandInput}
+ * @returns {@link StartExpenseAnalysisCommandOutput}
  * @see {@link StartExpenseAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartExpenseAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -140,6 +158,9 @@ export class StartExpenseAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartExpenseAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,8 +189,8 @@ export class StartExpenseAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartExpenseAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartExpenseAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -179,12 +200,18 @@ export class StartExpenseAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartExpenseAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartExpenseAnalysisCommand(input, context);
+    return se_StartExpenseAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExpenseAnalysisCommandOutput> {
-    return deserializeAws_json1_1StartExpenseAnalysisCommand(output, context);
+    return de_StartExpenseAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartDBInstanceMessage,
-  StartDBInstanceMessageFilterSensitiveLog,
-  StartDBInstanceResult,
-  StartDBInstanceResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryStartDBInstanceCommand,
-  serializeAws_queryStartDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { StartDBInstanceMessage, StartDBInstanceResult } from "../models/models_1";
+import { de_StartDBInstanceCommand, se_StartDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartDBInstanceCommand}.
  */
 export interface StartDBInstanceCommandInput extends StartDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartDBInstanceCommand}.
  */
 export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the StopDBInstance action.</p>
  *          <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
@@ -51,10 +48,15 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * import { RDSClient, StartDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // StartDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new StartDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDBInstanceCommandInput - {@link StartDBInstanceCommandInput}
+ * @returns {@link StartDBInstanceCommandOutput}
  * @see {@link StartDBInstanceCommandInput} for command's `input` shape.
  * @see {@link StartDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -101,6 +103,24 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  *
+ * @example To start a DB instance
+ * ```javascript
+ * // The following example starts the specified DB instance.
+ * const input = {
+ *   "DBInstanceIdentifier": "test-instance"
+ * };
+ * const command = new StartDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {
+ *     "DBInstanceStatus": "starting"
+ *   }
+ * }
+ * *\/
+ * // example id: to-start-a-db-instance-1679951967681
+ * ```
+ *
  */
 export class StartDBInstanceCommand extends $Command<
   StartDBInstanceCommandInput,
@@ -119,6 +139,9 @@ export class StartDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +170,8 @@ export class StartDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,12 +181,18 @@ export class StartDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartDBInstanceCommand(input, context);
+    return se_StartDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDBInstanceCommandOutput> {
-    return deserializeAws_queryStartDBInstanceCommand(output, context);
+    return de_StartDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AcceptVpcEndpointConnectionsRequest,
-  AcceptVpcEndpointConnectionsRequestFilterSensitiveLog,
-  AcceptVpcEndpointConnectionsResult,
-  AcceptVpcEndpointConnectionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AcceptVpcEndpointConnectionsCommand,
-  serializeAws_ec2AcceptVpcEndpointConnectionsCommand,
-} from "../protocols/Aws_ec2";
+import { AcceptVpcEndpointConnectionsRequest, AcceptVpcEndpointConnectionsResult } from "../models/models_0";
+import { de_AcceptVpcEndpointConnectionsCommand, se_AcceptVpcEndpointConnectionsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptVpcEndpointConnectionsCommand}.
  */
 export interface AcceptVpcEndpointConnectionsCommandInput extends AcceptVpcEndpointConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptVpcEndpointConnectionsCommand}.
  */
 export interface AcceptVpcEndpointConnectionsCommandOutput
@@ -37,6 +33,7 @@ export interface AcceptVpcEndpointConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts connection requests to your VPC endpoint service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,19 @@ export interface AcceptVpcEndpointConnectionsCommandOutput
  * import { EC2Client, AcceptVpcEndpointConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AcceptVpcEndpointConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AcceptVpcEndpointConnectionsRequest
+ *   DryRun: true || false,
+ *   ServiceId: "STRING_VALUE", // required
+ *   VpcEndpointIds: [ // VpcEndpointIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AcceptVpcEndpointConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptVpcEndpointConnectionsCommandInput - {@link AcceptVpcEndpointConnectionsCommandInput}
+ * @returns {@link AcceptVpcEndpointConnectionsCommandOutput}
  * @see {@link AcceptVpcEndpointConnectionsCommandInput} for command's `input` shape.
  * @see {@link AcceptVpcEndpointConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +77,9 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptVpcEndpointConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +108,8 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptVpcEndpointConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptVpcEndpointConnectionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +119,21 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptVpcEndpointConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AcceptVpcEndpointConnectionsCommand(input, context);
+    return se_AcceptVpcEndpointConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptVpcEndpointConnectionsCommandOutput> {
-    return deserializeAws_ec2AcceptVpcEndpointConnectionsCommand(output, context);
+    return de_AcceptVpcEndpointConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  ListProtocolsListsRequest,
-  ListProtocolsListsRequestFilterSensitiveLog,
-  ListProtocolsListsResponse,
-  ListProtocolsListsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProtocolsListsCommand,
-  serializeAws_json1_1ListProtocolsListsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProtocolsListsRequest, ListProtocolsListsResponse } from "../models/models_0";
+import { de_ListProtocolsListsCommand, se_ListProtocolsListsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProtocolsListsCommand}.
  */
 export interface ListProtocolsListsCommandInput extends ListProtocolsListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProtocolsListsCommand}.
  */
 export interface ListProtocolsListsCommandOutput extends ListProtocolsListsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>ProtocolsListDataSummary</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  * import { FMSClient, ListProtocolsListsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListProtocolsListsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // ListProtocolsListsRequest
+ *   DefaultLists: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"), // required
+ * };
  * const command = new ListProtocolsListsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProtocolsListsCommandInput - {@link ListProtocolsListsCommandInput}
+ * @returns {@link ListProtocolsListsCommandOutput}
  * @see {@link ListProtocolsListsCommandInput} for command's `input` shape.
  * @see {@link ListProtocolsListsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -83,6 +87,9 @@ export class ListProtocolsListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProtocolsListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class ListProtocolsListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProtocolsListsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProtocolsListsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +129,18 @@ export class ListProtocolsListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProtocolsListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProtocolsListsCommand(input, context);
+    return se_ListProtocolsListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtocolsListsCommandOutput> {
-    return deserializeAws_json1_1ListProtocolsListsCommand(output, context);
+    return de_ListProtocolsListsCommand(output, context);
   }
 
   // Start section: command_body_extra

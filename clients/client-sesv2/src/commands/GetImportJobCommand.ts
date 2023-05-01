@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetImportJobRequest,
-  GetImportJobRequestFilterSensitiveLog,
-  GetImportJobResponse,
-  GetImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetImportJobCommand,
-  serializeAws_restJson1GetImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { GetImportJobRequest, GetImportJobResponse } from "../models/models_0";
+import { de_GetImportJobCommand, se_GetImportJobCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetImportJobCommand}.
  */
 export interface GetImportJobCommandInput extends GetImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetImportJobCommand}.
  */
 export interface GetImportJobCommandOutput extends GetImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about an import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * import { SESv2Client, GetImportJobCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetImportJobCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // GetImportJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImportJobCommandInput - {@link GetImportJobCommandInput}
+ * @returns {@link GetImportJobCommandOutput}
  * @see {@link GetImportJobCommandInput} for command's `input` shape.
  * @see {@link GetImportJobCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -78,6 +80,9 @@ export class GetImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class GetImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class GetImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImportJobCommand(input, context);
+    return se_GetImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImportJobCommandOutput> {
-    return deserializeAws_restJson1GetImportJobCommand(output, context);
+    return de_GetImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

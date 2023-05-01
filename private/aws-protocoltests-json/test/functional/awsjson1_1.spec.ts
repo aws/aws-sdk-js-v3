@@ -8,6 +8,7 @@ import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsComman
 import { EmptyOperationCommand } from "../../src/commands/EmptyOperationCommand";
 import { EndpointOperationCommand } from "../../src/commands/EndpointOperationCommand";
 import { EndpointWithHostLabelOperationCommand } from "../../src/commands/EndpointWithHostLabelOperationCommand";
+import { FractionalSecondsCommand } from "../../src/commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommand } from "../../src/commands/GreetingWithErrorsCommand";
 import { HostWithPathOperationCommand } from "../../src/commands/HostWithPathOperationCommand";
 import { JsonEnumsCommand } from "../../src/commands/JsonEnumsCommand";
@@ -513,6 +514,88 @@ it("AwsJson11EndpointTraitWithHostLabel:Request", async () => {
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
+});
+
+/**
+ * Ensures that clients can correctly parse datetime timestamps with fractional seconds
+ */
+it("AwsJson11DateTimeWithFractionalSeconds:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `      {
+                "datetime": "2000-01-02T20:34:56.123Z"
+            }
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new FractionalSecondsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(9.46845296123e8000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that clients can correctly parse http-date timestamps with fractional seconds
+ */
+it("AwsJson11HttpDateWithFractionalSeconds:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `      {
+                "httpdate": "Sun, 02 Jan 2000 20:34:56.456 GMT"
+            }
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new FractionalSecondsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      httpdate: new Date(9.46845296456e8000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
 });
 
 /**
@@ -3511,7 +3594,7 @@ it("parses_iso8601_timestamps:Response", async () => {
       {
         "content-type": "application/x-amz-json-1.1",
       },
-      `{"Iso8601Timestamp":"2000-01-02T20:34:56.000Z"}`
+      `{"Iso8601Timestamp":"2000-01-02T20:34:56Z"}`
     ),
   });
 
@@ -3549,7 +3632,7 @@ it("parses_httpdate_timestamps:Response", async () => {
       {
         "content-type": "application/x-amz-json-1.1",
       },
-      `{"HttpdateTimestamp":"Sun, 02 Jan 2000 20:34:56.000 GMT"}`
+      `{"HttpdateTimestamp":"Sun, 02 Jan 2000 20:34:56 GMT"}`
     ),
   });
 

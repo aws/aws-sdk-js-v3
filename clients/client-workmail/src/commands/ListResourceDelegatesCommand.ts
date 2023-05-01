@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResourceDelegatesRequest,
-  ListResourceDelegatesRequestFilterSensitiveLog,
-  ListResourceDelegatesResponse,
-  ListResourceDelegatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourceDelegatesCommand,
-  serializeAws_json1_1ListResourceDelegatesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourceDelegatesRequest, ListResourceDelegatesResponse } from "../models/models_0";
+import { de_ListResourceDelegatesCommand, se_ListResourceDelegatesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceDelegatesCommand}.
  */
 export interface ListResourceDelegatesCommandInput extends ListResourceDelegatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceDelegatesCommand}.
  */
 export interface ListResourceDelegatesCommandOutput extends ListResourceDelegatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the delegates associated with a resource. Users and groups can be resource
  *          delegates and answer requests on behalf of the resource.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ListResourceDelegatesCommandOutput extends ListResourceDelegate
  * import { WorkMailClient, ListResourceDelegatesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListResourceDelegatesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListResourceDelegatesRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListResourceDelegatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceDelegatesCommandInput - {@link ListResourceDelegatesCommandInput}
+ * @returns {@link ListResourceDelegatesCommandOutput}
  * @see {@link ListResourceDelegatesCommandInput} for command's `input` shape.
  * @see {@link ListResourceDelegatesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -89,6 +94,9 @@ export class ListResourceDelegatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceDelegatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class ListResourceDelegatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceDelegatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceDelegatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class ListResourceDelegatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceDelegatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceDelegatesCommand(input, context);
+    return se_ListResourceDelegatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceDelegatesCommandOutput> {
-    return deserializeAws_json1_1ListResourceDelegatesCommand(output, context);
+    return de_ListResourceDelegatesCommand(output, context);
   }
 
   // Start section: command_body_extra

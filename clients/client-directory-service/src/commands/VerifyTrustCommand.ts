@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  VerifyTrustRequest,
-  VerifyTrustRequestFilterSensitiveLog,
-  VerifyTrustResult,
-  VerifyTrustResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1VerifyTrustCommand,
-  serializeAws_json1_1VerifyTrustCommand,
-} from "../protocols/Aws_json1_1";
+import { VerifyTrustRequest, VerifyTrustResult } from "../models/models_0";
+import { de_VerifyTrustCommand, se_VerifyTrustCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyTrustCommand}.
  */
 export interface VerifyTrustCommandInput extends VerifyTrustRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyTrustCommand}.
  */
 export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Directory Service for Microsoft Active Directory allows you to configure and verify trust
  *       relationships.</p>
  *          <p>This action verifies a trust relationship between your Managed Microsoft AD directory and an
@@ -45,10 +42,15 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  * import { DirectoryServiceClient, VerifyTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, VerifyTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // VerifyTrustRequest
+ *   TrustId: "STRING_VALUE", // required
+ * };
  * const command = new VerifyTrustCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyTrustCommandInput - {@link VerifyTrustCommandInput}
+ * @returns {@link VerifyTrustCommandOutput}
  * @see {@link VerifyTrustCommandInput} for command's `input` shape.
  * @see {@link VerifyTrustCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -87,6 +89,9 @@ export class VerifyTrustCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyTrustCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class VerifyTrustCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyTrustRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VerifyTrustResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class VerifyTrustCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyTrustCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1VerifyTrustCommand(input, context);
+    return se_VerifyTrustCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyTrustCommandOutput> {
-    return deserializeAws_json1_1VerifyTrustCommand(output, context);
+    return de_VerifyTrustCommand(output, context);
   }
 
   // Start section: command_body_extra

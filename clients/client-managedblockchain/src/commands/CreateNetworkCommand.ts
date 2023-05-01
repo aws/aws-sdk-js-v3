@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  CreateNetworkInput,
-  CreateNetworkInputFilterSensitiveLog,
-  CreateNetworkOutput,
-  CreateNetworkOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateNetworkCommand,
-  serializeAws_restJson1CreateNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateNetworkInput, CreateNetworkInputFilterSensitiveLog, CreateNetworkOutput } from "../models/models_0";
+import { de_CreateNetworkCommand, se_CreateNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkCommand}.
  */
 export interface CreateNetworkCommandInput extends CreateNetworkInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkCommand}.
  */
 export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new blockchain network using Amazon Managed Blockchain.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -47,10 +44,57 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  * import { ManagedBlockchainClient, CreateNetworkCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateNetworkCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // CreateNetworkInput
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM", // required
+ *   FrameworkVersion: "STRING_VALUE", // required
+ *   FrameworkConfiguration: { // NetworkFrameworkConfiguration
+ *     Fabric: { // NetworkFabricConfiguration
+ *       Edition: "STARTER" || "STANDARD", // required
+ *     },
+ *   },
+ *   VotingPolicy: { // VotingPolicy
+ *     ApprovalThresholdPolicy: { // ApprovalThresholdPolicy
+ *       ThresholdPercentage: Number("int"),
+ *       ProposalDurationInHours: Number("int"),
+ *       ThresholdComparator: "GREATER_THAN" || "GREATER_THAN_OR_EQUAL_TO",
+ *     },
+ *   },
+ *   MemberConfiguration: { // MemberConfiguration
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     FrameworkConfiguration: { // MemberFrameworkConfiguration
+ *       Fabric: { // MemberFabricConfiguration
+ *         AdminUsername: "STRING_VALUE", // required
+ *         AdminPassword: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     LogPublishingConfiguration: { // MemberLogPublishingConfiguration
+ *       Fabric: { // MemberFabricLogPublishingConfiguration
+ *         CaLogs: { // LogConfigurations
+ *           Cloudwatch: { // LogConfiguration
+ *             Enabled: true || false,
+ *           },
+ *         },
+ *       },
+ *     },
+ *     Tags: { // InputTagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateNetworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkCommandInput - {@link CreateNetworkCommandInput}
+ * @returns {@link CreateNetworkCommandOutput}
  * @see {@link CreateNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -99,6 +143,9 @@ export class CreateNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,7 +173,7 @@ export class CreateNetworkCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateNetworkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +183,18 @@ export class CreateNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNetworkCommand(input, context);
+    return se_CreateNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkCommandOutput> {
-    return deserializeAws_restJson1CreateNetworkCommand(output, context);
+    return de_CreateNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

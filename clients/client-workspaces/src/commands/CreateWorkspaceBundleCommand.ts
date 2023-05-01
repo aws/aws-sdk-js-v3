@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWorkspaceBundleRequest,
-  CreateWorkspaceBundleRequestFilterSensitiveLog,
-  CreateWorkspaceBundleResult,
-  CreateWorkspaceBundleResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWorkspaceBundleCommand,
-  serializeAws_json1_1CreateWorkspaceBundleCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateWorkspaceBundleRequest, CreateWorkspaceBundleResult } from "../models/models_0";
+import { de_CreateWorkspaceBundleCommand, se_CreateWorkspaceBundleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkspaceBundleCommand}.
  */
 export interface CreateWorkspaceBundleCommandInput extends CreateWorkspaceBundleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkspaceBundleCommand}.
  */
 export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified WorkSpace bundle. For more information about creating WorkSpace bundles, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html">
  *             Create a Custom WorkSpaces Image and Bundle</a>.</p>
@@ -44,10 +41,32 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * import { WorkSpacesClient, CreateWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // CreateWorkspaceBundleRequest
+ *   BundleName: "STRING_VALUE", // required
+ *   BundleDescription: "STRING_VALUE", // required
+ *   ImageId: "STRING_VALUE", // required
+ *   ComputeType: { // ComputeType
+ *     Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *   },
+ *   UserStorage: { // UserStorage
+ *     Capacity: "STRING_VALUE",
+ *   },
+ *   RootStorage: { // RootStorage
+ *     Capacity: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateWorkspaceBundleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkspaceBundleCommandInput - {@link CreateWorkspaceBundleCommandInput}
+ * @returns {@link CreateWorkspaceBundleCommandOutput}
  * @see {@link CreateWorkspaceBundleCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceBundleCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -89,6 +108,9 @@ export class CreateWorkspaceBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkspaceBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +139,8 @@ export class CreateWorkspaceBundleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkspaceBundleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkspaceBundleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +150,18 @@ export class CreateWorkspaceBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkspaceBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkspaceBundleCommand(input, context);
+    return se_CreateWorkspaceBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspaceBundleCommandOutput> {
-    return deserializeAws_json1_1CreateWorkspaceBundleCommand(output, context);
+    return de_CreateWorkspaceBundleCommand(output, context);
   }
 
   // Start section: command_body_extra

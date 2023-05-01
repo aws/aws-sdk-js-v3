@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  CreateEphemerisRequest,
-  CreateEphemerisRequestFilterSensitiveLog,
-  EphemerisIdResponse,
-  EphemerisIdResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEphemerisCommand,
-  serializeAws_restJson1CreateEphemerisCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateEphemerisRequest, EphemerisIdResponse } from "../models/models_0";
+import { de_CreateEphemerisCommand, se_CreateEphemerisCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEphemerisCommand}.
  */
 export interface CreateEphemerisCommandInput extends CreateEphemerisRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEphemerisCommand}.
  */
 export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Ephemeris with the specified <code>EphemerisData</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,50 @@ export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * import { GroundStationClient, CreateEphemerisCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, CreateEphemerisCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // CreateEphemerisRequest
+ *   satelliteId: "STRING_VALUE", // required
+ *   enabled: true || false,
+ *   priority: Number("int"),
+ *   expirationTime: new Date("TIMESTAMP"),
+ *   name: "STRING_VALUE", // required
+ *   kmsKeyArn: "STRING_VALUE",
+ *   ephemeris: { // EphemerisData Union: only one key present
+ *     tle: { // TLEEphemeris
+ *       s3Object: { // S3Object
+ *         bucket: "STRING_VALUE",
+ *         key: "STRING_VALUE",
+ *         version: "STRING_VALUE",
+ *       },
+ *       tleData: [ // TLEDataList
+ *         { // TLEData
+ *           tleLine1: "STRING_VALUE", // required
+ *           tleLine2: "STRING_VALUE", // required
+ *           validTimeRange: { // TimeRange
+ *             startTime: new Date("TIMESTAMP"), // required
+ *             endTime: new Date("TIMESTAMP"), // required
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     oem: { // OEMEphemeris
+ *       s3Object: {
+ *         bucket: "STRING_VALUE",
+ *         key: "STRING_VALUE",
+ *         version: "STRING_VALUE",
+ *       },
+ *       oemData: "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateEphemerisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEphemerisCommandInput - {@link CreateEphemerisCommandInput}
+ * @returns {@link CreateEphemerisCommandOutput}
  * @see {@link CreateEphemerisCommandInput} for command's `input` shape.
  * @see {@link CreateEphemerisCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +115,9 @@ export class CreateEphemerisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEphemerisCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +146,8 @@ export class CreateEphemerisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEphemerisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EphemerisIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +157,18 @@ export class CreateEphemerisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEphemerisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEphemerisCommand(input, context);
+    return se_CreateEphemerisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEphemerisCommandOutput> {
-    return deserializeAws_restJson1CreateEphemerisCommand(output, context);
+    return de_CreateEphemerisCommand(output, context);
   }
 
   // Start section: command_body_extra

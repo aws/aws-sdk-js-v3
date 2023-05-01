@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CopyDBClusterSnapshotMessage,
-  CopyDBClusterSnapshotMessageFilterSensitiveLog,
-  CopyDBClusterSnapshotResult,
-  CopyDBClusterSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryCopyDBClusterSnapshotCommand,
-  serializeAws_queryCopyDBClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_CopyDBClusterSnapshotCommand, se_CopyDBClusterSnapshotCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CopyDBClusterSnapshotCommand}.
  */
 export interface CopyDBClusterSnapshotCommandInput extends CopyDBClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link CopyDBClusterSnapshotCommand}.
  */
 export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies a snapshot of a DB cluster.</p>
  *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot,
  *       <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name (ARN) of the
@@ -46,10 +43,25 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * import { NeptuneClient, CopyDBClusterSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CopyDBClusterSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // CopyDBClusterSnapshotMessage
+ *   SourceDBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ *   CopyTags: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDBClusterSnapshotCommandInput - {@link CopyDBClusterSnapshotCommandInput}
+ * @returns {@link CopyDBClusterSnapshotCommandOutput}
  * @see {@link CopyDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CopyDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -93,6 +105,9 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDBClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +137,8 @@ export class CopyDBClusterSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDBClusterSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyDBClusterSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +148,18 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBClusterSnapshotCommand(input, context);
+    return se_CopyDBClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBClusterSnapshotCommandOutput> {
-    return deserializeAws_queryCopyDBClusterSnapshotCommand(output, context);
+    return de_CopyDBClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

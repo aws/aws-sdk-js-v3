@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  DomainNames,
-  DomainNamesFilterSensitiveLog,
-  GetDomainNamesRequest,
-  GetDomainNamesRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDomainNamesCommand,
-  serializeAws_restJson1GetDomainNamesCommand,
-} from "../protocols/Aws_restJson1";
+import { DomainNames, GetDomainNamesRequest } from "../models/models_0";
+import { de_GetDomainNamesCommand, se_GetDomainNamesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainNamesCommand}.
  */
 export interface GetDomainNamesCommandInput extends GetDomainNamesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainNamesCommand}.
  */
 export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents a collection of DomainName resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  * import { APIGatewayClient, GetDomainNamesCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetDomainNamesCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetDomainNamesRequest
+ *   position: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new GetDomainNamesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainNamesCommandInput - {@link GetDomainNamesCommandInput}
+ * @returns {@link GetDomainNamesCommandOutput}
  * @see {@link GetDomainNamesCommandInput} for command's `input` shape.
  * @see {@link GetDomainNamesCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetDomainNamesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainNamesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class GetDomainNamesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainNamesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DomainNamesFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class GetDomainNamesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainNamesCommand(input, context);
+    return se_GetDomainNamesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainNamesCommandOutput> {
-    return deserializeAws_restJson1GetDomainNamesCommand(output, context);
+    return de_GetDomainNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -17,35 +17,61 @@ import {
   StartSimulationInput,
   StartSimulationInputFilterSensitiveLog,
   StartSimulationOutput,
-  StartSimulationOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartSimulationCommand,
-  serializeAws_restJson1StartSimulationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartSimulationCommand, se_StartSimulationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartSimulationCommand}.
  */
 export interface StartSimulationCommandInput extends StartSimulationInput {}
 /**
+ * @public
+ *
  * The output of {@link StartSimulationCommand}.
  */
 export interface StartSimulationCommandOutput extends StartSimulationOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a simulation with the given name and schema.</p>
+ * @public
+ * <p>Starts a simulation with the given name. You must choose to start your
+ *          simulation from a schema or from a snapshot.
+ *          For more information about the schema, see the <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/schema-reference.html">schema reference</a>
+ *    in the <i>SimSpace Weaver User Guide</i>.
+ *          For more information about snapshots, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html">Snapshots</a>
+ *    in the <i>SimSpace Weaver User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SimSpaceWeaverClient, StartSimulationCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, StartSimulationCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = { // StartSimulationInput
+ *   ClientToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE", // required
+ *   SchemaS3Location: { // S3Location
+ *     BucketName: "STRING_VALUE",
+ *     ObjectKey: "STRING_VALUE",
+ *   },
+ *   MaximumDuration: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   SnapshotS3Location: {
+ *     BucketName: "STRING_VALUE",
+ *     ObjectKey: "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartSimulationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSimulationCommandInput - {@link StartSimulationCommandInput}
+ * @returns {@link StartSimulationCommandOutput}
  * @see {@link StartSimulationCommandInput} for command's `input` shape.
  * @see {@link StartSimulationCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -84,6 +110,9 @@ export class StartSimulationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSimulationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,7 +142,7 @@ export class StartSimulationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartSimulationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSimulationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +152,18 @@ export class StartSimulationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartSimulationCommand(input, context);
+    return se_StartSimulationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSimulationCommandOutput> {
-    return deserializeAws_restJson1StartSimulationCommand(output, context);
+    return de_StartSimulationCommand(output, context);
   }
 
   // Start section: command_body_extra

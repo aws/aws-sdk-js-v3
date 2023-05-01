@@ -2,6 +2,9 @@ import { isThrottlingError } from "@aws-sdk/service-error-classification";
 
 import { RateLimiter } from "./types";
 
+/**
+ * @internal
+ */
 export interface DefaultRateLimiterOptions {
   beta?: number;
   minCapacity?: number;
@@ -10,6 +13,9 @@ export interface DefaultRateLimiterOptions {
   smooth?: number;
 }
 
+/**
+ * @internal
+ */
 export class DefaultRateLimiter implements RateLimiter {
   // User configurable constants
   private beta: number;

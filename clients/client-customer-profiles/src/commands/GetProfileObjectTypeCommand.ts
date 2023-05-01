@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  GetProfileObjectTypeRequest,
-  GetProfileObjectTypeRequestFilterSensitiveLog,
-  GetProfileObjectTypeResponse,
-  GetProfileObjectTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetProfileObjectTypeCommand,
-  serializeAws_restJson1GetProfileObjectTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetProfileObjectTypeRequest, GetProfileObjectTypeResponse } from "../models/models_0";
+import { de_GetProfileObjectTypeCommand, se_GetProfileObjectTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProfileObjectTypeCommand}.
  */
 export interface GetProfileObjectTypeCommandInput extends GetProfileObjectTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProfileObjectTypeCommand}.
  */
 export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the object types for a specific domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
  * import { CustomerProfilesClient, GetProfileObjectTypeCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetProfileObjectTypeCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // GetProfileObjectTypeRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   ObjectTypeName: "STRING_VALUE", // required
+ * };
  * const command = new GetProfileObjectTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProfileObjectTypeCommandInput - {@link GetProfileObjectTypeCommandInput}
+ * @returns {@link GetProfileObjectTypeCommandOutput}
  * @see {@link GetProfileObjectTypeCommandInput} for command's `input` shape.
  * @see {@link GetProfileObjectTypeCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetProfileObjectTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProfileObjectTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetProfileObjectTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProfileObjectTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProfileObjectTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetProfileObjectTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProfileObjectTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProfileObjectTypeCommand(input, context);
+    return se_GetProfileObjectTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProfileObjectTypeCommandOutput> {
-    return deserializeAws_restJson1GetProfileObjectTypeCommand(output, context);
+    return de_GetProfileObjectTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRecoveryPointRequest,
-  GetRecoveryPointRequestFilterSensitiveLog,
-  GetRecoveryPointResponse,
-  GetRecoveryPointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRecoveryPointCommand,
-  serializeAws_json1_1GetRecoveryPointCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRecoveryPointRequest, GetRecoveryPointResponse } from "../models/models_0";
+import { de_GetRecoveryPointCommand, se_GetRecoveryPointCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecoveryPointCommand}.
  */
 export interface GetRecoveryPointCommandInput extends GetRecoveryPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecoveryPointCommand}.
  */
 export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a recovery point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse,
  * import { RedshiftServerlessClient, GetRecoveryPointCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetRecoveryPointCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // GetRecoveryPointRequest
+ *   recoveryPointId: "STRING_VALUE", // required
+ * };
  * const command = new GetRecoveryPointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecoveryPointCommandInput - {@link GetRecoveryPointCommandInput}
+ * @returns {@link GetRecoveryPointCommandOutput}
  * @see {@link GetRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -85,6 +87,9 @@ export class GetRecoveryPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class GetRecoveryPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecoveryPointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecoveryPointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class GetRecoveryPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRecoveryPointCommand(input, context);
+    return se_GetRecoveryPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecoveryPointCommandOutput> {
-    return deserializeAws_json1_1GetRecoveryPointCommand(output, context);
+    return de_GetRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

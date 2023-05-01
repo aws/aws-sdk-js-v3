@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateConfigurationSetRequest,
-  CreateConfigurationSetRequestFilterSensitiveLog,
-  CreateConfigurationSetResponse,
-  CreateConfigurationSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1CreateConfigurationSetCommand,
-  serializeAws_restJson1CreateConfigurationSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateConfigurationSetCommand, se_CreateConfigurationSetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationSetCommand}.
  */
 export interface CreateConfigurationSetCommandInput extends CreateConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationSetCommand}.
  */
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a configuration set. <i>Configuration sets</i> are groups of
  *             rules that you can apply to the emails you send using Amazon Pinpoint. You apply a configuration
  *             set to an email by including a reference to the configuration set in the headers of the
@@ -46,10 +43,35 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * import { PinpointEmailClient, CreateConfigurationSetCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, CreateConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // CreateConfigurationSetRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   TrackingOptions: { // TrackingOptions
+ *     CustomRedirectDomain: "STRING_VALUE", // required
+ *   },
+ *   DeliveryOptions: { // DeliveryOptions
+ *     TlsPolicy: "STRING_VALUE",
+ *     SendingPoolName: "STRING_VALUE",
+ *   },
+ *   ReputationOptions: { // ReputationOptions
+ *     ReputationMetricsEnabled: true || false,
+ *     LastFreshStart: new Date("TIMESTAMP"),
+ *   },
+ *   SendingOptions: { // SendingOptions
+ *     SendingEnabled: true || false,
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
+ * @returns {@link CreateConfigurationSetCommandOutput}
  * @see {@link CreateConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -91,6 +113,9 @@ export class CreateConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +144,8 @@ export class CreateConfigurationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfigurationSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfigurationSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +155,18 @@ export class CreateConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConfigurationSetCommand(input, context);
+    return se_CreateConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfigurationSetCommandOutput> {
-    return deserializeAws_restJson1CreateConfigurationSetCommand(output, context);
+    return de_CreateConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

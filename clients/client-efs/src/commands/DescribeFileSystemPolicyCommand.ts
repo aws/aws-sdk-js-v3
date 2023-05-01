@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  DescribeFileSystemPolicyRequest,
-  DescribeFileSystemPolicyRequestFilterSensitiveLog,
-  FileSystemPolicyDescription,
-  FileSystemPolicyDescriptionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFileSystemPolicyCommand,
-  serializeAws_restJson1DescribeFileSystemPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeFileSystemPolicyRequest, FileSystemPolicyDescription } from "../models/models_0";
+import { de_DescribeFileSystemPolicyCommand, se_DescribeFileSystemPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFileSystemPolicyCommand}.
  */
 export interface DescribeFileSystemPolicyCommandInput extends DescribeFileSystemPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFileSystemPolicyCommand}.
  */
 export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file system.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystemPolicy</code> action.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  * import { EFSClient, DescribeFileSystemPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeFileSystemPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeFileSystemPolicyRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFileSystemPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileSystemPolicyCommandInput - {@link DescribeFileSystemPolicyCommandInput}
+ * @returns {@link DescribeFileSystemPolicyCommandOutput}
  * @see {@link DescribeFileSystemPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -84,6 +86,9 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileSystemPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DescribeFileSystemPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFileSystemPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: FileSystemPolicyDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFileSystemPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFileSystemPolicyCommand(input, context);
+    return se_DescribeFileSystemPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileSystemPolicyCommandOutput> {
-    return deserializeAws_restJson1DescribeFileSystemPolicyCommand(output, context);
+    return de_DescribeFileSystemPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

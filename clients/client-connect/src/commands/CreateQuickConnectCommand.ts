@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateQuickConnectRequest,
-  CreateQuickConnectRequestFilterSensitiveLog,
-  CreateQuickConnectResponse,
-  CreateQuickConnectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateQuickConnectCommand,
-  serializeAws_restJson1CreateQuickConnectCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateQuickConnectRequest, CreateQuickConnectResponse } from "../models/models_0";
+import { de_CreateQuickConnectCommand, se_CreateQuickConnectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateQuickConnectCommand}.
  */
 export interface CreateQuickConnectCommandInput extends CreateQuickConnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateQuickConnectCommand}.
  */
 export interface CreateQuickConnectCommandOutput extends CreateQuickConnectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a quick connect for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,34 @@ export interface CreateQuickConnectCommandOutput extends CreateQuickConnectRespo
  * import { ConnectClient, CreateQuickConnectCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateQuickConnectCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateQuickConnectRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   QuickConnectConfig: { // QuickConnectConfig
+ *     QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
+ *     UserConfig: { // UserQuickConnectConfig
+ *       UserId: "STRING_VALUE", // required
+ *       ContactFlowId: "STRING_VALUE", // required
+ *     },
+ *     QueueConfig: { // QueueQuickConnectConfig
+ *       QueueId: "STRING_VALUE", // required
+ *       ContactFlowId: "STRING_VALUE", // required
+ *     },
+ *     PhoneConfig: { // PhoneNumberQuickConnectConfig
+ *       PhoneNumber: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateQuickConnectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQuickConnectCommandInput - {@link CreateQuickConnectCommandInput}
+ * @returns {@link CreateQuickConnectCommandOutput}
  * @see {@link CreateQuickConnectCommandInput} for command's `input` shape.
  * @see {@link CreateQuickConnectCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -90,6 +111,9 @@ export class CreateQuickConnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQuickConnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +142,8 @@ export class CreateQuickConnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQuickConnectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateQuickConnectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +153,18 @@ export class CreateQuickConnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateQuickConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateQuickConnectCommand(input, context);
+    return se_CreateQuickConnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQuickConnectCommandOutput> {
-    return deserializeAws_restJson1CreateQuickConnectCommand(output, context);
+    return de_CreateQuickConnectCommand(output, context);
   }
 
   // Start section: command_body_extra

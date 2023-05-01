@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEventsMessage,
-  DescribeEventsMessageFilterSensitiveLog,
-  EventsMessage,
-  EventsMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeEventsCommand,
-  serializeAws_queryDescribeEventsCommand,
-} from "../protocols/Aws_query";
+import { DescribeEventsMessage, EventsMessage } from "../models/models_1";
+import { de_DescribeEventsCommand, se_DescribeEventsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventsCommand}.
  */
 export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns events related to DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, DB cluster snapshots, and RDS Proxies for the past 14 days.
  *           Events specific to a particular DB instance, DB cluster, DB parameter group, DB security group, DB snapshot, DB cluster snapshot group, or RDS Proxy can be
  *           obtained by providing the name as a parameter.</p>
@@ -49,29 +46,73 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * import { RDSClient, DescribeEventsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeEventsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeEventsMessage
+ *   SourceIdentifier: "STRING_VALUE",
+ *   SourceType: "db-instance" || "db-parameter-group" || "db-security-group" || "db-snapshot" || "db-cluster" || "db-cluster-snapshot" || "custom-engine-version" || "db-proxy" || "blue-green-deployment",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Duration: Number("int"),
+ *   EventCategories: [ // EventCategoriesList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
+ * @returns {@link DescribeEventsCommandOutput}
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  *
- * @example To list information about events
+ * @example To describe events
  * ```javascript
- * // This example lists information for all backup-related events for the specified DB instance for the past 7 days (7 days * 24 hours * 60 minutes = 10,080 minutes).
+ * // The following retrieves details for the events that have occurred for the specified DB instance.
  * const input = {
- *   "Duration": 10080,
- *   "EventCategories": [
- *     "backup"
- *   ],
- *   "SourceIdentifier": "mymysqlinstance",
+ *   "SourceIdentifier": "test-instance",
  *   "SourceType": "db-instance"
  * };
  * const command = new DescribeEventsCommand(input);
- * await client.send(command);
- * // example id: describe-events-3836e5ed-3913-4f76-8452-c77fcad5016b
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Events": [
+ *     {
+ *       "Date": "2018-07-31T23:09:23.983Z",
+ *       "EventCategories": [
+ *         "backup"
+ *       ],
+ *       "Message": "Backing up DB instance",
+ *       "SourceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance",
+ *       "SourceIdentifier": "test-instance",
+ *       "SourceType": "db-instance"
+ *     },
+ *     {
+ *       "Date": "2018-07-31T23:15:13.049Z",
+ *       "EventCategories": [
+ *         "backup"
+ *       ],
+ *       "Message": "Finished DB Instance backup",
+ *       "SourceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance",
+ *       "SourceIdentifier": "test-instance",
+ *       "SourceType": "db-instance"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-events-1680281559411
  * ```
  *
  */
@@ -92,6 +133,9 @@ export class DescribeEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +164,8 @@ export class DescribeEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EventsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +175,18 @@ export class DescribeEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventsCommand(input, context);
+    return se_DescribeEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventsCommandOutput> {
-    return deserializeAws_queryDescribeEventsCommand(output, context);
+    return de_DescribeEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

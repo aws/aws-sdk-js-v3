@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListBillingGroupsRequest,
-  ListBillingGroupsRequestFilterSensitiveLog,
-  ListBillingGroupsResponse,
-  ListBillingGroupsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListBillingGroupsCommand,
-  serializeAws_restJson1ListBillingGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBillingGroupsRequest, ListBillingGroupsResponse } from "../models/models_1";
+import { de_ListBillingGroupsCommand, se_ListBillingGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBillingGroupsCommand}.
  */
 export interface ListBillingGroupsCommandInput extends ListBillingGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBillingGroupsCommand}.
  */
 export interface ListBillingGroupsCommandOutput extends ListBillingGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the billing groups you have created.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListBillingGroups</a> action.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsRespons
  * import { IoTClient, ListBillingGroupsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListBillingGroupsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListBillingGroupsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   namePrefixFilter: "STRING_VALUE",
+ * };
  * const command = new ListBillingGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBillingGroupsCommandInput - {@link ListBillingGroupsCommandInput}
+ * @returns {@link ListBillingGroupsCommandOutput}
  * @see {@link ListBillingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListBillingGroupsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +86,9 @@ export class ListBillingGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBillingGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListBillingGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBillingGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBillingGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class ListBillingGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBillingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBillingGroupsCommand(input, context);
+    return se_ListBillingGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBillingGroupsCommandOutput> {
-    return deserializeAws_restJson1ListBillingGroupsCommand(output, context);
+    return de_ListBillingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

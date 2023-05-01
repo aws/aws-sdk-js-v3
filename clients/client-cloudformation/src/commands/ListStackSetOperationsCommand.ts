@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ListStackSetOperationsInput,
-  ListStackSetOperationsInputFilterSensitiveLog,
-  ListStackSetOperationsOutput,
-  ListStackSetOperationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListStackSetOperationsCommand,
-  serializeAws_queryListStackSetOperationsCommand,
-} from "../protocols/Aws_query";
+import { ListStackSetOperationsInput, ListStackSetOperationsOutput } from "../models/models_0";
+import { de_ListStackSetOperationsCommand, se_ListStackSetOperationsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListStackSetOperationsCommand}.
  */
 export interface ListStackSetOperationsCommandInput extends ListStackSetOperationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListStackSetOperationsCommand}.
  */
 export interface ListStackSetOperationsCommandOutput extends ListStackSetOperationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summary information about operations performed on a stack set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
  * import { CloudFormationClient, ListStackSetOperationsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackSetOperationsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // ListStackSetOperationsInput
+ *   StackSetName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new ListStackSetOperationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStackSetOperationsCommandInput - {@link ListStackSetOperationsCommandInput}
+ * @returns {@link ListStackSetOperationsCommandOutput}
  * @see {@link ListStackSetOperationsCommandInput} for command's `input` shape.
  * @see {@link ListStackSetOperationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -72,6 +77,9 @@ export class ListStackSetOperationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStackSetOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +108,8 @@ export class ListStackSetOperationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStackSetOperationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStackSetOperationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +119,18 @@ export class ListStackSetOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStackSetOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListStackSetOperationsCommand(input, context);
+    return se_ListStackSetOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStackSetOperationsCommandOutput> {
-    return deserializeAws_queryListStackSetOperationsCommand(output, context);
+    return de_ListStackSetOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { PutMetricFilterRequest, PutMetricFilterRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutMetricFilterCommand,
-  serializeAws_json1_1PutMetricFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { PutMetricFilterRequest } from "../models/models_0";
+import { de_PutMetricFilterCommand, se_PutMetricFilterCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutMetricFilterCommand}.
  */
 export interface PutMetricFilterCommandInput extends PutMetricFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMetricFilterCommand}.
  */
 export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a metric filter and associates it with the specified log group. With
  *       metric filters, you can configure rules to extract metric data from log events ingested
  *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
@@ -59,10 +61,29 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, PutMetricFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutMetricFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // PutMetricFilterRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   filterName: "STRING_VALUE", // required
+ *   filterPattern: "STRING_VALUE", // required
+ *   metricTransformations: [ // MetricTransformations // required
+ *     { // MetricTransformation
+ *       metricName: "STRING_VALUE", // required
+ *       metricNamespace: "STRING_VALUE", // required
+ *       metricValue: "STRING_VALUE", // required
+ *       defaultValue: Number("double"),
+ *       dimensions: { // Dimensions
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *     },
+ *   ],
+ * };
  * const command = new PutMetricFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMetricFilterCommandInput - {@link PutMetricFilterCommandInput}
+ * @returns {@link PutMetricFilterCommandOutput}
  * @see {@link PutMetricFilterCommandInput} for command's `input` shape.
  * @see {@link PutMetricFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -101,6 +122,9 @@ export class PutMetricFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMetricFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +153,8 @@ export class PutMetricFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMetricFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +164,18 @@ export class PutMetricFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutMetricFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutMetricFilterCommand(input, context);
+    return se_PutMetricFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricFilterCommandOutput> {
-    return deserializeAws_json1_1PutMetricFilterCommand(output, context);
+    return de_PutMetricFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

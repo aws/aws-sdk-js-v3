@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSigningPlatformsRequest,
-  ListSigningPlatformsRequestFilterSensitiveLog,
-  ListSigningPlatformsResponse,
-  ListSigningPlatformsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSigningPlatformsCommand,
-  serializeAws_restJson1ListSigningPlatformsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSigningPlatformsRequest, ListSigningPlatformsResponse } from "../models/models_0";
+import { de_ListSigningPlatformsCommand, se_ListSigningPlatformsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSigningPlatformsCommand}.
  */
 export interface ListSigningPlatformsCommandInput extends ListSigningPlatformsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSigningPlatformsCommand}.
  */
 export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all signing platforms available in code signing that match the request parameters. If
  * 			additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use
  * 			this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining
@@ -48,10 +45,19 @@ export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsR
  * import { SignerClient, ListSigningPlatformsCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListSigningPlatformsCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // ListSigningPlatformsRequest
+ *   category: "STRING_VALUE",
+ *   partner: "STRING_VALUE",
+ *   target: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSigningPlatformsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSigningPlatformsCommandInput - {@link ListSigningPlatformsCommandInput}
+ * @returns {@link ListSigningPlatformsCommandOutput}
  * @see {@link ListSigningPlatformsCommandInput} for command's `input` shape.
  * @see {@link ListSigningPlatformsCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -88,6 +94,9 @@ export class ListSigningPlatformsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSigningPlatformsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +125,8 @@ export class ListSigningPlatformsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSigningPlatformsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSigningPlatformsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +136,18 @@ export class ListSigningPlatformsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSigningPlatformsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSigningPlatformsCommand(input, context);
+    return se_ListSigningPlatformsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSigningPlatformsCommandOutput> {
-    return deserializeAws_restJson1ListSigningPlatformsCommand(output, context);
+    return de_ListSigningPlatformsCommand(output, context);
   }
 
   // Start section: command_body_extra

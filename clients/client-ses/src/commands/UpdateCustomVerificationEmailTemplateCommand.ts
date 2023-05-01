@@ -13,27 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateCustomVerificationEmailTemplateRequest } from "../models/models_0";
 import {
-  UpdateCustomVerificationEmailTemplateRequest,
-  UpdateCustomVerificationEmailTemplateRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand,
-  serializeAws_queryUpdateCustomVerificationEmailTemplateCommand,
+  de_UpdateCustomVerificationEmailTemplateCommand,
+  se_UpdateCustomVerificationEmailTemplateCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCustomVerificationEmailTemplateCommand}.
  */
 export interface UpdateCustomVerificationEmailTemplateCommandInput
   extends UpdateCustomVerificationEmailTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCustomVerificationEmailTemplateCommand}.
  */
 export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing custom verification email template.</p>
  *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
  *                 Guide</i>.</p>
@@ -44,10 +46,20 @@ export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __Me
  * import { SESClient, UpdateCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // UpdateCustomVerificationEmailTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   FromEmailAddress: "STRING_VALUE",
+ *   TemplateSubject: "STRING_VALUE",
+ *   TemplateContent: "STRING_VALUE",
+ *   SuccessRedirectionURL: "STRING_VALUE",
+ *   FailureRedirectionURL: "STRING_VALUE",
+ * };
  * const command = new UpdateCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCustomVerificationEmailTemplateCommandInput - {@link UpdateCustomVerificationEmailTemplateCommandInput}
+ * @returns {@link UpdateCustomVerificationEmailTemplateCommandOutput}
  * @see {@link UpdateCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -82,6 +94,9 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCustomVerificationEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +125,8 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCustomVerificationEmailTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +136,24 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateCustomVerificationEmailTemplateCommand(input, context);
+    return se_UpdateCustomVerificationEmailTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> {
-    return deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand(output, context);
+    return de_UpdateCustomVerificationEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

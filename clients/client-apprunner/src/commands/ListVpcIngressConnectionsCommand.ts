@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  ListVpcIngressConnectionsRequest,
-  ListVpcIngressConnectionsRequestFilterSensitiveLog,
-  ListVpcIngressConnectionsResponse,
-  ListVpcIngressConnectionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListVpcIngressConnectionsCommand,
-  serializeAws_json1_0ListVpcIngressConnectionsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListVpcIngressConnectionsRequest, ListVpcIngressConnectionsResponse } from "../models/models_0";
+import { de_ListVpcIngressConnectionsCommand, se_ListVpcIngressConnectionsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListVpcIngressConnectionsCommand}.
  */
 export interface ListVpcIngressConnectionsCommandInput extends ListVpcIngressConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVpcIngressConnectionsCommand}.
  */
 export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressConnectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a list of App Runner VPC Ingress Connections in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressCo
  * import { AppRunnerClient, ListVpcIngressConnectionsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListVpcIngressConnectionsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // ListVpcIngressConnectionsRequest
+ *   Filter: { // ListVpcIngressConnectionsFilter
+ *     ServiceArn: "STRING_VALUE",
+ *     VpcEndpointId: "STRING_VALUE",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListVpcIngressConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVpcIngressConnectionsCommandInput - {@link ListVpcIngressConnectionsCommandInput}
+ * @returns {@link ListVpcIngressConnectionsCommandOutput}
  * @see {@link ListVpcIngressConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListVpcIngressConnectionsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -75,6 +82,9 @@ export class ListVpcIngressConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVpcIngressConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +113,8 @@ export class ListVpcIngressConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVpcIngressConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVpcIngressConnectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +124,21 @@ export class ListVpcIngressConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVpcIngressConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListVpcIngressConnectionsCommand(input, context);
+    return se_ListVpcIngressConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVpcIngressConnectionsCommandOutput> {
-    return deserializeAws_json1_0ListVpcIngressConnectionsCommand(output, context);
+    return de_ListVpcIngressConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

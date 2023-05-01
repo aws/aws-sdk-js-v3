@@ -4,6 +4,9 @@ import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./config";
 import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS } from "./constants";
 import { getDefaultRetryToken } from "./defaultRetryToken";
 
+/**
+ * @internal
+ */
 export class StandardRetryStrategy implements RetryStrategyV2 {
   private retryToken: StandardRetryToken;
   public readonly mode: string = RETRY_MODES.STANDARD;

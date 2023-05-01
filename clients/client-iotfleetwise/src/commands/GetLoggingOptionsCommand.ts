@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetLoggingOptionsRequest,
-  GetLoggingOptionsRequestFilterSensitiveLog,
-  GetLoggingOptionsResponse,
-  GetLoggingOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetLoggingOptionsCommand,
-  serializeAws_json1_0GetLoggingOptionsCommand,
-} from "../protocols/Aws_json1_0";
+import { GetLoggingOptionsRequest, GetLoggingOptionsResponse } from "../models/models_0";
+import { de_GetLoggingOptionsCommand, se_GetLoggingOptionsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetLoggingOptionsCommand}.
  */
 export interface GetLoggingOptionsCommandInput extends GetLoggingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLoggingOptionsCommand}.
  */
 export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the logging options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * import { IoTFleetWiseClient, GetLoggingOptionsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetLoggingOptionsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {};
  * const command = new GetLoggingOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLoggingOptionsCommandInput - {@link GetLoggingOptionsCommandInput}
+ * @returns {@link GetLoggingOptionsCommandOutput}
  * @see {@link GetLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link GetLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -78,6 +78,9 @@ export class GetLoggingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLoggingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +109,8 @@ export class GetLoggingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLoggingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLoggingOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +120,18 @@ export class GetLoggingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetLoggingOptionsCommand(input, context);
+    return se_GetLoggingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggingOptionsCommandOutput> {
-    return deserializeAws_json1_0GetLoggingOptionsCommand(output, context);
+    return de_GetLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

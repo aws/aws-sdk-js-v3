@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  DeleteGatewayRouteInput,
-  DeleteGatewayRouteInputFilterSensitiveLog,
-  DeleteGatewayRouteOutput,
-  DeleteGatewayRouteOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteGatewayRouteCommand,
-  serializeAws_restJson1DeleteGatewayRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteGatewayRouteInput, DeleteGatewayRouteOutput } from "../models/models_0";
+import { de_DeleteGatewayRouteCommand, se_DeleteGatewayRouteCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGatewayRouteCommand}.
  */
 export interface DeleteGatewayRouteCommandInput extends DeleteGatewayRouteInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGatewayRouteCommand}.
  */
 export interface DeleteGatewayRouteCommandOutput extends DeleteGatewayRouteOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing gateway route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DeleteGatewayRouteCommandOutput extends DeleteGatewayRouteOutpu
  * import { AppMeshClient, DeleteGatewayRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DeleteGatewayRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // DeleteGatewayRouteInput
+ *   gatewayRouteName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   virtualGatewayName: "STRING_VALUE", // required
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteGatewayRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGatewayRouteCommandInput - {@link DeleteGatewayRouteCommandInput}
+ * @returns {@link DeleteGatewayRouteCommandOutput}
  * @see {@link DeleteGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -94,6 +99,9 @@ export class DeleteGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +130,8 @@ export class DeleteGatewayRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGatewayRouteInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGatewayRouteOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +141,18 @@ export class DeleteGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGatewayRouteCommand(input, context);
+    return se_DeleteGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayRouteCommandOutput> {
-    return deserializeAws_restJson1DeleteGatewayRouteCommand(output, context);
+    return de_DeleteGatewayRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

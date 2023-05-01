@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  UpdateExportRequest,
-  UpdateExportRequestFilterSensitiveLog,
-  UpdateExportResponse,
-  UpdateExportResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateExportCommand,
-  serializeAws_restJson1UpdateExportCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateExportRequest, UpdateExportRequestFilterSensitiveLog, UpdateExportResponse } from "../models/models_1";
+import { de_UpdateExportCommand, se_UpdateExportCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateExportCommand}.
  */
 export interface UpdateExportCommandInput extends UpdateExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateExportCommand}.
  */
 export interface UpdateExportCommandOutput extends UpdateExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the password used to protect an export zip archive.</p>
  *          <p>The password is not required. If you don't supply a password, Amazon Lex
  *          generates a zip file that is not protected by a password. This is the
@@ -46,10 +43,16 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * import { LexModelsV2Client, UpdateExportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateExportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // UpdateExportRequest
+ *   exportId: "STRING_VALUE", // required
+ *   filePassword: "STRING_VALUE",
+ * };
  * const command = new UpdateExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateExportCommandInput - {@link UpdateExportCommandInput}
+ * @returns {@link UpdateExportCommandOutput}
  * @see {@link UpdateExportCommandInput} for command's `input` shape.
  * @see {@link UpdateExportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -97,6 +100,9 @@ export class UpdateExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,7 +130,7 @@ export class UpdateExportCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateExportResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class UpdateExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateExportCommand(input, context);
+    return se_UpdateExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExportCommandOutput> {
-    return deserializeAws_restJson1UpdateExportCommand(output, context);
+    return de_UpdateExportCommand(output, context);
   }
 
   // Start section: command_body_extra

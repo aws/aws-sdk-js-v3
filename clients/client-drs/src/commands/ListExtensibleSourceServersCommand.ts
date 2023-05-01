@@ -16,20 +16,23 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   ListExtensibleSourceServersRequest,
-  ListExtensibleSourceServersRequestFilterSensitiveLog,
   ListExtensibleSourceServersResponse,
   ListExtensibleSourceServersResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListExtensibleSourceServersCommand,
-  serializeAws_restJson1ListExtensibleSourceServersCommand,
+  de_ListExtensibleSourceServersCommand,
+  se_ListExtensibleSourceServersCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExtensibleSourceServersCommand}.
  */
 export interface ListExtensibleSourceServersCommandInput extends ListExtensibleSourceServersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExtensibleSourceServersCommand}.
  */
 export interface ListExtensibleSourceServersCommandOutput
@@ -37,6 +40,7 @@ export interface ListExtensibleSourceServersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of source servers on a staging account that are extensible, which means that:
  *             a. The source server is not already extended into this Account.
  *             b. The source server on the Account we’re reading from is not an extension of another source server.
@@ -47,10 +51,17 @@ export interface ListExtensibleSourceServersCommandOutput
  * import { DrsClient, ListExtensibleSourceServersCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, ListExtensibleSourceServersCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // ListExtensibleSourceServersRequest
+ *   stagingAccountID: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListExtensibleSourceServersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExtensibleSourceServersCommandInput - {@link ListExtensibleSourceServersCommandInput}
+ * @returns {@link ListExtensibleSourceServersCommandOutput}
  * @see {@link ListExtensibleSourceServersCommandInput} for command's `input` shape.
  * @see {@link ListExtensibleSourceServersCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -89,6 +100,9 @@ export class ListExtensibleSourceServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExtensibleSourceServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,7 +131,7 @@ export class ListExtensibleSourceServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExtensibleSourceServersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListExtensibleSourceServersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -128,15 +142,21 @@ export class ListExtensibleSourceServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExtensibleSourceServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExtensibleSourceServersCommand(input, context);
+    return se_ListExtensibleSourceServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListExtensibleSourceServersCommandOutput> {
-    return deserializeAws_restJson1ListExtensibleSourceServersCommand(output, context);
+    return de_ListExtensibleSourceServersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetMLTaskRunsRequest,
-  GetMLTaskRunsRequestFilterSensitiveLog,
-  GetMLTaskRunsResponse,
-  GetMLTaskRunsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetMLTaskRunsCommand,
-  serializeAws_json1_1GetMLTaskRunsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMLTaskRunsRequest, GetMLTaskRunsResponse } from "../models/models_1";
+import { de_GetMLTaskRunsCommand, se_GetMLTaskRunsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMLTaskRunsCommand}.
  */
 export interface GetMLTaskRunsCommandInput extends GetMLTaskRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMLTaskRunsCommand}.
  */
 export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of runs for a machine learning transform. Machine learning task runs are
  *       asynchronous tasks that Glue runs on your behalf as part of various machine learning
  *       workflows. You can get a sortable, filterable list of machine learning task runs by calling
@@ -47,10 +44,27 @@ export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __Met
  * import { GlueClient, GetMLTaskRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetMLTaskRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetMLTaskRunsRequest
+ *   TransformId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filter: { // TaskRunFilterCriteria
+ *     TaskRunType: "EVALUATION" || "LABELING_SET_GENERATION" || "IMPORT_LABELS" || "EXPORT_LABELS" || "FIND_MATCHES",
+ *     Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
+ *     StartedBefore: new Date("TIMESTAMP"),
+ *     StartedAfter: new Date("TIMESTAMP"),
+ *   },
+ *   Sort: { // TaskRunSortCriteria
+ *     Column: "TASK_RUN_TYPE" || "STATUS" || "STARTED", // required
+ *     SortDirection: "DESCENDING" || "ASCENDING", // required
+ *   },
+ * };
  * const command = new GetMLTaskRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMLTaskRunsCommandInput - {@link GetMLTaskRunsCommandInput}
+ * @returns {@link GetMLTaskRunsCommandOutput}
  * @see {@link GetMLTaskRunsCommandInput} for command's `input` shape.
  * @see {@link GetMLTaskRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +100,9 @@ export class GetMLTaskRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMLTaskRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +129,8 @@ export class GetMLTaskRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMLTaskRunsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMLTaskRunsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +140,18 @@ export class GetMLTaskRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMLTaskRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMLTaskRunsCommand(input, context);
+    return se_GetMLTaskRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMLTaskRunsCommandOutput> {
-    return deserializeAws_json1_1GetMLTaskRunsCommand(output, context);
+    return de_GetMLTaskRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

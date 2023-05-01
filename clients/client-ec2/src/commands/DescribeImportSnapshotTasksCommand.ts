@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeImportSnapshotTasksRequest,
-  DescribeImportSnapshotTasksRequestFilterSensitiveLog,
-  DescribeImportSnapshotTasksResult,
-  DescribeImportSnapshotTasksResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeImportSnapshotTasksCommand,
-  serializeAws_ec2DescribeImportSnapshotTasksCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeImportSnapshotTasksRequest, DescribeImportSnapshotTasksResult } from "../models/models_3";
+import { de_DescribeImportSnapshotTasksCommand, se_DescribeImportSnapshotTasksCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImportSnapshotTasksCommand}.
  */
 export interface DescribeImportSnapshotTasksCommandInput extends DescribeImportSnapshotTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImportSnapshotTasksCommand}.
  */
 export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImportSnapshotTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes your import snapshot tasks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImport
  * import { EC2Client, DescribeImportSnapshotTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeImportSnapshotTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeImportSnapshotTasksRequest
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ImportTaskIds: [ // ImportSnapshotTaskIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeImportSnapshotTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImportSnapshotTasksCommandInput - {@link DescribeImportSnapshotTasksCommandInput}
+ * @returns {@link DescribeImportSnapshotTasksCommandOutput}
  * @see {@link DescribeImportSnapshotTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeImportSnapshotTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +84,9 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImportSnapshotTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +115,8 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImportSnapshotTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImportSnapshotTasksResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +126,21 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImportSnapshotTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeImportSnapshotTasksCommand(input, context);
+    return se_DescribeImportSnapshotTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeImportSnapshotTasksCommandOutput> {
-    return deserializeAws_ec2DescribeImportSnapshotTasksCommand(output, context);
+    return de_DescribeImportSnapshotTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

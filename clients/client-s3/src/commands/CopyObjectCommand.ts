@@ -21,22 +21,24 @@ import {
   CopyObjectRequest,
   CopyObjectRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCopyObjectCommand,
-  serializeAws_restXmlCopyObjectCommand,
-} from "../protocols/Aws_restXml";
+import { de_CopyObjectCommand, se_CopyObjectCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link CopyObjectCommand}.
  */
 export interface CopyObjectCommandInput extends CopyObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyObjectCommand}.
  */
 export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a copy of an object that is already stored in Amazon S3.</p>
  *          <note>
  *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your
@@ -227,10 +229,57 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * import { S3Client, CopyObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CopyObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // CopyObjectRequest
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *   Bucket: "STRING_VALUE", // required
+ *   CacheControl: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ContentDisposition: "STRING_VALUE",
+ *   ContentEncoding: "STRING_VALUE",
+ *   ContentLanguage: "STRING_VALUE",
+ *   ContentType: "STRING_VALUE",
+ *   CopySource: "STRING_VALUE", // required
+ *   CopySourceIfMatch: "STRING_VALUE",
+ *   CopySourceIfModifiedSince: new Date("TIMESTAMP"),
+ *   CopySourceIfNoneMatch: "STRING_VALUE",
+ *   CopySourceIfUnmodifiedSince: new Date("TIMESTAMP"),
+ *   Expires: new Date("TIMESTAMP"),
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   Key: "STRING_VALUE", // required
+ *   Metadata: { // Metadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   MetadataDirective: "COPY" || "REPLACE",
+ *   TaggingDirective: "COPY" || "REPLACE",
+ *   ServerSideEncryption: "AES256" || "aws:kms",
+ *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ *   WebsiteRedirectLocation: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   SSEKMSKeyId: "STRING_VALUE",
+ *   SSEKMSEncryptionContext: "STRING_VALUE",
+ *   BucketKeyEnabled: true || false,
+ *   CopySourceSSECustomerAlgorithm: "STRING_VALUE",
+ *   CopySourceSSECustomerKey: "STRING_VALUE",
+ *   CopySourceSSECustomerKeyMD5: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   Tagging: "STRING_VALUE",
+ *   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
+ *   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
+ *   ObjectLockLegalHoldStatus: "ON" || "OFF",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedSourceBucketOwner: "STRING_VALUE",
+ * };
  * const command = new CopyObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyObjectCommandInput - {@link CopyObjectCommandInput}
+ * @returns {@link CopyObjectCommandOutput}
  * @see {@link CopyObjectCommandInput} for command's `input` shape.
  * @see {@link CopyObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -285,6 +334,9 @@ export class CopyObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -324,12 +376,18 @@ export class CopyObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCopyObjectCommand(input, context);
+    return se_CopyObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyObjectCommandOutput> {
-    return deserializeAws_restXmlCopyObjectCommand(output, context);
+    return de_CopyObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

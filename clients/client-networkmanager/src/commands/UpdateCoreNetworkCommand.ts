@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateCoreNetworkRequest,
-  UpdateCoreNetworkRequestFilterSensitiveLog,
-  UpdateCoreNetworkResponse,
-  UpdateCoreNetworkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateCoreNetworkRequest, UpdateCoreNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1UpdateCoreNetworkCommand,
-  serializeAws_restJson1UpdateCoreNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateCoreNetworkCommand, se_UpdateCoreNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCoreNetworkCommand}.
  */
 export interface UpdateCoreNetworkCommandInput extends UpdateCoreNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCoreNetworkCommand}.
  */
 export interface UpdateCoreNetworkCommandOutput extends UpdateCoreNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description of a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateCoreNetworkCommandOutput extends UpdateCoreNetworkRespons
  * import { NetworkManagerClient, UpdateCoreNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateCoreNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // UpdateCoreNetworkRequest
+ *   CoreNetworkId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateCoreNetworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCoreNetworkCommandInput - {@link UpdateCoreNetworkCommandInput}
+ * @returns {@link UpdateCoreNetworkCommandOutput}
  * @see {@link UpdateCoreNetworkCommandInput} for command's `input` shape.
  * @see {@link UpdateCoreNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +91,9 @@ export class UpdateCoreNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCoreNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class UpdateCoreNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCoreNetworkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCoreNetworkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class UpdateCoreNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCoreNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCoreNetworkCommand(input, context);
+    return se_UpdateCoreNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCoreNetworkCommandOutput> {
-    return deserializeAws_restJson1UpdateCoreNetworkCommand(output, context);
+    return de_UpdateCoreNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

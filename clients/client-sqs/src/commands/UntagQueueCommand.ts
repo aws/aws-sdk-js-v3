@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UntagQueueRequest, UntagQueueRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryUntagQueueCommand, serializeAws_queryUntagQueueCommand } from "../protocols/Aws_query";
+import { UntagQueueRequest } from "../models/models_0";
+import { de_UntagQueueCommand, se_UntagQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link UntagQueueCommand}.
  */
 export interface UntagQueueCommandInput extends UntagQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagQueueCommand}.
  */
 export interface UntagQueueCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove cost allocation tags from the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
  * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *         <note>
@@ -40,10 +45,18 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  * import { SQSClient, UntagQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, UntagQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // UntagQueueRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ *   TagKeys: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagQueueCommandInput - {@link UntagQueueCommandInput}
+ * @returns {@link UntagQueueCommandOutput}
  * @see {@link UntagQueueCommandInput} for command's `input` shape.
  * @see {@link UntagQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -67,6 +80,9 @@ export class UntagQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +109,8 @@ export class UntagQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +120,18 @@ export class UntagQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagQueueCommand(input, context);
+    return se_UntagQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagQueueCommandOutput> {
-    return deserializeAws_queryUntagQueueCommand(output, context);
+    return de_UntagQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

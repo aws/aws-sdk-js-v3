@@ -20,20 +20,22 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   GetMessagingStreamingConfigurationsRequest,
-  GetMessagingStreamingConfigurationsRequestFilterSensitiveLog,
   GetMessagingStreamingConfigurationsResponse,
-  GetMessagingStreamingConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetMessagingStreamingConfigurationsCommand,
-  serializeAws_restJson1GetMessagingStreamingConfigurationsCommand,
+  de_GetMessagingStreamingConfigurationsCommand,
+  se_GetMessagingStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMessagingStreamingConfigurationsCommand}.
  */
 export interface GetMessagingStreamingConfigurationsCommandInput extends GetMessagingStreamingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMessagingStreamingConfigurationsCommand}.
  */
 export interface GetMessagingStreamingConfigurationsCommandOutput
@@ -41,6 +43,7 @@ export interface GetMessagingStreamingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see
  *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
  * @example
@@ -49,10 +52,15 @@ export interface GetMessagingStreamingConfigurationsCommandOutput
  * import { ChimeSDKMessagingClient, GetMessagingStreamingConfigurationsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, GetMessagingStreamingConfigurationsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // GetMessagingStreamingConfigurationsRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetMessagingStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMessagingStreamingConfigurationsCommandInput - {@link GetMessagingStreamingConfigurationsCommandInput}
+ * @returns {@link GetMessagingStreamingConfigurationsCommandOutput}
  * @see {@link GetMessagingStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link GetMessagingStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -97,6 +105,9 @@ export class GetMessagingStreamingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMessagingStreamingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +136,8 @@ export class GetMessagingStreamingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMessagingStreamingConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMessagingStreamingConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +147,24 @@ export class GetMessagingStreamingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetMessagingStreamingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMessagingStreamingConfigurationsCommand(input, context);
+    return se_GetMessagingStreamingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMessagingStreamingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1GetMessagingStreamingConfigurationsCommand(output, context);
+    return de_GetMessagingStreamingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

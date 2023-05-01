@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateGlobalClusterMessage,
-  CreateGlobalClusterMessageFilterSensitiveLog,
-  CreateGlobalClusterResult,
-  CreateGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateGlobalClusterMessage, CreateGlobalClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryCreateGlobalClusterCommand,
-  serializeAws_queryCreateGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { de_CreateGlobalClusterCommand, se_CreateGlobalClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGlobalClusterCommand}.
  */
 export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateGlobalClusterCommand}.
  */
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Neptune global database spread across multiple Amazon Regions.
  *       The global database contains a single primary cluster with read-write
  *       capability, and read-only secondary clusters that receive data from the
@@ -50,10 +47,20 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * import { NeptuneClient, CreateGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // CreateGlobalClusterMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ *   SourceDBClusterIdentifier: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   StorageEncrypted: true || false,
+ * };
  * const command = new CreateGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGlobalClusterCommandInput - {@link CreateGlobalClusterCommandInput}
+ * @returns {@link CreateGlobalClusterCommandOutput}
  * @see {@link CreateGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class CreateGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +139,18 @@ export class CreateGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateGlobalClusterCommand(input, context);
+    return se_CreateGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalClusterCommandOutput> {
-    return deserializeAws_queryCreateGlobalClusterCommand(output, context);
+    return de_CreateGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

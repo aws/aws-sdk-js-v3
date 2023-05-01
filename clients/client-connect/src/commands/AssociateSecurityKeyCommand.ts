@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  AssociateSecurityKeyRequest,
-  AssociateSecurityKeyRequestFilterSensitiveLog,
-  AssociateSecurityKeyResponse,
-  AssociateSecurityKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateSecurityKeyCommand,
-  serializeAws_restJson1AssociateSecurityKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateSecurityKeyRequest, AssociateSecurityKeyResponse } from "../models/models_0";
+import { de_AssociateSecurityKeyCommand, se_AssociateSecurityKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateSecurityKeyCommand}.
  */
 export interface AssociateSecurityKeyCommandInput extends AssociateSecurityKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateSecurityKeyCommand}.
  */
 export interface AssociateSecurityKeyCommandOutput extends AssociateSecurityKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates a security key to the instance.</p>
  * @example
@@ -43,10 +40,16 @@ export interface AssociateSecurityKeyCommandOutput extends AssociateSecurityKeyR
  * import { ConnectClient, AssociateSecurityKeyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateSecurityKeyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // AssociateSecurityKeyRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ * };
  * const command = new AssociateSecurityKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateSecurityKeyCommandInput - {@link AssociateSecurityKeyCommandInput}
+ * @returns {@link AssociateSecurityKeyCommandOutput}
  * @see {@link AssociateSecurityKeyCommandInput} for command's `input` shape.
  * @see {@link AssociateSecurityKeyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -91,6 +94,9 @@ export class AssociateSecurityKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSecurityKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class AssociateSecurityKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSecurityKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSecurityKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +136,18 @@ export class AssociateSecurityKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSecurityKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateSecurityKeyCommand(input, context);
+    return se_AssociateSecurityKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSecurityKeyCommandOutput> {
-    return deserializeAws_restJson1AssociateSecurityKeyCommand(output, context);
+    return de_AssociateSecurityKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

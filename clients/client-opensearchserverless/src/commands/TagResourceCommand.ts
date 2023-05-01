@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TagResourceRequest,
-  TagResourceRequestFilterSensitiveLog,
-  TagResourceResponse,
-  TagResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0TagResourceCommand,
-  serializeAws_json1_0TagResourceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link TagResourceCommand}.
  */
 export interface TagResourceCommandInput extends TagResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagResourceCommand}.
  */
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates tags with an OpenSearch Serverless resource. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html">Tagging Amazon OpenSearch Serverless collections</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,17 +43,28 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { OpenSearchServerlessClient, TagResourceCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, TagResourceCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // TagResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: [ // Tags // required
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a collection, thrown when a collection with the same name already exists
- *             or is being created. When deleting a collection, thrown when the collection is not in
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
  *             the ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
@@ -64,6 +72,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
@@ -88,6 +99,9 @@ export class TagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +128,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +139,18 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0TagResourceCommand(input, context);
+    return se_TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_json1_0TagResourceCommand(output, context);
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

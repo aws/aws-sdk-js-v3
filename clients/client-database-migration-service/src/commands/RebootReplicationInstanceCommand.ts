@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  RebootReplicationInstanceMessage,
-  RebootReplicationInstanceMessageFilterSensitiveLog,
-  RebootReplicationInstanceResponse,
-  RebootReplicationInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RebootReplicationInstanceCommand,
-  serializeAws_json1_1RebootReplicationInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { RebootReplicationInstanceMessage, RebootReplicationInstanceResponse } from "../models/models_0";
+import { de_RebootReplicationInstanceCommand, se_RebootReplicationInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RebootReplicationInstanceCommand}.
  */
 export interface RebootReplicationInstanceCommandInput extends RebootReplicationInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebootReplicationInstanceCommand}.
  */
 export interface RebootReplicationInstanceCommandOutput extends RebootReplicationInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reboots a replication instance. Rebooting results in a momentary outage, until the
  *          replication instance becomes available again.</p>
  * @example
@@ -47,10 +44,17 @@ export interface RebootReplicationInstanceCommandOutput extends RebootReplicatio
  * import { DatabaseMigrationServiceClient, RebootReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, RebootReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // RebootReplicationInstanceMessage
+ *   ReplicationInstanceArn: "STRING_VALUE", // required
+ *   ForceFailover: true || false,
+ *   ForcePlannedFailover: true || false,
+ * };
  * const command = new RebootReplicationInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootReplicationInstanceCommandInput - {@link RebootReplicationInstanceCommandInput}
+ * @returns {@link RebootReplicationInstanceCommandOutput}
  * @see {@link RebootReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -80,6 +84,9 @@ export class RebootReplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootReplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class RebootReplicationInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootReplicationInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootReplicationInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +126,21 @@ export class RebootReplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RebootReplicationInstanceCommand(input, context);
+    return se_RebootReplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RebootReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1RebootReplicationInstanceCommand(output, context);
+    return de_RebootReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

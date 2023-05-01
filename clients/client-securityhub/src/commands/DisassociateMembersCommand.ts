@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateMembersRequest,
-  DisassociateMembersRequestFilterSensitiveLog,
-  DisassociateMembersResponse,
-  DisassociateMembersResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DisassociateMembersCommand,
-  serializeAws_restJson1DisassociateMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateMembersRequest, DisassociateMembersResponse } from "../models/models_2";
+import { de_DisassociateMembersCommand, se_DisassociateMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateMembersCommand}.
  */
 export interface DisassociateMembersCommandInput extends DisassociateMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateMembersCommand}.
  */
 export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified member accounts from the associated administrator account.</p>
  *          <p>Can be used to disassociate both accounts that are managed using Organizations and accounts that
  *          were invited manually.</p>
@@ -44,10 +41,17 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * import { SecurityHubClient, DisassociateMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisassociateMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DisassociateMembersRequest
+ *   AccountIds: [ // AccountIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMembersCommandInput - {@link DisassociateMembersCommandInput}
+ * @returns {@link DisassociateMembersCommandOutput}
  * @see {@link DisassociateMembersCommandInput} for command's `input` shape.
  * @see {@link DisassociateMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -70,6 +74,20 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To disassociate member accounts from administrator account
+ * ```javascript
+ * // The following example dissociates the specified member accounts from the associated administrator account.
+ * const input = {
+ *   "AccountIds": [
+ *     "123456789012",
+ *     "111122223333"
+ *   ]
+ * };
+ * const command = new DisassociateMembersCommand(input);
+ * await client.send(command);
+ * // example id: to-disassociate-member-accounts-from-administrator-account-1676918349164
+ * ```
+ *
  */
 export class DisassociateMembersCommand extends $Command<
   DisassociateMembersCommandInput,
@@ -88,6 +106,9 @@ export class DisassociateMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +137,8 @@ export class DisassociateMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +148,18 @@ export class DisassociateMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateMembersCommand(input, context);
+    return se_DisassociateMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMembersCommandOutput> {
-    return deserializeAws_restJson1DisassociateMembersCommand(output, context);
+    return de_DisassociateMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { RemoveThingFromBillingGroupRequest, RemoveThingFromBillingGroupResponse } from "../models/models_2";
 import {
-  RemoveThingFromBillingGroupRequest,
-  RemoveThingFromBillingGroupRequestFilterSensitiveLog,
-  RemoveThingFromBillingGroupResponse,
-  RemoveThingFromBillingGroupResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1RemoveThingFromBillingGroupCommand,
-  serializeAws_restJson1RemoveThingFromBillingGroupCommand,
+  de_RemoveThingFromBillingGroupCommand,
+  se_RemoveThingFromBillingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveThingFromBillingGroupCommand}.
  */
 export interface RemoveThingFromBillingGroupCommandInput extends RemoveThingFromBillingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveThingFromBillingGroupCommand}.
  */
 export interface RemoveThingFromBillingGroupCommandOutput
@@ -37,6 +36,7 @@ export interface RemoveThingFromBillingGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the given thing from the billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p>
  *          <note>
@@ -48,10 +48,18 @@ export interface RemoveThingFromBillingGroupCommandOutput
  * import { IoTClient, RemoveThingFromBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RemoveThingFromBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // RemoveThingFromBillingGroupRequest
+ *   billingGroupName: "STRING_VALUE",
+ *   billingGroupArn: "STRING_VALUE",
+ *   thingName: "STRING_VALUE",
+ *   thingArn: "STRING_VALUE",
+ * };
  * const command = new RemoveThingFromBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveThingFromBillingGroupCommandInput - {@link RemoveThingFromBillingGroupCommandInput}
+ * @returns {@link RemoveThingFromBillingGroupCommandOutput}
  * @see {@link RemoveThingFromBillingGroupCommandInput} for command's `input` shape.
  * @see {@link RemoveThingFromBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +95,9 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveThingFromBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveThingFromBillingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveThingFromBillingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +137,21 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveThingFromBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveThingFromBillingGroupCommand(input, context);
+    return se_RemoveThingFromBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveThingFromBillingGroupCommandOutput> {
-    return deserializeAws_restJson1RemoveThingFromBillingGroupCommand(output, context);
+    return de_RemoveThingFromBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

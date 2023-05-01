@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  GrantFlowEntitlementsRequest,
-  GrantFlowEntitlementsRequestFilterSensitiveLog,
-  GrantFlowEntitlementsResponse,
-  GrantFlowEntitlementsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GrantFlowEntitlementsCommand,
-  serializeAws_restJson1GrantFlowEntitlementsCommand,
-} from "../protocols/Aws_restJson1";
+import { GrantFlowEntitlementsRequest, GrantFlowEntitlementsResponse } from "../models/models_0";
+import { de_GrantFlowEntitlementsCommand, se_GrantFlowEntitlementsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GrantFlowEntitlementsCommand}.
  */
 export interface GrantFlowEntitlementsCommandInput extends GrantFlowEntitlementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GrantFlowEntitlementsCommand}.
  */
 export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlementsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants entitlements to an existing flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,37 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  * import { MediaConnectClient, GrantFlowEntitlementsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, GrantFlowEntitlementsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // GrantFlowEntitlementsRequest
+ *   Entitlements: [ // __listOfGrantEntitlementRequest // required
+ *     { // GrantEntitlementRequest
+ *       DataTransferSubscriberFeePercent: Number("int"),
+ *       Description: "STRING_VALUE",
+ *       Encryption: { // Encryption
+ *         Algorithm: "aes128" || "aes192" || "aes256",
+ *         ConstantInitializationVector: "STRING_VALUE",
+ *         DeviceId: "STRING_VALUE",
+ *         KeyType: "speke" || "static-key" || "srt-password",
+ *         Region: "STRING_VALUE",
+ *         ResourceId: "STRING_VALUE",
+ *         RoleArn: "STRING_VALUE", // required
+ *         SecretArn: "STRING_VALUE",
+ *         Url: "STRING_VALUE",
+ *       },
+ *       EntitlementStatus: "ENABLED" || "DISABLED",
+ *       Name: "STRING_VALUE",
+ *       Subscribers: [ // __listOf__string // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   FlowArn: "STRING_VALUE", // required
+ * };
  * const command = new GrantFlowEntitlementsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GrantFlowEntitlementsCommandInput - {@link GrantFlowEntitlementsCommandInput}
+ * @returns {@link GrantFlowEntitlementsCommandOutput}
  * @see {@link GrantFlowEntitlementsCommandInput} for command's `input` shape.
  * @see {@link GrantFlowEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -90,6 +114,9 @@ export class GrantFlowEntitlementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GrantFlowEntitlementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +145,8 @@ export class GrantFlowEntitlementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GrantFlowEntitlementsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GrantFlowEntitlementsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +156,18 @@ export class GrantFlowEntitlementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GrantFlowEntitlementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GrantFlowEntitlementsCommand(input, context);
+    return se_GrantFlowEntitlementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GrantFlowEntitlementsCommandOutput> {
-    return deserializeAws_restJson1GrantFlowEntitlementsCommand(output, context);
+    return de_GrantFlowEntitlementsCommand(output, context);
   }
 
   // Start section: command_body_extra

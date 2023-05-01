@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutObjectLockConfigurationOutput,
-  PutObjectLockConfigurationOutputFilterSensitiveLog,
-  PutObjectLockConfigurationRequest,
-  PutObjectLockConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutObjectLockConfigurationCommand,
-  serializeAws_restXmlPutObjectLockConfigurationCommand,
-} from "../protocols/Aws_restXml";
+import { PutObjectLockConfigurationOutput, PutObjectLockConfigurationRequest } from "../models/models_0";
+import { de_PutObjectLockConfigurationCommand, se_PutObjectLockConfigurationCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutObjectLockConfigurationCommand}.
  */
 export interface PutObjectLockConfigurationCommandInput extends PutObjectLockConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutObjectLockConfigurationCommand}.
  */
 export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Places an Object Lock configuration on the specified bucket. The rule specified in the
  *          Object Lock configuration will be applied by default to every new object placed in the
  *          specified bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
@@ -63,10 +60,30 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  * import { S3Client, PutObjectLockConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectLockConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutObjectLockConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ObjectLockConfiguration: { // ObjectLockConfiguration
+ *     ObjectLockEnabled: "Enabled",
+ *     Rule: { // ObjectLockRule
+ *       DefaultRetention: { // DefaultRetention
+ *         Mode: "GOVERNANCE" || "COMPLIANCE",
+ *         Days: Number("int"),
+ *         Years: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   RequestPayer: "requester",
+ *   Token: "STRING_VALUE",
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutObjectLockConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectLockConfigurationCommandInput - {@link PutObjectLockConfigurationCommandInput}
+ * @returns {@link PutObjectLockConfigurationCommandOutput}
  * @see {@link PutObjectLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutObjectLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -96,6 +113,9 @@ export class PutObjectLockConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectLockConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +151,8 @@ export class PutObjectLockConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutObjectLockConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectLockConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,15 +162,21 @@ export class PutObjectLockConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectLockConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutObjectLockConfigurationCommand(input, context);
+    return se_PutObjectLockConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutObjectLockConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutObjectLockConfigurationCommand(output, context);
+    return de_PutObjectLockConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

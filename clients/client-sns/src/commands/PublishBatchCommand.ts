@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PublishBatchInput,
-  PublishBatchInputFilterSensitiveLog,
-  PublishBatchResponse,
-  PublishBatchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryPublishBatchCommand, serializeAws_queryPublishBatchCommand } from "../protocols/Aws_query";
+import { PublishBatchInput, PublishBatchResponse } from "../models/models_0";
+import { de_PublishBatchCommand, se_PublishBatchCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PublishBatchCommand}.
  */
 export interface PublishBatchCommandInput extends PublishBatchInput {}
 /**
+ * @public
+ *
  * The output of {@link PublishBatchCommand}.
  */
 export interface PublishBatchCommandOutput extends PublishBatchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes up to ten messages to the specified topic. This is a batch version of
  *                 <code>Publish</code>. For FIFO topics, multiple messages within a single batch are
  *             published in the order they are sent, and messages are deduplicated within the batch and
@@ -59,10 +59,32 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  * import { SNSClient, PublishBatchCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, PublishBatchCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // PublishBatchInput
+ *   TopicArn: "STRING_VALUE", // required
+ *   PublishBatchRequestEntries: [ // PublishBatchRequestEntryList // required
+ *     { // PublishBatchRequestEntry
+ *       Id: "STRING_VALUE", // required
+ *       Message: "STRING_VALUE", // required
+ *       Subject: "STRING_VALUE",
+ *       MessageStructure: "STRING_VALUE",
+ *       MessageAttributes: { // MessageAttributeMap
+ *         "<keys>": { // MessageAttributeValue
+ *           DataType: "STRING_VALUE", // required
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *         },
+ *       },
+ *       MessageDeduplicationId: "STRING_VALUE",
+ *       MessageGroupId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PublishBatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishBatchCommandInput - {@link PublishBatchCommandInput}
+ * @returns {@link PublishBatchCommandOutput}
  * @see {@link PublishBatchCommandInput} for command's `input` shape.
  * @see {@link PublishBatchCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -157,6 +179,9 @@ export class PublishBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,8 +208,8 @@ export class PublishBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishBatchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishBatchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -194,12 +219,18 @@ export class PublishBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPublishBatchCommand(input, context);
+    return se_PublishBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishBatchCommandOutput> {
-    return deserializeAws_queryPublishBatchCommand(output, context);
+    return de_PublishBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

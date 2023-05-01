@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  AssociateEntityToThingRequest,
-  AssociateEntityToThingRequestFilterSensitiveLog,
-  AssociateEntityToThingResponse,
-  AssociateEntityToThingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateEntityToThingCommand,
-  serializeAws_json1_1AssociateEntityToThingCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateEntityToThingRequest, AssociateEntityToThingResponse } from "../models/models_0";
+import { de_AssociateEntityToThingCommand, se_AssociateEntityToThingCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateEntityToThingCommand}.
  */
 export interface AssociateEntityToThingCommandInput extends AssociateEntityToThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateEntityToThingCommand}.
  */
 export interface AssociateEntityToThingCommandOutput extends AssociateEntityToThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Associates a device with a concrete thing that is in the user's registry.</p>
@@ -45,10 +42,17 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
  * import { IoTThingsGraphClient, AssociateEntityToThingCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, AssociateEntityToThingCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // AssociateEntityToThingRequest
+ *   thingName: "STRING_VALUE", // required
+ *   entityId: "STRING_VALUE", // required
+ *   namespaceVersion: Number("long"),
+ * };
  * const command = new AssociateEntityToThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateEntityToThingCommandInput - {@link AssociateEntityToThingCommandInput}
+ * @returns {@link AssociateEntityToThingCommandOutput}
  * @see {@link AssociateEntityToThingCommandInput} for command's `input` shape.
  * @see {@link AssociateEntityToThingCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -84,6 +88,9 @@ export class AssociateEntityToThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateEntityToThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class AssociateEntityToThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateEntityToThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateEntityToThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class AssociateEntityToThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateEntityToThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateEntityToThingCommand(input, context);
+    return se_AssociateEntityToThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateEntityToThingCommandOutput> {
-    return deserializeAws_json1_1AssociateEntityToThingCommand(output, context);
+    return de_AssociateEntityToThingCommand(output, context);
   }
 
   // Start section: command_body_extra

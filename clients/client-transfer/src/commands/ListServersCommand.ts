@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListServersRequest,
-  ListServersRequestFilterSensitiveLog,
-  ListServersResponse,
-  ListServersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServersCommand,
-  serializeAws_json1_1ListServersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListServersRequest, ListServersResponse } from "../models/models_0";
+import { de_ListServersCommand, se_ListServersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServersCommand}.
  */
 export interface ListServersCommandInput extends ListServersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServersCommand}.
  */
 export interface ListServersCommandOutput extends ListServersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the file transfer protocol-enabled servers that are associated with your Amazon Web Services
  *       account.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * import { TransferClient, ListServersCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListServersCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // ListServersRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListServersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServersCommandInput - {@link ListServersCommandInput}
+ * @returns {@link ListServersCommandOutput}
  * @see {@link ListServersCommandInput} for command's `input` shape.
  * @see {@link ListServersCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListServersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServersCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class ListServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class ListServersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServersCommand(input, context);
+    return se_ListServersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServersCommandOutput> {
-    return deserializeAws_json1_1ListServersCommand(output, context);
+    return de_ListServersCommand(output, context);
   }
 
   // Start section: command_body_extra

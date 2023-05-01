@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient";
-import {
-  GetIceServerConfigRequest,
-  GetIceServerConfigRequestFilterSensitiveLog,
-  GetIceServerConfigResponse,
-  GetIceServerConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIceServerConfigCommand,
-  serializeAws_restJson1GetIceServerConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { GetIceServerConfigRequest, GetIceServerConfigResponse } from "../models/models_0";
+import { de_GetIceServerConfigCommand, se_GetIceServerConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIceServerConfigCommand}.
  */
 export interface GetIceServerConfigCommandInput extends GetIceServerConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIceServerConfigCommand}.
  */
 export interface GetIceServerConfigCommandOutput extends GetIceServerConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the Interactive Connectivity Establishment (ICE) server configuration
  *             information, including URIs, username, and password which can be used to configure the
  *             WebRTC connection. The ICE component uses this configuration information to setup the
@@ -59,10 +56,18 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  * import { KinesisVideoSignalingClient, GetIceServerConfigCommand } from "@aws-sdk/client-kinesis-video-signaling"; // ES Modules import
  * // const { KinesisVideoSignalingClient, GetIceServerConfigCommand } = require("@aws-sdk/client-kinesis-video-signaling"); // CommonJS import
  * const client = new KinesisVideoSignalingClient(config);
+ * const input = { // GetIceServerConfigRequest
+ *   ChannelARN: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE",
+ *   Service: "STRING_VALUE",
+ *   Username: "STRING_VALUE",
+ * };
  * const command = new GetIceServerConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIceServerConfigCommandInput - {@link GetIceServerConfigCommandInput}
+ * @returns {@link GetIceServerConfigCommandOutput}
  * @see {@link GetIceServerConfigCommandInput} for command's `input` shape.
  * @see {@link GetIceServerConfigCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoSignalingClientResolvedConfig | config} for KinesisVideoSignalingClient's `config` shape.
@@ -107,6 +112,9 @@ export class GetIceServerConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIceServerConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +143,8 @@ export class GetIceServerConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIceServerConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIceServerConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +154,18 @@ export class GetIceServerConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIceServerConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIceServerConfigCommand(input, context);
+    return se_GetIceServerConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIceServerConfigCommandOutput> {
-    return deserializeAws_restJson1GetIceServerConfigCommand(output, context);
+    return de_GetIceServerConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

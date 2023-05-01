@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePrimaryEmailAddressRequest,
-  UpdatePrimaryEmailAddressRequestFilterSensitiveLog,
-  UpdatePrimaryEmailAddressResponse,
-  UpdatePrimaryEmailAddressResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePrimaryEmailAddressCommand,
-  serializeAws_json1_1UpdatePrimaryEmailAddressCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdatePrimaryEmailAddressRequest, UpdatePrimaryEmailAddressResponse } from "../models/models_0";
+import { de_UpdatePrimaryEmailAddressCommand, se_UpdatePrimaryEmailAddressCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePrimaryEmailAddressCommand}.
  */
 export interface UpdatePrimaryEmailAddressCommandInput extends UpdatePrimaryEmailAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePrimaryEmailAddressCommand}.
  */
 export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEmailAddressResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the primary email for a user, group, or resource. The current email is moved
  *          into the list of aliases (or swapped between an existing alias and the current primary
  *          email), and the email provided in the input is promoted as the primary.</p>
@@ -44,10 +41,17 @@ export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEma
  * import { WorkMailClient, UpdatePrimaryEmailAddressCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, UpdatePrimaryEmailAddressCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // UpdatePrimaryEmailAddressRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ *   Email: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePrimaryEmailAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePrimaryEmailAddressCommandInput - {@link UpdatePrimaryEmailAddressCommandInput}
+ * @returns {@link UpdatePrimaryEmailAddressCommandOutput}
  * @see {@link UpdatePrimaryEmailAddressCommandInput} for command's `input` shape.
  * @see {@link UpdatePrimaryEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -110,6 +114,9 @@ export class UpdatePrimaryEmailAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePrimaryEmailAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +145,8 @@ export class UpdatePrimaryEmailAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePrimaryEmailAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePrimaryEmailAddressResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,15 +156,21 @@ export class UpdatePrimaryEmailAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePrimaryEmailAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePrimaryEmailAddressCommand(input, context);
+    return se_UpdatePrimaryEmailAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePrimaryEmailAddressCommandOutput> {
-    return deserializeAws_json1_1UpdatePrimaryEmailAddressCommand(output, context);
+    return de_UpdatePrimaryEmailAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

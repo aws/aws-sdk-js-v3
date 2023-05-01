@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ActionTarget, AdminAccount, AssociationStatus, AutoEnableStandards } from "./models_0";
+import { AccountDetails, ActionTarget, AdminAccount, AssociationStatus, AutoEnableStandards } from "./models_0";
 import {
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
@@ -7,11 +7,126 @@ import {
   ControlStatus,
   NoteUpdate,
   RecordState,
-  Result,
   SeverityRating,
   StandardsSubscription,
 } from "./models_1";
 
+/**
+ * @public
+ */
+export interface CreateInsightRequest {
+  /**
+   * <p>The name of the custom insight to create.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>One or more attributes used to filter the findings included in the insight. The insight
+   *          only includes findings that match the criteria defined in the filters.</p>
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
+   * <p>The attribute used to group the findings for the insight. The grouping attribute
+   *          identifies the type of item that the insight applies to. For example, if an insight is
+   *          grouped by resource identifier, then the insight produces a list of resource
+   *          identifiers.</p>
+   */
+  GroupByAttribute: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInsightResponse {
+  /**
+   * <p>The ARN of the insight created.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMembersRequest {
+  /**
+   * <p>The list of accounts to associate with the Security Hub administrator account. For each account, the
+   *          list includes the account ID and optionally the email address.</p>
+   */
+  AccountDetails: AccountDetails[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Details about the account that was not processed.</p>
+ */
+export interface Result {
+  /**
+   * <p>An Amazon Web Services account ID of the account that was not processed.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The reason that the account was not processed.</p>
+   */
+  ProcessingResult?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateMembersResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
+   *          the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+/**
+ * @public
+ */
+export interface DeclineInvitationsRequest {
+  /**
+   * <p>The list of prospective member account IDs for which to decline an invitation.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeclineInvitationsResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
+   *          the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+/**
+ * @public
+ */
+export interface DeleteActionTargetRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom action target to delete.</p>
+   */
+  ActionTargetArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteActionTargetResponse {
+  /**
+   * <p>The ARN of the custom action target that was deleted.</p>
+   */
+  ActionTargetArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteFindingAggregatorRequest {
   /**
    * <p>The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
@@ -19,8 +134,14 @@ export interface DeleteFindingAggregatorRequest {
   FindingAggregatorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFindingAggregatorResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteInsightRequest {
   /**
    * <p>The ARN of the insight to delete.</p>
@@ -28,6 +149,9 @@ export interface DeleteInsightRequest {
   InsightArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInsightResponse {
   /**
    * <p>The ARN of the insight that was deleted.</p>
@@ -35,13 +159,19 @@ export interface DeleteInsightResponse {
   InsightArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInvitationsRequest {
   /**
-   * <p>The list of the account IDs that sent the invitations to delete.</p>
+   * <p>The list of member account IDs that received the invitations you want to delete.</p>
    */
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInvitationsResponse {
   /**
    * <p>The list of Amazon Web Services accounts for which the invitations were not deleted. For each account,
@@ -50,6 +180,9 @@ export interface DeleteInvitationsResponse {
   UnprocessedAccounts?: Result[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteMembersRequest {
   /**
    * <p>The list of account IDs for the member accounts to delete.</p>
@@ -57,6 +190,9 @@ export interface DeleteMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMembersResponse {
   /**
    * <p>The list of Amazon Web Services accounts that were not deleted. For each account, the list includes the
@@ -65,6 +201,9 @@ export interface DeleteMembersResponse {
   UnprocessedAccounts?: Result[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeActionTargetsRequest {
   /**
    * <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
@@ -86,6 +225,9 @@ export interface DescribeActionTargetsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeActionTargetsResponse {
   /**
    * <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,
@@ -100,6 +242,9 @@ export interface DescribeActionTargetsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHubRequest {
   /**
    * <p>The ARN of the Hub resource to retrieve.</p>
@@ -107,6 +252,9 @@ export interface DescribeHubRequest {
   HubArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHubResponse {
   /**
    * <p>The ARN of the Hub resource that was retrieved.</p>
@@ -134,14 +282,20 @@ export interface DescribeHubResponse {
    *          for a control check when the check applies to multiple enabled standards.</p>
    *          <p>The value for this field in a member account matches the value in the administrator
    *          account. For accounts that aren't part of an organization, the default value of this field
-   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 9,
+   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 23,
    *          2023.</p>
    */
   ControlFindingGenerator?: ControlFindingGenerator | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationRequest {}
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationConfigurationResponse {
   /**
    * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
@@ -167,6 +321,9 @@ export interface DescribeOrganizationConfigurationResponse {
   AutoEnableStandards?: AutoEnableStandards | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductsRequest {
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -188,13 +345,23 @@ export interface DescribeProductsRequest {
   ProductArn?: string;
 }
 
-export enum IntegrationType {
-  RECEIVE_FINDINGS_FROM_SECURITY_HUB = "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
-  SEND_FINDINGS_TO_SECURITY_HUB = "SEND_FINDINGS_TO_SECURITY_HUB",
-  UPDATE_FINDINGS_IN_SECURITY_HUB = "UPDATE_FINDINGS_IN_SECURITY_HUB",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationType = {
+  RECEIVE_FINDINGS_FROM_SECURITY_HUB: "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
+  SEND_FINDINGS_TO_SECURITY_HUB: "SEND_FINDINGS_TO_SECURITY_HUB",
+  UPDATE_FINDINGS_IN_SECURITY_HUB: "UPDATE_FINDINGS_IN_SECURITY_HUB",
+} as const;
 
 /**
+ * @public
+ */
+export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
+
+/**
+ * @public
  * <p>Contains details about a product.</p>
  */
 export interface Product {
@@ -262,6 +429,9 @@ export interface Product {
   ProductSubscriptionResourcePolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProductsResponse {
   /**
    * <p>A list of products, including details for each product.</p>
@@ -274,6 +444,9 @@ export interface DescribeProductsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStandardsRequest {
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -291,6 +464,7 @@ export interface DescribeStandardsRequest {
 }
 
 /**
+ * @public
  * <p>Provides details about the management of a security standard.</p>
  */
 export interface StandardsManagedBy {
@@ -309,6 +483,7 @@ export interface StandardsManagedBy {
 }
 
 /**
+ * @public
  * <p>Provides information about a specific security standard.</p>
  */
 export interface Standard {
@@ -344,6 +519,9 @@ export interface Standard {
   StandardsManagedBy?: StandardsManagedBy;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStandardsResponse {
   /**
    * <p>A list of available standards.</p>
@@ -356,6 +534,9 @@ export interface DescribeStandardsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStandardsControlsRequest {
   /**
    * <p>The ARN of a resource that represents your subscription to a supported standard. To get
@@ -379,6 +560,7 @@ export interface DescribeStandardsControlsRequest {
 }
 
 /**
+ * @public
  * <p>Details for an individual security standard control.</p>
  */
 export interface StandardsControl {
@@ -439,6 +621,9 @@ export interface StandardsControl {
   RelatedRequirements?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeStandardsControlsResponse {
   /**
    * <p>A list of security standards controls.</p>
@@ -451,6 +636,9 @@ export interface DescribeStandardsControlsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisableImportFindingsForProductRequest {
   /**
    * <p>The ARN of the integrated product to disable the integration for.</p>
@@ -458,8 +646,14 @@ export interface DisableImportFindingsForProductRequest {
   ProductSubscriptionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableImportFindingsForProductResponse {}
 
+/**
+ * @public
+ */
 export interface DisableOrganizationAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account identifier of the Security Hub administrator account.</p>
@@ -467,20 +661,44 @@ export interface DisableOrganizationAdminAccountRequest {
   AdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableOrganizationAdminAccountResponse {}
 
+/**
+ * @public
+ */
 export interface DisableSecurityHubRequest {}
 
+/**
+ * @public
+ */
 export interface DisableSecurityHubResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateFromAdministratorAccountRequest {}
 
+/**
+ * @public
+ */
 export interface DisassociateFromAdministratorAccountResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateFromMasterAccountRequest {}
 
+/**
+ * @public
+ */
 export interface DisassociateFromMasterAccountResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateMembersRequest {
   /**
    * <p>The account IDs of the member accounts to disassociate from the administrator account.</p>
@@ -488,8 +706,14 @@ export interface DisassociateMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateMembersResponse {}
 
+/**
+ * @public
+ */
 export interface EnableImportFindingsForProductRequest {
   /**
    * <p>The ARN of the product to enable the integration for.</p>
@@ -497,6 +721,9 @@ export interface EnableImportFindingsForProductRequest {
   ProductArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableImportFindingsForProductResponse {
   /**
    * <p>The ARN of your subscription to the product to enable integrations for.</p>
@@ -504,6 +731,9 @@ export interface EnableImportFindingsForProductResponse {
   ProductSubscriptionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableOrganizationAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account identifier of the account to designate as the Security Hub administrator
@@ -512,8 +742,14 @@ export interface EnableOrganizationAdminAccountRequest {
   AdminAccountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableOrganizationAdminAccountResponse {}
 
+/**
+ * @public
+ */
 export interface EnableSecurityHubRequest {
   /**
    * <p>The tags to add to the hub resource when you enable Security Hub.</p>
@@ -537,15 +773,19 @@ export interface EnableSecurityHubRequest {
    *       for a control check when the check applies to multiple enabled standards.</p>
    *          <p>The value for this field in a member account matches the value in the administrator
    *          account. For accounts that aren't part of an organization, the default value of this field
-   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 9,
+   *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 23,
    *          2023.</p>
    */
   ControlFindingGenerator?: ControlFindingGenerator | string;
 }
 
+/**
+ * @public
+ */
 export interface EnableSecurityHubResponse {}
 
 /**
+ * @public
  * <p>A finding aggregator. A finding aggregator contains the configuration for finding aggregation.</p>
  */
 export interface FindingAggregator {
@@ -555,9 +795,13 @@ export interface FindingAggregator {
   FindingAggregatorArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAdministratorAccountRequest {}
 
 /**
+ * @public
  * <p>Details about an invitation.</p>
  */
 export interface Invitation {
@@ -582,6 +826,9 @@ export interface Invitation {
   MemberStatus?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAdministratorAccountResponse {
   /**
    * <p>Details about an invitation.</p>
@@ -589,6 +836,9 @@ export interface GetAdministratorAccountResponse {
   Administrator?: Invitation;
 }
 
+/**
+ * @public
+ */
 export interface GetEnabledStandardsRequest {
   /**
    * <p>The list of the standards subscription ARNs for the standards to retrieve.</p>
@@ -610,6 +860,9 @@ export interface GetEnabledStandardsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEnabledStandardsResponse {
   /**
    * <p>The list of <code>StandardsSubscriptions</code> objects that include information about
@@ -623,6 +876,9 @@ export interface GetEnabledStandardsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingAggregatorRequest {
   /**
    * <p>The ARN of the finding aggregator to return details for. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
@@ -630,6 +886,9 @@ export interface GetFindingAggregatorRequest {
   FindingAggregatorArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingAggregatorResponse {
   /**
    * <p>The ARN of the finding aggregator.</p>
@@ -652,12 +911,22 @@ export interface GetFindingAggregatorResponse {
   Regions?: string[];
 }
 
-export enum SortOrder {
-  ASCENDING = "asc",
-  DESCENDING = "desc",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "asc",
+  DESCENDING: "desc",
+} as const;
 
 /**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
  * <p>A collection of finding attributes used to sort findings.</p>
  */
 export interface SortCriterion {
@@ -672,6 +941,9 @@ export interface SortCriterion {
   SortOrder?: SortOrder | string;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingsRequest {
   /**
    * <p>The finding attributes used to define a condition to filter the returned
@@ -703,6 +975,9 @@ export interface GetFindingsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetFindingsResponse {
   /**
    * <p>The findings that matched the filters specified in the request.</p>
@@ -715,6 +990,9 @@ export interface GetFindingsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightResultsRequest {
   /**
    * <p>The ARN of the insight for which to return results.</p>
@@ -723,6 +1001,7 @@ export interface GetInsightResultsRequest {
 }
 
 /**
+ * @public
  * <p>The insight result values returned by the <code>GetInsightResults</code>
  *          operation.</p>
  */
@@ -740,6 +1019,7 @@ export interface InsightResultValue {
 }
 
 /**
+ * @public
  * <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
  */
 export interface InsightResults {
@@ -762,6 +1042,9 @@ export interface InsightResults {
   ResultValues: InsightResultValue[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightResultsResponse {
   /**
    * <p>The insight results returned by the operation.</p>
@@ -769,6 +1052,9 @@ export interface GetInsightResultsResponse {
   InsightResults: InsightResults | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsRequest {
   /**
    * <p>The ARNs of the insights to describe. If you do not provide any insight ARNs, then
@@ -793,6 +1079,7 @@ export interface GetInsightsRequest {
 }
 
 /**
+ * @public
  * <p>Contains information about a Security Hub insight.</p>
  */
 export interface Insight {
@@ -821,6 +1108,9 @@ export interface Insight {
   GroupByAttribute: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightsResponse {
   /**
    * <p>The insights returned by the operation.</p>
@@ -833,8 +1123,14 @@ export interface GetInsightsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInvitationsCountRequest {}
 
+/**
+ * @public
+ */
 export interface GetInvitationsCountResponse {
   /**
    * <p>The number of all membership invitations sent to this Security Hub member account, not
@@ -843,8 +1139,14 @@ export interface GetInvitationsCountResponse {
   InvitationsCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetMasterAccountRequest {}
 
+/**
+ * @public
+ */
 export interface GetMasterAccountResponse {
   /**
    * <p>A list of details about the Security Hub administrator account for the current member account.
@@ -853,6 +1155,9 @@ export interface GetMasterAccountResponse {
   Master?: Invitation;
 }
 
+/**
+ * @public
+ */
 export interface GetMembersRequest {
   /**
    * <p>The list of account IDs for the Security Hub member accounts to return the details for. </p>
@@ -861,6 +1166,7 @@ export interface GetMembersRequest {
 }
 
 /**
+ * @public
  * <p>The details about a member account.</p>
  */
 export interface Member {
@@ -943,6 +1249,9 @@ export interface Member {
   UpdatedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetMembersResponse {
   /**
    * <p>The list of details about the Security Hub member accounts.</p>
@@ -956,6 +1265,9 @@ export interface GetMembersResponse {
   UnprocessedAccounts?: Result[];
 }
 
+/**
+ * @public
+ */
 export interface InviteMembersRequest {
   /**
    * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub as members. </p>
@@ -963,6 +1275,9 @@ export interface InviteMembersRequest {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface InviteMembersResponse {
   /**
    * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
@@ -971,6 +1286,9 @@ export interface InviteMembersResponse {
   UnprocessedAccounts?: Result[];
 }
 
+/**
+ * @public
+ */
 export interface ListEnabledProductsForImportRequest {
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -987,6 +1305,9 @@ export interface ListEnabledProductsForImportRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEnabledProductsForImportResponse {
   /**
    * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
@@ -999,6 +1320,9 @@ export interface ListEnabledProductsForImportResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingAggregatorsRequest {
   /**
    * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
@@ -1011,6 +1335,9 @@ export interface ListFindingAggregatorsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFindingAggregatorsResponse {
   /**
    * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
@@ -1025,6 +1352,9 @@ export interface ListFindingAggregatorsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInvitationsRequest {
   /**
    * <p>The maximum number of items to return in the response. </p>
@@ -1041,6 +1371,9 @@ export interface ListInvitationsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListInvitationsResponse {
   /**
    * <p>The details of the invitations returned by the operation.</p>
@@ -1053,6 +1386,9 @@ export interface ListInvitationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersRequest {
   /**
    * <p>Specifies which member accounts to include in the response based on their relationship
@@ -1079,6 +1415,9 @@ export interface ListMembersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersResponse {
   /**
    * <p>Member details returned by the operation.</p>
@@ -1091,6 +1430,9 @@ export interface ListMembersResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationAdminAccountsRequest {
   /**
    * <p>The maximum number of items to return in the response.</p>
@@ -1106,6 +1448,9 @@ export interface ListOrganizationAdminAccountsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationAdminAccountsResponse {
   /**
    * <p>The list of Security Hub administrator accounts.</p>
@@ -1118,6 +1463,9 @@ export interface ListOrganizationAdminAccountsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityControlDefinitionsRequest {
   /**
    * <p>
@@ -1143,12 +1491,22 @@ export interface ListSecurityControlDefinitionsRequest {
   MaxResults?: number;
 }
 
-export enum RegionAvailabilityStatus {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RegionAvailabilityStatus = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type RegionAvailabilityStatus = (typeof RegionAvailabilityStatus)[keyof typeof RegionAvailabilityStatus];
+
+/**
+ * @public
  * <p>
  *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
  *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
@@ -1203,6 +1561,9 @@ export interface SecurityControlDefinition {
   CurrentRegionAvailability: RegionAvailabilityStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSecurityControlDefinitionsResponse {
   /**
    * <p>
@@ -1218,6 +1579,9 @@ export interface ListSecurityControlDefinitionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStandardsControlAssociationsRequest {
   /**
    * <p>
@@ -1247,6 +1611,7 @@ export interface ListStandardsControlAssociationsRequest {
 }
 
 /**
+ * @public
  * <p> An array that provides the enablement status and other details for each control that
  *          applies to each enabled standard. </p>
  */
@@ -1313,6 +1678,9 @@ export interface StandardsControlAssociationSummary {
   StandardsControlDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListStandardsControlAssociationsResponse {
   /**
    * <p> An array that provides the enablement status and other details for each security
@@ -1327,6 +1695,9 @@ export interface ListStandardsControlAssociationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource to retrieve tags for.</p>
@@ -1334,6 +1705,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with a resource.</p>
@@ -1341,6 +1715,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource to apply the tags to.</p>
@@ -1353,8 +1730,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource to remove the tags from.</p>
@@ -1367,8 +1750,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateActionTargetRequest {
   /**
    * <p>The ARN of the custom action target to update.</p>
@@ -1386,8 +1775,14 @@ export interface UpdateActionTargetRequest {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateActionTargetResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFindingAggregatorRequest {
   /**
    * <p>The ARN of the finding aggregator. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
@@ -1425,6 +1820,9 @@ export interface UpdateFindingAggregatorRequest {
   Regions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateFindingAggregatorResponse {
   /**
    * <p>The ARN of the finding aggregator.</p>
@@ -1447,6 +1845,9 @@ export interface UpdateFindingAggregatorResponse {
   Regions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateFindingsRequest {
   /**
    * <p>A collection of attributes that specify which findings you want to update.</p>
@@ -1464,8 +1865,14 @@ export interface UpdateFindingsRequest {
   RecordState?: RecordState | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFindingsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateInsightRequest {
   /**
    * <p>The ARN of the insight that you want to update.</p>
@@ -1488,8 +1895,14 @@ export interface UpdateInsightRequest {
   GroupByAttribute?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateInsightResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
@@ -1508,8 +1921,14 @@ export interface UpdateOrganizationConfigurationRequest {
   AutoEnableStandards?: AutoEnableStandards | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOrganizationConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateSecurityHubConfigurationRequest {
   /**
    * <p>Whether to automatically enable new controls when they are added to standards that are
@@ -1532,8 +1951,14 @@ export interface UpdateSecurityHubConfigurationRequest {
   ControlFindingGenerator?: ControlFindingGenerator | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSecurityHubConfigurationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateStandardsControlRequest {
   /**
    * <p>The ARN of the security standard control to enable or disable.</p>
@@ -1552,791 +1977,7 @@ export interface UpdateStandardsControlRequest {
   DisabledReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateStandardsControlResponse {}
-
-/**
- * @internal
- */
-export const DeleteFindingAggregatorRequestFilterSensitiveLog = (obj: DeleteFindingAggregatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFindingAggregatorResponseFilterSensitiveLog = (obj: DeleteFindingAggregatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInsightRequestFilterSensitiveLog = (obj: DeleteInsightRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInsightResponseFilterSensitiveLog = (obj: DeleteInsightResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInvitationsRequestFilterSensitiveLog = (obj: DeleteInvitationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInvitationsResponseFilterSensitiveLog = (obj: DeleteInvitationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMembersRequestFilterSensitiveLog = (obj: DeleteMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMembersResponseFilterSensitiveLog = (obj: DeleteMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActionTargetsRequestFilterSensitiveLog = (obj: DescribeActionTargetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActionTargetsResponseFilterSensitiveLog = (obj: DescribeActionTargetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHubRequestFilterSensitiveLog = (obj: DescribeHubRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHubResponseFilterSensitiveLog = (obj: DescribeHubResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationConfigurationRequestFilterSensitiveLog = (
-  obj: DescribeOrganizationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationConfigurationResponseFilterSensitiveLog = (
-  obj: DescribeOrganizationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProductsRequestFilterSensitiveLog = (obj: DescribeProductsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductFilterSensitiveLog = (obj: Product): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProductsResponseFilterSensitiveLog = (obj: DescribeProductsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStandardsRequestFilterSensitiveLog = (obj: DescribeStandardsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardsManagedByFilterSensitiveLog = (obj: StandardsManagedBy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardFilterSensitiveLog = (obj: Standard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStandardsResponseFilterSensitiveLog = (obj: DescribeStandardsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStandardsControlsRequestFilterSensitiveLog = (obj: DescribeStandardsControlsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardsControlFilterSensitiveLog = (obj: StandardsControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStandardsControlsResponseFilterSensitiveLog = (obj: DescribeStandardsControlsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableImportFindingsForProductRequestFilterSensitiveLog = (
-  obj: DisableImportFindingsForProductRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableImportFindingsForProductResponseFilterSensitiveLog = (
-  obj: DisableImportFindingsForProductResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableOrganizationAdminAccountRequestFilterSensitiveLog = (
-  obj: DisableOrganizationAdminAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableOrganizationAdminAccountResponseFilterSensitiveLog = (
-  obj: DisableOrganizationAdminAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableSecurityHubRequestFilterSensitiveLog = (obj: DisableSecurityHubRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableSecurityHubResponseFilterSensitiveLog = (obj: DisableSecurityHubResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFromAdministratorAccountRequestFilterSensitiveLog = (
-  obj: DisassociateFromAdministratorAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFromAdministratorAccountResponseFilterSensitiveLog = (
-  obj: DisassociateFromAdministratorAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFromMasterAccountRequestFilterSensitiveLog = (
-  obj: DisassociateFromMasterAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFromMasterAccountResponseFilterSensitiveLog = (
-  obj: DisassociateFromMasterAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateMembersRequestFilterSensitiveLog = (obj: DisassociateMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateMembersResponseFilterSensitiveLog = (obj: DisassociateMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableImportFindingsForProductRequestFilterSensitiveLog = (
-  obj: EnableImportFindingsForProductRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableImportFindingsForProductResponseFilterSensitiveLog = (
-  obj: EnableImportFindingsForProductResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableOrganizationAdminAccountRequestFilterSensitiveLog = (
-  obj: EnableOrganizationAdminAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableOrganizationAdminAccountResponseFilterSensitiveLog = (
-  obj: EnableOrganizationAdminAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSecurityHubRequestFilterSensitiveLog = (obj: EnableSecurityHubRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSecurityHubResponseFilterSensitiveLog = (obj: EnableSecurityHubResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingAggregatorFilterSensitiveLog = (obj: FindingAggregator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAdministratorAccountRequestFilterSensitiveLog = (obj: GetAdministratorAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InvitationFilterSensitiveLog = (obj: Invitation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAdministratorAccountResponseFilterSensitiveLog = (obj: GetAdministratorAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEnabledStandardsRequestFilterSensitiveLog = (obj: GetEnabledStandardsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEnabledStandardsResponseFilterSensitiveLog = (obj: GetEnabledStandardsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingAggregatorRequestFilterSensitiveLog = (obj: GetFindingAggregatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingAggregatorResponseFilterSensitiveLog = (obj: GetFindingAggregatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SortCriterionFilterSensitiveLog = (obj: SortCriterion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingsRequestFilterSensitiveLog = (obj: GetFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingsResponseFilterSensitiveLog = (obj: GetFindingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightResultsRequestFilterSensitiveLog = (obj: GetInsightResultsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightResultValueFilterSensitiveLog = (obj: InsightResultValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightResultsFilterSensitiveLog = (obj: InsightResults): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightResultsResponseFilterSensitiveLog = (obj: GetInsightResultsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightsRequestFilterSensitiveLog = (obj: GetInsightsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightFilterSensitiveLog = (obj: Insight): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightsResponseFilterSensitiveLog = (obj: GetInsightsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInvitationsCountRequestFilterSensitiveLog = (obj: GetInvitationsCountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInvitationsCountResponseFilterSensitiveLog = (obj: GetInvitationsCountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMasterAccountRequestFilterSensitiveLog = (obj: GetMasterAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMasterAccountResponseFilterSensitiveLog = (obj: GetMasterAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMembersRequestFilterSensitiveLog = (obj: GetMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberFilterSensitiveLog = (obj: Member): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InviteMembersRequestFilterSensitiveLog = (obj: InviteMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InviteMembersResponseFilterSensitiveLog = (obj: InviteMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnabledProductsForImportRequestFilterSensitiveLog = (
-  obj: ListEnabledProductsForImportRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnabledProductsForImportResponseFilterSensitiveLog = (
-  obj: ListEnabledProductsForImportResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFindingAggregatorsRequestFilterSensitiveLog = (obj: ListFindingAggregatorsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFindingAggregatorsResponseFilterSensitiveLog = (obj: ListFindingAggregatorsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInvitationsRequestFilterSensitiveLog = (obj: ListInvitationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInvitationsResponseFilterSensitiveLog = (obj: ListInvitationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersRequestFilterSensitiveLog = (obj: ListMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationAdminAccountsRequestFilterSensitiveLog = (
-  obj: ListOrganizationAdminAccountsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationAdminAccountsResponseFilterSensitiveLog = (
-  obj: ListOrganizationAdminAccountsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSecurityControlDefinitionsRequestFilterSensitiveLog = (
-  obj: ListSecurityControlDefinitionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityControlDefinitionFilterSensitiveLog = (obj: SecurityControlDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSecurityControlDefinitionsResponseFilterSensitiveLog = (
-  obj: ListSecurityControlDefinitionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStandardsControlAssociationsRequestFilterSensitiveLog = (
-  obj: ListStandardsControlAssociationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardsControlAssociationSummaryFilterSensitiveLog = (obj: StandardsControlAssociationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStandardsControlAssociationsResponseFilterSensitiveLog = (
-  obj: ListStandardsControlAssociationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateActionTargetRequestFilterSensitiveLog = (obj: UpdateActionTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateActionTargetResponseFilterSensitiveLog = (obj: UpdateActionTargetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFindingAggregatorRequestFilterSensitiveLog = (obj: UpdateFindingAggregatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFindingAggregatorResponseFilterSensitiveLog = (obj: UpdateFindingAggregatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFindingsRequestFilterSensitiveLog = (obj: UpdateFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFindingsResponseFilterSensitiveLog = (obj: UpdateFindingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInsightRequestFilterSensitiveLog = (obj: UpdateInsightRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInsightResponseFilterSensitiveLog = (obj: UpdateInsightResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOrganizationConfigurationRequestFilterSensitiveLog = (
-  obj: UpdateOrganizationConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOrganizationConfigurationResponseFilterSensitiveLog = (
-  obj: UpdateOrganizationConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityHubConfigurationRequestFilterSensitiveLog = (
-  obj: UpdateSecurityHubConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSecurityHubConfigurationResponseFilterSensitiveLog = (
-  obj: UpdateSecurityHubConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStandardsControlRequestFilterSensitiveLog = (obj: UpdateStandardsControlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateStandardsControlResponseFilterSensitiveLog = (obj: UpdateStandardsControlResponse): any => ({
-  ...obj,
-});

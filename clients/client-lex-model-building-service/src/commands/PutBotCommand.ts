@@ -18,24 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  PutBotRequest,
-  PutBotRequestFilterSensitiveLog,
-  PutBotResponse,
-  PutBotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restJson1PutBotCommand, serializeAws_restJson1PutBotCommand } from "../protocols/Aws_restJson1";
+import { PutBotRequest, PutBotResponse } from "../models/models_0";
+import { de_PutBotCommand, se_PutBotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutBotCommand}.
  */
 export interface PutBotCommandInput extends PutBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBotCommand}.
  */
 export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Lex conversational bot or replaces an existing bot.
  *       When you create or update a bot you are only required to specify a name, a
  *       locale, and whether the bot is directed toward children under age 13. You
@@ -60,10 +60,59 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * import { LexModelBuildingServiceClient, PutBotCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, PutBotCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // PutBotRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   intents: [ // IntentList
+ *     { // Intent
+ *       intentName: "STRING_VALUE", // required
+ *       intentVersion: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   enableModelImprovements: true || false,
+ *   nluIntentConfidenceThreshold: Number("double"),
+ *   clarificationPrompt: { // Prompt
+ *     messages: [ // MessageList // required
+ *       { // Message
+ *         contentType: "STRING_VALUE", // required
+ *         content: "STRING_VALUE", // required
+ *         groupNumber: Number("int"),
+ *       },
+ *     ],
+ *     maxAttempts: Number("int"), // required
+ *     responseCard: "STRING_VALUE",
+ *   },
+ *   abortStatement: { // Statement
+ *     messages: [ // required
+ *       {
+ *         contentType: "STRING_VALUE", // required
+ *         content: "STRING_VALUE", // required
+ *         groupNumber: Number("int"),
+ *       },
+ *     ],
+ *     responseCard: "STRING_VALUE",
+ *   },
+ *   idleSessionTTLInSeconds: Number("int"),
+ *   voiceId: "STRING_VALUE",
+ *   checksum: "STRING_VALUE",
+ *   processBehavior: "STRING_VALUE",
+ *   locale: "STRING_VALUE", // required
+ *   childDirected: true || false, // required
+ *   detectSentiment: true || false,
+ *   createVersion: true || false,
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutBotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBotCommandInput - {@link PutBotCommandInput}
+ * @returns {@link PutBotCommandOutput}
  * @see {@link PutBotCommandInput} for command's `input` shape.
  * @see {@link PutBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -199,6 +248,9 @@ export class PutBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -225,8 +277,8 @@ export class PutBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutBotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -236,12 +288,18 @@ export class PutBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutBotCommand(input, context);
+    return se_PutBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBotCommandOutput> {
-    return deserializeAws_restJson1PutBotCommand(output, context);
+    return de_PutBotCommand(output, context);
   }
 
   // Start section: command_body_extra

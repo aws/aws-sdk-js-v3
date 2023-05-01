@@ -15,22 +15,24 @@ import {
 
 import {
   GetServiceQuotaIncreaseRequestFromTemplateRequest,
-  GetServiceQuotaIncreaseRequestFromTemplateRequestFilterSensitiveLog,
   GetServiceQuotaIncreaseRequestFromTemplateResponse,
-  GetServiceQuotaIncreaseRequestFromTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand,
-  serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand,
+  de_GetServiceQuotaIncreaseRequestFromTemplateCommand,
+  se_GetServiceQuotaIncreaseRequestFromTemplateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
 export interface GetServiceQuotaIncreaseRequestFromTemplateCommandInput
   extends GetServiceQuotaIncreaseRequestFromTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceQuotaIncreaseRequestFromTemplateCommand}.
  */
 export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
@@ -38,6 +40,7 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified quota increase request in your quota request
  *       template.</p>
  * @example
@@ -46,10 +49,17 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
  * import { ServiceQuotasClient, GetServiceQuotaIncreaseRequestFromTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, GetServiceQuotaIncreaseRequestFromTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = { // GetServiceQuotaIncreaseRequestFromTemplateRequest
+ *   ServiceCode: "STRING_VALUE", // required
+ *   QuotaCode: "STRING_VALUE", // required
+ *   AwsRegion: "STRING_VALUE", // required
+ * };
  * const command = new GetServiceQuotaIncreaseRequestFromTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceQuotaIncreaseRequestFromTemplateCommandInput - {@link GetServiceQuotaIncreaseRequestFromTemplateCommandInput}
+ * @returns {@link GetServiceQuotaIncreaseRequestFromTemplateCommandOutput}
  * @see {@link GetServiceQuotaIncreaseRequestFromTemplateCommandInput} for command's `input` shape.
  * @see {@link GetServiceQuotaIncreaseRequestFromTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -102,6 +112,9 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceQuotaIncreaseRequestFromTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +149,8 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceQuotaIncreaseRequestFromTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceQuotaIncreaseRequestFromTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,18 +160,24 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand(input, context);
+    return se_GetServiceQuotaIncreaseRequestFromTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
-    return deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand(output, context);
+    return de_GetServiceQuotaIncreaseRequestFromTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchGetCrawlersRequest,
-  BatchGetCrawlersRequestFilterSensitiveLog,
-  BatchGetCrawlersResponse,
-  BatchGetCrawlersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetCrawlersCommand,
-  serializeAws_json1_1BatchGetCrawlersCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetCrawlersRequest, BatchGetCrawlersResponse } from "../models/models_0";
+import { de_BatchGetCrawlersCommand, se_BatchGetCrawlersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetCrawlersCommand}.
  */
 export interface BatchGetCrawlersCommandInput extends BatchGetCrawlersRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetCrawlersCommand}.
  */
 export interface BatchGetCrawlersCommandOutput extends BatchGetCrawlersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of resource metadata for a given list of crawler names. After calling the <code>ListCrawlers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface BatchGetCrawlersCommandOutput extends BatchGetCrawlersResponse,
  * import { GlueClient, BatchGetCrawlersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetCrawlersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchGetCrawlersRequest
+ *   CrawlerNames: [ // CrawlerNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetCrawlersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetCrawlersCommandInput - {@link BatchGetCrawlersCommandInput}
+ * @returns {@link BatchGetCrawlersCommandOutput}
  * @see {@link BatchGetCrawlersCommandInput} for command's `input` shape.
  * @see {@link BatchGetCrawlersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -75,6 +79,9 @@ export class BatchGetCrawlersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetCrawlersCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +110,8 @@ export class BatchGetCrawlersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetCrawlersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetCrawlersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +121,18 @@ export class BatchGetCrawlersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetCrawlersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetCrawlersCommand(input, context);
+    return se_BatchGetCrawlersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetCrawlersCommandOutput> {
-    return deserializeAws_json1_1BatchGetCrawlersCommand(output, context);
+    return de_BatchGetCrawlersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { CodestarNotificationsServiceException as __BaseException } from "./CodestarNotificationsServiceException";
 
 /**
+ * @public
  * <p>AWS CodeStar Notifications can't create the notification rule because you do not have sufficient
  *       permissions.</p>
  */
@@ -26,6 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>AWS CodeStar Notifications can't complete the request because the resource is being modified by
  *       another process. Wait a few minutes and try again.</p>
  */
@@ -48,6 +50,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
  */
 export class ConfigurationException extends __BaseException {
@@ -68,17 +71,36 @@ export class ConfigurationException extends __BaseException {
   }
 }
 
-export enum DetailType {
-  BASIC = "BASIC",
-  FULL = "FULL",
-}
-
-export enum NotificationRuleStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DetailType = {
+  BASIC: "BASIC",
+  FULL: "FULL",
+} as const;
 
 /**
+ * @public
+ */
+export type DetailType = (typeof DetailType)[keyof typeof DetailType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotificationRuleStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationRuleStatus = (typeof NotificationRuleStatus)[keyof typeof NotificationRuleStatus];
+
+/**
+ * @public
  * <p>Information about the Chatbot topics or Chatbot clients associated with a  notification rule.</p>
  */
 export interface Target {
@@ -101,6 +123,9 @@ export interface Target {
   TargetAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateNotificationRuleRequest {
   /**
    * <p>The name for the notification rule. Notification rule names must be unique in your Amazon Web Services account.</p>
@@ -156,6 +181,9 @@ export interface CreateNotificationRuleRequest {
   Status?: NotificationRuleStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateNotificationRuleResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
@@ -164,6 +192,7 @@ export interface CreateNotificationRuleResult {
 }
 
 /**
+ * @public
  * <p>One of the AWS CodeStar Notifications limits has been exceeded. Limits apply to
  *             accounts, notification rules, notifications, resources, and targets. For more
  *             information, see Limits.</p>
@@ -187,6 +216,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A resource with the same name or ID already exists. Notification rule names must be
  *             unique in your Amazon Web Services account.</p>
  */
@@ -209,6 +239,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more parameter values are not valid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -229,6 +260,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteNotificationRuleRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule you want to delete.</p>
@@ -236,6 +270,9 @@ export interface DeleteNotificationRuleRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteNotificationRuleResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted notification rule.</p>
@@ -243,6 +280,9 @@ export interface DeleteNotificationRuleResult {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTargetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client to delete.</p>
@@ -257,8 +297,14 @@ export interface DeleteTargetRequest {
   ForceUnsubscribeAll?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTargetResult {}
 
+/**
+ * @public
+ */
 export interface DescribeNotificationRuleRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
@@ -267,6 +313,7 @@ export interface DescribeNotificationRuleRequest {
 }
 
 /**
+ * @public
  * <p>Returns information about an event that has triggered a notification rule.</p>
  */
 export interface EventTypeSummary {
@@ -293,15 +340,25 @@ export interface EventTypeSummary {
   ResourceType?: string;
 }
 
-export enum TargetStatus {
-  ACTIVE = "ACTIVE",
-  DEACTIVATED = "DEACTIVATED",
-  INACTIVE = "INACTIVE",
-  PENDING = "PENDING",
-  UNREACHABLE = "UNREACHABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetStatus = {
+  ACTIVE: "ACTIVE",
+  DEACTIVATED: "DEACTIVATED",
+  INACTIVE: "INACTIVE",
+  PENDING: "PENDING",
+  UNREACHABLE: "UNREACHABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type TargetStatus = (typeof TargetStatus)[keyof typeof TargetStatus];
+
+/**
+ * @public
  * <p>Information about the targets specified for a notification rule.</p>
  */
 export interface TargetSummary {
@@ -329,6 +386,9 @@ export interface TargetSummary {
   TargetStatus?: TargetStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotificationRuleResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
@@ -392,6 +452,7 @@ export interface DescribeNotificationRuleResult {
 }
 
 /**
+ * @public
  * <p>AWS CodeStar Notifications can't find a resource that matches the provided ARN. </p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -413,6 +474,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -433,12 +495,22 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
-export enum ListEventTypesFilterName {
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  SERVICE_NAME = "SERVICE_NAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListEventTypesFilterName = {
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  SERVICE_NAME: "SERVICE_NAME",
+} as const;
 
 /**
+ * @public
+ */
+export type ListEventTypesFilterName = (typeof ListEventTypesFilterName)[keyof typeof ListEventTypesFilterName];
+
+/**
+ * @public
  * <p>Information about a filter to apply to the list of returned event types. You can filter
  *       by resource type or service name.</p>
  */
@@ -455,6 +527,9 @@ export interface ListEventTypesFilter {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListEventTypesRequest {
   /**
    * <p>The filters to use to return information by service or resource type.</p>
@@ -474,6 +549,9 @@ export interface ListEventTypesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListEventTypesResult {
   /**
    * <p>Information about each event, including service name, resource type, event ID, and event
@@ -487,14 +565,25 @@ export interface ListEventTypesResult {
   NextToken?: string;
 }
 
-export enum ListNotificationRulesFilterName {
-  CREATED_BY = "CREATED_BY",
-  EVENT_TYPE_ID = "EVENT_TYPE_ID",
-  RESOURCE = "RESOURCE",
-  TARGET_ADDRESS = "TARGET_ADDRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListNotificationRulesFilterName = {
+  CREATED_BY: "CREATED_BY",
+  EVENT_TYPE_ID: "EVENT_TYPE_ID",
+  RESOURCE: "RESOURCE",
+  TARGET_ADDRESS: "TARGET_ADDRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type ListNotificationRulesFilterName =
+  (typeof ListNotificationRulesFilterName)[keyof typeof ListNotificationRulesFilterName];
+
+/**
+ * @public
  * <p>Information about a filter to apply to the list of returned notification rules. You can
  *       filter by event type, owner, resource, or target.</p>
  */
@@ -511,6 +600,9 @@ export interface ListNotificationRulesFilter {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationRulesRequest {
   /**
    * <p>The filters to use to return information by service or resource type. For valid values,
@@ -535,6 +627,7 @@ export interface ListNotificationRulesRequest {
 }
 
 /**
+ * @public
  * <p>Information about a specified notification rule.</p>
  */
 export interface NotificationRuleSummary {
@@ -549,6 +642,9 @@ export interface NotificationRuleSummary {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationRulesResult {
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
@@ -561,6 +657,9 @@ export interface ListNotificationRulesResult {
   NotificationRules?: NotificationRuleSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the notification rule.</p>
@@ -568,6 +667,9 @@ export interface ListTagsForResourceRequest {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResult {
   /**
    * <p>The tags associated with the notification rule.</p>
@@ -575,13 +677,23 @@ export interface ListTagsForResourceResult {
   Tags?: Record<string, string>;
 }
 
-export enum ListTargetsFilterName {
-  TARGET_ADDRESS = "TARGET_ADDRESS",
-  TARGET_STATUS = "TARGET_STATUS",
-  TARGET_TYPE = "TARGET_TYPE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListTargetsFilterName = {
+  TARGET_ADDRESS: "TARGET_ADDRESS",
+  TARGET_STATUS: "TARGET_STATUS",
+  TARGET_TYPE: "TARGET_TYPE",
+} as const;
 
 /**
+ * @public
+ */
+export type ListTargetsFilterName = (typeof ListTargetsFilterName)[keyof typeof ListTargetsFilterName];
+
+/**
+ * @public
  * <p>Information about a filter to apply to the list of returned targets. You can filter by
  *             target type, address, or status. For example, to filter results to notification rules
  *             that have active Chatbot topics as targets, you could specify a ListTargetsFilter
@@ -602,6 +714,9 @@ export interface ListTargetsFilter {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsRequest {
   /**
    * <p>The filters to use to return information by service or resource type. Valid filters
@@ -625,6 +740,9 @@ export interface ListTargetsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetsResult {
   /**
    * <p>The list of notification rule targets. </p>
@@ -638,6 +756,9 @@ export interface ListTargetsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SubscribeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule for which you want to create the association.</p>
@@ -656,6 +777,9 @@ export interface SubscribeRequest {
   ClientRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SubscribeResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule for which you have created assocations.</p>
@@ -663,6 +787,9 @@ export interface SubscribeResult {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule to tag.</p>
@@ -675,6 +802,9 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResult {
   /**
    * <p>The list of tags associated with the resource.</p>
@@ -682,6 +812,9 @@ export interface TagResourceResult {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UnsubscribeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
@@ -694,6 +827,9 @@ export interface UnsubscribeRequest {
   TargetAddress: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UnsubscribeResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the the notification rule from which you have removed a subscription.</p>
@@ -701,6 +837,9 @@ export interface UnsubscribeResult {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule from which to remove the
@@ -714,8 +853,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UpdateNotificationRuleRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
@@ -754,6 +899,9 @@ export interface UpdateNotificationRuleRequest {
   DetailType?: DetailType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotificationRuleResult {}
 
 /**
@@ -776,51 +924,9 @@ export const CreateNotificationRuleRequestFilterSensitiveLog = (obj: CreateNotif
 /**
  * @internal
  */
-export const CreateNotificationRuleResultFilterSensitiveLog = (obj: CreateNotificationRuleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNotificationRuleRequestFilterSensitiveLog = (obj: DeleteNotificationRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNotificationRuleResultFilterSensitiveLog = (obj: DeleteNotificationRuleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteTargetRequestFilterSensitiveLog = (obj: DeleteTargetRequest): any => ({
   ...obj,
   ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteTargetResultFilterSensitiveLog = (obj: DeleteTargetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotificationRuleRequestFilterSensitiveLog = (obj: DescribeNotificationRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventTypeSummaryFilterSensitiveLog = (obj: EventTypeSummary): any => ({
-  ...obj,
 });
 
 /**
@@ -843,83 +949,6 @@ export const DescribeNotificationRuleResultFilterSensitiveLog = (obj: DescribeNo
 /**
  * @internal
  */
-export const ListEventTypesFilterFilterSensitiveLog = (obj: ListEventTypesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventTypesRequestFilterSensitiveLog = (obj: ListEventTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventTypesResultFilterSensitiveLog = (obj: ListEventTypesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationRulesFilterFilterSensitiveLog = (obj: ListNotificationRulesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationRulesRequestFilterSensitiveLog = (obj: ListNotificationRulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationRuleSummaryFilterSensitiveLog = (obj: NotificationRuleSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationRulesResultFilterSensitiveLog = (obj: ListNotificationRulesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsFilterFilterSensitiveLog = (obj: ListTargetsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsRequestFilterSensitiveLog = (obj: ListTargetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTargetsResultFilterSensitiveLog = (obj: ListTargetsResult): any => ({
   ...obj,
   ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummaryFilterSensitiveLog(item)) }),
@@ -936,51 +965,9 @@ export const SubscribeRequestFilterSensitiveLog = (obj: SubscribeRequest): any =
 /**
  * @internal
  */
-export const SubscribeResultFilterSensitiveLog = (obj: SubscribeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UnsubscribeRequestFilterSensitiveLog = (obj: UnsubscribeRequest): any => ({
   ...obj,
   ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UnsubscribeResultFilterSensitiveLog = (obj: UnsubscribeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
-  ...obj,
 });
 
 /**
@@ -990,11 +977,4 @@ export const UpdateNotificationRuleRequestFilterSensitiveLog = (obj: UpdateNotif
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateNotificationRuleResultFilterSensitiveLog = (obj: UpdateNotificationRuleResult): any => ({
-  ...obj,
 });

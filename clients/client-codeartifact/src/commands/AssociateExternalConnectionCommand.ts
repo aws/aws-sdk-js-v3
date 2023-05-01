@@ -14,27 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
+import { AssociateExternalConnectionRequest, AssociateExternalConnectionResult } from "../models/models_0";
 import {
-  AssociateExternalConnectionRequest,
-  AssociateExternalConnectionRequestFilterSensitiveLog,
-  AssociateExternalConnectionResult,
-  AssociateExternalConnectionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateExternalConnectionCommand,
-  serializeAws_restJson1AssociateExternalConnectionCommand,
+  de_AssociateExternalConnectionCommand,
+  se_AssociateExternalConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateExternalConnectionCommand}.
  */
 export interface AssociateExternalConnectionCommandInput extends AssociateExternalConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateExternalConnectionCommand}.
  */
 export interface AssociateExternalConnectionCommandOutput extends AssociateExternalConnectionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an existing external connection to a repository. One external connection is allowed
  *       per repository.</p>
  *          <note>
@@ -46,10 +46,18 @@ export interface AssociateExternalConnectionCommandOutput extends AssociateExter
  * import { CodeartifactClient, AssociateExternalConnectionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, AssociateExternalConnectionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // AssociateExternalConnectionRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   externalConnection: "STRING_VALUE", // required
+ * };
  * const command = new AssociateExternalConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateExternalConnectionCommandInput - {@link AssociateExternalConnectionCommandInput}
+ * @returns {@link AssociateExternalConnectionCommandOutput}
  * @see {@link AssociateExternalConnectionCommandInput} for command's `input` shape.
  * @see {@link AssociateExternalConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -106,6 +114,9 @@ export class AssociateExternalConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateExternalConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +145,8 @@ export class AssociateExternalConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateExternalConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateExternalConnectionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,15 +156,21 @@ export class AssociateExternalConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateExternalConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateExternalConnectionCommand(input, context);
+    return se_AssociateExternalConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateExternalConnectionCommandOutput> {
-    return deserializeAws_restJson1AssociateExternalConnectionCommand(output, context);
+    return de_AssociateExternalConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

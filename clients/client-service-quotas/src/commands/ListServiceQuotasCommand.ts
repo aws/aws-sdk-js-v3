@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListServiceQuotasRequest,
-  ListServiceQuotasRequestFilterSensitiveLog,
-  ListServiceQuotasResponse,
-  ListServiceQuotasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServiceQuotasCommand,
-  serializeAws_json1_1ListServiceQuotasCommand,
-} from "../protocols/Aws_json1_1";
+import { ListServiceQuotasRequest, ListServiceQuotasResponse } from "../models/models_0";
+import { de_ListServiceQuotasCommand, se_ListServiceQuotasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceQuotasCommand}.
  */
 export interface ListServiceQuotasCommandInput extends ListServiceQuotasRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceQuotasCommand}.
  */
 export interface ListServiceQuotasCommandOutput extends ListServiceQuotasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the applied quota values for the specified AWS service. For some quotas, only the
  *       default values are available. If the applied quota value is not available for a quota, the
  *       quota is not retrieved.</p>
@@ -44,10 +41,17 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * import { ServiceQuotasClient, ListServiceQuotasCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListServiceQuotasCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = { // ListServiceQuotasRequest
+ *   ServiceCode: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListServiceQuotasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceQuotasCommandInput - {@link ListServiceQuotasCommandInput}
+ * @returns {@link ListServiceQuotasCommandOutput}
  * @see {@link ListServiceQuotasCommandInput} for command's `input` shape.
  * @see {@link ListServiceQuotasCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -90,6 +94,9 @@ export class ListServiceQuotasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceQuotasCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class ListServiceQuotasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceQuotasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServiceQuotasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class ListServiceQuotasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceQuotasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServiceQuotasCommand(input, context);
+    return se_ListServiceQuotasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceQuotasCommandOutput> {
-    return deserializeAws_json1_1ListServiceQuotasCommand(output, context);
+    return de_ListServiceQuotasCommand(output, context);
   }
 
   // Start section: command_body_extra

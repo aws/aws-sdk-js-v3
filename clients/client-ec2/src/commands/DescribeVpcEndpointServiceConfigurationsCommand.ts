@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeVpcEndpointServiceConfigurationsRequest,
-  DescribeVpcEndpointServiceConfigurationsRequestFilterSensitiveLog,
   DescribeVpcEndpointServiceConfigurationsResult,
-  DescribeVpcEndpointServiceConfigurationsResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand,
-  serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand,
+  de_DescribeVpcEndpointServiceConfigurationsCommand,
+  se_DescribeVpcEndpointServiceConfigurationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcEndpointServiceConfigurationsCommand}.
  */
 export interface DescribeVpcEndpointServiceConfigurationsCommandInput
   extends DescribeVpcEndpointServiceConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcEndpointServiceConfigurationsCommand}.
  */
 export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the VPC endpoint service configurations in your account (your services).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,28 @@ export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
  * import { EC2Client, DescribeVpcEndpointServiceConfigurationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcEndpointServiceConfigurationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVpcEndpointServiceConfigurationsRequest
+ *   DryRun: true || false,
+ *   ServiceIds: [ // VpcEndpointServiceIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeVpcEndpointServiceConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcEndpointServiceConfigurationsCommandInput - {@link DescribeVpcEndpointServiceConfigurationsCommandInput}
+ * @returns {@link DescribeVpcEndpointServiceConfigurationsCommandOutput}
  * @see {@link DescribeVpcEndpointServiceConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointServiceConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +93,9 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcEndpointServiceConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +130,8 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcEndpointServiceConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcEndpointServiceConfigurationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +141,24 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcEndpointServiceConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(input, context);
+    return se_DescribeVpcEndpointServiceConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(output, context);
+    return de_DescribeVpcEndpointServiceConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

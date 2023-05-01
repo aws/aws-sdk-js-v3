@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeregisterMailDomainRequest,
-  DeregisterMailDomainRequestFilterSensitiveLog,
-  DeregisterMailDomainResponse,
-  DeregisterMailDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterMailDomainCommand,
-  serializeAws_json1_1DeregisterMailDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { DeregisterMailDomainRequest, DeregisterMailDomainResponse } from "../models/models_0";
+import { de_DeregisterMailDomainCommand, se_DeregisterMailDomainCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterMailDomainCommand}.
  */
 export interface DeregisterMailDomainCommandInput extends DeregisterMailDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterMailDomainCommand}.
  */
 export interface DeregisterMailDomainCommandOutput extends DeregisterMailDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a domain from WorkMail, stops email routing to WorkMail, and removes the authorization allowing WorkMail use. SES keeps the domain because other applications may use it. You must first
  *          remove any email address used by WorkMail entities before you remove the domain.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeregisterMailDomainCommandOutput extends DeregisterMailDomainR
  * import { WorkMailClient, DeregisterMailDomainCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeregisterMailDomainCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // DeregisterMailDomainRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterMailDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterMailDomainCommandInput - {@link DeregisterMailDomainCommandInput}
+ * @returns {@link DeregisterMailDomainCommandOutput}
  * @see {@link DeregisterMailDomainCommandInput} for command's `input` shape.
  * @see {@link DeregisterMailDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -88,6 +91,9 @@ export class DeregisterMailDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterMailDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DeregisterMailDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterMailDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterMailDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class DeregisterMailDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterMailDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterMailDomainCommand(input, context);
+    return se_DeregisterMailDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterMailDomainCommandOutput> {
-    return deserializeAws_json1_1DeregisterMailDomainCommand(output, context);
+    return de_DeregisterMailDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

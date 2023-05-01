@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribeStackResourceDriftsInput,
-  DescribeStackResourceDriftsInputFilterSensitiveLog,
-  DescribeStackResourceDriftsOutput,
-  DescribeStackResourceDriftsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeStackResourceDriftsCommand,
-  serializeAws_queryDescribeStackResourceDriftsCommand,
-} from "../protocols/Aws_query";
+import { DescribeStackResourceDriftsInput, DescribeStackResourceDriftsOutput } from "../models/models_0";
+import { de_DescribeStackResourceDriftsCommand, se_DescribeStackResourceDriftsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackResourceDriftsCommand}.
  */
 export interface DescribeStackResourceDriftsCommandInput extends DescribeStackResourceDriftsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackResourceDriftsCommand}.
  */
 export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackResourceDriftsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns drift information for the resources that have been checked for drift in the
  *          specified stack. This includes actual and expected configuration values for resources where
  *          CloudFormation detects configuration drift.</p>
@@ -51,10 +48,20 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  * import { CloudFormationClient, DescribeStackResourceDriftsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackResourceDriftsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeStackResourceDriftsInput
+ *   StackName: "STRING_VALUE", // required
+ *   StackResourceDriftStatusFilters: [ // StackResourceDriftStatusFilters
+ *     "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeStackResourceDriftsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackResourceDriftsCommandInput - {@link DescribeStackResourceDriftsCommandInput}
+ * @returns {@link DescribeStackResourceDriftsCommandOutput}
  * @see {@link DescribeStackResourceDriftsCommandInput} for command's `input` shape.
  * @see {@link DescribeStackResourceDriftsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -78,6 +85,9 @@ export class DescribeStackResourceDriftsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackResourceDriftsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +116,8 @@ export class DescribeStackResourceDriftsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStackResourceDriftsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStackResourceDriftsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +127,21 @@ export class DescribeStackResourceDriftsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackResourceDriftsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeStackResourceDriftsCommand(input, context);
+    return se_DescribeStackResourceDriftsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStackResourceDriftsCommandOutput> {
-    return deserializeAws_queryDescribeStackResourceDriftsCommand(output, context);
+    return de_DescribeStackResourceDriftsCommand(output, context);
   }
 
   // Start section: command_body_extra

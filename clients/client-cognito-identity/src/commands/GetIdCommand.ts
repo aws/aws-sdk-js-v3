@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  GetIdInput,
-  GetIdInputFilterSensitiveLog,
-  GetIdResponse,
-  GetIdResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetIdCommand, serializeAws_json1_1GetIdCommand } from "../protocols/Aws_json1_1";
+import { GetIdInput, GetIdResponse } from "../models/models_0";
+import { de_GetIdCommand, se_GetIdCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetIdCommand}.
  */
 export interface GetIdCommandInput extends GetIdInput {}
 /**
+ * @public
+ *
  * The output of {@link GetIdCommand}.
  */
 export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an
  *          implicit linked account.</p>
  *          <p>This is a public API. You do not need any credentials to call this API.</p>
@@ -41,10 +41,19 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  * import { CognitoIdentityClient, GetIdCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetIdCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // GetIdInput
+ *   AccountId: "STRING_VALUE",
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   Logins: { // LoginsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIdCommandInput - {@link GetIdCommandInput}
+ * @returns {@link GetIdCommandOutput}
  * @see {@link GetIdCommandInput} for command's `input` shape.
  * @see {@link GetIdCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -91,6 +100,9 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +129,8 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +140,18 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetIdCommand(input, context);
+    return se_GetIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdCommandOutput> {
-    return deserializeAws_json1_1GetIdCommand(output, context);
+    return de_GetIdCommand(output, context);
   }
 
   // Start section: command_body_extra

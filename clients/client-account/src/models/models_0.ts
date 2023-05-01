@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { AccountServiceException as __BaseException } from "./AccountServiceException";
 
 /**
+ * @public
  * <p>The operation failed because the calling identity doesn't have the minimum required
  *             permissions.</p>
  */
@@ -23,12 +24,24 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum AlternateContactType {
-  BILLING = "BILLING",
-  OPERATIONS = "OPERATIONS",
-  SECURITY = "SECURITY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AlternateContactType = {
+  BILLING: "BILLING",
+  OPERATIONS: "OPERATIONS",
+  SECURITY: "SECURITY",
+} as const;
 
+/**
+ * @public
+ */
+export type AlternateContactType = (typeof AlternateContactType)[keyof typeof AlternateContactType];
+
+/**
+ * @public
+ */
 export interface DeleteAlternateContactRequest {
   /**
    * <p>Specifies which of the alternate contacts to delete. </p>
@@ -59,6 +72,7 @@ export interface DeleteAlternateContactRequest {
 }
 
 /**
+ * @public
  * <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again
  *             later.</p>
  */
@@ -80,6 +94,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because it specified a resource that can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -99,6 +114,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed because it was called too frequently and exceeded a throttle
  *             limit.</p>
  */
@@ -122,6 +138,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input failed to meet the constraints specified by the Amazon Web Services service in a specified field.</p>
  */
 export interface ValidationExceptionField {
@@ -136,12 +153,22 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  INVALID_REGION_OPT_TARGET = "invalidRegionOptTarget",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  INVALID_REGION_OPT_TARGET: "invalidRegionOptTarget",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The operation failed because one of the input parameters was invalid.</p>
  */
 export class ValidationException extends __BaseException {
@@ -172,6 +199,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetAlternateContactRequest {
   /**
    * <p>Specifies which alternate contact you want to retrieve.</p>
@@ -202,6 +232,7 @@ export interface GetAlternateContactRequest {
 }
 
 /**
+ * @public
  * <p>A structure that contains the details of an alternate contact associated with an Amazon Web Services
  *             account</p>
  */
@@ -232,6 +263,9 @@ export interface AlternateContact {
   AlternateContactType?: AlternateContactType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetAlternateContactResponse {
   /**
    * <p>A structure that contains the details for the specified alternate contact.</p>
@@ -239,6 +273,9 @@ export interface GetAlternateContactResponse {
   AlternateContact?: AlternateContact;
 }
 
+/**
+ * @public
+ */
 export interface PutAlternateContactRequest {
   /**
    * <p>Specifies a name for the alternate contact.</p>
@@ -288,6 +325,9 @@ export interface PutAlternateContactRequest {
   AccountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetContactInformationRequest {
   /**
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
@@ -313,6 +353,7 @@ export interface GetContactInformationRequest {
 }
 
 /**
+ * @public
  * <p>Contains the details of the primary contact information associated with an Amazon Web Services account.</p>
  */
 export interface ContactInformation {
@@ -377,6 +418,9 @@ export interface ContactInformation {
   WebsiteUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetContactInformationResponse {
   /**
    * <p>Contains the details of the primary contact information associated with an Amazon Web Services account.</p>
@@ -384,6 +428,9 @@ export interface GetContactInformationResponse {
   ContactInformation?: ContactInformation;
 }
 
+/**
+ * @public
+ */
 export interface PutContactInformationRequest {
   /**
    * <p>Contains the details of the primary contact information associated with an Amazon Web Services account.</p>
@@ -414,6 +461,7 @@ export interface PutContactInformationRequest {
 }
 
 /**
+ * @public
  * <p>The request could not be processed because of a conflict in the current status of the
  *             resource. For example, this happens if you try to enable a Region that is currently being disabled
  *             (in a status of DISABLING).</p>
@@ -434,6 +482,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisableRegionRequest {
   /**
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
@@ -467,6 +518,9 @@ export interface DisableRegionRequest {
   RegionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableRegionRequest {
   /**
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
@@ -501,6 +555,9 @@ export interface EnableRegionRequest {
   RegionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRegionOptStatusRequest {
   /**
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
@@ -531,14 +588,26 @@ export interface GetRegionOptStatusRequest {
   RegionName: string | undefined;
 }
 
-export enum RegionOptStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLED_BY_DEFAULT = "ENABLED_BY_DEFAULT",
-  ENABLING = "ENABLING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RegionOptStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLED_BY_DEFAULT: "ENABLED_BY_DEFAULT",
+  ENABLING: "ENABLING",
+} as const;
 
+/**
+ * @public
+ */
+export type RegionOptStatus = (typeof RegionOptStatus)[keyof typeof RegionOptStatus];
+
+/**
+ * @public
+ */
 export interface GetRegionOptStatusResponse {
   /**
    * <p>The Region code that was passed in.</p>
@@ -552,6 +621,9 @@ export interface GetRegionOptStatusResponse {
   RegionOptStatus?: RegionOptStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListRegionsRequest {
   /**
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
@@ -603,6 +675,7 @@ export interface ListRegionsRequest {
 }
 
 /**
+ * @public
  * <p>This is a structure that expresses the Region for a given account, consisting of a
  *             name and opt-in status.</p>
  */
@@ -619,6 +692,9 @@ export interface Region {
   RegionOptStatus?: RegionOptStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListRegionsResponse {
   /**
    * <p>If there is more data to be returned, this will be populated. It should be passed into
@@ -637,23 +713,9 @@ export interface ListRegionsResponse {
 /**
  * @internal
  */
-export const DeleteAlternateContactRequestFilterSensitiveLog = (obj: DeleteAlternateContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
   ...obj,
   ...(obj.message && { message: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetAlternateContactRequestFilterSensitiveLog = (obj: GetAlternateContactRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -689,13 +751,6 @@ export const PutAlternateContactRequestFilterSensitiveLog = (obj: PutAlternateCo
 /**
  * @internal
  */
-export const GetContactInformationRequestFilterSensitiveLog = (obj: GetContactInformationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ContactInformationFilterSensitiveLog = (obj: ContactInformation): any => ({
   ...obj,
   ...(obj.FullName && { FullName: SENSITIVE_STRING }),
@@ -726,53 +781,4 @@ export const GetContactInformationResponseFilterSensitiveLog = (obj: GetContactI
 export const PutContactInformationRequestFilterSensitiveLog = (obj: PutContactInformationRequest): any => ({
   ...obj,
   ...(obj.ContactInformation && { ContactInformation: ContactInformationFilterSensitiveLog(obj.ContactInformation) }),
-});
-
-/**
- * @internal
- */
-export const DisableRegionRequestFilterSensitiveLog = (obj: DisableRegionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableRegionRequestFilterSensitiveLog = (obj: EnableRegionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegionOptStatusRequestFilterSensitiveLog = (obj: GetRegionOptStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegionOptStatusResponseFilterSensitiveLog = (obj: GetRegionOptStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRegionsRequestFilterSensitiveLog = (obj: ListRegionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegionFilterSensitiveLog = (obj: Region): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRegionsResponseFilterSensitiveLog = (obj: ListRegionsResponse): any => ({
-  ...obj,
 });

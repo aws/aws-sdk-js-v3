@@ -13,39 +13,50 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAppInputSourceRequest,
-  DeleteAppInputSourceRequestFilterSensitiveLog,
-  DeleteAppInputSourceResponse,
-  DeleteAppInputSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAppInputSourceCommand,
-  serializeAws_restJson1DeleteAppInputSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAppInputSourceRequest, DeleteAppInputSourceResponse } from "../models/models_0";
+import { de_DeleteAppInputSourceCommand, se_DeleteAppInputSourceCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppInputSourceCommand}.
  */
 export interface DeleteAppInputSourceCommandInput extends DeleteAppInputSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppInputSourceCommand}.
  */
 export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the input source and all of its imported resources from the AWS Resilience Hub application.</p>
+ * @public
+ * <p>Deletes the input source and all of its imported resources from the Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, DeleteAppInputSourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteAppInputSourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DeleteAppInputSourceRequest
+ *   appArn: "STRING_VALUE", // required
+ *   sourceArn: "STRING_VALUE",
+ *   terraformSource: { // TerraformSource
+ *     s3StateFileUrl: "STRING_VALUE", // required
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   eksSourceClusterNamespace: { // EksSourceClusterNamespace
+ *     eksClusterArn: "STRING_VALUE", // required
+ *     namespace: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DeleteAppInputSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppInputSourceCommandInput - {@link DeleteAppInputSourceCommandInput}
+ * @returns {@link DeleteAppInputSourceCommandOutput}
  * @see {@link DeleteAppInputSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteAppInputSourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -62,7 +73,7 @@ export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceR
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -93,6 +104,9 @@ export class DeleteAppInputSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppInputSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +135,8 @@ export class DeleteAppInputSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppInputSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppInputSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +146,18 @@ export class DeleteAppInputSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppInputSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppInputSourceCommand(input, context);
+    return se_DeleteAppInputSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppInputSourceCommandOutput> {
-    return deserializeAws_restJson1DeleteAppInputSourceCommand(output, context);
+    return de_DeleteAppInputSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

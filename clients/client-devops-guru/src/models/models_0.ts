@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DevOpsGuruServiceException as __BaseException } from "./DevOpsGuruServiceException";
 
 /**
+ * @public
  * <p> You don't have permissions to perform the requested operation. The user or role that
  * 			is making the request must have at least one IAM permissions policy attached that grants
  * 			the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Information about the number of open reactive and proactive insights that can be used
  * 			to gauge the health of your system. </p>
  */
@@ -46,6 +48,7 @@ export interface AccountInsightHealth {
 }
 
 /**
+ * @public
  * <p> Returns the number of open reactive insights, the number of open proactive insights,
  * 			and the number of metrics analyzed in your Amazon Web Services account. Use these numbers to gauge the
  * 			health of operations in your Amazon Web Services account. </p>
@@ -64,21 +67,40 @@ export interface AccountHealth {
   Insight?: AccountInsightHealth;
 }
 
-export enum NotificationMessageType {
-  CLOSED_INSIGHT = "CLOSED_INSIGHT",
-  NEW_ASSOCIATION = "NEW_ASSOCIATION",
-  NEW_INSIGHT = "NEW_INSIGHT",
-  NEW_RECOMMENDATION = "NEW_RECOMMENDATION",
-  SEVERITY_UPGRADED = "SEVERITY_UPGRADED",
-}
-
-export enum InsightSeverity {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NotificationMessageType = {
+  CLOSED_INSIGHT: "CLOSED_INSIGHT",
+  NEW_ASSOCIATION: "NEW_ASSOCIATION",
+  NEW_INSIGHT: "NEW_INSIGHT",
+  NEW_RECOMMENDATION: "NEW_RECOMMENDATION",
+  SEVERITY_UPGRADED: "SEVERITY_UPGRADED",
+} as const;
 
 /**
+ * @public
+ */
+export type NotificationMessageType = (typeof NotificationMessageType)[keyof typeof NotificationMessageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightSeverity = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type InsightSeverity = (typeof InsightSeverity)[keyof typeof InsightSeverity];
+
+/**
+ * @public
  * <p>
  * 			The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. You can choose to specify which events or message types to receive notifications for.
  * 			You can also choose to specify which severity levels to receive notifications for.
@@ -102,6 +124,7 @@ export interface NotificationFilterConfig {
 }
 
 /**
+ * @public
  * <p> Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic. </p>
  *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
  * 				to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics.
@@ -120,6 +143,7 @@ export interface SnsChannelConfig {
 }
 
 /**
+ * @public
  * <p> Information about notification channels you have configured with DevOps Guru.
  * 			The one
  *       	supported notification channel is Amazon Simple Notification Service (Amazon SNS).</p>
@@ -148,6 +172,9 @@ export interface NotificationChannelConfig {
   Filters?: NotificationFilterConfig;
 }
 
+/**
+ * @public
+ */
 export interface AddNotificationChannelRequest {
   /**
    * <p> A <code>NotificationChannelConfig</code> object that specifies what type of
@@ -157,6 +184,9 @@ export interface AddNotificationChannelRequest {
   Config: NotificationChannelConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddNotificationChannelResponse {
   /**
    * <p> The ID of the added notification channel. </p>
@@ -165,6 +195,7 @@ export interface AddNotificationChannelResponse {
 }
 
 /**
+ * @public
  * <p> An exception that is thrown when a conflict occurs. </p>
  */
 export class ConflictException extends __BaseException {
@@ -197,6 +228,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An internal failure in an Amazon service occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -224,6 +256,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A requested resource could not be found</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -256,6 +289,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request contains a value that exceeds a maximum quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -277,6 +311,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to a request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -316,6 +351,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The field associated with the validation exception. </p>
  */
 export interface ValidationExceptionField {
@@ -331,16 +367,26 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  INVALID_PARAMETER_COMBINATION = "INVALID_PARAMETER_COMBINATION",
-  OTHER = "OTHER",
-  PARAMETER_INCONSISTENT_WITH_SERVICE_STATE = "PARAMETER_INCONSISTENT_WITH_SERVICE_STATE",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  INVALID_PARAMETER_COMBINATION: "INVALID_PARAMETER_COMBINATION",
+  OTHER: "OTHER",
+  PARAMETER_INCONSISTENT_WITH_SERVICE_STATE: "PARAMETER_INCONSISTENT_WITH_SERVICE_STATE",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  */
@@ -377,12 +423,22 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum EventSourceOptInStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventSourceOptInStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type EventSourceOptInStatus = (typeof EventSourceOptInStatus)[keyof typeof EventSourceOptInStatus];
+
+/**
+ * @public
  * <p>Information about your account's integration with Amazon CodeGuru Profiler. This
  * 			returns whether DevOps Guru is configured to consume recommendations generated from Amazon
  * 			CodeGuru Profiler.</p>
@@ -395,18 +451,28 @@ export interface AmazonCodeGuruProfilerIntegration {
   Status?: EventSourceOptInStatus | string;
 }
 
-export enum LogAnomalyType {
-  BLOCK_FORMAT = "BLOCK_FORMAT",
-  FORMAT = "FORMAT",
-  HTTP_CODE = "HTTP_CODE",
-  KEYWORD = "KEYWORD",
-  KEYWORD_TOKEN = "KEYWORD_TOKEN",
-  NEW_FIELD_NAME = "NEW_FIELD_NAME",
-  NUMERICAL_NAN = "NUMERICAL_NAN",
-  NUMERICAL_POINT = "NUMERICAL_POINT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LogAnomalyType = {
+  BLOCK_FORMAT: "BLOCK_FORMAT",
+  FORMAT: "FORMAT",
+  HTTP_CODE: "HTTP_CODE",
+  KEYWORD: "KEYWORD",
+  KEYWORD_TOKEN: "KEYWORD_TOKEN",
+  NEW_FIELD_NAME: "NEW_FIELD_NAME",
+  NUMERICAL_NAN: "NUMERICAL_NAN",
+  NUMERICAL_POINT: "NUMERICAL_POINT",
+} as const;
 
 /**
+ * @public
+ */
+export type LogAnomalyType = (typeof LogAnomalyType)[keyof typeof LogAnomalyType];
+
+/**
+ * @public
  * <p>
  * 			Information about an anomalous log event found within a log group.
  * 		</p>
@@ -463,6 +529,7 @@ export interface LogAnomalyClass {
 }
 
 /**
+ * @public
  * <p>
  * 			A cluster of similar anomalous log events found within a log group.
  * 		</p>
@@ -477,6 +544,7 @@ export interface LogAnomalyShowcase {
 }
 
 /**
+ * @public
  * <p>
  * 			An Amazon CloudWatch log group that contains log anomalies and is used to generate an insight.
  * 		</p>
@@ -519,6 +587,7 @@ export interface AnomalousLogGroup {
 }
 
 /**
+ * @public
  * <p> A time range that specifies when DevOps Guru opens and then closes an anomaly. This
  * 			is different from <code>AnomalyTimeRange</code>, which specifies the time range when
  * 			DevOps Guru actually observes the anomalous behavior. </p>
@@ -536,6 +605,7 @@ export interface AnomalyReportedTimeRange {
 }
 
 /**
+ * @public
  * <p>The Amazon Web Services resources in which DevOps Guru detected unusual behavior that resulted in the
  * 			generation of an anomaly. When DevOps Guru detects multiple related anomalies, it creates and
  * 			insight with details about the anomalous behavior and suggestions about how to correct
@@ -553,13 +623,23 @@ export interface AnomalyResource {
   Type?: string;
 }
 
-export enum AnomalySeverity {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnomalySeverity = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
 
 /**
+ * @public
+ */
+export type AnomalySeverity = (typeof AnomalySeverity)[keyof typeof AnomalySeverity];
+
+/**
+ * @public
  * <p> The dimension of an Amazon CloudWatch metric that is used when DevOps Guru analyzes the resources in
  * 			your account for operational problems and anomalous behavior. A dimension is a
  * 			name/value pair that is part of the identity of a metric. A metric can have up to 10
@@ -577,13 +657,24 @@ export interface CloudWatchMetricsDimension {
   Value?: string;
 }
 
-export enum CloudWatchMetricDataStatusCode {
-  COMPLETE = "Complete",
-  INTERNAL_ERROR = "InternalError",
-  PARTIAL_DATA = "PartialData",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CloudWatchMetricDataStatusCode = {
+  COMPLETE: "Complete",
+  INTERNAL_ERROR: "InternalError",
+  PARTIAL_DATA: "PartialData",
+} as const;
 
 /**
+ * @public
+ */
+export type CloudWatchMetricDataStatusCode =
+  (typeof CloudWatchMetricDataStatusCode)[keyof typeof CloudWatchMetricDataStatusCode];
+
+/**
+ * @public
  * <p>A pair that contains metric values at the respective timestamp.</p>
  */
 export interface TimestampMetricValuePair {
@@ -599,6 +690,7 @@ export interface TimestampMetricValuePair {
 }
 
 /**
+ * @public
  * <p>Contains information about the analyzed metrics that displayed anomalous behavior.
  * 		</p>
  */
@@ -615,18 +707,28 @@ export interface CloudWatchMetricsDataSummary {
   StatusCode?: CloudWatchMetricDataStatusCode | string;
 }
 
-export enum CloudWatchMetricsStat {
-  AVERAGE = "Average",
-  MAXIMUM = "Maximum",
-  MINIMUM = "Minimum",
-  P50 = "p50",
-  P90 = "p90",
-  P99 = "p99",
-  SAMPLE_COUNT = "SampleCount",
-  SUM = "Sum",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CloudWatchMetricsStat = {
+  AVERAGE: "Average",
+  MAXIMUM: "Maximum",
+  MINIMUM: "Minimum",
+  P50: "p50",
+  P90: "p90",
+  P99: "p99",
+  SAMPLE_COUNT: "SampleCount",
+  SUM: "Sum",
+} as const;
 
 /**
+ * @public
+ */
+export type CloudWatchMetricsStat = (typeof CloudWatchMetricsStat)[keyof typeof CloudWatchMetricsStat];
+
+/**
+ * @public
  * <p> Information about an Amazon CloudWatch metric. </p>
  */
 export interface CloudWatchMetricsDetail {
@@ -670,6 +772,7 @@ export interface CloudWatchMetricsDetail {
 }
 
 /**
+ * @public
  * <p>A logical grouping of Performance Insights metrics for a related subject area. For example, the
  * 				<code>db.sql</code> dimension group consists of the following dimensions:
  * 				<code>db.sql.id</code>, <code>db.sql.db_id</code>, <code>db.sql.statement</code>,
@@ -847,6 +950,7 @@ export interface PerformanceInsightsMetricDimensionGroup {
 }
 
 /**
+ * @public
  * <p>A single query to be processed. Use these parameters to query the Performance Insights
  * 				<code>GetResourceMetrics</code> API to retrieve the metrics for an anomaly. For more
  * 			information, see <code>
@@ -924,6 +1028,7 @@ export interface PerformanceInsightsMetricQuery {
 }
 
 /**
+ * @public
  * <p>Information about a reference metric used to evaluate Performance Insights.</p>
  */
 export interface PerformanceInsightsReferenceMetric {
@@ -934,6 +1039,7 @@ export interface PerformanceInsightsReferenceMetric {
 }
 
 /**
+ * @public
  * <p>A reference value to compare Performance Insights metrics against to determine if the metrics
  * 			demonstrate anomalous behavior.</p>
  */
@@ -945,6 +1051,7 @@ export interface PerformanceInsightsReferenceScalar {
 }
 
 /**
+ * @public
  * <p>Reference scalar values and other metrics that DevOps Guru displays on a graph in its
  * 			console along with the actual metrics it analyzed. Compare these reference values to
  * 			your actual metrics to help you understand anomalous behavior that DevOps Guru
@@ -966,6 +1073,7 @@ export interface PerformanceInsightsReferenceComparisonValues {
 }
 
 /**
+ * @public
  * <p>Reference data used to evaluate Performance Insights to determine if its performance is anomalous or
  * 			not.</p>
  */
@@ -985,6 +1093,7 @@ export interface PerformanceInsightsReferenceData {
 }
 
 /**
+ * @public
  * <p>A statistic in a Performance Insights collection.</p>
  */
 export interface PerformanceInsightsStat {
@@ -1000,6 +1109,7 @@ export interface PerformanceInsightsStat {
 }
 
 /**
+ * @public
  * <p>Details about Performance Insights metrics.</p>
  *          <p>Amazon RDS Performance Insights enables you to monitor and explore different
  *    		dimensions of database load based on data captured from a running DB instance.
@@ -1058,6 +1168,7 @@ export interface PerformanceInsightsMetricsDetail {
 }
 
 /**
+ * @public
  * <p> Details about the source of the anomalous operational data that triggered the
  * 			anomaly.</p>
  */
@@ -1076,6 +1187,7 @@ export interface AnomalySourceDetails {
 }
 
 /**
+ * @public
  * <p>Metadata about the detection source that generates proactive anomalies. The anomaly is
  * 			detected using analysis of the metric data  over a period of time</p>
  */
@@ -1096,12 +1208,22 @@ export interface AnomalySourceMetadata {
   SourceResourceType?: string;
 }
 
-export enum AnomalyStatus {
-  CLOSED = "CLOSED",
-  ONGOING = "ONGOING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnomalyStatus = {
+  CLOSED: "CLOSED",
+  ONGOING: "ONGOING",
+} as const;
 
 /**
+ * @public
+ */
+export type AnomalyStatus = (typeof AnomalyStatus)[keyof typeof AnomalyStatus];
+
+/**
+ * @public
  * <p> A time range that specifies when the observed unusual behavior in an anomaly started
  * 			and ended. This is different from <code>AnomalyReportedTimeRange</code>, which specifies
  * 			the time range when DevOps Guru opens and then closes an anomaly. </p>
@@ -1118,11 +1240,23 @@ export interface AnomalyTimeRange {
   EndTime?: Date;
 }
 
-export enum AnomalyType {
-  CAUSAL = "CAUSAL",
-  CONTEXTUAL = "CONTEXTUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnomalyType = {
+  CAUSAL: "CAUSAL",
+  CONTEXTUAL: "CONTEXTUAL",
+} as const;
 
+/**
+ * @public
+ */
+export type AnomalyType = (typeof AnomalyType)[keyof typeof AnomalyType];
+
+/**
+ * @public
+ */
 export interface DeleteInsightRequest {
   /**
    * <p>The ID of the insight.</p>
@@ -1130,10 +1264,19 @@ export interface DeleteInsightRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInsightResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeAccountHealthRequest {}
 
+/**
+ * @public
+ */
 export interface DescribeAccountHealthResponse {
   /**
    * <p> An integer that specifies the number of open reactive insights in your Amazon Web Services account.
@@ -1167,6 +1310,9 @@ export interface DescribeAccountHealthResponse {
   AnalyzedResourceCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountOverviewRequest {
   /**
    * <p> The start of the time range passed in. The start time granularity is at the day
@@ -1183,6 +1329,9 @@ export interface DescribeAccountOverviewRequest {
   ToTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountOverviewResponse {
   /**
    * <p> An integer that specifies the number of open reactive insights in your Amazon Web Services account
@@ -1203,6 +1352,9 @@ export interface DescribeAccountOverviewResponse {
   MeanTimeToRecoverInMilliseconds: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnomalyRequest {
   /**
    * <p> The ID of the anomaly. </p>
@@ -1216,6 +1368,7 @@ export interface DescribeAnomalyRequest {
 }
 
 /**
+ * @public
  * <p> The time range during which anomalous behavior in a proactive anomaly or an insight
  * 			is expected to occur. </p>
  */
@@ -1233,6 +1386,7 @@ export interface PredictionTimeRange {
 }
 
 /**
+ * @public
  * <p> Information about Amazon Web Services CloudFormation stacks. You can use up to 500
  * 			stacks to specify which Amazon Web Services resources in your account to analyze. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Stacks</a> in the
@@ -1246,6 +1400,7 @@ export interface CloudFormationCollection {
 }
 
 /**
+ * @public
  * <p>A collection of Amazon Web Services tags.</p>
  *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
  *    		tagging, so you can assign the same tag to resources from different services to indicate
@@ -1313,6 +1468,7 @@ export interface TagCollection {
 }
 
 /**
+ * @public
  * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
  * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
  *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -1365,6 +1521,7 @@ export interface ResourceCollection {
 }
 
 /**
+ * @public
  * <p>Information about an anomaly. This object is returned by
  * 			<code>ListAnomalies</code>.</p>
  */
@@ -1457,6 +1614,7 @@ export interface ProactiveAnomaly {
 }
 
 /**
+ * @public
  * <p>Details about a reactive anomaly. This object is returned by
  * 				<code>ListAnomalies</code>.</p>
  */
@@ -1550,6 +1708,9 @@ export interface ReactiveAnomaly {
   AnomalyResources?: AnomalyResource[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAnomalyResponse {
   /**
    * <p> A <code>ProactiveAnomaly</code> object that represents the requested anomaly. </p>
@@ -1562,9 +1723,13 @@ export interface DescribeAnomalyResponse {
   ReactiveAnomaly?: ReactiveAnomaly;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventSourcesConfigRequest {}
 
 /**
+ * @public
  * <p>Information about the integration of DevOps Guru as consumer with another AWS service, such
  * 			as AWS CodeGuru Profiler via EventBridge.</p>
  */
@@ -1576,6 +1741,9 @@ export interface EventSourcesConfig {
   AmazonCodeGuruProfiler?: AmazonCodeGuruProfilerIntegration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventSourcesConfigResponse {
   /**
    * <p>Lists the event sources in the configuration.</p>
@@ -1583,6 +1751,9 @@ export interface DescribeEventSourcesConfigResponse {
   EventSources?: EventSourcesConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeedbackRequest {
   /**
    * <p> The ID of the insight for which the feedback was provided. </p>
@@ -1590,15 +1761,25 @@ export interface DescribeFeedbackRequest {
   InsightId?: string;
 }
 
-export enum InsightFeedbackOption {
-  ALERT_TOO_SENSITIVE = "ALERT_TOO_SENSITIVE",
-  DATA_INCORRECT = "DATA_INCORRECT",
-  DATA_NOISY_ANOMALY = "DATA_NOISY_ANOMALY",
-  RECOMMENDATION_USEFUL = "RECOMMENDATION_USEFUL",
-  VALID_COLLECTION = "VALID_COLLECTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InsightFeedbackOption = {
+  ALERT_TOO_SENSITIVE: "ALERT_TOO_SENSITIVE",
+  DATA_INCORRECT: "DATA_INCORRECT",
+  DATA_NOISY_ANOMALY: "DATA_NOISY_ANOMALY",
+  RECOMMENDATION_USEFUL: "RECOMMENDATION_USEFUL",
+  VALID_COLLECTION: "VALID_COLLECTION",
+} as const;
 
 /**
+ * @public
+ */
+export type InsightFeedbackOption = (typeof InsightFeedbackOption)[keyof typeof InsightFeedbackOption];
+
+/**
+ * @public
  * <p> Information about insight feedback received from a customer. </p>
  */
 export interface InsightFeedback {
@@ -1613,6 +1794,9 @@ export interface InsightFeedback {
   Feedback?: InsightFeedbackOption | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeedbackResponse {
   /**
    * <p> Information about insight feedback received from a customer. </p>
@@ -1620,6 +1804,9 @@ export interface DescribeFeedbackResponse {
   InsightFeedback?: InsightFeedback;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInsightRequest {
   /**
    * <p> The ID of the insight. </p>
@@ -1633,6 +1820,7 @@ export interface DescribeInsightRequest {
 }
 
 /**
+ * @public
  * <p> A time ranged that specifies when the observed behavior in an insight started and
  * 			ended. </p>
  */
@@ -1648,12 +1836,22 @@ export interface InsightTimeRange {
   EndTime?: Date;
 }
 
-export enum InsightStatus {
-  CLOSED = "CLOSED",
-  ONGOING = "ONGOING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InsightStatus = {
+  CLOSED: "CLOSED",
+  ONGOING: "ONGOING",
+} as const;
 
 /**
+ * @public
+ */
+export type InsightStatus = (typeof InsightStatus)[keyof typeof InsightStatus];
+
+/**
+ * @public
  * <p>Details about a proactive insight. This object is returned by
  * 				<code>ListInsights</code>.</p>
  */
@@ -1713,6 +1911,7 @@ export interface ProactiveInsight {
 }
 
 /**
+ * @public
  * <p> Information about a reactive insight. This object is returned by
  * 				<code>ListInsights</code>. </p>
  */
@@ -1765,6 +1964,9 @@ export interface ReactiveInsight {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInsightResponse {
   /**
    * <p> A <code>ProactiveInsight</code> object that represents the requested insight. </p>
@@ -1777,6 +1979,9 @@ export interface DescribeInsightResponse {
   ReactiveInsight?: ReactiveInsight;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationHealthRequest {
   /**
    * <p>The ID of the Amazon Web Services account.</p>
@@ -1789,6 +1994,9 @@ export interface DescribeOrganizationHealthRequest {
   OrganizationalUnitIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationHealthResponse {
   /**
    * <p>An integer that specifies the number of open reactive insights in your Amazon Web Services
@@ -1815,6 +2023,9 @@ export interface DescribeOrganizationHealthResponse {
   ResourceHours: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationOverviewRequest {
   /**
    * <p> The start of the time range passed in. The start time granularity is at the day
@@ -1841,6 +2052,9 @@ export interface DescribeOrganizationOverviewRequest {
   OrganizationalUnitIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationOverviewResponse {
   /**
    * <p>An integer that specifies the number of open reactive insights in your Amazon Web Services
@@ -1855,13 +2069,26 @@ export interface DescribeOrganizationOverviewResponse {
   ProactiveInsights: number | undefined;
 }
 
-export enum OrganizationResourceCollectionType {
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-  AWS_CLOUD_FORMATION = "AWS_CLOUD_FORMATION",
-  AWS_SERVICE = "AWS_SERVICE",
-  AWS_TAGS = "AWS_TAGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationResourceCollectionType = {
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+  AWS_CLOUD_FORMATION: "AWS_CLOUD_FORMATION",
+  AWS_SERVICE: "AWS_SERVICE",
+  AWS_TAGS: "AWS_TAGS",
+} as const;
 
+/**
+ * @public
+ */
+export type OrganizationResourceCollectionType =
+  (typeof OrganizationResourceCollectionType)[keyof typeof OrganizationResourceCollectionType];
+
+/**
+ * @public
+ */
 export interface DescribeOrganizationResourceCollectionHealthRequest {
   /**
    * <p> An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources
@@ -1895,6 +2122,7 @@ export interface DescribeOrganizationResourceCollectionHealthRequest {
 }
 
 /**
+ * @public
  * <p> Information about the number of open reactive and proactive insights that can be used
  * 			to gauge the health of your system. </p>
  */
@@ -1916,6 +2144,7 @@ export interface InsightHealth {
 }
 
 /**
+ * @public
  * <p> Information about the health of Amazon Web Services resources in your account that are specified by
  * 			an Amazon Web Services CloudFormation stack. </p>
  */
@@ -1941,6 +2170,7 @@ export interface CloudFormationHealth {
 }
 
 /**
+ * @public
  * <p>Contains the number of open proactive and reactive insights in an analyzed Amazon Web Services
  * 			service.</p>
  */
@@ -1956,35 +2186,45 @@ export interface ServiceInsightHealth {
   OpenReactiveInsights?: number;
 }
 
-export enum ServiceName {
-  API_GATEWAY = "API_GATEWAY",
-  APPLICATION_ELB = "APPLICATION_ELB",
-  AUTO_SCALING_GROUP = "AUTO_SCALING_GROUP",
-  CLOUD_FRONT = "CLOUD_FRONT",
-  DYNAMO_DB = "DYNAMO_DB",
-  EC2 = "EC2",
-  ECS = "ECS",
-  EKS = "EKS",
-  ELASTIC_BEANSTALK = "ELASTIC_BEANSTALK",
-  ELASTI_CACHE = "ELASTI_CACHE",
-  ELB = "ELB",
-  ES = "ES",
-  KINESIS = "KINESIS",
-  LAMBDA = "LAMBDA",
-  NAT_GATEWAY = "NAT_GATEWAY",
-  NETWORK_ELB = "NETWORK_ELB",
-  RDS = "RDS",
-  REDSHIFT = "REDSHIFT",
-  ROUTE_53 = "ROUTE_53",
-  S3 = "S3",
-  SAGE_MAKER = "SAGE_MAKER",
-  SNS = "SNS",
-  SQS = "SQS",
-  STEP_FUNCTIONS = "STEP_FUNCTIONS",
-  SWF = "SWF",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceName = {
+  API_GATEWAY: "API_GATEWAY",
+  APPLICATION_ELB: "APPLICATION_ELB",
+  AUTO_SCALING_GROUP: "AUTO_SCALING_GROUP",
+  CLOUD_FRONT: "CLOUD_FRONT",
+  DYNAMO_DB: "DYNAMO_DB",
+  EC2: "EC2",
+  ECS: "ECS",
+  EKS: "EKS",
+  ELASTIC_BEANSTALK: "ELASTIC_BEANSTALK",
+  ELASTI_CACHE: "ELASTI_CACHE",
+  ELB: "ELB",
+  ES: "ES",
+  KINESIS: "KINESIS",
+  LAMBDA: "LAMBDA",
+  NAT_GATEWAY: "NAT_GATEWAY",
+  NETWORK_ELB: "NETWORK_ELB",
+  RDS: "RDS",
+  REDSHIFT: "REDSHIFT",
+  ROUTE_53: "ROUTE_53",
+  S3: "S3",
+  SAGE_MAKER: "SAGE_MAKER",
+  SNS: "SNS",
+  SQS: "SQS",
+  STEP_FUNCTIONS: "STEP_FUNCTIONS",
+  SWF: "SWF",
+} as const;
 
 /**
+ * @public
+ */
+export type ServiceName = (typeof ServiceName)[keyof typeof ServiceName];
+
+/**
+ * @public
  * <p>Represents the health of an Amazon Web Services service.</p>
  */
 export interface ServiceHealth {
@@ -2009,6 +2249,7 @@ export interface ServiceHealth {
 }
 
 /**
+ * @public
  * <p> Information about the health of Amazon Web Services resources in your account that are specified by
  * 			an Amazon Web Services tag <i>key</i>. </p>
  */
@@ -2057,6 +2298,9 @@ export interface TagHealth {
   AnalyzedResourceCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeOrganizationResourceCollectionHealthResponse {
   /**
    * <p>The returned <code>CloudFormationHealthOverview</code> object that contains an
@@ -2120,12 +2364,24 @@ export interface DescribeOrganizationResourceCollectionHealthResponse {
   Tags?: TagHealth[];
 }
 
-export enum ResourceCollectionType {
-  AWS_CLOUD_FORMATION = "AWS_CLOUD_FORMATION",
-  AWS_SERVICE = "AWS_SERVICE",
-  AWS_TAGS = "AWS_TAGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceCollectionType = {
+  AWS_CLOUD_FORMATION: "AWS_CLOUD_FORMATION",
+  AWS_SERVICE: "AWS_SERVICE",
+  AWS_TAGS: "AWS_TAGS",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceCollectionType = (typeof ResourceCollectionType)[keyof typeof ResourceCollectionType];
+
+/**
+ * @public
+ */
 export interface DescribeResourceCollectionHealthRequest {
   /**
    * <p> An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources
@@ -2142,6 +2398,9 @@ export interface DescribeResourceCollectionHealthRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourceCollectionHealthResponse {
   /**
    * <p> The returned <code>CloudFormationHealthOverview</code> object that contains an
@@ -2201,14 +2460,27 @@ export interface DescribeResourceCollectionHealthResponse {
   Tags?: TagHealth[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceIntegrationRequest {}
 
-export enum OptInStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OptInStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type OptInStatus = (typeof OptInStatus)[keyof typeof OptInStatus];
+
+/**
+ * @public
  * <p>
  * 			Information about the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
  * 		</p>
@@ -2221,6 +2493,7 @@ export interface LogsAnomalyDetectionIntegration {
 }
 
 /**
+ * @public
  * <p> Information about whether DevOps Guru is configured to create an OpsItem in Amazon Web Services Systems Manager
  * 			OpsCenter for each created insight. </p>
  */
@@ -2233,6 +2506,7 @@ export interface OpsCenterIntegration {
 }
 
 /**
+ * @public
  * <p> Information about the integration of DevOps Guru with another Amazon Web Services service, such as
  * 			Amazon Web Services Systems Manager. </p>
  */
@@ -2251,6 +2525,9 @@ export interface ServiceIntegrationConfig {
   LogsAnomalyDetection?: LogsAnomalyDetectionIntegration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceIntegrationResponse {
   /**
    * <p> Information about the integration of DevOps Guru with another Amazon Web Services service, such as
@@ -2259,6 +2536,9 @@ export interface DescribeServiceIntegrationResponse {
   ServiceIntegration?: ServiceIntegrationConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetCostEstimationRequest {
   /**
    * <p>The pagination token to use to retrieve
@@ -2267,12 +2547,23 @@ export interface GetCostEstimationRequest {
   NextToken?: string;
 }
 
-export enum CostEstimationServiceResourceState {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CostEstimationServiceResourceState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type CostEstimationServiceResourceState =
+  (typeof CostEstimationServiceResourceState)[keyof typeof CostEstimationServiceResourceState];
+
+/**
+ * @public
  * <p>An object that contains information about the estimated monthly cost to analyze an
  * 			Amazon Web Services resource. For more information,
  * 			see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate your
@@ -2316,6 +2607,7 @@ export interface ServiceResourceCost {
 }
 
 /**
+ * @public
  * <p>Information about an Amazon Web Services CloudFormation stack used to create a monthly cost estimate
  * 			for DevOps Guru to analyze Amazon Web Services resources. The maximum number of stacks you can specify for a
  * 			cost estimate is one. The estimate created is for the cost to analyze the Amazon Web Services
@@ -2330,6 +2622,7 @@ export interface CloudFormationCostEstimationResourceCollectionFilter {
 }
 
 /**
+ * @public
  * <p>Information about a collection of Amazon Web Services resources that are identified by an Amazon Web Services tag.
  * 			This collection of resources is used to create a monthly cost estimate for DevOps Guru to
  * 			analyze Amazon Web Services resources. The maximum number of tags you can specify for a cost estimate
@@ -2369,6 +2662,7 @@ export interface TagCostEstimationResourceCollectionFilter {
 }
 
 /**
+ * @public
  * <p>Information about a filter used to specify which Amazon Web Services resources are analyzed to
  * 			create a monthly DevOps Guru cost estimate. For more information,
  * 			see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate your
@@ -2422,12 +2716,22 @@ export interface CostEstimationResourceCollectionFilter {
   Tags?: TagCostEstimationResourceCollectionFilter[];
 }
 
-export enum CostEstimationStatus {
-  COMPLETED = "COMPLETED",
-  ONGOING = "ONGOING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CostEstimationStatus = {
+  COMPLETED: "COMPLETED",
+  ONGOING: "ONGOING",
+} as const;
 
 /**
+ * @public
+ */
+export type CostEstimationStatus = (typeof CostEstimationStatus)[keyof typeof CostEstimationStatus];
+
+/**
+ * @public
  * <p>The time range of a cost estimation.</p>
  */
 export interface CostEstimationTimeRange {
@@ -2442,6 +2746,9 @@ export interface CostEstimationTimeRange {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetCostEstimationResponse {
   /**
    * <p>The collection of the Amazon Web Services resources used to create your monthly DevOps Guru cost
@@ -2481,6 +2788,9 @@ export interface GetCostEstimationResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourceCollectionRequest {
   /**
    * <p> The type of Amazon Web Services resource collections to return. The one valid value is
@@ -2496,6 +2806,7 @@ export interface GetResourceCollectionRequest {
 }
 
 /**
+ * @public
  * <p> Information about Amazon Web Services CloudFormation stacks. You can use up to 500
  * 			stacks to specify which Amazon Web Services resources in your account to analyze. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Stacks</a> in the
@@ -2509,6 +2820,7 @@ export interface CloudFormationCollectionFilter {
 }
 
 /**
+ * @public
  * <p>A collection of Amazon Web Services tags used to filter insights. This is used to return insights
  * 			generated from only resources that contain the tags in the tag collection.</p>
  */
@@ -2544,6 +2856,7 @@ export interface TagCollectionFilter {
 }
 
 /**
+ * @public
  * <p> Information about a filter used to specify which Amazon Web Services resources are analyzed for
  * 			anomalous behavior by DevOps Guru. </p>
  */
@@ -2595,6 +2908,9 @@ export interface ResourceCollectionFilter {
   Tags?: TagCollectionFilter[];
 }
 
+/**
+ * @public
+ */
 export interface GetResourceCollectionResponse {
   /**
    * <p> The requested list of Amazon Web Services resource collections.
@@ -2612,6 +2928,7 @@ export interface GetResourceCollectionResponse {
 }
 
 /**
+ * @public
  * <p>A collection of the names of Amazon Web Services services.</p>
  */
 export interface ServiceCollection {
@@ -2622,6 +2939,7 @@ export interface ServiceCollection {
 }
 
 /**
+ * @public
  * <p>
  * 			Specifies one or more service names that are used to list anomalies.
  * 		</p>
@@ -2634,6 +2952,7 @@ export interface ListAnomaliesForInsightFilters {
 }
 
 /**
+ * @public
  * <p> A time range used to specify when the behavior of an insight or anomaly started.
  * 		</p>
  */
@@ -2649,6 +2968,9 @@ export interface StartTimeRange {
   ToTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListAnomaliesForInsightRequest {
   /**
    * <p> The ID of the insight. The returned anomalies belong to this insight. </p>
@@ -2687,6 +3009,7 @@ export interface ListAnomaliesForInsightRequest {
 }
 
 /**
+ * @public
  * <p>Details about a proactive anomaly. This object is returned by
  * 				<code>DescribeAnomaly.</code>
  *          </p>
@@ -2780,6 +3103,7 @@ export interface ProactiveAnomalySummary {
 }
 
 /**
+ * @public
  * <p>Details about a reactive anomaly. This object is returned by
  * 				<code>DescribeAnomaly.</code>
  *          </p>
@@ -2874,6 +3198,9 @@ export interface ReactiveAnomalySummary {
   AnomalyResources?: AnomalyResource[];
 }
 
+/**
+ * @public
+ */
 export interface ListAnomaliesForInsightResponse {
   /**
    * <p> An array of <code>ProactiveAnomalySummary</code> objects that represent the requested
@@ -2894,6 +3221,9 @@ export interface ListAnomaliesForInsightResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAnomalousLogGroupsRequest {
   /**
    * <p>
@@ -2915,6 +3245,9 @@ export interface ListAnomalousLogGroupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAnomalousLogGroupsResponse {
   /**
    * <p>
@@ -2937,20 +3270,39 @@ export interface ListAnomalousLogGroupsResponse {
   NextToken?: string;
 }
 
-export enum EventDataSource {
-  AWS_CLOUD_TRAIL = "AWS_CLOUD_TRAIL",
-  AWS_CODE_DEPLOY = "AWS_CODE_DEPLOY",
-}
-
-export enum EventClass {
-  CONFIG_CHANGE = "CONFIG_CHANGE",
-  DEPLOYMENT = "DEPLOYMENT",
-  INFRASTRUCTURE = "INFRASTRUCTURE",
-  SCHEMA_CHANGE = "SCHEMA_CHANGE",
-  SECURITY_CHANGE = "SECURITY_CHANGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventDataSource = {
+  AWS_CLOUD_TRAIL: "AWS_CLOUD_TRAIL",
+  AWS_CODE_DEPLOY: "AWS_CODE_DEPLOY",
+} as const;
 
 /**
+ * @public
+ */
+export type EventDataSource = (typeof EventDataSource)[keyof typeof EventDataSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventClass = {
+  CONFIG_CHANGE: "CONFIG_CHANGE",
+  DEPLOYMENT: "DEPLOYMENT",
+  INFRASTRUCTURE: "INFRASTRUCTURE",
+  SCHEMA_CHANGE: "SCHEMA_CHANGE",
+  SECURITY_CHANGE: "SECURITY_CHANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type EventClass = (typeof EventClass)[keyof typeof EventClass];
+
+/**
+ * @public
  * <p> The time range during which an Amazon Web Services event occurred. Amazon Web Services resource events and
  * 			metrics are analyzed by DevOps Guru to find anomalous behavior and provide recommendations to
  * 			improve your operational solutions. </p>
@@ -2968,6 +3320,7 @@ export interface EventTimeRange {
 }
 
 /**
+ * @public
  * <p> Filters you can use to specify which events are returned when <code>ListEvents</code>
  * 			is called. </p>
  */
@@ -3008,6 +3361,9 @@ export interface ListEventsFilters {
   ResourceCollection?: ResourceCollection;
 }
 
+/**
+ * @public
+ */
 export interface ListEventsRequest {
   /**
    * <p> A <code>ListEventsFilters</code> object used to specify which events to return.
@@ -3034,6 +3390,7 @@ export interface ListEventsRequest {
 }
 
 /**
+ * @public
  * <p> The Amazon Web Services resource that emitted an event. Amazon Web Services resource events and metrics are
  * 			analyzed by DevOps Guru to find anomalous behavior and provide recommendations to improve your
  * 			operational solutions. </p>
@@ -3056,6 +3413,7 @@ export interface EventResource {
 }
 
 /**
+ * @public
  * <p> An Amazon Web Services resource event. Amazon Web Services resource events and metrics are analyzed by DevOps Guru to
  * 			find anomalous behavior and provide recommendations to improve your operational
  * 			solutions. </p>
@@ -3108,6 +3466,9 @@ export interface Event {
   Resources?: EventResource[];
 }
 
+/**
+ * @public
+ */
 export interface ListEventsResponse {
   /**
    * <p> A list of the requested events. </p>
@@ -3121,12 +3482,22 @@ export interface ListEventsResponse {
   NextToken?: string;
 }
 
-export enum InsightType {
-  PROACTIVE = "PROACTIVE",
-  REACTIVE = "REACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InsightType = {
+  PROACTIVE: "PROACTIVE",
+  REACTIVE: "REACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type InsightType = (typeof InsightType)[keyof typeof InsightType];
+
+/**
+ * @public
  * <p> Used to filter for insights that have any status. </p>
  */
 export interface ListInsightsAnyStatusFilter {
@@ -3144,6 +3515,7 @@ export interface ListInsightsAnyStatusFilter {
 }
 
 /**
+ * @public
  * <p> A range of time that specifies when anomalous behavior in an anomaly or insight
  * 			ended. </p>
  */
@@ -3160,6 +3532,7 @@ export interface EndTimeRange {
 }
 
 /**
+ * @public
  * <p> Used to filter for insights that have the status <code>CLOSED</code>. </p>
  */
 export interface ListInsightsClosedStatusFilter {
@@ -3177,6 +3550,7 @@ export interface ListInsightsClosedStatusFilter {
 }
 
 /**
+ * @public
  * <p> Used to filter for insights that have the status <code>ONGOING</code>. </p>
  */
 export interface ListInsightsOngoingStatusFilter {
@@ -3188,6 +3562,7 @@ export interface ListInsightsOngoingStatusFilter {
 }
 
 /**
+ * @public
  * <p> A filter used by <code>ListInsights</code> to specify which insights to return.
  * 		</p>
  */
@@ -3211,6 +3586,9 @@ export interface ListInsightsStatusFilter {
   Any?: ListInsightsAnyStatusFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListInsightsRequest {
   /**
    * <p> A filter used to filter the returned insights by their status. You can specify one
@@ -3232,6 +3610,7 @@ export interface ListInsightsRequest {
 }
 
 /**
+ * @public
  * <p>Details about a proactive insight. This object is returned by
  * 				<code>DescribeInsight.</code>
  *          </p>
@@ -3292,6 +3671,7 @@ export interface ProactiveInsightSummary {
 }
 
 /**
+ * @public
  * <p> Information about a reactive insight. This object is returned by
  * 				<code>DescribeInsight.</code>
  *          </p>
@@ -3345,6 +3725,9 @@ export interface ReactiveInsightSummary {
   AssociatedResourceArns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListInsightsResponse {
   /**
    * <p> The returned list of proactive insights. </p>
@@ -3363,42 +3746,61 @@ export interface ListInsightsResponse {
   NextToken?: string;
 }
 
-export enum ResourcePermission {
-  FULL_PERMISSION = "FULL_PERMISSION",
-  MISSING_PERMISSION = "MISSING_PERMISSION",
-}
-
-export enum ResourceTypeFilter {
-  CLOUDFRONT_DISTRIBUTION = "CLOUDFRONT_DISTRIBUTION",
-  DYNAMODB_TABLE = "DYNAMODB_TABLE",
-  EC2_NAT_GATEWAY = "EC2_NAT_GATEWAY",
-  ECS_CLUSTER = "ECS_CLUSTER",
-  ECS_SERVICE = "ECS_SERVICE",
-  EKS_CLUSTER = "EKS_CLUSTER",
-  ELASTICACHE_CACHE_CLUSTER = "ELASTICACHE_CACHE_CLUSTER",
-  ELASTICSEARCH_DOMAIN = "ELASTICSEARCH_DOMAIN",
-  ELASTIC_BEANSTALK_ENVIRONMENT = "ELASTIC_BEANSTALK_ENVIRONMENT",
-  ELASTIC_LOAD_BALANCER_LOAD_BALANCER = "ELASTIC_LOAD_BALANCER_LOAD_BALANCER",
-  ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER = "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER",
-  ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP = "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP",
-  KINESIS_STREAM = "KINESIS_STREAM",
-  LAMBDA_FUNCTION = "LAMBDA_FUNCTION",
-  LOG_GROUPS = "LOG_GROUPS",
-  OPEN_SEARCH_SERVICE_DOMAIN = "OPEN_SEARCH_SERVICE_DOMAIN",
-  RDS_DB_CLUSTER = "RDS_DB_CLUSTER",
-  RDS_DB_INSTANCE = "RDS_DB_INSTANCE",
-  REDSHIFT_CLUSTER = "REDSHIFT_CLUSTER",
-  ROUTE53_HEALTH_CHECK = "ROUTE53_HEALTH_CHECK",
-  ROUTE53_HOSTED_ZONE = "ROUTE53_HOSTED_ZONE",
-  S3_BUCKET = "S3_BUCKET",
-  SAGEMAKER_ENDPOINT = "SAGEMAKER_ENDPOINT",
-  SNS_TOPIC = "SNS_TOPIC",
-  SQS_QUEUE = "SQS_QUEUE",
-  STEP_FUNCTIONS_ACTIVITY = "STEP_FUNCTIONS_ACTIVITY",
-  STEP_FUNCTIONS_STATE_MACHINE = "STEP_FUNCTIONS_STATE_MACHINE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourcePermission = {
+  FULL_PERMISSION: "FULL_PERMISSION",
+  MISSING_PERMISSION: "MISSING_PERMISSION",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourcePermission = (typeof ResourcePermission)[keyof typeof ResourcePermission];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceTypeFilter = {
+  CLOUDFRONT_DISTRIBUTION: "CLOUDFRONT_DISTRIBUTION",
+  DYNAMODB_TABLE: "DYNAMODB_TABLE",
+  EC2_NAT_GATEWAY: "EC2_NAT_GATEWAY",
+  ECS_CLUSTER: "ECS_CLUSTER",
+  ECS_SERVICE: "ECS_SERVICE",
+  EKS_CLUSTER: "EKS_CLUSTER",
+  ELASTICACHE_CACHE_CLUSTER: "ELASTICACHE_CACHE_CLUSTER",
+  ELASTICSEARCH_DOMAIN: "ELASTICSEARCH_DOMAIN",
+  ELASTIC_BEANSTALK_ENVIRONMENT: "ELASTIC_BEANSTALK_ENVIRONMENT",
+  ELASTIC_LOAD_BALANCER_LOAD_BALANCER: "ELASTIC_LOAD_BALANCER_LOAD_BALANCER",
+  ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER: "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER",
+  ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP: "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP",
+  KINESIS_STREAM: "KINESIS_STREAM",
+  LAMBDA_FUNCTION: "LAMBDA_FUNCTION",
+  LOG_GROUPS: "LOG_GROUPS",
+  OPEN_SEARCH_SERVICE_DOMAIN: "OPEN_SEARCH_SERVICE_DOMAIN",
+  RDS_DB_CLUSTER: "RDS_DB_CLUSTER",
+  RDS_DB_INSTANCE: "RDS_DB_INSTANCE",
+  REDSHIFT_CLUSTER: "REDSHIFT_CLUSTER",
+  ROUTE53_HEALTH_CHECK: "ROUTE53_HEALTH_CHECK",
+  ROUTE53_HOSTED_ZONE: "ROUTE53_HOSTED_ZONE",
+  S3_BUCKET: "S3_BUCKET",
+  SAGEMAKER_ENDPOINT: "SAGEMAKER_ENDPOINT",
+  SNS_TOPIC: "SNS_TOPIC",
+  SQS_QUEUE: "SQS_QUEUE",
+  STEP_FUNCTIONS_ACTIVITY: "STEP_FUNCTIONS_ACTIVITY",
+  STEP_FUNCTIONS_STATE_MACHINE: "STEP_FUNCTIONS_STATE_MACHINE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceTypeFilter = (typeof ResourceTypeFilter)[keyof typeof ResourceTypeFilter];
+
+/**
+ * @public
  * <p>
  * 			Filters to determine which monitored resources you want to retrieve. You can filter by resource type or resource permission status.
  * 		</p>
@@ -3419,6 +3821,9 @@ export interface ListMonitoredResourcesFilters {
   ResourceTypeFilters: (ResourceTypeFilter | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoredResourcesRequest {
   /**
    * <p>
@@ -3441,6 +3846,7 @@ export interface ListMonitoredResourcesRequest {
 }
 
 /**
+ * @public
  * <p>
  * 			Information about the resource that is being monitored, including the name of the resource, the type of resource, and whether or not permission is given to DevOps Guru to access that resource.
  * 		</p>
@@ -3483,6 +3889,9 @@ export interface MonitoredResourceIdentifier {
   ResourceCollection?: ResourceCollection;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitoredResourcesResponse {
   /**
    * <p>
@@ -3498,6 +3907,9 @@ export interface ListMonitoredResourcesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationChannelsRequest {
   /**
    * <p>The pagination token to use to retrieve
@@ -3507,6 +3919,7 @@ export interface ListNotificationChannelsRequest {
 }
 
 /**
+ * @public
  * <p> Information about a notification channel. A notification channel is used to notify
  * 			you when DevOps Guru creates an insight. The one
  *       	supported notification channel is Amazon Simple Notification Service (Amazon SNS). </p>
@@ -3532,6 +3945,9 @@ export interface NotificationChannel {
   Config?: NotificationChannelConfig;
 }
 
+/**
+ * @public
+ */
 export interface ListNotificationChannelsResponse {
   /**
    * <p> An array that contains the requested notification channels. </p>
@@ -3545,6 +3961,9 @@ export interface ListNotificationChannelsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationInsightsRequest {
   /**
    * <p> A filter used by <code>ListInsights</code> to specify which insights to return.
@@ -3576,6 +3995,7 @@ export interface ListOrganizationInsightsRequest {
 }
 
 /**
+ * @public
  * <p>Details about a proactive insight. This object is returned by
  * 				<code>DescribeInsight</code>.</p>
  */
@@ -3640,6 +4060,7 @@ export interface ProactiveOrganizationInsightSummary {
 }
 
 /**
+ * @public
  * <p>Information about a reactive insight. This object is returned by
  * 				<code>DescribeInsight</code>.</p>
  */
@@ -3697,6 +4118,9 @@ export interface ReactiveOrganizationInsightSummary {
   ServiceCollection?: ServiceCollection;
 }
 
+/**
+ * @public
+ */
 export interface ListOrganizationInsightsResponse {
   /**
    * <p>An integer that specifies the number of open proactive insights in your Amazon Web Services
@@ -3717,20 +4141,32 @@ export interface ListOrganizationInsightsResponse {
   NextToken?: string;
 }
 
-export enum Locale {
-  DE_DE = "DE_DE",
-  EN_GB = "EN_GB",
-  EN_US = "EN_US",
-  ES_ES = "ES_ES",
-  FR_FR = "FR_FR",
-  IT_IT = "IT_IT",
-  JA_JP = "JA_JP",
-  KO_KR = "KO_KR",
-  PT_BR = "PT_BR",
-  ZH_CN = "ZH_CN",
-  ZH_TW = "ZH_TW",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Locale = {
+  DE_DE: "DE_DE",
+  EN_GB: "EN_GB",
+  EN_US: "EN_US",
+  ES_ES: "ES_ES",
+  FR_FR: "FR_FR",
+  IT_IT: "IT_IT",
+  JA_JP: "JA_JP",
+  KO_KR: "KO_KR",
+  PT_BR: "PT_BR",
+  ZH_CN: "ZH_CN",
+  ZH_TW: "ZH_TW",
+} as const;
 
+/**
+ * @public
+ */
+export type Locale = (typeof Locale)[keyof typeof Locale];
+
+/**
+ * @public
+ */
 export interface ListRecommendationsRequest {
   /**
    * <p> The ID of the requested insight. </p>
@@ -3755,6 +4191,7 @@ export interface ListRecommendationsRequest {
 }
 
 /**
+ * @public
  * <p> Information about a resource in which DevOps Guru detected anomalous behavior. </p>
  */
 export interface RecommendationRelatedAnomalyResource {
@@ -3774,6 +4211,7 @@ export interface RecommendationRelatedAnomalyResource {
 }
 
 /**
+ * @public
  * <p> Information about an Amazon CloudWatch metric that is analyzed by DevOps Guru. It is one of many
  * 			analyzed metrics that are used to generate insights. </p>
  */
@@ -3790,6 +4228,7 @@ export interface RecommendationRelatedCloudWatchMetricsSourceDetail {
 }
 
 /**
+ * @public
  * <p> Contains an array of <code>RecommendationRelatedCloudWatchMetricsSourceDetail</code>
  * 			objects that contain the name and namespace of an Amazon CloudWatch metric. </p>
  */
@@ -3802,6 +4241,7 @@ export interface RecommendationRelatedAnomalySourceDetail {
 }
 
 /**
+ * @public
  * <p> Information about an anomaly that is related to a recommendation. </p>
  */
 export interface RecommendationRelatedAnomaly {
@@ -3824,6 +4264,7 @@ export interface RecommendationRelatedAnomaly {
 }
 
 /**
+ * @public
  * <p> Information about an Amazon Web Services resource that emitted and event that is related to a
  * 			recommendation in an insight. </p>
  */
@@ -3842,6 +4283,7 @@ export interface RecommendationRelatedEventResource {
 }
 
 /**
+ * @public
  * <p> Information about an event that is related to a recommendation. </p>
  */
 export interface RecommendationRelatedEvent {
@@ -3859,6 +4301,7 @@ export interface RecommendationRelatedEvent {
 }
 
 /**
+ * @public
  * <p> Recommendation information to help you remediate detected anomalous behavior that
  * 			generated an insight. </p>
  */
@@ -3901,6 +4344,9 @@ export interface Recommendation {
   Category?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRecommendationsResponse {
   /**
    * <p> An array of the requested recommendations. </p>
@@ -3914,6 +4360,9 @@ export interface ListRecommendationsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutFeedbackRequest {
   /**
    * <p> The feedback from customers is about the recommendations in this insight. </p>
@@ -3921,8 +4370,14 @@ export interface PutFeedbackRequest {
   InsightFeedback?: InsightFeedback;
 }
 
+/**
+ * @public
+ */
 export interface PutFeedbackResponse {}
 
+/**
+ * @public
+ */
 export interface RemoveNotificationChannelRequest {
   /**
    * <p> The ID of the notification channel to be removed. </p>
@@ -3930,9 +4385,13 @@ export interface RemoveNotificationChannelRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveNotificationChannelResponse {}
 
 /**
+ * @public
  * <p>Specifies values used to filter responses when searching for insights.
  * 			You can use a <code>ResourceCollection</code>, <code>ServiceCollection</code>, array of severities, and an array of status values.
  * 			Each filter type contains one or more values to search for. If you specify multiple filter types,
@@ -3963,6 +4422,9 @@ export interface SearchInsightsFilters {
   ServiceCollection?: ServiceCollection;
 }
 
+/**
+ * @public
+ */
 export interface SearchInsightsRequest {
   /**
    * <p> The start of the time range passed in. Returned insights occurred after this time.
@@ -3995,6 +4457,9 @@ export interface SearchInsightsRequest {
   Type: InsightType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchInsightsResponse {
   /**
    * <p> The returned proactive insights. </p>
@@ -4014,6 +4479,7 @@ export interface SearchInsightsResponse {
 }
 
 /**
+ * @public
  * <p> Filters you can use to specify which events are returned when <code>ListEvents</code>
  * 			is called. </p>
  */
@@ -4042,6 +4508,9 @@ export interface SearchOrganizationInsightsFilters {
   ServiceCollection?: ServiceCollection;
 }
 
+/**
+ * @public
+ */
 export interface SearchOrganizationInsightsRequest {
   /**
    * <p>The ID of the Amazon Web Services account. </p>
@@ -4079,6 +4548,9 @@ export interface SearchOrganizationInsightsRequest {
   Type: InsightType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchOrganizationInsightsResponse {
   /**
    * <p>An integer that specifies the number of open proactive insights in your Amazon Web Services
@@ -4099,6 +4571,9 @@ export interface SearchOrganizationInsightsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartCostEstimationRequest {
   /**
    * <p>The collection of Amazon Web Services resources used to create a monthly DevOps Guru cost estimate.</p>
@@ -4111,8 +4586,14 @@ export interface StartCostEstimationRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartCostEstimationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateEventSourcesConfigRequest {
   /**
    * <p>Configuration information about the integration of DevOps Guru as the Consumer via
@@ -4121,14 +4602,28 @@ export interface UpdateEventSourcesConfigRequest {
   EventSources?: EventSourcesConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateEventSourcesConfigResponse {}
 
-export enum UpdateResourceCollectionAction {
-  ADD = "ADD",
-  REMOVE = "REMOVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UpdateResourceCollectionAction = {
+  ADD: "ADD",
+  REMOVE: "REMOVE",
+} as const;
 
 /**
+ * @public
+ */
+export type UpdateResourceCollectionAction =
+  (typeof UpdateResourceCollectionAction)[keyof typeof UpdateResourceCollectionAction];
+
+/**
+ * @public
  * <p> Contains the names of Amazon Web Services CloudFormation stacks used to update a collection of stacks.
  * 			You can specify up to 500 Amazon Web Services CloudFormation stacks.</p>
  */
@@ -4141,6 +4636,7 @@ export interface UpdateCloudFormationCollectionFilter {
 }
 
 /**
+ * @public
  * <p>A new collection of Amazon Web Services resources that are defined by an Amazon Web Services tag or tag
  * 			<i>key</i>/<i>value</i> pair.</p>
  */
@@ -4176,6 +4672,7 @@ export interface UpdateTagCollectionFilter {
 }
 
 /**
+ * @public
  * <p> Contains information used to update a collection of Amazon Web Services resources. </p>
  */
 export interface UpdateResourceCollectionFilter {
@@ -4223,6 +4720,9 @@ export interface UpdateResourceCollectionFilter {
   Tags?: UpdateTagCollectionFilter[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceCollectionRequest {
   /**
    * <p> Specifies if the resource collection in the request is added or deleted to the
@@ -4236,9 +4736,13 @@ export interface UpdateResourceCollectionRequest {
   ResourceCollection: UpdateResourceCollectionFilter | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceCollectionResponse {}
 
 /**
+ * @public
  * <p>
  * 			Information about the integration of DevOps Guru with CloudWatch log groups for log anomaly detection. You can use this to update the configuration.
  * 		</p>
@@ -4251,6 +4755,7 @@ export interface LogsAnomalyDetectionIntegrationConfig {
 }
 
 /**
+ * @public
  * <p> Information about whether DevOps Guru is configured to create an OpsItem in Amazon Web Services Systems Manager
  * 			OpsCenter for each created insight. You can use this to update the configuration.</p>
  */
@@ -4263,6 +4768,7 @@ export interface OpsCenterIntegrationConfig {
 }
 
 /**
+ * @public
  * <p> Information about updating the integration status of an Amazon Web Services service, such as
  * 			Amazon Web Services Systems Manager, with DevOps Guru. </p>
  */
@@ -4281,6 +4787,9 @@ export interface UpdateServiceIntegrationConfig {
   LogsAnomalyDetection?: LogsAnomalyDetectionIntegrationConfig;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceIntegrationRequest {
   /**
    * <p> An <code>IntegratedServiceConfig</code> object used to specify the integrated service
@@ -4289,1102 +4798,7 @@ export interface UpdateServiceIntegrationRequest {
   ServiceIntegration: UpdateServiceIntegrationConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateServiceIntegrationResponse {}
-
-/**
- * @internal
- */
-export const AccountInsightHealthFilterSensitiveLog = (obj: AccountInsightHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountHealthFilterSensitiveLog = (obj: AccountHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationFilterConfigFilterSensitiveLog = (obj: NotificationFilterConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnsChannelConfigFilterSensitiveLog = (obj: SnsChannelConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationChannelConfigFilterSensitiveLog = (obj: NotificationChannelConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddNotificationChannelRequestFilterSensitiveLog = (obj: AddNotificationChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddNotificationChannelResponseFilterSensitiveLog = (obj: AddNotificationChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonCodeGuruProfilerIntegrationFilterSensitiveLog = (obj: AmazonCodeGuruProfilerIntegration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogAnomalyClassFilterSensitiveLog = (obj: LogAnomalyClass): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogAnomalyShowcaseFilterSensitiveLog = (obj: LogAnomalyShowcase): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalousLogGroupFilterSensitiveLog = (obj: AnomalousLogGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalyReportedTimeRangeFilterSensitiveLog = (obj: AnomalyReportedTimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalyResourceFilterSensitiveLog = (obj: AnomalyResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchMetricsDimensionFilterSensitiveLog = (obj: CloudWatchMetricsDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimestampMetricValuePairFilterSensitiveLog = (obj: TimestampMetricValuePair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchMetricsDataSummaryFilterSensitiveLog = (obj: CloudWatchMetricsDataSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchMetricsDetailFilterSensitiveLog = (obj: CloudWatchMetricsDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PerformanceInsightsMetricDimensionGroupFilterSensitiveLog = (
-  obj: PerformanceInsightsMetricDimensionGroup
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PerformanceInsightsMetricQueryFilterSensitiveLog = (obj: PerformanceInsightsMetricQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PerformanceInsightsReferenceMetricFilterSensitiveLog = (obj: PerformanceInsightsReferenceMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PerformanceInsightsReferenceScalarFilterSensitiveLog = (obj: PerformanceInsightsReferenceScalar): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PerformanceInsightsReferenceComparisonValuesFilterSensitiveLog = (
-  obj: PerformanceInsightsReferenceComparisonValues
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PerformanceInsightsReferenceDataFilterSensitiveLog = (obj: PerformanceInsightsReferenceData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PerformanceInsightsStatFilterSensitiveLog = (obj: PerformanceInsightsStat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PerformanceInsightsMetricsDetailFilterSensitiveLog = (obj: PerformanceInsightsMetricsDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalySourceDetailsFilterSensitiveLog = (obj: AnomalySourceDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalySourceMetadataFilterSensitiveLog = (obj: AnomalySourceMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnomalyTimeRangeFilterSensitiveLog = (obj: AnomalyTimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInsightRequestFilterSensitiveLog = (obj: DeleteInsightRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInsightResponseFilterSensitiveLog = (obj: DeleteInsightResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountHealthRequestFilterSensitiveLog = (obj: DescribeAccountHealthRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountHealthResponseFilterSensitiveLog = (obj: DescribeAccountHealthResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountOverviewRequestFilterSensitiveLog = (obj: DescribeAccountOverviewRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountOverviewResponseFilterSensitiveLog = (obj: DescribeAccountOverviewResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnomalyRequestFilterSensitiveLog = (obj: DescribeAnomalyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredictionTimeRangeFilterSensitiveLog = (obj: PredictionTimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudFormationCollectionFilterSensitiveLog = (obj: CloudFormationCollection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagCollectionFilterSensitiveLog = (obj: TagCollection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceCollectionFilterSensitiveLog = (obj: ResourceCollection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProactiveAnomalyFilterSensitiveLog = (obj: ProactiveAnomaly): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReactiveAnomalyFilterSensitiveLog = (obj: ReactiveAnomaly): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAnomalyResponseFilterSensitiveLog = (obj: DescribeAnomalyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventSourcesConfigRequestFilterSensitiveLog = (obj: DescribeEventSourcesConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventSourcesConfigFilterSensitiveLog = (obj: EventSourcesConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventSourcesConfigResponseFilterSensitiveLog = (obj: DescribeEventSourcesConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeedbackRequestFilterSensitiveLog = (obj: DescribeFeedbackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightFeedbackFilterSensitiveLog = (obj: InsightFeedback): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeedbackResponseFilterSensitiveLog = (obj: DescribeFeedbackResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInsightRequestFilterSensitiveLog = (obj: DescribeInsightRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightTimeRangeFilterSensitiveLog = (obj: InsightTimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProactiveInsightFilterSensitiveLog = (obj: ProactiveInsight): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReactiveInsightFilterSensitiveLog = (obj: ReactiveInsight): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInsightResponseFilterSensitiveLog = (obj: DescribeInsightResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationHealthRequestFilterSensitiveLog = (obj: DescribeOrganizationHealthRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationHealthResponseFilterSensitiveLog = (obj: DescribeOrganizationHealthResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationOverviewRequestFilterSensitiveLog = (
-  obj: DescribeOrganizationOverviewRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationOverviewResponseFilterSensitiveLog = (
-  obj: DescribeOrganizationOverviewResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationResourceCollectionHealthRequestFilterSensitiveLog = (
-  obj: DescribeOrganizationResourceCollectionHealthRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightHealthFilterSensitiveLog = (obj: InsightHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudFormationHealthFilterSensitiveLog = (obj: CloudFormationHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceInsightHealthFilterSensitiveLog = (obj: ServiceInsightHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceHealthFilterSensitiveLog = (obj: ServiceHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagHealthFilterSensitiveLog = (obj: TagHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOrganizationResourceCollectionHealthResponseFilterSensitiveLog = (
-  obj: DescribeOrganizationResourceCollectionHealthResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeResourceCollectionHealthRequestFilterSensitiveLog = (
-  obj: DescribeResourceCollectionHealthRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeResourceCollectionHealthResponseFilterSensitiveLog = (
-  obj: DescribeResourceCollectionHealthResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServiceIntegrationRequestFilterSensitiveLog = (obj: DescribeServiceIntegrationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogsAnomalyDetectionIntegrationFilterSensitiveLog = (obj: LogsAnomalyDetectionIntegration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpsCenterIntegrationFilterSensitiveLog = (obj: OpsCenterIntegration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceIntegrationConfigFilterSensitiveLog = (obj: ServiceIntegrationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServiceIntegrationResponseFilterSensitiveLog = (obj: DescribeServiceIntegrationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCostEstimationRequestFilterSensitiveLog = (obj: GetCostEstimationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceResourceCostFilterSensitiveLog = (obj: ServiceResourceCost): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudFormationCostEstimationResourceCollectionFilterFilterSensitiveLog = (
-  obj: CloudFormationCostEstimationResourceCollectionFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagCostEstimationResourceCollectionFilterFilterSensitiveLog = (
-  obj: TagCostEstimationResourceCollectionFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostEstimationResourceCollectionFilterFilterSensitiveLog = (
-  obj: CostEstimationResourceCollectionFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostEstimationTimeRangeFilterSensitiveLog = (obj: CostEstimationTimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCostEstimationResponseFilterSensitiveLog = (obj: GetCostEstimationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceCollectionRequestFilterSensitiveLog = (obj: GetResourceCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudFormationCollectionFilterFilterSensitiveLog = (obj: CloudFormationCollectionFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagCollectionFilterFilterSensitiveLog = (obj: TagCollectionFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceCollectionFilterFilterSensitiveLog = (obj: ResourceCollectionFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceCollectionResponseFilterSensitiveLog = (obj: GetResourceCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceCollectionFilterSensitiveLog = (obj: ServiceCollection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnomaliesForInsightFiltersFilterSensitiveLog = (obj: ListAnomaliesForInsightFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTimeRangeFilterSensitiveLog = (obj: StartTimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnomaliesForInsightRequestFilterSensitiveLog = (obj: ListAnomaliesForInsightRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProactiveAnomalySummaryFilterSensitiveLog = (obj: ProactiveAnomalySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReactiveAnomalySummaryFilterSensitiveLog = (obj: ReactiveAnomalySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnomaliesForInsightResponseFilterSensitiveLog = (obj: ListAnomaliesForInsightResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnomalousLogGroupsRequestFilterSensitiveLog = (obj: ListAnomalousLogGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAnomalousLogGroupsResponseFilterSensitiveLog = (obj: ListAnomalousLogGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventTimeRangeFilterSensitiveLog = (obj: EventTimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventsFiltersFilterSensitiveLog = (obj: ListEventsFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventsRequestFilterSensitiveLog = (obj: ListEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventResourceFilterSensitiveLog = (obj: EventResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFilterSensitiveLog = (obj: Event): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventsResponseFilterSensitiveLog = (obj: ListEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInsightsAnyStatusFilterFilterSensitiveLog = (obj: ListInsightsAnyStatusFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndTimeRangeFilterSensitiveLog = (obj: EndTimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInsightsClosedStatusFilterFilterSensitiveLog = (obj: ListInsightsClosedStatusFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInsightsOngoingStatusFilterFilterSensitiveLog = (obj: ListInsightsOngoingStatusFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInsightsStatusFilterFilterSensitiveLog = (obj: ListInsightsStatusFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInsightsRequestFilterSensitiveLog = (obj: ListInsightsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProactiveInsightSummaryFilterSensitiveLog = (obj: ProactiveInsightSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReactiveInsightSummaryFilterSensitiveLog = (obj: ReactiveInsightSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListInsightsResponseFilterSensitiveLog = (obj: ListInsightsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoredResourcesFiltersFilterSensitiveLog = (obj: ListMonitoredResourcesFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoredResourcesRequestFilterSensitiveLog = (obj: ListMonitoredResourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoredResourceIdentifierFilterSensitiveLog = (obj: MonitoredResourceIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitoredResourcesResponseFilterSensitiveLog = (obj: ListMonitoredResourcesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationChannelsRequestFilterSensitiveLog = (obj: ListNotificationChannelsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationChannelFilterSensitiveLog = (obj: NotificationChannel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationChannelsResponseFilterSensitiveLog = (obj: ListNotificationChannelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationInsightsRequestFilterSensitiveLog = (obj: ListOrganizationInsightsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProactiveOrganizationInsightSummaryFilterSensitiveLog = (
-  obj: ProactiveOrganizationInsightSummary
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReactiveOrganizationInsightSummaryFilterSensitiveLog = (obj: ReactiveOrganizationInsightSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrganizationInsightsResponseFilterSensitiveLog = (obj: ListOrganizationInsightsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecommendationsRequestFilterSensitiveLog = (obj: ListRecommendationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationRelatedAnomalyResourceFilterSensitiveLog = (
-  obj: RecommendationRelatedAnomalyResource
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationRelatedCloudWatchMetricsSourceDetailFilterSensitiveLog = (
-  obj: RecommendationRelatedCloudWatchMetricsSourceDetail
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationRelatedAnomalySourceDetailFilterSensitiveLog = (
-  obj: RecommendationRelatedAnomalySourceDetail
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationRelatedAnomalyFilterSensitiveLog = (obj: RecommendationRelatedAnomaly): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationRelatedEventResourceFilterSensitiveLog = (obj: RecommendationRelatedEventResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationRelatedEventFilterSensitiveLog = (obj: RecommendationRelatedEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecommendationsResponseFilterSensitiveLog = (obj: ListRecommendationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFeedbackRequestFilterSensitiveLog = (obj: PutFeedbackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutFeedbackResponseFilterSensitiveLog = (obj: PutFeedbackResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveNotificationChannelRequestFilterSensitiveLog = (obj: RemoveNotificationChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveNotificationChannelResponseFilterSensitiveLog = (obj: RemoveNotificationChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchInsightsFiltersFilterSensitiveLog = (obj: SearchInsightsFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchInsightsRequestFilterSensitiveLog = (obj: SearchInsightsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchInsightsResponseFilterSensitiveLog = (obj: SearchInsightsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchOrganizationInsightsFiltersFilterSensitiveLog = (obj: SearchOrganizationInsightsFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchOrganizationInsightsRequestFilterSensitiveLog = (obj: SearchOrganizationInsightsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchOrganizationInsightsResponseFilterSensitiveLog = (obj: SearchOrganizationInsightsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartCostEstimationRequestFilterSensitiveLog = (obj: StartCostEstimationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartCostEstimationResponseFilterSensitiveLog = (obj: StartCostEstimationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventSourcesConfigRequestFilterSensitiveLog = (obj: UpdateEventSourcesConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEventSourcesConfigResponseFilterSensitiveLog = (obj: UpdateEventSourcesConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCloudFormationCollectionFilterFilterSensitiveLog = (
-  obj: UpdateCloudFormationCollectionFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTagCollectionFilterFilterSensitiveLog = (obj: UpdateTagCollectionFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceCollectionFilterFilterSensitiveLog = (obj: UpdateResourceCollectionFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceCollectionRequestFilterSensitiveLog = (obj: UpdateResourceCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceCollectionResponseFilterSensitiveLog = (obj: UpdateResourceCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogsAnomalyDetectionIntegrationConfigFilterSensitiveLog = (
-  obj: LogsAnomalyDetectionIntegrationConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpsCenterIntegrationConfigFilterSensitiveLog = (obj: OpsCenterIntegrationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceIntegrationConfigFilterSensitiveLog = (obj: UpdateServiceIntegrationConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceIntegrationRequestFilterSensitiveLog = (obj: UpdateServiceIntegrationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceIntegrationResponseFilterSensitiveLog = (obj: UpdateServiceIntegrationResponse): any => ({
-  ...obj,
-});

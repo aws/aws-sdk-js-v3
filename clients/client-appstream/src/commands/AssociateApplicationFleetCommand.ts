@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  AssociateApplicationFleetRequest,
-  AssociateApplicationFleetRequestFilterSensitiveLog,
-  AssociateApplicationFleetResult,
-  AssociateApplicationFleetResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateApplicationFleetCommand,
-  serializeAws_json1_1AssociateApplicationFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateApplicationFleetRequest, AssociateApplicationFleetResult } from "../models/models_0";
+import { de_AssociateApplicationFleetCommand, se_AssociateApplicationFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateApplicationFleetCommand}.
  */
 export interface AssociateApplicationFleetCommandInput extends AssociateApplicationFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateApplicationFleetCommand}.
  */
 export interface AssociateApplicationFleetCommandOutput extends AssociateApplicationFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified application with the specified fleet. This is only supported for Elastic fleets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface AssociateApplicationFleetCommandOutput extends AssociateApplica
  * import { AppStreamClient, AssociateApplicationFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, AssociateApplicationFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // AssociateApplicationFleetRequest
+ *   FleetName: "STRING_VALUE", // required
+ *   ApplicationArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateApplicationFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateApplicationFleetCommandInput - {@link AssociateApplicationFleetCommandInput}
+ * @returns {@link AssociateApplicationFleetCommandOutput}
  * @see {@link AssociateApplicationFleetCommandInput} for command's `input` shape.
  * @see {@link AssociateApplicationFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -84,6 +87,9 @@ export class AssociateApplicationFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateApplicationFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class AssociateApplicationFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateApplicationFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateApplicationFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +129,21 @@ export class AssociateApplicationFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateApplicationFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateApplicationFleetCommand(input, context);
+    return se_AssociateApplicationFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateApplicationFleetCommandOutput> {
-    return deserializeAws_json1_1AssociateApplicationFleetCommand(output, context);
+    return de_AssociateApplicationFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

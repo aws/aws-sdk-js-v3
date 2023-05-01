@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWebACLRequest,
-  CreateWebACLRequestFilterSensitiveLog,
-  CreateWebACLResponse,
-  CreateWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWebACLCommand,
-  serializeAws_json1_1CreateWebACLCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateWebACLRequest, CreateWebACLResponse } from "../models/models_0";
+import { de_CreateWebACLCommand, se_CreateWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWebACLCommand}.
  */
 export interface CreateWebACLCommandInput extends CreateWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWebACLCommand}.
  */
 export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -81,10 +78,26 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * import { WAFClient, CreateWebACLCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateWebACLCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // CreateWebACLRequest
+ *   Name: "STRING_VALUE", // required
+ *   MetricName: "STRING_VALUE", // required
+ *   DefaultAction: { // WafAction
+ *     Type: "STRING_VALUE", // required
+ *   },
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateWebACLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWebACLCommandInput - {@link CreateWebACLCommandInput}
+ * @returns {@link CreateWebACLCommandOutput}
  * @see {@link CreateWebACLCommandInput} for command's `input` shape.
  * @see {@link CreateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -212,6 +225,9 @@ export class CreateWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -238,8 +254,8 @@ export class CreateWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -249,12 +265,18 @@ export class CreateWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWebACLCommand(input, context);
+    return se_CreateWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebACLCommandOutput> {
-    return deserializeAws_json1_1CreateWebACLCommand(output, context);
+    return de_CreateWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

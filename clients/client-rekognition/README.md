@@ -563,6 +563,14 @@ CreateDataset
 </details>
 <details>
 <summary>
+CreateFaceLivenessSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/createfacelivenesssessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/createfacelivenesssessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/createfacelivenesssessioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateProject
 </summary>
 
@@ -767,6 +775,14 @@ GetFaceDetection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/getfacedetectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/getfacedetectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/getfacedetectioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetFaceLivenessSessionResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/classes/getfacelivenesssessionresultscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/getfacelivenesssessionresultscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognition/interfaces/getfacelivenesssessionresultscommandoutput.html)
 
 </details>
 <details>

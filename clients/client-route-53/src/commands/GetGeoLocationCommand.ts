@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetGeoLocationRequest,
-  GetGeoLocationRequestFilterSensitiveLog,
-  GetGeoLocationResponse,
-  GetGeoLocationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetGeoLocationCommand,
-  serializeAws_restXmlGetGeoLocationCommand,
-} from "../protocols/Aws_restXml";
+import { GetGeoLocationRequest, GetGeoLocationResponse } from "../models/models_0";
+import { de_GetGeoLocationCommand, se_GetGeoLocationCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetGeoLocationCommand}.
  */
 export interface GetGeoLocationCommandInput extends GetGeoLocationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGeoLocationCommand}.
  */
 export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about whether a specified geographic location is supported for Amazon
  * 			Route 53 geolocation resource record sets.</p>
  *          <p>Route 53 does not perform authorization for this API because it retrieves information
@@ -67,10 +64,17 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  * import { Route53Client, GetGeoLocationCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetGeoLocationCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // GetGeoLocationRequest
+ *   ContinentCode: "STRING_VALUE",
+ *   CountryCode: "STRING_VALUE",
+ *   SubdivisionCode: "STRING_VALUE",
+ * };
  * const command = new GetGeoLocationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGeoLocationCommandInput - {@link GetGeoLocationCommandInput}
+ * @returns {@link GetGeoLocationCommandOutput}
  * @see {@link GetGeoLocationCommandInput} for command's `input` shape.
  * @see {@link GetGeoLocationCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -102,6 +106,9 @@ export class GetGeoLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGeoLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +137,8 @@ export class GetGeoLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGeoLocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGeoLocationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +148,18 @@ export class GetGeoLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGeoLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetGeoLocationCommand(input, context);
+    return se_GetGeoLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeoLocationCommandOutput> {
-    return deserializeAws_restXmlGetGeoLocationCommand(output, context);
+    return de_GetGeoLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

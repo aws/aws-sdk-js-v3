@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccessControlEffectRequest,
-  GetAccessControlEffectRequestFilterSensitiveLog,
-  GetAccessControlEffectResponse,
-  GetAccessControlEffectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAccessControlEffectCommand,
-  serializeAws_json1_1GetAccessControlEffectCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAccessControlEffectRequest, GetAccessControlEffectResponse } from "../models/models_0";
+import { de_GetAccessControlEffectCommand, se_GetAccessControlEffectCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessControlEffectCommand}.
  */
 export interface GetAccessControlEffectCommandInput extends GetAccessControlEffectRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessControlEffectCommand}.
  */
 export interface GetAccessControlEffectCommandOutput extends GetAccessControlEffectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the effects of an organization's access control rules as they apply to a
  *          specified IPv4 address, access protocol action, and  user ID or impersonation role ID. You must provide either the user ID or impersonation role ID. Impersonation role ID can only be used with Action EWS.</p>
  * @example
@@ -43,10 +40,19 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * import { WorkMailClient, GetAccessControlEffectCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetAccessControlEffectCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // GetAccessControlEffectRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   IpAddress: "STRING_VALUE", // required
+ *   Action: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE",
+ *   ImpersonationRoleId: "STRING_VALUE",
+ * };
  * const command = new GetAccessControlEffectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessControlEffectCommandInput - {@link GetAccessControlEffectCommandInput}
+ * @returns {@link GetAccessControlEffectCommandOutput}
  * @see {@link GetAccessControlEffectCommandInput} for command's `input` shape.
  * @see {@link GetAccessControlEffectCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -88,6 +94,9 @@ export class GetAccessControlEffectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessControlEffectCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +125,8 @@ export class GetAccessControlEffectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessControlEffectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessControlEffectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +136,18 @@ export class GetAccessControlEffectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessControlEffectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccessControlEffectCommand(input, context);
+    return se_GetAccessControlEffectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessControlEffectCommandOutput> {
-    return deserializeAws_json1_1GetAccessControlEffectCommand(output, context);
+    return de_GetAccessControlEffectCommand(output, context);
   }
 
   // Start section: command_body_extra

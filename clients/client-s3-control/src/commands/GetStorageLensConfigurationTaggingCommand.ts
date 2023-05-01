@@ -16,21 +16,23 @@ import {
 
 import {
   GetStorageLensConfigurationTaggingRequest,
-  GetStorageLensConfigurationTaggingRequestFilterSensitiveLog,
   GetStorageLensConfigurationTaggingResult,
-  GetStorageLensConfigurationTaggingResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetStorageLensConfigurationTaggingCommand,
-  serializeAws_restXmlGetStorageLensConfigurationTaggingCommand,
+  de_GetStorageLensConfigurationTaggingCommand,
+  se_GetStorageLensConfigurationTaggingCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetStorageLensConfigurationTaggingCommand}.
  */
 export interface GetStorageLensConfigurationTaggingCommandInput extends GetStorageLensConfigurationTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStorageLensConfigurationTaggingCommand}.
  */
 export interface GetStorageLensConfigurationTaggingCommandOutput
@@ -38,6 +40,7 @@ export interface GetStorageLensConfigurationTaggingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the tags of Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your
  *             storage activity and usage with Amazon S3 Storage Lens </a> in the
@@ -54,10 +57,16 @@ export interface GetStorageLensConfigurationTaggingCommandOutput
  * import { S3ControlClient, GetStorageLensConfigurationTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetStorageLensConfigurationTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetStorageLensConfigurationTaggingRequest
+ *   ConfigId: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new GetStorageLensConfigurationTaggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStorageLensConfigurationTaggingCommandInput - {@link GetStorageLensConfigurationTaggingCommandInput}
+ * @returns {@link GetStorageLensConfigurationTaggingCommandOutput}
  * @see {@link GetStorageLensConfigurationTaggingCommandInput} for command's `input` shape.
  * @see {@link GetStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -84,6 +93,9 @@ export class GetStorageLensConfigurationTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStorageLensConfigurationTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +125,8 @@ export class GetStorageLensConfigurationTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStorageLensConfigurationTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStorageLensConfigurationTaggingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +136,24 @@ export class GetStorageLensConfigurationTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetStorageLensConfigurationTaggingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetStorageLensConfigurationTaggingCommand(input, context);
+    return se_GetStorageLensConfigurationTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetStorageLensConfigurationTaggingCommandOutput> {
-    return deserializeAws_restXmlGetStorageLensConfigurationTaggingCommand(output, context);
+    return de_GetStorageLensConfigurationTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

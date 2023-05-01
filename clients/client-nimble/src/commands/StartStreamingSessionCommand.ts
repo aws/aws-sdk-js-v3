@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartStreamingSessionRequest,
-  StartStreamingSessionRequestFilterSensitiveLog,
-  StartStreamingSessionResponse,
-  StartStreamingSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartStreamingSessionRequest, StartStreamingSessionResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1StartStreamingSessionCommand,
-  serializeAws_restJson1StartStreamingSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartStreamingSessionCommand, se_StartStreamingSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartStreamingSessionCommand}.
  */
 export interface StartStreamingSessionCommandInput extends StartStreamingSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartStreamingSessionCommand}.
  */
 export interface StartStreamingSessionCommandOutput extends StartStreamingSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Transitions sessions from the <code>STOPPED</code> state into the <code>READY</code>
  *             state. The <code>START_IN_PROGRESS</code> state is the intermediate state between the
  *                 <code>STOPPED</code> and <code>READY</code> states.</p>
@@ -44,10 +41,18 @@ export interface StartStreamingSessionCommandOutput extends StartStreamingSessio
  * import { NimbleClient, StartStreamingSessionCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, StartStreamingSessionCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // StartStreamingSessionRequest
+ *   clientToken: "STRING_VALUE",
+ *   sessionId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ *   backupId: "STRING_VALUE",
+ * };
  * const command = new StartStreamingSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStreamingSessionCommandInput - {@link StartStreamingSessionCommandInput}
+ * @returns {@link StartStreamingSessionCommandOutput}
  * @see {@link StartStreamingSessionCommandInput} for command's `input` shape.
  * @see {@link StartStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -95,6 +100,9 @@ export class StartStreamingSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStreamingSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +131,8 @@ export class StartStreamingSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartStreamingSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartStreamingSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +142,18 @@ export class StartStreamingSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartStreamingSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartStreamingSessionCommand(input, context);
+    return se_StartStreamingSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStreamingSessionCommandOutput> {
-    return deserializeAws_restJson1StartStreamingSessionCommand(output, context);
+    return de_StartStreamingSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

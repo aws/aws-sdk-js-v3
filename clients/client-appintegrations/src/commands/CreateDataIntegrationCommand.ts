@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import {
-  CreateDataIntegrationRequest,
-  CreateDataIntegrationRequestFilterSensitiveLog,
-  CreateDataIntegrationResponse,
-  CreateDataIntegrationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDataIntegrationCommand,
-  serializeAws_restJson1CreateDataIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDataIntegrationRequest, CreateDataIntegrationResponse } from "../models/models_0";
+import { de_CreateDataIntegrationCommand, se_CreateDataIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataIntegrationCommand}.
  */
 export interface CreateDataIntegrationCommandInput extends CreateDataIntegrationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataIntegrationCommand}.
  */
 export interface CreateDataIntegrationCommandOutput extends CreateDataIntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and persists a DataIntegration resource.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been
@@ -47,10 +44,44 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
  * import { AppIntegrationsClient, CreateDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, CreateDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // CreateDataIntegrationRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   KmsKey: "STRING_VALUE", // required
+ *   SourceURI: "STRING_VALUE", // required
+ *   ScheduleConfig: { // ScheduleConfiguration
+ *     FirstExecutionFrom: "STRING_VALUE",
+ *     Object: "STRING_VALUE",
+ *     ScheduleExpression: "STRING_VALUE", // required
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ *   FileConfiguration: { // FileConfiguration
+ *     Folders: [ // FolderList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Filters: { // FieldsMap
+ *       "<keys>": [ // FieldsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   ObjectConfiguration: { // ObjectConfiguration
+ *     "<keys>": {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateDataIntegrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataIntegrationCommandInput - {@link CreateDataIntegrationCommandInput}
+ * @returns {@link CreateDataIntegrationCommandOutput}
  * @see {@link CreateDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link CreateDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
@@ -92,6 +123,9 @@ export class CreateDataIntegrationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataIntegrationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +154,8 @@ export class CreateDataIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataIntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +165,18 @@ export class CreateDataIntegrationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDataIntegrationCommand(input, context);
+    return se_CreateDataIntegrationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataIntegrationCommandOutput> {
-    return deserializeAws_restJson1CreateDataIntegrationCommand(output, context);
+    return de_CreateDataIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

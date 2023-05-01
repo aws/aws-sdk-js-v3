@@ -13,42 +13,45 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLedgersRequest,
-  ListLedgersRequestFilterSensitiveLog,
-  ListLedgersResponse,
-  ListLedgersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLedgersCommand,
-  serializeAws_restJson1ListLedgersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListLedgersRequest, ListLedgersResponse } from "../models/models_0";
+import { de_ListLedgersCommand, se_ListLedgersCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLedgersCommand}.
  */
 export interface ListLedgersCommandInput extends ListLedgersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLedgersCommand}.
  */
 export interface ListLedgersCommandOutput extends ListLedgersResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an array of ledger summaries that are associated with the current Amazon Web Services account
- *          and Region.</p>
- *          <p>This action returns a maximum of 100 items and is paginated so that you can
- *          retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>
+ * @public
+ * <p>Returns all ledgers that are associated with the current Amazon Web Services account and
+ *          Region.</p>
+ *          <p>This action returns a maximum of <code>MaxResults</code> items and is paginated so that
+ *          you can retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QLDBClient, ListLedgersCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ListLedgersCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // ListLedgersRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLedgersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLedgersCommandInput - {@link ListLedgersCommandInput}
+ * @returns {@link ListLedgersCommandOutput}
  * @see {@link ListLedgersCommandInput} for command's `input` shape.
  * @see {@link ListLedgersCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -72,6 +75,9 @@ export class ListLedgersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLedgersCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +104,8 @@ export class ListLedgersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLedgersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLedgersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +115,18 @@ export class ListLedgersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLedgersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLedgersCommand(input, context);
+    return se_ListLedgersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLedgersCommandOutput> {
-    return deserializeAws_restJson1ListLedgersCommand(output, context);
+    return de_ListLedgersCommand(output, context);
   }
 
   // Start section: command_body_extra

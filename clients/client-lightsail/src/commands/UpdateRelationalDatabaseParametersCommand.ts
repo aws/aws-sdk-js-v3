@@ -16,20 +16,22 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
   UpdateRelationalDatabaseParametersRequest,
-  UpdateRelationalDatabaseParametersRequestFilterSensitiveLog,
   UpdateRelationalDatabaseParametersResult,
-  UpdateRelationalDatabaseParametersResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand,
-  serializeAws_json1_1UpdateRelationalDatabaseParametersCommand,
+  de_UpdateRelationalDatabaseParametersCommand,
+  se_UpdateRelationalDatabaseParametersCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRelationalDatabaseParametersCommand}.
  */
 export interface UpdateRelationalDatabaseParametersCommandInput extends UpdateRelationalDatabaseParametersRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRelationalDatabaseParametersCommand}.
  */
 export interface UpdateRelationalDatabaseParametersCommandOutput
@@ -37,6 +39,7 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p>
  *          <p>Parameter updates don't cause outages; therefore, their application is not subject to the
  *       preferred maintenance window. However, there are two ways in which parameter updates are
@@ -53,10 +56,27 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
  * import { LightsailClient, UpdateRelationalDatabaseParametersCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateRelationalDatabaseParametersCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // UpdateRelationalDatabaseParametersRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   parameters: [ // RelationalDatabaseParameterList // required
+ *     { // RelationalDatabaseParameter
+ *       allowedValues: "STRING_VALUE",
+ *       applyMethod: "STRING_VALUE",
+ *       applyType: "STRING_VALUE",
+ *       dataType: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       isModifiable: true || false,
+ *       parameterName: "STRING_VALUE",
+ *       parameterValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRelationalDatabaseParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRelationalDatabaseParametersCommandInput - {@link UpdateRelationalDatabaseParametersCommandInput}
+ * @returns {@link UpdateRelationalDatabaseParametersCommandOutput}
  * @see {@link UpdateRelationalDatabaseParametersCommandInput} for command's `input` shape.
  * @see {@link UpdateRelationalDatabaseParametersCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -110,6 +130,9 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRelationalDatabaseParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +161,8 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRelationalDatabaseParametersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRelationalDatabaseParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,18 +172,24 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateRelationalDatabaseParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRelationalDatabaseParametersCommand(input, context);
+    return se_UpdateRelationalDatabaseParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRelationalDatabaseParametersCommandOutput> {
-    return deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand(output, context);
+    return de_UpdateRelationalDatabaseParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

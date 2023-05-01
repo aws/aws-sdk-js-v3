@@ -10,7 +10,7 @@ import { ElasticInferenceClient } from "../ElasticInferenceClient";
 import { ElasticInferencePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticInferenceClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeAcceleratorsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeAccelerators(
   config: ElasticInferencePaginationConfiguration,
   input: DescribeAcceleratorsCommandInput,

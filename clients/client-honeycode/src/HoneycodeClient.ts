@@ -96,6 +96,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchCreateTableRowsCommandInput
   | BatchDeleteTableRowsCommandInput
@@ -113,6 +116,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchCreateTableRowsCommandOutput
   | BatchDeleteTableRowsCommandOutput
@@ -130,6 +136,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -137,7 +146,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -246,11 +255,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type HoneycodeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -261,10 +273,15 @@ type HoneycodeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of HoneycodeClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of HoneycodeClient class constructor that set the region, credentials and other options.
  */
 export interface HoneycodeClientConfig extends HoneycodeClientConfigType {}
 
+/**
+ * @public
+ */
 type HoneycodeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -275,11 +292,14 @@ type HoneycodeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of HoneycodeClient class. This is resolved and normalized from the {@link HoneycodeClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of HoneycodeClient class. This is resolved and normalized from the {@link HoneycodeClientConfig | constructor configuration interface}.
  */
 export interface HoneycodeClientResolvedConfig extends HoneycodeClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>
  *       Amazon Honeycode is a fully managed service that allows you to quickly build mobile and web apps for teams—without
  *       programming. Build Honeycode apps for managing almost anything, like projects, customers, operations, approvals,

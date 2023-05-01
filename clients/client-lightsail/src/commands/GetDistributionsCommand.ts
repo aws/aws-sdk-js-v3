@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetDistributionsRequest,
-  GetDistributionsRequestFilterSensitiveLog,
-  GetDistributionsResult,
-  GetDistributionsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDistributionsCommand,
-  serializeAws_json1_1GetDistributionsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDistributionsRequest, GetDistributionsResult } from "../models/models_1";
+import { de_GetDistributionsCommand, se_GetDistributionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDistributionsCommand}.
  */
 export interface GetDistributionsCommandInput extends GetDistributionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDistributionsCommand}.
  */
 export interface GetDistributionsCommandOutput extends GetDistributionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more of your Amazon Lightsail content delivery network
  *       (CDN) distributions.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  * import { LightsailClient, GetDistributionsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDistributionsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetDistributionsRequest
+ *   distributionName: "STRING_VALUE",
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetDistributionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDistributionsCommandInput - {@link GetDistributionsCommandInput}
+ * @returns {@link GetDistributionsCommandOutput}
  * @see {@link GetDistributionsCommandInput} for command's `input` shape.
  * @see {@link GetDistributionsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +99,9 @@ export class GetDistributionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDistributionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +130,8 @@ export class GetDistributionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDistributionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDistributionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +141,18 @@ export class GetDistributionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDistributionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDistributionsCommand(input, context);
+    return se_GetDistributionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDistributionsCommandOutput> {
-    return deserializeAws_json1_1GetDistributionsCommand(output, context);
+    return de_GetDistributionsCommand(output, context);
   }
 
   // Start section: command_body_extra

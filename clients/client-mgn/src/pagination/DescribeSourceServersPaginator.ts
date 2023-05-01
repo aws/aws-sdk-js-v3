@@ -10,7 +10,7 @@ import { MgnClient } from "../MgnClient";
 import { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MgnClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeSourceServersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeSourceServers(
   config: MgnPaginationConfiguration,
   input: DescribeSourceServersCommandInput,

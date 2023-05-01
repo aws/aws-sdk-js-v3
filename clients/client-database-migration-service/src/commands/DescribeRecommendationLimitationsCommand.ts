@@ -20,20 +20,22 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeRecommendationLimitationsRequest,
-  DescribeRecommendationLimitationsRequestFilterSensitiveLog,
   DescribeRecommendationLimitationsResponse,
-  DescribeRecommendationLimitationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeRecommendationLimitationsCommand,
-  serializeAws_json1_1DescribeRecommendationLimitationsCommand,
+  de_DescribeRecommendationLimitationsCommand,
+  se_DescribeRecommendationLimitationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecommendationLimitationsCommand}.
  */
 export interface DescribeRecommendationLimitationsCommandInput extends DescribeRecommendationLimitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecommendationLimitationsCommand}.
  */
 export interface DescribeRecommendationLimitationsCommandOutput
@@ -41,6 +43,7 @@ export interface DescribeRecommendationLimitationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of limitations for recommendations of target Amazon Web Services
  *             engines.</p>
  * @example
@@ -49,10 +52,24 @@ export interface DescribeRecommendationLimitationsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeRecommendationLimitationsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeRecommendationLimitationsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeRecommendationLimitationsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeRecommendationLimitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecommendationLimitationsCommandInput - {@link DescribeRecommendationLimitationsCommandInput}
+ * @returns {@link DescribeRecommendationLimitationsCommandOutput}
  * @see {@link DescribeRecommendationLimitationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationLimitationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -83,6 +100,9 @@ export class DescribeRecommendationLimitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecommendationLimitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +131,8 @@ export class DescribeRecommendationLimitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecommendationLimitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecommendationLimitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +142,24 @@ export class DescribeRecommendationLimitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeRecommendationLimitationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRecommendationLimitationsCommand(input, context);
+    return se_DescribeRecommendationLimitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRecommendationLimitationsCommandOutput> {
-    return deserializeAws_json1_1DescribeRecommendationLimitationsCommand(output, context);
+    return de_DescribeRecommendationLimitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DeleteStackSetInput,
-  DeleteStackSetInputFilterSensitiveLog,
-  DeleteStackSetOutput,
-  DeleteStackSetOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteStackSetCommand,
-  serializeAws_queryDeleteStackSetCommand,
-} from "../protocols/Aws_query";
+import { DeleteStackSetInput, DeleteStackSetOutput } from "../models/models_0";
+import { de_DeleteStackSetCommand, se_DeleteStackSetCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStackSetCommand}.
  */
 export interface DeleteStackSetCommandInput extends DeleteStackSetInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStackSetCommand}.
  */
 export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a stack set. Before you can delete a stack set, all its member stack instances
  *          must be deleted. For more information about how to complete this, see <a>DeleteStackInstances</a>.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  * import { CloudFormationClient, DeleteStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeleteStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DeleteStackSetInput
+ *   StackSetName: "STRING_VALUE", // required
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new DeleteStackSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStackSetCommandInput - {@link DeleteStackSetCommandInput}
+ * @returns {@link DeleteStackSetCommandOutput}
  * @see {@link DeleteStackSetCommandInput} for command's `input` shape.
  * @see {@link DeleteStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -79,6 +82,9 @@ export class DeleteStackSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStackSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class DeleteStackSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStackSetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStackSetOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class DeleteStackSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStackSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteStackSetCommand(input, context);
+    return se_DeleteStackSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStackSetCommandOutput> {
-    return deserializeAws_queryDeleteStackSetCommand(output, context);
+    return de_DeleteStackSetCommand(output, context);
   }
 
   // Start section: command_body_extra

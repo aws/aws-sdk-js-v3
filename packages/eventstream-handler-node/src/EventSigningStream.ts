@@ -2,6 +2,9 @@ import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
 import { EventSigner, MessageHeaders } from "@aws-sdk/types";
 import { Transform, TransformCallback, TransformOptions } from "stream";
 
+/**
+ * @internal
+ */
 export interface EventSigningStreamOptions extends TransformOptions {
   priorSignature: string;
   eventSigner: EventSigner;
@@ -9,6 +12,8 @@ export interface EventSigningStreamOptions extends TransformOptions {
 }
 
 /**
+ * @internal
+ * 
  * A transform stream that signs the eventstream
  */
 export class EventSigningStream extends Transform {

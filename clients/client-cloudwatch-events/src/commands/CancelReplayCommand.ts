@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  CancelReplayRequest,
-  CancelReplayRequestFilterSensitiveLog,
-  CancelReplayResponse,
-  CancelReplayResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelReplayCommand,
-  serializeAws_json1_1CancelReplayCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelReplayRequest, CancelReplayResponse } from "../models/models_0";
+import { de_CancelReplayCommand, se_CancelReplayCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelReplayCommand}.
  */
 export interface CancelReplayCommandInput extends CancelReplayRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelReplayCommand}.
  */
 export interface CancelReplayCommandOutput extends CancelReplayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified replay.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * import { CloudWatchEventsClient, CancelReplayCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CancelReplayCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // CancelReplayRequest
+ *   ReplayName: "STRING_VALUE", // required
+ * };
  * const command = new CancelReplayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelReplayCommandInput - {@link CancelReplayCommandInput}
+ * @returns {@link CancelReplayCommandOutput}
  * @see {@link CancelReplayCommandInput} for command's `input` shape.
  * @see {@link CancelReplayCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -82,6 +84,9 @@ export class CancelReplayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelReplayCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class CancelReplayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelReplayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelReplayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class CancelReplayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelReplayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelReplayCommand(input, context);
+    return se_CancelReplayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelReplayCommandOutput> {
-    return deserializeAws_json1_1CancelReplayCommand(output, context);
+    return de_CancelReplayCommand(output, context);
   }
 
   // Start section: command_body_extra

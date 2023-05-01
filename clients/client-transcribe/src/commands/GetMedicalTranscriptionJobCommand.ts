@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetMedicalTranscriptionJobRequest,
-  GetMedicalTranscriptionJobRequestFilterSensitiveLog,
-  GetMedicalTranscriptionJobResponse,
-  GetMedicalTranscriptionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMedicalTranscriptionJobCommand,
-  serializeAws_json1_1GetMedicalTranscriptionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMedicalTranscriptionJobRequest, GetMedicalTranscriptionJobResponse } from "../models/models_0";
+import { de_GetMedicalTranscriptionJobCommand, se_GetMedicalTranscriptionJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMedicalTranscriptionJobCommand}.
  */
 export interface GetMedicalTranscriptionJobCommandInput extends GetMedicalTranscriptionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMedicalTranscriptionJobCommand}.
  */
 export interface GetMedicalTranscriptionJobCommandOutput extends GetMedicalTranscriptionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified medical transcription job.</p>
  *          <p>To view the status of the specified medical transcription job, check the
  *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -49,10 +46,15 @@ export interface GetMedicalTranscriptionJobCommandOutput extends GetMedicalTrans
  * import { TranscribeClient, GetMedicalTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetMedicalTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // GetMedicalTranscriptionJobRequest
+ *   MedicalTranscriptionJobName: "STRING_VALUE", // required
+ * };
  * const command = new GetMedicalTranscriptionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMedicalTranscriptionJobCommandInput - {@link GetMedicalTranscriptionJobCommandInput}
+ * @returns {@link GetMedicalTranscriptionJobCommandOutput}
  * @see {@link GetMedicalTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link GetMedicalTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -94,6 +96,9 @@ export class GetMedicalTranscriptionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMedicalTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +127,8 @@ export class GetMedicalTranscriptionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMedicalTranscriptionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMedicalTranscriptionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +138,21 @@ export class GetMedicalTranscriptionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMedicalTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMedicalTranscriptionJobCommand(input, context);
+    return se_GetMedicalTranscriptionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMedicalTranscriptionJobCommandOutput> {
-    return deserializeAws_json1_1GetMedicalTranscriptionJobCommand(output, context);
+    return de_GetMedicalTranscriptionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

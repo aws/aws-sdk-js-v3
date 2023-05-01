@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOrganizationalUnitsForParentRequest,
-  ListOrganizationalUnitsForParentRequestFilterSensitiveLog,
-  ListOrganizationalUnitsForParentResponse,
-  ListOrganizationalUnitsForParentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListOrganizationalUnitsForParentRequest, ListOrganizationalUnitsForParentResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1ListOrganizationalUnitsForParentCommand,
-  serializeAws_json1_1ListOrganizationalUnitsForParentCommand,
+  de_ListOrganizationalUnitsForParentCommand,
+  se_ListOrganizationalUnitsForParentCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrganizationalUnitsForParentCommand}.
  */
 export interface ListOrganizationalUnitsForParentCommandInput extends ListOrganizationalUnitsForParentRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOrganizationalUnitsForParentCommand}.
  */
 export interface ListOrganizationalUnitsForParentCommandOutput
@@ -37,6 +36,7 @@ export interface ListOrganizationalUnitsForParentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the organizational units (OUs) in a parent organizational unit or root.</p>
  *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
@@ -54,10 +54,17 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  * import { OrganizationsClient, ListOrganizationalUnitsForParentCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListOrganizationalUnitsForParentCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListOrganizationalUnitsForParentRequest
+ *   ParentId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListOrganizationalUnitsForParentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationalUnitsForParentCommandInput - {@link ListOrganizationalUnitsForParentCommandInput}
+ * @returns {@link ListOrganizationalUnitsForParentCommandOutput}
  * @see {@link ListOrganizationalUnitsForParentCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationalUnitsForParentCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -237,6 +244,9 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationalUnitsForParentCommandInput) {
     // Start section: command_constructor
     super();
@@ -265,8 +275,8 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOrganizationalUnitsForParentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOrganizationalUnitsForParentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -276,18 +286,24 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListOrganizationalUnitsForParentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOrganizationalUnitsForParentCommand(input, context);
+    return se_ListOrganizationalUnitsForParentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOrganizationalUnitsForParentCommandOutput> {
-    return deserializeAws_json1_1ListOrganizationalUnitsForParentCommand(output, context);
+    return de_ListOrganizationalUnitsForParentCommand(output, context);
   }
 
   // Start section: command_body_extra

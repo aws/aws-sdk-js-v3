@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  UpdateEventSourcesConfigRequest,
-  UpdateEventSourcesConfigRequestFilterSensitiveLog,
-  UpdateEventSourcesConfigResponse,
-  UpdateEventSourcesConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEventSourcesConfigCommand,
-  serializeAws_restJson1UpdateEventSourcesConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateEventSourcesConfigRequest, UpdateEventSourcesConfigResponse } from "../models/models_0";
+import { de_UpdateEventSourcesConfigCommand, se_UpdateEventSourcesConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventSourcesConfigCommand}.
  */
 export interface UpdateEventSourcesConfigCommandInput extends UpdateEventSourcesConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventSourcesConfigCommand}.
  */
 export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSourcesConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables integration with a service that can be integrated with DevOps Guru. The
  * 			one service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler, which
  * 			can produce proactive recommendations which can be stored and viewed in DevOps Guru.</p>
@@ -44,10 +41,19 @@ export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSource
  * import { DevOpsGuruClient, UpdateEventSourcesConfigCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, UpdateEventSourcesConfigCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // UpdateEventSourcesConfigRequest
+ *   EventSources: { // EventSourcesConfig
+ *     AmazonCodeGuruProfiler: { // AmazonCodeGuruProfilerIntegration
+ *       Status: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ * };
  * const command = new UpdateEventSourcesConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventSourcesConfigCommandInput - {@link UpdateEventSourcesConfigCommandInput}
+ * @returns {@link UpdateEventSourcesConfigCommandOutput}
  * @see {@link UpdateEventSourcesConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateEventSourcesConfigCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -87,6 +93,9 @@ export class UpdateEventSourcesConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventSourcesConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class UpdateEventSourcesConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEventSourcesConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEventSourcesConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +135,18 @@ export class UpdateEventSourcesConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEventSourcesConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEventSourcesConfigCommand(input, context);
+    return se_UpdateEventSourcesConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventSourcesConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateEventSourcesConfigCommand(output, context);
+    return de_UpdateEventSourcesConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

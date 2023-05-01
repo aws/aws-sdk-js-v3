@@ -14,27 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { CreatePrivateVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
 import {
-  CreatePrivateVirtualInterfaceRequest,
-  CreatePrivateVirtualInterfaceRequestFilterSensitiveLog,
-  VirtualInterface,
-  VirtualInterfaceFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand,
-  serializeAws_json1_1CreatePrivateVirtualInterfaceCommand,
+  de_CreatePrivateVirtualInterfaceCommand,
+  se_CreatePrivateVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePrivateVirtualInterfaceCommand}.
  */
 export interface CreatePrivateVirtualInterfaceCommandInput extends CreatePrivateVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePrivateVirtualInterfaceCommand}.
  */
 export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a private virtual interface. A virtual interface is the VLAN that transports Direct Connect traffic.
  *       A private virtual interface can be connected to either a Direct Connect gateway or a Virtual Private Gateway (VGW).
  *       Connecting the private virtual interface to a Direct Connect gateway enables the possibility for connecting to multiple
@@ -52,10 +52,34 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  * import { DirectConnectClient, CreatePrivateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreatePrivateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // CreatePrivateVirtualInterfaceRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   newPrivateVirtualInterface: { // NewPrivateVirtualInterface
+ *     virtualInterfaceName: "STRING_VALUE", // required
+ *     vlan: Number("int"), // required
+ *     asn: Number("int"), // required
+ *     mtu: Number("int"),
+ *     authKey: "STRING_VALUE",
+ *     amazonAddress: "STRING_VALUE",
+ *     customerAddress: "STRING_VALUE",
+ *     addressFamily: "ipv4" || "ipv6",
+ *     virtualGatewayId: "STRING_VALUE",
+ *     directConnectGatewayId: "STRING_VALUE",
+ *     tags: [ // TagList
+ *       { // Tag
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     enableSiteLink: true || false,
+ *   },
+ * };
  * const command = new CreatePrivateVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePrivateVirtualInterfaceCommandInput - {@link CreatePrivateVirtualInterfaceCommandInput}
+ * @returns {@link CreatePrivateVirtualInterfaceCommandOutput}
  * @see {@link CreatePrivateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreatePrivateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -91,6 +115,9 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePrivateVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +146,8 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePrivateVirtualInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VirtualInterfaceFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +157,21 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePrivateVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePrivateVirtualInterfaceCommand(input, context);
+    return se_CreatePrivateVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePrivateVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand(output, context);
+    return de_CreatePrivateVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReferenceImportJobsRequest,
-  ListReferenceImportJobsRequestFilterSensitiveLog,
-  ListReferenceImportJobsResponse,
-  ListReferenceImportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListReferenceImportJobsRequest, ListReferenceImportJobsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListReferenceImportJobsCommand,
-  serializeAws_restJson1ListReferenceImportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListReferenceImportJobsCommand, se_ListReferenceImportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReferenceImportJobsCommand}.
  */
 export interface ListReferenceImportJobsCommandInput extends ListReferenceImportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReferenceImportJobsCommand}.
  */
 export interface ListReferenceImportJobsCommandOutput extends ListReferenceImportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of reference import jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListReferenceImportJobsCommandOutput extends ListReferenceImpor
  * import { OmicsClient, ListReferenceImportJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReferenceImportJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // ListReferenceImportJobsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   referenceStoreId: "STRING_VALUE", // required
+ *   filter: { // ImportReferenceFilter
+ *     status: "STRING_VALUE",
+ *     createdAfter: new Date("TIMESTAMP"),
+ *     createdBefore: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new ListReferenceImportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReferenceImportJobsCommandInput - {@link ListReferenceImportJobsCommandInput}
+ * @returns {@link ListReferenceImportJobsCommandOutput}
  * @see {@link ListReferenceImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListReferenceImportJobsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +96,9 @@ export class ListReferenceImportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReferenceImportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +127,8 @@ export class ListReferenceImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReferenceImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReferenceImportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +138,18 @@ export class ListReferenceImportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReferenceImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReferenceImportJobsCommand(input, context);
+    return se_ListReferenceImportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReferenceImportJobsCommandOutput> {
-    return deserializeAws_restJson1ListReferenceImportJobsCommand(output, context);
+    return de_ListReferenceImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

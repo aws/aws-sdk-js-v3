@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  ListQueuesRequest,
-  ListQueuesRequestFilterSensitiveLog,
-  ListQueuesResponse,
-  ListQueuesResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListQueuesCommand,
-  serializeAws_restJson1ListQueuesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListQueuesRequest, ListQueuesResponse } from "../models/models_2";
+import { de_ListQueuesCommand, se_ListQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListQueuesCommand}.
  */
 export interface ListQueuesCommandInput extends ListQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListQueuesCommand}.
  */
 export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve a JSON array of up to twenty of your queues. This will return the queues themselves, not just a list of them. To retrieve the next twenty queues, use the nextToken string returned with the array.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * import { MediaConvertClient, ListQueuesCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, ListQueuesCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = { // ListQueuesRequest
+ *   ListBy: "NAME" || "CREATION_DATE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Order: "ASCENDING" || "DESCENDING",
+ * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
+ * @returns {@link ListQueuesCommandOutput}
  * @see {@link ListQueuesCommandInput} for command's `input` shape.
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +92,9 @@ export class ListQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class ListQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQueuesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +132,18 @@ export class ListQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListQueuesCommand(input, context);
+    return se_ListQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueuesCommandOutput> {
-    return deserializeAws_restJson1ListQueuesCommand(output, context);
+    return de_ListQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

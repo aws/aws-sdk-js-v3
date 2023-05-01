@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  ListVoiceConnectorsRequest,
-  ListVoiceConnectorsRequestFilterSensitiveLog,
-  ListVoiceConnectorsResponse,
-  ListVoiceConnectorsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListVoiceConnectorsCommand,
-  serializeAws_restJson1ListVoiceConnectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListVoiceConnectorsRequest, ListVoiceConnectorsResponse } from "../models/models_1";
+import { de_ListVoiceConnectorsCommand, se_ListVoiceConnectorsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVoiceConnectorsCommand}.
  */
 export interface ListVoiceConnectorsCommandInput extends ListVoiceConnectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVoiceConnectorsCommand}.
  */
 export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon Chime Voice Connectors for the administrator's AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsRes
  * import { ChimeClient, ListVoiceConnectorsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListVoiceConnectorsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListVoiceConnectorsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListVoiceConnectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVoiceConnectorsCommandInput - {@link ListVoiceConnectorsCommandInput}
+ * @returns {@link ListVoiceConnectorsCommandOutput}
  * @see {@link ListVoiceConnectorsCommandInput} for command's `input` shape.
  * @see {@link ListVoiceConnectorsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -87,6 +90,9 @@ export class ListVoiceConnectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVoiceConnectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class ListVoiceConnectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVoiceConnectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVoiceConnectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class ListVoiceConnectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVoiceConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVoiceConnectorsCommand(input, context);
+    return se_ListVoiceConnectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVoiceConnectorsCommandOutput> {
-    return deserializeAws_restJson1ListVoiceConnectorsCommand(output, context);
+    return de_ListVoiceConnectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

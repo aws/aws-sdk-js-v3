@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetConnectAttachmentRequest,
-  GetConnectAttachmentRequestFilterSensitiveLog,
-  GetConnectAttachmentResponse,
-  GetConnectAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetConnectAttachmentRequest, GetConnectAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetConnectAttachmentCommand,
-  serializeAws_restJson1GetConnectAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectAttachmentCommand, se_GetConnectAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectAttachmentCommand}.
  */
 export interface GetConnectAttachmentCommandInput extends GetConnectAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectAttachmentCommand}.
  */
 export interface GetConnectAttachmentCommandOutput extends GetConnectAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a core network Connect attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetConnectAttachmentCommandOutput extends GetConnectAttachmentR
  * import { NetworkManagerClient, GetConnectAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetConnectAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetConnectAttachmentRequest
+ *   AttachmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectAttachmentCommandInput - {@link GetConnectAttachmentCommandInput}
+ * @returns {@link GetConnectAttachmentCommandOutput}
  * @see {@link GetConnectAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetConnectAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetConnectAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetConnectAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetConnectAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectAttachmentCommand(input, context);
+    return se_GetConnectAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectAttachmentCommandOutput> {
-    return deserializeAws_restJson1GetConnectAttachmentCommand(output, context);
+    return de_GetConnectAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

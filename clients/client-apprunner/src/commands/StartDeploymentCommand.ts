@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  StartDeploymentRequest,
-  StartDeploymentRequestFilterSensitiveLog,
-  StartDeploymentResponse,
-  StartDeploymentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0StartDeploymentCommand,
-  serializeAws_json1_0StartDeploymentCommand,
-} from "../protocols/Aws_json1_0";
+import { StartDeploymentRequest, StartDeploymentResponse } from "../models/models_0";
+import { de_StartDeploymentCommand, se_StartDeploymentCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link StartDeploymentCommand}.
  */
 export interface StartDeploymentCommandInput extends StartDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDeploymentCommand}.
  */
 export interface StartDeploymentCommandOutput extends StartDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiate a manual deployment of the latest commit in a source code repository or the latest image in a source image repository to an App Runner
  *       service.</p>
  *          <p>For a source code repository, App Runner retrieves the commit and builds a Docker image. For a source image repository, App Runner retrieves the latest Docker
@@ -47,10 +44,15 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  * import { AppRunnerClient, StartDeploymentCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, StartDeploymentCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // StartDeploymentRequest
+ *   ServiceArn: "STRING_VALUE", // required
+ * };
  * const command = new StartDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDeploymentCommandInput - {@link StartDeploymentCommandInput}
+ * @returns {@link StartDeploymentCommandOutput}
  * @see {@link StartDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -83,6 +85,9 @@ export class StartDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class StartDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class StartDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartDeploymentCommand(input, context);
+    return se_StartDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeploymentCommandOutput> {
-    return deserializeAws_json1_0StartDeploymentCommand(output, context);
+    return de_StartDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

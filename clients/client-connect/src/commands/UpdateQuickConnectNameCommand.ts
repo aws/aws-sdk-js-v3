@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQuickConnectNameRequest, UpdateQuickConnectNameRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateQuickConnectNameCommand,
-  serializeAws_restJson1UpdateQuickConnectNameCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateQuickConnectNameRequest } from "../models/models_1";
+import { de_UpdateQuickConnectNameCommand, se_UpdateQuickConnectNameCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQuickConnectNameCommand}.
  */
 export interface UpdateQuickConnectNameCommandInput extends UpdateQuickConnectNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQuickConnectNameCommand}.
  */
 export interface UpdateQuickConnectNameCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,18 @@ export interface UpdateQuickConnectNameCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateQuickConnectNameCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQuickConnectNameCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateQuickConnectNameRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   QuickConnectId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateQuickConnectNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQuickConnectNameCommandInput - {@link UpdateQuickConnectNameCommandInput}
+ * @returns {@link UpdateQuickConnectNameCommandOutput}
  * @see {@link UpdateQuickConnectNameCommandInput} for command's `input` shape.
  * @see {@link UpdateQuickConnectNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -79,6 +89,9 @@ export class UpdateQuickConnectNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQuickConnectNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +120,8 @@ export class UpdateQuickConnectNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQuickConnectNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +131,18 @@ export class UpdateQuickConnectNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQuickConnectNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateQuickConnectNameCommand(input, context);
+    return se_UpdateQuickConnectNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQuickConnectNameCommandOutput> {
-    return deserializeAws_restJson1UpdateQuickConnectNameCommand(output, context);
+    return de_UpdateQuickConnectNameCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterClientRequest,
-  RegisterClientRequestFilterSensitiveLog,
-  RegisterClientResponse,
-  RegisterClientResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterClientCommand,
-  serializeAws_restJson1RegisterClientCommand,
-} from "../protocols/Aws_restJson1";
+import { RegisterClientRequest, RegisterClientResponse } from "../models/models_0";
+import { de_RegisterClientCommand, se_RegisterClientCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterClientCommand}.
  */
 export interface RegisterClientCommandInput extends RegisterClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterClientCommand}.
  */
 export interface RegisterClientCommandOutput extends RegisterClientResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a client with IAM Identity Center. This allows clients to initiate device authorization.
  *       The output should be persisted for reuse through many authentication requests.</p>
  * @example
@@ -43,10 +40,19 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * import { SSOOIDCClient, RegisterClientCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
  * // const { SSOOIDCClient, RegisterClientCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
  * const client = new SSOOIDCClient(config);
+ * const input = { // RegisterClientRequest
+ *   clientName: "STRING_VALUE", // required
+ *   clientType: "STRING_VALUE", // required
+ *   scopes: [ // Scopes
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RegisterClientCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterClientCommandInput - {@link RegisterClientCommandInput}
+ * @returns {@link RegisterClientCommandOutput}
  * @see {@link RegisterClientCommandInput} for command's `input` shape.
  * @see {@link RegisterClientCommandOutput} for command's `response` shape.
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
@@ -85,6 +91,9 @@ export class RegisterClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class RegisterClientCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterClientRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterClientResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class RegisterClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterClientCommand(input, context);
+    return se_RegisterClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterClientCommandOutput> {
-    return deserializeAws_restJson1RegisterClientCommand(output, context);
+    return de_RegisterClientCommand(output, context);
   }
 
   // Start section: command_body_extra

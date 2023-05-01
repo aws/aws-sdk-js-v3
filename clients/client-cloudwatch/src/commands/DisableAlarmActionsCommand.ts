@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { DisableAlarmActionsInput, DisableAlarmActionsInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDisableAlarmActionsCommand,
-  serializeAws_queryDisableAlarmActionsCommand,
-} from "../protocols/Aws_query";
+import { DisableAlarmActionsInput } from "../models/models_0";
+import { de_DisableAlarmActionsCommand, se_DisableAlarmActionsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DisableAlarmActionsCommand}.
  */
 export interface DisableAlarmActionsCommandInput extends DisableAlarmActionsInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableAlarmActionsCommand}.
  */
 export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the
  * 			alarm actions do not execute when the alarm state changes.</p>
  * @example
@@ -38,10 +40,17 @@ export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, DisableAlarmActionsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DisableAlarmActionsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DisableAlarmActionsInput
+ *   AlarmNames: [ // AlarmNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisableAlarmActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableAlarmActionsCommandInput - {@link DisableAlarmActionsCommandInput}
+ * @returns {@link DisableAlarmActionsCommandOutput}
  * @see {@link DisableAlarmActionsCommandInput} for command's `input` shape.
  * @see {@link DisableAlarmActionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -65,6 +74,9 @@ export class DisableAlarmActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableAlarmActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +105,8 @@ export class DisableAlarmActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableAlarmActionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +116,18 @@ export class DisableAlarmActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableAlarmActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDisableAlarmActionsCommand(input, context);
+    return se_DisableAlarmActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableAlarmActionsCommandOutput> {
-    return deserializeAws_queryDisableAlarmActionsCommand(output, context);
+    return de_DisableAlarmActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

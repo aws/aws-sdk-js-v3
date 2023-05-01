@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  CheckDNSAvailabilityMessage,
-  CheckDNSAvailabilityMessageFilterSensitiveLog,
-  CheckDNSAvailabilityResultMessage,
-  CheckDNSAvailabilityResultMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCheckDNSAvailabilityCommand,
-  serializeAws_queryCheckDNSAvailabilityCommand,
-} from "../protocols/Aws_query";
+import { CheckDNSAvailabilityMessage, CheckDNSAvailabilityResultMessage } from "../models/models_0";
+import { de_CheckDNSAvailabilityCommand, se_CheckDNSAvailabilityCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CheckDNSAvailabilityCommand}.
  */
 export interface CheckDNSAvailabilityCommandInput extends CheckDNSAvailabilityMessage {}
 /**
+ * @public
+ *
  * The output of {@link CheckDNSAvailabilityCommand}.
  */
 export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityResultMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks if the specified CNAME is available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  * import { ElasticBeanstalkClient, CheckDNSAvailabilityCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CheckDNSAvailabilityCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // CheckDNSAvailabilityMessage
+ *   CNAMEPrefix: "STRING_VALUE", // required
+ * };
  * const command = new CheckDNSAvailabilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CheckDNSAvailabilityCommandInput - {@link CheckDNSAvailabilityCommandInput}
+ * @returns {@link CheckDNSAvailabilityCommandOutput}
  * @see {@link CheckDNSAvailabilityCommandInput} for command's `input` shape.
  * @see {@link CheckDNSAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -86,6 +88,9 @@ export class CheckDNSAvailabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CheckDNSAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class CheckDNSAvailabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckDNSAvailabilityMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CheckDNSAvailabilityResultMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class CheckDNSAvailabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CheckDNSAvailabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCheckDNSAvailabilityCommand(input, context);
+    return se_CheckDNSAvailabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckDNSAvailabilityCommandOutput> {
-    return deserializeAws_queryCheckDNSAvailabilityCommand(output, context);
+    return de_CheckDNSAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyVpcEndpointServiceConfigurationRequest,
-  ModifyVpcEndpointServiceConfigurationRequestFilterSensitiveLog,
   ModifyVpcEndpointServiceConfigurationResult,
-  ModifyVpcEndpointServiceConfigurationResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand,
-  serializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand,
+  de_ModifyVpcEndpointServiceConfigurationCommand,
+  se_ModifyVpcEndpointServiceConfigurationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcEndpointServiceConfigurationCommand}.
  */
 export interface ModifyVpcEndpointServiceConfigurationCommandInput
   extends ModifyVpcEndpointServiceConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcEndpointServiceConfigurationCommand}.
  */
 export interface ModifyVpcEndpointServiceConfigurationCommandOutput
@@ -38,6 +40,7 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the attributes of your VPC endpoint service configuration. You can change the
  *             Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is
  *             required for requests to connect to your endpoint service through an interface VPC
@@ -50,10 +53,35 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  * import { EC2Client, ModifyVpcEndpointServiceConfigurationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcEndpointServiceConfigurationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVpcEndpointServiceConfigurationRequest
+ *   DryRun: true || false,
+ *   ServiceId: "STRING_VALUE", // required
+ *   PrivateDnsName: "STRING_VALUE",
+ *   RemovePrivateDnsName: true || false,
+ *   AcceptanceRequired: true || false,
+ *   AddNetworkLoadBalancerArns: [ // ValueStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveNetworkLoadBalancerArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AddGatewayLoadBalancerArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveGatewayLoadBalancerArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AddSupportedIpAddressTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveSupportedIpAddressTypes: "<ValueStringList>",
+ * };
  * const command = new ModifyVpcEndpointServiceConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcEndpointServiceConfigurationCommandInput - {@link ModifyVpcEndpointServiceConfigurationCommandInput}
+ * @returns {@link ModifyVpcEndpointServiceConfigurationCommandOutput}
  * @see {@link ModifyVpcEndpointServiceConfigurationCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointServiceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +105,9 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcEndpointServiceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +136,8 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpcEndpointServiceConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpcEndpointServiceConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +147,24 @@ export class ModifyVpcEndpointServiceConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVpcEndpointServiceConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand(input, context);
+    return se_ModifyVpcEndpointServiceConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcEndpointServiceConfigurationCommandOutput> {
-    return deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand(output, context);
+    return de_ModifyVpcEndpointServiceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

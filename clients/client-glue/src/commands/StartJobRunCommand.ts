@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StartJobRunRequest,
-  StartJobRunRequestFilterSensitiveLog,
-  StartJobRunResponse,
-  StartJobRunResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1StartJobRunCommand,
-  serializeAws_json1_1StartJobRunCommand,
-} from "../protocols/Aws_json1_1";
+import { StartJobRunRequest, StartJobRunResponse } from "../models/models_2";
+import { de_StartJobRunCommand, se_StartJobRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartJobRunCommand}.
  */
 export interface StartJobRunCommandInput extends StartJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartJobRunCommand}.
  */
 export interface StartJobRunCommandOutput extends StartJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a job run using a job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,29 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * import { GlueClient, StartJobRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartJobRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StartJobRunRequest
+ *   JobName: "STRING_VALUE", // required
+ *   JobRunId: "STRING_VALUE",
+ *   Arguments: { // GenericMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AllocatedCapacity: Number("int"),
+ *   Timeout: Number("int"),
+ *   MaxCapacity: Number("double"),
+ *   SecurityConfiguration: "STRING_VALUE",
+ *   NotificationProperty: { // NotificationProperty
+ *     NotifyDelayAfter: Number("int"),
+ *   },
+ *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ *   NumberOfWorkers: Number("int"),
+ *   ExecutionClass: "FLEX" || "STANDARD",
+ * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartJobRunCommandInput - {@link StartJobRunCommandInput}
+ * @returns {@link StartJobRunCommandOutput}
  * @see {@link StartJobRunCommandInput} for command's `input` shape.
  * @see {@link StartJobRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +103,9 @@ export class StartJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +132,8 @@ export class StartJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartJobRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +143,18 @@ export class StartJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartJobRunCommand(input, context);
+    return se_StartJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartJobRunCommandOutput> {
-    return deserializeAws_json1_1StartJobRunCommand(output, context);
+    return de_StartJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

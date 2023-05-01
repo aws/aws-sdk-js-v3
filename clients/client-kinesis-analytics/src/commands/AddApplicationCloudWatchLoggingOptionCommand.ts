@@ -16,21 +16,23 @@ import {
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import {
   AddApplicationCloudWatchLoggingOptionRequest,
-  AddApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog,
   AddApplicationCloudWatchLoggingOptionResponse,
-  AddApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand,
-  serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand,
+  de_AddApplicationCloudWatchLoggingOptionCommand,
+  se_AddApplicationCloudWatchLoggingOptionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface AddApplicationCloudWatchLoggingOptionCommandInput
   extends AddApplicationCloudWatchLoggingOptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface AddApplicationCloudWatchLoggingOptionCommandOutput
@@ -38,6 +40,7 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -51,10 +54,20 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * import { KinesisAnalyticsClient, AddApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, AddApplicationCloudWatchLoggingOptionCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = { // AddApplicationCloudWatchLoggingOptionRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   CloudWatchLoggingOption: { // CloudWatchLoggingOption
+ *     LogStreamARN: "STRING_VALUE", // required
+ *     RoleARN: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new AddApplicationCloudWatchLoggingOptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationCloudWatchLoggingOptionCommandInput - {@link AddApplicationCloudWatchLoggingOptionCommandInput}
+ * @returns {@link AddApplicationCloudWatchLoggingOptionCommandOutput}
  * @see {@link AddApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
  * @see {@link AddApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
@@ -93,6 +106,9 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationCloudWatchLoggingOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +137,8 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,18 +148,24 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddApplicationCloudWatchLoggingOptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand(input, context);
+    return se_AddApplicationCloudWatchLoggingOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput> {
-    return deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand(output, context);
+    return de_AddApplicationCloudWatchLoggingOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

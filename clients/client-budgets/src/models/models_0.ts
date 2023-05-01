@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { BudgetsServiceException as __BaseException } from "./BudgetsServiceException";
 
 /**
+ * @public
  * <p>You are not authorized to use this operation with the given parameters.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,12 +28,22 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum ThresholdType {
-  ABSOLUTE_VALUE = "ABSOLUTE_VALUE",
-  PERCENTAGE = "PERCENTAGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ThresholdType = {
+  ABSOLUTE_VALUE: "ABSOLUTE_VALUE",
+  PERCENTAGE: "PERCENTAGE",
+} as const;
 
 /**
+ * @public
+ */
+export type ThresholdType = (typeof ThresholdType)[keyof typeof ThresholdType];
+
+/**
+ * @public
  * <p>The trigger threshold of the action. </p>
  */
 export interface ActionThreshold {
@@ -47,18 +58,37 @@ export interface ActionThreshold {
   ActionThresholdType: ThresholdType | string | undefined;
 }
 
-export enum ActionType {
-  IAM = "APPLY_IAM_POLICY",
-  SCP = "APPLY_SCP_POLICY",
-  SSM = "RUN_SSM_DOCUMENTS",
-}
-
-export enum ApprovalModel {
-  AUTO = "AUTOMATIC",
-  MANUAL = "MANUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionType = {
+  IAM: "APPLY_IAM_POLICY",
+  SCP: "APPLY_SCP_POLICY",
+  SSM: "RUN_SSM_DOCUMENTS",
+} as const;
 
 /**
+ * @public
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApprovalModel = {
+  AUTO: "AUTOMATIC",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ApprovalModel = (typeof ApprovalModel)[keyof typeof ApprovalModel];
+
+/**
+ * @public
  * <p>The Identity and Access Management (IAM) action definition details. </p>
  */
 export interface IamActionDefinition {
@@ -84,6 +114,7 @@ export interface IamActionDefinition {
 }
 
 /**
+ * @public
  * <p>The service control policies (SCP) action definition details. </p>
  */
 export interface ScpActionDefinition {
@@ -98,12 +129,22 @@ export interface ScpActionDefinition {
   TargetIds: string[] | undefined;
 }
 
-export enum ActionSubType {
-  STOP_EC2 = "STOP_EC2_INSTANCES",
-  STOP_RDS = "STOP_RDS_INSTANCES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionSubType = {
+  STOP_EC2: "STOP_EC2_INSTANCES",
+  STOP_RDS: "STOP_RDS_INSTANCES",
+} as const;
 
 /**
+ * @public
+ */
+export type ActionSubType = (typeof ActionSubType)[keyof typeof ActionSubType];
+
+/**
+ * @public
  * <p>The Amazon Web Services Systems Manager (SSM) action definition details. </p>
  */
 export interface SsmActionDefinition {
@@ -124,6 +165,7 @@ export interface SsmActionDefinition {
 }
 
 /**
+ * @public
  * <p>Specifies all of the type-specific parameters. </p>
  */
 export interface Definition {
@@ -143,30 +185,58 @@ export interface Definition {
   SsmActionDefinition?: SsmActionDefinition;
 }
 
-export enum NotificationType {
-  ACTUAL = "ACTUAL",
-  FORECASTED = "FORECASTED",
-}
-
-export enum ActionStatus {
-  Execution_Failure = "EXECUTION_FAILURE",
-  Execution_In_Progress = "EXECUTION_IN_PROGRESS",
-  Execution_Success = "EXECUTION_SUCCESS",
-  Pending = "PENDING",
-  Reset_Failure = "RESET_FAILURE",
-  Reset_In_Progress = "RESET_IN_PROGRESS",
-  Reverse_Failure = "REVERSE_FAILURE",
-  Reverse_In_Progress = "REVERSE_IN_PROGRESS",
-  Reverse_Success = "REVERSE_SUCCESS",
-  Standby = "STANDBY",
-}
-
-export enum SubscriptionType {
-  EMAIL = "EMAIL",
-  SNS = "SNS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NotificationType = {
+  ACTUAL: "ACTUAL",
+  FORECASTED: "FORECASTED",
+} as const;
 
 /**
+ * @public
+ */
+export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ActionStatus = {
+  Execution_Failure: "EXECUTION_FAILURE",
+  Execution_In_Progress: "EXECUTION_IN_PROGRESS",
+  Execution_Success: "EXECUTION_SUCCESS",
+  Pending: "PENDING",
+  Reset_Failure: "RESET_FAILURE",
+  Reset_In_Progress: "RESET_IN_PROGRESS",
+  Reverse_Failure: "REVERSE_FAILURE",
+  Reverse_In_Progress: "REVERSE_IN_PROGRESS",
+  Reverse_Success: "REVERSE_SUCCESS",
+  Standby: "STANDBY",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionType = {
+  EMAIL: "EMAIL",
+  SNS: "SNS",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
+
+/**
+ * @public
  * <p>The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.</p>
  * 		       <p>For example, an email subscriber has the following parameters:</p>
  * 		       <ul>
@@ -194,6 +264,7 @@ export interface Subscriber {
 }
 
 /**
+ * @public
  * <p>A budget action resource. </p>
  */
 export interface Action {
@@ -251,6 +322,7 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>The description of the details for the event. </p>
  */
 export interface ActionHistoryDetails {
@@ -265,15 +337,25 @@ export interface ActionHistoryDetails {
   Action: Action | undefined;
 }
 
-export enum EventType {
-  CreateAction = "CREATE_ACTION",
-  DeleteAction = "DELETE_ACTION",
-  ExecuteAction = "EXECUTE_ACTION",
-  System = "SYSTEM",
-  UpdateAction = "UPDATE_ACTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  CreateAction: "CREATE_ACTION",
+  DeleteAction: "DELETE_ACTION",
+  ExecuteAction: "EXECUTE_ACTION",
+  System: "SYSTEM",
+  UpdateAction: "UPDATE_ACTION",
+} as const;
 
 /**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
  * <p>The historical records for a budget action. </p>
  */
 export interface ActionHistory {
@@ -299,12 +381,22 @@ export interface ActionHistory {
   ActionHistoryDetails: ActionHistoryDetails | undefined;
 }
 
-export enum AutoAdjustType {
-  FORECAST = "FORECAST",
-  HISTORICAL = "HISTORICAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoAdjustType = {
+  FORECAST: "FORECAST",
+  HISTORICAL: "HISTORICAL",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoAdjustType = (typeof AutoAdjustType)[keyof typeof AutoAdjustType];
+
+/**
+ * @public
  * <p>The parameters that define or describe the historical data that your auto-adjusting budget is based on.</p>
  */
 export interface HistoricalOptions {
@@ -336,6 +428,7 @@ export interface HistoricalOptions {
 }
 
 /**
+ * @public
  * <p>The parameters that determine the budget amount for an auto-adjusting budget.</p>
  */
 export interface AutoAdjustData {
@@ -356,6 +449,7 @@ export interface AutoAdjustData {
 }
 
 /**
+ * @public
  * <p>The amount of cost or usage that's measured for a budget.</p>
  * 		       <p>For example, a <code>Spend</code> for <code>3 GB</code> of S3 usage has the following
  * 			parameters:</p>
@@ -384,16 +478,26 @@ export interface Spend {
   Unit: string | undefined;
 }
 
-export enum BudgetType {
-  Cost = "COST",
-  RICoverage = "RI_COVERAGE",
-  RIUtilization = "RI_UTILIZATION",
-  SPCoverage = "SAVINGS_PLANS_COVERAGE",
-  SPUtilization = "SAVINGS_PLANS_UTILIZATION",
-  Usage = "USAGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BudgetType = {
+  Cost: "COST",
+  RICoverage: "RI_COVERAGE",
+  RIUtilization: "RI_UTILIZATION",
+  SPCoverage: "SAVINGS_PLANS_COVERAGE",
+  SPUtilization: "SAVINGS_PLANS_UTILIZATION",
+  Usage: "USAGE",
+} as const;
 
 /**
+ * @public
+ */
+export type BudgetType = (typeof BudgetType)[keyof typeof BudgetType];
+
+/**
+ * @public
  * <p>The spend objects that are associated with this budget. The <code>actualSpend</code> tracks
  * 			how much you've used, cost, usage, RI units, or Savings Plans units and the
  * 				<code>forecastedSpend</code> tracks how much that you're predicted to spend based on
@@ -416,6 +520,7 @@ export interface CalculatedSpend {
 }
 
 /**
+ * @public
  * <p>The types of cost that are included in a <code>COST</code> budget, such as tax and subscriptions.</p>
  * 		       <p>
  *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>,
@@ -491,6 +596,7 @@ export interface CostTypes {
 }
 
 /**
+ * @public
  * <p>The period of time that's covered by a budget. The period has a start date and an end date.
  * 			The start date must come before the end date. There are no restrictions on the end date. </p>
  */
@@ -510,14 +616,24 @@ export interface TimePeriod {
   End?: Date;
 }
 
-export enum TimeUnit {
-  ANNUALLY = "ANNUALLY",
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-  QUARTERLY = "QUARTERLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TimeUnit = {
+  ANNUALLY: "ANNUALLY",
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+  QUARTERLY: "QUARTERLY",
+} as const;
 
 /**
+ * @public
+ */
+export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
+
+/**
+ * @public
  * <p>Represents the output of the <code>CreateBudget</code> operation. The content consists of the detailed metadata and data file information, and the current status of the <code>budget</code> object.</p>
  * 		       <p>This is the Amazon Resource Name (ARN) pattern for a budget: </p>
  * 		       <p>
@@ -643,18 +759,37 @@ export interface Budget {
   AutoAdjustData?: AutoAdjustData;
 }
 
-export enum ComparisonOperator {
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  LESS_THAN = "LESS_THAN",
-}
-
-export enum NotificationState {
-  ALARM = "ALARM",
-  OK = "OK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  LESS_THAN: "LESS_THAN",
+} as const;
 
 /**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotificationState = {
+  ALARM: "ALARM",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationState = (typeof NotificationState)[keyof typeof NotificationState];
+
+/**
+ * @public
  * <p>A notification that's associated with a budget. A budget can have up to ten notifications. </p>
  * 		       <p>Each notification must have at least one subscriber. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.</p>
  * 		       <p>For example, if you have a budget for 200 dollars and you want to be notified when you go over 160 dollars, create a notification with the following parameters:</p>
@@ -709,6 +844,7 @@ export interface Notification {
 }
 
 /**
+ * @public
  * <p>A notification with subscribers. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.</p>
  */
 export interface NotificationWithSubscribers {
@@ -724,6 +860,7 @@ export interface NotificationWithSubscribers {
 }
 
 /**
+ * @public
  * <p> Request of CreateBudget </p>
  */
 export interface CreateBudgetRequest {
@@ -744,11 +881,13 @@ export interface CreateBudgetRequest {
 }
 
 /**
+ * @public
  * <p> Response of CreateBudget </p>
  */
 export interface CreateBudgetResponse {}
 
 /**
+ * @public
  * <p>You've exceeded the notification or subscriber limit.</p>
  */
 export class CreationLimitExceededException extends __BaseException {
@@ -773,6 +912,7 @@ export class CreationLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The budget name already exists. Budget names must be unique within an account.</p>
  */
 export class DuplicateRecordException extends __BaseException {
@@ -797,6 +937,7 @@ export class DuplicateRecordException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
 export class InternalErrorException extends __BaseException {
@@ -821,6 +962,7 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -845,6 +987,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
@@ -870,6 +1013,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateBudgetActionRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -923,6 +1069,9 @@ export interface CreateBudgetActionRequest {
   Subscribers: Subscriber[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -943,6 +1092,7 @@ export interface CreateBudgetActionResponse {
 }
 
 /**
+ * @public
  * <p>We can’t locate the resource that you specified.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -967,6 +1117,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Request of CreateNotification </p>
  */
 export interface CreateNotificationRequest {
@@ -992,11 +1143,13 @@ export interface CreateNotificationRequest {
 }
 
 /**
+ * @public
  * <p> Response of CreateNotification </p>
  */
 export interface CreateNotificationResponse {}
 
 /**
+ * @public
  * <p> Request of CreateSubscriber </p>
  */
 export interface CreateSubscriberRequest {
@@ -1022,11 +1175,13 @@ export interface CreateSubscriberRequest {
 }
 
 /**
+ * @public
  * <p> Response of CreateSubscriber </p>
  */
 export interface CreateSubscriberResponse {}
 
 /**
+ * @public
  * <p> Request of DeleteBudget </p>
  */
 export interface DeleteBudgetRequest {
@@ -1042,10 +1197,14 @@ export interface DeleteBudgetRequest {
 }
 
 /**
+ * @public
  * <p> Response of DeleteBudget </p>
  */
 export interface DeleteBudgetResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteBudgetActionRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1065,6 +1224,9 @@ export interface DeleteBudgetActionRequest {
   ActionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1083,6 +1245,7 @@ export interface DeleteBudgetActionResponse {
 }
 
 /**
+ * @public
  * <p> The request was received and recognized by the server, but the server rejected that
  *       particular method for the requested resource. </p>
  */
@@ -1108,6 +1271,7 @@ export class ResourceLockedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Request of DeleteNotification </p>
  */
 export interface DeleteNotificationRequest {
@@ -1128,11 +1292,13 @@ export interface DeleteNotificationRequest {
 }
 
 /**
+ * @public
  * <p> Response of DeleteNotification </p>
  */
 export interface DeleteNotificationResponse {}
 
 /**
+ * @public
  * <p> Request of DeleteSubscriber </p>
  */
 export interface DeleteSubscriberRequest {
@@ -1158,11 +1324,13 @@ export interface DeleteSubscriberRequest {
 }
 
 /**
+ * @public
  * <p> Response of DeleteSubscriber </p>
  */
 export interface DeleteSubscriberResponse {}
 
 /**
+ * @public
  * <p> Request of DescribeBudget </p>
  */
 export interface DescribeBudgetRequest {
@@ -1178,6 +1346,7 @@ export interface DescribeBudgetRequest {
 }
 
 /**
+ * @public
  * <p> Response of DescribeBudget </p>
  */
 export interface DescribeBudgetResponse {
@@ -1187,6 +1356,9 @@ export interface DescribeBudgetResponse {
   Budget?: Budget;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1206,6 +1378,9 @@ export interface DescribeBudgetActionRequest {
   ActionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1225,6 +1400,9 @@ export interface DescribeBudgetActionResponse {
   Action: Action | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionHistoriesRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1260,6 +1438,9 @@ export interface DescribeBudgetActionHistoriesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionHistoriesResponse {
   /**
    * <p>
@@ -1275,6 +1456,7 @@ export interface DescribeBudgetActionHistoriesResponse {
 }
 
 /**
+ * @public
  * <p>The pagination token is invalid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -1298,6 +1480,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionsForAccountRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1315,6 +1500,9 @@ export interface DescribeBudgetActionsForAccountRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionsForAccountResponse {
   /**
    * <p>
@@ -1329,6 +1517,9 @@ export interface DescribeBudgetActionsForAccountResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionsForBudgetRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1351,6 +1542,9 @@ export interface DescribeBudgetActionsForBudgetRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetActionsForBudgetResponse {
   /**
    * <p>
@@ -1365,6 +1559,9 @@ export interface DescribeBudgetActionsForBudgetResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetNotificationsForAccountRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1385,6 +1582,7 @@ export interface DescribeBudgetNotificationsForAccountRequest {
 }
 
 /**
+ * @public
  * <p>
  *          The budget name and associated notifications for an account.
  *       </p>
@@ -1401,6 +1599,9 @@ export interface BudgetNotificationsForAccount {
   BudgetName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetNotificationsForAccountResponse {
   /**
    * <p>
@@ -1416,6 +1617,7 @@ export interface DescribeBudgetNotificationsForAccountResponse {
 }
 
 /**
+ * @public
  * <p>The pagination token expired.</p>
  */
 export class ExpiredNextTokenException extends __BaseException {
@@ -1439,6 +1641,9 @@ export class ExpiredNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetPerformanceHistoryRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1467,6 +1672,7 @@ export interface DescribeBudgetPerformanceHistoryRequest {
 }
 
 /**
+ * @public
  * <p>The amount of cost or usage that you created the budget for, compared to your actual costs or usage.</p>
  */
 export interface BudgetedAndActualAmounts {
@@ -1487,6 +1693,7 @@ export interface BudgetedAndActualAmounts {
 }
 
 /**
+ * @public
  * <p>A history of the state of a budget at the end of the budget's specified time period.</p>
  */
 export interface BudgetPerformanceHistory {
@@ -1524,6 +1731,9 @@ export interface BudgetPerformanceHistory {
   BudgetedAndActualAmountsList?: BudgetedAndActualAmounts[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeBudgetPerformanceHistoryResponse {
   /**
    * <p>The history of how often the budget has gone into an <code>ALARM</code> state.</p>
@@ -1538,6 +1748,7 @@ export interface DescribeBudgetPerformanceHistoryResponse {
 }
 
 /**
+ * @public
  * <p> Request of DescribeBudgets </p>
  */
 export interface DescribeBudgetsRequest {
@@ -1558,6 +1769,7 @@ export interface DescribeBudgetsRequest {
 }
 
 /**
+ * @public
  * <p> Response of DescribeBudgets </p>
  */
 export interface DescribeBudgetsResponse {
@@ -1573,6 +1785,7 @@ export interface DescribeBudgetsResponse {
 }
 
 /**
+ * @public
  * <p> Request of DescribeNotificationsForBudget </p>
  */
 export interface DescribeNotificationsForBudgetRequest {
@@ -1598,6 +1811,7 @@ export interface DescribeNotificationsForBudgetRequest {
 }
 
 /**
+ * @public
  * <p> Response of GetNotificationsForBudget </p>
  */
 export interface DescribeNotificationsForBudgetResponse {
@@ -1613,6 +1827,7 @@ export interface DescribeNotificationsForBudgetResponse {
 }
 
 /**
+ * @public
  * <p> Request of DescribeSubscribersForNotification </p>
  */
 export interface DescribeSubscribersForNotificationRequest {
@@ -1643,6 +1858,7 @@ export interface DescribeSubscribersForNotificationRequest {
 }
 
 /**
+ * @public
  * <p> Response of DescribeSubscribersForNotification </p>
  */
 export interface DescribeSubscribersForNotificationResponse {
@@ -1657,13 +1873,25 @@ export interface DescribeSubscribersForNotificationResponse {
   NextToken?: string;
 }
 
-export enum ExecutionType {
-  ApproveBudgetAction = "APPROVE_BUDGET_ACTION",
-  ResetBudgetAction = "RESET_BUDGET_ACTION",
-  RetryBudgetAction = "RETRY_BUDGET_ACTION",
-  ReverseBudgetAction = "REVERSE_BUDGET_ACTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionType = {
+  ApproveBudgetAction: "APPROVE_BUDGET_ACTION",
+  ResetBudgetAction: "RESET_BUDGET_ACTION",
+  RetryBudgetAction: "RETRY_BUDGET_ACTION",
+  ReverseBudgetAction: "REVERSE_BUDGET_ACTION",
+} as const;
 
+/**
+ * @public
+ */
+export type ExecutionType = (typeof ExecutionType)[keyof typeof ExecutionType];
+
+/**
+ * @public
+ */
 export interface ExecuteBudgetActionRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1690,6 +1918,9 @@ export interface ExecuteBudgetActionRequest {
   ExecutionType: ExecutionType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1717,6 +1948,7 @@ export interface ExecuteBudgetActionResponse {
 }
 
 /**
+ * @public
  * <p> Request of UpdateBudget </p>
  */
 export interface UpdateBudgetRequest {
@@ -1732,10 +1964,14 @@ export interface UpdateBudgetRequest {
 }
 
 /**
+ * @public
  * <p> Response of UpdateBudget </p>
  */
 export interface UpdateBudgetResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateBudgetActionRequest {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1789,6 +2025,9 @@ export interface UpdateBudgetActionRequest {
   Subscribers?: Subscriber[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1816,6 +2055,7 @@ export interface UpdateBudgetActionResponse {
 }
 
 /**
+ * @public
  * <p> Request of UpdateNotification </p>
  */
 export interface UpdateNotificationRequest {
@@ -1841,11 +2081,13 @@ export interface UpdateNotificationRequest {
 }
 
 /**
+ * @public
  * <p> Response of UpdateNotification </p>
  */
 export interface UpdateNotificationResponse {}
 
 /**
+ * @public
  * <p> Request of UpdateSubscriber </p>
  */
 export interface UpdateSubscriberRequest {
@@ -1876,44 +2118,10 @@ export interface UpdateSubscriberRequest {
 }
 
 /**
+ * @public
  * <p> Response of UpdateSubscriber </p>
  */
 export interface UpdateSubscriberResponse {}
-
-/**
- * @internal
- */
-export const ActionThresholdFilterSensitiveLog = (obj: ActionThreshold): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IamActionDefinitionFilterSensitiveLog = (obj: IamActionDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScpActionDefinitionFilterSensitiveLog = (obj: ScpActionDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SsmActionDefinitionFilterSensitiveLog = (obj: SsmActionDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefinitionFilterSensitiveLog = (obj: Definition): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -1952,62 +2160,6 @@ export const ActionHistoryFilterSensitiveLog = (obj: ActionHistory): any => ({
 /**
  * @internal
  */
-export const HistoricalOptionsFilterSensitiveLog = (obj: HistoricalOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoAdjustDataFilterSensitiveLog = (obj: AutoAdjustData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpendFilterSensitiveLog = (obj: Spend): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CalculatedSpendFilterSensitiveLog = (obj: CalculatedSpend): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CostTypesFilterSensitiveLog = (obj: CostTypes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimePeriodFilterSensitiveLog = (obj: TimePeriod): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BudgetFilterSensitiveLog = (obj: Budget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationFilterSensitiveLog = (obj: Notification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const NotificationWithSubscribersFilterSensitiveLog = (obj: NotificationWithSubscribers): any => ({
   ...obj,
   ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => SubscriberFilterSensitiveLog(item)) }),
@@ -2023,23 +2175,9 @@ export const CreateBudgetRequestFilterSensitiveLog = (obj: CreateBudgetRequest):
 /**
  * @internal
  */
-export const CreateBudgetResponseFilterSensitiveLog = (obj: CreateBudgetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateBudgetActionRequestFilterSensitiveLog = (obj: CreateBudgetActionRequest): any => ({
   ...obj,
   ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => SubscriberFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateBudgetActionResponseFilterSensitiveLog = (obj: CreateBudgetActionResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -2053,44 +2191,9 @@ export const CreateNotificationRequestFilterSensitiveLog = (obj: CreateNotificat
 /**
  * @internal
  */
-export const CreateNotificationResponseFilterSensitiveLog = (obj: CreateNotificationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateSubscriberRequestFilterSensitiveLog = (obj: CreateSubscriberRequest): any => ({
   ...obj,
   ...(obj.Subscriber && { Subscriber: SubscriberFilterSensitiveLog(obj.Subscriber) }),
-});
-
-/**
- * @internal
- */
-export const CreateSubscriberResponseFilterSensitiveLog = (obj: CreateSubscriberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBudgetRequestFilterSensitiveLog = (obj: DeleteBudgetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBudgetResponseFilterSensitiveLog = (obj: DeleteBudgetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBudgetActionRequestFilterSensitiveLog = (obj: DeleteBudgetActionRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2104,51 +2207,9 @@ export const DeleteBudgetActionResponseFilterSensitiveLog = (obj: DeleteBudgetAc
 /**
  * @internal
  */
-export const DeleteNotificationRequestFilterSensitiveLog = (obj: DeleteNotificationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNotificationResponseFilterSensitiveLog = (obj: DeleteNotificationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteSubscriberRequestFilterSensitiveLog = (obj: DeleteSubscriberRequest): any => ({
   ...obj,
   ...(obj.Subscriber && { Subscriber: SubscriberFilterSensitiveLog(obj.Subscriber) }),
-});
-
-/**
- * @internal
- */
-export const DeleteSubscriberResponseFilterSensitiveLog = (obj: DeleteSubscriberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBudgetRequestFilterSensitiveLog = (obj: DescribeBudgetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBudgetResponseFilterSensitiveLog = (obj: DescribeBudgetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBudgetActionRequestFilterSensitiveLog = (obj: DescribeBudgetActionRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2162,26 +2223,8 @@ export const DescribeBudgetActionResponseFilterSensitiveLog = (obj: DescribeBudg
 /**
  * @internal
  */
-export const DescribeBudgetActionHistoriesRequestFilterSensitiveLog = (
-  obj: DescribeBudgetActionHistoriesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeBudgetActionHistoriesResponseFilterSensitiveLog = (
   obj: DescribeBudgetActionHistoriesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBudgetActionsForAccountRequestFilterSensitiveLog = (
-  obj: DescribeBudgetActionsForAccountRequest
 ): any => ({
   ...obj,
 });
@@ -2198,115 +2241,8 @@ export const DescribeBudgetActionsForAccountResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const DescribeBudgetActionsForBudgetRequestFilterSensitiveLog = (
-  obj: DescribeBudgetActionsForBudgetRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeBudgetActionsForBudgetResponseFilterSensitiveLog = (
   obj: DescribeBudgetActionsForBudgetResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBudgetNotificationsForAccountRequestFilterSensitiveLog = (
-  obj: DescribeBudgetNotificationsForAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BudgetNotificationsForAccountFilterSensitiveLog = (obj: BudgetNotificationsForAccount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBudgetNotificationsForAccountResponseFilterSensitiveLog = (
-  obj: DescribeBudgetNotificationsForAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBudgetPerformanceHistoryRequestFilterSensitiveLog = (
-  obj: DescribeBudgetPerformanceHistoryRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BudgetedAndActualAmountsFilterSensitiveLog = (obj: BudgetedAndActualAmounts): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BudgetPerformanceHistoryFilterSensitiveLog = (obj: BudgetPerformanceHistory): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBudgetPerformanceHistoryResponseFilterSensitiveLog = (
-  obj: DescribeBudgetPerformanceHistoryResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBudgetsRequestFilterSensitiveLog = (obj: DescribeBudgetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBudgetsResponseFilterSensitiveLog = (obj: DescribeBudgetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotificationsForBudgetRequestFilterSensitiveLog = (
-  obj: DescribeNotificationsForBudgetRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotificationsForBudgetResponseFilterSensitiveLog = (
-  obj: DescribeNotificationsForBudgetResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSubscribersForNotificationRequestFilterSensitiveLog = (
-  obj: DescribeSubscribersForNotificationRequest
 ): any => ({
   ...obj,
 });
@@ -2319,34 +2255,6 @@ export const DescribeSubscribersForNotificationResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => SubscriberFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ExecuteBudgetActionRequestFilterSensitiveLog = (obj: ExecuteBudgetActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteBudgetActionResponseFilterSensitiveLog = (obj: ExecuteBudgetActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBudgetRequestFilterSensitiveLog = (obj: UpdateBudgetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBudgetResponseFilterSensitiveLog = (obj: UpdateBudgetResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -2369,29 +2277,8 @@ export const UpdateBudgetActionResponseFilterSensitiveLog = (obj: UpdateBudgetAc
 /**
  * @internal
  */
-export const UpdateNotificationRequestFilterSensitiveLog = (obj: UpdateNotificationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNotificationResponseFilterSensitiveLog = (obj: UpdateNotificationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateSubscriberRequestFilterSensitiveLog = (obj: UpdateSubscriberRequest): any => ({
   ...obj,
   ...(obj.OldSubscriber && { OldSubscriber: SubscriberFilterSensitiveLog(obj.OldSubscriber) }),
   ...(obj.NewSubscriber && { NewSubscriber: SubscriberFilterSensitiveLog(obj.NewSubscriber) }),
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriberResponseFilterSensitiveLog = (obj: UpdateSubscriberResponse): any => ({
-  ...obj,
 });

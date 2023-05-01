@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  StartCostEstimationRequest,
-  StartCostEstimationRequestFilterSensitiveLog,
-  StartCostEstimationResponse,
-  StartCostEstimationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartCostEstimationCommand,
-  serializeAws_restJson1StartCostEstimationCommand,
-} from "../protocols/Aws_restJson1";
+import { StartCostEstimationRequest, StartCostEstimationResponse } from "../models/models_0";
+import { de_StartCostEstimationCommand, se_StartCostEstimationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartCostEstimationCommand}.
  */
 export interface StartCostEstimationCommandInput extends StartCostEstimationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCostEstimationCommand}.
  */
 export interface StartCostEstimationCommandOutput extends StartCostEstimationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the creation of an estimate of the monthly cost to analyze your Amazon Web Services
  * 			resources.</p>
  * @example
@@ -43,10 +40,30 @@ export interface StartCostEstimationCommandOutput extends StartCostEstimationRes
  * import { DevOpsGuruClient, StartCostEstimationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, StartCostEstimationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // StartCostEstimationRequest
+ *   ResourceCollection: { // CostEstimationResourceCollectionFilter
+ *     CloudFormation: { // CloudFormationCostEstimationResourceCollectionFilter
+ *       StackNames: [ // CostEstimationStackNames
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Tags: [ // TagCostEstimationResourceCollectionFilters
+ *       { // TagCostEstimationResourceCollectionFilter
+ *         AppBoundaryKey: "STRING_VALUE", // required
+ *         TagValues: [ // CostEstimationTagValues // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new StartCostEstimationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCostEstimationCommandInput - {@link StartCostEstimationCommandInput}
+ * @returns {@link StartCostEstimationCommandOutput}
  * @see {@link StartCostEstimationCommandInput} for command's `input` shape.
  * @see {@link StartCostEstimationCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -92,6 +109,9 @@ export class StartCostEstimationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCostEstimationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +140,8 @@ export class StartCostEstimationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartCostEstimationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartCostEstimationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +151,18 @@ export class StartCostEstimationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCostEstimationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartCostEstimationCommand(input, context);
+    return se_StartCostEstimationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCostEstimationCommandOutput> {
-    return deserializeAws_restJson1StartCostEstimationCommand(output, context);
+    return de_StartCostEstimationCommand(output, context);
   }
 
   // Start section: command_body_extra

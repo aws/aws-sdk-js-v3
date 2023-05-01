@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetFindingsFilterRequest,
-  GetFindingsFilterRequestFilterSensitiveLog,
-  GetFindingsFilterResponse,
-  GetFindingsFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFindingsFilterCommand,
-  serializeAws_restJson1GetFindingsFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFindingsFilterRequest, GetFindingsFilterResponse } from "../models/models_0";
+import { de_GetFindingsFilterCommand, se_GetFindingsFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFindingsFilterCommand}.
  */
 export interface GetFindingsFilterCommandInput extends GetFindingsFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFindingsFilterCommand}.
  */
 export interface GetFindingsFilterCommandOutput extends GetFindingsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the criteria and other settings for a findings filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetFindingsFilterCommandOutput extends GetFindingsFilterRespons
  * import { Macie2Client, GetFindingsFilterCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetFindingsFilterCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // GetFindingsFilterRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetFindingsFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingsFilterCommandInput - {@link GetFindingsFilterCommandInput}
+ * @returns {@link GetFindingsFilterCommandOutput}
  * @see {@link GetFindingsFilterCommandInput} for command's `input` shape.
  * @see {@link GetFindingsFilterCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +92,9 @@ export class GetFindingsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class GetFindingsFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingsFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingsFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class GetFindingsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingsFilterCommand(input, context);
+    return se_GetFindingsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingsFilterCommandOutput> {
-    return deserializeAws_restJson1GetFindingsFilterCommand(output, context);
+    return de_GetFindingsFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

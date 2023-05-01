@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCodeRepositoriesInput,
-  ListCodeRepositoriesInputFilterSensitiveLog,
-  ListCodeRepositoriesOutput,
-  ListCodeRepositoriesOutputFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListCodeRepositoriesCommand,
-  serializeAws_json1_1ListCodeRepositoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCodeRepositoriesInput, ListCodeRepositoriesOutput } from "../models/models_3";
+import { de_ListCodeRepositoriesCommand, se_ListCodeRepositoriesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCodeRepositoriesCommand}.
  */
 export interface ListCodeRepositoriesCommandInput extends ListCodeRepositoriesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListCodeRepositoriesCommand}.
  */
 export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the Git repositories in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesO
  * import { SageMakerClient, ListCodeRepositoriesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListCodeRepositoriesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListCodeRepositoriesInput
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime" || "LastModifiedTime",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListCodeRepositoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCodeRepositoriesCommandInput - {@link ListCodeRepositoriesCommandInput}
+ * @returns {@link ListCodeRepositoriesCommandOutput}
  * @see {@link ListCodeRepositoriesCommandInput} for command's `input` shape.
  * @see {@link ListCodeRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +79,9 @@ export class ListCodeRepositoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCodeRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +110,8 @@ export class ListCodeRepositoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCodeRepositoriesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCodeRepositoriesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +121,18 @@ export class ListCodeRepositoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCodeRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCodeRepositoriesCommand(input, context);
+    return se_ListCodeRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCodeRepositoriesCommandOutput> {
-    return deserializeAws_json1_1ListCodeRepositoriesCommand(output, context);
+    return de_ListCodeRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

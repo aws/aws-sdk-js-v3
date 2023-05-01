@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DescribeReplicationGroupsMessage,
-  DescribeReplicationGroupsMessageFilterSensitiveLog,
-  ReplicationGroupMessage,
-  ReplicationGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeReplicationGroupsCommand,
-  serializeAws_queryDescribeReplicationGroupsCommand,
-} from "../protocols/Aws_query";
+import { DescribeReplicationGroupsMessage, ReplicationGroupMessage } from "../models/models_0";
+import { de_DescribeReplicationGroupsCommand, se_DescribeReplicationGroupsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationGroupsCommand}.
  */
 export interface DescribeReplicationGroupsCommandInput extends DescribeReplicationGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationGroupsCommand}.
  */
 export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a particular
  *             replication group. If no identifier is specified, <code>DescribeReplicationGroups</code>
  *             returns information about all replication groups.</p>
@@ -47,10 +44,17 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  * import { ElastiCacheClient, DescribeReplicationGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeReplicationGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeReplicationGroupsMessage
+ *   ReplicationGroupId: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReplicationGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationGroupsCommandInput - {@link DescribeReplicationGroupsCommandInput}
+ * @returns {@link DescribeReplicationGroupsCommandOutput}
  * @see {@link DescribeReplicationGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -146,6 +150,9 @@ export class DescribeReplicationGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,8 +181,8 @@ export class DescribeReplicationGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplicationGroupMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -185,15 +192,21 @@ export class DescribeReplicationGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReplicationGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReplicationGroupsCommand(input, context);
+    return se_DescribeReplicationGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationGroupsCommandOutput> {
-    return deserializeAws_queryDescribeReplicationGroupsCommand(output, context);
+    return de_DescribeReplicationGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

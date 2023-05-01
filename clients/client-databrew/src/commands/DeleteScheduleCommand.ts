@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  DeleteScheduleRequest,
-  DeleteScheduleRequestFilterSensitiveLog,
-  DeleteScheduleResponse,
-  DeleteScheduleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteScheduleCommand,
-  serializeAws_restJson1DeleteScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteScheduleRequest, DeleteScheduleResponse } from "../models/models_0";
+import { de_DeleteScheduleCommand, se_DeleteScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScheduleCommand}.
  */
 export interface DeleteScheduleCommandInput extends DeleteScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScheduleCommand}.
  */
 export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified DataBrew schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * import { DataBrewClient, DeleteScheduleCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteScheduleCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // DeleteScheduleRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScheduleCommandInput - {@link DeleteScheduleCommandInput}
+ * @returns {@link DeleteScheduleCommandOutput}
  * @see {@link DeleteScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduleCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -75,6 +77,9 @@ export class DeleteScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DeleteScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DeleteScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteScheduleCommand(input, context);
+    return se_DeleteScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduleCommandOutput> {
-    return deserializeAws_restJson1DeleteScheduleCommand(output, context);
+    return de_DeleteScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import {
-  GetClusterInput,
-  GetClusterInputFilterSensitiveLog,
-  GetClusterOutput,
-  GetClusterOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetClusterCommand,
-  serializeAws_restJson1GetClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { GetClusterInput, GetClusterOutput } from "../models/models_0";
+import { de_GetClusterCommand, se_GetClusterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetClusterCommand}.
  */
 export interface GetClusterCommandInput extends GetClusterInput {}
 /**
+ * @public
+ *
  * The output of {@link GetClusterCommand}.
  */
 export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific Elastic DocumentDB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * import { DocDBElasticClient, GetClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, GetClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
+ * const input = { // GetClusterInput
+ *   clusterArn: "STRING_VALUE", // required
+ * };
  * const command = new GetClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClusterCommandInput - {@link GetClusterCommandInput}
+ * @returns {@link GetClusterCommandOutput}
  * @see {@link GetClusterCommandInput} for command's `input` shape.
  * @see {@link GetClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClusterInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetClusterOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetClusterCommand(input, context);
+    return se_GetClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClusterCommandOutput> {
-    return deserializeAws_restJson1GetClusterCommand(output, context);
+    return de_GetClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

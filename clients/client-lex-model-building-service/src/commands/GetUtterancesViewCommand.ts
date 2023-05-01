@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetUtterancesViewRequest,
-  GetUtterancesViewRequestFilterSensitiveLog,
-  GetUtterancesViewResponse,
-  GetUtterancesViewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUtterancesViewCommand,
-  serializeAws_restJson1GetUtterancesViewCommand,
-} from "../protocols/Aws_restJson1";
+import { GetUtterancesViewRequest, GetUtterancesViewResponse } from "../models/models_0";
+import { de_GetUtterancesViewCommand, se_GetUtterancesViewCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUtterancesViewCommand}.
  */
 export interface GetUtterancesViewCommandInput extends GetUtterancesViewRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUtterancesViewCommand}.
  */
 export interface GetUtterancesViewCommandOutput extends GetUtterancesViewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the <code>GetUtterancesView</code> operation to get information
  *       about the utterances that your users have made to your bot. You can use
  *       this list to tune the utterances that your bot responds to.</p>
@@ -69,10 +66,19 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  * import { LexModelBuildingServiceClient, GetUtterancesViewCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetUtterancesViewCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetUtterancesViewRequest
+ *   botName: "STRING_VALUE", // required
+ *   botVersions: [ // BotVersions // required
+ *     "STRING_VALUE",
+ *   ],
+ *   statusType: "STRING_VALUE", // required
+ * };
  * const command = new GetUtterancesViewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUtterancesViewCommandInput - {@link GetUtterancesViewCommandInput}
+ * @returns {@link GetUtterancesViewCommandOutput}
  * @see {@link GetUtterancesViewCommandInput} for command's `input` shape.
  * @see {@link GetUtterancesViewCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -107,6 +113,9 @@ export class GetUtterancesViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUtterancesViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +144,8 @@ export class GetUtterancesViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUtterancesViewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUtterancesViewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +155,18 @@ export class GetUtterancesViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUtterancesViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUtterancesViewCommand(input, context);
+    return se_GetUtterancesViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUtterancesViewCommandOutput> {
-    return deserializeAws_restJson1GetUtterancesViewCommand(output, context);
+    return de_GetUtterancesViewCommand(output, context);
   }
 
   // Start section: command_body_extra

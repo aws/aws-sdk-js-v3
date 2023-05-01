@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateCustomerGatewayRequest,
-  AssociateCustomerGatewayRequestFilterSensitiveLog,
-  AssociateCustomerGatewayResponse,
-  AssociateCustomerGatewayResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateCustomerGatewayRequest, AssociateCustomerGatewayResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1AssociateCustomerGatewayCommand,
-  serializeAws_restJson1AssociateCustomerGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateCustomerGatewayCommand, se_AssociateCustomerGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateCustomerGatewayCommand}.
  */
 export interface AssociateCustomerGatewayCommandInput extends AssociateCustomerGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateCustomerGatewayCommand}.
  */
 export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomerGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a customer gateway with a device and optionally, with a link. If you
  *             specify a link, it must be associated with the specified device. </p>
  *          <p>You can only associate customer gateways that are connected to a VPN attachment on a
@@ -50,10 +47,18 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  * import { NetworkManagerClient, AssociateCustomerGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, AssociateCustomerGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // AssociateCustomerGatewayRequest
+ *   CustomerGatewayArn: "STRING_VALUE", // required
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ *   LinkId: "STRING_VALUE",
+ * };
  * const command = new AssociateCustomerGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateCustomerGatewayCommandInput - {@link AssociateCustomerGatewayCommandInput}
+ * @returns {@link AssociateCustomerGatewayCommandOutput}
  * @see {@link AssociateCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link AssociateCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -99,6 +104,9 @@ export class AssociateCustomerGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateCustomerGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +135,8 @@ export class AssociateCustomerGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateCustomerGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateCustomerGatewayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +146,18 @@ export class AssociateCustomerGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateCustomerGatewayCommand(input, context);
+    return se_AssociateCustomerGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCustomerGatewayCommandOutput> {
-    return deserializeAws_restJson1AssociateCustomerGatewayCommand(output, context);
+    return de_AssociateCustomerGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

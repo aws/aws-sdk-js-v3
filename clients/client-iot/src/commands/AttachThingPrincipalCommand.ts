@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  AttachThingPrincipalRequest,
-  AttachThingPrincipalRequestFilterSensitiveLog,
-  AttachThingPrincipalResponse,
-  AttachThingPrincipalResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AttachThingPrincipalCommand,
-  serializeAws_restJson1AttachThingPrincipalCommand,
-} from "../protocols/Aws_restJson1";
+import { AttachThingPrincipalRequest, AttachThingPrincipalResponse } from "../models/models_0";
+import { de_AttachThingPrincipalCommand, se_AttachThingPrincipalCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachThingPrincipalCommand}.
  */
 export interface AttachThingPrincipalCommandInput extends AttachThingPrincipalRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachThingPrincipalCommand}.
  */
 export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches the specified principal to the specified thing. A principal can be X.509
  * 			certificates, Amazon Cognito identities or federated identities.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachThingPrincipal</a> action.</p>
@@ -44,10 +41,16 @@ export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalR
  * import { IoTClient, AttachThingPrincipalCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AttachThingPrincipalCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // AttachThingPrincipalRequest
+ *   thingName: "STRING_VALUE", // required
+ *   principal: "STRING_VALUE", // required
+ * };
  * const command = new AttachThingPrincipalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachThingPrincipalCommandInput - {@link AttachThingPrincipalCommandInput}
+ * @returns {@link AttachThingPrincipalCommandOutput}
  * @see {@link AttachThingPrincipalCommandInput} for command's `input` shape.
  * @see {@link AttachThingPrincipalCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -89,6 +92,9 @@ export class AttachThingPrincipalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachThingPrincipalCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +123,8 @@ export class AttachThingPrincipalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachThingPrincipalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachThingPrincipalResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +134,18 @@ export class AttachThingPrincipalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachThingPrincipalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AttachThingPrincipalCommand(input, context);
+    return se_AttachThingPrincipalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachThingPrincipalCommandOutput> {
-    return deserializeAws_restJson1AttachThingPrincipalCommand(output, context);
+    return de_AttachThingPrincipalCommand(output, context);
   }
 
   // Start section: command_body_extra

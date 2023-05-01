@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeInstanceAttributeRequest,
-  DescribeInstanceAttributeRequestFilterSensitiveLog,
-  DescribeInstanceAttributeResponse,
-  DescribeInstanceAttributeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeInstanceAttributeCommand,
-  serializeAws_restJson1DescribeInstanceAttributeCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeInstanceAttributeRequest, DescribeInstanceAttributeResponse } from "../models/models_0";
+import { de_DescribeInstanceAttributeCommand, se_DescribeInstanceAttributeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceAttributeCommand}.
  */
 export interface DescribeInstanceAttributeCommandInput extends DescribeInstanceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceAttributeCommand}.
  */
 export interface DescribeInstanceAttributeCommandOutput extends DescribeInstanceAttributeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the specified instance attribute.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DescribeInstanceAttributeCommandOutput extends DescribeInstance
  * import { ConnectClient, DescribeInstanceAttributeCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeInstanceAttributeCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeInstanceAttributeRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   AttributeType: "INBOUND_CALLS" || "OUTBOUND_CALLS" || "CONTACTFLOW_LOGS" || "CONTACT_LENS" || "AUTO_RESOLVE_BEST_VOICES" || "USE_CUSTOM_TTS_VOICES" || "EARLY_MEDIA" || "MULTI_PARTY_CONFERENCE" || "HIGH_VOLUME_OUTBOUND" || "ENHANCED_CONTACT_MONITORING", // required
+ * };
  * const command = new DescribeInstanceAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceAttributeCommandInput - {@link DescribeInstanceAttributeCommandInput}
+ * @returns {@link DescribeInstanceAttributeCommandOutput}
  * @see {@link DescribeInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +88,9 @@ export class DescribeInstanceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class DescribeInstanceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceAttributeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +130,21 @@ export class DescribeInstanceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInstanceAttributeCommand(input, context);
+    return se_DescribeInstanceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceAttributeCommandOutput> {
-    return deserializeAws_restJson1DescribeInstanceAttributeCommand(output, context);
+    return de_DescribeInstanceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

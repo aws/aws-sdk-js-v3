@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetJourneyRequest,
-  GetJourneyRequestFilterSensitiveLog,
-  GetJourneyResponse,
-  GetJourneyResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetJourneyRequest, GetJourneyResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetJourneyCommand,
-  serializeAws_restJson1GetJourneyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetJourneyCommand, se_GetJourneyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJourneyCommand}.
  */
 export interface GetJourneyCommandInput extends GetJourneyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJourneyCommand}.
  */
 export interface GetJourneyCommandOutput extends GetJourneyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status, configuration, and other settings for a journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetJourneyCommandOutput extends GetJourneyResponse, __MetadataB
  * import { PinpointClient, GetJourneyCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetJourneyCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetJourneyRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   JourneyId: "STRING_VALUE", // required
+ * };
  * const command = new GetJourneyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJourneyCommandInput - {@link GetJourneyCommandInput}
+ * @returns {@link GetJourneyCommandOutput}
  * @see {@link GetJourneyCommandInput} for command's `input` shape.
  * @see {@link GetJourneyCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +93,9 @@ export class GetJourneyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJourneyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class GetJourneyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJourneyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJourneyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class GetJourneyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJourneyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJourneyCommand(input, context);
+    return se_GetJourneyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJourneyCommandOutput> {
-    return deserializeAws_restJson1GetJourneyCommand(output, context);
+    return de_GetJourneyCommand(output, context);
   }
 
   // Start section: command_body_extra

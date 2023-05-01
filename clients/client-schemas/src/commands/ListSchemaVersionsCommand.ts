@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSchemaVersionsRequest,
-  ListSchemaVersionsRequestFilterSensitiveLog,
-  ListSchemaVersionsResponse,
-  ListSchemaVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSchemaVersionsCommand,
-  serializeAws_restJson1ListSchemaVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSchemaVersionsRequest, ListSchemaVersionsResponse } from "../models/models_0";
+import { de_ListSchemaVersionsCommand, se_ListSchemaVersionsCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSchemaVersionsCommand}.
  */
 export interface ListSchemaVersionsCommandInput extends ListSchemaVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSchemaVersionsCommand}.
  */
 export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of the schema versions and related information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * import { SchemasClient, ListSchemaVersionsCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, ListSchemaVersionsCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // ListSchemaVersionsRequest
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RegistryName: "STRING_VALUE", // required
+ *   SchemaName: "STRING_VALUE", // required
+ * };
  * const command = new ListSchemaVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchemaVersionsCommandInput - {@link ListSchemaVersionsCommandInput}
+ * @returns {@link ListSchemaVersionsCommandOutput}
  * @see {@link ListSchemaVersionsCommandInput} for command's `input` shape.
  * @see {@link ListSchemaVersionsCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +86,9 @@ export class ListSchemaVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchemaVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class ListSchemaVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSchemaVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSchemaVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class ListSchemaVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchemaVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSchemaVersionsCommand(input, context);
+    return se_ListSchemaVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemaVersionsCommandOutput> {
-    return deserializeAws_restJson1ListSchemaVersionsCommand(output, context);
+    return de_ListSchemaVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

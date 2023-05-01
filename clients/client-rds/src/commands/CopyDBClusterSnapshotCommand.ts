@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CopyDBClusterSnapshotMessage,
-  CopyDBClusterSnapshotMessageFilterSensitiveLog,
-  CopyDBClusterSnapshotResult,
-  CopyDBClusterSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCopyDBClusterSnapshotCommand,
-  serializeAws_queryCopyDBClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/models_0";
+import { de_CopyDBClusterSnapshotCommand, se_CopyDBClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CopyDBClusterSnapshotCommand}.
  */
 export interface CopyDBClusterSnapshotCommandInput extends CopyDBClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link CopyDBClusterSnapshotCommand}.
  */
 export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies a snapshot of a DB cluster.</p>
  *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
  *           must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>
@@ -79,10 +76,25 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * import { RDSClient, CopyDBClusterSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyDBClusterSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CopyDBClusterSnapshotMessage
+ *   SourceDBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ *   CopyTags: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDBClusterSnapshotCommandInput - {@link CopyDBClusterSnapshotCommandInput}
+ * @returns {@link CopyDBClusterSnapshotCommandOutput}
  * @see {@link CopyDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CopyDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -110,19 +122,44 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *
  * @example To copy a DB cluster snapshot
  * ```javascript
- * // The following example copies an automated snapshot of a DB cluster to a new DB cluster snapshot.
+ * // The following example creates a copy of a DB cluster snapshot, including its tags.
  * const input = {
- *   "SourceDBClusterSnapshotIdentifier": "rds:sample-cluster-2016-09-14-10-38",
- *   "TargetDBClusterSnapshotIdentifier": "cluster-snapshot-copy-1"
+ *   "CopyTags": true,
+ *   "SourceDBClusterSnapshotIdentifier": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:rds:myaurora-2019-06-04-09-16",
+ *   "TargetDBClusterSnapshotIdentifier": "myclustersnapshotcopy"
  * };
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBClusterSnapshot": {}
+ *   "DBClusterSnapshot": {
+ *     "AllocatedStorage": 0,
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1b",
+ *       "us-east-1e"
+ *     ],
+ *     "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
+ *     "DBClusterIdentifier": "myaurora",
+ *     "DBClusterSnapshotArn": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:myclustersnapshotcopy",
+ *     "DBClusterSnapshotIdentifier": "myclustersnapshotcopy",
+ *     "Engine": "aurora-mysql",
+ *     "EngineVersion": "5.7.mysql_aurora.2.04.2",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     "LicenseModel": "aurora-mysql",
+ *     "MasterUsername": "myadmin",
+ *     "PercentProgress": 100,
+ *     "Port": 0,
+ *     "SnapshotCreateTime": "2019-06-04T09:16:42.649Z",
+ *     "SnapshotType": "manual",
+ *     "Status": "available",
+ *     "StorageEncrypted": true,
+ *     "VpcId": "vpc-123example"
+ *   }
  * }
  * *\/
- * // example id: to-copy-a-db-cluster-snapshot-1473879770564
+ * // example id: to-copy-a-db-cluster-snapshot-1679695109979
  * ```
  *
  */
@@ -143,6 +180,9 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDBClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,8 +212,8 @@ export class CopyDBClusterSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDBClusterSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyDBClusterSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -183,12 +223,18 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBClusterSnapshotCommand(input, context);
+    return se_CopyDBClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBClusterSnapshotCommandOutput> {
-    return deserializeAws_queryCopyDBClusterSnapshotCommand(output, context);
+    return de_CopyDBClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

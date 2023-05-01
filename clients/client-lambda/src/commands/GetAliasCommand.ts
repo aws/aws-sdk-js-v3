@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  AliasConfiguration,
-  AliasConfigurationFilterSensitiveLog,
-  GetAliasRequest,
-  GetAliasRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAliasCommand,
-  serializeAws_restJson1GetAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { AliasConfiguration, GetAliasRequest } from "../models/models_0";
+import { de_GetAliasCommand, se_GetAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAliasCommand}.
  */
 export interface GetAliasCommandInput extends GetAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAliasCommand}.
  */
 export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBea
  * import { LambdaClient, GetAliasCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetAliasCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // GetAliasRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAliasCommandInput - {@link GetAliasCommandInput}
+ * @returns {@link GetAliasCommandOutput}
  * @see {@link GetAliasCommandInput} for command's `input` shape.
  * @see {@link GetAliasCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -77,6 +80,9 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AliasConfigurationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAliasCommand(input, context);
+    return se_GetAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAliasCommandOutput> {
-    return deserializeAws_restJson1GetAliasCommand(output, context);
+    return de_GetAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

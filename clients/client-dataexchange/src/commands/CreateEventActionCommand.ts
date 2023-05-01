@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  CreateEventActionRequest,
-  CreateEventActionRequestFilterSensitiveLog,
-  CreateEventActionResponse,
-  CreateEventActionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEventActionCommand,
-  serializeAws_restJson1CreateEventActionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateEventActionRequest, CreateEventActionResponse } from "../models/models_0";
+import { de_CreateEventActionCommand, se_CreateEventActionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEventActionCommand}.
  */
 export interface CreateEventActionCommandInput extends CreateEventActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEventActionCommand}.
  */
 export interface CreateEventActionCommandOutput extends CreateEventActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation creates an event action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,31 @@ export interface CreateEventActionCommandOutput extends CreateEventActionRespons
  * import { DataExchangeClient, CreateEventActionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, CreateEventActionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // CreateEventActionRequest
+ *   Action: { // Action
+ *     ExportRevisionToS3: { // AutoExportRevisionToS3RequestDetails
+ *       Encryption: { // ExportServerSideEncryption
+ *         KmsKeyArn: "STRING_VALUE",
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *       RevisionDestination: { // AutoExportRevisionDestinationEntry
+ *         Bucket: "STRING_VALUE", // required
+ *         KeyPattern: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   Event: { // Event
+ *     RevisionPublished: { // RevisionPublished
+ *       DataSetId: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateEventActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEventActionCommandInput - {@link CreateEventActionCommandInput}
+ * @returns {@link CreateEventActionCommandOutput}
  * @see {@link CreateEventActionCommandInput} for command's `input` shape.
  * @see {@link CreateEventActionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -84,6 +102,9 @@ export class CreateEventActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEventActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +133,8 @@ export class CreateEventActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEventActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEventActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +144,18 @@ export class CreateEventActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEventActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEventActionCommand(input, context);
+    return se_CreateEventActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventActionCommandOutput> {
-    return deserializeAws_restJson1CreateEventActionCommand(output, context);
+    return de_CreateEventActionCommand(output, context);
   }
 
   // Start section: command_body_extra

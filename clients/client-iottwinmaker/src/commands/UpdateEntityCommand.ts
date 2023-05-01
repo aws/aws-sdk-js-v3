@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  UpdateEntityRequest,
-  UpdateEntityRequestFilterSensitiveLog,
-  UpdateEntityResponse,
-  UpdateEntityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEntityCommand,
-  serializeAws_restJson1UpdateEntityCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateEntityRequest, UpdateEntityResponse } from "../models/models_0";
+import { de_UpdateEntityCommand, se_UpdateEntityCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEntityCommand}.
  */
 export interface UpdateEntityCommandInput extends UpdateEntityRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEntityCommand}.
  */
 export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,108 @@ export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __Metad
  * import { IoTTwinMakerClient, UpdateEntityCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, UpdateEntityCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // UpdateEntityRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   entityId: "STRING_VALUE", // required
+ *   entityName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   componentUpdates: { // ComponentUpdatesMapRequest
+ *     "<keys>": { // ComponentUpdateRequest
+ *       updateType: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       componentTypeId: "STRING_VALUE",
+ *       propertyUpdates: { // PropertyRequests
+ *         "<keys>": { // PropertyRequest
+ *           definition: { // PropertyDefinitionRequest
+ *             dataType: { // DataType
+ *               type: "STRING_VALUE", // required
+ *               nestedType: {
+ *                 type: "STRING_VALUE", // required
+ *                 nestedType: "<DataType>",
+ *                 allowedValues: [ // DataValueList
+ *                   { // DataValue
+ *                     booleanValue: true || false,
+ *                     doubleValue: Number("double"),
+ *                     integerValue: Number("int"),
+ *                     longValue: Number("long"),
+ *                     stringValue: "STRING_VALUE",
+ *                     listValue: [
+ *                       {
+ *                         booleanValue: true || false,
+ *                         doubleValue: Number("double"),
+ *                         integerValue: Number("int"),
+ *                         longValue: Number("long"),
+ *                         stringValue: "STRING_VALUE",
+ *                         listValue: "<DataValueList>",
+ *                         mapValue: { // DataValueMap
+ *                           "<keys>": "<DataValue>",
+ *                         },
+ *                         relationshipValue: { // RelationshipValue
+ *                           targetEntityId: "STRING_VALUE",
+ *                           targetComponentName: "STRING_VALUE",
+ *                         },
+ *                         expression: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                     mapValue: {
+ *                       "<keys>": "<DataValue>",
+ *                     },
+ *                     relationshipValue: {
+ *                       targetEntityId: "STRING_VALUE",
+ *                       targetComponentName: "STRING_VALUE",
+ *                     },
+ *                     expression: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 unitOfMeasure: "STRING_VALUE",
+ *                 relationship: { // Relationship
+ *                   targetComponentTypeId: "STRING_VALUE",
+ *                   relationshipType: "STRING_VALUE",
+ *                 },
+ *               },
+ *               allowedValues: "<DataValueList>",
+ *               unitOfMeasure: "STRING_VALUE",
+ *               relationship: {
+ *                 targetComponentTypeId: "STRING_VALUE",
+ *                 relationshipType: "STRING_VALUE",
+ *               },
+ *             },
+ *             isRequiredInEntity: true || false,
+ *             isExternalId: true || false,
+ *             isStoredExternally: true || false,
+ *             isTimeSeries: true || false,
+ *             defaultValue: "<DataValue>",
+ *             configuration: { // Configuration
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             displayName: "STRING_VALUE",
+ *           },
+ *           value: "<DataValue>",
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *       propertyGroupUpdates: { // ComponentPropertyGroupRequests
+ *         "<keys>": { // ComponentPropertyGroupRequest
+ *           groupType: "STRING_VALUE",
+ *           propertyNames: [ // PropertyNames
+ *             "STRING_VALUE",
+ *           ],
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
+ *   parentEntityUpdate: { // ParentEntityUpdateRequest
+ *     updateType: "STRING_VALUE", // required
+ *     parentEntityId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateEntityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEntityCommandInput - {@link UpdateEntityCommandInput}
+ * @returns {@link UpdateEntityCommandOutput}
  * @see {@link UpdateEntityCommandInput} for command's `input` shape.
  * @see {@link UpdateEntityCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -90,6 +185,9 @@ export class UpdateEntityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEntityCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +214,8 @@ export class UpdateEntityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEntityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEntityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +225,18 @@ export class UpdateEntityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEntityCommand(input, context);
+    return se_UpdateEntityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEntityCommandOutput> {
-    return deserializeAws_restJson1UpdateEntityCommand(output, context);
+    return de_UpdateEntityCommand(output, context);
   }
 
   // Start section: command_body_extra

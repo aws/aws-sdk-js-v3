@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SSOServiceException as __BaseException } from "./SSOServiceException";
 
 /**
+ * @public
  * <p>Provides information about your AWS account.</p>
  */
 export interface AccountInfo {
@@ -23,6 +24,9 @@ export interface AccountInfo {
   emailAddress?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetRoleCredentialsRequest {
   /**
    * <p>The friendly name of the role that is assigned to the user.</p>
@@ -42,6 +46,7 @@ export interface GetRoleCredentialsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the role credentials that are assigned to the user.</p>
  */
 export interface RoleCredentials {
@@ -70,6 +75,9 @@ export interface RoleCredentials {
   expiration?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetRoleCredentialsResponse {
   /**
    * <p>The credentials for the role that is assigned to the user.</p>
@@ -78,6 +86,7 @@ export interface GetRoleCredentialsResponse {
 }
 
 /**
+ * @public
  * <p>Indicates that a problem occurred with the input to the request. For example, a required
  *       parameter might be missing or out of range.</p>
  */
@@ -98,6 +107,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -117,6 +127,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the request is being made too frequently and is more than what the server
  *       can handle.</p>
  */
@@ -137,6 +148,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the request is not authorized. This can happen due to an invalid access
  *       token in the request.</p>
  */
@@ -156,6 +168,9 @@ export class UnauthorizedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListAccountRolesRequest {
   /**
    * <p>The page token from the previous response output when you request subsequent pages.</p>
@@ -180,6 +195,7 @@ export interface ListAccountRolesRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the role that is assigned to the user.</p>
  */
 export interface RoleInfo {
@@ -194,6 +210,9 @@ export interface RoleInfo {
   accountId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountRolesResponse {
   /**
    * <p>The page token client that is used to retrieve the list of accounts.</p>
@@ -207,6 +226,9 @@ export interface ListAccountRolesResponse {
   roleList?: RoleInfo[];
 }
 
+/**
+ * @public
+ */
 export interface ListAccountsRequest {
   /**
    * <p>(Optional) When requesting subsequent pages, this is the page token from the previous
@@ -226,6 +248,9 @@ export interface ListAccountsRequest {
   accessToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountsResponse {
   /**
    * <p>The page token client that is used to retrieve the list of accounts.</p>
@@ -239,6 +264,9 @@ export interface ListAccountsResponse {
   accountList?: AccountInfo[];
 }
 
+/**
+ * @public
+ */
 export interface LogoutRequest {
   /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
@@ -246,13 +274,6 @@ export interface LogoutRequest {
    */
   accessToken: string | undefined;
 }
-
-/**
- * @internal
- */
-export const AccountInfoFilterSensitiveLog = (obj: AccountInfo): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -290,30 +311,9 @@ export const ListAccountRolesRequestFilterSensitiveLog = (obj: ListAccountRolesR
 /**
  * @internal
  */
-export const RoleInfoFilterSensitiveLog = (obj: RoleInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccountRolesResponseFilterSensitiveLog = (obj: ListAccountRolesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListAccountsRequestFilterSensitiveLog = (obj: ListAccountsRequest): any => ({
   ...obj,
   ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListAccountsResponseFilterSensitiveLog = (obj: ListAccountsResponse): any => ({
-  ...obj,
 });
 
 /**

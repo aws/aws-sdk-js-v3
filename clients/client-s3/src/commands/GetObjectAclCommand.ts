@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetObjectAclOutput,
-  GetObjectAclOutputFilterSensitiveLog,
-  GetObjectAclRequest,
-  GetObjectAclRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectAclCommand,
-  serializeAws_restXmlGetObjectAclCommand,
-} from "../protocols/Aws_restXml";
+import { GetObjectAclOutput, GetObjectAclRequest } from "../models/models_0";
+import { de_GetObjectAclCommand, se_GetObjectAclCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectAclCommand}.
  */
 export interface GetObjectAclCommandInput extends GetObjectAclRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectAclCommand}.
  */
 export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the access control list (ACL) of an object. To use this operation, you must have
  *             <code>s3:GetObjectAcl</code> permissions or <code>READ_ACP</code> access to the object.
  *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#acl-access-policy-permission-mapping">Mapping of ACL permissions and access policy permissions</a> in the <i>Amazon S3
@@ -82,10 +79,19 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  * import { S3Client, GetObjectAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetObjectAclRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetObjectAclCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectAclCommandInput - {@link GetObjectAclCommandInput}
+ * @returns {@link GetObjectAclCommandOutput}
  * @see {@link GetObjectAclCommandInput} for command's `input` shape.
  * @see {@link GetObjectAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -172,6 +178,9 @@ export class GetObjectAclCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -198,8 +207,8 @@ export class GetObjectAclCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectAclRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectAclOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -209,12 +218,18 @@ export class GetObjectAclCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectAclCommand(input, context);
+    return se_GetObjectAclCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectAclCommandOutput> {
-    return deserializeAws_restXmlGetObjectAclCommand(output, context);
+    return de_GetObjectAclCommand(output, context);
   }
 
   // Start section: command_body_extra

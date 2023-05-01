@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { AddTagsToCertificateRequest, AddTagsToCertificateRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddTagsToCertificateCommand,
-  serializeAws_json1_1AddTagsToCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { AddTagsToCertificateRequest } from "../models/models_0";
+import { de_AddTagsToCertificateCommand, se_AddTagsToCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToCertificateCommand}.
  */
 export interface AddTagsToCertificateCommandInput extends AddTagsToCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToCertificateCommand}.
  */
 export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an ACM certificate. Tags are labels that you can use to
  *       identify and organize your Amazon Web Services resources. Each tag consists of a <code>key</code> and an
  *       optional <code>value</code>. You specify the certificate on input by its Amazon Resource Name
@@ -50,10 +52,21 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  * import { ACMClient, AddTagsToCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, AddTagsToCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // AddTagsToCertificateRequest
+ *   CertificateArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsToCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToCertificateCommandInput - {@link AddTagsToCertificateCommandInput}
+ * @returns {@link AddTagsToCertificateCommandOutput}
  * @see {@link AddTagsToCertificateCommandInput} for command's `input` shape.
  * @see {@link AddTagsToCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -100,6 +113,9 @@ export class AddTagsToCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +144,8 @@ export class AddTagsToCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +155,18 @@ export class AddTagsToCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddTagsToCertificateCommand(input, context);
+    return se_AddTagsToCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToCertificateCommandOutput> {
-    return deserializeAws_json1_1AddTagsToCertificateCommand(output, context);
+    return de_AddTagsToCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

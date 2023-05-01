@@ -15,21 +15,23 @@ import {
 
 import {
   ListNotebookInstanceLifecycleConfigsInput,
-  ListNotebookInstanceLifecycleConfigsInputFilterSensitiveLog,
   ListNotebookInstanceLifecycleConfigsOutput,
-  ListNotebookInstanceLifecycleConfigsOutputFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand,
-  serializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand,
+  de_ListNotebookInstanceLifecycleConfigsCommand,
+  se_ListNotebookInstanceLifecycleConfigsCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListNotebookInstanceLifecycleConfigsCommand}.
  */
 export interface ListNotebookInstanceLifecycleConfigsCommandInput extends ListNotebookInstanceLifecycleConfigsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListNotebookInstanceLifecycleConfigsCommand}.
  */
 export interface ListNotebookInstanceLifecycleConfigsCommandOutput
@@ -37,17 +39,31 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists notebook instance lifestyle configurations created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>
+ * @public
+ * <p>Lists notebook instance lifestyle configurations created with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html">CreateNotebookInstanceLifecycleConfig</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, ListNotebookInstanceLifecycleConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListNotebookInstanceLifecycleConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListNotebookInstanceLifecycleConfigsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortBy: "Name" || "CreationTime" || "LastModifiedTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NameContains: "STRING_VALUE",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ * };
  * const command = new ListNotebookInstanceLifecycleConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotebookInstanceLifecycleConfigsCommandInput - {@link ListNotebookInstanceLifecycleConfigsCommandInput}
+ * @returns {@link ListNotebookInstanceLifecycleConfigsCommandOutput}
  * @see {@link ListNotebookInstanceLifecycleConfigsCommandInput} for command's `input` shape.
  * @see {@link ListNotebookInstanceLifecycleConfigsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +87,9 @@ export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotebookInstanceLifecycleConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +118,8 @@ export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotebookInstanceLifecycleConfigsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNotebookInstanceLifecycleConfigsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +129,24 @@ export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListNotebookInstanceLifecycleConfigsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand(input, context);
+    return se_ListNotebookInstanceLifecycleConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput> {
-    return deserializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand(output, context);
+    return de_ListNotebookInstanceLifecycleConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

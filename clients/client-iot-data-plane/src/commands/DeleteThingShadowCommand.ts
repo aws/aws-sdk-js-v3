@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import {
-  DeleteThingShadowRequest,
-  DeleteThingShadowRequestFilterSensitiveLog,
-  DeleteThingShadowResponse,
-  DeleteThingShadowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteThingShadowCommand,
-  serializeAws_restJson1DeleteThingShadowCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteThingShadowRequest, DeleteThingShadowResponse } from "../models/models_0";
+import { de_DeleteThingShadowCommand, se_DeleteThingShadowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteThingShadowCommand}.
  */
 export interface DeleteThingShadowCommandInput extends DeleteThingShadowRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteThingShadowCommand}.
  */
 export interface DeleteThingShadowCommandOutput extends DeleteThingShadowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the shadow for the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingShadow</a> action.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the IoT Developer Guide.</p>
@@ -44,10 +41,16 @@ export interface DeleteThingShadowCommandOutput extends DeleteThingShadowRespons
  * import { IoTDataPlaneClient, DeleteThingShadowCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, DeleteThingShadowCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
+ * const input = { // DeleteThingShadowRequest
+ *   thingName: "STRING_VALUE", // required
+ *   shadowName: "STRING_VALUE",
+ * };
  * const command = new DeleteThingShadowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThingShadowCommandInput - {@link DeleteThingShadowCommandInput}
+ * @returns {@link DeleteThingShadowCommandOutput}
  * @see {@link DeleteThingShadowCommandInput} for command's `input` shape.
  * @see {@link DeleteThingShadowCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
@@ -95,6 +98,9 @@ export class DeleteThingShadowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThingShadowCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class DeleteThingShadowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteThingShadowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteThingShadowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class DeleteThingShadowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThingShadowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteThingShadowCommand(input, context);
+    return se_DeleteThingShadowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThingShadowCommandOutput> {
-    return deserializeAws_restJson1DeleteThingShadowCommand(output, context);
+    return de_DeleteThingShadowCommand(output, context);
   }
 
   // Start section: command_body_extra

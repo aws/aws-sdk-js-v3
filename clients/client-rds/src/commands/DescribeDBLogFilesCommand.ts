@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDBLogFilesMessage,
-  DescribeDBLogFilesMessageFilterSensitiveLog,
-  DescribeDBLogFilesResponse,
-  DescribeDBLogFilesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBLogFilesCommand,
-  serializeAws_queryDescribeDBLogFilesCommand,
-} from "../protocols/Aws_query";
+import { DescribeDBLogFilesMessage, DescribeDBLogFilesResponse } from "../models/models_0";
+import { de_DescribeDBLogFilesCommand, se_DescribeDBLogFilesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBLogFilesCommand}.
  */
 export interface DescribeDBLogFilesCommandInput extends DescribeDBLogFilesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBLogFilesCommand}.
  */
 export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of DB log files for the DB instance.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
@@ -43,10 +40,28 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  * import { RDSClient, DescribeDBLogFilesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBLogFilesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBLogFilesMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   FilenameContains: "STRING_VALUE",
+ *   FileLastWritten: Number("long"),
+ *   FileSize: Number("long"),
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBLogFilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBLogFilesCommandInput - {@link DescribeDBLogFilesCommandInput}
+ * @returns {@link DescribeDBLogFilesCommandOutput}
  * @see {@link DescribeDBLogFilesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBLogFilesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -56,18 +71,51 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  *
- * @example To list DB log file names
+ * @example To describe the log files for a DB instance
  * ```javascript
- * // This example lists matching log file names for the specified DB instance, file name pattern, last write date in POSIX time with milleseconds, and minimum file size.
+ * // The following example retrieves details about the log files for the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "mymysqlinstance",
- *   "FileLastWritten": 1470873600000,
- *   "FileSize": 0,
- *   "FilenameContains": "error"
+ *   "DBInstanceIdentifier": "test-instance"
  * };
  * const command = new DescribeDBLogFilesCommand(input);
- * await client.send(command);
- * // example id: describe-db-log-files-5f002d8d-5c1d-44c2-b5f4-bd284c0f1285
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DescribeDBLogFiles": [
+ *     {
+ *       "LastWritten": 1533060000000,
+ *       "LogFileName": "error/mysql-error-running.log",
+ *       "Size": 0
+ *     },
+ *     {
+ *       "LastWritten": 1532994300000,
+ *       "LogFileName": "error/mysql-error-running.log.0",
+ *       "Size": 2683
+ *     },
+ *     {
+ *       "LastWritten": 1533057300000,
+ *       "LogFileName": "error/mysql-error-running.log.18",
+ *       "Size": 107
+ *     },
+ *     {
+ *       "LastWritten": 1532991000000,
+ *       "LogFileName": "error/mysql-error-running.log.23",
+ *       "Size": 13105
+ *     },
+ *     {
+ *       "LastWritten": 1533061200000,
+ *       "LogFileName": "error/mysql-error.log",
+ *       "Size": 0
+ *     },
+ *     {
+ *       "LastWritten": 1532989252000,
+ *       "LogFileName": "mysqlUpgrade",
+ *       "Size": 3519
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-log-files-for-a-db-instance-1680217710149
  * ```
  *
  */
@@ -88,6 +136,9 @@ export class DescribeDBLogFilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBLogFilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +167,8 @@ export class DescribeDBLogFilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBLogFilesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBLogFilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +178,18 @@ export class DescribeDBLogFilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBLogFilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBLogFilesCommand(input, context);
+    return se_DescribeDBLogFilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBLogFilesCommandOutput> {
-    return deserializeAws_queryDescribeDBLogFilesCommand(output, context);
+    return de_DescribeDBLogFilesCommand(output, context);
   }
 
   // Start section: command_body_extra

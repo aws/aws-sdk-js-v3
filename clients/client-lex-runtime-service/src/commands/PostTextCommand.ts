@@ -24,21 +24,23 @@ import {
   PostTextResponse,
   PostTextResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1PostTextCommand,
-  serializeAws_restJson1PostTextCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PostTextCommand, se_PostTextCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PostTextCommand}.
  */
 export interface PostTextCommandInput extends PostTextRequest {}
 /**
+ * @public
+ *
  * The output of {@link PostTextCommand}.
  */
 export interface PostTextCommandOutput extends PostTextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends user input to Amazon Lex. Client applications can use this API to
  *       send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input
  *       using the machine learning model it built for the bot. </p>
@@ -121,10 +123,36 @@ export interface PostTextCommandOutput extends PostTextResponse, __MetadataBeare
  * import { LexRuntimeServiceClient, PostTextCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, PostTextCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
+ * const input = { // PostTextRequest
+ *   botName: "STRING_VALUE", // required
+ *   botAlias: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   sessionAttributes: { // StringMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   requestAttributes: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   inputText: "STRING_VALUE", // required
+ *   activeContexts: [ // ActiveContextsList
+ *     { // ActiveContext
+ *       name: "STRING_VALUE", // required
+ *       timeToLive: { // ActiveContextTimeToLive
+ *         timeToLiveInSeconds: Number("int"),
+ *         turnsToLive: Number("int"),
+ *       },
+ *       parameters: { // ActiveContextParametersMap // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PostTextCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PostTextCommandInput - {@link PostTextCommandInput}
+ * @returns {@link PostTextCommandOutput}
  * @see {@link PostTextCommandInput} for command's `input` shape.
  * @see {@link PostTextCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
@@ -193,6 +221,9 @@ export class PostTextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PostTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -230,12 +261,18 @@ export class PostTextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PostTextCommand(input, context);
+    return se_PostTextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostTextCommandOutput> {
-    return deserializeAws_restJson1PostTextCommand(output, context);
+    return de_PostTextCommand(output, context);
   }
 
   // Start section: command_body_extra

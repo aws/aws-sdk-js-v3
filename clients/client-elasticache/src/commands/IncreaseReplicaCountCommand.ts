@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  IncreaseReplicaCountMessage,
-  IncreaseReplicaCountMessageFilterSensitiveLog,
-  IncreaseReplicaCountResult,
-  IncreaseReplicaCountResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryIncreaseReplicaCountCommand,
-  serializeAws_queryIncreaseReplicaCountCommand,
-} from "../protocols/Aws_query";
+import { IncreaseReplicaCountMessage, IncreaseReplicaCountResult } from "../models/models_0";
+import { de_IncreaseReplicaCountCommand, se_IncreaseReplicaCountCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link IncreaseReplicaCountCommand}.
  */
 export interface IncreaseReplicaCountCommandInput extends IncreaseReplicaCountMessage {}
 /**
+ * @public
+ *
  * The output of {@link IncreaseReplicaCountCommand}.
  */
 export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Dynamically increases the number of replicas in a Redis (cluster mode disabled) replication group or the number of
  *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
  *             is performed with no cluster down time.</p>
@@ -44,10 +41,29 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  * import { ElastiCacheClient, IncreaseReplicaCountCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, IncreaseReplicaCountCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // IncreaseReplicaCountMessage
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   NewReplicaCount: Number("int"),
+ *   ReplicaConfiguration: [ // ReplicaConfigurationList
+ *     { // ConfigureShard
+ *       NodeGroupId: "STRING_VALUE", // required
+ *       NewReplicaCount: Number("int"), // required
+ *       PreferredAvailabilityZones: [ // PreferredAvailabilityZoneList
+ *         "STRING_VALUE",
+ *       ],
+ *       PreferredOutpostArns: [ // PreferredOutpostArnList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ApplyImmediately: true || false, // required
+ * };
  * const command = new IncreaseReplicaCountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param IncreaseReplicaCountCommandInput - {@link IncreaseReplicaCountCommandInput}
+ * @returns {@link IncreaseReplicaCountCommandOutput}
  * @see {@link IncreaseReplicaCountCommandInput} for command's `input` shape.
  * @see {@link IncreaseReplicaCountCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -109,6 +125,9 @@ export class IncreaseReplicaCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IncreaseReplicaCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +156,8 @@ export class IncreaseReplicaCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IncreaseReplicaCountMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: IncreaseReplicaCountResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +167,18 @@ export class IncreaseReplicaCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IncreaseReplicaCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryIncreaseReplicaCountCommand(input, context);
+    return se_IncreaseReplicaCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IncreaseReplicaCountCommandOutput> {
-    return deserializeAws_queryIncreaseReplicaCountCommand(output, context);
+    return de_IncreaseReplicaCountCommand(output, context);
   }
 
   // Start section: command_body_extra

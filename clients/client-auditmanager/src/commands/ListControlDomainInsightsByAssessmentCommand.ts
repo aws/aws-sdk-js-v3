@@ -16,21 +16,23 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   ListControlDomainInsightsByAssessmentRequest,
-  ListControlDomainInsightsByAssessmentRequestFilterSensitiveLog,
   ListControlDomainInsightsByAssessmentResponse,
-  ListControlDomainInsightsByAssessmentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListControlDomainInsightsByAssessmentCommand,
-  serializeAws_restJson1ListControlDomainInsightsByAssessmentCommand,
+  de_ListControlDomainInsightsByAssessmentCommand,
+  se_ListControlDomainInsightsByAssessmentCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListControlDomainInsightsByAssessmentCommand}.
  */
 export interface ListControlDomainInsightsByAssessmentCommandInput
   extends ListControlDomainInsightsByAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListControlDomainInsightsByAssessmentCommand}.
  */
 export interface ListControlDomainInsightsByAssessmentCommandOutput
@@ -38,6 +40,7 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists analytics data for control domains within a specified active assessment.</p>
  *          <note>
  *             <p>A control domain is listed only if at least one of the controls within that domain
@@ -51,10 +54,17 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput
  * import { AuditManagerClient, ListControlDomainInsightsByAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListControlDomainInsightsByAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // ListControlDomainInsightsByAssessmentRequest
+ *   assessmentId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListControlDomainInsightsByAssessmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListControlDomainInsightsByAssessmentCommandInput - {@link ListControlDomainInsightsByAssessmentCommandInput}
+ * @returns {@link ListControlDomainInsightsByAssessmentCommandOutput}
  * @see {@link ListControlDomainInsightsByAssessmentCommandInput} for command's `input` shape.
  * @see {@link ListControlDomainInsightsByAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -92,6 +102,9 @@ export class ListControlDomainInsightsByAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListControlDomainInsightsByAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +133,8 @@ export class ListControlDomainInsightsByAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListControlDomainInsightsByAssessmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListControlDomainInsightsByAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +144,24 @@ export class ListControlDomainInsightsByAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListControlDomainInsightsByAssessmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListControlDomainInsightsByAssessmentCommand(input, context);
+    return se_ListControlDomainInsightsByAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListControlDomainInsightsByAssessmentCommandOutput> {
-    return deserializeAws_restJson1ListControlDomainInsightsByAssessmentCommand(output, context);
+    return de_ListControlDomainInsightsByAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

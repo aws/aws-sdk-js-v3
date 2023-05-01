@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAwsLogSourceRequest,
-  DeleteAwsLogSourceRequestFilterSensitiveLog,
-  DeleteAwsLogSourceResponse,
-  DeleteAwsLogSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAwsLogSourceCommand,
-  serializeAws_restJson1DeleteAwsLogSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAwsLogSourceRequest, DeleteAwsLogSourceResponse } from "../models/models_0";
+import { de_DeleteAwsLogSourceCommand, se_DeleteAwsLogSourceCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAwsLogSourceCommand}.
  */
 export interface DeleteAwsLogSourceCommandInput extends DeleteAwsLogSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAwsLogSourceCommand}.
  */
 export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a natively supported Amazon Web Service as an Amazon Security Lake source. When
  *          you remove the source, Security Lake stops collecting data from that source, and subscribers
  *          can no longer consume new data from the source. Subscribers can still consume data that
@@ -56,10 +53,32 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * import { SecurityLakeClient, DeleteAwsLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // DeleteAwsLogSourceRequest
+ *   inputOrder: [ // DimensionSet // required
+ *     "STRING_VALUE",
+ *   ],
+ *   disableAllDimensions: { // AllDimensionsMap
+ *     "<keys>": { // TwoDimensionsMap
+ *       "<keys>": [ // ValueSet
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   disableTwoDimensions: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   disableSingleDimension: [ // InputSet
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteAwsLogSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAwsLogSourceCommandInput - {@link DeleteAwsLogSourceCommandInput}
+ * @returns {@link DeleteAwsLogSourceCommandOutput}
  * @see {@link DeleteAwsLogSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteAwsLogSourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -101,6 +120,9 @@ export class DeleteAwsLogSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAwsLogSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +151,8 @@ export class DeleteAwsLogSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAwsLogSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAwsLogSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +162,18 @@ export class DeleteAwsLogSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAwsLogSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAwsLogSourceCommand(input, context);
+    return se_DeleteAwsLogSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAwsLogSourceCommandOutput> {
-    return deserializeAws_restJson1DeleteAwsLogSourceCommand(output, context);
+    return de_DeleteAwsLogSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

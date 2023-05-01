@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateAuthorizerRequest,
-  CreateAuthorizerRequestFilterSensitiveLog,
-  CreateAuthorizerResponse,
-  CreateAuthorizerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAuthorizerCommand,
-  serializeAws_restJson1CreateAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAuthorizerRequest, CreateAuthorizerResponse } from "../models/models_0";
+import { de_CreateAuthorizerCommand, se_CreateAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAuthorizerCommand}.
  */
 export interface CreateAuthorizerCommandInput extends CreateAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAuthorizerCommand}.
  */
 export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateAuthorizer</a> action.</p>
  * @example
@@ -43,10 +40,29 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * import { IoTClient, CreateAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateAuthorizerRequest
+ *   authorizerName: "STRING_VALUE", // required
+ *   authorizerFunctionArn: "STRING_VALUE", // required
+ *   tokenKeyName: "STRING_VALUE",
+ *   tokenSigningPublicKeys: { // PublicKeyMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   status: "ACTIVE" || "INACTIVE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   signingDisabled: true || false,
+ *   enableCachingForHttp: true || false,
+ * };
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAuthorizerCommandInput - {@link CreateAuthorizerCommandInput}
+ * @returns {@link CreateAuthorizerCommandOutput}
  * @see {@link CreateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link CreateAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +107,9 @@ export class CreateAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +138,8 @@ export class CreateAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAuthorizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +149,18 @@ export class CreateAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAuthorizerCommand(input, context);
+    return se_CreateAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAuthorizerCommandOutput> {
-    return deserializeAws_restJson1CreateAuthorizerCommand(output, context);
+    return de_CreateAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

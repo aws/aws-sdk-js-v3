@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListAccountAliasesRequest,
-  ListAccountAliasesRequestFilterSensitiveLog,
-  ListAccountAliasesResponse,
-  ListAccountAliasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListAccountAliasesCommand,
-  serializeAws_queryListAccountAliasesCommand,
-} from "../protocols/Aws_query";
+import { ListAccountAliasesRequest, ListAccountAliasesResponse } from "../models/models_0";
+import { de_ListAccountAliasesCommand, se_ListAccountAliasesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountAliasesCommand}.
  */
 export interface ListAccountAliasesCommandInput extends ListAccountAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountAliasesCommand}.
  */
 export interface ListAccountAliasesCommandOutput extends ListAccountAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the account alias associated with the Amazon Web Services account (Note: you can have only
  *             one). For information about using an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your
  *                 Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.</p>
@@ -44,10 +41,16 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  * import { IAMClient, ListAccountAliasesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListAccountAliasesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListAccountAliasesRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListAccountAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountAliasesCommandInput - {@link ListAccountAliasesCommandInput}
+ * @returns {@link ListAccountAliasesCommandOutput}
  * @see {@link ListAccountAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAccountAliasesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -91,6 +94,9 @@ export class ListAccountAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class ListAccountAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +136,18 @@ export class ListAccountAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListAccountAliasesCommand(input, context);
+    return se_ListAccountAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountAliasesCommandOutput> {
-    return deserializeAws_queryListAccountAliasesCommand(output, context);
+    return de_ListAccountAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

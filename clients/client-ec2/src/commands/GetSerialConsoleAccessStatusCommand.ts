@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetSerialConsoleAccessStatusRequest,
-  GetSerialConsoleAccessStatusRequestFilterSensitiveLog,
-  GetSerialConsoleAccessStatusResult,
-  GetSerialConsoleAccessStatusResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetSerialConsoleAccessStatusCommand,
-  serializeAws_ec2GetSerialConsoleAccessStatusCommand,
-} from "../protocols/Aws_ec2";
+import { GetSerialConsoleAccessStatusRequest, GetSerialConsoleAccessStatusResult } from "../models/models_5";
+import { de_GetSerialConsoleAccessStatusCommand, se_GetSerialConsoleAccessStatusCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetSerialConsoleAccessStatusCommand}.
  */
 export interface GetSerialConsoleAccessStatusCommandInput extends GetSerialConsoleAccessStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSerialConsoleAccessStatusCommand}.
  */
 export interface GetSerialConsoleAccessStatusCommandOutput
@@ -37,6 +33,7 @@ export interface GetSerialConsoleAccessStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the access status of your account to the EC2 serial console of all instances. By
  * 			default, access to the EC2 serial console is disabled for your account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2
@@ -47,10 +44,15 @@ export interface GetSerialConsoleAccessStatusCommandOutput
  * import { EC2Client, GetSerialConsoleAccessStatusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetSerialConsoleAccessStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetSerialConsoleAccessStatusRequest
+ *   DryRun: true || false,
+ * };
  * const command = new GetSerialConsoleAccessStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSerialConsoleAccessStatusCommandInput - {@link GetSerialConsoleAccessStatusCommandInput}
+ * @returns {@link GetSerialConsoleAccessStatusCommandOutput}
  * @see {@link GetSerialConsoleAccessStatusCommandInput} for command's `input` shape.
  * @see {@link GetSerialConsoleAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +76,9 @@ export class GetSerialConsoleAccessStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSerialConsoleAccessStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +107,8 @@ export class GetSerialConsoleAccessStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSerialConsoleAccessStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSerialConsoleAccessStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,15 +118,21 @@ export class GetSerialConsoleAccessStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSerialConsoleAccessStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetSerialConsoleAccessStatusCommand(input, context);
+    return se_GetSerialConsoleAccessStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSerialConsoleAccessStatusCommandOutput> {
-    return deserializeAws_ec2GetSerialConsoleAccessStatusCommand(output, context);
+    return de_GetSerialConsoleAccessStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

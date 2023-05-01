@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  SimulateCustomPolicyRequest,
-  SimulateCustomPolicyRequestFilterSensitiveLog,
-  SimulatePolicyResponse,
-  SimulatePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySimulateCustomPolicyCommand,
-  serializeAws_querySimulateCustomPolicyCommand,
-} from "../protocols/Aws_query";
+import { SimulateCustomPolicyRequest, SimulatePolicyResponse } from "../models/models_0";
+import { de_SimulateCustomPolicyCommand, se_SimulateCustomPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SimulateCustomPolicyCommand}.
  */
 export interface SimulateCustomPolicyCommandInput extends SimulateCustomPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link SimulateCustomPolicyCommand}.
  */
 export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulate how a set of IAM policies and optionally a resource-based policy works with
  *             a list of API operations and Amazon Web Services resources to determine the policies' effective
  *             permissions. The policies are provided as strings.</p>
@@ -65,10 +62,41 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  * import { IAMClient, SimulateCustomPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, SimulateCustomPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // SimulateCustomPolicyRequest
+ *   PolicyInputList: [ // SimulationPolicyListType // required
+ *     "STRING_VALUE",
+ *   ],
+ *   PermissionsBoundaryPolicyInputList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ActionNames: [ // ActionNameListType // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceArns: [ // ResourceNameListType
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourcePolicy: "STRING_VALUE",
+ *   ResourceOwner: "STRING_VALUE",
+ *   CallerArn: "STRING_VALUE",
+ *   ContextEntries: [ // ContextEntryListType
+ *     { // ContextEntry
+ *       ContextKeyName: "STRING_VALUE",
+ *       ContextKeyValues: [ // ContextKeyValueListType
+ *         "STRING_VALUE",
+ *       ],
+ *       ContextKeyType: "string" || "stringList" || "numeric" || "numericList" || "boolean" || "booleanList" || "ip" || "ipList" || "binary" || "binaryList" || "date" || "dateList",
+ *     },
+ *   ],
+ *   ResourceHandlingOption: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new SimulateCustomPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SimulateCustomPolicyCommandInput - {@link SimulateCustomPolicyCommandInput}
+ * @returns {@link SimulateCustomPolicyCommandOutput}
  * @see {@link SimulateCustomPolicyCommandInput} for command's `input` shape.
  * @see {@link SimulateCustomPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -100,6 +128,9 @@ export class SimulateCustomPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SimulateCustomPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +159,8 @@ export class SimulateCustomPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimulateCustomPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SimulatePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +170,18 @@ export class SimulateCustomPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SimulateCustomPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySimulateCustomPolicyCommand(input, context);
+    return se_SimulateCustomPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimulateCustomPolicyCommandOutput> {
-    return deserializeAws_querySimulateCustomPolicyCommand(output, context);
+    return de_SimulateCustomPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

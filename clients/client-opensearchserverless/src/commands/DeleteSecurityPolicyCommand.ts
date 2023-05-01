@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSecurityPolicyRequest,
-  DeleteSecurityPolicyRequestFilterSensitiveLog,
-  DeleteSecurityPolicyResponse,
-  DeleteSecurityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSecurityPolicyRequest, DeleteSecurityPolicyResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0DeleteSecurityPolicyCommand,
-  serializeAws_json1_0DeleteSecurityPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteSecurityPolicyCommand, se_DeleteSecurityPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSecurityPolicyCommand}.
  */
 export interface DeleteSecurityPolicyCommandInput extends DeleteSecurityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSecurityPolicyCommand}.
  */
 export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an OpenSearch Serverless security policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,17 +43,24 @@ export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyR
  * import { OpenSearchServerlessClient, DeleteSecurityPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, DeleteSecurityPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // DeleteSecurityPolicyRequest
+ *   type: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteSecurityPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSecurityPolicyCommandInput - {@link DeleteSecurityPolicyCommandInput}
+ * @returns {@link DeleteSecurityPolicyCommandOutput}
  * @see {@link DeleteSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a collection, thrown when a collection with the same name already exists
- *             or is being created. When deleting a collection, thrown when the collection is not in
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
  *             the ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
@@ -88,6 +92,9 @@ export class DeleteSecurityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSecurityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class DeleteSecurityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecurityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSecurityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class DeleteSecurityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSecurityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteSecurityPolicyCommand(input, context);
+    return se_DeleteSecurityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecurityPolicyCommandOutput> {
-    return deserializeAws_json1_0DeleteSecurityPolicyCommand(output, context);
+    return de_DeleteSecurityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

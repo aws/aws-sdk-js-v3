@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  StartInstanceRefreshAnswer,
-  StartInstanceRefreshAnswerFilterSensitiveLog,
-  StartInstanceRefreshType,
-  StartInstanceRefreshTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryStartInstanceRefreshCommand,
-  serializeAws_queryStartInstanceRefreshCommand,
-} from "../protocols/Aws_query";
+import { StartInstanceRefreshAnswer, StartInstanceRefreshType } from "../models/models_0";
+import { de_StartInstanceRefreshCommand, se_StartInstanceRefreshCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link StartInstanceRefreshCommand}.
  */
 export interface StartInstanceRefreshCommandInput extends StartInstanceRefreshType {}
 /**
+ * @public
+ *
  * The output of {@link StartInstanceRefreshCommand}.
  */
 export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an instance refresh. During an instance refresh, Amazon EC2 Auto Scaling performs a rolling
  *             update of instances in an Auto Scaling group. Instances are terminated first and then replaced,
  *             which temporarily reduces the capacity available within your Auto Scaling group.</p>
@@ -65,10 +62,127 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * import { AutoScalingClient, StartInstanceRefreshCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, StartInstanceRefreshCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // StartInstanceRefreshType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   Strategy: "Rolling",
+ *   DesiredConfiguration: { // DesiredConfiguration
+ *     LaunchTemplate: { // LaunchTemplateSpecification
+ *       LaunchTemplateId: "STRING_VALUE",
+ *       LaunchTemplateName: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *     MixedInstancesPolicy: { // MixedInstancesPolicy
+ *       LaunchTemplate: { // LaunchTemplate
+ *         LaunchTemplateSpecification: {
+ *           LaunchTemplateId: "STRING_VALUE",
+ *           LaunchTemplateName: "STRING_VALUE",
+ *           Version: "STRING_VALUE",
+ *         },
+ *         Overrides: [ // Overrides
+ *           { // LaunchTemplateOverrides
+ *             InstanceType: "STRING_VALUE",
+ *             WeightedCapacity: "STRING_VALUE",
+ *             LaunchTemplateSpecification: "<LaunchTemplateSpecification>",
+ *             InstanceRequirements: { // InstanceRequirements
+ *               VCpuCount: { // VCpuCountRequest
+ *                 Min: Number("int"), // required
+ *                 Max: Number("int"),
+ *               },
+ *               MemoryMiB: { // MemoryMiBRequest
+ *                 Min: Number("int"), // required
+ *                 Max: Number("int"),
+ *               },
+ *               CpuManufacturers: [ // CpuManufacturers
+ *                 "intel" || "amd" || "amazon-web-services",
+ *               ],
+ *               MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
+ *                 Min: Number("double"),
+ *                 Max: Number("double"),
+ *               },
+ *               ExcludedInstanceTypes: [ // ExcludedInstanceTypes
+ *                 "STRING_VALUE",
+ *               ],
+ *               InstanceGenerations: [ // InstanceGenerations
+ *                 "current" || "previous",
+ *               ],
+ *               SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ *               OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
+ *               BareMetal: "included" || "excluded" || "required",
+ *               BurstablePerformance: "included" || "excluded" || "required",
+ *               RequireHibernateSupport: true || false,
+ *               NetworkInterfaceCount: { // NetworkInterfaceCountRequest
+ *                 Min: Number("int"),
+ *                 Max: Number("int"),
+ *               },
+ *               LocalStorage: "included" || "excluded" || "required",
+ *               LocalStorageTypes: [ // LocalStorageTypes
+ *                 "hdd" || "ssd",
+ *               ],
+ *               TotalLocalStorageGB: { // TotalLocalStorageGBRequest
+ *                 Min: Number("double"),
+ *                 Max: Number("double"),
+ *               },
+ *               BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
+ *                 Min: Number("int"),
+ *                 Max: Number("int"),
+ *               },
+ *               AcceleratorTypes: [ // AcceleratorTypes
+ *                 "gpu" || "fpga" || "inference",
+ *               ],
+ *               AcceleratorCount: { // AcceleratorCountRequest
+ *                 Min: Number("int"),
+ *                 Max: Number("int"),
+ *               },
+ *               AcceleratorManufacturers: [ // AcceleratorManufacturers
+ *                 "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ *               ],
+ *               AcceleratorNames: [ // AcceleratorNames
+ *                 "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p",
+ *               ],
+ *               AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
+ *                 Min: Number("int"),
+ *                 Max: Number("int"),
+ *               },
+ *               NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
+ *                 Min: Number("double"),
+ *                 Max: Number("double"),
+ *               },
+ *               AllowedInstanceTypes: [ // AllowedInstanceTypes
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       InstancesDistribution: { // InstancesDistribution
+ *         OnDemandAllocationStrategy: "STRING_VALUE",
+ *         OnDemandBaseCapacity: Number("int"),
+ *         OnDemandPercentageAboveBaseCapacity: Number("int"),
+ *         SpotAllocationStrategy: "STRING_VALUE",
+ *         SpotInstancePools: Number("int"),
+ *         SpotMaxPrice: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   Preferences: { // RefreshPreferences
+ *     MinHealthyPercentage: Number("int"),
+ *     InstanceWarmup: Number("int"),
+ *     CheckpointPercentages: [ // CheckpointPercentages
+ *       Number("int"),
+ *     ],
+ *     CheckpointDelay: Number("int"),
+ *     SkipMatching: true || false,
+ *     AutoRollback: true || false,
+ *     ScaleInProtectedInstances: "Refresh" || "Ignore" || "Wait",
+ *     StandbyInstances: "Terminate" || "Ignore" || "Wait",
+ *   },
+ * };
  * const command = new StartInstanceRefreshCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartInstanceRefreshCommandInput - {@link StartInstanceRefreshCommandInput}
+ * @returns {@link StartInstanceRefreshCommandOutput}
  * @see {@link StartInstanceRefreshCommandInput} for command's `input` shape.
  * @see {@link StartInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -133,6 +247,9 @@ export class StartInstanceRefreshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartInstanceRefreshCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,8 +278,8 @@ export class StartInstanceRefreshCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartInstanceRefreshTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: StartInstanceRefreshAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -172,12 +289,18 @@ export class StartInstanceRefreshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartInstanceRefreshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartInstanceRefreshCommand(input, context);
+    return se_StartInstanceRefreshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInstanceRefreshCommandOutput> {
-    return deserializeAws_queryStartInstanceRefreshCommand(output, context);
+    return de_StartInstanceRefreshCommand(output, context);
   }
 
   // Start section: command_body_extra

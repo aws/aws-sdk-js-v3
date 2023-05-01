@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOpsItemRelatedItemsRequest,
-  ListOpsItemRelatedItemsRequestFilterSensitiveLog,
-  ListOpsItemRelatedItemsResponse,
-  ListOpsItemRelatedItemsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListOpsItemRelatedItemsCommand,
-  serializeAws_json1_1ListOpsItemRelatedItemsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListOpsItemRelatedItemsRequest, ListOpsItemRelatedItemsResponse } from "../models/models_1";
+import { de_ListOpsItemRelatedItemsCommand, se_ListOpsItemRelatedItemsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOpsItemRelatedItemsCommand}.
  */
 export interface ListOpsItemRelatedItemsCommandInput extends ListOpsItemRelatedItemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOpsItemRelatedItemsCommand}.
  */
 export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelatedItemsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem. OpsCenter is a
  *    capability of Amazon Web Services Systems Manager.</p>
  * @example
@@ -43,10 +40,26 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  * import { SSMClient, ListOpsItemRelatedItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListOpsItemRelatedItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListOpsItemRelatedItemsRequest
+ *   OpsItemId: "STRING_VALUE",
+ *   Filters: [ // OpsItemRelatedItemsFilters
+ *     { // OpsItemRelatedItemsFilter
+ *       Key: "ResourceType" || "AssociationId" || "ResourceUri", // required
+ *       Values: [ // OpsItemRelatedItemsFilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Operator: "Equal", // required
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListOpsItemRelatedItemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOpsItemRelatedItemsCommandInput - {@link ListOpsItemRelatedItemsCommandInput}
+ * @returns {@link ListOpsItemRelatedItemsCommandOutput}
  * @see {@link ListOpsItemRelatedItemsCommandInput} for command's `input` shape.
  * @see {@link ListOpsItemRelatedItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -77,6 +90,9 @@ export class ListOpsItemRelatedItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOpsItemRelatedItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +121,8 @@ export class ListOpsItemRelatedItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOpsItemRelatedItemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOpsItemRelatedItemsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +132,18 @@ export class ListOpsItemRelatedItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOpsItemRelatedItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOpsItemRelatedItemsCommand(input, context);
+    return se_ListOpsItemRelatedItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOpsItemRelatedItemsCommandOutput> {
-    return deserializeAws_json1_1ListOpsItemRelatedItemsCommand(output, context);
+    return de_ListOpsItemRelatedItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

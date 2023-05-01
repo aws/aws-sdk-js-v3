@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  DescribeRepositoryRequest,
-  DescribeRepositoryRequestFilterSensitiveLog,
-  DescribeRepositoryResult,
-  DescribeRepositoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRepositoryCommand,
-  serializeAws_restJson1DescribeRepositoryCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRepositoryRequest, DescribeRepositoryResult } from "../models/models_0";
+import { de_DescribeRepositoryCommand, se_DescribeRepositoryCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRepositoryCommand}.
  */
 export interface DescribeRepositoryCommandInput extends DescribeRepositoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRepositoryCommand}.
  */
 export interface DescribeRepositoryCommandOutput extends DescribeRepositoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Returns a <code>RepositoryDescription</code> object that contains detailed information
  *         about the requested repository.
@@ -45,10 +42,17 @@ export interface DescribeRepositoryCommandOutput extends DescribeRepositoryResul
  * import { CodeartifactClient, DescribeRepositoryCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DescribeRepositoryCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // DescribeRepositoryRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRepositoryCommandInput - {@link DescribeRepositoryCommandInput}
+ * @returns {@link DescribeRepositoryCommandOutput}
  * @see {@link DescribeRepositoryCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -95,6 +99,9 @@ export class DescribeRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +130,8 @@ export class DescribeRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRepositoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRepositoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +141,18 @@ export class DescribeRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRepositoryCommand(input, context);
+    return se_DescribeRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRepositoryCommandOutput> {
-    return deserializeAws_restJson1DescribeRepositoryCommand(output, context);
+    return de_DescribeRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

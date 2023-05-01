@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  CreateSampleFindingsRequest,
-  CreateSampleFindingsRequestFilterSensitiveLog,
-  CreateSampleFindingsResponse,
-  CreateSampleFindingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSampleFindingsCommand,
-  serializeAws_restJson1CreateSampleFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateSampleFindingsRequest, CreateSampleFindingsResponse } from "../models/models_0";
+import { de_CreateSampleFindingsCommand, se_CreateSampleFindingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSampleFindingsCommand}.
  */
 export interface CreateSampleFindingsCommandInput extends CreateSampleFindingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSampleFindingsCommand}.
  */
 export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates sample findings of types specified by the list of finding types. If 'NULL' is
  *       specified for <code>findingTypes</code>, the API generates sample findings of all supported
  *       finding types.</p>
@@ -44,10 +41,18 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * import { GuardDutyClient, CreateSampleFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateSampleFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // CreateSampleFindingsRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   FindingTypes: [ // FindingTypes
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateSampleFindingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSampleFindingsCommandInput - {@link CreateSampleFindingsCommandInput}
+ * @returns {@link CreateSampleFindingsCommandOutput}
  * @see {@link CreateSampleFindingsCommandInput} for command's `input` shape.
  * @see {@link CreateSampleFindingsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +82,9 @@ export class CreateSampleFindingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSampleFindingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class CreateSampleFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSampleFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSampleFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +124,18 @@ export class CreateSampleFindingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSampleFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSampleFindingsCommand(input, context);
+    return se_CreateSampleFindingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSampleFindingsCommandOutput> {
-    return deserializeAws_restJson1CreateSampleFindingsCommand(output, context);
+    return de_CreateSampleFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

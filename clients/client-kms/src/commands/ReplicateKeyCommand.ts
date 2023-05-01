@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ReplicateKeyRequest,
-  ReplicateKeyRequestFilterSensitiveLog,
-  ReplicateKeyResponse,
-  ReplicateKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ReplicateKeyCommand,
-  serializeAws_json1_1ReplicateKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { ReplicateKeyRequest, ReplicateKeyResponse } from "../models/models_0";
+import { de_ReplicateKeyCommand, se_ReplicateKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ReplicateKeyCommand}.
  */
 export interface ReplicateKeyCommandInput extends ReplicateKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplicateKeyCommand}.
  */
 export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replicates a multi-Region key into the specified Region. This operation creates a
  *       multi-Region replica key based on a multi-Region primary key in a different Region of the same
  *       Amazon Web Services partition. You can create multiple replicas of a primary key, but each must be in a
@@ -124,10 +121,25 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * import { KMSClient, ReplicateKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ReplicateKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ReplicateKeyRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   ReplicaRegion: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE",
+ *   BypassPolicyLockoutSafetyCheck: true || false,
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ReplicateKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplicateKeyCommandInput - {@link ReplicateKeyCommandInput}
+ * @returns {@link ReplicateKeyCommandOutput}
  * @see {@link ReplicateKeyCommandInput} for command's `input` shape.
  * @see {@link ReplicateKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -251,6 +263,9 @@ export class ReplicateKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplicateKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -277,8 +292,8 @@ export class ReplicateKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplicateKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplicateKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -288,12 +303,18 @@ export class ReplicateKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplicateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReplicateKeyCommand(input, context);
+    return se_ReplicateKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplicateKeyCommandOutput> {
-    return deserializeAws_json1_1ReplicateKeyCommand(output, context);
+    return de_ReplicateKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCanaryRunsRequest,
-  GetCanaryRunsRequestFilterSensitiveLog,
-  GetCanaryRunsResponse,
-  GetCanaryRunsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCanaryRunsCommand,
-  serializeAws_restJson1GetCanaryRunsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCanaryRunsRequest, GetCanaryRunsResponse } from "../models/models_0";
+import { de_GetCanaryRunsCommand, se_GetCanaryRunsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCanaryRunsCommand}.
  */
 export interface GetCanaryRunsCommandInput extends GetCanaryRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCanaryRunsCommand}.
  */
 export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of runs for a specified canary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * import { SyntheticsClient, GetCanaryRunsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, GetCanaryRunsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // GetCanaryRunsRequest
+ *   Name: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetCanaryRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCanaryRunsCommandInput - {@link GetCanaryRunsCommandInput}
+ * @returns {@link GetCanaryRunsCommandOutput}
  * @see {@link GetCanaryRunsCommandInput} for command's `input` shape.
  * @see {@link GetCanaryRunsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -78,6 +82,9 @@ export class GetCanaryRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCanaryRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class GetCanaryRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCanaryRunsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCanaryRunsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class GetCanaryRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCanaryRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCanaryRunsCommand(input, context);
+    return se_GetCanaryRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCanaryRunsCommandOutput> {
-    return deserializeAws_restJson1GetCanaryRunsCommand(output, context);
+    return de_GetCanaryRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

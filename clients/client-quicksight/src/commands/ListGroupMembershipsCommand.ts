@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListGroupMembershipsRequest,
-  ListGroupMembershipsRequestFilterSensitiveLog,
-  ListGroupMembershipsResponse,
-  ListGroupMembershipsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1ListGroupMembershipsCommand,
-  serializeAws_restJson1ListGroupMembershipsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListGroupMembershipsRequest, ListGroupMembershipsResponse } from "../models/models_3";
+import { de_ListGroupMembershipsCommand, se_ListGroupMembershipsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupMembershipsCommand}.
  */
 export interface ListGroupMembershipsCommandInput extends ListGroupMembershipsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupMembershipsCommand}.
  */
 export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists member users in a group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * import { QuickSightClient, ListGroupMembershipsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListGroupMembershipsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // ListGroupMembershipsRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new ListGroupMembershipsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupMembershipsCommandInput - {@link ListGroupMembershipsCommandInput}
+ * @returns {@link ListGroupMembershipsCommandOutput}
  * @see {@link ListGroupMembershipsCommandInput} for command's `input` shape.
  * @see {@link ListGroupMembershipsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -96,6 +102,9 @@ export class ListGroupMembershipsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupMembershipsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +133,8 @@ export class ListGroupMembershipsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupMembershipsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupMembershipsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +144,18 @@ export class ListGroupMembershipsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupMembershipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGroupMembershipsCommand(input, context);
+    return se_ListGroupMembershipsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupMembershipsCommandOutput> {
-    return deserializeAws_restJson1ListGroupMembershipsCommand(output, context);
+    return de_ListGroupMembershipsCommand(output, context);
   }
 
   // Start section: command_body_extra

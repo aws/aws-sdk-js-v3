@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetListsMetadataRequest,
-  GetListsMetadataRequestFilterSensitiveLog,
-  GetListsMetadataResult,
-  GetListsMetadataResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetListsMetadataCommand,
-  serializeAws_json1_1GetListsMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { GetListsMetadataRequest, GetListsMetadataResult } from "../models/models_0";
+import { de_GetListsMetadataCommand, se_GetListsMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetListsMetadataCommand}.
  */
 export interface GetListsMetadataCommandInput extends GetListsMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetListsMetadataCommand}.
  */
 export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *            Gets the metadata of either all the lists under the account or the specified list.
  *         </p>
@@ -44,10 +41,17 @@ export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, _
  * import { FraudDetectorClient, GetListsMetadataCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetListsMetadataCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetListsMetadataRequest
+ *   name: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetListsMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetListsMetadataCommandInput - {@link GetListsMetadataCommandInput}
+ * @returns {@link GetListsMetadataCommandOutput}
  * @see {@link GetListsMetadataCommandInput} for command's `input` shape.
  * @see {@link GetListsMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +90,9 @@ export class GetListsMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetListsMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class GetListsMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetListsMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetListsMetadataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class GetListsMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetListsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetListsMetadataCommand(input, context);
+    return se_GetListsMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetListsMetadataCommandOutput> {
-    return deserializeAws_json1_1GetListsMetadataCommand(output, context);
+    return de_GetListsMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

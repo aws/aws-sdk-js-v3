@@ -16,20 +16,22 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
   BatchGetAssetPropertyValueHistoryRequest,
-  BatchGetAssetPropertyValueHistoryRequestFilterSensitiveLog,
   BatchGetAssetPropertyValueHistoryResponse,
-  BatchGetAssetPropertyValueHistoryResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand,
-  serializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand,
+  de_BatchGetAssetPropertyValueHistoryCommand,
+  se_BatchGetAssetPropertyValueHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetAssetPropertyValueHistoryCommand}.
  */
 export interface BatchGetAssetPropertyValueHistoryCommandInput extends BatchGetAssetPropertyValueHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetAssetPropertyValueHistoryCommand}.
  */
 export interface BatchGetAssetPropertyValueHistoryCommandOutput
@@ -37,6 +39,7 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the historical values for one or more asset properties. For more information, see
  *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
@@ -45,10 +48,30 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
  * import { IoTSiteWiseClient, BatchGetAssetPropertyValueHistoryCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, BatchGetAssetPropertyValueHistoryCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // BatchGetAssetPropertyValueHistoryRequest
+ *   entries: [ // BatchGetAssetPropertyValueHistoryEntries // required
+ *     { // BatchGetAssetPropertyValueHistoryEntry
+ *       entryId: "STRING_VALUE", // required
+ *       assetId: "STRING_VALUE",
+ *       propertyId: "STRING_VALUE",
+ *       propertyAlias: "STRING_VALUE",
+ *       startDate: new Date("TIMESTAMP"),
+ *       endDate: new Date("TIMESTAMP"),
+ *       qualities: [ // Qualities
+ *         "GOOD" || "BAD" || "UNCERTAIN",
+ *       ],
+ *       timeOrdering: "ASCENDING" || "DESCENDING",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new BatchGetAssetPropertyValueHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetAssetPropertyValueHistoryCommandInput - {@link BatchGetAssetPropertyValueHistoryCommandInput}
+ * @returns {@link BatchGetAssetPropertyValueHistoryCommandOutput}
  * @see {@link BatchGetAssetPropertyValueHistoryCommandInput} for command's `input` shape.
  * @see {@link BatchGetAssetPropertyValueHistoryCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -88,6 +111,9 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetAssetPropertyValueHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +142,8 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetAssetPropertyValueHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetAssetPropertyValueHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +153,24 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchGetAssetPropertyValueHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand(input, context);
+    return se_BatchGetAssetPropertyValueHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetAssetPropertyValueHistoryCommandOutput> {
-    return deserializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand(output, context);
+    return de_BatchGetAssetPropertyValueHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  UpdateGatewaySoftwareNowInput,
-  UpdateGatewaySoftwareNowInputFilterSensitiveLog,
-  UpdateGatewaySoftwareNowOutput,
-  UpdateGatewaySoftwareNowOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateGatewaySoftwareNowCommand,
-  serializeAws_json1_0UpdateGatewaySoftwareNowCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/models_0";
+import { de_UpdateGatewaySoftwareNowCommand, se_UpdateGatewaySoftwareNowCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewaySoftwareNowCommand}.
  */
 export interface UpdateGatewaySoftwareNowCommandInput extends UpdateGatewaySoftwareNowInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewaySoftwareNowCommand}.
  */
 export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoftwareNowOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the gateway virtual machine (VM) software.
  *       The request immediately triggers the software update.</p>
  *          <note>
@@ -48,10 +45,15 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * import { BackupGatewayClient, UpdateGatewaySoftwareNowCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, UpdateGatewaySoftwareNowCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // UpdateGatewaySoftwareNowInput
+ *   GatewayArn: "STRING_VALUE", // required
+ * };
  * const command = new UpdateGatewaySoftwareNowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewaySoftwareNowCommandInput - {@link UpdateGatewaySoftwareNowCommandInput}
+ * @returns {@link UpdateGatewaySoftwareNowCommandOutput}
  * @see {@link UpdateGatewaySoftwareNowCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewaySoftwareNowCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -88,6 +90,9 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewaySoftwareNowCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewaySoftwareNowInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewaySoftwareNowOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewaySoftwareNowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateGatewaySoftwareNowCommand(input, context);
+    return se_UpdateGatewaySoftwareNowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewaySoftwareNowCommandOutput> {
-    return deserializeAws_json1_0UpdateGatewaySoftwareNowCommand(output, context);
+    return de_UpdateGatewaySoftwareNowCommand(output, context);
   }
 
   // Start section: command_body_extra

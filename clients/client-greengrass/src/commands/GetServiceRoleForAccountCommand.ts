@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetServiceRoleForAccountRequest,
-  GetServiceRoleForAccountRequestFilterSensitiveLog,
-  GetServiceRoleForAccountResponse,
-  GetServiceRoleForAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServiceRoleForAccountCommand,
-  serializeAws_restJson1GetServiceRoleForAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { GetServiceRoleForAccountRequest, GetServiceRoleForAccountResponse } from "../models/models_0";
+import { de_GetServiceRoleForAccountCommand, se_GetServiceRoleForAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceRoleForAccountCommand}.
  */
 export interface GetServiceRoleForAccountCommandInput extends GetServiceRoleForAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceRoleForAccountCommand}.
  */
 export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleForAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves the service role that is attached to your account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * import { GreengrassClient, GetServiceRoleForAccountCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetServiceRoleForAccountCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {};
  * const command = new GetServiceRoleForAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceRoleForAccountCommandInput - {@link GetServiceRoleForAccountCommandInput}
+ * @returns {@link GetServiceRoleForAccountCommandOutput}
  * @see {@link GetServiceRoleForAccountCommandInput} for command's `input` shape.
  * @see {@link GetServiceRoleForAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +72,9 @@ export class GetServiceRoleForAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceRoleForAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +103,8 @@ export class GetServiceRoleForAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceRoleForAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceRoleForAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +114,18 @@ export class GetServiceRoleForAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceRoleForAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServiceRoleForAccountCommand(input, context);
+    return se_GetServiceRoleForAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceRoleForAccountCommandOutput> {
-    return deserializeAws_restJson1GetServiceRoleForAccountCommand(output, context);
+    return de_GetServiceRoleForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DeleteUserGroupMessage,
-  DeleteUserGroupMessageFilterSensitiveLog,
-  UserGroup,
-  UserGroupFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteUserGroupCommand,
-  serializeAws_queryDeleteUserGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteUserGroupMessage, UserGroup } from "../models/models_0";
+import { de_DeleteUserGroupCommand, se_DeleteUserGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserGroupCommand}.
  */
 export interface DeleteUserGroupCommandInput extends DeleteUserGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserGroupCommand}.
  */
 export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For Redis engine version 6.0 onwards: Deletes a user group. The user group must first be disassociated from the replication group before it can be deleted. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * import { ElastiCacheClient, DeleteUserGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteUserGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DeleteUserGroupMessage
+ *   UserGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserGroupCommandInput - {@link DeleteUserGroupCommandInput}
+ * @returns {@link DeleteUserGroupCommandOutput}
  * @see {@link DeleteUserGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteUserGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteUserGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteUserGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: UserGroupFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteUserGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteUserGroupCommand(input, context);
+    return se_DeleteUserGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserGroupCommandOutput> {
-    return deserializeAws_queryDeleteUserGroupCommand(output, context);
+    return de_DeleteUserGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

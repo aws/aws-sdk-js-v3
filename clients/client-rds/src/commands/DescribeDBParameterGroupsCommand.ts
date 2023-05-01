@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBParameterGroupsMessage,
-  DBParameterGroupsMessageFilterSensitiveLog,
-  DescribeDBParameterGroupsMessage,
-  DescribeDBParameterGroupsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBParameterGroupsCommand,
-  serializeAws_queryDescribeDBParameterGroupsCommand,
-} from "../protocols/Aws_query";
+import { DBParameterGroupsMessage, DescribeDBParameterGroupsMessage } from "../models/models_0";
+import { de_DescribeDBParameterGroupsCommand, se_DescribeDBParameterGroupsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBParameterGroupsCommand}.
  */
 export interface DescribeDBParameterGroupsCommandInput extends DescribeDBParameterGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBParameterGroupsCommand}.
  */
 export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroupsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a <code>DBParameterGroupName</code> is specified,
  *             the list will contain only the description of the specified DB parameter group.</p>
  * @example
@@ -43,10 +40,25 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * import { RDSClient, DescribeDBParameterGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBParameterGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBParameterGroupsMessage
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBParameterGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBParameterGroupsCommandInput - {@link DescribeDBParameterGroupsCommandInput}
+ * @returns {@link DescribeDBParameterGroupsCommandOutput}
  * @see {@link DescribeDBParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBParameterGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -57,15 +69,43 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  *         existing DB parameter group.</p>
  *
  *
- * @example To list information about DB parameter groups
+ * @example To describe your DB parameter groups
  * ```javascript
- * // This example lists information about the specified DB parameter group.
- * const input = {
- *   "DBParameterGroupName": "mymysqlparametergroup"
- * };
+ * // The following example retrieves details about your DB parameter groups.
+ * const input = {};
  * const command = new DescribeDBParameterGroupsCommand(input);
- * await client.send(command);
- * // example id: describe-db-parameter-groups-
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBParameterGroups": [
+ *     {
+ *       "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:default.aurora-mysql5.7",
+ *       "DBParameterGroupFamily": "aurora-mysql5.7",
+ *       "DBParameterGroupName": "default.aurora-mysql5.7",
+ *       "Description": "Default parameter group for aurora-mysql5.7"
+ *     },
+ *     {
+ *       "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:default.aurora-postgresql9.6",
+ *       "DBParameterGroupFamily": "aurora-postgresql9.6",
+ *       "DBParameterGroupName": "default.aurora-postgresql9.6",
+ *       "Description": "Default parameter group for aurora-postgresql9.6"
+ *     },
+ *     {
+ *       "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:default.aurora5.6",
+ *       "DBParameterGroupFamily": "aurora5.6",
+ *       "DBParameterGroupName": "default.aurora5.6",
+ *       "Description": "Default parameter group for aurora5.6"
+ *     },
+ *     {
+ *       "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:default.mariadb10.1",
+ *       "DBParameterGroupFamily": "mariadb10.1",
+ *       "DBParameterGroupName": "default.mariadb10.1",
+ *       "Description": "Default parameter group for mariadb10.1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-your-db-parameter-groups-1680279250598
  * ```
  *
  */
@@ -86,6 +126,9 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBParameterGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +157,8 @@ export class DescribeDBParameterGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBParameterGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBParameterGroupsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +168,21 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBParameterGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBParameterGroupsCommand(input, context);
+    return se_DescribeDBParameterGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBParameterGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBParameterGroupsCommand(output, context);
+    return de_DescribeDBParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

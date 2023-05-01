@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  CreateTypeRequest,
-  CreateTypeRequestFilterSensitiveLog,
-  CreateTypeResponse,
-  CreateTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTypeCommand,
-  serializeAws_restJson1CreateTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateTypeRequest, CreateTypeResponse } from "../models/models_0";
+import { de_CreateTypeCommand, se_CreateTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTypeCommand}.
  */
 export interface CreateTypeCommandInput extends CreateTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTypeCommand}.
  */
 export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>Type</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * import { AppSyncClient, CreateTypeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateTypeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // CreateTypeRequest
+ *   apiId: "STRING_VALUE", // required
+ *   definition: "STRING_VALUE", // required
+ *   format: "SDL" || "JSON", // required
+ * };
  * const command = new CreateTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTypeCommandInput - {@link CreateTypeCommandInput}
+ * @returns {@link CreateTypeCommandOutput}
  * @see {@link CreateTypeCommandInput} for command's `input` shape.
  * @see {@link CreateTypeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +90,9 @@ export class CreateTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class CreateTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class CreateTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTypeCommand(input, context);
+    return se_CreateTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTypeCommandOutput> {
-    return deserializeAws_restJson1CreateTypeCommand(output, context);
+    return de_CreateTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  GetVaultAccessPolicyInput,
-  GetVaultAccessPolicyInputFilterSensitiveLog,
-  GetVaultAccessPolicyOutput,
-  GetVaultAccessPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetVaultAccessPolicyCommand,
-  serializeAws_restJson1GetVaultAccessPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetVaultAccessPolicyInput, GetVaultAccessPolicyOutput } from "../models/models_0";
+import { de_GetVaultAccessPolicyCommand, se_GetVaultAccessPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVaultAccessPolicyCommand}.
  */
 export interface GetVaultAccessPolicyCommandInput extends GetVaultAccessPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetVaultAccessPolicyCommand}.
  */
 export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation retrieves the <code>access-policy</code> subresource set on the vault;
  *          for more information on setting this subresource, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html">Set Vault Access Policy
  *             (PUT access-policy)</a>. If there is no access policy set on the vault, the
@@ -47,10 +44,16 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * import { GlacierClient, GetVaultAccessPolicyCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, GetVaultAccessPolicyCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // GetVaultAccessPolicyInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new GetVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVaultAccessPolicyCommandInput - {@link GetVaultAccessPolicyCommandInput}
+ * @returns {@link GetVaultAccessPolicyCommandOutput}
  * @see {@link GetVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link GetVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -106,6 +109,9 @@ export class GetVaultAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVaultAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +140,8 @@ export class GetVaultAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVaultAccessPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVaultAccessPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +151,18 @@ export class GetVaultAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVaultAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVaultAccessPolicyCommand(input, context);
+    return se_GetVaultAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1GetVaultAccessPolicyCommand(output, context);
+    return de_GetVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

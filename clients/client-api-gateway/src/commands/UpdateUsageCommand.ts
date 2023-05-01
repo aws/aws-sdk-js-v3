@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  UpdateUsageRequest,
-  UpdateUsageRequestFilterSensitiveLog,
-  Usage,
-  UsageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateUsageCommand,
-  serializeAws_restJson1UpdateUsageCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateUsageRequest, Usage } from "../models/models_0";
+import { de_UpdateUsageCommand, se_UpdateUsageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUsageCommand}.
  */
 export interface UpdateUsageCommandInput extends UpdateUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUsageCommand}.
  */
 export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
  * import { APIGatewayClient, UpdateUsageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateUsageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // UpdateUsageRequest
+ *   usagePlanId: "STRING_VALUE", // required
+ *   keyId: "STRING_VALUE", // required
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
+ *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
+ *       path: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       from: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateUsageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUsageCommandInput - {@link UpdateUsageCommandInput}
+ * @returns {@link UpdateUsageCommandOutput}
  * @see {@link UpdateUsageCommandInput} for command's `input` shape.
  * @see {@link UpdateUsageCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +98,9 @@ export class UpdateUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +127,8 @@ export class UpdateUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UsageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +138,18 @@ export class UpdateUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUsageCommand(input, context);
+    return se_UpdateUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUsageCommandOutput> {
-    return deserializeAws_restJson1UpdateUsageCommand(output, context);
+    return de_UpdateUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

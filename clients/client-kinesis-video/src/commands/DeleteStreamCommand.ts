@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  DeleteStreamInput,
-  DeleteStreamInputFilterSensitiveLog,
-  DeleteStreamOutput,
-  DeleteStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteStreamCommand,
-  serializeAws_restJson1DeleteStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteStreamInput, DeleteStreamOutput } from "../models/models_0";
+import { de_DeleteStreamCommand, se_DeleteStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStreamCommand}.
  */
 export interface DeleteStreamCommandInput extends DeleteStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStreamCommand}.
  */
 export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Kinesis video stream and the data contained in the stream. </p>
  *          <p>This method marks the stream for deletion, and makes the data in the stream
  *             inaccessible immediately.</p>
@@ -51,10 +48,16 @@ export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __Metadat
  * import { KinesisVideoClient, DeleteStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DeleteStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // DeleteStreamInput
+ *   StreamARN: "STRING_VALUE", // required
+ *   CurrentVersion: "STRING_VALUE",
+ * };
  * const command = new DeleteStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
+ * @returns {@link DeleteStreamCommandOutput}
  * @see {@link DeleteStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -116,6 +119,9 @@ export class DeleteStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +148,8 @@ export class DeleteStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +159,18 @@ export class DeleteStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStreamCommand(input, context);
+    return se_DeleteStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamCommandOutput> {
-    return deserializeAws_restJson1DeleteStreamCommand(output, context);
+    return de_DeleteStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
+import { DeleteInstanceOnboardingJobRequest } from "../models/models_0";
 import {
-  DeleteInstanceOnboardingJobRequest,
-  DeleteInstanceOnboardingJobRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteInstanceOnboardingJobCommand,
-  serializeAws_restJson1DeleteInstanceOnboardingJobCommand,
+  de_DeleteInstanceOnboardingJobCommand,
+  se_DeleteInstanceOnboardingJobCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInstanceOnboardingJobCommand}.
  */
 export interface DeleteInstanceOnboardingJobCommandInput extends DeleteInstanceOnboardingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInstanceOnboardingJobCommand}.
  */
 export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Delete the Connect Campaigns onboarding job for the specified Amazon Connect instance.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,15 @@ export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBear
  * import { ConnectCampaignsClient, DeleteInstanceOnboardingJobCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, DeleteInstanceOnboardingJobCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // DeleteInstanceOnboardingJobRequest
+ *   connectInstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInstanceOnboardingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInstanceOnboardingJobCommandInput - {@link DeleteInstanceOnboardingJobCommandInput}
+ * @returns {@link DeleteInstanceOnboardingJobCommandOutput}
  * @see {@link DeleteInstanceOnboardingJobCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceOnboardingJobCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteInstanceOnboardingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInstanceOnboardingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class DeleteInstanceOnboardingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceOnboardingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +131,21 @@ export class DeleteInstanceOnboardingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInstanceOnboardingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInstanceOnboardingJobCommand(input, context);
+    return se_DeleteInstanceOnboardingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInstanceOnboardingJobCommandOutput> {
-    return deserializeAws_restJson1DeleteInstanceOnboardingJobCommand(output, context);
+    return de_DeleteInstanceOnboardingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

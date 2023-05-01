@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  ListInvitationsInput,
-  ListInvitationsInputFilterSensitiveLog,
-  ListInvitationsOutput,
-  ListInvitationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListInvitationsCommand,
-  serializeAws_restJson1ListInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInvitationsInput, ListInvitationsOutput } from "../models/models_0";
+import { de_ListInvitationsCommand, se_ListInvitationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInvitationsCommand}.
  */
 export interface ListInvitationsCommandInput extends ListInvitationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListInvitationsCommand}.
  */
 export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all invitations for the current Amazon Web Services account.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -47,10 +44,16 @@ export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __M
  * import { ManagedBlockchainClient, ListInvitationsCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListInvitationsCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // ListInvitationsInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
+ * @returns {@link ListInvitationsCommandOutput}
  * @see {@link ListInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -96,6 +99,9 @@ export class ListInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +130,8 @@ export class ListInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInvitationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInvitationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +141,18 @@ export class ListInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInvitationsCommand(input, context);
+    return se_ListInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInvitationsCommandOutput> {
-    return deserializeAws_restJson1ListInvitationsCommand(output, context);
+    return de_ListInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

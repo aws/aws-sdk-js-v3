@@ -16,25 +16,26 @@ import {
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import {
   CancelResourceRequestInput,
-  CancelResourceRequestInputFilterSensitiveLog,
   CancelResourceRequestOutput,
   CancelResourceRequestOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CancelResourceRequestCommand,
-  serializeAws_json1_0CancelResourceRequestCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CancelResourceRequestCommand, se_CancelResourceRequestCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CancelResourceRequestCommand}.
  */
 export interface CancelResourceRequestCommandInput extends CancelResourceRequestInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelResourceRequestCommand}.
  */
 export interface CancelResourceRequestCommandOutput extends CancelResourceRequestOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified resource operation request. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-cancel">Canceling resource operation requests</a> in the
  *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
  *          <p>Only resource operations requests with a status of <code>PENDING</code> or
@@ -45,10 +46,15 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * import { CloudControlClient, CancelResourceRequestCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, CancelResourceRequestCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
  * const client = new CloudControlClient(config);
+ * const input = { // CancelResourceRequestInput
+ *   RequestToken: "STRING_VALUE", // required
+ * };
  * const command = new CancelResourceRequestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelResourceRequestCommandInput - {@link CancelResourceRequestCommandInput}
+ * @returns {@link CancelResourceRequestCommandOutput}
  * @see {@link CancelResourceRequestCommandInput} for command's `input` shape.
  * @see {@link CancelResourceRequestCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
@@ -78,6 +84,9 @@ export class CancelResourceRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelResourceRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +115,7 @@ export class CancelResourceRequestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelResourceRequestInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CancelResourceRequestOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -117,12 +126,18 @@ export class CancelResourceRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelResourceRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CancelResourceRequestCommand(input, context);
+    return se_CancelResourceRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelResourceRequestCommandOutput> {
-    return deserializeAws_json1_0CancelResourceRequestCommand(output, context);
+    return de_CancelResourceRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

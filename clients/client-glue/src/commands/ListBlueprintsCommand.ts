@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListBlueprintsRequest,
-  ListBlueprintsRequestFilterSensitiveLog,
-  ListBlueprintsResponse,
-  ListBlueprintsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListBlueprintsCommand,
-  serializeAws_json1_1ListBlueprintsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListBlueprintsRequest, ListBlueprintsResponse } from "../models/models_2";
+import { de_ListBlueprintsCommand, se_ListBlueprintsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBlueprintsCommand}.
  */
 export interface ListBlueprintsCommandInput extends ListBlueprintsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBlueprintsCommand}.
  */
 export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the blueprint names in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  * import { GlueClient, ListBlueprintsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListBlueprintsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListBlueprintsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListBlueprintsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBlueprintsCommandInput - {@link ListBlueprintsCommandInput}
+ * @returns {@link ListBlueprintsCommandOutput}
  * @see {@link ListBlueprintsCommandInput} for command's `input` shape.
  * @see {@link ListBlueprintsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +84,9 @@ export class ListBlueprintsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBlueprintsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +115,8 @@ export class ListBlueprintsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBlueprintsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBlueprintsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +126,18 @@ export class ListBlueprintsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBlueprintsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBlueprintsCommand(input, context);
+    return se_ListBlueprintsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBlueprintsCommandOutput> {
-    return deserializeAws_json1_1ListBlueprintsCommand(output, context);
+    return de_ListBlueprintsCommand(output, context);
   }
 
   // Start section: command_body_extra

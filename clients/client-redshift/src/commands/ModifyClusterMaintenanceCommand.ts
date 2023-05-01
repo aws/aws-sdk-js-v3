@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyClusterMaintenanceMessage,
-  ModifyClusterMaintenanceMessageFilterSensitiveLog,
-  ModifyClusterMaintenanceResult,
-  ModifyClusterMaintenanceResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyClusterMaintenanceCommand,
-  serializeAws_queryModifyClusterMaintenanceCommand,
-} from "../protocols/Aws_query";
+import { ModifyClusterMaintenanceMessage, ModifyClusterMaintenanceResult } from "../models/models_1";
+import { de_ModifyClusterMaintenanceCommand, se_ModifyClusterMaintenanceCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterMaintenanceCommand}.
  */
 export interface ModifyClusterMaintenanceCommandInput extends ModifyClusterMaintenanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterMaintenanceCommand}.
  */
 export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMaintenanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the maintenance settings of a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMain
  * import { RedshiftClient, ModifyClusterMaintenanceCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterMaintenanceCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifyClusterMaintenanceMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DeferMaintenance: true || false,
+ *   DeferMaintenanceIdentifier: "STRING_VALUE",
+ *   DeferMaintenanceStartTime: new Date("TIMESTAMP"),
+ *   DeferMaintenanceEndTime: new Date("TIMESTAMP"),
+ *   DeferMaintenanceDuration: Number("int"),
+ * };
  * const command = new ModifyClusterMaintenanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterMaintenanceCommandInput - {@link ModifyClusterMaintenanceCommandInput}
+ * @returns {@link ModifyClusterMaintenanceCommandOutput}
  * @see {@link ModifyClusterMaintenanceCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterMaintenanceCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -76,6 +83,9 @@ export class ModifyClusterMaintenanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterMaintenanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +114,8 @@ export class ModifyClusterMaintenanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterMaintenanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterMaintenanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +125,18 @@ export class ModifyClusterMaintenanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterMaintenanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterMaintenanceCommand(input, context);
+    return se_ModifyClusterMaintenanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterMaintenanceCommandOutput> {
-    return deserializeAws_queryModifyClusterMaintenanceCommand(output, context);
+    return de_ModifyClusterMaintenanceCommand(output, context);
   }
 
   // Start section: command_body_extra

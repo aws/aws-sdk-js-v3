@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDatasetRequest,
-  DeleteDatasetRequestFilterSensitiveLog,
-  DeleteDatasetResponse,
-  DeleteDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDatasetCommand,
-  serializeAws_json1_1DeleteDatasetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDatasetRequest, DeleteDatasetResponse } from "../models/models_0";
+import { de_DeleteDatasetCommand, se_DeleteDatasetCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatasetCommand}.
  */
 export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatasetCommand}.
  */
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Amazon Rekognition Custom Labels dataset.
  *    Deleting a dataset might take while. Use <a>DescribeDataset</a> to check the
  *    current status. The dataset is still deleting if the value of <code>Status</code> is
@@ -51,10 +48,15 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * import { RekognitionClient, DeleteDatasetCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteDatasetCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DeleteDatasetRequest
+ *   DatasetArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
+ * @returns {@link DeleteDatasetCommandOutput}
  * @see {@link DeleteDatasetCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -106,6 +108,9 @@ export class DeleteDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +137,8 @@ export class DeleteDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +148,18 @@ export class DeleteDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDatasetCommand(input, context);
+    return se_DeleteDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetCommandOutput> {
-    return deserializeAws_json1_1DeleteDatasetCommand(output, context);
+    return de_DeleteDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

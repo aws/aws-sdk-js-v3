@@ -18,18 +18,18 @@ import {
   UpdateStorageVirtualMachineRequest,
   UpdateStorageVirtualMachineRequestFilterSensitiveLog,
   UpdateStorageVirtualMachineResponse,
-  UpdateStorageVirtualMachineResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateStorageVirtualMachineCommand,
-  serializeAws_json1_1UpdateStorageVirtualMachineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateStorageVirtualMachineCommand, se_UpdateStorageVirtualMachineCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStorageVirtualMachineCommand}.
  */
 export interface UpdateStorageVirtualMachineCommandInput extends UpdateStorageVirtualMachineRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStorageVirtualMachineCommand}.
  */
 export interface UpdateStorageVirtualMachineCommandOutput
@@ -37,6 +37,7 @@ export interface UpdateStorageVirtualMachineCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon FSx for ONTAP storage virtual machine (SVM).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +45,26 @@ export interface UpdateStorageVirtualMachineCommandOutput
  * import { FSxClient, UpdateStorageVirtualMachineCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateStorageVirtualMachineCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // UpdateStorageVirtualMachineRequest
+ *   ActiveDirectoryConfiguration: { // UpdateSvmActiveDirectoryConfiguration
+ *     SelfManagedActiveDirectoryConfiguration: { // SelfManagedActiveDirectoryConfigurationUpdates
+ *       UserName: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *       DnsIps: [ // DnsIps
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   StorageVirtualMachineId: "STRING_VALUE", // required
+ *   SvmAdminPassword: "STRING_VALUE",
+ * };
  * const command = new UpdateStorageVirtualMachineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStorageVirtualMachineCommandInput - {@link UpdateStorageVirtualMachineCommandInput}
+ * @returns {@link UpdateStorageVirtualMachineCommandOutput}
  * @see {@link UpdateStorageVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link UpdateStorageVirtualMachineCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -88,6 +105,9 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStorageVirtualMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,7 +137,7 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateStorageVirtualMachineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStorageVirtualMachineResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +147,21 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStorageVirtualMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStorageVirtualMachineCommand(input, context);
+    return se_UpdateStorageVirtualMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateStorageVirtualMachineCommandOutput> {
-    return deserializeAws_json1_1UpdateStorageVirtualMachineCommand(output, context);
+    return de_UpdateStorageVirtualMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

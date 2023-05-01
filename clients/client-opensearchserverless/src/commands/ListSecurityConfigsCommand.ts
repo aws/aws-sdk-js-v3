@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSecurityConfigsRequest,
-  ListSecurityConfigsRequestFilterSensitiveLog,
-  ListSecurityConfigsResponse,
-  ListSecurityConfigsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSecurityConfigsRequest, ListSecurityConfigsResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0ListSecurityConfigsCommand,
-  serializeAws_json1_0ListSecurityConfigsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListSecurityConfigsCommand, se_ListSecurityConfigsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityConfigsCommand}.
  */
 export interface ListSecurityConfigsCommandInput extends ListSecurityConfigsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityConfigsCommand}.
  */
 export interface ListSecurityConfigsCommandOutput extends ListSecurityConfigsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about configured OpenSearch Serverless security configurations. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -48,10 +45,17 @@ export interface ListSecurityConfigsCommandOutput extends ListSecurityConfigsRes
  * import { OpenSearchServerlessClient, ListSecurityConfigsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListSecurityConfigsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // ListSecurityConfigsRequest
+ *   type: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSecurityConfigsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityConfigsCommandInput - {@link ListSecurityConfigsCommandInput}
+ * @returns {@link ListSecurityConfigsCommandOutput}
  * @see {@link ListSecurityConfigsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityConfigsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -82,6 +86,9 @@ export class ListSecurityConfigsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityConfigsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListSecurityConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecurityConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSecurityConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class ListSecurityConfigsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecurityConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListSecurityConfigsCommand(input, context);
+    return se_ListSecurityConfigsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityConfigsCommandOutput> {
-    return deserializeAws_json1_0ListSecurityConfigsCommand(output, context);
+    return de_ListSecurityConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

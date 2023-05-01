@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListBotsRequest,
-  ListBotsRequestFilterSensitiveLog,
-  ListBotsResponse,
-  ListBotsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBotsCommand,
-  serializeAws_restJson1ListBotsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBotsRequest, ListBotsResponse } from "../models/models_1";
+import { de_ListBotsCommand, se_ListBotsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBotsCommand}.
  */
 export interface ListBotsCommandInput extends ListBotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBotsCommand}.
  */
 export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * import { ConnectClient, ListBotsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListBotsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListBotsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   LexVersion: "V1" || "V2", // required
+ * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBotsCommandInput - {@link ListBotsCommandInput}
+ * @returns {@link ListBotsCommandOutput}
  * @see {@link ListBotsCommandInput} for command's `input` shape.
  * @see {@link ListBotsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -82,6 +87,9 @@ export class ListBotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class ListBotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBotsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +127,18 @@ export class ListBotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBotsCommand(input, context);
+    return se_ListBotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotsCommandOutput> {
-    return deserializeAws_restJson1ListBotsCommand(output, context);
+    return de_ListBotsCommand(output, context);
   }
 
   // Start section: command_body_extra

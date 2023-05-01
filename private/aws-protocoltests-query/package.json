@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-query",
   "description": "@aws-sdk/aws-protocoltests-query client",
-  "version": "3.296.0",
+  "version": "3.321.1",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -72,7 +72,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "author": {
     "name": "AWS SDK for JavaScript Team",

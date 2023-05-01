@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeletePublicAccessBlockRequest, DeletePublicAccessBlockRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeletePublicAccessBlockCommand,
-  serializeAws_restXmlDeletePublicAccessBlockCommand,
-} from "../protocols/Aws_restXml";
+import { DeletePublicAccessBlockRequest } from "../models/models_0";
+import { de_DeletePublicAccessBlockCommand, se_DeletePublicAccessBlockCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePublicAccessBlockCommand}.
  */
 export interface DeletePublicAccessBlockCommandInput extends DeletePublicAccessBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePublicAccessBlockCommand}.
  */
 export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket. To use this
  *          operation, you must have the <code>s3:PutBucketPublicAccessBlock</code> permission. For
  *          more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
@@ -64,10 +66,16 @@ export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {
  * import { S3Client, DeletePublicAccessBlockCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeletePublicAccessBlockCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeletePublicAccessBlockRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeletePublicAccessBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePublicAccessBlockCommandInput - {@link DeletePublicAccessBlockCommandInput}
+ * @returns {@link DeletePublicAccessBlockCommandOutput}
  * @see {@link DeletePublicAccessBlockCommandInput} for command's `input` shape.
  * @see {@link DeletePublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -97,6 +105,9 @@ export class DeletePublicAccessBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePublicAccessBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +136,8 @@ export class DeletePublicAccessBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePublicAccessBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +147,18 @@ export class DeletePublicAccessBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeletePublicAccessBlockCommand(input, context);
+    return se_DeletePublicAccessBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePublicAccessBlockCommandOutput> {
-    return deserializeAws_restXmlDeletePublicAccessBlockCommand(output, context);
+    return de_DeletePublicAccessBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

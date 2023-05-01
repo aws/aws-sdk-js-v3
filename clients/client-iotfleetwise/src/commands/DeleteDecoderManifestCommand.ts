@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  DeleteDecoderManifestRequest,
-  DeleteDecoderManifestRequestFilterSensitiveLog,
-  DeleteDecoderManifestResponse,
-  DeleteDecoderManifestResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteDecoderManifestCommand,
-  serializeAws_json1_0DeleteDecoderManifestCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteDecoderManifestRequest, DeleteDecoderManifestResponse } from "../models/models_0";
+import { de_DeleteDecoderManifestCommand, se_DeleteDecoderManifestCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDecoderManifestCommand}.
  */
 export interface DeleteDecoderManifestCommandInput extends DeleteDecoderManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDecoderManifestCommand}.
  */
 export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a decoder manifest. You can't delete a decoder manifest if it has vehicles
  *             associated with it. </p>
  *         <note>
@@ -47,10 +44,15 @@ export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifes
  * import { IoTFleetWiseClient, DeleteDecoderManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DeleteDecoderManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // DeleteDecoderManifestRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDecoderManifestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDecoderManifestCommandInput - {@link DeleteDecoderManifestCommandInput}
+ * @returns {@link DeleteDecoderManifestCommandOutput}
  * @see {@link DeleteDecoderManifestCommandInput} for command's `input` shape.
  * @see {@link DeleteDecoderManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -90,6 +92,9 @@ export class DeleteDecoderManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDecoderManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class DeleteDecoderManifestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDecoderManifestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDecoderManifestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class DeleteDecoderManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDecoderManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteDecoderManifestCommand(input, context);
+    return se_DeleteDecoderManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDecoderManifestCommandOutput> {
-    return deserializeAws_json1_0DeleteDecoderManifestCommand(output, context);
+    return de_DeleteDecoderManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

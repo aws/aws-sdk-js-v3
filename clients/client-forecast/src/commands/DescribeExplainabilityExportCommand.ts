@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { DescribeExplainabilityExportRequest, DescribeExplainabilityExportResponse } from "../models/models_0";
 import {
-  DescribeExplainabilityExportRequest,
-  DescribeExplainabilityExportRequestFilterSensitiveLog,
-  DescribeExplainabilityExportResponse,
-  DescribeExplainabilityExportResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeExplainabilityExportCommand,
-  serializeAws_json1_1DescribeExplainabilityExportCommand,
+  de_DescribeExplainabilityExportCommand,
+  se_DescribeExplainabilityExportCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeExplainabilityExportCommand}.
  */
 export interface DescribeExplainabilityExportCommandInput extends DescribeExplainabilityExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeExplainabilityExportCommand}.
  */
 export interface DescribeExplainabilityExportCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeExplainabilityExportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an Explainability export created using the <a>CreateExplainabilityExport</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface DescribeExplainabilityExportCommandOutput
  * import { ForecastClient, DescribeExplainabilityExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeExplainabilityExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DescribeExplainabilityExportRequest
+ *   ExplainabilityExportArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeExplainabilityExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExplainabilityExportCommandInput - {@link DescribeExplainabilityExportCommandInput}
+ * @returns {@link DescribeExplainabilityExportCommandOutput}
  * @see {@link DescribeExplainabilityExportCommandInput} for command's `input` shape.
  * @see {@link DescribeExplainabilityExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -79,6 +84,9 @@ export class DescribeExplainabilityExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExplainabilityExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +115,8 @@ export class DescribeExplainabilityExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExplainabilityExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExplainabilityExportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +126,21 @@ export class DescribeExplainabilityExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExplainabilityExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExplainabilityExportCommand(input, context);
+    return se_DescribeExplainabilityExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeExplainabilityExportCommandOutput> {
-    return deserializeAws_json1_1DescribeExplainabilityExportCommand(output, context);
+    return de_DescribeExplainabilityExportCommand(output, context);
   }
 
   // Start section: command_body_extra

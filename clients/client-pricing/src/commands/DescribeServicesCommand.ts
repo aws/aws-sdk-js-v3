@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeServicesRequest,
-  DescribeServicesRequestFilterSensitiveLog,
-  DescribeServicesResponse,
-  DescribeServicesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeServicesRequest, DescribeServicesResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import {
-  deserializeAws_json1_1DescribeServicesCommand,
-  serializeAws_json1_1DescribeServicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeServicesCommand, se_DescribeServicesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeServicesCommand}.
  */
 export interface DescribeServicesCommandInput extends DescribeServicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeServicesCommand}.
  */
 export interface DescribeServicesCommandOutput extends DescribeServicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the metadata for one service or a list of the metadata for all services. Use
  *          this without a service code to get the service codes for all services.
  *          Use it with a service code, such as <code>AmazonEC2</code>, to get information specific to
@@ -48,10 +45,18 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * import { PricingClient, DescribeServicesCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, DescribeServicesCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
  * const client = new PricingClient(config);
+ * const input = { // DescribeServicesRequest
+ *   ServiceCode: "STRING_VALUE",
+ *   FormatVersion: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeServicesCommandInput - {@link DescribeServicesCommandInput}
+ * @returns {@link DescribeServicesCommandOutput}
  * @see {@link DescribeServicesCommandInput} for command's `input` shape.
  * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
@@ -121,6 +126,9 @@ export class DescribeServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +157,8 @@ export class DescribeServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeServicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,12 +168,18 @@ export class DescribeServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServicesCommand(input, context);
+    return se_DescribeServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServicesCommandOutput> {
-    return deserializeAws_json1_1DescribeServicesCommand(output, context);
+    return de_DescribeServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

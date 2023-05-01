@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { ListResourceProfileDetectionsRequest, ListResourceProfileDetectionsResponse } from "../models/models_1";
 import {
-  ListResourceProfileDetectionsRequest,
-  ListResourceProfileDetectionsRequestFilterSensitiveLog,
-  ListResourceProfileDetectionsResponse,
-  ListResourceProfileDetectionsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListResourceProfileDetectionsCommand,
-  serializeAws_restJson1ListResourceProfileDetectionsCommand,
+  de_ListResourceProfileDetectionsCommand,
+  se_ListResourceProfileDetectionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceProfileDetectionsCommand}.
  */
 export interface ListResourceProfileDetectionsCommandInput extends ListResourceProfileDetectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceProfileDetectionsCommand}.
  */
 export interface ListResourceProfileDetectionsCommandOutput
@@ -37,6 +36,7 @@ export interface ListResourceProfileDetectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the types and amount of sensitive data that Amazon Macie found in an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface ListResourceProfileDetectionsCommandOutput
  * import { Macie2Client, ListResourceProfileDetectionsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListResourceProfileDetectionsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // ListResourceProfileDetectionsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListResourceProfileDetectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceProfileDetectionsCommandInput - {@link ListResourceProfileDetectionsCommandInput}
+ * @returns {@link ListResourceProfileDetectionsCommandOutput}
  * @see {@link ListResourceProfileDetectionsCommandInput} for command's `input` shape.
  * @see {@link ListResourceProfileDetectionsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -89,6 +96,9 @@ export class ListResourceProfileDetectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceProfileDetectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class ListResourceProfileDetectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceProfileDetectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceProfileDetectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +138,21 @@ export class ListResourceProfileDetectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceProfileDetectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourceProfileDetectionsCommand(input, context);
+    return se_ListResourceProfileDetectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourceProfileDetectionsCommandOutput> {
-    return deserializeAws_restJson1ListResourceProfileDetectionsCommand(output, context);
+    return de_ListResourceProfileDetectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

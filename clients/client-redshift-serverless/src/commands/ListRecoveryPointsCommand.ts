@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRecoveryPointsRequest,
-  ListRecoveryPointsRequestFilterSensitiveLog,
-  ListRecoveryPointsResponse,
-  ListRecoveryPointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRecoveryPointsCommand,
-  serializeAws_json1_1ListRecoveryPointsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListRecoveryPointsRequest, ListRecoveryPointsResponse } from "../models/models_0";
+import { de_ListRecoveryPointsCommand, se_ListRecoveryPointsCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecoveryPointsCommand}.
  */
 export interface ListRecoveryPointsCommandInput extends ListRecoveryPointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecoveryPointsCommand}.
  */
 export interface ListRecoveryPointsCommandOutput extends ListRecoveryPointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of recovery points.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,20 @@ export interface ListRecoveryPointsCommandOutput extends ListRecoveryPointsRespo
  * import { RedshiftServerlessClient, ListRecoveryPointsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListRecoveryPointsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // ListRecoveryPointsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   namespaceName: "STRING_VALUE",
+ *   namespaceArn: "STRING_VALUE",
+ * };
  * const command = new ListRecoveryPointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecoveryPointsCommandInput - {@link ListRecoveryPointsCommandInput}
+ * @returns {@link ListRecoveryPointsCommandOutput}
  * @see {@link ListRecoveryPointsCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -79,6 +86,9 @@ export class ListRecoveryPointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecoveryPointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +117,8 @@ export class ListRecoveryPointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecoveryPointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecoveryPointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +128,18 @@ export class ListRecoveryPointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecoveryPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRecoveryPointsCommand(input, context);
+    return se_ListRecoveryPointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecoveryPointsCommandOutput> {
-    return deserializeAws_json1_1ListRecoveryPointsCommand(output, context);
+    return de_ListRecoveryPointsCommand(output, context);
   }
 
   // Start section: command_body_extra

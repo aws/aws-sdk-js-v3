@@ -15,22 +15,24 @@ import {
 
 import {
   PutServiceQuotaIncreaseRequestIntoTemplateRequest,
-  PutServiceQuotaIncreaseRequestIntoTemplateRequestFilterSensitiveLog,
   PutServiceQuotaIncreaseRequestIntoTemplateResponse,
-  PutServiceQuotaIncreaseRequestIntoTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand,
-  serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand,
+  de_PutServiceQuotaIncreaseRequestIntoTemplateCommand,
+  se_PutServiceQuotaIncreaseRequestIntoTemplateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutServiceQuotaIncreaseRequestIntoTemplateCommand}.
  */
 export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandInput
   extends PutServiceQuotaIncreaseRequestIntoTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutServiceQuotaIncreaseRequestIntoTemplateCommand}.
  */
 export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
@@ -38,6 +40,7 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a quota increase request to your quota request template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,18 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
  * import { ServiceQuotasClient, PutServiceQuotaIncreaseRequestIntoTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, PutServiceQuotaIncreaseRequestIntoTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = { // PutServiceQuotaIncreaseRequestIntoTemplateRequest
+ *   QuotaCode: "STRING_VALUE", // required
+ *   ServiceCode: "STRING_VALUE", // required
+ *   AwsRegion: "STRING_VALUE", // required
+ *   DesiredValue: Number("double"), // required
+ * };
  * const command = new PutServiceQuotaIncreaseRequestIntoTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutServiceQuotaIncreaseRequestIntoTemplateCommandInput - {@link PutServiceQuotaIncreaseRequestIntoTemplateCommandInput}
+ * @returns {@link PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput}
  * @see {@link PutServiceQuotaIncreaseRequestIntoTemplateCommandInput} for command's `input` shape.
  * @see {@link PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -105,6 +116,9 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +153,8 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutServiceQuotaIncreaseRequestIntoTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutServiceQuotaIncreaseRequestIntoTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,18 +164,24 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand(input, context);
+    return se_PutServiceQuotaIncreaseRequestIntoTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> {
-    return deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand(output, context);
+    return de_PutServiceQuotaIncreaseRequestIntoTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

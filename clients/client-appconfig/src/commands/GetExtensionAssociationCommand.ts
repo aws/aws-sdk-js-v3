@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  ExtensionAssociation,
-  ExtensionAssociationFilterSensitiveLog,
-  GetExtensionAssociationRequest,
-  GetExtensionAssociationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetExtensionAssociationCommand,
-  serializeAws_restJson1GetExtensionAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { ExtensionAssociation, GetExtensionAssociationRequest } from "../models/models_0";
+import { de_GetExtensionAssociationCommand, se_GetExtensionAssociationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExtensionAssociationCommand}.
  */
 export interface GetExtensionAssociationCommandInput extends GetExtensionAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExtensionAssociationCommand}.
  */
 export interface GetExtensionAssociationCommandOutput extends ExtensionAssociation, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an AppConfig extension association. For more
  *          information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
@@ -45,10 +42,15 @@ export interface GetExtensionAssociationCommandOutput extends ExtensionAssociati
  * import { AppConfigClient, GetExtensionAssociationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetExtensionAssociationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // GetExtensionAssociationRequest
+ *   ExtensionAssociationId: "STRING_VALUE", // required
+ * };
  * const command = new GetExtensionAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExtensionAssociationCommandInput - {@link GetExtensionAssociationCommandInput}
+ * @returns {@link GetExtensionAssociationCommandOutput}
  * @see {@link GetExtensionAssociationCommandInput} for command's `input` shape.
  * @see {@link GetExtensionAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -81,6 +83,9 @@ export class GetExtensionAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExtensionAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class GetExtensionAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExtensionAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtensionAssociationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class GetExtensionAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExtensionAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetExtensionAssociationCommand(input, context);
+    return se_GetExtensionAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExtensionAssociationCommandOutput> {
-    return deserializeAws_restJson1GetExtensionAssociationCommand(output, context);
+    return de_GetExtensionAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

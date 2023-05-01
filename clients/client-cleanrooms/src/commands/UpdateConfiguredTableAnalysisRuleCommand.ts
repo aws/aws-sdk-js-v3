@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import { UpdateConfiguredTableAnalysisRuleInput, UpdateConfiguredTableAnalysisRuleOutput } from "../models/models_0";
 import {
-  UpdateConfiguredTableAnalysisRuleInput,
-  UpdateConfiguredTableAnalysisRuleInputFilterSensitiveLog,
-  UpdateConfiguredTableAnalysisRuleOutput,
-  UpdateConfiguredTableAnalysisRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConfiguredTableAnalysisRuleCommand,
-  serializeAws_restJson1UpdateConfiguredTableAnalysisRuleCommand,
+  de_UpdateConfiguredTableAnalysisRuleCommand,
+  se_UpdateConfiguredTableAnalysisRuleCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfiguredTableAnalysisRuleCommand}.
  */
 export interface UpdateConfiguredTableAnalysisRuleCommandInput extends UpdateConfiguredTableAnalysisRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfiguredTableAnalysisRuleCommand}.
  */
 export interface UpdateConfiguredTableAnalysisRuleCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a configured table analysis rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,55 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
  * import { CleanRoomsClient, UpdateConfiguredTableAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, UpdateConfiguredTableAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // UpdateConfiguredTableAnalysisRuleInput
+ *   configuredTableIdentifier: "STRING_VALUE", // required
+ *   analysisRuleType: "AGGREGATION" || "LIST", // required
+ *   analysisRulePolicy: { // ConfiguredTableAnalysisRulePolicy Union: only one key present
+ *     v1: { // ConfiguredTableAnalysisRulePolicyV1 Union: only one key present
+ *       list: { // AnalysisRuleList
+ *         joinColumns: [ // AnalysisRuleColumnList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         listColumns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       aggregation: { // AnalysisRuleAggregation
+ *         aggregateColumns: [ // AggregateColumnList // required
+ *           { // AggregateColumn
+ *             columnNames: [ // AnalysisRuleColumnNameList // required
+ *               "STRING_VALUE",
+ *             ],
+ *             function: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         joinColumns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         joinRequired: "STRING_VALUE",
+ *         dimensionColumns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         scalarFunctions: [ // ScalarFunctionsList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         outputConstraints: [ // AggregationConstraints // required
+ *           { // AggregationConstraint
+ *             columnName: "STRING_VALUE", // required
+ *             minimum: Number("int"), // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateConfiguredTableAnalysisRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfiguredTableAnalysisRuleCommandInput - {@link UpdateConfiguredTableAnalysisRuleCommandInput}
+ * @returns {@link UpdateConfiguredTableAnalysisRuleCommandOutput}
  * @see {@link UpdateConfiguredTableAnalysisRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateConfiguredTableAnalysisRuleCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -89,6 +134,9 @@ export class UpdateConfiguredTableAnalysisRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfiguredTableAnalysisRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +165,8 @@ export class UpdateConfiguredTableAnalysisRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfiguredTableAnalysisRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConfiguredTableAnalysisRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +176,24 @@ export class UpdateConfiguredTableAnalysisRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfiguredTableAnalysisRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConfiguredTableAnalysisRuleCommand(input, context);
+    return se_UpdateConfiguredTableAnalysisRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfiguredTableAnalysisRuleCommandOutput> {
-    return deserializeAws_restJson1UpdateConfiguredTableAnalysisRuleCommand(output, context);
+    return de_UpdateConfiguredTableAnalysisRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

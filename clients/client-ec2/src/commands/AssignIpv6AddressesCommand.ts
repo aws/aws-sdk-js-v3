@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssignIpv6AddressesRequest,
-  AssignIpv6AddressesRequestFilterSensitiveLog,
-  AssignIpv6AddressesResult,
-  AssignIpv6AddressesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AssignIpv6AddressesCommand,
-  serializeAws_ec2AssignIpv6AddressesCommand,
-} from "../protocols/Aws_ec2";
+import { AssignIpv6AddressesRequest, AssignIpv6AddressesResult } from "../models/models_0";
+import { de_AssignIpv6AddressesCommand, se_AssignIpv6AddressesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssignIpv6AddressesCommand}.
  */
 export interface AssignIpv6AddressesCommandInput extends AssignIpv6AddressesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssignIpv6AddressesCommand}.
  */
 export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns one or more IPv6 addresses to the specified network interface. You can
  *             specify one or more specific IPv6 addresses, or you can specify the number of IPv6
  *             addresses to be automatically assigned from within the subnet's IPv6 CIDR block range.
@@ -52,10 +49,23 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  * import { EC2Client, AssignIpv6AddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssignIpv6AddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssignIpv6AddressesRequest
+ *   Ipv6AddressCount: Number("int"),
+ *   Ipv6Addresses: [ // Ipv6AddressList
+ *     "STRING_VALUE",
+ *   ],
+ *   Ipv6PrefixCount: Number("int"),
+ *   Ipv6Prefixes: [ // IpPrefixList
+ *     "STRING_VALUE",
+ *   ],
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ * };
  * const command = new AssignIpv6AddressesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssignIpv6AddressesCommandInput - {@link AssignIpv6AddressesCommandInput}
+ * @returns {@link AssignIpv6AddressesCommandOutput}
  * @see {@link AssignIpv6AddressesCommandInput} for command's `input` shape.
  * @see {@link AssignIpv6AddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +89,9 @@ export class AssignIpv6AddressesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssignIpv6AddressesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +120,8 @@ export class AssignIpv6AddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssignIpv6AddressesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssignIpv6AddressesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +131,18 @@ export class AssignIpv6AddressesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssignIpv6AddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssignIpv6AddressesCommand(input, context);
+    return se_AssignIpv6AddressesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignIpv6AddressesCommandOutput> {
-    return deserializeAws_ec2AssignIpv6AddressesCommand(output, context);
+    return de_AssignIpv6AddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

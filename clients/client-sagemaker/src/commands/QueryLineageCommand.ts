@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  QueryLineageRequest,
-  QueryLineageRequestFilterSensitiveLog,
-  QueryLineageResponse,
-  QueryLineageResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1QueryLineageCommand,
-  serializeAws_json1_1QueryLineageCommand,
-} from "../protocols/Aws_json1_1";
+import { QueryLineageRequest, QueryLineageResponse } from "../models/models_3";
+import { de_QueryLineageCommand, se_QueryLineageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link QueryLineageCommand}.
  */
 export interface QueryLineageCommandInput extends QueryLineageRequest {}
 /**
+ * @public
+ *
  * The output of {@link QueryLineageCommand}.
  */
 export interface QueryLineageCommandOutput extends QueryLineageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this action to inspect your lineage and discover relationships between entities.
  *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/querying-lineage-entities.html">
  *             Querying Lineage Entities</a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
@@ -44,10 +41,37 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  * import { SageMakerClient, QueryLineageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, QueryLineageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // QueryLineageRequest
+ *   StartArns: [ // QueryLineageStartArns
+ *     "STRING_VALUE",
+ *   ],
+ *   Direction: "Both" || "Ascendants" || "Descendants",
+ *   IncludeEdges: true || false,
+ *   Filters: { // QueryFilters
+ *     Types: [ // QueryTypes
+ *       "STRING_VALUE",
+ *     ],
+ *     LineageTypes: [ // QueryLineageTypes
+ *       "TrialComponent" || "Artifact" || "Context" || "Action",
+ *     ],
+ *     CreatedBefore: new Date("TIMESTAMP"),
+ *     CreatedAfter: new Date("TIMESTAMP"),
+ *     ModifiedBefore: new Date("TIMESTAMP"),
+ *     ModifiedAfter: new Date("TIMESTAMP"),
+ *     Properties: { // QueryProperties
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   MaxDepth: Number("int"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new QueryLineageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryLineageCommandInput - {@link QueryLineageCommandInput}
+ * @returns {@link QueryLineageCommandOutput}
  * @see {@link QueryLineageCommandInput} for command's `input` shape.
  * @see {@link QueryLineageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +98,9 @@ export class QueryLineageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryLineageCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +127,8 @@ export class QueryLineageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryLineageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryLineageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +138,18 @@ export class QueryLineageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryLineageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1QueryLineageCommand(input, context);
+    return se_QueryLineageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryLineageCommandOutput> {
-    return deserializeAws_json1_1QueryLineageCommand(output, context);
+    return de_QueryLineageCommand(output, context);
   }
 
   // Start section: command_body_extra

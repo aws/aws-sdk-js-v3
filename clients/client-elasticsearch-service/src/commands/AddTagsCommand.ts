@@ -18,22 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { AddTagsRequest, AddTagsRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddTagsCommand,
-  serializeAws_restJson1AddTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { AddTagsRequest } from "../models/models_0";
+import { de_AddTagsCommand, se_AddTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsCommand}.
  */
 export interface AddTagsCommandInput extends AddTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsCommand}.
  */
 export interface AddTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank">
  *           Tagging Amazon Elasticsearch Service Domains for more information.</a></p>
  * @example
@@ -42,10 +44,21 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
  * import { ElasticsearchServiceClient, AddTagsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, AddTagsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // AddTagsRequest
+ *   ARN: "STRING_VALUE", // required
+ *   TagList: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsCommandInput - {@link AddTagsCommandInput}
+ * @returns {@link AddTagsCommandOutput}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -81,6 +94,9 @@ export class AddTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +123,8 @@ export class AddTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +134,18 @@ export class AddTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddTagsCommand(input, context);
+    return se_AddTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
-    return deserializeAws_restJson1AddTagsCommand(output, context);
+    return de_AddTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

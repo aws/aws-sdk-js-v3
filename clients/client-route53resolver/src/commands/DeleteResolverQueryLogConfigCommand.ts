@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteResolverQueryLogConfigRequest, DeleteResolverQueryLogConfigResponse } from "../models/models_0";
 import {
-  DeleteResolverQueryLogConfigRequest,
-  DeleteResolverQueryLogConfigRequestFilterSensitiveLog,
-  DeleteResolverQueryLogConfigResponse,
-  DeleteResolverQueryLogConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResolverQueryLogConfigCommand,
-  serializeAws_json1_1DeleteResolverQueryLogConfigCommand,
+  de_DeleteResolverQueryLogConfigCommand,
+  se_DeleteResolverQueryLogConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResolverQueryLogConfigCommand}.
  */
 export interface DeleteResolverQueryLogConfigCommandInput extends DeleteResolverQueryLogConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResolverQueryLogConfigCommand}.
  */
 export interface DeleteResolverQueryLogConfigCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteResolverQueryLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are
  * 			associated with the configuration. This also applies if the query logging configuration is shared with other Amazon Web Services accounts, and
  * 			the other accounts have associated VPCs with the shared configuration.</p>
@@ -52,10 +52,15 @@ export interface DeleteResolverQueryLogConfigCommandOutput
  * import { Route53ResolverClient, DeleteResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DeleteResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // DeleteResolverQueryLogConfigRequest
+ *   ResolverQueryLogConfigId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResolverQueryLogConfigCommandInput - {@link DeleteResolverQueryLogConfigCommandInput}
+ * @returns {@link DeleteResolverQueryLogConfigCommandOutput}
  * @see {@link DeleteResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -97,6 +102,9 @@ export class DeleteResolverQueryLogConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResolverQueryLogConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +133,8 @@ export class DeleteResolverQueryLogConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResolverQueryLogConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResolverQueryLogConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +144,21 @@ export class DeleteResolverQueryLogConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResolverQueryLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResolverQueryLogConfigCommand(input, context);
+    return se_DeleteResolverQueryLogConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteResolverQueryLogConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteResolverQueryLogConfigCommand(output, context);
+    return de_DeleteResolverQueryLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

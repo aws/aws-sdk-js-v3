@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSoftwareUpdatesRequest,
-  GetSoftwareUpdatesRequestFilterSensitiveLog,
-  GetSoftwareUpdatesResult,
-  GetSoftwareUpdatesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSoftwareUpdatesCommand,
-  serializeAws_json1_1GetSoftwareUpdatesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSoftwareUpdatesRequest, GetSoftwareUpdatesResult } from "../models/models_0";
+import { de_GetSoftwareUpdatesCommand, se_GetSoftwareUpdatesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSoftwareUpdatesCommand}.
  */
 export interface GetSoftwareUpdatesCommandInput extends GetSoftwareUpdatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSoftwareUpdatesCommand}.
  */
 export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an Amazon S3 presigned URL for an update file associated with a specified
  *         <code>JobId</code>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  * import { SnowballClient, GetSoftwareUpdatesCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, GetSoftwareUpdatesCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // GetSoftwareUpdatesRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetSoftwareUpdatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSoftwareUpdatesCommandInput - {@link GetSoftwareUpdatesCommandInput}
+ * @returns {@link GetSoftwareUpdatesCommandOutput}
  * @see {@link GetSoftwareUpdatesCommandInput} for command's `input` shape.
  * @see {@link GetSoftwareUpdatesCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -78,6 +80,9 @@ export class GetSoftwareUpdatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSoftwareUpdatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class GetSoftwareUpdatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSoftwareUpdatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSoftwareUpdatesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class GetSoftwareUpdatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSoftwareUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSoftwareUpdatesCommand(input, context);
+    return se_GetSoftwareUpdatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSoftwareUpdatesCommandOutput> {
-    return deserializeAws_json1_1GetSoftwareUpdatesCommand(output, context);
+    return de_GetSoftwareUpdatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDatabaseRequest,
-  CreateDatabaseRequestFilterSensitiveLog,
-  CreateDatabaseResponse,
-  CreateDatabaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateDatabaseCommand,
-  serializeAws_json1_0CreateDatabaseCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateDatabaseRequest, CreateDatabaseResponse } from "../models/models_0";
+import { de_CreateDatabaseCommand, se_CreateDatabaseCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatabaseCommand}.
  */
 export interface CreateDatabaseCommandInput extends CreateDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatabaseCommand}.
  */
 export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Timestream database. If the KMS key is not
  *          specified, the database will be encrypted with a Timestream managed KMS key located in your account. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed keys</a>. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. For
  *          details, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html">code sample</a>.
@@ -46,10 +43,22 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * import { TimestreamWriteClient, CreateDatabaseCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, CreateDatabaseCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = { // CreateDatabaseRequest
+ *   DatabaseName: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDatabaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatabaseCommandInput - {@link CreateDatabaseCommandInput}
+ * @returns {@link CreateDatabaseCommandOutput}
  * @see {@link CreateDatabaseCommandInput} for command's `input` shape.
  * @see {@link CreateDatabaseCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -98,6 +107,9 @@ export class CreateDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +141,8 @@ export class CreateDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatabaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +152,18 @@ export class CreateDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateDatabaseCommand(input, context);
+    return se_CreateDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatabaseCommandOutput> {
-    return deserializeAws_json1_0CreateDatabaseCommand(output, context);
+    return de_CreateDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  GetEventDataStoreRequest,
-  GetEventDataStoreRequestFilterSensitiveLog,
-  GetEventDataStoreResponse,
-  GetEventDataStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetEventDataStoreCommand,
-  serializeAws_json1_1GetEventDataStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { GetEventDataStoreRequest, GetEventDataStoreResponse } from "../models/models_0";
+import { de_GetEventDataStoreCommand, se_GetEventDataStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventDataStoreCommand}.
  */
 export interface GetEventDataStoreCommandInput extends GetEventDataStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventDataStoreCommand}.
  */
 export interface GetEventDataStoreCommandOutput extends GetEventDataStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about an event data store specified as either an ARN or the ID
  *          portion of the ARN.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetEventDataStoreCommandOutput extends GetEventDataStoreRespons
  * import { CloudTrailClient, GetEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // GetEventDataStoreRequest
+ *   EventDataStore: "STRING_VALUE", // required
+ * };
  * const command = new GetEventDataStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventDataStoreCommandInput - {@link GetEventDataStoreCommandInput}
+ * @returns {@link GetEventDataStoreCommandOutput}
  * @see {@link GetEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link GetEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -90,6 +92,9 @@ export class GetEventDataStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class GetEventDataStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventDataStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEventDataStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class GetEventDataStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEventDataStoreCommand(input, context);
+    return se_GetEventDataStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventDataStoreCommandOutput> {
-    return deserializeAws_json1_1GetEventDataStoreCommand(output, context);
+    return de_GetEventDataStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

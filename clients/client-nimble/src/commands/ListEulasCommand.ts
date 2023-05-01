@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListEulasRequest,
-  ListEulasRequestFilterSensitiveLog,
-  ListEulasResponse,
-  ListEulasResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEulasRequest, ListEulasResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1ListEulasCommand,
-  serializeAws_restJson1ListEulasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEulasCommand, se_ListEulasCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEulasCommand}.
  */
 export interface ListEulasCommandInput extends ListEulasRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEulasCommand}.
  */
 export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List EULAs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBea
  * import { NimbleClient, ListEulasCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListEulasCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // ListEulasRequest
+ *   eulaIds: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListEulasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEulasCommandInput - {@link ListEulasCommandInput}
+ * @returns {@link ListEulasCommandOutput}
  * @see {@link ListEulasCommandInput} for command's `input` shape.
  * @see {@link ListEulasCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +98,9 @@ export class ListEulasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEulasCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class ListEulasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEulasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEulasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +138,18 @@ export class ListEulasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEulasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEulasCommand(input, context);
+    return se_ListEulasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEulasCommandOutput> {
-    return deserializeAws_restJson1ListEulasCommand(output, context);
+    return de_ListEulasCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListModelPackageGroupsInput,
-  ListModelPackageGroupsInputFilterSensitiveLog,
-  ListModelPackageGroupsOutput,
-  ListModelPackageGroupsOutputFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListModelPackageGroupsCommand,
-  serializeAws_json1_1ListModelPackageGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListModelPackageGroupsInput, ListModelPackageGroupsOutput } from "../models/models_3";
+import { de_ListModelPackageGroupsCommand, se_ListModelPackageGroupsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelPackageGroupsCommand}.
  */
 export interface ListModelPackageGroupsCommandInput extends ListModelPackageGroupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListModelPackageGroupsCommand}.
  */
 export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGroupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the model groups in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
  * import { SageMakerClient, ListModelPackageGroupsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelPackageGroupsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListModelPackageGroupsInput
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListModelPackageGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelPackageGroupsCommandInput - {@link ListModelPackageGroupsCommandInput}
+ * @returns {@link ListModelPackageGroupsCommandOutput}
  * @see {@link ListModelPackageGroupsCommandInput} for command's `input` shape.
  * @see {@link ListModelPackageGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +77,9 @@ export class ListModelPackageGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelPackageGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +108,8 @@ export class ListModelPackageGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelPackageGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelPackageGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +119,18 @@ export class ListModelPackageGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelPackageGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListModelPackageGroupsCommand(input, context);
+    return se_ListModelPackageGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelPackageGroupsCommandOutput> {
-    return deserializeAws_json1_1ListModelPackageGroupsCommand(output, context);
+    return de_ListModelPackageGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

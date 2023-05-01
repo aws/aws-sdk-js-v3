@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  DeleteJobTemplateRequest,
-  DeleteJobTemplateRequestFilterSensitiveLog,
-  DeleteJobTemplateResponse,
-  DeleteJobTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteJobTemplateCommand,
-  serializeAws_restJson1DeleteJobTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/models_1";
+import { de_DeleteJobTemplateCommand, se_DeleteJobTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteJobTemplateCommand}.
  */
 export interface DeleteJobTemplateCommandInput extends DeleteJobTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteJobTemplateCommand}.
  */
 export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Permanently delete a job template you have created.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateRespons
  * import { MediaConvertClient, DeleteJobTemplateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, DeleteJobTemplateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = { // DeleteJobTemplateRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteJobTemplateCommandInput - {@link DeleteJobTemplateCommandInput}
+ * @returns {@link DeleteJobTemplateCommandOutput}
  * @see {@link DeleteJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DeleteJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteJobTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DeleteJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteJobTemplateCommand(input, context);
+    return se_DeleteJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteJobTemplateCommand(output, context);
+    return de_DeleteJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

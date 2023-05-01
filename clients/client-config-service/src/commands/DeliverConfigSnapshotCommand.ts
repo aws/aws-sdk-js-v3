@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  DeliverConfigSnapshotRequest,
-  DeliverConfigSnapshotRequestFilterSensitiveLog,
-  DeliverConfigSnapshotResponse,
-  DeliverConfigSnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeliverConfigSnapshotCommand,
-  serializeAws_json1_1DeliverConfigSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { DeliverConfigSnapshotRequest, DeliverConfigSnapshotResponse } from "../models/models_0";
+import { de_DeliverConfigSnapshotCommand, se_DeliverConfigSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeliverConfigSnapshotCommand}.
  */
 export interface DeliverConfigSnapshotCommandInput extends DeliverConfigSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeliverConfigSnapshotCommand}.
  */
 export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules delivery of a configuration snapshot to the Amazon S3
  * 			bucket in the specified delivery channel. After the delivery has
  * 			started, Config sends the following notifications using an
@@ -58,10 +55,15 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * import { ConfigServiceClient, DeliverConfigSnapshotCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeliverConfigSnapshotCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeliverConfigSnapshotRequest
+ *   deliveryChannelName: "STRING_VALUE", // required
+ * };
  * const command = new DeliverConfigSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeliverConfigSnapshotCommandInput - {@link DeliverConfigSnapshotCommandInput}
+ * @returns {@link DeliverConfigSnapshotCommandOutput}
  * @see {@link DeliverConfigSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeliverConfigSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -97,6 +99,9 @@ export class DeliverConfigSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeliverConfigSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +130,8 @@ export class DeliverConfigSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeliverConfigSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeliverConfigSnapshotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +141,18 @@ export class DeliverConfigSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeliverConfigSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeliverConfigSnapshotCommand(input, context);
+    return se_DeliverConfigSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeliverConfigSnapshotCommandOutput> {
-    return deserializeAws_json1_1DeliverConfigSnapshotCommand(output, context);
+    return de_DeliverConfigSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

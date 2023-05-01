@@ -25,15 +25,19 @@ import {
   CreateMediaConcatenationPipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateMediaConcatenationPipelineCommand,
-  serializeAws_restJson1CreateMediaConcatenationPipelineCommand,
+  de_CreateMediaConcatenationPipelineCommand,
+  se_CreateMediaConcatenationPipelineCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMediaConcatenationPipelineCommand}.
  */
 export interface CreateMediaConcatenationPipelineCommandInput extends CreateMediaConcatenationPipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMediaConcatenationPipelineCommand}.
  */
 export interface CreateMediaConcatenationPipelineCommandOutput
@@ -41,6 +45,7 @@ export interface CreateMediaConcatenationPipelineCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a media concatenation pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +53,62 @@ export interface CreateMediaConcatenationPipelineCommandOutput
  * import { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
+ * const input = { // CreateMediaConcatenationPipelineRequest
+ *   Sources: [ // ConcatenationSourceList // required
+ *     { // ConcatenationSource
+ *       Type: "MediaCapturePipeline", // required
+ *       MediaCapturePipelineSourceConfiguration: { // MediaCapturePipelineSourceConfiguration
+ *         MediaPipelineArn: "STRING_VALUE", // required
+ *         ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConcatenationConfiguration
+ *           ArtifactsConfiguration: { // ArtifactsConcatenationConfiguration
+ *             Audio: { // AudioConcatenationConfiguration
+ *               State: "Enabled", // required
+ *             },
+ *             Video: { // VideoConcatenationConfiguration
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *             Content: { // ContentConcatenationConfiguration
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *             DataChannel: { // DataChannelConcatenationConfiguration
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *             TranscriptionMessages: { // TranscriptionMessagesConcatenationConfiguration
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *             MeetingEvents: { // MeetingEventsConcatenationConfiguration
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *             CompositedVideo: { // CompositedVideoConcatenationConfiguration
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   Sinks: [ // ConcatenationSinkList // required
+ *     { // ConcatenationSink
+ *       Type: "S3Bucket", // required
+ *       S3BucketSinkConfiguration: { // S3BucketSinkConfiguration
+ *         Destination: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMediaConcatenationPipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMediaConcatenationPipelineCommandInput - {@link CreateMediaConcatenationPipelineCommandInput}
+ * @returns {@link CreateMediaConcatenationPipelineCommandOutput}
  * @see {@link CreateMediaConcatenationPipelineCommandInput} for command's `input` shape.
  * @see {@link CreateMediaConcatenationPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
@@ -96,6 +153,9 @@ export class CreateMediaConcatenationPipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMediaConcatenationPipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,18 +195,24 @@ export class CreateMediaConcatenationPipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateMediaConcatenationPipelineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMediaConcatenationPipelineCommand(input, context);
+    return se_CreateMediaConcatenationPipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMediaConcatenationPipelineCommandOutput> {
-    return deserializeAws_restJson1CreateMediaConcatenationPipelineCommand(output, context);
+    return de_CreateMediaConcatenationPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

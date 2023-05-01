@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelOrderInput,
-  CancelOrderInputFilterSensitiveLog,
-  CancelOrderOutput,
-  CancelOrderOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelOrderInput, CancelOrderOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1CancelOrderCommand,
-  serializeAws_restJson1CancelOrderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelOrderCommand, se_CancelOrderCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelOrderCommand}.
  */
 export interface CancelOrderCommandInput extends CancelOrderInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelOrderCommand}.
  */
 export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels the specified order for an Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataB
  * import { OutpostsClient, CancelOrderCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CancelOrderCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // CancelOrderInput
+ *   OrderId: "STRING_VALUE", // required
+ * };
  * const command = new CancelOrderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelOrderCommandInput - {@link CancelOrderCommandInput}
+ * @returns {@link CancelOrderCommandOutput}
  * @see {@link CancelOrderCommandInput} for command's `input` shape.
  * @see {@link CancelOrderCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -84,6 +86,9 @@ export class CancelOrderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelOrderCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class CancelOrderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelOrderInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelOrderOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class CancelOrderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelOrderCommand(input, context);
+    return se_CancelOrderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelOrderCommandOutput> {
-    return deserializeAws_restJson1CancelOrderCommand(output, context);
+    return de_CancelOrderCommand(output, context);
   }
 
   // Start section: command_body_extra

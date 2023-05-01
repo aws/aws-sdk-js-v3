@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateConnectionAliasRequest,
-  DisassociateConnectionAliasRequestFilterSensitiveLog,
-  DisassociateConnectionAliasResult,
-  DisassociateConnectionAliasResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateConnectionAliasCommand,
-  serializeAws_json1_1DisassociateConnectionAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateConnectionAliasRequest, DisassociateConnectionAliasResult } from "../models/models_0";
+import { de_DisassociateConnectionAliasCommand, se_DisassociateConnectionAliasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateConnectionAliasCommand}.
  */
 export interface DisassociateConnectionAliasCommandInput extends DisassociateConnectionAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateConnectionAliasCommand}.
  */
 export interface DisassociateConnectionAliasCommandOutput extends DisassociateConnectionAliasResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a connection alias from a directory. Disassociating a connection alias
  *          disables cross-Region redirection between two directories in different Regions. For more
  *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
@@ -50,10 +47,15 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  * import { WorkSpacesClient, DisassociateConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DisassociateConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DisassociateConnectionAliasRequest
+ *   AliasId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateConnectionAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateConnectionAliasCommandInput - {@link DisassociateConnectionAliasCommandInput}
+ * @returns {@link DisassociateConnectionAliasCommandOutput}
  * @see {@link DisassociateConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -92,6 +94,9 @@ export class DisassociateConnectionAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateConnectionAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +125,8 @@ export class DisassociateConnectionAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateConnectionAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateConnectionAliasResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +136,21 @@ export class DisassociateConnectionAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateConnectionAliasCommand(input, context);
+    return se_DisassociateConnectionAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateConnectionAliasCommandOutput> {
-    return deserializeAws_json1_1DisassociateConnectionAliasCommand(output, context);
+    return de_DisassociateConnectionAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -21,22 +21,24 @@ import {
   SelectObjectContentRequest,
   SelectObjectContentRequestFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlSelectObjectContentCommand,
-  serializeAws_restXmlSelectObjectContentCommand,
-} from "../protocols/Aws_restXml";
+import { de_SelectObjectContentCommand, se_SelectObjectContentCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link SelectObjectContentCommand}.
  */
 export interface SelectObjectContentCommandInput extends SelectObjectContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link SelectObjectContentCommand}.
  */
 export interface SelectObjectContentCommandOutput extends SelectObjectContentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action filters the contents of an Amazon S3 object based on a simple structured query
  *          language (SQL) statement. In the request, along with the SQL expression, you must also
  *          specify a data serialization format (JSON, CSV, or Apache Parquet) of the object. Amazon S3 uses
@@ -158,10 +160,57 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * import { S3Client, SelectObjectContentCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, SelectObjectContentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // SelectObjectContentRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   Expression: "STRING_VALUE", // required
+ *   ExpressionType: "SQL", // required
+ *   RequestProgress: { // RequestProgress
+ *     Enabled: true || false,
+ *   },
+ *   InputSerialization: { // InputSerialization
+ *     CSV: { // CSVInput
+ *       FileHeaderInfo: "USE" || "IGNORE" || "NONE",
+ *       Comments: "STRING_VALUE",
+ *       QuoteEscapeCharacter: "STRING_VALUE",
+ *       RecordDelimiter: "STRING_VALUE",
+ *       FieldDelimiter: "STRING_VALUE",
+ *       QuoteCharacter: "STRING_VALUE",
+ *       AllowQuotedRecordDelimiter: true || false,
+ *     },
+ *     CompressionType: "NONE" || "GZIP" || "BZIP2",
+ *     JSON: { // JSONInput
+ *       Type: "DOCUMENT" || "LINES",
+ *     },
+ *     Parquet: {},
+ *   },
+ *   OutputSerialization: { // OutputSerialization
+ *     CSV: { // CSVOutput
+ *       QuoteFields: "ALWAYS" || "ASNEEDED",
+ *       QuoteEscapeCharacter: "STRING_VALUE",
+ *       RecordDelimiter: "STRING_VALUE",
+ *       FieldDelimiter: "STRING_VALUE",
+ *       QuoteCharacter: "STRING_VALUE",
+ *     },
+ *     JSON: { // JSONOutput
+ *       RecordDelimiter: "STRING_VALUE",
+ *     },
+ *   },
+ *   ScanRange: { // ScanRange
+ *     Start: Number("long"),
+ *     End: Number("long"),
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new SelectObjectContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SelectObjectContentCommandInput - {@link SelectObjectContentCommandInput}
+ * @returns {@link SelectObjectContentCommandOutput}
  * @see {@link SelectObjectContentCommandInput} for command's `input` shape.
  * @see {@link SelectObjectContentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -191,6 +240,9 @@ export class SelectObjectContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SelectObjectContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -231,15 +283,21 @@ export class SelectObjectContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SelectObjectContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlSelectObjectContentCommand(input, context);
+    return se_SelectObjectContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<SelectObjectContentCommandOutput> {
-    return deserializeAws_restXmlSelectObjectContentCommand(output, context);
+    return de_SelectObjectContentCommand(output, context);
   }
 
   // Start section: command_body_extra

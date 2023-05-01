@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  DescribePredictorRequest,
-  DescribePredictorRequestFilterSensitiveLog,
-  DescribePredictorResponse,
-  DescribePredictorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePredictorCommand,
-  serializeAws_json1_1DescribePredictorCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePredictorRequest, DescribePredictorResponse } from "../models/models_0";
+import { de_DescribePredictorCommand, se_DescribePredictorCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePredictorCommand}.
  */
 export interface DescribePredictorCommandInput extends DescribePredictorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePredictorCommand}.
  */
 export interface DescribePredictorCommandOutput extends DescribePredictorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p> This operation is only valid for legacy predictors created with CreatePredictor. If you
  *         are not using a legacy predictor, use <a>DescribeAutoPredictor</a>.</p>
@@ -80,10 +77,15 @@ export interface DescribePredictorCommandOutput extends DescribePredictorRespons
  * import { ForecastClient, DescribePredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribePredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DescribePredictorRequest
+ *   PredictorArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribePredictorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePredictorCommandInput - {@link DescribePredictorCommandInput}
+ * @returns {@link DescribePredictorCommandOutput}
  * @see {@link DescribePredictorCommandInput} for command's `input` shape.
  * @see {@link DescribePredictorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -115,6 +117,9 @@ export class DescribePredictorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePredictorCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +148,8 @@ export class DescribePredictorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePredictorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePredictorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +159,18 @@ export class DescribePredictorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePredictorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePredictorCommand(input, context);
+    return se_DescribePredictorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePredictorCommandOutput> {
-    return deserializeAws_json1_1DescribePredictorCommand(output, context);
+    return de_DescribePredictorCommand(output, context);
   }
 
   // Start section: command_body_extra

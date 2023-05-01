@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CacheClusterMessage,
-  CacheClusterMessageFilterSensitiveLog,
-  DescribeCacheClustersMessage,
-  DescribeCacheClustersMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeCacheClustersCommand,
-  serializeAws_queryDescribeCacheClustersCommand,
-} from "../protocols/Aws_query";
+import { CacheClusterMessage, DescribeCacheClustersMessage } from "../models/models_0";
+import { de_DescribeCacheClustersCommand, se_DescribeCacheClustersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheClustersCommand}.
  */
 export interface DescribeCacheClustersCommandInput extends DescribeCacheClustersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheClustersCommand}.
  */
 export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all provisioned
  *             clusters if no cluster identifier is specified, or about a specific cache
  *             cluster if a cluster identifier is supplied.</p>
@@ -57,10 +54,19 @@ export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage,
  * import { ElastiCacheClient, DescribeCacheClustersCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheClustersCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeCacheClustersMessage
+ *   CacheClusterId: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   ShowCacheNodeInfo: true || false,
+ *   ShowCacheClustersNotInReplicationGroups: true || false,
+ * };
  * const command = new DescribeCacheClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheClustersCommandInput - {@link DescribeCacheClustersCommandInput}
+ * @returns {@link DescribeCacheClustersCommandOutput}
  * @see {@link DescribeCacheClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheClustersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -135,6 +141,9 @@ export class DescribeCacheClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,8 +172,8 @@ export class DescribeCacheClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCacheClustersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CacheClusterMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -174,12 +183,18 @@ export class DescribeCacheClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeCacheClustersCommand(input, context);
+    return se_DescribeCacheClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCacheClustersCommandOutput> {
-    return deserializeAws_queryDescribeCacheClustersCommand(output, context);
+    return de_DescribeCacheClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

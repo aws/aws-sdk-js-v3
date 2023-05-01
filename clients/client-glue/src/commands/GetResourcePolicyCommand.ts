@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetResourcePolicyRequest,
-  GetResourcePolicyRequestFilterSensitiveLog,
-  GetResourcePolicyResponse,
-  GetResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetResourcePolicyCommand,
-  serializeAws_json1_1GetResourcePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_1";
+import { de_GetResourcePolicyCommand, se_GetResourcePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourcePolicyCommand}.
  */
 export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourcePolicyCommand}.
  */
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a specified resource policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * import { GlueClient, GetResourcePolicyCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetResourcePolicyCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE",
+ * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
+ * @returns {@link GetResourcePolicyCommandOutput}
  * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +83,9 @@ export class GetResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class GetResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class GetResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourcePolicyCommand(input, context);
+    return se_GetResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePolicyCommandOutput> {
-    return deserializeAws_json1_1GetResourcePolicyCommand(output, context);
+    return de_GetResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

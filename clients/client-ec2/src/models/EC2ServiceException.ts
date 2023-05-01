@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from EC2 service.
  */
 export class EC2ServiceException extends __ServiceException {

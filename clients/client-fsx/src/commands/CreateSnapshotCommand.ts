@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateSnapshotRequest,
-  CreateSnapshotRequestFilterSensitiveLog,
-  CreateSnapshotResponse,
-  CreateSnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSnapshotCommand,
-  serializeAws_json1_1CreateSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSnapshotRequest, CreateSnapshotResponse } from "../models/models_0";
+import { de_CreateSnapshotCommand, se_CreateSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSnapshotCommand}.
  */
 export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSnapshotCommand}.
  */
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With
  *             snapshots, you can easily undo file changes and compare file versions by restoring the
  *             volume to a previous version.</p>
@@ -69,10 +66,23 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * import { FSxClient, CreateSnapshotCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateSnapshotCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // CreateSnapshotRequest
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   VolumeId: "STRING_VALUE", // required
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
+ * @returns {@link CreateSnapshotCommandOutput}
  * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -109,6 +119,9 @@ export class CreateSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +150,8 @@ export class CreateSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSnapshotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +161,18 @@ export class CreateSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSnapshotCommand(input, context);
+    return se_CreateSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSnapshotCommandOutput> {
-    return deserializeAws_json1_1CreateSnapshotCommand(output, context);
+    return de_CreateSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

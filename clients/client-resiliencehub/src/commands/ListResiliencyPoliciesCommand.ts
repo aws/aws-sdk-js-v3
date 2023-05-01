@@ -15,37 +15,45 @@ import {
 
 import {
   ListResiliencyPoliciesRequest,
-  ListResiliencyPoliciesRequestFilterSensitiveLog,
   ListResiliencyPoliciesResponse,
   ListResiliencyPoliciesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResiliencyPoliciesCommand,
-  serializeAws_restJson1ListResiliencyPoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListResiliencyPoliciesCommand, se_ListResiliencyPoliciesCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResiliencyPoliciesCommand}.
  */
 export interface ListResiliencyPoliciesCommandInput extends ListResiliencyPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResiliencyPoliciesCommand}.
  */
 export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the resiliency policies for the AWS Resilience Hub applications.</p>
+ * @public
+ * <p>Lists the resiliency policies for the Resilience Hub applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, ListResiliencyPoliciesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListResiliencyPoliciesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListResiliencyPoliciesRequest
+ *   policyName: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListResiliencyPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResiliencyPoliciesCommandInput - {@link ListResiliencyPoliciesCommandInput}
+ * @returns {@link ListResiliencyPoliciesCommandOutput}
  * @see {@link ListResiliencyPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListResiliencyPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -56,7 +64,7 @@ export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPolic
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -87,6 +95,9 @@ export class ListResiliencyPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResiliencyPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +126,7 @@ export class ListResiliencyPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResiliencyPoliciesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListResiliencyPoliciesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,12 +137,18 @@ export class ListResiliencyPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResiliencyPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResiliencyPoliciesCommand(input, context);
+    return se_ListResiliencyPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResiliencyPoliciesCommandOutput> {
-    return deserializeAws_restJson1ListResiliencyPoliciesCommand(output, context);
+    return de_ListResiliencyPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

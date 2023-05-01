@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  ListComplianceStatusRequest,
-  ListComplianceStatusRequestFilterSensitiveLog,
-  ListComplianceStatusResponse,
-  ListComplianceStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListComplianceStatusCommand,
-  serializeAws_json1_1ListComplianceStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { ListComplianceStatusRequest, ListComplianceStatusResponse } from "../models/models_0";
+import { de_ListComplianceStatusCommand, se_ListComplianceStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListComplianceStatusCommand}.
  */
 export interface ListComplianceStatusCommandInput extends ListComplianceStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListComplianceStatusCommand}.
  */
 export interface ListComplianceStatusCommandOutput extends ListComplianceStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>PolicyComplianceStatus</code> objects. Use
  *         <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected
  *       by the specified policy. </p>
@@ -44,10 +41,17 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
  * import { FMSClient, ListComplianceStatusCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListComplianceStatusCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // ListComplianceStatusRequest
+ *   PolicyId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListComplianceStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComplianceStatusCommandInput - {@link ListComplianceStatusCommandInput}
+ * @returns {@link ListComplianceStatusCommandOutput}
  * @see {@link ListComplianceStatusCommandInput} for command's `input` shape.
  * @see {@link ListComplianceStatusCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListComplianceStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComplianceStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class ListComplianceStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComplianceStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListComplianceStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class ListComplianceStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComplianceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListComplianceStatusCommand(input, context);
+    return se_ListComplianceStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComplianceStatusCommandOutput> {
-    return deserializeAws_json1_1ListComplianceStatusCommand(output, context);
+    return de_ListComplianceStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

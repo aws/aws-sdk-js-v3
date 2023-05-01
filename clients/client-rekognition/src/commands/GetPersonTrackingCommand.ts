@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPersonTrackingRequest,
-  GetPersonTrackingRequestFilterSensitiveLog,
-  GetPersonTrackingResponse,
-  GetPersonTrackingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPersonTrackingCommand,
-  serializeAws_json1_1GetPersonTrackingCommand,
-} from "../protocols/Aws_json1_1";
+import { GetPersonTrackingRequest, GetPersonTrackingResponse } from "../models/models_0";
+import { de_GetPersonTrackingCommand, se_GetPersonTrackingCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetPersonTrackingCommand}.
  */
 export interface GetPersonTrackingCommandInput extends GetPersonTrackingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPersonTrackingCommand}.
  */
 export interface GetPersonTrackingCommandOutput extends GetPersonTrackingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the path tracking results of a Amazon Rekognition Video analysis started by <a>StartPersonTracking</a>.</p>
  *          <p>The person path tracking operation is started by a call to <code>StartPersonTracking</code>
  *      which returns a job identifier (<code>JobId</code>). When the operation finishes, Amazon Rekognition Video publishes a completion status to
@@ -66,10 +63,18 @@ export interface GetPersonTrackingCommandOutput extends GetPersonTrackingRespons
  * import { RekognitionClient, GetPersonTrackingCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetPersonTrackingCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // GetPersonTrackingRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "INDEX" || "TIMESTAMP",
+ * };
  * const command = new GetPersonTrackingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPersonTrackingCommandInput - {@link GetPersonTrackingCommandInput}
+ * @returns {@link GetPersonTrackingCommandOutput}
  * @see {@link GetPersonTrackingCommandInput} for command's `input` shape.
  * @see {@link GetPersonTrackingCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -116,6 +121,9 @@ export class GetPersonTrackingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPersonTrackingCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +152,8 @@ export class GetPersonTrackingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPersonTrackingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPersonTrackingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +163,18 @@ export class GetPersonTrackingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPersonTrackingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPersonTrackingCommand(input, context);
+    return se_GetPersonTrackingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPersonTrackingCommandOutput> {
-    return deserializeAws_json1_1GetPersonTrackingCommand(output, context);
+    return de_GetPersonTrackingCommand(output, context);
   }
 
   // Start section: command_body_extra

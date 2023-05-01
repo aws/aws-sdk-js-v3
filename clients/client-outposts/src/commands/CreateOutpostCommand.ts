@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateOutpostInput,
-  CreateOutpostInputFilterSensitiveLog,
-  CreateOutpostOutput,
-  CreateOutpostOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateOutpostInput, CreateOutpostOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1CreateOutpostCommand,
-  serializeAws_restJson1CreateOutpostCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateOutpostCommand, se_CreateOutpostCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOutpostCommand}.
  */
 export interface CreateOutpostCommandInput extends CreateOutpostInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateOutpostCommand}.
  */
 export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Outpost.</p>
  *          <p>You can specify either an Availability one or an AZ ID.</p>
  * @example
@@ -43,10 +40,23 @@ export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __Metad
  * import { OutpostsClient, CreateOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CreateOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // CreateOutpostInput
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   SiteId: "STRING_VALUE", // required
+ *   AvailabilityZone: "STRING_VALUE",
+ *   AvailabilityZoneId: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   SupportedHardwareType: "RACK" || "SERVER",
+ * };
  * const command = new CreateOutpostCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOutpostCommandInput - {@link CreateOutpostCommandInput}
+ * @returns {@link CreateOutpostCommandOutput}
  * @see {@link CreateOutpostCommandInput} for command's `input` shape.
  * @see {@link CreateOutpostCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -88,6 +98,9 @@ export class CreateOutpostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOutpostCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +127,8 @@ export class CreateOutpostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOutpostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOutpostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +138,18 @@ export class CreateOutpostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOutpostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateOutpostCommand(input, context);
+    return se_CreateOutpostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOutpostCommandOutput> {
-    return deserializeAws_restJson1CreateOutpostCommand(output, context);
+    return de_CreateOutpostCommand(output, context);
   }
 
   // Start section: command_body_extra

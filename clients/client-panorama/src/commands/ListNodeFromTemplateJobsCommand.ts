@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListNodeFromTemplateJobsRequest,
-  ListNodeFromTemplateJobsRequestFilterSensitiveLog,
-  ListNodeFromTemplateJobsResponse,
-  ListNodeFromTemplateJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListNodeFromTemplateJobsRequest, ListNodeFromTemplateJobsResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1ListNodeFromTemplateJobsCommand,
-  serializeAws_restJson1ListNodeFromTemplateJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNodeFromTemplateJobsCommand, se_ListNodeFromTemplateJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNodeFromTemplateJobsCommand}.
  */
 export interface ListNodeFromTemplateJobsCommandInput extends ListNodeFromTemplateJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNodeFromTemplateJobsCommand}.
  */
 export interface ListNodeFromTemplateJobsCommandOutput extends ListNodeFromTemplateJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of camera stream node jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListNodeFromTemplateJobsCommandOutput extends ListNodeFromTempl
  * import { PanoramaClient, ListNodeFromTemplateJobsCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListNodeFromTemplateJobsCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // ListNodeFromTemplateJobsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListNodeFromTemplateJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNodeFromTemplateJobsCommandInput - {@link ListNodeFromTemplateJobsCommandInput}
+ * @returns {@link ListNodeFromTemplateJobsCommandOutput}
  * @see {@link ListNodeFromTemplateJobsCommandInput} for command's `input` shape.
  * @see {@link ListNodeFromTemplateJobsCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListNodeFromTemplateJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNodeFromTemplateJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListNodeFromTemplateJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNodeFromTemplateJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNodeFromTemplateJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListNodeFromTemplateJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNodeFromTemplateJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNodeFromTemplateJobsCommand(input, context);
+    return se_ListNodeFromTemplateJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNodeFromTemplateJobsCommandOutput> {
-    return deserializeAws_restJson1ListNodeFromTemplateJobsCommand(output, context);
+    return de_ListNodeFromTemplateJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

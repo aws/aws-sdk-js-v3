@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateEmailIdentityPolicyRequest,
-  CreateEmailIdentityPolicyRequestFilterSensitiveLog,
-  CreateEmailIdentityPolicyResponse,
-  CreateEmailIdentityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEmailIdentityPolicyCommand,
-  serializeAws_restJson1CreateEmailIdentityPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateEmailIdentityPolicyRequest, CreateEmailIdentityPolicyResponse } from "../models/models_0";
+import { de_CreateEmailIdentityPolicyCommand, se_CreateEmailIdentityPolicyCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEmailIdentityPolicyCommand}.
  */
 export interface CreateEmailIdentityPolicyCommandInput extends CreateEmailIdentityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEmailIdentityPolicyCommand}.
  */
 export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdentityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified sending authorization policy for the given identity (an email
  *         address or a domain).</p>
  *          <note>
@@ -52,10 +49,17 @@ export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdent
  * import { SESv2Client, CreateEmailIdentityPolicyCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateEmailIdentityPolicyCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // CreateEmailIdentityPolicyRequest
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new CreateEmailIdentityPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEmailIdentityPolicyCommandInput - {@link CreateEmailIdentityPolicyCommandInput}
+ * @returns {@link CreateEmailIdentityPolicyCommandOutput}
  * @see {@link CreateEmailIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateEmailIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -94,6 +98,9 @@ export class CreateEmailIdentityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEmailIdentityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +129,8 @@ export class CreateEmailIdentityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEmailIdentityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEmailIdentityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +140,21 @@ export class CreateEmailIdentityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEmailIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEmailIdentityPolicyCommand(input, context);
+    return se_CreateEmailIdentityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEmailIdentityPolicyCommandOutput> {
-    return deserializeAws_restJson1CreateEmailIdentityPolicyCommand(output, context);
+    return de_CreateEmailIdentityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

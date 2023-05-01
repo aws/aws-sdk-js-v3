@@ -18,32 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import {
-  ListChangeSetsRequest,
-  ListChangeSetsRequestFilterSensitiveLog,
-  ListChangeSetsResponse,
-  ListChangeSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChangeSetsCommand,
-  serializeAws_restJson1ListChangeSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListChangeSetsRequest, ListChangeSetsResponse } from "../models/models_0";
+import { de_ListChangeSetsCommand, se_ListChangeSetsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChangeSetsCommand}.
  */
 export interface ListChangeSetsCommandInput extends ListChangeSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChangeSetsCommand}.
  */
 export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the list of change sets owned by the account being used to make the call. You
  *             can filter this list by providing any combination of <code>entityId</code>,
  *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
  *             operation applies a logical AND between the filters.</p>
- *         <p>You can describe a change during the 60-day request history retention period for API
+ *          <p>You can describe a change during the 60-day request history retention period for API
  *             calls.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,25 +48,48 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  * import { MarketplaceCatalogClient, ListChangeSetsCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, ListChangeSetsCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
+ * const input = { // ListChangeSetsRequest
+ *   Catalog: "STRING_VALUE", // required
+ *   FilterList: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       ValueList: [ // ValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Sort: { // Sort
+ *     SortBy: "STRING_VALUE",
+ *     SortOrder: "ASCENDING" || "DESCENDING",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListChangeSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChangeSetsCommandInput - {@link ListChangeSetsCommandInput}
+ * @returns {@link ListChangeSetsCommandOutput}
  * @see {@link ListChangeSetsCommandInput} for command's `input` shape.
  * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied.</p>
+ *          <p>HTTP status code: 403</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>There was an internal service exception.</p>
+ *          <p>HTTP status code: 500</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Too many requests.</p>
+ *          <p>HTTP status code: 429</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An error occurred during validation.</p>
+ *          <p>HTTP status code: 422</p>
  *
  *
  */
@@ -90,6 +110,9 @@ export class ListChangeSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChangeSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +141,8 @@ export class ListChangeSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChangeSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListChangeSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +152,18 @@ export class ListChangeSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChangeSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChangeSetsCommand(input, context);
+    return se_ListChangeSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangeSetsCommandOutput> {
-    return deserializeAws_restJson1ListChangeSetsCommand(output, context);
+    return de_ListChangeSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

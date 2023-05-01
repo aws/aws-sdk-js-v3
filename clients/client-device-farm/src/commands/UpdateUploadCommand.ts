@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  UpdateUploadRequest,
-  UpdateUploadRequestFilterSensitiveLog,
-  UpdateUploadResult,
-  UpdateUploadResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateUploadCommand,
-  serializeAws_json1_1UpdateUploadCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateUploadRequest, UpdateUploadResult, UpdateUploadResultFilterSensitiveLog } from "../models/models_0";
+import { de_UpdateUploadCommand, se_UpdateUploadCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUploadCommand}.
  */
 export interface UpdateUploadCommandInput extends UpdateUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUploadCommand}.
  */
 export interface UpdateUploadCommandOutput extends UpdateUploadResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an uploaded test spec.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateUploadCommandOutput extends UpdateUploadResult, __Metadat
  * import { DeviceFarmClient, UpdateUploadCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateUploadCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // UpdateUploadRequest
+ *   arn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   contentType: "STRING_VALUE",
+ *   editContent: true || false,
+ * };
  * const command = new UpdateUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUploadCommandInput - {@link UpdateUploadCommandInput}
+ * @returns {@link UpdateUploadCommandOutput}
  * @see {@link UpdateUploadCommandInput} for command's `input` shape.
  * @see {@link UpdateUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +86,9 @@ export class UpdateUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +115,7 @@ export class UpdateUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUploadRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateUploadResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -118,12 +126,18 @@ export class UpdateUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateUploadCommand(input, context);
+    return se_UpdateUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUploadCommandOutput> {
-    return deserializeAws_json1_1UpdateUploadCommand(output, context);
+    return de_UpdateUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

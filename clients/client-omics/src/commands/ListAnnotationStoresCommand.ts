@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAnnotationStoresRequest,
-  ListAnnotationStoresRequestFilterSensitiveLog,
-  ListAnnotationStoresResponse,
-  ListAnnotationStoresResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAnnotationStoresRequest, ListAnnotationStoresResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListAnnotationStoresCommand,
-  serializeAws_restJson1ListAnnotationStoresCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAnnotationStoresCommand, se_ListAnnotationStoresCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAnnotationStoresCommand}.
  */
 export interface ListAnnotationStoresCommandInput extends ListAnnotationStoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAnnotationStoresCommand}.
  */
 export interface ListAnnotationStoresCommandOutput extends ListAnnotationStoresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of annotation stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListAnnotationStoresCommandOutput extends ListAnnotationStoresR
  * import { OmicsClient, ListAnnotationStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListAnnotationStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // ListAnnotationStoresRequest
+ *   ids: [ // IdList
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filter: { // ListAnnotationStoresFilter
+ *     status: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListAnnotationStoresCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAnnotationStoresCommandInput - {@link ListAnnotationStoresCommandInput}
+ * @returns {@link ListAnnotationStoresCommandOutput}
  * @see {@link ListAnnotationStoresCommandInput} for command's `input` shape.
  * @see {@link ListAnnotationStoresCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -84,6 +93,9 @@ export class ListAnnotationStoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAnnotationStoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +124,8 @@ export class ListAnnotationStoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnnotationStoresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAnnotationStoresResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +135,18 @@ export class ListAnnotationStoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAnnotationStoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnnotationStoresCommand(input, context);
+    return se_ListAnnotationStoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnnotationStoresCommandOutput> {
-    return deserializeAws_restJson1ListAnnotationStoresCommand(output, context);
+    return de_ListAnnotationStoresCommand(output, context);
   }
 
   // Start section: command_body_extra

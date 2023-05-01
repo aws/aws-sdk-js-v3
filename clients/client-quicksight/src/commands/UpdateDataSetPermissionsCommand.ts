@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDataSetPermissionsRequest,
-  UpdateDataSetPermissionsRequestFilterSensitiveLog,
-  UpdateDataSetPermissionsResponse,
-  UpdateDataSetPermissionsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateDataSetPermissionsCommand,
-  serializeAws_restJson1UpdateDataSetPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDataSetPermissionsRequest, UpdateDataSetPermissionsResponse } from "../models/models_3";
+import { de_UpdateDataSetPermissionsCommand, se_UpdateDataSetPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataSetPermissionsCommand}.
  */
 export interface UpdateDataSetPermissionsCommandInput extends UpdateDataSetPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataSetPermissionsCommand}.
  */
 export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the permissions on a dataset.</p>
  *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
  * @example
@@ -43,10 +40,32 @@ export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPerm
  * import { QuickSightClient, UpdateDataSetPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateDataSetPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // UpdateDataSetPermissionsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ *   GrantPermissions: [ // ResourcePermissionList
+ *     { // ResourcePermission
+ *       Principal: "STRING_VALUE", // required
+ *       Actions: [ // ActionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   RevokePermissions: [
+ *     {
+ *       Principal: "STRING_VALUE", // required
+ *       Actions: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateDataSetPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataSetPermissionsCommandInput - {@link UpdateDataSetPermissionsCommandInput}
+ * @returns {@link UpdateDataSetPermissionsCommandOutput}
  * @see {@link UpdateDataSetPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSetPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -91,6 +110,9 @@ export class UpdateDataSetPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataSetPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +141,8 @@ export class UpdateDataSetPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDataSetPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataSetPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +152,18 @@ export class UpdateDataSetPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataSetPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataSetPermissionsCommand(input, context);
+    return se_UpdateDataSetPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSetPermissionsCommandOutput> {
-    return deserializeAws_restJson1UpdateDataSetPermissionsCommand(output, context);
+    return de_UpdateDataSetPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

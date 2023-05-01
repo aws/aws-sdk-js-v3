@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListPendingInvitationResourcesRequest, ListPendingInvitationResourcesResponse } from "../models/models_0";
 import {
-  ListPendingInvitationResourcesRequest,
-  ListPendingInvitationResourcesRequestFilterSensitiveLog,
-  ListPendingInvitationResourcesResponse,
-  ListPendingInvitationResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPendingInvitationResourcesCommand,
-  serializeAws_restJson1ListPendingInvitationResourcesCommand,
+  de_ListPendingInvitationResourcesCommand,
+  se_ListPendingInvitationResourcesCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPendingInvitationResourcesCommand}.
  */
 export interface ListPendingInvitationResourcesCommandInput extends ListPendingInvitationResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPendingInvitationResourcesCommand}.
  */
 export interface ListPendingInvitationResourcesCommandOutput
@@ -37,6 +36,7 @@ export interface ListPendingInvitationResourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resources in a resource share that is shared with you but for which the invitation is
  *             still <code>PENDING</code>. That means that you haven't accepted or rejected the
  *             invitation and the invitation hasn't expired.</p>
@@ -46,40 +46,54 @@ export interface ListPendingInvitationResourcesCommandOutput
  * import { RAMClient, ListPendingInvitationResourcesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListPendingInvitationResourcesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // ListPendingInvitationResourcesRequest
+ *   resourceShareInvitationArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   resourceRegionScope: "ALL" || "REGIONAL" || "GLOBAL",
+ * };
  * const command = new ListPendingInvitationResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPendingInvitationResourcesCommandInput - {@link ListPendingInvitationResourcesCommandInput}
+ * @returns {@link ListPendingInvitationResourcesCommandOutput}
  * @see {@link ListPendingInvitationResourcesCommandInput} for command's `input` shape.
  * @see {@link ListPendingInvitationResourcesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *  <p>The operation failed because the specified value for <code>NextToken</code> isn't
+ *             valid. You must specify a value you received in the <code>NextToken</code> response of a
+ *             previous call to this operation.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
+ *             valid.</p>
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>A required input parameter is missing.</p>
+ *  <p>The operation failed because a required input parameter is missing.</p>
  *
  * @throws {@link ResourceShareInvitationAlreadyRejectedException} (client fault)
- *  <p>The specified invitation was already rejected.</p>
+ *  <p>The operation failed because the specified invitation was already rejected.</p>
  *
  * @throws {@link ResourceShareInvitationArnNotFoundException} (client fault)
- *  <p>The specified Amazon Resource Name (ARN) for an invitation was not found.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> for an invitation was not
+ *             found.</p>
  *
  * @throws {@link ResourceShareInvitationExpiredException} (client fault)
- *  <p>The specified invitation is expired.</p>
+ *  <p>The operation failed because the specified invitation is past its expiration date and
+ *             time.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  *
  */
@@ -100,6 +114,9 @@ export class ListPendingInvitationResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPendingInvitationResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +145,8 @@ export class ListPendingInvitationResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPendingInvitationResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPendingInvitationResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,18 +156,24 @@ export class ListPendingInvitationResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListPendingInvitationResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPendingInvitationResourcesCommand(input, context);
+    return se_ListPendingInvitationResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPendingInvitationResourcesCommandOutput> {
-    return deserializeAws_restJson1ListPendingInvitationResourcesCommand(output, context);
+    return de_ListPendingInvitationResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

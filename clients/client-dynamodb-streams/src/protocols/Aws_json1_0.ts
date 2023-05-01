@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
@@ -9,7 +10,8 @@ import {
   expectString as __expectString,
   expectUnion as __expectUnion,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -25,7 +27,6 @@ import { ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/L
 import { DynamoDBStreamsServiceException as __BaseException } from "../models/DynamoDBStreamsServiceException";
 import {
   _Record,
-  _Stream,
   AttributeValue,
   DescribeStreamInput,
   DescribeStreamOutput,
@@ -33,91 +34,91 @@ import {
   GetRecordsInput,
   GetRecordsOutput,
   GetShardIteratorInput,
-  GetShardIteratorOutput,
-  Identity,
   InternalServerError,
-  KeySchemaElement,
   LimitExceededException,
   ListStreamsInput,
-  ListStreamsOutput,
   ResourceNotFoundException,
-  SequenceNumberRange,
-  Shard,
   StreamDescription,
   StreamRecord,
   TrimmedDataAccessException,
 } from "../models/models_0";
 
-export const serializeAws_json1_0DescribeStreamCommand = async (
+/**
+ * serializeAws_json1_0DescribeStreamCommand
+ */
+export const se_DescribeStreamCommand = async (
   input: DescribeStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "DynamoDBStreams_20120810.DescribeStream",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeStream");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeStreamInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetRecordsCommand = async (
+/**
+ * serializeAws_json1_0GetRecordsCommand
+ */
+export const se_GetRecordsCommand = async (
   input: GetRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "DynamoDBStreams_20120810.GetRecords",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetRecords");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetRecordsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetShardIteratorCommand = async (
+/**
+ * serializeAws_json1_0GetShardIteratorCommand
+ */
+export const se_GetShardIteratorCommand = async (
   input: GetShardIteratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "DynamoDBStreams_20120810.GetShardIterator",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetShardIterator");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetShardIteratorInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListStreamsCommand = async (
+/**
+ * serializeAws_json1_0ListStreamsCommand
+ */
+export const se_ListStreamsCommand = async (
   input: ListStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "DynamoDBStreams_20120810.ListStreams",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListStreams");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListStreamsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0DescribeStreamCommand = async (
+/**
+ * deserializeAws_json1_0DescribeStreamCommand
+ */
+export const de_DescribeStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeStreamCommandError(output, context);
+    return de_DescribeStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeStreamOutput(data, context);
+  contents = de_DescribeStreamOutput(data, context);
   const response: DescribeStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeStreamCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeStreamCommandError
+ */
+const de_DescribeStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> => {
@@ -129,39 +130,44 @@ const deserializeAws_json1_0DescribeStreamCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodbstreams#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0GetRecordsCommand = async (
+/**
+ * deserializeAws_json1_0GetRecordsCommand
+ */
+export const de_GetRecordsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecordsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetRecordsCommandError(output, context);
+    return de_GetRecordsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetRecordsOutput(data, context);
+  contents = de_GetRecordsOutput(data, context);
   const response: GetRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0GetRecordsCommandError = async (
+/**
+ * deserializeAws_json1_0GetRecordsCommandError
+ */
+const de_GetRecordsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecordsCommandOutput> => {
@@ -173,48 +179,53 @@ const deserializeAws_json1_0GetRecordsCommandError = async (
   switch (errorCode) {
     case "ExpiredIteratorException":
     case "com.amazonaws.dynamodbstreams#ExpiredIteratorException":
-      throw await deserializeAws_json1_0ExpiredIteratorExceptionResponse(parsedOutput, context);
+      throw await de_ExpiredIteratorExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodbstreams#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodbstreams#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TrimmedDataAccessException":
     case "com.amazonaws.dynamodbstreams#TrimmedDataAccessException":
-      throw await deserializeAws_json1_0TrimmedDataAccessExceptionResponse(parsedOutput, context);
+      throw await de_TrimmedDataAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0GetShardIteratorCommand = async (
+/**
+ * deserializeAws_json1_0GetShardIteratorCommand
+ */
+export const de_GetShardIteratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetShardIteratorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetShardIteratorCommandError(output, context);
+    return de_GetShardIteratorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetShardIteratorOutput(data, context);
+  contents = _json(data);
   const response: GetShardIteratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0GetShardIteratorCommandError = async (
+/**
+ * deserializeAws_json1_0GetShardIteratorCommandError
+ */
+const de_GetShardIteratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetShardIteratorCommandOutput> => {
@@ -226,42 +237,47 @@ const deserializeAws_json1_0GetShardIteratorCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodbstreams#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TrimmedDataAccessException":
     case "com.amazonaws.dynamodbstreams#TrimmedDataAccessException":
-      throw await deserializeAws_json1_0TrimmedDataAccessExceptionResponse(parsedOutput, context);
+      throw await de_TrimmedDataAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0ListStreamsCommand = async (
+/**
+ * deserializeAws_json1_0ListStreamsCommand
+ */
+export const de_ListStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListStreamsCommandError(output, context);
+    return de_ListStreamsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListStreamsOutput(data, context);
+  contents = _json(data);
   const response: ListStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListStreamsCommandError = async (
+/**
+ * deserializeAws_json1_0ListStreamsCommandError
+ */
+const de_ListStreamsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
@@ -273,27 +289,29 @@ const deserializeAws_json1_0ListStreamsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodbstreams#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_0ExpiredIteratorExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ExpiredIteratorExceptionRes
+ */
+const de_ExpiredIteratorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ExpiredIteratorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ExpiredIteratorException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ExpiredIteratorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -301,12 +319,12 @@ const deserializeAws_json1_0ExpiredIteratorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InternalServerErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalServerError> => {
+/**
+ * deserializeAws_json1_0InternalServerErrorRes
+ */
+const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServerError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -314,12 +332,15 @@ const deserializeAws_json1_0InternalServerErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -327,12 +348,15 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -340,12 +364,15 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0TrimmedDataAccessExceptionResponse = async (
+/**
+ * deserializeAws_json1_0TrimmedDataAccessExceptionRes
+ */
+const de_TrimmedDataAccessExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TrimmedDataAccessException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TrimmedDataAccessException(body, context);
+  const deserialized: any = _json(body);
   const exception = new TrimmedDataAccessException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -353,49 +380,31 @@ const deserializeAws_json1_0TrimmedDataAccessExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0DescribeStreamInput = (input: DescribeStreamInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ExclusiveStartShardId != null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.StreamArn != null && { StreamArn: input.StreamArn }),
-  };
-};
+// se_DescribeStreamInput omitted.
 
-const serializeAws_json1_0GetRecordsInput = (input: GetRecordsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.ShardIterator != null && { ShardIterator: input.ShardIterator }),
-  };
-};
+// se_GetRecordsInput omitted.
 
-const serializeAws_json1_0GetShardIteratorInput = (input: GetShardIteratorInput, context: __SerdeContext): any => {
-  return {
-    ...(input.SequenceNumber != null && { SequenceNumber: input.SequenceNumber }),
-    ...(input.ShardId != null && { ShardId: input.ShardId }),
-    ...(input.ShardIteratorType != null && { ShardIteratorType: input.ShardIteratorType }),
-    ...(input.StreamArn != null && { StreamArn: input.StreamArn }),
-  };
-};
+// se_GetShardIteratorInput omitted.
 
-const serializeAws_json1_0ListStreamsInput = (input: ListStreamsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ExclusiveStartStreamArn != null && { ExclusiveStartStreamArn: input.ExclusiveStartStreamArn }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.TableName != null && { TableName: input.TableName }),
-  };
-};
+// se_ListStreamsInput omitted.
 
-const deserializeAws_json1_0AttributeMap = (output: any, context: __SerdeContext): Record<string, AttributeValue> => {
+/**
+ * deserializeAws_json1_0AttributeMap
+ */
+const de_AttributeMap = (output: any, context: __SerdeContext): Record<string, AttributeValue> => {
   return Object.entries(output).reduce((acc: Record<string, AttributeValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_json1_0AttributeValue(__expectUnion(value), context);
+    acc[key] = de_AttributeValue(__expectUnion(value), context);
     return acc;
   }, {});
 };
 
-const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
+/**
+ * deserializeAws_json1_0AttributeValue
+ */
+const de_AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   if (output.B != null) {
     return {
       B: context.base64Decoder(output.B),
@@ -406,17 +415,17 @@ const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeConte
   }
   if (output.BS != null) {
     return {
-      BS: deserializeAws_json1_0BinarySetAttributeValue(output.BS, context),
+      BS: de_BinarySetAttributeValue(output.BS, context),
     };
   }
   if (output.L != null) {
     return {
-      L: deserializeAws_json1_0ListAttributeValue(output.L, context),
+      L: de_ListAttributeValue(output.L, context),
     };
   }
   if (output.M != null) {
     return {
-      M: deserializeAws_json1_0MapAttributeValue(output.M, context),
+      M: de_MapAttributeValue(output.M, context),
     };
   }
   if (__expectString(output.N) !== undefined) {
@@ -424,7 +433,7 @@ const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeConte
   }
   if (output.NS != null) {
     return {
-      NS: deserializeAws_json1_0NumberSetAttributeValue(output.NS, context),
+      NS: _json(output.NS),
     };
   }
   if (__expectBoolean(output.NULL) !== undefined) {
@@ -435,273 +444,160 @@ const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeConte
   }
   if (output.SS != null) {
     return {
-      SS: deserializeAws_json1_0StringSetAttributeValue(output.SS, context),
+      SS: _json(output.SS),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_json1_0BinarySetAttributeValue = (output: any, context: __SerdeContext): Uint8Array[] => {
+/**
+ * deserializeAws_json1_0BinarySetAttributeValue
+ */
+const de_BinarySetAttributeValue = (output: any, context: __SerdeContext): Uint8Array[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return context.base64Decoder(entry);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0DescribeStreamOutput = (output: any, context: __SerdeContext): DescribeStreamOutput => {
-  return {
-    StreamDescription:
-      output.StreamDescription != null
-        ? deserializeAws_json1_0StreamDescription(output.StreamDescription, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_0DescribeStreamOutput
+ */
+const de_DescribeStreamOutput = (output: any, context: __SerdeContext): DescribeStreamOutput => {
+  return take(output, {
+    StreamDescription: (_: any) => de_StreamDescription(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0ExpiredIteratorException = (
-  output: any,
-  context: __SerdeContext
-): ExpiredIteratorException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_ExpiredIteratorException omitted.
+
+/**
+ * deserializeAws_json1_0GetRecordsOutput
+ */
+const de_GetRecordsOutput = (output: any, context: __SerdeContext): GetRecordsOutput => {
+  return take(output, {
+    NextShardIterator: __expectString,
+    Records: (_: any) => de_RecordList(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0GetRecordsOutput = (output: any, context: __SerdeContext): GetRecordsOutput => {
-  return {
-    NextShardIterator: __expectString(output.NextShardIterator),
-    Records: output.Records != null ? deserializeAws_json1_0RecordList(output.Records, context) : undefined,
-  } as any;
-};
+// de_GetShardIteratorOutput omitted.
 
-const deserializeAws_json1_0GetShardIteratorOutput = (output: any, context: __SerdeContext): GetShardIteratorOutput => {
-  return {
-    ShardIterator: __expectString(output.ShardIterator),
-  } as any;
-};
+// de_Identity omitted.
 
-const deserializeAws_json1_0Identity = (output: any, context: __SerdeContext): Identity => {
-  return {
-    PrincipalId: __expectString(output.PrincipalId),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_InternalServerError omitted.
 
-const deserializeAws_json1_0InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_KeySchema omitted.
 
-const deserializeAws_json1_0KeySchema = (output: any, context: __SerdeContext): KeySchemaElement[] => {
+// de_KeySchemaElement omitted.
+
+// de_LimitExceededException omitted.
+
+/**
+ * deserializeAws_json1_0ListAttributeValue
+ */
+const de_ListAttributeValue = (output: any, context: __SerdeContext): AttributeValue[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0KeySchemaElement(entry, context);
+      return de_AttributeValue(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0KeySchemaElement = (output: any, context: __SerdeContext): KeySchemaElement => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    KeyType: __expectString(output.KeyType),
-  } as any;
-};
+// de_ListStreamsOutput omitted.
 
-const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_0ListAttributeValue = (output: any, context: __SerdeContext): AttributeValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0AttributeValue(__expectUnion(entry), context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0ListStreamsOutput = (output: any, context: __SerdeContext): ListStreamsOutput => {
-  return {
-    LastEvaluatedStreamArn: __expectString(output.LastEvaluatedStreamArn),
-    Streams: output.Streams != null ? deserializeAws_json1_0StreamList(output.Streams, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0MapAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): Record<string, AttributeValue> => {
+/**
+ * deserializeAws_json1_0MapAttributeValue
+ */
+const de_MapAttributeValue = (output: any, context: __SerdeContext): Record<string, AttributeValue> => {
   return Object.entries(output).reduce((acc: Record<string, AttributeValue>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_json1_0AttributeValue(__expectUnion(value), context);
+    acc[key] = de_AttributeValue(__expectUnion(value), context);
     return acc;
   }, {});
 };
 
-const deserializeAws_json1_0NumberSetAttributeValue = (output: any, context: __SerdeContext): string[] => {
+// de_NumberSetAttributeValue omitted.
+
+/**
+ * deserializeAws_json1_0_Record
+ */
+const de__Record = (output: any, context: __SerdeContext): _Record => {
+  return take(output, {
+    awsRegion: __expectString,
+    dynamodb: (_: any) => de_StreamRecord(_, context),
+    eventID: __expectString,
+    eventName: __expectString,
+    eventSource: __expectString,
+    eventVersion: __expectString,
+    userIdentity: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RecordList
+ */
+const de_RecordList = (output: any, context: __SerdeContext): _Record[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de__Record(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0_Record = (output: any, context: __SerdeContext): _Record => {
-  return {
-    awsRegion: __expectString(output.awsRegion),
-    dynamodb: output.dynamodb != null ? deserializeAws_json1_0StreamRecord(output.dynamodb, context) : undefined,
-    eventID: __expectString(output.eventID),
-    eventName: __expectString(output.eventName),
-    eventSource: __expectString(output.eventSource),
-    eventVersion: __expectString(output.eventVersion),
-    userIdentity:
-      output.userIdentity != null ? deserializeAws_json1_0Identity(output.userIdentity, context) : undefined,
-  } as any;
+// de_ResourceNotFoundException omitted.
+
+// de_SequenceNumberRange omitted.
+
+// de_Shard omitted.
+
+// de_ShardDescriptionList omitted.
+
+// de__Stream omitted.
+
+/**
+ * deserializeAws_json1_0StreamDescription
+ */
+const de_StreamDescription = (output: any, context: __SerdeContext): StreamDescription => {
+  return take(output, {
+    CreationRequestDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    KeySchema: _json,
+    LastEvaluatedShardId: __expectString,
+    Shards: _json,
+    StreamArn: __expectString,
+    StreamLabel: __expectString,
+    StreamStatus: __expectString,
+    StreamViewType: __expectString,
+    TableName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0RecordList = (output: any, context: __SerdeContext): _Record[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0_Record(entry, context);
-    });
-  return retVal;
+// de_StreamList omitted.
+
+/**
+ * deserializeAws_json1_0StreamRecord
+ */
+const de_StreamRecord = (output: any, context: __SerdeContext): StreamRecord => {
+  return take(output, {
+    ApproximateCreationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Keys: (_: any) => de_AttributeMap(_, context),
+    NewImage: (_: any) => de_AttributeMap(_, context),
+    OldImage: (_: any) => de_AttributeMap(_, context),
+    SequenceNumber: __expectString,
+    SizeBytes: __expectLong,
+    StreamViewType: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_StringSetAttributeValue omitted.
 
-const deserializeAws_json1_0SequenceNumberRange = (output: any, context: __SerdeContext): SequenceNumberRange => {
-  return {
-    EndingSequenceNumber: __expectString(output.EndingSequenceNumber),
-    StartingSequenceNumber: __expectString(output.StartingSequenceNumber),
-  } as any;
-};
-
-const deserializeAws_json1_0Shard = (output: any, context: __SerdeContext): Shard => {
-  return {
-    ParentShardId: __expectString(output.ParentShardId),
-    SequenceNumberRange:
-      output.SequenceNumberRange != null
-        ? deserializeAws_json1_0SequenceNumberRange(output.SequenceNumberRange, context)
-        : undefined,
-    ShardId: __expectString(output.ShardId),
-  } as any;
-};
-
-const deserializeAws_json1_0ShardDescriptionList = (output: any, context: __SerdeContext): Shard[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0Shard(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0_Stream = (output: any, context: __SerdeContext): _Stream => {
-  return {
-    StreamArn: __expectString(output.StreamArn),
-    StreamLabel: __expectString(output.StreamLabel),
-    TableName: __expectString(output.TableName),
-  } as any;
-};
-
-const deserializeAws_json1_0StreamDescription = (output: any, context: __SerdeContext): StreamDescription => {
-  return {
-    CreationRequestDateTime:
-      output.CreationRequestDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationRequestDateTime)))
-        : undefined,
-    KeySchema: output.KeySchema != null ? deserializeAws_json1_0KeySchema(output.KeySchema, context) : undefined,
-    LastEvaluatedShardId: __expectString(output.LastEvaluatedShardId),
-    Shards: output.Shards != null ? deserializeAws_json1_0ShardDescriptionList(output.Shards, context) : undefined,
-    StreamArn: __expectString(output.StreamArn),
-    StreamLabel: __expectString(output.StreamLabel),
-    StreamStatus: __expectString(output.StreamStatus),
-    StreamViewType: __expectString(output.StreamViewType),
-    TableName: __expectString(output.TableName),
-  } as any;
-};
-
-const deserializeAws_json1_0StreamList = (output: any, context: __SerdeContext): _Stream[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0_Stream(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0StreamRecord = (output: any, context: __SerdeContext): StreamRecord => {
-  return {
-    ApproximateCreationDateTime:
-      output.ApproximateCreationDateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApproximateCreationDateTime)))
-        : undefined,
-    Keys: output.Keys != null ? deserializeAws_json1_0AttributeMap(output.Keys, context) : undefined,
-    NewImage: output.NewImage != null ? deserializeAws_json1_0AttributeMap(output.NewImage, context) : undefined,
-    OldImage: output.OldImage != null ? deserializeAws_json1_0AttributeMap(output.OldImage, context) : undefined,
-    SequenceNumber: __expectString(output.SequenceNumber),
-    SizeBytes: __expectLong(output.SizeBytes),
-    StreamViewType: __expectString(output.StreamViewType),
-  } as any;
-};
-
-const deserializeAws_json1_0StringSetAttributeValue = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0TrimmedDataAccessException = (
-  output: any,
-  context: __SerdeContext
-): TrimmedDataAccessException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_TrimmedDataAccessException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -723,6 +619,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -747,6 +644,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `DynamoDBStreams_20120810.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

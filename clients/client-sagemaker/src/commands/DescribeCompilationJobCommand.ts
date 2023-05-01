@@ -13,41 +13,43 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeCompilationJobRequest,
-  DescribeCompilationJobRequestFilterSensitiveLog,
-  DescribeCompilationJobResponse,
-  DescribeCompilationJobResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeCompilationJobCommand,
-  serializeAws_json1_1DescribeCompilationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeCompilationJobRequest, DescribeCompilationJobResponse } from "../models/models_2";
+import { de_DescribeCompilationJobCommand, se_DescribeCompilationJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCompilationJobCommand}.
  */
 export interface DescribeCompilationJobCommandInput extends DescribeCompilationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCompilationJobCommand}.
  */
 export interface DescribeCompilationJobCommandOutput extends DescribeCompilationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a model compilation job.</p>
- *          <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
- *             information about multiple model compilation jobs, use <a>ListCompilationJobs</a>.</p>
+ *          <p>To create a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html">CreateCompilationJob</a>. To get
+ *             information about multiple model compilation jobs, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html">ListCompilationJobs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DescribeCompilationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeCompilationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeCompilationJobRequest
+ *   CompilationJobName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCompilationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCompilationJobCommandInput - {@link DescribeCompilationJobCommandInput}
+ * @returns {@link DescribeCompilationJobCommandOutput}
  * @see {@link DescribeCompilationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeCompilationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +76,9 @@ export class DescribeCompilationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCompilationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +107,8 @@ export class DescribeCompilationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCompilationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCompilationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +118,18 @@ export class DescribeCompilationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCompilationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCompilationJobCommand(input, context);
+    return se_DescribeCompilationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCompilationJobCommandOutput> {
-    return deserializeAws_json1_1DescribeCompilationJobCommand(output, context);
+    return de_DescribeCompilationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

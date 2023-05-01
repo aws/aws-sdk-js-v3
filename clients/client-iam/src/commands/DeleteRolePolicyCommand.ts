@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteRolePolicyRequest, DeleteRolePolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteRolePolicyCommand,
-  serializeAws_queryDeleteRolePolicyCommand,
-} from "../protocols/Aws_query";
+import { DeleteRolePolicyRequest } from "../models/models_0";
+import { de_DeleteRolePolicyCommand, se_DeleteRolePolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRolePolicyCommand}.
  */
 export interface DeleteRolePolicyCommandInput extends DeleteRolePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRolePolicyCommand}.
  */
 export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified inline policy that is embedded in the specified IAM
  *             role.</p>
  *          <p>A role can also have managed policies attached to it. To detach a managed policy from
@@ -42,10 +44,16 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteRolePolicyRequest
+ *   RoleName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRolePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRolePolicyCommandInput - {@link DeleteRolePolicyCommandInput}
+ * @returns {@link DeleteRolePolicyCommandOutput}
  * @see {@link DeleteRolePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -63,10 +71,10 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  *       failure.</p>
  *
  * @throws {@link UnmodifiableEntityException} (client fault)
- *  <p>The request was rejected because only the service that depends on the service-linked role
- *       can modify or delete the role on your behalf. The error message includes the name of the
- *       service that depends on this service-linked role. You must request the change through that
- *       service.</p>
+ *  <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
+ *       the service that depends on the service-linked role can modify or delete the role on your
+ *       behalf. The error message includes the name of the service that depends on this service-linked
+ *       role. You must request the change through that service.</p>
  *
  *
  * @example To remove a policy from an IAM role
@@ -99,6 +107,9 @@ export class DeleteRolePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRolePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +138,8 @@ export class DeleteRolePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRolePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +149,18 @@ export class DeleteRolePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteRolePolicyCommand(input, context);
+    return se_DeleteRolePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRolePolicyCommandOutput> {
-    return deserializeAws_queryDeleteRolePolicyCommand(output, context);
+    return de_DeleteRolePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

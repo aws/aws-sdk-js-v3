@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  GetGraphqlApiRequest,
-  GetGraphqlApiRequestFilterSensitiveLog,
-  GetGraphqlApiResponse,
-  GetGraphqlApiResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGraphqlApiCommand,
-  serializeAws_restJson1GetGraphqlApiCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGraphqlApiRequest, GetGraphqlApiResponse } from "../models/models_0";
+import { de_GetGraphqlApiCommand, se_GetGraphqlApiCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGraphqlApiCommand}.
  */
 export interface GetGraphqlApiCommandInput extends GetGraphqlApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGraphqlApiCommand}.
  */
 export interface GetGraphqlApiCommandOutput extends GetGraphqlApiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a <code>GraphqlApi</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetGraphqlApiCommandOutput extends GetGraphqlApiResponse, __Met
  * import { AppSyncClient, GetGraphqlApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetGraphqlApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // GetGraphqlApiRequest
+ *   apiId: "STRING_VALUE", // required
+ * };
  * const command = new GetGraphqlApiCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGraphqlApiCommandInput - {@link GetGraphqlApiCommandInput}
+ * @returns {@link GetGraphqlApiCommandOutput}
  * @see {@link GetGraphqlApiCommandInput} for command's `input` shape.
  * @see {@link GetGraphqlApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -85,6 +87,9 @@ export class GetGraphqlApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGraphqlApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class GetGraphqlApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGraphqlApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGraphqlApiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class GetGraphqlApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGraphqlApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGraphqlApiCommand(input, context);
+    return se_GetGraphqlApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGraphqlApiCommandOutput> {
-    return deserializeAws_restJson1GetGraphqlApiCommand(output, context);
+    return de_GetGraphqlApiCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   SearchTransitGatewayMulticastGroupsRequest,
-  SearchTransitGatewayMulticastGroupsRequestFilterSensitiveLog,
   SearchTransitGatewayMulticastGroupsResult,
-  SearchTransitGatewayMulticastGroupsResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommand,
-  serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand,
+  de_SearchTransitGatewayMulticastGroupsCommand,
+  se_SearchTransitGatewayMulticastGroupsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link SearchTransitGatewayMulticastGroupsCommand}.
  */
 export interface SearchTransitGatewayMulticastGroupsCommandInput extends SearchTransitGatewayMulticastGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchTransitGatewayMulticastGroupsCommand}.
  */
 export interface SearchTransitGatewayMulticastGroupsCommandOutput
@@ -37,6 +39,7 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches one or more  transit gateway multicast groups and returns the group membership information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,26 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput
  * import { EC2Client, SearchTransitGatewayMulticastGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, SearchTransitGatewayMulticastGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // SearchTransitGatewayMulticastGroupsRequest
+ *   TransitGatewayMulticastDomainId: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new SearchTransitGatewayMulticastGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchTransitGatewayMulticastGroupsCommandInput - {@link SearchTransitGatewayMulticastGroupsCommandInput}
+ * @returns {@link SearchTransitGatewayMulticastGroupsCommandOutput}
  * @see {@link SearchTransitGatewayMulticastGroupsCommandInput} for command's `input` shape.
  * @see {@link SearchTransitGatewayMulticastGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +90,9 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchTransitGatewayMulticastGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +121,8 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchTransitGatewayMulticastGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchTransitGatewayMulticastGroupsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +132,24 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SearchTransitGatewayMulticastGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand(input, context);
+    return se_SearchTransitGatewayMulticastGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchTransitGatewayMulticastGroupsCommandOutput> {
-    return deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommand(output, context);
+    return de_SearchTransitGatewayMulticastGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

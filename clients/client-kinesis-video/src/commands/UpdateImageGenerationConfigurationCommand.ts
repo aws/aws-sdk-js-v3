@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
+import { UpdateImageGenerationConfigurationInput, UpdateImageGenerationConfigurationOutput } from "../models/models_0";
 import {
-  UpdateImageGenerationConfigurationInput,
-  UpdateImageGenerationConfigurationInputFilterSensitiveLog,
-  UpdateImageGenerationConfigurationOutput,
-  UpdateImageGenerationConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateImageGenerationConfigurationCommand,
-  serializeAws_restJson1UpdateImageGenerationConfigurationCommand,
+  de_UpdateImageGenerationConfigurationCommand,
+  se_UpdateImageGenerationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateImageGenerationConfigurationCommand}.
  */
 export interface UpdateImageGenerationConfigurationCommandInput extends UpdateImageGenerationConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateImageGenerationConfigurationCommand}.
  */
 export interface UpdateImageGenerationConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateImageGenerationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code> fields.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,31 @@ export interface UpdateImageGenerationConfigurationCommandOutput
  * import { KinesisVideoClient, UpdateImageGenerationConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateImageGenerationConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // UpdateImageGenerationConfigurationInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   ImageGenerationConfiguration: { // ImageGenerationConfiguration
+ *     Status: "ENABLED" || "DISABLED", // required
+ *     ImageSelectorType: "SERVER_TIMESTAMP" || "PRODUCER_TIMESTAMP", // required
+ *     DestinationConfig: { // ImageGenerationDestinationConfig
+ *       Uri: "STRING_VALUE", // required
+ *       DestinationRegion: "STRING_VALUE", // required
+ *     },
+ *     SamplingInterval: Number("int"), // required
+ *     Format: "JPEG" || "PNG", // required
+ *     FormatConfig: { // FormatConfig
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     WidthPixels: Number("int"),
+ *     HeightPixels: Number("int"),
+ *   },
+ * };
  * const command = new UpdateImageGenerationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateImageGenerationConfigurationCommandInput - {@link UpdateImageGenerationConfigurationCommandInput}
+ * @returns {@link UpdateImageGenerationConfigurationCommandOutput}
  * @see {@link UpdateImageGenerationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateImageGenerationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -107,6 +128,9 @@ export class UpdateImageGenerationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateImageGenerationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +159,8 @@ export class UpdateImageGenerationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateImageGenerationConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateImageGenerationConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,18 +170,24 @@ export class UpdateImageGenerationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateImageGenerationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateImageGenerationConfigurationCommand(input, context);
+    return se_UpdateImageGenerationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateImageGenerationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateImageGenerationConfigurationCommand(output, context);
+    return de_UpdateImageGenerationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

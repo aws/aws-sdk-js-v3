@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { GetGroupCertificateConfigurationRequest, GetGroupCertificateConfigurationResponse } from "../models/models_0";
 import {
-  GetGroupCertificateConfigurationRequest,
-  GetGroupCertificateConfigurationRequestFilterSensitiveLog,
-  GetGroupCertificateConfigurationResponse,
-  GetGroupCertificateConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGroupCertificateConfigurationCommand,
-  serializeAws_restJson1GetGroupCertificateConfigurationCommand,
+  de_GetGroupCertificateConfigurationCommand,
+  se_GetGroupCertificateConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupCertificateConfigurationCommand}.
  */
 export interface GetGroupCertificateConfigurationCommandInput extends GetGroupCertificateConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupCertificateConfigurationCommand}.
  */
 export interface GetGroupCertificateConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface GetGroupCertificateConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves the current configuration for the CA used by the group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetGroupCertificateConfigurationCommandOutput
  * import { GreengrassClient, GetGroupCertificateConfigurationCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetGroupCertificateConfigurationCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetGroupCertificateConfigurationRequest
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetGroupCertificateConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupCertificateConfigurationCommandInput - {@link GetGroupCertificateConfigurationCommandInput}
+ * @returns {@link GetGroupCertificateConfigurationCommandOutput}
  * @see {@link GetGroupCertificateConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetGroupCertificateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -77,6 +82,9 @@ export class GetGroupCertificateConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupCertificateConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class GetGroupCertificateConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupCertificateConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupCertificateConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +124,24 @@ export class GetGroupCertificateConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetGroupCertificateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGroupCertificateConfigurationCommand(input, context);
+    return se_GetGroupCertificateConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGroupCertificateConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetGroupCertificateConfigurationCommand(output, context);
+    return de_GetGroupCertificateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

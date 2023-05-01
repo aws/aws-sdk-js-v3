@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutManagedRuleSetVersionsRequest,
-  PutManagedRuleSetVersionsRequestFilterSensitiveLog,
-  PutManagedRuleSetVersionsResponse,
-  PutManagedRuleSetVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutManagedRuleSetVersionsCommand,
-  serializeAws_json1_1PutManagedRuleSetVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { PutManagedRuleSetVersionsRequest, PutManagedRuleSetVersionsResponse } from "../models/models_0";
+import { de_PutManagedRuleSetVersionsCommand, se_PutManagedRuleSetVersionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutManagedRuleSetVersionsCommand}.
  */
 export interface PutManagedRuleSetVersionsCommandInput extends PutManagedRuleSetVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutManagedRuleSetVersionsCommand}.
  */
 export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSetVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines the versions of your managed rule set that you are offering to the customers.
  *          Customers see your offerings as managed rule groups with versioning.</p>
  *          <note>
@@ -53,10 +50,25 @@ export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSe
  * import { WAFV2Client, PutManagedRuleSetVersionsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, PutManagedRuleSetVersionsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // PutManagedRuleSetVersionsRequest
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Id: "STRING_VALUE", // required
+ *   LockToken: "STRING_VALUE", // required
+ *   RecommendedVersion: "STRING_VALUE",
+ *   VersionsToPublish: { // VersionsToPublish
+ *     "<keys>": { // VersionToPublish
+ *       AssociatedRuleGroupArn: "STRING_VALUE",
+ *       ForecastedLifetime: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new PutManagedRuleSetVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutManagedRuleSetVersionsCommandInput - {@link PutManagedRuleSetVersionsCommandInput}
+ * @returns {@link PutManagedRuleSetVersionsCommandOutput}
  * @see {@link PutManagedRuleSetVersionsCommandInput} for command's `input` shape.
  * @see {@link PutManagedRuleSetVersionsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -119,6 +131,9 @@ export class PutManagedRuleSetVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutManagedRuleSetVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +162,8 @@ export class PutManagedRuleSetVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutManagedRuleSetVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutManagedRuleSetVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,15 +173,21 @@ export class PutManagedRuleSetVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutManagedRuleSetVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutManagedRuleSetVersionsCommand(input, context);
+    return se_PutManagedRuleSetVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutManagedRuleSetVersionsCommandOutput> {
-    return deserializeAws_json1_1PutManagedRuleSetVersionsCommand(output, context);
+    return de_PutManagedRuleSetVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

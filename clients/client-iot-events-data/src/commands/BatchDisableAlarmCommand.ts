@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  BatchDisableAlarmRequest,
-  BatchDisableAlarmRequestFilterSensitiveLog,
-  BatchDisableAlarmResponse,
-  BatchDisableAlarmResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDisableAlarmCommand,
-  serializeAws_restJson1BatchDisableAlarmCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchDisableAlarmRequest, BatchDisableAlarmResponse } from "../models/models_0";
+import { de_BatchDisableAlarmCommand, se_BatchDisableAlarmCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDisableAlarmCommand}.
  */
 export interface BatchDisableAlarmCommandInput extends BatchDisableAlarmRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDisableAlarmCommand}.
  */
 export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables one or more alarms. The alarms change to the <code>DISABLED</code> state after
  *       you disable them.</p>
  * @example
@@ -43,10 +40,22 @@ export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmRespons
  * import { IoTEventsDataClient, BatchDisableAlarmCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchDisableAlarmCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = { // BatchDisableAlarmRequest
+ *   disableActionRequests: [ // DisableAlarmActionRequests // required
+ *     { // DisableAlarmActionRequest
+ *       requestId: "STRING_VALUE", // required
+ *       alarmModelName: "STRING_VALUE", // required
+ *       keyValue: "STRING_VALUE",
+ *       note: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchDisableAlarmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDisableAlarmCommandInput - {@link BatchDisableAlarmCommandInput}
+ * @returns {@link BatchDisableAlarmCommandOutput}
  * @see {@link BatchDisableAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchDisableAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
@@ -82,6 +91,9 @@ export class BatchDisableAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDisableAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +122,8 @@ export class BatchDisableAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisableAlarmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisableAlarmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +133,18 @@ export class BatchDisableAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDisableAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisableAlarmCommand(input, context);
+    return se_BatchDisableAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDisableAlarmCommandOutput> {
-    return deserializeAws_restJson1BatchDisableAlarmCommand(output, context);
+    return de_BatchDisableAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

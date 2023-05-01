@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { DynamoDBServiceException as __BaseException } from "./DynamoDBServiceException";
 
 /**
+ * @public
  * <p>Contains details of a table archival operation.</p>
  */
 export interface ArchivalSummary {
@@ -34,19 +35,38 @@ export interface ArchivalSummary {
   ArchivalBackupArn?: string;
 }
 
-export enum AttributeAction {
-  ADD = "ADD",
-  DELETE = "DELETE",
-  PUT = "PUT",
-}
-
-export enum ScalarAttributeType {
-  B = "B",
-  N = "N",
-  S = "S",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AttributeAction = {
+  ADD: "ADD",
+  DELETE: "DELETE",
+  PUT: "PUT",
+} as const;
 
 /**
+ * @public
+ */
+export type AttributeAction = (typeof AttributeAction)[keyof typeof AttributeAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalarAttributeType = {
+  B: "B",
+  N: "N",
+  S: "S",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalarAttributeType = (typeof ScalarAttributeType)[keyof typeof ScalarAttributeType];
+
+/**
+ * @public
  * <p>Represents an attribute for describing the key schema for the table and
  *             indexes.</p>
  */
@@ -77,6 +97,7 @@ export interface AttributeDefinition {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a target tracking scaling policy.</p>
  */
 export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
@@ -115,6 +136,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
 }
 
 /**
+ * @public
  * <p>Represents the properties of the scaling policy.</p>
  */
 export interface AutoScalingPolicyDescription {
@@ -130,6 +152,7 @@ export interface AutoScalingPolicyDescription {
 }
 
 /**
+ * @public
  * <p>Represents the settings of a target tracking scaling policy that will be
  *             modified.</p>
  */
@@ -169,6 +192,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling policy to be modified.</p>
  */
 export interface AutoScalingPolicyUpdate {
@@ -184,6 +208,7 @@ export interface AutoScalingPolicyUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings for a global table or global secondary
  *             index.</p>
  */
@@ -217,6 +242,7 @@ export interface AutoScalingSettingsDescription {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings to be modified for a global table or global
  *             secondary index.</p>
  */
@@ -250,19 +276,38 @@ export interface AutoScalingSettingsUpdate {
   ScalingPolicyUpdate?: AutoScalingPolicyUpdate;
 }
 
-export enum BackupStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-}
-
-export enum BackupType {
-  AWS_BACKUP = "AWS_BACKUP",
-  SYSTEM = "SYSTEM",
-  USER = "USER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BackupStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+} as const;
 
 /**
+ * @public
+ */
+export type BackupStatus = (typeof BackupStatus)[keyof typeof BackupStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BackupType = {
+  AWS_BACKUP: "AWS_BACKUP",
+  SYSTEM: "SYSTEM",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupType = (typeof BackupType)[keyof typeof BackupType];
+
+/**
+ * @public
  * <p>Contains the details of the backup created for the table.</p>
  */
 export interface BackupDetails {
@@ -323,17 +368,36 @@ export interface BackupDetails {
   BackupExpiryDateTime?: Date;
 }
 
-export enum BillingMode {
-  PAY_PER_REQUEST = "PAY_PER_REQUEST",
-  PROVISIONED = "PROVISIONED",
-}
-
-export enum KeyType {
-  HASH = "HASH",
-  RANGE = "RANGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BillingMode = {
+  PAY_PER_REQUEST: "PAY_PER_REQUEST",
+  PROVISIONED: "PROVISIONED",
+} as const;
 
 /**
+ * @public
+ */
+export type BillingMode = (typeof BillingMode)[keyof typeof BillingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyType = {
+  HASH: "HASH",
+  RANGE: "RANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyType = (typeof KeyType)[keyof typeof KeyType];
+
+/**
+ * @public
  * <p>Represents <i>a single element</i> of a key schema. A key schema
  *             specifies the attributes that make up the primary key of a table, or the key attributes
  *             of an index.</p>
@@ -378,6 +442,7 @@ export interface KeySchemaElement {
 }
 
 /**
+ * @public
  * <p>Represents the provisioned throughput settings for a specified table or index. The
  *             settings can be modified using the <code>UpdateTable</code> operation.</p>
  *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
@@ -405,6 +470,7 @@ export interface ProvisionedThroughput {
 }
 
 /**
+ * @public
  * <p>Contains the details of the table when the backup was created. </p>
  */
 export interface SourceTableDetails {
@@ -469,13 +535,23 @@ export interface SourceTableDetails {
   BillingMode?: BillingMode | string;
 }
 
-export enum ProjectionType {
-  ALL = "ALL",
-  INCLUDE = "INCLUDE",
-  KEYS_ONLY = "KEYS_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProjectionType = {
+  ALL: "ALL",
+  INCLUDE: "INCLUDE",
+  KEYS_ONLY: "KEYS_ONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type ProjectionType = (typeof ProjectionType)[keyof typeof ProjectionType];
+
+/**
+ * @public
  * <p>Represents attributes that are copied (projected) from the table into an index. These
  *             are in addition to the primary key attributes and index key attributes, which are
  *             automatically projected.</p>
@@ -515,6 +591,7 @@ export interface Projection {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a global secondary index for the table when the backup
  *             was created.</p>
  */
@@ -564,6 +641,7 @@ export interface GlobalSecondaryIndexInfo {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a local secondary index for the table when the backup was
  *             created.</p>
  */
@@ -607,20 +685,39 @@ export interface LocalSecondaryIndexInfo {
   Projection?: Projection;
 }
 
-export enum SSEType {
-  AES256 = "AES256",
-  KMS = "KMS",
-}
-
-export enum SSEStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SSEType = {
+  AES256: "AES256",
+  KMS: "KMS",
+} as const;
 
 /**
+ * @public
+ */
+export type SSEType = (typeof SSEType)[keyof typeof SSEType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SSEStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type SSEStatus = (typeof SSEStatus)[keyof typeof SSEStatus];
+
+/**
+ * @public
  * <p>The description of the server-side encryption status on the specified table.</p>
  */
 export interface SSEDescription {
@@ -666,14 +763,24 @@ export interface SSEDescription {
   InaccessibleEncryptionDateTime?: Date;
 }
 
-export enum StreamViewType {
-  KEYS_ONLY = "KEYS_ONLY",
-  NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES",
-  NEW_IMAGE = "NEW_IMAGE",
-  OLD_IMAGE = "OLD_IMAGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StreamViewType = {
+  KEYS_ONLY: "KEYS_ONLY",
+  NEW_AND_OLD_IMAGES: "NEW_AND_OLD_IMAGES",
+  NEW_IMAGE: "NEW_IMAGE",
+  OLD_IMAGE: "OLD_IMAGE",
+} as const;
 
 /**
+ * @public
+ */
+export type StreamViewType = (typeof StreamViewType)[keyof typeof StreamViewType];
+
+/**
+ * @public
  * <p>Represents the DynamoDB Streams configuration for a table in DynamoDB.</p>
  */
 export interface StreamSpecification {
@@ -713,14 +820,24 @@ export interface StreamSpecification {
   StreamViewType?: StreamViewType | string;
 }
 
-export enum TimeToLiveStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TimeToLiveStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
 
 /**
+ * @public
+ */
+export type TimeToLiveStatus = (typeof TimeToLiveStatus)[keyof typeof TimeToLiveStatus];
+
+/**
+ * @public
  * <p>The description of the Time to Live (TTL) status on the specified table. </p>
  */
 export interface TimeToLiveDescription {
@@ -736,6 +853,7 @@ export interface TimeToLiveDescription {
 }
 
 /**
+ * @public
  * <p>Contains the details of the features enabled on the table when the backup was created.
  *             For example, LSIs, GSIs, streams, TTL. </p>
  */
@@ -772,6 +890,7 @@ export interface SourceTableFeatureDetails {
 }
 
 /**
+ * @public
  * <p>Contains the description of the backup created for the table.</p>
  */
 export interface BackupDescription {
@@ -793,6 +912,7 @@ export interface BackupDescription {
 }
 
 /**
+ * @public
  * <p>There is another ongoing conflicting backup control plane operation on the table.
  *             The backup is either being created, deleted or restored to a table.</p>
  */
@@ -813,6 +933,7 @@ export class BackupInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Backup not found for the given BackupARN. </p>
  */
 export class BackupNotFoundException extends __BaseException {
@@ -832,6 +953,7 @@ export class BackupNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains details for the backup.</p>
  */
 export interface BackupSummary {
@@ -906,20 +1028,39 @@ export interface BackupSummary {
   BackupSizeBytes?: number;
 }
 
-export enum BackupTypeFilter {
-  ALL = "ALL",
-  AWS_BACKUP = "AWS_BACKUP",
-  SYSTEM = "SYSTEM",
-  USER = "USER",
-}
-
-export enum ReturnConsumedCapacity {
-  INDEXES = "INDEXES",
-  NONE = "NONE",
-  TOTAL = "TOTAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BackupTypeFilter = {
+  ALL: "ALL",
+  AWS_BACKUP: "AWS_BACKUP",
+  SYSTEM: "SYSTEM",
+  USER: "USER",
+} as const;
 
 /**
+ * @public
+ */
+export type BackupTypeFilter = (typeof BackupTypeFilter)[keyof typeof BackupTypeFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReturnConsumedCapacity = {
+  INDEXES: "INDEXES",
+  NONE: "NONE",
+  TOTAL: "TOTAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ReturnConsumedCapacity = (typeof ReturnConsumedCapacity)[keyof typeof ReturnConsumedCapacity];
+
+/**
+ * @public
  * <p>Represents the amount of provisioned throughput capacity consumed on a table or an
  *             index.</p>
  */
@@ -941,6 +1082,7 @@ export interface Capacity {
 }
 
 /**
+ * @public
  * <p>The capacity units consumed by an operation. The data returned includes the total
  *             provisioned throughput consumed, along with statistics for the table and any indexes
  *             involved in the operation. <code>ConsumedCapacity</code> is only returned if the request
@@ -986,21 +1128,32 @@ export interface ConsumedCapacity {
   GlobalSecondaryIndexes?: Record<string, Capacity>;
 }
 
-export enum BatchStatementErrorCodeEnum {
-  AccessDenied = "AccessDenied",
-  ConditionalCheckFailed = "ConditionalCheckFailed",
-  DuplicateItem = "DuplicateItem",
-  InternalServerError = "InternalServerError",
-  ItemCollectionSizeLimitExceeded = "ItemCollectionSizeLimitExceeded",
-  ProvisionedThroughputExceeded = "ProvisionedThroughputExceeded",
-  RequestLimitExceeded = "RequestLimitExceeded",
-  ResourceNotFound = "ResourceNotFound",
-  ThrottlingError = "ThrottlingError",
-  TransactionConflict = "TransactionConflict",
-  ValidationError = "ValidationError",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BatchStatementErrorCodeEnum = {
+  AccessDenied: "AccessDenied",
+  ConditionalCheckFailed: "ConditionalCheckFailed",
+  DuplicateItem: "DuplicateItem",
+  InternalServerError: "InternalServerError",
+  ItemCollectionSizeLimitExceeded: "ItemCollectionSizeLimitExceeded",
+  ProvisionedThroughputExceeded: "ProvisionedThroughputExceeded",
+  RequestLimitExceeded: "RequestLimitExceeded",
+  ResourceNotFound: "ResourceNotFound",
+  ThrottlingError: "ThrottlingError",
+  TransactionConflict: "TransactionConflict",
+  ValidationError: "ValidationError",
+} as const;
 
 /**
+ * @public
+ */
+export type BatchStatementErrorCodeEnum =
+  (typeof BatchStatementErrorCodeEnum)[keyof typeof BatchStatementErrorCodeEnum];
+
+/**
+ * @public
  * <p> An error associated with a statement in a PartiQL batch that was run. </p>
  */
 export interface BatchStatementError {
@@ -1016,6 +1169,7 @@ export interface BatchStatementError {
 }
 
 /**
+ * @public
  * <p>An error occurred on the server side.</p>
  */
 export class InternalServerError extends __BaseException {
@@ -1035,6 +1189,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Throughput exceeds the current throughput quota for your account. Please contact
  *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
  *             quota increase.</p>
@@ -1055,6 +1210,9 @@ export class RequestLimitExceeded extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export class InvalidEndpointException extends __BaseException {
   readonly name: "InvalidEndpointException" = "InvalidEndpointException";
   readonly $fault: "client" = "client";
@@ -1074,6 +1232,7 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your request rate is too high. The Amazon Web Services SDKs for DynamoDB
  *             automatically retry requests that receive this exception. Your request is eventually
  *             successful, unless your retry queue is too large to finish. Reduce the frequency of
@@ -1096,6 +1255,7 @@ export class ProvisionedThroughputExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  */
@@ -1115,12 +1275,23 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
-export enum ReturnItemCollectionMetrics {
-  NONE = "NONE",
-  SIZE = "SIZE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReturnItemCollectionMetrics = {
+  NONE: "NONE",
+  SIZE: "SIZE",
+} as const;
 
 /**
+ * @public
+ */
+export type ReturnItemCollectionMetrics =
+  (typeof ReturnItemCollectionMetrics)[keyof typeof ReturnItemCollectionMetrics];
+
+/**
+ * @public
  * <p>An item collection is too large. This exception is only returned for tables that
  *             have one or more local secondary indexes.</p>
  */
@@ -1141,6 +1312,7 @@ export class ItemCollectionSizeLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the details for the read/write capacity mode. This page talks about
  *                 <code>PROVISIONED</code> and <code>PAY_PER_REQUEST</code> billing modes. For more
  *             information about these modes, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html">Read/write capacity mode</a>.</p>
@@ -1177,23 +1349,33 @@ export interface BillingModeSummary {
   LastUpdateToPayPerRequestDateTime?: Date;
 }
 
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  IN = "IN",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-  NOT_CONTAINS = "NOT_CONTAINS",
-  NOT_NULL = "NOT_NULL",
-  NULL = "NULL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  BEGINS_WITH: "BEGINS_WITH",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  IN: "IN",
+  LE: "LE",
+  LT: "LT",
+  NE: "NE",
+  NOT_CONTAINS: "NOT_CONTAINS",
+  NOT_NULL: "NOT_NULL",
+  NULL: "NULL",
+} as const;
 
 /**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
  * <p>A condition specified in the operation could not be evaluated.</p>
  */
 export class ConditionalCheckFailedException extends __BaseException {
@@ -1212,27 +1394,65 @@ export class ConditionalCheckFailedException extends __BaseException {
   }
 }
 
-export enum ConditionalOperator {
-  AND = "AND",
-  OR = "OR",
-}
-
-export enum ReturnValuesOnConditionCheckFailure {
-  ALL_OLD = "ALL_OLD",
-  NONE = "NONE",
-}
-
-export enum ContinuousBackupsStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum PointInTimeRecoveryStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConditionalOperator = {
+  AND: "AND",
+  OR: "OR",
+} as const;
 
 /**
+ * @public
+ */
+export type ConditionalOperator = (typeof ConditionalOperator)[keyof typeof ConditionalOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReturnValuesOnConditionCheckFailure = {
+  ALL_OLD: "ALL_OLD",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type ReturnValuesOnConditionCheckFailure =
+  (typeof ReturnValuesOnConditionCheckFailure)[keyof typeof ReturnValuesOnConditionCheckFailure];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContinuousBackupsStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContinuousBackupsStatus = (typeof ContinuousBackupsStatus)[keyof typeof ContinuousBackupsStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PointInTimeRecoveryStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PointInTimeRecoveryStatus = (typeof PointInTimeRecoveryStatus)[keyof typeof PointInTimeRecoveryStatus];
+
+/**
+ * @public
  * <p>The description of the point in time settings applied to the table.</p>
  */
 export interface PointInTimeRecoveryDescription {
@@ -1266,6 +1486,7 @@ export interface PointInTimeRecoveryDescription {
 }
 
 /**
+ * @public
  * <p>Represents the continuous backups and point in time recovery settings on the
  *             table.</p>
  */
@@ -1284,6 +1505,7 @@ export interface ContinuousBackupsDescription {
 }
 
 /**
+ * @public
  * <p>Backups have not yet been enabled for this table.</p>
  */
 export class ContinuousBackupsUnavailableException extends __BaseException {
@@ -1302,20 +1524,39 @@ export class ContinuousBackupsUnavailableException extends __BaseException {
   }
 }
 
-export enum ContributorInsightsAction {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
-
-export enum ContributorInsightsStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  FAILED = "FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContributorInsightsAction = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type ContributorInsightsAction = (typeof ContributorInsightsAction)[keyof typeof ContributorInsightsAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContributorInsightsStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContributorInsightsStatus = (typeof ContributorInsightsStatus)[keyof typeof ContributorInsightsStatus];
+
+/**
+ * @public
  * <p>Represents a Contributor Insights summary entry.</p>
  */
 export interface ContributorInsightsSummary {
@@ -1336,6 +1577,9 @@ export interface ContributorInsightsSummary {
   ContributorInsightsStatus?: ContributorInsightsStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupInput {
   /**
    * <p>The name of the table.</p>
@@ -1348,6 +1592,9 @@ export interface CreateBackupInput {
   BackupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackupOutput {
   /**
    * <p>Contains the details of the backup created for the table.</p>
@@ -1356,6 +1603,7 @@ export interface CreateBackupOutput {
 }
 
 /**
+ * @public
  * <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
  *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
  *             include <code>CreateTable</code>, <code>UpdateTable</code>,
@@ -1385,6 +1633,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A target table with the specified name is either being created or deleted.
  *         </p>
  */
@@ -1405,6 +1654,7 @@ export class TableInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A source table with the name <code>TableName</code> does not currently exist within
  *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
  */
@@ -1425,6 +1675,7 @@ export class TableNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a new global secondary index to be added to an existing table.</p>
  */
 export interface CreateGlobalSecondaryIndexAction {
@@ -1456,6 +1707,7 @@ export interface CreateGlobalSecondaryIndexAction {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a replica.</p>
  */
 export interface Replica {
@@ -1465,6 +1717,9 @@ export interface Replica {
   RegionName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGlobalTableInput {
   /**
    * <p>The global table name.</p>
@@ -1477,14 +1732,24 @@ export interface CreateGlobalTableInput {
   ReplicationGroup: Replica[] | undefined;
 }
 
-export enum GlobalTableStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GlobalTableStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type GlobalTableStatus = (typeof GlobalTableStatus)[keyof typeof GlobalTableStatus];
+
+/**
+ * @public
  * <p>Replica-specific provisioned throughput settings. If not specified, uses the source
  *             table's provisioned throughput settings.</p>
  */
@@ -1497,6 +1762,7 @@ export interface ProvisionedThroughputOverride {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a replica global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndexDescription {
@@ -1511,22 +1777,41 @@ export interface ReplicaGlobalSecondaryIndexDescription {
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
 }
 
-export enum ReplicaStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  CREATION_FAILED = "CREATION_FAILED",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  REGION_DISABLED = "REGION_DISABLED",
-  UPDATING = "UPDATING",
-}
-
-export enum TableClass {
-  STANDARD = "STANDARD",
-  STANDARD_INFREQUENT_ACCESS = "STANDARD_INFREQUENT_ACCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReplicaStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  CREATION_FAILED: "CREATION_FAILED",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  REGION_DISABLED: "REGION_DISABLED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type ReplicaStatus = (typeof ReplicaStatus)[keyof typeof ReplicaStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TableClass = {
+  STANDARD: "STANDARD",
+  STANDARD_INFREQUENT_ACCESS: "STANDARD_INFREQUENT_ACCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type TableClass = (typeof TableClass)[keyof typeof TableClass];
+
+/**
+ * @public
  * <p>Contains details of the table class.</p>
  */
 export interface TableClassSummary {
@@ -1543,6 +1828,7 @@ export interface TableClassSummary {
 }
 
 /**
+ * @public
  * <p>Contains the details of the replica.</p>
  */
 export interface ReplicaDescription {
@@ -1636,6 +1922,7 @@ export interface ReplicaDescription {
 }
 
 /**
+ * @public
  * <p>Contains details about the global table.</p>
  */
 export interface GlobalTableDescription {
@@ -1683,6 +1970,9 @@ export interface GlobalTableDescription {
   GlobalTableName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateGlobalTableOutput {
   /**
    * <p>Contains the details of the global table.</p>
@@ -1691,6 +1981,7 @@ export interface CreateGlobalTableOutput {
 }
 
 /**
+ * @public
  * <p>The specified global table already exists.</p>
  */
 export class GlobalTableAlreadyExistsException extends __BaseException {
@@ -1710,6 +2001,7 @@ export class GlobalTableAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a replica to be added.</p>
  */
 export interface CreateReplicaAction {
@@ -1720,6 +2012,7 @@ export interface CreateReplicaAction {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a replica global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndex {
@@ -1736,6 +2029,7 @@ export interface ReplicaGlobalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Represents a replica to be created.</p>
  */
 export interface CreateReplicationGroupMemberAction {
@@ -1772,6 +2066,7 @@ export interface CreateReplicationGroupMemberAction {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a global secondary index.</p>
  */
 export interface GlobalSecondaryIndex {
@@ -1825,6 +2120,7 @@ export interface GlobalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a local secondary index.</p>
  */
 export interface LocalSecondaryIndex {
@@ -1869,6 +2165,7 @@ export interface LocalSecondaryIndex {
 }
 
 /**
+ * @public
  * <p>Represents the settings used to enable server-side encryption.</p>
  */
 export interface SSESpecification {
@@ -1902,6 +2199,7 @@ export interface SSESpecification {
 }
 
 /**
+ * @public
  * <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single
  *             DynamoDB table. </p>
  *          <p>Amazon Web Services-assigned tag names and values are automatically assigned the
@@ -1928,6 +2226,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>CreateTable</code> operation.</p>
  */
 export interface CreateTableInput {
@@ -2208,14 +2507,24 @@ export interface CreateTableInput {
   DeletionProtectionEnabled?: boolean;
 }
 
-export enum IndexStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IndexStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
+
+/**
+ * @public
  * <p>Represents the provisioned throughput settings for the table, consisting of read and
  *             write capacity units, along with data about increases and decreases.</p>
  */
@@ -2255,6 +2564,7 @@ export interface ProvisionedThroughputDescription {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a global secondary index.</p>
  */
 export interface GlobalSecondaryIndexDescription {
@@ -2366,6 +2676,7 @@ export interface GlobalSecondaryIndexDescription {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a local secondary index.</p>
  */
 export interface LocalSecondaryIndexDescription {
@@ -2428,6 +2739,7 @@ export interface LocalSecondaryIndexDescription {
 }
 
 /**
+ * @public
  * <p>Contains details for the restore.</p>
  */
 export interface RestoreSummary {
@@ -2452,17 +2764,27 @@ export interface RestoreSummary {
   RestoreInProgress: boolean | undefined;
 }
 
-export enum TableStatus {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-  ARCHIVING = "ARCHIVING",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TableStatus = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+  ARCHIVING: "ARCHIVING",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
+
+/**
+ * @public
  * <p>Represents the properties of a table.</p>
  */
 export interface TableDescription {
@@ -2868,6 +3190,7 @@ export interface TableDescription {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>CreateTable</code> operation.</p>
  */
 export interface CreateTableOutput {
@@ -2878,6 +3201,7 @@ export interface CreateTableOutput {
 }
 
 /**
+ * @public
  * <p>The operation conflicts with the resource's availability. For example, you
  *             attempted to recreate an existing table, or tried to delete a table currently in the
  *                 <code>CREATING</code> state.</p>
@@ -2899,6 +3223,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Processing options for the CSV file being imported. </p>
  */
 export interface CsvOptions {
@@ -2916,6 +3241,9 @@ export interface CsvOptions {
   HeaderList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupInput {
   /**
    * <p>The ARN associated with the backup.</p>
@@ -2923,6 +3251,9 @@ export interface DeleteBackupInput {
   BackupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackupOutput {
   /**
    * <p>Contains the description of the backup created for the table.</p>
@@ -2931,6 +3262,7 @@ export interface DeleteBackupOutput {
 }
 
 /**
+ * @public
  * <p>Represents a global secondary index to be deleted from an existing table.</p>
  */
 export interface DeleteGlobalSecondaryIndexAction {
@@ -2940,15 +3272,25 @@ export interface DeleteGlobalSecondaryIndexAction {
   IndexName: string | undefined;
 }
 
-export enum ReturnValue {
-  ALL_NEW = "ALL_NEW",
-  ALL_OLD = "ALL_OLD",
-  NONE = "NONE",
-  UPDATED_NEW = "UPDATED_NEW",
-  UPDATED_OLD = "UPDATED_OLD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReturnValue = {
+  ALL_NEW: "ALL_NEW",
+  ALL_OLD: "ALL_OLD",
+  NONE: "NONE",
+  UPDATED_NEW: "UPDATED_NEW",
+  UPDATED_OLD: "UPDATED_OLD",
+} as const;
 
 /**
+ * @public
+ */
+export type ReturnValue = (typeof ReturnValue)[keyof typeof ReturnValue];
+
+/**
+ * @public
  * <p>Operation was rejected because there is an ongoing transaction for the
  *             item.</p>
  */
@@ -2969,6 +3311,7 @@ export class TransactionConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents a replica to be removed.</p>
  */
 export interface DeleteReplicaAction {
@@ -2979,6 +3322,7 @@ export interface DeleteReplicaAction {
 }
 
 /**
+ * @public
  * <p>Represents a replica to be deleted.</p>
  */
 export interface DeleteReplicationGroupMemberAction {
@@ -2989,6 +3333,7 @@ export interface DeleteReplicationGroupMemberAction {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteTable</code> operation.</p>
  */
 export interface DeleteTableInput {
@@ -2999,6 +3344,7 @@ export interface DeleteTableInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DeleteTable</code> operation.</p>
  */
 export interface DeleteTableOutput {
@@ -3008,6 +3354,9 @@ export interface DeleteTableOutput {
   TableDescription?: TableDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the backup.</p>
@@ -3015,6 +3364,9 @@ export interface DescribeBackupInput {
   BackupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBackupOutput {
   /**
    * <p>Contains the description of the backup created for the table.</p>
@@ -3022,6 +3374,9 @@ export interface DescribeBackupOutput {
   BackupDescription?: BackupDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContinuousBackupsInput {
   /**
    * <p>Name of the table for which the customer wants to check the continuous backups and
@@ -3030,6 +3385,9 @@ export interface DescribeContinuousBackupsInput {
   TableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContinuousBackupsOutput {
   /**
    * <p>Represents the continuous backups and point in time recovery settings on the
@@ -3038,6 +3396,9 @@ export interface DescribeContinuousBackupsOutput {
   ContinuousBackupsDescription?: ContinuousBackupsDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContributorInsightsInput {
   /**
    * <p>The name of the table to describe.</p>
@@ -3051,6 +3412,7 @@ export interface DescribeContributorInsightsInput {
 }
 
 /**
+ * @public
  * <p>Represents a failure a contributor insights operation.</p>
  */
 export interface FailureException {
@@ -3065,6 +3427,9 @@ export interface FailureException {
   ExceptionDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContributorInsightsOutput {
   /**
    * <p>The name of the table being described.</p>
@@ -3117,9 +3482,13 @@ export interface DescribeContributorInsightsOutput {
   FailureException?: FailureException;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointsRequest {}
 
 /**
+ * @public
  * <p>An endpoint information details.</p>
  */
 export interface Endpoint {
@@ -3134,6 +3503,9 @@ export interface Endpoint {
   CachePeriodInMinutes: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointsResponse {
   /**
    * <p>List of endpoints.</p>
@@ -3141,6 +3513,9 @@ export interface DescribeEndpointsResponse {
   Endpoints: Endpoint[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the export.</p>
@@ -3148,23 +3523,51 @@ export interface DescribeExportInput {
   ExportArn: string | undefined;
 }
 
-export enum ExportFormat {
-  DYNAMODB_JSON = "DYNAMODB_JSON",
-  ION = "ION",
-}
-
-export enum ExportStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
-
-export enum S3SseAlgorithm {
-  AES256 = "AES256",
-  KMS = "KMS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExportFormat = {
+  DYNAMODB_JSON: "DYNAMODB_JSON",
+  ION: "ION",
+} as const;
 
 /**
+ * @public
+ */
+export type ExportFormat = (typeof ExportFormat)[keyof typeof ExportFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3SseAlgorithm = {
+  AES256: "AES256",
+  KMS: "KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type S3SseAlgorithm = (typeof S3SseAlgorithm)[keyof typeof S3SseAlgorithm];
+
+/**
+ * @public
  * <p>Represents the properties of the exported table.</p>
  */
 export interface ExportDescription {
@@ -3284,6 +3687,9 @@ export interface ExportDescription {
   ItemCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExportOutput {
   /**
    * <p>Represents the properties of the export.</p>
@@ -3292,6 +3698,7 @@ export interface DescribeExportOutput {
 }
 
 /**
+ * @public
  * <p>The specified export was not found.</p>
  */
 export class ExportNotFoundException extends __BaseException {
@@ -3310,6 +3717,9 @@ export class ExportNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalTableInput {
   /**
    * <p>The name of the global table.</p>
@@ -3317,6 +3727,9 @@ export interface DescribeGlobalTableInput {
   GlobalTableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalTableOutput {
   /**
    * <p>Contains the details of the global table.</p>
@@ -3325,6 +3738,7 @@ export interface DescribeGlobalTableOutput {
 }
 
 /**
+ * @public
  * <p>The specified global table does not exist.</p>
  */
 export class GlobalTableNotFoundException extends __BaseException {
@@ -3343,6 +3757,9 @@ export class GlobalTableNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalTableSettingsInput {
   /**
    * <p>The name of the global table to describe.</p>
@@ -3351,6 +3768,7 @@ export interface DescribeGlobalTableSettingsInput {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndexSettingsDescription {
@@ -3409,6 +3827,7 @@ export interface ReplicaGlobalSecondaryIndexSettingsDescription {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a replica.</p>
  */
 export interface ReplicaSettingsDescription {
@@ -3480,6 +3899,9 @@ export interface ReplicaSettingsDescription {
   ReplicaTableClassSummary?: TableClassSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGlobalTableSettingsOutput {
   /**
    * <p>The name of the global table.</p>
@@ -3492,6 +3914,9 @@ export interface DescribeGlobalTableSettingsOutput {
   ReplicaSettings?: ReplicaSettingsDescription[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeImportInput {
   /**
    * <p> The Amazon Resource Name (ARN) associated with the table you're importing to. </p>
@@ -3499,27 +3924,55 @@ export interface DescribeImportInput {
   ImportArn: string | undefined;
 }
 
-export enum ImportStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
-
-export enum InputCompressionType {
-  GZIP = "GZIP",
-  NONE = "NONE",
-  ZSTD = "ZSTD",
-}
-
-export enum InputFormat {
-  CSV = "CSV",
-  DYNAMODB_JSON = "DYNAMODB_JSON",
-  ION = "ION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImportStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputCompressionType = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+  ZSTD: "ZSTD",
+} as const;
+
+/**
+ * @public
+ */
+export type InputCompressionType = (typeof InputCompressionType)[keyof typeof InputCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputFormat = {
+  CSV: "CSV",
+  DYNAMODB_JSON: "DYNAMODB_JSON",
+  ION: "ION",
+} as const;
+
+/**
+ * @public
+ */
+export type InputFormat = (typeof InputFormat)[keyof typeof InputFormat];
+
+/**
+ * @public
  * <p> The format options for the data that was imported into the target table. There is one
  *             value, CsvOption.</p>
  */
@@ -3532,6 +3985,7 @@ export interface InputFormatOptions {
 }
 
 /**
+ * @public
  * <p> The S3 bucket that is being imported from. </p>
  */
 export interface S3BucketSource {
@@ -3553,6 +4007,7 @@ export interface S3BucketSource {
 }
 
 /**
+ * @public
  * <p> The parameters for the table created as part of the import operation. </p>
  */
 export interface TableCreationParameters {
@@ -3600,6 +4055,7 @@ export interface TableCreationParameters {
 }
 
 /**
+ * @public
  * <p> Represents the properties of the table being imported into.
  *             </p>
  */
@@ -3713,6 +4169,9 @@ export interface ImportTableDescription {
   FailureMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImportOutput {
   /**
    * <p> Represents the properties of the table created for the import, and parameters of the
@@ -3723,6 +4182,7 @@ export interface DescribeImportOutput {
 }
 
 /**
+ * @public
  * <p>
  *             The specified import was not found.
  *             </p>
@@ -3743,6 +4203,9 @@ export class ImportNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeKinesisStreamingDestinationInput {
   /**
    * <p>The name of the table being described.</p>
@@ -3750,15 +4213,25 @@ export interface DescribeKinesisStreamingDestinationInput {
   TableName: string | undefined;
 }
 
-export enum DestinationStatus {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLE_FAILED = "ENABLE_FAILED",
-  ENABLING = "ENABLING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DestinationStatus = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLE_FAILED: "ENABLE_FAILED",
+  ENABLING: "ENABLING",
+} as const;
 
 /**
+ * @public
+ */
+export type DestinationStatus = (typeof DestinationStatus)[keyof typeof DestinationStatus];
+
+/**
+ * @public
  * <p>Describes a Kinesis data stream destination.</p>
  */
 export interface KinesisDataStreamDestination {
@@ -3778,6 +4251,9 @@ export interface KinesisDataStreamDestination {
   DestinationStatusDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeKinesisStreamingDestinationOutput {
   /**
    * <p>The name of the table being described.</p>
@@ -3791,12 +4267,14 @@ export interface DescribeKinesisStreamingDestinationOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeLimits</code> operation. Has no
  *             content.</p>
  */
 export interface DescribeLimitsInput {}
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeLimits</code> operation.</p>
  */
 export interface DescribeLimitsOutput {
@@ -3828,6 +4306,7 @@ export interface DescribeLimitsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DescribeTable</code> operation.</p>
  */
 export interface DescribeTableInput {
@@ -3838,6 +4317,7 @@ export interface DescribeTableInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DescribeTable</code> operation.</p>
  */
 export interface DescribeTableOutput {
@@ -3847,6 +4327,9 @@ export interface DescribeTableOutput {
   Table?: TableDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTableReplicaAutoScalingInput {
   /**
    * <p>The name of the table.</p>
@@ -3855,6 +4338,7 @@ export interface DescribeTableReplicaAutoScalingInput {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling configuration for a replica global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
@@ -3903,6 +4387,7 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings of the replica.</p>
  */
 export interface ReplicaAutoScalingDescription {
@@ -3953,6 +4438,7 @@ export interface ReplicaAutoScalingDescription {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling configuration for a global table.</p>
  */
 export interface TableAutoScalingDescription {
@@ -3990,6 +4476,9 @@ export interface TableAutoScalingDescription {
   Replicas?: ReplicaAutoScalingDescription[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeTableReplicaAutoScalingOutput {
   /**
    * <p>Represents the auto scaling properties of the table.</p>
@@ -3997,6 +4486,9 @@ export interface DescribeTableReplicaAutoScalingOutput {
   TableAutoScalingDescription?: TableAutoScalingDescription;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTimeToLiveInput {
   /**
    * <p>The name of the table to be described.</p>
@@ -4004,6 +4496,9 @@ export interface DescribeTimeToLiveInput {
   TableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTimeToLiveOutput {
   /**
    * <p></p>
@@ -4011,6 +4506,9 @@ export interface DescribeTimeToLiveOutput {
   TimeToLiveDescription?: TimeToLiveDescription;
 }
 
+/**
+ * @public
+ */
 export interface KinesisStreamingDestinationInput {
   /**
    * <p>The name of the DynamoDB table.</p>
@@ -4023,6 +4521,9 @@ export interface KinesisStreamingDestinationInput {
   StreamArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface KinesisStreamingDestinationOutput {
   /**
    * <p>The name of the table being modified.</p>
@@ -4041,6 +4542,7 @@ export interface KinesisStreamingDestinationOutput {
 }
 
 /**
+ * @public
  * <p> There was an attempt to insert an item with the same primary key as an item that
  *             already exists in the DynamoDB table.</p>
  */
@@ -4061,6 +4563,7 @@ export class DuplicateItemException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>DynamoDB rejected the request because you retried a request with a
  *             different payload but with an idempotent token that was already used.</p>
  */
@@ -4083,6 +4586,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The transaction with the given request token is already in progress.</p>
  *          <p>
  *             Recommended Settings
@@ -4166,6 +4670,7 @@ export class TransactionInProgressException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There was a conflict when writing to the specified S3 bucket.</p>
  */
 export class ExportConflictException extends __BaseException {
@@ -4184,6 +4689,9 @@ export class ExportConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ExportTableToPointInTimeInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the table to export.</p>
@@ -4259,6 +4767,9 @@ export interface ExportTableToPointInTimeInput {
   ExportFormat?: ExportFormat | string;
 }
 
+/**
+ * @public
+ */
 export interface ExportTableToPointInTimeOutput {
   /**
    * <p>Contains a description of the table export.</p>
@@ -4267,6 +4778,7 @@ export interface ExportTableToPointInTimeOutput {
 }
 
 /**
+ * @public
  * <p>The specified <code>ExportTime</code> is outside of the point in time recovery
  *             window.</p>
  */
@@ -4287,6 +4799,7 @@ export class InvalidExportTimeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Point in time recovery has not yet been enabled for this source table.</p>
  */
 export class PointInTimeRecoveryUnavailableException extends __BaseException {
@@ -4306,6 +4819,7 @@ export class PointInTimeRecoveryUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>
  *             There was a conflict when importing from the specified S3 source.
  *             This can occur when the current import conflicts with a previous import request
@@ -4328,6 +4842,9 @@ export class ImportConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ImportTableInput {
   /**
    * <p>Providing a <code>ClientToken</code> makes the call to <code>ImportTableInput</code>
@@ -4370,6 +4887,9 @@ export interface ImportTableInput {
   TableCreationParameters: TableCreationParameters | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportTableOutput {
   /**
    * <p> Represents the properties of the table created for the import, and parameters of the
@@ -4379,6 +4899,9 @@ export interface ImportTableOutput {
   ImportTableDescription: ImportTableDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListBackupsInput {
   /**
    * <p>The backups from the table specified by <code>TableName</code> are listed. </p>
@@ -4434,6 +4957,9 @@ export interface ListBackupsInput {
   BackupType?: BackupTypeFilter | string;
 }
 
+/**
+ * @public
+ */
 export interface ListBackupsOutput {
   /**
    * <p>List of <code>BackupSummary</code> objects.</p>
@@ -4454,6 +4980,9 @@ export interface ListBackupsOutput {
   LastEvaluatedBackupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListContributorInsightsInput {
   /**
    * <p>The name of the table.</p>
@@ -4471,6 +5000,9 @@ export interface ListContributorInsightsInput {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListContributorInsightsOutput {
   /**
    * <p>A list of ContributorInsightsSummary.</p>
@@ -4483,6 +5015,9 @@ export interface ListContributorInsightsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExportsInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the exported table.</p>
@@ -4503,6 +5038,7 @@ export interface ListExportsInput {
 }
 
 /**
+ * @public
  * <p>Summary information about an export task.</p>
  */
 export interface ExportSummary {
@@ -4518,6 +5054,9 @@ export interface ExportSummary {
   ExportStatus?: ExportStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListExportsOutput {
   /**
    * <p>A list of <code>ExportSummary</code> objects.</p>
@@ -4532,6 +5071,9 @@ export interface ListExportsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListGlobalTablesInput {
   /**
    * <p>The first global table name that this operation will evaluate.</p>
@@ -4555,6 +5097,7 @@ export interface ListGlobalTablesInput {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a global table.</p>
  */
 export interface GlobalTable {
@@ -4569,6 +5112,9 @@ export interface GlobalTable {
   ReplicationGroup?: Replica[];
 }
 
+/**
+ * @public
+ */
 export interface ListGlobalTablesOutput {
   /**
    * <p>List of global table names.</p>
@@ -4581,6 +5127,9 @@ export interface ListGlobalTablesOutput {
   LastEvaluatedGlobalTableName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsInput {
   /**
    * <p> The Amazon Resource Name (ARN) associated with the table that was imported to.
@@ -4602,6 +5151,7 @@ export interface ListImportsInput {
 }
 
 /**
+ * @public
  * <p> Summary information about the source file for the import.
  *             </p>
  */
@@ -4652,6 +5202,9 @@ export interface ImportSummary {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListImportsOutput {
   /**
    * <p> A list of <code>ImportSummary</code> objects. </p>
@@ -4667,6 +5220,7 @@ export interface ListImportsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>ListTables</code> operation.</p>
  */
 export interface ListTablesInput {
@@ -4685,6 +5239,7 @@ export interface ListTablesInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>ListTables</code> operation.</p>
  */
 export interface ListTablesOutput {
@@ -4707,6 +5262,9 @@ export interface ListTablesOutput {
   LastEvaluatedTableName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsOfResourceInput {
   /**
    * <p>The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Resource
@@ -4722,6 +5280,9 @@ export interface ListTagsOfResourceInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsOfResourceOutput {
   /**
    * <p>The tags currently associated with the Amazon DynamoDB resource.</p>
@@ -4735,13 +5296,25 @@ export interface ListTagsOfResourceOutput {
   NextToken?: string;
 }
 
-export enum Select {
-  ALL_ATTRIBUTES = "ALL_ATTRIBUTES",
-  ALL_PROJECTED_ATTRIBUTES = "ALL_PROJECTED_ATTRIBUTES",
-  COUNT = "COUNT",
-  SPECIFIC_ATTRIBUTES = "SPECIFIC_ATTRIBUTES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Select = {
+  ALL_ATTRIBUTES: "ALL_ATTRIBUTES",
+  ALL_PROJECTED_ATTRIBUTES: "ALL_PROJECTED_ATTRIBUTES",
+  COUNT: "COUNT",
+  SPECIFIC_ATTRIBUTES: "SPECIFIC_ATTRIBUTES",
+} as const;
 
+/**
+ * @public
+ */
+export type Select = (typeof Select)[keyof typeof Select];
+
+/**
+ * @public
+ */
 export interface RestoreTableFromBackupInput {
   /**
    * <p>The name of the new table to which the backup must be restored.</p>
@@ -4783,6 +5356,9 @@ export interface RestoreTableFromBackupInput {
   SSESpecificationOverride?: SSESpecification;
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableFromBackupOutput {
   /**
    * <p>The description of the table created from an existing backup.</p>
@@ -4791,6 +5367,7 @@ export interface RestoreTableFromBackupOutput {
 }
 
 /**
+ * @public
  * <p>A target table with the specified name already exists. </p>
  */
 export class TableAlreadyExistsException extends __BaseException {
@@ -4810,6 +5387,7 @@ export class TableAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An invalid restore time was specified. RestoreDateTime must be between
  *             EarliestRestorableDateTime and LatestRestorableDateTime.</p>
  */
@@ -4829,6 +5407,9 @@ export class InvalidRestoreTimeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableToPointInTimeInput {
   /**
    * <p>The DynamoDB table that will be restored. This value is an Amazon Resource Name
@@ -4887,6 +5468,9 @@ export interface RestoreTableToPointInTimeInput {
   SSESpecificationOverride?: SSESpecification;
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableToPointInTimeOutput {
   /**
    * <p>Represents the properties of a table.</p>
@@ -4894,6 +5478,9 @@ export interface RestoreTableToPointInTimeOutput {
   TableDescription?: TableDescription;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>Identifies the Amazon DynamoDB resource to which tags should be added. This value is
@@ -4907,6 +5494,9 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The DynamoDB resource that the tags will be removed from. This value is an Amazon
@@ -4922,6 +5512,7 @@ export interface UntagResourceInput {
 }
 
 /**
+ * @public
  * <p>Represents the settings used to enable point in time recovery.</p>
  */
 export interface PointInTimeRecoverySpecification {
@@ -4932,6 +5523,9 @@ export interface PointInTimeRecoverySpecification {
   PointInTimeRecoveryEnabled: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContinuousBackupsInput {
   /**
    * <p>The name of the table.</p>
@@ -4944,6 +5538,9 @@ export interface UpdateContinuousBackupsInput {
   PointInTimeRecoverySpecification: PointInTimeRecoverySpecification | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContinuousBackupsOutput {
   /**
    * <p>Represents the continuous backups and point in time recovery settings on the
@@ -4952,6 +5549,9 @@ export interface UpdateContinuousBackupsOutput {
   ContinuousBackupsDescription?: ContinuousBackupsDescription;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContributorInsightsInput {
   /**
    * <p>The name of the table.</p>
@@ -4969,6 +5569,9 @@ export interface UpdateContributorInsightsInput {
   ContributorInsightsAction: ContributorInsightsAction | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContributorInsightsOutput {
   /**
    * <p>The name of the table.</p>
@@ -4987,6 +5590,7 @@ export interface UpdateContributorInsightsOutput {
 }
 
 /**
+ * @public
  * <p>The specified replica is already part of the global table.</p>
  */
 export class ReplicaAlreadyExistsException extends __BaseException {
@@ -5006,6 +5610,7 @@ export class ReplicaAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified replica is no longer part of the global table.</p>
  */
 export class ReplicaNotFoundException extends __BaseException {
@@ -5025,6 +5630,7 @@ export class ReplicaNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents one of the following:</p>
  *          <ul>
  *             <li>
@@ -5050,6 +5656,9 @@ export interface ReplicaUpdate {
   Delete?: DeleteReplicaAction;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalTableInput {
   /**
    * <p>The global table name.</p>
@@ -5062,6 +5671,9 @@ export interface UpdateGlobalTableInput {
   ReplicaUpdates: ReplicaUpdate[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalTableOutput {
   /**
    * <p>Contains the details of the global table.</p>
@@ -5070,6 +5682,7 @@ export interface UpdateGlobalTableOutput {
 }
 
 /**
+ * @public
  * <p>The operation tried to access a nonexistent index.</p>
  */
 export class IndexNotFoundException extends __BaseException {
@@ -5089,6 +5702,7 @@ export class IndexNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the settings of a global secondary index for a global table that will be
  *             modified.</p>
  */
@@ -5114,6 +5728,7 @@ export interface GlobalTableGlobalSecondaryIndexSettingsUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the settings of a global secondary index for a global table that will be
  *             modified.</p>
  */
@@ -5138,6 +5753,7 @@ export interface ReplicaGlobalSecondaryIndexSettingsUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the settings for a global table in a Region that will be modified.</p>
  */
 export interface ReplicaSettingsUpdate {
@@ -5172,6 +5788,9 @@ export interface ReplicaSettingsUpdate {
   ReplicaTableClass?: TableClass | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalTableSettingsInput {
   /**
    * <p>The name of the global table</p>
@@ -5223,6 +5842,9 @@ export interface UpdateGlobalTableSettingsInput {
   ReplicaSettingsUpdate?: ReplicaSettingsUpdate[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateGlobalTableSettingsOutput {
   /**
    * <p>The name of the global table.</p>
@@ -5236,6 +5858,7 @@ export interface UpdateGlobalTableSettingsOutput {
 }
 
 /**
+ * @public
  * <p>Represents the new provisioned throughput settings to be applied to a global secondary
  *             index.</p>
  */
@@ -5256,6 +5879,7 @@ export interface UpdateGlobalSecondaryIndexAction {
 }
 
 /**
+ * @public
  * <p>Represents one of the following:</p>
  *          <ul>
  *             <li>
@@ -5318,6 +5942,7 @@ export interface GlobalSecondaryIndexUpdate {
 }
 
 /**
+ * @public
  * <p>Represents a replica to be modified.</p>
  */
 export interface UpdateReplicationGroupMemberAction {
@@ -5353,6 +5978,7 @@ export interface UpdateReplicationGroupMemberAction {
 }
 
 /**
+ * @public
  * <p>Represents one of the following:</p>
  *          <ul>
  *             <li>
@@ -5394,6 +6020,7 @@ export interface ReplicationGroupUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the input of an <code>UpdateTable</code> operation.</p>
  */
 export interface UpdateTableInput {
@@ -5500,6 +6127,7 @@ export interface UpdateTableInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>UpdateTable</code> operation.</p>
  */
 export interface UpdateTableOutput {
@@ -5510,6 +6138,7 @@ export interface UpdateTableOutput {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings of a global secondary index for a global table
  *             that will be modified.</p>
  */
@@ -5527,6 +6156,7 @@ export interface GlobalSecondaryIndexAutoScalingUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings of a global secondary index for a replica that
  *             will be modified.</p>
  */
@@ -5544,6 +6174,7 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingUpdate {
 }
 
 /**
+ * @public
  * <p>Represents the auto scaling settings of a replica that will be modified.</p>
  */
 export interface ReplicaAutoScalingUpdate {
@@ -5565,6 +6196,9 @@ export interface ReplicaAutoScalingUpdate {
   ReplicaProvisionedReadCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableReplicaAutoScalingInput {
   /**
    * <p>Represents the auto scaling settings of the global secondary indexes of the replica to
@@ -5590,6 +6224,9 @@ export interface UpdateTableReplicaAutoScalingInput {
   ReplicaUpdates?: ReplicaAutoScalingUpdate[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableReplicaAutoScalingOutput {
   /**
    * <p>Returns information about the auto scaling settings of a table with replicas.</p>
@@ -5598,6 +6235,7 @@ export interface UpdateTableReplicaAutoScalingOutput {
 }
 
 /**
+ * @public
  * <p>Represents the settings used to enable or disable Time to Live (TTL) for the specified
  *             table.</p>
  */
@@ -5615,6 +6253,7 @@ export interface TimeToLiveSpecification {
 }
 
 /**
+ * @public
  * <p>Represents the input of an <code>UpdateTimeToLive</code> operation.</p>
  */
 export interface UpdateTimeToLiveInput {
@@ -5630,6 +6269,9 @@ export interface UpdateTimeToLiveInput {
   TimeToLiveSpecification: TimeToLiveSpecification | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTimeToLiveOutput {
   /**
    * <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
@@ -5638,6 +6280,7 @@ export interface UpdateTimeToLiveOutput {
 }
 
 /**
+ * @public
  * <p>Represents the data for an attribute.</p>
  *          <p>Each attribute value is described as a name-value pair. The name is the data type, and
  *             the value is the data itself.</p>
@@ -5657,6 +6300,9 @@ export type AttributeValue =
   | AttributeValue.SSMember
   | AttributeValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AttributeValue {
   /**
    * <p>An attribute of type String. For example:</p>
@@ -5787,7 +6433,7 @@ export namespace AttributeValue {
   /**
    * <p>An attribute of type Map. For example:</p>
    *          <p>
-   *             <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code>
+   *             <code>"M": \{"Name": \{"S": "Joe"\}, "Age": \{"N": "35"\}\}</code>
    *          </p>
    */
   export interface MMember {
@@ -5807,7 +6453,7 @@ export namespace AttributeValue {
   /**
    * <p>An attribute of type List. For example:</p>
    *          <p>
-   *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N": "3.14159"}]</code>
+   *             <code>"L": [ \{"S": "Cookies"\} , \{"S": "Coffee"\}, \{"N": "3.14159"\}]</code>
    *          </p>
    */
   export interface LMember {
@@ -5908,6 +6554,7 @@ export namespace AttributeValue {
 }
 
 /**
+ * @public
  * <p>For the <code>UpdateItem</code> operation, represents the attributes to be modified,
  *             the action to perform on each, and the new value for each.</p>
  *          <note>
@@ -6028,6 +6675,7 @@ export interface AttributeValueUpdate {
 }
 
 /**
+ * @public
  * <p> A PartiQL batch statement request. </p>
  */
 export interface BatchStatementRequest {
@@ -6048,6 +6696,7 @@ export interface BatchStatementRequest {
 }
 
 /**
+ * @public
  * <p> A PartiQL batch statement response.. </p>
  */
 export interface BatchStatementResponse {
@@ -6068,6 +6717,7 @@ export interface BatchStatementResponse {
 }
 
 /**
+ * @public
  * <p>An ordered list of errors for each item in the request which caused the transaction to
  *             get cancelled. The values of the list are ordered according to the ordering of the
  *                 <code>TransactWriteItems</code> request parameter. If no error occurred for the
@@ -6091,6 +6741,7 @@ export interface CancellationReason {
 }
 
 /**
+ * @public
  * <p>Represents the selection criteria for a <code>Query</code> or <code>Scan</code>
  *             operation:</p>
  *          <ul>
@@ -6145,9 +6796,9 @@ export interface Condition {
    *                     element of type String, Number, Binary, String Set, Number Set, or Binary Set.
    *                     If an item contains an <code>AttributeValue</code> element of a different type
    *                     than the one provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2",
-   *                     "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not equal <code>\{"NS":["6", "2",
+   *                     "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6159,9 +6810,9 @@ export interface Condition {
    *                     of type String, Number, Binary, String Set, Number Set, or Binary Set. If an
    *                     item contains an <code>AttributeValue</code> of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2",
-   *                     "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not equal <code>\{"NS":["6", "2",
+   *                     "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6171,9 +6822,9 @@ export interface Condition {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6184,9 +6835,9 @@ export interface Condition {
    *                     of type String, Number, or Binary (not a set type). If an item contains an
    *                         <code>AttributeValue</code> element of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2",
-   *                         "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not compare to <code>\{"NS":["6", "2",
+   *                         "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6196,9 +6847,9 @@ export interface Condition {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6208,9 +6859,9 @@ export interface Condition {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -6303,9 +6954,9 @@ export interface Condition {
    *                     first element and less than, or equal to, the second element. If an item
    *                     contains an <code>AttributeValue</code> element of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2",
-   *                         "1"]}</code>
+   *                         <code>\{"S":"6"\}</code> does not compare to <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not compare to <code>\{"NS":["6", "2",
+   *                         "1"]\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -6318,6 +6969,7 @@ export interface Condition {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform a <code>DeleteItem</code> operation on an item.</p>
  */
 export interface DeleteRequest {
@@ -6329,6 +6981,9 @@ export interface DeleteRequest {
   Key: Record<string, AttributeValue> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteStatementInput {
   /**
    * <p>The PartiQL statement representing the operation to run.</p>
@@ -6395,6 +7050,7 @@ export interface ExecuteStatementInput {
 }
 
 /**
+ * @public
  * <p>Specifies an item and related attribute values to retrieve in a
  *                 <code>TransactGetItem</code> object.</p>
  */
@@ -6426,6 +7082,7 @@ export interface Get {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>GetItem</code> operation.</p>
  */
 export interface GetItemInput {
@@ -6531,7 +7188,7 @@ export interface GetItemInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -6555,6 +7212,7 @@ export interface GetItemInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>GetItem</code> operation.</p>
  */
 export interface GetItemOutput {
@@ -6576,6 +7234,7 @@ export interface GetItemOutput {
 }
 
 /**
+ * @public
  * <p>Information about item collections, if any, that were affected by the operation.
  *                 <code>ItemCollectionMetrics</code> is only returned if the request asked for it. If
  *             the table does not have any local secondary indexes, this information is not returned in
@@ -6601,6 +7260,7 @@ export interface ItemCollectionMetrics {
 }
 
 /**
+ * @public
  * <p>Details for the requested item.</p>
  */
 export interface ItemResponse {
@@ -6611,6 +7271,7 @@ export interface ItemResponse {
 }
 
 /**
+ * @public
  * <p> Represents a PartiQL statment that uses parameters. </p>
  */
 export interface ParameterizedStatement {
@@ -6626,6 +7287,7 @@ export interface ParameterizedStatement {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform a <code>PutItem</code> operation on an item.</p>
  */
 export interface PutRequest {
@@ -6640,6 +7302,7 @@ export interface PutRequest {
 }
 
 /**
+ * @public
  * <p>Represents a set of primary keys and, for each key, the attributes to retrieve from
  *             the table.</p>
  *          <p>For each primary key, you must provide <i>all</i> of the key attributes.
@@ -6712,7 +7375,7 @@ export interface KeysAndAttributes {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -6736,6 +7399,7 @@ export interface KeysAndAttributes {
 }
 
 /**
+ * @public
  * <p>Specifies an item to be retrieved as part of the transaction.</p>
  */
 export interface TransactGetItem {
@@ -6747,6 +7411,9 @@ export interface TransactGetItem {
   Get: Get | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchExecuteStatementInput {
   /**
    * <p>The list of PartiQL statements representing the batch to run.</p>
@@ -6783,6 +7450,9 @@ export interface BatchExecuteStatementInput {
   ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 }
 
+/**
+ * @public
+ */
 export interface BatchExecuteStatementOutput {
   /**
    * <p>The response to each PartiQL statement in the batch.</p>
@@ -6796,6 +7466,9 @@ export interface BatchExecuteStatementOutput {
   ConsumedCapacity?: ConsumedCapacity[];
 }
 
+/**
+ * @public
+ */
 export interface ExecuteTransactionInput {
   /**
    * <p>The list of PartiQL statements representing the transaction to run.</p>
@@ -6815,6 +7488,9 @@ export interface ExecuteTransactionInput {
   ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteTransactionOutput {
   /**
    * <p>The response to a PartiQL transaction.</p>
@@ -6828,6 +7504,9 @@ export interface ExecuteTransactionOutput {
   ConsumedCapacity?: ConsumedCapacity[];
 }
 
+/**
+ * @public
+ */
 export interface TransactGetItemsOutput {
   /**
    * <p>If the <i>ReturnConsumedCapacity</i> value was <code>TOTAL</code>, this
@@ -6852,6 +7531,7 @@ export interface TransactGetItemsOutput {
 }
 
 /**
+ * @public
  * <p>The entire transaction request was canceled.</p>
  *          <p>DynamoDB cancels a <code>TransactWriteItems</code> request under the following
  *             circumstances:</p>
@@ -7108,6 +7788,7 @@ export class TransactionCanceledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>BatchGetItem</code> operation.</p>
  */
 export interface BatchGetItemInput {
@@ -7162,7 +7843,7 @@ export interface BatchGetItemInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>{"#P":"Percentile"}</code>
+   *                         <code>\{"#P":"Percentile"\}</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -7245,6 +7926,7 @@ export interface BatchGetItemInput {
 }
 
 /**
+ * @public
  * <p>Represents a condition to be compared with an attribute value. This condition can be
  *             used with <code>DeleteItem</code>, <code>PutItem</code>, or <code>UpdateItem</code>
  *             operations; if the comparison evaluates to true, the operation succeeds; if not, the
@@ -7342,9 +8024,9 @@ export interface ExpectedAttributeValue {
    *                     element of type String, Number, Binary, String Set, Number Set, or Binary Set.
    *                     If an item contains an <code>AttributeValue</code> element of a different type
    *                     than the one provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2",
-   *                     "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not equal <code>\{"NS":["6", "2",
+   *                     "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7356,9 +8038,9 @@ export interface ExpectedAttributeValue {
    *                     of type String, Number, Binary, String Set, Number Set, or Binary Set. If an
    *                     item contains an <code>AttributeValue</code> of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2",
-   *                     "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not equal <code>\{"NS":["6", "2",
+   *                     "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7368,9 +8050,9 @@ export interface ExpectedAttributeValue {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7381,9 +8063,9 @@ export interface ExpectedAttributeValue {
    *                     of type String, Number, or Binary (not a set type). If an item contains an
    *                         <code>AttributeValue</code> element of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2",
-   *                         "1"]}</code>.</p>
+   *                         <code>\{"S":"6"\}</code> does not equal <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not compare to <code>\{"NS":["6", "2",
+   *                         "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7393,9 +8075,9 @@ export interface ExpectedAttributeValue {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7405,9 +8087,9 @@ export interface ExpectedAttributeValue {
    *                   <code>AttributeValueList</code> can contain only one <code>AttributeValue</code>
    *                     element of type String, Number, or Binary (not a set type). If an item contains
    *                     an <code>AttributeValue</code> element of a different type than the one provided
-   *                     in the request, the value does not match. For example, <code>{"S":"6"}</code>
-   *                     does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not
-   *                     compare to <code>{"NS":["6", "2", "1"]}</code>.</p>
+   *                     in the request, the value does not match. For example, <code>\{"S":"6"\}</code>
+   *                     does not equal <code>\{"N":"6"\}</code>. Also, <code>\{"N":"6"\}</code> does not
+   *                     compare to <code>\{"NS":["6", "2", "1"]\}</code>.</p>
    *                <p></p>
    *             </li>
    *             <li>
@@ -7500,9 +8182,9 @@ export interface ExpectedAttributeValue {
    *                     first element and less than, or equal to, the second element. If an item
    *                     contains an <code>AttributeValue</code> element of a different type than the one
    *                     provided in the request, the value does not match. For example,
-   *                         <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also,
-   *                         <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2",
-   *                         "1"]}</code>
+   *                         <code>\{"S":"6"\}</code> does not compare to <code>\{"N":"6"\}</code>. Also,
+   *                         <code>\{"N":"6"\}</code> does not compare to <code>\{"NS":["6", "2",
+   *                         "1"]\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -7524,6 +8206,9 @@ export interface ExpectedAttributeValue {
   AttributeValueList?: AttributeValue[];
 }
 
+/**
+ * @public
+ */
 export interface TransactGetItemsInput {
   /**
    * <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which
@@ -7539,6 +8224,9 @@ export interface TransactGetItemsInput {
   ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
 }
 
+/**
+ * @public
+ */
 export interface TransactWriteItemsOutput {
   /**
    * <p>The capacity units consumed by the entire <code>TransactWriteItems</code> operation.
@@ -7557,6 +8245,7 @@ export interface TransactWriteItemsOutput {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform a check that an item exists or to check the condition
  *             of specific attributes of the item.</p>
  */
@@ -7601,6 +8290,7 @@ export interface ConditionCheck {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform a <code>DeleteItem</code> operation.</p>
  */
 export interface Delete {
@@ -7641,6 +8331,7 @@ export interface Delete {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform a <code>PutItem</code> operation.</p>
  */
 export interface Put {
@@ -7684,6 +8375,7 @@ export interface Put {
 }
 
 /**
+ * @public
  * <p>Represents a request to perform an <code>UpdateItem</code> operation.</p>
  */
 export interface Update {
@@ -7730,6 +8422,7 @@ export interface Update {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>DeleteItem</code> operation.</p>
  */
 export interface DeleteItemOutput {
@@ -7780,6 +8473,9 @@ export interface DeleteItemOutput {
   ItemCollectionMetrics?: ItemCollectionMetrics;
 }
 
+/**
+ * @public
+ */
 export interface ExecuteStatementOutput {
   /**
    * <p>If a read operation was used, this property will contain the result of the read
@@ -7817,6 +8513,7 @@ export interface ExecuteStatementOutput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>PutItem</code> operation.</p>
  */
 export interface PutItemOutput {
@@ -7867,6 +8564,7 @@ export interface PutItemOutput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>Query</code> operation.</p>
  */
 export interface QueryOutput {
@@ -7921,6 +8619,7 @@ export interface QueryOutput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>Scan</code> operation.</p>
  */
 export interface ScanOutput {
@@ -7976,6 +8675,7 @@ export interface ScanOutput {
 }
 
 /**
+ * @public
  * <p>Represents the output of an <code>UpdateItem</code> operation.</p>
  */
 export interface UpdateItemOutput {
@@ -8028,6 +8728,7 @@ export interface UpdateItemOutput {
 }
 
 /**
+ * @public
  * <p>Represents an operation to perform - either <code>DeleteItem</code> or
  *                 <code>PutItem</code>. You can only request one of these operations, not both, in a
  *             single <code>WriteRequest</code>. If you do need to perform both of these operations,
@@ -8046,6 +8747,7 @@ export interface WriteRequest {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>BatchGetItem</code> operation.</p>
  */
 export interface BatchGetItemOutput {
@@ -8107,6 +8809,7 @@ export interface BatchGetItemOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>Scan</code> operation.</p>
  */
 export interface ScanInput {
@@ -8345,7 +9048,7 @@ export interface ScanInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -8378,8 +9081,8 @@ export interface ScanInput {
    *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as
    *             follows:</p>
    *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-   *                 ":disc":{"S":"Discontinued"} }</code>
+   *             <code>\{ ":avail":\{"S":"Available"\}, ":back":\{"S":"Backordered"\},
+   *                 ":disc":\{"S":"Discontinued"\} \}</code>
    *          </p>
    *          <p>You could then use these values in an expression, such as this:</p>
    *          <p>
@@ -8414,6 +9117,7 @@ export interface ScanInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>BatchWriteItem</code> operation.</p>
  */
 export interface BatchWriteItemInput {
@@ -8503,6 +9207,7 @@ export interface BatchWriteItemInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>DeleteItem</code> operation.</p>
  */
 export interface DeleteItemInput {
@@ -8658,7 +9363,7 @@ export interface DeleteItemInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -8691,8 +9396,8 @@ export interface DeleteItemInput {
    *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as
    *             follows:</p>
    *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-   *                 ":disc":{"S":"Discontinued"} }</code>
+   *             <code>\{ ":avail":\{"S":"Available"\}, ":back":\{"S":"Backordered"\},
+   *                 ":disc":\{"S":"Discontinued"\} \}</code>
    *          </p>
    *          <p>You could then use these values in an expression, such as this:</p>
    *          <p>
@@ -8705,6 +9410,7 @@ export interface DeleteItemInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>PutItem</code> operation.</p>
  */
 export interface PutItemInput {
@@ -8874,7 +9580,7 @@ export interface PutItemInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -8907,8 +9613,8 @@ export interface PutItemInput {
    *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as
    *             follows:</p>
    *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-   *                 ":disc":{"S":"Discontinued"} }</code>
+   *             <code>\{ ":avail":\{"S":"Available"\}, ":back":\{"S":"Backordered"\},
+   *                 ":disc":\{"S":"Discontinued"\} \}</code>
    *          </p>
    *          <p>You could then use these values in an expression, such as this:</p>
    *          <p>
@@ -8921,6 +9627,7 @@ export interface PutItemInput {
 }
 
 /**
+ * @public
  * <p>Represents the input of a <code>Query</code> operation.</p>
  */
 export interface QueryInput {
@@ -9274,7 +9981,7 @@ export interface QueryInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -9307,8 +10014,8 @@ export interface QueryInput {
    *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as
    *             follows:</p>
    *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-   *                 ":disc":{"S":"Discontinued"} }</code>
+   *             <code>\{ ":avail":\{"S":"Available"\}, ":back":\{"S":"Backordered"\},
+   *                 ":disc":\{"S":"Discontinued"\} \}</code>
    *          </p>
    *          <p>You could then use these values in an expression, such as this:</p>
    *          <p>
@@ -9321,6 +10028,7 @@ export interface QueryInput {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>BatchWriteItem</code> operation.</p>
  */
 export interface BatchWriteItemOutput {
@@ -9420,6 +10128,7 @@ export interface BatchWriteItemOutput {
 }
 
 /**
+ * @public
  * <p>Represents the input of an <code>UpdateItem</code> operation.</p>
  */
 export interface UpdateItemInput {
@@ -9701,7 +10410,7 @@ export interface UpdateItemInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>{"#P":"Percentile"}</code>
+   *                   <code>\{"#P":"Percentile"\}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -9734,8 +10443,8 @@ export interface UpdateItemInput {
    *          <p>You would first need to specify <code>ExpressionAttributeValues</code> as
    *             follows:</p>
    *          <p>
-   *             <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-   *                 ":disc":{"S":"Discontinued"} }</code>
+   *             <code>\{ ":avail":\{"S":"Available"\}, ":back":\{"S":"Backordered"\},
+   *                 ":disc":\{"S":"Discontinued"\} \}</code>
    *          </p>
    *          <p>You could then use these values in an expression, such as this:</p>
    *          <p>
@@ -9748,6 +10457,7 @@ export interface UpdateItemInput {
 }
 
 /**
+ * @public
  * <p>A list of requests that can perform update, put, delete, or check operations on
  *             multiple items in one or more tables atomically.</p>
  */
@@ -9773,6 +10483,9 @@ export interface TransactWriteItem {
   Update?: Update;
 }
 
+/**
+ * @public
+ */
 export interface TransactWriteItemsInput {
   /**
    * <p>An ordered array of up to 100 <code>TransactWriteItem</code> objects, each of which
@@ -9841,1860 +10554,3 @@ export interface TransactWriteItemsInput {
    */
   ClientRequestToken?: string;
 }
-
-/**
- * @internal
- */
-export const ArchivalSummaryFilterSensitiveLog = (obj: ArchivalSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeDefinitionFilterSensitiveLog = (obj: AttributeDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionFilterSensitiveLog = (
-  obj: AutoScalingTargetTrackingScalingPolicyConfigurationDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingPolicyDescriptionFilterSensitiveLog = (obj: AutoScalingPolicyDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingTargetTrackingScalingPolicyConfigurationUpdateFilterSensitiveLog = (
-  obj: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingPolicyUpdateFilterSensitiveLog = (obj: AutoScalingPolicyUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingSettingsDescriptionFilterSensitiveLog = (obj: AutoScalingSettingsDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoScalingSettingsUpdateFilterSensitiveLog = (obj: AutoScalingSettingsUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackupDetailsFilterSensitiveLog = (obj: BackupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeySchemaElementFilterSensitiveLog = (obj: KeySchemaElement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedThroughputFilterSensitiveLog = (obj: ProvisionedThroughput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceTableDetailsFilterSensitiveLog = (obj: SourceTableDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectionFilterSensitiveLog = (obj: Projection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalSecondaryIndexInfoFilterSensitiveLog = (obj: GlobalSecondaryIndexInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalSecondaryIndexInfoFilterSensitiveLog = (obj: LocalSecondaryIndexInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SSEDescriptionFilterSensitiveLog = (obj: SSEDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamSpecificationFilterSensitiveLog = (obj: StreamSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeToLiveDescriptionFilterSensitiveLog = (obj: TimeToLiveDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceTableFeatureDetailsFilterSensitiveLog = (obj: SourceTableFeatureDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackupDescriptionFilterSensitiveLog = (obj: BackupDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackupSummaryFilterSensitiveLog = (obj: BackupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityFilterSensitiveLog = (obj: Capacity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConsumedCapacityFilterSensitiveLog = (obj: ConsumedCapacity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchStatementErrorFilterSensitiveLog = (obj: BatchStatementError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BillingModeSummaryFilterSensitiveLog = (obj: BillingModeSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PointInTimeRecoveryDescriptionFilterSensitiveLog = (obj: PointInTimeRecoveryDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContinuousBackupsDescriptionFilterSensitiveLog = (obj: ContinuousBackupsDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContributorInsightsSummaryFilterSensitiveLog = (obj: ContributorInsightsSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackupInputFilterSensitiveLog = (obj: CreateBackupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackupOutputFilterSensitiveLog = (obj: CreateBackupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGlobalSecondaryIndexActionFilterSensitiveLog = (obj: CreateGlobalSecondaryIndexAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaFilterSensitiveLog = (obj: Replica): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGlobalTableInputFilterSensitiveLog = (obj: CreateGlobalTableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedThroughputOverrideFilterSensitiveLog = (obj: ProvisionedThroughputOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaGlobalSecondaryIndexDescriptionFilterSensitiveLog = (
-  obj: ReplicaGlobalSecondaryIndexDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableClassSummaryFilterSensitiveLog = (obj: TableClassSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaDescriptionFilterSensitiveLog = (obj: ReplicaDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalTableDescriptionFilterSensitiveLog = (obj: GlobalTableDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGlobalTableOutputFilterSensitiveLog = (obj: CreateGlobalTableOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicaActionFilterSensitiveLog = (obj: CreateReplicaAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaGlobalSecondaryIndexFilterSensitiveLog = (obj: ReplicaGlobalSecondaryIndex): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplicationGroupMemberActionFilterSensitiveLog = (obj: CreateReplicationGroupMemberAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalSecondaryIndexFilterSensitiveLog = (obj: GlobalSecondaryIndex): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalSecondaryIndexFilterSensitiveLog = (obj: LocalSecondaryIndex): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SSESpecificationFilterSensitiveLog = (obj: SSESpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTableInputFilterSensitiveLog = (obj: CreateTableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedThroughputDescriptionFilterSensitiveLog = (obj: ProvisionedThroughputDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalSecondaryIndexDescriptionFilterSensitiveLog = (obj: GlobalSecondaryIndexDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalSecondaryIndexDescriptionFilterSensitiveLog = (obj: LocalSecondaryIndexDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreSummaryFilterSensitiveLog = (obj: RestoreSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableDescriptionFilterSensitiveLog = (obj: TableDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTableOutputFilterSensitiveLog = (obj: CreateTableOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CsvOptionsFilterSensitiveLog = (obj: CsvOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackupInputFilterSensitiveLog = (obj: DeleteBackupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackupOutputFilterSensitiveLog = (obj: DeleteBackupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGlobalSecondaryIndexActionFilterSensitiveLog = (obj: DeleteGlobalSecondaryIndexAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicaActionFilterSensitiveLog = (obj: DeleteReplicaAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReplicationGroupMemberActionFilterSensitiveLog = (obj: DeleteReplicationGroupMemberAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTableInputFilterSensitiveLog = (obj: DeleteTableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTableOutputFilterSensitiveLog = (obj: DeleteTableOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBackupInputFilterSensitiveLog = (obj: DescribeBackupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBackupOutputFilterSensitiveLog = (obj: DescribeBackupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeContinuousBackupsInputFilterSensitiveLog = (obj: DescribeContinuousBackupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeContinuousBackupsOutputFilterSensitiveLog = (obj: DescribeContinuousBackupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeContributorInsightsInputFilterSensitiveLog = (obj: DescribeContributorInsightsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailureExceptionFilterSensitiveLog = (obj: FailureException): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeContributorInsightsOutputFilterSensitiveLog = (obj: DescribeContributorInsightsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointsRequestFilterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointsResponseFilterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExportInputFilterSensitiveLog = (obj: DescribeExportInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportDescriptionFilterSensitiveLog = (obj: ExportDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExportOutputFilterSensitiveLog = (obj: DescribeExportOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGlobalTableInputFilterSensitiveLog = (obj: DescribeGlobalTableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGlobalTableOutputFilterSensitiveLog = (obj: DescribeGlobalTableOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGlobalTableSettingsInputFilterSensitiveLog = (obj: DescribeGlobalTableSettingsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaGlobalSecondaryIndexSettingsDescriptionFilterSensitiveLog = (
-  obj: ReplicaGlobalSecondaryIndexSettingsDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaSettingsDescriptionFilterSensitiveLog = (obj: ReplicaSettingsDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGlobalTableSettingsOutputFilterSensitiveLog = (obj: DescribeGlobalTableSettingsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImportInputFilterSensitiveLog = (obj: DescribeImportInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputFormatOptionsFilterSensitiveLog = (obj: InputFormatOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3BucketSourceFilterSensitiveLog = (obj: S3BucketSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableCreationParametersFilterSensitiveLog = (obj: TableCreationParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportTableDescriptionFilterSensitiveLog = (obj: ImportTableDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImportOutputFilterSensitiveLog = (obj: DescribeImportOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeKinesisStreamingDestinationInputFilterSensitiveLog = (
-  obj: DescribeKinesisStreamingDestinationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KinesisDataStreamDestinationFilterSensitiveLog = (obj: KinesisDataStreamDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeKinesisStreamingDestinationOutputFilterSensitiveLog = (
-  obj: DescribeKinesisStreamingDestinationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLimitsInputFilterSensitiveLog = (obj: DescribeLimitsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLimitsOutputFilterSensitiveLog = (obj: DescribeLimitsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTableInputFilterSensitiveLog = (obj: DescribeTableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTableOutputFilterSensitiveLog = (obj: DescribeTableOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTableReplicaAutoScalingInputFilterSensitiveLog = (
-  obj: DescribeTableReplicaAutoScalingInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaGlobalSecondaryIndexAutoScalingDescriptionFilterSensitiveLog = (
-  obj: ReplicaGlobalSecondaryIndexAutoScalingDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaAutoScalingDescriptionFilterSensitiveLog = (obj: ReplicaAutoScalingDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableAutoScalingDescriptionFilterSensitiveLog = (obj: TableAutoScalingDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTableReplicaAutoScalingOutputFilterSensitiveLog = (
-  obj: DescribeTableReplicaAutoScalingOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTimeToLiveInputFilterSensitiveLog = (obj: DescribeTimeToLiveInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTimeToLiveOutputFilterSensitiveLog = (obj: DescribeTimeToLiveOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KinesisStreamingDestinationInputFilterSensitiveLog = (obj: KinesisStreamingDestinationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KinesisStreamingDestinationOutputFilterSensitiveLog = (obj: KinesisStreamingDestinationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportTableToPointInTimeInputFilterSensitiveLog = (obj: ExportTableToPointInTimeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportTableToPointInTimeOutputFilterSensitiveLog = (obj: ExportTableToPointInTimeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportTableInputFilterSensitiveLog = (obj: ImportTableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportTableOutputFilterSensitiveLog = (obj: ImportTableOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBackupsInputFilterSensitiveLog = (obj: ListBackupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBackupsOutputFilterSensitiveLog = (obj: ListBackupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContributorInsightsInputFilterSensitiveLog = (obj: ListContributorInsightsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContributorInsightsOutputFilterSensitiveLog = (obj: ListContributorInsightsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExportsInputFilterSensitiveLog = (obj: ListExportsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportSummaryFilterSensitiveLog = (obj: ExportSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExportsOutputFilterSensitiveLog = (obj: ListExportsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGlobalTablesInputFilterSensitiveLog = (obj: ListGlobalTablesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalTableFilterSensitiveLog = (obj: GlobalTable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGlobalTablesOutputFilterSensitiveLog = (obj: ListGlobalTablesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImportsInputFilterSensitiveLog = (obj: ListImportsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportSummaryFilterSensitiveLog = (obj: ImportSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImportsOutputFilterSensitiveLog = (obj: ListImportsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTablesInputFilterSensitiveLog = (obj: ListTablesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTablesOutputFilterSensitiveLog = (obj: ListTablesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsOfResourceInputFilterSensitiveLog = (obj: ListTagsOfResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsOfResourceOutputFilterSensitiveLog = (obj: ListTagsOfResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreTableFromBackupInputFilterSensitiveLog = (obj: RestoreTableFromBackupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreTableFromBackupOutputFilterSensitiveLog = (obj: RestoreTableFromBackupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreTableToPointInTimeInputFilterSensitiveLog = (obj: RestoreTableToPointInTimeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreTableToPointInTimeOutputFilterSensitiveLog = (obj: RestoreTableToPointInTimeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PointInTimeRecoverySpecificationFilterSensitiveLog = (obj: PointInTimeRecoverySpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContinuousBackupsInputFilterSensitiveLog = (obj: UpdateContinuousBackupsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContinuousBackupsOutputFilterSensitiveLog = (obj: UpdateContinuousBackupsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContributorInsightsInputFilterSensitiveLog = (obj: UpdateContributorInsightsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContributorInsightsOutputFilterSensitiveLog = (obj: UpdateContributorInsightsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaUpdateFilterSensitiveLog = (obj: ReplicaUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGlobalTableInputFilterSensitiveLog = (obj: UpdateGlobalTableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGlobalTableOutputFilterSensitiveLog = (obj: UpdateGlobalTableOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalTableGlobalSecondaryIndexSettingsUpdateFilterSensitiveLog = (
-  obj: GlobalTableGlobalSecondaryIndexSettingsUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaGlobalSecondaryIndexSettingsUpdateFilterSensitiveLog = (
-  obj: ReplicaGlobalSecondaryIndexSettingsUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaSettingsUpdateFilterSensitiveLog = (obj: ReplicaSettingsUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGlobalTableSettingsInputFilterSensitiveLog = (obj: UpdateGlobalTableSettingsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGlobalTableSettingsOutputFilterSensitiveLog = (obj: UpdateGlobalTableSettingsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGlobalSecondaryIndexActionFilterSensitiveLog = (obj: UpdateGlobalSecondaryIndexAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalSecondaryIndexUpdateFilterSensitiveLog = (obj: GlobalSecondaryIndexUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateReplicationGroupMemberActionFilterSensitiveLog = (obj: UpdateReplicationGroupMemberAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicationGroupUpdateFilterSensitiveLog = (obj: ReplicationGroupUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableInputFilterSensitiveLog = (obj: UpdateTableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableOutputFilterSensitiveLog = (obj: UpdateTableOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalSecondaryIndexAutoScalingUpdateFilterSensitiveLog = (
-  obj: GlobalSecondaryIndexAutoScalingUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaGlobalSecondaryIndexAutoScalingUpdateFilterSensitiveLog = (
-  obj: ReplicaGlobalSecondaryIndexAutoScalingUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaAutoScalingUpdateFilterSensitiveLog = (obj: ReplicaAutoScalingUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableReplicaAutoScalingInputFilterSensitiveLog = (obj: UpdateTableReplicaAutoScalingInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableReplicaAutoScalingOutputFilterSensitiveLog = (
-  obj: UpdateTableReplicaAutoScalingOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeToLiveSpecificationFilterSensitiveLog = (obj: TimeToLiveSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTimeToLiveInputFilterSensitiveLog = (obj: UpdateTimeToLiveInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTimeToLiveOutputFilterSensitiveLog = (obj: UpdateTimeToLiveOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => {
-  if (obj.S !== undefined) return { S: obj.S };
-  if (obj.N !== undefined) return { N: obj.N };
-  if (obj.B !== undefined) return { B: obj.B };
-  if (obj.SS !== undefined) return { SS: obj.SS };
-  if (obj.NS !== undefined) return { NS: obj.NS };
-  if (obj.BS !== undefined) return { BS: obj.BS };
-  if (obj.M !== undefined)
-    return {
-      M: Object.entries(obj.M).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => (
-          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
-        ),
-        {}
-      ),
-    };
-  if (obj.L !== undefined) return { L: obj.L.map((item) => AttributeValueFilterSensitiveLog(item)) };
-  if (obj.NULL !== undefined) return { NULL: obj.NULL };
-  if (obj.BOOL !== undefined) return { BOOL: obj.BOOL };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const AttributeValueUpdateFilterSensitiveLog = (obj: AttributeValueUpdate): any => ({
-  ...obj,
-  ...(obj.Value && { Value: AttributeValueFilterSensitiveLog(obj.Value) }),
-});
-
-/**
- * @internal
- */
-export const BatchStatementRequestFilterSensitiveLog = (obj: BatchStatementRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => AttributeValueFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const BatchStatementResponseFilterSensitiveLog = (obj: BatchStatementResponse): any => ({
-  ...obj,
-  ...(obj.Item && {
-    Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const CancellationReasonFilterSensitiveLog = (obj: CancellationReason): any => ({
-  ...obj,
-  ...(obj.Item && {
-    Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ConditionFilterSensitiveLog = (obj: Condition): any => ({
-  ...obj,
-  ...(obj.AttributeValueList && {
-    AttributeValueList: obj.AttributeValueList.map((item) => AttributeValueFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const DeleteRequestFilterSensitiveLog = (obj: DeleteRequest): any => ({
-  ...obj,
-  ...(obj.Key && {
-    Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ExecuteStatementInputFilterSensitiveLog = (obj: ExecuteStatementInput): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => AttributeValueFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetFilterSensitiveLog = (obj: Get): any => ({
-  ...obj,
-  ...(obj.Key && {
-    Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetItemInputFilterSensitiveLog = (obj: GetItemInput): any => ({
-  ...obj,
-  ...(obj.Key && {
-    Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetItemOutputFilterSensitiveLog = (obj: GetItemOutput): any => ({
-  ...obj,
-  ...(obj.Item && {
-    Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ItemCollectionMetricsFilterSensitiveLog = (obj: ItemCollectionMetrics): any => ({
-  ...obj,
-  ...(obj.ItemCollectionKey && {
-    ItemCollectionKey: Object.entries(obj.ItemCollectionKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ItemResponseFilterSensitiveLog = (obj: ItemResponse): any => ({
-  ...obj,
-  ...(obj.Item && {
-    Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ParameterizedStatementFilterSensitiveLog = (obj: ParameterizedStatement): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => AttributeValueFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const PutRequestFilterSensitiveLog = (obj: PutRequest): any => ({
-  ...obj,
-  ...(obj.Item && {
-    Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const KeysAndAttributesFilterSensitiveLog = (obj: KeysAndAttributes): any => ({
-  ...obj,
-  ...(obj.Keys && {
-    Keys: obj.Keys.map((item) =>
-      Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => (
-          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
-        ),
-        {}
-      )
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const TransactGetItemFilterSensitiveLog = (obj: TransactGetItem): any => ({
-  ...obj,
-  ...(obj.Get && { Get: GetFilterSensitiveLog(obj.Get) }),
-});
-
-/**
- * @internal
- */
-export const BatchExecuteStatementInputFilterSensitiveLog = (obj: BatchExecuteStatementInput): any => ({
-  ...obj,
-  ...(obj.Statements && { Statements: obj.Statements.map((item) => BatchStatementRequestFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const BatchExecuteStatementOutputFilterSensitiveLog = (obj: BatchExecuteStatementOutput): any => ({
-  ...obj,
-  ...(obj.Responses && { Responses: obj.Responses.map((item) => BatchStatementResponseFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ExecuteTransactionInputFilterSensitiveLog = (obj: ExecuteTransactionInput): any => ({
-  ...obj,
-  ...(obj.TransactStatements && {
-    TransactStatements: obj.TransactStatements.map((item) => ParameterizedStatementFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ExecuteTransactionOutputFilterSensitiveLog = (obj: ExecuteTransactionOutput): any => ({
-  ...obj,
-  ...(obj.Responses && { Responses: obj.Responses.map((item) => ItemResponseFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const TransactGetItemsOutputFilterSensitiveLog = (obj: TransactGetItemsOutput): any => ({
-  ...obj,
-  ...(obj.Responses && { Responses: obj.Responses.map((item) => ItemResponseFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const BatchGetItemInputFilterSensitiveLog = (obj: BatchGetItemInput): any => ({
-  ...obj,
-  ...(obj.RequestItems && {
-    RequestItems: Object.entries(obj.RequestItems).reduce(
-      (acc: any, [key, value]: [string, KeysAndAttributes]) => (
-        (acc[key] = KeysAndAttributesFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ExpectedAttributeValueFilterSensitiveLog = (obj: ExpectedAttributeValue): any => ({
-  ...obj,
-  ...(obj.Value && { Value: AttributeValueFilterSensitiveLog(obj.Value) }),
-  ...(obj.AttributeValueList && {
-    AttributeValueList: obj.AttributeValueList.map((item) => AttributeValueFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const TransactGetItemsInputFilterSensitiveLog = (obj: TransactGetItemsInput): any => ({
-  ...obj,
-  ...(obj.TransactItems && { TransactItems: obj.TransactItems.map((item) => TransactGetItemFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const TransactWriteItemsOutputFilterSensitiveLog = (obj: TransactWriteItemsOutput): any => ({
-  ...obj,
-  ...(obj.ItemCollectionMetrics && {
-    ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
-      (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => (
-        (acc[key] = value.map((item) => ItemCollectionMetricsFilterSensitiveLog(item))), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ConditionCheckFilterSensitiveLog = (obj: ConditionCheck): any => ({
-  ...obj,
-  ...(obj.Key && {
-    Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.ExpressionAttributeValues && {
-    ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const DeleteFilterSensitiveLog = (obj: Delete): any => ({
-  ...obj,
-  ...(obj.Key && {
-    Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.ExpressionAttributeValues && {
-    ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const PutFilterSensitiveLog = (obj: Put): any => ({
-  ...obj,
-  ...(obj.Item && {
-    Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.ExpressionAttributeValues && {
-    ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateFilterSensitiveLog = (obj: Update): any => ({
-  ...obj,
-  ...(obj.Key && {
-    Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.ExpressionAttributeValues && {
-    ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const DeleteItemOutputFilterSensitiveLog = (obj: DeleteItemOutput): any => ({
-  ...obj,
-  ...(obj.Attributes && {
-    Attributes: Object.entries(obj.Attributes).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.ItemCollectionMetrics && {
-    ItemCollectionMetrics: ItemCollectionMetricsFilterSensitiveLog(obj.ItemCollectionMetrics),
-  }),
-});
-
-/**
- * @internal
- */
-export const ExecuteStatementOutputFilterSensitiveLog = (obj: ExecuteStatementOutput): any => ({
-  ...obj,
-  ...(obj.Items && {
-    Items: obj.Items.map((item) =>
-      Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => (
-          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
-        ),
-        {}
-      )
-    ),
-  }),
-  ...(obj.LastEvaluatedKey && {
-    LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const PutItemOutputFilterSensitiveLog = (obj: PutItemOutput): any => ({
-  ...obj,
-  ...(obj.Attributes && {
-    Attributes: Object.entries(obj.Attributes).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.ItemCollectionMetrics && {
-    ItemCollectionMetrics: ItemCollectionMetricsFilterSensitiveLog(obj.ItemCollectionMetrics),
-  }),
-});
-
-/**
- * @internal
- */
-export const QueryOutputFilterSensitiveLog = (obj: QueryOutput): any => ({
-  ...obj,
-  ...(obj.Items && {
-    Items: obj.Items.map((item) =>
-      Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => (
-          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
-        ),
-        {}
-      )
-    ),
-  }),
-  ...(obj.LastEvaluatedKey && {
-    LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ScanOutputFilterSensitiveLog = (obj: ScanOutput): any => ({
-  ...obj,
-  ...(obj.Items && {
-    Items: obj.Items.map((item) =>
-      Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => (
-          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
-        ),
-        {}
-      )
-    ),
-  }),
-  ...(obj.LastEvaluatedKey && {
-    LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateItemOutputFilterSensitiveLog = (obj: UpdateItemOutput): any => ({
-  ...obj,
-  ...(obj.Attributes && {
-    Attributes: Object.entries(obj.Attributes).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.ItemCollectionMetrics && {
-    ItemCollectionMetrics: ItemCollectionMetricsFilterSensitiveLog(obj.ItemCollectionMetrics),
-  }),
-});
-
-/**
- * @internal
- */
-export const WriteRequestFilterSensitiveLog = (obj: WriteRequest): any => ({
-  ...obj,
-  ...(obj.PutRequest && { PutRequest: PutRequestFilterSensitiveLog(obj.PutRequest) }),
-  ...(obj.DeleteRequest && { DeleteRequest: DeleteRequestFilterSensitiveLog(obj.DeleteRequest) }),
-});
-
-/**
- * @internal
- */
-export const BatchGetItemOutputFilterSensitiveLog = (obj: BatchGetItemOutput): any => ({
-  ...obj,
-  ...(obj.Responses && {
-    Responses: Object.entries(obj.Responses).reduce(
-      (acc: any, [key, value]: [string, Record<string, AttributeValue>[]]) => (
-        (acc[key] = value.map((item) =>
-          Object.entries(item).reduce(
-            (acc: any, [key, value]: [string, AttributeValue]) => (
-              (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
-            ),
-            {}
-          )
-        )),
-        acc
-      ),
-      {}
-    ),
-  }),
-  ...(obj.UnprocessedKeys && {
-    UnprocessedKeys: Object.entries(obj.UnprocessedKeys).reduce(
-      (acc: any, [key, value]: [string, KeysAndAttributes]) => (
-        (acc[key] = KeysAndAttributesFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const ScanInputFilterSensitiveLog = (obj: ScanInput): any => ({
-  ...obj,
-  ...(obj.ScanFilter && {
-    ScanFilter: Object.entries(obj.ScanFilter).reduce(
-      (acc: any, [key, value]: [string, Condition]) => ((acc[key] = ConditionFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.ExclusiveStartKey && {
-    ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.ExpressionAttributeValues && {
-    ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const BatchWriteItemInputFilterSensitiveLog = (obj: BatchWriteItemInput): any => ({
-  ...obj,
-  ...(obj.RequestItems && {
-    RequestItems: Object.entries(obj.RequestItems).reduce(
-      (acc: any, [key, value]: [string, WriteRequest[]]) => (
-        (acc[key] = value.map((item) => WriteRequestFilterSensitiveLog(item))), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const DeleteItemInputFilterSensitiveLog = (obj: DeleteItemInput): any => ({
-  ...obj,
-  ...(obj.Key && {
-    Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.Expected && {
-    Expected: Object.entries(obj.Expected).reduce(
-      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => (
-        (acc[key] = ExpectedAttributeValueFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-  ...(obj.ExpressionAttributeValues && {
-    ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const PutItemInputFilterSensitiveLog = (obj: PutItemInput): any => ({
-  ...obj,
-  ...(obj.Item && {
-    Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.Expected && {
-    Expected: Object.entries(obj.Expected).reduce(
-      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => (
-        (acc[key] = ExpectedAttributeValueFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-  ...(obj.ExpressionAttributeValues && {
-    ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const QueryInputFilterSensitiveLog = (obj: QueryInput): any => ({
-  ...obj,
-  ...(obj.KeyConditions && {
-    KeyConditions: Object.entries(obj.KeyConditions).reduce(
-      (acc: any, [key, value]: [string, Condition]) => ((acc[key] = ConditionFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.QueryFilter && {
-    QueryFilter: Object.entries(obj.QueryFilter).reduce(
-      (acc: any, [key, value]: [string, Condition]) => ((acc[key] = ConditionFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.ExclusiveStartKey && {
-    ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.ExpressionAttributeValues && {
-    ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const BatchWriteItemOutputFilterSensitiveLog = (obj: BatchWriteItemOutput): any => ({
-  ...obj,
-  ...(obj.UnprocessedItems && {
-    UnprocessedItems: Object.entries(obj.UnprocessedItems).reduce(
-      (acc: any, [key, value]: [string, WriteRequest[]]) => (
-        (acc[key] = value.map((item) => WriteRequestFilterSensitiveLog(item))), acc
-      ),
-      {}
-    ),
-  }),
-  ...(obj.ItemCollectionMetrics && {
-    ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
-      (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => (
-        (acc[key] = value.map((item) => ItemCollectionMetricsFilterSensitiveLog(item))), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateItemInputFilterSensitiveLog = (obj: UpdateItemInput): any => ({
-  ...obj,
-  ...(obj.Key && {
-    Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.AttributeUpdates && {
-    AttributeUpdates: Object.entries(obj.AttributeUpdates).reduce(
-      (acc: any, [key, value]: [string, AttributeValueUpdate]) => (
-        (acc[key] = AttributeValueUpdateFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-  ...(obj.Expected && {
-    Expected: Object.entries(obj.Expected).reduce(
-      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => (
-        (acc[key] = ExpectedAttributeValueFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-  ...(obj.ExpressionAttributeValues && {
-    ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const TransactWriteItemFilterSensitiveLog = (obj: TransactWriteItem): any => ({
-  ...obj,
-  ...(obj.ConditionCheck && { ConditionCheck: ConditionCheckFilterSensitiveLog(obj.ConditionCheck) }),
-  ...(obj.Put && { Put: PutFilterSensitiveLog(obj.Put) }),
-  ...(obj.Delete && { Delete: DeleteFilterSensitiveLog(obj.Delete) }),
-  ...(obj.Update && { Update: UpdateFilterSensitiveLog(obj.Update) }),
-});
-
-/**
- * @internal
- */
-export const TransactWriteItemsInputFilterSensitiveLog = (obj: TransactWriteItemsInput): any => ({
-  ...obj,
-  ...(obj.TransactItems && {
-    TransactItems: obj.TransactItems.map((item) => TransactWriteItemFilterSensitiveLog(item)),
-  }),
-});

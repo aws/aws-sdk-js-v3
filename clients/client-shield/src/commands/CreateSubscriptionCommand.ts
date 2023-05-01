@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSubscriptionRequest,
-  CreateSubscriptionRequestFilterSensitiveLog,
-  CreateSubscriptionResponse,
-  CreateSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSubscriptionCommand,
-  serializeAws_json1_1CreateSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSubscriptionRequest, CreateSubscriptionResponse } from "../models/models_0";
+import { de_CreateSubscriptionCommand, se_CreateSubscriptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubscriptionCommand}.
  */
 export interface CreateSubscriptionCommandInput extends CreateSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubscriptionCommand}.
  */
 export interface CreateSubscriptionCommandOutput extends CreateSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates Shield Advanced for an account.</p>
  *          <note>
  *             <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account,
@@ -47,10 +44,13 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * import { ShieldClient, CreateSubscriptionCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, CreateSubscriptionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new CreateSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubscriptionCommandInput - {@link CreateSubscriptionCommandInput}
+ * @returns {@link CreateSubscriptionCommandOutput}
  * @see {@link CreateSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -80,6 +80,9 @@ export class CreateSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +111,8 @@ export class CreateSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +122,18 @@ export class CreateSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSubscriptionCommand(input, context);
+    return se_CreateSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubscriptionCommandOutput> {
-    return deserializeAws_json1_1CreateSubscriptionCommand(output, context);
+    return de_CreateSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

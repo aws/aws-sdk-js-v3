@@ -16,21 +16,23 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   GetSensitiveDataOccurrencesAvailabilityRequest,
-  GetSensitiveDataOccurrencesAvailabilityRequestFilterSensitiveLog,
   GetSensitiveDataOccurrencesAvailabilityResponse,
-  GetSensitiveDataOccurrencesAvailabilityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand,
-  serializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand,
+  de_GetSensitiveDataOccurrencesAvailabilityCommand,
+  se_GetSensitiveDataOccurrencesAvailabilityCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSensitiveDataOccurrencesAvailabilityCommand}.
  */
 export interface GetSensitiveDataOccurrencesAvailabilityCommandInput
   extends GetSensitiveDataOccurrencesAvailabilityRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSensitiveDataOccurrencesAvailabilityCommand}.
  */
 export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
@@ -38,6 +40,7 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Checks whether occurrences of sensitive data can be retrieved for a finding.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,15 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
  * import { Macie2Client, GetSensitiveDataOccurrencesAvailabilityCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetSensitiveDataOccurrencesAvailabilityCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // GetSensitiveDataOccurrencesAvailabilityRequest
+ *   findingId: "STRING_VALUE", // required
+ * };
  * const command = new GetSensitiveDataOccurrencesAvailabilityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSensitiveDataOccurrencesAvailabilityCommandInput - {@link GetSensitiveDataOccurrencesAvailabilityCommandInput}
+ * @returns {@link GetSensitiveDataOccurrencesAvailabilityCommandOutput}
  * @see {@link GetSensitiveDataOccurrencesAvailabilityCommandInput} for command's `input` shape.
  * @see {@link GetSensitiveDataOccurrencesAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -84,6 +92,9 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSensitiveDataOccurrencesAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +129,8 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSensitiveDataOccurrencesAvailabilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSensitiveDataOccurrencesAvailabilityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +140,24 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSensitiveDataOccurrencesAvailabilityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand(input, context);
+    return se_GetSensitiveDataOccurrencesAvailabilityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSensitiveDataOccurrencesAvailabilityCommandOutput> {
-    return deserializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand(output, context);
+    return de_GetSensitiveDataOccurrencesAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

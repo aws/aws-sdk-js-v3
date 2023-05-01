@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  UntagStreamInput,
-  UntagStreamInputFilterSensitiveLog,
-  UntagStreamOutput,
-  UntagStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UntagStreamCommand,
-  serializeAws_restJson1UntagStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { UntagStreamInput, UntagStreamOutput } from "../models/models_0";
+import { de_UntagStreamCommand, se_UntagStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagStreamCommand}.
  */
 export interface UntagStreamCommandInput extends UntagStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link UntagStreamCommand}.
  */
 export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more tags from a stream. In the request, specify only a tag key or
  *             keys; don't specify the value. If you specify a tag key that does not exist, it's
  *             ignored.</p>
@@ -46,10 +43,19 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  * import { KinesisVideoClient, UntagStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UntagStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // UntagStreamInput
+ *   StreamARN: "STRING_VALUE",
+ *   StreamName: "STRING_VALUE",
+ *   TagKeyList: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagStreamCommandInput - {@link UntagStreamCommandInput}
+ * @returns {@link UntagStreamCommandOutput}
  * @see {@link UntagStreamCommandInput} for command's `input` shape.
  * @see {@link UntagStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -89,6 +95,9 @@ export class UntagStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class UntagStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UntagStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +135,18 @@ export class UntagStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagStreamCommand(input, context);
+    return se_UntagStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagStreamCommandOutput> {
-    return deserializeAws_restJson1UntagStreamCommand(output, context);
+    return de_UntagStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

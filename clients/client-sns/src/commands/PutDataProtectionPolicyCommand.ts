@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutDataProtectionPolicyInput, PutDataProtectionPolicyInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryPutDataProtectionPolicyCommand,
-  serializeAws_queryPutDataProtectionPolicyCommand,
-} from "../protocols/Aws_query";
+import { PutDataProtectionPolicyInput } from "../models/models_0";
+import { de_PutDataProtectionPolicyCommand, se_PutDataProtectionPolicyCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutDataProtectionPolicyCommand}.
  */
 export interface PutDataProtectionPolicyCommandInput extends PutDataProtectionPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutDataProtectionPolicyCommand}.
  */
 export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates an inline policy document that is stored in the specified Amazon SNS
  *             topic.</p>
  * @example
@@ -38,10 +40,16 @@ export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {
  * import { SNSClient, PutDataProtectionPolicyCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, PutDataProtectionPolicyCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // PutDataProtectionPolicyInput
+ *   ResourceArn: "STRING_VALUE", // required
+ *   DataProtectionPolicy: "STRING_VALUE", // required
+ * };
  * const command = new PutDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDataProtectionPolicyCommandInput - {@link PutDataProtectionPolicyCommandInput}
+ * @returns {@link PutDataProtectionPolicyCommandOutput}
  * @see {@link PutDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -82,6 +90,9 @@ export class PutDataProtectionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class PutDataProtectionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDataProtectionPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class PutDataProtectionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutDataProtectionPolicyCommand(input, context);
+    return se_PutDataProtectionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDataProtectionPolicyCommandOutput> {
-    return deserializeAws_queryPutDataProtectionPolicyCommand(output, context);
+    return de_PutDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

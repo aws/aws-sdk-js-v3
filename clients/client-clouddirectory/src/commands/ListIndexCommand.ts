@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListIndexRequest,
-  ListIndexRequestFilterSensitiveLog,
-  ListIndexResponse,
-  ListIndexResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIndexCommand,
-  serializeAws_restJson1ListIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { ListIndexRequest, ListIndexResponse } from "../models/models_0";
+import { de_ListIndexCommand, se_ListIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIndexCommand}.
  */
 export interface ListIndexCommandInput extends ListIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIndexCommand}.
  */
 export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists objects attached to the specified index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,48 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  * import { CloudDirectoryClient, ListIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListIndexRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   RangesOnIndexedValues: [ // ObjectAttributeRangeList
+ *     { // ObjectAttributeRange
+ *       AttributeKey: { // AttributeKey
+ *         SchemaArn: "STRING_VALUE", // required
+ *         FacetName: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       Range: { // TypedAttributeValueRange
+ *         StartMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *         StartValue: { // TypedAttributeValue Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *         EndMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *         EndValue: {//  Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   IndexReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ * };
  * const command = new ListIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIndexCommandInput - {@link ListIndexCommandInput}
+ * @returns {@link ListIndexCommandOutput}
  * @see {@link ListIndexCommandInput} for command's `input` shape.
  * @see {@link ListIndexCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -104,6 +139,9 @@ export class ListIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +168,8 @@ export class ListIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +179,18 @@ export class ListIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIndexCommand(input, context);
+    return se_ListIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIndexCommandOutput> {
-    return deserializeAws_restJson1ListIndexCommand(output, context);
+    return de_ListIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

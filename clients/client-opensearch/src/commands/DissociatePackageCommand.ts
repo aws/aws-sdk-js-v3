@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DissociatePackageRequest,
-  DissociatePackageRequestFilterSensitiveLog,
-  DissociatePackageResponse,
-  DissociatePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DissociatePackageRequest, DissociatePackageResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DissociatePackageCommand,
-  serializeAws_restJson1DissociatePackageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DissociatePackageCommand, se_DissociatePackageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DissociatePackageCommand}.
  */
 export interface DissociatePackageCommandInput extends DissociatePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DissociatePackageCommand}.
  */
 export interface DissociatePackageCommandOutput extends DissociatePackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a package from the specified Amazon OpenSearch Service domain. The package can't be
  *    in use with any OpenSearch index for the dissociation to succeed. The package is still available
  *    in OpenSearch Service for association later. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
@@ -45,10 +42,16 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * import { OpenSearchClient, DissociatePackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DissociatePackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DissociatePackageRequest
+ *   PackageID: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DissociatePackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DissociatePackageCommandInput - {@link DissociatePackageCommandInput}
+ * @returns {@link DissociatePackageCommandOutput}
  * @see {@link DissociatePackageCommandInput} for command's `input` shape.
  * @see {@link DissociatePackageCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -90,6 +93,9 @@ export class DissociatePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DissociatePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class DissociatePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DissociatePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DissociatePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class DissociatePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DissociatePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DissociatePackageCommand(input, context);
+    return se_DissociatePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DissociatePackageCommandOutput> {
-    return deserializeAws_restJson1DissociatePackageCommand(output, context);
+    return de_DissociatePackageCommand(output, context);
   }
 
   // Start section: command_body_extra

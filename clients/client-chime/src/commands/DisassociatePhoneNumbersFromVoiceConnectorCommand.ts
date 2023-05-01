@@ -18,19 +18,22 @@ import {
   DisassociatePhoneNumbersFromVoiceConnectorRequest,
   DisassociatePhoneNumbersFromVoiceConnectorRequestFilterSensitiveLog,
   DisassociatePhoneNumbersFromVoiceConnectorResponse,
-  DisassociatePhoneNumbersFromVoiceConnectorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand,
-  serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand,
+  de_DisassociatePhoneNumbersFromVoiceConnectorCommand,
+  se_DisassociatePhoneNumbersFromVoiceConnectorCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociatePhoneNumbersFromVoiceConnectorCommand}.
  */
 export interface DisassociatePhoneNumbersFromVoiceConnectorCommandInput
   extends DisassociatePhoneNumbersFromVoiceConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociatePhoneNumbersFromVoiceConnectorCommand}.
  */
 export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
@@ -38,6 +41,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +49,18 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
  * import { ChimeClient, DisassociatePhoneNumbersFromVoiceConnectorCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DisassociatePhoneNumbersFromVoiceConnectorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DisassociatePhoneNumbersFromVoiceConnectorRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   E164PhoneNumbers: [ // E164PhoneNumberList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociatePhoneNumbersFromVoiceConnectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociatePhoneNumbersFromVoiceConnectorCommandInput - {@link DisassociatePhoneNumbersFromVoiceConnectorCommandInput}
+ * @returns {@link DisassociatePhoneNumbersFromVoiceConnectorCommandOutput}
  * @see {@link DisassociatePhoneNumbersFromVoiceConnectorCommandInput} for command's `input` shape.
  * @see {@link DisassociatePhoneNumbersFromVoiceConnectorCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +105,9 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociatePhoneNumbersFromVoiceConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,7 +143,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,18 +153,24 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand(input, context);
+    return se_DisassociatePhoneNumbersFromVoiceConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand(output, context);
+    return de_DisassociatePhoneNumbersFromVoiceConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

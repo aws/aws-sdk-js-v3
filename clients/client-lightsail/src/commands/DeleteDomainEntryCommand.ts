@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteDomainEntryRequest,
-  DeleteDomainEntryRequestFilterSensitiveLog,
-  DeleteDomainEntryResult,
-  DeleteDomainEntryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDomainEntryCommand,
-  serializeAws_json1_1DeleteDomainEntryCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDomainEntryRequest, DeleteDomainEntryResult } from "../models/models_0";
+import { de_DeleteDomainEntryCommand, se_DeleteDomainEntryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDomainEntryCommand}.
  */
 export interface DeleteDomainEntryCommandInput extends DeleteDomainEntryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDomainEntryCommand}.
  */
 export interface DeleteDomainEntryCommandOutput extends DeleteDomainEntryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific domain entry.</p>
  *          <p>The <code>delete domain entry</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by <code>domain name</code>. For more
@@ -45,10 +42,25 @@ export interface DeleteDomainEntryCommandOutput extends DeleteDomainEntryResult,
  * import { LightsailClient, DeleteDomainEntryCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteDomainEntryCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteDomainEntryRequest
+ *   domainName: "STRING_VALUE", // required
+ *   domainEntry: { // DomainEntry
+ *     id: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     target: "STRING_VALUE",
+ *     isAlias: true || false,
+ *     type: "STRING_VALUE",
+ *     options: { // DomainEntryOptions
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new DeleteDomainEntryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainEntryCommandInput - {@link DeleteDomainEntryCommandInput}
+ * @returns {@link DeleteDomainEntryCommandOutput}
  * @see {@link DeleteDomainEntryCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainEntryCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +114,9 @@ export class DeleteDomainEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +145,8 @@ export class DeleteDomainEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainEntryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainEntryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +156,18 @@ export class DeleteDomainEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDomainEntryCommand(input, context);
+    return se_DeleteDomainEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainEntryCommandOutput> {
-    return deserializeAws_json1_1DeleteDomainEntryCommand(output, context);
+    return de_DeleteDomainEntryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListClusterJobsRequest,
-  ListClusterJobsRequestFilterSensitiveLog,
-  ListClusterJobsResult,
-  ListClusterJobsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListClusterJobsCommand,
-  serializeAws_json1_1ListClusterJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListClusterJobsRequest, ListClusterJobsResult } from "../models/models_0";
+import { de_ListClusterJobsCommand, se_ListClusterJobsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListClusterJobsCommand}.
  */
 export interface ListClusterJobsCommandInput extends ListClusterJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListClusterJobsCommand}.
  */
 export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each
  *         <code>JobListEntry</code> object is for a job in the specified cluster and contains a job's
  *       state, a job's ID, and other information.</p>
@@ -44,10 +41,17 @@ export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __M
  * import { SnowballClient, ListClusterJobsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListClusterJobsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // ListClusterJobsRequest
+ *   ClusterId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListClusterJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClusterJobsCommandInput - {@link ListClusterJobsCommandInput}
+ * @returns {@link ListClusterJobsCommandOutput}
  * @see {@link ListClusterJobsCommandInput} for command's `input` shape.
  * @see {@link ListClusterJobsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -142,6 +146,9 @@ export class ListClusterJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClusterJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,8 +177,8 @@ export class ListClusterJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClusterJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClusterJobsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -181,12 +188,18 @@ export class ListClusterJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClusterJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListClusterJobsCommand(input, context);
+    return se_ListClusterJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClusterJobsCommandOutput> {
-    return deserializeAws_json1_1ListClusterJobsCommand(output, context);
+    return de_ListClusterJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

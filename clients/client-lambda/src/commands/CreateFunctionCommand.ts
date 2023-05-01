@@ -20,21 +20,23 @@ import {
   FunctionConfiguration,
   FunctionConfigurationFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFunctionCommand,
-  serializeAws_restJson1CreateFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateFunctionCommand, se_CreateFunctionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFunctionCommand}.
  */
 export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFunctionCommand}.
  */
 export interface CreateFunctionCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
  *       deployment package is a .zip file archive or container image that contains your function code. The execution role
  *       grants the function permission to use Amazon Web Services, such as Amazon CloudWatch Logs for log
@@ -79,10 +81,81 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * import { LambdaClient, CreateFunctionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateFunctionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // CreateFunctionRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17",
+ *   Role: "STRING_VALUE", // required
+ *   Handler: "STRING_VALUE",
+ *   Code: { // FunctionCode
+ *     ZipFile: "BLOB_VALUE",
+ *     S3Bucket: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *     S3ObjectVersion: "STRING_VALUE",
+ *     ImageUri: "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   Timeout: Number("int"),
+ *   MemorySize: Number("int"),
+ *   Publish: true || false,
+ *   VpcConfig: { // VpcConfig
+ *     SubnetIds: [ // SubnetIds
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // SecurityGroupIds
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PackageType: "Zip" || "Image",
+ *   DeadLetterConfig: { // DeadLetterConfig
+ *     TargetArn: "STRING_VALUE",
+ *   },
+ *   Environment: { // Environment
+ *     Variables: { // EnvironmentVariables
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   KMSKeyArn: "STRING_VALUE",
+ *   TracingConfig: { // TracingConfig
+ *     Mode: "Active" || "PassThrough",
+ *   },
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Layers: [ // LayerList
+ *     "STRING_VALUE",
+ *   ],
+ *   FileSystemConfigs: [ // FileSystemConfigList
+ *     { // FileSystemConfig
+ *       Arn: "STRING_VALUE", // required
+ *       LocalMountPath: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ImageConfig: { // ImageConfig
+ *     EntryPoint: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     Command: [
+ *       "STRING_VALUE",
+ *     ],
+ *     WorkingDirectory: "STRING_VALUE",
+ *   },
+ *   CodeSigningConfigArn: "STRING_VALUE",
+ *   Architectures: [ // ArchitecturesList
+ *     "x86_64" || "arm64",
+ *   ],
+ *   EphemeralStorage: { // EphemeralStorage
+ *     Size: Number("int"), // required
+ *   },
+ *   SnapStart: { // SnapStart
+ *     ApplyOn: "PublishedVersions" || "None",
+ *   },
+ * };
  * const command = new CreateFunctionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFunctionCommandInput - {@link CreateFunctionCommandInput}
+ * @returns {@link CreateFunctionCommandOutput}
  * @see {@link CreateFunctionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -135,6 +208,9 @@ export class CreateFunctionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFunctionCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,12 +250,18 @@ export class CreateFunctionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFunctionCommand(input, context);
+    return se_CreateFunctionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionCommandOutput> {
-    return deserializeAws_restJson1CreateFunctionCommand(output, context);
+    return de_CreateFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

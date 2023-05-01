@@ -16,25 +16,26 @@ import {
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   GenerateDataKeyRequest,
-  GenerateDataKeyRequestFilterSensitiveLog,
   GenerateDataKeyResponse,
   GenerateDataKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GenerateDataKeyCommand,
-  serializeAws_json1_1GenerateDataKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GenerateDataKeyCommand, se_GenerateDataKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateDataKeyCommand}.
  */
 export interface GenerateDataKeyCommandInput extends GenerateDataKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateDataKeyCommand}.
  */
 export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
  *       plaintext copy of the data key and a copy that is encrypted under a symmetric encryption KMS
  *       key that you specify. The bytes in the plaintext key are random; they are not related
@@ -57,7 +58,15 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
  *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
- *          <p>Applications in Amazon Web Services Nitro Enclaves can call this operation by using the <a href="https://github.com/aws/aws-nitro-enclaves-sdk-c">Amazon Web Services Nitro Enclaves Development Kit</a>. For information about the supporting parameters, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves use KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <code>GenerateDataKey</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
+ *       isolated compute environment in Amazon EC2. To call <code>GenerateDataKey</code> for an Amazon Web Services Nitro
+ *       enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code> parameter
+ *       to provide the attestation document for the enclave. <code>GenerateDataKey</code> returns a
+ *       copy of the data key encrypted under the specified KMS key, as usual. But instead of a
+ *       plaintext copy of the data key, the response includes a copy of the data key encrypted under
+ *       the public key from the attestation document (<code>CiphertextForRecipient</code>).
+ *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>..</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
@@ -135,10 +144,27 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * import { KMSClient, GenerateDataKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateDataKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // GenerateDataKeyRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   EncryptionContext: { // EncryptionContextType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   NumberOfBytes: Number("int"),
+ *   KeySpec: "AES_256" || "AES_128",
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ *   Recipient: { // RecipientInfo
+ *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *     AttestationDocument: "BLOB_VALUE",
+ *   },
+ * };
  * const command = new GenerateDataKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateDataKeyCommandInput - {@link GenerateDataKeyCommandInput}
+ * @returns {@link GenerateDataKeyCommandOutput}
  * @see {@link GenerateDataKeyCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -242,6 +268,9 @@ export class GenerateDataKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateDataKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -270,7 +299,7 @@ export class GenerateDataKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateDataKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GenerateDataKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -281,12 +310,18 @@ export class GenerateDataKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GenerateDataKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateDataKeyCommand(input, context);
+    return se_GenerateDataKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateDataKeyCommandOutput> {
-    return deserializeAws_json1_1GenerateDataKeyCommand(output, context);
+    return de_GenerateDataKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

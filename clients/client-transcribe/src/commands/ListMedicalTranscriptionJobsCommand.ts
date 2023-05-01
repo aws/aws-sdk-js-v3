@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListMedicalTranscriptionJobsRequest, ListMedicalTranscriptionJobsResponse } from "../models/models_0";
 import {
-  ListMedicalTranscriptionJobsRequest,
-  ListMedicalTranscriptionJobsRequestFilterSensitiveLog,
-  ListMedicalTranscriptionJobsResponse,
-  ListMedicalTranscriptionJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMedicalTranscriptionJobsCommand,
-  serializeAws_json1_1ListMedicalTranscriptionJobsCommand,
+  de_ListMedicalTranscriptionJobsCommand,
+  se_ListMedicalTranscriptionJobsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMedicalTranscriptionJobsCommand}.
  */
 export interface ListMedicalTranscriptionJobsCommandInput extends ListMedicalTranscriptionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMedicalTranscriptionJobsCommand}.
  */
 export interface ListMedicalTranscriptionJobsCommandOutput
@@ -37,6 +36,7 @@ export interface ListMedicalTranscriptionJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of medical transcription jobs that match the specified criteria. If no
  *             criteria are specified, all medical transcription jobs are returned.</p>
  *          <p>To get detailed information about a specific medical transcription job, use the  operation.</p>
@@ -46,10 +46,18 @@ export interface ListMedicalTranscriptionJobsCommandOutput
  * import { TranscribeClient, ListMedicalTranscriptionJobsCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListMedicalTranscriptionJobsCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // ListMedicalTranscriptionJobsRequest
+ *   Status: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ *   JobNameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMedicalTranscriptionJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMedicalTranscriptionJobsCommandInput - {@link ListMedicalTranscriptionJobsCommandInput}
+ * @returns {@link ListMedicalTranscriptionJobsCommandOutput}
  * @see {@link ListMedicalTranscriptionJobsCommandInput} for command's `input` shape.
  * @see {@link ListMedicalTranscriptionJobsCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -87,6 +95,9 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMedicalTranscriptionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMedicalTranscriptionJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMedicalTranscriptionJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +137,21 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMedicalTranscriptionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMedicalTranscriptionJobsCommand(input, context);
+    return se_ListMedicalTranscriptionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMedicalTranscriptionJobsCommandOutput> {
-    return deserializeAws_json1_1ListMedicalTranscriptionJobsCommand(output, context);
+    return de_ListMedicalTranscriptionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

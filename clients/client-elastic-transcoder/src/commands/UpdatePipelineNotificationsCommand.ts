@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
+import { UpdatePipelineNotificationsRequest, UpdatePipelineNotificationsResponse } from "../models/models_0";
 import {
-  UpdatePipelineNotificationsRequest,
-  UpdatePipelineNotificationsRequestFilterSensitiveLog,
-  UpdatePipelineNotificationsResponse,
-  UpdatePipelineNotificationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePipelineNotificationsCommand,
-  serializeAws_restJson1UpdatePipelineNotificationsCommand,
+  de_UpdatePipelineNotificationsCommand,
+  se_UpdatePipelineNotificationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePipelineNotificationsCommand}.
  */
 export interface UpdatePipelineNotificationsCommandInput extends UpdatePipelineNotificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePipelineNotificationsCommand}.
  */
 export interface UpdatePipelineNotificationsCommandOutput
@@ -41,6 +40,7 @@ export interface UpdatePipelineNotificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.</p>
  *         <p>When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
  * @example
@@ -49,10 +49,21 @@ export interface UpdatePipelineNotificationsCommandOutput
  * import { ElasticTranscoderClient, UpdatePipelineNotificationsCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, UpdatePipelineNotificationsCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // UpdatePipelineNotificationsRequest
+ *   Id: "STRING_VALUE", // required
+ *   Notifications: { // Notifications
+ *     Progressing: "STRING_VALUE",
+ *     Completed: "STRING_VALUE",
+ *     Warning: "STRING_VALUE",
+ *     Error: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdatePipelineNotificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePipelineNotificationsCommandInput - {@link UpdatePipelineNotificationsCommandInput}
+ * @returns {@link UpdatePipelineNotificationsCommandOutput}
  * @see {@link UpdatePipelineNotificationsCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineNotificationsCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -95,6 +106,9 @@ export class UpdatePipelineNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipelineNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +137,8 @@ export class UpdatePipelineNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePipelineNotificationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePipelineNotificationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,15 +148,21 @@ export class UpdatePipelineNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipelineNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePipelineNotificationsCommand(input, context);
+    return se_UpdatePipelineNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePipelineNotificationsCommandOutput> {
-    return deserializeAws_restJson1UpdatePipelineNotificationsCommand(output, context);
+    return de_UpdatePipelineNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

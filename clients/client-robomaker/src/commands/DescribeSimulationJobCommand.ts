@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSimulationJobRequest,
-  DescribeSimulationJobRequestFilterSensitiveLog,
-  DescribeSimulationJobResponse,
-  DescribeSimulationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSimulationJobCommand,
-  serializeAws_restJson1DescribeSimulationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSimulationJobRequest, DescribeSimulationJobResponse } from "../models/models_0";
+import { de_DescribeSimulationJobCommand, se_DescribeSimulationJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSimulationJobCommand}.
  */
 export interface DescribeSimulationJobCommandInput extends DescribeSimulationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSimulationJobCommand}.
  */
 export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a simulation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * import { RoboMakerClient, DescribeSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DescribeSimulationJobRequest
+ *   job: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSimulationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSimulationJobCommandInput - {@link DescribeSimulationJobCommandInput}
+ * @returns {@link DescribeSimulationJobCommandOutput}
  * @see {@link DescribeSimulationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSimulationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -82,6 +84,9 @@ export class DescribeSimulationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSimulationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeSimulationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSimulationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSimulationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DescribeSimulationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSimulationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSimulationJobCommand(input, context);
+    return se_DescribeSimulationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSimulationJobCommandOutput> {
-    return deserializeAws_restJson1DescribeSimulationJobCommand(output, context);
+    return de_DescribeSimulationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

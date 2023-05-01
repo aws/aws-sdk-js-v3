@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  StartMultiplexRequest,
-  StartMultiplexRequestFilterSensitiveLog,
-  StartMultiplexResponse,
-  StartMultiplexResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1StartMultiplexCommand,
-  serializeAws_restJson1StartMultiplexCommand,
-} from "../protocols/Aws_restJson1";
+import { StartMultiplexRequest, StartMultiplexResponse } from "../models/models_2";
+import { de_StartMultiplexCommand, se_StartMultiplexCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartMultiplexCommand}.
  */
 export interface StartMultiplexCommandInput extends StartMultiplexRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMultiplexCommand}.
  */
 export interface StartMultiplexCommandOutput extends StartMultiplexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Start (run) the multiplex. Starting the multiplex does not start the channels. You must explicitly start each channel.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StartMultiplexCommandOutput extends StartMultiplexResponse, __M
  * import { MediaLiveClient, StartMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StartMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // StartMultiplexRequest
+ *   MultiplexId: "STRING_VALUE", // required
+ * };
  * const command = new StartMultiplexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMultiplexCommandInput - {@link StartMultiplexCommandInput}
+ * @returns {@link StartMultiplexCommandOutput}
  * @see {@link StartMultiplexCommandInput} for command's `input` shape.
  * @see {@link StartMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +95,9 @@ export class StartMultiplexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMultiplexCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class StartMultiplexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMultiplexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMultiplexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +137,18 @@ export class StartMultiplexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartMultiplexCommand(input, context);
+    return se_StartMultiplexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMultiplexCommandOutput> {
-    return deserializeAws_restJson1StartMultiplexCommand(output, context);
+    return de_StartMultiplexCommand(output, context);
   }
 
   // Start section: command_body_extra

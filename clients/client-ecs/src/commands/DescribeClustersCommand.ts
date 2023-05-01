@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DescribeClustersRequest,
-  DescribeClustersRequestFilterSensitiveLog,
-  DescribeClustersResponse,
-  DescribeClustersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeClustersCommand,
-  serializeAws_json1_1DescribeClustersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeClustersRequest, DescribeClustersResponse } from "../models/models_0";
+import { de_DescribeClustersCommand, se_DescribeClustersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClustersCommand}.
  */
 export interface DescribeClustersCommandInput extends DescribeClustersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClustersCommand}.
  */
 export interface DescribeClustersCommandOutput extends DescribeClustersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * import { ECSClient, DescribeClustersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeClustersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DescribeClustersRequest
+ *   clusters: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   include: [ // ClusterFieldList
+ *     "ATTACHMENTS" || "CONFIGURATIONS" || "SETTINGS" || "STATISTICS" || "TAGS",
+ *   ],
+ * };
  * const command = new DescribeClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClustersCommandInput - {@link DescribeClustersCommandInput}
+ * @returns {@link DescribeClustersCommandOutput}
  * @see {@link DescribeClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -106,6 +113,9 @@ export class DescribeClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +144,8 @@ export class DescribeClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClustersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClustersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +155,18 @@ export class DescribeClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeClustersCommand(input, context);
+    return se_DescribeClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClustersCommandOutput> {
-    return deserializeAws_json1_1DescribeClustersCommand(output, context);
+    return de_DescribeClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendEmailRequest,
-  SendEmailRequestFilterSensitiveLog,
-  SendEmailResponse,
-  SendEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SendEmailRequest, SendEmailResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1SendEmailCommand,
-  serializeAws_restJson1SendEmailCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendEmailCommand, se_SendEmailCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendEmailCommand}.
  */
 export interface SendEmailCommandInput extends SendEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendEmailCommand}.
  */
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an email message. You can use the Amazon Pinpoint Email API to send two types of
  *             messages:</p>
  *         <ul>
@@ -59,10 +56,62 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * import { PinpointEmailClient, SendEmailCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, SendEmailCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // SendEmailRequest
+ *   FromEmailAddress: "STRING_VALUE",
+ *   Destination: { // Destination
+ *     ToAddresses: [ // EmailAddressList
+ *       "STRING_VALUE",
+ *     ],
+ *     CcAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *     BccAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ReplyToAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   FeedbackForwardingEmailAddress: "STRING_VALUE",
+ *   Content: { // EmailContent
+ *     Simple: { // Message
+ *       Subject: { // Content
+ *         Data: "STRING_VALUE", // required
+ *         Charset: "STRING_VALUE",
+ *       },
+ *       Body: { // Body
+ *         Text: {
+ *           Data: "STRING_VALUE", // required
+ *           Charset: "STRING_VALUE",
+ *         },
+ *         Html: {
+ *           Data: "STRING_VALUE", // required
+ *           Charset: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     Raw: { // RawMessage
+ *       Data: "BLOB_VALUE", // required
+ *     },
+ *     Template: { // Template
+ *       TemplateArn: "STRING_VALUE",
+ *       TemplateData: "STRING_VALUE",
+ *     },
+ *   },
+ *   EmailTags: [ // MessageTagList
+ *     { // MessageTag
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ConfigurationSetName: "STRING_VALUE",
+ * };
  * const command = new SendEmailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendEmailCommandInput - {@link SendEmailCommandInput}
+ * @returns {@link SendEmailCommandOutput}
  * @see {@link SendEmailCommandInput} for command's `input` shape.
  * @see {@link SendEmailCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -112,6 +161,9 @@ export class SendEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +190,8 @@ export class SendEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +201,18 @@ export class SendEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendEmailCommand(input, context);
+    return se_SendEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEmailCommandOutput> {
-    return deserializeAws_restJson1SendEmailCommand(output, context);
+    return de_SendEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

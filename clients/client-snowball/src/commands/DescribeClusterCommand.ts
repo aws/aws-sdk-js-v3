@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeClusterRequest,
-  DescribeClusterRequestFilterSensitiveLog,
-  DescribeClusterResult,
-  DescribeClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeClusterCommand,
-  serializeAws_json1_1DescribeClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeClusterRequest, DescribeClusterResult } from "../models/models_0";
+import { de_DescribeClusterCommand, se_DescribeClusterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterCommand}.
  */
 export interface DescribeClusterCommandInput extends DescribeClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterCommand}.
  */
 export interface DescribeClusterCommandOutput extends DescribeClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific cluster including shipping information, cluster
  *       status, and other important metadata.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  * import { SnowballClient, DescribeClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // DescribeClusterRequest
+ *   ClusterId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterCommandInput - {@link DescribeClusterCommandInput}
+ * @returns {@link DescribeClusterCommandOutput}
  * @see {@link DescribeClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -112,6 +114,9 @@ export class DescribeClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +145,8 @@ export class DescribeClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +156,18 @@ export class DescribeClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeClusterCommand(input, context);
+    return se_DescribeClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterCommandOutput> {
-    return deserializeAws_json1_1DescribeClusterCommand(output, context);
+    return de_DescribeClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

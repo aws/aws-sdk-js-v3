@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  GetMetricPolicyInput,
-  GetMetricPolicyInputFilterSensitiveLog,
-  GetMetricPolicyOutput,
-  GetMetricPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMetricPolicyCommand,
-  serializeAws_json1_1GetMetricPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMetricPolicyInput, GetMetricPolicyOutput } from "../models/models_0";
+import { de_GetMetricPolicyCommand, se_GetMetricPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMetricPolicyCommand}.
  */
 export interface GetMetricPolicyCommandInput extends GetMetricPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMetricPolicyCommand}.
  */
 export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the metric policy for the specified container. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  * import { MediaStoreClient, GetMetricPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, GetMetricPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = { // GetMetricPolicyInput
+ *   ContainerName: "STRING_VALUE", // required
+ * };
  * const command = new GetMetricPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricPolicyCommandInput - {@link GetMetricPolicyCommandInput}
+ * @returns {@link GetMetricPolicyCommandOutput}
  * @see {@link GetMetricPolicyCommandInput} for command's `input` shape.
  * @see {@link GetMetricPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetMetricPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetMetricPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetricPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMetricPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetMetricPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMetricPolicyCommand(input, context);
+    return se_GetMetricPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricPolicyCommandOutput> {
-    return deserializeAws_json1_1GetMetricPolicyCommand(output, context);
+    return de_GetMetricPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

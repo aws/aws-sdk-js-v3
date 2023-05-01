@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  GetDatasetRequest,
-  GetDatasetRequestFilterSensitiveLog,
-  GetDatasetResponse,
-  GetDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDatasetCommand,
-  serializeAws_restJson1GetDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDatasetRequest, GetDatasetResponse } from "../models/models_0";
+import { de_GetDatasetCommand, se_GetDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDatasetCommand}.
  */
 export interface GetDatasetCommandInput extends GetDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDatasetCommand}.
  */
 export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * import { FinspaceDataClient, GetDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // GetDatasetRequest
+ *   datasetId: "STRING_VALUE", // required
+ * };
  * const command = new GetDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDatasetCommandInput - {@link GetDatasetCommandInput}
+ * @returns {@link GetDatasetCommandOutput}
  * @see {@link GetDatasetCommandInput} for command's `input` shape.
  * @see {@link GetDatasetCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -88,6 +90,9 @@ export class GetDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class GetDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class GetDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDatasetCommand(input, context);
+    return se_GetDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatasetCommandOutput> {
-    return deserializeAws_restJson1GetDatasetCommand(output, context);
+    return de_GetDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

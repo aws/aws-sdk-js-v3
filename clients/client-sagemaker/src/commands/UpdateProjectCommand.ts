@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateProjectInput,
-  UpdateProjectInputFilterSensitiveLog,
-  UpdateProjectOutput,
-  UpdateProjectOutputFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateProjectCommand,
-  serializeAws_json1_1UpdateProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateProjectInput, UpdateProjectOutput } from "../models/models_4";
+import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandInput extends UpdateProjectInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a machine learning (ML) project that is created from a template that
  *             sets up an ML pipeline from training to deploying an approved model.</p>
  *          <note>
@@ -49,10 +46,31 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * import { SageMakerClient, UpdateProjectCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateProjectCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateProjectInput
+ *   ProjectName: "STRING_VALUE", // required
+ *   ProjectDescription: "STRING_VALUE",
+ *   ServiceCatalogProvisioningUpdateDetails: { // ServiceCatalogProvisioningUpdateDetails
+ *     ProvisioningArtifactId: "STRING_VALUE",
+ *     ProvisioningParameters: [ // ProvisioningParameters
+ *       { // ProvisioningParameter
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
+ * @returns {@link UpdateProjectCommandOutput}
  * @see {@link UpdateProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +94,9 @@ export class UpdateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +123,8 @@ export class UpdateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProjectInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProjectOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +134,18 @@ export class UpdateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProjectCommand(input, context);
+    return se_UpdateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectCommandOutput> {
-    return deserializeAws_json1_1UpdateProjectCommand(output, context);
+    return de_UpdateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

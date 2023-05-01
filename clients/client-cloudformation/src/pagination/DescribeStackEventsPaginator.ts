@@ -10,7 +10,7 @@ import {
 import { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudFormationClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeStackEventsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeStackEvents(
   config: CloudFormationPaginationConfiguration,
   input: DescribeStackEventsCommandInput,

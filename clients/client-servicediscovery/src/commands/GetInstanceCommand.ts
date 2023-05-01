@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetInstanceRequest,
-  GetInstanceRequestFilterSensitiveLog,
-  GetInstanceResponse,
-  GetInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetInstanceCommand,
-  serializeAws_json1_1GetInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { GetInstanceRequest, GetInstanceResponse } from "../models/models_0";
+import { de_GetInstanceCommand, se_GetInstanceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceCommand}.
  */
 export interface GetInstanceCommandInput extends GetInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceCommand}.
  */
 export interface GetInstanceCommandOutput extends GetInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  * import { ServiceDiscoveryClient, GetInstanceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, GetInstanceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // GetInstanceRequest
+ *   ServiceId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new GetInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceCommandInput - {@link GetInstanceCommandInput}
+ * @returns {@link GetInstanceCommandOutput}
  * @see {@link GetInstanceCommandInput} for command's `input` shape.
  * @see {@link GetInstanceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -58,11 +61,6 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
@@ -112,6 +110,9 @@ export class GetInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +139,8 @@ export class GetInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +150,18 @@ export class GetInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceCommand(input, context);
+    return se_GetInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceCommandOutput> {
-    return deserializeAws_json1_1GetInstanceCommand(output, context);
+    return de_GetInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

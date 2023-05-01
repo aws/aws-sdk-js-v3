@@ -16,20 +16,22 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   CreateCloudFrontOriginAccessIdentityRequest,
-  CreateCloudFrontOriginAccessIdentityRequestFilterSensitiveLog,
   CreateCloudFrontOriginAccessIdentityResult,
-  CreateCloudFrontOriginAccessIdentityResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand,
-  serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand,
+  de_CreateCloudFrontOriginAccessIdentityCommand,
+  se_CreateCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCloudFrontOriginAccessIdentityCommand}.
  */
 export interface CreateCloudFrontOriginAccessIdentityCommandInput extends CreateCloudFrontOriginAccessIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCloudFrontOriginAccessIdentityCommand}.
  */
 export interface CreateCloudFrontOriginAccessIdentityCommandOutput
@@ -37,6 +39,7 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can
  * 			use an origin access identity to require users to access your content using a CloudFront URL
  * 			instead of the Amazon S3 URL. For more information about how to use origin access identities,
@@ -48,10 +51,18 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput
  * import { CloudFrontClient, CreateCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateCloudFrontOriginAccessIdentityCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateCloudFrontOriginAccessIdentityRequest
+ *   CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
+ *     CallerReference: "STRING_VALUE", // required
+ *     Comment: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCloudFrontOriginAccessIdentityCommandInput - {@link CreateCloudFrontOriginAccessIdentityCommandInput}
+ * @returns {@link CreateCloudFrontOriginAccessIdentityCommandOutput}
  * @see {@link CreateCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
  * @see {@link CreateCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -97,6 +108,9 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCloudFrontOriginAccessIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +139,8 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCloudFrontOriginAccessIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCloudFrontOriginAccessIdentityResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +150,24 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(input, context);
+    return se_CreateCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(output, context);
+    return de_CreateCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

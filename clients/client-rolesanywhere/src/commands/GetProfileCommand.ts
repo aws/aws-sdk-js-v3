@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ProfileDetailResponse,
-  ProfileDetailResponseFilterSensitiveLog,
-  ScalarProfileRequest,
-  ScalarProfileRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetProfileCommand,
-  serializeAws_restJson1GetProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
+import { de_GetProfileCommand, se_GetProfileCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetProfileCommand}.
  */
 export interface GetProfileCommandInput extends ScalarProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProfileCommand}.
  */
 export interface GetProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a profile.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -46,10 +43,15 @@ export interface GetProfileCommandOutput extends ProfileDetailResponse, __Metada
  * import { RolesAnywhereClient, GetProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, GetProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ScalarProfileRequest
+ *   profileId: "STRING_VALUE", // required
+ * };
  * const command = new GetProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProfileCommandInput - {@link GetProfileCommandInput}
+ * @returns {@link GetProfileCommandOutput}
  * @see {@link GetProfileCommandInput} for command's `input` shape.
  * @see {@link GetProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +81,9 @@ export class GetProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +110,8 @@ export class GetProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProfileDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +121,18 @@ export class GetProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProfileCommand(input, context);
+    return se_GetProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProfileCommandOutput> {
-    return deserializeAws_restJson1GetProfileCommand(output, context);
+    return de_GetProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

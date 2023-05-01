@@ -21,16 +21,20 @@ import {
   UpdateReplicationConfigurationTemplateRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateReplicationConfigurationTemplateCommand,
-  serializeAws_restJson1UpdateReplicationConfigurationTemplateCommand,
+  de_UpdateReplicationConfigurationTemplateCommand,
+  se_UpdateReplicationConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReplicationConfigurationTemplateCommand}.
  */
 export interface UpdateReplicationConfigurationTemplateCommandInput
   extends UpdateReplicationConfigurationTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReplicationConfigurationTemplateCommand}.
  */
 export interface UpdateReplicationConfigurationTemplateCommandOutput
@@ -38,6 +42,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a ReplicationConfigurationTemplate by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +50,42 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  * import { DrsClient, UpdateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, UpdateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // UpdateReplicationConfigurationTemplateRequest
+ *   replicationConfigurationTemplateID: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE",
+ *   stagingAreaSubnetId: "STRING_VALUE",
+ *   associateDefaultSecurityGroup: true || false,
+ *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
+ *     "STRING_VALUE",
+ *   ],
+ *   replicationServerInstanceType: "STRING_VALUE",
+ *   useDedicatedReplicationServer: true || false,
+ *   defaultLargeStagingDiskType: "STRING_VALUE",
+ *   ebsEncryption: "STRING_VALUE",
+ *   ebsEncryptionKeyArn: "STRING_VALUE",
+ *   bandwidthThrottling: Number("long"),
+ *   dataPlaneRouting: "STRING_VALUE",
+ *   createPublicIP: true || false,
+ *   stagingAreaTags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   pitPolicy: [ // PITPolicy
+ *     { // PITPolicyRule
+ *       ruleID: Number("long"),
+ *       units: "STRING_VALUE", // required
+ *       interval: Number("int"), // required
+ *       retentionDuration: Number("int"), // required
+ *       enabled: true || false,
+ *     },
+ *   ],
+ *   autoReplicateNewDisks: true || false,
+ * };
  * const command = new UpdateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReplicationConfigurationTemplateCommandInput - {@link UpdateReplicationConfigurationTemplateCommandInput}
+ * @returns {@link UpdateReplicationConfigurationTemplateCommandOutput}
  * @see {@link UpdateReplicationConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -90,6 +127,9 @@ export class UpdateReplicationConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReplicationConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,18 +169,24 @@ export class UpdateReplicationConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateReplicationConfigurationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateReplicationConfigurationTemplateCommand(input, context);
+    return se_UpdateReplicationConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateReplicationConfigurationTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateReplicationConfigurationTemplateCommand(output, context);
+    return de_UpdateReplicationConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

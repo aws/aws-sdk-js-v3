@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  GetAssessmentFrameworkRequest,
-  GetAssessmentFrameworkRequestFilterSensitiveLog,
-  GetAssessmentFrameworkResponse,
-  GetAssessmentFrameworkResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssessmentFrameworkCommand,
-  serializeAws_restJson1GetAssessmentFrameworkCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAssessmentFrameworkRequest, GetAssessmentFrameworkResponse } from "../models/models_0";
+import { de_GetAssessmentFrameworkCommand, se_GetAssessmentFrameworkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssessmentFrameworkCommand}.
  */
 export interface GetAssessmentFrameworkCommandInput extends GetAssessmentFrameworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssessmentFrameworkCommand}.
  */
 export interface GetAssessmentFrameworkCommandOutput extends GetAssessmentFrameworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a framework from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetAssessmentFrameworkCommandOutput extends GetAssessmentFramew
  * import { AuditManagerClient, GetAssessmentFrameworkCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetAssessmentFrameworkCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // GetAssessmentFrameworkRequest
+ *   frameworkId: "STRING_VALUE", // required
+ * };
  * const command = new GetAssessmentFrameworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssessmentFrameworkCommandInput - {@link GetAssessmentFrameworkCommandInput}
+ * @returns {@link GetAssessmentFrameworkCommandOutput}
  * @see {@link GetAssessmentFrameworkCommandInput} for command's `input` shape.
  * @see {@link GetAssessmentFrameworkCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +85,9 @@ export class GetAssessmentFrameworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssessmentFrameworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class GetAssessmentFrameworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssessmentFrameworkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssessmentFrameworkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class GetAssessmentFrameworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssessmentFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssessmentFrameworkCommand(input, context);
+    return se_GetAssessmentFrameworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssessmentFrameworkCommandOutput> {
-    return deserializeAws_restJson1GetAssessmentFrameworkCommand(output, context);
+    return de_GetAssessmentFrameworkCommand(output, context);
   }
 
   // Start section: command_body_extra

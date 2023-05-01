@@ -18,23 +18,24 @@ import {
   CreateNetworkProfileRequest,
   CreateNetworkProfileRequestFilterSensitiveLog,
   CreateNetworkProfileResponse,
-  CreateNetworkProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateNetworkProfileCommand,
-  serializeAws_json1_1CreateNetworkProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateNetworkProfileCommand, se_CreateNetworkProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNetworkProfileCommand}.
  */
 export interface CreateNetworkProfileCommandInput extends CreateNetworkProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNetworkProfileCommand}.
  */
 export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a network profile with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,32 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  * import { AlexaForBusinessClient, CreateNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // CreateNetworkProfileRequest
+ *   NetworkProfileName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Ssid: "STRING_VALUE", // required
+ *   SecurityType: "STRING_VALUE", // required
+ *   EapMethod: "STRING_VALUE",
+ *   CurrentPassword: "STRING_VALUE",
+ *   NextPassword: "STRING_VALUE",
+ *   CertificateAuthorityArn: "STRING_VALUE",
+ *   TrustAnchors: [ // TrustAnchorList
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNetworkProfileCommandInput - {@link CreateNetworkProfileCommandInput}
+ * @returns {@link CreateNetworkProfileCommandOutput}
  * @see {@link CreateNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -84,6 +107,9 @@ export class CreateNetworkProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNetworkProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,7 +139,7 @@ export class CreateNetworkProfileCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateNetworkProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkProfileResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +149,18 @@ export class CreateNetworkProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateNetworkProfileCommand(input, context);
+    return se_CreateNetworkProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkProfileCommandOutput> {
-    return deserializeAws_json1_1CreateNetworkProfileCommand(output, context);
+    return de_CreateNetworkProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

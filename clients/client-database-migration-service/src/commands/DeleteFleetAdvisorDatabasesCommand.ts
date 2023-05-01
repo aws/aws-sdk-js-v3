@@ -18,22 +18,18 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteFleetAdvisorDatabasesRequest,
-  DeleteFleetAdvisorDatabasesRequestFilterSensitiveLog,
-  DeleteFleetAdvisorDatabasesResponse,
-  DeleteFleetAdvisorDatabasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFleetAdvisorDatabasesCommand,
-  serializeAws_json1_1DeleteFleetAdvisorDatabasesCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteFleetAdvisorDatabasesRequest, DeleteFleetAdvisorDatabasesResponse } from "../models/models_0";
+import { de_DeleteFleetAdvisorDatabasesCommand, se_DeleteFleetAdvisorDatabasesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetAdvisorDatabasesCommand}.
  */
 export interface DeleteFleetAdvisorDatabasesCommandInput extends DeleteFleetAdvisorDatabasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetAdvisorDatabasesCommand}.
  */
 export interface DeleteFleetAdvisorDatabasesCommandOutput
@@ -41,6 +37,7 @@ export interface DeleteFleetAdvisorDatabasesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Fleet Advisor collector databases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +45,17 @@ export interface DeleteFleetAdvisorDatabasesCommandOutput
  * import { DatabaseMigrationServiceClient, DeleteFleetAdvisorDatabasesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteFleetAdvisorDatabasesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DeleteFleetAdvisorDatabasesRequest
+ *   DatabaseIds: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteFleetAdvisorDatabasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetAdvisorDatabasesCommandInput - {@link DeleteFleetAdvisorDatabasesCommandInput}
+ * @returns {@link DeleteFleetAdvisorDatabasesCommandOutput}
  * @see {@link DeleteFleetAdvisorDatabasesCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetAdvisorDatabasesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -81,6 +85,9 @@ export class DeleteFleetAdvisorDatabasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetAdvisorDatabasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class DeleteFleetAdvisorDatabasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFleetAdvisorDatabasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFleetAdvisorDatabasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +127,21 @@ export class DeleteFleetAdvisorDatabasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetAdvisorDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFleetAdvisorDatabasesCommand(input, context);
+    return se_DeleteFleetAdvisorDatabasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFleetAdvisorDatabasesCommandOutput> {
-    return deserializeAws_json1_1DeleteFleetAdvisorDatabasesCommand(output, context);
+    return de_DeleteFleetAdvisorDatabasesCommand(output, context);
   }
 
   // Start section: command_body_extra

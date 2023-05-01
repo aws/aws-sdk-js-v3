@@ -14,36 +14,33 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ValidateMatchmakingRuleSetInput,
-  ValidateMatchmakingRuleSetInputFilterSensitiveLog,
-  ValidateMatchmakingRuleSetOutput,
-  ValidateMatchmakingRuleSetOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ValidateMatchmakingRuleSetCommand,
-  serializeAws_json1_1ValidateMatchmakingRuleSetCommand,
-} from "../protocols/Aws_json1_1";
+import { ValidateMatchmakingRuleSetInput, ValidateMatchmakingRuleSetOutput } from "../models/models_1";
+import { de_ValidateMatchmakingRuleSetCommand, se_ValidateMatchmakingRuleSetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateMatchmakingRuleSetCommand}.
  */
 export interface ValidateMatchmakingRuleSetCommandInput extends ValidateMatchmakingRuleSetInput {}
 /**
+ * @public
+ *
  * The output of {@link ValidateMatchmakingRuleSetCommand}.
  */
 export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that the
  *             rule set is using syntactically correct JSON and that it conforms to allowed property
  *             expressions. To validate syntax, provide a rule set JSON string.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build a rule
  *                         set</a>
  *                </p>
@@ -55,10 +52,15 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  * import { GameLiftClient, ValidateMatchmakingRuleSetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ValidateMatchmakingRuleSetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ValidateMatchmakingRuleSetInput
+ *   RuleSetBody: "STRING_VALUE", // required
+ * };
  * const command = new ValidateMatchmakingRuleSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateMatchmakingRuleSetCommandInput - {@link ValidateMatchmakingRuleSetCommandInput}
+ * @returns {@link ValidateMatchmakingRuleSetCommandOutput}
  * @see {@link ValidateMatchmakingRuleSetCommandInput} for command's `input` shape.
  * @see {@link ValidateMatchmakingRuleSetCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -93,6 +95,9 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateMatchmakingRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateMatchmakingRuleSetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateMatchmakingRuleSetOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +137,21 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateMatchmakingRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ValidateMatchmakingRuleSetCommand(input, context);
+    return se_ValidateMatchmakingRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateMatchmakingRuleSetCommandOutput> {
-    return deserializeAws_json1_1ValidateMatchmakingRuleSetCommand(output, context);
+    return de_ValidateMatchmakingRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

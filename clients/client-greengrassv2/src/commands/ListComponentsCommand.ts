@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  ListComponentsRequest,
-  ListComponentsRequestFilterSensitiveLog,
-  ListComponentsResponse,
-  ListComponentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListComponentsCommand,
-  serializeAws_restJson1ListComponentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListComponentsRequest, ListComponentsResponse } from "../models/models_0";
+import { de_ListComponentsCommand, se_ListComponentsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListComponentsCommand}.
  */
 export interface ListComponentsCommandInput extends ListComponentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListComponentsCommand}.
  */
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of component summaries. This list includes components that you
  *       have permission to view.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * import { GreengrassV2Client, ListComponentsCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ListComponentsCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // ListComponentsRequest
+ *   scope: "PRIVATE" || "PUBLIC",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
+ * @returns {@link ListComponentsCommandOutput}
  * @see {@link ListComponentsCommandInput} for command's `input` shape.
  * @see {@link ListComponentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -87,6 +91,9 @@ export class ListComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComponentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListComponentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class ListComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListComponentsCommand(input, context);
+    return se_ListComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComponentsCommandOutput> {
-    return deserializeAws_restJson1ListComponentsCommand(output, context);
+    return de_ListComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  UpdateDashboardRequest,
-  UpdateDashboardRequestFilterSensitiveLog,
-  UpdateDashboardResponse,
-  UpdateDashboardResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDashboardCommand,
-  serializeAws_restJson1UpdateDashboardCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDashboardRequest, UpdateDashboardResponse } from "../models/models_0";
+import { de_UpdateDashboardCommand, se_UpdateDashboardCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDashboardCommand}.
  */
 export interface UpdateDashboardCommandInput extends UpdateDashboardRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDashboardCommand}.
  */
 export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an IoT SiteWise Monitor dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * import { IoTSiteWiseClient, UpdateDashboardCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateDashboardCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // UpdateDashboardRequest
+ *   dashboardId: "STRING_VALUE", // required
+ *   dashboardName: "STRING_VALUE", // required
+ *   dashboardDescription: "STRING_VALUE",
+ *   dashboardDefinition: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateDashboardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDashboardCommandInput - {@link UpdateDashboardCommandInput}
+ * @returns {@link UpdateDashboardCommandOutput}
  * @see {@link UpdateDashboardCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +91,9 @@ export class UpdateDashboardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class UpdateDashboardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDashboardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDashboardResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class UpdateDashboardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDashboardCommand(input, context);
+    return se_UpdateDashboardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDashboardCommandOutput> {
-    return deserializeAws_restJson1UpdateDashboardCommand(output, context);
+    return de_UpdateDashboardCommand(output, context);
   }
 
   // Start section: command_body_extra

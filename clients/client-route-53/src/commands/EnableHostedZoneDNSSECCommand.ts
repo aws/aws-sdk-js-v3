@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  EnableHostedZoneDNSSECRequest,
-  EnableHostedZoneDNSSECRequestFilterSensitiveLog,
-  EnableHostedZoneDNSSECResponse,
-  EnableHostedZoneDNSSECResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlEnableHostedZoneDNSSECCommand,
-  serializeAws_restXmlEnableHostedZoneDNSSECCommand,
-} from "../protocols/Aws_restXml";
+import { EnableHostedZoneDNSSECRequest, EnableHostedZoneDNSSECResponse } from "../models/models_0";
+import { de_EnableHostedZoneDNSSECCommand, se_EnableHostedZoneDNSSECCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link EnableHostedZoneDNSSECCommand}.
  */
 export interface EnableHostedZoneDNSSECCommandInput extends EnableHostedZoneDNSSECRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableHostedZoneDNSSECCommand}.
  */
 export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNSSECResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables DNSSEC signing in a specific hosted zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,10 +40,15 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  * import { Route53Client, EnableHostedZoneDNSSECCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, EnableHostedZoneDNSSECCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // EnableHostedZoneDNSSECRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ * };
  * const command = new EnableHostedZoneDNSSECCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableHostedZoneDNSSECCommandInput - {@link EnableHostedZoneDNSSECCommandInput}
+ * @returns {@link EnableHostedZoneDNSSECCommandOutput}
  * @see {@link EnableHostedZoneDNSSECCommandInput} for command's `input` shape.
  * @see {@link EnableHostedZoneDNSSECCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -101,6 +103,9 @@ export class EnableHostedZoneDNSSECCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableHostedZoneDNSSECCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +135,8 @@ export class EnableHostedZoneDNSSECCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableHostedZoneDNSSECRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableHostedZoneDNSSECResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +146,18 @@ export class EnableHostedZoneDNSSECCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableHostedZoneDNSSECCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlEnableHostedZoneDNSSECCommand(input, context);
+    return se_EnableHostedZoneDNSSECCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableHostedZoneDNSSECCommandOutput> {
-    return deserializeAws_restXmlEnableHostedZoneDNSSECCommand(output, context);
+    return de_EnableHostedZoneDNSSECCommand(output, context);
   }
 
   // Start section: command_body_extra

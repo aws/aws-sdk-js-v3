@@ -20,21 +20,23 @@ import {
 } from "../GlobalAcceleratorClient";
 import {
   DescribeCustomRoutingAcceleratorAttributesRequest,
-  DescribeCustomRoutingAcceleratorAttributesRequestFilterSensitiveLog,
   DescribeCustomRoutingAcceleratorAttributesResponse,
-  DescribeCustomRoutingAcceleratorAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommand,
-  serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommand,
+  de_DescribeCustomRoutingAcceleratorAttributesCommand,
+  se_DescribeCustomRoutingAcceleratorAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCustomRoutingAcceleratorAttributesCommand}.
  */
 export interface DescribeCustomRoutingAcceleratorAttributesCommandInput
   extends DescribeCustomRoutingAcceleratorAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCustomRoutingAcceleratorAttributesCommand}.
  */
 export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
@@ -42,6 +44,7 @@ export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe the attributes of a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +52,15 @@ export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
  * import { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // DescribeCustomRoutingAcceleratorAttributesRequest
+ *   AcceleratorArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCustomRoutingAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCustomRoutingAcceleratorAttributesCommandInput - {@link DescribeCustomRoutingAcceleratorAttributesCommandInput}
+ * @returns {@link DescribeCustomRoutingAcceleratorAttributesCommandOutput}
  * @see {@link DescribeCustomRoutingAcceleratorAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomRoutingAcceleratorAttributesCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -85,6 +93,9 @@ export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCustomRoutingAcceleratorAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +130,8 @@ export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCustomRoutingAcceleratorAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCustomRoutingAcceleratorAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +141,24 @@ export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeCustomRoutingAcceleratorAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommand(input, context);
+    return se_DescribeCustomRoutingAcceleratorAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCustomRoutingAcceleratorAttributesCommandOutput> {
-    return deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommand(output, context);
+    return de_DescribeCustomRoutingAcceleratorAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

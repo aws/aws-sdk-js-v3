@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  GetLicenseConfigurationRequest,
-  GetLicenseConfigurationRequestFilterSensitiveLog,
-  GetLicenseConfigurationResponse,
-  GetLicenseConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLicenseConfigurationCommand,
-  serializeAws_json1_1GetLicenseConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetLicenseConfigurationRequest, GetLicenseConfigurationResponse } from "../models/models_0";
+import { de_GetLicenseConfigurationCommand, se_GetLicenseConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLicenseConfigurationCommand}.
  */
 export interface GetLicenseConfigurationCommandInput extends GetLicenseConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLicenseConfigurationCommand}.
  */
 export interface GetLicenseConfigurationCommandOutput extends GetLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets detailed information about the specified license configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetLicenseConfigurationCommandOutput extends GetLicenseConfigur
  * import { LicenseManagerClient, GetLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, GetLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // GetLicenseConfigurationRequest
+ *   LicenseConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new GetLicenseConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLicenseConfigurationCommandInput - {@link GetLicenseConfigurationCommandInput}
+ * @returns {@link GetLicenseConfigurationCommandOutput}
  * @see {@link GetLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -85,6 +87,9 @@ export class GetLicenseConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class GetLicenseConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLicenseConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLicenseConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class GetLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLicenseConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLicenseConfigurationCommand(input, context);
+    return se_GetLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetLicenseConfigurationCommand(output, context);
+    return de_GetLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

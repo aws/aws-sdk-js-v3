@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCollectionsRequest,
-  ListCollectionsRequestFilterSensitiveLog,
-  ListCollectionsResponse,
-  ListCollectionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCollectionsCommand,
-  serializeAws_json1_1ListCollectionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCollectionsRequest, ListCollectionsResponse } from "../models/models_0";
+import { de_ListCollectionsCommand, se_ListCollectionsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCollectionsCommand}.
  */
 export interface ListCollectionsCommandInput extends ListCollectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCollectionsCommand}.
  */
 export interface ListCollectionsCommandOutput extends ListCollectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns list of collection IDs in your account. If the result is truncated, the
  *       response also provides a <code>NextToken</code> that you can use in the subsequent request to
  *       fetch the next set of collection IDs.</p>
@@ -48,10 +45,16 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * import { RekognitionClient, ListCollectionsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListCollectionsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // ListCollectionsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCollectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCollectionsCommandInput - {@link ListCollectionsCommandInput}
+ * @returns {@link ListCollectionsCommandOutput}
  * @see {@link ListCollectionsCommandInput} for command's `input` shape.
  * @see {@link ListCollectionsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -114,6 +117,9 @@ export class ListCollectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCollectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +148,8 @@ export class ListCollectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCollectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCollectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +159,18 @@ export class ListCollectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCollectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCollectionsCommand(input, context);
+    return se_ListCollectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCollectionsCommandOutput> {
-    return deserializeAws_json1_1ListCollectionsCommand(output, context);
+    return de_ListCollectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

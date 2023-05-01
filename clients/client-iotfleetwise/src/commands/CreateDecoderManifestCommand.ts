@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  CreateDecoderManifestRequest,
-  CreateDecoderManifestRequestFilterSensitiveLog,
-  CreateDecoderManifestResponse,
-  CreateDecoderManifestResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateDecoderManifestCommand,
-  serializeAws_json1_0CreateDecoderManifestCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateDecoderManifestRequest, CreateDecoderManifestResponse } from "../models/models_0";
+import { de_CreateDecoderManifestCommand, se_CreateDecoderManifestCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDecoderManifestCommand}.
  */
 export interface CreateDecoderManifestCommandInput extends CreateDecoderManifestRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDecoderManifestCommand}.
  */
 export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the decoder manifest associated with a model manifest. To create a decoder
  *             manifest, the following must be true:</p>
  *         <ul>
@@ -57,10 +54,71 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * import { IoTFleetWiseClient, CreateDecoderManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateDecoderManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // CreateDecoderManifestRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   modelManifestArn: "STRING_VALUE", // required
+ *   signalDecoders: [ // SignalDecoders
+ *     { // SignalDecoder
+ *       fullyQualifiedName: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       interfaceId: "STRING_VALUE", // required
+ *       canSignal: { // CanSignal
+ *         messageId: Number("int"), // required
+ *         isBigEndian: true || false, // required
+ *         isSigned: true || false, // required
+ *         startBit: Number("int"), // required
+ *         offset: Number("double"), // required
+ *         factor: Number("double"), // required
+ *         length: Number("int"), // required
+ *         name: "STRING_VALUE",
+ *       },
+ *       obdSignal: { // ObdSignal
+ *         pidResponseLength: Number("int"), // required
+ *         serviceMode: Number("int"), // required
+ *         pid: Number("int"), // required
+ *         scaling: Number("double"), // required
+ *         offset: Number("double"), // required
+ *         startByte: Number("int"), // required
+ *         byteLength: Number("int"), // required
+ *         bitRightShift: Number("int"),
+ *         bitMaskLength: Number("int"),
+ *       },
+ *     },
+ *   ],
+ *   networkInterfaces: [ // NetworkInterfaces
+ *     { // NetworkInterface
+ *       interfaceId: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       canInterface: { // CanInterface
+ *         name: "STRING_VALUE", // required
+ *         protocolName: "STRING_VALUE",
+ *         protocolVersion: "STRING_VALUE",
+ *       },
+ *       obdInterface: { // ObdInterface
+ *         name: "STRING_VALUE", // required
+ *         requestMessageId: Number("int"), // required
+ *         obdStandard: "STRING_VALUE",
+ *         pidRequestIntervalSeconds: Number("int"),
+ *         dtcRequestIntervalSeconds: Number("int"),
+ *         useExtendedIds: true || false,
+ *         hasTransmissionEcu: true || false,
+ *       },
+ *     },
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDecoderManifestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDecoderManifestCommandInput - {@link CreateDecoderManifestCommandInput}
+ * @returns {@link CreateDecoderManifestCommandOutput}
  * @see {@link CreateDecoderManifestCommandInput} for command's `input` shape.
  * @see {@link CreateDecoderManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -109,6 +167,9 @@ export class CreateDecoderManifestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDecoderManifestCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +198,8 @@ export class CreateDecoderManifestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDecoderManifestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDecoderManifestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +209,18 @@ export class CreateDecoderManifestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDecoderManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateDecoderManifestCommand(input, context);
+    return se_CreateDecoderManifestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDecoderManifestCommandOutput> {
-    return deserializeAws_json1_0CreateDecoderManifestCommand(output, context);
+    return de_CreateDecoderManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import {
-  DisassociateMemberAccountRequest,
-  DisassociateMemberAccountRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateMemberAccountCommand,
-  serializeAws_json1_1DisassociateMemberAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateMemberAccountRequest } from "../models/models_0";
+import { de_DisassociateMemberAccountCommand, se_DisassociateMemberAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateMemberAccountCommand}.
  */
 export interface DisassociateMemberAccountCommandInput extends DisassociateMemberAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateMemberAccountCommand}.
  */
 export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Removes the specified member account from Amazon Macie
  *       Classic.</p>
  * @example
@@ -41,10 +40,15 @@ export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer
  * import { MacieClient, DisassociateMemberAccountCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, DisassociateMemberAccountCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
+ * const input = { // DisassociateMemberAccountRequest
+ *   memberAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateMemberAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMemberAccountCommandInput - {@link DisassociateMemberAccountCommandInput}
+ * @returns {@link DisassociateMemberAccountCommandOutput}
  * @see {@link DisassociateMemberAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateMemberAccountCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
@@ -75,6 +79,9 @@ export class DisassociateMemberAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMemberAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +110,8 @@ export class DisassociateMemberAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMemberAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +121,21 @@ export class DisassociateMemberAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateMemberAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateMemberAccountCommand(input, context);
+    return se_DisassociateMemberAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateMemberAccountCommandOutput> {
-    return deserializeAws_json1_1DisassociateMemberAccountCommand(output, context);
+    return de_DisassociateMemberAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

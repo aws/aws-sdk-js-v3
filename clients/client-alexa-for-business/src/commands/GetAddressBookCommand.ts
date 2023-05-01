@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetAddressBookRequest,
-  GetAddressBookRequestFilterSensitiveLog,
-  GetAddressBookResponse,
-  GetAddressBookResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAddressBookCommand,
-  serializeAws_json1_1GetAddressBookCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAddressBookRequest, GetAddressBookResponse } from "../models/models_0";
+import { de_GetAddressBookCommand, se_GetAddressBookCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAddressBookCommand}.
  */
 export interface GetAddressBookCommandInput extends GetAddressBookRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAddressBookCommand}.
  */
 export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets address the book details by the address book ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
  * import { AlexaForBusinessClient, GetAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // GetAddressBookRequest
+ *   AddressBookArn: "STRING_VALUE", // required
+ * };
  * const command = new GetAddressBookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAddressBookCommandInput - {@link GetAddressBookCommandInput}
+ * @returns {@link GetAddressBookCommandOutput}
  * @see {@link GetAddressBookCommandInput} for command's `input` shape.
  * @see {@link GetAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +74,9 @@ export class GetAddressBookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAddressBookCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class GetAddressBookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAddressBookRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAddressBookResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +116,18 @@ export class GetAddressBookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAddressBookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAddressBookCommand(input, context);
+    return se_GetAddressBookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAddressBookCommandOutput> {
-    return deserializeAws_json1_1GetAddressBookCommand(output, context);
+    return de_GetAddressBookCommand(output, context);
   }
 
   // Start section: command_body_extra

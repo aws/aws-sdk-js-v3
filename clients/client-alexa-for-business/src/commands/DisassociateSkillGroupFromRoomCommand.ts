@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { DisassociateSkillGroupFromRoomRequest, DisassociateSkillGroupFromRoomResponse } from "../models/models_0";
 import {
-  DisassociateSkillGroupFromRoomRequest,
-  DisassociateSkillGroupFromRoomRequestFilterSensitiveLog,
-  DisassociateSkillGroupFromRoomResponse,
-  DisassociateSkillGroupFromRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateSkillGroupFromRoomCommand,
-  serializeAws_json1_1DisassociateSkillGroupFromRoomCommand,
+  de_DisassociateSkillGroupFromRoomCommand,
+  se_DisassociateSkillGroupFromRoomCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateSkillGroupFromRoomCommand}.
  */
 export interface DisassociateSkillGroupFromRoomCommandInput extends DisassociateSkillGroupFromRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateSkillGroupFromRoomCommand}.
  */
 export interface DisassociateSkillGroupFromRoomCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a skill group from a specified room. This disables all skills in the
  *          skill group on all devices in the room.</p>
  * @example
@@ -45,10 +45,16 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
  * import { AlexaForBusinessClient, DisassociateSkillGroupFromRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DisassociateSkillGroupFromRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DisassociateSkillGroupFromRoomRequest
+ *   SkillGroupArn: "STRING_VALUE",
+ *   RoomArn: "STRING_VALUE",
+ * };
  * const command = new DisassociateSkillGroupFromRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSkillGroupFromRoomCommandInput - {@link DisassociateSkillGroupFromRoomCommandInput}
+ * @returns {@link DisassociateSkillGroupFromRoomCommandOutput}
  * @see {@link DisassociateSkillGroupFromRoomCommandInput} for command's `input` shape.
  * @see {@link DisassociateSkillGroupFromRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +81,9 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSkillGroupFromRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +112,8 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSkillGroupFromRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateSkillGroupFromRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +123,24 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateSkillGroupFromRoomCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateSkillGroupFromRoomCommand(input, context);
+    return se_DisassociateSkillGroupFromRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSkillGroupFromRoomCommandOutput> {
-    return deserializeAws_json1_1DisassociateSkillGroupFromRoomCommand(output, context);
+    return de_DisassociateSkillGroupFromRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

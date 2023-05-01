@@ -17,24 +17,25 @@ import {
   DescribeFraudsterRequest,
   DescribeFraudsterRequestFilterSensitiveLog,
   DescribeFraudsterResponse,
-  DescribeFraudsterResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeFraudsterCommand,
-  serializeAws_json1_0DescribeFraudsterCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeFraudsterCommand, se_DescribeFraudsterCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFraudsterCommand}.
  */
 export interface DescribeFraudsterCommandInput extends DescribeFraudsterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFraudsterCommand}.
  */
 export interface DescribeFraudsterCommandOutput extends DescribeFraudsterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified fraudster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  * import { VoiceIDClient, DescribeFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DescribeFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = { // DescribeFraudsterRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   FraudsterId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFraudsterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFraudsterCommandInput - {@link DescribeFraudsterCommandInput}
+ * @returns {@link DescribeFraudsterCommandOutput}
  * @see {@link DescribeFraudsterCommandInput} for command's `input` shape.
  * @see {@link DescribeFraudsterCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -90,6 +97,9 @@ export class DescribeFraudsterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFraudsterCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,7 +129,7 @@ export class DescribeFraudsterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DescribeFraudsterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFraudsterResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +139,18 @@ export class DescribeFraudsterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFraudsterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeFraudsterCommand(input, context);
+    return se_DescribeFraudsterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFraudsterCommandOutput> {
-    return deserializeAws_json1_0DescribeFraudsterCommand(output, context);
+    return de_DescribeFraudsterCommand(output, context);
   }
 
   // Start section: command_body_extra

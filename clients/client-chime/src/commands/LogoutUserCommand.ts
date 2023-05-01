@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  LogoutUserRequest,
-  LogoutUserRequestFilterSensitiveLog,
-  LogoutUserResponse,
-  LogoutUserResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1LogoutUserCommand,
-  serializeAws_restJson1LogoutUserCommand,
-} from "../protocols/Aws_restJson1";
+import { LogoutUserRequest, LogoutUserResponse } from "../models/models_1";
+import { de_LogoutUserCommand, se_LogoutUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link LogoutUserCommand}.
  */
 export interface LogoutUserCommandInput extends LogoutUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link LogoutUserCommand}.
  */
 export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Logs out the specified user from all of the devices they are currently logged into.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataB
  * import { ChimeClient, LogoutUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, LogoutUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // LogoutUserRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ * };
  * const command = new LogoutUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param LogoutUserCommandInput - {@link LogoutUserCommandInput}
+ * @returns {@link LogoutUserCommandOutput}
  * @see {@link LogoutUserCommandInput} for command's `input` shape.
  * @see {@link LogoutUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +93,9 @@ export class LogoutUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: LogoutUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class LogoutUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LogoutUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LogoutUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class LogoutUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: LogoutUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1LogoutUserCommand(input, context);
+    return se_LogoutUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LogoutUserCommandOutput> {
-    return deserializeAws_restJson1LogoutUserCommand(output, context);
+    return de_LogoutUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./AssociateWebACLCommand";
 export * from "./CheckCapacityCommand";
+export * from "./CreateAPIKeyCommand";
 export * from "./CreateIPSetCommand";
 export * from "./CreateRegexPatternSetCommand";
 export * from "./CreateRuleGroupCommand";
@@ -15,6 +16,7 @@ export * from "./DeleteWebACLCommand";
 export * from "./DescribeManagedRuleGroupCommand";
 export * from "./DisassociateWebACLCommand";
 export * from "./GenerateMobileSdkReleaseUrlCommand";
+export * from "./GetDecryptedAPIKeyCommand";
 export * from "./GetIPSetCommand";
 export * from "./GetLoggingConfigurationCommand";
 export * from "./GetManagedRuleSetCommand";
@@ -26,6 +28,7 @@ export * from "./GetRuleGroupCommand";
 export * from "./GetSampledRequestsCommand";
 export * from "./GetWebACLCommand";
 export * from "./GetWebACLForResourceCommand";
+export * from "./ListAPIKeysCommand";
 export * from "./ListAvailableManagedRuleGroupVersionsCommand";
 export * from "./ListAvailableManagedRuleGroupsCommand";
 export * from "./ListIPSetsCommand";

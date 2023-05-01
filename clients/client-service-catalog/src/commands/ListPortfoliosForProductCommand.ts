@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPortfoliosForProductInput,
-  ListPortfoliosForProductInputFilterSensitiveLog,
-  ListPortfoliosForProductOutput,
-  ListPortfoliosForProductOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPortfoliosForProductCommand,
-  serializeAws_json1_1ListPortfoliosForProductCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPortfoliosForProductInput, ListPortfoliosForProductOutput } from "../models/models_0";
+import { de_ListPortfoliosForProductCommand, se_ListPortfoliosForProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPortfoliosForProductCommand}.
  */
 export interface ListPortfoliosForProductCommandInput extends ListPortfoliosForProductInput {}
 /**
+ * @public
+ *
  * The output of {@link ListPortfoliosForProductCommand}.
  */
 export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosForProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all portfolios that the specified product is associated with.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
  * import { ServiceCatalogClient, ListPortfoliosForProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListPortfoliosForProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListPortfoliosForProductInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE", // required
+ *   PageToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListPortfoliosForProductCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPortfoliosForProductCommandInput - {@link ListPortfoliosForProductCommandInput}
+ * @returns {@link ListPortfoliosForProductCommandOutput}
  * @see {@link ListPortfoliosForProductCommandInput} for command's `input` shape.
  * @see {@link ListPortfoliosForProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +80,9 @@ export class ListPortfoliosForProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPortfoliosForProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +111,8 @@ export class ListPortfoliosForProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPortfoliosForProductInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPortfoliosForProductOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +122,18 @@ export class ListPortfoliosForProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPortfoliosForProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPortfoliosForProductCommand(input, context);
+    return se_ListPortfoliosForProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPortfoliosForProductCommandOutput> {
-    return deserializeAws_json1_1ListPortfoliosForProductCommand(output, context);
+    return de_ListPortfoliosForProductCommand(output, context);
   }
 
   // Start section: command_body_extra

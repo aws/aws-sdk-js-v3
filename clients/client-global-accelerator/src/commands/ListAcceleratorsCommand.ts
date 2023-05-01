@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  ListAcceleratorsRequest,
-  ListAcceleratorsRequestFilterSensitiveLog,
-  ListAcceleratorsResponse,
-  ListAcceleratorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAcceleratorsCommand,
-  serializeAws_json1_1ListAcceleratorsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAcceleratorsRequest, ListAcceleratorsResponse } from "../models/models_0";
+import { de_ListAcceleratorsCommand, se_ListAcceleratorsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAcceleratorsCommand}.
  */
 export interface ListAcceleratorsCommandInput extends ListAcceleratorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAcceleratorsCommand}.
  */
 export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the accelerators for an Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,16 @@ export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse,
  * import { GlobalAcceleratorClient, ListAcceleratorsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListAcceleratorsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // ListAcceleratorsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAcceleratorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAcceleratorsCommandInput - {@link ListAcceleratorsCommandInput}
+ * @returns {@link ListAcceleratorsCommandOutput}
  * @see {@link ListAcceleratorsCommandInput} for command's `input` shape.
  * @see {@link ListAcceleratorsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListAcceleratorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAcceleratorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class ListAcceleratorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAcceleratorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAcceleratorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class ListAcceleratorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAcceleratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAcceleratorsCommand(input, context);
+    return se_ListAcceleratorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAcceleratorsCommandOutput> {
-    return deserializeAws_json1_1ListAcceleratorsCommand(output, context);
+    return de_ListAcceleratorsCommand(output, context);
   }
 
   // Start section: command_body_extra

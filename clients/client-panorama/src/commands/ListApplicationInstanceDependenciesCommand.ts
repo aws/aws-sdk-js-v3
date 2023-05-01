@@ -15,21 +15,23 @@ import {
 
 import {
   ListApplicationInstanceDependenciesRequest,
-  ListApplicationInstanceDependenciesRequestFilterSensitiveLog,
   ListApplicationInstanceDependenciesResponse,
-  ListApplicationInstanceDependenciesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
-  deserializeAws_restJson1ListApplicationInstanceDependenciesCommand,
-  serializeAws_restJson1ListApplicationInstanceDependenciesCommand,
+  de_ListApplicationInstanceDependenciesCommand,
+  se_ListApplicationInstanceDependenciesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListApplicationInstanceDependenciesCommand}.
  */
 export interface ListApplicationInstanceDependenciesCommandInput extends ListApplicationInstanceDependenciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListApplicationInstanceDependenciesCommand}.
  */
 export interface ListApplicationInstanceDependenciesCommandOutput
@@ -37,6 +39,7 @@ export interface ListApplicationInstanceDependenciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of application instance dependencies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,17 @@ export interface ListApplicationInstanceDependenciesCommandOutput
  * import { PanoramaClient, ListApplicationInstanceDependenciesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListApplicationInstanceDependenciesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // ListApplicationInstanceDependenciesRequest
+ *   ApplicationInstanceId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListApplicationInstanceDependenciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListApplicationInstanceDependenciesCommandInput - {@link ListApplicationInstanceDependenciesCommandInput}
+ * @returns {@link ListApplicationInstanceDependenciesCommandOutput}
  * @see {@link ListApplicationInstanceDependenciesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationInstanceDependenciesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -77,6 +87,9 @@ export class ListApplicationInstanceDependenciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationInstanceDependenciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +118,8 @@ export class ListApplicationInstanceDependenciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationInstanceDependenciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationInstanceDependenciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +129,24 @@ export class ListApplicationInstanceDependenciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListApplicationInstanceDependenciesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApplicationInstanceDependenciesCommand(input, context);
+    return se_ListApplicationInstanceDependenciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApplicationInstanceDependenciesCommandOutput> {
-    return deserializeAws_restJson1ListApplicationInstanceDependenciesCommand(output, context);
+    return de_ListApplicationInstanceDependenciesCommand(output, context);
   }
 
   // Start section: command_body_extra

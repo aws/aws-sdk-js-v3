@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { MergePullRequestByFastForwardInput, MergePullRequestByFastForwardOutput } from "../models/models_1";
 import {
-  MergePullRequestByFastForwardInput,
-  MergePullRequestByFastForwardInputFilterSensitiveLog,
-  MergePullRequestByFastForwardOutput,
-  MergePullRequestByFastForwardOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1MergePullRequestByFastForwardCommand,
-  serializeAws_json1_1MergePullRequestByFastForwardCommand,
+  de_MergePullRequestByFastForwardCommand,
+  se_MergePullRequestByFastForwardCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergePullRequestByFastForwardCommand}.
  */
 export interface MergePullRequestByFastForwardCommandInput extends MergePullRequestByFastForwardInput {}
 /**
+ * @public
+ *
  * The output of {@link MergePullRequestByFastForwardCommand}.
  */
 export interface MergePullRequestByFastForwardCommandOutput
@@ -37,6 +36,7 @@ export interface MergePullRequestByFastForwardCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to merge the source commit of a pull request into the specified destination
  *             branch for that pull request at the specified commit using the fast-forward merge strategy. If the merge is successful, it closes the pull request.</p>
  * @example
@@ -45,10 +45,17 @@ export interface MergePullRequestByFastForwardCommandOutput
  * import { CodeCommitClient, MergePullRequestByFastForwardCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergePullRequestByFastForwardCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // MergePullRequestByFastForwardInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   repositoryName: "STRING_VALUE", // required
+ *   sourceCommitId: "STRING_VALUE",
+ * };
  * const command = new MergePullRequestByFastForwardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MergePullRequestByFastForwardCommandInput - {@link MergePullRequestByFastForwardCommandInput}
+ * @returns {@link MergePullRequestByFastForwardCommandOutput}
  * @see {@link MergePullRequestByFastForwardCommandInput} for command's `input` shape.
  * @see {@link MergePullRequestByFastForwardCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -136,6 +143,9 @@ export class MergePullRequestByFastForwardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergePullRequestByFastForwardCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,8 +174,8 @@ export class MergePullRequestByFastForwardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergePullRequestByFastForwardInputFilterSensitiveLog,
-      outputFilterSensitiveLog: MergePullRequestByFastForwardOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -175,15 +185,21 @@ export class MergePullRequestByFastForwardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergePullRequestByFastForwardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergePullRequestByFastForwardCommand(input, context);
+    return se_MergePullRequestByFastForwardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MergePullRequestByFastForwardCommandOutput> {
-    return deserializeAws_json1_1MergePullRequestByFastForwardCommand(output, context);
+    return de_MergePullRequestByFastForwardCommand(output, context);
   }
 
   // Start section: command_body_extra

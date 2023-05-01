@@ -19,27 +19,30 @@ import {
   UpdateServiceInstanceOutput,
   UpdateServiceInstanceOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateServiceInstanceCommand,
-  serializeAws_json1_0UpdateServiceInstanceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateServiceInstanceCommand, se_UpdateServiceInstanceCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceInstanceCommand}.
  */
 export interface UpdateServiceInstanceCommandInput extends UpdateServiceInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceInstanceCommand}.
  */
 export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a service instance.</p>
- *          <p>There are a few modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p>
+ *          <p>There are a few modes for updating a service instance. The <code>deploymentType</code>
+ *       field defines the mode.</p>
  *          <note>
- *             <p>You can't update a service instance while its deployment status, or the deployment status of a component attached to it, is
- *         <code>IN_PROGRESS</code>.</p>
+ *             <p>You can't update a service instance while its deployment status, or the deployment
+ *         status of a component attached to it, is <code>IN_PROGRESS</code>.</p>
  *             <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
  *   <i>Proton User Guide</i>.</p>
@@ -50,10 +53,21 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
  * import { ProtonClient, UpdateServiceInstanceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceInstanceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // UpdateServiceInstanceInput
+ *   name: "STRING_VALUE", // required
+ *   serviceName: "STRING_VALUE", // required
+ *   deploymentType: "STRING_VALUE", // required
+ *   spec: "STRING_VALUE",
+ *   templateMajorVersion: "STRING_VALUE",
+ *   templateMinorVersion: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateServiceInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceInstanceCommandInput - {@link UpdateServiceInstanceCommandInput}
+ * @returns {@link UpdateServiceInstanceCommandOutput}
  * @see {@link UpdateServiceInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceInstanceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -95,6 +109,9 @@ export class UpdateServiceInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,12 +151,18 @@ export class UpdateServiceInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateServiceInstanceCommand(input, context);
+    return se_UpdateServiceInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceInstanceCommandOutput> {
-    return deserializeAws_json1_0UpdateServiceInstanceCommand(output, context);
+    return de_UpdateServiceInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { CreateRelationalDatabaseSnapshotRequest, CreateRelationalDatabaseSnapshotResult } from "../models/models_0";
 import {
-  CreateRelationalDatabaseSnapshotRequest,
-  CreateRelationalDatabaseSnapshotRequestFilterSensitiveLog,
-  CreateRelationalDatabaseSnapshotResult,
-  CreateRelationalDatabaseSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommand,
-  serializeAws_json1_1CreateRelationalDatabaseSnapshotCommand,
+  de_CreateRelationalDatabaseSnapshotCommand,
+  se_CreateRelationalDatabaseSnapshotCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRelationalDatabaseSnapshotCommand}.
  */
 export interface CreateRelationalDatabaseSnapshotCommandInput extends CreateRelationalDatabaseSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRelationalDatabaseSnapshotCommand}.
  */
 export interface CreateRelationalDatabaseSnapshotCommandOutput
@@ -37,6 +36,7 @@ export interface CreateRelationalDatabaseSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups,
  *       to make copies of a database, and to save data before deleting a database.</p>
  *          <p>The <code>create relational database snapshot</code> operation supports tag-based access
@@ -47,10 +47,22 @@ export interface CreateRelationalDatabaseSnapshotCommandOutput
  * import { LightsailClient, CreateRelationalDatabaseSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateRelationalDatabaseSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateRelationalDatabaseSnapshotRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   relationalDatabaseSnapshotName: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateRelationalDatabaseSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRelationalDatabaseSnapshotCommandInput - {@link CreateRelationalDatabaseSnapshotCommandInput}
+ * @returns {@link CreateRelationalDatabaseSnapshotCommandOutput}
  * @see {@link CreateRelationalDatabaseSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateRelationalDatabaseSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +116,9 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRelationalDatabaseSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +147,8 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRelationalDatabaseSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRelationalDatabaseSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,18 +158,24 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateRelationalDatabaseSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRelationalDatabaseSnapshotCommand(input, context);
+    return se_CreateRelationalDatabaseSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRelationalDatabaseSnapshotCommandOutput> {
-    return deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommand(output, context);
+    return de_CreateRelationalDatabaseSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

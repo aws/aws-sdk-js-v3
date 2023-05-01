@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkAclRequest, DeleteNetworkAclRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteNetworkAclCommand,
-  serializeAws_ec2DeleteNetworkAclCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteNetworkAclRequest } from "../models/models_2";
+import { de_DeleteNetworkAclCommand, se_DeleteNetworkAclCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkAclCommand}.
  */
 export interface DeleteNetworkAclCommandInput extends DeleteNetworkAclRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkAclCommand}.
  */
 export interface DeleteNetworkAclCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteNetworkAclCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteNetworkAclCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkAclCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteNetworkAclRequest
+ *   DryRun: true || false,
+ *   NetworkAclId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNetworkAclCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkAclCommandInput - {@link DeleteNetworkAclCommandInput}
+ * @returns {@link DeleteNetworkAclCommandOutput}
  * @see {@link DeleteNetworkAclCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkAclCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +83,9 @@ export class DeleteNetworkAclCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkAclCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +114,8 @@ export class DeleteNetworkAclCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkAclRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +125,18 @@ export class DeleteNetworkAclCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNetworkAclCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkAclCommand(input, context);
+    return se_DeleteNetworkAclCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkAclCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkAclCommand(output, context);
+    return de_DeleteNetworkAclCommand(output, context);
   }
 
   // Start section: command_body_extra

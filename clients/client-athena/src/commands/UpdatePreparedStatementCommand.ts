@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  UpdatePreparedStatementInput,
-  UpdatePreparedStatementInputFilterSensitiveLog,
-  UpdatePreparedStatementOutput,
-  UpdatePreparedStatementOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePreparedStatementCommand,
-  serializeAws_json1_1UpdatePreparedStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdatePreparedStatementInput, UpdatePreparedStatementOutput } from "../models/models_0";
+import { de_UpdatePreparedStatementCommand, se_UpdatePreparedStatementCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePreparedStatementCommand}.
  */
 export interface UpdatePreparedStatementCommandInput extends UpdatePreparedStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePreparedStatementCommand}.
  */
 export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a prepared statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStat
  * import { AthenaClient, UpdatePreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdatePreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // UpdatePreparedStatementInput
+ *   StatementName: "STRING_VALUE", // required
+ *   WorkGroup: "STRING_VALUE", // required
+ *   QueryStatement: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdatePreparedStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePreparedStatementCommandInput - {@link UpdatePreparedStatementCommandInput}
+ * @returns {@link UpdatePreparedStatementCommandOutput}
  * @see {@link UpdatePreparedStatementCommandInput} for command's `input` shape.
  * @see {@link UpdatePreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +85,9 @@ export class UpdatePreparedStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePreparedStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class UpdatePreparedStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePreparedStatementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePreparedStatementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +127,18 @@ export class UpdatePreparedStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePreparedStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePreparedStatementCommand(input, context);
+    return se_UpdatePreparedStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePreparedStatementCommandOutput> {
-    return deserializeAws_json1_1UpdatePreparedStatementCommand(output, context);
+    return de_UpdatePreparedStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

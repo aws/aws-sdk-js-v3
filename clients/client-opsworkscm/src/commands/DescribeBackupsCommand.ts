@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeBackupsRequest,
-  DescribeBackupsRequestFilterSensitiveLog,
-  DescribeBackupsResponse,
-  DescribeBackupsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1DescribeBackupsCommand,
-  serializeAws_json1_1DescribeBackupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeBackupsCommand, se_DescribeBackupsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBackupsCommand}.
  */
 export interface DescribeBackupsCommandInput extends DescribeBackupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBackupsCommand}.
  */
 export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Describes backups. The results are ordered by time, with newest backups first.
  *       If you do not specify a BackupId or ServerName, the command returns all backups.
@@ -52,10 +49,18 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * import { OpsWorksCMClient, DescribeBackupsCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DescribeBackupsCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // DescribeBackupsRequest
+ *   BackupId: "STRING_VALUE",
+ *   ServerName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeBackupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBackupsCommandInput - {@link DescribeBackupsCommandInput}
+ * @returns {@link DescribeBackupsCommandOutput}
  * @see {@link DescribeBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -91,6 +96,9 @@ export class DescribeBackupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBackupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class DescribeBackupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBackupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBackupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +138,18 @@ export class DescribeBackupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBackupsCommand(input, context);
+    return se_DescribeBackupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupsCommandOutput> {
-    return deserializeAws_json1_1DescribeBackupsCommand(output, context);
+    return de_DescribeBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

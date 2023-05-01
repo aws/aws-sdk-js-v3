@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  CreateEvaluationInput,
-  CreateEvaluationInputFilterSensitiveLog,
-  CreateEvaluationOutput,
-  CreateEvaluationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEvaluationCommand,
-  serializeAws_json1_1CreateEvaluationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateEvaluationInput, CreateEvaluationOutput } from "../models/models_0";
+import { de_CreateEvaluationCommand, se_CreateEvaluationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEvaluationCommand}.
  */
 export interface CreateEvaluationCommandInput extends CreateEvaluationInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateEvaluationCommand}.
  */
 export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new <code>Evaluation</code> of an <code>MLModel</code>. An <code>MLModel</code> is evaluated on a set of observations associated to a <code>DataSource</code>. Like a <code>DataSource</code>
  *           for an <code>MLModel</code>, the <code>DataSource</code> for an <code>Evaluation</code> contains values for the <code>Target Variable</code>. The <code>Evaluation</code> compares the predicted result for each observation to the actual outcome and provides a
  *             summary so that you know how effective the <code>MLModel</code> functions on the test
@@ -53,10 +50,18 @@ export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, _
  * import { MachineLearningClient, CreateEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // CreateEvaluationInput
+ *   EvaluationId: "STRING_VALUE", // required
+ *   EvaluationName: "STRING_VALUE",
+ *   MLModelId: "STRING_VALUE", // required
+ *   EvaluationDataSourceId: "STRING_VALUE", // required
+ * };
  * const command = new CreateEvaluationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEvaluationCommandInput - {@link CreateEvaluationCommandInput}
+ * @returns {@link CreateEvaluationCommandOutput}
  * @see {@link CreateEvaluationCommandInput} for command's `input` shape.
  * @see {@link CreateEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -89,6 +94,9 @@ export class CreateEvaluationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class CreateEvaluationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEvaluationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEvaluationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class CreateEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEvaluationCommand(input, context);
+    return se_CreateEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEvaluationCommandOutput> {
-    return deserializeAws_json1_1CreateEvaluationCommand(output, context);
+    return de_CreateEvaluationCommand(output, context);
   }
 
   // Start section: command_body_extra

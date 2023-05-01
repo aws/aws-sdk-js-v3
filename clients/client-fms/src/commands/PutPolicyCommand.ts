@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  PutPolicyRequest,
-  PutPolicyRequestFilterSensitiveLog,
-  PutPolicyResponse,
-  PutPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1PutPolicyCommand, serializeAws_json1_1PutPolicyCommand } from "../protocols/Aws_json1_1";
+import { PutPolicyRequest, PutPolicyResponse } from "../models/models_0";
+import { de_PutPolicyCommand, se_PutPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPolicyCommand}.
  */
 export interface PutPolicyCommandInput extends PutPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPolicyCommand}.
  */
 export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Firewall Manager policy.</p>
  *          <p>Firewall Manager provides the following types of policies: </p>
  *          <ul>
@@ -71,10 +71,65 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * import { FMSClient, PutPolicyCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, PutPolicyCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // PutPolicyRequest
+ *   Policy: { // Policy
+ *     PolicyId: "STRING_VALUE",
+ *     PolicyName: "STRING_VALUE", // required
+ *     PolicyUpdateToken: "STRING_VALUE",
+ *     SecurityServicePolicyData: { // SecurityServicePolicyData
+ *       Type: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL", // required
+ *       ManagedServiceData: "STRING_VALUE",
+ *       PolicyOption: { // PolicyOption
+ *         NetworkFirewallPolicy: { // NetworkFirewallPolicy
+ *           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
+ *         },
+ *         ThirdPartyFirewallPolicy: { // ThirdPartyFirewallPolicy
+ *           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
+ *         },
+ *       },
+ *     },
+ *     ResourceType: "STRING_VALUE", // required
+ *     ResourceTypeList: [ // ResourceTypeList
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceTags: [ // ResourceTags
+ *       { // ResourceTag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ExcludeResourceTags: true || false, // required
+ *     RemediationEnabled: true || false, // required
+ *     DeleteUnusedFMManagedResources: true || false,
+ *     IncludeMap: { // CustomerPolicyScopeMap
+ *       "<keys>": [ // CustomerPolicyScopeIdList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ExcludeMap: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ResourceSetIds: [ // ResourceSetIds
+ *       "STRING_VALUE",
+ *     ],
+ *     PolicyDescription: "STRING_VALUE",
+ *     PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ *   },
+ *   TagList: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPolicyCommandInput - {@link PutPolicyCommandInput}
+ * @returns {@link PutPolicyCommandOutput}
  * @see {@link PutPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPolicyCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -120,6 +175,9 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +204,8 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +215,18 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutPolicyCommand(input, context);
+    return se_PutPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPolicyCommandOutput> {
-    return deserializeAws_json1_1PutPolicyCommand(output, context);
+    return de_PutPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

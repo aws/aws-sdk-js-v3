@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteFleetMetricRequest, DeleteFleetMetricRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFleetMetricCommand,
-  serializeAws_restJson1DeleteFleetMetricCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFleetMetricRequest } from "../models/models_0";
+import { de_DeleteFleetMetricCommand, se_DeleteFleetMetricCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetMetricCommand}.
  */
 export interface DeleteFleetMetricCommandInput extends DeleteFleetMetricRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetMetricCommand}.
  */
 export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified fleet metric.
  *         Returns successfully with no error if the deletion is successful or you specify a fleet metric that doesn't exist.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteFleetMetric</a> action.</p>
@@ -39,10 +41,16 @@ export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
  * import { IoTClient, DeleteFleetMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteFleetMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteFleetMetricRequest
+ *   metricName: "STRING_VALUE", // required
+ *   expectedVersion: Number("long"),
+ * };
  * const command = new DeleteFleetMetricCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetMetricCommandInput - {@link DeleteFleetMetricCommandInput}
+ * @returns {@link DeleteFleetMetricCommandOutput}
  * @see {@link DeleteFleetMetricCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +94,9 @@ export class DeleteFleetMetricCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +125,8 @@ export class DeleteFleetMetricCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFleetMetricRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +136,18 @@ export class DeleteFleetMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFleetMetricCommand(input, context);
+    return se_DeleteFleetMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetMetricCommandOutput> {
-    return deserializeAws_restJson1DeleteFleetMetricCommand(output, context);
+    return de_DeleteFleetMetricCommand(output, context);
   }
 
   // Start section: command_body_extra

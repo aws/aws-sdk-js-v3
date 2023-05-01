@@ -6,7 +6,7 @@ import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput }
 import { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CleanRoomsClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMembersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMembers(
   config: CleanRoomsPaginationConfiguration,
   input: ListMembersCommandInput,

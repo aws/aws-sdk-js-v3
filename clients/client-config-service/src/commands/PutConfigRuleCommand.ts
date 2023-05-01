@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConfigRuleRequest, PutConfigRuleRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutConfigRuleCommand,
-  serializeAws_json1_1PutConfigRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { PutConfigRuleRequest } from "../models/models_1";
+import { de_PutConfigRuleCommand, se_PutConfigRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigRuleCommand}.
  */
 export interface PutConfigRuleCommandInput extends PutConfigRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigRuleCommand}.
  */
 export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates an Config rule to evaluate if your
  * 			Amazon Web Services resources comply with your desired configurations. For information on how many Config rules you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -79,10 +81,59 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  * import { ConfigServiceClient, PutConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // PutConfigRuleRequest
+ *   ConfigRule: { // ConfigRule
+ *     ConfigRuleName: "STRING_VALUE",
+ *     ConfigRuleArn: "STRING_VALUE",
+ *     ConfigRuleId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Scope: { // Scope
+ *       ComplianceResourceTypes: [ // ComplianceResourceTypes
+ *         "STRING_VALUE",
+ *       ],
+ *       TagKey: "STRING_VALUE",
+ *       TagValue: "STRING_VALUE",
+ *       ComplianceResourceId: "STRING_VALUE",
+ *     },
+ *     Source: { // Source
+ *       Owner: "CUSTOM_LAMBDA" || "AWS" || "CUSTOM_POLICY", // required
+ *       SourceIdentifier: "STRING_VALUE",
+ *       SourceDetails: [ // SourceDetails
+ *         { // SourceDetail
+ *           EventSource: "aws.config",
+ *           MessageType: "ConfigurationItemChangeNotification" || "ConfigurationSnapshotDeliveryCompleted" || "ScheduledNotification" || "OversizedConfigurationItemChangeNotification",
+ *           MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *         },
+ *       ],
+ *       CustomPolicyDetails: { // CustomPolicyDetails
+ *         PolicyRuntime: "STRING_VALUE", // required
+ *         PolicyText: "STRING_VALUE", // required
+ *         EnableDebugLogDelivery: true || false,
+ *       },
+ *     },
+ *     InputParameters: "STRING_VALUE",
+ *     MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *     ConfigRuleState: "ACTIVE" || "DELETING" || "DELETING_RESULTS" || "EVALUATING",
+ *     CreatedBy: "STRING_VALUE",
+ *     EvaluationModes: [ // EvaluationModes
+ *       { // EvaluationModeConfiguration
+ *         Mode: "DETECTIVE" || "PROACTIVE",
+ *       },
+ *     ],
+ *   },
+ *   Tags: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutConfigRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigRuleCommandInput - {@link PutConfigRuleCommandInput}
+ * @returns {@link PutConfigRuleCommandOutput}
  * @see {@link PutConfigRuleCommandInput} for command's `input` shape.
  * @see {@link PutConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -171,6 +222,9 @@ export class PutConfigRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -197,8 +251,8 @@ export class PutConfigRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -208,12 +262,18 @@ export class PutConfigRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConfigRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutConfigRuleCommand(input, context);
+    return se_PutConfigRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConfigRuleCommandOutput> {
-    return deserializeAws_json1_1PutConfigRuleCommand(output, context);
+    return de_PutConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

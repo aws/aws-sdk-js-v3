@@ -10,7 +10,7 @@ import { ForecastClient } from "../ForecastClient";
 import { ForecastPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ForecastClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPredictorBacktestExportJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListPredictorBacktestExportJobs(
   config: ForecastPaginationConfiguration,
   input: ListPredictorBacktestExportJobsCommandInput,

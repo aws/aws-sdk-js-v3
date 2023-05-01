@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse } from "../models/models_0";
 import {
-  SendCustomVerificationEmailRequest,
-  SendCustomVerificationEmailRequestFilterSensitiveLog,
-  SendCustomVerificationEmailResponse,
-  SendCustomVerificationEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SendCustomVerificationEmailCommand,
-  serializeAws_restJson1SendCustomVerificationEmailCommand,
+  de_SendCustomVerificationEmailCommand,
+  se_SendCustomVerificationEmailCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link SendCustomVerificationEmailCommand}.
  */
 export interface SendCustomVerificationEmailCommandInput extends SendCustomVerificationEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendCustomVerificationEmailCommand}.
  */
 export interface SendCustomVerificationEmailCommandOutput
@@ -37,6 +36,7 @@ export interface SendCustomVerificationEmailCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an email address to the list of identities for your Amazon SES account in the current
  *                 Amazon Web Services Region and attempts to verify it. As a result of executing this
  *             operation, a customized verification email is sent to the specified address.</p>
@@ -52,10 +52,17 @@ export interface SendCustomVerificationEmailCommandOutput
  * import { SESv2Client, SendCustomVerificationEmailCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, SendCustomVerificationEmailCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // SendCustomVerificationEmailRequest
+ *   EmailAddress: "STRING_VALUE", // required
+ *   TemplateName: "STRING_VALUE", // required
+ *   ConfigurationSetName: "STRING_VALUE",
+ * };
  * const command = new SendCustomVerificationEmailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendCustomVerificationEmailCommandInput - {@link SendCustomVerificationEmailCommandInput}
+ * @returns {@link SendCustomVerificationEmailCommandOutput}
  * @see {@link SendCustomVerificationEmailCommandInput} for command's `input` shape.
  * @see {@link SendCustomVerificationEmailCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -101,6 +108,9 @@ export class SendCustomVerificationEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendCustomVerificationEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +139,8 @@ export class SendCustomVerificationEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendCustomVerificationEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendCustomVerificationEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,15 +150,21 @@ export class SendCustomVerificationEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendCustomVerificationEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendCustomVerificationEmailCommand(input, context);
+    return se_SendCustomVerificationEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendCustomVerificationEmailCommandOutput> {
-    return deserializeAws_restJson1SendCustomVerificationEmailCommand(output, context);
+    return de_SendCustomVerificationEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

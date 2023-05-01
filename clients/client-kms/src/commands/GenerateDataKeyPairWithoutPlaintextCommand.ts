@@ -16,20 +16,22 @@ import {
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   GenerateDataKeyPairWithoutPlaintextRequest,
-  GenerateDataKeyPairWithoutPlaintextRequestFilterSensitiveLog,
   GenerateDataKeyPairWithoutPlaintextResponse,
-  GenerateDataKeyPairWithoutPlaintextResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand,
-  serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand,
+  de_GenerateDataKeyPairWithoutPlaintextCommand,
+  se_GenerateDataKeyPairWithoutPlaintextCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateDataKeyPairWithoutPlaintextCommand}.
  */
 export interface GenerateDataKeyPairWithoutPlaintextCommandInput extends GenerateDataKeyPairWithoutPlaintextRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateDataKeyPairWithoutPlaintextCommand}.
  */
 export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
@@ -37,6 +39,7 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
  *       a plaintext public key and a copy of the private key that is encrypted under the symmetric
  *       encryption KMS key you specify. Unlike <a>GenerateDataKeyPair</a>, this operation
@@ -106,10 +109,22 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  * import { KMSClient, GenerateDataKeyPairWithoutPlaintextCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateDataKeyPairWithoutPlaintextCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // GenerateDataKeyPairWithoutPlaintextRequest
+ *   EncryptionContext: { // EncryptionContextType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KeyId: "STRING_VALUE", // required
+ *   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2", // required
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GenerateDataKeyPairWithoutPlaintextCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateDataKeyPairWithoutPlaintextCommandInput - {@link GenerateDataKeyPairWithoutPlaintextCommandInput}
+ * @returns {@link GenerateDataKeyPairWithoutPlaintextCommandOutput}
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -218,6 +233,9 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateDataKeyPairWithoutPlaintextCommandInput) {
     // Start section: command_constructor
     super();
@@ -246,8 +264,8 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateDataKeyPairWithoutPlaintextRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateDataKeyPairWithoutPlaintextResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -257,18 +275,24 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateDataKeyPairWithoutPlaintextCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand(input, context);
+    return se_GenerateDataKeyPairWithoutPlaintextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput> {
-    return deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand(output, context);
+    return de_GenerateDataKeyPairWithoutPlaintextCommand(output, context);
   }
 
   // Start section: command_body_extra

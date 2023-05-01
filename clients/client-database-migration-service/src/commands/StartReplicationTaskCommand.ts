@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  StartReplicationTaskMessage,
-  StartReplicationTaskMessageFilterSensitiveLog,
-  StartReplicationTaskResponse,
-  StartReplicationTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartReplicationTaskCommand,
-  serializeAws_json1_1StartReplicationTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { StartReplicationTaskMessage, StartReplicationTaskResponse } from "../models/models_0";
+import { de_StartReplicationTaskCommand, se_StartReplicationTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartReplicationTaskCommand}.
  */
 export interface StartReplicationTaskCommandInput extends StartReplicationTaskMessage {}
 /**
+ * @public
+ *
  * The output of {@link StartReplicationTaskCommand}.
  */
 export interface StartReplicationTaskCommandOutput extends StartReplicationTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the replication task.</p>
  *          <p>For more information about DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks </a> in the
  *             <i>Database Migration Service User Guide.</i>
@@ -49,10 +46,19 @@ export interface StartReplicationTaskCommandOutput extends StartReplicationTaskR
  * import { DatabaseMigrationServiceClient, StartReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StartReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // StartReplicationTaskMessage
+ *   ReplicationTaskArn: "STRING_VALUE", // required
+ *   StartReplicationTaskType: "start-replication" || "resume-processing" || "reload-target", // required
+ *   CdcStartTime: new Date("TIMESTAMP"),
+ *   CdcStartPosition: "STRING_VALUE",
+ *   CdcStopPosition: "STRING_VALUE",
+ * };
  * const command = new StartReplicationTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartReplicationTaskCommandInput - {@link StartReplicationTaskCommandInput}
+ * @returns {@link StartReplicationTaskCommandOutput}
  * @see {@link StartReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link StartReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -115,6 +121,9 @@ export class StartReplicationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartReplicationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +152,8 @@ export class StartReplicationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReplicationTaskMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StartReplicationTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +163,18 @@ export class StartReplicationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartReplicationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartReplicationTaskCommand(input, context);
+    return se_StartReplicationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReplicationTaskCommandOutput> {
-    return deserializeAws_json1_1StartReplicationTaskCommand(output, context);
+    return de_StartReplicationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

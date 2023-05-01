@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  ActivitiesType,
-  ActivitiesTypeFilterSensitiveLog,
-  DescribeScalingActivitiesType,
-  DescribeScalingActivitiesTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeScalingActivitiesCommand,
-  serializeAws_queryDescribeScalingActivitiesCommand,
-} from "../protocols/Aws_query";
+import { ActivitiesType, DescribeScalingActivitiesType } from "../models/models_0";
+import { de_DescribeScalingActivitiesCommand, se_DescribeScalingActivitiesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalingActivitiesCommand}.
  */
 export interface DescribeScalingActivitiesCommandInput extends DescribeScalingActivitiesType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalingActivitiesCommand}.
  */
 export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the scaling activities in the account and Region.</p>
  *          <p>When scaling events occur, you see a record of the scaling activity in the scaling
  *             activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling
@@ -50,10 +47,21 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  * import { AutoScalingClient, DescribeScalingActivitiesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeScalingActivitiesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DescribeScalingActivitiesType
+ *   ActivityIds: [ // ActivityIds
+ *     "STRING_VALUE",
+ *   ],
+ *   AutoScalingGroupName: "STRING_VALUE",
+ *   IncludeDeletedGroups: true || false,
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeScalingActivitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingActivitiesCommandInput - {@link DescribeScalingActivitiesCommandInput}
+ * @returns {@link DescribeScalingActivitiesCommandOutput}
  * @see {@link DescribeScalingActivitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingActivitiesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -112,6 +120,9 @@ export class DescribeScalingActivitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingActivitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +151,8 @@ export class DescribeScalingActivitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScalingActivitiesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivitiesTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,15 +162,21 @@ export class DescribeScalingActivitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeScalingActivitiesCommand(input, context);
+    return se_DescribeScalingActivitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingActivitiesCommandOutput> {
-    return deserializeAws_queryDescribeScalingActivitiesCommand(output, context);
+    return de_DescribeScalingActivitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

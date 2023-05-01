@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListDeviceInstancesRequest,
-  ListDeviceInstancesRequestFilterSensitiveLog,
-  ListDeviceInstancesResult,
-  ListDeviceInstancesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeviceInstancesCommand,
-  serializeAws_json1_1ListDeviceInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDeviceInstancesRequest, ListDeviceInstancesResult } from "../models/models_0";
+import { de_ListDeviceInstancesCommand, se_ListDeviceInstancesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeviceInstancesCommand}.
  */
 export interface ListDeviceInstancesCommandInput extends ListDeviceInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeviceInstancesCommand}.
  */
 export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the private device instances associated with one or more AWS
  *             accounts.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  * import { DeviceFarmClient, ListDeviceInstancesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListDeviceInstancesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListDeviceInstancesRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeviceInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeviceInstancesCommandInput - {@link ListDeviceInstancesCommandInput}
+ * @returns {@link ListDeviceInstancesCommandOutput}
  * @see {@link ListDeviceInstancesCommandInput} for command's `input` shape.
  * @see {@link ListDeviceInstancesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListDeviceInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class ListDeviceInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeviceInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeviceInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class ListDeviceInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeviceInstancesCommand(input, context);
+    return se_ListDeviceInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceInstancesCommandOutput> {
-    return deserializeAws_json1_1ListDeviceInstancesCommand(output, context);
+    return de_ListDeviceInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

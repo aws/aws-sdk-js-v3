@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetModelRequest,
-  GetModelRequestFilterSensitiveLog,
-  GetModelResponse,
-  GetModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetModelCommand,
-  serializeAws_restJson1GetModelCommand,
-} from "../protocols/Aws_restJson1";
+import { GetModelRequest, GetModelResponse } from "../models/models_0";
+import { de_GetModelCommand, se_GetModelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetModelCommand}.
  */
 export interface GetModelCommandInput extends GetModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetModelCommand}.
  */
 export interface GetModelCommandOutput extends GetModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a Model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetModelCommandOutput extends GetModelResponse, __MetadataBeare
  * import { ApiGatewayV2Client, GetModelCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetModelCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetModelRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   ModelId: "STRING_VALUE", // required
+ * };
  * const command = new GetModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetModelCommandInput - {@link GetModelCommandInput}
+ * @returns {@link GetModelCommandOutput}
  * @see {@link GetModelCommandInput} for command's `input` shape.
  * @see {@link GetModelCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -75,6 +78,9 @@ export class GetModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +107,8 @@ export class GetModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +118,18 @@ export class GetModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetModelCommand(input, context);
+    return se_GetModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelCommandOutput> {
-    return deserializeAws_restJson1GetModelCommand(output, context);
+    return de_GetModelCommand(output, context);
   }
 
   // Start section: command_body_extra

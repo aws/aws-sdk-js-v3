@@ -16,21 +16,24 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   DescribeReplicationConfigurationTemplatesRequest,
-  DescribeReplicationConfigurationTemplatesRequestFilterSensitiveLog,
   DescribeReplicationConfigurationTemplatesResponse,
   DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeReplicationConfigurationTemplatesCommand,
-  serializeAws_restJson1DescribeReplicationConfigurationTemplatesCommand,
+  de_DescribeReplicationConfigurationTemplatesCommand,
+  se_DescribeReplicationConfigurationTemplatesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationConfigurationTemplatesCommand}.
  */
 export interface DescribeReplicationConfigurationTemplatesCommandInput
   extends DescribeReplicationConfigurationTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationConfigurationTemplatesCommand}.
  */
 export interface DescribeReplicationConfigurationTemplatesCommandOutput
@@ -38,6 +41,7 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +49,19 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * import { DrsClient, DescribeReplicationConfigurationTemplatesCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeReplicationConfigurationTemplatesCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // DescribeReplicationConfigurationTemplatesRequest
+ *   replicationConfigurationTemplateIDs: [ // ReplicationConfigurationTemplateIDs
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeReplicationConfigurationTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationConfigurationTemplatesCommandInput - {@link DescribeReplicationConfigurationTemplatesCommandInput}
+ * @returns {@link DescribeReplicationConfigurationTemplatesCommandOutput}
  * @see {@link DescribeReplicationConfigurationTemplatesCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationConfigurationTemplatesCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -87,6 +100,9 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationConfigurationTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,7 +137,7 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationConfigurationTemplatesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -132,18 +148,24 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationConfigurationTemplatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReplicationConfigurationTemplatesCommand(input, context);
+    return se_DescribeReplicationConfigurationTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationConfigurationTemplatesCommandOutput> {
-    return deserializeAws_restJson1DescribeReplicationConfigurationTemplatesCommand(output, context);
+    return de_DescribeReplicationConfigurationTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

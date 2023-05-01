@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  ListServiceProfilesRequest,
-  ListServiceProfilesRequestFilterSensitiveLog,
-  ListServiceProfilesResponse,
-  ListServiceProfilesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListServiceProfilesCommand,
-  serializeAws_restJson1ListServiceProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListServiceProfilesRequest, ListServiceProfilesResponse } from "../models/models_0";
+import { de_ListServiceProfilesCommand, se_ListServiceProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceProfilesCommand}.
  */
 export interface ListServiceProfilesCommandInput extends ListServiceProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceProfilesCommand}.
  */
 export interface ListServiceProfilesCommandOutput extends ListServiceProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the service profiles registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListServiceProfilesCommandOutput extends ListServiceProfilesRes
  * import { IoTWirelessClient, ListServiceProfilesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListServiceProfilesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListServiceProfilesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListServiceProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceProfilesCommandInput - {@link ListServiceProfilesCommandInput}
+ * @returns {@link ListServiceProfilesCommandOutput}
  * @see {@link ListServiceProfilesCommandInput} for command's `input` shape.
  * @see {@link ListServiceProfilesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListServiceProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListServiceProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServiceProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListServiceProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListServiceProfilesCommand(input, context);
+    return se_ListServiceProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceProfilesCommandOutput> {
-    return deserializeAws_restJson1ListServiceProfilesCommand(output, context);
+    return de_ListServiceProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

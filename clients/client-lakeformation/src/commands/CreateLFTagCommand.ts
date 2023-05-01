@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  CreateLFTagRequest,
-  CreateLFTagRequestFilterSensitiveLog,
-  CreateLFTagResponse,
-  CreateLFTagResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLFTagCommand,
-  serializeAws_restJson1CreateLFTagCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateLFTagRequest, CreateLFTagResponse } from "../models/models_0";
+import { de_CreateLFTagCommand, se_CreateLFTagCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLFTagCommand}.
  */
 export interface CreateLFTagCommandInput extends CreateLFTagRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLFTagCommand}.
  */
 export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an LF-tag with the specified name and values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __Metadat
  * import { LakeFormationClient, CreateLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, CreateLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // CreateLFTagRequest
+ *   CatalogId: "STRING_VALUE",
+ *   TagKey: "STRING_VALUE", // required
+ *   TagValues: [ // TagValueList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateLFTagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLFTagCommandInput - {@link CreateLFTagCommandInput}
+ * @returns {@link CreateLFTagCommandOutput}
  * @see {@link CreateLFTagCommandInput} for command's `input` shape.
  * @see {@link CreateLFTagCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -54,7 +60,7 @@ export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __Metadat
  *  <p>Access to a resource was denied.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -87,6 +93,9 @@ export class CreateLFTagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLFTagCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class CreateLFTagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLFTagRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLFTagResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class CreateLFTagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLFTagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLFTagCommand(input, context);
+    return se_CreateLFTagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLFTagCommandOutput> {
-    return deserializeAws_restJson1CreateLFTagCommand(output, context);
+    return de_CreateLFTagCommand(output, context);
   }
 
   // Start section: command_body_extra

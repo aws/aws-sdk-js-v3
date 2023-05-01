@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyIpamPoolRequest,
-  ModifyIpamPoolRequestFilterSensitiveLog,
-  ModifyIpamPoolResult,
-  ModifyIpamPoolResultFilterSensitiveLog,
-} from "../models/models_6";
-import { deserializeAws_ec2ModifyIpamPoolCommand, serializeAws_ec2ModifyIpamPoolCommand } from "../protocols/Aws_ec2";
+import { ModifyIpamPoolRequest, ModifyIpamPoolResult } from "../models/models_6";
+import { de_ModifyIpamPoolCommand, se_ModifyIpamPoolCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyIpamPoolCommand}.
  */
 export interface ModifyIpamPoolCommandInput extends ModifyIpamPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyIpamPoolCommand}.
  */
 export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify the configurations of an IPAM pool.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -41,10 +41,34 @@ export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __Met
  * import { EC2Client, ModifyIpamPoolCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyIpamPoolCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyIpamPoolRequest
+ *   DryRun: true || false,
+ *   IpamPoolId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AutoImport: true || false,
+ *   AllocationMinNetmaskLength: Number("int"),
+ *   AllocationMaxNetmaskLength: Number("int"),
+ *   AllocationDefaultNetmaskLength: Number("int"),
+ *   ClearAllocationDefaultNetmaskLength: true || false,
+ *   AddAllocationResourceTags: [ // RequestIpamResourceTagList
+ *     { // RequestIpamResourceTag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   RemoveAllocationResourceTags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyIpamPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyIpamPoolCommandInput - {@link ModifyIpamPoolCommandInput}
+ * @returns {@link ModifyIpamPoolCommandOutput}
  * @see {@link ModifyIpamPoolCommandInput} for command's `input` shape.
  * @see {@link ModifyIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +92,9 @@ export class ModifyIpamPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyIpamPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +123,8 @@ export class ModifyIpamPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyIpamPoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyIpamPoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +134,18 @@ export class ModifyIpamPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyIpamPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyIpamPoolCommand(input, context);
+    return se_ModifyIpamPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyIpamPoolCommandOutput> {
-    return deserializeAws_ec2ModifyIpamPoolCommand(output, context);
+    return de_ModifyIpamPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

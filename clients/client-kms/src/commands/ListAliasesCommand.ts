@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  ListAliasesRequest,
-  ListAliasesRequestFilterSensitiveLog,
-  ListAliasesResponse,
-  ListAliasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAliasesCommand,
-  serializeAws_json1_1ListAliasesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAliasesRequest, ListAliasesResponse } from "../models/models_0";
+import { de_ListAliasesCommand, se_ListAliasesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAliasesCommand}.
  */
 export interface ListAliasesCommandInput extends ListAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAliasesCommand}.
  */
 export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of aliases in the caller's Amazon Web Services account and region. For more information
  *       about aliases, see <a>CreateAlias</a>.</p>
  *          <p>By default, the <code>ListAliases</code> operation returns all aliases in the account and
@@ -82,10 +79,17 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * import { KMSClient, ListAliasesCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListAliasesCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // ListAliasesRequest
+ *   KeyId: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAliasesCommandInput - {@link ListAliasesCommandInput}
+ * @returns {@link ListAliasesCommandOutput}
  * @see {@link ListAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAliasesCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -185,6 +189,9 @@ export class ListAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -211,8 +218,8 @@ export class ListAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -222,12 +229,18 @@ export class ListAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAliasesCommand(input, context);
+    return se_ListAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAliasesCommandOutput> {
-    return deserializeAws_json1_1ListAliasesCommand(output, context);
+    return de_ListAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  GetAssessmentReportUrlRequest,
-  GetAssessmentReportUrlRequestFilterSensitiveLog,
-  GetAssessmentReportUrlResponse,
-  GetAssessmentReportUrlResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssessmentReportUrlCommand,
-  serializeAws_restJson1GetAssessmentReportUrlCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAssessmentReportUrlRequest, GetAssessmentReportUrlResponse } from "../models/models_0";
+import { de_GetAssessmentReportUrlCommand, se_GetAssessmentReportUrlCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssessmentReportUrlCommand}.
  */
 export interface GetAssessmentReportUrlCommandInput extends GetAssessmentReportUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssessmentReportUrlCommand}.
  */
 export interface GetAssessmentReportUrlCommandOutput extends GetAssessmentReportUrlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns the URL of an assessment report in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetAssessmentReportUrlCommandOutput extends GetAssessmentReport
  * import { AuditManagerClient, GetAssessmentReportUrlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetAssessmentReportUrlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // GetAssessmentReportUrlRequest
+ *   assessmentReportId: "STRING_VALUE", // required
+ *   assessmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetAssessmentReportUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssessmentReportUrlCommandInput - {@link GetAssessmentReportUrlCommandInput}
+ * @returns {@link GetAssessmentReportUrlCommandOutput}
  * @see {@link GetAssessmentReportUrlCommandInput} for command's `input` shape.
  * @see {@link GetAssessmentReportUrlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +86,9 @@ export class GetAssessmentReportUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssessmentReportUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class GetAssessmentReportUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssessmentReportUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssessmentReportUrlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class GetAssessmentReportUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssessmentReportUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssessmentReportUrlCommand(input, context);
+    return se_GetAssessmentReportUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssessmentReportUrlCommandOutput> {
-    return deserializeAws_restJson1GetAssessmentReportUrlCommand(output, context);
+    return de_GetAssessmentReportUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

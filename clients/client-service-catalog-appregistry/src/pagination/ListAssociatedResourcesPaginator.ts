@@ -10,7 +10,7 @@ import { ServiceCatalogAppRegistryClient } from "../ServiceCatalogAppRegistryCli
 import { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceCatalogAppRegistryClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAssociatedResourcesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAssociatedResources(
   config: ServiceCatalogAppRegistryPaginationConfiguration,
   input: ListAssociatedResourcesCommandInput,

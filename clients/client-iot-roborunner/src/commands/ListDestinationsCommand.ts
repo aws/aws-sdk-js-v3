@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  ListDestinationsRequest,
-  ListDestinationsRequestFilterSensitiveLog,
-  ListDestinationsResponse,
-  ListDestinationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDestinationsCommand,
-  serializeAws_restJson1ListDestinationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDestinationsRequest, ListDestinationsResponse } from "../models/models_0";
+import { de_ListDestinationsCommand, se_ListDestinationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDestinationsCommand}.
  */
 export interface ListDestinationsCommandInput extends ListDestinationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDestinationsCommand}.
  */
 export interface ListDestinationsCommandOutput extends ListDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Grants permission to list destinations
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  * import { IoTRoboRunnerClient, ListDestinationsCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, ListDestinationsCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = { // ListDestinationsRequest
+ *   site: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   state: "STRING_VALUE",
+ * };
  * const command = new ListDestinationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDestinationsCommandInput - {@link ListDestinationsCommandInput}
+ * @returns {@link ListDestinationsCommandOutput}
  * @see {@link ListDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListDestinationsCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
@@ -84,6 +89,9 @@ export class ListDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class ListDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDestinationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDestinationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class ListDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDestinationsCommand(input, context);
+    return se_ListDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDestinationsCommandOutput> {
-    return deserializeAws_restJson1ListDestinationsCommand(output, context);
+    return de_ListDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

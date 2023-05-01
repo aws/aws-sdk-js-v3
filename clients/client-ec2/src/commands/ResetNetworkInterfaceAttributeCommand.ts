@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ResetNetworkInterfaceAttributeRequest } from "../models/models_6";
 import {
-  ResetNetworkInterfaceAttributeRequest,
-  ResetNetworkInterfaceAttributeRequestFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ResetNetworkInterfaceAttributeCommand,
-  serializeAws_ec2ResetNetworkInterfaceAttributeCommand,
+  de_ResetNetworkInterfaceAttributeCommand,
+  se_ResetNetworkInterfaceAttributeCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ResetNetworkInterfaceAttributeCommand}.
  */
 export interface ResetNetworkInterfaceAttributeCommandInput extends ResetNetworkInterfaceAttributeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetNetworkInterfaceAttributeCommand}.
  */
 export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets a network interface attribute. You can specify only one attribute at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,17 @@ export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataB
  * import { EC2Client, ResetNetworkInterfaceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ResetNetworkInterfaceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ResetNetworkInterfaceAttributeRequest
+ *   DryRun: true || false,
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   SourceDestCheck: "STRING_VALUE",
+ * };
  * const command = new ResetNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetNetworkInterfaceAttributeCommandInput - {@link ResetNetworkInterfaceAttributeCommandInput}
+ * @returns {@link ResetNetworkInterfaceAttributeCommandOutput}
  * @see {@link ResetNetworkInterfaceAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -67,6 +76,9 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetNetworkInterfaceAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +107,8 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetNetworkInterfaceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +118,24 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ResetNetworkInterfaceAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ResetNetworkInterfaceAttributeCommand(input, context);
+    return se_ResetNetworkInterfaceAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetNetworkInterfaceAttributeCommandOutput> {
-    return deserializeAws_ec2ResetNetworkInterfaceAttributeCommand(output, context);
+    return de_ResetNetworkInterfaceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAssignmentsForHITRequest,
-  ListAssignmentsForHITRequestFilterSensitiveLog,
-  ListAssignmentsForHITResponse,
-  ListAssignmentsForHITResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAssignmentsForHITRequest, ListAssignmentsForHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1ListAssignmentsForHITCommand,
-  serializeAws_json1_1ListAssignmentsForHITCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAssignmentsForHITCommand, se_ListAssignmentsForHITCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssignmentsForHITCommand}.
  */
 export interface ListAssignmentsForHITCommandInput extends ListAssignmentsForHITRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssignmentsForHITCommand}.
  */
 export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>ListAssignmentsForHIT</code>
@@ -68,10 +65,20 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  * import { MTurkClient, ListAssignmentsForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListAssignmentsForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // ListAssignmentsForHITRequest
+ *   HITId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   AssignmentStatuses: [ // AssignmentStatusList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListAssignmentsForHITCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssignmentsForHITCommandInput - {@link ListAssignmentsForHITCommandInput}
+ * @returns {@link ListAssignmentsForHITCommandOutput}
  * @see {@link ListAssignmentsForHITCommandInput} for command's `input` shape.
  * @see {@link ListAssignmentsForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -101,6 +108,9 @@ export class ListAssignmentsForHITCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssignmentsForHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +139,8 @@ export class ListAssignmentsForHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssignmentsForHITRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssignmentsForHITResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +150,18 @@ export class ListAssignmentsForHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssignmentsForHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssignmentsForHITCommand(input, context);
+    return se_ListAssignmentsForHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssignmentsForHITCommandOutput> {
-    return deserializeAws_json1_1ListAssignmentsForHITCommand(output, context);
+    return de_ListAssignmentsForHITCommand(output, context);
   }
 
   // Start section: command_body_extra

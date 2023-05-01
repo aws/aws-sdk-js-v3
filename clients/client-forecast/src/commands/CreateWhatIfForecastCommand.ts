@@ -18,23 +18,24 @@ import {
   CreateWhatIfForecastRequest,
   CreateWhatIfForecastRequestFilterSensitiveLog,
   CreateWhatIfForecastResponse,
-  CreateWhatIfForecastResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWhatIfForecastCommand,
-  serializeAws_json1_1CreateWhatIfForecastCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWhatIfForecastCommand, se_CreateWhatIfForecastCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWhatIfForecastCommand}.
  */
 export interface CreateWhatIfForecastCommandInput extends CreateWhatIfForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWhatIfForecastCommand}.
  */
 export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A what-if forecast is a forecast that is created from a modified version of the baseline forecast. Each
  *       what-if forecast incorporates either a replacement dataset or a set of transformations to the original dataset. </p>
  * @example
@@ -43,10 +44,55 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  * import { ForecastClient, CreateWhatIfForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateWhatIfForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // CreateWhatIfForecastRequest
+ *   WhatIfForecastName: "STRING_VALUE", // required
+ *   WhatIfAnalysisArn: "STRING_VALUE", // required
+ *   TimeSeriesTransformations: [ // TimeSeriesTransformations
+ *     { // TimeSeriesTransformation
+ *       Action: { // Action
+ *         AttributeName: "STRING_VALUE", // required
+ *         Operation: "ADD" || "SUBTRACT" || "MULTIPLY" || "DIVIDE", // required
+ *         Value: Number("double"), // required
+ *       },
+ *       TimeSeriesConditions: [ // TimeSeriesConditions
+ *         { // TimeSeriesCondition
+ *           AttributeName: "STRING_VALUE", // required
+ *           AttributeValue: "STRING_VALUE", // required
+ *           Condition: "EQUALS" || "NOT_EQUALS" || "LESS_THAN" || "GREATER_THAN", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   TimeSeriesReplacementsDataSource: { // TimeSeriesReplacementsDataSource
+ *     S3Config: { // S3Config
+ *       Path: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE", // required
+ *       KMSKeyArn: "STRING_VALUE",
+ *     },
+ *     Schema: { // Schema
+ *       Attributes: [ // SchemaAttributes
+ *         { // SchemaAttribute
+ *           AttributeName: "STRING_VALUE",
+ *           AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *         },
+ *       ],
+ *     },
+ *     Format: "STRING_VALUE",
+ *     TimestampFormat: "STRING_VALUE",
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateWhatIfForecastCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWhatIfForecastCommandInput - {@link CreateWhatIfForecastCommandInput}
+ * @returns {@link CreateWhatIfForecastCommandOutput}
  * @see {@link CreateWhatIfForecastCommandInput} for command's `input` shape.
  * @see {@link CreateWhatIfForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -87,6 +133,9 @@ export class CreateWhatIfForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWhatIfForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +165,7 @@ export class CreateWhatIfForecastCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateWhatIfForecastRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWhatIfForecastResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +175,18 @@ export class CreateWhatIfForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWhatIfForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWhatIfForecastCommand(input, context);
+    return se_CreateWhatIfForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWhatIfForecastCommandOutput> {
-    return deserializeAws_json1_1CreateWhatIfForecastCommand(output, context);
+    return de_CreateWhatIfForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

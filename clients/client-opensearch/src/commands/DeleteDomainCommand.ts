@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDomainRequest,
-  DeleteDomainRequestFilterSensitiveLog,
-  DeleteDomainResponse,
-  DeleteDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDomainRequest, DeleteDomainResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DeleteDomainCommand,
-  serializeAws_restJson1DeleteDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDomainCommand, se_DeleteDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDomainCommand}.
  */
 export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDomainCommand}.
  */
 export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon OpenSearch Service domain and all of its data. You can't recover a domain
  *    after you delete it.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * import { OpenSearchClient, DeleteDomainCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DeleteDomainCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DeleteDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
+ * @returns {@link DeleteDomainCommandOutput}
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -82,6 +84,9 @@ export class DeleteDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class DeleteDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class DeleteDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDomainCommand(input, context);
+    return se_DeleteDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainCommandOutput> {
-    return deserializeAws_restJson1DeleteDomainCommand(output, context);
+    return de_DeleteDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

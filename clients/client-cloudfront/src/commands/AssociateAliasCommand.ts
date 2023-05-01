@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { AssociateAliasRequest, AssociateAliasRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlAssociateAliasCommand,
-  serializeAws_restXmlAssociateAliasCommand,
-} from "../protocols/Aws_restXml";
+import { AssociateAliasRequest } from "../models/models_0";
+import { de_AssociateAliasCommand, se_AssociateAliasCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateAliasCommand}.
  */
 export interface AssociateAliasCommandInput extends AssociateAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateAliasCommand}.
  */
 export interface AssociateAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an alias (also known as a CNAME or an alternate domain name) with a CloudFront
  * 			distribution.</p>
  *          <p>With this operation you can move an alias that's already in use on a CloudFront distribution
@@ -47,10 +49,16 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, AssociateAliasCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, AssociateAliasCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // AssociateAliasRequest
+ *   TargetDistributionId: "STRING_VALUE", // required
+ *   Alias: "STRING_VALUE", // required
+ * };
  * const command = new AssociateAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateAliasCommandInput - {@link AssociateAliasCommandInput}
+ * @returns {@link AssociateAliasCommandOutput}
  * @see {@link AssociateAliasCommandInput} for command's `input` shape.
  * @see {@link AssociateAliasCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -89,6 +97,9 @@ export class AssociateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class AssociateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +139,18 @@ export class AssociateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlAssociateAliasCommand(input, context);
+    return se_AssociateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAliasCommandOutput> {
-    return deserializeAws_restXmlAssociateAliasCommand(output, context);
+    return de_AssociateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

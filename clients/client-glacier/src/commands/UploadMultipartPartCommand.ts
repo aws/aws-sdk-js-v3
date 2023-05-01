@@ -18,17 +18,15 @@ import {
   UploadMultipartPartInput,
   UploadMultipartPartInputFilterSensitiveLog,
   UploadMultipartPartOutput,
-  UploadMultipartPartOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UploadMultipartPartCommand,
-  serializeAws_restJson1UploadMultipartPartCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UploadMultipartPartCommand, se_UploadMultipartPartCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UploadMultipartPartCommand}.
  */
-type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"> & {
+export type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"> & {
   /**
    * For *`UploadMultipartPartInput["body"]`*, see {@link UploadMultipartPartInput.body}.
    */
@@ -39,11 +37,14 @@ type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"
  */
 export interface UploadMultipartPartCommandInput extends UploadMultipartPartCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link UploadMultipartPartCommand}.
  */
 export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation uploads a part of an archive. You can upload archive parts in any
  *          order. You can also upload them in parallel. You can upload up to 10,000 parts for a
  *          multipart upload.</p>
@@ -101,10 +102,20 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * import { GlacierClient, UploadMultipartPartCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, UploadMultipartPartCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // UploadMultipartPartInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   uploadId: "STRING_VALUE", // required
+ *   checksum: "STRING_VALUE",
+ *   range: "STRING_VALUE",
+ *   body: "STREAMING_BLOB_VALUE",
+ * };
  * const command = new UploadMultipartPartCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadMultipartPartCommandInput - {@link UploadMultipartPartCommandInput}
+ * @returns {@link UploadMultipartPartCommandOutput}
  * @see {@link UploadMultipartPartCommandInput} for command's `input` shape.
  * @see {@link UploadMultipartPartCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -166,6 +177,9 @@ export class UploadMultipartPartCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadMultipartPartCommandInput) {
     // Start section: command_constructor
     super();
@@ -195,7 +209,7 @@ export class UploadMultipartPartCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UploadMultipartPartInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadMultipartPartOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -205,12 +219,18 @@ export class UploadMultipartPartCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadMultipartPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UploadMultipartPartCommand(input, context);
+    return se_UploadMultipartPartCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadMultipartPartCommandOutput> {
-    return deserializeAws_restJson1UploadMultipartPartCommand(output, context);
+    return de_UploadMultipartPartCommand(output, context);
   }
 
   // Start section: command_body_extra

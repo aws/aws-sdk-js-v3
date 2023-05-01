@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  UpdateProjectDataDeliveryRequest,
-  UpdateProjectDataDeliveryRequestFilterSensitiveLog,
-  UpdateProjectDataDeliveryResponse,
-  UpdateProjectDataDeliveryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateProjectDataDeliveryCommand,
-  serializeAws_restJson1UpdateProjectDataDeliveryCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateProjectDataDeliveryRequest, UpdateProjectDataDeliveryResponse } from "../models/models_0";
+import { de_UpdateProjectDataDeliveryCommand, se_UpdateProjectDataDeliveryCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProjectDataDeliveryCommand}.
  */
 export interface UpdateProjectDataDeliveryCommandInput extends UpdateProjectDataDeliveryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProjectDataDeliveryCommand}.
  */
 export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDataDeliveryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the data storage options for this project. If you store evaluation events, you an
  *       keep them and analyze them on your own. If you choose not to store evaluation events,
  *       Evidently deletes them after using them to produce metrics and other experiment results that
@@ -46,10 +43,22 @@ export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDat
  * import { EvidentlyClient, UpdateProjectDataDeliveryCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, UpdateProjectDataDeliveryCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // UpdateProjectDataDeliveryRequest
+ *   project: "STRING_VALUE", // required
+ *   s3Destination: { // S3DestinationConfig
+ *     bucket: "STRING_VALUE",
+ *     prefix: "STRING_VALUE",
+ *   },
+ *   cloudWatchLogs: { // CloudWatchLogsDestinationConfig
+ *     logGroup: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateProjectDataDeliveryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProjectDataDeliveryCommandInput - {@link UpdateProjectDataDeliveryCommandInput}
+ * @returns {@link UpdateProjectDataDeliveryCommandOutput}
  * @see {@link UpdateProjectDataDeliveryCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectDataDeliveryCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -88,6 +97,9 @@ export class UpdateProjectDataDeliveryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProjectDataDeliveryCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +128,8 @@ export class UpdateProjectDataDeliveryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProjectDataDeliveryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProjectDataDeliveryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +139,21 @@ export class UpdateProjectDataDeliveryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProjectDataDeliveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProjectDataDeliveryCommand(input, context);
+    return se_UpdateProjectDataDeliveryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateProjectDataDeliveryCommandOutput> {
-    return deserializeAws_restJson1UpdateProjectDataDeliveryCommand(output, context);
+    return de_UpdateProjectDataDeliveryCommand(output, context);
   }
 
   // Start section: command_body_extra

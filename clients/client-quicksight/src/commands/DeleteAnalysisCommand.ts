@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAnalysisRequest,
-  DeleteAnalysisRequestFilterSensitiveLog,
-  DeleteAnalysisResponse,
-  DeleteAnalysisResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteAnalysisCommand,
-  serializeAws_restJson1DeleteAnalysisCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAnalysisRequest, DeleteAnalysisResponse } from "../models/models_2";
+import { de_DeleteAnalysisCommand, se_DeleteAnalysisCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAnalysisCommand}.
  */
 export interface DeleteAnalysisCommandInput extends DeleteAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAnalysisCommand}.
  */
 export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an analysis from Amazon QuickSight. You can optionally include a recovery window during
  *             which you can restore the analysis. If you don't specify a recovery window value, the
  *             operation defaults to 30 days. Amazon QuickSight attaches a <code>DeletionTime</code> stamp to
@@ -53,10 +50,18 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * import { QuickSightClient, DeleteAnalysisCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteAnalysisCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteAnalysisRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   AnalysisId: "STRING_VALUE", // required
+ *   RecoveryWindowInDays: Number("long"),
+ *   ForceDeleteWithoutRecovery: true || false,
+ * };
  * const command = new DeleteAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAnalysisCommandInput - {@link DeleteAnalysisCommandInput}
+ * @returns {@link DeleteAnalysisCommandOutput}
  * @see {@link DeleteAnalysisCommandInput} for command's `input` shape.
  * @see {@link DeleteAnalysisCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -101,6 +106,9 @@ export class DeleteAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +137,8 @@ export class DeleteAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +148,18 @@ export class DeleteAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAnalysisCommand(input, context);
+    return se_DeleteAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnalysisCommandOutput> {
-    return deserializeAws_restJson1DeleteAnalysisCommand(output, context);
+    return de_DeleteAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

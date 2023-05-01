@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateUserHierarchyGroupRequest,
-  CreateUserHierarchyGroupRequestFilterSensitiveLog,
-  CreateUserHierarchyGroupResponse,
-  CreateUserHierarchyGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateUserHierarchyGroupCommand,
-  serializeAws_restJson1CreateUserHierarchyGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateUserHierarchyGroupRequest, CreateUserHierarchyGroupResponse } from "../models/models_0";
+import { de_CreateUserHierarchyGroupCommand, se_CreateUserHierarchyGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUserHierarchyGroupCommand}.
  */
 export interface CreateUserHierarchyGroupCommandInput extends CreateUserHierarchyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUserHierarchyGroupCommand}.
  */
 export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarchyGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new user hierarchy group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarc
  * import { ConnectClient, CreateUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateUserHierarchyGroupRequest
+ *   Name: "STRING_VALUE", // required
+ *   ParentGroupId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateUserHierarchyGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUserHierarchyGroupCommandInput - {@link CreateUserHierarchyGroupCommandInput}
+ * @returns {@link CreateUserHierarchyGroupCommandOutput}
  * @see {@link CreateUserHierarchyGroupCommandInput} for command's `input` shape.
  * @see {@link CreateUserHierarchyGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateUserHierarchyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUserHierarchyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class CreateUserHierarchyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserHierarchyGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserHierarchyGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +139,18 @@ export class CreateUserHierarchyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUserHierarchyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUserHierarchyGroupCommand(input, context);
+    return se_CreateUserHierarchyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserHierarchyGroupCommandOutput> {
-    return deserializeAws_restJson1CreateUserHierarchyGroupCommand(output, context);
+    return de_CreateUserHierarchyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

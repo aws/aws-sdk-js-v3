@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendActivationCodeRequest,
-  SendActivationCodeRequestFilterSensitiveLog,
-  SendActivationCodeResult,
-  SendActivationCodeResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SendActivationCodeCommand,
-  serializeAws_json1_1SendActivationCodeCommand,
-} from "../protocols/Aws_json1_1";
+import { SendActivationCodeRequest, SendActivationCodeResult } from "../models/models_0";
+import { de_SendActivationCodeCommand, se_SendActivationCodeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendActivationCodeCommand}.
  */
 export interface SendActivationCodeCommandInput extends SendActivationCodeRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendActivationCodeCommand}.
  */
 export interface SendActivationCodeCommandOutput extends SendActivationCodeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends an activation code to a contact channel. The contact can use this code to activate
  *          the contact channel in the console or with the <code>ActivateChannel</code> operation.
  *          Incident Manager can't engage a contact channel until it has been activated.</p>
@@ -44,10 +41,15 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  * import { SSMContactsClient, SendActivationCodeCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, SendActivationCodeCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // SendActivationCodeRequest
+ *   ContactChannelId: "STRING_VALUE", // required
+ * };
  * const command = new SendActivationCodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendActivationCodeCommandInput - {@link SendActivationCodeCommandInput}
+ * @returns {@link SendActivationCodeCommandOutput}
  * @see {@link SendActivationCodeCommandInput} for command's `input` shape.
  * @see {@link SendActivationCodeCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -59,8 +61,7 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  *  <p>The operation failed to due an encryption key error.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>
@@ -75,17 +76,6 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
- *
- * @example To send an activation code
- * ```javascript
- * // The following send-activation-code example sends an activation code and message to the specified contact channel.
- * const input = {
- *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-1:111122223333:contact-channel/akuam/8ddae2d1-12c8-4e45-b852-c8587266c400"
- * };
- * const command = new SendActivationCodeCommand(input);
- * await client.send(command);
- * // example id: to-send-an-activation-code-1630436453574
- * ```
  *
  */
 export class SendActivationCodeCommand extends $Command<
@@ -105,6 +95,9 @@ export class SendActivationCodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendActivationCodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +126,8 @@ export class SendActivationCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendActivationCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendActivationCodeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +137,18 @@ export class SendActivationCodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendActivationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendActivationCodeCommand(input, context);
+    return se_SendActivationCodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendActivationCodeCommandOutput> {
-    return deserializeAws_json1_1SendActivationCodeCommand(output, context);
+    return de_SendActivationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

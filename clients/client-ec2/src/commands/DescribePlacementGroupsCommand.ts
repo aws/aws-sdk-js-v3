@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribePlacementGroupsRequest,
-  DescribePlacementGroupsRequestFilterSensitiveLog,
-  DescribePlacementGroupsResult,
-  DescribePlacementGroupsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribePlacementGroupsCommand,
-  serializeAws_ec2DescribePlacementGroupsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_4";
+import { de_DescribePlacementGroupsCommand, se_DescribePlacementGroupsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePlacementGroupsCommand}.
  */
 export interface DescribePlacementGroupsCommandInput extends DescribePlacementGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePlacementGroupsCommand}.
  */
 export interface DescribePlacementGroupsCommandOutput extends DescribePlacementGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified placement groups or all of your placement groups. For more
  *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
@@ -44,10 +41,29 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * import { EC2Client, DescribePlacementGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribePlacementGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribePlacementGroupsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   GroupNames: [ // PlacementGroupStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   GroupIds: [ // PlacementGroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribePlacementGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePlacementGroupsCommandInput - {@link DescribePlacementGroupsCommandInput}
+ * @returns {@link DescribePlacementGroupsCommandOutput}
  * @see {@link DescribePlacementGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribePlacementGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +87,9 @@ export class DescribePlacementGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePlacementGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +118,8 @@ export class DescribePlacementGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePlacementGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePlacementGroupsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +129,18 @@ export class DescribePlacementGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePlacementGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribePlacementGroupsCommand(input, context);
+    return se_DescribePlacementGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePlacementGroupsCommandOutput> {
-    return deserializeAws_ec2DescribePlacementGroupsCommand(output, context);
+    return de_DescribePlacementGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

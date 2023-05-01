@@ -17,24 +17,25 @@ import {
   ImportHostKeyRequest,
   ImportHostKeyRequestFilterSensitiveLog,
   ImportHostKeyResponse,
-  ImportHostKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportHostKeyCommand,
-  serializeAws_json1_1ImportHostKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportHostKeyCommand, se_ImportHostKeyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportHostKeyCommand}.
  */
 export interface ImportHostKeyCommandInput extends ImportHostKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportHostKeyCommand}.
  */
 export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a host key to the server that's specified by the <code>ServerId</code>
  *       parameter.</p>
  * @example
@@ -43,10 +44,23 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * import { TransferClient, ImportHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ImportHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // ImportHostKeyRequest
+ *   ServerId: "STRING_VALUE", // required
+ *   HostKeyBody: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ImportHostKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportHostKeyCommandInput - {@link ImportHostKeyCommandInput}
+ * @returns {@link ImportHostKeyCommandOutput}
  * @see {@link ImportHostKeyCommandInput} for command's `input` shape.
  * @see {@link ImportHostKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -89,6 +103,9 @@ export class ImportHostKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportHostKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +133,7 @@ export class ImportHostKeyCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportHostKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportHostKeyResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +143,18 @@ export class ImportHostKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportHostKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportHostKeyCommand(input, context);
+    return se_ImportHostKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportHostKeyCommandOutput> {
-    return deserializeAws_json1_1ImportHostKeyCommand(output, context);
+    return de_ImportHostKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

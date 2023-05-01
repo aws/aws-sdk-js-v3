@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  ListProductSubscriptionsRequest,
-  ListProductSubscriptionsRequestFilterSensitiveLog,
-  ListProductSubscriptionsResponse,
-  ListProductSubscriptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProductSubscriptionsCommand,
-  serializeAws_restJson1ListProductSubscriptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProductSubscriptionsRequest, ListProductSubscriptionsResponse } from "../models/models_0";
+import { de_ListProductSubscriptionsCommand, se_ListProductSubscriptionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProductSubscriptionsCommand}.
  */
 export interface ListProductSubscriptionsCommandInput extends ListProductSubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProductSubscriptionsCommand}.
  */
 export interface ListProductSubscriptionsCommandOutput extends ListProductSubscriptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the user-based subscription products available from an identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,29 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  * import { LicenseManagerUserSubscriptionsClient, ListProductSubscriptionsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, ListProductSubscriptionsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
+ * const input = { // ListProductSubscriptionsRequest
+ *   Product: "STRING_VALUE", // required
+ *   IdentityProvider: { // IdentityProvider Union: only one key present
+ *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ *       DirectoryId: "STRING_VALUE",
+ *     },
+ *   },
+ *   MaxResults: Number("int"),
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Attribute: "STRING_VALUE",
+ *       Operation: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListProductSubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProductSubscriptionsCommandInput - {@link ListProductSubscriptionsCommandInput}
+ * @returns {@link ListProductSubscriptionsCommandOutput}
  * @see {@link ListProductSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListProductSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -95,6 +111,9 @@ export class ListProductSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProductSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +142,8 @@ export class ListProductSubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProductSubscriptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProductSubscriptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +153,18 @@ export class ListProductSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProductSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProductSubscriptionsCommand(input, context);
+    return se_ListProductSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProductSubscriptionsCommandOutput> {
-    return deserializeAws_restJson1ListProductSubscriptionsCommand(output, context);
+    return de_ListProductSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

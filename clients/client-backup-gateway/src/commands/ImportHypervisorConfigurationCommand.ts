@@ -18,18 +18,21 @@ import {
   ImportHypervisorConfigurationInput,
   ImportHypervisorConfigurationInputFilterSensitiveLog,
   ImportHypervisorConfigurationOutput,
-  ImportHypervisorConfigurationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0ImportHypervisorConfigurationCommand,
-  serializeAws_json1_0ImportHypervisorConfigurationCommand,
+  de_ImportHypervisorConfigurationCommand,
+  se_ImportHypervisorConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ImportHypervisorConfigurationCommand}.
  */
 export interface ImportHypervisorConfigurationCommandInput extends ImportHypervisorConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link ImportHypervisorConfigurationCommand}.
  */
 export interface ImportHypervisorConfigurationCommandOutput
@@ -37,6 +40,7 @@ export interface ImportHypervisorConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Connect to a hypervisor by importing its configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +48,25 @@ export interface ImportHypervisorConfigurationCommandOutput
  * import { BackupGatewayClient, ImportHypervisorConfigurationCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, ImportHypervisorConfigurationCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // ImportHypervisorConfigurationInput
+ *   Name: "STRING_VALUE", // required
+ *   Host: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE",
+ *   Password: "STRING_VALUE",
+ *   KmsKeyArn: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ImportHypervisorConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportHypervisorConfigurationCommandInput - {@link ImportHypervisorConfigurationCommandInput}
+ * @returns {@link ImportHypervisorConfigurationCommandOutput}
  * @see {@link ImportHypervisorConfigurationCommandInput} for command's `input` shape.
  * @see {@link ImportHypervisorConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -87,6 +106,9 @@ export class ImportHypervisorConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportHypervisorConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +138,7 @@ export class ImportHypervisorConfigurationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportHypervisorConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportHypervisorConfigurationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +148,21 @@ export class ImportHypervisorConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportHypervisorConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ImportHypervisorConfigurationCommand(input, context);
+    return se_ImportHypervisorConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ImportHypervisorConfigurationCommandOutput> {
-    return deserializeAws_json1_0ImportHypervisorConfigurationCommand(output, context);
+    return de_ImportHypervisorConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

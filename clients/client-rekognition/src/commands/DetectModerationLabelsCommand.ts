@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetectModerationLabelsRequest,
-  DetectModerationLabelsRequestFilterSensitiveLog,
-  DetectModerationLabelsResponse,
-  DetectModerationLabelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectModerationLabelsCommand,
-  serializeAws_json1_1DetectModerationLabelsCommand,
-} from "../protocols/Aws_json1_1";
+import { DetectModerationLabelsRequest, DetectModerationLabelsResponse } from "../models/models_0";
+import { de_DetectModerationLabelsCommand, se_DetectModerationLabelsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectModerationLabelsCommand}.
  */
 export interface DetectModerationLabelsCommandInput extends DetectModerationLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectModerationLabelsCommand}.
  */
 export interface DetectModerationLabelsCommandOutput extends DetectModerationLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects unsafe content in a specified JPEG or PNG format image. Use
  *         <code>DetectModerationLabels</code> to moderate images depending on your requirements. For
  *       example, you might want to filter images that contain nudity, but not images containing
@@ -54,10 +51,32 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * import { RekognitionClient, DetectModerationLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectModerationLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DetectModerationLabelsRequest
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   MinConfidence: Number("float"),
+ *   HumanLoopConfig: { // HumanLoopConfig
+ *     HumanLoopName: "STRING_VALUE", // required
+ *     FlowDefinitionArn: "STRING_VALUE", // required
+ *     DataAttributes: { // HumanLoopDataAttributes
+ *       ContentClassifiers: [ // ContentClassifiers
+ *         "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new DetectModerationLabelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectModerationLabelsCommandInput - {@link DetectModerationLabelsCommandInput}
+ * @returns {@link DetectModerationLabelsCommandOutput}
  * @see {@link DetectModerationLabelsCommandInput} for command's `input` shape.
  * @see {@link DetectModerationLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -113,6 +132,9 @@ export class DetectModerationLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectModerationLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +163,8 @@ export class DetectModerationLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectModerationLabelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectModerationLabelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +174,18 @@ export class DetectModerationLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectModerationLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectModerationLabelsCommand(input, context);
+    return se_DetectModerationLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectModerationLabelsCommandOutput> {
-    return deserializeAws_json1_1DetectModerationLabelsCommand(output, context);
+    return de_DetectModerationLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import {
-  UpdateLoggingConfigurationRequest,
-  UpdateLoggingConfigurationRequestFilterSensitiveLog,
-  UpdateLoggingConfigurationResponse,
-  UpdateLoggingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLoggingConfigurationCommand,
-  serializeAws_restJson1UpdateLoggingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateLoggingConfigurationRequest, UpdateLoggingConfigurationResponse } from "../models/models_0";
+import { de_UpdateLoggingConfigurationCommand, se_UpdateLoggingConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLoggingConfigurationCommand}.
  */
 export interface UpdateLoggingConfigurationCommandInput extends UpdateLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLoggingConfigurationCommand}.
  */
 export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Update logging configuration.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * import { AmpClient, UpdateLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, UpdateLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // UpdateLoggingConfigurationRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   logGroupArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLoggingConfigurationCommandInput - {@link UpdateLoggingConfigurationCommandInput}
+ * @returns {@link UpdateLoggingConfigurationCommandOutput}
  * @see {@link UpdateLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -84,6 +88,9 @@ export class UpdateLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class UpdateLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +130,21 @@ export class UpdateLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLoggingConfigurationCommand(input, context);
+    return se_UpdateLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateLoggingConfigurationCommand(output, context);
+    return de_UpdateLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

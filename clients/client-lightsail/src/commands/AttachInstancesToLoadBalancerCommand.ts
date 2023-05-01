@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { AttachInstancesToLoadBalancerRequest, AttachInstancesToLoadBalancerResult } from "../models/models_0";
 import {
-  AttachInstancesToLoadBalancerRequest,
-  AttachInstancesToLoadBalancerRequestFilterSensitiveLog,
-  AttachInstancesToLoadBalancerResult,
-  AttachInstancesToLoadBalancerResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AttachInstancesToLoadBalancerCommand,
-  serializeAws_json1_1AttachInstancesToLoadBalancerCommand,
+  de_AttachInstancesToLoadBalancerCommand,
+  se_AttachInstancesToLoadBalancerCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachInstancesToLoadBalancerCommand}.
  */
 export interface AttachInstancesToLoadBalancerCommandInput extends AttachInstancesToLoadBalancerRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachInstancesToLoadBalancerCommand}.
  */
 export interface AttachInstancesToLoadBalancerCommandOutput
@@ -37,6 +36,7 @@ export interface AttachInstancesToLoadBalancerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches one or more Lightsail instances to a load balancer.</p>
  *          <p>After some time, the instances are attached to the load balancer and the health check
  *       status is available.</p>
@@ -49,10 +49,18 @@ export interface AttachInstancesToLoadBalancerCommandOutput
  * import { LightsailClient, AttachInstancesToLoadBalancerCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AttachInstancesToLoadBalancerCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // AttachInstancesToLoadBalancerRequest
+ *   loadBalancerName: "STRING_VALUE", // required
+ *   instanceNames: [ // ResourceNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AttachInstancesToLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachInstancesToLoadBalancerCommandInput - {@link AttachInstancesToLoadBalancerCommandInput}
+ * @returns {@link AttachInstancesToLoadBalancerCommandOutput}
  * @see {@link AttachInstancesToLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link AttachInstancesToLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -106,6 +114,9 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachInstancesToLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +145,8 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachInstancesToLoadBalancerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachInstancesToLoadBalancerResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,15 +156,21 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachInstancesToLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachInstancesToLoadBalancerCommand(input, context);
+    return se_AttachInstancesToLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachInstancesToLoadBalancerCommandOutput> {
-    return deserializeAws_json1_1AttachInstancesToLoadBalancerCommand(output, context);
+    return de_AttachInstancesToLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

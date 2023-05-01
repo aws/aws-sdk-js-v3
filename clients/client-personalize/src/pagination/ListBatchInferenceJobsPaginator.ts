@@ -10,7 +10,7 @@ import { PersonalizeClient } from "../PersonalizeClient";
 import { PersonalizePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PersonalizeClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBatchInferenceJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListBatchInferenceJobs(
   config: PersonalizePaginationConfiguration,
   input: ListBatchInferenceJobsCommandInput,

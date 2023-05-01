@@ -16,21 +16,23 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeOrganizationConfigRuleStatusesRequest,
-  DescribeOrganizationConfigRuleStatusesRequestFilterSensitiveLog,
   DescribeOrganizationConfigRuleStatusesResponse,
-  DescribeOrganizationConfigRuleStatusesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand,
-  serializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand,
+  de_DescribeOrganizationConfigRuleStatusesCommand,
+  se_DescribeOrganizationConfigRuleStatusesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationConfigRuleStatusesCommand}.
  */
 export interface DescribeOrganizationConfigRuleStatusesCommandInput
   extends DescribeOrganizationConfigRuleStatusesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationConfigRuleStatusesCommand}.
  */
 export interface DescribeOrganizationConfigRuleStatusesCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides organization Config rule deployment status for an organization.</p>
  *          <note>
  *             <p>The status is not considered successful until organization Config rule is successfully deployed in all the member
@@ -52,10 +55,19 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  * import { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeOrganizationConfigRuleStatusesRequest
+ *   OrganizationConfigRuleNames: [ // OrganizationConfigRuleNames
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeOrganizationConfigRuleStatusesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationConfigRuleStatusesCommandInput - {@link DescribeOrganizationConfigRuleStatusesCommandInput}
+ * @returns {@link DescribeOrganizationConfigRuleStatusesCommandOutput}
  * @see {@link DescribeOrganizationConfigRuleStatusesCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigRuleStatusesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -111,6 +123,9 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationConfigRuleStatusesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +154,8 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationConfigRuleStatusesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationConfigRuleStatusesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,18 +165,24 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationConfigRuleStatusesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand(input, context);
+    return se_DescribeOrganizationConfigRuleStatusesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand(output, context);
+    return de_DescribeOrganizationConfigRuleStatusesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  DeleteEventsConfigurationRequest,
-  DeleteEventsConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEventsConfigurationCommand,
-  serializeAws_restJson1DeleteEventsConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteEventsConfigurationRequest } from "../models/models_0";
+import { de_DeleteEventsConfigurationCommand, se_DeleteEventsConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventsConfigurationCommand}.
  */
 export interface DeleteEventsConfigurationCommandInput extends DeleteEventsConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventsConfigurationCommand}.
  */
 export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the events configuration that allows a bot to receive outgoing events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +39,16 @@ export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer
  * import { ChimeClient, DeleteEventsConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteEventsConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DeleteEventsConfigurationRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BotId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventsConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventsConfigurationCommandInput - {@link DeleteEventsConfigurationCommandInput}
+ * @returns {@link DeleteEventsConfigurationCommandOutput}
  * @see {@link DeleteEventsConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteEventsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -85,6 +90,9 @@ export class DeleteEventsConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventsConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class DeleteEventsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventsConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +132,21 @@ export class DeleteEventsConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEventsConfigurationCommand(input, context);
+    return se_DeleteEventsConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteEventsConfigurationCommand(output, context);
+    return de_DeleteEventsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

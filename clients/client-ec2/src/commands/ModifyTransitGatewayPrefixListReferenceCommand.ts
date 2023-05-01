@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyTransitGatewayPrefixListReferenceRequest,
-  ModifyTransitGatewayPrefixListReferenceRequestFilterSensitiveLog,
   ModifyTransitGatewayPrefixListReferenceResult,
-  ModifyTransitGatewayPrefixListReferenceResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand,
-  serializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand,
+  de_ModifyTransitGatewayPrefixListReferenceCommand,
+  se_ModifyTransitGatewayPrefixListReferenceCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyTransitGatewayPrefixListReferenceCommand}.
  */
 export interface ModifyTransitGatewayPrefixListReferenceCommandInput
   extends ModifyTransitGatewayPrefixListReferenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyTransitGatewayPrefixListReferenceCommand}.
  */
 export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
@@ -38,6 +40,7 @@ export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a reference (route) to a prefix list in a specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,19 @@ export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
  * import { EC2Client, ModifyTransitGatewayPrefixListReferenceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTransitGatewayPrefixListReferenceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyTransitGatewayPrefixListReferenceRequest
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   PrefixListId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE",
+ *   Blackhole: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyTransitGatewayPrefixListReferenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyTransitGatewayPrefixListReferenceCommandInput - {@link ModifyTransitGatewayPrefixListReferenceCommandInput}
+ * @returns {@link ModifyTransitGatewayPrefixListReferenceCommandOutput}
  * @see {@link ModifyTransitGatewayPrefixListReferenceCommandInput} for command's `input` shape.
  * @see {@link ModifyTransitGatewayPrefixListReferenceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +84,9 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyTransitGatewayPrefixListReferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +121,8 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyTransitGatewayPrefixListReferenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyTransitGatewayPrefixListReferenceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +132,24 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyTransitGatewayPrefixListReferenceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand(input, context);
+    return se_ModifyTransitGatewayPrefixListReferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTransitGatewayPrefixListReferenceCommandOutput> {
-    return deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand(output, context);
+    return de_ModifyTransitGatewayPrefixListReferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

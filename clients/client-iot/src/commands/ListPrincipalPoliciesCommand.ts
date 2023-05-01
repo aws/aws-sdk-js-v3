@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListPrincipalPoliciesRequest,
-  ListPrincipalPoliciesRequestFilterSensitiveLog,
-  ListPrincipalPoliciesResponse,
-  ListPrincipalPoliciesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListPrincipalPoliciesCommand,
-  serializeAws_restJson1ListPrincipalPoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPrincipalPoliciesRequest, ListPrincipalPoliciesResponse } from "../models/models_1";
+import { de_ListPrincipalPoliciesCommand, se_ListPrincipalPoliciesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPrincipalPoliciesCommand}.
  */
 export interface ListPrincipalPoliciesCommandInput extends ListPrincipalPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPrincipalPoliciesCommand}.
  */
 export interface ListPrincipalPoliciesCommandOutput extends ListPrincipalPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Lists the policies attached to the specified principal. If you use an Cognito
@@ -49,10 +46,18 @@ export interface ListPrincipalPoliciesCommandOutput extends ListPrincipalPolicie
  * import { IoTClient, ListPrincipalPoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListPrincipalPoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListPrincipalPoliciesRequest
+ *   principal: "STRING_VALUE", // required
+ *   marker: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ *   ascendingOrder: true || false,
+ * };
  * const command = new ListPrincipalPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPrincipalPoliciesCommandInput - {@link ListPrincipalPoliciesCommandInput}
+ * @returns {@link ListPrincipalPoliciesCommandOutput}
  * @see {@link ListPrincipalPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListPrincipalPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -94,6 +99,9 @@ export class ListPrincipalPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPrincipalPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +130,8 @@ export class ListPrincipalPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPrincipalPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPrincipalPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +141,18 @@ export class ListPrincipalPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPrincipalPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPrincipalPoliciesCommand(input, context);
+    return se_ListPrincipalPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPrincipalPoliciesCommandOutput> {
-    return deserializeAws_restJson1ListPrincipalPoliciesCommand(output, context);
+    return de_ListPrincipalPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

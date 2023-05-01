@@ -20,20 +20,22 @@ import {
 } from "../KinesisAnalyticsV2Client";
 import {
   DeleteApplicationVpcConfigurationRequest,
-  DeleteApplicationVpcConfigurationRequestFilterSensitiveLog,
   DeleteApplicationVpcConfigurationResponse,
-  DeleteApplicationVpcConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteApplicationVpcConfigurationCommand,
-  serializeAws_json1_1DeleteApplicationVpcConfigurationCommand,
+  de_DeleteApplicationVpcConfigurationCommand,
+  se_DeleteApplicationVpcConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationVpcConfigurationCommand}.
  */
 export interface DeleteApplicationVpcConfigurationCommandInput extends DeleteApplicationVpcConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationVpcConfigurationCommand}.
  */
 export interface DeleteApplicationVpcConfigurationCommandOutput
@@ -41,6 +43,7 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a VPC configuration from a Kinesis Data Analytics application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +51,18 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
  * import { KinesisAnalyticsV2Client, DeleteApplicationVpcConfigurationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DeleteApplicationVpcConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // DeleteApplicationVpcConfigurationRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"),
+ *   VpcConfigurationId: "STRING_VALUE", // required
+ *   ConditionalToken: "STRING_VALUE",
+ * };
  * const command = new DeleteApplicationVpcConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationVpcConfigurationCommandInput - {@link DeleteApplicationVpcConfigurationCommandInput}
+ * @returns {@link DeleteApplicationVpcConfigurationCommandOutput}
  * @see {@link DeleteApplicationVpcConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationVpcConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -92,6 +103,9 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationVpcConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +134,8 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationVpcConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationVpcConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +145,24 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteApplicationVpcConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationVpcConfigurationCommand(input, context);
+    return se_DeleteApplicationVpcConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationVpcConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationVpcConfigurationCommand(output, context);
+    return de_DeleteApplicationVpcConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

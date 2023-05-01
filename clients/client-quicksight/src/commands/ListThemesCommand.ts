@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListThemesRequest,
-  ListThemesRequestFilterSensitiveLog,
-  ListThemesResponse,
-  ListThemesResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1ListThemesCommand,
-  serializeAws_restJson1ListThemesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListThemesRequest, ListThemesResponse } from "../models/models_3";
+import { de_ListThemesCommand, se_ListThemesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListThemesCommand}.
  */
 export interface ListThemesCommandInput extends ListThemesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThemesCommand}.
  */
 export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the themes in the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * import { QuickSightClient, ListThemesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListThemesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // ListThemesRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Type: "QUICKSIGHT" || "CUSTOM" || "ALL",
+ * };
  * const command = new ListThemesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThemesCommandInput - {@link ListThemesCommandInput}
+ * @returns {@link ListThemesCommandOutput}
  * @see {@link ListThemesCommandInput} for command's `input` shape.
  * @see {@link ListThemesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -96,6 +101,9 @@ export class ListThemesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThemesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +130,8 @@ export class ListThemesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListThemesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListThemesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +141,18 @@ export class ListThemesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThemesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListThemesCommand(input, context);
+    return se_ListThemesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThemesCommandOutput> {
-    return deserializeAws_restJson1ListThemesCommand(output, context);
+    return de_ListThemesCommand(output, context);
   }
 
   // Start section: command_body_extra

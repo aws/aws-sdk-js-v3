@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelRunRequest, CancelRunRequestFilterSensitiveLog } from "../models/models_0";
+import { CancelRunRequest } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1CancelRunCommand,
-  serializeAws_restJson1CancelRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelRunCommand, se_CancelRunCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelRunCommand}.
  */
 export interface CancelRunCommandInput extends CancelRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelRunCommand}.
  */
 export interface CancelRunCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface CancelRunCommandOutput extends __MetadataBearer {}
  * import { OmicsClient, CancelRunCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CancelRunCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // CancelRunRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new CancelRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelRunCommandInput - {@link CancelRunCommandInput}
+ * @returns {@link CancelRunCommandOutput}
  * @see {@link CancelRunCommandInput} for command's `input` shape.
  * @see {@link CancelRunCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -88,6 +95,9 @@ export class CancelRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +124,8 @@ export class CancelRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +135,18 @@ export class CancelRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelRunCommand(input, context);
+    return se_CancelRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelRunCommandOutput> {
-    return deserializeAws_restJson1CancelRunCommand(output, context);
+    return de_CancelRunCommand(output, context);
   }
 
   // Start section: command_body_extra

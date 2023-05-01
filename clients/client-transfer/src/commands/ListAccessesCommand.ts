@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAccessesRequest,
-  ListAccessesRequestFilterSensitiveLog,
-  ListAccessesResponse,
-  ListAccessesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAccessesCommand,
-  serializeAws_json1_1ListAccessesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAccessesRequest, ListAccessesResponse } from "../models/models_0";
+import { de_ListAccessesCommand, se_ListAccessesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessesCommand}.
  */
 export interface ListAccessesCommandInput extends ListAccessesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessesCommand}.
  */
 export interface ListAccessesCommandOutput extends ListAccessesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the details for all the accesses you have on your server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListAccessesCommandOutput extends ListAccessesResponse, __Metad
  * import { TransferClient, ListAccessesCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListAccessesCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // ListAccessesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ServerId: "STRING_VALUE", // required
+ * };
  * const command = new ListAccessesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessesCommandInput - {@link ListAccessesCommandInput}
+ * @returns {@link ListAccessesCommandOutput}
  * @see {@link ListAccessesCommandInput} for command's `input` shape.
  * @see {@link ListAccessesCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListAccessesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class ListAccessesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +129,18 @@ export class ListAccessesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccessesCommand(input, context);
+    return se_ListAccessesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessesCommandOutput> {
-    return deserializeAws_json1_1ListAccessesCommand(output, context);
+    return de_ListAccessesCommand(output, context);
   }
 
   // Start section: command_body_extra

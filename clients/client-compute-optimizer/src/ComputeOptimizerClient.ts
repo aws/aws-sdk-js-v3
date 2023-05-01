@@ -141,6 +141,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DeleteRecommendationPreferencesCommandInput
   | DescribeRecommendationExportJobsCommandInput
@@ -164,6 +167,9 @@ export type ServiceInputTypes =
   | PutRecommendationPreferencesCommandInput
   | UpdateEnrollmentStatusCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DeleteRecommendationPreferencesCommandOutput
   | DescribeRecommendationExportJobsCommandOutput
@@ -187,6 +193,9 @@ export type ServiceOutputTypes =
   | PutRecommendationPreferencesCommandOutput
   | UpdateEnrollmentStatusCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -194,7 +203,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -303,11 +312,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ComputeOptimizerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -318,10 +330,15 @@ type ComputeOptimizerClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ComputeOptimizerClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ComputeOptimizerClient class constructor that set the region, credentials and other options.
  */
 export interface ComputeOptimizerClientConfig extends ComputeOptimizerClientConfigType {}
 
+/**
+ * @public
+ */
 type ComputeOptimizerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -332,11 +349,14 @@ type ComputeOptimizerClientResolvedConfigType = __SmithyResolvedConfiguration<__
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ComputeOptimizerClient class. This is resolved and normalized from the {@link ComputeOptimizerClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ComputeOptimizerClient class. This is resolved and normalized from the {@link ComputeOptimizerClientConfig | constructor configuration interface}.
  */
 export interface ComputeOptimizerClientResolvedConfig extends ComputeOptimizerClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Compute Optimizer is a service that analyzes the configuration and utilization
  *             metrics of your Amazon Web Services compute resources, such as Amazon EC2
  *             instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate.

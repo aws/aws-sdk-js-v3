@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeConfigurationSetsRequest,
-  DescribeConfigurationSetsRequestFilterSensitiveLog,
-  DescribeConfigurationSetsResult,
-  DescribeConfigurationSetsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeConfigurationSetsRequest, DescribeConfigurationSetsResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeConfigurationSetsCommand,
-  serializeAws_json1_0DescribeConfigurationSetsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeConfigurationSetsCommand, se_DescribeConfigurationSetsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationSetsCommand}.
  */
 export interface DescribeConfigurationSetsCommandInput extends DescribeConfigurationSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationSetsCommand}.
  */
 export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigurationSetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified configuration sets or all in your account.</p>
  *         <p>If you specify configuration set names, the output includes information for only the
  *             specified configuration sets. If you specify filters, the output includes information
@@ -52,10 +49,27 @@ export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigur
  * import { PinpointSMSVoiceV2Client, DescribeConfigurationSetsCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DescribeConfigurationSetsCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DescribeConfigurationSetsRequest
+ *   ConfigurationSetNames: [ // ConfigurationSetNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // ConfigurationSetFilterList
+ *     { // ConfigurationSetFilter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeConfigurationSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationSetsCommandInput - {@link DescribeConfigurationSetsCommandInput}
+ * @returns {@link DescribeConfigurationSetsCommandOutput}
  * @see {@link DescribeConfigurationSetsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -97,6 +111,9 @@ export class DescribeConfigurationSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +142,8 @@ export class DescribeConfigurationSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationSetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +153,21 @@ export class DescribeConfigurationSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeConfigurationSetsCommand(input, context);
+    return se_DescribeConfigurationSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationSetsCommandOutput> {
-    return deserializeAws_json1_0DescribeConfigurationSetsCommand(output, context);
+    return de_DescribeConfigurationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

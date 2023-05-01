@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { DisassociateMembershipRequest, DisassociateMembershipRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateMembershipCommand,
-  serializeAws_restJson1DisassociateMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateMembershipRequest } from "../models/models_0";
+import { de_DisassociateMembershipCommand, se_DisassociateMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateMembershipCommand}.
  */
 export interface DisassociateMembershipCommandInput extends DisassociateMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateMembershipCommand}.
  */
 export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the member account from the specified behavior graph. This operation can only be
  *          called by an invited member account that has the <code>ENABLED</code> status.</p>
  *          <p>
@@ -43,10 +45,15 @@ export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
  * import { DetectiveClient, DisassociateMembershipCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, DisassociateMembershipCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // DisassociateMembershipRequest
+ *   GraphArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateMembershipCommandInput - {@link DisassociateMembershipCommandInput}
+ * @returns {@link DisassociateMembershipCommandOutput}
  * @see {@link DisassociateMembershipCommandInput} for command's `input` shape.
  * @see {@link DisassociateMembershipCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -86,6 +93,9 @@ export class DisassociateMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +124,8 @@ export class DisassociateMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +135,18 @@ export class DisassociateMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateMembershipCommand(input, context);
+    return se_DisassociateMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMembershipCommandOutput> {
-    return deserializeAws_restJson1DisassociateMembershipCommand(output, context);
+    return de_DisassociateMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -8,6 +8,8 @@ import { resolveLogins } from "./resolveLogins";
 import { Storage } from "./Storage";
 
 /**
+ * @internal
+ * 
  * Retrieves or generates a unique identifier using Amazon Cognito's `GetId`
  * operation, then generates temporary AWS credentials using Amazon Cognito's
  * `GetCredentialsForIdentity` operation.
@@ -62,6 +64,9 @@ export function fromCognitoIdentityPool({
     });
 }
 
+/**
+ * @internal
+ */
 export interface FromCognitoIdentityPoolParameters extends CognitoProviderParameters {
   /**
    * A standard AWS account ID (9+ digits).

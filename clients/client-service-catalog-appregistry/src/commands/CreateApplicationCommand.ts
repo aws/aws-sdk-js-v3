@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateApplicationRequest,
-  CreateApplicationRequestFilterSensitiveLog,
-  CreateApplicationResponse,
-  CreateApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateApplicationCommand,
-  serializeAws_restJson1CreateApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
+import { de_CreateApplicationCommand, se_CreateApplicationCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new application that is the top-level node in a hierarchy of related cloud resource abstractions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,20 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { ServiceCatalogAppRegistryClient, CreateApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, CreateApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // CreateApplicationRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
+ * @returns {@link CreateApplicationCommandOutput}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -62,7 +69,17 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *  <p>The service is experiencing internal problems.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The maximum number of resources per account has been reached.</p>
+ *  <p>
+ *       The maximum number
+ *       of resources per account
+ *       has been reached.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The maximum number
+ *       of API requests
+ *       has been exceeded.
+ *     </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
@@ -86,6 +103,9 @@ export class CreateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +134,8 @@ export class CreateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +145,18 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApplicationCommand(input, context);
+    return se_CreateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateApplicationCommand(output, context);
+    return de_CreateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

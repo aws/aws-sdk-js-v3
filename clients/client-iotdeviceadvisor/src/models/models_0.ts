@@ -4,6 +4,21 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { IotDeviceAdvisorServiceException as __BaseException } from "./IotDeviceAdvisorServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const AuthenticationMethod = {
+  SignatureVersion4: "SignatureVersion4",
+  X509ClientCertificate: "X509ClientCertificate",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
+
+/**
+ * @public
  * <p>Sends a Conflict Exception.</p>
  */
 export class ConflictException extends __BaseException {
@@ -23,26 +38,45 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Information of a test device. A thing ARN or a certificate ARN is required.</p>
+ * @public
+ * <p>Information of a test device. A thing ARN, certificate ARN
+ *             or device role ARN is required.</p>
  */
 export interface DeviceUnderTest {
   /**
-   * <p>Lists devices thing ARN.</p>
+   * <p>Lists device's thing ARN.</p>
    */
   thingArn?: string;
 
   /**
-   * <p>Lists devices certificate ARN.</p>
+   * <p>Lists device's certificate ARN.</p>
    */
   certificateArn?: string;
-}
 
-export enum Protocol {
-  MqttV3_1_1 = "MqttV3_1_1",
-  MqttV5 = "MqttV5",
+  /**
+   * <p>Lists device's role ARN.</p>
+   */
+  deviceRoleArn?: string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const Protocol = {
+  MqttV3_1_1: "MqttV3_1_1",
+  MqttV3_1_1_OverWebSocket: "MqttV3_1_1_OverWebSocket",
+  MqttV5: "MqttV5",
+  MqttV5_OverWebSocket: "MqttV5_OverWebSocket",
+} as const;
+
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
+/**
+ * @public
  * <p>Gets the suite definition configuration.</p>
  */
 export interface SuiteDefinitionConfiguration {
@@ -82,6 +116,9 @@ export interface SuiteDefinitionConfiguration {
   protocol?: Protocol | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSuiteDefinitionRequest {
   /**
    * <p>Creates a Device Advisor test suite with suite definition configuration.</p>
@@ -94,6 +131,9 @@ export interface CreateSuiteDefinitionRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSuiteDefinitionResponse {
   /**
    * <p>The UUID of the test suite created.</p>
@@ -117,6 +157,7 @@ export interface CreateSuiteDefinitionResponse {
 }
 
 /**
+ * @public
  * <p>Sends an Internal Failure exception.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -136,6 +177,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Sends a validation exception.</p>
  */
 export class ValidationException extends __BaseException {
@@ -154,6 +196,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteSuiteDefinitionRequest {
   /**
    * <p>Suite definition ID of the test suite to be deleted.</p>
@@ -161,8 +206,14 @@ export interface DeleteSuiteDefinitionRequest {
   suiteDefinitionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSuiteDefinitionResponse {}
 
+/**
+ * @public
+ */
 export interface GetEndpointRequest {
   /**
    * <p>The thing ARN of the device. This is an optional parameter.</p>
@@ -173,8 +224,21 @@ export interface GetEndpointRequest {
    * <p>The certificate ARN of the device. This is an optional parameter.</p>
    */
   certificateArn?: string;
+
+  /**
+   * <p>The device role ARN of the device. This is an optional parameter.</p>
+   */
+  deviceRoleArn?: string;
+
+  /**
+   * <p>The authentication method used during the device connection.</p>
+   */
+  authenticationMethod?: AuthenticationMethod | string;
 }
 
+/**
+ * @public
+ */
 export interface GetEndpointResponse {
   /**
    * <p>The response of an Device Advisor endpoint.</p>
@@ -183,6 +247,7 @@ export interface GetEndpointResponse {
 }
 
 /**
+ * @public
  * <p>Sends a Resource Not Found exception.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -201,6 +266,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetSuiteDefinitionRequest {
   /**
    * <p>Suite definition ID of the test suite to get.</p>
@@ -213,6 +281,9 @@ export interface GetSuiteDefinitionRequest {
   suiteDefinitionVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSuiteDefinitionResponse {
   /**
    * <p>Suite definition ID of the suite definition.</p>
@@ -255,6 +326,9 @@ export interface GetSuiteDefinitionResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetSuiteRunRequest {
   /**
    * <p>Suite definition ID for the test suite run.</p>
@@ -267,19 +341,29 @@ export interface GetSuiteRunRequest {
   suiteRunId: string | undefined;
 }
 
-export enum SuiteRunStatus {
-  CANCELED = "CANCELED",
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-  PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SuiteRunStatus = {
+  CANCELED: "CANCELED",
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
 
 /**
+ * @public
+ */
+export type SuiteRunStatus = (typeof SuiteRunStatus)[keyof typeof SuiteRunStatus];
+
+/**
+ * @public
  * <p>Gets suite run configuration.</p>
  */
 export interface SuiteRunConfiguration {
@@ -300,36 +384,64 @@ export interface SuiteRunConfiguration {
   parallelRun?: boolean;
 }
 
-export enum Status {
-  CANCELED = "CANCELED",
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-  PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
-
-export enum TestCaseScenarioStatus {
-  CANCELED = "CANCELED",
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-  PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
-
-export enum TestCaseScenarioType {
-  Advanced = "Advanced",
-  Basic = "Basic",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  CANCELED: "CANCELED",
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
 
 /**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestCaseScenarioStatus = {
+  CANCELED: "CANCELED",
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type TestCaseScenarioStatus = (typeof TestCaseScenarioStatus)[keyof typeof TestCaseScenarioStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestCaseScenarioType = {
+  Advanced: "Advanced",
+  Basic: "Basic",
+} as const;
+
+/**
+ * @public
+ */
+export type TestCaseScenarioType = (typeof TestCaseScenarioType)[keyof typeof TestCaseScenarioType];
+
+/**
+ * @public
  * <p>Provides test case scenario.</p>
  */
 export interface TestCaseScenario {
@@ -406,6 +518,7 @@ export interface TestCaseScenario {
 }
 
 /**
+ * @public
  * <p>Provides the test case run.</p>
  */
 export interface TestCaseRun {
@@ -498,6 +611,7 @@ export interface TestCaseRun {
 }
 
 /**
+ * @public
  * <p>Show Group Result.</p>
  */
 export interface GroupResult {
@@ -518,6 +632,7 @@ export interface GroupResult {
 }
 
 /**
+ * @public
  * <p>Show each group result.</p>
  */
 export interface TestResult {
@@ -527,6 +642,9 @@ export interface TestResult {
   groups?: GroupResult[];
 }
 
+/**
+ * @public
+ */
 export interface GetSuiteRunResponse {
   /**
    * <p>Suite definition ID for the test suite run.</p>
@@ -584,6 +702,9 @@ export interface GetSuiteRunResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetSuiteRunReportRequest {
   /**
    * <p>Suite definition ID of the test suite.</p>
@@ -596,6 +717,9 @@ export interface GetSuiteRunReportRequest {
   suiteRunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSuiteRunReportResponse {
   /**
    * <p>Download URL of the qualification report.</p>
@@ -603,6 +727,9 @@ export interface GetSuiteRunReportResponse {
   qualificationReportDownloadUrl?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSuiteDefinitionsRequest {
   /**
    * <p>The maximum number of results to return at once.</p>
@@ -616,6 +743,7 @@ export interface ListSuiteDefinitionsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the suite definition.</p>
  */
 export interface SuiteDefinitionInformation {
@@ -655,6 +783,9 @@ export interface SuiteDefinitionInformation {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListSuiteDefinitionsResponse {
   /**
    * <p>An array of objects that provide summaries of information about the suite definitions
@@ -668,6 +799,9 @@ export interface ListSuiteDefinitionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSuiteRunsRequest {
   /**
    * <p>Lists the test suite runs of the specified test suite based on suite definition
@@ -693,6 +827,7 @@ export interface ListSuiteRunsRequest {
 }
 
 /**
+ * @public
  * <p>Information about the suite run.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SuiteRunInformation</a> action.</p>
  */
@@ -748,6 +883,9 @@ export interface SuiteRunInformation {
   failed?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListSuiteRunsResponse {
   /**
    * <p>An array of objects that provide summaries of information about the suite runs in the
@@ -761,6 +899,9 @@ export interface ListSuiteRunsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource ARN of the IoT Device Advisor resource.
@@ -769,6 +910,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags attached to the IoT Device Advisor resource.</p>
@@ -776,6 +920,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartSuiteRunRequest {
   /**
    * <p>Suite definition ID of the test suite.</p>
@@ -798,6 +945,9 @@ export interface StartSuiteRunRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartSuiteRunResponse {
   /**
    * <p>Suite Run ID of the started suite run.</p>
@@ -820,6 +970,9 @@ export interface StartSuiteRunResponse {
   endpoint?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopSuiteRunRequest {
   /**
    * <p>Suite definition ID of the test suite run to be stopped.</p>
@@ -832,8 +985,14 @@ export interface StopSuiteRunRequest {
   suiteRunId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopSuiteRunResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource ARN of an IoT Device Advisor resource.
@@ -847,8 +1006,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The resource ARN of an IoT Device Advisor resource.
@@ -862,8 +1027,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateSuiteDefinitionRequest {
   /**
    * <p>Suite definition ID of the test suite to be updated.</p>
@@ -876,6 +1047,9 @@ export interface UpdateSuiteDefinitionRequest {
   suiteDefinitionConfiguration: SuiteDefinitionConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSuiteDefinitionResponse {
   /**
    * <p>Suite definition ID of the updated test suite.</p>
@@ -907,262 +1081,3 @@ export interface UpdateSuiteDefinitionResponse {
    */
   lastUpdatedAt?: Date;
 }
-
-/**
- * @internal
- */
-export const DeviceUnderTestFilterSensitiveLog = (obj: DeviceUnderTest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuiteDefinitionConfigurationFilterSensitiveLog = (obj: SuiteDefinitionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSuiteDefinitionRequestFilterSensitiveLog = (obj: CreateSuiteDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSuiteDefinitionResponseFilterSensitiveLog = (obj: CreateSuiteDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSuiteDefinitionRequestFilterSensitiveLog = (obj: DeleteSuiteDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSuiteDefinitionResponseFilterSensitiveLog = (obj: DeleteSuiteDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEndpointRequestFilterSensitiveLog = (obj: GetEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEndpointResponseFilterSensitiveLog = (obj: GetEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSuiteDefinitionRequestFilterSensitiveLog = (obj: GetSuiteDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSuiteDefinitionResponseFilterSensitiveLog = (obj: GetSuiteDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSuiteRunRequestFilterSensitiveLog = (obj: GetSuiteRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuiteRunConfigurationFilterSensitiveLog = (obj: SuiteRunConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestCaseScenarioFilterSensitiveLog = (obj: TestCaseScenario): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestCaseRunFilterSensitiveLog = (obj: TestCaseRun): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GroupResultFilterSensitiveLog = (obj: GroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestResultFilterSensitiveLog = (obj: TestResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSuiteRunResponseFilterSensitiveLog = (obj: GetSuiteRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSuiteRunReportRequestFilterSensitiveLog = (obj: GetSuiteRunReportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSuiteRunReportResponseFilterSensitiveLog = (obj: GetSuiteRunReportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSuiteDefinitionsRequestFilterSensitiveLog = (obj: ListSuiteDefinitionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuiteDefinitionInformationFilterSensitiveLog = (obj: SuiteDefinitionInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSuiteDefinitionsResponseFilterSensitiveLog = (obj: ListSuiteDefinitionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSuiteRunsRequestFilterSensitiveLog = (obj: ListSuiteRunsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuiteRunInformationFilterSensitiveLog = (obj: SuiteRunInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSuiteRunsResponseFilterSensitiveLog = (obj: ListSuiteRunsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSuiteRunRequestFilterSensitiveLog = (obj: StartSuiteRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSuiteRunResponseFilterSensitiveLog = (obj: StartSuiteRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopSuiteRunRequestFilterSensitiveLog = (obj: StopSuiteRunRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopSuiteRunResponseFilterSensitiveLog = (obj: StopSuiteRunResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSuiteDefinitionRequestFilterSensitiveLog = (obj: UpdateSuiteDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSuiteDefinitionResponseFilterSensitiveLog = (obj: UpdateSuiteDefinitionResponse): any => ({
-  ...obj,
-});

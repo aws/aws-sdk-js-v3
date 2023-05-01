@@ -15,21 +15,23 @@ import {
 
 import {
   DescribeMaintenanceWindowsForTargetRequest,
-  DescribeMaintenanceWindowsForTargetRequestFilterSensitiveLog,
   DescribeMaintenanceWindowsForTargetResult,
-  DescribeMaintenanceWindowsForTargetResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand,
+  de_DescribeMaintenanceWindowsForTargetCommand,
+  se_DescribeMaintenanceWindowsForTargetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMaintenanceWindowsForTargetCommand}.
  */
 export interface DescribeMaintenanceWindowsForTargetCommandInput extends DescribeMaintenanceWindowsForTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMaintenanceWindowsForTargetCommand}.
  */
 export interface DescribeMaintenanceWindowsForTargetCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the maintenance window targets or tasks that a managed node is
  *    associated with.</p>
  * @example
@@ -45,10 +48,25 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
  * import { SSMClient, DescribeMaintenanceWindowsForTargetCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowsForTargetCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeMaintenanceWindowsForTargetRequest
+ *   Targets: [ // Targets // required
+ *     { // Target
+ *       Key: "STRING_VALUE",
+ *       Values: [ // TargetValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ResourceType: "INSTANCE" || "RESOURCE_GROUP", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMaintenanceWindowsForTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMaintenanceWindowsForTargetCommandInput - {@link DescribeMaintenanceWindowsForTargetCommandInput}
+ * @returns {@link DescribeMaintenanceWindowsForTargetCommandOutput}
  * @see {@link DescribeMaintenanceWindowsForTargetCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowsForTargetCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -75,6 +93,9 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowsForTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +124,8 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowsForTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMaintenanceWindowsForTargetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +135,24 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMaintenanceWindowsForTargetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand(input, context);
+    return se_DescribeMaintenanceWindowsForTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand(output, context);
+    return de_DescribeMaintenanceWindowsForTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

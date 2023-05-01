@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorkflowsRequest,
-  ListWorkflowsRequestFilterSensitiveLog,
-  ListWorkflowsResponse,
-  ListWorkflowsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListWorkflowsCommand,
-  serializeAws_json1_1ListWorkflowsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListWorkflowsRequest, ListWorkflowsResponse } from "../models/models_0";
+import { de_ListWorkflowsCommand, se_ListWorkflowsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkflowsCommand}.
  */
 export interface ListWorkflowsCommandInput extends ListWorkflowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkflowsCommand}.
  */
 export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of your workflows.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * import { TransferClient, ListWorkflowsCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListWorkflowsCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // ListWorkflowsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
+ * @returns {@link ListWorkflowsCommandOutput}
  * @see {@link ListWorkflowsCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowsCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListWorkflowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkflowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class ListWorkflowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkflowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkflowsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class ListWorkflowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkflowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWorkflowsCommand(input, context);
+    return se_ListWorkflowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowsCommandOutput> {
-    return deserializeAws_json1_1ListWorkflowsCommand(output, context);
+    return de_ListWorkflowsCommand(output, context);
   }
 
   // Start section: command_body_extra

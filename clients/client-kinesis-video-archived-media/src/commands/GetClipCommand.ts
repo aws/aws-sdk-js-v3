@@ -21,27 +21,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import {
-  GetClipInput,
-  GetClipInputFilterSensitiveLog,
-  GetClipOutput,
-  GetClipOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetClipCommand,
-  serializeAws_restJson1GetClipCommand,
-} from "../protocols/Aws_restJson1";
+import { GetClipInput, GetClipOutput, GetClipOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetClipCommand, se_GetClipCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetClipCommand}.
  */
 export interface GetClipCommandInput extends GetClipInput {}
 /**
+ * @public
+ *
  * The output of {@link GetClipCommand}.
  */
 export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput, "Payload">, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the
  *             specified video stream over the specified time range. </p>
  *         <p>Both the StreamName and the StreamARN parameters are optional, but you must specify
@@ -89,10 +86,23 @@ export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput
  * import { KinesisVideoArchivedMediaClient, GetClipCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetClipCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
+ * const input = { // GetClipInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   ClipFragmentSelector: { // ClipFragmentSelector
+ *     FragmentSelectorType: "STRING_VALUE", // required
+ *     TimestampRange: { // ClipTimestampRange
+ *       StartTimestamp: new Date("TIMESTAMP"), // required
+ *       EndTimestamp: new Date("TIMESTAMP"), // required
+ *     },
+ *   },
+ * };
  * const command = new GetClipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClipCommandInput - {@link GetClipCommandInput}
+ * @returns {@link GetClipCommandOutput}
  * @see {@link GetClipCommandInput} for command's `input` shape.
  * @see {@link GetClipCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
@@ -160,6 +170,9 @@ export class GetClipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClipCommandInput) {
     // Start section: command_constructor
     super();
@@ -186,7 +199,7 @@ export class GetClipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClipInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetClipOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -197,15 +210,21 @@ export class GetClipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetClipCommand(input, context);
+    return se_GetClipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetClipCommandOutput> {
-    return deserializeAws_restJson1GetClipCommand(output, context);
+    return de_GetClipCommand(output, context);
   }
 
   // Start section: command_body_extra

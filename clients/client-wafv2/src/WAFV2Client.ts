@@ -51,6 +51,7 @@ import {
 
 import { AssociateWebACLCommandInput, AssociateWebACLCommandOutput } from "./commands/AssociateWebACLCommand";
 import { CheckCapacityCommandInput, CheckCapacityCommandOutput } from "./commands/CheckCapacityCommand";
+import { CreateAPIKeyCommandInput, CreateAPIKeyCommandOutput } from "./commands/CreateAPIKeyCommand";
 import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
   CreateRegexPatternSetCommandInput,
@@ -86,6 +87,7 @@ import {
   GenerateMobileSdkReleaseUrlCommandInput,
   GenerateMobileSdkReleaseUrlCommandOutput,
 } from "./commands/GenerateMobileSdkReleaseUrlCommand";
+import { GetDecryptedAPIKeyCommandInput, GetDecryptedAPIKeyCommandOutput } from "./commands/GetDecryptedAPIKeyCommand";
 import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommandInput,
@@ -112,6 +114,7 @@ import {
   GetWebACLForResourceCommandInput,
   GetWebACLForResourceCommandOutput,
 } from "./commands/GetWebACLForResourceCommand";
+import { ListAPIKeysCommandInput, ListAPIKeysCommandOutput } from "./commands/ListAPIKeysCommand";
 import {
   ListAvailableManagedRuleGroupsCommandInput,
   ListAvailableManagedRuleGroupsCommandOutput,
@@ -180,9 +183,13 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateWebACLCommandInput
   | CheckCapacityCommandInput
+  | CreateAPIKeyCommandInput
   | CreateIPSetCommandInput
   | CreateRegexPatternSetCommandInput
   | CreateRuleGroupCommandInput
@@ -197,6 +204,7 @@ export type ServiceInputTypes =
   | DescribeManagedRuleGroupCommandInput
   | DisassociateWebACLCommandInput
   | GenerateMobileSdkReleaseUrlCommandInput
+  | GetDecryptedAPIKeyCommandInput
   | GetIPSetCommandInput
   | GetLoggingConfigurationCommandInput
   | GetManagedRuleSetCommandInput
@@ -208,6 +216,7 @@ export type ServiceInputTypes =
   | GetSampledRequestsCommandInput
   | GetWebACLCommandInput
   | GetWebACLForResourceCommandInput
+  | ListAPIKeysCommandInput
   | ListAvailableManagedRuleGroupVersionsCommandInput
   | ListAvailableManagedRuleGroupsCommandInput
   | ListIPSetsCommandInput
@@ -230,9 +239,13 @@ export type ServiceInputTypes =
   | UpdateRuleGroupCommandInput
   | UpdateWebACLCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateWebACLCommandOutput
   | CheckCapacityCommandOutput
+  | CreateAPIKeyCommandOutput
   | CreateIPSetCommandOutput
   | CreateRegexPatternSetCommandOutput
   | CreateRuleGroupCommandOutput
@@ -247,6 +260,7 @@ export type ServiceOutputTypes =
   | DescribeManagedRuleGroupCommandOutput
   | DisassociateWebACLCommandOutput
   | GenerateMobileSdkReleaseUrlCommandOutput
+  | GetDecryptedAPIKeyCommandOutput
   | GetIPSetCommandOutput
   | GetLoggingConfigurationCommandOutput
   | GetManagedRuleSetCommandOutput
@@ -258,6 +272,7 @@ export type ServiceOutputTypes =
   | GetSampledRequestsCommandOutput
   | GetWebACLCommandOutput
   | GetWebACLForResourceCommandOutput
+  | ListAPIKeysCommandOutput
   | ListAvailableManagedRuleGroupVersionsCommandOutput
   | ListAvailableManagedRuleGroupsCommandOutput
   | ListIPSetsCommandOutput
@@ -280,6 +295,9 @@ export type ServiceOutputTypes =
   | UpdateRuleGroupCommandOutput
   | UpdateWebACLCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -287,7 +305,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -396,11 +414,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type WAFV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -411,10 +432,15 @@ type WAFV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of WAFV2Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of WAFV2Client class constructor that set the region, credentials and other options.
  */
 export interface WAFV2ClientConfig extends WAFV2ClientConfigType {}
 
+/**
+ * @public
+ */
 type WAFV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -425,11 +451,14 @@ type WAFV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandler
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of WAFV2Client class. This is resolved and normalized from the {@link WAFV2ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of WAFV2Client class. This is resolved and normalized from the {@link WAFV2ClientConfig | constructor configuration interface}.
  */
 export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>WAF</fullname>
  *          <note>
  *             <p>This is the latest version of the <b>WAF</b> API,
@@ -446,7 +475,7 @@ export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType
  *          </note>
  *          <p>WAF is a web application firewall that lets you monitor the HTTP and HTTPS
  *          requests that are forwarded to an Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync
- *       GraphQL API, Amazon Cognito user pool, or App Runner service. WAF also lets you control access to your content,
+ *       GraphQL API, Amazon Cognito user pool, App Runner service, or Amazon Web Services Verified Access instance. WAF also lets you control access to your content,
  *       to protect the Amazon Web Services resource that WAF is monitoring. Based on conditions that
  *          you specify, such as the IP addresses that requests originate from or the values of query
  *          strings, the protected resource responds to requests with either the requested content, an HTTP 403 status code
@@ -459,7 +488,7 @@ export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType
  *          <ul>
  *             <li>
  *                <p>For regional applications, you can use any of the endpoints in the list.
- *                A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service. </p>
+ *                A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
  *             </li>
  *             <li>
  *                <p>For Amazon CloudFront applications, you must use the API endpoint listed for

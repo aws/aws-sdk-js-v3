@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDBParameterGroupMessage,
-  CreateDBParameterGroupMessageFilterSensitiveLog,
-  CreateDBParameterGroupResult,
-  CreateDBParameterGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDBParameterGroupMessage, CreateDBParameterGroupResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryCreateDBParameterGroupCommand,
-  serializeAws_queryCreateDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBParameterGroupCommand, se_CreateDBParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDBParameterGroupCommand}.
  */
 export interface CreateDBParameterGroupCommandInput extends CreateDBParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateDBParameterGroupCommand}.
  */
 export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB parameter group.</p>
  *          <p>A DB parameter group is initially created with the default parameters for the database
  *       engine used by the DB instance. To provide custom values for any of the parameters, you must
@@ -61,10 +58,23 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * import { NeptuneClient, CreateDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // CreateDBParameterGroupMessage
+ *   DBParameterGroupName: "STRING_VALUE", // required
+ *   DBParameterGroupFamily: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDBParameterGroupCommandInput - {@link CreateDBParameterGroupCommandInput}
+ * @returns {@link CreateDBParameterGroupCommandOutput}
  * @see {@link CreateDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -94,6 +104,9 @@ export class CreateDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +135,8 @@ export class CreateDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBParameterGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +146,18 @@ export class CreateDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBParameterGroupCommand(input, context);
+    return se_CreateDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateDBParameterGroupCommand(output, context);
+    return de_CreateDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

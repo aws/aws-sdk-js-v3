@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  GetGeofenceRequest,
-  GetGeofenceRequestFilterSensitiveLog,
-  GetGeofenceResponse,
-  GetGeofenceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGeofenceCommand,
-  serializeAws_restJson1GetGeofenceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGeofenceRequest, GetGeofenceResponse, GetGeofenceResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetGeofenceCommand, se_GetGeofenceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGeofenceCommand}.
  */
 export interface GetGeofenceCommandInput extends GetGeofenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGeofenceCommand}.
  */
 export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the geofence details from a geofence collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  * import { LocationClient, GetGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // GetGeofenceRequest
+ *   CollectionName: "STRING_VALUE", // required
+ *   GeofenceId: "STRING_VALUE", // required
+ * };
  * const command = new GetGeofenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGeofenceCommandInput - {@link GetGeofenceCommandInput}
+ * @returns {@link GetGeofenceCommandOutput}
  * @see {@link GetGeofenceCommandInput} for command's `input` shape.
  * @see {@link GetGeofenceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -85,6 +88,9 @@ export class GetGeofenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGeofenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,7 +117,7 @@ export class GetGeofenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGeofenceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetGeofenceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -122,12 +128,18 @@ export class GetGeofenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGeofenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGeofenceCommand(input, context);
+    return se_GetGeofenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGeofenceCommandOutput> {
-    return deserializeAws_restJson1GetGeofenceCommand(output, context);
+    return de_GetGeofenceCommand(output, context);
   }
 
   // Start section: command_body_extra

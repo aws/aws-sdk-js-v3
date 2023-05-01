@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListModelMetadataRequest,
-  ListModelMetadataRequestFilterSensitiveLog,
-  ListModelMetadataResponse,
-  ListModelMetadataResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListModelMetadataCommand,
-  serializeAws_json1_1ListModelMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { ListModelMetadataRequest, ListModelMetadataResponse } from "../models/models_3";
+import { de_ListModelMetadataCommand, se_ListModelMetadataCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelMetadataCommand}.
  */
 export interface ListModelMetadataCommandInput extends ListModelMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelMetadataCommand}.
  */
 export interface ListModelMetadataCommandOutput extends ListModelMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the domain, framework, task, and model name of standard
  *           machine learning models found in common model zoos.</p>
  * @example
@@ -43,10 +40,24 @@ export interface ListModelMetadataCommandOutput extends ListModelMetadataRespons
  * import { SageMakerClient, ListModelMetadataCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelMetadataCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListModelMetadataRequest
+ *   SearchExpression: { // ModelMetadataSearchExpression
+ *     Filters: [ // ModelMetadataFilters
+ *       { // ModelMetadataFilter
+ *         Name: "Domain" || "Framework" || "Task" || "FrameworkVersion", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListModelMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelMetadataCommandInput - {@link ListModelMetadataCommandInput}
+ * @returns {@link ListModelMetadataCommandOutput}
  * @see {@link ListModelMetadataCommandInput} for command's `input` shape.
  * @see {@link ListModelMetadataCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -70,6 +81,9 @@ export class ListModelMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +112,8 @@ export class ListModelMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +123,18 @@ export class ListModelMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListModelMetadataCommand(input, context);
+    return se_ListModelMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelMetadataCommandOutput> {
-    return deserializeAws_json1_1ListModelMetadataCommand(output, context);
+    return de_ListModelMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

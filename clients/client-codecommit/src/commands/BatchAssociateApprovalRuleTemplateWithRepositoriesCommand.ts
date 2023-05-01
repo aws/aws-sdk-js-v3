@@ -16,21 +16,23 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import {
   BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesInputFilterSensitiveLog,
   BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,
-  serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,
+  de_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,
+  se_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommand}.
  */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput
   extends BatchAssociateApprovalRuleTemplateWithRepositoriesInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommand}.
  */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
@@ -38,6 +40,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between an approval rule template and one or more specified repositories. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,18 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
  * import { CodeCommitClient, BatchAssociateApprovalRuleTemplateWithRepositoriesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, BatchAssociateApprovalRuleTemplateWithRepositoriesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // BatchAssociateApprovalRuleTemplateWithRepositoriesInput
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ *   repositoryNames: [ // RepositoryNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput - {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput}
+ * @returns {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput}
  * @see {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -106,6 +117,9 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +154,8 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchAssociateApprovalRuleTemplateWithRepositoriesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchAssociateApprovalRuleTemplateWithRepositoriesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,18 +165,24 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(input, context);
+    return se_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> {
-    return deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(output, context);
+    return de_BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

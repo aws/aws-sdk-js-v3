@@ -20,16 +20,20 @@ import {
   UpdateServiceTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0UpdateServiceTemplateVersionCommand,
-  serializeAws_json1_0UpdateServiceTemplateVersionCommand,
+  de_UpdateServiceTemplateVersionCommand,
+  se_UpdateServiceTemplateVersionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceTemplateVersionCommand}.
  */
 export interface UpdateServiceTemplateVersionCommandInput extends UpdateServiceTemplateVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceTemplateVersionCommand}.
  */
 export interface UpdateServiceTemplateVersionCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateServiceTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a major or minor version of a service template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +49,28 @@ export interface UpdateServiceTemplateVersionCommandOutput
  * import { ProtonClient, UpdateServiceTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // UpdateServiceTemplateVersionInput
+ *   templateName: "STRING_VALUE", // required
+ *   majorVersion: "STRING_VALUE", // required
+ *   minorVersion: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   compatibleEnvironmentTemplates: [ // CompatibleEnvironmentTemplateInputList
+ *     { // CompatibleEnvironmentTemplateInput
+ *       templateName: "STRING_VALUE", // required
+ *       majorVersion: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   supportedComponentSources: [ // ServiceTemplateSupportedComponentSourceInputList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateServiceTemplateVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceTemplateVersionCommandInput - {@link UpdateServiceTemplateVersionCommandInput}
+ * @returns {@link UpdateServiceTemplateVersionCommandOutput}
  * @see {@link UpdateServiceTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -89,6 +112,9 @@ export class UpdateServiceTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,15 +154,21 @@ export class UpdateServiceTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateServiceTemplateVersionCommand(input, context);
+    return se_UpdateServiceTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServiceTemplateVersionCommandOutput> {
-    return deserializeAws_json1_0UpdateServiceTemplateVersionCommand(output, context);
+    return de_UpdateServiceTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

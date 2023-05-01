@@ -260,6 +260,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AttachInstancesCommandInput
   | AttachLoadBalancerTargetGroupsCommandInput
@@ -327,6 +330,9 @@ export type ServiceInputTypes =
   | TerminateInstanceInAutoScalingGroupCommandInput
   | UpdateAutoScalingGroupCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AttachInstancesCommandOutput
   | AttachLoadBalancerTargetGroupsCommandOutput
@@ -394,6 +400,9 @@ export type ServiceOutputTypes =
   | TerminateInstanceInAutoScalingGroupCommandOutput
   | UpdateAutoScalingGroupCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -401,7 +410,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -510,11 +519,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AutoScalingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -525,10 +537,15 @@ type AutoScalingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOp
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AutoScalingClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AutoScalingClient class constructor that set the region, credentials and other options.
  */
 export interface AutoScalingClientConfig extends AutoScalingClientConfigType {}
 
+/**
+ * @public
+ */
 type AutoScalingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -539,11 +556,14 @@ type AutoScalingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AutoScalingClient class. This is resolved and normalized from the {@link AutoScalingClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AutoScalingClient class. This is resolved and normalized from the {@link AutoScalingClientConfig | constructor configuration interface}.
  */
 export interface AutoScalingClientResolvedConfig extends AutoScalingClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon EC2 Auto Scaling</fullname>
  *          <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances
  *             based on user-defined scaling policies, scheduled actions, and health checks.</p>

@@ -16,21 +16,23 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   ListAssociationsForLicenseConfigurationRequest,
-  ListAssociationsForLicenseConfigurationRequestFilterSensitiveLog,
   ListAssociationsForLicenseConfigurationResponse,
-  ListAssociationsForLicenseConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommand,
-  serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand,
+  de_ListAssociationsForLicenseConfigurationCommand,
+  se_ListAssociationsForLicenseConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociationsForLicenseConfigurationCommand}.
  */
 export interface ListAssociationsForLicenseConfigurationCommandInput
   extends ListAssociationsForLicenseConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociationsForLicenseConfigurationCommand}.
  */
 export interface ListAssociationsForLicenseConfigurationCommandOutput
@@ -38,6 +40,7 @@ export interface ListAssociationsForLicenseConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resource associations for the specified license configuration.</p>
  *          <p>Resource associations need not consume licenses from a license configuration.
  *          For example, an AMI or a stopped instance might not consume a license (depending on
@@ -48,10 +51,17 @@ export interface ListAssociationsForLicenseConfigurationCommandOutput
  * import { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListAssociationsForLicenseConfigurationRequest
+ *   LicenseConfigurationArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAssociationsForLicenseConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociationsForLicenseConfigurationCommandInput - {@link ListAssociationsForLicenseConfigurationCommandInput}
+ * @returns {@link ListAssociationsForLicenseConfigurationCommandOutput}
  * @see {@link ListAssociationsForLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link ListAssociationsForLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -94,6 +104,9 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociationsForLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +141,8 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociationsForLicenseConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociationsForLicenseConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,18 +152,24 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAssociationsForLicenseConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand(input, context);
+    return se_ListAssociationsForLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssociationsForLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommand(output, context);
+    return de_ListAssociationsForLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

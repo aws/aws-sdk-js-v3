@@ -16,21 +16,23 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   GetEvidenceFoldersByAssessmentControlRequest,
-  GetEvidenceFoldersByAssessmentControlRequestFilterSensitiveLog,
   GetEvidenceFoldersByAssessmentControlResponse,
-  GetEvidenceFoldersByAssessmentControlResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand,
-  serializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand,
+  de_GetEvidenceFoldersByAssessmentControlCommand,
+  se_GetEvidenceFoldersByAssessmentControlCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEvidenceFoldersByAssessmentControlCommand}.
  */
 export interface GetEvidenceFoldersByAssessmentControlCommandInput
   extends GetEvidenceFoldersByAssessmentControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEvidenceFoldersByAssessmentControlCommand}.
  */
 export interface GetEvidenceFoldersByAssessmentControlCommandOutput
@@ -38,6 +40,7 @@ export interface GetEvidenceFoldersByAssessmentControlCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of evidence folders that are associated with a specified control in an
  *             Audit Manager assessment. </p>
  * @example
@@ -46,10 +49,19 @@ export interface GetEvidenceFoldersByAssessmentControlCommandOutput
  * import { AuditManagerClient, GetEvidenceFoldersByAssessmentControlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetEvidenceFoldersByAssessmentControlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // GetEvidenceFoldersByAssessmentControlRequest
+ *   assessmentId: "STRING_VALUE", // required
+ *   controlSetId: "STRING_VALUE", // required
+ *   controlId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetEvidenceFoldersByAssessmentControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEvidenceFoldersByAssessmentControlCommandInput - {@link GetEvidenceFoldersByAssessmentControlCommandInput}
+ * @returns {@link GetEvidenceFoldersByAssessmentControlCommandOutput}
  * @see {@link GetEvidenceFoldersByAssessmentControlCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceFoldersByAssessmentControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -87,6 +99,9 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEvidenceFoldersByAssessmentControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +130,8 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEvidenceFoldersByAssessmentControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEvidenceFoldersByAssessmentControlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +141,24 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEvidenceFoldersByAssessmentControlCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand(input, context);
+    return se_GetEvidenceFoldersByAssessmentControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEvidenceFoldersByAssessmentControlCommandOutput> {
-    return deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand(output, context);
+    return de_GetEvidenceFoldersByAssessmentControlCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  UpdateRulesetRequest,
-  UpdateRulesetRequestFilterSensitiveLog,
-  UpdateRulesetResponse,
-  UpdateRulesetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRulesetCommand,
-  serializeAws_restJson1UpdateRulesetCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRulesetRequest, UpdateRulesetResponse } from "../models/models_0";
+import { de_UpdateRulesetCommand, se_UpdateRulesetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRulesetCommand}.
  */
 export interface UpdateRulesetCommandInput extends UpdateRulesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRulesetCommand}.
  */
 export interface UpdateRulesetCommandOutput extends UpdateRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates specified ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,37 @@ export interface UpdateRulesetCommandOutput extends UpdateRulesetResponse, __Met
  * import { DataBrewClient, UpdateRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // UpdateRulesetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Rules: [ // RuleList // required
+ *     { // Rule
+ *       Name: "STRING_VALUE", // required
+ *       Disabled: true || false,
+ *       CheckExpression: "STRING_VALUE", // required
+ *       SubstitutionMap: { // ValuesMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Threshold: { // Threshold
+ *         Value: Number("double"), // required
+ *         Type: "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "GREATER_THAN" || "LESS_THAN",
+ *         Unit: "COUNT" || "PERCENTAGE",
+ *       },
+ *       ColumnSelectors: [ // ColumnSelectorList
+ *         { // ColumnSelector
+ *           Regex: "STRING_VALUE",
+ *           Name: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRulesetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRulesetCommandInput - {@link UpdateRulesetCommandInput}
+ * @returns {@link UpdateRulesetCommandOutput}
  * @see {@link UpdateRulesetCommandInput} for command's `input` shape.
  * @see {@link UpdateRulesetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -75,6 +99,9 @@ export class UpdateRulesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +128,8 @@ export class UpdateRulesetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRulesetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRulesetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +139,18 @@ export class UpdateRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRulesetCommand(input, context);
+    return se_UpdateRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRulesetCommandOutput> {
-    return deserializeAws_restJson1UpdateRulesetCommand(output, context);
+    return de_UpdateRulesetCommand(output, context);
   }
 
   // Start section: command_body_extra

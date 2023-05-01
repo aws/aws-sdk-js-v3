@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeNetworkInterfacesRequest,
-  DescribeNetworkInterfacesRequestFilterSensitiveLog,
-  DescribeNetworkInterfacesResult,
-  DescribeNetworkInterfacesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeNetworkInterfacesCommand,
-  serializeAws_ec2DescribeNetworkInterfacesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeNetworkInterfacesRequest, DescribeNetworkInterfacesResult } from "../models/models_4";
+import { de_DescribeNetworkInterfacesCommand, se_DescribeNetworkInterfacesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNetworkInterfacesCommand}.
  */
 export interface DescribeNetworkInterfacesCommandInput extends DescribeNetworkInterfacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNetworkInterfacesCommand}.
  */
 export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkInterfacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your network interfaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * import { EC2Client, DescribeNetworkInterfacesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNetworkInterfacesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeNetworkInterfacesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   NetworkInterfaceIds: [ // NetworkInterfaceIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeNetworkInterfacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNetworkInterfacesCommandInput - {@link DescribeNetworkInterfacesCommandInput}
+ * @returns {@link DescribeNetworkInterfacesCommandOutput}
  * @see {@link DescribeNetworkInterfacesCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInterfacesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -137,6 +152,9 @@ export class DescribeNetworkInterfacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNetworkInterfacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -165,8 +183,8 @@ export class DescribeNetworkInterfacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNetworkInterfacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNetworkInterfacesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -176,15 +194,21 @@ export class DescribeNetworkInterfacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNetworkInterfacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInterfacesCommand(input, context);
+    return se_DescribeNetworkInterfacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNetworkInterfacesCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInterfacesCommand(output, context);
+    return de_DescribeNetworkInterfacesCommand(output, context);
   }
 
   // Start section: command_body_extra

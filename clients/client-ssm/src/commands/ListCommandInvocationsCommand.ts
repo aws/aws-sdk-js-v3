@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCommandInvocationsRequest,
-  ListCommandInvocationsRequestFilterSensitiveLog,
-  ListCommandInvocationsResult,
-  ListCommandInvocationsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListCommandInvocationsCommand,
-  serializeAws_json1_1ListCommandInvocationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCommandInvocationsRequest, ListCommandInvocationsResult } from "../models/models_1";
+import { de_ListCommandInvocationsCommand, se_ListCommandInvocationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListCommandInvocationsCommand}.
  */
 export interface ListCommandInvocationsCommandInput extends ListCommandInvocationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCommandInvocationsCommand}.
  */
 export interface ListCommandInvocationsCommandOutput extends ListCommandInvocationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>An invocation is copy of a command sent to a specific managed node. A command can apply to
  *    one or more managed nodes. A command invocation applies to one managed node. For example, if a
  *    user runs <code>SendCommand</code> against three managed nodes, then a command invocation is
@@ -46,10 +43,25 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  * import { SSMClient, ListCommandInvocationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListCommandInvocationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListCommandInvocationsRequest
+ *   CommandId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // CommandFilterList
+ *     { // CommandFilter
+ *       key: "InvokedAfter" || "InvokedBefore" || "Status" || "ExecutionStage" || "DocumentName", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Details: true || false,
+ * };
  * const command = new ListCommandInvocationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCommandInvocationsCommandInput - {@link ListCommandInvocationsCommandInput}
+ * @returns {@link ListCommandInvocationsCommandOutput}
  * @see {@link ListCommandInvocationsCommandInput} for command's `input` shape.
  * @see {@link ListCommandInvocationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -105,6 +117,9 @@ export class ListCommandInvocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCommandInvocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +148,8 @@ export class ListCommandInvocationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCommandInvocationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCommandInvocationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +159,18 @@ export class ListCommandInvocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCommandInvocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCommandInvocationsCommand(input, context);
+    return se_ListCommandInvocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCommandInvocationsCommandOutput> {
-    return deserializeAws_json1_1ListCommandInvocationsCommand(output, context);
+    return de_ListCommandInvocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

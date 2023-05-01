@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { EchoServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EchoServiceClient";
-import { EchoInput, EchoInputFilterSensitiveLog, EchoOutput, EchoOutputFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_restJson1EchoCommand, serializeAws_restJson1EchoCommand } from "../protocols/Aws_restJson1";
+import { EchoInput, EchoOutput } from "../models/models_0";
+import { de_EchoCommand, se_EchoCommand } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -16,10 +16,14 @@ import {
 } from "@aws-sdk/types";
 
 /**
+ * @public
+ *
  * The input for {@link EchoCommand}.
  */
 export interface EchoCommandInput extends EchoInput {}
 /**
+ * @public
+ *
  * The output of {@link EchoCommand}.
  */
 export interface EchoCommandOutput extends EchoOutput, __MetadataBearer {}
@@ -28,6 +32,9 @@ export class EchoCommand extends $Command<EchoCommandInput, EchoCommandOutput, E
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: EchoCommandInput) {
     // Start section: command_constructor
     super();
@@ -53,8 +60,8 @@ export class EchoCommand extends $Command<EchoCommandInput, EchoCommandOutput, E
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EchoInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EchoOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -64,12 +71,18 @@ export class EchoCommand extends $Command<EchoCommandInput, EchoCommandOutput, E
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EchoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EchoCommand(input, context);
+    return se_EchoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EchoCommandOutput> {
-    return deserializeAws_restJson1EchoCommand(output, context);
+    return de_EchoCommand(output, context);
   }
 
   // Start section: command_body_extra

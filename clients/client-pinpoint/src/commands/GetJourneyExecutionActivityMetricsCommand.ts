@@ -15,21 +15,23 @@ import {
 
 import {
   GetJourneyExecutionActivityMetricsRequest,
-  GetJourneyExecutionActivityMetricsRequestFilterSensitiveLog,
   GetJourneyExecutionActivityMetricsResponse,
-  GetJourneyExecutionActivityMetricsResponseFilterSensitiveLog,
 } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommand,
-  serializeAws_restJson1GetJourneyExecutionActivityMetricsCommand,
+  de_GetJourneyExecutionActivityMetricsCommand,
+  se_GetJourneyExecutionActivityMetricsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJourneyExecutionActivityMetricsCommand}.
  */
 export interface GetJourneyExecutionActivityMetricsCommandInput extends GetJourneyExecutionActivityMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJourneyExecutionActivityMetricsCommand}.
  */
 export interface GetJourneyExecutionActivityMetricsCommandOutput
@@ -37,6 +39,7 @@ export interface GetJourneyExecutionActivityMetricsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey activity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,19 @@ export interface GetJourneyExecutionActivityMetricsCommandOutput
  * import { PinpointClient, GetJourneyExecutionActivityMetricsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetJourneyExecutionActivityMetricsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetJourneyExecutionActivityMetricsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   JourneyActivityId: "STRING_VALUE", // required
+ *   JourneyId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: "STRING_VALUE",
+ * };
  * const command = new GetJourneyExecutionActivityMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJourneyExecutionActivityMetricsCommandInput - {@link GetJourneyExecutionActivityMetricsCommandInput}
+ * @returns {@link GetJourneyExecutionActivityMetricsCommandOutput}
  * @see {@link GetJourneyExecutionActivityMetricsCommandInput} for command's `input` shape.
  * @see {@link GetJourneyExecutionActivityMetricsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -92,6 +104,9 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJourneyExecutionActivityMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +135,8 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJourneyExecutionActivityMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJourneyExecutionActivityMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +146,24 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetJourneyExecutionActivityMetricsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJourneyExecutionActivityMetricsCommand(input, context);
+    return se_GetJourneyExecutionActivityMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> {
-    return deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommand(output, context);
+    return de_GetJourneyExecutionActivityMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

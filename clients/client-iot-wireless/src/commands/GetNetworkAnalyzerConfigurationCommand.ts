@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { GetNetworkAnalyzerConfigurationRequest, GetNetworkAnalyzerConfigurationResponse } from "../models/models_0";
 import {
-  GetNetworkAnalyzerConfigurationRequest,
-  GetNetworkAnalyzerConfigurationRequestFilterSensitiveLog,
-  GetNetworkAnalyzerConfigurationResponse,
-  GetNetworkAnalyzerConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetNetworkAnalyzerConfigurationCommand,
-  serializeAws_restJson1GetNetworkAnalyzerConfigurationCommand,
+  de_GetNetworkAnalyzerConfigurationCommand,
+  se_GetNetworkAnalyzerConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkAnalyzerConfigurationCommand}.
  */
 export interface GetNetworkAnalyzerConfigurationCommandInput extends GetNetworkAnalyzerConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkAnalyzerConfigurationCommand}.
  */
 export interface GetNetworkAnalyzerConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get network analyzer configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput
  * import { IoTWirelessClient, GetNetworkAnalyzerConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetNetworkAnalyzerConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetNetworkAnalyzerConfigurationRequest
+ *   ConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new GetNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkAnalyzerConfigurationCommandInput - {@link GetNetworkAnalyzerConfigurationCommandInput}
+ * @returns {@link GetNetworkAnalyzerConfigurationCommandOutput}
  * @see {@link GetNetworkAnalyzerConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetNetworkAnalyzerConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +91,9 @@ export class GetNetworkAnalyzerConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkAnalyzerConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +122,8 @@ export class GetNetworkAnalyzerConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkAnalyzerConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkAnalyzerConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +133,24 @@ export class GetNetworkAnalyzerConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetNetworkAnalyzerConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkAnalyzerConfigurationCommand(input, context);
+    return se_GetNetworkAnalyzerConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNetworkAnalyzerConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetNetworkAnalyzerConfigurationCommand(output, context);
+    return de_GetNetworkAnalyzerConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

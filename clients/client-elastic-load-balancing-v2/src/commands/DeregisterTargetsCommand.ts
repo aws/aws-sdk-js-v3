@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DeregisterTargetsInput,
-  DeregisterTargetsInputFilterSensitiveLog,
-  DeregisterTargetsOutput,
-  DeregisterTargetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeregisterTargetsCommand,
-  serializeAws_queryDeregisterTargetsCommand,
-} from "../protocols/Aws_query";
+import { DeregisterTargetsInput, DeregisterTargetsOutput } from "../models/models_0";
+import { de_DeregisterTargetsCommand, se_DeregisterTargetsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterTargetsCommand}.
  */
 export interface DeregisterTargetsCommandInput extends DeregisterTargetsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterTargetsCommand}.
  */
 export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified targets from the specified target group. After the targets are
  *       deregistered, they no longer receive traffic from the load balancer.</p>
  * @example
@@ -47,10 +44,22 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * import { ElasticLoadBalancingV2Client, DeregisterTargetsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DeregisterTargetsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DeregisterTargetsInput
+ *   TargetGroupArn: "STRING_VALUE", // required
+ *   Targets: [ // TargetDescriptions // required
+ *     { // TargetDescription
+ *       Id: "STRING_VALUE", // required
+ *       Port: Number("int"),
+ *       AvailabilityZone: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DeregisterTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterTargetsCommandInput - {@link DeregisterTargetsCommandInput}
+ * @returns {@link DeregisterTargetsCommandOutput}
  * @see {@link DeregisterTargetsCommandInput} for command's `input` shape.
  * @see {@link DeregisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -97,6 +106,9 @@ export class DeregisterTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +137,8 @@ export class DeregisterTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterTargetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterTargetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +148,18 @@ export class DeregisterTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeregisterTargetsCommand(input, context);
+    return se_DeregisterTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterTargetsCommandOutput> {
-    return deserializeAws_queryDeregisterTargetsCommand(output, context);
+    return de_DeregisterTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

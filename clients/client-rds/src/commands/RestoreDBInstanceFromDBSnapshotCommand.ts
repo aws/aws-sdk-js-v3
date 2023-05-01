@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { RestoreDBInstanceFromDBSnapshotMessage, RestoreDBInstanceFromDBSnapshotResult } from "../models/models_1";
 import {
-  RestoreDBInstanceFromDBSnapshotMessage,
-  RestoreDBInstanceFromDBSnapshotMessageFilterSensitiveLog,
-  RestoreDBInstanceFromDBSnapshotResult,
-  RestoreDBInstanceFromDBSnapshotResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand,
-  serializeAws_queryRestoreDBInstanceFromDBSnapshotCommand,
+  de_RestoreDBInstanceFromDBSnapshotCommand,
+  se_RestoreDBInstanceFromDBSnapshotCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBInstanceFromDBSnapshotCommand}.
  */
 export interface RestoreDBInstanceFromDBSnapshotCommandInput extends RestoreDBInstanceFromDBSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBInstanceFromDBSnapshotCommand}.
  */
 export interface RestoreDBInstanceFromDBSnapshotCommandOutput
@@ -37,6 +36,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most
  *             of the source's original configuration, including the default security group and DB parameter group. By default, the new DB
  *             instance is created as a Single-AZ deployment, except when the instance is a SQL Server instance that has an option group
@@ -57,10 +57,63 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * import { RDSClient, RestoreDBInstanceFromDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceFromDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // RestoreDBInstanceFromDBSnapshotMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   DBSnapshotIdentifier: "STRING_VALUE",
+ *   DBInstanceClass: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   AvailabilityZone: "STRING_VALUE",
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   PubliclyAccessible: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   LicenseModel: "STRING_VALUE",
+ *   DBName: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   OptionGroupName: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StorageType: "STRING_VALUE",
+ *   TdeCredentialArn: "STRING_VALUE",
+ *   TdeCredentialPassword: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Domain: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   ProcessorFeatures: [ // ProcessorFeatureList
+ *     { // ProcessorFeature
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UseDefaultProcessorFeatures: true || false,
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   EnableCustomerOwnedIp: true || false,
+ *   CustomIamInstanceProfile: "STRING_VALUE",
+ *   BackupTarget: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
+ *   StorageThroughput: Number("int"),
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE",
+ *   AllocatedStorage: Number("int"),
+ * };
  * const command = new RestoreDBInstanceFromDBSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBInstanceFromDBSnapshotCommandInput - {@link RestoreDBInstanceFromDBSnapshotCommandInput}
+ * @returns {@link RestoreDBInstanceFromDBSnapshotCommandOutput}
  * @see {@link RestoreDBInstanceFromDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreDBInstanceFromDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -146,97 +199,39 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *             with the DB instance.</p>
  *
  *
- * @example To restore a DB instance from a DB snapshot.
+ * @example To restore a DB instance from a DB snapshot
  * ```javascript
- * // The following example restores a DB instance from a DB snapshot.
+ * // The following example creates a new DB instance named db7-new-instance with the db.t3.small DB instance class from the specified DB snapshot. The source DB instance from which the snapshot was taken uses a deprecated DB instance class, so you can't upgrade it.
  * const input = {
- *   "DBInstanceIdentifier": "mysqldb-restored",
- *   "DBSnapshotIdentifier": "rds:mysqldb-2014-04-22-08-15"
+ *   "DBInstanceClass": "db.t3.small",
+ *   "DBInstanceIdentifier": "db7-new-instance",
+ *   "DBSnapshotIdentifier": "db7-test-snapshot"
  * };
  * const command = new RestoreDBInstanceFromDBSnapshotCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
  *   "DBInstance": {
- *     "AllocatedStorage": 200,
+ *     "AssociatedRoles": [],
  *     "AutoMinorVersionUpgrade": true,
- *     "AvailabilityZone": "us-west-2b",
- *     "BackupRetentionPeriod": 7,
- *     "CACertificateIdentifier": "rds-ca-2015",
- *     "CopyTagsToSnapshot": false,
- *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:mysqldb-restored",
- *     "DBInstanceClass": "db.t2.small",
- *     "DBInstanceIdentifier": "mysqldb-restored",
- *     "DBInstanceStatus": "available",
- *     "DBName": "sample",
- *     "DBParameterGroups": [
- *       {
- *         "DBParameterGroupName": "default.mysql5.6",
- *         "ParameterApplyStatus": "in-sync"
- *       }
- *     ],
- *     "DBSecurityGroups": [],
- *     "DBSubnetGroup": {
- *       "DBSubnetGroupDescription": "default",
- *       "DBSubnetGroupName": "default",
- *       "SubnetGroupStatus": "Complete",
- *       "Subnets": [
- *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2a"
- *           },
- *           "SubnetIdentifier": "subnet-77e8db03",
- *           "SubnetStatus": "Active"
- *         },
- *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2b"
- *           },
- *           "SubnetIdentifier": "subnet-c39989a1",
- *           "SubnetStatus": "Active"
- *         },
- *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2c"
- *           },
- *           "SubnetIdentifier": "subnet-4b267b0d",
- *           "SubnetStatus": "Active"
- *         }
- *       ],
- *       "VpcId": "vpc-c1c5b3a3"
- *     },
- *     "DbInstancePort": 0,
- *     "DbiResourceId": "db-VNZUCCBTEDC4WR7THXNJO72HVQ",
- *     "DomainMemberships": [],
+ *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:db7-new-instance",
+ *     "DBInstanceClass": "db.t3.small",
+ *     "DBInstanceIdentifier": "db7-new-instance",
+ *     "DBInstanceStatus": "creating",
+ *     "DeletionProtection": false,
  *     "Engine": "mysql",
- *     "EngineVersion": "5.6.27",
+ *     "EngineVersion": "5.7.22",
+ *     "IAMDatabaseAuthenticationEnabled": false,
  *     "LicenseModel": "general-public-license",
- *     "MasterUsername": "mymasteruser",
- *     "MonitoringInterval": 0,
  *     "MultiAZ": false,
- *     "OptionGroupMemberships": [
- *       {
- *         "OptionGroupName": "default:mysql-5-6",
- *         "Status": "in-sync"
- *       }
- *     ],
  *     "PendingModifiedValues": {},
- *     "PreferredBackupWindow": "12:58-13:28",
- *     "PreferredMaintenanceWindow": "tue:10:16-tue:10:46",
- *     "PubliclyAccessible": true,
- *     "ReadReplicaDBInstanceIdentifiers": [],
- *     "StorageEncrypted": false,
- *     "StorageType": "gp2",
- *     "VpcSecurityGroups": [
- *       {
- *         "Status": "active",
- *         "VpcSecurityGroupId": "sg-e5e5b0d2"
- *       }
- *     ]
+ *     "PerformanceInsightsEnabled": false,
+ *     "PreferredMaintenanceWindow": "mon:07:37-mon:08:07",
+ *     "ReadReplicaDBInstanceIdentifiers": []
  *   }
  * }
  * *\/
- * // example id: to-restore-a-db-instance-from-a-db-snapshot-1473961657311
+ * // example id: to-restore-a-db-instance-from-a-db-snapshot-1680093236214
  * ```
  *
  */
@@ -257,6 +252,9 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBInstanceFromDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -285,8 +283,8 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBInstanceFromDBSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBInstanceFromDBSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -296,18 +294,24 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RestoreDBInstanceFromDBSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBInstanceFromDBSnapshotCommand(input, context);
+    return se_RestoreDBInstanceFromDBSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand(output, context);
+    return de_RestoreDBInstanceFromDBSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

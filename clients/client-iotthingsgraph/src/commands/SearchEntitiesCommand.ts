@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  SearchEntitiesRequest,
-  SearchEntitiesRequestFilterSensitiveLog,
-  SearchEntitiesResponse,
-  SearchEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchEntitiesCommand,
-  serializeAws_json1_1SearchEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchEntitiesRequest, SearchEntitiesResponse } from "../models/models_0";
+import { de_SearchEntitiesCommand, se_SearchEntitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchEntitiesCommand}.
  */
 export interface SearchEntitiesCommandInput extends SearchEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchEntitiesCommand}.
  */
 export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>
@@ -44,10 +41,28 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * import { IoTThingsGraphClient, SearchEntitiesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchEntitiesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // SearchEntitiesRequest
+ *   entityTypes: [ // EntityTypes // required
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [ // EntityFilters
+ *     { // EntityFilter
+ *       name: "STRING_VALUE",
+ *       value: [ // EntityFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   namespaceVersion: Number("long"),
+ * };
  * const command = new SearchEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchEntitiesCommandInput - {@link SearchEntitiesCommandInput}
+ * @returns {@link SearchEntitiesCommandOutput}
  * @see {@link SearchEntitiesCommandInput} for command's `input` shape.
  * @see {@link SearchEntitiesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -80,6 +95,9 @@ export class SearchEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +126,8 @@ export class SearchEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +137,18 @@ export class SearchEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchEntitiesCommand(input, context);
+    return se_SearchEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchEntitiesCommandOutput> {
-    return deserializeAws_json1_1SearchEntitiesCommand(output, context);
+    return de_SearchEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

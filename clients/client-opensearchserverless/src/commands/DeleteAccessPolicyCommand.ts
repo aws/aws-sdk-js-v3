@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAccessPolicyRequest,
-  DeleteAccessPolicyRequestFilterSensitiveLog,
-  DeleteAccessPolicyResponse,
-  DeleteAccessPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAccessPolicyRequest, DeleteAccessPolicyResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0DeleteAccessPolicyCommand,
-  serializeAws_json1_0DeleteAccessPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteAccessPolicyCommand, se_DeleteAccessPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessPolicyCommand}.
  */
 export interface DeleteAccessPolicyCommandInput extends DeleteAccessPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessPolicyCommand}.
  */
 export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
  *                 access control for Amazon OpenSearch Serverless</a>.</p>
  * @example
@@ -47,17 +44,24 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  * import { OpenSearchServerlessClient, DeleteAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, DeleteAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // DeleteAccessPolicyRequest
+ *   type: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessPolicyCommandInput - {@link DeleteAccessPolicyCommandInput}
+ * @returns {@link DeleteAccessPolicyCommandOutput}
  * @see {@link DeleteAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a collection, thrown when a collection with the same name already exists
- *             or is being created. When deleting a collection, thrown when the collection is not in
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
  *             the ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
@@ -89,6 +93,9 @@ export class DeleteAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +124,8 @@ export class DeleteAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccessPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +135,18 @@ export class DeleteAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteAccessPolicyCommand(input, context);
+    return se_DeleteAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPolicyCommandOutput> {
-    return deserializeAws_json1_0DeleteAccessPolicyCommand(output, context);
+    return de_DeleteAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

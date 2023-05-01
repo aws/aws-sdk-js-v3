@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListVPCEConfigurationsRequest,
-  ListVPCEConfigurationsRequestFilterSensitiveLog,
-  ListVPCEConfigurationsResult,
-  ListVPCEConfigurationsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListVPCEConfigurationsCommand,
-  serializeAws_json1_1ListVPCEConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListVPCEConfigurationsRequest, ListVPCEConfigurationsResult } from "../models/models_0";
+import { de_ListVPCEConfigurationsCommand, se_ListVPCEConfigurationsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVPCEConfigurationsCommand}.
  */
 export interface ListVPCEConfigurationsCommandInput extends ListVPCEConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVPCEConfigurationsCommand}.
  */
 export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurationsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all Amazon Virtual Private Cloud (VPC) endpoint
  *             configurations in the AWS account.</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurati
  * import { DeviceFarmClient, ListVPCEConfigurationsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListVPCEConfigurationsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListVPCEConfigurationsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListVPCEConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVPCEConfigurationsCommandInput - {@link ListVPCEConfigurationsCommandInput}
+ * @returns {@link ListVPCEConfigurationsCommandOutput}
  * @see {@link ListVPCEConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListVPCEConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -76,6 +79,9 @@ export class ListVPCEConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVPCEConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class ListVPCEConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVPCEConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVPCEConfigurationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class ListVPCEConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVPCEConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListVPCEConfigurationsCommand(input, context);
+    return se_ListVPCEConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVPCEConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListVPCEConfigurationsCommand(output, context);
+    return de_ListVPCEConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

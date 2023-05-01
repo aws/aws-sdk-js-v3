@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  CreateLocationHdfsRequest,
-  CreateLocationHdfsRequestFilterSensitiveLog,
-  CreateLocationHdfsResponse,
-  CreateLocationHdfsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationHdfsCommand,
-  serializeAws_json1_1CreateLocationHdfsCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLocationHdfsRequest, CreateLocationHdfsResponse } from "../models/models_0";
+import { de_CreateLocationHdfsCommand, se_CreateLocationHdfsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationHdfsCommand}.
  */
 export interface CreateLocationHdfsCommandInput extends CreateLocationHdfsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationHdfsCommand}.
  */
 export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for a Hadoop Distributed File System (HDFS). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,16 +39,49 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  * import { DataSyncClient, CreateLocationHdfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationHdfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateLocationHdfsRequest
+ *   Subdirectory: "STRING_VALUE",
+ *   NameNodes: [ // HdfsNameNodeList // required
+ *     { // HdfsNameNode
+ *       Hostname: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *     },
+ *   ],
+ *   BlockSize: Number("int"),
+ *   ReplicationFactor: Number("int"),
+ *   KmsKeyProviderUri: "STRING_VALUE",
+ *   QopConfiguration: { // QopConfiguration
+ *     RpcProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
+ *     DataTransferProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
+ *   },
+ *   AuthenticationType: "SIMPLE" || "KERBEROS", // required
+ *   SimpleUser: "STRING_VALUE",
+ *   KerberosPrincipal: "STRING_VALUE",
+ *   KerberosKeytab: "BLOB_VALUE",
+ *   KerberosKrb5Conf: "BLOB_VALUE",
+ *   AgentArns: [ // AgentArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationHdfsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationHdfsCommandInput - {@link CreateLocationHdfsCommandInput}
+ * @returns {@link CreateLocationHdfsCommandOutput}
  * @see {@link CreateLocationHdfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationHdfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
@@ -75,6 +105,9 @@ export class CreateLocationHdfsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationHdfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +136,8 @@ export class CreateLocationHdfsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationHdfsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationHdfsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +147,18 @@ export class CreateLocationHdfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationHdfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationHdfsCommand(input, context);
+    return se_CreateLocationHdfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationHdfsCommandOutput> {
-    return deserializeAws_json1_1CreateLocationHdfsCommand(output, context);
+    return de_CreateLocationHdfsCommand(output, context);
   }
 
   // Start section: command_body_extra

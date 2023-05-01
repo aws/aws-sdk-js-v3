@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
+import { AddAvailabilityZonesInput, AddAvailabilityZonesOutput } from "../models/models_0";
 import {
-  AddAvailabilityZonesInput,
-  AddAvailabilityZonesInputFilterSensitiveLog,
-  AddAvailabilityZonesOutput,
-  AddAvailabilityZonesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand,
-  serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand,
+  de_EnableAvailabilityZonesForLoadBalancerCommand,
+  se_EnableAvailabilityZonesForLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link EnableAvailabilityZonesForLoadBalancerCommand}.
  */
 export interface EnableAvailabilityZonesForLoadBalancerCommandInput extends AddAvailabilityZonesInput {}
 /**
+ * @public
+ *
  * The output of {@link EnableAvailabilityZonesForLoadBalancerCommand}.
  */
 export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
@@ -41,6 +40,7 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer
  *             in EC2-Classic or a default VPC.</p>
  *         <p>For load balancers in a non-default VPC, use <a>AttachLoadBalancerToSubnets</a>.</p>
@@ -53,10 +53,18 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  * import { ElasticLoadBalancingClient, EnableAvailabilityZonesForLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, EnableAvailabilityZonesForLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // AddAvailabilityZonesInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   AvailabilityZones: [ // AvailabilityZones // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new EnableAvailabilityZonesForLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAvailabilityZonesForLoadBalancerCommandInput - {@link EnableAvailabilityZonesForLoadBalancerCommandInput}
+ * @returns {@link EnableAvailabilityZonesForLoadBalancerCommandOutput}
  * @see {@link EnableAvailabilityZonesForLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link EnableAvailabilityZonesForLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -105,6 +113,9 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAvailabilityZonesForLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +144,8 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddAvailabilityZonesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AddAvailabilityZonesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,18 +155,24 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableAvailabilityZonesForLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(input, context);
+    return se_EnableAvailabilityZonesForLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> {
-    return deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(output, context);
+    return de_EnableAvailabilityZonesForLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

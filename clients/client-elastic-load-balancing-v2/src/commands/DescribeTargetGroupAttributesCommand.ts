@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
+import { DescribeTargetGroupAttributesInput, DescribeTargetGroupAttributesOutput } from "../models/models_0";
 import {
-  DescribeTargetGroupAttributesInput,
-  DescribeTargetGroupAttributesInputFilterSensitiveLog,
-  DescribeTargetGroupAttributesOutput,
-  DescribeTargetGroupAttributesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeTargetGroupAttributesCommand,
-  serializeAws_queryDescribeTargetGroupAttributesCommand,
+  de_DescribeTargetGroupAttributesCommand,
+  se_DescribeTargetGroupAttributesCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTargetGroupAttributesCommand}.
  */
 export interface DescribeTargetGroupAttributesCommandInput extends DescribeTargetGroupAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTargetGroupAttributesCommand}.
  */
 export interface DescribeTargetGroupAttributesCommandOutput
@@ -41,6 +40,7 @@ export interface DescribeTargetGroupAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the attributes for the specified target group.</p>
  *          <p>For more information, see the following:</p>
  *          <ul>
@@ -69,10 +69,15 @@ export interface DescribeTargetGroupAttributesCommandOutput
  * import { ElasticLoadBalancingV2Client, DescribeTargetGroupAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeTargetGroupAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DescribeTargetGroupAttributesInput
+ *   TargetGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTargetGroupAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTargetGroupAttributesCommandInput - {@link DescribeTargetGroupAttributesCommandInput}
+ * @returns {@link DescribeTargetGroupAttributesCommandOutput}
  * @see {@link DescribeTargetGroupAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeTargetGroupAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -132,6 +137,9 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTargetGroupAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,8 +168,8 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTargetGroupAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTargetGroupAttributesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -171,15 +179,21 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTargetGroupAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTargetGroupAttributesCommand(input, context);
+    return se_DescribeTargetGroupAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTargetGroupAttributesCommandOutput> {
-    return deserializeAws_queryDescribeTargetGroupAttributesCommand(output, context);
+    return de_DescribeTargetGroupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

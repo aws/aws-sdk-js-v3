@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSessionTokenRequest,
-  GetSessionTokenRequestFilterSensitiveLog,
-  GetSessionTokenResponse,
-  GetSessionTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetSessionTokenCommand,
-  serializeAws_queryGetSessionTokenCommand,
-} from "../protocols/Aws_query";
+import { GetSessionTokenRequest, GetSessionTokenResponse } from "../models/models_0";
+import { de_GetSessionTokenCommand, se_GetSessionTokenCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSessionTokenCommand}.
  */
 export interface GetSessionTokenCommandInput extends GetSessionTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSessionTokenCommand}.
  */
 export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary credentials for an Amazon Web Services account or IAM user. The
  *          credentials consist of an access key ID, a secret access key, and a security token.
  *          Typically, you use <code>GetSessionToken</code> if you want to use MFA to protect
@@ -101,10 +98,17 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  * import { STSClient, GetSessionTokenCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetSessionTokenCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = { // GetSessionTokenRequest
+ *   DurationSeconds: Number("int"),
+ *   SerialNumber: "STRING_VALUE",
+ *   TokenCode: "STRING_VALUE",
+ * };
  * const command = new GetSessionTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSessionTokenCommandInput - {@link GetSessionTokenCommandInput}
+ * @returns {@link GetSessionTokenCommandOutput}
  * @see {@link GetSessionTokenCommandInput} for command's `input` shape.
  * @see {@link GetSessionTokenCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -159,6 +163,9 @@ export class GetSessionTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSessionTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -188,8 +195,8 @@ export class GetSessionTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSessionTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -199,12 +206,18 @@ export class GetSessionTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSessionTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSessionTokenCommand(input, context);
+    return se_GetSessionTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionTokenCommandOutput> {
-    return deserializeAws_queryGetSessionTokenCommand(output, context);
+    return de_GetSessionTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

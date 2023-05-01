@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteContactChannelRequest,
-  DeleteContactChannelRequestFilterSensitiveLog,
-  DeleteContactChannelResult,
-  DeleteContactChannelResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteContactChannelCommand,
-  serializeAws_json1_1DeleteContactChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteContactChannelRequest, DeleteContactChannelResult } from "../models/models_0";
+import { de_DeleteContactChannelCommand, se_DeleteContactChannelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContactChannelCommand}.
  */
 export interface DeleteContactChannelCommandInput extends DeleteContactChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContactChannelCommand}.
  */
 export interface DeleteContactChannelCommandOutput extends DeleteContactChannelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>To no longer receive engagements on a contact channel, you can delete the channel from a
  *          contact. Deleting the contact channel removes it from the contact's engagement plan. If you
  *          delete the only contact channel for a contact, you won't be able to engage that contact
@@ -45,10 +42,15 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  * import { SSMContactsClient, DeleteContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, DeleteContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // DeleteContactChannelRequest
+ *   ContactChannelId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContactChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContactChannelCommandInput - {@link DeleteContactChannelCommandInput}
+ * @returns {@link DeleteContactChannelCommandOutput}
  * @see {@link DeleteContactChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -57,8 +59,7 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  *  <p>You don't have sufficient access to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>
@@ -70,17 +71,6 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
- *
- * @example To delete a contact channel
- * ```javascript
- * // The following delete-contact-channel example deletes a contact channel. Deleting a contact channel ensures the contact channel will not be paged during an incident.
- * const input = {
- *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-1:111122223333:contact-channel/akuam/13149bad-52ee-45ea-ae1e-45857f78f9b2"
- * };
- * const command = new DeleteContactChannelCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-contact-channel-1630364616682
- * ```
  *
  */
 export class DeleteContactChannelCommand extends $Command<
@@ -100,6 +90,9 @@ export class DeleteContactChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContactChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +121,8 @@ export class DeleteContactChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContactChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContactChannelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +132,18 @@ export class DeleteContactChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteContactChannelCommand(input, context);
+    return se_DeleteContactChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContactChannelCommandOutput> {
-    return deserializeAws_json1_1DeleteContactChannelCommand(output, context);
+    return de_DeleteContactChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

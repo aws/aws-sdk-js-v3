@@ -13,24 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PartnerIntegrationOutputMessage, PartnerIntegrationOutputMessageFilterSensitiveLog } from "../models/models_0";
-import { UpdatePartnerStatusInputMessage, UpdatePartnerStatusInputMessageFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryUpdatePartnerStatusCommand,
-  serializeAws_queryUpdatePartnerStatusCommand,
-} from "../protocols/Aws_query";
+import { PartnerIntegrationOutputMessage } from "../models/models_0";
+import { UpdatePartnerStatusInputMessage } from "../models/models_1";
+import { de_UpdatePartnerStatusCommand, se_UpdatePartnerStatusCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePartnerStatusCommand}.
  */
 export interface UpdatePartnerStatusCommandInput extends UpdatePartnerStatusInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePartnerStatusCommand}.
  */
 export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status of a partner integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,10 +40,20 @@ export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutp
  * import { RedshiftClient, UpdatePartnerStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, UpdatePartnerStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // UpdatePartnerStatusInputMessage
+ *   AccountId: "STRING_VALUE", // required
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   PartnerName: "STRING_VALUE", // required
+ *   Status: "Active" || "Inactive" || "RuntimeFailure" || "ConnectionFailure", // required
+ *   StatusMessage: "STRING_VALUE",
+ * };
  * const command = new UpdatePartnerStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePartnerStatusCommandInput - {@link UpdatePartnerStatusCommandInput}
+ * @returns {@link UpdatePartnerStatusCommandOutput}
  * @see {@link UpdatePartnerStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePartnerStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -75,6 +87,9 @@ export class UpdatePartnerStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePartnerStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +118,8 @@ export class UpdatePartnerStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePartnerStatusInputMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PartnerIntegrationOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +129,18 @@ export class UpdatePartnerStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePartnerStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdatePartnerStatusCommand(input, context);
+    return se_UpdatePartnerStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePartnerStatusCommandOutput> {
-    return deserializeAws_queryUpdatePartnerStatusCommand(output, context);
+    return de_UpdatePartnerStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

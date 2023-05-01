@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAssignmentRequest,
-  GetAssignmentRequestFilterSensitiveLog,
-  GetAssignmentResponse,
-  GetAssignmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAssignmentRequest, GetAssignmentResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1GetAssignmentCommand,
-  serializeAws_json1_1GetAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAssignmentCommand, se_GetAssignmentCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssignmentCommand}.
  */
 export interface GetAssignmentCommandInput extends GetAssignmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssignmentCommand}.
  */
 export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>GetAssignment</code> operation retrieves the details of the specified Assignment.
  *         </p>
@@ -44,10 +41,15 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * import { MTurkClient, GetAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // GetAssignmentRequest
+ *   AssignmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetAssignmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssignmentCommandInput - {@link GetAssignmentCommandInput}
+ * @returns {@link GetAssignmentCommandOutput}
  * @see {@link GetAssignmentCommandInput} for command's `input` shape.
  * @see {@link GetAssignmentCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -77,6 +79,9 @@ export class GetAssignmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class GetAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssignmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssignmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class GetAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAssignmentCommand(input, context);
+    return se_GetAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssignmentCommandOutput> {
-    return deserializeAws_json1_1GetAssignmentCommand(output, context);
+    return de_GetAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

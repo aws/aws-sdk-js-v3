@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  UpdateRevealConfigurationRequest,
-  UpdateRevealConfigurationRequestFilterSensitiveLog,
-  UpdateRevealConfigurationResponse,
-  UpdateRevealConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateRevealConfigurationCommand,
-  serializeAws_restJson1UpdateRevealConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRevealConfigurationRequest, UpdateRevealConfigurationResponse } from "../models/models_1";
+import { de_UpdateRevealConfigurationCommand, se_UpdateRevealConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRevealConfigurationCommand}.
  */
 export interface UpdateRevealConfigurationCommandInput extends UpdateRevealConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRevealConfigurationCommand}.
  */
 export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConf
  * import { Macie2Client, UpdateRevealConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateRevealConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // UpdateRevealConfigurationRequest
+ *   configuration: { // RevealConfiguration
+ *     kmsKeyId: "STRING_VALUE",
+ *     status: "ENABLED" || "DISABLED", // required
+ *   },
+ * };
  * const command = new UpdateRevealConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRevealConfigurationCommandInput - {@link UpdateRevealConfigurationCommandInput}
+ * @returns {@link UpdateRevealConfigurationCommandOutput}
  * @see {@link UpdateRevealConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateRevealConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -81,6 +86,9 @@ export class UpdateRevealConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRevealConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class UpdateRevealConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRevealConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRevealConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +128,21 @@ export class UpdateRevealConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRevealConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRevealConfigurationCommand(input, context);
+    return se_UpdateRevealConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRevealConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateRevealConfigurationCommand(output, context);
+    return de_UpdateRevealConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

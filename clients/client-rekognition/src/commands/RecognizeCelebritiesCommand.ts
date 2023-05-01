@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RecognizeCelebritiesRequest,
-  RecognizeCelebritiesRequestFilterSensitiveLog,
-  RecognizeCelebritiesResponse,
-  RecognizeCelebritiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RecognizeCelebritiesCommand,
-  serializeAws_json1_1RecognizeCelebritiesCommand,
-} from "../protocols/Aws_json1_1";
+import { RecognizeCelebritiesRequest, RecognizeCelebritiesResponse } from "../models/models_0";
+import { de_RecognizeCelebritiesCommand, se_RecognizeCelebritiesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link RecognizeCelebritiesCommand}.
  */
 export interface RecognizeCelebritiesCommandInput extends RecognizeCelebritiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RecognizeCelebritiesCommand}.
  */
 export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of celebrities recognized in the input image. For more
  *       information, see Recognizing celebrities in the Amazon Rekognition Developer Guide. </p>
  *          <p>
@@ -68,10 +65,22 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  * import { RekognitionClient, RecognizeCelebritiesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, RecognizeCelebritiesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // RecognizeCelebritiesRequest
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new RecognizeCelebritiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RecognizeCelebritiesCommandInput - {@link RecognizeCelebritiesCommandInput}
+ * @returns {@link RecognizeCelebritiesCommandOutput}
  * @see {@link RecognizeCelebritiesCommandInput} for command's `input` shape.
  * @see {@link RecognizeCelebritiesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -124,6 +133,9 @@ export class RecognizeCelebritiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecognizeCelebritiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,8 +164,8 @@ export class RecognizeCelebritiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RecognizeCelebritiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RecognizeCelebritiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -163,12 +175,18 @@ export class RecognizeCelebritiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecognizeCelebritiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RecognizeCelebritiesCommand(input, context);
+    return se_RecognizeCelebritiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecognizeCelebritiesCommandOutput> {
-    return deserializeAws_json1_1RecognizeCelebritiesCommand(output, context);
+    return de_RecognizeCelebritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

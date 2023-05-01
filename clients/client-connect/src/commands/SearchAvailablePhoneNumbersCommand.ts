@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { SearchAvailablePhoneNumbersRequest, SearchAvailablePhoneNumbersResponse } from "../models/models_1";
 import {
-  SearchAvailablePhoneNumbersRequest,
-  SearchAvailablePhoneNumbersRequestFilterSensitiveLog,
-  SearchAvailablePhoneNumbersResponse,
-  SearchAvailablePhoneNumbersResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1SearchAvailablePhoneNumbersCommand,
-  serializeAws_restJson1SearchAvailablePhoneNumbersCommand,
+  de_SearchAvailablePhoneNumbersCommand,
+  se_SearchAvailablePhoneNumbersCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchAvailablePhoneNumbersCommand}.
  */
 export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailablePhoneNumbersRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchAvailablePhoneNumbersCommand}.
  */
 export interface SearchAvailablePhoneNumbersCommandOutput
@@ -37,6 +36,7 @@ export interface SearchAvailablePhoneNumbersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance
  *    or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both
  *     Amazon Web Services Regions associated with the traffic distribution group.</p>
@@ -46,10 +46,20 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * import { ConnectClient, SearchAvailablePhoneNumbersCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchAvailablePhoneNumbersCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // SearchAvailablePhoneNumbersRequest
+ *   TargetArn: "STRING_VALUE", // required
+ *   PhoneNumberCountryCode: "AF" || "AL" || "DZ" || "AS" || "AD" || "AO" || "AI" || "AQ" || "AG" || "AR" || "AM" || "AW" || "AU" || "AT" || "AZ" || "BS" || "BH" || "BD" || "BB" || "BY" || "BE" || "BZ" || "BJ" || "BM" || "BT" || "BO" || "BA" || "BW" || "BR" || "IO" || "VG" || "BN" || "BG" || "BF" || "BI" || "KH" || "CM" || "CA" || "CV" || "KY" || "CF" || "TD" || "CL" || "CN" || "CX" || "CC" || "CO" || "KM" || "CK" || "CR" || "HR" || "CU" || "CW" || "CY" || "CZ" || "CD" || "DK" || "DJ" || "DM" || "DO" || "TL" || "EC" || "EG" || "SV" || "GQ" || "ER" || "EE" || "ET" || "FK" || "FO" || "FJ" || "FI" || "FR" || "PF" || "GA" || "GM" || "GE" || "DE" || "GH" || "GI" || "GR" || "GL" || "GD" || "GU" || "GT" || "GG" || "GN" || "GW" || "GY" || "HT" || "HN" || "HK" || "HU" || "IS" || "IN" || "ID" || "IR" || "IQ" || "IE" || "IM" || "IL" || "IT" || "CI" || "JM" || "JP" || "JE" || "JO" || "KZ" || "KE" || "KI" || "KW" || "KG" || "LA" || "LV" || "LB" || "LS" || "LR" || "LY" || "LI" || "LT" || "LU" || "MO" || "MK" || "MG" || "MW" || "MY" || "MV" || "ML" || "MT" || "MH" || "MR" || "MU" || "YT" || "MX" || "FM" || "MD" || "MC" || "MN" || "ME" || "MS" || "MA" || "MZ" || "MM" || "NA" || "NR" || "NP" || "NL" || "AN" || "NC" || "NZ" || "NI" || "NE" || "NG" || "NU" || "KP" || "MP" || "NO" || "OM" || "PK" || "PW" || "PA" || "PG" || "PY" || "PE" || "PH" || "PN" || "PL" || "PT" || "PR" || "QA" || "CG" || "RE" || "RO" || "RU" || "RW" || "BL" || "SH" || "KN" || "LC" || "MF" || "PM" || "VC" || "WS" || "SM" || "ST" || "SA" || "SN" || "RS" || "SC" || "SL" || "SG" || "SX" || "SK" || "SI" || "SB" || "SO" || "ZA" || "KR" || "ES" || "LK" || "SD" || "SR" || "SJ" || "SZ" || "SE" || "CH" || "SY" || "TW" || "TJ" || "TZ" || "TH" || "TG" || "TK" || "TO" || "TT" || "TN" || "TR" || "TM" || "TC" || "TV" || "VI" || "UG" || "UA" || "AE" || "GB" || "US" || "UY" || "UZ" || "VU" || "VA" || "VE" || "VN" || "WF" || "EH" || "YE" || "ZM" || "ZW", // required
+ *   PhoneNumberType: "TOLL_FREE" || "DID", // required
+ *   PhoneNumberPrefix: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SearchAvailablePhoneNumbersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchAvailablePhoneNumbersCommandInput - {@link SearchAvailablePhoneNumbersCommandInput}
+ * @returns {@link SearchAvailablePhoneNumbersCommandOutput}
  * @see {@link SearchAvailablePhoneNumbersCommandInput} for command's `input` shape.
  * @see {@link SearchAvailablePhoneNumbersCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +95,9 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchAvailablePhoneNumbersCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +126,8 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchAvailablePhoneNumbersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchAvailablePhoneNumbersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +137,21 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchAvailablePhoneNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchAvailablePhoneNumbersCommand(input, context);
+    return se_SearchAvailablePhoneNumbersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchAvailablePhoneNumbersCommandOutput> {
-    return deserializeAws_restJson1SearchAvailablePhoneNumbersCommand(output, context);
+    return de_SearchAvailablePhoneNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

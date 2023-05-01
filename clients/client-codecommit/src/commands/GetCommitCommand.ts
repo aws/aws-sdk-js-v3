@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetCommitInput,
-  GetCommitInputFilterSensitiveLog,
-  GetCommitOutput,
-  GetCommitOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetCommitCommand, serializeAws_json1_1GetCommitCommand } from "../protocols/Aws_json1_1";
+import { GetCommitInput, GetCommitOutput } from "../models/models_0";
+import { de_GetCommitCommand, se_GetCommitCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCommitCommand}.
  */
 export interface GetCommitCommandInput extends GetCommitInput {}
 /**
+ * @public
+ *
  * The output of {@link GetCommitCommand}.
  */
 export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a commit, including commit message and committer information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,16 @@ export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBeare
  * import { CodeCommitClient, GetCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetCommitInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   commitId: "STRING_VALUE", // required
+ * };
  * const command = new GetCommitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCommitCommandInput - {@link GetCommitCommandInput}
+ * @returns {@link GetCommitCommandOutput}
  * @see {@link GetCommitCommandInput} for command's `input` shape.
  * @see {@link GetCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -105,6 +111,9 @@ export class GetCommitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCommitCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +140,8 @@ export class GetCommitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCommitInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCommitOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +151,18 @@ export class GetCommitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCommitCommand(input, context);
+    return se_GetCommitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCommitCommandOutput> {
-    return deserializeAws_json1_1GetCommitCommand(output, context);
+    return de_GetCommitCommand(output, context);
   }
 
   // Start section: command_body_extra

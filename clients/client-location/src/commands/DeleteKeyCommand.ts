@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DeleteKeyRequest,
-  DeleteKeyRequestFilterSensitiveLog,
-  DeleteKeyResponse,
-  DeleteKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteKeyCommand,
-  serializeAws_restJson1DeleteKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteKeyRequest, DeleteKeyResponse } from "../models/models_0";
+import { de_DeleteKeyCommand, se_DeleteKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteKeyCommand}.
  */
 export interface DeleteKeyCommandInput extends DeleteKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteKeyCommand}.
  */
 export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified API key. The API key must have been deactivated more than
  *             90 days previously.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  * import { LocationClient, DeleteKeyCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeleteKeyCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // DeleteKeyRequest
+ *   KeyName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteKeyCommandInput - {@link DeleteKeyCommandInput}
+ * @returns {@link DeleteKeyCommandOutput}
  * @see {@link DeleteKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -86,6 +88,9 @@ export class DeleteKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DeleteKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DeleteKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteKeyCommand(input, context);
+    return se_DeleteKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyCommandOutput> {
-    return deserializeAws_restJson1DeleteKeyCommand(output, context);
+    return de_DeleteKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

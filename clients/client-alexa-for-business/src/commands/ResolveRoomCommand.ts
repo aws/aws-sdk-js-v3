@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  ResolveRoomRequest,
-  ResolveRoomRequestFilterSensitiveLog,
-  ResolveRoomResponse,
-  ResolveRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ResolveRoomCommand,
-  serializeAws_json1_1ResolveRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { ResolveRoomRequest, ResolveRoomResponse } from "../models/models_0";
+import { de_ResolveRoomCommand, se_ResolveRoomCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResolveRoomCommand}.
  */
 export interface ResolveRoomCommandInput extends ResolveRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResolveRoomCommand}.
  */
 export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Determines the details for the room from which a skill request was invoked. This
  *          operation is used by skill developers.</p>
  *          <p>To query ResolveRoom from an Alexa skill, the skill ID needs to be authorized. When
@@ -48,10 +45,16 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  * import { AlexaForBusinessClient, ResolveRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ResolveRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // ResolveRoomRequest
+ *   UserId: "STRING_VALUE", // required
+ *   SkillId: "STRING_VALUE", // required
+ * };
  * const command = new ResolveRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResolveRoomCommandInput - {@link ResolveRoomCommandInput}
+ * @returns {@link ResolveRoomCommandOutput}
  * @see {@link ResolveRoomCommandInput} for command's `input` shape.
  * @see {@link ResolveRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -78,6 +81,9 @@ export class ResolveRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class ResolveRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResolveRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResolveRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class ResolveRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResolveRoomCommand(input, context);
+    return se_ResolveRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveRoomCommandOutput> {
-    return deserializeAws_json1_1ResolveRoomCommand(output, context);
+    return de_ResolveRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,21 +15,23 @@ import {
 
 import {
   UpdateFirewallPolicyChangeProtectionRequest,
-  UpdateFirewallPolicyChangeProtectionRequestFilterSensitiveLog,
   UpdateFirewallPolicyChangeProtectionResponse,
-  UpdateFirewallPolicyChangeProtectionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand,
-  serializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand,
+  de_UpdateFirewallPolicyChangeProtectionCommand,
+  se_UpdateFirewallPolicyChangeProtectionCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallPolicyChangeProtectionCommand}.
  */
 export interface UpdateFirewallPolicyChangeProtectionCommandInput extends UpdateFirewallPolicyChangeProtectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallPolicyChangeProtectionCommand}.
  */
 export interface UpdateFirewallPolicyChangeProtectionCommandOutput
@@ -37,6 +39,7 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the flag, <code>ChangeProtection</code>, which indicates whether it
  *          is possible to change the firewall. If the flag is set to <code>TRUE</code>, the firewall is protected
  *          from changes. This setting helps protect against accidentally changing a firewall that's in use.</p>
@@ -46,10 +49,18 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
  * import { NetworkFirewallClient, UpdateFirewallPolicyChangeProtectionCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateFirewallPolicyChangeProtectionCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // UpdateFirewallPolicyChangeProtectionRequest
+ *   UpdateToken: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   FirewallPolicyChangeProtection: true || false, // required
+ * };
  * const command = new UpdateFirewallPolicyChangeProtectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallPolicyChangeProtectionCommandInput - {@link UpdateFirewallPolicyChangeProtectionCommandInput}
+ * @returns {@link UpdateFirewallPolicyChangeProtectionCommandOutput}
  * @see {@link UpdateFirewallPolicyChangeProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallPolicyChangeProtectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -105,6 +116,9 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallPolicyChangeProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +147,8 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallPolicyChangeProtectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallPolicyChangeProtectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,18 +158,24 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFirewallPolicyChangeProtectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand(input, context);
+    return se_UpdateFirewallPolicyChangeProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFirewallPolicyChangeProtectionCommandOutput> {
-    return deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand(output, context);
+    return de_UpdateFirewallPolicyChangeProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteEventSubscriptionMessage,
-  DeleteEventSubscriptionMessageFilterSensitiveLog,
-  DeleteEventSubscriptionResponse,
-  DeleteEventSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEventSubscriptionCommand,
-  serializeAws_json1_1DeleteEventSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResponse } from "../models/models_0";
+import { de_DeleteEventSubscriptionCommand, se_DeleteEventSubscriptionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventSubscriptionCommand}.
  */
 export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscriptionMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventSubscriptionCommand}.
  */
 export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes an DMS event subscription. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * import { DatabaseMigrationServiceClient, DeleteEventSubscriptionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteEventSubscriptionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DeleteEventSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventSubscriptionCommandInput - {@link DeleteEventSubscriptionCommandInput}
+ * @returns {@link DeleteEventSubscriptionCommandOutput}
  * @see {@link DeleteEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -79,6 +81,9 @@ export class DeleteEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class DeleteEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEventSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class DeleteEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEventSubscriptionCommand(input, context);
+    return se_DeleteEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteEventSubscriptionCommand(output, context);
+    return de_DeleteEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

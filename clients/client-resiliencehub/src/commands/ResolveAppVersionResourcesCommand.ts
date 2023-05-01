@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ResolveAppVersionResourcesRequest,
-  ResolveAppVersionResourcesRequestFilterSensitiveLog,
-  ResolveAppVersionResourcesResponse,
-  ResolveAppVersionResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ResolveAppVersionResourcesCommand,
-  serializeAws_restJson1ResolveAppVersionResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { ResolveAppVersionResourcesRequest, ResolveAppVersionResourcesResponse } from "../models/models_0";
+import { de_ResolveAppVersionResourcesCommand, se_ResolveAppVersionResourcesCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResolveAppVersionResourcesCommand}.
  */
 export interface ResolveAppVersionResourcesCommandInput extends ResolveAppVersionResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResolveAppVersionResourcesCommand}.
  */
 export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersionResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resolves the resources for an application version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  * import { ResiliencehubClient, ResolveAppVersionResourcesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ResolveAppVersionResourcesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ResolveAppVersionResourcesRequest
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ * };
  * const command = new ResolveAppVersionResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResolveAppVersionResourcesCommandInput - {@link ResolveAppVersionResourcesCommandInput}
+ * @returns {@link ResolveAppVersionResourcesCommandOutput}
  * @see {@link ResolveAppVersionResourcesCommandInput} for command's `input` shape.
  * @see {@link ResolveAppVersionResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -62,7 +65,7 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -93,6 +96,9 @@ export class ResolveAppVersionResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResolveAppVersionResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class ResolveAppVersionResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResolveAppVersionResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResolveAppVersionResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +138,21 @@ export class ResolveAppVersionResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResolveAppVersionResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResolveAppVersionResourcesCommand(input, context);
+    return se_ResolveAppVersionResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResolveAppVersionResourcesCommandOutput> {
-    return deserializeAws_restJson1ResolveAppVersionResourcesCommand(output, context);
+    return de_ResolveAppVersionResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

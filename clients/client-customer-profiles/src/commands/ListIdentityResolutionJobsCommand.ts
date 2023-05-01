@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  ListIdentityResolutionJobsRequest,
-  ListIdentityResolutionJobsRequestFilterSensitiveLog,
-  ListIdentityResolutionJobsResponse,
-  ListIdentityResolutionJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIdentityResolutionJobsCommand,
-  serializeAws_restJson1ListIdentityResolutionJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListIdentityResolutionJobsRequest, ListIdentityResolutionJobsResponse } from "../models/models_0";
+import { de_ListIdentityResolutionJobsCommand, se_ListIdentityResolutionJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIdentityResolutionJobsCommand}.
  */
 export interface ListIdentityResolutionJobsCommandInput extends ListIdentityResolutionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIdentityResolutionJobsCommand}.
  */
 export interface ListIdentityResolutionJobsCommandOutput extends ListIdentityResolutionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the Identity Resolution Jobs in your domain. The response sorts the list by
  *             <code>JobStartTime</code>.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListIdentityResolutionJobsCommandOutput extends ListIdentityRes
  * import { CustomerProfilesClient, ListIdentityResolutionJobsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListIdentityResolutionJobsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // ListIdentityResolutionJobsRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListIdentityResolutionJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIdentityResolutionJobsCommandInput - {@link ListIdentityResolutionJobsCommandInput}
+ * @returns {@link ListIdentityResolutionJobsCommandOutput}
  * @see {@link ListIdentityResolutionJobsCommandInput} for command's `input` shape.
  * @see {@link ListIdentityResolutionJobsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListIdentityResolutionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentityResolutionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class ListIdentityResolutionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIdentityResolutionJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIdentityResolutionJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +131,21 @@ export class ListIdentityResolutionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentityResolutionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIdentityResolutionJobsCommand(input, context);
+    return se_ListIdentityResolutionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListIdentityResolutionJobsCommandOutput> {
-    return deserializeAws_restJson1ListIdentityResolutionJobsCommand(output, context);
+    return de_ListIdentityResolutionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

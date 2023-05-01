@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  DeleteExtensionAssociationRequest,
-  DeleteExtensionAssociationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteExtensionAssociationCommand,
-  serializeAws_restJson1DeleteExtensionAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteExtensionAssociationRequest } from "../models/models_0";
+import { de_DeleteExtensionAssociationCommand, se_DeleteExtensionAssociationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExtensionAssociationCommand}.
  */
 export interface DeleteExtensionAssociationCommandInput extends DeleteExtensionAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExtensionAssociationCommand}.
  */
 export interface DeleteExtensionAssociationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an extension association. This action doesn't delete extensions defined in the
  *          association.</p>
  * @example
@@ -41,10 +40,15 @@ export interface DeleteExtensionAssociationCommandOutput extends __MetadataBeare
  * import { AppConfigClient, DeleteExtensionAssociationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteExtensionAssociationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // DeleteExtensionAssociationRequest
+ *   ExtensionAssociationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteExtensionAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExtensionAssociationCommandInput - {@link DeleteExtensionAssociationCommandInput}
+ * @returns {@link DeleteExtensionAssociationCommandOutput}
  * @see {@link DeleteExtensionAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteExtensionAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -77,6 +81,9 @@ export class DeleteExtensionAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExtensionAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +112,8 @@ export class DeleteExtensionAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExtensionAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +123,21 @@ export class DeleteExtensionAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExtensionAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteExtensionAssociationCommand(input, context);
+    return se_DeleteExtensionAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteExtensionAssociationCommandOutput> {
-    return deserializeAws_restJson1DeleteExtensionAssociationCommand(output, context);
+    return de_DeleteExtensionAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteLoadBalancerRequest,
-  DeleteLoadBalancerRequestFilterSensitiveLog,
-  DeleteLoadBalancerResult,
-  DeleteLoadBalancerResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLoadBalancerCommand,
-  serializeAws_json1_1DeleteLoadBalancerCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteLoadBalancerRequest, DeleteLoadBalancerResult } from "../models/models_0";
+import { de_DeleteLoadBalancerCommand, se_DeleteLoadBalancerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLoadBalancerCommand}.
  */
 export interface DeleteLoadBalancerCommandInput extends DeleteLoadBalancerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLoadBalancerCommand}.
  */
 export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Lightsail load balancer and all its associated SSL/TLS certificates. Once the
  *       load balancer is deleted, you will need to create a new load balancer, create a new
  *       certificate, and verify domain ownership again.</p>
@@ -47,10 +44,15 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerResul
  * import { LightsailClient, DeleteLoadBalancerCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteLoadBalancerCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteLoadBalancerRequest
+ *   loadBalancerName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoadBalancerCommandInput - {@link DeleteLoadBalancerCommandInput}
+ * @returns {@link DeleteLoadBalancerCommandOutput}
  * @see {@link DeleteLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +106,9 @@ export class DeleteLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +137,8 @@ export class DeleteLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLoadBalancerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLoadBalancerResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +148,18 @@ export class DeleteLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLoadBalancerCommand(input, context);
+    return se_DeleteLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoadBalancerCommandOutput> {
-    return deserializeAws_json1_1DeleteLoadBalancerCommand(output, context);
+    return de_DeleteLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

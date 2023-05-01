@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListBatchSegmentJobsRequest,
-  ListBatchSegmentJobsRequestFilterSensitiveLog,
-  ListBatchSegmentJobsResponse,
-  ListBatchSegmentJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListBatchSegmentJobsRequest, ListBatchSegmentJobsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListBatchSegmentJobsCommand,
-  serializeAws_json1_1ListBatchSegmentJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListBatchSegmentJobsCommand, se_ListBatchSegmentJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBatchSegmentJobsCommand}.
  */
 export interface ListBatchSegmentJobsCommandInput extends ListBatchSegmentJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBatchSegmentJobsCommand}.
  */
 export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the batch segment jobs that have been performed off of a solution
  *       version that you specify.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsR
  * import { PersonalizeClient, ListBatchSegmentJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListBatchSegmentJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListBatchSegmentJobsRequest
+ *   solutionVersionArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListBatchSegmentJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBatchSegmentJobsCommandInput - {@link ListBatchSegmentJobsCommandInput}
+ * @returns {@link ListBatchSegmentJobsCommandOutput}
  * @see {@link ListBatchSegmentJobsCommandInput} for command's `input` shape.
  * @see {@link ListBatchSegmentJobsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +80,9 @@ export class ListBatchSegmentJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBatchSegmentJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class ListBatchSegmentJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBatchSegmentJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBatchSegmentJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class ListBatchSegmentJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBatchSegmentJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBatchSegmentJobsCommand(input, context);
+    return se_ListBatchSegmentJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchSegmentJobsCommandOutput> {
-    return deserializeAws_json1_1ListBatchSegmentJobsCommand(output, context);
+    return de_ListBatchSegmentJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

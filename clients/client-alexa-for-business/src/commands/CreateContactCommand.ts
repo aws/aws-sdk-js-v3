@@ -18,23 +18,24 @@ import {
   CreateContactRequest,
   CreateContactRequestFilterSensitiveLog,
   CreateContactResponse,
-  CreateContactResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateContactCommand,
-  serializeAws_json1_1CreateContactCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateContactCommand, se_CreateContactCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContactCommand}.
  */
 export interface CreateContactCommandInput extends CreateContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContactCommand}.
  */
 export interface CreateContactCommandOutput extends CreateContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a contact with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,37 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * import { AlexaForBusinessClient, CreateContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // CreateContactRequest
+ *   DisplayName: "STRING_VALUE",
+ *   FirstName: "STRING_VALUE", // required
+ *   LastName: "STRING_VALUE",
+ *   PhoneNumber: "STRING_VALUE",
+ *   PhoneNumbers: [ // PhoneNumberList
+ *     { // PhoneNumber
+ *       Number: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   SipAddresses: [ // SipAddressList
+ *     { // SipAddress
+ *       Uri: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContactCommandInput - {@link CreateContactCommandInput}
+ * @returns {@link CreateContactCommandOutput}
  * @see {@link CreateContactCommandInput} for command's `input` shape.
  * @see {@link CreateContactCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +103,9 @@ export class CreateContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,7 +133,7 @@ export class CreateContactCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateContactResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +143,18 @@ export class CreateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContactCommand(input, context);
+    return se_CreateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContactCommandOutput> {
-    return deserializeAws_json1_1CreateContactCommand(output, context);
+    return de_CreateContactCommand(output, context);
   }
 
   // Start section: command_body_extra

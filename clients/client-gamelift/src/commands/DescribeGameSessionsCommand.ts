@@ -14,58 +14,55 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeGameSessionsInput,
-  DescribeGameSessionsInputFilterSensitiveLog,
-  DescribeGameSessionsOutput,
-  DescribeGameSessionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGameSessionsCommand,
-  serializeAws_json1_1DescribeGameSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeGameSessionsInput, DescribeGameSessionsOutput } from "../models/models_0";
+import { de_DescribeGameSessionsCommand, se_DescribeGameSessionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGameSessionsCommand}.
  */
 export interface DescribeGameSessionsCommandInput extends DescribeGameSessionsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGameSessionsCommand}.
  */
 export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a set of one or more game sessions in a specific fleet location. You can
  *             optionally filter the results by current game session status.</p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To retrieve all game sessions that are currently running on all locations in a
+ *                <p>To retrieve all game sessions that are currently running on all locations in a
  *                     fleet, provide a fleet or alias ID, with an optional status filter. This
  *                     approach returns all game sessions in the fleet's home Region and all remote
  *                     locations.</p>
  *             </li>
  *             <li>
- *                 <p>To retrieve all game sessions that are currently running on a specific fleet
+ *                <p>To retrieve all game sessions that are currently running on a specific fleet
  *                     location, provide a fleet or alias ID and a location name, with optional status
  *                     filter. The location can be the fleet's home Region or any remote
  *                     location.</p>
  *             </li>
  *             <li>
- *                 <p>To retrieve a specific game session, provide the game session ID. This
+ *                <p>To retrieve a specific game session, provide the game session ID. This
  *                     approach looks for the game session ID in all fleets that reside in the Amazon Web Services
  *                     Region defined in the request.</p>
  *             </li>
  *          </ul>
- *         <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
- *         <p>If successful, a <code>GameSession</code> object is returned for each game session
+ *          <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
+ *          <p>If successful, a <code>GameSession</code> object is returned for each game session
  *             that matches the request.</p>
- *         <p>This operation is not designed to be continually called to track game session status.
+ *          <p>This operation is not designed to be continually called to track game session status.
  *             This practice can cause you to exceed your API limit, which results in errors. Instead,
  *             you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or
  *             queues. Continuously polling with <code>DescribeGameSessions</code> should only be used
  *             for games in development with low game session usage. </p>
- *         <p>
+ *          <p>
  *             <i>Available in Amazon GameLift Local.</i>
  *          </p>
  *          <p>
@@ -75,7 +72,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find">Find a game session</a>
  *          </p>
  *          <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,10 +80,21 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  * import { GameLiftClient, DescribeGameSessionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameSessionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeGameSessionsInput
+ *   FleetId: "STRING_VALUE",
+ *   GameSessionId: "STRING_VALUE",
+ *   AliasId: "STRING_VALUE",
+ *   Location: "STRING_VALUE",
+ *   StatusFilter: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeGameSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGameSessionsCommandInput - {@link DescribeGameSessionsCommandInput}
+ * @returns {@link DescribeGameSessionsCommandOutput}
  * @see {@link DescribeGameSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -133,6 +141,9 @@ export class DescribeGameSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGameSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,8 +172,8 @@ export class DescribeGameSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGameSessionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGameSessionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -172,12 +183,18 @@ export class DescribeGameSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGameSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameSessionsCommand(input, context);
+    return se_DescribeGameSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGameSessionsCommandOutput> {
-    return deserializeAws_json1_1DescribeGameSessionsCommand(output, context);
+    return de_DescribeGameSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

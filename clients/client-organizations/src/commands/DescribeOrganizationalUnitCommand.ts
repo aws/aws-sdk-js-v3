@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeOrganizationalUnitRequest,
-  DescribeOrganizationalUnitRequestFilterSensitiveLog,
-  DescribeOrganizationalUnitResponse,
-  DescribeOrganizationalUnitResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeOrganizationalUnitRequest, DescribeOrganizationalUnitResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DescribeOrganizationalUnitCommand,
-  serializeAws_json1_1DescribeOrganizationalUnitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeOrganizationalUnitCommand, se_DescribeOrganizationalUnitCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationalUnitCommand}.
  */
 export interface DescribeOrganizationalUnitCommandInput extends DescribeOrganizationalUnitRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationalUnitCommand}.
  */
 export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an organizational unit (OU).</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -44,10 +41,15 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  * import { OrganizationsClient, DescribeOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // DescribeOrganizationalUnitRequest
+ *   OrganizationalUnitId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeOrganizationalUnitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationalUnitCommandInput - {@link DescribeOrganizationalUnitCommandInput}
+ * @returns {@link DescribeOrganizationalUnitCommandOutput}
  * @see {@link DescribeOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -221,6 +223,9 @@ export class DescribeOrganizationalUnitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationalUnitCommandInput) {
     // Start section: command_constructor
     super();
@@ -249,8 +254,8 @@ export class DescribeOrganizationalUnitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationalUnitRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationalUnitResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -260,15 +265,21 @@ export class DescribeOrganizationalUnitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOrganizationalUnitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationalUnitCommand(input, context);
+    return se_DescribeOrganizationalUnitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationalUnitCommand(output, context);
+    return de_DescribeOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAssociatedResourcesRequest,
-  ListAssociatedResourcesRequestFilterSensitiveLog,
-  ListAssociatedResourcesResponse,
-  ListAssociatedResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssociatedResourcesCommand,
-  serializeAws_restJson1ListAssociatedResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAssociatedResourcesRequest, ListAssociatedResourcesResponse } from "../models/models_0";
+import { de_ListAssociatedResourcesCommand, se_ListAssociatedResourcesCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedResourcesCommand}.
  */
 export interface ListAssociatedResourcesCommandInput extends ListAssociatedResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedResourcesCommand}.
  */
 export interface ListAssociatedResourcesCommandOutput extends ListAssociatedResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *        Lists all
  *        of the resources
@@ -66,10 +63,17 @@ export interface ListAssociatedResourcesCommandOutput extends ListAssociatedReso
  * import { ServiceCatalogAppRegistryClient, ListAssociatedResourcesCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, ListAssociatedResourcesCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // ListAssociatedResourcesRequest
+ *   application: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssociatedResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedResourcesCommandInput - {@link ListAssociatedResourcesCommandInput}
+ * @returns {@link ListAssociatedResourcesCommandOutput}
  * @see {@link ListAssociatedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -102,6 +106,9 @@ export class ListAssociatedResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +137,8 @@ export class ListAssociatedResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociatedResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociatedResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +148,18 @@ export class ListAssociatedResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociatedResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssociatedResourcesCommand(input, context);
+    return se_ListAssociatedResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedResourcesCommandOutput> {
-    return deserializeAws_restJson1ListAssociatedResourcesCommand(output, context);
+    return de_ListAssociatedResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

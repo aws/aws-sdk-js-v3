@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
-import {
-  ListRescoreExecutionPlansRequest,
-  ListRescoreExecutionPlansRequestFilterSensitiveLog,
-  ListRescoreExecutionPlansResponse,
-  ListRescoreExecutionPlansResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListRescoreExecutionPlansCommand,
-  serializeAws_json1_0ListRescoreExecutionPlansCommand,
-} from "../protocols/Aws_json1_0";
+import { ListRescoreExecutionPlansRequest, ListRescoreExecutionPlansResponse } from "../models/models_0";
+import { de_ListRescoreExecutionPlansCommand, se_ListRescoreExecutionPlansCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListRescoreExecutionPlansCommand}.
  */
 export interface ListRescoreExecutionPlansCommandInput extends ListRescoreExecutionPlansRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRescoreExecutionPlansCommand}.
  */
 export interface ListRescoreExecutionPlansCommandOutput extends ListRescoreExecutionPlansResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your rescore execution plans. A rescore execution plan
  *             is an Amazon Kendra Intelligent Ranking resource used for
  *             provisioning the <code>Rescore</code> API.</p>
@@ -44,10 +41,16 @@ export interface ListRescoreExecutionPlansCommandOutput extends ListRescoreExecu
  * import { KendraRankingClient, ListRescoreExecutionPlansCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, ListRescoreExecutionPlansCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
  * const client = new KendraRankingClient(config);
+ * const input = { // ListRescoreExecutionPlansRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRescoreExecutionPlansCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRescoreExecutionPlansCommandInput - {@link ListRescoreExecutionPlansCommandInput}
+ * @returns {@link ListRescoreExecutionPlansCommandOutput}
  * @see {@link ListRescoreExecutionPlansCommandInput} for command's `input` shape.
  * @see {@link ListRescoreExecutionPlansCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.
@@ -91,6 +94,9 @@ export class ListRescoreExecutionPlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRescoreExecutionPlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class ListRescoreExecutionPlansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRescoreExecutionPlansRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRescoreExecutionPlansResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +136,21 @@ export class ListRescoreExecutionPlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRescoreExecutionPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListRescoreExecutionPlansCommand(input, context);
+    return se_ListRescoreExecutionPlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRescoreExecutionPlansCommandOutput> {
-    return deserializeAws_json1_0ListRescoreExecutionPlansCommand(output, context);
+    return de_ListRescoreExecutionPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

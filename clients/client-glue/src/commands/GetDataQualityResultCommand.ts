@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetDataQualityResultRequest,
-  GetDataQualityResultRequestFilterSensitiveLog,
-  GetDataQualityResultResponse,
-  GetDataQualityResultResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDataQualityResultCommand,
-  serializeAws_json1_1GetDataQualityResultCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDataQualityResultRequest, GetDataQualityResultResponse } from "../models/models_1";
+import { de_GetDataQualityResultCommand, se_GetDataQualityResultCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataQualityResultCommand}.
  */
 export interface GetDataQualityResultCommandInput extends GetDataQualityResultRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataQualityResultCommand}.
  */
 export interface GetDataQualityResultCommandOutput extends GetDataQualityResultResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the result of a data quality rule evaluation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * import { GlueClient, GetDataQualityResultCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataQualityResultCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetDataQualityResultRequest
+ *   ResultId: "STRING_VALUE", // required
+ * };
  * const command = new GetDataQualityResultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataQualityResultCommandInput - {@link GetDataQualityResultCommandInput}
+ * @returns {@link GetDataQualityResultCommandOutput}
  * @see {@link GetDataQualityResultCommandInput} for command's `input` shape.
  * @see {@link GetDataQualityResultCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +83,9 @@ export class GetDataQualityResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataQualityResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class GetDataQualityResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataQualityResultRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataQualityResultResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class GetDataQualityResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataQualityResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataQualityResultCommand(input, context);
+    return se_GetDataQualityResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataQualityResultCommandOutput> {
-    return deserializeAws_json1_1GetDataQualityResultCommand(output, context);
+    return de_GetDataQualityResultCommand(output, context);
   }
 
   // Start section: command_body_extra

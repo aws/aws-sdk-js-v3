@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetModelsRequest,
-  GetModelsRequestFilterSensitiveLog,
-  GetModelsResult,
-  GetModelsResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetModelsCommand, serializeAws_json1_1GetModelsCommand } from "../protocols/Aws_json1_1";
+import { GetModelsRequest, GetModelsResult } from "../models/models_0";
+import { de_GetModelsCommand, se_GetModelsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetModelsCommand}.
  */
 export interface GetModelsCommandInput extends GetModelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetModelsCommand}.
  */
 export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified. </p>
  *          <p>This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
@@ -45,10 +45,18 @@ export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBeare
  * import { FraudDetectorClient, GetModelsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetModelsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetModelsRequest
+ *   modelId: "STRING_VALUE",
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetModelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetModelsCommandInput - {@link GetModelsCommandInput}
+ * @returns {@link GetModelsCommandOutput}
  * @see {@link GetModelsCommandInput} for command's `input` shape.
  * @see {@link GetModelsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +95,9 @@ export class GetModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +124,8 @@ export class GetModelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetModelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetModelsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +135,18 @@ export class GetModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetModelsCommand(input, context);
+    return se_GetModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelsCommandOutput> {
-    return deserializeAws_json1_1GetModelsCommand(output, context);
+    return de_GetModelsCommand(output, context);
   }
 
   // Start section: command_body_extra

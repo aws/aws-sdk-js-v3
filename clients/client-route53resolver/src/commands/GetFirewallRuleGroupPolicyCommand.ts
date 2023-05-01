@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetFirewallRuleGroupPolicyRequest,
-  GetFirewallRuleGroupPolicyRequestFilterSensitiveLog,
-  GetFirewallRuleGroupPolicyResponse,
-  GetFirewallRuleGroupPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFirewallRuleGroupPolicyCommand,
-  serializeAws_json1_1GetFirewallRuleGroupPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetFirewallRuleGroupPolicyRequest, GetFirewallRuleGroupPolicyResponse } from "../models/models_0";
+import { de_GetFirewallRuleGroupPolicyCommand, se_GetFirewallRuleGroupPolicyCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetFirewallRuleGroupPolicyCommand}.
  */
 export interface GetFirewallRuleGroupPolicyCommandInput extends GetFirewallRuleGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFirewallRuleGroupPolicyCommand}.
  */
 export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRuleGroupPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Identity and Access Management (Amazon Web Services IAM) policy for sharing the
  *        	specified rule group. You can use the policy to share the rule group using Resource Access Manager (RAM). </p>
  * @example
@@ -43,10 +40,15 @@ export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRule
  * import { Route53ResolverClient, GetFirewallRuleGroupPolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetFirewallRuleGroupPolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // GetFirewallRuleGroupPolicyRequest
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new GetFirewallRuleGroupPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFirewallRuleGroupPolicyCommandInput - {@link GetFirewallRuleGroupPolicyCommandInput}
+ * @returns {@link GetFirewallRuleGroupPolicyCommandOutput}
  * @see {@link GetFirewallRuleGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetFirewallRuleGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +88,9 @@ export class GetFirewallRuleGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFirewallRuleGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class GetFirewallRuleGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFirewallRuleGroupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFirewallRuleGroupPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +130,21 @@ export class GetFirewallRuleGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFirewallRuleGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFirewallRuleGroupPolicyCommand(input, context);
+    return se_GetFirewallRuleGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFirewallRuleGroupPolicyCommandOutput> {
-    return deserializeAws_json1_1GetFirewallRuleGroupPolicyCommand(output, context);
+    return de_GetFirewallRuleGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

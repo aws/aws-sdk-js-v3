@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopEngagementRequest,
-  StopEngagementRequestFilterSensitiveLog,
-  StopEngagementResult,
-  StopEngagementResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopEngagementCommand,
-  serializeAws_json1_1StopEngagementCommand,
-} from "../protocols/Aws_json1_1";
+import { StopEngagementRequest, StopEngagementResult } from "../models/models_0";
+import { de_StopEngagementCommand, se_StopEngagementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopEngagementCommand}.
  */
 export interface StopEngagementCommandInput extends StopEngagementRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopEngagementCommand}.
  */
 export interface StopEngagementCommandOutput extends StopEngagementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an engagement before it finishes the final stage of the escalation plan or
  *          engagement plan. Further contacts aren't engaged.</p>
  * @example
@@ -43,10 +40,16 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  * import { SSMContactsClient, StopEngagementCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, StopEngagementCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // StopEngagementRequest
+ *   EngagementId: "STRING_VALUE", // required
+ *   Reason: "STRING_VALUE",
+ * };
  * const command = new StopEngagementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopEngagementCommandInput - {@link StopEngagementCommandInput}
+ * @returns {@link StopEngagementCommandOutput}
  * @see {@link StopEngagementCommandInput} for command's `input` shape.
  * @see {@link StopEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -55,8 +58,7 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  *  <p>You don't have sufficient access to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>
@@ -68,17 +70,6 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
- *
- * @example To stop an engagement
- * ```javascript
- * // The following stop-engagement example stops an engagement from paging further contacts and contact channels.
- * const input = {
- *   "EngagementId": "arn:aws:ssm-contacts:us-east-2:111122223333:engagement/example_escalation/69e40ce1-8dbb-4d57-8962-5fbe7fc53356"
- * };
- * const command = new StopEngagementCommand(input);
- * await client.send(command);
- * // example id: to-stop-an-engagement-1630436882864
- * ```
  *
  */
 export class StopEngagementCommand extends $Command<
@@ -98,6 +89,9 @@ export class StopEngagementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopEngagementCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +120,8 @@ export class StopEngagementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopEngagementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopEngagementResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +131,18 @@ export class StopEngagementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopEngagementCommand(input, context);
+    return se_StopEngagementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEngagementCommandOutput> {
-    return deserializeAws_json1_1StopEngagementCommand(output, context);
+    return de_StopEngagementCommand(output, context);
   }
 
   // Start section: command_body_extra

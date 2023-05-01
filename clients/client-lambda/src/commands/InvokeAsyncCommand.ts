@@ -14,21 +14,15 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  InvokeAsyncRequest,
-  InvokeAsyncRequestFilterSensitiveLog,
-  InvokeAsyncResponse,
-  InvokeAsyncResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1InvokeAsyncCommand,
-  serializeAws_restJson1InvokeAsyncCommand,
-} from "../protocols/Aws_restJson1";
+import { InvokeAsyncRequest, InvokeAsyncRequestFilterSensitiveLog, InvokeAsyncResponse } from "../models/models_0";
+import { de_InvokeAsyncCommand, se_InvokeAsyncCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InvokeAsyncCommand}.
  */
-type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
+export type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
   /**
    * For *`InvokeAsyncRequest["InvokeArgs"]`*, see {@link InvokeAsyncRequest.InvokeArgs}.
    */
@@ -39,11 +33,14 @@ type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
  */
 export interface InvokeAsyncCommandInput extends InvokeAsyncCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link InvokeAsyncCommand}.
  */
 export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <important>
@@ -56,10 +53,16 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * import { LambdaClient, InvokeAsyncCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, InvokeAsyncCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // InvokeAsyncRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   InvokeArgs: "STREAMING_BLOB_VALUE", // required
+ * };
  * const command = new InvokeAsyncCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InvokeAsyncCommandInput - {@link InvokeAsyncCommandInput}
+ * @returns {@link InvokeAsyncCommandOutput}
  * @see {@link InvokeAsyncCommandInput} for command's `input` shape.
  * @see {@link InvokeAsyncCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -98,6 +101,9 @@ export class InvokeAsyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InvokeAsyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,7 +131,7 @@ export class InvokeAsyncCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: InvokeAsyncRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InvokeAsyncResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +141,18 @@ export class InvokeAsyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvokeAsyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InvokeAsyncCommand(input, context);
+    return se_InvokeAsyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeAsyncCommandOutput> {
-    return deserializeAws_restJson1InvokeAsyncCommand(output, context);
+    return de_InvokeAsyncCommand(output, context);
   }
 
   // Start section: command_body_extra

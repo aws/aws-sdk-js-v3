@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DataShare,
-  DataShareFilterSensitiveLog,
-  DeauthorizeDataShareMessage,
-  DeauthorizeDataShareMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeauthorizeDataShareCommand,
-  serializeAws_queryDeauthorizeDataShareCommand,
-} from "../protocols/Aws_query";
+import { DataShare, DeauthorizeDataShareMessage } from "../models/models_0";
+import { de_DeauthorizeDataShareCommand, se_DeauthorizeDataShareCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeauthorizeDataShareCommand}.
  */
 export interface DeauthorizeDataShareCommandInput extends DeauthorizeDataShareMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeauthorizeDataShareCommand}.
  */
 export interface DeauthorizeDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
+ * @public
  * <p>From a datashare producer account, removes authorization from the specified datashare. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  * import { RedshiftClient, DeauthorizeDataShareCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeauthorizeDataShareCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeauthorizeDataShareMessage
+ *   DataShareArn: "STRING_VALUE", // required
+ *   ConsumerIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeauthorizeDataShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeauthorizeDataShareCommandInput - {@link DeauthorizeDataShareCommandInput}
+ * @returns {@link DeauthorizeDataShareCommandOutput}
  * @see {@link DeauthorizeDataShareCommandInput} for command's `input` shape.
  * @see {@link DeauthorizeDataShareCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -72,6 +75,9 @@ export class DeauthorizeDataShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeauthorizeDataShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class DeauthorizeDataShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeauthorizeDataShareMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DataShareFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class DeauthorizeDataShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeauthorizeDataShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeauthorizeDataShareCommand(input, context);
+    return se_DeauthorizeDataShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeauthorizeDataShareCommandOutput> {
-    return deserializeAws_queryDeauthorizeDataShareCommand(output, context);
+    return de_DeauthorizeDataShareCommand(output, context);
   }
 
   // Start section: command_body_extra

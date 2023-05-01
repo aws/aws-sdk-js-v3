@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TerminateAppRequest,
-  TerminateAppRequestFilterSensitiveLog,
-  TerminateAppResponse,
-  TerminateAppResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1TerminateAppCommand,
-  serializeAws_json1_1TerminateAppCommand,
-} from "../protocols/Aws_json1_1";
+import { TerminateAppRequest, TerminateAppResponse } from "../models/models_0";
+import { de_TerminateAppCommand, se_TerminateAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateAppCommand}.
  */
 export interface TerminateAppCommandInput extends TerminateAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link TerminateAppCommand}.
  */
 export interface TerminateAppCommandOutput extends TerminateAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates the stack for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
  * import { SMSClient, TerminateAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, TerminateAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // TerminateAppRequest
+ *   appId: "STRING_VALUE",
+ * };
  * const command = new TerminateAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateAppCommandInput - {@link TerminateAppCommandInput}
+ * @returns {@link TerminateAppCommandOutput}
  * @see {@link TerminateAppCommandInput} for command's `input` shape.
  * @see {@link TerminateAppCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -85,6 +87,9 @@ export class TerminateAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class TerminateAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateAppRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TerminateAppResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class TerminateAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateAppCommand(input, context);
+    return se_TerminateAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateAppCommandOutput> {
-    return deserializeAws_json1_1TerminateAppCommand(output, context);
+    return de_TerminateAppCommand(output, context);
   }
 
   // Start section: command_body_extra

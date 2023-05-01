@@ -15,22 +15,24 @@ import {
 
 import {
   DescribePipelineDefinitionForExecutionRequest,
-  DescribePipelineDefinitionForExecutionRequestFilterSensitiveLog,
   DescribePipelineDefinitionForExecutionResponse,
-  DescribePipelineDefinitionForExecutionResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1DescribePipelineDefinitionForExecutionCommand,
-  serializeAws_json1_1DescribePipelineDefinitionForExecutionCommand,
+  de_DescribePipelineDefinitionForExecutionCommand,
+  se_DescribePipelineDefinitionForExecutionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePipelineDefinitionForExecutionCommand}.
  */
 export interface DescribePipelineDefinitionForExecutionCommandInput
   extends DescribePipelineDefinitionForExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePipelineDefinitionForExecutionCommand}.
  */
 export interface DescribePipelineDefinitionForExecutionCommandOutput
@@ -38,6 +40,7 @@ export interface DescribePipelineDefinitionForExecutionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the details of an execution's pipeline definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,15 @@ export interface DescribePipelineDefinitionForExecutionCommandOutput
  * import { SageMakerClient, DescribePipelineDefinitionForExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribePipelineDefinitionForExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribePipelineDefinitionForExecutionRequest
+ *   PipelineExecutionArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribePipelineDefinitionForExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePipelineDefinitionForExecutionCommandInput - {@link DescribePipelineDefinitionForExecutionCommandInput}
+ * @returns {@link DescribePipelineDefinitionForExecutionCommandOutput}
  * @see {@link DescribePipelineDefinitionForExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribePipelineDefinitionForExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +83,9 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePipelineDefinitionForExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +114,8 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePipelineDefinitionForExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePipelineDefinitionForExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +125,24 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePipelineDefinitionForExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePipelineDefinitionForExecutionCommand(input, context);
+    return se_DescribePipelineDefinitionForExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePipelineDefinitionForExecutionCommandOutput> {
-    return deserializeAws_json1_1DescribePipelineDefinitionForExecutionCommand(output, context);
+    return de_DescribePipelineDefinitionForExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

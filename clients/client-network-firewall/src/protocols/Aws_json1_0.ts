@@ -1,14 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -28,6 +29,10 @@ import {
   CreateFirewallPolicyCommandOutput,
 } from "../commands/CreateFirewallPolicyCommand";
 import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "../commands/CreateRuleGroupCommand";
+import {
+  CreateTLSInspectionConfigurationCommandInput,
+  CreateTLSInspectionConfigurationCommandOutput,
+} from "../commands/CreateTLSInspectionConfigurationCommand";
 import { DeleteFirewallCommandInput, DeleteFirewallCommandOutput } from "../commands/DeleteFirewallCommand";
 import {
   DeleteFirewallPolicyCommandInput,
@@ -38,6 +43,10 @@ import {
   DeleteResourcePolicyCommandOutput,
 } from "../commands/DeleteResourcePolicyCommand";
 import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "../commands/DeleteRuleGroupCommand";
+import {
+  DeleteTLSInspectionConfigurationCommandInput,
+  DeleteTLSInspectionConfigurationCommandOutput,
+} from "../commands/DeleteTLSInspectionConfigurationCommand";
 import { DescribeFirewallCommandInput, DescribeFirewallCommandOutput } from "../commands/DescribeFirewallCommand";
 import {
   DescribeFirewallPolicyCommandInput,
@@ -57,6 +66,10 @@ import {
   DescribeRuleGroupMetadataCommandOutput,
 } from "../commands/DescribeRuleGroupMetadataCommand";
 import {
+  DescribeTLSInspectionConfigurationCommandInput,
+  DescribeTLSInspectionConfigurationCommandOutput,
+} from "../commands/DescribeTLSInspectionConfigurationCommand";
+import {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
 } from "../commands/DisassociateSubnetsCommand";
@@ -70,6 +83,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListTLSInspectionConfigurationsCommandInput,
+  ListTLSInspectionConfigurationsCommandOutput,
+} from "../commands/ListTLSInspectionConfigurationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -103,52 +120,46 @@ import {
   UpdateSubnetChangeProtectionCommandOutput,
 } from "../commands/UpdateSubnetChangeProtectionCommand";
 import {
+  UpdateTLSInspectionConfigurationCommandInput,
+  UpdateTLSInspectionConfigurationCommandOutput,
+} from "../commands/UpdateTLSInspectionConfigurationCommand";
+import {
   ActionDefinition,
   Address,
   AssociateFirewallPolicyRequest,
-  AssociateFirewallPolicyResponse,
   AssociateSubnetsRequest,
-  AssociateSubnetsResponse,
-  Attachment,
-  CapacityUsageSummary,
-  CIDRSummary,
   CreateFirewallPolicyRequest,
   CreateFirewallPolicyResponse,
   CreateFirewallRequest,
-  CreateFirewallResponse,
   CreateRuleGroupRequest,
   CreateRuleGroupResponse,
+  CreateTLSInspectionConfigurationRequest,
+  CreateTLSInspectionConfigurationResponse,
   CustomAction,
   DeleteFirewallPolicyRequest,
   DeleteFirewallPolicyResponse,
   DeleteFirewallRequest,
-  DeleteFirewallResponse,
   DeleteResourcePolicyRequest,
-  DeleteResourcePolicyResponse,
   DeleteRuleGroupRequest,
   DeleteRuleGroupResponse,
+  DeleteTLSInspectionConfigurationRequest,
+  DeleteTLSInspectionConfigurationResponse,
   DescribeFirewallPolicyRequest,
   DescribeFirewallPolicyResponse,
   DescribeFirewallRequest,
-  DescribeFirewallResponse,
   DescribeLoggingConfigurationRequest,
-  DescribeLoggingConfigurationResponse,
   DescribeResourcePolicyRequest,
-  DescribeResourcePolicyResponse,
   DescribeRuleGroupMetadataRequest,
   DescribeRuleGroupMetadataResponse,
   DescribeRuleGroupRequest,
   DescribeRuleGroupResponse,
+  DescribeTLSInspectionConfigurationRequest,
+  DescribeTLSInspectionConfigurationResponse,
   Dimension,
   DisassociateSubnetsRequest,
-  DisassociateSubnetsResponse,
   EncryptionConfiguration,
-  Firewall,
-  FirewallMetadata,
   FirewallPolicy,
-  FirewallPolicyMetadata,
   FirewallPolicyResponse,
-  FirewallStatus,
   Header,
   InsufficientCapacityException,
   InternalServerError,
@@ -157,38 +168,34 @@ import {
   InvalidResourcePolicyException,
   InvalidTokenException,
   IPSet,
-  IPSetMetadata,
   IPSetReference,
   LimitExceededException,
   ListFirewallPoliciesRequest,
-  ListFirewallPoliciesResponse,
   ListFirewallsRequest,
-  ListFirewallsResponse,
   ListRuleGroupsRequest,
-  ListRuleGroupsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
+  ListTLSInspectionConfigurationsRequest,
   LogDestinationConfig,
   LogDestinationPermissionException,
   LoggingConfiguration,
   MatchAttributes,
-  PerObjectStatus,
   PortRange,
   PortSet,
   PublishMetricAction,
   PutResourcePolicyRequest,
-  PutResourcePolicyResponse,
   ReferenceSets,
   ResourceNotFoundException,
   ResourceOwnerCheckException,
   RuleDefinition,
   RuleGroup,
-  RuleGroupMetadata,
   RuleGroupResponse,
   RuleOption,
   RulesSource,
   RulesSourceList,
   RuleVariables,
+  ServerCertificate,
+  ServerCertificateConfiguration,
+  ServerCertificateScope,
   SourceMetadata,
   StatefulEngineOptions,
   StatefulRule,
@@ -199,457 +206,523 @@ import {
   StatelessRuleGroupReference,
   StatelessRulesAndCustomActions,
   SubnetMapping,
-  SyncState,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TargetType,
   TCPFlag,
   TCPFlagField,
   ThrottlingException,
+  TLSInspectionConfiguration,
+  TLSInspectionConfigurationResponse,
   UnsupportedOperationException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateFirewallDeleteProtectionRequest,
-  UpdateFirewallDeleteProtectionResponse,
   UpdateFirewallDescriptionRequest,
-  UpdateFirewallDescriptionResponse,
   UpdateFirewallEncryptionConfigurationRequest,
-  UpdateFirewallEncryptionConfigurationResponse,
   UpdateFirewallPolicyChangeProtectionRequest,
-  UpdateFirewallPolicyChangeProtectionResponse,
   UpdateFirewallPolicyRequest,
   UpdateFirewallPolicyResponse,
   UpdateLoggingConfigurationRequest,
-  UpdateLoggingConfigurationResponse,
   UpdateRuleGroupRequest,
   UpdateRuleGroupResponse,
   UpdateSubnetChangeProtectionRequest,
-  UpdateSubnetChangeProtectionResponse,
+  UpdateTLSInspectionConfigurationRequest,
+  UpdateTLSInspectionConfigurationResponse,
 } from "../models/models_0";
 import { NetworkFirewallServiceException as __BaseException } from "../models/NetworkFirewallServiceException";
 
-export const serializeAws_json1_0AssociateFirewallPolicyCommand = async (
+/**
+ * serializeAws_json1_0AssociateFirewallPolicyCommand
+ */
+export const se_AssociateFirewallPolicyCommand = async (
   input: AssociateFirewallPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.AssociateFirewallPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateFirewallPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0AssociateFirewallPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0AssociateSubnetsCommand = async (
+/**
+ * serializeAws_json1_0AssociateSubnetsCommand
+ */
+export const se_AssociateSubnetsCommand = async (
   input: AssociateSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.AssociateSubnets",
-  };
+  const headers: __HeaderBag = sharedHeaders("AssociateSubnets");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0AssociateSubnetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateFirewallCommand = async (
+/**
+ * serializeAws_json1_0CreateFirewallCommand
+ */
+export const se_CreateFirewallCommand = async (
   input: CreateFirewallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.CreateFirewall",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFirewall");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateFirewallRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateFirewallPolicyCommand = async (
+/**
+ * serializeAws_json1_0CreateFirewallPolicyCommand
+ */
+export const se_CreateFirewallPolicyCommand = async (
   input: CreateFirewallPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.CreateFirewallPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFirewallPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateFirewallPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateRuleGroupCommand = async (
+/**
+ * serializeAws_json1_0CreateRuleGroupCommand
+ */
+export const se_CreateRuleGroupCommand = async (
   input: CreateRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.CreateRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateRuleGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateRuleGroupRequest(input, context));
+  body = JSON.stringify(se_CreateRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteFirewallCommand = async (
+/**
+ * serializeAws_json1_0CreateTLSInspectionConfigurationCommand
+ */
+export const se_CreateTLSInspectionConfigurationCommand = async (
+  input: CreateTLSInspectionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateTLSInspectionConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteFirewallCommand
+ */
+export const se_DeleteFirewallCommand = async (
   input: DeleteFirewallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DeleteFirewall",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFirewall");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteFirewallRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteFirewallPolicyCommand = async (
+/**
+ * serializeAws_json1_0DeleteFirewallPolicyCommand
+ */
+export const se_DeleteFirewallPolicyCommand = async (
   input: DeleteFirewallPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DeleteFirewallPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFirewallPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteFirewallPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_0DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DeleteResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteRuleGroupCommand = async (
+/**
+ * serializeAws_json1_0DeleteRuleGroupCommand
+ */
+export const se_DeleteRuleGroupCommand = async (
   input: DeleteRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DeleteRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteRuleGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteRuleGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeFirewallCommand = async (
+/**
+ * serializeAws_json1_0DeleteTLSInspectionConfigurationCommand
+ */
+export const se_DeleteTLSInspectionConfigurationCommand = async (
+  input: DeleteTLSInspectionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteTLSInspectionConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeFirewallCommand
+ */
+export const se_DescribeFirewallCommand = async (
   input: DescribeFirewallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeFirewall",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFirewall");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeFirewallRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeFirewallPolicyCommand = async (
+/**
+ * serializeAws_json1_0DescribeFirewallPolicyCommand
+ */
+export const se_DescribeFirewallPolicyCommand = async (
   input: DescribeFirewallPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeFirewallPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFirewallPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeFirewallPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeLoggingConfigurationCommand = async (
+/**
+ * serializeAws_json1_0DescribeLoggingConfigurationCommand
+ */
+export const se_DescribeLoggingConfigurationCommand = async (
   input: DescribeLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeLoggingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeLoggingConfiguration");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeLoggingConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_0DescribeResourcePolicyCommand
+ */
+export const se_DescribeResourcePolicyCommand = async (
   input: DescribeResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeResourcePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeRuleGroupCommand = async (
+/**
+ * serializeAws_json1_0DescribeRuleGroupCommand
+ */
+export const se_DescribeRuleGroupCommand = async (
   input: DescribeRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRuleGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeRuleGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeRuleGroupMetadataCommand = async (
+/**
+ * serializeAws_json1_0DescribeRuleGroupMetadataCommand
+ */
+export const se_DescribeRuleGroupMetadataCommand = async (
   input: DescribeRuleGroupMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DescribeRuleGroupMetadata",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRuleGroupMetadata");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeRuleGroupMetadataRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DisassociateSubnetsCommand = async (
+/**
+ * serializeAws_json1_0DescribeTLSInspectionConfigurationCommand
+ */
+export const se_DescribeTLSInspectionConfigurationCommand = async (
+  input: DescribeTLSInspectionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeTLSInspectionConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DisassociateSubnetsCommand
+ */
+export const se_DisassociateSubnetsCommand = async (
   input: DisassociateSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.DisassociateSubnets",
-  };
+  const headers: __HeaderBag = sharedHeaders("DisassociateSubnets");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DisassociateSubnetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListFirewallPoliciesCommand = async (
+/**
+ * serializeAws_json1_0ListFirewallPoliciesCommand
+ */
+export const se_ListFirewallPoliciesCommand = async (
   input: ListFirewallPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.ListFirewallPolicies",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFirewallPolicies");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListFirewallPoliciesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListFirewallsCommand = async (
+/**
+ * serializeAws_json1_0ListFirewallsCommand
+ */
+export const se_ListFirewallsCommand = async (
   input: ListFirewallsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.ListFirewalls",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFirewalls");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListFirewallsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListRuleGroupsCommand = async (
+/**
+ * serializeAws_json1_0ListRuleGroupsCommand
+ */
+export const se_ListRuleGroupsCommand = async (
   input: ListRuleGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.ListRuleGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRuleGroups");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListRuleGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0PutResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_0ListTLSInspectionConfigurationsCommand
+ */
+export const se_ListTLSInspectionConfigurationsCommand = async (
+  input: ListTLSInspectionConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTLSInspectionConfigurations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.PutResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0PutResourcePolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0TagResourceCommand = async (
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UntagResourceCommand = async (
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateFirewallDeleteProtectionCommand = async (
+/**
+ * serializeAws_json1_0UpdateFirewallDeleteProtectionCommand
+ */
+export const se_UpdateFirewallDeleteProtectionCommand = async (
   input: UpdateFirewallDeleteProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallDeleteProtection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallDeleteProtection");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateFirewallDeleteProtectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateFirewallDescriptionCommand = async (
+/**
+ * serializeAws_json1_0UpdateFirewallDescriptionCommand
+ */
+export const se_UpdateFirewallDescriptionCommand = async (
   input: UpdateFirewallDescriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallDescription",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallDescription");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateFirewallDescriptionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand = async (
+/**
+ * serializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand
+ */
+export const se_UpdateFirewallEncryptionConfigurationCommand = async (
   input: UpdateFirewallEncryptionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallEncryptionConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallEncryptionConfiguration");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateFirewallEncryptionConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateFirewallPolicyCommand = async (
+/**
+ * serializeAws_json1_0UpdateFirewallPolicyCommand
+ */
+export const se_UpdateFirewallPolicyCommand = async (
   input: UpdateFirewallPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallPolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallPolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateFirewallPolicyRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand = async (
+/**
+ * serializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand
+ */
+export const se_UpdateFirewallPolicyChangeProtectionCommand = async (
   input: UpdateFirewallPolicyChangeProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallPolicyChangeProtection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateFirewallPolicyChangeProtection");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateFirewallPolicyChangeProtectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateLoggingConfigurationCommand = async (
+/**
+ * serializeAws_json1_0UpdateLoggingConfigurationCommand
+ */
+export const se_UpdateLoggingConfigurationCommand = async (
   input: UpdateLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateLoggingConfiguration",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateLoggingConfiguration");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateLoggingConfigurationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateRuleGroupCommand = async (
+/**
+ * serializeAws_json1_0UpdateRuleGroupCommand
+ */
+export const se_UpdateRuleGroupCommand = async (
   input: UpdateRuleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateRuleGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateRuleGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateRuleGroupRequest(input, context));
+  body = JSON.stringify(se_UpdateRuleGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateSubnetChangeProtectionCommand = async (
+/**
+ * serializeAws_json1_0UpdateSubnetChangeProtectionCommand
+ */
+export const se_UpdateSubnetChangeProtectionCommand = async (
   input: UpdateSubnetChangeProtectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "NetworkFirewall_20201112.UpdateSubnetChangeProtection",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSubnetChangeProtection");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateSubnetChangeProtectionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0AssociateFirewallPolicyCommand = async (
+/**
+ * serializeAws_json1_0UpdateTLSInspectionConfigurationCommand
+ */
+export const se_UpdateTLSInspectionConfigurationCommand = async (
+  input: UpdateTLSInspectionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateTLSInspectionConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_0AssociateFirewallPolicyCommand
+ */
+export const de_AssociateFirewallPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateFirewallPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0AssociateFirewallPolicyCommandError(output, context);
+    return de_AssociateFirewallPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0AssociateFirewallPolicyResponse(data, context);
+  contents = _json(data);
   const response: AssociateFirewallPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0AssociateFirewallPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0AssociateFirewallPolicyCommandError
+ */
+const de_AssociateFirewallPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateFirewallPolicyCommandOutput> => {
@@ -661,51 +734,56 @@ const deserializeAws_json1_0AssociateFirewallPolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.networkfirewall#InvalidOperationException":
-      throw await deserializeAws_json1_0InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0AssociateSubnetsCommand = async (
+/**
+ * deserializeAws_json1_0AssociateSubnetsCommand
+ */
+export const de_AssociateSubnetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateSubnetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0AssociateSubnetsCommandError(output, context);
+    return de_AssociateSubnetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0AssociateSubnetsResponse(data, context);
+  contents = _json(data);
   const response: AssociateSubnetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0AssociateSubnetsCommandError = async (
+/**
+ * deserializeAws_json1_0AssociateSubnetsCommandError
+ */
+const de_AssociateSubnetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateSubnetsCommandOutput> => {
@@ -717,54 +795,59 @@ const deserializeAws_json1_0AssociateSubnetsCommandError = async (
   switch (errorCode) {
     case "InsufficientCapacityException":
     case "com.amazonaws.networkfirewall#InsufficientCapacityException":
-      throw await deserializeAws_json1_0InsufficientCapacityExceptionResponse(parsedOutput, context);
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.networkfirewall#InvalidOperationException":
-      throw await deserializeAws_json1_0InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0CreateFirewallCommand = async (
+/**
+ * deserializeAws_json1_0CreateFirewallCommand
+ */
+export const de_CreateFirewallCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFirewallCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateFirewallCommandError(output, context);
+    return de_CreateFirewallCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateFirewallResponse(data, context);
+  contents = _json(data);
   const response: CreateFirewallCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0CreateFirewallCommandError = async (
+/**
+ * deserializeAws_json1_0CreateFirewallCommandError
+ */
+const de_CreateFirewallCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFirewallCommandOutput> => {
@@ -776,51 +859,56 @@ const deserializeAws_json1_0CreateFirewallCommandError = async (
   switch (errorCode) {
     case "InsufficientCapacityException":
     case "com.amazonaws.networkfirewall#InsufficientCapacityException":
-      throw await deserializeAws_json1_0InsufficientCapacityExceptionResponse(parsedOutput, context);
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.networkfirewall#InvalidOperationException":
-      throw await deserializeAws_json1_0InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.networkfirewall#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0CreateFirewallPolicyCommand = async (
+/**
+ * deserializeAws_json1_0CreateFirewallPolicyCommand
+ */
+export const de_CreateFirewallPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFirewallPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateFirewallPolicyCommandError(output, context);
+    return de_CreateFirewallPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateFirewallPolicyResponse(data, context);
+  contents = de_CreateFirewallPolicyResponse(data, context);
   const response: CreateFirewallPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0CreateFirewallPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0CreateFirewallPolicyCommandError
+ */
+const de_CreateFirewallPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFirewallPolicyCommandOutput> => {
@@ -832,48 +920,53 @@ const deserializeAws_json1_0CreateFirewallPolicyCommandError = async (
   switch (errorCode) {
     case "InsufficientCapacityException":
     case "com.amazonaws.networkfirewall#InsufficientCapacityException":
-      throw await deserializeAws_json1_0InsufficientCapacityExceptionResponse(parsedOutput, context);
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.networkfirewall#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0CreateRuleGroupCommand = async (
+/**
+ * deserializeAws_json1_0CreateRuleGroupCommand
+ */
+export const de_CreateRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateRuleGroupCommandError(output, context);
+    return de_CreateRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateRuleGroupResponse(data, context);
+  contents = de_CreateRuleGroupResponse(data, context);
   const response: CreateRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0CreateRuleGroupCommandError = async (
+/**
+ * deserializeAws_json1_0CreateRuleGroupCommandError
+ */
+const de_CreateRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRuleGroupCommandOutput> => {
@@ -885,48 +978,105 @@ const deserializeAws_json1_0CreateRuleGroupCommandError = async (
   switch (errorCode) {
     case "InsufficientCapacityException":
     case "com.amazonaws.networkfirewall#InsufficientCapacityException":
-      throw await deserializeAws_json1_0InsufficientCapacityExceptionResponse(parsedOutput, context);
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.networkfirewall#LimitExceededException":
-      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DeleteFirewallCommand = async (
+/**
+ * deserializeAws_json1_0CreateTLSInspectionConfigurationCommand
+ */
+export const de_CreateTLSInspectionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTLSInspectionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateTLSInspectionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateTLSInspectionConfigurationResponse(data, context);
+  const response: CreateTLSInspectionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateTLSInspectionConfigurationCommandError
+ */
+const de_CreateTLSInspectionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTLSInspectionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DeleteFirewallCommand
+ */
+export const de_DeleteFirewallCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFirewallCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteFirewallCommandError(output, context);
+    return de_DeleteFirewallCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteFirewallResponse(data, context);
+  contents = _json(data);
   const response: DeleteFirewallCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DeleteFirewallCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteFirewallCommandError
+ */
+const de_DeleteFirewallCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFirewallCommandOutput> => {
@@ -938,51 +1088,56 @@ const deserializeAws_json1_0DeleteFirewallCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.networkfirewall#InvalidOperationException":
-      throw await deserializeAws_json1_0InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.networkfirewall#UnsupportedOperationException":
-      throw await deserializeAws_json1_0UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DeleteFirewallPolicyCommand = async (
+/**
+ * deserializeAws_json1_0DeleteFirewallPolicyCommand
+ */
+export const de_DeleteFirewallPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFirewallPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteFirewallPolicyCommandError(output, context);
+    return de_DeleteFirewallPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteFirewallPolicyResponse(data, context);
+  contents = de_DeleteFirewallPolicyResponse(data, context);
   const response: DeleteFirewallPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DeleteFirewallPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteFirewallPolicyCommandError
+ */
+const de_DeleteFirewallPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFirewallPolicyCommandOutput> => {
@@ -994,51 +1149,56 @@ const deserializeAws_json1_0DeleteFirewallPolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.networkfirewall#InvalidOperationException":
-      throw await deserializeAws_json1_0InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.networkfirewall#UnsupportedOperationException":
-      throw await deserializeAws_json1_0UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DeleteResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_0DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteResourcePolicyCommandError(output, context);
+    return de_DeleteResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DeleteResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteResourcePolicyCommandError
+ */
+const de_DeleteResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
@@ -1050,48 +1210,53 @@ const deserializeAws_json1_0DeleteResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidResourcePolicyException":
     case "com.amazonaws.networkfirewall#InvalidResourcePolicyException":
-      throw await deserializeAws_json1_0InvalidResourcePolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidResourcePolicyExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DeleteRuleGroupCommand = async (
+/**
+ * deserializeAws_json1_0DeleteRuleGroupCommand
+ */
+export const de_DeleteRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteRuleGroupCommandError(output, context);
+    return de_DeleteRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteRuleGroupResponse(data, context);
+  contents = de_DeleteRuleGroupResponse(data, context);
   const response: DeleteRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DeleteRuleGroupCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteRuleGroupCommandError
+ */
+const de_DeleteRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRuleGroupCommandOutput> => {
@@ -1103,51 +1268,114 @@ const deserializeAws_json1_0DeleteRuleGroupCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.networkfirewall#InvalidOperationException":
-      throw await deserializeAws_json1_0InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.networkfirewall#UnsupportedOperationException":
-      throw await deserializeAws_json1_0UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DescribeFirewallCommand = async (
+/**
+ * deserializeAws_json1_0DeleteTLSInspectionConfigurationCommand
+ */
+export const de_DeleteTLSInspectionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTLSInspectionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteTLSInspectionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteTLSInspectionConfigurationResponse(data, context);
+  const response: DeleteTLSInspectionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteTLSInspectionConfigurationCommandError
+ */
+const de_DeleteTLSInspectionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTLSInspectionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.networkfirewall#InvalidOperationException":
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkfirewall#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeFirewallCommand
+ */
+export const de_DescribeFirewallCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFirewallCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeFirewallCommandError(output, context);
+    return de_DescribeFirewallCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeFirewallResponse(data, context);
+  contents = _json(data);
   const response: DescribeFirewallCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeFirewallCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeFirewallCommandError
+ */
+const de_DescribeFirewallCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFirewallCommandOutput> => {
@@ -1159,45 +1387,50 @@ const deserializeAws_json1_0DescribeFirewallCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DescribeFirewallPolicyCommand = async (
+/**
+ * deserializeAws_json1_0DescribeFirewallPolicyCommand
+ */
+export const de_DescribeFirewallPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFirewallPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeFirewallPolicyCommandError(output, context);
+    return de_DescribeFirewallPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeFirewallPolicyResponse(data, context);
+  contents = de_DescribeFirewallPolicyResponse(data, context);
   const response: DescribeFirewallPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeFirewallPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeFirewallPolicyCommandError
+ */
+const de_DescribeFirewallPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFirewallPolicyCommandOutput> => {
@@ -1209,45 +1442,50 @@ const deserializeAws_json1_0DescribeFirewallPolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DescribeLoggingConfigurationCommand = async (
+/**
+ * deserializeAws_json1_0DescribeLoggingConfigurationCommand
+ */
+export const de_DescribeLoggingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoggingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeLoggingConfigurationCommandError(output, context);
+    return de_DescribeLoggingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeLoggingConfigurationResponse(data, context);
+  contents = _json(data);
   const response: DescribeLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeLoggingConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeLoggingConfigurationCommandError
+ */
+const de_DescribeLoggingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoggingConfigurationCommandOutput> => {
@@ -1259,45 +1497,50 @@ const deserializeAws_json1_0DescribeLoggingConfigurationCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DescribeResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_0DescribeResourcePolicyCommand
+ */
+export const de_DescribeResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeResourcePolicyCommandError(output, context);
+    return de_DescribeResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: DescribeResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeResourcePolicyCommandError
+ */
+const de_DescribeResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourcePolicyCommandOutput> => {
@@ -1309,45 +1552,50 @@ const deserializeAws_json1_0DescribeResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DescribeRuleGroupCommand = async (
+/**
+ * deserializeAws_json1_0DescribeRuleGroupCommand
+ */
+export const de_DescribeRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeRuleGroupCommandError(output, context);
+    return de_DescribeRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeRuleGroupResponse(data, context);
+  contents = de_DescribeRuleGroupResponse(data, context);
   const response: DescribeRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeRuleGroupCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeRuleGroupCommandError
+ */
+const de_DescribeRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRuleGroupCommandOutput> => {
@@ -1359,45 +1607,50 @@ const deserializeAws_json1_0DescribeRuleGroupCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DescribeRuleGroupMetadataCommand = async (
+/**
+ * deserializeAws_json1_0DescribeRuleGroupMetadataCommand
+ */
+export const de_DescribeRuleGroupMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRuleGroupMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeRuleGroupMetadataCommandError(output, context);
+    return de_DescribeRuleGroupMetadataCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeRuleGroupMetadataResponse(data, context);
+  contents = de_DescribeRuleGroupMetadataResponse(data, context);
   const response: DescribeRuleGroupMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeRuleGroupMetadataCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeRuleGroupMetadataCommandError
+ */
+const de_DescribeRuleGroupMetadataCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRuleGroupMetadataCommandOutput> => {
@@ -1409,45 +1662,105 @@ const deserializeAws_json1_0DescribeRuleGroupMetadataCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DisassociateSubnetsCommand = async (
+/**
+ * deserializeAws_json1_0DescribeTLSInspectionConfigurationCommand
+ */
+export const de_DescribeTLSInspectionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTLSInspectionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeTLSInspectionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTLSInspectionConfigurationResponse(data, context);
+  const response: DescribeTLSInspectionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeTLSInspectionConfigurationCommandError
+ */
+const de_DescribeTLSInspectionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTLSInspectionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkfirewall#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DisassociateSubnetsCommand
+ */
+export const de_DisassociateSubnetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateSubnetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DisassociateSubnetsCommandError(output, context);
+    return de_DisassociateSubnetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DisassociateSubnetsResponse(data, context);
+  contents = _json(data);
   const response: DisassociateSubnetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DisassociateSubnetsCommandError = async (
+/**
+ * deserializeAws_json1_0DisassociateSubnetsCommandError
+ */
+const de_DisassociateSubnetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateSubnetsCommandOutput> => {
@@ -1459,51 +1772,56 @@ const deserializeAws_json1_0DisassociateSubnetsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.networkfirewall#InvalidOperationException":
-      throw await deserializeAws_json1_0InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0ListFirewallPoliciesCommand = async (
+/**
+ * deserializeAws_json1_0ListFirewallPoliciesCommand
+ */
+export const de_ListFirewallPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListFirewallPoliciesCommandError(output, context);
+    return de_ListFirewallPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListFirewallPoliciesResponse(data, context);
+  contents = _json(data);
   const response: ListFirewallPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListFirewallPoliciesCommandError = async (
+/**
+ * deserializeAws_json1_0ListFirewallPoliciesCommandError
+ */
+const de_ListFirewallPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallPoliciesCommandOutput> => {
@@ -1515,42 +1833,47 @@ const deserializeAws_json1_0ListFirewallPoliciesCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0ListFirewallsCommand = async (
+/**
+ * deserializeAws_json1_0ListFirewallsCommand
+ */
+export const de_ListFirewallsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListFirewallsCommandError(output, context);
+    return de_ListFirewallsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListFirewallsResponse(data, context);
+  contents = _json(data);
   const response: ListFirewallsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListFirewallsCommandError = async (
+/**
+ * deserializeAws_json1_0ListFirewallsCommandError
+ */
+const de_ListFirewallsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallsCommandOutput> => {
@@ -1562,42 +1885,47 @@ const deserializeAws_json1_0ListFirewallsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0ListRuleGroupsCommand = async (
+/**
+ * deserializeAws_json1_0ListRuleGroupsCommand
+ */
+export const de_ListRuleGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRuleGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListRuleGroupsCommandError(output, context);
+    return de_ListRuleGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListRuleGroupsResponse(data, context);
+  contents = _json(data);
   const response: ListRuleGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListRuleGroupsCommandError = async (
+/**
+ * deserializeAws_json1_0ListRuleGroupsCommandError
+ */
+const de_ListRuleGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRuleGroupsCommandOutput> => {
@@ -1609,42 +1937,47 @@ const deserializeAws_json1_0ListRuleGroupsCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1656,45 +1989,102 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0PutResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_0ListTLSInspectionConfigurationsCommand
+ */
+export const de_ListTLSInspectionConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTLSInspectionConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListTLSInspectionConfigurationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTLSInspectionConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListTLSInspectionConfigurationsCommandError
+ */
+const de_ListTLSInspectionConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTLSInspectionConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0PutResourcePolicyCommandError(output, context);
+    return de_PutResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0PutResourcePolicyResponse(data, context);
+  contents = _json(data);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0PutResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_0PutResourcePolicyCommandError
+ */
+const de_PutResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
@@ -1706,48 +2096,53 @@ const deserializeAws_json1_0PutResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidResourcePolicyException":
     case "com.amazonaws.networkfirewall#InvalidResourcePolicyException":
-      throw await deserializeAws_json1_0InvalidResourcePolicyExceptionResponse(parsedOutput, context);
+      throw await de_InvalidResourcePolicyExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0TagResourceCommand = async (
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1759,45 +2154,50 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1809,45 +2209,50 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0UpdateFirewallDeleteProtectionCommand = async (
+/**
+ * deserializeAws_json1_0UpdateFirewallDeleteProtectionCommand
+ */
+export const de_UpdateFirewallDeleteProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallDeleteProtectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateFirewallDeleteProtectionCommandError(output, context);
+    return de_UpdateFirewallDeleteProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateFirewallDeleteProtectionResponse(data, context);
+  contents = _json(data);
   const response: UpdateFirewallDeleteProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UpdateFirewallDeleteProtectionCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateFirewallDeleteProtectionCommandError
+ */
+const de_UpdateFirewallDeleteProtectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallDeleteProtectionCommandOutput> => {
@@ -1859,51 +2264,56 @@ const deserializeAws_json1_0UpdateFirewallDeleteProtectionCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceOwnerCheckException":
     case "com.amazonaws.networkfirewall#ResourceOwnerCheckException":
-      throw await deserializeAws_json1_0ResourceOwnerCheckExceptionResponse(parsedOutput, context);
+      throw await de_ResourceOwnerCheckExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0UpdateFirewallDescriptionCommand = async (
+/**
+ * deserializeAws_json1_0UpdateFirewallDescriptionCommand
+ */
+export const de_UpdateFirewallDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallDescriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateFirewallDescriptionCommandError(output, context);
+    return de_UpdateFirewallDescriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateFirewallDescriptionResponse(data, context);
+  contents = _json(data);
   const response: UpdateFirewallDescriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UpdateFirewallDescriptionCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateFirewallDescriptionCommandError
+ */
+const de_UpdateFirewallDescriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallDescriptionCommandOutput> => {
@@ -1915,48 +2325,53 @@ const deserializeAws_json1_0UpdateFirewallDescriptionCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand = async (
+/**
+ * deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand
+ */
+export const de_UpdateFirewallEncryptionConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallEncryptionConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommandError(output, context);
+    return de_UpdateFirewallEncryptionConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateFirewallEncryptionConfigurationResponse(data, context);
+  contents = _json(data);
   const response: UpdateFirewallEncryptionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommandError
+ */
+const de_UpdateFirewallEncryptionConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallEncryptionConfigurationCommandOutput> => {
@@ -1968,51 +2383,56 @@ const deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommandError = 
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceOwnerCheckException":
     case "com.amazonaws.networkfirewall#ResourceOwnerCheckException":
-      throw await deserializeAws_json1_0ResourceOwnerCheckExceptionResponse(parsedOutput, context);
+      throw await de_ResourceOwnerCheckExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0UpdateFirewallPolicyCommand = async (
+/**
+ * deserializeAws_json1_0UpdateFirewallPolicyCommand
+ */
+export const de_UpdateFirewallPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateFirewallPolicyCommandError(output, context);
+    return de_UpdateFirewallPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateFirewallPolicyResponse(data, context);
+  contents = de_UpdateFirewallPolicyResponse(data, context);
   const response: UpdateFirewallPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UpdateFirewallPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateFirewallPolicyCommandError
+ */
+const de_UpdateFirewallPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallPolicyCommandOutput> => {
@@ -2024,48 +2444,53 @@ const deserializeAws_json1_0UpdateFirewallPolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand = async (
+/**
+ * deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand
+ */
+export const de_UpdateFirewallPolicyChangeProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallPolicyChangeProtectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommandError(output, context);
+    return de_UpdateFirewallPolicyChangeProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionResponse(data, context);
+  contents = _json(data);
   const response: UpdateFirewallPolicyChangeProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommandError
+ */
+const de_UpdateFirewallPolicyChangeProtectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFirewallPolicyChangeProtectionCommandOutput> => {
@@ -2077,51 +2502,56 @@ const deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommandError = a
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceOwnerCheckException":
     case "com.amazonaws.networkfirewall#ResourceOwnerCheckException":
-      throw await deserializeAws_json1_0ResourceOwnerCheckExceptionResponse(parsedOutput, context);
+      throw await de_ResourceOwnerCheckExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0UpdateLoggingConfigurationCommand = async (
+/**
+ * deserializeAws_json1_0UpdateLoggingConfigurationCommand
+ */
+export const de_UpdateLoggingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLoggingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateLoggingConfigurationCommandError(output, context);
+    return de_UpdateLoggingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateLoggingConfigurationResponse(data, context);
+  contents = _json(data);
   const response: UpdateLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UpdateLoggingConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateLoggingConfigurationCommandError
+ */
+const de_UpdateLoggingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLoggingConfigurationCommandOutput> => {
@@ -2133,51 +2563,56 @@ const deserializeAws_json1_0UpdateLoggingConfigurationCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "LogDestinationPermissionException":
     case "com.amazonaws.networkfirewall#LogDestinationPermissionException":
-      throw await deserializeAws_json1_0LogDestinationPermissionExceptionResponse(parsedOutput, context);
+      throw await de_LogDestinationPermissionExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0UpdateRuleGroupCommand = async (
+/**
+ * deserializeAws_json1_0UpdateRuleGroupCommand
+ */
+export const de_UpdateRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateRuleGroupCommandError(output, context);
+    return de_UpdateRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateRuleGroupResponse(data, context);
+  contents = de_UpdateRuleGroupResponse(data, context);
   const response: UpdateRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UpdateRuleGroupCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateRuleGroupCommandError
+ */
+const de_UpdateRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRuleGroupCommandOutput> => {
@@ -2189,48 +2624,53 @@ const deserializeAws_json1_0UpdateRuleGroupCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0UpdateSubnetChangeProtectionCommand = async (
+/**
+ * deserializeAws_json1_0UpdateSubnetChangeProtectionCommand
+ */
+export const de_UpdateSubnetChangeProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubnetChangeProtectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateSubnetChangeProtectionCommandError(output, context);
+    return de_UpdateSubnetChangeProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateSubnetChangeProtectionResponse(data, context);
+  contents = _json(data);
   const response: UpdateSubnetChangeProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UpdateSubnetChangeProtectionCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateSubnetChangeProtectionCommandError
+ */
+const de_UpdateSubnetChangeProtectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubnetChangeProtectionCommandOutput> => {
@@ -2242,39 +2682,99 @@ const deserializeAws_json1_0UpdateSubnetChangeProtectionCommandError = async (
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
-      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.networkfirewall#InvalidTokenException":
-      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceOwnerCheckException":
     case "com.amazonaws.networkfirewall#ResourceOwnerCheckException":
-      throw await deserializeAws_json1_0ResourceOwnerCheckExceptionResponse(parsedOutput, context);
+      throw await de_ResourceOwnerCheckExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_0InsufficientCapacityExceptionResponse = async (
+/**
+ * deserializeAws_json1_0UpdateTLSInspectionConfigurationCommand
+ */
+export const de_UpdateTLSInspectionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTLSInspectionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateTLSInspectionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateTLSInspectionConfigurationResponse(data, context);
+  const response: UpdateTLSInspectionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateTLSInspectionConfigurationCommandError
+ */
+const de_UpdateTLSInspectionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTLSInspectionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "InvalidTokenException":
+    case "com.amazonaws.networkfirewall#InvalidTokenException":
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkfirewall#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0InsufficientCapacityExceptionRes
+ */
+const de_InsufficientCapacityExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InsufficientCapacityException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InsufficientCapacityException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InsufficientCapacityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2282,12 +2782,12 @@ const deserializeAws_json1_0InsufficientCapacityExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InternalServerErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalServerError> => {
+/**
+ * deserializeAws_json1_0InternalServerErrorRes
+ */
+const de_InternalServerErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServerError(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2295,12 +2795,15 @@ const deserializeAws_json1_0InternalServerErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidOperationExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InvalidOperationExceptionRes
+ */
+const de_InvalidOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2308,12 +2811,15 @@ const deserializeAws_json1_0InvalidOperationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidRequestException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2321,12 +2827,15 @@ const deserializeAws_json1_0InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidResourcePolicyExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InvalidResourcePolicyExceptionRes
+ */
+const de_InvalidResourcePolicyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidResourcePolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidResourcePolicyException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidResourcePolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2334,12 +2843,15 @@ const deserializeAws_json1_0InvalidResourcePolicyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InvalidTokenExceptionRes
+ */
+const de_InvalidTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidTokenException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2347,12 +2859,15 @@ const deserializeAws_json1_0InvalidTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0LimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2360,12 +2875,15 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0LogDestinationPermissionExceptionResponse = async (
+/**
+ * deserializeAws_json1_0LogDestinationPermissionExceptionRes
+ */
+const de_LogDestinationPermissionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LogDestinationPermissionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0LogDestinationPermissionException(body, context);
+  const deserialized: any = _json(body);
   const exception = new LogDestinationPermissionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2373,12 +2891,15 @@ const deserializeAws_json1_0LogDestinationPermissionExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2386,12 +2907,15 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceOwnerCheckExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceOwnerCheckExceptionRes
+ */
+const de_ResourceOwnerCheckExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceOwnerCheckException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceOwnerCheckException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceOwnerCheckException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2399,12 +2923,12 @@ const deserializeAws_json1_0ResourceOwnerCheckExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_0ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2412,12 +2936,15 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0UnsupportedOperationExceptionResponse = async (
+/**
+ * deserializeAws_json1_0UnsupportedOperationExceptionRes
+ */
+const de_UnsupportedOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0UnsupportedOperationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new UnsupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2425,2220 +2952,703 @@ const deserializeAws_json1_0UnsupportedOperationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0ActionDefinition = (input: ActionDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.PublishMetricAction != null && {
-      PublishMetricAction: serializeAws_json1_0PublishMetricAction(input.PublishMetricAction, context),
-    }),
-  };
-};
+// se_ActionDefinition omitted.
 
-const serializeAws_json1_0Address = (input: Address, context: __SerdeContext): any => {
-  return {
-    ...(input.AddressDefinition != null && { AddressDefinition: input.AddressDefinition }),
-  };
-};
+// se_Address omitted.
 
-const serializeAws_json1_0Addresses = (input: Address[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0Address(entry, context);
-    });
-};
+// se_Addresses omitted.
 
-const serializeAws_json1_0AssociateFirewallPolicyRequest = (
-  input: AssociateFirewallPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-    ...(input.FirewallPolicyArn != null && { FirewallPolicyArn: input.FirewallPolicyArn }),
-    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
-  };
-};
+// se_AssociateFirewallPolicyRequest omitted.
 
-const serializeAws_json1_0AssociateSubnetsRequest = (input: AssociateSubnetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-    ...(input.SubnetMappings != null && {
-      SubnetMappings: serializeAws_json1_0SubnetMappings(input.SubnetMappings, context),
-    }),
-    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
-  };
-};
+// se_AssociateSubnetsRequest omitted.
 
-const serializeAws_json1_0AzSubnets = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_AzSubnets omitted.
 
-const serializeAws_json1_0CreateFirewallPolicyRequest = (
-  input: CreateFirewallPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.FirewallPolicy != null && {
-      FirewallPolicy: serializeAws_json1_0FirewallPolicy(input.FirewallPolicy, context),
-    }),
-    ...(input.FirewallPolicyName != null && { FirewallPolicyName: input.FirewallPolicyName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
-  };
-};
+// se_CreateFirewallPolicyRequest omitted.
 
-const serializeAws_json1_0CreateFirewallRequest = (input: CreateFirewallRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DeleteProtection != null && { DeleteProtection: input.DeleteProtection }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-    ...(input.FirewallPolicyArn != null && { FirewallPolicyArn: input.FirewallPolicyArn }),
-    ...(input.FirewallPolicyChangeProtection != null && {
-      FirewallPolicyChangeProtection: input.FirewallPolicyChangeProtection,
-    }),
-    ...(input.SubnetChangeProtection != null && { SubnetChangeProtection: input.SubnetChangeProtection }),
-    ...(input.SubnetMappings != null && {
-      SubnetMappings: serializeAws_json1_0SubnetMappings(input.SubnetMappings, context),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
-    ...(input.VpcId != null && { VpcId: input.VpcId }),
-  };
-};
+// se_CreateFirewallRequest omitted.
 
-const serializeAws_json1_0CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Capacity != null && { Capacity: input.Capacity }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.RuleGroup != null && { RuleGroup: serializeAws_json1_0RuleGroup(input.RuleGroup, context) }),
-    ...(input.RuleGroupName != null && { RuleGroupName: input.RuleGroupName }),
-    ...(input.Rules != null && { Rules: input.Rules }),
-    ...(input.SourceMetadata != null && {
-      SourceMetadata: serializeAws_json1_0SourceMetadata(input.SourceMetadata, context),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
+/**
+ * serializeAws_json1_0CreateRuleGroupRequest
+ */
+const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Capacity: [],
+    Description: [],
+    DryRun: [],
+    EncryptionConfiguration: _json,
+    RuleGroup: _json,
+    RuleGroupName: [],
+    Rules: [],
+    SourceMetadata: _json,
+    Tags: _json,
+    Type: [],
+  });
 };
 
-const serializeAws_json1_0CustomAction = (input: CustomAction, context: __SerdeContext): any => {
-  return {
-    ...(input.ActionDefinition != null && {
-      ActionDefinition: serializeAws_json1_0ActionDefinition(input.ActionDefinition, context),
-    }),
-    ...(input.ActionName != null && { ActionName: input.ActionName }),
-  };
-};
+// se_CreateTLSInspectionConfigurationRequest omitted.
 
-const serializeAws_json1_0CustomActions = (input: CustomAction[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0CustomAction(entry, context);
-    });
-};
+// se_CustomAction omitted.
 
-const serializeAws_json1_0DeleteFirewallPolicyRequest = (
-  input: DeleteFirewallPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FirewallPolicyArn != null && { FirewallPolicyArn: input.FirewallPolicyArn }),
-    ...(input.FirewallPolicyName != null && { FirewallPolicyName: input.FirewallPolicyName }),
-  };
-};
+// se_CustomActions omitted.
 
-const serializeAws_json1_0DeleteFirewallRequest = (input: DeleteFirewallRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-  };
-};
+// se_DeleteFirewallPolicyRequest omitted.
 
-const serializeAws_json1_0DeleteResourcePolicyRequest = (
-  input: DeleteResourcePolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_DeleteFirewallRequest omitted.
 
-const serializeAws_json1_0DeleteRuleGroupRequest = (input: DeleteRuleGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.RuleGroupArn != null && { RuleGroupArn: input.RuleGroupArn }),
-    ...(input.RuleGroupName != null && { RuleGroupName: input.RuleGroupName }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_DeleteResourcePolicyRequest omitted.
 
-const serializeAws_json1_0DescribeFirewallPolicyRequest = (
-  input: DescribeFirewallPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FirewallPolicyArn != null && { FirewallPolicyArn: input.FirewallPolicyArn }),
-    ...(input.FirewallPolicyName != null && { FirewallPolicyName: input.FirewallPolicyName }),
-  };
-};
+// se_DeleteRuleGroupRequest omitted.
 
-const serializeAws_json1_0DescribeFirewallRequest = (input: DescribeFirewallRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-  };
-};
+// se_DeleteTLSInspectionConfigurationRequest omitted.
 
-const serializeAws_json1_0DescribeLoggingConfigurationRequest = (
-  input: DescribeLoggingConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-  };
-};
+// se_DescribeFirewallPolicyRequest omitted.
 
-const serializeAws_json1_0DescribeResourcePolicyRequest = (
-  input: DescribeResourcePolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_DescribeFirewallRequest omitted.
 
-const serializeAws_json1_0DescribeRuleGroupMetadataRequest = (
-  input: DescribeRuleGroupMetadataRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RuleGroupArn != null && { RuleGroupArn: input.RuleGroupArn }),
-    ...(input.RuleGroupName != null && { RuleGroupName: input.RuleGroupName }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_DescribeLoggingConfigurationRequest omitted.
 
-const serializeAws_json1_0DescribeRuleGroupRequest = (
-  input: DescribeRuleGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.RuleGroupArn != null && { RuleGroupArn: input.RuleGroupArn }),
-    ...(input.RuleGroupName != null && { RuleGroupName: input.RuleGroupName }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_DescribeResourcePolicyRequest omitted.
 
-const serializeAws_json1_0Dimension = (input: Dimension, context: __SerdeContext): any => {
-  return {
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_DescribeRuleGroupMetadataRequest omitted.
 
-const serializeAws_json1_0Dimensions = (input: Dimension[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0Dimension(entry, context);
-    });
-};
+// se_DescribeRuleGroupRequest omitted.
 
-const serializeAws_json1_0DisassociateSubnetsRequest = (
-  input: DisassociateSubnetsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_0AzSubnets(input.SubnetIds, context) }),
-    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
-  };
-};
+// se_DescribeTLSInspectionConfigurationRequest omitted.
 
-const serializeAws_json1_0EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.KeyId != null && { KeyId: input.KeyId }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_Dimension omitted.
 
-const serializeAws_json1_0FirewallPolicy = (input: FirewallPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.StatefulDefaultActions != null && {
-      StatefulDefaultActions: serializeAws_json1_0StatefulActions(input.StatefulDefaultActions, context),
-    }),
-    ...(input.StatefulEngineOptions != null && {
-      StatefulEngineOptions: serializeAws_json1_0StatefulEngineOptions(input.StatefulEngineOptions, context),
-    }),
-    ...(input.StatefulRuleGroupReferences != null && {
-      StatefulRuleGroupReferences: serializeAws_json1_0StatefulRuleGroupReferences(
-        input.StatefulRuleGroupReferences,
-        context
-      ),
-    }),
-    ...(input.StatelessCustomActions != null && {
-      StatelessCustomActions: serializeAws_json1_0CustomActions(input.StatelessCustomActions, context),
-    }),
-    ...(input.StatelessDefaultActions != null && {
-      StatelessDefaultActions: serializeAws_json1_0StatelessActions(input.StatelessDefaultActions, context),
-    }),
-    ...(input.StatelessFragmentDefaultActions != null && {
-      StatelessFragmentDefaultActions: serializeAws_json1_0StatelessActions(
-        input.StatelessFragmentDefaultActions,
-        context
-      ),
-    }),
-    ...(input.StatelessRuleGroupReferences != null && {
-      StatelessRuleGroupReferences: serializeAws_json1_0StatelessRuleGroupReferences(
-        input.StatelessRuleGroupReferences,
-        context
-      ),
-    }),
-  };
-};
+// se_Dimensions omitted.
 
-const serializeAws_json1_0Flags = (input: (TCPFlag | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_DisassociateSubnetsRequest omitted.
 
-const serializeAws_json1_0Header = (input: Header, context: __SerdeContext): any => {
-  return {
-    ...(input.Destination != null && { Destination: input.Destination }),
-    ...(input.DestinationPort != null && { DestinationPort: input.DestinationPort }),
-    ...(input.Direction != null && { Direction: input.Direction }),
-    ...(input.Protocol != null && { Protocol: input.Protocol }),
-    ...(input.Source != null && { Source: input.Source }),
-    ...(input.SourcePort != null && { SourcePort: input.SourcePort }),
-  };
-};
+// se_EncryptionConfiguration omitted.
 
-const serializeAws_json1_0IPSet = (input: IPSet, context: __SerdeContext): any => {
-  return {
-    ...(input.Definition != null && {
-      Definition: serializeAws_json1_0VariableDefinitionList(input.Definition, context),
-    }),
-  };
-};
+// se_FirewallPolicy omitted.
 
-const serializeAws_json1_0IPSetReference = (input: IPSetReference, context: __SerdeContext): any => {
-  return {
-    ...(input.ReferenceArn != null && { ReferenceArn: input.ReferenceArn }),
-  };
-};
+// se_Flags omitted.
 
-const serializeAws_json1_0IPSetReferenceMap = (input: Record<string, IPSetReference>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_json1_0IPSetReference(value, context);
-    return acc;
-  }, {});
-};
+// se_Header omitted.
 
-const serializeAws_json1_0IPSets = (input: Record<string, IPSet>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_json1_0IPSet(value, context);
-    return acc;
-  }, {});
-};
+// se_IPSet omitted.
 
-const serializeAws_json1_0ListFirewallPoliciesRequest = (
-  input: ListFirewallPoliciesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_IPSetReference omitted.
 
-const serializeAws_json1_0ListFirewallsRequest = (input: ListFirewallsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.VpcIds != null && { VpcIds: serializeAws_json1_0VpcIds(input.VpcIds, context) }),
-  };
-};
+// se_IPSetReferenceMap omitted.
 
-const serializeAws_json1_0ListRuleGroupsRequest = (input: ListRuleGroupsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ManagedType != null && { ManagedType: input.ManagedType }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.Scope != null && { Scope: input.Scope }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
+// se_IPSets omitted.
 
-const serializeAws_json1_0ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ListFirewallPoliciesRequest omitted.
 
-const serializeAws_json1_0LogDestinationConfig = (input: LogDestinationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.LogDestination != null && {
-      LogDestination: serializeAws_json1_0LogDestinationMap(input.LogDestination, context),
-    }),
-    ...(input.LogDestinationType != null && { LogDestinationType: input.LogDestinationType }),
-    ...(input.LogType != null && { LogType: input.LogType }),
-  };
-};
+// se_ListFirewallsRequest omitted.
 
-const serializeAws_json1_0LogDestinationConfigs = (input: LogDestinationConfig[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0LogDestinationConfig(entry, context);
-    });
-};
+// se_ListRuleGroupsRequest omitted.
 
-const serializeAws_json1_0LogDestinationMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
-};
+// se_ListTagsForResourceRequest omitted.
 
-const serializeAws_json1_0LoggingConfiguration = (input: LoggingConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.LogDestinationConfigs != null && {
-      LogDestinationConfigs: serializeAws_json1_0LogDestinationConfigs(input.LogDestinationConfigs, context),
-    }),
-  };
-};
+// se_ListTLSInspectionConfigurationsRequest omitted.
 
-const serializeAws_json1_0MatchAttributes = (input: MatchAttributes, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationPorts != null && {
-      DestinationPorts: serializeAws_json1_0PortRanges(input.DestinationPorts, context),
-    }),
-    ...(input.Destinations != null && { Destinations: serializeAws_json1_0Addresses(input.Destinations, context) }),
-    ...(input.Protocols != null && { Protocols: serializeAws_json1_0ProtocolNumbers(input.Protocols, context) }),
-    ...(input.SourcePorts != null && { SourcePorts: serializeAws_json1_0PortRanges(input.SourcePorts, context) }),
-    ...(input.Sources != null && { Sources: serializeAws_json1_0Addresses(input.Sources, context) }),
-    ...(input.TCPFlags != null && { TCPFlags: serializeAws_json1_0TCPFlags(input.TCPFlags, context) }),
-  };
-};
+// se_LogDestinationConfig omitted.
 
-const serializeAws_json1_0PortRange = (input: PortRange, context: __SerdeContext): any => {
-  return {
-    ...(input.FromPort != null && { FromPort: input.FromPort }),
-    ...(input.ToPort != null && { ToPort: input.ToPort }),
-  };
-};
+// se_LogDestinationConfigs omitted.
 
-const serializeAws_json1_0PortRanges = (input: PortRange[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0PortRange(entry, context);
-    });
-};
+// se_LogDestinationMap omitted.
 
-const serializeAws_json1_0PortSet = (input: PortSet, context: __SerdeContext): any => {
-  return {
-    ...(input.Definition != null && {
-      Definition: serializeAws_json1_0VariableDefinitionList(input.Definition, context),
-    }),
-  };
-};
+// se_LoggingConfiguration omitted.
 
-const serializeAws_json1_0PortSets = (input: Record<string, PortSet>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = serializeAws_json1_0PortSet(value, context);
-    return acc;
-  }, {});
-};
+// se_MatchAttributes omitted.
 
-const serializeAws_json1_0ProtocolNumbers = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PortRange omitted.
 
-const serializeAws_json1_0PublishMetricAction = (input: PublishMetricAction, context: __SerdeContext): any => {
-  return {
-    ...(input.Dimensions != null && { Dimensions: serializeAws_json1_0Dimensions(input.Dimensions, context) }),
-  };
-};
+// se_PortRanges omitted.
 
-const serializeAws_json1_0PutResourcePolicyRequest = (
-  input: PutResourcePolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_PortSet omitted.
 
-const serializeAws_json1_0ReferenceSets = (input: ReferenceSets, context: __SerdeContext): any => {
-  return {
-    ...(input.IPSetReferences != null && {
-      IPSetReferences: serializeAws_json1_0IPSetReferenceMap(input.IPSetReferences, context),
-    }),
-  };
-};
+// se_PortSets omitted.
 
-const serializeAws_json1_0RuleDefinition = (input: RuleDefinition, context: __SerdeContext): any => {
-  return {
-    ...(input.Actions != null && { Actions: serializeAws_json1_0StatelessActions(input.Actions, context) }),
-    ...(input.MatchAttributes != null && {
-      MatchAttributes: serializeAws_json1_0MatchAttributes(input.MatchAttributes, context),
-    }),
-  };
-};
+// se_ProtocolNumbers omitted.
 
-const serializeAws_json1_0RuleGroup = (input: RuleGroup, context: __SerdeContext): any => {
-  return {
-    ...(input.ReferenceSets != null && {
-      ReferenceSets: serializeAws_json1_0ReferenceSets(input.ReferenceSets, context),
-    }),
-    ...(input.RuleVariables != null && {
-      RuleVariables: serializeAws_json1_0RuleVariables(input.RuleVariables, context),
-    }),
-    ...(input.RulesSource != null && { RulesSource: serializeAws_json1_0RulesSource(input.RulesSource, context) }),
-    ...(input.StatefulRuleOptions != null && {
-      StatefulRuleOptions: serializeAws_json1_0StatefulRuleOptions(input.StatefulRuleOptions, context),
-    }),
-  };
-};
+// se_PublishMetricAction omitted.
 
-const serializeAws_json1_0RuleOption = (input: RuleOption, context: __SerdeContext): any => {
-  return {
-    ...(input.Keyword != null && { Keyword: input.Keyword }),
-    ...(input.Settings != null && { Settings: serializeAws_json1_0Settings(input.Settings, context) }),
-  };
-};
+// se_PutResourcePolicyRequest omitted.
 
-const serializeAws_json1_0RuleOptions = (input: RuleOption[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0RuleOption(entry, context);
-    });
-};
+// se_ReferenceSets omitted.
 
-const serializeAws_json1_0RulesSource = (input: RulesSource, context: __SerdeContext): any => {
-  return {
-    ...(input.RulesSourceList != null && {
-      RulesSourceList: serializeAws_json1_0RulesSourceList(input.RulesSourceList, context),
-    }),
-    ...(input.RulesString != null && { RulesString: input.RulesString }),
-    ...(input.StatefulRules != null && {
-      StatefulRules: serializeAws_json1_0StatefulRules(input.StatefulRules, context),
-    }),
-    ...(input.StatelessRulesAndCustomActions != null && {
-      StatelessRulesAndCustomActions: serializeAws_json1_0StatelessRulesAndCustomActions(
-        input.StatelessRulesAndCustomActions,
-        context
-      ),
-    }),
-  };
-};
+// se_RuleDefinition omitted.
 
-const serializeAws_json1_0RulesSourceList = (input: RulesSourceList, context: __SerdeContext): any => {
-  return {
-    ...(input.GeneratedRulesType != null && { GeneratedRulesType: input.GeneratedRulesType }),
-    ...(input.TargetTypes != null && { TargetTypes: serializeAws_json1_0TargetTypes(input.TargetTypes, context) }),
-    ...(input.Targets != null && { Targets: serializeAws_json1_0RuleTargets(input.Targets, context) }),
-  };
-};
+// se_RuleGroup omitted.
 
-const serializeAws_json1_0RuleTargets = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RuleOption omitted.
 
-const serializeAws_json1_0RuleVariables = (input: RuleVariables, context: __SerdeContext): any => {
-  return {
-    ...(input.IPSets != null && { IPSets: serializeAws_json1_0IPSets(input.IPSets, context) }),
-    ...(input.PortSets != null && { PortSets: serializeAws_json1_0PortSets(input.PortSets, context) }),
-  };
-};
+// se_RuleOptions omitted.
 
-const serializeAws_json1_0Settings = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RulesSource omitted.
 
-const serializeAws_json1_0SourceMetadata = (input: SourceMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.SourceArn != null && { SourceArn: input.SourceArn }),
-    ...(input.SourceUpdateToken != null && { SourceUpdateToken: input.SourceUpdateToken }),
-  };
-};
+// se_RulesSourceList omitted.
 
-const serializeAws_json1_0StatefulActions = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RuleTargets omitted.
 
-const serializeAws_json1_0StatefulEngineOptions = (input: StatefulEngineOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.RuleOrder != null && { RuleOrder: input.RuleOrder }),
-    ...(input.StreamExceptionPolicy != null && { StreamExceptionPolicy: input.StreamExceptionPolicy }),
-  };
-};
+// se_RuleVariables omitted.
 
-const serializeAws_json1_0StatefulRule = (input: StatefulRule, context: __SerdeContext): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-    ...(input.Header != null && { Header: serializeAws_json1_0Header(input.Header, context) }),
-    ...(input.RuleOptions != null && { RuleOptions: serializeAws_json1_0RuleOptions(input.RuleOptions, context) }),
-  };
-};
+// se_ServerCertificate omitted.
 
-const serializeAws_json1_0StatefulRuleGroupOverride = (
-  input: StatefulRuleGroupOverride,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Action != null && { Action: input.Action }),
-  };
-};
+// se_ServerCertificateConfiguration omitted.
 
-const serializeAws_json1_0StatefulRuleGroupReference = (
-  input: StatefulRuleGroupReference,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Override != null && { Override: serializeAws_json1_0StatefulRuleGroupOverride(input.Override, context) }),
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_ServerCertificateConfigurations omitted.
 
-const serializeAws_json1_0StatefulRuleGroupReferences = (
-  input: StatefulRuleGroupReference[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0StatefulRuleGroupReference(entry, context);
-    });
-};
+// se_ServerCertificates omitted.
 
-const serializeAws_json1_0StatefulRuleOptions = (input: StatefulRuleOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.RuleOrder != null && { RuleOrder: input.RuleOrder }),
-  };
-};
+// se_ServerCertificateScope omitted.
 
-const serializeAws_json1_0StatefulRules = (input: StatefulRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0StatefulRule(entry, context);
-    });
-};
+// se_ServerCertificateScopes omitted.
 
-const serializeAws_json1_0StatelessActions = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Settings omitted.
 
-const serializeAws_json1_0StatelessRule = (input: StatelessRule, context: __SerdeContext): any => {
-  return {
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.RuleDefinition != null && {
-      RuleDefinition: serializeAws_json1_0RuleDefinition(input.RuleDefinition, context),
-    }),
-  };
-};
+// se_SourceMetadata omitted.
 
-const serializeAws_json1_0StatelessRuleGroupReference = (
-  input: StatelessRuleGroupReference,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Priority != null && { Priority: input.Priority }),
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_StatefulActions omitted.
 
-const serializeAws_json1_0StatelessRuleGroupReferences = (
-  input: StatelessRuleGroupReference[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0StatelessRuleGroupReference(entry, context);
-    });
-};
+// se_StatefulEngineOptions omitted.
 
-const serializeAws_json1_0StatelessRules = (input: StatelessRule[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0StatelessRule(entry, context);
-    });
-};
+// se_StatefulRule omitted.
 
-const serializeAws_json1_0StatelessRulesAndCustomActions = (
-  input: StatelessRulesAndCustomActions,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CustomActions != null && {
-      CustomActions: serializeAws_json1_0CustomActions(input.CustomActions, context),
-    }),
-    ...(input.StatelessRules != null && {
-      StatelessRules: serializeAws_json1_0StatelessRules(input.StatelessRules, context),
-    }),
-  };
-};
+// se_StatefulRuleGroupOverride omitted.
 
-const serializeAws_json1_0SubnetMapping = (input: SubnetMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.IPAddressType != null && { IPAddressType: input.IPAddressType }),
-    ...(input.SubnetId != null && { SubnetId: input.SubnetId }),
-  };
-};
+// se_StatefulRuleGroupReference omitted.
 
-const serializeAws_json1_0SubnetMappings = (input: SubnetMapping[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0SubnetMapping(entry, context);
-    });
-};
+// se_StatefulRuleGroupReferences omitted.
 
-const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
+// se_StatefulRuleOptions omitted.
 
-const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StatefulRules omitted.
 
-const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0Tag(entry, context);
-    });
-};
+// se_StatelessActions omitted.
 
-const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
-  };
-};
+// se_StatelessRule omitted.
 
-const serializeAws_json1_0TargetTypes = (input: (TargetType | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_StatelessRuleGroupReference omitted.
 
-const serializeAws_json1_0TCPFlagField = (input: TCPFlagField, context: __SerdeContext): any => {
-  return {
-    ...(input.Flags != null && { Flags: serializeAws_json1_0Flags(input.Flags, context) }),
-    ...(input.Masks != null && { Masks: serializeAws_json1_0Flags(input.Masks, context) }),
-  };
-};
+// se_StatelessRuleGroupReferences omitted.
 
-const serializeAws_json1_0TCPFlags = (input: TCPFlagField[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0TCPFlagField(entry, context);
-    });
-};
+// se_StatelessRules omitted.
 
-const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
-  };
-};
+// se_StatelessRulesAndCustomActions omitted.
 
-const serializeAws_json1_0UpdateFirewallDeleteProtectionRequest = (
-  input: UpdateFirewallDeleteProtectionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DeleteProtection != null && { DeleteProtection: input.DeleteProtection }),
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
-  };
-};
+// se_SubnetMapping omitted.
 
-const serializeAws_json1_0UpdateFirewallDescriptionRequest = (
-  input: UpdateFirewallDescriptionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
-  };
-};
+// se_SubnetMappings omitted.
 
-const serializeAws_json1_0UpdateFirewallEncryptionConfigurationRequest = (
-  input: UpdateFirewallEncryptionConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
-  };
-};
+// se_Tag omitted.
 
-const serializeAws_json1_0UpdateFirewallPolicyChangeProtectionRequest = (
-  input: UpdateFirewallPolicyChangeProtectionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-    ...(input.FirewallPolicyChangeProtection != null && {
-      FirewallPolicyChangeProtection: input.FirewallPolicyChangeProtection,
-    }),
-    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
-  };
-};
+// se_TagKeyList omitted.
 
-const serializeAws_json1_0UpdateFirewallPolicyRequest = (
-  input: UpdateFirewallPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.FirewallPolicy != null && {
-      FirewallPolicy: serializeAws_json1_0FirewallPolicy(input.FirewallPolicy, context),
-    }),
-    ...(input.FirewallPolicyArn != null && { FirewallPolicyArn: input.FirewallPolicyArn }),
-    ...(input.FirewallPolicyName != null && { FirewallPolicyName: input.FirewallPolicyName }),
-    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
-  };
-};
+// se_TagList omitted.
 
-const serializeAws_json1_0UpdateLoggingConfigurationRequest = (
-  input: UpdateLoggingConfigurationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-    ...(input.LoggingConfiguration != null && {
-      LoggingConfiguration: serializeAws_json1_0LoggingConfiguration(input.LoggingConfiguration, context),
-    }),
-  };
-};
+// se_TagResourceRequest omitted.
 
-const serializeAws_json1_0UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DryRun != null && { DryRun: input.DryRun }),
-    ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.RuleGroup != null && { RuleGroup: serializeAws_json1_0RuleGroup(input.RuleGroup, context) }),
-    ...(input.RuleGroupArn != null && { RuleGroupArn: input.RuleGroupArn }),
-    ...(input.RuleGroupName != null && { RuleGroupName: input.RuleGroupName }),
-    ...(input.Rules != null && { Rules: input.Rules }),
-    ...(input.SourceMetadata != null && {
-      SourceMetadata: serializeAws_json1_0SourceMetadata(input.SourceMetadata, context),
-    }),
-    ...(input.Type != null && { Type: input.Type }),
-    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
-  };
-};
+// se_TargetTypes omitted.
 
-const serializeAws_json1_0UpdateSubnetChangeProtectionRequest = (
-  input: UpdateSubnetChangeProtectionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FirewallArn != null && { FirewallArn: input.FirewallArn }),
-    ...(input.FirewallName != null && { FirewallName: input.FirewallName }),
-    ...(input.SubnetChangeProtection != null && { SubnetChangeProtection: input.SubnetChangeProtection }),
-    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
-  };
-};
+// se_TCPFlagField omitted.
 
-const serializeAws_json1_0VariableDefinitionList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TCPFlags omitted.
 
-const serializeAws_json1_0VpcIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TLSInspectionConfiguration omitted.
+
+// se_UntagResourceRequest omitted.
+
+// se_UpdateFirewallDeleteProtectionRequest omitted.
+
+// se_UpdateFirewallDescriptionRequest omitted.
+
+// se_UpdateFirewallEncryptionConfigurationRequest omitted.
+
+// se_UpdateFirewallPolicyChangeProtectionRequest omitted.
+
+// se_UpdateFirewallPolicyRequest omitted.
 
-const deserializeAws_json1_0ActionDefinition = (output: any, context: __SerdeContext): ActionDefinition => {
-  return {
-    PublishMetricAction:
-      output.PublishMetricAction != null
-        ? deserializeAws_json1_0PublishMetricAction(output.PublishMetricAction, context)
-        : undefined,
-  } as any;
+// se_UpdateLoggingConfigurationRequest omitted.
+
+/**
+ * serializeAws_json1_0UpdateRuleGroupRequest
+ */
+const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Description: [],
+    DryRun: [],
+    EncryptionConfiguration: _json,
+    RuleGroup: _json,
+    RuleGroupArn: [],
+    RuleGroupName: [],
+    Rules: [],
+    SourceMetadata: _json,
+    Type: [],
+    UpdateToken: [],
+  });
 };
+
+// se_UpdateSubnetChangeProtectionRequest omitted.
+
+// se_UpdateTLSInspectionConfigurationRequest omitted.
+
+// se_VariableDefinitionList omitted.
+
+// se_VpcIds omitted.
+
+// de_ActionDefinition omitted.
+
+// de_Address omitted.
 
-const deserializeAws_json1_0Address = (output: any, context: __SerdeContext): Address => {
-  return {
-    AddressDefinition: __expectString(output.AddressDefinition),
-  } as any;
+// de_Addresses omitted.
+
+// de_AssociateFirewallPolicyResponse omitted.
+
+// de_AssociateSubnetsResponse omitted.
+
+// de_Attachment omitted.
+
+// de_CapacityUsageSummary omitted.
+
+// de_Certificates omitted.
+
+// de_CIDRSummary omitted.
+
+/**
+ * deserializeAws_json1_0CreateFirewallPolicyResponse
+ */
+const de_CreateFirewallPolicyResponse = (output: any, context: __SerdeContext): CreateFirewallPolicyResponse => {
+  return take(output, {
+    FirewallPolicyResponse: (_: any) => de_FirewallPolicyResponse(_, context),
+    UpdateToken: __expectString,
+  }) as any;
 };
+
+// de_CreateFirewallResponse omitted.
 
-const deserializeAws_json1_0Addresses = (output: any, context: __SerdeContext): Address[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0Address(entry, context);
-    });
-  return retVal;
+/**
+ * deserializeAws_json1_0CreateRuleGroupResponse
+ */
+const de_CreateRuleGroupResponse = (output: any, context: __SerdeContext): CreateRuleGroupResponse => {
+  return take(output, {
+    RuleGroupResponse: (_: any) => de_RuleGroupResponse(_, context),
+    UpdateToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0AssociateFirewallPolicyResponse = (
+/**
+ * deserializeAws_json1_0CreateTLSInspectionConfigurationResponse
+ */
+const de_CreateTLSInspectionConfigurationResponse = (
   output: any,
   context: __SerdeContext
-): AssociateFirewallPolicyResponse => {
-  return {
-    FirewallArn: __expectString(output.FirewallArn),
-    FirewallName: __expectString(output.FirewallName),
-    FirewallPolicyArn: __expectString(output.FirewallPolicyArn),
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
+): CreateTLSInspectionConfigurationResponse => {
+  return take(output, {
+    TLSInspectionConfigurationResponse: (_: any) => de_TLSInspectionConfigurationResponse(_, context),
+    UpdateToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0AssociateSubnetsResponse = (
+// de_CustomAction omitted.
+
+// de_CustomActions omitted.
+
+/**
+ * deserializeAws_json1_0DeleteFirewallPolicyResponse
+ */
+const de_DeleteFirewallPolicyResponse = (output: any, context: __SerdeContext): DeleteFirewallPolicyResponse => {
+  return take(output, {
+    FirewallPolicyResponse: (_: any) => de_FirewallPolicyResponse(_, context),
+  }) as any;
+};
+
+// de_DeleteFirewallResponse omitted.
+
+// de_DeleteResourcePolicyResponse omitted.
+
+/**
+ * deserializeAws_json1_0DeleteRuleGroupResponse
+ */
+const de_DeleteRuleGroupResponse = (output: any, context: __SerdeContext): DeleteRuleGroupResponse => {
+  return take(output, {
+    RuleGroupResponse: (_: any) => de_RuleGroupResponse(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0DeleteTLSInspectionConfigurationResponse
+ */
+const de_DeleteTLSInspectionConfigurationResponse = (
   output: any,
   context: __SerdeContext
-): AssociateSubnetsResponse => {
-  return {
-    FirewallArn: __expectString(output.FirewallArn),
-    FirewallName: __expectString(output.FirewallName),
-    SubnetMappings:
-      output.SubnetMappings != null ? deserializeAws_json1_0SubnetMappings(output.SubnetMappings, context) : undefined,
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
+): DeleteTLSInspectionConfigurationResponse => {
+  return take(output, {
+    TLSInspectionConfigurationResponse: (_: any) => de_TLSInspectionConfigurationResponse(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0Attachment = (output: any, context: __SerdeContext): Attachment => {
-  return {
-    EndpointId: __expectString(output.EndpointId),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-    SubnetId: __expectString(output.SubnetId),
-  } as any;
+/**
+ * deserializeAws_json1_0DescribeFirewallPolicyResponse
+ */
+const de_DescribeFirewallPolicyResponse = (output: any, context: __SerdeContext): DescribeFirewallPolicyResponse => {
+  return take(output, {
+    FirewallPolicy: _json,
+    FirewallPolicyResponse: (_: any) => de_FirewallPolicyResponse(_, context),
+    UpdateToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0CapacityUsageSummary = (output: any, context: __SerdeContext): CapacityUsageSummary => {
-  return {
-    CIDRs: output.CIDRs != null ? deserializeAws_json1_0CIDRSummary(output.CIDRs, context) : undefined,
-  } as any;
-};
+// de_DescribeFirewallResponse omitted.
 
-const deserializeAws_json1_0CIDRSummary = (output: any, context: __SerdeContext): CIDRSummary => {
-  return {
-    AvailableCIDRCount: __expectInt32(output.AvailableCIDRCount),
-    IPSetReferences:
-      output.IPSetReferences != null
-        ? deserializeAws_json1_0IPSetMetadataMap(output.IPSetReferences, context)
-        : undefined,
-    UtilizedCIDRCount: __expectInt32(output.UtilizedCIDRCount),
-  } as any;
-};
+// de_DescribeLoggingConfigurationResponse omitted.
 
-const deserializeAws_json1_0CreateFirewallPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateFirewallPolicyResponse => {
-  return {
-    FirewallPolicyResponse:
-      output.FirewallPolicyResponse != null
-        ? deserializeAws_json1_0FirewallPolicyResponse(output.FirewallPolicyResponse, context)
-        : undefined,
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
+// de_DescribeResourcePolicyResponse omitted.
 
-const deserializeAws_json1_0CreateFirewallResponse = (output: any, context: __SerdeContext): CreateFirewallResponse => {
-  return {
-    Firewall: output.Firewall != null ? deserializeAws_json1_0Firewall(output.Firewall, context) : undefined,
-    FirewallStatus:
-      output.FirewallStatus != null ? deserializeAws_json1_0FirewallStatus(output.FirewallStatus, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0CreateRuleGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateRuleGroupResponse => {
-  return {
-    RuleGroupResponse:
-      output.RuleGroupResponse != null
-        ? deserializeAws_json1_0RuleGroupResponse(output.RuleGroupResponse, context)
-        : undefined,
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0CustomAction = (output: any, context: __SerdeContext): CustomAction => {
-  return {
-    ActionDefinition:
-      output.ActionDefinition != null
-        ? deserializeAws_json1_0ActionDefinition(output.ActionDefinition, context)
-        : undefined,
-    ActionName: __expectString(output.ActionName),
-  } as any;
-};
-
-const deserializeAws_json1_0CustomActions = (output: any, context: __SerdeContext): CustomAction[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0CustomAction(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0DeleteFirewallPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteFirewallPolicyResponse => {
-  return {
-    FirewallPolicyResponse:
-      output.FirewallPolicyResponse != null
-        ? deserializeAws_json1_0FirewallPolicyResponse(output.FirewallPolicyResponse, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0DeleteFirewallResponse = (output: any, context: __SerdeContext): DeleteFirewallResponse => {
-  return {
-    Firewall: output.Firewall != null ? deserializeAws_json1_0Firewall(output.Firewall, context) : undefined,
-    FirewallStatus:
-      output.FirewallStatus != null ? deserializeAws_json1_0FirewallStatus(output.FirewallStatus, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0DeleteResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteResourcePolicyResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_0DeleteRuleGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteRuleGroupResponse => {
-  return {
-    RuleGroupResponse:
-      output.RuleGroupResponse != null
-        ? deserializeAws_json1_0RuleGroupResponse(output.RuleGroupResponse, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0DescribeFirewallPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeFirewallPolicyResponse => {
-  return {
-    FirewallPolicy:
-      output.FirewallPolicy != null ? deserializeAws_json1_0FirewallPolicy(output.FirewallPolicy, context) : undefined,
-    FirewallPolicyResponse:
-      output.FirewallPolicyResponse != null
-        ? deserializeAws_json1_0FirewallPolicyResponse(output.FirewallPolicyResponse, context)
-        : undefined,
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0DescribeFirewallResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeFirewallResponse => {
-  return {
-    Firewall: output.Firewall != null ? deserializeAws_json1_0Firewall(output.Firewall, context) : undefined,
-    FirewallStatus:
-      output.FirewallStatus != null ? deserializeAws_json1_0FirewallStatus(output.FirewallStatus, context) : undefined,
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0DescribeLoggingConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeLoggingConfigurationResponse => {
-  return {
-    FirewallArn: __expectString(output.FirewallArn),
-    LoggingConfiguration:
-      output.LoggingConfiguration != null
-        ? deserializeAws_json1_0LoggingConfiguration(output.LoggingConfiguration, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0DescribeResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeResourcePolicyResponse => {
-  return {
-    Policy: __expectString(output.Policy),
-  } as any;
-};
-
-const deserializeAws_json1_0DescribeRuleGroupMetadataResponse = (
+/**
+ * deserializeAws_json1_0DescribeRuleGroupMetadataResponse
+ */
+const de_DescribeRuleGroupMetadataResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeRuleGroupMetadataResponse => {
-  return {
-    Capacity: __expectInt32(output.Capacity),
-    Description: __expectString(output.Description),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    RuleGroupArn: __expectString(output.RuleGroupArn),
-    RuleGroupName: __expectString(output.RuleGroupName),
-    StatefulRuleOptions:
-      output.StatefulRuleOptions != null
-        ? deserializeAws_json1_0StatefulRuleOptions(output.StatefulRuleOptions, context)
-        : undefined,
-    Type: __expectString(output.Type),
-  } as any;
+  return take(output, {
+    Capacity: __expectInt32,
+    Description: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RuleGroupArn: __expectString,
+    RuleGroupName: __expectString,
+    StatefulRuleOptions: _json,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0DescribeRuleGroupResponse = (
+/**
+ * deserializeAws_json1_0DescribeRuleGroupResponse
+ */
+const de_DescribeRuleGroupResponse = (output: any, context: __SerdeContext): DescribeRuleGroupResponse => {
+  return take(output, {
+    RuleGroup: _json,
+    RuleGroupResponse: (_: any) => de_RuleGroupResponse(_, context),
+    UpdateToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0DescribeTLSInspectionConfigurationResponse
+ */
+const de_DescribeTLSInspectionConfigurationResponse = (
   output: any,
   context: __SerdeContext
-): DescribeRuleGroupResponse => {
-  return {
-    RuleGroup: output.RuleGroup != null ? deserializeAws_json1_0RuleGroup(output.RuleGroup, context) : undefined,
-    RuleGroupResponse:
-      output.RuleGroupResponse != null
-        ? deserializeAws_json1_0RuleGroupResponse(output.RuleGroupResponse, context)
-        : undefined,
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
+): DescribeTLSInspectionConfigurationResponse => {
+  return take(output, {
+    TLSInspectionConfiguration: _json,
+    TLSInspectionConfigurationResponse: (_: any) => de_TLSInspectionConfigurationResponse(_, context),
+    UpdateToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0Dimension = (output: any, context: __SerdeContext): Dimension => {
-  return {
-    Value: __expectString(output.Value),
-  } as any;
+// de_Dimension omitted.
+
+// de_Dimensions omitted.
+
+// de_DisassociateSubnetsResponse omitted.
+
+// de_EncryptionConfiguration omitted.
+
+// de_Firewall omitted.
+
+// de_FirewallMetadata omitted.
+
+// de_FirewallPolicies omitted.
+
+// de_FirewallPolicy omitted.
+
+// de_FirewallPolicyMetadata omitted.
+
+/**
+ * deserializeAws_json1_0FirewallPolicyResponse
+ */
+const de_FirewallPolicyResponse = (output: any, context: __SerdeContext): FirewallPolicyResponse => {
+  return take(output, {
+    ConsumedStatefulRuleCapacity: __expectInt32,
+    ConsumedStatelessRuleCapacity: __expectInt32,
+    Description: __expectString,
+    EncryptionConfiguration: _json,
+    FirewallPolicyArn: __expectString,
+    FirewallPolicyId: __expectString,
+    FirewallPolicyName: __expectString,
+    FirewallPolicyStatus: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NumberOfAssociations: __expectInt32,
+    Tags: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_0Dimensions = (output: any, context: __SerdeContext): Dimension[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0Dimension(entry, context);
-    });
-  return retVal;
+// de_Firewalls omitted.
+
+// de_FirewallStatus omitted.
+
+// de_Flags omitted.
+
+// de_Header omitted.
+
+// de_InsufficientCapacityException omitted.
+
+// de_InternalServerError omitted.
+
+// de_InvalidOperationException omitted.
+
+// de_InvalidRequestException omitted.
+
+// de_InvalidResourcePolicyException omitted.
+
+// de_InvalidTokenException omitted.
+
+// de_IPSet omitted.
+
+// de_IPSetMetadata omitted.
+
+// de_IPSetMetadataMap omitted.
+
+// de_IPSetReference omitted.
+
+// de_IPSetReferenceMap omitted.
+
+// de_IPSets omitted.
+
+// de_LimitExceededException omitted.
+
+// de_ListFirewallPoliciesResponse omitted.
+
+// de_ListFirewallsResponse omitted.
+
+// de_ListRuleGroupsResponse omitted.
+
+// de_ListTagsForResourceResponse omitted.
+
+// de_ListTLSInspectionConfigurationsResponse omitted.
+
+// de_LogDestinationConfig omitted.
+
+// de_LogDestinationConfigs omitted.
+
+// de_LogDestinationMap omitted.
+
+// de_LogDestinationPermissionException omitted.
+
+// de_LoggingConfiguration omitted.
+
+// de_MatchAttributes omitted.
+
+// de_PerObjectStatus omitted.
+
+// de_PortRange omitted.
+
+// de_PortRanges omitted.
+
+// de_PortSet omitted.
+
+// de_PortSets omitted.
+
+// de_ProtocolNumbers omitted.
+
+// de_PublishMetricAction omitted.
+
+// de_PutResourcePolicyResponse omitted.
+
+// de_ReferenceSets omitted.
+
+// de_ResourceNotFoundException omitted.
+
+// de_ResourceOwnerCheckException omitted.
+
+// de_RuleDefinition omitted.
+
+// de_RuleGroup omitted.
+
+// de_RuleGroupMetadata omitted.
+
+/**
+ * deserializeAws_json1_0RuleGroupResponse
+ */
+const de_RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupResponse => {
+  return take(output, {
+    Capacity: __expectInt32,
+    ConsumedCapacity: __expectInt32,
+    Description: __expectString,
+    EncryptionConfiguration: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NumberOfAssociations: __expectInt32,
+    RuleGroupArn: __expectString,
+    RuleGroupId: __expectString,
+    RuleGroupName: __expectString,
+    RuleGroupStatus: __expectString,
+    SnsTopic: __expectString,
+    SourceMetadata: _json,
+    Tags: _json,
+    Type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0DisassociateSubnetsResponse = (
+// de_RuleGroups omitted.
+
+// de_RuleOption omitted.
+
+// de_RuleOptions omitted.
+
+// de_RulesSource omitted.
+
+// de_RulesSourceList omitted.
+
+// de_RuleTargets omitted.
+
+// de_RuleVariables omitted.
+
+// de_ServerCertificate omitted.
+
+// de_ServerCertificateConfiguration omitted.
+
+// de_ServerCertificateConfigurations omitted.
+
+// de_ServerCertificates omitted.
+
+// de_ServerCertificateScope omitted.
+
+// de_ServerCertificateScopes omitted.
+
+// de_Settings omitted.
+
+// de_SourceMetadata omitted.
+
+// de_StatefulActions omitted.
+
+// de_StatefulEngineOptions omitted.
+
+// de_StatefulRule omitted.
+
+// de_StatefulRuleGroupOverride omitted.
+
+// de_StatefulRuleGroupReference omitted.
+
+// de_StatefulRuleGroupReferences omitted.
+
+// de_StatefulRuleOptions omitted.
+
+// de_StatefulRules omitted.
+
+// de_StatelessActions omitted.
+
+// de_StatelessRule omitted.
+
+// de_StatelessRuleGroupReference omitted.
+
+// de_StatelessRuleGroupReferences omitted.
+
+// de_StatelessRules omitted.
+
+// de_StatelessRulesAndCustomActions omitted.
+
+// de_SubnetMapping omitted.
+
+// de_SubnetMappings omitted.
+
+// de_SyncState omitted.
+
+// de_SyncStateConfig omitted.
+
+// de_SyncStates omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+// de_TagResourceResponse omitted.
+
+// de_TargetTypes omitted.
+
+// de_TCPFlagField omitted.
+
+// de_TCPFlags omitted.
+
+// de_ThrottlingException omitted.
+
+// de_TlsCertificateData omitted.
+
+// de_TLSInspectionConfiguration omitted.
+
+// de_TLSInspectionConfigurationMetadata omitted.
+
+/**
+ * deserializeAws_json1_0TLSInspectionConfigurationResponse
+ */
+const de_TLSInspectionConfigurationResponse = (
   output: any,
   context: __SerdeContext
-): DisassociateSubnetsResponse => {
-  return {
-    FirewallArn: __expectString(output.FirewallArn),
-    FirewallName: __expectString(output.FirewallName),
-    SubnetMappings:
-      output.SubnetMappings != null ? deserializeAws_json1_0SubnetMappings(output.SubnetMappings, context) : undefined,
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
+): TLSInspectionConfigurationResponse => {
+  return take(output, {
+    Certificates: _json,
+    Description: __expectString,
+    EncryptionConfiguration: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NumberOfAssociations: __expectInt32,
+    TLSInspectionConfigurationArn: __expectString,
+    TLSInspectionConfigurationId: __expectString,
+    TLSInspectionConfigurationName: __expectString,
+    TLSInspectionConfigurationStatus: __expectString,
+    Tags: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_0EncryptionConfiguration = (
+// de_TLSInspectionConfigurations omitted.
+
+// de_UnsupportedOperationException omitted.
+
+// de_UntagResourceResponse omitted.
+
+// de_UpdateFirewallDeleteProtectionResponse omitted.
+
+// de_UpdateFirewallDescriptionResponse omitted.
+
+// de_UpdateFirewallEncryptionConfigurationResponse omitted.
+
+// de_UpdateFirewallPolicyChangeProtectionResponse omitted.
+
+/**
+ * deserializeAws_json1_0UpdateFirewallPolicyResponse
+ */
+const de_UpdateFirewallPolicyResponse = (output: any, context: __SerdeContext): UpdateFirewallPolicyResponse => {
+  return take(output, {
+    FirewallPolicyResponse: (_: any) => de_FirewallPolicyResponse(_, context),
+    UpdateToken: __expectString,
+  }) as any;
+};
+
+// de_UpdateLoggingConfigurationResponse omitted.
+
+/**
+ * deserializeAws_json1_0UpdateRuleGroupResponse
+ */
+const de_UpdateRuleGroupResponse = (output: any, context: __SerdeContext): UpdateRuleGroupResponse => {
+  return take(output, {
+    RuleGroupResponse: (_: any) => de_RuleGroupResponse(_, context),
+    UpdateToken: __expectString,
+  }) as any;
+};
+
+// de_UpdateSubnetChangeProtectionResponse omitted.
+
+/**
+ * deserializeAws_json1_0UpdateTLSInspectionConfigurationResponse
+ */
+const de_UpdateTLSInspectionConfigurationResponse = (
   output: any,
   context: __SerdeContext
-): EncryptionConfiguration => {
-  return {
-    KeyId: __expectString(output.KeyId),
-    Type: __expectString(output.Type),
-  } as any;
+): UpdateTLSInspectionConfigurationResponse => {
+  return take(output, {
+    TLSInspectionConfigurationResponse: (_: any) => de_TLSInspectionConfigurationResponse(_, context),
+    UpdateToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0Firewall = (output: any, context: __SerdeContext): Firewall => {
-  return {
-    DeleteProtection: __expectBoolean(output.DeleteProtection),
-    Description: __expectString(output.Description),
-    EncryptionConfiguration:
-      output.EncryptionConfiguration != null
-        ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
-        : undefined,
-    FirewallArn: __expectString(output.FirewallArn),
-    FirewallId: __expectString(output.FirewallId),
-    FirewallName: __expectString(output.FirewallName),
-    FirewallPolicyArn: __expectString(output.FirewallPolicyArn),
-    FirewallPolicyChangeProtection: __expectBoolean(output.FirewallPolicyChangeProtection),
-    SubnetChangeProtection: __expectBoolean(output.SubnetChangeProtection),
-    SubnetMappings:
-      output.SubnetMappings != null ? deserializeAws_json1_0SubnetMappings(output.SubnetMappings, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
-
-const deserializeAws_json1_0FirewallMetadata = (output: any, context: __SerdeContext): FirewallMetadata => {
-  return {
-    FirewallArn: __expectString(output.FirewallArn),
-    FirewallName: __expectString(output.FirewallName),
-  } as any;
-};
-
-const deserializeAws_json1_0FirewallPolicies = (output: any, context: __SerdeContext): FirewallPolicyMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0FirewallPolicyMetadata(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0FirewallPolicy = (output: any, context: __SerdeContext): FirewallPolicy => {
-  return {
-    StatefulDefaultActions:
-      output.StatefulDefaultActions != null
-        ? deserializeAws_json1_0StatefulActions(output.StatefulDefaultActions, context)
-        : undefined,
-    StatefulEngineOptions:
-      output.StatefulEngineOptions != null
-        ? deserializeAws_json1_0StatefulEngineOptions(output.StatefulEngineOptions, context)
-        : undefined,
-    StatefulRuleGroupReferences:
-      output.StatefulRuleGroupReferences != null
-        ? deserializeAws_json1_0StatefulRuleGroupReferences(output.StatefulRuleGroupReferences, context)
-        : undefined,
-    StatelessCustomActions:
-      output.StatelessCustomActions != null
-        ? deserializeAws_json1_0CustomActions(output.StatelessCustomActions, context)
-        : undefined,
-    StatelessDefaultActions:
-      output.StatelessDefaultActions != null
-        ? deserializeAws_json1_0StatelessActions(output.StatelessDefaultActions, context)
-        : undefined,
-    StatelessFragmentDefaultActions:
-      output.StatelessFragmentDefaultActions != null
-        ? deserializeAws_json1_0StatelessActions(output.StatelessFragmentDefaultActions, context)
-        : undefined,
-    StatelessRuleGroupReferences:
-      output.StatelessRuleGroupReferences != null
-        ? deserializeAws_json1_0StatelessRuleGroupReferences(output.StatelessRuleGroupReferences, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0FirewallPolicyMetadata = (output: any, context: __SerdeContext): FirewallPolicyMetadata => {
-  return {
-    Arn: __expectString(output.Arn),
-    Name: __expectString(output.Name),
-  } as any;
-};
-
-const deserializeAws_json1_0FirewallPolicyResponse = (output: any, context: __SerdeContext): FirewallPolicyResponse => {
-  return {
-    ConsumedStatefulRuleCapacity: __expectInt32(output.ConsumedStatefulRuleCapacity),
-    ConsumedStatelessRuleCapacity: __expectInt32(output.ConsumedStatelessRuleCapacity),
-    Description: __expectString(output.Description),
-    EncryptionConfiguration:
-      output.EncryptionConfiguration != null
-        ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
-        : undefined,
-    FirewallPolicyArn: __expectString(output.FirewallPolicyArn),
-    FirewallPolicyId: __expectString(output.FirewallPolicyId),
-    FirewallPolicyName: __expectString(output.FirewallPolicyName),
-    FirewallPolicyStatus: __expectString(output.FirewallPolicyStatus),
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    NumberOfAssociations: __expectInt32(output.NumberOfAssociations),
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0Firewalls = (output: any, context: __SerdeContext): FirewallMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0FirewallMetadata(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0FirewallStatus = (output: any, context: __SerdeContext): FirewallStatus => {
-  return {
-    CapacityUsageSummary:
-      output.CapacityUsageSummary != null
-        ? deserializeAws_json1_0CapacityUsageSummary(output.CapacityUsageSummary, context)
-        : undefined,
-    ConfigurationSyncStateSummary: __expectString(output.ConfigurationSyncStateSummary),
-    Status: __expectString(output.Status),
-    SyncStates: output.SyncStates != null ? deserializeAws_json1_0SyncStates(output.SyncStates, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0Flags = (output: any, context: __SerdeContext): (TCPFlag | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0Header = (output: any, context: __SerdeContext): Header => {
-  return {
-    Destination: __expectString(output.Destination),
-    DestinationPort: __expectString(output.DestinationPort),
-    Direction: __expectString(output.Direction),
-    Protocol: __expectString(output.Protocol),
-    Source: __expectString(output.Source),
-    SourcePort: __expectString(output.SourcePort),
-  } as any;
-};
-
-const deserializeAws_json1_0InsufficientCapacityException = (
-  output: any,
-  context: __SerdeContext
-): InsufficientCapacityException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0InvalidOperationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidOperationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0InvalidRequestException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRequestException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0InvalidResourcePolicyException = (
-  output: any,
-  context: __SerdeContext
-): InvalidResourcePolicyException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0InvalidTokenException = (output: any, context: __SerdeContext): InvalidTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0IPSet = (output: any, context: __SerdeContext): IPSet => {
-  return {
-    Definition:
-      output.Definition != null ? deserializeAws_json1_0VariableDefinitionList(output.Definition, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0IPSetMetadata = (output: any, context: __SerdeContext): IPSetMetadata => {
-  return {
-    ResolvedCIDRCount: __expectInt32(output.ResolvedCIDRCount),
-  } as any;
-};
-
-const deserializeAws_json1_0IPSetMetadataMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, IPSetMetadata> => {
-  return Object.entries(output).reduce((acc: Record<string, IPSetMetadata>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_json1_0IPSetMetadata(value, context);
-    return acc;
-  }, {});
-};
-
-const deserializeAws_json1_0IPSetReference = (output: any, context: __SerdeContext): IPSetReference => {
-  return {
-    ReferenceArn: __expectString(output.ReferenceArn),
-  } as any;
-};
-
-const deserializeAws_json1_0IPSetReferenceMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, IPSetReference> => {
-  return Object.entries(output).reduce((acc: Record<string, IPSetReference>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_json1_0IPSetReference(value, context);
-    return acc;
-  }, {});
-};
-
-const deserializeAws_json1_0IPSets = (output: any, context: __SerdeContext): Record<string, IPSet> => {
-  return Object.entries(output).reduce((acc: Record<string, IPSet>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_json1_0IPSet(value, context);
-    return acc;
-  }, {});
-};
-
-const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0ListFirewallPoliciesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListFirewallPoliciesResponse => {
-  return {
-    FirewallPolicies:
-      output.FirewallPolicies != null
-        ? deserializeAws_json1_0FirewallPolicies(output.FirewallPolicies, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_0ListFirewallsResponse = (output: any, context: __SerdeContext): ListFirewallsResponse => {
-  return {
-    Firewalls: output.Firewalls != null ? deserializeAws_json1_0Firewalls(output.Firewalls, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_0ListRuleGroupsResponse = (output: any, context: __SerdeContext): ListRuleGroupsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    RuleGroups: output.RuleGroups != null ? deserializeAws_json1_0RuleGroups(output.RuleGroups, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0LogDestinationConfig = (output: any, context: __SerdeContext): LogDestinationConfig => {
-  return {
-    LogDestination:
-      output.LogDestination != null
-        ? deserializeAws_json1_0LogDestinationMap(output.LogDestination, context)
-        : undefined,
-    LogDestinationType: __expectString(output.LogDestinationType),
-    LogType: __expectString(output.LogType),
-  } as any;
-};
-
-const deserializeAws_json1_0LogDestinationConfigs = (output: any, context: __SerdeContext): LogDestinationConfig[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0LogDestinationConfig(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0LogDestinationMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_json1_0LogDestinationPermissionException = (
-  output: any,
-  context: __SerdeContext
-): LogDestinationPermissionException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
-  return {
-    LogDestinationConfigs:
-      output.LogDestinationConfigs != null
-        ? deserializeAws_json1_0LogDestinationConfigs(output.LogDestinationConfigs, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0MatchAttributes = (output: any, context: __SerdeContext): MatchAttributes => {
-  return {
-    DestinationPorts:
-      output.DestinationPorts != null ? deserializeAws_json1_0PortRanges(output.DestinationPorts, context) : undefined,
-    Destinations:
-      output.Destinations != null ? deserializeAws_json1_0Addresses(output.Destinations, context) : undefined,
-    Protocols: output.Protocols != null ? deserializeAws_json1_0ProtocolNumbers(output.Protocols, context) : undefined,
-    SourcePorts: output.SourcePorts != null ? deserializeAws_json1_0PortRanges(output.SourcePorts, context) : undefined,
-    Sources: output.Sources != null ? deserializeAws_json1_0Addresses(output.Sources, context) : undefined,
-    TCPFlags: output.TCPFlags != null ? deserializeAws_json1_0TCPFlags(output.TCPFlags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0PerObjectStatus = (output: any, context: __SerdeContext): PerObjectStatus => {
-  return {
-    SyncStatus: __expectString(output.SyncStatus),
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0PortRange = (output: any, context: __SerdeContext): PortRange => {
-  return {
-    FromPort: __expectInt32(output.FromPort),
-    ToPort: __expectInt32(output.ToPort),
-  } as any;
-};
-
-const deserializeAws_json1_0PortRanges = (output: any, context: __SerdeContext): PortRange[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0PortRange(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0PortSet = (output: any, context: __SerdeContext): PortSet => {
-  return {
-    Definition:
-      output.Definition != null ? deserializeAws_json1_0VariableDefinitionList(output.Definition, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0PortSets = (output: any, context: __SerdeContext): Record<string, PortSet> => {
-  return Object.entries(output).reduce((acc: Record<string, PortSet>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_json1_0PortSet(value, context);
-    return acc;
-  }, {});
-};
-
-const deserializeAws_json1_0ProtocolNumbers = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0PublishMetricAction = (output: any, context: __SerdeContext): PublishMetricAction => {
-  return {
-    Dimensions: output.Dimensions != null ? deserializeAws_json1_0Dimensions(output.Dimensions, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0PutResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): PutResourcePolicyResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_0ReferenceSets = (output: any, context: __SerdeContext): ReferenceSets => {
-  return {
-    IPSetReferences:
-      output.IPSetReferences != null
-        ? deserializeAws_json1_0IPSetReferenceMap(output.IPSetReferences, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0ResourceOwnerCheckException = (
-  output: any,
-  context: __SerdeContext
-): ResourceOwnerCheckException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0RuleDefinition = (output: any, context: __SerdeContext): RuleDefinition => {
-  return {
-    Actions: output.Actions != null ? deserializeAws_json1_0StatelessActions(output.Actions, context) : undefined,
-    MatchAttributes:
-      output.MatchAttributes != null
-        ? deserializeAws_json1_0MatchAttributes(output.MatchAttributes, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0RuleGroup = (output: any, context: __SerdeContext): RuleGroup => {
-  return {
-    ReferenceSets:
-      output.ReferenceSets != null ? deserializeAws_json1_0ReferenceSets(output.ReferenceSets, context) : undefined,
-    RuleVariables:
-      output.RuleVariables != null ? deserializeAws_json1_0RuleVariables(output.RuleVariables, context) : undefined,
-    RulesSource:
-      output.RulesSource != null ? deserializeAws_json1_0RulesSource(output.RulesSource, context) : undefined,
-    StatefulRuleOptions:
-      output.StatefulRuleOptions != null
-        ? deserializeAws_json1_0StatefulRuleOptions(output.StatefulRuleOptions, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0RuleGroupMetadata = (output: any, context: __SerdeContext): RuleGroupMetadata => {
-  return {
-    Arn: __expectString(output.Arn),
-    Name: __expectString(output.Name),
-  } as any;
-};
-
-const deserializeAws_json1_0RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupResponse => {
-  return {
-    Capacity: __expectInt32(output.Capacity),
-    ConsumedCapacity: __expectInt32(output.ConsumedCapacity),
-    Description: __expectString(output.Description),
-    EncryptionConfiguration:
-      output.EncryptionConfiguration != null
-        ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
-        : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    NumberOfAssociations: __expectInt32(output.NumberOfAssociations),
-    RuleGroupArn: __expectString(output.RuleGroupArn),
-    RuleGroupId: __expectString(output.RuleGroupId),
-    RuleGroupName: __expectString(output.RuleGroupName),
-    RuleGroupStatus: __expectString(output.RuleGroupStatus),
-    SnsTopic: __expectString(output.SnsTopic),
-    SourceMetadata:
-      output.SourceMetadata != null ? deserializeAws_json1_0SourceMetadata(output.SourceMetadata, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_json1_0RuleGroups = (output: any, context: __SerdeContext): RuleGroupMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0RuleGroupMetadata(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0RuleOption = (output: any, context: __SerdeContext): RuleOption => {
-  return {
-    Keyword: __expectString(output.Keyword),
-    Settings: output.Settings != null ? deserializeAws_json1_0Settings(output.Settings, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0RuleOptions = (output: any, context: __SerdeContext): RuleOption[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0RuleOption(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0RulesSource = (output: any, context: __SerdeContext): RulesSource => {
-  return {
-    RulesSourceList:
-      output.RulesSourceList != null
-        ? deserializeAws_json1_0RulesSourceList(output.RulesSourceList, context)
-        : undefined,
-    RulesString: __expectString(output.RulesString),
-    StatefulRules:
-      output.StatefulRules != null ? deserializeAws_json1_0StatefulRules(output.StatefulRules, context) : undefined,
-    StatelessRulesAndCustomActions:
-      output.StatelessRulesAndCustomActions != null
-        ? deserializeAws_json1_0StatelessRulesAndCustomActions(output.StatelessRulesAndCustomActions, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0RulesSourceList = (output: any, context: __SerdeContext): RulesSourceList => {
-  return {
-    GeneratedRulesType: __expectString(output.GeneratedRulesType),
-    TargetTypes:
-      output.TargetTypes != null ? deserializeAws_json1_0TargetTypes(output.TargetTypes, context) : undefined,
-    Targets: output.Targets != null ? deserializeAws_json1_0RuleTargets(output.Targets, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0RuleTargets = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0RuleVariables = (output: any, context: __SerdeContext): RuleVariables => {
-  return {
-    IPSets: output.IPSets != null ? deserializeAws_json1_0IPSets(output.IPSets, context) : undefined,
-    PortSets: output.PortSets != null ? deserializeAws_json1_0PortSets(output.PortSets, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0Settings = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0SourceMetadata = (output: any, context: __SerdeContext): SourceMetadata => {
-  return {
-    SourceArn: __expectString(output.SourceArn),
-    SourceUpdateToken: __expectString(output.SourceUpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0StatefulActions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0StatefulEngineOptions = (output: any, context: __SerdeContext): StatefulEngineOptions => {
-  return {
-    RuleOrder: __expectString(output.RuleOrder),
-    StreamExceptionPolicy: __expectString(output.StreamExceptionPolicy),
-  } as any;
-};
-
-const deserializeAws_json1_0StatefulRule = (output: any, context: __SerdeContext): StatefulRule => {
-  return {
-    Action: __expectString(output.Action),
-    Header: output.Header != null ? deserializeAws_json1_0Header(output.Header, context) : undefined,
-    RuleOptions:
-      output.RuleOptions != null ? deserializeAws_json1_0RuleOptions(output.RuleOptions, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0StatefulRuleGroupOverride = (
-  output: any,
-  context: __SerdeContext
-): StatefulRuleGroupOverride => {
-  return {
-    Action: __expectString(output.Action),
-  } as any;
-};
-
-const deserializeAws_json1_0StatefulRuleGroupReference = (
-  output: any,
-  context: __SerdeContext
-): StatefulRuleGroupReference => {
-  return {
-    Override:
-      output.Override != null ? deserializeAws_json1_0StatefulRuleGroupOverride(output.Override, context) : undefined,
-    Priority: __expectInt32(output.Priority),
-    ResourceArn: __expectString(output.ResourceArn),
-  } as any;
-};
-
-const deserializeAws_json1_0StatefulRuleGroupReferences = (
-  output: any,
-  context: __SerdeContext
-): StatefulRuleGroupReference[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0StatefulRuleGroupReference(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0StatefulRuleOptions = (output: any, context: __SerdeContext): StatefulRuleOptions => {
-  return {
-    RuleOrder: __expectString(output.RuleOrder),
-  } as any;
-};
-
-const deserializeAws_json1_0StatefulRules = (output: any, context: __SerdeContext): StatefulRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0StatefulRule(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0StatelessActions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0StatelessRule = (output: any, context: __SerdeContext): StatelessRule => {
-  return {
-    Priority: __expectInt32(output.Priority),
-    RuleDefinition:
-      output.RuleDefinition != null ? deserializeAws_json1_0RuleDefinition(output.RuleDefinition, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0StatelessRuleGroupReference = (
-  output: any,
-  context: __SerdeContext
-): StatelessRuleGroupReference => {
-  return {
-    Priority: __expectInt32(output.Priority),
-    ResourceArn: __expectString(output.ResourceArn),
-  } as any;
-};
-
-const deserializeAws_json1_0StatelessRuleGroupReferences = (
-  output: any,
-  context: __SerdeContext
-): StatelessRuleGroupReference[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0StatelessRuleGroupReference(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0StatelessRules = (output: any, context: __SerdeContext): StatelessRule[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0StatelessRule(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0StatelessRulesAndCustomActions = (
-  output: any,
-  context: __SerdeContext
-): StatelessRulesAndCustomActions => {
-  return {
-    CustomActions:
-      output.CustomActions != null ? deserializeAws_json1_0CustomActions(output.CustomActions, context) : undefined,
-    StatelessRules:
-      output.StatelessRules != null ? deserializeAws_json1_0StatelessRules(output.StatelessRules, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0SubnetMapping = (output: any, context: __SerdeContext): SubnetMapping => {
-  return {
-    IPAddressType: __expectString(output.IPAddressType),
-    SubnetId: __expectString(output.SubnetId),
-  } as any;
-};
-
-const deserializeAws_json1_0SubnetMappings = (output: any, context: __SerdeContext): SubnetMapping[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0SubnetMapping(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0SyncState = (output: any, context: __SerdeContext): SyncState => {
-  return {
-    Attachment: output.Attachment != null ? deserializeAws_json1_0Attachment(output.Attachment, context) : undefined,
-    Config: output.Config != null ? deserializeAws_json1_0SyncStateConfig(output.Config, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0SyncStateConfig = (
-  output: any,
-  context: __SerdeContext
-): Record<string, PerObjectStatus> => {
-  return Object.entries(output).reduce((acc: Record<string, PerObjectStatus>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_json1_0PerObjectStatus(value, context);
-    return acc;
-  }, {});
-};
-
-const deserializeAws_json1_0SyncStates = (output: any, context: __SerdeContext): Record<string, SyncState> => {
-  return Object.entries(output).reduce((acc: Record<string, SyncState>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = deserializeAws_json1_0SyncState(value, context);
-    return acc;
-  }, {});
-};
-
-const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_0TargetTypes = (output: any, context: __SerdeContext): (TargetType | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0TCPFlagField = (output: any, context: __SerdeContext): TCPFlagField => {
-  return {
-    Flags: output.Flags != null ? deserializeAws_json1_0Flags(output.Flags, context) : undefined,
-    Masks: output.Masks != null ? deserializeAws_json1_0Flags(output.Masks, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0TCPFlags = (output: any, context: __SerdeContext): TCPFlagField[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0TCPFlagField(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0UnsupportedOperationException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedOperationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_0UpdateFirewallDeleteProtectionResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateFirewallDeleteProtectionResponse => {
-  return {
-    DeleteProtection: __expectBoolean(output.DeleteProtection),
-    FirewallArn: __expectString(output.FirewallArn),
-    FirewallName: __expectString(output.FirewallName),
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0UpdateFirewallDescriptionResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateFirewallDescriptionResponse => {
-  return {
-    Description: __expectString(output.Description),
-    FirewallArn: __expectString(output.FirewallArn),
-    FirewallName: __expectString(output.FirewallName),
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0UpdateFirewallEncryptionConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateFirewallEncryptionConfigurationResponse => {
-  return {
-    EncryptionConfiguration:
-      output.EncryptionConfiguration != null
-        ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
-        : undefined,
-    FirewallArn: __expectString(output.FirewallArn),
-    FirewallName: __expectString(output.FirewallName),
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0UpdateFirewallPolicyChangeProtectionResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateFirewallPolicyChangeProtectionResponse => {
-  return {
-    FirewallArn: __expectString(output.FirewallArn),
-    FirewallName: __expectString(output.FirewallName),
-    FirewallPolicyChangeProtection: __expectBoolean(output.FirewallPolicyChangeProtection),
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0UpdateFirewallPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateFirewallPolicyResponse => {
-  return {
-    FirewallPolicyResponse:
-      output.FirewallPolicyResponse != null
-        ? deserializeAws_json1_0FirewallPolicyResponse(output.FirewallPolicyResponse, context)
-        : undefined,
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0UpdateLoggingConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateLoggingConfigurationResponse => {
-  return {
-    FirewallArn: __expectString(output.FirewallArn),
-    FirewallName: __expectString(output.FirewallName),
-    LoggingConfiguration:
-      output.LoggingConfiguration != null
-        ? deserializeAws_json1_0LoggingConfiguration(output.LoggingConfiguration, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0UpdateRuleGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateRuleGroupResponse => {
-  return {
-    RuleGroupResponse:
-      output.RuleGroupResponse != null
-        ? deserializeAws_json1_0RuleGroupResponse(output.RuleGroupResponse, context)
-        : undefined,
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0UpdateSubnetChangeProtectionResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateSubnetChangeProtectionResponse => {
-  return {
-    FirewallArn: __expectString(output.FirewallArn),
-    FirewallName: __expectString(output.FirewallName),
-    SubnetChangeProtection: __expectBoolean(output.SubnetChangeProtection),
-    UpdateToken: __expectString(output.UpdateToken),
-  } as any;
-};
-
-const deserializeAws_json1_0VariableDefinitionList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_VariableDefinitionList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -4660,6 +3670,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -4684,6 +3695,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `NetworkFirewall_20201112.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

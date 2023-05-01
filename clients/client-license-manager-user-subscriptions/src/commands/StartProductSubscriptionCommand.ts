@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  StartProductSubscriptionRequest,
-  StartProductSubscriptionRequestFilterSensitiveLog,
-  StartProductSubscriptionResponse,
-  StartProductSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartProductSubscriptionCommand,
-  serializeAws_restJson1StartProductSubscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { StartProductSubscriptionRequest, StartProductSubscriptionResponse } from "../models/models_0";
+import { de_StartProductSubscriptionCommand, se_StartProductSubscriptionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartProductSubscriptionCommand}.
  */
 export interface StartProductSubscriptionCommandInput extends StartProductSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartProductSubscriptionCommand}.
  */
 export interface StartProductSubscriptionCommandOutput extends StartProductSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a product subscription for a user with the specified identity provider.</p>
  *          <note>
  *             <p>Your estimated bill for charges on the number of users and related costs will take 48
@@ -51,10 +48,22 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * import { LicenseManagerUserSubscriptionsClient, StartProductSubscriptionCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, StartProductSubscriptionCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
+ * const input = { // StartProductSubscriptionRequest
+ *   Username: "STRING_VALUE", // required
+ *   IdentityProvider: { // IdentityProvider Union: only one key present
+ *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ *       DirectoryId: "STRING_VALUE",
+ *     },
+ *   },
+ *   Product: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE",
+ * };
  * const command = new StartProductSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartProductSubscriptionCommandInput - {@link StartProductSubscriptionCommandInput}
+ * @returns {@link StartProductSubscriptionCommandOutput}
  * @see {@link StartProductSubscriptionCommandInput} for command's `input` shape.
  * @see {@link StartProductSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -100,6 +109,9 @@ export class StartProductSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartProductSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +140,8 @@ export class StartProductSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartProductSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartProductSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +151,18 @@ export class StartProductSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartProductSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartProductSubscriptionCommand(input, context);
+    return se_StartProductSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProductSubscriptionCommandOutput> {
-    return deserializeAws_restJson1StartProductSubscriptionCommand(output, context);
+    return de_StartProductSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

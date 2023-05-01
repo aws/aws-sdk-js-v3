@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
+import { DescribeAutoScalingConfigurationRequest, DescribeAutoScalingConfigurationResponse } from "../models/models_0";
 import {
-  DescribeAutoScalingConfigurationRequest,
-  DescribeAutoScalingConfigurationRequestFilterSensitiveLog,
-  DescribeAutoScalingConfigurationResponse,
-  DescribeAutoScalingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeAutoScalingConfigurationCommand,
-  serializeAws_json1_0DescribeAutoScalingConfigurationCommand,
+  de_DescribeAutoScalingConfigurationCommand,
+  se_DescribeAutoScalingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAutoScalingConfigurationCommand}.
  */
 export interface DescribeAutoScalingConfigurationCommandInput extends DescribeAutoScalingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAutoScalingConfigurationCommand}.
  */
 export interface DescribeAutoScalingConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeAutoScalingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Return a full description of an App Runner automatic scaling configuration resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface DescribeAutoScalingConfigurationCommandOutput
  * import { AppRunnerClient, DescribeAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DescribeAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // DescribeAutoScalingConfigurationRequest
+ *   AutoScalingConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutoScalingConfigurationCommandInput - {@link DescribeAutoScalingConfigurationCommandInput}
+ * @returns {@link DescribeAutoScalingConfigurationCommandOutput}
  * @see {@link DescribeAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -80,6 +85,9 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutoScalingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAutoScalingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAutoScalingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +127,24 @@ export class DescribeAutoScalingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAutoScalingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeAutoScalingConfigurationCommand(input, context);
+    return se_DescribeAutoScalingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingConfigurationCommandOutput> {
-    return deserializeAws_json1_0DescribeAutoScalingConfigurationCommand(output, context);
+    return de_DescribeAutoScalingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

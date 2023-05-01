@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAccessPolicyRequest,
-  CreateAccessPolicyRequestFilterSensitiveLog,
-  CreateAccessPolicyResponse,
-  CreateAccessPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAccessPolicyRequest, CreateAccessPolicyResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0CreateAccessPolicyCommand,
-  serializeAws_json1_0CreateAccessPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateAccessPolicyCommand, se_CreateAccessPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessPolicyCommand}.
  */
 export interface CreateAccessPolicyCommandInput extends CreateAccessPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessPolicyCommand}.
  */
 export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data access policy for OpenSearch Serverless. Access policies limit access to collections
  *             and the resources within them, and allow a user to access that data irrespective of the
  *             access mechanism or network source. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access
@@ -49,21 +46,33 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * import { OpenSearchServerlessClient, CreateAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // CreateAccessPolicyRequest
+ *   type: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   policy: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessPolicyCommandInput - {@link CreateAccessPolicyCommandInput}
+ * @returns {@link CreateAccessPolicyCommandOutput}
  * @see {@link CreateAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a collection, thrown when a collection with the same name already exists
- *             or is being created. When deleting a collection, thrown when the collection is not in
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
  *             the ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
@@ -88,6 +97,9 @@ export class CreateAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +128,8 @@ export class CreateAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccessPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +139,18 @@ export class CreateAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateAccessPolicyCommand(input, context);
+    return se_CreateAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPolicyCommandOutput> {
-    return deserializeAws_json1_0CreateAccessPolicyCommand(output, context);
+    return de_CreateAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

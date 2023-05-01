@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeFeatureMetadataRequest,
-  DescribeFeatureMetadataRequestFilterSensitiveLog,
-  DescribeFeatureMetadataResponse,
-  DescribeFeatureMetadataResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeFeatureMetadataCommand,
-  serializeAws_json1_1DescribeFeatureMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFeatureMetadataRequest, DescribeFeatureMetadataResponse } from "../models/models_2";
+import { de_DescribeFeatureMetadataCommand, se_DescribeFeatureMetadataCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFeatureMetadataCommand}.
  */
 export interface DescribeFeatureMetadataCommandInput extends DescribeFeatureMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFeatureMetadataCommand}.
  */
 export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shows the metadata for a feature within a feature group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMet
  * import { SageMakerClient, DescribeFeatureMetadataCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeFeatureMetadataCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeFeatureMetadataRequest
+ *   FeatureGroupName: "STRING_VALUE", // required
+ *   FeatureName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFeatureMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFeatureMetadataCommandInput - {@link DescribeFeatureMetadataCommandInput}
+ * @returns {@link DescribeFeatureMetadataCommandOutput}
  * @see {@link DescribeFeatureMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeFeatureMetadataCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +75,9 @@ export class DescribeFeatureMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFeatureMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class DescribeFeatureMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFeatureMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFeatureMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class DescribeFeatureMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFeatureMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFeatureMetadataCommand(input, context);
+    return se_DescribeFeatureMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFeatureMetadataCommandOutput> {
-    return deserializeAws_json1_1DescribeFeatureMetadataCommand(output, context);
+    return de_DescribeFeatureMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

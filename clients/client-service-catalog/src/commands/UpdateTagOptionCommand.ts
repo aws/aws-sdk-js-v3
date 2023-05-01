@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTagOptionInput,
-  UpdateTagOptionInputFilterSensitiveLog,
-  UpdateTagOptionOutput,
-  UpdateTagOptionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTagOptionCommand,
-  serializeAws_json1_1UpdateTagOptionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTagOptionInput, UpdateTagOptionOutput } from "../models/models_0";
+import { de_UpdateTagOptionCommand, se_UpdateTagOptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTagOptionCommand}.
  */
 export interface UpdateTagOptionCommandInput extends UpdateTagOptionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTagOptionCommand}.
  */
 export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified TagOption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
  * import { ServiceCatalogClient, UpdateTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // UpdateTagOptionInput
+ *   Id: "STRING_VALUE", // required
+ *   Value: "STRING_VALUE",
+ *   Active: true || false,
+ * };
  * const command = new UpdateTagOptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTagOptionCommandInput - {@link UpdateTagOptionCommandInput}
+ * @returns {@link UpdateTagOptionCommandOutput}
  * @see {@link UpdateTagOptionCommandInput} for command's `input` shape.
  * @see {@link UpdateTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -83,6 +87,9 @@ export class UpdateTagOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTagOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class UpdateTagOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTagOptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTagOptionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +129,18 @@ export class UpdateTagOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTagOptionCommand(input, context);
+    return se_UpdateTagOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTagOptionCommandOutput> {
-    return deserializeAws_json1_1UpdateTagOptionCommand(output, context);
+    return de_UpdateTagOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

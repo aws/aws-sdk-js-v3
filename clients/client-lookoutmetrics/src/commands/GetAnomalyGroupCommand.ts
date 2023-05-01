@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  GetAnomalyGroupRequest,
-  GetAnomalyGroupRequestFilterSensitiveLog,
-  GetAnomalyGroupResponse,
-  GetAnomalyGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAnomalyGroupCommand,
-  serializeAws_restJson1GetAnomalyGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAnomalyGroupRequest, GetAnomalyGroupResponse } from "../models/models_0";
+import { de_GetAnomalyGroupCommand, se_GetAnomalyGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAnomalyGroupCommand}.
  */
 export interface GetAnomalyGroupCommandInput extends GetAnomalyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAnomalyGroupCommand}.
  */
 export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about a group of anomalous metrics.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, _
  * import { LookoutMetricsClient, GetAnomalyGroupCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, GetAnomalyGroupCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // GetAnomalyGroupRequest
+ *   AnomalyGroupId: "STRING_VALUE", // required
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ * };
  * const command = new GetAnomalyGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnomalyGroupCommandInput - {@link GetAnomalyGroupCommandInput}
+ * @returns {@link GetAnomalyGroupCommandOutput}
  * @see {@link GetAnomalyGroupCommandInput} for command's `input` shape.
  * @see {@link GetAnomalyGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -85,6 +88,9 @@ export class GetAnomalyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnomalyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class GetAnomalyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAnomalyGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAnomalyGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class GetAnomalyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnomalyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAnomalyGroupCommand(input, context);
+    return se_GetAnomalyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomalyGroupCommandOutput> {
-    return deserializeAws_restJson1GetAnomalyGroupCommand(output, context);
+    return de_GetAnomalyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

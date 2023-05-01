@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  StartLoggingRequest,
-  StartLoggingRequestFilterSensitiveLog,
-  StartLoggingResponse,
-  StartLoggingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartLoggingCommand,
-  serializeAws_json1_1StartLoggingCommand,
-} from "../protocols/Aws_json1_1";
+import { StartLoggingRequest, StartLoggingResponse } from "../models/models_0";
+import { de_StartLoggingCommand, se_StartLoggingCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartLoggingCommand}.
  */
 export interface StartLoggingCommandInput extends StartLoggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartLoggingCommand}.
  */
 export interface StartLoggingCommandOutput extends StartLoggingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the recording of Amazon Web Services API calls and log file delivery for a trail.
  *          For a trail that is enabled in all regions, this operation must be called from the region
  *          in which the trail was created. This operation cannot be called on the shadow trails
@@ -45,10 +42,15 @@ export interface StartLoggingCommandOutput extends StartLoggingResponse, __Metad
  * import { CloudTrailClient, StartLoggingCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StartLoggingCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // StartLoggingRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StartLoggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartLoggingCommandInput - {@link StartLoggingCommandInput}
+ * @returns {@link StartLoggingCommandOutput}
  * @see {@link StartLoggingCommandInput} for command's `input` shape.
  * @see {@link StartLoggingCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -142,6 +144,9 @@ export class StartLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,8 +173,8 @@ export class StartLoggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartLoggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartLoggingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -179,12 +184,18 @@ export class StartLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartLoggingCommand(input, context);
+    return se_StartLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartLoggingCommandOutput> {
-    return deserializeAws_json1_1StartLoggingCommand(output, context);
+    return de_StartLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

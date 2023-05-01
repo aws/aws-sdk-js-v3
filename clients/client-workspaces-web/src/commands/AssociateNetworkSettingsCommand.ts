@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateNetworkSettingsRequest,
-  AssociateNetworkSettingsRequestFilterSensitiveLog,
-  AssociateNetworkSettingsResponse,
-  AssociateNetworkSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateNetworkSettingsCommand,
-  serializeAws_restJson1AssociateNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateNetworkSettingsRequest, AssociateNetworkSettingsResponse } from "../models/models_0";
+import { de_AssociateNetworkSettingsCommand, se_AssociateNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateNetworkSettingsCommand}.
  */
 export interface AssociateNetworkSettingsCommandInput extends AssociateNetworkSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateNetworkSettingsCommand}.
  */
 export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a network settings resource with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkS
  * import { WorkSpacesWebClient, AssociateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // AssociateNetworkSettingsRequest
+ *   portalArn: "STRING_VALUE", // required
+ *   networkSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateNetworkSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateNetworkSettingsCommandInput - {@link AssociateNetworkSettingsCommandInput}
+ * @returns {@link AssociateNetworkSettingsCommandOutput}
  * @see {@link AssociateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -87,6 +90,9 @@ export class AssociateNetworkSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateNetworkSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class AssociateNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateNetworkSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateNetworkSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class AssociateNetworkSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateNetworkSettingsCommand(input, context);
+    return se_AssociateNetworkSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1AssociateNetworkSettingsCommand(output, context);
+    return de_AssociateNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

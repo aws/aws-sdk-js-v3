@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  CreateChatTokenRequest,
-  CreateChatTokenRequestFilterSensitiveLog,
-  CreateChatTokenResponse,
-  CreateChatTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateChatTokenCommand,
-  serializeAws_restJson1CreateChatTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateChatTokenRequest, CreateChatTokenResponse } from "../models/models_0";
+import { de_CreateChatTokenCommand, se_CreateChatTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChatTokenCommand}.
  */
 export interface CreateChatTokenCommandInput extends CreateChatTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChatTokenCommand}.
  */
 export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an encrypted token that is used by a chat participant to establish an individual
  *          WebSocket chat connection to a room. When the token is used to connect to chat, the
  *          connection is valid for the session duration specified in the request. The token becomes
@@ -53,10 +50,23 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  * import { IvschatClient, CreateChatTokenCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, CreateChatTokenCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = { // CreateChatTokenRequest
+ *   roomIdentifier: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   capabilities: [ // ChatTokenCapabilities
+ *     "STRING_VALUE",
+ *   ],
+ *   sessionDurationInMinutes: Number("int"),
+ *   attributes: { // ChatTokenAttributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateChatTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChatTokenCommandInput - {@link CreateChatTokenCommandInput}
+ * @returns {@link CreateChatTokenCommandOutput}
  * @see {@link CreateChatTokenCommandInput} for command's `input` shape.
  * @see {@link CreateChatTokenCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -92,6 +102,9 @@ export class CreateChatTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChatTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +133,8 @@ export class CreateChatTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChatTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateChatTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +144,18 @@ export class CreateChatTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChatTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateChatTokenCommand(input, context);
+    return se_CreateChatTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChatTokenCommandOutput> {
-    return deserializeAws_restJson1CreateChatTokenCommand(output, context);
+    return de_CreateChatTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

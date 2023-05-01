@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  ListJobsRequest,
-  ListJobsRequestFilterSensitiveLog,
-  ListJobsResponse,
-  ListJobsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListJobsCommand,
-  serializeAws_restJson1ListJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListJobsRequest, ListJobsResponse } from "../models/models_2";
+import { de_ListJobsCommand, se_ListJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobsCommand}.
  */
 export interface ListJobsCommandInput extends ListJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobsCommand}.
  */
 export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve a JSON array of up to twenty of your most recently created jobs. This array includes in-process, completed, and errored jobs. This will return the jobs themselves, not just a list of the jobs. To retrieve the twenty next most recent jobs, use the nextToken string returned with the array.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * import { MediaConvertClient, ListJobsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, ListJobsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = { // ListJobsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Order: "ASCENDING" || "DESCENDING",
+ *   Queue: "STRING_VALUE",
+ *   Status: "SUBMITTED" || "PROGRESSING" || "COMPLETE" || "CANCELED" || "ERROR",
+ * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobsCommandInput - {@link ListJobsCommandInput}
+ * @returns {@link ListJobsCommandOutput}
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +93,9 @@ export class ListJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class ListJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class ListJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJobsCommand(input, context);
+    return se_ListJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobsCommandOutput> {
-    return deserializeAws_restJson1ListJobsCommand(output, context);
+    return de_ListJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

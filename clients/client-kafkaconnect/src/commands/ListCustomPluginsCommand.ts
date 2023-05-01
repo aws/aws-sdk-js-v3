@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  ListCustomPluginsRequest,
-  ListCustomPluginsRequestFilterSensitiveLog,
-  ListCustomPluginsResponse,
-  ListCustomPluginsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCustomPluginsCommand,
-  serializeAws_restJson1ListCustomPluginsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCustomPluginsRequest, ListCustomPluginsResponse } from "../models/models_0";
+import { de_ListCustomPluginsCommand, se_ListCustomPluginsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomPluginsCommand}.
  */
 export interface ListCustomPluginsCommandInput extends ListCustomPluginsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomPluginsCommand}.
  */
 export interface ListCustomPluginsCommandOutput extends ListCustomPluginsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all of the custom plugins in this account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListCustomPluginsCommandOutput extends ListCustomPluginsRespons
  * import { KafkaConnectClient, ListCustomPluginsCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, ListCustomPluginsCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
+ * const input = { // ListCustomPluginsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListCustomPluginsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomPluginsCommandInput - {@link ListCustomPluginsCommandInput}
+ * @returns {@link ListCustomPluginsCommandOutput}
  * @see {@link ListCustomPluginsCommandInput} for command's `input` shape.
  * @see {@link ListCustomPluginsCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
@@ -96,6 +99,9 @@ export class ListCustomPluginsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomPluginsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +130,8 @@ export class ListCustomPluginsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomPluginsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomPluginsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +141,18 @@ export class ListCustomPluginsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomPluginsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCustomPluginsCommand(input, context);
+    return se_ListCustomPluginsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCustomPluginsCommandOutput> {
-    return deserializeAws_restJson1ListCustomPluginsCommand(output, context);
+    return de_ListCustomPluginsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  AssociateEncryptionConfigRequest,
-  AssociateEncryptionConfigRequestFilterSensitiveLog,
-  AssociateEncryptionConfigResponse,
-  AssociateEncryptionConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateEncryptionConfigCommand,
-  serializeAws_restJson1AssociateEncryptionConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateEncryptionConfigRequest, AssociateEncryptionConfigResponse } from "../models/models_0";
+import { de_AssociateEncryptionConfigCommand, se_AssociateEncryptionConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateEncryptionConfigCommand}.
  */
 export interface AssociateEncryptionConfigCommandInput extends AssociateEncryptionConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateEncryptionConfigCommand}.
  */
 export interface AssociateEncryptionConfigCommandOutput extends AssociateEncryptionConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate encryption configuration to an existing cluster.</p>
  *          <p>You can use this API to enable encryption on existing clusters which do not have
  *             encryption already enabled. This allows you to implement a defense-in-depth security
@@ -45,10 +42,26 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
  * import { EKSClient, AssociateEncryptionConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, AssociateEncryptionConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // AssociateEncryptionConfigRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   encryptionConfig: [ // EncryptionConfigList // required
+ *     { // EncryptionConfig
+ *       resources: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       provider: { // Provider
+ *         keyArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new AssociateEncryptionConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateEncryptionConfigCommandInput - {@link AssociateEncryptionConfigCommandInput}
+ * @returns {@link AssociateEncryptionConfigCommandOutput}
  * @see {@link AssociateEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -97,6 +110,9 @@ export class AssociateEncryptionConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateEncryptionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +141,8 @@ export class AssociateEncryptionConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateEncryptionConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateEncryptionConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +152,21 @@ export class AssociateEncryptionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateEncryptionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateEncryptionConfigCommand(input, context);
+    return se_AssociateEncryptionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateEncryptionConfigCommandOutput> {
-    return deserializeAws_restJson1AssociateEncryptionConfigCommand(output, context);
+    return de_AssociateEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

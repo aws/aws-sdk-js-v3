@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  UpdateContinuousBackupsInput,
-  UpdateContinuousBackupsInputFilterSensitiveLog,
-  UpdateContinuousBackupsOutput,
-  UpdateContinuousBackupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateContinuousBackupsCommand,
-  serializeAws_json1_0UpdateContinuousBackupsCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateContinuousBackupsInput, UpdateContinuousBackupsOutput } from "../models/models_0";
+import { de_UpdateContinuousBackupsCommand, se_UpdateContinuousBackupsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContinuousBackupsCommand}.
  */
 export interface UpdateContinuousBackupsCommandInput extends UpdateContinuousBackupsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContinuousBackupsCommand}.
  */
 export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBackupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>UpdateContinuousBackups</code> enables or disables point in time recovery for
  *             the specified table. A successful <code>UpdateContinuousBackups</code> call returns the
@@ -53,10 +50,18 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  * import { DynamoDBClient, UpdateContinuousBackupsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateContinuousBackupsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // UpdateContinuousBackupsInput
+ *   TableName: "STRING_VALUE", // required
+ *   PointInTimeRecoverySpecification: { // PointInTimeRecoverySpecification
+ *     PointInTimeRecoveryEnabled: true || false, // required
+ *   },
+ * };
  * const command = new UpdateContinuousBackupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContinuousBackupsCommandInput - {@link UpdateContinuousBackupsCommandInput}
+ * @returns {@link UpdateContinuousBackupsCommandOutput}
  * @see {@link UpdateContinuousBackupsCommandInput} for command's `input` shape.
  * @see {@link UpdateContinuousBackupsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -92,6 +97,9 @@ export class UpdateContinuousBackupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContinuousBackupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class UpdateContinuousBackupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContinuousBackupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContinuousBackupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +139,18 @@ export class UpdateContinuousBackupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContinuousBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateContinuousBackupsCommand(input, context);
+    return se_UpdateContinuousBackupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContinuousBackupsCommandOutput> {
-    return deserializeAws_json1_0UpdateContinuousBackupsCommand(output, context);
+    return de_UpdateContinuousBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

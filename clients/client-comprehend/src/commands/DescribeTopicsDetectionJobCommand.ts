@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DescribeTopicsDetectionJobRequest,
-  DescribeTopicsDetectionJobRequestFilterSensitiveLog,
-  DescribeTopicsDetectionJobResponse,
-  DescribeTopicsDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTopicsDetectionJobCommand,
-  serializeAws_json1_1DescribeTopicsDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTopicsDetectionJobRequest, DescribeTopicsDetectionJobResponse } from "../models/models_0";
+import { de_DescribeTopicsDetectionJobCommand, se_DescribeTopicsDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTopicsDetectionJobCommand}.
  */
 export interface DescribeTopicsDetectionJobCommandInput extends DescribeTopicsDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTopicsDetectionJobCommand}.
  */
 export interface DescribeTopicsDetectionJobCommandOutput extends DescribeTopicsDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a topic detection job. Use this operation to get
  *       the status of a detection job.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeTopicsDetectionJobCommandOutput extends DescribeTopicsD
  * import { ComprehendClient, DescribeTopicsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeTopicsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeTopicsDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTopicsDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTopicsDetectionJobCommandInput - {@link DescribeTopicsDetectionJobCommandInput}
+ * @returns {@link DescribeTopicsDetectionJobCommandOutput}
  * @see {@link DescribeTopicsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTopicsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +84,9 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTopicsDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTopicsDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTopicsDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +126,21 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTopicsDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTopicsDetectionJobCommand(input, context);
+    return se_DescribeTopicsDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTopicsDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeTopicsDetectionJobCommand(output, context);
+    return de_DescribeTopicsDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

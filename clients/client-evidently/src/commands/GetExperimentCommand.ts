@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  GetExperimentRequest,
-  GetExperimentRequestFilterSensitiveLog,
-  GetExperimentResponse,
-  GetExperimentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetExperimentCommand,
-  serializeAws_restJson1GetExperimentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetExperimentRequest, GetExperimentResponse } from "../models/models_0";
+import { de_GetExperimentCommand, se_GetExperimentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExperimentCommand}.
  */
 export interface GetExperimentCommandInput extends GetExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExperimentCommand}.
  */
 export interface GetExperimentCommandOutput extends GetExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details about one experiment. You must already know the
  *       experiment name. To retrieve a list of experiments in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html">ListExperiments</a>.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  * import { EvidentlyClient, GetExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // GetExperimentRequest
+ *   project: "STRING_VALUE", // required
+ *   experiment: "STRING_VALUE", // required
+ * };
  * const command = new GetExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExperimentCommandInput - {@link GetExperimentCommandInput}
+ * @returns {@link GetExperimentCommandOutput}
  * @see {@link GetExperimentCommandInput} for command's `input` shape.
  * @see {@link GetExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -82,6 +85,9 @@ export class GetExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class GetExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class GetExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetExperimentCommand(input, context);
+    return se_GetExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExperimentCommandOutput> {
-    return deserializeAws_restJson1GetExperimentCommand(output, context);
+    return de_GetExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

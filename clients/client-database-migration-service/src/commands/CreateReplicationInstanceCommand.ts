@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  CreateReplicationInstanceMessage,
-  CreateReplicationInstanceMessageFilterSensitiveLog,
-  CreateReplicationInstanceResponse,
-  CreateReplicationInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateReplicationInstanceCommand,
-  serializeAws_json1_1CreateReplicationInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateReplicationInstanceMessage, CreateReplicationInstanceResponse } from "../models/models_0";
+import { de_CreateReplicationInstanceCommand, se_CreateReplicationInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReplicationInstanceCommand}.
  */
 export interface CreateReplicationInstanceCommandInput extends CreateReplicationInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateReplicationInstanceCommand}.
  */
 export interface CreateReplicationInstanceCommandOutput extends CreateReplicationInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the replication instance using the specified parameters.</p>
  *          <p>DMS requires that your account have certain roles with appropriate permissions
  *          before you can create a replication instance. For information on the required roles, see
@@ -51,10 +48,38 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * import { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // CreateReplicationInstanceMessage
+ *   ReplicationInstanceIdentifier: "STRING_VALUE", // required
+ *   AllocatedStorage: Number("int"),
+ *   ReplicationInstanceClass: "STRING_VALUE", // required
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   AvailabilityZone: "STRING_VALUE",
+ *   ReplicationSubnetGroupIdentifier: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   DnsNameServers: "STRING_VALUE",
+ *   ResourceIdentifier: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
+ * };
  * const command = new CreateReplicationInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationInstanceCommandInput - {@link CreateReplicationInstanceCommandInput}
+ * @returns {@link CreateReplicationInstanceCommandOutput}
  * @see {@link CreateReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -190,6 +215,9 @@ export class CreateReplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -218,8 +246,8 @@ export class CreateReplicationInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReplicationInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -229,15 +257,21 @@ export class CreateReplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateReplicationInstanceCommand(input, context);
+    return se_CreateReplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1CreateReplicationInstanceCommand(output, context);
+    return de_CreateReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

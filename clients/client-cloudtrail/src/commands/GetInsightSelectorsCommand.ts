@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  GetInsightSelectorsRequest,
-  GetInsightSelectorsRequestFilterSensitiveLog,
-  GetInsightSelectorsResponse,
-  GetInsightSelectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetInsightSelectorsCommand,
-  serializeAws_json1_1GetInsightSelectorsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetInsightSelectorsRequest, GetInsightSelectorsResponse } from "../models/models_0";
+import { de_GetInsightSelectorsCommand, se_GetInsightSelectorsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInsightSelectorsCommand}.
  */
 export interface GetInsightSelectorsCommandInput extends GetInsightSelectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInsightSelectorsCommand}.
  */
 export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the settings for the Insights event selectors that you configured for your
  *          trail. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
  *          is enabled on the trail, and if it is, which insight types are enabled. If you run
@@ -48,10 +45,15 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * import { CloudTrailClient, GetInsightSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetInsightSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // GetInsightSelectorsRequest
+ *   TrailName: "STRING_VALUE", // required
+ * };
  * const command = new GetInsightSelectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInsightSelectorsCommandInput - {@link GetInsightSelectorsCommandInput}
+ * @returns {@link GetInsightSelectorsCommandOutput}
  * @see {@link GetInsightSelectorsCommandInput} for command's `input` shape.
  * @see {@link GetInsightSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -130,6 +132,9 @@ export class GetInsightSelectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInsightSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,8 +163,8 @@ export class GetInsightSelectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInsightSelectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInsightSelectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -169,12 +174,18 @@ export class GetInsightSelectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInsightSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInsightSelectorsCommand(input, context);
+    return se_GetInsightSelectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightSelectorsCommandOutput> {
-    return deserializeAws_json1_1GetInsightSelectorsCommand(output, context);
+    return de_GetInsightSelectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

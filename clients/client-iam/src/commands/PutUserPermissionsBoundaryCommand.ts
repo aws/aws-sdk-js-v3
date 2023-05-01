@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  PutUserPermissionsBoundaryRequest,
-  PutUserPermissionsBoundaryRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryPutUserPermissionsBoundaryCommand,
-  serializeAws_queryPutUserPermissionsBoundaryCommand,
-} from "../protocols/Aws_query";
+import { PutUserPermissionsBoundaryRequest } from "../models/models_0";
+import { de_PutUserPermissionsBoundaryCommand, se_PutUserPermissionsBoundaryCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutUserPermissionsBoundaryCommand}.
  */
 export interface PutUserPermissionsBoundaryCommandInput extends PutUserPermissionsBoundaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutUserPermissionsBoundaryCommand}.
  */
 export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates the policy that is specified as the IAM user's permissions
  *             boundary. You can use an Amazon Web Services managed policy or a customer managed policy to set the
  *             boundary for a user. Use the boundary to control the maximum permissions that the user
@@ -50,10 +49,16 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  * import { IAMClient, PutUserPermissionsBoundaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, PutUserPermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // PutUserPermissionsBoundaryRequest
+ *   UserName: "STRING_VALUE", // required
+ *   PermissionsBoundary: "STRING_VALUE", // required
+ * };
  * const command = new PutUserPermissionsBoundaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutUserPermissionsBoundaryCommandInput - {@link PutUserPermissionsBoundaryCommandInput}
+ * @returns {@link PutUserPermissionsBoundaryCommandOutput}
  * @see {@link PutUserPermissionsBoundaryCommandInput} for command's `input` shape.
  * @see {@link PutUserPermissionsBoundaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -93,6 +98,9 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutUserPermissionsBoundaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +129,8 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutUserPermissionsBoundaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +140,21 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutUserPermissionsBoundaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutUserPermissionsBoundaryCommand(input, context);
+    return se_PutUserPermissionsBoundaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutUserPermissionsBoundaryCommandOutput> {
-    return deserializeAws_queryPutUserPermissionsBoundaryCommand(output, context);
+    return de_PutUserPermissionsBoundaryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListDevicesRequest,
-  ListDevicesRequestFilterSensitiveLog,
-  ListDevicesResult,
-  ListDevicesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDevicesCommand,
-  serializeAws_json1_1ListDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDevicesRequest, ListDevicesResult } from "../models/models_0";
+import { de_ListDevicesCommand, se_ListDevicesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDevicesCommand}.
  */
 export interface ListDevicesCommandInput extends ListDevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDevicesCommand}.
  */
 export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about unique device types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  * import { DeviceFarmClient, ListDevicesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListDevicesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListDevicesRequest
+ *   arn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   filters: [ // DeviceFilters
+ *     { // DeviceFilter
+ *       attribute: "ARN" || "PLATFORM" || "OS_VERSION" || "MODEL" || "AVAILABILITY" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE", // required
+ *       operator: "EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "IN" || "NOT_IN" || "CONTAINS", // required
+ *       values: [ // DeviceFilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
+ * @returns {@link ListDevicesCommandOutput}
  * @see {@link ListDevicesCommandInput} for command's `input` shape.
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -92,6 +104,9 @@ export class ListDevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +133,8 @@ export class ListDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDevicesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +144,18 @@ export class ListDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDevicesCommand(input, context);
+    return se_ListDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicesCommandOutput> {
-    return deserializeAws_json1_1ListDevicesCommand(output, context);
+    return de_ListDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

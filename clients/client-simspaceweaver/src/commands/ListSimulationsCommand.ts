@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSimulationsInput,
-  ListSimulationsInputFilterSensitiveLog,
-  ListSimulationsOutput,
-  ListSimulationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSimulationsCommand,
-  serializeAws_restJson1ListSimulationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSimulationsInput, ListSimulationsOutput } from "../models/models_0";
+import { de_ListSimulationsCommand, se_ListSimulationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSimulationsCommand}.
  */
 export interface ListSimulationsCommandInput extends ListSimulationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSimulationsCommand}.
  */
 export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the SimSpace Weaver simulations in the Amazon Web Services account used to make the API call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __M
  * import { SimSpaceWeaverClient, ListSimulationsCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, ListSimulationsCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = { // ListSimulationsInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSimulationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSimulationsCommandInput - {@link ListSimulationsCommandInput}
+ * @returns {@link ListSimulationsCommandOutput}
  * @see {@link ListSimulationsCommandInput} for command's `input` shape.
  * @see {@link ListSimulationsCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
@@ -78,6 +81,9 @@ export class ListSimulationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSimulationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class ListSimulationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSimulationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSimulationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class ListSimulationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSimulationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSimulationsCommand(input, context);
+    return se_ListSimulationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSimulationsCommandOutput> {
-    return deserializeAws_restJson1ListSimulationsCommand(output, context);
+    return de_ListSimulationsCommand(output, context);
   }
 
   // Start section: command_body_extra

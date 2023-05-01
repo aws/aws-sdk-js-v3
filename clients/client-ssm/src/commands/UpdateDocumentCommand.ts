@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDocumentRequest,
-  UpdateDocumentRequestFilterSensitiveLog,
-  UpdateDocumentResult,
-  UpdateDocumentResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateDocumentCommand,
-  serializeAws_json1_1UpdateDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDocumentRequest, UpdateDocumentResult } from "../models/models_2";
+import { de_UpdateDocumentCommand, se_UpdateDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDocumentCommand}.
  */
 export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDocumentCommand}.
  */
 export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates one or more values for an SSM document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,30 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * import { SSMClient, UpdateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateDocumentRequest
+ *   Content: "STRING_VALUE", // required
+ *   Attachments: [ // AttachmentsSourceList
+ *     { // AttachmentsSource
+ *       Key: "SourceUrl" || "S3FileUrl" || "AttachmentReference",
+ *       Values: [ // AttachmentsSourceValues
+ *         "STRING_VALUE",
+ *       ],
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   VersionName: "STRING_VALUE",
+ *   DocumentVersion: "STRING_VALUE",
+ *   DocumentFormat: "YAML" || "JSON" || "TEXT",
+ *   TargetType: "STRING_VALUE",
+ * };
  * const command = new UpdateDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentCommandInput - {@link UpdateDocumentCommandInput}
+ * @returns {@link UpdateDocumentCommandOutput}
  * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -103,6 +120,9 @@ export class UpdateDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +151,8 @@ export class UpdateDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDocumentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +162,18 @@ export class UpdateDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDocumentCommand(input, context);
+    return se_UpdateDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentCommandOutput> {
-    return deserializeAws_json1_1UpdateDocumentCommand(output, context);
+    return de_UpdateDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

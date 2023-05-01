@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  CreateConnectorDefinitionRequest,
-  CreateConnectorDefinitionRequestFilterSensitiveLog,
-  CreateConnectorDefinitionResponse,
-  CreateConnectorDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateConnectorDefinitionCommand,
-  serializeAws_restJson1CreateConnectorDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateConnectorDefinitionRequest, CreateConnectorDefinitionResponse } from "../models/models_0";
+import { de_CreateConnectorDefinitionCommand, se_CreateConnectorDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectorDefinitionCommand}.
  */
 export interface CreateConnectorDefinitionCommandInput extends CreateConnectorDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectorDefinitionCommand}.
  */
 export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a connector definition. You may provide the initial version of the connector definition now or use ''CreateConnectorDefinitionVersion'' at a later time.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,30 @@ export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorD
  * import { GreengrassClient, CreateConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // CreateConnectorDefinitionRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   InitialVersion: { // ConnectorDefinitionVersion
+ *     Connectors: [ // __listOfConnector
+ *       { // Connector
+ *         ConnectorArn: "STRING_VALUE", // required
+ *         Id: "STRING_VALUE", // required
+ *         Parameters: { // __mapOf__string
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   Name: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateConnectorDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectorDefinitionCommandInput - {@link CreateConnectorDefinitionCommandInput}
+ * @returns {@link CreateConnectorDefinitionCommandOutput}
  * @see {@link CreateConnectorDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +89,9 @@ export class CreateConnectorDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectorDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +120,8 @@ export class CreateConnectorDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectorDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectorDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +131,21 @@ export class CreateConnectorDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectorDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConnectorDefinitionCommand(input, context);
+    return se_CreateConnectorDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1CreateConnectorDefinitionCommand(output, context);
+    return de_CreateConnectorDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RemoveAttributesRequest,
-  RemoveAttributesRequestFilterSensitiveLog,
-  RemoveAttributesResponse,
-  RemoveAttributesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { RemoveAttributesRequest, RemoveAttributesResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1RemoveAttributesCommand,
-  serializeAws_restJson1RemoveAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveAttributesCommand, se_RemoveAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveAttributesCommand}.
  */
 export interface RemoveAttributesCommandInput extends RemoveAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveAttributesCommand}.
  */
 export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse,
  * import { PinpointClient, RemoveAttributesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, RemoveAttributesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // RemoveAttributesRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   AttributeType: "STRING_VALUE", // required
+ *   UpdateAttributesRequest: { // UpdateAttributesRequest
+ *     Blacklist: [ // ListOf__string
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new RemoveAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveAttributesCommandInput - {@link RemoveAttributesCommandInput}
+ * @returns {@link RemoveAttributesCommandOutput}
  * @see {@link RemoveAttributesCommandInput} for command's `input` shape.
  * @see {@link RemoveAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +98,9 @@ export class RemoveAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +129,8 @@ export class RemoveAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +140,18 @@ export class RemoveAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveAttributesCommand(input, context);
+    return se_RemoveAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveAttributesCommandOutput> {
-    return deserializeAws_restJson1RemoveAttributesCommand(output, context);
+    return de_RemoveAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

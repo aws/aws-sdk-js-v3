@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  CreateAppBlockRequest,
-  CreateAppBlockRequestFilterSensitiveLog,
-  CreateAppBlockResult,
-  CreateAppBlockResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAppBlockCommand,
-  serializeAws_json1_1CreateAppBlockCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAppBlockRequest, CreateAppBlockResult } from "../models/models_0";
+import { de_CreateAppBlockCommand, se_CreateAppBlockCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppBlockCommand}.
  */
 export interface CreateAppBlockCommandInput extends CreateAppBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppBlockCommand}.
  */
 export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an app block.</p>
  *          <p>App blocks are an Amazon AppStream 2.0 resource that stores the details about the
  *             virtual hard disk in an S3 bucket. It also stores the setup script with details about
@@ -48,10 +45,33 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  * import { AppStreamClient, CreateAppBlockCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateAppBlockCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // CreateAppBlockRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DisplayName: "STRING_VALUE",
+ *   SourceS3Location: { // S3Location
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE", // required
+ *   },
+ *   SetupScriptDetails: { // ScriptDetails
+ *     ScriptS3Location: {
+ *       S3Bucket: "STRING_VALUE", // required
+ *       S3Key: "STRING_VALUE", // required
+ *     },
+ *     ExecutablePath: "STRING_VALUE", // required
+ *     ExecutableParameters: "STRING_VALUE",
+ *     TimeoutInSeconds: Number("int"), // required
+ *   },
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAppBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppBlockCommandInput - {@link CreateAppBlockCommandInput}
+ * @returns {@link CreateAppBlockCommandOutput}
  * @see {@link CreateAppBlockCommandInput} for command's `input` shape.
  * @see {@link CreateAppBlockCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -87,6 +107,9 @@ export class CreateAppBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +138,8 @@ export class CreateAppBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppBlockResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +149,18 @@ export class CreateAppBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAppBlockCommand(input, context);
+    return se_CreateAppBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppBlockCommandOutput> {
-    return deserializeAws_json1_1CreateAppBlockCommand(output, context);
+    return de_CreateAppBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

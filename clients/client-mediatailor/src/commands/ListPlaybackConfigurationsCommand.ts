@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  ListPlaybackConfigurationsRequest,
-  ListPlaybackConfigurationsRequestFilterSensitiveLog,
-  ListPlaybackConfigurationsResponse,
-  ListPlaybackConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPlaybackConfigurationsCommand,
-  serializeAws_restJson1ListPlaybackConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPlaybackConfigurationsRequest, ListPlaybackConfigurationsResponse } from "../models/models_0";
+import { de_ListPlaybackConfigurationsCommand, se_ListPlaybackConfigurationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPlaybackConfigurationsCommand}.
  */
 export interface ListPlaybackConfigurationsCommandInput extends ListPlaybackConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPlaybackConfigurationsCommand}.
  */
 export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves existing playback configurations. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with Configurations in AWS Elemental MediaTailor</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * import { MediaTailorClient, ListPlaybackConfigurationsCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListPlaybackConfigurationsCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // ListPlaybackConfigurationsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPlaybackConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPlaybackConfigurationsCommandInput - {@link ListPlaybackConfigurationsCommandInput}
+ * @returns {@link ListPlaybackConfigurationsCommandOutput}
  * @see {@link ListPlaybackConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListPlaybackConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +72,9 @@ export class ListPlaybackConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlaybackConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +103,8 @@ export class ListPlaybackConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlaybackConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPlaybackConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +114,21 @@ export class ListPlaybackConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlaybackConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPlaybackConfigurationsCommand(input, context);
+    return se_ListPlaybackConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPlaybackConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListPlaybackConfigurationsCommand(output, context);
+    return de_ListPlaybackConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

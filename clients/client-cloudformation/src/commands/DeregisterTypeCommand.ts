@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DeregisterTypeInput,
-  DeregisterTypeInputFilterSensitiveLog,
-  DeregisterTypeOutput,
-  DeregisterTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeregisterTypeCommand,
-  serializeAws_queryDeregisterTypeCommand,
-} from "../protocols/Aws_query";
+import { DeregisterTypeInput, DeregisterTypeOutput } from "../models/models_0";
+import { de_DeregisterTypeCommand, se_DeregisterTypeCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterTypeCommand}.
  */
 export interface DeregisterTypeCommandInput extends DeregisterTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterTypeCommand}.
  */
 export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Marks an extension or extension version as <code>DEPRECATED</code> in the CloudFormation registry, removing it from active use. Deprecated extensions or
  *          extension versions cannot be used in CloudFormation operations.</p>
  *          <p>To deregister an entire extension, you must individually deregister all active versions
@@ -51,10 +48,18 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  * import { CloudFormationClient, DeregisterTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeregisterTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DeregisterTypeInput
+ *   Arn: "STRING_VALUE",
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   TypeName: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ * };
  * const command = new DeregisterTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterTypeCommandInput - {@link DeregisterTypeCommandInput}
+ * @returns {@link DeregisterTypeCommandOutput}
  * @see {@link DeregisterTypeCommandInput} for command's `input` shape.
  * @see {@link DeregisterTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -84,6 +89,9 @@ export class DeregisterTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class DeregisterTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class DeregisterTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeregisterTypeCommand(input, context);
+    return se_DeregisterTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterTypeCommandOutput> {
-    return deserializeAws_queryDeregisterTypeCommand(output, context);
+    return de_DeregisterTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

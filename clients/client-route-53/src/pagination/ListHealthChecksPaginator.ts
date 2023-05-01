@@ -10,7 +10,7 @@ import { Route53Client } from "../Route53Client";
 import { Route53PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: Route53Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListHealthChecksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListHealthChecks(
   config: Route53PaginationConfiguration,
   input: ListHealthChecksCommandInput,

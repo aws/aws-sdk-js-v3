@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteTransitGatewayPrefixListReferenceRequest,
-  DeleteTransitGatewayPrefixListReferenceRequestFilterSensitiveLog,
   DeleteTransitGatewayPrefixListReferenceResult,
-  DeleteTransitGatewayPrefixListReferenceResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand,
-  serializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand,
+  de_DeleteTransitGatewayPrefixListReferenceCommand,
+  se_DeleteTransitGatewayPrefixListReferenceCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTransitGatewayPrefixListReferenceCommand}.
  */
 export interface DeleteTransitGatewayPrefixListReferenceCommandInput
   extends DeleteTransitGatewayPrefixListReferenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTransitGatewayPrefixListReferenceCommand}.
  */
 export interface DeleteTransitGatewayPrefixListReferenceCommandOutput
@@ -38,6 +40,7 @@ export interface DeleteTransitGatewayPrefixListReferenceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,17 @@ export interface DeleteTransitGatewayPrefixListReferenceCommandOutput
  * import { EC2Client, DeleteTransitGatewayPrefixListReferenceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteTransitGatewayPrefixListReferenceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteTransitGatewayPrefixListReferenceRequest
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   PrefixListId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteTransitGatewayPrefixListReferenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTransitGatewayPrefixListReferenceCommandInput - {@link DeleteTransitGatewayPrefixListReferenceCommandInput}
+ * @returns {@link DeleteTransitGatewayPrefixListReferenceCommandOutput}
  * @see {@link DeleteTransitGatewayPrefixListReferenceCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayPrefixListReferenceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +82,9 @@ export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTransitGatewayPrefixListReferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +119,8 @@ export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTransitGatewayPrefixListReferenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTransitGatewayPrefixListReferenceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +130,24 @@ export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteTransitGatewayPrefixListReferenceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand(input, context);
+    return se_DeleteTransitGatewayPrefixListReferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayPrefixListReferenceCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand(output, context);
+    return de_DeleteTransitGatewayPrefixListReferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSnapshotCopyGrantMessage, DeleteSnapshotCopyGrantMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSnapshotCopyGrantCommand,
-  serializeAws_queryDeleteSnapshotCopyGrantCommand,
-} from "../protocols/Aws_query";
+import { DeleteSnapshotCopyGrantMessage } from "../models/models_0";
+import { de_DeleteSnapshotCopyGrantCommand, se_DeleteSnapshotCopyGrantCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSnapshotCopyGrantCommand}.
  */
 export interface DeleteSnapshotCopyGrantCommandInput extends DeleteSnapshotCopyGrantMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSnapshotCopyGrantCommand}.
  */
 export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified snapshot copy grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  * import { RedshiftClient, DeleteSnapshotCopyGrantCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteSnapshotCopyGrantCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteSnapshotCopyGrantMessage
+ *   SnapshotCopyGrantName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSnapshotCopyGrantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSnapshotCopyGrantCommandInput - {@link DeleteSnapshotCopyGrantCommandInput}
+ * @returns {@link DeleteSnapshotCopyGrantCommandOutput}
  * @see {@link DeleteSnapshotCopyGrantCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCopyGrantCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -72,6 +79,9 @@ export class DeleteSnapshotCopyGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSnapshotCopyGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +110,8 @@ export class DeleteSnapshotCopyGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotCopyGrantMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +121,18 @@ export class DeleteSnapshotCopyGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSnapshotCopyGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSnapshotCopyGrantCommand(input, context);
+    return se_DeleteSnapshotCopyGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotCopyGrantCommandOutput> {
-    return deserializeAws_queryDeleteSnapshotCopyGrantCommand(output, context);
+    return de_DeleteSnapshotCopyGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

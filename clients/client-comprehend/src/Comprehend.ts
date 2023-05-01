@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -413,2877 +414,1456 @@ import {
   UpdateFlywheelCommandInput,
   UpdateFlywheelCommandOutput,
 } from "./commands/UpdateFlywheelCommand";
-import { ComprehendClient } from "./ComprehendClient";
+import { ComprehendClient, ComprehendClientConfig } from "./ComprehendClient";
 
-/**
- * <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents.
- *       Use these actions to determine the topics contained in your documents, the topics they
- *       discuss, the predominant sentiment expressed in them, the predominant language used, and
- *       more.</p>
- */
-export class Comprehend extends ComprehendClient {
+const commands = {
+  BatchDetectDominantLanguageCommand,
+  BatchDetectEntitiesCommand,
+  BatchDetectKeyPhrasesCommand,
+  BatchDetectSentimentCommand,
+  BatchDetectSyntaxCommand,
+  BatchDetectTargetedSentimentCommand,
+  ClassifyDocumentCommand,
+  ContainsPiiEntitiesCommand,
+  CreateDatasetCommand,
+  CreateDocumentClassifierCommand,
+  CreateEndpointCommand,
+  CreateEntityRecognizerCommand,
+  CreateFlywheelCommand,
+  DeleteDocumentClassifierCommand,
+  DeleteEndpointCommand,
+  DeleteEntityRecognizerCommand,
+  DeleteFlywheelCommand,
+  DeleteResourcePolicyCommand,
+  DescribeDatasetCommand,
+  DescribeDocumentClassificationJobCommand,
+  DescribeDocumentClassifierCommand,
+  DescribeDominantLanguageDetectionJobCommand,
+  DescribeEndpointCommand,
+  DescribeEntitiesDetectionJobCommand,
+  DescribeEntityRecognizerCommand,
+  DescribeEventsDetectionJobCommand,
+  DescribeFlywheelCommand,
+  DescribeFlywheelIterationCommand,
+  DescribeKeyPhrasesDetectionJobCommand,
+  DescribePiiEntitiesDetectionJobCommand,
+  DescribeResourcePolicyCommand,
+  DescribeSentimentDetectionJobCommand,
+  DescribeTargetedSentimentDetectionJobCommand,
+  DescribeTopicsDetectionJobCommand,
+  DetectDominantLanguageCommand,
+  DetectEntitiesCommand,
+  DetectKeyPhrasesCommand,
+  DetectPiiEntitiesCommand,
+  DetectSentimentCommand,
+  DetectSyntaxCommand,
+  DetectTargetedSentimentCommand,
+  ImportModelCommand,
+  ListDatasetsCommand,
+  ListDocumentClassificationJobsCommand,
+  ListDocumentClassifiersCommand,
+  ListDocumentClassifierSummariesCommand,
+  ListDominantLanguageDetectionJobsCommand,
+  ListEndpointsCommand,
+  ListEntitiesDetectionJobsCommand,
+  ListEntityRecognizersCommand,
+  ListEntityRecognizerSummariesCommand,
+  ListEventsDetectionJobsCommand,
+  ListFlywheelIterationHistoryCommand,
+  ListFlywheelsCommand,
+  ListKeyPhrasesDetectionJobsCommand,
+  ListPiiEntitiesDetectionJobsCommand,
+  ListSentimentDetectionJobsCommand,
+  ListTagsForResourceCommand,
+  ListTargetedSentimentDetectionJobsCommand,
+  ListTopicsDetectionJobsCommand,
+  PutResourcePolicyCommand,
+  StartDocumentClassificationJobCommand,
+  StartDominantLanguageDetectionJobCommand,
+  StartEntitiesDetectionJobCommand,
+  StartEventsDetectionJobCommand,
+  StartFlywheelIterationCommand,
+  StartKeyPhrasesDetectionJobCommand,
+  StartPiiEntitiesDetectionJobCommand,
+  StartSentimentDetectionJobCommand,
+  StartTargetedSentimentDetectionJobCommand,
+  StartTopicsDetectionJobCommand,
+  StopDominantLanguageDetectionJobCommand,
+  StopEntitiesDetectionJobCommand,
+  StopEventsDetectionJobCommand,
+  StopKeyPhrasesDetectionJobCommand,
+  StopPiiEntitiesDetectionJobCommand,
+  StopSentimentDetectionJobCommand,
+  StopTargetedSentimentDetectionJobCommand,
+  StopTrainingDocumentClassifierCommand,
+  StopTrainingEntityRecognizerCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateEndpointCommand,
+  UpdateFlywheelCommand,
+};
+
+export interface Comprehend {
   /**
-   * <p>Determines the dominant language of the input text for a batch of documents. For a list
-   *       of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>.
-   *     </p>
+   * @see {@link BatchDetectDominantLanguageCommand}
    */
-  public batchDetectDominantLanguage(
+  batchDetectDominantLanguage(
     args: BatchDetectDominantLanguageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchDetectDominantLanguageCommandOutput>;
-  public batchDetectDominantLanguage(
+  batchDetectDominantLanguage(
     args: BatchDetectDominantLanguageCommandInput,
     cb: (err: any, data?: BatchDetectDominantLanguageCommandOutput) => void
   ): void;
-  public batchDetectDominantLanguage(
+  batchDetectDominantLanguage(
     args: BatchDetectDominantLanguageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDetectDominantLanguageCommandOutput) => void
   ): void;
-  public batchDetectDominantLanguage(
-    args: BatchDetectDominantLanguageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectDominantLanguageCommandOutput) => void),
-    cb?: (err: any, data?: BatchDetectDominantLanguageCommandOutput) => void
-  ): Promise<BatchDetectDominantLanguageCommandOutput> | void {
-    const command = new BatchDetectDominantLanguageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Inspects the text of a batch of documents for named entities and returns information
-   *       about them. For more information about named entities, see
-   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.
-   *     </p>
+   * @see {@link BatchDetectEntitiesCommand}
    */
-  public batchDetectEntities(
+  batchDetectEntities(
     args: BatchDetectEntitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchDetectEntitiesCommandOutput>;
-  public batchDetectEntities(
+  batchDetectEntities(
     args: BatchDetectEntitiesCommandInput,
     cb: (err: any, data?: BatchDetectEntitiesCommandOutput) => void
   ): void;
-  public batchDetectEntities(
+  batchDetectEntities(
     args: BatchDetectEntitiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDetectEntitiesCommandOutput) => void
   ): void;
-  public batchDetectEntities(
-    args: BatchDetectEntitiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectEntitiesCommandOutput) => void),
-    cb?: (err: any, data?: BatchDetectEntitiesCommandOutput) => void
-  ): Promise<BatchDetectEntitiesCommandOutput> | void {
-    const command = new BatchDetectEntitiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Detects the key noun phrases found in a batch of documents.</p>
+   * @see {@link BatchDetectKeyPhrasesCommand}
    */
-  public batchDetectKeyPhrases(
+  batchDetectKeyPhrases(
     args: BatchDetectKeyPhrasesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchDetectKeyPhrasesCommandOutput>;
-  public batchDetectKeyPhrases(
+  batchDetectKeyPhrases(
     args: BatchDetectKeyPhrasesCommandInput,
     cb: (err: any, data?: BatchDetectKeyPhrasesCommandOutput) => void
   ): void;
-  public batchDetectKeyPhrases(
+  batchDetectKeyPhrases(
     args: BatchDetectKeyPhrasesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDetectKeyPhrasesCommandOutput) => void
   ): void;
-  public batchDetectKeyPhrases(
-    args: BatchDetectKeyPhrasesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectKeyPhrasesCommandOutput) => void),
-    cb?: (err: any, data?: BatchDetectKeyPhrasesCommandOutput) => void
-  ): Promise<BatchDetectKeyPhrasesCommandOutput> | void {
-    const command = new BatchDetectKeyPhrasesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Inspects a batch of documents and returns an inference of the prevailing sentiment,
-   *         <code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>,
-   *       in each one.</p>
+   * @see {@link BatchDetectSentimentCommand}
    */
-  public batchDetectSentiment(
+  batchDetectSentiment(
     args: BatchDetectSentimentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchDetectSentimentCommandOutput>;
-  public batchDetectSentiment(
+  batchDetectSentiment(
     args: BatchDetectSentimentCommandInput,
     cb: (err: any, data?: BatchDetectSentimentCommandOutput) => void
   ): void;
-  public batchDetectSentiment(
+  batchDetectSentiment(
     args: BatchDetectSentimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDetectSentimentCommandOutput) => void
   ): void;
-  public batchDetectSentiment(
-    args: BatchDetectSentimentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectSentimentCommandOutput) => void),
-    cb?: (err: any, data?: BatchDetectSentimentCommandOutput) => void
-  ): Promise<BatchDetectSentimentCommandOutput> | void {
-    const command = new BatchDetectSentimentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Inspects the text of a batch of documents for the syntax and part of speech of the words
-   *       in the document and returns information about them. For more information, see
-   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
-   *     </p>
+   * @see {@link BatchDetectSyntaxCommand}
    */
-  public batchDetectSyntax(
+  batchDetectSyntax(
     args: BatchDetectSyntaxCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchDetectSyntaxCommandOutput>;
-  public batchDetectSyntax(
+  batchDetectSyntax(
     args: BatchDetectSyntaxCommandInput,
     cb: (err: any, data?: BatchDetectSyntaxCommandOutput) => void
   ): void;
-  public batchDetectSyntax(
+  batchDetectSyntax(
     args: BatchDetectSyntaxCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDetectSyntaxCommandOutput) => void
   ): void;
-  public batchDetectSyntax(
-    args: BatchDetectSyntaxCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectSyntaxCommandOutput) => void),
-    cb?: (err: any, data?: BatchDetectSyntaxCommandOutput) => void
-  ): Promise<BatchDetectSyntaxCommandOutput> | void {
-    const command = new BatchDetectSyntaxCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Inspects a batch of documents and returns a sentiment analysis
-   *       for each entity identified in the documents.</p>
-   *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+   * @see {@link BatchDetectTargetedSentimentCommand}
    */
-  public batchDetectTargetedSentiment(
+  batchDetectTargetedSentiment(
     args: BatchDetectTargetedSentimentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchDetectTargetedSentimentCommandOutput>;
-  public batchDetectTargetedSentiment(
+  batchDetectTargetedSentiment(
     args: BatchDetectTargetedSentimentCommandInput,
     cb: (err: any, data?: BatchDetectTargetedSentimentCommandOutput) => void
   ): void;
-  public batchDetectTargetedSentiment(
+  batchDetectTargetedSentiment(
     args: BatchDetectTargetedSentimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDetectTargetedSentimentCommandOutput) => void
   ): void;
-  public batchDetectTargetedSentiment(
-    args: BatchDetectTargetedSentimentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDetectTargetedSentimentCommandOutput) => void),
-    cb?: (err: any, data?: BatchDetectTargetedSentimentCommandOutput) => void
-  ): Promise<BatchDetectTargetedSentimentCommandOutput> | void {
-    const command = new BatchDetectTargetedSentimentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new document classification request to analyze a single document in real-time,
-   *       using a previously created and trained custom model and an endpoint.</p>
-   *          <p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p>
-   *          <p>If the system detects errors while processing a page in the input document,
-   *       the API response includes an entry in <code>Errors</code> that describes the errors.</p>
-   *          <p>If the system detects a document-level error in your input document, the API returns an
-   *       <code>InvalidRequestException</code> error response.
-   *       For details about this exception, see
-   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html">
-   *         Errors in semi-structured documents</a> in the Comprehend Developer Guide.
-   *     </p>
+   * @see {@link ClassifyDocumentCommand}
    */
-  public classifyDocument(
+  classifyDocument(
     args: ClassifyDocumentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ClassifyDocumentCommandOutput>;
-  public classifyDocument(
+  classifyDocument(
     args: ClassifyDocumentCommandInput,
     cb: (err: any, data?: ClassifyDocumentCommandOutput) => void
   ): void;
-  public classifyDocument(
+  classifyDocument(
     args: ClassifyDocumentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ClassifyDocumentCommandOutput) => void
   ): void;
-  public classifyDocument(
-    args: ClassifyDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ClassifyDocumentCommandOutput) => void),
-    cb?: (err: any, data?: ClassifyDocumentCommandOutput) => void
-  ): Promise<ClassifyDocumentCommandOutput> | void {
-    const command = new ClassifyDocumentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Analyzes input text for the presence of personally identifiable information (PII) and
-   *       returns the labels of identified PII entity types such as name, address, bank account number,
-   *       or phone number.</p>
+   * @see {@link ContainsPiiEntitiesCommand}
    */
-  public containsPiiEntities(
+  containsPiiEntities(
     args: ContainsPiiEntitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ContainsPiiEntitiesCommandOutput>;
-  public containsPiiEntities(
+  containsPiiEntities(
     args: ContainsPiiEntitiesCommandInput,
     cb: (err: any, data?: ContainsPiiEntitiesCommandOutput) => void
   ): void;
-  public containsPiiEntities(
+  containsPiiEntities(
     args: ContainsPiiEntitiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ContainsPiiEntitiesCommandOutput) => void
   ): void;
-  public containsPiiEntities(
-    args: ContainsPiiEntitiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ContainsPiiEntitiesCommandOutput) => void),
-    cb?: (err: any, data?: ContainsPiiEntitiesCommandOutput) => void
-  ): Promise<ContainsPiiEntitiesCommandOutput> | void {
-    const command = new ContainsPiiEntitiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a dataset to upload training or test data for a model associated with a flywheel.
-   *       For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
-   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   * @see {@link CreateDatasetCommand}
    */
-  public createDataset(
-    args: CreateDatasetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDatasetCommandOutput>;
-  public createDataset(
-    args: CreateDatasetCommandInput,
-    cb: (err: any, data?: CreateDatasetCommandOutput) => void
-  ): void;
-  public createDataset(
+  createDataset(args: CreateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<CreateDatasetCommandOutput>;
+  createDataset(args: CreateDatasetCommandInput, cb: (err: any, data?: CreateDatasetCommandOutput) => void): void;
+  createDataset(
     args: CreateDatasetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDatasetCommandOutput) => void
   ): void;
-  public createDataset(
-    args: CreateDatasetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetCommandOutput) => void),
-    cb?: (err: any, data?: CreateDatasetCommandOutput) => void
-  ): Promise<CreateDatasetCommandOutput> | void {
-    const command = new CreateDatasetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new document classifier that you can use to categorize documents. To create a
-   *       classifier, you provide a set of training documents that labeled with the categories that you
-   *       want to use. After the classifier is trained you can use it to categorize a set of labeled
-   *       documents into the categories. For more information, see
-   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Document Classification</a> in the Comprehend Developer Guide.
-   *     </p>
+   * @see {@link CreateDocumentClassifierCommand}
    */
-  public createDocumentClassifier(
+  createDocumentClassifier(
     args: CreateDocumentClassifierCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDocumentClassifierCommandOutput>;
-  public createDocumentClassifier(
+  createDocumentClassifier(
     args: CreateDocumentClassifierCommandInput,
     cb: (err: any, data?: CreateDocumentClassifierCommandOutput) => void
   ): void;
-  public createDocumentClassifier(
+  createDocumentClassifier(
     args: CreateDocumentClassifierCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDocumentClassifierCommandOutput) => void
   ): void;
-  public createDocumentClassifier(
-    args: CreateDocumentClassifierCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDocumentClassifierCommandOutput) => void),
-    cb?: (err: any, data?: CreateDocumentClassifierCommandOutput) => void
-  ): Promise<CreateDocumentClassifierCommandOutput> | void {
-    const command = new CreateDocumentClassifierCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a model-specific endpoint for synchronous inference for a previously trained
-   *       custom model
-   *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
+   * @see {@link CreateEndpointCommand}
    */
-  public createEndpoint(
+  createEndpoint(
     args: CreateEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEndpointCommandOutput>;
-  public createEndpoint(
-    args: CreateEndpointCommandInput,
-    cb: (err: any, data?: CreateEndpointCommandOutput) => void
-  ): void;
-  public createEndpoint(
+  createEndpoint(args: CreateEndpointCommandInput, cb: (err: any, data?: CreateEndpointCommandOutput) => void): void;
+  createEndpoint(
     args: CreateEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEndpointCommandOutput) => void
   ): void;
-  public createEndpoint(
-    args: CreateEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointCommandOutput) => void),
-    cb?: (err: any, data?: CreateEndpointCommandOutput) => void
-  ): Promise<CreateEndpointCommandOutput> | void {
-    const command = new CreateEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates an entity recognizer using submitted files. After your
-   *         <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the
-   *         <code>DescribeEntityRecognizer</code> API. </p>
+   * @see {@link CreateEntityRecognizerCommand}
    */
-  public createEntityRecognizer(
+  createEntityRecognizer(
     args: CreateEntityRecognizerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEntityRecognizerCommandOutput>;
-  public createEntityRecognizer(
+  createEntityRecognizer(
     args: CreateEntityRecognizerCommandInput,
     cb: (err: any, data?: CreateEntityRecognizerCommandOutput) => void
   ): void;
-  public createEntityRecognizer(
+  createEntityRecognizer(
     args: CreateEntityRecognizerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEntityRecognizerCommandOutput) => void
   ): void;
-  public createEntityRecognizer(
-    args: CreateEntityRecognizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEntityRecognizerCommandOutput) => void),
-    cb?: (err: any, data?: CreateEntityRecognizerCommandOutput) => void
-  ): Promise<CreateEntityRecognizerCommandOutput> | void {
-    const command = new CreateEntityRecognizerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>A flywheel is an AWS resource that orchestrates the ongoing training of a model for custom classification
-   *       or custom entity recognition. You can create a flywheel to start with an existing trained model, or
-   *       Comprehend can create and train a new model.</p>
-   *          <p>When you create the flywheel, Comprehend creates a data lake in your account. The data lake holds the training
-   *       data and test data for all versions of the model.</p>
-   *          <p>To use a flywheel with an existing trained model, you specify the active model version. Comprehend copies the model's
-   *       training data and test data into the flywheel's data lake.</p>
-   *          <p>To use the flywheel with a new model, you need to provide a dataset for training data (and optional test data)
-   *       when you create the flywheel.</p>
-   *          <p>For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
-   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   * @see {@link CreateFlywheelCommand}
    */
-  public createFlywheel(
+  createFlywheel(
     args: CreateFlywheelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateFlywheelCommandOutput>;
-  public createFlywheel(
-    args: CreateFlywheelCommandInput,
-    cb: (err: any, data?: CreateFlywheelCommandOutput) => void
-  ): void;
-  public createFlywheel(
+  createFlywheel(args: CreateFlywheelCommandInput, cb: (err: any, data?: CreateFlywheelCommandOutput) => void): void;
+  createFlywheel(
     args: CreateFlywheelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateFlywheelCommandOutput) => void
   ): void;
-  public createFlywheel(
-    args: CreateFlywheelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFlywheelCommandOutput) => void),
-    cb?: (err: any, data?: CreateFlywheelCommandOutput) => void
-  ): Promise<CreateFlywheelCommandOutput> | void {
-    const command = new CreateFlywheelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a previously created document classifier</p>
-   *          <p>Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
-   *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
-   *       returned.</p>
-   *          <p>This is an asynchronous action that puts the classifier into a DELETING state, and it is
-   *       then removed by a background job. Once removed, the classifier disappears from your account
-   *       and is no longer available for use. </p>
+   * @see {@link DeleteDocumentClassifierCommand}
    */
-  public deleteDocumentClassifier(
+  deleteDocumentClassifier(
     args: DeleteDocumentClassifierCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDocumentClassifierCommandOutput>;
-  public deleteDocumentClassifier(
+  deleteDocumentClassifier(
     args: DeleteDocumentClassifierCommandInput,
     cb: (err: any, data?: DeleteDocumentClassifierCommandOutput) => void
   ): void;
-  public deleteDocumentClassifier(
+  deleteDocumentClassifier(
     args: DeleteDocumentClassifierCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDocumentClassifierCommandOutput) => void
   ): void;
-  public deleteDocumentClassifier(
-    args: DeleteDocumentClassifierCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDocumentClassifierCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDocumentClassifierCommandOutput) => void
-  ): Promise<DeleteDocumentClassifierCommandOutput> | void {
-    const command = new DeleteDocumentClassifierCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints
-   *       must be deleted in order for the model to be deleted.
-   *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
+   * @see {@link DeleteEndpointCommand}
    */
-  public deleteEndpoint(
+  deleteEndpoint(
     args: DeleteEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEndpointCommandOutput>;
-  public deleteEndpoint(
-    args: DeleteEndpointCommandInput,
-    cb: (err: any, data?: DeleteEndpointCommandOutput) => void
-  ): void;
-  public deleteEndpoint(
+  deleteEndpoint(args: DeleteEndpointCommandInput, cb: (err: any, data?: DeleteEndpointCommandOutput) => void): void;
+  deleteEndpoint(
     args: DeleteEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): void;
-  public deleteEndpoint(
-    args: DeleteEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
-  ): Promise<DeleteEndpointCommandOutput> | void {
-    const command = new DeleteEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes an entity recognizer.</p>
-   *          <p>Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
-   *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
-   *       returned.</p>
-   *          <p>This is an asynchronous action that puts the recognizer into a DELETING state, and it is
-   *       then removed by a background job. Once removed, the recognizer disappears from your account
-   *       and is no longer available for use. </p>
+   * @see {@link DeleteEntityRecognizerCommand}
    */
-  public deleteEntityRecognizer(
+  deleteEntityRecognizer(
     args: DeleteEntityRecognizerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEntityRecognizerCommandOutput>;
-  public deleteEntityRecognizer(
+  deleteEntityRecognizer(
     args: DeleteEntityRecognizerCommandInput,
     cb: (err: any, data?: DeleteEntityRecognizerCommandOutput) => void
   ): void;
-  public deleteEntityRecognizer(
+  deleteEntityRecognizer(
     args: DeleteEntityRecognizerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEntityRecognizerCommandOutput) => void
   ): void;
-  public deleteEntityRecognizer(
-    args: DeleteEntityRecognizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEntityRecognizerCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEntityRecognizerCommandOutput) => void
-  ): Promise<DeleteEntityRecognizerCommandOutput> | void {
-    const command = new DeleteEntityRecognizerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a flywheel. When you delete the flywheel, Amazon Comprehend
-   *       does not delete the data lake or the model associated with the flywheel.</p>
-   *          <p>For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
-   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   * @see {@link DeleteFlywheelCommand}
    */
-  public deleteFlywheel(
+  deleteFlywheel(
     args: DeleteFlywheelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFlywheelCommandOutput>;
-  public deleteFlywheel(
-    args: DeleteFlywheelCommandInput,
-    cb: (err: any, data?: DeleteFlywheelCommandOutput) => void
-  ): void;
-  public deleteFlywheel(
+  deleteFlywheel(args: DeleteFlywheelCommandInput, cb: (err: any, data?: DeleteFlywheelCommandOutput) => void): void;
+  deleteFlywheel(
     args: DeleteFlywheelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteFlywheelCommandOutput) => void
   ): void;
-  public deleteFlywheel(
-    args: DeleteFlywheelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFlywheelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteFlywheelCommandOutput) => void
-  ): Promise<DeleteFlywheelCommandOutput> | void {
-    const command = new DeleteFlywheelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a resource-based policy that is attached to a custom model.</p>
+   * @see {@link DeleteResourcePolicyCommand}
    */
-  public deleteResourcePolicy(
+  deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
-  public deleteResourcePolicy(
+  deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
-  public deleteResourcePolicy(
+  deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
-  public deleteResourcePolicy(
-    args: DeleteResourcePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
-  ): Promise<DeleteResourcePolicyCommandOutput> | void {
-    const command = new DeleteResourcePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about the dataset that you specify.
-   *       For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
-   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   * @see {@link DescribeDatasetCommand}
    */
-  public describeDataset(
+  describeDataset(
     args: DescribeDatasetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDatasetCommandOutput>;
-  public describeDataset(
-    args: DescribeDatasetCommandInput,
-    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
-  ): void;
-  public describeDataset(
+  describeDataset(args: DescribeDatasetCommandInput, cb: (err: any, data?: DescribeDatasetCommandOutput) => void): void;
+  describeDataset(
     args: DescribeDatasetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): void;
-  public describeDataset(
-    args: DescribeDatasetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
-  ): Promise<DescribeDatasetCommandOutput> | void {
-    const command = new DescribeDatasetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the properties associated with a document classification job. Use this operation to
-   *       get the status of a classification job.</p>
+   * @see {@link DescribeDocumentClassificationJobCommand}
    */
-  public describeDocumentClassificationJob(
+  describeDocumentClassificationJob(
     args: DescribeDocumentClassificationJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDocumentClassificationJobCommandOutput>;
-  public describeDocumentClassificationJob(
+  describeDocumentClassificationJob(
     args: DescribeDocumentClassificationJobCommandInput,
     cb: (err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void
   ): void;
-  public describeDocumentClassificationJob(
+  describeDocumentClassificationJob(
     args: DescribeDocumentClassificationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void
   ): void;
-  public describeDocumentClassificationJob(
-    args: DescribeDocumentClassificationJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void
-  ): Promise<DescribeDocumentClassificationJobCommandOutput> | void {
-    const command = new DescribeDocumentClassificationJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the properties associated with a document classifier.</p>
+   * @see {@link DescribeDocumentClassifierCommand}
    */
-  public describeDocumentClassifier(
+  describeDocumentClassifier(
     args: DescribeDocumentClassifierCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDocumentClassifierCommandOutput>;
-  public describeDocumentClassifier(
+  describeDocumentClassifier(
     args: DescribeDocumentClassifierCommandInput,
     cb: (err: any, data?: DescribeDocumentClassifierCommandOutput) => void
   ): void;
-  public describeDocumentClassifier(
+  describeDocumentClassifier(
     args: DescribeDocumentClassifierCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDocumentClassifierCommandOutput) => void
   ): void;
-  public describeDocumentClassifier(
-    args: DescribeDocumentClassifierCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDocumentClassifierCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDocumentClassifierCommandOutput) => void
-  ): Promise<DescribeDocumentClassifierCommandOutput> | void {
-    const command = new DescribeDocumentClassifierCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the properties associated with a dominant language detection job. Use this operation
-   *       to get the status of a detection job.</p>
+   * @see {@link DescribeDominantLanguageDetectionJobCommand}
    */
-  public describeDominantLanguageDetectionJob(
+  describeDominantLanguageDetectionJob(
     args: DescribeDominantLanguageDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDominantLanguageDetectionJobCommandOutput>;
-  public describeDominantLanguageDetectionJob(
+  describeDominantLanguageDetectionJob(
     args: DescribeDominantLanguageDetectionJobCommandInput,
     cb: (err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void
   ): void;
-  public describeDominantLanguageDetectionJob(
+  describeDominantLanguageDetectionJob(
     args: DescribeDominantLanguageDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void
   ): void;
-  public describeDominantLanguageDetectionJob(
-    args: DescribeDominantLanguageDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void
-  ): Promise<DescribeDominantLanguageDetectionJobCommandOutput> | void {
-    const command = new DescribeDominantLanguageDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the properties associated with a specific endpoint. Use this operation to get the
-   *       status of an endpoint.
-   *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
+   * @see {@link DescribeEndpointCommand}
    */
-  public describeEndpoint(
+  describeEndpoint(
     args: DescribeEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEndpointCommandOutput>;
-  public describeEndpoint(
+  describeEndpoint(
     args: DescribeEndpointCommandInput,
     cb: (err: any, data?: DescribeEndpointCommandOutput) => void
   ): void;
-  public describeEndpoint(
+  describeEndpoint(
     args: DescribeEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeEndpointCommandOutput) => void
   ): void;
-  public describeEndpoint(
-    args: DescribeEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEndpointCommandOutput) => void
-  ): Promise<DescribeEndpointCommandOutput> | void {
-    const command = new DescribeEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the properties associated with an entities detection job. Use this operation to get
-   *       the status of a detection job.</p>
+   * @see {@link DescribeEntitiesDetectionJobCommand}
    */
-  public describeEntitiesDetectionJob(
+  describeEntitiesDetectionJob(
     args: DescribeEntitiesDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEntitiesDetectionJobCommandOutput>;
-  public describeEntitiesDetectionJob(
+  describeEntitiesDetectionJob(
     args: DescribeEntitiesDetectionJobCommandInput,
     cb: (err: any, data?: DescribeEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public describeEntitiesDetectionJob(
+  describeEntitiesDetectionJob(
     args: DescribeEntitiesDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public describeEntitiesDetectionJob(
-    args: DescribeEntitiesDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEntitiesDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEntitiesDetectionJobCommandOutput) => void
-  ): Promise<DescribeEntitiesDetectionJobCommandOutput> | void {
-    const command = new DescribeEntitiesDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Provides details about an entity recognizer including status, S3 buckets containing
-   *       training data, recognizer metadata, metrics, and so on.</p>
+   * @see {@link DescribeEntityRecognizerCommand}
    */
-  public describeEntityRecognizer(
+  describeEntityRecognizer(
     args: DescribeEntityRecognizerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEntityRecognizerCommandOutput>;
-  public describeEntityRecognizer(
+  describeEntityRecognizer(
     args: DescribeEntityRecognizerCommandInput,
     cb: (err: any, data?: DescribeEntityRecognizerCommandOutput) => void
   ): void;
-  public describeEntityRecognizer(
+  describeEntityRecognizer(
     args: DescribeEntityRecognizerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeEntityRecognizerCommandOutput) => void
   ): void;
-  public describeEntityRecognizer(
-    args: DescribeEntityRecognizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEntityRecognizerCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEntityRecognizerCommandOutput) => void
-  ): Promise<DescribeEntityRecognizerCommandOutput> | void {
-    const command = new DescribeEntityRecognizerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the status and details of an events detection job.</p>
+   * @see {@link DescribeEventsDetectionJobCommand}
    */
-  public describeEventsDetectionJob(
+  describeEventsDetectionJob(
     args: DescribeEventsDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEventsDetectionJobCommandOutput>;
-  public describeEventsDetectionJob(
+  describeEventsDetectionJob(
     args: DescribeEventsDetectionJobCommandInput,
     cb: (err: any, data?: DescribeEventsDetectionJobCommandOutput) => void
   ): void;
-  public describeEventsDetectionJob(
+  describeEventsDetectionJob(
     args: DescribeEventsDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeEventsDetectionJobCommandOutput) => void
   ): void;
-  public describeEventsDetectionJob(
-    args: DescribeEventsDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEventsDetectionJobCommandOutput) => void
-  ): Promise<DescribeEventsDetectionJobCommandOutput> | void {
-    const command = new DescribeEventsDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Provides configuration information about the flywheel. For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
-   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   * @see {@link DescribeFlywheelCommand}
    */
-  public describeFlywheel(
+  describeFlywheel(
     args: DescribeFlywheelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeFlywheelCommandOutput>;
-  public describeFlywheel(
+  describeFlywheel(
     args: DescribeFlywheelCommandInput,
     cb: (err: any, data?: DescribeFlywheelCommandOutput) => void
   ): void;
-  public describeFlywheel(
+  describeFlywheel(
     args: DescribeFlywheelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeFlywheelCommandOutput) => void
   ): void;
-  public describeFlywheel(
-    args: DescribeFlywheelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFlywheelCommandOutput) => void),
-    cb?: (err: any, data?: DescribeFlywheelCommandOutput) => void
-  ): Promise<DescribeFlywheelCommandOutput> | void {
-    const command = new DescribeFlywheelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieve the configuration properties of a flywheel iteration.
-   *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
-   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   * @see {@link DescribeFlywheelIterationCommand}
    */
-  public describeFlywheelIteration(
+  describeFlywheelIteration(
     args: DescribeFlywheelIterationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeFlywheelIterationCommandOutput>;
-  public describeFlywheelIteration(
+  describeFlywheelIteration(
     args: DescribeFlywheelIterationCommandInput,
     cb: (err: any, data?: DescribeFlywheelIterationCommandOutput) => void
   ): void;
-  public describeFlywheelIteration(
+  describeFlywheelIteration(
     args: DescribeFlywheelIterationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeFlywheelIterationCommandOutput) => void
   ): void;
-  public describeFlywheelIteration(
-    args: DescribeFlywheelIterationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFlywheelIterationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeFlywheelIterationCommandOutput) => void
-  ): Promise<DescribeFlywheelIterationCommandOutput> | void {
-    const command = new DescribeFlywheelIterationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the properties associated with a key phrases detection job. Use this operation to get
-   *       the status of a detection job.</p>
+   * @see {@link DescribeKeyPhrasesDetectionJobCommand}
    */
-  public describeKeyPhrasesDetectionJob(
+  describeKeyPhrasesDetectionJob(
     args: DescribeKeyPhrasesDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeKeyPhrasesDetectionJobCommandOutput>;
-  public describeKeyPhrasesDetectionJob(
+  describeKeyPhrasesDetectionJob(
     args: DescribeKeyPhrasesDetectionJobCommandInput,
     cb: (err: any, data?: DescribeKeyPhrasesDetectionJobCommandOutput) => void
   ): void;
-  public describeKeyPhrasesDetectionJob(
+  describeKeyPhrasesDetectionJob(
     args: DescribeKeyPhrasesDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeKeyPhrasesDetectionJobCommandOutput) => void
   ): void;
-  public describeKeyPhrasesDetectionJob(
-    args: DescribeKeyPhrasesDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeKeyPhrasesDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeKeyPhrasesDetectionJobCommandOutput) => void
-  ): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> | void {
-    const command = new DescribeKeyPhrasesDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the properties associated with a PII entities detection job. For example, you can use
-   *       this operation to get the job status.</p>
+   * @see {@link DescribePiiEntitiesDetectionJobCommand}
    */
-  public describePiiEntitiesDetectionJob(
+  describePiiEntitiesDetectionJob(
     args: DescribePiiEntitiesDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribePiiEntitiesDetectionJobCommandOutput>;
-  public describePiiEntitiesDetectionJob(
+  describePiiEntitiesDetectionJob(
     args: DescribePiiEntitiesDetectionJobCommandInput,
     cb: (err: any, data?: DescribePiiEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public describePiiEntitiesDetectionJob(
+  describePiiEntitiesDetectionJob(
     args: DescribePiiEntitiesDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribePiiEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public describePiiEntitiesDetectionJob(
-    args: DescribePiiEntitiesDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePiiEntitiesDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribePiiEntitiesDetectionJobCommandOutput) => void
-  ): Promise<DescribePiiEntitiesDetectionJobCommandOutput> | void {
-    const command = new DescribePiiEntitiesDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the details of a resource-based policy that is attached to a custom model, including
-   *       the JSON body of the policy.</p>
+   * @see {@link DescribeResourcePolicyCommand}
    */
-  public describeResourcePolicy(
+  describeResourcePolicy(
     args: DescribeResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeResourcePolicyCommandOutput>;
-  public describeResourcePolicy(
+  describeResourcePolicy(
     args: DescribeResourcePolicyCommandInput,
     cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
   ): void;
-  public describeResourcePolicy(
+  describeResourcePolicy(
     args: DescribeResourcePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
   ): void;
-  public describeResourcePolicy(
-    args: DescribeResourcePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourcePolicyCommandOutput) => void),
-    cb?: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
-  ): Promise<DescribeResourcePolicyCommandOutput> | void {
-    const command = new DescribeResourcePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the properties associated with a sentiment detection job. Use this operation to get
-   *       the status of a detection job.</p>
+   * @see {@link DescribeSentimentDetectionJobCommand}
    */
-  public describeSentimentDetectionJob(
+  describeSentimentDetectionJob(
     args: DescribeSentimentDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeSentimentDetectionJobCommandOutput>;
-  public describeSentimentDetectionJob(
+  describeSentimentDetectionJob(
     args: DescribeSentimentDetectionJobCommandInput,
     cb: (err: any, data?: DescribeSentimentDetectionJobCommandOutput) => void
   ): void;
-  public describeSentimentDetectionJob(
+  describeSentimentDetectionJob(
     args: DescribeSentimentDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSentimentDetectionJobCommandOutput) => void
   ): void;
-  public describeSentimentDetectionJob(
-    args: DescribeSentimentDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSentimentDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeSentimentDetectionJobCommandOutput) => void
-  ): Promise<DescribeSentimentDetectionJobCommandOutput> | void {
-    const command = new DescribeSentimentDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the properties associated with a targeted sentiment detection job. Use this operation
-   *       to get the status of the job.</p>
+   * @see {@link DescribeTargetedSentimentDetectionJobCommand}
    */
-  public describeTargetedSentimentDetectionJob(
+  describeTargetedSentimentDetectionJob(
     args: DescribeTargetedSentimentDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTargetedSentimentDetectionJobCommandOutput>;
-  public describeTargetedSentimentDetectionJob(
+  describeTargetedSentimentDetectionJob(
     args: DescribeTargetedSentimentDetectionJobCommandInput,
     cb: (err: any, data?: DescribeTargetedSentimentDetectionJobCommandOutput) => void
   ): void;
-  public describeTargetedSentimentDetectionJob(
+  describeTargetedSentimentDetectionJob(
     args: DescribeTargetedSentimentDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeTargetedSentimentDetectionJobCommandOutput) => void
   ): void;
-  public describeTargetedSentimentDetectionJob(
-    args: DescribeTargetedSentimentDetectionJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTargetedSentimentDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTargetedSentimentDetectionJobCommandOutput) => void
-  ): Promise<DescribeTargetedSentimentDetectionJobCommandOutput> | void {
-    const command = new DescribeTargetedSentimentDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the properties associated with a topic detection job. Use this operation to get
-   *       the status of a detection job.</p>
+   * @see {@link DescribeTopicsDetectionJobCommand}
    */
-  public describeTopicsDetectionJob(
+  describeTopicsDetectionJob(
     args: DescribeTopicsDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTopicsDetectionJobCommandOutput>;
-  public describeTopicsDetectionJob(
+  describeTopicsDetectionJob(
     args: DescribeTopicsDetectionJobCommandInput,
     cb: (err: any, data?: DescribeTopicsDetectionJobCommandOutput) => void
   ): void;
-  public describeTopicsDetectionJob(
+  describeTopicsDetectionJob(
     args: DescribeTopicsDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeTopicsDetectionJobCommandOutput) => void
   ): void;
-  public describeTopicsDetectionJob(
-    args: DescribeTopicsDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTopicsDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTopicsDetectionJobCommandOutput) => void
-  ): Promise<DescribeTopicsDetectionJobCommandOutput> | void {
-    const command = new DescribeTopicsDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Determines the dominant language of the input text. For a list of languages that Amazon
-   *       Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
+   * @see {@link DetectDominantLanguageCommand}
    */
-  public detectDominantLanguage(
+  detectDominantLanguage(
     args: DetectDominantLanguageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetectDominantLanguageCommandOutput>;
-  public detectDominantLanguage(
+  detectDominantLanguage(
     args: DetectDominantLanguageCommandInput,
     cb: (err: any, data?: DetectDominantLanguageCommandOutput) => void
   ): void;
-  public detectDominantLanguage(
+  detectDominantLanguage(
     args: DetectDominantLanguageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetectDominantLanguageCommandOutput) => void
   ): void;
-  public detectDominantLanguage(
-    args: DetectDominantLanguageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectDominantLanguageCommandOutput) => void),
-    cb?: (err: any, data?: DetectDominantLanguageCommandOutput) => void
-  ): Promise<DetectDominantLanguageCommandOutput> | void {
-    const command = new DetectDominantLanguageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Detects named entities in input text when you use the pre-trained model.
-   *       Detects custom entities if you have a custom entity recognition model. </p>
-   *          <p>
-   *       When detecting named entities using the pre-trained model, use plain text as the input.
-   *       For more information about named entities, see
-   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.</p>
-   *          <p>When you use a custom entity recognition model,
-   *       you can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p>
-   *          <p>If the system detects errors while processing a page in the input document, the API response
-   *        includes an entry in <code>Errors</code> for each error. </p>
-   *          <p>If the system detects a document-level error in your input document, the API returns an
-   *        <code>InvalidRequestException</code> error response.
-   *       For details about this exception, see
-   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html">
-   *         Errors in semi-structured documents</a> in the Comprehend Developer Guide.
-   *     </p>
+   * @see {@link DetectEntitiesCommand}
    */
-  public detectEntities(
+  detectEntities(
     args: DetectEntitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetectEntitiesCommandOutput>;
-  public detectEntities(
-    args: DetectEntitiesCommandInput,
-    cb: (err: any, data?: DetectEntitiesCommandOutput) => void
-  ): void;
-  public detectEntities(
+  detectEntities(args: DetectEntitiesCommandInput, cb: (err: any, data?: DetectEntitiesCommandOutput) => void): void;
+  detectEntities(
     args: DetectEntitiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetectEntitiesCommandOutput) => void
   ): void;
-  public detectEntities(
-    args: DetectEntitiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectEntitiesCommandOutput) => void),
-    cb?: (err: any, data?: DetectEntitiesCommandOutput) => void
-  ): Promise<DetectEntitiesCommandOutput> | void {
-    const command = new DetectEntitiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Detects the key noun phrases found in the text. </p>
+   * @see {@link DetectKeyPhrasesCommand}
    */
-  public detectKeyPhrases(
+  detectKeyPhrases(
     args: DetectKeyPhrasesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetectKeyPhrasesCommandOutput>;
-  public detectKeyPhrases(
+  detectKeyPhrases(
     args: DetectKeyPhrasesCommandInput,
     cb: (err: any, data?: DetectKeyPhrasesCommandOutput) => void
   ): void;
-  public detectKeyPhrases(
+  detectKeyPhrases(
     args: DetectKeyPhrasesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetectKeyPhrasesCommandOutput) => void
   ): void;
-  public detectKeyPhrases(
-    args: DetectKeyPhrasesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectKeyPhrasesCommandOutput) => void),
-    cb?: (err: any, data?: DetectKeyPhrasesCommandOutput) => void
-  ): Promise<DetectKeyPhrasesCommandOutput> | void {
-    const command = new DetectKeyPhrasesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Inspects the input text for entities that contain personally identifiable information
-   *       (PII) and returns information about them.</p>
+   * @see {@link DetectPiiEntitiesCommand}
    */
-  public detectPiiEntities(
+  detectPiiEntities(
     args: DetectPiiEntitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetectPiiEntitiesCommandOutput>;
-  public detectPiiEntities(
+  detectPiiEntities(
     args: DetectPiiEntitiesCommandInput,
     cb: (err: any, data?: DetectPiiEntitiesCommandOutput) => void
   ): void;
-  public detectPiiEntities(
+  detectPiiEntities(
     args: DetectPiiEntitiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetectPiiEntitiesCommandOutput) => void
   ): void;
-  public detectPiiEntities(
-    args: DetectPiiEntitiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectPiiEntitiesCommandOutput) => void),
-    cb?: (err: any, data?: DetectPiiEntitiesCommandOutput) => void
-  ): Promise<DetectPiiEntitiesCommandOutput> | void {
-    const command = new DetectPiiEntitiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Inspects text and returns an inference of the prevailing sentiment
-   *         (<code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>). </p>
+   * @see {@link DetectSentimentCommand}
    */
-  public detectSentiment(
+  detectSentiment(
     args: DetectSentimentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetectSentimentCommandOutput>;
-  public detectSentiment(
-    args: DetectSentimentCommandInput,
-    cb: (err: any, data?: DetectSentimentCommandOutput) => void
-  ): void;
-  public detectSentiment(
+  detectSentiment(args: DetectSentimentCommandInput, cb: (err: any, data?: DetectSentimentCommandOutput) => void): void;
+  detectSentiment(
     args: DetectSentimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetectSentimentCommandOutput) => void
   ): void;
-  public detectSentiment(
-    args: DetectSentimentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectSentimentCommandOutput) => void),
-    cb?: (err: any, data?: DetectSentimentCommandOutput) => void
-  ): Promise<DetectSentimentCommandOutput> | void {
-    const command = new DetectSentimentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Inspects text for syntax and the part of speech of words in the document. For more
-   *       information, see
-   *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
-   *     </p>
+   * @see {@link DetectSyntaxCommand}
    */
-  public detectSyntax(
-    args: DetectSyntaxCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DetectSyntaxCommandOutput>;
-  public detectSyntax(args: DetectSyntaxCommandInput, cb: (err: any, data?: DetectSyntaxCommandOutput) => void): void;
-  public detectSyntax(
+  detectSyntax(args: DetectSyntaxCommandInput, options?: __HttpHandlerOptions): Promise<DetectSyntaxCommandOutput>;
+  detectSyntax(args: DetectSyntaxCommandInput, cb: (err: any, data?: DetectSyntaxCommandOutput) => void): void;
+  detectSyntax(
     args: DetectSyntaxCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetectSyntaxCommandOutput) => void
   ): void;
-  public detectSyntax(
-    args: DetectSyntaxCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectSyntaxCommandOutput) => void),
-    cb?: (err: any, data?: DetectSyntaxCommandOutput) => void
-  ): Promise<DetectSyntaxCommandOutput> | void {
-    const command = new DetectSyntaxCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p>
-   *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+   * @see {@link DetectTargetedSentimentCommand}
    */
-  public detectTargetedSentiment(
+  detectTargetedSentiment(
     args: DetectTargetedSentimentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetectTargetedSentimentCommandOutput>;
-  public detectTargetedSentiment(
+  detectTargetedSentiment(
     args: DetectTargetedSentimentCommandInput,
     cb: (err: any, data?: DetectTargetedSentimentCommandOutput) => void
   ): void;
-  public detectTargetedSentiment(
+  detectTargetedSentiment(
     args: DetectTargetedSentimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetectTargetedSentimentCommandOutput) => void
   ): void;
-  public detectTargetedSentiment(
-    args: DetectTargetedSentimentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectTargetedSentimentCommandOutput) => void),
-    cb?: (err: any, data?: DetectTargetedSentimentCommandOutput) => void
-  ): Promise<DetectTargetedSentimentCommandOutput> | void {
-    const command = new DetectTargetedSentimentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new custom model that replicates a source custom model that you import. The
-   *       source model can be in your AWS account or another one.</p>
-   *          <p>If the source model is in another AWS account, then it must have a resource-based policy
-   *       that authorizes you to import it.</p>
-   *          <p>The source model must be in the same AWS region that you're using when you import. You
-   *       can't import a model that's in a different region.</p>
+   * @see {@link ImportModelCommand}
    */
-  public importModel(args: ImportModelCommandInput, options?: __HttpHandlerOptions): Promise<ImportModelCommandOutput>;
-  public importModel(args: ImportModelCommandInput, cb: (err: any, data?: ImportModelCommandOutput) => void): void;
-  public importModel(
+  importModel(args: ImportModelCommandInput, options?: __HttpHandlerOptions): Promise<ImportModelCommandOutput>;
+  importModel(args: ImportModelCommandInput, cb: (err: any, data?: ImportModelCommandOutput) => void): void;
+  importModel(
     args: ImportModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ImportModelCommandOutput) => void
   ): void;
-  public importModel(
-    args: ImportModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportModelCommandOutput) => void),
-    cb?: (err: any, data?: ImportModelCommandOutput) => void
-  ): Promise<ImportModelCommandOutput> | void {
-    const command = new ImportModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List the datasets that you have configured in this region. For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
-   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   * @see {@link ListDatasetsCommand}
    */
-  public listDatasets(
-    args: ListDatasetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDatasetsCommandOutput>;
-  public listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
-  public listDatasets(
+  listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
+  listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
+  listDatasets(
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDatasetsCommandOutput) => void
   ): void;
-  public listDatasets(
-    args: ListDatasetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetsCommandOutput) => void),
-    cb?: (err: any, data?: ListDatasetsCommandOutput) => void
-  ): Promise<ListDatasetsCommandOutput> | void {
-    const command = new ListDatasetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of the documentation classification jobs that you have submitted.</p>
+   * @see {@link ListDocumentClassificationJobsCommand}
    */
-  public listDocumentClassificationJobs(
+  listDocumentClassificationJobs(
     args: ListDocumentClassificationJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDocumentClassificationJobsCommandOutput>;
-  public listDocumentClassificationJobs(
+  listDocumentClassificationJobs(
     args: ListDocumentClassificationJobsCommandInput,
     cb: (err: any, data?: ListDocumentClassificationJobsCommandOutput) => void
   ): void;
-  public listDocumentClassificationJobs(
+  listDocumentClassificationJobs(
     args: ListDocumentClassificationJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDocumentClassificationJobsCommandOutput) => void
   ): void;
-  public listDocumentClassificationJobs(
-    args: ListDocumentClassificationJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentClassificationJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListDocumentClassificationJobsCommandOutput) => void
-  ): Promise<ListDocumentClassificationJobsCommandOutput> | void {
-    const command = new ListDocumentClassificationJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of the document classifiers that you have created.</p>
+   * @see {@link ListDocumentClassifiersCommand}
    */
-  public listDocumentClassifiers(
+  listDocumentClassifiers(
     args: ListDocumentClassifiersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDocumentClassifiersCommandOutput>;
-  public listDocumentClassifiers(
+  listDocumentClassifiers(
     args: ListDocumentClassifiersCommandInput,
     cb: (err: any, data?: ListDocumentClassifiersCommandOutput) => void
   ): void;
-  public listDocumentClassifiers(
+  listDocumentClassifiers(
     args: ListDocumentClassifiersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDocumentClassifiersCommandOutput) => void
   ): void;
-  public listDocumentClassifiers(
-    args: ListDocumentClassifiersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentClassifiersCommandOutput) => void),
-    cb?: (err: any, data?: ListDocumentClassifiersCommandOutput) => void
-  ): Promise<ListDocumentClassifiersCommandOutput> | void {
-    const command = new ListDocumentClassifiersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of summaries of the document classifiers that you have created</p>
+   * @see {@link ListDocumentClassifierSummariesCommand}
    */
-  public listDocumentClassifierSummaries(
+  listDocumentClassifierSummaries(
     args: ListDocumentClassifierSummariesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDocumentClassifierSummariesCommandOutput>;
-  public listDocumentClassifierSummaries(
+  listDocumentClassifierSummaries(
     args: ListDocumentClassifierSummariesCommandInput,
     cb: (err: any, data?: ListDocumentClassifierSummariesCommandOutput) => void
   ): void;
-  public listDocumentClassifierSummaries(
+  listDocumentClassifierSummaries(
     args: ListDocumentClassifierSummariesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDocumentClassifierSummariesCommandOutput) => void
   ): void;
-  public listDocumentClassifierSummaries(
-    args: ListDocumentClassifierSummariesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentClassifierSummariesCommandOutput) => void),
-    cb?: (err: any, data?: ListDocumentClassifierSummariesCommandOutput) => void
-  ): Promise<ListDocumentClassifierSummariesCommandOutput> | void {
-    const command = new ListDocumentClassifierSummariesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of the dominant language detection jobs that you have submitted.</p>
+   * @see {@link ListDominantLanguageDetectionJobsCommand}
    */
-  public listDominantLanguageDetectionJobs(
+  listDominantLanguageDetectionJobs(
     args: ListDominantLanguageDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDominantLanguageDetectionJobsCommandOutput>;
-  public listDominantLanguageDetectionJobs(
+  listDominantLanguageDetectionJobs(
     args: ListDominantLanguageDetectionJobsCommandInput,
     cb: (err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void
   ): void;
-  public listDominantLanguageDetectionJobs(
+  listDominantLanguageDetectionJobs(
     args: ListDominantLanguageDetectionJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void
   ): void;
-  public listDominantLanguageDetectionJobs(
-    args: ListDominantLanguageDetectionJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void
-  ): Promise<ListDominantLanguageDetectionJobsCommandOutput> | void {
-    const command = new ListDominantLanguageDetectionJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of all existing endpoints that you've created.
-   *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
+   * @see {@link ListEndpointsCommand}
    */
-  public listEndpoints(
-    args: ListEndpointsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListEndpointsCommandOutput>;
-  public listEndpoints(
-    args: ListEndpointsCommandInput,
-    cb: (err: any, data?: ListEndpointsCommandOutput) => void
-  ): void;
-  public listEndpoints(
+  listEndpoints(args: ListEndpointsCommandInput, options?: __HttpHandlerOptions): Promise<ListEndpointsCommandOutput>;
+  listEndpoints(args: ListEndpointsCommandInput, cb: (err: any, data?: ListEndpointsCommandOutput) => void): void;
+  listEndpoints(
     args: ListEndpointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEndpointsCommandOutput) => void
   ): void;
-  public listEndpoints(
-    args: ListEndpointsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEndpointsCommandOutput) => void),
-    cb?: (err: any, data?: ListEndpointsCommandOutput) => void
-  ): Promise<ListEndpointsCommandOutput> | void {
-    const command = new ListEndpointsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of the entity detection jobs that you have submitted.</p>
+   * @see {@link ListEntitiesDetectionJobsCommand}
    */
-  public listEntitiesDetectionJobs(
+  listEntitiesDetectionJobs(
     args: ListEntitiesDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEntitiesDetectionJobsCommandOutput>;
-  public listEntitiesDetectionJobs(
+  listEntitiesDetectionJobs(
     args: ListEntitiesDetectionJobsCommandInput,
     cb: (err: any, data?: ListEntitiesDetectionJobsCommandOutput) => void
   ): void;
-  public listEntitiesDetectionJobs(
+  listEntitiesDetectionJobs(
     args: ListEntitiesDetectionJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEntitiesDetectionJobsCommandOutput) => void
   ): void;
-  public listEntitiesDetectionJobs(
-    args: ListEntitiesDetectionJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntitiesDetectionJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListEntitiesDetectionJobsCommandOutput) => void
-  ): Promise<ListEntitiesDetectionJobsCommandOutput> | void {
-    const command = new ListEntitiesDetectionJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of the properties of all entity recognizers that you created, including
-   *       recognizers currently in training. Allows you to filter the list of recognizers based on
-   *       criteria such as status and submission time. This call returns up to 500 entity recognizers in
-   *       the list, with a default number of 100 recognizers in the list.</p>
-   *          <p>The results of this list are not in any particular order. Please get the list and sort
-   *       locally if needed.</p>
+   * @see {@link ListEntityRecognizersCommand}
    */
-  public listEntityRecognizers(
+  listEntityRecognizers(
     args: ListEntityRecognizersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEntityRecognizersCommandOutput>;
-  public listEntityRecognizers(
+  listEntityRecognizers(
     args: ListEntityRecognizersCommandInput,
     cb: (err: any, data?: ListEntityRecognizersCommandOutput) => void
   ): void;
-  public listEntityRecognizers(
+  listEntityRecognizers(
     args: ListEntityRecognizersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEntityRecognizersCommandOutput) => void
   ): void;
-  public listEntityRecognizers(
-    args: ListEntityRecognizersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntityRecognizersCommandOutput) => void),
-    cb?: (err: any, data?: ListEntityRecognizersCommandOutput) => void
-  ): Promise<ListEntityRecognizersCommandOutput> | void {
-    const command = new ListEntityRecognizersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of summaries for the entity recognizers that you have created.</p>
+   * @see {@link ListEntityRecognizerSummariesCommand}
    */
-  public listEntityRecognizerSummaries(
+  listEntityRecognizerSummaries(
     args: ListEntityRecognizerSummariesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEntityRecognizerSummariesCommandOutput>;
-  public listEntityRecognizerSummaries(
+  listEntityRecognizerSummaries(
     args: ListEntityRecognizerSummariesCommandInput,
     cb: (err: any, data?: ListEntityRecognizerSummariesCommandOutput) => void
   ): void;
-  public listEntityRecognizerSummaries(
+  listEntityRecognizerSummaries(
     args: ListEntityRecognizerSummariesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEntityRecognizerSummariesCommandOutput) => void
   ): void;
-  public listEntityRecognizerSummaries(
-    args: ListEntityRecognizerSummariesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntityRecognizerSummariesCommandOutput) => void),
-    cb?: (err: any, data?: ListEntityRecognizerSummariesCommandOutput) => void
-  ): Promise<ListEntityRecognizerSummariesCommandOutput> | void {
-    const command = new ListEntityRecognizerSummariesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of the events detection jobs that you have submitted.</p>
+   * @see {@link ListEventsDetectionJobsCommand}
    */
-  public listEventsDetectionJobs(
+  listEventsDetectionJobs(
     args: ListEventsDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEventsDetectionJobsCommandOutput>;
-  public listEventsDetectionJobs(
+  listEventsDetectionJobs(
     args: ListEventsDetectionJobsCommandInput,
     cb: (err: any, data?: ListEventsDetectionJobsCommandOutput) => void
   ): void;
-  public listEventsDetectionJobs(
+  listEventsDetectionJobs(
     args: ListEventsDetectionJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEventsDetectionJobsCommandOutput) => void
   ): void;
-  public listEventsDetectionJobs(
-    args: ListEventsDetectionJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventsDetectionJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListEventsDetectionJobsCommandOutput) => void
-  ): Promise<ListEventsDetectionJobsCommandOutput> | void {
-    const command = new ListEventsDetectionJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Information about the history of a flywheel iteration.
-   *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
-   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   * @see {@link ListFlywheelIterationHistoryCommand}
    */
-  public listFlywheelIterationHistory(
+  listFlywheelIterationHistory(
     args: ListFlywheelIterationHistoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListFlywheelIterationHistoryCommandOutput>;
-  public listFlywheelIterationHistory(
+  listFlywheelIterationHistory(
     args: ListFlywheelIterationHistoryCommandInput,
     cb: (err: any, data?: ListFlywheelIterationHistoryCommandOutput) => void
   ): void;
-  public listFlywheelIterationHistory(
+  listFlywheelIterationHistory(
     args: ListFlywheelIterationHistoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFlywheelIterationHistoryCommandOutput) => void
   ): void;
-  public listFlywheelIterationHistory(
-    args: ListFlywheelIterationHistoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFlywheelIterationHistoryCommandOutput) => void),
-    cb?: (err: any, data?: ListFlywheelIterationHistoryCommandOutput) => void
-  ): Promise<ListFlywheelIterationHistoryCommandOutput> | void {
-    const command = new ListFlywheelIterationHistoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of the flywheels that you have created.</p>
+   * @see {@link ListFlywheelsCommand}
    */
-  public listFlywheels(
-    args: ListFlywheelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFlywheelsCommandOutput>;
-  public listFlywheels(
-    args: ListFlywheelsCommandInput,
-    cb: (err: any, data?: ListFlywheelsCommandOutput) => void
-  ): void;
-  public listFlywheels(
+  listFlywheels(args: ListFlywheelsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlywheelsCommandOutput>;
+  listFlywheels(args: ListFlywheelsCommandInput, cb: (err: any, data?: ListFlywheelsCommandOutput) => void): void;
+  listFlywheels(
     args: ListFlywheelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFlywheelsCommandOutput) => void
   ): void;
-  public listFlywheels(
-    args: ListFlywheelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFlywheelsCommandOutput) => void),
-    cb?: (err: any, data?: ListFlywheelsCommandOutput) => void
-  ): Promise<ListFlywheelsCommandOutput> | void {
-    const command = new ListFlywheelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Get a list of key phrase detection jobs that you have submitted.</p>
+   * @see {@link ListKeyPhrasesDetectionJobsCommand}
    */
-  public listKeyPhrasesDetectionJobs(
+  listKeyPhrasesDetectionJobs(
     args: ListKeyPhrasesDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListKeyPhrasesDetectionJobsCommandOutput>;
-  public listKeyPhrasesDetectionJobs(
+  listKeyPhrasesDetectionJobs(
     args: ListKeyPhrasesDetectionJobsCommandInput,
     cb: (err: any, data?: ListKeyPhrasesDetectionJobsCommandOutput) => void
   ): void;
-  public listKeyPhrasesDetectionJobs(
+  listKeyPhrasesDetectionJobs(
     args: ListKeyPhrasesDetectionJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListKeyPhrasesDetectionJobsCommandOutput) => void
   ): void;
-  public listKeyPhrasesDetectionJobs(
-    args: ListKeyPhrasesDetectionJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKeyPhrasesDetectionJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListKeyPhrasesDetectionJobsCommandOutput) => void
-  ): Promise<ListKeyPhrasesDetectionJobsCommandOutput> | void {
-    const command = new ListKeyPhrasesDetectionJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of the PII entity detection jobs that you have submitted.</p>
+   * @see {@link ListPiiEntitiesDetectionJobsCommand}
    */
-  public listPiiEntitiesDetectionJobs(
+  listPiiEntitiesDetectionJobs(
     args: ListPiiEntitiesDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPiiEntitiesDetectionJobsCommandOutput>;
-  public listPiiEntitiesDetectionJobs(
+  listPiiEntitiesDetectionJobs(
     args: ListPiiEntitiesDetectionJobsCommandInput,
     cb: (err: any, data?: ListPiiEntitiesDetectionJobsCommandOutput) => void
   ): void;
-  public listPiiEntitiesDetectionJobs(
+  listPiiEntitiesDetectionJobs(
     args: ListPiiEntitiesDetectionJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPiiEntitiesDetectionJobsCommandOutput) => void
   ): void;
-  public listPiiEntitiesDetectionJobs(
-    args: ListPiiEntitiesDetectionJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPiiEntitiesDetectionJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListPiiEntitiesDetectionJobsCommandOutput) => void
-  ): Promise<ListPiiEntitiesDetectionJobsCommandOutput> | void {
-    const command = new ListPiiEntitiesDetectionJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of sentiment detection jobs that you have submitted.</p>
+   * @see {@link ListSentimentDetectionJobsCommand}
    */
-  public listSentimentDetectionJobs(
+  listSentimentDetectionJobs(
     args: ListSentimentDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListSentimentDetectionJobsCommandOutput>;
-  public listSentimentDetectionJobs(
+  listSentimentDetectionJobs(
     args: ListSentimentDetectionJobsCommandInput,
     cb: (err: any, data?: ListSentimentDetectionJobsCommandOutput) => void
   ): void;
-  public listSentimentDetectionJobs(
+  listSentimentDetectionJobs(
     args: ListSentimentDetectionJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSentimentDetectionJobsCommandOutput) => void
   ): void;
-  public listSentimentDetectionJobs(
-    args: ListSentimentDetectionJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSentimentDetectionJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListSentimentDetectionJobsCommandOutput) => void
-  ): Promise<ListSentimentDetectionJobsCommandOutput> | void {
-    const command = new ListSentimentDetectionJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all tags associated with a given Amazon Comprehend resource. </p>
+   * @see {@link ListTagsForResourceCommand}
    */
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of targeted sentiment detection jobs that you have submitted.</p>
+   * @see {@link ListTargetedSentimentDetectionJobsCommand}
    */
-  public listTargetedSentimentDetectionJobs(
+  listTargetedSentimentDetectionJobs(
     args: ListTargetedSentimentDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTargetedSentimentDetectionJobsCommandOutput>;
-  public listTargetedSentimentDetectionJobs(
+  listTargetedSentimentDetectionJobs(
     args: ListTargetedSentimentDetectionJobsCommandInput,
     cb: (err: any, data?: ListTargetedSentimentDetectionJobsCommandOutput) => void
   ): void;
-  public listTargetedSentimentDetectionJobs(
+  listTargetedSentimentDetectionJobs(
     args: ListTargetedSentimentDetectionJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTargetedSentimentDetectionJobsCommandOutput) => void
   ): void;
-  public listTargetedSentimentDetectionJobs(
-    args: ListTargetedSentimentDetectionJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTargetedSentimentDetectionJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListTargetedSentimentDetectionJobsCommandOutput) => void
-  ): Promise<ListTargetedSentimentDetectionJobsCommandOutput> | void {
-    const command = new ListTargetedSentimentDetectionJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a list of the topic detection jobs that you have submitted.</p>
+   * @see {@link ListTopicsDetectionJobsCommand}
    */
-  public listTopicsDetectionJobs(
+  listTopicsDetectionJobs(
     args: ListTopicsDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTopicsDetectionJobsCommandOutput>;
-  public listTopicsDetectionJobs(
+  listTopicsDetectionJobs(
     args: ListTopicsDetectionJobsCommandInput,
     cb: (err: any, data?: ListTopicsDetectionJobsCommandOutput) => void
   ): void;
-  public listTopicsDetectionJobs(
+  listTopicsDetectionJobs(
     args: ListTopicsDetectionJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTopicsDetectionJobsCommandOutput) => void
   ): void;
-  public listTopicsDetectionJobs(
-    args: ListTopicsDetectionJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTopicsDetectionJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListTopicsDetectionJobsCommandOutput) => void
-  ): Promise<ListTopicsDetectionJobsCommandOutput> | void {
-    const command = new ListTopicsDetectionJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Attaches a resource-based policy to a custom model. You can use this policy to authorize
-   *       an entity in another AWS account to import the custom model, which replicates it in Amazon
-   *       Comprehend in their account.</p>
+   * @see {@link PutResourcePolicyCommand}
    */
-  public putResourcePolicy(
+  putResourcePolicy(
     args: PutResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutResourcePolicyCommandOutput>;
-  public putResourcePolicy(
+  putResourcePolicy(
     args: PutResourcePolicyCommandInput,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
-  public putResourcePolicy(
+  putResourcePolicy(
     args: PutResourcePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
-  public putResourcePolicy(
-    args: PutResourcePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
-    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
-  ): Promise<PutResourcePolicyCommandOutput> | void {
-    const command = new PutResourcePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts an asynchronous document classification job. Use the
-   *       <code>DescribeDocumentClassificationJob</code>
-   *           operation to track the progress of the job.</p>
+   * @see {@link StartDocumentClassificationJobCommand}
    */
-  public startDocumentClassificationJob(
+  startDocumentClassificationJob(
     args: StartDocumentClassificationJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartDocumentClassificationJobCommandOutput>;
-  public startDocumentClassificationJob(
+  startDocumentClassificationJob(
     args: StartDocumentClassificationJobCommandInput,
     cb: (err: any, data?: StartDocumentClassificationJobCommandOutput) => void
   ): void;
-  public startDocumentClassificationJob(
+  startDocumentClassificationJob(
     args: StartDocumentClassificationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartDocumentClassificationJobCommandOutput) => void
   ): void;
-  public startDocumentClassificationJob(
-    args: StartDocumentClassificationJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDocumentClassificationJobCommandOutput) => void),
-    cb?: (err: any, data?: StartDocumentClassificationJobCommandOutput) => void
-  ): Promise<StartDocumentClassificationJobCommandOutput> | void {
-    const command = new StartDocumentClassificationJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts an asynchronous dominant language detection job for a collection of documents. Use
-   *       the  operation to track the status
-   *       of a job.</p>
+   * @see {@link StartDominantLanguageDetectionJobCommand}
    */
-  public startDominantLanguageDetectionJob(
+  startDominantLanguageDetectionJob(
     args: StartDominantLanguageDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartDominantLanguageDetectionJobCommandOutput>;
-  public startDominantLanguageDetectionJob(
+  startDominantLanguageDetectionJob(
     args: StartDominantLanguageDetectionJobCommandInput,
     cb: (err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void
   ): void;
-  public startDominantLanguageDetectionJob(
+  startDominantLanguageDetectionJob(
     args: StartDominantLanguageDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void
   ): void;
-  public startDominantLanguageDetectionJob(
-    args: StartDominantLanguageDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void
-  ): Promise<StartDominantLanguageDetectionJobCommandOutput> | void {
-    const command = new StartDominantLanguageDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts an asynchronous entity detection job for a collection of documents. Use the  operation to track the status of a job.</p>
-   *          <p>This API can be used for either standard entity detection or custom entity recognition. In
-   *       order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code>
-   *       must be used in order to provide access to the recognizer being used to detect the custom
-   *       entity.</p>
+   * @see {@link StartEntitiesDetectionJobCommand}
    */
-  public startEntitiesDetectionJob(
+  startEntitiesDetectionJob(
     args: StartEntitiesDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartEntitiesDetectionJobCommandOutput>;
-  public startEntitiesDetectionJob(
+  startEntitiesDetectionJob(
     args: StartEntitiesDetectionJobCommandInput,
     cb: (err: any, data?: StartEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public startEntitiesDetectionJob(
+  startEntitiesDetectionJob(
     args: StartEntitiesDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public startEntitiesDetectionJob(
-    args: StartEntitiesDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartEntitiesDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StartEntitiesDetectionJobCommandOutput) => void
-  ): Promise<StartEntitiesDetectionJobCommandOutput> | void {
-    const command = new StartEntitiesDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts an asynchronous event detection job for a collection of documents.</p>
+   * @see {@link StartEventsDetectionJobCommand}
    */
-  public startEventsDetectionJob(
+  startEventsDetectionJob(
     args: StartEventsDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartEventsDetectionJobCommandOutput>;
-  public startEventsDetectionJob(
+  startEventsDetectionJob(
     args: StartEventsDetectionJobCommandInput,
     cb: (err: any, data?: StartEventsDetectionJobCommandOutput) => void
   ): void;
-  public startEventsDetectionJob(
+  startEventsDetectionJob(
     args: StartEventsDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartEventsDetectionJobCommandOutput) => void
   ): void;
-  public startEventsDetectionJob(
-    args: StartEventsDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartEventsDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StartEventsDetectionJobCommandOutput) => void
-  ): Promise<StartEventsDetectionJobCommandOutput> | void {
-    const command = new StartEventsDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Start the flywheel iteration.This operation uses any new datasets to train a new model version.
-   *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
-   *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+   * @see {@link StartFlywheelIterationCommand}
    */
-  public startFlywheelIteration(
+  startFlywheelIteration(
     args: StartFlywheelIterationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartFlywheelIterationCommandOutput>;
-  public startFlywheelIteration(
+  startFlywheelIteration(
     args: StartFlywheelIterationCommandInput,
     cb: (err: any, data?: StartFlywheelIterationCommandOutput) => void
   ): void;
-  public startFlywheelIteration(
+  startFlywheelIteration(
     args: StartFlywheelIterationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartFlywheelIterationCommandOutput) => void
   ): void;
-  public startFlywheelIteration(
-    args: StartFlywheelIterationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFlywheelIterationCommandOutput) => void),
-    cb?: (err: any, data?: StartFlywheelIterationCommandOutput) => void
-  ): Promise<StartFlywheelIterationCommandOutput> | void {
-    const command = new StartFlywheelIterationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the
-   *          operation to track the status of a
-   *       job.</p>
+   * @see {@link StartKeyPhrasesDetectionJobCommand}
    */
-  public startKeyPhrasesDetectionJob(
+  startKeyPhrasesDetectionJob(
     args: StartKeyPhrasesDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartKeyPhrasesDetectionJobCommandOutput>;
-  public startKeyPhrasesDetectionJob(
+  startKeyPhrasesDetectionJob(
     args: StartKeyPhrasesDetectionJobCommandInput,
     cb: (err: any, data?: StartKeyPhrasesDetectionJobCommandOutput) => void
   ): void;
-  public startKeyPhrasesDetectionJob(
+  startKeyPhrasesDetectionJob(
     args: StartKeyPhrasesDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartKeyPhrasesDetectionJobCommandOutput) => void
   ): void;
-  public startKeyPhrasesDetectionJob(
-    args: StartKeyPhrasesDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartKeyPhrasesDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StartKeyPhrasesDetectionJobCommandOutput) => void
-  ): Promise<StartKeyPhrasesDetectionJobCommandOutput> | void {
-    const command = new StartKeyPhrasesDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts an asynchronous PII entity detection job for a collection of documents.</p>
+   * @see {@link StartPiiEntitiesDetectionJobCommand}
    */
-  public startPiiEntitiesDetectionJob(
+  startPiiEntitiesDetectionJob(
     args: StartPiiEntitiesDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartPiiEntitiesDetectionJobCommandOutput>;
-  public startPiiEntitiesDetectionJob(
+  startPiiEntitiesDetectionJob(
     args: StartPiiEntitiesDetectionJobCommandInput,
     cb: (err: any, data?: StartPiiEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public startPiiEntitiesDetectionJob(
+  startPiiEntitiesDetectionJob(
     args: StartPiiEntitiesDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartPiiEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public startPiiEntitiesDetectionJob(
-    args: StartPiiEntitiesDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartPiiEntitiesDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StartPiiEntitiesDetectionJobCommandOutput) => void
-  ): Promise<StartPiiEntitiesDetectionJobCommandOutput> | void {
-    const command = new StartPiiEntitiesDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts an asynchronous sentiment detection job for a collection of documents. Use the
-   *          operation to track the status of a
-   *       job.</p>
+   * @see {@link StartSentimentDetectionJobCommand}
    */
-  public startSentimentDetectionJob(
+  startSentimentDetectionJob(
     args: StartSentimentDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartSentimentDetectionJobCommandOutput>;
-  public startSentimentDetectionJob(
+  startSentimentDetectionJob(
     args: StartSentimentDetectionJobCommandInput,
     cb: (err: any, data?: StartSentimentDetectionJobCommandOutput) => void
   ): void;
-  public startSentimentDetectionJob(
+  startSentimentDetectionJob(
     args: StartSentimentDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartSentimentDetectionJobCommandOutput) => void
   ): void;
-  public startSentimentDetectionJob(
-    args: StartSentimentDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSentimentDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StartSentimentDetectionJobCommandOutput) => void
-  ): Promise<StartSentimentDetectionJobCommandOutput> | void {
-    const command = new StartSentimentDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the
-   *       <code>DescribeTargetedSentimentDetectionJob</code> operation to track the status of a
-   *       job.</p>
+   * @see {@link StartTargetedSentimentDetectionJobCommand}
    */
-  public startTargetedSentimentDetectionJob(
+  startTargetedSentimentDetectionJob(
     args: StartTargetedSentimentDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartTargetedSentimentDetectionJobCommandOutput>;
-  public startTargetedSentimentDetectionJob(
+  startTargetedSentimentDetectionJob(
     args: StartTargetedSentimentDetectionJobCommandInput,
     cb: (err: any, data?: StartTargetedSentimentDetectionJobCommandOutput) => void
   ): void;
-  public startTargetedSentimentDetectionJob(
+  startTargetedSentimentDetectionJob(
     args: StartTargetedSentimentDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartTargetedSentimentDetectionJobCommandOutput) => void
   ): void;
-  public startTargetedSentimentDetectionJob(
-    args: StartTargetedSentimentDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTargetedSentimentDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StartTargetedSentimentDetectionJobCommandOutput) => void
-  ): Promise<StartTargetedSentimentDetectionJobCommandOutput> | void {
-    const command = new StartTargetedSentimentDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts an asynchronous topic detection job. Use the
-   *         <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>
+   * @see {@link StartTopicsDetectionJobCommand}
    */
-  public startTopicsDetectionJob(
+  startTopicsDetectionJob(
     args: StartTopicsDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartTopicsDetectionJobCommandOutput>;
-  public startTopicsDetectionJob(
+  startTopicsDetectionJob(
     args: StartTopicsDetectionJobCommandInput,
     cb: (err: any, data?: StartTopicsDetectionJobCommandOutput) => void
   ): void;
-  public startTopicsDetectionJob(
+  startTopicsDetectionJob(
     args: StartTopicsDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartTopicsDetectionJobCommandOutput) => void
   ): void;
-  public startTopicsDetectionJob(
-    args: StartTopicsDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTopicsDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StartTopicsDetectionJobCommandOutput) => void
-  ): Promise<StartTopicsDetectionJobCommandOutput> | void {
-    const command = new StartTopicsDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops a dominant language detection job in progress.</p>
-   *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
-   *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
-   *       is put into the <code>COMPLETED</code> state; otherwise the job is stopped and put into the
-   *         <code>STOPPED</code> state.</p>
-   *          <p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the
-   *         <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400
-   *       Internal Request Exception. </p>
-   *          <p>When a job is stopped, any documents already processed are written to the output
-   *       location.</p>
+   * @see {@link StopDominantLanguageDetectionJobCommand}
    */
-  public stopDominantLanguageDetectionJob(
+  stopDominantLanguageDetectionJob(
     args: StopDominantLanguageDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopDominantLanguageDetectionJobCommandOutput>;
-  public stopDominantLanguageDetectionJob(
+  stopDominantLanguageDetectionJob(
     args: StopDominantLanguageDetectionJobCommandInput,
     cb: (err: any, data?: StopDominantLanguageDetectionJobCommandOutput) => void
   ): void;
-  public stopDominantLanguageDetectionJob(
+  stopDominantLanguageDetectionJob(
     args: StopDominantLanguageDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopDominantLanguageDetectionJobCommandOutput) => void
   ): void;
-  public stopDominantLanguageDetectionJob(
-    args: StopDominantLanguageDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDominantLanguageDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StopDominantLanguageDetectionJobCommandOutput) => void
-  ): Promise<StopDominantLanguageDetectionJobCommandOutput> | void {
-    const command = new StopDominantLanguageDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops an entities detection job in progress.</p>
-   *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
-   *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
-   *       is put into the <code>COMPLETED</code> state; otherwise the job is stopped and put into the
-   *         <code>STOPPED</code> state.</p>
-   *          <p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the
-   *         <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400
-   *       Internal Request Exception. </p>
-   *          <p>When a job is stopped, any documents already processed are written to the output
-   *       location.</p>
+   * @see {@link StopEntitiesDetectionJobCommand}
    */
-  public stopEntitiesDetectionJob(
+  stopEntitiesDetectionJob(
     args: StopEntitiesDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopEntitiesDetectionJobCommandOutput>;
-  public stopEntitiesDetectionJob(
+  stopEntitiesDetectionJob(
     args: StopEntitiesDetectionJobCommandInput,
     cb: (err: any, data?: StopEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public stopEntitiesDetectionJob(
+  stopEntitiesDetectionJob(
     args: StopEntitiesDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public stopEntitiesDetectionJob(
-    args: StopEntitiesDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopEntitiesDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StopEntitiesDetectionJobCommandOutput) => void
-  ): Promise<StopEntitiesDetectionJobCommandOutput> | void {
-    const command = new StopEntitiesDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops an events detection job in progress.</p>
+   * @see {@link StopEventsDetectionJobCommand}
    */
-  public stopEventsDetectionJob(
+  stopEventsDetectionJob(
     args: StopEventsDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopEventsDetectionJobCommandOutput>;
-  public stopEventsDetectionJob(
+  stopEventsDetectionJob(
     args: StopEventsDetectionJobCommandInput,
     cb: (err: any, data?: StopEventsDetectionJobCommandOutput) => void
   ): void;
-  public stopEventsDetectionJob(
+  stopEventsDetectionJob(
     args: StopEventsDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopEventsDetectionJobCommandOutput) => void
   ): void;
-  public stopEventsDetectionJob(
-    args: StopEventsDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopEventsDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StopEventsDetectionJobCommandOutput) => void
-  ): Promise<StopEventsDetectionJobCommandOutput> | void {
-    const command = new StopEventsDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops a key phrases detection job in progress.</p>
-   *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
-   *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
-   *       is put into the <code>COMPLETED</code> state; otherwise the job is stopped and put into the
-   *         <code>STOPPED</code> state.</p>
-   *          <p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the
-   *         <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400
-   *       Internal Request Exception. </p>
-   *          <p>When a job is stopped, any documents already processed are written to the output
-   *       location.</p>
+   * @see {@link StopKeyPhrasesDetectionJobCommand}
    */
-  public stopKeyPhrasesDetectionJob(
+  stopKeyPhrasesDetectionJob(
     args: StopKeyPhrasesDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopKeyPhrasesDetectionJobCommandOutput>;
-  public stopKeyPhrasesDetectionJob(
+  stopKeyPhrasesDetectionJob(
     args: StopKeyPhrasesDetectionJobCommandInput,
     cb: (err: any, data?: StopKeyPhrasesDetectionJobCommandOutput) => void
   ): void;
-  public stopKeyPhrasesDetectionJob(
+  stopKeyPhrasesDetectionJob(
     args: StopKeyPhrasesDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopKeyPhrasesDetectionJobCommandOutput) => void
   ): void;
-  public stopKeyPhrasesDetectionJob(
-    args: StopKeyPhrasesDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopKeyPhrasesDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StopKeyPhrasesDetectionJobCommandOutput) => void
-  ): Promise<StopKeyPhrasesDetectionJobCommandOutput> | void {
-    const command = new StopKeyPhrasesDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops a PII entities detection job in progress.</p>
+   * @see {@link StopPiiEntitiesDetectionJobCommand}
    */
-  public stopPiiEntitiesDetectionJob(
+  stopPiiEntitiesDetectionJob(
     args: StopPiiEntitiesDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopPiiEntitiesDetectionJobCommandOutput>;
-  public stopPiiEntitiesDetectionJob(
+  stopPiiEntitiesDetectionJob(
     args: StopPiiEntitiesDetectionJobCommandInput,
     cb: (err: any, data?: StopPiiEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public stopPiiEntitiesDetectionJob(
+  stopPiiEntitiesDetectionJob(
     args: StopPiiEntitiesDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopPiiEntitiesDetectionJobCommandOutput) => void
   ): void;
-  public stopPiiEntitiesDetectionJob(
-    args: StopPiiEntitiesDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopPiiEntitiesDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StopPiiEntitiesDetectionJobCommandOutput) => void
-  ): Promise<StopPiiEntitiesDetectionJobCommandOutput> | void {
-    const command = new StopPiiEntitiesDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops a sentiment detection job in progress.</p>
-   *          <p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put
-   *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
-   *       is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the
-   *         <code>STOPPED</code> state.</p>
-   *          <p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the
-   *         <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400
-   *       Internal Request Exception. </p>
-   *          <p>When a job is stopped, any documents already processed are written to the output
-   *       location.</p>
+   * @see {@link StopSentimentDetectionJobCommand}
    */
-  public stopSentimentDetectionJob(
+  stopSentimentDetectionJob(
     args: StopSentimentDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopSentimentDetectionJobCommandOutput>;
-  public stopSentimentDetectionJob(
+  stopSentimentDetectionJob(
     args: StopSentimentDetectionJobCommandInput,
     cb: (err: any, data?: StopSentimentDetectionJobCommandOutput) => void
   ): void;
-  public stopSentimentDetectionJob(
+  stopSentimentDetectionJob(
     args: StopSentimentDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopSentimentDetectionJobCommandOutput) => void
   ): void;
-  public stopSentimentDetectionJob(
-    args: StopSentimentDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopSentimentDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StopSentimentDetectionJobCommandOutput) => void
-  ): Promise<StopSentimentDetectionJobCommandOutput> | void {
-    const command = new StopSentimentDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops a targeted sentiment detection job in progress.</p>
-   *          <p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put
-   *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
-   *       is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the
-   *       <code>STOPPED</code> state.</p>
-   *          <p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the
-   *       <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400
-   *       Internal Request Exception. </p>
-   *          <p>When a job is stopped, any documents already processed are written to the output
-   *       location.</p>
+   * @see {@link StopTargetedSentimentDetectionJobCommand}
    */
-  public stopTargetedSentimentDetectionJob(
+  stopTargetedSentimentDetectionJob(
     args: StopTargetedSentimentDetectionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopTargetedSentimentDetectionJobCommandOutput>;
-  public stopTargetedSentimentDetectionJob(
+  stopTargetedSentimentDetectionJob(
     args: StopTargetedSentimentDetectionJobCommandInput,
     cb: (err: any, data?: StopTargetedSentimentDetectionJobCommandOutput) => void
   ): void;
-  public stopTargetedSentimentDetectionJob(
+  stopTargetedSentimentDetectionJob(
     args: StopTargetedSentimentDetectionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopTargetedSentimentDetectionJobCommandOutput) => void
   ): void;
-  public stopTargetedSentimentDetectionJob(
-    args: StopTargetedSentimentDetectionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTargetedSentimentDetectionJobCommandOutput) => void),
-    cb?: (err: any, data?: StopTargetedSentimentDetectionJobCommandOutput) => void
-  ): Promise<StopTargetedSentimentDetectionJobCommandOutput> | void {
-    const command = new StopTargetedSentimentDetectionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops a document classifier training job while in progress.</p>
-   *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and
-   *       put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
-   *       stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and
-   *       put into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with
-   *       an empty HTTP body. </p>
+   * @see {@link StopTrainingDocumentClassifierCommand}
    */
-  public stopTrainingDocumentClassifier(
+  stopTrainingDocumentClassifier(
     args: StopTrainingDocumentClassifierCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopTrainingDocumentClassifierCommandOutput>;
-  public stopTrainingDocumentClassifier(
+  stopTrainingDocumentClassifier(
     args: StopTrainingDocumentClassifierCommandInput,
     cb: (err: any, data?: StopTrainingDocumentClassifierCommandOutput) => void
   ): void;
-  public stopTrainingDocumentClassifier(
+  stopTrainingDocumentClassifier(
     args: StopTrainingDocumentClassifierCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopTrainingDocumentClassifierCommandOutput) => void
   ): void;
-  public stopTrainingDocumentClassifier(
-    args: StopTrainingDocumentClassifierCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTrainingDocumentClassifierCommandOutput) => void),
-    cb?: (err: any, data?: StopTrainingDocumentClassifierCommandOutput) => void
-  ): Promise<StopTrainingDocumentClassifierCommandOutput> | void {
-    const command = new StopTrainingDocumentClassifierCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stops an entity recognizer training job while in progress.</p>
-   *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and
-   *       put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
-   *       stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and
-   *       putted into the <code>STOPPED</code> state and the service sends back an HTTP 200 response
-   *       with an empty HTTP body.</p>
+   * @see {@link StopTrainingEntityRecognizerCommand}
    */
-  public stopTrainingEntityRecognizer(
+  stopTrainingEntityRecognizer(
     args: StopTrainingEntityRecognizerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopTrainingEntityRecognizerCommandOutput>;
-  public stopTrainingEntityRecognizer(
+  stopTrainingEntityRecognizer(
     args: StopTrainingEntityRecognizerCommandInput,
     cb: (err: any, data?: StopTrainingEntityRecognizerCommandOutput) => void
   ): void;
-  public stopTrainingEntityRecognizer(
+  stopTrainingEntityRecognizer(
     args: StopTrainingEntityRecognizerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopTrainingEntityRecognizerCommandOutput) => void
   ): void;
-  public stopTrainingEntityRecognizer(
-    args: StopTrainingEntityRecognizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTrainingEntityRecognizerCommandOutput) => void),
-    cb?: (err: any, data?: StopTrainingEntityRecognizerCommandOutput) => void
-  ): Promise<StopTrainingEntityRecognizerCommandOutput> | void {
-    const command = new StopTrainingEntityRecognizerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair
-   *       that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with
-   *       "Sales" as the key might be added to a resource to indicate its use by the sales department.
-   *     </p>
+   * @see {@link TagResourceCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes a specific tag associated with an Amazon Comprehend resource. </p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates information about the specified endpoint.
-   *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
+   * @see {@link UpdateEndpointCommand}
    */
-  public updateEndpoint(
+  updateEndpoint(
     args: UpdateEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEndpointCommandOutput>;
-  public updateEndpoint(
-    args: UpdateEndpointCommandInput,
-    cb: (err: any, data?: UpdateEndpointCommandOutput) => void
-  ): void;
-  public updateEndpoint(
+  updateEndpoint(args: UpdateEndpointCommandInput, cb: (err: any, data?: UpdateEndpointCommandOutput) => void): void;
+  updateEndpoint(
     args: UpdateEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEndpointCommandOutput) => void
   ): void;
-  public updateEndpoint(
-    args: UpdateEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEndpointCommandOutput) => void
-  ): Promise<UpdateEndpointCommandOutput> | void {
-    const command = new UpdateEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Update the configuration information for an existing flywheel.</p>
+   * @see {@link UpdateFlywheelCommand}
    */
-  public updateFlywheel(
+  updateFlywheel(
     args: UpdateFlywheelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateFlywheelCommandOutput>;
-  public updateFlywheel(
-    args: UpdateFlywheelCommandInput,
-    cb: (err: any, data?: UpdateFlywheelCommandOutput) => void
-  ): void;
-  public updateFlywheel(
+  updateFlywheel(args: UpdateFlywheelCommandInput, cb: (err: any, data?: UpdateFlywheelCommandOutput) => void): void;
+  updateFlywheel(
     args: UpdateFlywheelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateFlywheelCommandOutput) => void
   ): void;
-  public updateFlywheel(
-    args: UpdateFlywheelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFlywheelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateFlywheelCommandOutput) => void
-  ): Promise<UpdateFlywheelCommandOutput> | void {
-    const command = new UpdateFlywheelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>Amazon Comprehend is an Amazon Web Services service for gaining insight into the content of documents.
+ *       Use these actions to determine the topics contained in your documents, the topics they
+ *       discuss, the predominant sentiment expressed in them, the predominant language used, and
+ *       more.</p>
+ */
+export class Comprehend extends ComprehendClient implements Comprehend {}
+createAggregatedClient(commands, Comprehend);

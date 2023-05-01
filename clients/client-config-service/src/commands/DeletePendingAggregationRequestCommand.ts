@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DeletePendingAggregationRequestRequest } from "../models/models_0";
 import {
-  DeletePendingAggregationRequestRequest,
-  DeletePendingAggregationRequestRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePendingAggregationRequestCommand,
-  serializeAws_json1_1DeletePendingAggregationRequestCommand,
+  de_DeletePendingAggregationRequestCommand,
+  se_DeletePendingAggregationRequestCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePendingAggregationRequestCommand}.
  */
 export interface DeletePendingAggregationRequestCommandInput extends DeletePendingAggregationRequestRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePendingAggregationRequestCommand}.
  */
 export interface DeletePendingAggregationRequestCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes pending authorization requests for a specified
  * 			aggregator account in a specified region.</p>
  * @example
@@ -41,10 +43,16 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  * import { ConfigServiceClient, DeletePendingAggregationRequestCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeletePendingAggregationRequestCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeletePendingAggregationRequestRequest
+ *   RequesterAccountId: "STRING_VALUE", // required
+ *   RequesterAwsRegion: "STRING_VALUE", // required
+ * };
  * const command = new DeletePendingAggregationRequestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePendingAggregationRequestCommandInput - {@link DeletePendingAggregationRequestCommandInput}
+ * @returns {@link DeletePendingAggregationRequestCommandOutput}
  * @see {@link DeletePendingAggregationRequestCommandInput} for command's `input` shape.
  * @see {@link DeletePendingAggregationRequestCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -72,6 +80,9 @@ export class DeletePendingAggregationRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePendingAggregationRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +111,8 @@ export class DeletePendingAggregationRequestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePendingAggregationRequestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +122,24 @@ export class DeletePendingAggregationRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeletePendingAggregationRequestCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePendingAggregationRequestCommand(input, context);
+    return se_DeletePendingAggregationRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePendingAggregationRequestCommandOutput> {
-    return deserializeAws_json1_1DeletePendingAggregationRequestCommand(output, context);
+    return de_DeletePendingAggregationRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

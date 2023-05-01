@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetImpersonationRoleRequest,
-  GetImpersonationRoleRequestFilterSensitiveLog,
-  GetImpersonationRoleResponse,
-  GetImpersonationRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetImpersonationRoleCommand,
-  serializeAws_json1_1GetImpersonationRoleCommand,
-} from "../protocols/Aws_json1_1";
+import { GetImpersonationRoleRequest, GetImpersonationRoleResponse } from "../models/models_0";
+import { de_GetImpersonationRoleCommand, se_GetImpersonationRoleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetImpersonationRoleCommand}.
  */
 export interface GetImpersonationRoleCommandInput extends GetImpersonationRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetImpersonationRoleCommand}.
  */
 export interface GetImpersonationRoleCommandOutput extends GetImpersonationRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the impersonation role details for the given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetImpersonationRoleCommandOutput extends GetImpersonationRoleR
  * import { WorkMailClient, GetImpersonationRoleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetImpersonationRoleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // GetImpersonationRoleRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   ImpersonationRoleId: "STRING_VALUE", // required
+ * };
  * const command = new GetImpersonationRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetImpersonationRoleCommandInput - {@link GetImpersonationRoleCommandInput}
+ * @returns {@link GetImpersonationRoleCommandOutput}
  * @see {@link GetImpersonationRoleCommandInput} for command's `input` shape.
  * @see {@link GetImpersonationRoleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -83,6 +86,9 @@ export class GetImpersonationRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetImpersonationRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class GetImpersonationRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImpersonationRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImpersonationRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class GetImpersonationRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetImpersonationRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetImpersonationRoleCommand(input, context);
+    return se_GetImpersonationRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImpersonationRoleCommandOutput> {
-    return deserializeAws_json1_1GetImpersonationRoleCommand(output, context);
+    return de_GetImpersonationRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

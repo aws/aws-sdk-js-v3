@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import {
-  DeleteProjectRequest,
-  DeleteProjectRequestFilterSensitiveLog,
-  DeleteProjectResult,
-  DeleteProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteProjectCommand,
-  serializeAws_restJson1DeleteProjectCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteProjectRequest, DeleteProjectResult } from "../models/models_0";
+import { de_DeleteProjectCommand, se_DeleteProjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProjectCommand}.
  */
 export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProjectCommand}.
  */
 export interface DeleteProjectCommandOutput extends DeleteProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Delets a project in AWS Mobile Hub.
  *         </p>
@@ -44,10 +41,15 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * import { MobileClient, DeleteProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, DeleteProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = { // DeleteProjectRequest
+ *   projectId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
+ * @returns {@link DeleteProjectCommandOutput}
  * @see {@link DeleteProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
@@ -99,6 +101,9 @@ export class DeleteProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +130,8 @@ export class DeleteProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +141,18 @@ export class DeleteProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProjectCommand(input, context);
+    return se_DeleteProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectCommandOutput> {
-    return deserializeAws_restJson1DeleteProjectCommand(output, context);
+    return de_DeleteProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

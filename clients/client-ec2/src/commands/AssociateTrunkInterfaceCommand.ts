@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateTrunkInterfaceRequest,
-  AssociateTrunkInterfaceRequestFilterSensitiveLog,
-  AssociateTrunkInterfaceResult,
-  AssociateTrunkInterfaceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateTrunkInterfaceCommand,
-  serializeAws_ec2AssociateTrunkInterfaceCommand,
-} from "../protocols/Aws_ec2";
+import { AssociateTrunkInterfaceRequest, AssociateTrunkInterfaceResult } from "../models/models_0";
+import { de_AssociateTrunkInterfaceCommand, se_AssociateTrunkInterfaceCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTrunkInterfaceCommand}.
  */
 export interface AssociateTrunkInterfaceCommandInput extends AssociateTrunkInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTrunkInterfaceCommand}.
  */
 export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInterfaceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This API action is currently in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
@@ -48,10 +45,20 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * import { EC2Client, AssociateTrunkInterfaceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateTrunkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssociateTrunkInterfaceRequest
+ *   BranchInterfaceId: "STRING_VALUE", // required
+ *   TrunkInterfaceId: "STRING_VALUE", // required
+ *   VlanId: Number("int"),
+ *   GreKey: Number("int"),
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new AssociateTrunkInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTrunkInterfaceCommandInput - {@link AssociateTrunkInterfaceCommandInput}
+ * @returns {@link AssociateTrunkInterfaceCommandOutput}
  * @see {@link AssociateTrunkInterfaceCommandInput} for command's `input` shape.
  * @see {@link AssociateTrunkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +82,9 @@ export class AssociateTrunkInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTrunkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +113,8 @@ export class AssociateTrunkInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTrunkInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTrunkInterfaceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +124,18 @@ export class AssociateTrunkInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTrunkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateTrunkInterfaceCommand(input, context);
+    return se_AssociateTrunkInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTrunkInterfaceCommandOutput> {
-    return deserializeAws_ec2AssociateTrunkInterfaceCommand(output, context);
+    return de_AssociateTrunkInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

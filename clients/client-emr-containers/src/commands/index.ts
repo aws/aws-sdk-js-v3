@@ -10,6 +10,7 @@ export * from "./DescribeJobRunCommand";
 export * from "./DescribeJobTemplateCommand";
 export * from "./DescribeManagedEndpointCommand";
 export * from "./DescribeVirtualClusterCommand";
+export * from "./GetManagedEndpointSessionCredentialsCommand";
 export * from "./ListJobRunsCommand";
 export * from "./ListJobTemplatesCommand";
 export * from "./ListManagedEndpointsCommand";

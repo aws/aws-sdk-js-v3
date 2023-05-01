@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  GetConfigurationRequest,
-  GetConfigurationRequestFilterSensitiveLog,
-  GetConfigurationResponse,
-  GetConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConfigurationCommand,
-  serializeAws_restJson1GetConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetConfigurationRequest, GetConfigurationResponse } from "../models/models_0";
+import { de_GetConfigurationCommand, se_GetConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfigurationCommand}.
  */
 export interface GetConfigurationCommandInput extends GetConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConfigurationCommand}.
  */
 export interface GetConfigurationCommandOutput extends GetConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves setting configurations for Inspector scans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * import { Inspector2Client, GetConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, GetConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {};
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
+ * @returns {@link GetConfigurationCommandOutput}
  * @see {@link GetConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -78,6 +78,9 @@ export class GetConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +109,8 @@ export class GetConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +120,18 @@ export class GetConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConfigurationCommand(input, context);
+    return se_GetConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetConfigurationCommand(output, context);
+    return de_GetConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

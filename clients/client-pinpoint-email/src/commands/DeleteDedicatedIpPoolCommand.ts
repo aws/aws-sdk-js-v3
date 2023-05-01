@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDedicatedIpPoolRequest,
-  DeleteDedicatedIpPoolRequestFilterSensitiveLog,
-  DeleteDedicatedIpPoolResponse,
-  DeleteDedicatedIpPoolResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1DeleteDedicatedIpPoolCommand,
-  serializeAws_restJson1DeleteDedicatedIpPoolCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDedicatedIpPoolCommand, se_DeleteDedicatedIpPoolCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDedicatedIpPoolCommand}.
  */
 export interface DeleteDedicatedIpPoolCommandInput extends DeleteDedicatedIpPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDedicatedIpPoolCommand}.
  */
 export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a dedicated IP pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoo
  * import { PinpointEmailClient, DeleteDedicatedIpPoolCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, DeleteDedicatedIpPoolCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // DeleteDedicatedIpPoolRequest
+ *   PoolName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDedicatedIpPoolCommandInput - {@link DeleteDedicatedIpPoolCommandInput}
+ * @returns {@link DeleteDedicatedIpPoolCommandOutput}
  * @see {@link DeleteDedicatedIpPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteDedicatedIpPoolCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteDedicatedIpPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDedicatedIpPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteDedicatedIpPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDedicatedIpPoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDedicatedIpPoolResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteDedicatedIpPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDedicatedIpPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDedicatedIpPoolCommand(input, context);
+    return se_DeleteDedicatedIpPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDedicatedIpPoolCommandOutput> {
-    return deserializeAws_restJson1DeleteDedicatedIpPoolCommand(output, context);
+    return de_DeleteDedicatedIpPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

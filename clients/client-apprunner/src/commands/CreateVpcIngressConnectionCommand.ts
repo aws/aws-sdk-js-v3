@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  CreateVpcIngressConnectionRequest,
-  CreateVpcIngressConnectionRequestFilterSensitiveLog,
-  CreateVpcIngressConnectionResponse,
-  CreateVpcIngressConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateVpcIngressConnectionCommand,
-  serializeAws_json1_0CreateVpcIngressConnectionCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateVpcIngressConnectionRequest, CreateVpcIngressConnectionResponse } from "../models/models_0";
+import { de_CreateVpcIngressConnectionCommand, se_CreateVpcIngressConnectionCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpcIngressConnectionCommand}.
  */
 export interface CreateVpcIngressConnectionCommandInput extends CreateVpcIngressConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpcIngressConnectionCommand}.
  */
 export interface CreateVpcIngressConnectionCommandOutput extends CreateVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an App Runner VPC Ingress Connection resource. App Runner requires this resource when you want to associate your App Runner service with an Amazon VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface CreateVpcIngressConnectionCommandOutput extends CreateVpcIngres
  * import { AppRunnerClient, CreateVpcIngressConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, CreateVpcIngressConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // CreateVpcIngressConnectionRequest
+ *   ServiceArn: "STRING_VALUE", // required
+ *   VpcIngressConnectionName: "STRING_VALUE", // required
+ *   IngressVpcConfiguration: { // IngressVpcConfiguration
+ *     VpcId: "STRING_VALUE",
+ *     VpcEndpointId: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateVpcIngressConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpcIngressConnectionCommandInput - {@link CreateVpcIngressConnectionCommandInput}
+ * @returns {@link CreateVpcIngressConnectionCommandOutput}
  * @see {@link CreateVpcIngressConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -83,6 +96,9 @@ export class CreateVpcIngressConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpcIngressConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +127,8 @@ export class CreateVpcIngressConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcIngressConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcIngressConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,15 +138,21 @@ export class CreateVpcIngressConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpcIngressConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateVpcIngressConnectionCommand(input, context);
+    return se_CreateVpcIngressConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVpcIngressConnectionCommandOutput> {
-    return deserializeAws_json1_0CreateVpcIngressConnectionCommand(output, context);
+    return de_CreateVpcIngressConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DeleteEgressOnlyInternetGatewayRequest, DeleteEgressOnlyInternetGatewayResult } from "../models/models_2";
 import {
-  DeleteEgressOnlyInternetGatewayRequest,
-  DeleteEgressOnlyInternetGatewayRequestFilterSensitiveLog,
-  DeleteEgressOnlyInternetGatewayResult,
-  DeleteEgressOnlyInternetGatewayResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommand,
-  serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand,
+  de_DeleteEgressOnlyInternetGatewayCommand,
+  se_DeleteEgressOnlyInternetGatewayCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEgressOnlyInternetGatewayCommand}.
  */
 export interface DeleteEgressOnlyInternetGatewayCommandInput extends DeleteEgressOnlyInternetGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEgressOnlyInternetGatewayCommand}.
  */
 export interface DeleteEgressOnlyInternetGatewayCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteEgressOnlyInternetGatewayCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an egress-only internet gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DeleteEgressOnlyInternetGatewayCommandOutput
  * import { EC2Client, DeleteEgressOnlyInternetGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteEgressOnlyInternetGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteEgressOnlyInternetGatewayRequest
+ *   DryRun: true || false,
+ *   EgressOnlyInternetGatewayId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEgressOnlyInternetGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEgressOnlyInternetGatewayCommandInput - {@link DeleteEgressOnlyInternetGatewayCommandInput}
+ * @returns {@link DeleteEgressOnlyInternetGatewayCommandOutput}
  * @see {@link DeleteEgressOnlyInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteEgressOnlyInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +77,9 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEgressOnlyInternetGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +108,8 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEgressOnlyInternetGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEgressOnlyInternetGatewayResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +119,24 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteEgressOnlyInternetGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(input, context);
+    return se_DeleteEgressOnlyInternetGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEgressOnlyInternetGatewayCommandOutput> {
-    return deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(output, context);
+    return de_DeleteEgressOnlyInternetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

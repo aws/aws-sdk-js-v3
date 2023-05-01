@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  CreateAssessmentTemplateRequest,
-  CreateAssessmentTemplateRequestFilterSensitiveLog,
-  CreateAssessmentTemplateResponse,
-  CreateAssessmentTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAssessmentTemplateCommand,
-  serializeAws_json1_1CreateAssessmentTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAssessmentTemplateRequest, CreateAssessmentTemplateResponse } from "../models/models_0";
+import { de_CreateAssessmentTemplateCommand, se_CreateAssessmentTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssessmentTemplateCommand}.
  */
 export interface CreateAssessmentTemplateCommandInput extends CreateAssessmentTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssessmentTemplateCommand}.
  */
 export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an assessment template for the assessment target that is specified by the ARN
  *          of the assessment target. If the <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html">service-linked role</a> isn’t already registered, this action also creates and
  *          registers a service-linked role to grant Amazon Inspector access to AWS Services needed to
@@ -45,10 +42,26 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * import { InspectorClient, CreateAssessmentTemplateCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, CreateAssessmentTemplateCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // CreateAssessmentTemplateRequest
+ *   assessmentTargetArn: "STRING_VALUE", // required
+ *   assessmentTemplateName: "STRING_VALUE", // required
+ *   durationInSeconds: Number("int"), // required
+ *   rulesPackageArns: [ // AssessmentTemplateRulesPackageArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   userAttributesForFindings: [ // UserAttributeList
+ *     { // Attribute
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateAssessmentTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssessmentTemplateCommandInput - {@link CreateAssessmentTemplateCommandInput}
+ * @returns {@link CreateAssessmentTemplateCommandOutput}
  * @see {@link CreateAssessmentTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -120,6 +133,9 @@ export class CreateAssessmentTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssessmentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +164,8 @@ export class CreateAssessmentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAssessmentTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAssessmentTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +175,18 @@ export class CreateAssessmentTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssessmentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAssessmentTemplateCommand(input, context);
+    return se_CreateAssessmentTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssessmentTemplateCommandOutput> {
-    return deserializeAws_json1_1CreateAssessmentTemplateCommand(output, context);
+    return de_CreateAssessmentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

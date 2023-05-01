@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeReservedNodesMessage,
-  DescribeReservedNodesMessageFilterSensitiveLog,
-  ReservedNodesMessage,
-  ReservedNodesMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeReservedNodesCommand,
-  serializeAws_queryDescribeReservedNodesCommand,
-} from "../protocols/Aws_query";
+import { DescribeReservedNodesMessage, ReservedNodesMessage } from "../models/models_1";
+import { de_DescribeReservedNodesCommand, se_DescribeReservedNodesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedNodesCommand}.
  */
 export interface DescribeReservedNodesCommandInput extends DescribeReservedNodesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedNodesCommand}.
  */
 export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the descriptions of the reserved nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage
  * import { RedshiftClient, DescribeReservedNodesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeReservedNodesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeReservedNodesMessage
+ *   ReservedNodeId: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedNodesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedNodesCommandInput - {@link DescribeReservedNodesCommandInput}
+ * @returns {@link DescribeReservedNodesCommandOutput}
  * @see {@link DescribeReservedNodesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedNodesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -76,6 +80,9 @@ export class DescribeReservedNodesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedNodesCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class DescribeReservedNodesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedNodesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ReservedNodesMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class DescribeReservedNodesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReservedNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedNodesCommand(input, context);
+    return se_DescribeReservedNodesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReservedNodesCommandOutput> {
-    return deserializeAws_queryDescribeReservedNodesCommand(output, context);
+    return de_DescribeReservedNodesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import {
 import { ApplicationAutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ApplicationAutoScalingClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeScheduledActionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeScheduledActions(
   config: ApplicationAutoScalingPaginationConfiguration,
   input: DescribeScheduledActionsCommandInput,

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  BatchDeleteRecipeVersionRequest,
-  BatchDeleteRecipeVersionRequestFilterSensitiveLog,
-  BatchDeleteRecipeVersionResponse,
-  BatchDeleteRecipeVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDeleteRecipeVersionCommand,
-  serializeAws_restJson1BatchDeleteRecipeVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchDeleteRecipeVersionRequest, BatchDeleteRecipeVersionResponse } from "../models/models_0";
+import { de_BatchDeleteRecipeVersionCommand, se_BatchDeleteRecipeVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteRecipeVersionCommand}.
  */
 export interface BatchDeleteRecipeVersionCommandInput extends BatchDeleteRecipeVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteRecipeVersionCommand}.
  */
 export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipeVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more versions of a recipe at a time.</p>
  *          <p>The entire request will be rejected if:</p>
  *          <ul>
@@ -80,10 +77,18 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  * import { DataBrewClient, BatchDeleteRecipeVersionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, BatchDeleteRecipeVersionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // BatchDeleteRecipeVersionRequest
+ *   Name: "STRING_VALUE", // required
+ *   RecipeVersions: [ // RecipeVersionList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDeleteRecipeVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteRecipeVersionCommandInput - {@link BatchDeleteRecipeVersionCommandInput}
+ * @returns {@link BatchDeleteRecipeVersionCommandOutput}
  * @see {@link BatchDeleteRecipeVersionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteRecipeVersionCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -116,6 +121,9 @@ export class BatchDeleteRecipeVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteRecipeVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +152,8 @@ export class BatchDeleteRecipeVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteRecipeVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteRecipeVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +163,18 @@ export class BatchDeleteRecipeVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteRecipeVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteRecipeVersionCommand(input, context);
+    return se_BatchDeleteRecipeVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteRecipeVersionCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteRecipeVersionCommand(output, context);
+    return de_BatchDeleteRecipeVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

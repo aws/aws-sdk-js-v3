@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeRoutingProfileRequest,
-  DescribeRoutingProfileRequestFilterSensitiveLog,
-  DescribeRoutingProfileResponse,
-  DescribeRoutingProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRoutingProfileCommand,
-  serializeAws_restJson1DescribeRoutingProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRoutingProfileRequest, DescribeRoutingProfileResponse } from "../models/models_0";
+import { de_DescribeRoutingProfileCommand, se_DescribeRoutingProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRoutingProfileCommand}.
  */
 export interface DescribeRoutingProfileCommandInput extends DescribeRoutingProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRoutingProfileCommand}.
  */
 export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * import { ConnectClient, DescribeRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeRoutingProfileRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   RoutingProfileId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRoutingProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRoutingProfileCommandInput - {@link DescribeRoutingProfileCommandInput}
+ * @returns {@link DescribeRoutingProfileCommandOutput}
  * @see {@link DescribeRoutingProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeRoutingProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +87,9 @@ export class DescribeRoutingProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRoutingProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class DescribeRoutingProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRoutingProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRoutingProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class DescribeRoutingProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRoutingProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRoutingProfileCommand(input, context);
+    return se_DescribeRoutingProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRoutingProfileCommandOutput> {
-    return deserializeAws_restJson1DescribeRoutingProfileCommand(output, context);
+    return de_DescribeRoutingProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

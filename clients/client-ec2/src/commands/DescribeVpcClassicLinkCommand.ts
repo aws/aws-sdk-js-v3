@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVpcClassicLinkRequest,
-  DescribeVpcClassicLinkRequestFilterSensitiveLog,
-  DescribeVpcClassicLinkResult,
-  DescribeVpcClassicLinkResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2DescribeVpcClassicLinkCommand,
-  serializeAws_ec2DescribeVpcClassicLinkCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeVpcClassicLinkRequest, DescribeVpcClassicLinkResult } from "../models/models_5";
+import { de_DescribeVpcClassicLinkCommand, se_DescribeVpcClassicLinkCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcClassicLinkCommand}.
  */
 export interface DescribeVpcClassicLinkCommandInput extends DescribeVpcClassicLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcClassicLinkCommand}.
  */
 export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicLinkResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the ClassicLink status of one or more VPCs.</p>
  *          <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -45,10 +42,26 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
  * import { EC2Client, DescribeVpcClassicLinkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcClassicLinkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVpcClassicLinkRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   VpcIds: [ // VpcClassicLinkIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeVpcClassicLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcClassicLinkCommandInput - {@link DescribeVpcClassicLinkCommandInput}
+ * @returns {@link DescribeVpcClassicLinkCommandOutput}
  * @see {@link DescribeVpcClassicLinkCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcClassicLinkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +85,9 @@ export class DescribeVpcClassicLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcClassicLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +116,8 @@ export class DescribeVpcClassicLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcClassicLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcClassicLinkResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +127,18 @@ export class DescribeVpcClassicLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVpcClassicLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcClassicLinkCommand(input, context);
+    return se_DescribeVpcClassicLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcClassicLinkCommandOutput> {
-    return deserializeAws_ec2DescribeVpcClassicLinkCommand(output, context);
+    return de_DescribeVpcClassicLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,22 +18,18 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DescribeListenerCertificatesInput,
-  DescribeListenerCertificatesInputFilterSensitiveLog,
-  DescribeListenerCertificatesOutput,
-  DescribeListenerCertificatesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeListenerCertificatesCommand,
-  serializeAws_queryDescribeListenerCertificatesCommand,
-} from "../protocols/Aws_query";
+import { DescribeListenerCertificatesInput, DescribeListenerCertificatesOutput } from "../models/models_0";
+import { de_DescribeListenerCertificatesCommand, se_DescribeListenerCertificatesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeListenerCertificatesCommand}.
  */
 export interface DescribeListenerCertificatesCommandInput extends DescribeListenerCertificatesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeListenerCertificatesCommand}.
  */
 export interface DescribeListenerCertificatesCommandOutput
@@ -41,6 +37,7 @@ export interface DescribeListenerCertificatesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the default certificate and the certificate list for the specified HTTPS or TLS
  *       listener.</p>
  *          <p>If the default certificate is also in the certificate list, it appears twice in the
@@ -55,10 +52,17 @@ export interface DescribeListenerCertificatesCommandOutput
  * import { ElasticLoadBalancingV2Client, DescribeListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DescribeListenerCertificatesInput
+ *   ListenerArn: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new DescribeListenerCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeListenerCertificatesCommandInput - {@link DescribeListenerCertificatesCommandInput}
+ * @returns {@link DescribeListenerCertificatesCommandOutput}
  * @see {@link DescribeListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -85,6 +89,9 @@ export class DescribeListenerCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeListenerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class DescribeListenerCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeListenerCertificatesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeListenerCertificatesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +131,21 @@ export class DescribeListenerCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeListenerCertificatesCommand(input, context);
+    return se_DescribeListenerCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeListenerCertificatesCommandOutput> {
-    return deserializeAws_queryDescribeListenerCertificatesCommand(output, context);
+    return de_DescribeListenerCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

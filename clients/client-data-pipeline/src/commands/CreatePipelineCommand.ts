@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import {
-  CreatePipelineInput,
-  CreatePipelineInputFilterSensitiveLog,
-  CreatePipelineOutput,
-  CreatePipelineOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePipelineCommand,
-  serializeAws_json1_1CreatePipelineCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePipelineInput, CreatePipelineOutput } from "../models/models_0";
+import { de_CreatePipelineCommand, se_CreatePipelineCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePipelineCommand}.
  */
 export interface CreatePipelineCommandInput extends CreatePipelineInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePipelineCommand}.
  */
 export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.</p>
  *
  *         <examples>
@@ -48,9 +45,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"name": "myPipeline",
+ * \{"name": "myPipeline",
  *  "uniqueId": "123456789",
- *  "description": "This is my first pipeline"}
+ *  "description": "This is my first pipeline"\}
  *
  *             </request>
  *
@@ -62,7 +59,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * Content-Length: 40
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {"pipelineId": "df-06372391ZG65EXAMPLE"}
+ * \{"pipelineId": "df-06372391ZG65EXAMPLE"\}
  *
  *             </response>
  *         </examples>
@@ -72,10 +69,23 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * import { DataPipelineClient, CreatePipelineCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, CreatePipelineCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = { // CreatePipelineInput
+ *   name: "STRING_VALUE", // required
+ *   uniqueId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePipelineCommandInput - {@link CreatePipelineCommandInput}
+ * @returns {@link CreatePipelineCommandOutput}
  * @see {@link CreatePipelineCommandInput} for command's `input` shape.
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -105,6 +115,9 @@ export class CreatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +146,8 @@ export class CreatePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePipelineInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePipelineOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +157,18 @@ export class CreatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePipelineCommand(input, context);
+    return se_CreatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePipelineCommandOutput> {
-    return deserializeAws_json1_1CreatePipelineCommand(output, context);
+    return de_CreatePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

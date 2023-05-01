@@ -123,6 +123,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateAlertManagerDefinitionCommandInput
   | CreateLoggingConfigurationCommandInput
@@ -146,6 +149,9 @@ export type ServiceInputTypes =
   | UpdateLoggingConfigurationCommandInput
   | UpdateWorkspaceAliasCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateAlertManagerDefinitionCommandOutput
   | CreateLoggingConfigurationCommandOutput
@@ -169,6 +175,9 @@ export type ServiceOutputTypes =
   | UpdateLoggingConfigurationCommandOutput
   | UpdateWorkspaceAliasCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -176,7 +185,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -285,11 +294,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AmpClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -300,10 +312,15 @@ type AmpClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AmpClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AmpClient class constructor that set the region, credentials and other options.
  */
 export interface AmpClientConfig extends AmpClientConfigType {}
 
+/**
+ * @public
+ */
 type AmpClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -314,11 +331,14 @@ type AmpClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AmpClient class. This is resolved and normalized from the {@link AmpClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AmpClient class. This is resolved and normalized from the {@link AmpClientConfig | constructor configuration interface}.
  */
 export interface AmpClientResolvedConfig extends AmpClientResolvedConfigType {}
 
 /**
+ * @public
  * Amazon Managed Service for Prometheus
  */
 export class AmpClient extends __Client<

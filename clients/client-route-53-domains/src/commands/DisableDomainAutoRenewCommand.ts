@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisableDomainAutoRenewRequest,
-  DisableDomainAutoRenewRequestFilterSensitiveLog,
-  DisableDomainAutoRenewResponse,
-  DisableDomainAutoRenewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableDomainAutoRenewCommand,
-  serializeAws_json1_1DisableDomainAutoRenewCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableDomainAutoRenewRequest, DisableDomainAutoRenewResponse } from "../models/models_0";
+import { de_DisableDomainAutoRenewCommand, se_DisableDomainAutoRenewCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisableDomainAutoRenewCommand}.
  */
 export interface DisableDomainAutoRenewCommandInput extends DisableDomainAutoRenewRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableDomainAutoRenewCommand}.
  */
 export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRenewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation disables automatic renewal of domain registration for the specified
  * 			domain.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRe
  * import { Route53DomainsClient, DisableDomainAutoRenewCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, DisableDomainAutoRenewCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // DisableDomainAutoRenewRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DisableDomainAutoRenewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableDomainAutoRenewCommandInput - {@link DisableDomainAutoRenewCommandInput}
+ * @returns {@link DisableDomainAutoRenewCommandOutput}
  * @see {@link DisableDomainAutoRenewCommandInput} for command's `input` shape.
  * @see {@link DisableDomainAutoRenewCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -79,6 +81,9 @@ export class DisableDomainAutoRenewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableDomainAutoRenewCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class DisableDomainAutoRenewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableDomainAutoRenewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableDomainAutoRenewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class DisableDomainAutoRenewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableDomainAutoRenewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableDomainAutoRenewCommand(input, context);
+    return se_DisableDomainAutoRenewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableDomainAutoRenewCommandOutput> {
-    return deserializeAws_json1_1DisableDomainAutoRenewCommand(output, context);
+    return de_DisableDomainAutoRenewCommand(output, context);
   }
 
   // Start section: command_body_extra

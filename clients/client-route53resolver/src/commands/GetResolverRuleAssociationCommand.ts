@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResolverRuleAssociationRequest,
-  GetResolverRuleAssociationRequestFilterSensitiveLog,
-  GetResolverRuleAssociationResponse,
-  GetResolverRuleAssociationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetResolverRuleAssociationCommand,
-  serializeAws_json1_1GetResolverRuleAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetResolverRuleAssociationRequest, GetResolverRuleAssociationResponse } from "../models/models_0";
+import { de_GetResolverRuleAssociationCommand, se_GetResolverRuleAssociationCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetResolverRuleAssociationCommand}.
  */
 export interface GetResolverRuleAssociationCommandInput extends GetResolverRuleAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResolverRuleAssociationCommand}.
  */
 export interface GetResolverRuleAssociationCommandOutput extends GetResolverRuleAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an association between a specified Resolver rule and a VPC. You associate a Resolver rule and a VPC using
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html">AssociateResolverRule</a>. </p>
  * @example
@@ -43,10 +40,15 @@ export interface GetResolverRuleAssociationCommandOutput extends GetResolverRule
  * import { Route53ResolverClient, GetResolverRuleAssociationCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetResolverRuleAssociationCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // GetResolverRuleAssociationRequest
+ *   ResolverRuleAssociationId: "STRING_VALUE", // required
+ * };
  * const command = new GetResolverRuleAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResolverRuleAssociationCommandInput - {@link GetResolverRuleAssociationCommandInput}
+ * @returns {@link GetResolverRuleAssociationCommandOutput}
  * @see {@link GetResolverRuleAssociationCommandInput} for command's `input` shape.
  * @see {@link GetResolverRuleAssociationCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetResolverRuleAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResolverRuleAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetResolverRuleAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResolverRuleAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResolverRuleAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +126,21 @@ export class GetResolverRuleAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResolverRuleAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResolverRuleAssociationCommand(input, context);
+    return se_GetResolverRuleAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResolverRuleAssociationCommandOutput> {
-    return deserializeAws_json1_1GetResolverRuleAssociationCommand(output, context);
+    return de_GetResolverRuleAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateVpnConnectionRouteRequest, CreateVpnConnectionRouteRequestFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_ec2CreateVpnConnectionRouteCommand,
-  serializeAws_ec2CreateVpnConnectionRouteCommand,
-} from "../protocols/Aws_ec2";
+import { CreateVpnConnectionRouteRequest } from "../models/models_2";
+import { de_CreateVpnConnectionRouteCommand, se_CreateVpnConnectionRouteCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVpnConnectionRouteCommand}.
  */
 export interface CreateVpnConnectionRouteCommandInput extends CreateVpnConnectionRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVpnConnectionRouteCommand}.
  */
 export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a static route associated with a VPN connection between an existing virtual
  *             private gateway and a VPN customer gateway. The static route allows traffic to be routed
  *             from the virtual private gateway to the VPN customer gateway.</p>
@@ -41,10 +43,16 @@ export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * import { EC2Client, CreateVpnConnectionRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVpnConnectionRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateVpnConnectionRouteRequest
+ *   DestinationCidrBlock: "STRING_VALUE", // required
+ *   VpnConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new CreateVpnConnectionRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVpnConnectionRouteCommandInput - {@link CreateVpnConnectionRouteCommandInput}
+ * @returns {@link CreateVpnConnectionRouteCommandOutput}
  * @see {@link CreateVpnConnectionRouteCommandInput} for command's `input` shape.
  * @see {@link CreateVpnConnectionRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +76,9 @@ export class CreateVpnConnectionRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVpnConnectionRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +107,8 @@ export class CreateVpnConnectionRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpnConnectionRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +118,18 @@ export class CreateVpnConnectionRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVpnConnectionRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVpnConnectionRouteCommand(input, context);
+    return se_CreateVpnConnectionRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpnConnectionRouteCommandOutput> {
-    return deserializeAws_ec2CreateVpnConnectionRouteCommand(output, context);
+    return de_CreateVpnConnectionRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

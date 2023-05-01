@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { VerifyEmailAddressRequest, VerifyEmailAddressRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryVerifyEmailAddressCommand,
-  serializeAws_queryVerifyEmailAddressCommand,
-} from "../protocols/Aws_query";
+import { VerifyEmailAddressRequest } from "../models/models_0";
+import { de_VerifyEmailAddressCommand, se_VerifyEmailAddressCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link VerifyEmailAddressCommand}.
  */
 export interface VerifyEmailAddressCommandInput extends VerifyEmailAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link VerifyEmailAddressCommand}.
  */
 export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
  *             address.</p>
  * @example
@@ -38,10 +40,15 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * import { SESClient, VerifyEmailAddressCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, VerifyEmailAddressCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // VerifyEmailAddressRequest
+ *   EmailAddress: "STRING_VALUE", // required
+ * };
  * const command = new VerifyEmailAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param VerifyEmailAddressCommandInput - {@link VerifyEmailAddressCommandInput}
+ * @returns {@link VerifyEmailAddressCommandOutput}
  * @see {@link VerifyEmailAddressCommandInput} for command's `input` shape.
  * @see {@link VerifyEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -76,6 +83,9 @@ export class VerifyEmailAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyEmailAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +114,8 @@ export class VerifyEmailAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyEmailAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +125,18 @@ export class VerifyEmailAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyEmailAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryVerifyEmailAddressCommand(input, context);
+    return se_VerifyEmailAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyEmailAddressCommandOutput> {
-    return deserializeAws_queryVerifyEmailAddressCommand(output, context);
+    return de_VerifyEmailAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

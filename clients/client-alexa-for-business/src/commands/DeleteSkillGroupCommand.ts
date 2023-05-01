@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteSkillGroupRequest,
-  DeleteSkillGroupRequestFilterSensitiveLog,
-  DeleteSkillGroupResponse,
-  DeleteSkillGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSkillGroupCommand,
-  serializeAws_json1_1DeleteSkillGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteSkillGroupRequest, DeleteSkillGroupResponse } from "../models/models_0";
+import { de_DeleteSkillGroupCommand, se_DeleteSkillGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSkillGroupCommand}.
  */
 export interface DeleteSkillGroupCommandInput extends DeleteSkillGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSkillGroupCommand}.
  */
 export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a skill group by skill group ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
  * import { AlexaForBusinessClient, DeleteSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteSkillGroupRequest
+ *   SkillGroupArn: "STRING_VALUE",
+ * };
  * const command = new DeleteSkillGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSkillGroupCommandInput - {@link DeleteSkillGroupCommandInput}
+ * @returns {@link DeleteSkillGroupCommandOutput}
  * @see {@link DeleteSkillGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +77,9 @@ export class DeleteSkillGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSkillGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DeleteSkillGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSkillGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSkillGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DeleteSkillGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSkillGroupCommand(input, context);
+    return se_DeleteSkillGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSkillGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteSkillGroupCommand(output, context);
+    return de_DeleteSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

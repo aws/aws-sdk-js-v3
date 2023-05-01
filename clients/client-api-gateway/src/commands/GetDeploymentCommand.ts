@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  Deployment,
-  DeploymentFilterSensitiveLog,
-  GetDeploymentRequest,
-  GetDeploymentRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeploymentCommand,
-  serializeAws_restJson1GetDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { Deployment, GetDeploymentRequest } from "../models/models_0";
+import { de_GetDeploymentCommand, se_GetDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeploymentCommand}.
  */
 export interface GetDeploymentCommandInput extends GetDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeploymentCommand}.
  */
 export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Deployment resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * import { APIGatewayClient, GetDeploymentCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetDeploymentCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetDeploymentRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   deploymentId: "STRING_VALUE", // required
+ *   embed: [ // ListOfString
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeploymentCommandInput - {@link GetDeploymentCommandInput}
+ * @returns {@link GetDeploymentCommandOutput}
  * @see {@link GetDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -84,6 +90,9 @@ export class GetDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +119,8 @@ export class GetDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeploymentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +130,18 @@ export class GetDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeploymentCommand(input, context);
+    return se_GetDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentCommandOutput> {
-    return deserializeAws_restJson1GetDeploymentCommand(output, context);
+    return de_GetDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

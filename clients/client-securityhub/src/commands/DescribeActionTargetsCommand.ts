@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeActionTargetsRequest,
-  DescribeActionTargetsRequestFilterSensitiveLog,
-  DescribeActionTargetsResponse,
-  DescribeActionTargetsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeActionTargetsCommand,
-  serializeAws_restJson1DescribeActionTargetsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeActionTargetsRequest, DescribeActionTargetsResponse } from "../models/models_2";
+import { de_DescribeActionTargetsCommand, se_DescribeActionTargetsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeActionTargetsCommand}.
  */
 export interface DescribeActionTargetsCommandInput extends DescribeActionTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeActionTargetsCommand}.
  */
 export interface DescribeActionTargetsCommandOutput extends DescribeActionTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the custom action targets in Security Hub in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  * import { SecurityHubClient, DescribeActionTargetsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DescribeActionTargetsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DescribeActionTargetsRequest
+ *   ActionTargetArns: [ // ArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeActionTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeActionTargetsCommandInput - {@link DescribeActionTargetsCommandInput}
+ * @returns {@link DescribeActionTargetsCommandOutput}
  * @see {@link DescribeActionTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeActionTargetsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -63,6 +69,30 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ *
+ * @example To return custom action targets
+ * ```javascript
+ * // The following example returns a list of custom action targets. You use custom actions on findings and insights in Security Hub to trigger target actions in Amazon CloudWatch Events.
+ * const input = {
+ *   "ActionTargetArns": [
+ *     "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation"
+ *   ]
+ * };
+ * const command = new DescribeActionTargetsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ActionTargets": [
+ *     {
+ *       "ActionTargetArn": "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation",
+ *       "Description": "Action to send the finding for remediation tracking",
+ *       "Name": "Send to remediation"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-return-custom-action-targets-1675883682038
+ * ```
  *
  */
 export class DescribeActionTargetsCommand extends $Command<
@@ -82,6 +112,9 @@ export class DescribeActionTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActionTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +143,8 @@ export class DescribeActionTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeActionTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeActionTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +154,18 @@ export class DescribeActionTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActionTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeActionTargetsCommand(input, context);
+    return se_DescribeActionTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActionTargetsCommandOutput> {
-    return deserializeAws_restJson1DescribeActionTargetsCommand(output, context);
+    return de_DescribeActionTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

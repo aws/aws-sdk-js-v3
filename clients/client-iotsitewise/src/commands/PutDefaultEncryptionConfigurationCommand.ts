@@ -16,20 +16,22 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
   PutDefaultEncryptionConfigurationRequest,
-  PutDefaultEncryptionConfigurationRequestFilterSensitiveLog,
   PutDefaultEncryptionConfigurationResponse,
-  PutDefaultEncryptionConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutDefaultEncryptionConfigurationCommand,
-  serializeAws_restJson1PutDefaultEncryptionConfigurationCommand,
+  de_PutDefaultEncryptionConfigurationCommand,
+  se_PutDefaultEncryptionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDefaultEncryptionConfigurationCommand}.
  */
 export interface PutDefaultEncryptionConfigurationCommandInput extends PutDefaultEncryptionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDefaultEncryptionConfigurationCommand}.
  */
 export interface PutDefaultEncryptionConfigurationCommandOutput
@@ -37,6 +39,7 @@ export interface PutDefaultEncryptionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the default encryption configuration for the Amazon Web Services account. For more information, see
  *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in
  *       the <i>IoT SiteWise User Guide</i>.</p>
@@ -46,10 +49,16 @@ export interface PutDefaultEncryptionConfigurationCommandOutput
  * import { IoTSiteWiseClient, PutDefaultEncryptionConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, PutDefaultEncryptionConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // PutDefaultEncryptionConfigurationRequest
+ *   encryptionType: "SITEWISE_DEFAULT_ENCRYPTION" || "KMS_BASED_ENCRYPTION", // required
+ *   kmsKeyId: "STRING_VALUE",
+ * };
  * const command = new PutDefaultEncryptionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDefaultEncryptionConfigurationCommandInput - {@link PutDefaultEncryptionConfigurationCommandInput}
+ * @returns {@link PutDefaultEncryptionConfigurationCommandOutput}
  * @see {@link PutDefaultEncryptionConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutDefaultEncryptionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -96,6 +105,9 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDefaultEncryptionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +136,8 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDefaultEncryptionConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDefaultEncryptionConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +147,24 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutDefaultEncryptionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDefaultEncryptionConfigurationCommand(input, context);
+    return se_PutDefaultEncryptionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDefaultEncryptionConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutDefaultEncryptionConfigurationCommand(output, context);
+    return de_PutDefaultEncryptionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

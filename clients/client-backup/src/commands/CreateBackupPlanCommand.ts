@@ -18,23 +18,24 @@ import {
   CreateBackupPlanInput,
   CreateBackupPlanInputFilterSensitiveLog,
   CreateBackupPlanOutput,
-  CreateBackupPlanOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBackupPlanCommand,
-  serializeAws_restJson1CreateBackupPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBackupPlanCommand, se_CreateBackupPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBackupPlanCommand}.
  */
 export interface CreateBackupPlanCommandInput extends CreateBackupPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBackupPlanCommand}.
  */
 export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a
  *          document that contains information that Backup uses to schedule tasks that
  *          create recovery points for resources.</p>
@@ -46,10 +47,55 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  * import { BackupClient, CreateBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // CreateBackupPlanInput
+ *   BackupPlan: { // BackupPlanInput
+ *     BackupPlanName: "STRING_VALUE", // required
+ *     Rules: [ // BackupRulesInput // required
+ *       { // BackupRuleInput
+ *         RuleName: "STRING_VALUE", // required
+ *         TargetBackupVaultName: "STRING_VALUE", // required
+ *         ScheduleExpression: "STRING_VALUE",
+ *         StartWindowMinutes: Number("long"),
+ *         CompletionWindowMinutes: Number("long"),
+ *         Lifecycle: { // Lifecycle
+ *           MoveToColdStorageAfterDays: Number("long"),
+ *           DeleteAfterDays: Number("long"),
+ *         },
+ *         RecoveryPointTags: { // Tags
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         CopyActions: [ // CopyActions
+ *           { // CopyAction
+ *             Lifecycle: {
+ *               MoveToColdStorageAfterDays: Number("long"),
+ *               DeleteAfterDays: Number("long"),
+ *             },
+ *             DestinationBackupVaultArn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         EnableContinuousBackup: true || false,
+ *       },
+ *     ],
+ *     AdvancedBackupSettings: [ // AdvancedBackupSettings
+ *       { // AdvancedBackupSetting
+ *         ResourceType: "STRING_VALUE",
+ *         BackupOptions: { // BackupOptions
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   BackupPlanTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   CreatorRequestId: "STRING_VALUE",
+ * };
  * const command = new CreateBackupPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackupPlanCommandInput - {@link CreateBackupPlanCommandInput}
+ * @returns {@link CreateBackupPlanCommandOutput}
  * @see {@link CreateBackupPlanCommandInput} for command's `input` shape.
  * @see {@link CreateBackupPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -90,6 +136,9 @@ export class CreateBackupPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackupPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,7 +168,7 @@ export class CreateBackupPlanCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateBackupPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackupPlanOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +178,18 @@ export class CreateBackupPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackupPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBackupPlanCommand(input, context);
+    return se_CreateBackupPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupPlanCommandOutput> {
-    return deserializeAws_restJson1CreateBackupPlanCommand(output, context);
+    return de_CreateBackupPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

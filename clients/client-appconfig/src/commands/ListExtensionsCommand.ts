@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  Extensions,
-  ExtensionsFilterSensitiveLog,
-  ListExtensionsRequest,
-  ListExtensionsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExtensionsCommand,
-  serializeAws_restJson1ListExtensionsCommand,
-} from "../protocols/Aws_restJson1";
+import { Extensions, ListExtensionsRequest } from "../models/models_0";
+import { de_ListExtensionsCommand, se_ListExtensionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExtensionsCommand}.
  */
 export interface ListExtensionsCommandInput extends ListExtensionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExtensionsCommand}.
  */
 export interface ListExtensionsCommandOutput extends Extensions, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all custom and Amazon Web Services authored AppConfig extensions in the
  *          account. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
@@ -45,10 +42,17 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  * import { AppConfigClient, ListExtensionsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListExtensionsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // ListExtensionsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new ListExtensionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExtensionsCommandInput - {@link ListExtensionsCommandInput}
+ * @returns {@link ListExtensionsCommandOutput}
  * @see {@link ListExtensionsCommandInput} for command's `input` shape.
  * @see {@link ListExtensionsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListExtensionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExtensionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class ListExtensionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExtensionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtensionsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class ListExtensionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExtensionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExtensionsCommand(input, context);
+    return se_ListExtensionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExtensionsCommandOutput> {
-    return deserializeAws_restJson1ListExtensionsCommand(output, context);
+    return de_ListExtensionsCommand(output, context);
   }
 
   // Start section: command_body_extra

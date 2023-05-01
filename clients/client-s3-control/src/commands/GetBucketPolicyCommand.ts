@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketPolicyRequest,
-  GetBucketPolicyRequestFilterSensitiveLog,
-  GetBucketPolicyResult,
-  GetBucketPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketPolicyCommand,
-  serializeAws_restXmlGetBucketPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketPolicyRequest, GetBucketPolicyResult } from "../models/models_0";
+import { de_GetBucketPolicyCommand, se_GetBucketPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketPolicyCommand}.
  */
 export interface GetBucketPolicyCommandInput extends GetBucketPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketPolicyCommand}.
  */
 export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action gets a bucket policy for an Amazon S3 on Outposts bucket. To get a policy for
  *             an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html">GetBucketPolicy</a> in the
@@ -83,10 +80,16 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __M
  * import { S3ControlClient, GetBucketPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetBucketPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetBucketPolicyRequest
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ * };
  * const command = new GetBucketPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketPolicyCommandInput - {@link GetBucketPolicyCommandInput}
+ * @returns {@link GetBucketPolicyCommandOutput}
  * @see {@link GetBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link GetBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -114,6 +117,9 @@ export class GetBucketPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +149,8 @@ export class GetBucketPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +160,18 @@ export class GetBucketPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketPolicyCommand(input, context);
+    return se_GetBucketPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketPolicyCommandOutput> {
-    return deserializeAws_restXmlGetBucketPolicyCommand(output, context);
+    return de_GetBucketPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

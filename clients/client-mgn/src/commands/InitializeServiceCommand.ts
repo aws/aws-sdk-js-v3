@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  InitializeServiceRequest,
-  InitializeServiceRequestFilterSensitiveLog,
-  InitializeServiceResponse,
-  InitializeServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1InitializeServiceCommand,
-  serializeAws_restJson1InitializeServiceCommand,
-} from "../protocols/Aws_restJson1";
+import { InitializeServiceRequest, InitializeServiceResponse } from "../models/models_0";
+import { de_InitializeServiceCommand, se_InitializeServiceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InitializeServiceCommand}.
  */
 export interface InitializeServiceCommandInput extends InitializeServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link InitializeServiceCommand}.
  */
 export interface InitializeServiceCommandOutput extends InitializeServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initialize Application Migration Service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * import { MgnClient, InitializeServiceCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, InitializeServiceCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {};
  * const command = new InitializeServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InitializeServiceCommandInput - {@link InitializeServiceCommandInput}
+ * @returns {@link InitializeServiceCommandOutput}
  * @see {@link InitializeServiceCommandInput} for command's `input` shape.
  * @see {@link InitializeServiceCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -75,6 +75,9 @@ export class InitializeServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitializeServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +106,8 @@ export class InitializeServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InitializeServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InitializeServiceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +117,18 @@ export class InitializeServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitializeServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InitializeServiceCommand(input, context);
+    return se_InitializeServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitializeServiceCommandOutput> {
-    return deserializeAws_restJson1InitializeServiceCommand(output, context);
+    return de_InitializeServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

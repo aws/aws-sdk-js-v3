@@ -17,24 +17,25 @@ import {
   UntagResourceRequest,
   UntagResourceRequestFilterSensitiveLog,
   UntagResourceResponse,
-  UntagResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UntagResourceCommand,
-  serializeAws_restJson1UntagResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandInput extends UntagResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagResourceCommand}.
  */
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes one or more tags from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,18 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { WorkSpacesWebClient, UntagResourceCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UntagResourceCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // UntagResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +93,9 @@ export class UntagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,7 +123,7 @@ export class UntagResourceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +133,18 @@ export class UntagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagResourceCommand(input, context);
+    return se_UntagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
-    return deserializeAws_restJson1UntagResourceCommand(output, context);
+    return de_UntagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

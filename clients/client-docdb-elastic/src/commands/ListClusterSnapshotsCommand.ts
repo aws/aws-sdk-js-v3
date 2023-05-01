@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import {
-  ListClusterSnapshotsInput,
-  ListClusterSnapshotsInputFilterSensitiveLog,
-  ListClusterSnapshotsOutput,
-  ListClusterSnapshotsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListClusterSnapshotsCommand,
-  serializeAws_restJson1ListClusterSnapshotsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListClusterSnapshotsInput, ListClusterSnapshotsOutput } from "../models/models_0";
+import { de_ListClusterSnapshotsCommand, se_ListClusterSnapshotsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListClusterSnapshotsCommand}.
  */
 export interface ListClusterSnapshotsCommandInput extends ListClusterSnapshotsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListClusterSnapshotsCommand}.
  */
 export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about Elastic DocumentDB snapshots for a specified cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsO
  * import { DocDBElasticClient, ListClusterSnapshotsCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, ListClusterSnapshotsCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
+ * const input = { // ListClusterSnapshotsInput
+ *   clusterArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListClusterSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClusterSnapshotsCommandInput - {@link ListClusterSnapshotsCommandInput}
+ * @returns {@link ListClusterSnapshotsCommandOutput}
  * @see {@link ListClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link ListClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
@@ -81,6 +85,9 @@ export class ListClusterSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClusterSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class ListClusterSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClusterSnapshotsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClusterSnapshotsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class ListClusterSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListClusterSnapshotsCommand(input, context);
+    return se_ListClusterSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClusterSnapshotsCommandOutput> {
-    return deserializeAws_restJson1ListClusterSnapshotsCommand(output, context);
+    return de_ListClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

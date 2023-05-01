@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLexiconInput,
-  GetLexiconInputFilterSensitiveLog,
-  GetLexiconOutput,
-  GetLexiconOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLexiconInput, GetLexiconOutput, GetLexiconOutputFilterSensitiveLog } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1GetLexiconCommand,
-  serializeAws_restJson1GetLexiconCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLexiconCommand, se_GetLexiconCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLexiconCommand}.
  */
 export interface GetLexiconCommandInput extends GetLexiconInput {}
 /**
+ * @public
+ *
  * The output of {@link GetLexiconCommand}.
  */
 export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the content of the specified pronunciation lexicon stored
  *       in an Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  * import { PollyClient, GetLexiconCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, GetLexiconCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
+ * const input = { // GetLexiconInput
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetLexiconCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLexiconCommandInput - {@link GetLexiconCommandInput}
+ * @returns {@link GetLexiconCommandOutput}
  * @see {@link GetLexiconCommandInput} for command's `input` shape.
  * @see {@link GetLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
@@ -107,6 +109,9 @@ export class GetLexiconCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLexiconCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,7 +138,7 @@ export class GetLexiconCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLexiconInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetLexiconOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -144,12 +149,18 @@ export class GetLexiconCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLexiconCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLexiconCommand(input, context);
+    return se_GetLexiconCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLexiconCommandOutput> {
-    return deserializeAws_restJson1GetLexiconCommand(output, context);
+    return de_GetLexiconCommand(output, context);
   }
 
   // Start section: command_body_extra

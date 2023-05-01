@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  RegisterCertificateRequest,
-  RegisterCertificateRequestFilterSensitiveLog,
-  RegisterCertificateResponse,
-  RegisterCertificateResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1RegisterCertificateCommand,
-  serializeAws_restJson1RegisterCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { RegisterCertificateRequest, RegisterCertificateResponse } from "../models/models_2";
+import { de_RegisterCertificateCommand, se_RegisterCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterCertificateCommand}.
  */
 export interface RegisterCertificateCommandInput extends RegisterCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterCertificateCommand}.
  */
 export interface RegisterCertificateCommandOutput extends RegisterCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a device certificate with IoT in the same <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode">certificate mode</a> as the signing CA. If you have more than one CA certificate that has the same subject field, you must
  *          specify the CA certificate that was used to sign the device certificate being
  *          registered.</p>
@@ -45,10 +42,18 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * import { IoTClient, RegisterCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RegisterCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // RegisterCertificateRequest
+ *   certificatePem: "STRING_VALUE", // required
+ *   caCertificatePem: "STRING_VALUE",
+ *   setAsActive: true || false,
+ *   status: "ACTIVE" || "INACTIVE" || "REVOKED" || "PENDING_TRANSFER" || "REGISTER_INACTIVE" || "PENDING_ACTIVATION",
+ * };
  * const command = new RegisterCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterCertificateCommandInput - {@link RegisterCertificateCommandInput}
+ * @returns {@link RegisterCertificateCommandOutput}
  * @see {@link RegisterCertificateCommandInput} for command's `input` shape.
  * @see {@link RegisterCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -101,6 +106,9 @@ export class RegisterCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +137,8 @@ export class RegisterCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +148,18 @@ export class RegisterCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterCertificateCommand(input, context);
+    return se_RegisterCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterCertificateCommandOutput> {
-    return deserializeAws_restJson1RegisterCertificateCommand(output, context);
+    return de_RegisterCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

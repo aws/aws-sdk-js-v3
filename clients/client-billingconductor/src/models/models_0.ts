@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { BillingconductorServiceException as __BaseException } from "./BillingconductorServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.
  *     </p>
  */
@@ -26,6 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> A representation of a linked account. </p>
  */
 export interface AccountAssociationsListElement {
@@ -57,6 +59,7 @@ export interface AccountAssociationsListElement {
 }
 
 /**
+ * @public
  * <p>
  *      The set of accounts that will be under the billing group. The set of accounts resemble the linked accounts in a consolidated family.
  *     </p>
@@ -70,6 +73,9 @@ export interface AccountGrouping {
   LinkedAccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateAccountsInput {
   /**
    * <p> The Amazon Resource Name (ARN) of the billing group that associates the array of
@@ -85,6 +91,9 @@ export interface AssociateAccountsInput {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateAccountsOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the billing group that associates the array of
@@ -93,15 +102,25 @@ export interface AssociateAccountsOutput {
   Arn?: string;
 }
 
-export enum ConflictExceptionReason {
-  PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT = "PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT",
-  PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT = "PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT",
-  PRICING_RULE_IN_PRICING_PLAN_CONFLICT = "PRICING_RULE_IN_PRICING_PLAN_CONFLICT",
-  RESOURCE_NAME_CONFLICT = "RESOURCE_NAME_CONFLICT",
-  WRITE_CONFLICT_RETRY = "WRITE_CONFLICT_RETRY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConflictExceptionReason = {
+  PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT: "PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT",
+  PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT: "PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT",
+  PRICING_RULE_IN_PRICING_PLAN_CONFLICT: "PRICING_RULE_IN_PRICING_PLAN_CONFLICT",
+  RESOURCE_NAME_CONFLICT: "RESOURCE_NAME_CONFLICT",
+  WRITE_CONFLICT_RETRY: "WRITE_CONFLICT_RETRY",
+} as const;
 
 /**
+ * @public
+ */
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
+
+/**
+ * @public
  * <p>You can cause an inconsistent state by updating or deleting a resource.
  *     </p>
  */
@@ -144,6 +163,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An unexpected error occurred while processing a request.
  *     </p>
  */
@@ -172,6 +192,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request references a resource that doesn't exist.
  *     </p>
  */
@@ -207,6 +228,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would cause a service limit to exceed.
  *     </p>
  */
@@ -256,6 +278,7 @@ export class ServiceLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.
  *     </p>
  */
@@ -284,6 +307,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The field's information of a request that resulted in an exception.
  *     </p>
  */
@@ -301,67 +325,77 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  ACCOUNTS_ALREADY_ASSOCIATED = "ACCOUNTS_ALREADY_ASSOCIATED",
-  ACCOUNTS_NOT_ASSOCIATED = "ACCOUNTS_NOT_ASSOCIATED",
-  CANNOT_PARSE = "CANNOT_PARSE",
-  CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS = "CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS",
-  DUPLICATE_ACCOUNT = "DUPLICATE_ACCOUNT",
-  DUPLICATE_PRICINGRULE_ARNS = "DUPLICATE_PRICINGRULE_ARNS",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  ILLEGAL_ACCOUNTS = "ILLEGAL_ACCOUNTS",
-  ILLEGAL_BILLING_ENTITY = "ILLEGAL_BILLING_ENTITY",
-  ILLEGAL_BILLING_PERIOD = "ILLEGAL_BILLING_PERIOD",
-  ILLEGAL_BILLING_PERIOD_RANGE = "ILLEGAL_BILLING_PERIOD_RANGE",
-  ILLEGAL_CHARGE_DETAILS = "ILLEGAL_CHARGE_DETAILS",
-  ILLEGAL_CHILD_ASSOCIATE_RESOURCE = "ILLEGAL_CHILD_ASSOCIATE_RESOURCE",
-  ILLEGAL_CUSTOMLINEITEM = "ILLEGAL_CUSTOMLINEITEM",
-  ILLEGAL_CUSTOMLINEITEM_MODIFICATION = "ILLEGAL_CUSTOMLINEITEM_MODIFICATION",
-  ILLEGAL_CUSTOMLINEITEM_UPDATE = "ILLEGAL_CUSTOMLINEITEM_UPDATE",
-  ILLEGAL_ENDED_BILLINGGROUP = "ILLEGAL_ENDED_BILLINGGROUP",
-  ILLEGAL_EXPRESSION = "ILLEGAL_EXPRESSION",
-  ILLEGAL_MODIFIER_PERCENTAGE = "ILLEGAL_MODIFIER_PERCENTAGE",
-  ILLEGAL_OPERATION = "ILLEGAL_OPERATION",
-  ILLEGAL_PRIMARY_ACCOUNT = "ILLEGAL_PRIMARY_ACCOUNT",
-  ILLEGAL_RESOURCE_ARNS = "ILLEGAL_RESOURCE_ARNS",
-  ILLEGAL_SCOPE = "ILLEGAL_SCOPE",
-  ILLEGAL_SERVICE = "ILLEGAL_SERVICE",
-  ILLEGAL_TIERING_INPUT = "ILLEGAL_TIERING_INPUT",
-  ILLEGAL_TYPE = "ILLEGAL_TYPE",
-  ILLEGAL_UPDATE_CHARGE_DETAILS = "ILLEGAL_UPDATE_CHARGE_DETAILS",
-  ILLEGAL_USAGE_TYPE = "ILLEGAL_USAGE_TYPE",
-  INVALID_ARN = "INVALID_ARN",
-  INVALID_BILLINGVIEW_ARN = "INVALID_BILLINGVIEW_ARN",
-  INVALID_BILLING_GROUP = "INVALID_BILLING_GROUP",
-  INVALID_BILLING_GROUP_STATUS = "INVALID_BILLING_GROUP_STATUS",
-  INVALID_BILLING_PERIOD_FOR_OPERATION = "INVALID_BILLING_PERIOD_FOR_OPERATION",
-  INVALID_FILTER = "INVALID_FILTER",
-  INVALID_SKU_COMBO = "INVALID_SKU_COMBO",
-  INVALID_TIME_RANGE = "INVALID_TIME_RANGE",
-  MISMATCHED_BILLINGGROUP_ARN = "MISMATCHED_BILLINGGROUP_ARN",
-  MISMATCHED_BILLINGVIEW_ARN = "MISMATCHED_BILLINGVIEW_ARN",
-  MISMATCHED_CUSTOMLINEITEM_ARN = "MISMATCHED_CUSTOMLINEITEM_ARN",
-  MISMATCHED_PRICINGPLAN_ARN = "MISMATCHED_PRICINGPLAN_ARN",
-  MISMATCHED_PRICINGRULE_ARN = "MISMATCHED_PRICINGRULE_ARN",
-  MISSING_BILLINGGROUP = "MISSING_BILLINGGROUP",
-  MISSING_CUSTOMLINEITEM = "MISSING_CUSTOMLINEITEM",
-  MISSING_LINKED_ACCOUNT_IDS = "MISSING_LINKED_ACCOUNT_IDS",
-  MISSING_PRICINGPLAN = "MISSING_PRICINGPLAN",
-  MISSING_PRICING_PLAN_ARN = "MISSING_PRICING_PLAN_ARN",
-  MULTIPLE_LINKED_ACCOUNT_IDS = "MULTIPLE_LINKED_ACCOUNT_IDS",
-  MULTIPLE_PRICING_PLAN_ARN = "MULTIPLE_PRICING_PLAN_ARN",
-  OTHER = "OTHER",
-  PRICINGRULES_ALREADY_ASSOCIATED = "PRICINGRULES_ALREADY_ASSOCIATED",
-  PRICINGRULES_NOT_ASSOCIATED = "PRICINGRULES_NOT_ASSOCIATED",
-  PRICINGRULES_NOT_EXIST = "PRICINGRULES_NOT_EXIST",
-  PRIMARY_CANNOT_DISASSOCIATE = "PRIMARY_CANNOT_DISASSOCIATE",
-  PRIMARY_NOT_ASSOCIATED = "PRIMARY_NOT_ASSOCIATED",
-  TOO_MANY_ACCOUNTS_IN_REQUEST = "TOO_MANY_ACCOUNTS_IN_REQUEST",
-  TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST = "TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  ACCOUNTS_ALREADY_ASSOCIATED: "ACCOUNTS_ALREADY_ASSOCIATED",
+  ACCOUNTS_NOT_ASSOCIATED: "ACCOUNTS_NOT_ASSOCIATED",
+  CANNOT_PARSE: "CANNOT_PARSE",
+  CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS: "CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS",
+  DUPLICATE_ACCOUNT: "DUPLICATE_ACCOUNT",
+  DUPLICATE_PRICINGRULE_ARNS: "DUPLICATE_PRICINGRULE_ARNS",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  ILLEGAL_ACCOUNTS: "ILLEGAL_ACCOUNTS",
+  ILLEGAL_BILLING_ENTITY: "ILLEGAL_BILLING_ENTITY",
+  ILLEGAL_BILLING_PERIOD: "ILLEGAL_BILLING_PERIOD",
+  ILLEGAL_BILLING_PERIOD_RANGE: "ILLEGAL_BILLING_PERIOD_RANGE",
+  ILLEGAL_CHARGE_DETAILS: "ILLEGAL_CHARGE_DETAILS",
+  ILLEGAL_CHILD_ASSOCIATE_RESOURCE: "ILLEGAL_CHILD_ASSOCIATE_RESOURCE",
+  ILLEGAL_CUSTOMLINEITEM: "ILLEGAL_CUSTOMLINEITEM",
+  ILLEGAL_CUSTOMLINEITEM_MODIFICATION: "ILLEGAL_CUSTOMLINEITEM_MODIFICATION",
+  ILLEGAL_CUSTOMLINEITEM_UPDATE: "ILLEGAL_CUSTOMLINEITEM_UPDATE",
+  ILLEGAL_ENDED_BILLINGGROUP: "ILLEGAL_ENDED_BILLINGGROUP",
+  ILLEGAL_EXPRESSION: "ILLEGAL_EXPRESSION",
+  ILLEGAL_MODIFIER_PERCENTAGE: "ILLEGAL_MODIFIER_PERCENTAGE",
+  ILLEGAL_OPERATION: "ILLEGAL_OPERATION",
+  ILLEGAL_PRIMARY_ACCOUNT: "ILLEGAL_PRIMARY_ACCOUNT",
+  ILLEGAL_RESOURCE_ARNS: "ILLEGAL_RESOURCE_ARNS",
+  ILLEGAL_SCOPE: "ILLEGAL_SCOPE",
+  ILLEGAL_SERVICE: "ILLEGAL_SERVICE",
+  ILLEGAL_TIERING_INPUT: "ILLEGAL_TIERING_INPUT",
+  ILLEGAL_TYPE: "ILLEGAL_TYPE",
+  ILLEGAL_UPDATE_CHARGE_DETAILS: "ILLEGAL_UPDATE_CHARGE_DETAILS",
+  ILLEGAL_USAGE_TYPE: "ILLEGAL_USAGE_TYPE",
+  INVALID_ARN: "INVALID_ARN",
+  INVALID_BILLINGVIEW_ARN: "INVALID_BILLINGVIEW_ARN",
+  INVALID_BILLING_GROUP: "INVALID_BILLING_GROUP",
+  INVALID_BILLING_GROUP_STATUS: "INVALID_BILLING_GROUP_STATUS",
+  INVALID_BILLING_PERIOD_FOR_OPERATION: "INVALID_BILLING_PERIOD_FOR_OPERATION",
+  INVALID_FILTER: "INVALID_FILTER",
+  INVALID_SKU_COMBO: "INVALID_SKU_COMBO",
+  INVALID_TIME_RANGE: "INVALID_TIME_RANGE",
+  MISMATCHED_BILLINGGROUP_ARN: "MISMATCHED_BILLINGGROUP_ARN",
+  MISMATCHED_BILLINGVIEW_ARN: "MISMATCHED_BILLINGVIEW_ARN",
+  MISMATCHED_CUSTOMLINEITEM_ARN: "MISMATCHED_CUSTOMLINEITEM_ARN",
+  MISMATCHED_PRICINGPLAN_ARN: "MISMATCHED_PRICINGPLAN_ARN",
+  MISMATCHED_PRICINGRULE_ARN: "MISMATCHED_PRICINGRULE_ARN",
+  MISSING_BILLINGGROUP: "MISSING_BILLINGGROUP",
+  MISSING_CUSTOMLINEITEM: "MISSING_CUSTOMLINEITEM",
+  MISSING_LINKED_ACCOUNT_IDS: "MISSING_LINKED_ACCOUNT_IDS",
+  MISSING_PRICINGPLAN: "MISSING_PRICINGPLAN",
+  MISSING_PRICING_PLAN_ARN: "MISSING_PRICING_PLAN_ARN",
+  MULTIPLE_LINKED_ACCOUNT_IDS: "MULTIPLE_LINKED_ACCOUNT_IDS",
+  MULTIPLE_PRICING_PLAN_ARN: "MULTIPLE_PRICING_PLAN_ARN",
+  OTHER: "OTHER",
+  PRICINGRULES_ALREADY_ASSOCIATED: "PRICINGRULES_ALREADY_ASSOCIATED",
+  PRICINGRULES_NOT_ASSOCIATED: "PRICINGRULES_NOT_ASSOCIATED",
+  PRICINGRULES_NOT_EXIST: "PRICINGRULES_NOT_EXIST",
+  PRIMARY_CANNOT_DISASSOCIATE: "PRIMARY_CANNOT_DISASSOCIATE",
+  PRIMARY_NOT_ASSOCIATED: "PRIMARY_NOT_ASSOCIATED",
+  TOO_MANY_ACCOUNTS_IN_REQUEST: "TOO_MANY_ACCOUNTS_IN_REQUEST",
+  TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST: "TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  */
 export class ValidationException extends __BaseException {
@@ -395,6 +429,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociatePricingRulesInput {
   /**
    * <p>
@@ -411,6 +448,9 @@ export interface AssociatePricingRulesInput {
   PricingRuleArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociatePricingRulesOutput {
   /**
    * <p>
@@ -420,15 +460,26 @@ export interface AssociatePricingRulesOutput {
   Arn?: string;
 }
 
-export enum AssociateResourceErrorReason {
-  ILLEGAL_CUSTOMLINEITEM = "ILLEGAL_CUSTOMLINEITEM",
-  INTERNAL_SERVER_EXCEPTION = "INTERNAL_SERVER_EXCEPTION",
-  INVALID_ARN = "INVALID_ARN",
-  INVALID_BILLING_PERIOD_RANGE = "INVALID_BILLING_PERIOD_RANGE",
-  SERVICE_LIMIT_EXCEEDED = "SERVICE_LIMIT_EXCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssociateResourceErrorReason = {
+  ILLEGAL_CUSTOMLINEITEM: "ILLEGAL_CUSTOMLINEITEM",
+  INTERNAL_SERVER_EXCEPTION: "INTERNAL_SERVER_EXCEPTION",
+  INVALID_ARN: "INVALID_ARN",
+  INVALID_BILLING_PERIOD_RANGE: "INVALID_BILLING_PERIOD_RANGE",
+  SERVICE_LIMIT_EXCEEDED: "SERVICE_LIMIT_EXCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type AssociateResourceErrorReason =
+  (typeof AssociateResourceErrorReason)[keyof typeof AssociateResourceErrorReason];
+
+/**
+ * @public
  * <p>
  *       A representation of a resource association error.
  *     </p>
@@ -446,6 +497,7 @@ export interface AssociateResourceError {
 }
 
 /**
+ * @public
  * <p>
  *       A resource association result for a percentage custom line item.
  *     </p>
@@ -467,6 +519,7 @@ export interface AssociateResourceResponseElement {
 }
 
 /**
+ * @public
  * <p>
  *       The preferences and settings that will be used to compute the Amazon Web Services charges for a billing group.
  *     </p>
@@ -478,6 +531,9 @@ export interface ComputationPreference {
   PricingPlanArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBillingGroupInput {
   /**
    * <p>
@@ -524,6 +580,9 @@ export interface CreateBillingGroupInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateBillingGroupOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the created billing group. </p>
@@ -531,6 +590,9 @@ export interface CreateBillingGroupOutput {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBillingGroupInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the billing group that you're deleting.</p>
@@ -538,6 +600,9 @@ export interface DeleteBillingGroupInput {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBillingGroupOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted billing group.</p>
@@ -545,6 +610,9 @@ export interface DeleteBillingGroupOutput {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateAccountsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the billing group that the array of account IDs will
@@ -559,6 +627,9 @@ export interface DisassociateAccountsInput {
   AccountIds: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateAccountsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the billing group that the array of account IDs is
@@ -567,12 +638,22 @@ export interface DisassociateAccountsOutput {
   Arn?: string;
 }
 
-export enum BillingGroupStatus {
-  ACTIVE = "ACTIVE",
-  PRIMARY_ACCOUNT_MISSING = "PRIMARY_ACCOUNT_MISSING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BillingGroupStatus = {
+  ACTIVE: "ACTIVE",
+  PRIMARY_ACCOUNT_MISSING: "PRIMARY_ACCOUNT_MISSING",
+} as const;
 
 /**
+ * @public
+ */
+export type BillingGroupStatus = (typeof BillingGroupStatus)[keyof typeof BillingGroupStatus];
+
+/**
+ * @public
  * <p>The filter that specifies the billing groups and pricing plans to retrieve billing group information.
  *     </p>
  */
@@ -595,6 +676,9 @@ export interface ListBillingGroupsFilter {
   Statuses?: (BillingGroupStatus | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListBillingGroupsInput {
   /**
    * <p>The preferred billing period to get billing groups.
@@ -622,6 +706,7 @@ export interface ListBillingGroupsInput {
 }
 
 /**
+ * @public
  * <p>A representation of a billing group.
  *     </p>
  */
@@ -685,6 +770,9 @@ export interface BillingGroupListElement {
   StatusReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBillingGroupsOutput {
   /**
    * <p>A list of <code>BillingGroupListElement</code> retrieved.
@@ -699,6 +787,9 @@ export interface ListBillingGroupsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBillingGroupInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the billing group being updated. </p>
@@ -731,6 +822,9 @@ export interface UpdateBillingGroupInput {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBillingGroupOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the billing group that was updated. </p>
@@ -794,6 +888,7 @@ export interface UpdateBillingGroupOutput {
 }
 
 /**
+ * @public
  * <p>
  *       The billing period range in which the custom line item request will be applied.
  *     </p>
@@ -814,6 +909,9 @@ export interface CustomLineItemBillingPeriodRange {
   ExclusiveEndBillingPeriod?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateResourcesToCustomLineItemInput {
   /**
    * <p>
@@ -837,6 +935,9 @@ export interface BatchAssociateResourcesToCustomLineItemInput {
   BillingPeriodRange?: CustomLineItemBillingPeriodRange;
 }
 
+/**
+ * @public
+ */
 export interface BatchAssociateResourcesToCustomLineItemOutput {
   /**
    * <p>
@@ -853,6 +954,9 @@ export interface BatchAssociateResourcesToCustomLineItemOutput {
   FailedAssociatedResources?: AssociateResourceResponseElement[];
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateResourcesFromCustomLineItemInput {
   /**
    * <p>
@@ -877,6 +981,7 @@ export interface BatchDisassociateResourcesFromCustomLineItemInput {
 }
 
 /**
+ * @public
  * <p>
  *       A resource disassociation result for a percentage custom line item.
  *     </p>
@@ -895,6 +1000,9 @@ export interface DisassociateResourceResponseElement {
   Error?: AssociateResourceError;
 }
 
+/**
+ * @public
+ */
 export interface BatchDisassociateResourcesFromCustomLineItemOutput {
   /**
    * <p>
@@ -912,6 +1020,7 @@ export interface BatchDisassociateResourcesFromCustomLineItemOutput {
 }
 
 /**
+ * @public
  * <p>
  *       A representation of the charge details that are associated with a flat custom line item.
  *     </p>
@@ -926,6 +1035,7 @@ export interface CustomLineItemFlatChargeDetails {
 }
 
 /**
+ * @public
  * <p>
  *       A representation of the charge details that are associated with a percentage custom line item.
  *     </p>
@@ -946,12 +1056,22 @@ export interface CustomLineItemPercentageChargeDetails {
   AssociatedValues?: string[];
 }
 
-export enum CustomLineItemType {
-  CREDIT = "CREDIT",
-  FEE = "FEE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomLineItemType = {
+  CREDIT: "CREDIT",
+  FEE: "FEE",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomLineItemType = (typeof CustomLineItemType)[keyof typeof CustomLineItemType];
+
+/**
+ * @public
  * <p>
  *       The charge details of a custom line item. It should contain only one of <code>Flat</code> or <code>Percentage</code>.
  *     </p>
@@ -979,6 +1099,9 @@ export interface CustomLineItemChargeDetails {
   Type: CustomLineItemType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomLineItemInput {
   /**
    * <p>
@@ -1025,6 +1148,9 @@ export interface CreateCustomLineItemInput {
   ChargeDetails: CustomLineItemChargeDetails | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomLineItemOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the created custom line item. </p>
@@ -1032,6 +1158,9 @@ export interface CreateCustomLineItemOutput {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomLineItemInput {
   /**
    * <p>
@@ -1048,6 +1177,9 @@ export interface DeleteCustomLineItemInput {
   BillingPeriodRange?: CustomLineItemBillingPeriodRange;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomLineItemOutput {
   /**
    * <p>
@@ -1058,6 +1190,7 @@ export interface DeleteCustomLineItemOutput {
 }
 
 /**
+ * @public
  * <p>
  *       A filter that specifies the custom line items and billing groups to retrieve FFLI information.
  *     </p>
@@ -1083,6 +1216,9 @@ export interface ListCustomLineItemsFilter {
   Arns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListCustomLineItemsInput {
   /**
    * <p>
@@ -1113,6 +1249,7 @@ export interface ListCustomLineItemsInput {
 }
 
 /**
+ * @public
  * <p>
  *       A representation of the charge details that are associated with a flat custom line item.
  *     </p>
@@ -1127,6 +1264,7 @@ export interface ListCustomLineItemFlatChargeDetails {
 }
 
 /**
+ * @public
  * <p>
  *       A representation of the charge details that are associated with a percentage custom line item.
  *     </p>
@@ -1141,6 +1279,7 @@ export interface ListCustomLineItemPercentageChargeDetails {
 }
 
 /**
+ * @public
  * <p>
  *       A representation of the charge details of a custom line item.
  *     </p>
@@ -1168,12 +1307,22 @@ export interface ListCustomLineItemChargeDetails {
   Type: CustomLineItemType | string | undefined;
 }
 
-export enum CurrencyCode {
-  CNY = "CNY",
-  USD = "USD",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CurrencyCode = {
+  CNY: "CNY",
+  USD: "USD",
+} as const;
 
 /**
+ * @public
+ */
+export type CurrencyCode = (typeof CurrencyCode)[keyof typeof CurrencyCode];
+
+/**
+ * @public
  * <p>
  *       A representation of a custom line item.
  *     </p>
@@ -1245,6 +1394,9 @@ export interface CustomLineItemListElement {
   AssociationSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomLineItemsOutput {
   /**
    * <p>
@@ -1262,6 +1414,7 @@ export interface ListCustomLineItemsOutput {
 }
 
 /**
+ * @public
  * <p>A billing period filter that specifies the custom line item versions to retrieve.</p>
  */
 export interface ListCustomLineItemVersionsBillingPeriodRangeFilter {
@@ -1277,6 +1430,7 @@ export interface ListCustomLineItemVersionsBillingPeriodRangeFilter {
 }
 
 /**
+ * @public
  * <p>A filter that specifies the billing period range where the custom line item versions reside.</p>
  */
 export interface ListCustomLineItemVersionsFilter {
@@ -1286,6 +1440,9 @@ export interface ListCustomLineItemVersionsFilter {
   BillingPeriodRange?: ListCustomLineItemVersionsBillingPeriodRangeFilter;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomLineItemVersionsInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the custom line item.</p>
@@ -1309,6 +1466,7 @@ export interface ListCustomLineItemVersionsInput {
 }
 
 /**
+ * @public
  * <p>A representation of a custom line item version.</p>
  */
 export interface CustomLineItemVersionListElement {
@@ -1384,6 +1542,9 @@ export interface CustomLineItemVersionListElement {
   StartTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCustomLineItemVersionsOutput {
   /**
    * <p>A list of <code>CustomLineItemVersionListElements</code> that are received.</p>
@@ -1396,12 +1557,22 @@ export interface ListCustomLineItemVersionsOutput {
   NextToken?: string;
 }
 
-export enum CustomLineItemRelationship {
-  CHILD = "CHILD",
-  PARENT = "PARENT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomLineItemRelationship = {
+  CHILD: "CHILD",
+  PARENT: "PARENT",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomLineItemRelationship = (typeof CustomLineItemRelationship)[keyof typeof CustomLineItemRelationship];
+
+/**
+ * @public
  * <p>
  *       A filter that specifies the type of resource associations that should be retrieved for a custom line item.
  *     </p>
@@ -1415,6 +1586,9 @@ export interface ListResourcesAssociatedToCustomLineItemFilter {
   Relationship?: CustomLineItemRelationship | string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesAssociatedToCustomLineItemInput {
   /**
    * <p>
@@ -1451,6 +1625,7 @@ export interface ListResourcesAssociatedToCustomLineItemInput {
 }
 
 /**
+ * @public
  * <p>
  *       A representation of a resource association for a custom line item.
  *     </p>
@@ -1476,6 +1651,9 @@ export interface ListResourcesAssociatedToCustomLineItemResponseElement {
   EndBillingPeriod?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesAssociatedToCustomLineItemOutput {
   /**
    * <p>
@@ -1500,6 +1678,7 @@ export interface ListResourcesAssociatedToCustomLineItemOutput {
 }
 
 /**
+ * @public
  * <p>
  *       A representation of the new charge details that are associated with a flat custom line item.
  *     </p>
@@ -1514,6 +1693,7 @@ export interface UpdateCustomLineItemFlatChargeDetails {
 }
 
 /**
+ * @public
  * <p>
  *       A representation of the new charge details that are associated with a percentage custom line item.
  *     </p>
@@ -1528,6 +1708,7 @@ export interface UpdateCustomLineItemPercentageChargeDetails {
 }
 
 /**
+ * @public
  * <p>
  *       A representation of the new charge details of a custom line item. This should contain only one of <code>Flat</code> or <code>Percentage</code>.
  *     </p>
@@ -1548,6 +1729,9 @@ export interface UpdateCustomLineItemChargeDetails {
   Percentage?: UpdateCustomLineItemPercentageChargeDetails;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCustomLineItemInput {
   /**
    * <p>
@@ -1585,6 +1769,9 @@ export interface UpdateCustomLineItemInput {
   BillingPeriodRange?: CustomLineItemBillingPeriodRange;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCustomLineItemOutput {
   /**
    * <p>
@@ -1635,6 +1822,7 @@ export interface UpdateCustomLineItemOutput {
 }
 
 /**
+ * @public
  * <p>The filter on the account ID of the linked account, or any of the following:</p>
  *          <p>
  *             <code>MONITORED</code>: linked accounts that are associated to billing groups.</p>
@@ -1673,6 +1861,9 @@ export interface ListAccountAssociationsFilter {
   AccountIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListAccountAssociationsInput {
   /**
    * <p>
@@ -1701,6 +1892,9 @@ export interface ListAccountAssociationsInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAccountAssociationsOutput {
   /**
    * <p> The list of linked accounts in the payer account. </p>
@@ -1716,6 +1910,7 @@ export interface ListAccountAssociationsOutput {
 }
 
 /**
+ * @public
  * <p>The filter used to retrieve specific <code>BillingGroupCostReportElements</code>.
  *     </p>
  */
@@ -1727,6 +1922,9 @@ export interface ListBillingGroupCostReportsFilter {
   BillingGroupArns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListBillingGroupCostReportsInput {
   /**
    * <p>The preferred billing period for your report.
@@ -1754,6 +1952,7 @@ export interface ListBillingGroupCostReportsInput {
 }
 
 /**
+ * @public
  * <p>A summary report of actual Amazon Web Services charges and calculated Amazon Web Services charges, based on the associated pricing plan of a billing group.
  *     </p>
  */
@@ -1796,6 +1995,9 @@ export interface BillingGroupCostReportElement {
   Currency?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBillingGroupCostReportsOutput {
   /**
    * <p>A list of <code>BillingGroupCostReportElement</code> retrieved.
@@ -1810,6 +2012,9 @@ export interface ListBillingGroupCostReportsOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>
@@ -1819,6 +2024,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>
@@ -1828,6 +2036,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePricingPlanInput {
   /**
    * <p>
@@ -1859,6 +2070,9 @@ export interface CreatePricingPlanInput {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreatePricingPlanOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the created pricing plan.</p>
@@ -1866,6 +2080,9 @@ export interface CreatePricingPlanOutput {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePricingPlanInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the pricing plan that you're deleting. </p>
@@ -1873,6 +2090,9 @@ export interface DeletePricingPlanInput {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePricingPlanOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the deleted pricing plan. </p>
@@ -1880,6 +2100,9 @@ export interface DeletePricingPlanOutput {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePricingRulesInput {
   /**
    * <p> The pricing plan Amazon Resource Name (ARN) to disassociate pricing rules from. </p>
@@ -1893,6 +2116,9 @@ export interface DisassociatePricingRulesInput {
   PricingRuleArns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePricingRulesOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the pricing plan that the pricing rules successfully
@@ -1902,6 +2128,7 @@ export interface DisassociatePricingRulesOutput {
 }
 
 /**
+ * @public
  * <p>The filter that specifies the Amazon Resource Names (ARNs) of pricing plans, to retrieve
  *       pricing plan information. </p>
  */
@@ -1912,6 +2139,9 @@ export interface ListPricingPlansFilter {
   Arns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListPricingPlansInput {
   /**
    * <p>The preferred billing period to get pricing plan.
@@ -1938,6 +2168,7 @@ export interface ListPricingPlansInput {
 }
 
 /**
+ * @public
  * <p>A representation of a pricing plan.
  *     </p>
  */
@@ -1980,6 +2211,9 @@ export interface PricingPlanListElement {
   LastModifiedTime?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPricingPlansOutput {
   /**
    * <p>
@@ -2001,6 +2235,9 @@ export interface ListPricingPlansOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPricingPlansAssociatedWithPricingRuleInput {
   /**
    * <p>
@@ -2029,6 +2266,9 @@ export interface ListPricingPlansAssociatedWithPricingRuleInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPricingPlansAssociatedWithPricingRuleOutput {
   /**
    * <p>
@@ -2057,6 +2297,9 @@ export interface ListPricingPlansAssociatedWithPricingRuleOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePricingPlanInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the pricing plan that you're updating. </p>
@@ -2075,6 +2318,9 @@ export interface UpdatePricingPlanInput {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePricingPlanOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the updated pricing plan. </p>
@@ -2108,14 +2354,24 @@ export interface UpdatePricingPlanOutput {
   LastModifiedTime?: number;
 }
 
-export enum PricingRuleScope {
-  BILLING_ENTITY = "BILLING_ENTITY",
-  GLOBAL = "GLOBAL",
-  SERVICE = "SERVICE",
-  SKU = "SKU",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PricingRuleScope = {
+  BILLING_ENTITY: "BILLING_ENTITY",
+  GLOBAL: "GLOBAL",
+  SERVICE: "SERVICE",
+  SKU: "SKU",
+} as const;
 
 /**
+ * @public
+ */
+export type PricingRuleScope = (typeof PricingRuleScope)[keyof typeof PricingRuleScope];
+
+/**
+ * @public
  * <p>
  *       The possible Amazon Web Services Free Tier configurations.
  *     </p>
@@ -2130,6 +2386,7 @@ export interface CreateFreeTierConfig {
 }
 
 /**
+ * @public
  * <p>
  *       The set of tiering configurations for the pricing rule.
  *     </p>
@@ -2143,12 +2400,24 @@ export interface CreateTieringInput {
   FreeTier: CreateFreeTierConfig | undefined;
 }
 
-export enum PricingRuleType {
-  DISCOUNT = "DISCOUNT",
-  MARKUP = "MARKUP",
-  TIERING = "TIERING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PricingRuleType = {
+  DISCOUNT: "DISCOUNT",
+  MARKUP: "MARKUP",
+  TIERING: "TIERING",
+} as const;
 
+/**
+ * @public
+ */
+export type PricingRuleType = (typeof PricingRuleType)[keyof typeof PricingRuleType];
+
+/**
+ * @public
+ */
 export interface CreatePricingRuleInput {
   /**
    * <p> The token that's needed to support idempotency. Idempotency isn't currently supported,
@@ -2234,6 +2503,9 @@ export interface CreatePricingRuleInput {
   Operation?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePricingRuleOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the created pricing rule. </p>
@@ -2241,6 +2513,9 @@ export interface CreatePricingRuleOutput {
   Arn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePricingRuleInput {
   /**
    * <p> The Amazon Resource Name (ARN) of the pricing rule that you are deleting. </p>
@@ -2248,6 +2523,9 @@ export interface DeletePricingRuleInput {
   Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePricingRuleOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the deleted pricing rule. </p>
@@ -2256,6 +2534,7 @@ export interface DeletePricingRuleOutput {
 }
 
 /**
+ * @public
  * <p> The filter that specifies criteria that the pricing rules returned by the
  *         <code>ListPricingRules</code> API will adhere to. </p>
  */
@@ -2267,6 +2546,9 @@ export interface ListPricingRulesFilter {
   Arns?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListPricingRulesInput {
   /**
    * <p>
@@ -2297,6 +2579,7 @@ export interface ListPricingRulesInput {
 }
 
 /**
+ * @public
  * <p>
  *       The possible Amazon Web Services Free Tier configurations.
  *     </p>
@@ -2311,6 +2594,7 @@ export interface FreeTierConfig {
 }
 
 /**
+ * @public
  * <p>
  *       The set of tiering configurations for the pricing rule.
  *     </p>
@@ -2325,6 +2609,7 @@ export interface Tiering {
 }
 
 /**
+ * @public
  * <p>
  *       A representation of a pricing rule.
  *     </p>
@@ -2428,6 +2713,9 @@ export interface PricingRuleListElement {
   Operation?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPricingRulesOutput {
   /**
    * <p>
@@ -2451,6 +2739,9 @@ export interface ListPricingRulesOutput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPricingRulesAssociatedToPricingPlanInput {
   /**
    * <p>
@@ -2478,6 +2769,9 @@ export interface ListPricingRulesAssociatedToPricingPlanInput {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPricingRulesAssociatedToPricingPlanOutput {
   /**
    * <p>
@@ -2508,6 +2802,7 @@ export interface ListPricingRulesAssociatedToPricingPlanOutput {
 }
 
 /**
+ * @public
  * <p>
  *       The possible Amazon Web Services Free Tier configurations.
  *     </p>
@@ -2522,6 +2817,7 @@ export interface UpdateFreeTierConfig {
 }
 
 /**
+ * @public
  * <p>
  *       The set of tiering configurations for the pricing rule.
  *     </p>
@@ -2535,6 +2831,9 @@ export interface UpdateTieringInput {
   FreeTier: UpdateFreeTierConfig | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePricingRuleInput {
   /**
    * <p> The Amazon Resource Name (ARN) of the pricing rule to update. </p>
@@ -2577,6 +2876,9 @@ export interface UpdatePricingRuleInput {
   Tiering?: UpdateTieringInput;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePricingRuleOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the successfully updated pricing rule. </p>
@@ -2667,6 +2969,9 @@ export interface UpdatePricingRuleOutput {
   Operation?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>
@@ -2683,8 +2988,14 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>
@@ -2701,6 +3012,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
@@ -2715,122 +3029,10 @@ export const AccountAssociationsListElementFilterSensitiveLog = (obj: AccountAss
 /**
  * @internal
  */
-export const AccountGroupingFilterSensitiveLog = (obj: AccountGrouping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateAccountsInputFilterSensitiveLog = (obj: AssociateAccountsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateAccountsOutputFilterSensitiveLog = (obj: AssociateAccountsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatePricingRulesInputFilterSensitiveLog = (obj: AssociatePricingRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatePricingRulesOutputFilterSensitiveLog = (obj: AssociatePricingRulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResourceErrorFilterSensitiveLog = (obj: AssociateResourceError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResourceResponseElementFilterSensitiveLog = (obj: AssociateResourceResponseElement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComputationPreferenceFilterSensitiveLog = (obj: ComputationPreference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateBillingGroupInputFilterSensitiveLog = (obj: CreateBillingGroupInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateBillingGroupOutputFilterSensitiveLog = (obj: CreateBillingGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBillingGroupInputFilterSensitiveLog = (obj: DeleteBillingGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBillingGroupOutputFilterSensitiveLog = (obj: DeleteBillingGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateAccountsInputFilterSensitiveLog = (obj: DisassociateAccountsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateAccountsOutputFilterSensitiveLog = (obj: DisassociateAccountsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBillingGroupsFilterFilterSensitiveLog = (obj: ListBillingGroupsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBillingGroupsInputFilterSensitiveLog = (obj: ListBillingGroupsInput): any => ({
-  ...obj,
 });
 
 /**
@@ -2873,106 +3075,10 @@ export const UpdateBillingGroupOutputFilterSensitiveLog = (obj: UpdateBillingGro
 /**
  * @internal
  */
-export const CustomLineItemBillingPeriodRangeFilterSensitiveLog = (obj: CustomLineItemBillingPeriodRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateResourcesToCustomLineItemInputFilterSensitiveLog = (
-  obj: BatchAssociateResourcesToCustomLineItemInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateResourcesToCustomLineItemOutputFilterSensitiveLog = (
-  obj: BatchAssociateResourcesToCustomLineItemOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateResourcesFromCustomLineItemInputFilterSensitiveLog = (
-  obj: BatchDisassociateResourcesFromCustomLineItemInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResourceResponseElementFilterSensitiveLog = (
-  obj: DisassociateResourceResponseElement
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateResourcesFromCustomLineItemOutputFilterSensitiveLog = (
-  obj: BatchDisassociateResourcesFromCustomLineItemOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomLineItemFlatChargeDetailsFilterSensitiveLog = (obj: CustomLineItemFlatChargeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomLineItemPercentageChargeDetailsFilterSensitiveLog = (
-  obj: CustomLineItemPercentageChargeDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomLineItemChargeDetailsFilterSensitiveLog = (obj: CustomLineItemChargeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateCustomLineItemInputFilterSensitiveLog = (obj: CreateCustomLineItemInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateCustomLineItemOutputFilterSensitiveLog = (obj: CreateCustomLineItemOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomLineItemInputFilterSensitiveLog = (obj: DeleteCustomLineItemInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomLineItemOutputFilterSensitiveLog = (obj: DeleteCustomLineItemOutput): any => ({
-  ...obj,
 });
 
 /**
@@ -2994,31 +3100,6 @@ export const ListCustomLineItemsInputFilterSensitiveLog = (obj: ListCustomLineIt
 /**
  * @internal
  */
-export const ListCustomLineItemFlatChargeDetailsFilterSensitiveLog = (
-  obj: ListCustomLineItemFlatChargeDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomLineItemPercentageChargeDetailsFilterSensitiveLog = (
-  obj: ListCustomLineItemPercentageChargeDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomLineItemChargeDetailsFilterSensitiveLog = (obj: ListCustomLineItemChargeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CustomLineItemListElementFilterSensitiveLog = (obj: CustomLineItemListElement): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3033,29 +3114,6 @@ export const ListCustomLineItemsOutputFilterSensitiveLog = (obj: ListCustomLineI
   ...(obj.CustomLineItems && {
     CustomLineItems: obj.CustomLineItems.map((item) => CustomLineItemListElementFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListCustomLineItemVersionsBillingPeriodRangeFilterFilterSensitiveLog = (
-  obj: ListCustomLineItemVersionsBillingPeriodRangeFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomLineItemVersionsFilterFilterSensitiveLog = (obj: ListCustomLineItemVersionsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomLineItemVersionsInputFilterSensitiveLog = (obj: ListCustomLineItemVersionsInput): any => ({
-  ...obj,
 });
 
 /**
@@ -3082,67 +3140,6 @@ export const ListCustomLineItemVersionsOutputFilterSensitiveLog = (obj: ListCust
 /**
  * @internal
  */
-export const ListResourcesAssociatedToCustomLineItemFilterFilterSensitiveLog = (
-  obj: ListResourcesAssociatedToCustomLineItemFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesAssociatedToCustomLineItemInputFilterSensitiveLog = (
-  obj: ListResourcesAssociatedToCustomLineItemInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesAssociatedToCustomLineItemResponseElementFilterSensitiveLog = (
-  obj: ListResourcesAssociatedToCustomLineItemResponseElement
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesAssociatedToCustomLineItemOutputFilterSensitiveLog = (
-  obj: ListResourcesAssociatedToCustomLineItemOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCustomLineItemFlatChargeDetailsFilterSensitiveLog = (
-  obj: UpdateCustomLineItemFlatChargeDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCustomLineItemPercentageChargeDetailsFilterSensitiveLog = (
-  obj: UpdateCustomLineItemPercentageChargeDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCustomLineItemChargeDetailsFilterSensitiveLog = (obj: UpdateCustomLineItemChargeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateCustomLineItemInputFilterSensitiveLog = (obj: UpdateCustomLineItemInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3161,20 +3158,6 @@ export const UpdateCustomLineItemOutputFilterSensitiveLog = (obj: UpdateCustomLi
 /**
  * @internal
  */
-export const ListAccountAssociationsFilterFilterSensitiveLog = (obj: ListAccountAssociationsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccountAssociationsInputFilterSensitiveLog = (obj: ListAccountAssociationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListAccountAssociationsOutputFilterSensitiveLog = (obj: ListAccountAssociationsOutput): any => ({
   ...obj,
   ...(obj.LinkedAccounts && {
@@ -3185,101 +3168,10 @@ export const ListAccountAssociationsOutputFilterSensitiveLog = (obj: ListAccount
 /**
  * @internal
  */
-export const ListBillingGroupCostReportsFilterFilterSensitiveLog = (obj: ListBillingGroupCostReportsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBillingGroupCostReportsInputFilterSensitiveLog = (obj: ListBillingGroupCostReportsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BillingGroupCostReportElementFilterSensitiveLog = (obj: BillingGroupCostReportElement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBillingGroupCostReportsOutputFilterSensitiveLog = (obj: ListBillingGroupCostReportsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreatePricingPlanInputFilterSensitiveLog = (obj: CreatePricingPlanInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePricingPlanOutputFilterSensitiveLog = (obj: CreatePricingPlanOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePricingPlanInputFilterSensitiveLog = (obj: DeletePricingPlanInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePricingPlanOutputFilterSensitiveLog = (obj: DeletePricingPlanOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociatePricingRulesInputFilterSensitiveLog = (obj: DisassociatePricingRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociatePricingRulesOutputFilterSensitiveLog = (obj: DisassociatePricingRulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingPlansFilterFilterSensitiveLog = (obj: ListPricingPlansFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingPlansInputFilterSensitiveLog = (obj: ListPricingPlansInput): any => ({
-  ...obj,
 });
 
 /**
@@ -3304,24 +3196,6 @@ export const ListPricingPlansOutputFilterSensitiveLog = (obj: ListPricingPlansOu
 /**
  * @internal
  */
-export const ListPricingPlansAssociatedWithPricingRuleInputFilterSensitiveLog = (
-  obj: ListPricingPlansAssociatedWithPricingRuleInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingPlansAssociatedWithPricingRuleOutputFilterSensitiveLog = (
-  obj: ListPricingPlansAssociatedWithPricingRuleOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdatePricingPlanInputFilterSensitiveLog = (obj: UpdatePricingPlanInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3340,73 +3214,10 @@ export const UpdatePricingPlanOutputFilterSensitiveLog = (obj: UpdatePricingPlan
 /**
  * @internal
  */
-export const CreateFreeTierConfigFilterSensitiveLog = (obj: CreateFreeTierConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTieringInputFilterSensitiveLog = (obj: CreateTieringInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreatePricingRuleInputFilterSensitiveLog = (obj: CreatePricingRuleInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePricingRuleOutputFilterSensitiveLog = (obj: CreatePricingRuleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePricingRuleInputFilterSensitiveLog = (obj: DeletePricingRuleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePricingRuleOutputFilterSensitiveLog = (obj: DeletePricingRuleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingRulesFilterFilterSensitiveLog = (obj: ListPricingRulesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingRulesInputFilterSensitiveLog = (obj: ListPricingRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeTierConfigFilterSensitiveLog = (obj: FreeTierConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TieringFilterSensitiveLog = (obj: Tiering): any => ({
-  ...obj,
 });
 
 /**
@@ -3431,38 +3242,6 @@ export const ListPricingRulesOutputFilterSensitiveLog = (obj: ListPricingRulesOu
 /**
  * @internal
  */
-export const ListPricingRulesAssociatedToPricingPlanInputFilterSensitiveLog = (
-  obj: ListPricingRulesAssociatedToPricingPlanInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingRulesAssociatedToPricingPlanOutputFilterSensitiveLog = (
-  obj: ListPricingRulesAssociatedToPricingPlanOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFreeTierConfigFilterSensitiveLog = (obj: UpdateFreeTierConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTieringInputFilterSensitiveLog = (obj: UpdateTieringInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdatePricingRuleInputFilterSensitiveLog = (obj: UpdatePricingRuleInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3476,32 +3255,4 @@ export const UpdatePricingRuleOutputFilterSensitiveLog = (obj: UpdatePricingRule
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });

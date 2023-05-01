@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  DeleteVpcLinkRequest,
-  DeleteVpcLinkRequestFilterSensitiveLog,
-  DeleteVpcLinkResponse,
-  DeleteVpcLinkResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVpcLinkCommand,
-  serializeAws_restJson1DeleteVpcLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVpcLinkRequest, DeleteVpcLinkResponse } from "../models/models_0";
+import { de_DeleteVpcLinkCommand, se_DeleteVpcLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcLinkCommand}.
  */
 export interface DeleteVpcLinkCommandInput extends DeleteVpcLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcLinkCommand}.
  */
 export interface DeleteVpcLinkCommandOutput extends DeleteVpcLinkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a VPC link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteVpcLinkCommandOutput extends DeleteVpcLinkResponse, __Met
  * import { ApiGatewayV2Client, DeleteVpcLinkCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteVpcLinkCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // DeleteVpcLinkRequest
+ *   VpcLinkId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcLinkCommandInput - {@link DeleteVpcLinkCommandInput}
+ * @returns {@link DeleteVpcLinkCommandOutput}
  * @see {@link DeleteVpcLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -75,6 +77,9 @@ export class DeleteVpcLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +106,8 @@ export class DeleteVpcLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcLinkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +117,18 @@ export class DeleteVpcLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVpcLinkCommand(input, context);
+    return se_DeleteVpcLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcLinkCommandOutput> {
-    return deserializeAws_restJson1DeleteVpcLinkCommand(output, context);
+    return de_DeleteVpcLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

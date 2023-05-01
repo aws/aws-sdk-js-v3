@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribePrefixListsRequest,
-  DescribePrefixListsRequestFilterSensitiveLog,
-  DescribePrefixListsResult,
-  DescribePrefixListsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribePrefixListsCommand,
-  serializeAws_ec2DescribePrefixListsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribePrefixListsRequest, DescribePrefixListsResult } from "../models/models_4";
+import { de_DescribePrefixListsCommand, se_DescribePrefixListsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePrefixListsCommand}.
  */
 export interface DescribePrefixListsCommandInput extends DescribePrefixListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePrefixListsCommand}.
  */
 export interface DescribePrefixListsCommandOutput extends DescribePrefixListsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes available Amazon Web Services services in a prefix list format, which includes the prefix list
  *             name and prefix list ID of the service and the IP address range for the service.</p>
  *          <p>We recommend that you use <a>DescribeManagedPrefixLists</a> instead.</p>
@@ -44,10 +41,28 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
  * import { EC2Client, DescribePrefixListsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribePrefixListsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribePrefixListsRequest
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   PrefixListIds: [ // PrefixListResourceIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribePrefixListsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePrefixListsCommandInput - {@link DescribePrefixListsCommandInput}
+ * @returns {@link DescribePrefixListsCommandOutput}
  * @see {@link DescribePrefixListsCommandInput} for command's `input` shape.
  * @see {@link DescribePrefixListsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +86,9 @@ export class DescribePrefixListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePrefixListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +117,8 @@ export class DescribePrefixListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePrefixListsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePrefixListsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +128,18 @@ export class DescribePrefixListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePrefixListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribePrefixListsCommand(input, context);
+    return se_DescribePrefixListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePrefixListsCommandOutput> {
-    return deserializeAws_ec2DescribePrefixListsCommand(output, context);
+    return de_DescribePrefixListsCommand(output, context);
   }
 
   // Start section: command_body_extra

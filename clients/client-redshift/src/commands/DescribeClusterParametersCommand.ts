@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ClusterParameterGroupDetails,
-  ClusterParameterGroupDetailsFilterSensitiveLog,
-  DescribeClusterParametersMessage,
-  DescribeClusterParametersMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterParametersCommand,
-  serializeAws_queryDescribeClusterParametersCommand,
-} from "../protocols/Aws_query";
+import { ClusterParameterGroupDetails, DescribeClusterParametersMessage } from "../models/models_0";
+import { de_DescribeClusterParametersCommand, se_DescribeClusterParametersCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterParametersCommand}.
  */
 export interface DescribeClusterParametersCommandInput extends DescribeClusterParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterParametersCommand}.
  */
 export interface DescribeClusterParametersCommandOutput extends ClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a detailed list of parameters contained within the specified Amazon Redshift
  *             parameter group. For each parameter the response includes information such as parameter
  *             name, description, data type, value, whether the parameter value is modifiable, and so
@@ -53,10 +50,18 @@ export interface DescribeClusterParametersCommandOutput extends ClusterParameter
  * import { RedshiftClient, DescribeClusterParametersCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterParametersCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeClusterParametersMessage
+ *   ParameterGroupName: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeClusterParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterParametersCommandInput - {@link DescribeClusterParametersCommandInput}
+ * @returns {@link DescribeClusterParametersCommandOutput}
  * @see {@link DescribeClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -83,6 +88,9 @@ export class DescribeClusterParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +119,8 @@ export class DescribeClusterParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ClusterParameterGroupDetailsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,15 +130,21 @@ export class DescribeClusterParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterParametersCommand(input, context);
+    return se_DescribeClusterParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeClusterParametersCommand(output, context);
+    return de_DescribeClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

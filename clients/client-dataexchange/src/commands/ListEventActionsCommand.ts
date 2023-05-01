@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  ListEventActionsRequest,
-  ListEventActionsRequestFilterSensitiveLog,
-  ListEventActionsResponse,
-  ListEventActionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEventActionsCommand,
-  serializeAws_restJson1ListEventActionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEventActionsRequest, ListEventActionsResponse } from "../models/models_0";
+import { de_ListEventActionsCommand, se_ListEventActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventActionsCommand}.
  */
 export interface ListEventActionsCommandInput extends ListEventActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventActionsCommand}.
  */
 export interface ListEventActionsCommandOutput extends ListEventActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists your event actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListEventActionsCommandOutput extends ListEventActionsResponse,
  * import { DataExchangeClient, ListEventActionsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, ListEventActionsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // ListEventActionsRequest
+ *   EventSourceId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListEventActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventActionsCommandInput - {@link ListEventActionsCommandInput}
+ * @returns {@link ListEventActionsCommandOutput}
  * @see {@link ListEventActionsCommandInput} for command's `input` shape.
  * @see {@link ListEventActionsCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -81,6 +85,9 @@ export class ListEventActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class ListEventActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventActionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventActionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class ListEventActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEventActionsCommand(input, context);
+    return se_ListEventActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventActionsCommandOutput> {
-    return deserializeAws_restJson1ListEventActionsCommand(output, context);
+    return de_ListEventActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

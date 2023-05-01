@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  ListEngineVersionsRequest,
-  ListEngineVersionsRequestFilterSensitiveLog,
-  ListEngineVersionsResponse,
-  ListEngineVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEngineVersionsCommand,
-  serializeAws_restJson1ListEngineVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListEngineVersionsRequest, ListEngineVersionsResponse } from "../models/models_0";
+import { de_ListEngineVersionsCommand, se_ListEngineVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEngineVersionsCommand}.
  */
 export interface ListEngineVersionsCommandInput extends ListEngineVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEngineVersionsCommand}.
  */
 export interface ListEngineVersionsCommandOutput extends ListEngineVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the available engine versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsRespo
  * import { M2Client, ListEngineVersionsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListEngineVersionsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // ListEngineVersionsRequest
+ *   engineType: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListEngineVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEngineVersionsCommandInput - {@link ListEngineVersionsCommandInput}
+ * @returns {@link ListEngineVersionsCommandOutput}
  * @see {@link ListEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link ListEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -81,6 +85,9 @@ export class ListEngineVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEngineVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class ListEngineVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEngineVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEngineVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class ListEngineVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEngineVersionsCommand(input, context);
+    return se_ListEngineVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEngineVersionsCommandOutput> {
-    return deserializeAws_restJson1ListEngineVersionsCommand(output, context);
+    return de_ListEngineVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

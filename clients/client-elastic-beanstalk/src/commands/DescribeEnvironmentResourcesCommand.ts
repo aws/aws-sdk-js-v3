@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  DescribeEnvironmentResourcesMessage,
-  DescribeEnvironmentResourcesMessageFilterSensitiveLog,
-  EnvironmentResourceDescriptionsMessage,
-  EnvironmentResourceDescriptionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEnvironmentResourcesCommand,
-  serializeAws_queryDescribeEnvironmentResourcesCommand,
-} from "../protocols/Aws_query";
+import { DescribeEnvironmentResourcesMessage, EnvironmentResourceDescriptionsMessage } from "../models/models_0";
+import { de_DescribeEnvironmentResourcesCommand, se_DescribeEnvironmentResourcesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentResourcesCommand}.
  */
 export interface DescribeEnvironmentResourcesCommandInput extends DescribeEnvironmentResourcesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentResourcesCommand}.
  */
 export interface DescribeEnvironmentResourcesCommandOutput
@@ -37,6 +33,7 @@ export interface DescribeEnvironmentResourcesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns AWS resources for this environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,16 @@ export interface DescribeEnvironmentResourcesCommandOutput
  * import { ElasticBeanstalkClient, DescribeEnvironmentResourcesCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentResourcesCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DescribeEnvironmentResourcesMessage
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ * };
  * const command = new DescribeEnvironmentResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentResourcesCommandInput - {@link DescribeEnvironmentResourcesCommandInput}
+ * @returns {@link DescribeEnvironmentResourcesCommandOutput}
  * @see {@link DescribeEnvironmentResourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentResourcesCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -115,6 +118,9 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +149,8 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentResourcesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EnvironmentResourceDescriptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,15 +160,21 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEnvironmentResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentResourcesCommand(input, context);
+    return se_DescribeEnvironmentResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentResourcesCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentResourcesCommand(output, context);
+    return de_DescribeEnvironmentResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

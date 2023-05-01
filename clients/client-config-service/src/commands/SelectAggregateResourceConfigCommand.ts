@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { SelectAggregateResourceConfigRequest, SelectAggregateResourceConfigResponse } from "../models/models_1";
 import {
-  SelectAggregateResourceConfigRequest,
-  SelectAggregateResourceConfigRequestFilterSensitiveLog,
-  SelectAggregateResourceConfigResponse,
-  SelectAggregateResourceConfigResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1SelectAggregateResourceConfigCommand,
-  serializeAws_json1_1SelectAggregateResourceConfigCommand,
+  de_SelectAggregateResourceConfigCommand,
+  se_SelectAggregateResourceConfigCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SelectAggregateResourceConfigCommand}.
  */
 export interface SelectAggregateResourceConfigCommandInput extends SelectAggregateResourceConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link SelectAggregateResourceConfigCommand}.
  */
 export interface SelectAggregateResourceConfigCommandOutput
@@ -37,6 +36,7 @@ export interface SelectAggregateResourceConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of Amazon Web Services resources across multiple accounts and regions,
  * 			performs the corresponding search, and returns resource configurations matching the properties.</p>
  *          <p>For more information about query components, see the
@@ -55,10 +55,19 @@ export interface SelectAggregateResourceConfigCommandOutput
  * import { ConfigServiceClient, SelectAggregateResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, SelectAggregateResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // SelectAggregateResourceConfigRequest
+ *   Expression: "STRING_VALUE", // required
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SelectAggregateResourceConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SelectAggregateResourceConfigCommandInput - {@link SelectAggregateResourceConfigCommandInput}
+ * @returns {@link SelectAggregateResourceConfigCommandOutput}
  * @see {@link SelectAggregateResourceConfigCommandInput} for command's `input` shape.
  * @see {@link SelectAggregateResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -96,6 +105,9 @@ export class SelectAggregateResourceConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SelectAggregateResourceConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +136,8 @@ export class SelectAggregateResourceConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SelectAggregateResourceConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SelectAggregateResourceConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,15 +147,21 @@ export class SelectAggregateResourceConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SelectAggregateResourceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SelectAggregateResourceConfigCommand(input, context);
+    return se_SelectAggregateResourceConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SelectAggregateResourceConfigCommandOutput> {
-    return deserializeAws_json1_1SelectAggregateResourceConfigCommand(output, context);
+    return de_SelectAggregateResourceConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

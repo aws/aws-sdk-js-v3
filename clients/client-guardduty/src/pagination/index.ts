@@ -5,6 +5,7 @@ export * from "./DescribeOrganizationConfigurationPaginator";
 export * from "./GetUsageStatisticsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListCoveragePaginator";
 export * from "./ListDetectorsPaginator";
 export * from "./ListFiltersPaginator";
 export * from "./ListFindingsPaginator";

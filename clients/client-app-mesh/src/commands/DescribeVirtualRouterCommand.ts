@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  DescribeVirtualRouterInput,
-  DescribeVirtualRouterInputFilterSensitiveLog,
-  DescribeVirtualRouterOutput,
-  DescribeVirtualRouterOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeVirtualRouterCommand,
-  serializeAws_restJson1DescribeVirtualRouterCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeVirtualRouterInput, DescribeVirtualRouterOutput } from "../models/models_0";
+import { de_DescribeVirtualRouterCommand, se_DescribeVirtualRouterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVirtualRouterCommand}.
  */
 export interface DescribeVirtualRouterCommandInput extends DescribeVirtualRouterInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVirtualRouterCommand}.
  */
 export interface DescribeVirtualRouterCommandOutput extends DescribeVirtualRouterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an existing virtual router.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeVirtualRouterCommandOutput extends DescribeVirtualRoute
  * import { AppMeshClient, DescribeVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DescribeVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // DescribeVirtualRouterInput
+ *   virtualRouterName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new DescribeVirtualRouterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVirtualRouterCommandInput - {@link DescribeVirtualRouterCommandInput}
+ * @returns {@link DescribeVirtualRouterCommandOutput}
  * @see {@link DescribeVirtualRouterCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualRouterCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -90,6 +94,9 @@ export class DescribeVirtualRouterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVirtualRouterCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class DescribeVirtualRouterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVirtualRouterInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVirtualRouterOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class DescribeVirtualRouterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVirtualRouterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVirtualRouterCommand(input, context);
+    return se_DescribeVirtualRouterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1DescribeVirtualRouterCommand(output, context);
+    return de_DescribeVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

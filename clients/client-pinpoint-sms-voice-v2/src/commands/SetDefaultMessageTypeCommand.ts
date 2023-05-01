@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SetDefaultMessageTypeRequest,
-  SetDefaultMessageTypeRequestFilterSensitiveLog,
-  SetDefaultMessageTypeResult,
-  SetDefaultMessageTypeResultFilterSensitiveLog,
-} from "../models/models_0";
+import { SetDefaultMessageTypeRequest, SetDefaultMessageTypeResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0SetDefaultMessageTypeCommand,
-  serializeAws_json1_0SetDefaultMessageTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_SetDefaultMessageTypeCommand, se_SetDefaultMessageTypeCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link SetDefaultMessageTypeCommand}.
  */
 export interface SetDefaultMessageTypeCommandInput extends SetDefaultMessageTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetDefaultMessageTypeCommand}.
  */
 export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTypeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the default message type on a configuration set.</p>
  *         <p>Choose the category of SMS messages that you plan to send from this account. If you
  *             send account-related messages or time-sensitive messages such as one-time passcodes,
@@ -51,10 +48,16 @@ export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTyp
  * import { PinpointSMSVoiceV2Client, SetDefaultMessageTypeCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, SetDefaultMessageTypeCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // SetDefaultMessageTypeRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   MessageType: "STRING_VALUE", // required
+ * };
  * const command = new SetDefaultMessageTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetDefaultMessageTypeCommandInput - {@link SetDefaultMessageTypeCommandInput}
+ * @returns {@link SetDefaultMessageTypeCommandOutput}
  * @see {@link SetDefaultMessageTypeCommandInput} for command's `input` shape.
  * @see {@link SetDefaultMessageTypeCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -96,6 +99,9 @@ export class SetDefaultMessageTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetDefaultMessageTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +130,8 @@ export class SetDefaultMessageTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetDefaultMessageTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetDefaultMessageTypeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +141,18 @@ export class SetDefaultMessageTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDefaultMessageTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0SetDefaultMessageTypeCommand(input, context);
+    return se_SetDefaultMessageTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDefaultMessageTypeCommandOutput> {
-    return deserializeAws_json1_0SetDefaultMessageTypeCommand(output, context);
+    return de_SetDefaultMessageTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

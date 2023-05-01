@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import { GetRightsizingRecommendationRequest, GetRightsizingRecommendationResponse } from "../models/models_0";
 import {
-  GetRightsizingRecommendationRequest,
-  GetRightsizingRecommendationRequestFilterSensitiveLog,
-  GetRightsizingRecommendationResponse,
-  GetRightsizingRecommendationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRightsizingRecommendationCommand,
-  serializeAws_json1_1GetRightsizingRecommendationCommand,
+  de_GetRightsizingRecommendationCommand,
+  se_GetRightsizingRecommendationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRightsizingRecommendationCommand}.
  */
 export interface GetRightsizingRecommendationCommandInput extends GetRightsizingRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRightsizingRecommendationCommand}.
  */
 export interface GetRightsizingRecommendationCommandOutput
@@ -37,6 +36,7 @@ export interface GetRightsizingRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates recommendations that help you save cost by identifying idle and underutilized
  *       Amazon EC2 instances.</p>
  *          <p>Recommendations are generated to either downsize or terminate instances, along with
@@ -48,10 +48,88 @@ export interface GetRightsizingRecommendationCommandOutput
  * import { CostExplorerClient, GetRightsizingRecommendationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetRightsizingRecommendationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // GetRightsizingRecommendationRequest
+ *   Filter: { // Expression
+ *     Or: [ // Expressions
+ *       {
+ *         Or: [
+ *           "<Expression>",
+ *         ],
+ *         And: [
+ *           "<Expression>",
+ *         ],
+ *         Not: "<Expression>",
+ *         Dimensions: { // DimensionValues
+ *           Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *           Values: [ // Values
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [ // MatchOptions
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
+ *         Tags: { // TagValues
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
+ *         CostCategories: { // CostCategoryValues
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     And: [
+ *       "<Expression>",
+ *     ],
+ *     Not: "<Expression>",
+ *     Dimensions: {
+ *       Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *       MatchOptions: [
+ *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *       ],
+ *     },
+ *     Tags: {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *       MatchOptions: [
+ *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *       ],
+ *     },
+ *     CostCategories: {
+ *       Key: "STRING_VALUE",
+ *       Values: "<Values>",
+ *       MatchOptions: "<MatchOptions>",
+ *     },
+ *   },
+ *   Configuration: { // RightsizingRecommendationConfiguration
+ *     RecommendationTarget: "SAME_INSTANCE_FAMILY" || "CROSS_INSTANCE_FAMILY", // required
+ *     BenefitsConsidered: true || false, // required
+ *   },
+ *   Service: "STRING_VALUE", // required
+ *   PageSize: Number("int"),
+ *   NextPageToken: "STRING_VALUE",
+ * };
  * const command = new GetRightsizingRecommendationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRightsizingRecommendationCommandInput - {@link GetRightsizingRecommendationCommandInput}
+ * @returns {@link GetRightsizingRecommendationCommandOutput}
  * @see {@link GetRightsizingRecommendationCommandInput} for command's `input` shape.
  * @see {@link GetRightsizingRecommendationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -81,6 +159,9 @@ export class GetRightsizingRecommendationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRightsizingRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +190,8 @@ export class GetRightsizingRecommendationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRightsizingRecommendationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRightsizingRecommendationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +201,21 @@ export class GetRightsizingRecommendationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRightsizingRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRightsizingRecommendationCommand(input, context);
+    return se_GetRightsizingRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRightsizingRecommendationCommandOutput> {
-    return deserializeAws_json1_1GetRightsizingRecommendationCommand(output, context);
+    return de_GetRightsizingRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

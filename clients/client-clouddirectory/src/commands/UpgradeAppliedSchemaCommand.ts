@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  UpgradeAppliedSchemaRequest,
-  UpgradeAppliedSchemaRequestFilterSensitiveLog,
-  UpgradeAppliedSchemaResponse,
-  UpgradeAppliedSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpgradeAppliedSchemaCommand,
-  serializeAws_restJson1UpgradeAppliedSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { UpgradeAppliedSchemaRequest, UpgradeAppliedSchemaResponse } from "../models/models_0";
+import { de_UpgradeAppliedSchemaCommand, se_UpgradeAppliedSchemaCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpgradeAppliedSchemaCommand}.
  */
 export interface UpgradeAppliedSchemaCommandInput extends UpgradeAppliedSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpgradeAppliedSchemaCommand}.
  */
 export interface UpgradeAppliedSchemaCommandOutput extends UpgradeAppliedSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Upgrades a single directory in-place using the <code>PublishedSchemaArn</code> with schema updates found in <code>MinorVersion</code>. Backwards-compatible minor version upgrades are instantaneously available for readers on all objects in the directory. Note: This is a synchronous API call and upgrades only one schema on a given directory per call. To upgrade multiple directories from one schema, you would need to call this API on each directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpgradeAppliedSchemaCommandOutput extends UpgradeAppliedSchemaR
  * import { CloudDirectoryClient, UpgradeAppliedSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpgradeAppliedSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // UpgradeAppliedSchemaRequest
+ *   PublishedSchemaArn: "STRING_VALUE", // required
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new UpgradeAppliedSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpgradeAppliedSchemaCommandInput - {@link UpgradeAppliedSchemaCommandInput}
+ * @returns {@link UpgradeAppliedSchemaCommandOutput}
  * @see {@link UpgradeAppliedSchemaCommandInput} for command's `input` shape.
  * @see {@link UpgradeAppliedSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -99,6 +103,9 @@ export class UpgradeAppliedSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpgradeAppliedSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +134,8 @@ export class UpgradeAppliedSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpgradeAppliedSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpgradeAppliedSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +145,18 @@ export class UpgradeAppliedSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpgradeAppliedSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpgradeAppliedSchemaCommand(input, context);
+    return se_UpgradeAppliedSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpgradeAppliedSchemaCommandOutput> {
-    return deserializeAws_restJson1UpgradeAppliedSchemaCommand(output, context);
+    return de_UpgradeAppliedSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateEmailIdentityPolicyRequest,
-  UpdateEmailIdentityPolicyRequestFilterSensitiveLog,
-  UpdateEmailIdentityPolicyResponse,
-  UpdateEmailIdentityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEmailIdentityPolicyCommand,
-  serializeAws_restJson1UpdateEmailIdentityPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateEmailIdentityPolicyRequest, UpdateEmailIdentityPolicyResponse } from "../models/models_0";
+import { de_UpdateEmailIdentityPolicyCommand, se_UpdateEmailIdentityPolicyCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEmailIdentityPolicyCommand}.
  */
 export interface UpdateEmailIdentityPolicyCommandInput extends UpdateEmailIdentityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEmailIdentityPolicyCommand}.
  */
 export interface UpdateEmailIdentityPolicyCommandOutput extends UpdateEmailIdentityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified sending authorization policy for the given identity (an email
  *             address or a domain). This API returns successfully even if a policy with the specified
  *             name does not exist.</p>
@@ -53,10 +50,17 @@ export interface UpdateEmailIdentityPolicyCommandOutput extends UpdateEmailIdent
  * import { SESv2Client, UpdateEmailIdentityPolicyCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, UpdateEmailIdentityPolicyCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // UpdateEmailIdentityPolicyRequest
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new UpdateEmailIdentityPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEmailIdentityPolicyCommandInput - {@link UpdateEmailIdentityPolicyCommandInput}
+ * @returns {@link UpdateEmailIdentityPolicyCommandOutput}
  * @see {@link UpdateEmailIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateEmailIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -89,6 +93,9 @@ export class UpdateEmailIdentityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEmailIdentityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +124,8 @@ export class UpdateEmailIdentityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEmailIdentityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEmailIdentityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +135,21 @@ export class UpdateEmailIdentityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEmailIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEmailIdentityPolicyCommand(input, context);
+    return se_UpdateEmailIdentityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEmailIdentityPolicyCommandOutput> {
-    return deserializeAws_restJson1UpdateEmailIdentityPolicyCommand(output, context);
+    return de_UpdateEmailIdentityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

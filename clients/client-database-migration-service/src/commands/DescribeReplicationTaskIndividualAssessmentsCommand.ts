@@ -20,21 +20,23 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeReplicationTaskIndividualAssessmentsMessage,
-  DescribeReplicationTaskIndividualAssessmentsMessageFilterSensitiveLog,
   DescribeReplicationTaskIndividualAssessmentsResponse,
-  DescribeReplicationTaskIndividualAssessmentsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommand,
-  serializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommand,
+  de_DescribeReplicationTaskIndividualAssessmentsCommand,
+  se_DescribeReplicationTaskIndividualAssessmentsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationTaskIndividualAssessmentsCommand}.
  */
 export interface DescribeReplicationTaskIndividualAssessmentsCommandInput
   extends DescribeReplicationTaskIndividualAssessmentsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationTaskIndividualAssessmentsCommand}.
  */
 export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
@@ -42,6 +44,7 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of individual assessments based on filter settings.</p>
  *          <p>These filter settings can specify a combination of premigration assessment runs,
  *          migration tasks, and assessment status values.</p>
@@ -51,10 +54,24 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeReplicationTaskIndividualAssessmentsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeReplicationTaskIndividualAssessmentsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeReplicationTaskIndividualAssessmentsMessage
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReplicationTaskIndividualAssessmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationTaskIndividualAssessmentsCommandInput - {@link DescribeReplicationTaskIndividualAssessmentsCommandInput}
+ * @returns {@link DescribeReplicationTaskIndividualAssessmentsCommandOutput}
  * @see {@link DescribeReplicationTaskIndividualAssessmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTaskIndividualAssessmentsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -81,6 +98,9 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationTaskIndividualAssessmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +135,8 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationTaskIndividualAssessmentsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplicationTaskIndividualAssessmentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +146,24 @@ export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationTaskIndividualAssessmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommand(input, context);
+    return se_DescribeReplicationTaskIndividualAssessmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommand(output, context);
+    return de_DescribeReplicationTaskIndividualAssessmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

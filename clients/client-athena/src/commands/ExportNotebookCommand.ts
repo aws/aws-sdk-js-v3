@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ExportNotebookInput,
-  ExportNotebookInputFilterSensitiveLog,
-  ExportNotebookOutput,
-  ExportNotebookOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ExportNotebookCommand,
-  serializeAws_json1_1ExportNotebookCommand,
-} from "../protocols/Aws_json1_1";
+import { ExportNotebookInput, ExportNotebookOutput } from "../models/models_0";
+import { de_ExportNotebookCommand, se_ExportNotebookCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportNotebookCommand}.
  */
 export interface ExportNotebookCommandInput extends ExportNotebookInput {}
 /**
+ * @public
+ *
  * The output of {@link ExportNotebookCommand}.
  */
 export interface ExportNotebookCommandOutput extends ExportNotebookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports the specified notebook and its metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface ExportNotebookCommandOutput extends ExportNotebookOutput, __Met
  * import { AthenaClient, ExportNotebookCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ExportNotebookCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ExportNotebookInput
+ *   NotebookId: "STRING_VALUE", // required
+ * };
  * const command = new ExportNotebookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportNotebookCommandInput - {@link ExportNotebookCommandInput}
+ * @returns {@link ExportNotebookCommandOutput}
  * @see {@link ExportNotebookCommandInput} for command's `input` shape.
  * @see {@link ExportNotebookCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +82,9 @@ export class ExportNotebookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportNotebookCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class ExportNotebookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportNotebookInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportNotebookOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class ExportNotebookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportNotebookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExportNotebookCommand(input, context);
+    return se_ExportNotebookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportNotebookCommandOutput> {
-    return deserializeAws_json1_1ExportNotebookCommand(output, context);
+    return de_ExportNotebookCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeImageRequest,
-  DescribeImageRequestFilterSensitiveLog,
-  DescribeImageResponse,
-  DescribeImageResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeImageCommand,
-  serializeAws_json1_1DescribeImageCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeImageRequest, DescribeImageResponse } from "../models/models_2";
+import { de_DescribeImageCommand, se_DescribeImageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImageCommand}.
  */
 export interface DescribeImageCommandInput extends DescribeImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImageCommand}.
  */
 export interface DescribeImageCommandOutput extends DescribeImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a SageMaker image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeImageCommandOutput extends DescribeImageResponse, __Met
  * import { SageMakerClient, DescribeImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeImageRequest
+ *   ImageName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageCommandInput - {@link DescribeImageCommandInput}
+ * @returns {@link DescribeImageCommandOutput}
  * @see {@link DescribeImageCommandInput} for command's `input` shape.
  * @see {@link DescribeImageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +74,9 @@ export class DescribeImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +103,8 @@ export class DescribeImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +114,18 @@ export class DescribeImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageCommand(input, context);
+    return se_DescribeImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImageCommandOutput> {
-    return deserializeAws_json1_1DescribeImageCommand(output, context);
+    return de_DescribeImageCommand(output, context);
   }
 
   // Start section: command_body_extra

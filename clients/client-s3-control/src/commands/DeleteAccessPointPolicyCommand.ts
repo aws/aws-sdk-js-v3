@@ -14,23 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAccessPointPolicyRequest, DeleteAccessPointPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteAccessPointPolicyCommand,
-  serializeAws_restXmlDeleteAccessPointPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteAccessPointPolicyRequest } from "../models/models_0";
+import { de_DeleteAccessPointPolicyCommand, se_DeleteAccessPointPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessPointPolicyCommand}.
  */
 export interface DeleteAccessPointPolicyCommandInput extends DeleteAccessPointPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessPointPolicyCommand}.
  */
 export interface DeleteAccessPointPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the access point policy for the specified access point.</p>
  *          <p></p>
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html#API_control_DeleteAccessPointPolicy_Examples">Examples</a> section.</p>
@@ -53,10 +55,16 @@ export interface DeleteAccessPointPolicyCommandOutput extends __MetadataBearer {
  * import { S3ControlClient, DeleteAccessPointPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteAccessPointPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // DeleteAccessPointPolicyRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessPointPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessPointPolicyCommandInput - {@link DeleteAccessPointPolicyCommandInput}
+ * @returns {@link DeleteAccessPointPolicyCommandOutput}
  * @see {@link DeleteAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -84,6 +92,9 @@ export class DeleteAccessPointPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessPointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +124,8 @@ export class DeleteAccessPointPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessPointPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +135,18 @@ export class DeleteAccessPointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessPointPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteAccessPointPolicyCommand(input, context);
+    return se_DeleteAccessPointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPointPolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteAccessPointPolicyCommand(output, context);
+    return de_DeleteAccessPointPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

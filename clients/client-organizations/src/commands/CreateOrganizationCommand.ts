@@ -15,26 +15,27 @@ import {
 
 import {
   CreateOrganizationRequest,
-  CreateOrganizationRequestFilterSensitiveLog,
   CreateOrganizationResponse,
   CreateOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1CreateOrganizationCommand,
-  serializeAws_json1_1CreateOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateOrganizationCommand, se_CreateOrganizationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateOrganizationCommand}.
  */
 export interface CreateOrganizationCommandInput extends CreateOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateOrganizationCommand}.
  */
 export interface CreateOrganizationCommandOutput extends CreateOrganizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Web Services organization. The account whose user is calling the
  *                 <code>CreateOrganization</code> operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">management account</a> of the new organization.</p>
  *          <p>This operation must be called using credentials from the account that is to become the
@@ -52,10 +53,15 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * import { OrganizationsClient, CreateOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreateOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // CreateOrganizationRequest
+ *   FeatureSet: "ALL" || "CONSOLIDATED_BILLING",
+ * };
  * const command = new CreateOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateOrganizationCommandInput - {@link CreateOrganizationCommandInput}
+ * @returns {@link CreateOrganizationCommandOutput}
  * @see {@link CreateOrganizationCommandInput} for command's `input` shape.
  * @see {@link CreateOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -467,6 +473,9 @@ export class CreateOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -495,7 +504,7 @@ export class CreateOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOrganizationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -506,12 +515,18 @@ export class CreateOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateOrganizationCommand(input, context);
+    return se_CreateOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrganizationCommandOutput> {
-    return deserializeAws_json1_1CreateOrganizationCommand(output, context);
+    return de_CreateOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

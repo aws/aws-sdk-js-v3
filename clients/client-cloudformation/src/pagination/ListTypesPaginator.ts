@@ -6,7 +6,7 @@ import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from 
 import { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudFormationClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTypesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTypes(
   config: CloudFormationPaginationConfiguration,
   input: ListTypesCommandInput,

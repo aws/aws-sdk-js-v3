@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import {
-  ListConnectionsInput,
-  ListConnectionsInputFilterSensitiveLog,
-  ListConnectionsOutput,
-  ListConnectionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListConnectionsCommand,
-  serializeAws_json1_0ListConnectionsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListConnectionsInput, ListConnectionsOutput } from "../models/models_0";
+import { de_ListConnectionsCommand, se_ListConnectionsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListConnectionsCommand}.
  */
 export interface ListConnectionsCommandInput extends ListConnectionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListConnectionsCommand}.
  */
 export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the connections associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,18 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * import { CodeStarConnectionsClient, ListConnectionsCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, ListConnectionsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = { // ListConnectionsInput
+ *   ProviderTypeFilter: "STRING_VALUE",
+ *   HostArnFilter: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
+ * @returns {@link ListConnectionsCommandOutput}
  * @see {@link ListConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -73,6 +78,9 @@ export class ListConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +109,8 @@ export class ListConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConnectionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConnectionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +120,18 @@ export class ListConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListConnectionsCommand(input, context);
+    return se_ListConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectionsCommandOutput> {
-    return deserializeAws_json1_0ListConnectionsCommand(output, context);
+    return de_ListConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

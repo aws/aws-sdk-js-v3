@@ -15,27 +15,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  ListIdentitiesInput,
-  ListIdentitiesInputFilterSensitiveLog,
-  ListIdentitiesResponse,
-  ListIdentitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListIdentitiesCommand,
-  serializeAws_json1_1ListIdentitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListIdentitiesInput, ListIdentitiesResponse } from "../models/models_0";
+import { de_ListIdentitiesCommand, se_ListIdentitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIdentitiesCommand}.
  */
 export interface ListIdentitiesCommandInput extends ListIdentitiesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListIdentitiesCommand}.
  */
 export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the identities in an identity pool.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
@@ -44,10 +41,18 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * import { CognitoIdentityClient, ListIdentitiesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, ListIdentitiesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // ListIdentitiesInput
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"), // required
+ *   NextToken: "STRING_VALUE",
+ *   HideDisabled: true || false,
+ * };
  * const command = new ListIdentitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIdentitiesCommandInput - {@link ListIdentitiesCommandInput}
+ * @returns {@link ListIdentitiesCommandOutput}
  * @see {@link ListIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -87,6 +92,9 @@ export class ListIdentitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class ListIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIdentitiesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIdentitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +135,18 @@ export class ListIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListIdentitiesCommand(input, context);
+    return se_ListIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentitiesCommandOutput> {
-    return deserializeAws_json1_1ListIdentitiesCommand(output, context);
+    return de_ListIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

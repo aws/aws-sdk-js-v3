@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendEmailRequest,
-  SendEmailRequestFilterSensitiveLog,
-  SendEmailResponse,
-  SendEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_querySendEmailCommand, serializeAws_querySendEmailCommand } from "../protocols/Aws_query";
+import { SendEmailRequest, SendEmailResponse } from "../models/models_0";
+import { de_SendEmailCommand, se_SendEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendEmailCommand}.
  */
 export interface SendEmailCommandInput extends SendEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendEmailCommand}.
  */
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message and immediately queues it for sending. In order to send
  *             email using the <code>SendEmail</code> operation, your message must meet the following
  *             requirements:</p>
@@ -83,10 +83,55 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SendEmailRequest
+ *   Source: "STRING_VALUE", // required
+ *   Destination: { // Destination
+ *     ToAddresses: [ // AddressList
+ *       "STRING_VALUE",
+ *     ],
+ *     CcAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *     BccAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Message: { // Message
+ *     Subject: { // Content
+ *       Data: "STRING_VALUE", // required
+ *       Charset: "STRING_VALUE",
+ *     },
+ *     Body: { // Body
+ *       Text: {
+ *         Data: "STRING_VALUE", // required
+ *         Charset: "STRING_VALUE",
+ *       },
+ *       Html: {
+ *         Data: "STRING_VALUE", // required
+ *         Charset: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ReplyToAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ReturnPath: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE",
+ *   ReturnPathArn: "STRING_VALUE",
+ *   Tags: [ // MessageTagList
+ *     { // MessageTag
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ConfigurationSetName: "STRING_VALUE",
+ * };
  * const command = new SendEmailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendEmailCommandInput - {@link SendEmailCommandInput}
+ * @returns {@link SendEmailCommandOutput}
  * @see {@link SendEmailCommandInput} for command's `input` shape.
  * @see {@link SendEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -173,6 +218,9 @@ export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -199,8 +247,8 @@ export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -210,12 +258,18 @@ export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendEmailCommand(input, context);
+    return se_SendEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEmailCommandOutput> {
-    return deserializeAws_querySendEmailCommand(output, context);
+    return de_SendEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteRobotRequest,
-  DeleteRobotRequestFilterSensitiveLog,
-  DeleteRobotResponse,
-  DeleteRobotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRobotCommand,
-  serializeAws_restJson1DeleteRobotCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRobotRequest, DeleteRobotResponse } from "../models/models_0";
+import { de_DeleteRobotCommand, se_DeleteRobotCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRobotCommand}.
  */
 export interface DeleteRobotCommandInput extends DeleteRobotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRobotCommand}.
  */
 export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deletes a robot.</p>
@@ -47,10 +44,15 @@ export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __Metadat
  * import { RoboMakerClient, DeleteRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DeleteRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DeleteRobotRequest
+ *   robot: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRobotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRobotCommandInput - {@link DeleteRobotCommandInput}
+ * @returns {@link DeleteRobotCommandOutput}
  * @see {@link DeleteRobotCommandInput} for command's `input` shape.
  * @see {@link DeleteRobotCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeleteRobotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRobotCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DeleteRobotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRobotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRobotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DeleteRobotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRobotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRobotCommand(input, context);
+    return se_DeleteRobotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRobotCommandOutput> {
-    return deserializeAws_restJson1DeleteRobotCommand(output, context);
+    return de_DeleteRobotCommand(output, context);
   }
 
   // Start section: command_body_extra

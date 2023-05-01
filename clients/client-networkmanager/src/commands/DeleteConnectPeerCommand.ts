@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteConnectPeerRequest,
-  DeleteConnectPeerRequestFilterSensitiveLog,
-  DeleteConnectPeerResponse,
-  DeleteConnectPeerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteConnectPeerRequest, DeleteConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DeleteConnectPeerCommand,
-  serializeAws_restJson1DeleteConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteConnectPeerCommand, se_DeleteConnectPeerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectPeerCommand}.
  */
 export interface DeleteConnectPeerCommandInput extends DeleteConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectPeerCommand}.
  */
 export interface DeleteConnectPeerCommandOutput extends DeleteConnectPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Connect peer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteConnectPeerCommandOutput extends DeleteConnectPeerRespons
  * import { NetworkManagerClient, DeleteConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // DeleteConnectPeerRequest
+ *   ConnectPeerId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConnectPeerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectPeerCommandInput - {@link DeleteConnectPeerCommandInput}
+ * @returns {@link DeleteConnectPeerCommandOutput}
  * @see {@link DeleteConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +90,9 @@ export class DeleteConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class DeleteConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectPeerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConnectPeerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class DeleteConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConnectPeerCommand(input, context);
+    return se_DeleteConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectPeerCommandOutput> {
-    return deserializeAws_restJson1DeleteConnectPeerCommand(output, context);
+    return de_DeleteConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

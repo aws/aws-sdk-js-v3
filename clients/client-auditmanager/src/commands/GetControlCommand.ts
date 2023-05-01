@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  GetControlRequest,
-  GetControlRequestFilterSensitiveLog,
-  GetControlResponse,
-  GetControlResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetControlCommand,
-  serializeAws_restJson1GetControlCommand,
-} from "../protocols/Aws_restJson1";
+import { GetControlRequest, GetControlResponse } from "../models/models_0";
+import { de_GetControlCommand, se_GetControlCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetControlCommand}.
  */
 export interface GetControlCommandInput extends GetControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetControlCommand}.
  */
 export interface GetControlCommandOutput extends GetControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a control from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * import { AuditManagerClient, GetControlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetControlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // GetControlRequest
+ *   controlId: "STRING_VALUE", // required
+ * };
  * const command = new GetControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetControlCommandInput - {@link GetControlCommandInput}
+ * @returns {@link GetControlCommandOutput}
  * @see {@link GetControlCommandInput} for command's `input` shape.
  * @see {@link GetControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -83,6 +85,9 @@ export class GetControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class GetControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetControlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class GetControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetControlCommand(input, context);
+    return se_GetControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetControlCommandOutput> {
-    return deserializeAws_restJson1GetControlCommand(output, context);
+    return de_GetControlCommand(output, context);
   }
 
   // Start section: command_body_extra

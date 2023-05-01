@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DeleteModelRequest,
-  DeleteModelRequestFilterSensitiveLog,
-  DeleteModelResult,
-  DeleteModelResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteModelCommand,
-  serializeAws_json1_1DeleteModelCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteModelRequest, DeleteModelResult } from "../models/models_0";
+import { de_DeleteModelCommand, se_DeleteModelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandInput extends DeleteModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteModelCommand}.
  */
 export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a model.</p>
  *          <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
  *          <p> When you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.</p>
@@ -44,10 +41,16 @@ export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataB
  * import { FraudDetectorClient, DeleteModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // DeleteModelRequest
+ *   modelId: "STRING_VALUE", // required
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ * };
  * const command = new DeleteModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
+ * @returns {@link DeleteModelCommandOutput}
  * @see {@link DeleteModelCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +89,9 @@ export class DeleteModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class DeleteModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteModelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class DeleteModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelCommand(input, context);
+    return se_DeleteModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelCommandOutput> {
-    return deserializeAws_json1_1DeleteModelCommand(output, context);
+    return de_DeleteModelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteForecastRequest, DeleteForecastRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteForecastCommand,
-  serializeAws_json1_1DeleteForecastCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteForecastRequest } from "../models/models_0";
+import { de_DeleteForecastCommand, se_DeleteForecastCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteForecastCommand}.
  */
 export interface DeleteForecastCommandInput extends DeleteForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteForecastCommand}.
  */
 export interface DeleteForecastCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a forecast created using the <a>CreateForecast</a> operation. You can
  *       delete only forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
  *       To get the status, use the <a>DescribeForecast</a> operation.</p>
@@ -41,10 +43,15 @@ export interface DeleteForecastCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, DeleteForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DeleteForecastRequest
+ *   ForecastArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteForecastCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteForecastCommandInput - {@link DeleteForecastCommandInput}
+ * @returns {@link DeleteForecastCommandOutput}
  * @see {@link DeleteForecastCommandInput} for command's `input` shape.
  * @see {@link DeleteForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +117,8 @@ export class DeleteForecastCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteForecastRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +128,18 @@ export class DeleteForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteForecastCommand(input, context);
+    return se_DeleteForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteForecastCommandOutput> {
-    return deserializeAws_json1_1DeleteForecastCommand(output, context);
+    return de_DeleteForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

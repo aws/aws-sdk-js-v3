@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UnlockRuleRequest,
-  UnlockRuleRequestFilterSensitiveLog,
-  UnlockRuleResponse,
-  UnlockRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UnlockRuleCommand,
-  serializeAws_restJson1UnlockRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { UnlockRuleRequest, UnlockRuleResponse } from "../models/models_0";
+import { de_UnlockRuleCommand, se_UnlockRuleCommand } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
+ * @public
+ *
  * The input for {@link UnlockRuleCommand}.
  */
 export interface UnlockRuleCommandInput extends UnlockRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnlockRuleCommand}.
  */
 export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unlocks a retention rule. After a retention rule is unlocked, it can be modified or deleted
  *       only after the unlock delay period expires.</p>
  * @example
@@ -43,10 +40,15 @@ export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataB
  * import { RbinClient, UnlockRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, UnlockRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
+ * const input = { // UnlockRuleRequest
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new UnlockRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnlockRuleCommandInput - {@link UnlockRuleCommandInput}
+ * @returns {@link UnlockRuleCommandOutput}
  * @see {@link UnlockRuleCommandInput} for command's `input` shape.
  * @see {@link UnlockRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
@@ -82,6 +84,9 @@ export class UnlockRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnlockRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class UnlockRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnlockRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UnlockRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class UnlockRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnlockRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnlockRuleCommand(input, context);
+    return se_UnlockRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnlockRuleCommandOutput> {
-    return deserializeAws_restJson1UnlockRuleCommand(output, context);
+    return de_UnlockRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

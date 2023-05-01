@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTableRestoreStatusMessage,
-  DescribeTableRestoreStatusMessageFilterSensitiveLog,
-  TableRestoreStatusMessage,
-  TableRestoreStatusMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeTableRestoreStatusCommand,
-  serializeAws_queryDescribeTableRestoreStatusCommand,
-} from "../protocols/Aws_query";
+import { DescribeTableRestoreStatusMessage, TableRestoreStatusMessage } from "../models/models_1";
+import { de_DescribeTableRestoreStatusCommand, se_DescribeTableRestoreStatusCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTableRestoreStatusCommand}.
  */
 export interface DescribeTableRestoreStatusCommandInput extends DescribeTableRestoreStatusMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTableRestoreStatusCommand}.
  */
 export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreStatusMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the status of one or more table restore requests made using the <a>RestoreTableFromClusterSnapshot</a> API action. If you don't specify a value
  *             for the <code>TableRestoreRequestId</code> parameter, then
  *                 <code>DescribeTableRestoreStatus</code> returns the status of all table restore
@@ -47,10 +44,18 @@ export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreSta
  * import { RedshiftClient, DescribeTableRestoreStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeTableRestoreStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeTableRestoreStatusMessage
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   TableRestoreRequestId: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeTableRestoreStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTableRestoreStatusCommandInput - {@link DescribeTableRestoreStatusCommandInput}
+ * @returns {@link DescribeTableRestoreStatusCommandOutput}
  * @see {@link DescribeTableRestoreStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeTableRestoreStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -81,6 +86,9 @@ export class DescribeTableRestoreStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTableRestoreStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class DescribeTableRestoreStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTableRestoreStatusMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: TableRestoreStatusMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +128,21 @@ export class DescribeTableRestoreStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTableRestoreStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTableRestoreStatusCommand(input, context);
+    return se_DescribeTableRestoreStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTableRestoreStatusCommandOutput> {
-    return deserializeAws_queryDescribeTableRestoreStatusCommand(output, context);
+    return de_DescribeTableRestoreStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  DeleteGroupRequest,
-  DeleteGroupRequestFilterSensitiveLog,
-  DeleteGroupResponse,
-  DeleteGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGroupCommand,
-  serializeAws_json1_1DeleteGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteGroupRequest, DeleteGroupResponse } from "../models/models_0";
+import { de_DeleteGroupCommand, se_DeleteGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGroupCommand}.
  */
 export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGroupCommand}.
  */
 export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a group within an identity store given <code>GroupId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * import { IdentitystoreClient, DeleteGroupCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, DeleteGroupCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // DeleteGroupRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
+ * @returns {@link DeleteGroupCommandOutput}
  * @see {@link DeleteGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -95,6 +98,9 @@ export class DeleteGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DeleteGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class DeleteGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGroupCommand(input, context);
+    return se_DeleteGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteGroupCommand(output, context);
+    return de_DeleteGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteBrowserSettingsRequest,
-  DeleteBrowserSettingsRequestFilterSensitiveLog,
-  DeleteBrowserSettingsResponse,
-  DeleteBrowserSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBrowserSettingsCommand,
-  serializeAws_restJson1DeleteBrowserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBrowserSettingsRequest, DeleteBrowserSettingsResponse } from "../models/models_0";
+import { de_DeleteBrowserSettingsCommand, se_DeleteBrowserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBrowserSettingsCommand}.
  */
 export interface DeleteBrowserSettingsCommandInput extends DeleteBrowserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBrowserSettingsCommand}.
  */
 export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes browser settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSetting
  * import { WorkSpacesWebClient, DeleteBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // DeleteBrowserSettingsRequest
+ *   browserSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBrowserSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBrowserSettingsCommandInput - {@link DeleteBrowserSettingsCommandInput}
+ * @returns {@link DeleteBrowserSettingsCommandOutput}
  * @see {@link DeleteBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeleteBrowserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBrowserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DeleteBrowserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBrowserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBrowserSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DeleteBrowserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBrowserSettingsCommand(input, context);
+    return se_DeleteBrowserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1DeleteBrowserSettingsCommand(output, context);
+    return de_DeleteBrowserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

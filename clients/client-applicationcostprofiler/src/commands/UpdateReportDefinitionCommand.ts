@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
-import {
-  UpdateReportDefinitionRequest,
-  UpdateReportDefinitionRequestFilterSensitiveLog,
-  UpdateReportDefinitionResult,
-  UpdateReportDefinitionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateReportDefinitionCommand,
-  serializeAws_restJson1UpdateReportDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateReportDefinitionRequest, UpdateReportDefinitionResult } from "../models/models_0";
+import { de_UpdateReportDefinitionCommand, se_UpdateReportDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReportDefinitionCommand}.
  */
 export interface UpdateReportDefinitionCommandInput extends UpdateReportDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReportDefinitionCommand}.
  */
 export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinitionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates existing report in AWS Application Cost Profiler.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,22 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  * import { ApplicationCostProfilerClient, UpdateReportDefinitionCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
  * // const { ApplicationCostProfilerClient, UpdateReportDefinitionCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
+ * const input = { // UpdateReportDefinitionRequest
+ *   reportId: "STRING_VALUE", // required
+ *   reportDescription: "STRING_VALUE", // required
+ *   reportFrequency: "STRING_VALUE", // required
+ *   format: "STRING_VALUE", // required
+ *   destinationS3Location: { // S3Location
+ *     bucket: "STRING_VALUE", // required
+ *     prefix: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateReportDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReportDefinitionCommandInput - {@link UpdateReportDefinitionCommandInput}
+ * @returns {@link UpdateReportDefinitionCommandOutput}
  * @see {@link UpdateReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
@@ -85,6 +94,9 @@ export class UpdateReportDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReportDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +125,8 @@ export class UpdateReportDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateReportDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateReportDefinitionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +136,18 @@ export class UpdateReportDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateReportDefinitionCommand(input, context);
+    return se_UpdateReportDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReportDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateReportDefinitionCommand(output, context);
+    return de_UpdateReportDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

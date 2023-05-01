@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyIpamResourceDiscoveryRequest,
-  ModifyIpamResourceDiscoveryRequestFilterSensitiveLog,
-  ModifyIpamResourceDiscoveryResult,
-  ModifyIpamResourceDiscoveryResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyIpamResourceDiscoveryCommand,
-  serializeAws_ec2ModifyIpamResourceDiscoveryCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyIpamResourceDiscoveryRequest, ModifyIpamResourceDiscoveryResult } from "../models/models_6";
+import { de_ModifyIpamResourceDiscoveryCommand, se_ModifyIpamResourceDiscoveryCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyIpamResourceDiscoveryCommand}.
  */
 export interface ModifyIpamResourceDiscoveryCommandInput extends ModifyIpamResourceDiscoveryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyIpamResourceDiscoveryCommand}.
  */
 export interface ModifyIpamResourceDiscoveryCommandOutput extends ModifyIpamResourceDiscoveryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface ModifyIpamResourceDiscoveryCommandOutput extends ModifyIpamReso
  * import { EC2Client, ModifyIpamResourceDiscoveryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyIpamResourceDiscoveryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyIpamResourceDiscoveryRequest
+ *   DryRun: true || false,
+ *   IpamResourceDiscoveryId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AddOperatingRegions: [ // AddIpamOperatingRegionSet
+ *     { // AddIpamOperatingRegion
+ *       RegionName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   RemoveOperatingRegions: [ // RemoveIpamOperatingRegionSet
+ *     { // RemoveIpamOperatingRegion
+ *       RegionName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyIpamResourceDiscoveryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyIpamResourceDiscoveryCommandInput - {@link ModifyIpamResourceDiscoveryCommandInput}
+ * @returns {@link ModifyIpamResourceDiscoveryCommandOutput}
  * @see {@link ModifyIpamResourceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link ModifyIpamResourceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +83,9 @@ export class ModifyIpamResourceDiscoveryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyIpamResourceDiscoveryCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +114,8 @@ export class ModifyIpamResourceDiscoveryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyIpamResourceDiscoveryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyIpamResourceDiscoveryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +125,21 @@ export class ModifyIpamResourceDiscoveryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyIpamResourceDiscoveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyIpamResourceDiscoveryCommand(input, context);
+    return se_ModifyIpamResourceDiscoveryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyIpamResourceDiscoveryCommandOutput> {
-    return deserializeAws_ec2ModifyIpamResourceDiscoveryCommand(output, context);
+    return de_ModifyIpamResourceDiscoveryCommand(output, context);
   }
 
   // Start section: command_body_extra

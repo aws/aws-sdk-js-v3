@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AbortMultipartUploadOutput,
-  AbortMultipartUploadOutputFilterSensitiveLog,
-  AbortMultipartUploadRequest,
-  AbortMultipartUploadRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlAbortMultipartUploadCommand,
-  serializeAws_restXmlAbortMultipartUploadCommand,
-} from "../protocols/Aws_restXml";
+import { AbortMultipartUploadOutput, AbortMultipartUploadRequest } from "../models/models_0";
+import { de_AbortMultipartUploadCommand, se_AbortMultipartUploadCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link AbortMultipartUploadCommand}.
  */
 export interface AbortMultipartUploadCommandInput extends AbortMultipartUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link AbortMultipartUploadCommand}.
  */
 export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action aborts a multipart upload. After a multipart upload is aborted, no
  *          additional parts can be uploaded using that upload ID. The storage consumed by any
  *          previously uploaded parts will be freed. However, if any part uploads are currently in
@@ -80,10 +77,19 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * import { S3Client, AbortMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, AbortMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // AbortMultipartUploadRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   UploadId: "STRING_VALUE", // required
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AbortMultipartUploadCommandInput - {@link AbortMultipartUploadCommandInput}
+ * @returns {@link AbortMultipartUploadCommandOutput}
  * @see {@link AbortMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link AbortMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -129,6 +135,9 @@ export class AbortMultipartUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AbortMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,8 +166,8 @@ export class AbortMultipartUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AbortMultipartUploadRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AbortMultipartUploadOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,12 +177,18 @@ export class AbortMultipartUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AbortMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlAbortMultipartUploadCommand(input, context);
+    return se_AbortMultipartUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortMultipartUploadCommandOutput> {
-    return deserializeAws_restXmlAbortMultipartUploadCommand(output, context);
+    return de_AbortMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

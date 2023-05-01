@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  ListBuiltInIntentsRequest,
-  ListBuiltInIntentsRequestFilterSensitiveLog,
-  ListBuiltInIntentsResponse,
-  ListBuiltInIntentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBuiltInIntentsCommand,
-  serializeAws_restJson1ListBuiltInIntentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBuiltInIntentsRequest, ListBuiltInIntentsResponse } from "../models/models_0";
+import { de_ListBuiltInIntentsCommand, se_ListBuiltInIntentsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBuiltInIntentsCommand}.
  */
 export interface ListBuiltInIntentsCommandInput extends ListBuiltInIntentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBuiltInIntentsCommand}.
  */
 export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of built-in intents provided by Amazon Lex that you can use
  *          in your bot. </p>
  *          <p>To use a built-in intent as a the base for your own intent, include
@@ -47,10 +44,21 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  * import { LexModelsV2Client, ListBuiltInIntentsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBuiltInIntentsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // ListBuiltInIntentsRequest
+ *   localeId: "STRING_VALUE", // required
+ *   sortBy: { // BuiltInIntentSortBy
+ *     attribute: "IntentSignature", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBuiltInIntentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBuiltInIntentsCommandInput - {@link ListBuiltInIntentsCommandInput}
+ * @returns {@link ListBuiltInIntentsCommandOutput}
  * @see {@link ListBuiltInIntentsCommandInput} for command's `input` shape.
  * @see {@link ListBuiltInIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -89,6 +97,9 @@ export class ListBuiltInIntentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBuiltInIntentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class ListBuiltInIntentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBuiltInIntentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBuiltInIntentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +139,18 @@ export class ListBuiltInIntentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBuiltInIntentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBuiltInIntentsCommand(input, context);
+    return se_ListBuiltInIntentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuiltInIntentsCommandOutput> {
-    return deserializeAws_restJson1ListBuiltInIntentsCommand(output, context);
+    return de_ListBuiltInIntentsCommand(output, context);
   }
 
   // Start section: command_body_extra

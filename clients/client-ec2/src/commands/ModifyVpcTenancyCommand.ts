@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyVpcTenancyRequest,
-  ModifyVpcTenancyRequestFilterSensitiveLog,
-  ModifyVpcTenancyResult,
-  ModifyVpcTenancyResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVpcTenancyCommand,
-  serializeAws_ec2ModifyVpcTenancyCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyVpcTenancyRequest, ModifyVpcTenancyResult } from "../models/models_6";
+import { de_ModifyVpcTenancyCommand, se_ModifyVpcTenancyCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcTenancyCommand}.
  */
 export interface ModifyVpcTenancyCommandInput extends ModifyVpcTenancyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcTenancyCommand}.
  */
 export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the instance tenancy attribute of the specified VPC. You can change the
  *             instance tenancy attribute of a VPC to <code>default</code> only. You cannot change the
  *             instance tenancy attribute to <code>dedicated</code>.</p>
@@ -49,10 +46,17 @@ export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, _
  * import { EC2Client, ModifyVpcTenancyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcTenancyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVpcTenancyRequest
+ *   VpcId: "STRING_VALUE", // required
+ *   InstanceTenancy: "default", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyVpcTenancyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcTenancyCommandInput - {@link ModifyVpcTenancyCommandInput}
+ * @returns {@link ModifyVpcTenancyCommandOutput}
  * @see {@link ModifyVpcTenancyCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcTenancyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +80,9 @@ export class ModifyVpcTenancyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcTenancyCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class ModifyVpcTenancyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpcTenancyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpcTenancyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class ModifyVpcTenancyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVpcTenancyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcTenancyCommand(input, context);
+    return se_ModifyVpcTenancyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVpcTenancyCommandOutput> {
-    return deserializeAws_ec2ModifyVpcTenancyCommand(output, context);
+    return de_ModifyVpcTenancyCommand(output, context);
   }
 
   // Start section: command_body_extra

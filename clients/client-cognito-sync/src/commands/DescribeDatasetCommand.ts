@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import {
-  DescribeDatasetRequest,
-  DescribeDatasetRequestFilterSensitiveLog,
-  DescribeDatasetResponse,
-  DescribeDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDatasetCommand,
-  serializeAws_restJson1DescribeDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0";
+import { de_DescribeDatasetCommand, se_DescribeDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDatasetCommand}.
  */
 export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDatasetCommand}.
  */
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each
  *          identity has access only to its own data. Thus, the credentials used to make this API call
  *          need to have access to the identity data.</p>
@@ -45,10 +42,17 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * import { CognitoSyncClient, DescribeDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, DescribeDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
+ * const input = { // DescribeDatasetRequest
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityId: "STRING_VALUE", // required
+ *   DatasetName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
+ * @returns {@link DescribeDatasetCommandOutput}
  * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
@@ -92,6 +96,9 @@ export class DescribeDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class DescribeDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +138,18 @@ export class DescribeDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDatasetCommand(input, context);
+    return se_DescribeDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetCommandOutput> {
-    return deserializeAws_restJson1DescribeDatasetCommand(output, context);
+    return de_DescribeDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

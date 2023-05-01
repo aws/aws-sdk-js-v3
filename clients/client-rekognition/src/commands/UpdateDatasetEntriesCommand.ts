@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDatasetEntriesRequest,
-  UpdateDatasetEntriesRequestFilterSensitiveLog,
-  UpdateDatasetEntriesResponse,
-  UpdateDatasetEntriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDatasetEntriesCommand,
-  serializeAws_json1_1UpdateDatasetEntriesCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDatasetEntriesRequest, UpdateDatasetEntriesResponse } from "../models/models_1";
+import { de_UpdateDatasetEntriesCommand, se_UpdateDatasetEntriesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDatasetEntriesCommand}.
  */
 export interface UpdateDatasetEntriesCommandInput extends UpdateDatasetEntriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDatasetEntriesCommand}.
  */
 export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates one or more entries (images) in a dataset. An entry is a JSON Line which contains the
  *       information for a single image,  including
  *       the image location, assigned labels, and object location bounding boxes.  For more information,
@@ -63,10 +60,18 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * import { RekognitionClient, UpdateDatasetEntriesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, UpdateDatasetEntriesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // UpdateDatasetEntriesRequest
+ *   DatasetArn: "STRING_VALUE", // required
+ *   Changes: { // DatasetChanges
+ *     GroundTruth: "BLOB_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateDatasetEntriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDatasetEntriesCommandInput - {@link UpdateDatasetEntriesCommandInput}
+ * @returns {@link UpdateDatasetEntriesCommandOutput}
  * @see {@link UpdateDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetEntriesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -118,6 +123,9 @@ export class UpdateDatasetEntriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDatasetEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +154,8 @@ export class UpdateDatasetEntriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatasetEntriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatasetEntriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +165,18 @@ export class UpdateDatasetEntriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDatasetEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDatasetEntriesCommand(input, context);
+    return se_UpdateDatasetEntriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasetEntriesCommandOutput> {
-    return deserializeAws_json1_1UpdateDatasetEntriesCommand(output, context);
+    return de_UpdateDatasetEntriesCommand(output, context);
   }
 
   // Start section: command_body_extra

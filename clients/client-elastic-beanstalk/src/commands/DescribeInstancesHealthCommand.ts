@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  DescribeInstancesHealthRequest,
-  DescribeInstancesHealthRequestFilterSensitiveLog,
-  DescribeInstancesHealthResult,
-  DescribeInstancesHealthResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeInstancesHealthCommand,
-  serializeAws_queryDescribeInstancesHealthCommand,
-} from "../protocols/Aws_query";
+import { DescribeInstancesHealthRequest, DescribeInstancesHealthResult } from "../models/models_0";
+import { de_DescribeInstancesHealthCommand, se_DescribeInstancesHealthCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstancesHealthCommand}.
  */
 export interface DescribeInstancesHealthCommandInput extends DescribeInstancesHealthRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstancesHealthCommand}.
  */
 export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesHealthResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves detailed information about the health of instances in your AWS Elastic
  *       Beanstalk. This operation requires <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced health
  *       reporting</a>.</p>
@@ -44,10 +41,20 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  * import { ElasticBeanstalkClient, DescribeInstancesHealthCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeInstancesHealthCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DescribeInstancesHealthRequest
+ *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   AttributeNames: [ // InstancesHealthAttributes
+ *     "HealthStatus" || "Color" || "Causes" || "ApplicationMetrics" || "RefreshedAt" || "LaunchedAt" || "System" || "Deployment" || "AvailabilityZone" || "InstanceType" || "All",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeInstancesHealthCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancesHealthCommandInput - {@link DescribeInstancesHealthCommandInput}
+ * @returns {@link DescribeInstancesHealthCommandOutput}
  * @see {@link DescribeInstancesHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancesHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -142,6 +149,9 @@ export class DescribeInstancesHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancesHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,8 +180,8 @@ export class DescribeInstancesHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancesHealthRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstancesHealthResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -181,12 +191,18 @@ export class DescribeInstancesHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancesHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeInstancesHealthCommand(input, context);
+    return se_DescribeInstancesHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancesHealthCommandOutput> {
-    return deserializeAws_queryDescribeInstancesHealthCommand(output, context);
+    return de_DescribeInstancesHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { TagResourceRequest, TagResourceRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1TagResourceCommand,
-  serializeAws_restJson1TagResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { TagResourceRequest } from "../models/models_1";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TagResourceCommand}.
  */
 export interface TagResourceCommandInput extends TagResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagResourceCommand}.
  */
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified tags to the specified resource.</p>
  *          <p>Some of the supported resource types are agents, routing profiles, queues, quick connects,
  *    contact flows, agent statuses, hours of operation, phone numbers, security profiles, and task
@@ -43,10 +45,18 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, TagResourceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, TagResourceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // TagResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // TagMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +95,9 @@ export class TagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +124,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +135,18 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagResourceCommand(input, context);
+    return se_TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_restJson1TagResourceCommand(output, context);
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

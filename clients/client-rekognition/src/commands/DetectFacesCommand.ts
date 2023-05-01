@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetectFacesRequest,
-  DetectFacesRequestFilterSensitiveLog,
-  DetectFacesResponse,
-  DetectFacesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectFacesCommand,
-  serializeAws_json1_1DetectFacesCommand,
-} from "../protocols/Aws_json1_1";
+import { DetectFacesRequest, DetectFacesResponse } from "../models/models_0";
+import { de_DetectFacesCommand, se_DetectFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectFacesCommand}.
  */
 export interface DetectFacesCommandInput extends DetectFacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectFacesCommand}.
  */
 export interface DetectFacesCommandOutput extends DetectFacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects faces within an image that is provided as input.</p>
  *          <p>
  *             <code>DetectFaces</code> detects the 100 largest faces in the image. For each face
@@ -60,10 +57,25 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * import { RekognitionClient, DetectFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DetectFacesRequest
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   Attributes: [ // Attributes
+ *     "DEFAULT" || "ALL",
+ *   ],
+ * };
  * const command = new DetectFacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectFacesCommandInput - {@link DetectFacesCommandInput}
+ * @returns {@link DetectFacesCommandOutput}
  * @see {@link DetectFacesCommandInput} for command's `input` shape.
  * @see {@link DetectFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -184,6 +196,9 @@ export class DetectFacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -210,8 +225,8 @@ export class DetectFacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectFacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectFacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -221,12 +236,18 @@ export class DetectFacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectFacesCommand(input, context);
+    return se_DetectFacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectFacesCommandOutput> {
-    return deserializeAws_json1_1DetectFacesCommand(output, context);
+    return de_DetectFacesCommand(output, context);
   }
 
   // Start section: command_body_extra

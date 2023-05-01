@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  UpdateEventActionRequest,
-  UpdateEventActionRequestFilterSensitiveLog,
-  UpdateEventActionResponse,
-  UpdateEventActionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEventActionCommand,
-  serializeAws_restJson1UpdateEventActionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateEventActionRequest, UpdateEventActionResponse } from "../models/models_0";
+import { de_UpdateEventActionCommand, se_UpdateEventActionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEventActionCommand}.
  */
 export interface UpdateEventActionCommandInput extends UpdateEventActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEventActionCommand}.
  */
 export interface UpdateEventActionCommandOutput extends UpdateEventActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation updates the event action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface UpdateEventActionCommandOutput extends UpdateEventActionRespons
  * import { DataExchangeClient, UpdateEventActionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, UpdateEventActionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // UpdateEventActionRequest
+ *   Action: { // Action
+ *     ExportRevisionToS3: { // AutoExportRevisionToS3RequestDetails
+ *       Encryption: { // ExportServerSideEncryption
+ *         KmsKeyArn: "STRING_VALUE",
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *       RevisionDestination: { // AutoExportRevisionDestinationEntry
+ *         Bucket: "STRING_VALUE", // required
+ *         KeyPattern: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   EventActionId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateEventActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEventActionCommandInput - {@link UpdateEventActionCommandInput}
+ * @returns {@link UpdateEventActionCommandOutput}
  * @see {@link UpdateEventActionCommandInput} for command's `input` shape.
  * @see {@link UpdateEventActionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -84,6 +98,9 @@ export class UpdateEventActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEventActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +129,8 @@ export class UpdateEventActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEventActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEventActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +140,18 @@ export class UpdateEventActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEventActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEventActionCommand(input, context);
+    return se_UpdateEventActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventActionCommandOutput> {
-    return deserializeAws_restJson1UpdateEventActionCommand(output, context);
+    return de_UpdateEventActionCommand(output, context);
   }
 
   // Start section: command_body_extra

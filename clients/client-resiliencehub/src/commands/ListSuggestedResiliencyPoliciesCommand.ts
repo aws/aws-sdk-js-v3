@@ -15,21 +15,24 @@ import {
 
 import {
   ListSuggestedResiliencyPoliciesRequest,
-  ListSuggestedResiliencyPoliciesRequestFilterSensitiveLog,
   ListSuggestedResiliencyPoliciesResponse,
   ListSuggestedResiliencyPoliciesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListSuggestedResiliencyPoliciesCommand,
-  serializeAws_restJson1ListSuggestedResiliencyPoliciesCommand,
+  de_ListSuggestedResiliencyPoliciesCommand,
+  se_ListSuggestedResiliencyPoliciesCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSuggestedResiliencyPoliciesCommand}.
  */
 export interface ListSuggestedResiliencyPoliciesCommandInput extends ListSuggestedResiliencyPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSuggestedResiliencyPoliciesCommand}.
  */
 export interface ListSuggestedResiliencyPoliciesCommandOutput
@@ -37,17 +40,24 @@ export interface ListSuggestedResiliencyPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the suggested resiliency policies for the AWS Resilience Hub applications.</p>
+ * @public
+ * <p>Lists the suggested resiliency policies for the Resilience Hub applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, ListSuggestedResiliencyPoliciesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListSuggestedResiliencyPoliciesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListSuggestedResiliencyPoliciesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSuggestedResiliencyPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSuggestedResiliencyPoliciesCommandInput - {@link ListSuggestedResiliencyPoliciesCommandInput}
+ * @returns {@link ListSuggestedResiliencyPoliciesCommandOutput}
  * @see {@link ListSuggestedResiliencyPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListSuggestedResiliencyPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -58,7 +68,7 @@ export interface ListSuggestedResiliencyPoliciesCommandOutput
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -89,6 +99,9 @@ export class ListSuggestedResiliencyPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSuggestedResiliencyPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,7 +130,7 @@ export class ListSuggestedResiliencyPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSuggestedResiliencyPoliciesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListSuggestedResiliencyPoliciesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -128,18 +141,24 @@ export class ListSuggestedResiliencyPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSuggestedResiliencyPoliciesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSuggestedResiliencyPoliciesCommand(input, context);
+    return se_ListSuggestedResiliencyPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSuggestedResiliencyPoliciesCommandOutput> {
-    return deserializeAws_restJson1ListSuggestedResiliencyPoliciesCommand(output, context);
+    return de_ListSuggestedResiliencyPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

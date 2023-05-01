@@ -10,7 +10,7 @@ import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient"
 import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LexModelBuildingServiceClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new GetSlotTypeVersionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateGetSlotTypeVersions(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetSlotTypeVersionsCommandInput,

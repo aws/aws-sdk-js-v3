@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { TimestreamWriteServiceException as __BaseException } from "./TimestreamWriteServiceException";
 
 /**
+ * @public
  * <p>You are not authorized to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,11 +25,21 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum BatchLoadDataFormat {
-  CSV = "CSV",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BatchLoadDataFormat = {
+  CSV: "CSV",
+} as const;
 
 /**
+ * @public
+ */
+export type BatchLoadDataFormat = (typeof BatchLoadDataFormat)[keyof typeof BatchLoadDataFormat];
+
+/**
+ * @public
  * <p>Details about the progress of a batch load task.</p>
  */
 export interface BatchLoadProgressReport {
@@ -63,16 +74,26 @@ export interface BatchLoadProgressReport {
   BytesMetered?: number;
 }
 
-export enum BatchLoadStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING_RESUME = "PENDING_RESUME",
-  PROGRESS_STOPPED = "PROGRESS_STOPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BatchLoadStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING_RESUME: "PENDING_RESUME",
+  PROGRESS_STOPPED: "PROGRESS_STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type BatchLoadStatus = (typeof BatchLoadStatus)[keyof typeof BatchLoadStatus];
+
+/**
+ * @public
  * <p>Details about a batch load task.</p>
  */
 export interface BatchLoadTask {
@@ -114,6 +135,7 @@ export interface BatchLoadTask {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DimensionMapping {
@@ -129,24 +151,43 @@ export interface DimensionMapping {
   DestinationColumn?: string;
 }
 
-export enum MeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  MULTI = "MULTI",
-  TIMESTAMP = "TIMESTAMP",
-  VARCHAR = "VARCHAR",
-}
-
-export enum ScalarMeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  TIMESTAMP = "TIMESTAMP",
-  VARCHAR = "VARCHAR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  MULTI: "MULTI",
+  TIMESTAMP: "TIMESTAMP",
+  VARCHAR: "VARCHAR",
+} as const;
 
 /**
+ * @public
+ */
+export type MeasureValueType = (typeof MeasureValueType)[keyof typeof MeasureValueType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalarMeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  TIMESTAMP: "TIMESTAMP",
+  VARCHAR: "VARCHAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalarMeasureValueType = (typeof ScalarMeasureValueType)[keyof typeof ScalarMeasureValueType];
+
+/**
+ * @public
  * <p></p>
  */
 export interface MultiMeasureAttributeMapping {
@@ -167,6 +208,7 @@ export interface MultiMeasureAttributeMapping {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface MixedMeasureMapping {
@@ -197,6 +239,7 @@ export interface MixedMeasureMapping {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface MultiMeasureMappings {
@@ -211,14 +254,24 @@ export interface MultiMeasureMappings {
   MultiMeasureAttributeMappings: MultiMeasureAttributeMapping[] | undefined;
 }
 
-export enum TimeUnit {
-  MICROSECONDS = "MICROSECONDS",
-  MILLISECONDS = "MILLISECONDS",
-  NANOSECONDS = "NANOSECONDS",
-  SECONDS = "SECONDS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TimeUnit = {
+  MICROSECONDS: "MICROSECONDS",
+  MILLISECONDS: "MILLISECONDS",
+  NANOSECONDS: "NANOSECONDS",
+  SECONDS: "SECONDS",
+} as const;
 
 /**
+ * @public
+ */
+export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
+
+/**
+ * @public
  * <p>Data model for a batch load task.</p>
  */
 export interface DataModel {
@@ -256,6 +309,7 @@ export interface DataModel {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DataModelS3Configuration {
@@ -271,6 +325,7 @@ export interface DataModelS3Configuration {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DataModelConfiguration {
@@ -286,6 +341,7 @@ export interface DataModelConfiguration {
 }
 
 /**
+ * @public
  * <p>A delimited data format where the column separator can be a comma and the record
  *          separator is a newline character.</p>
  */
@@ -318,6 +374,7 @@ export interface CsvConfiguration {
 }
 
 /**
+ * @public
  * <p>
  *       </p>
  */
@@ -335,6 +392,7 @@ export interface DataSourceS3Configuration {
 }
 
 /**
+ * @public
  * <p>Defines configuration details about the data source.</p>
  */
 export interface DataSourceConfiguration {
@@ -355,12 +413,22 @@ export interface DataSourceConfiguration {
   DataFormat: BatchLoadDataFormat | string | undefined;
 }
 
-export enum S3EncryptionOption {
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const S3EncryptionOption = {
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+} as const;
 
 /**
+ * @public
+ */
+export type S3EncryptionOption = (typeof S3EncryptionOption)[keyof typeof S3EncryptionOption];
+
+/**
+ * @public
  * <p></p>
  */
 export interface ReportS3Configuration {
@@ -386,6 +454,7 @@ export interface ReportS3Configuration {
 }
 
 /**
+ * @public
  * <p>Report configuration for a batch load task. This contains details about where error reports are stored.</p>
  */
 export interface ReportConfiguration {
@@ -397,6 +466,7 @@ export interface ReportConfiguration {
 }
 
 /**
+ * @public
  * <p>Details about a batch load task.</p>
  */
 export interface BatchLoadTaskDescription {
@@ -468,6 +538,7 @@ export interface BatchLoadTaskDescription {
 }
 
 /**
+ * @public
  * <p>Timestream was unable to process this request because it contains resource that
  *          already exists.</p>
  */
@@ -489,6 +560,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateBatchLoadTaskRequest {
   /**
    * <p></p>
@@ -526,6 +600,9 @@ export interface CreateBatchLoadTaskRequest {
   RecordVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateBatchLoadTaskResponse {
   /**
    * <p>The ID of the batch load task.</p>
@@ -534,6 +611,7 @@ export interface CreateBatchLoadTaskResponse {
 }
 
 /**
+ * @public
  * <p>
  *          Timestream was unable to fully process this request because of an internal server
  *          error.</p>
@@ -557,6 +635,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested endpoint was not valid.</p>
  */
 export class InvalidEndpointException extends __BaseException {
@@ -578,6 +657,7 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation tried to access a nonexistent resource. The resource might not be
  *          specified correctly, or its status might not be ACTIVE.</p>
  */
@@ -600,6 +680,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> The instance quota of resource exceeded for this account.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -621,6 +702,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Too many requests were made by a user and they exceeded the service quotas. The request
  *          was throttled.</p>
  */
@@ -643,6 +725,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> An invalid or malformed request.</p>
  */
 export class ValidationException extends __BaseException {
@@ -664,6 +747,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> A tag is a label that you assign to a Timestream database and/or table. Each
  *          tag consists of a key and an optional value, both of which you define. With tags, you can
  *          categorize databases and/or tables, for example, by purpose, owner, or environment. </p>
@@ -680,6 +764,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatabaseRequest {
   /**
    * <p>The name of the Timestream database.</p>
@@ -699,6 +786,7 @@ export interface CreateDatabaseRequest {
 }
 
 /**
+ * @public
  * <p>A top-level container for a table. Databases and tables are the fundamental management
  *          concepts in Amazon Timestream. All tables in a database are encrypted with the
  *          same KMS key.</p>
@@ -736,6 +824,9 @@ export interface Database {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateDatabaseResponse {
   /**
    * <p>The newly created Timestream database.</p>
@@ -744,6 +835,7 @@ export interface CreateDatabaseResponse {
 }
 
 /**
+ * @public
  * <p>The configuration that specifies an S3 location.</p>
  */
 export interface S3Configuration {
@@ -771,6 +863,7 @@ export interface S3Configuration {
 }
 
 /**
+ * @public
  * <p>The location to write error reports for records rejected, asynchronously, during
  *          magnetic store writes.</p>
  */
@@ -783,6 +876,7 @@ export interface MagneticStoreRejectedDataLocation {
 }
 
 /**
+ * @public
  * <p>The set of properties on a table for configuring magnetic store writes.</p>
  */
 export interface MagneticStoreWriteProperties {
@@ -799,6 +893,7 @@ export interface MagneticStoreWriteProperties {
 }
 
 /**
+ * @public
  * <p>Retention properties contain the duration for which your time-series data must be stored
  *          in the magnetic store and the memory store. </p>
  */
@@ -814,6 +909,9 @@ export interface RetentionProperties {
   MagneticStoreRetentionPeriodInDays: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateTableRequest {
   /**
    * <p>The name of the Timestream database.</p>
@@ -842,13 +940,23 @@ export interface CreateTableRequest {
   MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
 }
 
-export enum TableStatus {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-  RESTORING = "RESTORING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TableStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+  RESTORING: "RESTORING",
+} as const;
 
 /**
+ * @public
+ */
+export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
+
+/**
+ * @public
  * <p>Represents a database table in Timestream. Tables contain one or more related
  *          time series. You can modify the retention duration of the memory store and the magnetic
  *          store for a table. </p>
@@ -905,6 +1013,9 @@ export interface Table {
   MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
 }
 
+/**
+ * @public
+ */
 export interface CreateTableResponse {
   /**
    * <p>The newly created Timestream table.</p>
@@ -912,6 +1023,9 @@ export interface CreateTableResponse {
   Table?: Table;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDatabaseRequest {
   /**
    * <p>The name of the Timestream database to be deleted.</p>
@@ -919,6 +1033,9 @@ export interface DeleteDatabaseRequest {
   DatabaseName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTableRequest {
   /**
    * <p>The name of the database where the Timestream database is to be deleted.</p>
@@ -931,6 +1048,9 @@ export interface DeleteTableRequest {
   TableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBatchLoadTaskRequest {
   /**
    * <p>The ID of the batch load task.</p>
@@ -938,6 +1058,9 @@ export interface DescribeBatchLoadTaskRequest {
   TaskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBatchLoadTaskResponse {
   /**
    * <p>Description of the batch load task.</p>
@@ -945,6 +1068,9 @@ export interface DescribeBatchLoadTaskResponse {
   BatchLoadTaskDescription: BatchLoadTaskDescription | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatabaseRequest {
   /**
    * <p>The name of the Timestream database.</p>
@@ -952,6 +1078,9 @@ export interface DescribeDatabaseRequest {
   DatabaseName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDatabaseResponse {
   /**
    * <p>The name of the Timestream table.</p>
@@ -959,9 +1088,13 @@ export interface DescribeDatabaseResponse {
   Database?: Database;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointsRequest {}
 
 /**
+ * @public
  * <p>Represents an available endpoint against which to make API calls against, as well as the
  *          TTL for that endpoint.</p>
  */
@@ -977,6 +1110,9 @@ export interface Endpoint {
   CachePeriodInMinutes: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointsResponse {
   /**
    * <p>An <code>Endpoints</code> object is returned when a <code>DescribeEndpoints</code>
@@ -985,6 +1121,9 @@ export interface DescribeEndpointsResponse {
   Endpoints: Endpoint[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTableRequest {
   /**
    * <p>The name of the Timestream database.</p>
@@ -997,6 +1136,9 @@ export interface DescribeTableRequest {
   TableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTableResponse {
   /**
    * <p>The Timestream table.</p>
@@ -1004,11 +1146,21 @@ export interface DescribeTableResponse {
   Table?: Table;
 }
 
-export enum DimensionValueType {
-  VARCHAR = "VARCHAR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DimensionValueType = {
+  VARCHAR: "VARCHAR",
+} as const;
 
 /**
+ * @public
+ */
+export type DimensionValueType = (typeof DimensionValueType)[keyof typeof DimensionValueType];
+
+/**
+ * @public
  * <p>Represents the metadata attributes of the time series. For example, the name and
  *          Availability Zone of an EC2 instance or the name of the manufacturer of a wind turbine are
  *          dimensions. </p>
@@ -1034,6 +1186,9 @@ export interface Dimension {
   DimensionValueType?: DimensionValueType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListBatchLoadTasksRequest {
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
@@ -1055,6 +1210,9 @@ export interface ListBatchLoadTasksRequest {
   TaskStatus?: BatchLoadStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListBatchLoadTasksResponse {
   /**
    * <p>A token to specify where to start paginating. Provide the next
@@ -1068,6 +1226,9 @@ export interface ListBatchLoadTasksResponse {
   BatchLoadTasks?: BatchLoadTask[];
 }
 
+/**
+ * @public
+ */
 export interface ListDatabasesRequest {
   /**
    * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a
@@ -1084,6 +1245,9 @@ export interface ListDatabasesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListDatabasesResponse {
   /**
    * <p>A list of database names.</p>
@@ -1096,6 +1260,9 @@ export interface ListDatabasesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTablesRequest {
   /**
    * <p>The name of the Timestream database.</p>
@@ -1117,6 +1284,9 @@ export interface ListTablesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTablesResponse {
   /**
    * <p>A list of tables.</p>
@@ -1130,6 +1300,9 @@ export interface ListTablesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p> The Timestream resource with tags to be listed. This value is an Amazon
@@ -1138,6 +1311,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p> The tags currently associated with the Timestream resource. </p>
@@ -1146,6 +1322,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p> Represents the data attribute of the time series. For example, the CPU utilization of
  *          an EC2 instance or the RPM of a wind turbine are measures. MeasureValue has both name and
  *          value. </p>
@@ -1172,6 +1349,7 @@ export interface MeasureValue {
 }
 
 /**
+ * @public
  * <p>Represents a time-series data point being written into Timestream. Each record
  *          contains an array of dimensions. Dimensions represent the metadata attributes of a
  *          time-series data point, such as the instance name or Availability Zone of an EC2 instance.
@@ -1247,6 +1425,7 @@ export interface _Record {
 }
 
 /**
+ * @public
  * <p>Information on the records ingested by this request.</p>
  */
 export interface RecordsIngested {
@@ -1267,6 +1446,7 @@ export interface RecordsIngested {
 }
 
 /**
+ * @public
  * <p> Represents records that were not successfully inserted into Timestream due to
  *          data validation issues that must be resolved before reinserting time-series data into the
  *          system. </p>
@@ -1331,6 +1511,7 @@ export interface RejectedRecord {
 }
 
 /**
+ * @public
  * <p> WriteRecords would throw this exception in the following cases: </p>
  *          <ul>
  *             <li>
@@ -1386,6 +1567,9 @@ export class RejectedRecordsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ResumeBatchLoadTaskRequest {
   /**
    * <p>The ID of the batch load task to resume.</p>
@@ -1393,8 +1577,14 @@ export interface ResumeBatchLoadTaskRequest {
   TaskId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ResumeBatchLoadTaskResponse {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p> Identifies the Timestream resource to which tags should be added. This value
@@ -1408,8 +1598,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p> The Timestream resource that the tags will be removed from. This value is an
@@ -1424,8 +1620,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateDatabaseRequest {
   /**
    * <p> The name of the database. </p>
@@ -1462,6 +1664,9 @@ export interface UpdateDatabaseRequest {
   KmsKeyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDatabaseResponse {
   /**
    * <p>A top-level container for a table. Databases and tables are the fundamental management
@@ -1471,6 +1676,9 @@ export interface UpdateDatabaseResponse {
   Database?: Database;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableRequest {
   /**
    * <p>The name of the Timestream database.</p>
@@ -1493,6 +1701,9 @@ export interface UpdateTableRequest {
   MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableResponse {
   /**
    * <p>The updated Timestream table.</p>
@@ -1500,6 +1711,9 @@ export interface UpdateTableResponse {
   Table?: Table;
 }
 
+/**
+ * @public
+ */
 export interface WriteRecordsRequest {
   /**
    * <p>The name of the Timestream database.</p>
@@ -1528,6 +1742,9 @@ export interface WriteRecordsRequest {
   Records: _Record[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface WriteRecordsResponse {
   /**
    * <p>Information on the records ingested by this request.</p>
@@ -1538,448 +1755,7 @@ export interface WriteRecordsResponse {
 /**
  * @internal
  */
-export const BatchLoadProgressReportFilterSensitiveLog = (obj: BatchLoadProgressReport): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchLoadTaskFilterSensitiveLog = (obj: BatchLoadTask): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionMappingFilterSensitiveLog = (obj: DimensionMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiMeasureAttributeMappingFilterSensitiveLog = (obj: MultiMeasureAttributeMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MixedMeasureMappingFilterSensitiveLog = (obj: MixedMeasureMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiMeasureMappingsFilterSensitiveLog = (obj: MultiMeasureMappings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataModelFilterSensitiveLog = (obj: DataModel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataModelS3ConfigurationFilterSensitiveLog = (obj: DataModelS3Configuration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataModelConfigurationFilterSensitiveLog = (obj: DataModelConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CsvConfigurationFilterSensitiveLog = (obj: CsvConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceS3ConfigurationFilterSensitiveLog = (obj: DataSourceS3Configuration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceConfigurationFilterSensitiveLog = (obj: DataSourceConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReportS3ConfigurationFilterSensitiveLog = (obj: ReportS3Configuration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReportConfigurationFilterSensitiveLog = (obj: ReportConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchLoadTaskDescriptionFilterSensitiveLog = (obj: BatchLoadTaskDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateBatchLoadTaskRequestFilterSensitiveLog = (obj: CreateBatchLoadTaskRequest): any => ({
   ...obj,
   ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateBatchLoadTaskResponseFilterSensitiveLog = (obj: CreateBatchLoadTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatabaseRequestFilterSensitiveLog = (obj: CreateDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatabaseFilterSensitiveLog = (obj: Database): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDatabaseResponseFilterSensitiveLog = (obj: CreateDatabaseResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ConfigurationFilterSensitiveLog = (obj: S3Configuration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MagneticStoreRejectedDataLocationFilterSensitiveLog = (obj: MagneticStoreRejectedDataLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MagneticStoreWritePropertiesFilterSensitiveLog = (obj: MagneticStoreWriteProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetentionPropertiesFilterSensitiveLog = (obj: RetentionProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTableRequestFilterSensitiveLog = (obj: CreateTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFilterSensitiveLog = (obj: Table): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTableResponseFilterSensitiveLog = (obj: CreateTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatabaseRequestFilterSensitiveLog = (obj: DeleteDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTableRequestFilterSensitiveLog = (obj: DeleteTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBatchLoadTaskRequestFilterSensitiveLog = (obj: DescribeBatchLoadTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBatchLoadTaskResponseFilterSensitiveLog = (obj: DescribeBatchLoadTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatabaseRequestFilterSensitiveLog = (obj: DescribeDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatabaseResponseFilterSensitiveLog = (obj: DescribeDatabaseResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointsRequestFilterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointsResponseFilterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTableRequestFilterSensitiveLog = (obj: DescribeTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTableResponseFilterSensitiveLog = (obj: DescribeTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionFilterSensitiveLog = (obj: Dimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBatchLoadTasksRequestFilterSensitiveLog = (obj: ListBatchLoadTasksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBatchLoadTasksResponseFilterSensitiveLog = (obj: ListBatchLoadTasksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatabasesRequestFilterSensitiveLog = (obj: ListDatabasesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatabasesResponseFilterSensitiveLog = (obj: ListDatabasesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTablesRequestFilterSensitiveLog = (obj: ListTablesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTablesResponseFilterSensitiveLog = (obj: ListTablesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeasureValueFilterSensitiveLog = (obj: MeasureValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordsIngestedFilterSensitiveLog = (obj: RecordsIngested): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectedRecordFilterSensitiveLog = (obj: RejectedRecord): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResumeBatchLoadTaskRequestFilterSensitiveLog = (obj: ResumeBatchLoadTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResumeBatchLoadTaskResponseFilterSensitiveLog = (obj: ResumeBatchLoadTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatabaseRequestFilterSensitiveLog = (obj: UpdateDatabaseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatabaseResponseFilterSensitiveLog = (obj: UpdateDatabaseResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableRequestFilterSensitiveLog = (obj: UpdateTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableResponseFilterSensitiveLog = (obj: UpdateTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WriteRecordsRequestFilterSensitiveLog = (obj: WriteRecordsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WriteRecordsResponseFilterSensitiveLog = (obj: WriteRecordsResponse): any => ({
-  ...obj,
 });

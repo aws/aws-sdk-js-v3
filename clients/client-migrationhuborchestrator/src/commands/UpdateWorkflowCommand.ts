@@ -24,21 +24,23 @@ import {
   UpdateMigrationWorkflowResponse,
   UpdateMigrationWorkflowResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkflowCommand,
-  serializeAws_restJson1UpdateWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateWorkflowCommand, se_UpdateWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkflowCommand}.
  */
 export interface UpdateWorkflowCommandInput extends UpdateMigrationWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkflowCommand}.
  */
 export interface UpdateWorkflowCommandOutput extends UpdateMigrationWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +48,32 @@ export interface UpdateWorkflowCommandOutput extends UpdateMigrationWorkflowResp
  * import { MigrationHubOrchestratorClient, UpdateWorkflowCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, UpdateWorkflowCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // UpdateMigrationWorkflowRequest
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   inputParameters: { // StepInputParameters
+ *     "<keys>": { // StepInput Union: only one key present
+ *       integerValue: Number("int"),
+ *       stringValue: "STRING_VALUE",
+ *       listOfStringsValue: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       mapOfStringValue: { // StringMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   stepTargets: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkflowCommandInput - {@link UpdateWorkflowCommandInput}
+ * @returns {@link UpdateWorkflowCommandOutput}
  * @see {@link UpdateWorkflowCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -88,6 +112,9 @@ export class UpdateWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,12 +154,18 @@ export class UpdateWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkflowCommand(input, context);
+    return se_UpdateWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkflowCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkflowCommand(output, context);
+    return de_UpdateWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  CreateFeatureRequest,
-  CreateFeatureRequestFilterSensitiveLog,
-  CreateFeatureResponse,
-  CreateFeatureResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFeatureCommand,
-  serializeAws_restJson1CreateFeatureCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateFeatureRequest, CreateFeatureResponse } from "../models/models_0";
+import { de_CreateFeatureCommand, se_CreateFeatureCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFeatureCommand}.
  */
 export interface CreateFeatureCommandInput extends CreateFeatureRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFeatureCommand}.
  */
 export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Evidently <i>feature</i> that you want to launch or test. You can define up to
  *        five variations of a feature, and use these variations in your launches and experiments. A feature must be created in
  *        a project. For information about creating a project, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html">CreateProject</a>.</p>
@@ -46,10 +43,36 @@ export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __Met
  * import { EvidentlyClient, CreateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // CreateFeatureRequest
+ *   project: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   evaluationStrategy: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   variations: [ // VariationConfigsList // required
+ *     { // VariationConfig
+ *       name: "STRING_VALUE", // required
+ *       value: { // VariableValue Union: only one key present
+ *         boolValue: true || false,
+ *         stringValue: "STRING_VALUE",
+ *         longValue: Number("long"),
+ *         doubleValue: Number("double"),
+ *       },
+ *     },
+ *   ],
+ *   defaultVariation: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   entityOverrides: { // EntityOverrideMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFeatureCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFeatureCommandInput - {@link CreateFeatureCommandInput}
+ * @returns {@link CreateFeatureCommandOutput}
  * @see {@link CreateFeatureCommandInput} for command's `input` shape.
  * @see {@link CreateFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -88,6 +111,9 @@ export class CreateFeatureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFeatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +140,8 @@ export class CreateFeatureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFeatureRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFeatureResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +151,18 @@ export class CreateFeatureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFeatureCommand(input, context);
+    return se_CreateFeatureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFeatureCommandOutput> {
-    return deserializeAws_restJson1CreateFeatureCommand(output, context);
+    return de_CreateFeatureCommand(output, context);
   }
 
   // Start section: command_body_extra

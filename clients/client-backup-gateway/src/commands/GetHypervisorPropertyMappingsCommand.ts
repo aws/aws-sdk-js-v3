@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
+import { GetHypervisorPropertyMappingsInput, GetHypervisorPropertyMappingsOutput } from "../models/models_0";
 import {
-  GetHypervisorPropertyMappingsInput,
-  GetHypervisorPropertyMappingsInputFilterSensitiveLog,
-  GetHypervisorPropertyMappingsOutput,
-  GetHypervisorPropertyMappingsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetHypervisorPropertyMappingsCommand,
-  serializeAws_json1_0GetHypervisorPropertyMappingsCommand,
+  de_GetHypervisorPropertyMappingsCommand,
+  se_GetHypervisorPropertyMappingsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetHypervisorPropertyMappingsCommand}.
  */
 export interface GetHypervisorPropertyMappingsCommandInput extends GetHypervisorPropertyMappingsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetHypervisorPropertyMappingsCommand}.
  */
 export interface GetHypervisorPropertyMappingsCommandOutput
@@ -37,6 +36,7 @@ export interface GetHypervisorPropertyMappingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action retrieves the property mappings for the specified hypervisor.
  *       A hypervisor property mapping displays the relationship of entity properties
  *       available from the on-premises hypervisor to the properties available in Amazon Web Services.</p>
@@ -46,10 +46,15 @@ export interface GetHypervisorPropertyMappingsCommandOutput
  * import { BackupGatewayClient, GetHypervisorPropertyMappingsCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, GetHypervisorPropertyMappingsCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // GetHypervisorPropertyMappingsInput
+ *   HypervisorArn: "STRING_VALUE", // required
+ * };
  * const command = new GetHypervisorPropertyMappingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHypervisorPropertyMappingsCommandInput - {@link GetHypervisorPropertyMappingsCommandInput}
+ * @returns {@link GetHypervisorPropertyMappingsCommandOutput}
  * @see {@link GetHypervisorPropertyMappingsCommandInput} for command's `input` shape.
  * @see {@link GetHypervisorPropertyMappingsCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -86,6 +91,9 @@ export class GetHypervisorPropertyMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHypervisorPropertyMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +122,8 @@ export class GetHypervisorPropertyMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHypervisorPropertyMappingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHypervisorPropertyMappingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +133,21 @@ export class GetHypervisorPropertyMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHypervisorPropertyMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetHypervisorPropertyMappingsCommand(input, context);
+    return se_GetHypervisorPropertyMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHypervisorPropertyMappingsCommandOutput> {
-    return deserializeAws_json1_0GetHypervisorPropertyMappingsCommand(output, context);
+    return de_GetHypervisorPropertyMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

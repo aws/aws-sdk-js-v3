@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  GetFuotaTaskRequest,
-  GetFuotaTaskRequestFilterSensitiveLog,
-  GetFuotaTaskResponse,
-  GetFuotaTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFuotaTaskCommand,
-  serializeAws_restJson1GetFuotaTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFuotaTaskRequest, GetFuotaTaskResponse } from "../models/models_0";
+import { de_GetFuotaTaskCommand, se_GetFuotaTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFuotaTaskCommand}.
  */
 export interface GetFuotaTaskCommandInput extends GetFuotaTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFuotaTaskCommand}.
  */
 export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __Metad
  * import { IoTWirelessClient, GetFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetFuotaTaskRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetFuotaTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFuotaTaskCommandInput - {@link GetFuotaTaskCommandInput}
+ * @returns {@link GetFuotaTaskCommandOutput}
  * @see {@link GetFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link GetFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetFuotaTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFuotaTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFuotaTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFuotaTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFuotaTaskCommand(input, context);
+    return se_GetFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFuotaTaskCommandOutput> {
-    return deserializeAws_restJson1GetFuotaTaskCommand(output, context);
+    return de_GetFuotaTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

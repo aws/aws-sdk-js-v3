@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  DescribeFaqRequest,
-  DescribeFaqRequestFilterSensitiveLog,
-  DescribeFaqResponse,
-  DescribeFaqResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFaqCommand,
-  serializeAws_json1_1DescribeFaqCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFaqRequest, DescribeFaqResponse } from "../models/models_0";
+import { de_DescribeFaqCommand, se_DescribeFaqCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFaqCommand}.
  */
 export interface DescribeFaqCommandInput extends DescribeFaqRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFaqCommand}.
  */
 export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an FAQ list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __Metadat
  * import { KendraClient, DescribeFaqCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeFaqCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DescribeFaqRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFaqCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFaqCommandInput - {@link DescribeFaqCommandInput}
+ * @returns {@link DescribeFaqCommandOutput}
  * @see {@link DescribeFaqCommandInput} for command's `input` shape.
  * @see {@link DescribeFaqCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -56,7 +59,7 @@ export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __Metadat
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -89,6 +92,9 @@ export class DescribeFaqCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFaqCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DescribeFaqCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFaqRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFaqResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DescribeFaqCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFaqCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFaqCommand(input, context);
+    return se_DescribeFaqCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFaqCommandOutput> {
-    return deserializeAws_json1_1DescribeFaqCommand(output, context);
+    return de_DescribeFaqCommand(output, context);
   }
 
   // Start section: command_body_extra

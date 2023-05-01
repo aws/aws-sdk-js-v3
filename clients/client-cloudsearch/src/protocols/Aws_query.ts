@@ -13,7 +13,7 @@ import {
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
-  throwDefaultError,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -182,349 +182,371 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_queryBuildSuggestersCommand = async (
+/**
+ * serializeAws_queryBuildSuggestersCommand
+ */
+export const se_BuildSuggestersCommand = async (
   input: BuildSuggestersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryBuildSuggestersRequest(input, context),
+    ...se_BuildSuggestersRequest(input, context),
     Action: "BuildSuggesters",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateDomainCommand = async (
+/**
+ * serializeAws_queryCreateDomainCommand
+ */
+export const se_CreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateDomainRequest(input, context),
+    ...se_CreateDomainRequest(input, context),
     Action: "CreateDomain",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDefineAnalysisSchemeCommand = async (
+/**
+ * serializeAws_queryDefineAnalysisSchemeCommand
+ */
+export const se_DefineAnalysisSchemeCommand = async (
   input: DefineAnalysisSchemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDefineAnalysisSchemeRequest(input, context),
+    ...se_DefineAnalysisSchemeRequest(input, context),
     Action: "DefineAnalysisScheme",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDefineExpressionCommand = async (
+/**
+ * serializeAws_queryDefineExpressionCommand
+ */
+export const se_DefineExpressionCommand = async (
   input: DefineExpressionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDefineExpressionRequest(input, context),
+    ...se_DefineExpressionRequest(input, context),
     Action: "DefineExpression",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDefineIndexFieldCommand = async (
+/**
+ * serializeAws_queryDefineIndexFieldCommand
+ */
+export const se_DefineIndexFieldCommand = async (
   input: DefineIndexFieldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDefineIndexFieldRequest(input, context),
+    ...se_DefineIndexFieldRequest(input, context),
     Action: "DefineIndexField",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDefineSuggesterCommand = async (
+/**
+ * serializeAws_queryDefineSuggesterCommand
+ */
+export const se_DefineSuggesterCommand = async (
   input: DefineSuggesterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDefineSuggesterRequest(input, context),
+    ...se_DefineSuggesterRequest(input, context),
     Action: "DefineSuggester",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteAnalysisSchemeCommand = async (
+/**
+ * serializeAws_queryDeleteAnalysisSchemeCommand
+ */
+export const se_DeleteAnalysisSchemeCommand = async (
   input: DeleteAnalysisSchemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteAnalysisSchemeRequest(input, context),
+    ...se_DeleteAnalysisSchemeRequest(input, context),
     Action: "DeleteAnalysisScheme",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteDomainCommand = async (
+/**
+ * serializeAws_queryDeleteDomainCommand
+ */
+export const se_DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteDomainRequest(input, context),
+    ...se_DeleteDomainRequest(input, context),
     Action: "DeleteDomain",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteExpressionCommand = async (
+/**
+ * serializeAws_queryDeleteExpressionCommand
+ */
+export const se_DeleteExpressionCommand = async (
   input: DeleteExpressionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteExpressionRequest(input, context),
+    ...se_DeleteExpressionRequest(input, context),
     Action: "DeleteExpression",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteIndexFieldCommand = async (
+/**
+ * serializeAws_queryDeleteIndexFieldCommand
+ */
+export const se_DeleteIndexFieldCommand = async (
   input: DeleteIndexFieldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteIndexFieldRequest(input, context),
+    ...se_DeleteIndexFieldRequest(input, context),
     Action: "DeleteIndexField",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteSuggesterCommand = async (
+/**
+ * serializeAws_queryDeleteSuggesterCommand
+ */
+export const se_DeleteSuggesterCommand = async (
   input: DeleteSuggesterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteSuggesterRequest(input, context),
+    ...se_DeleteSuggesterRequest(input, context),
     Action: "DeleteSuggester",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeAnalysisSchemesCommand = async (
+/**
+ * serializeAws_queryDescribeAnalysisSchemesCommand
+ */
+export const se_DescribeAnalysisSchemesCommand = async (
   input: DescribeAnalysisSchemesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeAnalysisSchemesRequest(input, context),
+    ...se_DescribeAnalysisSchemesRequest(input, context),
     Action: "DescribeAnalysisSchemes",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeAvailabilityOptionsCommand = async (
+/**
+ * serializeAws_queryDescribeAvailabilityOptionsCommand
+ */
+export const se_DescribeAvailabilityOptionsCommand = async (
   input: DescribeAvailabilityOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeAvailabilityOptionsRequest(input, context),
+    ...se_DescribeAvailabilityOptionsRequest(input, context),
     Action: "DescribeAvailabilityOptions",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeDomainEndpointOptionsCommand = async (
+/**
+ * serializeAws_queryDescribeDomainEndpointOptionsCommand
+ */
+export const se_DescribeDomainEndpointOptionsCommand = async (
   input: DescribeDomainEndpointOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeDomainEndpointOptionsRequest(input, context),
+    ...se_DescribeDomainEndpointOptionsRequest(input, context),
     Action: "DescribeDomainEndpointOptions",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeDomainsCommand = async (
+/**
+ * serializeAws_queryDescribeDomainsCommand
+ */
+export const se_DescribeDomainsCommand = async (
   input: DescribeDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeDomainsRequest(input, context),
+    ...se_DescribeDomainsRequest(input, context),
     Action: "DescribeDomains",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeExpressionsCommand = async (
+/**
+ * serializeAws_queryDescribeExpressionsCommand
+ */
+export const se_DescribeExpressionsCommand = async (
   input: DescribeExpressionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeExpressionsRequest(input, context),
+    ...se_DescribeExpressionsRequest(input, context),
     Action: "DescribeExpressions",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeIndexFieldsCommand = async (
+/**
+ * serializeAws_queryDescribeIndexFieldsCommand
+ */
+export const se_DescribeIndexFieldsCommand = async (
   input: DescribeIndexFieldsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeIndexFieldsRequest(input, context),
+    ...se_DescribeIndexFieldsRequest(input, context),
     Action: "DescribeIndexFields",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeScalingParametersCommand = async (
+/**
+ * serializeAws_queryDescribeScalingParametersCommand
+ */
+export const se_DescribeScalingParametersCommand = async (
   input: DescribeScalingParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeScalingParametersRequest(input, context),
+    ...se_DescribeScalingParametersRequest(input, context),
     Action: "DescribeScalingParameters",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeServiceAccessPoliciesCommand = async (
+/**
+ * serializeAws_queryDescribeServiceAccessPoliciesCommand
+ */
+export const se_DescribeServiceAccessPoliciesCommand = async (
   input: DescribeServiceAccessPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeServiceAccessPoliciesRequest(input, context),
+    ...se_DescribeServiceAccessPoliciesRequest(input, context),
     Action: "DescribeServiceAccessPolicies",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeSuggestersCommand = async (
+/**
+ * serializeAws_queryDescribeSuggestersCommand
+ */
+export const se_DescribeSuggestersCommand = async (
   input: DescribeSuggestersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeSuggestersRequest(input, context),
+    ...se_DescribeSuggestersRequest(input, context),
     Action: "DescribeSuggesters",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryIndexDocumentsCommand = async (
+/**
+ * serializeAws_queryIndexDocumentsCommand
+ */
+export const se_IndexDocumentsCommand = async (
   input: IndexDocumentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryIndexDocumentsRequest(input, context),
+    ...se_IndexDocumentsRequest(input, context),
     Action: "IndexDocuments",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListDomainNamesCommand = async (
+/**
+ * serializeAws_queryListDomainNamesCommand
+ */
+export const se_ListDomainNamesCommand = async (
   input: ListDomainNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
     Action: "ListDomainNames",
     Version: "2013-01-01",
@@ -532,88 +554,98 @@ export const serializeAws_queryListDomainNamesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateAvailabilityOptionsCommand = async (
+/**
+ * serializeAws_queryUpdateAvailabilityOptionsCommand
+ */
+export const se_UpdateAvailabilityOptionsCommand = async (
   input: UpdateAvailabilityOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateAvailabilityOptionsRequest(input, context),
+    ...se_UpdateAvailabilityOptionsRequest(input, context),
     Action: "UpdateAvailabilityOptions",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateDomainEndpointOptionsCommand = async (
+/**
+ * serializeAws_queryUpdateDomainEndpointOptionsCommand
+ */
+export const se_UpdateDomainEndpointOptionsCommand = async (
   input: UpdateDomainEndpointOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateDomainEndpointOptionsRequest(input, context),
+    ...se_UpdateDomainEndpointOptionsRequest(input, context),
     Action: "UpdateDomainEndpointOptions",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateScalingParametersCommand = async (
+/**
+ * serializeAws_queryUpdateScalingParametersCommand
+ */
+export const se_UpdateScalingParametersCommand = async (
   input: UpdateScalingParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateScalingParametersRequest(input, context),
+    ...se_UpdateScalingParametersRequest(input, context),
     Action: "UpdateScalingParameters",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryUpdateServiceAccessPoliciesCommand = async (
+/**
+ * serializeAws_queryUpdateServiceAccessPoliciesCommand
+ */
+export const se_UpdateServiceAccessPoliciesCommand = async (
   input: UpdateServiceAccessPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryUpdateServiceAccessPoliciesRequest(input, context),
+    ...se_UpdateServiceAccessPoliciesRequest(input, context),
     Action: "UpdateServiceAccessPolicies",
     Version: "2013-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_queryBuildSuggestersCommand = async (
+/**
+ * deserializeAws_queryBuildSuggestersCommand
+ */
+export const de_BuildSuggestersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BuildSuggestersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryBuildSuggestersCommandError(output, context);
+    return de_BuildSuggestersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryBuildSuggestersResponse(data.BuildSuggestersResult, context);
+  contents = de_BuildSuggestersResponse(data.BuildSuggestersResult, context);
   const response: BuildSuggestersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryBuildSuggestersCommandError = async (
+/**
+ * deserializeAws_queryBuildSuggestersCommandError
+ */
+const de_BuildSuggestersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BuildSuggestersCommandOutput> => {
@@ -625,45 +657,50 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryCreateDomainCommand = async (
+/**
+ * deserializeAws_queryCreateDomainCommand
+ */
+export const de_CreateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateDomainCommandError(output, context);
+    return de_CreateDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateDomainResponse(data.CreateDomainResult, context);
+  contents = de_CreateDomainResponse(data.CreateDomainResult, context);
   const response: CreateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateDomainCommandError = async (
+/**
+ * deserializeAws_queryCreateDomainCommandError
+ */
+const de_CreateDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
@@ -675,48 +712,53 @@ const deserializeAws_queryCreateDomainCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExists":
     case "com.amazonaws.cloudsearch#ResourceAlreadyExistsException":
-      throw await deserializeAws_queryResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDefineAnalysisSchemeCommand = async (
+/**
+ * deserializeAws_queryDefineAnalysisSchemeCommand
+ */
+export const de_DefineAnalysisSchemeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineAnalysisSchemeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDefineAnalysisSchemeCommandError(output, context);
+    return de_DefineAnalysisSchemeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDefineAnalysisSchemeResponse(data.DefineAnalysisSchemeResult, context);
+  contents = de_DefineAnalysisSchemeResponse(data.DefineAnalysisSchemeResult, context);
   const response: DefineAnalysisSchemeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
+/**
+ * deserializeAws_queryDefineAnalysisSchemeCommandError
+ */
+const de_DefineAnalysisSchemeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineAnalysisSchemeCommandOutput> => {
@@ -728,51 +770,56 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDefineExpressionCommand = async (
+/**
+ * deserializeAws_queryDefineExpressionCommand
+ */
+export const de_DefineExpressionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineExpressionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDefineExpressionCommandError(output, context);
+    return de_DefineExpressionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDefineExpressionResponse(data.DefineExpressionResult, context);
+  contents = de_DefineExpressionResponse(data.DefineExpressionResult, context);
   const response: DefineExpressionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDefineExpressionCommandError = async (
+/**
+ * deserializeAws_queryDefineExpressionCommandError
+ */
+const de_DefineExpressionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineExpressionCommandOutput> => {
@@ -784,51 +831,56 @@ const deserializeAws_queryDefineExpressionCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDefineIndexFieldCommand = async (
+/**
+ * deserializeAws_queryDefineIndexFieldCommand
+ */
+export const de_DefineIndexFieldCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineIndexFieldCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDefineIndexFieldCommandError(output, context);
+    return de_DefineIndexFieldCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDefineIndexFieldResponse(data.DefineIndexFieldResult, context);
+  contents = de_DefineIndexFieldResponse(data.DefineIndexFieldResult, context);
   const response: DefineIndexFieldCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDefineIndexFieldCommandError = async (
+/**
+ * deserializeAws_queryDefineIndexFieldCommandError
+ */
+const de_DefineIndexFieldCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineIndexFieldCommandOutput> => {
@@ -840,51 +892,56 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDefineSuggesterCommand = async (
+/**
+ * deserializeAws_queryDefineSuggesterCommand
+ */
+export const de_DefineSuggesterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineSuggesterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDefineSuggesterCommandError(output, context);
+    return de_DefineSuggesterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDefineSuggesterResponse(data.DefineSuggesterResult, context);
+  contents = de_DefineSuggesterResponse(data.DefineSuggesterResult, context);
   const response: DefineSuggesterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDefineSuggesterCommandError = async (
+/**
+ * deserializeAws_queryDefineSuggesterCommandError
+ */
+const de_DefineSuggesterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineSuggesterCommandOutput> => {
@@ -896,51 +953,56 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteAnalysisSchemeCommand = async (
+/**
+ * deserializeAws_queryDeleteAnalysisSchemeCommand
+ */
+export const de_DeleteAnalysisSchemeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAnalysisSchemeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteAnalysisSchemeCommandError(output, context);
+    return de_DeleteAnalysisSchemeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteAnalysisSchemeResponse(data.DeleteAnalysisSchemeResult, context);
+  contents = de_DeleteAnalysisSchemeResponse(data.DeleteAnalysisSchemeResult, context);
   const response: DeleteAnalysisSchemeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
+/**
+ * deserializeAws_queryDeleteAnalysisSchemeCommandError
+ */
+const de_DeleteAnalysisSchemeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAnalysisSchemeCommandOutput> => {
@@ -952,48 +1014,53 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteDomainCommand = async (
+/**
+ * deserializeAws_queryDeleteDomainCommand
+ */
+export const de_DeleteDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteDomainCommandError(output, context);
+    return de_DeleteDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteDomainResponse(data.DeleteDomainResult, context);
+  contents = de_DeleteDomainResponse(data.DeleteDomainResult, context);
   const response: DeleteDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteDomainCommandError = async (
+/**
+ * deserializeAws_queryDeleteDomainCommandError
+ */
+const de_DeleteDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
@@ -1005,39 +1072,44 @@ const deserializeAws_queryDeleteDomainCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteExpressionCommand = async (
+/**
+ * deserializeAws_queryDeleteExpressionCommand
+ */
+export const de_DeleteExpressionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteExpressionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteExpressionCommandError(output, context);
+    return de_DeleteExpressionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteExpressionResponse(data.DeleteExpressionResult, context);
+  contents = de_DeleteExpressionResponse(data.DeleteExpressionResult, context);
   const response: DeleteExpressionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteExpressionCommandError = async (
+/**
+ * deserializeAws_queryDeleteExpressionCommandError
+ */
+const de_DeleteExpressionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteExpressionCommandOutput> => {
@@ -1049,48 +1121,53 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteIndexFieldCommand = async (
+/**
+ * deserializeAws_queryDeleteIndexFieldCommand
+ */
+export const de_DeleteIndexFieldCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIndexFieldCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteIndexFieldCommandError(output, context);
+    return de_DeleteIndexFieldCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteIndexFieldResponse(data.DeleteIndexFieldResult, context);
+  contents = de_DeleteIndexFieldResponse(data.DeleteIndexFieldResult, context);
   const response: DeleteIndexFieldCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteIndexFieldCommandError = async (
+/**
+ * deserializeAws_queryDeleteIndexFieldCommandError
+ */
+const de_DeleteIndexFieldCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIndexFieldCommandOutput> => {
@@ -1102,48 +1179,53 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDeleteSuggesterCommand = async (
+/**
+ * deserializeAws_queryDeleteSuggesterCommand
+ */
+export const de_DeleteSuggesterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSuggesterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteSuggesterCommandError(output, context);
+    return de_DeleteSuggesterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteSuggesterResponse(data.DeleteSuggesterResult, context);
+  contents = de_DeleteSuggesterResponse(data.DeleteSuggesterResult, context);
   const response: DeleteSuggesterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteSuggesterCommandError = async (
+/**
+ * deserializeAws_queryDeleteSuggesterCommandError
+ */
+const de_DeleteSuggesterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSuggesterCommandOutput> => {
@@ -1155,48 +1237,53 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDescribeAnalysisSchemesCommand = async (
+/**
+ * deserializeAws_queryDescribeAnalysisSchemesCommand
+ */
+export const de_DescribeAnalysisSchemesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAnalysisSchemesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeAnalysisSchemesCommandError(output, context);
+    return de_DescribeAnalysisSchemesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeAnalysisSchemesResponse(data.DescribeAnalysisSchemesResult, context);
+  contents = de_DescribeAnalysisSchemesResponse(data.DescribeAnalysisSchemesResult, context);
   const response: DescribeAnalysisSchemesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
+/**
+ * deserializeAws_queryDescribeAnalysisSchemesCommandError
+ */
+const de_DescribeAnalysisSchemesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAnalysisSchemesCommandOutput> => {
@@ -1208,42 +1295,47 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDescribeAvailabilityOptionsCommand = async (
+/**
+ * deserializeAws_queryDescribeAvailabilityOptionsCommand
+ */
+export const de_DescribeAvailabilityOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAvailabilityOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeAvailabilityOptionsCommandError(output, context);
+    return de_DescribeAvailabilityOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeAvailabilityOptionsResponse(data.DescribeAvailabilityOptionsResult, context);
+  contents = de_DescribeAvailabilityOptionsResponse(data.DescribeAvailabilityOptionsResult, context);
   const response: DescribeAvailabilityOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
+/**
+ * deserializeAws_queryDescribeAvailabilityOptionsCommandError
+ */
+const de_DescribeAvailabilityOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAvailabilityOptionsCommandOutput> => {
@@ -1255,54 +1347,56 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
-      throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDescribeDomainEndpointOptionsCommand = async (
+/**
+ * deserializeAws_queryDescribeDomainEndpointOptionsCommand
+ */
+export const de_DescribeDomainEndpointOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainEndpointOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeDomainEndpointOptionsCommandError(output, context);
+    return de_DescribeDomainEndpointOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeDomainEndpointOptionsResponse(
-    data.DescribeDomainEndpointOptionsResult,
-    context
-  );
+  contents = de_DescribeDomainEndpointOptionsResponse(data.DescribeDomainEndpointOptionsResult, context);
   const response: DescribeDomainEndpointOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
+/**
+ * deserializeAws_queryDescribeDomainEndpointOptionsCommandError
+ */
+const de_DescribeDomainEndpointOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainEndpointOptionsCommandOutput> => {
@@ -1314,48 +1408,53 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
-      throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDescribeDomainsCommand = async (
+/**
+ * deserializeAws_queryDescribeDomainsCommand
+ */
+export const de_DescribeDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeDomainsCommandError(output, context);
+    return de_DescribeDomainsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeDomainsResponse(data.DescribeDomainsResult, context);
+  contents = de_DescribeDomainsResponse(data.DescribeDomainsResult, context);
   const response: DescribeDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeDomainsCommandError = async (
+/**
+ * deserializeAws_queryDescribeDomainsCommandError
+ */
+const de_DescribeDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainsCommandOutput> => {
@@ -1367,39 +1466,44 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDescribeExpressionsCommand = async (
+/**
+ * deserializeAws_queryDescribeExpressionsCommand
+ */
+export const de_DescribeExpressionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExpressionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeExpressionsCommandError(output, context);
+    return de_DescribeExpressionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeExpressionsResponse(data.DescribeExpressionsResult, context);
+  contents = de_DescribeExpressionsResponse(data.DescribeExpressionsResult, context);
   const response: DescribeExpressionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeExpressionsCommandError = async (
+/**
+ * deserializeAws_queryDescribeExpressionsCommandError
+ */
+const de_DescribeExpressionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExpressionsCommandOutput> => {
@@ -1411,42 +1515,47 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDescribeIndexFieldsCommand = async (
+/**
+ * deserializeAws_queryDescribeIndexFieldsCommand
+ */
+export const de_DescribeIndexFieldsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIndexFieldsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeIndexFieldsCommandError(output, context);
+    return de_DescribeIndexFieldsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeIndexFieldsResponse(data.DescribeIndexFieldsResult, context);
+  contents = de_DescribeIndexFieldsResponse(data.DescribeIndexFieldsResult, context);
   const response: DescribeIndexFieldsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeIndexFieldsCommandError = async (
+/**
+ * deserializeAws_queryDescribeIndexFieldsCommandError
+ */
+const de_DescribeIndexFieldsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIndexFieldsCommandOutput> => {
@@ -1458,42 +1567,47 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDescribeScalingParametersCommand = async (
+/**
+ * deserializeAws_queryDescribeScalingParametersCommand
+ */
+export const de_DescribeScalingParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeScalingParametersCommandError(output, context);
+    return de_DescribeScalingParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeScalingParametersResponse(data.DescribeScalingParametersResult, context);
+  contents = de_DescribeScalingParametersResponse(data.DescribeScalingParametersResult, context);
   const response: DescribeScalingParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeScalingParametersCommandError = async (
+/**
+ * deserializeAws_queryDescribeScalingParametersCommandError
+ */
+const de_DescribeScalingParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingParametersCommandOutput> => {
@@ -1505,45 +1619,47 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDescribeServiceAccessPoliciesCommand = async (
+/**
+ * deserializeAws_queryDescribeServiceAccessPoliciesCommand
+ */
+export const de_DescribeServiceAccessPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceAccessPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeServiceAccessPoliciesCommandError(output, context);
+    return de_DescribeServiceAccessPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeServiceAccessPoliciesResponse(
-    data.DescribeServiceAccessPoliciesResult,
-    context
-  );
+  contents = de_DescribeServiceAccessPoliciesResponse(data.DescribeServiceAccessPoliciesResult, context);
   const response: DescribeServiceAccessPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
+/**
+ * deserializeAws_queryDescribeServiceAccessPoliciesCommandError
+ */
+const de_DescribeServiceAccessPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceAccessPoliciesCommandOutput> => {
@@ -1555,42 +1671,47 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryDescribeSuggestersCommand = async (
+/**
+ * deserializeAws_queryDescribeSuggestersCommand
+ */
+export const de_DescribeSuggestersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSuggestersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeSuggestersCommandError(output, context);
+    return de_DescribeSuggestersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeSuggestersResponse(data.DescribeSuggestersResult, context);
+  contents = de_DescribeSuggestersResponse(data.DescribeSuggestersResult, context);
   const response: DescribeSuggestersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeSuggestersCommandError = async (
+/**
+ * deserializeAws_queryDescribeSuggestersCommandError
+ */
+const de_DescribeSuggestersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSuggestersCommandOutput> => {
@@ -1602,42 +1723,47 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryIndexDocumentsCommand = async (
+/**
+ * deserializeAws_queryIndexDocumentsCommand
+ */
+export const de_IndexDocumentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IndexDocumentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryIndexDocumentsCommandError(output, context);
+    return de_IndexDocumentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryIndexDocumentsResponse(data.IndexDocumentsResult, context);
+  contents = de_IndexDocumentsResponse(data.IndexDocumentsResult, context);
   const response: IndexDocumentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryIndexDocumentsCommandError = async (
+/**
+ * deserializeAws_queryIndexDocumentsCommandError
+ */
+const de_IndexDocumentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IndexDocumentsCommandOutput> => {
@@ -1649,45 +1775,50 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryListDomainNamesCommand = async (
+/**
+ * deserializeAws_queryListDomainNamesCommand
+ */
+export const de_ListDomainNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainNamesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListDomainNamesCommandError(output, context);
+    return de_ListDomainNamesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListDomainNamesResponse(data.ListDomainNamesResult, context);
+  contents = de_ListDomainNamesResponse(data.ListDomainNamesResult, context);
   const response: ListDomainNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListDomainNamesCommandError = async (
+/**
+ * deserializeAws_queryListDomainNamesCommandError
+ */
+const de_ListDomainNamesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainNamesCommandOutput> => {
@@ -1699,36 +1830,41 @@ const deserializeAws_queryListDomainNamesCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateAvailabilityOptionsCommand = async (
+/**
+ * deserializeAws_queryUpdateAvailabilityOptionsCommand
+ */
+export const de_UpdateAvailabilityOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAvailabilityOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateAvailabilityOptionsCommandError(output, context);
+    return de_UpdateAvailabilityOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateAvailabilityOptionsResponse(data.UpdateAvailabilityOptionsResult, context);
+  contents = de_UpdateAvailabilityOptionsResponse(data.UpdateAvailabilityOptionsResult, context);
   const response: UpdateAvailabilityOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
+/**
+ * deserializeAws_queryUpdateAvailabilityOptionsCommandError
+ */
+const de_UpdateAvailabilityOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAvailabilityOptionsCommandOutput> => {
@@ -1740,54 +1876,59 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
-      throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateDomainEndpointOptionsCommand = async (
+/**
+ * deserializeAws_queryUpdateDomainEndpointOptionsCommand
+ */
+export const de_UpdateDomainEndpointOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainEndpointOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateDomainEndpointOptionsCommandError(output, context);
+    return de_UpdateDomainEndpointOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateDomainEndpointOptionsResponse(data.UpdateDomainEndpointOptionsResult, context);
+  contents = de_UpdateDomainEndpointOptionsResponse(data.UpdateDomainEndpointOptionsResult, context);
   const response: UpdateDomainEndpointOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
+/**
+ * deserializeAws_queryUpdateDomainEndpointOptionsCommandError
+ */
+const de_UpdateDomainEndpointOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainEndpointOptionsCommandOutput> => {
@@ -1799,54 +1940,59 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledAction":
     case "com.amazonaws.cloudsearch#DisabledOperationException":
-      throw await deserializeAws_queryDisabledOperationExceptionResponse(parsedOutput, context);
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateScalingParametersCommand = async (
+/**
+ * deserializeAws_queryUpdateScalingParametersCommand
+ */
+export const de_UpdateScalingParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateScalingParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateScalingParametersCommandError(output, context);
+    return de_UpdateScalingParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateScalingParametersResponse(data.UpdateScalingParametersResult, context);
+  contents = de_UpdateScalingParametersResponse(data.UpdateScalingParametersResult, context);
   const response: UpdateScalingParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateScalingParametersCommandError = async (
+/**
+ * deserializeAws_queryUpdateScalingParametersCommandError
+ */
+const de_UpdateScalingParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateScalingParametersCommandOutput> => {
@@ -1858,51 +2004,56 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_queryUpdateServiceAccessPoliciesCommand = async (
+/**
+ * deserializeAws_queryUpdateServiceAccessPoliciesCommand
+ */
+export const de_UpdateServiceAccessPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceAccessPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryUpdateServiceAccessPoliciesCommandError(output, context);
+    return de_UpdateServiceAccessPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateServiceAccessPoliciesResponse(data.UpdateServiceAccessPoliciesResult, context);
+  contents = de_UpdateServiceAccessPoliciesResponse(data.UpdateServiceAccessPoliciesResult, context);
   const response: UpdateServiceAccessPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
+/**
+ * deserializeAws_queryUpdateServiceAccessPoliciesCommandError
+ */
+const de_UpdateServiceAccessPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceAccessPoliciesCommandOutput> => {
@@ -1914,39 +2065,38 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
   switch (errorCode) {
     case "BaseException":
     case "com.amazonaws.cloudsearch#BaseException":
-      throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
+      throw await de_BaseExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
-      throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "InvalidType":
     case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await deserializeAws_queryInvalidTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
-      throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_queryBaseExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BaseException> => {
+/**
+ * deserializeAws_queryBaseExceptionRes
+ */
+const de_BaseExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BaseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryBaseException(body.Error, context);
+  const deserialized: any = de_BaseException(body.Error, context);
   const exception = new BaseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1954,12 +2104,15 @@ const deserializeAws_queryBaseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDisabledOperationExceptionResponse = async (
+/**
+ * deserializeAws_queryDisabledOperationExceptionRes
+ */
+const de_DisabledOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DisabledOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDisabledOperationException(body.Error, context);
+  const deserialized: any = de_DisabledOperationException(body.Error, context);
   const exception = new DisabledOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1967,12 +2120,12 @@ const deserializeAws_queryDisabledOperationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInternalExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalException> => {
+/**
+ * deserializeAws_queryInternalExceptionRes
+ */
+const de_InternalExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInternalException(body.Error, context);
+  const deserialized: any = de_InternalException(body.Error, context);
   const exception = new InternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1980,12 +2133,15 @@ const deserializeAws_queryInternalExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidTypeExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidTypeExceptionRes
+ */
+const de_InvalidTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidTypeException(body.Error, context);
+  const deserialized: any = de_InvalidTypeException(body.Error, context);
   const exception = new InvalidTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1993,12 +2149,15 @@ const deserializeAws_queryInvalidTypeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_queryLimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryLimitExceededException(body.Error, context);
+  const deserialized: any = de_LimitExceededException(body.Error, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2006,12 +2165,15 @@ const deserializeAws_queryLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryResourceAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_queryResourceAlreadyExistsExceptionRes
+ */
+const de_ResourceAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryResourceAlreadyExistsException(body.Error, context);
+  const deserialized: any = de_ResourceAlreadyExistsException(body.Error, context);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2019,12 +2181,15 @@ const deserializeAws_queryResourceAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_queryResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryResourceNotFoundException(body.Error, context);
+  const deserialized: any = de_ResourceNotFoundException(body.Error, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2032,12 +2197,12 @@ const deserializeAws_queryResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_queryValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryValidationException(body.Error, context);
+  const deserialized: any = de_ValidationException(body.Error, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2045,7 +2210,10 @@ const deserializeAws_queryValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_queryAnalysisOptions = (input: AnalysisOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAnalysisOptions
+ */
+const se_AnalysisOptions = (input: AnalysisOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Synonyms != null) {
     entries["Synonyms"] = input.Synonyms;
@@ -2065,7 +2233,10 @@ const serializeAws_queryAnalysisOptions = (input: AnalysisOptions, context: __Se
   return entries;
 };
 
-const serializeAws_queryAnalysisScheme = (input: AnalysisScheme, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAnalysisScheme
+ */
+const se_AnalysisScheme = (input: AnalysisScheme, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AnalysisSchemeName != null) {
     entries["AnalysisSchemeName"] = input.AnalysisSchemeName;
@@ -2074,7 +2245,7 @@ const serializeAws_queryAnalysisScheme = (input: AnalysisScheme, context: __Serd
     entries["AnalysisSchemeLanguage"] = input.AnalysisSchemeLanguage;
   }
   if (input.AnalysisOptions != null) {
-    const memberEntries = serializeAws_queryAnalysisOptions(input.AnalysisOptions, context);
+    const memberEntries = se_AnalysisOptions(input.AnalysisOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisOptions.${key}`;
       entries[loc] = value;
@@ -2083,7 +2254,10 @@ const serializeAws_queryAnalysisScheme = (input: AnalysisScheme, context: __Serd
   return entries;
 };
 
-const serializeAws_queryBuildSuggestersRequest = (input: BuildSuggestersRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryBuildSuggestersRequest
+ */
+const se_BuildSuggestersRequest = (input: BuildSuggestersRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
@@ -2091,7 +2265,10 @@ const serializeAws_queryBuildSuggestersRequest = (input: BuildSuggestersRequest,
   return entries;
 };
 
-const serializeAws_queryCreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCreateDomainRequest
+ */
+const se_CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
@@ -2099,7 +2276,10 @@ const serializeAws_queryCreateDomainRequest = (input: CreateDomainRequest, conte
   return entries;
 };
 
-const serializeAws_queryDateArrayOptions = (input: DateArrayOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDateArrayOptions
+ */
+const se_DateArrayOptions = (input: DateArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -2119,7 +2299,10 @@ const serializeAws_queryDateArrayOptions = (input: DateArrayOptions, context: __
   return entries;
 };
 
-const serializeAws_queryDateOptions = (input: DateOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDateOptions
+ */
+const se_DateOptions = (input: DateOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -2142,16 +2325,16 @@ const serializeAws_queryDateOptions = (input: DateOptions, context: __SerdeConte
   return entries;
 };
 
-const serializeAws_queryDefineAnalysisSchemeRequest = (
-  input: DefineAnalysisSchemeRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDefineAnalysisSchemeRequest
+ */
+const se_DefineAnalysisSchemeRequest = (input: DefineAnalysisSchemeRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   if (input.AnalysisScheme != null) {
-    const memberEntries = serializeAws_queryAnalysisScheme(input.AnalysisScheme, context);
+    const memberEntries = se_AnalysisScheme(input.AnalysisScheme, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisScheme.${key}`;
       entries[loc] = value;
@@ -2160,13 +2343,16 @@ const serializeAws_queryDefineAnalysisSchemeRequest = (
   return entries;
 };
 
-const serializeAws_queryDefineExpressionRequest = (input: DefineExpressionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDefineExpressionRequest
+ */
+const se_DefineExpressionRequest = (input: DefineExpressionRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   if (input.Expression != null) {
-    const memberEntries = serializeAws_queryExpression(input.Expression, context);
+    const memberEntries = se_Expression(input.Expression, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Expression.${key}`;
       entries[loc] = value;
@@ -2175,13 +2361,16 @@ const serializeAws_queryDefineExpressionRequest = (input: DefineExpressionReques
   return entries;
 };
 
-const serializeAws_queryDefineIndexFieldRequest = (input: DefineIndexFieldRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDefineIndexFieldRequest
+ */
+const se_DefineIndexFieldRequest = (input: DefineIndexFieldRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   if (input.IndexField != null) {
-    const memberEntries = serializeAws_queryIndexField(input.IndexField, context);
+    const memberEntries = se_IndexField(input.IndexField, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IndexField.${key}`;
       entries[loc] = value;
@@ -2190,13 +2379,16 @@ const serializeAws_queryDefineIndexFieldRequest = (input: DefineIndexFieldReques
   return entries;
 };
 
-const serializeAws_queryDefineSuggesterRequest = (input: DefineSuggesterRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDefineSuggesterRequest
+ */
+const se_DefineSuggesterRequest = (input: DefineSuggesterRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   if (input.Suggester != null) {
-    const memberEntries = serializeAws_querySuggester(input.Suggester, context);
+    const memberEntries = se_Suggester(input.Suggester, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Suggester.${key}`;
       entries[loc] = value;
@@ -2205,10 +2397,10 @@ const serializeAws_queryDefineSuggesterRequest = (input: DefineSuggesterRequest,
   return entries;
 };
 
-const serializeAws_queryDeleteAnalysisSchemeRequest = (
-  input: DeleteAnalysisSchemeRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteAnalysisSchemeRequest
+ */
+const se_DeleteAnalysisSchemeRequest = (input: DeleteAnalysisSchemeRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
@@ -2219,7 +2411,10 @@ const serializeAws_queryDeleteAnalysisSchemeRequest = (
   return entries;
 };
 
-const serializeAws_queryDeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteDomainRequest
+ */
+const se_DeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
@@ -2227,7 +2422,10 @@ const serializeAws_queryDeleteDomainRequest = (input: DeleteDomainRequest, conte
   return entries;
 };
 
-const serializeAws_queryDeleteExpressionRequest = (input: DeleteExpressionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteExpressionRequest
+ */
+const se_DeleteExpressionRequest = (input: DeleteExpressionRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
@@ -2238,7 +2436,10 @@ const serializeAws_queryDeleteExpressionRequest = (input: DeleteExpressionReques
   return entries;
 };
 
-const serializeAws_queryDeleteIndexFieldRequest = (input: DeleteIndexFieldRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteIndexFieldRequest
+ */
+const se_DeleteIndexFieldRequest = (input: DeleteIndexFieldRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
@@ -2249,7 +2450,10 @@ const serializeAws_queryDeleteIndexFieldRequest = (input: DeleteIndexFieldReques
   return entries;
 };
 
-const serializeAws_queryDeleteSuggesterRequest = (input: DeleteSuggesterRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteSuggesterRequest
+ */
+const se_DeleteSuggesterRequest = (input: DeleteSuggesterRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
@@ -2260,16 +2464,16 @@ const serializeAws_queryDeleteSuggesterRequest = (input: DeleteSuggesterRequest,
   return entries;
 };
 
-const serializeAws_queryDescribeAnalysisSchemesRequest = (
-  input: DescribeAnalysisSchemesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeAnalysisSchemesRequest
+ */
+const se_DescribeAnalysisSchemesRequest = (input: DescribeAnalysisSchemesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   if (input.AnalysisSchemeNames != null) {
-    const memberEntries = serializeAws_queryStandardNameList(input.AnalysisSchemeNames, context);
+    const memberEntries = se_StandardNameList(input.AnalysisSchemeNames, context);
     if (input.AnalysisSchemeNames?.length === 0) {
       entries.AnalysisSchemeNames = [];
     }
@@ -2284,7 +2488,10 @@ const serializeAws_queryDescribeAnalysisSchemesRequest = (
   return entries;
 };
 
-const serializeAws_queryDescribeAvailabilityOptionsRequest = (
+/**
+ * serializeAws_queryDescribeAvailabilityOptionsRequest
+ */
+const se_DescribeAvailabilityOptionsRequest = (
   input: DescribeAvailabilityOptionsRequest,
   context: __SerdeContext
 ): any => {
@@ -2298,7 +2505,10 @@ const serializeAws_queryDescribeAvailabilityOptionsRequest = (
   return entries;
 };
 
-const serializeAws_queryDescribeDomainEndpointOptionsRequest = (
+/**
+ * serializeAws_queryDescribeDomainEndpointOptionsRequest
+ */
+const se_DescribeDomainEndpointOptionsRequest = (
   input: DescribeDomainEndpointOptionsRequest,
   context: __SerdeContext
 ): any => {
@@ -2312,10 +2522,13 @@ const serializeAws_queryDescribeDomainEndpointOptionsRequest = (
   return entries;
 };
 
-const serializeAws_queryDescribeDomainsRequest = (input: DescribeDomainsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDescribeDomainsRequest
+ */
+const se_DescribeDomainsRequest = (input: DescribeDomainsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainNames != null) {
-    const memberEntries = serializeAws_queryDomainNameList(input.DomainNames, context);
+    const memberEntries = se_DomainNameList(input.DomainNames, context);
     if (input.DomainNames?.length === 0) {
       entries.DomainNames = [];
     }
@@ -2327,16 +2540,16 @@ const serializeAws_queryDescribeDomainsRequest = (input: DescribeDomainsRequest,
   return entries;
 };
 
-const serializeAws_queryDescribeExpressionsRequest = (
-  input: DescribeExpressionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeExpressionsRequest
+ */
+const se_DescribeExpressionsRequest = (input: DescribeExpressionsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   if (input.ExpressionNames != null) {
-    const memberEntries = serializeAws_queryStandardNameList(input.ExpressionNames, context);
+    const memberEntries = se_StandardNameList(input.ExpressionNames, context);
     if (input.ExpressionNames?.length === 0) {
       entries.ExpressionNames = [];
     }
@@ -2351,16 +2564,16 @@ const serializeAws_queryDescribeExpressionsRequest = (
   return entries;
 };
 
-const serializeAws_queryDescribeIndexFieldsRequest = (
-  input: DescribeIndexFieldsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeIndexFieldsRequest
+ */
+const se_DescribeIndexFieldsRequest = (input: DescribeIndexFieldsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   if (input.FieldNames != null) {
-    const memberEntries = serializeAws_queryDynamicFieldNameList(input.FieldNames, context);
+    const memberEntries = se_DynamicFieldNameList(input.FieldNames, context);
     if (input.FieldNames?.length === 0) {
       entries.FieldNames = [];
     }
@@ -2375,10 +2588,10 @@ const serializeAws_queryDescribeIndexFieldsRequest = (
   return entries;
 };
 
-const serializeAws_queryDescribeScalingParametersRequest = (
-  input: DescribeScalingParametersRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeScalingParametersRequest
+ */
+const se_DescribeScalingParametersRequest = (input: DescribeScalingParametersRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
@@ -2386,7 +2599,10 @@ const serializeAws_queryDescribeScalingParametersRequest = (
   return entries;
 };
 
-const serializeAws_queryDescribeServiceAccessPoliciesRequest = (
+/**
+ * serializeAws_queryDescribeServiceAccessPoliciesRequest
+ */
+const se_DescribeServiceAccessPoliciesRequest = (
   input: DescribeServiceAccessPoliciesRequest,
   context: __SerdeContext
 ): any => {
@@ -2400,16 +2616,16 @@ const serializeAws_queryDescribeServiceAccessPoliciesRequest = (
   return entries;
 };
 
-const serializeAws_queryDescribeSuggestersRequest = (
-  input: DescribeSuggestersRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeSuggestersRequest
+ */
+const se_DescribeSuggestersRequest = (input: DescribeSuggestersRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   if (input.SuggesterNames != null) {
-    const memberEntries = serializeAws_queryStandardNameList(input.SuggesterNames, context);
+    const memberEntries = se_StandardNameList(input.SuggesterNames, context);
     if (input.SuggesterNames?.length === 0) {
       entries.SuggesterNames = [];
     }
@@ -2424,7 +2640,10 @@ const serializeAws_queryDescribeSuggestersRequest = (
   return entries;
 };
 
-const serializeAws_queryDocumentSuggesterOptions = (input: DocumentSuggesterOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDocumentSuggesterOptions
+ */
+const se_DocumentSuggesterOptions = (input: DocumentSuggesterOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SourceField != null) {
     entries["SourceField"] = input.SourceField;
@@ -2438,7 +2657,10 @@ const serializeAws_queryDocumentSuggesterOptions = (input: DocumentSuggesterOpti
   return entries;
 };
 
-const serializeAws_queryDomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDomainEndpointOptions
+ */
+const se_DomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.EnforceHTTPS != null) {
     entries["EnforceHTTPS"] = input.EnforceHTTPS;
@@ -2449,7 +2671,10 @@ const serializeAws_queryDomainEndpointOptions = (input: DomainEndpointOptions, c
   return entries;
 };
 
-const serializeAws_queryDomainNameList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDomainNameList
+ */
+const se_DomainNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -2462,7 +2687,10 @@ const serializeAws_queryDomainNameList = (input: string[], context: __SerdeConte
   return entries;
 };
 
-const serializeAws_queryDoubleArrayOptions = (input: DoubleArrayOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDoubleArrayOptions
+ */
+const se_DoubleArrayOptions = (input: DoubleArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue != null) {
     entries["DefaultValue"] = __serializeFloat(input.DefaultValue);
@@ -2482,7 +2710,10 @@ const serializeAws_queryDoubleArrayOptions = (input: DoubleArrayOptions, context
   return entries;
 };
 
-const serializeAws_queryDoubleOptions = (input: DoubleOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDoubleOptions
+ */
+const se_DoubleOptions = (input: DoubleOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue != null) {
     entries["DefaultValue"] = __serializeFloat(input.DefaultValue);
@@ -2505,7 +2736,10 @@ const serializeAws_queryDoubleOptions = (input: DoubleOptions, context: __SerdeC
   return entries;
 };
 
-const serializeAws_queryDynamicFieldNameList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDynamicFieldNameList
+ */
+const se_DynamicFieldNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -2518,7 +2752,10 @@ const serializeAws_queryDynamicFieldNameList = (input: string[], context: __Serd
   return entries;
 };
 
-const serializeAws_queryExpression = (input: Expression, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryExpression
+ */
+const se_Expression = (input: Expression, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ExpressionName != null) {
     entries["ExpressionName"] = input.ExpressionName;
@@ -2529,7 +2766,10 @@ const serializeAws_queryExpression = (input: Expression, context: __SerdeContext
   return entries;
 };
 
-const serializeAws_queryIndexDocumentsRequest = (input: IndexDocumentsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryIndexDocumentsRequest
+ */
+const se_IndexDocumentsRequest = (input: IndexDocumentsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
@@ -2537,7 +2777,10 @@ const serializeAws_queryIndexDocumentsRequest = (input: IndexDocumentsRequest, c
   return entries;
 };
 
-const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryIndexField
+ */
+const se_IndexField = (input: IndexField, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.IndexFieldName != null) {
     entries["IndexFieldName"] = input.IndexFieldName;
@@ -2546,77 +2789,77 @@ const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext
     entries["IndexFieldType"] = input.IndexFieldType;
   }
   if (input.IntOptions != null) {
-    const memberEntries = serializeAws_queryIntOptions(input.IntOptions, context);
+    const memberEntries = se_IntOptions(input.IntOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IntOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.DoubleOptions != null) {
-    const memberEntries = serializeAws_queryDoubleOptions(input.DoubleOptions, context);
+    const memberEntries = se_DoubleOptions(input.DoubleOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DoubleOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.LiteralOptions != null) {
-    const memberEntries = serializeAws_queryLiteralOptions(input.LiteralOptions, context);
+    const memberEntries = se_LiteralOptions(input.LiteralOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LiteralOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.TextOptions != null) {
-    const memberEntries = serializeAws_queryTextOptions(input.TextOptions, context);
+    const memberEntries = se_TextOptions(input.TextOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TextOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.DateOptions != null) {
-    const memberEntries = serializeAws_queryDateOptions(input.DateOptions, context);
+    const memberEntries = se_DateOptions(input.DateOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DateOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.LatLonOptions != null) {
-    const memberEntries = serializeAws_queryLatLonOptions(input.LatLonOptions, context);
+    const memberEntries = se_LatLonOptions(input.LatLonOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LatLonOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.IntArrayOptions != null) {
-    const memberEntries = serializeAws_queryIntArrayOptions(input.IntArrayOptions, context);
+    const memberEntries = se_IntArrayOptions(input.IntArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IntArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.DoubleArrayOptions != null) {
-    const memberEntries = serializeAws_queryDoubleArrayOptions(input.DoubleArrayOptions, context);
+    const memberEntries = se_DoubleArrayOptions(input.DoubleArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DoubleArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.LiteralArrayOptions != null) {
-    const memberEntries = serializeAws_queryLiteralArrayOptions(input.LiteralArrayOptions, context);
+    const memberEntries = se_LiteralArrayOptions(input.LiteralArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LiteralArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.TextArrayOptions != null) {
-    const memberEntries = serializeAws_queryTextArrayOptions(input.TextArrayOptions, context);
+    const memberEntries = se_TextArrayOptions(input.TextArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TextArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
   if (input.DateArrayOptions != null) {
-    const memberEntries = serializeAws_queryDateArrayOptions(input.DateArrayOptions, context);
+    const memberEntries = se_DateArrayOptions(input.DateArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DateArrayOptions.${key}`;
       entries[loc] = value;
@@ -2625,7 +2868,10 @@ const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext
   return entries;
 };
 
-const serializeAws_queryIntArrayOptions = (input: IntArrayOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryIntArrayOptions
+ */
+const se_IntArrayOptions = (input: IntArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -2645,7 +2891,10 @@ const serializeAws_queryIntArrayOptions = (input: IntArrayOptions, context: __Se
   return entries;
 };
 
-const serializeAws_queryIntOptions = (input: IntOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryIntOptions
+ */
+const se_IntOptions = (input: IntOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -2668,7 +2917,10 @@ const serializeAws_queryIntOptions = (input: IntOptions, context: __SerdeContext
   return entries;
 };
 
-const serializeAws_queryLatLonOptions = (input: LatLonOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryLatLonOptions
+ */
+const se_LatLonOptions = (input: LatLonOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -2691,7 +2943,10 @@ const serializeAws_queryLatLonOptions = (input: LatLonOptions, context: __SerdeC
   return entries;
 };
 
-const serializeAws_queryLiteralArrayOptions = (input: LiteralArrayOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryLiteralArrayOptions
+ */
+const se_LiteralArrayOptions = (input: LiteralArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -2711,7 +2966,10 @@ const serializeAws_queryLiteralArrayOptions = (input: LiteralArrayOptions, conte
   return entries;
 };
 
-const serializeAws_queryLiteralOptions = (input: LiteralOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryLiteralOptions
+ */
+const se_LiteralOptions = (input: LiteralOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -2734,7 +2992,10 @@ const serializeAws_queryLiteralOptions = (input: LiteralOptions, context: __Serd
   return entries;
 };
 
-const serializeAws_queryScalingParameters = (input: ScalingParameters, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryScalingParameters
+ */
+const se_ScalingParameters = (input: ScalingParameters, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DesiredInstanceType != null) {
     entries["DesiredInstanceType"] = input.DesiredInstanceType;
@@ -2748,7 +3009,10 @@ const serializeAws_queryScalingParameters = (input: ScalingParameters, context: 
   return entries;
 };
 
-const serializeAws_queryStandardNameList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryStandardNameList
+ */
+const se_StandardNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -2761,13 +3025,16 @@ const serializeAws_queryStandardNameList = (input: string[], context: __SerdeCon
   return entries;
 };
 
-const serializeAws_querySuggester = (input: Suggester, context: __SerdeContext): any => {
+/**
+ * serializeAws_querySuggester
+ */
+const se_Suggester = (input: Suggester, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.SuggesterName != null) {
     entries["SuggesterName"] = input.SuggesterName;
   }
   if (input.DocumentSuggesterOptions != null) {
-    const memberEntries = serializeAws_queryDocumentSuggesterOptions(input.DocumentSuggesterOptions, context);
+    const memberEntries = se_DocumentSuggesterOptions(input.DocumentSuggesterOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DocumentSuggesterOptions.${key}`;
       entries[loc] = value;
@@ -2776,7 +3043,10 @@ const serializeAws_querySuggester = (input: Suggester, context: __SerdeContext):
   return entries;
 };
 
-const serializeAws_queryTextArrayOptions = (input: TextArrayOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTextArrayOptions
+ */
+const se_TextArrayOptions = (input: TextArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -2796,7 +3066,10 @@ const serializeAws_queryTextArrayOptions = (input: TextArrayOptions, context: __
   return entries;
 };
 
-const serializeAws_queryTextOptions = (input: TextOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTextOptions
+ */
+const se_TextOptions = (input: TextOptions, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
@@ -2819,10 +3092,10 @@ const serializeAws_queryTextOptions = (input: TextOptions, context: __SerdeConte
   return entries;
 };
 
-const serializeAws_queryUpdateAvailabilityOptionsRequest = (
-  input: UpdateAvailabilityOptionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUpdateAvailabilityOptionsRequest
+ */
+const se_UpdateAvailabilityOptionsRequest = (input: UpdateAvailabilityOptionsRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
@@ -2833,7 +3106,10 @@ const serializeAws_queryUpdateAvailabilityOptionsRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateDomainEndpointOptionsRequest = (
+/**
+ * serializeAws_queryUpdateDomainEndpointOptionsRequest
+ */
+const se_UpdateDomainEndpointOptionsRequest = (
   input: UpdateDomainEndpointOptionsRequest,
   context: __SerdeContext
 ): any => {
@@ -2842,7 +3118,7 @@ const serializeAws_queryUpdateDomainEndpointOptionsRequest = (
     entries["DomainName"] = input.DomainName;
   }
   if (input.DomainEndpointOptions != null) {
-    const memberEntries = serializeAws_queryDomainEndpointOptions(input.DomainEndpointOptions, context);
+    const memberEntries = se_DomainEndpointOptions(input.DomainEndpointOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DomainEndpointOptions.${key}`;
       entries[loc] = value;
@@ -2851,16 +3127,16 @@ const serializeAws_queryUpdateDomainEndpointOptionsRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateScalingParametersRequest = (
-  input: UpdateScalingParametersRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUpdateScalingParametersRequest
+ */
+const se_UpdateScalingParametersRequest = (input: UpdateScalingParametersRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   if (input.ScalingParameters != null) {
-    const memberEntries = serializeAws_queryScalingParameters(input.ScalingParameters, context);
+    const memberEntries = se_ScalingParameters(input.ScalingParameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingParameters.${key}`;
       entries[loc] = value;
@@ -2869,7 +3145,10 @@ const serializeAws_queryUpdateScalingParametersRequest = (
   return entries;
 };
 
-const serializeAws_queryUpdateServiceAccessPoliciesRequest = (
+/**
+ * serializeAws_queryUpdateServiceAccessPoliciesRequest
+ */
+const se_UpdateServiceAccessPoliciesRequest = (
   input: UpdateServiceAccessPoliciesRequest,
   context: __SerdeContext
 ): any => {
@@ -2883,28 +3162,25 @@ const serializeAws_queryUpdateServiceAccessPoliciesRequest = (
   return entries;
 };
 
-const deserializeAws_queryAccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPoliciesStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_queryAccessPoliciesStatus
+ */
+const de_AccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPoliciesStatus => {
+  const contents: any = {};
   if (output["Options"] !== undefined) {
     contents.Options = __expectString(output["Options"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
+    contents.Status = de_OptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryAnalysisOptions = (output: any, context: __SerdeContext): AnalysisOptions => {
-  const contents: any = {
-    Synonyms: undefined,
-    Stopwords: undefined,
-    StemmingDictionary: undefined,
-    JapaneseTokenizationDictionary: undefined,
-    AlgorithmicStemming: undefined,
-  };
+/**
+ * deserializeAws_queryAnalysisOptions
+ */
+const de_AnalysisOptions = (output: any, context: __SerdeContext): AnalysisOptions => {
+  const contents: any = {};
   if (output["Synonyms"] !== undefined) {
     contents.Synonyms = __expectString(output["Synonyms"]);
   }
@@ -2923,12 +3199,11 @@ const deserializeAws_queryAnalysisOptions = (output: any, context: __SerdeContex
   return contents;
 };
 
-const deserializeAws_queryAnalysisScheme = (output: any, context: __SerdeContext): AnalysisScheme => {
-  const contents: any = {
-    AnalysisSchemeName: undefined,
-    AnalysisSchemeLanguage: undefined,
-    AnalysisOptions: undefined,
-  };
+/**
+ * deserializeAws_queryAnalysisScheme
+ */
+const de_AnalysisScheme = (output: any, context: __SerdeContext): AnalysisScheme => {
+  const contents: any = {};
   if (output["AnalysisSchemeName"] !== undefined) {
     contents.AnalysisSchemeName = __expectString(output["AnalysisSchemeName"]);
   }
@@ -2936,55 +3211,55 @@ const deserializeAws_queryAnalysisScheme = (output: any, context: __SerdeContext
     contents.AnalysisSchemeLanguage = __expectString(output["AnalysisSchemeLanguage"]);
   }
   if (output["AnalysisOptions"] !== undefined) {
-    contents.AnalysisOptions = deserializeAws_queryAnalysisOptions(output["AnalysisOptions"], context);
+    contents.AnalysisOptions = de_AnalysisOptions(output["AnalysisOptions"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryAnalysisSchemeStatus = (output: any, context: __SerdeContext): AnalysisSchemeStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_queryAnalysisSchemeStatus
+ */
+const de_AnalysisSchemeStatus = (output: any, context: __SerdeContext): AnalysisSchemeStatus => {
+  const contents: any = {};
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_queryAnalysisScheme(output["Options"], context);
+    contents.Options = de_AnalysisScheme(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
+    contents.Status = de_OptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryAnalysisSchemeStatusList = (output: any, context: __SerdeContext): AnalysisSchemeStatus[] => {
+/**
+ * deserializeAws_queryAnalysisSchemeStatusList
+ */
+const de_AnalysisSchemeStatusList = (output: any, context: __SerdeContext): AnalysisSchemeStatus[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryAnalysisSchemeStatus(entry, context);
+      return de_AnalysisSchemeStatus(entry, context);
     });
 };
 
-const deserializeAws_queryAvailabilityOptionsStatus = (
-  output: any,
-  context: __SerdeContext
-): AvailabilityOptionsStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_queryAvailabilityOptionsStatus
+ */
+const de_AvailabilityOptionsStatus = (output: any, context: __SerdeContext): AvailabilityOptionsStatus => {
+  const contents: any = {};
   if (output["Options"] !== undefined) {
     contents.Options = __parseBoolean(output["Options"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
+    contents.Status = de_OptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryBaseException = (output: any, context: __SerdeContext): BaseException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryBaseException
+ */
+const de_BaseException = (output: any, context: __SerdeContext): BaseException => {
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -2994,39 +3269,35 @@ const deserializeAws_queryBaseException = (output: any, context: __SerdeContext)
   return contents;
 };
 
-const deserializeAws_queryBuildSuggestersResponse = (output: any, context: __SerdeContext): BuildSuggestersResponse => {
-  const contents: any = {
-    FieldNames: undefined,
-  };
+/**
+ * deserializeAws_queryBuildSuggestersResponse
+ */
+const de_BuildSuggestersResponse = (output: any, context: __SerdeContext): BuildSuggestersResponse => {
+  const contents: any = {};
   if (output.FieldNames === "") {
     contents.FieldNames = [];
   } else if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
-    contents.FieldNames = deserializeAws_queryFieldNameList(
-      __getArrayIfSingleItem(output["FieldNames"]["member"]),
-      context
-    );
+    contents.FieldNames = de_FieldNameList(__getArrayIfSingleItem(output["FieldNames"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
-  const contents: any = {
-    DomainStatus: undefined,
-  };
+/**
+ * deserializeAws_queryCreateDomainResponse
+ */
+const de_CreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
+  const contents: any = {};
   if (output["DomainStatus"] !== undefined) {
-    contents.DomainStatus = deserializeAws_queryDomainStatus(output["DomainStatus"], context);
+    contents.DomainStatus = de_DomainStatus(output["DomainStatus"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeContext): DateArrayOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceFields: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-  };
+/**
+ * deserializeAws_queryDateArrayOptions
+ */
+const de_DateArrayOptions = (output: any, context: __SerdeContext): DateArrayOptions => {
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -3045,15 +3316,11 @@ const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeConte
   return contents;
 };
 
-const deserializeAws_queryDateOptions = (output: any, context: __SerdeContext): DateOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-  };
+/**
+ * deserializeAws_queryDateOptions
+ */
+const de_DateOptions = (output: any, context: __SerdeContext): DateOptions => {
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -3075,125 +3342,114 @@ const deserializeAws_queryDateOptions = (output: any, context: __SerdeContext): 
   return contents;
 };
 
-const deserializeAws_queryDefineAnalysisSchemeResponse = (
-  output: any,
-  context: __SerdeContext
-): DefineAnalysisSchemeResponse => {
-  const contents: any = {
-    AnalysisScheme: undefined,
-  };
+/**
+ * deserializeAws_queryDefineAnalysisSchemeResponse
+ */
+const de_DefineAnalysisSchemeResponse = (output: any, context: __SerdeContext): DefineAnalysisSchemeResponse => {
+  const contents: any = {};
   if (output["AnalysisScheme"] !== undefined) {
-    contents.AnalysisScheme = deserializeAws_queryAnalysisSchemeStatus(output["AnalysisScheme"], context);
+    contents.AnalysisScheme = de_AnalysisSchemeStatus(output["AnalysisScheme"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDefineExpressionResponse = (
-  output: any,
-  context: __SerdeContext
-): DefineExpressionResponse => {
-  const contents: any = {
-    Expression: undefined,
-  };
+/**
+ * deserializeAws_queryDefineExpressionResponse
+ */
+const de_DefineExpressionResponse = (output: any, context: __SerdeContext): DefineExpressionResponse => {
+  const contents: any = {};
   if (output["Expression"] !== undefined) {
-    contents.Expression = deserializeAws_queryExpressionStatus(output["Expression"], context);
+    contents.Expression = de_ExpressionStatus(output["Expression"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDefineIndexFieldResponse = (
-  output: any,
-  context: __SerdeContext
-): DefineIndexFieldResponse => {
-  const contents: any = {
-    IndexField: undefined,
-  };
+/**
+ * deserializeAws_queryDefineIndexFieldResponse
+ */
+const de_DefineIndexFieldResponse = (output: any, context: __SerdeContext): DefineIndexFieldResponse => {
+  const contents: any = {};
   if (output["IndexField"] !== undefined) {
-    contents.IndexField = deserializeAws_queryIndexFieldStatus(output["IndexField"], context);
+    contents.IndexField = de_IndexFieldStatus(output["IndexField"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDefineSuggesterResponse = (output: any, context: __SerdeContext): DefineSuggesterResponse => {
-  const contents: any = {
-    Suggester: undefined,
-  };
+/**
+ * deserializeAws_queryDefineSuggesterResponse
+ */
+const de_DefineSuggesterResponse = (output: any, context: __SerdeContext): DefineSuggesterResponse => {
+  const contents: any = {};
   if (output["Suggester"] !== undefined) {
-    contents.Suggester = deserializeAws_querySuggesterStatus(output["Suggester"], context);
+    contents.Suggester = de_SuggesterStatus(output["Suggester"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteAnalysisSchemeResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteAnalysisSchemeResponse => {
-  const contents: any = {
-    AnalysisScheme: undefined,
-  };
+/**
+ * deserializeAws_queryDeleteAnalysisSchemeResponse
+ */
+const de_DeleteAnalysisSchemeResponse = (output: any, context: __SerdeContext): DeleteAnalysisSchemeResponse => {
+  const contents: any = {};
   if (output["AnalysisScheme"] !== undefined) {
-    contents.AnalysisScheme = deserializeAws_queryAnalysisSchemeStatus(output["AnalysisScheme"], context);
+    contents.AnalysisScheme = de_AnalysisSchemeStatus(output["AnalysisScheme"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteDomainResponse = (output: any, context: __SerdeContext): DeleteDomainResponse => {
-  const contents: any = {
-    DomainStatus: undefined,
-  };
+/**
+ * deserializeAws_queryDeleteDomainResponse
+ */
+const de_DeleteDomainResponse = (output: any, context: __SerdeContext): DeleteDomainResponse => {
+  const contents: any = {};
   if (output["DomainStatus"] !== undefined) {
-    contents.DomainStatus = deserializeAws_queryDomainStatus(output["DomainStatus"], context);
+    contents.DomainStatus = de_DomainStatus(output["DomainStatus"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteExpressionResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteExpressionResponse => {
-  const contents: any = {
-    Expression: undefined,
-  };
+/**
+ * deserializeAws_queryDeleteExpressionResponse
+ */
+const de_DeleteExpressionResponse = (output: any, context: __SerdeContext): DeleteExpressionResponse => {
+  const contents: any = {};
   if (output["Expression"] !== undefined) {
-    contents.Expression = deserializeAws_queryExpressionStatus(output["Expression"], context);
+    contents.Expression = de_ExpressionStatus(output["Expression"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteIndexFieldResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteIndexFieldResponse => {
-  const contents: any = {
-    IndexField: undefined,
-  };
+/**
+ * deserializeAws_queryDeleteIndexFieldResponse
+ */
+const de_DeleteIndexFieldResponse = (output: any, context: __SerdeContext): DeleteIndexFieldResponse => {
+  const contents: any = {};
   if (output["IndexField"] !== undefined) {
-    contents.IndexField = deserializeAws_queryIndexFieldStatus(output["IndexField"], context);
+    contents.IndexField = de_IndexFieldStatus(output["IndexField"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteSuggesterResponse = (output: any, context: __SerdeContext): DeleteSuggesterResponse => {
-  const contents: any = {
-    Suggester: undefined,
-  };
+/**
+ * deserializeAws_queryDeleteSuggesterResponse
+ */
+const de_DeleteSuggesterResponse = (output: any, context: __SerdeContext): DeleteSuggesterResponse => {
+  const contents: any = {};
   if (output["Suggester"] !== undefined) {
-    contents.Suggester = deserializeAws_querySuggesterStatus(output["Suggester"], context);
+    contents.Suggester = de_SuggesterStatus(output["Suggester"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeAnalysisSchemesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeAnalysisSchemesResponse => {
-  const contents: any = {
-    AnalysisSchemes: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeAnalysisSchemesResponse
+ */
+const de_DescribeAnalysisSchemesResponse = (output: any, context: __SerdeContext): DescribeAnalysisSchemesResponse => {
+  const contents: any = {};
   if (output.AnalysisSchemes === "") {
     contents.AnalysisSchemes = [];
   } else if (output["AnalysisSchemes"] !== undefined && output["AnalysisSchemes"]["member"] !== undefined) {
-    contents.AnalysisSchemes = deserializeAws_queryAnalysisSchemeStatusList(
+    contents.AnalysisSchemes = de_AnalysisSchemeStatusList(
       __getArrayIfSingleItem(output["AnalysisSchemes"]["member"]),
       context
     );
@@ -3201,46 +3457,43 @@ const deserializeAws_queryDescribeAnalysisSchemesResponse = (
   return contents;
 };
 
-const deserializeAws_queryDescribeAvailabilityOptionsResponse = (
+/**
+ * deserializeAws_queryDescribeAvailabilityOptionsResponse
+ */
+const de_DescribeAvailabilityOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAvailabilityOptionsResponse => {
-  const contents: any = {
-    AvailabilityOptions: undefined,
-  };
+  const contents: any = {};
   if (output["AvailabilityOptions"] !== undefined) {
-    contents.AvailabilityOptions = deserializeAws_queryAvailabilityOptionsStatus(
-      output["AvailabilityOptions"],
-      context
-    );
+    contents.AvailabilityOptions = de_AvailabilityOptionsStatus(output["AvailabilityOptions"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeDomainEndpointOptionsResponse = (
+/**
+ * deserializeAws_queryDescribeDomainEndpointOptionsResponse
+ */
+const de_DescribeDomainEndpointOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDomainEndpointOptionsResponse => {
-  const contents: any = {
-    DomainEndpointOptions: undefined,
-  };
+  const contents: any = {};
   if (output["DomainEndpointOptions"] !== undefined) {
-    contents.DomainEndpointOptions = deserializeAws_queryDomainEndpointOptionsStatus(
-      output["DomainEndpointOptions"],
-      context
-    );
+    contents.DomainEndpointOptions = de_DomainEndpointOptionsStatus(output["DomainEndpointOptions"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeDomainsResponse = (output: any, context: __SerdeContext): DescribeDomainsResponse => {
-  const contents: any = {
-    DomainStatusList: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeDomainsResponse
+ */
+const de_DescribeDomainsResponse = (output: any, context: __SerdeContext): DescribeDomainsResponse => {
+  const contents: any = {};
   if (output.DomainStatusList === "") {
     contents.DomainStatusList = [];
   } else if (output["DomainStatusList"] !== undefined && output["DomainStatusList"]["member"] !== undefined) {
-    contents.DomainStatusList = deserializeAws_queryDomainStatusList(
+    contents.DomainStatusList = de_DomainStatusList(
       __getArrayIfSingleItem(output["DomainStatusList"]["member"]),
       context
     );
@@ -3248,94 +3501,78 @@ const deserializeAws_queryDescribeDomainsResponse = (output: any, context: __Ser
   return contents;
 };
 
-const deserializeAws_queryDescribeExpressionsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeExpressionsResponse => {
-  const contents: any = {
-    Expressions: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeExpressionsResponse
+ */
+const de_DescribeExpressionsResponse = (output: any, context: __SerdeContext): DescribeExpressionsResponse => {
+  const contents: any = {};
   if (output.Expressions === "") {
     contents.Expressions = [];
   } else if (output["Expressions"] !== undefined && output["Expressions"]["member"] !== undefined) {
-    contents.Expressions = deserializeAws_queryExpressionStatusList(
-      __getArrayIfSingleItem(output["Expressions"]["member"]),
-      context
-    );
+    contents.Expressions = de_ExpressionStatusList(__getArrayIfSingleItem(output["Expressions"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeIndexFieldsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeIndexFieldsResponse => {
-  const contents: any = {
-    IndexFields: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeIndexFieldsResponse
+ */
+const de_DescribeIndexFieldsResponse = (output: any, context: __SerdeContext): DescribeIndexFieldsResponse => {
+  const contents: any = {};
   if (output.IndexFields === "") {
     contents.IndexFields = [];
   } else if (output["IndexFields"] !== undefined && output["IndexFields"]["member"] !== undefined) {
-    contents.IndexFields = deserializeAws_queryIndexFieldStatusList(
-      __getArrayIfSingleItem(output["IndexFields"]["member"]),
-      context
-    );
+    contents.IndexFields = de_IndexFieldStatusList(__getArrayIfSingleItem(output["IndexFields"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeScalingParametersResponse = (
+/**
+ * deserializeAws_queryDescribeScalingParametersResponse
+ */
+const de_DescribeScalingParametersResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeScalingParametersResponse => {
-  const contents: any = {
-    ScalingParameters: undefined,
-  };
+  const contents: any = {};
   if (output["ScalingParameters"] !== undefined) {
-    contents.ScalingParameters = deserializeAws_queryScalingParametersStatus(output["ScalingParameters"], context);
+    contents.ScalingParameters = de_ScalingParametersStatus(output["ScalingParameters"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeServiceAccessPoliciesResponse = (
+/**
+ * deserializeAws_queryDescribeServiceAccessPoliciesResponse
+ */
+const de_DescribeServiceAccessPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeServiceAccessPoliciesResponse => {
-  const contents: any = {
-    AccessPolicies: undefined,
-  };
+  const contents: any = {};
   if (output["AccessPolicies"] !== undefined) {
-    contents.AccessPolicies = deserializeAws_queryAccessPoliciesStatus(output["AccessPolicies"], context);
+    contents.AccessPolicies = de_AccessPoliciesStatus(output["AccessPolicies"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeSuggestersResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeSuggestersResponse => {
-  const contents: any = {
-    Suggesters: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeSuggestersResponse
+ */
+const de_DescribeSuggestersResponse = (output: any, context: __SerdeContext): DescribeSuggestersResponse => {
+  const contents: any = {};
   if (output.Suggesters === "") {
     contents.Suggesters = [];
   } else if (output["Suggesters"] !== undefined && output["Suggesters"]["member"] !== undefined) {
-    contents.Suggesters = deserializeAws_querySuggesterStatusList(
-      __getArrayIfSingleItem(output["Suggesters"]["member"]),
-      context
-    );
+    contents.Suggesters = de_SuggesterStatusList(__getArrayIfSingleItem(output["Suggesters"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryDisabledOperationException = (
-  output: any,
-  context: __SerdeContext
-): DisabledOperationException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryDisabledOperationException
+ */
+const de_DisabledOperationException = (output: any, context: __SerdeContext): DisabledOperationException => {
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3345,15 +3582,11 @@ const deserializeAws_queryDisabledOperationException = (
   return contents;
 };
 
-const deserializeAws_queryDocumentSuggesterOptions = (
-  output: any,
-  context: __SerdeContext
-): DocumentSuggesterOptions => {
-  const contents: any = {
-    SourceField: undefined,
-    FuzzyMatching: undefined,
-    SortExpression: undefined,
-  };
+/**
+ * deserializeAws_queryDocumentSuggesterOptions
+ */
+const de_DocumentSuggesterOptions = (output: any, context: __SerdeContext): DocumentSuggesterOptions => {
+  const contents: any = {};
   if (output["SourceField"] !== undefined) {
     contents.SourceField = __expectString(output["SourceField"]);
   }
@@ -3366,11 +3599,11 @@ const deserializeAws_queryDocumentSuggesterOptions = (
   return contents;
 };
 
-const deserializeAws_queryDomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
-  const contents: any = {
-    EnforceHTTPS: undefined,
-    TLSSecurityPolicy: undefined,
-  };
+/**
+ * deserializeAws_queryDomainEndpointOptions
+ */
+const de_DomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
+  const contents: any = {};
   if (output["EnforceHTTPS"] !== undefined) {
     contents.EnforceHTTPS = __parseBoolean(output["EnforceHTTPS"]);
   }
@@ -3380,24 +3613,24 @@ const deserializeAws_queryDomainEndpointOptions = (output: any, context: __Serde
   return contents;
 };
 
-const deserializeAws_queryDomainEndpointOptionsStatus = (
-  output: any,
-  context: __SerdeContext
-): DomainEndpointOptionsStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_queryDomainEndpointOptionsStatus
+ */
+const de_DomainEndpointOptionsStatus = (output: any, context: __SerdeContext): DomainEndpointOptionsStatus => {
+  const contents: any = {};
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_queryDomainEndpointOptions(output["Options"], context);
+    contents.Options = de_DomainEndpointOptions(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
+    contents.Status = de_OptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_queryDomainNameMap
+ */
+const de_DomainNameMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -3407,22 +3640,11 @@ const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext)
   }, {});
 };
 
-const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
-  const contents: any = {
-    DomainId: undefined,
-    DomainName: undefined,
-    ARN: undefined,
-    Created: undefined,
-    Deleted: undefined,
-    DocService: undefined,
-    SearchService: undefined,
-    RequiresIndexDocuments: undefined,
-    Processing: undefined,
-    SearchInstanceType: undefined,
-    SearchPartitionCount: undefined,
-    SearchInstanceCount: undefined,
-    Limits: undefined,
-  };
+/**
+ * deserializeAws_queryDomainStatus
+ */
+const de_DomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
+  const contents: any = {};
   if (output["DomainId"] !== undefined) {
     contents.DomainId = __expectString(output["DomainId"]);
   }
@@ -3439,10 +3661,10 @@ const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext):
     contents.Deleted = __parseBoolean(output["Deleted"]);
   }
   if (output["DocService"] !== undefined) {
-    contents.DocService = deserializeAws_queryServiceEndpoint(output["DocService"], context);
+    contents.DocService = de_ServiceEndpoint(output["DocService"], context);
   }
   if (output["SearchService"] !== undefined) {
-    contents.SearchService = deserializeAws_queryServiceEndpoint(output["SearchService"], context);
+    contents.SearchService = de_ServiceEndpoint(output["SearchService"], context);
   }
   if (output["RequiresIndexDocuments"] !== undefined) {
     contents.RequiresIndexDocuments = __parseBoolean(output["RequiresIndexDocuments"]);
@@ -3460,27 +3682,27 @@ const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext):
     contents.SearchInstanceCount = __strictParseInt32(output["SearchInstanceCount"]) as number;
   }
   if (output["Limits"] !== undefined) {
-    contents.Limits = deserializeAws_queryLimits(output["Limits"], context);
+    contents.Limits = de_Limits(output["Limits"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDomainStatusList = (output: any, context: __SerdeContext): DomainStatus[] => {
+/**
+ * deserializeAws_queryDomainStatusList
+ */
+const de_DomainStatusList = (output: any, context: __SerdeContext): DomainStatus[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryDomainStatus(entry, context);
+      return de_DomainStatus(entry, context);
     });
 };
 
-const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeContext): DoubleArrayOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceFields: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-  };
+/**
+ * deserializeAws_queryDoubleArrayOptions
+ */
+const de_DoubleArrayOptions = (output: any, context: __SerdeContext): DoubleArrayOptions => {
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __strictParseFloat(output["DefaultValue"]) as number;
   }
@@ -3499,15 +3721,11 @@ const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeCon
   return contents;
 };
 
-const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext): DoubleOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-  };
+/**
+ * deserializeAws_queryDoubleOptions
+ */
+const de_DoubleOptions = (output: any, context: __SerdeContext): DoubleOptions => {
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __strictParseFloat(output["DefaultValue"]) as number;
   }
@@ -3529,11 +3747,11 @@ const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext)
   return contents;
 };
 
-const deserializeAws_queryExpression = (output: any, context: __SerdeContext): Expression => {
-  const contents: any = {
-    ExpressionName: undefined,
-    ExpressionValue: undefined,
-  };
+/**
+ * deserializeAws_queryExpression
+ */
+const de_Expression = (output: any, context: __SerdeContext): Expression => {
+  const contents: any = {};
   if (output["ExpressionName"] !== undefined) {
     contents.ExpressionName = __expectString(output["ExpressionName"]);
   }
@@ -3543,29 +3761,35 @@ const deserializeAws_queryExpression = (output: any, context: __SerdeContext): E
   return contents;
 };
 
-const deserializeAws_queryExpressionStatus = (output: any, context: __SerdeContext): ExpressionStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_queryExpressionStatus
+ */
+const de_ExpressionStatus = (output: any, context: __SerdeContext): ExpressionStatus => {
+  const contents: any = {};
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_queryExpression(output["Options"], context);
+    contents.Options = de_Expression(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
+    contents.Status = de_OptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryExpressionStatusList = (output: any, context: __SerdeContext): ExpressionStatus[] => {
+/**
+ * deserializeAws_queryExpressionStatusList
+ */
+const de_ExpressionStatusList = (output: any, context: __SerdeContext): ExpressionStatus[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryExpressionStatus(entry, context);
+      return de_ExpressionStatus(entry, context);
     });
 };
 
-const deserializeAws_queryFieldNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryFieldNameList
+ */
+const de_FieldNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3573,37 +3797,24 @@ const deserializeAws_queryFieldNameList = (output: any, context: __SerdeContext)
     });
 };
 
-const deserializeAws_queryIndexDocumentsResponse = (output: any, context: __SerdeContext): IndexDocumentsResponse => {
-  const contents: any = {
-    FieldNames: undefined,
-  };
+/**
+ * deserializeAws_queryIndexDocumentsResponse
+ */
+const de_IndexDocumentsResponse = (output: any, context: __SerdeContext): IndexDocumentsResponse => {
+  const contents: any = {};
   if (output.FieldNames === "") {
     contents.FieldNames = [];
   } else if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
-    contents.FieldNames = deserializeAws_queryFieldNameList(
-      __getArrayIfSingleItem(output["FieldNames"]["member"]),
-      context
-    );
+    contents.FieldNames = de_FieldNameList(__getArrayIfSingleItem(output["FieldNames"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryIndexField = (output: any, context: __SerdeContext): IndexField => {
-  const contents: any = {
-    IndexFieldName: undefined,
-    IndexFieldType: undefined,
-    IntOptions: undefined,
-    DoubleOptions: undefined,
-    LiteralOptions: undefined,
-    TextOptions: undefined,
-    DateOptions: undefined,
-    LatLonOptions: undefined,
-    IntArrayOptions: undefined,
-    DoubleArrayOptions: undefined,
-    LiteralArrayOptions: undefined,
-    TextArrayOptions: undefined,
-    DateArrayOptions: undefined,
-  };
+/**
+ * deserializeAws_queryIndexField
+ */
+const de_IndexField = (output: any, context: __SerdeContext): IndexField => {
+  const contents: any = {};
   if (output["IndexFieldName"] !== undefined) {
     contents.IndexFieldName = __expectString(output["IndexFieldName"]);
   }
@@ -3611,71 +3822,71 @@ const deserializeAws_queryIndexField = (output: any, context: __SerdeContext): I
     contents.IndexFieldType = __expectString(output["IndexFieldType"]);
   }
   if (output["IntOptions"] !== undefined) {
-    contents.IntOptions = deserializeAws_queryIntOptions(output["IntOptions"], context);
+    contents.IntOptions = de_IntOptions(output["IntOptions"], context);
   }
   if (output["DoubleOptions"] !== undefined) {
-    contents.DoubleOptions = deserializeAws_queryDoubleOptions(output["DoubleOptions"], context);
+    contents.DoubleOptions = de_DoubleOptions(output["DoubleOptions"], context);
   }
   if (output["LiteralOptions"] !== undefined) {
-    contents.LiteralOptions = deserializeAws_queryLiteralOptions(output["LiteralOptions"], context);
+    contents.LiteralOptions = de_LiteralOptions(output["LiteralOptions"], context);
   }
   if (output["TextOptions"] !== undefined) {
-    contents.TextOptions = deserializeAws_queryTextOptions(output["TextOptions"], context);
+    contents.TextOptions = de_TextOptions(output["TextOptions"], context);
   }
   if (output["DateOptions"] !== undefined) {
-    contents.DateOptions = deserializeAws_queryDateOptions(output["DateOptions"], context);
+    contents.DateOptions = de_DateOptions(output["DateOptions"], context);
   }
   if (output["LatLonOptions"] !== undefined) {
-    contents.LatLonOptions = deserializeAws_queryLatLonOptions(output["LatLonOptions"], context);
+    contents.LatLonOptions = de_LatLonOptions(output["LatLonOptions"], context);
   }
   if (output["IntArrayOptions"] !== undefined) {
-    contents.IntArrayOptions = deserializeAws_queryIntArrayOptions(output["IntArrayOptions"], context);
+    contents.IntArrayOptions = de_IntArrayOptions(output["IntArrayOptions"], context);
   }
   if (output["DoubleArrayOptions"] !== undefined) {
-    contents.DoubleArrayOptions = deserializeAws_queryDoubleArrayOptions(output["DoubleArrayOptions"], context);
+    contents.DoubleArrayOptions = de_DoubleArrayOptions(output["DoubleArrayOptions"], context);
   }
   if (output["LiteralArrayOptions"] !== undefined) {
-    contents.LiteralArrayOptions = deserializeAws_queryLiteralArrayOptions(output["LiteralArrayOptions"], context);
+    contents.LiteralArrayOptions = de_LiteralArrayOptions(output["LiteralArrayOptions"], context);
   }
   if (output["TextArrayOptions"] !== undefined) {
-    contents.TextArrayOptions = deserializeAws_queryTextArrayOptions(output["TextArrayOptions"], context);
+    contents.TextArrayOptions = de_TextArrayOptions(output["TextArrayOptions"], context);
   }
   if (output["DateArrayOptions"] !== undefined) {
-    contents.DateArrayOptions = deserializeAws_queryDateArrayOptions(output["DateArrayOptions"], context);
+    contents.DateArrayOptions = de_DateArrayOptions(output["DateArrayOptions"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryIndexFieldStatus = (output: any, context: __SerdeContext): IndexFieldStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_queryIndexFieldStatus
+ */
+const de_IndexFieldStatus = (output: any, context: __SerdeContext): IndexFieldStatus => {
+  const contents: any = {};
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_queryIndexField(output["Options"], context);
+    contents.Options = de_IndexField(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
+    contents.Status = de_OptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryIndexFieldStatusList = (output: any, context: __SerdeContext): IndexFieldStatus[] => {
+/**
+ * deserializeAws_queryIndexFieldStatusList
+ */
+const de_IndexFieldStatusList = (output: any, context: __SerdeContext): IndexFieldStatus[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_queryIndexFieldStatus(entry, context);
+      return de_IndexFieldStatus(entry, context);
     });
 };
 
-const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContext): IntArrayOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceFields: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-  };
+/**
+ * deserializeAws_queryIntArrayOptions
+ */
+const de_IntArrayOptions = (output: any, context: __SerdeContext): IntArrayOptions => {
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __strictParseLong(output["DefaultValue"]) as number;
   }
@@ -3694,11 +3905,11 @@ const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContex
   return contents;
 };
 
-const deserializeAws_queryInternalException = (output: any, context: __SerdeContext): InternalException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryInternalException
+ */
+const de_InternalException = (output: any, context: __SerdeContext): InternalException => {
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3708,15 +3919,11 @@ const deserializeAws_queryInternalException = (output: any, context: __SerdeCont
   return contents;
 };
 
-const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): IntOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-  };
+/**
+ * deserializeAws_queryIntOptions
+ */
+const de_IntOptions = (output: any, context: __SerdeContext): IntOptions => {
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __strictParseLong(output["DefaultValue"]) as number;
   }
@@ -3738,11 +3945,11 @@ const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): I
   return contents;
 };
 
-const deserializeAws_queryInvalidTypeException = (output: any, context: __SerdeContext): InvalidTypeException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidTypeException
+ */
+const de_InvalidTypeException = (output: any, context: __SerdeContext): InvalidTypeException => {
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3752,15 +3959,11 @@ const deserializeAws_queryInvalidTypeException = (output: any, context: __SerdeC
   return contents;
 };
 
-const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext): LatLonOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-  };
+/**
+ * deserializeAws_queryLatLonOptions
+ */
+const de_LatLonOptions = (output: any, context: __SerdeContext): LatLonOptions => {
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -3782,11 +3985,11 @@ const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext)
   return contents;
 };
 
-const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryLimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3796,11 +3999,11 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limits => {
-  const contents: any = {
-    MaximumReplicationCount: undefined,
-    MaximumPartitionCount: undefined,
-  };
+/**
+ * deserializeAws_queryLimits
+ */
+const de_Limits = (output: any, context: __SerdeContext): Limits => {
+  const contents: any = {};
   if (output["MaximumReplicationCount"] !== undefined) {
     contents.MaximumReplicationCount = __strictParseInt32(output["MaximumReplicationCount"]) as number;
   }
@@ -3810,29 +4013,24 @@ const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limit
   return contents;
 };
 
-const deserializeAws_queryListDomainNamesResponse = (output: any, context: __SerdeContext): ListDomainNamesResponse => {
-  const contents: any = {
-    DomainNames: undefined,
-  };
+/**
+ * deserializeAws_queryListDomainNamesResponse
+ */
+const de_ListDomainNamesResponse = (output: any, context: __SerdeContext): ListDomainNamesResponse => {
+  const contents: any = {};
   if (output.DomainNames === "") {
     contents.DomainNames = {};
   } else if (output["DomainNames"] !== undefined && output["DomainNames"]["entry"] !== undefined) {
-    contents.DomainNames = deserializeAws_queryDomainNameMap(
-      __getArrayIfSingleItem(output["DomainNames"]["entry"]),
-      context
-    );
+    contents.DomainNames = de_DomainNameMap(__getArrayIfSingleItem(output["DomainNames"]["entry"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeContext): LiteralArrayOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceFields: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-  };
+/**
+ * deserializeAws_queryLiteralArrayOptions
+ */
+const de_LiteralArrayOptions = (output: any, context: __SerdeContext): LiteralArrayOptions => {
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -3851,15 +4049,11 @@ const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeCo
   return contents;
 };
 
-const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext): LiteralOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-  };
+/**
+ * deserializeAws_queryLiteralOptions
+ */
+const de_LiteralOptions = (output: any, context: __SerdeContext): LiteralOptions => {
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -3881,14 +4075,11 @@ const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext
   return contents;
 };
 
-const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
-  const contents: any = {
-    CreationDate: undefined,
-    UpdateDate: undefined,
-    UpdateVersion: undefined,
-    State: undefined,
-    PendingDeletion: undefined,
-  };
+/**
+ * deserializeAws_queryOptionStatus
+ */
+const de_OptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
+  const contents: any = {};
   if (output["CreationDate"] !== undefined) {
     contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
   }
@@ -3907,14 +4098,11 @@ const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext):
   return contents;
 };
 
-const deserializeAws_queryResourceAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ResourceAlreadyExistsException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryResourceAlreadyExistsException
+ */
+const de_ResourceAlreadyExistsException = (output: any, context: __SerdeContext): ResourceAlreadyExistsException => {
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3924,14 +4112,11 @@ const deserializeAws_queryResourceAlreadyExistsException = (
   return contents;
 };
 
-const deserializeAws_queryResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3941,12 +4126,11 @@ const deserializeAws_queryResourceNotFoundException = (
   return contents;
 };
 
-const deserializeAws_queryScalingParameters = (output: any, context: __SerdeContext): ScalingParameters => {
-  const contents: any = {
-    DesiredInstanceType: undefined,
-    DesiredReplicationCount: undefined,
-    DesiredPartitionCount: undefined,
-  };
+/**
+ * deserializeAws_queryScalingParameters
+ */
+const de_ScalingParameters = (output: any, context: __SerdeContext): ScalingParameters => {
+  const contents: any = {};
   if (output["DesiredInstanceType"] !== undefined) {
     contents.DesiredInstanceType = __expectString(output["DesiredInstanceType"]);
   }
@@ -3959,77 +4143,75 @@ const deserializeAws_queryScalingParameters = (output: any, context: __SerdeCont
   return contents;
 };
 
-const deserializeAws_queryScalingParametersStatus = (output: any, context: __SerdeContext): ScalingParametersStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_queryScalingParametersStatus
+ */
+const de_ScalingParametersStatus = (output: any, context: __SerdeContext): ScalingParametersStatus => {
+  const contents: any = {};
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_queryScalingParameters(output["Options"], context);
+    contents.Options = de_ScalingParameters(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
+    contents.Status = de_OptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryServiceEndpoint = (output: any, context: __SerdeContext): ServiceEndpoint => {
-  const contents: any = {
-    Endpoint: undefined,
-  };
+/**
+ * deserializeAws_queryServiceEndpoint
+ */
+const de_ServiceEndpoint = (output: any, context: __SerdeContext): ServiceEndpoint => {
+  const contents: any = {};
   if (output["Endpoint"] !== undefined) {
     contents.Endpoint = __expectString(output["Endpoint"]);
   }
   return contents;
 };
 
-const deserializeAws_querySuggester = (output: any, context: __SerdeContext): Suggester => {
-  const contents: any = {
-    SuggesterName: undefined,
-    DocumentSuggesterOptions: undefined,
-  };
+/**
+ * deserializeAws_querySuggester
+ */
+const de_Suggester = (output: any, context: __SerdeContext): Suggester => {
+  const contents: any = {};
   if (output["SuggesterName"] !== undefined) {
     contents.SuggesterName = __expectString(output["SuggesterName"]);
   }
   if (output["DocumentSuggesterOptions"] !== undefined) {
-    contents.DocumentSuggesterOptions = deserializeAws_queryDocumentSuggesterOptions(
-      output["DocumentSuggesterOptions"],
-      context
-    );
+    contents.DocumentSuggesterOptions = de_DocumentSuggesterOptions(output["DocumentSuggesterOptions"], context);
   }
   return contents;
 };
 
-const deserializeAws_querySuggesterStatus = (output: any, context: __SerdeContext): SuggesterStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_querySuggesterStatus
+ */
+const de_SuggesterStatus = (output: any, context: __SerdeContext): SuggesterStatus => {
+  const contents: any = {};
   if (output["Options"] !== undefined) {
-    contents.Options = deserializeAws_querySuggester(output["Options"], context);
+    contents.Options = de_Suggester(output["Options"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
+    contents.Status = de_OptionStatus(output["Status"], context);
   }
   return contents;
 };
 
-const deserializeAws_querySuggesterStatusList = (output: any, context: __SerdeContext): SuggesterStatus[] => {
+/**
+ * deserializeAws_querySuggesterStatusList
+ */
+const de_SuggesterStatusList = (output: any, context: __SerdeContext): SuggesterStatus[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      return deserializeAws_querySuggesterStatus(entry, context);
+      return de_SuggesterStatus(entry, context);
     });
 };
 
-const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeContext): TextArrayOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceFields: undefined,
-    ReturnEnabled: undefined,
-    HighlightEnabled: undefined,
-    AnalysisScheme: undefined,
-  };
+/**
+ * deserializeAws_queryTextArrayOptions
+ */
+const de_TextArrayOptions = (output: any, context: __SerdeContext): TextArrayOptions => {
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -4048,15 +4230,11 @@ const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeConte
   return contents;
 };
 
-const deserializeAws_queryTextOptions = (output: any, context: __SerdeContext): TextOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-    HighlightEnabled: undefined,
-    AnalysisScheme: undefined,
-  };
+/**
+ * deserializeAws_queryTextOptions
+ */
+const de_TextOptions = (output: any, context: __SerdeContext): TextOptions => {
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -4078,69 +4256,64 @@ const deserializeAws_queryTextOptions = (output: any, context: __SerdeContext): 
   return contents;
 };
 
-const deserializeAws_queryUpdateAvailabilityOptionsResponse = (
+/**
+ * deserializeAws_queryUpdateAvailabilityOptionsResponse
+ */
+const de_UpdateAvailabilityOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateAvailabilityOptionsResponse => {
-  const contents: any = {
-    AvailabilityOptions: undefined,
-  };
+  const contents: any = {};
   if (output["AvailabilityOptions"] !== undefined) {
-    contents.AvailabilityOptions = deserializeAws_queryAvailabilityOptionsStatus(
-      output["AvailabilityOptions"],
-      context
-    );
+    contents.AvailabilityOptions = de_AvailabilityOptionsStatus(output["AvailabilityOptions"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryUpdateDomainEndpointOptionsResponse = (
+/**
+ * deserializeAws_queryUpdateDomainEndpointOptionsResponse
+ */
+const de_UpdateDomainEndpointOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateDomainEndpointOptionsResponse => {
-  const contents: any = {
-    DomainEndpointOptions: undefined,
-  };
+  const contents: any = {};
   if (output["DomainEndpointOptions"] !== undefined) {
-    contents.DomainEndpointOptions = deserializeAws_queryDomainEndpointOptionsStatus(
-      output["DomainEndpointOptions"],
-      context
-    );
+    contents.DomainEndpointOptions = de_DomainEndpointOptionsStatus(output["DomainEndpointOptions"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryUpdateScalingParametersResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateScalingParametersResponse => {
-  const contents: any = {
-    ScalingParameters: undefined,
-  };
+/**
+ * deserializeAws_queryUpdateScalingParametersResponse
+ */
+const de_UpdateScalingParametersResponse = (output: any, context: __SerdeContext): UpdateScalingParametersResponse => {
+  const contents: any = {};
   if (output["ScalingParameters"] !== undefined) {
-    contents.ScalingParameters = deserializeAws_queryScalingParametersStatus(output["ScalingParameters"], context);
+    contents.ScalingParameters = de_ScalingParametersStatus(output["ScalingParameters"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryUpdateServiceAccessPoliciesResponse = (
+/**
+ * deserializeAws_queryUpdateServiceAccessPoliciesResponse
+ */
+const de_UpdateServiceAccessPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateServiceAccessPoliciesResponse => {
-  const contents: any = {
-    AccessPolicies: undefined,
-  };
+  const contents: any = {};
   if (output["AccessPolicies"] !== undefined) {
-    contents.AccessPolicies = deserializeAws_queryAccessPoliciesStatus(output["AccessPolicies"], context);
+    contents.AccessPolicies = de_AccessPoliciesStatus(output["AccessPolicies"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -4170,6 +4343,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -4193,6 +4367,9 @@ const buildHttpRpcRequest = async (
     contents.body = body;
   }
   return new __HttpRequest(contents);
+};
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/x-www-form-urlencoded",
 };
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

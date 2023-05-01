@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { DescribeStorageVirtualMachinesRequest, DescribeStorageVirtualMachinesResponse } from "../models/models_0";
 import {
-  DescribeStorageVirtualMachinesRequest,
-  DescribeStorageVirtualMachinesRequestFilterSensitiveLog,
-  DescribeStorageVirtualMachinesResponse,
-  DescribeStorageVirtualMachinesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeStorageVirtualMachinesCommand,
-  serializeAws_json1_1DescribeStorageVirtualMachinesCommand,
+  de_DescribeStorageVirtualMachinesCommand,
+  se_DescribeStorageVirtualMachinesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStorageVirtualMachinesCommand}.
  */
 export interface DescribeStorageVirtualMachinesCommandInput extends DescribeStorageVirtualMachinesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStorageVirtualMachinesCommand}.
  */
 export interface DescribeStorageVirtualMachinesCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeStorageVirtualMachinesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines (SVMs).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,27 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * import { FSxClient, DescribeStorageVirtualMachinesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeStorageVirtualMachinesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DescribeStorageVirtualMachinesRequest
+ *   StorageVirtualMachineIds: [ // StorageVirtualMachineIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // StorageVirtualMachineFilters
+ *     { // StorageVirtualMachineFilter
+ *       Name: "file-system-id",
+ *       Values: [ // StorageVirtualMachineFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeStorageVirtualMachinesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStorageVirtualMachinesCommandInput - {@link DescribeStorageVirtualMachinesCommandInput}
+ * @returns {@link DescribeStorageVirtualMachinesCommandOutput}
  * @see {@link DescribeStorageVirtualMachinesCommandInput} for command's `input` shape.
  * @see {@link DescribeStorageVirtualMachinesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -80,6 +97,9 @@ export class DescribeStorageVirtualMachinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStorageVirtualMachinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +128,8 @@ export class DescribeStorageVirtualMachinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStorageVirtualMachinesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStorageVirtualMachinesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +139,24 @@ export class DescribeStorageVirtualMachinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeStorageVirtualMachinesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStorageVirtualMachinesCommand(input, context);
+    return se_DescribeStorageVirtualMachinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStorageVirtualMachinesCommandOutput> {
-    return deserializeAws_json1_1DescribeStorageVirtualMachinesCommand(output, context);
+    return de_DescribeStorageVirtualMachinesCommand(output, context);
   }
 
   // Start section: command_body_extra

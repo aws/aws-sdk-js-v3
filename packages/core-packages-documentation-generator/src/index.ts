@@ -2,6 +2,9 @@ import { Application, Context, Converter, ParameterType } from "typedoc";
 
 import { SdkIndexLinkClientPlugin } from "./sdk-index-link-client";
 
+/**
+ * @internal
+ */
 export function load(app: Application) {
   // Core packages doc generator plugins.
   app.options.addDeclaration({

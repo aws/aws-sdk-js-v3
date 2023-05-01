@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { RemoveResourcePermissionRequest, RemoveResourcePermissionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveResourcePermissionCommand,
-  serializeAws_restJson1RemoveResourcePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveResourcePermissionCommand, se_RemoveResourcePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveResourcePermissionCommand}.
  */
 export interface RemoveResourcePermissionCommandInput extends RemoveResourcePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveResourcePermissionCommand}.
  */
 export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the permission for the specified principal from the specified
  *             resource.</p>
  * @example
@@ -38,10 +40,18 @@ export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer 
  * import { WorkDocsClient, RemoveResourcePermissionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, RemoveResourcePermissionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // RemoveResourcePermissionRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE", // required
+ *   PrincipalId: "STRING_VALUE", // required
+ *   PrincipalType: "USER" || "GROUP" || "INVITE" || "ANONYMOUS" || "ORGANIZATION",
+ * };
  * const command = new RemoveResourcePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveResourcePermissionCommandInput - {@link RemoveResourcePermissionCommandInput}
+ * @returns {@link RemoveResourcePermissionCommandOutput}
  * @see {@link RemoveResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link RemoveResourcePermissionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -79,6 +89,9 @@ export class RemoveResourcePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveResourcePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,7 +121,7 @@ export class RemoveResourcePermissionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RemoveResourcePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +131,18 @@ export class RemoveResourcePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveResourcePermissionCommand(input, context);
+    return se_RemoveResourcePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveResourcePermissionCommandOutput> {
-    return deserializeAws_restJson1RemoveResourcePermissionCommand(output, context);
+    return de_RemoveResourcePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { GetResponseHeadersPolicyConfigRequest, GetResponseHeadersPolicyConfigResult } from "../models/models_1";
 import {
-  GetResponseHeadersPolicyConfigRequest,
-  GetResponseHeadersPolicyConfigRequestFilterSensitiveLog,
-  GetResponseHeadersPolicyConfigResult,
-  GetResponseHeadersPolicyConfigResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetResponseHeadersPolicyConfigCommand,
-  serializeAws_restXmlGetResponseHeadersPolicyConfigCommand,
+  de_GetResponseHeadersPolicyConfigCommand,
+  se_GetResponseHeadersPolicyConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetResponseHeadersPolicyConfigCommand}.
  */
 export interface GetResponseHeadersPolicyConfigCommandInput extends GetResponseHeadersPolicyConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResponseHeadersPolicyConfigCommand}.
  */
 export interface GetResponseHeadersPolicyConfigCommandOutput
@@ -37,6 +36,7 @@ export interface GetResponseHeadersPolicyConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a response headers policy configuration.</p>
  *          <p>To get a response headers policy configuration, you must provide the policy's
  * 			identifier. If the response headers policy is attached to a distribution's cache
@@ -50,10 +50,15 @@ export interface GetResponseHeadersPolicyConfigCommandOutput
  * import { CloudFrontClient, GetResponseHeadersPolicyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetResponseHeadersPolicyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetResponseHeadersPolicyConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetResponseHeadersPolicyConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResponseHeadersPolicyConfigCommandInput - {@link GetResponseHeadersPolicyConfigCommandInput}
+ * @returns {@link GetResponseHeadersPolicyConfigCommandOutput}
  * @see {@link GetResponseHeadersPolicyConfigCommandInput} for command's `input` shape.
  * @see {@link GetResponseHeadersPolicyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -83,6 +88,9 @@ export class GetResponseHeadersPolicyConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResponseHeadersPolicyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +119,8 @@ export class GetResponseHeadersPolicyConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResponseHeadersPolicyConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResponseHeadersPolicyConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +130,24 @@ export class GetResponseHeadersPolicyConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetResponseHeadersPolicyConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetResponseHeadersPolicyConfigCommand(input, context);
+    return se_GetResponseHeadersPolicyConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResponseHeadersPolicyConfigCommandOutput> {
-    return deserializeAws_restXmlGetResponseHeadersPolicyConfigCommand(output, context);
+    return de_GetResponseHeadersPolicyConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

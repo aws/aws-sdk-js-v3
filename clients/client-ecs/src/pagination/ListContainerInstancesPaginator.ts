@@ -10,7 +10,7 @@ import { ECSClient } from "../ECSClient";
 import { ECSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ECSClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListContainerInstancesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListContainerInstances(
   config: ECSPaginationConfiguration,
   input: ListContainerInstancesCommandInput,

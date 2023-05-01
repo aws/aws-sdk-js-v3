@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  CreateDomainNameRequest,
-  CreateDomainNameRequestFilterSensitiveLog,
-  CreateDomainNameResponse,
-  CreateDomainNameResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDomainNameCommand,
-  serializeAws_restJson1CreateDomainNameCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDomainNameRequest, CreateDomainNameResponse } from "../models/models_0";
+import { de_CreateDomainNameCommand, se_CreateDomainNameCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDomainNameCommand}.
  */
 export interface CreateDomainNameCommandInput extends CreateDomainNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDomainNameCommand}.
  */
 export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a domain name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,36 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * import { ApiGatewayV2Client, CreateDomainNameCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateDomainNameCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // CreateDomainNameRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   DomainNameConfigurations: [ // DomainNameConfigurations
+ *     { // DomainNameConfiguration
+ *       ApiGatewayDomainName: "STRING_VALUE",
+ *       CertificateArn: "STRING_VALUE",
+ *       CertificateName: "STRING_VALUE",
+ *       CertificateUploadDate: new Date("TIMESTAMP"),
+ *       DomainNameStatus: "STRING_VALUE",
+ *       DomainNameStatusMessage: "STRING_VALUE",
+ *       EndpointType: "STRING_VALUE",
+ *       HostedZoneId: "STRING_VALUE",
+ *       SecurityPolicy: "STRING_VALUE",
+ *       OwnershipVerificationCertificateArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   MutualTlsAuthentication: { // MutualTlsAuthenticationInput
+ *     TruststoreUri: "STRING_VALUE",
+ *     TruststoreVersion: "STRING_VALUE",
+ *   },
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDomainNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainNameCommandInput - {@link CreateDomainNameCommandInput}
+ * @returns {@link CreateDomainNameCommandOutput}
  * @see {@link CreateDomainNameCommandInput} for command's `input` shape.
  * @see {@link CreateDomainNameCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -83,6 +106,9 @@ export class CreateDomainNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +137,8 @@ export class CreateDomainNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainNameResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +148,18 @@ export class CreateDomainNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDomainNameCommand(input, context);
+    return se_CreateDomainNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainNameCommandOutput> {
-    return deserializeAws_restJson1CreateDomainNameCommand(output, context);
+    return de_CreateDomainNameCommand(output, context);
   }
 
   // Start section: command_body_extra

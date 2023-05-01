@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListAssetModelPropertiesRequest,
-  ListAssetModelPropertiesRequestFilterSensitiveLog,
-  ListAssetModelPropertiesResponse,
-  ListAssetModelPropertiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssetModelPropertiesCommand,
-  serializeAws_restJson1ListAssetModelPropertiesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAssetModelPropertiesRequest, ListAssetModelPropertiesResponse } from "../models/models_0";
+import { de_ListAssetModelPropertiesCommand, se_ListAssetModelPropertiesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssetModelPropertiesCommand}.
  */
 export interface ListAssetModelPropertiesCommandInput extends ListAssetModelPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssetModelPropertiesCommand}.
  */
 export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPropertiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of properties associated with an asset model.
  *       If you update properties associated with the model before you finish listing all the properties,
  *         you need to start all over again.</p>
@@ -44,10 +41,18 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * import { IoTSiteWiseClient, ListAssetModelPropertiesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAssetModelPropertiesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // ListAssetModelPropertiesRequest
+ *   assetModelId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: "ALL" || "BASE",
+ * };
  * const command = new ListAssetModelPropertiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssetModelPropertiesCommandInput - {@link ListAssetModelPropertiesCommandInput}
+ * @returns {@link ListAssetModelPropertiesCommandOutput}
  * @see {@link ListAssetModelPropertiesCommandInput} for command's `input` shape.
  * @see {@link ListAssetModelPropertiesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -87,6 +92,9 @@ export class ListAssetModelPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssetModelPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class ListAssetModelPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssetModelPropertiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssetModelPropertiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +134,18 @@ export class ListAssetModelPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssetModelPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssetModelPropertiesCommand(input, context);
+    return se_ListAssetModelPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetModelPropertiesCommandOutput> {
-    return deserializeAws_restJson1ListAssetModelPropertiesCommand(output, context);
+    return de_ListAssetModelPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

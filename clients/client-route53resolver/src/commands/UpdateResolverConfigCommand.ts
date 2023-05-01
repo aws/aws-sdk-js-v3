@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateResolverConfigRequest,
-  UpdateResolverConfigRequestFilterSensitiveLog,
-  UpdateResolverConfigResponse,
-  UpdateResolverConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateResolverConfigCommand,
-  serializeAws_json1_1UpdateResolverConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateResolverConfigRequest, UpdateResolverConfigResponse } from "../models/models_0";
+import { de_UpdateResolverConfigCommand, se_UpdateResolverConfigCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResolverConfigCommand}.
  */
 export interface UpdateResolverConfigCommandInput extends UpdateResolverConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResolverConfigCommand}.
  */
 export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the behavior configuration of Route 53 Resolver behavior for a single VPC from
  * 				Amazon Virtual Private Cloud.</p>
  * @example
@@ -43,10 +40,16 @@ export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigR
  * import { Route53ResolverClient, UpdateResolverConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateResolverConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // UpdateResolverConfigRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   AutodefinedReverseFlag: "ENABLE" || "DISABLE" || "USE_LOCAL_RESOURCE_SETTING", // required
+ * };
  * const command = new UpdateResolverConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResolverConfigCommandInput - {@link UpdateResolverConfigCommandInput}
+ * @returns {@link UpdateResolverConfigCommandOutput}
  * @see {@link UpdateResolverConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -98,6 +101,9 @@ export class UpdateResolverConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResolverConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +132,8 @@ export class UpdateResolverConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResolverConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResolverConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +143,18 @@ export class UpdateResolverConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResolverConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateResolverConfigCommand(input, context);
+    return se_UpdateResolverConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResolverConfigCommandOutput> {
-    return deserializeAws_json1_1UpdateResolverConfigCommand(output, context);
+    return de_UpdateResolverConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPriceListFileUrlRequest,
-  GetPriceListFileUrlRequestFilterSensitiveLog,
-  GetPriceListFileUrlResponse,
-  GetPriceListFileUrlResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPriceListFileUrlRequest, GetPriceListFileUrlResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import {
-  deserializeAws_json1_1GetPriceListFileUrlCommand,
-  serializeAws_json1_1GetPriceListFileUrlCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetPriceListFileUrlCommand, se_GetPriceListFileUrlCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPriceListFileUrlCommand}.
  */
 export interface GetPriceListFileUrlCommandInput extends GetPriceListFileUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPriceListFileUrlCommand}.
  */
 export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <i>
  *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
@@ -50,10 +47,16 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  * import { PricingClient, GetPriceListFileUrlCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, GetPriceListFileUrlCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
  * const client = new PricingClient(config);
+ * const input = { // GetPriceListFileUrlRequest
+ *   PriceListArn: "STRING_VALUE", // required
+ *   FileFormat: "STRING_VALUE", // required
+ * };
  * const command = new GetPriceListFileUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPriceListFileUrlCommandInput - {@link GetPriceListFileUrlCommandInput}
+ * @returns {@link GetPriceListFileUrlCommandOutput}
  * @see {@link GetPriceListFileUrlCommandInput} for command's `input` shape.
  * @see {@link GetPriceListFileUrlCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
@@ -89,6 +92,9 @@ export class GetPriceListFileUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPriceListFileUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +123,8 @@ export class GetPriceListFileUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPriceListFileUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPriceListFileUrlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +134,18 @@ export class GetPriceListFileUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPriceListFileUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPriceListFileUrlCommand(input, context);
+    return se_GetPriceListFileUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPriceListFileUrlCommandOutput> {
-    return deserializeAws_json1_1GetPriceListFileUrlCommand(output, context);
+    return de_GetPriceListFileUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

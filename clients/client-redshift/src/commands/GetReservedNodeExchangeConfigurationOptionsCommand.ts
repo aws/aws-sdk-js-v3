@@ -15,22 +15,24 @@ import {
 
 import {
   GetReservedNodeExchangeConfigurationOptionsInputMessage,
-  GetReservedNodeExchangeConfigurationOptionsInputMessageFilterSensitiveLog,
   GetReservedNodeExchangeConfigurationOptionsOutputMessage,
-  GetReservedNodeExchangeConfigurationOptionsOutputMessageFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand,
-  serializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand,
+  de_GetReservedNodeExchangeConfigurationOptionsCommand,
+  se_GetReservedNodeExchangeConfigurationOptionsCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetReservedNodeExchangeConfigurationOptionsCommand}.
  */
 export interface GetReservedNodeExchangeConfigurationOptionsCommandInput
   extends GetReservedNodeExchangeConfigurationOptionsInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link GetReservedNodeExchangeConfigurationOptionsCommand}.
  */
 export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
@@ -38,6 +40,7 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the configuration options for the reserved-node exchange. These options
  *             include information about the source reserved node and target reserved node offering.
  *             Details include the node type, the price, the node count, and the offering type.</p>
@@ -47,10 +50,19 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
  * import { RedshiftClient, GetReservedNodeExchangeConfigurationOptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, GetReservedNodeExchangeConfigurationOptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // GetReservedNodeExchangeConfigurationOptionsInputMessage
+ *   ActionType: "restore-cluster" || "resize-cluster", // required
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   SnapshotIdentifier: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new GetReservedNodeExchangeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReservedNodeExchangeConfigurationOptionsCommandInput - {@link GetReservedNodeExchangeConfigurationOptionsCommandInput}
+ * @returns {@link GetReservedNodeExchangeConfigurationOptionsCommandOutput}
  * @see {@link GetReservedNodeExchangeConfigurationOptionsCommandInput} for command's `input` shape.
  * @see {@link GetReservedNodeExchangeConfigurationOptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -100,6 +112,9 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReservedNodeExchangeConfigurationOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +149,8 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReservedNodeExchangeConfigurationOptionsInputMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReservedNodeExchangeConfigurationOptionsOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +160,24 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetReservedNodeExchangeConfigurationOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand(input, context);
+    return se_GetReservedNodeExchangeConfigurationOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput> {
-    return deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand(output, context);
+    return de_GetReservedNodeExchangeConfigurationOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

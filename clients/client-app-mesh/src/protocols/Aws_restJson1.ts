@@ -1,20 +1,19 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -134,7 +133,6 @@ import {
   GatewayRouteHostnameRewrite,
   GatewayRouteRef,
   GatewayRouteSpec,
-  GatewayRouteStatus,
   GatewayRouteTarget,
   GatewayRouteVirtualService,
   GrpcGatewayRoute,
@@ -187,7 +185,6 @@ import {
   MeshRef,
   MeshServiceDiscovery,
   MeshSpec,
-  MeshStatus,
   NotFoundException,
   OutlierDetection,
   PortMapping,
@@ -197,7 +194,6 @@ import {
   RouteData,
   RouteRef,
   RouteSpec,
-  RouteStatus,
   ServiceDiscovery,
   ServiceUnavailableException,
   SubjectAlternativeNameMatchers,
@@ -239,7 +235,6 @@ import {
   VirtualGatewayPortMapping,
   VirtualGatewayRef,
   VirtualGatewaySpec,
-  VirtualGatewayStatus,
   VirtualGatewayTlsValidationContext,
   VirtualGatewayTlsValidationContextAcmTrust,
   VirtualGatewayTlsValidationContextFileTrust,
@@ -253,24 +248,24 @@ import {
   VirtualNodeRef,
   VirtualNodeServiceProvider,
   VirtualNodeSpec,
-  VirtualNodeStatus,
   VirtualNodeTcpConnectionPool,
   VirtualRouterData,
   VirtualRouterListener,
   VirtualRouterRef,
   VirtualRouterServiceProvider,
   VirtualRouterSpec,
-  VirtualRouterStatus,
   VirtualServiceBackend,
   VirtualServiceData,
   VirtualServiceProvider,
   VirtualServiceRef,
   VirtualServiceSpec,
-  VirtualServiceStatus,
   WeightedTarget,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateGatewayRouteCommand = async (
+/**
+ * serializeAws_restJson1CreateGatewayRouteCommand
+ */
+export const se_CreateGatewayRouteCommand = async (
   input: CreateGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -294,12 +289,14 @@ export const serializeAws_restJson1CreateGatewayRouteCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.gatewayRouteName != null && { gatewayRouteName: input.gatewayRouteName }),
-    ...(input.spec != null && { spec: serializeAws_restJson1GatewayRouteSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      gatewayRouteName: [],
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -312,7 +309,10 @@ export const serializeAws_restJson1CreateGatewayRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateMeshCommand = async (
+/**
+ * serializeAws_restJson1CreateMeshCommand
+ */
+export const se_CreateMeshCommand = async (
   input: CreateMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -322,12 +322,14 @@ export const serializeAws_restJson1CreateMeshCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes";
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.meshName != null && { meshName: input.meshName }),
-    ...(input.spec != null && { spec: serializeAws_restJson1MeshSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      meshName: [],
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -339,7 +341,10 @@ export const serializeAws_restJson1CreateMeshCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateRouteCommand = async (
+/**
+ * serializeAws_restJson1CreateRouteCommand
+ */
+export const se_CreateRouteCommand = async (
   input: CreateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -363,12 +368,14 @@ export const serializeAws_restJson1CreateRouteCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.routeName != null && { routeName: input.routeName }),
-    ...(input.spec != null && { spec: serializeAws_restJson1RouteSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      routeName: [],
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -381,7 +388,10 @@ export const serializeAws_restJson1CreateRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateVirtualGatewayCommand = async (
+/**
+ * serializeAws_restJson1CreateVirtualGatewayCommand
+ */
+export const se_CreateVirtualGatewayCommand = async (
   input: CreateVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -397,12 +407,14 @@ export const serializeAws_restJson1CreateVirtualGatewayCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: serializeAws_restJson1VirtualGatewaySpec(input.spec, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-    ...(input.virtualGatewayName != null && { virtualGatewayName: input.virtualGatewayName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+      virtualGatewayName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -415,7 +427,10 @@ export const serializeAws_restJson1CreateVirtualGatewayCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateVirtualNodeCommand = async (
+/**
+ * serializeAws_restJson1CreateVirtualNodeCommand
+ */
+export const se_CreateVirtualNodeCommand = async (
   input: CreateVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -430,12 +445,14 @@ export const serializeAws_restJson1CreateVirtualNodeCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: serializeAws_restJson1VirtualNodeSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-    ...(input.virtualNodeName != null && { virtualNodeName: input.virtualNodeName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+      virtualNodeName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -448,7 +465,10 @@ export const serializeAws_restJson1CreateVirtualNodeCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateVirtualRouterCommand = async (
+/**
+ * serializeAws_restJson1CreateVirtualRouterCommand
+ */
+export const se_CreateVirtualRouterCommand = async (
   input: CreateVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -464,12 +484,14 @@ export const serializeAws_restJson1CreateVirtualRouterCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: serializeAws_restJson1VirtualRouterSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-    ...(input.virtualRouterName != null && { virtualRouterName: input.virtualRouterName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+      virtualRouterName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -482,7 +504,10 @@ export const serializeAws_restJson1CreateVirtualRouterCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateVirtualServiceCommand = async (
+/**
+ * serializeAws_restJson1CreateVirtualServiceCommand
+ */
+export const se_CreateVirtualServiceCommand = async (
   input: CreateVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -498,12 +523,14 @@ export const serializeAws_restJson1CreateVirtualServiceCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: serializeAws_restJson1VirtualServiceSpec(input.spec, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-    ...(input.virtualServiceName != null && { virtualServiceName: input.virtualServiceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      spec: (_) => _json(_),
+      tags: (_) => _json(_),
+      virtualServiceName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -516,7 +543,10 @@ export const serializeAws_restJson1CreateVirtualServiceCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteGatewayRouteCommand = async (
+/**
+ * serializeAws_restJson1DeleteGatewayRouteCommand
+ */
+export const se_DeleteGatewayRouteCommand = async (
   input: DeleteGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -558,7 +588,10 @@ export const serializeAws_restJson1DeleteGatewayRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteMeshCommand = async (
+/**
+ * serializeAws_restJson1DeleteMeshCommand
+ */
+export const se_DeleteMeshCommand = async (
   input: DeleteMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -579,7 +612,10 @@ export const serializeAws_restJson1DeleteMeshCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteRouteCommand = async (
+/**
+ * serializeAws_restJson1DeleteRouteCommand
+ */
+export const se_DeleteRouteCommand = async (
   input: DeleteRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -614,7 +650,10 @@ export const serializeAws_restJson1DeleteRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVirtualGatewayCommand = async (
+/**
+ * serializeAws_restJson1DeleteVirtualGatewayCommand
+ */
+export const se_DeleteVirtualGatewayCommand = async (
   input: DeleteVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -648,7 +687,10 @@ export const serializeAws_restJson1DeleteVirtualGatewayCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVirtualNodeCommand = async (
+/**
+ * serializeAws_restJson1DeleteVirtualNodeCommand
+ */
+export const se_DeleteVirtualNodeCommand = async (
   input: DeleteVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -682,7 +724,10 @@ export const serializeAws_restJson1DeleteVirtualNodeCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVirtualRouterCommand = async (
+/**
+ * serializeAws_restJson1DeleteVirtualRouterCommand
+ */
+export const se_DeleteVirtualRouterCommand = async (
   input: DeleteVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -716,7 +761,10 @@ export const serializeAws_restJson1DeleteVirtualRouterCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVirtualServiceCommand = async (
+/**
+ * serializeAws_restJson1DeleteVirtualServiceCommand
+ */
+export const se_DeleteVirtualServiceCommand = async (
   input: DeleteVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -750,7 +798,10 @@ export const serializeAws_restJson1DeleteVirtualServiceCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeGatewayRouteCommand = async (
+/**
+ * serializeAws_restJson1DescribeGatewayRouteCommand
+ */
+export const se_DescribeGatewayRouteCommand = async (
   input: DescribeGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -792,7 +843,10 @@ export const serializeAws_restJson1DescribeGatewayRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeMeshCommand = async (
+/**
+ * serializeAws_restJson1DescribeMeshCommand
+ */
+export const se_DescribeMeshCommand = async (
   input: DescribeMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -817,7 +871,10 @@ export const serializeAws_restJson1DescribeMeshCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeRouteCommand = async (
+/**
+ * serializeAws_restJson1DescribeRouteCommand
+ */
+export const se_DescribeRouteCommand = async (
   input: DescribeRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -852,7 +909,10 @@ export const serializeAws_restJson1DescribeRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeVirtualGatewayCommand = async (
+/**
+ * serializeAws_restJson1DescribeVirtualGatewayCommand
+ */
+export const se_DescribeVirtualGatewayCommand = async (
   input: DescribeVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -886,7 +946,10 @@ export const serializeAws_restJson1DescribeVirtualGatewayCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeVirtualNodeCommand = async (
+/**
+ * serializeAws_restJson1DescribeVirtualNodeCommand
+ */
+export const se_DescribeVirtualNodeCommand = async (
   input: DescribeVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -920,7 +983,10 @@ export const serializeAws_restJson1DescribeVirtualNodeCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeVirtualRouterCommand = async (
+/**
+ * serializeAws_restJson1DescribeVirtualRouterCommand
+ */
+export const se_DescribeVirtualRouterCommand = async (
   input: DescribeVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -954,7 +1020,10 @@ export const serializeAws_restJson1DescribeVirtualRouterCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeVirtualServiceCommand = async (
+/**
+ * serializeAws_restJson1DescribeVirtualServiceCommand
+ */
+export const se_DescribeVirtualServiceCommand = async (
   input: DescribeVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -988,7 +1057,10 @@ export const serializeAws_restJson1DescribeVirtualServiceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListGatewayRoutesCommand = async (
+/**
+ * serializeAws_restJson1ListGatewayRoutesCommand
+ */
+export const se_ListGatewayRoutesCommand = async (
   input: ListGatewayRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1024,7 +1096,10 @@ export const serializeAws_restJson1ListGatewayRoutesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListMeshesCommand = async (
+/**
+ * serializeAws_restJson1ListMeshesCommand
+ */
+export const se_ListMeshesCommand = async (
   input: ListMeshesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1048,7 +1123,10 @@ export const serializeAws_restJson1ListMeshesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListRoutesCommand = async (
+/**
+ * serializeAws_restJson1ListRoutesCommand
+ */
+export const se_ListRoutesCommand = async (
   input: ListRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1084,7 +1162,10 @@ export const serializeAws_restJson1ListRoutesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1109,7 +1190,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVirtualGatewaysCommand = async (
+/**
+ * serializeAws_restJson1ListVirtualGatewaysCommand
+ */
+export const se_ListVirtualGatewaysCommand = async (
   input: ListVirtualGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1137,7 +1221,10 @@ export const serializeAws_restJson1ListVirtualGatewaysCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVirtualNodesCommand = async (
+/**
+ * serializeAws_restJson1ListVirtualNodesCommand
+ */
+export const se_ListVirtualNodesCommand = async (
   input: ListVirtualNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1164,7 +1251,10 @@ export const serializeAws_restJson1ListVirtualNodesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVirtualRoutersCommand = async (
+/**
+ * serializeAws_restJson1ListVirtualRoutersCommand
+ */
+export const se_ListVirtualRoutersCommand = async (
   input: ListVirtualRoutersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1192,7 +1282,10 @@ export const serializeAws_restJson1ListVirtualRoutersCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVirtualServicesCommand = async (
+/**
+ * serializeAws_restJson1ListVirtualServicesCommand
+ */
+export const se_ListVirtualServicesCommand = async (
   input: ListVirtualServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1220,7 +1313,10 @@ export const serializeAws_restJson1ListVirtualServicesCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1233,9 +1329,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
     resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1248,7 +1346,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1261,9 +1362,11 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.tagKeys != null && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tagKeys: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1276,7 +1379,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateGatewayRouteCommand = async (
+/**
+ * serializeAws_restJson1UpdateGatewayRouteCommand
+ */
+export const se_UpdateGatewayRouteCommand = async (
   input: UpdateGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1308,10 +1414,12 @@ export const serializeAws_restJson1UpdateGatewayRouteCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: serializeAws_restJson1GatewayRouteSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1324,7 +1432,10 @@ export const serializeAws_restJson1UpdateGatewayRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateMeshCommand = async (
+/**
+ * serializeAws_restJson1UpdateMeshCommand
+ */
+export const se_UpdateMeshCommand = async (
   input: UpdateMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1336,10 +1447,12 @@ export const serializeAws_restJson1UpdateMeshCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}";
   resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: serializeAws_restJson1MeshSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1351,7 +1464,10 @@ export const serializeAws_restJson1UpdateMeshCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateRouteCommand = async (
+/**
+ * serializeAws_restJson1UpdateRouteCommand
+ */
+export const se_UpdateRouteCommand = async (
   input: UpdateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1376,10 +1492,12 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: serializeAws_restJson1RouteSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1392,7 +1510,10 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateVirtualGatewayCommand = async (
+/**
+ * serializeAws_restJson1UpdateVirtualGatewayCommand
+ */
+export const se_UpdateVirtualGatewayCommand = async (
   input: UpdateVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1416,10 +1537,12 @@ export const serializeAws_restJson1UpdateVirtualGatewayCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: serializeAws_restJson1VirtualGatewaySpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1432,7 +1555,10 @@ export const serializeAws_restJson1UpdateVirtualGatewayCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateVirtualNodeCommand = async (
+/**
+ * serializeAws_restJson1UpdateVirtualNodeCommand
+ */
+export const se_UpdateVirtualNodeCommand = async (
   input: UpdateVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1456,10 +1582,12 @@ export const serializeAws_restJson1UpdateVirtualNodeCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: serializeAws_restJson1VirtualNodeSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1472,7 +1600,10 @@ export const serializeAws_restJson1UpdateVirtualNodeCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateVirtualRouterCommand = async (
+/**
+ * serializeAws_restJson1UpdateVirtualRouterCommand
+ */
+export const se_UpdateVirtualRouterCommand = async (
   input: UpdateVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1496,10 +1627,12 @@ export const serializeAws_restJson1UpdateVirtualRouterCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: serializeAws_restJson1VirtualRouterSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1512,7 +1645,10 @@ export const serializeAws_restJson1UpdateVirtualRouterCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateVirtualServiceCommand = async (
+/**
+ * serializeAws_restJson1UpdateVirtualServiceCommand
+ */
+export const se_UpdateVirtualServiceCommand = async (
   input: UpdateVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1536,10 +1672,12 @@ export const serializeAws_restJson1UpdateVirtualServiceCommand = async (
     meshOwner: [, input.meshOwner!],
   });
   let body: any;
-  body = JSON.stringify({
-    clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.spec != null && { spec: serializeAws_restJson1VirtualServiceSpec(input.spec, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      spec: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1552,22 +1690,28 @@ export const serializeAws_restJson1UpdateVirtualServiceCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateGatewayRouteCommand = async (
+/**
+ * deserializeAws_restJson1CreateGatewayRouteCommand
+ */
+export const de_CreateGatewayRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGatewayRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateGatewayRouteCommandError(output, context);
+    return de_CreateGatewayRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.gatewayRoute = deserializeAws_restJson1GatewayRouteData(data, context);
+  contents.gatewayRoute = de_GatewayRouteData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateGatewayRouteCommandError = async (
+/**
+ * deserializeAws_restJson1CreateGatewayRouteCommandError
+ */
+const de_CreateGatewayRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGatewayRouteCommandOutput> => {
@@ -1579,55 +1723,60 @@ const deserializeAws_restJson1CreateGatewayRouteCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateMeshCommand = async (
+/**
+ * deserializeAws_restJson1CreateMeshCommand
+ */
+export const de_CreateMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateMeshCommandError(output, context);
+    return de_CreateMeshCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.mesh = deserializeAws_restJson1MeshData(data, context);
+  contents.mesh = de_MeshData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateMeshCommandError = async (
+/**
+ * deserializeAws_restJson1CreateMeshCommandError
+ */
+const de_CreateMeshCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMeshCommandOutput> => {
@@ -1639,55 +1788,60 @@ const deserializeAws_restJson1CreateMeshCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateRouteCommand = async (
+/**
+ * deserializeAws_restJson1CreateRouteCommand
+ */
+export const de_CreateRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateRouteCommandError(output, context);
+    return de_CreateRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.route = deserializeAws_restJson1RouteData(data, context);
+  contents.route = de_RouteData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateRouteCommandError = async (
+/**
+ * deserializeAws_restJson1CreateRouteCommandError
+ */
+const de_CreateRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRouteCommandOutput> => {
@@ -1699,55 +1853,60 @@ const deserializeAws_restJson1CreateRouteCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateVirtualGatewayCommand = async (
+/**
+ * deserializeAws_restJson1CreateVirtualGatewayCommand
+ */
+export const de_CreateVirtualGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateVirtualGatewayCommandError(output, context);
+    return de_CreateVirtualGatewayCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualGateway = deserializeAws_restJson1VirtualGatewayData(data, context);
+  contents.virtualGateway = de_VirtualGatewayData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateVirtualGatewayCommandError = async (
+/**
+ * deserializeAws_restJson1CreateVirtualGatewayCommandError
+ */
+const de_CreateVirtualGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualGatewayCommandOutput> => {
@@ -1759,55 +1918,60 @@ const deserializeAws_restJson1CreateVirtualGatewayCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateVirtualNodeCommand = async (
+/**
+ * deserializeAws_restJson1CreateVirtualNodeCommand
+ */
+export const de_CreateVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateVirtualNodeCommandError(output, context);
+    return de_CreateVirtualNodeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualNode = deserializeAws_restJson1VirtualNodeData(data, context);
+  contents.virtualNode = de_VirtualNodeData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateVirtualNodeCommandError = async (
+/**
+ * deserializeAws_restJson1CreateVirtualNodeCommandError
+ */
+const de_CreateVirtualNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualNodeCommandOutput> => {
@@ -1819,55 +1983,60 @@ const deserializeAws_restJson1CreateVirtualNodeCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateVirtualRouterCommand = async (
+/**
+ * deserializeAws_restJson1CreateVirtualRouterCommand
+ */
+export const de_CreateVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateVirtualRouterCommandError(output, context);
+    return de_CreateVirtualRouterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualRouter = deserializeAws_restJson1VirtualRouterData(data, context);
+  contents.virtualRouter = de_VirtualRouterData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateVirtualRouterCommandError = async (
+/**
+ * deserializeAws_restJson1CreateVirtualRouterCommandError
+ */
+const de_CreateVirtualRouterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualRouterCommandOutput> => {
@@ -1879,55 +2048,60 @@ const deserializeAws_restJson1CreateVirtualRouterCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateVirtualServiceCommand = async (
+/**
+ * deserializeAws_restJson1CreateVirtualServiceCommand
+ */
+export const de_CreateVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateVirtualServiceCommandError(output, context);
+    return de_CreateVirtualServiceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualService = deserializeAws_restJson1VirtualServiceData(data, context);
+  contents.virtualService = de_VirtualServiceData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1CreateVirtualServiceCommandError = async (
+/**
+ * deserializeAws_restJson1CreateVirtualServiceCommandError
+ */
+const de_CreateVirtualServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualServiceCommandOutput> => {
@@ -1939,55 +2113,60 @@ const deserializeAws_restJson1CreateVirtualServiceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteGatewayRouteCommand = async (
+/**
+ * deserializeAws_restJson1DeleteGatewayRouteCommand
+ */
+export const de_DeleteGatewayRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGatewayRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteGatewayRouteCommandError(output, context);
+    return de_DeleteGatewayRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.gatewayRoute = deserializeAws_restJson1GatewayRouteData(data, context);
+  contents.gatewayRoute = de_GatewayRouteData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteGatewayRouteCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteGatewayRouteCommandError
+ */
+const de_DeleteGatewayRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGatewayRouteCommandOutput> => {
@@ -1999,52 +2178,57 @@ const deserializeAws_restJson1DeleteGatewayRouteCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteMeshCommand = async (
+/**
+ * deserializeAws_restJson1DeleteMeshCommand
+ */
+export const de_DeleteMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteMeshCommandError(output, context);
+    return de_DeleteMeshCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.mesh = deserializeAws_restJson1MeshData(data, context);
+  contents.mesh = de_MeshData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteMeshCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteMeshCommandError
+ */
+const de_DeleteMeshCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMeshCommandOutput> => {
@@ -2056,52 +2240,57 @@ const deserializeAws_restJson1DeleteMeshCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteRouteCommand = async (
+/**
+ * deserializeAws_restJson1DeleteRouteCommand
+ */
+export const de_DeleteRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteRouteCommandError(output, context);
+    return de_DeleteRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.route = deserializeAws_restJson1RouteData(data, context);
+  contents.route = de_RouteData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteRouteCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteRouteCommandError
+ */
+const de_DeleteRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteCommandOutput> => {
@@ -2113,52 +2302,57 @@ const deserializeAws_restJson1DeleteRouteCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteVirtualGatewayCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVirtualGatewayCommand
+ */
+export const de_DeleteVirtualGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVirtualGatewayCommandError(output, context);
+    return de_DeleteVirtualGatewayCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualGateway = deserializeAws_restJson1VirtualGatewayData(data, context);
+  contents.virtualGateway = de_VirtualGatewayData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVirtualGatewayCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVirtualGatewayCommandError
+ */
+const de_DeleteVirtualGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualGatewayCommandOutput> => {
@@ -2170,52 +2364,57 @@ const deserializeAws_restJson1DeleteVirtualGatewayCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteVirtualNodeCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVirtualNodeCommand
+ */
+export const de_DeleteVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVirtualNodeCommandError(output, context);
+    return de_DeleteVirtualNodeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualNode = deserializeAws_restJson1VirtualNodeData(data, context);
+  contents.virtualNode = de_VirtualNodeData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVirtualNodeCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVirtualNodeCommandError
+ */
+const de_DeleteVirtualNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualNodeCommandOutput> => {
@@ -2227,52 +2426,57 @@ const deserializeAws_restJson1DeleteVirtualNodeCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteVirtualRouterCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVirtualRouterCommand
+ */
+export const de_DeleteVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVirtualRouterCommandError(output, context);
+    return de_DeleteVirtualRouterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualRouter = deserializeAws_restJson1VirtualRouterData(data, context);
+  contents.virtualRouter = de_VirtualRouterData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVirtualRouterCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVirtualRouterCommandError
+ */
+const de_DeleteVirtualRouterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualRouterCommandOutput> => {
@@ -2284,52 +2488,57 @@ const deserializeAws_restJson1DeleteVirtualRouterCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteVirtualServiceCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVirtualServiceCommand
+ */
+export const de_DeleteVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVirtualServiceCommandError(output, context);
+    return de_DeleteVirtualServiceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualService = deserializeAws_restJson1VirtualServiceData(data, context);
+  contents.virtualService = de_VirtualServiceData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVirtualServiceCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVirtualServiceCommandError
+ */
+const de_DeleteVirtualServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualServiceCommandOutput> => {
@@ -2341,52 +2550,57 @@ const deserializeAws_restJson1DeleteVirtualServiceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeGatewayRouteCommand = async (
+/**
+ * deserializeAws_restJson1DescribeGatewayRouteCommand
+ */
+export const de_DescribeGatewayRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGatewayRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeGatewayRouteCommandError(output, context);
+    return de_DescribeGatewayRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.gatewayRoute = deserializeAws_restJson1GatewayRouteData(data, context);
+  contents.gatewayRoute = de_GatewayRouteData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeGatewayRouteCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeGatewayRouteCommandError
+ */
+const de_DescribeGatewayRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGatewayRouteCommandOutput> => {
@@ -2398,49 +2612,54 @@ const deserializeAws_restJson1DescribeGatewayRouteCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeMeshCommand = async (
+/**
+ * deserializeAws_restJson1DescribeMeshCommand
+ */
+export const de_DescribeMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeMeshCommandError(output, context);
+    return de_DescribeMeshCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.mesh = deserializeAws_restJson1MeshData(data, context);
+  contents.mesh = de_MeshData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeMeshCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeMeshCommandError
+ */
+const de_DescribeMeshCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMeshCommandOutput> => {
@@ -2452,49 +2671,54 @@ const deserializeAws_restJson1DescribeMeshCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeRouteCommand = async (
+/**
+ * deserializeAws_restJson1DescribeRouteCommand
+ */
+export const de_DescribeRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeRouteCommandError(output, context);
+    return de_DescribeRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.route = deserializeAws_restJson1RouteData(data, context);
+  contents.route = de_RouteData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeRouteCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeRouteCommandError
+ */
+const de_DescribeRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRouteCommandOutput> => {
@@ -2506,49 +2730,54 @@ const deserializeAws_restJson1DescribeRouteCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeVirtualGatewayCommand = async (
+/**
+ * deserializeAws_restJson1DescribeVirtualGatewayCommand
+ */
+export const de_DescribeVirtualGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeVirtualGatewayCommandError(output, context);
+    return de_DescribeVirtualGatewayCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualGateway = deserializeAws_restJson1VirtualGatewayData(data, context);
+  contents.virtualGateway = de_VirtualGatewayData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeVirtualGatewayCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeVirtualGatewayCommandError
+ */
+const de_DescribeVirtualGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualGatewayCommandOutput> => {
@@ -2560,49 +2789,54 @@ const deserializeAws_restJson1DescribeVirtualGatewayCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeVirtualNodeCommand = async (
+/**
+ * deserializeAws_restJson1DescribeVirtualNodeCommand
+ */
+export const de_DescribeVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeVirtualNodeCommandError(output, context);
+    return de_DescribeVirtualNodeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualNode = deserializeAws_restJson1VirtualNodeData(data, context);
+  contents.virtualNode = de_VirtualNodeData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeVirtualNodeCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeVirtualNodeCommandError
+ */
+const de_DescribeVirtualNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualNodeCommandOutput> => {
@@ -2614,49 +2848,54 @@ const deserializeAws_restJson1DescribeVirtualNodeCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeVirtualRouterCommand = async (
+/**
+ * deserializeAws_restJson1DescribeVirtualRouterCommand
+ */
+export const de_DescribeVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeVirtualRouterCommandError(output, context);
+    return de_DescribeVirtualRouterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualRouter = deserializeAws_restJson1VirtualRouterData(data, context);
+  contents.virtualRouter = de_VirtualRouterData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeVirtualRouterCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeVirtualRouterCommandError
+ */
+const de_DescribeVirtualRouterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualRouterCommandOutput> => {
@@ -2668,49 +2907,54 @@ const deserializeAws_restJson1DescribeVirtualRouterCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeVirtualServiceCommand = async (
+/**
+ * deserializeAws_restJson1DescribeVirtualServiceCommand
+ */
+export const de_DescribeVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeVirtualServiceCommandError(output, context);
+    return de_DescribeVirtualServiceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualService = deserializeAws_restJson1VirtualServiceData(data, context);
+  contents.virtualService = de_VirtualServiceData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeVirtualServiceCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeVirtualServiceCommandError
+ */
+const de_DescribeVirtualServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualServiceCommandOutput> => {
@@ -2722,54 +2966,58 @@ const deserializeAws_restJson1DescribeVirtualServiceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListGatewayRoutesCommand = async (
+/**
+ * deserializeAws_restJson1ListGatewayRoutesCommand
+ */
+export const de_ListGatewayRoutesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGatewayRoutesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListGatewayRoutesCommandError(output, context);
+    return de_ListGatewayRoutesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.gatewayRoutes != null) {
-    contents.gatewayRoutes = deserializeAws_restJson1GatewayRouteList(data.gatewayRoutes, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    gatewayRoutes: (_) => de_GatewayRouteList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListGatewayRoutesCommandError = async (
+/**
+ * deserializeAws_restJson1ListGatewayRoutesCommandError
+ */
+const de_ListGatewayRoutesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGatewayRoutesCommandOutput> => {
@@ -2781,54 +3029,58 @@ const deserializeAws_restJson1ListGatewayRoutesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListMeshesCommand = async (
+/**
+ * deserializeAws_restJson1ListMeshesCommand
+ */
+export const de_ListMeshesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMeshesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListMeshesCommandError(output, context);
+    return de_ListMeshesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.meshes != null) {
-    contents.meshes = deserializeAws_restJson1MeshList(data.meshes, context);
-  }
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    meshes: (_) => de_MeshList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListMeshesCommandError = async (
+/**
+ * deserializeAws_restJson1ListMeshesCommandError
+ */
+const de_ListMeshesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMeshesCommandOutput> => {
@@ -2840,54 +3092,58 @@ const deserializeAws_restJson1ListMeshesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListRoutesCommand = async (
+/**
+ * deserializeAws_restJson1ListRoutesCommand
+ */
+export const de_ListRoutesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoutesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListRoutesCommandError(output, context);
+    return de_ListRoutesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.routes != null) {
-    contents.routes = deserializeAws_restJson1RouteList(data.routes, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    routes: (_) => de_RouteList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListRoutesCommandError = async (
+/**
+ * deserializeAws_restJson1ListRoutesCommandError
+ */
+const de_ListRoutesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoutesCommandOutput> => {
@@ -2899,54 +3155,58 @@ const deserializeAws_restJson1ListRoutesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagList(data.tags, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2958,54 +3218,58 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListVirtualGatewaysCommand = async (
+/**
+ * deserializeAws_restJson1ListVirtualGatewaysCommand
+ */
+export const de_ListVirtualGatewaysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualGatewaysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVirtualGatewaysCommandError(output, context);
+    return de_ListVirtualGatewaysCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.virtualGateways != null) {
-    contents.virtualGateways = deserializeAws_restJson1VirtualGatewayList(data.virtualGateways, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    virtualGateways: (_) => de_VirtualGatewayList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListVirtualGatewaysCommandError = async (
+/**
+ * deserializeAws_restJson1ListVirtualGatewaysCommandError
+ */
+const de_ListVirtualGatewaysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualGatewaysCommandOutput> => {
@@ -3017,54 +3281,58 @@ const deserializeAws_restJson1ListVirtualGatewaysCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListVirtualNodesCommand = async (
+/**
+ * deserializeAws_restJson1ListVirtualNodesCommand
+ */
+export const de_ListVirtualNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualNodesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVirtualNodesCommandError(output, context);
+    return de_ListVirtualNodesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.virtualNodes != null) {
-    contents.virtualNodes = deserializeAws_restJson1VirtualNodeList(data.virtualNodes, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    virtualNodes: (_) => de_VirtualNodeList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListVirtualNodesCommandError = async (
+/**
+ * deserializeAws_restJson1ListVirtualNodesCommandError
+ */
+const de_ListVirtualNodesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualNodesCommandOutput> => {
@@ -3076,54 +3344,58 @@ const deserializeAws_restJson1ListVirtualNodesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListVirtualRoutersCommand = async (
+/**
+ * deserializeAws_restJson1ListVirtualRoutersCommand
+ */
+export const de_ListVirtualRoutersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualRoutersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVirtualRoutersCommandError(output, context);
+    return de_ListVirtualRoutersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.virtualRouters != null) {
-    contents.virtualRouters = deserializeAws_restJson1VirtualRouterList(data.virtualRouters, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    virtualRouters: (_) => de_VirtualRouterList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListVirtualRoutersCommandError = async (
+/**
+ * deserializeAws_restJson1ListVirtualRoutersCommandError
+ */
+const de_ListVirtualRoutersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualRoutersCommandOutput> => {
@@ -3135,54 +3407,58 @@ const deserializeAws_restJson1ListVirtualRoutersCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListVirtualServicesCommand = async (
+/**
+ * deserializeAws_restJson1ListVirtualServicesCommand
+ */
+export const de_ListVirtualServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualServicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVirtualServicesCommandError(output, context);
+    return de_ListVirtualServicesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken != null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.virtualServices != null) {
-    contents.virtualServices = deserializeAws_restJson1VirtualServiceList(data.virtualServices, context);
-  }
+  const doc = take(data, {
+    nextToken: __expectString,
+    virtualServices: (_) => de_VirtualServiceList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListVirtualServicesCommandError = async (
+/**
+ * deserializeAws_restJson1ListVirtualServicesCommandError
+ */
+const de_ListVirtualServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualServicesCommandOutput> => {
@@ -3194,39 +3470,41 @@ const deserializeAws_restJson1ListVirtualServicesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3235,7 +3513,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -3247,42 +3528,44 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.appmesh#TooManyTagsException":
-      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3291,7 +3574,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -3303,49 +3589,54 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateGatewayRouteCommand = async (
+/**
+ * deserializeAws_restJson1UpdateGatewayRouteCommand
+ */
+export const de_UpdateGatewayRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateGatewayRouteCommandError(output, context);
+    return de_UpdateGatewayRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.gatewayRoute = deserializeAws_restJson1GatewayRouteData(data, context);
+  contents.gatewayRoute = de_GatewayRouteData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateGatewayRouteCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateGatewayRouteCommandError
+ */
+const de_UpdateGatewayRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayRouteCommandOutput> => {
@@ -3357,55 +3648,60 @@ const deserializeAws_restJson1UpdateGatewayRouteCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateMeshCommand = async (
+/**
+ * deserializeAws_restJson1UpdateMeshCommand
+ */
+export const de_UpdateMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateMeshCommandError(output, context);
+    return de_UpdateMeshCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.mesh = deserializeAws_restJson1MeshData(data, context);
+  contents.mesh = de_MeshData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateMeshCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateMeshCommandError
+ */
+const de_UpdateMeshCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMeshCommandOutput> => {
@@ -3417,52 +3713,57 @@ const deserializeAws_restJson1UpdateMeshCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateRouteCommand = async (
+/**
+ * deserializeAws_restJson1UpdateRouteCommand
+ */
+export const de_UpdateRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateRouteCommandError(output, context);
+    return de_UpdateRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.route = deserializeAws_restJson1RouteData(data, context);
+  contents.route = de_RouteData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateRouteCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateRouteCommandError
+ */
+const de_UpdateRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRouteCommandOutput> => {
@@ -3474,55 +3775,60 @@ const deserializeAws_restJson1UpdateRouteCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateVirtualGatewayCommand = async (
+/**
+ * deserializeAws_restJson1UpdateVirtualGatewayCommand
+ */
+export const de_UpdateVirtualGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateVirtualGatewayCommandError(output, context);
+    return de_UpdateVirtualGatewayCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualGateway = deserializeAws_restJson1VirtualGatewayData(data, context);
+  contents.virtualGateway = de_VirtualGatewayData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateVirtualGatewayCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateVirtualGatewayCommandError
+ */
+const de_UpdateVirtualGatewayCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualGatewayCommandOutput> => {
@@ -3534,55 +3840,60 @@ const deserializeAws_restJson1UpdateVirtualGatewayCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateVirtualNodeCommand = async (
+/**
+ * deserializeAws_restJson1UpdateVirtualNodeCommand
+ */
+export const de_UpdateVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateVirtualNodeCommandError(output, context);
+    return de_UpdateVirtualNodeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualNode = deserializeAws_restJson1VirtualNodeData(data, context);
+  contents.virtualNode = de_VirtualNodeData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateVirtualNodeCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateVirtualNodeCommandError
+ */
+const de_UpdateVirtualNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualNodeCommandOutput> => {
@@ -3594,55 +3905,60 @@ const deserializeAws_restJson1UpdateVirtualNodeCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateVirtualRouterCommand = async (
+/**
+ * deserializeAws_restJson1UpdateVirtualRouterCommand
+ */
+export const de_UpdateVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateVirtualRouterCommandError(output, context);
+    return de_UpdateVirtualRouterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualRouter = deserializeAws_restJson1VirtualRouterData(data, context);
+  contents.virtualRouter = de_VirtualRouterData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateVirtualRouterCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateVirtualRouterCommandError
+ */
+const de_UpdateVirtualRouterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualRouterCommandOutput> => {
@@ -3654,55 +3970,60 @@ const deserializeAws_restJson1UpdateVirtualRouterCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateVirtualServiceCommand = async (
+/**
+ * deserializeAws_restJson1UpdateVirtualServiceCommand
+ */
+export const de_UpdateVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateVirtualServiceCommandError(output, context);
+    return de_UpdateVirtualServiceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.virtualService = deserializeAws_restJson1VirtualServiceData(data, context);
+  contents.virtualService = de_VirtualServiceData(data, context);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateVirtualServiceCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateVirtualServiceCommandError
+ */
+const de_UpdateVirtualServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualServiceCommandOutput> => {
@@ -3714,49 +4035,49 @@ const deserializeAws_restJson1UpdateVirtualServiceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.appmesh#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.appmesh#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.appmesh#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appmesh#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appmesh#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3764,15 +4085,16 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3780,15 +4102,16 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_restJson1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ForbiddenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3796,15 +4119,19 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerErrorExceptionRes
+ */
+const de_InternalServerErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3812,15 +4139,19 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3828,15 +4159,16 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3844,15 +4176,19 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3860,15 +4196,19 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3876,15 +4216,19 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3892,15 +4236,19 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3908,3384 +4256,885 @@ const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AccessLog = (input: AccessLog, context: __SerdeContext): any => {
-  return AccessLog.visit(input, {
-    file: (value) => ({ file: serializeAws_restJson1FileAccessLog(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_AccessLog omitted.
 
-const serializeAws_restJson1AwsCloudMapInstanceAttribute = (
-  input: AwsCloudMapInstanceAttribute,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_AwsCloudMapInstanceAttribute omitted.
 
-const serializeAws_restJson1AwsCloudMapInstanceAttributes = (
-  input: AwsCloudMapInstanceAttribute[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1AwsCloudMapInstanceAttribute(entry, context);
-    });
-};
+// se_AwsCloudMapInstanceAttributes omitted.
 
-const serializeAws_restJson1AwsCloudMapServiceDiscovery = (
-  input: AwsCloudMapServiceDiscovery,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.attributes != null && {
-      attributes: serializeAws_restJson1AwsCloudMapInstanceAttributes(input.attributes, context),
-    }),
-    ...(input.ipPreference != null && { ipPreference: input.ipPreference }),
-    ...(input.namespaceName != null && { namespaceName: input.namespaceName }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
+// se_AwsCloudMapServiceDiscovery omitted.
 
-const serializeAws_restJson1Backend = (input: Backend, context: __SerdeContext): any => {
-  return Backend.visit(input, {
-    virtualService: (value) => ({ virtualService: serializeAws_restJson1VirtualServiceBackend(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_Backend omitted.
 
-const serializeAws_restJson1BackendDefaults = (input: BackendDefaults, context: __SerdeContext): any => {
-  return {
-    ...(input.clientPolicy != null && {
-      clientPolicy: serializeAws_restJson1ClientPolicy(input.clientPolicy, context),
-    }),
-  };
-};
+// se_BackendDefaults omitted.
 
-const serializeAws_restJson1Backends = (input: Backend[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Backend(entry, context);
-    });
-};
+// se_Backends omitted.
 
-const serializeAws_restJson1CertificateAuthorityArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_CertificateAuthorityArns omitted.
 
-const serializeAws_restJson1ClientPolicy = (input: ClientPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.tls != null && { tls: serializeAws_restJson1ClientPolicyTls(input.tls, context) }),
-  };
-};
+// se_ClientPolicy omitted.
 
-const serializeAws_restJson1ClientPolicyTls = (input: ClientPolicyTls, context: __SerdeContext): any => {
-  return {
-    ...(input.certificate != null && {
-      certificate: serializeAws_restJson1ClientTlsCertificate(input.certificate, context),
-    }),
-    ...(input.enforce != null && { enforce: input.enforce }),
-    ...(input.ports != null && { ports: serializeAws_restJson1PortSet(input.ports, context) }),
-    ...(input.validation != null && {
-      validation: serializeAws_restJson1TlsValidationContext(input.validation, context),
-    }),
-  };
-};
+// se_ClientPolicyTls omitted.
 
-const serializeAws_restJson1ClientTlsCertificate = (input: ClientTlsCertificate, context: __SerdeContext): any => {
-  return ClientTlsCertificate.visit(input, {
-    file: (value) => ({ file: serializeAws_restJson1ListenerTlsFileCertificate(value, context) }),
-    sds: (value) => ({ sds: serializeAws_restJson1ListenerTlsSdsCertificate(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_ClientTlsCertificate omitted.
 
-const serializeAws_restJson1DnsServiceDiscovery = (input: DnsServiceDiscovery, context: __SerdeContext): any => {
-  return {
-    ...(input.hostname != null && { hostname: input.hostname }),
-    ...(input.ipPreference != null && { ipPreference: input.ipPreference }),
-    ...(input.responseType != null && { responseType: input.responseType }),
-  };
-};
+// se_DnsServiceDiscovery omitted.
 
-const serializeAws_restJson1Duration = (input: Duration, context: __SerdeContext): any => {
-  return {
-    ...(input.unit != null && { unit: input.unit }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Duration omitted.
 
-const serializeAws_restJson1EgressFilter = (input: EgressFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_EgressFilter omitted.
 
-const serializeAws_restJson1FileAccessLog = (input: FileAccessLog, context: __SerdeContext): any => {
-  return {
-    ...(input.format != null && { format: serializeAws_restJson1LoggingFormat(input.format, context) }),
-    ...(input.path != null && { path: input.path }),
-  };
-};
+// se_FileAccessLog omitted.
 
-const serializeAws_restJson1GatewayRouteHostnameMatch = (
-  input: GatewayRouteHostnameMatch,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.exact != null && { exact: input.exact }),
-    ...(input.suffix != null && { suffix: input.suffix }),
-  };
-};
+// se_GatewayRouteHostnameMatch omitted.
 
-const serializeAws_restJson1GatewayRouteHostnameRewrite = (
-  input: GatewayRouteHostnameRewrite,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.defaultTargetHostname != null && { defaultTargetHostname: input.defaultTargetHostname }),
-  };
-};
+// se_GatewayRouteHostnameRewrite omitted.
 
-const serializeAws_restJson1GatewayRouteSpec = (input: GatewayRouteSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.grpcRoute != null && { grpcRoute: serializeAws_restJson1GrpcGatewayRoute(input.grpcRoute, context) }),
-    ...(input.http2Route != null && { http2Route: serializeAws_restJson1HttpGatewayRoute(input.http2Route, context) }),
-    ...(input.httpRoute != null && { httpRoute: serializeAws_restJson1HttpGatewayRoute(input.httpRoute, context) }),
-    ...(input.priority != null && { priority: input.priority }),
-  };
-};
+// se_GatewayRouteSpec omitted.
 
-const serializeAws_restJson1GatewayRouteTarget = (input: GatewayRouteTarget, context: __SerdeContext): any => {
-  return {
-    ...(input.port != null && { port: input.port }),
-    ...(input.virtualService != null && {
-      virtualService: serializeAws_restJson1GatewayRouteVirtualService(input.virtualService, context),
-    }),
-  };
-};
+// se_GatewayRouteTarget omitted.
 
-const serializeAws_restJson1GatewayRouteVirtualService = (
-  input: GatewayRouteVirtualService,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.virtualServiceName != null && { virtualServiceName: input.virtualServiceName }),
-  };
-};
+// se_GatewayRouteVirtualService omitted.
 
-const serializeAws_restJson1GrpcGatewayRoute = (input: GrpcGatewayRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: serializeAws_restJson1GrpcGatewayRouteAction(input.action, context) }),
-    ...(input.match != null && { match: serializeAws_restJson1GrpcGatewayRouteMatch(input.match, context) }),
-  };
-};
+// se_GrpcGatewayRoute omitted.
 
-const serializeAws_restJson1GrpcGatewayRouteAction = (input: GrpcGatewayRouteAction, context: __SerdeContext): any => {
-  return {
-    ...(input.rewrite != null && { rewrite: serializeAws_restJson1GrpcGatewayRouteRewrite(input.rewrite, context) }),
-    ...(input.target != null && { target: serializeAws_restJson1GatewayRouteTarget(input.target, context) }),
-  };
-};
+// se_GrpcGatewayRouteAction omitted.
 
-const serializeAws_restJson1GrpcGatewayRouteMatch = (input: GrpcGatewayRouteMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.hostname != null && {
-      hostname: serializeAws_restJson1GatewayRouteHostnameMatch(input.hostname, context),
-    }),
-    ...(input.metadata != null && {
-      metadata: serializeAws_restJson1GrpcGatewayRouteMetadataList(input.metadata, context),
-    }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
+// se_GrpcGatewayRouteMatch omitted.
 
-const serializeAws_restJson1GrpcGatewayRouteMetadata = (
-  input: GrpcGatewayRouteMetadata,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.invert != null && { invert: input.invert }),
-    ...(input.match != null && { match: serializeAws_restJson1GrpcMetadataMatchMethod(input.match, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_GrpcGatewayRouteMetadata omitted.
 
-const serializeAws_restJson1GrpcGatewayRouteMetadataList = (
-  input: GrpcGatewayRouteMetadata[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1GrpcGatewayRouteMetadata(entry, context);
-    });
-};
+// se_GrpcGatewayRouteMetadataList omitted.
 
-const serializeAws_restJson1GrpcGatewayRouteRewrite = (
-  input: GrpcGatewayRouteRewrite,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.hostname != null && {
-      hostname: serializeAws_restJson1GatewayRouteHostnameRewrite(input.hostname, context),
-    }),
-  };
-};
+// se_GrpcGatewayRouteRewrite omitted.
 
-const serializeAws_restJson1GrpcMetadataMatchMethod = (
-  input: GrpcMetadataMatchMethod,
-  context: __SerdeContext
-): any => {
-  return GrpcMetadataMatchMethod.visit(input, {
-    exact: (value) => ({ exact: value }),
-    prefix: (value) => ({ prefix: value }),
-    range: (value) => ({ range: serializeAws_restJson1MatchRange(value, context) }),
-    regex: (value) => ({ regex: value }),
-    suffix: (value) => ({ suffix: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_GrpcMetadataMatchMethod omitted.
 
-const serializeAws_restJson1GrpcRetryPolicy = (input: GrpcRetryPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.grpcRetryEvents != null && {
-      grpcRetryEvents: serializeAws_restJson1GrpcRetryPolicyEvents(input.grpcRetryEvents, context),
-    }),
-    ...(input.httpRetryEvents != null && {
-      httpRetryEvents: serializeAws_restJson1HttpRetryPolicyEvents(input.httpRetryEvents, context),
-    }),
-    ...(input.maxRetries != null && { maxRetries: input.maxRetries }),
-    ...(input.perRetryTimeout != null && {
-      perRetryTimeout: serializeAws_restJson1Duration(input.perRetryTimeout, context),
-    }),
-    ...(input.tcpRetryEvents != null && {
-      tcpRetryEvents: serializeAws_restJson1TcpRetryPolicyEvents(input.tcpRetryEvents, context),
-    }),
-  };
-};
+// se_GrpcRetryPolicy omitted.
 
-const serializeAws_restJson1GrpcRetryPolicyEvents = (
-  input: (GrpcRetryPolicyEvent | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_GrpcRetryPolicyEvents omitted.
 
-const serializeAws_restJson1GrpcRoute = (input: GrpcRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: serializeAws_restJson1GrpcRouteAction(input.action, context) }),
-    ...(input.match != null && { match: serializeAws_restJson1GrpcRouteMatch(input.match, context) }),
-    ...(input.retryPolicy != null && {
-      retryPolicy: serializeAws_restJson1GrpcRetryPolicy(input.retryPolicy, context),
-    }),
-    ...(input.timeout != null && { timeout: serializeAws_restJson1GrpcTimeout(input.timeout, context) }),
-  };
-};
+// se_GrpcRoute omitted.
 
-const serializeAws_restJson1GrpcRouteAction = (input: GrpcRouteAction, context: __SerdeContext): any => {
-  return {
-    ...(input.weightedTargets != null && {
-      weightedTargets: serializeAws_restJson1WeightedTargets(input.weightedTargets, context),
-    }),
-  };
-};
+// se_GrpcRouteAction omitted.
 
-const serializeAws_restJson1GrpcRouteMatch = (input: GrpcRouteMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.metadata != null && { metadata: serializeAws_restJson1GrpcRouteMetadataList(input.metadata, context) }),
-    ...(input.methodName != null && { methodName: input.methodName }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.serviceName != null && { serviceName: input.serviceName }),
-  };
-};
+// se_GrpcRouteMatch omitted.
 
-const serializeAws_restJson1GrpcRouteMetadata = (input: GrpcRouteMetadata, context: __SerdeContext): any => {
-  return {
-    ...(input.invert != null && { invert: input.invert }),
-    ...(input.match != null && { match: serializeAws_restJson1GrpcRouteMetadataMatchMethod(input.match, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_GrpcRouteMetadata omitted.
 
-const serializeAws_restJson1GrpcRouteMetadataList = (input: GrpcRouteMetadata[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1GrpcRouteMetadata(entry, context);
-    });
-};
+// se_GrpcRouteMetadataList omitted.
 
-const serializeAws_restJson1GrpcRouteMetadataMatchMethod = (
-  input: GrpcRouteMetadataMatchMethod,
-  context: __SerdeContext
-): any => {
-  return GrpcRouteMetadataMatchMethod.visit(input, {
-    exact: (value) => ({ exact: value }),
-    prefix: (value) => ({ prefix: value }),
-    range: (value) => ({ range: serializeAws_restJson1MatchRange(value, context) }),
-    regex: (value) => ({ regex: value }),
-    suffix: (value) => ({ suffix: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_GrpcRouteMetadataMatchMethod omitted.
 
-const serializeAws_restJson1GrpcTimeout = (input: GrpcTimeout, context: __SerdeContext): any => {
-  return {
-    ...(input.idle != null && { idle: serializeAws_restJson1Duration(input.idle, context) }),
-    ...(input.perRequest != null && { perRequest: serializeAws_restJson1Duration(input.perRequest, context) }),
-  };
-};
+// se_GrpcTimeout omitted.
 
-const serializeAws_restJson1HeaderMatchMethod = (input: HeaderMatchMethod, context: __SerdeContext): any => {
-  return HeaderMatchMethod.visit(input, {
-    exact: (value) => ({ exact: value }),
-    prefix: (value) => ({ prefix: value }),
-    range: (value) => ({ range: serializeAws_restJson1MatchRange(value, context) }),
-    regex: (value) => ({ regex: value }),
-    suffix: (value) => ({ suffix: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_HeaderMatchMethod omitted.
 
-const serializeAws_restJson1HealthCheckPolicy = (input: HealthCheckPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.healthyThreshold != null && { healthyThreshold: input.healthyThreshold }),
-    ...(input.intervalMillis != null && { intervalMillis: input.intervalMillis }),
-    ...(input.path != null && { path: input.path }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.protocol != null && { protocol: input.protocol }),
-    ...(input.timeoutMillis != null && { timeoutMillis: input.timeoutMillis }),
-    ...(input.unhealthyThreshold != null && { unhealthyThreshold: input.unhealthyThreshold }),
-  };
-};
+// se_HealthCheckPolicy omitted.
 
-const serializeAws_restJson1HttpGatewayRoute = (input: HttpGatewayRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: serializeAws_restJson1HttpGatewayRouteAction(input.action, context) }),
-    ...(input.match != null && { match: serializeAws_restJson1HttpGatewayRouteMatch(input.match, context) }),
-  };
-};
+// se_HttpGatewayRoute omitted.
 
-const serializeAws_restJson1HttpGatewayRouteAction = (input: HttpGatewayRouteAction, context: __SerdeContext): any => {
-  return {
-    ...(input.rewrite != null && { rewrite: serializeAws_restJson1HttpGatewayRouteRewrite(input.rewrite, context) }),
-    ...(input.target != null && { target: serializeAws_restJson1GatewayRouteTarget(input.target, context) }),
-  };
-};
+// se_HttpGatewayRouteAction omitted.
 
-const serializeAws_restJson1HttpGatewayRouteHeader = (input: HttpGatewayRouteHeader, context: __SerdeContext): any => {
-  return {
-    ...(input.invert != null && { invert: input.invert }),
-    ...(input.match != null && { match: serializeAws_restJson1HeaderMatchMethod(input.match, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_HttpGatewayRouteHeader omitted.
 
-const serializeAws_restJson1HttpGatewayRouteHeaders = (
-  input: HttpGatewayRouteHeader[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1HttpGatewayRouteHeader(entry, context);
-    });
-};
+// se_HttpGatewayRouteHeaders omitted.
 
-const serializeAws_restJson1HttpGatewayRouteMatch = (input: HttpGatewayRouteMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.headers != null && { headers: serializeAws_restJson1HttpGatewayRouteHeaders(input.headers, context) }),
-    ...(input.hostname != null && {
-      hostname: serializeAws_restJson1GatewayRouteHostnameMatch(input.hostname, context),
-    }),
-    ...(input.method != null && { method: input.method }),
-    ...(input.path != null && { path: serializeAws_restJson1HttpPathMatch(input.path, context) }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-    ...(input.queryParameters != null && {
-      queryParameters: serializeAws_restJson1HttpQueryParameters(input.queryParameters, context),
-    }),
-  };
-};
+// se_HttpGatewayRouteMatch omitted.
 
-const serializeAws_restJson1HttpGatewayRoutePathRewrite = (
-  input: HttpGatewayRoutePathRewrite,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.exact != null && { exact: input.exact }),
-  };
-};
+// se_HttpGatewayRoutePathRewrite omitted.
 
-const serializeAws_restJson1HttpGatewayRoutePrefixRewrite = (
-  input: HttpGatewayRoutePrefixRewrite,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.defaultPrefix != null && { defaultPrefix: input.defaultPrefix }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_HttpGatewayRoutePrefixRewrite omitted.
 
-const serializeAws_restJson1HttpGatewayRouteRewrite = (
-  input: HttpGatewayRouteRewrite,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.hostname != null && {
-      hostname: serializeAws_restJson1GatewayRouteHostnameRewrite(input.hostname, context),
-    }),
-    ...(input.path != null && { path: serializeAws_restJson1HttpGatewayRoutePathRewrite(input.path, context) }),
-    ...(input.prefix != null && { prefix: serializeAws_restJson1HttpGatewayRoutePrefixRewrite(input.prefix, context) }),
-  };
-};
+// se_HttpGatewayRouteRewrite omitted.
 
-const serializeAws_restJson1HttpPathMatch = (input: HttpPathMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.exact != null && { exact: input.exact }),
-    ...(input.regex != null && { regex: input.regex }),
-  };
-};
+// se_HttpPathMatch omitted.
 
-const serializeAws_restJson1HttpQueryParameter = (input: HttpQueryParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.match != null && { match: serializeAws_restJson1QueryParameterMatch(input.match, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_HttpQueryParameter omitted.
 
-const serializeAws_restJson1HttpQueryParameters = (input: HttpQueryParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1HttpQueryParameter(entry, context);
-    });
-};
+// se_HttpQueryParameters omitted.
 
-const serializeAws_restJson1HttpRetryPolicy = (input: HttpRetryPolicy, context: __SerdeContext): any => {
-  return {
-    ...(input.httpRetryEvents != null && {
-      httpRetryEvents: serializeAws_restJson1HttpRetryPolicyEvents(input.httpRetryEvents, context),
-    }),
-    ...(input.maxRetries != null && { maxRetries: input.maxRetries }),
-    ...(input.perRetryTimeout != null && {
-      perRetryTimeout: serializeAws_restJson1Duration(input.perRetryTimeout, context),
-    }),
-    ...(input.tcpRetryEvents != null && {
-      tcpRetryEvents: serializeAws_restJson1TcpRetryPolicyEvents(input.tcpRetryEvents, context),
-    }),
-  };
-};
+// se_HttpRetryPolicy omitted.
 
-const serializeAws_restJson1HttpRetryPolicyEvents = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_HttpRetryPolicyEvents omitted.
 
-const serializeAws_restJson1HttpRoute = (input: HttpRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: serializeAws_restJson1HttpRouteAction(input.action, context) }),
-    ...(input.match != null && { match: serializeAws_restJson1HttpRouteMatch(input.match, context) }),
-    ...(input.retryPolicy != null && {
-      retryPolicy: serializeAws_restJson1HttpRetryPolicy(input.retryPolicy, context),
-    }),
-    ...(input.timeout != null && { timeout: serializeAws_restJson1HttpTimeout(input.timeout, context) }),
-  };
-};
+// se_HttpRoute omitted.
 
-const serializeAws_restJson1HttpRouteAction = (input: HttpRouteAction, context: __SerdeContext): any => {
-  return {
-    ...(input.weightedTargets != null && {
-      weightedTargets: serializeAws_restJson1WeightedTargets(input.weightedTargets, context),
-    }),
-  };
-};
+// se_HttpRouteAction omitted.
 
-const serializeAws_restJson1HttpRouteHeader = (input: HttpRouteHeader, context: __SerdeContext): any => {
-  return {
-    ...(input.invert != null && { invert: input.invert }),
-    ...(input.match != null && { match: serializeAws_restJson1HeaderMatchMethod(input.match, context) }),
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_HttpRouteHeader omitted.
 
-const serializeAws_restJson1HttpRouteHeaders = (input: HttpRouteHeader[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1HttpRouteHeader(entry, context);
-    });
-};
+// se_HttpRouteHeaders omitted.
 
-const serializeAws_restJson1HttpRouteMatch = (input: HttpRouteMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.headers != null && { headers: serializeAws_restJson1HttpRouteHeaders(input.headers, context) }),
-    ...(input.method != null && { method: input.method }),
-    ...(input.path != null && { path: serializeAws_restJson1HttpPathMatch(input.path, context) }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.prefix != null && { prefix: input.prefix }),
-    ...(input.queryParameters != null && {
-      queryParameters: serializeAws_restJson1HttpQueryParameters(input.queryParameters, context),
-    }),
-    ...(input.scheme != null && { scheme: input.scheme }),
-  };
-};
+// se_HttpRouteMatch omitted.
 
-const serializeAws_restJson1HttpTimeout = (input: HttpTimeout, context: __SerdeContext): any => {
-  return {
-    ...(input.idle != null && { idle: serializeAws_restJson1Duration(input.idle, context) }),
-    ...(input.perRequest != null && { perRequest: serializeAws_restJson1Duration(input.perRequest, context) }),
-  };
-};
+// se_HttpTimeout omitted.
 
-const serializeAws_restJson1JsonFormat = (input: JsonFormatRef[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1JsonFormatRef(entry, context);
-    });
-};
+// se_JsonFormat omitted.
 
-const serializeAws_restJson1JsonFormatRef = (input: JsonFormatRef, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_JsonFormatRef omitted.
 
-const serializeAws_restJson1Listener = (input: Listener, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionPool != null && {
-      connectionPool: serializeAws_restJson1VirtualNodeConnectionPool(input.connectionPool, context),
-    }),
-    ...(input.healthCheck != null && {
-      healthCheck: serializeAws_restJson1HealthCheckPolicy(input.healthCheck, context),
-    }),
-    ...(input.outlierDetection != null && {
-      outlierDetection: serializeAws_restJson1OutlierDetection(input.outlierDetection, context),
-    }),
-    ...(input.portMapping != null && { portMapping: serializeAws_restJson1PortMapping(input.portMapping, context) }),
-    ...(input.timeout != null && { timeout: serializeAws_restJson1ListenerTimeout(input.timeout, context) }),
-    ...(input.tls != null && { tls: serializeAws_restJson1ListenerTls(input.tls, context) }),
-  };
-};
+// se_Listener omitted.
 
-const serializeAws_restJson1Listeners = (input: Listener[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1Listener(entry, context);
-    });
-};
+// se_Listeners omitted.
 
-const serializeAws_restJson1ListenerTimeout = (input: ListenerTimeout, context: __SerdeContext): any => {
-  return ListenerTimeout.visit(input, {
-    grpc: (value) => ({ grpc: serializeAws_restJson1GrpcTimeout(value, context) }),
-    http: (value) => ({ http: serializeAws_restJson1HttpTimeout(value, context) }),
-    http2: (value) => ({ http2: serializeAws_restJson1HttpTimeout(value, context) }),
-    tcp: (value) => ({ tcp: serializeAws_restJson1TcpTimeout(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_ListenerTimeout omitted.
 
-const serializeAws_restJson1ListenerTls = (input: ListenerTls, context: __SerdeContext): any => {
-  return {
-    ...(input.certificate != null && {
-      certificate: serializeAws_restJson1ListenerTlsCertificate(input.certificate, context),
-    }),
-    ...(input.mode != null && { mode: input.mode }),
-    ...(input.validation != null && {
-      validation: serializeAws_restJson1ListenerTlsValidationContext(input.validation, context),
-    }),
-  };
-};
+// se_ListenerTls omitted.
 
-const serializeAws_restJson1ListenerTlsAcmCertificate = (
-  input: ListenerTlsAcmCertificate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
-  };
-};
+// se_ListenerTlsAcmCertificate omitted.
 
-const serializeAws_restJson1ListenerTlsCertificate = (input: ListenerTlsCertificate, context: __SerdeContext): any => {
-  return ListenerTlsCertificate.visit(input, {
-    acm: (value) => ({ acm: serializeAws_restJson1ListenerTlsAcmCertificate(value, context) }),
-    file: (value) => ({ file: serializeAws_restJson1ListenerTlsFileCertificate(value, context) }),
-    sds: (value) => ({ sds: serializeAws_restJson1ListenerTlsSdsCertificate(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_ListenerTlsCertificate omitted.
 
-const serializeAws_restJson1ListenerTlsFileCertificate = (
-  input: ListenerTlsFileCertificate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateChain != null && { certificateChain: input.certificateChain }),
-    ...(input.privateKey != null && { privateKey: input.privateKey }),
-  };
-};
+// se_ListenerTlsFileCertificate omitted.
 
-const serializeAws_restJson1ListenerTlsSdsCertificate = (
-  input: ListenerTlsSdsCertificate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.secretName != null && { secretName: input.secretName }),
-  };
-};
+// se_ListenerTlsSdsCertificate omitted.
 
-const serializeAws_restJson1ListenerTlsValidationContext = (
-  input: ListenerTlsValidationContext,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.subjectAlternativeNames != null && {
-      subjectAlternativeNames: serializeAws_restJson1SubjectAlternativeNames(input.subjectAlternativeNames, context),
-    }),
-    ...(input.trust != null && {
-      trust: serializeAws_restJson1ListenerTlsValidationContextTrust(input.trust, context),
-    }),
-  };
-};
+// se_ListenerTlsValidationContext omitted.
 
-const serializeAws_restJson1ListenerTlsValidationContextTrust = (
-  input: ListenerTlsValidationContextTrust,
-  context: __SerdeContext
-): any => {
-  return ListenerTlsValidationContextTrust.visit(input, {
-    file: (value) => ({ file: serializeAws_restJson1TlsValidationContextFileTrust(value, context) }),
-    sds: (value) => ({ sds: serializeAws_restJson1TlsValidationContextSdsTrust(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_ListenerTlsValidationContextTrust omitted.
 
-const serializeAws_restJson1Logging = (input: Logging, context: __SerdeContext): any => {
-  return {
-    ...(input.accessLog != null && { accessLog: serializeAws_restJson1AccessLog(input.accessLog, context) }),
-  };
-};
+// se_Logging omitted.
 
-const serializeAws_restJson1LoggingFormat = (input: LoggingFormat, context: __SerdeContext): any => {
-  return LoggingFormat.visit(input, {
-    json: (value) => ({ json: serializeAws_restJson1JsonFormat(value, context) }),
-    text: (value) => ({ text: value }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_LoggingFormat omitted.
 
-const serializeAws_restJson1MatchRange = (input: MatchRange, context: __SerdeContext): any => {
-  return {
-    ...(input.end != null && { end: input.end }),
-    ...(input.start != null && { start: input.start }),
-  };
-};
+// se_MatchRange omitted.
 
-const serializeAws_restJson1MeshServiceDiscovery = (input: MeshServiceDiscovery, context: __SerdeContext): any => {
-  return {
-    ...(input.ipPreference != null && { ipPreference: input.ipPreference }),
-  };
-};
+// se_MeshServiceDiscovery omitted.
 
-const serializeAws_restJson1MeshSpec = (input: MeshSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.egressFilter != null && {
-      egressFilter: serializeAws_restJson1EgressFilter(input.egressFilter, context),
-    }),
-    ...(input.serviceDiscovery != null && {
-      serviceDiscovery: serializeAws_restJson1MeshServiceDiscovery(input.serviceDiscovery, context),
-    }),
-  };
-};
+// se_MeshSpec omitted.
 
-const serializeAws_restJson1OutlierDetection = (input: OutlierDetection, context: __SerdeContext): any => {
-  return {
-    ...(input.baseEjectionDuration != null && {
-      baseEjectionDuration: serializeAws_restJson1Duration(input.baseEjectionDuration, context),
-    }),
-    ...(input.interval != null && { interval: serializeAws_restJson1Duration(input.interval, context) }),
-    ...(input.maxEjectionPercent != null && { maxEjectionPercent: input.maxEjectionPercent }),
-    ...(input.maxServerErrors != null && { maxServerErrors: input.maxServerErrors }),
-  };
-};
+// se_OutlierDetection omitted.
 
-const serializeAws_restJson1PortMapping = (input: PortMapping, context: __SerdeContext): any => {
-  return {
-    ...(input.port != null && { port: input.port }),
-    ...(input.protocol != null && { protocol: input.protocol }),
-  };
-};
+// se_PortMapping omitted.
 
-const serializeAws_restJson1PortSet = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_PortSet omitted.
 
-const serializeAws_restJson1QueryParameterMatch = (input: QueryParameterMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.exact != null && { exact: input.exact }),
-  };
-};
+// se_QueryParameterMatch omitted.
 
-const serializeAws_restJson1RouteSpec = (input: RouteSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.grpcRoute != null && { grpcRoute: serializeAws_restJson1GrpcRoute(input.grpcRoute, context) }),
-    ...(input.http2Route != null && { http2Route: serializeAws_restJson1HttpRoute(input.http2Route, context) }),
-    ...(input.httpRoute != null && { httpRoute: serializeAws_restJson1HttpRoute(input.httpRoute, context) }),
-    ...(input.priority != null && { priority: input.priority }),
-    ...(input.tcpRoute != null && { tcpRoute: serializeAws_restJson1TcpRoute(input.tcpRoute, context) }),
-  };
-};
+// se_RouteSpec omitted.
 
-const serializeAws_restJson1ServiceDiscovery = (input: ServiceDiscovery, context: __SerdeContext): any => {
-  return ServiceDiscovery.visit(input, {
-    awsCloudMap: (value) => ({ awsCloudMap: serializeAws_restJson1AwsCloudMapServiceDiscovery(value, context) }),
-    dns: (value) => ({ dns: serializeAws_restJson1DnsServiceDiscovery(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_ServiceDiscovery omitted.
 
-const serializeAws_restJson1SubjectAlternativeNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SubjectAlternativeNameList omitted.
 
-const serializeAws_restJson1SubjectAlternativeNameMatchers = (
-  input: SubjectAlternativeNameMatchers,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.exact != null && { exact: serializeAws_restJson1SubjectAlternativeNameList(input.exact, context) }),
-  };
-};
+// se_SubjectAlternativeNameMatchers omitted.
 
-const serializeAws_restJson1SubjectAlternativeNames = (
-  input: SubjectAlternativeNames,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.match != null && { match: serializeAws_restJson1SubjectAlternativeNameMatchers(input.match, context) }),
-  };
-};
+// se_SubjectAlternativeNames omitted.
 
-const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TagKeyList omitted.
 
-const serializeAws_restJson1TagList = (input: TagRef[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1TagRef(entry, context);
-    });
-};
+// se_TagList omitted.
 
-const serializeAws_restJson1TagRef = (input: TagRef, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_TagRef omitted.
 
-const serializeAws_restJson1TcpRetryPolicyEvents = (
-  input: (TcpRetryPolicyEvent | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TcpRetryPolicyEvents omitted.
 
-const serializeAws_restJson1TcpRoute = (input: TcpRoute, context: __SerdeContext): any => {
-  return {
-    ...(input.action != null && { action: serializeAws_restJson1TcpRouteAction(input.action, context) }),
-    ...(input.match != null && { match: serializeAws_restJson1TcpRouteMatch(input.match, context) }),
-    ...(input.timeout != null && { timeout: serializeAws_restJson1TcpTimeout(input.timeout, context) }),
-  };
-};
+// se_TcpRoute omitted.
 
-const serializeAws_restJson1TcpRouteAction = (input: TcpRouteAction, context: __SerdeContext): any => {
-  return {
-    ...(input.weightedTargets != null && {
-      weightedTargets: serializeAws_restJson1WeightedTargets(input.weightedTargets, context),
-    }),
-  };
-};
+// se_TcpRouteAction omitted.
 
-const serializeAws_restJson1TcpRouteMatch = (input: TcpRouteMatch, context: __SerdeContext): any => {
-  return {
-    ...(input.port != null && { port: input.port }),
-  };
-};
+// se_TcpRouteMatch omitted.
 
-const serializeAws_restJson1TcpTimeout = (input: TcpTimeout, context: __SerdeContext): any => {
-  return {
-    ...(input.idle != null && { idle: serializeAws_restJson1Duration(input.idle, context) }),
-  };
-};
+// se_TcpTimeout omitted.
 
-const serializeAws_restJson1TlsValidationContext = (input: TlsValidationContext, context: __SerdeContext): any => {
-  return {
-    ...(input.subjectAlternativeNames != null && {
-      subjectAlternativeNames: serializeAws_restJson1SubjectAlternativeNames(input.subjectAlternativeNames, context),
-    }),
-    ...(input.trust != null && { trust: serializeAws_restJson1TlsValidationContextTrust(input.trust, context) }),
-  };
-};
+// se_TlsValidationContext omitted.
 
-const serializeAws_restJson1TlsValidationContextAcmTrust = (
-  input: TlsValidationContextAcmTrust,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateAuthorityArns != null && {
-      certificateAuthorityArns: serializeAws_restJson1CertificateAuthorityArns(input.certificateAuthorityArns, context),
-    }),
-  };
-};
+// se_TlsValidationContextAcmTrust omitted.
 
-const serializeAws_restJson1TlsValidationContextFileTrust = (
-  input: TlsValidationContextFileTrust,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateChain != null && { certificateChain: input.certificateChain }),
-  };
-};
+// se_TlsValidationContextFileTrust omitted.
 
-const serializeAws_restJson1TlsValidationContextSdsTrust = (
-  input: TlsValidationContextSdsTrust,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.secretName != null && { secretName: input.secretName }),
-  };
-};
+// se_TlsValidationContextSdsTrust omitted.
 
-const serializeAws_restJson1TlsValidationContextTrust = (
-  input: TlsValidationContextTrust,
-  context: __SerdeContext
-): any => {
-  return TlsValidationContextTrust.visit(input, {
-    acm: (value) => ({ acm: serializeAws_restJson1TlsValidationContextAcmTrust(value, context) }),
-    file: (value) => ({ file: serializeAws_restJson1TlsValidationContextFileTrust(value, context) }),
-    sds: (value) => ({ sds: serializeAws_restJson1TlsValidationContextSdsTrust(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_TlsValidationContextTrust omitted.
 
-const serializeAws_restJson1VirtualGatewayAccessLog = (
-  input: VirtualGatewayAccessLog,
-  context: __SerdeContext
-): any => {
-  return VirtualGatewayAccessLog.visit(input, {
-    file: (value) => ({ file: serializeAws_restJson1VirtualGatewayFileAccessLog(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_VirtualGatewayAccessLog omitted.
 
-const serializeAws_restJson1VirtualGatewayBackendDefaults = (
-  input: VirtualGatewayBackendDefaults,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.clientPolicy != null && {
-      clientPolicy: serializeAws_restJson1VirtualGatewayClientPolicy(input.clientPolicy, context),
-    }),
-  };
-};
+// se_VirtualGatewayBackendDefaults omitted.
 
-const serializeAws_restJson1VirtualGatewayCertificateAuthorityArns = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_VirtualGatewayCertificateAuthorityArns omitted.
 
-const serializeAws_restJson1VirtualGatewayClientPolicy = (
-  input: VirtualGatewayClientPolicy,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.tls != null && { tls: serializeAws_restJson1VirtualGatewayClientPolicyTls(input.tls, context) }),
-  };
-};
+// se_VirtualGatewayClientPolicy omitted.
 
-const serializeAws_restJson1VirtualGatewayClientPolicyTls = (
-  input: VirtualGatewayClientPolicyTls,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificate != null && {
-      certificate: serializeAws_restJson1VirtualGatewayClientTlsCertificate(input.certificate, context),
-    }),
-    ...(input.enforce != null && { enforce: input.enforce }),
-    ...(input.ports != null && { ports: serializeAws_restJson1PortSet(input.ports, context) }),
-    ...(input.validation != null && {
-      validation: serializeAws_restJson1VirtualGatewayTlsValidationContext(input.validation, context),
-    }),
-  };
-};
+// se_VirtualGatewayClientPolicyTls omitted.
 
-const serializeAws_restJson1VirtualGatewayClientTlsCertificate = (
-  input: VirtualGatewayClientTlsCertificate,
-  context: __SerdeContext
-): any => {
-  return VirtualGatewayClientTlsCertificate.visit(input, {
-    file: (value) => ({ file: serializeAws_restJson1VirtualGatewayListenerTlsFileCertificate(value, context) }),
-    sds: (value) => ({ sds: serializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_VirtualGatewayClientTlsCertificate omitted.
 
-const serializeAws_restJson1VirtualGatewayConnectionPool = (
-  input: VirtualGatewayConnectionPool,
-  context: __SerdeContext
-): any => {
-  return VirtualGatewayConnectionPool.visit(input, {
-    grpc: (value) => ({ grpc: serializeAws_restJson1VirtualGatewayGrpcConnectionPool(value, context) }),
-    http: (value) => ({ http: serializeAws_restJson1VirtualGatewayHttpConnectionPool(value, context) }),
-    http2: (value) => ({ http2: serializeAws_restJson1VirtualGatewayHttp2ConnectionPool(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_VirtualGatewayConnectionPool omitted.
 
-const serializeAws_restJson1VirtualGatewayFileAccessLog = (
-  input: VirtualGatewayFileAccessLog,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.format != null && { format: serializeAws_restJson1LoggingFormat(input.format, context) }),
-    ...(input.path != null && { path: input.path }),
-  };
-};
+// se_VirtualGatewayFileAccessLog omitted.
 
-const serializeAws_restJson1VirtualGatewayGrpcConnectionPool = (
-  input: VirtualGatewayGrpcConnectionPool,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxRequests != null && { maxRequests: input.maxRequests }),
-  };
-};
+// se_VirtualGatewayGrpcConnectionPool omitted.
 
-const serializeAws_restJson1VirtualGatewayHealthCheckPolicy = (
-  input: VirtualGatewayHealthCheckPolicy,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.healthyThreshold != null && { healthyThreshold: input.healthyThreshold }),
-    ...(input.intervalMillis != null && { intervalMillis: input.intervalMillis }),
-    ...(input.path != null && { path: input.path }),
-    ...(input.port != null && { port: input.port }),
-    ...(input.protocol != null && { protocol: input.protocol }),
-    ...(input.timeoutMillis != null && { timeoutMillis: input.timeoutMillis }),
-    ...(input.unhealthyThreshold != null && { unhealthyThreshold: input.unhealthyThreshold }),
-  };
-};
+// se_VirtualGatewayHealthCheckPolicy omitted.
 
-const serializeAws_restJson1VirtualGatewayHttp2ConnectionPool = (
-  input: VirtualGatewayHttp2ConnectionPool,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxRequests != null && { maxRequests: input.maxRequests }),
-  };
-};
+// se_VirtualGatewayHttp2ConnectionPool omitted.
 
-const serializeAws_restJson1VirtualGatewayHttpConnectionPool = (
-  input: VirtualGatewayHttpConnectionPool,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxConnections != null && { maxConnections: input.maxConnections }),
-    ...(input.maxPendingRequests != null && { maxPendingRequests: input.maxPendingRequests }),
-  };
-};
+// se_VirtualGatewayHttpConnectionPool omitted.
 
-const serializeAws_restJson1VirtualGatewayListener = (input: VirtualGatewayListener, context: __SerdeContext): any => {
-  return {
-    ...(input.connectionPool != null && {
-      connectionPool: serializeAws_restJson1VirtualGatewayConnectionPool(input.connectionPool, context),
-    }),
-    ...(input.healthCheck != null && {
-      healthCheck: serializeAws_restJson1VirtualGatewayHealthCheckPolicy(input.healthCheck, context),
-    }),
-    ...(input.portMapping != null && {
-      portMapping: serializeAws_restJson1VirtualGatewayPortMapping(input.portMapping, context),
-    }),
-    ...(input.tls != null && { tls: serializeAws_restJson1VirtualGatewayListenerTls(input.tls, context) }),
-  };
-};
+// se_VirtualGatewayListener omitted.
 
-const serializeAws_restJson1VirtualGatewayListeners = (
-  input: VirtualGatewayListener[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1VirtualGatewayListener(entry, context);
-    });
-};
+// se_VirtualGatewayListeners omitted.
 
-const serializeAws_restJson1VirtualGatewayListenerTls = (
-  input: VirtualGatewayListenerTls,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificate != null && {
-      certificate: serializeAws_restJson1VirtualGatewayListenerTlsCertificate(input.certificate, context),
-    }),
-    ...(input.mode != null && { mode: input.mode }),
-    ...(input.validation != null && {
-      validation: serializeAws_restJson1VirtualGatewayListenerTlsValidationContext(input.validation, context),
-    }),
-  };
-};
+// se_VirtualGatewayListenerTls omitted.
 
-const serializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate = (
-  input: VirtualGatewayListenerTlsAcmCertificate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
-  };
-};
+// se_VirtualGatewayListenerTlsAcmCertificate omitted.
 
-const serializeAws_restJson1VirtualGatewayListenerTlsCertificate = (
-  input: VirtualGatewayListenerTlsCertificate,
-  context: __SerdeContext
-): any => {
-  return VirtualGatewayListenerTlsCertificate.visit(input, {
-    acm: (value) => ({ acm: serializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate(value, context) }),
-    file: (value) => ({ file: serializeAws_restJson1VirtualGatewayListenerTlsFileCertificate(value, context) }),
-    sds: (value) => ({ sds: serializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_VirtualGatewayListenerTlsCertificate omitted.
 
-const serializeAws_restJson1VirtualGatewayListenerTlsFileCertificate = (
-  input: VirtualGatewayListenerTlsFileCertificate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateChain != null && { certificateChain: input.certificateChain }),
-    ...(input.privateKey != null && { privateKey: input.privateKey }),
-  };
-};
+// se_VirtualGatewayListenerTlsFileCertificate omitted.
 
-const serializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate = (
-  input: VirtualGatewayListenerTlsSdsCertificate,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.secretName != null && { secretName: input.secretName }),
-  };
-};
+// se_VirtualGatewayListenerTlsSdsCertificate omitted.
 
-const serializeAws_restJson1VirtualGatewayListenerTlsValidationContext = (
-  input: VirtualGatewayListenerTlsValidationContext,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.subjectAlternativeNames != null && {
-      subjectAlternativeNames: serializeAws_restJson1SubjectAlternativeNames(input.subjectAlternativeNames, context),
-    }),
-    ...(input.trust != null && {
-      trust: serializeAws_restJson1VirtualGatewayListenerTlsValidationContextTrust(input.trust, context),
-    }),
-  };
-};
+// se_VirtualGatewayListenerTlsValidationContext omitted.
 
-const serializeAws_restJson1VirtualGatewayListenerTlsValidationContextTrust = (
-  input: VirtualGatewayListenerTlsValidationContextTrust,
-  context: __SerdeContext
-): any => {
-  return VirtualGatewayListenerTlsValidationContextTrust.visit(input, {
-    file: (value) => ({ file: serializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust(value, context) }),
-    sds: (value) => ({ sds: serializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_VirtualGatewayListenerTlsValidationContextTrust omitted.
 
-const serializeAws_restJson1VirtualGatewayLogging = (input: VirtualGatewayLogging, context: __SerdeContext): any => {
-  return {
-    ...(input.accessLog != null && {
-      accessLog: serializeAws_restJson1VirtualGatewayAccessLog(input.accessLog, context),
-    }),
-  };
-};
+// se_VirtualGatewayLogging omitted.
 
-const serializeAws_restJson1VirtualGatewayPortMapping = (
-  input: VirtualGatewayPortMapping,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.port != null && { port: input.port }),
-    ...(input.protocol != null && { protocol: input.protocol }),
-  };
-};
+// se_VirtualGatewayPortMapping omitted.
 
-const serializeAws_restJson1VirtualGatewaySpec = (input: VirtualGatewaySpec, context: __SerdeContext): any => {
-  return {
-    ...(input.backendDefaults != null && {
-      backendDefaults: serializeAws_restJson1VirtualGatewayBackendDefaults(input.backendDefaults, context),
-    }),
-    ...(input.listeners != null && {
-      listeners: serializeAws_restJson1VirtualGatewayListeners(input.listeners, context),
-    }),
-    ...(input.logging != null && { logging: serializeAws_restJson1VirtualGatewayLogging(input.logging, context) }),
-  };
-};
+// se_VirtualGatewaySpec omitted.
 
-const serializeAws_restJson1VirtualGatewayTlsValidationContext = (
-  input: VirtualGatewayTlsValidationContext,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.subjectAlternativeNames != null && {
-      subjectAlternativeNames: serializeAws_restJson1SubjectAlternativeNames(input.subjectAlternativeNames, context),
-    }),
-    ...(input.trust != null && {
-      trust: serializeAws_restJson1VirtualGatewayTlsValidationContextTrust(input.trust, context),
-    }),
-  };
-};
+// se_VirtualGatewayTlsValidationContext omitted.
 
-const serializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust = (
-  input: VirtualGatewayTlsValidationContextAcmTrust,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateAuthorityArns != null && {
-      certificateAuthorityArns: serializeAws_restJson1VirtualGatewayCertificateAuthorityArns(
-        input.certificateAuthorityArns,
-        context
-      ),
-    }),
-  };
-};
+// se_VirtualGatewayTlsValidationContextAcmTrust omitted.
 
-const serializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust = (
-  input: VirtualGatewayTlsValidationContextFileTrust,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.certificateChain != null && { certificateChain: input.certificateChain }),
-  };
-};
+// se_VirtualGatewayTlsValidationContextFileTrust omitted.
 
-const serializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust = (
-  input: VirtualGatewayTlsValidationContextSdsTrust,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.secretName != null && { secretName: input.secretName }),
-  };
-};
+// se_VirtualGatewayTlsValidationContextSdsTrust omitted.
 
-const serializeAws_restJson1VirtualGatewayTlsValidationContextTrust = (
-  input: VirtualGatewayTlsValidationContextTrust,
-  context: __SerdeContext
-): any => {
-  return VirtualGatewayTlsValidationContextTrust.visit(input, {
-    acm: (value) => ({ acm: serializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust(value, context) }),
-    file: (value) => ({ file: serializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust(value, context) }),
-    sds: (value) => ({ sds: serializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_VirtualGatewayTlsValidationContextTrust omitted.
 
-const serializeAws_restJson1VirtualNodeConnectionPool = (
-  input: VirtualNodeConnectionPool,
-  context: __SerdeContext
-): any => {
-  return VirtualNodeConnectionPool.visit(input, {
-    grpc: (value) => ({ grpc: serializeAws_restJson1VirtualNodeGrpcConnectionPool(value, context) }),
-    http: (value) => ({ http: serializeAws_restJson1VirtualNodeHttpConnectionPool(value, context) }),
-    http2: (value) => ({ http2: serializeAws_restJson1VirtualNodeHttp2ConnectionPool(value, context) }),
-    tcp: (value) => ({ tcp: serializeAws_restJson1VirtualNodeTcpConnectionPool(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_VirtualNodeConnectionPool omitted.
 
-const serializeAws_restJson1VirtualNodeGrpcConnectionPool = (
-  input: VirtualNodeGrpcConnectionPool,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxRequests != null && { maxRequests: input.maxRequests }),
-  };
-};
+// se_VirtualNodeGrpcConnectionPool omitted.
 
-const serializeAws_restJson1VirtualNodeHttp2ConnectionPool = (
-  input: VirtualNodeHttp2ConnectionPool,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxRequests != null && { maxRequests: input.maxRequests }),
-  };
-};
+// se_VirtualNodeHttp2ConnectionPool omitted.
 
-const serializeAws_restJson1VirtualNodeHttpConnectionPool = (
-  input: VirtualNodeHttpConnectionPool,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxConnections != null && { maxConnections: input.maxConnections }),
-    ...(input.maxPendingRequests != null && { maxPendingRequests: input.maxPendingRequests }),
-  };
-};
+// se_VirtualNodeHttpConnectionPool omitted.
 
-const serializeAws_restJson1VirtualNodeServiceProvider = (
-  input: VirtualNodeServiceProvider,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.virtualNodeName != null && { virtualNodeName: input.virtualNodeName }),
-  };
-};
+// se_VirtualNodeServiceProvider omitted.
 
-const serializeAws_restJson1VirtualNodeSpec = (input: VirtualNodeSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.backendDefaults != null && {
-      backendDefaults: serializeAws_restJson1BackendDefaults(input.backendDefaults, context),
-    }),
-    ...(input.backends != null && { backends: serializeAws_restJson1Backends(input.backends, context) }),
-    ...(input.listeners != null && { listeners: serializeAws_restJson1Listeners(input.listeners, context) }),
-    ...(input.logging != null && { logging: serializeAws_restJson1Logging(input.logging, context) }),
-    ...(input.serviceDiscovery != null && {
-      serviceDiscovery: serializeAws_restJson1ServiceDiscovery(input.serviceDiscovery, context),
-    }),
-  };
-};
+// se_VirtualNodeSpec omitted.
 
-const serializeAws_restJson1VirtualNodeTcpConnectionPool = (
-  input: VirtualNodeTcpConnectionPool,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxConnections != null && { maxConnections: input.maxConnections }),
-  };
-};
+// se_VirtualNodeTcpConnectionPool omitted.
 
-const serializeAws_restJson1VirtualRouterListener = (input: VirtualRouterListener, context: __SerdeContext): any => {
-  return {
-    ...(input.portMapping != null && { portMapping: serializeAws_restJson1PortMapping(input.portMapping, context) }),
-  };
-};
+// se_VirtualRouterListener omitted.
 
-const serializeAws_restJson1VirtualRouterListeners = (input: VirtualRouterListener[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1VirtualRouterListener(entry, context);
-    });
-};
+// se_VirtualRouterListeners omitted.
 
-const serializeAws_restJson1VirtualRouterServiceProvider = (
-  input: VirtualRouterServiceProvider,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.virtualRouterName != null && { virtualRouterName: input.virtualRouterName }),
-  };
-};
+// se_VirtualRouterServiceProvider omitted.
 
-const serializeAws_restJson1VirtualRouterSpec = (input: VirtualRouterSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.listeners != null && {
-      listeners: serializeAws_restJson1VirtualRouterListeners(input.listeners, context),
-    }),
-  };
-};
+// se_VirtualRouterSpec omitted.
 
-const serializeAws_restJson1VirtualServiceBackend = (input: VirtualServiceBackend, context: __SerdeContext): any => {
-  return {
-    ...(input.clientPolicy != null && {
-      clientPolicy: serializeAws_restJson1ClientPolicy(input.clientPolicy, context),
-    }),
-    ...(input.virtualServiceName != null && { virtualServiceName: input.virtualServiceName }),
-  };
-};
+// se_VirtualServiceBackend omitted.
 
-const serializeAws_restJson1VirtualServiceProvider = (input: VirtualServiceProvider, context: __SerdeContext): any => {
-  return VirtualServiceProvider.visit(input, {
-    virtualNode: (value) => ({ virtualNode: serializeAws_restJson1VirtualNodeServiceProvider(value, context) }),
-    virtualRouter: (value) => ({ virtualRouter: serializeAws_restJson1VirtualRouterServiceProvider(value, context) }),
-    _: (name, value) => ({ name: value } as any),
-  });
-};
+// se_VirtualServiceProvider omitted.
 
-const serializeAws_restJson1VirtualServiceSpec = (input: VirtualServiceSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.provider != null && { provider: serializeAws_restJson1VirtualServiceProvider(input.provider, context) }),
-  };
-};
+// se_VirtualServiceSpec omitted.
 
-const serializeAws_restJson1WeightedTarget = (input: WeightedTarget, context: __SerdeContext): any => {
-  return {
-    ...(input.port != null && { port: input.port }),
-    ...(input.virtualNode != null && { virtualNode: input.virtualNode }),
-    ...(input.weight != null && { weight: input.weight }),
-  };
-};
+// se_WeightedTarget omitted.
 
-const serializeAws_restJson1WeightedTargets = (input: WeightedTarget[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1WeightedTarget(entry, context);
-    });
-};
+// se_WeightedTargets omitted.
 
-const deserializeAws_restJson1AccessLog = (output: any, context: __SerdeContext): AccessLog => {
-  if (output.file != null) {
-    return {
-      file: deserializeAws_restJson1FileAccessLog(output.file, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_AccessLog omitted.
+
+// de_AwsCloudMapInstanceAttribute omitted.
+
+// de_AwsCloudMapInstanceAttributes omitted.
+
+// de_AwsCloudMapServiceDiscovery omitted.
+
+// de_Backend omitted.
+
+// de_BackendDefaults omitted.
+
+// de_Backends omitted.
 
-const deserializeAws_restJson1AwsCloudMapInstanceAttribute = (
-  output: any,
-  context: __SerdeContext
-): AwsCloudMapInstanceAttribute => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
+// de_CertificateAuthorityArns omitted.
+
+// de_ClientPolicy omitted.
+
+// de_ClientPolicyTls omitted.
+
+// de_ClientTlsCertificate omitted.
+
+// de_DnsServiceDiscovery omitted.
+
+// de_Duration omitted.
+
+// de_EgressFilter omitted.
+
+// de_FileAccessLog omitted.
+
+/**
+ * deserializeAws_restJson1GatewayRouteData
+ */
+const de_GatewayRouteData = (output: any, context: __SerdeContext): GatewayRouteData => {
+  return take(output, {
+    gatewayRouteName: __expectString,
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+    virtualGatewayName: __expectString,
+  }) as any;
 };
+
+// de_GatewayRouteHostnameMatch omitted.
+
+// de_GatewayRouteHostnameRewrite omitted.
 
-const deserializeAws_restJson1AwsCloudMapInstanceAttributes = (
-  output: any,
-  context: __SerdeContext
-): AwsCloudMapInstanceAttribute[] => {
+/**
+ * deserializeAws_restJson1GatewayRouteList
+ */
+const de_GatewayRouteList = (output: any, context: __SerdeContext): GatewayRouteRef[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AwsCloudMapInstanceAttribute(entry, context);
+      return de_GatewayRouteRef(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AwsCloudMapServiceDiscovery = (
-  output: any,
-  context: __SerdeContext
-): AwsCloudMapServiceDiscovery => {
-  return {
-    attributes:
-      output.attributes != null
-        ? deserializeAws_restJson1AwsCloudMapInstanceAttributes(output.attributes, context)
-        : undefined,
-    ipPreference: __expectString(output.ipPreference),
-    namespaceName: __expectString(output.namespaceName),
-    serviceName: __expectString(output.serviceName),
-  } as any;
+/**
+ * deserializeAws_restJson1GatewayRouteRef
+ */
+const de_GatewayRouteRef = (output: any, context: __SerdeContext): GatewayRouteRef => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    gatewayRouteName: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+    virtualGatewayName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1Backend = (output: any, context: __SerdeContext): Backend => {
-  if (output.virtualService != null) {
-    return {
-      virtualService: deserializeAws_restJson1VirtualServiceBackend(output.virtualService, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
+// de_GatewayRouteSpec omitted.
+
+// de_GatewayRouteStatus omitted.
+
+// de_GatewayRouteTarget omitted.
+
+// de_GatewayRouteVirtualService omitted.
+
+// de_GrpcGatewayRoute omitted.
+
+// de_GrpcGatewayRouteAction omitted.
+
+// de_GrpcGatewayRouteMatch omitted.
+
+// de_GrpcGatewayRouteMetadata omitted.
+
+// de_GrpcGatewayRouteMetadataList omitted.
+
+// de_GrpcGatewayRouteRewrite omitted.
+
+// de_GrpcMetadataMatchMethod omitted.
+
+// de_GrpcRetryPolicy omitted.
+
+// de_GrpcRetryPolicyEvents omitted.
+
+// de_GrpcRoute omitted.
+
+// de_GrpcRouteAction omitted.
+
+// de_GrpcRouteMatch omitted.
+
+// de_GrpcRouteMetadata omitted.
+
+// de_GrpcRouteMetadataList omitted.
+
+// de_GrpcRouteMetadataMatchMethod omitted.
+
+// de_GrpcTimeout omitted.
+
+// de_HeaderMatchMethod omitted.
+
+// de_HealthCheckPolicy omitted.
+
+// de_HttpGatewayRoute omitted.
+
+// de_HttpGatewayRouteAction omitted.
+
+// de_HttpGatewayRouteHeader omitted.
+
+// de_HttpGatewayRouteHeaders omitted.
+
+// de_HttpGatewayRouteMatch omitted.
+
+// de_HttpGatewayRoutePathRewrite omitted.
+
+// de_HttpGatewayRoutePrefixRewrite omitted.
+
+// de_HttpGatewayRouteRewrite omitted.
+
+// de_HttpPathMatch omitted.
+
+// de_HttpQueryParameter omitted.
+
+// de_HttpQueryParameters omitted.
+
+// de_HttpRetryPolicy omitted.
+
+// de_HttpRetryPolicyEvents omitted.
+
+// de_HttpRoute omitted.
+
+// de_HttpRouteAction omitted.
+
+// de_HttpRouteHeader omitted.
+
+// de_HttpRouteHeaders omitted.
+
+// de_HttpRouteMatch omitted.
+
+// de_HttpTimeout omitted.
+
+// de_JsonFormat omitted.
+
+// de_JsonFormatRef omitted.
+
+// de_Listener omitted.
+
+// de_Listeners omitted.
+
+// de_ListenerTimeout omitted.
+
+// de_ListenerTls omitted.
+
+// de_ListenerTlsAcmCertificate omitted.
+
+// de_ListenerTlsCertificate omitted.
+
+// de_ListenerTlsFileCertificate omitted.
+
+// de_ListenerTlsSdsCertificate omitted.
+
+// de_ListenerTlsValidationContext omitted.
+
+// de_ListenerTlsValidationContextTrust omitted.
+
+// de_Logging omitted.
+
+// de_LoggingFormat omitted.
+
+// de_MatchRange omitted.
+
+/**
+ * deserializeAws_restJson1MeshData
+ */
+const de_MeshData = (output: any, context: __SerdeContext): MeshData => {
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1BackendDefaults = (output: any, context: __SerdeContext): BackendDefaults => {
-  return {
-    clientPolicy:
-      output.clientPolicy != null ? deserializeAws_restJson1ClientPolicy(output.clientPolicy, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Backends = (output: any, context: __SerdeContext): Backend[] => {
+/**
+ * deserializeAws_restJson1MeshList
+ */
+const de_MeshList = (output: any, context: __SerdeContext): MeshRef[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Backend(__expectUnion(entry), context);
+      return de_MeshRef(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1CertificateAuthorityArns = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1MeshRef
+ */
+const de_MeshRef = (output: any, context: __SerdeContext): MeshRef => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+  }) as any;
+};
+
+// de_MeshServiceDiscovery omitted.
+
+// de_MeshSpec omitted.
+
+// de_MeshStatus omitted.
+
+// de_OutlierDetection omitted.
+
+// de_PortMapping omitted.
+
+// de_PortSet omitted.
+
+// de_QueryParameterMatch omitted.
+
+/**
+ * deserializeAws_restJson1ResourceMetadata
+ */
+const de_ResourceMetadata = (output: any, context: __SerdeContext): ResourceMetadata => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    uid: __expectString,
+    version: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RouteData
+ */
+const de_RouteData = (output: any, context: __SerdeContext): RouteData => {
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    routeName: __expectString,
+    spec: _json,
+    status: _json,
+    virtualRouterName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RouteList
+ */
+const de_RouteList = (output: any, context: __SerdeContext): RouteRef[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_RouteRef(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ClientPolicy = (output: any, context: __SerdeContext): ClientPolicy => {
-  return {
-    tls: output.tls != null ? deserializeAws_restJson1ClientPolicyTls(output.tls, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1RouteRef
+ */
+const de_RouteRef = (output: any, context: __SerdeContext): RouteRef => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    routeName: __expectString,
+    version: __expectLong,
+    virtualRouterName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1ClientPolicyTls = (output: any, context: __SerdeContext): ClientPolicyTls => {
-  return {
-    certificate:
-      output.certificate != null
-        ? deserializeAws_restJson1ClientTlsCertificate(__expectUnion(output.certificate), context)
-        : undefined,
-    enforce: __expectBoolean(output.enforce),
-    ports: output.ports != null ? deserializeAws_restJson1PortSet(output.ports, context) : undefined,
-    validation:
-      output.validation != null ? deserializeAws_restJson1TlsValidationContext(output.validation, context) : undefined,
-  } as any;
+// de_RouteSpec omitted.
+
+// de_RouteStatus omitted.
+
+// de_ServiceDiscovery omitted.
+
+// de_SubjectAlternativeNameList omitted.
+
+// de_SubjectAlternativeNameMatchers omitted.
+
+// de_SubjectAlternativeNames omitted.
+
+// de_TagList omitted.
+
+// de_TagRef omitted.
+
+// de_TcpRetryPolicyEvents omitted.
+
+// de_TcpRoute omitted.
+
+// de_TcpRouteAction omitted.
+
+// de_TcpRouteMatch omitted.
+
+// de_TcpTimeout omitted.
+
+// de_TlsValidationContext omitted.
+
+// de_TlsValidationContextAcmTrust omitted.
+
+// de_TlsValidationContextFileTrust omitted.
+
+// de_TlsValidationContextSdsTrust omitted.
+
+// de_TlsValidationContextTrust omitted.
+
+// de_VirtualGatewayAccessLog omitted.
+
+// de_VirtualGatewayBackendDefaults omitted.
+
+// de_VirtualGatewayCertificateAuthorityArns omitted.
+
+// de_VirtualGatewayClientPolicy omitted.
+
+// de_VirtualGatewayClientPolicyTls omitted.
+
+// de_VirtualGatewayClientTlsCertificate omitted.
+
+// de_VirtualGatewayConnectionPool omitted.
+
+/**
+ * deserializeAws_restJson1VirtualGatewayData
+ */
+const de_VirtualGatewayData = (output: any, context: __SerdeContext): VirtualGatewayData => {
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+    virtualGatewayName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1ClientTlsCertificate = (output: any, context: __SerdeContext): ClientTlsCertificate => {
-  if (output.file != null) {
-    return {
-      file: deserializeAws_restJson1ListenerTlsFileCertificate(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: deserializeAws_restJson1ListenerTlsSdsCertificate(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
+// de_VirtualGatewayFileAccessLog omitted.
 
-const deserializeAws_restJson1DnsServiceDiscovery = (output: any, context: __SerdeContext): DnsServiceDiscovery => {
-  return {
-    hostname: __expectString(output.hostname),
-    ipPreference: __expectString(output.ipPreference),
-    responseType: __expectString(output.responseType),
-  } as any;
-};
+// de_VirtualGatewayGrpcConnectionPool omitted.
 
-const deserializeAws_restJson1Duration = (output: any, context: __SerdeContext): Duration => {
-  return {
-    unit: __expectString(output.unit),
-    value: __expectLong(output.value),
-  } as any;
-};
+// de_VirtualGatewayHealthCheckPolicy omitted.
 
-const deserializeAws_restJson1EgressFilter = (output: any, context: __SerdeContext): EgressFilter => {
-  return {
-    type: __expectString(output.type),
-  } as any;
-};
+// de_VirtualGatewayHttp2ConnectionPool omitted.
 
-const deserializeAws_restJson1FileAccessLog = (output: any, context: __SerdeContext): FileAccessLog => {
-  return {
-    format:
-      output.format != null ? deserializeAws_restJson1LoggingFormat(__expectUnion(output.format), context) : undefined,
-    path: __expectString(output.path),
-  } as any;
-};
+// de_VirtualGatewayHttpConnectionPool omitted.
 
-const deserializeAws_restJson1GatewayRouteData = (output: any, context: __SerdeContext): GatewayRouteData => {
-  return {
-    gatewayRouteName: __expectString(output.gatewayRouteName),
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? deserializeAws_restJson1ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? deserializeAws_restJson1GatewayRouteSpec(output.spec, context) : undefined,
-    status: output.status != null ? deserializeAws_restJson1GatewayRouteStatus(output.status, context) : undefined,
-    virtualGatewayName: __expectString(output.virtualGatewayName),
-  } as any;
-};
-
-const deserializeAws_restJson1GatewayRouteHostnameMatch = (
-  output: any,
-  context: __SerdeContext
-): GatewayRouteHostnameMatch => {
-  return {
-    exact: __expectString(output.exact),
-    suffix: __expectString(output.suffix),
-  } as any;
-};
-
-const deserializeAws_restJson1GatewayRouteHostnameRewrite = (
-  output: any,
-  context: __SerdeContext
-): GatewayRouteHostnameRewrite => {
-  return {
-    defaultTargetHostname: __expectString(output.defaultTargetHostname),
-  } as any;
-};
-
-const deserializeAws_restJson1GatewayRouteList = (output: any, context: __SerdeContext): GatewayRouteRef[] => {
+/**
+ * deserializeAws_restJson1VirtualGatewayList
+ */
+const de_VirtualGatewayList = (output: any, context: __SerdeContext): VirtualGatewayRef[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1GatewayRouteRef(entry, context);
+      return de_VirtualGatewayRef(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1GatewayRouteRef = (output: any, context: __SerdeContext): GatewayRouteRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    gatewayRouteName: __expectString(output.gatewayRouteName),
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-    virtualGatewayName: __expectString(output.virtualGatewayName),
-  } as any;
+// de_VirtualGatewayListener omitted.
+
+// de_VirtualGatewayListeners omitted.
+
+// de_VirtualGatewayListenerTls omitted.
+
+// de_VirtualGatewayListenerTlsAcmCertificate omitted.
+
+// de_VirtualGatewayListenerTlsCertificate omitted.
+
+// de_VirtualGatewayListenerTlsFileCertificate omitted.
+
+// de_VirtualGatewayListenerTlsSdsCertificate omitted.
+
+// de_VirtualGatewayListenerTlsValidationContext omitted.
+
+// de_VirtualGatewayListenerTlsValidationContextTrust omitted.
+
+// de_VirtualGatewayLogging omitted.
+
+// de_VirtualGatewayPortMapping omitted.
+
+/**
+ * deserializeAws_restJson1VirtualGatewayRef
+ */
+const de_VirtualGatewayRef = (output: any, context: __SerdeContext): VirtualGatewayRef => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+    virtualGatewayName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1GatewayRouteSpec = (output: any, context: __SerdeContext): GatewayRouteSpec => {
-  return {
-    grpcRoute:
-      output.grpcRoute != null ? deserializeAws_restJson1GrpcGatewayRoute(output.grpcRoute, context) : undefined,
-    http2Route:
-      output.http2Route != null ? deserializeAws_restJson1HttpGatewayRoute(output.http2Route, context) : undefined,
-    httpRoute:
-      output.httpRoute != null ? deserializeAws_restJson1HttpGatewayRoute(output.httpRoute, context) : undefined,
-    priority: __expectInt32(output.priority),
-  } as any;
+// de_VirtualGatewaySpec omitted.
+
+// de_VirtualGatewayStatus omitted.
+
+// de_VirtualGatewayTlsValidationContext omitted.
+
+// de_VirtualGatewayTlsValidationContextAcmTrust omitted.
+
+// de_VirtualGatewayTlsValidationContextFileTrust omitted.
+
+// de_VirtualGatewayTlsValidationContextSdsTrust omitted.
+
+// de_VirtualGatewayTlsValidationContextTrust omitted.
+
+// de_VirtualNodeConnectionPool omitted.
+
+/**
+ * deserializeAws_restJson1VirtualNodeData
+ */
+const de_VirtualNodeData = (output: any, context: __SerdeContext): VirtualNodeData => {
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+    virtualNodeName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1GatewayRouteStatus = (output: any, context: __SerdeContext): GatewayRouteStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
+// de_VirtualNodeGrpcConnectionPool omitted.
 
-const deserializeAws_restJson1GatewayRouteTarget = (output: any, context: __SerdeContext): GatewayRouteTarget => {
-  return {
-    port: __expectInt32(output.port),
-    virtualService:
-      output.virtualService != null
-        ? deserializeAws_restJson1GatewayRouteVirtualService(output.virtualService, context)
-        : undefined,
-  } as any;
-};
+// de_VirtualNodeHttp2ConnectionPool omitted.
 
-const deserializeAws_restJson1GatewayRouteVirtualService = (
-  output: any,
-  context: __SerdeContext
-): GatewayRouteVirtualService => {
-  return {
-    virtualServiceName: __expectString(output.virtualServiceName),
-  } as any;
-};
+// de_VirtualNodeHttpConnectionPool omitted.
 
-const deserializeAws_restJson1GrpcGatewayRoute = (output: any, context: __SerdeContext): GrpcGatewayRoute => {
-  return {
-    action: output.action != null ? deserializeAws_restJson1GrpcGatewayRouteAction(output.action, context) : undefined,
-    match: output.match != null ? deserializeAws_restJson1GrpcGatewayRouteMatch(output.match, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1GrpcGatewayRouteAction = (
-  output: any,
-  context: __SerdeContext
-): GrpcGatewayRouteAction => {
-  return {
-    rewrite:
-      output.rewrite != null ? deserializeAws_restJson1GrpcGatewayRouteRewrite(output.rewrite, context) : undefined,
-    target: output.target != null ? deserializeAws_restJson1GatewayRouteTarget(output.target, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1GrpcGatewayRouteMatch = (output: any, context: __SerdeContext): GrpcGatewayRouteMatch => {
-  return {
-    hostname:
-      output.hostname != null ? deserializeAws_restJson1GatewayRouteHostnameMatch(output.hostname, context) : undefined,
-    metadata:
-      output.metadata != null
-        ? deserializeAws_restJson1GrpcGatewayRouteMetadataList(output.metadata, context)
-        : undefined,
-    port: __expectInt32(output.port),
-    serviceName: __expectString(output.serviceName),
-  } as any;
-};
-
-const deserializeAws_restJson1GrpcGatewayRouteMetadata = (
-  output: any,
-  context: __SerdeContext
-): GrpcGatewayRouteMetadata => {
-  return {
-    invert: __expectBoolean(output.invert),
-    match:
-      output.match != null
-        ? deserializeAws_restJson1GrpcMetadataMatchMethod(__expectUnion(output.match), context)
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_restJson1GrpcGatewayRouteMetadataList = (
-  output: any,
-  context: __SerdeContext
-): GrpcGatewayRouteMetadata[] => {
+/**
+ * deserializeAws_restJson1VirtualNodeList
+ */
+const de_VirtualNodeList = (output: any, context: __SerdeContext): VirtualNodeRef[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1GrpcGatewayRouteMetadata(entry, context);
+      return de_VirtualNodeRef(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1GrpcGatewayRouteRewrite = (
-  output: any,
-  context: __SerdeContext
-): GrpcGatewayRouteRewrite => {
-  return {
-    hostname:
-      output.hostname != null
-        ? deserializeAws_restJson1GatewayRouteHostnameRewrite(output.hostname, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1VirtualNodeRef
+ */
+const de_VirtualNodeRef = (output: any, context: __SerdeContext): VirtualNodeRef => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+    virtualNodeName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1GrpcMetadataMatchMethod = (
-  output: any,
-  context: __SerdeContext
-): GrpcMetadataMatchMethod => {
-  if (__expectString(output.exact) !== undefined) {
-    return { exact: __expectString(output.exact) as any };
-  }
-  if (__expectString(output.prefix) !== undefined) {
-    return { prefix: __expectString(output.prefix) as any };
-  }
-  if (output.range != null) {
-    return {
-      range: deserializeAws_restJson1MatchRange(output.range, context),
-    };
-  }
-  if (__expectString(output.regex) !== undefined) {
-    return { regex: __expectString(output.regex) as any };
-  }
-  if (__expectString(output.suffix) !== undefined) {
-    return { suffix: __expectString(output.suffix) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
+// de_VirtualNodeServiceProvider omitted.
+
+// de_VirtualNodeSpec omitted.
+
+// de_VirtualNodeStatus omitted.
+
+// de_VirtualNodeTcpConnectionPool omitted.
+
+/**
+ * deserializeAws_restJson1VirtualRouterData
+ */
+const de_VirtualRouterData = (output: any, context: __SerdeContext): VirtualRouterData => {
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+    virtualRouterName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1GrpcRetryPolicy = (output: any, context: __SerdeContext): GrpcRetryPolicy => {
-  return {
-    grpcRetryEvents:
-      output.grpcRetryEvents != null
-        ? deserializeAws_restJson1GrpcRetryPolicyEvents(output.grpcRetryEvents, context)
-        : undefined,
-    httpRetryEvents:
-      output.httpRetryEvents != null
-        ? deserializeAws_restJson1HttpRetryPolicyEvents(output.httpRetryEvents, context)
-        : undefined,
-    maxRetries: __expectLong(output.maxRetries),
-    perRetryTimeout:
-      output.perRetryTimeout != null ? deserializeAws_restJson1Duration(output.perRetryTimeout, context) : undefined,
-    tcpRetryEvents:
-      output.tcpRetryEvents != null
-        ? deserializeAws_restJson1TcpRetryPolicyEvents(output.tcpRetryEvents, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1GrpcRetryPolicyEvents = (
-  output: any,
-  context: __SerdeContext
-): (GrpcRetryPolicyEvent | string)[] => {
+/**
+ * deserializeAws_restJson1VirtualRouterList
+ */
+const de_VirtualRouterList = (output: any, context: __SerdeContext): VirtualRouterRef[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_VirtualRouterRef(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1GrpcRoute = (output: any, context: __SerdeContext): GrpcRoute => {
-  return {
-    action: output.action != null ? deserializeAws_restJson1GrpcRouteAction(output.action, context) : undefined,
-    match: output.match != null ? deserializeAws_restJson1GrpcRouteMatch(output.match, context) : undefined,
-    retryPolicy:
-      output.retryPolicy != null ? deserializeAws_restJson1GrpcRetryPolicy(output.retryPolicy, context) : undefined,
-    timeout: output.timeout != null ? deserializeAws_restJson1GrpcTimeout(output.timeout, context) : undefined,
-  } as any;
+// de_VirtualRouterListener omitted.
+
+// de_VirtualRouterListeners omitted.
+
+/**
+ * deserializeAws_restJson1VirtualRouterRef
+ */
+const de_VirtualRouterRef = (output: any, context: __SerdeContext): VirtualRouterRef => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+    virtualRouterName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1GrpcRouteAction = (output: any, context: __SerdeContext): GrpcRouteAction => {
-  return {
-    weightedTargets:
-      output.weightedTargets != null
-        ? deserializeAws_restJson1WeightedTargets(output.weightedTargets, context)
-        : undefined,
-  } as any;
+// de_VirtualRouterServiceProvider omitted.
+
+// de_VirtualRouterSpec omitted.
+
+// de_VirtualRouterStatus omitted.
+
+// de_VirtualServiceBackend omitted.
+
+/**
+ * deserializeAws_restJson1VirtualServiceData
+ */
+const de_VirtualServiceData = (output: any, context: __SerdeContext): VirtualServiceData => {
+  return take(output, {
+    meshName: __expectString,
+    metadata: (_: any) => de_ResourceMetadata(_, context),
+    spec: _json,
+    status: _json,
+    virtualServiceName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1GrpcRouteMatch = (output: any, context: __SerdeContext): GrpcRouteMatch => {
-  return {
-    metadata:
-      output.metadata != null ? deserializeAws_restJson1GrpcRouteMetadataList(output.metadata, context) : undefined,
-    methodName: __expectString(output.methodName),
-    port: __expectInt32(output.port),
-    serviceName: __expectString(output.serviceName),
-  } as any;
-};
-
-const deserializeAws_restJson1GrpcRouteMetadata = (output: any, context: __SerdeContext): GrpcRouteMetadata => {
-  return {
-    invert: __expectBoolean(output.invert),
-    match:
-      output.match != null
-        ? deserializeAws_restJson1GrpcRouteMetadataMatchMethod(__expectUnion(output.match), context)
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_restJson1GrpcRouteMetadataList = (output: any, context: __SerdeContext): GrpcRouteMetadata[] => {
+/**
+ * deserializeAws_restJson1VirtualServiceList
+ */
+const de_VirtualServiceList = (output: any, context: __SerdeContext): VirtualServiceRef[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1GrpcRouteMetadata(entry, context);
+      return de_VirtualServiceRef(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1GrpcRouteMetadataMatchMethod = (
-  output: any,
-  context: __SerdeContext
-): GrpcRouteMetadataMatchMethod => {
-  if (__expectString(output.exact) !== undefined) {
-    return { exact: __expectString(output.exact) as any };
-  }
-  if (__expectString(output.prefix) !== undefined) {
-    return { prefix: __expectString(output.prefix) as any };
-  }
-  if (output.range != null) {
-    return {
-      range: deserializeAws_restJson1MatchRange(output.range, context),
-    };
-  }
-  if (__expectString(output.regex) !== undefined) {
-    return { regex: __expectString(output.regex) as any };
-  }
-  if (__expectString(output.suffix) !== undefined) {
-    return { suffix: __expectString(output.suffix) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1GrpcTimeout = (output: any, context: __SerdeContext): GrpcTimeout => {
-  return {
-    idle: output.idle != null ? deserializeAws_restJson1Duration(output.idle, context) : undefined,
-    perRequest: output.perRequest != null ? deserializeAws_restJson1Duration(output.perRequest, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1HeaderMatchMethod = (output: any, context: __SerdeContext): HeaderMatchMethod => {
-  if (__expectString(output.exact) !== undefined) {
-    return { exact: __expectString(output.exact) as any };
-  }
-  if (__expectString(output.prefix) !== undefined) {
-    return { prefix: __expectString(output.prefix) as any };
-  }
-  if (output.range != null) {
-    return {
-      range: deserializeAws_restJson1MatchRange(output.range, context),
-    };
-  }
-  if (__expectString(output.regex) !== undefined) {
-    return { regex: __expectString(output.regex) as any };
-  }
-  if (__expectString(output.suffix) !== undefined) {
-    return { suffix: __expectString(output.suffix) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1HealthCheckPolicy = (output: any, context: __SerdeContext): HealthCheckPolicy => {
-  return {
-    healthyThreshold: __expectInt32(output.healthyThreshold),
-    intervalMillis: __expectLong(output.intervalMillis),
-    path: __expectString(output.path),
-    port: __expectInt32(output.port),
-    protocol: __expectString(output.protocol),
-    timeoutMillis: __expectLong(output.timeoutMillis),
-    unhealthyThreshold: __expectInt32(output.unhealthyThreshold),
-  } as any;
-};
-
-const deserializeAws_restJson1HttpGatewayRoute = (output: any, context: __SerdeContext): HttpGatewayRoute => {
-  return {
-    action: output.action != null ? deserializeAws_restJson1HttpGatewayRouteAction(output.action, context) : undefined,
-    match: output.match != null ? deserializeAws_restJson1HttpGatewayRouteMatch(output.match, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1HttpGatewayRouteAction = (
-  output: any,
-  context: __SerdeContext
-): HttpGatewayRouteAction => {
-  return {
-    rewrite:
-      output.rewrite != null ? deserializeAws_restJson1HttpGatewayRouteRewrite(output.rewrite, context) : undefined,
-    target: output.target != null ? deserializeAws_restJson1GatewayRouteTarget(output.target, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1HttpGatewayRouteHeader = (
-  output: any,
-  context: __SerdeContext
-): HttpGatewayRouteHeader => {
-  return {
-    invert: __expectBoolean(output.invert),
-    match:
-      output.match != null
-        ? deserializeAws_restJson1HeaderMatchMethod(__expectUnion(output.match), context)
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_restJson1HttpGatewayRouteHeaders = (
-  output: any,
-  context: __SerdeContext
-): HttpGatewayRouteHeader[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1HttpGatewayRouteHeader(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1HttpGatewayRouteMatch = (output: any, context: __SerdeContext): HttpGatewayRouteMatch => {
-  return {
-    headers:
-      output.headers != null ? deserializeAws_restJson1HttpGatewayRouteHeaders(output.headers, context) : undefined,
-    hostname:
-      output.hostname != null ? deserializeAws_restJson1GatewayRouteHostnameMatch(output.hostname, context) : undefined,
-    method: __expectString(output.method),
-    path: output.path != null ? deserializeAws_restJson1HttpPathMatch(output.path, context) : undefined,
-    port: __expectInt32(output.port),
-    prefix: __expectString(output.prefix),
-    queryParameters:
-      output.queryParameters != null
-        ? deserializeAws_restJson1HttpQueryParameters(output.queryParameters, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1HttpGatewayRoutePathRewrite = (
-  output: any,
-  context: __SerdeContext
-): HttpGatewayRoutePathRewrite => {
-  return {
-    exact: __expectString(output.exact),
-  } as any;
-};
-
-const deserializeAws_restJson1HttpGatewayRoutePrefixRewrite = (
-  output: any,
-  context: __SerdeContext
-): HttpGatewayRoutePrefixRewrite => {
-  return {
-    defaultPrefix: __expectString(output.defaultPrefix),
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_restJson1HttpGatewayRouteRewrite = (
-  output: any,
-  context: __SerdeContext
-): HttpGatewayRouteRewrite => {
-  return {
-    hostname:
-      output.hostname != null
-        ? deserializeAws_restJson1GatewayRouteHostnameRewrite(output.hostname, context)
-        : undefined,
-    path: output.path != null ? deserializeAws_restJson1HttpGatewayRoutePathRewrite(output.path, context) : undefined,
-    prefix:
-      output.prefix != null ? deserializeAws_restJson1HttpGatewayRoutePrefixRewrite(output.prefix, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1HttpPathMatch = (output: any, context: __SerdeContext): HttpPathMatch => {
-  return {
-    exact: __expectString(output.exact),
-    regex: __expectString(output.regex),
-  } as any;
-};
-
-const deserializeAws_restJson1HttpQueryParameter = (output: any, context: __SerdeContext): HttpQueryParameter => {
-  return {
-    match: output.match != null ? deserializeAws_restJson1QueryParameterMatch(output.match, context) : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_restJson1HttpQueryParameters = (output: any, context: __SerdeContext): HttpQueryParameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1HttpQueryParameter(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1HttpRetryPolicy = (output: any, context: __SerdeContext): HttpRetryPolicy => {
-  return {
-    httpRetryEvents:
-      output.httpRetryEvents != null
-        ? deserializeAws_restJson1HttpRetryPolicyEvents(output.httpRetryEvents, context)
-        : undefined,
-    maxRetries: __expectLong(output.maxRetries),
-    perRetryTimeout:
-      output.perRetryTimeout != null ? deserializeAws_restJson1Duration(output.perRetryTimeout, context) : undefined,
-    tcpRetryEvents:
-      output.tcpRetryEvents != null
-        ? deserializeAws_restJson1TcpRetryPolicyEvents(output.tcpRetryEvents, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1HttpRetryPolicyEvents = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1HttpRoute = (output: any, context: __SerdeContext): HttpRoute => {
-  return {
-    action: output.action != null ? deserializeAws_restJson1HttpRouteAction(output.action, context) : undefined,
-    match: output.match != null ? deserializeAws_restJson1HttpRouteMatch(output.match, context) : undefined,
-    retryPolicy:
-      output.retryPolicy != null ? deserializeAws_restJson1HttpRetryPolicy(output.retryPolicy, context) : undefined,
-    timeout: output.timeout != null ? deserializeAws_restJson1HttpTimeout(output.timeout, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1HttpRouteAction = (output: any, context: __SerdeContext): HttpRouteAction => {
-  return {
-    weightedTargets:
-      output.weightedTargets != null
-        ? deserializeAws_restJson1WeightedTargets(output.weightedTargets, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1HttpRouteHeader = (output: any, context: __SerdeContext): HttpRouteHeader => {
-  return {
-    invert: __expectBoolean(output.invert),
-    match:
-      output.match != null
-        ? deserializeAws_restJson1HeaderMatchMethod(__expectUnion(output.match), context)
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_restJson1HttpRouteHeaders = (output: any, context: __SerdeContext): HttpRouteHeader[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1HttpRouteHeader(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1HttpRouteMatch = (output: any, context: __SerdeContext): HttpRouteMatch => {
-  return {
-    headers: output.headers != null ? deserializeAws_restJson1HttpRouteHeaders(output.headers, context) : undefined,
-    method: __expectString(output.method),
-    path: output.path != null ? deserializeAws_restJson1HttpPathMatch(output.path, context) : undefined,
-    port: __expectInt32(output.port),
-    prefix: __expectString(output.prefix),
-    queryParameters:
-      output.queryParameters != null
-        ? deserializeAws_restJson1HttpQueryParameters(output.queryParameters, context)
-        : undefined,
-    scheme: __expectString(output.scheme),
-  } as any;
-};
-
-const deserializeAws_restJson1HttpTimeout = (output: any, context: __SerdeContext): HttpTimeout => {
-  return {
-    idle: output.idle != null ? deserializeAws_restJson1Duration(output.idle, context) : undefined,
-    perRequest: output.perRequest != null ? deserializeAws_restJson1Duration(output.perRequest, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1JsonFormat = (output: any, context: __SerdeContext): JsonFormatRef[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1JsonFormatRef(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1JsonFormatRef = (output: any, context: __SerdeContext): JsonFormatRef => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_restJson1Listener = (output: any, context: __SerdeContext): Listener => {
-  return {
-    connectionPool:
-      output.connectionPool != null
-        ? deserializeAws_restJson1VirtualNodeConnectionPool(__expectUnion(output.connectionPool), context)
-        : undefined,
-    healthCheck:
-      output.healthCheck != null ? deserializeAws_restJson1HealthCheckPolicy(output.healthCheck, context) : undefined,
-    outlierDetection:
-      output.outlierDetection != null
-        ? deserializeAws_restJson1OutlierDetection(output.outlierDetection, context)
-        : undefined,
-    portMapping:
-      output.portMapping != null ? deserializeAws_restJson1PortMapping(output.portMapping, context) : undefined,
-    timeout:
-      output.timeout != null
-        ? deserializeAws_restJson1ListenerTimeout(__expectUnion(output.timeout), context)
-        : undefined,
-    tls: output.tls != null ? deserializeAws_restJson1ListenerTls(output.tls, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1Listeners = (output: any, context: __SerdeContext): Listener[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Listener(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListenerTimeout = (output: any, context: __SerdeContext): ListenerTimeout => {
-  if (output.grpc != null) {
-    return {
-      grpc: deserializeAws_restJson1GrpcTimeout(output.grpc, context),
-    };
-  }
-  if (output.http != null) {
-    return {
-      http: deserializeAws_restJson1HttpTimeout(output.http, context),
-    };
-  }
-  if (output.http2 != null) {
-    return {
-      http2: deserializeAws_restJson1HttpTimeout(output.http2, context),
-    };
-  }
-  if (output.tcp != null) {
-    return {
-      tcp: deserializeAws_restJson1TcpTimeout(output.tcp, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1ListenerTls = (output: any, context: __SerdeContext): ListenerTls => {
-  return {
-    certificate:
-      output.certificate != null
-        ? deserializeAws_restJson1ListenerTlsCertificate(__expectUnion(output.certificate), context)
-        : undefined,
-    mode: __expectString(output.mode),
-    validation:
-      output.validation != null
-        ? deserializeAws_restJson1ListenerTlsValidationContext(output.validation, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ListenerTlsAcmCertificate = (
-  output: any,
-  context: __SerdeContext
-): ListenerTlsAcmCertificate => {
-  return {
-    certificateArn: __expectString(output.certificateArn),
-  } as any;
-};
-
-const deserializeAws_restJson1ListenerTlsCertificate = (
-  output: any,
-  context: __SerdeContext
-): ListenerTlsCertificate => {
-  if (output.acm != null) {
-    return {
-      acm: deserializeAws_restJson1ListenerTlsAcmCertificate(output.acm, context),
-    };
-  }
-  if (output.file != null) {
-    return {
-      file: deserializeAws_restJson1ListenerTlsFileCertificate(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: deserializeAws_restJson1ListenerTlsSdsCertificate(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1ListenerTlsFileCertificate = (
-  output: any,
-  context: __SerdeContext
-): ListenerTlsFileCertificate => {
-  return {
-    certificateChain: __expectString(output.certificateChain),
-    privateKey: __expectString(output.privateKey),
-  } as any;
-};
-
-const deserializeAws_restJson1ListenerTlsSdsCertificate = (
-  output: any,
-  context: __SerdeContext
-): ListenerTlsSdsCertificate => {
-  return {
-    secretName: __expectString(output.secretName),
-  } as any;
-};
-
-const deserializeAws_restJson1ListenerTlsValidationContext = (
-  output: any,
-  context: __SerdeContext
-): ListenerTlsValidationContext => {
-  return {
-    subjectAlternativeNames:
-      output.subjectAlternativeNames != null
-        ? deserializeAws_restJson1SubjectAlternativeNames(output.subjectAlternativeNames, context)
-        : undefined,
-    trust:
-      output.trust != null
-        ? deserializeAws_restJson1ListenerTlsValidationContextTrust(__expectUnion(output.trust), context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ListenerTlsValidationContextTrust = (
-  output: any,
-  context: __SerdeContext
-): ListenerTlsValidationContextTrust => {
-  if (output.file != null) {
-    return {
-      file: deserializeAws_restJson1TlsValidationContextFileTrust(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: deserializeAws_restJson1TlsValidationContextSdsTrust(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): Logging => {
-  return {
-    accessLog:
-      output.accessLog != null
-        ? deserializeAws_restJson1AccessLog(__expectUnion(output.accessLog), context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1LoggingFormat = (output: any, context: __SerdeContext): LoggingFormat => {
-  if (output.json != null) {
-    return {
-      json: deserializeAws_restJson1JsonFormat(output.json, context),
-    };
-  }
-  if (__expectString(output.text) !== undefined) {
-    return { text: __expectString(output.text) as any };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1MatchRange = (output: any, context: __SerdeContext): MatchRange => {
-  return {
-    end: __expectLong(output.end),
-    start: __expectLong(output.start),
-  } as any;
-};
-
-const deserializeAws_restJson1MeshData = (output: any, context: __SerdeContext): MeshData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? deserializeAws_restJson1ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? deserializeAws_restJson1MeshSpec(output.spec, context) : undefined,
-    status: output.status != null ? deserializeAws_restJson1MeshStatus(output.status, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1MeshList = (output: any, context: __SerdeContext): MeshRef[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1MeshRef(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1MeshRef = (output: any, context: __SerdeContext): MeshRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-  } as any;
-};
-
-const deserializeAws_restJson1MeshServiceDiscovery = (output: any, context: __SerdeContext): MeshServiceDiscovery => {
-  return {
-    ipPreference: __expectString(output.ipPreference),
-  } as any;
-};
-
-const deserializeAws_restJson1MeshSpec = (output: any, context: __SerdeContext): MeshSpec => {
-  return {
-    egressFilter:
-      output.egressFilter != null ? deserializeAws_restJson1EgressFilter(output.egressFilter, context) : undefined,
-    serviceDiscovery:
-      output.serviceDiscovery != null
-        ? deserializeAws_restJson1MeshServiceDiscovery(output.serviceDiscovery, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1MeshStatus = (output: any, context: __SerdeContext): MeshStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_restJson1OutlierDetection = (output: any, context: __SerdeContext): OutlierDetection => {
-  return {
-    baseEjectionDuration:
-      output.baseEjectionDuration != null
-        ? deserializeAws_restJson1Duration(output.baseEjectionDuration, context)
-        : undefined,
-    interval: output.interval != null ? deserializeAws_restJson1Duration(output.interval, context) : undefined,
-    maxEjectionPercent: __expectInt32(output.maxEjectionPercent),
-    maxServerErrors: __expectLong(output.maxServerErrors),
-  } as any;
-};
-
-const deserializeAws_restJson1PortMapping = (output: any, context: __SerdeContext): PortMapping => {
-  return {
-    port: __expectInt32(output.port),
-    protocol: __expectString(output.protocol),
-  } as any;
-};
-
-const deserializeAws_restJson1PortSet = (output: any, context: __SerdeContext): number[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectInt32(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1QueryParameterMatch = (output: any, context: __SerdeContext): QueryParameterMatch => {
-  return {
-    exact: __expectString(output.exact),
-  } as any;
-};
-
-const deserializeAws_restJson1ResourceMetadata = (output: any, context: __SerdeContext): ResourceMetadata => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    uid: __expectString(output.uid),
-    version: __expectLong(output.version),
-  } as any;
-};
-
-const deserializeAws_restJson1RouteData = (output: any, context: __SerdeContext): RouteData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? deserializeAws_restJson1ResourceMetadata(output.metadata, context) : undefined,
-    routeName: __expectString(output.routeName),
-    spec: output.spec != null ? deserializeAws_restJson1RouteSpec(output.spec, context) : undefined,
-    status: output.status != null ? deserializeAws_restJson1RouteStatus(output.status, context) : undefined,
-    virtualRouterName: __expectString(output.virtualRouterName),
-  } as any;
-};
-
-const deserializeAws_restJson1RouteList = (output: any, context: __SerdeContext): RouteRef[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RouteRef(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1RouteRef = (output: any, context: __SerdeContext): RouteRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    routeName: __expectString(output.routeName),
-    version: __expectLong(output.version),
-    virtualRouterName: __expectString(output.virtualRouterName),
-  } as any;
-};
-
-const deserializeAws_restJson1RouteSpec = (output: any, context: __SerdeContext): RouteSpec => {
-  return {
-    grpcRoute: output.grpcRoute != null ? deserializeAws_restJson1GrpcRoute(output.grpcRoute, context) : undefined,
-    http2Route: output.http2Route != null ? deserializeAws_restJson1HttpRoute(output.http2Route, context) : undefined,
-    httpRoute: output.httpRoute != null ? deserializeAws_restJson1HttpRoute(output.httpRoute, context) : undefined,
-    priority: __expectInt32(output.priority),
-    tcpRoute: output.tcpRoute != null ? deserializeAws_restJson1TcpRoute(output.tcpRoute, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1RouteStatus = (output: any, context: __SerdeContext): RouteStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_restJson1ServiceDiscovery = (output: any, context: __SerdeContext): ServiceDiscovery => {
-  if (output.awsCloudMap != null) {
-    return {
-      awsCloudMap: deserializeAws_restJson1AwsCloudMapServiceDiscovery(output.awsCloudMap, context),
-    };
-  }
-  if (output.dns != null) {
-    return {
-      dns: deserializeAws_restJson1DnsServiceDiscovery(output.dns, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1SubjectAlternativeNameList = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1SubjectAlternativeNameMatchers = (
-  output: any,
-  context: __SerdeContext
-): SubjectAlternativeNameMatchers => {
-  return {
-    exact: output.exact != null ? deserializeAws_restJson1SubjectAlternativeNameList(output.exact, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SubjectAlternativeNames = (
-  output: any,
-  context: __SerdeContext
-): SubjectAlternativeNames => {
-  return {
-    match:
-      output.match != null ? deserializeAws_restJson1SubjectAlternativeNameMatchers(output.match, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): TagRef[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TagRef(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1TagRef = (output: any, context: __SerdeContext): TagRef => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_restJson1TcpRetryPolicyEvents = (
-  output: any,
-  context: __SerdeContext
-): (TcpRetryPolicyEvent | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1TcpRoute = (output: any, context: __SerdeContext): TcpRoute => {
-  return {
-    action: output.action != null ? deserializeAws_restJson1TcpRouteAction(output.action, context) : undefined,
-    match: output.match != null ? deserializeAws_restJson1TcpRouteMatch(output.match, context) : undefined,
-    timeout: output.timeout != null ? deserializeAws_restJson1TcpTimeout(output.timeout, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TcpRouteAction = (output: any, context: __SerdeContext): TcpRouteAction => {
-  return {
-    weightedTargets:
-      output.weightedTargets != null
-        ? deserializeAws_restJson1WeightedTargets(output.weightedTargets, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TcpRouteMatch = (output: any, context: __SerdeContext): TcpRouteMatch => {
-  return {
-    port: __expectInt32(output.port),
-  } as any;
-};
-
-const deserializeAws_restJson1TcpTimeout = (output: any, context: __SerdeContext): TcpTimeout => {
-  return {
-    idle: output.idle != null ? deserializeAws_restJson1Duration(output.idle, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TlsValidationContext = (output: any, context: __SerdeContext): TlsValidationContext => {
-  return {
-    subjectAlternativeNames:
-      output.subjectAlternativeNames != null
-        ? deserializeAws_restJson1SubjectAlternativeNames(output.subjectAlternativeNames, context)
-        : undefined,
-    trust:
-      output.trust != null
-        ? deserializeAws_restJson1TlsValidationContextTrust(__expectUnion(output.trust), context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TlsValidationContextAcmTrust = (
-  output: any,
-  context: __SerdeContext
-): TlsValidationContextAcmTrust => {
-  return {
-    certificateAuthorityArns:
-      output.certificateAuthorityArns != null
-        ? deserializeAws_restJson1CertificateAuthorityArns(output.certificateAuthorityArns, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TlsValidationContextFileTrust = (
-  output: any,
-  context: __SerdeContext
-): TlsValidationContextFileTrust => {
-  return {
-    certificateChain: __expectString(output.certificateChain),
-  } as any;
-};
-
-const deserializeAws_restJson1TlsValidationContextSdsTrust = (
-  output: any,
-  context: __SerdeContext
-): TlsValidationContextSdsTrust => {
-  return {
-    secretName: __expectString(output.secretName),
-  } as any;
-};
-
-const deserializeAws_restJson1TlsValidationContextTrust = (
-  output: any,
-  context: __SerdeContext
-): TlsValidationContextTrust => {
-  if (output.acm != null) {
-    return {
-      acm: deserializeAws_restJson1TlsValidationContextAcmTrust(output.acm, context),
-    };
-  }
-  if (output.file != null) {
-    return {
-      file: deserializeAws_restJson1TlsValidationContextFileTrust(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: deserializeAws_restJson1TlsValidationContextSdsTrust(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1VirtualGatewayAccessLog = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayAccessLog => {
-  if (output.file != null) {
-    return {
-      file: deserializeAws_restJson1VirtualGatewayFileAccessLog(output.file, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1VirtualGatewayBackendDefaults = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayBackendDefaults => {
-  return {
-    clientPolicy:
-      output.clientPolicy != null
-        ? deserializeAws_restJson1VirtualGatewayClientPolicy(output.clientPolicy, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayCertificateAuthorityArns = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1VirtualGatewayClientPolicy = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayClientPolicy => {
-  return {
-    tls: output.tls != null ? deserializeAws_restJson1VirtualGatewayClientPolicyTls(output.tls, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayClientPolicyTls = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayClientPolicyTls => {
-  return {
-    certificate:
-      output.certificate != null
-        ? deserializeAws_restJson1VirtualGatewayClientTlsCertificate(__expectUnion(output.certificate), context)
-        : undefined,
-    enforce: __expectBoolean(output.enforce),
-    ports: output.ports != null ? deserializeAws_restJson1PortSet(output.ports, context) : undefined,
-    validation:
-      output.validation != null
-        ? deserializeAws_restJson1VirtualGatewayTlsValidationContext(output.validation, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayClientTlsCertificate = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayClientTlsCertificate => {
-  if (output.file != null) {
-    return {
-      file: deserializeAws_restJson1VirtualGatewayListenerTlsFileCertificate(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: deserializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1VirtualGatewayConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayConnectionPool => {
-  if (output.grpc != null) {
-    return {
-      grpc: deserializeAws_restJson1VirtualGatewayGrpcConnectionPool(output.grpc, context),
-    };
-  }
-  if (output.http != null) {
-    return {
-      http: deserializeAws_restJson1VirtualGatewayHttpConnectionPool(output.http, context),
-    };
-  }
-  if (output.http2 != null) {
-    return {
-      http2: deserializeAws_restJson1VirtualGatewayHttp2ConnectionPool(output.http2, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1VirtualGatewayData = (output: any, context: __SerdeContext): VirtualGatewayData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? deserializeAws_restJson1ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? deserializeAws_restJson1VirtualGatewaySpec(output.spec, context) : undefined,
-    status: output.status != null ? deserializeAws_restJson1VirtualGatewayStatus(output.status, context) : undefined,
-    virtualGatewayName: __expectString(output.virtualGatewayName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayFileAccessLog = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayFileAccessLog => {
-  return {
-    format:
-      output.format != null ? deserializeAws_restJson1LoggingFormat(__expectUnion(output.format), context) : undefined,
-    path: __expectString(output.path),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayGrpcConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayGrpcConnectionPool => {
-  return {
-    maxRequests: __expectInt32(output.maxRequests),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayHealthCheckPolicy = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayHealthCheckPolicy => {
-  return {
-    healthyThreshold: __expectInt32(output.healthyThreshold),
-    intervalMillis: __expectLong(output.intervalMillis),
-    path: __expectString(output.path),
-    port: __expectInt32(output.port),
-    protocol: __expectString(output.protocol),
-    timeoutMillis: __expectLong(output.timeoutMillis),
-    unhealthyThreshold: __expectInt32(output.unhealthyThreshold),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayHttp2ConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayHttp2ConnectionPool => {
-  return {
-    maxRequests: __expectInt32(output.maxRequests),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayHttpConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayHttpConnectionPool => {
-  return {
-    maxConnections: __expectInt32(output.maxConnections),
-    maxPendingRequests: __expectInt32(output.maxPendingRequests),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayList = (output: any, context: __SerdeContext): VirtualGatewayRef[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1VirtualGatewayRef(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1VirtualGatewayListener = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListener => {
-  return {
-    connectionPool:
-      output.connectionPool != null
-        ? deserializeAws_restJson1VirtualGatewayConnectionPool(__expectUnion(output.connectionPool), context)
-        : undefined,
-    healthCheck:
-      output.healthCheck != null
-        ? deserializeAws_restJson1VirtualGatewayHealthCheckPolicy(output.healthCheck, context)
-        : undefined,
-    portMapping:
-      output.portMapping != null
-        ? deserializeAws_restJson1VirtualGatewayPortMapping(output.portMapping, context)
-        : undefined,
-    tls: output.tls != null ? deserializeAws_restJson1VirtualGatewayListenerTls(output.tls, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayListeners = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListener[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1VirtualGatewayListener(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1VirtualGatewayListenerTls = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTls => {
-  return {
-    certificate:
-      output.certificate != null
-        ? deserializeAws_restJson1VirtualGatewayListenerTlsCertificate(__expectUnion(output.certificate), context)
-        : undefined,
-    mode: __expectString(output.mode),
-    validation:
-      output.validation != null
-        ? deserializeAws_restJson1VirtualGatewayListenerTlsValidationContext(output.validation, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsAcmCertificate => {
-  return {
-    certificateArn: __expectString(output.certificateArn),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayListenerTlsCertificate = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsCertificate => {
-  if (output.acm != null) {
-    return {
-      acm: deserializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate(output.acm, context),
-    };
-  }
-  if (output.file != null) {
-    return {
-      file: deserializeAws_restJson1VirtualGatewayListenerTlsFileCertificate(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: deserializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1VirtualGatewayListenerTlsFileCertificate = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsFileCertificate => {
-  return {
-    certificateChain: __expectString(output.certificateChain),
-    privateKey: __expectString(output.privateKey),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsSdsCertificate => {
-  return {
-    secretName: __expectString(output.secretName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayListenerTlsValidationContext = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsValidationContext => {
-  return {
-    subjectAlternativeNames:
-      output.subjectAlternativeNames != null
-        ? deserializeAws_restJson1SubjectAlternativeNames(output.subjectAlternativeNames, context)
-        : undefined,
-    trust:
-      output.trust != null
-        ? deserializeAws_restJson1VirtualGatewayListenerTlsValidationContextTrust(__expectUnion(output.trust), context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayListenerTlsValidationContextTrust = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayListenerTlsValidationContextTrust => {
-  if (output.file != null) {
-    return {
-      file: deserializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: deserializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1VirtualGatewayLogging = (output: any, context: __SerdeContext): VirtualGatewayLogging => {
-  return {
-    accessLog:
-      output.accessLog != null
-        ? deserializeAws_restJson1VirtualGatewayAccessLog(__expectUnion(output.accessLog), context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayPortMapping = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayPortMapping => {
-  return {
-    port: __expectInt32(output.port),
-    protocol: __expectString(output.protocol),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayRef = (output: any, context: __SerdeContext): VirtualGatewayRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-    virtualGatewayName: __expectString(output.virtualGatewayName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewaySpec = (output: any, context: __SerdeContext): VirtualGatewaySpec => {
-  return {
-    backendDefaults:
-      output.backendDefaults != null
-        ? deserializeAws_restJson1VirtualGatewayBackendDefaults(output.backendDefaults, context)
-        : undefined,
-    listeners:
-      output.listeners != null ? deserializeAws_restJson1VirtualGatewayListeners(output.listeners, context) : undefined,
-    logging:
-      output.logging != null ? deserializeAws_restJson1VirtualGatewayLogging(output.logging, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayStatus = (output: any, context: __SerdeContext): VirtualGatewayStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayTlsValidationContext = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayTlsValidationContext => {
-  return {
-    subjectAlternativeNames:
-      output.subjectAlternativeNames != null
-        ? deserializeAws_restJson1SubjectAlternativeNames(output.subjectAlternativeNames, context)
-        : undefined,
-    trust:
-      output.trust != null
-        ? deserializeAws_restJson1VirtualGatewayTlsValidationContextTrust(__expectUnion(output.trust), context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayTlsValidationContextAcmTrust => {
-  return {
-    certificateAuthorityArns:
-      output.certificateAuthorityArns != null
-        ? deserializeAws_restJson1VirtualGatewayCertificateAuthorityArns(output.certificateAuthorityArns, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayTlsValidationContextFileTrust => {
-  return {
-    certificateChain: __expectString(output.certificateChain),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayTlsValidationContextSdsTrust => {
-  return {
-    secretName: __expectString(output.secretName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualGatewayTlsValidationContextTrust = (
-  output: any,
-  context: __SerdeContext
-): VirtualGatewayTlsValidationContextTrust => {
-  if (output.acm != null) {
-    return {
-      acm: deserializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust(output.acm, context),
-    };
-  }
-  if (output.file != null) {
-    return {
-      file: deserializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust(output.file, context),
-    };
-  }
-  if (output.sds != null) {
-    return {
-      sds: deserializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust(output.sds, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1VirtualNodeConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualNodeConnectionPool => {
-  if (output.grpc != null) {
-    return {
-      grpc: deserializeAws_restJson1VirtualNodeGrpcConnectionPool(output.grpc, context),
-    };
-  }
-  if (output.http != null) {
-    return {
-      http: deserializeAws_restJson1VirtualNodeHttpConnectionPool(output.http, context),
-    };
-  }
-  if (output.http2 != null) {
-    return {
-      http2: deserializeAws_restJson1VirtualNodeHttp2ConnectionPool(output.http2, context),
-    };
-  }
-  if (output.tcp != null) {
-    return {
-      tcp: deserializeAws_restJson1VirtualNodeTcpConnectionPool(output.tcp, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1VirtualNodeData = (output: any, context: __SerdeContext): VirtualNodeData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? deserializeAws_restJson1ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? deserializeAws_restJson1VirtualNodeSpec(output.spec, context) : undefined,
-    status: output.status != null ? deserializeAws_restJson1VirtualNodeStatus(output.status, context) : undefined,
-    virtualNodeName: __expectString(output.virtualNodeName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualNodeGrpcConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualNodeGrpcConnectionPool => {
-  return {
-    maxRequests: __expectInt32(output.maxRequests),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualNodeHttp2ConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualNodeHttp2ConnectionPool => {
-  return {
-    maxRequests: __expectInt32(output.maxRequests),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualNodeHttpConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualNodeHttpConnectionPool => {
-  return {
-    maxConnections: __expectInt32(output.maxConnections),
-    maxPendingRequests: __expectInt32(output.maxPendingRequests),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualNodeList = (output: any, context: __SerdeContext): VirtualNodeRef[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1VirtualNodeRef(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1VirtualNodeRef = (output: any, context: __SerdeContext): VirtualNodeRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-    virtualNodeName: __expectString(output.virtualNodeName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualNodeServiceProvider = (
-  output: any,
-  context: __SerdeContext
-): VirtualNodeServiceProvider => {
-  return {
-    virtualNodeName: __expectString(output.virtualNodeName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualNodeSpec = (output: any, context: __SerdeContext): VirtualNodeSpec => {
-  return {
-    backendDefaults:
-      output.backendDefaults != null
-        ? deserializeAws_restJson1BackendDefaults(output.backendDefaults, context)
-        : undefined,
-    backends: output.backends != null ? deserializeAws_restJson1Backends(output.backends, context) : undefined,
-    listeners: output.listeners != null ? deserializeAws_restJson1Listeners(output.listeners, context) : undefined,
-    logging: output.logging != null ? deserializeAws_restJson1Logging(output.logging, context) : undefined,
-    serviceDiscovery:
-      output.serviceDiscovery != null
-        ? deserializeAws_restJson1ServiceDiscovery(__expectUnion(output.serviceDiscovery), context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualNodeStatus = (output: any, context: __SerdeContext): VirtualNodeStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualNodeTcpConnectionPool = (
-  output: any,
-  context: __SerdeContext
-): VirtualNodeTcpConnectionPool => {
-  return {
-    maxConnections: __expectInt32(output.maxConnections),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualRouterData = (output: any, context: __SerdeContext): VirtualRouterData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? deserializeAws_restJson1ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? deserializeAws_restJson1VirtualRouterSpec(output.spec, context) : undefined,
-    status: output.status != null ? deserializeAws_restJson1VirtualRouterStatus(output.status, context) : undefined,
-    virtualRouterName: __expectString(output.virtualRouterName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualRouterList = (output: any, context: __SerdeContext): VirtualRouterRef[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1VirtualRouterRef(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1VirtualRouterListener = (output: any, context: __SerdeContext): VirtualRouterListener => {
-  return {
-    portMapping:
-      output.portMapping != null ? deserializeAws_restJson1PortMapping(output.portMapping, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualRouterListeners = (
-  output: any,
-  context: __SerdeContext
-): VirtualRouterListener[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1VirtualRouterListener(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1VirtualRouterRef = (output: any, context: __SerdeContext): VirtualRouterRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-    virtualRouterName: __expectString(output.virtualRouterName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualRouterServiceProvider = (
-  output: any,
-  context: __SerdeContext
-): VirtualRouterServiceProvider => {
-  return {
-    virtualRouterName: __expectString(output.virtualRouterName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualRouterSpec = (output: any, context: __SerdeContext): VirtualRouterSpec => {
-  return {
-    listeners:
-      output.listeners != null ? deserializeAws_restJson1VirtualRouterListeners(output.listeners, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualRouterStatus = (output: any, context: __SerdeContext): VirtualRouterStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualServiceBackend = (output: any, context: __SerdeContext): VirtualServiceBackend => {
-  return {
-    clientPolicy:
-      output.clientPolicy != null ? deserializeAws_restJson1ClientPolicy(output.clientPolicy, context) : undefined,
-    virtualServiceName: __expectString(output.virtualServiceName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualServiceData = (output: any, context: __SerdeContext): VirtualServiceData => {
-  return {
-    meshName: __expectString(output.meshName),
-    metadata: output.metadata != null ? deserializeAws_restJson1ResourceMetadata(output.metadata, context) : undefined,
-    spec: output.spec != null ? deserializeAws_restJson1VirtualServiceSpec(output.spec, context) : undefined,
-    status: output.status != null ? deserializeAws_restJson1VirtualServiceStatus(output.status, context) : undefined,
-    virtualServiceName: __expectString(output.virtualServiceName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualServiceList = (output: any, context: __SerdeContext): VirtualServiceRef[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1VirtualServiceRef(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1VirtualServiceProvider = (
-  output: any,
-  context: __SerdeContext
-): VirtualServiceProvider => {
-  if (output.virtualNode != null) {
-    return {
-      virtualNode: deserializeAws_restJson1VirtualNodeServiceProvider(output.virtualNode, context),
-    };
-  }
-  if (output.virtualRouter != null) {
-    return {
-      virtualRouter: deserializeAws_restJson1VirtualRouterServiceProvider(output.virtualRouter, context),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
-};
-
-const deserializeAws_restJson1VirtualServiceRef = (output: any, context: __SerdeContext): VirtualServiceRef => {
-  return {
-    arn: __expectString(output.arn),
-    createdAt:
-      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
-        : undefined,
-    meshName: __expectString(output.meshName),
-    meshOwner: __expectString(output.meshOwner),
-    resourceOwner: __expectString(output.resourceOwner),
-    version: __expectLong(output.version),
-    virtualServiceName: __expectString(output.virtualServiceName),
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualServiceSpec = (output: any, context: __SerdeContext): VirtualServiceSpec => {
-  return {
-    provider:
-      output.provider != null
-        ? deserializeAws_restJson1VirtualServiceProvider(__expectUnion(output.provider), context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1VirtualServiceStatus = (output: any, context: __SerdeContext): VirtualServiceStatus => {
-  return {
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_restJson1WeightedTarget = (output: any, context: __SerdeContext): WeightedTarget => {
-  return {
-    port: __expectInt32(output.port),
-    virtualNode: __expectString(output.virtualNode),
-    weight: __expectInt32(output.weight),
-  } as any;
-};
-
-const deserializeAws_restJson1WeightedTargets = (output: any, context: __SerdeContext): WeightedTarget[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1WeightedTarget(entry, context);
-    });
-  return retVal;
-};
+// de_VirtualServiceProvider omitted.
+
+/**
+ * deserializeAws_restJson1VirtualServiceRef
+ */
+const de_VirtualServiceRef = (output: any, context: __SerdeContext): VirtualServiceRef => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    meshName: __expectString,
+    meshOwner: __expectString,
+    resourceOwner: __expectString,
+    version: __expectLong,
+    virtualServiceName: __expectString,
+  }) as any;
+};
+
+// de_VirtualServiceSpec omitted.
+
+// de_VirtualServiceStatus omitted.
+
+// de_WeightedTarget omitted.
+
+// de_WeightedTargets omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

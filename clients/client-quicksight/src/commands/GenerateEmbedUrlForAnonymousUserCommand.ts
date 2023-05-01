@@ -18,18 +18,22 @@ import {
   GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog,
   GenerateEmbedUrlForAnonymousUserResponse,
   GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
-  deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand,
-  serializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand,
+  de_GenerateEmbedUrlForAnonymousUserCommand,
+  se_GenerateEmbedUrlForAnonymousUserCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateEmbedUrlForAnonymousUserCommand}.
  */
 export interface GenerateEmbedUrlForAnonymousUserCommandInput extends GenerateEmbedUrlForAnonymousUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateEmbedUrlForAnonymousUserCommand}.
  */
 export interface GenerateEmbedUrlForAnonymousUserCommandOutput
@@ -37,6 +41,7 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates an embed URL that you can use to embed an Amazon QuickSight dashboard or visual in your website, without having to register any reader users. Before you use this action, make sure that you have configured the dashboards and permissions.</p>
  *          <p>The following rules apply to the generated URL:</p>
  *          <ul>
@@ -61,10 +66,44 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  * import { QuickSightClient, GenerateEmbedUrlForAnonymousUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, GenerateEmbedUrlForAnonymousUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // GenerateEmbedUrlForAnonymousUserRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   SessionLifetimeInMinutes: Number("long"),
+ *   Namespace: "STRING_VALUE", // required
+ *   SessionTags: [ // SessionTagList
+ *     { // SessionTag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AuthorizedResourceArns: [ // ArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ExperienceConfiguration: { // AnonymousUserEmbeddingExperienceConfiguration
+ *     Dashboard: { // AnonymousUserDashboardEmbeddingConfiguration
+ *       InitialDashboardId: "STRING_VALUE", // required
+ *     },
+ *     DashboardVisual: { // AnonymousUserDashboardVisualEmbeddingConfiguration
+ *       InitialDashboardVisualId: { // DashboardVisualId
+ *         DashboardId: "STRING_VALUE", // required
+ *         SheetId: "STRING_VALUE", // required
+ *         VisualId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     QSearchBar: { // AnonymousUserQSearchBarEmbeddingConfiguration
+ *       InitialTopicId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   AllowedDomains: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GenerateEmbedUrlForAnonymousUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateEmbedUrlForAnonymousUserCommandInput - {@link GenerateEmbedUrlForAnonymousUserCommandInput}
+ * @returns {@link GenerateEmbedUrlForAnonymousUserCommandOutput}
  * @see {@link GenerateEmbedUrlForAnonymousUserCommandInput} for command's `input` shape.
  * @see {@link GenerateEmbedUrlForAnonymousUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -127,6 +166,9 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateEmbedUrlForAnonymousUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,18 +208,24 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateEmbedUrlForAnonymousUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand(input, context);
+    return se_GenerateEmbedUrlForAnonymousUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateEmbedUrlForAnonymousUserCommandOutput> {
-    return deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand(output, context);
+    return de_GenerateEmbedUrlForAnonymousUserCommand(output, context);
   }
 
   // Start section: command_body_extra

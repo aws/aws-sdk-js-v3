@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { AllowedNodeTypeModificationsMessage, ListAllowedNodeTypeModificationsMessage } from "../models/models_0";
 import {
-  AllowedNodeTypeModificationsMessage,
-  AllowedNodeTypeModificationsMessageFilterSensitiveLog,
-  ListAllowedNodeTypeModificationsMessage,
-  ListAllowedNodeTypeModificationsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListAllowedNodeTypeModificationsCommand,
-  serializeAws_queryListAllowedNodeTypeModificationsCommand,
+  de_ListAllowedNodeTypeModificationsCommand,
+  se_ListAllowedNodeTypeModificationsCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListAllowedNodeTypeModificationsCommand}.
  */
 export interface ListAllowedNodeTypeModificationsCommandInput extends ListAllowedNodeTypeModificationsMessage {}
 /**
+ * @public
+ *
  * The output of {@link ListAllowedNodeTypeModificationsCommand}.
  */
 export interface ListAllowedNodeTypeModificationsCommandOutput
@@ -37,6 +36,7 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available node types that you
  *             can scale your Redis cluster's or replication group's current node type.</p>
  *          <p>When you use the <code>ModifyCacheCluster</code> or <code>ModifyReplicationGroup</code> operations to
@@ -48,10 +48,16 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * import { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // ListAllowedNodeTypeModificationsMessage
+ *   CacheClusterId: "STRING_VALUE",
+ *   ReplicationGroupId: "STRING_VALUE",
+ * };
  * const command = new ListAllowedNodeTypeModificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAllowedNodeTypeModificationsCommandInput - {@link ListAllowedNodeTypeModificationsCommandInput}
+ * @returns {@link ListAllowedNodeTypeModificationsCommandOutput}
  * @see {@link ListAllowedNodeTypeModificationsCommandInput} for command's `input` shape.
  * @see {@link ListAllowedNodeTypeModificationsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -112,6 +118,9 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAllowedNodeTypeModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +149,8 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAllowedNodeTypeModificationsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: AllowedNodeTypeModificationsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,18 +160,24 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAllowedNodeTypeModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListAllowedNodeTypeModificationsCommand(input, context);
+    return se_ListAllowedNodeTypeModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAllowedNodeTypeModificationsCommandOutput> {
-    return deserializeAws_queryListAllowedNodeTypeModificationsCommand(output, context);
+    return de_ListAllowedNodeTypeModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

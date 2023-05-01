@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { DescribeVpcPeeringAuthorizationsInput, DescribeVpcPeeringAuthorizationsOutput } from "../models/models_0";
 import {
-  DescribeVpcPeeringAuthorizationsInput,
-  DescribeVpcPeeringAuthorizationsInputFilterSensitiveLog,
-  DescribeVpcPeeringAuthorizationsOutput,
-  DescribeVpcPeeringAuthorizationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand,
-  serializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand,
+  de_DescribeVpcPeeringAuthorizationsCommand,
+  se_DescribeVpcPeeringAuthorizationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVpcPeeringAuthorizationsCommand}.
  */
 export interface DescribeVpcPeeringAuthorizationsCommandInput extends DescribeVpcPeeringAuthorizationsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVpcPeeringAuthorizationsCommand}.
  */
 export interface DescribeVpcPeeringAuthorizationsCommandOutput
@@ -37,13 +36,14 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves valid VPC peering authorizations that are pending for the Amazon Web Services account.
  *             This operation returns all VPC peering authorizations and requests for peering. This
  *             includes those initiated and received by this account. </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
@@ -52,10 +52,13 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  * import { GameLiftClient, DescribeVpcPeeringAuthorizationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeVpcPeeringAuthorizationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {};
  * const command = new DescribeVpcPeeringAuthorizationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVpcPeeringAuthorizationsCommandInput - {@link DescribeVpcPeeringAuthorizationsCommandInput}
+ * @returns {@link DescribeVpcPeeringAuthorizationsCommandOutput}
  * @see {@link DescribeVpcPeeringAuthorizationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcPeeringAuthorizationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -90,6 +93,9 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVpcPeeringAuthorizationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcPeeringAuthorizationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcPeeringAuthorizationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +135,24 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeVpcPeeringAuthorizationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand(input, context);
+    return se_DescribeVpcPeeringAuthorizationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcPeeringAuthorizationsCommandOutput> {
-    return deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand(output, context);
+    return de_DescribeVpcPeeringAuthorizationsCommand(output, context);
   }
 
   // Start section: command_body_extra

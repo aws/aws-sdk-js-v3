@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReceiptFiltersRequest,
-  ListReceiptFiltersRequestFilterSensitiveLog,
-  ListReceiptFiltersResponse,
-  ListReceiptFiltersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListReceiptFiltersCommand,
-  serializeAws_queryListReceiptFiltersCommand,
-} from "../protocols/Aws_query";
+import { ListReceiptFiltersRequest, ListReceiptFiltersResponse } from "../models/models_0";
+import { de_ListReceiptFiltersCommand, se_ListReceiptFiltersCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListReceiptFiltersCommand}.
  */
 export interface ListReceiptFiltersCommandInput extends ListReceiptFiltersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReceiptFiltersCommand}.
  */
 export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the IP address filters associated with your AWS account in the current AWS
  *             Region.</p>
  *         <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES
@@ -46,10 +43,13 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * import { SESClient, ListReceiptFiltersCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListReceiptFiltersCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new ListReceiptFiltersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReceiptFiltersCommandInput - {@link ListReceiptFiltersCommandInput}
+ * @returns {@link ListReceiptFiltersCommandOutput}
  * @see {@link ListReceiptFiltersCommandInput} for command's `input` shape.
  * @see {@link ListReceiptFiltersCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -95,6 +95,9 @@ export class ListReceiptFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReceiptFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +126,8 @@ export class ListReceiptFiltersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReceiptFiltersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReceiptFiltersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +137,18 @@ export class ListReceiptFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReceiptFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListReceiptFiltersCommand(input, context);
+    return se_ListReceiptFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReceiptFiltersCommandOutput> {
-    return deserializeAws_queryListReceiptFiltersCommand(output, context);
+    return de_ListReceiptFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

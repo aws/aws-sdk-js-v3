@@ -10,7 +10,7 @@ import { WorkLinkClient } from "../WorkLinkClient";
 import { WorkLinkPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkLinkClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWebsiteCertificateAuthoritiesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListWebsiteCertificateAuthorities(
   config: WorkLinkPaginationConfiguration,
   input: ListWebsiteCertificateAuthoritiesCommandInput,

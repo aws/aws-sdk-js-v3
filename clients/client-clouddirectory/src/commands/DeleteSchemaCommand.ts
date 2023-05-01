@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  DeleteSchemaRequest,
-  DeleteSchemaRequestFilterSensitiveLog,
-  DeleteSchemaResponse,
-  DeleteSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSchemaCommand,
-  serializeAws_restJson1DeleteSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSchemaRequest, DeleteSchemaResponse } from "../models/models_0";
+import { de_DeleteSchemaCommand, se_DeleteSchemaCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSchemaCommand}.
  */
 export interface DeleteSchemaCommandInput extends DeleteSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSchemaCommand}.
  */
 export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a given schema. Schemas in a development and published state can only be deleted. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * import { CloudDirectoryClient, DeleteSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DeleteSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // DeleteSchemaRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSchemaCommandInput - {@link DeleteSchemaCommandInput}
+ * @returns {@link DeleteSchemaCommandOutput}
  * @see {@link DeleteSchemaCommandInput} for command's `input` shape.
  * @see {@link DeleteSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -95,6 +97,9 @@ export class DeleteSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class DeleteSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +137,18 @@ export class DeleteSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSchemaCommand(input, context);
+    return se_DeleteSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSchemaCommandOutput> {
-    return deserializeAws_restJson1DeleteSchemaCommand(output, context);
+    return de_DeleteSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -553,6 +553,14 @@ InvokeAsync
 </details>
 <details>
 <summary>
+InvokeWithResponseStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lambda/classes/invokewithresponsestreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lambda/interfaces/invokewithresponsestreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lambda/interfaces/invokewithresponsestreamcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListAliases
 </summary>
 

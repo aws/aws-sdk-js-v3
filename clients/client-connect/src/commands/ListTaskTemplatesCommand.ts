@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListTaskTemplatesRequest,
-  ListTaskTemplatesRequestFilterSensitiveLog,
-  ListTaskTemplatesResponse,
-  ListTaskTemplatesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListTaskTemplatesCommand,
-  serializeAws_restJson1ListTaskTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTaskTemplatesRequest, ListTaskTemplatesResponse } from "../models/models_1";
+import { de_ListTaskTemplatesCommand, se_ListTaskTemplatesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTaskTemplatesCommand}.
  */
 export interface ListTaskTemplatesCommandInput extends ListTaskTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTaskTemplatesCommand}.
  */
 export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists task templates for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesRespons
  * import { ConnectClient, ListTaskTemplatesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListTaskTemplatesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListTaskTemplatesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "ACTIVE" || "INACTIVE",
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new ListTaskTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTaskTemplatesCommandInput - {@link ListTaskTemplatesCommandInput}
+ * @returns {@link ListTaskTemplatesCommandOutput}
  * @see {@link ListTaskTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListTaskTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +90,9 @@ export class ListTaskTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTaskTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +121,8 @@ export class ListTaskTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTaskTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTaskTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +132,18 @@ export class ListTaskTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTaskTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTaskTemplatesCommand(input, context);
+    return se_ListTaskTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTaskTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListTaskTemplatesCommand(output, context);
+    return de_ListTaskTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

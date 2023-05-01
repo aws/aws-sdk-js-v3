@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteQueueRequest, DeleteQueueRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryDeleteQueueCommand, serializeAws_queryDeleteQueueCommand } from "../protocols/Aws_query";
+import { DeleteQueueRequest } from "../models/models_0";
+import { de_DeleteQueueCommand, se_DeleteQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQueueCommand}.
  */
 export interface DeleteQueueCommandInput extends DeleteQueueRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQueueCommand}.
  */
 export interface DeleteQueueCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the queue specified by the <code>QueueUrl</code>, regardless of the queue's contents.</p>
  *          <important>
  *             <p>Be careful with the <code>DeleteQueue</code> action: When you delete a queue, any messages in the queue are no longer available.
@@ -48,10 +53,15 @@ export interface DeleteQueueCommandOutput extends __MetadataBearer {}
  * import { SQSClient, DeleteQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, DeleteQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // DeleteQueueRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ * };
  * const command = new DeleteQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQueueCommandInput - {@link DeleteQueueCommandInput}
+ * @returns {@link DeleteQueueCommandOutput}
  * @see {@link DeleteQueueCommandInput} for command's `input` shape.
  * @see {@link DeleteQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -75,6 +85,9 @@ export class DeleteQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +114,8 @@ export class DeleteQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +125,18 @@ export class DeleteQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteQueueCommand(input, context);
+    return se_DeleteQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueueCommandOutput> {
-    return deserializeAws_queryDeleteQueueCommand(output, context);
+    return de_DeleteQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

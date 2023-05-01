@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListArtifactsRequest,
-  ListArtifactsRequestFilterSensitiveLog,
-  ListArtifactsResult,
-  ListArtifactsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListArtifactsCommand,
-  serializeAws_json1_1ListArtifactsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListArtifactsRequest, ListArtifactsResult } from "../models/models_0";
+import { de_ListArtifactsCommand, se_ListArtifactsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListArtifactsCommand}.
  */
 export interface ListArtifactsCommandInput extends ListArtifactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListArtifactsCommand}.
  */
 export interface ListArtifactsCommandOutput extends ListArtifactsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about artifacts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * import { DeviceFarmClient, ListArtifactsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListArtifactsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListArtifactsRequest
+ *   arn: "STRING_VALUE", // required
+ *   type: "SCREENSHOT" || "FILE" || "LOG", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListArtifactsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListArtifactsCommandInput - {@link ListArtifactsCommandInput}
+ * @returns {@link ListArtifactsCommandOutput}
  * @see {@link ListArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListArtifactsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -93,6 +97,9 @@ export class ListArtifactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +126,8 @@ export class ListArtifactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListArtifactsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListArtifactsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +137,18 @@ export class ListArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListArtifactsCommand(input, context);
+    return se_ListArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListArtifactsCommandOutput> {
-    return deserializeAws_json1_1ListArtifactsCommand(output, context);
+    return de_ListArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

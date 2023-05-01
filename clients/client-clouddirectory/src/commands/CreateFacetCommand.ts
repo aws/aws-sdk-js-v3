@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  CreateFacetRequest,
-  CreateFacetRequestFilterSensitiveLog,
-  CreateFacetResponse,
-  CreateFacetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFacetCommand,
-  serializeAws_restJson1CreateFacetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateFacetRequest, CreateFacetResponse } from "../models/models_0";
+import { de_CreateFacetCommand, se_CreateFacetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFacetCommand}.
  */
 export interface CreateFacetCommandInput extends CreateFacetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFacetCommand}.
  */
 export interface CreateFacetCommandOutput extends CreateFacetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new <a>Facet</a> in a schema. Facet creation is allowed only
  *       in development or applied schemas.</p>
  * @example
@@ -43,10 +40,47 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  * import { CloudDirectoryClient, CreateFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // CreateFacetRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Attributes: [ // FacetAttributeList
+ *     { // FacetAttribute
+ *       Name: "STRING_VALUE", // required
+ *       AttributeDefinition: { // FacetAttributeDefinition
+ *         Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
+ *         DefaultValue: { // TypedAttributeValue Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *         IsImmutable: true || false,
+ *         Rules: { // RuleMap
+ *           "<keys>": { // Rule
+ *             Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
+ *             Parameters: { // RuleParameterMap
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       },
+ *       AttributeReference: { // FacetAttributeReference
+ *         TargetFacetName: "STRING_VALUE", // required
+ *         TargetAttributeName: "STRING_VALUE", // required
+ *       },
+ *       RequiredBehavior: "REQUIRED_ALWAYS" || "NOT_REQUIRED",
+ *     },
+ *   ],
+ *   ObjectType: "NODE" || "LEAF_NODE" || "POLICY" || "INDEX",
+ *   FacetStyle: "STATIC" || "DYNAMIC",
+ * };
  * const command = new CreateFacetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFacetCommandInput - {@link CreateFacetCommandInput}
+ * @returns {@link CreateFacetCommandOutput}
  * @see {@link CreateFacetCommandInput} for command's `input` shape.
  * @see {@link CreateFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +136,9 @@ export class CreateFacetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFacetCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +165,8 @@ export class CreateFacetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFacetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFacetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +176,18 @@ export class CreateFacetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFacetCommand(input, context);
+    return se_CreateFacetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFacetCommandOutput> {
-    return deserializeAws_restJson1CreateFacetCommand(output, context);
+    return de_CreateFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

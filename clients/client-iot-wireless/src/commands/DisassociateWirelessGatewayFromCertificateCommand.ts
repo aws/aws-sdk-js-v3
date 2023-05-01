@@ -16,21 +16,23 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   DisassociateWirelessGatewayFromCertificateRequest,
-  DisassociateWirelessGatewayFromCertificateRequestFilterSensitiveLog,
   DisassociateWirelessGatewayFromCertificateResponse,
-  DisassociateWirelessGatewayFromCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateWirelessGatewayFromCertificateCommand,
-  serializeAws_restJson1DisassociateWirelessGatewayFromCertificateCommand,
+  de_DisassociateWirelessGatewayFromCertificateCommand,
+  se_DisassociateWirelessGatewayFromCertificateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWirelessGatewayFromCertificateCommand}.
  */
 export interface DisassociateWirelessGatewayFromCertificateCommandInput
   extends DisassociateWirelessGatewayFromCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWirelessGatewayFromCertificateCommand}.
  */
 export interface DisassociateWirelessGatewayFromCertificateCommandOutput
@@ -38,6 +40,7 @@ export interface DisassociateWirelessGatewayFromCertificateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a wireless gateway from its currently associated certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,15 @@ export interface DisassociateWirelessGatewayFromCertificateCommandOutput
  * import { IoTWirelessClient, DisassociateWirelessGatewayFromCertificateCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DisassociateWirelessGatewayFromCertificateCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DisassociateWirelessGatewayFromCertificateRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateWirelessGatewayFromCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWirelessGatewayFromCertificateCommandInput - {@link DisassociateWirelessGatewayFromCertificateCommandInput}
+ * @returns {@link DisassociateWirelessGatewayFromCertificateCommandOutput}
  * @see {@link DisassociateWirelessGatewayFromCertificateCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessGatewayFromCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +95,9 @@ export class DisassociateWirelessGatewayFromCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWirelessGatewayFromCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +132,8 @@ export class DisassociateWirelessGatewayFromCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateWirelessGatewayFromCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateWirelessGatewayFromCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,18 +143,24 @@ export class DisassociateWirelessGatewayFromCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateWirelessGatewayFromCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateWirelessGatewayFromCertificateCommand(input, context);
+    return se_DisassociateWirelessGatewayFromCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateWirelessGatewayFromCertificateCommandOutput> {
-    return deserializeAws_restJson1DisassociateWirelessGatewayFromCertificateCommand(output, context);
+    return de_DisassociateWirelessGatewayFromCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCelebrityRecognitionRequest,
-  GetCelebrityRecognitionRequestFilterSensitiveLog,
-  GetCelebrityRecognitionResponse,
-  GetCelebrityRecognitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCelebrityRecognitionCommand,
-  serializeAws_json1_1GetCelebrityRecognitionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCelebrityRecognitionRequest, GetCelebrityRecognitionResponse } from "../models/models_0";
+import { de_GetCelebrityRecognitionCommand, se_GetCelebrityRecognitionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCelebrityRecognitionCommand}.
  */
 export interface GetCelebrityRecognitionCommandInput extends GetCelebrityRecognitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCelebrityRecognitionCommand}.
  */
 export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecognitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the celebrity recognition results for a Amazon Rekognition Video analysis started by
  *      <a>StartCelebrityRecognition</a>.</p>
  *          <p>Celebrity recognition in a video is an asynchronous operation. Analysis is started by a
@@ -80,10 +77,18 @@ export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecogn
  * import { RekognitionClient, GetCelebrityRecognitionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetCelebrityRecognitionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // GetCelebrityRecognitionRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "ID" || "TIMESTAMP",
+ * };
  * const command = new GetCelebrityRecognitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCelebrityRecognitionCommandInput - {@link GetCelebrityRecognitionCommandInput}
+ * @returns {@link GetCelebrityRecognitionCommandOutput}
  * @see {@link GetCelebrityRecognitionCommandInput} for command's `input` shape.
  * @see {@link GetCelebrityRecognitionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -130,6 +135,9 @@ export class GetCelebrityRecognitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCelebrityRecognitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,8 +166,8 @@ export class GetCelebrityRecognitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCelebrityRecognitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCelebrityRecognitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -169,12 +177,18 @@ export class GetCelebrityRecognitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCelebrityRecognitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCelebrityRecognitionCommand(input, context);
+    return se_GetCelebrityRecognitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCelebrityRecognitionCommandOutput> {
-    return deserializeAws_json1_1GetCelebrityRecognitionCommand(output, context);
+    return de_GetCelebrityRecognitionCommand(output, context);
   }
 
   // Start section: command_body_extra

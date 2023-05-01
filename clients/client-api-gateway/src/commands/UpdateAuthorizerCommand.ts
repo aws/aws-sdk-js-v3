@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  Authorizer,
-  AuthorizerFilterSensitiveLog,
-  UpdateAuthorizerRequest,
-  UpdateAuthorizerRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAuthorizerCommand,
-  serializeAws_restJson1UpdateAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { Authorizer, UpdateAuthorizerRequest } from "../models/models_0";
+import { de_UpdateAuthorizerCommand, se_UpdateAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAuthorizerCommand}.
  */
 export interface UpdateAuthorizerCommandInput extends UpdateAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAuthorizerCommand}.
  */
 export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing Authorizer resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * import { APIGatewayClient, UpdateAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // UpdateAuthorizerRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   authorizerId: "STRING_VALUE", // required
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
+ *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
+ *       path: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       from: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAuthorizerCommandInput - {@link UpdateAuthorizerCommandInput}
+ * @returns {@link UpdateAuthorizerCommandOutput}
  * @see {@link UpdateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link UpdateAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +98,9 @@ export class UpdateAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +129,8 @@ export class UpdateAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +140,18 @@ export class UpdateAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAuthorizerCommand(input, context);
+    return se_UpdateAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAuthorizerCommandOutput> {
-    return deserializeAws_restJson1UpdateAuthorizerCommand(output, context);
+    return de_UpdateAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

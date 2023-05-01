@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  RemovePermissionRequest,
-  RemovePermissionRequestFilterSensitiveLog,
-  RemovePermissionResponse,
-  RemovePermissionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemovePermissionCommand,
-  serializeAws_restJson1RemovePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { RemovePermissionRequest, RemovePermissionResponse } from "../models/models_0";
+import { de_RemovePermissionCommand, se_RemovePermissionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemovePermissionCommand}.
  */
 export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemovePermissionCommand}.
  */
 export interface RemovePermissionCommandOutput extends RemovePermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Removes permissions from a profiling group's resource-based policy that are provided
  *             using an action group. The one supported action group that can be removed is
  *                 <code>agentPermission</code> which grants <code>ConfigureAgent</code> and
@@ -50,10 +47,17 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  * import { CodeGuruProfilerClient, RemovePermissionCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, RemovePermissionCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // RemovePermissionRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   actionGroup: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE", // required
+ * };
  * const command = new RemovePermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
+ * @returns {@link RemovePermissionCommandOutput}
  * @see {@link RemovePermissionCommandInput} for command's `input` shape.
  * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -95,6 +99,9 @@ export class RemovePermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemovePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +130,8 @@ export class RemovePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemovePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemovePermissionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +141,18 @@ export class RemovePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemovePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemovePermissionCommand(input, context);
+    return se_RemovePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemovePermissionCommandOutput> {
-    return deserializeAws_restJson1RemovePermissionCommand(output, context);
+    return de_RemovePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

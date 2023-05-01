@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  ListSegmentReferencesRequest,
-  ListSegmentReferencesRequestFilterSensitiveLog,
-  ListSegmentReferencesResponse,
-  ListSegmentReferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSegmentReferencesCommand,
-  serializeAws_restJson1ListSegmentReferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSegmentReferencesRequest, ListSegmentReferencesResponse } from "../models/models_0";
+import { de_ListSegmentReferencesCommand, se_ListSegmentReferencesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSegmentReferencesCommand}.
  */
 export interface ListSegmentReferencesCommandInput extends ListSegmentReferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSegmentReferencesCommand}.
  */
 export interface ListSegmentReferencesCommandOutput extends ListSegmentReferencesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation to find which experiments or launches are using a specified segment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListSegmentReferencesCommandOutput extends ListSegmentReference
  * import { EvidentlyClient, ListSegmentReferencesCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, ListSegmentReferencesCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // ListSegmentReferencesRequest
+ *   segment: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   type: "STRING_VALUE", // required
+ * };
  * const command = new ListSegmentReferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSegmentReferencesCommandInput - {@link ListSegmentReferencesCommandInput}
+ * @returns {@link ListSegmentReferencesCommandOutput}
  * @see {@link ListSegmentReferencesCommandInput} for command's `input` shape.
  * @see {@link ListSegmentReferencesCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -81,6 +86,9 @@ export class ListSegmentReferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSegmentReferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class ListSegmentReferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSegmentReferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSegmentReferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class ListSegmentReferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSegmentReferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSegmentReferencesCommand(input, context);
+    return se_ListSegmentReferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSegmentReferencesCommandOutput> {
-    return deserializeAws_restJson1ListSegmentReferencesCommand(output, context);
+    return de_ListSegmentReferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

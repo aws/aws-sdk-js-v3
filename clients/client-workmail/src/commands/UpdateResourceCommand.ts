@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateResourceRequest,
-  UpdateResourceRequestFilterSensitiveLog,
-  UpdateResourceResponse,
-  UpdateResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateResourceCommand,
-  serializeAws_json1_1UpdateResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateResourceRequest, UpdateResourceResponse } from "../models/models_0";
+import { de_UpdateResourceCommand, se_UpdateResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceCommand}.
  */
 export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceCommand}.
  */
 export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates data for the resource. To have the latest information, it must be preceded by
  *          a <a>DescribeResource</a> call. The dataset in the request should be the one
  *          expected when performing another <code>DescribeResource</code> call.</p>
@@ -44,10 +41,22 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * import { WorkMailClient, UpdateResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, UpdateResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // UpdateResourceRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   BookingOptions: { // BookingOptions
+ *     AutoAcceptRequests: true || false,
+ *     AutoDeclineRecurringRequests: true || false,
+ *     AutoDeclineConflictingRequests: true || false,
+ *   },
+ * };
  * const command = new UpdateResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceCommandInput - {@link UpdateResourceCommandInput}
+ * @returns {@link UpdateResourceCommandOutput}
  * @see {@link UpdateResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -109,6 +118,9 @@ export class UpdateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +149,8 @@ export class UpdateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +160,18 @@ export class UpdateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateResourceCommand(input, context);
+    return se_UpdateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceCommandOutput> {
-    return deserializeAws_json1_1UpdateResourceCommand(output, context);
+    return de_UpdateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

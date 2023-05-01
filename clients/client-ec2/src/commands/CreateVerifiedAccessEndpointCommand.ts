@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateVerifiedAccessEndpointRequest,
-  CreateVerifiedAccessEndpointRequestFilterSensitiveLog,
-  CreateVerifiedAccessEndpointResult,
-  CreateVerifiedAccessEndpointResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2CreateVerifiedAccessEndpointCommand,
-  serializeAws_ec2CreateVerifiedAccessEndpointCommand,
-} from "../protocols/Aws_ec2";
+import { CreateVerifiedAccessEndpointRequest, CreateVerifiedAccessEndpointResult } from "../models/models_2";
+import { de_CreateVerifiedAccessEndpointCommand, se_CreateVerifiedAccessEndpointCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVerifiedAccessEndpointCommand}.
  */
 export interface CreateVerifiedAccessEndpointCommandInput extends CreateVerifiedAccessEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVerifiedAccessEndpointCommand}.
  */
 export interface CreateVerifiedAccessEndpointCommandOutput
@@ -37,6 +33,7 @@ export interface CreateVerifiedAccessEndpointCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,51 @@ export interface CreateVerifiedAccessEndpointCommandOutput
  * import { EC2Client, CreateVerifiedAccessEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVerifiedAccessEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateVerifiedAccessEndpointRequest
+ *   VerifiedAccessGroupId: "STRING_VALUE", // required
+ *   EndpointType: "load-balancer" || "network-interface", // required
+ *   AttachmentType: "vpc", // required
+ *   DomainCertificateArn: "STRING_VALUE", // required
+ *   ApplicationDomain: "STRING_VALUE", // required
+ *   EndpointDomainPrefix: "STRING_VALUE", // required
+ *   SecurityGroupIds: [ // SecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   LoadBalancerOptions: { // CreateVerifiedAccessEndpointLoadBalancerOptions
+ *     Protocol: "http" || "https",
+ *     Port: Number("int"),
+ *     LoadBalancerArn: "STRING_VALUE",
+ *     SubnetIds: [ // CreateVerifiedAccessEndpointSubnetIdList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   NetworkInterfaceOptions: { // CreateVerifiedAccessEndpointEniOptions
+ *     NetworkInterfaceId: "STRING_VALUE",
+ *     Protocol: "http" || "https",
+ *     Port: Number("int"),
+ *   },
+ *   Description: "STRING_VALUE",
+ *   PolicyDocument: "STRING_VALUE",
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new CreateVerifiedAccessEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVerifiedAccessEndpointCommandInput - {@link CreateVerifiedAccessEndpointCommandInput}
+ * @returns {@link CreateVerifiedAccessEndpointCommandOutput}
  * @see {@link CreateVerifiedAccessEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +109,9 @@ export class CreateVerifiedAccessEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVerifiedAccessEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +140,8 @@ export class CreateVerifiedAccessEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVerifiedAccessEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVerifiedAccessEndpointResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +151,21 @@ export class CreateVerifiedAccessEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVerifiedAccessEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVerifiedAccessEndpointCommand(input, context);
+    return se_CreateVerifiedAccessEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVerifiedAccessEndpointCommandOutput> {
-    return deserializeAws_ec2CreateVerifiedAccessEndpointCommand(output, context);
+    return de_CreateVerifiedAccessEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  ApiKey,
-  ApiKeyFilterSensitiveLog,
-  GetApiKeyRequest,
-  GetApiKeyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApiKeyCommand,
-  serializeAws_restJson1GetApiKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { ApiKey, GetApiKeyRequest } from "../models/models_0";
+import { de_GetApiKeyCommand, se_GetApiKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApiKeyCommand}.
  */
 export interface GetApiKeyCommandInput extends GetApiKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApiKeyCommand}.
  */
 export interface GetApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the current ApiKey resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
  * import { APIGatewayClient, GetApiKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetApiKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetApiKeyRequest
+ *   apiKey: "STRING_VALUE", // required
+ *   includeValue: true || false,
+ * };
  * const command = new GetApiKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApiKeyCommandInput - {@link GetApiKeyCommandInput}
+ * @returns {@link GetApiKeyCommandOutput}
  * @see {@link GetApiKeyCommandInput} for command's `input` shape.
  * @see {@link GetApiKeyCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetApiKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApiKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class GetApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApiKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ApiKeyFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class GetApiKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApiKeyCommand(input, context);
+    return se_GetApiKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApiKeyCommandOutput> {
-    return deserializeAws_restJson1GetApiKeyCommand(output, context);
+    return de_GetApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

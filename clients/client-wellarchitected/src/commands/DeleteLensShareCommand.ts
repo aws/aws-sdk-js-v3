@@ -13,28 +13,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteLensShareInput, DeleteLensShareInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLensShareCommand,
-  serializeAws_restJson1DeleteLensShareCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteLensShareInput } from "../models/models_0";
+import { de_DeleteLensShareCommand, se_DeleteLensShareCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLensShareCommand}.
  */
 export interface DeleteLensShareCommandInput extends DeleteLensShareInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLensShareCommand}.
  */
 export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a lens share.</p>
- *         <p>After the lens share is deleted,  Amazon Web Services accounts, IAM users, organizations,
+ *          <p>After the lens share is deleted,  Amazon Web Services accounts, users, organizations,
  *             and organizational units (OUs)
  *             that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.</p>
- *         <note>
+ *          <note>
  *             <p>
  *                <b>Disclaimer</b>
  *             </p>
@@ -51,10 +53,17 @@ export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
  * import { WellArchitectedClient, DeleteLensShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, DeleteLensShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // DeleteLensShareInput
+ *   ShareId: "STRING_VALUE", // required
+ *   LensAlias: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLensShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLensShareCommandInput - {@link DeleteLensShareCommandInput}
+ * @returns {@link DeleteLensShareCommandOutput}
  * @see {@link DeleteLensShareCommandInput} for command's `input` shape.
  * @see {@link DeleteLensShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -63,7 +72,7 @@ export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
  *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *  <p>The resource has already been processed, was deleted, or is too large.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is a problem with the Well-Architected Tool API service.</p>
@@ -96,6 +105,9 @@ export class DeleteLensShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLensShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +136,8 @@ export class DeleteLensShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLensShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +147,18 @@ export class DeleteLensShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLensShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLensShareCommand(input, context);
+    return se_DeleteLensShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLensShareCommandOutput> {
-    return deserializeAws_restJson1DeleteLensShareCommand(output, context);
+    return de_DeleteLensShareCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { DeleteBusinessReportScheduleRequest, DeleteBusinessReportScheduleResponse } from "../models/models_0";
 import {
-  DeleteBusinessReportScheduleRequest,
-  DeleteBusinessReportScheduleRequestFilterSensitiveLog,
-  DeleteBusinessReportScheduleResponse,
-  DeleteBusinessReportScheduleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBusinessReportScheduleCommand,
-  serializeAws_json1_1DeleteBusinessReportScheduleCommand,
+  de_DeleteBusinessReportScheduleCommand,
+  se_DeleteBusinessReportScheduleCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBusinessReportScheduleCommand}.
  */
 export interface DeleteBusinessReportScheduleCommandInput extends DeleteBusinessReportScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBusinessReportScheduleCommand}.
  */
 export interface DeleteBusinessReportScheduleCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteBusinessReportScheduleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the recurring report delivery schedule with the specified schedule
  *          ARN.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DeleteBusinessReportScheduleCommandOutput
  * import { AlexaForBusinessClient, DeleteBusinessReportScheduleCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteBusinessReportScheduleCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteBusinessReportScheduleRequest
+ *   ScheduleArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBusinessReportScheduleCommandInput - {@link DeleteBusinessReportScheduleCommandInput}
+ * @returns {@link DeleteBusinessReportScheduleCommandOutput}
  * @see {@link DeleteBusinessReportScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteBusinessReportScheduleCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -78,6 +83,9 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBusinessReportScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBusinessReportScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBusinessReportScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +125,21 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBusinessReportScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBusinessReportScheduleCommand(input, context);
+    return se_DeleteBusinessReportScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBusinessReportScheduleCommandOutput> {
-    return deserializeAws_json1_1DeleteBusinessReportScheduleCommand(output, context);
+    return de_DeleteBusinessReportScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

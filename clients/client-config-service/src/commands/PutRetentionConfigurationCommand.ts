@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  PutRetentionConfigurationRequest,
-  PutRetentionConfigurationRequestFilterSensitiveLog,
-  PutRetentionConfigurationResponse,
-  PutRetentionConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutRetentionConfigurationCommand,
-  serializeAws_json1_1PutRetentionConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { PutRetentionConfigurationRequest, PutRetentionConfigurationResponse } from "../models/models_1";
+import { de_PutRetentionConfigurationCommand, se_PutRetentionConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRetentionConfigurationCommand}.
  */
 export interface PutRetentionConfigurationCommandInput extends PutRetentionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRetentionConfigurationCommand}.
  */
 export interface PutRetentionConfigurationCommandOutput extends PutRetentionConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and updates the retention configuration with details
  * 			about retention period (number of days) that Config stores your
  * 			historical information. The API creates the
@@ -52,10 +49,15 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * import { ConfigServiceClient, PutRetentionConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutRetentionConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // PutRetentionConfigurationRequest
+ *   RetentionPeriodInDays: Number("int"), // required
+ * };
  * const command = new PutRetentionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRetentionConfigurationCommandInput - {@link PutRetentionConfigurationCommandInput}
+ * @returns {@link PutRetentionConfigurationCommandOutput}
  * @see {@link PutRetentionConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutRetentionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -86,6 +88,9 @@ export class PutRetentionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRetentionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class PutRetentionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRetentionConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRetentionConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +130,21 @@ export class PutRetentionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRetentionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRetentionConfigurationCommand(input, context);
+    return se_PutRetentionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRetentionConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutRetentionConfigurationCommand(output, context);
+    return de_PutRetentionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  CreateInferenceSchedulerRequest,
-  CreateInferenceSchedulerRequestFilterSensitiveLog,
-  CreateInferenceSchedulerResponse,
-  CreateInferenceSchedulerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateInferenceSchedulerCommand,
-  serializeAws_json1_0CreateInferenceSchedulerCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateInferenceSchedulerRequest, CreateInferenceSchedulerResponse } from "../models/models_0";
+import { de_CreateInferenceSchedulerCommand, se_CreateInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInferenceSchedulerCommand}.
  */
 export interface CreateInferenceSchedulerCommandInput extends CreateInferenceSchedulerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInferenceSchedulerCommand}.
  */
 export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a scheduled inference. Scheduling an inference is setting up a continuous
  *          real-time inference plan to analyze new measurement data. When setting up the schedule, you
  *          provide an S3 bucket location for the input data, assign it a delimiter between separate
@@ -46,10 +43,45 @@ export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSc
  * import { LookoutEquipmentClient, CreateInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // CreateInferenceSchedulerRequest
+ *   ModelName: "STRING_VALUE", // required
+ *   InferenceSchedulerName: "STRING_VALUE", // required
+ *   DataDelayOffsetInMinutes: Number("long"),
+ *   DataUploadFrequency: "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H", // required
+ *   DataInputConfiguration: { // InferenceInputConfiguration
+ *     S3InputConfiguration: { // InferenceS3InputConfiguration
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *     InputTimeZoneOffset: "STRING_VALUE",
+ *     InferenceInputNameConfiguration: { // InferenceInputNameConfiguration
+ *       TimestampFormat: "STRING_VALUE",
+ *       ComponentTimestampDelimiter: "STRING_VALUE",
+ *     },
+ *   },
+ *   DataOutputConfiguration: { // InferenceOutputConfiguration
+ *     S3OutputConfiguration: { // InferenceS3OutputConfiguration
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   ServerSideKmsKeyId: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateInferenceSchedulerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInferenceSchedulerCommandInput - {@link CreateInferenceSchedulerCommandInput}
+ * @returns {@link CreateInferenceSchedulerCommandOutput}
  * @see {@link CreateInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link CreateInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -99,6 +131,9 @@ export class CreateInferenceSchedulerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInferenceSchedulerCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +162,8 @@ export class CreateInferenceSchedulerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInferenceSchedulerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInferenceSchedulerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +173,18 @@ export class CreateInferenceSchedulerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateInferenceSchedulerCommand(input, context);
+    return se_CreateInferenceSchedulerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInferenceSchedulerCommandOutput> {
-    return deserializeAws_json1_0CreateInferenceSchedulerCommand(output, context);
+    return de_CreateInferenceSchedulerCommand(output, context);
   }
 
   // Start section: command_body_extra

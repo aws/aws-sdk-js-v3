@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
+import { CreateImageBuilderStreamingURLRequest, CreateImageBuilderStreamingURLResult } from "../models/models_0";
 import {
-  CreateImageBuilderStreamingURLRequest,
-  CreateImageBuilderStreamingURLRequestFilterSensitiveLog,
-  CreateImageBuilderStreamingURLResult,
-  CreateImageBuilderStreamingURLResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateImageBuilderStreamingURLCommand,
-  serializeAws_json1_1CreateImageBuilderStreamingURLCommand,
+  de_CreateImageBuilderStreamingURLCommand,
+  se_CreateImageBuilderStreamingURLCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateImageBuilderStreamingURLCommand}.
  */
 export interface CreateImageBuilderStreamingURLCommandInput extends CreateImageBuilderStreamingURLRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateImageBuilderStreamingURLCommand}.
  */
 export interface CreateImageBuilderStreamingURLCommandOutput
@@ -37,6 +36,7 @@ export interface CreateImageBuilderStreamingURLCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a URL to start an image builder streaming session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface CreateImageBuilderStreamingURLCommandOutput
  * import { AppStreamClient, CreateImageBuilderStreamingURLCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateImageBuilderStreamingURLCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // CreateImageBuilderStreamingURLRequest
+ *   Name: "STRING_VALUE", // required
+ *   Validity: Number("long"),
+ * };
  * const command = new CreateImageBuilderStreamingURLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateImageBuilderStreamingURLCommandInput - {@link CreateImageBuilderStreamingURLCommandInput}
+ * @returns {@link CreateImageBuilderStreamingURLCommandOutput}
  * @see {@link CreateImageBuilderStreamingURLCommandInput} for command's `input` shape.
  * @see {@link CreateImageBuilderStreamingURLCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -77,6 +83,9 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateImageBuilderStreamingURLCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +114,8 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateImageBuilderStreamingURLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateImageBuilderStreamingURLResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +125,24 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateImageBuilderStreamingURLCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateImageBuilderStreamingURLCommand(input, context);
+    return se_CreateImageBuilderStreamingURLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateImageBuilderStreamingURLCommandOutput> {
-    return deserializeAws_json1_1CreateImageBuilderStreamingURLCommand(output, context);
+    return de_CreateImageBuilderStreamingURLCommand(output, context);
   }
 
   // Start section: command_body_extra

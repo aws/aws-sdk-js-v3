@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  DeclineInvitationsRequest,
-  DeclineInvitationsRequestFilterSensitiveLog,
-  DeclineInvitationsResponse,
-  DeclineInvitationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeclineInvitationsCommand,
-  serializeAws_restJson1DeclineInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/models_0";
+import { de_DeclineInvitationsCommand, se_DeclineInvitationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeclineInvitationsCommand}.
  */
 export interface DeclineInvitationsCommandInput extends DeclineInvitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeclineInvitationsCommand}.
  */
 export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Declines Amazon Macie membership invitations that were received from specific accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * import { Macie2Client, DeclineInvitationsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DeclineInvitationsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // DeclineInvitationsRequest
+ *   accountIds: [ // __listOf__string // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeclineInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeclineInvitationsCommandInput - {@link DeclineInvitationsCommandInput}
+ * @returns {@link DeclineInvitationsCommandOutput}
  * @see {@link DeclineInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeclineInvitationsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +94,9 @@ export class DeclineInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeclineInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class DeclineInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeclineInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeclineInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class DeclineInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeclineInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeclineInvitationsCommand(input, context);
+    return se_DeclineInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeclineInvitationsCommandOutput> {
-    return deserializeAws_restJson1DeclineInvitationsCommand(output, context);
+    return de_DeclineInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

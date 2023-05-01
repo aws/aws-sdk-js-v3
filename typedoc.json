@@ -24,5 +24,11 @@
   "readme": "README.md",
   "theme": "sdk",
   "categorizeByGroup": true,
-  "categoryOrder": ["Clients", "Libraries", "Packages"]
+  "categoryOrder": ["Clients", "Libraries", "Packages"],
+  "visibilityFilters": {
+    "protected": true,
+    "private": false,
+    "inherited": true,
+    "external": true
+  }
 }

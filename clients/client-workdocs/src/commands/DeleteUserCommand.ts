@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteUserRequest, DeleteUserRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUserCommand,
-  serializeAws_restJson1DeleteUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteUserCommand, se_DeleteUserCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserCommand}.
  */
 export interface DeleteUserCommandInput extends DeleteUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserCommand}.
  */
 export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified user from a Simple AD or Microsoft AD directory.</p>
  *          <important>
  *             <p>Deleting a user immediately and permanently deletes all content in that user's folder structure. Site retention policies do NOT apply to this type of deletion.</p>
@@ -40,10 +42,16 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, DeleteUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DeleteUserRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   UserId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
+ * @returns {@link DeleteUserCommandOutput}
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -84,6 +92,9 @@ export class DeleteUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,7 +122,7 @@ export class DeleteUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class DeleteUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUserCommand(input, context);
+    return se_DeleteUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserCommandOutput> {
-    return deserializeAws_restJson1DeleteUserCommand(output, context);
+    return de_DeleteUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  ListWirelessGatewaysRequest,
-  ListWirelessGatewaysRequestFilterSensitiveLog,
-  ListWirelessGatewaysResponse,
-  ListWirelessGatewaysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWirelessGatewaysCommand,
-  serializeAws_restJson1ListWirelessGatewaysCommand,
-} from "../protocols/Aws_restJson1";
+import { ListWirelessGatewaysRequest, ListWirelessGatewaysResponse } from "../models/models_1";
+import { de_ListWirelessGatewaysCommand, se_ListWirelessGatewaysCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWirelessGatewaysCommand}.
  */
 export interface ListWirelessGatewaysCommandInput extends ListWirelessGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWirelessGatewaysCommand}.
  */
 export interface ListWirelessGatewaysCommandOutput extends ListWirelessGatewaysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the wireless gateways registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListWirelessGatewaysCommandOutput extends ListWirelessGatewaysR
  * import { IoTWirelessClient, ListWirelessGatewaysCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListWirelessGatewaysCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListWirelessGatewaysRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListWirelessGatewaysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWirelessGatewaysCommandInput - {@link ListWirelessGatewaysCommandInput}
+ * @returns {@link ListWirelessGatewaysCommandOutput}
  * @see {@link ListWirelessGatewaysCommandInput} for command's `input` shape.
  * @see {@link ListWirelessGatewaysCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListWirelessGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWirelessGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListWirelessGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWirelessGatewaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWirelessGatewaysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListWirelessGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWirelessGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWirelessGatewaysCommand(input, context);
+    return se_ListWirelessGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWirelessGatewaysCommandOutput> {
-    return deserializeAws_restJson1ListWirelessGatewaysCommand(output, context);
+    return de_ListWirelessGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

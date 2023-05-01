@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  GetDataCellsFilterRequest,
-  GetDataCellsFilterRequestFilterSensitiveLog,
-  GetDataCellsFilterResponse,
-  GetDataCellsFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataCellsFilterCommand,
-  serializeAws_restJson1GetDataCellsFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDataCellsFilterRequest, GetDataCellsFilterResponse } from "../models/models_0";
+import { de_GetDataCellsFilterCommand, se_GetDataCellsFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataCellsFilterCommand}.
  */
 export interface GetDataCellsFilterCommandInput extends GetDataCellsFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataCellsFilterCommand}.
  */
 export interface GetDataCellsFilterCommandOutput extends GetDataCellsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a data cells filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetDataCellsFilterCommandOutput extends GetDataCellsFilterRespo
  * import { LakeFormationClient, GetDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // GetDataCellsFilterRequest
+ *   TableCatalogId: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetDataCellsFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataCellsFilterCommandInput - {@link GetDataCellsFilterCommandInput}
+ * @returns {@link GetDataCellsFilterCommandOutput}
  * @see {@link GetDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link GetDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
@@ -54,7 +59,7 @@ export interface GetDataCellsFilterCommandOutput extends GetDataCellsFilterRespo
  *  <p>Access to a resource was denied.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -84,6 +89,9 @@ export class GetDataCellsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataCellsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class GetDataCellsFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataCellsFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataCellsFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class GetDataCellsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataCellsFilterCommand(input, context);
+    return se_GetDataCellsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataCellsFilterCommandOutput> {
-    return deserializeAws_restJson1GetDataCellsFilterCommand(output, context);
+    return de_GetDataCellsFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

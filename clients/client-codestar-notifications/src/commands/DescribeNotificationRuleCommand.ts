@@ -20,25 +20,26 @@ import {
 } from "../CodestarNotificationsClient";
 import {
   DescribeNotificationRuleRequest,
-  DescribeNotificationRuleRequestFilterSensitiveLog,
   DescribeNotificationRuleResult,
   DescribeNotificationRuleResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeNotificationRuleCommand,
-  serializeAws_restJson1DescribeNotificationRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeNotificationRuleCommand, se_DescribeNotificationRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNotificationRuleCommand}.
  */
 export interface DescribeNotificationRuleCommandInput extends DescribeNotificationRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNotificationRuleCommand}.
  */
 export interface DescribeNotificationRuleCommandOutput extends DescribeNotificationRuleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specified notification rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +47,15 @@ export interface DescribeNotificationRuleCommandOutput extends DescribeNotificat
  * import { CodestarNotificationsClient, DescribeNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, DescribeNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
+ * const input = { // DescribeNotificationRuleRequest
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeNotificationRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotificationRuleCommandInput - {@link DescribeNotificationRuleCommandInput}
+ * @returns {@link DescribeNotificationRuleCommandOutput}
  * @see {@link DescribeNotificationRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationRuleCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
@@ -79,6 +85,9 @@ export class DescribeNotificationRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotificationRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +116,7 @@ export class DescribeNotificationRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNotificationRuleRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeNotificationRuleResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -118,12 +127,18 @@ export class DescribeNotificationRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeNotificationRuleCommand(input, context);
+    return se_DescribeNotificationRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1DescribeNotificationRuleCommand(output, context);
+    return de_DescribeNotificationRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

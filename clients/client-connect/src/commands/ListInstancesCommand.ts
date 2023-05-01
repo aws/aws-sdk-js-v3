@@ -16,25 +16,26 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import {
   ListInstancesRequest,
-  ListInstancesRequestFilterSensitiveLog,
   ListInstancesResponse,
   ListInstancesResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListInstancesCommand,
-  serializeAws_restJson1ListInstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListInstancesCommand, se_ListInstancesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstancesCommand}.
  */
 export interface ListInstancesCommandInput extends ListInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstancesCommand}.
  */
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Return a list of instances which are in active state, creation-in-progress state, and failed
  *    state. Instances that aren't successfully created (they are in a failed state) are returned only
@@ -45,10 +46,16 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * import { ConnectClient, ListInstancesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListInstancesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListInstancesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
+ * @returns {@link ListInstancesCommandOutput}
  * @see {@link ListInstancesCommandInput} for command's `input` shape.
  * @see {@link ListInstancesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -78,6 +85,9 @@ export class ListInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,7 +114,7 @@ export class ListInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstancesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListInstancesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -115,12 +125,18 @@ export class ListInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInstancesCommand(input, context);
+    return se_ListInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstancesCommandOutput> {
-    return deserializeAws_restJson1ListInstancesCommand(output, context);
+    return de_ListInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

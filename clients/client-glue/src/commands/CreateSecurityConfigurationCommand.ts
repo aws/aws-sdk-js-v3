@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateSecurityConfigurationRequest,
-  CreateSecurityConfigurationRequestFilterSensitiveLog,
-  CreateSecurityConfigurationResponse,
-  CreateSecurityConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateSecurityConfigurationCommand,
-  serializeAws_json1_1CreateSecurityConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSecurityConfigurationRequest, CreateSecurityConfigurationResponse } from "../models/models_1";
+import { de_CreateSecurityConfigurationCommand, se_CreateSecurityConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSecurityConfigurationCommand}.
  */
 export interface CreateSecurityConfigurationCommandInput extends CreateSecurityConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSecurityConfigurationCommand}.
  */
 export interface CreateSecurityConfigurationCommandOutput
@@ -37,6 +33,7 @@ export interface CreateSecurityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new security configuration. A security configuration is a set of security properties that can be used by Glue. You can use a security configuration to encrypt data at rest. For information about using security configurations in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html">Encrypting Data Written by Crawlers, Jobs, and Development Endpoints</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,31 @@ export interface CreateSecurityConfigurationCommandOutput
  * import { GlueClient, CreateSecurityConfigurationCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateSecurityConfigurationCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateSecurityConfigurationRequest
+ *   Name: "STRING_VALUE", // required
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     S3Encryption: [ // S3EncryptionList
+ *       { // S3Encryption
+ *         S3EncryptionMode: "DISABLED" || "SSE-KMS" || "SSE-S3",
+ *         KmsKeyArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     CloudWatchEncryption: { // CloudWatchEncryption
+ *       CloudWatchEncryptionMode: "DISABLED" || "SSE-KMS",
+ *       KmsKeyArn: "STRING_VALUE",
+ *     },
+ *     JobBookmarksEncryption: { // JobBookmarksEncryption
+ *       JobBookmarksEncryptionMode: "DISABLED" || "CSE-KMS",
+ *       KmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateSecurityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSecurityConfigurationCommandInput - {@link CreateSecurityConfigurationCommandInput}
+ * @returns {@link CreateSecurityConfigurationCommandOutput}
  * @see {@link CreateSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +104,9 @@ export class CreateSecurityConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSecurityConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +135,8 @@ export class CreateSecurityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSecurityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSecurityConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +146,21 @@ export class CreateSecurityConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSecurityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSecurityConfigurationCommand(input, context);
+    return se_CreateSecurityConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSecurityConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateSecurityConfigurationCommand(output, context);
+    return de_CreateSecurityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

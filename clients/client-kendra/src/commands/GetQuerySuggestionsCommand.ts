@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  GetQuerySuggestionsRequest,
-  GetQuerySuggestionsRequestFilterSensitiveLog,
-  GetQuerySuggestionsResponse,
-  GetQuerySuggestionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetQuerySuggestionsCommand,
-  serializeAws_json1_1GetQuerySuggestionsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetQuerySuggestionsRequest, GetQuerySuggestionsResponse } from "../models/models_0";
+import { de_GetQuerySuggestionsCommand, se_GetQuerySuggestionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetQuerySuggestionsCommand}.
  */
 export interface GetQuerySuggestionsCommandInput extends GetQuerySuggestionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetQuerySuggestionsCommand}.
  */
 export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Fetches the queries that are suggested to your users.</p>
  *          <p>
  *             <code>GetQuerySuggestions</code> is currently not supported in the
@@ -45,10 +42,17 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  * import { KendraClient, GetQuerySuggestionsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, GetQuerySuggestionsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // GetQuerySuggestionsRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   QueryText: "STRING_VALUE", // required
+ *   MaxSuggestionsCount: Number("int"),
+ * };
  * const command = new GetQuerySuggestionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetQuerySuggestionsCommandInput - {@link GetQuerySuggestionsCommandInput}
+ * @returns {@link GetQuerySuggestionsCommandOutput}
  * @see {@link GetQuerySuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetQuerySuggestionsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -63,7 +67,7 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -71,7 +75,8 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             Quotas[hyperlink Kendra Quotas pg] for more information, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> to inquire about
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
+ *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
  *             an increase of limits.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -101,6 +106,9 @@ export class GetQuerySuggestionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetQuerySuggestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +137,8 @@ export class GetQuerySuggestionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQuerySuggestionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQuerySuggestionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +148,18 @@ export class GetQuerySuggestionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQuerySuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQuerySuggestionsCommand(input, context);
+    return se_GetQuerySuggestionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQuerySuggestionsCommandOutput> {
-    return deserializeAws_json1_1GetQuerySuggestionsCommand(output, context);
+    return de_GetQuerySuggestionsCommand(output, context);
   }
 
   // Start section: command_body_extra

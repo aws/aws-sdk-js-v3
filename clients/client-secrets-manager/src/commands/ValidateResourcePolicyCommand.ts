@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ValidateResourcePolicyRequest,
-  ValidateResourcePolicyRequestFilterSensitiveLog,
-  ValidateResourcePolicyResponse,
-  ValidateResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ValidateResourcePolicyCommand,
-  serializeAws_json1_1ValidateResourcePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { ValidateResourcePolicyRequest, ValidateResourcePolicyResponse } from "../models/models_0";
+import { de_ValidateResourcePolicyCommand, se_ValidateResourcePolicyCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateResourcePolicyCommand}.
  */
 export interface ValidateResourcePolicyCommandInput extends ValidateResourcePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ValidateResourcePolicyCommand}.
  */
 export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates that a resource policy does not grant a wide range of principals access to
  *       your secret. A resource-based policy is optional for secrets.</p>
  *          <p>The API performs three checks when validating the policy:</p>
@@ -53,7 +50,7 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
- *             <code>secretsmanager:ValidateResourcePolicy</code>.
+ *             <code>secretsmanager:ValidateResourcePolicy</code> and <code>secretsmanager:PutResourcePolicy</code>.
  *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
@@ -63,10 +60,16 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * import { SecretsManagerClient, ValidateResourcePolicyCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ValidateResourcePolicyCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // ValidateResourcePolicyRequest
+ *   SecretId: "STRING_VALUE",
+ *   ResourcePolicy: "STRING_VALUE", // required
+ * };
  * const command = new ValidateResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateResourcePolicyCommandInput - {@link ValidateResourcePolicyCommandInput}
+ * @returns {@link ValidateResourcePolicyCommandOutput}
  * @see {@link ValidateResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link ValidateResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -138,6 +141,9 @@ export class ValidateResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,8 +172,8 @@ export class ValidateResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -177,12 +183,18 @@ export class ValidateResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ValidateResourcePolicyCommand(input, context);
+    return se_ValidateResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateResourcePolicyCommandOutput> {
-    return deserializeAws_json1_1ValidateResourcePolicyCommand(output, context);
+    return de_ValidateResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

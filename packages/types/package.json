@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/types",
-  "version": "3.296.0",
+  "version": "3.310.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -13,7 +13,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "exit 0"
+    "test": "tsc -p tsconfig.test.json"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -31,7 +31,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/types",
   "repository": {

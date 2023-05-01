@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
+import { CreateAppCookieStickinessPolicyInput, CreateAppCookieStickinessPolicyOutput } from "../models/models_0";
 import {
-  CreateAppCookieStickinessPolicyInput,
-  CreateAppCookieStickinessPolicyInputFilterSensitiveLog,
-  CreateAppCookieStickinessPolicyOutput,
-  CreateAppCookieStickinessPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateAppCookieStickinessPolicyCommand,
-  serializeAws_queryCreateAppCookieStickinessPolicyCommand,
+  de_CreateAppCookieStickinessPolicyCommand,
+  se_CreateAppCookieStickinessPolicyCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppCookieStickinessPolicyCommand}.
  */
 export interface CreateAppCookieStickinessPolicyCommandInput extends CreateAppCookieStickinessPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppCookieStickinessPolicyCommand}.
  */
 export interface CreateAppCookieStickinessPolicyCommandOutput
@@ -41,6 +40,7 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.</p>
  *         <p>This policy is similar to the policy created by <a>CreateLBCookieStickinessPolicy</a>,
  *             except that the lifetime of the special Elastic Load Balancing cookie, <code>AWSELB</code>,
@@ -56,10 +56,17 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
  * import { ElasticLoadBalancingClient, CreateAppCookieStickinessPolicyCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, CreateAppCookieStickinessPolicyCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // CreateAppCookieStickinessPolicyInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   CookieName: "STRING_VALUE", // required
+ * };
  * const command = new CreateAppCookieStickinessPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppCookieStickinessPolicyCommandInput - {@link CreateAppCookieStickinessPolicyCommandInput}
+ * @returns {@link CreateAppCookieStickinessPolicyCommandOutput}
  * @see {@link CreateAppCookieStickinessPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateAppCookieStickinessPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -108,6 +115,9 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppCookieStickinessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +146,8 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppCookieStickinessPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppCookieStickinessPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,18 +157,24 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateAppCookieStickinessPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateAppCookieStickinessPolicyCommand(input, context);
+    return se_CreateAppCookieStickinessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAppCookieStickinessPolicyCommandOutput> {
-    return deserializeAws_queryCreateAppCookieStickinessPolicyCommand(output, context);
+    return de_CreateAppCookieStickinessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

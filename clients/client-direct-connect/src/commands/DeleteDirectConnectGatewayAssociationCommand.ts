@@ -16,21 +16,23 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
   DeleteDirectConnectGatewayAssociationRequest,
-  DeleteDirectConnectGatewayAssociationRequestFilterSensitiveLog,
   DeleteDirectConnectGatewayAssociationResult,
-  DeleteDirectConnectGatewayAssociationResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand,
-  serializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand,
+  de_DeleteDirectConnectGatewayAssociationCommand,
+  se_DeleteDirectConnectGatewayAssociationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDirectConnectGatewayAssociationCommand}.
  */
 export interface DeleteDirectConnectGatewayAssociationCommandInput
   extends DeleteDirectConnectGatewayAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDirectConnectGatewayAssociationCommand}.
  */
 export interface DeleteDirectConnectGatewayAssociationCommandOutput
@@ -38,6 +40,7 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the association between the specified Direct Connect gateway and virtual private gateway.</p>
  *          <p>We recommend that you specify the <code>associationID</code> to delete the association. Alternatively, if you own virtual gateway and a Direct Connect gateway association, you can specify the <code>virtualGatewayId</code> and <code>directConnectGatewayId</code> to delete an association.</p>
  * @example
@@ -46,10 +49,17 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput
  * import { DirectConnectClient, DeleteDirectConnectGatewayAssociationCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteDirectConnectGatewayAssociationCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DeleteDirectConnectGatewayAssociationRequest
+ *   associationId: "STRING_VALUE",
+ *   directConnectGatewayId: "STRING_VALUE",
+ *   virtualGatewayId: "STRING_VALUE",
+ * };
  * const command = new DeleteDirectConnectGatewayAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDirectConnectGatewayAssociationCommandInput - {@link DeleteDirectConnectGatewayAssociationCommandInput}
+ * @returns {@link DeleteDirectConnectGatewayAssociationCommandOutput}
  * @see {@link DeleteDirectConnectGatewayAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectConnectGatewayAssociationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +89,9 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDirectConnectGatewayAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +120,8 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDirectConnectGatewayAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDirectConnectGatewayAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +131,24 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDirectConnectGatewayAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand(input, context);
+    return se_DeleteDirectConnectGatewayAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDirectConnectGatewayAssociationCommandOutput> {
-    return deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand(output, context);
+    return de_DeleteDirectConnectGatewayAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

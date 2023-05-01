@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  StopGUISessionRequest,
-  StopGUISessionRequestFilterSensitiveLog,
-  StopGUISessionResult,
-  StopGUISessionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1StopGUISessionCommand,
-  serializeAws_json1_1StopGUISessionCommand,
-} from "../protocols/Aws_json1_1";
+import { StopGUISessionRequest, StopGUISessionResult } from "../models/models_1";
+import { de_StopGUISessionCommand, se_StopGUISessionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopGUISessionCommand}.
  */
 export interface StopGUISessionCommandInput extends StopGUISessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopGUISessionCommand}.
  */
 export interface StopGUISessionCommandOutput extends StopGUISessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates a web-based NICE DCV session that’s used to access a virtual computer’s
  *       operating system or application. The session will close and any unsaved data will be lost.</p>
  * @example
@@ -43,10 +40,15 @@ export interface StopGUISessionCommandOutput extends StopGUISessionResult, __Met
  * import { LightsailClient, StopGUISessionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StopGUISessionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // StopGUISessionRequest
+ *   resourceName: "STRING_VALUE", // required
+ * };
  * const command = new StopGUISessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopGUISessionCommandInput - {@link StopGUISessionCommandInput}
+ * @returns {@link StopGUISessionCommandOutput}
  * @see {@link StopGUISessionCommandInput} for command's `input` shape.
  * @see {@link StopGUISessionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -93,6 +95,9 @@ export class StopGUISessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopGUISessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class StopGUISessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopGUISessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopGUISessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +137,18 @@ export class StopGUISessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopGUISessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopGUISessionCommand(input, context);
+    return se_StopGUISessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopGUISessionCommandOutput> {
-    return deserializeAws_json1_1StopGUISessionCommand(output, context);
+    return de_StopGUISessionCommand(output, context);
   }
 
   // Start section: command_body_extra

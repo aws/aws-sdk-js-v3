@@ -14,20 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetJobsRequest, GetJobsRequestFilterSensitiveLog } from "../models/models_1";
+import { GetJobsRequest } from "../models/models_1";
 import { GetJobsResponse, GetJobsResponseFilterSensitiveLog } from "../models/models_2";
-import { deserializeAws_json1_1GetJobsCommand, serializeAws_json1_1GetJobsCommand } from "../protocols/Aws_json1_1";
+import { de_GetJobsCommand, se_GetJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobsCommand}.
  */
 export interface GetJobsCommandInput extends GetJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobsCommand}.
  */
 export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all current job definitions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,10 +40,16 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * import { GlueClient, GetJobsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetJobsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetJobsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobsCommandInput - {@link GetJobsCommandInput}
+ * @returns {@link GetJobsCommandOutput}
  * @see {@link GetJobsCommandInput} for command's `input` shape.
  * @see {@link GetJobsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -70,6 +81,9 @@ export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +110,7 @@ export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -107,12 +121,18 @@ export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobsCommand(input, context);
+    return se_GetJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobsCommandOutput> {
-    return deserializeAws_json1_1GetJobsCommand(output, context);
+    return de_GetJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

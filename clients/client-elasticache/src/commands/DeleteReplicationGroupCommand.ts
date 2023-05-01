@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DeleteReplicationGroupMessage,
-  DeleteReplicationGroupMessageFilterSensitiveLog,
-  DeleteReplicationGroupResult,
-  DeleteReplicationGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteReplicationGroupCommand,
-  serializeAws_queryDeleteReplicationGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteReplicationGroupMessage, DeleteReplicationGroupResult } from "../models/models_0";
+import { de_DeleteReplicationGroupCommand, se_DeleteReplicationGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReplicationGroupCommand}.
  */
 export interface DeleteReplicationGroupCommandInput extends DeleteReplicationGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReplicationGroupCommand}.
  */
 export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing replication group.
  *             By default, this operation deletes the entire replication group, including the primary/primaries and all of the read replicas.
  *             If the replication group has only one primary,
@@ -50,10 +47,17 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  * import { ElastiCacheClient, DeleteReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DeleteReplicationGroupMessage
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   RetainPrimaryCluster: true || false,
+ *   FinalSnapshotIdentifier: "STRING_VALUE",
+ * };
  * const command = new DeleteReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationGroupCommandInput - {@link DeleteReplicationGroupCommandInput}
+ * @returns {@link DeleteReplicationGroupCommandOutput}
  * @see {@link DeleteReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -131,6 +135,9 @@ export class DeleteReplicationGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +166,8 @@ export class DeleteReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,12 +177,18 @@ export class DeleteReplicationGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteReplicationGroupCommand(input, context);
+    return se_DeleteReplicationGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReplicationGroupCommandOutput> {
-    return deserializeAws_queryDeleteReplicationGroupCommand(output, context);
+    return de_DeleteReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

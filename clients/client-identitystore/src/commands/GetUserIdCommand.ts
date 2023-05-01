@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  GetUserIdRequest,
-  GetUserIdRequestFilterSensitiveLog,
-  GetUserIdResponse,
-  GetUserIdResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetUserIdCommand, serializeAws_json1_1GetUserIdCommand } from "../protocols/Aws_json1_1";
+import { GetUserIdRequest, GetUserIdRequestFilterSensitiveLog, GetUserIdResponse } from "../models/models_0";
+import { de_GetUserIdCommand, se_GetUserIdCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserIdCommand}.
  */
 export interface GetUserIdCommandInput extends GetUserIdRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserIdCommand}.
  */
 export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the <code>UserId</code> in an identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,25 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * import { IdentitystoreClient, GetUserIdCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, GetUserIdCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // GetUserIdRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   AlternateIdentifier: { // AlternateIdentifier Union: only one key present
+ *     ExternalId: { // ExternalId
+ *       Issuer: "STRING_VALUE", // required
+ *       Id: "STRING_VALUE", // required
+ *     },
+ *     UniqueAttribute: { // UniqueAttribute
+ *       AttributePath: "STRING_VALUE", // required
+ *       AttributeValue: "DOCUMENT_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new GetUserIdCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserIdCommandInput - {@link GetUserIdCommandInput}
+ * @returns {@link GetUserIdCommandOutput}
  * @see {@link GetUserIdCommandInput} for command's `input` shape.
  * @see {@link GetUserIdCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -81,6 +96,9 @@ export class GetUserIdCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserIdCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,7 +126,7 @@ export class GetUserIdCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetUserIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserIdResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +136,18 @@ export class GetUserIdCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUserIdCommand(input, context);
+    return se_GetUserIdCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserIdCommandOutput> {
-    return deserializeAws_json1_1GetUserIdCommand(output, context);
+    return de_GetUserIdCommand(output, context);
   }
 
   // Start section: command_body_extra

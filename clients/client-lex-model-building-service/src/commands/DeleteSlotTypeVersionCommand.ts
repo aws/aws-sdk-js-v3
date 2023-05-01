@@ -18,22 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteSlotTypeVersionRequest, DeleteSlotTypeVersionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSlotTypeVersionCommand,
-  serializeAws_restJson1DeleteSlotTypeVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSlotTypeVersionRequest } from "../models/models_0";
+import { de_DeleteSlotTypeVersionCommand, se_DeleteSlotTypeVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSlotTypeVersionCommand}.
  */
 export interface DeleteSlotTypeVersionCommandInput extends DeleteSlotTypeVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSlotTypeVersionCommand}.
  */
 export interface DeleteSlotTypeVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific version of a slot type. To delete all versions
  *       of a slot type, use the <a>DeleteSlotType</a> operation. </p>
  *          <p>This operation requires permissions for the
@@ -44,10 +46,16 @@ export interface DeleteSlotTypeVersionCommandOutput extends __MetadataBearer {}
  * import { LexModelBuildingServiceClient, DeleteSlotTypeVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, DeleteSlotTypeVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // DeleteSlotTypeVersionRequest
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSlotTypeVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSlotTypeVersionCommandInput - {@link DeleteSlotTypeVersionCommandInput}
+ * @returns {@link DeleteSlotTypeVersionCommandOutput}
  * @see {@link DeleteSlotTypeVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteSlotTypeVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -108,6 +116,9 @@ export class DeleteSlotTypeVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSlotTypeVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +147,8 @@ export class DeleteSlotTypeVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSlotTypeVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +158,18 @@ export class DeleteSlotTypeVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSlotTypeVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSlotTypeVersionCommand(input, context);
+    return se_DeleteSlotTypeVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSlotTypeVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteSlotTypeVersionCommand(output, context);
+    return de_DeleteSlotTypeVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

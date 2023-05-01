@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import {
-  ReportTaskProgressInput,
-  ReportTaskProgressInputFilterSensitiveLog,
-  ReportTaskProgressOutput,
-  ReportTaskProgressOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ReportTaskProgressCommand,
-  serializeAws_json1_1ReportTaskProgressCommand,
-} from "../protocols/Aws_json1_1";
+import { ReportTaskProgressInput, ReportTaskProgressOutput } from "../models/models_0";
+import { de_ReportTaskProgressCommand, se_ReportTaskProgressCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ReportTaskProgressCommand}.
  */
 export interface ReportTaskProgressCommandInput extends ReportTaskProgressInput {}
 /**
+ * @public
+ *
  * The output of {@link ReportTaskProgressCommand}.
  */
 export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not
  *             receive this acknowledgement within 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial acknowledgement,
  *             the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time
@@ -52,13 +49,13 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"taskId": "aaGgHT4LuH0T0Y0oLrJRjas5qH0d8cDPADxqq3tn+zCWGELkCdV2JprLreXm1oxeP5EFZHFLJ69kjSsLYE0iYHYBYVGBrB+E/pYq7ANEEeGJFnSBMRiXZVA+8UJ3OzcInvXeinqBmBaKwii7hnnKb/AXjXiNTXyxgydX1KAyg1AxkwBYG4cfPYMZbuEbQJFJvv5C/2+GVXz1w94nKYTeUeepwUOFOuRLS6JVtZoYwpF56E+Yfk1IcGpFOvCZ01B4Bkuu7x3J+MD/j6kJgZLAgbCJQtI3eiW3kdGmX0p0I2BdY1ZsX6b4UiSvM3OMj6NEHJCJL4E0ZfitnhCoe24Kvjo6C2hFbZq+ei/HPgSXBQMSagkr4vS9c0ChzxH2+LNYvec6bY4kymkaZI1dvOzmpa0FcnGf5AjSK4GpsViZ/ujz6zxFv81qBXzjF0/4M1775rjV1VUdyKaixiA/sJiACNezqZqETidp8d24BDPRhGsj6pBCrnelqGFrk/gXEXUsJ+xwMifRC8UVwiKekpAvHUywVk7Ku4jH/n3i2VoLRP6FXwpUbelu34iiZ9czpXyLtyPKwxa87dlrnRVURwkcVjOt2Mcrcaqe+cbWHvNRhyrPkkdfSF3ac8/wfgVbXvLEB2k9mKc67aD9rvdc1PKX09Tk8BKklsMTpZ3TRCd4NzQlJKigMe8Jat9+1tKj4Ole5ZzW6uyTu2s2iFjEV8KXu4MaiRJyNKCdKeGhhZWY37Qk4NBK4Ppgu+C6Y41dpfOh288SLDEVx0/UySlqOEdhba7c6BiPp5r3hKj3mk9lFy5OYp1aoGLeeFmjXveTnPdf2gkWqXXg7AUbJ7jEs1F0lKZQg4szep2gcKyAJXgvXLfJJHcha8Lfb/Ee7wYmyOcAaRpDBoFNSbtoVXar46teIrpho+ZDvynUXvU0grHWGOk=:wn3SgymHZM99bEXAMPLE",
+ * \{"taskId": "aaGgHT4LuH0T0Y0oLrJRjas5qH0d8cDPADxqq3tn+zCWGELkCdV2JprLreXm1oxeP5EFZHFLJ69kjSsLYE0iYHYBYVGBrB+E/pYq7ANEEeGJFnSBMRiXZVA+8UJ3OzcInvXeinqBmBaKwii7hnnKb/AXjXiNTXyxgydX1KAyg1AxkwBYG4cfPYMZbuEbQJFJvv5C/2+GVXz1w94nKYTeUeepwUOFOuRLS6JVtZoYwpF56E+Yfk1IcGpFOvCZ01B4Bkuu7x3J+MD/j6kJgZLAgbCJQtI3eiW3kdGmX0p0I2BdY1ZsX6b4UiSvM3OMj6NEHJCJL4E0ZfitnhCoe24Kvjo6C2hFbZq+ei/HPgSXBQMSagkr4vS9c0ChzxH2+LNYvec6bY4kymkaZI1dvOzmpa0FcnGf5AjSK4GpsViZ/ujz6zxFv81qBXzjF0/4M1775rjV1VUdyKaixiA/sJiACNezqZqETidp8d24BDPRhGsj6pBCrnelqGFrk/gXEXUsJ+xwMifRC8UVwiKekpAvHUywVk7Ku4jH/n3i2VoLRP6FXwpUbelu34iiZ9czpXyLtyPKwxa87dlrnRVURwkcVjOt2Mcrcaqe+cbWHvNRhyrPkkdfSF3ac8/wfgVbXvLEB2k9mKc67aD9rvdc1PKX09Tk8BKklsMTpZ3TRCd4NzQlJKigMe8Jat9+1tKj4Ole5ZzW6uyTu2s2iFjEV8KXu4MaiRJyNKCdKeGhhZWY37Qk4NBK4Ppgu+C6Y41dpfOh288SLDEVx0/UySlqOEdhba7c6BiPp5r3hKj3mk9lFy5OYp1aoGLeeFmjXveTnPdf2gkWqXXg7AUbJ7jEs1F0lKZQg4szep2gcKyAJXgvXLfJJHcha8Lfb/Ee7wYmyOcAaRpDBoFNSbtoVXar46teIrpho+ZDvynUXvU0grHWGOk=:wn3SgymHZM99bEXAMPLE",
  *  "fields":
  *   [
- *     {"key": "percentComplete",
- *      "stringValue": "50"}
+ *     \{"key": "percentComplete",
+ *      "stringValue": "50"\}
  *   ]
- * }
+ * \}
  *
  *             </request>
  *
@@ -69,7 +66,7 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * Content-Length: 18
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {"canceled": false}
+ * \{"canceled": false\}
  *
  * </response>
  *         </examples>
@@ -79,10 +76,22 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * import { DataPipelineClient, ReportTaskProgressCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ReportTaskProgressCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = { // ReportTaskProgressInput
+ *   taskId: "STRING_VALUE", // required
+ *   fields: [ // fieldList
+ *     { // Field
+ *       key: "STRING_VALUE", // required
+ *       stringValue: "STRING_VALUE",
+ *       refValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ReportTaskProgressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReportTaskProgressCommandInput - {@link ReportTaskProgressCommandInput}
+ * @returns {@link ReportTaskProgressCommandOutput}
  * @see {@link ReportTaskProgressCommandInput} for command's `input` shape.
  * @see {@link ReportTaskProgressCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -121,6 +130,9 @@ export class ReportTaskProgressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReportTaskProgressCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +161,8 @@ export class ReportTaskProgressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReportTaskProgressInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ReportTaskProgressOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,12 +172,18 @@ export class ReportTaskProgressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReportTaskProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReportTaskProgressCommand(input, context);
+    return se_ReportTaskProgressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReportTaskProgressCommandOutput> {
-    return deserializeAws_json1_1ReportTaskProgressCommand(output, context);
+    return de_ReportTaskProgressCommand(output, context);
   }
 
   // Start section: command_body_extra

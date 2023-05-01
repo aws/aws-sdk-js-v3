@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchDeleteTableRequest,
-  BatchDeleteTableRequestFilterSensitiveLog,
-  BatchDeleteTableResponse,
-  BatchDeleteTableResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteTableCommand,
-  serializeAws_json1_1BatchDeleteTableCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchDeleteTableRequest, BatchDeleteTableResponse } from "../models/models_0";
+import { de_BatchDeleteTableCommand, se_BatchDeleteTableCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteTableCommand}.
  */
 export interface BatchDeleteTableCommandInput extends BatchDeleteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteTableCommand}.
  */
 export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes multiple tables at once.</p>
  *          <note>
  *             <p>After completing this operation, you no longer have access to the table versions and
@@ -52,10 +49,20 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * import { GlueClient, BatchDeleteTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchDeleteTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchDeleteTableRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TablesToDelete: [ // BatchDeleteTableNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TransactionId: "STRING_VALUE",
+ * };
  * const command = new BatchDeleteTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteTableCommandInput - {@link BatchDeleteTableCommandInput}
+ * @returns {@link BatchDeleteTableCommandOutput}
  * @see {@link BatchDeleteTableCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -97,6 +104,9 @@ export class BatchDeleteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +135,8 @@ export class BatchDeleteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +146,18 @@ export class BatchDeleteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteTableCommand(input, context);
+    return se_BatchDeleteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteTableCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteTableCommand(output, context);
+    return de_BatchDeleteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

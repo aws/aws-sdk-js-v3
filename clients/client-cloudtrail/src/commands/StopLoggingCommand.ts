@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  StopLoggingRequest,
-  StopLoggingRequestFilterSensitiveLog,
-  StopLoggingResponse,
-  StopLoggingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopLoggingCommand,
-  serializeAws_json1_1StopLoggingCommand,
-} from "../protocols/Aws_json1_1";
+import { StopLoggingRequest, StopLoggingResponse } from "../models/models_0";
+import { de_StopLoggingCommand, se_StopLoggingCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopLoggingCommand}.
  */
 export interface StopLoggingCommandInput extends StopLoggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopLoggingCommand}.
  */
 export interface StopLoggingCommandOutput extends StopLoggingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Suspends the recording of Amazon Web Services API calls and log file delivery for the
  *          specified trail. Under most circumstances, there is no need to use this action. You can
  *          update a trail without stopping it first. This action is the only way to stop recording.
@@ -48,10 +45,15 @@ export interface StopLoggingCommandOutput extends StopLoggingResponse, __Metadat
  * import { CloudTrailClient, StopLoggingCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StopLoggingCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // StopLoggingRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StopLoggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopLoggingCommandInput - {@link StopLoggingCommandInput}
+ * @returns {@link StopLoggingCommandOutput}
  * @see {@link StopLoggingCommandInput} for command's `input` shape.
  * @see {@link StopLoggingCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -145,6 +147,9 @@ export class StopLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,8 +176,8 @@ export class StopLoggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopLoggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopLoggingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -182,12 +187,18 @@ export class StopLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopLoggingCommand(input, context);
+    return se_StopLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopLoggingCommandOutput> {
-    return deserializeAws_json1_1StopLoggingCommand(output, context);
+    return de_StopLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

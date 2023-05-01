@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  AddProfileKeyRequest,
-  AddProfileKeyRequestFilterSensitiveLog,
-  AddProfileKeyResponse,
-  AddProfileKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AddProfileKeyCommand,
-  serializeAws_restJson1AddProfileKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { AddProfileKeyRequest, AddProfileKeyResponse } from "../models/models_0";
+import { de_AddProfileKeyCommand, se_AddProfileKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddProfileKeyCommand}.
  */
 export interface AddProfileKeyCommandInput extends AddProfileKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddProfileKeyCommand}.
  */
 export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a new key value with a specific profile, such as a Contact Record
  *          ContactId.</p>
  *          <p>A profile object can have a single unique key and any number of additional keys that can
@@ -45,10 +42,20 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  * import { CustomerProfilesClient, AddProfileKeyCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, AddProfileKeyCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // AddProfileKeyRequest
+ *   ProfileId: "STRING_VALUE", // required
+ *   KeyName: "STRING_VALUE", // required
+ *   Values: [ // requestValueList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new AddProfileKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddProfileKeyCommandInput - {@link AddProfileKeyCommandInput}
+ * @returns {@link AddProfileKeyCommandOutput}
  * @see {@link AddProfileKeyCommandInput} for command's `input` shape.
  * @see {@link AddProfileKeyCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -87,6 +94,9 @@ export class AddProfileKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddProfileKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +123,8 @@ export class AddProfileKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddProfileKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddProfileKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +134,18 @@ export class AddProfileKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddProfileKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddProfileKeyCommand(input, context);
+    return se_AddProfileKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddProfileKeyCommandOutput> {
-    return deserializeAws_restJson1AddProfileKeyCommand(output, context);
+    return de_AddProfileKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

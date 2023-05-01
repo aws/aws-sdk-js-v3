@@ -10,7 +10,7 @@ import {
 import { ChimeSDKMessagingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeSDKMessagingClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListChannelsModeratedByAppInstanceUserCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListChannelsModeratedByAppInstanceUser(
   config: ChimeSDKMessagingPaginationConfiguration,
   input: ListChannelsModeratedByAppInstanceUserCommandInput,

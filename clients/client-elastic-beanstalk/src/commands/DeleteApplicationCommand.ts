@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { DeleteApplicationMessage, DeleteApplicationMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteApplicationCommand,
-  serializeAws_queryDeleteApplicationCommand,
-} from "../protocols/Aws_query";
+import { DeleteApplicationMessage } from "../models/models_0";
+import { de_DeleteApplicationCommand, se_DeleteApplicationCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationCommand}.
  */
 export interface DeleteApplicationCommandInput extends DeleteApplicationMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationCommand}.
  */
 export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified application along with all associated versions and
  *       configurations. The application versions will not be deleted from your Amazon S3
  *       bucket.</p>
@@ -42,10 +44,16 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, DeleteApplicationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DeleteApplicationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DeleteApplicationMessage
+ *   ApplicationName: "STRING_VALUE", // required
+ *   TerminateEnvByForce: true || false,
+ * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
+ * @returns {@link DeleteApplicationCommandOutput}
  * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -84,6 +92,9 @@ export class DeleteApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +123,8 @@ export class DeleteApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +134,18 @@ export class DeleteApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteApplicationCommand(input, context);
+    return se_DeleteApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationCommandOutput> {
-    return deserializeAws_queryDeleteApplicationCommand(output, context);
+    return de_DeleteApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

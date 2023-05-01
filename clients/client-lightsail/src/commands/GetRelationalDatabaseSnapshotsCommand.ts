@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetRelationalDatabaseSnapshotsRequest, GetRelationalDatabaseSnapshotsResult } from "../models/models_1";
 import {
-  GetRelationalDatabaseSnapshotsRequest,
-  GetRelationalDatabaseSnapshotsRequestFilterSensitiveLog,
-  GetRelationalDatabaseSnapshotsResult,
-  GetRelationalDatabaseSnapshotsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetRelationalDatabaseSnapshotsCommand,
-  serializeAws_json1_1GetRelationalDatabaseSnapshotsCommand,
+  de_GetRelationalDatabaseSnapshotsCommand,
+  se_GetRelationalDatabaseSnapshotsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseSnapshotsCommand}.
  */
 export interface GetRelationalDatabaseSnapshotsCommandInput extends GetRelationalDatabaseSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseSnapshotsCommand}.
  */
 export interface GetRelationalDatabaseSnapshotsCommandOutput
@@ -37,6 +36,7 @@ export interface GetRelationalDatabaseSnapshotsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all of your database snapshots in Amazon Lightsail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetRelationalDatabaseSnapshotsCommandOutput
  * import { LightsailClient, GetRelationalDatabaseSnapshotsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseSnapshotsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetRelationalDatabaseSnapshotsRequest
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetRelationalDatabaseSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseSnapshotsCommandInput - {@link GetRelationalDatabaseSnapshotsCommandInput}
+ * @returns {@link GetRelationalDatabaseSnapshotsCommandOutput}
  * @see {@link GetRelationalDatabaseSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -101,6 +106,9 @@ export class GetRelationalDatabaseSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +137,8 @@ export class GetRelationalDatabaseSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRelationalDatabaseSnapshotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRelationalDatabaseSnapshotsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +148,24 @@ export class GetRelationalDatabaseSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRelationalDatabaseSnapshotsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseSnapshotsCommand(input, context);
+    return se_GetRelationalDatabaseSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseSnapshotsCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseSnapshotsCommand(output, context);
+    return de_GetRelationalDatabaseSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

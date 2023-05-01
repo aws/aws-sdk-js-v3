@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetGcmChannelRequest,
-  GetGcmChannelRequestFilterSensitiveLog,
-  GetGcmChannelResponse,
-  GetGcmChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetGcmChannelRequest, GetGcmChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetGcmChannelCommand,
-  serializeAws_restJson1GetGcmChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetGcmChannelCommand, se_GetGcmChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGcmChannelCommand}.
  */
 export interface GetGcmChannelCommandInput extends GetGcmChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGcmChannelCommand}.
  */
 export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the GCM channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __Met
  * import { PinpointClient, GetGcmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetGcmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetGcmChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetGcmChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGcmChannelCommandInput - {@link GetGcmChannelCommandInput}
+ * @returns {@link GetGcmChannelCommandOutput}
  * @see {@link GetGcmChannelCommandInput} for command's `input` shape.
  * @see {@link GetGcmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +92,9 @@ export class GetGcmChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGcmChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class GetGcmChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGcmChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGcmChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class GetGcmChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGcmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGcmChannelCommand(input, context);
+    return se_GetGcmChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGcmChannelCommandOutput> {
-    return deserializeAws_restJson1GetGcmChannelCommand(output, context);
+    return de_GetGcmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

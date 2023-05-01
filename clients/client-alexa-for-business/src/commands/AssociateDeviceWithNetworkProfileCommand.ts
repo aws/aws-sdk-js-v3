@@ -16,20 +16,22 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import {
   AssociateDeviceWithNetworkProfileRequest,
-  AssociateDeviceWithNetworkProfileRequestFilterSensitiveLog,
   AssociateDeviceWithNetworkProfileResponse,
-  AssociateDeviceWithNetworkProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommand,
-  serializeAws_json1_1AssociateDeviceWithNetworkProfileCommand,
+  de_AssociateDeviceWithNetworkProfileCommand,
+  se_AssociateDeviceWithNetworkProfileCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDeviceWithNetworkProfileCommand}.
  */
 export interface AssociateDeviceWithNetworkProfileCommandInput extends AssociateDeviceWithNetworkProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDeviceWithNetworkProfileCommand}.
  */
 export interface AssociateDeviceWithNetworkProfileCommandOutput
@@ -37,6 +39,7 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a device with the specified network profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,16 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  * import { AlexaForBusinessClient, AssociateDeviceWithNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateDeviceWithNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // AssociateDeviceWithNetworkProfileRequest
+ *   DeviceArn: "STRING_VALUE", // required
+ *   NetworkProfileArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateDeviceWithNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDeviceWithNetworkProfileCommandInput - {@link AssociateDeviceWithNetworkProfileCommandInput}
+ * @returns {@link AssociateDeviceWithNetworkProfileCommandOutput}
  * @see {@link AssociateDeviceWithNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -80,6 +89,9 @@ export class AssociateDeviceWithNetworkProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDeviceWithNetworkProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +120,8 @@ export class AssociateDeviceWithNetworkProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDeviceWithNetworkProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDeviceWithNetworkProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +131,24 @@ export class AssociateDeviceWithNetworkProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateDeviceWithNetworkProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDeviceWithNetworkProfileCommand(input, context);
+    return se_AssociateDeviceWithNetworkProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDeviceWithNetworkProfileCommandOutput> {
-    return deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommand(output, context);
+    return de_AssociateDeviceWithNetworkProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

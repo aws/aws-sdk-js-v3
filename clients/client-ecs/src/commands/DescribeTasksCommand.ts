@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DescribeTasksRequest,
-  DescribeTasksRequestFilterSensitiveLog,
-  DescribeTasksResponse,
-  DescribeTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTasksCommand,
-  serializeAws_json1_1DescribeTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTasksRequest, DescribeTasksResponse } from "../models/models_0";
+import { de_DescribeTasksCommand, se_DescribeTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTasksCommand}.
  */
 export interface DescribeTasksCommandInput extends DescribeTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTasksCommand}.
  */
 export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a specified task or tasks.</p>
  *          <p>Currently, stopped tasks appear in the returned results for at least one hour.</p>
  * @example
@@ -43,10 +40,21 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * import { ECSClient, DescribeTasksCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeTasksCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DescribeTasksRequest
+ *   cluster: "STRING_VALUE",
+ *   tasks: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   include: [ // TaskFieldList
+ *     "TAGS",
+ *   ],
+ * };
  * const command = new DescribeTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTasksCommandInput - {@link DescribeTasksCommandInput}
+ * @returns {@link DescribeTasksCommandOutput}
  * @see {@link DescribeTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeTasksCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -136,6 +144,9 @@ export class DescribeTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,8 +173,8 @@ export class DescribeTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -173,12 +184,18 @@ export class DescribeTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTasksCommand(input, context);
+    return se_DescribeTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeTasksCommand(output, context);
+    return de_DescribeTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

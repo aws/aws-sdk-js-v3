@@ -21,15 +21,19 @@ import {
   SearchPlaceIndexForSuggestionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1SearchPlaceIndexForSuggestionsCommand,
-  serializeAws_restJson1SearchPlaceIndexForSuggestionsCommand,
+  de_SearchPlaceIndexForSuggestionsCommand,
+  se_SearchPlaceIndexForSuggestionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchPlaceIndexForSuggestionsCommand}.
  */
 export interface SearchPlaceIndexForSuggestionsCommandInput extends SearchPlaceIndexForSuggestionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchPlaceIndexForSuggestionsCommand}.
  */
 export interface SearchPlaceIndexForSuggestionsCommandOutput
@@ -37,6 +41,7 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates suggestions for addresses and points of interest based on partial or
  *             misspelled free-form text. This operation is also known as autocomplete, autosuggest, or
  *             fuzzy matching.</p>
@@ -55,10 +60,27 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * import { LocationClient, SearchPlaceIndexForSuggestionsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, SearchPlaceIndexForSuggestionsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // SearchPlaceIndexForSuggestionsRequest
+ *   IndexName: "STRING_VALUE", // required
+ *   Text: "STRING_VALUE", // required
+ *   BiasPosition: [ // Position
+ *     Number("double"),
+ *   ],
+ *   FilterBBox: [ // BoundingBox
+ *     Number("double"),
+ *   ],
+ *   FilterCountries: [ // CountryCodeList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   Language: "STRING_VALUE",
+ * };
  * const command = new SearchPlaceIndexForSuggestionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchPlaceIndexForSuggestionsCommandInput - {@link SearchPlaceIndexForSuggestionsCommandInput}
+ * @returns {@link SearchPlaceIndexForSuggestionsCommandOutput}
  * @see {@link SearchPlaceIndexForSuggestionsCommandInput} for command's `input` shape.
  * @see {@link SearchPlaceIndexForSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -98,6 +120,9 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchPlaceIndexForSuggestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,18 +162,24 @@ export class SearchPlaceIndexForSuggestionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SearchPlaceIndexForSuggestionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchPlaceIndexForSuggestionsCommand(input, context);
+    return se_SearchPlaceIndexForSuggestionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchPlaceIndexForSuggestionsCommandOutput> {
-    return deserializeAws_restJson1SearchPlaceIndexForSuggestionsCommand(output, context);
+    return de_SearchPlaceIndexForSuggestionsCommand(output, context);
   }
 
   // Start section: command_body_extra

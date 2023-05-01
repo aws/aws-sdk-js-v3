@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListProtectionsRequest,
-  ListProtectionsRequestFilterSensitiveLog,
-  ListProtectionsResponse,
-  ListProtectionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProtectionsCommand,
-  serializeAws_json1_1ListProtectionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProtectionsRequest, ListProtectionsResponse } from "../models/models_0";
+import { de_ListProtectionsCommand, se_ListProtectionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProtectionsCommand}.
  */
 export interface ListProtectionsCommandInput extends ListProtectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProtectionsCommand}.
  */
 export interface ListProtectionsCommandOutput extends ListProtectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves <a>Protection</a> objects for the account. You can retrieve all protections or you can provide
  *        filtering criteria and retrieve just the subset of protections that match the criteria. </p>
  * @example
@@ -43,10 +40,27 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  * import { ShieldClient, ListProtectionsCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, ListProtectionsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // ListProtectionsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   InclusionFilters: { // InclusionProtectionFilters
+ *     ResourceArns: [ // ResourceArnFilters
+ *       "STRING_VALUE",
+ *     ],
+ *     ProtectionNames: [ // ProtectionNameFilters
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceTypes: [ // ProtectedResourceTypeFilters
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListProtectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProtectionsCommandInput - {@link ListProtectionsCommandInput}
+ * @returns {@link ListProtectionsCommandOutput}
  * @see {@link ListProtectionsCommandInput} for command's `input` shape.
  * @see {@link ListProtectionsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -79,6 +93,9 @@ export class ListProtectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProtectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +124,8 @@ export class ListProtectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProtectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProtectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +135,18 @@ export class ListProtectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProtectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProtectionsCommand(input, context);
+    return se_ListProtectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectionsCommandOutput> {
-    return deserializeAws_json1_1ListProtectionsCommand(output, context);
+    return de_ListProtectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

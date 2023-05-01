@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateParallelDataRequest,
-  CreateParallelDataRequestFilterSensitiveLog,
-  CreateParallelDataResponse,
-  CreateParallelDataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateParallelDataCommand,
-  serializeAws_json1_1CreateParallelDataCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateParallelDataRequest, CreateParallelDataResponse } from "../models/models_0";
+import { de_CreateParallelDataCommand, se_CreateParallelDataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateParallelDataCommand}.
  */
 export interface CreateParallelDataCommandInput extends CreateParallelDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateParallelDataCommand}.
  */
 export interface CreateParallelDataCommandOutput extends CreateParallelDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a parallel data resource in Amazon Translate by importing an input file from
  *       Amazon S3. Parallel data files contain examples that show how you want segments of text to be
  *       translated. By adding parallel data, you can influence the style, tone, and word choice in
@@ -45,10 +42,31 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * import { TranslateClient, CreateParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, CreateParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = { // CreateParallelDataRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ParallelDataConfig: { // ParallelDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     Format: "TSV" || "CSV" || "TMX", // required
+ *   },
+ *   EncryptionKey: { // EncryptionKey
+ *     Type: "KMS", // required
+ *     Id: "STRING_VALUE", // required
+ *   },
+ *   ClientToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateParallelDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateParallelDataCommandInput - {@link CreateParallelDataCommandInput}
+ * @returns {@link CreateParallelDataCommandOutput}
  * @see {@link CreateParallelDataCommandInput} for command's `input` shape.
  * @see {@link CreateParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
@@ -101,6 +119,9 @@ export class CreateParallelDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateParallelDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +150,8 @@ export class CreateParallelDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateParallelDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateParallelDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +161,18 @@ export class CreateParallelDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateParallelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateParallelDataCommand(input, context);
+    return se_CreateParallelDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateParallelDataCommandOutput> {
-    return deserializeAws_json1_1CreateParallelDataCommand(output, context);
+    return de_CreateParallelDataCommand(output, context);
   }
 
   // Start section: command_body_extra

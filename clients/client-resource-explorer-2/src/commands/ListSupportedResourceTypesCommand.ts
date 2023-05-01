@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSupportedResourceTypesInput,
-  ListSupportedResourceTypesInputFilterSensitiveLog,
-  ListSupportedResourceTypesOutput,
-  ListSupportedResourceTypesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSupportedResourceTypesCommand,
-  serializeAws_restJson1ListSupportedResourceTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSupportedResourceTypesInput, ListSupportedResourceTypesOutput } from "../models/models_0";
+import { de_ListSupportedResourceTypesCommand, se_ListSupportedResourceTypesCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListSupportedResourceTypesCommand}.
  */
 export interface ListSupportedResourceTypesCommandInput extends ListSupportedResourceTypesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSupportedResourceTypesCommand}.
  */
 export interface ListSupportedResourceTypesCommandOutput extends ListSupportedResourceTypesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all resource types currently supported by Amazon Web Services Resource Explorer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,16 @@ export interface ListSupportedResourceTypesCommandOutput extends ListSupportedRe
  * import { ResourceExplorer2Client, ListSupportedResourceTypesCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, ListSupportedResourceTypesCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = { // ListSupportedResourceTypesInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSupportedResourceTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSupportedResourceTypesCommandInput - {@link ListSupportedResourceTypesCommandInput}
+ * @returns {@link ListSupportedResourceTypesCommandOutput}
  * @see {@link ListSupportedResourceTypesCommandInput} for command's `input` shape.
  * @see {@link ListSupportedResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -89,6 +92,9 @@ export class ListSupportedResourceTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSupportedResourceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +123,8 @@ export class ListSupportedResourceTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSupportedResourceTypesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSupportedResourceTypesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +134,21 @@ export class ListSupportedResourceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSupportedResourceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSupportedResourceTypesCommand(input, context);
+    return se_ListSupportedResourceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSupportedResourceTypesCommandOutput> {
-    return deserializeAws_restJson1ListSupportedResourceTypesCommand(output, context);
+    return de_ListSupportedResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

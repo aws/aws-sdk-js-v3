@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { SubscribeToEventRequest, SubscribeToEventRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1SubscribeToEventCommand,
-  serializeAws_json1_1SubscribeToEventCommand,
-} from "../protocols/Aws_json1_1";
+import { SubscribeToEventRequest } from "../models/models_0";
+import { de_SubscribeToEventCommand, se_SubscribeToEventCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SubscribeToEventCommand}.
  */
 export interface SubscribeToEventCommandInput extends SubscribeToEventRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubscribeToEventCommand}.
  */
 export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the process of sending Amazon Simple Notification Service (SNS) notifications
  *          about a specified event to a specified SNS topic.</p>
  * @example
@@ -38,10 +40,17 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, SubscribeToEventCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, SubscribeToEventCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // SubscribeToEventRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   event: "STRING_VALUE", // required
+ *   topicArn: "STRING_VALUE", // required
+ * };
  * const command = new SubscribeToEventCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubscribeToEventCommandInput - {@link SubscribeToEventCommandInput}
+ * @returns {@link SubscribeToEventCommandOutput}
  * @see {@link SubscribeToEventCommandInput} for command's `input` shape.
  * @see {@link SubscribeToEventCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -99,6 +108,9 @@ export class SubscribeToEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubscribeToEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +139,8 @@ export class SubscribeToEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubscribeToEventRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +150,18 @@ export class SubscribeToEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubscribeToEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubscribeToEventCommand(input, context);
+    return se_SubscribeToEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeToEventCommandOutput> {
-    return deserializeAws_json1_1SubscribeToEventCommand(output, context);
+    return de_SubscribeToEventCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,22 +15,24 @@ import {
 
 import {
   DescribeDraftAppVersionResourcesImportStatusRequest,
-  DescribeDraftAppVersionResourcesImportStatusRequestFilterSensitiveLog,
   DescribeDraftAppVersionResourcesImportStatusResponse,
-  DescribeDraftAppVersionResourcesImportStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeDraftAppVersionResourcesImportStatusCommand,
-  serializeAws_restJson1DescribeDraftAppVersionResourcesImportStatusCommand,
+  de_DescribeDraftAppVersionResourcesImportStatusCommand,
+  se_DescribeDraftAppVersionResourcesImportStatusCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDraftAppVersionResourcesImportStatusCommand}.
  */
 export interface DescribeDraftAppVersionResourcesImportStatusCommandInput
   extends DescribeDraftAppVersionResourcesImportStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDraftAppVersionResourcesImportStatusCommand}.
  */
 export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the status of importing resources to an application version.</p>
  *          <note>
  *             <p>If you get a 404 error with
@@ -52,10 +55,15 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  * import { ResiliencehubClient, DescribeDraftAppVersionResourcesImportStatusCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeDraftAppVersionResourcesImportStatusCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DescribeDraftAppVersionResourcesImportStatusRequest
+ *   appArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDraftAppVersionResourcesImportStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDraftAppVersionResourcesImportStatusCommandInput - {@link DescribeDraftAppVersionResourcesImportStatusCommandInput}
+ * @returns {@link DescribeDraftAppVersionResourcesImportStatusCommandOutput}
  * @see {@link DescribeDraftAppVersionResourcesImportStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeDraftAppVersionResourcesImportStatusCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -66,7 +74,7 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -97,6 +105,9 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDraftAppVersionResourcesImportStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +142,8 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDraftAppVersionResourcesImportStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDraftAppVersionResourcesImportStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,18 +153,24 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDraftAppVersionResourcesImportStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDraftAppVersionResourcesImportStatusCommand(input, context);
+    return se_DescribeDraftAppVersionResourcesImportStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDraftAppVersionResourcesImportStatusCommandOutput> {
-    return deserializeAws_restJson1DescribeDraftAppVersionResourcesImportStatusCommand(output, context);
+    return de_DescribeDraftAppVersionResourcesImportStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

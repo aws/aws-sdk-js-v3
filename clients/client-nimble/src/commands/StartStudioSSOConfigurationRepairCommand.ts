@@ -15,21 +15,24 @@ import {
 
 import {
   StartStudioSSOConfigurationRepairRequest,
-  StartStudioSSOConfigurationRepairRequestFilterSensitiveLog,
   StartStudioSSOConfigurationRepairResponse,
   StartStudioSSOConfigurationRepairResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
-  deserializeAws_restJson1StartStudioSSOConfigurationRepairCommand,
-  serializeAws_restJson1StartStudioSSOConfigurationRepairCommand,
+  de_StartStudioSSOConfigurationRepairCommand,
+  se_StartStudioSSOConfigurationRepairCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartStudioSSOConfigurationRepairCommand}.
  */
 export interface StartStudioSSOConfigurationRepairCommandInput extends StartStudioSSOConfigurationRepairRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartStudioSSOConfigurationRepairCommand}.
  */
 export interface StartStudioSSOConfigurationRepairCommandOutput
@@ -37,6 +40,7 @@ export interface StartStudioSSOConfigurationRepairCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Repairs the IAM Identity Center configuration for a given studio.</p>
  *         <p>If the studio has a valid IAM Identity Center configuration currently associated with
  *             it, this operation will fail with a validation error.</p>
@@ -50,10 +54,16 @@ export interface StartStudioSSOConfigurationRepairCommandOutput
  * import { NimbleClient, StartStudioSSOConfigurationRepairCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, StartStudioSSOConfigurationRepairCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // StartStudioSSOConfigurationRepairRequest
+ *   clientToken: "STRING_VALUE",
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new StartStudioSSOConfigurationRepairCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStudioSSOConfigurationRepairCommandInput - {@link StartStudioSSOConfigurationRepairCommandInput}
+ * @returns {@link StartStudioSSOConfigurationRepairCommandOutput}
  * @see {@link StartStudioSSOConfigurationRepairCommandInput} for command's `input` shape.
  * @see {@link StartStudioSSOConfigurationRepairCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -101,6 +111,9 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStudioSSOConfigurationRepairCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,7 +142,7 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartStudioSSOConfigurationRepairRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StartStudioSSOConfigurationRepairResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -140,18 +153,24 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartStudioSSOConfigurationRepairCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartStudioSSOConfigurationRepairCommand(input, context);
+    return se_StartStudioSSOConfigurationRepairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartStudioSSOConfigurationRepairCommandOutput> {
-    return deserializeAws_restJson1StartStudioSSOConfigurationRepairCommand(output, context);
+    return de_StartStudioSSOConfigurationRepairCommand(output, context);
   }
 
   // Start section: command_body_extra

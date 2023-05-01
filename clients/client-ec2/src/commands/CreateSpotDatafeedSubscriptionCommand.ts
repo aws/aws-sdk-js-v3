@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateSpotDatafeedSubscriptionRequest, CreateSpotDatafeedSubscriptionResult } from "../models/models_2";
 import {
-  CreateSpotDatafeedSubscriptionRequest,
-  CreateSpotDatafeedSubscriptionRequestFilterSensitiveLog,
-  CreateSpotDatafeedSubscriptionResult,
-  CreateSpotDatafeedSubscriptionResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
-  serializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
+  de_CreateSpotDatafeedSubscriptionCommand,
+  se_CreateSpotDatafeedSubscriptionCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSpotDatafeedSubscriptionCommand}.
  */
 export interface CreateSpotDatafeedSubscriptionCommandInput extends CreateSpotDatafeedSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSpotDatafeedSubscriptionCommand}.
  */
 export interface CreateSpotDatafeedSubscriptionCommandOutput
@@ -37,6 +36,7 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
  *             You can create one data feed per Amazon Web Services account. For more information, see
  *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
@@ -47,10 +47,17 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  * import { EC2Client, CreateSpotDatafeedSubscriptionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateSpotDatafeedSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateSpotDatafeedSubscriptionRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ *   Prefix: "STRING_VALUE",
+ * };
  * const command = new CreateSpotDatafeedSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSpotDatafeedSubscriptionCommandInput - {@link CreateSpotDatafeedSubscriptionCommandInput}
+ * @returns {@link CreateSpotDatafeedSubscriptionCommandOutput}
  * @see {@link CreateSpotDatafeedSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -96,6 +103,9 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSpotDatafeedSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +134,8 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSpotDatafeedSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSpotDatafeedSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +145,24 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateSpotDatafeedSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateSpotDatafeedSubscriptionCommand(input, context);
+    return se_CreateSpotDatafeedSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSpotDatafeedSubscriptionCommandOutput> {
-    return deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand(output, context);
+    return de_CreateSpotDatafeedSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

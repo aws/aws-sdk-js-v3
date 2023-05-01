@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { GetCloudFrontOriginAccessIdentityRequest, GetCloudFrontOriginAccessIdentityResult } from "../models/models_1";
 import {
-  GetCloudFrontOriginAccessIdentityRequest,
-  GetCloudFrontOriginAccessIdentityRequestFilterSensitiveLog,
-  GetCloudFrontOriginAccessIdentityResult,
-  GetCloudFrontOriginAccessIdentityResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand,
-  serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand,
+  de_GetCloudFrontOriginAccessIdentityCommand,
+  se_GetCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetCloudFrontOriginAccessIdentityCommand}.
  */
 export interface GetCloudFrontOriginAccessIdentityCommandInput extends GetCloudFrontOriginAccessIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCloudFrontOriginAccessIdentityCommand}.
  */
 export interface GetCloudFrontOriginAccessIdentityCommandOutput
@@ -37,6 +36,7 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the information about an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
  * import { CloudFrontClient, GetCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetCloudFrontOriginAccessIdentityCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetCloudFrontOriginAccessIdentityRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCloudFrontOriginAccessIdentityCommandInput - {@link GetCloudFrontOriginAccessIdentityCommandInput}
+ * @returns {@link GetCloudFrontOriginAccessIdentityCommandOutput}
  * @see {@link GetCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
  * @see {@link GetCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +82,9 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCloudFrontOriginAccessIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCloudFrontOriginAccessIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCloudFrontOriginAccessIdentityResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +124,24 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand(input, context);
+    return se_GetCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand(output, context);
+    return de_GetCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

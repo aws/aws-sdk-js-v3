@@ -23,15 +23,14 @@ import {
   RecognizeUtteranceResponse,
   RecognizeUtteranceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1RecognizeUtteranceCommand,
-  serializeAws_restJson1RecognizeUtteranceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RecognizeUtteranceCommand, se_RecognizeUtteranceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RecognizeUtteranceCommand}.
  */
-type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "inputStream"> & {
+export type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "inputStream"> & {
   /**
    * For *`RecognizeUtteranceRequest["inputStream"]`*, see {@link RecognizeUtteranceRequest.inputStream}.
    */
@@ -42,6 +41,8 @@ type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "input
  */
 export interface RecognizeUtteranceCommandInput extends RecognizeUtteranceCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link RecognizeUtteranceCommand}.
  */
 export interface RecognizeUtteranceCommandOutput
@@ -49,6 +50,7 @@ export interface RecognizeUtteranceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use
  *          this API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2
  *          interprets the user input using the machine learning model built for
@@ -118,10 +120,23 @@ export interface RecognizeUtteranceCommandOutput
  * import { LexRuntimeV2Client, RecognizeUtteranceCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
  * // const { LexRuntimeV2Client, RecognizeUtteranceCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
  * const client = new LexRuntimeV2Client(config);
+ * const input = { // RecognizeUtteranceRequest
+ *   botId: "STRING_VALUE", // required
+ *   botAliasId: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   sessionId: "STRING_VALUE", // required
+ *   sessionState: "STRING_VALUE",
+ *   requestAttributes: "STRING_VALUE",
+ *   requestContentType: "STRING_VALUE", // required
+ *   responseContentType: "STRING_VALUE",
+ *   inputStream: "STREAMING_BLOB_VALUE",
+ * };
  * const command = new RecognizeUtteranceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RecognizeUtteranceCommandInput - {@link RecognizeUtteranceCommandInput}
+ * @returns {@link RecognizeUtteranceCommandOutput}
  * @see {@link RecognizeUtteranceCommandInput} for command's `input` shape.
  * @see {@link RecognizeUtteranceCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
@@ -169,6 +184,9 @@ export class RecognizeUtteranceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecognizeUtteranceCommandInput) {
     // Start section: command_constructor
     super();
@@ -208,15 +226,21 @@ export class RecognizeUtteranceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecognizeUtteranceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RecognizeUtteranceCommand(input, context);
+    return se_RecognizeUtteranceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<RecognizeUtteranceCommandOutput> {
-    return deserializeAws_restJson1RecognizeUtteranceCommand(output, context);
+    return de_RecognizeUtteranceCommand(output, context);
   }
 
   // Start section: command_body_extra

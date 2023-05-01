@@ -10,7 +10,7 @@ import { RolesAnywhereClient } from "../RolesAnywhereClient";
 import { RolesAnywherePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RolesAnywhereClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTrustAnchorsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTrustAnchors(
   config: RolesAnywherePaginationConfiguration,
   input: ListTrustAnchorsCommandInput,

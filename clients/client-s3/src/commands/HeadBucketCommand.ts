@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HeadBucketRequest, HeadBucketRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlHeadBucketCommand,
-  serializeAws_restXmlHeadBucketCommand,
-} from "../protocols/Aws_restXml";
+import { HeadBucketRequest } from "../models/models_0";
+import { de_HeadBucketCommand, se_HeadBucketCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link HeadBucketCommand}.
  */
 export interface HeadBucketCommandInput extends HeadBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link HeadBucketCommand}.
  */
 export interface HeadBucketCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action is useful to determine if a bucket exists and you have permission to
  *          access it. The action returns a <code>200 OK</code> if the bucket exists and you have
  *          permission to access it.</p>
@@ -47,10 +49,16 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  * import { S3Client, HeadBucketCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, HeadBucketCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // HeadBucketRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new HeadBucketCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param HeadBucketCommandInput - {@link HeadBucketCommandInput}
+ * @returns {@link HeadBucketCommandOutput}
  * @see {@link HeadBucketCommandInput} for command's `input` shape.
  * @see {@link HeadBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -94,6 +102,9 @@ export class HeadBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: HeadBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +131,8 @@ export class HeadBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HeadBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +142,18 @@ export class HeadBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HeadBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHeadBucketCommand(input, context);
+    return se_HeadBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HeadBucketCommandOutput> {
-    return deserializeAws_restXmlHeadBucketCommand(output, context);
+    return de_HeadBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteBucketOwnershipControlsRequest } from "../models/models_0";
 import {
-  DeleteBucketOwnershipControlsRequest,
-  DeleteBucketOwnershipControlsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketOwnershipControlsCommand,
-  serializeAws_restXmlDeleteBucketOwnershipControlsCommand,
+  de_DeleteBucketOwnershipControlsCommand,
+  se_DeleteBucketOwnershipControlsCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketOwnershipControlsCommand}.
  */
 export interface DeleteBucketOwnershipControlsCommandInput extends DeleteBucketOwnershipControlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketOwnershipControlsCommand}.
  */
 export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you
  *          must have the <code>s3:PutBucketOwnershipControls</code> permission. For more information
  *          about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
@@ -58,10 +60,16 @@ export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBe
  * import { S3Client, DeleteBucketOwnershipControlsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketOwnershipControlsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeleteBucketOwnershipControlsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketOwnershipControlsCommandInput - {@link DeleteBucketOwnershipControlsCommandInput}
+ * @returns {@link DeleteBucketOwnershipControlsCommandOutput}
  * @see {@link DeleteBucketOwnershipControlsCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketOwnershipControlsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -91,6 +99,9 @@ export class DeleteBucketOwnershipControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketOwnershipControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +130,8 @@ export class DeleteBucketOwnershipControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketOwnershipControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +141,21 @@ export class DeleteBucketOwnershipControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketOwnershipControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketOwnershipControlsCommand(input, context);
+    return se_DeleteBucketOwnershipControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketOwnershipControlsCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketOwnershipControlsCommand(output, context);
+    return de_DeleteBucketOwnershipControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

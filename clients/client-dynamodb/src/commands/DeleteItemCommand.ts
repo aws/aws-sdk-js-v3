@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DeleteItemInput,
-  DeleteItemInputFilterSensitiveLog,
-  DeleteItemOutput,
-  DeleteItemOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteItemCommand,
-  serializeAws_json1_0DeleteItemCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteItemInput, DeleteItemOutput } from "../models/models_0";
+import { de_DeleteItemCommand, se_DeleteItemCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteItemCommand}.
  */
 export interface DeleteItemCommandInput extends DeleteItemInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteItemCommand}.
  */
 export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a single item in a table by primary key. You can perform a conditional delete
  *             operation that deletes the item if it exists, or if it has an expected attribute
  *             value.</p>
@@ -52,10 +49,81 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  * import { DynamoDBClient, DeleteItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DeleteItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // DeleteItemInput
+ *   TableName: "STRING_VALUE", // required
+ *   Key: { // Key // required
+ *     "<keys>": { // AttributeValue Union: only one key present
+ *       S: "STRING_VALUE",
+ *       N: "STRING_VALUE",
+ *       B: "BLOB_VALUE",
+ *       SS: [ // StringSetAttributeValue
+ *         "STRING_VALUE",
+ *       ],
+ *       NS: [ // NumberSetAttributeValue
+ *         "STRING_VALUE",
+ *       ],
+ *       BS: [ // BinarySetAttributeValue
+ *         "BLOB_VALUE",
+ *       ],
+ *       M: { // MapAttributeValue
+ *         "<keys>": {//  Union: only one key present
+ *           S: "STRING_VALUE",
+ *           N: "STRING_VALUE",
+ *           B: "BLOB_VALUE",
+ *           SS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           BS: [
+ *             "BLOB_VALUE",
+ *           ],
+ *           M: {
+ *             "<keys>": "<AttributeValue>",
+ *           },
+ *           L: [ // ListAttributeValue
+ *             "<AttributeValue>",
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       },
+ *       L: [
+ *         "<AttributeValue>",
+ *       ],
+ *       NULL: true || false,
+ *       BOOL: true || false,
+ *     },
+ *   },
+ *   Expected: { // ExpectedAttributeMap
+ *     "<keys>": { // ExpectedAttributeValue
+ *       Value: "<AttributeValue>",
+ *       Exists: true || false,
+ *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH",
+ *       AttributeValueList: [ // AttributeValueList
+ *         "<AttributeValue>",
+ *       ],
+ *     },
+ *   },
+ *   ConditionalOperator: "AND" || "OR",
+ *   ReturnValues: "NONE" || "ALL_OLD" || "UPDATED_OLD" || "ALL_NEW" || "UPDATED_NEW",
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   ReturnItemCollectionMetrics: "SIZE" || "NONE",
+ *   ConditionExpression: "STRING_VALUE",
+ *   ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ExpressionAttributeValues: { // ExpressionAttributeValueMap
+ *     "<keys>": "<AttributeValue>",
+ *   },
+ * };
  * const command = new DeleteItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteItemCommandInput - {@link DeleteItemCommandInput}
+ * @returns {@link DeleteItemCommandOutput}
  * @see {@link DeleteItemCommandInput} for command's `input` shape.
  * @see {@link DeleteItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -137,6 +205,9 @@ export class DeleteItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,8 +234,8 @@ export class DeleteItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteItemOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -174,12 +245,18 @@ export class DeleteItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteItemCommand(input, context);
+    return se_DeleteItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteItemCommandOutput> {
-    return deserializeAws_json1_0DeleteItemCommand(output, context);
+    return de_DeleteItemCommand(output, context);
   }
 
   // Start section: command_body_extra

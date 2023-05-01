@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-stream",
-  "version": "3.296.0",
+  "version": "3.321.1",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -48,7 +48,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "browser": {
     "./dist-es/getAwsChunkedEncodingStream": "./dist-es/getAwsChunkedEncodingStream.browser",

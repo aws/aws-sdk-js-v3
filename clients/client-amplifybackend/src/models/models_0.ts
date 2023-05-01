@@ -3,14 +3,25 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { AmplifyBackendServiceException as __BaseException } from "./AmplifyBackendServiceException";
 
-export enum AdditionalConstraintsElement {
-  REQUIRE_DIGIT = "REQUIRE_DIGIT",
-  REQUIRE_LOWERCASE = "REQUIRE_LOWERCASE",
-  REQUIRE_SYMBOL = "REQUIRE_SYMBOL",
-  REQUIRE_UPPERCASE = "REQUIRE_UPPERCASE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AdditionalConstraintsElement = {
+  REQUIRE_DIGIT: "REQUIRE_DIGIT",
+  REQUIRE_LOWERCASE: "REQUIRE_LOWERCASE",
+  REQUIRE_SYMBOL: "REQUIRE_SYMBOL",
+  REQUIRE_UPPERCASE: "REQUIRE_UPPERCASE",
+} as const;
 
 /**
+ * @public
+ */
+export type AdditionalConstraintsElement =
+  (typeof AdditionalConstraintsElement)[keyof typeof AdditionalConstraintsElement];
+
+/**
+ * @public
  * <p>An error returned if a request is not formed properly.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -35,6 +46,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request body for CloneBackend.</p>
  */
 export interface CloneBackendRequest {
@@ -54,6 +66,9 @@ export interface CloneBackendRequest {
   TargetEnvironmentName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CloneBackendResponse {
   /**
    * <p>The app ID.</p>
@@ -87,6 +102,7 @@ export interface CloneBackendResponse {
 }
 
 /**
+ * @public
  * <p>An error returned if there's a temporary issue with the service.</p>
  */
 export class GatewayTimeoutException extends __BaseException {
@@ -111,6 +127,7 @@ export class GatewayTimeoutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error returned when a specific resource type is not found.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -141,6 +158,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -171,11 +189,13 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Defines the resource configuration for the data model in your Amplify project.</p>
  */
 export interface ResourceConfig {}
 
 /**
+ * @public
  * <p>The request body for CreateBackend.</p>
  */
 export interface CreateBackendRequest {
@@ -205,6 +225,9 @@ export interface CreateBackendRequest {
   ResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackendResponse {
   /**
    * <p>The app ID.</p>
@@ -237,14 +260,24 @@ export interface CreateBackendResponse {
   Status?: string;
 }
 
-export enum Mode {
-  AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS",
-  API_KEY = "API_KEY",
-  AWS_IAM = "AWS_IAM",
-  OPENID_CONNECT = "OPENID_CONNECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Mode = {
+  AMAZON_COGNITO_USER_POOLS: "AMAZON_COGNITO_USER_POOLS",
+  API_KEY: "API_KEY",
+  AWS_IAM: "AWS_IAM",
+  OPENID_CONNECT: "OPENID_CONNECT",
+} as const;
 
 /**
+ * @public
+ */
+export type Mode = (typeof Mode)[keyof typeof Mode];
+
+/**
+ * @public
  * <p>The authentication settings for accessing provisioned data models in your Amplify project.</p>
  */
 export interface BackendAPIAppSyncAuthSettings {
@@ -290,6 +323,7 @@ export interface BackendAPIAppSyncAuthSettings {
 }
 
 /**
+ * @public
  * <p>Describes the auth types for your configured data models.</p>
  */
 export interface BackendAPIAuthType {
@@ -304,14 +338,24 @@ export interface BackendAPIAuthType {
   Settings?: BackendAPIAppSyncAuthSettings;
 }
 
-export enum ResolutionStrategy {
-  AUTOMERGE = "AUTOMERGE",
-  LAMBDA = "LAMBDA",
-  NONE = "NONE",
-  OPTIMISTIC_CONCURRENCY = "OPTIMISTIC_CONCURRENCY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResolutionStrategy = {
+  AUTOMERGE: "AUTOMERGE",
+  LAMBDA: "LAMBDA",
+  NONE: "NONE",
+  OPTIMISTIC_CONCURRENCY: "OPTIMISTIC_CONCURRENCY",
+} as const;
 
 /**
+ * @public
+ */
+export type ResolutionStrategy = (typeof ResolutionStrategy)[keyof typeof ResolutionStrategy];
+
+/**
+ * @public
  * <p>Describes the conflict resolution configuration for your data model configured in your Amplify project.</p>
  */
 export interface BackendAPIConflictResolution {
@@ -322,6 +366,7 @@ export interface BackendAPIConflictResolution {
 }
 
 /**
+ * @public
  * <p>The resource config for the data model, configured as a part of the Amplify project.</p>
  */
 export interface BackendAPIResourceConfig {
@@ -357,6 +402,7 @@ export interface BackendAPIResourceConfig {
 }
 
 /**
+ * @public
  * <p>The request body for CreateBackendAPI.</p>
  */
 export interface CreateBackendAPIRequest {
@@ -381,6 +427,9 @@ export interface CreateBackendAPIRequest {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackendAPIResponse {
   /**
    * <p>The app ID.</p>
@@ -413,12 +462,22 @@ export interface CreateBackendAPIResponse {
   Status?: string;
 }
 
-export enum AuthResources {
-  IDENTITY_POOL_AND_USER_POOL = "IDENTITY_POOL_AND_USER_POOL",
-  USER_POOL_ONLY = "USER_POOL_ONLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthResources = {
+  IDENTITY_POOL_AND_USER_POOL: "IDENTITY_POOL_AND_USER_POOL",
+  USER_POOL_ONLY: "USER_POOL_ONLY",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthResources = (typeof AuthResources)[keyof typeof AuthResources];
+
+/**
+ * @public
  * <p>Describes authorization configurations for the auth resources, configured as a part of your Amplify project.</p>
  */
 export interface CreateBackendAuthIdentityPoolConfig {
@@ -433,16 +492,35 @@ export interface CreateBackendAuthIdentityPoolConfig {
   UnauthenticatedLogin: boolean | undefined;
 }
 
-export enum Service {
-  COGNITO = "COGNITO",
-}
-
-export enum DeliveryMethod {
-  EMAIL = "EMAIL",
-  SMS = "SMS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Service = {
+  COGNITO: "COGNITO",
+} as const;
 
 /**
+ * @public
+ */
+export type Service = (typeof Service)[keyof typeof Service];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeliveryMethod = {
+  EMAIL: "EMAIL",
+  SMS: "SMS",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliveryMethod = (typeof DeliveryMethod)[keyof typeof DeliveryMethod];
+
+/**
+ * @public
  * <p>The configuration for the email sent when an app user forgets their password.</p>
  */
 export interface EmailSettings {
@@ -458,6 +536,7 @@ export interface EmailSettings {
 }
 
 /**
+ * @public
  * <p>SMS settings for authentication.</p>
  */
 export interface SmsSettings {
@@ -468,6 +547,7 @@ export interface SmsSettings {
 }
 
 /**
+ * @public
  * <p><b>(DEPRECATED)</b> Describes the forgot password policy for authenticating into the Amplify app.</p>
  */
 export interface CreateBackendAuthForgotPasswordConfig {
@@ -487,18 +567,37 @@ export interface CreateBackendAuthForgotPasswordConfig {
   SmsSettings?: SmsSettings;
 }
 
-export enum MFAMode {
-  OFF = "OFF",
-  ON = "ON",
-  OPTIONAL = "OPTIONAL",
-}
-
-export enum MfaTypesElement {
-  SMS = "SMS",
-  TOTP = "TOTP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MFAMode = {
+  OFF: "OFF",
+  ON: "ON",
+  OPTIONAL: "OPTIONAL",
+} as const;
 
 /**
+ * @public
+ */
+export type MFAMode = (typeof MFAMode)[keyof typeof MFAMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const MfaTypesElement = {
+  SMS: "SMS",
+  TOTP: "TOTP",
+} as const;
+
+/**
+ * @public
+ */
+export type MfaTypesElement = (typeof MfaTypesElement)[keyof typeof MfaTypesElement];
+
+/**
+ * @public
  * <p>The settings of your MFA configuration for the backend of your Amplify project.</p>
  */
 export interface Settings {
@@ -514,6 +613,7 @@ export interface Settings {
 }
 
 /**
+ * @public
  * <p>Describes whether to apply multi-factor authentication policies for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
  */
 export interface CreateBackendAuthMFAConfig {
@@ -528,20 +628,39 @@ export interface CreateBackendAuthMFAConfig {
   Settings?: Settings;
 }
 
-export enum OAuthGrantType {
-  CODE = "CODE",
-  IMPLICIT = "IMPLICIT",
-}
-
-export enum OAuthScopesElement {
-  AWS_COGNITO_SIGNIN_USER_ADMIN = "AWS_COGNITO_SIGNIN_USER_ADMIN",
-  EMAIL = "EMAIL",
-  OPENID = "OPENID",
-  PHONE = "PHONE",
-  PROFILE = "PROFILE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OAuthGrantType = {
+  CODE: "CODE",
+  IMPLICIT: "IMPLICIT",
+} as const;
 
 /**
+ * @public
+ */
+export type OAuthGrantType = (typeof OAuthGrantType)[keyof typeof OAuthGrantType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OAuthScopesElement = {
+  AWS_COGNITO_SIGNIN_USER_ADMIN: "AWS_COGNITO_SIGNIN_USER_ADMIN",
+  EMAIL: "EMAIL",
+  OPENID: "OPENID",
+  PHONE: "PHONE",
+  PROFILE: "PROFILE",
+} as const;
+
+/**
+ * @public
+ */
+export type OAuthScopesElement = (typeof OAuthScopesElement)[keyof typeof OAuthScopesElement];
+
+/**
+ * @public
  * <p>Describes third-party social federation configurations for allowing your app users to sign in using OAuth.</p>
  */
 export interface BackendAuthSocialProviderConfig {
@@ -557,6 +676,7 @@ export interface BackendAuthSocialProviderConfig {
 }
 
 /**
+ * @public
  * <p>Describes Apple social federation configurations for allowing your app users to sign in using OAuth.</p>
  */
 export interface BackendAuthAppleProviderConfig {
@@ -582,6 +702,7 @@ export interface BackendAuthAppleProviderConfig {
 }
 
 /**
+ * @public
  * <p>The settings for using the social identity providers for access to your Amplify app.</p>
  */
 export interface SocialProviderSettings {
@@ -607,6 +728,7 @@ export interface SocialProviderSettings {
 }
 
 /**
+ * @public
  * <p>Creates the OAuth configuration for your Amplify project.</p>
  */
 export interface CreateBackendAuthOAuthConfig {
@@ -642,6 +764,7 @@ export interface CreateBackendAuthOAuthConfig {
 }
 
 /**
+ * @public
  * <p>The password policy configuration for the backend to your Amplify project.</p>
  */
 export interface CreateBackendAuthPasswordPolicyConfig {
@@ -656,34 +779,54 @@ export interface CreateBackendAuthPasswordPolicyConfig {
   MinimumLength: number | undefined;
 }
 
-export enum RequiredSignUpAttributesElement {
-  ADDRESS = "ADDRESS",
-  BIRTHDATE = "BIRTHDATE",
-  EMAIL = "EMAIL",
-  FAMILY_NAME = "FAMILY_NAME",
-  GENDER = "GENDER",
-  GIVEN_NAME = "GIVEN_NAME",
-  LOCALE = "LOCALE",
-  MIDDLE_NAME = "MIDDLE_NAME",
-  NAME = "NAME",
-  NICKNAME = "NICKNAME",
-  PHONE_NUMBER = "PHONE_NUMBER",
-  PICTURE = "PICTURE",
-  PREFERRED_USERNAME = "PREFERRED_USERNAME",
-  PROFILE = "PROFILE",
-  UPDATED_AT = "UPDATED_AT",
-  WEBSITE = "WEBSITE",
-  ZONE_INFO = "ZONE_INFO",
-}
-
-export enum SignInMethod {
-  EMAIL = "EMAIL",
-  EMAIL_AND_PHONE_NUMBER = "EMAIL_AND_PHONE_NUMBER",
-  PHONE_NUMBER = "PHONE_NUMBER",
-  USERNAME = "USERNAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RequiredSignUpAttributesElement = {
+  ADDRESS: "ADDRESS",
+  BIRTHDATE: "BIRTHDATE",
+  EMAIL: "EMAIL",
+  FAMILY_NAME: "FAMILY_NAME",
+  GENDER: "GENDER",
+  GIVEN_NAME: "GIVEN_NAME",
+  LOCALE: "LOCALE",
+  MIDDLE_NAME: "MIDDLE_NAME",
+  NAME: "NAME",
+  NICKNAME: "NICKNAME",
+  PHONE_NUMBER: "PHONE_NUMBER",
+  PICTURE: "PICTURE",
+  PREFERRED_USERNAME: "PREFERRED_USERNAME",
+  PROFILE: "PROFILE",
+  UPDATED_AT: "UPDATED_AT",
+  WEBSITE: "WEBSITE",
+  ZONE_INFO: "ZONE_INFO",
+} as const;
 
 /**
+ * @public
+ */
+export type RequiredSignUpAttributesElement =
+  (typeof RequiredSignUpAttributesElement)[keyof typeof RequiredSignUpAttributesElement];
+
+/**
+ * @public
+ * @enum
+ */
+export const SignInMethod = {
+  EMAIL: "EMAIL",
+  EMAIL_AND_PHONE_NUMBER: "EMAIL_AND_PHONE_NUMBER",
+  PHONE_NUMBER: "PHONE_NUMBER",
+  USERNAME: "USERNAME",
+} as const;
+
+/**
+ * @public
+ */
+export type SignInMethod = (typeof SignInMethod)[keyof typeof SignInMethod];
+
+/**
+ * @public
  * <p>Creates an email or SMS verification message for the auth resource configured for your Amplify project.</p>
  */
 export interface CreateBackendAuthVerificationMessageConfig {
@@ -704,6 +847,7 @@ export interface CreateBackendAuthVerificationMessageConfig {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon Cognito user pool configuration for the auth resource to be configured for your Amplify project.</p>
  */
 export interface CreateBackendAuthUserPoolConfig {
@@ -749,6 +893,7 @@ export interface CreateBackendAuthUserPoolConfig {
 }
 
 /**
+ * @public
  * <p>Defines the resource configuration when creating an auth resource in your Amplify project.</p>
  */
 export interface CreateBackendAuthResourceConfig {
@@ -774,6 +919,7 @@ export interface CreateBackendAuthResourceConfig {
 }
 
 /**
+ * @public
  * <p>The request body for CreateBackendAuth.</p>
  */
 export interface CreateBackendAuthRequest {
@@ -798,6 +944,9 @@ export interface CreateBackendAuthRequest {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackendAuthResponse {
   /**
    * <p>The app ID.</p>
@@ -831,6 +980,7 @@ export interface CreateBackendAuthResponse {
 }
 
 /**
+ * @public
  * <p>The request body for CreateBackendConfig.</p>
  */
 export interface CreateBackendConfigRequest {
@@ -845,6 +995,9 @@ export interface CreateBackendConfigRequest {
   BackendManagerAppId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackendConfigResponse {
   /**
    * <p>The app ID.</p>
@@ -867,19 +1020,38 @@ export interface CreateBackendConfigResponse {
   Status?: string;
 }
 
-export enum AuthenticatedElement {
-  CREATE_AND_UPDATE = "CREATE_AND_UPDATE",
-  DELETE = "DELETE",
-  READ = "READ",
-}
-
-export enum UnAuthenticatedElement {
-  CREATE_AND_UPDATE = "CREATE_AND_UPDATE",
-  DELETE = "DELETE",
-  READ = "READ",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticatedElement = {
+  CREATE_AND_UPDATE: "CREATE_AND_UPDATE",
+  DELETE: "DELETE",
+  READ: "READ",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthenticatedElement = (typeof AuthenticatedElement)[keyof typeof AuthenticatedElement];
+
+/**
+ * @public
+ * @enum
+ */
+export const UnAuthenticatedElement = {
+  CREATE_AND_UPDATE: "CREATE_AND_UPDATE",
+  DELETE: "DELETE",
+  READ: "READ",
+} as const;
+
+/**
+ * @public
+ */
+export type UnAuthenticatedElement = (typeof UnAuthenticatedElement)[keyof typeof UnAuthenticatedElement];
+
+/**
+ * @public
  * <p>Describes the read, write, and delete permissions users have against your storage S3 bucket.</p>
  */
 export interface BackendStoragePermissions {
@@ -894,11 +1066,21 @@ export interface BackendStoragePermissions {
   UnAuthenticated?: (UnAuthenticatedElement | string)[];
 }
 
-export enum ServiceName {
-  S3 = "S3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceName = {
+  S3: "S3",
+} as const;
 
 /**
+ * @public
+ */
+export type ServiceName = (typeof ServiceName)[keyof typeof ServiceName];
+
+/**
+ * @public
  * <p>The resource configuration for creating backend storage.</p>
  */
 export interface CreateBackendStorageResourceConfig {
@@ -919,6 +1101,7 @@ export interface CreateBackendStorageResourceConfig {
 }
 
 /**
+ * @public
  * <p>The request body for CreateBackendStorage.</p>
  */
 export interface CreateBackendStorageRequest {
@@ -943,6 +1126,9 @@ export interface CreateBackendStorageRequest {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateBackendStorageResponse {
   /**
    * <p>The app ID.</p>
@@ -965,6 +1151,9 @@ export interface CreateBackendStorageResponse {
   Status?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateTokenRequest {
   /**
    * <p>The app ID.</p>
@@ -972,6 +1161,9 @@ export interface CreateTokenRequest {
   AppId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateTokenResponse {
   /**
    * <p>The app ID.</p>
@@ -994,6 +1186,9 @@ export interface CreateTokenResponse {
   Ttl?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackendRequest {
   /**
    * <p>The app ID.</p>
@@ -1006,6 +1201,9 @@ export interface DeleteBackendRequest {
   BackendEnvironmentName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackendResponse {
   /**
    * <p>The app ID.</p>
@@ -1039,6 +1237,7 @@ export interface DeleteBackendResponse {
 }
 
 /**
+ * @public
  * <p>The request body for DeleteBackendAPI.</p>
  */
 export interface DeleteBackendAPIRequest {
@@ -1063,6 +1262,9 @@ export interface DeleteBackendAPIRequest {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackendAPIResponse {
   /**
    * <p>The app ID.</p>
@@ -1096,6 +1298,7 @@ export interface DeleteBackendAPIResponse {
 }
 
 /**
+ * @public
  * <p>The request body for DeleteBackendAuth.</p>
  */
 export interface DeleteBackendAuthRequest {
@@ -1115,6 +1318,9 @@ export interface DeleteBackendAuthRequest {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackendAuthResponse {
   /**
    * <p>The app ID.</p>
@@ -1148,6 +1354,7 @@ export interface DeleteBackendAuthResponse {
 }
 
 /**
+ * @public
  * <p>The request body for DeleteBackendStorage.</p>
  */
 export interface DeleteBackendStorageRequest {
@@ -1172,6 +1379,9 @@ export interface DeleteBackendStorageRequest {
   ServiceName: ServiceName | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBackendStorageResponse {
   /**
    * <p>The app ID.</p>
@@ -1194,6 +1404,9 @@ export interface DeleteBackendStorageResponse {
   Status?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTokenRequest {
   /**
    * <p>The app ID.</p>
@@ -1206,6 +1419,9 @@ export interface DeleteTokenRequest {
   SessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTokenResponse {
   /**
    * <p>Indicates whether the request succeeded or failed.</p>
@@ -1214,6 +1430,7 @@ export interface DeleteTokenResponse {
 }
 
 /**
+ * @public
  * <p>The request body for GenerateBackendAPIModels.</p>
  */
 export interface GenerateBackendAPIModelsRequest {
@@ -1233,6 +1450,9 @@ export interface GenerateBackendAPIModelsRequest {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GenerateBackendAPIModelsResponse {
   /**
    * <p>The app ID.</p>
@@ -1266,6 +1486,7 @@ export interface GenerateBackendAPIModelsResponse {
 }
 
 /**
+ * @public
  * <p>The request body for GetBackend.</p>
  */
 export interface GetBackendRequest {
@@ -1280,6 +1501,9 @@ export interface GetBackendRequest {
   BackendEnvironmentName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBackendResponse {
   /**
    * <p>A stringified version of the cli.json file for your Amplify project.</p>
@@ -1318,6 +1542,7 @@ export interface GetBackendResponse {
 }
 
 /**
+ * @public
  * <p>The request body for GetBackendAPI.</p>
  */
 export interface GetBackendAPIRequest {
@@ -1342,6 +1567,9 @@ export interface GetBackendAPIRequest {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBackendAPIResponse {
   /**
    * <p>The app ID.</p>
@@ -1370,6 +1598,7 @@ export interface GetBackendAPIResponse {
 }
 
 /**
+ * @public
  * <p>The request body for GetBackendAPIModels.</p>
  */
 export interface GetBackendAPIModelsRequest {
@@ -1389,11 +1618,23 @@ export interface GetBackendAPIModelsRequest {
   ResourceName: string | undefined;
 }
 
-export enum Status {
-  LATEST = "LATEST",
-  STALE = "STALE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  LATEST: "LATEST",
+  STALE: "STALE",
+} as const;
 
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ */
 export interface GetBackendAPIModelsResponse {
   /**
    * <p>Stringified JSON of the datastore model.</p>
@@ -1412,6 +1653,7 @@ export interface GetBackendAPIModelsResponse {
 }
 
 /**
+ * @public
  * <p>The request body for GetBackendAuth.</p>
  */
 export interface GetBackendAuthRequest {
@@ -1431,6 +1673,9 @@ export interface GetBackendAuthRequest {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBackendAuthResponse {
   /**
    * <p>The app ID.</p>
@@ -1458,6 +1703,9 @@ export interface GetBackendAuthResponse {
   ResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetBackendJobRequest {
   /**
    * <p>The app ID.</p>
@@ -1475,6 +1723,9 @@ export interface GetBackendJobRequest {
   JobId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBackendJobResponse {
   /**
    * <p>The app ID.</p>
@@ -1518,6 +1769,7 @@ export interface GetBackendJobResponse {
 }
 
 /**
+ * @public
  * <p>The request body for GetBackendStorage.</p>
  */
 export interface GetBackendStorageRequest {
@@ -1538,6 +1790,7 @@ export interface GetBackendStorageRequest {
 }
 
 /**
+ * @public
  * <p>The details for a backend storage resource.</p>
  */
 export interface GetBackendStorageResourceConfig {
@@ -1562,6 +1815,9 @@ export interface GetBackendStorageResourceConfig {
   ServiceName: ServiceName | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBackendStorageResponse {
   /**
    * <p>The app ID.</p>
@@ -1584,6 +1840,9 @@ export interface GetBackendStorageResponse {
   ResourceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTokenRequest {
   /**
    * <p>The app ID.</p>
@@ -1596,6 +1855,9 @@ export interface GetTokenRequest {
   SessionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTokenResponse {
   /**
    * <p>The app ID.</p>
@@ -1619,6 +1881,7 @@ export interface GetTokenResponse {
 }
 
 /**
+ * @public
  * <p>The request body for ImportBackendAuth.</p>
  */
 export interface ImportBackendAuthRequest {
@@ -1653,6 +1916,9 @@ export interface ImportBackendAuthRequest {
   WebClientId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportBackendAuthResponse {
   /**
    * <p>The app ID.</p>
@@ -1686,6 +1952,7 @@ export interface ImportBackendAuthResponse {
 }
 
 /**
+ * @public
  * <p>The request body for ImportBackendStorage.</p>
  */
 export interface ImportBackendStorageRequest {
@@ -1710,6 +1977,9 @@ export interface ImportBackendStorageRequest {
   ServiceName: ServiceName | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ImportBackendStorageResponse {
   /**
    * <p>The app ID.</p>
@@ -1733,6 +2003,7 @@ export interface ImportBackendStorageResponse {
 }
 
 /**
+ * @public
  * <p>The request body for ListBackendJobs.</p>
  */
 export interface ListBackendJobsRequest {
@@ -1773,6 +2044,7 @@ export interface ListBackendJobsRequest {
 }
 
 /**
+ * @public
  * <p>The response object for this operation.</p>
  */
 export interface BackendJobRespObj {
@@ -1817,6 +2089,9 @@ export interface BackendJobRespObj {
   UpdateTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListBackendJobsResponse {
   /**
    * <p>An array of jobs and their properties.</p>
@@ -1830,6 +2105,7 @@ export interface ListBackendJobsResponse {
 }
 
 /**
+ * @public
  * <p>The request body for S3Buckets.</p>
  */
 export interface ListS3BucketsRequest {
@@ -1840,6 +2116,7 @@ export interface ListS3BucketsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the metadata of the S3 bucket.</p>
  */
 export interface S3BucketInfo {
@@ -1854,6 +2131,9 @@ export interface S3BucketInfo {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListS3BucketsResponse {
   /**
    * <p>The list of S3 buckets.</p>
@@ -1867,6 +2147,7 @@ export interface ListS3BucketsResponse {
 }
 
 /**
+ * @public
  * <p>The request body for RemoveAllBackends.</p>
  */
 export interface RemoveAllBackendsRequest {
@@ -1881,6 +2162,9 @@ export interface RemoveAllBackendsRequest {
   CleanAmplifyApp?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface RemoveAllBackendsResponse {
   /**
    * <p>The app ID.</p>
@@ -1908,6 +2192,9 @@ export interface RemoveAllBackendsResponse {
   Status?: string;
 }
 
+/**
+ * @public
+ */
 export interface RemoveBackendConfigRequest {
   /**
    * <p>The app ID.</p>
@@ -1915,6 +2202,9 @@ export interface RemoveBackendConfigRequest {
   AppId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveBackendConfigResponse {
   /**
    * <p>If the request fails, this error is returned.</p>
@@ -1923,6 +2213,7 @@ export interface RemoveBackendConfigResponse {
 }
 
 /**
+ * @public
  * <p>The request body for UpdateBackendAPI.</p>
  */
 export interface UpdateBackendAPIRequest {
@@ -1947,6 +2238,9 @@ export interface UpdateBackendAPIRequest {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBackendAPIResponse {
   /**
    * <p>The app ID.</p>
@@ -1980,6 +2274,7 @@ export interface UpdateBackendAPIResponse {
 }
 
 /**
+ * @public
  * <p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of your auth resource in the Amplify project.</p>
  */
 export interface UpdateBackendAuthIdentityPoolConfig {
@@ -1990,6 +2285,7 @@ export interface UpdateBackendAuthIdentityPoolConfig {
 }
 
 /**
+ * @public
  * <p><b>(DEPRECATED)</b> Describes the forgot password policy for authenticating into the Amplify app.</p>
  */
 export interface UpdateBackendAuthForgotPasswordConfig {
@@ -2010,6 +2306,7 @@ export interface UpdateBackendAuthForgotPasswordConfig {
 }
 
 /**
+ * @public
  * <p>Updates the multi-factor authentication (MFA) configuration for the backend of your Amplify project.</p>
  */
 export interface UpdateBackendAuthMFAConfig {
@@ -2025,6 +2322,7 @@ export interface UpdateBackendAuthMFAConfig {
 }
 
 /**
+ * @public
  * <p>The OAuth configurations for authenticating users into your Amplify app.</p>
  */
 export interface UpdateBackendAuthOAuthConfig {
@@ -2060,6 +2358,7 @@ export interface UpdateBackendAuthOAuthConfig {
 }
 
 /**
+ * @public
  * <p>Describes the password policy for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
  */
 export interface UpdateBackendAuthPasswordPolicyConfig {
@@ -2075,6 +2374,7 @@ export interface UpdateBackendAuthPasswordPolicyConfig {
 }
 
 /**
+ * @public
  * <p>Updates the configuration of the email or SMS message for the auth resource configured for your Amplify project.</p>
  */
 export interface UpdateBackendAuthVerificationMessageConfig {
@@ -2095,6 +2395,7 @@ export interface UpdateBackendAuthVerificationMessageConfig {
 }
 
 /**
+ * @public
  * <p>Describes the Amazon Cognito user pool configuration for the authorization resource to be configured for your Amplify project on an update.</p>
  */
 export interface UpdateBackendAuthUserPoolConfig {
@@ -2125,6 +2426,7 @@ export interface UpdateBackendAuthUserPoolConfig {
 }
 
 /**
+ * @public
  * <p>Defines the resource configuration when updating an authentication resource in your Amplify project.</p>
  */
 export interface UpdateBackendAuthResourceConfig {
@@ -2150,6 +2452,7 @@ export interface UpdateBackendAuthResourceConfig {
 }
 
 /**
+ * @public
  * <p>The request body for UpdateBackendAuth.</p>
  */
 export interface UpdateBackendAuthRequest {
@@ -2174,6 +2477,9 @@ export interface UpdateBackendAuthRequest {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBackendAuthResponse {
   /**
    * <p>The app ID.</p>
@@ -2207,6 +2513,7 @@ export interface UpdateBackendAuthResponse {
 }
 
 /**
+ * @public
  * <p>The request object for this operation.</p>
  */
 export interface LoginAuthConfigReqObj {
@@ -2232,6 +2539,7 @@ export interface LoginAuthConfigReqObj {
 }
 
 /**
+ * @public
  * <p>The request body for UpdateBackendConfig.</p>
  */
 export interface UpdateBackendConfigRequest {
@@ -2246,6 +2554,9 @@ export interface UpdateBackendConfigRequest {
   LoginAuthConfig?: LoginAuthConfigReqObj;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBackendConfigResponse {
   /**
    * <p>The app ID.</p>
@@ -2269,6 +2580,7 @@ export interface UpdateBackendConfigResponse {
 }
 
 /**
+ * @public
  * <p>The request body for GetBackendJob.</p>
  */
 export interface UpdateBackendJobRequest {
@@ -2298,6 +2610,9 @@ export interface UpdateBackendJobRequest {
   Status?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBackendJobResponse {
   /**
    * <p>The app ID.</p>
@@ -2341,6 +2656,7 @@ export interface UpdateBackendJobResponse {
 }
 
 /**
+ * @public
  * <p>The resource configuration for updating backend storage.</p>
  */
 export interface UpdateBackendStorageResourceConfig {
@@ -2356,6 +2672,7 @@ export interface UpdateBackendStorageResourceConfig {
 }
 
 /**
+ * @public
  * <p>The request body for UpdateBackendStorage.</p>
  */
 export interface UpdateBackendStorageRequest {
@@ -2380,6 +2697,9 @@ export interface UpdateBackendStorageRequest {
   ResourceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateBackendStorageResponse {
   /**
    * <p>The app ID.</p>
@@ -2401,691 +2721,3 @@ export interface UpdateBackendStorageResponse {
    */
   Status?: string;
 }
-
-/**
- * @internal
- */
-export const CloneBackendRequestFilterSensitiveLog = (obj: CloneBackendRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloneBackendResponseFilterSensitiveLog = (obj: CloneBackendResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceConfigFilterSensitiveLog = (obj: ResourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendRequestFilterSensitiveLog = (obj: CreateBackendRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendResponseFilterSensitiveLog = (obj: CreateBackendResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackendAPIAppSyncAuthSettingsFilterSensitiveLog = (obj: BackendAPIAppSyncAuthSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackendAPIAuthTypeFilterSensitiveLog = (obj: BackendAPIAuthType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackendAPIConflictResolutionFilterSensitiveLog = (obj: BackendAPIConflictResolution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackendAPIResourceConfigFilterSensitiveLog = (obj: BackendAPIResourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAPIRequestFilterSensitiveLog = (obj: CreateBackendAPIRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAPIResponseFilterSensitiveLog = (obj: CreateBackendAPIResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAuthIdentityPoolConfigFilterSensitiveLog = (
-  obj: CreateBackendAuthIdentityPoolConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmailSettingsFilterSensitiveLog = (obj: EmailSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SmsSettingsFilterSensitiveLog = (obj: SmsSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAuthForgotPasswordConfigFilterSensitiveLog = (
-  obj: CreateBackendAuthForgotPasswordConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SettingsFilterSensitiveLog = (obj: Settings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAuthMFAConfigFilterSensitiveLog = (obj: CreateBackendAuthMFAConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackendAuthSocialProviderConfigFilterSensitiveLog = (obj: BackendAuthSocialProviderConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackendAuthAppleProviderConfigFilterSensitiveLog = (obj: BackendAuthAppleProviderConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SocialProviderSettingsFilterSensitiveLog = (obj: SocialProviderSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAuthOAuthConfigFilterSensitiveLog = (obj: CreateBackendAuthOAuthConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAuthPasswordPolicyConfigFilterSensitiveLog = (
-  obj: CreateBackendAuthPasswordPolicyConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAuthVerificationMessageConfigFilterSensitiveLog = (
-  obj: CreateBackendAuthVerificationMessageConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAuthUserPoolConfigFilterSensitiveLog = (obj: CreateBackendAuthUserPoolConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAuthResourceConfigFilterSensitiveLog = (obj: CreateBackendAuthResourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAuthRequestFilterSensitiveLog = (obj: CreateBackendAuthRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendAuthResponseFilterSensitiveLog = (obj: CreateBackendAuthResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendConfigRequestFilterSensitiveLog = (obj: CreateBackendConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendConfigResponseFilterSensitiveLog = (obj: CreateBackendConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackendStoragePermissionsFilterSensitiveLog = (obj: BackendStoragePermissions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendStorageResourceConfigFilterSensitiveLog = (obj: CreateBackendStorageResourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendStorageRequestFilterSensitiveLog = (obj: CreateBackendStorageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendStorageResponseFilterSensitiveLog = (obj: CreateBackendStorageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTokenRequestFilterSensitiveLog = (obj: CreateTokenRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTokenResponseFilterSensitiveLog = (obj: CreateTokenResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackendRequestFilterSensitiveLog = (obj: DeleteBackendRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackendResponseFilterSensitiveLog = (obj: DeleteBackendResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackendAPIRequestFilterSensitiveLog = (obj: DeleteBackendAPIRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackendAPIResponseFilterSensitiveLog = (obj: DeleteBackendAPIResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackendAuthRequestFilterSensitiveLog = (obj: DeleteBackendAuthRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackendAuthResponseFilterSensitiveLog = (obj: DeleteBackendAuthResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackendStorageRequestFilterSensitiveLog = (obj: DeleteBackendStorageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackendStorageResponseFilterSensitiveLog = (obj: DeleteBackendStorageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTokenRequestFilterSensitiveLog = (obj: DeleteTokenRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTokenResponseFilterSensitiveLog = (obj: DeleteTokenResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateBackendAPIModelsRequestFilterSensitiveLog = (obj: GenerateBackendAPIModelsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateBackendAPIModelsResponseFilterSensitiveLog = (obj: GenerateBackendAPIModelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendRequestFilterSensitiveLog = (obj: GetBackendRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendResponseFilterSensitiveLog = (obj: GetBackendResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendAPIRequestFilterSensitiveLog = (obj: GetBackendAPIRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendAPIResponseFilterSensitiveLog = (obj: GetBackendAPIResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendAPIModelsRequestFilterSensitiveLog = (obj: GetBackendAPIModelsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendAPIModelsResponseFilterSensitiveLog = (obj: GetBackendAPIModelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendAuthRequestFilterSensitiveLog = (obj: GetBackendAuthRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendAuthResponseFilterSensitiveLog = (obj: GetBackendAuthResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendJobRequestFilterSensitiveLog = (obj: GetBackendJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendJobResponseFilterSensitiveLog = (obj: GetBackendJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendStorageRequestFilterSensitiveLog = (obj: GetBackendStorageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendStorageResourceConfigFilterSensitiveLog = (obj: GetBackendStorageResourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendStorageResponseFilterSensitiveLog = (obj: GetBackendStorageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTokenRequestFilterSensitiveLog = (obj: GetTokenRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTokenResponseFilterSensitiveLog = (obj: GetTokenResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportBackendAuthRequestFilterSensitiveLog = (obj: ImportBackendAuthRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportBackendAuthResponseFilterSensitiveLog = (obj: ImportBackendAuthResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportBackendStorageRequestFilterSensitiveLog = (obj: ImportBackendStorageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportBackendStorageResponseFilterSensitiveLog = (obj: ImportBackendStorageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBackendJobsRequestFilterSensitiveLog = (obj: ListBackendJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackendJobRespObjFilterSensitiveLog = (obj: BackendJobRespObj): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBackendJobsResponseFilterSensitiveLog = (obj: ListBackendJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListS3BucketsRequestFilterSensitiveLog = (obj: ListS3BucketsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3BucketInfoFilterSensitiveLog = (obj: S3BucketInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListS3BucketsResponseFilterSensitiveLog = (obj: ListS3BucketsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveAllBackendsRequestFilterSensitiveLog = (obj: RemoveAllBackendsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveAllBackendsResponseFilterSensitiveLog = (obj: RemoveAllBackendsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveBackendConfigRequestFilterSensitiveLog = (obj: RemoveBackendConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveBackendConfigResponseFilterSensitiveLog = (obj: RemoveBackendConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAPIRequestFilterSensitiveLog = (obj: UpdateBackendAPIRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAPIResponseFilterSensitiveLog = (obj: UpdateBackendAPIResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAuthIdentityPoolConfigFilterSensitiveLog = (
-  obj: UpdateBackendAuthIdentityPoolConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAuthForgotPasswordConfigFilterSensitiveLog = (
-  obj: UpdateBackendAuthForgotPasswordConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAuthMFAConfigFilterSensitiveLog = (obj: UpdateBackendAuthMFAConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAuthOAuthConfigFilterSensitiveLog = (obj: UpdateBackendAuthOAuthConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAuthPasswordPolicyConfigFilterSensitiveLog = (
-  obj: UpdateBackendAuthPasswordPolicyConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAuthVerificationMessageConfigFilterSensitiveLog = (
-  obj: UpdateBackendAuthVerificationMessageConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAuthUserPoolConfigFilterSensitiveLog = (obj: UpdateBackendAuthUserPoolConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAuthResourceConfigFilterSensitiveLog = (obj: UpdateBackendAuthResourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAuthRequestFilterSensitiveLog = (obj: UpdateBackendAuthRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendAuthResponseFilterSensitiveLog = (obj: UpdateBackendAuthResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoginAuthConfigReqObjFilterSensitiveLog = (obj: LoginAuthConfigReqObj): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendConfigRequestFilterSensitiveLog = (obj: UpdateBackendConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendConfigResponseFilterSensitiveLog = (obj: UpdateBackendConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendJobRequestFilterSensitiveLog = (obj: UpdateBackendJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendJobResponseFilterSensitiveLog = (obj: UpdateBackendJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendStorageResourceConfigFilterSensitiveLog = (obj: UpdateBackendStorageResourceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendStorageRequestFilterSensitiveLog = (obj: UpdateBackendStorageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateBackendStorageResponseFilterSensitiveLog = (obj: UpdateBackendStorageResponse): any => ({
-  ...obj,
-});

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetNetworkRoutesRequest,
-  GetNetworkRoutesRequestFilterSensitiveLog,
-  GetNetworkRoutesResponse,
-  GetNetworkRoutesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetNetworkRoutesRequest, GetNetworkRoutesResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetNetworkRoutesCommand,
-  serializeAws_restJson1GetNetworkRoutesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetNetworkRoutesCommand, se_GetNetworkRoutesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkRoutesCommand}.
  */
 export interface GetNetworkRoutesCommandInput extends GetNetworkRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkRoutesCommand}.
  */
 export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the network routes of the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,49 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * import { NetworkManagerClient, GetNetworkRoutesCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetNetworkRoutesCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetNetworkRoutesRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   RouteTableIdentifier: { // RouteTableIdentifier
+ *     TransitGatewayRouteTableArn: "STRING_VALUE",
+ *     CoreNetworkSegmentEdge: { // CoreNetworkSegmentEdgeIdentifier
+ *       CoreNetworkId: "STRING_VALUE",
+ *       SegmentName: "STRING_VALUE",
+ *       EdgeLocation: "STRING_VALUE",
+ *     },
+ *   },
+ *   ExactCidrMatches: [ // ConstrainedStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   LongestPrefixMatches: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SubnetOfMatches: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SupernetOfMatches: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PrefixListIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   States: [ // RouteStateList
+ *     "ACTIVE" || "BLACKHOLE",
+ *   ],
+ *   Types: [ // RouteTypeList
+ *     "PROPAGATED" || "STATIC",
+ *   ],
+ *   DestinationFilters: { // FilterMap
+ *     "<keys>": [ // FilterValues
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new GetNetworkRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkRoutesCommandInput - {@link GetNetworkRoutesCommandInput}
+ * @returns {@link GetNetworkRoutesCommandOutput}
  * @see {@link GetNetworkRoutesCommandInput} for command's `input` shape.
  * @see {@link GetNetworkRoutesCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +120,9 @@ export class GetNetworkRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +151,8 @@ export class GetNetworkRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkRoutesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +162,18 @@ export class GetNetworkRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkRoutesCommand(input, context);
+    return se_GetNetworkRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkRoutesCommandOutput> {
-    return deserializeAws_restJson1GetNetworkRoutesCommand(output, context);
+    return de_GetNetworkRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

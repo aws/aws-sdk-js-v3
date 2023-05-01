@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  GetDevEnvironmentRequest,
-  GetDevEnvironmentRequestFilterSensitiveLog,
-  GetDevEnvironmentResponse,
-  GetDevEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDevEnvironmentCommand,
-  serializeAws_restJson1GetDevEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDevEnvironmentRequest, GetDevEnvironmentResponse } from "../models/models_0";
+import { de_GetDevEnvironmentCommand, se_GetDevEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDevEnvironmentCommand}.
  */
 export interface GetDevEnvironmentCommandInput extends GetDevEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDevEnvironmentCommand}.
  */
 export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a Dev Environment for a source repository in a project. Dev Environments are specific to the user who creates them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentRespons
  * import { CodeCatalystClient, GetDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // GetDevEnvironmentRequest
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetDevEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDevEnvironmentCommandInput - {@link GetDevEnvironmentCommandInput}
+ * @returns {@link GetDevEnvironmentCommandOutput}
  * @see {@link GetDevEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetDevEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +92,9 @@ export class GetDevEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDevEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class GetDevEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDevEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDevEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class GetDevEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDevEnvironmentCommand(input, context);
+    return se_GetDevEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevEnvironmentCommandOutput> {
-    return deserializeAws_restJson1GetDevEnvironmentCommand(output, context);
+    return de_GetDevEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

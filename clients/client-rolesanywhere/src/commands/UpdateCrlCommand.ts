@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CrlDetailResponse,
-  CrlDetailResponseFilterSensitiveLog,
-  UpdateCrlRequest,
-  UpdateCrlRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateCrlCommand,
-  serializeAws_restJson1UpdateCrlCommand,
-} from "../protocols/Aws_restJson1";
+import { CrlDetailResponse, UpdateCrlRequest } from "../models/models_0";
+import { de_UpdateCrlCommand, se_UpdateCrlCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCrlCommand}.
  */
 export interface UpdateCrlCommandInput extends UpdateCrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCrlCommand}.
  */
 export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the certificate revocation list (CRL). CRl is a list of certificates that have been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere validates against the crl list before issuing credentials.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -46,10 +43,17 @@ export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * import { RolesAnywhereClient, UpdateCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, UpdateCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // UpdateCrlRequest
+ *   crlId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   crlData: "BLOB_VALUE",
+ * };
  * const command = new UpdateCrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCrlCommandInput - {@link UpdateCrlCommandInput}
+ * @returns {@link UpdateCrlCommandOutput}
  * @see {@link UpdateCrlCommandInput} for command's `input` shape.
  * @see {@link UpdateCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -82,6 +86,9 @@ export class UpdateCrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class UpdateCrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CrlDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class UpdateCrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCrlCommand(input, context);
+    return se_UpdateCrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCrlCommandOutput> {
-    return deserializeAws_restJson1UpdateCrlCommand(output, context);
+    return de_UpdateCrlCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { DisassociateThirdPartyFirewallRequest, DisassociateThirdPartyFirewallResponse } from "../models/models_0";
 import {
-  DisassociateThirdPartyFirewallRequest,
-  DisassociateThirdPartyFirewallRequestFilterSensitiveLog,
-  DisassociateThirdPartyFirewallResponse,
-  DisassociateThirdPartyFirewallResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateThirdPartyFirewallCommand,
-  serializeAws_json1_1DisassociateThirdPartyFirewallCommand,
+  de_DisassociateThirdPartyFirewallCommand,
+  se_DisassociateThirdPartyFirewallCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateThirdPartyFirewallCommand}.
  */
 export interface DisassociateThirdPartyFirewallCommandInput extends DisassociateThirdPartyFirewallRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateThirdPartyFirewallCommand}.
  */
 export interface DisassociateThirdPartyFirewallCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociateThirdPartyFirewallCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a Firewall Manager policy administrator from a third-party firewall tenant. When you call <code>DisassociateThirdPartyFirewall</code>, the third-party firewall vendor deletes all of the firewalls that are associated with the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface DisassociateThirdPartyFirewallCommandOutput
  * import { FMSClient, DisassociateThirdPartyFirewallCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, DisassociateThirdPartyFirewallCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // DisassociateThirdPartyFirewallRequest
+ *   ThirdPartyFirewall: "PALO_ALTO_NETWORKS_CLOUD_NGFW" || "FORTIGATE_CLOUD_NATIVE_FIREWALL", // required
+ * };
  * const command = new DisassociateThirdPartyFirewallCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateThirdPartyFirewallCommandInput - {@link DisassociateThirdPartyFirewallCommandInput}
+ * @returns {@link DisassociateThirdPartyFirewallCommandOutput}
  * @see {@link DisassociateThirdPartyFirewallCommandInput} for command's `input` shape.
  * @see {@link DisassociateThirdPartyFirewallCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -88,6 +93,9 @@ export class DisassociateThirdPartyFirewallCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateThirdPartyFirewallCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class DisassociateThirdPartyFirewallCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateThirdPartyFirewallRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateThirdPartyFirewallResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +135,24 @@ export class DisassociateThirdPartyFirewallCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateThirdPartyFirewallCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateThirdPartyFirewallCommand(input, context);
+    return se_DisassociateThirdPartyFirewallCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateThirdPartyFirewallCommandOutput> {
-    return deserializeAws_json1_1DisassociateThirdPartyFirewallCommand(output, context);
+    return de_DisassociateThirdPartyFirewallCommand(output, context);
   }
 
   // Start section: command_body_extra

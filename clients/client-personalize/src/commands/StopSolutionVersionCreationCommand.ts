@@ -13,26 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopSolutionVersionCreationRequest,
-  StopSolutionVersionCreationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { StopSolutionVersionCreationRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1StopSolutionVersionCreationCommand,
-  serializeAws_json1_1StopSolutionVersionCreationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopSolutionVersionCreationCommand, se_StopSolutionVersionCreationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopSolutionVersionCreationCommand}.
  */
 export interface StopSolutionVersionCreationCommandInput extends StopSolutionVersionCreationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopSolutionVersionCreationCommand}.
  */
 export interface StopSolutionVersionCreationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
  *       </p>
  *          <p>Depending on the current state of the solution version, the solution version state changes as follows:</p>
@@ -53,10 +52,15 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  * import { PersonalizeClient, StopSolutionVersionCreationCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, StopSolutionVersionCreationCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // StopSolutionVersionCreationRequest
+ *   solutionVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new StopSolutionVersionCreationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopSolutionVersionCreationCommandInput - {@link StopSolutionVersionCreationCommandInput}
+ * @returns {@link StopSolutionVersionCreationCommandOutput}
  * @see {@link StopSolutionVersionCreationCommandInput} for command's `input` shape.
  * @see {@link StopSolutionVersionCreationCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -89,6 +93,9 @@ export class StopSolutionVersionCreationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopSolutionVersionCreationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +124,8 @@ export class StopSolutionVersionCreationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopSolutionVersionCreationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +135,21 @@ export class StopSolutionVersionCreationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopSolutionVersionCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopSolutionVersionCreationCommand(input, context);
+    return se_StopSolutionVersionCreationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopSolutionVersionCreationCommandOutput> {
-    return deserializeAws_json1_1StopSolutionVersionCreationCommand(output, context);
+    return de_StopSolutionVersionCreationCommand(output, context);
   }
 
   // Start section: command_body_extra

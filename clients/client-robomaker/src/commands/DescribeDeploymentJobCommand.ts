@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDeploymentJobRequest,
-  DescribeDeploymentJobRequestFilterSensitiveLog,
-  DescribeDeploymentJobResponse,
-  DescribeDeploymentJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDeploymentJobCommand,
-  serializeAws_restJson1DescribeDeploymentJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDeploymentJobRequest, DescribeDeploymentJobResponse } from "../models/models_0";
+import { de_DescribeDeploymentJobCommand, se_DescribeDeploymentJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeploymentJobCommand}.
  */
 export interface DescribeDeploymentJobCommandInput extends DescribeDeploymentJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeploymentJobCommand}.
  */
 export interface DescribeDeploymentJobCommandOutput extends DescribeDeploymentJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Describes a deployment job.</p>
@@ -47,10 +44,15 @@ export interface DescribeDeploymentJobCommandOutput extends DescribeDeploymentJo
  * import { RoboMakerClient, DescribeDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DescribeDeploymentJobRequest
+ *   job: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDeploymentJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeploymentJobCommandInput - {@link DescribeDeploymentJobCommandInput}
+ * @returns {@link DescribeDeploymentJobCommandOutput}
  * @see {@link DescribeDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDeploymentJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -87,6 +89,9 @@ export class DescribeDeploymentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeploymentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DescribeDeploymentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDeploymentJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDeploymentJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DescribeDeploymentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeploymentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDeploymentJobCommand(input, context);
+    return se_DescribeDeploymentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeploymentJobCommandOutput> {
-    return deserializeAws_restJson1DescribeDeploymentJobCommand(output, context);
+    return de_DescribeDeploymentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

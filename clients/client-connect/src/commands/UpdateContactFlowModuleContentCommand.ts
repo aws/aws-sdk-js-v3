@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { UpdateContactFlowModuleContentRequest, UpdateContactFlowModuleContentResponse } from "../models/models_1";
 import {
-  UpdateContactFlowModuleContentRequest,
-  UpdateContactFlowModuleContentRequestFilterSensitiveLog,
-  UpdateContactFlowModuleContentResponse,
-  UpdateContactFlowModuleContentResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateContactFlowModuleContentCommand,
-  serializeAws_restJson1UpdateContactFlowModuleContentCommand,
+  de_UpdateContactFlowModuleContentCommand,
+  se_UpdateContactFlowModuleContentCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactFlowModuleContentCommand}.
  */
 export interface UpdateContactFlowModuleContentCommandInput extends UpdateContactFlowModuleContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactFlowModuleContentCommand}.
  */
 export interface UpdateContactFlowModuleContentCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateContactFlowModuleContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates specified flow module for the specified Amazon Connect instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface UpdateContactFlowModuleContentCommandOutput
  * import { ConnectClient, UpdateContactFlowModuleContentCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactFlowModuleContentCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateContactFlowModuleContentRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactFlowModuleId: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE", // required
+ * };
  * const command = new UpdateContactFlowModuleContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactFlowModuleContentCommandInput - {@link UpdateContactFlowModuleContentCommandInput}
+ * @returns {@link UpdateContactFlowModuleContentCommandOutput}
  * @see {@link UpdateContactFlowModuleContentCommandInput} for command's `input` shape.
  * @see {@link UpdateContactFlowModuleContentCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -89,6 +96,9 @@ export class UpdateContactFlowModuleContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactFlowModuleContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class UpdateContactFlowModuleContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContactFlowModuleContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContactFlowModuleContentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +138,24 @@ export class UpdateContactFlowModuleContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateContactFlowModuleContentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateContactFlowModuleContentCommand(input, context);
+    return se_UpdateContactFlowModuleContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateContactFlowModuleContentCommandOutput> {
-    return deserializeAws_restJson1UpdateContactFlowModuleContentCommand(output, context);
+    return de_UpdateContactFlowModuleContentCommand(output, context);
   }
 
   // Start section: command_body_extra

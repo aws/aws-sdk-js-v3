@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetProfileRequest,
-  GetProfileRequestFilterSensitiveLog,
-  GetProfileResponse,
-  GetProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetProfileCommand,
-  serializeAws_json1_1GetProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { GetProfileRequest, GetProfileResponse } from "../models/models_0";
+import { de_GetProfileCommand, se_GetProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProfileCommand}.
  */
 export interface GetProfileCommandInput extends GetProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProfileCommand}.
  */
 export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of a room profile by profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * import { AlexaForBusinessClient, GetProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // GetProfileRequest
+ *   ProfileArn: "STRING_VALUE",
+ * };
  * const command = new GetProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProfileCommandInput - {@link GetProfileCommandInput}
+ * @returns {@link GetProfileCommandOutput}
  * @see {@link GetProfileCommandInput} for command's `input` shape.
  * @see {@link GetProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +74,9 @@ export class GetProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +103,8 @@ export class GetProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +114,18 @@ export class GetProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetProfileCommand(input, context);
+    return se_GetProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProfileCommandOutput> {
-    return deserializeAws_json1_1GetProfileCommand(output, context);
+    return de_GetProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

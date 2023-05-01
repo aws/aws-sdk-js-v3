@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ConfirmSubscriptionInput,
-  ConfirmSubscriptionInputFilterSensitiveLog,
-  ConfirmSubscriptionResponse,
-  ConfirmSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryConfirmSubscriptionCommand,
-  serializeAws_queryConfirmSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { ConfirmSubscriptionInput, ConfirmSubscriptionResponse } from "../models/models_0";
+import { de_ConfirmSubscriptionCommand, se_ConfirmSubscriptionCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmSubscriptionCommand}.
  */
 export interface ConfirmSubscriptionCommandInput extends ConfirmSubscriptionInput {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmSubscriptionCommand}.
  */
 export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Verifies an endpoint owner's intent to receive messages by validating the token sent
  *             to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the
  *             action creates a new subscription and returns its Amazon Resource Name (ARN). This call
@@ -46,10 +43,17 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  * import { SNSClient, ConfirmSubscriptionCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ConfirmSubscriptionCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // ConfirmSubscriptionInput
+ *   TopicArn: "STRING_VALUE", // required
+ *   Token: "STRING_VALUE", // required
+ *   AuthenticateOnUnsubscribe: "STRING_VALUE",
+ * };
  * const command = new ConfirmSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmSubscriptionCommandInput - {@link ConfirmSubscriptionCommandInput}
+ * @returns {@link ConfirmSubscriptionCommandOutput}
  * @see {@link ConfirmSubscriptionCommandInput} for command's `input` shape.
  * @see {@link ConfirmSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -95,6 +99,9 @@ export class ConfirmSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +130,8 @@ export class ConfirmSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmSubscriptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +141,18 @@ export class ConfirmSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryConfirmSubscriptionCommand(input, context);
+    return se_ConfirmSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmSubscriptionCommandOutput> {
-    return deserializeAws_queryConfirmSubscriptionCommand(output, context);
+    return de_ConfirmSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DescribeQueryDefinitionsRequest,
-  DescribeQueryDefinitionsRequestFilterSensitiveLog,
-  DescribeQueryDefinitionsResponse,
-  DescribeQueryDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeQueryDefinitionsCommand,
-  serializeAws_json1_1DescribeQueryDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeQueryDefinitionsRequest, DescribeQueryDefinitionsResponse } from "../models/models_0";
+import { de_DescribeQueryDefinitionsCommand, se_DescribeQueryDefinitionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQueryDefinitionsCommand}.
  */
 export interface DescribeQueryDefinitionsCommandInput extends DescribeQueryDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQueryDefinitionsCommand}.
  */
 export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions.</p>
  *          <p>You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results to only the
  *       query definitions that have names that start with a certain string.</p>
@@ -44,10 +41,17 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * import { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeQueryDefinitionsRequest
+ *   queryDefinitionNamePrefix: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeQueryDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQueryDefinitionsCommandInput - {@link DescribeQueryDefinitionsCommandInput}
+ * @returns {@link DescribeQueryDefinitionsCommandOutput}
  * @see {@link DescribeQueryDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DescribeQueryDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -77,6 +81,9 @@ export class DescribeQueryDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQueryDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +112,8 @@ export class DescribeQueryDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQueryDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQueryDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +123,18 @@ export class DescribeQueryDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeQueryDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQueryDefinitionsCommand(input, context);
+    return se_DescribeQueryDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueryDefinitionsCommandOutput> {
-    return deserializeAws_json1_1DescribeQueryDefinitionsCommand(output, context);
+    return de_DescribeQueryDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

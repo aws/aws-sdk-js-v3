@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  RebootRelationalDatabaseRequest,
-  RebootRelationalDatabaseRequestFilterSensitiveLog,
-  RebootRelationalDatabaseResult,
-  RebootRelationalDatabaseResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1RebootRelationalDatabaseCommand,
-  serializeAws_json1_1RebootRelationalDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { RebootRelationalDatabaseRequest, RebootRelationalDatabaseResult } from "../models/models_1";
+import { de_RebootRelationalDatabaseCommand, se_RebootRelationalDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RebootRelationalDatabaseCommand}.
  */
 export interface RebootRelationalDatabaseCommandInput extends RebootRelationalDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link RebootRelationalDatabaseCommand}.
  */
 export interface RebootRelationalDatabaseCommandOutput extends RebootRelationalDatabaseResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restarts a specific database in Amazon Lightsail.</p>
  *          <p>The <code>reboot relational database</code> operation supports tag-based access control
  *       via resource tags applied to the resource identified by relationalDatabaseName. For more
@@ -45,10 +42,15 @@ export interface RebootRelationalDatabaseCommandOutput extends RebootRelationalD
  * import { LightsailClient, RebootRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, RebootRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // RebootRelationalDatabaseRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ * };
  * const command = new RebootRelationalDatabaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootRelationalDatabaseCommandInput - {@link RebootRelationalDatabaseCommandInput}
+ * @returns {@link RebootRelationalDatabaseCommandOutput}
  * @see {@link RebootRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link RebootRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +104,9 @@ export class RebootRelationalDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootRelationalDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +135,8 @@ export class RebootRelationalDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootRelationalDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootRelationalDatabaseResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +146,18 @@ export class RebootRelationalDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RebootRelationalDatabaseCommand(input, context);
+    return se_RebootRelationalDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1RebootRelationalDatabaseCommand(output, context);
+    return de_RebootRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

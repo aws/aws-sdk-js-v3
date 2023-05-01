@@ -6,7 +6,7 @@ import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput }
 import { CleanRoomsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CleanRoomsClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSchemasCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSchemas(
   config: CleanRoomsPaginationConfiguration,
   input: ListSchemasCommandInput,

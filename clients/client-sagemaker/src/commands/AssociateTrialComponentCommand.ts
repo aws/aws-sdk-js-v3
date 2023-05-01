@@ -13,40 +13,43 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateTrialComponentRequest,
-  AssociateTrialComponentRequestFilterSensitiveLog,
-  AssociateTrialComponentResponse,
-  AssociateTrialComponentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateTrialComponentCommand,
-  serializeAws_json1_1AssociateTrialComponentCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateTrialComponentRequest, AssociateTrialComponentResponse } from "../models/models_0";
+import { de_AssociateTrialComponentCommand, se_AssociateTrialComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateTrialComponentCommand}.
  */
 export interface AssociateTrialComponentCommandInput extends AssociateTrialComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateTrialComponentCommand}.
  */
 export interface AssociateTrialComponentCommandOutput extends AssociateTrialComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a trial component with a trial. A trial component can be associated with
- *       multiple trials. To disassociate a trial component from a trial, call the <a>DisassociateTrialComponent</a> API.</p>
+ *       multiple trials. To disassociate a trial component from a trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, AssociateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, AssociateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // AssociateTrialComponentRequest
+ *   TrialComponentName: "STRING_VALUE", // required
+ *   TrialName: "STRING_VALUE", // required
+ * };
  * const command = new AssociateTrialComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateTrialComponentCommandInput - {@link AssociateTrialComponentCommandInput}
+ * @returns {@link AssociateTrialComponentCommandOutput}
  * @see {@link AssociateTrialComponentCommandInput} for command's `input` shape.
  * @see {@link AssociateTrialComponentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -77,6 +80,9 @@ export class AssociateTrialComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateTrialComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +111,8 @@ export class AssociateTrialComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTrialComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTrialComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +122,18 @@ export class AssociateTrialComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateTrialComponentCommand(input, context);
+    return se_AssociateTrialComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTrialComponentCommandOutput> {
-    return deserializeAws_json1_1AssociateTrialComponentCommand(output, context);
+    return de_AssociateTrialComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

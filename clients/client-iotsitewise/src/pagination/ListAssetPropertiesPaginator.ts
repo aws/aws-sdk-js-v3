@@ -10,7 +10,7 @@ import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTSiteWiseClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAssetPropertiesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAssetProperties(
   config: IoTSiteWisePaginationConfiguration,
   input: ListAssetPropertiesCommandInput,

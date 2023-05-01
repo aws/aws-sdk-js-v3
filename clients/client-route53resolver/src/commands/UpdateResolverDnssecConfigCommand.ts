@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateResolverDnssecConfigRequest,
-  UpdateResolverDnssecConfigRequestFilterSensitiveLog,
-  UpdateResolverDnssecConfigResponse,
-  UpdateResolverDnssecConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateResolverDnssecConfigCommand,
-  serializeAws_json1_1UpdateResolverDnssecConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateResolverDnssecConfigRequest, UpdateResolverDnssecConfigResponse } from "../models/models_0";
+import { de_UpdateResolverDnssecConfigCommand, se_UpdateResolverDnssecConfigCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResolverDnssecConfigCommand}.
  */
 export interface UpdateResolverDnssecConfigCommandInput extends UpdateResolverDnssecConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResolverDnssecConfigCommand}.
  */
 export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverDnssecConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing DNSSEC validation configuration. If there is no existing DNSSEC validation configuration, one is created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverD
  * import { Route53ResolverClient, UpdateResolverDnssecConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateResolverDnssecConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // UpdateResolverDnssecConfigRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   Validation: "ENABLE" || "DISABLE" || "USE_LOCAL_RESOURCE_SETTING", // required
+ * };
  * const command = new UpdateResolverDnssecConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResolverDnssecConfigCommandInput - {@link UpdateResolverDnssecConfigCommandInput}
+ * @returns {@link UpdateResolverDnssecConfigCommandOutput}
  * @see {@link UpdateResolverDnssecConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverDnssecConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -87,6 +90,9 @@ export class UpdateResolverDnssecConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResolverDnssecConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class UpdateResolverDnssecConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResolverDnssecConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResolverDnssecConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +132,21 @@ export class UpdateResolverDnssecConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResolverDnssecConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateResolverDnssecConfigCommand(input, context);
+    return se_UpdateResolverDnssecConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateResolverDnssecConfigCommandOutput> {
-    return deserializeAws_json1_1UpdateResolverDnssecConfigCommand(output, context);
+    return de_UpdateResolverDnssecConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSafetyRuleRequest,
-  CreateSafetyRuleRequestFilterSensitiveLog,
-  CreateSafetyRuleResponse,
-  CreateSafetyRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSafetyRuleCommand,
-  serializeAws_restJson1CreateSafetyRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateSafetyRuleRequest, CreateSafetyRuleResponse } from "../models/models_0";
+import { de_CreateSafetyRuleCommand, se_CreateSafetyRuleCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSafetyRuleCommand}.
  */
 export interface CreateSafetyRuleCommandInput extends CreateSafetyRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSafetyRuleCommand}.
  */
 export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a safety rule in a control panel. Safety rules let you add safeguards around changing routing control states, and for enabling and disabling routing controls, to help prevent unexpected outcomes.</p> <p>There are two types of safety rules: assertion rules and gating rules.</p> <p>Assertion rule: An assertion rule enforces that, when you change a routing control state, that a certain criteria is met. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p> <p>Gating rule: A gating rule lets you configure a gating routing control as an overall "on/off" switch for a group of routing controls. Or, you can configure more complex gating scenarios, for example by configuring multiple gating routing controls.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.safety-rules.html">Safety rules</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,47 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  * import { Route53RecoveryControlConfigClient, CreateSafetyRuleCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, CreateSafetyRuleCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // CreateSafetyRuleRequest
+ *   AssertionRule: { // NewAssertionRule
+ *     AssertedControls: [ // __listOf__stringMin1Max256PatternAZaZ09 // required
+ *       "STRING_VALUE",
+ *     ],
+ *     ControlPanelArn: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     RuleConfig: { // RuleConfig
+ *       Inverted: true || false, // required
+ *       Threshold: Number("int"), // required
+ *       Type: "ATLEAST" || "AND" || "OR", // required
+ *     },
+ *     WaitPeriodMs: Number("int"), // required
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ *   GatingRule: { // NewGatingRule
+ *     ControlPanelArn: "STRING_VALUE", // required
+ *     GatingControls: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Name: "STRING_VALUE", // required
+ *     RuleConfig: {
+ *       Inverted: true || false, // required
+ *       Threshold: Number("int"), // required
+ *       Type: "ATLEAST" || "AND" || "OR", // required
+ *     },
+ *     TargetControls: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     WaitPeriodMs: Number("int"), // required
+ *   },
+ *   Tags: { // __mapOf__stringMin0Max256PatternS
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSafetyRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSafetyRuleCommandInput - {@link CreateSafetyRuleCommandInput}
+ * @returns {@link CreateSafetyRuleCommandOutput}
  * @see {@link CreateSafetyRuleCommandInput} for command's `input` shape.
  * @see {@link CreateSafetyRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -79,6 +113,9 @@ export class CreateSafetyRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSafetyRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +144,8 @@ export class CreateSafetyRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSafetyRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSafetyRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +155,18 @@ export class CreateSafetyRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSafetyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSafetyRuleCommand(input, context);
+    return se_CreateSafetyRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSafetyRuleCommandOutput> {
-    return deserializeAws_restJson1CreateSafetyRuleCommand(output, context);
+    return de_CreateSafetyRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

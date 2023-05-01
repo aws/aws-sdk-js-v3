@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  CreateMeshInput,
-  CreateMeshInputFilterSensitiveLog,
-  CreateMeshOutput,
-  CreateMeshOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMeshCommand,
-  serializeAws_restJson1CreateMeshCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMeshInput, CreateMeshOutput } from "../models/models_0";
+import { de_CreateMeshCommand, se_CreateMeshCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMeshCommand}.
  */
 export interface CreateMeshCommandInput extends CreateMeshInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateMeshCommand}.
  */
 export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a service mesh.</p>
  *          <p> A service mesh is a logical boundary for network traffic between services that are
  *          represented by resources within the mesh. After you create your service mesh, you can
@@ -47,10 +44,30 @@ export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBea
  * import { AppMeshClient, CreateMeshCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateMeshCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // CreateMeshInput
+ *   meshName: "STRING_VALUE", // required
+ *   spec: { // MeshSpec
+ *     egressFilter: { // EgressFilter
+ *       type: "STRING_VALUE", // required
+ *     },
+ *     serviceDiscovery: { // MeshServiceDiscovery
+ *       ipPreference: "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: [ // TagList
+ *     { // TagRef
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateMeshCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMeshCommandInput - {@link CreateMeshCommandInput}
+ * @returns {@link CreateMeshCommandOutput}
  * @see {@link CreateMeshCommandInput} for command's `input` shape.
  * @see {@link CreateMeshCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -103,6 +120,9 @@ export class CreateMeshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMeshCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +149,8 @@ export class CreateMeshCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMeshInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMeshOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +160,18 @@ export class CreateMeshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMeshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMeshCommand(input, context);
+    return se_CreateMeshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeshCommandOutput> {
-    return deserializeAws_restJson1CreateMeshCommand(output, context);
+    return de_CreateMeshCommand(output, context);
   }
 
   // Start section: command_body_extra

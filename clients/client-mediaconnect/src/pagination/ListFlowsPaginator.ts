@@ -6,7 +6,7 @@ import { MediaConnectClient } from "../MediaConnectClient";
 import { MediaConnectPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaConnectClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFlowsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFlows(
   config: MediaConnectPaginationConfiguration,
   input: ListFlowsCommandInput,

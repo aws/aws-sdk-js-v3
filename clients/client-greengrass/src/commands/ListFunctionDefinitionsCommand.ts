@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  ListFunctionDefinitionsRequest,
-  ListFunctionDefinitionsRequestFilterSensitiveLog,
-  ListFunctionDefinitionsResponse,
-  ListFunctionDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFunctionDefinitionsCommand,
-  serializeAws_restJson1ListFunctionDefinitionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFunctionDefinitionsRequest, ListFunctionDefinitionsResponse } from "../models/models_0";
+import { de_ListFunctionDefinitionsCommand, se_ListFunctionDefinitionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFunctionDefinitionsCommand}.
  */
 export interface ListFunctionDefinitionsCommandInput extends ListFunctionDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFunctionDefinitionsCommand}.
  */
 export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves a list of Lambda function definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefini
  * import { GreengrassClient, ListFunctionDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListFunctionDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListFunctionDefinitionsRequest
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFunctionDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFunctionDefinitionsCommandInput - {@link ListFunctionDefinitionsCommandInput}
+ * @returns {@link ListFunctionDefinitionsCommandOutput}
  * @see {@link ListFunctionDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -69,6 +72,9 @@ export class ListFunctionDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFunctionDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +103,8 @@ export class ListFunctionDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFunctionDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFunctionDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +114,18 @@ export class ListFunctionDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFunctionDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFunctionDefinitionsCommand(input, context);
+    return se_ListFunctionDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionDefinitionsCommandOutput> {
-    return deserializeAws_restJson1ListFunctionDefinitionsCommand(output, context);
+    return de_ListFunctionDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  UnshareDirectoryRequest,
-  UnshareDirectoryRequestFilterSensitiveLog,
-  UnshareDirectoryResult,
-  UnshareDirectoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UnshareDirectoryCommand,
-  serializeAws_json1_1UnshareDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { UnshareDirectoryRequest, UnshareDirectoryResult } from "../models/models_0";
+import { de_UnshareDirectoryCommand, se_UnshareDirectoryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UnshareDirectoryCommand}.
  */
 export interface UnshareDirectoryCommandInput extends UnshareDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnshareDirectoryCommand}.
  */
 export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the directory sharing between the directory owner and consumer accounts. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, _
  * import { DirectoryServiceClient, UnshareDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UnshareDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // UnshareDirectoryRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   UnshareTarget: { // UnshareTarget
+ *     Id: "STRING_VALUE", // required
+ *     Type: "ACCOUNT", // required
+ *   },
+ * };
  * const command = new UnshareDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnshareDirectoryCommandInput - {@link UnshareDirectoryCommandInput}
+ * @returns {@link UnshareDirectoryCommandOutput}
  * @see {@link UnshareDirectoryCommandInput} for command's `input` shape.
  * @see {@link UnshareDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -84,6 +90,9 @@ export class UnshareDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnshareDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +121,8 @@ export class UnshareDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnshareDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UnshareDirectoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +132,18 @@ export class UnshareDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnshareDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnshareDirectoryCommand(input, context);
+    return se_UnshareDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnshareDirectoryCommandOutput> {
-    return deserializeAws_json1_1UnshareDirectoryCommand(output, context);
+    return de_UnshareDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

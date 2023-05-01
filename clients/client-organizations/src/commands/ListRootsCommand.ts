@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRootsRequest,
-  ListRootsRequestFilterSensitiveLog,
-  ListRootsResponse,
-  ListRootsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRootsRequest, ListRootsResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { deserializeAws_json1_1ListRootsCommand, serializeAws_json1_1ListRootsCommand } from "../protocols/Aws_json1_1";
+import { de_ListRootsCommand, se_ListRootsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRootsCommand}.
  */
 export interface ListRootsCommandInput extends ListRootsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRootsCommand}.
  */
 export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the roots that are defined in the current organization.</p>
  *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
@@ -56,10 +56,16 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * import { OrganizationsClient, ListRootsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListRootsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListRootsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRootsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRootsCommandInput - {@link ListRootsCommandInput}
+ * @returns {@link ListRootsCommandOutput}
  * @see {@link ListRootsCommandInput} for command's `input` shape.
  * @see {@link ListRootsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -235,6 +241,9 @@ export class ListRootsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRootsCommandInput) {
     // Start section: command_constructor
     super();
@@ -261,8 +270,8 @@ export class ListRootsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRootsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRootsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -272,12 +281,18 @@ export class ListRootsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRootsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRootsCommand(input, context);
+    return se_ListRootsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRootsCommandOutput> {
-    return deserializeAws_json1_1ListRootsCommand(output, context);
+    return de_ListRootsCommand(output, context);
   }
 
   // Start section: command_body_extra

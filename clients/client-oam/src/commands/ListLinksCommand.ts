@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLinksInput,
-  ListLinksInputFilterSensitiveLog,
-  ListLinksOutput,
-  ListLinksOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListLinksInput, ListLinksOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1ListLinksCommand,
-  serializeAws_restJson1ListLinksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLinksCommand, se_ListLinksCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLinksCommand}.
  */
 export interface ListLinksCommandInput extends ListLinksInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLinksCommand}.
  */
 export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this operation in a source account to return a list of links to monitoring account sinks that
  *             this source account has.</p>
  *         <p>To find a list of links for one monitoring account sink, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListAttachedLinks.html">ListAttachedLinks</a> from within the monitoring account.</p>
@@ -44,10 +41,16 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  * import { OAMClient, ListLinksCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, ListLinksCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = { // ListLinksInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLinksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLinksCommandInput - {@link ListLinksCommandInput}
+ * @returns {@link ListLinksCommandOutput}
  * @see {@link ListLinksCommandInput} for command's `input` shape.
  * @see {@link ListLinksCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -76,6 +79,9 @@ export class ListLinksCommand extends $Command<ListLinksCommandInput, ListLinksC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLinksCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +108,8 @@ export class ListLinksCommand extends $Command<ListLinksCommandInput, ListLinksC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLinksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLinksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +119,18 @@ export class ListLinksCommand extends $Command<ListLinksCommandInput, ListLinksC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLinksCommand(input, context);
+    return se_ListLinksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLinksCommandOutput> {
-    return deserializeAws_restJson1ListLinksCommand(output, context);
+    return de_ListLinksCommand(output, context);
   }
 
   // Start section: command_body_extra

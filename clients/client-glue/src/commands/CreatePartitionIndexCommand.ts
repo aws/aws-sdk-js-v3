@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreatePartitionIndexRequest,
-  CreatePartitionIndexRequestFilterSensitiveLog,
-  CreatePartitionIndexResponse,
-  CreatePartitionIndexResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePartitionIndexCommand,
-  serializeAws_json1_1CreatePartitionIndexCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePartitionIndexRequest, CreatePartitionIndexResponse } from "../models/models_0";
+import { de_CreatePartitionIndexCommand, se_CreatePartitionIndexCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePartitionIndexCommand}.
  */
 export interface CreatePartitionIndexCommandInput extends CreatePartitionIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePartitionIndexCommand}.
  */
 export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a specified partition index in an existing table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  * import { GlueClient, CreatePartitionIndexCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreatePartitionIndexCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreatePartitionIndexRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   PartitionIndex: { // PartitionIndex
+ *     Keys: [ // KeyList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     IndexName: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreatePartitionIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePartitionIndexCommandInput - {@link CreatePartitionIndexCommandInput}
+ * @returns {@link CreatePartitionIndexCommandOutput}
  * @see {@link CreatePartitionIndexCommandInput} for command's `input` shape.
  * @see {@link CreatePartitionIndexCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -90,6 +100,9 @@ export class CreatePartitionIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePartitionIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +131,8 @@ export class CreatePartitionIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePartitionIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePartitionIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +142,18 @@ export class CreatePartitionIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePartitionIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePartitionIndexCommand(input, context);
+    return se_CreatePartitionIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePartitionIndexCommandOutput> {
-    return deserializeAws_json1_1CreatePartitionIndexCommand(output, context);
+    return de_CreatePartitionIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TerminateSessionRequest,
-  TerminateSessionRequestFilterSensitiveLog,
-  TerminateSessionResponse,
-  TerminateSessionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1TerminateSessionCommand,
-  serializeAws_json1_1TerminateSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { TerminateSessionRequest, TerminateSessionResponse } from "../models/models_1";
+import { de_TerminateSessionCommand, se_TerminateSessionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateSessionCommand}.
  */
 export interface TerminateSessionCommandInput extends TerminateSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link TerminateSessionCommand}.
  */
 export interface TerminateSessionCommandOutput extends TerminateSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently ends a session and closes the data connection between the Session Manager client and
  *    SSM Agent on the managed node. A terminated session can't be resumed.</p>
  * @example
@@ -43,10 +40,15 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * import { SSMClient, TerminateSessionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, TerminateSessionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // TerminateSessionRequest
+ *   SessionId: "STRING_VALUE", // required
+ * };
  * const command = new TerminateSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateSessionCommandInput - {@link TerminateSessionCommandInput}
+ * @returns {@link TerminateSessionCommandOutput}
  * @see {@link TerminateSessionCommandInput} for command's `input` shape.
  * @see {@link TerminateSessionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -73,6 +75,9 @@ export class TerminateSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +106,8 @@ export class TerminateSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TerminateSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +117,18 @@ export class TerminateSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TerminateSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateSessionCommand(input, context);
+    return se_TerminateSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateSessionCommandOutput> {
-    return deserializeAws_json1_1TerminateSessionCommand(output, context);
+    return de_TerminateSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

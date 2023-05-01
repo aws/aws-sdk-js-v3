@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  DescribeDomainAutoTunesRequest,
-  DescribeDomainAutoTunesRequestFilterSensitiveLog,
-  DescribeDomainAutoTunesResponse,
-  DescribeDomainAutoTunesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDomainAutoTunesCommand,
-  serializeAws_restJson1DescribeDomainAutoTunesCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDomainAutoTunesRequest, DescribeDomainAutoTunesResponse } from "../models/models_0";
+import { de_DescribeDomainAutoTunesCommand, se_DescribeDomainAutoTunesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainAutoTunesCommand}.
  */
 export interface DescribeDomainAutoTunesCommandInput extends DescribeDomainAutoTunesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainAutoTunesCommand}.
  */
 export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAutoTunesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides scheduled Auto-Tune action details for the Elasticsearch domain, such as Auto-Tune action type, description, severity, and scheduled date.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * import { ElasticsearchServiceClient, DescribeDomainAutoTunesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribeDomainAutoTunesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // DescribeDomainAutoTunesRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeDomainAutoTunesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainAutoTunesCommandInput - {@link DescribeDomainAutoTunesCommandInput}
+ * @returns {@link DescribeDomainAutoTunesCommandOutput}
  * @see {@link DescribeDomainAutoTunesCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainAutoTunesCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -85,6 +89,9 @@ export class DescribeDomainAutoTunesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainAutoTunesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class DescribeDomainAutoTunesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainAutoTunesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainAutoTunesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class DescribeDomainAutoTunesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainAutoTunesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDomainAutoTunesCommand(input, context);
+    return se_DescribeDomainAutoTunesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainAutoTunesCommandOutput> {
-    return deserializeAws_restJson1DescribeDomainAutoTunesCommand(output, context);
+    return de_DescribeDomainAutoTunesCommand(output, context);
   }
 
   // Start section: command_body_extra

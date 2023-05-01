@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RevokeSnapshotAccessMessage,
-  RevokeSnapshotAccessMessageFilterSensitiveLog,
-  RevokeSnapshotAccessResult,
-  RevokeSnapshotAccessResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRevokeSnapshotAccessCommand,
-  serializeAws_queryRevokeSnapshotAccessCommand,
-} from "../protocols/Aws_query";
+import { RevokeSnapshotAccessMessage, RevokeSnapshotAccessResult } from "../models/models_1";
+import { de_RevokeSnapshotAccessCommand, se_RevokeSnapshotAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeSnapshotAccessCommand}.
  */
 export interface RevokeSnapshotAccessCommandInput extends RevokeSnapshotAccessMessage {}
 /**
+ * @public
+ *
  * The output of {@link RevokeSnapshotAccessCommand}.
  */
 export interface RevokeSnapshotAccessCommandOutput extends RevokeSnapshotAccessResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the ability of the specified  Amazon Web Services account to restore the specified
  *             snapshot. If the account is currently restoring the snapshot, the restore will run to
  *             completion.</p>
@@ -48,10 +45,18 @@ export interface RevokeSnapshotAccessCommandOutput extends RevokeSnapshotAccessR
  * import { RedshiftClient, RevokeSnapshotAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RevokeSnapshotAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // RevokeSnapshotAccessMessage
+ *   SnapshotIdentifier: "STRING_VALUE",
+ *   SnapshotArn: "STRING_VALUE",
+ *   SnapshotClusterIdentifier: "STRING_VALUE",
+ *   AccountWithRestoreAccess: "STRING_VALUE", // required
+ * };
  * const command = new RevokeSnapshotAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeSnapshotAccessCommandInput - {@link RevokeSnapshotAccessCommandInput}
+ * @returns {@link RevokeSnapshotAccessCommandOutput}
  * @see {@link RevokeSnapshotAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeSnapshotAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -89,6 +94,9 @@ export class RevokeSnapshotAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeSnapshotAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class RevokeSnapshotAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeSnapshotAccessMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeSnapshotAccessResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class RevokeSnapshotAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeSnapshotAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRevokeSnapshotAccessCommand(input, context);
+    return se_RevokeSnapshotAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeSnapshotAccessCommandOutput> {
-    return deserializeAws_queryRevokeSnapshotAccessCommand(output, context);
+    return de_RevokeSnapshotAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

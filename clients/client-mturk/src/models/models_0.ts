@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { MTurkServiceException as __BaseException } from "./MTurkServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptQualificationRequestRequest {
   /**
    * <p>The ID of the Qualification request, as returned by the <code>GetQualificationRequests</code> operation.</p>
@@ -18,9 +21,13 @@ export interface AcceptQualificationRequestRequest {
   IntegerValue?: number;
 }
 
+/**
+ * @public
+ */
 export interface AcceptQualificationRequestResponse {}
 
 /**
+ * @public
  * <p>Your request is invalid.</p>
  */
 export class RequestError extends __BaseException {
@@ -44,6 +51,7 @@ export class RequestError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  */
 export class ServiceFault extends __BaseException {
@@ -66,6 +74,9 @@ export class ServiceFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ApproveAssignmentRequest {
   /**
    * <p>
@@ -89,15 +100,28 @@ export interface ApproveAssignmentRequest {
   OverrideRejection?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ApproveAssignmentResponse {}
 
-export enum AssignmentStatus {
-  Approved = "Approved",
-  Rejected = "Rejected",
-  Submitted = "Submitted",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AssignmentStatus = {
+  Approved: "Approved",
+  Rejected: "Rejected",
+  Submitted: "Submitted",
+} as const;
 
 /**
+ * @public
+ */
+export type AssignmentStatus = (typeof AssignmentStatus)[keyof typeof AssignmentStatus];
+
+/**
+ * @public
  * <p> The Assignment data structure represents a single assignment
  *             of a HIT to a Worker. The assignment tracks the Worker's efforts to
  *             complete the HIT, and contains the results for later retrieval.
@@ -185,6 +209,9 @@ export interface Assignment {
   RequesterFeedback?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateQualificationWithWorkerRequest {
   /**
    * <p>The ID of the Qualification type to use for the assigned Qualification.</p>
@@ -214,9 +241,13 @@ export interface AssociateQualificationWithWorkerRequest {
   SendNotification?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface AssociateQualificationWithWorkerResponse {}
 
 /**
+ * @public
  * <p>An object representing a Bonus payment paid to a Worker.</p>
  */
 export interface BonusPayment {
@@ -246,19 +277,31 @@ export interface BonusPayment {
   GrantTime?: Date;
 }
 
-export enum Comparator {
-  DoesNotExist = "DoesNotExist",
-  EqualTo = "EqualTo",
-  Exists = "Exists",
-  GreaterThan = "GreaterThan",
-  GreaterThanOrEqualTo = "GreaterThanOrEqualTo",
-  In = "In",
-  LessThan = "LessThan",
-  LessThanOrEqualTo = "LessThanOrEqualTo",
-  NotEqualTo = "NotEqualTo",
-  NotIn = "NotIn",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Comparator = {
+  DoesNotExist: "DoesNotExist",
+  EqualTo: "EqualTo",
+  Exists: "Exists",
+  GreaterThan: "GreaterThan",
+  GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
+  In: "In",
+  LessThan: "LessThan",
+  LessThanOrEqualTo: "LessThanOrEqualTo",
+  NotEqualTo: "NotEqualTo",
+  NotIn: "NotIn",
+} as const;
 
+/**
+ * @public
+ */
+export type Comparator = (typeof Comparator)[keyof typeof Comparator];
+
+/**
+ * @public
+ */
 export interface CreateAdditionalAssignmentsForHITRequest {
   /**
    * <p>The ID of the HIT to extend.</p>
@@ -283,9 +326,13 @@ export interface CreateAdditionalAssignmentsForHITRequest {
   UniqueRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateAdditionalAssignmentsForHITResponse {}
 
 /**
+ * @public
  * <p> This data structure is the data type for the AnswerKey
  *             parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
  *         </p>
@@ -309,6 +356,7 @@ export interface ParameterMapEntry {
 }
 
 /**
+ * @public
  * <p> Name of the parameter from the Review policy.
  *         </p>
  */
@@ -332,6 +380,7 @@ export interface PolicyParameter {
 }
 
 /**
+ * @public
  * <p> HIT Review Policy data structures represent HIT review
  *             policies, which you specify when you create a HIT.
  *         </p>
@@ -351,6 +400,7 @@ export interface ReviewPolicy {
 }
 
 /**
+ * @public
  * <p> The HITLayoutParameter data structure defines parameter
  *             values used with a HITLayout. A HITLayout is a reusable Amazon
  *             Mechanical Turk project template used to provide Human Intelligence
@@ -372,13 +422,23 @@ export interface HITLayoutParameter {
   Value: string | undefined;
 }
 
-export enum HITAccessActions {
-  Accept = "Accept",
-  DiscoverPreviewAndAccept = "DiscoverPreviewAndAccept",
-  PreviewAndAccept = "PreviewAndAccept",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HITAccessActions = {
+  Accept: "Accept",
+  DiscoverPreviewAndAccept: "DiscoverPreviewAndAccept",
+  PreviewAndAccept: "PreviewAndAccept",
+} as const;
 
 /**
+ * @public
+ */
+export type HITAccessActions = (typeof HITAccessActions)[keyof typeof HITAccessActions];
+
+/**
+ * @public
  * <p>The Locale data structure represents a geographical region or location.</p>
  */
 export interface Locale {
@@ -399,6 +459,7 @@ export interface Locale {
 }
 
 /**
+ * @public
  * <p>
  *             The QualificationRequirement data structure describes a Qualification that a Worker must have
  *             before the Worker is allowed to accept a HIT.
@@ -491,6 +552,9 @@ export interface QualificationRequirement {
   ActionsGuarded?: HITAccessActions | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateHITRequest {
   /**
    * <p>
@@ -662,22 +726,41 @@ export interface CreateHITRequest {
   HITLayoutParameters?: HITLayoutParameter[];
 }
 
-export enum HITReviewStatus {
-  MarkedForReview = "MarkedForReview",
-  NotReviewed = "NotReviewed",
-  ReviewedAppropriate = "ReviewedAppropriate",
-  ReviewedInappropriate = "ReviewedInappropriate",
-}
-
-export enum HITStatus {
-  Assignable = "Assignable",
-  Disposed = "Disposed",
-  Reviewable = "Reviewable",
-  Reviewing = "Reviewing",
-  Unassignable = "Unassignable",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HITReviewStatus = {
+  MarkedForReview: "MarkedForReview",
+  NotReviewed: "NotReviewed",
+  ReviewedAppropriate: "ReviewedAppropriate",
+  ReviewedInappropriate: "ReviewedInappropriate",
+} as const;
 
 /**
+ * @public
+ */
+export type HITReviewStatus = (typeof HITReviewStatus)[keyof typeof HITReviewStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HITStatus = {
+  Assignable: "Assignable",
+  Disposed: "Disposed",
+  Reviewable: "Reviewable",
+  Reviewing: "Reviewing",
+  Unassignable: "Unassignable",
+} as const;
+
+/**
+ * @public
+ */
+export type HITStatus = (typeof HITStatus)[keyof typeof HITStatus];
+
+/**
+ * @public
  * <p> The HIT data structure represents a single HIT, including
  *             all the information necessary for a Worker to accept and complete the
  *             HIT.</p>
@@ -817,6 +900,9 @@ export interface HIT {
   NumberOfAssignmentsCompleted?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateHITResponse {
   /**
    * <p> Contains the newly created HIT data. For a description of
@@ -827,6 +913,9 @@ export interface CreateHITResponse {
   HIT?: HIT;
 }
 
+/**
+ * @public
+ */
 export interface CreateHITTypeRequest {
   /**
    * <p>
@@ -895,6 +984,9 @@ export interface CreateHITTypeRequest {
   QualificationRequirements?: QualificationRequirement[];
 }
 
+/**
+ * @public
+ */
 export interface CreateHITTypeResponse {
   /**
    * <p> The ID of the newly registered HIT type.</p>
@@ -902,6 +994,9 @@ export interface CreateHITTypeResponse {
   HITTypeId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateHITWithHITTypeRequest {
   /**
    * <p>The HIT type ID you want to create this HIT with.</p>
@@ -1012,6 +1107,9 @@ export interface CreateHITWithHITTypeRequest {
   HITLayoutParameters?: HITLayoutParameter[];
 }
 
+/**
+ * @public
+ */
 export interface CreateHITWithHITTypeResponse {
   /**
    * <p> Contains the newly created HIT data. For a description of
@@ -1022,11 +1120,23 @@ export interface CreateHITWithHITTypeResponse {
   HIT?: HIT;
 }
 
-export enum QualificationTypeStatus {
-  Active = "Active",
-  Inactive = "Inactive",
-}
+/**
+ * @public
+ * @enum
+ */
+export const QualificationTypeStatus = {
+  Active: "Active",
+  Inactive: "Inactive",
+} as const;
 
+/**
+ * @public
+ */
+export type QualificationTypeStatus = (typeof QualificationTypeStatus)[keyof typeof QualificationTypeStatus];
+
+/**
+ * @public
+ */
 export interface CreateQualificationTypeRequest {
   /**
    * <p> The name you give to the Qualification type. The type name
@@ -1120,6 +1230,7 @@ export interface CreateQualificationTypeRequest {
 }
 
 /**
+ * @public
  * <p> The QualificationType data structure represents a
  *             Qualification type, a description of a property of a Worker that must
  *             match the requirements of a HIT for the Worker to be able to accept
@@ -1233,6 +1344,9 @@ export interface QualificationType {
   AutoGrantedValue?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateQualificationTypeResponse {
   /**
    * <p>The created Qualification type, returned as a
@@ -1241,6 +1355,9 @@ export interface CreateQualificationTypeResponse {
   QualificationType?: QualificationType;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkerBlockRequest {
   /**
    * <p>The ID of the Worker to block.</p>
@@ -1253,8 +1370,14 @@ export interface CreateWorkerBlockRequest {
   Reason: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkerBlockResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteHITRequest {
   /**
    * <p>The ID of the HIT to be deleted.</p>
@@ -1262,8 +1385,14 @@ export interface DeleteHITRequest {
   HITId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteHITResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteQualificationTypeRequest {
   /**
    * <p>The ID of the QualificationType to dispose.</p>
@@ -1271,8 +1400,14 @@ export interface DeleteQualificationTypeRequest {
   QualificationTypeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQualificationTypeResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteWorkerBlockRequest {
   /**
    * <p>The ID of the Worker to unblock.</p>
@@ -1285,8 +1420,14 @@ export interface DeleteWorkerBlockRequest {
   Reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkerBlockResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateQualificationFromWorkerRequest {
   /**
    * <p>The ID of the Worker who possesses the Qualification to be revoked.</p>
@@ -1304,25 +1445,43 @@ export interface DisassociateQualificationFromWorkerRequest {
   Reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateQualificationFromWorkerResponse {}
 
-export enum EventType {
-  AssignmentAbandoned = "AssignmentAbandoned",
-  AssignmentAccepted = "AssignmentAccepted",
-  AssignmentApproved = "AssignmentApproved",
-  AssignmentRejected = "AssignmentRejected",
-  AssignmentReturned = "AssignmentReturned",
-  AssignmentSubmitted = "AssignmentSubmitted",
-  HITCreated = "HITCreated",
-  HITDisposed = "HITDisposed",
-  HITExpired = "HITExpired",
-  HITExtended = "HITExtended",
-  HITReviewable = "HITReviewable",
-  Ping = "Ping",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  AssignmentAbandoned: "AssignmentAbandoned",
+  AssignmentAccepted: "AssignmentAccepted",
+  AssignmentApproved: "AssignmentApproved",
+  AssignmentRejected: "AssignmentRejected",
+  AssignmentReturned: "AssignmentReturned",
+  AssignmentSubmitted: "AssignmentSubmitted",
+  HITCreated: "HITCreated",
+  HITDisposed: "HITDisposed",
+  HITExpired: "HITExpired",
+  HITExtended: "HITExtended",
+  HITReviewable: "HITReviewable",
+  Ping: "Ping",
+} as const;
 
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
+ */
 export interface GetAccountBalanceRequest {}
 
+/**
+ * @public
+ */
 export interface GetAccountBalanceResponse {
   /**
    * <p>A string representing a currency amount.</p>
@@ -1335,6 +1494,9 @@ export interface GetAccountBalanceResponse {
   OnHoldBalance?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAssignmentRequest {
   /**
    * <p>The ID of the Assignment to be retrieved.</p>
@@ -1342,6 +1504,9 @@ export interface GetAssignmentRequest {
   AssignmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAssignmentResponse {
   /**
    * <p> The assignment. The response includes one Assignment
@@ -1357,6 +1522,9 @@ export interface GetAssignmentResponse {
   HIT?: HIT;
 }
 
+/**
+ * @public
+ */
 export interface GetFileUploadURLRequest {
   /**
    * <p>The ID of the assignment that contains the question with a
@@ -1371,6 +1539,9 @@ export interface GetFileUploadURLRequest {
   QuestionIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetFileUploadURLResponse {
   /**
    * <p> A temporary URL for the file that the Worker uploaded for
@@ -1380,6 +1551,9 @@ export interface GetFileUploadURLResponse {
   FileUploadURL?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetHITRequest {
   /**
    * <p>The ID of the HIT to be retrieved.</p>
@@ -1387,6 +1561,9 @@ export interface GetHITRequest {
   HITId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetHITResponse {
   /**
    * <p> Contains the requested HIT data.</p>
@@ -1394,6 +1571,9 @@ export interface GetHITResponse {
   HIT?: HIT;
 }
 
+/**
+ * @public
+ */
 export interface GetQualificationScoreRequest {
   /**
    * <p>The ID of the QualificationType.</p>
@@ -1406,12 +1586,22 @@ export interface GetQualificationScoreRequest {
   WorkerId: string | undefined;
 }
 
-export enum QualificationStatus {
-  Granted = "Granted",
-  Revoked = "Revoked",
-}
+/**
+ * @public
+ * @enum
+ */
+export const QualificationStatus = {
+  Granted: "Granted",
+  Revoked: "Revoked",
+} as const;
 
 /**
+ * @public
+ */
+export type QualificationStatus = (typeof QualificationStatus)[keyof typeof QualificationStatus];
+
+/**
+ * @public
  * <p>The Qualification data structure represents a Qualification
  *             assigned to a user, including the Qualification type and the value
  *             (score).</p>
@@ -1455,6 +1645,9 @@ export interface Qualification {
   Status?: QualificationStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetQualificationScoreResponse {
   /**
    * <p> The Qualification data structure of the Qualification
@@ -1465,6 +1658,9 @@ export interface GetQualificationScoreResponse {
   Qualification?: Qualification;
 }
 
+/**
+ * @public
+ */
 export interface GetQualificationTypeRequest {
   /**
    * <p>The ID of the QualificationType.</p>
@@ -1472,6 +1668,9 @@ export interface GetQualificationTypeRequest {
   QualificationTypeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetQualificationTypeResponse {
   /**
    * <p> The returned Qualification Type</p>
@@ -1479,6 +1678,9 @@ export interface GetQualificationTypeResponse {
   QualificationType?: QualificationType;
 }
 
+/**
+ * @public
+ */
 export interface ListAssignmentsForHITRequest {
   /**
    * <p>The ID of the HIT.</p>
@@ -1498,6 +1700,9 @@ export interface ListAssignmentsForHITRequest {
   AssignmentStatuses?: (AssignmentStatus | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListAssignmentsForHITResponse {
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1521,6 +1726,9 @@ export interface ListAssignmentsForHITResponse {
   Assignments?: Assignment[];
 }
 
+/**
+ * @public
+ */
 export interface ListBonusPaymentsRequest {
   /**
    * <p>The ID of the HIT associated with the bonus payments to
@@ -1546,6 +1754,9 @@ export interface ListBonusPaymentsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListBonusPaymentsResponse {
   /**
    * <p>The number of bonus payments on this page in the filtered
@@ -1571,6 +1782,9 @@ export interface ListBonusPaymentsResponse {
   BonusPayments?: BonusPayment[];
 }
 
+/**
+ * @public
+ */
 export interface ListHITsRequest {
   /**
    * <p>Pagination token</p>
@@ -1580,6 +1794,9 @@ export interface ListHITsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListHITsResponse {
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1601,6 +1818,9 @@ export interface ListHITsResponse {
   HITs?: HIT[];
 }
 
+/**
+ * @public
+ */
 export interface ListHITsForQualificationTypeRequest {
   /**
    * <p>
@@ -1622,6 +1842,9 @@ export interface ListHITsForQualificationTypeRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListHITsForQualificationTypeResponse {
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1643,6 +1866,9 @@ export interface ListHITsForQualificationTypeResponse {
   HITs?: HIT[];
 }
 
+/**
+ * @public
+ */
 export interface ListQualificationRequestsRequest {
   /**
    * <p>The ID of the QualificationType.</p>
@@ -1665,6 +1891,7 @@ export interface ListQualificationRequestsRequest {
 }
 
 /**
+ * @public
  * <p> The QualificationRequest data structure represents a request
  *             a Worker has made for a Qualification.
  *         </p>
@@ -1718,6 +1945,9 @@ export interface QualificationRequest {
   SubmitTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListQualificationRequestsResponse {
   /**
    * <p>The number of Qualification requests on this page in the filtered results list,
@@ -1742,6 +1972,9 @@ export interface ListQualificationRequestsResponse {
   QualificationRequests?: QualificationRequest[];
 }
 
+/**
+ * @public
+ */
 export interface ListQualificationTypesRequest {
   /**
    * <p> A text query against all of the searchable attributes of
@@ -1785,6 +2018,9 @@ export interface ListQualificationTypesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListQualificationTypesResponse {
   /**
    * <p> The number of Qualification types on this page in the
@@ -1810,11 +2046,23 @@ export interface ListQualificationTypesResponse {
   QualificationTypes?: QualificationType[];
 }
 
-export enum ReviewableHITStatus {
-  Reviewable = "Reviewable",
-  Reviewing = "Reviewing",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReviewableHITStatus = {
+  Reviewable: "Reviewable",
+  Reviewing: "Reviewing",
+} as const;
 
+/**
+ * @public
+ */
+export type ReviewableHITStatus = (typeof ReviewableHITStatus)[keyof typeof ReviewableHITStatus];
+
+/**
+ * @public
+ */
 export interface ListReviewableHITsRequest {
   /**
    * <p>
@@ -1845,6 +2093,9 @@ export interface ListReviewableHITsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListReviewableHITsResponse {
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1867,11 +2118,23 @@ export interface ListReviewableHITsResponse {
   HITs?: HIT[];
 }
 
-export enum ReviewPolicyLevel {
-  Assignment = "Assignment",
-  HIT = "HIT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReviewPolicyLevel = {
+  Assignment: "Assignment",
+  HIT: "HIT",
+} as const;
 
+/**
+ * @public
+ */
+export type ReviewPolicyLevel = (typeof ReviewPolicyLevel)[keyof typeof ReviewPolicyLevel];
+
+/**
+ * @public
+ */
 export interface ListReviewPolicyResultsForHITRequest {
   /**
    * <p>The unique identifier of the HIT to retrieve review results for.</p>
@@ -1913,14 +2176,24 @@ export interface ListReviewPolicyResultsForHITRequest {
   MaxResults?: number;
 }
 
-export enum ReviewActionStatus {
-  Cancelled = "Cancelled",
-  Failed = "Failed",
-  Intended = "Intended",
-  Succeeded = "Succeeded",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReviewActionStatus = {
+  Cancelled: "Cancelled",
+  Failed: "Failed",
+  Intended: "Intended",
+  Succeeded: "Succeeded",
+} as const;
 
 /**
+ * @public
+ */
+export type ReviewActionStatus = (typeof ReviewActionStatus)[keyof typeof ReviewActionStatus];
+
+/**
+ * @public
  * <p> Both the AssignmentReviewReport and the HITReviewReport
  *             elements contains the ReviewActionDetail data structure. This
  *             structure is returned multiple times for each action specified in the
@@ -1974,6 +2247,7 @@ export interface ReviewActionDetail {
 }
 
 /**
+ * @public
  * <p> This data structure is returned multiple times for each
  *             result specified in the Review Policy.
  *         </p>
@@ -2027,6 +2301,7 @@ export interface ReviewResultDetail {
 }
 
 /**
+ * @public
  * <p> Contains both ReviewResult and ReviewAction elements for a
  *             particular HIT.
  *         </p>
@@ -2047,6 +2322,9 @@ export interface ReviewReport {
   ReviewActions?: ReviewActionDetail[];
 }
 
+/**
+ * @public
+ */
 export interface ListReviewPolicyResultsForHITResponse {
   /**
    * <p>The HITId of the HIT for which results have been returned.</p>
@@ -2088,6 +2366,9 @@ export interface ListReviewPolicyResultsForHITResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkerBlocksRequest {
   /**
    * <p>Pagination token</p>
@@ -2098,6 +2379,7 @@ export interface ListWorkerBlocksRequest {
 }
 
 /**
+ * @public
  * <p> The WorkerBlock data structure represents a Worker who has
  *             been blocked. It has two elements: the WorkerId and the Reason for
  *             the block.
@@ -2116,6 +2398,9 @@ export interface WorkerBlock {
   Reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkerBlocksResponse {
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -2139,6 +2424,9 @@ export interface ListWorkerBlocksResponse {
   WorkerBlocks?: WorkerBlock[];
 }
 
+/**
+ * @public
+ */
 export interface ListWorkersWithQualificationTypeRequest {
   /**
    * <p>The ID of the Qualification type of the Qualifications to
@@ -2167,6 +2455,9 @@ export interface ListWorkersWithQualificationTypeRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkersWithQualificationTypeResponse {
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -2190,6 +2481,9 @@ export interface ListWorkersWithQualificationTypeResponse {
   Qualifications?: Qualification[];
 }
 
+/**
+ * @public
+ */
 export interface NotifyWorkersRequest {
   /**
    * <p>The subject line of the email message to send. Can include up
@@ -2211,12 +2505,22 @@ export interface NotifyWorkersRequest {
   WorkerIds: string[] | undefined;
 }
 
-export enum NotifyWorkersFailureCode {
-  HardFailure = "HardFailure",
-  SoftFailure = "SoftFailure",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NotifyWorkersFailureCode = {
+  HardFailure: "HardFailure",
+  SoftFailure: "SoftFailure",
+} as const;
 
 /**
+ * @public
+ */
+export type NotifyWorkersFailureCode = (typeof NotifyWorkersFailureCode)[keyof typeof NotifyWorkersFailureCode];
+
+/**
+ * @public
  * <p> When MTurk encounters an issue with notifying the Workers
  *             you specified, it returns back this object with failure details.
  *         </p>
@@ -2241,6 +2545,9 @@ export interface NotifyWorkersFailureStatus {
   WorkerId?: string;
 }
 
+/**
+ * @public
+ */
 export interface NotifyWorkersResponse {
   /**
    * <p> When MTurk sends notifications to the list of Workers, it
@@ -2251,6 +2558,9 @@ export interface NotifyWorkersResponse {
   NotifyWorkersFailureStatuses?: NotifyWorkersFailureStatus[];
 }
 
+/**
+ * @public
+ */
 export interface RejectAssignmentRequest {
   /**
    * <p>
@@ -2267,8 +2577,14 @@ export interface RejectAssignmentRequest {
   RequesterFeedback: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RejectAssignmentResponse {}
 
+/**
+ * @public
+ */
 export interface RejectQualificationRequestRequest {
   /**
    * <p>
@@ -2286,8 +2602,14 @@ export interface RejectQualificationRequestRequest {
   Reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface RejectQualificationRequestResponse {}
 
+/**
+ * @public
+ */
 export interface SendBonusRequest {
   /**
    * <p>The ID of the Worker being paid the bonus.</p>
@@ -2325,15 +2647,28 @@ export interface SendBonusRequest {
   UniqueRequestToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SendBonusResponse {}
 
-export enum NotificationTransport {
-  Email = "Email",
-  SNS = "SNS",
-  SQS = "SQS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NotificationTransport = {
+  Email: "Email",
+  SNS: "SNS",
+  SQS: "SQS",
+} as const;
 
 /**
+ * @public
+ */
+export type NotificationTransport = (typeof NotificationTransport)[keyof typeof NotificationTransport];
+
+/**
+ * @public
  * <p>The NotificationSpecification data structure describes a HIT
  *             event notification for a HIT type.</p>
  */
@@ -2381,6 +2716,9 @@ export interface NotificationSpecification {
   EventTypes: (EventType | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendTestEventNotificationRequest {
   /**
    * <p>
@@ -2402,8 +2740,14 @@ export interface SendTestEventNotificationRequest {
   TestEventType: EventType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendTestEventNotificationResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateExpirationForHITRequest {
   /**
    * <p>
@@ -2420,8 +2764,14 @@ export interface UpdateExpirationForHITRequest {
   ExpireAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExpirationForHITResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateHITReviewStatusRequest {
   /**
    * <p>
@@ -2450,8 +2800,14 @@ export interface UpdateHITReviewStatusRequest {
   Revert?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateHITReviewStatusResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateHITTypeOfHITRequest {
   /**
    * <p>The HIT to update.</p>
@@ -2464,8 +2820,14 @@ export interface UpdateHITTypeOfHITRequest {
   HITTypeId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateHITTypeOfHITResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateNotificationSettingsRequest {
   /**
    * <p>
@@ -2492,8 +2854,14 @@ export interface UpdateNotificationSettingsRequest {
   Active?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateNotificationSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateQualificationTypeRequest {
   /**
    * <p>The ID of the Qualification type to update.</p>
@@ -2551,705 +2919,12 @@ export interface UpdateQualificationTypeRequest {
   AutoGrantedValue?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateQualificationTypeResponse {
   /**
    * <p> Contains a QualificationType data structure.</p>
    */
   QualificationType?: QualificationType;
 }
-
-/**
- * @internal
- */
-export const AcceptQualificationRequestRequestFilterSensitiveLog = (obj: AcceptQualificationRequestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptQualificationRequestResponseFilterSensitiveLog = (obj: AcceptQualificationRequestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApproveAssignmentRequestFilterSensitiveLog = (obj: ApproveAssignmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApproveAssignmentResponseFilterSensitiveLog = (obj: ApproveAssignmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssignmentFilterSensitiveLog = (obj: Assignment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateQualificationWithWorkerRequestFilterSensitiveLog = (
-  obj: AssociateQualificationWithWorkerRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateQualificationWithWorkerResponseFilterSensitiveLog = (
-  obj: AssociateQualificationWithWorkerResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BonusPaymentFilterSensitiveLog = (obj: BonusPayment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAdditionalAssignmentsForHITRequestFilterSensitiveLog = (
-  obj: CreateAdditionalAssignmentsForHITRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAdditionalAssignmentsForHITResponseFilterSensitiveLog = (
-  obj: CreateAdditionalAssignmentsForHITResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterMapEntryFilterSensitiveLog = (obj: ParameterMapEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PolicyParameterFilterSensitiveLog = (obj: PolicyParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReviewPolicyFilterSensitiveLog = (obj: ReviewPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HITLayoutParameterFilterSensitiveLog = (obj: HITLayoutParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocaleFilterSensitiveLog = (obj: Locale): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QualificationRequirementFilterSensitiveLog = (obj: QualificationRequirement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHITRequestFilterSensitiveLog = (obj: CreateHITRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HITFilterSensitiveLog = (obj: HIT): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHITResponseFilterSensitiveLog = (obj: CreateHITResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHITTypeRequestFilterSensitiveLog = (obj: CreateHITTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHITTypeResponseFilterSensitiveLog = (obj: CreateHITTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHITWithHITTypeRequestFilterSensitiveLog = (obj: CreateHITWithHITTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHITWithHITTypeResponseFilterSensitiveLog = (obj: CreateHITWithHITTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateQualificationTypeRequestFilterSensitiveLog = (obj: CreateQualificationTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QualificationTypeFilterSensitiveLog = (obj: QualificationType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateQualificationTypeResponseFilterSensitiveLog = (obj: CreateQualificationTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkerBlockRequestFilterSensitiveLog = (obj: CreateWorkerBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkerBlockResponseFilterSensitiveLog = (obj: CreateWorkerBlockResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHITRequestFilterSensitiveLog = (obj: DeleteHITRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHITResponseFilterSensitiveLog = (obj: DeleteHITResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteQualificationTypeRequestFilterSensitiveLog = (obj: DeleteQualificationTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteQualificationTypeResponseFilterSensitiveLog = (obj: DeleteQualificationTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkerBlockRequestFilterSensitiveLog = (obj: DeleteWorkerBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkerBlockResponseFilterSensitiveLog = (obj: DeleteWorkerBlockResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateQualificationFromWorkerRequestFilterSensitiveLog = (
-  obj: DisassociateQualificationFromWorkerRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateQualificationFromWorkerResponseFilterSensitiveLog = (
-  obj: DisassociateQualificationFromWorkerResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountBalanceRequestFilterSensitiveLog = (obj: GetAccountBalanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountBalanceResponseFilterSensitiveLog = (obj: GetAccountBalanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssignmentRequestFilterSensitiveLog = (obj: GetAssignmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAssignmentResponseFilterSensitiveLog = (obj: GetAssignmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFileUploadURLRequestFilterSensitiveLog = (obj: GetFileUploadURLRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFileUploadURLResponseFilterSensitiveLog = (obj: GetFileUploadURLResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHITRequestFilterSensitiveLog = (obj: GetHITRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHITResponseFilterSensitiveLog = (obj: GetHITResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQualificationScoreRequestFilterSensitiveLog = (obj: GetQualificationScoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QualificationFilterSensitiveLog = (obj: Qualification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQualificationScoreResponseFilterSensitiveLog = (obj: GetQualificationScoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQualificationTypeRequestFilterSensitiveLog = (obj: GetQualificationTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQualificationTypeResponseFilterSensitiveLog = (obj: GetQualificationTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssignmentsForHITRequestFilterSensitiveLog = (obj: ListAssignmentsForHITRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssignmentsForHITResponseFilterSensitiveLog = (obj: ListAssignmentsForHITResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBonusPaymentsRequestFilterSensitiveLog = (obj: ListBonusPaymentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBonusPaymentsResponseFilterSensitiveLog = (obj: ListBonusPaymentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHITsRequestFilterSensitiveLog = (obj: ListHITsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHITsResponseFilterSensitiveLog = (obj: ListHITsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHITsForQualificationTypeRequestFilterSensitiveLog = (
-  obj: ListHITsForQualificationTypeRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHITsForQualificationTypeResponseFilterSensitiveLog = (
-  obj: ListHITsForQualificationTypeResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQualificationRequestsRequestFilterSensitiveLog = (obj: ListQualificationRequestsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QualificationRequestFilterSensitiveLog = (obj: QualificationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQualificationRequestsResponseFilterSensitiveLog = (obj: ListQualificationRequestsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQualificationTypesRequestFilterSensitiveLog = (obj: ListQualificationTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQualificationTypesResponseFilterSensitiveLog = (obj: ListQualificationTypesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReviewableHITsRequestFilterSensitiveLog = (obj: ListReviewableHITsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReviewableHITsResponseFilterSensitiveLog = (obj: ListReviewableHITsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReviewPolicyResultsForHITRequestFilterSensitiveLog = (
-  obj: ListReviewPolicyResultsForHITRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReviewActionDetailFilterSensitiveLog = (obj: ReviewActionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReviewResultDetailFilterSensitiveLog = (obj: ReviewResultDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReviewReportFilterSensitiveLog = (obj: ReviewReport): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReviewPolicyResultsForHITResponseFilterSensitiveLog = (
-  obj: ListReviewPolicyResultsForHITResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkerBlocksRequestFilterSensitiveLog = (obj: ListWorkerBlocksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkerBlockFilterSensitiveLog = (obj: WorkerBlock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkerBlocksResponseFilterSensitiveLog = (obj: ListWorkerBlocksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkersWithQualificationTypeRequestFilterSensitiveLog = (
-  obj: ListWorkersWithQualificationTypeRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkersWithQualificationTypeResponseFilterSensitiveLog = (
-  obj: ListWorkersWithQualificationTypeResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyWorkersRequestFilterSensitiveLog = (obj: NotifyWorkersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyWorkersFailureStatusFilterSensitiveLog = (obj: NotifyWorkersFailureStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyWorkersResponseFilterSensitiveLog = (obj: NotifyWorkersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectAssignmentRequestFilterSensitiveLog = (obj: RejectAssignmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectAssignmentResponseFilterSensitiveLog = (obj: RejectAssignmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectQualificationRequestRequestFilterSensitiveLog = (obj: RejectQualificationRequestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectQualificationRequestResponseFilterSensitiveLog = (obj: RejectQualificationRequestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendBonusRequestFilterSensitiveLog = (obj: SendBonusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendBonusResponseFilterSensitiveLog = (obj: SendBonusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationSpecificationFilterSensitiveLog = (obj: NotificationSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendTestEventNotificationRequestFilterSensitiveLog = (obj: SendTestEventNotificationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendTestEventNotificationResponseFilterSensitiveLog = (obj: SendTestEventNotificationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExpirationForHITRequestFilterSensitiveLog = (obj: UpdateExpirationForHITRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExpirationForHITResponseFilterSensitiveLog = (obj: UpdateExpirationForHITResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHITReviewStatusRequestFilterSensitiveLog = (obj: UpdateHITReviewStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHITReviewStatusResponseFilterSensitiveLog = (obj: UpdateHITReviewStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHITTypeOfHITRequestFilterSensitiveLog = (obj: UpdateHITTypeOfHITRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHITTypeOfHITResponseFilterSensitiveLog = (obj: UpdateHITTypeOfHITResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNotificationSettingsRequestFilterSensitiveLog = (obj: UpdateNotificationSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNotificationSettingsResponseFilterSensitiveLog = (obj: UpdateNotificationSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateQualificationTypeRequestFilterSensitiveLog = (obj: UpdateQualificationTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateQualificationTypeResponseFilterSensitiveLog = (obj: UpdateQualificationTypeResponse): any => ({
-  ...obj,
-});

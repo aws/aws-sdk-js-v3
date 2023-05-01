@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
-import {
-  ListReportDefinitionsRequest,
-  ListReportDefinitionsRequestFilterSensitiveLog,
-  ListReportDefinitionsResult,
-  ListReportDefinitionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListReportDefinitionsCommand,
-  serializeAws_restJson1ListReportDefinitionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListReportDefinitionsRequest, ListReportDefinitionsResult } from "../models/models_0";
+import { de_ListReportDefinitionsCommand, se_ListReportDefinitionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReportDefinitionsCommand}.
  */
 export interface ListReportDefinitionsCommandInput extends ListReportDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReportDefinitionsCommand}.
  */
 export interface ListReportDefinitionsCommandOutput extends ListReportDefinitionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all reports and their configurations for your AWS account.</p>
  *          <p>The maximum number of reports is one.</p>
  * @example
@@ -47,10 +44,16 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  * import { ApplicationCostProfilerClient, ListReportDefinitionsCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
  * // const { ApplicationCostProfilerClient, ListReportDefinitionsCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
+ * const input = { // ListReportDefinitionsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListReportDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReportDefinitionsCommandInput - {@link ListReportDefinitionsCommandInput}
+ * @returns {@link ListReportDefinitionsCommandOutput}
  * @see {@link ListReportDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListReportDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
@@ -86,6 +89,9 @@ export class ListReportDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReportDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class ListReportDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReportDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReportDefinitionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class ListReportDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReportDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReportDefinitionsCommand(input, context);
+    return se_ListReportDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReportDefinitionsCommandOutput> {
-    return deserializeAws_restJson1ListReportDefinitionsCommand(output, context);
+    return de_ListReportDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -21,20 +21,25 @@ import {
   HostedConfigurationVersionFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateHostedConfigurationVersionCommand,
-  serializeAws_restJson1CreateHostedConfigurationVersionCommand,
+  de_CreateHostedConfigurationVersionCommand,
+  se_CreateHostedConfigurationVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHostedConfigurationVersionCommand}.
  */
 export interface CreateHostedConfigurationVersionCommandInput extends CreateHostedConfigurationVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHostedConfigurationVersionCommand}.
  */
 export interface CreateHostedConfigurationVersionCommandOutput extends HostedConfigurationVersion, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new configuration in the AppConfig hosted configuration
  *          store.</p>
  * @example
@@ -43,10 +48,21 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
  * import { AppConfigClient, CreateHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // CreateHostedConfigurationVersionRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Content: "BLOB_VALUE", // required
+ *   ContentType: "STRING_VALUE", // required
+ *   LatestVersionNumber: Number("int"),
+ *   VersionLabel: "STRING_VALUE",
+ * };
  * const command = new CreateHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHostedConfigurationVersionCommandInput - {@link CreateHostedConfigurationVersionCommandInput}
+ * @returns {@link CreateHostedConfigurationVersionCommandOutput}
  * @see {@link CreateHostedConfigurationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateHostedConfigurationVersionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -112,6 +128,9 @@ export class CreateHostedConfigurationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHostedConfigurationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,18 +170,24 @@ export class CreateHostedConfigurationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateHostedConfigurationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateHostedConfigurationVersionCommand(input, context);
+    return se_CreateHostedConfigurationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateHostedConfigurationVersionCommandOutput> {
-    return deserializeAws_restJson1CreateHostedConfigurationVersionCommand(output, context);
+    return de_CreateHostedConfigurationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

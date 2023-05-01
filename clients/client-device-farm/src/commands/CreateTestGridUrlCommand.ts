@@ -16,25 +16,26 @@ import {
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import {
   CreateTestGridUrlRequest,
-  CreateTestGridUrlRequestFilterSensitiveLog,
   CreateTestGridUrlResult,
   CreateTestGridUrlResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTestGridUrlCommand,
-  serializeAws_json1_1CreateTestGridUrlCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateTestGridUrlCommand, se_CreateTestGridUrlCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTestGridUrlCommand}.
  */
 export interface CreateTestGridUrlCommandInput extends CreateTestGridUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTestGridUrlCommand}.
  */
 export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a signed, short-term URL that can be passed to a Selenium <code>RemoteWebDriver</code>
  *          constructor.</p>
  * @example
@@ -43,10 +44,16 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * import { DeviceFarmClient, CreateTestGridUrlCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateTestGridUrlCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // CreateTestGridUrlRequest
+ *   projectArn: "STRING_VALUE", // required
+ *   expiresInSeconds: Number("int"), // required
+ * };
  * const command = new CreateTestGridUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTestGridUrlCommandInput - {@link CreateTestGridUrlCommandInput}
+ * @returns {@link CreateTestGridUrlCommandOutput}
  * @see {@link CreateTestGridUrlCommandInput} for command's `input` shape.
  * @see {@link CreateTestGridUrlCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -80,6 +87,9 @@ export class CreateTestGridUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTestGridUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,7 +118,7 @@ export class CreateTestGridUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTestGridUrlRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateTestGridUrlResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -119,12 +129,18 @@ export class CreateTestGridUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTestGridUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTestGridUrlCommand(input, context);
+    return se_CreateTestGridUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTestGridUrlCommandOutput> {
-    return deserializeAws_json1_1CreateTestGridUrlCommand(output, context);
+    return de_CreateTestGridUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

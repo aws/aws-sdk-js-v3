@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import {
-  DescribeModelRequest,
-  DescribeModelRequestFilterSensitiveLog,
-  DescribeModelResponse,
-  DescribeModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeModelCommand,
-  serializeAws_restJson1DescribeModelCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeModelRequest, DescribeModelResponse } from "../models/models_0";
+import { de_DescribeModelCommand, se_DescribeModelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelCommand}.
  */
 export interface DescribeModelCommandInput extends DescribeModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelCommand}.
  */
 export interface DescribeModelCommandOutput extends DescribeModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a version of an Amazon Lookout for Vision model.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DescribeModel</code> operation.</p>
@@ -44,10 +41,16 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * import { LookoutVisionClient, DescribeModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DescribeModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = { // DescribeModelRequest
+ *   ProjectName: "STRING_VALUE", // required
+ *   ModelVersion: "STRING_VALUE", // required
+ * };
  * const command = new DescribeModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelCommandInput - {@link DescribeModelCommandInput}
+ * @returns {@link DescribeModelCommandOutput}
  * @see {@link DescribeModelCommandInput} for command's `input` shape.
  * @see {@link DescribeModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -90,6 +93,9 @@ export class DescribeModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DescribeModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class DescribeModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeModelCommand(input, context);
+    return se_DescribeModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelCommandOutput> {
-    return deserializeAws_restJson1DescribeModelCommand(output, context);
+    return de_DescribeModelCommand(output, context);
   }
 
   // Start section: command_body_extra

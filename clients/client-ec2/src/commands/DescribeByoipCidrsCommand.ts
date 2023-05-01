@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeByoipCidrsRequest,
-  DescribeByoipCidrsRequestFilterSensitiveLog,
-  DescribeByoipCidrsResult,
-  DescribeByoipCidrsResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeByoipCidrsCommand,
-  serializeAws_ec2DescribeByoipCidrsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeByoipCidrsRequest, DescribeByoipCidrsResult } from "../models/models_3";
+import { de_DescribeByoipCidrsCommand, se_DescribeByoipCidrsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeByoipCidrsCommand}.
  */
 export interface DescribeByoipCidrsCommandInput extends DescribeByoipCidrsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeByoipCidrsCommand}.
  */
 export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>
  *          <p>To describe the address pools that were created when you provisioned the address
  *           ranges, use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.</p>
@@ -44,10 +41,17 @@ export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResul
  * import { EC2Client, DescribeByoipCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeByoipCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeByoipCidrsRequest
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"), // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeByoipCidrsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeByoipCidrsCommandInput - {@link DescribeByoipCidrsCommandInput}
+ * @returns {@link DescribeByoipCidrsCommandOutput}
  * @see {@link DescribeByoipCidrsCommandInput} for command's `input` shape.
  * @see {@link DescribeByoipCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +75,9 @@ export class DescribeByoipCidrsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeByoipCidrsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +106,8 @@ export class DescribeByoipCidrsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeByoipCidrsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeByoipCidrsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +117,18 @@ export class DescribeByoipCidrsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeByoipCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeByoipCidrsCommand(input, context);
+    return se_DescribeByoipCidrsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeByoipCidrsCommandOutput> {
-    return deserializeAws_ec2DescribeByoipCidrsCommand(output, context);
+    return de_DescribeByoipCidrsCommand(output, context);
   }
 
   // Start section: command_body_extra

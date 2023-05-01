@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAuthenticationProfileMessage,
-  CreateAuthenticationProfileMessageFilterSensitiveLog,
-  CreateAuthenticationProfileResult,
-  CreateAuthenticationProfileResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateAuthenticationProfileCommand,
-  serializeAws_queryCreateAuthenticationProfileCommand,
-} from "../protocols/Aws_query";
+import { CreateAuthenticationProfileMessage, CreateAuthenticationProfileResult } from "../models/models_0";
+import { de_CreateAuthenticationProfileCommand, se_CreateAuthenticationProfileCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAuthenticationProfileCommand}.
  */
 export interface CreateAuthenticationProfileCommandInput extends CreateAuthenticationProfileMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateAuthenticationProfileCommand}.
  */
 export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenticationProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an authentication profile with the specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  * import { RedshiftClient, CreateAuthenticationProfileCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateAuthenticationProfileCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // CreateAuthenticationProfileMessage
+ *   AuthenticationProfileName: "STRING_VALUE", // required
+ *   AuthenticationProfileContent: "STRING_VALUE", // required
+ * };
  * const command = new CreateAuthenticationProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAuthenticationProfileCommandInput - {@link CreateAuthenticationProfileCommandInput}
+ * @returns {@link CreateAuthenticationProfileCommandOutput}
  * @see {@link CreateAuthenticationProfileCommandInput} for command's `input` shape.
  * @see {@link CreateAuthenticationProfileCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -80,6 +83,9 @@ export class CreateAuthenticationProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAuthenticationProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class CreateAuthenticationProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAuthenticationProfileMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAuthenticationProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +125,21 @@ export class CreateAuthenticationProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAuthenticationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateAuthenticationProfileCommand(input, context);
+    return se_CreateAuthenticationProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAuthenticationProfileCommandOutput> {
-    return deserializeAws_queryCreateAuthenticationProfileCommand(output, context);
+    return de_CreateAuthenticationProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

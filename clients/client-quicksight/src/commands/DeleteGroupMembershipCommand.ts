@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteGroupMembershipRequest,
-  DeleteGroupMembershipRequestFilterSensitiveLog,
-  DeleteGroupMembershipResponse,
-  DeleteGroupMembershipResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteGroupMembershipCommand,
-  serializeAws_restJson1DeleteGroupMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteGroupMembershipRequest, DeleteGroupMembershipResponse } from "../models/models_2";
+import { de_DeleteGroupMembershipCommand, se_DeleteGroupMembershipCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGroupMembershipCommand}.
  */
 export interface DeleteGroupMembershipCommandInput extends DeleteGroupMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGroupMembershipCommand}.
  */
 export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a user from a group so that the user is no longer a member of the group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * import { QuickSightClient, DeleteGroupMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteGroupMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteGroupMembershipRequest
+ *   MemberName: "STRING_VALUE", // required
+ *   GroupName: "STRING_VALUE", // required
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGroupMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGroupMembershipCommandInput - {@link DeleteGroupMembershipCommandInput}
+ * @returns {@link DeleteGroupMembershipCommandOutput}
  * @see {@link DeleteGroupMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupMembershipCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +98,9 @@ export class DeleteGroupMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGroupMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +129,8 @@ export class DeleteGroupMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGroupMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGroupMembershipResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +140,18 @@ export class DeleteGroupMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGroupMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGroupMembershipCommand(input, context);
+    return se_DeleteGroupMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupMembershipCommandOutput> {
-    return deserializeAws_restJson1DeleteGroupMembershipCommand(output, context);
+    return de_DeleteGroupMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

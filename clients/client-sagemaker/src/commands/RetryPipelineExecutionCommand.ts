@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RetryPipelineExecutionRequest,
-  RetryPipelineExecutionRequestFilterSensitiveLog,
-  RetryPipelineExecutionResponse,
-  RetryPipelineExecutionResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1RetryPipelineExecutionCommand,
-  serializeAws_json1_1RetryPipelineExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { RetryPipelineExecutionRequest, RetryPipelineExecutionResponse } from "../models/models_3";
+import { de_RetryPipelineExecutionCommand, se_RetryPipelineExecutionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RetryPipelineExecutionCommand}.
  */
 export interface RetryPipelineExecutionCommandInput extends RetryPipelineExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link RetryPipelineExecutionCommand}.
  */
 export interface RetryPipelineExecutionCommandOutput extends RetryPipelineExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retry the execution of the pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface RetryPipelineExecutionCommandOutput extends RetryPipelineExecut
  * import { SageMakerClient, RetryPipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, RetryPipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // RetryPipelineExecutionRequest
+ *   PipelineExecutionArn: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   ParallelismConfiguration: { // ParallelismConfiguration
+ *     MaxParallelExecutionSteps: Number("int"), // required
+ *   },
+ * };
  * const command = new RetryPipelineExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RetryPipelineExecutionCommandInput - {@link RetryPipelineExecutionCommandInput}
+ * @returns {@link RetryPipelineExecutionCommandOutput}
  * @see {@link RetryPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link RetryPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -80,6 +86,9 @@ export class RetryPipelineExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RetryPipelineExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +117,8 @@ export class RetryPipelineExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetryPipelineExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RetryPipelineExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +128,18 @@ export class RetryPipelineExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RetryPipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RetryPipelineExecutionCommand(input, context);
+    return se_RetryPipelineExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryPipelineExecutionCommandOutput> {
-    return deserializeAws_json1_1RetryPipelineExecutionCommand(output, context);
+    return de_RetryPipelineExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

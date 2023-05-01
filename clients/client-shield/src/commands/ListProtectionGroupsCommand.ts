@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListProtectionGroupsRequest,
-  ListProtectionGroupsRequestFilterSensitiveLog,
-  ListProtectionGroupsResponse,
-  ListProtectionGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProtectionGroupsCommand,
-  serializeAws_json1_1ListProtectionGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProtectionGroupsRequest, ListProtectionGroupsResponse } from "../models/models_0";
+import { de_ListProtectionGroupsCommand, se_ListProtectionGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProtectionGroupsCommand}.
  */
 export interface ListProtectionGroupsCommandInput extends ListProtectionGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProtectionGroupsCommand}.
  */
 export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves <a>ProtectionGroup</a> objects for the account. You can retrieve all protection groups or you can provide
  *        filtering criteria and retrieve just the subset of protection groups that match the criteria. </p>
  * @example
@@ -43,10 +40,30 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  * import { ShieldClient, ListProtectionGroupsCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, ListProtectionGroupsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // ListProtectionGroupsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   InclusionFilters: { // InclusionProtectionGroupFilters
+ *     ProtectionGroupIds: [ // ProtectionGroupIdFilters
+ *       "STRING_VALUE",
+ *     ],
+ *     Patterns: [ // ProtectionGroupPatternFilters
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceTypes: [ // ProtectedResourceTypeFilters
+ *       "STRING_VALUE",
+ *     ],
+ *     Aggregations: [ // ProtectionGroupAggregationFilters
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListProtectionGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProtectionGroupsCommandInput - {@link ListProtectionGroupsCommandInput}
+ * @returns {@link ListProtectionGroupsCommandOutput}
  * @see {@link ListProtectionGroupsCommandInput} for command's `input` shape.
  * @see {@link ListProtectionGroupsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -79,6 +96,9 @@ export class ListProtectionGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProtectionGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +127,8 @@ export class ListProtectionGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProtectionGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProtectionGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +138,18 @@ export class ListProtectionGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProtectionGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProtectionGroupsCommand(input, context);
+    return se_ListProtectionGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectionGroupsCommandOutput> {
-    return deserializeAws_json1_1ListProtectionGroupsCommand(output, context);
+    return de_ListProtectionGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

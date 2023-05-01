@@ -14,27 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { AllocateConnectionOnInterconnectRequest, Connection } from "../models/models_0";
 import {
-  AllocateConnectionOnInterconnectRequest,
-  AllocateConnectionOnInterconnectRequestFilterSensitiveLog,
-  Connection,
-  ConnectionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AllocateConnectionOnInterconnectCommand,
-  serializeAws_json1_1AllocateConnectionOnInterconnectCommand,
+  de_AllocateConnectionOnInterconnectCommand,
+  se_AllocateConnectionOnInterconnectCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AllocateConnectionOnInterconnectCommand}.
  */
 export interface AllocateConnectionOnInterconnectCommandInput extends AllocateConnectionOnInterconnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link AllocateConnectionOnInterconnectCommand}.
  */
 export interface AllocateConnectionOnInterconnectCommandOutput extends Connection, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p>
@@ -49,10 +49,19 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  * import { DirectConnectClient, AllocateConnectionOnInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AllocateConnectionOnInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // AllocateConnectionOnInterconnectRequest
+ *   bandwidth: "STRING_VALUE", // required
+ *   connectionName: "STRING_VALUE", // required
+ *   ownerAccount: "STRING_VALUE", // required
+ *   interconnectId: "STRING_VALUE", // required
+ *   vlan: Number("int"), // required
+ * };
  * const command = new AllocateConnectionOnInterconnectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AllocateConnectionOnInterconnectCommandInput - {@link AllocateConnectionOnInterconnectCommandInput}
+ * @returns {@link AllocateConnectionOnInterconnectCommandOutput}
  * @see {@link AllocateConnectionOnInterconnectCommandInput} for command's `input` shape.
  * @see {@link AllocateConnectionOnInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -82,6 +91,9 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllocateConnectionOnInterconnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +122,8 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocateConnectionOnInterconnectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +133,24 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AllocateConnectionOnInterconnectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocateConnectionOnInterconnectCommand(input, context);
+    return se_AllocateConnectionOnInterconnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllocateConnectionOnInterconnectCommandOutput> {
-    return deserializeAws_json1_1AllocateConnectionOnInterconnectCommand(output, context);
+    return de_AllocateConnectionOnInterconnectCommand(output, context);
   }
 
   // Start section: command_body_extra

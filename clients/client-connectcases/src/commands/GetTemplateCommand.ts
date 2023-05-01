@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  GetTemplateRequest,
-  GetTemplateRequestFilterSensitiveLog,
-  GetTemplateResponse,
-  GetTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTemplateCommand,
-  serializeAws_restJson1GetTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTemplateRequest, GetTemplateResponse } from "../models/models_0";
+import { de_GetTemplateCommand, se_GetTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemplateCommand}.
  */
 export interface GetTemplateCommandInput extends GetTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTemplateCommand}.
  */
 export interface GetTemplateCommandOutput extends GetTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details for the requested template. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * import { ConnectCasesClient, GetTemplateCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, GetTemplateCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // GetTemplateRequest
+ *   domainId: "STRING_VALUE", // required
+ *   templateId: "STRING_VALUE", // required
+ * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
+ * @returns {@link GetTemplateCommandOutput}
  * @see {@link GetTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +89,9 @@ export class GetTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTemplateCommand(input, context);
+    return se_GetTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateCommandOutput> {
-    return deserializeAws_restJson1GetTemplateCommand(output, context);
+    return de_GetTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

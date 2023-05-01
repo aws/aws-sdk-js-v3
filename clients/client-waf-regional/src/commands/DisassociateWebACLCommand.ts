@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateWebACLRequest,
-  DisassociateWebACLRequestFilterSensitiveLog,
-  DisassociateWebACLResponse,
-  DisassociateWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateWebACLCommand,
-  serializeAws_json1_1DisassociateWebACLCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateWebACLRequest, DisassociateWebACLResponse } from "../models/models_0";
+import { de_DisassociateWebACLCommand, se_DisassociateWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateWebACLCommand}.
  */
 export interface DisassociateWebACLCommandInput extends DisassociateWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateWebACLCommand}.
  */
 export interface DisassociateWebACLCommandOutput extends DisassociateWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic Regional</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -50,10 +47,15 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * import { WAFRegionalClient, DisassociateWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DisassociateWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // DisassociateWebACLRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateWebACLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateWebACLCommandInput - {@link DisassociateWebACLCommandInput}
+ * @returns {@link DisassociateWebACLCommandOutput}
  * @see {@link DisassociateWebACLCommandInput} for command's `input` shape.
  * @see {@link DisassociateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -126,6 +128,9 @@ export class DisassociateWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +159,8 @@ export class DisassociateWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +170,18 @@ export class DisassociateWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateWebACLCommand(input, context);
+    return se_DisassociateWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateWebACLCommandOutput> {
-    return deserializeAws_json1_1DisassociateWebACLCommand(output, context);
+    return de_DisassociateWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CountPendingDecisionTasksInput,
-  CountPendingDecisionTasksInputFilterSensitiveLog,
-  PendingTaskCount,
-  PendingTaskCountFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CountPendingDecisionTasksCommand,
-  serializeAws_json1_0CountPendingDecisionTasksCommand,
-} from "../protocols/Aws_json1_0";
+import { CountPendingDecisionTasksInput, PendingTaskCount } from "../models/models_0";
+import { de_CountPendingDecisionTasksCommand, se_CountPendingDecisionTasksCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link CountPendingDecisionTasksCommand}.
  */
 export interface CountPendingDecisionTasksCommandInput extends CountPendingDecisionTasksInput {}
 /**
+ * @public
+ *
  * The output of {@link CountPendingDecisionTasksCommand}.
  */
 export interface CountPendingDecisionTasksCommandOutput extends PendingTaskCount, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the estimated number of decision tasks in the specified task list. The count
  *       returned is an approximation and isn't guaranteed to be exact. If you specify a task list that
  *       no decision task was ever scheduled in then <code>0</code> is returned.</p>
@@ -69,10 +66,18 @@ export interface CountPendingDecisionTasksCommandOutput extends PendingTaskCount
  * import { SWFClient, CountPendingDecisionTasksCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, CountPendingDecisionTasksCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // CountPendingDecisionTasksInput
+ *   domain: "STRING_VALUE", // required
+ *   taskList: { // TaskList
+ *     name: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CountPendingDecisionTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CountPendingDecisionTasksCommandInput - {@link CountPendingDecisionTasksCommandInput}
+ * @returns {@link CountPendingDecisionTasksCommandOutput}
  * @see {@link CountPendingDecisionTasksCommandInput} for command's `input` shape.
  * @see {@link CountPendingDecisionTasksCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -102,6 +107,9 @@ export class CountPendingDecisionTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CountPendingDecisionTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +138,8 @@ export class CountPendingDecisionTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CountPendingDecisionTasksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PendingTaskCountFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,15 +149,21 @@ export class CountPendingDecisionTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CountPendingDecisionTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CountPendingDecisionTasksCommand(input, context);
+    return se_CountPendingDecisionTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CountPendingDecisionTasksCommandOutput> {
-    return deserializeAws_json1_0CountPendingDecisionTasksCommand(output, context);
+    return de_CountPendingDecisionTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

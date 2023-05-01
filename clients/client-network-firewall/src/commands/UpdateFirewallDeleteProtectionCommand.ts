@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateFirewallDeleteProtectionRequest,
-  UpdateFirewallDeleteProtectionRequestFilterSensitiveLog,
-  UpdateFirewallDeleteProtectionResponse,
-  UpdateFirewallDeleteProtectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFirewallDeleteProtectionRequest, UpdateFirewallDeleteProtectionResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0UpdateFirewallDeleteProtectionCommand,
-  serializeAws_json1_0UpdateFirewallDeleteProtectionCommand,
+  de_UpdateFirewallDeleteProtectionCommand,
+  se_UpdateFirewallDeleteProtectionCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallDeleteProtectionCommand}.
  */
 export interface UpdateFirewallDeleteProtectionCommandInput extends UpdateFirewallDeleteProtectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallDeleteProtectionCommand}.
  */
 export interface UpdateFirewallDeleteProtectionCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateFirewallDeleteProtectionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the flag, <code>DeleteProtection</code>, which indicates whether it is possible
  *          to delete the firewall. If the flag is set to <code>TRUE</code>, the firewall is protected
  *          against deletion. This setting helps protect against accidentally deleting a firewall
@@ -47,10 +47,18 @@ export interface UpdateFirewallDeleteProtectionCommandOutput
  * import { NetworkFirewallClient, UpdateFirewallDeleteProtectionCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateFirewallDeleteProtectionCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // UpdateFirewallDeleteProtectionRequest
+ *   UpdateToken: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   DeleteProtection: true || false, // required
+ * };
  * const command = new UpdateFirewallDeleteProtectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallDeleteProtectionCommandInput - {@link UpdateFirewallDeleteProtectionCommandInput}
+ * @returns {@link UpdateFirewallDeleteProtectionCommandOutput}
  * @see {@link UpdateFirewallDeleteProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallDeleteProtectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -106,6 +114,9 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallDeleteProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +145,8 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallDeleteProtectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallDeleteProtectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +156,24 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateFirewallDeleteProtectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateFirewallDeleteProtectionCommand(input, context);
+    return se_UpdateFirewallDeleteProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFirewallDeleteProtectionCommandOutput> {
-    return deserializeAws_json1_0UpdateFirewallDeleteProtectionCommand(output, context);
+    return de_UpdateFirewallDeleteProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

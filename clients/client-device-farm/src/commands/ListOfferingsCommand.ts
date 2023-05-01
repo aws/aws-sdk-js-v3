@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListOfferingsRequest,
-  ListOfferingsRequestFilterSensitiveLog,
-  ListOfferingsResult,
-  ListOfferingsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListOfferingsCommand,
-  serializeAws_json1_1ListOfferingsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListOfferingsRequest, ListOfferingsResult } from "../models/models_0";
+import { de_ListOfferingsCommand, se_ListOfferingsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListOfferingsCommand}.
  */
 export interface ListOfferingsCommandInput extends ListOfferingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOfferingsCommand}.
  */
 export interface ListOfferingsCommandOutput extends ListOfferingsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of products or offerings that the user can manage through the API. Each offering record
  *             indicates the recurring price per unit and the frequency for that offering. The API returns a
  *                 <code>NotEligible</code> error if the user is not permitted to invoke the operation.  If you must be
@@ -45,10 +42,15 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  * import { DeviceFarmClient, ListOfferingsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListOfferingsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListOfferingsRequest
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListOfferingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOfferingsCommandInput - {@link ListOfferingsCommandInput}
+ * @returns {@link ListOfferingsCommandOutput}
  * @see {@link ListOfferingsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -165,6 +167,9 @@ export class ListOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -191,8 +196,8 @@ export class ListOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOfferingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOfferingsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -202,12 +207,18 @@ export class ListOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOfferingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOfferingsCommand(input, context);
+    return se_ListOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOfferingsCommandOutput> {
-    return deserializeAws_json1_1ListOfferingsCommand(output, context);
+    return de_ListOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

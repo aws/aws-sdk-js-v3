@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetGroupVersionRequest,
-  GetGroupVersionRequestFilterSensitiveLog,
-  GetGroupVersionResponse,
-  GetGroupVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGroupVersionCommand,
-  serializeAws_restJson1GetGroupVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGroupVersionRequest, GetGroupVersionResponse } from "../models/models_0";
+import { de_GetGroupVersionCommand, se_GetGroupVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupVersionCommand}.
  */
 export interface GetGroupVersionCommandInput extends GetGroupVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupVersionCommand}.
  */
 export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a group version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, _
  * import { GreengrassClient, GetGroupVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetGroupVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetGroupVersionRequest
+ *   GroupId: "STRING_VALUE", // required
+ *   GroupVersionId: "STRING_VALUE", // required
+ * };
  * const command = new GetGroupVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupVersionCommandInput - {@link GetGroupVersionCommandInput}
+ * @returns {@link GetGroupVersionCommandOutput}
  * @see {@link GetGroupVersionCommandInput} for command's `input` shape.
  * @see {@link GetGroupVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +75,9 @@ export class GetGroupVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class GetGroupVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class GetGroupVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGroupVersionCommand(input, context);
+    return se_GetGroupVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupVersionCommandOutput> {
-    return deserializeAws_restJson1GetGroupVersionCommand(output, context);
+    return de_GetGroupVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

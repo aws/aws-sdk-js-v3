@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DeleteSlotRequest, DeleteSlotRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSlotCommand,
-  serializeAws_restJson1DeleteSlotCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSlotRequest } from "../models/models_0";
+import { de_DeleteSlotCommand, se_DeleteSlotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSlotCommand}.
  */
 export interface DeleteSlotCommandInput extends DeleteSlotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSlotCommand}.
  */
 export interface DeleteSlotCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified slot from an intent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,19 @@ export interface DeleteSlotCommandOutput extends __MetadataBearer {}
  * import { LexModelsV2Client, DeleteSlotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteSlotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DeleteSlotRequest
+ *   slotId: "STRING_VALUE", // required
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   intentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSlotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSlotCommandInput - {@link DeleteSlotCommandInput}
+ * @returns {@link DeleteSlotCommandOutput}
  * @see {@link DeleteSlotCommandInput} for command's `input` shape.
  * @see {@link DeleteSlotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -89,6 +100,9 @@ export class DeleteSlotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSlotCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +129,8 @@ export class DeleteSlotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSlotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +140,18 @@ export class DeleteSlotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSlotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSlotCommand(input, context);
+    return se_DeleteSlotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSlotCommandOutput> {
-    return deserializeAws_restJson1DeleteSlotCommand(output, context);
+    return de_DeleteSlotCommand(output, context);
   }
 
   // Start section: command_body_extra

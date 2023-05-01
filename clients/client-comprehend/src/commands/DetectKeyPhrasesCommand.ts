@@ -20,21 +20,23 @@ import {
   DetectKeyPhrasesResponse,
   DetectKeyPhrasesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectKeyPhrasesCommand,
-  serializeAws_json1_1DetectKeyPhrasesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectKeyPhrasesCommand, se_DetectKeyPhrasesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectKeyPhrasesCommand}.
  */
 export interface DetectKeyPhrasesCommandInput extends DetectKeyPhrasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectKeyPhrasesCommand}.
  */
 export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects the key noun phrases found in the text. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,16 @@ export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse,
  * import { ComprehendClient, DetectKeyPhrasesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectKeyPhrasesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DetectKeyPhrasesRequest
+ *   Text: "STRING_VALUE", // required
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ * };
  * const command = new DetectKeyPhrasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectKeyPhrasesCommandInput - {@link DetectKeyPhrasesCommandInput}
+ * @returns {@link DetectKeyPhrasesCommandOutput}
  * @see {@link DetectKeyPhrasesCommandInput} for command's `input` shape.
  * @see {@link DetectKeyPhrasesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -85,6 +93,9 @@ export class DetectKeyPhrasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectKeyPhrasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,12 +135,18 @@ export class DetectKeyPhrasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectKeyPhrasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectKeyPhrasesCommand(input, context);
+    return se_DetectKeyPhrasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectKeyPhrasesCommandOutput> {
-    return deserializeAws_json1_1DetectKeyPhrasesCommand(output, context);
+    return de_DetectKeyPhrasesCommand(output, context);
   }
 
   // Start section: command_body_extra

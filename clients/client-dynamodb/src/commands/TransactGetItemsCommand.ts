@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  TransactGetItemsInput,
-  TransactGetItemsInputFilterSensitiveLog,
-  TransactGetItemsOutput,
-  TransactGetItemsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0TransactGetItemsCommand,
-  serializeAws_json1_0TransactGetItemsCommand,
-} from "../protocols/Aws_json1_0";
+import { TransactGetItemsInput, TransactGetItemsOutput } from "../models/models_0";
+import { de_TransactGetItemsCommand, se_TransactGetItemsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link TransactGetItemsCommand}.
  */
 export interface TransactGetItemsCommandInput extends TransactGetItemsInput {}
 /**
+ * @public
+ *
  * The output of {@link TransactGetItemsCommand}.
  */
 export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>TransactGetItems</code> is a synchronous operation that atomically retrieves
  *             multiple items from one or more tables (but not from indexes) in a single account and
@@ -68,10 +65,71 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * import { DynamoDBClient, TransactGetItemsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, TransactGetItemsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // TransactGetItemsInput
+ *   TransactItems: [ // TransactGetItemList // required
+ *     { // TransactGetItem
+ *       Get: { // Get
+ *         Key: { // Key // required
+ *           "<keys>": { // AttributeValue Union: only one key present
+ *             S: "STRING_VALUE",
+ *             N: "STRING_VALUE",
+ *             B: "BLOB_VALUE",
+ *             SS: [ // StringSetAttributeValue
+ *               "STRING_VALUE",
+ *             ],
+ *             NS: [ // NumberSetAttributeValue
+ *               "STRING_VALUE",
+ *             ],
+ *             BS: [ // BinarySetAttributeValue
+ *               "BLOB_VALUE",
+ *             ],
+ *             M: { // MapAttributeValue
+ *               "<keys>": {//  Union: only one key present
+ *                 S: "STRING_VALUE",
+ *                 N: "STRING_VALUE",
+ *                 B: "BLOB_VALUE",
+ *                 SS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 NS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 BS: [
+ *                   "BLOB_VALUE",
+ *                 ],
+ *                 M: {
+ *                   "<keys>": "<AttributeValue>",
+ *                 },
+ *                 L: [ // ListAttributeValue
+ *                   "<AttributeValue>",
+ *                 ],
+ *                 NULL: true || false,
+ *                 BOOL: true || false,
+ *               },
+ *             },
+ *             L: [
+ *               "<AttributeValue>",
+ *             ],
+ *             NULL: true || false,
+ *             BOOL: true || false,
+ *           },
+ *         },
+ *         TableName: "STRING_VALUE", // required
+ *         ProjectionExpression: "STRING_VALUE",
+ *         ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ * };
  * const command = new TransactGetItemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TransactGetItemsCommandInput - {@link TransactGetItemsCommandInput}
+ * @returns {@link TransactGetItemsCommandOutput}
  * @see {@link TransactGetItemsCommandInput} for command's `input` shape.
  * @see {@link TransactGetItemsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -348,6 +406,9 @@ export class TransactGetItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TransactGetItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -376,8 +437,8 @@ export class TransactGetItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TransactGetItemsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TransactGetItemsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -387,12 +448,18 @@ export class TransactGetItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TransactGetItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0TransactGetItemsCommand(input, context);
+    return se_TransactGetItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransactGetItemsCommandOutput> {
-    return deserializeAws_json1_0TransactGetItemsCommand(output, context);
+    return de_TransactGetItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

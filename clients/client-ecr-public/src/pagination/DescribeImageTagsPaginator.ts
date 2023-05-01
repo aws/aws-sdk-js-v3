@@ -10,7 +10,7 @@ import { ECRPUBLICClient } from "../ECRPUBLICClient";
 import { ECRPUBLICPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ECRPUBLICClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeImageTagsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeImageTags(
   config: ECRPUBLICPaginationConfiguration,
   input: DescribeImageTagsCommandInput,

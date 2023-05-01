@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetStatisticsRequest,
-  GetStatisticsRequestFilterSensitiveLog,
-  GetStatisticsResponse,
-  GetStatisticsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetStatisticsCommand,
-  serializeAws_restJson1GetStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetStatisticsRequest, GetStatisticsResponse } from "../models/models_1";
+import { de_GetStatisticsCommand, se_GetStatisticsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStatisticsCommand}.
  */
 export interface GetStatisticsCommandInput extends GetStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStatisticsCommand}.
  */
 export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance,
  *       and standard deviation for the specified aggregated field. If the aggregation field is of type
  *       <code>String</code>, only the count statistic is returned.</p>
@@ -45,10 +42,18 @@ export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __Met
  * import { IoTClient, GetStatisticsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetStatisticsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // GetStatisticsRequest
+ *   indexName: "STRING_VALUE",
+ *   queryString: "STRING_VALUE", // required
+ *   aggregationField: "STRING_VALUE",
+ *   queryVersion: "STRING_VALUE",
+ * };
  * const command = new GetStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStatisticsCommandInput - {@link GetStatisticsCommandInput}
+ * @returns {@link GetStatisticsCommandOutput}
  * @see {@link GetStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetStatisticsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -99,6 +104,9 @@ export class GetStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +133,8 @@ export class GetStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +144,18 @@ export class GetStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStatisticsCommand(input, context);
+    return se_GetStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetStatisticsCommand(output, context);
+    return de_GetStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

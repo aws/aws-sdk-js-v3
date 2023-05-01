@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  StopStreamRequest,
-  StopStreamRequestFilterSensitiveLog,
-  StopStreamResponse,
-  StopStreamResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopStreamCommand,
-  serializeAws_restJson1StopStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { StopStreamRequest, StopStreamResponse } from "../models/models_0";
+import { de_StopStreamCommand, se_StopStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopStreamCommand}.
  */
 export interface StopStreamCommandInput extends StopStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopStreamCommand}.
  */
 export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects the incoming RTMPS stream for the specified channel. Can be used in
  *       conjunction with <a>DeleteStreamKey</a> to prevent further streaming to a
  *       channel.</p>
@@ -49,10 +46,15 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * import { IvsClient, StopStreamCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, StopStreamCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // StopStreamRequest
+ *   channelArn: "STRING_VALUE", // required
+ * };
  * const command = new StopStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopStreamCommandInput - {@link StopStreamCommandInput}
+ * @returns {@link StopStreamCommandOutput}
  * @see {@link StopStreamCommandInput} for command's `input` shape.
  * @see {@link StopStreamCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -91,6 +93,9 @@ export class StopStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class StopStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopStreamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class StopStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopStreamCommand(input, context);
+    return se_StopStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamCommandOutput> {
-    return deserializeAws_restJson1StopStreamCommand(output, context);
+    return de_StopStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

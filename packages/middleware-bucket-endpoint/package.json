@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-bucket-endpoint",
-  "version": "3.296.0",
+  "version": "3.310.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -27,7 +27,6 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@aws-sdk/middleware-stack": "*",
     "@aws-sdk/node-config-provider": "*",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
@@ -47,7 +46,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-bucket-endpoint",
   "repository": {

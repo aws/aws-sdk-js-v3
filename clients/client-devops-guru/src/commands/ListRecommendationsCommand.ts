@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  ListRecommendationsRequest,
-  ListRecommendationsRequestFilterSensitiveLog,
-  ListRecommendationsResponse,
-  ListRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecommendationsCommand,
-  serializeAws_restJson1ListRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRecommendationsRequest, ListRecommendationsResponse } from "../models/models_0";
+import { de_ListRecommendationsCommand, se_ListRecommendationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecommendationsCommand}.
  */
 export interface ListRecommendationsCommandInput extends ListRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecommendationsCommand}.
  */
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of a specified insight's recommendations. Each recommendation includes
  * 			a list of related metrics and a list of related events. </p>
  * @example
@@ -43,10 +40,18 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * import { DevOpsGuruClient, ListRecommendationsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListRecommendationsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // ListRecommendationsRequest
+ *   InsightId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   Locale: "DE_DE" || "EN_US" || "EN_GB" || "ES_ES" || "FR_FR" || "IT_IT" || "JA_JP" || "KO_KR" || "PT_BR" || "ZH_CN" || "ZH_TW",
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new ListRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecommendationsCommandInput - {@link ListRecommendationsCommandInput}
+ * @returns {@link ListRecommendationsCommandOutput}
  * @see {@link ListRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -89,6 +94,9 @@ export class ListRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class ListRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class ListRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecommendationsCommand(input, context);
+    return se_ListRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListRecommendationsCommand(output, context);
+    return de_ListRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

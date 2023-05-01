@@ -303,6 +303,14 @@ CreateAutoMLJob
 </details>
 <details>
 <summary>
+CreateAutoMLJobV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/classes/createautomljobv2command.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/interfaces/createautomljobv2commandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/interfaces/createautomljobv2commandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateCodeRepository
 </summary>
 
@@ -1091,6 +1099,14 @@ DescribeAutoMLJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/classes/describeautomljobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/interfaces/describeautomljobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/interfaces/describeautomljobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeAutoMLJobV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/classes/describeautomljobv2command.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/interfaces/describeautomljobv2commandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/interfaces/describeautomljobv2commandoutput.html)
 
 </details>
 <details>

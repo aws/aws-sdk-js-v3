@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAlgorithmInput, DeleteAlgorithmInputFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteAlgorithmCommand,
-  serializeAws_json1_1DeleteAlgorithmCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAlgorithmInput } from "../models/models_1";
+import { de_DeleteAlgorithmCommand, se_DeleteAlgorithmCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAlgorithmCommand}.
  */
 export interface DeleteAlgorithmCommandInput extends DeleteAlgorithmInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAlgorithmCommand}.
  */
 export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified algorithm from your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteAlgorithmCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteAlgorithmCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteAlgorithmInput
+ *   AlgorithmName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAlgorithmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAlgorithmCommandInput - {@link DeleteAlgorithmCommandInput}
+ * @returns {@link DeleteAlgorithmCommandOutput}
  * @see {@link DeleteAlgorithmCommandInput} for command's `input` shape.
  * @see {@link DeleteAlgorithmCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -64,6 +71,9 @@ export class DeleteAlgorithmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAlgorithmCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +102,8 @@ export class DeleteAlgorithmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAlgorithmInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +113,18 @@ export class DeleteAlgorithmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAlgorithmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAlgorithmCommand(input, context);
+    return se_DeleteAlgorithmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlgorithmCommandOutput> {
-    return deserializeAws_json1_1DeleteAlgorithmCommand(output, context);
+    return de_DeleteAlgorithmCommand(output, context);
   }
 
   // Start section: command_body_extra

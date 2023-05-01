@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDeadLetterSourceQueuesRequest,
-  ListDeadLetterSourceQueuesRequestFilterSensitiveLog,
-  ListDeadLetterSourceQueuesResult,
-  ListDeadLetterSourceQueuesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListDeadLetterSourceQueuesCommand,
-  serializeAws_queryListDeadLetterSourceQueuesCommand,
-} from "../protocols/Aws_query";
+import { ListDeadLetterSourceQueuesRequest, ListDeadLetterSourceQueuesResult } from "../models/models_0";
+import { de_ListDeadLetterSourceQueuesCommand, se_ListDeadLetterSourceQueuesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeadLetterSourceQueuesCommand}.
  */
 export interface ListDeadLetterSourceQueuesCommandInput extends ListDeadLetterSourceQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeadLetterSourceQueuesCommand}.
  */
 export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterSourceQueuesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
  *          <p> The <code>ListDeadLetterSourceQueues</code> methods supports
  *           pagination. Set parameter <code>MaxResults</code> in the request to specify the maximum number of
@@ -52,10 +49,17 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  * import { SQSClient, ListDeadLetterSourceQueuesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, ListDeadLetterSourceQueuesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = { // ListDeadLetterSourceQueuesRequest
+ *   QueueUrl: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDeadLetterSourceQueuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeadLetterSourceQueuesCommandInput - {@link ListDeadLetterSourceQueuesCommandInput}
+ * @returns {@link ListDeadLetterSourceQueuesCommandOutput}
  * @see {@link ListDeadLetterSourceQueuesCommandInput} for command's `input` shape.
  * @see {@link ListDeadLetterSourceQueuesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
@@ -82,6 +86,9 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeadLetterSourceQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeadLetterSourceQueuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeadLetterSourceQueuesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +128,21 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeadLetterSourceQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListDeadLetterSourceQueuesCommand(input, context);
+    return se_ListDeadLetterSourceQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeadLetterSourceQueuesCommandOutput> {
-    return deserializeAws_queryListDeadLetterSourceQueuesCommand(output, context);
+    return de_ListDeadLetterSourceQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

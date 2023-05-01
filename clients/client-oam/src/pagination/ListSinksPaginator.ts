@@ -6,7 +6,7 @@ import { OAMClient } from "../OAMClient";
 import { OAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OAMClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSinksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSinks(
   config: OAMPaginationConfiguration,
   input: ListSinksCommandInput,

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DeleteInterconnectRequest,
-  DeleteInterconnectRequestFilterSensitiveLog,
-  DeleteInterconnectResponse,
-  DeleteInterconnectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteInterconnectCommand,
-  serializeAws_json1_1DeleteInterconnectCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteInterconnectRequest, DeleteInterconnectResponse } from "../models/models_0";
+import { de_DeleteInterconnectCommand, se_DeleteInterconnectCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInterconnectCommand}.
  */
 export interface DeleteInterconnectCommandInput extends DeleteInterconnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInterconnectCommand}.
  */
 export interface DeleteInterconnectCommandOutput extends DeleteInterconnectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified interconnect.</p>
  *          <note>
  *             <p>Intended for use
@@ -46,10 +43,15 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * import { DirectConnectClient, DeleteInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DeleteInterconnectRequest
+ *   interconnectId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInterconnectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInterconnectCommandInput - {@link DeleteInterconnectCommandInput}
+ * @returns {@link DeleteInterconnectCommandOutput}
  * @see {@link DeleteInterconnectCommandInput} for command's `input` shape.
  * @see {@link DeleteInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +81,9 @@ export class DeleteInterconnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInterconnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class DeleteInterconnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInterconnectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInterconnectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class DeleteInterconnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInterconnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInterconnectCommand(input, context);
+    return se_DeleteInterconnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInterconnectCommandOutput> {
-    return deserializeAws_json1_1DeleteInterconnectCommand(output, context);
+    return de_DeleteInterconnectCommand(output, context);
   }
 
   // Start section: command_body_extra

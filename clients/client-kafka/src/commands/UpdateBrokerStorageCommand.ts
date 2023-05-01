@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  UpdateBrokerStorageRequest,
-  UpdateBrokerStorageRequestFilterSensitiveLog,
-  UpdateBrokerStorageResponse,
-  UpdateBrokerStorageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBrokerStorageCommand,
-  serializeAws_restJson1UpdateBrokerStorageCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateBrokerStorageRequest, UpdateBrokerStorageResponse } from "../models/models_0";
+import { de_UpdateBrokerStorageCommand, se_UpdateBrokerStorageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBrokerStorageCommand}.
  */
 export interface UpdateBrokerStorageCommandInput extends UpdateBrokerStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBrokerStorageCommand}.
  */
 export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the EBS storage associated with MSK brokers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
  * import { KafkaClient, UpdateBrokerStorageCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateBrokerStorageCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // UpdateBrokerStorageRequest
+ *   ClusterArn: "STRING_VALUE", // required
+ *   CurrentVersion: "STRING_VALUE", // required
+ *   TargetBrokerEBSVolumeInfo: [ // __listOfBrokerEBSVolumeInfo // required
+ *     { // BrokerEBSVolumeInfo
+ *       KafkaBrokerNodeId: "STRING_VALUE", // required
+ *       ProvisionedThroughput: { // ProvisionedThroughput
+ *         Enabled: true || false,
+ *         VolumeThroughput: Number("int"),
+ *       },
+ *       VolumeSizeGB: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new UpdateBrokerStorageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBrokerStorageCommandInput - {@link UpdateBrokerStorageCommandInput}
+ * @returns {@link UpdateBrokerStorageCommandOutput}
  * @see {@link UpdateBrokerStorageCommandInput} for command's `input` shape.
  * @see {@link UpdateBrokerStorageCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -84,6 +97,9 @@ export class UpdateBrokerStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBrokerStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +128,8 @@ export class UpdateBrokerStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBrokerStorageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBrokerStorageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +139,18 @@ export class UpdateBrokerStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBrokerStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBrokerStorageCommand(input, context);
+    return se_UpdateBrokerStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerStorageCommandOutput> {
-    return deserializeAws_restJson1UpdateBrokerStorageCommand(output, context);
+    return de_UpdateBrokerStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

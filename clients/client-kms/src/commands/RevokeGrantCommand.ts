@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { RevokeGrantRequest, RevokeGrantRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1RevokeGrantCommand,
-  serializeAws_json1_1RevokeGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { RevokeGrantRequest } from "../models/models_0";
+import { de_RevokeGrantCommand, se_RevokeGrantCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeGrantCommand}.
  */
 export interface RevokeGrantCommandInput extends RevokeGrantRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeGrantCommand}.
  */
 export interface RevokeGrantCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified grant. You revoke a grant to terminate the permissions that the
  *       grant allows. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/managing-grants.html#grant-delete">Retiring and revoking grants</a> in
  *       the <i>
@@ -80,10 +82,16 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  * import { KMSClient, RevokeGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, RevokeGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // RevokeGrantRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   GrantId: "STRING_VALUE", // required
+ * };
  * const command = new RevokeGrantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeGrantCommandInput - {@link RevokeGrantCommandInput}
+ * @returns {@link RevokeGrantCommandOutput}
  * @see {@link RevokeGrantCommandInput} for command's `input` shape.
  * @see {@link RevokeGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -156,6 +164,9 @@ export class RevokeGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,8 +193,8 @@ export class RevokeGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeGrantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -193,12 +204,18 @@ export class RevokeGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RevokeGrantCommand(input, context);
+    return se_RevokeGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeGrantCommandOutput> {
-    return deserializeAws_json1_1RevokeGrantCommand(output, context);
+    return de_RevokeGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

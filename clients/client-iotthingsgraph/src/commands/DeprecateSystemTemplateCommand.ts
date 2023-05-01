@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  DeprecateSystemTemplateRequest,
-  DeprecateSystemTemplateRequestFilterSensitiveLog,
-  DeprecateSystemTemplateResponse,
-  DeprecateSystemTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeprecateSystemTemplateCommand,
-  serializeAws_json1_1DeprecateSystemTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { DeprecateSystemTemplateRequest, DeprecateSystemTemplateResponse } from "../models/models_0";
+import { de_DeprecateSystemTemplateCommand, se_DeprecateSystemTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeprecateSystemTemplateCommand}.
  */
 export interface DeprecateSystemTemplateCommandInput extends DeprecateSystemTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeprecateSystemTemplateCommand}.
  */
 export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deprecates the specified system.</p>
@@ -44,10 +41,15 @@ export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTem
  * import { IoTThingsGraphClient, DeprecateSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeprecateSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // DeprecateSystemTemplateRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeprecateSystemTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprecateSystemTemplateCommandInput - {@link DeprecateSystemTemplateCommandInput}
+ * @returns {@link DeprecateSystemTemplateCommandOutput}
  * @see {@link DeprecateSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link DeprecateSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -83,6 +85,9 @@ export class DeprecateSystemTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateSystemTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeprecateSystemTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprecateSystemTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeprecateSystemTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DeprecateSystemTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeprecateSystemTemplateCommand(input, context);
+    return se_DeprecateSystemTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateSystemTemplateCommandOutput> {
-    return deserializeAws_json1_1DeprecateSystemTemplateCommand(output, context);
+    return de_DeprecateSystemTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

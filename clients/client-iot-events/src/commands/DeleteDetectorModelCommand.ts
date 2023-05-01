@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  DeleteDetectorModelRequest,
-  DeleteDetectorModelRequestFilterSensitiveLog,
-  DeleteDetectorModelResponse,
-  DeleteDetectorModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDetectorModelCommand,
-  serializeAws_restJson1DeleteDetectorModelCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDetectorModelRequest, DeleteDetectorModelResponse } from "../models/models_0";
+import { de_DeleteDetectorModelCommand, se_DeleteDetectorModelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDetectorModelCommand}.
  */
 export interface DeleteDetectorModelCommandInput extends DeleteDetectorModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDetectorModelCommand}.
  */
 export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a detector model. Any active instances of the detector model are also
  *       deleted.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  * import { IoTEventsClient, DeleteDetectorModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DeleteDetectorModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // DeleteDetectorModelRequest
+ *   detectorModelName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDetectorModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDetectorModelCommandInput - {@link DeleteDetectorModelCommandInput}
+ * @returns {@link DeleteDetectorModelCommandOutput}
  * @see {@link DeleteDetectorModelCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -88,6 +90,9 @@ export class DeleteDetectorModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDetectorModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class DeleteDetectorModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDetectorModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDetectorModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class DeleteDetectorModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDetectorModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDetectorModelCommand(input, context);
+    return se_DeleteDetectorModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDetectorModelCommandOutput> {
-    return deserializeAws_restJson1DeleteDetectorModelCommand(output, context);
+    return de_DeleteDetectorModelCommand(output, context);
   }
 
   // Start section: command_body_extra

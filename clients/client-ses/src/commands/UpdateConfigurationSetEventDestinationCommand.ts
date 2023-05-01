@@ -15,22 +15,24 @@ import {
 
 import {
   UpdateConfigurationSetEventDestinationRequest,
-  UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog,
   UpdateConfigurationSetEventDestinationResponse,
-  UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryUpdateConfigurationSetEventDestinationCommand,
-  serializeAws_queryUpdateConfigurationSetEventDestinationCommand,
+  de_UpdateConfigurationSetEventDestinationCommand,
+  se_UpdateConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationSetEventDestinationCommand}.
  */
 export interface UpdateConfigurationSetEventDestinationCommandInput
   extends UpdateConfigurationSetEventDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationSetEventDestinationCommand}.
  */
 export interface UpdateConfigurationSetEventDestinationCommandOutput
@@ -38,6 +40,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the event destination of a configuration set. Event destinations are
  *             associated with configuration sets, which enable you to publish email sending events to
  *             Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets,
@@ -56,10 +59,38 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * import { SESClient, UpdateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // UpdateConfigurationSetEventDestinationRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   EventDestination: { // EventDestination
+ *     Name: "STRING_VALUE", // required
+ *     Enabled: true || false,
+ *     MatchingEventTypes: [ // EventTypes // required
+ *       "STRING_VALUE",
+ *     ],
+ *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ *       IAMRoleARN: "STRING_VALUE", // required
+ *       DeliveryStreamARN: "STRING_VALUE", // required
+ *     },
+ *     CloudWatchDestination: { // CloudWatchDestination
+ *       DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
+ *         { // CloudWatchDimensionConfiguration
+ *           DimensionName: "STRING_VALUE", // required
+ *           DimensionValueSource: "STRING_VALUE", // required
+ *           DefaultDimensionValue: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     SNSDestination: { // SNSDestination
+ *       TopicARN: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationSetEventDestinationCommandInput - {@link UpdateConfigurationSetEventDestinationCommandInput}
+ * @returns {@link UpdateConfigurationSetEventDestinationCommandOutput}
  * @see {@link UpdateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -101,6 +132,9 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +163,8 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +174,24 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetEventDestinationCommand(input, context);
+    return se_UpdateConfigurationSetEventDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetEventDestinationCommand(output, context);
+    return de_UpdateConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

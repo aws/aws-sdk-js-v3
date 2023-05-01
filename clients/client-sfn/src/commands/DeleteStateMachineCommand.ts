@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteStateMachineInput,
-  DeleteStateMachineInputFilterSensitiveLog,
-  DeleteStateMachineOutput,
-  DeleteStateMachineOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteStateMachineCommand,
-  serializeAws_json1_0DeleteStateMachineCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteStateMachineInput, DeleteStateMachineOutput } from "../models/models_0";
+import { de_DeleteStateMachineCommand, se_DeleteStateMachineCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStateMachineCommand}.
  */
 export interface DeleteStateMachineCommandInput extends DeleteStateMachineInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStateMachineCommand}.
  */
 export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's
  *       status to <code>DELETING</code> and begins the deletion process. </p>
  *
@@ -53,10 +50,15 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * import { SFNClient, DeleteStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DeleteStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // DeleteStateMachineInput
+ *   stateMachineArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStateMachineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStateMachineCommandInput - {@link DeleteStateMachineCommandInput}
+ * @returns {@link DeleteStateMachineCommandOutput}
  * @see {@link DeleteStateMachineCommandInput} for command's `input` shape.
  * @see {@link DeleteStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -86,6 +88,9 @@ export class DeleteStateMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStateMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class DeleteStateMachineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStateMachineInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStateMachineOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class DeleteStateMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStateMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteStateMachineCommand(input, context);
+    return se_DeleteStateMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStateMachineCommandOutput> {
-    return deserializeAws_json1_0DeleteStateMachineCommand(output, context);
+    return de_DeleteStateMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

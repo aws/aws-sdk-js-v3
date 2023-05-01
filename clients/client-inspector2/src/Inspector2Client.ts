@@ -137,6 +137,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateMemberCommandInput
   | BatchGetAccountStatusCommandInput
@@ -171,6 +174,9 @@ export type ServiceInputTypes =
   | UpdateFilterCommandInput
   | UpdateOrganizationConfigurationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateMemberCommandOutput
   | BatchGetAccountStatusCommandOutput
@@ -205,6 +211,9 @@ export type ServiceOutputTypes =
   | UpdateFilterCommandOutput
   | UpdateOrganizationConfigurationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -212,7 +221,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -321,11 +330,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type Inspector2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -336,10 +348,15 @@ type Inspector2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of Inspector2Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of Inspector2Client class constructor that set the region, credentials and other options.
  */
 export interface Inspector2ClientConfig extends Inspector2ClientConfigType {}
 
+/**
+ * @public
+ */
 type Inspector2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -350,11 +367,14 @@ type Inspector2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of Inspector2Client class. This is resolved and normalized from the {@link Inspector2ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of Inspector2Client class. This is resolved and normalized from the {@link Inspector2ClientConfig | constructor configuration interface}.
  */
 export interface Inspector2ClientResolvedConfig extends Inspector2ClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Inspector is a vulnerability discovery service that automates continuous scanning for
  *          security vulnerabilities within your Amazon EC2 and Amazon ECR environments.</p>
  */

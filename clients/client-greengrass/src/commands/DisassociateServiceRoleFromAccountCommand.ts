@@ -16,20 +16,22 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import {
   DisassociateServiceRoleFromAccountRequest,
-  DisassociateServiceRoleFromAccountRequestFilterSensitiveLog,
   DisassociateServiceRoleFromAccountResponse,
-  DisassociateServiceRoleFromAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand,
-  serializeAws_restJson1DisassociateServiceRoleFromAccountCommand,
+  de_DisassociateServiceRoleFromAccountCommand,
+  se_DisassociateServiceRoleFromAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateServiceRoleFromAccountCommand}.
  */
 export interface DisassociateServiceRoleFromAccountCommandInput extends DisassociateServiceRoleFromAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateServiceRoleFromAccountCommand}.
  */
 export interface DisassociateServiceRoleFromAccountCommandOutput
@@ -37,6 +39,7 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Disassociates the service role from your account. Without a service role, deployments will not work.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,13 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * import { GreengrassClient, DisassociateServiceRoleFromAccountCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DisassociateServiceRoleFromAccountCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {};
  * const command = new DisassociateServiceRoleFromAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateServiceRoleFromAccountCommandInput - {@link DisassociateServiceRoleFromAccountCommandInput}
+ * @returns {@link DisassociateServiceRoleFromAccountCommandOutput}
  * @see {@link DisassociateServiceRoleFromAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceRoleFromAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +80,9 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateServiceRoleFromAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +111,8 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateServiceRoleFromAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateServiceRoleFromAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +122,24 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateServiceRoleFromAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateServiceRoleFromAccountCommand(input, context);
+    return se_DisassociateServiceRoleFromAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateServiceRoleFromAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand(output, context);
+    return de_DisassociateServiceRoleFromAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

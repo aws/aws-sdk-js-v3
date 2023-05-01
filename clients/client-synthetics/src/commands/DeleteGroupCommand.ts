@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteGroupRequest,
-  DeleteGroupRequestFilterSensitiveLog,
-  DeleteGroupResponse,
-  DeleteGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteGroupCommand,
-  serializeAws_restJson1DeleteGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteGroupRequest, DeleteGroupResponse } from "../models/models_0";
+import { de_DeleteGroupCommand, se_DeleteGroupCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGroupCommand}.
  */
 export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGroupCommand}.
  */
 export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a group. The group doesn't need to be empty to be deleted. If there are canaries in the group,
  *          they are not deleted when you delete the group.
  *       </p>
@@ -46,10 +43,15 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * import { SyntheticsClient, DeleteGroupCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DeleteGroupCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // DeleteGroupRequest
+ *   GroupIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
+ * @returns {@link DeleteGroupCommandOutput}
  * @see {@link DeleteGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -85,6 +87,9 @@ export class DeleteGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeleteGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DeleteGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGroupCommand(input, context);
+    return se_DeleteGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteGroupCommand(output, context);
+    return de_DeleteGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

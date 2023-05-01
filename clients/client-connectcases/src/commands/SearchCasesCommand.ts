@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  SearchCasesRequest,
-  SearchCasesRequestFilterSensitiveLog,
-  SearchCasesResponse,
-  SearchCasesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchCasesCommand,
-  serializeAws_restJson1SearchCasesCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchCasesRequest, SearchCasesResponse } from "../models/models_0";
+import { de_SearchCasesCommand, se_SearchCasesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchCasesCommand}.
  */
 export interface SearchCasesCommandInput extends SearchCasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchCasesCommand}.
  */
 export interface SearchCasesCommandOutput extends SearchCasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for cases within their associated Cases domain. Search results are returned
  *       as a paginated list of abridged case documents.</p>
  *          <note>
@@ -48,10 +45,91 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * import { ConnectCasesClient, SearchCasesCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, SearchCasesCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // SearchCasesRequest
+ *   domainId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   searchTerm: "STRING_VALUE",
+ *   filter: { // CaseFilter Union: only one key present
+ *     field: { // FieldFilter Union: only one key present
+ *       equalTo: { // FieldValue
+ *         id: "STRING_VALUE", // required
+ *         value: { // FieldValueUnion Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       contains: {
+ *         id: "STRING_VALUE", // required
+ *         value: {//  Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       greaterThan: {
+ *         id: "STRING_VALUE", // required
+ *         value: {//  Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       greaterThanOrEqualTo: {
+ *         id: "STRING_VALUE", // required
+ *         value: {//  Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       lessThan: {
+ *         id: "STRING_VALUE", // required
+ *         value: {//  Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       lessThanOrEqualTo: "<FieldValue>",
+ *     },
+ *     not: {//  Union: only one key present
+ *       field: {//  Union: only one key present
+ *         equalTo: "<FieldValue>",
+ *         contains: "<FieldValue>",
+ *         greaterThan: "<FieldValue>",
+ *         greaterThanOrEqualTo: "<FieldValue>",
+ *         lessThan: "<FieldValue>",
+ *         lessThanOrEqualTo: "<FieldValue>",
+ *       },
+ *       not: "<CaseFilter>",
+ *       andAll: [ // CaseFilterList
+ *         "<CaseFilter>",
+ *       ],
+ *     },
+ *     andAll: [
+ *       "<CaseFilter>",
+ *     ],
+ *   },
+ *   sorts: [ // SortList
+ *     { // Sort
+ *       fieldId: "STRING_VALUE", // required
+ *       sortOrder: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   fields: [ // FieldIdentifierList
+ *     { // FieldIdentifier
+ *       id: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SearchCasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchCasesCommandInput - {@link SearchCasesCommandInput}
+ * @returns {@link SearchCasesCommandOutput}
  * @see {@link SearchCasesCommandInput} for command's `input` shape.
  * @see {@link SearchCasesCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -92,6 +170,9 @@ export class SearchCasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchCasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +199,8 @@ export class SearchCasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchCasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchCasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +210,18 @@ export class SearchCasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchCasesCommand(input, context);
+    return se_SearchCasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCasesCommandOutput> {
-    return deserializeAws_restJson1SearchCasesCommand(output, context);
+    return de_SearchCasesCommand(output, context);
   }
 
   // Start section: command_body_extra

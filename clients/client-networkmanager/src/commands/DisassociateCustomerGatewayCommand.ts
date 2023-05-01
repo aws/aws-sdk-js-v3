@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateCustomerGatewayRequest,
-  DisassociateCustomerGatewayRequestFilterSensitiveLog,
-  DisassociateCustomerGatewayResponse,
-  DisassociateCustomerGatewayResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateCustomerGatewayRequest, DisassociateCustomerGatewayResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1DisassociateCustomerGatewayCommand,
-  serializeAws_restJson1DisassociateCustomerGatewayCommand,
+  de_DisassociateCustomerGatewayCommand,
+  se_DisassociateCustomerGatewayCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateCustomerGatewayCommand}.
  */
 export interface DisassociateCustomerGatewayCommandInput extends DisassociateCustomerGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateCustomerGatewayCommand}.
  */
 export interface DisassociateCustomerGatewayCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociateCustomerGatewayCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a customer gateway from a device and a link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DisassociateCustomerGatewayCommandOutput
  * import { NetworkManagerClient, DisassociateCustomerGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DisassociateCustomerGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // DisassociateCustomerGatewayRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   CustomerGatewayArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateCustomerGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateCustomerGatewayCommandInput - {@link DisassociateCustomerGatewayCommandInput}
+ * @returns {@link DisassociateCustomerGatewayCommandOutput}
  * @see {@link DisassociateCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link DisassociateCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -90,6 +96,9 @@ export class DisassociateCustomerGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateCustomerGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class DisassociateCustomerGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateCustomerGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateCustomerGatewayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +138,21 @@ export class DisassociateCustomerGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateCustomerGatewayCommand(input, context);
+    return se_DisassociateCustomerGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateCustomerGatewayCommandOutput> {
-    return deserializeAws_restJson1DisassociateCustomerGatewayCommand(output, context);
+    return de_DisassociateCustomerGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

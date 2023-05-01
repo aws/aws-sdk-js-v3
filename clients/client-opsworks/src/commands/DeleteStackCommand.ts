@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteStackRequest, DeleteStackRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteStackRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DeleteStackCommand,
-  serializeAws_json1_1DeleteStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteStackCommand, se_DeleteStackCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStackCommand}.
  */
 export interface DeleteStackCommandInput extends DeleteStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStackCommand}.
  */
 export interface DeleteStackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified stack. You must first delete all instances, layers, and apps or
  *       deregister registered instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html">Shut Down a
  *         Stack</a>.</p>
@@ -44,10 +46,15 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeleteStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeleteStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DeleteStackRequest
+ *   StackId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStackCommandInput - {@link DeleteStackCommandInput}
+ * @returns {@link DeleteStackCommandOutput}
  * @see {@link DeleteStackCommandInput} for command's `input` shape.
  * @see {@link DeleteStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +113,8 @@ export class DeleteStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +124,18 @@ export class DeleteStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStackCommand(input, context);
+    return se_DeleteStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStackCommandOutput> {
-    return deserializeAws_json1_1DeleteStackCommand(output, context);
+    return de_DeleteStackCommand(output, context);
   }
 
   // Start section: command_body_extra

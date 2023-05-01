@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { Route53DomainsServiceException as __BaseException } from "./Route53DomainsServiceException";
 
 /**
+ * @public
  * <p>The AcceptDomainTransferFromAnotherAwsAccount request includes the following
  * 			elements.</p>
  */
@@ -21,6 +22,7 @@ export interface AcceptDomainTransferFromAnotherAwsAccountRequest {
 }
 
 /**
+ * @public
  * <p>The AcceptDomainTransferFromAnotherAwsAccount response includes the following
  * 			element.</p>
  */
@@ -33,6 +35,7 @@ export interface AcceptDomainTransferFromAnotherAwsAccountResponse {
 }
 
 /**
+ * @public
  * <p>The number of domains has exceeded the allowed threshold for the account.</p>
  */
 export class DomainLimitExceeded extends __BaseException {
@@ -52,6 +55,7 @@ export class DomainLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
  * 			the request might specify a domain name that doesn't belong to the account that
  * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
@@ -74,6 +78,7 @@ export class InvalidInput extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of operations or jobs running exceeded the allowed threshold for the
  * 			account.</p>
  */
@@ -94,6 +99,7 @@ export class OperationLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  */
 export class UnsupportedTLD extends __BaseException {
@@ -113,6 +119,7 @@ export class UnsupportedTLD extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a delegation signer (DS) record that was created in the registry by
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AssociateDelegationSignerToDomain.html">AssociateDelegationSignerToDomain</a>. </p>
  */
@@ -138,6 +145,9 @@ export interface DnssecSigningAttributes {
   PublicKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDelegationSignerToDomainRequest {
   /**
    * <p>The name of the domain.</p>
@@ -151,6 +161,9 @@ export interface AssociateDelegationSignerToDomainRequest {
   SigningAttributes: DnssecSigningAttributes | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDelegationSignerToDomainResponse {
   /**
    * <p>The identifier for tracking the progress of the request. To query the operation
@@ -160,6 +173,7 @@ export interface AssociateDelegationSignerToDomainResponse {
 }
 
 /**
+ * @public
  * <p> This error is returned if you call <code>AssociateDelegationSignerToDomain</code>
  * 			when the specified domain has reached the maximum number of DS records. You can't add
  * 			any additional DS records unless you delete an existing one first. </p>
@@ -181,6 +195,7 @@ export class DnssecLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request is already in progress for the domain.</p>
  */
 export class DuplicateRequest extends __BaseException {
@@ -200,6 +215,7 @@ export class DuplicateRequest extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The top-level domain does not support this operation.</p>
  */
 export class TLDRulesViolation extends __BaseException {
@@ -218,28 +234,38 @@ export class TLDRulesViolation extends __BaseException {
   }
 }
 
-export enum OperationType {
-  ADD_DNSSEC = "ADD_DNSSEC",
-  CHANGE_DOMAIN_OWNER = "CHANGE_DOMAIN_OWNER",
-  CHANGE_PRIVACY_PROTECTION = "CHANGE_PRIVACY_PROTECTION",
-  DELETE_DOMAIN = "DELETE_DOMAIN",
-  DISABLE_AUTORENEW = "DISABLE_AUTORENEW",
-  DOMAIN_LOCK = "DOMAIN_LOCK",
-  ENABLE_AUTORENEW = "ENABLE_AUTORENEW",
-  EXPIRE_DOMAIN = "EXPIRE_DOMAIN",
-  INTERNAL_TRANSFER_IN_DOMAIN = "INTERNAL_TRANSFER_IN_DOMAIN",
-  INTERNAL_TRANSFER_OUT_DOMAIN = "INTERNAL_TRANSFER_OUT_DOMAIN",
-  PUSH_DOMAIN = "PUSH_DOMAIN",
-  REGISTER_DOMAIN = "REGISTER_DOMAIN",
-  REMOVE_DNSSEC = "REMOVE_DNSSEC",
-  RENEW_DOMAIN = "RENEW_DOMAIN",
-  TRANSFER_IN_DOMAIN = "TRANSFER_IN_DOMAIN",
-  TRANSFER_OUT_DOMAIN = "TRANSFER_OUT_DOMAIN",
-  UPDATE_DOMAIN_CONTACT = "UPDATE_DOMAIN_CONTACT",
-  UPDATE_NAMESERVER = "UPDATE_NAMESERVER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OperationType = {
+  ADD_DNSSEC: "ADD_DNSSEC",
+  CHANGE_DOMAIN_OWNER: "CHANGE_DOMAIN_OWNER",
+  CHANGE_PRIVACY_PROTECTION: "CHANGE_PRIVACY_PROTECTION",
+  DELETE_DOMAIN: "DELETE_DOMAIN",
+  DISABLE_AUTORENEW: "DISABLE_AUTORENEW",
+  DOMAIN_LOCK: "DOMAIN_LOCK",
+  ENABLE_AUTORENEW: "ENABLE_AUTORENEW",
+  EXPIRE_DOMAIN: "EXPIRE_DOMAIN",
+  INTERNAL_TRANSFER_IN_DOMAIN: "INTERNAL_TRANSFER_IN_DOMAIN",
+  INTERNAL_TRANSFER_OUT_DOMAIN: "INTERNAL_TRANSFER_OUT_DOMAIN",
+  PUSH_DOMAIN: "PUSH_DOMAIN",
+  REGISTER_DOMAIN: "REGISTER_DOMAIN",
+  REMOVE_DNSSEC: "REMOVE_DNSSEC",
+  RENEW_DOMAIN: "RENEW_DOMAIN",
+  TRANSFER_IN_DOMAIN: "TRANSFER_IN_DOMAIN",
+  TRANSFER_OUT_DOMAIN: "TRANSFER_OUT_DOMAIN",
+  UPDATE_DOMAIN_CONTACT: "UPDATE_DOMAIN_CONTACT",
+  UPDATE_NAMESERVER: "UPDATE_NAMESERVER",
+} as const;
 
 /**
+ * @public
+ */
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
+
+/**
+ * @public
  * <p>Information for one billing record.</p>
  */
 export interface BillingRecord {
@@ -275,6 +301,7 @@ export interface BillingRecord {
 }
 
 /**
+ * @public
  * <p>The CancelDomainTransferToAnotherAwsAccount request includes the following
  * 			element.</p>
  */
@@ -286,6 +313,7 @@ export interface CancelDomainTransferToAnotherAwsAccountRequest {
 }
 
 /**
+ * @public
  * <p>The <code>CancelDomainTransferToAnotherAwsAccount</code> response includes the
  * 			following element.</p>
  */
@@ -300,6 +328,7 @@ export interface CancelDomainTransferToAnotherAwsAccountResponse {
 }
 
 /**
+ * @public
  * <p>The CheckDomainAvailability request contains the following elements.</p>
  */
 export interface CheckDomainAvailabilityRequest {
@@ -339,18 +368,28 @@ export interface CheckDomainAvailabilityRequest {
   IdnLangCode?: string;
 }
 
-export enum DomainAvailability {
-  AVAILABLE = "AVAILABLE",
-  AVAILABLE_PREORDER = "AVAILABLE_PREORDER",
-  AVAILABLE_RESERVED = "AVAILABLE_RESERVED",
-  DONT_KNOW = "DONT_KNOW",
-  RESERVED = "RESERVED",
-  UNAVAILABLE = "UNAVAILABLE",
-  UNAVAILABLE_PREMIUM = "UNAVAILABLE_PREMIUM",
-  UNAVAILABLE_RESTRICTED = "UNAVAILABLE_RESTRICTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DomainAvailability = {
+  AVAILABLE: "AVAILABLE",
+  AVAILABLE_PREORDER: "AVAILABLE_PREORDER",
+  AVAILABLE_RESERVED: "AVAILABLE_RESERVED",
+  DONT_KNOW: "DONT_KNOW",
+  RESERVED: "RESERVED",
+  UNAVAILABLE: "UNAVAILABLE",
+  UNAVAILABLE_PREMIUM: "UNAVAILABLE_PREMIUM",
+  UNAVAILABLE_RESTRICTED: "UNAVAILABLE_RESTRICTED",
+} as const;
 
 /**
+ * @public
+ */
+export type DomainAvailability = (typeof DomainAvailability)[keyof typeof DomainAvailability];
+
+/**
+ * @public
  * <p>The CheckDomainAvailability response includes the following elements.</p>
  */
 export interface CheckDomainAvailabilityResponse {
@@ -409,6 +448,7 @@ export interface CheckDomainAvailabilityResponse {
 }
 
 /**
+ * @public
  * <p>The CheckDomainTransferability request contains the following elements.</p>
  */
 export interface CheckDomainTransferabilityRequest {
@@ -446,16 +486,26 @@ export interface CheckDomainTransferabilityRequest {
   AuthCode?: string;
 }
 
-export enum Transferable {
-  DOMAIN_IN_ANOTHER_ACCOUNT = "DOMAIN_IN_ANOTHER_ACCOUNT",
-  DOMAIN_IN_OWN_ACCOUNT = "DOMAIN_IN_OWN_ACCOUNT",
-  DONT_KNOW = "DONT_KNOW",
-  PREMIUM_DOMAIN = "PREMIUM_DOMAIN",
-  TRANSFERABLE = "TRANSFERABLE",
-  UNTRANSFERABLE = "UNTRANSFERABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Transferable = {
+  DOMAIN_IN_ANOTHER_ACCOUNT: "DOMAIN_IN_ANOTHER_ACCOUNT",
+  DOMAIN_IN_OWN_ACCOUNT: "DOMAIN_IN_OWN_ACCOUNT",
+  DONT_KNOW: "DONT_KNOW",
+  PREMIUM_DOMAIN: "PREMIUM_DOMAIN",
+  TRANSFERABLE: "TRANSFERABLE",
+  UNTRANSFERABLE: "UNTRANSFERABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type Transferable = (typeof Transferable)[keyof typeof Transferable];
+
+/**
+ * @public
  * <p>A complex type that contains information about whether the specified domain can be
  * 			transferred to Route 53.</p>
  */
@@ -498,6 +548,7 @@ export interface DomainTransferability {
 }
 
 /**
+ * @public
  * <p>The CheckDomainTransferability response includes the following elements.</p>
  */
 export interface CheckDomainTransferabilityResponse {
@@ -509,6 +560,7 @@ export interface CheckDomainTransferabilityResponse {
 }
 
 /**
+ * @public
  * <p> Customer's consent for the owner change request. </p>
  */
 export interface Consent {
@@ -523,303 +575,331 @@ export interface Consent {
   Currency: string | undefined;
 }
 
-export enum ContactType {
-  ASSOCIATION = "ASSOCIATION",
-  COMPANY = "COMPANY",
-  PERSON = "PERSON",
-  PUBLIC_BODY = "PUBLIC_BODY",
-  RESELLER = "RESELLER",
-}
-
-export enum CountryCode {
-  AC = "AC",
-  AD = "AD",
-  AE = "AE",
-  AF = "AF",
-  AG = "AG",
-  AI = "AI",
-  AL = "AL",
-  AM = "AM",
-  AN = "AN",
-  AO = "AO",
-  AQ = "AQ",
-  AR = "AR",
-  AS = "AS",
-  AT = "AT",
-  AU = "AU",
-  AW = "AW",
-  AX = "AX",
-  AZ = "AZ",
-  BA = "BA",
-  BB = "BB",
-  BD = "BD",
-  BE = "BE",
-  BF = "BF",
-  BG = "BG",
-  BH = "BH",
-  BI = "BI",
-  BJ = "BJ",
-  BL = "BL",
-  BM = "BM",
-  BN = "BN",
-  BO = "BO",
-  BQ = "BQ",
-  BR = "BR",
-  BS = "BS",
-  BT = "BT",
-  BV = "BV",
-  BW = "BW",
-  BY = "BY",
-  BZ = "BZ",
-  CA = "CA",
-  CC = "CC",
-  CD = "CD",
-  CF = "CF",
-  CG = "CG",
-  CH = "CH",
-  CI = "CI",
-  CK = "CK",
-  CL = "CL",
-  CM = "CM",
-  CN = "CN",
-  CO = "CO",
-  CR = "CR",
-  CU = "CU",
-  CV = "CV",
-  CW = "CW",
-  CX = "CX",
-  CY = "CY",
-  CZ = "CZ",
-  DE = "DE",
-  DJ = "DJ",
-  DK = "DK",
-  DM = "DM",
-  DO = "DO",
-  DZ = "DZ",
-  EC = "EC",
-  EE = "EE",
-  EG = "EG",
-  EH = "EH",
-  ER = "ER",
-  ES = "ES",
-  ET = "ET",
-  FI = "FI",
-  FJ = "FJ",
-  FK = "FK",
-  FM = "FM",
-  FO = "FO",
-  FR = "FR",
-  GA = "GA",
-  GB = "GB",
-  GD = "GD",
-  GE = "GE",
-  GF = "GF",
-  GG = "GG",
-  GH = "GH",
-  GI = "GI",
-  GL = "GL",
-  GM = "GM",
-  GN = "GN",
-  GP = "GP",
-  GQ = "GQ",
-  GR = "GR",
-  GS = "GS",
-  GT = "GT",
-  GU = "GU",
-  GW = "GW",
-  GY = "GY",
-  HK = "HK",
-  HM = "HM",
-  HN = "HN",
-  HR = "HR",
-  HT = "HT",
-  HU = "HU",
-  ID = "ID",
-  IE = "IE",
-  IL = "IL",
-  IM = "IM",
-  IN = "IN",
-  IO = "IO",
-  IQ = "IQ",
-  IR = "IR",
-  IS = "IS",
-  IT = "IT",
-  JE = "JE",
-  JM = "JM",
-  JO = "JO",
-  JP = "JP",
-  KE = "KE",
-  KG = "KG",
-  KH = "KH",
-  KI = "KI",
-  KM = "KM",
-  KN = "KN",
-  KP = "KP",
-  KR = "KR",
-  KW = "KW",
-  KY = "KY",
-  KZ = "KZ",
-  LA = "LA",
-  LB = "LB",
-  LC = "LC",
-  LI = "LI",
-  LK = "LK",
-  LR = "LR",
-  LS = "LS",
-  LT = "LT",
-  LU = "LU",
-  LV = "LV",
-  LY = "LY",
-  MA = "MA",
-  MC = "MC",
-  MD = "MD",
-  ME = "ME",
-  MF = "MF",
-  MG = "MG",
-  MH = "MH",
-  MK = "MK",
-  ML = "ML",
-  MM = "MM",
-  MN = "MN",
-  MO = "MO",
-  MP = "MP",
-  MQ = "MQ",
-  MR = "MR",
-  MS = "MS",
-  MT = "MT",
-  MU = "MU",
-  MV = "MV",
-  MW = "MW",
-  MX = "MX",
-  MY = "MY",
-  MZ = "MZ",
-  NA = "NA",
-  NC = "NC",
-  NE = "NE",
-  NF = "NF",
-  NG = "NG",
-  NI = "NI",
-  NL = "NL",
-  NO = "NO",
-  NP = "NP",
-  NR = "NR",
-  NU = "NU",
-  NZ = "NZ",
-  OM = "OM",
-  PA = "PA",
-  PE = "PE",
-  PF = "PF",
-  PG = "PG",
-  PH = "PH",
-  PK = "PK",
-  PL = "PL",
-  PM = "PM",
-  PN = "PN",
-  PR = "PR",
-  PS = "PS",
-  PT = "PT",
-  PW = "PW",
-  PY = "PY",
-  QA = "QA",
-  RE = "RE",
-  RO = "RO",
-  RS = "RS",
-  RU = "RU",
-  RW = "RW",
-  SA = "SA",
-  SB = "SB",
-  SC = "SC",
-  SD = "SD",
-  SE = "SE",
-  SG = "SG",
-  SH = "SH",
-  SI = "SI",
-  SJ = "SJ",
-  SK = "SK",
-  SL = "SL",
-  SM = "SM",
-  SN = "SN",
-  SO = "SO",
-  SR = "SR",
-  SS = "SS",
-  ST = "ST",
-  SV = "SV",
-  SX = "SX",
-  SY = "SY",
-  SZ = "SZ",
-  TC = "TC",
-  TD = "TD",
-  TF = "TF",
-  TG = "TG",
-  TH = "TH",
-  TJ = "TJ",
-  TK = "TK",
-  TL = "TL",
-  TM = "TM",
-  TN = "TN",
-  TO = "TO",
-  TP = "TP",
-  TR = "TR",
-  TT = "TT",
-  TV = "TV",
-  TW = "TW",
-  TZ = "TZ",
-  UA = "UA",
-  UG = "UG",
-  US = "US",
-  UY = "UY",
-  UZ = "UZ",
-  VA = "VA",
-  VC = "VC",
-  VE = "VE",
-  VG = "VG",
-  VI = "VI",
-  VN = "VN",
-  VU = "VU",
-  WF = "WF",
-  WS = "WS",
-  YE = "YE",
-  YT = "YT",
-  ZA = "ZA",
-  ZM = "ZM",
-  ZW = "ZW",
-}
-
-export enum ExtraParamName {
-  AU_ID_NUMBER = "AU_ID_NUMBER",
-  AU_ID_TYPE = "AU_ID_TYPE",
-  AU_PRIORITY_TOKEN = "AU_PRIORITY_TOKEN",
-  BIRTH_CITY = "BIRTH_CITY",
-  BIRTH_COUNTRY = "BIRTH_COUNTRY",
-  BIRTH_DATE_IN_YYYY_MM_DD = "BIRTH_DATE_IN_YYYY_MM_DD",
-  BIRTH_DEPARTMENT = "BIRTH_DEPARTMENT",
-  BRAND_NUMBER = "BRAND_NUMBER",
-  CA_BUSINESS_ENTITY_TYPE = "CA_BUSINESS_ENTITY_TYPE",
-  CA_LEGAL_REPRESENTATIVE = "CA_LEGAL_REPRESENTATIVE",
-  CA_LEGAL_REPRESENTATIVE_CAPACITY = "CA_LEGAL_REPRESENTATIVE_CAPACITY",
-  CA_LEGAL_TYPE = "CA_LEGAL_TYPE",
-  DOCUMENT_NUMBER = "DOCUMENT_NUMBER",
-  DUNS_NUMBER = "DUNS_NUMBER",
-  ES_IDENTIFICATION = "ES_IDENTIFICATION",
-  ES_IDENTIFICATION_TYPE = "ES_IDENTIFICATION_TYPE",
-  ES_LEGAL_FORM = "ES_LEGAL_FORM",
-  EU_COUNTRY_OF_CITIZENSHIP = "EU_COUNTRY_OF_CITIZENSHIP",
-  FI_BUSINESS_NUMBER = "FI_BUSINESS_NUMBER",
-  FI_NATIONALITY = "FI_NATIONALITY",
-  FI_ORGANIZATION_TYPE = "FI_ORGANIZATION_TYPE",
-  IT_NATIONALITY = "IT_NATIONALITY",
-  IT_PIN = "IT_PIN",
-  IT_REGISTRANT_ENTITY_TYPE = "IT_REGISTRANT_ENTITY_TYPE",
-  ONWER_FI_ID_NUMBER = "FI_ID_NUMBER",
-  RU_PASSPORT_DATA = "RU_PASSPORT_DATA",
-  SE_ID_NUMBER = "SE_ID_NUMBER",
-  SG_ID_NUMBER = "SG_ID_NUMBER",
-  UK_COMPANY_NUMBER = "UK_COMPANY_NUMBER",
-  UK_CONTACT_TYPE = "UK_CONTACT_TYPE",
-  VAT_NUMBER = "VAT_NUMBER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContactType = {
+  ASSOCIATION: "ASSOCIATION",
+  COMPANY: "COMPANY",
+  PERSON: "PERSON",
+  PUBLIC_BODY: "PUBLIC_BODY",
+  RESELLER: "RESELLER",
+} as const;
 
 /**
+ * @public
+ */
+export type ContactType = (typeof ContactType)[keyof typeof ContactType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CountryCode = {
+  AC: "AC",
+  AD: "AD",
+  AE: "AE",
+  AF: "AF",
+  AG: "AG",
+  AI: "AI",
+  AL: "AL",
+  AM: "AM",
+  AN: "AN",
+  AO: "AO",
+  AQ: "AQ",
+  AR: "AR",
+  AS: "AS",
+  AT: "AT",
+  AU: "AU",
+  AW: "AW",
+  AX: "AX",
+  AZ: "AZ",
+  BA: "BA",
+  BB: "BB",
+  BD: "BD",
+  BE: "BE",
+  BF: "BF",
+  BG: "BG",
+  BH: "BH",
+  BI: "BI",
+  BJ: "BJ",
+  BL: "BL",
+  BM: "BM",
+  BN: "BN",
+  BO: "BO",
+  BQ: "BQ",
+  BR: "BR",
+  BS: "BS",
+  BT: "BT",
+  BV: "BV",
+  BW: "BW",
+  BY: "BY",
+  BZ: "BZ",
+  CA: "CA",
+  CC: "CC",
+  CD: "CD",
+  CF: "CF",
+  CG: "CG",
+  CH: "CH",
+  CI: "CI",
+  CK: "CK",
+  CL: "CL",
+  CM: "CM",
+  CN: "CN",
+  CO: "CO",
+  CR: "CR",
+  CU: "CU",
+  CV: "CV",
+  CW: "CW",
+  CX: "CX",
+  CY: "CY",
+  CZ: "CZ",
+  DE: "DE",
+  DJ: "DJ",
+  DK: "DK",
+  DM: "DM",
+  DO: "DO",
+  DZ: "DZ",
+  EC: "EC",
+  EE: "EE",
+  EG: "EG",
+  EH: "EH",
+  ER: "ER",
+  ES: "ES",
+  ET: "ET",
+  FI: "FI",
+  FJ: "FJ",
+  FK: "FK",
+  FM: "FM",
+  FO: "FO",
+  FR: "FR",
+  GA: "GA",
+  GB: "GB",
+  GD: "GD",
+  GE: "GE",
+  GF: "GF",
+  GG: "GG",
+  GH: "GH",
+  GI: "GI",
+  GL: "GL",
+  GM: "GM",
+  GN: "GN",
+  GP: "GP",
+  GQ: "GQ",
+  GR: "GR",
+  GS: "GS",
+  GT: "GT",
+  GU: "GU",
+  GW: "GW",
+  GY: "GY",
+  HK: "HK",
+  HM: "HM",
+  HN: "HN",
+  HR: "HR",
+  HT: "HT",
+  HU: "HU",
+  ID: "ID",
+  IE: "IE",
+  IL: "IL",
+  IM: "IM",
+  IN: "IN",
+  IO: "IO",
+  IQ: "IQ",
+  IR: "IR",
+  IS: "IS",
+  IT: "IT",
+  JE: "JE",
+  JM: "JM",
+  JO: "JO",
+  JP: "JP",
+  KE: "KE",
+  KG: "KG",
+  KH: "KH",
+  KI: "KI",
+  KM: "KM",
+  KN: "KN",
+  KP: "KP",
+  KR: "KR",
+  KW: "KW",
+  KY: "KY",
+  KZ: "KZ",
+  LA: "LA",
+  LB: "LB",
+  LC: "LC",
+  LI: "LI",
+  LK: "LK",
+  LR: "LR",
+  LS: "LS",
+  LT: "LT",
+  LU: "LU",
+  LV: "LV",
+  LY: "LY",
+  MA: "MA",
+  MC: "MC",
+  MD: "MD",
+  ME: "ME",
+  MF: "MF",
+  MG: "MG",
+  MH: "MH",
+  MK: "MK",
+  ML: "ML",
+  MM: "MM",
+  MN: "MN",
+  MO: "MO",
+  MP: "MP",
+  MQ: "MQ",
+  MR: "MR",
+  MS: "MS",
+  MT: "MT",
+  MU: "MU",
+  MV: "MV",
+  MW: "MW",
+  MX: "MX",
+  MY: "MY",
+  MZ: "MZ",
+  NA: "NA",
+  NC: "NC",
+  NE: "NE",
+  NF: "NF",
+  NG: "NG",
+  NI: "NI",
+  NL: "NL",
+  NO: "NO",
+  NP: "NP",
+  NR: "NR",
+  NU: "NU",
+  NZ: "NZ",
+  OM: "OM",
+  PA: "PA",
+  PE: "PE",
+  PF: "PF",
+  PG: "PG",
+  PH: "PH",
+  PK: "PK",
+  PL: "PL",
+  PM: "PM",
+  PN: "PN",
+  PR: "PR",
+  PS: "PS",
+  PT: "PT",
+  PW: "PW",
+  PY: "PY",
+  QA: "QA",
+  RE: "RE",
+  RO: "RO",
+  RS: "RS",
+  RU: "RU",
+  RW: "RW",
+  SA: "SA",
+  SB: "SB",
+  SC: "SC",
+  SD: "SD",
+  SE: "SE",
+  SG: "SG",
+  SH: "SH",
+  SI: "SI",
+  SJ: "SJ",
+  SK: "SK",
+  SL: "SL",
+  SM: "SM",
+  SN: "SN",
+  SO: "SO",
+  SR: "SR",
+  SS: "SS",
+  ST: "ST",
+  SV: "SV",
+  SX: "SX",
+  SY: "SY",
+  SZ: "SZ",
+  TC: "TC",
+  TD: "TD",
+  TF: "TF",
+  TG: "TG",
+  TH: "TH",
+  TJ: "TJ",
+  TK: "TK",
+  TL: "TL",
+  TM: "TM",
+  TN: "TN",
+  TO: "TO",
+  TP: "TP",
+  TR: "TR",
+  TT: "TT",
+  TV: "TV",
+  TW: "TW",
+  TZ: "TZ",
+  UA: "UA",
+  UG: "UG",
+  US: "US",
+  UY: "UY",
+  UZ: "UZ",
+  VA: "VA",
+  VC: "VC",
+  VE: "VE",
+  VG: "VG",
+  VI: "VI",
+  VN: "VN",
+  VU: "VU",
+  WF: "WF",
+  WS: "WS",
+  YE: "YE",
+  YT: "YT",
+  ZA: "ZA",
+  ZM: "ZM",
+  ZW: "ZW",
+} as const;
+
+/**
+ * @public
+ */
+export type CountryCode = (typeof CountryCode)[keyof typeof CountryCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExtraParamName = {
+  AU_ID_NUMBER: "AU_ID_NUMBER",
+  AU_ID_TYPE: "AU_ID_TYPE",
+  AU_PRIORITY_TOKEN: "AU_PRIORITY_TOKEN",
+  BIRTH_CITY: "BIRTH_CITY",
+  BIRTH_COUNTRY: "BIRTH_COUNTRY",
+  BIRTH_DATE_IN_YYYY_MM_DD: "BIRTH_DATE_IN_YYYY_MM_DD",
+  BIRTH_DEPARTMENT: "BIRTH_DEPARTMENT",
+  BRAND_NUMBER: "BRAND_NUMBER",
+  CA_BUSINESS_ENTITY_TYPE: "CA_BUSINESS_ENTITY_TYPE",
+  CA_LEGAL_REPRESENTATIVE: "CA_LEGAL_REPRESENTATIVE",
+  CA_LEGAL_REPRESENTATIVE_CAPACITY: "CA_LEGAL_REPRESENTATIVE_CAPACITY",
+  CA_LEGAL_TYPE: "CA_LEGAL_TYPE",
+  DOCUMENT_NUMBER: "DOCUMENT_NUMBER",
+  DUNS_NUMBER: "DUNS_NUMBER",
+  ES_IDENTIFICATION: "ES_IDENTIFICATION",
+  ES_IDENTIFICATION_TYPE: "ES_IDENTIFICATION_TYPE",
+  ES_LEGAL_FORM: "ES_LEGAL_FORM",
+  EU_COUNTRY_OF_CITIZENSHIP: "EU_COUNTRY_OF_CITIZENSHIP",
+  FI_BUSINESS_NUMBER: "FI_BUSINESS_NUMBER",
+  FI_NATIONALITY: "FI_NATIONALITY",
+  FI_ORGANIZATION_TYPE: "FI_ORGANIZATION_TYPE",
+  IT_NATIONALITY: "IT_NATIONALITY",
+  IT_PIN: "IT_PIN",
+  IT_REGISTRANT_ENTITY_TYPE: "IT_REGISTRANT_ENTITY_TYPE",
+  ONWER_FI_ID_NUMBER: "FI_ID_NUMBER",
+  RU_PASSPORT_DATA: "RU_PASSPORT_DATA",
+  SE_ID_NUMBER: "SE_ID_NUMBER",
+  SG_ID_NUMBER: "SG_ID_NUMBER",
+  UK_COMPANY_NUMBER: "UK_COMPANY_NUMBER",
+  UK_CONTACT_TYPE: "UK_CONTACT_TYPE",
+  VAT_NUMBER: "VAT_NUMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type ExtraParamName = (typeof ExtraParamName)[keyof typeof ExtraParamName];
+
+/**
+ * @public
  * <p>ExtraParam includes the following elements.</p>
  */
 export interface ExtraParam {
@@ -1685,6 +1765,7 @@ export interface ExtraParam {
 }
 
 /**
+ * @public
  * <p>ContactDetail includes the following elements.</p>
  */
 export interface ContactDetail {
@@ -1785,6 +1866,9 @@ export interface ContactDetail {
   ExtraParams?: ExtraParam[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainRequest {
   /**
    * <p>Name of the domain to be deleted.</p>
@@ -1792,6 +1876,9 @@ export interface DeleteDomainRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDomainResponse {
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status,
@@ -1801,6 +1888,7 @@ export interface DeleteDomainResponse {
 }
 
 /**
+ * @public
  * <p>The DeleteTagsForDomainRequest includes the following elements.</p>
  */
 export interface DeleteTagsForDomainRequest {
@@ -1815,8 +1903,14 @@ export interface DeleteTagsForDomainRequest {
   TagsToDelete: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTagsForDomainResponse {}
 
+/**
+ * @public
+ */
 export interface DisableDomainAutoRenewRequest {
   /**
    * <p>The name of the domain that you want to disable automatic renewal for.</p>
@@ -1824,9 +1918,13 @@ export interface DisableDomainAutoRenewRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableDomainAutoRenewResponse {}
 
 /**
+ * @public
  * <p>The DisableDomainTransferLock request includes the following element.</p>
  */
 export interface DisableDomainTransferLockRequest {
@@ -1837,6 +1935,7 @@ export interface DisableDomainTransferLockRequest {
 }
 
 /**
+ * @public
  * <p>The DisableDomainTransferLock response includes the following element.</p>
  */
 export interface DisableDomainTransferLockResponse {
@@ -1847,6 +1946,9 @@ export interface DisableDomainTransferLockResponse {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDelegationSignerFromDomainRequest {
   /**
    * <p>Name of the domain.</p>
@@ -1860,6 +1962,9 @@ export interface DisassociateDelegationSignerFromDomainRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDelegationSignerFromDomainResponse {
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status,
@@ -1869,6 +1974,7 @@ export interface DisassociateDelegationSignerFromDomainResponse {
 }
 
 /**
+ * @public
  * <p>Information about the DNSSEC key.</p>
  *          <p>You get this from your DNS provider and then give it to Route 53 (by using
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AssociateDelegationSignerToDomain.html">AssociateDelegationSignerToDomain</a>) to pass it to the registry to establish
@@ -1924,6 +2030,7 @@ export interface DnssecKey {
 }
 
 /**
+ * @public
  * <p>Currency-specific price information.</p>
  */
 export interface PriceWithCurrency {
@@ -1939,6 +2046,7 @@ export interface PriceWithCurrency {
 }
 
 /**
+ * @public
  * <p>Information about the domain price associated with a TLD.</p>
  */
 export interface DomainPrice {
@@ -1974,6 +2082,7 @@ export interface DomainPrice {
 }
 
 /**
+ * @public
  * <p>Information about one suggested domain name.</p>
  */
 export interface DomainSuggestion {
@@ -2038,6 +2147,7 @@ export interface DomainSuggestion {
 }
 
 /**
+ * @public
  * <p>Summary information about one domain.</p>
  */
 export interface DomainSummary {
@@ -2064,6 +2174,9 @@ export interface DomainSummary {
   Expiry?: Date;
 }
 
+/**
+ * @public
+ */
 export interface EnableDomainAutoRenewRequest {
   /**
    * <p>The name of the domain that you want to enable automatic renewal for.</p>
@@ -2071,9 +2184,13 @@ export interface EnableDomainAutoRenewRequest {
   DomainName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableDomainAutoRenewResponse {}
 
 /**
+ * @public
  * <p>A request to set the transfer lock for the specified domain.</p>
  */
 export interface EnableDomainTransferLockRequest {
@@ -2084,6 +2201,7 @@ export interface EnableDomainTransferLockRequest {
 }
 
 /**
+ * @public
  * <p>The EnableDomainTransferLock response includes the following elements.</p>
  */
 export interface EnableDomainTransferLockResponse {
@@ -2094,18 +2212,37 @@ export interface EnableDomainTransferLockResponse {
   OperationId?: string;
 }
 
-export enum ListDomainsAttributeName {
-  DomainName = "DomainName",
-  Expiry = "Expiry",
-}
-
-export enum Operator {
-  BEGINS_WITH = "BEGINS_WITH",
-  GE = "GE",
-  LE = "LE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListDomainsAttributeName = {
+  DomainName: "DomainName",
+  Expiry: "Expiry",
+} as const;
 
 /**
+ * @public
+ */
+export type ListDomainsAttributeName = (typeof ListDomainsAttributeName)[keyof typeof ListDomainsAttributeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const Operator = {
+  BEGINS_WITH: "BEGINS_WITH",
+  GE: "GE",
+  LE: "LE",
+} as const;
+
+/**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
+
+/**
+ * @public
  * <p>Information for the filtering of a list of domains returned by <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html">ListDomains</a>.</p>
  */
 export interface FilterCondition {
@@ -2140,6 +2277,9 @@ export interface FilterCondition {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactReachabilityStatusRequest {
   /**
    * <p>The name of the domain for which you want to know whether the registrant contact has
@@ -2148,12 +2288,24 @@ export interface GetContactReachabilityStatusRequest {
   domainName?: string;
 }
 
-export enum ReachabilityStatus {
-  DONE = "DONE",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReachabilityStatus = {
+  DONE: "DONE",
+  EXPIRED: "EXPIRED",
+  PENDING: "PENDING",
+} as const;
 
+/**
+ * @public
+ */
+export type ReachabilityStatus = (typeof ReachabilityStatus)[keyof typeof ReachabilityStatus];
+
+/**
+ * @public
+ */
 export interface GetContactReachabilityStatusResponse {
   /**
    * <p>The domain name for which you requested the reachability status.</p>
@@ -2181,6 +2333,7 @@ export interface GetContactReachabilityStatusResponse {
 }
 
 /**
+ * @public
  * <p>The GetDomainDetail request includes the following element.</p>
  */
 export interface GetDomainDetailRequest {
@@ -2191,6 +2344,7 @@ export interface GetDomainDetailRequest {
 }
 
 /**
+ * @public
  * <p>Name server includes the following elements.</p>
  */
 export interface Nameserver {
@@ -2211,6 +2365,7 @@ export interface Nameserver {
 }
 
 /**
+ * @public
  * <p>The GetDomainDetail response includes the following elements.</p>
  */
 export interface GetDomainDetailResponse {
@@ -2357,6 +2512,9 @@ export interface GetDomainDetailResponse {
   DnssecKeys?: DnssecKey[];
 }
 
+/**
+ * @public
+ */
 export interface GetDomainSuggestionsRequest {
   /**
    * <p>A domain name that you want to use as the basis for a list of possible domain names.
@@ -2404,6 +2562,9 @@ export interface GetDomainSuggestionsRequest {
   OnlyAvailable: boolean | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDomainSuggestionsResponse {
   /**
    * <p>A list of possible domain names. If you specified <code>true</code> for
@@ -2414,6 +2575,7 @@ export interface GetDomainSuggestionsResponse {
 }
 
 /**
+ * @public
  * <p>The <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> request includes the following element.</p>
  */
 export interface GetOperationDetailRequest {
@@ -2424,23 +2586,42 @@ export interface GetOperationDetailRequest {
   OperationId: string | undefined;
 }
 
-export enum OperationStatus {
-  ERROR = "ERROR",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-  SUCCESSFUL = "SUCCESSFUL",
-}
-
-export enum StatusFlag {
-  PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE",
-  PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION",
-  PENDING_CUSTOMER_ACTION = "PENDING_CUSTOMER_ACTION",
-  PENDING_PAYMENT_VERIFICATION = "PENDING_PAYMENT_VERIFICATION",
-  PENDING_SUPPORT_CASE = "PENDING_SUPPORT_CASE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OperationStatus = {
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
 
 /**
+ * @public
+ */
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StatusFlag = {
+  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
+  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
+  PENDING_CUSTOMER_ACTION: "PENDING_CUSTOMER_ACTION",
+  PENDING_PAYMENT_VERIFICATION: "PENDING_PAYMENT_VERIFICATION",
+  PENDING_SUPPORT_CASE: "PENDING_SUPPORT_CASE",
+} as const;
+
+/**
+ * @public
+ */
+export type StatusFlag = (typeof StatusFlag)[keyof typeof StatusFlag];
+
+/**
+ * @public
  * <p>The GetOperationDetail response includes the following elements.</p>
  */
 export interface GetOperationDetailResponse {
@@ -2513,12 +2694,22 @@ export interface GetOperationDetailResponse {
   StatusFlag?: StatusFlag | string;
 }
 
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
 
 /**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
  * <p>Information for sorting a list of domains.</p>
  */
 export interface SortCondition {
@@ -2539,6 +2730,7 @@ export interface SortCondition {
 }
 
 /**
+ * @public
  * <p>The ListDomains request includes the following elements.</p>
  */
 export interface ListDomainsRequest {
@@ -2574,6 +2766,7 @@ export interface ListDomainsRequest {
 }
 
 /**
+ * @public
  * <p>The ListDomains response includes the following elements.</p>
  */
 export interface ListDomainsResponse {
@@ -2590,11 +2783,22 @@ export interface ListDomainsResponse {
   NextPageMarker?: string;
 }
 
-export enum ListOperationsSortAttributeName {
-  SubmittedDate = "SubmittedDate",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListOperationsSortAttributeName = {
+  SubmittedDate: "SubmittedDate",
+} as const;
 
 /**
+ * @public
+ */
+export type ListOperationsSortAttributeName =
+  (typeof ListOperationsSortAttributeName)[keyof typeof ListOperationsSortAttributeName];
+
+/**
+ * @public
  * <p>The ListOperations request includes the following elements.</p>
  */
 export interface ListOperationsRequest {
@@ -2643,6 +2847,7 @@ export interface ListOperationsRequest {
 }
 
 /**
+ * @public
  * <p>OperationSummary includes the following elements.</p>
  */
 export interface OperationSummary {
@@ -2718,6 +2923,7 @@ export interface OperationSummary {
 }
 
 /**
+ * @public
  * <p>The ListOperations response includes the following elements.</p>
  */
 export interface ListOperationsResponse {
@@ -2734,6 +2940,9 @@ export interface ListOperationsResponse {
   NextPageMarker?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPricesRequest {
   /**
    * <p>The TLD for which you want to receive the pricing information. For example.
@@ -2763,6 +2972,9 @@ export interface ListPricesRequest {
   MaxItems?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPricesResponse {
   /**
    * <p>A complex type that includes all the pricing information. If you specify a TLD, this
@@ -2781,6 +2993,7 @@ export interface ListPricesResponse {
 }
 
 /**
+ * @public
  * <p>The ListTagsForDomainRequest includes the following elements.</p>
  */
 export interface ListTagsForDomainRequest {
@@ -2791,6 +3004,7 @@ export interface ListTagsForDomainRequest {
 }
 
 /**
+ * @public
  * <p>Each tag includes the following elements.</p>
  */
 export interface Tag {
@@ -2810,6 +3024,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>The ListTagsForDomain response includes the following elements.</p>
  */
 export interface ListTagsForDomainResponse {
@@ -2819,6 +3034,9 @@ export interface ListTagsForDomainResponse {
   TagList?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PushDomainRequest {
   /**
    * <p> Name of the domain. </p>
@@ -2832,6 +3050,7 @@ export interface PushDomainRequest {
 }
 
 /**
+ * @public
  * <p>The RegisterDomain request includes the following elements.</p>
  */
 export interface RegisterDomainRequest {
@@ -2952,6 +3171,7 @@ export interface RegisterDomainRequest {
 }
 
 /**
+ * @public
  * <p>The RegisterDomain response includes the following element.</p>
  */
 export interface RegisterDomainResponse {
@@ -2963,6 +3183,7 @@ export interface RegisterDomainResponse {
 }
 
 /**
+ * @public
  * <p>The RejectDomainTransferFromAnotherAwsAccount request includes the following
  * 			element.</p>
  */
@@ -2975,6 +3196,7 @@ export interface RejectDomainTransferFromAnotherAwsAccountRequest {
 }
 
 /**
+ * @public
  * <p>The RejectDomainTransferFromAnotherAwsAccount response includes the following
  * 			element.</p>
  */
@@ -2989,6 +3211,7 @@ export interface RejectDomainTransferFromAnotherAwsAccountResponse {
 }
 
 /**
+ * @public
  * <p>A <code>RenewDomain</code> request includes the number of years that you want to renew
  * 			for and the current expiration year.</p>
  */
@@ -3015,6 +3238,9 @@ export interface RenewDomainRequest {
   CurrentExpiryYear: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RenewDomainResponse {
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status,
@@ -3023,6 +3249,9 @@ export interface RenewDomainResponse {
   OperationId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResendContactReachabilityEmailRequest {
   /**
    * <p>The name of the domain for which you want Route 53 to resend a confirmation email to
@@ -3031,6 +3260,9 @@ export interface ResendContactReachabilityEmailRequest {
   domainName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ResendContactReachabilityEmailResponse {
   /**
    * <p>The domain name for which you requested a confirmation email.</p>
@@ -3052,6 +3284,9 @@ export interface ResendContactReachabilityEmailResponse {
   isAlreadyVerified?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface ResendOperationAuthorizationRequest {
   /**
    * <p> Operation ID. </p>
@@ -3060,6 +3295,7 @@ export interface ResendOperationAuthorizationRequest {
 }
 
 /**
+ * @public
  * <p>A request for the authorization code for the specified domain. To transfer a domain to
  * 			another registrar, you provide this value to the new registrar.</p>
  */
@@ -3071,6 +3307,7 @@ export interface RetrieveDomainAuthCodeRequest {
 }
 
 /**
+ * @public
  * <p>The RetrieveDomainAuthCode response includes the following element.</p>
  */
 export interface RetrieveDomainAuthCodeResponse {
@@ -3081,6 +3318,7 @@ export interface RetrieveDomainAuthCodeResponse {
 }
 
 /**
+ * @public
  * <p>The TransferDomain request includes the following elements.</p>
  */
 export interface TransferDomainRequest {
@@ -3202,6 +3440,7 @@ export interface TransferDomainRequest {
 }
 
 /**
+ * @public
  * <p>The TransferDomain response includes the following element.</p>
  */
 export interface TransferDomainResponse {
@@ -3213,6 +3452,7 @@ export interface TransferDomainResponse {
 }
 
 /**
+ * @public
  * <p>The TransferDomainToAnotherAwsAccount request includes the following elements.</p>
  */
 export interface TransferDomainToAnotherAwsAccountRequest {
@@ -3229,6 +3469,7 @@ export interface TransferDomainToAnotherAwsAccountRequest {
 }
 
 /**
+ * @public
  * <p>The <code>TransferDomainToAnotherAwsAccount</code> response includes the following
  * 			elements.</p>
  */
@@ -3249,6 +3490,7 @@ export interface TransferDomainToAnotherAwsAccountResponse {
 }
 
 /**
+ * @public
  * <p>The UpdateDomainContact request includes the following elements.</p>
  */
 export interface UpdateDomainContactRequest {
@@ -3279,6 +3521,7 @@ export interface UpdateDomainContactRequest {
 }
 
 /**
+ * @public
  * <p>The UpdateDomainContact response includes the following element.</p>
  */
 export interface UpdateDomainContactResponse {
@@ -3290,6 +3533,7 @@ export interface UpdateDomainContactResponse {
 }
 
 /**
+ * @public
  * <p>The UpdateDomainContactPrivacy request includes the following elements.</p>
  */
 export interface UpdateDomainContactPrivacyRequest {
@@ -3339,6 +3583,7 @@ export interface UpdateDomainContactPrivacyRequest {
 }
 
 /**
+ * @public
  * <p>The UpdateDomainContactPrivacy response includes the following element.</p>
  */
 export interface UpdateDomainContactPrivacyResponse {
@@ -3350,6 +3595,7 @@ export interface UpdateDomainContactPrivacyResponse {
 }
 
 /**
+ * @public
  * <p>Replaces the current set of name servers for the domain with the specified set of name
  * 			servers. If you use Amazon Route 53 as your DNS service, specify the four name servers
  * 			in the delegation set for the hosted zone for the domain.</p>
@@ -3377,6 +3623,7 @@ export interface UpdateDomainNameserversRequest {
 }
 
 /**
+ * @public
  * <p>The UpdateDomainNameservers response includes the following element.</p>
  */
 export interface UpdateDomainNameserversResponse {
@@ -3388,6 +3635,7 @@ export interface UpdateDomainNameserversResponse {
 }
 
 /**
+ * @public
  * <p>The UpdateTagsForDomainRequest includes the following elements.</p>
  */
 export interface UpdateTagsForDomainRequest {
@@ -3403,9 +3651,13 @@ export interface UpdateTagsForDomainRequest {
   TagsToUpdate?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateTagsForDomainResponse {}
 
 /**
+ * @public
  * <p>The ViewBilling request includes the following elements.</p>
  */
 export interface ViewBillingRequest {
@@ -3444,6 +3696,7 @@ export interface ViewBillingRequest {
 }
 
 /**
+ * @public
  * <p>The ViewBilling response includes the following elements.</p>
  */
 export interface ViewBillingResponse {
@@ -3463,112 +3716,9 @@ export interface ViewBillingResponse {
 /**
  * @internal
  */
-export const AcceptDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog = (
-  obj: AcceptDomainTransferFromAnotherAwsAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptDomainTransferFromAnotherAwsAccountResponseFilterSensitiveLog = (
-  obj: AcceptDomainTransferFromAnotherAwsAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DnssecSigningAttributesFilterSensitiveLog = (obj: DnssecSigningAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDelegationSignerToDomainRequestFilterSensitiveLog = (
-  obj: AssociateDelegationSignerToDomainRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDelegationSignerToDomainResponseFilterSensitiveLog = (
-  obj: AssociateDelegationSignerToDomainResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BillingRecordFilterSensitiveLog = (obj: BillingRecord): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDomainTransferToAnotherAwsAccountRequestFilterSensitiveLog = (
-  obj: CancelDomainTransferToAnotherAwsAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelDomainTransferToAnotherAwsAccountResponseFilterSensitiveLog = (
-  obj: CancelDomainTransferToAnotherAwsAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CheckDomainAvailabilityRequestFilterSensitiveLog = (obj: CheckDomainAvailabilityRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CheckDomainAvailabilityResponseFilterSensitiveLog = (obj: CheckDomainAvailabilityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CheckDomainTransferabilityRequestFilterSensitiveLog = (obj: CheckDomainTransferabilityRequest): any => ({
   ...obj,
   ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DomainTransferabilityFilterSensitiveLog = (obj: DomainTransferability): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CheckDomainTransferabilityResponseFilterSensitiveLog = (obj: CheckDomainTransferabilityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConsentFilterSensitiveLog = (obj: Consent): any => ({
-  ...obj,
 });
 
 /**
@@ -3590,182 +3740,6 @@ export const ContactDetailFilterSensitiveLog = (obj: ContactDetail): any => ({
 /**
  * @internal
  */
-export const DeleteDomainRequestFilterSensitiveLog = (obj: DeleteDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDomainResponseFilterSensitiveLog = (obj: DeleteDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagsForDomainRequestFilterSensitiveLog = (obj: DeleteTagsForDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagsForDomainResponseFilterSensitiveLog = (obj: DeleteTagsForDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableDomainAutoRenewRequestFilterSensitiveLog = (obj: DisableDomainAutoRenewRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableDomainAutoRenewResponseFilterSensitiveLog = (obj: DisableDomainAutoRenewResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableDomainTransferLockRequestFilterSensitiveLog = (obj: DisableDomainTransferLockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableDomainTransferLockResponseFilterSensitiveLog = (obj: DisableDomainTransferLockResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateDelegationSignerFromDomainRequestFilterSensitiveLog = (
-  obj: DisassociateDelegationSignerFromDomainRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateDelegationSignerFromDomainResponseFilterSensitiveLog = (
-  obj: DisassociateDelegationSignerFromDomainResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DnssecKeyFilterSensitiveLog = (obj: DnssecKey): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PriceWithCurrencyFilterSensitiveLog = (obj: PriceWithCurrency): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainPriceFilterSensitiveLog = (obj: DomainPrice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainSuggestionFilterSensitiveLog = (obj: DomainSuggestion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainSummaryFilterSensitiveLog = (obj: DomainSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableDomainAutoRenewRequestFilterSensitiveLog = (obj: EnableDomainAutoRenewRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableDomainAutoRenewResponseFilterSensitiveLog = (obj: EnableDomainAutoRenewResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableDomainTransferLockRequestFilterSensitiveLog = (obj: EnableDomainTransferLockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableDomainTransferLockResponseFilterSensitiveLog = (obj: EnableDomainTransferLockResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterConditionFilterSensitiveLog = (obj: FilterCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContactReachabilityStatusRequestFilterSensitiveLog = (
-  obj: GetContactReachabilityStatusRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContactReachabilityStatusResponseFilterSensitiveLog = (
-  obj: GetContactReachabilityStatusResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainDetailRequestFilterSensitiveLog = (obj: GetDomainDetailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NameserverFilterSensitiveLog = (obj: Nameserver): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetDomainDetailResponseFilterSensitiveLog = (obj: GetDomainDetailResponse): any => ({
   ...obj,
   ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
@@ -3776,196 +3750,11 @@ export const GetDomainDetailResponseFilterSensitiveLog = (obj: GetDomainDetailRe
 /**
  * @internal
  */
-export const GetDomainSuggestionsRequestFilterSensitiveLog = (obj: GetDomainSuggestionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainSuggestionsResponseFilterSensitiveLog = (obj: GetDomainSuggestionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOperationDetailRequestFilterSensitiveLog = (obj: GetOperationDetailRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOperationDetailResponseFilterSensitiveLog = (obj: GetOperationDetailResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SortConditionFilterSensitiveLog = (obj: SortCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsRequestFilterSensitiveLog = (obj: ListDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsResponseFilterSensitiveLog = (obj: ListDomainsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOperationsRequestFilterSensitiveLog = (obj: ListOperationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OperationSummaryFilterSensitiveLog = (obj: OperationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOperationsResponseFilterSensitiveLog = (obj: ListOperationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricesRequestFilterSensitiveLog = (obj: ListPricesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricesResponseFilterSensitiveLog = (obj: ListPricesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForDomainRequestFilterSensitiveLog = (obj: ListTagsForDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForDomainResponseFilterSensitiveLog = (obj: ListTagsForDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PushDomainRequestFilterSensitiveLog = (obj: PushDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RegisterDomainRequestFilterSensitiveLog = (obj: RegisterDomainRequest): any => ({
   ...obj,
   ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
   ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
   ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RegisterDomainResponseFilterSensitiveLog = (obj: RegisterDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog = (
-  obj: RejectDomainTransferFromAnotherAwsAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectDomainTransferFromAnotherAwsAccountResponseFilterSensitiveLog = (
-  obj: RejectDomainTransferFromAnotherAwsAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenewDomainRequestFilterSensitiveLog = (obj: RenewDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RenewDomainResponseFilterSensitiveLog = (obj: RenewDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResendContactReachabilityEmailRequestFilterSensitiveLog = (
-  obj: ResendContactReachabilityEmailRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResendContactReachabilityEmailResponseFilterSensitiveLog = (
-  obj: ResendContactReachabilityEmailResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResendOperationAuthorizationRequestFilterSensitiveLog = (
-  obj: ResendOperationAuthorizationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetrieveDomainAuthCodeRequestFilterSensitiveLog = (obj: RetrieveDomainAuthCodeRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3990,31 +3779,6 @@ export const TransferDomainRequestFilterSensitiveLog = (obj: TransferDomainReque
 /**
  * @internal
  */
-export const TransferDomainResponseFilterSensitiveLog = (obj: TransferDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransferDomainToAnotherAwsAccountRequestFilterSensitiveLog = (
-  obj: TransferDomainToAnotherAwsAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransferDomainToAnotherAwsAccountResponseFilterSensitiveLog = (
-  obj: TransferDomainToAnotherAwsAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateDomainContactRequestFilterSensitiveLog = (obj: UpdateDomainContactRequest): any => ({
   ...obj,
   ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
@@ -4025,63 +3789,7 @@ export const UpdateDomainContactRequestFilterSensitiveLog = (obj: UpdateDomainCo
 /**
  * @internal
  */
-export const UpdateDomainContactResponseFilterSensitiveLog = (obj: UpdateDomainContactResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainContactPrivacyRequestFilterSensitiveLog = (obj: UpdateDomainContactPrivacyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainContactPrivacyResponseFilterSensitiveLog = (obj: UpdateDomainContactPrivacyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateDomainNameserversRequestFilterSensitiveLog = (obj: UpdateDomainNameserversRequest): any => ({
   ...obj,
   ...(obj.FIAuthKey && { FIAuthKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateDomainNameserversResponseFilterSensitiveLog = (obj: UpdateDomainNameserversResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTagsForDomainRequestFilterSensitiveLog = (obj: UpdateTagsForDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTagsForDomainResponseFilterSensitiveLog = (obj: UpdateTagsForDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ViewBillingRequestFilterSensitiveLog = (obj: ViewBillingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ViewBillingResponseFilterSensitiveLog = (obj: ViewBillingResponse): any => ({
-  ...obj,
 });

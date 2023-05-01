@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetectCustomLabelsRequest,
-  DetectCustomLabelsRequestFilterSensitiveLog,
-  DetectCustomLabelsResponse,
-  DetectCustomLabelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectCustomLabelsCommand,
-  serializeAws_json1_1DetectCustomLabelsCommand,
-} from "../protocols/Aws_json1_1";
+import { DetectCustomLabelsRequest, DetectCustomLabelsResponse } from "../models/models_0";
+import { de_DetectCustomLabelsCommand, se_DetectCustomLabelsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectCustomLabelsCommand}.
  */
 export interface DetectCustomLabelsCommandInput extends DetectCustomLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectCustomLabelsCommand}.
  */
 export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p>
  *          <p>You specify which version of a model version to use by using the <code>ProjectVersionArn</code> input
  *       parameter. </p>
@@ -73,10 +70,25 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * import { RekognitionClient, DetectCustomLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectCustomLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DetectCustomLabelsRequest
+ *   ProjectVersionArn: "STRING_VALUE", // required
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   MaxResults: Number("int"),
+ *   MinConfidence: Number("float"),
+ * };
  * const command = new DetectCustomLabelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectCustomLabelsCommandInput - {@link DetectCustomLabelsCommandInput}
+ * @returns {@link DetectCustomLabelsCommandOutput}
  * @see {@link DetectCustomLabelsCommandInput} for command's `input` shape.
  * @see {@link DetectCustomLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -142,6 +154,9 @@ export class DetectCustomLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectCustomLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,8 +185,8 @@ export class DetectCustomLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectCustomLabelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectCustomLabelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -181,12 +196,18 @@ export class DetectCustomLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectCustomLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectCustomLabelsCommand(input, context);
+    return se_DetectCustomLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectCustomLabelsCommandOutput> {
-    return deserializeAws_json1_1DetectCustomLabelsCommand(output, context);
+    return de_DetectCustomLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

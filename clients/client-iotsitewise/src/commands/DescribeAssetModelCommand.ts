@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribeAssetModelRequest,
-  DescribeAssetModelRequestFilterSensitiveLog,
-  DescribeAssetModelResponse,
-  DescribeAssetModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAssetModelCommand,
-  serializeAws_restJson1DescribeAssetModelCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAssetModelRequest, DescribeAssetModelResponse } from "../models/models_0";
+import { de_DescribeAssetModelCommand, se_DescribeAssetModelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAssetModelCommand}.
  */
 export interface DescribeAssetModelCommandInput extends DescribeAssetModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAssetModelCommand}.
  */
 export interface DescribeAssetModelCommandOutput extends DescribeAssetModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an asset model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * import { IoTSiteWiseClient, DescribeAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DescribeAssetModelRequest
+ *   assetModelId: "STRING_VALUE", // required
+ *   excludeProperties: true || false,
+ * };
  * const command = new DescribeAssetModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssetModelCommandInput - {@link DescribeAssetModelCommandInput}
+ * @returns {@link DescribeAssetModelCommandOutput}
  * @see {@link DescribeAssetModelCommandInput} for command's `input` shape.
  * @see {@link DescribeAssetModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +88,9 @@ export class DescribeAssetModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssetModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class DescribeAssetModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAssetModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAssetModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class DescribeAssetModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAssetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAssetModelCommand(input, context);
+    return se_DescribeAssetModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAssetModelCommandOutput> {
-    return deserializeAws_restJson1DescribeAssetModelCommand(output, context);
+    return de_DescribeAssetModelCommand(output, context);
   }
 
   // Start section: command_body_extra

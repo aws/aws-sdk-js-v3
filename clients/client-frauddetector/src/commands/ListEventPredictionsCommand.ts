@@ -14,34 +14,31 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  ListEventPredictionsRequest,
-  ListEventPredictionsRequestFilterSensitiveLog,
-  ListEventPredictionsResult,
-  ListEventPredictionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEventPredictionsCommand,
-  serializeAws_json1_1ListEventPredictionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEventPredictionsRequest, ListEventPredictionsResult } from "../models/models_0";
+import { de_ListEventPredictionsCommand, se_ListEventPredictionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventPredictionsCommand}.
  */
 export interface ListEventPredictionsCommandInput extends ListEventPredictionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventPredictionsCommand}.
  */
 export interface ListEventPredictionsCommandOutput extends ListEventPredictionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period.
  *     If filter is not specified, the most recent prediction is returned.</p>
  *          <p>For example, the following filter lists all past predictions for <code>xyz</code> event type -
- *     <code>{
- *         "eventType":{
- *         "value": "xyz" }”
- *         }  </code>
+ *     <code>\{
+ *         "eventType":\{
+ *         "value": "xyz" \}”
+ *         \}  </code>
  *          </p>
  *          <p>This is a paginated API. If you provide a null <code>maxResults</code>, this action will retrieve a maximum of 10 records per page.
  *   If you provide a <code>maxResults</code>, the value must be between 50 and 100. To get the next page results, provide
@@ -53,10 +50,32 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
  * import { FraudDetectorClient, ListEventPredictionsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, ListEventPredictionsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // ListEventPredictionsRequest
+ *   eventId: { // FilterCondition
+ *     value: "STRING_VALUE",
+ *   },
+ *   eventType: {
+ *     value: "STRING_VALUE",
+ *   },
+ *   detectorId: {
+ *     value: "STRING_VALUE",
+ *   },
+ *   detectorVersionId: {
+ *     value: "STRING_VALUE",
+ *   },
+ *   predictionTimeRange: { // PredictionTimeRange
+ *     startTime: "STRING_VALUE", // required
+ *     endTime: "STRING_VALUE", // required
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListEventPredictionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventPredictionsCommandInput - {@link ListEventPredictionsCommandInput}
+ * @returns {@link ListEventPredictionsCommandOutput}
  * @see {@link ListEventPredictionsCommandInput} for command's `input` shape.
  * @see {@link ListEventPredictionsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -92,6 +111,9 @@ export class ListEventPredictionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventPredictionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +142,8 @@ export class ListEventPredictionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventPredictionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventPredictionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +153,18 @@ export class ListEventPredictionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventPredictionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEventPredictionsCommand(input, context);
+    return se_ListEventPredictionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventPredictionsCommandOutput> {
-    return deserializeAws_json1_1ListEventPredictionsCommand(output, context);
+    return de_ListEventPredictionsCommand(output, context);
   }
 
   // Start section: command_body_extra

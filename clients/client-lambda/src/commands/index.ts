@@ -34,6 +34,7 @@ export * from "./GetProvisionedConcurrencyConfigCommand";
 export * from "./GetRuntimeManagementConfigCommand";
 export * from "./InvokeAsyncCommand";
 export * from "./InvokeCommand";
+export * from "./InvokeWithResponseStreamCommand";
 export * from "./ListAliasesCommand";
 export * from "./ListCodeSigningConfigsCommand";
 export * from "./ListEventSourceMappingsCommand";

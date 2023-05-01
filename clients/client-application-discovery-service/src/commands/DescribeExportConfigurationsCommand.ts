@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
+import { DescribeExportConfigurationsRequest, DescribeExportConfigurationsResponse } from "../models/models_0";
 import {
-  DescribeExportConfigurationsRequest,
-  DescribeExportConfigurationsRequestFilterSensitiveLog,
-  DescribeExportConfigurationsResponse,
-  DescribeExportConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeExportConfigurationsCommand,
-  serializeAws_json1_1DescribeExportConfigurationsCommand,
+  de_DescribeExportConfigurationsCommand,
+  se_DescribeExportConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeExportConfigurationsCommand}.
  */
 export interface DescribeExportConfigurationsCommandInput extends DescribeExportConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeExportConfigurationsCommand}.
  */
 export interface DescribeExportConfigurationsCommandOutput
@@ -41,6 +40,7 @@ export interface DescribeExportConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>
@@ -51,10 +51,19 @@ export interface DescribeExportConfigurationsCommandOutput
  * import { ApplicationDiscoveryServiceClient, DescribeExportConfigurationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeExportConfigurationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // DescribeExportConfigurationsRequest
+ *   exportIds: [ // ExportIds
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeExportConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeExportConfigurationsCommandInput - {@link DescribeExportConfigurationsCommandInput}
+ * @returns {@link DescribeExportConfigurationsCommandOutput}
  * @see {@link DescribeExportConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeExportConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -99,6 +108,9 @@ export class DescribeExportConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExportConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +139,8 @@ export class DescribeExportConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExportConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExportConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +150,21 @@ export class DescribeExportConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExportConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExportConfigurationsCommand(input, context);
+    return se_DescribeExportConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeExportConfigurationsCommandOutput> {
-    return deserializeAws_json1_1DescribeExportConfigurationsCommand(output, context);
+    return de_DescribeExportConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

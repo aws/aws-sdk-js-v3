@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
@@ -9,10 +10,11 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -131,8 +133,6 @@ import {
   DeactivatingLastSystemUserException,
   DocumentLockedForCommentsException,
   DocumentMetadata,
-  DocumentSourceType,
-  DocumentThumbnailType,
   DocumentVersionMetadata,
   DraftUploadOutOfSyncException,
   EntityAlreadyExistsException,
@@ -140,7 +140,6 @@ import {
   FailedDependencyException,
   Filters,
   FolderMetadata,
-  GroupMetadata,
   IllegalUserStateException,
   InvalidArgumentException,
   InvalidCommentOperationException,
@@ -150,16 +149,10 @@ import {
   LimitExceededException,
   LongRangeType,
   NotificationOptions,
-  Participants,
-  PermissionInfo,
-  Principal,
   PrincipalRoleType,
   ProhibitedStateException,
   RequestedEntityTooLargeException,
   ResourceAlreadyCheckedOutException,
-  ResourceMetadata,
-  ResourcePath,
-  ResourcePathComponent,
   ResponseItem,
   SearchCollectionType,
   SearchPrincipalType,
@@ -168,23 +161,21 @@ import {
   SearchSortResult,
   ServiceUnavailableException,
   SharePrincipal,
-  ShareResult,
   StorageLimitExceededException,
   StorageLimitWillExceedException,
   StorageRuleType,
-  Subscription,
   TooManyLabelsException,
   TooManySubscriptionsException,
   UnauthorizedOperationException,
   UnauthorizedResourceAccessException,
-  UploadMetadata,
   User,
-  UserMetadata,
-  UserStorageMetadata,
 } from "../models/models_0";
 import { WorkDocsServiceException as __BaseException } from "../models/WorkDocsServiceException";
 
-export const serializeAws_restJson1AbortDocumentVersionUploadCommand = async (
+/**
+ * serializeAws_restJson1AbortDocumentVersionUploadCommand
+ */
+export const se_AbortDocumentVersionUploadCommand = async (
   input: AbortDocumentVersionUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -209,7 +200,10 @@ export const serializeAws_restJson1AbortDocumentVersionUploadCommand = async (
   });
 };
 
-export const serializeAws_restJson1ActivateUserCommand = async (
+/**
+ * serializeAws_restJson1ActivateUserCommand
+ */
+export const se_ActivateUserCommand = async (
   input: ActivateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -232,7 +226,10 @@ export const serializeAws_restJson1ActivateUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1AddResourcePermissionsCommand = async (
+/**
+ * serializeAws_restJson1AddResourcePermissionsCommand
+ */
+export const se_AddResourcePermissionsCommand = async (
   input: AddResourcePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -246,14 +243,12 @@ export const serializeAws_restJson1AddResourcePermissionsCommand = async (
     "/api/v1/resources/{ResourceId}/permissions";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.NotificationOptions != null && {
-      NotificationOptions: serializeAws_restJson1NotificationOptions(input.NotificationOptions, context),
-    }),
-    ...(input.Principals != null && {
-      Principals: serializeAws_restJson1SharePrincipalList(input.Principals, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NotificationOptions: (_) => _json(_),
+      Principals: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -265,7 +260,10 @@ export const serializeAws_restJson1AddResourcePermissionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateCommentCommand = async (
+/**
+ * serializeAws_restJson1CreateCommentCommand
+ */
+export const se_CreateCommentCommand = async (
   input: CreateCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -280,13 +278,15 @@ export const serializeAws_restJson1CreateCommentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.NotifyCollaborators != null && { NotifyCollaborators: input.NotifyCollaborators }),
-    ...(input.ParentId != null && { ParentId: input.ParentId }),
-    ...(input.Text != null && { Text: input.Text }),
-    ...(input.ThreadId != null && { ThreadId: input.ThreadId }),
-    ...(input.Visibility != null && { Visibility: input.Visibility }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      NotifyCollaborators: [],
+      ParentId: [],
+      Text: [],
+      ThreadId: [],
+      Visibility: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -298,7 +298,10 @@ export const serializeAws_restJson1CreateCommentCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateCustomMetadataCommand = async (
+/**
+ * serializeAws_restJson1CreateCustomMetadataCommand
+ */
+export const se_CreateCustomMetadataCommand = async (
   input: CreateCustomMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -315,11 +318,11 @@ export const serializeAws_restJson1CreateCustomMetadataCommand = async (
     versionid: [, input.VersionId!],
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.CustomMetadata != null && {
-      CustomMetadata: serializeAws_restJson1CustomMetadataMap(input.CustomMetadata, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CustomMetadata: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -332,7 +335,10 @@ export const serializeAws_restJson1CreateCustomMetadataCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateFolderCommand = async (
+/**
+ * serializeAws_restJson1CreateFolderCommand
+ */
+export const se_CreateFolderCommand = async (
   input: CreateFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -343,10 +349,12 @@ export const serializeAws_restJson1CreateFolderCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParentFolderId != null && { ParentFolderId: input.ParentFolderId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      ParentFolderId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -358,7 +366,10 @@ export const serializeAws_restJson1CreateFolderCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateLabelsCommand = async (
+/**
+ * serializeAws_restJson1CreateLabelsCommand
+ */
+export const se_CreateLabelsCommand = async (
   input: CreateLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -371,9 +382,11 @@ export const serializeAws_restJson1CreateLabelsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/resources/{ResourceId}/labels";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Labels != null && { Labels: serializeAws_restJson1SharedLabels(input.Labels, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Labels: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -385,7 +398,10 @@ export const serializeAws_restJson1CreateLabelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateNotificationSubscriptionCommand = async (
+/**
+ * serializeAws_restJson1CreateNotificationSubscriptionCommand
+ */
+export const se_CreateNotificationSubscriptionCommand = async (
   input: CreateNotificationSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -405,11 +421,13 @@ export const serializeAws_restJson1CreateNotificationSubscriptionCommand = async
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Endpoint != null && { Endpoint: input.Endpoint }),
-    ...(input.Protocol != null && { Protocol: input.Protocol }),
-    ...(input.SubscriptionType != null && { SubscriptionType: input.SubscriptionType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Endpoint: [],
+      Protocol: [],
+      SubscriptionType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -421,7 +439,10 @@ export const serializeAws_restJson1CreateNotificationSubscriptionCommand = async
   });
 };
 
-export const serializeAws_restJson1CreateUserCommand = async (
+/**
+ * serializeAws_restJson1CreateUserCommand
+ */
+export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -432,18 +453,18 @@ export const serializeAws_restJson1CreateUserCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users";
   let body: any;
-  body = JSON.stringify({
-    ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
-    ...(input.GivenName != null && { GivenName: input.GivenName }),
-    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
-    ...(input.Password != null && { Password: input.Password }),
-    ...(input.StorageRule != null && {
-      StorageRule: serializeAws_restJson1StorageRuleType(input.StorageRule, context),
-    }),
-    ...(input.Surname != null && { Surname: input.Surname }),
-    ...(input.TimeZoneId != null && { TimeZoneId: input.TimeZoneId }),
-    ...(input.Username != null && { Username: input.Username }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      EmailAddress: [],
+      GivenName: [],
+      OrganizationId: [],
+      Password: [],
+      StorageRule: (_) => _json(_),
+      Surname: [],
+      TimeZoneId: [],
+      Username: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -455,7 +476,10 @@ export const serializeAws_restJson1CreateUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeactivateUserCommand = async (
+/**
+ * serializeAws_restJson1DeactivateUserCommand
+ */
+export const se_DeactivateUserCommand = async (
   input: DeactivateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -478,7 +502,10 @@ export const serializeAws_restJson1DeactivateUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteCommentCommand = async (
+/**
+ * serializeAws_restJson1DeleteCommentCommand
+ */
+export const se_DeleteCommentCommand = async (
   input: DeleteCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -504,7 +531,10 @@ export const serializeAws_restJson1DeleteCommentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteCustomMetadataCommand = async (
+/**
+ * serializeAws_restJson1DeleteCustomMetadataCommand
+ */
+export const se_DeleteCustomMetadataCommand = async (
   input: DeleteCustomMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -534,7 +564,10 @@ export const serializeAws_restJson1DeleteCustomMetadataCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDocumentCommand = async (
+/**
+ * serializeAws_restJson1DeleteDocumentCommand
+ */
+export const se_DeleteDocumentCommand = async (
   input: DeleteDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -557,7 +590,10 @@ export const serializeAws_restJson1DeleteDocumentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDocumentVersionCommand = async (
+/**
+ * serializeAws_restJson1DeleteDocumentVersionCommand
+ */
+export const se_DeleteDocumentVersionCommand = async (
   input: DeleteDocumentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -589,7 +625,10 @@ export const serializeAws_restJson1DeleteDocumentVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteFolderCommand = async (
+/**
+ * serializeAws_restJson1DeleteFolderCommand
+ */
+export const se_DeleteFolderCommand = async (
   input: DeleteFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -612,7 +651,10 @@ export const serializeAws_restJson1DeleteFolderCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteFolderContentsCommand = async (
+/**
+ * serializeAws_restJson1DeleteFolderContentsCommand
+ */
+export const se_DeleteFolderContentsCommand = async (
   input: DeleteFolderContentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -635,7 +677,10 @@ export const serializeAws_restJson1DeleteFolderContentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteLabelsCommand = async (
+/**
+ * serializeAws_restJson1DeleteLabelsCommand
+ */
+export const se_DeleteLabelsCommand = async (
   input: DeleteLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -663,7 +708,10 @@ export const serializeAws_restJson1DeleteLabelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteNotificationSubscriptionCommand = async (
+/**
+ * serializeAws_restJson1DeleteNotificationSubscriptionCommand
+ */
+export const se_DeleteNotificationSubscriptionCommand = async (
   input: DeleteNotificationSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -700,7 +748,10 @@ export const serializeAws_restJson1DeleteNotificationSubscriptionCommand = async
   });
 };
 
-export const serializeAws_restJson1DeleteUserCommand = async (
+/**
+ * serializeAws_restJson1DeleteUserCommand
+ */
+export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -722,7 +773,10 @@ export const serializeAws_restJson1DeleteUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeActivitiesCommand = async (
+/**
+ * serializeAws_restJson1DescribeActivitiesCommand
+ */
+export const se_DescribeActivitiesCommand = async (
   input: DescribeActivitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -761,7 +815,10 @@ export const serializeAws_restJson1DescribeActivitiesCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeCommentsCommand = async (
+/**
+ * serializeAws_restJson1DescribeCommentsCommand
+ */
+export const se_DescribeCommentsCommand = async (
   input: DescribeCommentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -791,7 +848,10 @@ export const serializeAws_restJson1DescribeCommentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeDocumentVersionsCommand = async (
+/**
+ * serializeAws_restJson1DescribeDocumentVersionsCommand
+ */
+export const se_DescribeDocumentVersionsCommand = async (
   input: DescribeDocumentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -821,7 +881,10 @@ export const serializeAws_restJson1DescribeDocumentVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeFolderContentsCommand = async (
+/**
+ * serializeAws_restJson1DescribeFolderContentsCommand
+ */
+export const se_DescribeFolderContentsCommand = async (
   input: DescribeFolderContentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -853,7 +916,10 @@ export const serializeAws_restJson1DescribeFolderContentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeGroupsCommand = async (
+/**
+ * serializeAws_restJson1DescribeGroupsCommand
+ */
+export const se_DescribeGroupsCommand = async (
   input: DescribeGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -881,7 +947,10 @@ export const serializeAws_restJson1DescribeGroupsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeNotificationSubscriptionsCommand = async (
+/**
+ * serializeAws_restJson1DescribeNotificationSubscriptionsCommand
+ */
+export const se_DescribeNotificationSubscriptionsCommand = async (
   input: DescribeNotificationSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -915,7 +984,10 @@ export const serializeAws_restJson1DescribeNotificationSubscriptionsCommand = as
   });
 };
 
-export const serializeAws_restJson1DescribeResourcePermissionsCommand = async (
+/**
+ * serializeAws_restJson1DescribeResourcePermissionsCommand
+ */
+export const se_DescribeResourcePermissionsCommand = async (
   input: DescribeResourcePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -945,7 +1017,10 @@ export const serializeAws_restJson1DescribeResourcePermissionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeRootFoldersCommand = async (
+/**
+ * serializeAws_restJson1DescribeRootFoldersCommand
+ */
+export const se_DescribeRootFoldersCommand = async (
   input: DescribeRootFoldersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -971,7 +1046,10 @@ export const serializeAws_restJson1DescribeRootFoldersCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeUsersCommand = async (
+/**
+ * serializeAws_restJson1DescribeUsersCommand
+ */
+export const se_DescribeUsersCommand = async (
   input: DescribeUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1004,7 +1082,10 @@ export const serializeAws_restJson1DescribeUsersCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCurrentUserCommand = async (
+/**
+ * serializeAws_restJson1GetCurrentUserCommand
+ */
+export const se_GetCurrentUserCommand = async (
   input: GetCurrentUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1025,7 +1106,10 @@ export const serializeAws_restJson1GetCurrentUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDocumentCommand = async (
+/**
+ * serializeAws_restJson1GetDocumentCommand
+ */
+export const se_GetDocumentCommand = async (
   input: GetDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1055,7 +1139,10 @@ export const serializeAws_restJson1GetDocumentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDocumentPathCommand = async (
+/**
+ * serializeAws_restJson1GetDocumentPathCommand
+ */
+export const se_GetDocumentPathCommand = async (
   input: GetDocumentPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1084,7 +1171,10 @@ export const serializeAws_restJson1GetDocumentPathCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDocumentVersionCommand = async (
+/**
+ * serializeAws_restJson1GetDocumentVersionCommand
+ */
+export const se_GetDocumentVersionCommand = async (
   input: GetDocumentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1117,7 +1207,10 @@ export const serializeAws_restJson1GetDocumentVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetFolderCommand = async (
+/**
+ * serializeAws_restJson1GetFolderCommand
+ */
+export const se_GetFolderCommand = async (
   input: GetFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1147,7 +1240,10 @@ export const serializeAws_restJson1GetFolderCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetFolderPathCommand = async (
+/**
+ * serializeAws_restJson1GetFolderPathCommand
+ */
+export const se_GetFolderPathCommand = async (
   input: GetFolderPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1176,7 +1272,10 @@ export const serializeAws_restJson1GetFolderPathCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetResourcesCommand = async (
+/**
+ * serializeAws_restJson1GetResourcesCommand
+ */
+export const se_GetResourcesCommand = async (
   input: GetResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1204,7 +1303,10 @@ export const serializeAws_restJson1GetResourcesCommand = async (
   });
 };
 
-export const serializeAws_restJson1InitiateDocumentVersionUploadCommand = async (
+/**
+ * serializeAws_restJson1InitiateDocumentVersionUploadCommand
+ */
+export const se_InitiateDocumentVersionUploadCommand = async (
   input: InitiateDocumentVersionUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1215,19 +1317,17 @@ export const serializeAws_restJson1InitiateDocumentVersionUploadCommand = async 
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ContentCreatedTimestamp != null && {
-      ContentCreatedTimestamp: Math.round(input.ContentCreatedTimestamp.getTime() / 1000),
-    }),
-    ...(input.ContentModifiedTimestamp != null && {
-      ContentModifiedTimestamp: Math.round(input.ContentModifiedTimestamp.getTime() / 1000),
-    }),
-    ...(input.ContentType != null && { ContentType: input.ContentType }),
-    ...(input.DocumentSizeInBytes != null && { DocumentSizeInBytes: input.DocumentSizeInBytes }),
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParentFolderId != null && { ParentFolderId: input.ParentFolderId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ContentCreatedTimestamp: (_) => Math.round(_.getTime() / 1000),
+      ContentModifiedTimestamp: (_) => Math.round(_.getTime() / 1000),
+      ContentType: [],
+      DocumentSizeInBytes: [],
+      Id: [],
+      Name: [],
+      ParentFolderId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1239,7 +1339,10 @@ export const serializeAws_restJson1InitiateDocumentVersionUploadCommand = async 
   });
 };
 
-export const serializeAws_restJson1RemoveAllResourcePermissionsCommand = async (
+/**
+ * serializeAws_restJson1RemoveAllResourcePermissionsCommand
+ */
+export const se_RemoveAllResourcePermissionsCommand = async (
   input: RemoveAllResourcePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1263,7 +1366,10 @@ export const serializeAws_restJson1RemoveAllResourcePermissionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveResourcePermissionCommand = async (
+/**
+ * serializeAws_restJson1RemoveResourcePermissionCommand
+ */
+export const se_RemoveResourcePermissionCommand = async (
   input: RemoveResourcePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1292,7 +1398,10 @@ export const serializeAws_restJson1RemoveResourcePermissionCommand = async (
   });
 };
 
-export const serializeAws_restJson1RestoreDocumentVersionsCommand = async (
+/**
+ * serializeAws_restJson1RestoreDocumentVersionsCommand
+ */
+export const se_RestoreDocumentVersionsCommand = async (
   input: RestoreDocumentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1316,7 +1425,10 @@ export const serializeAws_restJson1RestoreDocumentVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1SearchResourcesCommand = async (
+/**
+ * serializeAws_restJson1SearchResourcesCommand
+ */
+export const se_SearchResourcesCommand = async (
   input: SearchResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1327,23 +1439,18 @@ export const serializeAws_restJson1SearchResourcesCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/search";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdditionalResponseFields != null && {
-      AdditionalResponseFields: serializeAws_restJson1AdditionalResponseFieldsList(
-        input.AdditionalResponseFields,
-        context
-      ),
-    }),
-    ...(input.Filters != null && { Filters: serializeAws_restJson1Filters(input.Filters, context) }),
-    ...(input.Limit != null && { Limit: input.Limit }),
-    ...(input.Marker != null && { Marker: input.Marker }),
-    ...(input.OrderBy != null && { OrderBy: serializeAws_restJson1SearchResultSortList(input.OrderBy, context) }),
-    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
-    ...(input.QueryScopes != null && {
-      QueryScopes: serializeAws_restJson1SearchQueryScopeTypeList(input.QueryScopes, context),
-    }),
-    ...(input.QueryText != null && { QueryText: input.QueryText }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AdditionalResponseFields: (_) => _json(_),
+      Filters: (_) => se_Filters(_, context),
+      Limit: [],
+      Marker: [],
+      OrderBy: (_) => _json(_),
+      OrganizationId: [],
+      QueryScopes: (_) => _json(_),
+      QueryText: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1355,7 +1462,10 @@ export const serializeAws_restJson1SearchResourcesCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateDocumentCommand = async (
+/**
+ * serializeAws_restJson1UpdateDocumentCommand
+ */
+export const se_UpdateDocumentCommand = async (
   input: UpdateDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1368,11 +1478,13 @@ export const serializeAws_restJson1UpdateDocumentCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents/{DocumentId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParentFolderId != null && { ParentFolderId: input.ParentFolderId }),
-    ...(input.ResourceState != null && { ResourceState: input.ResourceState }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      ParentFolderId: [],
+      ResourceState: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1384,7 +1496,10 @@ export const serializeAws_restJson1UpdateDocumentCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateDocumentVersionCommand = async (
+/**
+ * serializeAws_restJson1UpdateDocumentVersionCommand
+ */
+export const se_UpdateDocumentVersionCommand = async (
   input: UpdateDocumentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1399,9 +1514,11 @@ export const serializeAws_restJson1UpdateDocumentVersionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.VersionStatus != null && { VersionStatus: input.VersionStatus }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      VersionStatus: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1413,7 +1530,10 @@ export const serializeAws_restJson1UpdateDocumentVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFolderCommand = async (
+/**
+ * serializeAws_restJson1UpdateFolderCommand
+ */
+export const se_UpdateFolderCommand = async (
   input: UpdateFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1426,11 +1546,13 @@ export const serializeAws_restJson1UpdateFolderCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders/{FolderId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ParentFolderId != null && { ParentFolderId: input.ParentFolderId }),
-    ...(input.ResourceState != null && { ResourceState: input.ResourceState }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      ParentFolderId: [],
+      ResourceState: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1442,7 +1564,10 @@ export const serializeAws_restJson1UpdateFolderCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateUserCommand = async (
+/**
+ * serializeAws_restJson1UpdateUserCommand
+ */
+export const se_UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1454,17 +1579,17 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users/{UserId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.GivenName != null && { GivenName: input.GivenName }),
-    ...(input.GrantPoweruserPrivileges != null && { GrantPoweruserPrivileges: input.GrantPoweruserPrivileges }),
-    ...(input.Locale != null && { Locale: input.Locale }),
-    ...(input.StorageRule != null && {
-      StorageRule: serializeAws_restJson1StorageRuleType(input.StorageRule, context),
-    }),
-    ...(input.Surname != null && { Surname: input.Surname }),
-    ...(input.TimeZoneId != null && { TimeZoneId: input.TimeZoneId }),
-    ...(input.Type != null && { Type: input.Type }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GivenName: [],
+      GrantPoweruserPrivileges: [],
+      Locale: [],
+      StorageRule: (_) => _json(_),
+      Surname: [],
+      TimeZoneId: [],
+      Type: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1476,12 +1601,15 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   });
 };
 
-export const deserializeAws_restJson1AbortDocumentVersionUploadCommand = async (
+/**
+ * deserializeAws_restJson1AbortDocumentVersionUploadCommand
+ */
+export const de_AbortDocumentVersionUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortDocumentVersionUploadCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AbortDocumentVersionUploadCommandError(output, context);
+    return de_AbortDocumentVersionUploadCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1490,7 +1618,10 @@ export const deserializeAws_restJson1AbortDocumentVersionUploadCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1AbortDocumentVersionUploadCommandError = async (
+/**
+ * deserializeAws_restJson1AbortDocumentVersionUploadCommandError
+ */
+const de_AbortDocumentVersionUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortDocumentVersionUploadCommandOutput> => {
@@ -1502,54 +1633,60 @@ const deserializeAws_restJson1AbortDocumentVersionUploadCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ActivateUserCommand = async (
+/**
+ * deserializeAws_restJson1ActivateUserCommand
+ */
+export const de_ActivateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ActivateUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ActivateUserCommandError(output, context);
+    return de_ActivateUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = deserializeAws_restJson1User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ActivateUserCommandError = async (
+/**
+ * deserializeAws_restJson1ActivateUserCommandError
+ */
+const de_ActivateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ActivateUserCommandOutput> => {
@@ -1561,48 +1698,54 @@ const deserializeAws_restJson1ActivateUserCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1AddResourcePermissionsCommand = async (
+/**
+ * deserializeAws_restJson1AddResourcePermissionsCommand
+ */
+export const de_AddResourcePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddResourcePermissionsCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AddResourcePermissionsCommandError(output, context);
+    return de_AddResourcePermissionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ShareResults != null) {
-    contents.ShareResults = deserializeAws_restJson1ShareResultsList(data.ShareResults, context);
-  }
+  const doc = take(data, {
+    ShareResults: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1AddResourcePermissionsCommandError = async (
+/**
+ * deserializeAws_restJson1AddResourcePermissionsCommandError
+ */
+const de_AddResourcePermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddResourcePermissionsCommandOutput> => {
@@ -1614,48 +1757,54 @@ const deserializeAws_restJson1AddResourcePermissionsCommandError = async (
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateCommentCommand = async (
+/**
+ * deserializeAws_restJson1CreateCommentCommand
+ */
+export const de_CreateCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCommentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateCommentCommandError(output, context);
+    return de_CreateCommentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Comment != null) {
-    contents.Comment = deserializeAws_restJson1Comment(data.Comment, context);
-  }
+  const doc = take(data, {
+    Comment: (_) => de_Comment(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateCommentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateCommentCommandError
+ */
+const de_CreateCommentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCommentCommandOutput> => {
@@ -1667,45 +1816,47 @@ const deserializeAws_restJson1CreateCommentCommandError = async (
   switch (errorCode) {
     case "DocumentLockedForCommentsException":
     case "com.amazonaws.workdocs#DocumentLockedForCommentsException":
-      throw await deserializeAws_restJson1DocumentLockedForCommentsExceptionResponse(parsedOutput, context);
+      throw await de_DocumentLockedForCommentsExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidCommentOperationException":
     case "com.amazonaws.workdocs#InvalidCommentOperationException":
-      throw await deserializeAws_restJson1InvalidCommentOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCommentOperationExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateCustomMetadataCommand = async (
+/**
+ * deserializeAws_restJson1CreateCustomMetadataCommand
+ */
+export const de_CreateCustomMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateCustomMetadataCommandError(output, context);
+    return de_CreateCustomMetadataCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1714,7 +1865,10 @@ export const deserializeAws_restJson1CreateCustomMetadataCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateCustomMetadataCommandError = async (
+/**
+ * deserializeAws_restJson1CreateCustomMetadataCommandError
+ */
+const de_CreateCustomMetadataCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomMetadataCommandOutput> => {
@@ -1726,54 +1880,60 @@ const deserializeAws_restJson1CreateCustomMetadataCommandError = async (
   switch (errorCode) {
     case "CustomMetadataLimitExceededException":
     case "com.amazonaws.workdocs#CustomMetadataLimitExceededException":
-      throw await deserializeAws_restJson1CustomMetadataLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_CustomMetadataLimitExceededExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateFolderCommand = async (
+/**
+ * deserializeAws_restJson1CreateFolderCommand
+ */
+export const de_CreateFolderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFolderCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateFolderCommandError(output, context);
+    return de_CreateFolderCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Metadata != null) {
-    contents.Metadata = deserializeAws_restJson1FolderMetadata(data.Metadata, context);
-  }
+  const doc = take(data, {
+    Metadata: (_) => de_FolderMetadata(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateFolderCommandError = async (
+/**
+ * deserializeAws_restJson1CreateFolderCommandError
+ */
+const de_CreateFolderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFolderCommandOutput> => {
@@ -1785,51 +1945,53 @@ const deserializeAws_restJson1CreateFolderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      throw await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workdocs#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateLabelsCommand = async (
+/**
+ * deserializeAws_restJson1CreateLabelsCommand
+ */
+export const de_CreateLabelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLabelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateLabelsCommandError(output, context);
+    return de_CreateLabelsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1838,7 +2000,10 @@ export const deserializeAws_restJson1CreateLabelsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateLabelsCommandError = async (
+/**
+ * deserializeAws_restJson1CreateLabelsCommandError
+ */
+const de_CreateLabelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLabelsCommandOutput> => {
@@ -1850,51 +2015,57 @@ const deserializeAws_restJson1CreateLabelsCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyLabelsException":
     case "com.amazonaws.workdocs#TooManyLabelsException":
-      throw await deserializeAws_restJson1TooManyLabelsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyLabelsExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateNotificationSubscriptionCommand = async (
+/**
+ * deserializeAws_restJson1CreateNotificationSubscriptionCommand
+ */
+export const de_CreateNotificationSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNotificationSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateNotificationSubscriptionCommandError(output, context);
+    return de_CreateNotificationSubscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Subscription != null) {
-    contents.Subscription = deserializeAws_restJson1Subscription(data.Subscription, context);
-  }
+  const doc = take(data, {
+    Subscription: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateNotificationSubscriptionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateNotificationSubscriptionCommandError
+ */
+const de_CreateNotificationSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNotificationSubscriptionCommandOutput> => {
@@ -1906,45 +2077,51 @@ const deserializeAws_restJson1CreateNotificationSubscriptionCommandError = async
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManySubscriptionsException":
     case "com.amazonaws.workdocs#TooManySubscriptionsException":
-      throw await deserializeAws_restJson1TooManySubscriptionsExceptionResponse(parsedOutput, context);
+      throw await de_TooManySubscriptionsExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateUserCommand = async (
+/**
+ * deserializeAws_restJson1CreateUserCommand
+ */
+export const de_CreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateUserCommandError(output, context);
+    return de_CreateUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = deserializeAws_restJson1User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateUserCommandError = async (
+/**
+ * deserializeAws_restJson1CreateUserCommandError
+ */
+const de_CreateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
@@ -1956,36 +2133,38 @@ const deserializeAws_restJson1CreateUserCommandError = async (
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      throw await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeactivateUserCommand = async (
+/**
+ * deserializeAws_restJson1DeactivateUserCommand
+ */
+export const de_DeactivateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeactivateUserCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeactivateUserCommandError(output, context);
+    return de_DeactivateUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1994,7 +2173,10 @@ export const deserializeAws_restJson1DeactivateUserCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeactivateUserCommandError = async (
+/**
+ * deserializeAws_restJson1DeactivateUserCommandError
+ */
+const de_DeactivateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeactivateUserCommandOutput> => {
@@ -2006,36 +2188,38 @@ const deserializeAws_restJson1DeactivateUserCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteCommentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteCommentCommand
+ */
+export const de_DeleteCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCommentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteCommentCommandError(output, context);
+    return de_DeleteCommentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2044,7 +2228,10 @@ export const deserializeAws_restJson1DeleteCommentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteCommentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteCommentCommandError
+ */
+const de_DeleteCommentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCommentCommandOutput> => {
@@ -2056,42 +2243,44 @@ const deserializeAws_restJson1DeleteCommentCommandError = async (
   switch (errorCode) {
     case "DocumentLockedForCommentsException":
     case "com.amazonaws.workdocs#DocumentLockedForCommentsException":
-      throw await deserializeAws_restJson1DocumentLockedForCommentsExceptionResponse(parsedOutput, context);
+      throw await de_DocumentLockedForCommentsExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteCustomMetadataCommand = async (
+/**
+ * deserializeAws_restJson1DeleteCustomMetadataCommand
+ */
+export const de_DeleteCustomMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteCustomMetadataCommandError(output, context);
+    return de_DeleteCustomMetadataCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2100,7 +2289,10 @@ export const deserializeAws_restJson1DeleteCustomMetadataCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteCustomMetadataCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteCustomMetadataCommandError
+ */
+const de_DeleteCustomMetadataCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomMetadataCommandOutput> => {
@@ -2112,39 +2304,41 @@ const deserializeAws_restJson1DeleteCustomMetadataCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteDocumentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDocumentCommand
+ */
+export const de_DeleteDocumentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDocumentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDocumentCommandError(output, context);
+    return de_DeleteDocumentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2153,7 +2347,10 @@ export const deserializeAws_restJson1DeleteDocumentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteDocumentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDocumentCommandError
+ */
+const de_DeleteDocumentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDocumentCommandOutput> => {
@@ -2165,48 +2362,50 @@ const deserializeAws_restJson1DeleteDocumentCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workdocs#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteDocumentVersionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDocumentVersionCommand
+ */
+export const de_DeleteDocumentVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDocumentVersionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDocumentVersionCommandError(output, context);
+    return de_DeleteDocumentVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2215,7 +2414,10 @@ export const deserializeAws_restJson1DeleteDocumentVersionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteDocumentVersionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDocumentVersionCommandError
+ */
+const de_DeleteDocumentVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDocumentVersionCommandOutput> => {
@@ -2227,45 +2429,47 @@ const deserializeAws_restJson1DeleteDocumentVersionCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.workdocs#InvalidOperationException":
-      throw await deserializeAws_restJson1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteFolderCommand = async (
+/**
+ * deserializeAws_restJson1DeleteFolderCommand
+ */
+export const de_DeleteFolderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFolderCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteFolderCommandError(output, context);
+    return de_DeleteFolderCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2274,7 +2478,10 @@ export const deserializeAws_restJson1DeleteFolderCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteFolderCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteFolderCommandError
+ */
+const de_DeleteFolderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFolderCommandOutput> => {
@@ -2286,48 +2493,50 @@ const deserializeAws_restJson1DeleteFolderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workdocs#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteFolderContentsCommand = async (
+/**
+ * deserializeAws_restJson1DeleteFolderContentsCommand
+ */
+export const de_DeleteFolderContentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFolderContentsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteFolderContentsCommandError(output, context);
+    return de_DeleteFolderContentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2336,7 +2545,10 @@ export const deserializeAws_restJson1DeleteFolderContentsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteFolderContentsCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteFolderContentsCommandError
+ */
+const de_DeleteFolderContentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFolderContentsCommandOutput> => {
@@ -2348,42 +2560,44 @@ const deserializeAws_restJson1DeleteFolderContentsCommandError = async (
   switch (errorCode) {
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteLabelsCommand = async (
+/**
+ * deserializeAws_restJson1DeleteLabelsCommand
+ */
+export const de_DeleteLabelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLabelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteLabelsCommandError(output, context);
+    return de_DeleteLabelsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2392,7 +2606,10 @@ export const deserializeAws_restJson1DeleteLabelsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteLabelsCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteLabelsCommandError
+ */
+const de_DeleteLabelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLabelsCommandOutput> => {
@@ -2404,39 +2621,41 @@ const deserializeAws_restJson1DeleteLabelsCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteNotificationSubscriptionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteNotificationSubscriptionCommand
+ */
+export const de_DeleteNotificationSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNotificationSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteNotificationSubscriptionCommandError(output, context);
+    return de_DeleteNotificationSubscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2445,7 +2664,10 @@ export const deserializeAws_restJson1DeleteNotificationSubscriptionCommand = asy
   return contents;
 };
 
-const deserializeAws_restJson1DeleteNotificationSubscriptionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteNotificationSubscriptionCommandError
+ */
+const de_DeleteNotificationSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNotificationSubscriptionCommandOutput> => {
@@ -2457,33 +2679,35 @@ const deserializeAws_restJson1DeleteNotificationSubscriptionCommandError = async
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteUserCommand = async (
+/**
+ * deserializeAws_restJson1DeleteUserCommand
+ */
+export const de_DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteUserCommandError(output, context);
+    return de_DeleteUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2492,7 +2716,10 @@ export const deserializeAws_restJson1DeleteUserCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteUserCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteUserCommandError
+ */
+const de_DeleteUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
@@ -2504,51 +2731,55 @@ const deserializeAws_restJson1DeleteUserCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeActivitiesCommand = async (
+/**
+ * deserializeAws_restJson1DescribeActivitiesCommand
+ */
+export const de_DescribeActivitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeActivitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeActivitiesCommandError(output, context);
+    return de_DescribeActivitiesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.UserActivities != null) {
-    contents.UserActivities = deserializeAws_restJson1UserActivities(data.UserActivities, context);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    UserActivities: (_) => de_UserActivities(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeActivitiesCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeActivitiesCommandError
+ */
+const de_DescribeActivitiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeActivitiesCommandOutput> => {
@@ -2560,51 +2791,55 @@ const deserializeAws_restJson1DescribeActivitiesCommandError = async (
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeCommentsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeCommentsCommand
+ */
+export const de_DescribeCommentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCommentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeCommentsCommandError(output, context);
+    return de_DescribeCommentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Comments != null) {
-    contents.Comments = deserializeAws_restJson1CommentList(data.Comments, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Comments: (_) => de_CommentList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeCommentsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeCommentsCommandError
+ */
+const de_DescribeCommentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCommentsCommandOutput> => {
@@ -2616,54 +2851,58 @@ const deserializeAws_restJson1DescribeCommentsCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeDocumentVersionsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeDocumentVersionsCommand
+ */
+export const de_DescribeDocumentVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDocumentVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeDocumentVersionsCommandError(output, context);
+    return de_DescribeDocumentVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.DocumentVersions != null) {
-    contents.DocumentVersions = deserializeAws_restJson1DocumentVersionMetadataList(data.DocumentVersions, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    DocumentVersions: (_) => de_DocumentVersionMetadataList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeDocumentVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeDocumentVersionsCommandError
+ */
+const de_DescribeDocumentVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDocumentVersionsCommandOutput> => {
@@ -2675,63 +2914,65 @@ const deserializeAws_restJson1DescribeDocumentVersionsCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.workdocs#InvalidPasswordException":
-      throw await deserializeAws_restJson1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeFolderContentsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeFolderContentsCommand
+ */
+export const de_DescribeFolderContentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFolderContentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeFolderContentsCommandError(output, context);
+    return de_DescribeFolderContentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Documents != null) {
-    contents.Documents = deserializeAws_restJson1DocumentMetadataList(data.Documents, context);
-  }
-  if (data.Folders != null) {
-    contents.Folders = deserializeAws_restJson1FolderMetadataList(data.Folders, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Documents: (_) => de_DocumentMetadataList(_, context),
+    Folders: (_) => de_FolderMetadataList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeFolderContentsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeFolderContentsCommandError
+ */
+const de_DescribeFolderContentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFolderContentsCommandOutput> => {
@@ -2743,54 +2984,58 @@ const deserializeAws_restJson1DescribeFolderContentsCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeGroupsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeGroupsCommand
+ */
+export const de_DescribeGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeGroupsCommandError(output, context);
+    return de_DescribeGroupsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Groups != null) {
-    contents.Groups = deserializeAws_restJson1GroupMetadataList(data.Groups, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Groups: _json,
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeGroupsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeGroupsCommandError
+ */
+const de_DescribeGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGroupsCommandOutput> => {
@@ -2802,48 +3047,52 @@ const deserializeAws_restJson1DescribeGroupsCommandError = async (
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeNotificationSubscriptionsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeNotificationSubscriptionsCommand
+ */
+export const de_DescribeNotificationSubscriptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNotificationSubscriptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeNotificationSubscriptionsCommandError(output, context);
+    return de_DescribeNotificationSubscriptionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.Subscriptions != null) {
-    contents.Subscriptions = deserializeAws_restJson1SubscriptionList(data.Subscriptions, context);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    Subscriptions: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeNotificationSubscriptionsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeNotificationSubscriptionsCommandError
+ */
+const de_DescribeNotificationSubscriptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNotificationSubscriptionsCommandOutput> => {
@@ -2855,45 +3104,49 @@ const deserializeAws_restJson1DescribeNotificationSubscriptionsCommandError = as
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeResourcePermissionsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeResourcePermissionsCommand
+ */
+export const de_DescribeResourcePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourcePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeResourcePermissionsCommandError(output, context);
+    return de_DescribeResourcePermissionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.Principals != null) {
-    contents.Principals = deserializeAws_restJson1PrincipalList(data.Principals, context);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    Principals: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeResourcePermissionsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeResourcePermissionsCommandError
+ */
+const de_DescribeResourcePermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourcePermissionsCommandOutput> => {
@@ -2905,51 +3158,55 @@ const deserializeAws_restJson1DescribeResourcePermissionsCommandError = async (
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeRootFoldersCommand = async (
+/**
+ * deserializeAws_restJson1DescribeRootFoldersCommand
+ */
+export const de_DescribeRootFoldersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRootFoldersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeRootFoldersCommandError(output, context);
+    return de_DescribeRootFoldersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Folders != null) {
-    contents.Folders = deserializeAws_restJson1FolderMetadataList(data.Folders, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Folders: (_) => de_FolderMetadataList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeRootFoldersCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeRootFoldersCommandError
+ */
+const de_DescribeRootFoldersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRootFoldersCommandOutput> => {
@@ -2961,54 +3218,56 @@ const deserializeAws_restJson1DescribeRootFoldersCommandError = async (
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DescribeUsersCommand = async (
+/**
+ * deserializeAws_restJson1DescribeUsersCommand
+ */
+export const de_DescribeUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeUsersCommandError(output, context);
+    return de_DescribeUsersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
-  if (data.TotalNumberOfUsers != null) {
-    contents.TotalNumberOfUsers = __expectLong(data.TotalNumberOfUsers);
-  }
-  if (data.Users != null) {
-    contents.Users = deserializeAws_restJson1OrganizationUserList(data.Users, context);
-  }
+  const doc = take(data, {
+    Marker: __expectString,
+    TotalNumberOfUsers: __expectLong,
+    Users: (_) => de_OrganizationUserList(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DescribeUsersCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeUsersCommandError
+ */
+const de_DescribeUsersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> => {
@@ -3020,54 +3279,60 @@ const deserializeAws_restJson1DescribeUsersCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "RequestedEntityTooLargeException":
     case "com.amazonaws.workdocs#RequestedEntityTooLargeException":
-      throw await deserializeAws_restJson1RequestedEntityTooLargeExceptionResponse(parsedOutput, context);
+      throw await de_RequestedEntityTooLargeExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetCurrentUserCommand = async (
+/**
+ * deserializeAws_restJson1GetCurrentUserCommand
+ */
+export const de_GetCurrentUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCurrentUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCurrentUserCommandError(output, context);
+    return de_GetCurrentUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = deserializeAws_restJson1User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetCurrentUserCommandError = async (
+/**
+ * deserializeAws_restJson1GetCurrentUserCommandError
+ */
+const de_GetCurrentUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCurrentUserCommandOutput> => {
@@ -3079,51 +3344,55 @@ const deserializeAws_restJson1GetCurrentUserCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetDocumentCommand = async (
+/**
+ * deserializeAws_restJson1GetDocumentCommand
+ */
+export const de_GetDocumentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDocumentCommandError(output, context);
+    return de_GetDocumentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CustomMetadata != null) {
-    contents.CustomMetadata = deserializeAws_restJson1CustomMetadataMap(data.CustomMetadata, context);
-  }
-  if (data.Metadata != null) {
-    contents.Metadata = deserializeAws_restJson1DocumentMetadata(data.Metadata, context);
-  }
+  const doc = take(data, {
+    CustomMetadata: _json,
+    Metadata: (_) => de_DocumentMetadata(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetDocumentCommandError = async (
+/**
+ * deserializeAws_restJson1GetDocumentCommandError
+ */
+const de_GetDocumentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentCommandOutput> => {
@@ -3135,54 +3404,60 @@ const deserializeAws_restJson1GetDocumentCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.workdocs#InvalidPasswordException":
-      throw await deserializeAws_restJson1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetDocumentPathCommand = async (
+/**
+ * deserializeAws_restJson1GetDocumentPathCommand
+ */
+export const de_GetDocumentPathCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentPathCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDocumentPathCommandError(output, context);
+    return de_GetDocumentPathCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Path != null) {
-    contents.Path = deserializeAws_restJson1ResourcePath(data.Path, context);
-  }
+  const doc = take(data, {
+    Path: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetDocumentPathCommandError = async (
+/**
+ * deserializeAws_restJson1GetDocumentPathCommandError
+ */
+const de_GetDocumentPathCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentPathCommandOutput> => {
@@ -3194,51 +3469,55 @@ const deserializeAws_restJson1GetDocumentPathCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetDocumentVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetDocumentVersionCommand
+ */
+export const de_GetDocumentVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDocumentVersionCommandError(output, context);
+    return de_GetDocumentVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CustomMetadata != null) {
-    contents.CustomMetadata = deserializeAws_restJson1CustomMetadataMap(data.CustomMetadata, context);
-  }
-  if (data.Metadata != null) {
-    contents.Metadata = deserializeAws_restJson1DocumentVersionMetadata(data.Metadata, context);
-  }
+  const doc = take(data, {
+    CustomMetadata: _json,
+    Metadata: (_) => de_DocumentVersionMetadata(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetDocumentVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetDocumentVersionCommandError
+ */
+const de_GetDocumentVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentVersionCommandOutput> => {
@@ -3250,57 +3529,61 @@ const deserializeAws_restJson1GetDocumentVersionCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.workdocs#InvalidPasswordException":
-      throw await deserializeAws_restJson1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetFolderCommand = async (
+/**
+ * deserializeAws_restJson1GetFolderCommand
+ */
+export const de_GetFolderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetFolderCommandError(output, context);
+    return de_GetFolderCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CustomMetadata != null) {
-    contents.CustomMetadata = deserializeAws_restJson1CustomMetadataMap(data.CustomMetadata, context);
-  }
-  if (data.Metadata != null) {
-    contents.Metadata = deserializeAws_restJson1FolderMetadata(data.Metadata, context);
-  }
+  const doc = take(data, {
+    CustomMetadata: _json,
+    Metadata: (_) => de_FolderMetadata(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetFolderCommandError = async (
+/**
+ * deserializeAws_restJson1GetFolderCommandError
+ */
+const de_GetFolderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFolderCommandOutput> => {
@@ -3312,54 +3595,60 @@ const deserializeAws_restJson1GetFolderCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetFolderPathCommand = async (
+/**
+ * deserializeAws_restJson1GetFolderPathCommand
+ */
+export const de_GetFolderPathCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFolderPathCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetFolderPathCommandError(output, context);
+    return de_GetFolderPathCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Path != null) {
-    contents.Path = deserializeAws_restJson1ResourcePath(data.Path, context);
-  }
+  const doc = take(data, {
+    Path: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetFolderPathCommandError = async (
+/**
+ * deserializeAws_restJson1GetFolderPathCommandError
+ */
+const de_GetFolderPathCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFolderPathCommandOutput> => {
@@ -3371,54 +3660,56 @@ const deserializeAws_restJson1GetFolderPathCommandError = async (
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetResourcesCommand = async (
+/**
+ * deserializeAws_restJson1GetResourcesCommand
+ */
+export const de_GetResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetResourcesCommandError(output, context);
+    return de_GetResourcesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Documents != null) {
-    contents.Documents = deserializeAws_restJson1DocumentMetadataList(data.Documents, context);
-  }
-  if (data.Folders != null) {
-    contents.Folders = deserializeAws_restJson1FolderMetadataList(data.Folders, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Documents: (_) => de_DocumentMetadataList(_, context),
+    Folders: (_) => de_FolderMetadataList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetResourcesCommandError = async (
+/**
+ * deserializeAws_restJson1GetResourcesCommandError
+ */
+const de_GetResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcesCommandOutput> => {
@@ -3430,51 +3721,55 @@ const deserializeAws_restJson1GetResourcesCommandError = async (
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1InitiateDocumentVersionUploadCommand = async (
+/**
+ * deserializeAws_restJson1InitiateDocumentVersionUploadCommand
+ */
+export const de_InitiateDocumentVersionUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateDocumentVersionUploadCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1InitiateDocumentVersionUploadCommandError(output, context);
+    return de_InitiateDocumentVersionUploadCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Metadata != null) {
-    contents.Metadata = deserializeAws_restJson1DocumentMetadata(data.Metadata, context);
-  }
-  if (data.UploadMetadata != null) {
-    contents.UploadMetadata = deserializeAws_restJson1UploadMetadata(data.UploadMetadata, context);
-  }
+  const doc = take(data, {
+    Metadata: (_) => de_DocumentMetadata(_, context),
+    UploadMetadata: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1InitiateDocumentVersionUploadCommandError = async (
+/**
+ * deserializeAws_restJson1InitiateDocumentVersionUploadCommandError
+ */
+const de_InitiateDocumentVersionUploadCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateDocumentVersionUploadCommandOutput> => {
@@ -3486,63 +3781,65 @@ const deserializeAws_restJson1InitiateDocumentVersionUploadCommandError = async 
   switch (errorCode) {
     case "DraftUploadOutOfSyncException":
     case "com.amazonaws.workdocs#DraftUploadOutOfSyncException":
-      throw await deserializeAws_restJson1DraftUploadOutOfSyncExceptionResponse(parsedOutput, context);
+      throw await de_DraftUploadOutOfSyncExceptionRes(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      throw await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.workdocs#InvalidPasswordException":
-      throw await deserializeAws_restJson1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workdocs#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ResourceAlreadyCheckedOutException":
     case "com.amazonaws.workdocs#ResourceAlreadyCheckedOutException":
-      throw await deserializeAws_restJson1ResourceAlreadyCheckedOutExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyCheckedOutExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "StorageLimitExceededException":
     case "com.amazonaws.workdocs#StorageLimitExceededException":
-      throw await deserializeAws_restJson1StorageLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_StorageLimitExceededExceptionRes(parsedOutput, context);
     case "StorageLimitWillExceedException":
     case "com.amazonaws.workdocs#StorageLimitWillExceedException":
-      throw await deserializeAws_restJson1StorageLimitWillExceedExceptionResponse(parsedOutput, context);
+      throw await de_StorageLimitWillExceedExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RemoveAllResourcePermissionsCommand = async (
+/**
+ * deserializeAws_restJson1RemoveAllResourcePermissionsCommand
+ */
+export const de_RemoveAllResourcePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAllResourcePermissionsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveAllResourcePermissionsCommandError(output, context);
+    return de_RemoveAllResourcePermissionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3551,7 +3848,10 @@ export const deserializeAws_restJson1RemoveAllResourcePermissionsCommand = async
   return contents;
 };
 
-const deserializeAws_restJson1RemoveAllResourcePermissionsCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveAllResourcePermissionsCommandError
+ */
+const de_RemoveAllResourcePermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAllResourcePermissionsCommandOutput> => {
@@ -3563,33 +3863,35 @@ const deserializeAws_restJson1RemoveAllResourcePermissionsCommandError = async (
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RemoveResourcePermissionCommand = async (
+/**
+ * deserializeAws_restJson1RemoveResourcePermissionCommand
+ */
+export const de_RemoveResourcePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveResourcePermissionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveResourcePermissionCommandError(output, context);
+    return de_RemoveResourcePermissionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3598,7 +3900,10 @@ export const deserializeAws_restJson1RemoveResourcePermissionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RemoveResourcePermissionCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveResourcePermissionCommandError
+ */
+const de_RemoveResourcePermissionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveResourcePermissionCommandOutput> => {
@@ -3610,33 +3915,35 @@ const deserializeAws_restJson1RemoveResourcePermissionCommandError = async (
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RestoreDocumentVersionsCommand = async (
+/**
+ * deserializeAws_restJson1RestoreDocumentVersionsCommand
+ */
+export const de_RestoreDocumentVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreDocumentVersionsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RestoreDocumentVersionsCommandError(output, context);
+    return de_RestoreDocumentVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3645,7 +3952,10 @@ export const deserializeAws_restJson1RestoreDocumentVersionsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RestoreDocumentVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1RestoreDocumentVersionsCommandError
+ */
+const de_RestoreDocumentVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreDocumentVersionsCommandOutput> => {
@@ -3657,60 +3967,64 @@ const deserializeAws_restJson1RestoreDocumentVersionsCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.workdocs#InvalidOperationException":
-      throw await deserializeAws_restJson1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1SearchResourcesCommand = async (
+/**
+ * deserializeAws_restJson1SearchResourcesCommand
+ */
+export const de_SearchResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SearchResourcesCommandError(output, context);
+    return de_SearchResourcesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items != null) {
-    contents.Items = deserializeAws_restJson1ResponseItemsList(data.Items, context);
-  }
-  if (data.Marker != null) {
-    contents.Marker = __expectString(data.Marker);
-  }
+  const doc = take(data, {
+    Items: (_) => de_ResponseItemsList(_, context),
+    Marker: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1SearchResourcesCommandError = async (
+/**
+ * deserializeAws_restJson1SearchResourcesCommandError
+ */
+const de_SearchResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchResourcesCommandOutput> => {
@@ -3722,33 +4036,35 @@ const deserializeAws_restJson1SearchResourcesCommandError = async (
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateDocumentCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDocumentCommand
+ */
+export const de_UpdateDocumentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDocumentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDocumentCommandError(output, context);
+    return de_UpdateDocumentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3757,7 +4073,10 @@ export const deserializeAws_restJson1UpdateDocumentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateDocumentCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDocumentCommandError
+ */
+const de_UpdateDocumentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDocumentCommandOutput> => {
@@ -3769,51 +4088,53 @@ const deserializeAws_restJson1UpdateDocumentCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      throw await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workdocs#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateDocumentVersionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDocumentVersionCommand
+ */
+export const de_UpdateDocumentVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDocumentVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDocumentVersionCommandError(output, context);
+    return de_UpdateDocumentVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3822,7 +4143,10 @@ export const deserializeAws_restJson1UpdateDocumentVersionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateDocumentVersionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDocumentVersionCommandError
+ */
+const de_UpdateDocumentVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDocumentVersionCommandOutput> => {
@@ -3834,45 +4158,47 @@ const deserializeAws_restJson1UpdateDocumentVersionCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.workdocs#InvalidOperationException":
-      throw await deserializeAws_restJson1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateFolderCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFolderCommand
+ */
+export const de_UpdateFolderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFolderCommandError(output, context);
+    return de_UpdateFolderCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3881,7 +4207,10 @@ export const deserializeAws_restJson1UpdateFolderCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateFolderCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFolderCommandError
+ */
+const de_UpdateFolderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFolderCommandOutput> => {
@@ -3893,63 +4222,69 @@ const deserializeAws_restJson1UpdateFolderCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      throw await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workdocs#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateUserCommand = async (
+/**
+ * deserializeAws_restJson1UpdateUserCommand
+ */
+export const de_UpdateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateUserCommandError(output, context);
+    return de_UpdateUserCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.User != null) {
-    contents.User = deserializeAws_restJson1User(data.User, context);
-  }
+  const doc = take(data, {
+    User: (_) => de_User(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateUserCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateUserCommandError
+ */
+const de_UpdateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
@@ -3961,52 +4296,55 @@ const deserializeAws_restJson1UpdateUserCommandError = async (
   switch (errorCode) {
     case "DeactivatingLastSystemUserException":
     case "com.amazonaws.workdocs#DeactivatingLastSystemUserException":
-      throw await deserializeAws_restJson1DeactivatingLastSystemUserExceptionResponse(parsedOutput, context);
+      throw await de_DeactivatingLastSystemUserExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "IllegalUserStateException":
     case "com.amazonaws.workdocs#IllegalUserStateException":
-      throw await deserializeAws_restJson1IllegalUserStateExceptionResponse(parsedOutput, context);
+      throw await de_IllegalUserStateExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4014,15 +4352,19 @@ const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictingOperationExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ConflictingOperationExceptionRes
+ */
+const de_ConflictingOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictingOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ConflictingOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4030,15 +4372,19 @@ const deserializeAws_restJson1ConflictingOperationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1CustomMetadataLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1CustomMetadataLimitExceededExceptionRes
+ */
+const de_CustomMetadataLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CustomMetadataLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new CustomMetadataLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4046,18 +4392,20 @@ const deserializeAws_restJson1CustomMetadataLimitExceededExceptionResponse = asy
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DeactivatingLastSystemUserExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DeactivatingLastSystemUserExceptionRes
+ */
+const de_DeactivatingLastSystemUserExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeactivatingLastSystemUserException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DeactivatingLastSystemUserException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4065,15 +4413,19 @@ const deserializeAws_restJson1DeactivatingLastSystemUserExceptionResponse = asyn
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DocumentLockedForCommentsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DocumentLockedForCommentsExceptionRes
+ */
+const de_DocumentLockedForCommentsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DocumentLockedForCommentsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DocumentLockedForCommentsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4081,15 +4433,19 @@ const deserializeAws_restJson1DocumentLockedForCommentsExceptionResponse = async
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DraftUploadOutOfSyncExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DraftUploadOutOfSyncExceptionRes
+ */
+const de_DraftUploadOutOfSyncExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DraftUploadOutOfSyncException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new DraftUploadOutOfSyncException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4097,15 +4453,19 @@ const deserializeAws_restJson1DraftUploadOutOfSyncExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1EntityAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1EntityAlreadyExistsExceptionRes
+ */
+const de_EntityAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntityAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EntityAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4113,18 +4473,20 @@ const deserializeAws_restJson1EntityAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1EntityNotExistsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1EntityNotExistsExceptionRes
+ */
+const de_EntityNotExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntityNotExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.EntityIds != null) {
-    contents.EntityIds = deserializeAws_restJson1EntityIdList(data.EntityIds, context);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    EntityIds: _json,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new EntityNotExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4132,15 +4494,19 @@ const deserializeAws_restJson1EntityNotExistsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1FailedDependencyExceptionResponse = async (
+/**
+ * deserializeAws_restJson1FailedDependencyExceptionRes
+ */
+const de_FailedDependencyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FailedDependencyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new FailedDependencyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4148,15 +4514,19 @@ const deserializeAws_restJson1FailedDependencyExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1IllegalUserStateExceptionResponse = async (
+/**
+ * deserializeAws_restJson1IllegalUserStateExceptionRes
+ */
+const de_IllegalUserStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IllegalUserStateException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new IllegalUserStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4164,15 +4534,19 @@ const deserializeAws_restJson1IllegalUserStateExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidArgumentExceptionRes
+ */
+const de_InvalidArgumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4180,15 +4554,19 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidCommentOperationExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidCommentOperationExceptionRes
+ */
+const de_InvalidCommentOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCommentOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidCommentOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4196,15 +4574,19 @@ const deserializeAws_restJson1InvalidCommentOperationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidOperationExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidOperationExceptionRes
+ */
+const de_InvalidOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4212,15 +4594,19 @@ const deserializeAws_restJson1InvalidOperationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidPasswordExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidPasswordExceptionRes
+ */
+const de_InvalidPasswordExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPasswordException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidPasswordException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4228,15 +4614,19 @@ const deserializeAws_restJson1InvalidPasswordExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4244,15 +4634,19 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ProhibitedStateExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ProhibitedStateExceptionRes
+ */
+const de_ProhibitedStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ProhibitedStateException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ProhibitedStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4260,15 +4654,19 @@ const deserializeAws_restJson1ProhibitedStateExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1RequestedEntityTooLargeExceptionResponse = async (
+/**
+ * deserializeAws_restJson1RequestedEntityTooLargeExceptionRes
+ */
+const de_RequestedEntityTooLargeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestedEntityTooLargeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new RequestedEntityTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4276,15 +4674,19 @@ const deserializeAws_restJson1RequestedEntityTooLargeExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceAlreadyCheckedOutExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceAlreadyCheckedOutExceptionRes
+ */
+const de_ResourceAlreadyCheckedOutExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyCheckedOutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceAlreadyCheckedOutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4292,15 +4694,19 @@ const deserializeAws_restJson1ResourceAlreadyCheckedOutExceptionResponse = async
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4308,15 +4714,19 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1StorageLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1StorageLimitExceededExceptionRes
+ */
+const de_StorageLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StorageLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new StorageLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4324,15 +4734,19 @@ const deserializeAws_restJson1StorageLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1StorageLimitWillExceedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1StorageLimitWillExceedExceptionRes
+ */
+const de_StorageLimitWillExceedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StorageLimitWillExceedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new StorageLimitWillExceedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4340,15 +4754,19 @@ const deserializeAws_restJson1StorageLimitWillExceedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyLabelsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyLabelsExceptionRes
+ */
+const de_TooManyLabelsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyLabelsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyLabelsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4356,15 +4774,19 @@ const deserializeAws_restJson1TooManyLabelsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManySubscriptionsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManySubscriptionsExceptionRes
+ */
+const de_TooManySubscriptionsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManySubscriptionsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new TooManySubscriptionsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4372,18 +4794,20 @@ const deserializeAws_restJson1TooManySubscriptionsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnauthorizedOperationExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnauthorizedOperationExceptionRes
+ */
+const de_UnauthorizedOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedOperationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code != null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4391,15 +4815,19 @@ const deserializeAws_restJson1UnauthorizedOperationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnauthorizedResourceAccessExceptionRes
+ */
+const de_UnauthorizedResourceAccessExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedResourceAccessException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new UnauthorizedResourceAccessException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -4407,760 +4835,350 @@ const deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse = asyn
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AdditionalResponseFieldsList = (
-  input: (AdditionalResponseFieldType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+// se_AdditionalResponseFieldsList omitted.
+
+// se_CustomMetadataMap omitted.
+
+/**
+ * serializeAws_restJson1DateRangeType
+ */
+const se_DateRangeType = (input: DateRangeType, context: __SerdeContext): any => {
+  return take(input, {
+    EndValue: (_) => Math.round(_.getTime() / 1000),
+    StartValue: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_restJson1CustomMetadataMap = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+/**
+ * serializeAws_restJson1Filters
+ */
+const se_Filters = (input: Filters, context: __SerdeContext): any => {
+  return take(input, {
+    AncestorIds: _json,
+    ContentCategories: _json,
+    CreatedRange: (_) => se_DateRangeType(_, context),
+    Labels: _json,
+    ModifiedRange: (_) => se_DateRangeType(_, context),
+    Principals: _json,
+    ResourceTypes: _json,
+    SearchCollectionTypes: _json,
+    SizeRange: _json,
+    TextLocales: _json,
+  });
 };
 
-const serializeAws_restJson1DateRangeType = (input: DateRangeType, context: __SerdeContext): any => {
-  return {
-    ...(input.EndValue != null && { EndValue: Math.round(input.EndValue.getTime() / 1000) }),
-    ...(input.StartValue != null && { StartValue: Math.round(input.StartValue.getTime() / 1000) }),
-  };
+// se_LongRangeType omitted.
+
+// se_NotificationOptions omitted.
+
+// se_SearchAncestorIdList omitted.
+
+// se_SearchCollectionTypeList omitted.
+
+// se_SearchContentCategoryTypeList omitted.
+
+// se_SearchLabelList omitted.
+
+// se_SearchPrincipalRoleList omitted.
+
+// se_SearchPrincipalType omitted.
+
+// se_SearchPrincipalTypeList omitted.
+
+// se_SearchQueryScopeTypeList omitted.
+
+// se_SearchResourceTypeList omitted.
+
+// se_SearchResultSortList omitted.
+
+// se_SearchSortResult omitted.
+
+// se_SharedLabels omitted.
+
+// se_SharePrincipal omitted.
+
+// se_SharePrincipalList omitted.
+
+// se_StorageRuleType omitted.
+
+// se_TextLocaleTypeList omitted.
+
+/**
+ * deserializeAws_restJson1Activity
+ */
+const de_Activity = (output: any, context: __SerdeContext): Activity => {
+  return take(output, {
+    CommentMetadata: (_: any) => de_CommentMetadata(_, context),
+    Initiator: _json,
+    IsIndirectActivity: __expectBoolean,
+    OrganizationId: __expectString,
+    OriginalParent: _json,
+    Participants: _json,
+    ResourceMetadata: _json,
+    TimeStamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Type: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1Filters = (input: Filters, context: __SerdeContext): any => {
-  return {
-    ...(input.AncestorIds != null && {
-      AncestorIds: serializeAws_restJson1SearchAncestorIdList(input.AncestorIds, context),
-    }),
-    ...(input.ContentCategories != null && {
-      ContentCategories: serializeAws_restJson1SearchContentCategoryTypeList(input.ContentCategories, context),
-    }),
-    ...(input.CreatedRange != null && {
-      CreatedRange: serializeAws_restJson1DateRangeType(input.CreatedRange, context),
-    }),
-    ...(input.Labels != null && { Labels: serializeAws_restJson1SearchLabelList(input.Labels, context) }),
-    ...(input.ModifiedRange != null && {
-      ModifiedRange: serializeAws_restJson1DateRangeType(input.ModifiedRange, context),
-    }),
-    ...(input.Principals != null && {
-      Principals: serializeAws_restJson1SearchPrincipalTypeList(input.Principals, context),
-    }),
-    ...(input.ResourceTypes != null && {
-      ResourceTypes: serializeAws_restJson1SearchResourceTypeList(input.ResourceTypes, context),
-    }),
-    ...(input.SearchCollectionTypes != null && {
-      SearchCollectionTypes: serializeAws_restJson1SearchCollectionTypeList(input.SearchCollectionTypes, context),
-    }),
-    ...(input.SizeRange != null && { SizeRange: serializeAws_restJson1LongRangeType(input.SizeRange, context) }),
-    ...(input.TextLocales != null && {
-      TextLocales: serializeAws_restJson1TextLocaleTypeList(input.TextLocales, context),
-    }),
-  };
+/**
+ * deserializeAws_restJson1Comment
+ */
+const de_Comment = (output: any, context: __SerdeContext): Comment => {
+  return take(output, {
+    CommentId: __expectString,
+    Contributor: (_: any) => de_User(_, context),
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ParentId: __expectString,
+    RecipientId: __expectString,
+    Status: __expectString,
+    Text: __expectString,
+    ThreadId: __expectString,
+    Visibility: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1LongRangeType = (input: LongRangeType, context: __SerdeContext): any => {
-  return {
-    ...(input.EndValue != null && { EndValue: input.EndValue }),
-    ...(input.StartValue != null && { StartValue: input.StartValue }),
-  };
-};
-
-const serializeAws_restJson1NotificationOptions = (input: NotificationOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.EmailMessage != null && { EmailMessage: input.EmailMessage }),
-    ...(input.SendEmail != null && { SendEmail: input.SendEmail }),
-  };
-};
-
-const serializeAws_restJson1SearchAncestorIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1SearchCollectionTypeList = (
-  input: (SearchCollectionType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1SearchContentCategoryTypeList = (
-  input: (ContentCategoryType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1SearchLabelList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1SearchPrincipalRoleList = (
-  input: (PrincipalRoleType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1SearchPrincipalType = (input: SearchPrincipalType, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Roles != null && { Roles: serializeAws_restJson1SearchPrincipalRoleList(input.Roles, context) }),
-  };
-};
-
-const serializeAws_restJson1SearchPrincipalTypeList = (input: SearchPrincipalType[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SearchPrincipalType(entry, context);
-    });
-};
-
-const serializeAws_restJson1SearchQueryScopeTypeList = (
-  input: (SearchQueryScopeType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1SearchResourceTypeList = (
-  input: (SearchResourceType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1SearchResultSortList = (input: SearchSortResult[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SearchSortResult(entry, context);
-    });
-};
-
-const serializeAws_restJson1SearchSortResult = (input: SearchSortResult, context: __SerdeContext): any => {
-  return {
-    ...(input.Field != null && { Field: input.Field }),
-    ...(input.Order != null && { Order: input.Order }),
-  };
-};
-
-const serializeAws_restJson1SharedLabels = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1SharePrincipal = (input: SharePrincipal, context: __SerdeContext): any => {
-  return {
-    ...(input.Id != null && { Id: input.Id }),
-    ...(input.Role != null && { Role: input.Role }),
-    ...(input.Type != null && { Type: input.Type }),
-  };
-};
-
-const serializeAws_restJson1SharePrincipalList = (input: SharePrincipal[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1SharePrincipal(entry, context);
-    });
-};
-
-const serializeAws_restJson1StorageRuleType = (input: StorageRuleType, context: __SerdeContext): any => {
-  return {
-    ...(input.StorageAllocatedInBytes != null && { StorageAllocatedInBytes: input.StorageAllocatedInBytes }),
-    ...(input.StorageType != null && { StorageType: input.StorageType }),
-  };
-};
-
-const serializeAws_restJson1TextLocaleTypeList = (
-  input: (LanguageCodeType | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext): Activity => {
-  return {
-    CommentMetadata:
-      output.CommentMetadata != null
-        ? deserializeAws_restJson1CommentMetadata(output.CommentMetadata, context)
-        : undefined,
-    Initiator: output.Initiator != null ? deserializeAws_restJson1UserMetadata(output.Initiator, context) : undefined,
-    IsIndirectActivity: __expectBoolean(output.IsIndirectActivity),
-    OrganizationId: __expectString(output.OrganizationId),
-    OriginalParent:
-      output.OriginalParent != null
-        ? deserializeAws_restJson1ResourceMetadata(output.OriginalParent, context)
-        : undefined,
-    Participants:
-      output.Participants != null ? deserializeAws_restJson1Participants(output.Participants, context) : undefined,
-    ResourceMetadata:
-      output.ResourceMetadata != null
-        ? deserializeAws_restJson1ResourceMetadata(output.ResourceMetadata, context)
-        : undefined,
-    TimeStamp:
-      output.TimeStamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TimeStamp))) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1Comment = (output: any, context: __SerdeContext): Comment => {
-  return {
-    CommentId: __expectString(output.CommentId),
-    Contributor: output.Contributor != null ? deserializeAws_restJson1User(output.Contributor, context) : undefined,
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    ParentId: __expectString(output.ParentId),
-    RecipientId: __expectString(output.RecipientId),
-    Status: __expectString(output.Status),
-    Text: __expectString(output.Text),
-    ThreadId: __expectString(output.ThreadId),
-    Visibility: __expectString(output.Visibility),
-  } as any;
-};
-
-const deserializeAws_restJson1CommentList = (output: any, context: __SerdeContext): Comment[] => {
+/**
+ * deserializeAws_restJson1CommentList
+ */
+const de_CommentList = (output: any, context: __SerdeContext): Comment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Comment(entry, context);
+      return de_Comment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1CommentMetadata = (output: any, context: __SerdeContext): CommentMetadata => {
-  return {
-    CommentId: __expectString(output.CommentId),
-    CommentStatus: __expectString(output.CommentStatus),
-    Contributor: output.Contributor != null ? deserializeAws_restJson1User(output.Contributor, context) : undefined,
-    ContributorId: __expectString(output.ContributorId),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    RecipientId: __expectString(output.RecipientId),
-  } as any;
+/**
+ * deserializeAws_restJson1CommentMetadata
+ */
+const de_CommentMetadata = (output: any, context: __SerdeContext): CommentMetadata => {
+  return take(output, {
+    CommentId: __expectString,
+    CommentStatus: __expectString,
+    Contributor: (_: any) => de_User(_, context),
+    ContributorId: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RecipientId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1CustomMetadataMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
+// de_CustomMetadataMap omitted.
+
+/**
+ * deserializeAws_restJson1DocumentMetadata
+ */
+const de_DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorId: __expectString,
+    Id: __expectString,
+    Labels: _json,
+    LatestVersionMetadata: (_: any) => de_DocumentVersionMetadata(_, context),
+    ModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ParentFolderId: __expectString,
+    ResourceState: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    CreatorId: __expectString(output.CreatorId),
-    Id: __expectString(output.Id),
-    Labels: output.Labels != null ? deserializeAws_restJson1SharedLabels(output.Labels, context) : undefined,
-    LatestVersionMetadata:
-      output.LatestVersionMetadata != null
-        ? deserializeAws_restJson1DocumentVersionMetadata(output.LatestVersionMetadata, context)
-        : undefined,
-    ModifiedTimestamp:
-      output.ModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
-        : undefined,
-    ParentFolderId: __expectString(output.ParentFolderId),
-    ResourceState: __expectString(output.ResourceState),
-  } as any;
-};
-
-const deserializeAws_restJson1DocumentMetadataList = (output: any, context: __SerdeContext): DocumentMetadata[] => {
+/**
+ * deserializeAws_restJson1DocumentMetadataList
+ */
+const de_DocumentMetadataList = (output: any, context: __SerdeContext): DocumentMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DocumentMetadata(entry, context);
+      return de_DocumentMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DocumentSourceUrlMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [DocumentSourceType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
+// de_DocumentSourceUrlMap omitted.
+
+// de_DocumentThumbnailUrlMap omitted.
+
+/**
+ * deserializeAws_restJson1DocumentVersionMetadata
+ */
+const de_DocumentVersionMetadata = (output: any, context: __SerdeContext): DocumentVersionMetadata => {
+  return take(output, {
+    ContentCreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContentType: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorId: __expectString,
+    Id: __expectString,
+    ModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Signature: __expectString,
+    Size: __expectLong,
+    Source: _json,
+    Status: __expectString,
+    Thumbnail: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1DocumentThumbnailUrlMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [DocumentThumbnailType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
-      return acc;
-    },
-    {}
-  );
-};
-
-const deserializeAws_restJson1DocumentVersionMetadata = (
-  output: any,
-  context: __SerdeContext
-): DocumentVersionMetadata => {
-  return {
-    ContentCreatedTimestamp:
-      output.ContentCreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ContentCreatedTimestamp)))
-        : undefined,
-    ContentModifiedTimestamp:
-      output.ContentModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ContentModifiedTimestamp)))
-        : undefined,
-    ContentType: __expectString(output.ContentType),
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    CreatorId: __expectString(output.CreatorId),
-    Id: __expectString(output.Id),
-    ModifiedTimestamp:
-      output.ModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
-        : undefined,
-    Name: __expectString(output.Name),
-    Signature: __expectString(output.Signature),
-    Size: __expectLong(output.Size),
-    Source: output.Source != null ? deserializeAws_restJson1DocumentSourceUrlMap(output.Source, context) : undefined,
-    Status: __expectString(output.Status),
-    Thumbnail:
-      output.Thumbnail != null ? deserializeAws_restJson1DocumentThumbnailUrlMap(output.Thumbnail, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1DocumentVersionMetadataList = (
-  output: any,
-  context: __SerdeContext
-): DocumentVersionMetadata[] => {
+/**
+ * deserializeAws_restJson1DocumentVersionMetadataList
+ */
+const de_DocumentVersionMetadataList = (output: any, context: __SerdeContext): DocumentVersionMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DocumentVersionMetadata(entry, context);
+      return de_DocumentVersionMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EntityIdList = (output: any, context: __SerdeContext): string[] => {
+// de_EntityIdList omitted.
+
+/**
+ * deserializeAws_restJson1FolderMetadata
+ */
+const de_FolderMetadata = (output: any, context: __SerdeContext): FolderMetadata => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorId: __expectString,
+    Id: __expectString,
+    Labels: _json,
+    LatestVersionSize: __expectLong,
+    ModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    ParentFolderId: __expectString,
+    ResourceState: __expectString,
+    Signature: __expectString,
+    Size: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FolderMetadataList
+ */
+const de_FolderMetadataList = (output: any, context: __SerdeContext): FolderMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_FolderMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeContext): FolderMetadata => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    CreatorId: __expectString(output.CreatorId),
-    Id: __expectString(output.Id),
-    Labels: output.Labels != null ? deserializeAws_restJson1SharedLabels(output.Labels, context) : undefined,
-    LatestVersionSize: __expectLong(output.LatestVersionSize),
-    ModifiedTimestamp:
-      output.ModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
-        : undefined,
-    Name: __expectString(output.Name),
-    ParentFolderId: __expectString(output.ParentFolderId),
-    ResourceState: __expectString(output.ResourceState),
-    Signature: __expectString(output.Signature),
-    Size: __expectLong(output.Size),
-  } as any;
-};
+// de_GroupMetadata omitted.
 
-const deserializeAws_restJson1FolderMetadataList = (output: any, context: __SerdeContext): FolderMetadata[] => {
+// de_GroupMetadataList omitted.
+
+/**
+ * deserializeAws_restJson1OrganizationUserList
+ */
+const de_OrganizationUserList = (output: any, context: __SerdeContext): User[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1FolderMetadata(entry, context);
+      return de_User(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1GroupMetadata = (output: any, context: __SerdeContext): GroupMetadata => {
-  return {
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
+// de_Participants omitted.
+
+// de_PermissionInfo omitted.
+
+// de_PermissionInfoList omitted.
+
+// de_Principal omitted.
+
+// de_PrincipalList omitted.
+
+// de_ResourceMetadata omitted.
+
+// de_ResourcePath omitted.
+
+// de_ResourcePathComponent omitted.
+
+// de_ResourcePathComponentList omitted.
+
+/**
+ * deserializeAws_restJson1ResponseItem
+ */
+const de_ResponseItem = (output: any, context: __SerdeContext): ResponseItem => {
+  return take(output, {
+    CommentMetadata: (_: any) => de_CommentMetadata(_, context),
+    DocumentMetadata: (_: any) => de_DocumentMetadata(_, context),
+    DocumentVersionMetadata: (_: any) => de_DocumentVersionMetadata(_, context),
+    FolderMetadata: (_: any) => de_FolderMetadata(_, context),
+    ResourceType: __expectString,
+    WebUrl: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1GroupMetadataList = (output: any, context: __SerdeContext): GroupMetadata[] => {
+/**
+ * deserializeAws_restJson1ResponseItemsList
+ */
+const de_ResponseItemsList = (output: any, context: __SerdeContext): ResponseItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1GroupMetadata(entry, context);
+      return de_ResponseItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1OrganizationUserList = (output: any, context: __SerdeContext): User[] => {
+// de_SharedLabels omitted.
+
+// de_ShareResult omitted.
+
+// de_ShareResultsList omitted.
+
+// de_SignedHeaderMap omitted.
+
+// de_StorageRuleType omitted.
+
+// de_Subscription omitted.
+
+// de_SubscriptionList omitted.
+
+// de_UploadMetadata omitted.
+
+/**
+ * deserializeAws_restJson1User
+ */
+const de_User = (output: any, context: __SerdeContext): User => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EmailAddress: __expectString,
+    GivenName: __expectString,
+    Id: __expectString,
+    Locale: __expectString,
+    ModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrganizationId: __expectString,
+    RecycleBinFolderId: __expectString,
+    RootFolderId: __expectString,
+    Status: __expectString,
+    Storage: _json,
+    Surname: __expectString,
+    TimeZoneId: __expectString,
+    Type: __expectString,
+    Username: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UserActivities
+ */
+const de_UserActivities = (output: any, context: __SerdeContext): Activity[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1User(entry, context);
+      return de_Activity(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Participants = (output: any, context: __SerdeContext): Participants => {
-  return {
-    Groups: output.Groups != null ? deserializeAws_restJson1GroupMetadataList(output.Groups, context) : undefined,
-    Users: output.Users != null ? deserializeAws_restJson1UserMetadataList(output.Users, context) : undefined,
-  } as any;
-};
+// de_UserMetadata omitted.
 
-const deserializeAws_restJson1PermissionInfo = (output: any, context: __SerdeContext): PermissionInfo => {
-  return {
-    Role: __expectString(output.Role),
-    Type: __expectString(output.Type),
-  } as any;
-};
+// de_UserMetadataList omitted.
 
-const deserializeAws_restJson1PermissionInfoList = (output: any, context: __SerdeContext): PermissionInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PermissionInfo(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1Principal = (output: any, context: __SerdeContext): Principal => {
-  return {
-    Id: __expectString(output.Id),
-    Roles: output.Roles != null ? deserializeAws_restJson1PermissionInfoList(output.Roles, context) : undefined,
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1PrincipalList = (output: any, context: __SerdeContext): Principal[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Principal(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ResourceMetadata = (output: any, context: __SerdeContext): ResourceMetadata => {
-  return {
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-    OriginalName: __expectString(output.OriginalName),
-    Owner: output.Owner != null ? deserializeAws_restJson1UserMetadata(output.Owner, context) : undefined,
-    ParentId: __expectString(output.ParentId),
-    Type: __expectString(output.Type),
-    VersionId: __expectString(output.VersionId),
-  } as any;
-};
-
-const deserializeAws_restJson1ResourcePath = (output: any, context: __SerdeContext): ResourcePath => {
-  return {
-    Components:
-      output.Components != null
-        ? deserializeAws_restJson1ResourcePathComponentList(output.Components, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ResourcePathComponent = (output: any, context: __SerdeContext): ResourcePathComponent => {
-  return {
-    Id: __expectString(output.Id),
-    Name: __expectString(output.Name),
-  } as any;
-};
-
-const deserializeAws_restJson1ResourcePathComponentList = (
-  output: any,
-  context: __SerdeContext
-): ResourcePathComponent[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ResourcePathComponent(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ResponseItem = (output: any, context: __SerdeContext): ResponseItem => {
-  return {
-    CommentMetadata:
-      output.CommentMetadata != null
-        ? deserializeAws_restJson1CommentMetadata(output.CommentMetadata, context)
-        : undefined,
-    DocumentMetadata:
-      output.DocumentMetadata != null
-        ? deserializeAws_restJson1DocumentMetadata(output.DocumentMetadata, context)
-        : undefined,
-    DocumentVersionMetadata:
-      output.DocumentVersionMetadata != null
-        ? deserializeAws_restJson1DocumentVersionMetadata(output.DocumentVersionMetadata, context)
-        : undefined,
-    FolderMetadata:
-      output.FolderMetadata != null
-        ? deserializeAws_restJson1FolderMetadata(output.FolderMetadata, context)
-        : undefined,
-    ResourceType: __expectString(output.ResourceType),
-    WebUrl: __expectString(output.WebUrl),
-  } as any;
-};
-
-const deserializeAws_restJson1ResponseItemsList = (output: any, context: __SerdeContext): ResponseItem[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ResponseItem(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1SharedLabels = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ShareResult = (output: any, context: __SerdeContext): ShareResult => {
-  return {
-    InviteePrincipalId: __expectString(output.InviteePrincipalId),
-    PrincipalId: __expectString(output.PrincipalId),
-    Role: __expectString(output.Role),
-    ShareId: __expectString(output.ShareId),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
-};
-
-const deserializeAws_restJson1ShareResultsList = (output: any, context: __SerdeContext): ShareResult[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ShareResult(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1SignedHeaderMap = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_restJson1StorageRuleType = (output: any, context: __SerdeContext): StorageRuleType => {
-  return {
-    StorageAllocatedInBytes: __expectLong(output.StorageAllocatedInBytes),
-    StorageType: __expectString(output.StorageType),
-  } as any;
-};
-
-const deserializeAws_restJson1Subscription = (output: any, context: __SerdeContext): Subscription => {
-  return {
-    EndPoint: __expectString(output.EndPoint),
-    Protocol: __expectString(output.Protocol),
-    SubscriptionId: __expectString(output.SubscriptionId),
-  } as any;
-};
-
-const deserializeAws_restJson1SubscriptionList = (output: any, context: __SerdeContext): Subscription[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Subscription(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1UploadMetadata = (output: any, context: __SerdeContext): UploadMetadata => {
-  return {
-    SignedHeaders:
-      output.SignedHeaders != null ? deserializeAws_restJson1SignedHeaderMap(output.SignedHeaders, context) : undefined,
-    UploadUrl: __expectString(output.UploadUrl),
-  } as any;
-};
-
-const deserializeAws_restJson1User = (output: any, context: __SerdeContext): User => {
-  return {
-    CreatedTimestamp:
-      output.CreatedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
-        : undefined,
-    EmailAddress: __expectString(output.EmailAddress),
-    GivenName: __expectString(output.GivenName),
-    Id: __expectString(output.Id),
-    Locale: __expectString(output.Locale),
-    ModifiedTimestamp:
-      output.ModifiedTimestamp != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ModifiedTimestamp)))
-        : undefined,
-    OrganizationId: __expectString(output.OrganizationId),
-    RecycleBinFolderId: __expectString(output.RecycleBinFolderId),
-    RootFolderId: __expectString(output.RootFolderId),
-    Status: __expectString(output.Status),
-    Storage: output.Storage != null ? deserializeAws_restJson1UserStorageMetadata(output.Storage, context) : undefined,
-    Surname: __expectString(output.Surname),
-    TimeZoneId: __expectString(output.TimeZoneId),
-    Type: __expectString(output.Type),
-    Username: __expectString(output.Username),
-  } as any;
-};
-
-const deserializeAws_restJson1UserActivities = (output: any, context: __SerdeContext): Activity[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Activity(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1UserMetadata = (output: any, context: __SerdeContext): UserMetadata => {
-  return {
-    EmailAddress: __expectString(output.EmailAddress),
-    GivenName: __expectString(output.GivenName),
-    Id: __expectString(output.Id),
-    Surname: __expectString(output.Surname),
-    Username: __expectString(output.Username),
-  } as any;
-};
-
-const deserializeAws_restJson1UserMetadataList = (output: any, context: __SerdeContext): UserMetadata[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1UserMetadata(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1UserStorageMetadata = (output: any, context: __SerdeContext): UserStorageMetadata => {
-  return {
-    StorageRule:
-      output.StorageRule != null ? deserializeAws_restJson1StorageRuleType(output.StorageRule, context) : undefined,
-    StorageUtilizedInBytes: __expectLong(output.StorageUtilizedInBytes),
-  } as any;
-};
+// de_UserStorageMetadata omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateIPSetRequest,
-  CreateIPSetRequestFilterSensitiveLog,
-  CreateIPSetResponse,
-  CreateIPSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateIPSetCommand,
-  serializeAws_json1_1CreateIPSetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateIPSetRequest, CreateIPSetResponse } from "../models/models_0";
+import { de_CreateIPSetCommand, se_CreateIPSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIPSetCommand}.
  */
 export interface CreateIPSetCommandInput extends CreateIPSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIPSetCommand}.
  */
 export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -75,10 +72,16 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * import { WAFClient, CreateIPSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateIPSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // CreateIPSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIPSetCommandInput - {@link CreateIPSetCommandInput}
+ * @returns {@link CreateIPSetCommandOutput}
  * @see {@link CreateIPSetCommandInput} for command's `input` shape.
  * @see {@link CreateIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -186,6 +189,9 @@ export class CreateIPSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -212,8 +218,8 @@ export class CreateIPSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIPSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIPSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -223,12 +229,18 @@ export class CreateIPSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateIPSetCommand(input, context);
+    return se_CreateIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIPSetCommandOutput> {
-    return deserializeAws_json1_1CreateIPSetCommand(output, context);
+    return de_CreateIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

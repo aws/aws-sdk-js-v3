@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  PutImageRequest,
-  PutImageRequestFilterSensitiveLog,
-  PutImageResponse,
-  PutImageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1PutImageCommand, serializeAws_json1_1PutImageCommand } from "../protocols/Aws_json1_1";
+import { PutImageRequest, PutImageResponse } from "../models/models_0";
+import { de_PutImageCommand, se_PutImageCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutImageCommand}.
  */
 export interface PutImageCommandInput extends PutImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutImageCommand}.
  */
 export interface PutImageCommandOutput extends PutImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the image manifest and tags associated with an image.</p>
  *         <p>When an image is pushed and all new image layers have been uploaded, the PutImage API
  *             is called once to create or update the image manifest and the tags associated with the
@@ -47,10 +47,20 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * import { ECRClient, PutImageCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutImageCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // PutImageRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageManifest: "STRING_VALUE", // required
+ *   imageManifestMediaType: "STRING_VALUE",
+ *   imageTag: "STRING_VALUE",
+ *   imageDigest: "STRING_VALUE",
+ * };
  * const command = new PutImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutImageCommandInput - {@link PutImageCommandInput}
+ * @returns {@link PutImageCommandOutput}
  * @see {@link PutImageCommandInput} for command's `input` shape.
  * @see {@link PutImageCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -108,6 +118,9 @@ export class PutImageCommand extends $Command<PutImageCommandInput, PutImageComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +147,8 @@ export class PutImageCommand extends $Command<PutImageCommandInput, PutImageComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +158,18 @@ export class PutImageCommand extends $Command<PutImageCommandInput, PutImageComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutImageCommand(input, context);
+    return se_PutImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImageCommandOutput> {
-    return deserializeAws_json1_1PutImageCommand(output, context);
+    return de_PutImageCommand(output, context);
   }
 
   // Start section: command_body_extra

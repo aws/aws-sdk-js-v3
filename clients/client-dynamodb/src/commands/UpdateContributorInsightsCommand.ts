@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  UpdateContributorInsightsInput,
-  UpdateContributorInsightsInputFilterSensitiveLog,
-  UpdateContributorInsightsOutput,
-  UpdateContributorInsightsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateContributorInsightsCommand,
-  serializeAws_json1_0UpdateContributorInsightsCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateContributorInsightsInput, UpdateContributorInsightsOutput } from "../models/models_0";
+import { de_UpdateContributorInsightsCommand, se_UpdateContributorInsightsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContributorInsightsCommand}.
  */
 export interface UpdateContributorInsightsCommandInput extends UpdateContributorInsightsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContributorInsightsCommand}.
  */
 export interface UpdateContributorInsightsCommandOutput extends UpdateContributorInsightsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status for contributor insights for a specific table or index. CloudWatch
  *             Contributor Insights for DynamoDB graphs display the partition key and (if applicable)
  *             sort key of frequently accessed items and frequently throttled items in plaintext. If
@@ -48,10 +45,17 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
  * import { DynamoDBClient, UpdateContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // UpdateContributorInsightsInput
+ *   TableName: "STRING_VALUE", // required
+ *   IndexName: "STRING_VALUE",
+ *   ContributorInsightsAction: "ENABLE" || "DISABLE", // required
+ * };
  * const command = new UpdateContributorInsightsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContributorInsightsCommandInput - {@link UpdateContributorInsightsCommandInput}
+ * @returns {@link UpdateContributorInsightsCommandOutput}
  * @see {@link UpdateContributorInsightsCommandInput} for command's `input` shape.
  * @see {@link UpdateContributorInsightsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -82,6 +86,9 @@ export class UpdateContributorInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContributorInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class UpdateContributorInsightsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContributorInsightsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContributorInsightsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +128,21 @@ export class UpdateContributorInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContributorInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateContributorInsightsCommand(input, context);
+    return se_UpdateContributorInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateContributorInsightsCommandOutput> {
-    return deserializeAws_json1_0UpdateContributorInsightsCommand(output, context);
+    return de_UpdateContributorInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

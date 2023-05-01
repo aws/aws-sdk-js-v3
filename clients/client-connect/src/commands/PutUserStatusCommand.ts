@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  PutUserStatusRequest,
-  PutUserStatusRequestFilterSensitiveLog,
-  PutUserStatusResponse,
-  PutUserStatusResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1PutUserStatusCommand,
-  serializeAws_restJson1PutUserStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { PutUserStatusRequest, PutUserStatusResponse } from "../models/models_1";
+import { de_PutUserStatusCommand, se_PutUserStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutUserStatusCommand}.
  */
 export interface PutUserStatusCommandInput extends PutUserStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutUserStatusCommand}.
  */
 export interface PutUserStatusCommandOutput extends PutUserStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the current status of a user or agent in Amazon Connect. If the agent is
  *    currently handling a contact, this sets the agent's next status.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your next
@@ -45,10 +42,17 @@ export interface PutUserStatusCommandOutput extends PutUserStatusResponse, __Met
  * import { ConnectClient, PutUserStatusCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, PutUserStatusCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // PutUserStatusRequest
+ *   UserId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   AgentStatusId: "STRING_VALUE", // required
+ * };
  * const command = new PutUserStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutUserStatusCommandInput - {@link PutUserStatusCommandInput}
+ * @returns {@link PutUserStatusCommandOutput}
  * @see {@link PutUserStatusCommandInput} for command's `input` shape.
  * @see {@link PutUserStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -90,6 +94,9 @@ export class PutUserStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutUserStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class PutUserStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutUserStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutUserStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class PutUserStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutUserStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutUserStatusCommand(input, context);
+    return se_PutUserStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutUserStatusCommandOutput> {
-    return deserializeAws_restJson1PutUserStatusCommand(output, context);
+    return de_PutUserStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DescribeSuggestersRequest,
-  DescribeSuggestersRequestFilterSensitiveLog,
-  DescribeSuggestersResponse,
-  DescribeSuggestersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeSuggestersCommand,
-  serializeAws_queryDescribeSuggestersCommand,
-} from "../protocols/Aws_query";
+import { DescribeSuggestersRequest, DescribeSuggestersResponse } from "../models/models_0";
+import { de_DescribeSuggestersCommand, se_DescribeSuggestersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSuggestersCommand}.
  */
 export interface DescribeSuggestersCommandInput extends DescribeSuggestersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSuggestersCommand}.
  */
 export interface DescribeSuggestersCommandOutput extends DescribeSuggestersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the suggesters configured for a domain. A suggester enables you to display possible matches before users finish typing their queries.  Can be limited to specific suggesters by name.  By default, shows all suggesters and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes.  For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface DescribeSuggestersCommandOutput extends DescribeSuggestersRespo
  * import { CloudSearchClient, DescribeSuggestersCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeSuggestersCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // DescribeSuggestersRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   SuggesterNames: [ // StandardNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   Deployed: true || false,
+ * };
  * const command = new DescribeSuggestersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSuggestersCommandInput - {@link DescribeSuggestersCommandInput}
+ * @returns {@link DescribeSuggestersCommandOutput}
  * @see {@link DescribeSuggestersCommandInput} for command's `input` shape.
  * @see {@link DescribeSuggestersCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -79,6 +85,9 @@ export class DescribeSuggestersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSuggestersCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +116,8 @@ export class DescribeSuggestersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSuggestersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSuggestersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +127,18 @@ export class DescribeSuggestersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSuggestersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeSuggestersCommand(input, context);
+    return se_DescribeSuggestersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSuggestersCommandOutput> {
-    return deserializeAws_queryDescribeSuggestersCommand(output, context);
+    return de_DescribeSuggestersCommand(output, context);
   }
 
   // Start section: command_body_extra

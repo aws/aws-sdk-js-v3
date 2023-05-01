@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
-import {
-  CreateLifecyclePolicyRequest,
-  CreateLifecyclePolicyRequestFilterSensitiveLog,
-  CreateLifecyclePolicyResponse,
-  CreateLifecyclePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLifecyclePolicyCommand,
-  serializeAws_restJson1CreateLifecyclePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateLifecyclePolicyRequest, CreateLifecyclePolicyResponse } from "../models/models_0";
+import { de_CreateLifecyclePolicyCommand, se_CreateLifecyclePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLifecyclePolicyCommand}.
  */
 export interface CreateLifecyclePolicyCommandInput extends CreateLifecyclePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLifecyclePolicyCommand}.
  */
 export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a policy to manage the lifecycle of the specified Amazon Web Services resources. You can
  * 			create up to 100 lifecycle policies.</p>
  * @example
@@ -43,10 +40,150 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * import { DLMClient, CreateLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, CreateLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
  * const client = new DLMClient(config);
+ * const input = { // CreateLifecyclePolicyRequest
+ *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   State: "ENABLED" || "DISABLED", // required
+ *   PolicyDetails: { // PolicyDetails
+ *     PolicyType: "EBS_SNAPSHOT_MANAGEMENT" || "IMAGE_MANAGEMENT" || "EVENT_BASED_POLICY",
+ *     ResourceTypes: [ // ResourceTypeValuesList
+ *       "VOLUME" || "INSTANCE",
+ *     ],
+ *     ResourceLocations: [ // ResourceLocationList
+ *       "CLOUD" || "OUTPOST",
+ *     ],
+ *     TargetTags: [ // TargetTagList
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     Schedules: [ // ScheduleList
+ *       { // Schedule
+ *         Name: "STRING_VALUE",
+ *         CopyTags: true || false,
+ *         TagsToAdd: [ // TagsToAddList
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         VariableTags: [ // VariableTagsList
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         CreateRule: { // CreateRule
+ *           Location: "CLOUD" || "OUTPOST_LOCAL",
+ *           Interval: Number("int"),
+ *           IntervalUnit: "HOURS",
+ *           Times: [ // TimesList
+ *             "STRING_VALUE",
+ *           ],
+ *           CronExpression: "STRING_VALUE",
+ *         },
+ *         RetainRule: { // RetainRule
+ *           Count: Number("int"),
+ *           Interval: Number("int"),
+ *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *         },
+ *         FastRestoreRule: { // FastRestoreRule
+ *           Count: Number("int"),
+ *           Interval: Number("int"),
+ *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *           AvailabilityZones: [ // AvailabilityZoneList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         CrossRegionCopyRules: [ // CrossRegionCopyRules
+ *           { // CrossRegionCopyRule
+ *             TargetRegion: "STRING_VALUE",
+ *             Target: "STRING_VALUE",
+ *             Encrypted: true || false, // required
+ *             CmkArn: "STRING_VALUE",
+ *             CopyTags: true || false,
+ *             RetainRule: { // CrossRegionCopyRetainRule
+ *               Interval: Number("int"),
+ *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *             },
+ *             DeprecateRule: { // CrossRegionCopyDeprecateRule
+ *               Interval: Number("int"),
+ *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *             },
+ *           },
+ *         ],
+ *         ShareRules: [ // ShareRules
+ *           { // ShareRule
+ *             TargetAccounts: [ // ShareTargetAccountList // required
+ *               "STRING_VALUE",
+ *             ],
+ *             UnshareInterval: Number("int"),
+ *             UnshareIntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *           },
+ *         ],
+ *         DeprecateRule: { // DeprecateRule
+ *           Count: Number("int"),
+ *           Interval: Number("int"),
+ *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *         },
+ *         ArchiveRule: { // ArchiveRule
+ *           RetainRule: { // ArchiveRetainRule
+ *             RetentionArchiveTier: { // RetentionArchiveTier
+ *               Count: Number("int"),
+ *               Interval: Number("int"),
+ *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *             },
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     Parameters: { // Parameters
+ *       ExcludeBootVolume: true || false,
+ *       NoReboot: true || false,
+ *       ExcludeDataVolumeTags: [ // ExcludeDataVolumeTagList
+ *         "<Tag>",
+ *       ],
+ *     },
+ *     EventSource: { // EventSource
+ *       Type: "MANAGED_CWE", // required
+ *       Parameters: { // EventParameters
+ *         EventType: "shareSnapshot", // required
+ *         SnapshotOwner: [ // SnapshotOwnerList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         DescriptionRegex: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     Actions: [ // ActionList
+ *       { // Action
+ *         Name: "STRING_VALUE", // required
+ *         CrossRegionCopy: [ // CrossRegionCopyActionList // required
+ *           { // CrossRegionCopyAction
+ *             Target: "STRING_VALUE", // required
+ *             EncryptionConfiguration: { // EncryptionConfiguration
+ *               Encrypted: true || false, // required
+ *               CmkArn: "STRING_VALUE",
+ *             },
+ *             RetainRule: {
+ *               Interval: Number("int"),
+ *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLifecyclePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLifecyclePolicyCommandInput - {@link CreateLifecyclePolicyCommandInput}
+ * @returns {@link CreateLifecyclePolicyCommandOutput}
  * @see {@link CreateLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link CreateLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
@@ -80,6 +217,9 @@ export class CreateLifecyclePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLifecyclePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +248,8 @@ export class CreateLifecyclePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLifecyclePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLifecyclePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +259,18 @@ export class CreateLifecyclePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLifecyclePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLifecyclePolicyCommand(input, context);
+    return se_CreateLifecyclePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLifecyclePolicyCommandOutput> {
-    return deserializeAws_restJson1CreateLifecyclePolicyCommand(output, context);
+    return de_CreateLifecyclePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

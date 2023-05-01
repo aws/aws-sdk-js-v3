@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  TestAuthorizationRequest,
-  TestAuthorizationRequestFilterSensitiveLog,
-  TestAuthorizationResponse,
-  TestAuthorizationResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1TestAuthorizationCommand,
-  serializeAws_restJson1TestAuthorizationCommand,
-} from "../protocols/Aws_restJson1";
+import { TestAuthorizationRequest, TestAuthorizationResponse } from "../models/models_2";
+import { de_TestAuthorizationCommand, se_TestAuthorizationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TestAuthorizationCommand}.
  */
 export interface TestAuthorizationCommandInput extends TestAuthorizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestAuthorizationCommand}.
  */
 export interface TestAuthorizationCommandOutput extends TestAuthorizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tests if a specified principal is authorized to perform an IoT action on a
  *          specified resource. Use this to test and debug the authorization behavior of devices that
  *          connect to the IoT device gateway.</p>
@@ -45,10 +42,31 @@ export interface TestAuthorizationCommandOutput extends TestAuthorizationRespons
  * import { IoTClient, TestAuthorizationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, TestAuthorizationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // TestAuthorizationRequest
+ *   principal: "STRING_VALUE",
+ *   cognitoIdentityPoolId: "STRING_VALUE",
+ *   authInfos: [ // AuthInfos // required
+ *     { // AuthInfo
+ *       actionType: "PUBLISH" || "SUBSCRIBE" || "RECEIVE" || "CONNECT",
+ *       resources: [ // Resources // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   clientId: "STRING_VALUE",
+ *   policyNamesToAdd: [ // PolicyNames
+ *     "STRING_VALUE",
+ *   ],
+ *   policyNamesToSkip: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new TestAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestAuthorizationCommandInput - {@link TestAuthorizationCommandInput}
+ * @returns {@link TestAuthorizationCommandOutput}
  * @see {@link TestAuthorizationCommandInput} for command's `input` shape.
  * @see {@link TestAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -93,6 +111,9 @@ export class TestAuthorizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestAuthorizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +142,8 @@ export class TestAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestAuthorizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestAuthorizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +153,18 @@ export class TestAuthorizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestAuthorizationCommand(input, context);
+    return se_TestAuthorizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestAuthorizationCommandOutput> {
-    return deserializeAws_restJson1TestAuthorizationCommand(output, context);
+    return de_TestAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

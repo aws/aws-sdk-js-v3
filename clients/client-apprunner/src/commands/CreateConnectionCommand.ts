@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  CreateConnectionRequest,
-  CreateConnectionRequestFilterSensitiveLog,
-  CreateConnectionResponse,
-  CreateConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateConnectionCommand,
-  serializeAws_json1_0CreateConnectionCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateConnectionRequest, CreateConnectionResponse } from "../models/models_0";
+import { de_CreateConnectionCommand, se_CreateConnectionCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectionCommand}.
  */
 export interface CreateConnectionCommandInput extends CreateConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectionCommand}.
  */
 export interface CreateConnectionCommandOutput extends CreateConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an App Runner connection resource. App Runner requires a connection resource when you create App Runner services that access private repositories from
  *       certain third-party providers. You can share a connection across multiple services.</p>
  *          <p>A connection resource is needed to access GitHub repositories. GitHub requires a user interface approval process through the App Runner console before you
@@ -45,10 +42,22 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * import { AppRunnerClient, CreateConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, CreateConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // CreateConnectionRequest
+ *   ConnectionName: "STRING_VALUE", // required
+ *   ProviderType: "GITHUB", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
+ * @returns {@link CreateConnectionCommandOutput}
  * @see {@link CreateConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
@@ -83,6 +92,9 @@ export class CreateConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +123,8 @@ export class CreateConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +134,18 @@ export class CreateConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateConnectionCommand(input, context);
+    return se_CreateConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectionCommandOutput> {
-    return deserializeAws_json1_0CreateConnectionCommand(output, context);
+    return de_CreateConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

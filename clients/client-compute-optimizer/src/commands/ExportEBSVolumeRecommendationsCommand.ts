@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { ExportEBSVolumeRecommendationsRequest, ExportEBSVolumeRecommendationsResponse } from "../models/models_0";
 import {
-  ExportEBSVolumeRecommendationsRequest,
-  ExportEBSVolumeRecommendationsRequestFilterSensitiveLog,
-  ExportEBSVolumeRecommendationsResponse,
-  ExportEBSVolumeRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ExportEBSVolumeRecommendationsCommand,
-  serializeAws_json1_0ExportEBSVolumeRecommendationsCommand,
+  de_ExportEBSVolumeRecommendationsCommand,
+  se_ExportEBSVolumeRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ExportEBSVolumeRecommendationsCommand}.
  */
 export interface ExportEBSVolumeRecommendationsCommandInput extends ExportEBSVolumeRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportEBSVolumeRecommendationsCommand}.
  */
 export interface ExportEBSVolumeRecommendationsCommandOutput
@@ -37,6 +36,7 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports optimization recommendations for Amazon EBS volumes.</p>
  *          <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
@@ -49,10 +49,34 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
  * import { ComputeOptimizerClient, ExportEBSVolumeRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, ExportEBSVolumeRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // ExportEBSVolumeRecommendationsRequest
+ *   accountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [ // EBSFilters
+ *     { // EBSFilter
+ *       name: "Finding",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   fieldsToExport: [ // ExportableVolumeFields
+ *     "AccountId" || "VolumeArn" || "Finding" || "UtilizationMetricsVolumeReadOpsPerSecondMaximum" || "UtilizationMetricsVolumeWriteOpsPerSecondMaximum" || "UtilizationMetricsVolumeReadBytesPerSecondMaximum" || "UtilizationMetricsVolumeWriteBytesPerSecondMaximum" || "LookbackPeriodInDays" || "CurrentConfigurationVolumeType" || "CurrentConfigurationVolumeBaselineIOPS" || "CurrentConfigurationVolumeBaselineThroughput" || "CurrentConfigurationVolumeBurstIOPS" || "CurrentConfigurationVolumeBurstThroughput" || "CurrentConfigurationVolumeSize" || "CurrentMonthlyPrice" || "RecommendationOptionsConfigurationVolumeType" || "RecommendationOptionsConfigurationVolumeBaselineIOPS" || "RecommendationOptionsConfigurationVolumeBaselineThroughput" || "RecommendationOptionsConfigurationVolumeBurstIOPS" || "RecommendationOptionsConfigurationVolumeBurstThroughput" || "RecommendationOptionsConfigurationVolumeSize" || "RecommendationOptionsMonthlyPrice" || "RecommendationOptionsPerformanceRisk" || "LastRefreshTimestamp" || "CurrentPerformanceRisk" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue" || "RootVolume" || "Tags",
+ *   ],
+ *   s3DestinationConfig: { // S3DestinationConfig
+ *     bucket: "STRING_VALUE",
+ *     keyPrefix: "STRING_VALUE",
+ *   },
+ *   fileFormat: "Csv",
+ *   includeMemberAccounts: true || false,
+ * };
  * const command = new ExportEBSVolumeRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportEBSVolumeRecommendationsCommandInput - {@link ExportEBSVolumeRecommendationsCommandInput}
+ * @returns {@link ExportEBSVolumeRecommendationsCommandOutput}
  * @see {@link ExportEBSVolumeRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportEBSVolumeRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -101,6 +125,9 @@ export class ExportEBSVolumeRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportEBSVolumeRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +156,8 @@ export class ExportEBSVolumeRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportEBSVolumeRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportEBSVolumeRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +167,24 @@ export class ExportEBSVolumeRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ExportEBSVolumeRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExportEBSVolumeRecommendationsCommand(input, context);
+    return se_ExportEBSVolumeRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportEBSVolumeRecommendationsCommandOutput> {
-    return deserializeAws_json1_0ExportEBSVolumeRecommendationsCommand(output, context);
+    return de_ExportEBSVolumeRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

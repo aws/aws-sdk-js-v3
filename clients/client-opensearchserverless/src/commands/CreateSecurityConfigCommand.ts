@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSecurityConfigRequest,
-  CreateSecurityConfigRequestFilterSensitiveLog,
-  CreateSecurityConfigResponse,
-  CreateSecurityConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSecurityConfigRequest, CreateSecurityConfigResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0CreateSecurityConfigCommand,
-  serializeAws_json1_0CreateSecurityConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateSecurityConfigCommand, se_CreateSecurityConfigCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSecurityConfigCommand}.
  */
 export interface CreateSecurityConfigCommandInput extends CreateSecurityConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSecurityConfigCommand}.
  */
 export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies a security configuration for OpenSearch Serverless. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>. </p>
@@ -48,21 +45,38 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  * import { OpenSearchServerlessClient, CreateSecurityConfigCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateSecurityConfigCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // CreateSecurityConfigRequest
+ *   type: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   samlOptions: { // SamlConfigOptions
+ *     metadata: "STRING_VALUE", // required
+ *     userAttribute: "STRING_VALUE",
+ *     groupAttribute: "STRING_VALUE",
+ *     sessionTimeout: Number("int"),
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateSecurityConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSecurityConfigCommandInput - {@link CreateSecurityConfigCommandInput}
+ * @returns {@link CreateSecurityConfigCommandOutput}
  * @see {@link CreateSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a collection, thrown when a collection with the same name already exists
- *             or is being created. When deleting a collection, thrown when the collection is not in
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
  *             the ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
@@ -87,6 +101,9 @@ export class CreateSecurityConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSecurityConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +132,8 @@ export class CreateSecurityConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSecurityConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSecurityConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +143,18 @@ export class CreateSecurityConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSecurityConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateSecurityConfigCommand(input, context);
+    return se_CreateSecurityConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecurityConfigCommandOutput> {
-    return deserializeAws_json1_0CreateSecurityConfigCommand(output, context);
+    return de_CreateSecurityConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

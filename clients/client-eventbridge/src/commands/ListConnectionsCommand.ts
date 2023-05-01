@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  ListConnectionsRequest,
-  ListConnectionsRequestFilterSensitiveLog,
-  ListConnectionsResponse,
-  ListConnectionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListConnectionsCommand,
-  serializeAws_json1_1ListConnectionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListConnectionsRequest, ListConnectionsResponse } from "../models/models_0";
+import { de_ListConnectionsCommand, se_ListConnectionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConnectionsCommand}.
  */
 export interface ListConnectionsCommandInput extends ListConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConnectionsCommand}.
  */
 export interface ListConnectionsCommandOutput extends ListConnectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of connections from the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * import { EventBridgeClient, ListConnectionsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListConnectionsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // ListConnectionsRequest
+ *   NamePrefix: "STRING_VALUE",
+ *   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
+ * @returns {@link ListConnectionsCommandOutput}
  * @see {@link ListConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -72,6 +77,9 @@ export class ListConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +108,8 @@ export class ListConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConnectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +119,18 @@ export class ListConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListConnectionsCommand(input, context);
+    return se_ListConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectionsCommandOutput> {
-    return deserializeAws_json1_1ListConnectionsCommand(output, context);
+    return de_ListConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

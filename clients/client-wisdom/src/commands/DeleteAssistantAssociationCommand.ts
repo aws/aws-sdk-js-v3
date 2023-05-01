@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAssistantAssociationRequest,
-  DeleteAssistantAssociationRequestFilterSensitiveLog,
-  DeleteAssistantAssociationResponse,
-  DeleteAssistantAssociationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAssistantAssociationCommand,
-  serializeAws_restJson1DeleteAssistantAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAssistantAssociationRequest, DeleteAssistantAssociationResponse } from "../models/models_0";
+import { de_DeleteAssistantAssociationCommand, se_DeleteAssistantAssociationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAssistantAssociationCommand}.
  */
 export interface DeleteAssistantAssociationCommandInput extends DeleteAssistantAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAssistantAssociationCommand}.
  */
 export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistantAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an assistant association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistant
  * import { WisdomClient, DeleteAssistantAssociationCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, DeleteAssistantAssociationCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // DeleteAssistantAssociationRequest
+ *   assistantAssociationId: "STRING_VALUE", // required
+ *   assistantId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAssistantAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAssistantAssociationCommandInput - {@link DeleteAssistantAssociationCommandInput}
+ * @returns {@link DeleteAssistantAssociationCommandOutput}
  * @see {@link DeleteAssistantAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteAssistantAssociationCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +81,9 @@ export class DeleteAssistantAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssistantAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class DeleteAssistantAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssistantAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAssistantAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +123,21 @@ export class DeleteAssistantAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssistantAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAssistantAssociationCommand(input, context);
+    return se_DeleteAssistantAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAssistantAssociationCommandOutput> {
-    return deserializeAws_restJson1DeleteAssistantAssociationCommand(output, context);
+    return de_DeleteAssistantAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

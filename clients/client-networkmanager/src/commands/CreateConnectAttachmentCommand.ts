@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateConnectAttachmentRequest,
-  CreateConnectAttachmentRequestFilterSensitiveLog,
-  CreateConnectAttachmentResponse,
-  CreateConnectAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateConnectAttachmentRequest, CreateConnectAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1CreateConnectAttachmentCommand,
-  serializeAws_restJson1CreateConnectAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateConnectAttachmentCommand, se_CreateConnectAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectAttachmentCommand}.
  */
 export interface CreateConnectAttachmentCommandInput extends CreateConnectAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectAttachmentCommand}.
  */
 export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttachmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a core network Connect attachment from a specified core network attachment. </p>
  *          <p>A core network Connect attachment is a GRE-based tunnel attachment that you can use to
  *          establish a connection between a core network and an appliance. A core network Connect
@@ -45,10 +42,27 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  * import { NetworkManagerClient, CreateConnectAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateConnectAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // CreateConnectAttachmentRequest
+ *   CoreNetworkId: "STRING_VALUE", // required
+ *   EdgeLocation: "STRING_VALUE", // required
+ *   TransportAttachmentId: "STRING_VALUE", // required
+ *   Options: { // ConnectAttachmentOptions
+ *     Protocol: "GRE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateConnectAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectAttachmentCommandInput - {@link CreateConnectAttachmentCommandInput}
+ * @returns {@link CreateConnectAttachmentCommandOutput}
  * @see {@link CreateConnectAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateConnectAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +105,9 @@ export class CreateConnectAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +136,8 @@ export class CreateConnectAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +147,18 @@ export class CreateConnectAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConnectAttachmentCommand(input, context);
+    return se_CreateConnectAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectAttachmentCommandOutput> {
-    return deserializeAws_restJson1CreateConnectAttachmentCommand(output, context);
+    return de_CreateConnectAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

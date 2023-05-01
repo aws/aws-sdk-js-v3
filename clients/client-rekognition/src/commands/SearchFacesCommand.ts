@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchFacesRequest,
-  SearchFacesRequestFilterSensitiveLog,
-  SearchFacesResponse,
-  SearchFacesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchFacesCommand,
-  serializeAws_json1_1SearchFacesCommand,
-} from "../protocols/Aws_json1_1";
+import { SearchFacesRequest, SearchFacesResponse } from "../models/models_0";
+import { de_SearchFacesCommand, se_SearchFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchFacesCommand}.
  */
 export interface SearchFacesCommandInput extends SearchFacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchFacesCommand}.
  */
 export interface SearchFacesCommandOutput extends SearchFacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For a given input face ID, searches for matching faces in the collection the face
  *       belongs to. You get a face ID when you add a face to the collection using the <a>IndexFaces</a> operation. The operation compares the features of the input face with
  *       faces in the specified collection. </p>
@@ -57,10 +54,18 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  * import { RekognitionClient, SearchFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, SearchFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // SearchFacesRequest
+ *   CollectionId: "STRING_VALUE", // required
+ *   FaceId: "STRING_VALUE", // required
+ *   MaxFaces: Number("int"),
+ *   FaceMatchThreshold: Number("float"),
+ * };
  * const command = new SearchFacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchFacesCommandInput - {@link SearchFacesCommandInput}
+ * @returns {@link SearchFacesCommandOutput}
  * @see {@link SearchFacesCommandInput} for command's `input` shape.
  * @see {@link SearchFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -167,6 +172,9 @@ export class SearchFacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchFacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -193,8 +201,8 @@ export class SearchFacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchFacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchFacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -204,12 +212,18 @@ export class SearchFacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchFacesCommand(input, context);
+    return se_SearchFacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFacesCommandOutput> {
-    return deserializeAws_json1_1SearchFacesCommand(output, context);
+    return de_SearchFacesCommand(output, context);
   }
 
   // Start section: command_body_extra

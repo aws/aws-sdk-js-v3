@@ -9,15 +9,12 @@
 
 AWS SDK for JavaScript Chime Client for Node.js, Browser and React Native.
 
-<p>The Amazon Chime API (application programming interface) is designed for developers to
+<p>The Amazon Chime application programming interface (API) is designed so administrators can
 perform key tasks, such as creating and managing Amazon Chime accounts, users, and Voice
 Connectors. This guide provides detailed information about the Amazon Chime API,
-including operations, types, inputs and outputs, and error codes. It also includes API actions for use with the Amazon Chime SDK, which developers use to build their own communication applications. For more information about the
-Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">
-Using the Amazon Chime SDK
-</a> in the <i>Amazon Chime Developer Guide</i>.</p>
-<p>You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST API to make API calls. We recommend using an AWS SDK or the
-AWS CLI. Each API operation includes links to information about using it with a language-specific AWS SDK or the AWS CLI.</p>
+including operations, types, inputs and outputs, and error codes.</p>
+<p>You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST API to make API calls for Amazon Chime. We recommend using an AWS SDK or the
+AWS CLI. The page for each API action contains a <i>See Also</i> section that includes links to information about using the action with a language-specific AWS SDK or the AWS CLI.</p>
 <dl>
 <dt>Using an AWS SDK</dt>
 <dd>
@@ -37,14 +34,12 @@ in the <i>AWS Command Line Interface User Guide</i>. For a list of available Ama
 </dd>
 <dt>Using REST APIs</dt>
 <dd>
-<p>If you use REST to make API calls, you must authenticate your request by providing a signature. Amazon Chime supports signature version 4. For more information, see
+<p>If you use REST to make API calls, you must authenticate your request by providing a signature. Amazon Chime supports Signature Version 4. For more information, see
 <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>
 in the <i>Amazon Web Services General Reference</i>.</p>
-
 <p>When making REST API calls, use the service name <code>chime</code> and REST endpoint <code>https://service.chime.aws.amazon.com</code>.</p>
 </dd>
 </dl>
-
 <p>Administrative permissions are controlled using AWS Identity and Access Management (IAM). For more information, see
 <a href="https://docs.aws.amazon.com/chime/latest/ag/security-iam.html">Identity and Access Management for Amazon Chime</a>
 in the <i>Amazon Chime Administration Guide</i>.</p>

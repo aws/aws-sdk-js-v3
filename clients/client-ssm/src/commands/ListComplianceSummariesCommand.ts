@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListComplianceSummariesRequest,
-  ListComplianceSummariesRequestFilterSensitiveLog,
-  ListComplianceSummariesResult,
-  ListComplianceSummariesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListComplianceSummariesCommand,
-  serializeAws_json1_1ListComplianceSummariesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListComplianceSummariesRequest, ListComplianceSummariesResult } from "../models/models_1";
+import { de_ListComplianceSummariesCommand, se_ListComplianceSummariesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListComplianceSummariesCommand}.
  */
 export interface ListComplianceSummariesCommandInput extends ListComplianceSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListComplianceSummariesCommand}.
  */
 export interface ListComplianceSummariesCommandOutput extends ListComplianceSummariesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a summary count of compliant and non-compliant resources for a compliance type. For
  *    example, this call can return State Manager associations, patches, or custom compliance types
  *    according to the filter criteria that you specify.</p>
@@ -44,10 +41,25 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  * import { SSMClient, ListComplianceSummariesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListComplianceSummariesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListComplianceSummariesRequest
+ *   Filters: [ // ComplianceStringFilterList
+ *     { // ComplianceStringFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // ComplianceStringFilterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *       Type: "EQUAL" || "NOT_EQUAL" || "BEGIN_WITH" || "LESS_THAN" || "GREATER_THAN",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListComplianceSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComplianceSummariesCommandInput - {@link ListComplianceSummariesCommandInput}
+ * @returns {@link ListComplianceSummariesCommandOutput}
  * @see {@link ListComplianceSummariesCommandInput} for command's `input` shape.
  * @see {@link ListComplianceSummariesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -80,6 +92,9 @@ export class ListComplianceSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComplianceSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +123,8 @@ export class ListComplianceSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComplianceSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListComplianceSummariesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +134,18 @@ export class ListComplianceSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComplianceSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListComplianceSummariesCommand(input, context);
+    return se_ListComplianceSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComplianceSummariesCommandOutput> {
-    return deserializeAws_json1_1ListComplianceSummariesCommand(output, context);
+    return de_ListComplianceSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

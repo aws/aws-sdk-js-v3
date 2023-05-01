@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSolutionRequest,
-  DescribeSolutionRequestFilterSensitiveLog,
-  DescribeSolutionResponse,
-  DescribeSolutionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSolutionRequest, DescribeSolutionResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeSolutionCommand,
-  serializeAws_json1_1DescribeSolutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSolutionCommand, se_DescribeSolutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSolutionCommand}.
  */
 export interface DescribeSolutionCommandInput extends DescribeSolutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSolutionCommand}.
  */
 export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a solution.
  *       For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * import { PersonalizeClient, DescribeSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeSolutionRequest
+ *   solutionArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSolutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSolutionCommandInput - {@link DescribeSolutionCommandInput}
+ * @returns {@link DescribeSolutionCommandOutput}
  * @see {@link DescribeSolutionCommandInput} for command's `input` shape.
  * @see {@link DescribeSolutionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +78,9 @@ export class DescribeSolutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSolutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class DescribeSolutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSolutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSolutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class DescribeSolutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSolutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSolutionCommand(input, context);
+    return se_DescribeSolutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSolutionCommandOutput> {
-    return deserializeAws_json1_1DescribeSolutionCommand(output, context);
+    return de_DescribeSolutionCommand(output, context);
   }
 
   // Start section: command_body_extra

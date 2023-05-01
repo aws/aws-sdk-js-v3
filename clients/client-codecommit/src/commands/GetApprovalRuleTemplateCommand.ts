@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetApprovalRuleTemplateInput,
-  GetApprovalRuleTemplateInputFilterSensitiveLog,
-  GetApprovalRuleTemplateOutput,
-  GetApprovalRuleTemplateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetApprovalRuleTemplateCommand,
-  serializeAws_json1_1GetApprovalRuleTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { GetApprovalRuleTemplateInput, GetApprovalRuleTemplateOutput } from "../models/models_0";
+import { de_GetApprovalRuleTemplateCommand, se_GetApprovalRuleTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApprovalRuleTemplateCommand}.
  */
 export interface GetApprovalRuleTemplateCommandInput extends GetApprovalRuleTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link GetApprovalRuleTemplateCommand}.
  */
 export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specified approval rule template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTem
  * import { CodeCommitClient, GetApprovalRuleTemplateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetApprovalRuleTemplateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetApprovalRuleTemplateInput
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ * };
  * const command = new GetApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApprovalRuleTemplateCommandInput - {@link GetApprovalRuleTemplateCommandInput}
+ * @returns {@link GetApprovalRuleTemplateCommandOutput}
  * @see {@link GetApprovalRuleTemplateCommandInput} for command's `input` shape.
  * @see {@link GetApprovalRuleTemplateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetApprovalRuleTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApprovalRuleTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetApprovalRuleTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApprovalRuleTemplateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApprovalRuleTemplateOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetApprovalRuleTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApprovalRuleTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetApprovalRuleTemplateCommand(input, context);
+    return se_GetApprovalRuleTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApprovalRuleTemplateCommandOutput> {
-    return deserializeAws_json1_1GetApprovalRuleTemplateCommand(output, context);
+    return de_GetApprovalRuleTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

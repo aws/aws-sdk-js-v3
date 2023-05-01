@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  CreateMultiplexRequest,
-  CreateMultiplexRequestFilterSensitiveLog,
-  CreateMultiplexResponse,
-  CreateMultiplexResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateMultiplexCommand,
-  serializeAws_restJson1CreateMultiplexCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMultiplexRequest, CreateMultiplexResponse } from "../models/models_1";
+import { de_CreateMultiplexCommand, se_CreateMultiplexCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMultiplexCommand}.
  */
 export interface CreateMultiplexCommandInput extends CreateMultiplexRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMultiplexCommand}.
  */
 export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Create a new multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, _
  * import { MediaLiveClient, CreateMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // CreateMultiplexRequest
+ *   AvailabilityZones: [ // __listOf__string // required
+ *     "STRING_VALUE",
+ *   ],
+ *   MultiplexSettings: { // MultiplexSettings
+ *     MaximumVideoBufferDelayMilliseconds: Number("int"),
+ *     TransportStreamBitrate: Number("int"), // required
+ *     TransportStreamId: Number("int"), // required
+ *     TransportStreamReservedBitrate: Number("int"),
+ *   },
+ *   Name: "STRING_VALUE", // required
+ *   RequestId: "STRING_VALUE", // required
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateMultiplexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMultiplexCommandInput - {@link CreateMultiplexCommandInput}
+ * @returns {@link CreateMultiplexCommandOutput}
  * @see {@link CreateMultiplexCommandInput} for command's `input` shape.
  * @see {@link CreateMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +108,9 @@ export class CreateMultiplexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMultiplexCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +139,8 @@ export class CreateMultiplexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMultiplexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMultiplexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +150,18 @@ export class CreateMultiplexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMultiplexCommand(input, context);
+    return se_CreateMultiplexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMultiplexCommandOutput> {
-    return deserializeAws_restJson1CreateMultiplexCommand(output, context);
+    return de_CreateMultiplexCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutDedicatedIpInPoolRequest,
-  PutDedicatedIpInPoolRequestFilterSensitiveLog,
-  PutDedicatedIpInPoolResponse,
-  PutDedicatedIpInPoolResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1PutDedicatedIpInPoolCommand,
-  serializeAws_restJson1PutDedicatedIpInPoolCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutDedicatedIpInPoolCommand, se_PutDedicatedIpInPoolCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDedicatedIpInPoolCommand}.
  */
 export interface PutDedicatedIpInPoolCommandInput extends PutDedicatedIpInPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDedicatedIpInPoolCommand}.
  */
 export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Move a dedicated IP address to an existing dedicated IP pool.</p>
  *         <note>
  *             <p>The dedicated IP address that you specify must already exist, and must be
@@ -51,10 +48,16 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  * import { PinpointEmailClient, PutDedicatedIpInPoolCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutDedicatedIpInPoolCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // PutDedicatedIpInPoolRequest
+ *   Ip: "STRING_VALUE", // required
+ *   DestinationPoolName: "STRING_VALUE", // required
+ * };
  * const command = new PutDedicatedIpInPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDedicatedIpInPoolCommandInput - {@link PutDedicatedIpInPoolCommandInput}
+ * @returns {@link PutDedicatedIpInPoolCommandOutput}
  * @see {@link PutDedicatedIpInPoolCommandInput} for command's `input` shape.
  * @see {@link PutDedicatedIpInPoolCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -87,6 +90,9 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDedicatedIpInPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class PutDedicatedIpInPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDedicatedIpInPoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDedicatedIpInPoolResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDedicatedIpInPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDedicatedIpInPoolCommand(input, context);
+    return se_PutDedicatedIpInPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDedicatedIpInPoolCommandOutput> {
-    return deserializeAws_restJson1PutDedicatedIpInPoolCommand(output, context);
+    return de_PutDedicatedIpInPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

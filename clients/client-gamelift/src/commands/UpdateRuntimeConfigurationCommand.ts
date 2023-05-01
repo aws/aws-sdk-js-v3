@@ -14,35 +14,32 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateRuntimeConfigurationInput,
-  UpdateRuntimeConfigurationInputFilterSensitiveLog,
-  UpdateRuntimeConfigurationOutput,
-  UpdateRuntimeConfigurationOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateRuntimeConfigurationCommand,
-  serializeAws_json1_1UpdateRuntimeConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateRuntimeConfigurationInput, UpdateRuntimeConfigurationOutput } from "../models/models_1";
+import { de_UpdateRuntimeConfigurationCommand, se_UpdateRuntimeConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRuntimeConfigurationCommand}.
  */
 export interface UpdateRuntimeConfigurationCommandInput extends UpdateRuntimeConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRuntimeConfigurationCommand}.
  */
 export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the current runtime configuration for the specified fleet, which tells GameLift
+ * @public
+ * <p>Updates the current runtime configuration for the specified fleet, which tells Amazon GameLift
  *             how to launch server processes on all instances in the fleet. You can update a fleet's
  *             runtime configuration at any time after the fleet is created; it does not need to be in
  *                 <code>ACTIVE</code> status.</p>
- *         <p>To update runtime configuration, specify the fleet ID and provide a
+ *          <p>To update runtime configuration, specify the fleet ID and provide a
  *                 <code>RuntimeConfiguration</code> with an updated set of server process
  *             configurations.</p>
- *         <p>If successful, the fleet's runtime configuration settings are updated. Each instance
+ *          <p>If successful, the fleet's runtime configuration settings are updated. Each instance
  *             in the fleet regularly checks for and retrieves updated runtime configurations.
  *             Instances immediately begin complying with the new configuration by launching new server
  *             processes or not replacing existing processes when they shut down. Updating a fleet's
@@ -50,8 +47,8 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  *          <p>
  *             <b>Learn more</b>
  *          </p>
- *                 <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example
@@ -60,10 +57,26 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  * import { GameLiftClient, UpdateRuntimeConfigurationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateRuntimeConfigurationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // UpdateRuntimeConfigurationInput
+ *   FleetId: "STRING_VALUE", // required
+ *   RuntimeConfiguration: { // RuntimeConfiguration
+ *     ServerProcesses: [ // ServerProcessList
+ *       { // ServerProcess
+ *         LaunchPath: "STRING_VALUE", // required
+ *         Parameters: "STRING_VALUE",
+ *         ConcurrentExecutions: Number("int"), // required
+ *       },
+ *     ],
+ *     MaxConcurrentGameSessionActivations: Number("int"),
+ *     GameSessionActivationTimeoutSeconds: Number("int"),
+ *   },
+ * };
  * const command = new UpdateRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRuntimeConfigurationCommandInput - {@link UpdateRuntimeConfigurationCommandInput}
+ * @returns {@link UpdateRuntimeConfigurationCommandOutput}
  * @see {@link UpdateRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -106,6 +119,9 @@ export class UpdateRuntimeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRuntimeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +150,8 @@ export class UpdateRuntimeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRuntimeConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRuntimeConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,15 +161,21 @@ export class UpdateRuntimeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRuntimeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRuntimeConfigurationCommand(input, context);
+    return se_UpdateRuntimeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRuntimeConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateRuntimeConfigurationCommand(output, context);
+    return de_UpdateRuntimeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

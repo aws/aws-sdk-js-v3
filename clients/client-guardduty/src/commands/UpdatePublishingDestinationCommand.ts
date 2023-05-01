@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { UpdatePublishingDestinationRequest, UpdatePublishingDestinationResponse } from "../models/models_1";
 import {
-  UpdatePublishingDestinationRequest,
-  UpdatePublishingDestinationRequestFilterSensitiveLog,
-  UpdatePublishingDestinationResponse,
-  UpdatePublishingDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePublishingDestinationCommand,
-  serializeAws_restJson1UpdatePublishingDestinationCommand,
+  de_UpdatePublishingDestinationCommand,
+  se_UpdatePublishingDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePublishingDestinationCommand}.
  */
 export interface UpdatePublishingDestinationCommandInput extends UpdatePublishingDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePublishingDestinationCommand}.
  */
 export interface UpdatePublishingDestinationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdatePublishingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about the publishing destination specified by the
  *         <code>destinationId</code>.</p>
  * @example
@@ -45,10 +45,20 @@ export interface UpdatePublishingDestinationCommandOutput
  * import { GuardDutyClient, UpdatePublishingDestinationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdatePublishingDestinationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // UpdatePublishingDestinationRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   DestinationId: "STRING_VALUE", // required
+ *   DestinationProperties: { // DestinationProperties
+ *     DestinationArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdatePublishingDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePublishingDestinationCommandInput - {@link UpdatePublishingDestinationCommandInput}
+ * @returns {@link UpdatePublishingDestinationCommandOutput}
  * @see {@link UpdatePublishingDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdatePublishingDestinationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -78,6 +88,9 @@ export class UpdatePublishingDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePublishingDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +119,8 @@ export class UpdatePublishingDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePublishingDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePublishingDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +130,21 @@ export class UpdatePublishingDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePublishingDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePublishingDestinationCommand(input, context);
+    return se_UpdatePublishingDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePublishingDestinationCommandOutput> {
-    return deserializeAws_restJson1UpdatePublishingDestinationCommand(output, context);
+    return de_UpdatePublishingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

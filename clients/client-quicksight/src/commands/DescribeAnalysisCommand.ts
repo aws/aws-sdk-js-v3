@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAnalysisRequest,
-  DescribeAnalysisRequestFilterSensitiveLog,
-  DescribeAnalysisResponse,
-  DescribeAnalysisResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeAnalysisCommand,
-  serializeAws_restJson1DescribeAnalysisCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAnalysisRequest, DescribeAnalysisResponse } from "../models/models_2";
+import { de_DescribeAnalysisCommand, se_DescribeAnalysisCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAnalysisCommand}.
  */
 export interface DescribeAnalysisCommandInput extends DescribeAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAnalysisCommand}.
  */
 export interface DescribeAnalysisCommandOutput extends DescribeAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a summary of the metadata for an analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeAnalysisCommandOutput extends DescribeAnalysisResponse,
  * import { QuickSightClient, DescribeAnalysisCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAnalysisCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeAnalysisRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   AnalysisId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAnalysisCommandInput - {@link DescribeAnalysisCommandInput}
+ * @returns {@link DescribeAnalysisCommandOutput}
  * @see {@link DescribeAnalysisCommandInput} for command's `input` shape.
  * @see {@link DescribeAnalysisCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +96,9 @@ export class DescribeAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DescribeAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class DescribeAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAnalysisCommand(input, context);
+    return se_DescribeAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnalysisCommandOutput> {
-    return deserializeAws_restJson1DescribeAnalysisCommand(output, context);
+    return de_DescribeAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

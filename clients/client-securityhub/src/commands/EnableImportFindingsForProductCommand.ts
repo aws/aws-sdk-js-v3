@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { EnableImportFindingsForProductRequest, EnableImportFindingsForProductResponse } from "../models/models_2";
 import {
-  EnableImportFindingsForProductRequest,
-  EnableImportFindingsForProductRequestFilterSensitiveLog,
-  EnableImportFindingsForProductResponse,
-  EnableImportFindingsForProductResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1EnableImportFindingsForProductCommand,
-  serializeAws_restJson1EnableImportFindingsForProductCommand,
+  de_EnableImportFindingsForProductCommand,
+  se_EnableImportFindingsForProductCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableImportFindingsForProductCommand}.
  */
 export interface EnableImportFindingsForProductCommandInput extends EnableImportFindingsForProductRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableImportFindingsForProductCommand}.
  */
 export interface EnableImportFindingsForProductCommandOutput
@@ -37,6 +36,7 @@ export interface EnableImportFindingsForProductCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the integration of a partner product with Security Hub. Integrated products send
  *          findings to Security Hub.</p>
  *          <p>When you enable a product integration, a permissions policy that grants permission for
@@ -47,10 +47,15 @@ export interface EnableImportFindingsForProductCommandOutput
  * import { SecurityHubClient, EnableImportFindingsForProductCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, EnableImportFindingsForProductCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // EnableImportFindingsForProductRequest
+ *   ProductArn: "STRING_VALUE", // required
+ * };
  * const command = new EnableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableImportFindingsForProductCommandInput - {@link EnableImportFindingsForProductCommandInput}
+ * @returns {@link EnableImportFindingsForProductCommandOutput}
  * @see {@link EnableImportFindingsForProductCommandInput} for command's `input` shape.
  * @see {@link EnableImportFindingsForProductCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -73,6 +78,22 @@ export interface EnableImportFindingsForProductCommandOutput
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
  *
+ * @example To activate an integration
+ * ```javascript
+ * // The following example activates an integration between Security Hub and a third party partner product that sends findings to Security Hub.
+ * const input = {
+ *   "ProductArn": "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
+ * };
+ * const command = new EnableImportFindingsForProductCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ProductSubscriptionArn": "arn:aws:securityhub:us-east-1:517716713836:product-subscription/crowdstrike/crowdstrike-falcon"
+ * }
+ * *\/
+ * // example id: to-activate-an-integration-1676918918114
+ * ```
+ *
  */
 export class EnableImportFindingsForProductCommand extends $Command<
   EnableImportFindingsForProductCommandInput,
@@ -91,6 +112,9 @@ export class EnableImportFindingsForProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableImportFindingsForProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +143,8 @@ export class EnableImportFindingsForProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableImportFindingsForProductRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableImportFindingsForProductResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +154,24 @@ export class EnableImportFindingsForProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableImportFindingsForProductCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableImportFindingsForProductCommand(input, context);
+    return se_EnableImportFindingsForProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableImportFindingsForProductCommandOutput> {
-    return deserializeAws_restJson1EnableImportFindingsForProductCommand(output, context);
+    return de_EnableImportFindingsForProductCommand(output, context);
   }
 
   // Start section: command_body_extra

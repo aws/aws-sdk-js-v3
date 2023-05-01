@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  CreateBulkImportJobRequest,
-  CreateBulkImportJobRequestFilterSensitiveLog,
-  CreateBulkImportJobResponse,
-  CreateBulkImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBulkImportJobCommand,
-  serializeAws_restJson1CreateBulkImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateBulkImportJobRequest, CreateBulkImportJobResponse } from "../models/models_0";
+import { de_CreateBulkImportJobCommand, se_CreateBulkImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBulkImportJobCommand}.
  */
 export interface CreateBulkImportJobCommandInput extends CreateBulkImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBulkImportJobCommand}.
  */
 export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a
  *         bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          <important>
@@ -47,10 +44,36 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * import { IoTSiteWiseClient, CreateBulkImportJobCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateBulkImportJobCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // CreateBulkImportJobRequest
+ *   jobName: "STRING_VALUE", // required
+ *   jobRoleArn: "STRING_VALUE", // required
+ *   files: [ // Files // required
+ *     { // File
+ *       bucket: "STRING_VALUE", // required
+ *       key: "STRING_VALUE", // required
+ *       versionId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   errorReportLocation: { // ErrorReportLocation
+ *     bucket: "STRING_VALUE", // required
+ *     prefix: "STRING_VALUE", // required
+ *   },
+ *   jobConfiguration: { // JobConfiguration
+ *     fileFormat: { // FileFormat
+ *       csv: { // Csv
+ *         columnNames: [ // ColumnNames
+ *           "ALIAS" || "ASSET_ID" || "PROPERTY_ID" || "DATA_TYPE" || "TIMESTAMP_SECONDS" || "TIMESTAMP_NANO_OFFSET" || "QUALITY" || "VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreateBulkImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBulkImportJobCommandInput - {@link CreateBulkImportJobCommandInput}
+ * @returns {@link CreateBulkImportJobCommandOutput}
  * @see {@link CreateBulkImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateBulkImportJobCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -103,6 +126,9 @@ export class CreateBulkImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBulkImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +157,8 @@ export class CreateBulkImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBulkImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBulkImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +168,18 @@ export class CreateBulkImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBulkImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBulkImportJobCommand(input, context);
+    return se_CreateBulkImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBulkImportJobCommandOutput> {
-    return deserializeAws_restJson1CreateBulkImportJobCommand(output, context);
+    return de_CreateBulkImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

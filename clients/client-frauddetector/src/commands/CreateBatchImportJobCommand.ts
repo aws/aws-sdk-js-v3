@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  CreateBatchImportJobRequest,
-  CreateBatchImportJobRequestFilterSensitiveLog,
-  CreateBatchImportJobResult,
-  CreateBatchImportJobResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBatchImportJobCommand,
-  serializeAws_json1_1CreateBatchImportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateBatchImportJobRequest, CreateBatchImportJobResult } from "../models/models_0";
+import { de_CreateBatchImportJobCommand, se_CreateBatchImportJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBatchImportJobCommand}.
  */
 export interface CreateBatchImportJobCommandInput extends CreateBatchImportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBatchImportJobCommand}.
  */
 export interface CreateBatchImportJobCommandOutput extends CreateBatchImportJobResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a batch import job. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface CreateBatchImportJobCommandOutput extends CreateBatchImportJobR
  * import { FraudDetectorClient, CreateBatchImportJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateBatchImportJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // CreateBatchImportJobRequest
+ *   jobId: "STRING_VALUE", // required
+ *   inputPath: "STRING_VALUE", // required
+ *   outputPath: "STRING_VALUE", // required
+ *   eventTypeName: "STRING_VALUE", // required
+ *   iamRoleArn: "STRING_VALUE", // required
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBatchImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBatchImportJobCommandInput - {@link CreateBatchImportJobCommandInput}
+ * @returns {@link CreateBatchImportJobCommandOutput}
  * @see {@link CreateBatchImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateBatchImportJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -84,6 +96,9 @@ export class CreateBatchImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBatchImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +127,8 @@ export class CreateBatchImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBatchImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBatchImportJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +138,18 @@ export class CreateBatchImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBatchImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBatchImportJobCommand(input, context);
+    return se_CreateBatchImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchImportJobCommandOutput> {
-    return deserializeAws_json1_1CreateBatchImportJobCommand(output, context);
+    return de_CreateBatchImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

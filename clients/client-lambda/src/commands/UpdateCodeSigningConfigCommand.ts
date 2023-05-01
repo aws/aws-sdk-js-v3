@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  UpdateCodeSigningConfigRequest,
-  UpdateCodeSigningConfigRequestFilterSensitiveLog,
-  UpdateCodeSigningConfigResponse,
-  UpdateCodeSigningConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateCodeSigningConfigCommand,
-  serializeAws_restJson1UpdateCodeSigningConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateCodeSigningConfigRequest, UpdateCodeSigningConfigResponse } from "../models/models_0";
+import { de_UpdateCodeSigningConfigCommand, se_UpdateCodeSigningConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCodeSigningConfigCommand}.
  */
 export interface UpdateCodeSigningConfigCommandInput extends UpdateCodeSigningConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCodeSigningConfigCommand}.
  */
 export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a
  *       user tries to deploy a code package to the function. </p>
  * @example
@@ -43,10 +40,24 @@ export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningC
  * import { LambdaClient, UpdateCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // UpdateCodeSigningConfigRequest
+ *   CodeSigningConfigArn: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AllowedPublishers: { // AllowedPublishers
+ *     SigningProfileVersionArns: [ // SigningProfileVersionArns // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   CodeSigningPolicies: { // CodeSigningPolicies
+ *     UntrustedArtifactOnDeployment: "Warn" || "Enforce",
+ *   },
+ * };
  * const command = new UpdateCodeSigningConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCodeSigningConfigCommandInput - {@link UpdateCodeSigningConfigCommandInput}
+ * @returns {@link UpdateCodeSigningConfigCommandOutput}
  * @see {@link UpdateCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -79,6 +90,9 @@ export class UpdateCodeSigningConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCodeSigningConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +121,8 @@ export class UpdateCodeSigningConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCodeSigningConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCodeSigningConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +132,18 @@ export class UpdateCodeSigningConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCodeSigningConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCodeSigningConfigCommand(input, context);
+    return se_UpdateCodeSigningConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCodeSigningConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateCodeSigningConfigCommand(output, context);
+    return de_UpdateCodeSigningConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

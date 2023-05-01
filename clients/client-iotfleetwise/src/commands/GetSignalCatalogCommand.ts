@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetSignalCatalogRequest,
-  GetSignalCatalogRequestFilterSensitiveLog,
-  GetSignalCatalogResponse,
-  GetSignalCatalogResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetSignalCatalogCommand,
-  serializeAws_json1_0GetSignalCatalogCommand,
-} from "../protocols/Aws_json1_0";
+import { GetSignalCatalogRequest, GetSignalCatalogResponse } from "../models/models_0";
+import { de_GetSignalCatalogCommand, se_GetSignalCatalogCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetSignalCatalogCommand}.
  */
 export interface GetSignalCatalogCommandInput extends GetSignalCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSignalCatalogCommand}.
  */
 export interface GetSignalCatalogCommandOutput extends GetSignalCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about a signal catalog. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetSignalCatalogCommandOutput extends GetSignalCatalogResponse,
  * import { IoTFleetWiseClient, GetSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // GetSignalCatalogRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetSignalCatalogCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSignalCatalogCommandInput - {@link GetSignalCatalogCommandInput}
+ * @returns {@link GetSignalCatalogCommandOutput}
  * @see {@link GetSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link GetSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetSignalCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSignalCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetSignalCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSignalCatalogRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSignalCatalogResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetSignalCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSignalCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetSignalCatalogCommand(input, context);
+    return se_GetSignalCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSignalCatalogCommandOutput> {
-    return deserializeAws_json1_0GetSignalCatalogCommand(output, context);
+    return de_GetSignalCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

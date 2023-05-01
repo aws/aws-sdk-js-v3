@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  UpdateRecipeRequest,
-  UpdateRecipeRequestFilterSensitiveLog,
-  UpdateRecipeResponse,
-  UpdateRecipeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRecipeCommand,
-  serializeAws_restJson1UpdateRecipeCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRecipeRequest, UpdateRecipeResponse } from "../models/models_0";
+import { de_UpdateRecipeCommand, se_UpdateRecipeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRecipeCommand}.
  */
 export interface UpdateRecipeCommandInput extends UpdateRecipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRecipeCommand}.
  */
 export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the definition of the <code>LATEST_WORKING</code> version of a DataBrew
  *             recipe.</p>
  * @example
@@ -43,10 +40,33 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
  * import { DataBrewClient, UpdateRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // UpdateRecipeRequest
+ *   Description: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Steps: [ // RecipeStepList
+ *     { // RecipeStep
+ *       Action: { // RecipeAction
+ *         Operation: "STRING_VALUE", // required
+ *         Parameters: { // ParameterMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       ConditionExpressions: [ // ConditionExpressionList
+ *         { // ConditionExpression
+ *           Condition: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE",
+ *           TargetColumn: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRecipeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRecipeCommandInput - {@link UpdateRecipeCommandInput}
+ * @returns {@link UpdateRecipeCommandOutput}
  * @see {@link UpdateRecipeCommandInput} for command's `input` shape.
  * @see {@link UpdateRecipeCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -76,6 +96,9 @@ export class UpdateRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +125,8 @@ export class UpdateRecipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRecipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRecipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +136,18 @@ export class UpdateRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRecipeCommand(input, context);
+    return se_UpdateRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRecipeCommandOutput> {
-    return deserializeAws_restJson1UpdateRecipeCommand(output, context);
+    return de_UpdateRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

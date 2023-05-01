@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
+import { PutBlockPublicAccessConfigurationInput, PutBlockPublicAccessConfigurationOutput } from "../models/models_0";
 import {
-  PutBlockPublicAccessConfigurationInput,
-  PutBlockPublicAccessConfigurationInputFilterSensitiveLog,
-  PutBlockPublicAccessConfigurationOutput,
-  PutBlockPublicAccessConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand,
-  serializeAws_json1_1PutBlockPublicAccessConfigurationCommand,
+  de_PutBlockPublicAccessConfigurationCommand,
+  se_PutBlockPublicAccessConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutBlockPublicAccessConfigurationCommand}.
  */
 export interface PutBlockPublicAccessConfigurationCommandInput extends PutBlockPublicAccessConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link PutBlockPublicAccessConfigurationCommand}.
  */
 export interface PutBlockPublicAccessConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an Amazon EMR block public access configuration for your
  *             Amazon Web Services account in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
  *             Public Access for Amazon EMR</a> in the <i>Amazon EMR
@@ -47,10 +47,42 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
  * import { EMRClient, PutBlockPublicAccessConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, PutBlockPublicAccessConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // PutBlockPublicAccessConfigurationInput
+ *   BlockPublicAccessConfiguration: { // BlockPublicAccessConfiguration
+ *     BlockPublicSecurityGroupRules: true || false, // required
+ *     PermittedPublicSecurityGroupRuleRanges: [ // PortRanges
+ *       { // PortRange
+ *         MinRange: Number("int"), // required
+ *         MaxRange: Number("int"),
+ *       },
+ *     ],
+ *     Classification: "STRING_VALUE",
+ *     Configurations: [ // ConfigurationList
+ *       { // Configuration
+ *         Classification: "STRING_VALUE",
+ *         Configurations: [
+ *           {
+ *             Classification: "STRING_VALUE",
+ *             Configurations: "<ConfigurationList>",
+ *             Properties: { // StringMap
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         Properties: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     Properties: "<StringMap>",
+ *   },
+ * };
  * const command = new PutBlockPublicAccessConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBlockPublicAccessConfigurationCommandInput - {@link PutBlockPublicAccessConfigurationCommandInput}
+ * @returns {@link PutBlockPublicAccessConfigurationCommandOutput}
  * @see {@link PutBlockPublicAccessConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBlockPublicAccessConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -81,6 +113,9 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBlockPublicAccessConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +144,8 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBlockPublicAccessConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutBlockPublicAccessConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +155,24 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBlockPublicAccessConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutBlockPublicAccessConfigurationCommand(input, context);
+    return se_PutBlockPublicAccessConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBlockPublicAccessConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand(output, context);
+    return de_PutBlockPublicAccessConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

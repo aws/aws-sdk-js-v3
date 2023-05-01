@@ -16,20 +16,22 @@ import {
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
   DescribeEventDetailsForOrganizationRequest,
-  DescribeEventDetailsForOrganizationRequestFilterSensitiveLog,
   DescribeEventDetailsForOrganizationResponse,
-  DescribeEventDetailsForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand,
-  serializeAws_json1_1DescribeEventDetailsForOrganizationCommand,
+  de_DescribeEventDetailsForOrganizationCommand,
+  se_DescribeEventDetailsForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEventDetailsForOrganizationCommand}.
  */
 export interface DescribeEventDetailsForOrganizationCommandInput extends DescribeEventDetailsForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEventDetailsForOrganizationCommand}.
  */
 export interface DescribeEventDetailsForOrganizationCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about one or more specified events for one or more
  *          Amazon Web Services accounts in your organization. This information includes standard event data (such as
  *          the Amazon Web Services Region and service), an event description, and (depending on the event) possible
@@ -76,10 +79,21 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  * import { HealthClient, DescribeEventDetailsForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventDetailsForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeEventDetailsForOrganizationRequest
+ *   organizationEventDetailFilters: [ // OrganizationEventDetailFiltersList // required
+ *     { // EventAccountFilter
+ *       eventArn: "STRING_VALUE", // required
+ *       awsAccountId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeEventDetailsForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEventDetailsForOrganizationCommandInput - {@link DescribeEventDetailsForOrganizationCommandInput}
+ * @returns {@link DescribeEventDetailsForOrganizationCommandOutput}
  * @see {@link DescribeEventDetailsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeEventDetailsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -106,6 +120,9 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventDetailsForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +151,8 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventDetailsForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventDetailsForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +162,24 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEventDetailsForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventDetailsForOrganizationCommand(input, context);
+    return se_DescribeEventDetailsForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventDetailsForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand(output, context);
+    return de_DescribeEventDetailsForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

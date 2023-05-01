@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListServicesRequest,
-  ListServicesRequestFilterSensitiveLog,
-  ListServicesResponse,
-  ListServicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServicesCommand,
-  serializeAws_json1_1ListServicesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListServicesRequest, ListServicesResponse } from "../models/models_0";
+import { de_ListServicesCommand, se_ListServicesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListServicesCommand}.
  */
 export interface ListServicesCommandInput extends ListServicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServicesCommand}.
  */
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of services. You can filter the results by cluster, launch type, and
  * 			scheduling strategy.</p>
  * @example
@@ -43,10 +40,19 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * import { ECSClient, ListServicesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListServicesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // ListServicesRequest
+ *   cluster: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   schedulingStrategy: "REPLICA" || "DAEMON",
+ * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServicesCommandInput - {@link ListServicesCommandInput}
+ * @returns {@link ListServicesCommandOutput}
  * @see {@link ListServicesCommandInput} for command's `input` shape.
  * @see {@link ListServicesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -101,6 +107,9 @@ export class ListServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +136,8 @@ export class ListServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +147,18 @@ export class ListServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServicesCommand(input, context);
+    return se_ListServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServicesCommandOutput> {
-    return deserializeAws_json1_1ListServicesCommand(output, context);
+    return de_ListServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

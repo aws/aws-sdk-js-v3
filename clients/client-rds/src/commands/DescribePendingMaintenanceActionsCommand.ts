@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage } from "../models/models_1";
 import {
-  DescribePendingMaintenanceActionsMessage,
-  DescribePendingMaintenanceActionsMessageFilterSensitiveLog,
-  PendingMaintenanceActionsMessage,
-  PendingMaintenanceActionsMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribePendingMaintenanceActionsCommand,
-  serializeAws_queryDescribePendingMaintenanceActionsCommand,
+  de_DescribePendingMaintenanceActionsCommand,
+  se_DescribePendingMaintenanceActionsCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePendingMaintenanceActionsCommand}.
  */
 export interface DescribePendingMaintenanceActionsCommandInput extends DescribePendingMaintenanceActionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribePendingMaintenanceActionsCommand}.
  */
 export interface DescribePendingMaintenanceActionsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribePendingMaintenanceActionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,25 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * import { RDSClient, DescribePendingMaintenanceActionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribePendingMaintenanceActionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribePendingMaintenanceActionsMessage
+ *   ResourceIdentifier: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribePendingMaintenanceActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePendingMaintenanceActionsCommandInput - {@link DescribePendingMaintenanceActionsCommandInput}
+ * @returns {@link DescribePendingMaintenanceActionsCommandOutput}
  * @see {@link DescribePendingMaintenanceActionsCommandInput} for command's `input` shape.
  * @see {@link DescribePendingMaintenanceActionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -56,15 +71,28 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  *  <p>The specified resource ID was not found.</p>
  *
  *
- * @example To list information about pending maintenance actions
+ * @example To list resources with at least one pending maintenance action
  * ```javascript
- * // This example lists information for all pending maintenance actions for the specified DB instance.
- * const input = {
- *   "ResourceIdentifier": "arn:aws:rds:us-east-1:992648334831:db:mymysqlinstance"
- * };
+ * // The following example lists the pending maintenace action for a DB instance.
+ * const input = {};
  * const command = new DescribePendingMaintenanceActionsCommand(input);
- * await client.send(command);
- * // example id: describe-pending-maintenance-actions-e6021f7e-58ae-49cc-b874-11996176835c
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PendingMaintenanceActions": [
+ *     {
+ *       "PendingMaintenanceActionDetails": [
+ *         {
+ *           "Action": "system-update",
+ *           "Description": "Upgrade to Aurora PostgreSQL 2.4.2"
+ *         }
+ *       ],
+ *       "ResourceIdentifier": "arn:aws:rds:us-west-2:123456789012:cluster:global-db1-cl1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-resources-with-at-least-one-pending-maintenance-action-1680283544475
  * ```
  *
  */
@@ -85,6 +113,9 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePendingMaintenanceActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +144,8 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePendingMaintenanceActionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PendingMaintenanceActionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +155,24 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribePendingMaintenanceActionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribePendingMaintenanceActionsCommand(input, context);
+    return se_DescribePendingMaintenanceActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> {
-    return deserializeAws_queryDescribePendingMaintenanceActionsCommand(output, context);
+    return de_DescribePendingMaintenanceActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

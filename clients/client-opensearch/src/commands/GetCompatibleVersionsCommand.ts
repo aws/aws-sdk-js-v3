@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCompatibleVersionsRequest,
-  GetCompatibleVersionsRequestFilterSensitiveLog,
-  GetCompatibleVersionsResponse,
-  GetCompatibleVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCompatibleVersionsRequest, GetCompatibleVersionsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1GetCompatibleVersionsCommand,
-  serializeAws_restJson1GetCompatibleVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCompatibleVersionsCommand, se_GetCompatibleVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCompatibleVersionsCommand}.
  */
 export interface GetCompatibleVersionsCommandInput extends GetCompatibleVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCompatibleVersionsCommand}.
  */
 export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a map of OpenSearch or Elasticsearch versions and the versions you can upgrade them
  *    to.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersion
  * import { OpenSearchClient, GetCompatibleVersionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, GetCompatibleVersionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // GetCompatibleVersionsRequest
+ *   DomainName: "STRING_VALUE",
+ * };
  * const command = new GetCompatibleVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCompatibleVersionsCommandInput - {@link GetCompatibleVersionsCommandInput}
+ * @returns {@link GetCompatibleVersionsCommandOutput}
  * @see {@link GetCompatibleVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleVersionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -85,6 +87,9 @@ export class GetCompatibleVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCompatibleVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class GetCompatibleVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCompatibleVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCompatibleVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class GetCompatibleVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCompatibleVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCompatibleVersionsCommand(input, context);
+    return se_GetCompatibleVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCompatibleVersionsCommandOutput> {
-    return deserializeAws_restJson1GetCompatibleVersionsCommand(output, context);
+    return de_GetCompatibleVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

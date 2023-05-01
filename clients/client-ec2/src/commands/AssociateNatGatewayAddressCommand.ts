@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateNatGatewayAddressRequest,
-  AssociateNatGatewayAddressRequestFilterSensitiveLog,
-  AssociateNatGatewayAddressResult,
-  AssociateNatGatewayAddressResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateNatGatewayAddressCommand,
-  serializeAws_ec2AssociateNatGatewayAddressCommand,
-} from "../protocols/Aws_ec2";
+import { AssociateNatGatewayAddressRequest, AssociateNatGatewayAddressResult } from "../models/models_0";
+import { de_AssociateNatGatewayAddressCommand, se_AssociateNatGatewayAddressCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateNatGatewayAddressCommand}.
  */
 export interface AssociateNatGatewayAddressCommandInput extends AssociateNatGatewayAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateNatGatewayAddressCommand}.
  */
 export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGatewayAddressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *          <p>By default, you can associate up to 2 Elastic IP addresses per public NAT gateway. You can increase the limit by requesting a quota adjustment. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic IP address quotas</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
@@ -43,10 +40,22 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  * import { EC2Client, AssociateNatGatewayAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateNatGatewayAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssociateNatGatewayAddressRequest
+ *   NatGatewayId: "STRING_VALUE", // required
+ *   AllocationIds: [ // AllocationIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   PrivateIpAddresses: [ // IpList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new AssociateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateNatGatewayAddressCommandInput - {@link AssociateNatGatewayAddressCommandInput}
+ * @returns {@link AssociateNatGatewayAddressCommandOutput}
  * @see {@link AssociateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link AssociateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +79,9 @@ export class AssociateNatGatewayAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateNatGatewayAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +110,8 @@ export class AssociateNatGatewayAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateNatGatewayAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateNatGatewayAddressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,15 +121,21 @@ export class AssociateNatGatewayAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateNatGatewayAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateNatGatewayAddressCommand(input, context);
+    return se_AssociateNatGatewayAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateNatGatewayAddressCommandOutput> {
-    return deserializeAws_ec2AssociateNatGatewayAddressCommand(output, context);
+    return de_AssociateNatGatewayAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { WorkMailClient } from "../WorkMailClient";
 import { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkMailClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMailboxPermissionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMailboxPermissions(
   config: WorkMailPaginationConfiguration,
   input: ListMailboxPermissionsCommandInput,

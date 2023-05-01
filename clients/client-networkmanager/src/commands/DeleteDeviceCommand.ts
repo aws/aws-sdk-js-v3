@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDeviceRequest,
-  DeleteDeviceRequestFilterSensitiveLog,
-  DeleteDeviceResponse,
-  DeleteDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDeviceRequest, DeleteDeviceResponse, DeleteDeviceResponseFilterSensitiveLog } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DeleteDeviceCommand,
-  serializeAws_restJson1DeleteDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDeviceCommand, se_DeleteDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeviceCommand}.
  */
 export interface DeleteDeviceCommandInput extends DeleteDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeviceCommand}.
  */
 export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing device. You must first disassociate the device from any links and
  *             customer gateways.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * import { NetworkManagerClient, DeleteDeviceCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteDeviceCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // DeleteDeviceRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeviceCommandInput - {@link DeleteDeviceCommandInput}
+ * @returns {@link DeleteDeviceCommandOutput}
  * @see {@link DeleteDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +92,9 @@ export class DeleteDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +121,7 @@ export class DeleteDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeviceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteDeviceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,12 +132,18 @@ export class DeleteDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDeviceCommand(input, context);
+    return se_DeleteDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceCommandOutput> {
-    return deserializeAws_restJson1DeleteDeviceCommand(output, context);
+    return de_DeleteDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListObjectAttributesRequest,
-  ListObjectAttributesRequestFilterSensitiveLog,
-  ListObjectAttributesResponse,
-  ListObjectAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListObjectAttributesCommand,
-  serializeAws_restJson1ListObjectAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListObjectAttributesRequest, ListObjectAttributesResponse } from "../models/models_0";
+import { de_ListObjectAttributesCommand, se_ListObjectAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectAttributesCommand}.
  */
 export interface ListObjectAttributesCommandInput extends ListObjectAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectAttributesCommand}.
  */
 export interface ListObjectAttributesCommandOutput extends ListObjectAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all attributes that are associated with an object.
  *       </p>
  * @example
@@ -43,10 +40,25 @@ export interface ListObjectAttributesCommandOutput extends ListObjectAttributesR
  * import { CloudDirectoryClient, ListObjectAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListObjectAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListObjectAttributesRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ObjectReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ *   FacetFilter: { // SchemaFacet
+ *     SchemaArn: "STRING_VALUE",
+ *     FacetName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListObjectAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectAttributesCommandInput - {@link ListObjectAttributesCommandInput}
+ * @returns {@link ListObjectAttributesCommandOutput}
  * @see {@link ListObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link ListObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +114,9 @@ export class ListObjectAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +145,8 @@ export class ListObjectAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObjectAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListObjectAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +156,18 @@ export class ListObjectAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListObjectAttributesCommand(input, context);
+    return se_ListObjectAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectAttributesCommandOutput> {
-    return deserializeAws_restJson1ListObjectAttributesCommand(output, context);
+    return de_ListObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

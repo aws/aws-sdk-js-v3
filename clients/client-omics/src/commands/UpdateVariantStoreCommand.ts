@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateVariantStoreRequest,
-  UpdateVariantStoreRequestFilterSensitiveLog,
-  UpdateVariantStoreResponse,
-  UpdateVariantStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateVariantStoreRequest, UpdateVariantStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1UpdateVariantStoreCommand,
-  serializeAws_restJson1UpdateVariantStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateVariantStoreCommand, se_UpdateVariantStoreCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVariantStoreCommand}.
  */
 export interface UpdateVariantStoreCommandInput extends UpdateVariantStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVariantStoreCommand}.
  */
 export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a variant store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreRespo
  * import { OmicsClient, UpdateVariantStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, UpdateVariantStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // UpdateVariantStoreRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateVariantStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVariantStoreCommandInput - {@link UpdateVariantStoreCommandInput}
+ * @returns {@link UpdateVariantStoreCommandOutput}
  * @see {@link UpdateVariantStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateVariantStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -84,6 +87,9 @@ export class UpdateVariantStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVariantStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class UpdateVariantStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVariantStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVariantStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class UpdateVariantStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVariantStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVariantStoreCommand(input, context);
+    return se_UpdateVariantStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVariantStoreCommandOutput> {
-    return deserializeAws_restJson1UpdateVariantStoreCommand(output, context);
+    return de_UpdateVariantStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

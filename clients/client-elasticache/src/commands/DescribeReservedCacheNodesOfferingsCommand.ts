@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { DescribeReservedCacheNodesOfferingsMessage, ReservedCacheNodesOfferingMessage } from "../models/models_0";
 import {
-  DescribeReservedCacheNodesOfferingsMessage,
-  DescribeReservedCacheNodesOfferingsMessageFilterSensitiveLog,
-  ReservedCacheNodesOfferingMessage,
-  ReservedCacheNodesOfferingMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand,
-  serializeAws_queryDescribeReservedCacheNodesOfferingsCommand,
+  de_DescribeReservedCacheNodesOfferingsCommand,
+  se_DescribeReservedCacheNodesOfferingsCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedCacheNodesOfferingsCommand}.
  */
 export interface DescribeReservedCacheNodesOfferingsCommandInput extends DescribeReservedCacheNodesOfferingsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedCacheNodesOfferingsCommand}.
  */
 export interface DescribeReservedCacheNodesOfferingsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists available reserved cache
  *             node offerings.</p>
  * @example
@@ -45,10 +45,21 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
  * import { ElastiCacheClient, DescribeReservedCacheNodesOfferingsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeReservedCacheNodesOfferingsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeReservedCacheNodesOfferingsMessage
+ *   ReservedCacheNodesOfferingId: "STRING_VALUE",
+ *   CacheNodeType: "STRING_VALUE",
+ *   Duration: "STRING_VALUE",
+ *   ProductDescription: "STRING_VALUE",
+ *   OfferingType: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedCacheNodesOfferingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedCacheNodesOfferingsCommandInput - {@link DescribeReservedCacheNodesOfferingsCommandInput}
+ * @returns {@link DescribeReservedCacheNodesOfferingsCommandOutput}
  * @see {@link DescribeReservedCacheNodesOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedCacheNodesOfferingsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -354,6 +365,9 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedCacheNodesOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -382,8 +396,8 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedCacheNodesOfferingsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ReservedCacheNodesOfferingMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -393,18 +407,24 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedCacheNodesOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedCacheNodesOfferingsCommand(input, context);
+    return se_DescribeReservedCacheNodesOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> {
-    return deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand(output, context);
+    return de_DescribeReservedCacheNodesOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

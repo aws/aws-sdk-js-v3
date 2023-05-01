@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSpaceRequest,
-  CreateSpaceRequestFilterSensitiveLog,
-  CreateSpaceResponse,
-  CreateSpaceResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateSpaceCommand,
-  serializeAws_json1_1CreateSpaceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSpaceRequest, CreateSpaceResponse } from "../models/models_1";
+import { de_CreateSpaceCommand, se_CreateSpaceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSpaceCommand}.
  */
 export interface CreateSpaceCommandInput extends CreateSpaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSpaceCommand}.
  */
 export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a space used for real time collaboration in a Domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,58 @@ export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __Metadat
  * import { SageMakerClient, CreateSpaceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateSpaceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateSpaceRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   SpaceName: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   SpaceSettings: { // SpaceSettings
+ *     JupyterServerAppSettings: { // JupyterServerAppSettings
+ *       DefaultResourceSpec: { // ResourceSpec
+ *         SageMakerImageArn: "STRING_VALUE",
+ *         SageMakerImageVersionArn: "STRING_VALUE",
+ *         InstanceType: "system" || "ml.t3.micro" || "ml.t3.small" || "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.8xlarge" || "ml.m5.12xlarge" || "ml.m5.16xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.8xlarge" || "ml.m5d.12xlarge" || "ml.m5d.16xlarge" || "ml.m5d.24xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.12xlarge" || "ml.c5.18xlarge" || "ml.c5.24xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.geospatial.interactive" || "ml.p4d.24xlarge" || "ml.p4de.24xlarge",
+ *         LifecycleConfigArn: "STRING_VALUE",
+ *       },
+ *       LifecycleConfigArns: [ // LifecycleConfigArns
+ *         "STRING_VALUE",
+ *       ],
+ *       CodeRepositories: [ // CodeRepositories
+ *         { // CodeRepository
+ *           RepositoryUrl: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     KernelGatewayAppSettings: { // KernelGatewayAppSettings
+ *       DefaultResourceSpec: {
+ *         SageMakerImageArn: "STRING_VALUE",
+ *         SageMakerImageVersionArn: "STRING_VALUE",
+ *         InstanceType: "system" || "ml.t3.micro" || "ml.t3.small" || "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.8xlarge" || "ml.m5.12xlarge" || "ml.m5.16xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.8xlarge" || "ml.m5d.12xlarge" || "ml.m5d.16xlarge" || "ml.m5d.24xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.12xlarge" || "ml.c5.18xlarge" || "ml.c5.24xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.geospatial.interactive" || "ml.p4d.24xlarge" || "ml.p4de.24xlarge",
+ *         LifecycleConfigArn: "STRING_VALUE",
+ *       },
+ *       CustomImages: [ // CustomImages
+ *         { // CustomImage
+ *           ImageName: "STRING_VALUE", // required
+ *           ImageVersionNumber: Number("int"),
+ *           AppImageConfigName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       LifecycleConfigArns: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateSpaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSpaceCommandInput - {@link CreateSpaceCommandInput}
+ * @returns {@link CreateSpaceCommandOutput}
  * @see {@link CreateSpaceCommandInput} for command's `input` shape.
  * @see {@link CreateSpaceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +121,9 @@ export class CreateSpaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSpaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +150,8 @@ export class CreateSpaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSpaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSpaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +161,18 @@ export class CreateSpaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSpaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSpaceCommand(input, context);
+    return se_CreateSpaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSpaceCommandOutput> {
-    return deserializeAws_json1_1CreateSpaceCommand(output, context);
+    return de_CreateSpaceCommand(output, context);
   }
 
   // Start section: command_body_extra

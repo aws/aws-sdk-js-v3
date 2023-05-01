@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateMetricAttributionRequest,
-  UpdateMetricAttributionRequestFilterSensitiveLog,
-  UpdateMetricAttributionResponse,
-  UpdateMetricAttributionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateMetricAttributionRequest, UpdateMetricAttributionResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1UpdateMetricAttributionCommand,
-  serializeAws_json1_1UpdateMetricAttributionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateMetricAttributionCommand, se_UpdateMetricAttributionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMetricAttributionCommand}.
  */
 export interface UpdateMetricAttributionCommandInput extends UpdateMetricAttributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMetricAttributionCommand}.
  */
 export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttributionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a metric attribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,32 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * import { PersonalizeClient, UpdateMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, UpdateMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // UpdateMetricAttributionRequest
+ *   addMetrics: [ // MetricAttributes
+ *     { // MetricAttribute
+ *       eventType: "STRING_VALUE", // required
+ *       metricName: "STRING_VALUE", // required
+ *       expression: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   removeMetrics: [ // MetricAttributesNamesList
+ *     "STRING_VALUE",
+ *   ],
+ *   metricsOutputConfig: { // MetricAttributionOutput
+ *     s3DataDestination: { // S3DataConfig
+ *       path: "STRING_VALUE", // required
+ *       kmsKeyArn: "STRING_VALUE",
+ *     },
+ *     roleArn: "STRING_VALUE", // required
+ *   },
+ *   metricAttributionArn: "STRING_VALUE",
+ * };
  * const command = new UpdateMetricAttributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMetricAttributionCommandInput - {@link UpdateMetricAttributionCommandInput}
+ * @returns {@link UpdateMetricAttributionCommandOutput}
  * @see {@link UpdateMetricAttributionCommandInput} for command's `input` shape.
  * @see {@link UpdateMetricAttributionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -81,6 +100,9 @@ export class UpdateMetricAttributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMetricAttributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +131,8 @@ export class UpdateMetricAttributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMetricAttributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMetricAttributionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +142,18 @@ export class UpdateMetricAttributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMetricAttributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMetricAttributionCommand(input, context);
+    return se_UpdateMetricAttributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMetricAttributionCommandOutput> {
-    return deserializeAws_json1_1UpdateMetricAttributionCommand(output, context);
+    return de_UpdateMetricAttributionCommand(output, context);
   }
 
   // Start section: command_body_extra

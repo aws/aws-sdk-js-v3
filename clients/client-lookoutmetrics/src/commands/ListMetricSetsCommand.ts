@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  ListMetricSetsRequest,
-  ListMetricSetsRequestFilterSensitiveLog,
-  ListMetricSetsResponse,
-  ListMetricSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMetricSetsCommand,
-  serializeAws_restJson1ListMetricSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListMetricSetsRequest, ListMetricSetsResponse } from "../models/models_0";
+import { de_ListMetricSetsCommand, se_ListMetricSetsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListMetricSetsCommand}.
  */
 export interface ListMetricSetsCommandInput extends ListMetricSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMetricSetsCommand}.
  */
 export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the datasets in the current AWS Region.</p>
  *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
  *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -44,10 +41,17 @@ export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __M
  * import { LookoutMetricsClient, ListMetricSetsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, ListMetricSetsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // ListMetricSetsRequest
+ *   AnomalyDetectorArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListMetricSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMetricSetsCommandInput - {@link ListMetricSetsCommandInput}
+ * @returns {@link ListMetricSetsCommandOutput}
  * @see {@link ListMetricSetsCommandInput} for command's `input` shape.
  * @see {@link ListMetricSetsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -87,6 +91,9 @@ export class ListMetricSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMetricSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListMetricSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMetricSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMetricSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class ListMetricSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMetricSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMetricSetsCommand(input, context);
+    return se_ListMetricSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMetricSetsCommandOutput> {
-    return deserializeAws_restJson1ListMetricSetsCommand(output, context);
+    return de_ListMetricSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

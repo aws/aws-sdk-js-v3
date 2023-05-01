@@ -14,38 +14,35 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeBuildInput,
-  DescribeBuildInputFilterSensitiveLog,
-  DescribeBuildOutput,
-  DescribeBuildOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBuildCommand,
-  serializeAws_json1_1DescribeBuildCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeBuildInput, DescribeBuildOutput } from "../models/models_0";
+import { de_DescribeBuildCommand, se_DescribeBuildCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBuildCommand}.
  */
 export interface DescribeBuildCommandInput extends DescribeBuildInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBuildCommand}.
  */
 export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves properties for a custom game build. To request a build resource, specify a
  *             build ID. If successful, an object containing the build properties is returned.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html"> Upload a Custom
  *                 Server Build</a>
  *          </p>
  *          <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,10 +50,15 @@ export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __Metad
  * import { GameLiftClient, DescribeBuildCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeBuildCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeBuildInput
+ *   BuildId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBuildCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBuildCommandInput - {@link DescribeBuildCommandInput}
+ * @returns {@link DescribeBuildCommandOutput}
  * @see {@link DescribeBuildCommandInput} for command's `input` shape.
  * @see {@link DescribeBuildCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -94,6 +96,9 @@ export class DescribeBuildCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBuildCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +125,8 @@ export class DescribeBuildCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBuildInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBuildOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +136,18 @@ export class DescribeBuildCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBuildCommand(input, context);
+    return se_DescribeBuildCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBuildCommandOutput> {
-    return deserializeAws_json1_1DescribeBuildCommand(output, context);
+    return de_DescribeBuildCommand(output, context);
   }
 
   // Start section: command_body_extra

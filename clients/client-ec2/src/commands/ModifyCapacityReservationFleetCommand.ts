@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyCapacityReservationFleetRequest, ModifyCapacityReservationFleetResult } from "../models/models_6";
 import {
-  ModifyCapacityReservationFleetRequest,
-  ModifyCapacityReservationFleetRequestFilterSensitiveLog,
-  ModifyCapacityReservationFleetResult,
-  ModifyCapacityReservationFleetResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyCapacityReservationFleetCommand,
-  serializeAws_ec2ModifyCapacityReservationFleetCommand,
+  de_ModifyCapacityReservationFleetCommand,
+  se_ModifyCapacityReservationFleetCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCapacityReservationFleetCommand}.
  */
 export interface ModifyCapacityReservationFleetCommandInput extends ModifyCapacityReservationFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCapacityReservationFleetCommand}.
  */
 export interface ModifyCapacityReservationFleetCommandOutput
@@ -37,6 +36,7 @@ export interface ModifyCapacityReservationFleetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a Capacity Reservation Fleet.</p>
  *          <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically
  * 			creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet
@@ -48,10 +48,19 @@ export interface ModifyCapacityReservationFleetCommandOutput
  * import { EC2Client, ModifyCapacityReservationFleetCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyCapacityReservationFleetCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyCapacityReservationFleetRequest
+ *   CapacityReservationFleetId: "STRING_VALUE", // required
+ *   TotalTargetCapacity: Number("int"),
+ *   EndDate: new Date("TIMESTAMP"),
+ *   DryRun: true || false,
+ *   RemoveEndDate: true || false,
+ * };
  * const command = new ModifyCapacityReservationFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCapacityReservationFleetCommandInput - {@link ModifyCapacityReservationFleetCommandInput}
+ * @returns {@link ModifyCapacityReservationFleetCommandOutput}
  * @see {@link ModifyCapacityReservationFleetCommandInput} for command's `input` shape.
  * @see {@link ModifyCapacityReservationFleetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +84,9 @@ export class ModifyCapacityReservationFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCapacityReservationFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +115,8 @@ export class ModifyCapacityReservationFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCapacityReservationFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyCapacityReservationFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +126,24 @@ export class ModifyCapacityReservationFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyCapacityReservationFleetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyCapacityReservationFleetCommand(input, context);
+    return se_ModifyCapacityReservationFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCapacityReservationFleetCommandOutput> {
-    return deserializeAws_ec2ModifyCapacityReservationFleetCommand(output, context);
+    return de_ModifyCapacityReservationFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

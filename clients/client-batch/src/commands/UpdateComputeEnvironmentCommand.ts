@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  UpdateComputeEnvironmentRequest,
-  UpdateComputeEnvironmentRequestFilterSensitiveLog,
-  UpdateComputeEnvironmentResponse,
-  UpdateComputeEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateComputeEnvironmentCommand,
-  serializeAws_restJson1UpdateComputeEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateComputeEnvironmentRequest, UpdateComputeEnvironmentResponse } from "../models/models_0";
+import { de_UpdateComputeEnvironmentCommand, se_UpdateComputeEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateComputeEnvironmentCommand}.
  */
 export interface UpdateComputeEnvironmentCommandInput extends UpdateComputeEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateComputeEnvironmentCommand}.
  */
 export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Batch compute environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,59 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  * import { BatchClient, UpdateComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, UpdateComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // UpdateComputeEnvironmentRequest
+ *   computeEnvironment: "STRING_VALUE", // required
+ *   state: "ENABLED" || "DISABLED",
+ *   unmanagedvCpus: Number("int"),
+ *   computeResources: { // ComputeResourceUpdate
+ *     minvCpus: Number("int"),
+ *     maxvCpus: Number("int"),
+ *     desiredvCpus: Number("int"),
+ *     subnets: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     allocationStrategy: "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED",
+ *     instanceTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ec2KeyPair: "STRING_VALUE",
+ *     instanceRole: "STRING_VALUE",
+ *     tags: { // TagsMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     placementGroup: "STRING_VALUE",
+ *     bidPercentage: Number("int"),
+ *     launchTemplate: { // LaunchTemplateSpecification
+ *       launchTemplateId: "STRING_VALUE",
+ *       launchTemplateName: "STRING_VALUE",
+ *       version: "STRING_VALUE",
+ *     },
+ *     ec2Configuration: [ // Ec2ConfigurationList
+ *       { // Ec2Configuration
+ *         imageType: "STRING_VALUE", // required
+ *         imageIdOverride: "STRING_VALUE",
+ *         imageKubernetesVersion: "STRING_VALUE",
+ *       },
+ *     ],
+ *     updateToLatestImageVersion: true || false,
+ *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT",
+ *     imageId: "STRING_VALUE",
+ *   },
+ *   serviceRole: "STRING_VALUE",
+ *   updatePolicy: { // UpdatePolicy
+ *     terminateJobsOnUpdate: true || false,
+ *     jobExecutionTimeoutMinutes: Number("long"),
+ *   },
+ * };
  * const command = new UpdateComputeEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateComputeEnvironmentCommandInput - {@link UpdateComputeEnvironmentCommandInput}
+ * @returns {@link UpdateComputeEnvironmentCommandOutput}
  * @see {@link UpdateComputeEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -95,6 +141,9 @@ export class UpdateComputeEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateComputeEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +172,8 @@ export class UpdateComputeEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateComputeEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateComputeEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +183,18 @@ export class UpdateComputeEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateComputeEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateComputeEnvironmentCommand(input, context);
+    return se_UpdateComputeEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComputeEnvironmentCommandOutput> {
-    return deserializeAws_restJson1UpdateComputeEnvironmentCommand(output, context);
+    return de_UpdateComputeEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

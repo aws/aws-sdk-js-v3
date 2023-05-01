@@ -6,7 +6,7 @@ import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
 import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LookoutEquipmentClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListModelsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListModels(
   config: LookoutEquipmentPaginationConfiguration,
   input: ListModelsCommandInput,

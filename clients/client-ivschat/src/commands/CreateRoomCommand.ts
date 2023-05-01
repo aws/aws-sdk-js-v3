@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  CreateRoomRequest,
-  CreateRoomRequestFilterSensitiveLog,
-  CreateRoomResponse,
-  CreateRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRoomCommand,
-  serializeAws_restJson1CreateRoomCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRoomRequest, CreateRoomResponse } from "../models/models_0";
+import { de_CreateRoomCommand, se_CreateRoomCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRoomCommand}.
  */
 export interface CreateRoomCommandInput extends CreateRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRoomCommand}.
  */
 export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a room that allows clients to connect and pass messages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * import { IvschatClient, CreateRoomCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, CreateRoomCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = { // CreateRoomRequest
+ *   name: "STRING_VALUE",
+ *   maximumMessageRatePerSecond: Number("int"),
+ *   maximumMessageLength: Number("int"),
+ *   messageReviewHandler: { // MessageReviewHandler
+ *     uri: "STRING_VALUE",
+ *     fallbackResult: "STRING_VALUE",
+ *   },
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRoomCommandInput - {@link CreateRoomCommandInput}
+ * @returns {@link CreateRoomCommandOutput}
  * @see {@link CreateRoomCommandInput} for command's `input` shape.
  * @see {@link CreateRoomCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -87,6 +101,9 @@ export class CreateRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +130,8 @@ export class CreateRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +141,18 @@ export class CreateRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRoomCommand(input, context);
+    return se_CreateRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoomCommandOutput> {
-    return deserializeAws_restJson1CreateRoomCommand(output, context);
+    return de_CreateRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

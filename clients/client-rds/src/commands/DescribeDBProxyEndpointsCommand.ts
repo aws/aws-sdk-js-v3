@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDBProxyEndpointsRequest,
-  DescribeDBProxyEndpointsRequestFilterSensitiveLog,
-  DescribeDBProxyEndpointsResponse,
-  DescribeDBProxyEndpointsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBProxyEndpointsCommand,
-  serializeAws_queryDescribeDBProxyEndpointsCommand,
-} from "../protocols/Aws_query";
+import { DescribeDBProxyEndpointsRequest, DescribeDBProxyEndpointsResponse } from "../models/models_1";
+import { de_DescribeDBProxyEndpointsCommand, se_DescribeDBProxyEndpointsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBProxyEndpointsCommand}.
  */
 export interface DescribeDBProxyEndpointsCommandInput extends DescribeDBProxyEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBProxyEndpointsCommand}.
  */
 export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about DB proxy endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEn
  * import { RDSClient, DescribeDBProxyEndpointsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBProxyEndpointsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBProxyEndpointsRequest
+ *   DBProxyName: "STRING_VALUE",
+ *   DBProxyEndpointName: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeDBProxyEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBProxyEndpointsCommandInput - {@link DescribeDBProxyEndpointsCommandInput}
+ * @returns {@link DescribeDBProxyEndpointsCommandOutput}
  * @see {@link DescribeDBProxyEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBProxyEndpointsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -75,6 +88,9 @@ export class DescribeDBProxyEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBProxyEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +119,8 @@ export class DescribeDBProxyEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBProxyEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBProxyEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +130,18 @@ export class DescribeDBProxyEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBProxyEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBProxyEndpointsCommand(input, context);
+    return se_DescribeDBProxyEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBProxyEndpointsCommandOutput> {
-    return deserializeAws_queryDescribeDBProxyEndpointsCommand(output, context);
+    return de_DescribeDBProxyEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

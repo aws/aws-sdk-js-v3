@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RestoreSnapshotTierRequest,
-  RestoreSnapshotTierRequestFilterSensitiveLog,
-  RestoreSnapshotTierResult,
-  RestoreSnapshotTierResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2RestoreSnapshotTierCommand,
-  serializeAws_ec2RestoreSnapshotTierCommand,
-} from "../protocols/Aws_ec2";
+import { RestoreSnapshotTierRequest, RestoreSnapshotTierResult } from "../models/models_6";
+import { de_RestoreSnapshotTierCommand, se_RestoreSnapshotTierCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreSnapshotTierCommand}.
  */
 export interface RestoreSnapshotTierCommandInput extends RestoreSnapshotTierRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreSnapshotTierCommand}.
  */
 export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore
  *       period or restore type for a snapshot that was previously temporarily restored.</p>
  *          <p>For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot">
@@ -46,10 +43,18 @@ export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierRes
  * import { EC2Client, RestoreSnapshotTierCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RestoreSnapshotTierCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RestoreSnapshotTierRequest
+ *   SnapshotId: "STRING_VALUE", // required
+ *   TemporaryRestoreDays: Number("int"),
+ *   PermanentRestore: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new RestoreSnapshotTierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreSnapshotTierCommandInput - {@link RestoreSnapshotTierCommandInput}
+ * @returns {@link RestoreSnapshotTierCommandOutput}
  * @see {@link RestoreSnapshotTierCommandInput} for command's `input` shape.
  * @see {@link RestoreSnapshotTierCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +78,9 @@ export class RestoreSnapshotTierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreSnapshotTierCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +109,8 @@ export class RestoreSnapshotTierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreSnapshotTierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreSnapshotTierResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +120,18 @@ export class RestoreSnapshotTierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreSnapshotTierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RestoreSnapshotTierCommand(input, context);
+    return se_RestoreSnapshotTierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreSnapshotTierCommandOutput> {
-    return deserializeAws_ec2RestoreSnapshotTierCommand(output, context);
+    return de_RestoreSnapshotTierCommand(output, context);
   }
 
   // Start section: command_body_extra

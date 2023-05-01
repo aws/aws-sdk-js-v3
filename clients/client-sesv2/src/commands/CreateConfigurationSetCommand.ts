@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateConfigurationSetRequest,
-  CreateConfigurationSetRequestFilterSensitiveLog,
-  CreateConfigurationSetResponse,
-  CreateConfigurationSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateConfigurationSetCommand,
-  serializeAws_restJson1CreateConfigurationSetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/models_0";
+import { de_CreateConfigurationSetCommand, se_CreateConfigurationSetCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationSetCommand}.
  */
 export interface CreateConfigurationSetCommandInput extends CreateConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationSetCommand}.
  */
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a configuration set. <i>Configuration sets</i> are groups of
  *             rules that you can apply to the emails that you send. You apply a configuration set to
  *             an email by specifying the name of the configuration set when you call the Amazon SES API v2. When
@@ -46,10 +43,48 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * import { SESv2Client, CreateConfigurationSetCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateConfigurationSetCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // CreateConfigurationSetRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   TrackingOptions: { // TrackingOptions
+ *     CustomRedirectDomain: "STRING_VALUE", // required
+ *   },
+ *   DeliveryOptions: { // DeliveryOptions
+ *     TlsPolicy: "REQUIRE" || "OPTIONAL",
+ *     SendingPoolName: "STRING_VALUE",
+ *   },
+ *   ReputationOptions: { // ReputationOptions
+ *     ReputationMetricsEnabled: true || false,
+ *     LastFreshStart: new Date("TIMESTAMP"),
+ *   },
+ *   SendingOptions: { // SendingOptions
+ *     SendingEnabled: true || false,
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   SuppressionOptions: { // SuppressionOptions
+ *     SuppressedReasons: [ // SuppressionListReasons
+ *       "BOUNCE" || "COMPLAINT",
+ *     ],
+ *   },
+ *   VdmOptions: { // VdmOptions
+ *     DashboardOptions: { // DashboardOptions
+ *       EngagementMetrics: "ENABLED" || "DISABLED",
+ *     },
+ *     GuardianOptions: { // GuardianOptions
+ *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
+ * @returns {@link CreateConfigurationSetCommandOutput}
  * @see {@link CreateConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -91,6 +126,9 @@ export class CreateConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +157,8 @@ export class CreateConfigurationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfigurationSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfigurationSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +168,18 @@ export class CreateConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConfigurationSetCommand(input, context);
+    return se_CreateConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfigurationSetCommandOutput> {
-    return deserializeAws_restJson1CreateConfigurationSetCommand(output, context);
+    return de_CreateConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

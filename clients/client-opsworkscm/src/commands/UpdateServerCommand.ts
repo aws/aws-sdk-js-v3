@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateServerRequest,
-  UpdateServerRequestFilterSensitiveLog,
-  UpdateServerResponse,
-  UpdateServerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateServerRequest, UpdateServerResponse, UpdateServerResponseFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1UpdateServerCommand,
-  serializeAws_json1_1UpdateServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateServerCommand, se_UpdateServerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServerCommand}.
  */
 export interface UpdateServerCommandInput extends UpdateServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServerCommand}.
  */
 export interface UpdateServerCommandOutput extends UpdateServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Updates settings for a server.
  *     </p>
@@ -47,10 +44,19 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * import { OpsWorksCMClient, UpdateServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, UpdateServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // UpdateServerRequest
+ *   DisableAutomatedBackup: true || false,
+ *   BackupRetentionCount: Number("int"),
+ *   ServerName: "STRING_VALUE", // required
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServerCommandInput - {@link UpdateServerCommandInput}
+ * @returns {@link UpdateServerCommandOutput}
  * @see {@link UpdateServerCommandInput} for command's `input` shape.
  * @see {@link UpdateServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -86,6 +92,9 @@ export class UpdateServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +121,7 @@ export class UpdateServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateServerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,12 +132,18 @@ export class UpdateServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServerCommand(input, context);
+    return se_UpdateServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServerCommandOutput> {
-    return deserializeAws_json1_1UpdateServerCommand(output, context);
+    return de_UpdateServerCommand(output, context);
   }
 
   // Start section: command_body_extra

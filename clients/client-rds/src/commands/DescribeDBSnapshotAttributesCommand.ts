@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDBSnapshotAttributesMessage,
-  DescribeDBSnapshotAttributesMessageFilterSensitiveLog,
-  DescribeDBSnapshotAttributesResult,
-  DescribeDBSnapshotAttributesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBSnapshotAttributesCommand,
-  serializeAws_queryDescribeDBSnapshotAttributesCommand,
-} from "../protocols/Aws_query";
+import { DescribeDBSnapshotAttributesMessage, DescribeDBSnapshotAttributesResult } from "../models/models_1";
+import { de_DescribeDBSnapshotAttributesCommand, se_DescribeDBSnapshotAttributesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBSnapshotAttributesCommand}.
  */
 export interface DescribeDBSnapshotAttributesCommandInput extends DescribeDBSnapshotAttributesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBSnapshotAttributesCommand}.
  */
 export interface DescribeDBSnapshotAttributesCommandOutput
@@ -37,6 +33,7 @@ export interface DescribeDBSnapshotAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of DB snapshot attribute names and values for a manual DB snapshot.</p>
  *          <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBSnapshotAttributes</code>
  *       returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are
@@ -51,10 +48,15 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  * import { RDSClient, DescribeDBSnapshotAttributesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBSnapshotAttributesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBSnapshotAttributesMessage
+ *   DBSnapshotIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDBSnapshotAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBSnapshotAttributesCommandInput - {@link DescribeDBSnapshotAttributesCommandInput}
+ * @returns {@link DescribeDBSnapshotAttributesCommandOutput}
  * @see {@link DescribeDBSnapshotAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSnapshotAttributesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -64,9 +66,9 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
  *
- * @example To list DB snapshot attributes
+ * @example To describe the attribute names and values for a DB snapshot
  * ```javascript
- * // This example lists attributes for the specified DB snapshot.
+ * // The following example describes the attribute names and values for a DB snapshot.
  * const input = {
  *   "DBSnapshotIdentifier": "mydbsnapshot"
  * };
@@ -74,10 +76,21 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBSnapshotAttributesResult": {}
+ *   "DBSnapshotAttributesResult": {
+ *     "DBSnapshotAttributes": [
+ *       {
+ *         "AttributeName": "restore",
+ *         "AttributeValues": [
+ *           "123456789012",
+ *           "210987654321"
+ *         ]
+ *       }
+ *     ],
+ *     "DBSnapshotIdentifier": "mydbsnapshot"
+ *   }
  * }
  * *\/
- * // example id: describe-db-snapshot-attributes-1d4fb750-34f6-4e43-8b3d-b2751d796a95
+ * // example id: to-describe-the-attribute-names-and-values-for-a-db-snapshot-1680280194370
  * ```
  *
  */
@@ -98,6 +111,9 @@ export class DescribeDBSnapshotAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBSnapshotAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +142,8 @@ export class DescribeDBSnapshotAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBSnapshotAttributesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBSnapshotAttributesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,15 +153,21 @@ export class DescribeDBSnapshotAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBSnapshotAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBSnapshotAttributesCommand(input, context);
+    return se_DescribeDBSnapshotAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBSnapshotAttributesCommandOutput> {
-    return deserializeAws_queryDescribeDBSnapshotAttributesCommand(output, context);
+    return de_DescribeDBSnapshotAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

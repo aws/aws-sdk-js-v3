@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { EnableRuleRequest, EnableRuleRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableRuleCommand,
-  serializeAws_json1_1EnableRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { EnableRuleRequest } from "../models/models_0";
+import { de_EnableRuleCommand, se_EnableRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableRuleCommand}.
  */
 export interface EnableRuleCommandInput extends EnableRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableRuleCommand}.
  */
 export interface EnableRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified rule. If the rule does not exist, the operation fails.</p>
  *          <p>When you enable a rule, incoming events might not immediately start matching to a newly
  *       enabled rule. Allow a short period of time for changes to take effect.</p>
@@ -39,10 +41,16 @@ export interface EnableRuleCommandOutput extends __MetadataBearer {}
  * import { EventBridgeClient, EnableRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, EnableRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // EnableRuleRequest
+ *   Name: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ * };
  * const command = new EnableRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableRuleCommandInput - {@link EnableRuleCommandInput}
+ * @returns {@link EnableRuleCommandOutput}
  * @see {@link EnableRuleCommandInput} for command's `input` shape.
  * @see {@link EnableRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -83,6 +91,9 @@ export class EnableRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +120,8 @@ export class EnableRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +131,18 @@ export class EnableRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableRuleCommand(input, context);
+    return se_EnableRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableRuleCommandOutput> {
-    return deserializeAws_json1_1EnableRuleCommand(output, context);
+    return de_EnableRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

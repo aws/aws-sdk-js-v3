@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RevokeVpcEndpointAccessRequest,
-  RevokeVpcEndpointAccessRequestFilterSensitiveLog,
-  RevokeVpcEndpointAccessResponse,
-  RevokeVpcEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RevokeVpcEndpointAccessRequest, RevokeVpcEndpointAccessResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1RevokeVpcEndpointAccessCommand,
-  serializeAws_restJson1RevokeVpcEndpointAccessCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RevokeVpcEndpointAccessCommand, se_RevokeVpcEndpointAccessCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RevokeVpcEndpointAccessCommand}.
  */
 export interface RevokeVpcEndpointAccessCommandInput extends RevokeVpcEndpointAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link RevokeVpcEndpointAccessCommand}.
  */
 export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface
  *    VPC endpoint.</p>
  * @example
@@ -43,10 +40,16 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  * import { OpenSearchClient, RevokeVpcEndpointAccessCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, RevokeVpcEndpointAccessCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // RevokeVpcEndpointAccessRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   Account: "STRING_VALUE", // required
+ * };
  * const command = new RevokeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RevokeVpcEndpointAccessCommandInput - {@link RevokeVpcEndpointAccessCommandInput}
+ * @returns {@link RevokeVpcEndpointAccessCommandOutput}
  * @see {@link RevokeVpcEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeVpcEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -85,6 +88,9 @@ export class RevokeVpcEndpointAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RevokeVpcEndpointAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class RevokeVpcEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeVpcEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeVpcEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class RevokeVpcEndpointAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RevokeVpcEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RevokeVpcEndpointAccessCommand(input, context);
+    return se_RevokeVpcEndpointAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeVpcEndpointAccessCommandOutput> {
-    return deserializeAws_restJson1RevokeVpcEndpointAccessCommand(output, context);
+    return de_RevokeVpcEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

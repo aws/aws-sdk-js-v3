@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  GetTableMetadataInput,
-  GetTableMetadataInputFilterSensitiveLog,
-  GetTableMetadataOutput,
-  GetTableMetadataOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTableMetadataCommand,
-  serializeAws_json1_1GetTableMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { GetTableMetadataInput, GetTableMetadataOutput } from "../models/models_0";
+import { de_GetTableMetadataCommand, se_GetTableMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTableMetadataCommand}.
  */
 export interface GetTableMetadataCommandInput extends GetTableMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTableMetadataCommand}.
  */
 export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns table metadata for the specified catalog, database, and table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, _
  * import { AthenaClient, GetTableMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetTableMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // GetTableMetadataInput
+ *   CatalogName: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ * };
  * const command = new GetTableMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableMetadataCommandInput - {@link GetTableMetadataCommandInput}
+ * @returns {@link GetTableMetadataCommandOutput}
  * @see {@link GetTableMetadataCommandInput} for command's `input` shape.
  * @see {@link GetTableMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -85,6 +89,9 @@ export class GetTableMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class GetTableMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTableMetadataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTableMetadataOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class GetTableMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTableMetadataCommand(input, context);
+    return se_GetTableMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableMetadataCommandOutput> {
-    return deserializeAws_json1_1GetTableMetadataCommand(output, context);
+    return de_GetTableMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

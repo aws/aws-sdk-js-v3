@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetInlinePolicyForPermissionSetRequest, GetInlinePolicyForPermissionSetResponse } from "../models/models_0";
 import {
-  GetInlinePolicyForPermissionSetRequest,
-  GetInlinePolicyForPermissionSetRequestFilterSensitiveLog,
-  GetInlinePolicyForPermissionSetResponse,
-  GetInlinePolicyForPermissionSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetInlinePolicyForPermissionSetCommand,
-  serializeAws_json1_1GetInlinePolicyForPermissionSetCommand,
+  de_GetInlinePolicyForPermissionSetCommand,
+  se_GetInlinePolicyForPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInlinePolicyForPermissionSetCommand}.
  */
 export interface GetInlinePolicyForPermissionSetCommandInput extends GetInlinePolicyForPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInlinePolicyForPermissionSetCommand}.
  */
 export interface GetInlinePolicyForPermissionSetCommandOutput
@@ -37,6 +36,7 @@ export interface GetInlinePolicyForPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains the inline policy assigned to the permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface GetInlinePolicyForPermissionSetCommandOutput
  * import { SSOAdminClient, GetInlinePolicyForPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, GetInlinePolicyForPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // GetInlinePolicyForPermissionSetRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ * };
  * const command = new GetInlinePolicyForPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInlinePolicyForPermissionSetCommandInput - {@link GetInlinePolicyForPermissionSetCommandInput}
+ * @returns {@link GetInlinePolicyForPermissionSetCommandOutput}
  * @see {@link GetInlinePolicyForPermissionSetCommandInput} for command's `input` shape.
  * @see {@link GetInlinePolicyForPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -88,6 +94,9 @@ export class GetInlinePolicyForPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInlinePolicyForPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +125,8 @@ export class GetInlinePolicyForPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInlinePolicyForPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInlinePolicyForPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +136,24 @@ export class GetInlinePolicyForPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetInlinePolicyForPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInlinePolicyForPermissionSetCommand(input, context);
+    return se_GetInlinePolicyForPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInlinePolicyForPermissionSetCommandOutput> {
-    return deserializeAws_json1_1GetInlinePolicyForPermissionSetCommand(output, context);
+    return de_GetInlinePolicyForPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

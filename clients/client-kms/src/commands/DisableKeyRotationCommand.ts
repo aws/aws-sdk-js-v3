@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DisableKeyRotationRequest, DisableKeyRotationRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableKeyRotationCommand,
-  serializeAws_json1_1DisableKeyRotationCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableKeyRotationRequest } from "../models/models_0";
+import { de_DisableKeyRotationCommand, se_DisableKeyRotationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableKeyRotationCommand}.
  */
 export interface DisableKeyRotationCommandInput extends DisableKeyRotationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableKeyRotationCommand}.
  */
 export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
  *         rotation of the key material</a> of the specified symmetric encryption KMS key.</p>
  *          <p>Automatic key rotation is supported only on symmetric encryption KMS keys.
@@ -69,10 +71,15 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * import { KMSClient, DisableKeyRotationCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DisableKeyRotationCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // DisableKeyRotationRequest
+ *   KeyId: "STRING_VALUE", // required
+ * };
  * const command = new DisableKeyRotationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableKeyRotationCommandInput - {@link DisableKeyRotationCommandInput}
+ * @returns {@link DisableKeyRotationCommandOutput}
  * @see {@link DisableKeyRotationCommandInput} for command's `input` shape.
  * @see {@link DisableKeyRotationCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -148,6 +155,9 @@ export class DisableKeyRotationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableKeyRotationCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,8 +186,8 @@ export class DisableKeyRotationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableKeyRotationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -187,12 +197,18 @@ export class DisableKeyRotationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableKeyRotationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableKeyRotationCommand(input, context);
+    return se_DisableKeyRotationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableKeyRotationCommandOutput> {
-    return deserializeAws_json1_1DisableKeyRotationCommand(output, context);
+    return de_DisableKeyRotationCommand(output, context);
   }
 
   // Start section: command_body_extra

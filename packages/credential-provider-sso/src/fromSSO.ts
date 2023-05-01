@@ -12,6 +12,9 @@ import { isSsoProfile } from "./isSsoProfile";
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 import { validateSsoProfile } from "./validateSsoProfile";
 
+/**
+ * @internal
+ */
 export interface SsoCredentialsParameters {
   /**
    * The URL to the AWS SSO service.
@@ -40,11 +43,16 @@ export interface SsoCredentialsParameters {
   ssoRoleName: string;
 }
 
+/**
+ * @internal
+ */
 export interface FromSSOInit extends SourceProfileInit {
   ssoClient?: SSOClient;
 }
 
 /**
+ * @internal
+ * 
  * Creates a credential provider that will read from a credential_process specified
  * in ini files.
  *

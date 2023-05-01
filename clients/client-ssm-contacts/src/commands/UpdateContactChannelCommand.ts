@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateContactChannelRequest,
-  UpdateContactChannelRequestFilterSensitiveLog,
-  UpdateContactChannelResult,
-  UpdateContactChannelResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateContactChannelCommand,
-  serializeAws_json1_1UpdateContactChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateContactChannelRequest, UpdateContactChannelResult } from "../models/models_0";
+import { de_UpdateContactChannelCommand, se_UpdateContactChannelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactChannelCommand}.
  */
 export interface UpdateContactChannelCommandInput extends UpdateContactChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactChannelCommand}.
  */
 export interface UpdateContactChannelCommandOutput extends UpdateContactChannelResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a contact's contact channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  * import { SSMContactsClient, UpdateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, UpdateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // UpdateContactChannelRequest
+ *   ContactChannelId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   DeliveryAddress: { // ContactChannelAddress
+ *     SimpleAddress: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateContactChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactChannelCommandInput - {@link UpdateContactChannelCommandInput}
+ * @returns {@link UpdateContactChannelCommandOutput}
  * @see {@link UpdateContactChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -60,8 +66,7 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  *  <p>The operation failed to due an encryption key error.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource that doesn't exist.</p>
@@ -73,21 +78,6 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
- *
- * @example To update a contact channel
- * ```javascript
- * // The following update-contact-channel example updates the name and delivery address of a contact channel.
- * const input = {
- *   "ContactChannelId": "arn:aws:ssm-contacts:us-east-2:111122223333:contact-channel/akuam/49f3c24d-5f9f-4638-ae25-3f49e04229ad",
- *   "DeliveryAddress": {
- *     "SimpleAddress": "+15005550198"
- *   },
- *   "Name": "akuas voice channel"
- * };
- * const command = new UpdateContactChannelCommand(input);
- * await client.send(command);
- * // example id: to-update-a-contact-channel-1630437610256
- * ```
  *
  */
 export class UpdateContactChannelCommand extends $Command<
@@ -107,6 +97,9 @@ export class UpdateContactChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +128,8 @@ export class UpdateContactChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContactChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContactChannelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +139,18 @@ export class UpdateContactChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateContactChannelCommand(input, context);
+    return se_UpdateContactChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactChannelCommandOutput> {
-    return deserializeAws_json1_1UpdateContactChannelCommand(output, context);
+    return de_UpdateContactChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  ModifyUserGroupMessage,
-  ModifyUserGroupMessageFilterSensitiveLog,
-  UserGroup,
-  UserGroupFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyUserGroupCommand,
-  serializeAws_queryModifyUserGroupCommand,
-} from "../protocols/Aws_query";
+import { ModifyUserGroupMessage, UserGroup } from "../models/models_0";
+import { de_ModifyUserGroupCommand, se_ModifyUserGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyUserGroupCommand}.
  */
 export interface ModifyUserGroupCommandInput extends ModifyUserGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyUserGroupCommand}.
  */
 export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the list of users that belong to the user group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * import { ElastiCacheClient, ModifyUserGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyUserGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // ModifyUserGroupMessage
+ *   UserGroupId: "STRING_VALUE", // required
+ *   UserIdsToAdd: [ // UserIdListInput
+ *     "STRING_VALUE",
+ *   ],
+ *   UserIdsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyUserGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyUserGroupCommandInput - {@link ModifyUserGroupCommandInput}
+ * @returns {@link ModifyUserGroupCommandOutput}
  * @see {@link ModifyUserGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyUserGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -93,6 +101,9 @@ export class ModifyUserGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyUserGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +132,8 @@ export class ModifyUserGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyUserGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: UserGroupFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +143,18 @@ export class ModifyUserGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyUserGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyUserGroupCommand(input, context);
+    return se_ModifyUserGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyUserGroupCommandOutput> {
-    return deserializeAws_queryModifyUserGroupCommand(output, context);
+    return de_ModifyUserGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

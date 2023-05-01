@@ -16,21 +16,23 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeOrganizationConformancePackStatusesRequest,
-  DescribeOrganizationConformancePackStatusesRequestFilterSensitiveLog,
   DescribeOrganizationConformancePackStatusesResponse,
-  DescribeOrganizationConformancePackStatusesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand,
-  serializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand,
+  de_DescribeOrganizationConformancePackStatusesCommand,
+  se_DescribeOrganizationConformancePackStatusesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationConformancePackStatusesCommand}.
  */
 export interface DescribeOrganizationConformancePackStatusesCommandInput
   extends DescribeOrganizationConformancePackStatusesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationConformancePackStatusesCommand}.
  */
 export interface DescribeOrganizationConformancePackStatusesCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides organization conformance pack deployment status for an organization. </p>
  *          <note>
  *             <p>The status is not considered successful until organization conformance pack is successfully
@@ -52,10 +55,19 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
  * import { ConfigServiceClient, DescribeOrganizationConformancePackStatusesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeOrganizationConformancePackStatusesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeOrganizationConformancePackStatusesRequest
+ *   OrganizationConformancePackNames: [ // OrganizationConformancePackNames
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeOrganizationConformancePackStatusesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationConformancePackStatusesCommandInput - {@link DescribeOrganizationConformancePackStatusesCommandInput}
+ * @returns {@link DescribeOrganizationConformancePackStatusesCommandOutput}
  * @see {@link DescribeOrganizationConformancePackStatusesCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConformancePackStatusesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -112,6 +124,9 @@ export class DescribeOrganizationConformancePackStatusesCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationConformancePackStatusesCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +161,8 @@ export class DescribeOrganizationConformancePackStatusesCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationConformancePackStatusesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationConformancePackStatusesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,18 +172,24 @@ export class DescribeOrganizationConformancePackStatusesCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationConformancePackStatusesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand(input, context);
+    return se_DescribeOrganizationConformancePackStatusesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand(output, context);
+    return de_DescribeOrganizationConformancePackStatusesCommand(output, context);
   }
 
   // Start section: command_body_extra

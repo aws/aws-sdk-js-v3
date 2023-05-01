@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DescribeThingRegistrationTaskRequest, DescribeThingRegistrationTaskResponse } from "../models/models_1";
 import {
-  DescribeThingRegistrationTaskRequest,
-  DescribeThingRegistrationTaskRequestFilterSensitiveLog,
-  DescribeThingRegistrationTaskResponse,
-  DescribeThingRegistrationTaskResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeThingRegistrationTaskCommand,
-  serializeAws_restJson1DescribeThingRegistrationTaskCommand,
+  de_DescribeThingRegistrationTaskCommand,
+  se_DescribeThingRegistrationTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeThingRegistrationTaskCommand}.
  */
 export interface DescribeThingRegistrationTaskCommandInput extends DescribeThingRegistrationTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeThingRegistrationTaskCommand}.
  */
 export interface DescribeThingRegistrationTaskCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeThingRegistrationTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a bulk thing provisioning task.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingRegistrationTask</a> action.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DescribeThingRegistrationTaskCommandOutput
  * import { IoTClient, DescribeThingRegistrationTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeThingRegistrationTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeThingRegistrationTaskRequest
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeThingRegistrationTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeThingRegistrationTaskCommandInput - {@link DescribeThingRegistrationTaskCommandInput}
+ * @returns {@link DescribeThingRegistrationTaskCommandOutput}
  * @see {@link DescribeThingRegistrationTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeThingRegistrationTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +92,9 @@ export class DescribeThingRegistrationTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeThingRegistrationTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class DescribeThingRegistrationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeThingRegistrationTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeThingRegistrationTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +134,21 @@ export class DescribeThingRegistrationTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeThingRegistrationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeThingRegistrationTaskCommand(input, context);
+    return se_DescribeThingRegistrationTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeThingRegistrationTaskCommandOutput> {
-    return deserializeAws_restJson1DescribeThingRegistrationTaskCommand(output, context);
+    return de_DescribeThingRegistrationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

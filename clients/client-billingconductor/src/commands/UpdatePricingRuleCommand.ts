@@ -20,21 +20,23 @@ import {
   UpdatePricingRuleOutput,
   UpdatePricingRuleOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePricingRuleCommand,
-  serializeAws_restJson1UpdatePricingRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePricingRuleCommand, se_UpdatePricingRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePricingRuleCommand}.
  */
 export interface UpdatePricingRuleCommandInput extends UpdatePricingRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePricingRuleCommand}.
  */
 export interface UpdatePricingRuleCommandOutput extends UpdatePricingRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Updates an existing pricing rule.
  *     </p>
@@ -44,10 +46,24 @@ export interface UpdatePricingRuleCommandOutput extends UpdatePricingRuleOutput,
  * import { BillingconductorClient, UpdatePricingRuleCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, UpdatePricingRuleCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // UpdatePricingRuleInput
+ *   Arn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Type: "STRING_VALUE",
+ *   ModifierPercentage: Number("double"),
+ *   Tiering: { // UpdateTieringInput
+ *     FreeTier: { // UpdateFreeTierConfig
+ *       Activated: true || false, // required
+ *     },
+ *   },
+ * };
  * const command = new UpdatePricingRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePricingRuleCommandInput - {@link UpdatePricingRuleCommandInput}
+ * @returns {@link UpdatePricingRuleCommandOutput}
  * @see {@link UpdatePricingRuleCommandInput} for command's `input` shape.
  * @see {@link UpdatePricingRuleCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -94,6 +110,9 @@ export class UpdatePricingRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePricingRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,12 +152,18 @@ export class UpdatePricingRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePricingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePricingRuleCommand(input, context);
+    return se_UpdatePricingRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePricingRuleCommandOutput> {
-    return deserializeAws_restJson1UpdatePricingRuleCommand(output, context);
+    return de_UpdatePricingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

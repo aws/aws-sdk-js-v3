@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopExecutionInput,
-  StopExecutionInputFilterSensitiveLog,
-  StopExecutionOutput,
-  StopExecutionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0StopExecutionCommand,
-  serializeAws_json1_0StopExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { StopExecutionInput, StopExecutionInputFilterSensitiveLog, StopExecutionOutput } from "../models/models_0";
+import { de_StopExecutionCommand, se_StopExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopExecutionCommand}.
  */
 export interface StopExecutionCommandInput extends StopExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StopExecutionCommand}.
  */
 export interface StopExecutionCommandOutput extends StopExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an execution.</p>
  *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
  * @example
@@ -43,10 +40,17 @@ export interface StopExecutionCommandOutput extends StopExecutionOutput, __Metad
  * import { SFNClient, StopExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, StopExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // StopExecutionInput
+ *   executionArn: "STRING_VALUE", // required
+ *   error: "STRING_VALUE",
+ *   cause: "STRING_VALUE",
+ * };
  * const command = new StopExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopExecutionCommandInput - {@link StopExecutionCommandInput}
+ * @returns {@link StopExecutionCommandOutput}
  * @see {@link StopExecutionCommandInput} for command's `input` shape.
  * @see {@link StopExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -79,6 +83,9 @@ export class StopExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +113,7 @@ export class StopExecutionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StopExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopExecutionOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +123,18 @@ export class StopExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StopExecutionCommand(input, context);
+    return se_StopExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopExecutionCommandOutput> {
-    return deserializeAws_json1_0StopExecutionCommand(output, context);
+    return de_StopExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

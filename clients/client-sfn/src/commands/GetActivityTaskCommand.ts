@@ -15,26 +15,27 @@ import {
 
 import {
   GetActivityTaskInput,
-  GetActivityTaskInputFilterSensitiveLog,
   GetActivityTaskOutput,
   GetActivityTaskOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetActivityTaskCommand,
-  serializeAws_json1_0GetActivityTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetActivityTaskCommand, se_GetActivityTaskCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetActivityTaskCommand}.
  */
 export interface GetActivityTaskCommandInput extends GetActivityTaskInput {}
 /**
+ * @public
+ *
  * The output of {@link GetActivityTaskCommand}.
  */
 export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by workers to retrieve a task (with the specified activity ARN) which has been
  *       scheduled for execution by a running state machine. This initiates a long poll, where the
  *       service holds the HTTP connection open and responds as soon as a task becomes available (i.e.
@@ -59,10 +60,16 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * import { SFNClient, GetActivityTaskCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, GetActivityTaskCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // GetActivityTaskInput
+ *   activityArn: "STRING_VALUE", // required
+ *   workerName: "STRING_VALUE",
+ * };
  * const command = new GetActivityTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetActivityTaskCommandInput - {@link GetActivityTaskCommandInput}
+ * @returns {@link GetActivityTaskCommandOutput}
  * @see {@link GetActivityTaskCommandInput} for command's `input` shape.
  * @see {@link GetActivityTaskCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -96,6 +103,9 @@ export class GetActivityTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetActivityTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,7 +134,7 @@ export class GetActivityTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetActivityTaskInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetActivityTaskOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -135,12 +145,18 @@ export class GetActivityTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetActivityTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetActivityTaskCommand(input, context);
+    return se_GetActivityTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetActivityTaskCommandOutput> {
-    return deserializeAws_json1_0GetActivityTaskCommand(output, context);
+    return de_GetActivityTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

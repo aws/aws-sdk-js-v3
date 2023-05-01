@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTemplateAliasesRequest,
-  ListTemplateAliasesRequestFilterSensitiveLog,
-  ListTemplateAliasesResponse,
-  ListTemplateAliasesResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1ListTemplateAliasesCommand,
-  serializeAws_restJson1ListTemplateAliasesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTemplateAliasesRequest, ListTemplateAliasesResponse } from "../models/models_3";
+import { de_ListTemplateAliasesCommand, se_ListTemplateAliasesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTemplateAliasesCommand}.
  */
 export interface ListTemplateAliasesCommandInput extends ListTemplateAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTemplateAliasesCommand}.
  */
 export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the aliases of a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesRes
  * import { QuickSightClient, ListTemplateAliasesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListTemplateAliasesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // ListTemplateAliasesRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   TemplateId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTemplateAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTemplateAliasesCommandInput - {@link ListTemplateAliasesCommandInput}
+ * @returns {@link ListTemplateAliasesCommandOutput}
  * @see {@link ListTemplateAliasesCommandInput} for command's `input` shape.
  * @see {@link ListTemplateAliasesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -87,6 +92,9 @@ export class ListTemplateAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTemplateAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class ListTemplateAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTemplateAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTemplateAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +134,18 @@ export class ListTemplateAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTemplateAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTemplateAliasesCommand(input, context);
+    return se_ListTemplateAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplateAliasesCommandOutput> {
-    return deserializeAws_restJson1ListTemplateAliasesCommand(output, context);
+    return de_ListTemplateAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DescribeWarmPoolAnswer,
-  DescribeWarmPoolAnswerFilterSensitiveLog,
-  DescribeWarmPoolType,
-  DescribeWarmPoolTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeWarmPoolCommand,
-  serializeAws_queryDescribeWarmPoolCommand,
-} from "../protocols/Aws_query";
+import { DescribeWarmPoolAnswer, DescribeWarmPoolType } from "../models/models_0";
+import { de_DescribeWarmPoolCommand, se_DescribeWarmPoolCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWarmPoolCommand}.
  */
 export interface DescribeWarmPoolCommandInput extends DescribeWarmPoolType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWarmPoolCommand}.
  */
 export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a warm pool and its instances.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -44,10 +41,17 @@ export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, _
  * import { AutoScalingClient, DescribeWarmPoolCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeWarmPoolCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DescribeWarmPoolType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeWarmPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWarmPoolCommandInput - {@link DescribeWarmPoolCommandInput}
+ * @returns {@link DescribeWarmPoolCommandOutput}
  * @see {@link DescribeWarmPoolCommandInput} for command's `input` shape.
  * @see {@link DescribeWarmPoolCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -84,6 +88,9 @@ export class DescribeWarmPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWarmPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class DescribeWarmPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWarmPoolTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWarmPoolAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class DescribeWarmPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWarmPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeWarmPoolCommand(input, context);
+    return se_DescribeWarmPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWarmPoolCommandOutput> {
-    return deserializeAws_queryDescribeWarmPoolCommand(output, context);
+    return de_DescribeWarmPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

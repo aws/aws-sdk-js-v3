@@ -16,39 +16,40 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import {
   RequestUploadCredentialsInput,
-  RequestUploadCredentialsInputFilterSensitiveLog,
   RequestUploadCredentialsOutput,
   RequestUploadCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RequestUploadCredentialsCommand,
-  serializeAws_json1_1RequestUploadCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RequestUploadCredentialsCommand, se_RequestUploadCredentialsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RequestUploadCredentialsCommand}.
  */
 export interface RequestUploadCredentialsCommandInput extends RequestUploadCredentialsInput {}
 /**
+ * @public
+ *
  * The output of {@link RequestUploadCredentialsCommand}.
  */
 export interface RequestUploadCredentialsCommandOutput extends RequestUploadCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a fresh set of credentials for use when uploading a new set of game build
  *             files to Amazon GameLift's Amazon S3. This is done as part of the build creation process; see
  *                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html">GameSession</a>.</p>
- *         <p>To request new credentials, specify the build ID as returned with an initial
+ *          <p>To request new credentials, specify the build ID as returned with an initial
  *                 <code>CreateBuild</code> request. If successful, a new set of credentials are
  *             returned, along with the S3 storage location associated with the build ID.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build"> Create a Build with Files in S3</a>
- *         </p>
  *          <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build"> Create a Build with Files in S3</a>
+ *          </p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,10 +57,15 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
  * import { GameLiftClient, RequestUploadCredentialsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, RequestUploadCredentialsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // RequestUploadCredentialsInput
+ *   BuildId: "STRING_VALUE", // required
+ * };
  * const command = new RequestUploadCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestUploadCredentialsCommandInput - {@link RequestUploadCredentialsCommandInput}
+ * @returns {@link RequestUploadCredentialsCommandOutput}
  * @see {@link RequestUploadCredentialsCommandInput} for command's `input` shape.
  * @see {@link RequestUploadCredentialsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -97,6 +103,9 @@ export class RequestUploadCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestUploadCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,7 +134,7 @@ export class RequestUploadCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestUploadCredentialsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RequestUploadCredentialsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -136,12 +145,18 @@ export class RequestUploadCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestUploadCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RequestUploadCredentialsCommand(input, context);
+    return se_RequestUploadCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestUploadCredentialsCommandOutput> {
-    return deserializeAws_json1_1RequestUploadCredentialsCommand(output, context);
+    return de_RequestUploadCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

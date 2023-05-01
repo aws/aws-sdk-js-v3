@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  AliasConfiguration,
-  AliasConfigurationFilterSensitiveLog,
-  CreateAliasRequest,
-  CreateAliasRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAliasCommand,
-  serializeAws_restJson1CreateAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { AliasConfiguration, CreateAliasRequest } from "../models/models_0";
+import { de_CreateAliasCommand, se_CreateAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAliasCommand}.
  */
 export interface CreateAliasCommandInput extends CreateAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAliasCommand}.
  */
 export interface CreateAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a> for a
  *       Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a
  *       different version.</p>
@@ -47,10 +44,23 @@ export interface CreateAliasCommandOutput extends AliasConfiguration, __Metadata
  * import { LambdaClient, CreateAliasCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateAliasCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // CreateAliasRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   FunctionVersion: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   RoutingConfig: { // AliasRoutingConfiguration
+ *     AdditionalVersionWeights: { // AdditionalVersionWeights
+ *       "<keys>": Number("double"),
+ *     },
+ *   },
+ * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
+ * @returns {@link CreateAliasCommandOutput}
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -89,6 +99,9 @@ export class CreateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +128,8 @@ export class CreateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AliasConfigurationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +139,18 @@ export class CreateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAliasCommand(input, context);
+    return se_CreateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAliasCommandOutput> {
-    return deserializeAws_restJson1CreateAliasCommand(output, context);
+    return de_CreateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

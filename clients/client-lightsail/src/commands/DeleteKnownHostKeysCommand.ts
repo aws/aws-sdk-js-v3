@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteKnownHostKeysRequest,
-  DeleteKnownHostKeysRequestFilterSensitiveLog,
-  DeleteKnownHostKeysResult,
-  DeleteKnownHostKeysResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteKnownHostKeysCommand,
-  serializeAws_json1_1DeleteKnownHostKeysCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteKnownHostKeysRequest, DeleteKnownHostKeysResult } from "../models/models_0";
+import { de_DeleteKnownHostKeysCommand, se_DeleteKnownHostKeysCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteKnownHostKeysCommand}.
  */
 export interface DeleteKnownHostKeysCommandInput extends DeleteKnownHostKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteKnownHostKeysCommand}.
  */
 export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the known host key or certificate used by the Amazon Lightsail browser-based SSH or
  *       RDP clients to authenticate an instance. This operation enables the Lightsail browser-based
  *       SSH or RDP clients to connect to the instance after a host key mismatch.</p>
@@ -50,10 +47,15 @@ export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysRes
  * import { LightsailClient, DeleteKnownHostKeysCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteKnownHostKeysCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteKnownHostKeysRequest
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteKnownHostKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteKnownHostKeysCommandInput - {@link DeleteKnownHostKeysCommandInput}
+ * @returns {@link DeleteKnownHostKeysCommandOutput}
  * @see {@link DeleteKnownHostKeysCommandInput} for command's `input` shape.
  * @see {@link DeleteKnownHostKeysCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -107,6 +109,9 @@ export class DeleteKnownHostKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteKnownHostKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +140,8 @@ export class DeleteKnownHostKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteKnownHostKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteKnownHostKeysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +151,18 @@ export class DeleteKnownHostKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteKnownHostKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteKnownHostKeysCommand(input, context);
+    return se_DeleteKnownHostKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKnownHostKeysCommandOutput> {
-    return deserializeAws_json1_1DeleteKnownHostKeysCommand(output, context);
+    return de_DeleteKnownHostKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

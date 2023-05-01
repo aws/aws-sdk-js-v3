@@ -15,13 +15,11 @@ import {
 
 import {
   ListAssociatedRoute53HealthChecksRequest,
-  ListAssociatedRoute53HealthChecksRequestFilterSensitiveLog,
   ListAssociatedRoute53HealthChecksResponse,
-  ListAssociatedRoute53HealthChecksResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommand,
-  serializeAws_restJson1ListAssociatedRoute53HealthChecksCommand,
+  de_ListAssociatedRoute53HealthChecksCommand,
+  se_ListAssociatedRoute53HealthChecksCommand,
 } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
@@ -30,10 +28,14 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedRoute53HealthChecksCommand}.
  */
 export interface ListAssociatedRoute53HealthChecksCommandInput extends ListAssociatedRoute53HealthChecksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedRoute53HealthChecksCommand}.
  */
 export interface ListAssociatedRoute53HealthChecksCommandOutput
@@ -41,6 +43,7 @@ export interface ListAssociatedRoute53HealthChecksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of all Amazon Route 53 health checks associated with a specific routing control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +51,17 @@ export interface ListAssociatedRoute53HealthChecksCommandOutput
  * import { Route53RecoveryControlConfigClient, ListAssociatedRoute53HealthChecksCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, ListAssociatedRoute53HealthChecksCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // ListAssociatedRoute53HealthChecksRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RoutingControlArn: "STRING_VALUE", // required
+ * };
  * const command = new ListAssociatedRoute53HealthChecksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedRoute53HealthChecksCommandInput - {@link ListAssociatedRoute53HealthChecksCommandInput}
+ * @returns {@link ListAssociatedRoute53HealthChecksCommandOutput}
  * @see {@link ListAssociatedRoute53HealthChecksCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedRoute53HealthChecksCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -84,6 +94,9 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedRoute53HealthChecksCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +125,8 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociatedRoute53HealthChecksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociatedRoute53HealthChecksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +136,24 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAssociatedRoute53HealthChecksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssociatedRoute53HealthChecksCommand(input, context);
+    return se_ListAssociatedRoute53HealthChecksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssociatedRoute53HealthChecksCommandOutput> {
-    return deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommand(output, context);
+    return de_ListAssociatedRoute53HealthChecksCommand(output, context);
   }
 
   // Start section: command_body_extra

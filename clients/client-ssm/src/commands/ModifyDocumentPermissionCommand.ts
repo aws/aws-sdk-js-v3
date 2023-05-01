@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDocumentPermissionRequest,
-  ModifyDocumentPermissionRequestFilterSensitiveLog,
-  ModifyDocumentPermissionResponse,
-  ModifyDocumentPermissionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ModifyDocumentPermissionCommand,
-  serializeAws_json1_1ModifyDocumentPermissionCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifyDocumentPermissionRequest, ModifyDocumentPermissionResponse } from "../models/models_1";
+import { de_ModifyDocumentPermissionCommand, se_ModifyDocumentPermissionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDocumentPermissionCommand}.
  */
 export interface ModifyDocumentPermissionCommandInput extends ModifyDocumentPermissionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDocumentPermissionCommand}.
  */
 export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
  *    privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If
  *    you share a document publicly, you must specify <i>All</i> as the account
@@ -45,10 +42,23 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  * import { SSMClient, ModifyDocumentPermissionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ModifyDocumentPermissionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ModifyDocumentPermissionRequest
+ *   Name: "STRING_VALUE", // required
+ *   PermissionType: "Share", // required
+ *   AccountIdsToAdd: [ // AccountIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   AccountIdsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SharedDocumentVersion: "STRING_VALUE",
+ * };
  * const command = new ModifyDocumentPermissionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDocumentPermissionCommandInput - {@link ModifyDocumentPermissionCommandInput}
+ * @returns {@link ModifyDocumentPermissionCommandOutput}
  * @see {@link ModifyDocumentPermissionCommandInput} for command's `input` shape.
  * @see {@link ModifyDocumentPermissionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -93,6 +103,9 @@ export class ModifyDocumentPermissionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDocumentPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +134,8 @@ export class ModifyDocumentPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDocumentPermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDocumentPermissionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +145,18 @@ export class ModifyDocumentPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDocumentPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyDocumentPermissionCommand(input, context);
+    return se_ModifyDocumentPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDocumentPermissionCommandOutput> {
-    return deserializeAws_json1_1ModifyDocumentPermissionCommand(output, context);
+    return de_ModifyDocumentPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

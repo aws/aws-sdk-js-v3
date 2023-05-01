@@ -20,21 +20,23 @@ import {
   UpdateBillingGroupOutput,
   UpdateBillingGroupOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBillingGroupCommand,
-  serializeAws_restJson1UpdateBillingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBillingGroupCommand, se_UpdateBillingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBillingGroupCommand}.
  */
 export interface UpdateBillingGroupCommandInput extends UpdateBillingGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBillingGroupCommand}.
  */
 export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This updates an existing billing group.
  *     </p>
  * @example
@@ -43,10 +45,21 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  * import { BillingconductorClient, UpdateBillingGroupCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, UpdateBillingGroupCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // UpdateBillingGroupInput
+ *   Arn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   ComputationPreference: { // ComputationPreference
+ *     PricingPlanArn: "STRING_VALUE", // required
+ *   },
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBillingGroupCommandInput - {@link UpdateBillingGroupCommandInput}
+ * @returns {@link UpdateBillingGroupCommandOutput}
  * @see {@link UpdateBillingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -93,6 +106,9 @@ export class UpdateBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,12 +148,18 @@ export class UpdateBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBillingGroupCommand(input, context);
+    return se_UpdateBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBillingGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateBillingGroupCommand(output, context);
+    return de_UpdateBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

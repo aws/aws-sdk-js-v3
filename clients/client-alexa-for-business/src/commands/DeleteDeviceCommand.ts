@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteDeviceRequest,
-  DeleteDeviceRequestFilterSensitiveLog,
-  DeleteDeviceResponse,
-  DeleteDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDeviceCommand,
-  serializeAws_json1_1DeleteDeviceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/models_0";
+import { de_DeleteDeviceCommand, se_DeleteDeviceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeviceCommand}.
  */
 export interface DeleteDeviceCommandInput extends DeleteDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeviceCommand}.
  */
 export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a device from Alexa For Business.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * import { AlexaForBusinessClient, DeleteDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteDeviceRequest
+ *   DeviceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeviceCommandInput - {@link DeleteDeviceCommandInput}
+ * @returns {@link DeleteDeviceCommandOutput}
  * @see {@link DeleteDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -78,6 +80,9 @@ export class DeleteDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class DeleteDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class DeleteDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeviceCommand(input, context);
+    return se_DeleteDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceCommandOutput> {
-    return deserializeAws_json1_1DeleteDeviceCommand(output, context);
+    return de_DeleteDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

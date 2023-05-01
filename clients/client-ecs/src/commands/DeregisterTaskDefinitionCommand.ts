@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DeregisterTaskDefinitionRequest,
-  DeregisterTaskDefinitionRequestFilterSensitiveLog,
-  DeregisterTaskDefinitionResponse,
-  DeregisterTaskDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterTaskDefinitionCommand,
-  serializeAws_json1_1DeregisterTaskDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeregisterTaskDefinitionRequest, DeregisterTaskDefinitionResponse } from "../models/models_0";
+import { de_DeregisterTaskDefinitionCommand, se_DeregisterTaskDefinitionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterTaskDefinitionCommand}.
  */
 export interface DeregisterTaskDefinitionCommandInput extends DeregisterTaskDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterTaskDefinitionCommand}.
  */
 export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified task definition by family and revision. Upon deregistration, the
  * 			task definition is marked as <code>INACTIVE</code>. Existing tasks and services that
  * 			reference an <code>INACTIVE</code> task definition continue to run without disruption.
@@ -59,10 +56,15 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * import { ECSClient, DeregisterTaskDefinitionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeregisterTaskDefinitionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DeregisterTaskDefinitionRequest
+ *   taskDefinition: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterTaskDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterTaskDefinitionCommandInput - {@link DeregisterTaskDefinitionCommandInput}
+ * @returns {@link DeregisterTaskDefinitionCommandOutput}
  * @see {@link DeregisterTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeregisterTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -98,6 +100,9 @@ export class DeregisterTaskDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +131,8 @@ export class DeregisterTaskDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterTaskDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterTaskDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +142,18 @@ export class DeregisterTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterTaskDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterTaskDefinitionCommand(input, context);
+    return se_DeregisterTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterTaskDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeregisterTaskDefinitionCommand(output, context);
+    return de_DeregisterTaskDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

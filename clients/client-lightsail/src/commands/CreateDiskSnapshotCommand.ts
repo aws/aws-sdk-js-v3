@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateDiskSnapshotRequest,
-  CreateDiskSnapshotRequestFilterSensitiveLog,
-  CreateDiskSnapshotResult,
-  CreateDiskSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDiskSnapshotCommand,
-  serializeAws_json1_1CreateDiskSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDiskSnapshotRequest, CreateDiskSnapshotResult } from "../models/models_0";
+import { de_CreateDiskSnapshotCommand, se_CreateDiskSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDiskSnapshotCommand}.
  */
 export interface CreateDiskSnapshotCommandInput extends CreateDiskSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDiskSnapshotCommand}.
  */
 export interface CreateDiskSnapshotCommandOutput extends CreateDiskSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a snapshot of a block storage disk. You can use snapshots for backups, to make
  *       copies of disks, and to save data before shutting down a Lightsail instance.</p>
  *          <p>You can take a snapshot of an attached disk that is in use; however, snapshots only
@@ -60,10 +57,23 @@ export interface CreateDiskSnapshotCommandOutput extends CreateDiskSnapshotResul
  * import { LightsailClient, CreateDiskSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateDiskSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateDiskSnapshotRequest
+ *   diskName: "STRING_VALUE",
+ *   diskSnapshotName: "STRING_VALUE", // required
+ *   instanceName: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDiskSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDiskSnapshotCommandInput - {@link CreateDiskSnapshotCommandInput}
+ * @returns {@link CreateDiskSnapshotCommandOutput}
  * @see {@link CreateDiskSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateDiskSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -117,6 +127,9 @@ export class CreateDiskSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDiskSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +158,8 @@ export class CreateDiskSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDiskSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDiskSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +169,18 @@ export class CreateDiskSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDiskSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDiskSnapshotCommand(input, context);
+    return se_CreateDiskSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDiskSnapshotCommandOutput> {
-    return deserializeAws_json1_1CreateDiskSnapshotCommand(output, context);
+    return de_CreateDiskSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

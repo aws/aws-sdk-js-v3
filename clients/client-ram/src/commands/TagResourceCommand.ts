@@ -13,67 +13,81 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TagResourceRequest,
-  TagResourceRequestFilterSensitiveLog,
-  TagResourceResponse,
-  TagResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1TagResourceCommand,
-  serializeAws_restJson1TagResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link TagResourceCommand}.
  */
 export interface TagResourceCommandInput extends TagResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagResourceCommand}.
  */
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tag keys and values to the specified resource share. The tags are attached
- *             only to the resource share, not to the resources that are in the resource share.</p>
+ * @public
+ * <p>Adds the specified tag keys and values to a resource share or managed permission. If you choose a resource share, the
+ *             tags are attached to only the resource share, not to the resources that are in the resource share.</p>
+ *          <p>The tags on a managed permission are the same for all versions of the managed permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RAMClient, TagResourceCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, TagResourceCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // TagResourceRequest
+ *   resourceShareArn: "STRING_VALUE",
+ *   tags: [ // TagList // required
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   resourceArn: "STRING_VALUE",
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
+ *             valid.</p>
  *
  * @throws {@link ResourceArnNotFoundException} (client fault)
- *  <p>The specified Amazon Resource Name (ARN) was not found.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> was not found.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  * @throws {@link TagLimitExceededException} (client fault)
- *  <p>This request would exceed the limit for tags for your account.</p>
+ *  <p>The operation failed because it would exceed the limit for tags for your
+ *             Amazon Web Services account.</p>
  *
  * @throws {@link TagPolicyViolationException} (client fault)
- *  <p>The specified tag key is a reserved word and can't be used.</p>
+ *  <p>The operation failed because the specified tag key is a reserved word and can't be
+ *             used.</p>
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>A specified resource was not found.</p>
+ *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
  *
  */
@@ -94,6 +108,9 @@ export class TagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +137,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +148,18 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagResourceCommand(input, context);
+    return se_TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_restJson1TagResourceCommand(output, context);
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

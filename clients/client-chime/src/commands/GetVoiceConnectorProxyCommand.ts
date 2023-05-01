@@ -16,25 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetVoiceConnectorProxyRequest,
-  GetVoiceConnectorProxyRequestFilterSensitiveLog,
   GetVoiceConnectorProxyResponse,
   GetVoiceConnectorProxyResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetVoiceConnectorProxyCommand,
-  serializeAws_restJson1GetVoiceConnectorProxyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVoiceConnectorProxyCommand, se_GetVoiceConnectorProxyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorProxyCommand}.
  */
 export interface GetVoiceConnectorProxyCommandInput extends GetVoiceConnectorProxyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorProxyCommand}.
  */
 export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorProxyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the proxy configuration details for the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * import { ChimeClient, GetVoiceConnectorProxyCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetVoiceConnectorProxyCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // GetVoiceConnectorProxyRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ * };
  * const command = new GetVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVoiceConnectorProxyCommandInput - {@link GetVoiceConnectorProxyCommandInput}
+ * @returns {@link GetVoiceConnectorProxyCommandOutput}
  * @see {@link GetVoiceConnectorProxyCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorProxyCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +96,9 @@ export class GetVoiceConnectorProxyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorProxyCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +127,7 @@ export class GetVoiceConnectorProxyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceConnectorProxyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetVoiceConnectorProxyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -129,12 +138,18 @@ export class GetVoiceConnectorProxyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVoiceConnectorProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorProxyCommand(input, context);
+    return se_GetVoiceConnectorProxyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceConnectorProxyCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorProxyCommand(output, context);
+    return de_GetVoiceConnectorProxyCommand(output, context);
   }
 
   // Start section: command_body_extra

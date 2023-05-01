@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DeleteServiceRequest,
-  DeleteServiceRequestFilterSensitiveLog,
-  DeleteServiceResponse,
-  DeleteServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteServiceCommand,
-  serializeAws_json1_1DeleteServiceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteServiceRequest, DeleteServiceResponse } from "../models/models_0";
+import { de_DeleteServiceCommand, se_DeleteServiceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceCommand}.
  */
 export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceCommand}.
  */
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified service within a cluster. You can delete a service if you have no
  * 			running tasks in it and the desired task count is zero. If the service is actively
  * 			maintaining tasks, you can't delete it, and you must update the service to a desired
@@ -62,10 +59,17 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * import { ECSClient, DeleteServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DeleteServiceRequest
+ *   cluster: "STRING_VALUE",
+ *   service: "STRING_VALUE", // required
+ *   force: true || false,
+ * };
  * const command = new DeleteServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceCommandInput - {@link DeleteServiceCommandInput}
+ * @returns {@link DeleteServiceCommandOutput}
  * @see {@link DeleteServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -119,6 +123,9 @@ export class DeleteServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +152,8 @@ export class DeleteServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteServiceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +163,18 @@ export class DeleteServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteServiceCommand(input, context);
+    return se_DeleteServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceCommandOutput> {
-    return deserializeAws_json1_1DeleteServiceCommand(output, context);
+    return de_DeleteServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

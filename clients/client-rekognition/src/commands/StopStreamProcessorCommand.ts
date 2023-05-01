@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopStreamProcessorRequest,
-  StopStreamProcessorRequestFilterSensitiveLog,
-  StopStreamProcessorResponse,
-  StopStreamProcessorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopStreamProcessorCommand,
-  serializeAws_json1_1StopStreamProcessorCommand,
-} from "../protocols/Aws_json1_1";
+import { StopStreamProcessorRequest, StopStreamProcessorResponse } from "../models/models_0";
+import { de_StopStreamProcessorCommand, se_StopStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopStreamProcessorCommand}.
  */
 export interface StopStreamProcessorCommandInput extends StopStreamProcessorRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopStreamProcessorCommand}.
  */
 export interface StopStreamProcessorCommandOutput extends StopStreamProcessorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a running stream processor that was created by <a>CreateStreamProcessor</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StopStreamProcessorCommandOutput extends StopStreamProcessorRes
  * import { RekognitionClient, StopStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StopStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StopStreamProcessorRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StopStreamProcessorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopStreamProcessorCommandInput - {@link StopStreamProcessorCommandInput}
+ * @returns {@link StopStreamProcessorCommandOutput}
  * @see {@link StopStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link StopStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -92,6 +94,9 @@ export class StopStreamProcessorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopStreamProcessorCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +125,8 @@ export class StopStreamProcessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopStreamProcessorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopStreamProcessorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +136,18 @@ export class StopStreamProcessorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopStreamProcessorCommand(input, context);
+    return se_StopStreamProcessorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1StopStreamProcessorCommand(output, context);
+    return de_StopStreamProcessorCommand(output, context);
   }
 
   // Start section: command_body_extra

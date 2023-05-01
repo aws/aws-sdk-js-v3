@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopAutoMLJobRequest, StopAutoMLJobRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopAutoMLJobCommand,
-  serializeAws_json1_1StopAutoMLJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopAutoMLJobRequest } from "../models/models_3";
+import { de_StopAutoMLJobCommand, se_StopAutoMLJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopAutoMLJobCommand}.
  */
 export interface StopAutoMLJobCommandInput extends StopAutoMLJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopAutoMLJobCommand}.
  */
 export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>A method for forcing a running job to shut down.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopAutoMLJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopAutoMLJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopAutoMLJobRequest
+ *   AutoMLJobName: "STRING_VALUE", // required
+ * };
  * const command = new StopAutoMLJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopAutoMLJobCommandInput - {@link StopAutoMLJobCommandInput}
+ * @returns {@link StopAutoMLJobCommandOutput}
  * @see {@link StopAutoMLJobCommandInput} for command's `input` shape.
  * @see {@link StopAutoMLJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class StopAutoMLJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopAutoMLJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -93,8 +103,8 @@ export class StopAutoMLJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopAutoMLJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +114,18 @@ export class StopAutoMLJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopAutoMLJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopAutoMLJobCommand(input, context);
+    return se_StopAutoMLJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAutoMLJobCommandOutput> {
-    return deserializeAws_json1_1StopAutoMLJobCommand(output, context);
+    return de_StopAutoMLJobCommand(output, context);
   }
 
   // Start section: command_body_extra

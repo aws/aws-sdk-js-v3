@@ -16,20 +16,22 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeConfigRuleEvaluationStatusRequest,
-  DescribeConfigRuleEvaluationStatusRequestFilterSensitiveLog,
   DescribeConfigRuleEvaluationStatusResponse,
-  DescribeConfigRuleEvaluationStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand,
-  serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand,
+  de_DescribeConfigRuleEvaluationStatusCommand,
+  se_DescribeConfigRuleEvaluationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigRuleEvaluationStatusCommand}.
  */
 export interface DescribeConfigRuleEvaluationStatusCommandInput extends DescribeConfigRuleEvaluationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigRuleEvaluationStatusCommand}.
  */
 export interface DescribeConfigRuleEvaluationStatusCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns status information for each of your Config managed rules. The status includes information such as the last time Config invoked the rule, the last time Config failed to invoke
  * 			the rule, and the related error for the last failure.</p>
  * @example
@@ -45,10 +48,19 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
  * import { ConfigServiceClient, DescribeConfigRuleEvaluationStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigRuleEvaluationStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeConfigRuleEvaluationStatusRequest
+ *   ConfigRuleNames: [ // ConfigRuleNames
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeConfigRuleEvaluationStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigRuleEvaluationStatusCommandInput - {@link DescribeConfigRuleEvaluationStatusCommandInput}
+ * @returns {@link DescribeConfigRuleEvaluationStatusCommandOutput}
  * @see {@link DescribeConfigRuleEvaluationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigRuleEvaluationStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -84,6 +96,9 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigRuleEvaluationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +127,8 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigRuleEvaluationStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigRuleEvaluationStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +138,24 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeConfigRuleEvaluationStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(input, context);
+    return se_DescribeConfigRuleEvaluationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigRuleEvaluationStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(output, context);
+    return de_DescribeConfigRuleEvaluationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

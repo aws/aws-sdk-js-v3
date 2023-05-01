@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  CreateDeploymentRequest,
-  CreateDeploymentRequestFilterSensitiveLog,
-  CreateDeploymentResponse,
-  CreateDeploymentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDeploymentCommand,
-  serializeAws_restJson1CreateDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDeploymentRequest, CreateDeploymentResponse } from "../models/models_0";
+import { de_CreateDeploymentCommand, se_CreateDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a deployment. ''CreateDeployment'' requests are idempotent with respect to the ''X-Amzn-Client-Token'' token and the request parameters.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * import { GreengrassClient, CreateDeploymentCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateDeploymentCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // CreateDeploymentRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   DeploymentId: "STRING_VALUE",
+ *   DeploymentType: "NewDeployment" || "Redeployment" || "ResetDeployment" || "ForceResetDeployment", // required
+ *   GroupId: "STRING_VALUE", // required
+ *   GroupVersionId: "STRING_VALUE",
+ * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
+ * @returns {@link CreateDeploymentCommandOutput}
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +78,9 @@ export class CreateDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +109,8 @@ export class CreateDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +120,18 @@ export class CreateDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeploymentCommand(input, context);
+    return se_CreateDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentCommandOutput> {
-    return deserializeAws_restJson1CreateDeploymentCommand(output, context);
+    return de_CreateDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

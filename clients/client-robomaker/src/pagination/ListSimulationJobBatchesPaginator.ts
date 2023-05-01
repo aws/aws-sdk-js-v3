@@ -10,7 +10,7 @@ import { RoboMakerClient } from "../RoboMakerClient";
 import { RoboMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RoboMakerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSimulationJobBatchesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSimulationJobBatches(
   config: RoboMakerPaginationConfiguration,
   input: ListSimulationJobBatchesCommandInput,

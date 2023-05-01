@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  ModifyCacheClusterMessage,
-  ModifyCacheClusterMessageFilterSensitiveLog,
-  ModifyCacheClusterResult,
-  ModifyCacheClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyCacheClusterCommand,
-  serializeAws_queryModifyCacheClusterCommand,
-} from "../protocols/Aws_query";
+import { ModifyCacheClusterMessage, ModifyCacheClusterResult } from "../models/models_0";
+import { de_ModifyCacheClusterCommand, se_ModifyCacheClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCacheClusterCommand}.
  */
 export interface ModifyCacheClusterCommandInput extends ModifyCacheClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCacheClusterCommand}.
  */
 export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a cluster. You
  *             can use this operation to change one or more cluster configuration parameters by
  *             specifying the parameters and the new values.</p>
@@ -44,10 +41,58 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * import { ElastiCacheClient, ModifyCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // ModifyCacheClusterMessage
+ *   CacheClusterId: "STRING_VALUE", // required
+ *   NumCacheNodes: Number("int"),
+ *   CacheNodeIdsToRemove: [ // CacheNodeIdsList
+ *     "STRING_VALUE",
+ *   ],
+ *   AZMode: "single-az" || "cross-az",
+ *   NewAvailabilityZones: [ // PreferredAvailabilityZoneList
+ *     "STRING_VALUE",
+ *   ],
+ *   CacheSecurityGroupNames: [ // CacheSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [ // SecurityGroupIdsList
+ *     "STRING_VALUE",
+ *   ],
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   NotificationTopicArn: "STRING_VALUE",
+ *   CacheParameterGroupName: "STRING_VALUE",
+ *   NotificationTopicStatus: "STRING_VALUE",
+ *   ApplyImmediately: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   SnapshotRetentionLimit: Number("int"),
+ *   SnapshotWindow: "STRING_VALUE",
+ *   CacheNodeType: "STRING_VALUE",
+ *   AuthToken: "STRING_VALUE",
+ *   AuthTokenUpdateStrategy: "SET" || "ROTATE" || "DELETE",
+ *   LogDeliveryConfigurations: [ // LogDeliveryConfigurationRequestList
+ *     { // LogDeliveryConfigurationRequest
+ *       LogType: "slow-log" || "engine-log",
+ *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
+ *       DestinationDetails: { // DestinationDetails
+ *         CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
+ *           LogGroup: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
+ *           DeliveryStream: "STRING_VALUE",
+ *         },
+ *       },
+ *       LogFormat: "text" || "json",
+ *       Enabled: true || false,
+ *     },
+ *   ],
+ *   IpDiscovery: "ipv4" || "ipv6",
+ * };
  * const command = new ModifyCacheClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCacheClusterCommandInput - {@link ModifyCacheClusterCommandInput}
+ * @returns {@link ModifyCacheClusterCommandOutput}
  * @see {@link ModifyCacheClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -145,6 +190,9 @@ export class ModifyCacheClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCacheClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -173,8 +221,8 @@ export class ModifyCacheClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCacheClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyCacheClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -184,12 +232,18 @@ export class ModifyCacheClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyCacheClusterCommand(input, context);
+    return se_ModifyCacheClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyCacheClusterCommandOutput> {
-    return deserializeAws_queryModifyCacheClusterCommand(output, context);
+    return de_ModifyCacheClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

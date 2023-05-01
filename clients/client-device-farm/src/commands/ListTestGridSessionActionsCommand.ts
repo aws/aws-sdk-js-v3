@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListTestGridSessionActionsRequest,
-  ListTestGridSessionActionsRequestFilterSensitiveLog,
-  ListTestGridSessionActionsResult,
-  ListTestGridSessionActionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTestGridSessionActionsCommand,
-  serializeAws_json1_1ListTestGridSessionActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTestGridSessionActionsRequest, ListTestGridSessionActionsResult } from "../models/models_0";
+import { de_ListTestGridSessionActionsCommand, se_ListTestGridSessionActionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTestGridSessionActionsCommand}.
  */
 export interface ListTestGridSessionActionsCommandInput extends ListTestGridSessionActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTestGridSessionActionsCommand}.
  */
 export interface ListTestGridSessionActionsCommandOutput extends ListTestGridSessionActionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the actions taken in a <a>TestGridSession</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListTestGridSessionActionsCommandOutput extends ListTestGridSes
  * import { DeviceFarmClient, ListTestGridSessionActionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListTestGridSessionActionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListTestGridSessionActionsRequest
+ *   sessionArn: "STRING_VALUE", // required
+ *   maxResult: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTestGridSessionActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTestGridSessionActionsCommandInput - {@link ListTestGridSessionActionsCommandInput}
+ * @returns {@link ListTestGridSessionActionsCommandOutput}
  * @see {@link ListTestGridSessionActionsCommandInput} for command's `input` shape.
  * @see {@link ListTestGridSessionActionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -79,6 +83,9 @@ export class ListTestGridSessionActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTestGridSessionActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class ListTestGridSessionActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTestGridSessionActionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTestGridSessionActionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +125,21 @@ export class ListTestGridSessionActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTestGridSessionActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTestGridSessionActionsCommand(input, context);
+    return se_ListTestGridSessionActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTestGridSessionActionsCommandOutput> {
-    return deserializeAws_json1_1ListTestGridSessionActionsCommand(output, context);
+    return de_ListTestGridSessionActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

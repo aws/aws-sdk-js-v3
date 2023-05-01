@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutSolFunctionPackageContentInput, PutSolFunctionPackageContentOutput } from "../models/models_0";
 import {
-  PutSolFunctionPackageContentInput,
-  PutSolFunctionPackageContentInputFilterSensitiveLog,
-  PutSolFunctionPackageContentOutput,
-  PutSolFunctionPackageContentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSolFunctionPackageContentCommand,
-  serializeAws_restJson1PutSolFunctionPackageContentCommand,
+  de_PutSolFunctionPackageContentCommand,
+  se_PutSolFunctionPackageContentCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutSolFunctionPackageContentCommand}.
  */
 export interface PutSolFunctionPackageContentCommandInput extends PutSolFunctionPackageContentInput {}
 /**
+ * @public
+ *
  * The output of {@link PutSolFunctionPackageContentCommand}.
  */
 export interface PutSolFunctionPackageContentCommandOutput
@@ -37,6 +36,7 @@ export interface PutSolFunctionPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads the contents of a function package.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
@@ -45,10 +45,17 @@ export interface PutSolFunctionPackageContentCommandOutput
  * import { TnbClient, PutSolFunctionPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, PutSolFunctionPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // PutSolFunctionPackageContentInput
+ *   vnfPkgId: "STRING_VALUE", // required
+ *   contentType: "application/zip",
+ *   file: "BLOB_VALUE", // required
+ * };
  * const command = new PutSolFunctionPackageContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSolFunctionPackageContentCommandInput - {@link PutSolFunctionPackageContentCommandInput}
+ * @returns {@link PutSolFunctionPackageContentCommandOutput}
  * @see {@link PutSolFunctionPackageContentCommandInput} for command's `input` shape.
  * @see {@link PutSolFunctionPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -87,6 +94,9 @@ export class PutSolFunctionPackageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSolFunctionPackageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +125,8 @@ export class PutSolFunctionPackageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSolFunctionPackageContentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSolFunctionPackageContentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +136,21 @@ export class PutSolFunctionPackageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSolFunctionPackageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSolFunctionPackageContentCommand(input, context);
+    return se_PutSolFunctionPackageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutSolFunctionPackageContentCommandOutput> {
-    return deserializeAws_restJson1PutSolFunctionPackageContentCommand(output, context);
+    return de_PutSolFunctionPackageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

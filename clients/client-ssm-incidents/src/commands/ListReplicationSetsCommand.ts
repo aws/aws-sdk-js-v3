@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReplicationSetsInput,
-  ListReplicationSetsInputFilterSensitiveLog,
-  ListReplicationSetsOutput,
-  ListReplicationSetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListReplicationSetsCommand,
-  serializeAws_restJson1ListReplicationSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListReplicationSetsInput, ListReplicationSetsOutput } from "../models/models_0";
+import { de_ListReplicationSetsCommand, se_ListReplicationSetsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListReplicationSetsCommand}.
  */
 export interface ListReplicationSetsCommandInput extends ListReplicationSetsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListReplicationSetsCommand}.
  */
 export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists details about the replication set configured in your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  * import { SSMIncidentsClient, ListReplicationSetsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, ListReplicationSetsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = { // ListReplicationSetsInput
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListReplicationSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReplicationSetsCommandInput - {@link ListReplicationSetsCommandInput}
+ * @returns {@link ListReplicationSetsCommandOutput}
  * @see {@link ListReplicationSetsCommandInput} for command's `input` shape.
  * @see {@link ListReplicationSetsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
@@ -83,6 +86,9 @@ export class ListReplicationSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReplicationSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class ListReplicationSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReplicationSetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReplicationSetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class ListReplicationSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReplicationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReplicationSetsCommand(input, context);
+    return se_ListReplicationSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReplicationSetsCommandOutput> {
-    return deserializeAws_restJson1ListReplicationSetsCommand(output, context);
+    return de_ListReplicationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,14 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -22,9 +24,7 @@ import { GetRecordCommandInput, GetRecordCommandOutput } from "../commands/GetRe
 import { PutRecordCommandInput, PutRecordCommandOutput } from "../commands/PutRecordCommand";
 import {
   AccessForbidden,
-  BatchGetRecordError,
   BatchGetRecordIdentifier,
-  BatchGetRecordResultDetail,
   FeatureValue,
   InternalFailure,
   ResourceNotFound,
@@ -34,7 +34,10 @@ import {
 } from "../models/models_0";
 import { SageMakerFeatureStoreRuntimeServiceException as __BaseException } from "../models/SageMakerFeatureStoreRuntimeServiceException";
 
-export const serializeAws_restJson1BatchGetRecordCommand = async (
+/**
+ * serializeAws_restJson1BatchGetRecordCommand
+ */
+export const se_BatchGetRecordCommand = async (
   input: BatchGetRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -44,11 +47,11 @@ export const serializeAws_restJson1BatchGetRecordCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetRecord";
   let body: any;
-  body = JSON.stringify({
-    ...(input.Identifiers != null && {
-      Identifiers: serializeAws_restJson1BatchGetRecordIdentifiers(input.Identifiers, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Identifiers: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -60,7 +63,10 @@ export const serializeAws_restJson1BatchGetRecordCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteRecordCommand = async (
+/**
+ * serializeAws_restJson1DeleteRecordCommand
+ */
+export const se_DeleteRecordCommand = async (
   input: DeleteRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -86,6 +92,7 @@ export const serializeAws_restJson1DeleteRecordCommand = async (
       () => input.TargetStores !== void 0,
       () => (input.TargetStores! || []).map((_entry) => _entry as any),
     ],
+    DeletionMode: [, input.DeletionMode!],
   });
   let body: any;
   return new __HttpRequest({
@@ -100,7 +107,10 @@ export const serializeAws_restJson1DeleteRecordCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRecordCommand = async (
+/**
+ * serializeAws_restJson1GetRecordCommand
+ */
+export const se_GetRecordCommand = async (
   input: GetRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -139,7 +149,10 @@ export const serializeAws_restJson1GetRecordCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutRecordCommand = async (
+/**
+ * serializeAws_restJson1PutRecordCommand
+ */
+export const se_PutRecordCommand = async (
   input: PutRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -158,12 +171,12 @@ export const serializeAws_restJson1PutRecordCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Record != null && { Record: serializeAws_restJson1Record(input.Record, context) }),
-    ...(input.TargetStores != null && {
-      TargetStores: serializeAws_restJson1TargetStores(input.TargetStores, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Record: (_) => _json(_),
+      TargetStores: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -175,33 +188,33 @@ export const serializeAws_restJson1PutRecordCommand = async (
   });
 };
 
-export const deserializeAws_restJson1BatchGetRecordCommand = async (
+/**
+ * deserializeAws_restJson1BatchGetRecordCommand
+ */
+export const de_BatchGetRecordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetRecordCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchGetRecordCommandError(output, context);
+    return de_BatchGetRecordCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Errors != null) {
-    contents.Errors = deserializeAws_restJson1BatchGetRecordErrors(data.Errors, context);
-  }
-  if (data.Records != null) {
-    contents.Records = deserializeAws_restJson1BatchGetRecordResultDetails(data.Records, context);
-  }
-  if (data.UnprocessedIdentifiers != null) {
-    contents.UnprocessedIdentifiers = deserializeAws_restJson1UnprocessedIdentifiers(
-      data.UnprocessedIdentifiers,
-      context
-    );
-  }
+  const doc = take(data, {
+    Errors: _json,
+    Records: _json,
+    UnprocessedIdentifiers: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1BatchGetRecordCommandError = async (
+/**
+ * deserializeAws_restJson1BatchGetRecordCommandError
+ */
+const de_BatchGetRecordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetRecordCommandOutput> => {
@@ -213,33 +226,35 @@ const deserializeAws_restJson1BatchGetRecordCommandError = async (
   switch (errorCode) {
     case "AccessForbidden":
     case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
-      throw await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context);
+      throw await de_AccessForbiddenRes(parsedOutput, context);
     case "InternalFailure":
     case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
-      throw await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context);
+      throw await de_InternalFailureRes(parsedOutput, context);
     case "ServiceUnavailable":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
-      throw await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableRes(parsedOutput, context);
     case "ValidationError":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
-      throw await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context);
+      throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteRecordCommand = async (
+/**
+ * deserializeAws_restJson1DeleteRecordCommand
+ */
+export const de_DeleteRecordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRecordCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteRecordCommandError(output, context);
+    return de_DeleteRecordCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -248,7 +263,10 @@ export const deserializeAws_restJson1DeleteRecordCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteRecordCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteRecordCommandError
+ */
+const de_DeleteRecordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRecordCommandOutput> => {
@@ -260,45 +278,51 @@ const deserializeAws_restJson1DeleteRecordCommandError = async (
   switch (errorCode) {
     case "AccessForbidden":
     case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
-      throw await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context);
+      throw await de_AccessForbiddenRes(parsedOutput, context);
     case "InternalFailure":
     case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
-      throw await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context);
+      throw await de_InternalFailureRes(parsedOutput, context);
     case "ServiceUnavailable":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
-      throw await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableRes(parsedOutput, context);
     case "ValidationError":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
-      throw await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context);
+      throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetRecordCommand = async (
+/**
+ * deserializeAws_restJson1GetRecordCommand
+ */
+export const de_GetRecordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecordCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRecordCommandError(output, context);
+    return de_GetRecordCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Record != null) {
-    contents.Record = deserializeAws_restJson1Record(data.Record, context);
-  }
+  const doc = take(data, {
+    Record: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetRecordCommandError = async (
+/**
+ * deserializeAws_restJson1GetRecordCommandError
+ */
+const de_GetRecordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecordCommandOutput> => {
@@ -310,36 +334,38 @@ const deserializeAws_restJson1GetRecordCommandError = async (
   switch (errorCode) {
     case "AccessForbidden":
     case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
-      throw await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context);
+      throw await de_AccessForbiddenRes(parsedOutput, context);
     case "InternalFailure":
     case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
-      throw await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context);
+      throw await de_InternalFailureRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ResourceNotFound":
-      throw await deserializeAws_restJson1ResourceNotFoundResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
     case "ServiceUnavailable":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
-      throw await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableRes(parsedOutput, context);
     case "ValidationError":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
-      throw await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context);
+      throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1PutRecordCommand = async (
+/**
+ * deserializeAws_restJson1PutRecordCommand
+ */
+export const de_PutRecordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRecordCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutRecordCommandError(output, context);
+    return de_PutRecordCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -348,7 +374,10 @@ export const deserializeAws_restJson1PutRecordCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutRecordCommandError = async (
+/**
+ * deserializeAws_restJson1PutRecordCommandError
+ */
+const de_PutRecordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRecordCommandOutput> => {
@@ -360,37 +389,37 @@ const deserializeAws_restJson1PutRecordCommandError = async (
   switch (errorCode) {
     case "AccessForbidden":
     case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
-      throw await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context);
+      throw await de_AccessForbiddenRes(parsedOutput, context);
     case "InternalFailure":
     case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
-      throw await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context);
+      throw await de_InternalFailureRes(parsedOutput, context);
     case "ServiceUnavailable":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
-      throw await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableRes(parsedOutput, context);
     case "ValidationError":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
-      throw await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context);
+      throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1AccessForbiddenResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<AccessForbidden> => {
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessForbiddenRes
+ */
+const de_AccessForbiddenRes = async (parsedOutput: any, context: __SerdeContext): Promise<AccessForbidden> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessForbidden({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -398,15 +427,16 @@ const deserializeAws_restJson1AccessForbiddenResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalFailureResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalFailure> => {
+/**
+ * deserializeAws_restJson1InternalFailureRes
+ */
+const de_InternalFailureRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalFailure> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InternalFailure({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -414,15 +444,16 @@ const deserializeAws_restJson1InternalFailureResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ResourceNotFound> => {
+/**
+ * deserializeAws_restJson1ResourceNotFoundRes
+ */
+const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<ResourceNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -430,15 +461,16 @@ const deserializeAws_restJson1ResourceNotFoundResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ServiceUnavailable> => {
+/**
+ * deserializeAws_restJson1ServiceUnavailableRes
+ */
+const de_ServiceUnavailableRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceUnavailable> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ServiceUnavailable({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -446,15 +478,16 @@ const deserializeAws_restJson1ServiceUnavailableResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationErrorResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationError> => {
+/**
+ * deserializeAws_restJson1ValidationErrorRes
+ */
+const de_ValidationErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationError> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message != null) {
-    contents.Message = __expectString(data.Message);
-  }
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ValidationError({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -462,193 +495,39 @@ const deserializeAws_restJson1ValidationErrorResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1BatchGetRecordIdentifier = (
-  input: BatchGetRecordIdentifier,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FeatureGroupName != null && { FeatureGroupName: input.FeatureGroupName }),
-    ...(input.FeatureNames != null && {
-      FeatureNames: serializeAws_restJson1FeatureNames(input.FeatureNames, context),
-    }),
-    ...(input.RecordIdentifiersValueAsString != null && {
-      RecordIdentifiersValueAsString: serializeAws_restJson1RecordIdentifiers(
-        input.RecordIdentifiersValueAsString,
-        context
-      ),
-    }),
-  };
-};
+// se_BatchGetRecordIdentifier omitted.
 
-const serializeAws_restJson1BatchGetRecordIdentifiers = (
-  input: BatchGetRecordIdentifier[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1BatchGetRecordIdentifier(entry, context);
-    });
-};
+// se_BatchGetRecordIdentifiers omitted.
 
-const serializeAws_restJson1FeatureNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_FeatureNames omitted.
 
-const serializeAws_restJson1FeatureValue = (input: FeatureValue, context: __SerdeContext): any => {
-  return {
-    ...(input.FeatureName != null && { FeatureName: input.FeatureName }),
-    ...(input.ValueAsString != null && { ValueAsString: input.ValueAsString }),
-  };
-};
+// se_FeatureValue omitted.
 
-const serializeAws_restJson1Record = (input: FeatureValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1FeatureValue(entry, context);
-    });
-};
+// se_Record omitted.
 
-const serializeAws_restJson1RecordIdentifiers = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_RecordIdentifiers omitted.
 
-const serializeAws_restJson1TargetStores = (input: (TargetStore | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_TargetStores omitted.
 
-const deserializeAws_restJson1BatchGetRecordError = (output: any, context: __SerdeContext): BatchGetRecordError => {
-  return {
-    ErrorCode: __expectString(output.ErrorCode),
-    ErrorMessage: __expectString(output.ErrorMessage),
-    FeatureGroupName: __expectString(output.FeatureGroupName),
-    RecordIdentifierValueAsString: __expectString(output.RecordIdentifierValueAsString),
-  } as any;
-};
+// de_BatchGetRecordError omitted.
 
-const deserializeAws_restJson1BatchGetRecordErrors = (output: any, context: __SerdeContext): BatchGetRecordError[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BatchGetRecordError(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetRecordErrors omitted.
 
-const deserializeAws_restJson1BatchGetRecordIdentifier = (
-  output: any,
-  context: __SerdeContext
-): BatchGetRecordIdentifier => {
-  return {
-    FeatureGroupName: __expectString(output.FeatureGroupName),
-    FeatureNames:
-      output.FeatureNames != null ? deserializeAws_restJson1FeatureNames(output.FeatureNames, context) : undefined,
-    RecordIdentifiersValueAsString:
-      output.RecordIdentifiersValueAsString != null
-        ? deserializeAws_restJson1RecordIdentifiers(output.RecordIdentifiersValueAsString, context)
-        : undefined,
-  } as any;
-};
+// de_BatchGetRecordIdentifier omitted.
 
-const deserializeAws_restJson1BatchGetRecordResultDetail = (
-  output: any,
-  context: __SerdeContext
-): BatchGetRecordResultDetail => {
-  return {
-    FeatureGroupName: __expectString(output.FeatureGroupName),
-    Record: output.Record != null ? deserializeAws_restJson1Record(output.Record, context) : undefined,
-    RecordIdentifierValueAsString: __expectString(output.RecordIdentifierValueAsString),
-  } as any;
-};
+// de_BatchGetRecordResultDetail omitted.
 
-const deserializeAws_restJson1BatchGetRecordResultDetails = (
-  output: any,
-  context: __SerdeContext
-): BatchGetRecordResultDetail[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BatchGetRecordResultDetail(entry, context);
-    });
-  return retVal;
-};
+// de_BatchGetRecordResultDetails omitted.
 
-const deserializeAws_restJson1FeatureNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_FeatureNames omitted.
 
-const deserializeAws_restJson1FeatureValue = (output: any, context: __SerdeContext): FeatureValue => {
-  return {
-    FeatureName: __expectString(output.FeatureName),
-    ValueAsString: __expectString(output.ValueAsString),
-  } as any;
-};
+// de_FeatureValue omitted.
 
-const deserializeAws_restJson1Record = (output: any, context: __SerdeContext): FeatureValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1FeatureValue(entry, context);
-    });
-  return retVal;
-};
+// de_Record omitted.
 
-const deserializeAws_restJson1RecordIdentifiers = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
+// de_RecordIdentifiers omitted.
 
-const deserializeAws_restJson1UnprocessedIdentifiers = (
-  output: any,
-  context: __SerdeContext
-): BatchGetRecordIdentifier[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BatchGetRecordIdentifier(entry, context);
-    });
-  return retVal;
-};
+// de_UnprocessedIdentifiers omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetRelationalDatabaseParametersRequest, GetRelationalDatabaseParametersResult } from "../models/models_1";
 import {
-  GetRelationalDatabaseParametersRequest,
-  GetRelationalDatabaseParametersRequestFilterSensitiveLog,
-  GetRelationalDatabaseParametersResult,
-  GetRelationalDatabaseParametersResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetRelationalDatabaseParametersCommand,
-  serializeAws_json1_1GetRelationalDatabaseParametersCommand,
+  de_GetRelationalDatabaseParametersCommand,
+  se_GetRelationalDatabaseParametersCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRelationalDatabaseParametersCommand}.
  */
 export interface GetRelationalDatabaseParametersCommandInput extends GetRelationalDatabaseParametersRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRelationalDatabaseParametersCommand}.
  */
 export interface GetRelationalDatabaseParametersCommandOutput
@@ -37,6 +36,7 @@ export interface GetRelationalDatabaseParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all of the runtime parameters offered by the underlying database software, or
  *       engine, for a specific database in Amazon Lightsail.</p>
  *          <p>In addition to the parameter names and values, this operation returns other information
@@ -48,10 +48,16 @@ export interface GetRelationalDatabaseParametersCommandOutput
  * import { LightsailClient, GetRelationalDatabaseParametersCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseParametersCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetRelationalDatabaseParametersRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetRelationalDatabaseParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRelationalDatabaseParametersCommandInput - {@link GetRelationalDatabaseParametersCommandInput}
+ * @returns {@link GetRelationalDatabaseParametersCommandOutput}
  * @see {@link GetRelationalDatabaseParametersCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseParametersCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -105,6 +111,9 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRelationalDatabaseParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +142,8 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRelationalDatabaseParametersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRelationalDatabaseParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,18 +153,24 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetRelationalDatabaseParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseParametersCommand(input, context);
+    return se_GetRelationalDatabaseParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseParametersCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseParametersCommand(output, context);
+    return de_GetRelationalDatabaseParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

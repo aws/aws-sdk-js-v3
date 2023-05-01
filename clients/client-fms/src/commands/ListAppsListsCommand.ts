@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  ListAppsListsRequest,
-  ListAppsListsRequestFilterSensitiveLog,
-  ListAppsListsResponse,
-  ListAppsListsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAppsListsCommand,
-  serializeAws_json1_1ListAppsListsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAppsListsRequest, ListAppsListsResponse } from "../models/models_0";
+import { de_ListAppsListsCommand, se_ListAppsListsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppsListsCommand}.
  */
 export interface ListAppsListsCommandInput extends ListAppsListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppsListsCommand}.
  */
 export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of <code>AppsListDataSummary</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __Met
  * import { FMSClient, ListAppsListsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListAppsListsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // ListAppsListsRequest
+ *   DefaultLists: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"), // required
+ * };
  * const command = new ListAppsListsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppsListsCommandInput - {@link ListAppsListsCommandInput}
+ * @returns {@link ListAppsListsCommandOutput}
  * @see {@link ListAppsListsCommandInput} for command's `input` shape.
  * @see {@link ListAppsListsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -89,6 +93,9 @@ export class ListAppsListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppsListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListAppsListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppsListsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppsListsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class ListAppsListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppsListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAppsListsCommand(input, context);
+    return se_ListAppsListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppsListsCommandOutput> {
-    return deserializeAws_json1_1ListAppsListsCommand(output, context);
+    return de_ListAppsListsCommand(output, context);
   }
 
   // Start section: command_body_extra

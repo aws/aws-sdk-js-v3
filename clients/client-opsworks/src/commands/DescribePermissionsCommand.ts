@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePermissionsRequest,
-  DescribePermissionsRequestFilterSensitiveLog,
-  DescribePermissionsResult,
-  DescribePermissionsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePermissionsRequest, DescribePermissionsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribePermissionsCommand,
-  serializeAws_json1_1DescribePermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribePermissionsCommand, se_DescribePermissionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePermissionsCommand}.
  */
 export interface DescribePermissionsCommandInput extends DescribePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePermissionsCommand}.
  */
 export interface DescribePermissionsCommandOutput extends DescribePermissionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions for a specified stack.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -47,10 +44,16 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  * import { OpsWorksClient, DescribePermissionsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribePermissionsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribePermissionsRequest
+ *   IamUserArn: "STRING_VALUE",
+ *   StackId: "STRING_VALUE",
+ * };
  * const command = new DescribePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePermissionsCommandInput - {@link DescribePermissionsCommandInput}
+ * @returns {@link DescribePermissionsCommandOutput}
  * @see {@link DescribePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -80,6 +83,9 @@ export class DescribePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class DescribePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePermissionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class DescribePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePermissionsCommand(input, context);
+    return se_DescribePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePermissionsCommandOutput> {
-    return deserializeAws_json1_1DescribePermissionsCommand(output, context);
+    return de_DescribePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

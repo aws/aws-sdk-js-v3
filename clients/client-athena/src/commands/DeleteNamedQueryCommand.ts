@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  DeleteNamedQueryInput,
-  DeleteNamedQueryInputFilterSensitiveLog,
-  DeleteNamedQueryOutput,
-  DeleteNamedQueryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNamedQueryCommand,
-  serializeAws_json1_1DeleteNamedQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteNamedQueryInput, DeleteNamedQueryOutput } from "../models/models_0";
+import { de_DeleteNamedQueryCommand, se_DeleteNamedQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNamedQueryCommand}.
  */
 export interface DeleteNamedQueryCommandInput extends DeleteNamedQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNamedQueryCommand}.
  */
 export interface DeleteNamedQueryCommandOutput extends DeleteNamedQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the named query if you have access to the workgroup in which the query was
  *             saved.</p>
  *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
@@ -46,10 +43,15 @@ export interface DeleteNamedQueryCommandOutput extends DeleteNamedQueryOutput, _
  * import { AthenaClient, DeleteNamedQueryCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeleteNamedQueryCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // DeleteNamedQueryInput
+ *   NamedQueryId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNamedQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNamedQueryCommandInput - {@link DeleteNamedQueryCommandInput}
+ * @returns {@link DeleteNamedQueryCommandOutput}
  * @see {@link DeleteNamedQueryCommandInput} for command's `input` shape.
  * @see {@link DeleteNamedQueryCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteNamedQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNamedQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteNamedQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNamedQueryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNamedQueryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteNamedQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNamedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNamedQueryCommand(input, context);
+    return se_DeleteNamedQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNamedQueryCommandOutput> {
-    return deserializeAws_json1_1DeleteNamedQueryCommand(output, context);
+    return de_DeleteNamedQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

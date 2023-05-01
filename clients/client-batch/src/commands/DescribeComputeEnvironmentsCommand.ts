@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
+import { DescribeComputeEnvironmentsRequest, DescribeComputeEnvironmentsResponse } from "../models/models_0";
 import {
-  DescribeComputeEnvironmentsRequest,
-  DescribeComputeEnvironmentsRequestFilterSensitiveLog,
-  DescribeComputeEnvironmentsResponse,
-  DescribeComputeEnvironmentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeComputeEnvironmentsCommand,
-  serializeAws_restJson1DescribeComputeEnvironmentsCommand,
+  de_DescribeComputeEnvironmentsCommand,
+  se_DescribeComputeEnvironmentsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeComputeEnvironmentsCommand}.
  */
 export interface DescribeComputeEnvironmentsCommandInput extends DescribeComputeEnvironmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeComputeEnvironmentsCommand}.
  */
 export interface DescribeComputeEnvironmentsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeComputeEnvironmentsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your compute environments.</p>
  *          <p>If you're using an unmanaged compute environment, you can use the <code>DescribeComputeEnvironment</code>
  *    operation to determine the <code>ecsClusterArn</code> that you launch your Amazon ECS container instances
@@ -47,10 +47,19 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * import { BatchClient, DescribeComputeEnvironmentsCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DescribeComputeEnvironmentsCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // DescribeComputeEnvironmentsRequest
+ *   computeEnvironments: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeComputeEnvironmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComputeEnvironmentsCommandInput - {@link DescribeComputeEnvironmentsCommandInput}
+ * @returns {@link DescribeComputeEnvironmentsCommandOutput}
  * @see {@link DescribeComputeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeComputeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -133,6 +142,9 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComputeEnvironmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,8 +173,8 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeComputeEnvironmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeComputeEnvironmentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -172,15 +184,21 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeComputeEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeComputeEnvironmentsCommand(input, context);
+    return se_DescribeComputeEnvironmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeComputeEnvironmentsCommandOutput> {
-    return deserializeAws_restJson1DescribeComputeEnvironmentsCommand(output, context);
+    return de_DescribeComputeEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

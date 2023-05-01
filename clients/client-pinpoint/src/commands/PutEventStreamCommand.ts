@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutEventStreamRequest,
-  PutEventStreamRequestFilterSensitiveLog,
-  PutEventStreamResponse,
-  PutEventStreamResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { PutEventStreamRequest, PutEventStreamResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1PutEventStreamCommand,
-  serializeAws_restJson1PutEventStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutEventStreamCommand, se_PutEventStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEventStreamCommand}.
  */
 export interface PutEventStreamCommandInput extends PutEventStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEventStreamCommand}.
  */
 export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
  * import { PinpointClient, PutEventStreamCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, PutEventStreamCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // PutEventStreamRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   WriteEventStream: { // WriteEventStream
+ *     DestinationStreamArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new PutEventStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEventStreamCommandInput - {@link PutEventStreamCommandInput}
+ * @returns {@link PutEventStreamCommandOutput}
  * @see {@link PutEventStreamCommandInput} for command's `input` shape.
  * @see {@link PutEventStreamCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +96,9 @@ export class PutEventStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEventStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class PutEventStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEventStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEventStreamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +138,18 @@ export class PutEventStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEventStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutEventStreamCommand(input, context);
+    return se_PutEventStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventStreamCommandOutput> {
-    return deserializeAws_restJson1PutEventStreamCommand(output, context);
+    return de_PutEventStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

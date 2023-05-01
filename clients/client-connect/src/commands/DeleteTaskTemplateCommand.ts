@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DeleteTaskTemplateRequest,
-  DeleteTaskTemplateRequestFilterSensitiveLog,
-  DeleteTaskTemplateResponse,
-  DeleteTaskTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTaskTemplateCommand,
-  serializeAws_restJson1DeleteTaskTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteTaskTemplateRequest, DeleteTaskTemplateResponse } from "../models/models_0";
+import { de_DeleteTaskTemplateCommand, se_DeleteTaskTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTaskTemplateCommand}.
  */
 export interface DeleteTaskTemplateCommandInput extends DeleteTaskTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTaskTemplateCommand}.
  */
 export interface DeleteTaskTemplateCommandOutput extends DeleteTaskTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the task template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteTaskTemplateCommandOutput extends DeleteTaskTemplateRespo
  * import { ConnectClient, DeleteTaskTemplateCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteTaskTemplateCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DeleteTaskTemplateRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   TaskTemplateId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTaskTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTaskTemplateCommandInput - {@link DeleteTaskTemplateCommandInput}
+ * @returns {@link DeleteTaskTemplateCommandOutput}
  * @see {@link DeleteTaskTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +87,9 @@ export class DeleteTaskTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTaskTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class DeleteTaskTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTaskTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTaskTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class DeleteTaskTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTaskTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTaskTemplateCommand(input, context);
+    return se_DeleteTaskTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTaskTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteTaskTemplateCommand(output, context);
+    return de_DeleteTaskTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

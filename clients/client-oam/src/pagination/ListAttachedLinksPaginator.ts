@@ -10,7 +10,7 @@ import { OAMClient } from "../OAMClient";
 import { OAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OAMClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAttachedLinksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAttachedLinks(
   config: OAMPaginationConfiguration,
   input: ListAttachedLinksCommandInput,

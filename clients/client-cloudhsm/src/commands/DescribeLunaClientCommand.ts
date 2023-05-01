@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  DescribeLunaClientRequest,
-  DescribeLunaClientRequestFilterSensitiveLog,
-  DescribeLunaClientResponse,
-  DescribeLunaClientResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLunaClientCommand,
-  serializeAws_json1_1DescribeLunaClientCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeLunaClientRequest, DescribeLunaClientResponse } from "../models/models_0";
+import { de_DescribeLunaClientCommand, se_DescribeLunaClientCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLunaClientCommand}.
  */
 export interface DescribeLunaClientCommandInput extends DescribeLunaClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLunaClientCommand}.
  */
 export interface DescribeLunaClientCommandOutput extends DescribeLunaClientResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -52,10 +49,16 @@ export interface DescribeLunaClientCommandOutput extends DescribeLunaClientRespo
  * import { CloudHSMClient, DescribeLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DescribeLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // DescribeLunaClientRequest
+ *   ClientArn: "STRING_VALUE",
+ *   CertificateFingerprint: "STRING_VALUE",
+ * };
  * const command = new DescribeLunaClientCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLunaClientCommandInput - {@link DescribeLunaClientCommandInput}
+ * @returns {@link DescribeLunaClientCommandOutput}
  * @see {@link DescribeLunaClientCommandInput} for command's `input` shape.
  * @see {@link DescribeLunaClientCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -88,6 +91,9 @@ export class DescribeLunaClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLunaClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DescribeLunaClientCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLunaClientRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLunaClientResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class DescribeLunaClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLunaClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLunaClientCommand(input, context);
+    return se_DescribeLunaClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLunaClientCommandOutput> {
-    return deserializeAws_json1_1DescribeLunaClientCommand(output, context);
+    return de_DescribeLunaClientCommand(output, context);
   }
 
   // Start section: command_body_extra

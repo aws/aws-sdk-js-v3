@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  CreateRouteCalculatorRequest,
-  CreateRouteCalculatorRequestFilterSensitiveLog,
-  CreateRouteCalculatorResponse,
-  CreateRouteCalculatorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRouteCalculatorCommand,
-  serializeAws_restJson1CreateRouteCalculatorCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRouteCalculatorRequest, CreateRouteCalculatorResponse } from "../models/models_0";
+import { de_CreateRouteCalculatorCommand, se_CreateRouteCalculatorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRouteCalculatorCommand}.
  */
 export interface CreateRouteCalculatorCommandInput extends CreateRouteCalculatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRouteCalculatorCommand}.
  */
 export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a route calculator resource in your Amazon Web Services account.</p>
  *          <p>You can send requests to a route calculator resource to estimate travel time,
  *             distance, and get directions. A route calculator sources traffic and road network data
@@ -51,10 +48,21 @@ export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculato
  * import { LocationClient, CreateRouteCalculatorCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreateRouteCalculatorCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // CreateRouteCalculatorRequest
+ *   CalculatorName: "STRING_VALUE", // required
+ *   DataSource: "STRING_VALUE", // required
+ *   PricingPlan: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateRouteCalculatorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRouteCalculatorCommandInput - {@link CreateRouteCalculatorCommandInput}
+ * @returns {@link CreateRouteCalculatorCommandOutput}
  * @see {@link CreateRouteCalculatorCommandInput} for command's `input` shape.
  * @see {@link CreateRouteCalculatorCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -98,6 +106,9 @@ export class CreateRouteCalculatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRouteCalculatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +137,8 @@ export class CreateRouteCalculatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRouteCalculatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRouteCalculatorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +148,18 @@ export class CreateRouteCalculatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRouteCalculatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRouteCalculatorCommand(input, context);
+    return se_CreateRouteCalculatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteCalculatorCommandOutput> {
-    return deserializeAws_restJson1CreateRouteCalculatorCommand(output, context);
+    return de_CreateRouteCalculatorCommand(output, context);
   }
 
   // Start section: command_body_extra

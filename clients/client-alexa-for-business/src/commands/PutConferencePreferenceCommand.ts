@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  PutConferencePreferenceRequest,
-  PutConferencePreferenceRequestFilterSensitiveLog,
-  PutConferencePreferenceResponse,
-  PutConferencePreferenceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutConferencePreferenceCommand,
-  serializeAws_json1_1PutConferencePreferenceCommand,
-} from "../protocols/Aws_json1_1";
+import { PutConferencePreferenceRequest, PutConferencePreferenceResponse } from "../models/models_0";
+import { de_PutConferencePreferenceCommand, se_PutConferencePreferenceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutConferencePreferenceCommand}.
  */
 export interface PutConferencePreferenceCommandInput extends PutConferencePreferenceRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConferencePreferenceCommand}.
  */
 export interface PutConferencePreferenceCommandOutput extends PutConferencePreferenceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the conference preferences on a specific conference provider at the account
  *          level.</p>
  * @example
@@ -43,10 +40,17 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
  * import { AlexaForBusinessClient, PutConferencePreferenceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, PutConferencePreferenceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // PutConferencePreferenceRequest
+ *   ConferencePreference: { // ConferencePreference
+ *     DefaultConferenceProviderArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutConferencePreferenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConferencePreferenceCommandInput - {@link PutConferencePreferenceCommandInput}
+ * @returns {@link PutConferencePreferenceCommandOutput}
  * @see {@link PutConferencePreferenceCommandInput} for command's `input` shape.
  * @see {@link PutConferencePreferenceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -73,6 +77,9 @@ export class PutConferencePreferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConferencePreferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +108,8 @@ export class PutConferencePreferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConferencePreferenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutConferencePreferenceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +119,18 @@ export class PutConferencePreferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConferencePreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutConferencePreferenceCommand(input, context);
+    return se_PutConferencePreferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConferencePreferenceCommandOutput> {
-    return deserializeAws_json1_1PutConferencePreferenceCommand(output, context);
+    return de_PutConferencePreferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

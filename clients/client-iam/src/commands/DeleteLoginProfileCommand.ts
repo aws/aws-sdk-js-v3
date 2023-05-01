@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteLoginProfileRequest, DeleteLoginProfileRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteLoginProfileCommand,
-  serializeAws_queryDeleteLoginProfileCommand,
-} from "../protocols/Aws_query";
+import { DeleteLoginProfileRequest } from "../models/models_0";
+import { de_DeleteLoginProfileCommand, se_DeleteLoginProfileCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLoginProfileCommand}.
  */
 export interface DeleteLoginProfileCommandInput extends DeleteLoginProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLoginProfileCommand}.
  */
 export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the password for the specified IAM user, For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html">Managing
  *                 passwords for IAM users</a>.</p>
  *          <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
@@ -49,10 +51,15 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteLoginProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteLoginProfileRequest
+ *   UserName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLoginProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLoginProfileCommandInput - {@link DeleteLoginProfileCommandInput}
+ * @returns {@link DeleteLoginProfileCommandOutput}
  * @see {@link DeleteLoginProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -105,6 +112,9 @@ export class DeleteLoginProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLoginProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +143,8 @@ export class DeleteLoginProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLoginProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +154,18 @@ export class DeleteLoginProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLoginProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteLoginProfileCommand(input, context);
+    return se_DeleteLoginProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoginProfileCommandOutput> {
-    return deserializeAws_queryDeleteLoginProfileCommand(output, context);
+    return de_DeleteLoginProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

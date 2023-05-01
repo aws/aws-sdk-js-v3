@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  ListUsersRequest,
-  ListUsersRequestFilterSensitiveLog,
-  ListUsersResponse,
-  ListUsersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListUsersCommand,
-  serializeAws_restJson1ListUsersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListUsersRequest, ListUsersResponse, ListUsersResponseFilterSensitiveLog } from "../models/models_0";
+import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUsersCommand}.
  */
 export interface ListUsersCommandInput extends ListUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUsersCommand}.
  */
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available user accounts in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * import { FinspaceDataClient, ListUsersCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, ListUsersCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // ListUsersRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"), // required
+ * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUsersCommandInput - {@link ListUsersCommandInput}
+ * @returns {@link ListUsersCommandOutput}
  * @see {@link ListUsersCommandInput} for command's `input` shape.
  * @see {@link ListUsersCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,7 +114,7 @@ export class ListUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListUsersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -119,12 +125,18 @@ export class ListUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUsersCommand(input, context);
+    return se_ListUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsersCommandOutput> {
-    return deserializeAws_restJson1ListUsersCommand(output, context);
+    return de_ListUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

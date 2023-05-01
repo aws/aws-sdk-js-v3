@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetSSHPublicKeyRequest,
-  GetSSHPublicKeyRequestFilterSensitiveLog,
-  GetSSHPublicKeyResponse,
-  GetSSHPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetSSHPublicKeyCommand,
-  serializeAws_queryGetSSHPublicKeyCommand,
-} from "../protocols/Aws_query";
+import { GetSSHPublicKeyRequest, GetSSHPublicKeyResponse } from "../models/models_0";
+import { de_GetSSHPublicKeyCommand, se_GetSSHPublicKeyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetSSHPublicKeyCommand}.
  */
 export interface GetSSHPublicKeyCommandInput extends GetSSHPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSSHPublicKeyCommand}.
  */
 export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified SSH public key, including metadata about the key.</p>
  *          <p>The SSH public key retrieved by this operation is used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
@@ -46,10 +43,17 @@ export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, _
  * import { IAMClient, GetSSHPublicKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetSSHPublicKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetSSHPublicKeyRequest
+ *   UserName: "STRING_VALUE", // required
+ *   SSHPublicKeyId: "STRING_VALUE", // required
+ *   Encoding: "SSH" || "PEM", // required
+ * };
  * const command = new GetSSHPublicKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSSHPublicKeyCommandInput - {@link GetSSHPublicKeyCommandInput}
+ * @returns {@link GetSSHPublicKeyCommandOutput}
  * @see {@link GetSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link GetSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -81,6 +85,9 @@ export class GetSSHPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSSHPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class GetSSHPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSSHPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSSHPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class GetSSHPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSSHPublicKeyCommand(input, context);
+    return se_GetSSHPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSSHPublicKeyCommandOutput> {
-    return deserializeAws_queryGetSSHPublicKeyCommand(output, context);
+    return de_GetSSHPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

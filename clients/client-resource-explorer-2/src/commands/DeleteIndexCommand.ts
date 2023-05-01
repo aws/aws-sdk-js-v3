@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteIndexInput,
-  DeleteIndexInputFilterSensitiveLog,
-  DeleteIndexOutput,
-  DeleteIndexOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIndexCommand,
-  serializeAws_restJson1DeleteIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteIndexInput, DeleteIndexOutput } from "../models/models_0";
+import { de_DeleteIndexCommand, se_DeleteIndexCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIndexCommand}.
  */
 export interface DeleteIndexCommandInput extends DeleteIndexInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIndexCommand}.
  */
 export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified index and turns off Amazon Web Services Resource Explorer in the specified Amazon Web Services Region.
  *             When you delete an index, Resource Explorer stops discovering and indexing resources in that
  *             Region. Resource Explorer also deletes all views in that Region. These actions occur as
@@ -57,10 +54,15 @@ export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataB
  * import { ResourceExplorer2Client, DeleteIndexCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, DeleteIndexCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = { // DeleteIndexInput
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIndexCommandInput - {@link DeleteIndexCommandInput}
+ * @returns {@link DeleteIndexCommandOutput}
  * @see {@link DeleteIndexCommandInput} for command's `input` shape.
  * @see {@link DeleteIndexCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -104,6 +106,9 @@ export class DeleteIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +135,8 @@ export class DeleteIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIndexInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIndexOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +146,18 @@ export class DeleteIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIndexCommand(input, context);
+    return se_DeleteIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIndexCommandOutput> {
-    return deserializeAws_restJson1DeleteIndexCommand(output, context);
+    return de_DeleteIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,21 +15,23 @@ import {
 
 import {
   DescribeFolderResolvedPermissionsRequest,
-  DescribeFolderResolvedPermissionsRequestFilterSensitiveLog,
   DescribeFolderResolvedPermissionsResponse,
-  DescribeFolderResolvedPermissionsResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_restJson1DescribeFolderResolvedPermissionsCommand,
-  serializeAws_restJson1DescribeFolderResolvedPermissionsCommand,
+  de_DescribeFolderResolvedPermissionsCommand,
+  se_DescribeFolderResolvedPermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFolderResolvedPermissionsCommand}.
  */
 export interface DescribeFolderResolvedPermissionsCommandInput extends DescribeFolderResolvedPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFolderResolvedPermissionsCommand}.
  */
 export interface DescribeFolderResolvedPermissionsCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the folder resolved permissions. Permissions consists of both folder direct permissions and the inherited permissions from the ancestor folders.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,16 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  * import { QuickSightClient, DescribeFolderResolvedPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeFolderResolvedPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeFolderResolvedPermissionsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   FolderId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFolderResolvedPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFolderResolvedPermissionsCommandInput - {@link DescribeFolderResolvedPermissionsCommandInput}
+ * @returns {@link DescribeFolderResolvedPermissionsCommandOutput}
  * @see {@link DescribeFolderResolvedPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeFolderResolvedPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -95,6 +104,9 @@ export class DescribeFolderResolvedPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFolderResolvedPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +135,8 @@ export class DescribeFolderResolvedPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFolderResolvedPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFolderResolvedPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +146,24 @@ export class DescribeFolderResolvedPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFolderResolvedPermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFolderResolvedPermissionsCommand(input, context);
+    return se_DescribeFolderResolvedPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFolderResolvedPermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeFolderResolvedPermissionsCommand(output, context);
+    return de_DescribeFolderResolvedPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { CreateAccessControlConfigurationRequest, CreateAccessControlConfigurationResponse } from "../models/models_0";
 import {
-  CreateAccessControlConfigurationRequest,
-  CreateAccessControlConfigurationRequestFilterSensitiveLog,
-  CreateAccessControlConfigurationResponse,
-  CreateAccessControlConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAccessControlConfigurationCommand,
-  serializeAws_json1_1CreateAccessControlConfigurationCommand,
+  de_CreateAccessControlConfigurationCommand,
+  se_CreateAccessControlConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessControlConfigurationCommand}.
  */
 export interface CreateAccessControlConfigurationCommandInput extends CreateAccessControlConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessControlConfigurationCommand}.
  */
 export interface CreateAccessControlConfigurationCommandOutput
@@ -37,39 +36,64 @@ export interface CreateAccessControlConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates an access configuration for your documents. This includes
- *             user and group access information for your documents. This is useful
- *             for user context filtering, where search results are filtered based
- *             on the user or their group access to documents.</p>
+ * @public
+ * <p>Creates an access configuration for your documents. This includes user and group
+ *             access information for your documents. This is useful for user context filtering, where
+ *             search results are filtered based on the user or their group access to documents.</p>
  *          <p>You can use this to re-configure your existing document level access control without
  *             indexing all of your documents again. For example, your index contains top-secret
  *             company documents that only certain employees or users should access. One of these users
  *             leaves the company or switches to a team that should be blocked from accessing
  *             top-secret documents. The user still has access to top-secret documents because the user
- *             had access when your documents were previously indexed. You
- *             can create a specific access control configuration for the user with deny
- *             access. You can later update the access control configuration to allow access if the
- *             user returns to the company and re-joins the 'top-secret' team. You can re-configure
- *             access control for your documents as circumstances change.</p>
- *          <p>To apply your access control configuration to certain documents, you call
- *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
- *             API with the <code>AccessControlConfigurationId</code> included in the
- *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
- *             object. If you use an S3 bucket as a data source, you update the
- *             <code>.metadata.json</code> with the <code>AccessControlConfigurationId</code>
- *             and synchronize your data source. Amazon Kendra currently only supports
- *             access control configuration for S3 data sources and documents indexed using the
- *             <code>BatchPutDocument</code> API.</p>
+ *             had access when your documents were previously indexed. You can create a specific access
+ *             control configuration for the user with deny access. You can later update the access
+ *             control configuration to allow access if the user returns to the company and re-joins
+ *             the 'top-secret' team. You can re-configure access control for your documents as
+ *             circumstances change.</p>
+ *          <p>To apply your access control configuration to certain documents, you call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a> API with the <code>AccessControlConfigurationId</code>
+ *             included in the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a> object. If you use an S3 bucket as a data source, you update the
+ *                 <code>.metadata.json</code> with the <code>AccessControlConfigurationId</code> and
+ *             synchronize your data source. Amazon Kendra currently only supports access control
+ *             configuration for S3 data sources and documents indexed using the
+ *                 <code>BatchPutDocument</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, CreateAccessControlConfigurationCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateAccessControlConfigurationCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // CreateAccessControlConfigurationRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AccessControlList: [ // PrincipalList
+ *     { // Principal
+ *       Name: "STRING_VALUE", // required
+ *       Type: "USER" || "GROUP", // required
+ *       Access: "ALLOW" || "DENY", // required
+ *       DataSourceId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   HierarchicalAccessControlList: [ // HierarchicalPrincipalList
+ *     { // HierarchicalPrincipal
+ *       PrincipalList: [ // required
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Type: "USER" || "GROUP", // required
+ *           Access: "ALLOW" || "DENY", // required
+ *           DataSourceId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessControlConfigurationCommandInput - {@link CreateAccessControlConfigurationCommandInput}
+ * @returns {@link CreateAccessControlConfigurationCommandOutput}
  * @see {@link CreateAccessControlConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -84,7 +108,7 @@ export interface CreateAccessControlConfigurationCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -92,7 +116,8 @@ export interface CreateAccessControlConfigurationCommandOutput
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             Quotas[hyperlink Kendra Quotas pg] for more information, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> to inquire about
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
+ *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
  *             an increase of limits.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -122,6 +147,9 @@ export class CreateAccessControlConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessControlConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,8 +178,8 @@ export class CreateAccessControlConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessControlConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccessControlConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -161,18 +189,24 @@ export class CreateAccessControlConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateAccessControlConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAccessControlConfigurationCommand(input, context);
+    return se_CreateAccessControlConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAccessControlConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateAccessControlConfigurationCommand(output, context);
+    return de_CreateAccessControlConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

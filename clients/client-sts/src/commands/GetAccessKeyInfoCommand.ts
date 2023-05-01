@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccessKeyInfoRequest,
-  GetAccessKeyInfoRequestFilterSensitiveLog,
-  GetAccessKeyInfoResponse,
-  GetAccessKeyInfoResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetAccessKeyInfoCommand,
-  serializeAws_queryGetAccessKeyInfoCommand,
-} from "../protocols/Aws_query";
+import { GetAccessKeyInfoRequest, GetAccessKeyInfoResponse } from "../models/models_0";
+import { de_GetAccessKeyInfoCommand, se_GetAccessKeyInfoCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessKeyInfoCommand}.
  */
 export interface GetAccessKeyInfoCommandInput extends GetAccessKeyInfoRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessKeyInfoCommand}.
  */
 export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the account identifier for the specified access key ID.</p>
  *          <p>Access keys consist of two parts: an access key ID (for example,
  *             <code>AKIAIOSFODNN7EXAMPLE</code>) and a secret access key (for example,
@@ -60,10 +57,15 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  * import { STSClient, GetAccessKeyInfoCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetAccessKeyInfoCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = { // GetAccessKeyInfoRequest
+ *   AccessKeyId: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessKeyInfoCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessKeyInfoCommandInput - {@link GetAccessKeyInfoCommandInput}
+ * @returns {@link GetAccessKeyInfoCommandOutput}
  * @see {@link GetAccessKeyInfoCommandInput} for command's `input` shape.
  * @see {@link GetAccessKeyInfoCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -88,6 +90,9 @@ export class GetAccessKeyInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessKeyInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class GetAccessKeyInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessKeyInfoRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessKeyInfoResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class GetAccessKeyInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessKeyInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccessKeyInfoCommand(input, context);
+    return se_GetAccessKeyInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessKeyInfoCommandOutput> {
-    return deserializeAws_queryGetAccessKeyInfoCommand(output, context);
+    return de_GetAccessKeyInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

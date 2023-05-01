@@ -206,6 +206,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddTagsToOnPremisesInstancesCommandInput
   | BatchGetApplicationRevisionsCommandInput
@@ -255,6 +258,9 @@ export type ServiceInputTypes =
   | UpdateApplicationCommandInput
   | UpdateDeploymentGroupCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddTagsToOnPremisesInstancesCommandOutput
   | BatchGetApplicationRevisionsCommandOutput
@@ -304,6 +310,9 @@ export type ServiceOutputTypes =
   | UpdateApplicationCommandOutput
   | UpdateDeploymentGroupCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -311,7 +320,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -420,11 +429,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CodeDeployClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -435,10 +447,15 @@ type CodeDeployClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CodeDeployClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CodeDeployClient class constructor that set the region, credentials and other options.
  */
 export interface CodeDeployClientConfig extends CodeDeployClientConfigType {}
 
+/**
+ * @public
+ */
 type CodeDeployClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -449,11 +466,14 @@ type CodeDeployClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CodeDeployClient class. This is resolved and normalized from the {@link CodeDeployClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CodeDeployClient class. This is resolved and normalized from the {@link CodeDeployClientConfig | constructor configuration interface}.
  */
 export interface CodeDeployClientResolvedConfig extends CodeDeployClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>CodeDeploy is a deployment service that automates application deployments
  *             to Amazon EC2 instances, on-premises instances running in your own facility,
  *             serverless Lambda functions, or applications in an Amazon ECS

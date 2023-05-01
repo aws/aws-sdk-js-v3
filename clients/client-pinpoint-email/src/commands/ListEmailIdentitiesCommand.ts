@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListEmailIdentitiesRequest,
-  ListEmailIdentitiesRequestFilterSensitiveLog,
-  ListEmailIdentitiesResponse,
-  ListEmailIdentitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEmailIdentitiesRequest, ListEmailIdentitiesResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1ListEmailIdentitiesCommand,
-  serializeAws_restJson1ListEmailIdentitiesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEmailIdentitiesCommand, se_ListEmailIdentitiesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEmailIdentitiesCommand}.
  */
 export interface ListEmailIdentitiesCommandInput extends ListEmailIdentitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEmailIdentitiesCommand}.
  */
 export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all of the email identities that are associated with your Amazon Pinpoint
  *             account. An identity can be either an email address or a domain. This operation returns
  *             identities that are verified as well as those that aren't.</p>
@@ -44,10 +41,16 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * import { PinpointEmailClient, ListEmailIdentitiesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, ListEmailIdentitiesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // ListEmailIdentitiesRequest
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListEmailIdentitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEmailIdentitiesCommandInput - {@link ListEmailIdentitiesCommandInput}
+ * @returns {@link ListEmailIdentitiesCommandOutput}
  * @see {@link ListEmailIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListEmailIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -77,6 +80,9 @@ export class ListEmailIdentitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEmailIdentitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +111,8 @@ export class ListEmailIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEmailIdentitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEmailIdentitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +122,18 @@ export class ListEmailIdentitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEmailIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEmailIdentitiesCommand(input, context);
+    return se_ListEmailIdentitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEmailIdentitiesCommandOutput> {
-    return deserializeAws_restJson1ListEmailIdentitiesCommand(output, context);
+    return de_ListEmailIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

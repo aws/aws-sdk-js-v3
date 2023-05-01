@@ -4,6 +4,9 @@ import { Readable } from "stream";
 
 import { WorkMailMessageFlowServiceException as __BaseException } from "./WorkMailMessageFlowServiceException";
 
+/**
+ * @public
+ */
 export interface GetRawMessageContentRequest {
   /**
    * <p>The identifier of the email message to retrieve.</p>
@@ -11,6 +14,9 @@ export interface GetRawMessageContentRequest {
   messageId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetRawMessageContentResponse {
   /**
    * <p>The raw content of the email message, in MIME format.</p>
@@ -19,6 +25,7 @@ export interface GetRawMessageContentResponse {
 }
 
 /**
+ * @public
  * <p>The requested email message is not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -38,6 +45,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>WorkMail could not access the updated email content. Possible reasons:</p>
  *          <ul>
  *             <li>
@@ -73,6 +81,7 @@ export class InvalidContentLocation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested email is not eligible for update. This is usually the case for a redirected email.</p>
  */
 export class MessageFrozen extends __BaseException {
@@ -92,6 +101,7 @@ export class MessageFrozen extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested email could not be updated due to an error in the MIME content. Check the error message for more information about
  *       what caused the error.</p>
  */
@@ -112,6 +122,7 @@ export class MessageRejected extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon S3 object representing the updated message content, in MIME format.</p>
  *          <note>
  *             <p>The region for the S3 bucket containing the S3 object must match the region used for WorkMail operations. Also, for WorkMail to process
@@ -138,6 +149,7 @@ export interface S3Reference {
 }
 
 /**
+ * @public
  * <p>Provides the MIME content of the updated email message as an S3 object. All MIME content must meet the following criteria:</p>
  *          <ul>
  *             <li>
@@ -173,6 +185,9 @@ export interface RawMessageContent {
   s3Reference: S3Reference | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRawMessageContentRequest {
   /**
    * <p>The identifier of the email message being updated.</p>
@@ -185,46 +200,14 @@ export interface PutRawMessageContentRequest {
   content: RawMessageContent | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutRawMessageContentResponse {}
 
 /**
  * @internal
  */
-export const GetRawMessageContentRequestFilterSensitiveLog = (obj: GetRawMessageContentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetRawMessageContentResponseFilterSensitiveLog = (obj: GetRawMessageContentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ReferenceFilterSensitiveLog = (obj: S3Reference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RawMessageContentFilterSensitiveLog = (obj: RawMessageContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRawMessageContentRequestFilterSensitiveLog = (obj: PutRawMessageContentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRawMessageContentResponseFilterSensitiveLog = (obj: PutRawMessageContentResponse): any => ({
   ...obj,
 });

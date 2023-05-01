@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateFirewallDomainListRequest,
-  CreateFirewallDomainListRequestFilterSensitiveLog,
-  CreateFirewallDomainListResponse,
-  CreateFirewallDomainListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFirewallDomainListCommand,
-  serializeAws_json1_1CreateFirewallDomainListCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateFirewallDomainListRequest, CreateFirewallDomainListResponse } from "../models/models_0";
+import { de_CreateFirewallDomainListCommand, se_CreateFirewallDomainListCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFirewallDomainListCommand}.
  */
 export interface CreateFirewallDomainListCommandInput extends CreateFirewallDomainListRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFirewallDomainListCommand}.
  */
 export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDomainListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty firewall domain list for use in DNS Firewall rules. You can populate the domains for the new list with a file, using <a>ImportFirewallDomains</a>, or with domain strings, using <a>UpdateFirewallDomains</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDom
  * import { Route53ResolverClient, CreateFirewallDomainListCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, CreateFirewallDomainListCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // CreateFirewallDomainListRequest
+ *   CreatorRequestId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFirewallDomainListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFirewallDomainListCommandInput - {@link CreateFirewallDomainListCommandInput}
+ * @returns {@link CreateFirewallDomainListCommandOutput}
  * @see {@link CreateFirewallDomainListCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallDomainListCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -85,6 +94,9 @@ export class CreateFirewallDomainListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFirewallDomainListCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +125,8 @@ export class CreateFirewallDomainListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFirewallDomainListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFirewallDomainListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +136,18 @@ export class CreateFirewallDomainListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFirewallDomainListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFirewallDomainListCommand(input, context);
+    return se_CreateFirewallDomainListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFirewallDomainListCommandOutput> {
-    return deserializeAws_json1_1CreateFirewallDomainListCommand(output, context);
+    return de_CreateFirewallDomainListCommand(output, context);
   }
 
   // Start section: command_body_extra

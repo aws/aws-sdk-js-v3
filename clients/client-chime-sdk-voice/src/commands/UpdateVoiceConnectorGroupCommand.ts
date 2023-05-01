@@ -14,26 +14,77 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import {
-  UpdateVoiceConnectorGroupRequest,
-  UpdateVoiceConnectorGroupRequestFilterSensitiveLog,
-  UpdateVoiceConnectorGroupResponse,
-  UpdateVoiceConnectorGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateVoiceConnectorGroupCommand,
-  serializeAws_restJson1UpdateVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateVoiceConnectorGroupRequest, UpdateVoiceConnectorGroupResponse } from "../models/models_0";
+import { de_UpdateVoiceConnectorGroupCommand, se_UpdateVoiceConnectorGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVoiceConnectorGroupCommand}.
  */
 export interface UpdateVoiceConnectorGroupCommandInput extends UpdateVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVoiceConnectorGroupCommand}.
  */
 export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConnectorGroupResponse, __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Updates the settings for the specified Amazon Chime SDK Voice Connector group.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, UpdateVoiceConnectorGroupCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, UpdateVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // UpdateVoiceConnectorGroupRequest
+ *   VoiceConnectorGroupId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   VoiceConnectorItems: [ // VoiceConnectorItemList // required
+ *     { // VoiceConnectorItem
+ *       VoiceConnectorId: "STRING_VALUE", // required
+ *       Priority: Number("int"), // required
+ *     },
+ *   ],
+ * };
+ * const command = new UpdateVoiceConnectorGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param UpdateVoiceConnectorGroupCommandInput - {@link UpdateVoiceConnectorGroupCommandInput}
+ * @returns {@link UpdateVoiceConnectorGroupCommandOutput}
+ * @see {@link UpdateVoiceConnectorGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateVoiceConnectorGroupCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Multiple instances of the same request were made simultaneously.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class UpdateVoiceConnectorGroupCommand extends $Command<
   UpdateVoiceConnectorGroupCommandInput,
   UpdateVoiceConnectorGroupCommandOutput,
@@ -51,6 +102,9 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +133,8 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVoiceConnectorGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVoiceConnectorGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,15 +144,21 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVoiceConnectorGroupCommand(input, context);
+    return se_UpdateVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateVoiceConnectorGroupCommand(output, context);
+    return de_UpdateVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

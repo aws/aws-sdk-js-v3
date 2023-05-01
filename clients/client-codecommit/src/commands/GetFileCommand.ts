@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetFileInput,
-  GetFileInputFilterSensitiveLog,
-  GetFileOutput,
-  GetFileOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetFileCommand, serializeAws_json1_1GetFileCommand } from "../protocols/Aws_json1_1";
+import { GetFileInput, GetFileOutput } from "../models/models_0";
+import { de_GetFileCommand, se_GetFileCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFileCommand}.
  */
 export interface GetFileCommandInput extends GetFileInput {}
 /**
+ * @public
+ *
  * The output of {@link GetFileCommand}.
  */
 export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the base-64 encoded contents of a specified file and its metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,17 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
  * import { CodeCommitClient, GetFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // GetFileInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   commitSpecifier: "STRING_VALUE",
+ *   filePath: "STRING_VALUE", // required
+ * };
  * const command = new GetFileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFileCommandInput - {@link GetFileCommandInput}
+ * @returns {@link GetFileCommandOutput}
  * @see {@link GetFileCommandInput} for command's `input` shape.
  * @see {@link GetFileCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -116,6 +123,9 @@ export class GetFileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFileCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +152,8 @@ export class GetFileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFileInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFileOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +163,18 @@ export class GetFileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFileCommand(input, context);
+    return se_GetFileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFileCommandOutput> {
-    return deserializeAws_json1_1GetFileCommand(output, context);
+    return de_GetFileCommand(output, context);
   }
 
   // Start section: command_body_extra

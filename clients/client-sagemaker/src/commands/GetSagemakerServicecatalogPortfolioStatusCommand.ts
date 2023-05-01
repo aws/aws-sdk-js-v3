@@ -15,22 +15,24 @@ import {
 
 import {
   GetSagemakerServicecatalogPortfolioStatusInput,
-  GetSagemakerServicecatalogPortfolioStatusInputFilterSensitiveLog,
   GetSagemakerServicecatalogPortfolioStatusOutput,
-  GetSagemakerServicecatalogPortfolioStatusOutputFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand,
-  serializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand,
+  de_GetSagemakerServicecatalogPortfolioStatusCommand,
+  se_GetSagemakerServicecatalogPortfolioStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
  */
 export interface GetSagemakerServicecatalogPortfolioStatusCommandInput
   extends GetSagemakerServicecatalogPortfolioStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
  */
 export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
@@ -38,6 +40,7 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of Service Catalog in SageMaker. Service Catalog is used to create
  *             SageMaker projects.</p>
  * @example
@@ -46,10 +49,13 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
  * import { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {};
  * const command = new GetSagemakerServicecatalogPortfolioStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSagemakerServicecatalogPortfolioStatusCommandInput - {@link GetSagemakerServicecatalogPortfolioStatusCommandInput}
+ * @returns {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput}
  * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandInput} for command's `input` shape.
  * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +79,9 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSagemakerServicecatalogPortfolioStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +116,8 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSagemakerServicecatalogPortfolioStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSagemakerServicecatalogPortfolioStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +127,24 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSagemakerServicecatalogPortfolioStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand(input, context);
+    return se_GetSagemakerServicecatalogPortfolioStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput> {
-    return deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand(output, context);
+    return de_GetSagemakerServicecatalogPortfolioStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

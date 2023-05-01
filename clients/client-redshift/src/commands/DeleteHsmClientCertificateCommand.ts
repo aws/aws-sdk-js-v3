@@ -13,26 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteHsmClientCertificateMessage,
-  DeleteHsmClientCertificateMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteHsmClientCertificateCommand,
-  serializeAws_queryDeleteHsmClientCertificateCommand,
-} from "../protocols/Aws_query";
+import { DeleteHsmClientCertificateMessage } from "../models/models_0";
+import { de_DeleteHsmClientCertificateCommand, se_DeleteHsmClientCertificateCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHsmClientCertificateCommand}.
  */
 export interface DeleteHsmClientCertificateCommandInput extends DeleteHsmClientCertificateMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHsmClientCertificateCommand}.
  */
 export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified HSM client certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +39,15 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
  * import { RedshiftClient, DeleteHsmClientCertificateCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteHsmClientCertificateCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteHsmClientCertificateMessage
+ *   HsmClientCertificateIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHsmClientCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHsmClientCertificateCommandInput - {@link DeleteHsmClientCertificateCommandInput}
+ * @returns {@link DeleteHsmClientCertificateCommandOutput}
  * @see {@link DeleteHsmClientCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteHsmClientCertificateCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -75,6 +79,9 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHsmClientCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +110,8 @@ export class DeleteHsmClientCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHsmClientCertificateMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +121,21 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHsmClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteHsmClientCertificateCommand(input, context);
+    return se_DeleteHsmClientCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteHsmClientCertificateCommandOutput> {
-    return deserializeAws_queryDeleteHsmClientCertificateCommand(output, context);
+    return de_DeleteHsmClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

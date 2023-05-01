@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelRetrievalInput,
-  CancelRetrievalInputFilterSensitiveLog,
-  CancelRetrievalOutput,
-  CancelRetrievalOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelRetrievalCommand,
-  serializeAws_json1_1CancelRetrievalCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelRetrievalInput, CancelRetrievalOutput } from "../models/models_0";
+import { de_CancelRetrievalCommand, se_CancelRetrievalCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelRetrievalCommand}.
  */
 export interface CancelRetrievalCommandInput extends CancelRetrievalInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelRetrievalCommand}.
  */
 export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after
  *          the retrieval process is initiated. The virtual tape is returned to the VTS. This operation
  *          is only supported in the tape gateway type.</p>
@@ -44,10 +41,16 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  * import { StorageGatewayClient, CancelRetrievalCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CancelRetrievalCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // CancelRetrievalInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   TapeARN: "STRING_VALUE", // required
+ * };
  * const command = new CancelRetrievalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelRetrievalCommandInput - {@link CancelRetrievalCommandInput}
+ * @returns {@link CancelRetrievalCommandOutput}
  * @see {@link CancelRetrievalCommandInput} for command's `input` shape.
  * @see {@link CancelRetrievalCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -96,6 +99,9 @@ export class CancelRetrievalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelRetrievalCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +130,8 @@ export class CancelRetrievalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelRetrievalInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelRetrievalOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +141,18 @@ export class CancelRetrievalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelRetrievalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelRetrievalCommand(input, context);
+    return se_CancelRetrievalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelRetrievalCommandOutput> {
-    return deserializeAws_json1_1CancelRetrievalCommand(output, context);
+    return de_CancelRetrievalCommand(output, context);
   }
 
   // Start section: command_body_extra

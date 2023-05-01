@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  DeleteRulesetRequest,
-  DeleteRulesetRequestFilterSensitiveLog,
-  DeleteRulesetResponse,
-  DeleteRulesetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRulesetCommand,
-  serializeAws_restJson1DeleteRulesetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRulesetRequest, DeleteRulesetResponse } from "../models/models_0";
+import { de_DeleteRulesetCommand, se_DeleteRulesetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRulesetCommand}.
  */
 export interface DeleteRulesetCommandInput extends DeleteRulesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRulesetCommand}.
  */
 export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __Met
  * import { DataBrewClient, DeleteRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // DeleteRulesetRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRulesetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRulesetCommandInput - {@link DeleteRulesetCommandInput}
+ * @returns {@link DeleteRulesetCommandOutput}
  * @see {@link DeleteRulesetCommandInput} for command's `input` shape.
  * @see {@link DeleteRulesetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -78,6 +80,9 @@ export class DeleteRulesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class DeleteRulesetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRulesetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRulesetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class DeleteRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRulesetCommand(input, context);
+    return se_DeleteRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRulesetCommandOutput> {
-    return deserializeAws_restJson1DeleteRulesetCommand(output, context);
+    return de_DeleteRulesetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  DescribeJobQueuesRequest,
-  DescribeJobQueuesRequestFilterSensitiveLog,
-  DescribeJobQueuesResponse,
-  DescribeJobQueuesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobQueuesCommand,
-  serializeAws_restJson1DescribeJobQueuesCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeJobQueuesRequest, DescribeJobQueuesResponse } from "../models/models_0";
+import { de_DescribeJobQueuesCommand, se_DescribeJobQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobQueuesCommand}.
  */
 export interface DescribeJobQueuesCommandInput extends DescribeJobQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobQueuesCommand}.
  */
 export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your job queues.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * import { BatchClient, DescribeJobQueuesCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DescribeJobQueuesCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // DescribeJobQueuesRequest
+ *   jobQueues: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeJobQueuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobQueuesCommandInput - {@link DescribeJobQueuesCommandInput}
+ * @returns {@link DescribeJobQueuesCommandOutput}
  * @see {@link DescribeJobQueuesCommandInput} for command's `input` shape.
  * @see {@link DescribeJobQueuesCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -110,6 +116,9 @@ export class DescribeJobQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +147,8 @@ export class DescribeJobQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobQueuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJobQueuesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +158,18 @@ export class DescribeJobQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobQueuesCommand(input, context);
+    return se_DescribeJobQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobQueuesCommandOutput> {
-    return deserializeAws_restJson1DescribeJobQueuesCommand(output, context);
+    return de_DescribeJobQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchAnalysesRequest,
-  SearchAnalysesRequestFilterSensitiveLog,
-  SearchAnalysesResponse,
-  SearchAnalysesResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1SearchAnalysesCommand,
-  serializeAws_restJson1SearchAnalysesCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchAnalysesRequest, SearchAnalysesResponse } from "../models/models_3";
+import { de_SearchAnalysesCommand, se_SearchAnalysesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchAnalysesCommand}.
  */
 export interface SearchAnalysesCommandInput extends SearchAnalysesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchAnalysesCommand}.
  */
 export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for analyses that belong to the user specified in the filter.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -45,10 +42,24 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
  * import { QuickSightClient, SearchAnalysesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchAnalysesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // SearchAnalysesRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Filters: [ // AnalysisSearchFilterList // required
+ *     { // AnalysisSearchFilter
+ *       Operator: "StringEquals" || "StringLike",
+ *       Name: "QUICKSIGHT_USER" || "QUICKSIGHT_VIEWER_OR_OWNER" || "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" || "QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_SOLE_OWNER" || "ANALYSIS_NAME",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new SearchAnalysesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchAnalysesCommandInput - {@link SearchAnalysesCommandInput}
+ * @returns {@link SearchAnalysesCommandOutput}
  * @see {@link SearchAnalysesCommandInput} for command's `input` shape.
  * @see {@link SearchAnalysesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +104,9 @@ export class SearchAnalysesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchAnalysesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +135,8 @@ export class SearchAnalysesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchAnalysesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchAnalysesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +146,18 @@ export class SearchAnalysesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchAnalysesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchAnalysesCommand(input, context);
+    return se_SearchAnalysesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchAnalysesCommandOutput> {
-    return deserializeAws_restJson1SearchAnalysesCommand(output, context);
+    return de_SearchAnalysesCommand(output, context);
   }
 
   // Start section: command_body_extra

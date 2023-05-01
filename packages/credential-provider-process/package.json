@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-process",
-  "version": "3.296.0",
+  "version": "3.310.0",
   "description": "AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -50,7 +50,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-process",
   "repository": {

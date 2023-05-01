@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  ListVpcEndpointsRequest,
-  ListVpcEndpointsRequestFilterSensitiveLog,
-  ListVpcEndpointsResponse,
-  ListVpcEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVpcEndpointsCommand,
-  serializeAws_restJson1ListVpcEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListVpcEndpointsRequest, ListVpcEndpointsResponse } from "../models/models_0";
+import { de_ListVpcEndpointsCommand, se_ListVpcEndpointsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListVpcEndpointsCommand}.
  */
 export interface ListVpcEndpointsCommandInput extends ListVpcEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVpcEndpointsCommand}.
  */
 export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * import { ElasticsearchServiceClient, ListVpcEndpointsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, ListVpcEndpointsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // ListVpcEndpointsRequest
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListVpcEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVpcEndpointsCommandInput - {@link ListVpcEndpointsCommandInput}
+ * @returns {@link ListVpcEndpointsCommandOutput}
  * @see {@link ListVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -82,6 +84,9 @@ export class ListVpcEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVpcEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class ListVpcEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVpcEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVpcEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class ListVpcEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVpcEndpointsCommand(input, context);
+    return se_ListVpcEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVpcEndpointsCommandOutput> {
-    return deserializeAws_restJson1ListVpcEndpointsCommand(output, context);
+    return de_ListVpcEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

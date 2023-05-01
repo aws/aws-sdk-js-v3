@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  GetAssessmentRequest,
-  GetAssessmentRequestFilterSensitiveLog,
-  GetAssessmentResponse,
-  GetAssessmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssessmentCommand,
-  serializeAws_restJson1GetAssessmentCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAssessmentRequest, GetAssessmentResponse } from "../models/models_0";
+import { de_GetAssessmentCommand, se_GetAssessmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAssessmentCommand}.
  */
 export interface GetAssessmentCommandInput extends GetAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAssessmentCommand}.
  */
 export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves the status of an on-going assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __Met
  * import { MigrationHubStrategyClient, GetAssessmentCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetAssessmentCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // GetAssessmentRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetAssessmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAssessmentCommandInput - {@link GetAssessmentCommandInput}
+ * @returns {@link GetAssessmentCommandOutput}
  * @see {@link GetAssessmentCommandInput} for command's `input` shape.
  * @see {@link GetAssessmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -86,6 +88,9 @@ export class GetAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssessmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssessmentCommand(input, context);
+    return se_GetAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssessmentCommandOutput> {
-    return deserializeAws_restJson1GetAssessmentCommand(output, context);
+    return de_GetAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

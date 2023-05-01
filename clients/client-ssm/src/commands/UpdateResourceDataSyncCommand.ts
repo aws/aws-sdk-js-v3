@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateResourceDataSyncRequest,
-  UpdateResourceDataSyncRequestFilterSensitiveLog,
-  UpdateResourceDataSyncResult,
-  UpdateResourceDataSyncResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateResourceDataSyncCommand,
-  serializeAws_json1_1UpdateResourceDataSyncCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateResourceDataSyncRequest, UpdateResourceDataSyncResult } from "../models/models_2";
+import { de_UpdateResourceDataSyncCommand, se_UpdateResourceDataSyncCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceDataSyncCommand}.
  */
 export interface UpdateResourceDataSyncCommandInput extends UpdateResourceDataSyncRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceDataSyncCommand}.
  */
 export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataSyncResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a resource data sync. After you create a resource data sync for a Region, you can't
  *    change the account options for that sync. For example, if you create a sync in the us-east-2
  *    (Ohio) Region and you choose the <code>Include only the current account</code> option, you can't
@@ -51,10 +48,32 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  * import { SSMClient, UpdateResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateResourceDataSyncRequest
+ *   SyncName: "STRING_VALUE", // required
+ *   SyncType: "STRING_VALUE", // required
+ *   SyncSource: { // ResourceDataSyncSource
+ *     SourceType: "STRING_VALUE", // required
+ *     AwsOrganizationsSource: { // ResourceDataSyncAwsOrganizationsSource
+ *       OrganizationSourceType: "STRING_VALUE", // required
+ *       OrganizationalUnits: [ // ResourceDataSyncOrganizationalUnitList
+ *         { // ResourceDataSyncOrganizationalUnit
+ *           OrganizationalUnitId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     SourceRegions: [ // ResourceDataSyncSourceRegionList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     IncludeFutureRegions: true || false,
+ *     EnableAllOpsDataSources: true || false,
+ *   },
+ * };
  * const command = new UpdateResourceDataSyncCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceDataSyncCommandInput - {@link UpdateResourceDataSyncCommandInput}
+ * @returns {@link UpdateResourceDataSyncCommandOutput}
  * @see {@link UpdateResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -91,6 +110,9 @@ export class UpdateResourceDataSyncCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceDataSyncCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +141,8 @@ export class UpdateResourceDataSyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourceDataSyncRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourceDataSyncResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +152,18 @@ export class UpdateResourceDataSyncCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceDataSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateResourceDataSyncCommand(input, context);
+    return se_UpdateResourceDataSyncCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceDataSyncCommandOutput> {
-    return deserializeAws_json1_1UpdateResourceDataSyncCommand(output, context);
+    return de_UpdateResourceDataSyncCommand(output, context);
   }
 
   // Start section: command_body_extra

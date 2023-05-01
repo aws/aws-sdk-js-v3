@@ -18,7 +18,6 @@ MGN) as the primary migration service for lift-and-shift migrations. If Amazon W
 unavailable in a specific Amazon Web Services Region, you can use the Server Migration Service APIs through March
 2023.</p>
 </important>
-
 <p>Server Migration Service (Server Migration Service) makes it easier and faster for you to migrate your
 on-premises workloads to Amazon Web Services. To learn more about Server Migration Service, see the following
 resources:</p>

@@ -1,16 +1,18 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
-  map as __map,
+  map,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -124,7 +126,10 @@ import {
   UpdateBackendStorageResourceConfig,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CloneBackendCommand = async (
+/**
+ * serializeAws_restJson1CloneBackendCommand
+ */
+export const se_CloneBackendCommand = async (
   input: CloneBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -145,9 +150,11 @@ export const serializeAws_restJson1CloneBackendCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.TargetEnvironmentName != null && { targetEnvironmentName: input.TargetEnvironmentName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      targetEnvironmentName: [, , `TargetEnvironmentName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -159,7 +166,10 @@ export const serializeAws_restJson1CloneBackendCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateBackendCommand = async (
+/**
+ * serializeAws_restJson1CreateBackendCommand
+ */
+export const se_CreateBackendCommand = async (
   input: CreateBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -169,15 +179,15 @@ export const serializeAws_restJson1CreateBackendCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AppId != null && { appId: input.AppId }),
-    ...(input.AppName != null && { appName: input.AppName }),
-    ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig != null && {
-      resourceConfig: serializeAws_restJson1ResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appId: [, , `AppId`],
+      appName: [, , `AppName`],
+      backendEnvironmentName: [, , `BackendEnvironmentName`],
+      resourceConfig: [, (_) => _json(_), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -189,7 +199,10 @@ export const serializeAws_restJson1CreateBackendCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateBackendAPICommand = async (
+/**
+ * serializeAws_restJson1CreateBackendAPICommand
+ */
+export const se_CreateBackendAPICommand = async (
   input: CreateBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -200,13 +213,13 @@ export const serializeAws_restJson1CreateBackendAPICommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/api";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig != null && {
-      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendEnvironmentName: [, , `BackendEnvironmentName`],
+      resourceConfig: [, (_) => se_BackendAPIResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -218,7 +231,10 @@ export const serializeAws_restJson1CreateBackendAPICommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateBackendAuthCommand = async (
+/**
+ * serializeAws_restJson1CreateBackendAuthCommand
+ */
+export const se_CreateBackendAuthCommand = async (
   input: CreateBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -229,13 +245,13 @@ export const serializeAws_restJson1CreateBackendAuthCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/auth";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig != null && {
-      resourceConfig: serializeAws_restJson1CreateBackendAuthResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendEnvironmentName: [, , `BackendEnvironmentName`],
+      resourceConfig: [, (_) => se_CreateBackendAuthResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -247,7 +263,10 @@ export const serializeAws_restJson1CreateBackendAuthCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateBackendConfigCommand = async (
+/**
+ * serializeAws_restJson1CreateBackendConfigCommand
+ */
+export const se_CreateBackendConfigCommand = async (
   input: CreateBackendConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -258,9 +277,11 @@ export const serializeAws_restJson1CreateBackendConfigCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackendManagerAppId != null && { backendManagerAppId: input.BackendManagerAppId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendManagerAppId: [, , `BackendManagerAppId`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -272,7 +293,10 @@ export const serializeAws_restJson1CreateBackendConfigCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateBackendStorageCommand = async (
+/**
+ * serializeAws_restJson1CreateBackendStorageCommand
+ */
+export const se_CreateBackendStorageCommand = async (
   input: CreateBackendStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -283,13 +307,13 @@ export const serializeAws_restJson1CreateBackendStorageCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/storage";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
-    ...(input.ResourceConfig != null && {
-      resourceConfig: serializeAws_restJson1CreateBackendStorageResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendEnvironmentName: [, , `BackendEnvironmentName`],
+      resourceConfig: [, (_) => se_CreateBackendStorageResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -301,7 +325,10 @@ export const serializeAws_restJson1CreateBackendStorageCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateTokenCommand = async (
+/**
+ * serializeAws_restJson1CreateTokenCommand
+ */
+export const se_CreateTokenCommand = async (
   input: CreateTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -322,7 +349,10 @@ export const serializeAws_restJson1CreateTokenCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBackendCommand = async (
+/**
+ * serializeAws_restJson1DeleteBackendCommand
+ */
+export const se_DeleteBackendCommand = async (
   input: DeleteBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -352,7 +382,10 @@ export const serializeAws_restJson1DeleteBackendCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBackendAPICommand = async (
+/**
+ * serializeAws_restJson1DeleteBackendAPICommand
+ */
+export const se_DeleteBackendAPICommand = async (
   input: DeleteBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -373,12 +406,12 @@ export const serializeAws_restJson1DeleteBackendAPICommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceConfig != null && {
-      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceConfig: [, (_) => se_BackendAPIResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -390,7 +423,10 @@ export const serializeAws_restJson1DeleteBackendAPICommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBackendAuthCommand = async (
+/**
+ * serializeAws_restJson1DeleteBackendAuthCommand
+ */
+export const se_DeleteBackendAuthCommand = async (
   input: DeleteBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -411,9 +447,11 @@ export const serializeAws_restJson1DeleteBackendAuthCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -425,7 +463,10 @@ export const serializeAws_restJson1DeleteBackendAuthCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBackendStorageCommand = async (
+/**
+ * serializeAws_restJson1DeleteBackendStorageCommand
+ */
+export const se_DeleteBackendStorageCommand = async (
   input: DeleteBackendStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -446,10 +487,12 @@ export const serializeAws_restJson1DeleteBackendStorageCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-    ...(input.ServiceName != null && { serviceName: input.ServiceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+      serviceName: [, , `ServiceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -461,7 +504,10 @@ export const serializeAws_restJson1DeleteBackendStorageCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteTokenCommand = async (
+/**
+ * serializeAws_restJson1DeleteTokenCommand
+ */
+export const se_DeleteTokenCommand = async (
   input: DeleteTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -484,7 +530,10 @@ export const serializeAws_restJson1DeleteTokenCommand = async (
   });
 };
 
-export const serializeAws_restJson1GenerateBackendAPIModelsCommand = async (
+/**
+ * serializeAws_restJson1GenerateBackendAPIModelsCommand
+ */
+export const se_GenerateBackendAPIModelsCommand = async (
   input: GenerateBackendAPIModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -505,9 +554,11 @@ export const serializeAws_restJson1GenerateBackendAPIModelsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -519,7 +570,10 @@ export const serializeAws_restJson1GenerateBackendAPIModelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackendCommand = async (
+/**
+ * serializeAws_restJson1GetBackendCommand
+ */
+export const se_GetBackendCommand = async (
   input: GetBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -530,9 +584,11 @@ export const serializeAws_restJson1GetBackendCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/details";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackendEnvironmentName != null && { backendEnvironmentName: input.BackendEnvironmentName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      backendEnvironmentName: [, , `BackendEnvironmentName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -544,7 +600,10 @@ export const serializeAws_restJson1GetBackendCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackendAPICommand = async (
+/**
+ * serializeAws_restJson1GetBackendAPICommand
+ */
+export const se_GetBackendAPICommand = async (
   input: GetBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -565,12 +624,12 @@ export const serializeAws_restJson1GetBackendAPICommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceConfig != null && {
-      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceConfig: [, (_) => se_BackendAPIResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -582,7 +641,10 @@ export const serializeAws_restJson1GetBackendAPICommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackendAPIModelsCommand = async (
+/**
+ * serializeAws_restJson1GetBackendAPIModelsCommand
+ */
+export const se_GetBackendAPIModelsCommand = async (
   input: GetBackendAPIModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -603,9 +665,11 @@ export const serializeAws_restJson1GetBackendAPIModelsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -617,7 +681,10 @@ export const serializeAws_restJson1GetBackendAPIModelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackendAuthCommand = async (
+/**
+ * serializeAws_restJson1GetBackendAuthCommand
+ */
+export const se_GetBackendAuthCommand = async (
   input: GetBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -638,9 +705,11 @@ export const serializeAws_restJson1GetBackendAuthCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -652,7 +721,10 @@ export const serializeAws_restJson1GetBackendAuthCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackendJobCommand = async (
+/**
+ * serializeAws_restJson1GetBackendJobCommand
+ */
+export const se_GetBackendJobCommand = async (
   input: GetBackendJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -683,7 +755,10 @@ export const serializeAws_restJson1GetBackendJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackendStorageCommand = async (
+/**
+ * serializeAws_restJson1GetBackendStorageCommand
+ */
+export const se_GetBackendStorageCommand = async (
   input: GetBackendStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -704,9 +779,11 @@ export const serializeAws_restJson1GetBackendStorageCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -718,7 +795,10 @@ export const serializeAws_restJson1GetBackendStorageCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetTokenCommand = async (
+/**
+ * serializeAws_restJson1GetTokenCommand
+ */
+export const se_GetTokenCommand = async (
   input: GetTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -740,7 +820,10 @@ export const serializeAws_restJson1GetTokenCommand = async (
   });
 };
 
-export const serializeAws_restJson1ImportBackendAuthCommand = async (
+/**
+ * serializeAws_restJson1ImportBackendAuthCommand
+ */
+export const se_ImportBackendAuthCommand = async (
   input: ImportBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -761,12 +844,14 @@ export const serializeAws_restJson1ImportBackendAuthCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.IdentityPoolId != null && { identityPoolId: input.IdentityPoolId }),
-    ...(input.NativeClientId != null && { nativeClientId: input.NativeClientId }),
-    ...(input.UserPoolId != null && { userPoolId: input.UserPoolId }),
-    ...(input.WebClientId != null && { webClientId: input.WebClientId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      identityPoolId: [, , `IdentityPoolId`],
+      nativeClientId: [, , `NativeClientId`],
+      userPoolId: [, , `UserPoolId`],
+      webClientId: [, , `WebClientId`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -778,7 +863,10 @@ export const serializeAws_restJson1ImportBackendAuthCommand = async (
   });
 };
 
-export const serializeAws_restJson1ImportBackendStorageCommand = async (
+/**
+ * serializeAws_restJson1ImportBackendStorageCommand
+ */
+export const se_ImportBackendStorageCommand = async (
   input: ImportBackendStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -799,10 +887,12 @@ export const serializeAws_restJson1ImportBackendStorageCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BucketName != null && { bucketName: input.BucketName }),
-    ...(input.ServiceName != null && { serviceName: input.ServiceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      bucketName: [, , `BucketName`],
+      serviceName: [, , `ServiceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -814,7 +904,10 @@ export const serializeAws_restJson1ImportBackendStorageCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBackendJobsCommand = async (
+/**
+ * serializeAws_restJson1ListBackendJobsCommand
+ */
+export const se_ListBackendJobsCommand = async (
   input: ListBackendJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -835,13 +928,15 @@ export const serializeAws_restJson1ListBackendJobsCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.JobId != null && { jobId: input.JobId }),
-    ...(input.MaxResults != null && { maxResults: input.MaxResults }),
-    ...(input.NextToken != null && { nextToken: input.NextToken }),
-    ...(input.Operation != null && { operation: input.Operation }),
-    ...(input.Status != null && { status: input.Status }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      jobId: [, , `JobId`],
+      maxResults: [, , `MaxResults`],
+      nextToken: [, , `NextToken`],
+      operation: [, , `Operation`],
+      status: [, , `Status`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -853,7 +948,10 @@ export const serializeAws_restJson1ListBackendJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListS3BucketsCommand = async (
+/**
+ * serializeAws_restJson1ListS3BucketsCommand
+ */
+export const se_ListS3BucketsCommand = async (
   input: ListS3BucketsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -863,9 +961,11 @@ export const serializeAws_restJson1ListS3BucketsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/s3Buckets";
   let body: any;
-  body = JSON.stringify({
-    ...(input.NextToken != null && { nextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      nextToken: [, , `NextToken`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -877,7 +977,10 @@ export const serializeAws_restJson1ListS3BucketsCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveAllBackendsCommand = async (
+/**
+ * serializeAws_restJson1RemoveAllBackendsCommand
+ */
+export const se_RemoveAllBackendsCommand = async (
   input: RemoveAllBackendsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -888,9 +991,11 @@ export const serializeAws_restJson1RemoveAllBackendsCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/remove";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.CleanAmplifyApp != null && { cleanAmplifyApp: input.CleanAmplifyApp }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      cleanAmplifyApp: [, , `CleanAmplifyApp`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -902,7 +1007,10 @@ export const serializeAws_restJson1RemoveAllBackendsCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveBackendConfigCommand = async (
+/**
+ * serializeAws_restJson1RemoveBackendConfigCommand
+ */
+export const se_RemoveBackendConfigCommand = async (
   input: RemoveBackendConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -923,7 +1031,10 @@ export const serializeAws_restJson1RemoveBackendConfigCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateBackendAPICommand = async (
+/**
+ * serializeAws_restJson1UpdateBackendAPICommand
+ */
+export const se_UpdateBackendAPICommand = async (
   input: UpdateBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -944,12 +1055,12 @@ export const serializeAws_restJson1UpdateBackendAPICommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceConfig != null && {
-      resourceConfig: serializeAws_restJson1BackendAPIResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceConfig: [, (_) => se_BackendAPIResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -961,7 +1072,10 @@ export const serializeAws_restJson1UpdateBackendAPICommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateBackendAuthCommand = async (
+/**
+ * serializeAws_restJson1UpdateBackendAuthCommand
+ */
+export const se_UpdateBackendAuthCommand = async (
   input: UpdateBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -982,12 +1096,12 @@ export const serializeAws_restJson1UpdateBackendAuthCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceConfig != null && {
-      resourceConfig: serializeAws_restJson1UpdateBackendAuthResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceConfig: [, (_) => se_UpdateBackendAuthResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -999,7 +1113,10 @@ export const serializeAws_restJson1UpdateBackendAuthCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateBackendConfigCommand = async (
+/**
+ * serializeAws_restJson1UpdateBackendConfigCommand
+ */
+export const se_UpdateBackendConfigCommand = async (
   input: UpdateBackendConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1011,11 +1128,11 @@ export const serializeAws_restJson1UpdateBackendConfigCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config/update";
   resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.LoginAuthConfig != null && {
-      loginAuthConfig: serializeAws_restJson1LoginAuthConfigReqObj(input.LoginAuthConfig, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      loginAuthConfig: [, (_) => se_LoginAuthConfigReqObj(_, context), `LoginAuthConfig`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1027,7 +1144,10 @@ export const serializeAws_restJson1UpdateBackendConfigCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateBackendJobCommand = async (
+/**
+ * serializeAws_restJson1UpdateBackendJobCommand
+ */
+export const se_UpdateBackendJobCommand = async (
   input: UpdateBackendJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1049,10 +1169,12 @@ export const serializeAws_restJson1UpdateBackendJobCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Operation != null && { operation: input.Operation }),
-    ...(input.Status != null && { status: input.Status }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      operation: [, , `Operation`],
+      status: [, , `Status`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1064,7 +1186,10 @@ export const serializeAws_restJson1UpdateBackendJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateBackendStorageCommand = async (
+/**
+ * serializeAws_restJson1UpdateBackendStorageCommand
+ */
+export const se_UpdateBackendStorageCommand = async (
   input: UpdateBackendStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1085,12 +1210,12 @@ export const serializeAws_restJson1UpdateBackendStorageCommand = async (
     false
   );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceConfig != null && {
-      resourceConfig: serializeAws_restJson1UpdateBackendStorageResourceConfig(input.ResourceConfig, context),
-    }),
-    ...(input.ResourceName != null && { resourceName: input.ResourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      resourceConfig: [, (_) => se_UpdateBackendStorageResourceConfig(_, context), `ResourceConfig`],
+      resourceName: [, , `ResourceName`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1102,39 +1227,36 @@ export const serializeAws_restJson1UpdateBackendStorageCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CloneBackendCommand = async (
+/**
+ * deserializeAws_restJson1CloneBackendCommand
+ */
+export const de_CloneBackendCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CloneBackendCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CloneBackendCommandError(output, context);
+    return de_CloneBackendCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CloneBackendCommandError = async (
+/**
+ * deserializeAws_restJson1CloneBackendCommandError
+ */
+const de_CloneBackendCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CloneBackendCommandOutput> => {
@@ -1146,60 +1268,56 @@ const deserializeAws_restJson1CloneBackendCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateBackendCommand = async (
+/**
+ * deserializeAws_restJson1CreateBackendCommand
+ */
+export const de_CreateBackendCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBackendCommandError(output, context);
+    return de_CreateBackendCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateBackendCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBackendCommandError
+ */
+const de_CreateBackendCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendCommandOutput> => {
@@ -1211,60 +1329,56 @@ const deserializeAws_restJson1CreateBackendCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateBackendAPICommand = async (
+/**
+ * deserializeAws_restJson1CreateBackendAPICommand
+ */
+export const de_CreateBackendAPICommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendAPICommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBackendAPICommandError(output, context);
+    return de_CreateBackendAPICommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateBackendAPICommandError = async (
+/**
+ * deserializeAws_restJson1CreateBackendAPICommandError
+ */
+const de_CreateBackendAPICommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendAPICommandOutput> => {
@@ -1276,60 +1390,56 @@ const deserializeAws_restJson1CreateBackendAPICommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateBackendAuthCommand = async (
+/**
+ * deserializeAws_restJson1CreateBackendAuthCommand
+ */
+export const de_CreateBackendAuthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendAuthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBackendAuthCommandError(output, context);
+    return de_CreateBackendAuthCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateBackendAuthCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBackendAuthCommandError
+ */
+const de_CreateBackendAuthCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendAuthCommandOutput> => {
@@ -1341,54 +1451,54 @@ const deserializeAws_restJson1CreateBackendAuthCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateBackendConfigCommand = async (
+/**
+ * deserializeAws_restJson1CreateBackendConfigCommand
+ */
+export const de_CreateBackendConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBackendConfigCommandError(output, context);
+    return de_CreateBackendConfigCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    JobId: [, __expectString, `jobId`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateBackendConfigCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBackendConfigCommandError
+ */
+const de_CreateBackendConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendConfigCommandOutput> => {
@@ -1400,54 +1510,54 @@ const deserializeAws_restJson1CreateBackendConfigCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateBackendStorageCommand = async (
+/**
+ * deserializeAws_restJson1CreateBackendStorageCommand
+ */
+export const de_CreateBackendStorageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendStorageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBackendStorageCommandError(output, context);
+    return de_CreateBackendStorageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    JobId: [, __expectString, `jobId`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateBackendStorageCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBackendStorageCommandError
+ */
+const de_CreateBackendStorageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendStorageCommandOutput> => {
@@ -1459,54 +1569,54 @@ const deserializeAws_restJson1CreateBackendStorageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1CreateTokenCommand = async (
+/**
+ * deserializeAws_restJson1CreateTokenCommand
+ */
+export const de_CreateTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateTokenCommandError(output, context);
+    return de_CreateTokenCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.challengeCode != null) {
-    contents.ChallengeCode = __expectString(data.challengeCode);
-  }
-  if (data.sessionId != null) {
-    contents.SessionId = __expectString(data.sessionId);
-  }
-  if (data.ttl != null) {
-    contents.Ttl = __expectString(data.ttl);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    ChallengeCode: [, __expectString, `challengeCode`],
+    SessionId: [, __expectString, `sessionId`],
+    Ttl: [, __expectString, `ttl`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1CreateTokenCommandError = async (
+/**
+ * deserializeAws_restJson1CreateTokenCommandError
+ */
+const de_CreateTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTokenCommandOutput> => {
@@ -1518,60 +1628,56 @@ const deserializeAws_restJson1CreateTokenCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteBackendCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBackendCommand
+ */
+export const de_DeleteBackendCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackendCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBackendCommandError(output, context);
+    return de_DeleteBackendCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteBackendCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBackendCommandError
+ */
+const de_DeleteBackendCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackendCommandOutput> => {
@@ -1583,60 +1689,56 @@ const deserializeAws_restJson1DeleteBackendCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteBackendAPICommand = async (
+/**
+ * deserializeAws_restJson1DeleteBackendAPICommand
+ */
+export const de_DeleteBackendAPICommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackendAPICommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBackendAPICommandError(output, context);
+    return de_DeleteBackendAPICommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteBackendAPICommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBackendAPICommandError
+ */
+const de_DeleteBackendAPICommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackendAPICommandOutput> => {
@@ -1648,60 +1750,56 @@ const deserializeAws_restJson1DeleteBackendAPICommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteBackendAuthCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBackendAuthCommand
+ */
+export const de_DeleteBackendAuthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackendAuthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBackendAuthCommandError(output, context);
+    return de_DeleteBackendAuthCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteBackendAuthCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBackendAuthCommandError
+ */
+const de_DeleteBackendAuthCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackendAuthCommandOutput> => {
@@ -1713,54 +1811,54 @@ const deserializeAws_restJson1DeleteBackendAuthCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteBackendStorageCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBackendStorageCommand
+ */
+export const de_DeleteBackendStorageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackendStorageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBackendStorageCommandError(output, context);
+    return de_DeleteBackendStorageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    JobId: [, __expectString, `jobId`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteBackendStorageCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBackendStorageCommandError
+ */
+const de_DeleteBackendStorageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackendStorageCommandOutput> => {
@@ -1772,45 +1870,51 @@ const deserializeAws_restJson1DeleteBackendStorageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1DeleteTokenCommand = async (
+/**
+ * deserializeAws_restJson1DeleteTokenCommand
+ */
+export const de_DeleteTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteTokenCommandError(output, context);
+    return de_DeleteTokenCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.isSuccess != null) {
-    contents.IsSuccess = __expectBoolean(data.isSuccess);
-  }
+  const doc = take(data, {
+    IsSuccess: [, __expectBoolean, `isSuccess`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1DeleteTokenCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteTokenCommandError
+ */
+const de_DeleteTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTokenCommandOutput> => {
@@ -1822,60 +1926,56 @@ const deserializeAws_restJson1DeleteTokenCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GenerateBackendAPIModelsCommand = async (
+/**
+ * deserializeAws_restJson1GenerateBackendAPIModelsCommand
+ */
+export const de_GenerateBackendAPIModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateBackendAPIModelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GenerateBackendAPIModelsCommandError(output, context);
+    return de_GenerateBackendAPIModelsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GenerateBackendAPIModelsCommandError = async (
+/**
+ * deserializeAws_restJson1GenerateBackendAPIModelsCommandError
+ */
+const de_GenerateBackendAPIModelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateBackendAPIModelsCommandOutput> => {
@@ -1887,63 +1987,57 @@ const deserializeAws_restJson1GenerateBackendAPIModelsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetBackendCommand = async (
+/**
+ * deserializeAws_restJson1GetBackendCommand
+ */
+export const de_GetBackendCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackendCommandError(output, context);
+    return de_GetBackendCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.amplifyFeatureFlags != null) {
-    contents.AmplifyFeatureFlags = __expectString(data.amplifyFeatureFlags);
-  }
-  if (data.amplifyMetaConfig != null) {
-    contents.AmplifyMetaConfig = __expectString(data.amplifyMetaConfig);
-  }
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.appName != null) {
-    contents.AppName = __expectString(data.appName);
-  }
-  if (data.backendEnvironmentList != null) {
-    contents.BackendEnvironmentList = deserializeAws_restJson1ListOf__string(data.backendEnvironmentList, context);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
+  const doc = take(data, {
+    AmplifyFeatureFlags: [, __expectString, `amplifyFeatureFlags`],
+    AmplifyMetaConfig: [, __expectString, `amplifyMetaConfig`],
+    AppId: [, __expectString, `appId`],
+    AppName: [, __expectString, `appName`],
+    BackendEnvironmentList: [, _json, `backendEnvironmentList`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetBackendCommandError = async (
+/**
+ * deserializeAws_restJson1GetBackendCommandError
+ */
+const de_GetBackendCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendCommandOutput> => {
@@ -1955,57 +2049,55 @@ const deserializeAws_restJson1GetBackendCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetBackendAPICommand = async (
+/**
+ * deserializeAws_restJson1GetBackendAPICommand
+ */
+export const de_GetBackendAPICommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendAPICommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackendAPICommandError(output, context);
+    return de_GetBackendAPICommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.resourceConfig != null) {
-    contents.ResourceConfig = deserializeAws_restJson1BackendAPIResourceConfig(data.resourceConfig, context);
-  }
-  if (data.resourceName != null) {
-    contents.ResourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    ResourceConfig: [, (_) => de_BackendAPIResourceConfig(_, context), `resourceConfig`],
+    ResourceName: [, __expectString, `resourceName`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetBackendAPICommandError = async (
+/**
+ * deserializeAws_restJson1GetBackendAPICommandError
+ */
+const de_GetBackendAPICommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendAPICommandOutput> => {
@@ -2017,51 +2109,53 @@ const deserializeAws_restJson1GetBackendAPICommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetBackendAPIModelsCommand = async (
+/**
+ * deserializeAws_restJson1GetBackendAPIModelsCommand
+ */
+export const de_GetBackendAPIModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendAPIModelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackendAPIModelsCommandError(output, context);
+    return de_GetBackendAPIModelsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.modelIntrospectionSchema != null) {
-    contents.ModelIntrospectionSchema = __expectString(data.modelIntrospectionSchema);
-  }
-  if (data.models != null) {
-    contents.Models = __expectString(data.models);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    ModelIntrospectionSchema: [, __expectString, `modelIntrospectionSchema`],
+    Models: [, __expectString, `models`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetBackendAPIModelsCommandError = async (
+/**
+ * deserializeAws_restJson1GetBackendAPIModelsCommandError
+ */
+const de_GetBackendAPIModelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendAPIModelsCommandOutput> => {
@@ -2073,57 +2167,55 @@ const deserializeAws_restJson1GetBackendAPIModelsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetBackendAuthCommand = async (
+/**
+ * deserializeAws_restJson1GetBackendAuthCommand
+ */
+export const de_GetBackendAuthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendAuthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackendAuthCommandError(output, context);
+    return de_GetBackendAuthCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.resourceConfig != null) {
-    contents.ResourceConfig = deserializeAws_restJson1CreateBackendAuthResourceConfig(data.resourceConfig, context);
-  }
-  if (data.resourceName != null) {
-    contents.ResourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    ResourceConfig: [, (_) => de_CreateBackendAuthResourceConfig(_, context), `resourceConfig`],
+    ResourceName: [, __expectString, `resourceName`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetBackendAuthCommandError = async (
+/**
+ * deserializeAws_restJson1GetBackendAuthCommandError
+ */
+const de_GetBackendAuthCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendAuthCommandOutput> => {
@@ -2135,66 +2227,58 @@ const deserializeAws_restJson1GetBackendAuthCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetBackendJobCommand = async (
+/**
+ * deserializeAws_restJson1GetBackendJobCommand
+ */
+export const de_GetBackendJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackendJobCommandError(output, context);
+    return de_GetBackendJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.createTime != null) {
-    contents.CreateTime = __expectString(data.createTime);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
-  if (data.updateTime != null) {
-    contents.UpdateTime = __expectString(data.updateTime);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    CreateTime: [, __expectString, `createTime`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+    UpdateTime: [, __expectString, `updateTime`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetBackendJobCommandError = async (
+/**
+ * deserializeAws_restJson1GetBackendJobCommandError
+ */
+const de_GetBackendJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendJobCommandOutput> => {
@@ -2206,54 +2290,54 @@ const deserializeAws_restJson1GetBackendJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetBackendStorageCommand = async (
+/**
+ * deserializeAws_restJson1GetBackendStorageCommand
+ */
+export const de_GetBackendStorageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendStorageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackendStorageCommandError(output, context);
+    return de_GetBackendStorageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.resourceConfig != null) {
-    contents.ResourceConfig = deserializeAws_restJson1GetBackendStorageResourceConfig(data.resourceConfig, context);
-  }
-  if (data.resourceName != null) {
-    contents.ResourceName = __expectString(data.resourceName);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    ResourceConfig: [, (_) => de_GetBackendStorageResourceConfig(_, context), `resourceConfig`],
+    ResourceName: [, __expectString, `resourceName`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetBackendStorageCommandError = async (
+/**
+ * deserializeAws_restJson1GetBackendStorageCommandError
+ */
+const de_GetBackendStorageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendStorageCommandOutput> => {
@@ -2265,54 +2349,54 @@ const deserializeAws_restJson1GetBackendStorageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1GetTokenCommand = async (
+/**
+ * deserializeAws_restJson1GetTokenCommand
+ */
+export const de_GetTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetTokenCommandError(output, context);
+    return de_GetTokenCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.challengeCode != null) {
-    contents.ChallengeCode = __expectString(data.challengeCode);
-  }
-  if (data.sessionId != null) {
-    contents.SessionId = __expectString(data.sessionId);
-  }
-  if (data.ttl != null) {
-    contents.Ttl = __expectString(data.ttl);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    ChallengeCode: [, __expectString, `challengeCode`],
+    SessionId: [, __expectString, `sessionId`],
+    Ttl: [, __expectString, `ttl`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1GetTokenCommandError = async (
+/**
+ * deserializeAws_restJson1GetTokenCommandError
+ */
+const de_GetTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTokenCommandOutput> => {
@@ -2324,60 +2408,56 @@ const deserializeAws_restJson1GetTokenCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ImportBackendAuthCommand = async (
+/**
+ * deserializeAws_restJson1ImportBackendAuthCommand
+ */
+export const de_ImportBackendAuthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportBackendAuthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ImportBackendAuthCommandError(output, context);
+    return de_ImportBackendAuthCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ImportBackendAuthCommandError = async (
+/**
+ * deserializeAws_restJson1ImportBackendAuthCommandError
+ */
+const de_ImportBackendAuthCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportBackendAuthCommandOutput> => {
@@ -2389,54 +2469,54 @@ const deserializeAws_restJson1ImportBackendAuthCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ImportBackendStorageCommand = async (
+/**
+ * deserializeAws_restJson1ImportBackendStorageCommand
+ */
+export const de_ImportBackendStorageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportBackendStorageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ImportBackendStorageCommandError(output, context);
+    return de_ImportBackendStorageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    JobId: [, __expectString, `jobId`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ImportBackendStorageCommandError = async (
+/**
+ * deserializeAws_restJson1ImportBackendStorageCommandError
+ */
+const de_ImportBackendStorageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportBackendStorageCommandOutput> => {
@@ -2448,48 +2528,52 @@ const deserializeAws_restJson1ImportBackendStorageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListBackendJobsCommand = async (
+/**
+ * deserializeAws_restJson1ListBackendJobsCommand
+ */
+export const de_ListBackendJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackendJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBackendJobsCommandError(output, context);
+    return de_ListBackendJobsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobs != null) {
-    contents.Jobs = deserializeAws_restJson1ListOfBackendJobRespObj(data.jobs, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Jobs: [, (_) => de_ListOfBackendJobRespObj(_, context), `jobs`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListBackendJobsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBackendJobsCommandError
+ */
+const de_ListBackendJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackendJobsCommandOutput> => {
@@ -2501,48 +2585,52 @@ const deserializeAws_restJson1ListBackendJobsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1ListS3BucketsCommand = async (
+/**
+ * deserializeAws_restJson1ListS3BucketsCommand
+ */
+export const de_ListS3BucketsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListS3BucketsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListS3BucketsCommandError(output, context);
+    return de_ListS3BucketsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.buckets != null) {
-    contents.Buckets = deserializeAws_restJson1ListOfS3BucketInfo(data.buckets, context);
-  }
-  if (data.nextToken != null) {
-    contents.NextToken = __expectString(data.nextToken);
-  }
+  const doc = take(data, {
+    Buckets: [, (_) => de_ListOfS3BucketInfo(_, context), `buckets`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1ListS3BucketsCommandError = async (
+/**
+ * deserializeAws_restJson1ListS3BucketsCommandError
+ */
+const de_ListS3BucketsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListS3BucketsCommandOutput> => {
@@ -2554,57 +2642,55 @@ const deserializeAws_restJson1ListS3BucketsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RemoveAllBackendsCommand = async (
+/**
+ * deserializeAws_restJson1RemoveAllBackendsCommand
+ */
+export const de_RemoveAllBackendsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAllBackendsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveAllBackendsCommandError(output, context);
+    return de_RemoveAllBackendsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1RemoveAllBackendsCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveAllBackendsCommandError
+ */
+const de_RemoveAllBackendsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAllBackendsCommandOutput> => {
@@ -2616,45 +2702,51 @@ const deserializeAws_restJson1RemoveAllBackendsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1RemoveBackendConfigCommand = async (
+/**
+ * deserializeAws_restJson1RemoveBackendConfigCommand
+ */
+export const de_RemoveBackendConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveBackendConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveBackendConfigCommandError(output, context);
+    return de_RemoveBackendConfigCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
+  const doc = take(data, {
+    Error: [, __expectString, `error`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1RemoveBackendConfigCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveBackendConfigCommandError
+ */
+const de_RemoveBackendConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveBackendConfigCommandOutput> => {
@@ -2666,60 +2758,56 @@ const deserializeAws_restJson1RemoveBackendConfigCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateBackendAPICommand = async (
+/**
+ * deserializeAws_restJson1UpdateBackendAPICommand
+ */
+export const de_UpdateBackendAPICommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackendAPICommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateBackendAPICommandError(output, context);
+    return de_UpdateBackendAPICommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateBackendAPICommandError = async (
+/**
+ * deserializeAws_restJson1UpdateBackendAPICommandError
+ */
+const de_UpdateBackendAPICommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackendAPICommandOutput> => {
@@ -2731,60 +2819,56 @@ const deserializeAws_restJson1UpdateBackendAPICommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateBackendAuthCommand = async (
+/**
+ * deserializeAws_restJson1UpdateBackendAuthCommand
+ */
+export const de_UpdateBackendAuthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackendAuthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateBackendAuthCommandError(output, context);
+    return de_UpdateBackendAuthCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateBackendAuthCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateBackendAuthCommandError
+ */
+const de_UpdateBackendAuthCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackendAuthCommandOutput> => {
@@ -2796,54 +2880,54 @@ const deserializeAws_restJson1UpdateBackendAuthCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateBackendConfigCommand = async (
+/**
+ * deserializeAws_restJson1UpdateBackendConfigCommand
+ */
+export const de_UpdateBackendConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackendConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateBackendConfigCommandError(output, context);
+    return de_UpdateBackendConfigCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendManagerAppId != null) {
-    contents.BackendManagerAppId = __expectString(data.backendManagerAppId);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.loginAuthConfig != null) {
-    contents.LoginAuthConfig = deserializeAws_restJson1LoginAuthConfigReqObj(data.loginAuthConfig, context);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendManagerAppId: [, __expectString, `backendManagerAppId`],
+    Error: [, __expectString, `error`],
+    LoginAuthConfig: [, (_) => de_LoginAuthConfigReqObj(_, context), `loginAuthConfig`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateBackendConfigCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateBackendConfigCommandError
+ */
+const de_UpdateBackendConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackendConfigCommandOutput> => {
@@ -2855,66 +2939,58 @@ const deserializeAws_restJson1UpdateBackendConfigCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateBackendJobCommand = async (
+/**
+ * deserializeAws_restJson1UpdateBackendJobCommand
+ */
+export const de_UpdateBackendJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackendJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateBackendJobCommandError(output, context);
+    return de_UpdateBackendJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.createTime != null) {
-    contents.CreateTime = __expectString(data.createTime);
-  }
-  if (data.error != null) {
-    contents.Error = __expectString(data.error);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.operation != null) {
-    contents.Operation = __expectString(data.operation);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
-  if (data.updateTime != null) {
-    contents.UpdateTime = __expectString(data.updateTime);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    CreateTime: [, __expectString, `createTime`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+    UpdateTime: [, __expectString, `updateTime`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateBackendJobCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateBackendJobCommandError
+ */
+const de_UpdateBackendJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackendJobCommandOutput> => {
@@ -2926,54 +3002,54 @@ const deserializeAws_restJson1UpdateBackendJobCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_restJson1UpdateBackendStorageCommand = async (
+/**
+ * deserializeAws_restJson1UpdateBackendStorageCommand
+ */
+export const de_UpdateBackendStorageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackendStorageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateBackendStorageCommandError(output, context);
+    return de_UpdateBackendStorageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.appId != null) {
-    contents.AppId = __expectString(data.appId);
-  }
-  if (data.backendEnvironmentName != null) {
-    contents.BackendEnvironmentName = __expectString(data.backendEnvironmentName);
-  }
-  if (data.jobId != null) {
-    contents.JobId = __expectString(data.jobId);
-  }
-  if (data.status != null) {
-    contents.Status = __expectString(data.status);
-  }
+  const doc = take(data, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    JobId: [, __expectString, `jobId`],
+    Status: [, __expectString, `status`],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const deserializeAws_restJson1UpdateBackendStorageCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateBackendStorageCommandError
+ */
+const de_UpdateBackendStorageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackendStorageCommandOutput> => {
@@ -2985,37 +3061,37 @@ const deserializeAws_restJson1UpdateBackendStorageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "GatewayTimeoutException":
     case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3023,15 +3099,19 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1GatewayTimeoutExceptionResponse = async (
+/**
+ * deserializeAws_restJson1GatewayTimeoutExceptionRes
+ */
+const de_GatewayTimeoutExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<GatewayTimeoutException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new GatewayTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3039,18 +3119,17 @@ const deserializeAws_restJson1GatewayTimeoutExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
-  if (data.resourceType != null) {
-    contents.ResourceType = __expectString(data.resourceType);
-  }
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+    ResourceType: [, __expectString, `resourceType`],
+  });
+  Object.assign(contents, doc);
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3058,18 +3137,20 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.limitType != null) {
-    contents.LimitType = __expectString(data.limitType);
-  }
-  if (data.message != null) {
-    contents.Message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    LimitType: [, __expectString, `limitType`],
+    Message: [, __expectString, `message`],
+  });
+  Object.assign(contents, doc);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -3077,964 +3158,732 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1BackendAPIAppSyncAuthSettings = (
-  input: BackendAPIAppSyncAuthSettings,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.CognitoUserPoolId != null && { cognitoUserPoolId: input.CognitoUserPoolId }),
-    ...(input.Description != null && { description: input.Description }),
-    ...(input.ExpirationTime != null && { expirationTime: __serializeFloat(input.ExpirationTime) }),
-    ...(input.OpenIDAuthTTL != null && { openIDAuthTTL: input.OpenIDAuthTTL }),
-    ...(input.OpenIDClientId != null && { openIDClientId: input.OpenIDClientId }),
-    ...(input.OpenIDIatTTL != null && { openIDIatTTL: input.OpenIDIatTTL }),
-    ...(input.OpenIDIssueURL != null && { openIDIssueURL: input.OpenIDIssueURL }),
-    ...(input.OpenIDProviderName != null && { openIDProviderName: input.OpenIDProviderName }),
-  };
+/**
+ * serializeAws_restJson1BackendAPIAppSyncAuthSettings
+ */
+const se_BackendAPIAppSyncAuthSettings = (input: BackendAPIAppSyncAuthSettings, context: __SerdeContext): any => {
+  return take(input, {
+    cognitoUserPoolId: [, , `CognitoUserPoolId`],
+    description: [, , `Description`],
+    expirationTime: [, __serializeFloat, `ExpirationTime`],
+    openIDAuthTTL: [, , `OpenIDAuthTTL`],
+    openIDClientId: [, , `OpenIDClientId`],
+    openIDIatTTL: [, , `OpenIDIatTTL`],
+    openIDIssueURL: [, , `OpenIDIssueURL`],
+    openIDProviderName: [, , `OpenIDProviderName`],
+  });
 };
 
-const serializeAws_restJson1BackendAPIAuthType = (input: BackendAPIAuthType, context: __SerdeContext): any => {
-  return {
-    ...(input.Mode != null && { mode: input.Mode }),
-    ...(input.Settings != null && {
-      settings: serializeAws_restJson1BackendAPIAppSyncAuthSettings(input.Settings, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1BackendAPIAuthType
+ */
+const se_BackendAPIAuthType = (input: BackendAPIAuthType, context: __SerdeContext): any => {
+  return take(input, {
+    mode: [, , `Mode`],
+    settings: [, (_) => se_BackendAPIAppSyncAuthSettings(_, context), `Settings`],
+  });
 };
 
-const serializeAws_restJson1BackendAPIConflictResolution = (
-  input: BackendAPIConflictResolution,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResolutionStrategy != null && { resolutionStrategy: input.ResolutionStrategy }),
-  };
+/**
+ * serializeAws_restJson1BackendAPIConflictResolution
+ */
+const se_BackendAPIConflictResolution = (input: BackendAPIConflictResolution, context: __SerdeContext): any => {
+  return take(input, {
+    resolutionStrategy: [, , `ResolutionStrategy`],
+  });
 };
 
-const serializeAws_restJson1BackendAPIResourceConfig = (
-  input: BackendAPIResourceConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AdditionalAuthTypes != null && {
-      additionalAuthTypes: serializeAws_restJson1ListOfBackendAPIAuthType(input.AdditionalAuthTypes, context),
-    }),
-    ...(input.ApiName != null && { apiName: input.ApiName }),
-    ...(input.ConflictResolution != null && {
-      conflictResolution: serializeAws_restJson1BackendAPIConflictResolution(input.ConflictResolution, context),
-    }),
-    ...(input.DefaultAuthType != null && {
-      defaultAuthType: serializeAws_restJson1BackendAPIAuthType(input.DefaultAuthType, context),
-    }),
-    ...(input.Service != null && { service: input.Service }),
-    ...(input.TransformSchema != null && { transformSchema: input.TransformSchema }),
-  };
+/**
+ * serializeAws_restJson1BackendAPIResourceConfig
+ */
+const se_BackendAPIResourceConfig = (input: BackendAPIResourceConfig, context: __SerdeContext): any => {
+  return take(input, {
+    additionalAuthTypes: [, (_) => se_ListOfBackendAPIAuthType(_, context), `AdditionalAuthTypes`],
+    apiName: [, , `ApiName`],
+    conflictResolution: [, (_) => se_BackendAPIConflictResolution(_, context), `ConflictResolution`],
+    defaultAuthType: [, (_) => se_BackendAPIAuthType(_, context), `DefaultAuthType`],
+    service: [, , `Service`],
+    transformSchema: [, , `TransformSchema`],
+  });
 };
 
-const serializeAws_restJson1BackendAuthAppleProviderConfig = (
-  input: BackendAuthAppleProviderConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ClientId != null && { client_id: input.ClientId }),
-    ...(input.KeyId != null && { key_id: input.KeyId }),
-    ...(input.PrivateKey != null && { private_key: input.PrivateKey }),
-    ...(input.TeamId != null && { team_id: input.TeamId }),
-  };
+/**
+ * serializeAws_restJson1BackendAuthAppleProviderConfig
+ */
+const se_BackendAuthAppleProviderConfig = (input: BackendAuthAppleProviderConfig, context: __SerdeContext): any => {
+  return take(input, {
+    client_id: [, , `ClientId`],
+    key_id: [, , `KeyId`],
+    private_key: [, , `PrivateKey`],
+    team_id: [, , `TeamId`],
+  });
 };
 
-const serializeAws_restJson1BackendAuthSocialProviderConfig = (
-  input: BackendAuthSocialProviderConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ClientId != null && { client_id: input.ClientId }),
-    ...(input.ClientSecret != null && { client_secret: input.ClientSecret }),
-  };
+/**
+ * serializeAws_restJson1BackendAuthSocialProviderConfig
+ */
+const se_BackendAuthSocialProviderConfig = (input: BackendAuthSocialProviderConfig, context: __SerdeContext): any => {
+  return take(input, {
+    client_id: [, , `ClientId`],
+    client_secret: [, , `ClientSecret`],
+  });
 };
 
-const serializeAws_restJson1BackendStoragePermissions = (
-  input: BackendStoragePermissions,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Authenticated != null && {
-      authenticated: serializeAws_restJson1ListOfAuthenticatedElement(input.Authenticated, context),
-    }),
-    ...(input.UnAuthenticated != null && {
-      unAuthenticated: serializeAws_restJson1ListOfUnAuthenticatedElement(input.UnAuthenticated, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1BackendStoragePermissions
+ */
+const se_BackendStoragePermissions = (input: BackendStoragePermissions, context: __SerdeContext): any => {
+  return take(input, {
+    authenticated: [, _json, `Authenticated`],
+    unAuthenticated: [, _json, `UnAuthenticated`],
+  });
 };
 
-const serializeAws_restJson1CreateBackendAuthForgotPasswordConfig = (
+/**
+ * serializeAws_restJson1CreateBackendAuthForgotPasswordConfig
+ */
+const se_CreateBackendAuthForgotPasswordConfig = (
   input: CreateBackendAuthForgotPasswordConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DeliveryMethod != null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings != null && {
-      emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
-    }),
-    ...(input.SmsSettings != null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
-  };
+  return take(input, {
+    deliveryMethod: [, , `DeliveryMethod`],
+    emailSettings: [, (_) => se_EmailSettings(_, context), `EmailSettings`],
+    smsSettings: [, (_) => se_SmsSettings(_, context), `SmsSettings`],
+  });
 };
 
-const serializeAws_restJson1CreateBackendAuthIdentityPoolConfig = (
+/**
+ * serializeAws_restJson1CreateBackendAuthIdentityPoolConfig
+ */
+const se_CreateBackendAuthIdentityPoolConfig = (
   input: CreateBackendAuthIdentityPoolConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.IdentityPoolName != null && { identityPoolName: input.IdentityPoolName }),
-    ...(input.UnauthenticatedLogin != null && { unauthenticatedLogin: input.UnauthenticatedLogin }),
-  };
+  return take(input, {
+    identityPoolName: [, , `IdentityPoolName`],
+    unauthenticatedLogin: [, , `UnauthenticatedLogin`],
+  });
 };
 
-const serializeAws_restJson1CreateBackendAuthMFAConfig = (
-  input: CreateBackendAuthMFAConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MFAMode != null && { MFAMode: input.MFAMode }),
-    ...(input.Settings != null && { settings: serializeAws_restJson1Settings(input.Settings, context) }),
-  };
+/**
+ * serializeAws_restJson1CreateBackendAuthMFAConfig
+ */
+const se_CreateBackendAuthMFAConfig = (input: CreateBackendAuthMFAConfig, context: __SerdeContext): any => {
+  return take(input, {
+    MFAMode: [],
+    settings: [, (_) => se_Settings(_, context), `Settings`],
+  });
 };
 
-const serializeAws_restJson1CreateBackendAuthOAuthConfig = (
-  input: CreateBackendAuthOAuthConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainPrefix != null && { domainPrefix: input.DomainPrefix }),
-    ...(input.OAuthGrantType != null && { oAuthGrantType: input.OAuthGrantType }),
-    ...(input.OAuthScopes != null && {
-      oAuthScopes: serializeAws_restJson1ListOfOAuthScopesElement(input.OAuthScopes, context),
-    }),
-    ...(input.RedirectSignInURIs != null && {
-      redirectSignInURIs: serializeAws_restJson1ListOf__string(input.RedirectSignInURIs, context),
-    }),
-    ...(input.RedirectSignOutURIs != null && {
-      redirectSignOutURIs: serializeAws_restJson1ListOf__string(input.RedirectSignOutURIs, context),
-    }),
-    ...(input.SocialProviderSettings != null && {
-      socialProviderSettings: serializeAws_restJson1SocialProviderSettings(input.SocialProviderSettings, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1CreateBackendAuthOAuthConfig
+ */
+const se_CreateBackendAuthOAuthConfig = (input: CreateBackendAuthOAuthConfig, context: __SerdeContext): any => {
+  return take(input, {
+    domainPrefix: [, , `DomainPrefix`],
+    oAuthGrantType: [, , `OAuthGrantType`],
+    oAuthScopes: [, _json, `OAuthScopes`],
+    redirectSignInURIs: [, _json, `RedirectSignInURIs`],
+    redirectSignOutURIs: [, _json, `RedirectSignOutURIs`],
+    socialProviderSettings: [, (_) => se_SocialProviderSettings(_, context), `SocialProviderSettings`],
+  });
 };
 
-const serializeAws_restJson1CreateBackendAuthPasswordPolicyConfig = (
+/**
+ * serializeAws_restJson1CreateBackendAuthPasswordPolicyConfig
+ */
+const se_CreateBackendAuthPasswordPolicyConfig = (
   input: CreateBackendAuthPasswordPolicyConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AdditionalConstraints != null && {
-      additionalConstraints: serializeAws_restJson1ListOfAdditionalConstraintsElement(
-        input.AdditionalConstraints,
-        context
-      ),
-    }),
-    ...(input.MinimumLength != null && { minimumLength: __serializeFloat(input.MinimumLength) }),
-  };
+  return take(input, {
+    additionalConstraints: [, _json, `AdditionalConstraints`],
+    minimumLength: [, __serializeFloat, `MinimumLength`],
+  });
 };
 
-const serializeAws_restJson1CreateBackendAuthResourceConfig = (
-  input: CreateBackendAuthResourceConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AuthResources != null && { authResources: input.AuthResources }),
-    ...(input.IdentityPoolConfigs != null && {
-      identityPoolConfigs: serializeAws_restJson1CreateBackendAuthIdentityPoolConfig(
-        input.IdentityPoolConfigs,
-        context
-      ),
-    }),
-    ...(input.Service != null && { service: input.Service }),
-    ...(input.UserPoolConfigs != null && {
-      userPoolConfigs: serializeAws_restJson1CreateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1CreateBackendAuthResourceConfig
+ */
+const se_CreateBackendAuthResourceConfig = (input: CreateBackendAuthResourceConfig, context: __SerdeContext): any => {
+  return take(input, {
+    authResources: [, , `AuthResources`],
+    identityPoolConfigs: [, (_) => se_CreateBackendAuthIdentityPoolConfig(_, context), `IdentityPoolConfigs`],
+    service: [, , `Service`],
+    userPoolConfigs: [, (_) => se_CreateBackendAuthUserPoolConfig(_, context), `UserPoolConfigs`],
+  });
 };
 
-const serializeAws_restJson1CreateBackendAuthUserPoolConfig = (
-  input: CreateBackendAuthUserPoolConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ForgotPassword != null && {
-      forgotPassword: serializeAws_restJson1CreateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
-    }),
-    ...(input.Mfa != null && { mfa: serializeAws_restJson1CreateBackendAuthMFAConfig(input.Mfa, context) }),
-    ...(input.OAuth != null && { oAuth: serializeAws_restJson1CreateBackendAuthOAuthConfig(input.OAuth, context) }),
-    ...(input.PasswordPolicy != null && {
-      passwordPolicy: serializeAws_restJson1CreateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
-    }),
-    ...(input.RequiredSignUpAttributes != null && {
-      requiredSignUpAttributes: serializeAws_restJson1ListOfRequiredSignUpAttributesElement(
-        input.RequiredSignUpAttributes,
-        context
-      ),
-    }),
-    ...(input.SignInMethod != null && { signInMethod: input.SignInMethod }),
-    ...(input.UserPoolName != null && { userPoolName: input.UserPoolName }),
-    ...(input.VerificationMessage != null && {
-      verificationMessage: serializeAws_restJson1CreateBackendAuthVerificationMessageConfig(
-        input.VerificationMessage,
-        context
-      ),
-    }),
-  };
+/**
+ * serializeAws_restJson1CreateBackendAuthUserPoolConfig
+ */
+const se_CreateBackendAuthUserPoolConfig = (input: CreateBackendAuthUserPoolConfig, context: __SerdeContext): any => {
+  return take(input, {
+    forgotPassword: [, (_) => se_CreateBackendAuthForgotPasswordConfig(_, context), `ForgotPassword`],
+    mfa: [, (_) => se_CreateBackendAuthMFAConfig(_, context), `Mfa`],
+    oAuth: [, (_) => se_CreateBackendAuthOAuthConfig(_, context), `OAuth`],
+    passwordPolicy: [, (_) => se_CreateBackendAuthPasswordPolicyConfig(_, context), `PasswordPolicy`],
+    requiredSignUpAttributes: [, _json, `RequiredSignUpAttributes`],
+    signInMethod: [, , `SignInMethod`],
+    userPoolName: [, , `UserPoolName`],
+    verificationMessage: [, (_) => se_CreateBackendAuthVerificationMessageConfig(_, context), `VerificationMessage`],
+  });
 };
 
-const serializeAws_restJson1CreateBackendAuthVerificationMessageConfig = (
+/**
+ * serializeAws_restJson1CreateBackendAuthVerificationMessageConfig
+ */
+const se_CreateBackendAuthVerificationMessageConfig = (
   input: CreateBackendAuthVerificationMessageConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DeliveryMethod != null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings != null && {
-      emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
-    }),
-    ...(input.SmsSettings != null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
-  };
+  return take(input, {
+    deliveryMethod: [, , `DeliveryMethod`],
+    emailSettings: [, (_) => se_EmailSettings(_, context), `EmailSettings`],
+    smsSettings: [, (_) => se_SmsSettings(_, context), `SmsSettings`],
+  });
 };
 
-const serializeAws_restJson1CreateBackendStorageResourceConfig = (
+/**
+ * serializeAws_restJson1CreateBackendStorageResourceConfig
+ */
+const se_CreateBackendStorageResourceConfig = (
   input: CreateBackendStorageResourceConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.BucketName != null && { bucketName: input.BucketName }),
-    ...(input.Permissions != null && {
-      permissions: serializeAws_restJson1BackendStoragePermissions(input.Permissions, context),
-    }),
-    ...(input.ServiceName != null && { serviceName: input.ServiceName }),
-  };
+  return take(input, {
+    bucketName: [, , `BucketName`],
+    permissions: [, (_) => se_BackendStoragePermissions(_, context), `Permissions`],
+    serviceName: [, , `ServiceName`],
+  });
 };
 
-const serializeAws_restJson1EmailSettings = (input: EmailSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.EmailMessage != null && { emailMessage: input.EmailMessage }),
-    ...(input.EmailSubject != null && { emailSubject: input.EmailSubject }),
-  };
+/**
+ * serializeAws_restJson1EmailSettings
+ */
+const se_EmailSettings = (input: EmailSettings, context: __SerdeContext): any => {
+  return take(input, {
+    emailMessage: [, , `EmailMessage`],
+    emailSubject: [, , `EmailSubject`],
+  });
 };
 
-const serializeAws_restJson1ListOf__string = (input: string[], context: __SerdeContext): any => {
+// se_ListOf__string omitted.
+
+// se_ListOfAdditionalConstraintsElement omitted.
+
+// se_ListOfAuthenticatedElement omitted.
+
+/**
+ * serializeAws_restJson1ListOfBackendAPIAuthType
+ */
+const se_ListOfBackendAPIAuthType = (input: BackendAPIAuthType[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return entry;
+      return se_BackendAPIAuthType(entry, context);
     });
 };
 
-const serializeAws_restJson1ListOfAdditionalConstraintsElement = (
-  input: (AdditionalConstraintsElement | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+// se_ListOfMfaTypesElement omitted.
+
+// se_ListOfOAuthScopesElement omitted.
+
+// se_ListOfRequiredSignUpAttributesElement omitted.
+
+// se_ListOfUnAuthenticatedElement omitted.
+
+/**
+ * serializeAws_restJson1LoginAuthConfigReqObj
+ */
+const se_LoginAuthConfigReqObj = (input: LoginAuthConfigReqObj, context: __SerdeContext): any => {
+  return take(input, {
+    aws_cognito_identity_pool_id: [, , `AwsCognitoIdentityPoolId`],
+    aws_cognito_region: [, , `AwsCognitoRegion`],
+    aws_user_pools_id: [, , `AwsUserPoolsId`],
+    aws_user_pools_web_client_id: [, , `AwsUserPoolsWebClientId`],
+  });
 };
 
-const serializeAws_restJson1ListOfAuthenticatedElement = (
-  input: (AuthenticatedElement | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+// se_ResourceConfig omitted.
+
+/**
+ * serializeAws_restJson1Settings
+ */
+const se_Settings = (input: Settings, context: __SerdeContext): any => {
+  return take(input, {
+    mfaTypes: [, _json, `MfaTypes`],
+    smsMessage: [, , `SmsMessage`],
+  });
 };
 
-const serializeAws_restJson1ListOfBackendAPIAuthType = (input: BackendAPIAuthType[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_restJson1BackendAPIAuthType(entry, context);
-    });
+/**
+ * serializeAws_restJson1SmsSettings
+ */
+const se_SmsSettings = (input: SmsSettings, context: __SerdeContext): any => {
+  return take(input, {
+    smsMessage: [, , `SmsMessage`],
+  });
 };
 
-const serializeAws_restJson1ListOfMfaTypesElement = (
-  input: (MfaTypesElement | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+/**
+ * serializeAws_restJson1SocialProviderSettings
+ */
+const se_SocialProviderSettings = (input: SocialProviderSettings, context: __SerdeContext): any => {
+  return take(input, {
+    Facebook: (_) => se_BackendAuthSocialProviderConfig(_, context),
+    Google: (_) => se_BackendAuthSocialProviderConfig(_, context),
+    LoginWithAmazon: (_) => se_BackendAuthSocialProviderConfig(_, context),
+    SignInWithApple: (_) => se_BackendAuthAppleProviderConfig(_, context),
+  });
 };
 
-const serializeAws_restJson1ListOfOAuthScopesElement = (
-  input: (OAuthScopesElement | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1ListOfRequiredSignUpAttributesElement = (
-  input: (RequiredSignUpAttributesElement | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1ListOfUnAuthenticatedElement = (
-  input: (UnAuthenticatedElement | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_restJson1LoginAuthConfigReqObj = (input: LoginAuthConfigReqObj, context: __SerdeContext): any => {
-  return {
-    ...(input.AwsCognitoIdentityPoolId != null && { aws_cognito_identity_pool_id: input.AwsCognitoIdentityPoolId }),
-    ...(input.AwsCognitoRegion != null && { aws_cognito_region: input.AwsCognitoRegion }),
-    ...(input.AwsUserPoolsId != null && { aws_user_pools_id: input.AwsUserPoolsId }),
-    ...(input.AwsUserPoolsWebClientId != null && { aws_user_pools_web_client_id: input.AwsUserPoolsWebClientId }),
-  };
-};
-
-const serializeAws_restJson1ResourceConfig = (input: ResourceConfig, context: __SerdeContext): any => {
-  return {};
-};
-
-const serializeAws_restJson1Settings = (input: Settings, context: __SerdeContext): any => {
-  return {
-    ...(input.MfaTypes != null && { mfaTypes: serializeAws_restJson1ListOfMfaTypesElement(input.MfaTypes, context) }),
-    ...(input.SmsMessage != null && { smsMessage: input.SmsMessage }),
-  };
-};
-
-const serializeAws_restJson1SmsSettings = (input: SmsSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.SmsMessage != null && { smsMessage: input.SmsMessage }),
-  };
-};
-
-const serializeAws_restJson1SocialProviderSettings = (input: SocialProviderSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.Facebook != null && {
-      Facebook: serializeAws_restJson1BackendAuthSocialProviderConfig(input.Facebook, context),
-    }),
-    ...(input.Google != null && {
-      Google: serializeAws_restJson1BackendAuthSocialProviderConfig(input.Google, context),
-    }),
-    ...(input.LoginWithAmazon != null && {
-      LoginWithAmazon: serializeAws_restJson1BackendAuthSocialProviderConfig(input.LoginWithAmazon, context),
-    }),
-    ...(input.SignInWithApple != null && {
-      SignInWithApple: serializeAws_restJson1BackendAuthAppleProviderConfig(input.SignInWithApple, context),
-    }),
-  };
-};
-
-const serializeAws_restJson1UpdateBackendAuthForgotPasswordConfig = (
+/**
+ * serializeAws_restJson1UpdateBackendAuthForgotPasswordConfig
+ */
+const se_UpdateBackendAuthForgotPasswordConfig = (
   input: UpdateBackendAuthForgotPasswordConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DeliveryMethod != null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings != null && {
-      emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
-    }),
-    ...(input.SmsSettings != null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
-  };
+  return take(input, {
+    deliveryMethod: [, , `DeliveryMethod`],
+    emailSettings: [, (_) => se_EmailSettings(_, context), `EmailSettings`],
+    smsSettings: [, (_) => se_SmsSettings(_, context), `SmsSettings`],
+  });
 };
 
-const serializeAws_restJson1UpdateBackendAuthIdentityPoolConfig = (
+/**
+ * serializeAws_restJson1UpdateBackendAuthIdentityPoolConfig
+ */
+const se_UpdateBackendAuthIdentityPoolConfig = (
   input: UpdateBackendAuthIdentityPoolConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.UnauthenticatedLogin != null && { unauthenticatedLogin: input.UnauthenticatedLogin }),
-  };
+  return take(input, {
+    unauthenticatedLogin: [, , `UnauthenticatedLogin`],
+  });
 };
 
-const serializeAws_restJson1UpdateBackendAuthMFAConfig = (
-  input: UpdateBackendAuthMFAConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MFAMode != null && { MFAMode: input.MFAMode }),
-    ...(input.Settings != null && { settings: serializeAws_restJson1Settings(input.Settings, context) }),
-  };
+/**
+ * serializeAws_restJson1UpdateBackendAuthMFAConfig
+ */
+const se_UpdateBackendAuthMFAConfig = (input: UpdateBackendAuthMFAConfig, context: __SerdeContext): any => {
+  return take(input, {
+    MFAMode: [],
+    settings: [, (_) => se_Settings(_, context), `Settings`],
+  });
 };
 
-const serializeAws_restJson1UpdateBackendAuthOAuthConfig = (
-  input: UpdateBackendAuthOAuthConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainPrefix != null && { domainPrefix: input.DomainPrefix }),
-    ...(input.OAuthGrantType != null && { oAuthGrantType: input.OAuthGrantType }),
-    ...(input.OAuthScopes != null && {
-      oAuthScopes: serializeAws_restJson1ListOfOAuthScopesElement(input.OAuthScopes, context),
-    }),
-    ...(input.RedirectSignInURIs != null && {
-      redirectSignInURIs: serializeAws_restJson1ListOf__string(input.RedirectSignInURIs, context),
-    }),
-    ...(input.RedirectSignOutURIs != null && {
-      redirectSignOutURIs: serializeAws_restJson1ListOf__string(input.RedirectSignOutURIs, context),
-    }),
-    ...(input.SocialProviderSettings != null && {
-      socialProviderSettings: serializeAws_restJson1SocialProviderSettings(input.SocialProviderSettings, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1UpdateBackendAuthOAuthConfig
+ */
+const se_UpdateBackendAuthOAuthConfig = (input: UpdateBackendAuthOAuthConfig, context: __SerdeContext): any => {
+  return take(input, {
+    domainPrefix: [, , `DomainPrefix`],
+    oAuthGrantType: [, , `OAuthGrantType`],
+    oAuthScopes: [, _json, `OAuthScopes`],
+    redirectSignInURIs: [, _json, `RedirectSignInURIs`],
+    redirectSignOutURIs: [, _json, `RedirectSignOutURIs`],
+    socialProviderSettings: [, (_) => se_SocialProviderSettings(_, context), `SocialProviderSettings`],
+  });
 };
 
-const serializeAws_restJson1UpdateBackendAuthPasswordPolicyConfig = (
+/**
+ * serializeAws_restJson1UpdateBackendAuthPasswordPolicyConfig
+ */
+const se_UpdateBackendAuthPasswordPolicyConfig = (
   input: UpdateBackendAuthPasswordPolicyConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.AdditionalConstraints != null && {
-      additionalConstraints: serializeAws_restJson1ListOfAdditionalConstraintsElement(
-        input.AdditionalConstraints,
-        context
-      ),
-    }),
-    ...(input.MinimumLength != null && { minimumLength: __serializeFloat(input.MinimumLength) }),
-  };
+  return take(input, {
+    additionalConstraints: [, _json, `AdditionalConstraints`],
+    minimumLength: [, __serializeFloat, `MinimumLength`],
+  });
 };
 
-const serializeAws_restJson1UpdateBackendAuthResourceConfig = (
-  input: UpdateBackendAuthResourceConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AuthResources != null && { authResources: input.AuthResources }),
-    ...(input.IdentityPoolConfigs != null && {
-      identityPoolConfigs: serializeAws_restJson1UpdateBackendAuthIdentityPoolConfig(
-        input.IdentityPoolConfigs,
-        context
-      ),
-    }),
-    ...(input.Service != null && { service: input.Service }),
-    ...(input.UserPoolConfigs != null && {
-      userPoolConfigs: serializeAws_restJson1UpdateBackendAuthUserPoolConfig(input.UserPoolConfigs, context),
-    }),
-  };
+/**
+ * serializeAws_restJson1UpdateBackendAuthResourceConfig
+ */
+const se_UpdateBackendAuthResourceConfig = (input: UpdateBackendAuthResourceConfig, context: __SerdeContext): any => {
+  return take(input, {
+    authResources: [, , `AuthResources`],
+    identityPoolConfigs: [, (_) => se_UpdateBackendAuthIdentityPoolConfig(_, context), `IdentityPoolConfigs`],
+    service: [, , `Service`],
+    userPoolConfigs: [, (_) => se_UpdateBackendAuthUserPoolConfig(_, context), `UserPoolConfigs`],
+  });
 };
 
-const serializeAws_restJson1UpdateBackendAuthUserPoolConfig = (
-  input: UpdateBackendAuthUserPoolConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ForgotPassword != null && {
-      forgotPassword: serializeAws_restJson1UpdateBackendAuthForgotPasswordConfig(input.ForgotPassword, context),
-    }),
-    ...(input.Mfa != null && { mfa: serializeAws_restJson1UpdateBackendAuthMFAConfig(input.Mfa, context) }),
-    ...(input.OAuth != null && { oAuth: serializeAws_restJson1UpdateBackendAuthOAuthConfig(input.OAuth, context) }),
-    ...(input.PasswordPolicy != null && {
-      passwordPolicy: serializeAws_restJson1UpdateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
-    }),
-    ...(input.VerificationMessage != null && {
-      verificationMessage: serializeAws_restJson1UpdateBackendAuthVerificationMessageConfig(
-        input.VerificationMessage,
-        context
-      ),
-    }),
-  };
+/**
+ * serializeAws_restJson1UpdateBackendAuthUserPoolConfig
+ */
+const se_UpdateBackendAuthUserPoolConfig = (input: UpdateBackendAuthUserPoolConfig, context: __SerdeContext): any => {
+  return take(input, {
+    forgotPassword: [, (_) => se_UpdateBackendAuthForgotPasswordConfig(_, context), `ForgotPassword`],
+    mfa: [, (_) => se_UpdateBackendAuthMFAConfig(_, context), `Mfa`],
+    oAuth: [, (_) => se_UpdateBackendAuthOAuthConfig(_, context), `OAuth`],
+    passwordPolicy: [, (_) => se_UpdateBackendAuthPasswordPolicyConfig(_, context), `PasswordPolicy`],
+    verificationMessage: [, (_) => se_UpdateBackendAuthVerificationMessageConfig(_, context), `VerificationMessage`],
+  });
 };
 
-const serializeAws_restJson1UpdateBackendAuthVerificationMessageConfig = (
+/**
+ * serializeAws_restJson1UpdateBackendAuthVerificationMessageConfig
+ */
+const se_UpdateBackendAuthVerificationMessageConfig = (
   input: UpdateBackendAuthVerificationMessageConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.DeliveryMethod != null && { deliveryMethod: input.DeliveryMethod }),
-    ...(input.EmailSettings != null && {
-      emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
-    }),
-    ...(input.SmsSettings != null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
-  };
+  return take(input, {
+    deliveryMethod: [, , `DeliveryMethod`],
+    emailSettings: [, (_) => se_EmailSettings(_, context), `EmailSettings`],
+    smsSettings: [, (_) => se_SmsSettings(_, context), `SmsSettings`],
+  });
 };
 
-const serializeAws_restJson1UpdateBackendStorageResourceConfig = (
+/**
+ * serializeAws_restJson1UpdateBackendStorageResourceConfig
+ */
+const se_UpdateBackendStorageResourceConfig = (
   input: UpdateBackendStorageResourceConfig,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.Permissions != null && {
-      permissions: serializeAws_restJson1BackendStoragePermissions(input.Permissions, context),
-    }),
-    ...(input.ServiceName != null && { serviceName: input.ServiceName }),
-  };
+  return take(input, {
+    permissions: [, (_) => se_BackendStoragePermissions(_, context), `Permissions`],
+    serviceName: [, , `ServiceName`],
+  });
 };
 
-const deserializeAws_restJson1BackendAPIAppSyncAuthSettings = (
-  output: any,
-  context: __SerdeContext
-): BackendAPIAppSyncAuthSettings => {
-  return {
-    CognitoUserPoolId: __expectString(output.cognitoUserPoolId),
-    Description: __expectString(output.description),
-    ExpirationTime: __limitedParseDouble(output.expirationTime),
-    OpenIDAuthTTL: __expectString(output.openIDAuthTTL),
-    OpenIDClientId: __expectString(output.openIDClientId),
-    OpenIDIatTTL: __expectString(output.openIDIatTTL),
-    OpenIDIssueURL: __expectString(output.openIDIssueURL),
-    OpenIDProviderName: __expectString(output.openIDProviderName),
-  } as any;
+/**
+ * deserializeAws_restJson1BackendAPIAppSyncAuthSettings
+ */
+const de_BackendAPIAppSyncAuthSettings = (output: any, context: __SerdeContext): BackendAPIAppSyncAuthSettings => {
+  return take(output, {
+    CognitoUserPoolId: [, __expectString, `cognitoUserPoolId`],
+    Description: [, __expectString, `description`],
+    ExpirationTime: [, __limitedParseDouble, `expirationTime`],
+    OpenIDAuthTTL: [, __expectString, `openIDAuthTTL`],
+    OpenIDClientId: [, __expectString, `openIDClientId`],
+    OpenIDIatTTL: [, __expectString, `openIDIatTTL`],
+    OpenIDIssueURL: [, __expectString, `openIDIssueURL`],
+    OpenIDProviderName: [, __expectString, `openIDProviderName`],
+  }) as any;
 };
 
-const deserializeAws_restJson1BackendAPIAuthType = (output: any, context: __SerdeContext): BackendAPIAuthType => {
-  return {
-    Mode: __expectString(output.mode),
-    Settings:
-      output.settings != null
-        ? deserializeAws_restJson1BackendAPIAppSyncAuthSettings(output.settings, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1BackendAPIAuthType
+ */
+const de_BackendAPIAuthType = (output: any, context: __SerdeContext): BackendAPIAuthType => {
+  return take(output, {
+    Mode: [, __expectString, `mode`],
+    Settings: [, (_: any) => de_BackendAPIAppSyncAuthSettings(_, context), `settings`],
+  }) as any;
 };
 
-const deserializeAws_restJson1BackendAPIConflictResolution = (
-  output: any,
-  context: __SerdeContext
-): BackendAPIConflictResolution => {
-  return {
-    ResolutionStrategy: __expectString(output.resolutionStrategy),
-  } as any;
+/**
+ * deserializeAws_restJson1BackendAPIConflictResolution
+ */
+const de_BackendAPIConflictResolution = (output: any, context: __SerdeContext): BackendAPIConflictResolution => {
+  return take(output, {
+    ResolutionStrategy: [, __expectString, `resolutionStrategy`],
+  }) as any;
 };
 
-const deserializeAws_restJson1BackendAPIResourceConfig = (
-  output: any,
-  context: __SerdeContext
-): BackendAPIResourceConfig => {
-  return {
-    AdditionalAuthTypes:
-      output.additionalAuthTypes != null
-        ? deserializeAws_restJson1ListOfBackendAPIAuthType(output.additionalAuthTypes, context)
-        : undefined,
-    ApiName: __expectString(output.apiName),
-    ConflictResolution:
-      output.conflictResolution != null
-        ? deserializeAws_restJson1BackendAPIConflictResolution(output.conflictResolution, context)
-        : undefined,
-    DefaultAuthType:
-      output.defaultAuthType != null
-        ? deserializeAws_restJson1BackendAPIAuthType(output.defaultAuthType, context)
-        : undefined,
-    Service: __expectString(output.service),
-    TransformSchema: __expectString(output.transformSchema),
-  } as any;
+/**
+ * deserializeAws_restJson1BackendAPIResourceConfig
+ */
+const de_BackendAPIResourceConfig = (output: any, context: __SerdeContext): BackendAPIResourceConfig => {
+  return take(output, {
+    AdditionalAuthTypes: [, (_: any) => de_ListOfBackendAPIAuthType(_, context), `additionalAuthTypes`],
+    ApiName: [, __expectString, `apiName`],
+    ConflictResolution: [, (_: any) => de_BackendAPIConflictResolution(_, context), `conflictResolution`],
+    DefaultAuthType: [, (_: any) => de_BackendAPIAuthType(_, context), `defaultAuthType`],
+    Service: [, __expectString, `service`],
+    TransformSchema: [, __expectString, `transformSchema`],
+  }) as any;
 };
 
-const deserializeAws_restJson1BackendAuthAppleProviderConfig = (
-  output: any,
-  context: __SerdeContext
-): BackendAuthAppleProviderConfig => {
-  return {
-    ClientId: __expectString(output.client_id),
-    KeyId: __expectString(output.key_id),
-    PrivateKey: __expectString(output.private_key),
-    TeamId: __expectString(output.team_id),
-  } as any;
+/**
+ * deserializeAws_restJson1BackendAuthAppleProviderConfig
+ */
+const de_BackendAuthAppleProviderConfig = (output: any, context: __SerdeContext): BackendAuthAppleProviderConfig => {
+  return take(output, {
+    ClientId: [, __expectString, `client_id`],
+    KeyId: [, __expectString, `key_id`],
+    PrivateKey: [, __expectString, `private_key`],
+    TeamId: [, __expectString, `team_id`],
+  }) as any;
 };
 
-const deserializeAws_restJson1BackendAuthSocialProviderConfig = (
-  output: any,
-  context: __SerdeContext
-): BackendAuthSocialProviderConfig => {
-  return {
-    ClientId: __expectString(output.client_id),
-    ClientSecret: __expectString(output.client_secret),
-  } as any;
+/**
+ * deserializeAws_restJson1BackendAuthSocialProviderConfig
+ */
+const de_BackendAuthSocialProviderConfig = (output: any, context: __SerdeContext): BackendAuthSocialProviderConfig => {
+  return take(output, {
+    ClientId: [, __expectString, `client_id`],
+    ClientSecret: [, __expectString, `client_secret`],
+  }) as any;
 };
 
-const deserializeAws_restJson1BackendJobRespObj = (output: any, context: __SerdeContext): BackendJobRespObj => {
-  return {
-    AppId: __expectString(output.appId),
-    BackendEnvironmentName: __expectString(output.backendEnvironmentName),
-    CreateTime: __expectString(output.createTime),
-    Error: __expectString(output.error),
-    JobId: __expectString(output.jobId),
-    Operation: __expectString(output.operation),
-    Status: __expectString(output.status),
-    UpdateTime: __expectString(output.updateTime),
-  } as any;
+/**
+ * deserializeAws_restJson1BackendJobRespObj
+ */
+const de_BackendJobRespObj = (output: any, context: __SerdeContext): BackendJobRespObj => {
+  return take(output, {
+    AppId: [, __expectString, `appId`],
+    BackendEnvironmentName: [, __expectString, `backendEnvironmentName`],
+    CreateTime: [, __expectString, `createTime`],
+    Error: [, __expectString, `error`],
+    JobId: [, __expectString, `jobId`],
+    Operation: [, __expectString, `operation`],
+    Status: [, __expectString, `status`],
+    UpdateTime: [, __expectString, `updateTime`],
+  }) as any;
 };
 
-const deserializeAws_restJson1BackendStoragePermissions = (
-  output: any,
-  context: __SerdeContext
-): BackendStoragePermissions => {
-  return {
-    Authenticated:
-      output.authenticated != null
-        ? deserializeAws_restJson1ListOfAuthenticatedElement(output.authenticated, context)
-        : undefined,
-    UnAuthenticated:
-      output.unAuthenticated != null
-        ? deserializeAws_restJson1ListOfUnAuthenticatedElement(output.unAuthenticated, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1BackendStoragePermissions
+ */
+const de_BackendStoragePermissions = (output: any, context: __SerdeContext): BackendStoragePermissions => {
+  return take(output, {
+    Authenticated: [, _json, `authenticated`],
+    UnAuthenticated: [, _json, `unAuthenticated`],
+  }) as any;
 };
 
-const deserializeAws_restJson1CreateBackendAuthForgotPasswordConfig = (
+/**
+ * deserializeAws_restJson1CreateBackendAuthForgotPasswordConfig
+ */
+const de_CreateBackendAuthForgotPasswordConfig = (
   output: any,
   context: __SerdeContext
 ): CreateBackendAuthForgotPasswordConfig => {
-  return {
-    DeliveryMethod: __expectString(output.deliveryMethod),
-    EmailSettings:
-      output.emailSettings != null ? deserializeAws_restJson1EmailSettings(output.emailSettings, context) : undefined,
-    SmsSettings:
-      output.smsSettings != null ? deserializeAws_restJson1SmsSettings(output.smsSettings, context) : undefined,
-  } as any;
+  return take(output, {
+    DeliveryMethod: [, __expectString, `deliveryMethod`],
+    EmailSettings: [, (_: any) => de_EmailSettings(_, context), `emailSettings`],
+    SmsSettings: [, (_: any) => de_SmsSettings(_, context), `smsSettings`],
+  }) as any;
 };
 
-const deserializeAws_restJson1CreateBackendAuthIdentityPoolConfig = (
+/**
+ * deserializeAws_restJson1CreateBackendAuthIdentityPoolConfig
+ */
+const de_CreateBackendAuthIdentityPoolConfig = (
   output: any,
   context: __SerdeContext
 ): CreateBackendAuthIdentityPoolConfig => {
-  return {
-    IdentityPoolName: __expectString(output.identityPoolName),
-    UnauthenticatedLogin: __expectBoolean(output.unauthenticatedLogin),
-  } as any;
+  return take(output, {
+    IdentityPoolName: [, __expectString, `identityPoolName`],
+    UnauthenticatedLogin: [, __expectBoolean, `unauthenticatedLogin`],
+  }) as any;
 };
 
-const deserializeAws_restJson1CreateBackendAuthMFAConfig = (
-  output: any,
-  context: __SerdeContext
-): CreateBackendAuthMFAConfig => {
-  return {
-    MFAMode: __expectString(output.MFAMode),
-    Settings: output.settings != null ? deserializeAws_restJson1Settings(output.settings, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1CreateBackendAuthMFAConfig
+ */
+const de_CreateBackendAuthMFAConfig = (output: any, context: __SerdeContext): CreateBackendAuthMFAConfig => {
+  return take(output, {
+    MFAMode: __expectString,
+    Settings: [, (_: any) => de_Settings(_, context), `settings`],
+  }) as any;
 };
 
-const deserializeAws_restJson1CreateBackendAuthOAuthConfig = (
-  output: any,
-  context: __SerdeContext
-): CreateBackendAuthOAuthConfig => {
-  return {
-    DomainPrefix: __expectString(output.domainPrefix),
-    OAuthGrantType: __expectString(output.oAuthGrantType),
-    OAuthScopes:
-      output.oAuthScopes != null
-        ? deserializeAws_restJson1ListOfOAuthScopesElement(output.oAuthScopes, context)
-        : undefined,
-    RedirectSignInURIs:
-      output.redirectSignInURIs != null
-        ? deserializeAws_restJson1ListOf__string(output.redirectSignInURIs, context)
-        : undefined,
-    RedirectSignOutURIs:
-      output.redirectSignOutURIs != null
-        ? deserializeAws_restJson1ListOf__string(output.redirectSignOutURIs, context)
-        : undefined,
-    SocialProviderSettings:
-      output.socialProviderSettings != null
-        ? deserializeAws_restJson1SocialProviderSettings(output.socialProviderSettings, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1CreateBackendAuthOAuthConfig
+ */
+const de_CreateBackendAuthOAuthConfig = (output: any, context: __SerdeContext): CreateBackendAuthOAuthConfig => {
+  return take(output, {
+    DomainPrefix: [, __expectString, `domainPrefix`],
+    OAuthGrantType: [, __expectString, `oAuthGrantType`],
+    OAuthScopes: [, _json, `oAuthScopes`],
+    RedirectSignInURIs: [, _json, `redirectSignInURIs`],
+    RedirectSignOutURIs: [, _json, `redirectSignOutURIs`],
+    SocialProviderSettings: [, (_: any) => de_SocialProviderSettings(_, context), `socialProviderSettings`],
+  }) as any;
 };
 
-const deserializeAws_restJson1CreateBackendAuthPasswordPolicyConfig = (
+/**
+ * deserializeAws_restJson1CreateBackendAuthPasswordPolicyConfig
+ */
+const de_CreateBackendAuthPasswordPolicyConfig = (
   output: any,
   context: __SerdeContext
 ): CreateBackendAuthPasswordPolicyConfig => {
-  return {
-    AdditionalConstraints:
-      output.additionalConstraints != null
-        ? deserializeAws_restJson1ListOfAdditionalConstraintsElement(output.additionalConstraints, context)
-        : undefined,
-    MinimumLength: __limitedParseDouble(output.minimumLength),
-  } as any;
+  return take(output, {
+    AdditionalConstraints: [, _json, `additionalConstraints`],
+    MinimumLength: [, __limitedParseDouble, `minimumLength`],
+  }) as any;
 };
 
-const deserializeAws_restJson1CreateBackendAuthResourceConfig = (
-  output: any,
-  context: __SerdeContext
-): CreateBackendAuthResourceConfig => {
-  return {
-    AuthResources: __expectString(output.authResources),
-    IdentityPoolConfigs:
-      output.identityPoolConfigs != null
-        ? deserializeAws_restJson1CreateBackendAuthIdentityPoolConfig(output.identityPoolConfigs, context)
-        : undefined,
-    Service: __expectString(output.service),
-    UserPoolConfigs:
-      output.userPoolConfigs != null
-        ? deserializeAws_restJson1CreateBackendAuthUserPoolConfig(output.userPoolConfigs, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1CreateBackendAuthResourceConfig
+ */
+const de_CreateBackendAuthResourceConfig = (output: any, context: __SerdeContext): CreateBackendAuthResourceConfig => {
+  return take(output, {
+    AuthResources: [, __expectString, `authResources`],
+    IdentityPoolConfigs: [, (_: any) => de_CreateBackendAuthIdentityPoolConfig(_, context), `identityPoolConfigs`],
+    Service: [, __expectString, `service`],
+    UserPoolConfigs: [, (_: any) => de_CreateBackendAuthUserPoolConfig(_, context), `userPoolConfigs`],
+  }) as any;
 };
 
-const deserializeAws_restJson1CreateBackendAuthUserPoolConfig = (
-  output: any,
-  context: __SerdeContext
-): CreateBackendAuthUserPoolConfig => {
-  return {
-    ForgotPassword:
-      output.forgotPassword != null
-        ? deserializeAws_restJson1CreateBackendAuthForgotPasswordConfig(output.forgotPassword, context)
-        : undefined,
-    Mfa: output.mfa != null ? deserializeAws_restJson1CreateBackendAuthMFAConfig(output.mfa, context) : undefined,
-    OAuth:
-      output.oAuth != null ? deserializeAws_restJson1CreateBackendAuthOAuthConfig(output.oAuth, context) : undefined,
-    PasswordPolicy:
-      output.passwordPolicy != null
-        ? deserializeAws_restJson1CreateBackendAuthPasswordPolicyConfig(output.passwordPolicy, context)
-        : undefined,
-    RequiredSignUpAttributes:
-      output.requiredSignUpAttributes != null
-        ? deserializeAws_restJson1ListOfRequiredSignUpAttributesElement(output.requiredSignUpAttributes, context)
-        : undefined,
-    SignInMethod: __expectString(output.signInMethod),
-    UserPoolName: __expectString(output.userPoolName),
-    VerificationMessage:
-      output.verificationMessage != null
-        ? deserializeAws_restJson1CreateBackendAuthVerificationMessageConfig(output.verificationMessage, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1CreateBackendAuthUserPoolConfig
+ */
+const de_CreateBackendAuthUserPoolConfig = (output: any, context: __SerdeContext): CreateBackendAuthUserPoolConfig => {
+  return take(output, {
+    ForgotPassword: [, (_: any) => de_CreateBackendAuthForgotPasswordConfig(_, context), `forgotPassword`],
+    Mfa: [, (_: any) => de_CreateBackendAuthMFAConfig(_, context), `mfa`],
+    OAuth: [, (_: any) => de_CreateBackendAuthOAuthConfig(_, context), `oAuth`],
+    PasswordPolicy: [, (_: any) => de_CreateBackendAuthPasswordPolicyConfig(_, context), `passwordPolicy`],
+    RequiredSignUpAttributes: [, _json, `requiredSignUpAttributes`],
+    SignInMethod: [, __expectString, `signInMethod`],
+    UserPoolName: [, __expectString, `userPoolName`],
+    VerificationMessage: [
+      ,
+      (_: any) => de_CreateBackendAuthVerificationMessageConfig(_, context),
+      `verificationMessage`,
+    ],
+  }) as any;
 };
 
-const deserializeAws_restJson1CreateBackendAuthVerificationMessageConfig = (
+/**
+ * deserializeAws_restJson1CreateBackendAuthVerificationMessageConfig
+ */
+const de_CreateBackendAuthVerificationMessageConfig = (
   output: any,
   context: __SerdeContext
 ): CreateBackendAuthVerificationMessageConfig => {
-  return {
-    DeliveryMethod: __expectString(output.deliveryMethod),
-    EmailSettings:
-      output.emailSettings != null ? deserializeAws_restJson1EmailSettings(output.emailSettings, context) : undefined,
-    SmsSettings:
-      output.smsSettings != null ? deserializeAws_restJson1SmsSettings(output.smsSettings, context) : undefined,
-  } as any;
+  return take(output, {
+    DeliveryMethod: [, __expectString, `deliveryMethod`],
+    EmailSettings: [, (_: any) => de_EmailSettings(_, context), `emailSettings`],
+    SmsSettings: [, (_: any) => de_SmsSettings(_, context), `smsSettings`],
+  }) as any;
 };
 
-const deserializeAws_restJson1EmailSettings = (output: any, context: __SerdeContext): EmailSettings => {
-  return {
-    EmailMessage: __expectString(output.emailMessage),
-    EmailSubject: __expectString(output.emailSubject),
-  } as any;
+/**
+ * deserializeAws_restJson1EmailSettings
+ */
+const de_EmailSettings = (output: any, context: __SerdeContext): EmailSettings => {
+  return take(output, {
+    EmailMessage: [, __expectString, `emailMessage`],
+    EmailSubject: [, __expectString, `emailSubject`],
+  }) as any;
 };
 
-const deserializeAws_restJson1GetBackendStorageResourceConfig = (
-  output: any,
-  context: __SerdeContext
-): GetBackendStorageResourceConfig => {
-  return {
-    BucketName: __expectString(output.bucketName),
-    Imported: __expectBoolean(output.imported),
-    Permissions:
-      output.permissions != null
-        ? deserializeAws_restJson1BackendStoragePermissions(output.permissions, context)
-        : undefined,
-    ServiceName: __expectString(output.serviceName),
-  } as any;
+/**
+ * deserializeAws_restJson1GetBackendStorageResourceConfig
+ */
+const de_GetBackendStorageResourceConfig = (output: any, context: __SerdeContext): GetBackendStorageResourceConfig => {
+  return take(output, {
+    BucketName: [, __expectString, `bucketName`],
+    Imported: [, __expectBoolean, `imported`],
+    Permissions: [, (_: any) => de_BackendStoragePermissions(_, context), `permissions`],
+    ServiceName: [, __expectString, `serviceName`],
+  }) as any;
 };
 
-const deserializeAws_restJson1ListOf__string = (output: any, context: __SerdeContext): string[] => {
+// de_ListOf__string omitted.
+
+// de_ListOfAdditionalConstraintsElement omitted.
+
+// de_ListOfAuthenticatedElement omitted.
+
+/**
+ * deserializeAws_restJson1ListOfBackendAPIAuthType
+ */
+const de_ListOfBackendAPIAuthType = (output: any, context: __SerdeContext): BackendAPIAuthType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_BackendAPIAuthType(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfAdditionalConstraintsElement = (
-  output: any,
-  context: __SerdeContext
-): (AdditionalConstraintsElement | string)[] => {
+/**
+ * deserializeAws_restJson1ListOfBackendJobRespObj
+ */
+const de_ListOfBackendJobRespObj = (output: any, context: __SerdeContext): BackendJobRespObj[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_BackendJobRespObj(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfAuthenticatedElement = (
-  output: any,
-  context: __SerdeContext
-): (AuthenticatedElement | string)[] => {
+// de_ListOfMfaTypesElement omitted.
+
+// de_ListOfOAuthScopesElement omitted.
+
+// de_ListOfRequiredSignUpAttributesElement omitted.
+
+/**
+ * deserializeAws_restJson1ListOfS3BucketInfo
+ */
+const de_ListOfS3BucketInfo = (output: any, context: __SerdeContext): S3BucketInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_S3BucketInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListOfBackendAPIAuthType = (
-  output: any,
-  context: __SerdeContext
-): BackendAPIAuthType[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BackendAPIAuthType(entry, context);
-    });
-  return retVal;
+// de_ListOfUnAuthenticatedElement omitted.
+
+/**
+ * deserializeAws_restJson1LoginAuthConfigReqObj
+ */
+const de_LoginAuthConfigReqObj = (output: any, context: __SerdeContext): LoginAuthConfigReqObj => {
+  return take(output, {
+    AwsCognitoIdentityPoolId: [, __expectString, `aws_cognito_identity_pool_id`],
+    AwsCognitoRegion: [, __expectString, `aws_cognito_region`],
+    AwsUserPoolsId: [, __expectString, `aws_user_pools_id`],
+    AwsUserPoolsWebClientId: [, __expectString, `aws_user_pools_web_client_id`],
+  }) as any;
 };
 
-const deserializeAws_restJson1ListOfBackendJobRespObj = (output: any, context: __SerdeContext): BackendJobRespObj[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BackendJobRespObj(entry, context);
-    });
-  return retVal;
+/**
+ * deserializeAws_restJson1S3BucketInfo
+ */
+const de_S3BucketInfo = (output: any, context: __SerdeContext): S3BucketInfo => {
+  return take(output, {
+    CreationDate: [, __expectString, `creationDate`],
+    Name: [, __expectString, `name`],
+  }) as any;
 };
 
-const deserializeAws_restJson1ListOfMfaTypesElement = (
-  output: any,
-  context: __SerdeContext
-): (MfaTypesElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
+/**
+ * deserializeAws_restJson1Settings
+ */
+const de_Settings = (output: any, context: __SerdeContext): Settings => {
+  return take(output, {
+    MfaTypes: [, _json, `mfaTypes`],
+    SmsMessage: [, __expectString, `smsMessage`],
+  }) as any;
 };
 
-const deserializeAws_restJson1ListOfOAuthScopesElement = (
-  output: any,
-  context: __SerdeContext
-): (OAuthScopesElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
+/**
+ * deserializeAws_restJson1SmsSettings
+ */
+const de_SmsSettings = (output: any, context: __SerdeContext): SmsSettings => {
+  return take(output, {
+    SmsMessage: [, __expectString, `smsMessage`],
+  }) as any;
 };
 
-const deserializeAws_restJson1ListOfRequiredSignUpAttributesElement = (
-  output: any,
-  context: __SerdeContext
-): (RequiredSignUpAttributesElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfS3BucketInfo = (output: any, context: __SerdeContext): S3BucketInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1S3BucketInfo(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1ListOfUnAuthenticatedElement = (
-  output: any,
-  context: __SerdeContext
-): (UnAuthenticatedElement | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_restJson1LoginAuthConfigReqObj = (output: any, context: __SerdeContext): LoginAuthConfigReqObj => {
-  return {
-    AwsCognitoIdentityPoolId: __expectString(output.aws_cognito_identity_pool_id),
-    AwsCognitoRegion: __expectString(output.aws_cognito_region),
-    AwsUserPoolsId: __expectString(output.aws_user_pools_id),
-    AwsUserPoolsWebClientId: __expectString(output.aws_user_pools_web_client_id),
-  } as any;
-};
-
-const deserializeAws_restJson1S3BucketInfo = (output: any, context: __SerdeContext): S3BucketInfo => {
-  return {
-    CreationDate: __expectString(output.creationDate),
-    Name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_restJson1Settings = (output: any, context: __SerdeContext): Settings => {
-  return {
-    MfaTypes:
-      output.mfaTypes != null ? deserializeAws_restJson1ListOfMfaTypesElement(output.mfaTypes, context) : undefined,
-    SmsMessage: __expectString(output.smsMessage),
-  } as any;
-};
-
-const deserializeAws_restJson1SmsSettings = (output: any, context: __SerdeContext): SmsSettings => {
-  return {
-    SmsMessage: __expectString(output.smsMessage),
-  } as any;
-};
-
-const deserializeAws_restJson1SocialProviderSettings = (
-  output: any,
-  context: __SerdeContext
-): SocialProviderSettings => {
-  return {
-    Facebook:
-      output.Facebook != null
-        ? deserializeAws_restJson1BackendAuthSocialProviderConfig(output.Facebook, context)
-        : undefined,
-    Google:
-      output.Google != null
-        ? deserializeAws_restJson1BackendAuthSocialProviderConfig(output.Google, context)
-        : undefined,
-    LoginWithAmazon:
-      output.LoginWithAmazon != null
-        ? deserializeAws_restJson1BackendAuthSocialProviderConfig(output.LoginWithAmazon, context)
-        : undefined,
-    SignInWithApple:
-      output.SignInWithApple != null
-        ? deserializeAws_restJson1BackendAuthAppleProviderConfig(output.SignInWithApple, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1SocialProviderSettings
+ */
+const de_SocialProviderSettings = (output: any, context: __SerdeContext): SocialProviderSettings => {
+  return take(output, {
+    Facebook: (_: any) => de_BackendAuthSocialProviderConfig(_, context),
+    Google: (_: any) => de_BackendAuthSocialProviderConfig(_, context),
+    LoginWithAmazon: (_: any) => de_BackendAuthSocialProviderConfig(_, context),
+    SignInWithApple: (_: any) => de_BackendAuthAppleProviderConfig(_, context),
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

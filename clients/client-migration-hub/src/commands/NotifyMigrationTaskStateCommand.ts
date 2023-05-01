@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  NotifyMigrationTaskStateRequest,
-  NotifyMigrationTaskStateRequestFilterSensitiveLog,
-  NotifyMigrationTaskStateResult,
-  NotifyMigrationTaskStateResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1NotifyMigrationTaskStateCommand,
-  serializeAws_json1_1NotifyMigrationTaskStateCommand,
-} from "../protocols/Aws_json1_1";
+import { NotifyMigrationTaskStateRequest, NotifyMigrationTaskStateResult } from "../models/models_0";
+import { de_NotifyMigrationTaskStateCommand, se_NotifyMigrationTaskStateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link NotifyMigrationTaskStateCommand}.
  */
 export interface NotifyMigrationTaskStateCommandInput extends NotifyMigrationTaskStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link NotifyMigrationTaskStateCommand}.
  */
 export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTaskStateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Notifies Migration Hub of the current status, progress, or other detail regarding a
  *          migration task. This API has the following traits:</p>
  *          <ul>
@@ -59,10 +56,24 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  * import { MigrationHubClient, NotifyMigrationTaskStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, NotifyMigrationTaskStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // NotifyMigrationTaskStateRequest
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   Task: { // Task
+ *     Status: "STRING_VALUE", // required
+ *     StatusDetail: "STRING_VALUE",
+ *     ProgressPercent: Number("int"),
+ *   },
+ *   UpdateDateTime: new Date("TIMESTAMP"), // required
+ *   NextUpdateSeconds: Number("int"), // required
+ *   DryRun: true || false,
+ * };
  * const command = new NotifyMigrationTaskStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyMigrationTaskStateCommandInput - {@link NotifyMigrationTaskStateCommandInput}
+ * @returns {@link NotifyMigrationTaskStateCommandOutput}
  * @see {@link NotifyMigrationTaskStateCommandInput} for command's `input` shape.
  * @see {@link NotifyMigrationTaskStateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -120,6 +131,9 @@ export class NotifyMigrationTaskStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyMigrationTaskStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +162,8 @@ export class NotifyMigrationTaskStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyMigrationTaskStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: NotifyMigrationTaskStateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +173,18 @@ export class NotifyMigrationTaskStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyMigrationTaskStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1NotifyMigrationTaskStateCommand(input, context);
+    return se_NotifyMigrationTaskStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyMigrationTaskStateCommandOutput> {
-    return deserializeAws_json1_1NotifyMigrationTaskStateCommand(output, context);
+    return de_NotifyMigrationTaskStateCommand(output, context);
   }
 
   // Start section: command_body_extra

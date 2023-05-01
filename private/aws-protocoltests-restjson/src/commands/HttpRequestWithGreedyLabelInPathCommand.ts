@@ -12,21 +12,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { HttpRequestWithGreedyLabelInPathInput } from "../models/models_0";
 import {
-  HttpRequestWithGreedyLabelInPathInput,
-  HttpRequestWithGreedyLabelInPathInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand,
-  serializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand,
+  de_HttpRequestWithGreedyLabelInPathCommand,
+  se_HttpRequestWithGreedyLabelInPathCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpRequestWithGreedyLabelInPathCommand}.
  */
 export interface HttpRequestWithGreedyLabelInPathCommandInput extends HttpRequestWithGreedyLabelInPathInput {}
 /**
+ * @public
+ *
  * The output of {@link HttpRequestWithGreedyLabelInPathCommand}.
  */
 export interface HttpRequestWithGreedyLabelInPathCommandOutput extends __MetadataBearer {}
@@ -39,6 +40,9 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpRequestWithGreedyLabelInPathCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,8 +68,8 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpRequestWithGreedyLabelInPathInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -75,18 +79,24 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: HttpRequestWithGreedyLabelInPathCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand(input, context);
+    return se_HttpRequestWithGreedyLabelInPathCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> {
-    return deserializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand(output, context);
+    return de_HttpRequestWithGreedyLabelInPathCommand(output, context);
   }
 
   // Start section: command_body_extra

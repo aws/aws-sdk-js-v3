@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  GetEvaluationInput,
-  GetEvaluationInputFilterSensitiveLog,
-  GetEvaluationOutput,
-  GetEvaluationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetEvaluationCommand,
-  serializeAws_json1_1GetEvaluationCommand,
-} from "../protocols/Aws_json1_1";
+import { GetEvaluationInput, GetEvaluationOutput } from "../models/models_0";
+import { de_GetEvaluationCommand, se_GetEvaluationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEvaluationCommand}.
  */
 export interface GetEvaluationCommandInput extends GetEvaluationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetEvaluationCommand}.
  */
 export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an <code>Evaluation</code> that includes metadata as well as the current status of the <code>Evaluation</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __Metad
  * import { MachineLearningClient, GetEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, GetEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // GetEvaluationInput
+ *   EvaluationId: "STRING_VALUE", // required
+ * };
  * const command = new GetEvaluationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEvaluationCommandInput - {@link GetEvaluationCommandInput}
+ * @returns {@link GetEvaluationCommandOutput}
  * @see {@link GetEvaluationCommandInput} for command's `input` shape.
  * @see {@link GetEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -78,6 +80,9 @@ export class GetEvaluationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class GetEvaluationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEvaluationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEvaluationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class GetEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEvaluationCommand(input, context);
+    return se_GetEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEvaluationCommandOutput> {
-    return deserializeAws_json1_1GetEvaluationCommand(output, context);
+    return de_GetEvaluationCommand(output, context);
   }
 
   // Start section: command_body_extra

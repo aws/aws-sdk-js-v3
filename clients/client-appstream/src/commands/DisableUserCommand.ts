@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DisableUserRequest,
-  DisableUserRequestFilterSensitiveLog,
-  DisableUserResult,
-  DisableUserResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableUserCommand,
-  serializeAws_json1_1DisableUserCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableUserRequest, DisableUserRequestFilterSensitiveLog, DisableUserResult } from "../models/models_0";
+import { de_DisableUserCommand, se_DisableUserCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableUserCommand}.
  */
 export interface DisableUserCommandInput extends DisableUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableUserCommand}.
  */
 export interface DisableUserCommandOutput extends DisableUserResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  * import { AppStreamClient, DisableUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DisableUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DisableUserRequest
+ *   UserName: "STRING_VALUE", // required
+ *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ * };
  * const command = new DisableUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableUserCommandInput - {@link DisableUserCommandInput}
+ * @returns {@link DisableUserCommandOutput}
  * @see {@link DisableUserCommandInput} for command's `input` shape.
  * @see {@link DisableUserCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -72,6 +75,9 @@ export class DisableUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,7 +105,7 @@ export class DisableUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DisableUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableUserResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +115,18 @@ export class DisableUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableUserCommand(input, context);
+    return se_DisableUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableUserCommandOutput> {
-    return deserializeAws_json1_1DisableUserCommand(output, context);
+    return de_DisableUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeWorkspaceImagePermissionsRequest, DescribeWorkspaceImagePermissionsResult } from "../models/models_0";
 import {
-  DescribeWorkspaceImagePermissionsRequest,
-  DescribeWorkspaceImagePermissionsRequestFilterSensitiveLog,
-  DescribeWorkspaceImagePermissionsResult,
-  DescribeWorkspaceImagePermissionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommand,
-  serializeAws_json1_1DescribeWorkspaceImagePermissionsCommand,
+  de_DescribeWorkspaceImagePermissionsCommand,
+  se_DescribeWorkspaceImagePermissionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceImagePermissionsCommand}.
  */
 export interface DescribeWorkspaceImagePermissionsCommandInput extends DescribeWorkspaceImagePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceImagePermissionsCommand}.
  */
 export interface DescribeWorkspaceImagePermissionsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions that the owner of an image has granted to other Amazon Web Services accounts for an image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  * import { WorkSpacesClient, DescribeWorkspaceImagePermissionsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceImagePermissionsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeWorkspaceImagePermissionsRequest
+ *   ImageId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeWorkspaceImagePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceImagePermissionsCommandInput - {@link DescribeWorkspaceImagePermissionsCommandInput}
+ * @returns {@link DescribeWorkspaceImagePermissionsCommandOutput}
  * @see {@link DescribeWorkspaceImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceImagePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceImagePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspaceImagePermissionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +129,24 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeWorkspaceImagePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspaceImagePermissionsCommand(input, context);
+    return se_DescribeWorkspaceImagePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceImagePermissionsCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommand(output, context);
+    return de_DescribeWorkspaceImagePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

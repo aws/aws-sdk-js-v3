@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  ListProgressUpdateStreamsRequest,
-  ListProgressUpdateStreamsRequestFilterSensitiveLog,
-  ListProgressUpdateStreamsResult,
-  ListProgressUpdateStreamsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProgressUpdateStreamsCommand,
-  serializeAws_json1_1ListProgressUpdateStreamsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProgressUpdateStreamsRequest, ListProgressUpdateStreamsResult } from "../models/models_0";
+import { de_ListProgressUpdateStreamsCommand, se_ListProgressUpdateStreamsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProgressUpdateStreamsCommand}.
  */
 export interface ListProgressUpdateStreamsCommandInput extends ListProgressUpdateStreamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProgressUpdateStreamsCommand}.
  */
 export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpdateStreamsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists progress update streams associated with the user account making this call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  * import { MigrationHubClient, ListProgressUpdateStreamsCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, ListProgressUpdateStreamsCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // ListProgressUpdateStreamsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListProgressUpdateStreamsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProgressUpdateStreamsCommandInput - {@link ListProgressUpdateStreamsCommandInput}
+ * @returns {@link ListProgressUpdateStreamsCommandOutput}
  * @see {@link ListProgressUpdateStreamsCommandInput} for command's `input` shape.
  * @see {@link ListProgressUpdateStreamsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -90,6 +93,9 @@ export class ListProgressUpdateStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProgressUpdateStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class ListProgressUpdateStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProgressUpdateStreamsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProgressUpdateStreamsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +135,21 @@ export class ListProgressUpdateStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProgressUpdateStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProgressUpdateStreamsCommand(input, context);
+    return se_ListProgressUpdateStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProgressUpdateStreamsCommandOutput> {
-    return deserializeAws_json1_1ListProgressUpdateStreamsCommand(output, context);
+    return de_ListProgressUpdateStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

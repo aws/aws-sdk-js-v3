@@ -1,13 +1,15 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -70,30 +72,21 @@ import {
   CreateClusterRequest,
   CreateClusterResponse,
   CreateParameterGroupRequest,
-  CreateParameterGroupResponse,
   CreateSubnetGroupRequest,
-  CreateSubnetGroupResponse,
   DecreaseReplicationFactorRequest,
   DecreaseReplicationFactorResponse,
   DeleteClusterRequest,
   DeleteClusterResponse,
   DeleteParameterGroupRequest,
-  DeleteParameterGroupResponse,
   DeleteSubnetGroupRequest,
-  DeleteSubnetGroupResponse,
   DescribeClustersRequest,
   DescribeClustersResponse,
   DescribeDefaultParametersRequest,
-  DescribeDefaultParametersResponse,
   DescribeEventsRequest,
   DescribeEventsResponse,
   DescribeParameterGroupsRequest,
-  DescribeParameterGroupsResponse,
   DescribeParametersRequest,
-  DescribeParametersResponse,
   DescribeSubnetGroupsRequest,
-  DescribeSubnetGroupsResponse,
-  Endpoint,
   Event,
   IncreaseReplicationFactorRequest,
   IncreaseReplicationFactorResponse,
@@ -106,29 +99,19 @@ import {
   InvalidSubnet,
   InvalidVPCNetworkStateFault,
   ListTagsRequest,
-  ListTagsResponse,
   Node,
   NodeNotFoundFault,
   NodeQuotaForClusterExceededFault,
   NodeQuotaForCustomerExceededFault,
-  NodeTypeSpecificValue,
-  NotificationConfiguration,
-  Parameter,
-  ParameterGroup,
   ParameterGroupAlreadyExistsFault,
   ParameterGroupNotFoundFault,
   ParameterGroupQuotaExceededFault,
-  ParameterGroupStatus,
   ParameterNameValue,
   RebootNodeRequest,
   RebootNodeResponse,
-  SecurityGroupMembership,
   ServiceLinkedRoleNotFoundFault,
   ServiceQuotaExceededException,
-  SSEDescription,
   SSESpecification,
-  Subnet,
-  SubnetGroup,
   SubnetGroupAlreadyExistsFault,
   SubnetGroupInUseFault,
   SubnetGroupNotFoundFault,
@@ -139,308 +122,310 @@ import {
   TagNotFoundFault,
   TagQuotaPerResourceExceeded,
   TagResourceRequest,
-  TagResourceResponse,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateClusterRequest,
   UpdateClusterResponse,
   UpdateParameterGroupRequest,
-  UpdateParameterGroupResponse,
   UpdateSubnetGroupRequest,
-  UpdateSubnetGroupResponse,
 } from "../models/models_0";
 
-export const serializeAws_json1_1CreateClusterCommand = async (
+/**
+ * serializeAws_json1_1CreateClusterCommand
+ */
+export const se_CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.CreateCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCluster");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateClusterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateParameterGroupCommand = async (
+/**
+ * serializeAws_json1_1CreateParameterGroupCommand
+ */
+export const se_CreateParameterGroupCommand = async (
   input: CreateParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.CreateParameterGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateParameterGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateParameterGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateSubnetGroupCommand = async (
+/**
+ * serializeAws_json1_1CreateSubnetGroupCommand
+ */
+export const se_CreateSubnetGroupCommand = async (
   input: CreateSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.CreateSubnetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSubnetGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateSubnetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DecreaseReplicationFactorCommand = async (
+/**
+ * serializeAws_json1_1DecreaseReplicationFactorCommand
+ */
+export const se_DecreaseReplicationFactorCommand = async (
   input: DecreaseReplicationFactorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.DecreaseReplicationFactor",
-  };
+  const headers: __HeaderBag = sharedHeaders("DecreaseReplicationFactor");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DecreaseReplicationFactorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteClusterCommand = async (
+/**
+ * serializeAws_json1_1DeleteClusterCommand
+ */
+export const se_DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.DeleteCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCluster");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteClusterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteParameterGroupCommand = async (
+/**
+ * serializeAws_json1_1DeleteParameterGroupCommand
+ */
+export const se_DeleteParameterGroupCommand = async (
   input: DeleteParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.DeleteParameterGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteParameterGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteParameterGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteSubnetGroupCommand = async (
+/**
+ * serializeAws_json1_1DeleteSubnetGroupCommand
+ */
+export const se_DeleteSubnetGroupCommand = async (
   input: DeleteSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.DeleteSubnetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSubnetGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteSubnetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeClustersCommand = async (
+/**
+ * serializeAws_json1_1DescribeClustersCommand
+ */
+export const se_DescribeClustersCommand = async (
   input: DescribeClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.DescribeClusters",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeClusters");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeClustersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDefaultParametersCommand = async (
+/**
+ * serializeAws_json1_1DescribeDefaultParametersCommand
+ */
+export const se_DescribeDefaultParametersCommand = async (
   input: DescribeDefaultParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.DescribeDefaultParameters",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDefaultParameters");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeDefaultParametersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEventsCommand = async (
+/**
+ * serializeAws_json1_1DescribeEventsCommand
+ */
+export const se_DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.DescribeEvents",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEvents");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEventsRequest(input, context));
+  body = JSON.stringify(se_DescribeEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeParameterGroupsCommand = async (
+/**
+ * serializeAws_json1_1DescribeParameterGroupsCommand
+ */
+export const se_DescribeParameterGroupsCommand = async (
   input: DescribeParameterGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.DescribeParameterGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeParameterGroups");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeParameterGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeParametersCommand = async (
+/**
+ * serializeAws_json1_1DescribeParametersCommand
+ */
+export const se_DescribeParametersCommand = async (
   input: DescribeParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.DescribeParameters",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeParameters");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeParametersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSubnetGroupsCommand = async (
+/**
+ * serializeAws_json1_1DescribeSubnetGroupsCommand
+ */
+export const se_DescribeSubnetGroupsCommand = async (
   input: DescribeSubnetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.DescribeSubnetGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSubnetGroups");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSubnetGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1IncreaseReplicationFactorCommand = async (
+/**
+ * serializeAws_json1_1IncreaseReplicationFactorCommand
+ */
+export const se_IncreaseReplicationFactorCommand = async (
   input: IncreaseReplicationFactorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.IncreaseReplicationFactor",
-  };
+  const headers: __HeaderBag = sharedHeaders("IncreaseReplicationFactor");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1IncreaseReplicationFactorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsCommand = async (
+/**
+ * serializeAws_json1_1ListTagsCommand
+ */
+export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.ListTags",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTags");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RebootNodeCommand = async (
+/**
+ * serializeAws_json1_1RebootNodeCommand
+ */
+export const se_RebootNodeCommand = async (
   input: RebootNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.RebootNode",
-  };
+  const headers: __HeaderBag = sharedHeaders("RebootNode");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RebootNodeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateClusterCommand = async (
+/**
+ * serializeAws_json1_1UpdateClusterCommand
+ */
+export const se_UpdateClusterCommand = async (
   input: UpdateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.UpdateCluster",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCluster");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateClusterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateParameterGroupCommand = async (
+/**
+ * serializeAws_json1_1UpdateParameterGroupCommand
+ */
+export const se_UpdateParameterGroupCommand = async (
   input: UpdateParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.UpdateParameterGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateParameterGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateParameterGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateSubnetGroupCommand = async (
+/**
+ * serializeAws_json1_1UpdateSubnetGroupCommand
+ */
+export const se_UpdateSubnetGroupCommand = async (
   input: UpdateSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonDAXV3.UpdateSubnetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateSubnetGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateSubnetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateClusterCommand = async (
+/**
+ * deserializeAws_json1_1CreateClusterCommand
+ */
+export const de_CreateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateClusterCommandError(output, context);
+    return de_CreateClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateClusterResponse(data, context);
+  contents = de_CreateClusterResponse(data, context);
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateClusterCommandError = async (
+/**
+ * deserializeAws_json1_1CreateClusterCommandError
+ */
+const de_CreateClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
@@ -452,78 +437,83 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
   switch (errorCode) {
     case "ClusterAlreadyExistsFault":
     case "com.amazonaws.dax#ClusterAlreadyExistsFault":
-      throw await deserializeAws_json1_1ClusterAlreadyExistsFaultResponse(parsedOutput, context);
+      throw await de_ClusterAlreadyExistsFaultRes(parsedOutput, context);
     case "ClusterQuotaForCustomerExceededFault":
     case "com.amazonaws.dax#ClusterQuotaForCustomerExceededFault":
-      throw await deserializeAws_json1_1ClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context);
+      throw await de_ClusterQuotaForCustomerExceededFaultRes(parsedOutput, context);
     case "InsufficientClusterCapacityFault":
     case "com.amazonaws.dax#InsufficientClusterCapacityFault":
-      throw await deserializeAws_json1_1InsufficientClusterCapacityFaultResponse(parsedOutput, context);
+      throw await de_InsufficientClusterCapacityFaultRes(parsedOutput, context);
     case "InvalidClusterStateFault":
     case "com.amazonaws.dax#InvalidClusterStateFault":
-      throw await deserializeAws_json1_1InvalidClusterStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterGroupStateFault":
     case "com.amazonaws.dax#InvalidParameterGroupStateFault":
-      throw await deserializeAws_json1_1InvalidParameterGroupStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidParameterGroupStateFaultRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.dax#InvalidVPCNetworkStateFault":
-      throw await deserializeAws_json1_1InvalidVPCNetworkStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
     case "NodeQuotaForClusterExceededFault":
     case "com.amazonaws.dax#NodeQuotaForClusterExceededFault":
-      throw await deserializeAws_json1_1NodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
+      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
     case "NodeQuotaForCustomerExceededFault":
     case "com.amazonaws.dax#NodeQuotaForCustomerExceededFault":
-      throw await deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
+      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
     case "ParameterGroupNotFoundFault":
     case "com.amazonaws.dax#ParameterGroupNotFoundFault":
-      throw await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.dax#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "SubnetGroupNotFoundFault":
     case "com.amazonaws.dax#SubnetGroupNotFoundFault":
-      throw await deserializeAws_json1_1SubnetGroupNotFoundFaultResponse(parsedOutput, context);
+      throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.dax#TagQuotaPerResourceExceeded":
-      throw await deserializeAws_json1_1TagQuotaPerResourceExceededResponse(parsedOutput, context);
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateParameterGroupCommand = async (
+/**
+ * deserializeAws_json1_1CreateParameterGroupCommand
+ */
+export const de_CreateParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateParameterGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateParameterGroupCommandError(output, context);
+    return de_CreateParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateParameterGroupResponse(data, context);
+  contents = _json(data);
   const response: CreateParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateParameterGroupCommandError = async (
+/**
+ * deserializeAws_json1_1CreateParameterGroupCommandError
+ */
+const de_CreateParameterGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateParameterGroupCommandOutput> => {
@@ -535,51 +525,56 @@ const deserializeAws_json1_1CreateParameterGroupCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterGroupStateFault":
     case "com.amazonaws.dax#InvalidParameterGroupStateFault":
-      throw await deserializeAws_json1_1InvalidParameterGroupStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidParameterGroupStateFaultRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ParameterGroupAlreadyExistsFault":
     case "com.amazonaws.dax#ParameterGroupAlreadyExistsFault":
-      throw await deserializeAws_json1_1ParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
+      throw await de_ParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
     case "ParameterGroupQuotaExceededFault":
     case "com.amazonaws.dax#ParameterGroupQuotaExceededFault":
-      throw await deserializeAws_json1_1ParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
+      throw await de_ParameterGroupQuotaExceededFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateSubnetGroupCommand = async (
+/**
+ * deserializeAws_json1_1CreateSubnetGroupCommand
+ */
+export const de_CreateSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubnetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateSubnetGroupCommandError(output, context);
+    return de_CreateSubnetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSubnetGroupResponse(data, context);
+  contents = _json(data);
   const response: CreateSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateSubnetGroupCommandError = async (
+/**
+ * deserializeAws_json1_1CreateSubnetGroupCommandError
+ */
+const de_CreateSubnetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubnetGroupCommandOutput> => {
@@ -591,48 +586,53 @@ const deserializeAws_json1_1CreateSubnetGroupCommandError = async (
   switch (errorCode) {
     case "InvalidSubnet":
     case "com.amazonaws.dax#InvalidSubnet":
-      throw await deserializeAws_json1_1InvalidSubnetResponse(parsedOutput, context);
+      throw await de_InvalidSubnetRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "SubnetGroupAlreadyExistsFault":
     case "com.amazonaws.dax#SubnetGroupAlreadyExistsFault":
-      throw await deserializeAws_json1_1SubnetGroupAlreadyExistsFaultResponse(parsedOutput, context);
+      throw await de_SubnetGroupAlreadyExistsFaultRes(parsedOutput, context);
     case "SubnetGroupQuotaExceededFault":
     case "com.amazonaws.dax#SubnetGroupQuotaExceededFault":
-      throw await deserializeAws_json1_1SubnetGroupQuotaExceededFaultResponse(parsedOutput, context);
+      throw await de_SubnetGroupQuotaExceededFaultRes(parsedOutput, context);
     case "SubnetQuotaExceededFault":
     case "com.amazonaws.dax#SubnetQuotaExceededFault":
-      throw await deserializeAws_json1_1SubnetQuotaExceededFaultResponse(parsedOutput, context);
+      throw await de_SubnetQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DecreaseReplicationFactorCommand = async (
+/**
+ * deserializeAws_json1_1DecreaseReplicationFactorCommand
+ */
+export const de_DecreaseReplicationFactorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecreaseReplicationFactorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DecreaseReplicationFactorCommandError(output, context);
+    return de_DecreaseReplicationFactorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DecreaseReplicationFactorResponse(data, context);
+  contents = de_DecreaseReplicationFactorResponse(data, context);
   const response: DecreaseReplicationFactorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DecreaseReplicationFactorCommandError = async (
+/**
+ * deserializeAws_json1_1DecreaseReplicationFactorCommandError
+ */
+const de_DecreaseReplicationFactorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecreaseReplicationFactorCommandOutput> => {
@@ -644,51 +644,56 @@ const deserializeAws_json1_1DecreaseReplicationFactorCommandError = async (
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.dax#ClusterNotFoundFault":
-      throw await deserializeAws_json1_1ClusterNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidClusterStateFault":
     case "com.amazonaws.dax#InvalidClusterStateFault":
-      throw await deserializeAws_json1_1InvalidClusterStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "NodeNotFoundFault":
     case "com.amazonaws.dax#NodeNotFoundFault":
-      throw await deserializeAws_json1_1NodeNotFoundFaultResponse(parsedOutput, context);
+      throw await de_NodeNotFoundFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteClusterCommand = async (
+/**
+ * deserializeAws_json1_1DeleteClusterCommand
+ */
+export const de_DeleteClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteClusterCommandError(output, context);
+    return de_DeleteClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteClusterResponse(data, context);
+  contents = de_DeleteClusterResponse(data, context);
   const response: DeleteClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteClusterCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteClusterCommandError
+ */
+const de_DeleteClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> => {
@@ -700,48 +705,53 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.dax#ClusterNotFoundFault":
-      throw await deserializeAws_json1_1ClusterNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidClusterStateFault":
     case "com.amazonaws.dax#InvalidClusterStateFault":
-      throw await deserializeAws_json1_1InvalidClusterStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteParameterGroupCommand = async (
+/**
+ * deserializeAws_json1_1DeleteParameterGroupCommand
+ */
+export const de_DeleteParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteParameterGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteParameterGroupCommandError(output, context);
+    return de_DeleteParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteParameterGroupResponse(data, context);
+  contents = _json(data);
   const response: DeleteParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteParameterGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteParameterGroupCommandError
+ */
+const de_DeleteParameterGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteParameterGroupCommandOutput> => {
@@ -753,48 +763,53 @@ const deserializeAws_json1_1DeleteParameterGroupCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterGroupStateFault":
     case "com.amazonaws.dax#InvalidParameterGroupStateFault":
-      throw await deserializeAws_json1_1InvalidParameterGroupStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidParameterGroupStateFaultRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ParameterGroupNotFoundFault":
     case "com.amazonaws.dax#ParameterGroupNotFoundFault":
-      throw await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteSubnetGroupCommand = async (
+/**
+ * deserializeAws_json1_1DeleteSubnetGroupCommand
+ */
+export const de_DeleteSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubnetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteSubnetGroupCommandError(output, context);
+    return de_DeleteSubnetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSubnetGroupResponse(data, context);
+  contents = _json(data);
   const response: DeleteSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteSubnetGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteSubnetGroupCommandError
+ */
+const de_DeleteSubnetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubnetGroupCommandOutput> => {
@@ -806,42 +821,47 @@ const deserializeAws_json1_1DeleteSubnetGroupCommandError = async (
   switch (errorCode) {
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "SubnetGroupInUseFault":
     case "com.amazonaws.dax#SubnetGroupInUseFault":
-      throw await deserializeAws_json1_1SubnetGroupInUseFaultResponse(parsedOutput, context);
+      throw await de_SubnetGroupInUseFaultRes(parsedOutput, context);
     case "SubnetGroupNotFoundFault":
     case "com.amazonaws.dax#SubnetGroupNotFoundFault":
-      throw await deserializeAws_json1_1SubnetGroupNotFoundFaultResponse(parsedOutput, context);
+      throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeClustersCommand = async (
+/**
+ * deserializeAws_json1_1DescribeClustersCommand
+ */
+export const de_DescribeClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClustersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeClustersCommandError(output, context);
+    return de_DescribeClustersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeClustersResponse(data, context);
+  contents = de_DescribeClustersResponse(data, context);
   const response: DescribeClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeClustersCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeClustersCommandError
+ */
+const de_DescribeClustersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClustersCommandOutput> => {
@@ -853,45 +873,50 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.dax#ClusterNotFoundFault":
-      throw await deserializeAws_json1_1ClusterNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeDefaultParametersCommand = async (
+/**
+ * deserializeAws_json1_1DescribeDefaultParametersCommand
+ */
+export const de_DescribeDefaultParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDefaultParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeDefaultParametersCommandError(output, context);
+    return de_DescribeDefaultParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDefaultParametersResponse(data, context);
+  contents = _json(data);
   const response: DescribeDefaultParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeDefaultParametersCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeDefaultParametersCommandError
+ */
+const de_DescribeDefaultParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDefaultParametersCommandOutput> => {
@@ -903,42 +928,47 @@ const deserializeAws_json1_1DescribeDefaultParametersCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeEventsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEventsCommand
+ */
+export const de_DescribeEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEventsCommandError(output, context);
+    return de_DescribeEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
+  contents = de_DescribeEventsResponse(data, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeEventsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEventsCommandError
+ */
+const de_DescribeEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
@@ -950,42 +980,47 @@ const deserializeAws_json1_1DescribeEventsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeParameterGroupsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeParameterGroupsCommand
+ */
+export const de_DescribeParameterGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeParameterGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeParameterGroupsCommandError(output, context);
+    return de_DescribeParameterGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeParameterGroupsResponse(data, context);
+  contents = _json(data);
   const response: DescribeParameterGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeParameterGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeParameterGroupsCommandError
+ */
+const de_DescribeParameterGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeParameterGroupsCommandOutput> => {
@@ -997,45 +1032,50 @@ const deserializeAws_json1_1DescribeParameterGroupsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ParameterGroupNotFoundFault":
     case "com.amazonaws.dax#ParameterGroupNotFoundFault":
-      throw await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeParametersCommand = async (
+/**
+ * deserializeAws_json1_1DescribeParametersCommand
+ */
+export const de_DescribeParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeParametersCommandError(output, context);
+    return de_DescribeParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeParametersResponse(data, context);
+  contents = _json(data);
   const response: DescribeParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeParametersCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeParametersCommandError
+ */
+const de_DescribeParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeParametersCommandOutput> => {
@@ -1047,45 +1087,50 @@ const deserializeAws_json1_1DescribeParametersCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ParameterGroupNotFoundFault":
     case "com.amazonaws.dax#ParameterGroupNotFoundFault":
-      throw await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeSubnetGroupsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSubnetGroupsCommand
+ */
+export const de_DescribeSubnetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSubnetGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSubnetGroupsCommandError(output, context);
+    return de_DescribeSubnetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSubnetGroupsResponse(data, context);
+  contents = _json(data);
   const response: DescribeSubnetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeSubnetGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSubnetGroupsCommandError
+ */
+const de_DescribeSubnetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSubnetGroupsCommandOutput> => {
@@ -1097,39 +1142,44 @@ const deserializeAws_json1_1DescribeSubnetGroupsCommandError = async (
   switch (errorCode) {
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "SubnetGroupNotFoundFault":
     case "com.amazonaws.dax#SubnetGroupNotFoundFault":
-      throw await deserializeAws_json1_1SubnetGroupNotFoundFaultResponse(parsedOutput, context);
+      throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1IncreaseReplicationFactorCommand = async (
+/**
+ * deserializeAws_json1_1IncreaseReplicationFactorCommand
+ */
+export const de_IncreaseReplicationFactorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IncreaseReplicationFactorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1IncreaseReplicationFactorCommandError(output, context);
+    return de_IncreaseReplicationFactorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1IncreaseReplicationFactorResponse(data, context);
+  contents = de_IncreaseReplicationFactorResponse(data, context);
   const response: IncreaseReplicationFactorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1IncreaseReplicationFactorCommandError = async (
+/**
+ * deserializeAws_json1_1IncreaseReplicationFactorCommandError
+ */
+const de_IncreaseReplicationFactorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IncreaseReplicationFactorCommandOutput> => {
@@ -1141,60 +1191,65 @@ const deserializeAws_json1_1IncreaseReplicationFactorCommandError = async (
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.dax#ClusterNotFoundFault":
-      throw await deserializeAws_json1_1ClusterNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InsufficientClusterCapacityFault":
     case "com.amazonaws.dax#InsufficientClusterCapacityFault":
-      throw await deserializeAws_json1_1InsufficientClusterCapacityFaultResponse(parsedOutput, context);
+      throw await de_InsufficientClusterCapacityFaultRes(parsedOutput, context);
     case "InvalidClusterStateFault":
     case "com.amazonaws.dax#InvalidClusterStateFault":
-      throw await deserializeAws_json1_1InvalidClusterStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.dax#InvalidVPCNetworkStateFault":
-      throw await deserializeAws_json1_1InvalidVPCNetworkStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
     case "NodeQuotaForClusterExceededFault":
     case "com.amazonaws.dax#NodeQuotaForClusterExceededFault":
-      throw await deserializeAws_json1_1NodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
+      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
     case "NodeQuotaForCustomerExceededFault":
     case "com.amazonaws.dax#NodeQuotaForCustomerExceededFault":
-      throw await deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
+      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListTagsCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsCommand
+ */
+export const de_ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsCommandError(output, context);
+    return de_ListTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsResponse(data, context);
+  contents = _json(data);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsCommandError
+ */
+const de_ListTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
@@ -1206,51 +1261,56 @@ const deserializeAws_json1_1ListTagsCommandError = async (
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.dax#ClusterNotFoundFault":
-      throw await deserializeAws_json1_1ClusterNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidARNFault":
     case "com.amazonaws.dax#InvalidARNFault":
-      throw await deserializeAws_json1_1InvalidARNFaultResponse(parsedOutput, context);
+      throw await de_InvalidARNFaultRes(parsedOutput, context);
     case "InvalidClusterStateFault":
     case "com.amazonaws.dax#InvalidClusterStateFault":
-      throw await deserializeAws_json1_1InvalidClusterStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RebootNodeCommand = async (
+/**
+ * deserializeAws_json1_1RebootNodeCommand
+ */
+export const de_RebootNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebootNodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RebootNodeCommandError(output, context);
+    return de_RebootNodeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RebootNodeResponse(data, context);
+  contents = de_RebootNodeResponse(data, context);
   const response: RebootNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RebootNodeCommandError = async (
+/**
+ * deserializeAws_json1_1RebootNodeCommandError
+ */
+const de_RebootNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebootNodeCommandOutput> => {
@@ -1262,51 +1322,56 @@ const deserializeAws_json1_1RebootNodeCommandError = async (
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.dax#ClusterNotFoundFault":
-      throw await deserializeAws_json1_1ClusterNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidClusterStateFault":
     case "com.amazonaws.dax#InvalidClusterStateFault":
-      throw await deserializeAws_json1_1InvalidClusterStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "NodeNotFoundFault":
     case "com.amazonaws.dax#NodeNotFoundFault":
-      throw await deserializeAws_json1_1NodeNotFoundFaultResponse(parsedOutput, context);
+      throw await de_NodeNotFoundFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1318,54 +1383,59 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.dax#ClusterNotFoundFault":
-      throw await deserializeAws_json1_1ClusterNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidARNFault":
     case "com.amazonaws.dax#InvalidARNFault":
-      throw await deserializeAws_json1_1InvalidARNFaultResponse(parsedOutput, context);
+      throw await de_InvalidARNFaultRes(parsedOutput, context);
     case "InvalidClusterStateFault":
     case "com.amazonaws.dax#InvalidClusterStateFault":
-      throw await deserializeAws_json1_1InvalidClusterStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.dax#TagQuotaPerResourceExceeded":
-      throw await deserializeAws_json1_1TagQuotaPerResourceExceededResponse(parsedOutput, context);
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1377,54 +1447,59 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.dax#ClusterNotFoundFault":
-      throw await deserializeAws_json1_1ClusterNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidARNFault":
     case "com.amazonaws.dax#InvalidARNFault":
-      throw await deserializeAws_json1_1InvalidARNFaultResponse(parsedOutput, context);
+      throw await de_InvalidARNFaultRes(parsedOutput, context);
     case "InvalidClusterStateFault":
     case "com.amazonaws.dax#InvalidClusterStateFault":
-      throw await deserializeAws_json1_1InvalidClusterStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "TagNotFoundFault":
     case "com.amazonaws.dax#TagNotFoundFault":
-      throw await deserializeAws_json1_1TagNotFoundFaultResponse(parsedOutput, context);
+      throw await de_TagNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateClusterCommand = async (
+/**
+ * deserializeAws_json1_1UpdateClusterCommand
+ */
+export const de_UpdateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateClusterCommandError(output, context);
+    return de_UpdateClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateClusterResponse(data, context);
+  contents = de_UpdateClusterResponse(data, context);
   const response: UpdateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateClusterCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateClusterCommandError
+ */
+const de_UpdateClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClusterCommandOutput> => {
@@ -1436,54 +1511,59 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
   switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.dax#ClusterNotFoundFault":
-      throw await deserializeAws_json1_1ClusterNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidClusterStateFault":
     case "com.amazonaws.dax#InvalidClusterStateFault":
-      throw await deserializeAws_json1_1InvalidClusterStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterGroupStateFault":
     case "com.amazonaws.dax#InvalidParameterGroupStateFault":
-      throw await deserializeAws_json1_1InvalidParameterGroupStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidParameterGroupStateFaultRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ParameterGroupNotFoundFault":
     case "com.amazonaws.dax#ParameterGroupNotFoundFault":
-      throw await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateParameterGroupCommand = async (
+/**
+ * deserializeAws_json1_1UpdateParameterGroupCommand
+ */
+export const de_UpdateParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateParameterGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateParameterGroupCommandError(output, context);
+    return de_UpdateParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateParameterGroupResponse(data, context);
+  contents = _json(data);
   const response: UpdateParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateParameterGroupCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateParameterGroupCommandError
+ */
+const de_UpdateParameterGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateParameterGroupCommandOutput> => {
@@ -1495,48 +1575,53 @@ const deserializeAws_json1_1UpdateParameterGroupCommandError = async (
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.dax#InvalidParameterCombinationException":
-      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterGroupStateFault":
     case "com.amazonaws.dax#InvalidParameterGroupStateFault":
-      throw await deserializeAws_json1_1InvalidParameterGroupStateFaultResponse(parsedOutput, context);
+      throw await de_InvalidParameterGroupStateFaultRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.dax#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ParameterGroupNotFoundFault":
     case "com.amazonaws.dax#ParameterGroupNotFoundFault":
-      throw await deserializeAws_json1_1ParameterGroupNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateSubnetGroupCommand = async (
+/**
+ * deserializeAws_json1_1UpdateSubnetGroupCommand
+ */
+export const de_UpdateSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubnetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateSubnetGroupCommandError(output, context);
+    return de_UpdateSubnetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSubnetGroupResponse(data, context);
+  contents = _json(data);
   const response: UpdateSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateSubnetGroupCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateSubnetGroupCommandError
+ */
+const de_UpdateSubnetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubnetGroupCommandOutput> => {
@@ -1548,36 +1633,38 @@ const deserializeAws_json1_1UpdateSubnetGroupCommandError = async (
   switch (errorCode) {
     case "InvalidSubnet":
     case "com.amazonaws.dax#InvalidSubnet":
-      throw await deserializeAws_json1_1InvalidSubnetResponse(parsedOutput, context);
+      throw await de_InvalidSubnetRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault":
-      throw await deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "SubnetGroupNotFoundFault":
     case "com.amazonaws.dax#SubnetGroupNotFoundFault":
-      throw await deserializeAws_json1_1SubnetGroupNotFoundFaultResponse(parsedOutput, context);
+      throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
     case "SubnetInUse":
     case "com.amazonaws.dax#SubnetInUse":
-      throw await deserializeAws_json1_1SubnetInUseResponse(parsedOutput, context);
+      throw await de_SubnetInUseRes(parsedOutput, context);
     case "SubnetQuotaExceededFault":
     case "com.amazonaws.dax#SubnetQuotaExceededFault":
-      throw await deserializeAws_json1_1SubnetQuotaExceededFaultResponse(parsedOutput, context);
+      throw await de_SubnetQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1ClusterAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_json1_1ClusterAlreadyExistsFaultRes
+ */
+const de_ClusterAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClusterAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ClusterAlreadyExistsFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new ClusterAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1585,12 +1672,15 @@ const deserializeAws_json1_1ClusterAlreadyExistsFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ClusterNotFoundFaultResponse = async (
+/**
+ * deserializeAws_json1_1ClusterNotFoundFaultRes
+ */
+const de_ClusterNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClusterNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ClusterNotFoundFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new ClusterNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1598,12 +1688,15 @@ const deserializeAws_json1_1ClusterNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ClusterQuotaForCustomerExceededFaultResponse = async (
+/**
+ * deserializeAws_json1_1ClusterQuotaForCustomerExceededFaultRes
+ */
+const de_ClusterQuotaForCustomerExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClusterQuotaForCustomerExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ClusterQuotaForCustomerExceededFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new ClusterQuotaForCustomerExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1611,12 +1704,15 @@ const deserializeAws_json1_1ClusterQuotaForCustomerExceededFaultResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InsufficientClusterCapacityFaultResponse = async (
+/**
+ * deserializeAws_json1_1InsufficientClusterCapacityFaultRes
+ */
+const de_InsufficientClusterCapacityFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InsufficientClusterCapacityFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InsufficientClusterCapacityFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new InsufficientClusterCapacityFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1624,12 +1720,12 @@ const deserializeAws_json1_1InsufficientClusterCapacityFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidARNFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidARNFault> => {
+/**
+ * deserializeAws_json1_1InvalidARNFaultRes
+ */
+const de_InvalidARNFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidARNFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidARNFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidARNFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1637,12 +1733,15 @@ const deserializeAws_json1_1InvalidARNFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidClusterStateFaultResponse = async (
+/**
+ * deserializeAws_json1_1InvalidClusterStateFaultRes
+ */
+const de_InvalidClusterStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidClusterStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidClusterStateFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidClusterStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1650,12 +1749,15 @@ const deserializeAws_json1_1InvalidClusterStateFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterCombinationExceptionRes
+ */
+const de_InvalidParameterCombinationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterCombinationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterCombinationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterCombinationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1663,12 +1765,15 @@ const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterGroupStateFaultResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterGroupStateFaultRes
+ */
+const de_InvalidParameterGroupStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterGroupStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterGroupStateFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1676,12 +1781,15 @@ const deserializeAws_json1_1InvalidParameterGroupStateFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterValueExceptionRes
+ */
+const de_InvalidParameterValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterValueException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1689,12 +1797,12 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidSubnetResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidSubnet> => {
+/**
+ * deserializeAws_json1_1InvalidSubnetRes
+ */
+const de_InvalidSubnetRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidSubnet> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidSubnet(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidSubnet({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1702,12 +1810,15 @@ const deserializeAws_json1_1InvalidSubnetResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidVPCNetworkStateFaultResponse = async (
+/**
+ * deserializeAws_json1_1InvalidVPCNetworkStateFaultRes
+ */
+const de_InvalidVPCNetworkStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidVPCNetworkStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidVPCNetworkStateFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidVPCNetworkStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1715,12 +1826,12 @@ const deserializeAws_json1_1InvalidVPCNetworkStateFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NodeNotFoundFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NodeNotFoundFault> => {
+/**
+ * deserializeAws_json1_1NodeNotFoundFaultRes
+ */
+const de_NodeNotFoundFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<NodeNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NodeNotFoundFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new NodeNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1728,12 +1839,15 @@ const deserializeAws_json1_1NodeNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NodeQuotaForClusterExceededFaultResponse = async (
+/**
+ * deserializeAws_json1_1NodeQuotaForClusterExceededFaultRes
+ */
+const de_NodeQuotaForClusterExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NodeQuotaForClusterExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NodeQuotaForClusterExceededFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new NodeQuotaForClusterExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1741,12 +1855,15 @@ const deserializeAws_json1_1NodeQuotaForClusterExceededFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse = async (
+/**
+ * deserializeAws_json1_1NodeQuotaForCustomerExceededFaultRes
+ */
+const de_NodeQuotaForCustomerExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NodeQuotaForCustomerExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NodeQuotaForCustomerExceededFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new NodeQuotaForCustomerExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1754,12 +1871,15 @@ const deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ParameterGroupAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_json1_1ParameterGroupAlreadyExistsFaultRes
+ */
+const de_ParameterGroupAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ParameterGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ParameterGroupAlreadyExistsFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new ParameterGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1767,12 +1887,15 @@ const deserializeAws_json1_1ParameterGroupAlreadyExistsFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ParameterGroupNotFoundFaultResponse = async (
+/**
+ * deserializeAws_json1_1ParameterGroupNotFoundFaultRes
+ */
+const de_ParameterGroupNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ParameterGroupNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ParameterGroupNotFoundFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new ParameterGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1780,12 +1903,15 @@ const deserializeAws_json1_1ParameterGroupNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ParameterGroupQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_json1_1ParameterGroupQuotaExceededFaultRes
+ */
+const de_ParameterGroupQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ParameterGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ParameterGroupQuotaExceededFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new ParameterGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1793,12 +1919,15 @@ const deserializeAws_json1_1ParameterGroupQuotaExceededFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse = async (
+/**
+ * deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultRes
+ */
+const de_ServiceLinkedRoleNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceLinkedRoleNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceLinkedRoleNotFoundFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceLinkedRoleNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1806,12 +1935,15 @@ const deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1819,12 +1951,15 @@ const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SubnetGroupAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_json1_1SubnetGroupAlreadyExistsFaultRes
+ */
+const de_SubnetGroupAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SubnetGroupAlreadyExistsFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new SubnetGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1832,12 +1967,15 @@ const deserializeAws_json1_1SubnetGroupAlreadyExistsFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SubnetGroupInUseFaultResponse = async (
+/**
+ * deserializeAws_json1_1SubnetGroupInUseFaultRes
+ */
+const de_SubnetGroupInUseFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetGroupInUseFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SubnetGroupInUseFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new SubnetGroupInUseFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1845,12 +1983,15 @@ const deserializeAws_json1_1SubnetGroupInUseFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SubnetGroupNotFoundFaultResponse = async (
+/**
+ * deserializeAws_json1_1SubnetGroupNotFoundFaultRes
+ */
+const de_SubnetGroupNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetGroupNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SubnetGroupNotFoundFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new SubnetGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1858,12 +1999,15 @@ const deserializeAws_json1_1SubnetGroupNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SubnetGroupQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_json1_1SubnetGroupQuotaExceededFaultRes
+ */
+const de_SubnetGroupQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SubnetGroupQuotaExceededFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new SubnetGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1871,12 +2015,12 @@ const deserializeAws_json1_1SubnetGroupQuotaExceededFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SubnetInUseResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<SubnetInUse> => {
+/**
+ * deserializeAws_json1_1SubnetInUseRes
+ */
+const de_SubnetInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<SubnetInUse> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SubnetInUse(body, context);
+  const deserialized: any = _json(body);
   const exception = new SubnetInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1884,12 +2028,15 @@ const deserializeAws_json1_1SubnetInUseResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SubnetQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_json1_1SubnetQuotaExceededFaultRes
+ */
+const de_SubnetQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SubnetQuotaExceededFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new SubnetQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1897,12 +2044,12 @@ const deserializeAws_json1_1SubnetQuotaExceededFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagNotFoundFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TagNotFoundFault> => {
+/**
+ * deserializeAws_json1_1TagNotFoundFaultRes
+ */
+const de_TagNotFoundFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<TagNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagNotFoundFault(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1910,12 +2057,15 @@ const deserializeAws_json1_1TagNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagQuotaPerResourceExceededResponse = async (
+/**
+ * deserializeAws_json1_1TagQuotaPerResourceExceededRes
+ */
+const de_TagQuotaPerResourceExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagQuotaPerResourceExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagQuotaPerResourceExceeded(body, context);
+  const deserialized: any = _json(body);
   const exception = new TagQuotaPerResourceExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1923,1041 +2073,372 @@ const deserializeAws_json1_1TagQuotaPerResourceExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AvailabilityZoneList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+// se_AvailabilityZoneList omitted.
+
+// se_ClusterNameList omitted.
+
+// se_CreateClusterRequest omitted.
+
+// se_CreateParameterGroupRequest omitted.
+
+// se_CreateSubnetGroupRequest omitted.
+
+// se_DecreaseReplicationFactorRequest omitted.
+
+// se_DeleteClusterRequest omitted.
+
+// se_DeleteParameterGroupRequest omitted.
+
+// se_DeleteSubnetGroupRequest omitted.
+
+// se_DescribeClustersRequest omitted.
+
+// se_DescribeDefaultParametersRequest omitted.
+
+/**
+ * serializeAws_json1_1DescribeEventsRequest
+ */
+const se_DescribeEventsRequest = (input: DescribeEventsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Duration: [],
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NextToken: [],
+    SourceName: [],
+    SourceType: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_json1_1ClusterNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+// se_DescribeParameterGroupsRequest omitted.
+
+// se_DescribeParametersRequest omitted.
+
+// se_DescribeSubnetGroupsRequest omitted.
+
+// se_IncreaseReplicationFactorRequest omitted.
+
+// se_KeyList omitted.
+
+// se_ListTagsRequest omitted.
+
+// se_NodeIdentifierList omitted.
+
+// se_ParameterGroupNameList omitted.
+
+// se_ParameterNameValue omitted.
+
+// se_ParameterNameValueList omitted.
+
+// se_RebootNodeRequest omitted.
+
+// se_SecurityGroupIdentifierList omitted.
+
+// se_SSESpecification omitted.
+
+// se_SubnetGroupNameList omitted.
+
+// se_SubnetIdentifierList omitted.
+
+// se_Tag omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_UntagResourceRequest omitted.
+
+// se_UpdateClusterRequest omitted.
+
+// se_UpdateParameterGroupRequest omitted.
+
+// se_UpdateSubnetGroupRequest omitted.
+
+/**
+ * deserializeAws_json1_1Cluster
+ */
+const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
+  return take(output, {
+    ActiveNodes: __expectInt32,
+    ClusterArn: __expectString,
+    ClusterDiscoveryEndpoint: _json,
+    ClusterEndpointEncryptionType: __expectString,
+    ClusterName: __expectString,
+    Description: __expectString,
+    IamRoleArn: __expectString,
+    NodeIdsToRemove: _json,
+    NodeType: __expectString,
+    Nodes: (_: any) => de_NodeList(_, context),
+    NotificationConfiguration: _json,
+    ParameterGroup: _json,
+    PreferredMaintenanceWindow: __expectString,
+    SSEDescription: _json,
+    SecurityGroups: _json,
+    Status: __expectString,
+    SubnetGroup: __expectString,
+    TotalNodes: __expectInt32,
+  }) as any;
 };
 
-const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AvailabilityZones != null && {
-      AvailabilityZones: serializeAws_json1_1AvailabilityZoneList(input.AvailabilityZones, context),
-    }),
-    ...(input.ClusterEndpointEncryptionType != null && {
-      ClusterEndpointEncryptionType: input.ClusterEndpointEncryptionType,
-    }),
-    ...(input.ClusterName != null && { ClusterName: input.ClusterName }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.IamRoleArn != null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.NodeType != null && { NodeType: input.NodeType }),
-    ...(input.NotificationTopicArn != null && { NotificationTopicArn: input.NotificationTopicArn }),
-    ...(input.ParameterGroupName != null && { ParameterGroupName: input.ParameterGroupName }),
-    ...(input.PreferredMaintenanceWindow != null && { PreferredMaintenanceWindow: input.PreferredMaintenanceWindow }),
-    ...(input.ReplicationFactor != null && { ReplicationFactor: input.ReplicationFactor }),
-    ...(input.SSESpecification != null && {
-      SSESpecification: serializeAws_json1_1SSESpecification(input.SSESpecification, context),
-    }),
-    ...(input.SecurityGroupIds != null && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIdentifierList(input.SecurityGroupIds, context),
-    }),
-    ...(input.SubnetGroupName != null && { SubnetGroupName: input.SubnetGroupName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
+// de_ClusterAlreadyExistsFault omitted.
 
-const serializeAws_json1_1CreateParameterGroupRequest = (
-  input: CreateParameterGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.ParameterGroupName != null && { ParameterGroupName: input.ParameterGroupName }),
-  };
-};
-
-const serializeAws_json1_1CreateSubnetGroupRequest = (
-  input: CreateSubnetGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.SubnetGroupName != null && { SubnetGroupName: input.SubnetGroupName }),
-    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIdentifierList(input.SubnetIds, context) }),
-  };
-};
-
-const serializeAws_json1_1DecreaseReplicationFactorRequest = (
-  input: DecreaseReplicationFactorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AvailabilityZones != null && {
-      AvailabilityZones: serializeAws_json1_1AvailabilityZoneList(input.AvailabilityZones, context),
-    }),
-    ...(input.ClusterName != null && { ClusterName: input.ClusterName }),
-    ...(input.NewReplicationFactor != null && { NewReplicationFactor: input.NewReplicationFactor }),
-    ...(input.NodeIdsToRemove != null && {
-      NodeIdsToRemove: serializeAws_json1_1NodeIdentifierList(input.NodeIdsToRemove, context),
-    }),
-  };
-};
-
-const serializeAws_json1_1DeleteClusterRequest = (input: DeleteClusterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClusterName != null && { ClusterName: input.ClusterName }),
-  };
-};
-
-const serializeAws_json1_1DeleteParameterGroupRequest = (
-  input: DeleteParameterGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ParameterGroupName != null && { ParameterGroupName: input.ParameterGroupName }),
-  };
-};
-
-const serializeAws_json1_1DeleteSubnetGroupRequest = (
-  input: DeleteSubnetGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.SubnetGroupName != null && { SubnetGroupName: input.SubnetGroupName }),
-  };
-};
-
-const serializeAws_json1_1DescribeClustersRequest = (input: DescribeClustersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClusterNames != null && {
-      ClusterNames: serializeAws_json1_1ClusterNameList(input.ClusterNames, context),
-    }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1DescribeDefaultParametersRequest = (
-  input: DescribeDefaultParametersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1DescribeEventsRequest = (input: DescribeEventsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Duration != null && { Duration: input.Duration }),
-    ...(input.EndTime != null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SourceName != null && { SourceName: input.SourceName }),
-    ...(input.SourceType != null && { SourceType: input.SourceType }),
-    ...(input.StartTime != null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
-};
-
-const serializeAws_json1_1DescribeParameterGroupsRequest = (
-  input: DescribeParameterGroupsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ParameterGroupNames != null && {
-      ParameterGroupNames: serializeAws_json1_1ParameterGroupNameList(input.ParameterGroupNames, context),
-    }),
-  };
-};
-
-const serializeAws_json1_1DescribeParametersRequest = (
-  input: DescribeParametersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ParameterGroupName != null && { ParameterGroupName: input.ParameterGroupName }),
-    ...(input.Source != null && { Source: input.Source }),
-  };
-};
-
-const serializeAws_json1_1DescribeSubnetGroupsRequest = (
-  input: DescribeSubnetGroupsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.SubnetGroupNames != null && {
-      SubnetGroupNames: serializeAws_json1_1SubnetGroupNameList(input.SubnetGroupNames, context),
-    }),
-  };
-};
-
-const serializeAws_json1_1IncreaseReplicationFactorRequest = (
-  input: IncreaseReplicationFactorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.AvailabilityZones != null && {
-      AvailabilityZones: serializeAws_json1_1AvailabilityZoneList(input.AvailabilityZones, context),
-    }),
-    ...(input.ClusterName != null && { ClusterName: input.ClusterName }),
-    ...(input.NewReplicationFactor != null && { NewReplicationFactor: input.NewReplicationFactor }),
-  };
-};
-
-const serializeAws_json1_1KeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1ListTagsRequest = (input: ListTagsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ResourceName != null && { ResourceName: input.ResourceName }),
-  };
-};
-
-const serializeAws_json1_1NodeIdentifierList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1ParameterGroupNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1ParameterNameValue = (input: ParameterNameValue, context: __SerdeContext): any => {
-  return {
-    ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
-    ...(input.ParameterValue != null && { ParameterValue: input.ParameterValue }),
-  };
-};
-
-const serializeAws_json1_1ParameterNameValueList = (input: ParameterNameValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ParameterNameValue(entry, context);
-    });
-};
-
-const serializeAws_json1_1RebootNodeRequest = (input: RebootNodeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClusterName != null && { ClusterName: input.ClusterName }),
-    ...(input.NodeId != null && { NodeId: input.NodeId }),
-  };
-};
-
-const serializeAws_json1_1SecurityGroupIdentifierList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1SSESpecification = (input: SSESpecification, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled != null && { Enabled: input.Enabled }),
-  };
-};
-
-const serializeAws_json1_1SubnetGroupNameList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1SubnetIdentifierList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
-
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
-
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceName != null && { ResourceName: input.ResourceName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceName != null && { ResourceName: input.ResourceName }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1KeyList(input.TagKeys, context) }),
-  };
-};
-
-const serializeAws_json1_1UpdateClusterRequest = (input: UpdateClusterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ClusterName != null && { ClusterName: input.ClusterName }),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.NotificationTopicArn != null && { NotificationTopicArn: input.NotificationTopicArn }),
-    ...(input.NotificationTopicStatus != null && { NotificationTopicStatus: input.NotificationTopicStatus }),
-    ...(input.ParameterGroupName != null && { ParameterGroupName: input.ParameterGroupName }),
-    ...(input.PreferredMaintenanceWindow != null && { PreferredMaintenanceWindow: input.PreferredMaintenanceWindow }),
-    ...(input.SecurityGroupIds != null && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIdentifierList(input.SecurityGroupIds, context),
-    }),
-  };
-};
-
-const serializeAws_json1_1UpdateParameterGroupRequest = (
-  input: UpdateParameterGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ParameterGroupName != null && { ParameterGroupName: input.ParameterGroupName }),
-    ...(input.ParameterNameValues != null && {
-      ParameterNameValues: serializeAws_json1_1ParameterNameValueList(input.ParameterNameValues, context),
-    }),
-  };
-};
-
-const serializeAws_json1_1UpdateSubnetGroupRequest = (
-  input: UpdateSubnetGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.SubnetGroupName != null && { SubnetGroupName: input.SubnetGroupName }),
-    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIdentifierList(input.SubnetIds, context) }),
-  };
-};
-
-const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cluster => {
-  return {
-    ActiveNodes: __expectInt32(output.ActiveNodes),
-    ClusterArn: __expectString(output.ClusterArn),
-    ClusterDiscoveryEndpoint:
-      output.ClusterDiscoveryEndpoint != null
-        ? deserializeAws_json1_1Endpoint(output.ClusterDiscoveryEndpoint, context)
-        : undefined,
-    ClusterEndpointEncryptionType: __expectString(output.ClusterEndpointEncryptionType),
-    ClusterName: __expectString(output.ClusterName),
-    Description: __expectString(output.Description),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    NodeIdsToRemove:
-      output.NodeIdsToRemove != null
-        ? deserializeAws_json1_1NodeIdentifierList(output.NodeIdsToRemove, context)
-        : undefined,
-    NodeType: __expectString(output.NodeType),
-    Nodes: output.Nodes != null ? deserializeAws_json1_1NodeList(output.Nodes, context) : undefined,
-    NotificationConfiguration:
-      output.NotificationConfiguration != null
-        ? deserializeAws_json1_1NotificationConfiguration(output.NotificationConfiguration, context)
-        : undefined,
-    ParameterGroup:
-      output.ParameterGroup != null
-        ? deserializeAws_json1_1ParameterGroupStatus(output.ParameterGroup, context)
-        : undefined,
-    PreferredMaintenanceWindow: __expectString(output.PreferredMaintenanceWindow),
-    SSEDescription:
-      output.SSEDescription != null ? deserializeAws_json1_1SSEDescription(output.SSEDescription, context) : undefined,
-    SecurityGroups:
-      output.SecurityGroups != null
-        ? deserializeAws_json1_1SecurityGroupMembershipList(output.SecurityGroups, context)
-        : undefined,
-    Status: __expectString(output.Status),
-    SubnetGroup: __expectString(output.SubnetGroup),
-    TotalNodes: __expectInt32(output.TotalNodes),
-  } as any;
-};
-
-const deserializeAws_json1_1ClusterAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterAlreadyExistsFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ClusterList = (output: any, context: __SerdeContext): Cluster[] => {
+/**
+ * deserializeAws_json1_1ClusterList
+ */
+const de_ClusterList = (output: any, context: __SerdeContext): Cluster[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Cluster(entry, context);
+      return de_Cluster(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ClusterNotFoundFault = (output: any, context: __SerdeContext): ClusterNotFoundFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_ClusterNotFoundFault omitted.
+
+// de_ClusterQuotaForCustomerExceededFault omitted.
+
+/**
+ * deserializeAws_json1_1CreateClusterResponse
+ */
+const de_CreateClusterResponse = (output: any, context: __SerdeContext): CreateClusterResponse => {
+  return take(output, {
+    Cluster: (_: any) => de_Cluster(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ClusterQuotaForCustomerExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ClusterQuotaForCustomerExceededFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_CreateParameterGroupResponse omitted.
 
-const deserializeAws_json1_1CreateClusterResponse = (output: any, context: __SerdeContext): CreateClusterResponse => {
-  return {
-    Cluster: output.Cluster != null ? deserializeAws_json1_1Cluster(output.Cluster, context) : undefined,
-  } as any;
-};
+// de_CreateSubnetGroupResponse omitted.
 
-const deserializeAws_json1_1CreateParameterGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateParameterGroupResponse => {
-  return {
-    ParameterGroup:
-      output.ParameterGroup != null ? deserializeAws_json1_1ParameterGroup(output.ParameterGroup, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CreateSubnetGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateSubnetGroupResponse => {
-  return {
-    SubnetGroup:
-      output.SubnetGroup != null ? deserializeAws_json1_1SubnetGroup(output.SubnetGroup, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DecreaseReplicationFactorResponse = (
+/**
+ * deserializeAws_json1_1DecreaseReplicationFactorResponse
+ */
+const de_DecreaseReplicationFactorResponse = (
   output: any,
   context: __SerdeContext
 ): DecreaseReplicationFactorResponse => {
-  return {
-    Cluster: output.Cluster != null ? deserializeAws_json1_1Cluster(output.Cluster, context) : undefined,
-  } as any;
+  return take(output, {
+    Cluster: (_: any) => de_Cluster(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteClusterResponse = (output: any, context: __SerdeContext): DeleteClusterResponse => {
-  return {
-    Cluster: output.Cluster != null ? deserializeAws_json1_1Cluster(output.Cluster, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DeleteClusterResponse
+ */
+const de_DeleteClusterResponse = (output: any, context: __SerdeContext): DeleteClusterResponse => {
+  return take(output, {
+    Cluster: (_: any) => de_Cluster(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteParameterGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteParameterGroupResponse => {
-  return {
-    DeletionMessage: __expectString(output.DeletionMessage),
-  } as any;
+// de_DeleteParameterGroupResponse omitted.
+
+// de_DeleteSubnetGroupResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeClustersResponse
+ */
+const de_DescribeClustersResponse = (output: any, context: __SerdeContext): DescribeClustersResponse => {
+  return take(output, {
+    Clusters: (_: any) => de_ClusterList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DeleteSubnetGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteSubnetGroupResponse => {
-  return {
-    DeletionMessage: __expectString(output.DeletionMessage),
-  } as any;
+// de_DescribeDefaultParametersResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeEventsResponse
+ */
+const de_DescribeEventsResponse = (output: any, context: __SerdeContext): DescribeEventsResponse => {
+  return take(output, {
+    Events: (_: any) => de_EventList(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeClustersResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeClustersResponse => {
-  return {
-    Clusters: output.Clusters != null ? deserializeAws_json1_1ClusterList(output.Clusters, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+// de_DescribeParameterGroupsResponse omitted.
+
+// de_DescribeParametersResponse omitted.
+
+// de_DescribeSubnetGroupsResponse omitted.
+
+// de_Endpoint omitted.
+
+/**
+ * deserializeAws_json1_1Event
+ */
+const de_Event = (output: any, context: __SerdeContext): Event => {
+  return take(output, {
+    Date: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    SourceName: __expectString,
+    SourceType: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeDefaultParametersResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeDefaultParametersResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Parameters: output.Parameters != null ? deserializeAws_json1_1ParameterList(output.Parameters, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeEventsResponse = (output: any, context: __SerdeContext): DescribeEventsResponse => {
-  return {
-    Events: output.Events != null ? deserializeAws_json1_1EventList(output.Events, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeParameterGroupsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeParameterGroupsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    ParameterGroups:
-      output.ParameterGroups != null
-        ? deserializeAws_json1_1ParameterGroupList(output.ParameterGroups, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeParametersResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeParametersResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Parameters: output.Parameters != null ? deserializeAws_json1_1ParameterList(output.Parameters, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeSubnetGroupsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeSubnetGroupsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SubnetGroups:
-      output.SubnetGroups != null ? deserializeAws_json1_1SubnetGroupList(output.SubnetGroups, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
-  return {
-    Address: __expectString(output.Address),
-    Port: __expectInt32(output.Port),
-    URL: __expectString(output.URL),
-  } as any;
-};
-
-const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
-  return {
-    Date: output.Date != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Date))) : undefined,
-    Message: __expectString(output.Message),
-    SourceName: __expectString(output.SourceName),
-    SourceType: __expectString(output.SourceType),
-  } as any;
-};
-
-const deserializeAws_json1_1EventList = (output: any, context: __SerdeContext): Event[] => {
+/**
+ * deserializeAws_json1_1EventList
+ */
+const de_EventList = (output: any, context: __SerdeContext): Event[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Event(entry, context);
+      return de_Event(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1IncreaseReplicationFactorResponse = (
+/**
+ * deserializeAws_json1_1IncreaseReplicationFactorResponse
+ */
+const de_IncreaseReplicationFactorResponse = (
   output: any,
   context: __SerdeContext
 ): IncreaseReplicationFactorResponse => {
-  return {
-    Cluster: output.Cluster != null ? deserializeAws_json1_1Cluster(output.Cluster, context) : undefined,
-  } as any;
+  return take(output, {
+    Cluster: (_: any) => de_Cluster(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1InsufficientClusterCapacityFault = (
-  output: any,
-  context: __SerdeContext
-): InsufficientClusterCapacityFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_InsufficientClusterCapacityFault omitted.
+
+// de_InvalidARNFault omitted.
+
+// de_InvalidClusterStateFault omitted.
+
+// de_InvalidParameterCombinationException omitted.
+
+// de_InvalidParameterGroupStateFault omitted.
+
+// de_InvalidParameterValueException omitted.
+
+// de_InvalidSubnet omitted.
+
+// de_InvalidVPCNetworkStateFault omitted.
+
+// de_ListTagsResponse omitted.
+
+/**
+ * deserializeAws_json1_1Node
+ */
+const de_Node = (output: any, context: __SerdeContext): Node => {
+  return take(output, {
+    AvailabilityZone: __expectString,
+    Endpoint: _json,
+    NodeCreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NodeId: __expectString,
+    NodeStatus: __expectString,
+    ParameterGroupStatus: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1InvalidARNFault = (output: any, context: __SerdeContext): InvalidARNFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_NodeIdentifierList omitted.
 
-const deserializeAws_json1_1InvalidClusterStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidClusterStateFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidParameterCombinationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterCombinationException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidParameterGroupStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterGroupStateFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidParameterValueException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterValueException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidVPCNetworkStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidVPCNetworkStateFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeContext): ListTagsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1Node = (output: any, context: __SerdeContext): Node => {
-  return {
-    AvailabilityZone: __expectString(output.AvailabilityZone),
-    Endpoint: output.Endpoint != null ? deserializeAws_json1_1Endpoint(output.Endpoint, context) : undefined,
-    NodeCreateTime:
-      output.NodeCreateTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.NodeCreateTime)))
-        : undefined,
-    NodeId: __expectString(output.NodeId),
-    NodeStatus: __expectString(output.NodeStatus),
-    ParameterGroupStatus: __expectString(output.ParameterGroupStatus),
-  } as any;
-};
-
-const deserializeAws_json1_1NodeIdentifierList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1NodeList
+ */
+const de_NodeList = (output: any, context: __SerdeContext): Node[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_Node(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1NodeList = (output: any, context: __SerdeContext): Node[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Node(entry, context);
-    });
-  return retVal;
+// de_NodeNotFoundFault omitted.
+
+// de_NodeQuotaForClusterExceededFault omitted.
+
+// de_NodeQuotaForCustomerExceededFault omitted.
+
+// de_NodeTypeSpecificValue omitted.
+
+// de_NodeTypeSpecificValueList omitted.
+
+// de_NotificationConfiguration omitted.
+
+// de_Parameter omitted.
+
+// de_ParameterGroup omitted.
+
+// de_ParameterGroupAlreadyExistsFault omitted.
+
+// de_ParameterGroupList omitted.
+
+// de_ParameterGroupNotFoundFault omitted.
+
+// de_ParameterGroupQuotaExceededFault omitted.
+
+// de_ParameterGroupStatus omitted.
+
+// de_ParameterList omitted.
+
+/**
+ * deserializeAws_json1_1RebootNodeResponse
+ */
+const de_RebootNodeResponse = (output: any, context: __SerdeContext): RebootNodeResponse => {
+  return take(output, {
+    Cluster: (_: any) => de_Cluster(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1NodeNotFoundFault = (output: any, context: __SerdeContext): NodeNotFoundFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+// de_SecurityGroupMembership omitted.
+
+// de_SecurityGroupMembershipList omitted.
+
+// de_ServiceLinkedRoleNotFoundFault omitted.
+
+// de_ServiceQuotaExceededException omitted.
+
+// de_SSEDescription omitted.
+
+// de_Subnet omitted.
+
+// de_SubnetGroup omitted.
+
+// de_SubnetGroupAlreadyExistsFault omitted.
+
+// de_SubnetGroupInUseFault omitted.
+
+// de_SubnetGroupList omitted.
+
+// de_SubnetGroupNotFoundFault omitted.
+
+// de_SubnetGroupQuotaExceededFault omitted.
+
+// de_SubnetInUse omitted.
+
+// de_SubnetList omitted.
+
+// de_SubnetQuotaExceededFault omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+// de_TagNotFoundFault omitted.
+
+// de_TagQuotaPerResourceExceeded omitted.
+
+// de_TagResourceResponse omitted.
+
+// de_UntagResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1UpdateClusterResponse
+ */
+const de_UpdateClusterResponse = (output: any, context: __SerdeContext): UpdateClusterResponse => {
+  return take(output, {
+    Cluster: (_: any) => de_Cluster(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1NodeQuotaForClusterExceededFault = (
-  output: any,
-  context: __SerdeContext
-): NodeQuotaForClusterExceededFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_UpdateParameterGroupResponse omitted.
 
-const deserializeAws_json1_1NodeQuotaForCustomerExceededFault = (
-  output: any,
-  context: __SerdeContext
-): NodeQuotaForCustomerExceededFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1NodeTypeSpecificValue = (output: any, context: __SerdeContext): NodeTypeSpecificValue => {
-  return {
-    NodeType: __expectString(output.NodeType),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1NodeTypeSpecificValueList = (
-  output: any,
-  context: __SerdeContext
-): NodeTypeSpecificValue[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1NodeTypeSpecificValue(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1NotificationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): NotificationConfiguration => {
-  return {
-    TopicArn: __expectString(output.TopicArn),
-    TopicStatus: __expectString(output.TopicStatus),
-  } as any;
-};
-
-const deserializeAws_json1_1Parameter = (output: any, context: __SerdeContext): Parameter => {
-  return {
-    AllowedValues: __expectString(output.AllowedValues),
-    ChangeType: __expectString(output.ChangeType),
-    DataType: __expectString(output.DataType),
-    Description: __expectString(output.Description),
-    IsModifiable: __expectString(output.IsModifiable),
-    NodeTypeSpecificValues:
-      output.NodeTypeSpecificValues != null
-        ? deserializeAws_json1_1NodeTypeSpecificValueList(output.NodeTypeSpecificValues, context)
-        : undefined,
-    ParameterName: __expectString(output.ParameterName),
-    ParameterType: __expectString(output.ParameterType),
-    ParameterValue: __expectString(output.ParameterValue),
-    Source: __expectString(output.Source),
-  } as any;
-};
-
-const deserializeAws_json1_1ParameterGroup = (output: any, context: __SerdeContext): ParameterGroup => {
-  return {
-    Description: __expectString(output.Description),
-    ParameterGroupName: __expectString(output.ParameterGroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1ParameterGroupAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): ParameterGroupAlreadyExistsFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ParameterGroupList = (output: any, context: __SerdeContext): ParameterGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ParameterGroup(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ParameterGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ParameterGroupNotFoundFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ParameterGroupQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): ParameterGroupQuotaExceededFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ParameterGroupStatus = (output: any, context: __SerdeContext): ParameterGroupStatus => {
-  return {
-    NodeIdsToReboot:
-      output.NodeIdsToReboot != null
-        ? deserializeAws_json1_1NodeIdentifierList(output.NodeIdsToReboot, context)
-        : undefined,
-    ParameterApplyStatus: __expectString(output.ParameterApplyStatus),
-    ParameterGroupName: __expectString(output.ParameterGroupName),
-  } as any;
-};
-
-const deserializeAws_json1_1ParameterList = (output: any, context: __SerdeContext): Parameter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Parameter(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1RebootNodeResponse = (output: any, context: __SerdeContext): RebootNodeResponse => {
-  return {
-    Cluster: output.Cluster != null ? deserializeAws_json1_1Cluster(output.Cluster, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1SecurityGroupMembership = (
-  output: any,
-  context: __SerdeContext
-): SecurityGroupMembership => {
-  return {
-    SecurityGroupIdentifier: __expectString(output.SecurityGroupIdentifier),
-    Status: __expectString(output.Status),
-  } as any;
-};
-
-const deserializeAws_json1_1SecurityGroupMembershipList = (
-  output: any,
-  context: __SerdeContext
-): SecurityGroupMembership[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1SecurityGroupMembership(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ServiceLinkedRoleNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ServiceLinkedRoleNotFoundFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ServiceQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaExceededException => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1SSEDescription = (output: any, context: __SerdeContext): SSEDescription => {
-  return {
-    Status: __expectString(output.Status),
-  } as any;
-};
-
-const deserializeAws_json1_1Subnet = (output: any, context: __SerdeContext): Subnet => {
-  return {
-    SubnetAvailabilityZone: __expectString(output.SubnetAvailabilityZone),
-    SubnetIdentifier: __expectString(output.SubnetIdentifier),
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetGroup = (output: any, context: __SerdeContext): SubnetGroup => {
-  return {
-    Description: __expectString(output.Description),
-    SubnetGroupName: __expectString(output.SubnetGroupName),
-    Subnets: output.Subnets != null ? deserializeAws_json1_1SubnetList(output.Subnets, context) : undefined,
-    VpcId: __expectString(output.VpcId),
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetGroupAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): SubnetGroupAlreadyExistsFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetGroupInUseFault = (output: any, context: __SerdeContext): SubnetGroupInUseFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetGroupList = (output: any, context: __SerdeContext): SubnetGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1SubnetGroup(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1SubnetGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): SubnetGroupNotFoundFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetGroupQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): SubnetGroupQuotaExceededFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetInUse = (output: any, context: __SerdeContext): SubnetInUse => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1SubnetList = (output: any, context: __SerdeContext): Subnet[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Subnet(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1SubnetQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): SubnetQuotaExceededFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TagNotFoundFault = (output: any, context: __SerdeContext): TagNotFoundFault => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1TagQuotaPerResourceExceeded = (
-  output: any,
-  context: __SerdeContext
-): TagQuotaPerResourceExceeded => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateClusterResponse = (output: any, context: __SerdeContext): UpdateClusterResponse => {
-  return {
-    Cluster: output.Cluster != null ? deserializeAws_json1_1Cluster(output.Cluster, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateParameterGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateParameterGroupResponse => {
-  return {
-    ParameterGroup:
-      output.ParameterGroup != null ? deserializeAws_json1_1ParameterGroup(output.ParameterGroup, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateSubnetGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateSubnetGroupResponse => {
-  return {
-    SubnetGroup:
-      output.SubnetGroup != null ? deserializeAws_json1_1SubnetGroup(output.SubnetGroup, context) : undefined,
-  } as any;
-};
+// de_UpdateSubnetGroupResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -2979,6 +2460,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -3003,6 +2485,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonDAXV3.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

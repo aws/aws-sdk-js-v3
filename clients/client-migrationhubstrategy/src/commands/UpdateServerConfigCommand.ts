@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  UpdateServerConfigRequest,
-  UpdateServerConfigRequestFilterSensitiveLog,
-  UpdateServerConfigResponse,
-  UpdateServerConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateServerConfigCommand,
-  serializeAws_restJson1UpdateServerConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateServerConfigRequest, UpdateServerConfigResponse } from "../models/models_0";
+import { de_UpdateServerConfigCommand, se_UpdateServerConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServerConfigCommand}.
  */
 export interface UpdateServerConfigCommandInput extends UpdateServerConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServerConfigCommand}.
  */
 export interface UpdateServerConfigCommandOutput extends UpdateServerConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the configuration of the specified server. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,21 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  * import { MigrationHubStrategyClient, UpdateServerConfigCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, UpdateServerConfigCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // UpdateServerConfigRequest
+ *   serverId: "STRING_VALUE", // required
+ *   strategyOption: { // StrategyOption
+ *     strategy: "STRING_VALUE",
+ *     toolName: "STRING_VALUE",
+ *     targetDestination: "STRING_VALUE",
+ *     isPreferred: true || false,
+ *   },
+ * };
  * const command = new UpdateServerConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServerConfigCommandInput - {@link UpdateServerConfigCommandInput}
+ * @returns {@link UpdateServerConfigCommandOutput}
  * @see {@link UpdateServerConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateServerConfigCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -85,6 +93,9 @@ export class UpdateServerConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServerConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +124,8 @@ export class UpdateServerConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServerConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +135,18 @@ export class UpdateServerConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServerConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateServerConfigCommand(input, context);
+    return se_UpdateServerConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServerConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateServerConfigCommand(output, context);
+    return de_UpdateServerConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

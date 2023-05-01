@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { DeletePublishingDestinationRequest, DeletePublishingDestinationResponse } from "../models/models_0";
 import {
-  DeletePublishingDestinationRequest,
-  DeletePublishingDestinationRequestFilterSensitiveLog,
-  DeletePublishingDestinationResponse,
-  DeletePublishingDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePublishingDestinationCommand,
-  serializeAws_restJson1DeletePublishingDestinationCommand,
+  de_DeletePublishingDestinationCommand,
+  se_DeletePublishingDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePublishingDestinationCommand}.
  */
 export interface DeletePublishingDestinationCommandInput extends DeletePublishingDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePublishingDestinationCommand}.
  */
 export interface DeletePublishingDestinationCommandOutput
@@ -37,6 +36,7 @@ export interface DeletePublishingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DeletePublishingDestinationCommandOutput
  * import { GuardDutyClient, DeletePublishingDestinationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeletePublishingDestinationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // DeletePublishingDestinationRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   DestinationId: "STRING_VALUE", // required
+ * };
  * const command = new DeletePublishingDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePublishingDestinationCommandInput - {@link DeletePublishingDestinationCommandInput}
+ * @returns {@link DeletePublishingDestinationCommandOutput}
  * @see {@link DeletePublishingDestinationCommandInput} for command's `input` shape.
  * @see {@link DeletePublishingDestinationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +83,9 @@ export class DeletePublishingDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePublishingDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +114,8 @@ export class DeletePublishingDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePublishingDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePublishingDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +125,21 @@ export class DeletePublishingDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePublishingDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePublishingDestinationCommand(input, context);
+    return se_DeletePublishingDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePublishingDestinationCommandOutput> {
-    return deserializeAws_restJson1DeletePublishingDestinationCommand(output, context);
+    return de_DeletePublishingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

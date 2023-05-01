@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeImportImageTasksRequest,
-  DescribeImportImageTasksRequestFilterSensitiveLog,
-  DescribeImportImageTasksResult,
-  DescribeImportImageTasksResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeImportImageTasksCommand,
-  serializeAws_ec2DescribeImportImageTasksCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeImportImageTasksRequest, DescribeImportImageTasksResult } from "../models/models_3";
+import { de_DescribeImportImageTasksCommand, se_DescribeImportImageTasksCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImportImageTasksCommand}.
  */
 export interface DescribeImportImageTasksCommandInput extends DescribeImportImageTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImportImageTasksCommand}.
  */
 export interface DescribeImportImageTasksCommandOutput extends DescribeImportImageTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays details about an import virtual machine or import snapshot tasks that are already created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface DescribeImportImageTasksCommandOutput extends DescribeImportIma
  * import { EC2Client, DescribeImportImageTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeImportImageTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeImportImageTasksRequest
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ImportTaskIds: [ // ImportTaskIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeImportImageTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImportImageTasksCommandInput - {@link DescribeImportImageTasksCommandInput}
+ * @returns {@link DescribeImportImageTasksCommandOutput}
  * @see {@link DescribeImportImageTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeImportImageTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +84,9 @@ export class DescribeImportImageTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImportImageTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +115,8 @@ export class DescribeImportImageTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImportImageTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImportImageTasksResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +126,18 @@ export class DescribeImportImageTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeImportImageTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeImportImageTasksCommand(input, context);
+    return se_DescribeImportImageTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImportImageTasksCommandOutput> {
-    return deserializeAws_ec2DescribeImportImageTasksCommand(output, context);
+    return de_DescribeImportImageTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

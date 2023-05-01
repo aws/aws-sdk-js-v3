@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserIdentityInfoRequest, UpdateUserIdentityInfoRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateUserIdentityInfoCommand,
-  serializeAws_restJson1UpdateUserIdentityInfoCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateUserIdentityInfoRequest } from "../models/models_1";
+import { de_UpdateUserIdentityInfoCommand, se_UpdateUserIdentityInfoCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserIdentityInfoCommand}.
  */
 export interface UpdateUserIdentityInfoCommandInput extends UpdateUserIdentityInfoRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserIdentityInfoCommand}.
  */
 export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the identity information for the specified user.</p>
  *          <important>
  *             <p>We strongly recommend limiting who has the ability to invoke
@@ -46,10 +48,23 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateUserIdentityInfoCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserIdentityInfoCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateUserIdentityInfoRequest
+ *   IdentityInfo: { // UserIdentityInfo
+ *     FirstName: "STRING_VALUE",
+ *     LastName: "STRING_VALUE",
+ *     Email: "STRING_VALUE",
+ *     SecondaryEmail: "STRING_VALUE",
+ *     Mobile: "STRING_VALUE",
+ *   },
+ *   UserId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateUserIdentityInfoCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserIdentityInfoCommandInput - {@link UpdateUserIdentityInfoCommandInput}
+ * @returns {@link UpdateUserIdentityInfoCommandOutput}
  * @see {@link UpdateUserIdentityInfoCommandInput} for command's `input` shape.
  * @see {@link UpdateUserIdentityInfoCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -88,6 +103,9 @@ export class UpdateUserIdentityInfoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserIdentityInfoCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +134,8 @@ export class UpdateUserIdentityInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserIdentityInfoRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +145,18 @@ export class UpdateUserIdentityInfoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserIdentityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserIdentityInfoCommand(input, context);
+    return se_UpdateUserIdentityInfoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserIdentityInfoCommandOutput> {
-    return deserializeAws_restJson1UpdateUserIdentityInfoCommand(output, context);
+    return de_UpdateUserIdentityInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

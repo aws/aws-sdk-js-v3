@@ -131,6 +131,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateServiceRoleToAccountCommandInput
   | BatchAssociateClientDeviceWithCoreDeviceCommandInput
@@ -162,6 +165,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateConnectivityInfoCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateServiceRoleToAccountCommandOutput
   | BatchAssociateClientDeviceWithCoreDeviceCommandOutput
@@ -193,6 +199,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateConnectivityInfoCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -200,7 +209,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -309,11 +318,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type GreengrassV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -324,10 +336,15 @@ type GreengrassV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of GreengrassV2Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of GreengrassV2Client class constructor that set the region, credentials and other options.
  */
 export interface GreengrassV2ClientConfig extends GreengrassV2ClientConfigType {}
 
+/**
+ * @public
+ */
 type GreengrassV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -338,11 +355,14 @@ type GreengrassV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of GreengrassV2Client class. This is resolved and normalized from the {@link GreengrassV2ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of GreengrassV2Client class. This is resolved and normalized from the {@link GreengrassV2ClientConfig | constructor configuration interface}.
  */
 export interface GreengrassV2ClientResolvedConfig extends GreengrassV2ClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>IoT Greengrass brings local compute, messaging, data management, sync, and ML inference capabilities
  *       to edge devices. This enables devices to collect and analyze data closer to the source of
  *       information, react autonomously to local events, and communicate securely with each other on
@@ -352,8 +372,8 @@ export interface GreengrassV2ClientResolvedConfig extends GreengrassV2ClientReso
  *          <p>IoT Greengrass Version 2 provides a new major version of the IoT Greengrass Core software, new APIs, and a new console.
  *       Use this API reference to learn how to use the IoT Greengrass V2 API operations to manage components,
  *       manage deployments, and core devices.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html">What is IoT Greengrass?</a> in
- *       the <i>IoT Greengrass V2 Developer Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html">What is IoT Greengrass?</a> in the
+ *         <i>IoT Greengrass V2 Developer Guide</i>.</p>
  */
 export class GreengrassV2Client extends __Client<
   __HttpHandlerOptions,

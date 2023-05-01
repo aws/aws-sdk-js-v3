@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  ImportApiRequest,
-  ImportApiRequestFilterSensitiveLog,
-  ImportApiResponse,
-  ImportApiResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportApiCommand,
-  serializeAws_restJson1ImportApiCommand,
-} from "../protocols/Aws_restJson1";
+import { ImportApiRequest, ImportApiResponse } from "../models/models_0";
+import { de_ImportApiCommand, se_ImportApiCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportApiCommand}.
  */
 export interface ImportApiCommandInput extends ImportApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportApiCommand}.
  */
 export interface ImportApiCommandOutput extends ImportApiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports an API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ImportApiCommandOutput extends ImportApiResponse, __MetadataBea
  * import { ApiGatewayV2Client, ImportApiCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, ImportApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // ImportApiRequest
+ *   Basepath: "STRING_VALUE",
+ *   Body: "STRING_VALUE", // required
+ *   FailOnWarnings: true || false,
+ * };
  * const command = new ImportApiCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportApiCommandInput - {@link ImportApiCommandInput}
+ * @returns {@link ImportApiCommandOutput}
  * @see {@link ImportApiCommandInput} for command's `input` shape.
  * @see {@link ImportApiCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +85,9 @@ export class ImportApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class ImportApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportApiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class ImportApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportApiCommand(input, context);
+    return se_ImportApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportApiCommandOutput> {
-    return deserializeAws_restJson1ImportApiCommand(output, context);
+    return de_ImportApiCommand(output, context);
   }
 
   // Start section: command_body_extra

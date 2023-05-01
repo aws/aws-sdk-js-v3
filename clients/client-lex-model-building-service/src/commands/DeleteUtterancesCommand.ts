@@ -18,22 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteUtterancesRequest, DeleteUtterancesRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUtterancesCommand,
-  serializeAws_restJson1DeleteUtterancesCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteUtterancesRequest } from "../models/models_0";
+import { de_DeleteUtterancesCommand, se_DeleteUtterancesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUtterancesCommand}.
  */
 export interface DeleteUtterancesCommandInput extends DeleteUtterancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUtterancesCommand}.
  */
 export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes stored utterances.</p>
  *          <p>Amazon Lex stores the utterances that users send to your bot. Utterances
  *       are stored for 15 days for use with the <a>GetUtterancesView</a> operation, and then stored indefinitely for use in improving the
@@ -52,10 +54,16 @@ export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
  * import { LexModelBuildingServiceClient, DeleteUtterancesCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, DeleteUtterancesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // DeleteUtterancesRequest
+ *   botName: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUtterancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUtterancesCommandInput - {@link DeleteUtterancesCommandInput}
+ * @returns {@link DeleteUtterancesCommandOutput}
  * @see {@link DeleteUtterancesCommandInput} for command's `input` shape.
  * @see {@link DeleteUtterancesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -94,6 +102,9 @@ export class DeleteUtterancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUtterancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +133,8 @@ export class DeleteUtterancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUtterancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +144,18 @@ export class DeleteUtterancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUtterancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUtterancesCommand(input, context);
+    return se_DeleteUtterancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUtterancesCommandOutput> {
-    return deserializeAws_restJson1DeleteUtterancesCommand(output, context);
+    return de_DeleteUtterancesCommand(output, context);
   }
 
   // Start section: command_body_extra

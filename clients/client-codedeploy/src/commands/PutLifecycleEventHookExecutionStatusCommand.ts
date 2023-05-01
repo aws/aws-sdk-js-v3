@@ -16,20 +16,22 @@ import {
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import {
   PutLifecycleEventHookExecutionStatusInput,
-  PutLifecycleEventHookExecutionStatusInputFilterSensitiveLog,
   PutLifecycleEventHookExecutionStatusOutput,
-  PutLifecycleEventHookExecutionStatusOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand,
-  serializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand,
+  de_PutLifecycleEventHookExecutionStatusCommand,
+  se_PutLifecycleEventHookExecutionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutLifecycleEventHookExecutionStatusCommand}.
  */
 export interface PutLifecycleEventHookExecutionStatusCommandInput extends PutLifecycleEventHookExecutionStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link PutLifecycleEventHookExecutionStatusCommand}.
  */
 export interface PutLifecycleEventHookExecutionStatusCommandOutput
@@ -37,6 +39,7 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Sets the result of a Lambda validation function. The function validates
  *             lifecycle hooks during a deployment that uses the Lambda or Amazon ECS compute platform. For Lambda deployments, the available
  *             lifecycle hooks are <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>.
@@ -52,10 +55,17 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  * import { CodeDeployClient, PutLifecycleEventHookExecutionStatusCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, PutLifecycleEventHookExecutionStatusCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // PutLifecycleEventHookExecutionStatusInput
+ *   deploymentId: "STRING_VALUE",
+ *   lifecycleEventHookExecutionId: "STRING_VALUE",
+ *   status: "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown",
+ * };
  * const command = new PutLifecycleEventHookExecutionStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLifecycleEventHookExecutionStatusCommandInput - {@link PutLifecycleEventHookExecutionStatusCommandInput}
+ * @returns {@link PutLifecycleEventHookExecutionStatusCommandOutput}
  * @see {@link PutLifecycleEventHookExecutionStatusCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleEventHookExecutionStatusCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -105,6 +115,9 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLifecycleEventHookExecutionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +146,8 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLifecycleEventHookExecutionStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLifecycleEventHookExecutionStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,18 +157,24 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutLifecycleEventHookExecutionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand(input, context);
+    return se_PutLifecycleEventHookExecutionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput> {
-    return deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand(output, context);
+    return de_PutLifecycleEventHookExecutionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

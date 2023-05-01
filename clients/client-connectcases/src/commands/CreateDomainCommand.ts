@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  CreateDomainRequest,
-  CreateDomainRequestFilterSensitiveLog,
-  CreateDomainResponse,
-  CreateDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDomainCommand,
-  serializeAws_restJson1CreateDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
+import { de_CreateDomainCommand, se_CreateDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDomainCommand}.
  */
 export interface CreateDomainCommandInput extends CreateDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDomainCommand}.
  */
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a domain, which is a container for all case data, such as cases, fields, templates
  *       and layouts. Each Amazon Connect instance can be associated with only one Cases
  *       domain.</p>
@@ -51,10 +48,15 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * import { ConnectCasesClient, CreateDomainCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateDomainCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // CreateDomainRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
+ * @returns {@link CreateDomainCommandOutput}
  * @see {@link CreateDomainCommandInput} for command's `input` shape.
  * @see {@link CreateDomainCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -100,6 +102,9 @@ export class CreateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +131,8 @@ export class CreateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +142,18 @@ export class CreateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDomainCommand(input, context);
+    return se_CreateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainCommandOutput> {
-    return deserializeAws_restJson1CreateDomainCommand(output, context);
+    return de_CreateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

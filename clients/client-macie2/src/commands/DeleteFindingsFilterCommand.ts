@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  DeleteFindingsFilterRequest,
-  DeleteFindingsFilterRequestFilterSensitiveLog,
-  DeleteFindingsFilterResponse,
-  DeleteFindingsFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFindingsFilterCommand,
-  serializeAws_restJson1DeleteFindingsFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFindingsFilterRequest, DeleteFindingsFilterResponse } from "../models/models_0";
+import { de_DeleteFindingsFilterCommand, se_DeleteFindingsFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFindingsFilterCommand}.
  */
 export interface DeleteFindingsFilterCommandInput extends DeleteFindingsFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFindingsFilterCommand}.
  */
 export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a findings filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterR
  * import { Macie2Client, DeleteFindingsFilterCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DeleteFindingsFilterCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // DeleteFindingsFilterRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFindingsFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFindingsFilterCommandInput - {@link DeleteFindingsFilterCommandInput}
+ * @returns {@link DeleteFindingsFilterCommandOutput}
  * @see {@link DeleteFindingsFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteFindingsFilterCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +92,9 @@ export class DeleteFindingsFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFindingsFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class DeleteFindingsFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFindingsFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFindingsFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class DeleteFindingsFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFindingsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFindingsFilterCommand(input, context);
+    return se_DeleteFindingsFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFindingsFilterCommandOutput> {
-    return deserializeAws_restJson1DeleteFindingsFilterCommand(output, context);
+    return de_DeleteFindingsFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

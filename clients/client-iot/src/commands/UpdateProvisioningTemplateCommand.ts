@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateProvisioningTemplateRequest,
-  UpdateProvisioningTemplateRequestFilterSensitiveLog,
-  UpdateProvisioningTemplateResponse,
-  UpdateProvisioningTemplateResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateProvisioningTemplateCommand,
-  serializeAws_restJson1UpdateProvisioningTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateProvisioningTemplateRequest, UpdateProvisioningTemplateResponse } from "../models/models_2";
+import { de_UpdateProvisioningTemplateCommand, se_UpdateProvisioningTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProvisioningTemplateCommand}.
  */
 export interface UpdateProvisioningTemplateCommandInput extends UpdateProvisioningTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProvisioningTemplateCommand}.
  */
 export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvisioningTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
  * @example
@@ -43,10 +40,24 @@ export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvision
  * import { IoTClient, UpdateProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateProvisioningTemplateRequest
+ *   templateName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   enabled: true || false,
+ *   defaultVersionId: Number("int"),
+ *   provisioningRoleArn: "STRING_VALUE",
+ *   preProvisioningHook: { // ProvisioningHook
+ *     payloadVersion: "STRING_VALUE",
+ *     targetArn: "STRING_VALUE", // required
+ *   },
+ *   removePreProvisioningHook: true || false,
+ * };
  * const command = new UpdateProvisioningTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProvisioningTemplateCommandInput - {@link UpdateProvisioningTemplateCommandInput}
+ * @returns {@link UpdateProvisioningTemplateCommandOutput}
  * @see {@link UpdateProvisioningTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisioningTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +97,9 @@ export class UpdateProvisioningTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProvisioningTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +128,8 @@ export class UpdateProvisioningTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProvisioningTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProvisioningTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +139,21 @@ export class UpdateProvisioningTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProvisioningTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProvisioningTemplateCommand(input, context);
+    return se_UpdateProvisioningTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateProvisioningTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateProvisioningTemplateCommand(output, context);
+    return de_UpdateProvisioningTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

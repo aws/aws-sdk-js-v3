@@ -16,20 +16,22 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   AssociateMulticastGroupWithFuotaTaskRequest,
-  AssociateMulticastGroupWithFuotaTaskRequestFilterSensitiveLog,
   AssociateMulticastGroupWithFuotaTaskResponse,
-  AssociateMulticastGroupWithFuotaTaskResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand,
-  serializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand,
+  de_AssociateMulticastGroupWithFuotaTaskCommand,
+  se_AssociateMulticastGroupWithFuotaTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateMulticastGroupWithFuotaTaskCommand}.
  */
 export interface AssociateMulticastGroupWithFuotaTaskCommandInput extends AssociateMulticastGroupWithFuotaTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateMulticastGroupWithFuotaTaskCommand}.
  */
 export interface AssociateMulticastGroupWithFuotaTaskCommandOutput
@@ -37,6 +39,7 @@ export interface AssociateMulticastGroupWithFuotaTaskCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associate a multicast group with a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,16 @@ export interface AssociateMulticastGroupWithFuotaTaskCommandOutput
  * import { IoTWirelessClient, AssociateMulticastGroupWithFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateMulticastGroupWithFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // AssociateMulticastGroupWithFuotaTaskRequest
+ *   Id: "STRING_VALUE", // required
+ *   MulticastGroupId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateMulticastGroupWithFuotaTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateMulticastGroupWithFuotaTaskCommandInput - {@link AssociateMulticastGroupWithFuotaTaskCommandInput}
+ * @returns {@link AssociateMulticastGroupWithFuotaTaskCommandOutput}
  * @see {@link AssociateMulticastGroupWithFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link AssociateMulticastGroupWithFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +98,9 @@ export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateMulticastGroupWithFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +129,8 @@ export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateMulticastGroupWithFuotaTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateMulticastGroupWithFuotaTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +140,24 @@ export class AssociateMulticastGroupWithFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateMulticastGroupWithFuotaTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand(input, context);
+    return se_AssociateMulticastGroupWithFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateMulticastGroupWithFuotaTaskCommandOutput> {
-    return deserializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand(output, context);
+    return de_AssociateMulticastGroupWithFuotaTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

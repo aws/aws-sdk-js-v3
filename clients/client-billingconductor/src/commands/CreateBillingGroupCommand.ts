@@ -18,23 +18,24 @@ import {
   CreateBillingGroupInput,
   CreateBillingGroupInputFilterSensitiveLog,
   CreateBillingGroupOutput,
-  CreateBillingGroupOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBillingGroupCommand,
-  serializeAws_restJson1CreateBillingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBillingGroupCommand, se_CreateBillingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBillingGroupCommand}.
  */
 export interface CreateBillingGroupCommandInput extends CreateBillingGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBillingGroupCommand}.
  */
 export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates a billing group that resembles a consolidated billing family that Amazon Web Services charges, based off of the predefined pricing plan computation.
  *     </p>
@@ -44,10 +45,29 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * import { BillingconductorClient, CreateBillingGroupCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, CreateBillingGroupCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // CreateBillingGroupInput
+ *   ClientToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   AccountGrouping: { // AccountGrouping
+ *     LinkedAccountIds: [ // AccountIdList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ComputationPreference: { // ComputationPreference
+ *     PricingPlanArn: "STRING_VALUE", // required
+ *   },
+ *   PrimaryAccountId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBillingGroupCommandInput - {@link CreateBillingGroupCommandInput}
+ * @returns {@link CreateBillingGroupCommandOutput}
  * @see {@link CreateBillingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -94,6 +114,9 @@ export class CreateBillingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBillingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +146,7 @@ export class CreateBillingGroupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateBillingGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBillingGroupOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +156,18 @@ export class CreateBillingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBillingGroupCommand(input, context);
+    return se_CreateBillingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBillingGroupCommandOutput> {
-    return deserializeAws_restJson1CreateBillingGroupCommand(output, context);
+    return de_CreateBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

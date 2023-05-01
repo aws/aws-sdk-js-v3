@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssignVolumeRequest, AssignVolumeRequestFilterSensitiveLog } from "../models/models_0";
+import { AssignVolumeRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1AssignVolumeCommand,
-  serializeAws_json1_1AssignVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssignVolumeCommand, se_AssignVolumeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssignVolumeCommand}.
  */
 export interface AssignVolumeCommandInput extends AssignVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssignVolumeCommand}.
  */
 export interface AssignVolumeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns one of the stack's registered Amazon EBS volumes to a specified instance. The volume must
  *       first be registered with the stack by calling <a>RegisterVolume</a>. After you register the
  *       volume, you must call <a>UpdateVolume</a> to specify a mount point before calling
@@ -45,10 +47,16 @@ export interface AssignVolumeCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, AssignVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, AssignVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // AssignVolumeRequest
+ *   VolumeId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE",
+ * };
  * const command = new AssignVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssignVolumeCommandInput - {@link AssignVolumeCommandInput}
+ * @returns {@link AssignVolumeCommandOutput}
  * @see {@link AssignVolumeCommandInput} for command's `input` shape.
  * @see {@link AssignVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -78,6 +86,9 @@ export class AssignVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssignVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +115,8 @@ export class AssignVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssignVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +126,18 @@ export class AssignVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssignVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssignVolumeCommand(input, context);
+    return se_AssignVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignVolumeCommandOutput> {
-    return deserializeAws_json1_1AssignVolumeCommand(output, context);
+    return de_AssignVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

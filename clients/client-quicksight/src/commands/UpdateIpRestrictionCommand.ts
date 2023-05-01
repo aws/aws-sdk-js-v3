@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateIpRestrictionRequest,
-  UpdateIpRestrictionRequestFilterSensitiveLog,
-  UpdateIpRestrictionResponse,
-  UpdateIpRestrictionResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateIpRestrictionCommand,
-  serializeAws_restJson1UpdateIpRestrictionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateIpRestrictionRequest, UpdateIpRestrictionResponse } from "../models/models_3";
+import { de_UpdateIpRestrictionCommand, se_UpdateIpRestrictionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIpRestrictionCommand}.
  */
 export interface UpdateIpRestrictionCommandInput extends UpdateIpRestrictionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIpRestrictionCommand}.
  */
 export interface UpdateIpRestrictionCommandOutput extends UpdateIpRestrictionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the content and status of IP rules. To use this operation, you need to provide the entire map of rules. You can use the <code>DescribeIpRestriction</code> operation to get the current rule map.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdateIpRestrictionCommandOutput extends UpdateIpRestrictionRes
  * import { QuickSightClient, UpdateIpRestrictionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateIpRestrictionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // UpdateIpRestrictionRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   IpRestrictionRuleMap: { // IpRestrictionRuleMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Enabled: true || false,
+ * };
  * const command = new UpdateIpRestrictionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIpRestrictionCommandInput - {@link UpdateIpRestrictionCommandInput}
+ * @returns {@link UpdateIpRestrictionCommandOutput}
  * @see {@link UpdateIpRestrictionCommandInput} for command's `input` shape.
  * @see {@link UpdateIpRestrictionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -90,6 +96,9 @@ export class UpdateIpRestrictionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIpRestrictionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class UpdateIpRestrictionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIpRestrictionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIpRestrictionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +138,18 @@ export class UpdateIpRestrictionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIpRestrictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIpRestrictionCommand(input, context);
+    return se_UpdateIpRestrictionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIpRestrictionCommandOutput> {
-    return deserializeAws_restJson1UpdateIpRestrictionCommand(output, context);
+    return de_UpdateIpRestrictionCommand(output, context);
   }
 
   // Start section: command_body_extra

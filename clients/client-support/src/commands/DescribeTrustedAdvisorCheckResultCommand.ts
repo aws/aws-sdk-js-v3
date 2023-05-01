@@ -15,21 +15,23 @@ import {
 
 import {
   DescribeTrustedAdvisorCheckResultRequest,
-  DescribeTrustedAdvisorCheckResultRequestFilterSensitiveLog,
   DescribeTrustedAdvisorCheckResultResponse,
-  DescribeTrustedAdvisorCheckResultResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand,
-  serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand,
+  de_DescribeTrustedAdvisorCheckResultCommand,
+  se_DescribeTrustedAdvisorCheckResultCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrustedAdvisorCheckResultCommand}.
  */
 export interface DescribeTrustedAdvisorCheckResultCommandInput extends DescribeTrustedAdvisorCheckResultRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrustedAdvisorCheckResultCommand}.
  */
 export interface DescribeTrustedAdvisorCheckResultCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the results of the Trusted Advisor check that has the specified check ID. You
  *             can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
  *             operation.</p>
@@ -102,10 +105,16 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  * import { SupportClient, DescribeTrustedAdvisorCheckResultCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeTrustedAdvisorCheckResultCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // DescribeTrustedAdvisorCheckResultRequest
+ *   checkId: "STRING_VALUE", // required
+ *   language: "STRING_VALUE",
+ * };
  * const command = new DescribeTrustedAdvisorCheckResultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrustedAdvisorCheckResultCommandInput - {@link DescribeTrustedAdvisorCheckResultCommandInput}
+ * @returns {@link DescribeTrustedAdvisorCheckResultCommandOutput}
  * @see {@link DescribeTrustedAdvisorCheckResultCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorCheckResultCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -132,6 +141,9 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrustedAdvisorCheckResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,8 +172,8 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrustedAdvisorCheckResultRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrustedAdvisorCheckResultResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -171,18 +183,24 @@ export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTrustedAdvisorCheckResultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand(input, context);
+    return se_DescribeTrustedAdvisorCheckResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand(output, context);
+    return de_DescribeTrustedAdvisorCheckResultCommand(output, context);
   }
 
   // Start section: command_body_extra

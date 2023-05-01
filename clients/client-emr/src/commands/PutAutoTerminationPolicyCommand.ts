@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  PutAutoTerminationPolicyInput,
-  PutAutoTerminationPolicyInputFilterSensitiveLog,
-  PutAutoTerminationPolicyOutput,
-  PutAutoTerminationPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAutoTerminationPolicyCommand,
-  serializeAws_json1_1PutAutoTerminationPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutAutoTerminationPolicyInput, PutAutoTerminationPolicyOutput } from "../models/models_0";
+import { de_PutAutoTerminationPolicyCommand, se_PutAutoTerminationPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAutoTerminationPolicyCommand}.
  */
 export interface PutAutoTerminationPolicyCommandInput extends PutAutoTerminationPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutAutoTerminationPolicyCommand}.
  */
 export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminationPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>Auto-termination is supported in Amazon EMR versions 5.30.0 and 6.1.0 and
  *             later. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html">Using an
@@ -50,10 +47,18 @@ export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminatio
  * import { EMRClient, PutAutoTerminationPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, PutAutoTerminationPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // PutAutoTerminationPolicyInput
+ *   ClusterId: "STRING_VALUE", // required
+ *   AutoTerminationPolicy: { // AutoTerminationPolicy
+ *     IdleTimeout: Number("long"),
+ *   },
+ * };
  * const command = new PutAutoTerminationPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAutoTerminationPolicyCommandInput - {@link PutAutoTerminationPolicyCommandInput}
+ * @returns {@link PutAutoTerminationPolicyCommandOutput}
  * @see {@link PutAutoTerminationPolicyCommandInput} for command's `input` shape.
  * @see {@link PutAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -77,6 +82,9 @@ export class PutAutoTerminationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAutoTerminationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class PutAutoTerminationPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAutoTerminationPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAutoTerminationPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +124,18 @@ export class PutAutoTerminationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAutoTerminationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAutoTerminationPolicyCommand(input, context);
+    return se_PutAutoTerminationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAutoTerminationPolicyCommandOutput> {
-    return deserializeAws_json1_1PutAutoTerminationPolicyCommand(output, context);
+    return de_PutAutoTerminationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  UpdateIPSetRequest,
-  UpdateIPSetRequestFilterSensitiveLog,
-  UpdateIPSetResponse,
-  UpdateIPSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateIPSetCommand,
-  serializeAws_restJson1UpdateIPSetCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/models_1";
+import { de_UpdateIPSetCommand, se_UpdateIPSetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIPSetCommand}.
  */
 export interface UpdateIPSetCommandInput extends UpdateIPSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIPSetCommand}.
  */
 export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the IPSet specified by the IPSet ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * import { GuardDutyClient, UpdateIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // UpdateIPSetRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   IpSetId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Location: "STRING_VALUE",
+ *   Activate: true || false,
+ * };
  * const command = new UpdateIPSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIPSetCommandInput - {@link UpdateIPSetCommandInput}
+ * @returns {@link UpdateIPSetCommandOutput}
  * @see {@link UpdateIPSetCommandInput} for command's `input` shape.
  * @see {@link UpdateIPSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +81,9 @@ export class UpdateIPSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +110,8 @@ export class UpdateIPSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIPSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIPSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +121,18 @@ export class UpdateIPSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIPSetCommand(input, context);
+    return se_UpdateIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIPSetCommandOutput> {
-    return deserializeAws_restJson1UpdateIPSetCommand(output, context);
+    return de_UpdateIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

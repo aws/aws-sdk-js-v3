@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DeleteAnalysisSchemeRequest,
-  DeleteAnalysisSchemeRequestFilterSensitiveLog,
-  DeleteAnalysisSchemeResponse,
-  DeleteAnalysisSchemeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteAnalysisSchemeCommand,
-  serializeAws_queryDeleteAnalysisSchemeCommand,
-} from "../protocols/Aws_query";
+import { DeleteAnalysisSchemeRequest, DeleteAnalysisSchemeResponse } from "../models/models_0";
+import { de_DeleteAnalysisSchemeCommand, se_DeleteAnalysisSchemeCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAnalysisSchemeCommand}.
  */
 export interface DeleteAnalysisSchemeCommandInput extends DeleteAnalysisSchemeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAnalysisSchemeCommand}.
  */
 export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an analysis scheme. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html" target="_blank">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeR
  * import { CloudSearchClient, DeleteAnalysisSchemeCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DeleteAnalysisSchemeCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // DeleteAnalysisSchemeRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   AnalysisSchemeName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAnalysisSchemeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAnalysisSchemeCommandInput - {@link DeleteAnalysisSchemeCommandInput}
+ * @returns {@link DeleteAnalysisSchemeCommandOutput}
  * @see {@link DeleteAnalysisSchemeCommandInput} for command's `input` shape.
  * @see {@link DeleteAnalysisSchemeCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -85,6 +88,9 @@ export class DeleteAnalysisSchemeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAnalysisSchemeCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class DeleteAnalysisSchemeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAnalysisSchemeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAnalysisSchemeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class DeleteAnalysisSchemeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAnalysisSchemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAnalysisSchemeCommand(input, context);
+    return se_DeleteAnalysisSchemeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnalysisSchemeCommandOutput> {
-    return deserializeAws_queryDeleteAnalysisSchemeCommand(output, context);
+    return de_DeleteAnalysisSchemeCommand(output, context);
   }
 
   // Start section: command_body_extra

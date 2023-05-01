@@ -18,24 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  DetectPHIRequest,
-  DetectPHIRequestFilterSensitiveLog,
-  DetectPHIResponse,
-  DetectPHIResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1DetectPHICommand, serializeAws_json1_1DetectPHICommand } from "../protocols/Aws_json1_1";
+import { DetectPHIRequest, DetectPHIResponse } from "../models/models_0";
+import { de_DetectPHICommand, se_DetectPHICommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectPHICommand}.
  */
 export interface DetectPHICommandInput extends DetectPHIRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectPHICommand}.
  */
 export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Inspects the clinical text for protected health information (PHI) entities and returns
  *       the entity category, location, and confidence score for each entity. Amazon Comprehend Medical
  *       only detects entities in English language texts.</p>
@@ -45,10 +45,15 @@ export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBea
  * import { ComprehendMedicalClient, DetectPHICommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DetectPHICommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // DetectPHIRequest
+ *   Text: "STRING_VALUE", // required
+ * };
  * const command = new DetectPHICommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectPHICommandInput - {@link DetectPHICommandInput}
+ * @returns {@link DetectPHICommandOutput}
  * @see {@link DetectPHICommandInput} for command's `input` shape.
  * @see {@link DetectPHICommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -96,6 +101,9 @@ export class DetectPHICommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectPHICommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +130,8 @@ export class DetectPHICommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectPHIRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectPHIResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +141,18 @@ export class DetectPHICommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectPHICommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectPHICommand(input, context);
+    return se_DetectPHICommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectPHICommandOutput> {
-    return deserializeAws_json1_1DetectPHICommand(output, context);
+    return de_DetectPHICommand(output, context);
   }
 
   // Start section: command_body_extra

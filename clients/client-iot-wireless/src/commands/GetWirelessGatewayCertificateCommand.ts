@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { GetWirelessGatewayCertificateRequest, GetWirelessGatewayCertificateResponse } from "../models/models_0";
 import {
-  GetWirelessGatewayCertificateRequest,
-  GetWirelessGatewayCertificateRequestFilterSensitiveLog,
-  GetWirelessGatewayCertificateResponse,
-  GetWirelessGatewayCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWirelessGatewayCertificateCommand,
-  serializeAws_restJson1GetWirelessGatewayCertificateCommand,
+  de_GetWirelessGatewayCertificateCommand,
+  se_GetWirelessGatewayCertificateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWirelessGatewayCertificateCommand}.
  */
 export interface GetWirelessGatewayCertificateCommandInput extends GetWirelessGatewayCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWirelessGatewayCertificateCommand}.
  */
 export interface GetWirelessGatewayCertificateCommandOutput
@@ -37,6 +36,7 @@ export interface GetWirelessGatewayCertificateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the ID of the certificate that is currently associated with a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetWirelessGatewayCertificateCommandOutput
  * import { IoTWirelessClient, GetWirelessGatewayCertificateCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessGatewayCertificateCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetWirelessGatewayCertificateRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetWirelessGatewayCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWirelessGatewayCertificateCommandInput - {@link GetWirelessGatewayCertificateCommandInput}
+ * @returns {@link GetWirelessGatewayCertificateCommandOutput}
  * @see {@link GetWirelessGatewayCertificateCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -86,6 +91,9 @@ export class GetWirelessGatewayCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWirelessGatewayCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +122,8 @@ export class GetWirelessGatewayCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWirelessGatewayCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWirelessGatewayCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +133,21 @@ export class GetWirelessGatewayCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWirelessGatewayCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWirelessGatewayCertificateCommand(input, context);
+    return se_GetWirelessGatewayCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetWirelessGatewayCertificateCommandOutput> {
-    return deserializeAws_restJson1GetWirelessGatewayCertificateCommand(output, context);
+    return de_GetWirelessGatewayCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

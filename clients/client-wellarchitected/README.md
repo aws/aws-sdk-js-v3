@@ -318,6 +318,14 @@ GetAnswer
 </details>
 <details>
 <summary>
+GetConsolidatedReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getconsolidatedreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getconsolidatedreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getconsolidatedreportcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetLens
 </summary>
 

@@ -16,25 +16,26 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import {
   GetFederationTokenRequest,
-  GetFederationTokenRequestFilterSensitiveLog,
   GetFederationTokenResponse,
   GetFederationTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFederationTokenCommand,
-  serializeAws_restJson1GetFederationTokenCommand,
-} from "../protocols/Aws_restJson1";
+} from "../models/models_1";
+import { de_GetFederationTokenCommand, se_GetFederationTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFederationTokenCommand}.
  */
 export interface GetFederationTokenCommandInput extends GetFederationTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFederationTokenCommand}.
  */
 export interface GetFederationTokenCommandOutput extends GetFederationTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a token for federation.</p>
  *          <note>
  *             <p>This API doesn't support root users. If you try to invoke GetFederationToken with root
@@ -50,10 +51,15 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * import { ConnectClient, GetFederationTokenCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetFederationTokenCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // GetFederationTokenRequest
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFederationTokenCommandInput - {@link GetFederationTokenCommandInput}
+ * @returns {@link GetFederationTokenCommandOutput}
  * @see {@link GetFederationTokenCommandInput} for command's `input` shape.
  * @see {@link GetFederationTokenCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -95,6 +101,9 @@ export class GetFederationTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFederationTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +132,7 @@ export class GetFederationTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFederationTokenRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetFederationTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -134,12 +143,18 @@ export class GetFederationTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFederationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFederationTokenCommand(input, context);
+    return se_GetFederationTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFederationTokenCommandOutput> {
-    return deserializeAws_restJson1GetFederationTokenCommand(output, context);
+    return de_GetFederationTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

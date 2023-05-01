@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDeviceRequest,
-  DeleteDeviceRequestFilterSensitiveLog,
-  DeleteDeviceResponse,
-  DeleteDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1DeleteDeviceCommand,
-  serializeAws_restJson1DeleteDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDeviceCommand, se_DeleteDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeviceCommand}.
  */
 export interface DeleteDeviceCommandInput extends DeleteDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeviceCommand}.
  */
 export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * import { PanoramaClient, DeleteDeviceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DeleteDeviceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // DeleteDeviceRequest
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeviceCommandInput - {@link DeleteDeviceCommandInput}
+ * @returns {@link DeleteDeviceCommandOutput}
  * @see {@link DeleteDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeleteDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DeleteDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DeleteDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDeviceCommand(input, context);
+    return se_DeleteDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceCommandOutput> {
-    return deserializeAws_restJson1DeleteDeviceCommand(output, context);
+    return de_DeleteDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

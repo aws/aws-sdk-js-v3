@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListServicesByNamespaceRequest,
-  ListServicesByNamespaceRequestFilterSensitiveLog,
-  ListServicesByNamespaceResponse,
-  ListServicesByNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServicesByNamespaceCommand,
-  serializeAws_json1_1ListServicesByNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { ListServicesByNamespaceRequest, ListServicesByNamespaceResponse } from "../models/models_0";
+import { de_ListServicesByNamespaceCommand, se_ListServicesByNamespaceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListServicesByNamespaceCommand}.
  */
 export interface ListServicesByNamespaceCommandInput extends ListServicesByNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServicesByNamespaceCommand}.
  */
 export interface ListServicesByNamespaceCommandOutput extends ListServicesByNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists all of the services that are associated with a Cloud Map
  * 			namespace. This list might include services in different clusters. In contrast,
  * 				<code>ListServices</code> can only list services in one cluster at a time. If you
@@ -46,10 +43,17 @@ export interface ListServicesByNamespaceCommandOutput extends ListServicesByName
  * import { ECSClient, ListServicesByNamespaceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListServicesByNamespaceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // ListServicesByNamespaceRequest
+ *   namespace: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListServicesByNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServicesByNamespaceCommandInput - {@link ListServicesByNamespaceCommandInput}
+ * @returns {@link ListServicesByNamespaceCommandOutput}
  * @see {@link ListServicesByNamespaceCommandInput} for command's `input` shape.
  * @see {@link ListServicesByNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -88,6 +92,9 @@ export class ListServicesByNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServicesByNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class ListServicesByNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServicesByNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServicesByNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class ListServicesByNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServicesByNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServicesByNamespaceCommand(input, context);
+    return se_ListServicesByNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServicesByNamespaceCommandOutput> {
-    return deserializeAws_json1_1ListServicesByNamespaceCommand(output, context);
+    return de_ListServicesByNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  DetachFromIndexRequest,
-  DetachFromIndexRequestFilterSensitiveLog,
-  DetachFromIndexResponse,
-  DetachFromIndexResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DetachFromIndexCommand,
-  serializeAws_restJson1DetachFromIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { DetachFromIndexRequest, DetachFromIndexResponse } from "../models/models_0";
+import { de_DetachFromIndexCommand, se_DetachFromIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachFromIndexCommand}.
  */
 export interface DetachFromIndexCommandInput extends DetachFromIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachFromIndexCommand}.
  */
 export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches the specified object from the specified index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  * import { CloudDirectoryClient, DetachFromIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DetachFromIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // DetachFromIndexRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   IndexReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   TargetReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DetachFromIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachFromIndexCommandInput - {@link DetachFromIndexCommandInput}
+ * @returns {@link DetachFromIndexCommandOutput}
  * @see {@link DetachFromIndexCommandInput} for command's `input` shape.
  * @see {@link DetachFromIndexCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -100,6 +108,9 @@ export class DetachFromIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachFromIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +139,8 @@ export class DetachFromIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachFromIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachFromIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +150,18 @@ export class DetachFromIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachFromIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DetachFromIndexCommand(input, context);
+    return se_DetachFromIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachFromIndexCommandOutput> {
-    return deserializeAws_restJson1DetachFromIndexCommand(output, context);
+    return de_DetachFromIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteOptOutListRequest,
-  DeleteOptOutListRequestFilterSensitiveLog,
-  DeleteOptOutListResult,
-  DeleteOptOutListResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteOptOutListRequest, DeleteOptOutListResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DeleteOptOutListCommand,
-  serializeAws_json1_0DeleteOptOutListCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteOptOutListCommand, se_DeleteOptOutListCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOptOutListCommand}.
  */
 export interface DeleteOptOutListCommandInput extends DeleteOptOutListRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOptOutListCommand}.
  */
 export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing opt-out list. All opted out phone numbers in the opt-out list are
  *             deleted.</p>
  *         <p>If the specified opt-out list name doesn't exist or is in-use by an origination phone
@@ -49,10 +46,15 @@ export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, _
  * import { PinpointSMSVoiceV2Client, DeleteOptOutListCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeleteOptOutListCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // DeleteOptOutListRequest
+ *   OptOutListName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOptOutListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOptOutListCommandInput - {@link DeleteOptOutListCommandInput}
+ * @returns {@link DeleteOptOutListCommandOutput}
  * @see {@link DeleteOptOutListCommandInput} for command's `input` shape.
  * @see {@link DeleteOptOutListCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -100,6 +102,9 @@ export class DeleteOptOutListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOptOutListCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +133,8 @@ export class DeleteOptOutListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOptOutListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteOptOutListResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +144,18 @@ export class DeleteOptOutListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOptOutListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteOptOutListCommand(input, context);
+    return se_DeleteOptOutListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOptOutListCommandOutput> {
-    return deserializeAws_json1_0DeleteOptOutListCommand(output, context);
+    return de_DeleteOptOutListCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  DeleteSipMediaApplicationRequest,
-  DeleteSipMediaApplicationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSipMediaApplicationCommand,
-  serializeAws_restJson1DeleteSipMediaApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSipMediaApplicationRequest } from "../models/models_0";
+import { de_DeleteSipMediaApplicationCommand, se_DeleteSipMediaApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSipMediaApplicationCommand}.
  */
 export interface DeleteSipMediaApplicationCommandInput extends DeleteSipMediaApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSipMediaApplicationCommand}.
  */
 export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a SIP media application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +39,15 @@ export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer
  * import { ChimeClient, DeleteSipMediaApplicationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteSipMediaApplicationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DeleteSipMediaApplicationRequest
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSipMediaApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSipMediaApplicationCommandInput - {@link DeleteSipMediaApplicationCommandInput}
+ * @returns {@link DeleteSipMediaApplicationCommandOutput}
  * @see {@link DeleteSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteSipMediaApplicationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +96,9 @@ export class DeleteSipMediaApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSipMediaApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class DeleteSipMediaApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSipMediaApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +138,21 @@ export class DeleteSipMediaApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSipMediaApplicationCommand(input, context);
+    return se_DeleteSipMediaApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSipMediaApplicationCommandOutput> {
-    return deserializeAws_restJson1DeleteSipMediaApplicationCommand(output, context);
+    return de_DeleteSipMediaApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

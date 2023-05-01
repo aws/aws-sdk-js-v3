@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeIpGroupsRequest,
-  DescribeIpGroupsRequestFilterSensitiveLog,
-  DescribeIpGroupsResult,
-  DescribeIpGroupsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeIpGroupsCommand,
-  serializeAws_json1_1DescribeIpGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeIpGroupsRequest, DescribeIpGroupsResult } from "../models/models_0";
+import { de_DescribeIpGroupsCommand, se_DescribeIpGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIpGroupsCommand}.
  */
 export interface DescribeIpGroupsCommandInput extends DescribeIpGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIpGroupsCommand}.
  */
 export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your IP access control groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  * import { WorkSpacesClient, DescribeIpGroupsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeIpGroupsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeIpGroupsRequest
+ *   GroupIds: [ // IpGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeIpGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIpGroupsCommandInput - {@link DescribeIpGroupsCommandInput}
+ * @returns {@link DescribeIpGroupsCommandOutput}
  * @see {@link DescribeIpGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeIpGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -75,6 +81,9 @@ export class DescribeIpGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIpGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +112,8 @@ export class DescribeIpGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIpGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIpGroupsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +123,18 @@ export class DescribeIpGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIpGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeIpGroupsCommand(input, context);
+    return se_DescribeIpGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeIpGroupsCommand(output, context);
+    return de_DescribeIpGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

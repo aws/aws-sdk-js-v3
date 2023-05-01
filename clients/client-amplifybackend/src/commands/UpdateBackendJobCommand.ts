@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  UpdateBackendJobRequest,
-  UpdateBackendJobRequestFilterSensitiveLog,
-  UpdateBackendJobResponse,
-  UpdateBackendJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBackendJobCommand,
-  serializeAws_restJson1UpdateBackendJobCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateBackendJobRequest, UpdateBackendJobResponse } from "../models/models_0";
+import { de_UpdateBackendJobCommand, se_UpdateBackendJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBackendJobCommand}.
  */
 export interface UpdateBackendJobCommandInput extends UpdateBackendJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBackendJobCommand}.
  */
 export interface UpdateBackendJobCommandOutput extends UpdateBackendJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specific job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdateBackendJobCommandOutput extends UpdateBackendJobResponse,
  * import { AmplifyBackendClient, UpdateBackendJobCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, UpdateBackendJobCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // UpdateBackendJobRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   JobId: "STRING_VALUE", // required
+ *   Operation: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ * };
  * const command = new UpdateBackendJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBackendJobCommandInput - {@link UpdateBackendJobCommandInput}
+ * @returns {@link UpdateBackendJobCommandOutput}
  * @see {@link UpdateBackendJobCommandInput} for command's `input` shape.
  * @see {@link UpdateBackendJobCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +87,9 @@ export class UpdateBackendJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBackendJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +118,8 @@ export class UpdateBackendJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBackendJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBackendJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +129,18 @@ export class UpdateBackendJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBackendJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBackendJobCommand(input, context);
+    return se_UpdateBackendJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBackendJobCommandOutput> {
-    return deserializeAws_restJson1UpdateBackendJobCommand(output, context);
+    return de_UpdateBackendJobCommand(output, context);
   }
 
   // Start section: command_body_extra

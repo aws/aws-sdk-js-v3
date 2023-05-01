@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListNotificationsInput,
-  ListNotificationsInputFilterSensitiveLog,
-  ListNotificationsOutput,
-  ListNotificationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNotificationsCommand,
-  serializeAws_restJson1ListNotificationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListNotificationsInput, ListNotificationsOutput } from "../models/models_0";
+import { de_ListNotificationsCommand, se_ListNotificationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListNotificationsCommand}.
  */
 export interface ListNotificationsCommandInput extends ListNotificationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListNotificationsCommand}.
  */
 export interface ListNotificationsCommandOutput extends ListNotificationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List lens notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListNotificationsCommandOutput extends ListNotificationsOutput,
  * import { WellArchitectedClient, ListNotificationsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListNotificationsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListNotificationsInput
+ *   WorkloadId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListNotificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNotificationsCommandInput - {@link ListNotificationsCommandInput}
+ * @returns {@link ListNotificationsCommandOutput}
  * @see {@link ListNotificationsCommandInput} for command's `input` shape.
  * @see {@link ListNotificationsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -81,6 +85,9 @@ export class ListNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class ListNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotificationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNotificationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class ListNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNotificationsCommand(input, context);
+    return se_ListNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotificationsCommandOutput> {
-    return deserializeAws_restJson1ListNotificationsCommand(output, context);
+    return de_ListNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

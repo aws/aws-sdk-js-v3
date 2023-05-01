@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateJobStatusRequest,
-  UpdateJobStatusRequestFilterSensitiveLog,
-  UpdateJobStatusResult,
-  UpdateJobStatusResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlUpdateJobStatusCommand,
-  serializeAws_restXmlUpdateJobStatusCommand,
-} from "../protocols/Aws_restXml";
+import { UpdateJobStatusRequest, UpdateJobStatusResult } from "../models/models_0";
+import { de_UpdateJobStatusCommand, se_UpdateJobStatusCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateJobStatusCommand}.
  */
 export interface UpdateJobStatusCommandInput extends UpdateJobStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateJobStatusCommand}.
  */
 export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status for the specified job. Use this action to confirm that you want to
  *          run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
@@ -68,10 +65,18 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  * import { S3ControlClient, UpdateJobStatusCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, UpdateJobStatusCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // UpdateJobStatusRequest
+ *   AccountId: "STRING_VALUE",
+ *   JobId: "STRING_VALUE", // required
+ *   RequestedJobStatus: "Cancelled" || "Ready", // required
+ *   StatusUpdateReason: "STRING_VALUE",
+ * };
  * const command = new UpdateJobStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateJobStatusCommandInput - {@link UpdateJobStatusCommandInput}
+ * @returns {@link UpdateJobStatusCommandOutput}
  * @see {@link UpdateJobStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateJobStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -113,6 +118,9 @@ export class UpdateJobStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateJobStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +150,8 @@ export class UpdateJobStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +161,18 @@ export class UpdateJobStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateJobStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateJobStatusCommand(input, context);
+    return se_UpdateJobStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobStatusCommandOutput> {
-    return deserializeAws_restXmlUpdateJobStatusCommand(output, context);
+    return de_UpdateJobStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

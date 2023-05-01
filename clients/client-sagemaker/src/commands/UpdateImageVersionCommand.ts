@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateImageVersionRequest,
-  UpdateImageVersionRequestFilterSensitiveLog,
-  UpdateImageVersionResponse,
-  UpdateImageVersionResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateImageVersionCommand,
-  serializeAws_json1_1UpdateImageVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateImageVersionRequest, UpdateImageVersionResponse } from "../models/models_4";
+import { de_UpdateImageVersionCommand, se_UpdateImageVersionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateImageVersionCommand}.
  */
 export interface UpdateImageVersionCommandInput extends UpdateImageVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateImageVersionCommand}.
  */
 export interface UpdateImageVersionCommandOutput extends UpdateImageVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of a SageMaker image version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,30 @@ export interface UpdateImageVersionCommandOutput extends UpdateImageVersionRespo
  * import { SageMakerClient, UpdateImageVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateImageVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateImageVersionRequest
+ *   ImageName: "STRING_VALUE", // required
+ *   Alias: "STRING_VALUE",
+ *   Version: Number("int"),
+ *   AliasesToAdd: [ // SageMakerImageVersionAliases
+ *     "STRING_VALUE",
+ *   ],
+ *   AliasesToDelete: [
+ *     "STRING_VALUE",
+ *   ],
+ *   VendorGuidance: "NOT_PROVIDED" || "STABLE" || "TO_BE_ARCHIVED" || "ARCHIVED",
+ *   JobType: "TRAINING" || "INFERENCE" || "NOTEBOOK_KERNEL",
+ *   MLFramework: "STRING_VALUE",
+ *   ProgrammingLang: "STRING_VALUE",
+ *   Processor: "CPU" || "GPU",
+ *   Horovod: true || false,
+ *   ReleaseNotes: "STRING_VALUE",
+ * };
  * const command = new UpdateImageVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateImageVersionCommandInput - {@link UpdateImageVersionCommandInput}
+ * @returns {@link UpdateImageVersionCommandOutput}
  * @see {@link UpdateImageVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateImageVersionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +92,9 @@ export class UpdateImageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateImageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +123,8 @@ export class UpdateImageVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateImageVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateImageVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +134,18 @@ export class UpdateImageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateImageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateImageVersionCommand(input, context);
+    return se_UpdateImageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImageVersionCommandOutput> {
-    return deserializeAws_json1_1UpdateImageVersionCommand(output, context);
+    return de_UpdateImageVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

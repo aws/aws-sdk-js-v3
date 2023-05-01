@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyVerifiedAccessGroupPolicyRequest, ModifyVerifiedAccessGroupPolicyResult } from "../models/models_6";
 import {
-  ModifyVerifiedAccessGroupPolicyRequest,
-  ModifyVerifiedAccessGroupPolicyRequestFilterSensitiveLog,
-  ModifyVerifiedAccessGroupPolicyResult,
-  ModifyVerifiedAccessGroupPolicyResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand,
-  serializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand,
+  de_ModifyVerifiedAccessGroupPolicyCommand,
+  se_ModifyVerifiedAccessGroupPolicyCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVerifiedAccessGroupPolicyCommand}.
  */
 export interface ModifyVerifiedAccessGroupPolicyCommandInput extends ModifyVerifiedAccessGroupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVerifiedAccessGroupPolicyCommand}.
  */
 export interface ModifyVerifiedAccessGroupPolicyCommandOutput
@@ -37,17 +36,27 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Modifies the specified Verified Access group policy.</p>
+ * @public
+ * <p>Modifies the specified Amazon Web Services Verified Access group policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ModifyVerifiedAccessGroupPolicyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessGroupPolicyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVerifiedAccessGroupPolicyRequest
+ *   VerifiedAccessGroupId: "STRING_VALUE", // required
+ *   PolicyEnabled: true || false, // required
+ *   PolicyDocument: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyVerifiedAccessGroupPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVerifiedAccessGroupPolicyCommandInput - {@link ModifyVerifiedAccessGroupPolicyCommandInput}
+ * @returns {@link ModifyVerifiedAccessGroupPolicyCommandOutput}
  * @see {@link ModifyVerifiedAccessGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +80,9 @@ export class ModifyVerifiedAccessGroupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVerifiedAccessGroupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +111,8 @@ export class ModifyVerifiedAccessGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVerifiedAccessGroupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVerifiedAccessGroupPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +122,24 @@ export class ModifyVerifiedAccessGroupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVerifiedAccessGroupPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand(input, context);
+    return se_ModifyVerifiedAccessGroupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVerifiedAccessGroupPolicyCommandOutput> {
-    return deserializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand(output, context);
+    return de_ModifyVerifiedAccessGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

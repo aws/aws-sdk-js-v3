@@ -20,30 +20,32 @@ import {
   CreateMeetingWithAttendeesResponse,
   CreateMeetingWithAttendeesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMeetingWithAttendeesCommand,
-  serializeAws_restJson1CreateMeetingWithAttendeesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMeetingWithAttendeesCommand, se_CreateMeetingWithAttendeesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMeetingWithAttendeesCommand}.
  */
 export interface CreateMeetingWithAttendeesCommandInput extends CreateMeetingWithAttendeesRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMeetingWithAttendeesCommand}.
  */
 export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWithAttendeesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see
- * <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
+ * <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
  * in the
- * <i>Amazon Chime Developer Guide</i>
+ * <i>Amazon Chime SDK Developer Guide</i>
  * . For more information about the Amazon Chime SDK, see
- * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ * <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
  * in the
- * <i>Amazon Chime Developer Guide</i>
+ * <i>Amazon Chime SDK Developer Guide</i>
  * .
  * </p>
  * @example
@@ -52,10 +54,39 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * import { ChimeClient, CreateMeetingWithAttendeesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateMeetingWithAttendeesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateMeetingWithAttendeesRequest
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   ExternalMeetingId: "STRING_VALUE",
+ *   MeetingHostId: "STRING_VALUE",
+ *   MediaRegion: "STRING_VALUE",
+ *   Tags: [ // MeetingTagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NotificationsConfiguration: { // MeetingNotificationConfiguration
+ *     SnsTopicArn: "STRING_VALUE",
+ *     SqsQueueArn: "STRING_VALUE",
+ *   },
+ *   Attendees: [ // CreateMeetingWithAttendeesRequestItemList
+ *     { // CreateAttendeeRequestItem
+ *       ExternalUserId: "STRING_VALUE", // required
+ *       Tags: [ // AttendeeTagList
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateMeetingWithAttendeesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMeetingWithAttendeesCommandInput - {@link CreateMeetingWithAttendeesCommandInput}
+ * @returns {@link CreateMeetingWithAttendeesCommandOutput}
  * @see {@link CreateMeetingWithAttendeesCommandInput} for command's `input` shape.
  * @see {@link CreateMeetingWithAttendeesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -100,6 +131,9 @@ export class CreateMeetingWithAttendeesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMeetingWithAttendeesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,15 +173,21 @@ export class CreateMeetingWithAttendeesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMeetingWithAttendeesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMeetingWithAttendeesCommand(input, context);
+    return se_CreateMeetingWithAttendeesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMeetingWithAttendeesCommandOutput> {
-    return deserializeAws_restJson1CreateMeetingWithAttendeesCommand(output, context);
+    return de_CreateMeetingWithAttendeesCommand(output, context);
   }
 
   // Start section: command_body_extra

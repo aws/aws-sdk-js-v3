@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListRolePoliciesRequest,
-  ListRolePoliciesRequestFilterSensitiveLog,
-  ListRolePoliciesResponse,
-  ListRolePoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListRolePoliciesCommand,
-  serializeAws_queryListRolePoliciesCommand,
-} from "../protocols/Aws_query";
+import { ListRolePoliciesRequest, ListRolePoliciesResponse } from "../models/models_0";
+import { de_ListRolePoliciesCommand, se_ListRolePoliciesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListRolePoliciesCommand}.
  */
 export interface ListRolePoliciesCommandInput extends ListRolePoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRolePoliciesCommand}.
  */
 export interface ListRolePoliciesCommandOutput extends ListRolePoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the names of the inline policies that are embedded in the specified IAM
  *             role.</p>
  *          <p>An IAM role can also have managed policies attached to it. To list the managed
@@ -50,10 +47,17 @@ export interface ListRolePoliciesCommandOutput extends ListRolePoliciesResponse,
  * import { IAMClient, ListRolePoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListRolePoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListRolePoliciesRequest
+ *   RoleName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListRolePoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRolePoliciesCommandInput - {@link ListRolePoliciesCommandInput}
+ * @returns {@link ListRolePoliciesCommandOutput}
  * @see {@link ListRolePoliciesCommandInput} for command's `input` shape.
  * @see {@link ListRolePoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListRolePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRolePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class ListRolePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRolePoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRolePoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class ListRolePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRolePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListRolePoliciesCommand(input, context);
+    return se_ListRolePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRolePoliciesCommandOutput> {
-    return deserializeAws_queryListRolePoliciesCommand(output, context);
+    return de_ListRolePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

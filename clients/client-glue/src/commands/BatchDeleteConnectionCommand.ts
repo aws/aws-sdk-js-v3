@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchDeleteConnectionRequest,
-  BatchDeleteConnectionRequestFilterSensitiveLog,
-  BatchDeleteConnectionResponse,
-  BatchDeleteConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteConnectionCommand,
-  serializeAws_json1_1BatchDeleteConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchDeleteConnectionRequest, BatchDeleteConnectionResponse } from "../models/models_0";
+import { de_BatchDeleteConnectionCommand, se_BatchDeleteConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteConnectionCommand}.
  */
 export interface BatchDeleteConnectionCommandInput extends BatchDeleteConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteConnectionCommand}.
  */
 export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a list of connection definitions from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * import { GlueClient, BatchDeleteConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchDeleteConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchDeleteConnectionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   ConnectionNameList: [ // DeleteConnectionNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDeleteConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteConnectionCommandInput - {@link BatchDeleteConnectionCommandInput}
+ * @returns {@link BatchDeleteConnectionCommandOutput}
  * @see {@link BatchDeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -75,6 +80,9 @@ export class BatchDeleteConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +111,8 @@ export class BatchDeleteConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +122,18 @@ export class BatchDeleteConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteConnectionCommand(input, context);
+    return se_BatchDeleteConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteConnectionCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteConnectionCommand(output, context);
+    return de_BatchDeleteConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

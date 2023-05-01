@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteBucketEncryptionRequest, DeleteBucketEncryptionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketEncryptionCommand,
-  serializeAws_restXmlDeleteBucketEncryptionCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteBucketEncryptionRequest } from "../models/models_0";
+import { de_DeleteBucketEncryptionCommand, se_DeleteBucketEncryptionCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketEncryptionCommand}.
  */
 export interface DeleteBucketEncryptionCommandInput extends DeleteBucketEncryptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketEncryptionCommand}.
  */
 export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This implementation of the DELETE action removes default encryption from the bucket.
  *          For information about the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
@@ -59,10 +61,16 @@ export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
  * import { S3Client, DeleteBucketEncryptionCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketEncryptionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeleteBucketEncryptionRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteBucketEncryptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketEncryptionCommandInput - {@link DeleteBucketEncryptionCommandInput}
+ * @returns {@link DeleteBucketEncryptionCommandOutput}
  * @see {@link DeleteBucketEncryptionCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -92,6 +100,9 @@ export class DeleteBucketEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +131,8 @@ export class DeleteBucketEncryptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketEncryptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +142,18 @@ export class DeleteBucketEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketEncryptionCommand(input, context);
+    return se_DeleteBucketEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketEncryptionCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketEncryptionCommand(output, context);
+    return de_DeleteBucketEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

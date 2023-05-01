@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  CreateExportTaskRequest,
-  CreateExportTaskRequestFilterSensitiveLog,
-  CreateExportTaskResponse,
-  CreateExportTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateExportTaskCommand,
-  serializeAws_json1_1CreateExportTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateExportTaskRequest, CreateExportTaskResponse } from "../models/models_0";
+import { de_CreateExportTaskCommand, se_CreateExportTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateExportTaskCommand}.
  */
 export interface CreateExportTaskCommandInput extends CreateExportTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateExportTaskCommand}.
  */
 export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an export task so that you can efficiently export data from a log group to an
  *       Amazon S3 bucket. When you perform a <code>CreateExportTask</code> operation, you must use
  *       credentials that have permission to write to the S3 bucket that you specify as the
@@ -61,10 +58,21 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  * import { CloudWatchLogsClient, CreateExportTaskCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CreateExportTaskCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // CreateExportTaskRequest
+ *   taskName: "STRING_VALUE",
+ *   logGroupName: "STRING_VALUE", // required
+ *   logStreamNamePrefix: "STRING_VALUE",
+ *   from: Number("long"), // required
+ *   to: Number("long"), // required
+ *   destination: "STRING_VALUE", // required
+ *   destinationPrefix: "STRING_VALUE",
+ * };
  * const command = new CreateExportTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateExportTaskCommandInput - {@link CreateExportTaskCommandInput}
+ * @returns {@link CreateExportTaskCommandOutput}
  * @see {@link CreateExportTaskCommandInput} for command's `input` shape.
  * @see {@link CreateExportTaskCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -106,6 +114,9 @@ export class CreateExportTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateExportTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +145,8 @@ export class CreateExportTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExportTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateExportTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +156,18 @@ export class CreateExportTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateExportTaskCommand(input, context);
+    return se_CreateExportTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExportTaskCommandOutput> {
-    return deserializeAws_json1_1CreateExportTaskCommand(output, context);
+    return de_CreateExportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

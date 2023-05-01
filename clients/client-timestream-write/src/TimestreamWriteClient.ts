@@ -97,6 +97,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateBatchLoadTaskCommandInput
   | CreateDatabaseCommandInput
@@ -118,6 +121,9 @@ export type ServiceInputTypes =
   | UpdateTableCommandInput
   | WriteRecordsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateBatchLoadTaskCommandOutput
   | CreateDatabaseCommandOutput
@@ -139,6 +145,9 @@ export type ServiceOutputTypes =
   | UpdateTableCommandOutput
   | WriteRecordsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -146,7 +155,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -262,11 +271,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type TimestreamWriteClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -278,10 +290,15 @@ type TimestreamWriteClientConfigType = Partial<__SmithyConfiguration<__HttpHandl
   EndpointDiscoveryInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of TimestreamWriteClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of TimestreamWriteClient class constructor that set the region, credentials and other options.
  */
 export interface TimestreamWriteClientConfig extends TimestreamWriteClientConfigType {}
 
+/**
+ * @public
+ */
 type TimestreamWriteClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -293,11 +310,14 @@ type TimestreamWriteClientResolvedConfigType = __SmithyResolvedConfiguration<__H
   EndpointDiscoveryResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of TimestreamWriteClient class. This is resolved and normalized from the {@link TimestreamWriteClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of TimestreamWriteClient class. This is resolved and normalized from the {@link TimestreamWriteClientConfig | constructor configuration interface}.
  */
 export interface TimestreamWriteClientResolvedConfig extends TimestreamWriteClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Timestream Write</fullname>
  *          <p>Amazon Timestream is a fast, scalable, fully managed time-series database service
  *          that makes it easy to store and analyze trillions of time-series data points per day. With

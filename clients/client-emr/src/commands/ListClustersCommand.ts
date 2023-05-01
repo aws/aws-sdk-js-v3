@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ListClustersInput,
-  ListClustersInputFilterSensitiveLog,
-  ListClustersOutput,
-  ListClustersOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListClustersCommand,
-  serializeAws_json1_1ListClustersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListClustersInput, ListClustersOutput } from "../models/models_0";
+import { de_ListClustersCommand, se_ListClustersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListClustersCommand}.
  */
 export interface ListClustersCommandInput extends ListClustersInput {}
 /**
+ * @public
+ *
  * The output of {@link ListClustersCommand}.
  */
 export interface ListClustersCommandOutput extends ListClustersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the status of all clusters visible to this Amazon Web Services account. Allows
  *          you to filter the list of clusters based on certain criteria; for example, filtering by
  *          cluster creation date and time or by status. This call returns a maximum of 50 clusters in
@@ -46,10 +43,20 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * import { EMRClient, ListClustersCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListClustersCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ListClustersInput
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   ClusterStates: [ // ClusterStateList
+ *     "STARTING" || "BOOTSTRAPPING" || "RUNNING" || "WAITING" || "TERMINATING" || "TERMINATED" || "TERMINATED_WITH_ERRORS",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClustersCommandInput - {@link ListClustersCommandInput}
+ * @returns {@link ListClustersCommandOutput}
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListClustersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClustersCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +116,8 @@ export class ListClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClustersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClustersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +127,18 @@ export class ListClustersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListClustersCommand(input, context);
+    return se_ListClustersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersCommandOutput> {
-    return deserializeAws_json1_1ListClustersCommand(output, context);
+    return de_ListClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

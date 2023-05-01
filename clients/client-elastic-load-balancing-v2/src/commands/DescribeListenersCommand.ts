@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DescribeListenersInput,
-  DescribeListenersInputFilterSensitiveLog,
-  DescribeListenersOutput,
-  DescribeListenersOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeListenersCommand,
-  serializeAws_queryDescribeListenersCommand,
-} from "../protocols/Aws_query";
+import { DescribeListenersInput, DescribeListenersOutput } from "../models/models_0";
+import { de_DescribeListenersCommand, se_DescribeListenersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeListenersCommand}.
  */
 export interface DescribeListenersCommandInput extends DescribeListenersInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeListenersCommand}.
  */
 export interface DescribeListenersCommandOutput extends DescribeListenersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified listeners or the listeners for the specified Application Load
  *       Balancer, Network Load Balancer, or Gateway Load Balancer. You must specify either a load
  *       balancer or one or more listeners.</p>
@@ -48,10 +45,20 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * import { ElasticLoadBalancingV2Client, DescribeListenersCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeListenersCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DescribeListenersInput
+ *   LoadBalancerArn: "STRING_VALUE",
+ *   ListenerArns: [ // ListenerArns
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new DescribeListenersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeListenersCommandInput - {@link DescribeListenersCommandInput}
+ * @returns {@link DescribeListenersCommandOutput}
  * @see {@link DescribeListenersCommandInput} for command's `input` shape.
  * @see {@link DescribeListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -115,6 +122,9 @@ export class DescribeListenersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeListenersCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +153,8 @@ export class DescribeListenersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeListenersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeListenersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +164,18 @@ export class DescribeListenersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeListenersCommand(input, context);
+    return se_DescribeListenersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeListenersCommandOutput> {
-    return deserializeAws_queryDescribeListenersCommand(output, context);
+    return de_DescribeListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFleetMetricsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFleetMetrics(
   config: IoTPaginationConfiguration,
   input: ListFleetMetricsCommandInput,

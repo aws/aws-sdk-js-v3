@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  DescribeScalingPoliciesRequest,
-  DescribeScalingPoliciesRequestFilterSensitiveLog,
-  DescribeScalingPoliciesResponse,
-  DescribeScalingPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeScalingPoliciesCommand,
-  serializeAws_json1_1DescribeScalingPoliciesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeScalingPoliciesRequest, DescribeScalingPoliciesResponse } from "../models/models_0";
+import { de_DescribeScalingPoliciesCommand, se_DescribeScalingPoliciesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalingPoliciesCommand}.
  */
 export interface DescribeScalingPoliciesCommandInput extends DescribeScalingPoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalingPoliciesCommand}.
  */
 export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the Application Auto Scaling scaling policies for the specified service namespace.</p>
  *          <p>You can filter the results using <code>ResourceId</code>,
  *          <code>ScalableDimension</code>, and <code>PolicyNames</code>.</p>
@@ -49,10 +46,22 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * import { ApplicationAutoScalingClient, DescribeScalingPoliciesCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, DescribeScalingPoliciesCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
+ * const input = { // DescribeScalingPoliciesRequest
+ *   PolicyNames: [ // ResourceIdsMaxLen1600
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   ResourceId: "STRING_VALUE",
+ *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeScalingPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingPoliciesCommandInput - {@link DescribeScalingPoliciesCommandInput}
+ * @returns {@link DescribeScalingPoliciesCommandOutput}
  * @see {@link DescribeScalingPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -139,6 +148,9 @@ export class DescribeScalingPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,8 +179,8 @@ export class DescribeScalingPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScalingPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScalingPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -178,12 +190,18 @@ export class DescribeScalingPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeScalingPoliciesCommand(input, context);
+    return se_DescribeScalingPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScalingPoliciesCommandOutput> {
-    return deserializeAws_json1_1DescribeScalingPoliciesCommand(output, context);
+    return de_DescribeScalingPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

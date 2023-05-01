@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
+import { StartDataCollectionByAgentIdsRequest, StartDataCollectionByAgentIdsResponse } from "../models/models_0";
 import {
-  StartDataCollectionByAgentIdsRequest,
-  StartDataCollectionByAgentIdsRequestFilterSensitiveLog,
-  StartDataCollectionByAgentIdsResponse,
-  StartDataCollectionByAgentIdsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartDataCollectionByAgentIdsCommand,
-  serializeAws_json1_1StartDataCollectionByAgentIdsCommand,
+  de_StartDataCollectionByAgentIdsCommand,
+  se_StartDataCollectionByAgentIdsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDataCollectionByAgentIdsCommand}.
  */
 export interface StartDataCollectionByAgentIdsCommandInput extends StartDataCollectionByAgentIdsRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDataCollectionByAgentIdsCommand}.
  */
 export interface StartDataCollectionByAgentIdsCommandOutput
@@ -41,6 +40,7 @@ export interface StartDataCollectionByAgentIdsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Instructs the specified agents or connectors to start collecting data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +48,17 @@ export interface StartDataCollectionByAgentIdsCommandOutput
  * import { ApplicationDiscoveryServiceClient, StartDataCollectionByAgentIdsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StartDataCollectionByAgentIdsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = { // StartDataCollectionByAgentIdsRequest
+ *   agentIds: [ // AgentIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartDataCollectionByAgentIdsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDataCollectionByAgentIdsCommandInput - {@link StartDataCollectionByAgentIdsCommandInput}
+ * @returns {@link StartDataCollectionByAgentIdsCommandOutput}
  * @see {@link StartDataCollectionByAgentIdsCommandInput} for command's `input` shape.
  * @see {@link StartDataCollectionByAgentIdsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -92,6 +99,9 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDataCollectionByAgentIdsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +130,8 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDataCollectionByAgentIdsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDataCollectionByAgentIdsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +141,21 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDataCollectionByAgentIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDataCollectionByAgentIdsCommand(input, context);
+    return se_StartDataCollectionByAgentIdsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDataCollectionByAgentIdsCommandOutput> {
-    return deserializeAws_json1_1StartDataCollectionByAgentIdsCommand(output, context);
+    return de_StartDataCollectionByAgentIdsCommand(output, context);
   }
 
   // Start section: command_body_extra

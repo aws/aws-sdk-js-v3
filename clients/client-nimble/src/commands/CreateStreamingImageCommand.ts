@@ -20,21 +20,23 @@ import {
   CreateStreamingImageResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1CreateStreamingImageCommand,
-  serializeAws_restJson1CreateStreamingImageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateStreamingImageCommand, se_CreateStreamingImageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStreamingImageCommand}.
  */
 export interface CreateStreamingImageCommandInput extends CreateStreamingImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateStreamingImageCommand}.
  */
 export interface CreateStreamingImageCommandOutput extends CreateStreamingImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a streaming image resource in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,22 @@ export interface CreateStreamingImageCommandOutput extends CreateStreamingImageR
  * import { NimbleClient, CreateStreamingImageCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, CreateStreamingImageCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // CreateStreamingImageRequest
+ *   clientToken: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   ec2ImageId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateStreamingImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStreamingImageCommandInput - {@link CreateStreamingImageCommandInput}
+ * @returns {@link CreateStreamingImageCommandOutput}
  * @see {@link CreateStreamingImageCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingImageCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +107,9 @@ export class CreateStreamingImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStreamingImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,12 +149,18 @@ export class CreateStreamingImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStreamingImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateStreamingImageCommand(input, context);
+    return se_CreateStreamingImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamingImageCommandOutput> {
-    return deserializeAws_restJson1CreateStreamingImageCommand(output, context);
+    return de_CreateStreamingImageCommand(output, context);
   }
 
   // Start section: command_body_extra

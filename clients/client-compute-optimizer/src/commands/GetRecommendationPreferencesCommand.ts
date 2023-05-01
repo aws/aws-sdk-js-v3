@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { GetRecommendationPreferencesRequest, GetRecommendationPreferencesResponse } from "../models/models_0";
 import {
-  GetRecommendationPreferencesRequest,
-  GetRecommendationPreferencesRequestFilterSensitiveLog,
-  GetRecommendationPreferencesResponse,
-  GetRecommendationPreferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetRecommendationPreferencesCommand,
-  serializeAws_json1_0GetRecommendationPreferencesCommand,
+  de_GetRecommendationPreferencesCommand,
+  se_GetRecommendationPreferencesCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommendationPreferencesCommand}.
  */
 export interface GetRecommendationPreferencesCommandInput extends GetRecommendationPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommendationPreferencesCommand}.
  */
 export interface GetRecommendationPreferencesCommandOutput
@@ -37,6 +36,7 @@ export interface GetRecommendationPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns existing recommendation preferences, such as enhanced infrastructure
  *             metrics.</p>
  *          <p>Use the <code>scope</code> parameter to specify which preferences to return. You can
@@ -51,10 +51,21 @@ export interface GetRecommendationPreferencesCommandOutput
  * import { ComputeOptimizerClient, GetRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetRecommendationPreferencesRequest
+ *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService", // required
+ *   scope: { // Scope
+ *     name: "Organization" || "AccountId" || "ResourceArn",
+ *     value: "STRING_VALUE",
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommendationPreferencesCommandInput - {@link GetRecommendationPreferencesCommandInput}
+ * @returns {@link GetRecommendationPreferencesCommandOutput}
  * @see {@link GetRecommendationPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -103,6 +114,9 @@ export class GetRecommendationPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommendationPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +145,8 @@ export class GetRecommendationPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommendationPreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommendationPreferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,15 +156,21 @@ export class GetRecommendationPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommendationPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRecommendationPreferencesCommand(input, context);
+    return se_GetRecommendationPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecommendationPreferencesCommandOutput> {
-    return deserializeAws_json1_0GetRecommendationPreferencesCommand(output, context);
+    return de_GetRecommendationPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

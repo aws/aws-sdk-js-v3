@@ -14,49 +14,46 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  StartFleetActionsInput,
-  StartFleetActionsInputFilterSensitiveLog,
-  StartFleetActionsOutput,
-  StartFleetActionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartFleetActionsCommand,
-  serializeAws_json1_1StartFleetActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { StartFleetActionsInput, StartFleetActionsOutput } from "../models/models_0";
+import { de_StartFleetActionsCommand, se_StartFleetActionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartFleetActionsCommand}.
  */
 export interface StartFleetActionsCommandInput extends StartFleetActionsInput {}
 /**
+ * @public
+ *
  * The output of {@link StartFleetActionsCommand}.
  */
 export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resumes certain types of activity on fleet instances that were suspended with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>. For multi-location fleets, fleet actions are managed
  *             separately for each location. Currently, this operation is used to restart a fleet's
  *             auto-scaling activity.</p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To restart actions on instances in the fleet's home Region, provide a fleet ID
+ *                <p>To restart actions on instances in the fleet's home Region, provide a fleet ID
  *                     and the type of actions to resume. </p>
  *             </li>
  *             <li>
- *                 <p>To restart actions on instances in one of the fleet's remote locations,
+ *                <p>To restart actions on instances in one of the fleet's remote locations,
  *                     provide a fleet ID, a location name, and the type of actions to resume. </p>
  *             </li>
  *          </ul>
- *         <p>If successful, GameLift once again initiates scaling events as triggered by the fleet's
+ *          <p>If successful, Amazon GameLift once again initiates scaling events as triggered by the fleet's
  *             scaling policies. If actions on the fleet location were never stopped, this operation
  *             will have no effect.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example
@@ -65,10 +62,19 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  * import { GameLiftClient, StartFleetActionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartFleetActionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // StartFleetActionsInput
+ *   FleetId: "STRING_VALUE", // required
+ *   Actions: [ // FleetActionList // required
+ *     "AUTO_SCALING",
+ *   ],
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new StartFleetActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFleetActionsCommandInput - {@link StartFleetActionsCommandInput}
+ * @returns {@link StartFleetActionsCommandOutput}
  * @see {@link StartFleetActionsCommandInput} for command's `input` shape.
  * @see {@link StartFleetActionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -109,6 +115,9 @@ export class StartFleetActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFleetActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +146,8 @@ export class StartFleetActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFleetActionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFleetActionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +157,18 @@ export class StartFleetActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFleetActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartFleetActionsCommand(input, context);
+    return se_StartFleetActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFleetActionsCommandOutput> {
-    return deserializeAws_json1_1StartFleetActionsCommand(output, context);
+    return de_StartFleetActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

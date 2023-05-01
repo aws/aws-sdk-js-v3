@@ -1,6 +1,9 @@
 import { parseQueryString } from "@aws-sdk/querystring-parser";
 import { Endpoint, QueryParameterBag, UrlParser } from "@aws-sdk/types";
 
+/**
+ * @internal
+ */
 export const parseUrl: UrlParser = (url: string | URL): Endpoint => {
   if (typeof url === "string") {
     return parseUrl(new URL(url));

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAppRequest,
-  DescribeAppRequestFilterSensitiveLog,
-  DescribeAppResponse,
-  DescribeAppResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeAppCommand,
-  serializeAws_json1_1DescribeAppCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeAppRequest, DescribeAppResponse } from "../models/models_2";
+import { de_DescribeAppCommand, se_DescribeAppCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppCommand}.
  */
 export interface DescribeAppCommandInput extends DescribeAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppCommand}.
  */
 export interface DescribeAppCommandOutput extends DescribeAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * import { SageMakerClient, DescribeAppCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeAppCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeAppRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   UserProfileName: "STRING_VALUE",
+ *   AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway", // required
+ *   AppName: "STRING_VALUE", // required
+ *   SpaceName: "STRING_VALUE",
+ * };
  * const command = new DescribeAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppCommandInput - {@link DescribeAppCommandInput}
+ * @returns {@link DescribeAppCommandOutput}
  * @see {@link DescribeAppCommandInput} for command's `input` shape.
  * @see {@link DescribeAppCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +78,9 @@ export class DescribeAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +107,8 @@ export class DescribeAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAppResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +118,18 @@ export class DescribeAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAppCommand(input, context);
+    return se_DescribeAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppCommandOutput> {
-    return deserializeAws_json1_1DescribeAppCommand(output, context);
+    return de_DescribeAppCommand(output, context);
   }
 
   // Start section: command_body_extra

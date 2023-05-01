@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetProductsRequest,
-  GetProductsRequestFilterSensitiveLog,
-  GetProductsResponse,
-  GetProductsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetProductsRequest, GetProductsResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import {
-  deserializeAws_json1_1GetProductsCommand,
-  serializeAws_json1_1GetProductsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetProductsCommand, se_GetProductsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProductsCommand}.
  */
 export interface GetProductsCommandInput extends GetProductsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProductsCommand}.
  */
 export interface GetProductsCommandOutput extends GetProductsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all products that match the filter criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * import { PricingClient, GetProductsCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, GetProductsCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
  * const client = new PricingClient(config);
+ * const input = { // GetProductsRequest
+ *   ServiceCode: "STRING_VALUE", // required
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Type: "TERM_MATCH", // required
+ *       Field: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   FormatVersion: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetProductsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProductsCommandInput - {@link GetProductsCommandInput}
+ * @returns {@link GetProductsCommandOutput}
  * @see {@link GetProductsCommandInput} for command's `input` shape.
  * @see {@link GetProductsCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
@@ -84,6 +96,9 @@ export class GetProductsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProductsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +125,8 @@ export class GetProductsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProductsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProductsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +136,18 @@ export class GetProductsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetProductsCommand(input, context);
+    return se_GetProductsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProductsCommandOutput> {
-    return deserializeAws_json1_1GetProductsCommand(output, context);
+    return de_GetProductsCommand(output, context);
   }
 
   // Start section: command_body_extra

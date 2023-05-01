@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { AppMeshServiceException as __BaseException } from "./AppMeshServiceException";
 
 /**
+ * @public
  * <p>An object that represents the key value pairs for the JSON.</p>
  */
 export interface JsonFormatRef {
@@ -19,10 +20,14 @@ export interface JsonFormatRef {
 }
 
 /**
+ * @public
  * <p>An object that represents the format for the logs.</p>
  */
 export type LoggingFormat = LoggingFormat.JsonMember | LoggingFormat.TextMember | LoggingFormat.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace LoggingFormat {
   /**
    * <p/>
@@ -62,6 +67,7 @@ export namespace LoggingFormat {
 }
 
 /**
+ * @public
  * <p>An object that represents an access log file.</p>
  */
 export interface FileAccessLog {
@@ -87,10 +93,14 @@ export interface FileAccessLog {
 }
 
 /**
+ * @public
  * <p>An object that represents the access logging information for a virtual node.</p>
  */
 export type AccessLog = AccessLog.FileMember | AccessLog.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AccessLog {
   /**
    * <p>The file object to send virtual node access logs to.</p>
@@ -117,6 +127,7 @@ export namespace AccessLog {
 }
 
 /**
+ * @public
  * <p>The request syntax was malformed. Check your request syntax and try again.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -136,6 +147,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You don't have permissions to perform this action.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -155,6 +167,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception, or
  *          failure.</p>
  */
@@ -176,6 +189,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  *
  */
 export interface ListTagsForResourceInput {
@@ -206,6 +220,7 @@ export interface ListTagsForResourceInput {
 }
 
 /**
+ * @public
  * <p>Optional metadata that you apply to a resource to assist with categorization and
  *          organization. Each tag consists of a key and an optional value, both of which you define.
  *          Tag keys can have a maximum character length of 128 characters, and tag values can have
@@ -226,6 +241,7 @@ export interface TagRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListTagsForResourceOutput {
@@ -244,6 +260,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -263,6 +280,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request has failed due to a temporary failure of the service.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -283,6 +301,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
@@ -307,6 +326,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request contains a client token that was used for a previous update resource call
  *          with different specifications. Try the request again with a new client token.</p>
  */
@@ -326,12 +346,22 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum EgressFilterType {
-  ALLOW_ALL = "ALLOW_ALL",
-  DROP_ALL = "DROP_ALL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EgressFilterType = {
+  ALLOW_ALL: "ALLOW_ALL",
+  DROP_ALL: "DROP_ALL",
+} as const;
 
 /**
+ * @public
+ */
+export type EgressFilterType = (typeof EgressFilterType)[keyof typeof EgressFilterType];
+
+/**
+ * @public
  * <p>An object that represents the egress filter rules for a service mesh.</p>
  */
 export interface EgressFilter {
@@ -345,14 +375,24 @@ export interface EgressFilter {
   type: EgressFilterType | string | undefined;
 }
 
-export enum IpPreference {
-  IPv4_ONLY = "IPv4_ONLY",
-  IPv4_PREFERRED = "IPv4_PREFERRED",
-  IPv6_ONLY = "IPv6_ONLY",
-  IPv6_PREFERRED = "IPv6_PREFERRED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpPreference = {
+  IPv4_ONLY: "IPv4_ONLY",
+  IPv4_PREFERRED: "IPv4_PREFERRED",
+  IPv6_ONLY: "IPv6_ONLY",
+  IPv6_PREFERRED: "IPv6_PREFERRED",
+} as const;
 
 /**
+ * @public
+ */
+export type IpPreference = (typeof IpPreference)[keyof typeof IpPreference];
+
+/**
+ * @public
  * <p>An object that represents the service discovery information for a service mesh.</p>
  */
 export interface MeshServiceDiscovery {
@@ -363,6 +403,7 @@ export interface MeshServiceDiscovery {
 }
 
 /**
+ * @public
  * <p>An object that represents the specification of a service mesh.</p>
  */
 export interface MeshSpec {
@@ -378,6 +419,7 @@ export interface MeshSpec {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateMeshInput {
@@ -407,6 +449,7 @@ export interface CreateMeshInput {
 }
 
 /**
+ * @public
  * <p>An object that represents metadata for a resource.</p>
  */
 export interface ResourceMetadata {
@@ -448,13 +491,23 @@ export interface ResourceMetadata {
   resourceOwner: string | undefined;
 }
 
-export enum MeshStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MeshStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type MeshStatusCode = (typeof MeshStatusCode)[keyof typeof MeshStatusCode];
+
+/**
+ * @public
  * <p>An object that represents the status of a service mesh.</p>
  */
 export interface MeshStatus {
@@ -465,6 +518,7 @@ export interface MeshStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a service mesh returned by a describe operation.</p>
  */
 export interface MeshData {
@@ -490,6 +544,7 @@ export interface MeshData {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateMeshOutput {
@@ -500,6 +555,7 @@ export interface CreateMeshOutput {
 }
 
 /**
+ * @public
  * <p>You have exceeded a service limit for your account. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html">Service
  *             Limits</a> in the <i>App Mesh User Guide</i>.</p>
  */
@@ -520,6 +576,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteMeshInput {
@@ -530,6 +587,7 @@ export interface DeleteMeshInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteMeshOutput {
@@ -540,6 +598,7 @@ export interface DeleteMeshOutput {
 }
 
 /**
+ * @public
  * <p>You can't delete the specified resource because it's in use or required by another
  *          resource.</p>
  */
@@ -560,6 +619,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeMeshInput {
@@ -576,6 +636,7 @@ export interface DescribeMeshInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeMeshOutput {
@@ -586,6 +647,7 @@ export interface DescribeMeshOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface ListMeshesInput {
@@ -615,6 +677,7 @@ export interface ListMeshesInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a service mesh returned by a list operation.</p>
  */
 export interface MeshRef {
@@ -657,6 +720,7 @@ export interface MeshRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListMeshesOutput {
@@ -675,6 +739,7 @@ export interface ListMeshesOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateMeshInput {
@@ -696,6 +761,7 @@ export interface UpdateMeshInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateMeshOutput {
@@ -706,6 +772,7 @@ export interface UpdateMeshOutput {
 }
 
 /**
+ * @public
  * <p>An object that represents a local file certificate.
  *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
  */
@@ -723,6 +790,7 @@ export interface VirtualGatewayListenerTlsFileCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents the virtual gateway's listener's Secret Discovery Service
  *          certificate.The proxy must be configured with a local SDS provider via a Unix Domain
  *          Socket. See App Mesh<a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
@@ -738,6 +806,7 @@ export interface VirtualGatewayListenerTlsSdsCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents the virtual gateway's client's Transport Layer Security (TLS) certificate.</p>
  */
 export type VirtualGatewayClientTlsCertificate =
@@ -745,6 +814,9 @@ export type VirtualGatewayClientTlsCertificate =
   | VirtualGatewayClientTlsCertificate.SdsMember
   | VirtualGatewayClientTlsCertificate.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayClientTlsCertificate {
   /**
    * <p>An object that represents a local file certificate. The certificate must meet specific
@@ -788,6 +860,7 @@ export namespace VirtualGatewayClientTlsCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents the methods by which a subject alternative name on a peer
  *          Transport Layer Security (TLS) certificate can be matched.</p>
  */
@@ -799,6 +872,7 @@ export interface SubjectAlternativeNameMatchers {
 }
 
 /**
+ * @public
  * <p>An object that represents the subject alternative names secured by the
  *          certificate.</p>
  */
@@ -810,6 +884,7 @@ export interface SubjectAlternativeNames {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager
  *          certificate.</p>
  */
@@ -821,6 +896,7 @@ export interface VirtualGatewayTlsValidationContextAcmTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
  */
 export interface VirtualGatewayTlsValidationContextFileTrust {
@@ -832,6 +908,7 @@ export interface VirtualGatewayTlsValidationContextFileTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) Secret Discovery Service
  *          validation context trust. The proxy must be configured with a local SDS provider via a Unix
  *          Domain Socket. See App Mesh
@@ -847,6 +924,7 @@ export interface VirtualGatewayTlsValidationContextSdsTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust.</p>
  */
 export type VirtualGatewayTlsValidationContextTrust =
@@ -855,6 +933,9 @@ export type VirtualGatewayTlsValidationContextTrust =
   | VirtualGatewayTlsValidationContextTrust.SdsMember
   | VirtualGatewayTlsValidationContextTrust.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayTlsValidationContextTrust {
   /**
    * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager certificate.</p>
@@ -910,6 +991,7 @@ export namespace VirtualGatewayTlsValidationContextTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context.</p>
  */
 export interface VirtualGatewayTlsValidationContext {
@@ -927,6 +1009,7 @@ export interface VirtualGatewayTlsValidationContext {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) client policy.</p>
  */
 export interface VirtualGatewayClientPolicyTls {
@@ -954,6 +1037,7 @@ export interface VirtualGatewayClientPolicyTls {
 }
 
 /**
+ * @public
  * <p>An object that represents a client policy.</p>
  */
 export interface VirtualGatewayClientPolicy {
@@ -964,6 +1048,7 @@ export interface VirtualGatewayClientPolicy {
 }
 
 /**
+ * @public
  * <p>An object that represents the default properties for a backend.</p>
  */
 export interface VirtualGatewayBackendDefaults {
@@ -974,6 +1059,7 @@ export interface VirtualGatewayBackendDefaults {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualGatewayGrpcConnectionPool {
@@ -985,6 +1071,7 @@ export interface VirtualGatewayGrpcConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualGatewayHttpConnectionPool {
@@ -1002,6 +1089,7 @@ export interface VirtualGatewayHttpConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualGatewayHttp2ConnectionPool {
@@ -1013,6 +1101,7 @@ export interface VirtualGatewayHttp2ConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents the type of virtual gateway connection pool.</p>
  *          <p>Only one protocol is used at a time and should be the same protocol as the one chosen
  *          under port mapping.</p>
@@ -1025,6 +1114,9 @@ export type VirtualGatewayConnectionPool =
   | VirtualGatewayConnectionPool.Http2Member
   | VirtualGatewayConnectionPool.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayConnectionPool {
   /**
    * <p>An object that represents a type of connection pool.</p>
@@ -1078,13 +1170,23 @@ export namespace VirtualGatewayConnectionPool {
   };
 }
 
-export enum VirtualGatewayPortProtocol {
-  GRPC = "grpc",
-  HTTP = "http",
-  HTTP2 = "http2",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VirtualGatewayPortProtocol = {
+  GRPC: "grpc",
+  HTTP: "http",
+  HTTP2: "http2",
+} as const;
 
 /**
+ * @public
+ */
+export type VirtualGatewayPortProtocol = (typeof VirtualGatewayPortProtocol)[keyof typeof VirtualGatewayPortProtocol];
+
+/**
+ * @public
  * <p>An object that represents the health check policy for a virtual gateway's
  *          listener.</p>
  */
@@ -1133,6 +1235,7 @@ export interface VirtualGatewayHealthCheckPolicy {
 }
 
 /**
+ * @public
  * <p>An object that represents a port mapping.</p>
  */
 export interface VirtualGatewayPortMapping {
@@ -1148,6 +1251,7 @@ export interface VirtualGatewayPortMapping {
 }
 
 /**
+ * @public
  * <p>An object that represents an Certificate Manager certificate.</p>
  */
 export interface VirtualGatewayListenerTlsAcmCertificate {
@@ -1158,6 +1262,7 @@ export interface VirtualGatewayListenerTlsAcmCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents a listener's Transport Layer Security (TLS) certificate.</p>
  */
 export type VirtualGatewayListenerTlsCertificate =
@@ -1166,6 +1271,9 @@ export type VirtualGatewayListenerTlsCertificate =
   | VirtualGatewayListenerTlsCertificate.SdsMember
   | VirtualGatewayListenerTlsCertificate.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayListenerTlsCertificate {
   /**
    * <p>A reference to an object that represents an Certificate Manager certificate.</p>
@@ -1220,13 +1328,24 @@ export namespace VirtualGatewayListenerTlsCertificate {
   };
 }
 
-export enum VirtualGatewayListenerTlsMode {
-  DISABLED = "DISABLED",
-  PERMISSIVE = "PERMISSIVE",
-  STRICT = "STRICT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VirtualGatewayListenerTlsMode = {
+  DISABLED: "DISABLED",
+  PERMISSIVE: "PERMISSIVE",
+  STRICT: "STRICT",
+} as const;
 
 /**
+ * @public
+ */
+export type VirtualGatewayListenerTlsMode =
+  (typeof VirtualGatewayListenerTlsMode)[keyof typeof VirtualGatewayListenerTlsMode];
+
+/**
+ * @public
  * <p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation context
  *          trust.</p>
  */
@@ -1235,6 +1354,9 @@ export type VirtualGatewayListenerTlsValidationContextTrust =
   | VirtualGatewayListenerTlsValidationContextTrust.SdsMember
   | VirtualGatewayListenerTlsValidationContextTrust.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayListenerTlsValidationContextTrust {
   /**
    * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
@@ -1275,6 +1397,7 @@ export namespace VirtualGatewayListenerTlsValidationContextTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation
  *          context.</p>
  */
@@ -1293,6 +1416,7 @@ export interface VirtualGatewayListenerTlsValidationContext {
 }
 
 /**
+ * @public
  * <p>An object that represents the Transport Layer Security (TLS) properties for a listener.</p>
  */
 export interface VirtualGatewayListenerTls {
@@ -1331,6 +1455,7 @@ export interface VirtualGatewayListenerTls {
 }
 
 /**
+ * @public
  * <p>An object that represents a listener for a virtual gateway.</p>
  */
 export interface VirtualGatewayListener {
@@ -1356,6 +1481,7 @@ export interface VirtualGatewayListener {
 }
 
 /**
+ * @public
  * <p>An object that represents an access log file.</p>
  */
 export interface VirtualGatewayFileAccessLog {
@@ -1376,10 +1502,14 @@ export interface VirtualGatewayFileAccessLog {
 }
 
 /**
+ * @public
  * <p>The access log configuration for a virtual gateway.</p>
  */
 export type VirtualGatewayAccessLog = VirtualGatewayAccessLog.FileMember | VirtualGatewayAccessLog.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualGatewayAccessLog {
   /**
    * <p>The file object to send virtual gateway access logs to.</p>
@@ -1406,6 +1536,7 @@ export namespace VirtualGatewayAccessLog {
 }
 
 /**
+ * @public
  * <p>An object that represents logging information.</p>
  */
 export interface VirtualGatewayLogging {
@@ -1416,6 +1547,7 @@ export interface VirtualGatewayLogging {
 }
 
 /**
+ * @public
  * <p>An object that represents the specification of a service mesh resource.</p>
  */
 export interface VirtualGatewaySpec {
@@ -1436,6 +1568,9 @@ export interface VirtualGatewaySpec {
   logging?: VirtualGatewayLogging;
 }
 
+/**
+ * @public
+ */
 export interface CreateVirtualGatewayInput {
   /**
    * <p>The name to use for the virtual gateway.</p>
@@ -1474,13 +1609,23 @@ export interface CreateVirtualGatewayInput {
   meshOwner?: string;
 }
 
-export enum VirtualGatewayStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VirtualGatewayStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type VirtualGatewayStatusCode = (typeof VirtualGatewayStatusCode)[keyof typeof VirtualGatewayStatusCode];
+
+/**
+ * @public
  * <p>An object that represents the status of the mesh resource.</p>
  */
 export interface VirtualGatewayStatus {
@@ -1491,6 +1636,7 @@ export interface VirtualGatewayStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual gateway returned by a describe operation.</p>
  */
 export interface VirtualGatewayData {
@@ -1520,6 +1666,9 @@ export interface VirtualGatewayData {
   status: VirtualGatewayStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateVirtualGatewayOutput {
   /**
    * <p>The full description of your virtual gateway following the create call.</p>
@@ -1527,6 +1676,9 @@ export interface CreateVirtualGatewayOutput {
   virtualGateway: VirtualGatewayData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVirtualGatewayInput {
   /**
    * <p>The name of the virtual gateway to delete.</p>
@@ -1545,6 +1697,9 @@ export interface DeleteVirtualGatewayInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVirtualGatewayOutput {
   /**
    * <p>The virtual gateway that was deleted.</p>
@@ -1552,6 +1707,9 @@ export interface DeleteVirtualGatewayOutput {
   virtualGateway: VirtualGatewayData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVirtualGatewayInput {
   /**
    * <p>The name of the virtual gateway to describe.</p>
@@ -1570,6 +1728,9 @@ export interface DescribeVirtualGatewayInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeVirtualGatewayOutput {
   /**
    * <p>The full description of your virtual gateway.</p>
@@ -1577,12 +1738,22 @@ export interface DescribeVirtualGatewayOutput {
   virtualGateway: VirtualGatewayData | undefined;
 }
 
-export enum DefaultGatewayRouteRewrite {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DefaultGatewayRouteRewrite = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type DefaultGatewayRouteRewrite = (typeof DefaultGatewayRouteRewrite)[keyof typeof DefaultGatewayRouteRewrite];
+
+/**
+ * @public
  * <p>An object representing the gateway route host name to rewrite.</p>
  */
 export interface GatewayRouteHostnameRewrite {
@@ -1593,6 +1764,7 @@ export interface GatewayRouteHostnameRewrite {
 }
 
 /**
+ * @public
  * <p>An object that represents the gateway route to rewrite.</p>
  */
 export interface GrpcGatewayRouteRewrite {
@@ -1603,6 +1775,7 @@ export interface GrpcGatewayRouteRewrite {
 }
 
 /**
+ * @public
  * <p>An object that represents the virtual service that traffic is routed to.</p>
  */
 export interface GatewayRouteVirtualService {
@@ -1613,6 +1786,7 @@ export interface GatewayRouteVirtualService {
 }
 
 /**
+ * @public
  * <p>An object that represents a gateway route target.</p>
  */
 export interface GatewayRouteTarget {
@@ -1628,6 +1802,7 @@ export interface GatewayRouteTarget {
 }
 
 /**
+ * @public
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface GrpcGatewayRouteAction {
@@ -1643,6 +1818,7 @@ export interface GrpcGatewayRouteAction {
 }
 
 /**
+ * @public
  * <p>An object representing the gateway route host name to match.</p>
  */
 export interface GatewayRouteHostnameMatch {
@@ -1658,6 +1834,7 @@ export interface GatewayRouteHostnameMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents the range of values to match on. The first character of the range is included in the range, though the last character is not. For example, if the range specified were 1-100, only values 1-99 would be matched.</p>
  */
 export interface MatchRange {
@@ -1673,6 +1850,7 @@ export interface MatchRange {
 }
 
 /**
+ * @public
  * <p>An object representing the method header to be matched.</p>
  */
 export type GrpcMetadataMatchMethod =
@@ -1683,6 +1861,9 @@ export type GrpcMetadataMatchMethod =
   | GrpcMetadataMatchMethod.SuffixMember
   | GrpcMetadataMatchMethod.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace GrpcMetadataMatchMethod {
   /**
    * <p>The exact method header to be matched on.</p>
@@ -1773,6 +1954,7 @@ export namespace GrpcMetadataMatchMethod {
 }
 
 /**
+ * @public
  * <p>An object representing the metadata of the gateway route.</p>
  */
 export interface GrpcGatewayRouteMetadata {
@@ -1794,6 +1976,7 @@ export interface GrpcGatewayRouteMetadata {
 }
 
 /**
+ * @public
  * <p>An object that represents the criteria for determining a request match.</p>
  */
 export interface GrpcGatewayRouteMatch {
@@ -1819,6 +2002,7 @@ export interface GrpcGatewayRouteMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents a gRPC gateway route.</p>
  */
 export interface GrpcGatewayRoute {
@@ -1834,6 +2018,7 @@ export interface GrpcGatewayRoute {
 }
 
 /**
+ * @public
  * <p>An object that represents the path to rewrite.</p>
  */
 export interface HttpGatewayRoutePathRewrite {
@@ -1844,6 +2029,7 @@ export interface HttpGatewayRoutePathRewrite {
 }
 
 /**
+ * @public
  * <p>An object representing the beginning characters of the route to rewrite.</p>
  */
 export interface HttpGatewayRoutePrefixRewrite {
@@ -1859,6 +2045,7 @@ export interface HttpGatewayRoutePrefixRewrite {
 }
 
 /**
+ * @public
  * <p>An object representing the gateway route to rewrite.</p>
  */
 export interface HttpGatewayRouteRewrite {
@@ -1879,6 +2066,7 @@ export interface HttpGatewayRouteRewrite {
 }
 
 /**
+ * @public
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface HttpGatewayRouteAction {
@@ -1894,6 +2082,7 @@ export interface HttpGatewayRouteAction {
 }
 
 /**
+ * @public
  * <p>An object that represents the method and value to match with the header value sent in a
  *          request. Specify one match method.</p>
  */
@@ -1905,6 +2094,9 @@ export type HeaderMatchMethod =
   | HeaderMatchMethod.SuffixMember
   | HeaderMatchMethod.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace HeaderMatchMethod {
   /**
    * <p>The value sent by the client must match the specified value exactly.</p>
@@ -1995,6 +2187,7 @@ export namespace HeaderMatchMethod {
 }
 
 /**
+ * @public
  * <p>An object that represents the HTTP header in the gateway route.</p>
  */
 export interface HttpGatewayRouteHeader {
@@ -2016,19 +2209,29 @@ export interface HttpGatewayRouteHeader {
   match?: HeaderMatchMethod;
 }
 
-export enum HttpMethod {
-  CONNECT = "CONNECT",
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-  TRACE = "TRACE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HttpMethod = {
+  CONNECT: "CONNECT",
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+  TRACE: "TRACE",
+} as const;
 
 /**
+ * @public
+ */
+export type HttpMethod = (typeof HttpMethod)[keyof typeof HttpMethod];
+
+/**
+ * @public
  * <p>An object representing the path to match in the request.</p>
  */
 export interface HttpPathMatch {
@@ -2044,6 +2247,7 @@ export interface HttpPathMatch {
 }
 
 /**
+ * @public
  * <p>An object representing the query parameter to match.</p>
  */
 export interface QueryParameterMatch {
@@ -2054,6 +2258,7 @@ export interface QueryParameterMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents the query parameter in the request.</p>
  */
 export interface HttpQueryParameter {
@@ -2069,6 +2274,7 @@ export interface HttpQueryParameter {
 }
 
 /**
+ * @public
  * <p>An object that represents the criteria for determining a request match.</p>
  */
 export interface HttpGatewayRouteMatch {
@@ -2114,6 +2320,7 @@ export interface HttpGatewayRouteMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents an HTTP gateway route.</p>
  */
 export interface HttpGatewayRoute {
@@ -2129,6 +2336,7 @@ export interface HttpGatewayRoute {
 }
 
 /**
+ * @public
  * <p>An object that represents a gateway route specification. Specify one gateway route
  *          type.</p>
  */
@@ -2154,6 +2362,9 @@ export interface GatewayRouteSpec {
   grpcRoute?: GrpcGatewayRoute;
 }
 
+/**
+ * @public
+ */
 export interface CreateGatewayRouteInput {
   /**
    * <p>The name to use for the gateway route.</p>
@@ -2199,13 +2410,23 @@ export interface CreateGatewayRouteInput {
   meshOwner?: string;
 }
 
-export enum GatewayRouteStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GatewayRouteStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type GatewayRouteStatusCode = (typeof GatewayRouteStatusCode)[keyof typeof GatewayRouteStatusCode];
+
+/**
+ * @public
  * <p>An object that represents the current status of a gateway route.</p>
  */
 export interface GatewayRouteStatus {
@@ -2216,6 +2437,7 @@ export interface GatewayRouteStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a gateway route returned by a describe operation.</p>
  */
 export interface GatewayRouteData {
@@ -2250,6 +2472,9 @@ export interface GatewayRouteData {
   status: GatewayRouteStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateGatewayRouteOutput {
   /**
    * <p>The full description of your gateway route following the create call.</p>
@@ -2257,6 +2482,9 @@ export interface CreateGatewayRouteOutput {
   gatewayRoute: GatewayRouteData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGatewayRouteInput {
   /**
    * <p>The name of the gateway route to delete.</p>
@@ -2280,6 +2508,9 @@ export interface DeleteGatewayRouteInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGatewayRouteOutput {
   /**
    * <p>The gateway route that was deleted.</p>
@@ -2287,6 +2518,9 @@ export interface DeleteGatewayRouteOutput {
   gatewayRoute: GatewayRouteData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGatewayRouteInput {
   /**
    * <p>The name of the gateway route to describe.</p>
@@ -2310,6 +2544,9 @@ export interface DescribeGatewayRouteInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGatewayRouteOutput {
   /**
    * <p>The full description of your gateway route.</p>
@@ -2317,6 +2554,9 @@ export interface DescribeGatewayRouteOutput {
   gatewayRoute: GatewayRouteData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGatewayRoutesInput {
   /**
    * <p>The name of the service mesh to list gateway routes in.</p>
@@ -2356,6 +2596,7 @@ export interface ListGatewayRoutesInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a gateway route returned by a list operation.</p>
  */
 export interface GatewayRouteRef {
@@ -2407,6 +2648,9 @@ export interface GatewayRouteRef {
   lastUpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListGatewayRoutesOutput {
   /**
    * <p>The list of existing gateway routes for the specified service mesh and virtual
@@ -2423,6 +2667,9 @@ export interface ListGatewayRoutesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGatewayRouteInput {
   /**
    * <p>The name of the gateway route to update.</p>
@@ -2457,6 +2704,9 @@ export interface UpdateGatewayRouteInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGatewayRouteOutput {
   /**
    * <p>A full description of the gateway route that was updated.</p>
@@ -2464,6 +2714,9 @@ export interface UpdateGatewayRouteOutput {
   gatewayRoute: GatewayRouteData | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListVirtualGatewaysInput {
   /**
    * <p>The name of the service mesh to list virtual gateways in.</p>
@@ -2498,6 +2751,7 @@ export interface ListVirtualGatewaysInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual gateway returned by a list operation.</p>
  */
 export interface VirtualGatewayRef {
@@ -2544,6 +2798,9 @@ export interface VirtualGatewayRef {
   lastUpdatedAt: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListVirtualGatewaysOutput {
   /**
    * <p>The list of existing virtual gateways for the specified service mesh.</p>
@@ -2559,6 +2816,9 @@ export interface ListVirtualGatewaysOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVirtualGatewayInput {
   /**
    * <p>The name of the virtual gateway to update.</p>
@@ -2589,6 +2849,9 @@ export interface UpdateVirtualGatewayInput {
   meshOwner?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateVirtualGatewayOutput {
   /**
    * <p>A full description of the virtual gateway that was updated.</p>
@@ -2597,6 +2860,7 @@ export interface UpdateVirtualGatewayOutput {
 }
 
 /**
+ * @public
  * <p>An object that represents a local file certificate.
  *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
  */
@@ -2614,6 +2878,7 @@ export interface ListenerTlsFileCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents the listener's Secret Discovery Service certificate. The proxy
  *          must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh
  *          <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
@@ -2629,6 +2894,7 @@ export interface ListenerTlsSdsCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents the client's certificate.</p>
  */
 export type ClientTlsCertificate =
@@ -2636,6 +2902,9 @@ export type ClientTlsCertificate =
   | ClientTlsCertificate.SdsMember
   | ClientTlsCertificate.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ClientTlsCertificate {
   /**
    * <p>An object that represents a local file certificate. The certificate must meet specific
@@ -2678,6 +2947,7 @@ export namespace ClientTlsCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager
  *          certificate.</p>
  */
@@ -2689,6 +2959,7 @@ export interface TlsValidationContextAcmTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
  */
 export interface TlsValidationContextFileTrust {
@@ -2700,6 +2971,7 @@ export interface TlsValidationContextFileTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) Secret Discovery Service validation context trust. The
  *          proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh
  *          <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
@@ -2714,6 +2986,7 @@ export interface TlsValidationContextSdsTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust.</p>
  */
 export type TlsValidationContextTrust =
@@ -2722,6 +2995,9 @@ export type TlsValidationContextTrust =
   | TlsValidationContextTrust.SdsMember
   | TlsValidationContextTrust.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace TlsValidationContextTrust {
   /**
    * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager certificate.</p>
@@ -2777,6 +3053,7 @@ export namespace TlsValidationContextTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents how the proxy will validate its peer during Transport Layer Security (TLS)
  *          negotiation.</p>
  */
@@ -2800,6 +3077,7 @@ export interface TlsValidationContext {
 }
 
 /**
+ * @public
  * <p>A reference to an object that represents a Transport Layer Security (TLS) client policy.</p>
  */
 export interface ClientPolicyTls {
@@ -2825,6 +3103,7 @@ export interface ClientPolicyTls {
 }
 
 /**
+ * @public
  * <p>An object that represents a client policy.</p>
  */
 export interface ClientPolicy {
@@ -2835,6 +3114,7 @@ export interface ClientPolicy {
 }
 
 /**
+ * @public
  * <p>An object that represents the default properties for a backend.</p>
  */
 export interface BackendDefaults {
@@ -2845,6 +3125,7 @@ export interface BackendDefaults {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual service backend for a virtual node.</p>
  */
 export interface VirtualServiceBackend {
@@ -2860,11 +3141,15 @@ export interface VirtualServiceBackend {
 }
 
 /**
+ * @public
  * <p>An object that represents the backends that a virtual node is expected to send outbound
  *          traffic to.</p>
  */
 export type Backend = Backend.VirtualServiceMember | Backend.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Backend {
   /**
    * <p>Specifies a virtual service to use as a backend.  </p>
@@ -2891,6 +3176,7 @@ export namespace Backend {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualNodeGrpcConnectionPool {
@@ -2902,6 +3188,7 @@ export interface VirtualNodeGrpcConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualNodeHttpConnectionPool {
@@ -2919,6 +3206,7 @@ export interface VirtualNodeHttpConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualNodeHttp2ConnectionPool {
@@ -2930,6 +3218,7 @@ export interface VirtualNodeHttp2ConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents a type of connection pool.</p>
  */
 export interface VirtualNodeTcpConnectionPool {
@@ -2941,6 +3230,7 @@ export interface VirtualNodeTcpConnectionPool {
 }
 
 /**
+ * @public
  * <p>An object that represents the type of virtual node connection pool.</p>
  *          <p>Only one protocol is used at a time and should be the same protocol as the one chosen
  *          under port mapping.</p>
@@ -2955,6 +3245,9 @@ export type VirtualNodeConnectionPool =
   | VirtualNodeConnectionPool.TcpMember
   | VirtualNodeConnectionPool.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualNodeConnectionPool {
   /**
    * <p>An object that represents a type of connection pool.</p>
@@ -3025,14 +3318,24 @@ export namespace VirtualNodeConnectionPool {
   };
 }
 
-export enum PortProtocol {
-  GRPC = "grpc",
-  HTTP = "http",
-  HTTP2 = "http2",
-  TCP = "tcp",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PortProtocol = {
+  GRPC: "grpc",
+  HTTP: "http",
+  HTTP2: "http2",
+  TCP: "tcp",
+} as const;
 
 /**
+ * @public
+ */
+export type PortProtocol = (typeof PortProtocol)[keyof typeof PortProtocol];
+
+/**
+ * @public
  * <p>An object that represents the health check policy for a virtual node's listener.</p>
  */
 export interface HealthCheckPolicy {
@@ -3079,12 +3382,22 @@ export interface HealthCheckPolicy {
   unhealthyThreshold: number | undefined;
 }
 
-export enum DurationUnit {
-  MS = "ms",
-  S = "s",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DurationUnit = {
+  MS: "ms",
+  S: "s",
+} as const;
 
 /**
+ * @public
+ */
+export type DurationUnit = (typeof DurationUnit)[keyof typeof DurationUnit];
+
+/**
+ * @public
  * <p>An object that represents a duration of time.</p>
  */
 export interface Duration {
@@ -3100,6 +3413,7 @@ export interface Duration {
 }
 
 /**
+ * @public
  * <p>An object that represents the outlier detection for a virtual node's listener.</p>
  */
 export interface OutlierDetection {
@@ -3126,6 +3440,7 @@ export interface OutlierDetection {
 }
 
 /**
+ * @public
  * <p>An object that represents a port mapping.</p>
  */
 export interface PortMapping {
@@ -3141,6 +3456,7 @@ export interface PortMapping {
 }
 
 /**
+ * @public
  * <p>An object that represents types of timeouts. </p>
  */
 export interface GrpcTimeout {
@@ -3158,6 +3474,7 @@ export interface GrpcTimeout {
 }
 
 /**
+ * @public
  * <p>An object that represents types of timeouts. </p>
  */
 export interface HttpTimeout {
@@ -3175,6 +3492,7 @@ export interface HttpTimeout {
 }
 
 /**
+ * @public
  * <p>An object that represents types of timeouts. </p>
  */
 export interface TcpTimeout {
@@ -3185,6 +3503,7 @@ export interface TcpTimeout {
 }
 
 /**
+ * @public
  * <p>An object that represents timeouts for different protocols.</p>
  */
 export type ListenerTimeout =
@@ -3194,6 +3513,9 @@ export type ListenerTimeout =
   | ListenerTimeout.TcpMember
   | ListenerTimeout.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ListenerTimeout {
   /**
    * <p>An object that represents types of timeouts. </p>
@@ -3265,6 +3587,7 @@ export namespace ListenerTimeout {
 }
 
 /**
+ * @public
  * <p>An object that represents an Certificate Manager certificate.</p>
  */
 export interface ListenerTlsAcmCertificate {
@@ -3275,6 +3598,7 @@ export interface ListenerTlsAcmCertificate {
 }
 
 /**
+ * @public
  * <p>An object that represents a listener's Transport Layer Security (TLS) certificate.</p>
  */
 export type ListenerTlsCertificate =
@@ -3283,6 +3607,9 @@ export type ListenerTlsCertificate =
   | ListenerTlsCertificate.SdsMember
   | ListenerTlsCertificate.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ListenerTlsCertificate {
   /**
    * <p>A reference to an object that represents an Certificate Manager certificate.</p>
@@ -3337,13 +3664,23 @@ export namespace ListenerTlsCertificate {
   };
 }
 
-export enum ListenerTlsMode {
-  DISABLED = "DISABLED",
-  PERMISSIVE = "PERMISSIVE",
-  STRICT = "STRICT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ListenerTlsMode = {
+  DISABLED: "DISABLED",
+  PERMISSIVE: "PERMISSIVE",
+  STRICT: "STRICT",
+} as const;
 
 /**
+ * @public
+ */
+export type ListenerTlsMode = (typeof ListenerTlsMode)[keyof typeof ListenerTlsMode];
+
+/**
+ * @public
  * <p>An object that represents a listener's Transport Layer Security (TLS) validation context trust.</p>
  */
 export type ListenerTlsValidationContextTrust =
@@ -3351,6 +3688,9 @@ export type ListenerTlsValidationContextTrust =
   | ListenerTlsValidationContextTrust.SdsMember
   | ListenerTlsValidationContextTrust.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ListenerTlsValidationContextTrust {
   /**
    * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
@@ -3391,6 +3731,7 @@ export namespace ListenerTlsValidationContextTrust {
 }
 
 /**
+ * @public
  * <p>An object that represents a listener's Transport Layer Security (TLS) validation context.</p>
  */
 export interface ListenerTlsValidationContext {
@@ -3408,6 +3749,7 @@ export interface ListenerTlsValidationContext {
 }
 
 /**
+ * @public
  * <p>An object that represents the Transport Layer Security (TLS) properties for a listener.</p>
  */
 export interface ListenerTls {
@@ -3445,6 +3787,7 @@ export interface ListenerTls {
 }
 
 /**
+ * @public
  * <p>An object that represents a listener for a virtual node.</p>
  */
 export interface Listener {
@@ -3480,6 +3823,7 @@ export interface Listener {
 }
 
 /**
+ * @public
  * <p>An object that represents the logging information for a virtual node.</p>
  */
 export interface Logging {
@@ -3490,6 +3834,7 @@ export interface Logging {
 }
 
 /**
+ * @public
  * <p>An object that represents the Cloud Map attribute information for your
  *          virtual node.</p>
  *          <note>
@@ -3511,6 +3856,7 @@ export interface AwsCloudMapInstanceAttribute {
 }
 
 /**
+ * @public
  * <p>An object that represents the Cloud Map service discovery information for
  *          your virtual node.</p>
  *          <note>
@@ -3543,12 +3889,22 @@ export interface AwsCloudMapServiceDiscovery {
   ipPreference?: IpPreference | string;
 }
 
-export enum DnsResponseType {
-  ENDPOINTS = "ENDPOINTS",
-  LOADBALANCER = "LOADBALANCER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DnsResponseType = {
+  ENDPOINTS: "ENDPOINTS",
+  LOADBALANCER: "LOADBALANCER",
+} as const;
 
 /**
+ * @public
+ */
+export type DnsResponseType = (typeof DnsResponseType)[keyof typeof DnsResponseType];
+
+/**
+ * @public
  * <p>An object that represents the DNS service discovery information for your virtual
  *          node.</p>
  */
@@ -3572,6 +3928,7 @@ export interface DnsServiceDiscovery {
 }
 
 /**
+ * @public
  * <p>An object that represents the service discovery information for a virtual node.</p>
  */
 export type ServiceDiscovery =
@@ -3579,6 +3936,9 @@ export type ServiceDiscovery =
   | ServiceDiscovery.DnsMember
   | ServiceDiscovery.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ServiceDiscovery {
   /**
    * <p>Specifies the DNS information for the virtual node.</p>
@@ -3618,6 +3978,7 @@ export namespace ServiceDiscovery {
 }
 
 /**
+ * @public
  * <p>An object that represents the specification of a virtual node.</p>
  */
 export interface VirtualNodeSpec {
@@ -3651,6 +4012,7 @@ export interface VirtualNodeSpec {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualNodeInput {
@@ -3691,13 +4053,23 @@ export interface CreateVirtualNodeInput {
   meshOwner?: string;
 }
 
-export enum VirtualNodeStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VirtualNodeStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type VirtualNodeStatusCode = (typeof VirtualNodeStatusCode)[keyof typeof VirtualNodeStatusCode];
+
+/**
+ * @public
  * <p>An object that represents the current status of the virtual node.</p>
  */
 export interface VirtualNodeStatus {
@@ -3708,6 +4080,7 @@ export interface VirtualNodeStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual node returned by a describe operation.</p>
  */
 export interface VirtualNodeData {
@@ -3738,6 +4111,7 @@ export interface VirtualNodeData {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualNodeOutput {
@@ -3748,6 +4122,7 @@ export interface CreateVirtualNodeOutput {
 }
 
 /**
+ * @public
  * <p>Deletes a virtual node input.</p>
  */
 export interface DeleteVirtualNodeInput {
@@ -3769,6 +4144,7 @@ export interface DeleteVirtualNodeInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteVirtualNodeOutput {
@@ -3779,6 +4155,7 @@ export interface DeleteVirtualNodeOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualNodeInput {
@@ -3800,6 +4177,7 @@ export interface DescribeVirtualNodeInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualNodeOutput {
@@ -3810,6 +4188,7 @@ export interface DescribeVirtualNodeOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualNodesInput {
@@ -3846,6 +4225,7 @@ export interface ListVirtualNodesInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual node returned by a list operation.</p>
  */
 export interface VirtualNodeRef {
@@ -3893,6 +4273,7 @@ export interface VirtualNodeRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualNodesOutput {
@@ -3911,6 +4292,7 @@ export interface ListVirtualNodesOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualNodeInput {
@@ -3943,6 +4325,7 @@ export interface UpdateVirtualNodeInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualNodeOutput {
@@ -3953,6 +4336,7 @@ export interface UpdateVirtualNodeOutput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual router listener.</p>
  */
 export interface VirtualRouterListener {
@@ -3963,6 +4347,7 @@ export interface VirtualRouterListener {
 }
 
 /**
+ * @public
  * <p>An object that represents the specification of a virtual router.</p>
  */
 export interface VirtualRouterSpec {
@@ -3974,6 +4359,7 @@ export interface VirtualRouterSpec {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualRouterInput {
@@ -4014,13 +4400,23 @@ export interface CreateVirtualRouterInput {
   meshOwner?: string;
 }
 
-export enum VirtualRouterStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VirtualRouterStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type VirtualRouterStatusCode = (typeof VirtualRouterStatusCode)[keyof typeof VirtualRouterStatusCode];
+
+/**
+ * @public
  * <p>An object that represents the status of a virtual router. </p>
  */
 export interface VirtualRouterStatus {
@@ -4031,6 +4427,7 @@ export interface VirtualRouterStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual router returned by a describe operation.</p>
  */
 export interface VirtualRouterData {
@@ -4061,6 +4458,7 @@ export interface VirtualRouterData {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualRouterOutput {
@@ -4071,6 +4469,7 @@ export interface CreateVirtualRouterOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteVirtualRouterInput {
@@ -4092,6 +4491,7 @@ export interface DeleteVirtualRouterInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteVirtualRouterOutput {
@@ -4102,6 +4502,7 @@ export interface DeleteVirtualRouterOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualRouterInput {
@@ -4123,6 +4524,7 @@ export interface DescribeVirtualRouterInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualRouterOutput {
@@ -4133,6 +4535,7 @@ export interface DescribeVirtualRouterOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualRoutersInput {
@@ -4169,6 +4572,7 @@ export interface ListVirtualRoutersInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual router returned by a list operation.</p>
  */
 export interface VirtualRouterRef {
@@ -4216,6 +4620,7 @@ export interface VirtualRouterRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualRoutersOutput {
@@ -4234,6 +4639,7 @@ export interface ListVirtualRoutersOutput {
 }
 
 /**
+ * @public
  * <p>An object that represents a target and its relative weight. Traffic is distributed
  *          across targets according to their relative weight. For example, a weighted target with a
  *          relative weight of 50 receives five times as much traffic as one with a relative weight of
@@ -4257,6 +4663,7 @@ export interface WeightedTarget {
 }
 
 /**
+ * @public
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface GrpcRouteAction {
@@ -4267,6 +4674,7 @@ export interface GrpcRouteAction {
 }
 
 /**
+ * @public
  * <p>An object that represents the match method. Specify one of the match values.</p>
  */
 export type GrpcRouteMetadataMatchMethod =
@@ -4277,6 +4685,9 @@ export type GrpcRouteMetadataMatchMethod =
   | GrpcRouteMetadataMatchMethod.SuffixMember
   | GrpcRouteMetadataMatchMethod.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace GrpcRouteMetadataMatchMethod {
   /**
    * <p>The value sent by the client must match the specified value exactly.</p>
@@ -4367,6 +4778,7 @@ export namespace GrpcRouteMetadataMatchMethod {
 }
 
 /**
+ * @public
  * <p>An object that represents the match metadata for the route.</p>
  */
 export interface GrpcRouteMetadata {
@@ -4387,6 +4799,7 @@ export interface GrpcRouteMetadata {
 }
 
 /**
+ * @public
  * <p>An object that represents the criteria for determining a request match.</p>
  */
 export interface GrpcRouteMatch {
@@ -4412,19 +4825,38 @@ export interface GrpcRouteMatch {
   port?: number;
 }
 
-export enum GrpcRetryPolicyEvent {
-  CANCELLED = "cancelled",
-  DEADLINE_EXCEEDED = "deadline-exceeded",
-  INTERNAL = "internal",
-  RESOURCE_EXHAUSTED = "resource-exhausted",
-  UNAVAILABLE = "unavailable",
-}
-
-export enum TcpRetryPolicyEvent {
-  CONNECTION_ERROR = "connection-error",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GrpcRetryPolicyEvent = {
+  CANCELLED: "cancelled",
+  DEADLINE_EXCEEDED: "deadline-exceeded",
+  INTERNAL: "internal",
+  RESOURCE_EXHAUSTED: "resource-exhausted",
+  UNAVAILABLE: "unavailable",
+} as const;
 
 /**
+ * @public
+ */
+export type GrpcRetryPolicyEvent = (typeof GrpcRetryPolicyEvent)[keyof typeof GrpcRetryPolicyEvent];
+
+/**
+ * @public
+ * @enum
+ */
+export const TcpRetryPolicyEvent = {
+  CONNECTION_ERROR: "connection-error",
+} as const;
+
+/**
+ * @public
+ */
+export type TcpRetryPolicyEvent = (typeof TcpRetryPolicyEvent)[keyof typeof TcpRetryPolicyEvent];
+
+/**
+ * @public
  * <p>An object that represents a retry policy. Specify at least one value for at least one of the types of <code>RetryEvents</code>, a value for <code>maxRetries</code>, and a value for <code>perRetryTimeout</code>.
  *                Both <code>server-error</code> and <code>gateway-error</code> under <code>httpRetryEvents</code> include the Envoy <code>reset</code> policy. For more information on the
  *                <code>reset</code> policy, see the <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-retry-on">Envoy documentation</a>.</p>
@@ -4478,6 +4910,7 @@ export interface GrpcRetryPolicy {
 }
 
 /**
+ * @public
  * <p>An object that represents a gRPC route type.</p>
  */
 export interface GrpcRoute {
@@ -4503,6 +4936,7 @@ export interface GrpcRoute {
 }
 
 /**
+ * @public
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface HttpRouteAction {
@@ -4513,6 +4947,7 @@ export interface HttpRouteAction {
 }
 
 /**
+ * @public
  * <p>An object that represents the HTTP header in the request.</p>
  */
 export interface HttpRouteHeader {
@@ -4532,12 +4967,22 @@ export interface HttpRouteHeader {
   match?: HeaderMatchMethod;
 }
 
-export enum HttpScheme {
-  HTTP = "http",
-  HTTPS = "https",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HttpScheme = {
+  HTTP: "http",
+  HTTPS: "https",
+} as const;
 
 /**
+ * @public
+ */
+export type HttpScheme = (typeof HttpScheme)[keyof typeof HttpScheme];
+
+/**
+ * @public
  * <p>An object that represents the requirements for a route to match HTTP requests for a
  *          virtual router.</p>
  */
@@ -4585,6 +5030,7 @@ export interface HttpRouteMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents a retry policy. Specify at least one value for at least one of the types of <code>RetryEvents</code>, a value for <code>maxRetries</code>, and a value for <code>perRetryTimeout</code>.
  *                Both <code>server-error</code> and <code>gateway-error</code> under <code>httpRetryEvents</code> include the Envoy <code>reset</code> policy. For more information on the
  *                <code>reset</code> policy, see the <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-retry-on">Envoy documentation</a>.</p>
@@ -4633,6 +5079,7 @@ export interface HttpRetryPolicy {
 }
 
 /**
+ * @public
  * <p>An object that represents an HTTP or HTTP/2 route type.</p>
  */
 export interface HttpRoute {
@@ -4658,6 +5105,7 @@ export interface HttpRoute {
 }
 
 /**
+ * @public
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface TcpRouteAction {
@@ -4668,6 +5116,7 @@ export interface TcpRouteAction {
 }
 
 /**
+ * @public
  * <p>An object representing the TCP route to match.</p>
  */
 export interface TcpRouteMatch {
@@ -4678,6 +5127,7 @@ export interface TcpRouteMatch {
 }
 
 /**
+ * @public
  * <p>An object that represents a TCP route type.</p>
  */
 export interface TcpRoute {
@@ -4698,6 +5148,7 @@ export interface TcpRoute {
 }
 
 /**
+ * @public
  * <p>An object that represents a route specification. Specify one route type.</p>
  */
 export interface RouteSpec {
@@ -4729,6 +5180,7 @@ export interface RouteSpec {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateRouteInput {
@@ -4775,13 +5227,23 @@ export interface CreateRouteInput {
   meshOwner?: string;
 }
 
-export enum RouteStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RouteStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type RouteStatusCode = (typeof RouteStatusCode)[keyof typeof RouteStatusCode];
+
+/**
+ * @public
  * <p>An object that represents the current status of a route.</p>
  */
 export interface RouteStatus {
@@ -4792,6 +5254,7 @@ export interface RouteStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a route returned by a describe operation.</p>
  */
 export interface RouteData {
@@ -4827,6 +5290,7 @@ export interface RouteData {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateRouteOutput {
@@ -4837,6 +5301,7 @@ export interface CreateRouteOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteRouteInput {
@@ -4863,6 +5328,7 @@ export interface DeleteRouteInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteRouteOutput {
@@ -4873,6 +5339,7 @@ export interface DeleteRouteOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeRouteInput {
@@ -4899,6 +5366,7 @@ export interface DescribeRouteInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeRouteOutput {
@@ -4909,6 +5377,7 @@ export interface DescribeRouteOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface ListRoutesInput {
@@ -4950,6 +5419,7 @@ export interface ListRoutesInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a route returned by a list operation.</p>
  */
 export interface RouteRef {
@@ -5002,6 +5472,7 @@ export interface RouteRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListRoutesOutput {
@@ -5020,6 +5491,7 @@ export interface ListRoutesOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateRouteInput {
@@ -5057,6 +5529,7 @@ export interface UpdateRouteInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateRouteOutput {
@@ -5067,6 +5540,7 @@ export interface UpdateRouteOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualRouterInput {
@@ -5099,6 +5573,7 @@ export interface UpdateVirtualRouterInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualRouterOutput {
@@ -5109,6 +5584,7 @@ export interface UpdateVirtualRouterOutput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual node service provider.</p>
  */
 export interface VirtualNodeServiceProvider {
@@ -5119,6 +5595,7 @@ export interface VirtualNodeServiceProvider {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual node service provider.</p>
  */
 export interface VirtualRouterServiceProvider {
@@ -5129,6 +5606,7 @@ export interface VirtualRouterServiceProvider {
 }
 
 /**
+ * @public
  * <p>An object that represents the provider for a virtual service.</p>
  */
 export type VirtualServiceProvider =
@@ -5136,6 +5614,9 @@ export type VirtualServiceProvider =
   | VirtualServiceProvider.VirtualRouterMember
   | VirtualServiceProvider.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace VirtualServiceProvider {
   /**
    * <p>The virtual node associated with a virtual service.</p>
@@ -5175,6 +5656,7 @@ export namespace VirtualServiceProvider {
 }
 
 /**
+ * @public
  * <p>An object that represents the specification of a virtual service.</p>
  */
 export interface VirtualServiceSpec {
@@ -5186,6 +5668,7 @@ export interface VirtualServiceSpec {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualServiceInput {
@@ -5226,13 +5709,23 @@ export interface CreateVirtualServiceInput {
   meshOwner?: string;
 }
 
-export enum VirtualServiceStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VirtualServiceStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type VirtualServiceStatusCode = (typeof VirtualServiceStatusCode)[keyof typeof VirtualServiceStatusCode];
+
+/**
+ * @public
  * <p>An object that represents the status of a virtual service.</p>
  */
 export interface VirtualServiceStatus {
@@ -5243,6 +5736,7 @@ export interface VirtualServiceStatus {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual service returned by a describe operation.</p>
  */
 export interface VirtualServiceData {
@@ -5273,6 +5767,7 @@ export interface VirtualServiceData {
 }
 
 /**
+ * @public
  *
  */
 export interface CreateVirtualServiceOutput {
@@ -5283,6 +5778,7 @@ export interface CreateVirtualServiceOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteVirtualServiceInput {
@@ -5304,6 +5800,7 @@ export interface DeleteVirtualServiceInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DeleteVirtualServiceOutput {
@@ -5314,6 +5811,7 @@ export interface DeleteVirtualServiceOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualServiceInput {
@@ -5335,6 +5833,7 @@ export interface DescribeVirtualServiceInput {
 }
 
 /**
+ * @public
  *
  */
 export interface DescribeVirtualServiceOutput {
@@ -5345,6 +5844,7 @@ export interface DescribeVirtualServiceOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualServicesInput {
@@ -5381,6 +5881,7 @@ export interface ListVirtualServicesInput {
 }
 
 /**
+ * @public
  * <p>An object that represents a virtual service returned by a list operation.</p>
  */
 export interface VirtualServiceRef {
@@ -5428,6 +5929,7 @@ export interface VirtualServiceRef {
 }
 
 /**
+ * @public
  *
  */
 export interface ListVirtualServicesOutput {
@@ -5446,6 +5948,7 @@ export interface ListVirtualServicesOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualServiceInput {
@@ -5479,6 +5982,7 @@ export interface UpdateVirtualServiceInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UpdateVirtualServiceOutput {
@@ -5489,6 +5993,7 @@ export interface UpdateVirtualServiceOutput {
 }
 
 /**
+ * @public
  *
  */
 export interface TagResourceInput {
@@ -5506,11 +6011,13 @@ export interface TagResourceInput {
 }
 
 /**
+ * @public
  *
  */
 export interface TagResourceOutput {}
 
 /**
+ * @public
  * <p>The request exceeds the maximum allowed number of tags allowed per resource. The current
  *          limit is 50 user tags per resource. You must reduce the number of tags in the request. None
  *          of the tags in this request were applied.</p>
@@ -5532,6 +6039,7 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
+ * @public
  *
  */
 export interface UntagResourceInput {
@@ -5547,1675 +6055,7 @@ export interface UntagResourceInput {
 }
 
 /**
+ * @public
  *
  */
 export interface UntagResourceOutput {}
-
-/**
- * @internal
- */
-export const JsonFormatRefFilterSensitiveLog = (obj: JsonFormatRef): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingFormatFilterSensitiveLog = (obj: LoggingFormat): any => {
-  if (obj.text !== undefined) return { text: obj.text };
-  if (obj.json !== undefined) return { json: obj.json.map((item) => JsonFormatRefFilterSensitiveLog(item)) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const FileAccessLogFilterSensitiveLog = (obj: FileAccessLog): any => ({
-  ...obj,
-  ...(obj.format && { format: LoggingFormatFilterSensitiveLog(obj.format) }),
-});
-
-/**
- * @internal
- */
-export const AccessLogFilterSensitiveLog = (obj: AccessLog): any => {
-  if (obj.file !== undefined) return { file: FileAccessLogFilterSensitiveLog(obj.file) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagRefFilterSensitiveLog = (obj: TagRef): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EgressFilterFilterSensitiveLog = (obj: EgressFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeshServiceDiscoveryFilterSensitiveLog = (obj: MeshServiceDiscovery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeshSpecFilterSensitiveLog = (obj: MeshSpec): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMeshInputFilterSensitiveLog = (obj: CreateMeshInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceMetadataFilterSensitiveLog = (obj: ResourceMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeshStatusFilterSensitiveLog = (obj: MeshStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeshDataFilterSensitiveLog = (obj: MeshData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMeshOutputFilterSensitiveLog = (obj: CreateMeshOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMeshInputFilterSensitiveLog = (obj: DeleteMeshInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMeshOutputFilterSensitiveLog = (obj: DeleteMeshOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMeshInputFilterSensitiveLog = (obj: DescribeMeshInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMeshOutputFilterSensitiveLog = (obj: DescribeMeshOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMeshesInputFilterSensitiveLog = (obj: ListMeshesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeshRefFilterSensitiveLog = (obj: MeshRef): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMeshesOutputFilterSensitiveLog = (obj: ListMeshesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMeshInputFilterSensitiveLog = (obj: UpdateMeshInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMeshOutputFilterSensitiveLog = (obj: UpdateMeshOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayListenerTlsFileCertificateFilterSensitiveLog = (
-  obj: VirtualGatewayListenerTlsFileCertificate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayListenerTlsSdsCertificateFilterSensitiveLog = (
-  obj: VirtualGatewayListenerTlsSdsCertificate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayClientTlsCertificateFilterSensitiveLog = (obj: VirtualGatewayClientTlsCertificate): any => {
-  if (obj.file !== undefined) return { file: VirtualGatewayListenerTlsFileCertificateFilterSensitiveLog(obj.file) };
-  if (obj.sds !== undefined) return { sds: VirtualGatewayListenerTlsSdsCertificateFilterSensitiveLog(obj.sds) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SubjectAlternativeNameMatchersFilterSensitiveLog = (obj: SubjectAlternativeNameMatchers): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubjectAlternativeNamesFilterSensitiveLog = (obj: SubjectAlternativeNames): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayTlsValidationContextAcmTrustFilterSensitiveLog = (
-  obj: VirtualGatewayTlsValidationContextAcmTrust
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayTlsValidationContextFileTrustFilterSensitiveLog = (
-  obj: VirtualGatewayTlsValidationContextFileTrust
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayTlsValidationContextSdsTrustFilterSensitiveLog = (
-  obj: VirtualGatewayTlsValidationContextSdsTrust
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayTlsValidationContextTrustFilterSensitiveLog = (
-  obj: VirtualGatewayTlsValidationContextTrust
-): any => {
-  if (obj.acm !== undefined) return { acm: VirtualGatewayTlsValidationContextAcmTrustFilterSensitiveLog(obj.acm) };
-  if (obj.file !== undefined) return { file: VirtualGatewayTlsValidationContextFileTrustFilterSensitiveLog(obj.file) };
-  if (obj.sds !== undefined) return { sds: VirtualGatewayTlsValidationContextSdsTrustFilterSensitiveLog(obj.sds) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const VirtualGatewayTlsValidationContextFilterSensitiveLog = (obj: VirtualGatewayTlsValidationContext): any => ({
-  ...obj,
-  ...(obj.trust && { trust: VirtualGatewayTlsValidationContextTrustFilterSensitiveLog(obj.trust) }),
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayClientPolicyTlsFilterSensitiveLog = (obj: VirtualGatewayClientPolicyTls): any => ({
-  ...obj,
-  ...(obj.certificate && { certificate: VirtualGatewayClientTlsCertificateFilterSensitiveLog(obj.certificate) }),
-  ...(obj.validation && { validation: VirtualGatewayTlsValidationContextFilterSensitiveLog(obj.validation) }),
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayClientPolicyFilterSensitiveLog = (obj: VirtualGatewayClientPolicy): any => ({
-  ...obj,
-  ...(obj.tls && { tls: VirtualGatewayClientPolicyTlsFilterSensitiveLog(obj.tls) }),
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayBackendDefaultsFilterSensitiveLog = (obj: VirtualGatewayBackendDefaults): any => ({
-  ...obj,
-  ...(obj.clientPolicy && { clientPolicy: VirtualGatewayClientPolicyFilterSensitiveLog(obj.clientPolicy) }),
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayGrpcConnectionPoolFilterSensitiveLog = (obj: VirtualGatewayGrpcConnectionPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayHttpConnectionPoolFilterSensitiveLog = (obj: VirtualGatewayHttpConnectionPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayHttp2ConnectionPoolFilterSensitiveLog = (obj: VirtualGatewayHttp2ConnectionPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayConnectionPoolFilterSensitiveLog = (obj: VirtualGatewayConnectionPool): any => {
-  if (obj.http !== undefined) return { http: VirtualGatewayHttpConnectionPoolFilterSensitiveLog(obj.http) };
-  if (obj.http2 !== undefined) return { http2: VirtualGatewayHttp2ConnectionPoolFilterSensitiveLog(obj.http2) };
-  if (obj.grpc !== undefined) return { grpc: VirtualGatewayGrpcConnectionPoolFilterSensitiveLog(obj.grpc) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const VirtualGatewayHealthCheckPolicyFilterSensitiveLog = (obj: VirtualGatewayHealthCheckPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayPortMappingFilterSensitiveLog = (obj: VirtualGatewayPortMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayListenerTlsAcmCertificateFilterSensitiveLog = (
-  obj: VirtualGatewayListenerTlsAcmCertificate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayListenerTlsCertificateFilterSensitiveLog = (
-  obj: VirtualGatewayListenerTlsCertificate
-): any => {
-  if (obj.acm !== undefined) return { acm: VirtualGatewayListenerTlsAcmCertificateFilterSensitiveLog(obj.acm) };
-  if (obj.file !== undefined) return { file: VirtualGatewayListenerTlsFileCertificateFilterSensitiveLog(obj.file) };
-  if (obj.sds !== undefined) return { sds: VirtualGatewayListenerTlsSdsCertificateFilterSensitiveLog(obj.sds) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const VirtualGatewayListenerTlsValidationContextTrustFilterSensitiveLog = (
-  obj: VirtualGatewayListenerTlsValidationContextTrust
-): any => {
-  if (obj.file !== undefined) return { file: VirtualGatewayTlsValidationContextFileTrustFilterSensitiveLog(obj.file) };
-  if (obj.sds !== undefined) return { sds: VirtualGatewayTlsValidationContextSdsTrustFilterSensitiveLog(obj.sds) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const VirtualGatewayListenerTlsValidationContextFilterSensitiveLog = (
-  obj: VirtualGatewayListenerTlsValidationContext
-): any => ({
-  ...obj,
-  ...(obj.trust && { trust: VirtualGatewayListenerTlsValidationContextTrustFilterSensitiveLog(obj.trust) }),
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayListenerTlsFilterSensitiveLog = (obj: VirtualGatewayListenerTls): any => ({
-  ...obj,
-  ...(obj.validation && { validation: VirtualGatewayListenerTlsValidationContextFilterSensitiveLog(obj.validation) }),
-  ...(obj.certificate && { certificate: VirtualGatewayListenerTlsCertificateFilterSensitiveLog(obj.certificate) }),
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayListenerFilterSensitiveLog = (obj: VirtualGatewayListener): any => ({
-  ...obj,
-  ...(obj.tls && { tls: VirtualGatewayListenerTlsFilterSensitiveLog(obj.tls) }),
-  ...(obj.connectionPool && { connectionPool: VirtualGatewayConnectionPoolFilterSensitiveLog(obj.connectionPool) }),
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayFileAccessLogFilterSensitiveLog = (obj: VirtualGatewayFileAccessLog): any => ({
-  ...obj,
-  ...(obj.format && { format: LoggingFormatFilterSensitiveLog(obj.format) }),
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayAccessLogFilterSensitiveLog = (obj: VirtualGatewayAccessLog): any => {
-  if (obj.file !== undefined) return { file: VirtualGatewayFileAccessLogFilterSensitiveLog(obj.file) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const VirtualGatewayLoggingFilterSensitiveLog = (obj: VirtualGatewayLogging): any => ({
-  ...obj,
-  ...(obj.accessLog && { accessLog: VirtualGatewayAccessLogFilterSensitiveLog(obj.accessLog) }),
-});
-
-/**
- * @internal
- */
-export const VirtualGatewaySpecFilterSensitiveLog = (obj: VirtualGatewaySpec): any => ({
-  ...obj,
-  ...(obj.backendDefaults && { backendDefaults: VirtualGatewayBackendDefaultsFilterSensitiveLog(obj.backendDefaults) }),
-  ...(obj.listeners && { listeners: obj.listeners.map((item) => VirtualGatewayListenerFilterSensitiveLog(item)) }),
-  ...(obj.logging && { logging: VirtualGatewayLoggingFilterSensitiveLog(obj.logging) }),
-});
-
-/**
- * @internal
- */
-export const CreateVirtualGatewayInputFilterSensitiveLog = (obj: CreateVirtualGatewayInput): any => ({
-  ...obj,
-  ...(obj.spec && { spec: VirtualGatewaySpecFilterSensitiveLog(obj.spec) }),
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayStatusFilterSensitiveLog = (obj: VirtualGatewayStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayDataFilterSensitiveLog = (obj: VirtualGatewayData): any => ({
-  ...obj,
-  ...(obj.spec && { spec: VirtualGatewaySpecFilterSensitiveLog(obj.spec) }),
-});
-
-/**
- * @internal
- */
-export const CreateVirtualGatewayOutputFilterSensitiveLog = (obj: CreateVirtualGatewayOutput): any => ({
-  ...obj,
-  ...(obj.virtualGateway && { virtualGateway: VirtualGatewayDataFilterSensitiveLog(obj.virtualGateway) }),
-});
-
-/**
- * @internal
- */
-export const DeleteVirtualGatewayInputFilterSensitiveLog = (obj: DeleteVirtualGatewayInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVirtualGatewayOutputFilterSensitiveLog = (obj: DeleteVirtualGatewayOutput): any => ({
-  ...obj,
-  ...(obj.virtualGateway && { virtualGateway: VirtualGatewayDataFilterSensitiveLog(obj.virtualGateway) }),
-});
-
-/**
- * @internal
- */
-export const DescribeVirtualGatewayInputFilterSensitiveLog = (obj: DescribeVirtualGatewayInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVirtualGatewayOutputFilterSensitiveLog = (obj: DescribeVirtualGatewayOutput): any => ({
-  ...obj,
-  ...(obj.virtualGateway && { virtualGateway: VirtualGatewayDataFilterSensitiveLog(obj.virtualGateway) }),
-});
-
-/**
- * @internal
- */
-export const GatewayRouteHostnameRewriteFilterSensitiveLog = (obj: GatewayRouteHostnameRewrite): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrpcGatewayRouteRewriteFilterSensitiveLog = (obj: GrpcGatewayRouteRewrite): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayRouteVirtualServiceFilterSensitiveLog = (obj: GatewayRouteVirtualService): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayRouteTargetFilterSensitiveLog = (obj: GatewayRouteTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrpcGatewayRouteActionFilterSensitiveLog = (obj: GrpcGatewayRouteAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayRouteHostnameMatchFilterSensitiveLog = (obj: GatewayRouteHostnameMatch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MatchRangeFilterSensitiveLog = (obj: MatchRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrpcMetadataMatchMethodFilterSensitiveLog = (obj: GrpcMetadataMatchMethod): any => {
-  if (obj.exact !== undefined) return { exact: obj.exact };
-  if (obj.regex !== undefined) return { regex: obj.regex };
-  if (obj.range !== undefined) return { range: MatchRangeFilterSensitiveLog(obj.range) };
-  if (obj.prefix !== undefined) return { prefix: obj.prefix };
-  if (obj.suffix !== undefined) return { suffix: obj.suffix };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const GrpcGatewayRouteMetadataFilterSensitiveLog = (obj: GrpcGatewayRouteMetadata): any => ({
-  ...obj,
-  ...(obj.match && { match: GrpcMetadataMatchMethodFilterSensitiveLog(obj.match) }),
-});
-
-/**
- * @internal
- */
-export const GrpcGatewayRouteMatchFilterSensitiveLog = (obj: GrpcGatewayRouteMatch): any => ({
-  ...obj,
-  ...(obj.metadata && { metadata: obj.metadata.map((item) => GrpcGatewayRouteMetadataFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GrpcGatewayRouteFilterSensitiveLog = (obj: GrpcGatewayRoute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpGatewayRoutePathRewriteFilterSensitiveLog = (obj: HttpGatewayRoutePathRewrite): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpGatewayRoutePrefixRewriteFilterSensitiveLog = (obj: HttpGatewayRoutePrefixRewrite): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpGatewayRouteRewriteFilterSensitiveLog = (obj: HttpGatewayRouteRewrite): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpGatewayRouteActionFilterSensitiveLog = (obj: HttpGatewayRouteAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HeaderMatchMethodFilterSensitiveLog = (obj: HeaderMatchMethod): any => {
-  if (obj.exact !== undefined) return { exact: obj.exact };
-  if (obj.regex !== undefined) return { regex: obj.regex };
-  if (obj.range !== undefined) return { range: MatchRangeFilterSensitiveLog(obj.range) };
-  if (obj.prefix !== undefined) return { prefix: obj.prefix };
-  if (obj.suffix !== undefined) return { suffix: obj.suffix };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const HttpGatewayRouteHeaderFilterSensitiveLog = (obj: HttpGatewayRouteHeader): any => ({
-  ...obj,
-  ...(obj.match && { match: HeaderMatchMethodFilterSensitiveLog(obj.match) }),
-});
-
-/**
- * @internal
- */
-export const HttpPathMatchFilterSensitiveLog = (obj: HttpPathMatch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryParameterMatchFilterSensitiveLog = (obj: QueryParameterMatch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpQueryParameterFilterSensitiveLog = (obj: HttpQueryParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpGatewayRouteMatchFilterSensitiveLog = (obj: HttpGatewayRouteMatch): any => ({
-  ...obj,
-  ...(obj.headers && { headers: obj.headers.map((item) => HttpGatewayRouteHeaderFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const HttpGatewayRouteFilterSensitiveLog = (obj: HttpGatewayRoute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayRouteSpecFilterSensitiveLog = (obj: GatewayRouteSpec): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGatewayRouteInputFilterSensitiveLog = (obj: CreateGatewayRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayRouteStatusFilterSensitiveLog = (obj: GatewayRouteStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayRouteDataFilterSensitiveLog = (obj: GatewayRouteData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGatewayRouteOutputFilterSensitiveLog = (obj: CreateGatewayRouteOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGatewayRouteInputFilterSensitiveLog = (obj: DeleteGatewayRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGatewayRouteOutputFilterSensitiveLog = (obj: DeleteGatewayRouteOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGatewayRouteInputFilterSensitiveLog = (obj: DescribeGatewayRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGatewayRouteOutputFilterSensitiveLog = (obj: DescribeGatewayRouteOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGatewayRoutesInputFilterSensitiveLog = (obj: ListGatewayRoutesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GatewayRouteRefFilterSensitiveLog = (obj: GatewayRouteRef): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGatewayRoutesOutputFilterSensitiveLog = (obj: ListGatewayRoutesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGatewayRouteInputFilterSensitiveLog = (obj: UpdateGatewayRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGatewayRouteOutputFilterSensitiveLog = (obj: UpdateGatewayRouteOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVirtualGatewaysInputFilterSensitiveLog = (obj: ListVirtualGatewaysInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualGatewayRefFilterSensitiveLog = (obj: VirtualGatewayRef): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVirtualGatewaysOutputFilterSensitiveLog = (obj: ListVirtualGatewaysOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVirtualGatewayInputFilterSensitiveLog = (obj: UpdateVirtualGatewayInput): any => ({
-  ...obj,
-  ...(obj.spec && { spec: VirtualGatewaySpecFilterSensitiveLog(obj.spec) }),
-});
-
-/**
- * @internal
- */
-export const UpdateVirtualGatewayOutputFilterSensitiveLog = (obj: UpdateVirtualGatewayOutput): any => ({
-  ...obj,
-  ...(obj.virtualGateway && { virtualGateway: VirtualGatewayDataFilterSensitiveLog(obj.virtualGateway) }),
-});
-
-/**
- * @internal
- */
-export const ListenerTlsFileCertificateFilterSensitiveLog = (obj: ListenerTlsFileCertificate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListenerTlsSdsCertificateFilterSensitiveLog = (obj: ListenerTlsSdsCertificate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientTlsCertificateFilterSensitiveLog = (obj: ClientTlsCertificate): any => {
-  if (obj.file !== undefined) return { file: ListenerTlsFileCertificateFilterSensitiveLog(obj.file) };
-  if (obj.sds !== undefined) return { sds: ListenerTlsSdsCertificateFilterSensitiveLog(obj.sds) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const TlsValidationContextAcmTrustFilterSensitiveLog = (obj: TlsValidationContextAcmTrust): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TlsValidationContextFileTrustFilterSensitiveLog = (obj: TlsValidationContextFileTrust): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TlsValidationContextSdsTrustFilterSensitiveLog = (obj: TlsValidationContextSdsTrust): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TlsValidationContextTrustFilterSensitiveLog = (obj: TlsValidationContextTrust): any => {
-  if (obj.acm !== undefined) return { acm: TlsValidationContextAcmTrustFilterSensitiveLog(obj.acm) };
-  if (obj.file !== undefined) return { file: TlsValidationContextFileTrustFilterSensitiveLog(obj.file) };
-  if (obj.sds !== undefined) return { sds: TlsValidationContextSdsTrustFilterSensitiveLog(obj.sds) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const TlsValidationContextFilterSensitiveLog = (obj: TlsValidationContext): any => ({
-  ...obj,
-  ...(obj.trust && { trust: TlsValidationContextTrustFilterSensitiveLog(obj.trust) }),
-});
-
-/**
- * @internal
- */
-export const ClientPolicyTlsFilterSensitiveLog = (obj: ClientPolicyTls): any => ({
-  ...obj,
-  ...(obj.certificate && { certificate: ClientTlsCertificateFilterSensitiveLog(obj.certificate) }),
-  ...(obj.validation && { validation: TlsValidationContextFilterSensitiveLog(obj.validation) }),
-});
-
-/**
- * @internal
- */
-export const ClientPolicyFilterSensitiveLog = (obj: ClientPolicy): any => ({
-  ...obj,
-  ...(obj.tls && { tls: ClientPolicyTlsFilterSensitiveLog(obj.tls) }),
-});
-
-/**
- * @internal
- */
-export const BackendDefaultsFilterSensitiveLog = (obj: BackendDefaults): any => ({
-  ...obj,
-  ...(obj.clientPolicy && { clientPolicy: ClientPolicyFilterSensitiveLog(obj.clientPolicy) }),
-});
-
-/**
- * @internal
- */
-export const VirtualServiceBackendFilterSensitiveLog = (obj: VirtualServiceBackend): any => ({
-  ...obj,
-  ...(obj.clientPolicy && { clientPolicy: ClientPolicyFilterSensitiveLog(obj.clientPolicy) }),
-});
-
-/**
- * @internal
- */
-export const BackendFilterSensitiveLog = (obj: Backend): any => {
-  if (obj.virtualService !== undefined)
-    return { virtualService: VirtualServiceBackendFilterSensitiveLog(obj.virtualService) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const VirtualNodeGrpcConnectionPoolFilterSensitiveLog = (obj: VirtualNodeGrpcConnectionPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualNodeHttpConnectionPoolFilterSensitiveLog = (obj: VirtualNodeHttpConnectionPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualNodeHttp2ConnectionPoolFilterSensitiveLog = (obj: VirtualNodeHttp2ConnectionPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualNodeTcpConnectionPoolFilterSensitiveLog = (obj: VirtualNodeTcpConnectionPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualNodeConnectionPoolFilterSensitiveLog = (obj: VirtualNodeConnectionPool): any => {
-  if (obj.tcp !== undefined) return { tcp: VirtualNodeTcpConnectionPoolFilterSensitiveLog(obj.tcp) };
-  if (obj.http !== undefined) return { http: VirtualNodeHttpConnectionPoolFilterSensitiveLog(obj.http) };
-  if (obj.http2 !== undefined) return { http2: VirtualNodeHttp2ConnectionPoolFilterSensitiveLog(obj.http2) };
-  if (obj.grpc !== undefined) return { grpc: VirtualNodeGrpcConnectionPoolFilterSensitiveLog(obj.grpc) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const HealthCheckPolicyFilterSensitiveLog = (obj: HealthCheckPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DurationFilterSensitiveLog = (obj: Duration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutlierDetectionFilterSensitiveLog = (obj: OutlierDetection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PortMappingFilterSensitiveLog = (obj: PortMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrpcTimeoutFilterSensitiveLog = (obj: GrpcTimeout): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpTimeoutFilterSensitiveLog = (obj: HttpTimeout): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TcpTimeoutFilterSensitiveLog = (obj: TcpTimeout): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListenerTimeoutFilterSensitiveLog = (obj: ListenerTimeout): any => {
-  if (obj.tcp !== undefined) return { tcp: TcpTimeoutFilterSensitiveLog(obj.tcp) };
-  if (obj.http !== undefined) return { http: HttpTimeoutFilterSensitiveLog(obj.http) };
-  if (obj.http2 !== undefined) return { http2: HttpTimeoutFilterSensitiveLog(obj.http2) };
-  if (obj.grpc !== undefined) return { grpc: GrpcTimeoutFilterSensitiveLog(obj.grpc) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ListenerTlsAcmCertificateFilterSensitiveLog = (obj: ListenerTlsAcmCertificate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListenerTlsCertificateFilterSensitiveLog = (obj: ListenerTlsCertificate): any => {
-  if (obj.acm !== undefined) return { acm: ListenerTlsAcmCertificateFilterSensitiveLog(obj.acm) };
-  if (obj.file !== undefined) return { file: ListenerTlsFileCertificateFilterSensitiveLog(obj.file) };
-  if (obj.sds !== undefined) return { sds: ListenerTlsSdsCertificateFilterSensitiveLog(obj.sds) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ListenerTlsValidationContextTrustFilterSensitiveLog = (obj: ListenerTlsValidationContextTrust): any => {
-  if (obj.file !== undefined) return { file: TlsValidationContextFileTrustFilterSensitiveLog(obj.file) };
-  if (obj.sds !== undefined) return { sds: TlsValidationContextSdsTrustFilterSensitiveLog(obj.sds) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ListenerTlsValidationContextFilterSensitiveLog = (obj: ListenerTlsValidationContext): any => ({
-  ...obj,
-  ...(obj.trust && { trust: ListenerTlsValidationContextTrustFilterSensitiveLog(obj.trust) }),
-});
-
-/**
- * @internal
- */
-export const ListenerTlsFilterSensitiveLog = (obj: ListenerTls): any => ({
-  ...obj,
-  ...(obj.certificate && { certificate: ListenerTlsCertificateFilterSensitiveLog(obj.certificate) }),
-  ...(obj.validation && { validation: ListenerTlsValidationContextFilterSensitiveLog(obj.validation) }),
-});
-
-/**
- * @internal
- */
-export const ListenerFilterSensitiveLog = (obj: Listener): any => ({
-  ...obj,
-  ...(obj.tls && { tls: ListenerTlsFilterSensitiveLog(obj.tls) }),
-  ...(obj.timeout && { timeout: ListenerTimeoutFilterSensitiveLog(obj.timeout) }),
-  ...(obj.connectionPool && { connectionPool: VirtualNodeConnectionPoolFilterSensitiveLog(obj.connectionPool) }),
-});
-
-/**
- * @internal
- */
-export const LoggingFilterSensitiveLog = (obj: Logging): any => ({
-  ...obj,
-  ...(obj.accessLog && { accessLog: AccessLogFilterSensitiveLog(obj.accessLog) }),
-});
-
-/**
- * @internal
- */
-export const AwsCloudMapInstanceAttributeFilterSensitiveLog = (obj: AwsCloudMapInstanceAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsCloudMapServiceDiscoveryFilterSensitiveLog = (obj: AwsCloudMapServiceDiscovery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DnsServiceDiscoveryFilterSensitiveLog = (obj: DnsServiceDiscovery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceDiscoveryFilterSensitiveLog = (obj: ServiceDiscovery): any => {
-  if (obj.dns !== undefined) return { dns: DnsServiceDiscoveryFilterSensitiveLog(obj.dns) };
-  if (obj.awsCloudMap !== undefined)
-    return { awsCloudMap: AwsCloudMapServiceDiscoveryFilterSensitiveLog(obj.awsCloudMap) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const VirtualNodeSpecFilterSensitiveLog = (obj: VirtualNodeSpec): any => ({
-  ...obj,
-  ...(obj.serviceDiscovery && { serviceDiscovery: ServiceDiscoveryFilterSensitiveLog(obj.serviceDiscovery) }),
-  ...(obj.listeners && { listeners: obj.listeners.map((item) => ListenerFilterSensitiveLog(item)) }),
-  ...(obj.backends && { backends: obj.backends.map((item) => BackendFilterSensitiveLog(item)) }),
-  ...(obj.backendDefaults && { backendDefaults: BackendDefaultsFilterSensitiveLog(obj.backendDefaults) }),
-  ...(obj.logging && { logging: LoggingFilterSensitiveLog(obj.logging) }),
-});
-
-/**
- * @internal
- */
-export const CreateVirtualNodeInputFilterSensitiveLog = (obj: CreateVirtualNodeInput): any => ({
-  ...obj,
-  ...(obj.spec && { spec: VirtualNodeSpecFilterSensitiveLog(obj.spec) }),
-});
-
-/**
- * @internal
- */
-export const VirtualNodeStatusFilterSensitiveLog = (obj: VirtualNodeStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualNodeDataFilterSensitiveLog = (obj: VirtualNodeData): any => ({
-  ...obj,
-  ...(obj.spec && { spec: VirtualNodeSpecFilterSensitiveLog(obj.spec) }),
-});
-
-/**
- * @internal
- */
-export const CreateVirtualNodeOutputFilterSensitiveLog = (obj: CreateVirtualNodeOutput): any => ({
-  ...obj,
-  ...(obj.virtualNode && { virtualNode: VirtualNodeDataFilterSensitiveLog(obj.virtualNode) }),
-});
-
-/**
- * @internal
- */
-export const DeleteVirtualNodeInputFilterSensitiveLog = (obj: DeleteVirtualNodeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVirtualNodeOutputFilterSensitiveLog = (obj: DeleteVirtualNodeOutput): any => ({
-  ...obj,
-  ...(obj.virtualNode && { virtualNode: VirtualNodeDataFilterSensitiveLog(obj.virtualNode) }),
-});
-
-/**
- * @internal
- */
-export const DescribeVirtualNodeInputFilterSensitiveLog = (obj: DescribeVirtualNodeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVirtualNodeOutputFilterSensitiveLog = (obj: DescribeVirtualNodeOutput): any => ({
-  ...obj,
-  ...(obj.virtualNode && { virtualNode: VirtualNodeDataFilterSensitiveLog(obj.virtualNode) }),
-});
-
-/**
- * @internal
- */
-export const ListVirtualNodesInputFilterSensitiveLog = (obj: ListVirtualNodesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualNodeRefFilterSensitiveLog = (obj: VirtualNodeRef): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVirtualNodesOutputFilterSensitiveLog = (obj: ListVirtualNodesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVirtualNodeInputFilterSensitiveLog = (obj: UpdateVirtualNodeInput): any => ({
-  ...obj,
-  ...(obj.spec && { spec: VirtualNodeSpecFilterSensitiveLog(obj.spec) }),
-});
-
-/**
- * @internal
- */
-export const UpdateVirtualNodeOutputFilterSensitiveLog = (obj: UpdateVirtualNodeOutput): any => ({
-  ...obj,
-  ...(obj.virtualNode && { virtualNode: VirtualNodeDataFilterSensitiveLog(obj.virtualNode) }),
-});
-
-/**
- * @internal
- */
-export const VirtualRouterListenerFilterSensitiveLog = (obj: VirtualRouterListener): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualRouterSpecFilterSensitiveLog = (obj: VirtualRouterSpec): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVirtualRouterInputFilterSensitiveLog = (obj: CreateVirtualRouterInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualRouterStatusFilterSensitiveLog = (obj: VirtualRouterStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualRouterDataFilterSensitiveLog = (obj: VirtualRouterData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVirtualRouterOutputFilterSensitiveLog = (obj: CreateVirtualRouterOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVirtualRouterInputFilterSensitiveLog = (obj: DeleteVirtualRouterInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVirtualRouterOutputFilterSensitiveLog = (obj: DeleteVirtualRouterOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVirtualRouterInputFilterSensitiveLog = (obj: DescribeVirtualRouterInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVirtualRouterOutputFilterSensitiveLog = (obj: DescribeVirtualRouterOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVirtualRoutersInputFilterSensitiveLog = (obj: ListVirtualRoutersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualRouterRefFilterSensitiveLog = (obj: VirtualRouterRef): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVirtualRoutersOutputFilterSensitiveLog = (obj: ListVirtualRoutersOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WeightedTargetFilterSensitiveLog = (obj: WeightedTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrpcRouteActionFilterSensitiveLog = (obj: GrpcRouteAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrpcRouteMetadataMatchMethodFilterSensitiveLog = (obj: GrpcRouteMetadataMatchMethod): any => {
-  if (obj.exact !== undefined) return { exact: obj.exact };
-  if (obj.regex !== undefined) return { regex: obj.regex };
-  if (obj.range !== undefined) return { range: MatchRangeFilterSensitiveLog(obj.range) };
-  if (obj.prefix !== undefined) return { prefix: obj.prefix };
-  if (obj.suffix !== undefined) return { suffix: obj.suffix };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const GrpcRouteMetadataFilterSensitiveLog = (obj: GrpcRouteMetadata): any => ({
-  ...obj,
-  ...(obj.match && { match: GrpcRouteMetadataMatchMethodFilterSensitiveLog(obj.match) }),
-});
-
-/**
- * @internal
- */
-export const GrpcRouteMatchFilterSensitiveLog = (obj: GrpcRouteMatch): any => ({
-  ...obj,
-  ...(obj.metadata && { metadata: obj.metadata.map((item) => GrpcRouteMetadataFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GrpcRetryPolicyFilterSensitiveLog = (obj: GrpcRetryPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrpcRouteFilterSensitiveLog = (obj: GrpcRoute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpRouteActionFilterSensitiveLog = (obj: HttpRouteAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpRouteHeaderFilterSensitiveLog = (obj: HttpRouteHeader): any => ({
-  ...obj,
-  ...(obj.match && { match: HeaderMatchMethodFilterSensitiveLog(obj.match) }),
-});
-
-/**
- * @internal
- */
-export const HttpRouteMatchFilterSensitiveLog = (obj: HttpRouteMatch): any => ({
-  ...obj,
-  ...(obj.headers && { headers: obj.headers.map((item) => HttpRouteHeaderFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const HttpRetryPolicyFilterSensitiveLog = (obj: HttpRetryPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpRouteFilterSensitiveLog = (obj: HttpRoute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TcpRouteActionFilterSensitiveLog = (obj: TcpRouteAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TcpRouteMatchFilterSensitiveLog = (obj: TcpRouteMatch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TcpRouteFilterSensitiveLog = (obj: TcpRoute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteSpecFilterSensitiveLog = (obj: RouteSpec): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRouteInputFilterSensitiveLog = (obj: CreateRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteStatusFilterSensitiveLog = (obj: RouteStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteDataFilterSensitiveLog = (obj: RouteData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRouteOutputFilterSensitiveLog = (obj: CreateRouteOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRouteInputFilterSensitiveLog = (obj: DeleteRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRouteOutputFilterSensitiveLog = (obj: DeleteRouteOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRouteInputFilterSensitiveLog = (obj: DescribeRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRouteOutputFilterSensitiveLog = (obj: DescribeRouteOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRoutesInputFilterSensitiveLog = (obj: ListRoutesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RouteRefFilterSensitiveLog = (obj: RouteRef): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRoutesOutputFilterSensitiveLog = (obj: ListRoutesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRouteInputFilterSensitiveLog = (obj: UpdateRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRouteOutputFilterSensitiveLog = (obj: UpdateRouteOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVirtualRouterInputFilterSensitiveLog = (obj: UpdateVirtualRouterInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVirtualRouterOutputFilterSensitiveLog = (obj: UpdateVirtualRouterOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualNodeServiceProviderFilterSensitiveLog = (obj: VirtualNodeServiceProvider): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualRouterServiceProviderFilterSensitiveLog = (obj: VirtualRouterServiceProvider): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualServiceProviderFilterSensitiveLog = (obj: VirtualServiceProvider): any => {
-  if (obj.virtualNode !== undefined)
-    return { virtualNode: VirtualNodeServiceProviderFilterSensitiveLog(obj.virtualNode) };
-  if (obj.virtualRouter !== undefined)
-    return { virtualRouter: VirtualRouterServiceProviderFilterSensitiveLog(obj.virtualRouter) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const VirtualServiceSpecFilterSensitiveLog = (obj: VirtualServiceSpec): any => ({
-  ...obj,
-  ...(obj.provider && { provider: VirtualServiceProviderFilterSensitiveLog(obj.provider) }),
-});
-
-/**
- * @internal
- */
-export const CreateVirtualServiceInputFilterSensitiveLog = (obj: CreateVirtualServiceInput): any => ({
-  ...obj,
-  ...(obj.spec && { spec: VirtualServiceSpecFilterSensitiveLog(obj.spec) }),
-});
-
-/**
- * @internal
- */
-export const VirtualServiceStatusFilterSensitiveLog = (obj: VirtualServiceStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualServiceDataFilterSensitiveLog = (obj: VirtualServiceData): any => ({
-  ...obj,
-  ...(obj.spec && { spec: VirtualServiceSpecFilterSensitiveLog(obj.spec) }),
-});
-
-/**
- * @internal
- */
-export const CreateVirtualServiceOutputFilterSensitiveLog = (obj: CreateVirtualServiceOutput): any => ({
-  ...obj,
-  ...(obj.virtualService && { virtualService: VirtualServiceDataFilterSensitiveLog(obj.virtualService) }),
-});
-
-/**
- * @internal
- */
-export const DeleteVirtualServiceInputFilterSensitiveLog = (obj: DeleteVirtualServiceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVirtualServiceOutputFilterSensitiveLog = (obj: DeleteVirtualServiceOutput): any => ({
-  ...obj,
-  ...(obj.virtualService && { virtualService: VirtualServiceDataFilterSensitiveLog(obj.virtualService) }),
-});
-
-/**
- * @internal
- */
-export const DescribeVirtualServiceInputFilterSensitiveLog = (obj: DescribeVirtualServiceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVirtualServiceOutputFilterSensitiveLog = (obj: DescribeVirtualServiceOutput): any => ({
-  ...obj,
-  ...(obj.virtualService && { virtualService: VirtualServiceDataFilterSensitiveLog(obj.virtualService) }),
-});
-
-/**
- * @internal
- */
-export const ListVirtualServicesInputFilterSensitiveLog = (obj: ListVirtualServicesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VirtualServiceRefFilterSensitiveLog = (obj: VirtualServiceRef): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVirtualServicesOutputFilterSensitiveLog = (obj: ListVirtualServicesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVirtualServiceInputFilterSensitiveLog = (obj: UpdateVirtualServiceInput): any => ({
-  ...obj,
-  ...(obj.spec && { spec: VirtualServiceSpecFilterSensitiveLog(obj.spec) }),
-});
-
-/**
- * @internal
- */
-export const UpdateVirtualServiceOutputFilterSensitiveLog = (obj: UpdateVirtualServiceOutput): any => ({
-  ...obj,
-  ...(obj.virtualService && { virtualService: VirtualServiceDataFilterSensitiveLog(obj.virtualService) }),
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});

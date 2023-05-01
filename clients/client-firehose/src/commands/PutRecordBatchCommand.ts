@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import {
-  PutRecordBatchInput,
-  PutRecordBatchInputFilterSensitiveLog,
-  PutRecordBatchOutput,
-  PutRecordBatchOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutRecordBatchCommand,
-  serializeAws_json1_1PutRecordBatchCommand,
-} from "../protocols/Aws_json1_1";
+import { PutRecordBatchInput, PutRecordBatchOutput } from "../models/models_0";
+import { de_PutRecordBatchCommand, se_PutRecordBatchCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRecordBatchCommand}.
  */
 export interface PutRecordBatchCommandInput extends PutRecordBatchInput {}
 /**
+ * @public
+ *
  * The output of {@link PutRecordBatchCommand}.
  */
 export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Writes multiple data records into a delivery stream in a single call, which can
  *          achieve higher throughput per producer than when writing single records. To write single
  *          data records into a delivery stream, use <a>PutRecord</a>. Applications using
@@ -92,10 +89,20 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  * import { FirehoseClient, PutRecordBatchCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, PutRecordBatchCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // PutRecordBatchInput
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   Records: [ // PutRecordBatchRequestEntryList // required
+ *     { // Record
+ *       Data: "BLOB_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutRecordBatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecordBatchCommandInput - {@link PutRecordBatchCommandInput}
+ * @returns {@link PutRecordBatchCommandOutput}
  * @see {@link PutRecordBatchCommandInput} for command's `input` shape.
  * @see {@link PutRecordBatchCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -138,6 +145,9 @@ export class PutRecordBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecordBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -166,8 +176,8 @@ export class PutRecordBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecordBatchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRecordBatchOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -177,12 +187,18 @@ export class PutRecordBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecordBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRecordBatchCommand(input, context);
+    return se_PutRecordBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordBatchCommandOutput> {
-    return deserializeAws_json1_1PutRecordBatchCommand(output, context);
+    return de_PutRecordBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteVocabularyRequest, DeleteVocabularyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVocabularyCommand,
-  serializeAws_json1_1DeleteVocabularyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteVocabularyRequest } from "../models/models_0";
+import { de_DeleteVocabularyCommand, se_DeleteVocabularyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVocabularyCommand}.
  */
 export interface DeleteVocabularyCommandInput extends DeleteVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVocabularyCommand}.
  */
 export interface DeleteVocabularyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom vocabulary. To use this operation, specify the name of the custom
  *             vocabulary you want to delete using <code>VocabularyName</code>. Custom vocabulary names
  *             are case sensitive.</p>
@@ -39,10 +41,15 @@ export interface DeleteVocabularyCommandOutput extends __MetadataBearer {}
  * import { TranscribeClient, DeleteVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DeleteVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // DeleteVocabularyRequest
+ *   VocabularyName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVocabularyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVocabularyCommandInput - {@link DeleteVocabularyCommandInput}
+ * @returns {@link DeleteVocabularyCommandOutput}
  * @see {@link DeleteVocabularyCommandInput} for command's `input` shape.
  * @see {@link DeleteVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class DeleteVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +133,18 @@ export class DeleteVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVocabularyCommand(input, context);
+    return se_DeleteVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVocabularyCommandOutput> {
-    return deserializeAws_json1_1DeleteVocabularyCommand(output, context);
+    return de_DeleteVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

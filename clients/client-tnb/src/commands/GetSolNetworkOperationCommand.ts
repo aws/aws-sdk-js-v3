@@ -15,26 +15,27 @@ import {
 
 import {
   GetSolNetworkOperationInput,
-  GetSolNetworkOperationInputFilterSensitiveLog,
   GetSolNetworkOperationOutput,
   GetSolNetworkOperationOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSolNetworkOperationCommand,
-  serializeAws_restJson1GetSolNetworkOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSolNetworkOperationCommand, se_GetSolNetworkOperationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSolNetworkOperationCommand}.
  */
 export interface GetSolNetworkOperationCommandInput extends GetSolNetworkOperationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSolNetworkOperationCommand}.
  */
 export interface GetSolNetworkOperationCommandOutput extends GetSolNetworkOperationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of a network operation, including the tasks involved in the network operation and the status of the tasks.</p>
  *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
  * @example
@@ -43,10 +44,15 @@ export interface GetSolNetworkOperationCommandOutput extends GetSolNetworkOperat
  * import { TnbClient, GetSolNetworkOperationCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolNetworkOperationCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // GetSolNetworkOperationInput
+ *   nsLcmOpOccId: "STRING_VALUE", // required
+ * };
  * const command = new GetSolNetworkOperationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSolNetworkOperationCommandInput - {@link GetSolNetworkOperationCommandInput}
+ * @returns {@link GetSolNetworkOperationCommandOutput}
  * @see {@link GetSolNetworkOperationCommandInput} for command's `input` shape.
  * @see {@link GetSolNetworkOperationCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -85,6 +91,9 @@ export class GetSolNetworkOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSolNetworkOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,7 +122,7 @@ export class GetSolNetworkOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSolNetworkOperationInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSolNetworkOperationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -124,12 +133,18 @@ export class GetSolNetworkOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSolNetworkOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSolNetworkOperationCommand(input, context);
+    return se_GetSolNetworkOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSolNetworkOperationCommandOutput> {
-    return deserializeAws_restJson1GetSolNetworkOperationCommand(output, context);
+    return de_GetSolNetworkOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListObjectVersionsOutput,
-  ListObjectVersionsOutputFilterSensitiveLog,
-  ListObjectVersionsRequest,
-  ListObjectVersionsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListObjectVersionsCommand,
-  serializeAws_restXmlListObjectVersionsCommand,
-} from "../protocols/Aws_restXml";
+import { ListObjectVersionsOutput, ListObjectVersionsRequest } from "../models/models_0";
+import { de_ListObjectVersionsCommand, se_ListObjectVersionsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectVersionsCommand}.
  */
 export interface ListObjectVersionsCommandInput extends ListObjectVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectVersionsCommand}.
  */
 export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about all versions of the objects in a bucket. You can also use request
  *          parameters as selection criteria to return metadata about a subset of all the object
  *          versions.</p>
@@ -80,10 +77,22 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * import { S3Client, ListObjectVersionsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListObjectVersionsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // ListObjectVersionsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Delimiter: "STRING_VALUE",
+ *   EncodingType: "url",
+ *   KeyMarker: "STRING_VALUE",
+ *   MaxKeys: Number("int"),
+ *   Prefix: "STRING_VALUE",
+ *   VersionIdMarker: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new ListObjectVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectVersionsCommandInput - {@link ListObjectVersionsCommandInput}
+ * @returns {@link ListObjectVersionsCommandOutput}
  * @see {@link ListObjectVersionsCommandInput} for command's `input` shape.
  * @see {@link ListObjectVersionsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -157,6 +166,9 @@ export class ListObjectVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,8 +197,8 @@ export class ListObjectVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObjectVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListObjectVersionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -196,12 +208,18 @@ export class ListObjectVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListObjectVersionsCommand(input, context);
+    return se_ListObjectVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectVersionsCommandOutput> {
-    return deserializeAws_restXmlListObjectVersionsCommand(output, context);
+    return de_ListObjectVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

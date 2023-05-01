@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  ListExportsRequest,
-  ListExportsRequestFilterSensitiveLog,
-  ListExportsResponse,
-  ListExportsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExportsCommand,
-  serializeAws_restJson1ListExportsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListExportsRequest, ListExportsResponse } from "../models/models_0";
+import { de_ListExportsCommand, se_ListExportsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListExportsCommand}.
  */
 export interface ListExportsCommandInput extends ListExportsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListExportsCommand}.
  */
 export interface ListExportsCommandOutput extends ListExportsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List exports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * import { MgnClient, ListExportsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListExportsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // ListExportsRequest
+ *   filters: { // ListExportsRequestFilters
+ *     exportIDs: [ // ListExportsRequestFiltersExportIDs
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListExportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListExportsCommandInput - {@link ListExportsCommandInput}
+ * @returns {@link ListExportsCommandOutput}
  * @see {@link ListExportsCommandInput} for command's `input` shape.
  * @see {@link ListExportsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -72,6 +80,9 @@ export class ListExportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListExportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +109,8 @@ export class ListExportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +120,18 @@ export class ListExportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExportsCommand(input, context);
+    return se_ListExportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExportsCommandOutput> {
-    return deserializeAws_restJson1ListExportsCommand(output, context);
+    return de_ListExportsCommand(output, context);
   }
 
   // Start section: command_body_extra

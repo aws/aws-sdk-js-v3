@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWorkflowRequest,
-  CreateWorkflowRequestFilterSensitiveLog,
-  CreateWorkflowResponse,
-  CreateWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWorkflowCommand,
-  serializeAws_json1_1CreateWorkflowCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateWorkflowRequest, CreateWorkflowResponse } from "../models/models_0";
+import { de_CreateWorkflowCommand, se_CreateWorkflowCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWorkflowCommand}.
  */
 export interface CreateWorkflowCommandInput extends CreateWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWorkflowCommand}.
  */
 export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Allows you to create a workflow with specified steps and step details the workflow invokes after file transfer completes.
  *       After creating a workflow, you can associate the workflow created with any transfer servers by specifying the <code>workflow-details</code> field in <code>CreateServer</code> and <code>UpdateServer</code> operations.
@@ -45,10 +42,133 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * import { TransferClient, CreateWorkflowCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateWorkflowCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // CreateWorkflowRequest
+ *   Description: "STRING_VALUE",
+ *   Steps: [ // WorkflowSteps // required
+ *     { // WorkflowStep
+ *       Type: "COPY" || "CUSTOM" || "TAG" || "DELETE" || "DECRYPT",
+ *       CopyStepDetails: { // CopyStepDetails
+ *         Name: "STRING_VALUE",
+ *         DestinationFileLocation: { // InputFileLocation
+ *           S3FileLocation: { // S3InputFileLocation
+ *             Bucket: "STRING_VALUE",
+ *             Key: "STRING_VALUE",
+ *           },
+ *           EfsFileLocation: { // EfsFileLocation
+ *             FileSystemId: "STRING_VALUE",
+ *             Path: "STRING_VALUE",
+ *           },
+ *         },
+ *         OverwriteExisting: "TRUE" || "FALSE",
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       CustomStepDetails: { // CustomStepDetails
+ *         Name: "STRING_VALUE",
+ *         Target: "STRING_VALUE",
+ *         TimeoutSeconds: Number("int"),
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       DeleteStepDetails: { // DeleteStepDetails
+ *         Name: "STRING_VALUE",
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       TagStepDetails: { // TagStepDetails
+ *         Name: "STRING_VALUE",
+ *         Tags: [ // S3Tags
+ *           { // S3Tag
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       DecryptStepDetails: { // DecryptStepDetails
+ *         Name: "STRING_VALUE",
+ *         Type: "PGP", // required
+ *         SourceFileLocation: "STRING_VALUE",
+ *         OverwriteExisting: "TRUE" || "FALSE",
+ *         DestinationFileLocation: {
+ *           S3FileLocation: {
+ *             Bucket: "STRING_VALUE",
+ *             Key: "STRING_VALUE",
+ *           },
+ *           EfsFileLocation: {
+ *             FileSystemId: "STRING_VALUE",
+ *             Path: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   OnExceptionSteps: [
+ *     {
+ *       Type: "COPY" || "CUSTOM" || "TAG" || "DELETE" || "DECRYPT",
+ *       CopyStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         DestinationFileLocation: {
+ *           S3FileLocation: {
+ *             Bucket: "STRING_VALUE",
+ *             Key: "STRING_VALUE",
+ *           },
+ *           EfsFileLocation: {
+ *             FileSystemId: "STRING_VALUE",
+ *             Path: "STRING_VALUE",
+ *           },
+ *         },
+ *         OverwriteExisting: "TRUE" || "FALSE",
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       CustomStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         Target: "STRING_VALUE",
+ *         TimeoutSeconds: Number("int"),
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       DeleteStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       TagStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         Tags: [
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       DecryptStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         Type: "PGP", // required
+ *         SourceFileLocation: "STRING_VALUE",
+ *         OverwriteExisting: "TRUE" || "FALSE",
+ *         DestinationFileLocation: {
+ *           S3FileLocation: {
+ *             Bucket: "STRING_VALUE",
+ *             Key: "STRING_VALUE",
+ *           },
+ *           EfsFileLocation: {
+ *             FileSystemId: "STRING_VALUE",
+ *             Path: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
+ * @returns {@link CreateWorkflowCommandOutput}
  * @see {@link CreateWorkflowCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -90,6 +210,9 @@ export class CreateWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +241,8 @@ export class CreateWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +252,18 @@ export class CreateWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkflowCommand(input, context);
+    return se_CreateWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkflowCommandOutput> {
-    return deserializeAws_json1_1CreateWorkflowCommand(output, context);
+    return de_CreateWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

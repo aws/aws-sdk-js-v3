@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetVoiceChannelRequest,
-  GetVoiceChannelRequestFilterSensitiveLog,
-  GetVoiceChannelResponse,
-  GetVoiceChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetVoiceChannelRequest, GetVoiceChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetVoiceChannelCommand,
-  serializeAws_restJson1GetVoiceChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVoiceChannelCommand, se_GetVoiceChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceChannelCommand}.
  */
 export interface GetVoiceChannelCommandInput extends GetVoiceChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceChannelCommand}.
  */
 export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the voice channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, _
  * import { PinpointClient, GetVoiceChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetVoiceChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetVoiceChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetVoiceChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVoiceChannelCommandInput - {@link GetVoiceChannelCommandInput}
+ * @returns {@link GetVoiceChannelCommandOutput}
  * @see {@link GetVoiceChannelCommandInput} for command's `input` shape.
  * @see {@link GetVoiceChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +92,9 @@ export class GetVoiceChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class GetVoiceChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVoiceChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class GetVoiceChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVoiceChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceChannelCommand(input, context);
+    return se_GetVoiceChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceChannelCommandOutput> {
-    return deserializeAws_restJson1GetVoiceChannelCommand(output, context);
+    return de_GetVoiceChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

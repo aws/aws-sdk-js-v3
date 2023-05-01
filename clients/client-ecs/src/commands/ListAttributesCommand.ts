@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListAttributesRequest,
-  ListAttributesRequestFilterSensitiveLog,
-  ListAttributesResponse,
-  ListAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAttributesCommand,
-  serializeAws_json1_1ListAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAttributesRequest, ListAttributesResponse } from "../models/models_0";
+import { de_ListAttributesCommand, se_ListAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAttributesCommand}.
  */
 export interface ListAttributesCommandInput extends ListAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAttributesCommand}.
  */
 export interface ListAttributesCommandOutput extends ListAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the attributes for Amazon ECS resources within a specified target type and cluster.
  * 			When you specify a target type and cluster, <code>ListAttributes</code> returns a list
  * 			of attribute objects, one for each attribute on each resource. You can filter the list
@@ -48,10 +45,20 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * import { ECSClient, ListAttributesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListAttributesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // ListAttributesRequest
+ *   cluster: "STRING_VALUE",
+ *   targetType: "container-instance", // required
+ *   attributeName: "STRING_VALUE",
+ *   attributeValue: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAttributesCommandInput - {@link ListAttributesCommandInput}
+ * @returns {@link ListAttributesCommandOutput}
  * @see {@link ListAttributesCommandInput} for command's `input` shape.
  * @see {@link ListAttributesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class ListAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +131,18 @@ export class ListAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAttributesCommand(input, context);
+    return se_ListAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttributesCommandOutput> {
-    return deserializeAws_json1_1ListAttributesCommand(output, context);
+    return de_ListAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

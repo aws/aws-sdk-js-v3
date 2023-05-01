@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RequestPhoneNumberRequest,
-  RequestPhoneNumberRequestFilterSensitiveLog,
-  RequestPhoneNumberResult,
-  RequestPhoneNumberResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RequestPhoneNumberRequest, RequestPhoneNumberResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0RequestPhoneNumberCommand,
-  serializeAws_json1_0RequestPhoneNumberCommand,
-} from "../protocols/Aws_json1_0";
+import { de_RequestPhoneNumberCommand, se_RequestPhoneNumberCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link RequestPhoneNumberCommand}.
  */
 export interface RequestPhoneNumberCommandInput extends RequestPhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link RequestPhoneNumberCommand}.
  */
 export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Request an origination phone number for use in your account. For more information on
  *             phone number request see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-request-number.html"> Requesting a
  *                 number </a> in the <i>Amazon Pinpoint User Guide</i>.</p>
@@ -48,10 +45,31 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  * import { PinpointSMSVoiceV2Client, RequestPhoneNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, RequestPhoneNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // RequestPhoneNumberRequest
+ *   IsoCountryCode: "STRING_VALUE", // required
+ *   MessageType: "STRING_VALUE", // required
+ *   NumberCapabilities: [ // NumberCapabilityList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   NumberType: "STRING_VALUE", // required
+ *   OptOutListName: "STRING_VALUE",
+ *   PoolId: "STRING_VALUE",
+ *   RegistrationId: "STRING_VALUE",
+ *   DeletionProtectionEnabled: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new RequestPhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RequestPhoneNumberCommandInput - {@link RequestPhoneNumberCommandInput}
+ * @returns {@link RequestPhoneNumberCommandOutput}
  * @see {@link RequestPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link RequestPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -102,6 +120,9 @@ export class RequestPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RequestPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +151,8 @@ export class RequestPhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestPhoneNumberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RequestPhoneNumberResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +162,18 @@ export class RequestPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RequestPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RequestPhoneNumberCommand(input, context);
+    return se_RequestPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestPhoneNumberCommandOutput> {
-    return deserializeAws_json1_0RequestPhoneNumberCommand(output, context);
+    return de_RequestPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,21 +25,23 @@ import {
   AdminInitiateAuthResponse,
   AdminInitiateAuthResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminInitiateAuthCommand,
-  serializeAws_json1_1AdminInitiateAuthCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminInitiateAuthCommand, se_AdminInitiateAuthCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminInitiateAuthCommand}.
  */
 export interface AdminInitiateAuthCommandInput extends AdminInitiateAuthRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminInitiateAuthCommand}.
  */
 export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates the authentication flow, as an administrator.</p>
  *
  *          <note>
@@ -67,10 +69,38 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * import { CognitoIdentityProviderClient, AdminInitiateAuthCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminInitiateAuthCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminInitiateAuthRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE", // required
+ *   AuthFlow: "USER_SRP_AUTH" || "REFRESH_TOKEN_AUTH" || "REFRESH_TOKEN" || "CUSTOM_AUTH" || "ADMIN_NO_SRP_AUTH" || "USER_PASSWORD_AUTH" || "ADMIN_USER_PASSWORD_AUTH", // required
+ *   AuthParameters: { // AuthParametersType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
+ *     AnalyticsEndpointId: "STRING_VALUE",
+ *   },
+ *   ContextData: { // ContextDataType
+ *     IpAddress: "STRING_VALUE", // required
+ *     ServerName: "STRING_VALUE", // required
+ *     ServerPath: "STRING_VALUE", // required
+ *     HttpHeaders: [ // HttpHeaderList // required
+ *       { // HttpHeader
+ *         headerName: "STRING_VALUE",
+ *         headerValue: "STRING_VALUE",
+ *       },
+ *     ],
+ *     EncodedData: "STRING_VALUE",
+ *   },
+ * };
  * const command = new AdminInitiateAuthCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminInitiateAuthCommandInput - {@link AdminInitiateAuthCommandInput}
+ * @returns {@link AdminInitiateAuthCommandOutput}
  * @see {@link AdminInitiateAuthCommandInput} for command's `input` shape.
  * @see {@link AdminInitiateAuthCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -149,6 +179,9 @@ export class AdminInitiateAuthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminInitiateAuthCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,12 +222,18 @@ export class AdminInitiateAuthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminInitiateAuthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminInitiateAuthCommand(input, context);
+    return se_AdminInitiateAuthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminInitiateAuthCommandOutput> {
-    return deserializeAws_json1_1AdminInitiateAuthCommand(output, context);
+    return de_AdminInitiateAuthCommand(output, context);
   }
 
   // Start section: command_body_extra

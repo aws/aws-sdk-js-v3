@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateModelQualityJobDefinitionRequest, CreateModelQualityJobDefinitionResponse } from "../models/models_1";
 import {
-  CreateModelQualityJobDefinitionRequest,
-  CreateModelQualityJobDefinitionRequestFilterSensitiveLog,
-  CreateModelQualityJobDefinitionResponse,
-  CreateModelQualityJobDefinitionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateModelQualityJobDefinitionCommand,
-  serializeAws_json1_1CreateModelQualityJobDefinitionCommand,
+  de_CreateModelQualityJobDefinitionCommand,
+  se_CreateModelQualityJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelQualityJobDefinitionCommand}.
  */
 export interface CreateModelQualityJobDefinitionCommandInput extends CreateModelQualityJobDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelQualityJobDefinitionCommand}.
  */
 export interface CreateModelQualityJobDefinitionCommandOutput
@@ -37,6 +36,7 @@ export interface CreateModelQualityJobDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a definition for a job that monitors model quality and drift. For information
  *          about model monitor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model Monitor</a>.</p>
  * @example
@@ -45,10 +45,116 @@ export interface CreateModelQualityJobDefinitionCommandOutput
  * import { SageMakerClient, CreateModelQualityJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateModelQualityJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateModelQualityJobDefinitionRequest
+ *   JobDefinitionName: "STRING_VALUE", // required
+ *   ModelQualityBaselineConfig: { // ModelQualityBaselineConfig
+ *     BaseliningJobName: "STRING_VALUE",
+ *     ConstraintsResource: { // MonitoringConstraintsResource
+ *       S3Uri: "STRING_VALUE",
+ *     },
+ *   },
+ *   ModelQualityAppSpecification: { // ModelQualityAppSpecification
+ *     ImageUri: "STRING_VALUE", // required
+ *     ContainerEntrypoint: [ // ContainerEntrypoint
+ *       "STRING_VALUE",
+ *     ],
+ *     ContainerArguments: [ // MonitoringContainerArguments
+ *       "STRING_VALUE",
+ *     ],
+ *     RecordPreprocessorSourceUri: "STRING_VALUE",
+ *     PostAnalyticsProcessorSourceUri: "STRING_VALUE",
+ *     ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
+ *     Environment: { // MonitoringEnvironmentMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   ModelQualityJobInput: { // ModelQualityJobInput
+ *     EndpointInput: { // EndpointInput
+ *       EndpointName: "STRING_VALUE", // required
+ *       LocalPath: "STRING_VALUE", // required
+ *       S3InputMode: "Pipe" || "File",
+ *       S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ *       FeaturesAttribute: "STRING_VALUE",
+ *       InferenceAttribute: "STRING_VALUE",
+ *       ProbabilityAttribute: "STRING_VALUE",
+ *       ProbabilityThresholdAttribute: Number("double"),
+ *       StartTimeOffset: "STRING_VALUE",
+ *       EndTimeOffset: "STRING_VALUE",
+ *     },
+ *     BatchTransformInput: { // BatchTransformInput
+ *       DataCapturedDestinationS3Uri: "STRING_VALUE", // required
+ *       DatasetFormat: { // MonitoringDatasetFormat
+ *         Csv: { // MonitoringCsvDatasetFormat
+ *           Header: true || false,
+ *         },
+ *         Json: { // MonitoringJsonDatasetFormat
+ *           Line: true || false,
+ *         },
+ *         Parquet: {},
+ *       },
+ *       LocalPath: "STRING_VALUE", // required
+ *       S3InputMode: "Pipe" || "File",
+ *       S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ *       FeaturesAttribute: "STRING_VALUE",
+ *       InferenceAttribute: "STRING_VALUE",
+ *       ProbabilityAttribute: "STRING_VALUE",
+ *       ProbabilityThresholdAttribute: Number("double"),
+ *       StartTimeOffset: "STRING_VALUE",
+ *       EndTimeOffset: "STRING_VALUE",
+ *     },
+ *     GroundTruthS3Input: { // MonitoringGroundTruthS3Input
+ *       S3Uri: "STRING_VALUE",
+ *     },
+ *   },
+ *   ModelQualityJobOutputConfig: { // MonitoringOutputConfig
+ *     MonitoringOutputs: [ // MonitoringOutputs // required
+ *       { // MonitoringOutput
+ *         S3Output: { // MonitoringS3Output
+ *           S3Uri: "STRING_VALUE", // required
+ *           LocalPath: "STRING_VALUE", // required
+ *           S3UploadMode: "Continuous" || "EndOfJob",
+ *         },
+ *       },
+ *     ],
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   JobResources: { // MonitoringResources
+ *     ClusterConfig: { // MonitoringClusterConfig
+ *       InstanceCount: Number("int"), // required
+ *       InstanceType: "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge", // required
+ *       VolumeSizeInGB: Number("int"), // required
+ *       VolumeKmsKeyId: "STRING_VALUE",
+ *     },
+ *   },
+ *   NetworkConfig: { // MonitoringNetworkConfig
+ *     EnableInterContainerTrafficEncryption: true || false,
+ *     EnableNetworkIsolation: true || false,
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // VpcSecurityGroupIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Subnets: [ // Subnets // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   StoppingCondition: { // MonitoringStoppingCondition
+ *     MaxRuntimeInSeconds: Number("int"), // required
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateModelQualityJobDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelQualityJobDefinitionCommandInput - {@link CreateModelQualityJobDefinitionCommandInput}
+ * @returns {@link CreateModelQualityJobDefinitionCommandOutput}
  * @see {@link CreateModelQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateModelQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -79,6 +185,9 @@ export class CreateModelQualityJobDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelQualityJobDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +216,8 @@ export class CreateModelQualityJobDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateModelQualityJobDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelQualityJobDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +227,24 @@ export class CreateModelQualityJobDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateModelQualityJobDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateModelQualityJobDefinitionCommand(input, context);
+    return se_CreateModelQualityJobDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateModelQualityJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1CreateModelQualityJobDefinitionCommand(output, context);
+    return de_CreateModelQualityJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

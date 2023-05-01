@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  EnableSecurityHubRequest,
-  EnableSecurityHubRequestFilterSensitiveLog,
-  EnableSecurityHubResponse,
-  EnableSecurityHubResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1EnableSecurityHubCommand,
-  serializeAws_restJson1EnableSecurityHubCommand,
-} from "../protocols/Aws_restJson1";
+import { EnableSecurityHubRequest, EnableSecurityHubResponse } from "../models/models_2";
+import { de_EnableSecurityHubCommand, se_EnableSecurityHubCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link EnableSecurityHubCommand}.
  */
 export interface EnableSecurityHubCommandInput extends EnableSecurityHubRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableSecurityHubCommand}.
  */
 export interface EnableSecurityHubCommandOutput extends EnableSecurityHubResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables Security Hub for your account in the current Region or the Region you specify in the
  *          request.</p>
  *          <p>When you enable Security Hub, you grant to Security Hub the permissions necessary to gather findings
@@ -61,10 +58,19 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  * import { SecurityHubClient, EnableSecurityHubCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, EnableSecurityHubCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // EnableSecurityHubRequest
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   EnableDefaultStandards: true || false,
+ *   ControlFindingGenerator: "STANDARD_CONTROL" || "SECURITY_CONTROL",
+ * };
  * const command = new EnableSecurityHubCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableSecurityHubCommandInput - {@link EnableSecurityHubCommandInput}
+ * @returns {@link EnableSecurityHubCommandOutput}
  * @see {@link EnableSecurityHubCommandInput} for command's `input` shape.
  * @see {@link EnableSecurityHubCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -86,6 +92,20 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
  *
+ * @example To activate Security Hub
+ * ```javascript
+ * // The following example activates the Security Hub service in the requesting AWS account. The service is activated in the current AWS Region or the Region that you specify in the request. Some standards are automatically turned on in your account unless you opt out. To determine which standards are automatically turned on, see the Security Hub documentation.
+ * const input = {
+ *   "EnableDefaultStandards": true,
+ *   "Tags": {
+ *     "Department": "Security"
+ *   }
+ * };
+ * const command = new EnableSecurityHubCommand(input);
+ * await client.send(command);
+ * // example id: to-activate-security-hub-1676998538599
+ * ```
+ *
  */
 export class EnableSecurityHubCommand extends $Command<
   EnableSecurityHubCommandInput,
@@ -104,6 +124,9 @@ export class EnableSecurityHubCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableSecurityHubCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +155,8 @@ export class EnableSecurityHubCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableSecurityHubRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableSecurityHubResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +166,18 @@ export class EnableSecurityHubCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableSecurityHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableSecurityHubCommand(input, context);
+    return se_EnableSecurityHubCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableSecurityHubCommandOutput> {
-    return deserializeAws_restJson1EnableSecurityHubCommand(output, context);
+    return de_EnableSecurityHubCommand(output, context);
   }
 
   // Start section: command_body_extra

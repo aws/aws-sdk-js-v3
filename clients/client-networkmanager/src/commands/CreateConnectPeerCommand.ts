@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateConnectPeerRequest,
-  CreateConnectPeerRequestFilterSensitiveLog,
-  CreateConnectPeerResponse,
-  CreateConnectPeerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateConnectPeerRequest, CreateConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1CreateConnectPeerCommand,
-  serializeAws_restJson1CreateConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateConnectPeerCommand, se_CreateConnectPeerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConnectPeerCommand}.
  */
 export interface CreateConnectPeerCommandInput extends CreateConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConnectPeerCommand}.
  */
 export interface CreateConnectPeerCommandOutput extends CreateConnectPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a core network Connect peer for a specified core network connect attachment between a core network and an appliance.
  *          The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
  * @example
@@ -43,10 +40,30 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * import { NetworkManagerClient, CreateConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // CreateConnectPeerRequest
+ *   ConnectAttachmentId: "STRING_VALUE", // required
+ *   CoreNetworkAddress: "STRING_VALUE",
+ *   PeerAddress: "STRING_VALUE", // required
+ *   BgpOptions: { // BgpOptions
+ *     PeerAsn: Number("long"),
+ *   },
+ *   InsideCidrBlocks: [ // ConstrainedStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateConnectPeerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConnectPeerCommandInput - {@link CreateConnectPeerCommandInput}
+ * @returns {@link CreateConnectPeerCommandOutput}
  * @see {@link CreateConnectPeerCommandInput} for command's `input` shape.
  * @see {@link CreateConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +106,9 @@ export class CreateConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +137,8 @@ export class CreateConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectPeerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectPeerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +148,18 @@ export class CreateConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConnectPeerCommand(input, context);
+    return se_CreateConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectPeerCommandOutput> {
-    return deserializeAws_restJson1CreateConnectPeerCommand(output, context);
+    return de_CreateConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

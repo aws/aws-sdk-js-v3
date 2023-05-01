@@ -18,23 +18,24 @@ import {
   BatchUpsertTableRowsRequest,
   BatchUpsertTableRowsRequestFilterSensitiveLog,
   BatchUpsertTableRowsResult,
-  BatchUpsertTableRowsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpsertTableRowsCommand,
-  serializeAws_restJson1BatchUpsertTableRowsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchUpsertTableRowsCommand, se_BatchUpsertTableRowsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpsertTableRowsCommand}.
  */
 export interface BatchUpsertTableRowsCommandInput extends BatchUpsertTableRowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpsertTableRowsCommand}.
  */
 export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The BatchUpsertTableRows API allows you to upsert one or more rows in a table. The upsert
  *             operation takes a filter expression as input and evaluates it to find matching rows on the destination
@@ -54,10 +55,34 @@ export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsR
  * import { HoneycodeClient, BatchUpsertTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, BatchUpsertTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = { // BatchUpsertTableRowsRequest
+ *   workbookId: "STRING_VALUE", // required
+ *   tableId: "STRING_VALUE", // required
+ *   rowsToUpsert: [ // UpsertRowDataList // required
+ *     { // UpsertRowData
+ *       batchItemId: "STRING_VALUE", // required
+ *       filter: { // Filter
+ *         formula: "STRING_VALUE", // required
+ *         contextRowId: "STRING_VALUE",
+ *       },
+ *       cellsToUpdate: { // RowDataInput // required
+ *         "<keys>": { // CellInput
+ *           fact: "STRING_VALUE",
+ *           facts: [ // FactList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new BatchUpsertTableRowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpsertTableRowsCommandInput - {@link BatchUpsertTableRowsCommandInput}
+ * @returns {@link BatchUpsertTableRowsCommandOutput}
  * @see {@link BatchUpsertTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchUpsertTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -112,6 +137,9 @@ export class BatchUpsertTableRowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpsertTableRowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,7 +169,7 @@ export class BatchUpsertTableRowsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchUpsertTableRowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpsertTableRowsResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +179,18 @@ export class BatchUpsertTableRowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpsertTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpsertTableRowsCommand(input, context);
+    return se_BatchUpsertTableRowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpsertTableRowsCommandOutput> {
-    return deserializeAws_restJson1BatchUpsertTableRowsCommand(output, context);
+    return de_BatchUpsertTableRowsCommand(output, context);
   }
 
   // Start section: command_body_extra

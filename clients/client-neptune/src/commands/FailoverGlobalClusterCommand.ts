@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  FailoverGlobalClusterMessage,
-  FailoverGlobalClusterMessageFilterSensitiveLog,
-  FailoverGlobalClusterResult,
-  FailoverGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { FailoverGlobalClusterMessage, FailoverGlobalClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryFailoverGlobalClusterCommand,
-  serializeAws_queryFailoverGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { de_FailoverGlobalClusterCommand, se_FailoverGlobalClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link FailoverGlobalClusterCommand}.
  */
 export interface FailoverGlobalClusterCommandInput extends FailoverGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link FailoverGlobalClusterCommand}.
  */
 export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates the failover process for a Neptune global database.</p>
  *          <p>A failover for a Neptune global database promotes one of secondary
  *       read-only DB clusters to be the primary DB cluster and demotes the
@@ -55,10 +52,16 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * import { NeptuneClient, FailoverGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, FailoverGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // FailoverGlobalClusterMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ *   TargetDbClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new FailoverGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param FailoverGlobalClusterCommandInput - {@link FailoverGlobalClusterCommandInput}
+ * @returns {@link FailoverGlobalClusterCommandOutput}
  * @see {@link FailoverGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link FailoverGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -95,6 +98,9 @@ export class FailoverGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: FailoverGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class FailoverGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FailoverGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: FailoverGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class FailoverGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FailoverGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryFailoverGlobalClusterCommand(input, context);
+    return se_FailoverGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FailoverGlobalClusterCommandOutput> {
-    return deserializeAws_queryFailoverGlobalClusterCommand(output, context);
+    return de_FailoverGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

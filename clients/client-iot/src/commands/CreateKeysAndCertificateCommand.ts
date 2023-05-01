@@ -16,25 +16,26 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   CreateKeysAndCertificateRequest,
-  CreateKeysAndCertificateRequestFilterSensitiveLog,
   CreateKeysAndCertificateResponse,
   CreateKeysAndCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateKeysAndCertificateCommand,
-  serializeAws_restJson1CreateKeysAndCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateKeysAndCertificateCommand, se_CreateKeysAndCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateKeysAndCertificateCommand}.
  */
 export interface CreateKeysAndCertificateCommandInput extends CreateKeysAndCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateKeysAndCertificateCommand}.
  */
 export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
  *          public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a
  *          device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p>
@@ -48,10 +49,15 @@ export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCert
  * import { IoTClient, CreateKeysAndCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateKeysAndCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateKeysAndCertificateRequest
+ *   setAsActive: true || false,
+ * };
  * const command = new CreateKeysAndCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKeysAndCertificateCommandInput - {@link CreateKeysAndCertificateCommandInput}
+ * @returns {@link CreateKeysAndCertificateCommandOutput}
  * @see {@link CreateKeysAndCertificateCommandInput} for command's `input` shape.
  * @see {@link CreateKeysAndCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -90,6 +96,9 @@ export class CreateKeysAndCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKeysAndCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +127,7 @@ export class CreateKeysAndCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKeysAndCertificateRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateKeysAndCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -129,12 +138,18 @@ export class CreateKeysAndCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKeysAndCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateKeysAndCertificateCommand(input, context);
+    return se_CreateKeysAndCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeysAndCertificateCommandOutput> {
-    return deserializeAws_restJson1CreateKeysAndCertificateCommand(output, context);
+    return de_CreateKeysAndCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

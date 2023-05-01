@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateAttributeGroupRequest,
-  DisassociateAttributeGroupRequestFilterSensitiveLog,
-  DisassociateAttributeGroupResponse,
-  DisassociateAttributeGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateAttributeGroupCommand,
-  serializeAws_restJson1DisassociateAttributeGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateAttributeGroupRequest, DisassociateAttributeGroupResponse } from "../models/models_0";
+import { de_DisassociateAttributeGroupCommand, se_DisassociateAttributeGroupCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateAttributeGroupCommand}.
  */
 export interface DisassociateAttributeGroupCommandInput extends DisassociateAttributeGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateAttributeGroupCommand}.
  */
 export interface DisassociateAttributeGroupCommandOutput extends DisassociateAttributeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts <code>AssociateAttributeGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,16 @@ export interface DisassociateAttributeGroupCommandOutput extends DisassociateAtt
  * import { ServiceCatalogAppRegistryClient, DisassociateAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, DisassociateAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // DisassociateAttributeGroupRequest
+ *   application: "STRING_VALUE", // required
+ *   attributeGroup: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateAttributeGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateAttributeGroupCommandInput - {@link DisassociateAttributeGroupCommandInput}
+ * @returns {@link DisassociateAttributeGroupCommandOutput}
  * @see {@link DisassociateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -82,6 +85,9 @@ export class DisassociateAttributeGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateAttributeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class DisassociateAttributeGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateAttributeGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateAttributeGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +127,21 @@ export class DisassociateAttributeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateAttributeGroupCommand(input, context);
+    return se_DisassociateAttributeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateAttributeGroupCommandOutput> {
-    return deserializeAws_restJson1DisassociateAttributeGroupCommand(output, context);
+    return de_DisassociateAttributeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

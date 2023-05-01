@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateQualificationTypeRequest,
-  UpdateQualificationTypeRequestFilterSensitiveLog,
-  UpdateQualificationTypeResponse,
-  UpdateQualificationTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateQualificationTypeRequest, UpdateQualificationTypeResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1UpdateQualificationTypeCommand,
-  serializeAws_json1_1UpdateQualificationTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateQualificationTypeCommand, se_UpdateQualificationTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQualificationTypeCommand}.
  */
 export interface UpdateQualificationTypeCommandInput extends UpdateQualificationTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQualificationTypeCommand}.
  */
 export interface UpdateQualificationTypeCommandOutput extends UpdateQualificationTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>UpdateQualificationType</code>
@@ -74,10 +71,23 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  * import { MTurkClient, UpdateQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, UpdateQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // UpdateQualificationTypeRequest
+ *   QualificationTypeId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   QualificationTypeStatus: "STRING_VALUE",
+ *   Test: "STRING_VALUE",
+ *   AnswerKey: "STRING_VALUE",
+ *   TestDurationInSeconds: Number("long"),
+ *   RetryDelayInSeconds: Number("long"),
+ *   AutoGranted: true || false,
+ *   AutoGrantedValue: Number("int"),
+ * };
  * const command = new UpdateQualificationTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQualificationTypeCommandInput - {@link UpdateQualificationTypeCommandInput}
+ * @returns {@link UpdateQualificationTypeCommandOutput}
  * @see {@link UpdateQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -107,6 +117,9 @@ export class UpdateQualificationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQualificationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +148,8 @@ export class UpdateQualificationTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQualificationTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateQualificationTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +159,18 @@ export class UpdateQualificationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateQualificationTypeCommand(input, context);
+    return se_UpdateQualificationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1UpdateQualificationTypeCommand(output, context);
+    return de_UpdateQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

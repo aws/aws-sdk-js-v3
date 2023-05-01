@@ -20,22 +20,24 @@ import {
   CreateMultipartUploadRequest,
   CreateMultipartUploadRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateMultipartUploadCommand,
-  serializeAws_restXmlCreateMultipartUploadCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateMultipartUploadCommand, se_CreateMultipartUploadCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMultipartUploadCommand}.
  */
 export interface CreateMultipartUploadCommandInput extends CreateMultipartUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMultipartUploadCommand}.
  */
 export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action initiates a multipart upload and returns an upload ID. This upload ID is
  *          used to associate all of the parts in the specific multipart upload. You specify this
  *          upload ID in each of your subsequent upload part requests (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>). You also include this
@@ -310,10 +312,46 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  * import { S3Client, CreateMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CreateMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // CreateMultipartUploadRequest
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *   Bucket: "STRING_VALUE", // required
+ *   CacheControl: "STRING_VALUE",
+ *   ContentDisposition: "STRING_VALUE",
+ *   ContentEncoding: "STRING_VALUE",
+ *   ContentLanguage: "STRING_VALUE",
+ *   ContentType: "STRING_VALUE",
+ *   Expires: new Date("TIMESTAMP"),
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   Key: "STRING_VALUE", // required
+ *   Metadata: { // Metadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ServerSideEncryption: "AES256" || "aws:kms",
+ *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ *   WebsiteRedirectLocation: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   SSEKMSKeyId: "STRING_VALUE",
+ *   SSEKMSEncryptionContext: "STRING_VALUE",
+ *   BucketKeyEnabled: true || false,
+ *   RequestPayer: "requester",
+ *   Tagging: "STRING_VALUE",
+ *   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
+ *   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
+ *   ObjectLockLegalHoldStatus: "ON" || "OFF",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * };
  * const command = new CreateMultipartUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMultipartUploadCommandInput - {@link CreateMultipartUploadCommandInput}
+ * @returns {@link CreateMultipartUploadCommandOutput}
  * @see {@link CreateMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link CreateMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -362,6 +400,9 @@ export class CreateMultipartUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -402,12 +443,18 @@ export class CreateMultipartUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateMultipartUploadCommand(input, context);
+    return se_CreateMultipartUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMultipartUploadCommandOutput> {
-    return deserializeAws_restXmlCreateMultipartUploadCommand(output, context);
+    return de_CreateMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

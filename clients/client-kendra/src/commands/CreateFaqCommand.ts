@@ -14,39 +14,59 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  CreateFaqRequest,
-  CreateFaqRequestFilterSensitiveLog,
-  CreateFaqResponse,
-  CreateFaqResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1CreateFaqCommand, serializeAws_json1_1CreateFaqCommand } from "../protocols/Aws_json1_1";
+import { CreateFaqRequest, CreateFaqResponse } from "../models/models_0";
+import { de_CreateFaqCommand, se_CreateFaqCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFaqCommand}.
  */
 export interface CreateFaqCommandInput extends CreateFaqRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFaqCommand}.
  */
 export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
+ * @public
+ * <p>Creates a set of frequently ask questions (FAQs) using a specified FAQ file stored
+ *             in an Amazon S3 bucket.</p>
  *          <p>Adding FAQs to an index is an asynchronous operation.</p>
- *          <p>For an example of adding an FAQ to an index using Python and Java SDKs,
- *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using your
- *                 FAQ file</a>.</p>
+ *          <p>For an example of adding an FAQ to an index using Python and Java SDKs, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using your FAQ file</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, CreateFaqCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateFaqCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // CreateFaqRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   S3Path: { // S3Path
+ *     Bucket: "STRING_VALUE", // required
+ *     Key: "STRING_VALUE", // required
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   FileFormat: "CSV" || "CSV_WITH_HEADER" || "JSON",
+ *   ClientToken: "STRING_VALUE",
+ *   LanguageCode: "STRING_VALUE",
+ * };
  * const command = new CreateFaqCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFaqCommandInput - {@link CreateFaqCommandInput}
+ * @returns {@link CreateFaqCommandOutput}
  * @see {@link CreateFaqCommandInput} for command's `input` shape.
  * @see {@link CreateFaqCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -61,7 +81,7 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -69,7 +89,8 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             Quotas[hyperlink Kendra Quotas pg] for more information, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> to inquire about
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
+ *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
  *             an increase of limits.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -99,6 +120,9 @@ export class CreateFaqCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFaqCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +149,8 @@ export class CreateFaqCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFaqRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFaqResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +160,18 @@ export class CreateFaqCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFaqCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFaqCommand(input, context);
+    return se_CreateFaqCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFaqCommandOutput> {
-    return deserializeAws_json1_1CreateFaqCommand(output, context);
+    return de_CreateFaqCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  DeleteQueuedMessagesRequest,
-  DeleteQueuedMessagesRequestFilterSensitiveLog,
-  DeleteQueuedMessagesResponse,
-  DeleteQueuedMessagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteQueuedMessagesCommand,
-  serializeAws_restJson1DeleteQueuedMessagesCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteQueuedMessagesRequest, DeleteQueuedMessagesResponse } from "../models/models_0";
+import { de_DeleteQueuedMessagesCommand, se_DeleteQueuedMessagesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQueuedMessagesCommand}.
  */
 export interface DeleteQueuedMessagesCommandInput extends DeleteQueuedMessagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQueuedMessagesCommand}.
  */
 export interface DeleteQueuedMessagesCommandOutput extends DeleteQueuedMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove queued messages from the downlink queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DeleteQueuedMessagesCommandOutput extends DeleteQueuedMessagesR
  * import { IoTWirelessClient, DeleteQueuedMessagesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteQueuedMessagesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DeleteQueuedMessagesRequest
+ *   Id: "STRING_VALUE", // required
+ *   MessageId: "STRING_VALUE", // required
+ *   WirelessDeviceType: "Sidewalk" || "LoRaWAN",
+ * };
  * const command = new DeleteQueuedMessagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQueuedMessagesCommandInput - {@link DeleteQueuedMessagesCommandInput}
+ * @returns {@link DeleteQueuedMessagesCommandOutput}
  * @see {@link DeleteQueuedMessagesCommandInput} for command's `input` shape.
  * @see {@link DeleteQueuedMessagesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +88,9 @@ export class DeleteQueuedMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQueuedMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class DeleteQueuedMessagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQueuedMessagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteQueuedMessagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class DeleteQueuedMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQueuedMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteQueuedMessagesCommand(input, context);
+    return se_DeleteQueuedMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueuedMessagesCommandOutput> {
-    return deserializeAws_restJson1DeleteQueuedMessagesCommand(output, context);
+    return de_DeleteQueuedMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

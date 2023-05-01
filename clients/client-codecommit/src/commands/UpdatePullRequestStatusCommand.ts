@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  UpdatePullRequestStatusInput,
-  UpdatePullRequestStatusInputFilterSensitiveLog,
-  UpdatePullRequestStatusOutput,
-  UpdatePullRequestStatusOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdatePullRequestStatusCommand,
-  serializeAws_json1_1UpdatePullRequestStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdatePullRequestStatusInput, UpdatePullRequestStatusOutput } from "../models/models_1";
+import { de_UpdatePullRequestStatusCommand, se_UpdatePullRequestStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePullRequestStatusCommand}.
  */
 export interface UpdatePullRequestStatusCommandInput extends UpdatePullRequestStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePullRequestStatusCommand}.
  */
 export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status of a pull request. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  * import { CodeCommitClient, UpdatePullRequestStatusCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdatePullRequestStatusCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // UpdatePullRequestStatusInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   pullRequestStatus: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePullRequestStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePullRequestStatusCommandInput - {@link UpdatePullRequestStatusCommandInput}
+ * @returns {@link UpdatePullRequestStatusCommandOutput}
  * @see {@link UpdatePullRequestStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestStatusCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -102,6 +105,9 @@ export class UpdatePullRequestStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePullRequestStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +136,8 @@ export class UpdatePullRequestStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePullRequestStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePullRequestStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +147,18 @@ export class UpdatePullRequestStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePullRequestStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePullRequestStatusCommand(input, context);
+    return se_UpdatePullRequestStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePullRequestStatusCommandOutput> {
-    return deserializeAws_json1_1UpdatePullRequestStatusCommand(output, context);
+    return de_UpdatePullRequestStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

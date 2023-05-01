@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateDiskRequest,
-  CreateDiskRequestFilterSensitiveLog,
-  CreateDiskResult,
-  CreateDiskResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDiskCommand,
-  serializeAws_json1_1CreateDiskCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDiskRequest, CreateDiskResult } from "../models/models_0";
+import { de_CreateDiskCommand, se_CreateDiskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDiskCommand}.
  */
 export interface CreateDiskCommandInput extends CreateDiskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDiskCommand}.
  */
 export interface CreateDiskCommandOutput extends CreateDiskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a block storage disk that can be attached to an Amazon Lightsail instance in the
  *       same Availability Zone (e.g., <code>us-east-2a</code>).</p>
  *          <p>The <code>create disk</code> operation supports tag-based access control via request tags.
@@ -45,10 +42,35 @@ export interface CreateDiskCommandOutput extends CreateDiskResult, __MetadataBea
  * import { LightsailClient, CreateDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateDiskRequest
+ *   diskName: "STRING_VALUE", // required
+ *   availabilityZone: "STRING_VALUE", // required
+ *   sizeInGb: Number("int"), // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   addOns: [ // AddOnRequestList
+ *     { // AddOnRequest
+ *       addOnType: "AutoSnapshot" || "StopInstanceOnIdle", // required
+ *       autoSnapshotAddOnRequest: { // AutoSnapshotAddOnRequest
+ *         snapshotTimeOfDay: "STRING_VALUE",
+ *       },
+ *       stopInstanceOnIdleRequest: { // StopInstanceOnIdleRequest
+ *         threshold: "STRING_VALUE",
+ *         duration: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateDiskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDiskCommandInput - {@link CreateDiskCommandInput}
+ * @returns {@link CreateDiskCommandOutput}
  * @see {@link CreateDiskCommandInput} for command's `input` shape.
  * @see {@link CreateDiskCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +124,9 @@ export class CreateDiskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDiskCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +153,8 @@ export class CreateDiskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDiskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDiskResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +164,18 @@ export class CreateDiskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDiskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDiskCommand(input, context);
+    return se_CreateDiskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDiskCommandOutput> {
-    return deserializeAws_json1_1CreateDiskCommand(output, context);
+    return de_CreateDiskCommand(output, context);
   }
 
   // Start section: command_body_extra

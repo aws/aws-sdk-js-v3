@@ -18,29 +18,28 @@ import {
   CreateChannelRequest,
   CreateChannelRequestFilterSensitiveLog,
   CreateChannelResponse,
-  CreateChannelResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateChannelCommand,
-  serializeAws_restJson1CreateChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateChannelCommand, se_CreateChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChannelCommand}.
  */
 export interface CreateChannelCommandInput extends CreateChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChannelCommand}.
  */
 export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a channel to which you can add users and send messages.</p>
- *
  *          <p>
  *             <b>Restriction</b>: You can't change a channel's
  *          privacy.</p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
@@ -52,10 +51,27 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { ChimeClient, CreateChannelCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateChannelCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateChannelRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Mode: "UNRESTRICTED" || "RESTRICTED",
+ *   Privacy: "PUBLIC" || "PRIVATE",
+ *   Metadata: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
+ * @returns {@link CreateChannelCommandOutput}
  * @see {@link CreateChannelCommandInput} for command's `input` shape.
  * @see {@link CreateChannelCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -104,6 +120,9 @@ export class CreateChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,7 +150,7 @@ export class CreateChannelCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateChannelResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +160,18 @@ export class CreateChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateChannelCommand(input, context);
+    return se_CreateChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChannelCommandOutput> {
-    return deserializeAws_restJson1CreateChannelCommand(output, context);
+    return de_CreateChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import { DeleteCostCategoryDefinitionRequest, DeleteCostCategoryDefinitionResponse } from "../models/models_0";
 import {
-  DeleteCostCategoryDefinitionRequest,
-  DeleteCostCategoryDefinitionRequestFilterSensitiveLog,
-  DeleteCostCategoryDefinitionResponse,
-  DeleteCostCategoryDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCostCategoryDefinitionCommand,
-  serializeAws_json1_1DeleteCostCategoryDefinitionCommand,
+  de_DeleteCostCategoryDefinitionCommand,
+  se_DeleteCostCategoryDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCostCategoryDefinitionCommand}.
  */
 export interface DeleteCostCategoryDefinitionCommandInput extends DeleteCostCategoryDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCostCategoryDefinitionCommand}.
  */
 export interface DeleteCostCategoryDefinitionCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be
  *       categorized with this Cost Category.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DeleteCostCategoryDefinitionCommandOutput
  * import { CostExplorerClient, DeleteCostCategoryDefinitionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, DeleteCostCategoryDefinitionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // DeleteCostCategoryDefinitionRequest
+ *   CostCategoryArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCostCategoryDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCostCategoryDefinitionCommandInput - {@link DeleteCostCategoryDefinitionCommandInput}
+ * @returns {@link DeleteCostCategoryDefinitionCommandOutput}
  * @see {@link DeleteCostCategoryDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteCostCategoryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -78,6 +83,9 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCostCategoryDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCostCategoryDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCostCategoryDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +125,21 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCostCategoryDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCostCategoryDefinitionCommand(input, context);
+    return se_DeleteCostCategoryDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCostCategoryDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteCostCategoryDefinitionCommand(output, context);
+    return de_DeleteCostCategoryDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

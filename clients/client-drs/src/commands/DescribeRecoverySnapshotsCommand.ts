@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import {
-  DescribeRecoverySnapshotsRequest,
-  DescribeRecoverySnapshotsRequestFilterSensitiveLog,
-  DescribeRecoverySnapshotsResponse,
-  DescribeRecoverySnapshotsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRecoverySnapshotsCommand,
-  serializeAws_restJson1DescribeRecoverySnapshotsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRecoverySnapshotsRequest, DescribeRecoverySnapshotsResponse } from "../models/models_0";
+import { de_DescribeRecoverySnapshotsCommand, se_DescribeRecoverySnapshotsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecoverySnapshotsCommand}.
  */
 export interface DescribeRecoverySnapshotsCommandInput extends DescribeRecoverySnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecoverySnapshotsCommand}.
  */
 export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecoverySnapshotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Recovery Snapshots for a single Source Server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecovery
  * import { DrsClient, DescribeRecoverySnapshotsCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeRecoverySnapshotsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // DescribeRecoverySnapshotsRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ *   filters: { // DescribeRecoverySnapshotsRequestFilters
+ *     fromDateTime: "STRING_VALUE",
+ *     toDateTime: "STRING_VALUE",
+ *   },
+ *   order: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeRecoverySnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecoverySnapshotsCommandInput - {@link DescribeRecoverySnapshotsCommandInput}
+ * @returns {@link DescribeRecoverySnapshotsCommandOutput}
  * @see {@link DescribeRecoverySnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecoverySnapshotsCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -84,6 +93,9 @@ export class DescribeRecoverySnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecoverySnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +124,8 @@ export class DescribeRecoverySnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecoverySnapshotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecoverySnapshotsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +135,21 @@ export class DescribeRecoverySnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecoverySnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRecoverySnapshotsCommand(input, context);
+    return se_DescribeRecoverySnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRecoverySnapshotsCommandOutput> {
-    return deserializeAws_restJson1DescribeRecoverySnapshotsCommand(output, context);
+    return de_DescribeRecoverySnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

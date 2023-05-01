@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateIpamPoolRequest,
-  CreateIpamPoolRequestFilterSensitiveLog,
-  CreateIpamPoolResult,
-  CreateIpamPoolResultFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_ec2CreateIpamPoolCommand, serializeAws_ec2CreateIpamPoolCommand } from "../protocols/Aws_ec2";
+import { CreateIpamPoolRequest, CreateIpamPoolResult } from "../models/models_1";
+import { de_CreateIpamPoolCommand, se_CreateIpamPoolCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIpamPoolCommand}.
  */
 export interface CreateIpamPoolCommandInput extends CreateIpamPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIpamPoolCommand}.
  */
 export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -41,10 +41,45 @@ export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __Met
  * import { EC2Client, CreateIpamPoolCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateIpamPoolCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateIpamPoolRequest
+ *   DryRun: true || false,
+ *   IpamScopeId: "STRING_VALUE", // required
+ *   Locale: "STRING_VALUE",
+ *   SourceIpamPoolId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   AddressFamily: "ipv4" || "ipv6", // required
+ *   AutoImport: true || false,
+ *   PubliclyAdvertisable: true || false,
+ *   AllocationMinNetmaskLength: Number("int"),
+ *   AllocationMaxNetmaskLength: Number("int"),
+ *   AllocationDefaultNetmaskLength: Number("int"),
+ *   AllocationResourceTags: [ // RequestIpamResourceTagList
+ *     { // RequestIpamResourceTag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ *   AwsService: "ec2",
+ *   PublicIpSource: "amazon" || "byoip",
+ * };
  * const command = new CreateIpamPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIpamPoolCommandInput - {@link CreateIpamPoolCommandInput}
+ * @returns {@link CreateIpamPoolCommandOutput}
  * @see {@link CreateIpamPoolCommandInput} for command's `input` shape.
  * @see {@link CreateIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +103,9 @@ export class CreateIpamPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIpamPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +134,8 @@ export class CreateIpamPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIpamPoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIpamPoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +145,18 @@ export class CreateIpamPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIpamPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateIpamPoolCommand(input, context);
+    return se_CreateIpamPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIpamPoolCommandOutput> {
-    return deserializeAws_ec2CreateIpamPoolCommand(output, context);
+    return de_CreateIpamPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

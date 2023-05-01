@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  CreateMemberInput,
-  CreateMemberInputFilterSensitiveLog,
-  CreateMemberOutput,
-  CreateMemberOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMemberCommand,
-  serializeAws_restJson1CreateMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMemberInput, CreateMemberInputFilterSensitiveLog, CreateMemberOutput } from "../models/models_0";
+import { de_CreateMemberCommand, se_CreateMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMemberCommand}.
  */
 export interface CreateMemberCommandInput extends CreateMemberInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateMemberCommand}.
  */
 export interface CreateMemberCommandOutput extends CreateMemberOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a member within a Managed Blockchain network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -47,10 +44,40 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  * import { ManagedBlockchainClient, CreateMemberCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateMemberCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // CreateMemberInput
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   InvitationId: "STRING_VALUE", // required
+ *   NetworkId: "STRING_VALUE", // required
+ *   MemberConfiguration: { // MemberConfiguration
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     FrameworkConfiguration: { // MemberFrameworkConfiguration
+ *       Fabric: { // MemberFabricConfiguration
+ *         AdminUsername: "STRING_VALUE", // required
+ *         AdminPassword: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     LogPublishingConfiguration: { // MemberLogPublishingConfiguration
+ *       Fabric: { // MemberFabricLogPublishingConfiguration
+ *         CaLogs: { // LogConfigurations
+ *           Cloudwatch: { // LogConfiguration
+ *             Enabled: true || false,
+ *           },
+ *         },
+ *       },
+ *     },
+ *     Tags: { // InputTagMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMemberCommandInput - {@link CreateMemberCommandInput}
+ * @returns {@link CreateMemberCommandOutput}
  * @see {@link CreateMemberCommandInput} for command's `input` shape.
  * @see {@link CreateMemberCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -105,6 +132,9 @@ export class CreateMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,7 +162,7 @@ export class CreateMemberCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateMemberInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMemberOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +172,18 @@ export class CreateMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMemberCommand(input, context);
+    return se_CreateMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMemberCommandOutput> {
-    return deserializeAws_restJson1CreateMemberCommand(output, context);
+    return de_CreateMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

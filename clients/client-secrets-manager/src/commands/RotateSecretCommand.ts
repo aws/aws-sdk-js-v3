@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RotateSecretRequest,
-  RotateSecretRequestFilterSensitiveLog,
-  RotateSecretResponse,
-  RotateSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RotateSecretCommand,
-  serializeAws_json1_1RotateSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { RotateSecretRequest, RotateSecretResponse } from "../models/models_0";
+import { de_RotateSecretCommand, se_RotateSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link RotateSecretCommand}.
  */
 export interface RotateSecretCommandInput extends RotateSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link RotateSecretCommand}.
  */
 export interface RotateSecretCommandOutput extends RotateSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures and starts the asynchronous process of rotating the secret. For information about rotation,
  *       see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate secrets</a> in the <i>Secrets Manager User Guide</i>. If you include the configuration parameters, the operation sets the values for the secret and then immediately starts a rotation. If you don't include the configuration parameters, the operation starts a rotation with the values already stored in the secret. </p>
  *          <p>When rotation is successful, the <code>AWSPENDING</code> staging label might be attached
@@ -57,10 +54,23 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * import { SecretsManagerClient, RotateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, RotateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // RotateSecretRequest
+ *   SecretId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   RotationLambdaARN: "STRING_VALUE",
+ *   RotationRules: { // RotationRulesType
+ *     AutomaticallyAfterDays: Number("long"),
+ *     Duration: "STRING_VALUE",
+ *     ScheduleExpression: "STRING_VALUE",
+ *   },
+ *   RotateImmediately: true || false,
+ * };
  * const command = new RotateSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RotateSecretCommandInput - {@link RotateSecretCommandInput}
+ * @returns {@link RotateSecretCommandOutput}
  * @see {@link RotateSecretCommandInput} for command's `input` shape.
  * @see {@link RotateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -152,6 +162,9 @@ export class RotateSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RotateSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,8 +191,8 @@ export class RotateSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RotateSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RotateSecretResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -189,12 +202,18 @@ export class RotateSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RotateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RotateSecretCommand(input, context);
+    return se_RotateSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateSecretCommandOutput> {
-    return deserializeAws_json1_1RotateSecretCommand(output, context);
+    return de_RotateSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

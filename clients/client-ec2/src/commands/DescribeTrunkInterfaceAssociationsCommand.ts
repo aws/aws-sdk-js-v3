@@ -16,20 +16,22 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeTrunkInterfaceAssociationsRequest,
-  DescribeTrunkInterfaceAssociationsRequestFilterSensitiveLog,
   DescribeTrunkInterfaceAssociationsResult,
-  DescribeTrunkInterfaceAssociationsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommand,
-  serializeAws_ec2DescribeTrunkInterfaceAssociationsCommand,
+  de_DescribeTrunkInterfaceAssociationsCommand,
+  se_DescribeTrunkInterfaceAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrunkInterfaceAssociationsCommand}.
  */
 export interface DescribeTrunkInterfaceAssociationsCommandInput extends DescribeTrunkInterfaceAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrunkInterfaceAssociationsCommand}.
  */
 export interface DescribeTrunkInterfaceAssociationsCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeTrunkInterfaceAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This API action is currently in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
@@ -48,10 +51,28 @@ export interface DescribeTrunkInterfaceAssociationsCommandOutput
  * import { EC2Client, DescribeTrunkInterfaceAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTrunkInterfaceAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeTrunkInterfaceAssociationsRequest
+ *   AssociationIds: [ // TrunkInterfaceAssociationIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeTrunkInterfaceAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrunkInterfaceAssociationsCommandInput - {@link DescribeTrunkInterfaceAssociationsCommandInput}
+ * @returns {@link DescribeTrunkInterfaceAssociationsCommandOutput}
  * @see {@link DescribeTrunkInterfaceAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrunkInterfaceAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -75,6 +96,9 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrunkInterfaceAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +127,8 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrunkInterfaceAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrunkInterfaceAssociationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +138,24 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeTrunkInterfaceAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTrunkInterfaceAssociationsCommand(input, context);
+    return se_DescribeTrunkInterfaceAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrunkInterfaceAssociationsCommandOutput> {
-    return deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommand(output, context);
+    return de_DescribeTrunkInterfaceAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

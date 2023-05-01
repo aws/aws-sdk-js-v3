@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { Lag, LagFilterSensitiveLog, UpdateLagRequest, UpdateLagRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_json1_1UpdateLagCommand, serializeAws_json1_1UpdateLagCommand } from "../protocols/Aws_json1_1";
+import { Lag, UpdateLagRequest } from "../models/models_0";
+import { de_UpdateLagCommand, se_UpdateLagCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLagCommand}.
  */
 export interface UpdateLagCommandInput extends UpdateLagRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLagCommand}.
  */
 export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the attributes of the specified link aggregation group (LAG).</p>
  *          <p>You can update the following LAG attributes:</p>
  *          <ul>
@@ -56,10 +61,18 @@ export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
  * import { DirectConnectClient, UpdateLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, UpdateLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // UpdateLagRequest
+ *   lagId: "STRING_VALUE", // required
+ *   lagName: "STRING_VALUE",
+ *   minimumLinks: Number("int"),
+ *   encryptionMode: "STRING_VALUE",
+ * };
  * const command = new UpdateLagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLagCommandInput - {@link UpdateLagCommandInput}
+ * @returns {@link UpdateLagCommandOutput}
  * @see {@link UpdateLagCommandInput} for command's `input` shape.
  * @see {@link UpdateLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -89,6 +102,9 @@ export class UpdateLagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLagCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +131,8 @@ export class UpdateLagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLagRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LagFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +142,18 @@ export class UpdateLagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLagCommand(input, context);
+    return se_UpdateLagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLagCommandOutput> {
-    return deserializeAws_json1_1UpdateLagCommand(output, context);
+    return de_UpdateLagCommand(output, context);
   }
 
   // Start section: command_body_extra

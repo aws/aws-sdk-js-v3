@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterDelegatedAdministratorRequest,
-  RegisterDelegatedAdministratorRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterDelegatedAdministratorRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1RegisterDelegatedAdministratorCommand,
-  serializeAws_json1_1RegisterDelegatedAdministratorCommand,
+  de_RegisterDelegatedAdministratorCommand,
+  se_RegisterDelegatedAdministratorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterDelegatedAdministratorCommand}.
  */
 export interface RegisterDelegatedAdministratorCommandInput extends RegisterDelegatedAdministratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterDelegatedAdministratorCommand}.
  */
 export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified member account to administer the Organizations features of the specified
  *             Amazon Web Services service. It grants read-only access to Organizations service data. The account still
  *             requires IAM permissions to access and administer the Amazon Web Services service.</p>
@@ -48,10 +50,16 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  * import { OrganizationsClient, RegisterDelegatedAdministratorCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, RegisterDelegatedAdministratorCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // RegisterDelegatedAdministratorRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   ServicePrincipal: "STRING_VALUE", // required
+ * };
  * const command = new RegisterDelegatedAdministratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterDelegatedAdministratorCommandInput - {@link RegisterDelegatedAdministratorCommandInput}
+ * @returns {@link RegisterDelegatedAdministratorCommandOutput}
  * @see {@link RegisterDelegatedAdministratorCommandInput} for command's `input` shape.
  * @see {@link RegisterDelegatedAdministratorCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -414,6 +422,9 @@ export class RegisterDelegatedAdministratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterDelegatedAdministratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -442,8 +453,8 @@ export class RegisterDelegatedAdministratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterDelegatedAdministratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -453,18 +464,24 @@ export class RegisterDelegatedAdministratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterDelegatedAdministratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterDelegatedAdministratorCommand(input, context);
+    return se_RegisterDelegatedAdministratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterDelegatedAdministratorCommandOutput> {
-    return deserializeAws_json1_1RegisterDelegatedAdministratorCommand(output, context);
+    return de_RegisterDelegatedAdministratorCommand(output, context);
   }
 
   // Start section: command_body_extra

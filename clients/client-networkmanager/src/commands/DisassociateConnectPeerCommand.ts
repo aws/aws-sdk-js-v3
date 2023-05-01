@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateConnectPeerRequest,
-  DisassociateConnectPeerRequestFilterSensitiveLog,
-  DisassociateConnectPeerResponse,
-  DisassociateConnectPeerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateConnectPeerRequest, DisassociateConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DisassociateConnectPeerCommand,
-  serializeAws_restJson1DisassociateConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateConnectPeerCommand, se_DisassociateConnectPeerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateConnectPeerCommand}.
  */
 export interface DisassociateConnectPeerCommandInput extends DisassociateConnectPeerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateConnectPeerCommand}.
  */
 export interface DisassociateConnectPeerCommandOutput extends DisassociateConnectPeerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a core network Connect peer from a device and a link. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DisassociateConnectPeerCommandOutput extends DisassociateConnec
  * import { NetworkManagerClient, DisassociateConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DisassociateConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // DisassociateConnectPeerRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   ConnectPeerId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateConnectPeerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateConnectPeerCommandInput - {@link DisassociateConnectPeerCommandInput}
+ * @returns {@link DisassociateConnectPeerCommandOutput}
  * @see {@link DisassociateConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +91,9 @@ export class DisassociateConnectPeerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateConnectPeerCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DisassociateConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateConnectPeerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateConnectPeerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class DisassociateConnectPeerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateConnectPeerCommand(input, context);
+    return se_DisassociateConnectPeerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateConnectPeerCommandOutput> {
-    return deserializeAws_restJson1DisassociateConnectPeerCommand(output, context);
+    return de_DisassociateConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

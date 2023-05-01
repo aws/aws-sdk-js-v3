@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  ListPHIDetectionJobsRequest,
-  ListPHIDetectionJobsRequestFilterSensitiveLog,
-  ListPHIDetectionJobsResponse,
-  ListPHIDetectionJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPHIDetectionJobsCommand,
-  serializeAws_json1_1ListPHIDetectionJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPHIDetectionJobsRequest, ListPHIDetectionJobsResponse } from "../models/models_0";
+import { de_ListPHIDetectionJobsCommand, se_ListPHIDetectionJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPHIDetectionJobsCommand}.
  */
 export interface ListPHIDetectionJobsCommandInput extends ListPHIDetectionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPHIDetectionJobsCommand}.
  */
 export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of protected health information (PHI) detection jobs that you have
  *       submitted.</p>
  * @example
@@ -47,10 +44,22 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
  * import { ComprehendMedicalClient, ListPHIDetectionJobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, ListPHIDetectionJobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // ListPHIDetectionJobsRequest
+ *   Filter: { // ComprehendMedicalAsyncJobFilter
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "PARTIAL_SUCCESS" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPHIDetectionJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPHIDetectionJobsCommandInput - {@link ListPHIDetectionJobsCommandInput}
+ * @returns {@link ListPHIDetectionJobsCommandOutput}
  * @see {@link ListPHIDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListPHIDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -90,6 +99,9 @@ export class ListPHIDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPHIDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class ListPHIDetectionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPHIDetectionJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPHIDetectionJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +141,18 @@ export class ListPHIDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPHIDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPHIDetectionJobsCommand(input, context);
+    return se_ListPHIDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPHIDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListPHIDetectionJobsCommand(output, context);
+    return de_ListPHIDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

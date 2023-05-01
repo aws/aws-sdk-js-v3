@@ -14,23 +14,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTrafficPolicyInstanceRequest,
-  CreateTrafficPolicyInstanceRequestFilterSensitiveLog,
-  CreateTrafficPolicyInstanceResponse,
-  CreateTrafficPolicyInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateTrafficPolicyInstanceCommand,
-  serializeAws_restXmlCreateTrafficPolicyInstanceCommand,
-} from "../protocols/Aws_restXml";
+import { CreateTrafficPolicyInstanceRequest, CreateTrafficPolicyInstanceResponse } from "../models/models_0";
+import { de_CreateTrafficPolicyInstanceCommand, se_CreateTrafficPolicyInstanceCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrafficPolicyInstanceCommand}.
  */
 export interface CreateTrafficPolicyInstanceCommandInput extends CreateTrafficPolicyInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrafficPolicyInstanceCommand}.
  */
 export interface CreateTrafficPolicyInstanceCommandOutput
@@ -38,6 +34,7 @@ export interface CreateTrafficPolicyInstanceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates resource record sets in a specified hosted zone based on the settings in a
  * 			specified traffic policy version. In addition, <code>CreateTrafficPolicyInstance</code>
  * 			associates the resource record sets with a specified domain name (such as example.com)
@@ -50,10 +47,19 @@ export interface CreateTrafficPolicyInstanceCommandOutput
  * import { Route53Client, CreateTrafficPolicyInstanceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateTrafficPolicyInstanceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // CreateTrafficPolicyInstanceRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   TTL: Number("long"), // required
+ *   TrafficPolicyId: "STRING_VALUE", // required
+ *   TrafficPolicyVersion: Number("int"), // required
+ * };
  * const command = new CreateTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrafficPolicyInstanceCommandInput - {@link CreateTrafficPolicyInstanceCommandInput}
+ * @returns {@link CreateTrafficPolicyInstanceCommandOutput}
  * @see {@link CreateTrafficPolicyInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -98,6 +104,9 @@ export class CreateTrafficPolicyInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrafficPolicyInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +136,8 @@ export class CreateTrafficPolicyInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrafficPolicyInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrafficPolicyInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +147,21 @@ export class CreateTrafficPolicyInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrafficPolicyInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateTrafficPolicyInstanceCommand(input, context);
+    return se_CreateTrafficPolicyInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTrafficPolicyInstanceCommandOutput> {
-    return deserializeAws_restXmlCreateTrafficPolicyInstanceCommand(output, context);
+    return de_CreateTrafficPolicyInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

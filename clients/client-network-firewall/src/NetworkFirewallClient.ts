@@ -60,6 +60,10 @@ import {
   CreateFirewallPolicyCommandOutput,
 } from "./commands/CreateFirewallPolicyCommand";
 import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand";
+import {
+  CreateTLSInspectionConfigurationCommandInput,
+  CreateTLSInspectionConfigurationCommandOutput,
+} from "./commands/CreateTLSInspectionConfigurationCommand";
 import { DeleteFirewallCommandInput, DeleteFirewallCommandOutput } from "./commands/DeleteFirewallCommand";
 import {
   DeleteFirewallPolicyCommandInput,
@@ -70,6 +74,10 @@ import {
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "./commands/DeleteRuleGroupCommand";
+import {
+  DeleteTLSInspectionConfigurationCommandInput,
+  DeleteTLSInspectionConfigurationCommandOutput,
+} from "./commands/DeleteTLSInspectionConfigurationCommand";
 import { DescribeFirewallCommandInput, DescribeFirewallCommandOutput } from "./commands/DescribeFirewallCommand";
 import {
   DescribeFirewallPolicyCommandInput,
@@ -89,6 +97,10 @@ import {
   DescribeRuleGroupMetadataCommandOutput,
 } from "./commands/DescribeRuleGroupMetadataCommand";
 import {
+  DescribeTLSInspectionConfigurationCommandInput,
+  DescribeTLSInspectionConfigurationCommandOutput,
+} from "./commands/DescribeTLSInspectionConfigurationCommand";
+import {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
@@ -102,6 +114,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTLSInspectionConfigurationsCommandInput,
+  ListTLSInspectionConfigurationsCommandOutput,
+} from "./commands/ListTLSInspectionConfigurationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -135,6 +151,10 @@ import {
   UpdateSubnetChangeProtectionCommandOutput,
 } from "./commands/UpdateSubnetChangeProtectionCommand";
 import {
+  UpdateTLSInspectionConfigurationCommandInput,
+  UpdateTLSInspectionConfigurationCommandOutput,
+} from "./commands/UpdateTLSInspectionConfigurationCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -142,26 +162,33 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateFirewallPolicyCommandInput
   | AssociateSubnetsCommandInput
   | CreateFirewallCommandInput
   | CreateFirewallPolicyCommandInput
   | CreateRuleGroupCommandInput
+  | CreateTLSInspectionConfigurationCommandInput
   | DeleteFirewallCommandInput
   | DeleteFirewallPolicyCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteRuleGroupCommandInput
+  | DeleteTLSInspectionConfigurationCommandInput
   | DescribeFirewallCommandInput
   | DescribeFirewallPolicyCommandInput
   | DescribeLoggingConfigurationCommandInput
   | DescribeResourcePolicyCommandInput
   | DescribeRuleGroupCommandInput
   | DescribeRuleGroupMetadataCommandInput
+  | DescribeTLSInspectionConfigurationCommandInput
   | DisassociateSubnetsCommandInput
   | ListFirewallPoliciesCommandInput
   | ListFirewallsCommandInput
   | ListRuleGroupsCommandInput
+  | ListTLSInspectionConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | PutResourcePolicyCommandInput
   | TagResourceCommandInput
@@ -173,28 +200,36 @@ export type ServiceInputTypes =
   | UpdateFirewallPolicyCommandInput
   | UpdateLoggingConfigurationCommandInput
   | UpdateRuleGroupCommandInput
-  | UpdateSubnetChangeProtectionCommandInput;
+  | UpdateSubnetChangeProtectionCommandInput
+  | UpdateTLSInspectionConfigurationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateFirewallPolicyCommandOutput
   | AssociateSubnetsCommandOutput
   | CreateFirewallCommandOutput
   | CreateFirewallPolicyCommandOutput
   | CreateRuleGroupCommandOutput
+  | CreateTLSInspectionConfigurationCommandOutput
   | DeleteFirewallCommandOutput
   | DeleteFirewallPolicyCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteRuleGroupCommandOutput
+  | DeleteTLSInspectionConfigurationCommandOutput
   | DescribeFirewallCommandOutput
   | DescribeFirewallPolicyCommandOutput
   | DescribeLoggingConfigurationCommandOutput
   | DescribeResourcePolicyCommandOutput
   | DescribeRuleGroupCommandOutput
   | DescribeRuleGroupMetadataCommandOutput
+  | DescribeTLSInspectionConfigurationCommandOutput
   | DisassociateSubnetsCommandOutput
   | ListFirewallPoliciesCommandOutput
   | ListFirewallsCommandOutput
   | ListRuleGroupsCommandOutput
+  | ListTLSInspectionConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutResourcePolicyCommandOutput
   | TagResourceCommandOutput
@@ -206,8 +241,12 @@ export type ServiceOutputTypes =
   | UpdateFirewallPolicyCommandOutput
   | UpdateLoggingConfigurationCommandOutput
   | UpdateRuleGroupCommandOutput
-  | UpdateSubnetChangeProtectionCommandOutput;
+  | UpdateSubnetChangeProtectionCommandOutput
+  | UpdateTLSInspectionConfigurationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -215,7 +254,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -324,11 +363,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type NetworkFirewallClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -339,10 +381,15 @@ type NetworkFirewallClientConfigType = Partial<__SmithyConfiguration<__HttpHandl
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of NetworkFirewallClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of NetworkFirewallClient class constructor that set the region, credentials and other options.
  */
 export interface NetworkFirewallClientConfig extends NetworkFirewallClientConfigType {}
 
+/**
+ * @public
+ */
 type NetworkFirewallClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -353,11 +400,14 @@ type NetworkFirewallClientResolvedConfigType = __SmithyResolvedConfiguration<__H
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of NetworkFirewallClient class. This is resolved and normalized from the {@link NetworkFirewallClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of NetworkFirewallClient class. This is resolved and normalized from the {@link NetworkFirewallClientConfig | constructor configuration interface}.
  */
 export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>This is the API Reference for Network Firewall. This guide is for developers who need
  *          detailed information about the Network Firewall API actions, data types, and errors. </p>
  *          <ul>
@@ -385,7 +435,7 @@ export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClie
  *          perimeter of your VPC. This includes filtering traffic going to and coming from an internet
  *          gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
  *       with Suricata, a free, open source network analysis and threat detection engine.
- *       Network Firewall supports Suricata version 5.0.2. For information about Suricata,
+ *       Network Firewall supports Suricata version 6.0.9. For information about Suricata,
  *           see the <a href="https://suricata.io/">Suricata website</a>.</p>
  *          <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
  *          The following are just a few examples: </p>

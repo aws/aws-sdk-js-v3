@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  TestFailoverMessage,
-  TestFailoverMessageFilterSensitiveLog,
-  TestFailoverResult,
-  TestFailoverResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryTestFailoverCommand, serializeAws_queryTestFailoverCommand } from "../protocols/Aws_query";
+import { TestFailoverMessage, TestFailoverResult } from "../models/models_0";
+import { de_TestFailoverCommand, se_TestFailoverCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TestFailoverCommand}.
  */
 export interface TestFailoverCommandInput extends TestFailoverMessage {}
 /**
+ * @public
+ *
  * The output of {@link TestFailoverCommand}.
  */
 export interface TestFailoverCommandOutput extends TestFailoverResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents the input of a <code>TestFailover</code> operation which test automatic failover on
  *             a specified node group (called shard in the console) in a replication group (called cluster in the console).</p>
  *          <p>This API is designed for testing the behavior of your application in case of ElastiCache failover. It is not designed to be an operational tool
@@ -100,10 +100,16 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  * import { ElastiCacheClient, TestFailoverCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, TestFailoverCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // TestFailoverMessage
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   NodeGroupId: "STRING_VALUE", // required
+ * };
  * const command = new TestFailoverCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestFailoverCommandInput - {@link TestFailoverCommandInput}
+ * @returns {@link TestFailoverCommandOutput}
  * @see {@link TestFailoverCommandInput} for command's `input` shape.
  * @see {@link TestFailoverCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -155,6 +161,9 @@ export class TestFailoverCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestFailoverCommandInput) {
     // Start section: command_constructor
     super();
@@ -181,8 +190,8 @@ export class TestFailoverCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestFailoverMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: TestFailoverResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -192,12 +201,18 @@ export class TestFailoverCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestFailoverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTestFailoverCommand(input, context);
+    return se_TestFailoverCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestFailoverCommandOutput> {
-    return deserializeAws_queryTestFailoverCommand(output, context);
+    return de_TestFailoverCommand(output, context);
   }
 
   // Start section: command_body_extra

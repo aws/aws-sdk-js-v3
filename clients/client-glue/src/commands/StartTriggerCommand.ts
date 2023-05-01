@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StartTriggerRequest,
-  StartTriggerRequestFilterSensitiveLog,
-  StartTriggerResponse,
-  StartTriggerResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1StartTriggerCommand,
-  serializeAws_json1_1StartTriggerCommand,
-} from "../protocols/Aws_json1_1";
+import { StartTriggerRequest, StartTriggerResponse } from "../models/models_2";
+import { de_StartTriggerCommand, se_StartTriggerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTriggerCommand}.
  */
 export interface StartTriggerCommandInput extends StartTriggerRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTriggerCommand}.
  */
 export interface StartTriggerCommandOutput extends StartTriggerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an existing trigger. See <a href="https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html">Triggering
  *       Jobs</a> for information about how different types of trigger are
  *       started.</p>
@@ -44,10 +41,15 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  * import { GlueClient, StartTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StartTriggerRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StartTriggerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTriggerCommandInput - {@link StartTriggerCommandInput}
+ * @returns {@link StartTriggerCommandOutput}
  * @see {@link StartTriggerCommandInput} for command's `input` shape.
  * @see {@link StartTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -89,6 +91,9 @@ export class StartTriggerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTriggerCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class StartTriggerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTriggerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartTriggerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class StartTriggerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartTriggerCommand(input, context);
+    return se_StartTriggerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTriggerCommandOutput> {
-    return deserializeAws_json1_1StartTriggerCommand(output, context);
+    return de_StartTriggerCommand(output, context);
   }
 
   // Start section: command_body_extra

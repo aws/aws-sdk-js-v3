@@ -20,21 +20,23 @@ import {
   CreateGovCloudAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1CreateGovCloudAccountCommand,
-  serializeAws_json1_1CreateGovCloudAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateGovCloudAccountCommand, se_CreateGovCloudAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGovCloudAccountCommand}.
  */
 export interface CreateGovCloudAccountCommandInput extends CreateGovCloudAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGovCloudAccountCommand}.
  */
 export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action is available if all of the following are true:</p>
  *          <ul>
  *             <li>
@@ -172,10 +174,24 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  * import { OrganizationsClient, CreateGovCloudAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreateGovCloudAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // CreateGovCloudAccountRequest
+ *   Email: "STRING_VALUE", // required
+ *   AccountName: "STRING_VALUE", // required
+ *   RoleName: "STRING_VALUE",
+ *   IamUserAccessToBilling: "ALLOW" || "DENY",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateGovCloudAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGovCloudAccountCommandInput - {@link CreateGovCloudAccountCommandInput}
+ * @returns {@link CreateGovCloudAccountCommandOutput}
  * @see {@link CreateGovCloudAccountCommandInput} for command's `input` shape.
  * @see {@link CreateGovCloudAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -534,6 +550,9 @@ export class CreateGovCloudAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGovCloudAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -573,12 +592,18 @@ export class CreateGovCloudAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGovCloudAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGovCloudAccountCommand(input, context);
+    return se_CreateGovCloudAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGovCloudAccountCommandOutput> {
-    return deserializeAws_json1_1CreateGovCloudAccountCommand(output, context);
+    return de_CreateGovCloudAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

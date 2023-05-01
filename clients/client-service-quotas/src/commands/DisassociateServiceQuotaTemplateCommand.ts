@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DisassociateServiceQuotaTemplateRequest, DisassociateServiceQuotaTemplateResponse } from "../models/models_0";
 import {
-  DisassociateServiceQuotaTemplateRequest,
-  DisassociateServiceQuotaTemplateRequestFilterSensitiveLog,
-  DisassociateServiceQuotaTemplateResponse,
-  DisassociateServiceQuotaTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand,
-  serializeAws_json1_1DisassociateServiceQuotaTemplateCommand,
+  de_DisassociateServiceQuotaTemplateCommand,
+  se_DisassociateServiceQuotaTemplateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateServiceQuotaTemplateCommand}.
  */
 export interface DisassociateServiceQuotaTemplateCommandInput extends DisassociateServiceQuotaTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateServiceQuotaTemplateCommand}.
  */
 export interface DisassociateServiceQuotaTemplateCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables your quota request template. After a template is disabled, the quota increase
  *       requests in the template are not applied to new accounts in your organization. Disabling a
  *       quota request template does not apply its quota increase requests.</p>
@@ -46,10 +46,13 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  * import { ServiceQuotasClient, DisassociateServiceQuotaTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, DisassociateServiceQuotaTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = {};
  * const command = new DisassociateServiceQuotaTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateServiceQuotaTemplateCommandInput - {@link DisassociateServiceQuotaTemplateCommandInput}
+ * @returns {@link DisassociateServiceQuotaTemplateCommandOutput}
  * @see {@link DisassociateServiceQuotaTemplateCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceQuotaTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -99,6 +102,9 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateServiceQuotaTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +133,8 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateServiceQuotaTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateServiceQuotaTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,18 +144,24 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateServiceQuotaTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateServiceQuotaTemplateCommand(input, context);
+    return se_DisassociateServiceQuotaTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateServiceQuotaTemplateCommandOutput> {
-    return deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand(output, context);
+    return de_DisassociateServiceQuotaTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

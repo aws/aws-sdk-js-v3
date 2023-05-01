@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  StartConfigRulesEvaluationRequest,
-  StartConfigRulesEvaluationRequestFilterSensitiveLog,
-  StartConfigRulesEvaluationResponse,
-  StartConfigRulesEvaluationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1StartConfigRulesEvaluationCommand,
-  serializeAws_json1_1StartConfigRulesEvaluationCommand,
-} from "../protocols/Aws_json1_1";
+import { StartConfigRulesEvaluationRequest, StartConfigRulesEvaluationResponse } from "../models/models_1";
+import { de_StartConfigRulesEvaluationCommand, se_StartConfigRulesEvaluationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartConfigRulesEvaluationCommand}.
  */
 export interface StartConfigRulesEvaluationCommandInput extends StartConfigRulesEvaluationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartConfigRulesEvaluationCommand}.
  */
 export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRulesEvaluationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Runs an on-demand evaluation for the specified Config rules
  * 			against the last known configuration state of the resources. Use
  * 				<code>StartConfigRulesEvaluation</code> when you want to test
@@ -87,10 +84,17 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * import { ConfigServiceClient, StartConfigRulesEvaluationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, StartConfigRulesEvaluationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // StartConfigRulesEvaluationRequest
+ *   ConfigRuleNames: [ // ReevaluateConfigRuleNames
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartConfigRulesEvaluationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartConfigRulesEvaluationCommandInput - {@link StartConfigRulesEvaluationCommandInput}
+ * @returns {@link StartConfigRulesEvaluationCommandOutput}
  * @see {@link StartConfigRulesEvaluationCommandInput} for command's `input` shape.
  * @see {@link StartConfigRulesEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -155,6 +159,9 @@ export class StartConfigRulesEvaluationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartConfigRulesEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,8 +190,8 @@ export class StartConfigRulesEvaluationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartConfigRulesEvaluationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartConfigRulesEvaluationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -194,15 +201,21 @@ export class StartConfigRulesEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartConfigRulesEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartConfigRulesEvaluationCommand(input, context);
+    return se_StartConfigRulesEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartConfigRulesEvaluationCommandOutput> {
-    return deserializeAws_json1_1StartConfigRulesEvaluationCommand(output, context);
+    return de_StartConfigRulesEvaluationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DescribeConfigurationRecordersRequest, DescribeConfigurationRecordersResponse } from "../models/models_0";
 import {
-  DescribeConfigurationRecordersRequest,
-  DescribeConfigurationRecordersRequestFilterSensitiveLog,
-  DescribeConfigurationRecordersResponse,
-  DescribeConfigurationRecordersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConfigurationRecordersCommand,
-  serializeAws_json1_1DescribeConfigurationRecordersCommand,
+  de_DescribeConfigurationRecordersCommand,
+  se_DescribeConfigurationRecordersCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationRecordersCommand}.
  */
 export interface DescribeConfigurationRecordersCommandInput extends DescribeConfigurationRecordersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationRecordersCommand}.
  */
 export interface DescribeConfigurationRecordersCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeConfigurationRecordersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details for the specified configuration recorders.
  * 			If the configuration recorder is not specified, this action returns
  * 			the details for all configuration recorders associated with the
@@ -51,10 +51,17 @@ export interface DescribeConfigurationRecordersCommandOutput
  * import { ConfigServiceClient, DescribeConfigurationRecordersCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigurationRecordersCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeConfigurationRecordersRequest
+ *   ConfigurationRecorderNames: [ // ConfigurationRecorderNameList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeConfigurationRecordersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationRecordersCommandInput - {@link DescribeConfigurationRecordersCommandInput}
+ * @returns {@link DescribeConfigurationRecordersCommandOutput}
  * @see {@link DescribeConfigurationRecordersCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationRecordersCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeConfigurationRecordersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationRecordersCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class DescribeConfigurationRecordersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationRecordersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationRecordersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +131,24 @@ export class DescribeConfigurationRecordersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeConfigurationRecordersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigurationRecordersCommand(input, context);
+    return se_DescribeConfigurationRecordersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationRecordersCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigurationRecordersCommand(output, context);
+    return de_DescribeConfigurationRecordersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  ListAssessmentRunsRequest,
-  ListAssessmentRunsRequestFilterSensitiveLog,
-  ListAssessmentRunsResponse,
-  ListAssessmentRunsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAssessmentRunsCommand,
-  serializeAws_json1_1ListAssessmentRunsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAssessmentRunsRequest, ListAssessmentRunsResponse } from "../models/models_0";
+import { de_ListAssessmentRunsCommand, se_ListAssessmentRunsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssessmentRunsCommand}.
  */
 export interface ListAssessmentRunsCommandInput extends ListAssessmentRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssessmentRunsCommand}.
  */
 export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the assessment runs that correspond to the assessment templates that are
  *          specified by the ARNs of the assessment templates.</p>
  * @example
@@ -43,10 +40,44 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  * import { InspectorClient, ListAssessmentRunsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListAssessmentRunsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // ListAssessmentRunsRequest
+ *   assessmentTemplateArns: [ // ListParentArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   filter: { // AssessmentRunFilter
+ *     namePattern: "STRING_VALUE",
+ *     states: [ // AssessmentRunStateList
+ *       "STRING_VALUE",
+ *     ],
+ *     durationRange: { // DurationRange
+ *       minSeconds: Number("int"),
+ *       maxSeconds: Number("int"),
+ *     },
+ *     rulesPackageArns: [ // FilterRulesPackageArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     startTimeRange: { // TimestampRange
+ *       beginDate: new Date("TIMESTAMP"),
+ *       endDate: new Date("TIMESTAMP"),
+ *     },
+ *     completionTimeRange: {
+ *       beginDate: new Date("TIMESTAMP"),
+ *       endDate: new Date("TIMESTAMP"),
+ *     },
+ *     stateChangeTimeRange: {
+ *       beginDate: new Date("TIMESTAMP"),
+ *       endDate: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentRunsCommandInput - {@link ListAssessmentRunsCommandInput}
+ * @returns {@link ListAssessmentRunsCommandOutput}
  * @see {@link ListAssessmentRunsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentRunsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -107,6 +138,9 @@ export class ListAssessmentRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +169,8 @@ export class ListAssessmentRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssessmentRunsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssessmentRunsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +180,18 @@ export class ListAssessmentRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssessmentRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssessmentRunsCommand(input, context);
+    return se_ListAssessmentRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentRunsCommandOutput> {
-    return deserializeAws_json1_1ListAssessmentRunsCommand(output, context);
+    return de_ListAssessmentRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DetachDiskRequest,
-  DetachDiskRequestFilterSensitiveLog,
-  DetachDiskResult,
-  DetachDiskResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetachDiskCommand,
-  serializeAws_json1_1DetachDiskCommand,
-} from "../protocols/Aws_json1_1";
+import { DetachDiskRequest, DetachDiskResult } from "../models/models_0";
+import { de_DetachDiskCommand, se_DetachDiskCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachDiskCommand}.
  */
 export interface DetachDiskCommandInput extends DetachDiskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachDiskCommand}.
  */
 export interface DetachDiskCommandOutput extends DetachDiskResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount
  *       any file systems on the device within your operating system before stopping the instance and
  *       detaching the disk.</p>
@@ -47,10 +44,15 @@ export interface DetachDiskCommandOutput extends DetachDiskResult, __MetadataBea
  * import { LightsailClient, DetachDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DetachDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DetachDiskRequest
+ *   diskName: "STRING_VALUE", // required
+ * };
  * const command = new DetachDiskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachDiskCommandInput - {@link DetachDiskCommandInput}
+ * @returns {@link DetachDiskCommandOutput}
  * @see {@link DetachDiskCommandInput} for command's `input` shape.
  * @see {@link DetachDiskCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +106,9 @@ export class DetachDiskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachDiskCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +135,8 @@ export class DetachDiskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachDiskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachDiskResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +146,18 @@ export class DetachDiskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachDiskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachDiskCommand(input, context);
+    return se_DetachDiskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachDiskCommandOutput> {
-    return deserializeAws_json1_1DetachDiskCommand(output, context);
+    return de_DetachDiskCommand(output, context);
   }
 
   // Start section: command_body_extra

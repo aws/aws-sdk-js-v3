@@ -14,58 +14,55 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ListFleetsInput,
-  ListFleetsInputFilterSensitiveLog,
-  ListFleetsOutput,
-  ListFleetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFleetsCommand,
-  serializeAws_json1_1ListFleetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListFleetsInput, ListFleetsOutput } from "../models/models_0";
+import { de_ListFleetsCommand, se_ListFleetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFleetsCommand}.
  */
 export interface ListFleetsCommandInput extends ListFleetsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListFleetsCommand}.
  */
 export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can call this
  *             operation to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or
  *             specify a Region in your request. You can filter the result set to find only those
  *             fleets that are deployed with a specific build or script. For fleets that have multiple
  *             locations, this operation retrieves fleets based on their home Region only.</p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To get a list of all fleets in a Region, don't provide a build or script
+ *                <p>To get a list of all fleets in a Region, don't provide a build or script
  *                     identifier. </p>
  *             </li>
  *             <li>
- *                 <p>To get a list of all fleets where a specific custom game build is deployed,
+ *                <p>To get a list of all fleets where a specific custom game build is deployed,
  *                     provide the build ID.</p>
  *             </li>
  *             <li>
- *                 <p>To get a list of all Realtime Servers fleets with a specific configuration script,
+ *                <p>To get a list of all Realtime Servers fleets with a specific configuration script,
  *                     provide the script ID. </p>
  *             </li>
  *          </ul>
- *         <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
- *         <p>If successful, a list of fleet IDs that match the request parameters is returned. A
+ *          <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
+ *          <p>If successful, a list of fleet IDs that match the request parameters is returned. A
  *             NextToken value is also returned if there are more result pages to retrieve.</p>
- *         <note>
+ *          <note>
  *             <p>Fleet resources are not listed in a particular order.</p>
- *         </note>
+ *          </note>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example
@@ -74,10 +71,18 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * import { GameLiftClient, ListFleetsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListFleetsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ListFleetsInput
+ *   BuildId: "STRING_VALUE",
+ *   ScriptId: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFleetsCommandInput - {@link ListFleetsCommandInput}
+ * @returns {@link ListFleetsCommandOutput}
  * @see {@link ListFleetsCommandInput} for command's `input` shape.
  * @see {@link ListFleetsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -115,6 +120,9 @@ export class ListFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +149,8 @@ export class ListFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFleetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFleetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +160,18 @@ export class ListFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFleetsCommand(input, context);
+    return se_ListFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFleetsCommandOutput> {
-    return deserializeAws_json1_1ListFleetsCommand(output, context);
+    return de_ListFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

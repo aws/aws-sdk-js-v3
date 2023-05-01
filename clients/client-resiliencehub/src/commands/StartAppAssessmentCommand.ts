@@ -19,22 +19,24 @@ import {
   StartAppAssessmentResponse,
   StartAppAssessmentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartAppAssessmentCommand,
-  serializeAws_restJson1StartAppAssessmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartAppAssessmentCommand, se_StartAppAssessmentCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartAppAssessmentCommand}.
  */
 export interface StartAppAssessmentCommandInput extends StartAppAssessmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAppAssessmentCommand}.
  */
 export interface StartAppAssessmentCommandOutput extends StartAppAssessmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new application assessment for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,21 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * import { ResiliencehubClient, StartAppAssessmentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, StartAppAssessmentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // StartAppAssessmentRequest
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   assessmentName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartAppAssessmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAppAssessmentCommandInput - {@link StartAppAssessmentCommandInput}
+ * @returns {@link StartAppAssessmentCommandOutput}
  * @see {@link StartAppAssessmentCommandInput} for command's `input` shape.
  * @see {@link StartAppAssessmentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -62,7 +75,7 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -97,6 +110,9 @@ export class StartAppAssessmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAppAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,12 +152,18 @@ export class StartAppAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAppAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartAppAssessmentCommand(input, context);
+    return se_StartAppAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAppAssessmentCommandOutput> {
-    return deserializeAws_restJson1StartAppAssessmentCommand(output, context);
+    return de_StartAppAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

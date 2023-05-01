@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSolNetworkInstanceInput, DeleteSolNetworkInstanceInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSolNetworkInstanceCommand,
-  serializeAws_restJson1DeleteSolNetworkInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSolNetworkInstanceInput } from "../models/models_0";
+import { de_DeleteSolNetworkInstanceCommand, se_DeleteSolNetworkInstanceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSolNetworkInstanceCommand}.
  */
 export interface DeleteSolNetworkInstanceCommandInput extends DeleteSolNetworkInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSolNetworkInstanceCommand}.
  */
 export interface DeleteSolNetworkInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  *          <p>To delete a network instance, the instance must be in a stopped or terminated state. To terminate a network instance, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_TerminateSolNetworkInstance.html">TerminateSolNetworkInstance</a>.</p>
@@ -39,10 +41,15 @@ export interface DeleteSolNetworkInstanceCommandOutput extends __MetadataBearer 
  * import { TnbClient, DeleteSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, DeleteSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // DeleteSolNetworkInstanceInput
+ *   nsInstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSolNetworkInstanceCommandInput - {@link DeleteSolNetworkInstanceCommandInput}
+ * @returns {@link DeleteSolNetworkInstanceCommandOutput}
  * @see {@link DeleteSolNetworkInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -81,6 +88,9 @@ export class DeleteSolNetworkInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSolNetworkInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class DeleteSolNetworkInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSolNetworkInstanceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class DeleteSolNetworkInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSolNetworkInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSolNetworkInstanceCommand(input, context);
+    return se_DeleteSolNetworkInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSolNetworkInstanceCommandOutput> {
-    return deserializeAws_restJson1DeleteSolNetworkInstanceCommand(output, context);
+    return de_DeleteSolNetworkInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

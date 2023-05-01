@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  ListS3BucketsRequest,
-  ListS3BucketsRequestFilterSensitiveLog,
-  ListS3BucketsResponse,
-  ListS3BucketsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListS3BucketsCommand,
-  serializeAws_restJson1ListS3BucketsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListS3BucketsRequest, ListS3BucketsResponse } from "../models/models_0";
+import { de_ListS3BucketsCommand, se_ListS3BucketsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListS3BucketsCommand}.
  */
 export interface ListS3BucketsCommandInput extends ListS3BucketsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListS3BucketsCommand}.
  */
 export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The list of S3 buckets in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __Met
  * import { AmplifyBackendClient, ListS3BucketsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, ListS3BucketsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // ListS3BucketsRequest
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListS3BucketsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListS3BucketsCommandInput - {@link ListS3BucketsCommandInput}
+ * @returns {@link ListS3BucketsCommandOutput}
  * @see {@link ListS3BucketsCommandInput} for command's `input` shape.
  * @see {@link ListS3BucketsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +83,9 @@ export class ListS3BucketsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListS3BucketsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class ListS3BucketsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListS3BucketsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListS3BucketsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class ListS3BucketsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListS3BucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListS3BucketsCommand(input, context);
+    return se_ListS3BucketsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListS3BucketsCommandOutput> {
-    return deserializeAws_restJson1ListS3BucketsCommand(output, context);
+    return de_ListS3BucketsCommand(output, context);
   }
 
   // Start section: command_body_extra

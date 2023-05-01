@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSqlInjectionMatchSetRequest,
-  GetSqlInjectionMatchSetRequestFilterSensitiveLog,
-  GetSqlInjectionMatchSetResponse,
-  GetSqlInjectionMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSqlInjectionMatchSetCommand,
-  serializeAws_json1_1GetSqlInjectionMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSqlInjectionMatchSetRequest, GetSqlInjectionMatchSetResponse } from "../models/models_0";
+import { de_GetSqlInjectionMatchSetCommand, se_GetSqlInjectionMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSqlInjectionMatchSetCommand}.
  */
 export interface GetSqlInjectionMatchSetCommandInput extends GetSqlInjectionMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSqlInjectionMatchSetCommand}.
  */
 export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -50,10 +47,15 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  * import { WAFRegionalClient, GetSqlInjectionMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetSqlInjectionMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // GetSqlInjectionMatchSetRequest
+ *   SqlInjectionMatchSetId: "STRING_VALUE", // required
+ * };
  * const command = new GetSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSqlInjectionMatchSetCommandInput - {@link GetSqlInjectionMatchSetCommandInput}
+ * @returns {@link GetSqlInjectionMatchSetCommandOutput}
  * @see {@link GetSqlInjectionMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -113,6 +115,9 @@ export class GetSqlInjectionMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSqlInjectionMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +146,8 @@ export class GetSqlInjectionMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSqlInjectionMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSqlInjectionMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +157,18 @@ export class GetSqlInjectionMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSqlInjectionMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSqlInjectionMatchSetCommand(input, context);
+    return se_GetSqlInjectionMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSqlInjectionMatchSetCommandOutput> {
-    return deserializeAws_json1_1GetSqlInjectionMatchSetCommand(output, context);
+    return de_GetSqlInjectionMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

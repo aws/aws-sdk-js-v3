@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PartnerIntegrationInputMessage,
-  PartnerIntegrationInputMessageFilterSensitiveLog,
-  PartnerIntegrationOutputMessage,
-  PartnerIntegrationOutputMessageFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryAddPartnerCommand, serializeAws_queryAddPartnerCommand } from "../protocols/Aws_query";
+import { PartnerIntegrationInputMessage, PartnerIntegrationOutputMessage } from "../models/models_0";
+import { de_AddPartnerCommand, se_AddPartnerCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddPartnerCommand}.
  */
 export interface AddPartnerCommandInput extends PartnerIntegrationInputMessage {}
 /**
+ * @public
+ *
  * The output of {@link AddPartnerCommand}.
  */
 export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a partner integration to a cluster.
  *             This operation authorizes a partner to push status updates for the specified database.
  *             To complete the integration, you also set up the integration on the partner website.</p>
@@ -41,10 +41,18 @@ export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage
  * import { RedshiftClient, AddPartnerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, AddPartnerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // PartnerIntegrationInputMessage
+ *   AccountId: "STRING_VALUE", // required
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   PartnerName: "STRING_VALUE", // required
+ * };
  * const command = new AddPartnerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddPartnerCommandInput - {@link AddPartnerCommandInput}
+ * @returns {@link AddPartnerCommandOutput}
  * @see {@link AddPartnerCommandInput} for command's `input` shape.
  * @see {@link AddPartnerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -78,6 +86,9 @@ export class AddPartnerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddPartnerCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +115,8 @@ export class AddPartnerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PartnerIntegrationInputMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PartnerIntegrationOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +126,18 @@ export class AddPartnerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddPartnerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddPartnerCommand(input, context);
+    return se_AddPartnerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPartnerCommandOutput> {
-    return deserializeAws_queryAddPartnerCommand(output, context);
+    return de_AddPartnerCommand(output, context);
   }
 
   // Start section: command_body_extra

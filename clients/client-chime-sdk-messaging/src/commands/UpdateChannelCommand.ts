@@ -22,29 +22,30 @@ import {
   UpdateChannelRequest,
   UpdateChannelRequestFilterSensitiveLog,
   UpdateChannelResponse,
-  UpdateChannelResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateChannelCommand,
-  serializeAws_restJson1UpdateChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateChannelCommand, se_UpdateChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateChannelCommand}.
  */
 export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateChannelCommand}.
  */
 export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a channel's attributes.</p>
  *          <p>
  *             <b>Restriction</b>: You can't change a channel's privacy. </p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -53,10 +54,19 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * import { ChimeSDKMessagingClient, UpdateChannelCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, UpdateChannelCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // UpdateChannelRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Mode: "UNRESTRICTED" || "RESTRICTED",
+ *   Metadata: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
+ * @returns {@link UpdateChannelCommandOutput}
  * @see {@link UpdateChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -102,6 +112,9 @@ export class UpdateChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,7 +142,7 @@ export class UpdateChannelCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChannelResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +152,18 @@ export class UpdateChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateChannelCommand(input, context);
+    return se_UpdateChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateChannelCommand(output, context);
+    return de_UpdateChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

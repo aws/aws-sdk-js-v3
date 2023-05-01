@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  MethodResponse,
-  MethodResponseFilterSensitiveLog,
-  UpdateMethodResponseRequest,
-  UpdateMethodResponseRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMethodResponseCommand,
-  serializeAws_restJson1UpdateMethodResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { MethodResponse, UpdateMethodResponseRequest } from "../models/models_0";
+import { de_UpdateMethodResponseCommand, se_UpdateMethodResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMethodResponseCommand}.
  */
 export interface UpdateMethodResponseCommandInput extends UpdateMethodResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMethodResponseCommand}.
  */
 export interface UpdateMethodResponseCommandOutput extends MethodResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing MethodResponse resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface UpdateMethodResponseCommandOutput extends MethodResponse, __Met
  * import { APIGatewayClient, UpdateMethodResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateMethodResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // UpdateMethodResponseRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ *   statusCode: "STRING_VALUE", // required
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
+ *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
+ *       path: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       from: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateMethodResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMethodResponseCommandInput - {@link UpdateMethodResponseCommandInput}
+ * @returns {@link UpdateMethodResponseCommandOutput}
  * @see {@link UpdateMethodResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateMethodResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +100,9 @@ export class UpdateMethodResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMethodResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +131,8 @@ export class UpdateMethodResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMethodResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MethodResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +142,18 @@ export class UpdateMethodResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMethodResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMethodResponseCommand(input, context);
+    return se_UpdateMethodResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMethodResponseCommandOutput> {
-    return deserializeAws_restJson1UpdateMethodResponseCommand(output, context);
+    return de_UpdateMethodResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

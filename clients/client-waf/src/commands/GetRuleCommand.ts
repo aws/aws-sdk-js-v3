@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRuleRequest,
-  GetRuleRequestFilterSensitiveLog,
-  GetRuleResponse,
-  GetRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetRuleCommand, serializeAws_json1_1GetRuleCommand } from "../protocols/Aws_json1_1";
+import { GetRuleRequest, GetRuleResponse } from "../models/models_0";
+import { de_GetRuleCommand, se_GetRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRuleCommand}.
  */
 export interface GetRuleCommandInput extends GetRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRuleCommand}.
  */
 export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -47,10 +47,15 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * import { WAFClient, GetRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // GetRuleRequest
+ *   RuleId: "STRING_VALUE", // required
+ * };
  * const command = new GetRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRuleCommandInput - {@link GetRuleCommandInput}
+ * @returns {@link GetRuleCommandOutput}
  * @see {@link GetRuleCommandInput} for command's `input` shape.
  * @see {@link GetRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -106,6 +111,9 @@ export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +140,8 @@ export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +151,18 @@ export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRuleCommand(input, context);
+    return se_GetRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRuleCommandOutput> {
-    return deserializeAws_json1_1GetRuleCommand(output, context);
+    return de_GetRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,21 +15,24 @@ import {
 
 import {
   GetLaunchProfileInitializationRequest,
-  GetLaunchProfileInitializationRequestFilterSensitiveLog,
   GetLaunchProfileInitializationResponse,
   GetLaunchProfileInitializationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
-  deserializeAws_restJson1GetLaunchProfileInitializationCommand,
-  serializeAws_restJson1GetLaunchProfileInitializationCommand,
+  de_GetLaunchProfileInitializationCommand,
+  se_GetLaunchProfileInitializationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLaunchProfileInitializationCommand}.
  */
 export interface GetLaunchProfileInitializationCommandInput extends GetLaunchProfileInitializationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLaunchProfileInitializationCommand}.
  */
 export interface GetLaunchProfileInitializationCommandOutput
@@ -37,6 +40,7 @@ export interface GetLaunchProfileInitializationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a launch profile initialization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +48,21 @@ export interface GetLaunchProfileInitializationCommandOutput
  * import { NimbleClient, GetLaunchProfileInitializationCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetLaunchProfileInitializationCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // GetLaunchProfileInitializationRequest
+ *   launchProfileId: "STRING_VALUE", // required
+ *   launchProfileProtocolVersions: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   launchPurpose: "STRING_VALUE", // required
+ *   platform: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetLaunchProfileInitializationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLaunchProfileInitializationCommandInput - {@link GetLaunchProfileInitializationCommandInput}
+ * @returns {@link GetLaunchProfileInitializationCommandOutput}
  * @see {@link GetLaunchProfileInitializationCommandInput} for command's `input` shape.
  * @see {@link GetLaunchProfileInitializationCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -95,6 +110,9 @@ export class GetLaunchProfileInitializationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLaunchProfileInitializationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +141,7 @@ export class GetLaunchProfileInitializationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLaunchProfileInitializationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetLaunchProfileInitializationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -134,18 +152,24 @@ export class GetLaunchProfileInitializationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetLaunchProfileInitializationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLaunchProfileInitializationCommand(input, context);
+    return se_GetLaunchProfileInitializationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLaunchProfileInitializationCommandOutput> {
-    return deserializeAws_restJson1GetLaunchProfileInitializationCommand(output, context);
+    return de_GetLaunchProfileInitializationCommand(output, context);
   }
 
   // Start section: command_body_extra

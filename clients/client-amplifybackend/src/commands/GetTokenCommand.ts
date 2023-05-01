@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  GetTokenRequest,
-  GetTokenRequestFilterSensitiveLog,
-  GetTokenResponse,
-  GetTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTokenCommand,
-  serializeAws_restJson1GetTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { GetTokenRequest, GetTokenResponse } from "../models/models_0";
+import { de_GetTokenCommand, se_GetTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTokenCommand}.
  */
 export interface GetTokenCommandInput extends GetTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTokenCommand}.
  */
 export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the challenge token based on the given appId and sessionId.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  * import { AmplifyBackendClient, GetTokenCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, GetTokenCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // GetTokenRequest
+ *   AppId: "STRING_VALUE", // required
+ *   SessionId: "STRING_VALUE", // required
+ * };
  * const command = new GetTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTokenCommandInput - {@link GetTokenCommandInput}
+ * @returns {@link GetTokenCommandOutput}
  * @see {@link GetTokenCommandInput} for command's `input` shape.
  * @see {@link GetTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class GetTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class GetTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTokenCommand(input, context);
+    return se_GetTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTokenCommandOutput> {
-    return deserializeAws_restJson1GetTokenCommand(output, context);
+    return de_GetTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

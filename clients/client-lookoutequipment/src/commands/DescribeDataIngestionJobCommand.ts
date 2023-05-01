@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  DescribeDataIngestionJobRequest,
-  DescribeDataIngestionJobRequestFilterSensitiveLog,
-  DescribeDataIngestionJobResponse,
-  DescribeDataIngestionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeDataIngestionJobCommand,
-  serializeAws_json1_0DescribeDataIngestionJobCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeDataIngestionJobRequest, DescribeDataIngestionJobResponse } from "../models/models_0";
+import { de_DescribeDataIngestionJobCommand, se_DescribeDataIngestionJobCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataIngestionJobCommand}.
  */
 export interface DescribeDataIngestionJobCommandInput extends DescribeDataIngestionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataIngestionJobCommand}.
  */
 export interface DescribeDataIngestionJobCommandOutput extends DescribeDataIngestionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information on a specific data ingestion job such as creation time, dataset
  *          ARN, and status.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
  * import { LookoutEquipmentClient, DescribeDataIngestionJobCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DescribeDataIngestionJobCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // DescribeDataIngestionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDataIngestionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataIngestionJobCommandInput - {@link DescribeDataIngestionJobCommandInput}
+ * @returns {@link DescribeDataIngestionJobCommandOutput}
  * @see {@link DescribeDataIngestionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDataIngestionJobCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +91,9 @@ export class DescribeDataIngestionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataIngestionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class DescribeDataIngestionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataIngestionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataIngestionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class DescribeDataIngestionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataIngestionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeDataIngestionJobCommand(input, context);
+    return se_DescribeDataIngestionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataIngestionJobCommandOutput> {
-    return deserializeAws_json1_0DescribeDataIngestionJobCommand(output, context);
+    return de_DescribeDataIngestionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

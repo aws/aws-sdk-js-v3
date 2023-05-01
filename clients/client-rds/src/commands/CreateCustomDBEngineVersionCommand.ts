@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCustomDBEngineVersionMessage,
-  CreateCustomDBEngineVersionMessageFilterSensitiveLog,
-  DBEngineVersion,
-  DBEngineVersionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateCustomDBEngineVersionCommand,
-  serializeAws_queryCreateCustomDBEngineVersionCommand,
-} from "../protocols/Aws_query";
+import { CreateCustomDBEngineVersionMessage, DBEngineVersion } from "../models/models_0";
+import { de_CreateCustomDBEngineVersionCommand, se_CreateCustomDBEngineVersionCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomDBEngineVersionCommand}.
  */
 export interface CreateCustomDBEngineVersionCommandInput extends CreateCustomDBEngineVersionMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomDBEngineVersionCommand}.
  */
 export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a custom DB engine version (CEV).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,13 +39,34 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * import { RDSClient, CreateCustomDBEngineVersionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateCustomDBEngineVersionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CreateCustomDBEngineVersionMessage
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE", // required
+ *   DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
+ *   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
+ *   ImageId: "STRING_VALUE",
+ *   KMSKeyId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Manifest: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateCustomDBEngineVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomDBEngineVersionCommandInput - {@link CreateCustomDBEngineVersionCommandInput}
+ * @returns {@link CreateCustomDBEngineVersionCommandOutput}
  * @see {@link CreateCustomDBEngineVersionCommandInput} for command's `input` shape.
  * @see {@link CreateCustomDBEngineVersionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link CreateCustomDBEngineVersionFault} (client fault)
+ *  <p>An error occurred while trying to create the CEV.</p>
  *
  * @throws {@link CustomDBEngineVersionAlreadyExistsFault} (client fault)
  *  <p>A CEV with the specified name already exists.</p>
@@ -81,6 +99,9 @@ export class CreateCustomDBEngineVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomDBEngineVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +130,8 @@ export class CreateCustomDBEngineVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomDBEngineVersionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBEngineVersionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +141,21 @@ export class CreateCustomDBEngineVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomDBEngineVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateCustomDBEngineVersionCommand(input, context);
+    return se_CreateCustomDBEngineVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCustomDBEngineVersionCommandOutput> {
-    return deserializeAws_queryCreateCustomDBEngineVersionCommand(output, context);
+    return de_CreateCustomDBEngineVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

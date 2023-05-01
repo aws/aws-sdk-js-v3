@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListActionsRequest,
-  ListActionsRequestFilterSensitiveLog,
-  ListActionsResponse,
-  ListActionsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListActionsCommand,
-  serializeAws_json1_1ListActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListActionsRequest, ListActionsResponse } from "../models/models_3";
+import { de_ListActionsCommand, se_ListActionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListActionsCommand}.
  */
 export interface ListActionsCommandInput extends ListActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListActionsCommand}.
  */
 export interface ListActionsCommandOutput extends ListActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the actions in your account and their properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * import { SageMakerClient, ListActionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListActionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListActionsRequest
+ *   SourceUri: "STRING_VALUE",
+ *   ActionType: "STRING_VALUE",
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListActionsCommandInput - {@link ListActionsCommandInput}
+ * @returns {@link ListActionsCommandOutput}
  * @see {@link ListActionsCommandInput} for command's `input` shape.
  * @see {@link ListActionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +81,9 @@ export class ListActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +110,8 @@ export class ListActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListActionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListActionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +121,18 @@ export class ListActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListActionsCommand(input, context);
+    return se_ListActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActionsCommandOutput> {
-    return deserializeAws_json1_1ListActionsCommand(output, context);
+    return de_ListActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,23 @@ import {
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import {
   ListClientDevicesAssociatedWithCoreDeviceRequest,
-  ListClientDevicesAssociatedWithCoreDeviceRequestFilterSensitiveLog,
   ListClientDevicesAssociatedWithCoreDeviceResponse,
-  ListClientDevicesAssociatedWithCoreDeviceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommand,
-  serializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommand,
+  de_ListClientDevicesAssociatedWithCoreDeviceCommand,
+  se_ListClientDevicesAssociatedWithCoreDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListClientDevicesAssociatedWithCoreDeviceCommand}.
  */
 export interface ListClientDevicesAssociatedWithCoreDeviceCommandInput
   extends ListClientDevicesAssociatedWithCoreDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListClientDevicesAssociatedWithCoreDeviceCommand}.
  */
 export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
@@ -38,6 +40,7 @@ export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of client devices that are associated with a core
  *       device.</p>
  * @example
@@ -46,10 +49,17 @@ export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
  * import { GreengrassV2Client, ListClientDevicesAssociatedWithCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ListClientDevicesAssociatedWithCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // ListClientDevicesAssociatedWithCoreDeviceRequest
+ *   coreDeviceThingName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListClientDevicesAssociatedWithCoreDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListClientDevicesAssociatedWithCoreDeviceCommandInput - {@link ListClientDevicesAssociatedWithCoreDeviceCommandInput}
+ * @returns {@link ListClientDevicesAssociatedWithCoreDeviceCommandOutput}
  * @see {@link ListClientDevicesAssociatedWithCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link ListClientDevicesAssociatedWithCoreDeviceCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -90,6 +100,9 @@ export class ListClientDevicesAssociatedWithCoreDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListClientDevicesAssociatedWithCoreDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +137,8 @@ export class ListClientDevicesAssociatedWithCoreDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClientDevicesAssociatedWithCoreDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClientDevicesAssociatedWithCoreDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +148,24 @@ export class ListClientDevicesAssociatedWithCoreDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListClientDevicesAssociatedWithCoreDeviceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommand(input, context);
+    return se_ListClientDevicesAssociatedWithCoreDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListClientDevicesAssociatedWithCoreDeviceCommandOutput> {
-    return deserializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommand(output, context);
+    return de_ListClientDevicesAssociatedWithCoreDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

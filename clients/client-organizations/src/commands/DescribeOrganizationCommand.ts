@@ -15,21 +15,23 @@ import {
 
 import { DescribeOrganizationResponse, DescribeOrganizationResponseFilterSensitiveLog } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DescribeOrganizationCommand,
-  serializeAws_json1_1DescribeOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeOrganizationCommand, se_DescribeOrganizationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationCommand}.
  */
 export interface DescribeOrganizationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationCommand}.
  */
 export interface DescribeOrganizationCommandOutput extends DescribeOrganizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the organization that the user's account belongs
  *             to.</p>
  *          <p>This operation can be called from any account in the organization.</p>
@@ -44,10 +46,13 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * import { OrganizationsClient, DescribeOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {};
  * const command = new DescribeOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationCommandInput - {@link DescribeOrganizationCommandInput}
+ * @returns {@link DescribeOrganizationCommandOutput}
  * @see {@link DescribeOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -123,6 +128,9 @@ export class DescribeOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,7 +159,7 @@ export class DescribeOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -162,12 +170,18 @@ export class DescribeOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationCommand(input, context);
+    return se_DescribeOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationCommand(output, context);
+    return de_DescribeOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

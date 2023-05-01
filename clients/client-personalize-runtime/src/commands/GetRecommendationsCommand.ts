@@ -17,28 +17,29 @@ import {
   GetRecommendationsRequest,
   GetRecommendationsRequestFilterSensitiveLog,
   GetRecommendationsResponse,
-  GetRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PersonalizeRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient";
-import {
-  deserializeAws_restJson1GetRecommendationsCommand,
-  serializeAws_restJson1GetRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRecommendationsCommand, se_GetRecommendationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommendationsCommand}.
  */
 export interface GetRecommendationsCommandInput extends GetRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommendationsCommand}.
  */
 export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to
  *       create the solution backing the campaign as follows:</p>
  *          <ul>
@@ -63,10 +64,36 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * import { PersonalizeRuntimeClient, GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
  * // const { PersonalizeRuntimeClient, GetRecommendationsCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
  * const client = new PersonalizeRuntimeClient(config);
+ * const input = { // GetRecommendationsRequest
+ *   campaignArn: "STRING_VALUE",
+ *   itemId: "STRING_VALUE",
+ *   userId: "STRING_VALUE",
+ *   numResults: Number("int"),
+ *   context: { // Context
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   filterArn: "STRING_VALUE",
+ *   filterValues: { // FilterValues
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   recommenderArn: "STRING_VALUE",
+ *   promotions: [ // PromotionList
+ *     { // Promotion
+ *       name: "STRING_VALUE",
+ *       percentPromotedItems: Number("int"),
+ *       filterArn: "STRING_VALUE",
+ *       filterValues: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommendationsCommandInput - {@link GetRecommendationsCommandInput}
+ * @returns {@link GetRecommendationsCommandOutput}
  * @see {@link GetRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for PersonalizeRuntimeClient's `config` shape.
@@ -96,6 +123,9 @@ export class GetRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,7 +155,7 @@ export class GetRecommendationsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommendationsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +165,18 @@ export class GetRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecommendationsCommand(input, context);
+    return se_GetRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecommendationsCommandOutput> {
-    return deserializeAws_restJson1GetRecommendationsCommand(output, context);
+    return de_GetRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

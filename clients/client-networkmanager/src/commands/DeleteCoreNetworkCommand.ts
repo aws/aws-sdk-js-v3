@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteCoreNetworkRequest,
-  DeleteCoreNetworkRequestFilterSensitiveLog,
-  DeleteCoreNetworkResponse,
-  DeleteCoreNetworkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCoreNetworkRequest, DeleteCoreNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DeleteCoreNetworkCommand,
-  serializeAws_restJson1DeleteCoreNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCoreNetworkCommand, se_DeleteCoreNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCoreNetworkCommand}.
  */
 export interface DeleteCoreNetworkCommandInput extends DeleteCoreNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCoreNetworkCommand}.
  */
 export interface DeleteCoreNetworkCommandOutput extends DeleteCoreNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a core network along with all core network policies. This can only be done if there are no attachments on a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteCoreNetworkCommandOutput extends DeleteCoreNetworkRespons
  * import { NetworkManagerClient, DeleteCoreNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteCoreNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // DeleteCoreNetworkRequest
+ *   CoreNetworkId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCoreNetworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCoreNetworkCommandInput - {@link DeleteCoreNetworkCommandInput}
+ * @returns {@link DeleteCoreNetworkCommandOutput}
  * @see {@link DeleteCoreNetworkCommandInput} for command's `input` shape.
  * @see {@link DeleteCoreNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +90,9 @@ export class DeleteCoreNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCoreNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class DeleteCoreNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCoreNetworkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCoreNetworkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class DeleteCoreNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCoreNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCoreNetworkCommand(input, context);
+    return se_DeleteCoreNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCoreNetworkCommandOutput> {
-    return deserializeAws_restJson1DeleteCoreNetworkCommand(output, context);
+    return de_DeleteCoreNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

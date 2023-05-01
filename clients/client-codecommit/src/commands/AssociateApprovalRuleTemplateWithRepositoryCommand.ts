@@ -14,26 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { AssociateApprovalRuleTemplateWithRepositoryInput } from "../models/models_0";
 import {
-  AssociateApprovalRuleTemplateWithRepositoryInput,
-  AssociateApprovalRuleTemplateWithRepositoryInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand,
-  serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand,
+  de_AssociateApprovalRuleTemplateWithRepositoryCommand,
+  se_AssociateApprovalRuleTemplateWithRepositoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateApprovalRuleTemplateWithRepositoryCommand}.
  */
 export interface AssociateApprovalRuleTemplateWithRepositoryCommandInput
   extends AssociateApprovalRuleTemplateWithRepositoryInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateApprovalRuleTemplateWithRepositoryCommand}.
  */
 export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between an approval rule template and a specified repository.
  *             Then, the next time a pull request is created in the repository where the destination
  *             reference (if specified) matches the destination reference (branch) for the pull
@@ -47,10 +49,16 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  * import { CodeCommitClient, AssociateApprovalRuleTemplateWithRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, AssociateApprovalRuleTemplateWithRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // AssociateApprovalRuleTemplateWithRepositoryInput
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new AssociateApprovalRuleTemplateWithRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateApprovalRuleTemplateWithRepositoryCommandInput - {@link AssociateApprovalRuleTemplateWithRepositoryCommandInput}
+ * @returns {@link AssociateApprovalRuleTemplateWithRepositoryCommandOutput}
  * @see {@link AssociateApprovalRuleTemplateWithRepositoryCommandInput} for command's `input` shape.
  * @see {@link AssociateApprovalRuleTemplateWithRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -121,6 +129,9 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateApprovalRuleTemplateWithRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,8 +166,8 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateApprovalRuleTemplateWithRepositoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -166,18 +177,24 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(input, context);
+    return se_AssociateApprovalRuleTemplateWithRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> {
-    return deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(output, context);
+    return de_AssociateApprovalRuleTemplateWithRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

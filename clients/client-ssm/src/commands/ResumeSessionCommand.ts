@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ResumeSessionRequest,
-  ResumeSessionRequestFilterSensitiveLog,
-  ResumeSessionResponse,
-  ResumeSessionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ResumeSessionCommand,
-  serializeAws_json1_1ResumeSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { ResumeSessionRequest, ResumeSessionResponse } from "../models/models_1";
+import { de_ResumeSessionCommand, se_ResumeSessionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeSessionCommand}.
  */
 export interface ResumeSessionCommandInput extends ResumeSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResumeSessionCommand}.
  */
 export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reconnects a session to a managed node after it has been disconnected. Connections can be
  *    resumed for disconnected sessions, but not terminated sessions.</p>
  *          <note>
@@ -47,10 +44,15 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  * import { SSMClient, ResumeSessionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ResumeSessionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ResumeSessionRequest
+ *   SessionId: "STRING_VALUE", // required
+ * };
  * const command = new ResumeSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeSessionCommandInput - {@link ResumeSessionCommandInput}
+ * @returns {@link ResumeSessionCommandOutput}
  * @see {@link ResumeSessionCommandInput} for command's `input` shape.
  * @see {@link ResumeSessionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -83,6 +85,9 @@ export class ResumeSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class ResumeSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResumeSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class ResumeSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResumeSessionCommand(input, context);
+    return se_ResumeSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeSessionCommandOutput> {
-    return deserializeAws_json1_1ResumeSessionCommand(output, context);
+    return de_ResumeSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

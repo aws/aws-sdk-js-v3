@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { DeleteLabelGroupRequest, DeleteLabelGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteLabelGroupCommand,
-  serializeAws_json1_0DeleteLabelGroupCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteLabelGroupRequest } from "../models/models_0";
+import { de_DeleteLabelGroupCommand, se_DeleteLabelGroupCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLabelGroupCommand}.
  */
 export interface DeleteLabelGroupCommandInput extends DeleteLabelGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLabelGroupCommand}.
  */
 export interface DeleteLabelGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Deletes a group of labels.
  * </p>
@@ -39,10 +41,15 @@ export interface DeleteLabelGroupCommandOutput extends __MetadataBearer {}
  * import { LookoutEquipmentClient, DeleteLabelGroupCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DeleteLabelGroupCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // DeleteLabelGroupRequest
+ *   LabelGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLabelGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLabelGroupCommandInput - {@link DeleteLabelGroupCommandInput}
+ * @returns {@link DeleteLabelGroupCommandOutput}
  * @see {@link DeleteLabelGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteLabelGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteLabelGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLabelGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class DeleteLabelGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLabelGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +138,18 @@ export class DeleteLabelGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLabelGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteLabelGroupCommand(input, context);
+    return se_DeleteLabelGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLabelGroupCommandOutput> {
-    return deserializeAws_json1_0DeleteLabelGroupCommand(output, context);
+    return de_DeleteLabelGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

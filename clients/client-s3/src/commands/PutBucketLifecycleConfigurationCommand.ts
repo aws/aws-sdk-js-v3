@@ -14,26 +14,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutBucketLifecycleConfigurationRequest } from "../models/models_0";
 import {
-  PutBucketLifecycleConfigurationRequest,
-  PutBucketLifecycleConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketLifecycleConfigurationCommand,
-  serializeAws_restXmlPutBucketLifecycleConfigurationCommand,
+  de_PutBucketLifecycleConfigurationCommand,
+  se_PutBucketLifecycleConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketLifecycleConfigurationCommand}.
  */
 export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLifecycleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketLifecycleConfigurationCommand}.
  */
 export interface PutBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
  *          configuration. Keep in mind that this will overwrite an existing lifecycle configuration, so if
  *          you want to retain any configuration details, they must be included in the new lifecycle
@@ -128,10 +130,72 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * import { S3Client, PutBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketLifecycleConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   LifecycleConfiguration: { // BucketLifecycleConfiguration
+ *     Rules: [ // LifecycleRules // required
+ *       { // LifecycleRule
+ *         Expiration: { // LifecycleExpiration
+ *           Date: new Date("TIMESTAMP"),
+ *           Days: Number("int"),
+ *           ExpiredObjectDeleteMarker: true || false,
+ *         },
+ *         ID: "STRING_VALUE",
+ *         Prefix: "STRING_VALUE",
+ *         Filter: { // LifecycleRuleFilter Union: only one key present
+ *           Prefix: "STRING_VALUE",
+ *           Tag: { // Tag
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *           ObjectSizeGreaterThan: Number("long"),
+ *           ObjectSizeLessThan: Number("long"),
+ *           And: { // LifecycleRuleAndOperator
+ *             Prefix: "STRING_VALUE",
+ *             Tags: [ // TagSet
+ *               {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             ObjectSizeGreaterThan: Number("long"),
+ *             ObjectSizeLessThan: Number("long"),
+ *           },
+ *         },
+ *         Status: "Enabled" || "Disabled", // required
+ *         Transitions: [ // TransitionList
+ *           { // Transition
+ *             Date: new Date("TIMESTAMP"),
+ *             Days: Number("int"),
+ *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ *           },
+ *         ],
+ *         NoncurrentVersionTransitions: [ // NoncurrentVersionTransitionList
+ *           { // NoncurrentVersionTransition
+ *             NoncurrentDays: Number("int"),
+ *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ *             NewerNoncurrentVersions: Number("int"),
+ *           },
+ *         ],
+ *         NoncurrentVersionExpiration: { // NoncurrentVersionExpiration
+ *           NoncurrentDays: Number("int"),
+ *           NewerNoncurrentVersions: Number("int"),
+ *         },
+ *         AbortIncompleteMultipartUpload: { // AbortIncompleteMultipartUpload
+ *           DaysAfterInitiation: Number("int"),
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketLifecycleConfigurationCommandInput - {@link PutBucketLifecycleConfigurationCommandInput}
+ * @returns {@link PutBucketLifecycleConfigurationCommandOutput}
  * @see {@link PutBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -192,6 +256,9 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -227,8 +294,8 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketLifecycleConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -238,18 +305,24 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketLifecycleConfigurationCommand(input, context);
+    return se_PutBucketLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketLifecycleConfigurationCommand(output, context);
+    return de_PutBucketLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

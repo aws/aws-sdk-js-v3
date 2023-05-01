@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  DescribeRulesPackagesRequest,
-  DescribeRulesPackagesRequestFilterSensitiveLog,
-  DescribeRulesPackagesResponse,
-  DescribeRulesPackagesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRulesPackagesCommand,
-  serializeAws_json1_1DescribeRulesPackagesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeRulesPackagesRequest, DescribeRulesPackagesResponse } from "../models/models_0";
+import { de_DescribeRulesPackagesCommand, se_DescribeRulesPackagesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRulesPackagesCommand}.
  */
 export interface DescribeRulesPackagesCommandInput extends DescribeRulesPackagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRulesPackagesCommand}.
  */
 export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the rules packages that are specified by the ARNs of the rules
  *          packages.</p>
  * @example
@@ -43,10 +40,18 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * import { InspectorClient, DescribeRulesPackagesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeRulesPackagesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // DescribeRulesPackagesRequest
+ *   rulesPackageArns: [ // BatchDescribeArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeRulesPackagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRulesPackagesCommandInput - {@link DescribeRulesPackagesCommandInput}
+ * @returns {@link DescribeRulesPackagesCommandOutput}
  * @see {@link DescribeRulesPackagesCommandInput} for command's `input` shape.
  * @see {@link DescribeRulesPackagesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -104,6 +109,9 @@ export class DescribeRulesPackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRulesPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +140,8 @@ export class DescribeRulesPackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRulesPackagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRulesPackagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +151,18 @@ export class DescribeRulesPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRulesPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRulesPackagesCommand(input, context);
+    return se_DescribeRulesPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRulesPackagesCommandOutput> {
-    return deserializeAws_json1_1DescribeRulesPackagesCommand(output, context);
+    return de_DescribeRulesPackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

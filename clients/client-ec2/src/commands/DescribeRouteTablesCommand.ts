@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeRouteTablesRequest,
-  DescribeRouteTablesRequestFilterSensitiveLog,
-  DescribeRouteTablesResult,
-  DescribeRouteTablesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeRouteTablesCommand,
-  serializeAws_ec2DescribeRouteTablesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeRouteTablesRequest, DescribeRouteTablesResult } from "../models/models_4";
+import { de_DescribeRouteTablesCommand, se_DescribeRouteTablesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRouteTablesCommand}.
  */
 export interface DescribeRouteTablesCommandInput extends DescribeRouteTablesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRouteTablesCommand}.
  */
 export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your route tables.</p>
  *          <p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
@@ -45,10 +42,28 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * import { EC2Client, DescribeRouteTablesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeRouteTablesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeRouteTablesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   RouteTableIds: [ // RouteTableIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeRouteTablesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRouteTablesCommandInput - {@link DescribeRouteTablesCommandInput}
+ * @returns {@link DescribeRouteTablesCommandOutput}
  * @see {@link DescribeRouteTablesCommandInput} for command's `input` shape.
  * @see {@link DescribeRouteTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -111,6 +126,9 @@ export class DescribeRouteTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRouteTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +157,8 @@ export class DescribeRouteTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRouteTablesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRouteTablesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +168,18 @@ export class DescribeRouteTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRouteTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeRouteTablesCommand(input, context);
+    return se_DescribeRouteTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRouteTablesCommandOutput> {
-    return deserializeAws_ec2DescribeRouteTablesCommand(output, context);
+    return de_DescribeRouteTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,26 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { DisassociateTimeSeriesFromAssetPropertyRequest } from "../models/models_0";
 import {
-  DisassociateTimeSeriesFromAssetPropertyRequest,
-  DisassociateTimeSeriesFromAssetPropertyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommand,
-  serializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommand,
+  de_DisassociateTimeSeriesFromAssetPropertyCommand,
+  se_DisassociateTimeSeriesFromAssetPropertyCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateTimeSeriesFromAssetPropertyCommand}.
  */
 export interface DisassociateTimeSeriesFromAssetPropertyCommandInput
   extends DisassociateTimeSeriesFromAssetPropertyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateTimeSeriesFromAssetPropertyCommand}.
  */
 export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a time series (data stream) from an asset property.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,10 +43,18 @@ export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __
  * import { IoTSiteWiseClient, DisassociateTimeSeriesFromAssetPropertyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DisassociateTimeSeriesFromAssetPropertyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DisassociateTimeSeriesFromAssetPropertyRequest
+ *   alias: "STRING_VALUE", // required
+ *   assetId: "STRING_VALUE", // required
+ *   propertyId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DisassociateTimeSeriesFromAssetPropertyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateTimeSeriesFromAssetPropertyCommandInput - {@link DisassociateTimeSeriesFromAssetPropertyCommandInput}
+ * @returns {@link DisassociateTimeSeriesFromAssetPropertyCommandOutput}
  * @see {@link DisassociateTimeSeriesFromAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link DisassociateTimeSeriesFromAssetPropertyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -88,6 +98,9 @@ export class DisassociateTimeSeriesFromAssetPropertyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateTimeSeriesFromAssetPropertyCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +135,8 @@ export class DisassociateTimeSeriesFromAssetPropertyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTimeSeriesFromAssetPropertyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +146,24 @@ export class DisassociateTimeSeriesFromAssetPropertyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateTimeSeriesFromAssetPropertyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommand(input, context);
+    return se_DisassociateTimeSeriesFromAssetPropertyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTimeSeriesFromAssetPropertyCommandOutput> {
-    return deserializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommand(output, context);
+    return de_DisassociateTimeSeriesFromAssetPropertyCommand(output, context);
   }
 
   // Start section: command_body_extra

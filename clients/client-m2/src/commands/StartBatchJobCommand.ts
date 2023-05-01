@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  StartBatchJobRequest,
-  StartBatchJobRequestFilterSensitiveLog,
-  StartBatchJobResponse,
-  StartBatchJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartBatchJobCommand,
-  serializeAws_restJson1StartBatchJobCommand,
-} from "../protocols/Aws_restJson1";
+import { StartBatchJobRequest, StartBatchJobResponse } from "../models/models_0";
+import { de_StartBatchJobCommand, se_StartBatchJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartBatchJobCommand}.
  */
 export interface StartBatchJobCommandInput extends StartBatchJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartBatchJobCommand}.
  */
 export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a batch job and returns the unique identifier of this execution of the batch job.
  *          The associated application must be running in order to start the batch job.</p>
  * @example
@@ -43,10 +40,27 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  * import { M2Client, StartBatchJobCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, StartBatchJobCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // StartBatchJobRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   batchJobIdentifier: { // BatchJobIdentifier Union: only one key present
+ *     fileBatchJobIdentifier: { // FileBatchJobIdentifier
+ *       fileName: "STRING_VALUE", // required
+ *       folderPath: "STRING_VALUE",
+ *     },
+ *     scriptBatchJobIdentifier: { // ScriptBatchJobIdentifier
+ *       scriptName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   jobParams: { // BatchJobParametersMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartBatchJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBatchJobCommandInput - {@link StartBatchJobCommandInput}
+ * @returns {@link StartBatchJobCommandOutput}
  * @see {@link StartBatchJobCommandInput} for command's `input` shape.
  * @see {@link StartBatchJobCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -88,6 +102,9 @@ export class StartBatchJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBatchJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +131,8 @@ export class StartBatchJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartBatchJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartBatchJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +142,18 @@ export class StartBatchJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartBatchJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartBatchJobCommand(input, context);
+    return se_StartBatchJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBatchJobCommandOutput> {
-    return deserializeAws_restJson1StartBatchJobCommand(output, context);
+    return de_StartBatchJobCommand(output, context);
   }
 
   // Start section: command_body_extra

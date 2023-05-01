@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  ListGlobalTablesInput,
-  ListGlobalTablesInputFilterSensitiveLog,
-  ListGlobalTablesOutput,
-  ListGlobalTablesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListGlobalTablesCommand,
-  serializeAws_json1_0ListGlobalTablesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListGlobalTablesInput, ListGlobalTablesOutput } from "../models/models_0";
+import { de_ListGlobalTablesCommand, se_ListGlobalTablesCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListGlobalTablesCommand}.
  */
 export interface ListGlobalTablesCommandInput extends ListGlobalTablesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListGlobalTablesCommand}.
  */
 export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all global tables that have a replica in the specified Region.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -54,10 +51,17 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  * import { DynamoDBClient, ListGlobalTablesCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListGlobalTablesCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // ListGlobalTablesInput
+ *   ExclusiveStartGlobalTableName: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   RegionName: "STRING_VALUE",
+ * };
  * const command = new ListGlobalTablesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGlobalTablesCommandInput - {@link ListGlobalTablesCommandInput}
+ * @returns {@link ListGlobalTablesCommandOutput}
  * @see {@link ListGlobalTablesCommandInput} for command's `input` shape.
  * @see {@link ListGlobalTablesCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -86,6 +90,9 @@ export class ListGlobalTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGlobalTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class ListGlobalTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGlobalTablesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGlobalTablesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class ListGlobalTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGlobalTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListGlobalTablesCommand(input, context);
+    return se_ListGlobalTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGlobalTablesCommandOutput> {
-    return deserializeAws_json1_0ListGlobalTablesCommand(output, context);
+    return de_ListGlobalTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

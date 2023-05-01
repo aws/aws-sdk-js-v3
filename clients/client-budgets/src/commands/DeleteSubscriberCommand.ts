@@ -18,23 +18,24 @@ import {
   DeleteSubscriberRequest,
   DeleteSubscriberRequestFilterSensitiveLog,
   DeleteSubscriberResponse,
-  DeleteSubscriberResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSubscriberCommand,
-  serializeAws_json1_1DeleteSubscriberCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSubscriberCommand, se_DeleteSubscriberCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSubscriberCommand}.
  */
 export interface DeleteSubscriberCommandInput extends DeleteSubscriberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSubscriberCommand}.
  */
 export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a subscriber.</p>
  * 		       <important>
  * 			         <p>Deleting the last subscriber to a notification also deletes the notification.</p>
@@ -45,10 +46,27 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * import { BudgetsClient, DeleteSubscriberCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DeleteSubscriberCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // DeleteSubscriberRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   Notification: { // Notification
+ *     NotificationType: "STRING_VALUE", // required
+ *     ComparisonOperator: "STRING_VALUE", // required
+ *     Threshold: Number("double"), // required
+ *     ThresholdType: "STRING_VALUE",
+ *     NotificationState: "STRING_VALUE",
+ *   },
+ *   Subscriber: { // Subscriber
+ *     SubscriptionType: "STRING_VALUE", // required
+ *     Address: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DeleteSubscriberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSubscriberCommandInput - {@link DeleteSubscriberCommandInput}
+ * @returns {@link DeleteSubscriberCommandOutput}
  * @see {@link DeleteSubscriberCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriberCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -89,6 +107,9 @@ export class DeleteSubscriberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSubscriberCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +139,7 @@ export class DeleteSubscriberCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteSubscriberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubscriberResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +149,18 @@ export class DeleteSubscriberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSubscriberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSubscriberCommand(input, context);
+    return se_DeleteSubscriberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubscriberCommandOutput> {
-    return deserializeAws_json1_1DeleteSubscriberCommand(output, context);
+    return de_DeleteSubscriberCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  DeleteLunaClientRequest,
-  DeleteLunaClientRequestFilterSensitiveLog,
-  DeleteLunaClientResponse,
-  DeleteLunaClientResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLunaClientCommand,
-  serializeAws_json1_1DeleteLunaClientCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteLunaClientRequest, DeleteLunaClientResponse } from "../models/models_0";
+import { de_DeleteLunaClientCommand, se_DeleteLunaClientCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLunaClientCommand}.
  */
 export interface DeleteLunaClientCommandInput extends DeleteLunaClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLunaClientCommand}.
  */
 export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -52,10 +49,15 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  * import { CloudHSMClient, DeleteLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DeleteLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // DeleteLunaClientRequest
+ *   ClientArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLunaClientCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLunaClientCommandInput - {@link DeleteLunaClientCommandInput}
+ * @returns {@link DeleteLunaClientCommandOutput}
  * @see {@link DeleteLunaClientCommandInput} for command's `input` shape.
  * @see {@link DeleteLunaClientCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -88,6 +90,9 @@ export class DeleteLunaClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLunaClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class DeleteLunaClientCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLunaClientRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLunaClientResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class DeleteLunaClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLunaClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLunaClientCommand(input, context);
+    return se_DeleteLunaClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLunaClientCommandOutput> {
-    return deserializeAws_json1_1DeleteLunaClientCommand(output, context);
+    return de_DeleteLunaClientCommand(output, context);
   }
 
   // Start section: command_body_extra

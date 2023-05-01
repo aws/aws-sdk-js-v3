@@ -15,22 +15,24 @@ import {
 
 import {
   CreateConfigurationSetTrackingOptionsRequest,
-  CreateConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
   CreateConfigurationSetTrackingOptionsResponse,
-  CreateConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryCreateConfigurationSetTrackingOptionsCommand,
-  serializeAws_queryCreateConfigurationSetTrackingOptionsCommand,
+  de_CreateConfigurationSetTrackingOptionsCommand,
+  se_CreateConfigurationSetTrackingOptionsCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationSetTrackingOptionsCommand}.
  */
 export interface CreateConfigurationSetTrackingOptionsCommandInput
   extends CreateConfigurationSetTrackingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationSetTrackingOptionsCommand}.
  */
 export interface CreateConfigurationSetTrackingOptionsCommandOutput
@@ -38,6 +40,7 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an association between a configuration set and a custom domain for open and
  *             click event tracking. </p>
  *         <p>By default, images and links used for tracking open and click events are hosted on
@@ -49,10 +52,18 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
  * import { SESClient, CreateConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CreateConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // CreateConfigurationSetTrackingOptionsRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   TrackingOptions: { // TrackingOptions
+ *     CustomRedirectDomain: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationSetTrackingOptionsCommandInput - {@link CreateConfigurationSetTrackingOptionsCommandInput}
+ * @returns {@link CreateConfigurationSetTrackingOptionsCommandOutput}
  * @see {@link CreateConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -96,6 +107,9 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationSetTrackingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +138,8 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +149,24 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateConfigurationSetTrackingOptionsCommand(input, context);
+    return se_CreateConfigurationSetTrackingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfigurationSetTrackingOptionsCommandOutput> {
-    return deserializeAws_queryCreateConfigurationSetTrackingOptionsCommand(output, context);
+    return de_CreateConfigurationSetTrackingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

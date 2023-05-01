@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  DetectEntitiesV2Request,
-  DetectEntitiesV2RequestFilterSensitiveLog,
-  DetectEntitiesV2Response,
-  DetectEntitiesV2ResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectEntitiesV2Command,
-  serializeAws_json1_1DetectEntitiesV2Command,
-} from "../protocols/Aws_json1_1";
+import { DetectEntitiesV2Request, DetectEntitiesV2Response } from "../models/models_0";
+import { de_DetectEntitiesV2Command, se_DetectEntitiesV2Command } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectEntitiesV2Command}.
  */
 export interface DetectEntitiesV2CommandInput extends DetectEntitiesV2Request {}
 /**
+ * @public
+ *
  * The output of {@link DetectEntitiesV2Command}.
  */
 export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects the clinical text for a variety of medical entities and returns specific
  *       information about them such as entity category, location, and confidence score on that
  *       information. Amazon Comprehend Medical only detects medical entities in English language
@@ -55,10 +52,15 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  * import { ComprehendMedicalClient, DetectEntitiesV2Command } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DetectEntitiesV2Command } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // DetectEntitiesV2Request
+ *   Text: "STRING_VALUE", // required
+ * };
  * const command = new DetectEntitiesV2Command(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectEntitiesV2CommandInput - {@link DetectEntitiesV2CommandInput}
+ * @returns {@link DetectEntitiesV2CommandOutput}
  * @see {@link DetectEntitiesV2CommandInput} for command's `input` shape.
  * @see {@link DetectEntitiesV2CommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -106,6 +108,9 @@ export class DetectEntitiesV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectEntitiesV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +139,8 @@ export class DetectEntitiesV2Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectEntitiesV2RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectEntitiesV2ResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +150,18 @@ export class DetectEntitiesV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectEntitiesV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectEntitiesV2Command(input, context);
+    return se_DetectEntitiesV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectEntitiesV2CommandOutput> {
-    return deserializeAws_json1_1DetectEntitiesV2Command(output, context);
+    return de_DetectEntitiesV2Command(output, context);
   }
 
   // Start section: command_body_extra

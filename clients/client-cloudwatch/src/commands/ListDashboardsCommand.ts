@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  ListDashboardsInput,
-  ListDashboardsInputFilterSensitiveLog,
-  ListDashboardsOutput,
-  ListDashboardsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListDashboardsCommand,
-  serializeAws_queryListDashboardsCommand,
-} from "../protocols/Aws_query";
+import { ListDashboardsInput, ListDashboardsOutput } from "../models/models_0";
+import { de_ListDashboardsCommand, se_ListDashboardsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListDashboardsCommand}.
  */
 export interface ListDashboardsCommandInput extends ListDashboardsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDashboardsCommand}.
  */
 export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only
  * 			those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are
  * 			listed.
@@ -50,10 +47,16 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * import { CloudWatchClient, ListDashboardsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, ListDashboardsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // ListDashboardsInput
+ *   DashboardNamePrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDashboardsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDashboardsCommandInput - {@link ListDashboardsCommandInput}
+ * @returns {@link ListDashboardsCommandOutput}
  * @see {@link ListDashboardsCommandInput} for command's `input` shape.
  * @see {@link ListDashboardsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -83,6 +86,9 @@ export class ListDashboardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDashboardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class ListDashboardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDashboardsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDashboardsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class ListDashboardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListDashboardsCommand(input, context);
+    return se_ListDashboardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDashboardsCommandOutput> {
-    return deserializeAws_queryListDashboardsCommand(output, context);
+    return de_ListDashboardsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisableAWSServiceAccessRequest, DisableAWSServiceAccessRequestFilterSensitiveLog } from "../models/models_0";
+import { DisableAWSServiceAccessRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DisableAWSServiceAccessCommand,
-  serializeAws_json1_1DisableAWSServiceAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableAWSServiceAccessCommand, se_DisableAWSServiceAccessCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableAWSServiceAccessCommand}.
  */
 export interface DisableAWSServiceAccessCommandInput extends DisableAWSServiceAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableAWSServiceAccessCommand}.
  */
 export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the integration of an Amazon Web Services service (the service that is specified by
  *                 <code>ServicePrincipal</code>) with Organizations. When you disable integration, the
  *             specified service no longer can create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in
@@ -92,10 +94,15 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  * import { OrganizationsClient, DisableAWSServiceAccessCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DisableAWSServiceAccessCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // DisableAWSServiceAccessRequest
+ *   ServicePrincipal: "STRING_VALUE", // required
+ * };
  * const command = new DisableAWSServiceAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableAWSServiceAccessCommandInput - {@link DisableAWSServiceAccessCommandInput}
+ * @returns {@link DisableAWSServiceAccessCommandOutput}
  * @see {@link DisableAWSServiceAccessCommandInput} for command's `input` shape.
  * @see {@link DisableAWSServiceAccessCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -449,6 +456,9 @@ export class DisableAWSServiceAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableAWSServiceAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -477,8 +487,8 @@ export class DisableAWSServiceAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableAWSServiceAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -488,12 +498,18 @@ export class DisableAWSServiceAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableAWSServiceAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableAWSServiceAccessCommand(input, context);
+    return se_DisableAWSServiceAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableAWSServiceAccessCommandOutput> {
-    return deserializeAws_json1_1DisableAWSServiceAccessCommand(output, context);
+    return de_DisableAWSServiceAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

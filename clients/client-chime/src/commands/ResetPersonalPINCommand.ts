@@ -16,25 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ResetPersonalPINRequest,
-  ResetPersonalPINRequestFilterSensitiveLog,
   ResetPersonalPINResponse,
   ResetPersonalPINResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ResetPersonalPINCommand,
-  serializeAws_restJson1ResetPersonalPINCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ResetPersonalPINCommand, se_ResetPersonalPINCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ResetPersonalPINCommand}.
  */
 export interface ResetPersonalPINCommandInput extends ResetPersonalPINRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetPersonalPINCommand}.
  */
 export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the personal meeting PIN for the specified user on an Amazon Chime account. Returns
  *             the <a>User</a> object with the updated personal meeting PIN.</p>
  * @example
@@ -43,10 +44,16 @@ export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse,
  * import { ChimeClient, ResetPersonalPINCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ResetPersonalPINCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ResetPersonalPINRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ * };
  * const command = new ResetPersonalPINCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetPersonalPINCommandInput - {@link ResetPersonalPINCommandInput}
+ * @returns {@link ResetPersonalPINCommandOutput}
  * @see {@link ResetPersonalPINCommandInput} for command's `input` shape.
  * @see {@link ResetPersonalPINCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -91,6 +98,9 @@ export class ResetPersonalPINCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetPersonalPINCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,7 +129,7 @@ export class ResetPersonalPINCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetPersonalPINRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ResetPersonalPINResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -130,12 +140,18 @@ export class ResetPersonalPINCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetPersonalPINCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResetPersonalPINCommand(input, context);
+    return se_ResetPersonalPINCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetPersonalPINCommandOutput> {
-    return deserializeAws_restJson1ResetPersonalPINCommand(output, context);
+    return de_ResetPersonalPINCommand(output, context);
   }
 
   // Start section: command_body_extra

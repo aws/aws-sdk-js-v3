@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetMedicalVocabularyRequest,
-  GetMedicalVocabularyRequestFilterSensitiveLog,
-  GetMedicalVocabularyResponse,
-  GetMedicalVocabularyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMedicalVocabularyCommand,
-  serializeAws_json1_1GetMedicalVocabularyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMedicalVocabularyRequest, GetMedicalVocabularyResponse } from "../models/models_0";
+import { de_GetMedicalVocabularyCommand, se_GetMedicalVocabularyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMedicalVocabularyCommand}.
  */
 export interface GetMedicalVocabularyCommandInput extends GetMedicalVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMedicalVocabularyCommand}.
  */
 export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified custom medical vocabulary.</p>
  *          <p>To view the status of the specified custom medical vocabulary, check the
  *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
@@ -47,10 +44,15 @@ export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyR
  * import { TranscribeClient, GetMedicalVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetMedicalVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // GetMedicalVocabularyRequest
+ *   VocabularyName: "STRING_VALUE", // required
+ * };
  * const command = new GetMedicalVocabularyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMedicalVocabularyCommandInput - {@link GetMedicalVocabularyCommandInput}
+ * @returns {@link GetMedicalVocabularyCommandOutput}
  * @see {@link GetMedicalVocabularyCommandInput} for command's `input` shape.
  * @see {@link GetMedicalVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -92,6 +94,9 @@ export class GetMedicalVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMedicalVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +125,8 @@ export class GetMedicalVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMedicalVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMedicalVocabularyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +136,18 @@ export class GetMedicalVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMedicalVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMedicalVocabularyCommand(input, context);
+    return se_GetMedicalVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMedicalVocabularyCommandOutput> {
-    return deserializeAws_json1_1GetMedicalVocabularyCommand(output, context);
+    return de_GetMedicalVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLoggingConfigurationsRequest,
-  ListLoggingConfigurationsRequestFilterSensitiveLog,
-  ListLoggingConfigurationsResponse,
-  ListLoggingConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLoggingConfigurationsCommand,
-  serializeAws_json1_1ListLoggingConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse } from "../models/models_0";
+import { de_ListLoggingConfigurationsCommand, se_ListLoggingConfigurationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLoggingConfigurationsCommand}.
  */
 export interface ListLoggingConfigurationsCommandInput extends ListLoggingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLoggingConfigurationsCommand}.
  */
 export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfigurationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -50,10 +47,16 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * import { WAFClient, ListLoggingConfigurationsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListLoggingConfigurationsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // ListLoggingConfigurationsRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListLoggingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLoggingConfigurationsCommandInput - {@link ListLoggingConfigurationsCommandInput}
+ * @returns {@link ListLoggingConfigurationsCommandOutput}
  * @see {@link ListLoggingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListLoggingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -123,6 +126,9 @@ export class ListLoggingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLoggingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,8 +157,8 @@ export class ListLoggingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLoggingConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLoggingConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,15 +168,21 @@ export class ListLoggingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLoggingConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLoggingConfigurationsCommand(input, context);
+    return se_ListLoggingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLoggingConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListLoggingConfigurationsCommand(output, context);
+    return de_ListLoggingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

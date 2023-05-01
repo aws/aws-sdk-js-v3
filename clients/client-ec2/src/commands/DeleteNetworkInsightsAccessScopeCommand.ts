@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DeleteNetworkInsightsAccessScopeRequest, DeleteNetworkInsightsAccessScopeResult } from "../models/models_2";
 import {
-  DeleteNetworkInsightsAccessScopeRequest,
-  DeleteNetworkInsightsAccessScopeRequestFilterSensitiveLog,
-  DeleteNetworkInsightsAccessScopeResult,
-  DeleteNetworkInsightsAccessScopeResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteNetworkInsightsAccessScopeCommand,
-  serializeAws_ec2DeleteNetworkInsightsAccessScopeCommand,
+  de_DeleteNetworkInsightsAccessScopeCommand,
+  se_DeleteNetworkInsightsAccessScopeCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNetworkInsightsAccessScopeCommand}.
  */
 export interface DeleteNetworkInsightsAccessScopeCommandInput extends DeleteNetworkInsightsAccessScopeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNetworkInsightsAccessScopeCommand}.
  */
 export interface DeleteNetworkInsightsAccessScopeCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteNetworkInsightsAccessScopeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Network Access Scope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DeleteNetworkInsightsAccessScopeCommandOutput
  * import { EC2Client, DeleteNetworkInsightsAccessScopeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkInsightsAccessScopeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteNetworkInsightsAccessScopeRequest
+ *   DryRun: true || false,
+ *   NetworkInsightsAccessScopeId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNetworkInsightsAccessScopeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNetworkInsightsAccessScopeCommandInput - {@link DeleteNetworkInsightsAccessScopeCommandInput}
+ * @returns {@link DeleteNetworkInsightsAccessScopeCommandOutput}
  * @see {@link DeleteNetworkInsightsAccessScopeCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkInsightsAccessScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +77,9 @@ export class DeleteNetworkInsightsAccessScopeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNetworkInsightsAccessScopeCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +108,8 @@ export class DeleteNetworkInsightsAccessScopeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkInsightsAccessScopeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkInsightsAccessScopeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +119,24 @@ export class DeleteNetworkInsightsAccessScopeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteNetworkInsightsAccessScopeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNetworkInsightsAccessScopeCommand(input, context);
+    return se_DeleteNetworkInsightsAccessScopeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNetworkInsightsAccessScopeCommandOutput> {
-    return deserializeAws_ec2DeleteNetworkInsightsAccessScopeCommand(output, context);
+    return de_DeleteNetworkInsightsAccessScopeCommand(output, context);
   }
 
   // Start section: command_body_extra

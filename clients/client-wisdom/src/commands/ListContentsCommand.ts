@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListContentsRequest,
-  ListContentsRequestFilterSensitiveLog,
-  ListContentsResponse,
-  ListContentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListContentsCommand,
-  serializeAws_restJson1ListContentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListContentsRequest, ListContentsResponse } from "../models/models_0";
+import { de_ListContentsCommand, se_ListContentsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListContentsCommand}.
  */
 export interface ListContentsCommandInput extends ListContentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContentsCommand}.
  */
 export interface ListContentsCommandOutput extends ListContentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListContentsCommandOutput extends ListContentsResponse, __Metad
  * import { WisdomClient, ListContentsCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, ListContentsCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // ListContentsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ * };
  * const command = new ListContentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContentsCommandInput - {@link ListContentsCommandInput}
+ * @returns {@link ListContentsCommandOutput}
  * @see {@link ListContentsCommandInput} for command's `input` shape.
  * @see {@link ListContentsCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListContentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class ListContentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class ListContentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListContentsCommand(input, context);
+    return se_ListContentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContentsCommandOutput> {
-    return deserializeAws_restJson1ListContentsCommand(output, context);
+    return de_ListContentsCommand(output, context);
   }
 
   // Start section: command_body_extra

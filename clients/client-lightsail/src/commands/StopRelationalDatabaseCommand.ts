@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  StopRelationalDatabaseRequest,
-  StopRelationalDatabaseRequestFilterSensitiveLog,
-  StopRelationalDatabaseResult,
-  StopRelationalDatabaseResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1StopRelationalDatabaseCommand,
-  serializeAws_json1_1StopRelationalDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { StopRelationalDatabaseRequest, StopRelationalDatabaseResult } from "../models/models_1";
+import { de_StopRelationalDatabaseCommand, se_StopRelationalDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopRelationalDatabaseCommand}.
  */
 export interface StopRelationalDatabaseCommandInput extends StopRelationalDatabaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopRelationalDatabaseCommand}.
  */
 export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatabaseResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a specific database that is currently running in Amazon Lightsail.</p>
  *          <p>The <code>stop relational database</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by relationalDatabaseName. For more
@@ -45,10 +42,16 @@ export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatab
  * import { LightsailClient, StopRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StopRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // StopRelationalDatabaseRequest
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   relationalDatabaseSnapshotName: "STRING_VALUE",
+ * };
  * const command = new StopRelationalDatabaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopRelationalDatabaseCommandInput - {@link StopRelationalDatabaseCommandInput}
+ * @returns {@link StopRelationalDatabaseCommandOutput}
  * @see {@link StopRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link StopRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +105,9 @@ export class StopRelationalDatabaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopRelationalDatabaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +136,8 @@ export class StopRelationalDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopRelationalDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopRelationalDatabaseResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +147,18 @@ export class StopRelationalDatabaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopRelationalDatabaseCommand(input, context);
+    return se_StopRelationalDatabaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1StopRelationalDatabaseCommand(output, context);
+    return de_StopRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

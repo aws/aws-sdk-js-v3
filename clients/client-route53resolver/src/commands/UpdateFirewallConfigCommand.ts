@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateFirewallConfigRequest,
-  UpdateFirewallConfigRequestFilterSensitiveLog,
-  UpdateFirewallConfigResponse,
-  UpdateFirewallConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFirewallConfigCommand,
-  serializeAws_json1_1UpdateFirewallConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFirewallConfigRequest, UpdateFirewallConfigResponse } from "../models/models_0";
+import { de_UpdateFirewallConfigCommand, se_UpdateFirewallConfigCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFirewallConfigCommand}.
  */
 export interface UpdateFirewallConfigCommandInput extends UpdateFirewallConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFirewallConfigCommand}.
  */
 export interface UpdateFirewallConfigCommandOutput extends UpdateFirewallConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of the firewall behavior provided by DNS Firewall for a single
  * 			VPC from Amazon Virtual Private Cloud (Amazon VPC). </p>
  * @example
@@ -43,10 +40,16 @@ export interface UpdateFirewallConfigCommandOutput extends UpdateFirewallConfigR
  * import { Route53ResolverClient, UpdateFirewallConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateFirewallConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // UpdateFirewallConfigRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   FirewallFailOpen: "ENABLED" || "DISABLED" || "USE_LOCAL_RESOURCE_SETTING", // required
+ * };
  * const command = new UpdateFirewallConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFirewallConfigCommandInput - {@link UpdateFirewallConfigCommandInput}
+ * @returns {@link UpdateFirewallConfigCommandOutput}
  * @see {@link UpdateFirewallConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -86,6 +89,9 @@ export class UpdateFirewallConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFirewallConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class UpdateFirewallConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class UpdateFirewallConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFirewallConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFirewallConfigCommand(input, context);
+    return se_UpdateFirewallConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFirewallConfigCommandOutput> {
-    return deserializeAws_json1_1UpdateFirewallConfigCommand(output, context);
+    return de_UpdateFirewallConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

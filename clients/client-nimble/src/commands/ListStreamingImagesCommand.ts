@@ -15,26 +15,27 @@ import {
 
 import {
   ListStreamingImagesRequest,
-  ListStreamingImagesRequestFilterSensitiveLog,
   ListStreamingImagesResponse,
   ListStreamingImagesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1ListStreamingImagesCommand,
-  serializeAws_restJson1ListStreamingImagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListStreamingImagesCommand, se_ListStreamingImagesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamingImagesCommand}.
  */
 export interface ListStreamingImagesCommandInput extends ListStreamingImagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamingImagesCommand}.
  */
 export interface ListStreamingImagesCommandOutput extends ListStreamingImagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the streaming image resources available to this studio.</p>
  *         <p>This list will contain both images provided by Amazon Web Services, as well as
  *             streaming images that you have created in your studio.</p>
@@ -44,10 +45,17 @@ export interface ListStreamingImagesCommandOutput extends ListStreamingImagesRes
  * import { NimbleClient, ListStreamingImagesCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStreamingImagesCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // ListStreamingImagesRequest
+ *   nextToken: "STRING_VALUE",
+ *   owner: "STRING_VALUE",
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new ListStreamingImagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamingImagesCommandInput - {@link ListStreamingImagesCommandInput}
+ * @returns {@link ListStreamingImagesCommandOutput}
  * @see {@link ListStreamingImagesCommandInput} for command's `input` shape.
  * @see {@link ListStreamingImagesCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -95,6 +103,9 @@ export class ListStreamingImagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamingImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,7 +134,7 @@ export class ListStreamingImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamingImagesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListStreamingImagesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -134,12 +145,18 @@ export class ListStreamingImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamingImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStreamingImagesCommand(input, context);
+    return se_ListStreamingImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamingImagesCommandOutput> {
-    return deserializeAws_restJson1ListStreamingImagesCommand(output, context);
+    return de_ListStreamingImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

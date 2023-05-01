@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteSigningCertificateRequest, DeleteSigningCertificateRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSigningCertificateCommand,
-  serializeAws_queryDeleteSigningCertificateCommand,
-} from "../protocols/Aws_query";
+import { DeleteSigningCertificateRequest } from "../models/models_0";
+import { de_DeleteSigningCertificateCommand, se_DeleteSigningCertificateCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSigningCertificateCommand}.
  */
 export interface DeleteSigningCertificateCommandInput extends DeleteSigningCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSigningCertificateCommand}.
  */
 export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a signing certificate associated with the specified IAM user.</p>
  *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
@@ -41,10 +43,16 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  * import { IAMClient, DeleteSigningCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteSigningCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteSigningCertificateRequest
+ *   UserName: "STRING_VALUE",
+ *   CertificateId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSigningCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSigningCertificateCommandInput - {@link DeleteSigningCertificateCommandInput}
+ * @returns {@link DeleteSigningCertificateCommandOutput}
  * @see {@link DeleteSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -92,6 +100,9 @@ export class DeleteSigningCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSigningCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +131,8 @@ export class DeleteSigningCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSigningCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +142,18 @@ export class DeleteSigningCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSigningCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSigningCertificateCommand(input, context);
+    return se_DeleteSigningCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSigningCertificateCommandOutput> {
-    return deserializeAws_queryDeleteSigningCertificateCommand(output, context);
+    return de_DeleteSigningCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

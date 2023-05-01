@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateAliasInput,
-  UpdateAliasInputFilterSensitiveLog,
-  UpdateAliasOutput,
-  UpdateAliasOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAliasCommand,
-  serializeAws_json1_1UpdateAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateAliasInput, UpdateAliasOutput } from "../models/models_0";
+import { de_UpdateAliasCommand, se_UpdateAliasCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAliasCommand}.
  */
 export interface UpdateAliasCommandInput extends UpdateAliasInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAliasCommand}.
  */
 export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates properties for an alias. To update properties, specify the alias ID to be
  *             updated and provide the information to be changed. To reassign an alias to another
  *             fleet, provide an updated routing strategy. If successful, the updated alias record is
@@ -42,8 +39,8 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,10 +48,22 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  * import { GameLiftClient, UpdateAliasCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateAliasCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // UpdateAliasInput
+ *   AliasId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RoutingStrategy: { // RoutingStrategy
+ *     Type: "SIMPLE" || "TERMINAL",
+ *     FleetId: "STRING_VALUE",
+ *     Message: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAliasCommandInput - {@link UpdateAliasCommandInput}
+ * @returns {@link UpdateAliasCommandOutput}
  * @see {@link UpdateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -92,6 +101,9 @@ export class UpdateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class UpdateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAliasInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAliasOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +141,18 @@ export class UpdateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAliasCommand(input, context);
+    return se_UpdateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAliasCommandOutput> {
-    return deserializeAws_json1_1UpdateAliasCommand(output, context);
+    return de_UpdateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,21 +15,21 @@ import {
 
 import {
   DescribeCreateAccountStatusRequest,
-  DescribeCreateAccountStatusRequestFilterSensitiveLog,
   DescribeCreateAccountStatusResponse,
   DescribeCreateAccountStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DescribeCreateAccountStatusCommand,
-  serializeAws_json1_1DescribeCreateAccountStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCreateAccountStatusCommand, se_DescribeCreateAccountStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCreateAccountStatusCommand}.
  */
 export interface DescribeCreateAccountStatusCommandInput extends DescribeCreateAccountStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCreateAccountStatusCommand}.
  */
 export interface DescribeCreateAccountStatusCommandOutput
@@ -37,6 +37,7 @@ export interface DescribeCreateAccountStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current status of an asynchronous request to create an account.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -46,10 +47,15 @@ export interface DescribeCreateAccountStatusCommandOutput
  * import { OrganizationsClient, DescribeCreateAccountStatusCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeCreateAccountStatusCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // DescribeCreateAccountStatusRequest
+ *   CreateAccountRequestId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCreateAccountStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCreateAccountStatusCommandInput - {@link DescribeCreateAccountStatusCommandInput}
+ * @returns {@link DescribeCreateAccountStatusCommandOutput}
  * @see {@link DescribeCreateAccountStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeCreateAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -226,6 +232,9 @@ export class DescribeCreateAccountStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCreateAccountStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -254,7 +263,7 @@ export class DescribeCreateAccountStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCreateAccountStatusRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeCreateAccountStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -265,15 +274,21 @@ export class DescribeCreateAccountStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCreateAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCreateAccountStatusCommand(input, context);
+    return se_DescribeCreateAccountStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCreateAccountStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeCreateAccountStatusCommand(output, context);
+    return de_DescribeCreateAccountStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

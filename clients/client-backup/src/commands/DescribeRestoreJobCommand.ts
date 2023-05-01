@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  DescribeRestoreJobInput,
-  DescribeRestoreJobInputFilterSensitiveLog,
-  DescribeRestoreJobOutput,
-  DescribeRestoreJobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRestoreJobCommand,
-  serializeAws_restJson1DescribeRestoreJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRestoreJobInput, DescribeRestoreJobOutput } from "../models/models_0";
+import { de_DescribeRestoreJobCommand, se_DescribeRestoreJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRestoreJobCommand}.
  */
 export interface DescribeRestoreJobCommandInput extends DescribeRestoreJobInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRestoreJobCommand}.
  */
 export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata associated with a restore job that is specified by a job ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutpu
  * import { BackupClient, DescribeRestoreJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeRestoreJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DescribeRestoreJobInput
+ *   RestoreJobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRestoreJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRestoreJobCommandInput - {@link DescribeRestoreJobCommandInput}
+ * @returns {@link DescribeRestoreJobCommandOutput}
  * @see {@link DescribeRestoreJobCommandInput} for command's `input` shape.
  * @see {@link DescribeRestoreJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -85,6 +87,9 @@ export class DescribeRestoreJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRestoreJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DescribeRestoreJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRestoreJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRestoreJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DescribeRestoreJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRestoreJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRestoreJobCommand(input, context);
+    return se_DescribeRestoreJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRestoreJobCommandOutput> {
-    return deserializeAws_restJson1DescribeRestoreJobCommand(output, context);
+    return de_DescribeRestoreJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -167,6 +167,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PutChannelExpirationSettingsCommandInput,
+  PutChannelExpirationSettingsCommandOutput,
+} from "./commands/PutChannelExpirationSettingsCommand";
+import {
   PutChannelMembershipPreferencesCommandInput,
   PutChannelMembershipPreferencesCommandOutput,
 } from "./commands/PutChannelMembershipPreferencesCommand";
@@ -200,6 +204,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateChannelFlowCommandInput
   | BatchCreateChannelMembershipCommandInput
@@ -240,6 +247,7 @@ export type ServiceInputTypes =
   | ListChannelsModeratedByAppInstanceUserCommandInput
   | ListSubChannelsCommandInput
   | ListTagsForResourceCommandInput
+  | PutChannelExpirationSettingsCommandInput
   | PutChannelMembershipPreferencesCommandInput
   | PutMessagingStreamingConfigurationsCommandInput
   | RedactChannelMessageCommandInput
@@ -252,6 +260,9 @@ export type ServiceInputTypes =
   | UpdateChannelMessageCommandInput
   | UpdateChannelReadMarkerCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateChannelFlowCommandOutput
   | BatchCreateChannelMembershipCommandOutput
@@ -292,6 +303,7 @@ export type ServiceOutputTypes =
   | ListChannelsModeratedByAppInstanceUserCommandOutput
   | ListSubChannelsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutChannelExpirationSettingsCommandOutput
   | PutChannelMembershipPreferencesCommandOutput
   | PutMessagingStreamingConfigurationsCommandOutput
   | RedactChannelMessageCommandOutput
@@ -304,6 +316,9 @@ export type ServiceOutputTypes =
   | UpdateChannelMessageCommandOutput
   | UpdateChannelReadMarkerCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -311,7 +326,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -420,11 +435,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ChimeSDKMessagingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -435,10 +453,15 @@ type ChimeSDKMessagingClientConfigType = Partial<__SmithyConfiguration<__HttpHan
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ChimeSDKMessagingClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ChimeSDKMessagingClient class constructor that set the region, credentials and other options.
  */
 export interface ChimeSDKMessagingClientConfig extends ChimeSDKMessagingClientConfigType {}
 
+/**
+ * @public
+ */
 type ChimeSDKMessagingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -449,11 +472,14 @@ type ChimeSDKMessagingClientResolvedConfigType = __SmithyResolvedConfiguration<_
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ChimeSDKMessagingClient class. This is resolved and normalized from the {@link ChimeSDKMessagingClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ChimeSDKMessagingClient class. This is resolved and normalized from the {@link ChimeSDKMessagingClientConfig | constructor configuration interface}.
  */
 export interface ChimeSDKMessagingClientResolvedConfig extends ChimeSDKMessagingClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send
  *          and receive messages in custom messaging applications. These APIs depend on the frameworks
  *          provided by the Amazon Chime SDK Identity APIs. For more information about the messaging

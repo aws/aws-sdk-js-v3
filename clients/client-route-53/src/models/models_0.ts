@@ -3,15 +3,25 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { Route53ServiceException as __BaseException } from "./Route53ServiceException";
 
-export enum AccountLimitType {
-  MAX_HEALTH_CHECKS_BY_OWNER = "MAX_HEALTH_CHECKS_BY_OWNER",
-  MAX_HOSTED_ZONES_BY_OWNER = "MAX_HOSTED_ZONES_BY_OWNER",
-  MAX_REUSABLE_DELEGATION_SETS_BY_OWNER = "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER",
-  MAX_TRAFFIC_POLICIES_BY_OWNER = "MAX_TRAFFIC_POLICIES_BY_OWNER",
-  MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER = "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccountLimitType = {
+  MAX_HEALTH_CHECKS_BY_OWNER: "MAX_HEALTH_CHECKS_BY_OWNER",
+  MAX_HOSTED_ZONES_BY_OWNER: "MAX_HOSTED_ZONES_BY_OWNER",
+  MAX_REUSABLE_DELEGATION_SETS_BY_OWNER: "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER",
+  MAX_TRAFFIC_POLICIES_BY_OWNER: "MAX_TRAFFIC_POLICIES_BY_OWNER",
+  MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER: "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER",
+} as const;
 
 /**
+ * @public
+ */
+export type AccountLimitType = (typeof AccountLimitType)[keyof typeof AccountLimitType];
+
+/**
+ * @public
  * <p>A complex type that contains the type of limit that you specified in the request and
  * 			the current value for that limit.</p>
  */
@@ -57,6 +67,9 @@ export interface AccountLimit {
   Value: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ActivateKeySigningKeyRequest {
   /**
    * <p>A unique string used to identify a hosted zone.</p>
@@ -71,12 +84,22 @@ export interface ActivateKeySigningKeyRequest {
   Name: string | undefined;
 }
 
-export enum ChangeStatus {
-  INSYNC = "INSYNC",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeStatus = {
+  INSYNC: "INSYNC",
+  PENDING: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeStatus = (typeof ChangeStatus)[keyof typeof ChangeStatus];
+
+/**
+ * @public
  * <p>A complex type that describes change information about changes made to your hosted
  * 			zone.</p>
  */
@@ -106,6 +129,9 @@ export interface ChangeInfo {
   Comment?: string;
 }
 
+/**
+ * @public
+ */
 export interface ActivateKeySigningKeyResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
@@ -115,6 +141,7 @@ export interface ActivateKeySigningKeyResponse {
 }
 
 /**
+ * @public
  * <p>Another user submitted a request to create, update, or delete the object at the same
  * 			time that you did. Retry the request. </p>
  */
@@ -135,6 +162,7 @@ export class ConcurrentModification extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input is not valid.</p>
  */
 export class InvalidInput extends __BaseException {
@@ -154,6 +182,7 @@ export class InvalidInput extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The key-signing key (KSK) status isn't valid or another KSK has the status
  * 				<code>INTERNAL_FAILURE</code>.</p>
  */
@@ -174,6 +203,7 @@ export class InvalidKeySigningKeyStatus extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC
  * 			signing.</p>
  */
@@ -194,6 +224,7 @@ export class InvalidKMSArn extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your hosted zone status isn't valid for this operation. In the hosted zone, change the
  * 			status to enable <code>DNSSEC</code> or disable <code>DNSSEC</code>.</p>
  */
@@ -214,6 +245,7 @@ export class InvalidSigningStatus extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified key-signing key (KSK) doesn't exist.</p>
  */
 export class NoSuchKeySigningKey extends __BaseException {
@@ -232,44 +264,54 @@ export class NoSuchKeySigningKey extends __BaseException {
   }
 }
 
-export enum CloudWatchRegion {
-  af_south_1 = "af-south-1",
-  ap_east_1 = "ap-east-1",
-  ap_northeast_1 = "ap-northeast-1",
-  ap_northeast_2 = "ap-northeast-2",
-  ap_northeast_3 = "ap-northeast-3",
-  ap_south_1 = "ap-south-1",
-  ap_south_2 = "ap-south-2",
-  ap_southeast_1 = "ap-southeast-1",
-  ap_southeast_2 = "ap-southeast-2",
-  ap_southeast_3 = "ap-southeast-3",
-  ap_southeast_4 = "ap-southeast-4",
-  ca_central_1 = "ca-central-1",
-  cn_north_1 = "cn-north-1",
-  cn_northwest_1 = "cn-northwest-1",
-  eu_central_1 = "eu-central-1",
-  eu_central_2 = "eu-central-2",
-  eu_north_1 = "eu-north-1",
-  eu_south_1 = "eu-south-1",
-  eu_south_2 = "eu-south-2",
-  eu_west_1 = "eu-west-1",
-  eu_west_2 = "eu-west-2",
-  eu_west_3 = "eu-west-3",
-  me_central_1 = "me-central-1",
-  me_south_1 = "me-south-1",
-  sa_east_1 = "sa-east-1",
-  us_east_1 = "us-east-1",
-  us_east_2 = "us-east-2",
-  us_gov_east_1 = "us-gov-east-1",
-  us_gov_west_1 = "us-gov-west-1",
-  us_iso_east_1 = "us-iso-east-1",
-  us_iso_west_1 = "us-iso-west-1",
-  us_isob_east_1 = "us-isob-east-1",
-  us_west_1 = "us-west-1",
-  us_west_2 = "us-west-2",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CloudWatchRegion = {
+  af_south_1: "af-south-1",
+  ap_east_1: "ap-east-1",
+  ap_northeast_1: "ap-northeast-1",
+  ap_northeast_2: "ap-northeast-2",
+  ap_northeast_3: "ap-northeast-3",
+  ap_south_1: "ap-south-1",
+  ap_south_2: "ap-south-2",
+  ap_southeast_1: "ap-southeast-1",
+  ap_southeast_2: "ap-southeast-2",
+  ap_southeast_3: "ap-southeast-3",
+  ap_southeast_4: "ap-southeast-4",
+  ca_central_1: "ca-central-1",
+  cn_north_1: "cn-north-1",
+  cn_northwest_1: "cn-northwest-1",
+  eu_central_1: "eu-central-1",
+  eu_central_2: "eu-central-2",
+  eu_north_1: "eu-north-1",
+  eu_south_1: "eu-south-1",
+  eu_south_2: "eu-south-2",
+  eu_west_1: "eu-west-1",
+  eu_west_2: "eu-west-2",
+  eu_west_3: "eu-west-3",
+  me_central_1: "me-central-1",
+  me_south_1: "me-south-1",
+  sa_east_1: "sa-east-1",
+  us_east_1: "us-east-1",
+  us_east_2: "us-east-2",
+  us_gov_east_1: "us-gov-east-1",
+  us_gov_west_1: "us-gov-west-1",
+  us_iso_east_1: "us-iso-east-1",
+  us_iso_west_1: "us-iso-west-1",
+  us_isob_east_1: "us-isob-east-1",
+  us_west_1: "us-west-1",
+  us_west_2: "us-west-2",
+} as const;
 
 /**
+ * @public
+ */
+export type CloudWatchRegion = (typeof CloudWatchRegion)[keyof typeof CloudWatchRegion];
+
+/**
+ * @public
  * <p>A complex type that identifies the CloudWatch alarm that you want Amazon Route 53
  * 			health checkers to use to determine whether the specified health check is
  * 			healthy.</p>
@@ -306,6 +348,7 @@ export interface AlarmIdentifier {
 }
 
 /**
+ * @public
  * <p>
  *             <i>Alias resource record sets only:</i> Information about the Amazon Web Services resource, such as a CloudFront distribution or an Amazon S3 bucket, that
  * 			you want to route traffic to.</p>
@@ -731,43 +774,53 @@ export interface AliasTarget {
   EvaluateTargetHealth: boolean | undefined;
 }
 
-export enum VPCRegion {
-  af_south_1 = "af-south-1",
-  ap_east_1 = "ap-east-1",
-  ap_northeast_1 = "ap-northeast-1",
-  ap_northeast_2 = "ap-northeast-2",
-  ap_northeast_3 = "ap-northeast-3",
-  ap_south_1 = "ap-south-1",
-  ap_south_2 = "ap-south-2",
-  ap_southeast_1 = "ap-southeast-1",
-  ap_southeast_2 = "ap-southeast-2",
-  ap_southeast_3 = "ap-southeast-3",
-  ap_southeast_4 = "ap-southeast-4",
-  ca_central_1 = "ca-central-1",
-  cn_north_1 = "cn-north-1",
-  eu_central_1 = "eu-central-1",
-  eu_central_2 = "eu-central-2",
-  eu_north_1 = "eu-north-1",
-  eu_south_1 = "eu-south-1",
-  eu_south_2 = "eu-south-2",
-  eu_west_1 = "eu-west-1",
-  eu_west_2 = "eu-west-2",
-  eu_west_3 = "eu-west-3",
-  me_central_1 = "me-central-1",
-  me_south_1 = "me-south-1",
-  sa_east_1 = "sa-east-1",
-  us_east_1 = "us-east-1",
-  us_east_2 = "us-east-2",
-  us_gov_east_1 = "us-gov-east-1",
-  us_gov_west_1 = "us-gov-west-1",
-  us_iso_east_1 = "us-iso-east-1",
-  us_iso_west_1 = "us-iso-west-1",
-  us_isob_east_1 = "us-isob-east-1",
-  us_west_1 = "us-west-1",
-  us_west_2 = "us-west-2",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VPCRegion = {
+  af_south_1: "af-south-1",
+  ap_east_1: "ap-east-1",
+  ap_northeast_1: "ap-northeast-1",
+  ap_northeast_2: "ap-northeast-2",
+  ap_northeast_3: "ap-northeast-3",
+  ap_south_1: "ap-south-1",
+  ap_south_2: "ap-south-2",
+  ap_southeast_1: "ap-southeast-1",
+  ap_southeast_2: "ap-southeast-2",
+  ap_southeast_3: "ap-southeast-3",
+  ap_southeast_4: "ap-southeast-4",
+  ca_central_1: "ca-central-1",
+  cn_north_1: "cn-north-1",
+  eu_central_1: "eu-central-1",
+  eu_central_2: "eu-central-2",
+  eu_north_1: "eu-north-1",
+  eu_south_1: "eu-south-1",
+  eu_south_2: "eu-south-2",
+  eu_west_1: "eu-west-1",
+  eu_west_2: "eu-west-2",
+  eu_west_3: "eu-west-3",
+  me_central_1: "me-central-1",
+  me_south_1: "me-south-1",
+  sa_east_1: "sa-east-1",
+  us_east_1: "us-east-1",
+  us_east_2: "us-east-2",
+  us_gov_east_1: "us-gov-east-1",
+  us_gov_west_1: "us-gov-west-1",
+  us_iso_east_1: "us-iso-east-1",
+  us_iso_west_1: "us-iso-west-1",
+  us_isob_east_1: "us-isob-east-1",
+  us_west_1: "us-west-1",
+  us_west_2: "us-west-2",
+} as const;
 
 /**
+ * @public
+ */
+export type VPCRegion = (typeof VPCRegion)[keyof typeof VPCRegion];
+
+/**
+ * @public
  * <p>(Private hosted zones only) A complex type that contains information about an Amazon VPC.</p>
  *          <p>If you associate a private hosted zone with an Amazon VPC when you make a
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">CreateHostedZone</a>
@@ -787,6 +840,7 @@ export interface VPC {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the request to associate a VPC with a
  * 			private hosted zone.</p>
  */
@@ -813,6 +867,7 @@ export interface AssociateVPCWithHostedZoneRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the
  * 				<code>AssociateVPCWithHostedZone</code> request.</p>
  */
@@ -824,6 +879,7 @@ export interface AssociateVPCWithHostedZoneResponse {
 }
 
 /**
+ * @public
  * <p>The cause of this error depends on the operation that you're performing:</p>
  *          <ul>
  *             <li>
@@ -867,6 +923,7 @@ export class ConflictingDomainExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The VPC ID that you specified either isn't a valid ID or the current account is not
  * 			authorized to access this VPC.</p>
  */
@@ -887,6 +944,7 @@ export class InvalidVPCId extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This operation can't be completed because the current account has reached the
  * 			limit on the resource you are trying to create. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
  * 			Center.</p>
@@ -908,6 +966,7 @@ export class LimitsExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>No hosted zone exists with the ID that you specified.</p>
  */
 export class NoSuchHostedZone extends __BaseException {
@@ -927,6 +986,7 @@ export class NoSuchHostedZone extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Associating the specified VPC with the specified hosted zone has not been
  * 			authorized.</p>
  */
@@ -947,6 +1007,7 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>If Amazon Route 53 can't process a request before the next request arrives, it will
  * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
  * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
@@ -970,6 +1031,7 @@ export class PriorRequestNotComplete extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't
  * 			support associating a VPC with a public hosted zone.</p>
  */
@@ -989,12 +1051,22 @@ export class PublicZoneVPCAssociation extends __BaseException {
   }
 }
 
-export enum CidrCollectionChangeAction {
-  DELETE_IF_EXISTS = "DELETE_IF_EXISTS",
-  PUT = "PUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CidrCollectionChangeAction = {
+  DELETE_IF_EXISTS: "DELETE_IF_EXISTS",
+  PUT: "PUT",
+} as const;
 
 /**
+ * @public
+ */
+export type CidrCollectionChangeAction = (typeof CidrCollectionChangeAction)[keyof typeof CidrCollectionChangeAction];
+
+/**
+ * @public
  * <p>A complex type that contains information about the CIDR collection change.</p>
  */
 export interface CidrCollectionChange {
@@ -1015,6 +1087,9 @@ export interface CidrCollectionChange {
   CidrList: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ChangeCidrCollectionRequest {
   /**
    * <p>The UUID of the CIDR collection to update.</p>
@@ -1050,6 +1125,9 @@ export interface ChangeCidrCollectionRequest {
   Changes: CidrCollectionChange[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ChangeCidrCollectionResponse {
   /**
    * <p>The ID that is returned by <code>ChangeCidrCollection</code>. You can use it as input to
@@ -1060,6 +1138,7 @@ export interface ChangeCidrCollectionResponse {
 }
 
 /**
+ * @public
  * <p>This CIDR block is already in use.</p>
  */
 export class CidrBlockInUseException extends __BaseException {
@@ -1081,6 +1160,7 @@ export class CidrBlockInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The CIDR collection version you provided, doesn't match the one in the
  * 				<code>ListCidrCollections</code> operation.</p>
  */
@@ -1103,6 +1183,7 @@ export class CidrCollectionVersionMismatchException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The CIDR collection you specified, doesn't exist.</p>
  */
 export class NoSuchCidrCollectionException extends __BaseException {
@@ -1123,13 +1204,23 @@ export class NoSuchCidrCollectionException extends __BaseException {
   }
 }
 
-export enum ChangeAction {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPSERT = "UPSERT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeAction = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPSERT: "UPSERT",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
+
+/**
+ * @public
  * <p>The object that is specified in resource record set object when you are linking a
  * 			resource record set to a CIDR location.</p>
  *          <p>A <code>LocationName</code> with an asterisk “*” can be used to create a default CIDR
@@ -1147,12 +1238,22 @@ export interface CidrRoutingConfig {
   LocationName: string | undefined;
 }
 
-export enum ResourceRecordSetFailover {
-  PRIMARY = "PRIMARY",
-  SECONDARY = "SECONDARY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceRecordSetFailover = {
+  PRIMARY: "PRIMARY",
+  SECONDARY: "SECONDARY",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceRecordSetFailover = (typeof ResourceRecordSetFailover)[keyof typeof ResourceRecordSetFailover];
+
+/**
+ * @public
  * <p>A complex type that contains information about a geographic location.</p>
  */
 export interface GeoLocation {
@@ -1212,39 +1313,49 @@ export interface GeoLocation {
   SubdivisionCode?: string;
 }
 
-export enum ResourceRecordSetRegion {
-  af_south_1 = "af-south-1",
-  ap_east_1 = "ap-east-1",
-  ap_northeast_1 = "ap-northeast-1",
-  ap_northeast_2 = "ap-northeast-2",
-  ap_northeast_3 = "ap-northeast-3",
-  ap_south_1 = "ap-south-1",
-  ap_south_2 = "ap-south-2",
-  ap_southeast_1 = "ap-southeast-1",
-  ap_southeast_2 = "ap-southeast-2",
-  ap_southeast_3 = "ap-southeast-3",
-  ap_southeast_4 = "ap-southeast-4",
-  ca_central_1 = "ca-central-1",
-  cn_north_1 = "cn-north-1",
-  cn_northwest_1 = "cn-northwest-1",
-  eu_central_1 = "eu-central-1",
-  eu_central_2 = "eu-central-2",
-  eu_north_1 = "eu-north-1",
-  eu_south_1 = "eu-south-1",
-  eu_south_2 = "eu-south-2",
-  eu_west_1 = "eu-west-1",
-  eu_west_2 = "eu-west-2",
-  eu_west_3 = "eu-west-3",
-  me_central_1 = "me-central-1",
-  me_south_1 = "me-south-1",
-  sa_east_1 = "sa-east-1",
-  us_east_1 = "us-east-1",
-  us_east_2 = "us-east-2",
-  us_west_1 = "us-west-1",
-  us_west_2 = "us-west-2",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceRecordSetRegion = {
+  af_south_1: "af-south-1",
+  ap_east_1: "ap-east-1",
+  ap_northeast_1: "ap-northeast-1",
+  ap_northeast_2: "ap-northeast-2",
+  ap_northeast_3: "ap-northeast-3",
+  ap_south_1: "ap-south-1",
+  ap_south_2: "ap-south-2",
+  ap_southeast_1: "ap-southeast-1",
+  ap_southeast_2: "ap-southeast-2",
+  ap_southeast_3: "ap-southeast-3",
+  ap_southeast_4: "ap-southeast-4",
+  ca_central_1: "ca-central-1",
+  cn_north_1: "cn-north-1",
+  cn_northwest_1: "cn-northwest-1",
+  eu_central_1: "eu-central-1",
+  eu_central_2: "eu-central-2",
+  eu_north_1: "eu-north-1",
+  eu_south_1: "eu-south-1",
+  eu_south_2: "eu-south-2",
+  eu_west_1: "eu-west-1",
+  eu_west_2: "eu-west-2",
+  eu_west_3: "eu-west-3",
+  me_central_1: "me-central-1",
+  me_south_1: "me-south-1",
+  sa_east_1: "sa-east-1",
+  us_east_1: "us-east-1",
+  us_east_2: "us-east-2",
+  us_west_1: "us-west-1",
+  us_west_2: "us-west-2",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceRecordSetRegion = (typeof ResourceRecordSetRegion)[keyof typeof ResourceRecordSetRegion];
+
+/**
+ * @public
  * <p>Information specific to the resource record.</p>
  *          <note>
  *             <p>If you're creating an alias resource record set, omit
@@ -1268,23 +1379,33 @@ export interface ResourceRecord {
   Value: string | undefined;
 }
 
-export enum RRType {
-  A = "A",
-  AAAA = "AAAA",
-  CAA = "CAA",
-  CNAME = "CNAME",
-  DS = "DS",
-  MX = "MX",
-  NAPTR = "NAPTR",
-  NS = "NS",
-  PTR = "PTR",
-  SOA = "SOA",
-  SPF = "SPF",
-  SRV = "SRV",
-  TXT = "TXT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RRType = {
+  A: "A",
+  AAAA: "AAAA",
+  CAA: "CAA",
+  CNAME: "CNAME",
+  DS: "DS",
+  MX: "MX",
+  NAPTR: "NAPTR",
+  NS: "NS",
+  PTR: "PTR",
+  SOA: "SOA",
+  SPF: "SPF",
+  SRV: "SRV",
+  TXT: "TXT",
+} as const;
 
 /**
+ * @public
+ */
+export type RRType = (typeof RRType)[keyof typeof RRType];
+
+/**
+ * @public
  * <p>Information about the resource record set to create or delete.</p>
  */
 export interface ResourceRecordSet {
@@ -1891,6 +2012,7 @@ export interface ResourceRecordSet {
 }
 
 /**
+ * @public
  * <p>The information for each resource record set that you want to change.</p>
  */
 export interface Change {
@@ -1931,6 +2053,7 @@ export interface Change {
 }
 
 /**
+ * @public
  * <p>The information for a change request.</p>
  */
 export interface ChangeBatch {
@@ -1948,6 +2071,7 @@ export interface ChangeBatch {
 }
 
 /**
+ * @public
  * <p>A complex type that contains change information for the resource record set.</p>
  */
 export interface ChangeResourceRecordSetsRequest {
@@ -1965,6 +2089,7 @@ export interface ChangeResourceRecordSetsRequest {
 }
 
 /**
+ * @public
  * <p>A complex type containing the response for the request.</p>
  */
 export interface ChangeResourceRecordSetsResponse {
@@ -1978,6 +2103,7 @@ export interface ChangeResourceRecordSetsResponse {
 }
 
 /**
+ * @public
  * <p>This exception contains a list of messages that might contain one or more error
  * 			messages. Each error message indicates one error in the change batch.</p>
  */
@@ -2004,6 +2130,7 @@ export class InvalidChangeBatch extends __BaseException {
 }
 
 /**
+ * @public
  * <p>No health check exists with the specified ID.</p>
  */
 export class NoSuchHealthCheck extends __BaseException {
@@ -2023,6 +2150,7 @@ export class NoSuchHealthCheck extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about a tag that you want to add or edit for
  * 			the specified health check or hosted zone.</p>
  */
@@ -2076,12 +2204,22 @@ export interface Tag {
   Value?: string;
 }
 
-export enum TagResourceType {
-  healthcheck = "healthcheck",
-  hostedzone = "hostedzone",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TagResourceType = {
+  healthcheck: "healthcheck",
+  hostedzone: "hostedzone",
+} as const;
 
 /**
+ * @public
+ */
+export type TagResourceType = (typeof TagResourceType)[keyof typeof TagResourceType];
+
+/**
+ * @public
  * <p>A complex type that contains information about the tags that you want to add, edit, or
  * 			delete.</p>
  */
@@ -2120,11 +2258,13 @@ export interface ChangeTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>Empty response for the request.</p>
  */
 export interface ChangeTagsForResourceResponse {}
 
 /**
+ * @public
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -2144,6 +2284,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A CIDR collection with this name and a different caller reference already exists in this account.</p>
  */
 export class CidrCollectionAlreadyExistsException extends __BaseException {
@@ -2164,6 +2305,9 @@ export class CidrCollectionAlreadyExistsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateCidrCollectionRequest {
   /**
    * <p>A unique identifier for the account that can be used to reference the collection from
@@ -2180,6 +2324,7 @@ export interface CreateCidrCollectionRequest {
 }
 
 /**
+ * @public
  * <p>A complex
  * 			type that
  * 			identifies a CIDR collection.</p>
@@ -2209,6 +2354,9 @@ export interface CidrCollection {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateCidrCollectionResponse {
   /**
    * <p>A complex type that contains information about the CIDR collection.</p>
@@ -2221,35 +2369,64 @@ export interface CreateCidrCollectionResponse {
   Location?: string;
 }
 
-export enum InsufficientDataHealthStatus {
-  Healthy = "Healthy",
-  LastKnownStatus = "LastKnownStatus",
-  Unhealthy = "Unhealthy",
-}
-
-export enum HealthCheckRegion {
-  ap_northeast_1 = "ap-northeast-1",
-  ap_southeast_1 = "ap-southeast-1",
-  ap_southeast_2 = "ap-southeast-2",
-  eu_west_1 = "eu-west-1",
-  sa_east_1 = "sa-east-1",
-  us_east_1 = "us-east-1",
-  us_west_1 = "us-west-1",
-  us_west_2 = "us-west-2",
-}
-
-export enum HealthCheckType {
-  CALCULATED = "CALCULATED",
-  CLOUDWATCH_METRIC = "CLOUDWATCH_METRIC",
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  HTTPS_STR_MATCH = "HTTPS_STR_MATCH",
-  HTTP_STR_MATCH = "HTTP_STR_MATCH",
-  RECOVERY_CONTROL = "RECOVERY_CONTROL",
-  TCP = "TCP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InsufficientDataHealthStatus = {
+  Healthy: "Healthy",
+  LastKnownStatus: "LastKnownStatus",
+  Unhealthy: "Unhealthy",
+} as const;
 
 /**
+ * @public
+ */
+export type InsufficientDataHealthStatus =
+  (typeof InsufficientDataHealthStatus)[keyof typeof InsufficientDataHealthStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthCheckRegion = {
+  ap_northeast_1: "ap-northeast-1",
+  ap_southeast_1: "ap-southeast-1",
+  ap_southeast_2: "ap-southeast-2",
+  eu_west_1: "eu-west-1",
+  sa_east_1: "sa-east-1",
+  us_east_1: "us-east-1",
+  us_west_1: "us-west-1",
+  us_west_2: "us-west-2",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthCheckRegion = (typeof HealthCheckRegion)[keyof typeof HealthCheckRegion];
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthCheckType = {
+  CALCULATED: "CALCULATED",
+  CLOUDWATCH_METRIC: "CLOUDWATCH_METRIC",
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  HTTPS_STR_MATCH: "HTTPS_STR_MATCH",
+  HTTP_STR_MATCH: "HTTP_STR_MATCH",
+  RECOVERY_CONTROL: "RECOVERY_CONTROL",
+  TCP: "TCP",
+} as const;
+
+/**
+ * @public
+ */
+export type HealthCheckType = (typeof HealthCheckType)[keyof typeof HealthCheckType];
+
+/**
+ * @public
  * <p>A complex type that contains information about the health check.</p>
  */
 export interface HealthCheckConfig {
@@ -2663,6 +2840,7 @@ export interface HealthCheckConfig {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the health check request information.</p>
  */
 export interface CreateHealthCheckRequest {
@@ -2703,14 +2881,24 @@ export interface CreateHealthCheckRequest {
   HealthCheckConfig: HealthCheckConfig | undefined;
 }
 
-export enum ComparisonOperator {
-  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold = "GreaterThanThreshold",
-  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold: "GreaterThanThreshold",
+  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+  LessThanThreshold: "LessThanThreshold",
+} as const;
 
 /**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
  * <p>For the metric that the CloudWatch alarm is associated with, a complex type that
  * 			contains information about one dimension.</p>
  */
@@ -2728,15 +2916,25 @@ export interface Dimension {
   Value: string | undefined;
 }
 
-export enum Statistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Statistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+} as const;
 
 /**
+ * @public
+ */
+export type Statistic = (typeof Statistic)[keyof typeof Statistic];
+
+/**
+ * @public
  * <p>A complex type that contains information about the CloudWatch alarm that Amazon Route
  * 			53 is monitoring for this health check.</p>
  */
@@ -2794,6 +2992,7 @@ export interface CloudWatchAlarmConfiguration {
 }
 
 /**
+ * @public
  * <p>If a health check or hosted zone was created by another service,
  * 				<code>LinkedService</code> is a complex type that describes the service that created
  * 			the resource. When a resource is created by another service, you can't edit or delete it
@@ -2816,6 +3015,7 @@ export interface LinkedService {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about one health check that is associated
  * 			with the current Amazon Web Services account.</p>
  */
@@ -2859,6 +3059,7 @@ export interface HealthCheck {
 }
 
 /**
+ * @public
  * <p>A complex type containing the response information for the new health check.</p>
  */
 export interface CreateHealthCheckResponse {
@@ -2874,6 +3075,7 @@ export interface CreateHealthCheckResponse {
 }
 
 /**
+ * @public
  * <p> The health check you're attempting to create already exists. Amazon Route 53 returns
  * 			this error when you submit a request that has the following values:</p>
  *          <ul>
@@ -2906,6 +3108,7 @@ export class HealthCheckAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This health check can't be created because the current account has reached the limit
  * 			on the number of active health checks.</p>
  *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
@@ -2932,6 +3135,7 @@ export class TooManyHealthChecks extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that contains an optional comment about your hosted zone. If you don't
  * 			want to specify a comment, omit both the <code>HostedZoneConfig</code> and
  * 				<code>Comment</code> elements.</p>
@@ -2949,6 +3153,7 @@ export interface HostedZoneConfig {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the request to create a public or
  * 			private hosted zone.</p>
  */
@@ -3010,6 +3215,7 @@ export interface CreateHostedZoneRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that lists the name servers in a delegation set, as well as the
  * 				<code>CallerReference</code> and the <code>ID</code> for the delegation set.</p>
  */
@@ -3033,6 +3239,7 @@ export interface DelegationSet {
 }
 
 /**
+ * @public
  * <p>A complex type that contains general information about the hosted zone.</p>
  */
 export interface HostedZone {
@@ -3078,6 +3285,7 @@ export interface HostedZone {
 }
 
 /**
+ * @public
  * <p>A complex type containing the response information for the hosted zone.</p>
  */
 export interface CreateHostedZoneResponse {
@@ -3110,6 +3318,7 @@ export interface CreateHostedZoneResponse {
 }
 
 /**
+ * @public
  * <p>You can create a hosted zone that has the same name as an existing hosted zone
  * 			(example.com is common), but there is a limit to the number of hosted zones that have
  * 			the same name. If you get this error, Amazon Route 53 has reached that limit. If you own
@@ -3132,6 +3341,7 @@ export class DelegationSetNotAvailable extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A reusable delegation set with the specified ID does not exist.</p>
  */
 export class DelegationSetNotReusable extends __BaseException {
@@ -3151,6 +3361,7 @@ export class DelegationSetNotReusable extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The hosted zone you're trying to create already exists. Amazon Route 53 returns this
  * 			error when a hosted zone has already been created with the specified
  * 				<code>CallerReference</code>.</p>
@@ -3172,6 +3383,7 @@ export class HostedZoneAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified domain name is not valid.</p>
  */
 export class InvalidDomainName extends __BaseException {
@@ -3191,6 +3403,7 @@ export class InvalidDomainName extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A reusable delegation set with the specified ID does not exist.</p>
  */
 export class NoSuchDelegationSet extends __BaseException {
@@ -3210,6 +3423,7 @@ export class NoSuchDelegationSet extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This operation can't be completed either because the current account has reached the
  * 			limit on the number of hosted zones or because you've reached the limit on the number of
  * 			hosted zones that can be associated with a reusable delegation set.</p>
@@ -3237,6 +3451,9 @@ export class TooManyHostedZones extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateKeySigningKeyRequest {
   /**
    * <p>A unique string that identifies the request.</p>
@@ -3312,6 +3529,7 @@ export interface CreateKeySigningKeyRequest {
 }
 
 /**
+ * @public
  * <p>A key-signing key (KSK) is a complex type that represents a public/private key pair.
  * 			The private key is used to generate a digital signature for the zone signing key (ZSK).
  * 			The public key is stored in the DNS and is used to authenticate the ZSK. A KSK is always
@@ -3485,6 +3703,9 @@ export interface KeySigningKey {
   LastModifiedDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateKeySigningKeyResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
@@ -3504,6 +3725,7 @@ export interface CreateKeySigningKeyResponse {
 }
 
 /**
+ * @public
  * <p>Parameter name is not valid.</p>
  */
 export class InvalidArgument extends __BaseException {
@@ -3523,6 +3745,7 @@ export class InvalidArgument extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The key-signing key (KSK) name that you specified isn't a valid name.</p>
  */
 export class InvalidKeySigningKeyName extends __BaseException {
@@ -3542,6 +3765,7 @@ export class InvalidKeySigningKeyName extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've already created a key-signing key (KSK) with this name or with the same customer managed key ARN.</p>
  */
 export class KeySigningKeyAlreadyExists extends __BaseException {
@@ -3561,6 +3785,7 @@ export class KeySigningKeyAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit for the number of key-signing keys (KSKs). Remove at least
  * 			one KSK, and then try again.</p>
  */
@@ -3580,6 +3805,9 @@ export class TooManyKeySigningKeys extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateQueryLoggingConfigRequest {
   /**
    * <p>The ID of the hosted zone that you want to log queries for. You can log queries only
@@ -3599,6 +3827,7 @@ export interface CreateQueryLoggingConfigRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about a configuration for DNS query
  * 			logging.</p>
  */
@@ -3620,6 +3849,9 @@ export interface QueryLoggingConfig {
   CloudWatchLogsLogGroupArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateQueryLoggingConfigResponse {
   /**
    * <p>A complex type that contains the ID for a query logging configuration, the ID of the
@@ -3635,6 +3867,7 @@ export interface CreateQueryLoggingConfigResponse {
 }
 
 /**
+ * @public
  * <p>Amazon Route 53 doesn't have the permissions required to create log streams and send
  * 			query logs to log streams. Possible causes include the following:</p>
  *          <ul>
@@ -3678,6 +3911,7 @@ export class InsufficientCloudWatchLogsResourcePolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is no CloudWatch Logs log group with the specified ARN.</p>
  */
 export class NoSuchCloudWatchLogsLogGroup extends __BaseException {
@@ -3697,6 +3931,7 @@ export class NoSuchCloudWatchLogsLogGroup extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You can create only one query logging configuration for a hosted zone, and a query
  * 			logging configuration already exists for this hosted zone.</p>
  */
@@ -3716,6 +3951,9 @@ export class QueryLoggingConfigAlreadyExists extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateReusableDelegationSetRequest {
   /**
    * <p>A unique string that identifies the request, and that allows you to retry failed
@@ -3734,6 +3972,9 @@ export interface CreateReusableDelegationSetRequest {
   HostedZoneId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateReusableDelegationSetResponse {
   /**
    * <p>A complex type that contains name server information.</p>
@@ -3747,6 +3988,7 @@ export interface CreateReusableDelegationSetResponse {
 }
 
 /**
+ * @public
  * <p>A delegation set with the same owner and caller reference combination has already been
  * 			created.</p>
  */
@@ -3767,6 +4009,7 @@ export class DelegationSetAlreadyCreated extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified delegation set has already been marked as reusable.</p>
  */
 export class DelegationSetAlreadyReusable extends __BaseException {
@@ -3786,6 +4029,7 @@ export class DelegationSetAlreadyReusable extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified HostedZone can't be found.</p>
  */
 export class HostedZoneNotFound extends __BaseException {
@@ -3805,6 +4049,7 @@ export class HostedZoneNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the traffic policy that you want to
  * 			create.</p>
  */
@@ -3826,6 +4071,7 @@ export interface CreateTrafficPolicyRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains settings for a traffic policy.</p>
  */
 export interface TrafficPolicy {
@@ -3866,6 +4112,7 @@ export interface TrafficPolicy {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the
  * 				<code>CreateTrafficPolicy</code> request.</p>
  */
@@ -3882,6 +4129,7 @@ export interface CreateTrafficPolicyResponse {
 }
 
 /**
+ * @public
  * <p>The format of the traffic policy document that you specified in the
  * 				<code>Document</code> element is not valid.</p>
  */
@@ -3902,6 +4150,7 @@ export class InvalidTrafficPolicyDocument extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This traffic policy can't be created because the current account has reached the limit
  * 			on the number of traffic policies.</p>
  *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
@@ -3927,6 +4176,7 @@ export class TooManyTrafficPolicies extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
  */
 export class TrafficPolicyAlreadyExists extends __BaseException {
@@ -3946,6 +4196,7 @@ export class TrafficPolicyAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the resource record sets that you want
  * 			to create based on a specified traffic policy.</p>
  */
@@ -3983,6 +4234,7 @@ export interface CreateTrafficPolicyInstanceRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains settings for the new traffic policy instance.</p>
  */
 export interface TrafficPolicyInstance {
@@ -4061,6 +4313,7 @@ export interface TrafficPolicyInstance {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the
  * 				<code>CreateTrafficPolicyInstance</code> request.</p>
  */
@@ -4077,6 +4330,7 @@ export interface CreateTrafficPolicyInstanceResponse {
 }
 
 /**
+ * @public
  * <p>No traffic policy exists with the specified ID.</p>
  */
 export class NoSuchTrafficPolicy extends __BaseException {
@@ -4096,6 +4350,7 @@ export class NoSuchTrafficPolicy extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This traffic policy instance can't be created because the current account has reached
  * 			the limit on the number of traffic policy instances.</p>
  *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
@@ -4121,6 +4376,7 @@ export class TooManyTrafficPolicyInstances extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is already a traffic policy instance with the specified ID.</p>
  */
 export class TrafficPolicyInstanceAlreadyExists extends __BaseException {
@@ -4140,6 +4396,7 @@ export class TrafficPolicyInstanceAlreadyExists extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the traffic policy that you want to
  * 			create a new version for.</p>
  */
@@ -4164,6 +4421,7 @@ export interface CreateTrafficPolicyVersionRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the
  * 				<code>CreateTrafficPolicyVersion</code> request.</p>
  */
@@ -4181,6 +4439,7 @@ export interface CreateTrafficPolicyVersionResponse {
 }
 
 /**
+ * @public
  * <p>This traffic policy version can't be created because you've reached the limit of 1000
  * 			on the number of versions that you can create for the current traffic policy.</p>
  *          <p>To create more traffic policy versions, you can use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html">GetTrafficPolicy</a>
@@ -4205,6 +4464,7 @@ export class TooManyTrafficPolicyVersionsForCurrentPolicy extends __BaseExceptio
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the request to authorize associating a
  * 			VPC with your private hosted zone. Authorization is only required when a private hosted
  * 			zone and a VPC were created by using different accounts.</p>
@@ -4224,6 +4484,7 @@ export interface CreateVPCAssociationAuthorizationRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information from a
  * 				<code>CreateVPCAssociationAuthorization</code> request.</p>
  */
@@ -4240,6 +4501,7 @@ export interface CreateVPCAssociationAuthorizationResponse {
 }
 
 /**
+ * @public
  * <p>You've created the maximum number of authorizations that can be created for the
  * 			specified hosted zone. To authorize another VPC to be associated with the hosted zone,
  * 			submit a <code>DeleteVPCAssociationAuthorization</code> request to remove an existing
@@ -4262,6 +4524,9 @@ export class TooManyVPCAssociationAuthorizations extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeactivateKeySigningKeyRequest {
   /**
    * <p>A unique string used to identify a hosted zone.</p>
@@ -4274,6 +4539,9 @@ export interface DeactivateKeySigningKeyRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateKeySigningKeyResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
@@ -4283,6 +4551,7 @@ export interface DeactivateKeySigningKeyResponse {
 }
 
 /**
+ * @public
  * <p>The key-signing key (KSK) is specified in a parent DS record.</p>
  */
 export class KeySigningKeyInParentDSRecord extends __BaseException {
@@ -4302,6 +4571,7 @@ export class KeySigningKeyInParentDSRecord extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The key-signing key (KSK) that you specified can't be deactivated because it's the
  * 			only KSK for a currently-enabled DNSSEC. Disable DNSSEC signing, or add or enable
  * 			another KSK.</p>
@@ -4323,6 +4593,7 @@ export class KeySigningKeyInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>This CIDR collection is in use, and isn't empty.</p>
  */
 export class CidrCollectionInUseException extends __BaseException {
@@ -4343,6 +4614,9 @@ export class CidrCollectionInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCidrCollectionRequest {
   /**
    * <p>The UUID of the collection to delete.</p>
@@ -4350,9 +4624,13 @@ export interface DeleteCidrCollectionRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCidrCollectionResponse {}
 
 /**
+ * @public
  * <p>This action deletes a health check.</p>
  */
 export interface DeleteHealthCheckRequest {
@@ -4363,11 +4641,13 @@ export interface DeleteHealthCheckRequest {
 }
 
 /**
+ * @public
  * <p>An empty element.</p>
  */
 export interface DeleteHealthCheckResponse {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>This error code is not in use.</p>
@@ -4389,6 +4669,7 @@ export class HealthCheckInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A request to delete a hosted zone.</p>
  */
 export interface DeleteHostedZoneRequest {
@@ -4399,6 +4680,7 @@ export interface DeleteHostedZoneRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response to a <code>DeleteHostedZone</code>
  * 			request.</p>
  */
@@ -4411,6 +4693,7 @@ export interface DeleteHostedZoneResponse {
 }
 
 /**
+ * @public
  * <p>The hosted zone contains resource records that are not SOA or NS records.</p>
  */
 export class HostedZoneNotEmpty extends __BaseException {
@@ -4429,6 +4712,9 @@ export class HostedZoneNotEmpty extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeySigningKeyRequest {
   /**
    * <p>A unique string used to identify a hosted zone.</p>
@@ -4441,6 +4727,9 @@ export interface DeleteKeySigningKeyRequest {
   Name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeySigningKeyResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
@@ -4449,6 +4738,9 @@ export interface DeleteKeySigningKeyResponse {
   ChangeInfo: ChangeInfo | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueryLoggingConfigRequest {
   /**
    * <p>The ID of the configuration that you want to delete. </p>
@@ -4456,9 +4748,13 @@ export interface DeleteQueryLoggingConfigRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteQueryLoggingConfigResponse {}
 
 /**
+ * @public
  * <p>There is no DNS query logging configuration with the specified ID.</p>
  */
 export class NoSuchQueryLoggingConfig extends __BaseException {
@@ -4478,6 +4774,7 @@ export class NoSuchQueryLoggingConfig extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified delegation contains associated hosted zones which must be deleted before
  * 			the reusable delegation set can be deleted.</p>
  */
@@ -4498,6 +4795,7 @@ export class DelegationSetInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A request to delete a reusable delegation set.</p>
  */
 export interface DeleteReusableDelegationSetRequest {
@@ -4508,11 +4806,13 @@ export interface DeleteReusableDelegationSetRequest {
 }
 
 /**
+ * @public
  * <p>An empty element.</p>
  */
 export interface DeleteReusableDelegationSetResponse {}
 
 /**
+ * @public
  * <p>A request to delete a specified traffic policy version.</p>
  */
 export interface DeleteTrafficPolicyRequest {
@@ -4528,11 +4828,13 @@ export interface DeleteTrafficPolicyRequest {
 }
 
 /**
+ * @public
  * <p>An empty element.</p>
  */
 export interface DeleteTrafficPolicyResponse {}
 
 /**
+ * @public
  * <p>One or more traffic policy instances were created by using the specified traffic
  * 			policy.</p>
  */
@@ -4553,6 +4855,7 @@ export class TrafficPolicyInUse extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A request to delete a specified traffic policy instance.</p>
  */
 export interface DeleteTrafficPolicyInstanceRequest {
@@ -4568,11 +4871,13 @@ export interface DeleteTrafficPolicyInstanceRequest {
 }
 
 /**
+ * @public
  * <p>An empty element.</p>
  */
 export interface DeleteTrafficPolicyInstanceResponse {}
 
 /**
+ * @public
  * <p>No traffic policy instance exists with the specified ID.</p>
  */
 export class NoSuchTrafficPolicyInstance extends __BaseException {
@@ -4592,6 +4897,7 @@ export class NoSuchTrafficPolicyInstance extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the request to remove authorization to
  * 			associate a VPC that was created by one Amazon Web Services account with a hosted zone
  * 			that was created with a different Amazon Web Services account. </p>
@@ -4610,11 +4916,13 @@ export interface DeleteVPCAssociationAuthorizationRequest {
 }
 
 /**
+ * @public
  * <p>Empty response for the request.</p>
  */
 export interface DeleteVPCAssociationAuthorizationResponse {}
 
 /**
+ * @public
  * <p>The VPC that you specified is not authorized to be associated with the hosted
  * 			zone.</p>
  */
@@ -4634,6 +4942,9 @@ export class VPCAssociationAuthorizationNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DisableHostedZoneDNSSECRequest {
   /**
    * <p>A unique string used to identify a hosted zone.</p>
@@ -4641,6 +4952,9 @@ export interface DisableHostedZoneDNSSECRequest {
   HostedZoneId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableHostedZoneDNSSECResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
@@ -4650,6 +4964,7 @@ export interface DisableHostedZoneDNSSECResponse {
 }
 
 /**
+ * @public
  * <p>The hosted zone doesn't have any DNSSEC resources.</p>
  */
 export class DNSSECNotFound extends __BaseException {
@@ -4669,6 +4984,7 @@ export class DNSSECNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the VPC that you want to disassociate
  * 			from a specified private hosted zone.</p>
  */
@@ -4692,6 +5008,7 @@ export interface DisassociateVPCFromHostedZoneRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the disassociate
  * 			request.</p>
  */
@@ -4704,6 +5021,7 @@ export interface DisassociateVPCFromHostedZoneResponse {
 }
 
 /**
+ * @public
  * <p>The VPC that you're trying to disassociate from the private hosted zone is the last
  * 			VPC that is associated with the hosted zone. Amazon Route 53 doesn't support
  * 			disassociating the last VPC from a hosted zone.</p>
@@ -4725,6 +5043,7 @@ export class LastVPCAssociation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified VPC and hosted zone are not currently associated.</p>
  */
 export class VPCAssociationNotFound extends __BaseException {
@@ -4743,6 +5062,9 @@ export class VPCAssociationNotFound extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface EnableHostedZoneDNSSECRequest {
   /**
    * <p>A unique string used to identify a hosted zone.</p>
@@ -4750,6 +5072,9 @@ export interface EnableHostedZoneDNSSECRequest {
   HostedZoneId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableHostedZoneDNSSECResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
@@ -4759,6 +5084,7 @@ export interface EnableHostedZoneDNSSECResponse {
 }
 
 /**
+ * @public
  * <p>The hosted zone nameservers don't match the parent nameservers. The hosted zone and
  * 			parent must have the same nameservers.</p>
  */
@@ -4779,6 +5105,7 @@ export class HostedZonePartiallyDelegated extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A key-signing key (KSK) with <code>ACTIVE</code> status wasn't found.</p>
  */
 export class KeySigningKeyWithActiveStatusNotFound extends __BaseException {
@@ -4798,6 +5125,7 @@ export class KeySigningKeyWithActiveStatusNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the request to create a hosted
  * 			zone.</p>
  */
@@ -4839,6 +5167,7 @@ export interface GetAccountLimitRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the requested limit. </p>
  */
 export interface GetAccountLimitResponse {
@@ -4860,6 +5189,7 @@ export interface GetAccountLimitResponse {
 }
 
 /**
+ * @public
  * <p>The input for a GetChange request.</p>
  */
 export interface GetChangeRequest {
@@ -4872,6 +5202,7 @@ export interface GetChangeRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the <code>ChangeInfo</code> element.</p>
  */
 export interface GetChangeResponse {
@@ -4882,6 +5213,7 @@ export interface GetChangeResponse {
 }
 
 /**
+ * @public
  * <p>A change with the specified change ID does not exist.</p>
  */
 export class NoSuchChange extends __BaseException {
@@ -4901,11 +5233,13 @@ export class NoSuchChange extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Empty request.</p>
  */
 export interface GetCheckerIpRangesRequest {}
 
 /**
+ * @public
  * <p>A complex type that contains the <code>CheckerIpRanges</code> element.</p>
  */
 export interface GetCheckerIpRangesResponse {
@@ -4916,6 +5250,9 @@ export interface GetCheckerIpRangesResponse {
   CheckerIpRanges: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDNSSECRequest {
   /**
    * <p>A unique string used to identify a hosted zone.</p>
@@ -4924,6 +5261,7 @@ export interface GetDNSSECRequest {
 }
 
 /**
+ * @public
  * <p>A string repesenting the status of DNSSEC signing.</p>
  */
 export interface DNSSECStatus {
@@ -4969,6 +5307,9 @@ export interface DNSSECStatus {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDNSSECResponse {
   /**
    * <p>A string repesenting the status of DNSSEC.</p>
@@ -4982,6 +5323,7 @@ export interface GetDNSSECResponse {
 }
 
 /**
+ * @public
  * <p>A request for information about whether a specified geographic location is supported
  * 			for Amazon Route 53 geolocation resource record sets.</p>
  */
@@ -5039,6 +5381,7 @@ export interface GetGeoLocationRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the codes and full continent, country, and subdivision
  * 			names for the specified <code>geolocation</code> code.</p>
  */
@@ -5080,6 +5423,7 @@ export interface GeoLocationDetails {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the specified geolocation
  * 			code.</p>
  */
@@ -5092,6 +5436,7 @@ export interface GetGeoLocationResponse {
 }
 
 /**
+ * @public
  * <p>Amazon Route 53 doesn't support the specified geographic location. For a list of
  * 			supported geolocation codes, see the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a> data
  * 			type.</p>
@@ -5113,6 +5458,7 @@ export class NoSuchGeoLocation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A request to get information about a specified health check. </p>
  */
 export interface GetHealthCheckRequest {
@@ -5125,6 +5471,7 @@ export interface GetHealthCheckRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response to a <code>GetHealthCheck</code>
  * 			request.</p>
  */
@@ -5137,6 +5484,7 @@ export interface GetHealthCheckResponse {
 }
 
 /**
+ * @public
  * <p>The resource you're trying to access is unsupported on this Amazon Route 53
  * 			endpoint.</p>
  */
@@ -5157,11 +5505,13 @@ export class IncompatibleVersion extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A request for the number of health checks that are associated with the current Amazon Web Services account.</p>
  */
 export interface GetHealthCheckCountRequest {}
 
 /**
+ * @public
  * <p>A complex type that contains the response to a <code>GetHealthCheckCount</code>
  * 			request.</p>
  */
@@ -5173,6 +5523,7 @@ export interface GetHealthCheckCountResponse {
 }
 
 /**
+ * @public
  * <p>A request for the reason that a health check failed most recently.</p>
  */
 export interface GetHealthCheckLastFailureReasonRequest {
@@ -5191,6 +5542,7 @@ export interface GetHealthCheckLastFailureReasonRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the status that one Amazon Route 53 health checker
  * 			reports and the time of the health check.</p>
  */
@@ -5210,6 +5562,7 @@ export interface StatusReport {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the last failure reason as reported by one Amazon Route
  * 			53 health checker.</p>
  */
@@ -5234,6 +5587,7 @@ export interface HealthCheckObservation {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response to a
  * 				<code>GetHealthCheckLastFailureReason</code> request.</p>
  */
@@ -5246,6 +5600,7 @@ export interface GetHealthCheckLastFailureReasonResponse {
 }
 
 /**
+ * @public
  * <p>A request to get the status for a health check.</p>
  */
 export interface GetHealthCheckStatusRequest {
@@ -5264,6 +5619,7 @@ export interface GetHealthCheckStatusRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response to a <code>GetHealthCheck</code>
  * 			request.</p>
  */
@@ -5277,6 +5633,7 @@ export interface GetHealthCheckStatusResponse {
 }
 
 /**
+ * @public
  * <p>A request to get information about a specified hosted zone. </p>
  */
 export interface GetHostedZoneRequest {
@@ -5287,6 +5644,7 @@ export interface GetHostedZoneRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contain the response to a <code>GetHostedZone</code>
  * 			request.</p>
  */
@@ -5311,12 +5669,14 @@ export interface GetHostedZoneResponse {
 }
 
 /**
+ * @public
  * <p>A request to retrieve a count of all the hosted zones that are associated with the
  * 			current Amazon Web Services account.</p>
  */
 export interface GetHostedZoneCountRequest {}
 
 /**
+ * @public
  * <p>A complex type that contains the response to a <code>GetHostedZoneCount</code>
  * 			request.</p>
  */
@@ -5328,12 +5688,22 @@ export interface GetHostedZoneCountResponse {
   HostedZoneCount: number | undefined;
 }
 
-export enum HostedZoneLimitType {
-  MAX_RRSETS_BY_ZONE = "MAX_RRSETS_BY_ZONE",
-  MAX_VPCS_ASSOCIATED_BY_ZONE = "MAX_VPCS_ASSOCIATED_BY_ZONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HostedZoneLimitType = {
+  MAX_RRSETS_BY_ZONE: "MAX_RRSETS_BY_ZONE",
+  MAX_VPCS_ASSOCIATED_BY_ZONE: "MAX_VPCS_ASSOCIATED_BY_ZONE",
+} as const;
 
 /**
+ * @public
+ */
+export type HostedZoneLimitType = (typeof HostedZoneLimitType)[keyof typeof HostedZoneLimitType];
+
+/**
+ * @public
  * <p>A complex type that contains information about the request to create a hosted
  * 			zone.</p>
  */
@@ -5363,6 +5733,7 @@ export interface GetHostedZoneLimitRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the type of limit that you specified in the request and
  * 			the current value for that limit.</p>
  */
@@ -5392,6 +5763,7 @@ export interface HostedZoneLimit {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the requested limit. </p>
  */
 export interface GetHostedZoneLimitResponse {
@@ -5413,6 +5785,7 @@ export interface GetHostedZoneLimitResponse {
 }
 
 /**
+ * @public
  * <p>The specified hosted zone is a public hosted zone, not a private hosted zone.</p>
  */
 export class HostedZoneNotPrivate extends __BaseException {
@@ -5431,6 +5804,9 @@ export class HostedZoneNotPrivate extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetQueryLoggingConfigRequest {
   /**
    * <p>The ID of the configuration for DNS query logging that you want to get information
@@ -5439,6 +5815,9 @@ export interface GetQueryLoggingConfigRequest {
   Id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetQueryLoggingConfigResponse {
   /**
    * <p>A complex type that contains information about the query logging configuration that
@@ -5448,6 +5827,7 @@ export interface GetQueryLoggingConfigResponse {
 }
 
 /**
+ * @public
  * <p>A request to get information about a specified reusable delegation set.</p>
  */
 export interface GetReusableDelegationSetRequest {
@@ -5459,6 +5839,7 @@ export interface GetReusableDelegationSetRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response to the <code>GetReusableDelegationSet</code>
  * 			request.</p>
  */
@@ -5469,11 +5850,22 @@ export interface GetReusableDelegationSetResponse {
   DelegationSet: DelegationSet | undefined;
 }
 
-export enum ReusableDelegationSetLimitType {
-  MAX_ZONES_BY_REUSABLE_DELEGATION_SET = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReusableDelegationSetLimitType = {
+  MAX_ZONES_BY_REUSABLE_DELEGATION_SET: "MAX_ZONES_BY_REUSABLE_DELEGATION_SET",
+} as const;
 
 /**
+ * @public
+ */
+export type ReusableDelegationSetLimitType =
+  (typeof ReusableDelegationSetLimitType)[keyof typeof ReusableDelegationSetLimitType];
+
+/**
+ * @public
  * <p>A complex type that contains information about the request to create a hosted
  * 			zone.</p>
  */
@@ -5491,6 +5883,7 @@ export interface GetReusableDelegationSetLimitRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the type of limit that you specified in the request and
  * 			the current value for that limit.</p>
  */
@@ -5510,6 +5903,7 @@ export interface ReusableDelegationSetLimit {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the requested limit. </p>
  */
 export interface GetReusableDelegationSetLimitResponse {
@@ -5527,6 +5921,7 @@ export interface GetReusableDelegationSetLimitResponse {
 }
 
 /**
+ * @public
  * <p>Gets information about a specific traffic policy version.</p>
  */
 export interface GetTrafficPolicyRequest {
@@ -5543,6 +5938,7 @@ export interface GetTrafficPolicyRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface GetTrafficPolicyResponse {
@@ -5553,6 +5949,7 @@ export interface GetTrafficPolicyResponse {
 }
 
 /**
+ * @public
  * <p>Gets information about a specified traffic policy instance.</p>
  */
 export interface GetTrafficPolicyInstanceRequest {
@@ -5563,6 +5960,7 @@ export interface GetTrafficPolicyInstanceRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the resource record sets that Amazon
  * 			Route 53 created based on a specified traffic policy.</p>
  */
@@ -5574,12 +5972,14 @@ export interface GetTrafficPolicyInstanceResponse {
 }
 
 /**
+ * @public
  * <p>Request to get the number of traffic policy instances that are associated with the
  * 			current Amazon Web Services account.</p>
  */
 export interface GetTrafficPolicyInstanceCountRequest {}
 
 /**
+ * @public
  * <p>A complex type that contains information about the resource record sets that Amazon
  * 			Route 53 created based on a specified traffic policy.</p>
  */
@@ -5590,6 +5990,9 @@ export interface GetTrafficPolicyInstanceCountResponse {
   TrafficPolicyInstanceCount: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListCidrBlocksRequest {
   /**
    * <p>The UUID of the CIDR collection.</p>
@@ -5614,6 +6017,7 @@ export interface ListCidrBlocksRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that lists the CIDR blocks.</p>
  */
 export interface CidrBlockSummary {
@@ -5628,6 +6032,9 @@ export interface CidrBlockSummary {
   LocationName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCidrBlocksResponse {
   /**
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
@@ -5643,6 +6050,7 @@ export interface ListCidrBlocksResponse {
 }
 
 /**
+ * @public
  * <p>The CIDR collection location doesn't match any locations in your account.</p>
  */
 export class NoSuchCidrLocationException extends __BaseException {
@@ -5663,6 +6071,9 @@ export class NoSuchCidrLocationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListCidrCollectionsRequest {
   /**
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
@@ -5678,6 +6089,7 @@ export interface ListCidrCollectionsRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that is an entry in an <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CidrCollection.html">CidrCollection</a>
  * 			array.</p>
  */
@@ -5706,6 +6118,9 @@ export interface CollectionSummary {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListCidrCollectionsResponse {
   /**
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
@@ -5720,6 +6135,9 @@ export interface ListCidrCollectionsResponse {
   CidrCollections?: CollectionSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListCidrLocationsRequest {
   /**
    * <p>The CIDR collection ID.</p>
@@ -5740,6 +6158,7 @@ export interface ListCidrLocationsRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the CIDR location.</p>
  */
 export interface LocationSummary {
@@ -5749,6 +6168,9 @@ export interface LocationSummary {
   LocationName?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCidrLocationsResponse {
   /**
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
@@ -5764,6 +6186,7 @@ export interface ListCidrLocationsResponse {
 }
 
 /**
+ * @public
  * <p>A request to get a list of geographic locations that Amazon Route 53 supports for
  * 			geolocation resource record sets. </p>
  */
@@ -5811,6 +6234,7 @@ export interface ListGeoLocationsRequest {
 }
 
 /**
+ * @public
  * <p>A complex type containing the response information for the request.</p>
  */
 export interface ListGeoLocationsResponse {
@@ -5862,6 +6286,7 @@ export interface ListGeoLocationsResponse {
 }
 
 /**
+ * @public
  * <p>A request to retrieve a list of the health checks that are associated with the current
  * 				Amazon Web Services account.</p>
  */
@@ -5888,6 +6313,7 @@ export interface ListHealthChecksRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response to a <code>ListHealthChecks</code>
  * 			request.</p>
  */
@@ -5929,6 +6355,7 @@ export interface ListHealthChecksResponse {
 }
 
 /**
+ * @public
  * <p>A request to retrieve a list of the public and private hosted zones that are
  * 			associated with the current Amazon Web Services account.</p>
  */
@@ -5962,6 +6389,9 @@ export interface ListHostedZonesRequest {
   DelegationSetId?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListHostedZonesResponse {
   /**
    * <p>A complex type that contains general information about the hosted zone.</p>
@@ -6001,6 +6431,7 @@ export interface ListHostedZonesResponse {
 }
 
 /**
+ * @public
  * <p>Retrieves a list of the public and private hosted zones that are associated with the
  * 			current Amazon Web Services account in ASCII order by domain name. </p>
  */
@@ -6040,6 +6471,7 @@ export interface ListHostedZonesByNameRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListHostedZonesByNameResponse {
@@ -6097,6 +6529,7 @@ export interface ListHostedZonesByNameResponse {
 }
 
 /**
+ * @public
  * <p>The value that you specified to get the second or subsequent page of results is
  * 			invalid.</p>
  */
@@ -6117,6 +6550,7 @@ export class InvalidPaginationToken extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless
  * 			of which Amazon Web Services account created the hosted zones.</p>
  */
@@ -6154,6 +6588,7 @@ export interface ListHostedZonesByVPCRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that identifies a hosted zone that a specified Amazon VPC is associated
  * 			with and the owner of the hosted zone. If there is a value for
  * 				<code>OwningAccount</code>, there is no value for <code>OwningService</code>, and
@@ -6180,6 +6615,7 @@ export interface HostedZoneOwner {
 }
 
 /**
+ * @public
  * <p>In the response to a <code>ListHostedZonesByVPC</code> request, the
  * 				<code>HostedZoneSummaries</code> element contains one <code>HostedZoneSummary</code>
  * 			element for each hosted zone that the specified Amazon VPC is associated with. Each
@@ -6206,6 +6642,9 @@ export interface HostedZoneSummary {
   Owner: HostedZoneOwner | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListHostedZonesByVPCResponse {
   /**
    * <p>A list that contains one <code>HostedZoneSummary</code> element for each hosted zone
@@ -6228,6 +6667,9 @@ export interface ListHostedZonesByVPCResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListQueryLoggingConfigsRequest {
   /**
    * <p>(Optional) If you want to list the query logging configuration that is associated with
@@ -6258,6 +6700,9 @@ export interface ListQueryLoggingConfigsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListQueryLoggingConfigsResponse {
   /**
    * <p>An array that contains one <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html">QueryLoggingConfig</a> element for each configuration for DNS query logging
@@ -6278,6 +6723,7 @@ export interface ListQueryLoggingConfigsResponse {
 }
 
 /**
+ * @public
  * <p>A request for the resource record sets that are associated with a specified hosted
  * 			zone.</p>
  */
@@ -6369,6 +6815,7 @@ export interface ListResourceRecordSetsRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains list information for the resource record set.</p>
  */
 export interface ListResourceRecordSetsResponse {
@@ -6414,6 +6861,7 @@ export interface ListResourceRecordSetsResponse {
 }
 
 /**
+ * @public
  * <p>A request to get a list of the reusable delegation sets that are associated with the
  * 			current Amazon Web Services account.</p>
  */
@@ -6439,6 +6887,7 @@ export interface ListReusableDelegationSetsRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the reusable delegation sets that are
  * 			associated with the current Amazon Web Services account.</p>
  */
@@ -6478,6 +6927,7 @@ export interface ListReusableDelegationSetsResponse {
 }
 
 /**
+ * @public
  * <p>A complex type containing information about a request for a list of the tags that are
  * 			associated with an individual resource.</p>
  */
@@ -6502,6 +6952,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>A complex type containing a resource and its associated tags.</p>
  */
 export interface ResourceTagSet {
@@ -6530,6 +6981,7 @@ export interface ResourceTagSet {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the health checks or hosted zones for
  * 			which you want to list tags.</p>
  */
@@ -6542,6 +6994,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the health checks or hosted zones for
  * 			which you want to list tags.</p>
  */
@@ -6567,6 +7020,7 @@ export interface ListTagsForResourcesRequest {
 }
 
 /**
+ * @public
  * <p>A complex type containing tags for the specified resources.</p>
  */
 export interface ListTagsForResourcesResponse {
@@ -6578,6 +7032,7 @@ export interface ListTagsForResourcesResponse {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the information about the request to list the traffic
  * 			policies that are associated with the current Amazon Web Services account.</p>
  */
@@ -6606,6 +7061,7 @@ export interface ListTrafficPoliciesRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the latest version of one traffic
  * 			policy that is associated with the current Amazon Web Services account.</p>
  */
@@ -6638,6 +7094,7 @@ export interface TrafficPolicySummary {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListTrafficPoliciesResponse {
@@ -6671,6 +7128,7 @@ export interface ListTrafficPoliciesResponse {
 }
 
 /**
+ * @public
  * <p>A request to get information about the traffic policy instances that you created by
  * 			using the current Amazon Web Services account.</p>
  */
@@ -6727,6 +7185,7 @@ export interface ListTrafficPolicyInstancesRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListTrafficPolicyInstancesResponse {
@@ -6778,6 +7237,7 @@ export interface ListTrafficPolicyInstancesResponse {
 }
 
 /**
+ * @public
  * <p>A request for the traffic policy instances that you created in a specified hosted
  * 			zone.</p>
  */
@@ -6826,6 +7286,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListTrafficPolicyInstancesByHostedZoneResponse {
@@ -6869,6 +7330,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneResponse {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the information about the request to list your traffic
  * 			policy instances.</p>
  */
@@ -6941,6 +7403,7 @@ export interface ListTrafficPolicyInstancesByPolicyRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListTrafficPolicyInstancesByPolicyResponse {
@@ -6991,6 +7454,7 @@ export interface ListTrafficPolicyInstancesByPolicyResponse {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the information about the request to list your traffic
  * 			policies.</p>
  */
@@ -7025,6 +7489,7 @@ export interface ListTrafficPolicyVersionsRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListTrafficPolicyVersionsResponse {
@@ -7062,6 +7527,7 @@ export interface ListTrafficPolicyVersionsResponse {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about that can be associated with your hosted
  * 			zone.</p>
  */
@@ -7092,6 +7558,7 @@ export interface ListVPCAssociationAuthorizationsRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListVPCAssociationAuthorizationsResponse {
@@ -7117,6 +7584,7 @@ export interface ListVPCAssociationAuthorizationsResponse {
 }
 
 /**
+ * @public
  * <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a
  * 			specified record name and type. You can optionally specify the IP address of a DNS
  * 			resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
@@ -7180,6 +7648,7 @@ export interface TestDNSAnswerRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response to a <code>TestDNSAnswer</code> request.
  * 		</p>
  */
@@ -7221,6 +7690,7 @@ export interface TestDNSAnswerResponse {
 }
 
 /**
+ * @public
  * <p>The value of <code>HealthCheckVersion</code> in the request doesn't match the value of
  * 				<code>HealthCheckVersion</code> in the health check.</p>
  */
@@ -7240,14 +7710,24 @@ export class HealthCheckVersionMismatch extends __BaseException {
   }
 }
 
-export enum ResettableElementName {
-  ChildHealthChecks = "ChildHealthChecks",
-  FullyQualifiedDomainName = "FullyQualifiedDomainName",
-  Regions = "Regions",
-  ResourcePath = "ResourcePath",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResettableElementName = {
+  ChildHealthChecks: "ChildHealthChecks",
+  FullyQualifiedDomainName: "FullyQualifiedDomainName",
+  Regions: "Regions",
+  ResourcePath: "ResourcePath",
+} as const;
 
 /**
+ * @public
+ */
+export type ResettableElementName = (typeof ResettableElementName)[keyof typeof ResettableElementName];
+
+/**
+ * @public
  * <p>A complex type that contains information about a request to update a health
  * 			check.</p>
  */
@@ -7626,6 +8106,7 @@ export interface UpdateHealthCheckRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response to the <code>UpdateHealthCheck</code>
  * 			request.</p>
  */
@@ -7638,6 +8119,7 @@ export interface UpdateHealthCheckResponse {
 }
 
 /**
+ * @public
  * <p>A request to update the comment for a hosted zone.</p>
  */
 export interface UpdateHostedZoneCommentRequest {
@@ -7655,6 +8137,7 @@ export interface UpdateHostedZoneCommentRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response to the <code>UpdateHostedZoneComment</code>
  * 			request.</p>
  */
@@ -7667,6 +8150,7 @@ export interface UpdateHostedZoneCommentResponse {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the traffic policy that you want to
  * 			update the comment for.</p>
  */
@@ -7690,6 +8174,7 @@ export interface UpdateTrafficPolicyCommentRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains the response information for the traffic policy.</p>
  */
 export interface UpdateTrafficPolicyCommentResponse {
@@ -7700,6 +8185,7 @@ export interface UpdateTrafficPolicyCommentResponse {
 }
 
 /**
+ * @public
  * <p>You tried to update a traffic policy instance by using a traffic policy version that
  * 			has a different DNS type than the current type for the instance. You specified the type
  * 			in the JSON document in the <code>CreateTrafficPolicy</code> or
@@ -7722,6 +8208,7 @@ export class ConflictingTypes extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the resource record sets that you want
  * 			to update based on a specified traffic policy instance.</p>
  */
@@ -7751,6 +8238,7 @@ export interface UpdateTrafficPolicyInstanceRequest {
 }
 
 /**
+ * @public
  * <p>A complex type that contains information about the resource record sets that Amazon
  * 			Route 53 created based on a specified traffic policy.</p>
  */
@@ -7760,1302 +8248,3 @@ export interface UpdateTrafficPolicyInstanceResponse {
    */
   TrafficPolicyInstance: TrafficPolicyInstance | undefined;
 }
-
-/**
- * @internal
- */
-export const AccountLimitFilterSensitiveLog = (obj: AccountLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateKeySigningKeyRequestFilterSensitiveLog = (obj: ActivateKeySigningKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeInfoFilterSensitiveLog = (obj: ChangeInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateKeySigningKeyResponseFilterSensitiveLog = (obj: ActivateKeySigningKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlarmIdentifierFilterSensitiveLog = (obj: AlarmIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AliasTargetFilterSensitiveLog = (obj: AliasTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VPCFilterSensitiveLog = (obj: VPC): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateVPCWithHostedZoneRequestFilterSensitiveLog = (obj: AssociateVPCWithHostedZoneRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateVPCWithHostedZoneResponseFilterSensitiveLog = (obj: AssociateVPCWithHostedZoneResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CidrCollectionChangeFilterSensitiveLog = (obj: CidrCollectionChange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeCidrCollectionRequestFilterSensitiveLog = (obj: ChangeCidrCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeCidrCollectionResponseFilterSensitiveLog = (obj: ChangeCidrCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CidrRoutingConfigFilterSensitiveLog = (obj: CidrRoutingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeoLocationFilterSensitiveLog = (obj: GeoLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceRecordFilterSensitiveLog = (obj: ResourceRecord): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceRecordSetFilterSensitiveLog = (obj: ResourceRecordSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeFilterSensitiveLog = (obj: Change): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeBatchFilterSensitiveLog = (obj: ChangeBatch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeResourceRecordSetsRequestFilterSensitiveLog = (obj: ChangeResourceRecordSetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeResourceRecordSetsResponseFilterSensitiveLog = (obj: ChangeResourceRecordSetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeTagsForResourceRequestFilterSensitiveLog = (obj: ChangeTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeTagsForResourceResponseFilterSensitiveLog = (obj: ChangeTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCidrCollectionRequestFilterSensitiveLog = (obj: CreateCidrCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CidrCollectionFilterSensitiveLog = (obj: CidrCollection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCidrCollectionResponseFilterSensitiveLog = (obj: CreateCidrCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HealthCheckConfigFilterSensitiveLog = (obj: HealthCheckConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHealthCheckRequestFilterSensitiveLog = (obj: CreateHealthCheckRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionFilterSensitiveLog = (obj: Dimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchAlarmConfigurationFilterSensitiveLog = (obj: CloudWatchAlarmConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LinkedServiceFilterSensitiveLog = (obj: LinkedService): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HealthCheckFilterSensitiveLog = (obj: HealthCheck): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHealthCheckResponseFilterSensitiveLog = (obj: CreateHealthCheckResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostedZoneConfigFilterSensitiveLog = (obj: HostedZoneConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHostedZoneRequestFilterSensitiveLog = (obj: CreateHostedZoneRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DelegationSetFilterSensitiveLog = (obj: DelegationSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostedZoneFilterSensitiveLog = (obj: HostedZone): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHostedZoneResponseFilterSensitiveLog = (obj: CreateHostedZoneResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateKeySigningKeyRequestFilterSensitiveLog = (obj: CreateKeySigningKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeySigningKeyFilterSensitiveLog = (obj: KeySigningKey): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateKeySigningKeyResponseFilterSensitiveLog = (obj: CreateKeySigningKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateQueryLoggingConfigRequestFilterSensitiveLog = (obj: CreateQueryLoggingConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QueryLoggingConfigFilterSensitiveLog = (obj: QueryLoggingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateQueryLoggingConfigResponseFilterSensitiveLog = (obj: CreateQueryLoggingConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReusableDelegationSetRequestFilterSensitiveLog = (obj: CreateReusableDelegationSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReusableDelegationSetResponseFilterSensitiveLog = (
-  obj: CreateReusableDelegationSetResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficPolicyRequestFilterSensitiveLog = (obj: CreateTrafficPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficPolicyFilterSensitiveLog = (obj: TrafficPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficPolicyResponseFilterSensitiveLog = (obj: CreateTrafficPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficPolicyInstanceRequestFilterSensitiveLog = (obj: CreateTrafficPolicyInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficPolicyInstanceFilterSensitiveLog = (obj: TrafficPolicyInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficPolicyInstanceResponseFilterSensitiveLog = (
-  obj: CreateTrafficPolicyInstanceResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficPolicyVersionRequestFilterSensitiveLog = (obj: CreateTrafficPolicyVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTrafficPolicyVersionResponseFilterSensitiveLog = (obj: CreateTrafficPolicyVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVPCAssociationAuthorizationRequestFilterSensitiveLog = (
-  obj: CreateVPCAssociationAuthorizationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVPCAssociationAuthorizationResponseFilterSensitiveLog = (
-  obj: CreateVPCAssociationAuthorizationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeactivateKeySigningKeyRequestFilterSensitiveLog = (obj: DeactivateKeySigningKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeactivateKeySigningKeyResponseFilterSensitiveLog = (obj: DeactivateKeySigningKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCidrCollectionRequestFilterSensitiveLog = (obj: DeleteCidrCollectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCidrCollectionResponseFilterSensitiveLog = (obj: DeleteCidrCollectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHealthCheckRequestFilterSensitiveLog = (obj: DeleteHealthCheckRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHealthCheckResponseFilterSensitiveLog = (obj: DeleteHealthCheckResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHostedZoneRequestFilterSensitiveLog = (obj: DeleteHostedZoneRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHostedZoneResponseFilterSensitiveLog = (obj: DeleteHostedZoneResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteKeySigningKeyRequestFilterSensitiveLog = (obj: DeleteKeySigningKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteKeySigningKeyResponseFilterSensitiveLog = (obj: DeleteKeySigningKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteQueryLoggingConfigRequestFilterSensitiveLog = (obj: DeleteQueryLoggingConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteQueryLoggingConfigResponseFilterSensitiveLog = (obj: DeleteQueryLoggingConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReusableDelegationSetRequestFilterSensitiveLog = (obj: DeleteReusableDelegationSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteReusableDelegationSetResponseFilterSensitiveLog = (
-  obj: DeleteReusableDelegationSetResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficPolicyRequestFilterSensitiveLog = (obj: DeleteTrafficPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficPolicyResponseFilterSensitiveLog = (obj: DeleteTrafficPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficPolicyInstanceRequestFilterSensitiveLog = (obj: DeleteTrafficPolicyInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficPolicyInstanceResponseFilterSensitiveLog = (
-  obj: DeleteTrafficPolicyInstanceResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVPCAssociationAuthorizationRequestFilterSensitiveLog = (
-  obj: DeleteVPCAssociationAuthorizationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVPCAssociationAuthorizationResponseFilterSensitiveLog = (
-  obj: DeleteVPCAssociationAuthorizationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableHostedZoneDNSSECRequestFilterSensitiveLog = (obj: DisableHostedZoneDNSSECRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableHostedZoneDNSSECResponseFilterSensitiveLog = (obj: DisableHostedZoneDNSSECResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateVPCFromHostedZoneRequestFilterSensitiveLog = (
-  obj: DisassociateVPCFromHostedZoneRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateVPCFromHostedZoneResponseFilterSensitiveLog = (
-  obj: DisassociateVPCFromHostedZoneResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableHostedZoneDNSSECRequestFilterSensitiveLog = (obj: EnableHostedZoneDNSSECRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableHostedZoneDNSSECResponseFilterSensitiveLog = (obj: EnableHostedZoneDNSSECResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountLimitRequestFilterSensitiveLog = (obj: GetAccountLimitRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountLimitResponseFilterSensitiveLog = (obj: GetAccountLimitResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChangeRequestFilterSensitiveLog = (obj: GetChangeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChangeResponseFilterSensitiveLog = (obj: GetChangeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCheckerIpRangesRequestFilterSensitiveLog = (obj: GetCheckerIpRangesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCheckerIpRangesResponseFilterSensitiveLog = (obj: GetCheckerIpRangesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDNSSECRequestFilterSensitiveLog = (obj: GetDNSSECRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DNSSECStatusFilterSensitiveLog = (obj: DNSSECStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDNSSECResponseFilterSensitiveLog = (obj: GetDNSSECResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGeoLocationRequestFilterSensitiveLog = (obj: GetGeoLocationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeoLocationDetailsFilterSensitiveLog = (obj: GeoLocationDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGeoLocationResponseFilterSensitiveLog = (obj: GetGeoLocationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHealthCheckRequestFilterSensitiveLog = (obj: GetHealthCheckRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHealthCheckResponseFilterSensitiveLog = (obj: GetHealthCheckResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHealthCheckCountRequestFilterSensitiveLog = (obj: GetHealthCheckCountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHealthCheckCountResponseFilterSensitiveLog = (obj: GetHealthCheckCountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHealthCheckLastFailureReasonRequestFilterSensitiveLog = (
-  obj: GetHealthCheckLastFailureReasonRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatusReportFilterSensitiveLog = (obj: StatusReport): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HealthCheckObservationFilterSensitiveLog = (obj: HealthCheckObservation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHealthCheckLastFailureReasonResponseFilterSensitiveLog = (
-  obj: GetHealthCheckLastFailureReasonResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHealthCheckStatusRequestFilterSensitiveLog = (obj: GetHealthCheckStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHealthCheckStatusResponseFilterSensitiveLog = (obj: GetHealthCheckStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHostedZoneRequestFilterSensitiveLog = (obj: GetHostedZoneRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHostedZoneResponseFilterSensitiveLog = (obj: GetHostedZoneResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHostedZoneCountRequestFilterSensitiveLog = (obj: GetHostedZoneCountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHostedZoneCountResponseFilterSensitiveLog = (obj: GetHostedZoneCountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHostedZoneLimitRequestFilterSensitiveLog = (obj: GetHostedZoneLimitRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostedZoneLimitFilterSensitiveLog = (obj: HostedZoneLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHostedZoneLimitResponseFilterSensitiveLog = (obj: GetHostedZoneLimitResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueryLoggingConfigRequestFilterSensitiveLog = (obj: GetQueryLoggingConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueryLoggingConfigResponseFilterSensitiveLog = (obj: GetQueryLoggingConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReusableDelegationSetRequestFilterSensitiveLog = (obj: GetReusableDelegationSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReusableDelegationSetResponseFilterSensitiveLog = (obj: GetReusableDelegationSetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReusableDelegationSetLimitRequestFilterSensitiveLog = (
-  obj: GetReusableDelegationSetLimitRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReusableDelegationSetLimitFilterSensitiveLog = (obj: ReusableDelegationSetLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetReusableDelegationSetLimitResponseFilterSensitiveLog = (
-  obj: GetReusableDelegationSetLimitResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrafficPolicyRequestFilterSensitiveLog = (obj: GetTrafficPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrafficPolicyResponseFilterSensitiveLog = (obj: GetTrafficPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrafficPolicyInstanceRequestFilterSensitiveLog = (obj: GetTrafficPolicyInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrafficPolicyInstanceResponseFilterSensitiveLog = (obj: GetTrafficPolicyInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrafficPolicyInstanceCountRequestFilterSensitiveLog = (
-  obj: GetTrafficPolicyInstanceCountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrafficPolicyInstanceCountResponseFilterSensitiveLog = (
-  obj: GetTrafficPolicyInstanceCountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCidrBlocksRequestFilterSensitiveLog = (obj: ListCidrBlocksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CidrBlockSummaryFilterSensitiveLog = (obj: CidrBlockSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCidrBlocksResponseFilterSensitiveLog = (obj: ListCidrBlocksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCidrCollectionsRequestFilterSensitiveLog = (obj: ListCidrCollectionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollectionSummaryFilterSensitiveLog = (obj: CollectionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCidrCollectionsResponseFilterSensitiveLog = (obj: ListCidrCollectionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCidrLocationsRequestFilterSensitiveLog = (obj: ListCidrLocationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocationSummaryFilterSensitiveLog = (obj: LocationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCidrLocationsResponseFilterSensitiveLog = (obj: ListCidrLocationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGeoLocationsRequestFilterSensitiveLog = (obj: ListGeoLocationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGeoLocationsResponseFilterSensitiveLog = (obj: ListGeoLocationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHealthChecksRequestFilterSensitiveLog = (obj: ListHealthChecksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHealthChecksResponseFilterSensitiveLog = (obj: ListHealthChecksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHostedZonesRequestFilterSensitiveLog = (obj: ListHostedZonesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHostedZonesResponseFilterSensitiveLog = (obj: ListHostedZonesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHostedZonesByNameRequestFilterSensitiveLog = (obj: ListHostedZonesByNameRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHostedZonesByNameResponseFilterSensitiveLog = (obj: ListHostedZonesByNameResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHostedZonesByVPCRequestFilterSensitiveLog = (obj: ListHostedZonesByVPCRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostedZoneOwnerFilterSensitiveLog = (obj: HostedZoneOwner): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostedZoneSummaryFilterSensitiveLog = (obj: HostedZoneSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHostedZonesByVPCResponseFilterSensitiveLog = (obj: ListHostedZonesByVPCResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQueryLoggingConfigsRequestFilterSensitiveLog = (obj: ListQueryLoggingConfigsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListQueryLoggingConfigsResponseFilterSensitiveLog = (obj: ListQueryLoggingConfigsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceRecordSetsRequestFilterSensitiveLog = (obj: ListResourceRecordSetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceRecordSetsResponseFilterSensitiveLog = (obj: ListResourceRecordSetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReusableDelegationSetsRequestFilterSensitiveLog = (obj: ListReusableDelegationSetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListReusableDelegationSetsResponseFilterSensitiveLog = (obj: ListReusableDelegationSetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceTagSetFilterSensitiveLog = (obj: ResourceTagSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourcesRequestFilterSensitiveLog = (obj: ListTagsForResourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourcesResponseFilterSensitiveLog = (obj: ListTagsForResourcesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrafficPoliciesRequestFilterSensitiveLog = (obj: ListTrafficPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrafficPolicySummaryFilterSensitiveLog = (obj: TrafficPolicySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrafficPoliciesResponseFilterSensitiveLog = (obj: ListTrafficPoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrafficPolicyInstancesRequestFilterSensitiveLog = (obj: ListTrafficPolicyInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrafficPolicyInstancesResponseFilterSensitiveLog = (obj: ListTrafficPolicyInstancesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrafficPolicyInstancesByHostedZoneRequestFilterSensitiveLog = (
-  obj: ListTrafficPolicyInstancesByHostedZoneRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrafficPolicyInstancesByHostedZoneResponseFilterSensitiveLog = (
-  obj: ListTrafficPolicyInstancesByHostedZoneResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrafficPolicyInstancesByPolicyRequestFilterSensitiveLog = (
-  obj: ListTrafficPolicyInstancesByPolicyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrafficPolicyInstancesByPolicyResponseFilterSensitiveLog = (
-  obj: ListTrafficPolicyInstancesByPolicyResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrafficPolicyVersionsRequestFilterSensitiveLog = (obj: ListTrafficPolicyVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrafficPolicyVersionsResponseFilterSensitiveLog = (obj: ListTrafficPolicyVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVPCAssociationAuthorizationsRequestFilterSensitiveLog = (
-  obj: ListVPCAssociationAuthorizationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVPCAssociationAuthorizationsResponseFilterSensitiveLog = (
-  obj: ListVPCAssociationAuthorizationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestDNSAnswerRequestFilterSensitiveLog = (obj: TestDNSAnswerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TestDNSAnswerResponseFilterSensitiveLog = (obj: TestDNSAnswerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHealthCheckRequestFilterSensitiveLog = (obj: UpdateHealthCheckRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHealthCheckResponseFilterSensitiveLog = (obj: UpdateHealthCheckResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHostedZoneCommentRequestFilterSensitiveLog = (obj: UpdateHostedZoneCommentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHostedZoneCommentResponseFilterSensitiveLog = (obj: UpdateHostedZoneCommentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrafficPolicyCommentRequestFilterSensitiveLog = (obj: UpdateTrafficPolicyCommentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrafficPolicyCommentResponseFilterSensitiveLog = (obj: UpdateTrafficPolicyCommentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrafficPolicyInstanceRequestFilterSensitiveLog = (obj: UpdateTrafficPolicyInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrafficPolicyInstanceResponseFilterSensitiveLog = (
-  obj: UpdateTrafficPolicyInstanceResponse
-): any => ({
-  ...obj,
-});

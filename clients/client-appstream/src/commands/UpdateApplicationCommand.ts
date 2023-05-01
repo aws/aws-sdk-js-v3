@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  UpdateApplicationRequest,
-  UpdateApplicationRequestFilterSensitiveLog,
-  UpdateApplicationResult,
-  UpdateApplicationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateApplicationCommand,
-  serializeAws_json1_1UpdateApplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateApplicationRequest, UpdateApplicationResult } from "../models/models_0";
+import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationCommand}.
  */
 export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationCommand}.
  */
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationResult,
  * import { AppStreamClient, UpdateApplicationCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateApplicationCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // UpdateApplicationRequest
+ *   Name: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   IconS3Location: { // S3Location
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE", // required
+ *   },
+ *   LaunchPath: "STRING_VALUE",
+ *   WorkingDirectory: "STRING_VALUE",
+ *   LaunchParameters: "STRING_VALUE",
+ *   AppBlockArn: "STRING_VALUE",
+ *   AttributesToDelete: [ // ApplicationAttributes
+ *     "LAUNCH_PARAMETERS" || "WORKING_DIRECTORY",
+ *   ],
+ * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
+ * @returns {@link UpdateApplicationCommandOutput}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -78,6 +93,9 @@ export class UpdateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +124,8 @@ export class UpdateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +135,18 @@ export class UpdateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApplicationCommand(input, context);
+    return se_UpdateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
-    return deserializeAws_json1_1UpdateApplicationCommand(output, context);
+    return de_UpdateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

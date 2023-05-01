@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { ModifyMountTargetSecurityGroupsRequest } from "../models/models_0";
 import {
-  ModifyMountTargetSecurityGroupsRequest,
-  ModifyMountTargetSecurityGroupsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommand,
-  serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand,
+  de_ModifyMountTargetSecurityGroupsCommand,
+  se_ModifyMountTargetSecurityGroupsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyMountTargetSecurityGroupsCommand}.
  */
 export interface ModifyMountTargetSecurityGroupsCommandInput extends ModifyMountTargetSecurityGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyMountTargetSecurityGroupsCommand}.
  */
 export interface ModifyMountTargetSecurityGroupsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the set of security groups in effect for a mount target.</p>
  *          <p>When you create a mount target, Amazon EFS also creates a new network interface. For
  *       more information, see <a>CreateMountTarget</a>. This operation replaces the security groups in effect for the
@@ -59,10 +61,18 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * import { EFSClient, ModifyMountTargetSecurityGroupsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, ModifyMountTargetSecurityGroupsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // ModifyMountTargetSecurityGroupsRequest
+ *   MountTargetId: "STRING_VALUE", // required
+ *   SecurityGroups: [ // SecurityGroups
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyMountTargetSecurityGroupsCommandInput - {@link ModifyMountTargetSecurityGroupsCommandInput}
+ * @returns {@link ModifyMountTargetSecurityGroupsCommandOutput}
  * @see {@link ModifyMountTargetSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link ModifyMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -123,6 +133,9 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyMountTargetSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,8 +164,8 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyMountTargetSecurityGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,18 +175,24 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyMountTargetSecurityGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand(input, context);
+    return se_ModifyMountTargetSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommand(output, context);
+    return de_ModifyMountTargetSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

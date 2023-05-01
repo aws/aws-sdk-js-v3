@@ -16,20 +16,22 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   StopTargetedSentimentDetectionJobRequest,
-  StopTargetedSentimentDetectionJobRequestFilterSensitiveLog,
   StopTargetedSentimentDetectionJobResponse,
-  StopTargetedSentimentDetectionJobResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1StopTargetedSentimentDetectionJobCommand,
-  serializeAws_json1_1StopTargetedSentimentDetectionJobCommand,
+  de_StopTargetedSentimentDetectionJobCommand,
+  se_StopTargetedSentimentDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopTargetedSentimentDetectionJobCommand}.
  */
 export interface StopTargetedSentimentDetectionJobCommandInput extends StopTargetedSentimentDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopTargetedSentimentDetectionJobCommand}.
  */
 export interface StopTargetedSentimentDetectionJobCommandOutput
@@ -37,6 +39,7 @@ export interface StopTargetedSentimentDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a targeted sentiment detection job in progress.</p>
  *          <p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put
  *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
@@ -53,10 +56,15 @@ export interface StopTargetedSentimentDetectionJobCommandOutput
  * import { ComprehendClient, StopTargetedSentimentDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopTargetedSentimentDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // StopTargetedSentimentDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopTargetedSentimentDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopTargetedSentimentDetectionJobCommandInput - {@link StopTargetedSentimentDetectionJobCommandInput}
+ * @returns {@link StopTargetedSentimentDetectionJobCommandOutput}
  * @see {@link StopTargetedSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopTargetedSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -89,6 +97,9 @@ export class StopTargetedSentimentDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopTargetedSentimentDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class StopTargetedSentimentDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTargetedSentimentDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopTargetedSentimentDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +139,24 @@ export class StopTargetedSentimentDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StopTargetedSentimentDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTargetedSentimentDetectionJobCommand(input, context);
+    return se_StopTargetedSentimentDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopTargetedSentimentDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopTargetedSentimentDetectionJobCommand(output, context);
+    return de_StopTargetedSentimentDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

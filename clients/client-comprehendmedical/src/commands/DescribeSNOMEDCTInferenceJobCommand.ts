@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
+import { DescribeSNOMEDCTInferenceJobRequest, DescribeSNOMEDCTInferenceJobResponse } from "../models/models_0";
 import {
-  DescribeSNOMEDCTInferenceJobRequest,
-  DescribeSNOMEDCTInferenceJobRequestFilterSensitiveLog,
-  DescribeSNOMEDCTInferenceJobResponse,
-  DescribeSNOMEDCTInferenceJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSNOMEDCTInferenceJobCommand,
-  serializeAws_json1_1DescribeSNOMEDCTInferenceJobCommand,
+  de_DescribeSNOMEDCTInferenceJobCommand,
+  se_DescribeSNOMEDCTInferenceJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSNOMEDCTInferenceJobCommand}.
  */
 export interface DescribeSNOMEDCTInferenceJobCommandInput extends DescribeSNOMEDCTInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSNOMEDCTInferenceJobCommand}.
  */
 export interface DescribeSNOMEDCTInferenceJobCommandOutput
@@ -41,6 +40,7 @@ export interface DescribeSNOMEDCTInferenceJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Gets the properties associated with an InferSNOMEDCT job. Use this operation to get the status of an inference job.
  *     </p>
@@ -50,10 +50,15 @@ export interface DescribeSNOMEDCTInferenceJobCommandOutput
  * import { ComprehendMedicalClient, DescribeSNOMEDCTInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DescribeSNOMEDCTInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // DescribeSNOMEDCTInferenceJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSNOMEDCTInferenceJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSNOMEDCTInferenceJobCommandInput - {@link DescribeSNOMEDCTInferenceJobCommandInput}
+ * @returns {@link DescribeSNOMEDCTInferenceJobCommandOutput}
  * @see {@link DescribeSNOMEDCTInferenceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSNOMEDCTInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -93,6 +98,9 @@ export class DescribeSNOMEDCTInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSNOMEDCTInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +129,8 @@ export class DescribeSNOMEDCTInferenceJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSNOMEDCTInferenceJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSNOMEDCTInferenceJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +140,21 @@ export class DescribeSNOMEDCTInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSNOMEDCTInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSNOMEDCTInferenceJobCommand(input, context);
+    return se_DescribeSNOMEDCTInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSNOMEDCTInferenceJobCommandOutput> {
-    return deserializeAws_json1_1DescribeSNOMEDCTInferenceJobCommand(output, context);
+    return de_DescribeSNOMEDCTInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

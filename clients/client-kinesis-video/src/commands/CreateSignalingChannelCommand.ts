@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  CreateSignalingChannelInput,
-  CreateSignalingChannelInputFilterSensitiveLog,
-  CreateSignalingChannelOutput,
-  CreateSignalingChannelOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSignalingChannelCommand,
-  serializeAws_restJson1CreateSignalingChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateSignalingChannelInput, CreateSignalingChannelOutput } from "../models/models_0";
+import { de_CreateSignalingChannelCommand, se_CreateSignalingChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSignalingChannelCommand}.
  */
 export interface CreateSignalingChannelCommandInput extends CreateSignalingChannelInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateSignalingChannelCommand}.
  */
 export interface CreateSignalingChannelCommandOutput extends CreateSignalingChannelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a signaling channel. </p>
  *          <p>
  *             <code>CreateSignalingChannel</code> is an asynchronous operation.</p>
@@ -44,10 +41,25 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  * import { KinesisVideoClient, CreateSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, CreateSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // CreateSignalingChannelInput
+ *   ChannelName: "STRING_VALUE", // required
+ *   ChannelType: "SINGLE_MASTER" || "FULL_MESH",
+ *   SingleMasterConfiguration: { // SingleMasterConfiguration
+ *     MessageTtlSeconds: Number("int"),
+ *   },
+ *   Tags: [ // TagOnCreateList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSignalingChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSignalingChannelCommandInput - {@link CreateSignalingChannelCommandInput}
+ * @returns {@link CreateSignalingChannelCommandOutput}
  * @see {@link CreateSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link CreateSignalingChannelCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -109,6 +121,9 @@ export class CreateSignalingChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSignalingChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +152,8 @@ export class CreateSignalingChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSignalingChannelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSignalingChannelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +163,18 @@ export class CreateSignalingChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSignalingChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSignalingChannelCommand(input, context);
+    return se_CreateSignalingChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSignalingChannelCommandOutput> {
-    return deserializeAws_restJson1CreateSignalingChannelCommand(output, context);
+    return de_CreateSignalingChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

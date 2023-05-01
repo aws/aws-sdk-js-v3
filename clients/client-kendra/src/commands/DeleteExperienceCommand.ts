@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  DeleteExperienceRequest,
-  DeleteExperienceRequestFilterSensitiveLog,
-  DeleteExperienceResponse,
-  DeleteExperienceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteExperienceCommand,
-  serializeAws_json1_1DeleteExperienceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteExperienceRequest, DeleteExperienceResponse } from "../models/models_0";
+import { de_DeleteExperienceCommand, se_DeleteExperienceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExperienceCommand}.
  */
 export interface DeleteExperienceCommandInput extends DeleteExperienceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExperienceCommand}.
  */
 export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes your Amazon Kendra experience such as a search application. For more information on
  *             creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a search
  *                 experience with no code</a>.</p>
@@ -44,10 +41,16 @@ export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse,
  * import { KendraClient, DeleteExperienceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteExperienceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DeleteExperienceRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteExperienceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExperienceCommandInput - {@link DeleteExperienceCommandInput}
+ * @returns {@link DeleteExperienceCommandOutput}
  * @see {@link DeleteExperienceCommandInput} for command's `input` shape.
  * @see {@link DeleteExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -62,7 +65,7 @@ export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse,
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -95,6 +98,9 @@ export class DeleteExperienceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExperienceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class DeleteExperienceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExperienceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExperienceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class DeleteExperienceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExperienceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteExperienceCommand(input, context);
+    return se_DeleteExperienceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperienceCommandOutput> {
-    return deserializeAws_json1_1DeleteExperienceCommand(output, context);
+    return de_DeleteExperienceCommand(output, context);
   }
 
   // Start section: command_body_extra

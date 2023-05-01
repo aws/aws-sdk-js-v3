@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketVersioningOutput,
-  GetBucketVersioningOutputFilterSensitiveLog,
-  GetBucketVersioningRequest,
-  GetBucketVersioningRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketVersioningCommand,
-  serializeAws_restXmlGetBucketVersioningCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketVersioningOutput, GetBucketVersioningRequest } from "../models/models_0";
+import { de_GetBucketVersioningCommand, se_GetBucketVersioningCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketVersioningCommand}.
  */
 export interface GetBucketVersioningCommandInput extends GetBucketVersioningRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketVersioningCommand}.
  */
 export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the versioning state of a bucket.</p>
  *          <p>To retrieve the versioning state of a bucket, you must be the bucket owner.</p>
  *          <p>This implementation also returns the MFA Delete status of the versioning state. If the
@@ -64,10 +61,16 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOut
  * import { S3Client, GetBucketVersioningCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketVersioningCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketVersioningRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketVersioningCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketVersioningCommandInput - {@link GetBucketVersioningCommandInput}
+ * @returns {@link GetBucketVersioningCommandOutput}
  * @see {@link GetBucketVersioningCommandInput} for command's `input` shape.
  * @see {@link GetBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -114,6 +117,9 @@ export class GetBucketVersioningCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketVersioningCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +148,8 @@ export class GetBucketVersioningCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketVersioningRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketVersioningOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +159,18 @@ export class GetBucketVersioningCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketVersioningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketVersioningCommand(input, context);
+    return se_GetBucketVersioningCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketVersioningCommandOutput> {
-    return deserializeAws_restXmlGetBucketVersioningCommand(output, context);
+    return de_GetBucketVersioningCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  UpdateTrailRequest,
-  UpdateTrailRequestFilterSensitiveLog,
-  UpdateTrailResponse,
-  UpdateTrailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTrailCommand,
-  serializeAws_json1_1UpdateTrailCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTrailRequest, UpdateTrailResponse } from "../models/models_0";
+import { de_UpdateTrailCommand, se_UpdateTrailCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrailCommand}.
  */
 export interface UpdateTrailCommandInput extends UpdateTrailRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrailCommand}.
  */
 export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates trail settings that control what events you are logging, and how to handle log
  *          files. Changes to a trail do not require stopping the CloudTrail service. Use this
  *          action to designate an existing bucket for log delivery. If the existing bucket has
@@ -47,10 +44,25 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * import { CloudTrailClient, UpdateTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, UpdateTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // UpdateTrailRequest
+ *   Name: "STRING_VALUE", // required
+ *   S3BucketName: "STRING_VALUE",
+ *   S3KeyPrefix: "STRING_VALUE",
+ *   SnsTopicName: "STRING_VALUE",
+ *   IncludeGlobalServiceEvents: true || false,
+ *   IsMultiRegionTrail: true || false,
+ *   EnableLogFileValidation: true || false,
+ *   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *   CloudWatchLogsRoleArn: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   IsOrganizationTrail: true || false,
+ * };
  * const command = new UpdateTrailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrailCommandInput - {@link UpdateTrailCommandInput}
+ * @returns {@link UpdateTrailCommandOutput}
  * @see {@link UpdateTrailCommandInput} for command's `input` shape.
  * @see {@link UpdateTrailCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -250,6 +262,9 @@ export class UpdateTrailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrailCommandInput) {
     // Start section: command_constructor
     super();
@@ -276,8 +291,8 @@ export class UpdateTrailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -287,12 +302,18 @@ export class UpdateTrailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTrailCommand(input, context);
+    return se_UpdateTrailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrailCommandOutput> {
-    return deserializeAws_json1_1UpdateTrailCommand(output, context);
+    return de_UpdateTrailCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  GetStreamSessionRequest,
-  GetStreamSessionRequestFilterSensitiveLog,
-  GetStreamSessionResponse,
-  GetStreamSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetStreamSessionCommand,
-  serializeAws_restJson1GetStreamSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetStreamSessionRequest, GetStreamSessionResponse } from "../models/models_0";
+import { de_GetStreamSessionCommand, se_GetStreamSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStreamSessionCommand}.
  */
 export interface GetStreamSessionCommandInput extends GetStreamSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStreamSessionCommand}.
  */
 export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets metadata on a specified stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * import { IvsClient, GetStreamSessionCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetStreamSessionCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // GetStreamSessionRequest
+ *   channelArn: "STRING_VALUE", // required
+ *   streamId: "STRING_VALUE",
+ * };
  * const command = new GetStreamSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStreamSessionCommandInput - {@link GetStreamSessionCommandInput}
+ * @returns {@link GetStreamSessionCommandOutput}
  * @see {@link GetStreamSessionCommandInput} for command's `input` shape.
  * @see {@link GetStreamSessionCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -78,6 +81,9 @@ export class GetStreamSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class GetStreamSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStreamSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStreamSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class GetStreamSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStreamSessionCommand(input, context);
+    return se_GetStreamSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamSessionCommandOutput> {
-    return deserializeAws_restJson1GetStreamSessionCommand(output, context);
+    return de_GetStreamSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

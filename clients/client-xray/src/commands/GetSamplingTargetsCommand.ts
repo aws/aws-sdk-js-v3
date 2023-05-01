@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSamplingTargetsRequest,
-  GetSamplingTargetsRequestFilterSensitiveLog,
-  GetSamplingTargetsResult,
-  GetSamplingTargetsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSamplingTargetsCommand,
-  serializeAws_restJson1GetSamplingTargetsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSamplingTargetsRequest, GetSamplingTargetsResult } from "../models/models_0";
+import { de_GetSamplingTargetsCommand, se_GetSamplingTargetsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSamplingTargetsCommand}.
  */
 export interface GetSamplingTargetsCommandInput extends GetSamplingTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSamplingTargetsCommand}.
  */
 export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a sampling quota for rules that the service is using to sample requests.
  *       </p>
  * @example
@@ -43,10 +40,24 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
  * import { XRayClient, GetSamplingTargetsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetSamplingTargetsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // GetSamplingTargetsRequest
+ *   SamplingStatisticsDocuments: [ // SamplingStatisticsDocumentList // required
+ *     { // SamplingStatisticsDocument
+ *       RuleName: "STRING_VALUE", // required
+ *       ClientID: "STRING_VALUE", // required
+ *       Timestamp: new Date("TIMESTAMP"), // required
+ *       RequestCount: Number("int"), // required
+ *       SampledCount: Number("int"), // required
+ *       BorrowCount: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new GetSamplingTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSamplingTargetsCommandInput - {@link GetSamplingTargetsCommandInput}
+ * @returns {@link GetSamplingTargetsCommandOutput}
  * @see {@link GetSamplingTargetsCommandInput} for command's `input` shape.
  * @see {@link GetSamplingTargetsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -76,6 +87,9 @@ export class GetSamplingTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSamplingTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +118,8 @@ export class GetSamplingTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSamplingTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSamplingTargetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +129,18 @@ export class GetSamplingTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSamplingTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSamplingTargetsCommand(input, context);
+    return se_GetSamplingTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSamplingTargetsCommandOutput> {
-    return deserializeAws_restJson1GetSamplingTargetsCommand(output, context);
+    return de_GetSamplingTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

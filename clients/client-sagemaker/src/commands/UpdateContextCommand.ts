@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateContextRequest,
-  UpdateContextRequestFilterSensitiveLog,
-  UpdateContextResponse,
-  UpdateContextResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1UpdateContextCommand,
-  serializeAws_json1_1UpdateContextCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateContextRequest, UpdateContextResponse } from "../models/models_4";
+import { de_UpdateContextCommand, se_UpdateContextCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContextCommand}.
  */
 export interface UpdateContextCommandInput extends UpdateContextRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContextCommand}.
  */
 export interface UpdateContextCommandOutput extends UpdateContextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a context.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface UpdateContextCommandOutput extends UpdateContextResponse, __Met
  * import { SageMakerClient, UpdateContextCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateContextCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateContextRequest
+ *   ContextName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Properties: { // LineageEntityParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   PropertiesToRemove: [ // ListLineageEntityParameterKey
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateContextCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContextCommandInput - {@link UpdateContextCommandInput}
+ * @returns {@link UpdateContextCommandOutput}
  * @see {@link UpdateContextCommandInput} for command's `input` shape.
  * @see {@link UpdateContextCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -76,6 +85,9 @@ export class UpdateContextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContextCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +114,8 @@ export class UpdateContextCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContextRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContextResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +125,18 @@ export class UpdateContextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateContextCommand(input, context);
+    return se_UpdateContextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContextCommandOutput> {
-    return deserializeAws_json1_1UpdateContextCommand(output, context);
+    return de_UpdateContextCommand(output, context);
   }
 
   // Start section: command_body_extra

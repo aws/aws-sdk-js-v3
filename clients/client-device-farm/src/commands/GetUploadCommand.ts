@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetUploadRequest,
-  GetUploadRequestFilterSensitiveLog,
-  GetUploadResult,
-  GetUploadResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetUploadCommand, serializeAws_json1_1GetUploadCommand } from "../protocols/Aws_json1_1";
+import { GetUploadRequest, GetUploadResult, GetUploadResultFilterSensitiveLog } from "../models/models_0";
+import { de_GetUploadCommand, se_GetUploadCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUploadCommand}.
  */
 export interface GetUploadCommandInput extends GetUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUploadCommand}.
  */
 export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an upload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,15 @@ export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBeare
  * import { DeviceFarmClient, GetUploadCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetUploadCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetUploadRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUploadCommandInput - {@link GetUploadCommandInput}
+ * @returns {@link GetUploadCommandOutput}
  * @see {@link GetUploadCommandInput} for command's `input` shape.
  * @see {@link GetUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -94,6 +99,9 @@ export class GetUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,7 +128,7 @@ export class GetUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUploadRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetUploadResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -131,12 +139,18 @@ export class GetUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUploadCommand(input, context);
+    return se_GetUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUploadCommandOutput> {
-    return deserializeAws_json1_1GetUploadCommand(output, context);
+    return de_GetUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

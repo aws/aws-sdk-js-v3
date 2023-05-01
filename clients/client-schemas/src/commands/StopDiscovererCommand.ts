@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopDiscovererRequest,
-  StopDiscovererRequestFilterSensitiveLog,
-  StopDiscovererResponse,
-  StopDiscovererResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopDiscovererCommand,
-  serializeAws_restJson1StopDiscovererCommand,
-} from "../protocols/Aws_restJson1";
+import { StopDiscovererRequest, StopDiscovererResponse } from "../models/models_0";
+import { de_StopDiscovererCommand, se_StopDiscovererCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopDiscovererCommand}.
  */
 export interface StopDiscovererCommandInput extends StopDiscovererRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopDiscovererCommand}.
  */
 export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the discoverer</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  * import { SchemasClient, StopDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, StopDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = { // StopDiscovererRequest
+ *   DiscovererId: "STRING_VALUE", // required
+ * };
  * const command = new StopDiscovererCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopDiscovererCommandInput - {@link StopDiscovererCommandInput}
+ * @returns {@link StopDiscovererCommandOutput}
  * @see {@link StopDiscovererCommandInput} for command's `input` shape.
  * @see {@link StopDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
@@ -81,6 +83,9 @@ export class StopDiscovererCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopDiscovererCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class StopDiscovererCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDiscovererRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopDiscovererResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class StopDiscovererCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopDiscovererCommand(input, context);
+    return se_StopDiscovererCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDiscovererCommandOutput> {
-    return deserializeAws_restJson1StopDiscovererCommand(output, context);
+    return de_StopDiscovererCommand(output, context);
   }
 
   // Start section: command_body_extra

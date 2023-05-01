@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBProxyEndpointRequest,
-  ModifyDBProxyEndpointRequestFilterSensitiveLog,
-  ModifyDBProxyEndpointResponse,
-  ModifyDBProxyEndpointResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBProxyEndpointCommand,
-  serializeAws_queryModifyDBProxyEndpointCommand,
-} from "../protocols/Aws_query";
+import { ModifyDBProxyEndpointRequest, ModifyDBProxyEndpointResponse } from "../models/models_1";
+import { de_ModifyDBProxyEndpointCommand, se_ModifyDBProxyEndpointCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBProxyEndpointCommand}.
  */
 export interface ModifyDBProxyEndpointCommandInput extends ModifyDBProxyEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBProxyEndpointCommand}.
  */
 export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the settings for an existing DB proxy endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
  * import { RDSClient, ModifyDBProxyEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBProxyEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyDBProxyEndpointRequest
+ *   DBProxyEndpointName: "STRING_VALUE", // required
+ *   NewDBProxyEndpointName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyDBProxyEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBProxyEndpointCommandInput - {@link ModifyDBProxyEndpointCommandInput}
+ * @returns {@link ModifyDBProxyEndpointCommandOutput}
  * @see {@link ModifyDBProxyEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyDBProxyEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -81,6 +87,9 @@ export class ModifyDBProxyEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBProxyEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +118,8 @@ export class ModifyDBProxyEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBProxyEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBProxyEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +129,18 @@ export class ModifyDBProxyEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBProxyEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBProxyEndpointCommand(input, context);
+    return se_ModifyDBProxyEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBProxyEndpointCommandOutput> {
-    return deserializeAws_queryModifyDBProxyEndpointCommand(output, context);
+    return de_ModifyDBProxyEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DescribeDeliveryChannelStatusRequest, DescribeDeliveryChannelStatusResponse } from "../models/models_0";
 import {
-  DescribeDeliveryChannelStatusRequest,
-  DescribeDeliveryChannelStatusRequestFilterSensitiveLog,
-  DescribeDeliveryChannelStatusResponse,
-  DescribeDeliveryChannelStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDeliveryChannelStatusCommand,
-  serializeAws_json1_1DescribeDeliveryChannelStatusCommand,
+  de_DescribeDeliveryChannelStatusCommand,
+  se_DescribeDeliveryChannelStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeliveryChannelStatusCommand}.
  */
 export interface DescribeDeliveryChannelStatusCommandInput extends DescribeDeliveryChannelStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeliveryChannelStatusCommand}.
  */
 export interface DescribeDeliveryChannelStatusCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeDeliveryChannelStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current status of the specified delivery channel.
  * 			If a delivery channel is not specified, this action returns the
  * 			current status of all delivery channels associated with the
@@ -51,10 +51,17 @@ export interface DescribeDeliveryChannelStatusCommandOutput
  * import { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeDeliveryChannelStatusRequest
+ *   DeliveryChannelNames: [ // DeliveryChannelNameList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeDeliveryChannelStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeliveryChannelStatusCommandInput - {@link DescribeDeliveryChannelStatusCommandInput}
+ * @returns {@link DescribeDeliveryChannelStatusCommandOutput}
  * @see {@link DescribeDeliveryChannelStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeDeliveryChannelStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -82,6 +89,9 @@ export class DescribeDeliveryChannelStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeliveryChannelStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class DescribeDeliveryChannelStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDeliveryChannelStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDeliveryChannelStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +131,21 @@ export class DescribeDeliveryChannelStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeliveryChannelStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDeliveryChannelStatusCommand(input, context);
+    return se_DescribeDeliveryChannelStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDeliveryChannelStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeDeliveryChannelStatusCommand(output, context);
+    return de_DescribeDeliveryChannelStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeProvisionedProductInput,
-  DescribeProvisionedProductInputFilterSensitiveLog,
-  DescribeProvisionedProductOutput,
-  DescribeProvisionedProductOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProvisionedProductCommand,
-  serializeAws_json1_1DescribeProvisionedProductCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeProvisionedProductInput, DescribeProvisionedProductOutput } from "../models/models_0";
+import { de_DescribeProvisionedProductCommand, se_DescribeProvisionedProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProvisionedProductCommand}.
  */
 export interface DescribeProvisionedProductCommandInput extends DescribeProvisionedProductInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProvisionedProductCommand}.
  */
 export interface DescribeProvisionedProductCommandOutput extends DescribeProvisionedProductOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified provisioned product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeProvisionedProductCommandOutput extends DescribeProvisi
  * import { ServiceCatalogClient, DescribeProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeProvisionedProductInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new DescribeProvisionedProductCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProvisionedProductCommandInput - {@link DescribeProvisionedProductCommandInput}
+ * @returns {@link DescribeProvisionedProductCommandOutput}
  * @see {@link DescribeProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +79,9 @@ export class DescribeProvisionedProductCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProvisionedProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +110,8 @@ export class DescribeProvisionedProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProvisionedProductInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProvisionedProductOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +121,21 @@ export class DescribeProvisionedProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProvisionedProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProvisionedProductCommand(input, context);
+    return se_DescribeProvisionedProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisionedProductCommandOutput> {
-    return deserializeAws_json1_1DescribeProvisionedProductCommand(output, context);
+    return de_DescribeProvisionedProductCommand(output, context);
   }
 
   // Start section: command_body_extra

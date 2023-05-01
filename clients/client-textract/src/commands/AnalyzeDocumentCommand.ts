@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AnalyzeDocumentRequest,
-  AnalyzeDocumentRequestFilterSensitiveLog,
-  AnalyzeDocumentResponse,
-  AnalyzeDocumentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AnalyzeDocumentCommand,
-  serializeAws_json1_1AnalyzeDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { AnalyzeDocumentRequest, AnalyzeDocumentResponse } from "../models/models_0";
+import { de_AnalyzeDocumentCommand, se_AnalyzeDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link AnalyzeDocumentCommand}.
  */
 export interface AnalyzeDocumentCommandInput extends AnalyzeDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link AnalyzeDocumentCommand}.
  */
 export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Analyzes an input document for relationships between detected items. </p>
  *          <p>The types of information returned are as follows: </p>
  *          <ul>
@@ -71,11 +68,9 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  *                score.</p>
  *             </li>
  *          </ul>
- *
  *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be
  *          detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
  *          information about a selection element, including the selection status.</p>
- *
  *          <p>You can choose which type of analysis to perform by specifying the
  *             <code>FeatureTypes</code> list. </p>
  *          <p>The output is returned in a list of <code>Block</code> objects.</p>
@@ -90,10 +85,45 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  * import { TextractClient, AnalyzeDocumentCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, AnalyzeDocumentCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // AnalyzeDocumentRequest
+ *   Document: { // Document
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   FeatureTypes: [ // FeatureTypes // required
+ *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES",
+ *   ],
+ *   HumanLoopConfig: { // HumanLoopConfig
+ *     HumanLoopName: "STRING_VALUE", // required
+ *     FlowDefinitionArn: "STRING_VALUE", // required
+ *     DataAttributes: { // HumanLoopDataAttributes
+ *       ContentClassifiers: [ // ContentClassifiers
+ *         "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
+ *       ],
+ *     },
+ *   },
+ *   QueriesConfig: { // QueriesConfig
+ *     Queries: [ // Queries // required
+ *       { // Query
+ *         Text: "STRING_VALUE", // required
+ *         Alias: "STRING_VALUE",
+ *         Pages: [ // QueryPages
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new AnalyzeDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AnalyzeDocumentCommandInput - {@link AnalyzeDocumentCommandInput}
+ * @returns {@link AnalyzeDocumentCommandOutput}
  * @see {@link AnalyzeDocumentCommandInput} for command's `input` shape.
  * @see {@link AnalyzeDocumentCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -160,6 +190,9 @@ export class AnalyzeDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AnalyzeDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -188,8 +221,8 @@ export class AnalyzeDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AnalyzeDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AnalyzeDocumentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -199,12 +232,18 @@ export class AnalyzeDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AnalyzeDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AnalyzeDocumentCommand(input, context);
+    return se_AnalyzeDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AnalyzeDocumentCommandOutput> {
-    return deserializeAws_json1_1AnalyzeDocumentCommand(output, context);
+    return de_AnalyzeDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

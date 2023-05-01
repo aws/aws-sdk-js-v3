@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  AssociateDiscoveredResourceRequest,
-  AssociateDiscoveredResourceRequestFilterSensitiveLog,
-  AssociateDiscoveredResourceResult,
-  AssociateDiscoveredResourceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateDiscoveredResourceCommand,
-  serializeAws_json1_1AssociateDiscoveredResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateDiscoveredResourceRequest, AssociateDiscoveredResourceResult } from "../models/models_0";
+import { de_AssociateDiscoveredResourceCommand, se_AssociateDiscoveredResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDiscoveredResourceCommand}.
  */
 export interface AssociateDiscoveredResourceCommandInput extends AssociateDiscoveredResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDiscoveredResourceCommand}.
  */
 export interface AssociateDiscoveredResourceCommandOutput extends AssociateDiscoveredResourceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a discovered resource ID from Application Discovery Service with a migration
  *          task.</p>
  * @example
@@ -43,10 +40,21 @@ export interface AssociateDiscoveredResourceCommandOutput extends AssociateDisco
  * import { MigrationHubClient, AssociateDiscoveredResourceCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, AssociateDiscoveredResourceCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // AssociateDiscoveredResourceRequest
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   DiscoveredResource: { // DiscoveredResource
+ *     ConfigurationId: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *   },
+ *   DryRun: true || false,
+ * };
  * const command = new AssociateDiscoveredResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDiscoveredResourceCommandInput - {@link AssociateDiscoveredResourceCommandInput}
+ * @returns {@link AssociateDiscoveredResourceCommandOutput}
  * @see {@link AssociateDiscoveredResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateDiscoveredResourceCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -109,6 +117,9 @@ export class AssociateDiscoveredResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDiscoveredResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +148,8 @@ export class AssociateDiscoveredResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDiscoveredResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDiscoveredResourceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,15 +159,21 @@ export class AssociateDiscoveredResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDiscoveredResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDiscoveredResourceCommand(input, context);
+    return se_AssociateDiscoveredResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDiscoveredResourceCommandOutput> {
-    return deserializeAws_json1_1AssociateDiscoveredResourceCommand(output, context);
+    return de_AssociateDiscoveredResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

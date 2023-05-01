@@ -13,11 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteRecordRequest, DeleteRecordRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRecordCommand,
-  serializeAws_restJson1DeleteRecordCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRecordRequest } from "../models/models_0";
+import { de_DeleteRecordCommand, se_DeleteRecordCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerFeatureStoreRuntimeClientResolvedConfig,
   ServiceInputTypes,
@@ -25,27 +22,67 @@ import {
 } from "../SageMakerFeatureStoreRuntimeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecordCommand}.
  */
 export interface DeleteRecordCommandInput extends DeleteRecordRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecordCommand}.
  */
 export interface DeleteRecordCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code>. When the <code>DeleteRecord</code> API is called a new record will be added to the <code>OfflineStore</code> and the <code>Record</code> will be removed from the <code>OnlineStore</code>. This
- *          record will have a value of <code>True</code> in the <code>is_deleted</code> column.</p>
+ * @public
+ * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code> in the
+ *             <code>OnlineStore</code>. Feature Store supports both <code>SOFT_DELETE</code> and
+ *             <code>HARD_DELETE</code>. For <code>SOFT_DELETE</code> (default), feature columns are
+ *          set to <code>null</code> and the record is no longer retrievable by <code>GetRecord</code>
+ *          or <code>BatchGetRecord</code>. For<code> HARD_DELETE</code>, the complete
+ *             <code>Record</code> is removed from the <code>OnlineStore</code>. In both cases, Feature
+ *          Store appends the deleted record marker to the <code>OfflineStore</code> with feature
+ *          values set to <code>null</code>, <code>is_deleted</code> value set to <code>True</code>,
+ *          and <code>EventTime</code> set to the delete input <code>EventTime</code>.</p>
+ *          <p>Note that the <code>EventTime</code> specified in <code>DeleteRecord</code> should be
+ *          set later than the <code>EventTime</code> of the existing record in the
+ *             <code>OnlineStore</code> for that <code>RecordIdentifer</code>. If it is not, the
+ *          deletion does not occur:</p>
+ *          <ul>
+ *             <li>
+ *                <p>For <code>SOFT_DELETE</code>, the existing (undeleted) record remains in the
+ *                   <code>OnlineStore</code>, though the delete record marker is still written to the
+ *                   <code>OfflineStore</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>HARD_DELETE</code> returns <code>EventTime</code>: <code>400
+ *                   ValidationException</code> to indicate that the delete operation failed. No delete
+ *                record marker is written to the <code>OfflineStore</code>.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerFeatureStoreRuntimeClient, DeleteRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
  * // const { SageMakerFeatureStoreRuntimeClient, DeleteRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import
  * const client = new SageMakerFeatureStoreRuntimeClient(config);
+ * const input = { // DeleteRecordRequest
+ *   FeatureGroupName: "STRING_VALUE", // required
+ *   RecordIdentifierValueAsString: "STRING_VALUE", // required
+ *   EventTime: "STRING_VALUE", // required
+ *   TargetStores: [ // TargetStores
+ *     "OnlineStore" || "OfflineStore",
+ *   ],
+ *   DeletionMode: "SoftDelete" || "HardDelete",
+ * };
  * const command = new DeleteRecordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecordCommandInput - {@link DeleteRecordCommandInput}
+ * @returns {@link DeleteRecordCommandOutput}
  * @see {@link DeleteRecordCommandInput} for command's `input` shape.
  * @see {@link DeleteRecordCommandOutput} for command's `response` shape.
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
@@ -54,8 +91,8 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  *  <p>You do not have permission to perform an action.</p>
  *
  * @throws {@link InternalFailure} (server fault)
- *  <p>An internal failure occurred. Try your request again. If the problem
- *          persists, contact Amazon Web Services customer support.</p>
+ *  <p>An internal failure occurred. Try your request again. If the problem persists, contact
+ *             Amazon Web Services customer support.</p>
  *
  * @throws {@link ServiceUnavailable} (server fault)
  *  <p>The service is currently unavailable.</p>
@@ -82,6 +119,9 @@ export class DeleteRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +148,8 @@ export class DeleteRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +159,18 @@ export class DeleteRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecordCommand(input, context);
+    return se_DeleteRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecordCommandOutput> {
-    return deserializeAws_restJson1DeleteRecordCommand(output, context);
+    return de_DeleteRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

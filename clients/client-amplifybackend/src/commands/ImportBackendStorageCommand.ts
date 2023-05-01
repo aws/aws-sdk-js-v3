@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  ImportBackendStorageRequest,
-  ImportBackendStorageRequestFilterSensitiveLog,
-  ImportBackendStorageResponse,
-  ImportBackendStorageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportBackendStorageCommand,
-  serializeAws_restJson1ImportBackendStorageCommand,
-} from "../protocols/Aws_restJson1";
+import { ImportBackendStorageRequest, ImportBackendStorageResponse } from "../models/models_0";
+import { de_ImportBackendStorageCommand, se_ImportBackendStorageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportBackendStorageCommand}.
  */
 export interface ImportBackendStorageCommandInput extends ImportBackendStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportBackendStorageCommand}.
  */
 export interface ImportBackendStorageCommandOutput extends ImportBackendStorageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports an existing backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ImportBackendStorageCommandOutput extends ImportBackendStorageR
  * import { AmplifyBackendClient, ImportBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, ImportBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // ImportBackendStorageRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   BucketName: "STRING_VALUE",
+ *   ServiceName: "S3", // required
+ * };
  * const command = new ImportBackendStorageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportBackendStorageCommandInput - {@link ImportBackendStorageCommandInput}
+ * @returns {@link ImportBackendStorageCommandOutput}
  * @see {@link ImportBackendStorageCommandInput} for command's `input` shape.
  * @see {@link ImportBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +86,9 @@ export class ImportBackendStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportBackendStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class ImportBackendStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportBackendStorageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportBackendStorageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class ImportBackendStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportBackendStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportBackendStorageCommand(input, context);
+    return se_ImportBackendStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportBackendStorageCommandOutput> {
-    return deserializeAws_restJson1ImportBackendStorageCommand(output, context);
+    return de_ImportBackendStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

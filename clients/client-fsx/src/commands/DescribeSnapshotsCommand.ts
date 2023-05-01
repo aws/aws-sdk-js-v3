@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DescribeSnapshotsRequest,
-  DescribeSnapshotsRequestFilterSensitiveLog,
-  DescribeSnapshotsResponse,
-  DescribeSnapshotsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSnapshotsCommand,
-  serializeAws_json1_1DescribeSnapshotsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSnapshotsRequest, DescribeSnapshotsResponse } from "../models/models_0";
+import { de_DescribeSnapshotsCommand, se_DescribeSnapshotsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotsCommand}.
  */
 export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotsCommand}.
  */
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
  *                 <code>SnapshotIds</code> value is provided. Otherwise, this operation returns all
  *             snapshots owned by your Amazon Web Services account in the Amazon Web Services Region of
@@ -68,10 +65,27 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * import { FSxClient, DescribeSnapshotsCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeSnapshotsCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DescribeSnapshotsRequest
+ *   SnapshotIds: [ // SnapshotIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // SnapshotFilters
+ *     { // SnapshotFilter
+ *       Name: "file-system-id" || "volume-id",
+ *       Values: [ // SnapshotFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
+ * @returns {@link DescribeSnapshotsCommandOutput}
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -104,6 +118,9 @@ export class DescribeSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +149,8 @@ export class DescribeSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSnapshotsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +160,18 @@ export class DescribeSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSnapshotsCommand(input, context);
+    return se_DescribeSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotsCommandOutput> {
-    return deserializeAws_json1_1DescribeSnapshotsCommand(output, context);
+    return de_DescribeSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

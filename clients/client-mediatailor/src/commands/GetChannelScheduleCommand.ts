@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  GetChannelScheduleRequest,
-  GetChannelScheduleRequestFilterSensitiveLog,
-  GetChannelScheduleResponse,
-  GetChannelScheduleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetChannelScheduleCommand,
-  serializeAws_restJson1GetChannelScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { GetChannelScheduleRequest, GetChannelScheduleResponse } from "../models/models_0";
+import { de_GetChannelScheduleCommand, se_GetChannelScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetChannelScheduleCommand}.
  */
 export interface GetChannelScheduleCommandInput extends GetChannelScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChannelScheduleCommand}.
  */
 export interface GetChannelScheduleCommandOutput extends GetChannelScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about your channel's schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetChannelScheduleCommandOutput extends GetChannelScheduleRespo
  * import { MediaTailorClient, GetChannelScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, GetChannelScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // GetChannelScheduleRequest
+ *   ChannelName: "STRING_VALUE", // required
+ *   DurationMinutes: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetChannelScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChannelScheduleCommandInput - {@link GetChannelScheduleCommandInput}
+ * @returns {@link GetChannelScheduleCommandOutput}
  * @see {@link GetChannelScheduleCommandInput} for command's `input` shape.
  * @see {@link GetChannelScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +74,9 @@ export class GetChannelScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChannelScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +105,8 @@ export class GetChannelScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChannelScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetChannelScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +116,18 @@ export class GetChannelScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChannelScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetChannelScheduleCommand(input, context);
+    return se_GetChannelScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelScheduleCommandOutput> {
-    return deserializeAws_restJson1GetChannelScheduleCommand(output, context);
+    return de_GetChannelScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

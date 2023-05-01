@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListCalculationExecutionsRequest,
-  ListCalculationExecutionsRequestFilterSensitiveLog,
-  ListCalculationExecutionsResponse,
-  ListCalculationExecutionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCalculationExecutionsCommand,
-  serializeAws_json1_1ListCalculationExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCalculationExecutionsRequest, ListCalculationExecutionsResponse } from "../models/models_0";
+import { de_ListCalculationExecutionsCommand, se_ListCalculationExecutionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCalculationExecutionsCommand}.
  */
 export interface ListCalculationExecutionsCommandInput extends ListCalculationExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCalculationExecutionsCommand}.
  */
 export interface ListCalculationExecutionsCommandOutput extends ListCalculationExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the calculations that have been submitted to a session in descending order.
  *             Newer calculations are listed first; older calculations are listed later.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ListCalculationExecutionsCommandOutput extends ListCalculationE
  * import { AthenaClient, ListCalculationExecutionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListCalculationExecutionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListCalculationExecutionsRequest
+ *   SessionId: "STRING_VALUE", // required
+ *   StateFilter: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCalculationExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCalculationExecutionsCommandInput - {@link ListCalculationExecutionsCommandInput}
+ * @returns {@link ListCalculationExecutionsCommandOutput}
  * @see {@link ListCalculationExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListCalculationExecutionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +86,9 @@ export class ListCalculationExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCalculationExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class ListCalculationExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCalculationExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCalculationExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +128,21 @@ export class ListCalculationExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCalculationExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCalculationExecutionsCommand(input, context);
+    return se_ListCalculationExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCalculationExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListCalculationExecutionsCommand(output, context);
+    return de_ListCalculationExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  BatchUpdateVehicleRequest,
-  BatchUpdateVehicleRequestFilterSensitiveLog,
-  BatchUpdateVehicleResponse,
-  BatchUpdateVehicleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0BatchUpdateVehicleCommand,
-  serializeAws_json1_0BatchUpdateVehicleCommand,
-} from "../protocols/Aws_json1_0";
+import { BatchUpdateVehicleRequest, BatchUpdateVehicleResponse } from "../models/models_0";
+import { de_BatchUpdateVehicleCommand, se_BatchUpdateVehicleCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateVehicleCommand}.
  */
 export interface BatchUpdateVehicleCommandInput extends BatchUpdateVehicleRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateVehicleCommand}.
  */
 export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates a group, or batch, of vehicles.</p>
  *         <note>
  *             <p> You must specify a decoder manifest and a vehicle model (model manifest) for each
@@ -48,10 +45,25 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  * import { IoTFleetWiseClient, BatchUpdateVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, BatchUpdateVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // BatchUpdateVehicleRequest
+ *   vehicles: [ // updateVehicleRequestItems // required
+ *     { // UpdateVehicleRequestItem
+ *       vehicleName: "STRING_VALUE", // required
+ *       modelManifestArn: "STRING_VALUE",
+ *       decoderManifestArn: "STRING_VALUE",
+ *       attributes: { // attributesMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       attributeUpdateMode: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchUpdateVehicleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateVehicleCommandInput - {@link BatchUpdateVehicleCommandInput}
+ * @returns {@link BatchUpdateVehicleCommandOutput}
  * @see {@link BatchUpdateVehicleCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -87,6 +99,9 @@ export class BatchUpdateVehicleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateVehicleCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +130,8 @@ export class BatchUpdateVehicleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateVehicleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateVehicleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +141,18 @@ export class BatchUpdateVehicleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdateVehicleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0BatchUpdateVehicleCommand(input, context);
+    return se_BatchUpdateVehicleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateVehicleCommandOutput> {
-    return deserializeAws_json1_0BatchUpdateVehicleCommand(output, context);
+    return de_BatchUpdateVehicleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeConnectionAliasesRequest,
-  DescribeConnectionAliasesRequestFilterSensitiveLog,
-  DescribeConnectionAliasesResult,
-  DescribeConnectionAliasesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConnectionAliasesCommand,
-  serializeAws_json1_1DescribeConnectionAliasesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeConnectionAliasesRequest, DescribeConnectionAliasesResult } from "../models/models_0";
+import { de_DescribeConnectionAliasesCommand, se_DescribeConnectionAliasesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectionAliasesCommand}.
  */
 export interface DescribeConnectionAliasesCommandInput extends DescribeConnectionAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectionAliasesCommand}.
  */
 export interface DescribeConnectionAliasesCommandOutput extends DescribeConnectionAliasesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the connection aliases used for cross-Region
  *          redirection. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
  *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -44,10 +41,20 @@ export interface DescribeConnectionAliasesCommandOutput extends DescribeConnecti
  * import { WorkSpacesClient, DescribeConnectionAliasesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeConnectionAliasesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeConnectionAliasesRequest
+ *   AliasIds: [ // ConnectionAliasIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceId: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeConnectionAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectionAliasesCommandInput - {@link DescribeConnectionAliasesCommandInput}
+ * @returns {@link DescribeConnectionAliasesCommandOutput}
  * @see {@link DescribeConnectionAliasesCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionAliasesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeConnectionAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectionAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class DescribeConnectionAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectionAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConnectionAliasesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +129,21 @@ export class DescribeConnectionAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectionAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionAliasesCommand(input, context);
+    return se_DescribeConnectionAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConnectionAliasesCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionAliasesCommand(output, context);
+    return de_DescribeConnectionAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

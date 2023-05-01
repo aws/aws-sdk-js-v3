@@ -20,21 +20,23 @@ import {
 } from "../KinesisAnalyticsV2Client";
 import {
   AddApplicationCloudWatchLoggingOptionRequest,
-  AddApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog,
   AddApplicationCloudWatchLoggingOptionResponse,
-  AddApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand,
-  serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand,
+  de_AddApplicationCloudWatchLoggingOptionCommand,
+  se_AddApplicationCloudWatchLoggingOptionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface AddApplicationCloudWatchLoggingOptionCommandInput
   extends AddApplicationCloudWatchLoggingOptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddApplicationCloudWatchLoggingOptionCommand}.
  */
 export interface AddApplicationCloudWatchLoggingOptionCommandOutput
@@ -42,6 +44,7 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds an Amazon CloudWatch log stream to monitor application configuration errors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +52,20 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * import { KinesisAnalyticsV2Client, AddApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationCloudWatchLoggingOptionCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // AddApplicationCloudWatchLoggingOptionRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"),
+ *   CloudWatchLoggingOption: { // CloudWatchLoggingOption
+ *     LogStreamARN: "STRING_VALUE", // required
+ *   },
+ *   ConditionalToken: "STRING_VALUE",
+ * };
  * const command = new AddApplicationCloudWatchLoggingOptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationCloudWatchLoggingOptionCommandInput - {@link AddApplicationCloudWatchLoggingOptionCommandInput}
+ * @returns {@link AddApplicationCloudWatchLoggingOptionCommandOutput}
  * @see {@link AddApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
  * @see {@link AddApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -96,6 +109,9 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationCloudWatchLoggingOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +140,8 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +151,24 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddApplicationCloudWatchLoggingOptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand(input, context);
+    return se_AddApplicationCloudWatchLoggingOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput> {
-    return deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand(output, context);
+    return de_AddApplicationCloudWatchLoggingOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

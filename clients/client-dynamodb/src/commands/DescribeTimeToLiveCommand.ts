@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DescribeTimeToLiveInput,
-  DescribeTimeToLiveInputFilterSensitiveLog,
-  DescribeTimeToLiveOutput,
-  DescribeTimeToLiveOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeTimeToLiveCommand,
-  serializeAws_json1_0DescribeTimeToLiveCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeTimeToLiveInput, DescribeTimeToLiveOutput } from "../models/models_0";
+import { de_DescribeTimeToLiveCommand, se_DescribeTimeToLiveCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTimeToLiveCommand}.
  */
 export interface DescribeTimeToLiveCommandInput extends DescribeTimeToLiveInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTimeToLiveCommand}.
  */
 export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
  * import { DynamoDBClient, DescribeTimeToLiveCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeTimeToLiveCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // DescribeTimeToLiveInput
+ *   TableName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTimeToLiveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTimeToLiveCommandInput - {@link DescribeTimeToLiveCommandInput}
+ * @returns {@link DescribeTimeToLiveCommandOutput}
  * @see {@link DescribeTimeToLiveCommandInput} for command's `input` shape.
  * @see {@link DescribeTimeToLiveCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -78,6 +80,9 @@ export class DescribeTimeToLiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTimeToLiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class DescribeTimeToLiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTimeToLiveInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTimeToLiveOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class DescribeTimeToLiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTimeToLiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeTimeToLiveCommand(input, context);
+    return se_DescribeTimeToLiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTimeToLiveCommandOutput> {
-    return deserializeAws_json1_0DescribeTimeToLiveCommand(output, context);
+    return de_DescribeTimeToLiveCommand(output, context);
   }
 
   // Start section: command_body_extra

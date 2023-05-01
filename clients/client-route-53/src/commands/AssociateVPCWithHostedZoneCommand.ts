@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateVPCWithHostedZoneRequest,
-  AssociateVPCWithHostedZoneRequestFilterSensitiveLog,
-  AssociateVPCWithHostedZoneResponse,
-  AssociateVPCWithHostedZoneResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlAssociateVPCWithHostedZoneCommand,
-  serializeAws_restXmlAssociateVPCWithHostedZoneCommand,
-} from "../protocols/Aws_restXml";
+import { AssociateVPCWithHostedZoneRequest, AssociateVPCWithHostedZoneResponse } from "../models/models_0";
+import { de_AssociateVPCWithHostedZoneCommand, se_AssociateVPCWithHostedZoneCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateVPCWithHostedZoneCommand}.
  */
 export interface AssociateVPCWithHostedZoneCommandInput extends AssociateVPCWithHostedZoneRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateVPCWithHostedZoneCommand}.
  */
 export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWithHostedZoneResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Amazon VPC with a private hosted zone. </p>
  *          <important>
  *             <p>To perform the association, the VPC and the private hosted zone must already
@@ -76,10 +73,20 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  * import { Route53Client, AssociateVPCWithHostedZoneCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, AssociateVPCWithHostedZoneCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // AssociateVPCWithHostedZoneRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   VPC: { // VPC
+ *     VPCRegion: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "eu-central-2" || "ap-east-1" || "me-south-1" || "us-gov-west-1" || "us-gov-east-1" || "us-iso-east-1" || "us-iso-west-1" || "us-isob-east-1" || "me-central-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-south-1" || "ap-south-2" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "eu-north-1" || "sa-east-1" || "ca-central-1" || "cn-north-1" || "af-south-1" || "eu-south-1" || "eu-south-2" || "ap-southeast-4",
+ *     VPCId: "STRING_VALUE",
+ *   },
+ *   Comment: "STRING_VALUE",
+ * };
  * const command = new AssociateVPCWithHostedZoneCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateVPCWithHostedZoneCommandInput - {@link AssociateVPCWithHostedZoneCommandInput}
+ * @returns {@link AssociateVPCWithHostedZoneCommandOutput}
  * @see {@link AssociateVPCWithHostedZoneCommandInput} for command's `input` shape.
  * @see {@link AssociateVPCWithHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -186,6 +193,9 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateVPCWithHostedZoneCommandInput) {
     // Start section: command_constructor
     super();
@@ -215,8 +225,8 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateVPCWithHostedZoneRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateVPCWithHostedZoneResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -226,15 +236,21 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateVPCWithHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlAssociateVPCWithHostedZoneCommand(input, context);
+    return se_AssociateVPCWithHostedZoneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateVPCWithHostedZoneCommandOutput> {
-    return deserializeAws_restXmlAssociateVPCWithHostedZoneCommand(output, context);
+    return de_AssociateVPCWithHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

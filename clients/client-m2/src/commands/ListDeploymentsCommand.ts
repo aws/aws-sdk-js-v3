@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  ListDeploymentsRequest,
-  ListDeploymentsRequestFilterSensitiveLog,
-  ListDeploymentsResponse,
-  ListDeploymentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDeploymentsCommand,
-  serializeAws_restJson1ListDeploymentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDeploymentsRequest, ListDeploymentsResponse } from "../models/models_0";
+import { de_ListDeploymentsCommand, se_ListDeploymentsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeploymentsCommand}.
  */
 export interface ListDeploymentsCommandInput extends ListDeploymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeploymentsCommand}.
  */
 export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all deployments of a specific application. A deployment is a
  *          combination of a specific application and a specific version of that application. Each
  *          deployment is mapped to a particular application version.</p>
@@ -44,10 +41,17 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * import { M2Client, ListDeploymentsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListDeploymentsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // ListDeploymentsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
+ * @returns {@link ListDeploymentsCommandOutput}
  * @see {@link ListDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -86,6 +90,9 @@ export class ListDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class ListDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeploymentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeploymentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class ListDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeploymentsCommand(input, context);
+    return se_ListDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentsCommandOutput> {
-    return deserializeAws_restJson1ListDeploymentsCommand(output, context);
+    return de_ListDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

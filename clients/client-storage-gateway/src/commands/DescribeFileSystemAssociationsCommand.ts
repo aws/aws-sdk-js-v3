@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeFileSystemAssociationsInput, DescribeFileSystemAssociationsOutput } from "../models/models_0";
 import {
-  DescribeFileSystemAssociationsInput,
-  DescribeFileSystemAssociationsInputFilterSensitiveLog,
-  DescribeFileSystemAssociationsOutput,
-  DescribeFileSystemAssociationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFileSystemAssociationsCommand,
-  serializeAws_json1_1DescribeFileSystemAssociationsCommand,
+  de_DescribeFileSystemAssociationsCommand,
+  se_DescribeFileSystemAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFileSystemAssociationsCommand}.
  */
 export interface DescribeFileSystemAssociationsCommandInput extends DescribeFileSystemAssociationsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFileSystemAssociationsCommand}.
  */
 export interface DescribeFileSystemAssociationsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeFileSystemAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the file system association information. This operation is only supported for FSx
  *          File Gateways.</p>
  * @example
@@ -45,10 +45,17 @@ export interface DescribeFileSystemAssociationsCommandOutput
  * import { StorageGatewayClient, DescribeFileSystemAssociationsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeFileSystemAssociationsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeFileSystemAssociationsInput
+ *   FileSystemAssociationARNList: [ // FileSystemAssociationARNList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeFileSystemAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFileSystemAssociationsCommandInput - {@link DescribeFileSystemAssociationsCommandInput}
+ * @returns {@link DescribeFileSystemAssociationsCommandOutput}
  * @see {@link DescribeFileSystemAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemAssociationsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -80,6 +87,9 @@ export class DescribeFileSystemAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFileSystemAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class DescribeFileSystemAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFileSystemAssociationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFileSystemAssociationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +129,24 @@ export class DescribeFileSystemAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFileSystemAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFileSystemAssociationsCommand(input, context);
+    return se_DescribeFileSystemAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFileSystemAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeFileSystemAssociationsCommand(output, context);
+    return de_DescribeFileSystemAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

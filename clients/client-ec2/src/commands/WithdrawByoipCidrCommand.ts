@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  WithdrawByoipCidrRequest,
-  WithdrawByoipCidrRequestFilterSensitiveLog,
-  WithdrawByoipCidrResult,
-  WithdrawByoipCidrResultFilterSensitiveLog,
-} from "../models/models_7";
-import {
-  deserializeAws_ec2WithdrawByoipCidrCommand,
-  serializeAws_ec2WithdrawByoipCidrCommand,
-} from "../protocols/Aws_ec2";
+import { WithdrawByoipCidrRequest, WithdrawByoipCidrResult } from "../models/models_7";
+import { de_WithdrawByoipCidrCommand, se_WithdrawByoipCidrCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link WithdrawByoipCidrCommand}.
  */
 export interface WithdrawByoipCidrCommandInput extends WithdrawByoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link WithdrawByoipCidrCommand}.
  */
 export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops advertising an address range that is provisioned as an address pool.</p>
  *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
  *          address ranges each time.</p>
@@ -46,10 +43,16 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  * import { EC2Client, WithdrawByoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, WithdrawByoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // WithdrawByoipCidrRequest
+ *   Cidr: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new WithdrawByoipCidrCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param WithdrawByoipCidrCommandInput - {@link WithdrawByoipCidrCommandInput}
+ * @returns {@link WithdrawByoipCidrCommandOutput}
  * @see {@link WithdrawByoipCidrCommandInput} for command's `input` shape.
  * @see {@link WithdrawByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +76,9 @@ export class WithdrawByoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: WithdrawByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +107,8 @@ export class WithdrawByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: WithdrawByoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: WithdrawByoipCidrResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +118,18 @@ export class WithdrawByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: WithdrawByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2WithdrawByoipCidrCommand(input, context);
+    return se_WithdrawByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WithdrawByoipCidrCommandOutput> {
-    return deserializeAws_ec2WithdrawByoipCidrCommand(output, context);
+    return de_WithdrawByoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

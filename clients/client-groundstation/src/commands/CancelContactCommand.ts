@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  CancelContactRequest,
-  CancelContactRequestFilterSensitiveLog,
-  ContactIdResponse,
-  ContactIdResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelContactCommand,
-  serializeAws_restJson1CancelContactCommand,
-} from "../protocols/Aws_restJson1";
+import { CancelContactRequest, ContactIdResponse } from "../models/models_0";
+import { de_CancelContactCommand, se_CancelContactCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelContactCommand}.
  */
 export interface CancelContactCommandInput extends CancelContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelContactCommand}.
  */
 export interface CancelContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a contact with a specified contact ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * import { GroundStationClient, CancelContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, CancelContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // CancelContactRequest
+ *   contactId: "STRING_VALUE", // required
+ * };
  * const command = new CancelContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelContactCommandInput - {@link CancelContactCommandInput}
+ * @returns {@link CancelContactCommandOutput}
  * @see {@link CancelContactCommandInput} for command's `input` shape.
  * @see {@link CancelContactCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +80,9 @@ export class CancelContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class CancelContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ContactIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class CancelContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelContactCommand(input, context);
+    return se_CancelContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelContactCommandOutput> {
-    return deserializeAws_restJson1CancelContactCommand(output, context);
+    return de_CancelContactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDomainSuggestionsRequest,
-  GetDomainSuggestionsRequestFilterSensitiveLog,
-  GetDomainSuggestionsResponse,
-  GetDomainSuggestionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDomainSuggestionsCommand,
-  serializeAws_json1_1GetDomainSuggestionsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDomainSuggestionsRequest, GetDomainSuggestionsResponse } from "../models/models_0";
+import { de_GetDomainSuggestionsCommand, se_GetDomainSuggestionsCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainSuggestionsCommand}.
  */
 export interface GetDomainSuggestionsCommandInput extends GetDomainSuggestionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainSuggestionsCommand}.
  */
 export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The GetDomainSuggestions operation returns a list of suggested domain names.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  * import { Route53DomainsClient, GetDomainSuggestionsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, GetDomainSuggestionsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // GetDomainSuggestionsRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   SuggestionCount: Number("int"), // required
+ *   OnlyAvailable: true || false, // required
+ * };
  * const command = new GetDomainSuggestionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainSuggestionsCommandInput - {@link GetDomainSuggestionsCommandInput}
+ * @returns {@link GetDomainSuggestionsCommandOutput}
  * @see {@link GetDomainSuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetDomainSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -78,6 +82,9 @@ export class GetDomainSuggestionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainSuggestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class GetDomainSuggestionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainSuggestionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainSuggestionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class GetDomainSuggestionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainSuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDomainSuggestionsCommand(input, context);
+    return se_GetDomainSuggestionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainSuggestionsCommandOutput> {
-    return deserializeAws_json1_1GetDomainSuggestionsCommand(output, context);
+    return de_GetDomainSuggestionsCommand(output, context);
   }
 
   // Start section: command_body_extra

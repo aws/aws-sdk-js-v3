@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteScheduleGroupInput,
-  DeleteScheduleGroupInputFilterSensitiveLog,
-  DeleteScheduleGroupOutput,
-  DeleteScheduleGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteScheduleGroupCommand,
-  serializeAws_restJson1DeleteScheduleGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteScheduleGroupInput, DeleteScheduleGroupOutput } from "../models/models_0";
+import { de_DeleteScheduleGroupCommand, se_DeleteScheduleGroupCommand } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScheduleGroupCommand}.
  */
 export interface DeleteScheduleGroupCommandInput extends DeleteScheduleGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScheduleGroupCommand}.
  */
 export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified schedule group. Deleting a schedule group results in EventBridge Scheduler deleting all schedules associated with the group.
  *          When you delete a group, it remains in a <code>DELETING</code> state until all of its associated schedules are deleted.
  *          Schedules associated with the group that are set to run while the schedule group is in the process of being deleted might continue to invoke their targets
@@ -50,10 +47,16 @@ export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOut
  * import { SchedulerClient, DeleteScheduleGroupCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, DeleteScheduleGroupCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
+ * const input = { // DeleteScheduleGroupInput
+ *   Name: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteScheduleGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScheduleGroupCommandInput - {@link DeleteScheduleGroupCommandInput}
+ * @returns {@link DeleteScheduleGroupCommandOutput}
  * @see {@link DeleteScheduleGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduleGroupCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.
@@ -92,6 +95,9 @@ export class DeleteScheduleGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScheduleGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +126,8 @@ export class DeleteScheduleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduleGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScheduleGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +137,18 @@ export class DeleteScheduleGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScheduleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteScheduleGroupCommand(input, context);
+    return se_DeleteScheduleGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduleGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteScheduleGroupCommand(output, context);
+    return de_DeleteScheduleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

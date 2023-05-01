@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  ListAssessmentsRequest,
-  ListAssessmentsRequestFilterSensitiveLog,
-  ListAssessmentsResponse,
-  ListAssessmentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssessmentsCommand,
-  serializeAws_restJson1ListAssessmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAssessmentsRequest, ListAssessmentsResponse } from "../models/models_0";
+import { de_ListAssessmentsCommand, se_ListAssessmentsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssessmentsCommand}.
  */
 export interface ListAssessmentsCommandInput extends ListAssessmentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssessmentsCommand}.
  */
 export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of current and past assessments from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, _
  * import { AuditManagerClient, ListAssessmentsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListAssessmentsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // ListAssessmentsRequest
+ *   status: "ACTIVE" || "INACTIVE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentsCommandInput - {@link ListAssessmentsCommandInput}
+ * @returns {@link ListAssessmentsCommandOutput}
  * @see {@link ListAssessmentsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -80,6 +84,9 @@ export class ListAssessmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class ListAssessmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssessmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssessmentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class ListAssessmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssessmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssessmentsCommand(input, context);
+    return se_ListAssessmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentsCommandOutput> {
-    return deserializeAws_restJson1ListAssessmentsCommand(output, context);
+    return de_ListAssessmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

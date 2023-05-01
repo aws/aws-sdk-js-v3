@@ -121,6 +121,10 @@ import {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
+import {
+  GetCoverageStatisticsCommandInput,
+  GetCoverageStatisticsCommandOutput,
+} from "./commands/GetCoverageStatisticsCommand";
 import { GetDetectorCommandInput, GetDetectorCommandOutput } from "./commands/GetDetectorCommand";
 import { GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
@@ -147,6 +151,7 @@ import {
 import { GetThreatIntelSetCommandInput, GetThreatIntelSetCommandOutput } from "./commands/GetThreatIntelSetCommand";
 import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "./commands/GetUsageStatisticsCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
+import { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
 import { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "./commands/ListDetectorsCommand";
 import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
@@ -169,6 +174,7 @@ import {
   ListThreatIntelSetsCommandInput,
   ListThreatIntelSetsCommandOutput,
 } from "./commands/ListThreatIntelSetsCommand";
+import { StartMalwareScanCommandInput, StartMalwareScanCommandOutput } from "./commands/StartMalwareScanCommand";
 import {
   StartMonitoringMembersCommandInput,
   StartMonitoringMembersCommandOutput,
@@ -215,6 +221,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptAdministratorInvitationCommandInput
   | AcceptInvitationCommandInput
@@ -243,6 +252,7 @@ export type ServiceInputTypes =
   | DisassociateMembersCommandInput
   | EnableOrganizationAdminAccountCommandInput
   | GetAdministratorAccountCommandInput
+  | GetCoverageStatisticsCommandInput
   | GetDetectorCommandInput
   | GetFilterCommandInput
   | GetFindingsCommandInput
@@ -257,6 +267,7 @@ export type ServiceInputTypes =
   | GetThreatIntelSetCommandInput
   | GetUsageStatisticsCommandInput
   | InviteMembersCommandInput
+  | ListCoverageCommandInput
   | ListDetectorsCommandInput
   | ListFiltersCommandInput
   | ListFindingsCommandInput
@@ -267,6 +278,7 @@ export type ServiceInputTypes =
   | ListPublishingDestinationsCommandInput
   | ListTagsForResourceCommandInput
   | ListThreatIntelSetsCommandInput
+  | StartMalwareScanCommandInput
   | StartMonitoringMembersCommandInput
   | StopMonitoringMembersCommandInput
   | TagResourceCommandInput
@@ -282,6 +294,9 @@ export type ServiceInputTypes =
   | UpdatePublishingDestinationCommandInput
   | UpdateThreatIntelSetCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptAdministratorInvitationCommandOutput
   | AcceptInvitationCommandOutput
@@ -310,6 +325,7 @@ export type ServiceOutputTypes =
   | DisassociateMembersCommandOutput
   | EnableOrganizationAdminAccountCommandOutput
   | GetAdministratorAccountCommandOutput
+  | GetCoverageStatisticsCommandOutput
   | GetDetectorCommandOutput
   | GetFilterCommandOutput
   | GetFindingsCommandOutput
@@ -324,6 +340,7 @@ export type ServiceOutputTypes =
   | GetThreatIntelSetCommandOutput
   | GetUsageStatisticsCommandOutput
   | InviteMembersCommandOutput
+  | ListCoverageCommandOutput
   | ListDetectorsCommandOutput
   | ListFiltersCommandOutput
   | ListFindingsCommandOutput
@@ -334,6 +351,7 @@ export type ServiceOutputTypes =
   | ListPublishingDestinationsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListThreatIntelSetsCommandOutput
+  | StartMalwareScanCommandOutput
   | StartMonitoringMembersCommandOutput
   | StopMonitoringMembersCommandOutput
   | TagResourceCommandOutput
@@ -349,6 +367,9 @@ export type ServiceOutputTypes =
   | UpdatePublishingDestinationCommandOutput
   | UpdateThreatIntelSetCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -356,7 +377,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -465,11 +486,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type GuardDutyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -480,10 +504,15 @@ type GuardDutyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of GuardDutyClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of GuardDutyClient class constructor that set the region, credentials and other options.
  */
 export interface GuardDutyClientConfig extends GuardDutyClientConfigType {}
 
+/**
+ * @public
+ */
 type GuardDutyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -494,11 +523,14 @@ type GuardDutyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of GuardDutyClient class. This is resolved and normalized from the {@link GuardDutyClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of GuardDutyClient class. This is resolved and normalized from the {@link GuardDutyClientConfig | constructor configuration interface}.
  */
 export interface GuardDutyClientResolvedConfig extends GuardDutyClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
  *       the following data sources: VPC flow logs, Amazon Web Services CloudTrail management event logs, CloudTrail S3 data event
  *       logs, EKS audit logs, DNS logs, and Amazon EBS volume data.
@@ -506,16 +538,15 @@ export interface GuardDutyClientResolvedConfig extends GuardDutyClientResolvedCo
  *       feeds, such as lists of malicious IPs and domains, and machine learning to identify
  *       unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services environment.
  *       This can include issues like escalations of privileges, uses of exposed credentials, or
- *       communication with malicious IPs, domains, or presence of malware on your
- *       Amazon EC2 instances and container workloads. For example, GuardDuty can detect
- *       compromised EC2 instances and container workloads serving malware, or mining bitcoin. </p>
- *          <p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise, such
- *       as unauthorized infrastructure deployments like EC2 instances deployed in a Region
- *       that has never been used, or unusual API calls like a password policy change to reduce
- *       password strength. </p>
- *          <p>GuardDuty informs you about the status of your Amazon Web Services environment by producing
- *       security findings that you can view in the GuardDuty console or through Amazon EventBridge.
- *       For more information, see the <i>
+ *       communication with malicious IPs, domains, or presence of malware on your Amazon EC2 instances
+ *       and container workloads. For example, GuardDuty can detect compromised EC2 instances and
+ *       container workloads serving malware, or mining bitcoin. </p>
+ *          <p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise, such as
+ *       unauthorized infrastructure deployments like EC2 instances deployed in a Region that has never
+ *       been used, or unusual API calls like a password policy change to reduce password strength. </p>
+ *          <p>GuardDuty informs you about the status of your Amazon Web Services environment by producing security
+ *       findings that you can view in the GuardDuty console or through Amazon EventBridge. For more
+ *       information, see the <i>
  *                <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
  *           GuardDuty User Guide</a>
  *             </i>. </p>

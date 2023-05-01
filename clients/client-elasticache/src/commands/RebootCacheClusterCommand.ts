@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  RebootCacheClusterMessage,
-  RebootCacheClusterMessageFilterSensitiveLog,
-  RebootCacheClusterResult,
-  RebootCacheClusterResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryRebootCacheClusterCommand,
-  serializeAws_queryRebootCacheClusterCommand,
-} from "../protocols/Aws_query";
+import { RebootCacheClusterMessage, RebootCacheClusterResult } from "../models/models_0";
+import { de_RebootCacheClusterCommand, se_RebootCacheClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RebootCacheClusterCommand}.
  */
 export interface RebootCacheClusterCommandInput extends RebootCacheClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebootCacheClusterCommand}.
  */
 export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reboots some, or all, of the cache nodes
  *             within a provisioned cluster. This operation applies any modified cache parameter
  *             groups to the cluster. The reboot operation takes place as soon as possible, and
@@ -52,10 +49,18 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  * import { ElastiCacheClient, RebootCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, RebootCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // RebootCacheClusterMessage
+ *   CacheClusterId: "STRING_VALUE", // required
+ *   CacheNodeIdsToReboot: [ // CacheNodeIdsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RebootCacheClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootCacheClusterCommandInput - {@link RebootCacheClusterCommandInput}
+ * @returns {@link RebootCacheClusterCommandOutput}
  * @see {@link RebootCacheClusterCommandInput} for command's `input` shape.
  * @see {@link RebootCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -129,6 +134,9 @@ export class RebootCacheClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootCacheClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,8 +165,8 @@ export class RebootCacheClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootCacheClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootCacheClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,12 +176,18 @@ export class RebootCacheClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebootCacheClusterCommand(input, context);
+    return se_RebootCacheClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootCacheClusterCommandOutput> {
-    return deserializeAws_queryRebootCacheClusterCommand(output, context);
+    return de_RebootCacheClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

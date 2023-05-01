@@ -16,20 +16,22 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   ListControlInsightsByControlDomainRequest,
-  ListControlInsightsByControlDomainRequestFilterSensitiveLog,
   ListControlInsightsByControlDomainResponse,
-  ListControlInsightsByControlDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListControlInsightsByControlDomainCommand,
-  serializeAws_restJson1ListControlInsightsByControlDomainCommand,
+  de_ListControlInsightsByControlDomainCommand,
+  se_ListControlInsightsByControlDomainCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListControlInsightsByControlDomainCommand}.
  */
 export interface ListControlInsightsByControlDomainCommandInput extends ListControlInsightsByControlDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListControlInsightsByControlDomainCommand}.
  */
 export interface ListControlInsightsByControlDomainCommandOutput
@@ -37,6 +39,7 @@ export interface ListControlInsightsByControlDomainCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the latest analytics data for controls within a specific control domain across all
  *          active assessments.</p>
  *          <note>
@@ -51,10 +54,17 @@ export interface ListControlInsightsByControlDomainCommandOutput
  * import { AuditManagerClient, ListControlInsightsByControlDomainCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListControlInsightsByControlDomainCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // ListControlInsightsByControlDomainRequest
+ *   controlDomainId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListControlInsightsByControlDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListControlInsightsByControlDomainCommandInput - {@link ListControlInsightsByControlDomainCommandInput}
+ * @returns {@link ListControlInsightsByControlDomainCommandOutput}
  * @see {@link ListControlInsightsByControlDomainCommandInput} for command's `input` shape.
  * @see {@link ListControlInsightsByControlDomainCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -92,6 +102,9 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListControlInsightsByControlDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +133,8 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListControlInsightsByControlDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListControlInsightsByControlDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +144,24 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListControlInsightsByControlDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListControlInsightsByControlDomainCommand(input, context);
+    return se_ListControlInsightsByControlDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListControlInsightsByControlDomainCommandOutput> {
-    return deserializeAws_restJson1ListControlInsightsByControlDomainCommand(output, context);
+    return de_ListControlInsightsByControlDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { BatchDeleteDevicePositionHistoryRequest, BatchDeleteDevicePositionHistoryResponse } from "../models/models_0";
 import {
-  BatchDeleteDevicePositionHistoryRequest,
-  BatchDeleteDevicePositionHistoryRequestFilterSensitiveLog,
-  BatchDeleteDevicePositionHistoryResponse,
-  BatchDeleteDevicePositionHistoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDeleteDevicePositionHistoryCommand,
-  serializeAws_restJson1BatchDeleteDevicePositionHistoryCommand,
+  de_BatchDeleteDevicePositionHistoryCommand,
+  se_BatchDeleteDevicePositionHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteDevicePositionHistoryCommand}.
  */
 export interface BatchDeleteDevicePositionHistoryCommandInput extends BatchDeleteDevicePositionHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteDevicePositionHistoryCommand}.
  */
 export interface BatchDeleteDevicePositionHistoryCommandOutput
@@ -37,6 +36,7 @@ export interface BatchDeleteDevicePositionHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the position history of one or more devices from a tracker resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,18 @@ export interface BatchDeleteDevicePositionHistoryCommandOutput
  * import { LocationClient, BatchDeleteDevicePositionHistoryCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, BatchDeleteDevicePositionHistoryCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // BatchDeleteDevicePositionHistoryRequest
+ *   TrackerName: "STRING_VALUE", // required
+ *   DeviceIds: [ // DeviceIdsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDeleteDevicePositionHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteDevicePositionHistoryCommandInput - {@link BatchDeleteDevicePositionHistoryCommandInput}
+ * @returns {@link BatchDeleteDevicePositionHistoryCommandOutput}
  * @see {@link BatchDeleteDevicePositionHistoryCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDevicePositionHistoryCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -87,6 +95,9 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteDevicePositionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteDevicePositionHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteDevicePositionHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +137,24 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDeleteDevicePositionHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteDevicePositionHistoryCommand(input, context);
+    return se_BatchDeleteDevicePositionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteDevicePositionHistoryCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteDevicePositionHistoryCommand(output, context);
+    return de_BatchDeleteDevicePositionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

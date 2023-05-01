@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartContentModerationRequest,
-  StartContentModerationRequestFilterSensitiveLog,
-  StartContentModerationResponse,
-  StartContentModerationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartContentModerationCommand,
-  serializeAws_json1_1StartContentModerationCommand,
-} from "../protocols/Aws_json1_1";
+import { StartContentModerationRequest, StartContentModerationResponse } from "../models/models_0";
+import { de_StartContentModerationCommand, se_StartContentModerationCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartContentModerationCommand}.
  */
 export interface StartContentModerationCommandInput extends StartContentModerationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartContentModerationCommand}.
  */
 export interface StartContentModerationCommandOutput extends StartContentModerationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts asynchronous detection of inappropriate, unwanted, or offensive content in a stored video. For a list of moderation labels in Amazon Rekognition, see
  *       <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using the image and video moderation APIs</a>.</p>
  *          <p>Amazon Rekognition Video can moderate content in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
@@ -52,10 +49,28 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  * import { RekognitionClient, StartContentModerationCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartContentModerationCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartContentModerationRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   MinConfidence: Number("float"),
+ *   ClientRequestToken: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ * };
  * const command = new StartContentModerationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartContentModerationCommandInput - {@link StartContentModerationCommandInput}
+ * @returns {@link StartContentModerationCommandOutput}
  * @see {@link StartContentModerationCommandInput} for command's `input` shape.
  * @see {@link StartContentModerationCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -112,6 +127,9 @@ export class StartContentModerationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartContentModerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +158,8 @@ export class StartContentModerationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartContentModerationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartContentModerationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +169,18 @@ export class StartContentModerationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartContentModerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartContentModerationCommand(input, context);
+    return se_StartContentModerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContentModerationCommandOutput> {
-    return deserializeAws_json1_1StartContentModerationCommand(output, context);
+    return de_StartContentModerationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartLendingAnalysisRequest,
-  StartLendingAnalysisRequestFilterSensitiveLog,
-  StartLendingAnalysisResponse,
-  StartLendingAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartLendingAnalysisCommand,
-  serializeAws_json1_1StartLendingAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { StartLendingAnalysisRequest, StartLendingAnalysisResponse } from "../models/models_0";
+import { de_StartLendingAnalysisCommand, se_StartLendingAnalysisCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartLendingAnalysisCommand}.
  */
 export interface StartLendingAnalysisCommandInput extends StartLendingAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartLendingAnalysisCommand}.
  */
 export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the classification and analysis of an input document.
  *     <code>StartLendingAnalysis</code> initiates the classification and analysis of a packet of
  *    lending documents. <code>StartLendingAnalysis</code> operates on a document file located in an
@@ -72,10 +69,32 @@ export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisR
  * import { TextractClient, StartLendingAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, StartLendingAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // StartLendingAnalysisRequest
+ *   DocumentLocation: { // DocumentLocation
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   JobTag: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   OutputConfig: { // OutputConfig
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Prefix: "STRING_VALUE",
+ *   },
+ *   KMSKeyId: "STRING_VALUE",
+ * };
  * const command = new StartLendingAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartLendingAnalysisCommandInput - {@link StartLendingAnalysisCommandInput}
+ * @returns {@link StartLendingAnalysisCommandOutput}
  * @see {@link StartLendingAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartLendingAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -155,6 +174,9 @@ export class StartLendingAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartLendingAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,8 +205,8 @@ export class StartLendingAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartLendingAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartLendingAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -194,12 +216,18 @@ export class StartLendingAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartLendingAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartLendingAnalysisCommand(input, context);
+    return se_StartLendingAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartLendingAnalysisCommandOutput> {
-    return deserializeAws_json1_1StartLendingAnalysisCommand(output, context);
+    return de_StartLendingAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

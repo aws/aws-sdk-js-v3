@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
+import { UpdateOrganizationConfigurationRequest } from "../models/models_0";
 import {
-  UpdateOrganizationConfigurationRequest,
-  UpdateOrganizationConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateOrganizationConfigurationCommand,
-  serializeAws_restJson1UpdateOrganizationConfigurationCommand,
+  de_UpdateOrganizationConfigurationCommand,
+  se_UpdateOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOrganizationConfigurationCommand}.
  */
 export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrganizationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOrganizationConfigurationCommand}.
  */
 export interface UpdateOrganizationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration for the Organizations integration in the current Region.
  *          Can only be called by the Detective administrator account for the
  *          organization.</p>
@@ -42,10 +44,16 @@ export interface UpdateOrganizationConfigurationCommandOutput extends __Metadata
  * import { DetectiveClient, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = { // UpdateOrganizationConfigurationRequest
+ *   GraphArn: "STRING_VALUE", // required
+ *   AutoEnable: true || false,
+ * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
+ * @returns {@link UpdateOrganizationConfigurationCommandOutput}
  * @see {@link UpdateOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
@@ -83,6 +91,9 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOrganizationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +122,8 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOrganizationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +133,24 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateOrganizationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateOrganizationConfigurationCommand(input, context);
+    return se_UpdateOrganizationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOrganizationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateOrganizationConfigurationCommand(output, context);
+    return de_UpdateOrganizationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

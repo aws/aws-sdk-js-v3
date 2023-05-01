@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteUserRequest,
-  DeleteUserRequestFilterSensitiveLog,
-  DeleteUserResponse,
-  DeleteUserResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteUserCommand,
-  serializeAws_restJson1DeleteUserCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteUserRequest, DeleteUserResponse } from "../models/models_2";
+import { de_DeleteUserCommand, se_DeleteUserCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUserCommand}.
  */
 export interface DeleteUserCommandInput extends DeleteUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUserCommand}.
  */
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the Amazon QuickSight user that is associated with the identity of the
  * 			IAM user or role that's making the call. The IAM user
  * 			isn't deleted as a result of this call. </p>
@@ -44,10 +41,17 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * import { QuickSightClient, DeleteUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DeleteUserRequest
+ *   UserName: "STRING_VALUE", // required
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
+ * @returns {@link DeleteUserCommandOutput}
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -95,6 +99,9 @@ export class DeleteUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +128,8 @@ export class DeleteUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +139,18 @@ export class DeleteUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUserCommand(input, context);
+    return se_DeleteUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserCommandOutput> {
-    return deserializeAws_restJson1DeleteUserCommand(output, context);
+    return de_DeleteUserCommand(output, context);
   }
 
   // Start section: command_body_extra

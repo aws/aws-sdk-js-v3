@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetApplicationDateRangeKpiRequest,
-  GetApplicationDateRangeKpiRequestFilterSensitiveLog,
-  GetApplicationDateRangeKpiResponse,
-  GetApplicationDateRangeKpiResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetApplicationDateRangeKpiRequest, GetApplicationDateRangeKpiResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetApplicationDateRangeKpiCommand,
-  serializeAws_restJson1GetApplicationDateRangeKpiCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetApplicationDateRangeKpiCommand, se_GetApplicationDateRangeKpiCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApplicationDateRangeKpiCommand}.
  */
 export interface GetApplicationDateRangeKpiCommandInput extends GetApplicationDateRangeKpiRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApplicationDateRangeKpiCommand}.
  */
 export interface GetApplicationDateRangeKpiCommandOutput extends GetApplicationDateRangeKpiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface GetApplicationDateRangeKpiCommandOutput extends GetApplicationD
  * import { PinpointClient, GetApplicationDateRangeKpiCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetApplicationDateRangeKpiCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetApplicationDateRangeKpiRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EndTime: new Date("TIMESTAMP"),
+ *   KpiName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ * };
  * const command = new GetApplicationDateRangeKpiCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApplicationDateRangeKpiCommandInput - {@link GetApplicationDateRangeKpiCommandInput}
+ * @returns {@link GetApplicationDateRangeKpiCommandOutput}
  * @see {@link GetApplicationDateRangeKpiCommandInput} for command's `input` shape.
  * @see {@link GetApplicationDateRangeKpiCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApplicationDateRangeKpiCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApplicationDateRangeKpiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApplicationDateRangeKpiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +139,21 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApplicationDateRangeKpiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationDateRangeKpiCommand(input, context);
+    return se_GetApplicationDateRangeKpiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApplicationDateRangeKpiCommandOutput> {
-    return deserializeAws_restJson1GetApplicationDateRangeKpiCommand(output, context);
+    return de_GetApplicationDateRangeKpiCommand(output, context);
   }
 
   // Start section: command_body_extra

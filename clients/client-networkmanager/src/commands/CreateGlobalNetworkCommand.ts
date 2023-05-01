@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateGlobalNetworkRequest,
-  CreateGlobalNetworkRequestFilterSensitiveLog,
-  CreateGlobalNetworkResponse,
-  CreateGlobalNetworkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateGlobalNetworkRequest, CreateGlobalNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1CreateGlobalNetworkCommand,
-  serializeAws_restJson1CreateGlobalNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateGlobalNetworkCommand, se_CreateGlobalNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGlobalNetworkCommand}.
  */
 export interface CreateGlobalNetworkCommandInput extends CreateGlobalNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGlobalNetworkCommand}.
  */
 export interface CreateGlobalNetworkCommandOutput extends CreateGlobalNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new, empty global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface CreateGlobalNetworkCommandOutput extends CreateGlobalNetworkRes
  * import { NetworkManagerClient, CreateGlobalNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateGlobalNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // CreateGlobalNetworkRequest
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateGlobalNetworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGlobalNetworkCommandInput - {@link CreateGlobalNetworkCommandInput}
+ * @returns {@link CreateGlobalNetworkCommandOutput}
  * @see {@link CreateGlobalNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +96,9 @@ export class CreateGlobalNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGlobalNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +127,8 @@ export class CreateGlobalNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGlobalNetworkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGlobalNetworkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +138,18 @@ export class CreateGlobalNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGlobalNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGlobalNetworkCommand(input, context);
+    return se_CreateGlobalNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalNetworkCommandOutput> {
-    return deserializeAws_restJson1CreateGlobalNetworkCommand(output, context);
+    return de_CreateGlobalNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyCertificatesMessage,
-  ModifyCertificatesMessageFilterSensitiveLog,
-  ModifyCertificatesResult,
-  ModifyCertificatesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyCertificatesCommand,
-  serializeAws_queryModifyCertificatesCommand,
-} from "../protocols/Aws_query";
+import { ModifyCertificatesMessage, ModifyCertificatesResult } from "../models/models_1";
+import { de_ModifyCertificatesCommand, se_ModifyCertificatesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCertificatesCommand}.
  */
 export interface ModifyCertificatesCommandInput extends ModifyCertificatesMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCertificatesCommand}.
  */
 export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS)
  *           certificate for Amazon RDS for new DB instances, or remove the override.</p>
  *          <p>By using this operation, you can specify an RDS-approved SSL/TLS certificate for new DB
@@ -66,10 +63,16 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  * import { RDSClient, ModifyCertificatesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyCertificatesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyCertificatesMessage
+ *   CertificateIdentifier: "STRING_VALUE",
+ *   RemoveCustomerOverride: true || false,
+ * };
  * const command = new ModifyCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCertificatesCommandInput - {@link ModifyCertificatesCommandInput}
+ * @returns {@link ModifyCertificatesCommandOutput}
  * @see {@link ModifyCertificatesCommandInput} for command's `input` shape.
  * @see {@link ModifyCertificatesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -79,6 +82,31 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  *             <code>CertificateIdentifier</code> doesn't refer to an
  *         existing certificate.</p>
  *
+ *
+ * @example To temporarily override the system-default SSL/TLS certificate for new DB instances
+ * ```javascript
+ * // The following example temporarily overrides the system-default SSL/TLS certificate for new DB instances.
+ * const input = {
+ *   "CertificateIdentifier": "rds-ca-2019"
+ * };
+ * const command = new ModifyCertificatesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Certificate": {
+ *     "CertificateArn": "arn:aws:rds:us-east-1::cert:rds-ca-2019",
+ *     "CertificateIdentifier": "rds-ca-2019",
+ *     "CertificateType": "CA",
+ *     "CustomerOverride": true,
+ *     "CustomerOverrideValidTill": "2024-08-22T17:08:50Z",
+ *     "Thumbprint": "EXAMPLE123456789012",
+ *     "ValidFrom": "2019-09-19T18:16:53Z",
+ *     "ValidTill": "2024-08-22T17:08:50Z"
+ *   }
+ * }
+ * *\/
+ * // example id: to-temporarily-override-the-system-default-ssltls-certificate-for-new-db-instances-1680306491984
+ * ```
  *
  */
 export class ModifyCertificatesCommand extends $Command<
@@ -98,6 +126,9 @@ export class ModifyCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +157,8 @@ export class ModifyCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCertificatesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyCertificatesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +168,18 @@ export class ModifyCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyCertificatesCommand(input, context);
+    return se_ModifyCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyCertificatesCommandOutput> {
-    return deserializeAws_queryModifyCertificatesCommand(output, context);
+    return de_ModifyCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

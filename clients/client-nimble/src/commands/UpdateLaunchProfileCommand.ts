@@ -20,21 +20,23 @@ import {
   UpdateLaunchProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1UpdateLaunchProfileCommand,
-  serializeAws_restJson1UpdateLaunchProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLaunchProfileCommand, se_UpdateLaunchProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLaunchProfileCommand}.
  */
 export interface UpdateLaunchProfileCommandInput extends UpdateLaunchProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLaunchProfileCommand}.
  */
 export interface UpdateLaunchProfileCommandOutput extends UpdateLaunchProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a launch profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,56 @@ export interface UpdateLaunchProfileCommandOutput extends UpdateLaunchProfileRes
  * import { NimbleClient, UpdateLaunchProfileCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, UpdateLaunchProfileCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // UpdateLaunchProfileRequest
+ *   clientToken: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   launchProfileId: "STRING_VALUE", // required
+ *   launchProfileProtocolVersions: [ // LaunchProfileProtocolVersionList
+ *     "STRING_VALUE",
+ *   ],
+ *   name: "STRING_VALUE",
+ *   streamConfiguration: { // StreamConfigurationCreate
+ *     clipboardMode: "ENABLED" || "DISABLED", // required
+ *     ec2InstanceTypes: [ // StreamingInstanceTypeList // required
+ *       "g4dn.xlarge" || "g4dn.2xlarge" || "g4dn.4xlarge" || "g4dn.8xlarge" || "g4dn.12xlarge" || "g4dn.16xlarge" || "g3.4xlarge" || "g3s.xlarge" || "g5.xlarge" || "g5.2xlarge" || "g5.4xlarge" || "g5.8xlarge" || "g5.16xlarge",
+ *     ],
+ *     maxSessionLengthInMinutes: Number("int"),
+ *     streamingImageIds: [ // StreamingImageIdList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     maxStoppedSessionLengthInMinutes: Number("int"),
+ *     sessionStorage: { // StreamConfigurationSessionStorage
+ *       root: { // StreamingSessionStorageRoot
+ *         linux: "STRING_VALUE",
+ *         windows: "STRING_VALUE",
+ *       },
+ *       mode: [ // StreamingSessionStorageModeList // required
+ *         "UPLOAD",
+ *       ],
+ *     },
+ *     sessionBackup: { // StreamConfigurationSessionBackup
+ *       mode: "AUTOMATIC" || "DEACTIVATED",
+ *       maxBackupsToRetain: Number("int"),
+ *     },
+ *     sessionPersistenceMode: "DEACTIVATED" || "ACTIVATED",
+ *     volumeConfiguration: { // VolumeConfiguration
+ *       size: Number("int"),
+ *       throughput: Number("int"),
+ *       iops: Number("int"),
+ *     },
+ *     automaticTerminationMode: "DEACTIVATED" || "ACTIVATED",
+ *   },
+ *   studioComponentIds: [ // LaunchProfileStudioComponentIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateLaunchProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLaunchProfileCommandInput - {@link UpdateLaunchProfileCommandInput}
+ * @returns {@link UpdateLaunchProfileCommandOutput}
  * @see {@link UpdateLaunchProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateLaunchProfileCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +141,9 @@ export class UpdateLaunchProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLaunchProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,12 +183,18 @@ export class UpdateLaunchProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLaunchProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLaunchProfileCommand(input, context);
+    return se_UpdateLaunchProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLaunchProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateLaunchProfileCommand(output, context);
+    return de_UpdateLaunchProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

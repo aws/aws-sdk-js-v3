@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  CreateAssetModelRequest,
-  CreateAssetModelRequestFilterSensitiveLog,
-  CreateAssetModelResponse,
-  CreateAssetModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAssetModelCommand,
-  serializeAws_restJson1CreateAssetModelCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAssetModelRequest, CreateAssetModelResponse } from "../models/models_0";
+import { de_CreateAssetModelCommand, se_CreateAssetModelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssetModelCommand}.
  */
 export interface CreateAssetModelCommandInput extends CreateAssetModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssetModelCommand}.
  */
 export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an asset model from specified property and hierarchy definitions. You create
  *       assets from asset models. With asset models, you can easily create assets of the same type
  *       that have standardized definitions. Each asset created from a model inherits the asset model's
@@ -46,10 +43,151 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  * import { IoTSiteWiseClient, CreateAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // CreateAssetModelRequest
+ *   assetModelName: "STRING_VALUE", // required
+ *   assetModelDescription: "STRING_VALUE",
+ *   assetModelProperties: [ // AssetModelPropertyDefinitions
+ *     { // AssetModelPropertyDefinition
+ *       name: "STRING_VALUE", // required
+ *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ *       dataTypeSpec: "STRING_VALUE",
+ *       unit: "STRING_VALUE",
+ *       type: { // PropertyType
+ *         attribute: { // Attribute
+ *           defaultValue: "STRING_VALUE",
+ *         },
+ *         measurement: { // Measurement
+ *           processingConfig: { // MeasurementProcessingConfig
+ *             forwardingConfig: { // ForwardingConfig
+ *               state: "DISABLED" || "ENABLED", // required
+ *             },
+ *           },
+ *         },
+ *         transform: { // Transform
+ *           expression: "STRING_VALUE", // required
+ *           variables: [ // ExpressionVariables // required
+ *             { // ExpressionVariable
+ *               name: "STRING_VALUE", // required
+ *               value: { // VariableValue
+ *                 propertyId: "STRING_VALUE", // required
+ *                 hierarchyId: "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *           processingConfig: { // TransformProcessingConfig
+ *             computeLocation: "EDGE" || "CLOUD", // required
+ *             forwardingConfig: {
+ *               state: "DISABLED" || "ENABLED", // required
+ *             },
+ *           },
+ *         },
+ *         metric: { // Metric
+ *           expression: "STRING_VALUE", // required
+ *           variables: [ // required
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               value: {
+ *                 propertyId: "STRING_VALUE", // required
+ *                 hierarchyId: "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *           window: { // MetricWindow
+ *             tumbling: { // TumblingWindow
+ *               interval: "STRING_VALUE", // required
+ *               offset: "STRING_VALUE",
+ *             },
+ *           },
+ *           processingConfig: { // MetricProcessingConfig
+ *             computeLocation: "EDGE" || "CLOUD", // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   assetModelHierarchies: [ // AssetModelHierarchyDefinitions
+ *     { // AssetModelHierarchyDefinition
+ *       name: "STRING_VALUE", // required
+ *       childAssetModelId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   assetModelCompositeModels: [ // AssetModelCompositeModelDefinitions
+ *     { // AssetModelCompositeModelDefinition
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       type: "STRING_VALUE", // required
+ *       properties: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ *           dataTypeSpec: "STRING_VALUE",
+ *           unit: "STRING_VALUE",
+ *           type: {
+ *             attribute: {
+ *               defaultValue: "STRING_VALUE",
+ *             },
+ *             measurement: {
+ *               processingConfig: {
+ *                 forwardingConfig: {
+ *                   state: "DISABLED" || "ENABLED", // required
+ *                 },
+ *               },
+ *             },
+ *             transform: {
+ *               expression: "STRING_VALUE", // required
+ *               variables: [ // required
+ *                 {
+ *                   name: "STRING_VALUE", // required
+ *                   value: {
+ *                     propertyId: "STRING_VALUE", // required
+ *                     hierarchyId: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               ],
+ *               processingConfig: {
+ *                 computeLocation: "EDGE" || "CLOUD", // required
+ *                 forwardingConfig: {
+ *                   state: "DISABLED" || "ENABLED", // required
+ *                 },
+ *               },
+ *             },
+ *             metric: {
+ *               expression: "STRING_VALUE", // required
+ *               variables: [ // required
+ *                 {
+ *                   name: "STRING_VALUE", // required
+ *                   value: {
+ *                     propertyId: "STRING_VALUE", // required
+ *                     hierarchyId: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               ],
+ *               window: {
+ *                 tumbling: {
+ *                   interval: "STRING_VALUE", // required
+ *                   offset: "STRING_VALUE",
+ *                 },
+ *               },
+ *               processingConfig: {
+ *                 computeLocation: "EDGE" || "CLOUD", // required
+ *               },
+ *             },
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAssetModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssetModelCommandInput - {@link CreateAssetModelCommandInput}
+ * @returns {@link CreateAssetModelCommandOutput}
  * @see {@link CreateAssetModelCommandInput} for command's `input` shape.
  * @see {@link CreateAssetModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -102,6 +240,9 @@ export class CreateAssetModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssetModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +271,8 @@ export class CreateAssetModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAssetModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAssetModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +282,18 @@ export class CreateAssetModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAssetModelCommand(input, context);
+    return se_CreateAssetModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssetModelCommandOutput> {
-    return deserializeAws_restJson1CreateAssetModelCommand(output, context);
+    return de_CreateAssetModelCommand(output, context);
   }
 
   // Start section: command_body_extra

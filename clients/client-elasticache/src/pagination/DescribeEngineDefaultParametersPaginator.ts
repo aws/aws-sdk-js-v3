@@ -10,7 +10,7 @@ import { ElastiCacheClient } from "../ElastiCacheClient";
 import { ElastiCachePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElastiCacheClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeEngineDefaultParametersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeEngineDefaultParameters(
   config: ElastiCachePaginationConfiguration,
   input: DescribeEngineDefaultParametersCommandInput,

@@ -16,20 +16,22 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
   GetInterpolatedAssetPropertyValuesRequest,
-  GetInterpolatedAssetPropertyValuesRequestFilterSensitiveLog,
   GetInterpolatedAssetPropertyValuesResponse,
-  GetInterpolatedAssetPropertyValuesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand,
-  serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand,
+  de_GetInterpolatedAssetPropertyValuesCommand,
+  se_GetInterpolatedAssetPropertyValuesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInterpolatedAssetPropertyValuesCommand}.
  */
 export interface GetInterpolatedAssetPropertyValuesCommandInput extends GetInterpolatedAssetPropertyValuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInterpolatedAssetPropertyValuesCommand}.
  */
 export interface GetInterpolatedAssetPropertyValuesCommandOutput
@@ -37,6 +39,7 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get interpolated values for an asset property for a specified time interval, during a
  *       period of time. If your time series is missing data points during the specified time interval,
  *       you can use interpolation to estimate the missing data.</p>
@@ -58,10 +61,27 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  * import { IoTSiteWiseClient, GetInterpolatedAssetPropertyValuesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, GetInterpolatedAssetPropertyValuesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // GetInterpolatedAssetPropertyValuesRequest
+ *   assetId: "STRING_VALUE",
+ *   propertyId: "STRING_VALUE",
+ *   propertyAlias: "STRING_VALUE",
+ *   startTimeInSeconds: Number("long"), // required
+ *   startTimeOffsetInNanos: Number("int"),
+ *   endTimeInSeconds: Number("long"), // required
+ *   endTimeOffsetInNanos: Number("int"),
+ *   quality: "GOOD" || "BAD" || "UNCERTAIN", // required
+ *   intervalInSeconds: Number("long"), // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   type: "STRING_VALUE", // required
+ *   intervalWindowInSeconds: Number("long"),
+ * };
  * const command = new GetInterpolatedAssetPropertyValuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInterpolatedAssetPropertyValuesCommandInput - {@link GetInterpolatedAssetPropertyValuesCommandInput}
+ * @returns {@link GetInterpolatedAssetPropertyValuesCommandOutput}
  * @see {@link GetInterpolatedAssetPropertyValuesCommandInput} for command's `input` shape.
  * @see {@link GetInterpolatedAssetPropertyValuesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -104,6 +124,9 @@ export class GetInterpolatedAssetPropertyValuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInterpolatedAssetPropertyValuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +155,8 @@ export class GetInterpolatedAssetPropertyValuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInterpolatedAssetPropertyValuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInterpolatedAssetPropertyValuesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,18 +166,24 @@ export class GetInterpolatedAssetPropertyValuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetInterpolatedAssetPropertyValuesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand(input, context);
+    return se_GetInterpolatedAssetPropertyValuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInterpolatedAssetPropertyValuesCommandOutput> {
-    return deserializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand(output, context);
+    return de_GetInterpolatedAssetPropertyValuesCommand(output, context);
   }
 
   // Start section: command_body_extra

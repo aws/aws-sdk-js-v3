@@ -15,26 +15,27 @@ import {
 
 import {
   DeleteComponentInput,
-  DeleteComponentInputFilterSensitiveLog,
   DeleteComponentOutput,
   DeleteComponentOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteComponentCommand,
-  serializeAws_json1_0DeleteComponentCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteComponentCommand, se_DeleteComponentCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteComponentCommand}.
  */
 export interface DeleteComponentCommandInput extends DeleteComponentInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteComponentCommand}.
  */
 export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an Proton component resource.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -45,10 +46,15 @@ export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __M
  * import { ProtonClient, DeleteComponentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteComponentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // DeleteComponentInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
+ * @returns {@link DeleteComponentCommandOutput}
  * @see {@link DeleteComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteComponentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -90,6 +96,9 @@ export class DeleteComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +127,7 @@ export class DeleteComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteComponentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteComponentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -129,12 +138,18 @@ export class DeleteComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteComponentCommand(input, context);
+    return se_DeleteComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteComponentCommandOutput> {
-    return deserializeAws_json1_0DeleteComponentCommand(output, context);
+    return de_DeleteComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

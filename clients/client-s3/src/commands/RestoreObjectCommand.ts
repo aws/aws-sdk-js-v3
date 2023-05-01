@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreObjectOutput,
-  RestoreObjectOutputFilterSensitiveLog,
-  RestoreObjectRequest,
-  RestoreObjectRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlRestoreObjectCommand,
-  serializeAws_restXmlRestoreObjectCommand,
-} from "../protocols/Aws_restXml";
+import { RestoreObjectOutput, RestoreObjectRequest, RestoreObjectRequestFilterSensitiveLog } from "../models/models_1";
+import { de_RestoreObjectCommand, se_RestoreObjectCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreObjectCommand}.
  */
 export interface RestoreObjectCommandInput extends RestoreObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreObjectCommand}.
  */
 export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores an archived copy of an object back into Amazon S3</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
  *          <p>This action performs the following types of requests: </p>
@@ -326,10 +323,100 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * import { S3Client, RestoreObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, RestoreObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // RestoreObjectRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   RestoreRequest: { // RestoreRequest
+ *     Days: Number("int"),
+ *     GlacierJobParameters: { // GlacierJobParameters
+ *       Tier: "Standard" || "Bulk" || "Expedited", // required
+ *     },
+ *     Type: "SELECT",
+ *     Tier: "Standard" || "Bulk" || "Expedited",
+ *     Description: "STRING_VALUE",
+ *     SelectParameters: { // SelectParameters
+ *       InputSerialization: { // InputSerialization
+ *         CSV: { // CSVInput
+ *           FileHeaderInfo: "USE" || "IGNORE" || "NONE",
+ *           Comments: "STRING_VALUE",
+ *           QuoteEscapeCharacter: "STRING_VALUE",
+ *           RecordDelimiter: "STRING_VALUE",
+ *           FieldDelimiter: "STRING_VALUE",
+ *           QuoteCharacter: "STRING_VALUE",
+ *           AllowQuotedRecordDelimiter: true || false,
+ *         },
+ *         CompressionType: "NONE" || "GZIP" || "BZIP2",
+ *         JSON: { // JSONInput
+ *           Type: "DOCUMENT" || "LINES",
+ *         },
+ *         Parquet: {},
+ *       },
+ *       ExpressionType: "SQL", // required
+ *       Expression: "STRING_VALUE", // required
+ *       OutputSerialization: { // OutputSerialization
+ *         CSV: { // CSVOutput
+ *           QuoteFields: "ALWAYS" || "ASNEEDED",
+ *           QuoteEscapeCharacter: "STRING_VALUE",
+ *           RecordDelimiter: "STRING_VALUE",
+ *           FieldDelimiter: "STRING_VALUE",
+ *           QuoteCharacter: "STRING_VALUE",
+ *         },
+ *         JSON: { // JSONOutput
+ *           RecordDelimiter: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     OutputLocation: { // OutputLocation
+ *       S3: { // S3Location
+ *         BucketName: "STRING_VALUE", // required
+ *         Prefix: "STRING_VALUE", // required
+ *         Encryption: { // Encryption
+ *           EncryptionType: "AES256" || "aws:kms", // required
+ *           KMSKeyId: "STRING_VALUE",
+ *           KMSContext: "STRING_VALUE",
+ *         },
+ *         CannedACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *         AccessControlList: [ // Grants
+ *           { // Grant
+ *             Grantee: { // Grantee
+ *               DisplayName: "STRING_VALUE",
+ *               EmailAddress: "STRING_VALUE",
+ *               ID: "STRING_VALUE",
+ *               URI: "STRING_VALUE",
+ *               Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *             },
+ *             Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *           },
+ *         ],
+ *         Tagging: { // Tagging
+ *           TagSet: [ // TagSet // required
+ *             { // Tag
+ *               Key: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         UserMetadata: [ // UserMetadata
+ *           { // MetadataEntry
+ *             Name: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ *       },
+ *     },
+ *   },
+ *   RequestPayer: "requester",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new RestoreObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreObjectCommandInput - {@link RestoreObjectCommandInput}
+ * @returns {@link RestoreObjectCommandOutput}
  * @see {@link RestoreObjectCommandInput} for command's `input` shape.
  * @see {@link RestoreObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -380,6 +467,9 @@ export class RestoreObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -414,7 +504,7 @@ export class RestoreObjectCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RestoreObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreObjectOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -424,12 +514,18 @@ export class RestoreObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlRestoreObjectCommand(input, context);
+    return se_RestoreObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreObjectCommandOutput> {
-    return deserializeAws_restXmlRestoreObjectCommand(output, context);
+    return de_RestoreObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

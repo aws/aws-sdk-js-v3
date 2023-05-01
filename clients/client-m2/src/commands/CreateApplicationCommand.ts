@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  CreateApplicationRequest,
-  CreateApplicationRequestFilterSensitiveLog,
-  CreateApplicationResponse,
-  CreateApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateApplicationCommand,
-  serializeAws_restJson1CreateApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
+import { de_CreateApplicationCommand, se_CreateApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationCommand}.
  */
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new application with given parameters. Requires an existing runtime environment and
  *          application definition file.</p>
  * @example
@@ -43,10 +40,26 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { M2Client, CreateApplicationCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CreateApplicationCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // CreateApplicationRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   engineType: "STRING_VALUE", // required
+ *   definition: { // Definition Union: only one key present
+ *     s3Location: "STRING_VALUE",
+ *     content: "STRING_VALUE",
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   kmsKeyId: "STRING_VALUE",
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
+ * @returns {@link CreateApplicationCommandOutput}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -88,6 +101,9 @@ export class CreateApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +132,8 @@ export class CreateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +143,18 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApplicationCommand(input, context);
+    return se_CreateApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateApplicationCommand(output, context);
+    return de_CreateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

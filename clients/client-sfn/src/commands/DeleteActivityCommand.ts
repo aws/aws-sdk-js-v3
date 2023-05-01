@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteActivityInput,
-  DeleteActivityInputFilterSensitiveLog,
-  DeleteActivityOutput,
-  DeleteActivityOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteActivityCommand,
-  serializeAws_json1_0DeleteActivityCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteActivityInput, DeleteActivityOutput } from "../models/models_0";
+import { de_DeleteActivityCommand, se_DeleteActivityCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteActivityCommand}.
  */
 export interface DeleteActivityCommandInput extends DeleteActivityInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteActivityCommand}.
  */
 export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an activity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  * import { SFNClient, DeleteActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DeleteActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // DeleteActivityInput
+ *   activityArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteActivityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteActivityCommandInput - {@link DeleteActivityCommandInput}
+ * @returns {@link DeleteActivityCommandOutput}
  * @see {@link DeleteActivityCommandInput} for command's `input` shape.
  * @see {@link DeleteActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -72,6 +74,9 @@ export class DeleteActivityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteActivityCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class DeleteActivityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteActivityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteActivityOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +116,18 @@ export class DeleteActivityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteActivityCommand(input, context);
+    return se_DeleteActivityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteActivityCommandOutput> {
-    return deserializeAws_json1_0DeleteActivityCommand(output, context);
+    return de_DeleteActivityCommand(output, context);
   }
 
   // Start section: command_body_extra

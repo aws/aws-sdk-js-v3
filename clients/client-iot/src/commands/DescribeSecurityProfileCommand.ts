@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeSecurityProfileRequest,
-  DescribeSecurityProfileRequestFilterSensitiveLog,
-  DescribeSecurityProfileResponse,
-  DescribeSecurityProfileResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeSecurityProfileCommand,
-  serializeAws_restJson1DescribeSecurityProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSecurityProfileRequest, DescribeSecurityProfileResponse } from "../models/models_1";
+import { de_DescribeSecurityProfileCommand, se_DescribeSecurityProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSecurityProfileCommand}.
  */
 export interface DescribeSecurityProfileCommandInput extends DescribeSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSecurityProfileCommand}.
  */
 export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeSecurityProfile</a> action.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * import { IoTClient, DescribeSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeSecurityProfileRequest
+ *   securityProfileName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSecurityProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecurityProfileCommandInput - {@link DescribeSecurityProfileCommandInput}
+ * @returns {@link DescribeSecurityProfileCommandOutput}
  * @see {@link DescribeSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +84,9 @@ export class DescribeSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeSecurityProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSecurityProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSecurityProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DescribeSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSecurityProfileCommand(input, context);
+    return se_DescribeSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1DescribeSecurityProfileCommand(output, context);
+    return de_DescribeSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

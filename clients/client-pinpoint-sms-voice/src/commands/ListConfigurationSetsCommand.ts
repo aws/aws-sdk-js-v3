@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListConfigurationSetsRequest,
-  ListConfigurationSetsRequestFilterSensitiveLog,
-  ListConfigurationSetsResponse,
-  ListConfigurationSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListConfigurationSetsRequest, ListConfigurationSetsResponse } from "../models/models_0";
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
-import {
-  deserializeAws_restJson1ListConfigurationSetsCommand,
-  serializeAws_restJson1ListConfigurationSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListConfigurationSetsCommand, se_ListConfigurationSetsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfigurationSetsCommand}.
  */
 export interface ListConfigurationSetsCommandInput extends ListConfigurationSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConfigurationSetsCommand}.
  */
 export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * List all of the configuration sets associated with your Amazon Pinpoint account in the current region.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * import { PinpointSMSVoiceClient, ListConfigurationSetsCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
  * // const { PinpointSMSVoiceClient, ListConfigurationSetsCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
+ * const input = { // ListConfigurationSetsRequest
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: "STRING_VALUE",
+ * };
  * const command = new ListConfigurationSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
+ * @returns {@link ListConfigurationSetsCommandOutput}
  * @see {@link ListConfigurationSetsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
@@ -78,6 +81,9 @@ export class ListConfigurationSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class ListConfigurationSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfigurationSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class ListConfigurationSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfigurationSetsCommand(input, context);
+    return se_ListConfigurationSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationSetsCommandOutput> {
-    return deserializeAws_restJson1ListConfigurationSetsCommand(output, context);
+    return de_ListConfigurationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  GetWirelessDeviceRequest,
-  GetWirelessDeviceRequestFilterSensitiveLog,
-  GetWirelessDeviceResponse,
-  GetWirelessDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWirelessDeviceCommand,
-  serializeAws_restJson1GetWirelessDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWirelessDeviceRequest, GetWirelessDeviceResponse } from "../models/models_0";
+import { de_GetWirelessDeviceCommand, se_GetWirelessDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWirelessDeviceCommand}.
  */
 export interface GetWirelessDeviceCommandInput extends GetWirelessDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWirelessDeviceCommand}.
  */
 export interface GetWirelessDeviceCommandOutput extends GetWirelessDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a wireless device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetWirelessDeviceCommandOutput extends GetWirelessDeviceRespons
  * import { IoTWirelessClient, GetWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetWirelessDeviceRequest
+ *   Identifier: "STRING_VALUE", // required
+ *   IdentifierType: "WirelessDeviceId" || "DevEui" || "ThingName" || "SidewalkManufacturingSn", // required
+ * };
  * const command = new GetWirelessDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWirelessDeviceCommandInput - {@link GetWirelessDeviceCommandInput}
+ * @returns {@link GetWirelessDeviceCommandOutput}
  * @see {@link GetWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link GetWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetWirelessDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWirelessDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetWirelessDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWirelessDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWirelessDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetWirelessDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWirelessDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWirelessDeviceCommand(input, context);
+    return se_GetWirelessDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWirelessDeviceCommandOutput> {
-    return deserializeAws_restJson1GetWirelessDeviceCommand(output, context);
+    return de_GetWirelessDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  GetTemplateSummaryInput,
-  GetTemplateSummaryInputFilterSensitiveLog,
-  GetTemplateSummaryOutput,
-  GetTemplateSummaryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetTemplateSummaryCommand,
-  serializeAws_queryGetTemplateSummaryCommand,
-} from "../protocols/Aws_query";
+import { GetTemplateSummaryInput, GetTemplateSummaryOutput } from "../models/models_0";
+import { de_GetTemplateSummaryCommand, se_GetTemplateSummaryCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemplateSummaryCommand}.
  */
 export interface GetTemplateSummaryCommandInput extends GetTemplateSummaryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTemplateSummaryCommand}.
  */
 export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a new or existing template. The
  *             <code>GetTemplateSummary</code> action is useful for viewing parameter information, such
  *          as default parameter values and parameter types, before you create or update a stack or
@@ -50,10 +47,19 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  * import { CloudFormationClient, GetTemplateSummaryCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, GetTemplateSummaryCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // GetTemplateSummaryInput
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   StackName: "STRING_VALUE",
+ *   StackSetName: "STRING_VALUE",
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new GetTemplateSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateSummaryCommandInput - {@link GetTemplateSummaryCommandInput}
+ * @returns {@link GetTemplateSummaryCommandOutput}
  * @see {@link GetTemplateSummaryCommandInput} for command's `input` shape.
  * @see {@link GetTemplateSummaryCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -80,6 +86,9 @@ export class GetTemplateSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +117,8 @@ export class GetTemplateSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateSummaryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateSummaryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +128,18 @@ export class GetTemplateSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetTemplateSummaryCommand(input, context);
+    return se_GetTemplateSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateSummaryCommandOutput> {
-    return deserializeAws_queryGetTemplateSummaryCommand(output, context);
+    return de_GetTemplateSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

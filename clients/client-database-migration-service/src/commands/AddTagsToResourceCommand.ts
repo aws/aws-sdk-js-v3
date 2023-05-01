@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  AddTagsToResourceMessage,
-  AddTagsToResourceMessageFilterSensitiveLog,
-  AddTagsToResourceResponse,
-  AddTagsToResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddTagsToResourceCommand,
-  serializeAws_json1_1AddTagsToResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { AddTagsToResourceMessage, AddTagsToResourceResponse } from "../models/models_0";
+import { de_AddTagsToResourceCommand, se_AddTagsToResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds metadata tags to an DMS resource, including replication instance, endpoint,
  *          subnet group, and migration task. These tags can also be used with cost allocation
  *          reporting to track cost associated with DMS resources, or used in a Condition statement in
@@ -51,10 +48,22 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * import { DatabaseMigrationServiceClient, AddTagsToResourceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, AddTagsToResourceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // AddTagsToResourceMessage
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
+ * @returns {@link AddTagsToResourceCommandOutput}
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -98,6 +107,9 @@ export class AddTagsToResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +138,8 @@ export class AddTagsToResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToResourceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsToResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +149,18 @@ export class AddTagsToResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddTagsToResourceCommand(input, context);
+    return se_AddTagsToResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToResourceCommandOutput> {
-    return deserializeAws_json1_1AddTagsToResourceCommand(output, context);
+    return de_AddTagsToResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

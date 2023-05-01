@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  QueryInput,
-  QueryInputFilterSensitiveLog,
-  QueryOutput,
-  QueryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_0QueryCommand, serializeAws_json1_0QueryCommand } from "../protocols/Aws_json1_0";
+import { QueryInput, QueryOutput } from "../models/models_0";
+import { de_QueryCommand, se_QueryCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link QueryCommand}.
  */
 export interface QueryCommandInput extends QueryInput {}
 /**
+ * @public
+ *
  * The output of {@link QueryCommand}.
  */
 export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You must provide the name of the partition key attribute and a single value for that
  *             attribute. <code>Query</code> returns all items with that partition key value.
  *             Optionally, you can provide a sort key attribute and use a comparison operator to refine
@@ -89,10 +89,95 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  * import { DynamoDBClient, QueryCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // QueryInput
+ *   TableName: "STRING_VALUE", // required
+ *   IndexName: "STRING_VALUE",
+ *   Select: "ALL_ATTRIBUTES" || "ALL_PROJECTED_ATTRIBUTES" || "SPECIFIC_ATTRIBUTES" || "COUNT",
+ *   AttributesToGet: [ // AttributeNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   ConsistentRead: true || false,
+ *   KeyConditions: { // KeyConditions
+ *     "<keys>": { // Condition
+ *       AttributeValueList: [ // AttributeValueList
+ *         { // AttributeValue Union: only one key present
+ *           S: "STRING_VALUE",
+ *           N: "STRING_VALUE",
+ *           B: "BLOB_VALUE",
+ *           SS: [ // StringSetAttributeValue
+ *             "STRING_VALUE",
+ *           ],
+ *           NS: [ // NumberSetAttributeValue
+ *             "STRING_VALUE",
+ *           ],
+ *           BS: [ // BinarySetAttributeValue
+ *             "BLOB_VALUE",
+ *           ],
+ *           M: { // MapAttributeValue
+ *             "<keys>": {//  Union: only one key present
+ *               S: "STRING_VALUE",
+ *               N: "STRING_VALUE",
+ *               B: "BLOB_VALUE",
+ *               SS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               NS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               BS: [
+ *                 "BLOB_VALUE",
+ *               ],
+ *               M: {
+ *                 "<keys>": "<AttributeValue>",
+ *               },
+ *               L: [ // ListAttributeValue
+ *                 "<AttributeValue>",
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
+ *             },
+ *           },
+ *           L: [
+ *             "<AttributeValue>",
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       ],
+ *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH", // required
+ *     },
+ *   },
+ *   QueryFilter: { // FilterConditionMap
+ *     "<keys>": {
+ *       AttributeValueList: [
+ *         "<AttributeValue>",
+ *       ],
+ *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH", // required
+ *     },
+ *   },
+ *   ConditionalOperator: "AND" || "OR",
+ *   ScanIndexForward: true || false,
+ *   ExclusiveStartKey: { // Key
+ *     "<keys>": "<AttributeValue>",
+ *   },
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   ProjectionExpression: "STRING_VALUE",
+ *   FilterExpression: "STRING_VALUE",
+ *   KeyConditionExpression: "STRING_VALUE",
+ *   ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ExpressionAttributeValues: { // ExpressionAttributeValueMap
+ *     "<keys>": "<AttributeValue>",
+ *   },
+ * };
  * const command = new QueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryCommandInput - {@link QueryCommandInput}
+ * @returns {@link QueryCommandOutput}
  * @see {@link QueryCommandInput} for command's `input` shape.
  * @see {@link QueryCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -164,6 +249,9 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -190,8 +278,8 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -201,12 +289,18 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0QueryCommand(input, context);
+    return se_QueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> {
-    return deserializeAws_json1_0QueryCommand(output, context);
+    return de_QueryCommand(output, context);
   }
 
   // Start section: command_body_extra

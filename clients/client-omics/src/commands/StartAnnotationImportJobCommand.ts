@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartAnnotationImportRequest,
-  StartAnnotationImportRequestFilterSensitiveLog,
-  StartAnnotationImportResponse,
-  StartAnnotationImportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartAnnotationImportRequest, StartAnnotationImportResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1StartAnnotationImportJobCommand,
-  serializeAws_restJson1StartAnnotationImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartAnnotationImportJobCommand, se_StartAnnotationImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartAnnotationImportJobCommand}.
  */
 export interface StartAnnotationImportJobCommandInput extends StartAnnotationImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartAnnotationImportJobCommand}.
  */
 export interface StartAnnotationImportJobCommandOutput extends StartAnnotationImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an annotation import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,41 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  * import { OmicsClient, StartAnnotationImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartAnnotationImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // StartAnnotationImportRequest
+ *   destinationName: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   items: [ // AnnotationImportItemSources // required
+ *     { // AnnotationImportItemSource
+ *       source: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   formatOptions: { // FormatOptions Union: only one key present
+ *     tsvOptions: { // TsvOptions
+ *       readOptions: { // ReadOptions
+ *         sep: "STRING_VALUE",
+ *         encoding: "STRING_VALUE",
+ *         quote: "STRING_VALUE",
+ *         quoteAll: true || false,
+ *         escape: "STRING_VALUE",
+ *         escapeQuotes: true || false,
+ *         comment: "STRING_VALUE",
+ *         header: true || false,
+ *         lineSep: "STRING_VALUE",
+ *       },
+ *     },
+ *     vcfOptions: { // VcfOptions
+ *       ignoreQualField: true || false,
+ *       ignoreFilterField: true || false,
+ *     },
+ *   },
+ *   runLeftNormalization: true || false,
+ * };
  * const command = new StartAnnotationImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartAnnotationImportJobCommandInput - {@link StartAnnotationImportJobCommandInput}
+ * @returns {@link StartAnnotationImportJobCommandOutput}
  * @see {@link StartAnnotationImportJobCommandInput} for command's `input` shape.
  * @see {@link StartAnnotationImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +115,9 @@ export class StartAnnotationImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartAnnotationImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +146,8 @@ export class StartAnnotationImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAnnotationImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartAnnotationImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +157,18 @@ export class StartAnnotationImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAnnotationImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartAnnotationImportJobCommand(input, context);
+    return se_StartAnnotationImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAnnotationImportJobCommandOutput> {
-    return deserializeAws_restJson1StartAnnotationImportJobCommand(output, context);
+    return de_StartAnnotationImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

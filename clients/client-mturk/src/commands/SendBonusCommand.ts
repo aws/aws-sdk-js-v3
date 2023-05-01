@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendBonusRequest,
-  SendBonusRequestFilterSensitiveLog,
-  SendBonusResponse,
-  SendBonusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SendBonusRequest, SendBonusResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { deserializeAws_json1_1SendBonusCommand, serializeAws_json1_1SendBonusCommand } from "../protocols/Aws_json1_1";
+import { de_SendBonusCommand, se_SendBonusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SendBonusCommand}.
  */
 export interface SendBonusCommandInput extends SendBonusRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendBonusCommand}.
  */
 export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>SendBonus</code>
@@ -52,10 +52,19 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  * import { MTurkClient, SendBonusCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, SendBonusCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // SendBonusRequest
+ *   WorkerId: "STRING_VALUE", // required
+ *   BonusAmount: "STRING_VALUE", // required
+ *   AssignmentId: "STRING_VALUE", // required
+ *   Reason: "STRING_VALUE", // required
+ *   UniqueRequestToken: "STRING_VALUE",
+ * };
  * const command = new SendBonusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendBonusCommandInput - {@link SendBonusCommandInput}
+ * @returns {@link SendBonusCommandOutput}
  * @see {@link SendBonusCommandInput} for command's `input` shape.
  * @see {@link SendBonusCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -85,6 +94,9 @@ export class SendBonusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendBonusCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +123,8 @@ export class SendBonusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendBonusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendBonusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +134,18 @@ export class SendBonusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendBonusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendBonusCommand(input, context);
+    return se_SendBonusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBonusCommandOutput> {
-    return deserializeAws_json1_1SendBonusCommand(output, context);
+    return de_SendBonusCommand(output, context);
   }
 
   // Start section: command_body_extra

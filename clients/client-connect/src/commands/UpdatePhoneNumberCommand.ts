@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdatePhoneNumberRequest,
-  UpdatePhoneNumberRequestFilterSensitiveLog,
-  UpdatePhoneNumberResponse,
-  UpdatePhoneNumberResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdatePhoneNumberCommand,
-  serializeAws_restJson1UpdatePhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePhoneNumberRequest, UpdatePhoneNumberResponse } from "../models/models_1";
+import { de_UpdatePhoneNumberCommand, se_UpdatePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePhoneNumberCommand}.
  */
 export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePhoneNumberCommand}.
  */
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to
  *    another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p>
  *          <important>
@@ -48,10 +45,17 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * import { ConnectClient, UpdatePhoneNumberCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdatePhoneNumberCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdatePhoneNumberRequest
+ *   PhoneNumberId: "STRING_VALUE", // required
+ *   TargetArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePhoneNumberCommandInput - {@link UpdatePhoneNumberCommandInput}
+ * @returns {@link UpdatePhoneNumberCommandOutput}
  * @see {@link UpdatePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link UpdatePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -96,6 +100,9 @@ export class UpdatePhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +131,8 @@ export class UpdatePhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePhoneNumberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePhoneNumberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +142,18 @@ export class UpdatePhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePhoneNumberCommand(input, context);
+    return se_UpdatePhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1UpdatePhoneNumberCommand(output, context);
+    return de_UpdatePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

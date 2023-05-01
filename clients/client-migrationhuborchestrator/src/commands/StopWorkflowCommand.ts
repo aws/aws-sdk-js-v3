@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  StopMigrationWorkflowRequest,
-  StopMigrationWorkflowRequestFilterSensitiveLog,
-  StopMigrationWorkflowResponse,
-  StopMigrationWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopWorkflowCommand,
-  serializeAws_restJson1StopWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { StopMigrationWorkflowRequest, StopMigrationWorkflowResponse } from "../models/models_0";
+import { de_StopWorkflowCommand, se_StopWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopWorkflowCommand}.
  */
 export interface StopWorkflowCommandInput extends StopMigrationWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopWorkflowCommand}.
  */
 export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stop an ongoing migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse
  * import { MigrationHubOrchestratorClient, StopWorkflowCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, StopWorkflowCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // StopMigrationWorkflowRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new StopWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopWorkflowCommandInput - {@link StopWorkflowCommandInput}
+ * @returns {@link StopWorkflowCommandOutput}
  * @see {@link StopWorkflowCommandInput} for command's `input` shape.
  * @see {@link StopWorkflowCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -88,6 +90,9 @@ export class StopWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class StopWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMigrationWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopMigrationWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class StopWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopWorkflowCommand(input, context);
+    return se_StopWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopWorkflowCommandOutput> {
-    return deserializeAws_restJson1StopWorkflowCommand(output, context);
+    return de_StopWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

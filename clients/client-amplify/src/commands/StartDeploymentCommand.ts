@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  StartDeploymentRequest,
-  StartDeploymentRequestFilterSensitiveLog,
-  StartDeploymentResult,
-  StartDeploymentResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartDeploymentCommand,
-  serializeAws_restJson1StartDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { StartDeploymentRequest, StartDeploymentResult } from "../models/models_0";
+import { de_StartDeploymentCommand, se_StartDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDeploymentCommand}.
  */
 export interface StartDeploymentCommandInput extends StartDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDeploymentCommand}.
  */
 export interface StartDeploymentCommandOutput extends StartDeploymentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts a deployment for a manually deployed app. Manually deployed apps are not
  *             connected to a repository. </p>
  * @example
@@ -43,10 +40,18 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResult, __M
  * import { AmplifyClient, StartDeploymentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, StartDeploymentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // StartDeploymentRequest
+ *   appId: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE",
+ *   sourceUrl: "STRING_VALUE",
+ * };
  * const command = new StartDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDeploymentCommandInput - {@link StartDeploymentCommandInput}
+ * @returns {@link StartDeploymentCommandOutput}
  * @see {@link StartDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -85,6 +90,9 @@ export class StartDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class StartDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDeploymentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +132,18 @@ export class StartDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartDeploymentCommand(input, context);
+    return se_StartDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeploymentCommandOutput> {
-    return deserializeAws_restJson1StartDeploymentCommand(output, context);
+    return de_StartDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

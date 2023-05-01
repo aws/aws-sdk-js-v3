@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  ExecuteStatementInput,
-  ExecuteStatementInputFilterSensitiveLog,
-  ExecuteStatementOutput,
-  ExecuteStatementOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ExecuteStatementCommand,
-  serializeAws_json1_0ExecuteStatementCommand,
-} from "../protocols/Aws_json1_0";
+import { ExecuteStatementInput, ExecuteStatementOutput } from "../models/models_0";
+import { de_ExecuteStatementCommand, se_ExecuteStatementCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteStatementCommand}.
  */
 export interface ExecuteStatementCommandInput extends ExecuteStatementInput {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteStatementCommand}.
  */
 export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation allows you to perform reads and singleton writes on data stored in
  *             DynamoDB, using PartiQL.</p>
  *          <p>For PartiQL reads (<code>SELECT</code> statement), if the total number of processed
@@ -54,10 +51,64 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * import { DynamoDBClient, ExecuteStatementCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ExecuteStatementCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // ExecuteStatementInput
+ *   Statement: "STRING_VALUE", // required
+ *   Parameters: [ // PreparedStatementParameters
+ *     { // AttributeValue Union: only one key present
+ *       S: "STRING_VALUE",
+ *       N: "STRING_VALUE",
+ *       B: "BLOB_VALUE",
+ *       SS: [ // StringSetAttributeValue
+ *         "STRING_VALUE",
+ *       ],
+ *       NS: [ // NumberSetAttributeValue
+ *         "STRING_VALUE",
+ *       ],
+ *       BS: [ // BinarySetAttributeValue
+ *         "BLOB_VALUE",
+ *       ],
+ *       M: { // MapAttributeValue
+ *         "<keys>": {//  Union: only one key present
+ *           S: "STRING_VALUE",
+ *           N: "STRING_VALUE",
+ *           B: "BLOB_VALUE",
+ *           SS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           BS: [
+ *             "BLOB_VALUE",
+ *           ],
+ *           M: {
+ *             "<keys>": "<AttributeValue>",
+ *           },
+ *           L: [ // ListAttributeValue
+ *             "<AttributeValue>",
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       },
+ *       L: [
+ *         "<AttributeValue>",
+ *       ],
+ *       NULL: true || false,
+ *       BOOL: true || false,
+ *     },
+ *   ],
+ *   ConsistentRead: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteStatementCommandInput - {@link ExecuteStatementCommandInput}
+ * @returns {@link ExecuteStatementCommandOutput}
  * @see {@link ExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link ExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -114,6 +165,9 @@ export class ExecuteStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +196,8 @@ export class ExecuteStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteStatementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteStatementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +207,18 @@ export class ExecuteStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExecuteStatementCommand(input, context);
+    return se_ExecuteStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteStatementCommandOutput> {
-    return deserializeAws_json1_0ExecuteStatementCommand(output, context);
+    return de_ExecuteStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

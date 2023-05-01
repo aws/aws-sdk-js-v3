@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  DeleteFacetRequest,
-  DeleteFacetRequestFilterSensitiveLog,
-  DeleteFacetResponse,
-  DeleteFacetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFacetCommand,
-  serializeAws_restJson1DeleteFacetCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFacetRequest, DeleteFacetResponse } from "../models/models_0";
+import { de_DeleteFacetCommand, se_DeleteFacetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFacetCommand}.
  */
 export interface DeleteFacetCommandInput extends DeleteFacetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFacetCommand}.
  */
 export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a given <a>Facet</a>. All attributes and <a>Rule</a>s
  *       that are associated with the facet will be deleted. Only development schema facets are allowed
  *       deletion.</p>
@@ -44,10 +41,16 @@ export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __Metadat
  * import { CloudDirectoryClient, DeleteFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DeleteFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // DeleteFacetRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFacetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFacetCommandInput - {@link DeleteFacetCommandInput}
+ * @returns {@link DeleteFacetCommandOutput}
  * @see {@link DeleteFacetCommandInput} for command's `input` shape.
  * @see {@link DeleteFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -100,6 +103,9 @@ export class DeleteFacetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFacetCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +132,8 @@ export class DeleteFacetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFacetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFacetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +143,18 @@ export class DeleteFacetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFacetCommand(input, context);
+    return se_DeleteFacetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFacetCommandOutput> {
-    return deserializeAws_restJson1DeleteFacetCommand(output, context);
+    return de_DeleteFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

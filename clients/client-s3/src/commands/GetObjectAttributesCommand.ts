@@ -16,26 +16,27 @@ import {
 
 import {
   GetObjectAttributesOutput,
-  GetObjectAttributesOutputFilterSensitiveLog,
   GetObjectAttributesRequest,
   GetObjectAttributesRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectAttributesCommand,
-  serializeAws_restXmlGetObjectAttributesCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetObjectAttributesCommand, se_GetObjectAttributesCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectAttributesCommand}.
  */
 export interface GetObjectAttributesCommandInput extends GetObjectAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectAttributesCommand}.
  */
 export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all the metadata from an object without returning the object itself. This
  *          action is useful if you're interested only in an object's metadata. To use
  *             <code>GetObjectAttributes</code>, you must have READ access to the object.</p>
@@ -192,10 +193,27 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  * import { S3Client, GetObjectAttributesCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectAttributesCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetObjectAttributesRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   MaxParts: Number("int"),
+ *   PartNumberMarker: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ObjectAttributes: [ // ObjectAttributesList // required
+ *     "ETag" || "Checksum" || "ObjectParts" || "StorageClass" || "ObjectSize",
+ *   ],
+ * };
  * const command = new GetObjectAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectAttributesCommandInput - {@link GetObjectAttributesCommandInput}
+ * @returns {@link GetObjectAttributesCommandOutput}
  * @see {@link GetObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link GetObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -228,6 +246,9 @@ export class GetObjectAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -258,7 +279,7 @@ export class GetObjectAttributesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetObjectAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectAttributesOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -268,12 +289,18 @@ export class GetObjectAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectAttributesCommand(input, context);
+    return se_GetObjectAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectAttributesCommandOutput> {
-    return deserializeAws_restXmlGetObjectAttributesCommand(output, context);
+    return de_GetObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

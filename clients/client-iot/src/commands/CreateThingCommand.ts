@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateThingRequest,
-  CreateThingRequestFilterSensitiveLog,
-  CreateThingResponse,
-  CreateThingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateThingCommand,
-  serializeAws_restJson1CreateThingCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateThingRequest, CreateThingResponse } from "../models/models_0";
+import { de_CreateThingCommand, se_CreateThingCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateThingCommand}.
  */
 export interface CreateThingCommandInput extends CreateThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateThingCommand}.
  */
 export interface CreateThingCommandOutput extends CreateThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a thing record in the registry. If this call is made multiple times using
  * 			the same thing name and configuration, the call will succeed. If this call is made with
  * 			the same thing name but different configuration a
@@ -50,10 +47,23 @@ export interface CreateThingCommandOutput extends CreateThingResponse, __Metadat
  * import { IoTClient, CreateThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateThingRequest
+ *   thingName: "STRING_VALUE", // required
+ *   thingTypeName: "STRING_VALUE",
+ *   attributePayload: { // AttributePayload
+ *     attributes: { // Attributes
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     merge: true || false,
+ *   },
+ *   billingGroupName: "STRING_VALUE",
+ * };
  * const command = new CreateThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThingCommandInput - {@link CreateThingCommandInput}
+ * @returns {@link CreateThingCommandOutput}
  * @see {@link CreateThingCommandInput} for command's `input` shape.
  * @see {@link CreateThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -98,6 +108,9 @@ export class CreateThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +137,8 @@ export class CreateThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +148,18 @@ export class CreateThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateThingCommand(input, context);
+    return se_CreateThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThingCommandOutput> {
-    return deserializeAws_restJson1CreateThingCommand(output, context);
+    return de_CreateThingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeStoreImageTasksRequest,
-  DescribeStoreImageTasksRequestFilterSensitiveLog,
-  DescribeStoreImageTasksResult,
-  DescribeStoreImageTasksResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeStoreImageTasksCommand,
-  serializeAws_ec2DescribeStoreImageTasksCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeStoreImageTasksRequest, DescribeStoreImageTasksResult } from "../models/models_4";
+import { de_DescribeStoreImageTasksCommand, se_DescribeStoreImageTasksCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStoreImageTasksCommand}.
  */
 export interface DescribeStoreImageTasksCommandInput extends DescribeStoreImageTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStoreImageTasksCommand}.
  */
 export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImageTasksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the progress of the AMI store tasks. You can describe the store tasks for
  *       specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks from
  *       the last 31 days.</p>
@@ -53,10 +50,28 @@ export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImage
  * import { EC2Client, DescribeStoreImageTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeStoreImageTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeStoreImageTasksRequest
+ *   ImageIds: [ // ImageIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeStoreImageTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStoreImageTasksCommandInput - {@link DescribeStoreImageTasksCommandInput}
+ * @returns {@link DescribeStoreImageTasksCommandOutput}
  * @see {@link DescribeStoreImageTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeStoreImageTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -80,6 +95,9 @@ export class DescribeStoreImageTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStoreImageTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +126,8 @@ export class DescribeStoreImageTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStoreImageTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStoreImageTasksResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +137,18 @@ export class DescribeStoreImageTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStoreImageTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeStoreImageTasksCommand(input, context);
+    return se_DescribeStoreImageTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStoreImageTasksCommandOutput> {
-    return deserializeAws_ec2DescribeStoreImageTasksCommand(output, context);
+    return de_DescribeStoreImageTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

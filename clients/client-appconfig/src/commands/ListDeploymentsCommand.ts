@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  Deployments,
-  DeploymentsFilterSensitiveLog,
-  ListDeploymentsRequest,
-  ListDeploymentsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDeploymentsCommand,
-  serializeAws_restJson1ListDeploymentsCommand,
-} from "../protocols/Aws_restJson1";
+import { Deployments, ListDeploymentsRequest } from "../models/models_0";
+import { de_ListDeploymentsCommand, se_ListDeploymentsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeploymentsCommand}.
  */
 export interface ListDeploymentsCommandInput extends ListDeploymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDeploymentsCommand}.
  */
 export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the deployments for an environment in descending deployment number order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * import { AppConfigClient, ListDeploymentsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListDeploymentsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // ListDeploymentsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EnvironmentId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
+ * @returns {@link ListDeploymentsCommandOutput}
  * @see {@link ListDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -109,6 +114,9 @@ export class ListDeploymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +145,8 @@ export class ListDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeploymentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeploymentsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +156,18 @@ export class ListDeploymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeploymentsCommand(input, context);
+    return se_ListDeploymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentsCommandOutput> {
-    return deserializeAws_restJson1ListDeploymentsCommand(output, context);
+    return de_ListDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

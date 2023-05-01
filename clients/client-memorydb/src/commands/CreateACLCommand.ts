@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  CreateACLRequest,
-  CreateACLRequestFilterSensitiveLog,
-  CreateACLResponse,
-  CreateACLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1CreateACLCommand, serializeAws_json1_1CreateACLCommand } from "../protocols/Aws_json1_1";
+import { CreateACLRequest, CreateACLResponse } from "../models/models_0";
+import { de_CreateACLCommand, se_CreateACLCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateACLCommand}.
  */
 export interface CreateACLCommandInput extends CreateACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateACLCommand}.
  */
 export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Access Control List. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,24 @@ export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBea
  * import { MemoryDBClient, CreateACLCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CreateACLCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // CreateACLRequest
+ *   ACLName: "STRING_VALUE", // required
+ *   UserNames: [ // UserNameListInput
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateACLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateACLCommandInput - {@link CreateACLCommandInput}
+ * @returns {@link CreateACLCommandOutput}
  * @see {@link CreateACLCommandInput} for command's `input` shape.
  * @see {@link CreateACLCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -87,6 +101,9 @@ export class CreateACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +130,8 @@ export class CreateACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +141,18 @@ export class CreateACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateACLCommand(input, context);
+    return se_CreateACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateACLCommandOutput> {
-    return deserializeAws_json1_1CreateACLCommand(output, context);
+    return de_CreateACLCommand(output, context);
   }
 
   // Start section: command_body_extra

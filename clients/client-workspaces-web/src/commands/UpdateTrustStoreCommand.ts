@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTrustStoreRequest,
-  UpdateTrustStoreRequestFilterSensitiveLog,
-  UpdateTrustStoreResponse,
-  UpdateTrustStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateTrustStoreCommand,
-  serializeAws_restJson1UpdateTrustStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateTrustStoreRequest, UpdateTrustStoreResponse } from "../models/models_0";
+import { de_UpdateTrustStoreCommand, se_UpdateTrustStoreCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTrustStoreCommand}.
  */
 export interface UpdateTrustStoreCommandInput extends UpdateTrustStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTrustStoreCommand}.
  */
 export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResponse,
  * import { WorkSpacesWebClient, UpdateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // UpdateTrustStoreRequest
+ *   trustStoreArn: "STRING_VALUE", // required
+ *   certificatesToAdd: [ // CertificateList
+ *     "BLOB_VALUE",
+ *   ],
+ *   certificatesToDelete: [ // CertificateThumbprintList
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateTrustStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTrustStoreCommandInput - {@link UpdateTrustStoreCommandInput}
+ * @returns {@link UpdateTrustStoreCommandOutput}
  * @see {@link UpdateTrustStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -87,6 +96,9 @@ export class UpdateTrustStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +127,8 @@ export class UpdateTrustStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrustStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrustStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +138,18 @@ export class UpdateTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTrustStoreCommand(input, context);
+    return se_UpdateTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrustStoreCommandOutput> {
-    return deserializeAws_restJson1UpdateTrustStoreCommand(output, context);
+    return de_UpdateTrustStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

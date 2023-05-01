@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDBProxyTargetsRequest,
-  DescribeDBProxyTargetsRequestFilterSensitiveLog,
-  DescribeDBProxyTargetsResponse,
-  DescribeDBProxyTargetsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBProxyTargetsCommand,
-  serializeAws_queryDescribeDBProxyTargetsCommand,
-} from "../protocols/Aws_query";
+import { DescribeDBProxyTargetsRequest, DescribeDBProxyTargetsResponse } from "../models/models_1";
+import { de_DescribeDBProxyTargetsCommand, se_DescribeDBProxyTargetsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBProxyTargetsCommand}.
  */
 export interface DescribeDBProxyTargetsCommandInput extends DescribeDBProxyTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBProxyTargetsCommand}.
  */
 export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTarg
  * import { RDSClient, DescribeDBProxyTargetsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBProxyTargetsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBProxyTargetsRequest
+ *   DBProxyName: "STRING_VALUE", // required
+ *   TargetGroupName: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeDBProxyTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBProxyTargetsCommandInput - {@link DescribeDBProxyTargetsCommandInput}
+ * @returns {@link DescribeDBProxyTargetsCommandOutput}
  * @see {@link DescribeDBProxyTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBProxyTargetsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -81,6 +94,9 @@ export class DescribeDBProxyTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBProxyTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +125,8 @@ export class DescribeDBProxyTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBProxyTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBProxyTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +136,18 @@ export class DescribeDBProxyTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBProxyTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBProxyTargetsCommand(input, context);
+    return se_DescribeDBProxyTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBProxyTargetsCommandOutput> {
-    return deserializeAws_queryDescribeDBProxyTargetsCommand(output, context);
+    return de_DescribeDBProxyTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

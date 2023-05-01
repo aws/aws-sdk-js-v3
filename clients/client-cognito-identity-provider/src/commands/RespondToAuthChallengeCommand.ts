@@ -24,21 +24,23 @@ import {
   RespondToAuthChallengeResponse,
   RespondToAuthChallengeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RespondToAuthChallengeCommand,
-  serializeAws_json1_1RespondToAuthChallengeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RespondToAuthChallengeCommand, se_RespondToAuthChallengeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RespondToAuthChallengeCommand}.
  */
 export interface RespondToAuthChallengeCommandInput extends RespondToAuthChallengeRequest {}
 /**
+ * @public
+ *
  * The output of {@link RespondToAuthChallengeCommand}.
  */
 export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChallengeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Responds to the authentication challenge.</p>
  *
  *          <note>
@@ -64,10 +66,30 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  * import { CognitoIdentityProviderClient, RespondToAuthChallengeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, RespondToAuthChallengeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // RespondToAuthChallengeRequest
+ *   ClientId: "STRING_VALUE", // required
+ *   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED", // required
+ *   Session: "STRING_VALUE",
+ *   ChallengeResponses: { // ChallengeResponsesType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
+ *     AnalyticsEndpointId: "STRING_VALUE",
+ *   },
+ *   UserContextData: { // UserContextDataType
+ *     IpAddress: "STRING_VALUE",
+ *     EncodedData: "STRING_VALUE",
+ *   },
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new RespondToAuthChallengeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RespondToAuthChallengeCommandInput - {@link RespondToAuthChallengeCommandInput}
+ * @returns {@link RespondToAuthChallengeCommandOutput}
  * @see {@link RespondToAuthChallengeCommandInput} for command's `input` shape.
  * @see {@link RespondToAuthChallengeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -170,6 +192,9 @@ export class RespondToAuthChallengeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RespondToAuthChallengeCommandInput) {
     // Start section: command_constructor
     super();
@@ -209,12 +234,18 @@ export class RespondToAuthChallengeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RespondToAuthChallengeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RespondToAuthChallengeCommand(input, context);
+    return se_RespondToAuthChallengeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RespondToAuthChallengeCommandOutput> {
-    return deserializeAws_json1_1RespondToAuthChallengeCommand(output, context);
+    return de_RespondToAuthChallengeCommand(output, context);
   }
 
   // Start section: command_body_extra

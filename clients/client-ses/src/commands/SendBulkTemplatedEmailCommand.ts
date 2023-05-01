@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendBulkTemplatedEmailRequest,
-  SendBulkTemplatedEmailRequestFilterSensitiveLog,
-  SendBulkTemplatedEmailResponse,
-  SendBulkTemplatedEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySendBulkTemplatedEmailCommand,
-  serializeAws_querySendBulkTemplatedEmailCommand,
-} from "../protocols/Aws_query";
+import { SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse } from "../models/models_0";
+import { de_SendBulkTemplatedEmailCommand, se_SendBulkTemplatedEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SendBulkTemplatedEmailCommand}.
  */
 export interface SendBulkTemplatedEmailCommandInput extends SendBulkTemplatedEmailRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendBulkTemplatedEmailCommand}.
  */
 export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message to multiple destinations. The message body is created using
  *             an email template.</p>
  *         <p>In order to send email using the <code>SendBulkTemplatedEmail</code> operation, your
@@ -84,10 +81,53 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  * import { SESClient, SendBulkTemplatedEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendBulkTemplatedEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SendBulkTemplatedEmailRequest
+ *   Source: "STRING_VALUE", // required
+ *   SourceArn: "STRING_VALUE",
+ *   ReplyToAddresses: [ // AddressList
+ *     "STRING_VALUE",
+ *   ],
+ *   ReturnPath: "STRING_VALUE",
+ *   ReturnPathArn: "STRING_VALUE",
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   DefaultTags: [ // MessageTagList
+ *     { // MessageTag
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Template: "STRING_VALUE", // required
+ *   TemplateArn: "STRING_VALUE",
+ *   DefaultTemplateData: "STRING_VALUE",
+ *   Destinations: [ // BulkEmailDestinationList // required
+ *     { // BulkEmailDestination
+ *       Destination: { // Destination
+ *         ToAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *         CcAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *         BccAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ReplacementTags: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       ReplacementTemplateData: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new SendBulkTemplatedEmailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendBulkTemplatedEmailCommandInput - {@link SendBulkTemplatedEmailCommandInput}
+ * @returns {@link SendBulkTemplatedEmailCommandOutput}
  * @see {@link SendBulkTemplatedEmailCommandInput} for command's `input` shape.
  * @see {@link SendBulkTemplatedEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -136,6 +176,9 @@ export class SendBulkTemplatedEmailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendBulkTemplatedEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,8 +207,8 @@ export class SendBulkTemplatedEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendBulkTemplatedEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendBulkTemplatedEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -175,12 +218,18 @@ export class SendBulkTemplatedEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendBulkTemplatedEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendBulkTemplatedEmailCommand(input, context);
+    return se_SendBulkTemplatedEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBulkTemplatedEmailCommandOutput> {
-    return deserializeAws_querySendBulkTemplatedEmailCommand(output, context);
+    return de_SendBulkTemplatedEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

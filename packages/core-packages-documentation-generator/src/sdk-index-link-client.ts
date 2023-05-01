@@ -19,6 +19,9 @@ import {
 const isClientModel = (model: Reflection | undefined) =>
   model?.sources?.[0]?.fullFileName.includes(`${sep}clients${sep}`);
 
+/**
+ * @internal
+ */
 export class SdkIndexLinkClientPlugin {
   @BindOption("out")
   readonly outputDirectory: string;

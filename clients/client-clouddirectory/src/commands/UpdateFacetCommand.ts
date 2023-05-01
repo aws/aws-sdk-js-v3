@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  UpdateFacetRequest,
-  UpdateFacetRequestFilterSensitiveLog,
-  UpdateFacetResponse,
-  UpdateFacetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFacetCommand,
-  serializeAws_restJson1UpdateFacetCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFacetRequest, UpdateFacetResponse } from "../models/models_0";
+import { de_UpdateFacetCommand, se_UpdateFacetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFacetCommand}.
  */
 export interface UpdateFacetCommandInput extends UpdateFacetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFacetCommand}.
  */
 export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Does the following:</p>
  *          <ol>
  *             <li>
@@ -53,10 +50,49 @@ export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __Metadat
  * import { CloudDirectoryClient, UpdateFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // UpdateFacetRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   AttributeUpdates: [ // FacetAttributeUpdateList
+ *     { // FacetAttributeUpdate
+ *       Attribute: { // FacetAttribute
+ *         Name: "STRING_VALUE", // required
+ *         AttributeDefinition: { // FacetAttributeDefinition
+ *           Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
+ *           DefaultValue: { // TypedAttributeValue Union: only one key present
+ *             StringValue: "STRING_VALUE",
+ *             BinaryValue: "BLOB_VALUE",
+ *             BooleanValue: true || false,
+ *             NumberValue: "STRING_VALUE",
+ *             DatetimeValue: new Date("TIMESTAMP"),
+ *           },
+ *           IsImmutable: true || false,
+ *           Rules: { // RuleMap
+ *             "<keys>": { // Rule
+ *               Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
+ *               Parameters: { // RuleParameterMap
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *           },
+ *         },
+ *         AttributeReference: { // FacetAttributeReference
+ *           TargetFacetName: "STRING_VALUE", // required
+ *           TargetAttributeName: "STRING_VALUE", // required
+ *         },
+ *         RequiredBehavior: "REQUIRED_ALWAYS" || "NOT_REQUIRED",
+ *       },
+ *       Action: "CREATE_OR_UPDATE" || "DELETE",
+ *     },
+ *   ],
+ *   ObjectType: "NODE" || "LEAF_NODE" || "POLICY" || "INDEX",
+ * };
  * const command = new UpdateFacetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFacetCommandInput - {@link UpdateFacetCommandInput}
+ * @returns {@link UpdateFacetCommandOutput}
  * @see {@link UpdateFacetCommandInput} for command's `input` shape.
  * @see {@link UpdateFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -116,6 +152,9 @@ export class UpdateFacetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFacetCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +181,8 @@ export class UpdateFacetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFacetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFacetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +192,18 @@ export class UpdateFacetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFacetCommand(input, context);
+    return se_UpdateFacetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFacetCommandOutput> {
-    return deserializeAws_restJson1UpdateFacetCommand(output, context);
+    return de_UpdateFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteFlowLogsRequest,
-  DeleteFlowLogsRequestFilterSensitiveLog,
-  DeleteFlowLogsResult,
-  DeleteFlowLogsResultFilterSensitiveLog,
-} from "../models/models_2";
-import { deserializeAws_ec2DeleteFlowLogsCommand, serializeAws_ec2DeleteFlowLogsCommand } from "../protocols/Aws_ec2";
+import { DeleteFlowLogsRequest, DeleteFlowLogsResult } from "../models/models_2";
+import { de_DeleteFlowLogsCommand, se_DeleteFlowLogsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFlowLogsCommand}.
  */
 export interface DeleteFlowLogsCommandInput extends DeleteFlowLogsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFlowLogsCommand}.
  */
 export interface DeleteFlowLogsCommandOutput extends DeleteFlowLogsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more flow logs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,18 @@ export interface DeleteFlowLogsCommandOutput extends DeleteFlowLogsResult, __Met
  * import { EC2Client, DeleteFlowLogsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteFlowLogsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteFlowLogsRequest
+ *   DryRun: true || false,
+ *   FlowLogIds: [ // FlowLogIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteFlowLogsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFlowLogsCommandInput - {@link DeleteFlowLogsCommandInput}
+ * @returns {@link DeleteFlowLogsCommandOutput}
  * @see {@link DeleteFlowLogsCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowLogsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -66,6 +74,9 @@ export class DeleteFlowLogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFlowLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +105,8 @@ export class DeleteFlowLogsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFlowLogsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFlowLogsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +116,18 @@ export class DeleteFlowLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFlowLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteFlowLogsCommand(input, context);
+    return se_DeleteFlowLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowLogsCommandOutput> {
-    return deserializeAws_ec2DeleteFlowLogsCommand(output, context);
+    return de_DeleteFlowLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

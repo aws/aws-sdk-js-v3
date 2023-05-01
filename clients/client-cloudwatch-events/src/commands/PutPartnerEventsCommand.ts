@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  PutPartnerEventsRequest,
-  PutPartnerEventsRequestFilterSensitiveLog,
-  PutPartnerEventsResponse,
-  PutPartnerEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutPartnerEventsCommand,
-  serializeAws_json1_1PutPartnerEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { PutPartnerEventsRequest, PutPartnerEventsResponse } from "../models/models_0";
+import { de_PutPartnerEventsCommand, se_PutPartnerEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutPartnerEventsCommand}.
  */
 export interface PutPartnerEventsCommandInput extends PutPartnerEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutPartnerEventsCommand}.
  */
 export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services
  *       customers do not use this operation.</p>
  * @example
@@ -43,10 +40,25 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  * import { CloudWatchEventsClient, PutPartnerEventsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutPartnerEventsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // PutPartnerEventsRequest
+ *   Entries: [ // PutPartnerEventsRequestEntryList // required
+ *     { // PutPartnerEventsRequestEntry
+ *       Time: new Date("TIMESTAMP"),
+ *       Source: "STRING_VALUE",
+ *       Resources: [ // EventResourceList
+ *         "STRING_VALUE",
+ *       ],
+ *       DetailType: "STRING_VALUE",
+ *       Detail: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutPartnerEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutPartnerEventsCommandInput - {@link PutPartnerEventsCommandInput}
+ * @returns {@link PutPartnerEventsCommandOutput}
  * @see {@link PutPartnerEventsCommandInput} for command's `input` shape.
  * @see {@link PutPartnerEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -76,6 +88,9 @@ export class PutPartnerEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutPartnerEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +119,8 @@ export class PutPartnerEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPartnerEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPartnerEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +130,18 @@ export class PutPartnerEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPartnerEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutPartnerEventsCommand(input, context);
+    return se_PutPartnerEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPartnerEventsCommandOutput> {
-    return deserializeAws_json1_1PutPartnerEventsCommand(output, context);
+    return de_PutPartnerEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

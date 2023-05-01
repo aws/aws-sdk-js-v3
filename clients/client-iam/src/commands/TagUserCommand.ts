@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagUserRequest, TagUserRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryTagUserCommand, serializeAws_queryTagUserCommand } from "../protocols/Aws_query";
+import { TagUserRequest } from "../models/models_0";
+import { de_TagUserCommand, se_TagUserCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TagUserCommand}.
  */
 export interface TagUserCommandInput extends TagUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagUserCommand}.
  */
 export interface TagUserCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM user. If a tag with the same key name already exists,
  *       then that tag is overwritten with the new value.</p>
  *          <p>A tag consists of a key name and an associated value. By assigning tags to your
@@ -77,10 +82,21 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  * import { IAMClient, TagUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // TagUserRequest
+ *   UserName: "STRING_VALUE", // required
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagUserCommandInput - {@link TagUserCommandInput}
+ * @returns {@link TagUserCommandOutput}
  * @see {@link TagUserCommandInput} for command's `input` shape.
  * @see {@link TagUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -141,6 +157,9 @@ export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,8 +186,8 @@ export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -178,12 +197,18 @@ export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagUserCommand(input, context);
+    return se_TagUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagUserCommandOutput> {
-    return deserializeAws_queryTagUserCommand(output, context);
+    return de_TagUserCommand(output, context);
   }
 
   // Start section: command_body_extra

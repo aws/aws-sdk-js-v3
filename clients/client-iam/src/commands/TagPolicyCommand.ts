@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagPolicyRequest, TagPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryTagPolicyCommand, serializeAws_queryTagPolicyCommand } from "../protocols/Aws_query";
+import { TagPolicyRequest } from "../models/models_0";
+import { de_TagPolicyCommand, se_TagPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TagPolicyCommand}.
  */
 export interface TagPolicyCommandInput extends TagPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagPolicyCommand}.
  */
 export interface TagPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM customer managed policy. If a tag with the same key
  *       name already exists, then that tag is overwritten with the new value.</p>
  *          <p>A tag consists of a key name and an associated value. By assigning tags to your
@@ -69,10 +74,21 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, TagPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // TagPolicyRequest
+ *   PolicyArn: "STRING_VALUE", // required
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagPolicyCommandInput - {@link TagPolicyCommandInput}
+ * @returns {@link TagPolicyCommandOutput}
  * @see {@link TagPolicyCommandInput} for command's `input` shape.
  * @see {@link TagPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -112,6 +128,9 @@ export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +157,8 @@ export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +168,18 @@ export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagPolicyCommand(input, context);
+    return se_TagPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagPolicyCommandOutput> {
-    return deserializeAws_queryTagPolicyCommand(output, context);
+    return de_TagPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

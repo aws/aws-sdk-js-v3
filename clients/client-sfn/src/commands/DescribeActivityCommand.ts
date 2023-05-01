@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeActivityInput,
-  DescribeActivityInputFilterSensitiveLog,
-  DescribeActivityOutput,
-  DescribeActivityOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeActivityCommand,
-  serializeAws_json1_0DescribeActivityCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeActivityInput, DescribeActivityOutput } from "../models/models_0";
+import { de_DescribeActivityCommand, se_DescribeActivityCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeActivityCommand}.
  */
 export interface DescribeActivityCommandInput extends DescribeActivityInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeActivityCommand}.
  */
 export interface DescribeActivityCommandOutput extends DescribeActivityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an activity.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -45,10 +42,15 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * import { SFNClient, DescribeActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // DescribeActivityInput
+ *   activityArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeActivityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeActivityCommandInput - {@link DescribeActivityCommandInput}
+ * @returns {@link DescribeActivityCommandOutput}
  * @see {@link DescribeActivityCommandInput} for command's `input` shape.
  * @see {@link DescribeActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -78,6 +80,9 @@ export class DescribeActivityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActivityCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class DescribeActivityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeActivityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeActivityOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class DescribeActivityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeActivityCommand(input, context);
+    return se_DescribeActivityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActivityCommandOutput> {
-    return deserializeAws_json1_0DescribeActivityCommand(output, context);
+    return de_DescribeActivityCommand(output, context);
   }
 
   // Start section: command_body_extra

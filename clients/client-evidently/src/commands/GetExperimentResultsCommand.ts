@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  GetExperimentResultsRequest,
-  GetExperimentResultsRequestFilterSensitiveLog,
-  GetExperimentResultsResponse,
-  GetExperimentResultsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetExperimentResultsCommand,
-  serializeAws_restJson1GetExperimentResultsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetExperimentResultsRequest, GetExperimentResultsResponse } from "../models/models_0";
+import { de_GetExperimentResultsCommand, se_GetExperimentResultsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetExperimentResultsCommand}.
  */
 export interface GetExperimentResultsCommandInput extends GetExperimentResultsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetExperimentResultsCommand}.
  */
 export interface GetExperimentResultsCommandOutput extends GetExperimentResultsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the results of a running or completed experiment. No results are available until
  *        there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment.
  *        To increase the statistical power, Evidently performs an additional offline p-value analysis at the end of the experiment.
@@ -49,10 +46,32 @@ export interface GetExperimentResultsCommandOutput extends GetExperimentResultsR
  * import { EvidentlyClient, GetExperimentResultsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetExperimentResultsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // GetExperimentResultsRequest
+ *   project: "STRING_VALUE", // required
+ *   experiment: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   metricNames: [ // MetricNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   treatmentNames: [ // TreatmentNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   baseStat: "STRING_VALUE",
+ *   resultStats: [ // ExperimentResultRequestTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   reportNames: [ // ExperimentReportNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   period: Number("long"),
+ * };
  * const command = new GetExperimentResultsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetExperimentResultsCommandInput - {@link GetExperimentResultsCommandInput}
+ * @returns {@link GetExperimentResultsCommandOutput}
  * @see {@link GetExperimentResultsCommandInput} for command's `input` shape.
  * @see {@link GetExperimentResultsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -91,6 +110,9 @@ export class GetExperimentResultsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetExperimentResultsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +141,8 @@ export class GetExperimentResultsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExperimentResultsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetExperimentResultsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +152,18 @@ export class GetExperimentResultsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetExperimentResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetExperimentResultsCommand(input, context);
+    return se_GetExperimentResultsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExperimentResultsCommandOutput> {
-    return deserializeAws_restJson1GetExperimentResultsCommand(output, context);
+    return de_GetExperimentResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

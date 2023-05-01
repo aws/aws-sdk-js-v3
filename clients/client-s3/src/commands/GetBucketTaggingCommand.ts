@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketTaggingOutput,
-  GetBucketTaggingOutputFilterSensitiveLog,
-  GetBucketTaggingRequest,
-  GetBucketTaggingRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketTaggingCommand,
-  serializeAws_restXmlGetBucketTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketTaggingOutput, GetBucketTaggingRequest } from "../models/models_0";
+import { de_GetBucketTaggingCommand, se_GetBucketTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketTaggingCommand}.
  */
 export interface GetBucketTaggingCommandInput extends GetBucketTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketTaggingCommand}.
  */
 export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the tag set associated with the bucket.</p>
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:GetBucketTagging</code> action. By default, the bucket owner has this
@@ -71,10 +68,16 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * import { S3Client, GetBucketTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketTaggingRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketTaggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketTaggingCommandInput - {@link GetBucketTaggingCommandInput}
+ * @returns {@link GetBucketTaggingCommandOutput}
  * @see {@link GetBucketTaggingCommandInput} for command's `input` shape.
  * @see {@link GetBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -129,6 +132,9 @@ export class GetBucketTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,8 +163,8 @@ export class GetBucketTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketTaggingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,12 +174,18 @@ export class GetBucketTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketTaggingCommand(input, context);
+    return se_GetBucketTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketTaggingCommandOutput> {
-    return deserializeAws_restXmlGetBucketTaggingCommand(output, context);
+    return de_GetBucketTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

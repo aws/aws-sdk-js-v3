@@ -14,20 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { DescribeMetricCollectionTypesAnswer } from "../models/models_0";
 import {
-  DescribeMetricCollectionTypesAnswer,
-  DescribeMetricCollectionTypesAnswerFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeMetricCollectionTypesCommand,
-  serializeAws_queryDescribeMetricCollectionTypesCommand,
+  de_DescribeMetricCollectionTypesCommand,
+  se_DescribeMetricCollectionTypesCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMetricCollectionTypesCommand}.
  */
 export interface DescribeMetricCollectionTypesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMetricCollectionTypesCommand}.
  */
 export interface DescribeMetricCollectionTypesCommandOutput
@@ -35,6 +36,7 @@ export interface DescribeMetricCollectionTypesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,13 @@ export interface DescribeMetricCollectionTypesCommandOutput
  * import { AutoScalingClient, DescribeMetricCollectionTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeMetricCollectionTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {};
  * const command = new DescribeMetricCollectionTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMetricCollectionTypesCommandInput - {@link DescribeMetricCollectionTypesCommandInput}
+ * @returns {@link DescribeMetricCollectionTypesCommandOutput}
  * @see {@link DescribeMetricCollectionTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeMetricCollectionTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -117,6 +122,9 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMetricCollectionTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +153,8 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeMetricCollectionTypesAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,15 +164,21 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMetricCollectionTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeMetricCollectionTypesCommand(input, context);
+    return se_DescribeMetricCollectionTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMetricCollectionTypesCommandOutput> {
-    return deserializeAws_queryDescribeMetricCollectionTypesCommand(output, context);
+    return de_DescribeMetricCollectionTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

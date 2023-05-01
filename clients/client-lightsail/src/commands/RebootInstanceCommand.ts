@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  RebootInstanceRequest,
-  RebootInstanceRequestFilterSensitiveLog,
-  RebootInstanceResult,
-  RebootInstanceResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1RebootInstanceCommand,
-  serializeAws_json1_1RebootInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { RebootInstanceRequest, RebootInstanceResult } from "../models/models_1";
+import { de_RebootInstanceCommand, se_RebootInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RebootInstanceCommand}.
  */
 export interface RebootInstanceCommandInput extends RebootInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link RebootInstanceCommand}.
  */
 export interface RebootInstanceCommandOutput extends RebootInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restarts a specific instance.</p>
  *          <p>The <code>reboot instance</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>instance name</code>. For more information,
@@ -45,10 +42,15 @@ export interface RebootInstanceCommandOutput extends RebootInstanceResult, __Met
  * import { LightsailClient, RebootInstanceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, RebootInstanceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // RebootInstanceRequest
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new RebootInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootInstanceCommandInput - {@link RebootInstanceCommandInput}
+ * @returns {@link RebootInstanceCommandOutput}
  * @see {@link RebootInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +104,9 @@ export class RebootInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +135,8 @@ export class RebootInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +146,18 @@ export class RebootInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RebootInstanceCommand(input, context);
+    return se_RebootInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootInstanceCommandOutput> {
-    return deserializeAws_json1_1RebootInstanceCommand(output, context);
+    return de_RebootInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

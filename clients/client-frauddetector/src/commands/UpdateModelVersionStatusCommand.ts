@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  UpdateModelVersionStatusRequest,
-  UpdateModelVersionStatusRequestFilterSensitiveLog,
-  UpdateModelVersionStatusResult,
-  UpdateModelVersionStatusResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateModelVersionStatusCommand,
-  serializeAws_json1_1UpdateModelVersionStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateModelVersionStatusRequest, UpdateModelVersionStatusResult } from "../models/models_0";
+import { de_UpdateModelVersionStatusCommand, se_UpdateModelVersionStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateModelVersionStatusCommand}.
  */
 export interface UpdateModelVersionStatusCommandInput extends UpdateModelVersionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateModelVersionStatusCommand}.
  */
 export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersionStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the status of a model version.</p>
  *          <p>You can perform the following status updates:</p>
  *          <ol>
@@ -54,10 +51,18 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  * import { FraudDetectorClient, UpdateModelVersionStatusCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateModelVersionStatusCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // UpdateModelVersionStatusRequest
+ *   modelId: "STRING_VALUE", // required
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ *   modelVersionNumber: "STRING_VALUE", // required
+ *   status: "ACTIVE" || "INACTIVE" || "TRAINING_CANCELLED", // required
+ * };
  * const command = new UpdateModelVersionStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateModelVersionStatusCommandInput - {@link UpdateModelVersionStatusCommandInput}
+ * @returns {@link UpdateModelVersionStatusCommandOutput}
  * @see {@link UpdateModelVersionStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateModelVersionStatusCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -99,6 +104,9 @@ export class UpdateModelVersionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateModelVersionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +135,8 @@ export class UpdateModelVersionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateModelVersionStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateModelVersionStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +146,18 @@ export class UpdateModelVersionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateModelVersionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateModelVersionStatusCommand(input, context);
+    return se_UpdateModelVersionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelVersionStatusCommandOutput> {
-    return deserializeAws_json1_1UpdateModelVersionStatusCommand(output, context);
+    return de_UpdateModelVersionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

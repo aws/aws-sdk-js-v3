@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigDataClient";
-import {
-  StartConfigurationSessionRequest,
-  StartConfigurationSessionRequestFilterSensitiveLog,
-  StartConfigurationSessionResponse,
-  StartConfigurationSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartConfigurationSessionCommand,
-  serializeAws_restJson1StartConfigurationSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { StartConfigurationSessionRequest, StartConfigurationSessionResponse } from "../models/models_0";
+import { de_StartConfigurationSessionCommand, se_StartConfigurationSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartConfigurationSessionCommand}.
  */
 export interface StartConfigurationSessionCommandInput extends StartConfigurationSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartConfigurationSessionCommand}.
  */
 export interface StartConfigurationSessionCommandOutput extends StartConfigurationSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a configuration session used to retrieve a deployed configuration. For more
  *          information about this API action and to view example CLI commands that show how to use
  *          it with the <a>GetLatestConfiguration</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
@@ -45,10 +42,18 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  * import { AppConfigDataClient, StartConfigurationSessionCommand } from "@aws-sdk/client-appconfigdata"; // ES Modules import
  * // const { AppConfigDataClient, StartConfigurationSessionCommand } = require("@aws-sdk/client-appconfigdata"); // CommonJS import
  * const client = new AppConfigDataClient(config);
+ * const input = { // StartConfigurationSessionRequest
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   ConfigurationProfileIdentifier: "STRING_VALUE", // required
+ *   RequiredMinimumPollIntervalInSeconds: Number("int"),
+ * };
  * const command = new StartConfigurationSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartConfigurationSessionCommandInput - {@link StartConfigurationSessionCommandInput}
+ * @returns {@link StartConfigurationSessionCommandOutput}
  * @see {@link StartConfigurationSessionCommandInput} for command's `input` shape.
  * @see {@link StartConfigurationSessionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigDataClientResolvedConfig | config} for AppConfigDataClient's `config` shape.
@@ -84,6 +89,9 @@ export class StartConfigurationSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartConfigurationSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class StartConfigurationSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartConfigurationSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartConfigurationSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +131,21 @@ export class StartConfigurationSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartConfigurationSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartConfigurationSessionCommand(input, context);
+    return se_StartConfigurationSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartConfigurationSessionCommandOutput> {
-    return deserializeAws_restJson1StartConfigurationSessionCommand(output, context);
+    return de_StartConfigurationSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

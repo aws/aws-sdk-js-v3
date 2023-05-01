@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetMLTaskRunRequest,
-  GetMLTaskRunRequestFilterSensitiveLog,
-  GetMLTaskRunResponse,
-  GetMLTaskRunResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetMLTaskRunCommand,
-  serializeAws_json1_1GetMLTaskRunCommand,
-} from "../protocols/Aws_json1_1";
+import { GetMLTaskRunRequest, GetMLTaskRunResponse } from "../models/models_1";
+import { de_GetMLTaskRunCommand, se_GetMLTaskRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMLTaskRunCommand}.
  */
 export interface GetMLTaskRunCommandInput extends GetMLTaskRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMLTaskRunCommand}.
  */
 export interface GetMLTaskRunCommandOutput extends GetMLTaskRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details for a specific task run on a machine learning transform. Machine learning
  *       task runs are asynchronous tasks that Glue runs on your behalf as part of various machine
  *       learning workflows. You can check the stats of any task run by calling
@@ -46,10 +43,16 @@ export interface GetMLTaskRunCommandOutput extends GetMLTaskRunResponse, __Metad
  * import { GlueClient, GetMLTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetMLTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetMLTaskRunRequest
+ *   TransformId: "STRING_VALUE", // required
+ *   TaskRunId: "STRING_VALUE", // required
+ * };
  * const command = new GetMLTaskRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMLTaskRunCommandInput - {@link GetMLTaskRunCommandInput}
+ * @returns {@link GetMLTaskRunCommandOutput}
  * @see {@link GetMLTaskRunCommandInput} for command's `input` shape.
  * @see {@link GetMLTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -85,6 +88,9 @@ export class GetMLTaskRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMLTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class GetMLTaskRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMLTaskRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMLTaskRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class GetMLTaskRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMLTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMLTaskRunCommand(input, context);
+    return se_GetMLTaskRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMLTaskRunCommandOutput> {
-    return deserializeAws_json1_1GetMLTaskRunCommand(output, context);
+    return de_GetMLTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

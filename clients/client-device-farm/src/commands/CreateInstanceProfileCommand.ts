@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  CreateInstanceProfileRequest,
-  CreateInstanceProfileRequestFilterSensitiveLog,
-  CreateInstanceProfileResult,
-  CreateInstanceProfileResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateInstanceProfileCommand,
-  serializeAws_json1_1CreateInstanceProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateInstanceProfileRequest, CreateInstanceProfileResult } from "../models/models_0";
+import { de_CreateInstanceProfileCommand, se_CreateInstanceProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstanceProfileCommand}.
  */
 export interface CreateInstanceProfileCommandInput extends CreateInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstanceProfileCommand}.
  */
 export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfileResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a profile that can be applied to one or more private fleet device
  *             instances.</p>
  * @example
@@ -43,10 +40,21 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * import { DeviceFarmClient, CreateInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // CreateInstanceProfileRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   packageCleanup: true || false,
+ *   excludeAppPackagesFromCleanup: [ // PackageIds
+ *     "STRING_VALUE",
+ *   ],
+ *   rebootAfterUse: true || false,
+ * };
  * const command = new CreateInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceProfileCommandInput - {@link CreateInstanceProfileCommandInput}
+ * @returns {@link CreateInstanceProfileCommandOutput}
  * @see {@link CreateInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -82,6 +90,9 @@ export class CreateInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class CreateInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInstanceProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class CreateInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateInstanceProfileCommand(input, context);
+    return se_CreateInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceProfileCommandOutput> {
-    return deserializeAws_json1_1CreateInstanceProfileCommand(output, context);
+    return de_CreateInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

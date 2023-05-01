@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
@@ -305,6 +306,21 @@ import {
   GetJourneyExecutionMetricsCommandOutput,
 } from "./commands/GetJourneyExecutionMetricsCommand";
 import {
+  GetJourneyRunExecutionActivityMetricsCommand,
+  GetJourneyRunExecutionActivityMetricsCommandInput,
+  GetJourneyRunExecutionActivityMetricsCommandOutput,
+} from "./commands/GetJourneyRunExecutionActivityMetricsCommand";
+import {
+  GetJourneyRunExecutionMetricsCommand,
+  GetJourneyRunExecutionMetricsCommandInput,
+  GetJourneyRunExecutionMetricsCommandOutput,
+} from "./commands/GetJourneyRunExecutionMetricsCommand";
+import {
+  GetJourneyRunsCommand,
+  GetJourneyRunsCommandInput,
+  GetJourneyRunsCommandOutput,
+} from "./commands/GetJourneyRunsCommand";
+import {
   GetPushTemplateCommand,
   GetPushTemplateCommandInput,
   GetPushTemplateCommandOutput,
@@ -548,3730 +564,1981 @@ import {
   VerifyOTPMessageCommandInput,
   VerifyOTPMessageCommandOutput,
 } from "./commands/VerifyOTPMessageCommand";
-import { PinpointClient } from "./PinpointClient";
+import { PinpointClient, PinpointClientConfig } from "./PinpointClient";
 
-/**
- * <p>Doc Engage API - Amazon Pinpoint API</p>
- */
-export class Pinpoint extends PinpointClient {
+const commands = {
+  CreateAppCommand,
+  CreateCampaignCommand,
+  CreateEmailTemplateCommand,
+  CreateExportJobCommand,
+  CreateImportJobCommand,
+  CreateInAppTemplateCommand,
+  CreateJourneyCommand,
+  CreatePushTemplateCommand,
+  CreateRecommenderConfigurationCommand,
+  CreateSegmentCommand,
+  CreateSmsTemplateCommand,
+  CreateVoiceTemplateCommand,
+  DeleteAdmChannelCommand,
+  DeleteApnsChannelCommand,
+  DeleteApnsSandboxChannelCommand,
+  DeleteApnsVoipChannelCommand,
+  DeleteApnsVoipSandboxChannelCommand,
+  DeleteAppCommand,
+  DeleteBaiduChannelCommand,
+  DeleteCampaignCommand,
+  DeleteEmailChannelCommand,
+  DeleteEmailTemplateCommand,
+  DeleteEndpointCommand,
+  DeleteEventStreamCommand,
+  DeleteGcmChannelCommand,
+  DeleteInAppTemplateCommand,
+  DeleteJourneyCommand,
+  DeletePushTemplateCommand,
+  DeleteRecommenderConfigurationCommand,
+  DeleteSegmentCommand,
+  DeleteSmsChannelCommand,
+  DeleteSmsTemplateCommand,
+  DeleteUserEndpointsCommand,
+  DeleteVoiceChannelCommand,
+  DeleteVoiceTemplateCommand,
+  GetAdmChannelCommand,
+  GetApnsChannelCommand,
+  GetApnsSandboxChannelCommand,
+  GetApnsVoipChannelCommand,
+  GetApnsVoipSandboxChannelCommand,
+  GetAppCommand,
+  GetApplicationDateRangeKpiCommand,
+  GetApplicationSettingsCommand,
+  GetAppsCommand,
+  GetBaiduChannelCommand,
+  GetCampaignCommand,
+  GetCampaignActivitiesCommand,
+  GetCampaignDateRangeKpiCommand,
+  GetCampaignsCommand,
+  GetCampaignVersionCommand,
+  GetCampaignVersionsCommand,
+  GetChannelsCommand,
+  GetEmailChannelCommand,
+  GetEmailTemplateCommand,
+  GetEndpointCommand,
+  GetEventStreamCommand,
+  GetExportJobCommand,
+  GetExportJobsCommand,
+  GetGcmChannelCommand,
+  GetImportJobCommand,
+  GetImportJobsCommand,
+  GetInAppMessagesCommand,
+  GetInAppTemplateCommand,
+  GetJourneyCommand,
+  GetJourneyDateRangeKpiCommand,
+  GetJourneyExecutionActivityMetricsCommand,
+  GetJourneyExecutionMetricsCommand,
+  GetJourneyRunExecutionActivityMetricsCommand,
+  GetJourneyRunExecutionMetricsCommand,
+  GetJourneyRunsCommand,
+  GetPushTemplateCommand,
+  GetRecommenderConfigurationCommand,
+  GetRecommenderConfigurationsCommand,
+  GetSegmentCommand,
+  GetSegmentExportJobsCommand,
+  GetSegmentImportJobsCommand,
+  GetSegmentsCommand,
+  GetSegmentVersionCommand,
+  GetSegmentVersionsCommand,
+  GetSmsChannelCommand,
+  GetSmsTemplateCommand,
+  GetUserEndpointsCommand,
+  GetVoiceChannelCommand,
+  GetVoiceTemplateCommand,
+  ListJourneysCommand,
+  ListTagsForResourceCommand,
+  ListTemplatesCommand,
+  ListTemplateVersionsCommand,
+  PhoneNumberValidateCommand,
+  PutEventsCommand,
+  PutEventStreamCommand,
+  RemoveAttributesCommand,
+  SendMessagesCommand,
+  SendOTPMessageCommand,
+  SendUsersMessagesCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateAdmChannelCommand,
+  UpdateApnsChannelCommand,
+  UpdateApnsSandboxChannelCommand,
+  UpdateApnsVoipChannelCommand,
+  UpdateApnsVoipSandboxChannelCommand,
+  UpdateApplicationSettingsCommand,
+  UpdateBaiduChannelCommand,
+  UpdateCampaignCommand,
+  UpdateEmailChannelCommand,
+  UpdateEmailTemplateCommand,
+  UpdateEndpointCommand,
+  UpdateEndpointsBatchCommand,
+  UpdateGcmChannelCommand,
+  UpdateInAppTemplateCommand,
+  UpdateJourneyCommand,
+  UpdateJourneyStateCommand,
+  UpdatePushTemplateCommand,
+  UpdateRecommenderConfigurationCommand,
+  UpdateSegmentCommand,
+  UpdateSmsChannelCommand,
+  UpdateSmsTemplateCommand,
+  UpdateTemplateActiveVersionCommand,
+  UpdateVoiceChannelCommand,
+  UpdateVoiceTemplateCommand,
+  VerifyOTPMessageCommand,
+};
+
+export interface Pinpoint {
   /**
-   * <p>Creates an application.</p>
+   * @see {@link CreateAppCommand}
    */
-  public createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
-  public createApp(args: CreateAppCommandInput, cb: (err: any, data?: CreateAppCommandOutput) => void): void;
-  public createApp(
+  createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
+  createApp(args: CreateAppCommandInput, cb: (err: any, data?: CreateAppCommandOutput) => void): void;
+  createApp(
     args: CreateAppCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAppCommandOutput) => void
   ): void;
-  public createApp(
-    args: CreateAppCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppCommandOutput) => void),
-    cb?: (err: any, data?: CreateAppCommandOutput) => void
-  ): Promise<CreateAppCommandOutput> | void {
-    const command = new CreateAppCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new campaign for an application or updates the settings of an existing campaign for an application.</p>
+   * @see {@link CreateCampaignCommand}
    */
-  public createCampaign(
+  createCampaign(
     args: CreateCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateCampaignCommandOutput>;
-  public createCampaign(
-    args: CreateCampaignCommandInput,
-    cb: (err: any, data?: CreateCampaignCommandOutput) => void
-  ): void;
-  public createCampaign(
+  createCampaign(args: CreateCampaignCommandInput, cb: (err: any, data?: CreateCampaignCommandOutput) => void): void;
+  createCampaign(
     args: CreateCampaignCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCampaignCommandOutput) => void
   ): void;
-  public createCampaign(
-    args: CreateCampaignCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCampaignCommandOutput) => void),
-    cb?: (err: any, data?: CreateCampaignCommandOutput) => void
-  ): Promise<CreateCampaignCommandOutput> | void {
-    const command = new CreateCampaignCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a message template for messages that are sent through the email channel.</p>
+   * @see {@link CreateEmailTemplateCommand}
    */
-  public createEmailTemplate(
+  createEmailTemplate(
     args: CreateEmailTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEmailTemplateCommandOutput>;
-  public createEmailTemplate(
+  createEmailTemplate(
     args: CreateEmailTemplateCommandInput,
     cb: (err: any, data?: CreateEmailTemplateCommandOutput) => void
   ): void;
-  public createEmailTemplate(
+  createEmailTemplate(
     args: CreateEmailTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEmailTemplateCommandOutput) => void
   ): void;
-  public createEmailTemplate(
-    args: CreateEmailTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEmailTemplateCommandOutput) => void),
-    cb?: (err: any, data?: CreateEmailTemplateCommandOutput) => void
-  ): Promise<CreateEmailTemplateCommandOutput> | void {
-    const command = new CreateEmailTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates an export job for an application.</p>
+   * @see {@link CreateExportJobCommand}
    */
-  public createExportJob(
+  createExportJob(
     args: CreateExportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateExportJobCommandOutput>;
-  public createExportJob(
-    args: CreateExportJobCommandInput,
-    cb: (err: any, data?: CreateExportJobCommandOutput) => void
-  ): void;
-  public createExportJob(
+  createExportJob(args: CreateExportJobCommandInput, cb: (err: any, data?: CreateExportJobCommandOutput) => void): void;
+  createExportJob(
     args: CreateExportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateExportJobCommandOutput) => void
   ): void;
-  public createExportJob(
-    args: CreateExportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExportJobCommandOutput) => void),
-    cb?: (err: any, data?: CreateExportJobCommandOutput) => void
-  ): Promise<CreateExportJobCommandOutput> | void {
-    const command = new CreateExportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates an import job for an application.</p>
+   * @see {@link CreateImportJobCommand}
    */
-  public createImportJob(
+  createImportJob(
     args: CreateImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateImportJobCommandOutput>;
-  public createImportJob(
-    args: CreateImportJobCommandInput,
-    cb: (err: any, data?: CreateImportJobCommandOutput) => void
-  ): void;
-  public createImportJob(
+  createImportJob(args: CreateImportJobCommandInput, cb: (err: any, data?: CreateImportJobCommandOutput) => void): void;
+  createImportJob(
     args: CreateImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateImportJobCommandOutput) => void
   ): void;
-  public createImportJob(
-    args: CreateImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImportJobCommandOutput) => void),
-    cb?: (err: any, data?: CreateImportJobCommandOutput) => void
-  ): Promise<CreateImportJobCommandOutput> | void {
-    const command = new CreateImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new message template for messages using the in-app message channel.</p>
+   * @see {@link CreateInAppTemplateCommand}
    */
-  public createInAppTemplate(
+  createInAppTemplate(
     args: CreateInAppTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateInAppTemplateCommandOutput>;
-  public createInAppTemplate(
+  createInAppTemplate(
     args: CreateInAppTemplateCommandInput,
     cb: (err: any, data?: CreateInAppTemplateCommandOutput) => void
   ): void;
-  public createInAppTemplate(
+  createInAppTemplate(
     args: CreateInAppTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateInAppTemplateCommandOutput) => void
   ): void;
-  public createInAppTemplate(
-    args: CreateInAppTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInAppTemplateCommandOutput) => void),
-    cb?: (err: any, data?: CreateInAppTemplateCommandOutput) => void
-  ): Promise<CreateInAppTemplateCommandOutput> | void {
-    const command = new CreateInAppTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a journey for an application.</p>
+   * @see {@link CreateJourneyCommand}
    */
-  public createJourney(
-    args: CreateJourneyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateJourneyCommandOutput>;
-  public createJourney(
-    args: CreateJourneyCommandInput,
-    cb: (err: any, data?: CreateJourneyCommandOutput) => void
-  ): void;
-  public createJourney(
+  createJourney(args: CreateJourneyCommandInput, options?: __HttpHandlerOptions): Promise<CreateJourneyCommandOutput>;
+  createJourney(args: CreateJourneyCommandInput, cb: (err: any, data?: CreateJourneyCommandOutput) => void): void;
+  createJourney(
     args: CreateJourneyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateJourneyCommandOutput) => void
   ): void;
-  public createJourney(
-    args: CreateJourneyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJourneyCommandOutput) => void),
-    cb?: (err: any, data?: CreateJourneyCommandOutput) => void
-  ): Promise<CreateJourneyCommandOutput> | void {
-    const command = new CreateJourneyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a message template for messages that are sent through a push notification channel.</p>
+   * @see {@link CreatePushTemplateCommand}
    */
-  public createPushTemplate(
+  createPushTemplate(
     args: CreatePushTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreatePushTemplateCommandOutput>;
-  public createPushTemplate(
+  createPushTemplate(
     args: CreatePushTemplateCommandInput,
     cb: (err: any, data?: CreatePushTemplateCommandOutput) => void
   ): void;
-  public createPushTemplate(
+  createPushTemplate(
     args: CreatePushTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePushTemplateCommandOutput) => void
   ): void;
-  public createPushTemplate(
-    args: CreatePushTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePushTemplateCommandOutput) => void),
-    cb?: (err: any, data?: CreatePushTemplateCommandOutput) => void
-  ): Promise<CreatePushTemplateCommandOutput> | void {
-    const command = new CreatePushTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates an Amazon Pinpoint configuration for a recommender model.</p>
+   * @see {@link CreateRecommenderConfigurationCommand}
    */
-  public createRecommenderConfiguration(
+  createRecommenderConfiguration(
     args: CreateRecommenderConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateRecommenderConfigurationCommandOutput>;
-  public createRecommenderConfiguration(
+  createRecommenderConfiguration(
     args: CreateRecommenderConfigurationCommandInput,
     cb: (err: any, data?: CreateRecommenderConfigurationCommandOutput) => void
   ): void;
-  public createRecommenderConfiguration(
+  createRecommenderConfiguration(
     args: CreateRecommenderConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateRecommenderConfigurationCommandOutput) => void
   ): void;
-  public createRecommenderConfiguration(
-    args: CreateRecommenderConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRecommenderConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: CreateRecommenderConfigurationCommandOutput) => void
-  ): Promise<CreateRecommenderConfigurationCommandOutput> | void {
-    const command = new CreateRecommenderConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
+   * @see {@link CreateSegmentCommand}
    */
-  public createSegment(
-    args: CreateSegmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSegmentCommandOutput>;
-  public createSegment(
-    args: CreateSegmentCommandInput,
-    cb: (err: any, data?: CreateSegmentCommandOutput) => void
-  ): void;
-  public createSegment(
+  createSegment(args: CreateSegmentCommandInput, options?: __HttpHandlerOptions): Promise<CreateSegmentCommandOutput>;
+  createSegment(args: CreateSegmentCommandInput, cb: (err: any, data?: CreateSegmentCommandOutput) => void): void;
+  createSegment(
     args: CreateSegmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSegmentCommandOutput) => void
   ): void;
-  public createSegment(
-    args: CreateSegmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSegmentCommandOutput) => void),
-    cb?: (err: any, data?: CreateSegmentCommandOutput) => void
-  ): Promise<CreateSegmentCommandOutput> | void {
-    const command = new CreateSegmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a message template for messages that are sent through the SMS channel.</p>
+   * @see {@link CreateSmsTemplateCommand}
    */
-  public createSmsTemplate(
+  createSmsTemplate(
     args: CreateSmsTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSmsTemplateCommandOutput>;
-  public createSmsTemplate(
+  createSmsTemplate(
     args: CreateSmsTemplateCommandInput,
     cb: (err: any, data?: CreateSmsTemplateCommandOutput) => void
   ): void;
-  public createSmsTemplate(
+  createSmsTemplate(
     args: CreateSmsTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSmsTemplateCommandOutput) => void
   ): void;
-  public createSmsTemplate(
-    args: CreateSmsTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSmsTemplateCommandOutput) => void),
-    cb?: (err: any, data?: CreateSmsTemplateCommandOutput) => void
-  ): Promise<CreateSmsTemplateCommandOutput> | void {
-    const command = new CreateSmsTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a message template for messages that are sent through the voice channel.</p>
+   * @see {@link CreateVoiceTemplateCommand}
    */
-  public createVoiceTemplate(
+  createVoiceTemplate(
     args: CreateVoiceTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateVoiceTemplateCommandOutput>;
-  public createVoiceTemplate(
+  createVoiceTemplate(
     args: CreateVoiceTemplateCommandInput,
     cb: (err: any, data?: CreateVoiceTemplateCommandOutput) => void
   ): void;
-  public createVoiceTemplate(
+  createVoiceTemplate(
     args: CreateVoiceTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVoiceTemplateCommandOutput) => void
   ): void;
-  public createVoiceTemplate(
-    args: CreateVoiceTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVoiceTemplateCommandOutput) => void),
-    cb?: (err: any, data?: CreateVoiceTemplateCommandOutput) => void
-  ): Promise<CreateVoiceTemplateCommandOutput> | void {
-    const command = new CreateVoiceTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disables the ADM channel for an application and deletes any existing settings for the channel.</p>
+   * @see {@link DeleteAdmChannelCommand}
    */
-  public deleteAdmChannel(
+  deleteAdmChannel(
     args: DeleteAdmChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAdmChannelCommandOutput>;
-  public deleteAdmChannel(
+  deleteAdmChannel(
     args: DeleteAdmChannelCommandInput,
     cb: (err: any, data?: DeleteAdmChannelCommandOutput) => void
   ): void;
-  public deleteAdmChannel(
+  deleteAdmChannel(
     args: DeleteAdmChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAdmChannelCommandOutput) => void
   ): void;
-  public deleteAdmChannel(
-    args: DeleteAdmChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAdmChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAdmChannelCommandOutput) => void
-  ): Promise<DeleteAdmChannelCommandOutput> | void {
-    const command = new DeleteAdmChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disables the APNs channel for an application and deletes any existing settings for the channel.</p>
+   * @see {@link DeleteApnsChannelCommand}
    */
-  public deleteApnsChannel(
+  deleteApnsChannel(
     args: DeleteApnsChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteApnsChannelCommandOutput>;
-  public deleteApnsChannel(
+  deleteApnsChannel(
     args: DeleteApnsChannelCommandInput,
     cb: (err: any, data?: DeleteApnsChannelCommandOutput) => void
   ): void;
-  public deleteApnsChannel(
+  deleteApnsChannel(
     args: DeleteApnsChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteApnsChannelCommandOutput) => void
   ): void;
-  public deleteApnsChannel(
-    args: DeleteApnsChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApnsChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteApnsChannelCommandOutput) => void
-  ): Promise<DeleteApnsChannelCommandOutput> | void {
-    const command = new DeleteApnsChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disables the APNs sandbox channel for an application and deletes any existing settings for the channel.</p>
+   * @see {@link DeleteApnsSandboxChannelCommand}
    */
-  public deleteApnsSandboxChannel(
+  deleteApnsSandboxChannel(
     args: DeleteApnsSandboxChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteApnsSandboxChannelCommandOutput>;
-  public deleteApnsSandboxChannel(
+  deleteApnsSandboxChannel(
     args: DeleteApnsSandboxChannelCommandInput,
     cb: (err: any, data?: DeleteApnsSandboxChannelCommandOutput) => void
   ): void;
-  public deleteApnsSandboxChannel(
+  deleteApnsSandboxChannel(
     args: DeleteApnsSandboxChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteApnsSandboxChannelCommandOutput) => void
   ): void;
-  public deleteApnsSandboxChannel(
-    args: DeleteApnsSandboxChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApnsSandboxChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteApnsSandboxChannelCommandOutput) => void
-  ): Promise<DeleteApnsSandboxChannelCommandOutput> | void {
-    const command = new DeleteApnsSandboxChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disables the APNs VoIP channel for an application and deletes any existing settings for the channel.</p>
+   * @see {@link DeleteApnsVoipChannelCommand}
    */
-  public deleteApnsVoipChannel(
+  deleteApnsVoipChannel(
     args: DeleteApnsVoipChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteApnsVoipChannelCommandOutput>;
-  public deleteApnsVoipChannel(
+  deleteApnsVoipChannel(
     args: DeleteApnsVoipChannelCommandInput,
     cb: (err: any, data?: DeleteApnsVoipChannelCommandOutput) => void
   ): void;
-  public deleteApnsVoipChannel(
+  deleteApnsVoipChannel(
     args: DeleteApnsVoipChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteApnsVoipChannelCommandOutput) => void
   ): void;
-  public deleteApnsVoipChannel(
-    args: DeleteApnsVoipChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApnsVoipChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteApnsVoipChannelCommandOutput) => void
-  ): Promise<DeleteApnsVoipChannelCommandOutput> | void {
-    const command = new DeleteApnsVoipChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disables the APNs VoIP sandbox channel for an application and deletes any existing settings for the channel.</p>
+   * @see {@link DeleteApnsVoipSandboxChannelCommand}
    */
-  public deleteApnsVoipSandboxChannel(
+  deleteApnsVoipSandboxChannel(
     args: DeleteApnsVoipSandboxChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteApnsVoipSandboxChannelCommandOutput>;
-  public deleteApnsVoipSandboxChannel(
+  deleteApnsVoipSandboxChannel(
     args: DeleteApnsVoipSandboxChannelCommandInput,
     cb: (err: any, data?: DeleteApnsVoipSandboxChannelCommandOutput) => void
   ): void;
-  public deleteApnsVoipSandboxChannel(
+  deleteApnsVoipSandboxChannel(
     args: DeleteApnsVoipSandboxChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteApnsVoipSandboxChannelCommandOutput) => void
   ): void;
-  public deleteApnsVoipSandboxChannel(
-    args: DeleteApnsVoipSandboxChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApnsVoipSandboxChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteApnsVoipSandboxChannelCommandOutput) => void
-  ): Promise<DeleteApnsVoipSandboxChannelCommandOutput> | void {
-    const command = new DeleteApnsVoipSandboxChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes an application.</p>
+   * @see {@link DeleteAppCommand}
    */
-  public deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
-  public deleteApp(args: DeleteAppCommandInput, cb: (err: any, data?: DeleteAppCommandOutput) => void): void;
-  public deleteApp(
+  deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
+  deleteApp(args: DeleteAppCommandInput, cb: (err: any, data?: DeleteAppCommandOutput) => void): void;
+  deleteApp(
     args: DeleteAppCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAppCommandOutput) => void
   ): void;
-  public deleteApp(
-    args: DeleteAppCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAppCommandOutput) => void
-  ): Promise<DeleteAppCommandOutput> | void {
-    const command = new DeleteAppCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disables the Baidu channel for an application and deletes any existing settings for the channel.</p>
+   * @see {@link DeleteBaiduChannelCommand}
    */
-  public deleteBaiduChannel(
+  deleteBaiduChannel(
     args: DeleteBaiduChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteBaiduChannelCommandOutput>;
-  public deleteBaiduChannel(
+  deleteBaiduChannel(
     args: DeleteBaiduChannelCommandInput,
     cb: (err: any, data?: DeleteBaiduChannelCommandOutput) => void
   ): void;
-  public deleteBaiduChannel(
+  deleteBaiduChannel(
     args: DeleteBaiduChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBaiduChannelCommandOutput) => void
   ): void;
-  public deleteBaiduChannel(
-    args: DeleteBaiduChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBaiduChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteBaiduChannelCommandOutput) => void
-  ): Promise<DeleteBaiduChannelCommandOutput> | void {
-    const command = new DeleteBaiduChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a campaign from an application.</p>
+   * @see {@link DeleteCampaignCommand}
    */
-  public deleteCampaign(
+  deleteCampaign(
     args: DeleteCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteCampaignCommandOutput>;
-  public deleteCampaign(
-    args: DeleteCampaignCommandInput,
-    cb: (err: any, data?: DeleteCampaignCommandOutput) => void
-  ): void;
-  public deleteCampaign(
+  deleteCampaign(args: DeleteCampaignCommandInput, cb: (err: any, data?: DeleteCampaignCommandOutput) => void): void;
+  deleteCampaign(
     args: DeleteCampaignCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCampaignCommandOutput) => void
   ): void;
-  public deleteCampaign(
-    args: DeleteCampaignCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCampaignCommandOutput) => void),
-    cb?: (err: any, data?: DeleteCampaignCommandOutput) => void
-  ): Promise<DeleteCampaignCommandOutput> | void {
-    const command = new DeleteCampaignCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disables the email channel for an application and deletes any existing settings for the channel.</p>
+   * @see {@link DeleteEmailChannelCommand}
    */
-  public deleteEmailChannel(
+  deleteEmailChannel(
     args: DeleteEmailChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEmailChannelCommandOutput>;
-  public deleteEmailChannel(
+  deleteEmailChannel(
     args: DeleteEmailChannelCommandInput,
     cb: (err: any, data?: DeleteEmailChannelCommandOutput) => void
   ): void;
-  public deleteEmailChannel(
+  deleteEmailChannel(
     args: DeleteEmailChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEmailChannelCommandOutput) => void
   ): void;
-  public deleteEmailChannel(
-    args: DeleteEmailChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEmailChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEmailChannelCommandOutput) => void
-  ): Promise<DeleteEmailChannelCommandOutput> | void {
-    const command = new DeleteEmailChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a message template for messages that were sent through the email channel.</p>
+   * @see {@link DeleteEmailTemplateCommand}
    */
-  public deleteEmailTemplate(
+  deleteEmailTemplate(
     args: DeleteEmailTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEmailTemplateCommandOutput>;
-  public deleteEmailTemplate(
+  deleteEmailTemplate(
     args: DeleteEmailTemplateCommandInput,
     cb: (err: any, data?: DeleteEmailTemplateCommandOutput) => void
   ): void;
-  public deleteEmailTemplate(
+  deleteEmailTemplate(
     args: DeleteEmailTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEmailTemplateCommandOutput) => void
   ): void;
-  public deleteEmailTemplate(
-    args: DeleteEmailTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEmailTemplateCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEmailTemplateCommandOutput) => void
-  ): Promise<DeleteEmailTemplateCommandOutput> | void {
-    const command = new DeleteEmailTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes an endpoint from an application.</p>
+   * @see {@link DeleteEndpointCommand}
    */
-  public deleteEndpoint(
+  deleteEndpoint(
     args: DeleteEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEndpointCommandOutput>;
-  public deleteEndpoint(
-    args: DeleteEndpointCommandInput,
-    cb: (err: any, data?: DeleteEndpointCommandOutput) => void
-  ): void;
-  public deleteEndpoint(
+  deleteEndpoint(args: DeleteEndpointCommandInput, cb: (err: any, data?: DeleteEndpointCommandOutput) => void): void;
+  deleteEndpoint(
     args: DeleteEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): void;
-  public deleteEndpoint(
-    args: DeleteEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
-  ): Promise<DeleteEndpointCommandOutput> | void {
-    const command = new DeleteEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the event stream for an application.</p>
+   * @see {@link DeleteEventStreamCommand}
    */
-  public deleteEventStream(
+  deleteEventStream(
     args: DeleteEventStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEventStreamCommandOutput>;
-  public deleteEventStream(
+  deleteEventStream(
     args: DeleteEventStreamCommandInput,
     cb: (err: any, data?: DeleteEventStreamCommandOutput) => void
   ): void;
-  public deleteEventStream(
+  deleteEventStream(
     args: DeleteEventStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEventStreamCommandOutput) => void
   ): void;
-  public deleteEventStream(
-    args: DeleteEventStreamCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventStreamCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEventStreamCommandOutput) => void
-  ): Promise<DeleteEventStreamCommandOutput> | void {
-    const command = new DeleteEventStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disables the GCM channel for an application and deletes any existing settings for the channel.</p>
+   * @see {@link DeleteGcmChannelCommand}
    */
-  public deleteGcmChannel(
+  deleteGcmChannel(
     args: DeleteGcmChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteGcmChannelCommandOutput>;
-  public deleteGcmChannel(
+  deleteGcmChannel(
     args: DeleteGcmChannelCommandInput,
     cb: (err: any, data?: DeleteGcmChannelCommandOutput) => void
   ): void;
-  public deleteGcmChannel(
+  deleteGcmChannel(
     args: DeleteGcmChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteGcmChannelCommandOutput) => void
   ): void;
-  public deleteGcmChannel(
-    args: DeleteGcmChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGcmChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteGcmChannelCommandOutput) => void
-  ): Promise<DeleteGcmChannelCommandOutput> | void {
-    const command = new DeleteGcmChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a message template for messages sent using the in-app message channel.</p>
+   * @see {@link DeleteInAppTemplateCommand}
    */
-  public deleteInAppTemplate(
+  deleteInAppTemplate(
     args: DeleteInAppTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteInAppTemplateCommandOutput>;
-  public deleteInAppTemplate(
+  deleteInAppTemplate(
     args: DeleteInAppTemplateCommandInput,
     cb: (err: any, data?: DeleteInAppTemplateCommandOutput) => void
   ): void;
-  public deleteInAppTemplate(
+  deleteInAppTemplate(
     args: DeleteInAppTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteInAppTemplateCommandOutput) => void
   ): void;
-  public deleteInAppTemplate(
-    args: DeleteInAppTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInAppTemplateCommandOutput) => void),
-    cb?: (err: any, data?: DeleteInAppTemplateCommandOutput) => void
-  ): Promise<DeleteInAppTemplateCommandOutput> | void {
-    const command = new DeleteInAppTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a journey from an application.</p>
+   * @see {@link DeleteJourneyCommand}
    */
-  public deleteJourney(
-    args: DeleteJourneyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteJourneyCommandOutput>;
-  public deleteJourney(
-    args: DeleteJourneyCommandInput,
-    cb: (err: any, data?: DeleteJourneyCommandOutput) => void
-  ): void;
-  public deleteJourney(
+  deleteJourney(args: DeleteJourneyCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJourneyCommandOutput>;
+  deleteJourney(args: DeleteJourneyCommandInput, cb: (err: any, data?: DeleteJourneyCommandOutput) => void): void;
+  deleteJourney(
     args: DeleteJourneyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteJourneyCommandOutput) => void
   ): void;
-  public deleteJourney(
-    args: DeleteJourneyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJourneyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteJourneyCommandOutput) => void
-  ): Promise<DeleteJourneyCommandOutput> | void {
-    const command = new DeleteJourneyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a message template for messages that were sent through a push notification channel.</p>
+   * @see {@link DeletePushTemplateCommand}
    */
-  public deletePushTemplate(
+  deletePushTemplate(
     args: DeletePushTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeletePushTemplateCommandOutput>;
-  public deletePushTemplate(
+  deletePushTemplate(
     args: DeletePushTemplateCommandInput,
     cb: (err: any, data?: DeletePushTemplateCommandOutput) => void
   ): void;
-  public deletePushTemplate(
+  deletePushTemplate(
     args: DeletePushTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePushTemplateCommandOutput) => void
   ): void;
-  public deletePushTemplate(
-    args: DeletePushTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePushTemplateCommandOutput) => void),
-    cb?: (err: any, data?: DeletePushTemplateCommandOutput) => void
-  ): Promise<DeletePushTemplateCommandOutput> | void {
-    const command = new DeletePushTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes an Amazon Pinpoint configuration for a recommender model.</p>
+   * @see {@link DeleteRecommenderConfigurationCommand}
    */
-  public deleteRecommenderConfiguration(
+  deleteRecommenderConfiguration(
     args: DeleteRecommenderConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRecommenderConfigurationCommandOutput>;
-  public deleteRecommenderConfiguration(
+  deleteRecommenderConfiguration(
     args: DeleteRecommenderConfigurationCommandInput,
     cb: (err: any, data?: DeleteRecommenderConfigurationCommandOutput) => void
   ): void;
-  public deleteRecommenderConfiguration(
+  deleteRecommenderConfiguration(
     args: DeleteRecommenderConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRecommenderConfigurationCommandOutput) => void
   ): void;
-  public deleteRecommenderConfiguration(
-    args: DeleteRecommenderConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRecommenderConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRecommenderConfigurationCommandOutput) => void
-  ): Promise<DeleteRecommenderConfigurationCommandOutput> | void {
-    const command = new DeleteRecommenderConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a segment from an application.</p>
+   * @see {@link DeleteSegmentCommand}
    */
-  public deleteSegment(
-    args: DeleteSegmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSegmentCommandOutput>;
-  public deleteSegment(
-    args: DeleteSegmentCommandInput,
-    cb: (err: any, data?: DeleteSegmentCommandOutput) => void
-  ): void;
-  public deleteSegment(
+  deleteSegment(args: DeleteSegmentCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSegmentCommandOutput>;
+  deleteSegment(args: DeleteSegmentCommandInput, cb: (err: any, data?: DeleteSegmentCommandOutput) => void): void;
+  deleteSegment(
     args: DeleteSegmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSegmentCommandOutput) => void
   ): void;
-  public deleteSegment(
-    args: DeleteSegmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSegmentCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSegmentCommandOutput) => void
-  ): Promise<DeleteSegmentCommandOutput> | void {
-    const command = new DeleteSegmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disables the SMS channel for an application and deletes any existing settings for the channel.</p>
+   * @see {@link DeleteSmsChannelCommand}
    */
-  public deleteSmsChannel(
+  deleteSmsChannel(
     args: DeleteSmsChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSmsChannelCommandOutput>;
-  public deleteSmsChannel(
+  deleteSmsChannel(
     args: DeleteSmsChannelCommandInput,
     cb: (err: any, data?: DeleteSmsChannelCommandOutput) => void
   ): void;
-  public deleteSmsChannel(
+  deleteSmsChannel(
     args: DeleteSmsChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSmsChannelCommandOutput) => void
   ): void;
-  public deleteSmsChannel(
-    args: DeleteSmsChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSmsChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSmsChannelCommandOutput) => void
-  ): Promise<DeleteSmsChannelCommandOutput> | void {
-    const command = new DeleteSmsChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a message template for messages that were sent through the SMS channel.</p>
+   * @see {@link DeleteSmsTemplateCommand}
    */
-  public deleteSmsTemplate(
+  deleteSmsTemplate(
     args: DeleteSmsTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSmsTemplateCommandOutput>;
-  public deleteSmsTemplate(
+  deleteSmsTemplate(
     args: DeleteSmsTemplateCommandInput,
     cb: (err: any, data?: DeleteSmsTemplateCommandOutput) => void
   ): void;
-  public deleteSmsTemplate(
+  deleteSmsTemplate(
     args: DeleteSmsTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSmsTemplateCommandOutput) => void
   ): void;
-  public deleteSmsTemplate(
-    args: DeleteSmsTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSmsTemplateCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSmsTemplateCommandOutput) => void
-  ): Promise<DeleteSmsTemplateCommandOutput> | void {
-    const command = new DeleteSmsTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes all the endpoints that are associated with a specific user ID.</p>
+   * @see {@link DeleteUserEndpointsCommand}
    */
-  public deleteUserEndpoints(
+  deleteUserEndpoints(
     args: DeleteUserEndpointsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteUserEndpointsCommandOutput>;
-  public deleteUserEndpoints(
+  deleteUserEndpoints(
     args: DeleteUserEndpointsCommandInput,
     cb: (err: any, data?: DeleteUserEndpointsCommandOutput) => void
   ): void;
-  public deleteUserEndpoints(
+  deleteUserEndpoints(
     args: DeleteUserEndpointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteUserEndpointsCommandOutput) => void
   ): void;
-  public deleteUserEndpoints(
-    args: DeleteUserEndpointsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserEndpointsCommandOutput) => void),
-    cb?: (err: any, data?: DeleteUserEndpointsCommandOutput) => void
-  ): Promise<DeleteUserEndpointsCommandOutput> | void {
-    const command = new DeleteUserEndpointsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disables the voice channel for an application and deletes any existing settings for the channel.</p>
+   * @see {@link DeleteVoiceChannelCommand}
    */
-  public deleteVoiceChannel(
+  deleteVoiceChannel(
     args: DeleteVoiceChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVoiceChannelCommandOutput>;
-  public deleteVoiceChannel(
+  deleteVoiceChannel(
     args: DeleteVoiceChannelCommandInput,
     cb: (err: any, data?: DeleteVoiceChannelCommandOutput) => void
   ): void;
-  public deleteVoiceChannel(
+  deleteVoiceChannel(
     args: DeleteVoiceChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVoiceChannelCommandOutput) => void
   ): void;
-  public deleteVoiceChannel(
-    args: DeleteVoiceChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceChannelCommandOutput) => void
-  ): Promise<DeleteVoiceChannelCommandOutput> | void {
-    const command = new DeleteVoiceChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a message template for messages that were sent through the voice channel.</p>
+   * @see {@link DeleteVoiceTemplateCommand}
    */
-  public deleteVoiceTemplate(
+  deleteVoiceTemplate(
     args: DeleteVoiceTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVoiceTemplateCommandOutput>;
-  public deleteVoiceTemplate(
+  deleteVoiceTemplate(
     args: DeleteVoiceTemplateCommandInput,
     cb: (err: any, data?: DeleteVoiceTemplateCommandOutput) => void
   ): void;
-  public deleteVoiceTemplate(
+  deleteVoiceTemplate(
     args: DeleteVoiceTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVoiceTemplateCommandOutput) => void
   ): void;
-  public deleteVoiceTemplate(
-    args: DeleteVoiceTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceTemplateCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceTemplateCommandOutput) => void
-  ): Promise<DeleteVoiceTemplateCommandOutput> | void {
-    const command = new DeleteVoiceTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the ADM channel for an application.</p>
+   * @see {@link GetAdmChannelCommand}
    */
-  public getAdmChannel(
-    args: GetAdmChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAdmChannelCommandOutput>;
-  public getAdmChannel(
-    args: GetAdmChannelCommandInput,
-    cb: (err: any, data?: GetAdmChannelCommandOutput) => void
-  ): void;
-  public getAdmChannel(
+  getAdmChannel(args: GetAdmChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetAdmChannelCommandOutput>;
+  getAdmChannel(args: GetAdmChannelCommandInput, cb: (err: any, data?: GetAdmChannelCommandOutput) => void): void;
+  getAdmChannel(
     args: GetAdmChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAdmChannelCommandOutput) => void
   ): void;
-  public getAdmChannel(
-    args: GetAdmChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAdmChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetAdmChannelCommandOutput) => void
-  ): Promise<GetAdmChannelCommandOutput> | void {
-    const command = new GetAdmChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the APNs channel for an application.</p>
+   * @see {@link GetApnsChannelCommand}
    */
-  public getApnsChannel(
+  getApnsChannel(
     args: GetApnsChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApnsChannelCommandOutput>;
-  public getApnsChannel(
-    args: GetApnsChannelCommandInput,
-    cb: (err: any, data?: GetApnsChannelCommandOutput) => void
-  ): void;
-  public getApnsChannel(
+  getApnsChannel(args: GetApnsChannelCommandInput, cb: (err: any, data?: GetApnsChannelCommandOutput) => void): void;
+  getApnsChannel(
     args: GetApnsChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApnsChannelCommandOutput) => void
   ): void;
-  public getApnsChannel(
-    args: GetApnsChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApnsChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetApnsChannelCommandOutput) => void
-  ): Promise<GetApnsChannelCommandOutput> | void {
-    const command = new GetApnsChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the APNs sandbox channel for an application.</p>
+   * @see {@link GetApnsSandboxChannelCommand}
    */
-  public getApnsSandboxChannel(
+  getApnsSandboxChannel(
     args: GetApnsSandboxChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApnsSandboxChannelCommandOutput>;
-  public getApnsSandboxChannel(
+  getApnsSandboxChannel(
     args: GetApnsSandboxChannelCommandInput,
     cb: (err: any, data?: GetApnsSandboxChannelCommandOutput) => void
   ): void;
-  public getApnsSandboxChannel(
+  getApnsSandboxChannel(
     args: GetApnsSandboxChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApnsSandboxChannelCommandOutput) => void
   ): void;
-  public getApnsSandboxChannel(
-    args: GetApnsSandboxChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApnsSandboxChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetApnsSandboxChannelCommandOutput) => void
-  ): Promise<GetApnsSandboxChannelCommandOutput> | void {
-    const command = new GetApnsSandboxChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the APNs VoIP channel for an application.</p>
+   * @see {@link GetApnsVoipChannelCommand}
    */
-  public getApnsVoipChannel(
+  getApnsVoipChannel(
     args: GetApnsVoipChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApnsVoipChannelCommandOutput>;
-  public getApnsVoipChannel(
+  getApnsVoipChannel(
     args: GetApnsVoipChannelCommandInput,
     cb: (err: any, data?: GetApnsVoipChannelCommandOutput) => void
   ): void;
-  public getApnsVoipChannel(
+  getApnsVoipChannel(
     args: GetApnsVoipChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApnsVoipChannelCommandOutput) => void
   ): void;
-  public getApnsVoipChannel(
-    args: GetApnsVoipChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApnsVoipChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetApnsVoipChannelCommandOutput) => void
-  ): Promise<GetApnsVoipChannelCommandOutput> | void {
-    const command = new GetApnsVoipChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the APNs VoIP sandbox channel for an application.</p>
+   * @see {@link GetApnsVoipSandboxChannelCommand}
    */
-  public getApnsVoipSandboxChannel(
+  getApnsVoipSandboxChannel(
     args: GetApnsVoipSandboxChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApnsVoipSandboxChannelCommandOutput>;
-  public getApnsVoipSandboxChannel(
+  getApnsVoipSandboxChannel(
     args: GetApnsVoipSandboxChannelCommandInput,
     cb: (err: any, data?: GetApnsVoipSandboxChannelCommandOutput) => void
   ): void;
-  public getApnsVoipSandboxChannel(
+  getApnsVoipSandboxChannel(
     args: GetApnsVoipSandboxChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApnsVoipSandboxChannelCommandOutput) => void
   ): void;
-  public getApnsVoipSandboxChannel(
-    args: GetApnsVoipSandboxChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApnsVoipSandboxChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetApnsVoipSandboxChannelCommandOutput) => void
-  ): Promise<GetApnsVoipSandboxChannelCommandOutput> | void {
-    const command = new GetApnsVoipSandboxChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about an application.</p>
+   * @see {@link GetAppCommand}
    */
-  public getApp(args: GetAppCommandInput, options?: __HttpHandlerOptions): Promise<GetAppCommandOutput>;
-  public getApp(args: GetAppCommandInput, cb: (err: any, data?: GetAppCommandOutput) => void): void;
-  public getApp(
+  getApp(args: GetAppCommandInput, options?: __HttpHandlerOptions): Promise<GetAppCommandOutput>;
+  getApp(args: GetAppCommandInput, cb: (err: any, data?: GetAppCommandOutput) => void): void;
+  getApp(
     args: GetAppCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAppCommandOutput) => void
   ): void;
-  public getApp(
-    args: GetAppCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppCommandOutput) => void),
-    cb?: (err: any, data?: GetAppCommandOutput) => void
-  ): Promise<GetAppCommandOutput> | void {
-    const command = new GetAppCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p>
+   * @see {@link GetApplicationDateRangeKpiCommand}
    */
-  public getApplicationDateRangeKpi(
+  getApplicationDateRangeKpi(
     args: GetApplicationDateRangeKpiCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApplicationDateRangeKpiCommandOutput>;
-  public getApplicationDateRangeKpi(
+  getApplicationDateRangeKpi(
     args: GetApplicationDateRangeKpiCommandInput,
     cb: (err: any, data?: GetApplicationDateRangeKpiCommandOutput) => void
   ): void;
-  public getApplicationDateRangeKpi(
+  getApplicationDateRangeKpi(
     args: GetApplicationDateRangeKpiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApplicationDateRangeKpiCommandOutput) => void
   ): void;
-  public getApplicationDateRangeKpi(
-    args: GetApplicationDateRangeKpiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationDateRangeKpiCommandOutput) => void),
-    cb?: (err: any, data?: GetApplicationDateRangeKpiCommandOutput) => void
-  ): Promise<GetApplicationDateRangeKpiCommandOutput> | void {
-    const command = new GetApplicationDateRangeKpiCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the settings for an application.</p>
+   * @see {@link GetApplicationSettingsCommand}
    */
-  public getApplicationSettings(
+  getApplicationSettings(
     args: GetApplicationSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApplicationSettingsCommandOutput>;
-  public getApplicationSettings(
+  getApplicationSettings(
     args: GetApplicationSettingsCommandInput,
     cb: (err: any, data?: GetApplicationSettingsCommandOutput) => void
   ): void;
-  public getApplicationSettings(
+  getApplicationSettings(
     args: GetApplicationSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApplicationSettingsCommandOutput) => void
   ): void;
-  public getApplicationSettings(
-    args: GetApplicationSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetApplicationSettingsCommandOutput) => void
-  ): Promise<GetApplicationSettingsCommandOutput> | void {
-    const command = new GetApplicationSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>
+   * @see {@link GetAppsCommand}
    */
-  public getApps(args: GetAppsCommandInput, options?: __HttpHandlerOptions): Promise<GetAppsCommandOutput>;
-  public getApps(args: GetAppsCommandInput, cb: (err: any, data?: GetAppsCommandOutput) => void): void;
-  public getApps(
+  getApps(args: GetAppsCommandInput, options?: __HttpHandlerOptions): Promise<GetAppsCommandOutput>;
+  getApps(args: GetAppsCommandInput, cb: (err: any, data?: GetAppsCommandOutput) => void): void;
+  getApps(
     args: GetAppsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAppsCommandOutput) => void
   ): void;
-  public getApps(
-    args: GetAppsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppsCommandOutput) => void),
-    cb?: (err: any, data?: GetAppsCommandOutput) => void
-  ): Promise<GetAppsCommandOutput> | void {
-    const command = new GetAppsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the Baidu channel for an application.</p>
+   * @see {@link GetBaiduChannelCommand}
    */
-  public getBaiduChannel(
+  getBaiduChannel(
     args: GetBaiduChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetBaiduChannelCommandOutput>;
-  public getBaiduChannel(
-    args: GetBaiduChannelCommandInput,
-    cb: (err: any, data?: GetBaiduChannelCommandOutput) => void
-  ): void;
-  public getBaiduChannel(
+  getBaiduChannel(args: GetBaiduChannelCommandInput, cb: (err: any, data?: GetBaiduChannelCommandOutput) => void): void;
+  getBaiduChannel(
     args: GetBaiduChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetBaiduChannelCommandOutput) => void
   ): void;
-  public getBaiduChannel(
-    args: GetBaiduChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBaiduChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetBaiduChannelCommandOutput) => void
-  ): Promise<GetBaiduChannelCommandOutput> | void {
-    const command = new GetBaiduChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status, configuration, and other settings for a campaign.</p>
+   * @see {@link GetCampaignCommand}
    */
-  public getCampaign(args: GetCampaignCommandInput, options?: __HttpHandlerOptions): Promise<GetCampaignCommandOutput>;
-  public getCampaign(args: GetCampaignCommandInput, cb: (err: any, data?: GetCampaignCommandOutput) => void): void;
-  public getCampaign(
+  getCampaign(args: GetCampaignCommandInput, options?: __HttpHandlerOptions): Promise<GetCampaignCommandOutput>;
+  getCampaign(args: GetCampaignCommandInput, cb: (err: any, data?: GetCampaignCommandOutput) => void): void;
+  getCampaign(
     args: GetCampaignCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCampaignCommandOutput) => void
   ): void;
-  public getCampaign(
-    args: GetCampaignCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignCommandOutput) => void),
-    cb?: (err: any, data?: GetCampaignCommandOutput) => void
-  ): Promise<GetCampaignCommandOutput> | void {
-    const command = new GetCampaignCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about all the activities for a campaign.</p>
+   * @see {@link GetCampaignActivitiesCommand}
    */
-  public getCampaignActivities(
+  getCampaignActivities(
     args: GetCampaignActivitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCampaignActivitiesCommandOutput>;
-  public getCampaignActivities(
+  getCampaignActivities(
     args: GetCampaignActivitiesCommandInput,
     cb: (err: any, data?: GetCampaignActivitiesCommandOutput) => void
   ): void;
-  public getCampaignActivities(
+  getCampaignActivities(
     args: GetCampaignActivitiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCampaignActivitiesCommandOutput) => void
   ): void;
-  public getCampaignActivities(
-    args: GetCampaignActivitiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignActivitiesCommandOutput) => void),
-    cb?: (err: any, data?: GetCampaignActivitiesCommandOutput) => void
-  ): Promise<GetCampaignActivitiesCommandOutput> | void {
-    const command = new GetCampaignActivitiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p>
+   * @see {@link GetCampaignDateRangeKpiCommand}
    */
-  public getCampaignDateRangeKpi(
+  getCampaignDateRangeKpi(
     args: GetCampaignDateRangeKpiCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCampaignDateRangeKpiCommandOutput>;
-  public getCampaignDateRangeKpi(
+  getCampaignDateRangeKpi(
     args: GetCampaignDateRangeKpiCommandInput,
     cb: (err: any, data?: GetCampaignDateRangeKpiCommandOutput) => void
   ): void;
-  public getCampaignDateRangeKpi(
+  getCampaignDateRangeKpi(
     args: GetCampaignDateRangeKpiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCampaignDateRangeKpiCommandOutput) => void
   ): void;
-  public getCampaignDateRangeKpi(
-    args: GetCampaignDateRangeKpiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignDateRangeKpiCommandOutput) => void),
-    cb?: (err: any, data?: GetCampaignDateRangeKpiCommandOutput) => void
-  ): Promise<GetCampaignDateRangeKpiCommandOutput> | void {
-    const command = new GetCampaignDateRangeKpiCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status, configuration, and other settings for all the campaigns that are associated with an application.</p>
+   * @see {@link GetCampaignsCommand}
    */
-  public getCampaigns(
-    args: GetCampaignsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCampaignsCommandOutput>;
-  public getCampaigns(args: GetCampaignsCommandInput, cb: (err: any, data?: GetCampaignsCommandOutput) => void): void;
-  public getCampaigns(
+  getCampaigns(args: GetCampaignsCommandInput, options?: __HttpHandlerOptions): Promise<GetCampaignsCommandOutput>;
+  getCampaigns(args: GetCampaignsCommandInput, cb: (err: any, data?: GetCampaignsCommandOutput) => void): void;
+  getCampaigns(
     args: GetCampaignsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCampaignsCommandOutput) => void
   ): void;
-  public getCampaigns(
-    args: GetCampaignsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignsCommandOutput) => void),
-    cb?: (err: any, data?: GetCampaignsCommandOutput) => void
-  ): Promise<GetCampaignsCommandOutput> | void {
-    const command = new GetCampaignsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>
+   * @see {@link GetCampaignVersionCommand}
    */
-  public getCampaignVersion(
+  getCampaignVersion(
     args: GetCampaignVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCampaignVersionCommandOutput>;
-  public getCampaignVersion(
+  getCampaignVersion(
     args: GetCampaignVersionCommandInput,
     cb: (err: any, data?: GetCampaignVersionCommandOutput) => void
   ): void;
-  public getCampaignVersion(
+  getCampaignVersion(
     args: GetCampaignVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCampaignVersionCommandOutput) => void
   ): void;
-  public getCampaignVersion(
-    args: GetCampaignVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignVersionCommandOutput) => void),
-    cb?: (err: any, data?: GetCampaignVersionCommandOutput) => void
-  ): Promise<GetCampaignVersionCommandOutput> | void {
-    const command = new GetCampaignVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status, configuration, and other settings for all versions of a campaign.</p>
+   * @see {@link GetCampaignVersionsCommand}
    */
-  public getCampaignVersions(
+  getCampaignVersions(
     args: GetCampaignVersionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCampaignVersionsCommandOutput>;
-  public getCampaignVersions(
+  getCampaignVersions(
     args: GetCampaignVersionsCommandInput,
     cb: (err: any, data?: GetCampaignVersionsCommandOutput) => void
   ): void;
-  public getCampaignVersions(
+  getCampaignVersions(
     args: GetCampaignVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCampaignVersionsCommandOutput) => void
   ): void;
-  public getCampaignVersions(
-    args: GetCampaignVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignVersionsCommandOutput) => void),
-    cb?: (err: any, data?: GetCampaignVersionsCommandOutput) => void
-  ): Promise<GetCampaignVersionsCommandOutput> | void {
-    const command = new GetCampaignVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the history and status of each channel for an application.</p>
+   * @see {@link GetChannelsCommand}
    */
-  public getChannels(args: GetChannelsCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelsCommandOutput>;
-  public getChannels(args: GetChannelsCommandInput, cb: (err: any, data?: GetChannelsCommandOutput) => void): void;
-  public getChannels(
+  getChannels(args: GetChannelsCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelsCommandOutput>;
+  getChannels(args: GetChannelsCommandInput, cb: (err: any, data?: GetChannelsCommandOutput) => void): void;
+  getChannels(
     args: GetChannelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetChannelsCommandOutput) => void
   ): void;
-  public getChannels(
-    args: GetChannelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelsCommandOutput) => void),
-    cb?: (err: any, data?: GetChannelsCommandOutput) => void
-  ): Promise<GetChannelsCommandOutput> | void {
-    const command = new GetChannelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the email channel for an application.</p>
+   * @see {@link GetEmailChannelCommand}
    */
-  public getEmailChannel(
+  getEmailChannel(
     args: GetEmailChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEmailChannelCommandOutput>;
-  public getEmailChannel(
-    args: GetEmailChannelCommandInput,
-    cb: (err: any, data?: GetEmailChannelCommandOutput) => void
-  ): void;
-  public getEmailChannel(
+  getEmailChannel(args: GetEmailChannelCommandInput, cb: (err: any, data?: GetEmailChannelCommandOutput) => void): void;
+  getEmailChannel(
     args: GetEmailChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEmailChannelCommandOutput) => void
   ): void;
-  public getEmailChannel(
-    args: GetEmailChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetEmailChannelCommandOutput) => void
-  ): Promise<GetEmailChannelCommandOutput> | void {
-    const command = new GetEmailChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves the content and settings of a message template for messages that are sent through the email channel.</p>
+   * @see {@link GetEmailTemplateCommand}
    */
-  public getEmailTemplate(
+  getEmailTemplate(
     args: GetEmailTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEmailTemplateCommandOutput>;
-  public getEmailTemplate(
+  getEmailTemplate(
     args: GetEmailTemplateCommandInput,
     cb: (err: any, data?: GetEmailTemplateCommandOutput) => void
   ): void;
-  public getEmailTemplate(
+  getEmailTemplate(
     args: GetEmailTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEmailTemplateCommandOutput) => void
   ): void;
-  public getEmailTemplate(
-    args: GetEmailTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailTemplateCommandOutput) => void),
-    cb?: (err: any, data?: GetEmailTemplateCommandOutput) => void
-  ): Promise<GetEmailTemplateCommandOutput> | void {
-    const command = new GetEmailTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the settings and attributes of a specific endpoint for an application.</p>
+   * @see {@link GetEndpointCommand}
    */
-  public getEndpoint(args: GetEndpointCommandInput, options?: __HttpHandlerOptions): Promise<GetEndpointCommandOutput>;
-  public getEndpoint(args: GetEndpointCommandInput, cb: (err: any, data?: GetEndpointCommandOutput) => void): void;
-  public getEndpoint(
+  getEndpoint(args: GetEndpointCommandInput, options?: __HttpHandlerOptions): Promise<GetEndpointCommandOutput>;
+  getEndpoint(args: GetEndpointCommandInput, cb: (err: any, data?: GetEndpointCommandOutput) => void): void;
+  getEndpoint(
     args: GetEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEndpointCommandOutput) => void
   ): void;
-  public getEndpoint(
-    args: GetEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEndpointCommandOutput) => void),
-    cb?: (err: any, data?: GetEndpointCommandOutput) => void
-  ): Promise<GetEndpointCommandOutput> | void {
-    const command = new GetEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the event stream settings for an application.</p>
+   * @see {@link GetEventStreamCommand}
    */
-  public getEventStream(
+  getEventStream(
     args: GetEventStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEventStreamCommandOutput>;
-  public getEventStream(
-    args: GetEventStreamCommandInput,
-    cb: (err: any, data?: GetEventStreamCommandOutput) => void
-  ): void;
-  public getEventStream(
+  getEventStream(args: GetEventStreamCommandInput, cb: (err: any, data?: GetEventStreamCommandOutput) => void): void;
+  getEventStream(
     args: GetEventStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEventStreamCommandOutput) => void
   ): void;
-  public getEventStream(
-    args: GetEventStreamCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventStreamCommandOutput) => void),
-    cb?: (err: any, data?: GetEventStreamCommandOutput) => void
-  ): Promise<GetEventStreamCommandOutput> | void {
-    const command = new GetEventStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of a specific export job for an application.</p>
+   * @see {@link GetExportJobCommand}
    */
-  public getExportJob(
-    args: GetExportJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetExportJobCommandOutput>;
-  public getExportJob(args: GetExportJobCommandInput, cb: (err: any, data?: GetExportJobCommandOutput) => void): void;
-  public getExportJob(
+  getExportJob(args: GetExportJobCommandInput, options?: __HttpHandlerOptions): Promise<GetExportJobCommandOutput>;
+  getExportJob(args: GetExportJobCommandInput, cb: (err: any, data?: GetExportJobCommandOutput) => void): void;
+  getExportJob(
     args: GetExportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetExportJobCommandOutput) => void
   ): void;
-  public getExportJob(
-    args: GetExportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExportJobCommandOutput) => void),
-    cb?: (err: any, data?: GetExportJobCommandOutput) => void
-  ): Promise<GetExportJobCommandOutput> | void {
-    const command = new GetExportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of all the export jobs for an application.</p>
+   * @see {@link GetExportJobsCommand}
    */
-  public getExportJobs(
-    args: GetExportJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetExportJobsCommandOutput>;
-  public getExportJobs(
-    args: GetExportJobsCommandInput,
-    cb: (err: any, data?: GetExportJobsCommandOutput) => void
-  ): void;
-  public getExportJobs(
+  getExportJobs(args: GetExportJobsCommandInput, options?: __HttpHandlerOptions): Promise<GetExportJobsCommandOutput>;
+  getExportJobs(args: GetExportJobsCommandInput, cb: (err: any, data?: GetExportJobsCommandOutput) => void): void;
+  getExportJobs(
     args: GetExportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetExportJobsCommandOutput) => void
   ): void;
-  public getExportJobs(
-    args: GetExportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExportJobsCommandOutput) => void),
-    cb?: (err: any, data?: GetExportJobsCommandOutput) => void
-  ): Promise<GetExportJobsCommandOutput> | void {
-    const command = new GetExportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the GCM channel for an application.</p>
+   * @see {@link GetGcmChannelCommand}
    */
-  public getGcmChannel(
-    args: GetGcmChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetGcmChannelCommandOutput>;
-  public getGcmChannel(
-    args: GetGcmChannelCommandInput,
-    cb: (err: any, data?: GetGcmChannelCommandOutput) => void
-  ): void;
-  public getGcmChannel(
+  getGcmChannel(args: GetGcmChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetGcmChannelCommandOutput>;
+  getGcmChannel(args: GetGcmChannelCommandInput, cb: (err: any, data?: GetGcmChannelCommandOutput) => void): void;
+  getGcmChannel(
     args: GetGcmChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetGcmChannelCommandOutput) => void
   ): void;
-  public getGcmChannel(
-    args: GetGcmChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGcmChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetGcmChannelCommandOutput) => void
-  ): Promise<GetGcmChannelCommandOutput> | void {
-    const command = new GetGcmChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of a specific import job for an application.</p>
+   * @see {@link GetImportJobCommand}
    */
-  public getImportJob(
-    args: GetImportJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetImportJobCommandOutput>;
-  public getImportJob(args: GetImportJobCommandInput, cb: (err: any, data?: GetImportJobCommandOutput) => void): void;
-  public getImportJob(
+  getImportJob(args: GetImportJobCommandInput, options?: __HttpHandlerOptions): Promise<GetImportJobCommandOutput>;
+  getImportJob(args: GetImportJobCommandInput, cb: (err: any, data?: GetImportJobCommandOutput) => void): void;
+  getImportJob(
     args: GetImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetImportJobCommandOutput) => void
   ): void;
-  public getImportJob(
-    args: GetImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportJobCommandOutput) => void),
-    cb?: (err: any, data?: GetImportJobCommandOutput) => void
-  ): Promise<GetImportJobCommandOutput> | void {
-    const command = new GetImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of all the import jobs for an application.</p>
+   * @see {@link GetImportJobsCommand}
    */
-  public getImportJobs(
-    args: GetImportJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetImportJobsCommandOutput>;
-  public getImportJobs(
-    args: GetImportJobsCommandInput,
-    cb: (err: any, data?: GetImportJobsCommandOutput) => void
-  ): void;
-  public getImportJobs(
+  getImportJobs(args: GetImportJobsCommandInput, options?: __HttpHandlerOptions): Promise<GetImportJobsCommandOutput>;
+  getImportJobs(args: GetImportJobsCommandInput, cb: (err: any, data?: GetImportJobsCommandOutput) => void): void;
+  getImportJobs(
     args: GetImportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetImportJobsCommandOutput) => void
   ): void;
-  public getImportJobs(
-    args: GetImportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportJobsCommandOutput) => void),
-    cb?: (err: any, data?: GetImportJobsCommandOutput) => void
-  ): Promise<GetImportJobsCommandOutput> | void {
-    const command = new GetImportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves the in-app messages targeted for the provided endpoint ID.</p>
+   * @see {@link GetInAppMessagesCommand}
    */
-  public getInAppMessages(
+  getInAppMessages(
     args: GetInAppMessagesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetInAppMessagesCommandOutput>;
-  public getInAppMessages(
+  getInAppMessages(
     args: GetInAppMessagesCommandInput,
     cb: (err: any, data?: GetInAppMessagesCommandOutput) => void
   ): void;
-  public getInAppMessages(
+  getInAppMessages(
     args: GetInAppMessagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetInAppMessagesCommandOutput) => void
   ): void;
-  public getInAppMessages(
-    args: GetInAppMessagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInAppMessagesCommandOutput) => void),
-    cb?: (err: any, data?: GetInAppMessagesCommandOutput) => void
-  ): Promise<GetInAppMessagesCommandOutput> | void {
-    const command = new GetInAppMessagesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves the content and settings of a message template for messages sent through the in-app channel.</p>
+   * @see {@link GetInAppTemplateCommand}
    */
-  public getInAppTemplate(
+  getInAppTemplate(
     args: GetInAppTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetInAppTemplateCommandOutput>;
-  public getInAppTemplate(
+  getInAppTemplate(
     args: GetInAppTemplateCommandInput,
     cb: (err: any, data?: GetInAppTemplateCommandOutput) => void
   ): void;
-  public getInAppTemplate(
+  getInAppTemplate(
     args: GetInAppTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetInAppTemplateCommandOutput) => void
   ): void;
-  public getInAppTemplate(
-    args: GetInAppTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInAppTemplateCommandOutput) => void),
-    cb?: (err: any, data?: GetInAppTemplateCommandOutput) => void
-  ): Promise<GetInAppTemplateCommandOutput> | void {
-    const command = new GetInAppTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status, configuration, and other settings for a journey.</p>
+   * @see {@link GetJourneyCommand}
    */
-  public getJourney(args: GetJourneyCommandInput, options?: __HttpHandlerOptions): Promise<GetJourneyCommandOutput>;
-  public getJourney(args: GetJourneyCommandInput, cb: (err: any, data?: GetJourneyCommandOutput) => void): void;
-  public getJourney(
+  getJourney(args: GetJourneyCommandInput, options?: __HttpHandlerOptions): Promise<GetJourneyCommandOutput>;
+  getJourney(args: GetJourneyCommandInput, cb: (err: any, data?: GetJourneyCommandOutput) => void): void;
+  getJourney(
     args: GetJourneyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetJourneyCommandOutput) => void
   ): void;
-  public getJourney(
-    args: GetJourneyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJourneyCommandOutput) => void),
-    cb?: (err: any, data?: GetJourneyCommandOutput) => void
-  ): Promise<GetJourneyCommandOutput> | void {
-    const command = new GetJourneyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves (queries) pre-aggregated data for a standard engagement metric that applies to a journey.</p>
+   * @see {@link GetJourneyDateRangeKpiCommand}
    */
-  public getJourneyDateRangeKpi(
+  getJourneyDateRangeKpi(
     args: GetJourneyDateRangeKpiCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJourneyDateRangeKpiCommandOutput>;
-  public getJourneyDateRangeKpi(
+  getJourneyDateRangeKpi(
     args: GetJourneyDateRangeKpiCommandInput,
     cb: (err: any, data?: GetJourneyDateRangeKpiCommandOutput) => void
   ): void;
-  public getJourneyDateRangeKpi(
+  getJourneyDateRangeKpi(
     args: GetJourneyDateRangeKpiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetJourneyDateRangeKpiCommandOutput) => void
   ): void;
-  public getJourneyDateRangeKpi(
-    args: GetJourneyDateRangeKpiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJourneyDateRangeKpiCommandOutput) => void),
-    cb?: (err: any, data?: GetJourneyDateRangeKpiCommandOutput) => void
-  ): Promise<GetJourneyDateRangeKpiCommandOutput> | void {
-    const command = new GetJourneyDateRangeKpiCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey activity.</p>
+   * @see {@link GetJourneyExecutionActivityMetricsCommand}
    */
-  public getJourneyExecutionActivityMetrics(
+  getJourneyExecutionActivityMetrics(
     args: GetJourneyExecutionActivityMetricsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJourneyExecutionActivityMetricsCommandOutput>;
-  public getJourneyExecutionActivityMetrics(
+  getJourneyExecutionActivityMetrics(
     args: GetJourneyExecutionActivityMetricsCommandInput,
     cb: (err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void
   ): void;
-  public getJourneyExecutionActivityMetrics(
+  getJourneyExecutionActivityMetrics(
     args: GetJourneyExecutionActivityMetricsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void
   ): void;
-  public getJourneyExecutionActivityMetrics(
-    args: GetJourneyExecutionActivityMetricsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void),
-    cb?: (err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void
-  ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> | void {
-    const command = new GetJourneyExecutionActivityMetricsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey.</p>
+   * @see {@link GetJourneyExecutionMetricsCommand}
    */
-  public getJourneyExecutionMetrics(
+  getJourneyExecutionMetrics(
     args: GetJourneyExecutionMetricsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJourneyExecutionMetricsCommandOutput>;
-  public getJourneyExecutionMetrics(
+  getJourneyExecutionMetrics(
     args: GetJourneyExecutionMetricsCommandInput,
     cb: (err: any, data?: GetJourneyExecutionMetricsCommandOutput) => void
   ): void;
-  public getJourneyExecutionMetrics(
+  getJourneyExecutionMetrics(
     args: GetJourneyExecutionMetricsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetJourneyExecutionMetricsCommandOutput) => void
   ): void;
-  public getJourneyExecutionMetrics(
-    args: GetJourneyExecutionMetricsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJourneyExecutionMetricsCommandOutput) => void),
-    cb?: (err: any, data?: GetJourneyExecutionMetricsCommandOutput) => void
-  ): Promise<GetJourneyExecutionMetricsCommandOutput> | void {
-    const command = new GetJourneyExecutionMetricsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>
+   * @see {@link GetJourneyRunExecutionActivityMetricsCommand}
    */
-  public getPushTemplate(
+  getJourneyRunExecutionActivityMetrics(
+    args: GetJourneyRunExecutionActivityMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJourneyRunExecutionActivityMetricsCommandOutput>;
+  getJourneyRunExecutionActivityMetrics(
+    args: GetJourneyRunExecutionActivityMetricsCommandInput,
+    cb: (err: any, data?: GetJourneyRunExecutionActivityMetricsCommandOutput) => void
+  ): void;
+  getJourneyRunExecutionActivityMetrics(
+    args: GetJourneyRunExecutionActivityMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJourneyRunExecutionActivityMetricsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetJourneyRunExecutionMetricsCommand}
+   */
+  getJourneyRunExecutionMetrics(
+    args: GetJourneyRunExecutionMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJourneyRunExecutionMetricsCommandOutput>;
+  getJourneyRunExecutionMetrics(
+    args: GetJourneyRunExecutionMetricsCommandInput,
+    cb: (err: any, data?: GetJourneyRunExecutionMetricsCommandOutput) => void
+  ): void;
+  getJourneyRunExecutionMetrics(
+    args: GetJourneyRunExecutionMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJourneyRunExecutionMetricsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetJourneyRunsCommand}
+   */
+  getJourneyRuns(
+    args: GetJourneyRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJourneyRunsCommandOutput>;
+  getJourneyRuns(args: GetJourneyRunsCommandInput, cb: (err: any, data?: GetJourneyRunsCommandOutput) => void): void;
+  getJourneyRuns(
+    args: GetJourneyRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJourneyRunsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPushTemplateCommand}
+   */
+  getPushTemplate(
     args: GetPushTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPushTemplateCommandOutput>;
-  public getPushTemplate(
-    args: GetPushTemplateCommandInput,
-    cb: (err: any, data?: GetPushTemplateCommandOutput) => void
-  ): void;
-  public getPushTemplate(
+  getPushTemplate(args: GetPushTemplateCommandInput, cb: (err: any, data?: GetPushTemplateCommandOutput) => void): void;
+  getPushTemplate(
     args: GetPushTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPushTemplateCommandOutput) => void
   ): void;
-  public getPushTemplate(
-    args: GetPushTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPushTemplateCommandOutput) => void),
-    cb?: (err: any, data?: GetPushTemplateCommandOutput) => void
-  ): Promise<GetPushTemplateCommandOutput> | void {
-    const command = new GetPushTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about an Amazon Pinpoint configuration for a recommender model.</p>
+   * @see {@link GetRecommenderConfigurationCommand}
    */
-  public getRecommenderConfiguration(
+  getRecommenderConfiguration(
     args: GetRecommenderConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetRecommenderConfigurationCommandOutput>;
-  public getRecommenderConfiguration(
+  getRecommenderConfiguration(
     args: GetRecommenderConfigurationCommandInput,
     cb: (err: any, data?: GetRecommenderConfigurationCommandOutput) => void
   ): void;
-  public getRecommenderConfiguration(
+  getRecommenderConfiguration(
     args: GetRecommenderConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRecommenderConfigurationCommandOutput) => void
   ): void;
-  public getRecommenderConfiguration(
-    args: GetRecommenderConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecommenderConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetRecommenderConfigurationCommandOutput) => void
-  ): Promise<GetRecommenderConfigurationCommandOutput> | void {
-    const command = new GetRecommenderConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
+   * @see {@link GetRecommenderConfigurationsCommand}
    */
-  public getRecommenderConfigurations(
+  getRecommenderConfigurations(
     args: GetRecommenderConfigurationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetRecommenderConfigurationsCommandOutput>;
-  public getRecommenderConfigurations(
+  getRecommenderConfigurations(
     args: GetRecommenderConfigurationsCommandInput,
     cb: (err: any, data?: GetRecommenderConfigurationsCommandOutput) => void
   ): void;
-  public getRecommenderConfigurations(
+  getRecommenderConfigurations(
     args: GetRecommenderConfigurationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRecommenderConfigurationsCommandOutput) => void
   ): void;
-  public getRecommenderConfigurations(
-    args: GetRecommenderConfigurationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecommenderConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: GetRecommenderConfigurationsCommandOutput) => void
-  ): Promise<GetRecommenderConfigurationsCommandOutput> | void {
-    const command = new GetRecommenderConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the configuration, dimension, and other settings for a specific segment that's associated with an application.</p>
+   * @see {@link GetSegmentCommand}
    */
-  public getSegment(args: GetSegmentCommandInput, options?: __HttpHandlerOptions): Promise<GetSegmentCommandOutput>;
-  public getSegment(args: GetSegmentCommandInput, cb: (err: any, data?: GetSegmentCommandOutput) => void): void;
-  public getSegment(
+  getSegment(args: GetSegmentCommandInput, options?: __HttpHandlerOptions): Promise<GetSegmentCommandOutput>;
+  getSegment(args: GetSegmentCommandInput, cb: (err: any, data?: GetSegmentCommandOutput) => void): void;
+  getSegment(
     args: GetSegmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSegmentCommandOutput) => void
   ): void;
-  public getSegment(
-    args: GetSegmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentCommandOutput) => void),
-    cb?: (err: any, data?: GetSegmentCommandOutput) => void
-  ): Promise<GetSegmentCommandOutput> | void {
-    const command = new GetSegmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the export jobs for a segment.</p>
+   * @see {@link GetSegmentExportJobsCommand}
    */
-  public getSegmentExportJobs(
+  getSegmentExportJobs(
     args: GetSegmentExportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSegmentExportJobsCommandOutput>;
-  public getSegmentExportJobs(
+  getSegmentExportJobs(
     args: GetSegmentExportJobsCommandInput,
     cb: (err: any, data?: GetSegmentExportJobsCommandOutput) => void
   ): void;
-  public getSegmentExportJobs(
+  getSegmentExportJobs(
     args: GetSegmentExportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSegmentExportJobsCommandOutput) => void
   ): void;
-  public getSegmentExportJobs(
-    args: GetSegmentExportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentExportJobsCommandOutput) => void),
-    cb?: (err: any, data?: GetSegmentExportJobsCommandOutput) => void
-  ): Promise<GetSegmentExportJobsCommandOutput> | void {
-    const command = new GetSegmentExportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the import jobs for a segment.</p>
+   * @see {@link GetSegmentImportJobsCommand}
    */
-  public getSegmentImportJobs(
+  getSegmentImportJobs(
     args: GetSegmentImportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSegmentImportJobsCommandOutput>;
-  public getSegmentImportJobs(
+  getSegmentImportJobs(
     args: GetSegmentImportJobsCommandInput,
     cb: (err: any, data?: GetSegmentImportJobsCommandOutput) => void
   ): void;
-  public getSegmentImportJobs(
+  getSegmentImportJobs(
     args: GetSegmentImportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSegmentImportJobsCommandOutput) => void
   ): void;
-  public getSegmentImportJobs(
-    args: GetSegmentImportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentImportJobsCommandOutput) => void),
-    cb?: (err: any, data?: GetSegmentImportJobsCommandOutput) => void
-  ): Promise<GetSegmentImportJobsCommandOutput> | void {
-    const command = new GetSegmentImportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the configuration, dimension, and other settings for all the segments that are associated with an application.</p>
+   * @see {@link GetSegmentsCommand}
    */
-  public getSegments(args: GetSegmentsCommandInput, options?: __HttpHandlerOptions): Promise<GetSegmentsCommandOutput>;
-  public getSegments(args: GetSegmentsCommandInput, cb: (err: any, data?: GetSegmentsCommandOutput) => void): void;
-  public getSegments(
+  getSegments(args: GetSegmentsCommandInput, options?: __HttpHandlerOptions): Promise<GetSegmentsCommandOutput>;
+  getSegments(args: GetSegmentsCommandInput, cb: (err: any, data?: GetSegmentsCommandOutput) => void): void;
+  getSegments(
     args: GetSegmentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSegmentsCommandOutput) => void
   ): void;
-  public getSegments(
-    args: GetSegmentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentsCommandOutput) => void),
-    cb?: (err: any, data?: GetSegmentsCommandOutput) => void
-  ): Promise<GetSegmentsCommandOutput> | void {
-    const command = new GetSegmentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the configuration, dimension, and other settings for a specific version of a segment that's associated with an application.</p>
+   * @see {@link GetSegmentVersionCommand}
    */
-  public getSegmentVersion(
+  getSegmentVersion(
     args: GetSegmentVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSegmentVersionCommandOutput>;
-  public getSegmentVersion(
+  getSegmentVersion(
     args: GetSegmentVersionCommandInput,
     cb: (err: any, data?: GetSegmentVersionCommandOutput) => void
   ): void;
-  public getSegmentVersion(
+  getSegmentVersion(
     args: GetSegmentVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSegmentVersionCommandOutput) => void
   ): void;
-  public getSegmentVersion(
-    args: GetSegmentVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentVersionCommandOutput) => void),
-    cb?: (err: any, data?: GetSegmentVersionCommandOutput) => void
-  ): Promise<GetSegmentVersionCommandOutput> | void {
-    const command = new GetSegmentVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the configuration, dimension, and other settings for all the versions of a specific segment that's associated with an application.</p>
+   * @see {@link GetSegmentVersionsCommand}
    */
-  public getSegmentVersions(
+  getSegmentVersions(
     args: GetSegmentVersionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSegmentVersionsCommandOutput>;
-  public getSegmentVersions(
+  getSegmentVersions(
     args: GetSegmentVersionsCommandInput,
     cb: (err: any, data?: GetSegmentVersionsCommandOutput) => void
   ): void;
-  public getSegmentVersions(
+  getSegmentVersions(
     args: GetSegmentVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSegmentVersionsCommandOutput) => void
   ): void;
-  public getSegmentVersions(
-    args: GetSegmentVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentVersionsCommandOutput) => void),
-    cb?: (err: any, data?: GetSegmentVersionsCommandOutput) => void
-  ): Promise<GetSegmentVersionsCommandOutput> | void {
-    const command = new GetSegmentVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the SMS channel for an application.</p>
+   * @see {@link GetSmsChannelCommand}
    */
-  public getSmsChannel(
-    args: GetSmsChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSmsChannelCommandOutput>;
-  public getSmsChannel(
-    args: GetSmsChannelCommandInput,
-    cb: (err: any, data?: GetSmsChannelCommandOutput) => void
-  ): void;
-  public getSmsChannel(
+  getSmsChannel(args: GetSmsChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetSmsChannelCommandOutput>;
+  getSmsChannel(args: GetSmsChannelCommandInput, cb: (err: any, data?: GetSmsChannelCommandOutput) => void): void;
+  getSmsChannel(
     args: GetSmsChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSmsChannelCommandOutput) => void
   ): void;
-  public getSmsChannel(
-    args: GetSmsChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSmsChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetSmsChannelCommandOutput) => void
-  ): Promise<GetSmsChannelCommandOutput> | void {
-    const command = new GetSmsChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves the content and settings of a message template for messages that are sent through the SMS channel.</p>
+   * @see {@link GetSmsTemplateCommand}
    */
-  public getSmsTemplate(
+  getSmsTemplate(
     args: GetSmsTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSmsTemplateCommandOutput>;
-  public getSmsTemplate(
-    args: GetSmsTemplateCommandInput,
-    cb: (err: any, data?: GetSmsTemplateCommandOutput) => void
-  ): void;
-  public getSmsTemplate(
+  getSmsTemplate(args: GetSmsTemplateCommandInput, cb: (err: any, data?: GetSmsTemplateCommandOutput) => void): void;
+  getSmsTemplate(
     args: GetSmsTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSmsTemplateCommandOutput) => void
   ): void;
-  public getSmsTemplate(
-    args: GetSmsTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSmsTemplateCommandOutput) => void),
-    cb?: (err: any, data?: GetSmsTemplateCommandOutput) => void
-  ): Promise<GetSmsTemplateCommandOutput> | void {
-    const command = new GetSmsTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about all the endpoints that are associated with a specific user ID.</p>
+   * @see {@link GetUserEndpointsCommand}
    */
-  public getUserEndpoints(
+  getUserEndpoints(
     args: GetUserEndpointsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetUserEndpointsCommandOutput>;
-  public getUserEndpoints(
+  getUserEndpoints(
     args: GetUserEndpointsCommandInput,
     cb: (err: any, data?: GetUserEndpointsCommandOutput) => void
   ): void;
-  public getUserEndpoints(
+  getUserEndpoints(
     args: GetUserEndpointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUserEndpointsCommandOutput) => void
   ): void;
-  public getUserEndpoints(
-    args: GetUserEndpointsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserEndpointsCommandOutput) => void),
-    cb?: (err: any, data?: GetUserEndpointsCommandOutput) => void
-  ): Promise<GetUserEndpointsCommandOutput> | void {
-    const command = new GetUserEndpointsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status and settings of the voice channel for an application.</p>
+   * @see {@link GetVoiceChannelCommand}
    */
-  public getVoiceChannel(
+  getVoiceChannel(
     args: GetVoiceChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceChannelCommandOutput>;
-  public getVoiceChannel(
-    args: GetVoiceChannelCommandInput,
-    cb: (err: any, data?: GetVoiceChannelCommandOutput) => void
-  ): void;
-  public getVoiceChannel(
+  getVoiceChannel(args: GetVoiceChannelCommandInput, cb: (err: any, data?: GetVoiceChannelCommandOutput) => void): void;
+  getVoiceChannel(
     args: GetVoiceChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceChannelCommandOutput) => void
   ): void;
-  public getVoiceChannel(
-    args: GetVoiceChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceChannelCommandOutput) => void
-  ): Promise<GetVoiceChannelCommandOutput> | void {
-    const command = new GetVoiceChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves the content and settings of a message template for messages that are sent through the voice channel.</p>
+   * @see {@link GetVoiceTemplateCommand}
    */
-  public getVoiceTemplate(
+  getVoiceTemplate(
     args: GetVoiceTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceTemplateCommandOutput>;
-  public getVoiceTemplate(
+  getVoiceTemplate(
     args: GetVoiceTemplateCommandInput,
     cb: (err: any, data?: GetVoiceTemplateCommandOutput) => void
   ): void;
-  public getVoiceTemplate(
+  getVoiceTemplate(
     args: GetVoiceTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceTemplateCommandOutput) => void
   ): void;
-  public getVoiceTemplate(
-    args: GetVoiceTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceTemplateCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceTemplateCommandOutput) => void
-  ): Promise<GetVoiceTemplateCommandOutput> | void {
-    const command = new GetVoiceTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
+   * @see {@link ListJourneysCommand}
    */
-  public listJourneys(
-    args: ListJourneysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJourneysCommandOutput>;
-  public listJourneys(args: ListJourneysCommandInput, cb: (err: any, data?: ListJourneysCommandOutput) => void): void;
-  public listJourneys(
+  listJourneys(args: ListJourneysCommandInput, options?: __HttpHandlerOptions): Promise<ListJourneysCommandOutput>;
+  listJourneys(args: ListJourneysCommandInput, cb: (err: any, data?: ListJourneysCommandOutput) => void): void;
+  listJourneys(
     args: ListJourneysCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListJourneysCommandOutput) => void
   ): void;
-  public listJourneys(
-    args: ListJourneysCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJourneysCommandOutput) => void),
-    cb?: (err: any, data?: ListJourneysCommandOutput) => void
-  ): Promise<ListJourneysCommandOutput> | void {
-    const command = new ListJourneysCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves all the tags (keys and values) that are associated with an application, campaign, message template, or segment.</p>
+   * @see {@link ListTagsForResourceCommand}
    */
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about all the message templates that are associated with your Amazon Pinpoint account.</p>
+   * @see {@link ListTemplatesCommand}
    */
-  public listTemplates(
-    args: ListTemplatesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTemplatesCommandOutput>;
-  public listTemplates(
-    args: ListTemplatesCommandInput,
-    cb: (err: any, data?: ListTemplatesCommandOutput) => void
-  ): void;
-  public listTemplates(
+  listTemplates(args: ListTemplatesCommandInput, options?: __HttpHandlerOptions): Promise<ListTemplatesCommandOutput>;
+  listTemplates(args: ListTemplatesCommandInput, cb: (err: any, data?: ListTemplatesCommandOutput) => void): void;
+  listTemplates(
     args: ListTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTemplatesCommandOutput) => void
   ): void;
-  public listTemplates(
-    args: ListTemplatesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTemplatesCommandOutput) => void),
-    cb?: (err: any, data?: ListTemplatesCommandOutput) => void
-  ): Promise<ListTemplatesCommandOutput> | void {
-    const command = new ListTemplatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about all the versions of a specific message template.</p>
+   * @see {@link ListTemplateVersionsCommand}
    */
-  public listTemplateVersions(
+  listTemplateVersions(
     args: ListTemplateVersionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTemplateVersionsCommandOutput>;
-  public listTemplateVersions(
+  listTemplateVersions(
     args: ListTemplateVersionsCommandInput,
     cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
   ): void;
-  public listTemplateVersions(
+  listTemplateVersions(
     args: ListTemplateVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
   ): void;
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTemplateVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListTemplateVersionsCommandOutput) => void
-  ): Promise<ListTemplateVersionsCommandOutput> | void {
-    const command = new ListTemplateVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves information about a phone number.</p>
+   * @see {@link PhoneNumberValidateCommand}
    */
-  public phoneNumberValidate(
+  phoneNumberValidate(
     args: PhoneNumberValidateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PhoneNumberValidateCommandOutput>;
-  public phoneNumberValidate(
+  phoneNumberValidate(
     args: PhoneNumberValidateCommandInput,
     cb: (err: any, data?: PhoneNumberValidateCommandOutput) => void
   ): void;
-  public phoneNumberValidate(
+  phoneNumberValidate(
     args: PhoneNumberValidateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PhoneNumberValidateCommandOutput) => void
   ): void;
-  public phoneNumberValidate(
-    args: PhoneNumberValidateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PhoneNumberValidateCommandOutput) => void),
-    cb?: (err: any, data?: PhoneNumberValidateCommandOutput) => void
-  ): Promise<PhoneNumberValidateCommandOutput> | void {
-    const command = new PhoneNumberValidateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>
+   * @see {@link PutEventsCommand}
    */
-  public putEvents(args: PutEventsCommandInput, options?: __HttpHandlerOptions): Promise<PutEventsCommandOutput>;
-  public putEvents(args: PutEventsCommandInput, cb: (err: any, data?: PutEventsCommandOutput) => void): void;
-  public putEvents(
+  putEvents(args: PutEventsCommandInput, options?: __HttpHandlerOptions): Promise<PutEventsCommandOutput>;
+  putEvents(args: PutEventsCommandInput, cb: (err: any, data?: PutEventsCommandOutput) => void): void;
+  putEvents(
     args: PutEventsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutEventsCommandOutput) => void
   ): void;
-  public putEvents(
-    args: PutEventsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventsCommandOutput) => void),
-    cb?: (err: any, data?: PutEventsCommandOutput) => void
-  ): Promise<PutEventsCommandOutput> | void {
-    const command = new PutEventsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
+   * @see {@link PutEventStreamCommand}
    */
-  public putEventStream(
+  putEventStream(
     args: PutEventStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutEventStreamCommandOutput>;
-  public putEventStream(
-    args: PutEventStreamCommandInput,
-    cb: (err: any, data?: PutEventStreamCommandOutput) => void
-  ): void;
-  public putEventStream(
+  putEventStream(args: PutEventStreamCommandInput, cb: (err: any, data?: PutEventStreamCommandOutput) => void): void;
+  putEventStream(
     args: PutEventStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutEventStreamCommandOutput) => void
   ): void;
-  public putEventStream(
-    args: PutEventStreamCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventStreamCommandOutput) => void),
-    cb?: (err: any, data?: PutEventStreamCommandOutput) => void
-  ): Promise<PutEventStreamCommandOutput> | void {
-    const command = new PutEventStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.</p>
+   * @see {@link RemoveAttributesCommand}
    */
-  public removeAttributes(
+  removeAttributes(
     args: RemoveAttributesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RemoveAttributesCommandOutput>;
-  public removeAttributes(
+  removeAttributes(
     args: RemoveAttributesCommandInput,
     cb: (err: any, data?: RemoveAttributesCommandOutput) => void
   ): void;
-  public removeAttributes(
+  removeAttributes(
     args: RemoveAttributesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RemoveAttributesCommandOutput) => void
   ): void;
-  public removeAttributes(
-    args: RemoveAttributesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveAttributesCommandOutput) => void),
-    cb?: (err: any, data?: RemoveAttributesCommandOutput) => void
-  ): Promise<RemoveAttributesCommandOutput> | void {
-    const command = new RemoveAttributesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates and sends a direct message.</p>
+   * @see {@link SendMessagesCommand}
    */
-  public sendMessages(
-    args: SendMessagesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SendMessagesCommandOutput>;
-  public sendMessages(args: SendMessagesCommandInput, cb: (err: any, data?: SendMessagesCommandOutput) => void): void;
-  public sendMessages(
+  sendMessages(args: SendMessagesCommandInput, options?: __HttpHandlerOptions): Promise<SendMessagesCommandOutput>;
+  sendMessages(args: SendMessagesCommandInput, cb: (err: any, data?: SendMessagesCommandOutput) => void): void;
+  sendMessages(
     args: SendMessagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendMessagesCommandOutput) => void
   ): void;
-  public sendMessages(
-    args: SendMessagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendMessagesCommandOutput) => void),
-    cb?: (err: any, data?: SendMessagesCommandOutput) => void
-  ): Promise<SendMessagesCommandOutput> | void {
-    const command = new SendMessagesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Send an OTP message</p>
+   * @see {@link SendOTPMessageCommand}
    */
-  public sendOTPMessage(
+  sendOTPMessage(
     args: SendOTPMessageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SendOTPMessageCommandOutput>;
-  public sendOTPMessage(
-    args: SendOTPMessageCommandInput,
-    cb: (err: any, data?: SendOTPMessageCommandOutput) => void
-  ): void;
-  public sendOTPMessage(
+  sendOTPMessage(args: SendOTPMessageCommandInput, cb: (err: any, data?: SendOTPMessageCommandOutput) => void): void;
+  sendOTPMessage(
     args: SendOTPMessageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendOTPMessageCommandOutput) => void
   ): void;
-  public sendOTPMessage(
-    args: SendOTPMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendOTPMessageCommandOutput) => void),
-    cb?: (err: any, data?: SendOTPMessageCommandOutput) => void
-  ): Promise<SendOTPMessageCommandOutput> | void {
-    const command = new SendOTPMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates and sends a message to a list of users.</p>
+   * @see {@link SendUsersMessagesCommand}
    */
-  public sendUsersMessages(
+  sendUsersMessages(
     args: SendUsersMessagesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SendUsersMessagesCommandOutput>;
-  public sendUsersMessages(
+  sendUsersMessages(
     args: SendUsersMessagesCommandInput,
     cb: (err: any, data?: SendUsersMessagesCommandOutput) => void
   ): void;
-  public sendUsersMessages(
+  sendUsersMessages(
     args: SendUsersMessagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendUsersMessagesCommandOutput) => void
   ): void;
-  public sendUsersMessages(
-    args: SendUsersMessagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendUsersMessagesCommandOutput) => void),
-    cb?: (err: any, data?: SendUsersMessagesCommandOutput) => void
-  ): Promise<SendUsersMessagesCommandOutput> | void {
-    const command = new SendUsersMessagesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Adds one or more tags (keys and values) to an application, campaign, message template, or segment.</p>
+   * @see {@link TagResourceCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes one or more tags (keys and values) from an application, campaign, message template, or segment.</p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Enables the ADM channel for an application or updates the status and settings of the ADM channel for an application.</p>
+   * @see {@link UpdateAdmChannelCommand}
    */
-  public updateAdmChannel(
+  updateAdmChannel(
     args: UpdateAdmChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateAdmChannelCommandOutput>;
-  public updateAdmChannel(
+  updateAdmChannel(
     args: UpdateAdmChannelCommandInput,
     cb: (err: any, data?: UpdateAdmChannelCommandOutput) => void
   ): void;
-  public updateAdmChannel(
+  updateAdmChannel(
     args: UpdateAdmChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAdmChannelCommandOutput) => void
   ): void;
-  public updateAdmChannel(
-    args: UpdateAdmChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAdmChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAdmChannelCommandOutput) => void
-  ): Promise<UpdateAdmChannelCommandOutput> | void {
-    const command = new UpdateAdmChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Enables the APNs channel for an application or updates the status and settings of the APNs channel for an application.</p>
+   * @see {@link UpdateApnsChannelCommand}
    */
-  public updateApnsChannel(
+  updateApnsChannel(
     args: UpdateApnsChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateApnsChannelCommandOutput>;
-  public updateApnsChannel(
+  updateApnsChannel(
     args: UpdateApnsChannelCommandInput,
     cb: (err: any, data?: UpdateApnsChannelCommandOutput) => void
   ): void;
-  public updateApnsChannel(
+  updateApnsChannel(
     args: UpdateApnsChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApnsChannelCommandOutput) => void
   ): void;
-  public updateApnsChannel(
-    args: UpdateApnsChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApnsChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateApnsChannelCommandOutput) => void
-  ): Promise<UpdateApnsChannelCommandOutput> | void {
-    const command = new UpdateApnsChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Enables the APNs sandbox channel for an application or updates the status and settings of the APNs sandbox channel for an application.</p>
+   * @see {@link UpdateApnsSandboxChannelCommand}
    */
-  public updateApnsSandboxChannel(
+  updateApnsSandboxChannel(
     args: UpdateApnsSandboxChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateApnsSandboxChannelCommandOutput>;
-  public updateApnsSandboxChannel(
+  updateApnsSandboxChannel(
     args: UpdateApnsSandboxChannelCommandInput,
     cb: (err: any, data?: UpdateApnsSandboxChannelCommandOutput) => void
   ): void;
-  public updateApnsSandboxChannel(
+  updateApnsSandboxChannel(
     args: UpdateApnsSandboxChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApnsSandboxChannelCommandOutput) => void
   ): void;
-  public updateApnsSandboxChannel(
-    args: UpdateApnsSandboxChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApnsSandboxChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateApnsSandboxChannelCommandOutput) => void
-  ): Promise<UpdateApnsSandboxChannelCommandOutput> | void {
-    const command = new UpdateApnsSandboxChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Enables the APNs VoIP channel for an application or updates the status and settings of the APNs VoIP channel for an application.</p>
+   * @see {@link UpdateApnsVoipChannelCommand}
    */
-  public updateApnsVoipChannel(
+  updateApnsVoipChannel(
     args: UpdateApnsVoipChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateApnsVoipChannelCommandOutput>;
-  public updateApnsVoipChannel(
+  updateApnsVoipChannel(
     args: UpdateApnsVoipChannelCommandInput,
     cb: (err: any, data?: UpdateApnsVoipChannelCommandOutput) => void
   ): void;
-  public updateApnsVoipChannel(
+  updateApnsVoipChannel(
     args: UpdateApnsVoipChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApnsVoipChannelCommandOutput) => void
   ): void;
-  public updateApnsVoipChannel(
-    args: UpdateApnsVoipChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApnsVoipChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateApnsVoipChannelCommandOutput) => void
-  ): Promise<UpdateApnsVoipChannelCommandOutput> | void {
-    const command = new UpdateApnsVoipChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Enables the APNs VoIP sandbox channel for an application or updates the status and settings of the APNs VoIP sandbox channel for an application.</p>
+   * @see {@link UpdateApnsVoipSandboxChannelCommand}
    */
-  public updateApnsVoipSandboxChannel(
+  updateApnsVoipSandboxChannel(
     args: UpdateApnsVoipSandboxChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateApnsVoipSandboxChannelCommandOutput>;
-  public updateApnsVoipSandboxChannel(
+  updateApnsVoipSandboxChannel(
     args: UpdateApnsVoipSandboxChannelCommandInput,
     cb: (err: any, data?: UpdateApnsVoipSandboxChannelCommandOutput) => void
   ): void;
-  public updateApnsVoipSandboxChannel(
+  updateApnsVoipSandboxChannel(
     args: UpdateApnsVoipSandboxChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApnsVoipSandboxChannelCommandOutput) => void
   ): void;
-  public updateApnsVoipSandboxChannel(
-    args: UpdateApnsVoipSandboxChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApnsVoipSandboxChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateApnsVoipSandboxChannelCommandOutput) => void
-  ): Promise<UpdateApnsVoipSandboxChannelCommandOutput> | void {
-    const command = new UpdateApnsVoipSandboxChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates the settings for an application.</p>
+   * @see {@link UpdateApplicationSettingsCommand}
    */
-  public updateApplicationSettings(
+  updateApplicationSettings(
     args: UpdateApplicationSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateApplicationSettingsCommandOutput>;
-  public updateApplicationSettings(
+  updateApplicationSettings(
     args: UpdateApplicationSettingsCommandInput,
     cb: (err: any, data?: UpdateApplicationSettingsCommandOutput) => void
   ): void;
-  public updateApplicationSettings(
+  updateApplicationSettings(
     args: UpdateApplicationSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApplicationSettingsCommandOutput) => void
   ): void;
-  public updateApplicationSettings(
-    args: UpdateApplicationSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationSettingsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateApplicationSettingsCommandOutput) => void
-  ): Promise<UpdateApplicationSettingsCommandOutput> | void {
-    const command = new UpdateApplicationSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Enables the Baidu channel for an application or updates the status and settings of the Baidu channel for an application.</p>
+   * @see {@link UpdateBaiduChannelCommand}
    */
-  public updateBaiduChannel(
+  updateBaiduChannel(
     args: UpdateBaiduChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateBaiduChannelCommandOutput>;
-  public updateBaiduChannel(
+  updateBaiduChannel(
     args: UpdateBaiduChannelCommandInput,
     cb: (err: any, data?: UpdateBaiduChannelCommandOutput) => void
   ): void;
-  public updateBaiduChannel(
+  updateBaiduChannel(
     args: UpdateBaiduChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateBaiduChannelCommandOutput) => void
   ): void;
-  public updateBaiduChannel(
-    args: UpdateBaiduChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBaiduChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateBaiduChannelCommandOutput) => void
-  ): Promise<UpdateBaiduChannelCommandOutput> | void {
-    const command = new UpdateBaiduChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates the configuration and other settings for a campaign.</p>
+   * @see {@link UpdateCampaignCommand}
    */
-  public updateCampaign(
+  updateCampaign(
     args: UpdateCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateCampaignCommandOutput>;
-  public updateCampaign(
-    args: UpdateCampaignCommandInput,
-    cb: (err: any, data?: UpdateCampaignCommandOutput) => void
-  ): void;
-  public updateCampaign(
+  updateCampaign(args: UpdateCampaignCommandInput, cb: (err: any, data?: UpdateCampaignCommandOutput) => void): void;
+  updateCampaign(
     args: UpdateCampaignCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCampaignCommandOutput) => void
   ): void;
-  public updateCampaign(
-    args: UpdateCampaignCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCampaignCommandOutput) => void),
-    cb?: (err: any, data?: UpdateCampaignCommandOutput) => void
-  ): Promise<UpdateCampaignCommandOutput> | void {
-    const command = new UpdateCampaignCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Enables the email channel for an application or updates the status and settings of the email channel for an application.</p>
+   * @see {@link UpdateEmailChannelCommand}
    */
-  public updateEmailChannel(
+  updateEmailChannel(
     args: UpdateEmailChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEmailChannelCommandOutput>;
-  public updateEmailChannel(
+  updateEmailChannel(
     args: UpdateEmailChannelCommandInput,
     cb: (err: any, data?: UpdateEmailChannelCommandOutput) => void
   ): void;
-  public updateEmailChannel(
+  updateEmailChannel(
     args: UpdateEmailChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEmailChannelCommandOutput) => void
   ): void;
-  public updateEmailChannel(
-    args: UpdateEmailChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEmailChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEmailChannelCommandOutput) => void
-  ): Promise<UpdateEmailChannelCommandOutput> | void {
-    const command = new UpdateEmailChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates an existing message template for messages that are sent through the email channel.</p>
+   * @see {@link UpdateEmailTemplateCommand}
    */
-  public updateEmailTemplate(
+  updateEmailTemplate(
     args: UpdateEmailTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEmailTemplateCommandOutput>;
-  public updateEmailTemplate(
+  updateEmailTemplate(
     args: UpdateEmailTemplateCommandInput,
     cb: (err: any, data?: UpdateEmailTemplateCommandOutput) => void
   ): void;
-  public updateEmailTemplate(
+  updateEmailTemplate(
     args: UpdateEmailTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEmailTemplateCommandOutput) => void
   ): void;
-  public updateEmailTemplate(
-    args: UpdateEmailTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEmailTemplateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEmailTemplateCommandOutput) => void
-  ): Promise<UpdateEmailTemplateCommandOutput> | void {
-    const command = new UpdateEmailTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes for an endpoint. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
+   * @see {@link UpdateEndpointCommand}
    */
-  public updateEndpoint(
+  updateEndpoint(
     args: UpdateEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEndpointCommandOutput>;
-  public updateEndpoint(
-    args: UpdateEndpointCommandInput,
-    cb: (err: any, data?: UpdateEndpointCommandOutput) => void
-  ): void;
-  public updateEndpoint(
+  updateEndpoint(args: UpdateEndpointCommandInput, cb: (err: any, data?: UpdateEndpointCommandOutput) => void): void;
+  updateEndpoint(
     args: UpdateEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEndpointCommandOutput) => void
   ): void;
-  public updateEndpoint(
-    args: UpdateEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEndpointCommandOutput) => void
-  ): Promise<UpdateEndpointCommandOutput> | void {
-    const command = new UpdateEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes for a batch of endpoints. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
+   * @see {@link UpdateEndpointsBatchCommand}
    */
-  public updateEndpointsBatch(
+  updateEndpointsBatch(
     args: UpdateEndpointsBatchCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEndpointsBatchCommandOutput>;
-  public updateEndpointsBatch(
+  updateEndpointsBatch(
     args: UpdateEndpointsBatchCommandInput,
     cb: (err: any, data?: UpdateEndpointsBatchCommandOutput) => void
   ): void;
-  public updateEndpointsBatch(
+  updateEndpointsBatch(
     args: UpdateEndpointsBatchCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEndpointsBatchCommandOutput) => void
   ): void;
-  public updateEndpointsBatch(
-    args: UpdateEndpointsBatchCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointsBatchCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEndpointsBatchCommandOutput) => void
-  ): Promise<UpdateEndpointsBatchCommandOutput> | void {
-    const command = new UpdateEndpointsBatchCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Enables the GCM channel for an application or updates the status and settings of the GCM channel for an application.</p>
+   * @see {@link UpdateGcmChannelCommand}
    */
-  public updateGcmChannel(
+  updateGcmChannel(
     args: UpdateGcmChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateGcmChannelCommandOutput>;
-  public updateGcmChannel(
+  updateGcmChannel(
     args: UpdateGcmChannelCommandInput,
     cb: (err: any, data?: UpdateGcmChannelCommandOutput) => void
   ): void;
-  public updateGcmChannel(
+  updateGcmChannel(
     args: UpdateGcmChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateGcmChannelCommandOutput) => void
   ): void;
-  public updateGcmChannel(
-    args: UpdateGcmChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGcmChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateGcmChannelCommandOutput) => void
-  ): Promise<UpdateGcmChannelCommandOutput> | void {
-    const command = new UpdateGcmChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates an existing message template for messages sent through the in-app message channel.</p>
+   * @see {@link UpdateInAppTemplateCommand}
    */
-  public updateInAppTemplate(
+  updateInAppTemplate(
     args: UpdateInAppTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateInAppTemplateCommandOutput>;
-  public updateInAppTemplate(
+  updateInAppTemplate(
     args: UpdateInAppTemplateCommandInput,
     cb: (err: any, data?: UpdateInAppTemplateCommandOutput) => void
   ): void;
-  public updateInAppTemplate(
+  updateInAppTemplate(
     args: UpdateInAppTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateInAppTemplateCommandOutput) => void
   ): void;
-  public updateInAppTemplate(
-    args: UpdateInAppTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInAppTemplateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateInAppTemplateCommandOutput) => void
-  ): Promise<UpdateInAppTemplateCommandOutput> | void {
-    const command = new UpdateInAppTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates the configuration and other settings for a journey.</p>
+   * @see {@link UpdateJourneyCommand}
    */
-  public updateJourney(
-    args: UpdateJourneyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateJourneyCommandOutput>;
-  public updateJourney(
-    args: UpdateJourneyCommandInput,
-    cb: (err: any, data?: UpdateJourneyCommandOutput) => void
-  ): void;
-  public updateJourney(
+  updateJourney(args: UpdateJourneyCommandInput, options?: __HttpHandlerOptions): Promise<UpdateJourneyCommandOutput>;
+  updateJourney(args: UpdateJourneyCommandInput, cb: (err: any, data?: UpdateJourneyCommandOutput) => void): void;
+  updateJourney(
     args: UpdateJourneyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateJourneyCommandOutput) => void
   ): void;
-  public updateJourney(
-    args: UpdateJourneyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJourneyCommandOutput) => void),
-    cb?: (err: any, data?: UpdateJourneyCommandOutput) => void
-  ): Promise<UpdateJourneyCommandOutput> | void {
-    const command = new UpdateJourneyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Cancels (stops) an active journey.</p>
+   * @see {@link UpdateJourneyStateCommand}
    */
-  public updateJourneyState(
+  updateJourneyState(
     args: UpdateJourneyStateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateJourneyStateCommandOutput>;
-  public updateJourneyState(
+  updateJourneyState(
     args: UpdateJourneyStateCommandInput,
     cb: (err: any, data?: UpdateJourneyStateCommandOutput) => void
   ): void;
-  public updateJourneyState(
+  updateJourneyState(
     args: UpdateJourneyStateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateJourneyStateCommandOutput) => void
   ): void;
-  public updateJourneyState(
-    args: UpdateJourneyStateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJourneyStateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateJourneyStateCommandOutput) => void
-  ): Promise<UpdateJourneyStateCommandOutput> | void {
-    const command = new UpdateJourneyStateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates an existing message template for messages that are sent through a push notification channel.</p>
+   * @see {@link UpdatePushTemplateCommand}
    */
-  public updatePushTemplate(
+  updatePushTemplate(
     args: UpdatePushTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdatePushTemplateCommandOutput>;
-  public updatePushTemplate(
+  updatePushTemplate(
     args: UpdatePushTemplateCommandInput,
     cb: (err: any, data?: UpdatePushTemplateCommandOutput) => void
   ): void;
-  public updatePushTemplate(
+  updatePushTemplate(
     args: UpdatePushTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePushTemplateCommandOutput) => void
   ): void;
-  public updatePushTemplate(
-    args: UpdatePushTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePushTemplateCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePushTemplateCommandOutput) => void
-  ): Promise<UpdatePushTemplateCommandOutput> | void {
-    const command = new UpdatePushTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates an Amazon Pinpoint configuration for a recommender model.</p>
+   * @see {@link UpdateRecommenderConfigurationCommand}
    */
-  public updateRecommenderConfiguration(
+  updateRecommenderConfiguration(
     args: UpdateRecommenderConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRecommenderConfigurationCommandOutput>;
-  public updateRecommenderConfiguration(
+  updateRecommenderConfiguration(
     args: UpdateRecommenderConfigurationCommandInput,
     cb: (err: any, data?: UpdateRecommenderConfigurationCommandOutput) => void
   ): void;
-  public updateRecommenderConfiguration(
+  updateRecommenderConfiguration(
     args: UpdateRecommenderConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRecommenderConfigurationCommandOutput) => void
   ): void;
-  public updateRecommenderConfiguration(
-    args: UpdateRecommenderConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRecommenderConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRecommenderConfigurationCommandOutput) => void
-  ): Promise<UpdateRecommenderConfigurationCommandOutput> | void {
-    const command = new UpdateRecommenderConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
+   * @see {@link UpdateSegmentCommand}
    */
-  public updateSegment(
-    args: UpdateSegmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSegmentCommandOutput>;
-  public updateSegment(
-    args: UpdateSegmentCommandInput,
-    cb: (err: any, data?: UpdateSegmentCommandOutput) => void
-  ): void;
-  public updateSegment(
+  updateSegment(args: UpdateSegmentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSegmentCommandOutput>;
+  updateSegment(args: UpdateSegmentCommandInput, cb: (err: any, data?: UpdateSegmentCommandOutput) => void): void;
+  updateSegment(
     args: UpdateSegmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSegmentCommandOutput) => void
   ): void;
-  public updateSegment(
-    args: UpdateSegmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSegmentCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSegmentCommandOutput) => void
-  ): Promise<UpdateSegmentCommandOutput> | void {
-    const command = new UpdateSegmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Enables the SMS channel for an application or updates the status and settings of the SMS channel for an application.</p>
+   * @see {@link UpdateSmsChannelCommand}
    */
-  public updateSmsChannel(
+  updateSmsChannel(
     args: UpdateSmsChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSmsChannelCommandOutput>;
-  public updateSmsChannel(
+  updateSmsChannel(
     args: UpdateSmsChannelCommandInput,
     cb: (err: any, data?: UpdateSmsChannelCommandOutput) => void
   ): void;
-  public updateSmsChannel(
+  updateSmsChannel(
     args: UpdateSmsChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSmsChannelCommandOutput) => void
   ): void;
-  public updateSmsChannel(
-    args: UpdateSmsChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSmsChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSmsChannelCommandOutput) => void
-  ): Promise<UpdateSmsChannelCommandOutput> | void {
-    const command = new UpdateSmsChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates an existing message template for messages that are sent through the SMS channel.</p>
+   * @see {@link UpdateSmsTemplateCommand}
    */
-  public updateSmsTemplate(
+  updateSmsTemplate(
     args: UpdateSmsTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSmsTemplateCommandOutput>;
-  public updateSmsTemplate(
+  updateSmsTemplate(
     args: UpdateSmsTemplateCommandInput,
     cb: (err: any, data?: UpdateSmsTemplateCommandOutput) => void
   ): void;
-  public updateSmsTemplate(
+  updateSmsTemplate(
     args: UpdateSmsTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSmsTemplateCommandOutput) => void
   ): void;
-  public updateSmsTemplate(
-    args: UpdateSmsTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSmsTemplateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSmsTemplateCommandOutput) => void
-  ): Promise<UpdateSmsTemplateCommandOutput> | void {
-    const command = new UpdateSmsTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Changes the status of a specific version of a message template to <i>active</i>.</p>
+   * @see {@link UpdateTemplateActiveVersionCommand}
    */
-  public updateTemplateActiveVersion(
+  updateTemplateActiveVersion(
     args: UpdateTemplateActiveVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateTemplateActiveVersionCommandOutput>;
-  public updateTemplateActiveVersion(
+  updateTemplateActiveVersion(
     args: UpdateTemplateActiveVersionCommandInput,
     cb: (err: any, data?: UpdateTemplateActiveVersionCommandOutput) => void
   ): void;
-  public updateTemplateActiveVersion(
+  updateTemplateActiveVersion(
     args: UpdateTemplateActiveVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTemplateActiveVersionCommandOutput) => void
   ): void;
-  public updateTemplateActiveVersion(
-    args: UpdateTemplateActiveVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTemplateActiveVersionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateTemplateActiveVersionCommandOutput) => void
-  ): Promise<UpdateTemplateActiveVersionCommandOutput> | void {
-    const command = new UpdateTemplateActiveVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Enables the voice channel for an application or updates the status and settings of the voice channel for an application.</p>
+   * @see {@link UpdateVoiceChannelCommand}
    */
-  public updateVoiceChannel(
+  updateVoiceChannel(
     args: UpdateVoiceChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateVoiceChannelCommandOutput>;
-  public updateVoiceChannel(
+  updateVoiceChannel(
     args: UpdateVoiceChannelCommandInput,
     cb: (err: any, data?: UpdateVoiceChannelCommandOutput) => void
   ): void;
-  public updateVoiceChannel(
+  updateVoiceChannel(
     args: UpdateVoiceChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVoiceChannelCommandOutput) => void
   ): void;
-  public updateVoiceChannel(
-    args: UpdateVoiceChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVoiceChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateVoiceChannelCommandOutput) => void
-  ): Promise<UpdateVoiceChannelCommandOutput> | void {
-    const command = new UpdateVoiceChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates an existing message template for messages that are sent through the voice channel.</p>
+   * @see {@link UpdateVoiceTemplateCommand}
    */
-  public updateVoiceTemplate(
+  updateVoiceTemplate(
     args: UpdateVoiceTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateVoiceTemplateCommandOutput>;
-  public updateVoiceTemplate(
+  updateVoiceTemplate(
     args: UpdateVoiceTemplateCommandInput,
     cb: (err: any, data?: UpdateVoiceTemplateCommandOutput) => void
   ): void;
-  public updateVoiceTemplate(
+  updateVoiceTemplate(
     args: UpdateVoiceTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVoiceTemplateCommandOutput) => void
   ): void;
-  public updateVoiceTemplate(
-    args: UpdateVoiceTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVoiceTemplateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateVoiceTemplateCommandOutput) => void
-  ): Promise<UpdateVoiceTemplateCommandOutput> | void {
-    const command = new UpdateVoiceTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Verify an OTP</p>
+   * @see {@link VerifyOTPMessageCommand}
    */
-  public verifyOTPMessage(
+  verifyOTPMessage(
     args: VerifyOTPMessageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<VerifyOTPMessageCommandOutput>;
-  public verifyOTPMessage(
+  verifyOTPMessage(
     args: VerifyOTPMessageCommandInput,
     cb: (err: any, data?: VerifyOTPMessageCommandOutput) => void
   ): void;
-  public verifyOTPMessage(
+  verifyOTPMessage(
     args: VerifyOTPMessageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: VerifyOTPMessageCommandOutput) => void
   ): void;
-  public verifyOTPMessage(
-    args: VerifyOTPMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VerifyOTPMessageCommandOutput) => void),
-    cb?: (err: any, data?: VerifyOTPMessageCommandOutput) => void
-  ): Promise<VerifyOTPMessageCommandOutput> | void {
-    const command = new VerifyOTPMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>Doc Engage API - Amazon Pinpoint API</p>
+ */
+export class Pinpoint extends PinpointClient implements Pinpoint {}
+createAggregatedClient(commands, Pinpoint);

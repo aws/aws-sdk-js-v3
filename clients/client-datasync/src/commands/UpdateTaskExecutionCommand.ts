@@ -14,35 +14,31 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  UpdateTaskExecutionRequest,
-  UpdateTaskExecutionRequestFilterSensitiveLog,
-  UpdateTaskExecutionResponse,
-  UpdateTaskExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTaskExecutionCommand,
-  serializeAws_json1_1UpdateTaskExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTaskExecutionRequest, UpdateTaskExecutionResponse } from "../models/models_0";
+import { de_UpdateTaskExecutionCommand, se_UpdateTaskExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTaskExecutionCommand}.
  */
 export interface UpdateTaskExecutionCommandInput extends UpdateTaskExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTaskExecutionCommand}.
  */
 export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates execution of a task.</p>
- *          <p>You can modify bandwidth throttling for a task execution that is running or queued.
- *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
+ * @public
+ * <p>Modifies a running DataSync task.</p>
  *          <note>
- *             <p>The only <code>Option</code> that can be modified by <code>UpdateTaskExecution</code>
- *         is <code>
+ *             <p>Currently, the only <code>Option</code> that you can modify with
+ *           <code>UpdateTaskExecution</code> is <code>
  *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a>
- *                </code>.</p>
+ *                </code>, which throttles bandwidth for a running or queued
+ *         task.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,16 +46,39 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * import { DataSyncClient, UpdateTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // UpdateTaskExecutionRequest
+ *   TaskExecutionArn: "STRING_VALUE", // required
+ *   Options: { // Options
+ *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
+ *     OverwriteMode: "ALWAYS" || "NEVER",
+ *     Atime: "NONE" || "BEST_EFFORT",
+ *     Mtime: "NONE" || "PRESERVE",
+ *     Uid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     Gid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     PreserveDeletedFiles: "PRESERVE" || "REMOVE",
+ *     PreserveDevices: "NONE" || "PRESERVE",
+ *     PosixPermissions: "NONE" || "PRESERVE",
+ *     BytesPerSecond: Number("long"),
+ *     TaskQueueing: "ENABLED" || "DISABLED",
+ *     LogLevel: "OFF" || "BASIC" || "TRANSFER",
+ *     TransferMode: "CHANGED" || "ALL",
+ *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
+ *     ObjectTags: "PRESERVE" || "NONE",
+ *   },
+ * };
  * const command = new UpdateTaskExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTaskExecutionCommandInput - {@link UpdateTaskExecutionCommandInput}
+ * @returns {@link UpdateTaskExecutionCommandOutput}
  * @see {@link UpdateTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskExecutionCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
@@ -83,6 +102,9 @@ export class UpdateTaskExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTaskExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +133,8 @@ export class UpdateTaskExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTaskExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTaskExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +144,18 @@ export class UpdateTaskExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTaskExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTaskExecutionCommand(input, context);
+    return se_UpdateTaskExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTaskExecutionCommandOutput> {
-    return deserializeAws_json1_1UpdateTaskExecutionCommand(output, context);
+    return de_UpdateTaskExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

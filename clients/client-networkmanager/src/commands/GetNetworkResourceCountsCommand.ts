@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetNetworkResourceCountsRequest,
-  GetNetworkResourceCountsRequestFilterSensitiveLog,
-  GetNetworkResourceCountsResponse,
-  GetNetworkResourceCountsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetNetworkResourceCountsRequest, GetNetworkResourceCountsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetNetworkResourceCountsCommand,
-  serializeAws_restJson1GetNetworkResourceCountsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetNetworkResourceCountsCommand, se_GetNetworkResourceCountsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkResourceCountsCommand}.
  */
 export interface GetNetworkResourceCountsCommandInput extends GetNetworkResourceCountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkResourceCountsCommand}.
  */
 export interface GetNetworkResourceCountsCommandOutput extends GetNetworkResourceCountsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the count of network resources, by resource type, for the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetNetworkResourceCountsCommandOutput extends GetNetworkResourc
  * import { NetworkManagerClient, GetNetworkResourceCountsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetNetworkResourceCountsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetNetworkResourceCountsRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetNetworkResourceCountsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkResourceCountsCommandInput - {@link GetNetworkResourceCountsCommandInput}
+ * @returns {@link GetNetworkResourceCountsCommandOutput}
  * @see {@link GetNetworkResourceCountsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkResourceCountsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -81,6 +86,9 @@ export class GetNetworkResourceCountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkResourceCountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class GetNetworkResourceCountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkResourceCountsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkResourceCountsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class GetNetworkResourceCountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkResourceCountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkResourceCountsCommand(input, context);
+    return se_GetNetworkResourceCountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkResourceCountsCommandOutput> {
-    return deserializeAws_restJson1GetNetworkResourceCountsCommand(output, context);
+    return de_GetNetworkResourceCountsCommand(output, context);
   }
 
   // Start section: command_body_extra

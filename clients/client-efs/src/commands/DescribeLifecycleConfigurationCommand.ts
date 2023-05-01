@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { DescribeLifecycleConfigurationRequest, LifecycleConfigurationDescription } from "../models/models_0";
 import {
-  DescribeLifecycleConfigurationRequest,
-  DescribeLifecycleConfigurationRequestFilterSensitiveLog,
-  LifecycleConfigurationDescription,
-  LifecycleConfigurationDescriptionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeLifecycleConfigurationCommand,
-  serializeAws_restJson1DescribeLifecycleConfigurationCommand,
+  de_DescribeLifecycleConfigurationCommand,
+  se_DescribeLifecycleConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLifecycleConfigurationCommand}.
  */
 export interface DescribeLifecycleConfigurationCommandInput extends DescribeLifecycleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLifecycleConfigurationCommand}.
  */
 export interface DescribeLifecycleConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeLifecycleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
  *       EFS file system. EFS lifecycle management uses the <code>LifecycleConfiguration</code> object
  *       to identify which files to move to the EFS Infrequent Access (IA) storage class. For a file system
@@ -52,10 +52,15 @@ export interface DescribeLifecycleConfigurationCommandOutput
  * import { EFSClient, DescribeLifecycleConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeLifecycleConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeLifecycleConfigurationRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLifecycleConfigurationCommandInput - {@link DescribeLifecycleConfigurationCommandInput}
+ * @returns {@link DescribeLifecycleConfigurationCommandOutput}
  * @see {@link DescribeLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -110,6 +115,9 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLifecycleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +146,8 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLifecycleConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LifecycleConfigurationDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,18 +157,24 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeLifecycleConfigurationCommand(input, context);
+    return se_DescribeLifecycleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeLifecycleConfigurationCommand(output, context);
+    return de_DescribeLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

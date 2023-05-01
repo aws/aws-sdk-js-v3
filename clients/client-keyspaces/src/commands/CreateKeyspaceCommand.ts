@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import {
-  CreateKeyspaceRequest,
-  CreateKeyspaceRequestFilterSensitiveLog,
-  CreateKeyspaceResponse,
-  CreateKeyspaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateKeyspaceCommand,
-  serializeAws_json1_0CreateKeyspaceCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateKeyspaceRequest, CreateKeyspaceResponse } from "../models/models_0";
+import { de_CreateKeyspaceCommand, se_CreateKeyspaceCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateKeyspaceCommand}.
  */
 export interface CreateKeyspaceCommandInput extends CreateKeyspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateKeyspaceCommand}.
  */
 export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>CreateKeyspace</code> operation adds a new keyspace to your account. In an Amazon Web Services account, keyspace names
  *       must be unique within each Region.</p>
  *          <p>
@@ -48,10 +45,21 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  * import { KeyspacesClient, CreateKeyspaceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, CreateKeyspaceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = { // CreateKeyspaceRequest
+ *   keyspaceName: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateKeyspaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKeyspaceCommandInput - {@link CreateKeyspaceCommandInput}
+ * @returns {@link CreateKeyspaceCommandOutput}
  * @see {@link CreateKeyspaceCommandInput} for command's `input` shape.
  * @see {@link CreateKeyspaceCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
@@ -93,6 +101,9 @@ export class CreateKeyspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKeyspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +132,8 @@ export class CreateKeyspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKeyspaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateKeyspaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +143,18 @@ export class CreateKeyspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKeyspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateKeyspaceCommand(input, context);
+    return se_CreateKeyspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyspaceCommandOutput> {
-    return deserializeAws_json1_0CreateKeyspaceCommand(output, context);
+    return de_CreateKeyspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

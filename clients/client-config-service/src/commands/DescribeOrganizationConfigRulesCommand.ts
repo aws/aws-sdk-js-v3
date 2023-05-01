@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DescribeOrganizationConfigRulesRequest, DescribeOrganizationConfigRulesResponse } from "../models/models_0";
 import {
-  DescribeOrganizationConfigRulesRequest,
-  DescribeOrganizationConfigRulesRequestFilterSensitiveLog,
-  DescribeOrganizationConfigRulesResponse,
-  DescribeOrganizationConfigRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeOrganizationConfigRulesCommand,
-  serializeAws_json1_1DescribeOrganizationConfigRulesCommand,
+  de_DescribeOrganizationConfigRulesCommand,
+  se_DescribeOrganizationConfigRulesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrganizationConfigRulesCommand}.
  */
 export interface DescribeOrganizationConfigRulesCommandInput extends DescribeOrganizationConfigRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrganizationConfigRulesCommand}.
  */
 export interface DescribeOrganizationConfigRulesCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeOrganizationConfigRulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of organization Config rules. </p>
  *          <note>
  *             <p>When you specify the limit and the next token, you receive a paginated response.</p>
@@ -62,10 +62,19 @@ export interface DescribeOrganizationConfigRulesCommandOutput
  * import { ConfigServiceClient, DescribeOrganizationConfigRulesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeOrganizationConfigRulesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeOrganizationConfigRulesRequest
+ *   OrganizationConfigRuleNames: [ // OrganizationConfigRuleNames
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeOrganizationConfigRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrganizationConfigRulesCommandInput - {@link DescribeOrganizationConfigRulesCommandInput}
+ * @returns {@link DescribeOrganizationConfigRulesCommandOutput}
  * @see {@link DescribeOrganizationConfigRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigRulesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -121,6 +130,9 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationConfigRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +161,8 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationConfigRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationConfigRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,18 +172,24 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrganizationConfigRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationConfigRulesCommand(input, context);
+    return se_DescribeOrganizationConfigRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationConfigRulesCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationConfigRulesCommand(output, context);
+    return de_DescribeOrganizationConfigRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

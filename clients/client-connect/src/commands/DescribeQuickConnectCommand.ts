@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeQuickConnectRequest,
-  DescribeQuickConnectRequestFilterSensitiveLog,
-  DescribeQuickConnectResponse,
-  DescribeQuickConnectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeQuickConnectCommand,
-  serializeAws_restJson1DescribeQuickConnectCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeQuickConnectRequest, DescribeQuickConnectResponse } from "../models/models_0";
+import { de_DescribeQuickConnectCommand, se_DescribeQuickConnectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQuickConnectCommand}.
  */
 export interface DescribeQuickConnectCommandInput extends DescribeQuickConnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQuickConnectCommand}.
  */
 export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the quick connect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * import { ConnectClient, DescribeQuickConnectCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeQuickConnectCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeQuickConnectRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   QuickConnectId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeQuickConnectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQuickConnectCommandInput - {@link DescribeQuickConnectCommandInput}
+ * @returns {@link DescribeQuickConnectCommandOutput}
  * @see {@link DescribeQuickConnectCommandInput} for command's `input` shape.
  * @see {@link DescribeQuickConnectCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +87,9 @@ export class DescribeQuickConnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQuickConnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class DescribeQuickConnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQuickConnectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQuickConnectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class DescribeQuickConnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeQuickConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeQuickConnectCommand(input, context);
+    return se_DescribeQuickConnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQuickConnectCommandOutput> {
-    return deserializeAws_restJson1DescribeQuickConnectCommand(output, context);
+    return de_DescribeQuickConnectCommand(output, context);
   }
 
   // Start section: command_body_extra

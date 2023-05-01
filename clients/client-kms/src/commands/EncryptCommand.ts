@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  EncryptRequest,
-  EncryptRequestFilterSensitiveLog,
-  EncryptResponse,
-  EncryptResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1EncryptCommand, serializeAws_json1_1EncryptCommand } from "../protocols/Aws_json1_1";
+import { EncryptRequest, EncryptRequestFilterSensitiveLog, EncryptResponse } from "../models/models_0";
+import { de_EncryptCommand, se_EncryptCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EncryptCommand}.
  */
 export interface EncryptCommandInput extends EncryptRequest {}
 /**
+ * @public
+ *
  * The output of {@link EncryptCommand}.
  */
 export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric or
  *       asymmetric KMS key with a <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>.</p>
  *          <p>You can use this operation to encrypt small amounts of arbitrary data, such as a personal
@@ -148,10 +148,23 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * import { KMSClient, EncryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, EncryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // EncryptRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   Plaintext: "BLOB_VALUE", // required
+ *   EncryptionContext: { // EncryptionContextType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ * };
  * const command = new EncryptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EncryptCommandInput - {@link EncryptCommandInput}
+ * @returns {@link EncryptCommandOutput}
  * @see {@link EncryptCommandInput} for command's `input` shape.
  * @see {@link EncryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -250,6 +263,9 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EncryptCommandInput) {
     // Start section: command_constructor
     super();
@@ -277,7 +293,7 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
       clientName,
       commandName,
       inputFilterSensitiveLog: EncryptRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EncryptResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -287,12 +303,18 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EncryptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EncryptCommand(input, context);
+    return se_EncryptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EncryptCommandOutput> {
-    return deserializeAws_json1_1EncryptCommand(output, context);
+    return de_EncryptCommand(output, context);
   }
 
   // Start section: command_body_extra

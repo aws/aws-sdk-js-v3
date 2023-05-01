@@ -19,20 +19,20 @@ import {
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import {
   GetPackageVersionAssetRequest,
-  GetPackageVersionAssetRequestFilterSensitiveLog,
   GetPackageVersionAssetResult,
   GetPackageVersionAssetResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPackageVersionAssetCommand,
-  serializeAws_restJson1GetPackageVersionAssetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPackageVersionAssetCommand, se_GetPackageVersionAssetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPackageVersionAssetCommand}.
  */
 export interface GetPackageVersionAssetCommandInput extends GetPackageVersionAssetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPackageVersionAssetCommand}.
  */
 export interface GetPackageVersionAssetCommandOutput
@@ -40,6 +40,7 @@ export interface GetPackageVersionAssetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns an asset (or file) that is in a package. For example, for a Maven package version, use
  *       <code>GetPackageVersionAsset</code> to download a <code>JAR</code> file, a <code>POM</code> file,
@@ -51,10 +52,23 @@ export interface GetPackageVersionAssetCommandOutput
  * import { CodeartifactClient, GetPackageVersionAssetCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, GetPackageVersionAssetCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // GetPackageVersionAssetRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   packageVersion: "STRING_VALUE", // required
+ *   asset: "STRING_VALUE", // required
+ *   packageVersionRevision: "STRING_VALUE",
+ * };
  * const command = new GetPackageVersionAssetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPackageVersionAssetCommandInput - {@link GetPackageVersionAssetCommandInput}
+ * @returns {@link GetPackageVersionAssetCommandOutput}
  * @see {@link GetPackageVersionAssetCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionAssetCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -106,6 +120,9 @@ export class GetPackageVersionAssetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPackageVersionAssetCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,7 +151,7 @@ export class GetPackageVersionAssetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPackageVersionAssetRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPackageVersionAssetResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -145,15 +162,21 @@ export class GetPackageVersionAssetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPackageVersionAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPackageVersionAssetCommand(input, context);
+    return se_GetPackageVersionAssetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetPackageVersionAssetCommandOutput> {
-    return deserializeAws_restJson1GetPackageVersionAssetCommand(output, context);
+    return de_GetPackageVersionAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

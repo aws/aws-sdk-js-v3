@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePipelineRequest,
-  DescribePipelineRequestFilterSensitiveLog,
-  DescribePipelineResponse,
-  DescribePipelineResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribePipelineCommand,
-  serializeAws_json1_1DescribePipelineCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePipelineRequest, DescribePipelineResponse } from "../models/models_2";
+import { de_DescribePipelineCommand, se_DescribePipelineCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePipelineCommand}.
  */
 export interface DescribePipelineCommandInput extends DescribePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePipelineCommand}.
  */
 export interface DescribePipelineCommandOutput extends DescribePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the details of a pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
  * import { SageMakerClient, DescribePipelineCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribePipelineCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribePipelineRequest
+ *   PipelineName: "STRING_VALUE", // required
+ * };
  * const command = new DescribePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePipelineCommandInput - {@link DescribePipelineCommandInput}
+ * @returns {@link DescribePipelineCommandOutput}
  * @see {@link DescribePipelineCommandInput} for command's `input` shape.
  * @see {@link DescribePipelineCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +74,9 @@ export class DescribePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class DescribePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePipelineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +116,18 @@ export class DescribePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePipelineCommand(input, context);
+    return se_DescribePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePipelineCommandOutput> {
-    return deserializeAws_json1_1DescribePipelineCommand(output, context);
+    return de_DescribePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

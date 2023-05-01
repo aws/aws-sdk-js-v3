@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteCustomLogSourceRequest,
-  DeleteCustomLogSourceRequestFilterSensitiveLog,
-  DeleteCustomLogSourceResponse,
-  DeleteCustomLogSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCustomLogSourceCommand,
-  serializeAws_restJson1DeleteCustomLogSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteCustomLogSourceRequest, DeleteCustomLogSourceResponse } from "../models/models_0";
+import { de_DeleteCustomLogSourceCommand, se_DeleteCustomLogSourceCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomLogSourceCommand}.
  */
 export interface DeleteCustomLogSourceCommandInput extends DeleteCustomLogSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomLogSourceCommand}.
  */
 export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a custom log source from Amazon Security Lake.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourc
  * import { SecurityLakeClient, DeleteCustomLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteCustomLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // DeleteCustomLogSourceRequest
+ *   customSourceName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomLogSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomLogSourceCommandInput - {@link DeleteCustomLogSourceCommandInput}
+ * @returns {@link DeleteCustomLogSourceCommandOutput}
  * @see {@link DeleteCustomLogSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomLogSourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -97,6 +99,9 @@ export class DeleteCustomLogSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomLogSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +130,8 @@ export class DeleteCustomLogSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomLogSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomLogSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +141,18 @@ export class DeleteCustomLogSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomLogSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCustomLogSourceCommand(input, context);
+    return se_DeleteCustomLogSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomLogSourceCommandOutput> {
-    return deserializeAws_restJson1DeleteCustomLogSourceCommand(output, context);
+    return de_DeleteCustomLogSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

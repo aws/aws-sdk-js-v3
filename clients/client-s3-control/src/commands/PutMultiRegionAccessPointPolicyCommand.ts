@@ -15,23 +15,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutMultiRegionAccessPointPolicyRequest, PutMultiRegionAccessPointPolicyResult } from "../models/models_0";
 import {
-  PutMultiRegionAccessPointPolicyRequest,
-  PutMultiRegionAccessPointPolicyRequestFilterSensitiveLog,
-  PutMultiRegionAccessPointPolicyResult,
-  PutMultiRegionAccessPointPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutMultiRegionAccessPointPolicyCommand,
-  serializeAws_restXmlPutMultiRegionAccessPointPolicyCommand,
+  de_PutMultiRegionAccessPointPolicyCommand,
+  se_PutMultiRegionAccessPointPolicyCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutMultiRegionAccessPointPolicyCommand}.
  */
 export interface PutMultiRegionAccessPointPolicyCommandInput extends PutMultiRegionAccessPointPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMultiRegionAccessPointPolicyCommand}.
  */
 export interface PutMultiRegionAccessPointPolicyCommandOutput
@@ -39,6 +38,7 @@ export interface PutMultiRegionAccessPointPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an access control policy with the specified Multi-Region Access Point. Each Multi-Region Access Point can have only
  *          one policy, so a request made to this action replaces any existing policy that is
  *          associated with the specified Multi-Region Access Point.</p>
@@ -65,10 +65,20 @@ export interface PutMultiRegionAccessPointPolicyCommandOutput
  * import { S3ControlClient, PutMultiRegionAccessPointPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutMultiRegionAccessPointPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // PutMultiRegionAccessPointPolicyRequest
+ *   AccountId: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ *   Details: { // PutMultiRegionAccessPointPolicyInput
+ *     Name: "STRING_VALUE", // required
+ *     Policy: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new PutMultiRegionAccessPointPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMultiRegionAccessPointPolicyCommandInput - {@link PutMultiRegionAccessPointPolicyCommandInput}
+ * @returns {@link PutMultiRegionAccessPointPolicyCommandOutput}
  * @see {@link PutMultiRegionAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link PutMultiRegionAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -95,6 +105,9 @@ export class PutMultiRegionAccessPointPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMultiRegionAccessPointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +138,8 @@ export class PutMultiRegionAccessPointPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMultiRegionAccessPointPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutMultiRegionAccessPointPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +149,24 @@ export class PutMultiRegionAccessPointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutMultiRegionAccessPointPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutMultiRegionAccessPointPolicyCommand(input, context);
+    return se_PutMultiRegionAccessPointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutMultiRegionAccessPointPolicyCommandOutput> {
-    return deserializeAws_restXmlPutMultiRegionAccessPointPolicyCommand(output, context);
+    return de_PutMultiRegionAccessPointPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

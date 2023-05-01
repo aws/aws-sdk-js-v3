@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  TestRoleRequest,
-  TestRoleRequestFilterSensitiveLog,
-  TestRoleResponse,
-  TestRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1TestRoleCommand,
-  serializeAws_restJson1TestRoleCommand,
-} from "../protocols/Aws_restJson1";
+import { TestRoleRequest, TestRoleResponse } from "../models/models_0";
+import { de_TestRoleCommand, se_TestRoleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TestRoleCommand}.
  */
 export interface TestRoleCommandInput extends TestRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestRoleCommand}.
  */
 export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>The TestRole operation tests the IAM role used to create the pipeline.</p>
@@ -53,10 +50,20 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  * import { ElasticTranscoderClient, TestRoleCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, TestRoleCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // TestRoleRequest
+ *   Role: "STRING_VALUE", // required
+ *   InputBucket: "STRING_VALUE", // required
+ *   OutputBucket: "STRING_VALUE", // required
+ *   Topics: [ // SnsTopics // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new TestRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestRoleCommandInput - {@link TestRoleCommandInput}
+ * @returns {@link TestRoleCommandOutput}
  * @see {@link TestRoleCommandInput} for command's `input` shape.
  * @see {@link TestRoleCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
@@ -95,6 +102,9 @@ export class TestRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +131,8 @@ export class TestRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +142,18 @@ export class TestRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestRoleCommand(input, context);
+    return se_TestRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestRoleCommandOutput> {
-    return deserializeAws_restJson1TestRoleCommand(output, context);
+    return de_TestRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

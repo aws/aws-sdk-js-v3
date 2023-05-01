@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  UpgradePublishedSchemaRequest,
-  UpgradePublishedSchemaRequestFilterSensitiveLog,
-  UpgradePublishedSchemaResponse,
-  UpgradePublishedSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpgradePublishedSchemaCommand,
-  serializeAws_restJson1UpgradePublishedSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { UpgradePublishedSchemaRequest, UpgradePublishedSchemaResponse } from "../models/models_0";
+import { de_UpgradePublishedSchemaCommand, se_UpgradePublishedSchemaCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpgradePublishedSchemaCommand}.
  */
 export interface UpgradePublishedSchemaCommandInput extends UpgradePublishedSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpgradePublishedSchemaCommand}.
  */
 export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Upgrades a published schema under a new minor version revision using the current contents of <code>DevelopmentSchemaArn</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSch
  * import { CloudDirectoryClient, UpgradePublishedSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpgradePublishedSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // UpgradePublishedSchemaRequest
+ *   DevelopmentSchemaArn: "STRING_VALUE", // required
+ *   PublishedSchemaArn: "STRING_VALUE", // required
+ *   MinorVersion: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new UpgradePublishedSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpgradePublishedSchemaCommandInput - {@link UpgradePublishedSchemaCommandInput}
+ * @returns {@link UpgradePublishedSchemaCommandOutput}
  * @see {@link UpgradePublishedSchemaCommandInput} for command's `input` shape.
  * @see {@link UpgradePublishedSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +103,9 @@ export class UpgradePublishedSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpgradePublishedSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +134,8 @@ export class UpgradePublishedSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpgradePublishedSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpgradePublishedSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +145,18 @@ export class UpgradePublishedSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpgradePublishedSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpgradePublishedSchemaCommand(input, context);
+    return se_UpgradePublishedSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpgradePublishedSchemaCommandOutput> {
-    return deserializeAws_restJson1UpgradePublishedSchemaCommand(output, context);
+    return de_UpgradePublishedSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

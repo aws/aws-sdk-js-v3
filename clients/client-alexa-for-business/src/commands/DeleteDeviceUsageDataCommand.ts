@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteDeviceUsageDataRequest,
-  DeleteDeviceUsageDataRequestFilterSensitiveLog,
-  DeleteDeviceUsageDataResponse,
-  DeleteDeviceUsageDataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDeviceUsageDataCommand,
-  serializeAws_json1_1DeleteDeviceUsageDataCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDeviceUsageDataRequest, DeleteDeviceUsageDataResponse } from "../models/models_0";
+import { de_DeleteDeviceUsageDataCommand, se_DeleteDeviceUsageDataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeviceUsageDataCommand}.
  */
 export interface DeleteDeviceUsageDataCommandInput extends DeleteDeviceUsageDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeviceUsageDataCommand}.
  */
 export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>When this action is called for a specified shared device, it allows authorized users to
  *          delete the device's entire previous history of voice input data and associated response
  *          data. This action can be called once every 24 hours for a specific shared device.</p>
@@ -44,10 +41,16 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * import { AlexaForBusinessClient, DeleteDeviceUsageDataCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteDeviceUsageDataCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DeleteDeviceUsageDataRequest
+ *   DeviceArn: "STRING_VALUE", // required
+ *   DeviceUsageType: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeviceUsageDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeviceUsageDataCommandInput - {@link DeleteDeviceUsageDataCommandInput}
+ * @returns {@link DeleteDeviceUsageDataCommandOutput}
  * @see {@link DeleteDeviceUsageDataCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceUsageDataCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -80,6 +83,9 @@ export class DeleteDeviceUsageDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeviceUsageDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class DeleteDeviceUsageDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeviceUsageDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDeviceUsageDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class DeleteDeviceUsageDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeviceUsageDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeviceUsageDataCommand(input, context);
+    return se_DeleteDeviceUsageDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceUsageDataCommandOutput> {
-    return deserializeAws_json1_1DeleteDeviceUsageDataCommand(output, context);
+    return de_DeleteDeviceUsageDataCommand(output, context);
   }
 
   // Start section: command_body_extra

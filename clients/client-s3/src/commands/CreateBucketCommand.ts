@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateBucketOutput,
-  CreateBucketOutputFilterSensitiveLog,
-  CreateBucketRequest,
-  CreateBucketRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateBucketCommand,
-  serializeAws_restXmlCreateBucketCommand,
-} from "../protocols/Aws_restXml";
+import { CreateBucketOutput, CreateBucketRequest } from "../models/models_0";
+import { de_CreateBucketCommand, se_CreateBucketCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBucketCommand}.
  */
 export interface CreateBucketCommandInput extends CreateBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateBucketCommand}.
  */
 export interface CreateBucketCommandOutput extends CreateBucketOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new S3 bucket. To create a bucket, you must register with Amazon S3 and have a
  *          valid Amazon Web Services Access Key ID to authenticate requests. Anonymous requests are never allowed to
  *          create buckets. By creating the bucket, you become the bucket owner.</p>
@@ -188,10 +185,26 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * import { S3Client, CreateBucketCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CreateBucketCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // CreateBucketRequest
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",
+ *   Bucket: "STRING_VALUE", // required
+ *   CreateBucketConfiguration: { // CreateBucketConfiguration
+ *     LocationConstraint: "af-south-1" || "ap-east-1" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ca-central-1" || "cn-north-1" || "cn-northwest-1" || "EU" || "eu-central-1" || "eu-north-1" || "eu-south-1" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "me-south-1" || "sa-east-1" || "us-east-2" || "us-gov-east-1" || "us-gov-west-1" || "us-west-1" || "us-west-2",
+ *   },
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWrite: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   ObjectLockEnabledForBucket: true || false,
+ *   ObjectOwnership: "BucketOwnerPreferred" || "ObjectWriter" || "BucketOwnerEnforced",
+ * };
  * const command = new CreateBucketCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBucketCommandInput - {@link CreateBucketCommandInput}
+ * @returns {@link CreateBucketCommandOutput}
  * @see {@link CreateBucketCommandInput} for command's `input` shape.
  * @see {@link CreateBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -267,6 +280,9 @@ export class CreateBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -294,8 +310,8 @@ export class CreateBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBucketOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -305,12 +321,18 @@ export class CreateBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateBucketCommand(input, context);
+    return se_CreateBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketCommandOutput> {
-    return deserializeAws_restXmlCreateBucketCommand(output, context);
+    return de_CreateBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

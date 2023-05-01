@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  ExtendTransactionRequest,
-  ExtendTransactionRequestFilterSensitiveLog,
-  ExtendTransactionResponse,
-  ExtendTransactionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ExtendTransactionCommand,
-  serializeAws_restJson1ExtendTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { ExtendTransactionRequest, ExtendTransactionResponse } from "../models/models_0";
+import { de_ExtendTransactionCommand, se_ExtendTransactionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExtendTransactionCommand}.
  */
 export interface ExtendTransactionCommandInput extends ExtendTransactionRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExtendTransactionCommand}.
  */
 export interface ExtendTransactionCommandOutput extends ExtendTransactionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Indicates to the service that the specified transaction is still active and should not be treated as idle and aborted.</p>
  *          <p>Write transactions that remain idle for a long period are automatically aborted unless explicitly extended.</p>
  * @example
@@ -43,16 +40,21 @@ export interface ExtendTransactionCommandOutput extends ExtendTransactionRespons
  * import { LakeFormationClient, ExtendTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ExtendTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // ExtendTransactionRequest
+ *   TransactionId: "STRING_VALUE",
+ * };
  * const command = new ExtendTransactionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExtendTransactionCommandInput - {@link ExtendTransactionCommandInput}
+ * @returns {@link ExtendTransactionCommandOutput}
  * @see {@link ExtendTransactionCommandInput} for command's `input` shape.
  * @see {@link ExtendTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -91,6 +93,9 @@ export class ExtendTransactionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExtendTransactionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class ExtendTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExtendTransactionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtendTransactionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class ExtendTransactionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExtendTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExtendTransactionCommand(input, context);
+    return se_ExtendTransactionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExtendTransactionCommandOutput> {
-    return deserializeAws_restJson1ExtendTransactionCommand(output, context);
+    return de_ExtendTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

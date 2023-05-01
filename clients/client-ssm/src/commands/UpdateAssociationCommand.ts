@@ -19,22 +19,24 @@ import {
   UpdateAssociationResult,
   UpdateAssociationResultFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateAssociationCommand,
-  serializeAws_json1_1UpdateAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateAssociationCommand, se_UpdateAssociationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAssociationCommand}.
  */
 export interface UpdateAssociationCommandInput extends UpdateAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAssociationCommand}.
  */
 export interface UpdateAssociationCommandOutput extends UpdateAssociationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an association. You can update the association name and version, the document
  *    version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. When you
  *    call <code>UpdateAssociation</code>, the system removes all optional parameters from the request
@@ -61,10 +63,86 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  * import { SSMClient, UpdateAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateAssociationRequest
+ *   AssociationId: "STRING_VALUE", // required
+ *   Parameters: { // Parameters
+ *     "<keys>": [ // ParameterValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   DocumentVersion: "STRING_VALUE",
+ *   ScheduleExpression: "STRING_VALUE",
+ *   OutputLocation: { // InstanceAssociationOutputLocation
+ *     S3Location: { // S3OutputLocation
+ *       OutputS3Region: "STRING_VALUE",
+ *       OutputS3BucketName: "STRING_VALUE",
+ *       OutputS3KeyPrefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   Name: "STRING_VALUE",
+ *   Targets: [ // Targets
+ *     { // Target
+ *       Key: "STRING_VALUE",
+ *       Values: [ // TargetValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   AssociationName: "STRING_VALUE",
+ *   AssociationVersion: "STRING_VALUE",
+ *   AutomationTargetParameterName: "STRING_VALUE",
+ *   MaxErrors: "STRING_VALUE",
+ *   MaxConcurrency: "STRING_VALUE",
+ *   ComplianceSeverity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "UNSPECIFIED",
+ *   SyncCompliance: "AUTO" || "MANUAL",
+ *   ApplyOnlyAtCronInterval: true || false,
+ *   CalendarNames: [ // CalendarNameOrARNList
+ *     "STRING_VALUE",
+ *   ],
+ *   TargetLocations: [ // TargetLocations
+ *     { // TargetLocation
+ *       Accounts: [ // Accounts
+ *         "STRING_VALUE",
+ *       ],
+ *       Regions: [ // Regions
+ *         "STRING_VALUE",
+ *       ],
+ *       TargetLocationMaxConcurrency: "STRING_VALUE",
+ *       TargetLocationMaxErrors: "STRING_VALUE",
+ *       ExecutionRoleName: "STRING_VALUE",
+ *       TargetLocationAlarmConfiguration: { // AlarmConfiguration
+ *         IgnorePollAlarmFailure: true || false,
+ *         Alarms: [ // AlarmList // required
+ *           { // Alarm
+ *             Name: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   ScheduleOffset: Number("int"),
+ *   TargetMaps: [ // TargetMaps
+ *     { // TargetMap
+ *       "<keys>": [ // TargetMapValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   AlarmConfiguration: {
+ *     IgnorePollAlarmFailure: true || false,
+ *     Alarms: [ // required
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAssociationCommandInput - {@link UpdateAssociationCommandInput}
+ * @returns {@link UpdateAssociationCommandOutput}
  * @see {@link UpdateAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateAssociationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -132,6 +210,9 @@ export class UpdateAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,12 +252,18 @@ export class UpdateAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAssociationCommand(input, context);
+    return se_UpdateAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAssociationCommandOutput> {
-    return deserializeAws_json1_1UpdateAssociationCommand(output, context);
+    return de_UpdateAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

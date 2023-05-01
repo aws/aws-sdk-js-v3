@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  CreateMountTargetRequest,
-  CreateMountTargetRequestFilterSensitiveLog,
-  MountTargetDescription,
-  MountTargetDescriptionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMountTargetCommand,
-  serializeAws_restJson1CreateMountTargetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMountTargetRequest, MountTargetDescription } from "../models/models_0";
+import { de_CreateMountTargetCommand, se_CreateMountTargetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMountTargetCommand}.
  */
 export interface CreateMountTargetCommandInput extends CreateMountTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMountTargetCommand}.
  */
 export interface CreateMountTargetCommandOutput extends MountTargetDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a mount target for a file system. You can then mount the file system on EC2
  *       instances by using the mount target.</p>
  *          <p>You can create one mount target in each Availability Zone in your VPC. All EC2
@@ -181,10 +178,20 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * import { EFSClient, CreateMountTargetCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateMountTargetCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // CreateMountTargetRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ *   SubnetId: "STRING_VALUE", // required
+ *   IpAddress: "STRING_VALUE",
+ *   SecurityGroups: [ // SecurityGroups
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateMountTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMountTargetCommandInput - {@link CreateMountTargetCommandInput}
+ * @returns {@link CreateMountTargetCommandOutput}
  * @see {@link CreateMountTargetCommandInput} for command's `input` shape.
  * @see {@link CreateMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -285,6 +292,9 @@ export class CreateMountTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMountTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -313,8 +323,8 @@ export class CreateMountTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMountTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MountTargetDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -324,12 +334,18 @@ export class CreateMountTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMountTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMountTargetCommand(input, context);
+    return se_CreateMountTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMountTargetCommandOutput> {
-    return deserializeAws_restJson1CreateMountTargetCommand(output, context);
+    return de_CreateMountTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

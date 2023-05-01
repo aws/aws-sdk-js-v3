@@ -94,6 +94,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateEnvironmentEC2CommandInput
   | CreateEnvironmentMembershipCommandInput
@@ -109,6 +112,9 @@ export type ServiceInputTypes =
   | UpdateEnvironmentCommandInput
   | UpdateEnvironmentMembershipCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateEnvironmentEC2CommandOutput
   | CreateEnvironmentMembershipCommandOutput
@@ -124,6 +130,9 @@ export type ServiceOutputTypes =
   | UpdateEnvironmentCommandOutput
   | UpdateEnvironmentMembershipCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -131,7 +140,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -240,11 +249,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type Cloud9ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -255,10 +267,15 @@ type Cloud9ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of Cloud9Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of Cloud9Client class constructor that set the region, credentials and other options.
  */
 export interface Cloud9ClientConfig extends Cloud9ClientConfigType {}
 
+/**
+ * @public
+ */
 type Cloud9ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -269,11 +286,14 @@ type Cloud9ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of Cloud9Client class. This is resolved and normalized from the {@link Cloud9ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of Cloud9Client class. This is resolved and normalized from the {@link Cloud9ClientConfig | constructor configuration interface}.
  */
 export interface Cloud9ClientResolvedConfig extends Cloud9ClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Cloud9</fullname>
  *          <p>Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and
  *       release software in the cloud.</p>

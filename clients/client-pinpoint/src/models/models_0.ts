@@ -3,29 +3,48 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { PinpointServiceException as __BaseException } from "./PinpointServiceException";
 
-export enum __EndpointTypesElement {
-  ADM = "ADM",
-  APNS = "APNS",
-  APNS_SANDBOX = "APNS_SANDBOX",
-  APNS_VOIP = "APNS_VOIP",
-  APNS_VOIP_SANDBOX = "APNS_VOIP_SANDBOX",
-  BAIDU = "BAIDU",
-  CUSTOM = "CUSTOM",
-  EMAIL = "EMAIL",
-  GCM = "GCM",
-  IN_APP = "IN_APP",
-  PUSH = "PUSH",
-  SMS = "SMS",
-  VOICE = "VOICE",
-}
-
-export enum Action {
-  DEEP_LINK = "DEEP_LINK",
-  OPEN_APP = "OPEN_APP",
-  URL = "URL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const __EndpointTypesElement = {
+  ADM: "ADM",
+  APNS: "APNS",
+  APNS_SANDBOX: "APNS_SANDBOX",
+  APNS_VOIP: "APNS_VOIP",
+  APNS_VOIP_SANDBOX: "APNS_VOIP_SANDBOX",
+  BAIDU: "BAIDU",
+  CUSTOM: "CUSTOM",
+  EMAIL: "EMAIL",
+  GCM: "GCM",
+  IN_APP: "IN_APP",
+  PUSH: "PUSH",
+  SMS: "SMS",
+  VOICE: "VOICE",
+} as const;
 
 /**
+ * @public
+ */
+export type __EndpointTypesElement = (typeof __EndpointTypesElement)[keyof typeof __EndpointTypesElement];
+
+/**
+ * @public
+ * @enum
+ */
+export const Action = {
+  DEEP_LINK: "DEEP_LINK",
+  OPEN_APP: "OPEN_APP",
+  URL: "URL",
+} as const;
+
+/**
+ * @public
+ */
+export type Action = (typeof Action)[keyof typeof Action];
+
+/**
+ * @public
  * <p>Provides information about an activity that was performed by a campaign.</p>
  */
 export interface ActivityResponse {
@@ -93,9 +112,15 @@ export interface ActivityResponse {
    * <p>The unique identifier for the campaign treatment that the activity applies to. A treatment is a variation of a campaign that's used for A/B testing of a campaign.</p>
    */
   TreatmentId?: string;
+
+  /**
+   * <p>A JSON object that contains metrics relating to the campaign execution for this campaign activity. For information about the structure and contents of the results, see <a href="https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html">Standard Amazon Pinpoint analytics metrics</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p>
+   */
+  ExecutionMetrics?: Record<string, string>;
 }
 
 /**
+ * @public
  * <p>Provides information about the activities that were performed by a campaign.</p>
  */
 export interface ActivitiesResponse {
@@ -110,17 +135,27 @@ export interface ActivitiesResponse {
   NextToken?: string;
 }
 
-export enum AttributeType {
-  AFTER = "AFTER",
-  BEFORE = "BEFORE",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EXCLUSIVE = "EXCLUSIVE",
-  INCLUSIVE = "INCLUSIVE",
-  ON = "ON",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AttributeType = {
+  AFTER: "AFTER",
+  BEFORE: "BEFORE",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  EXCLUSIVE: "EXCLUSIVE",
+  INCLUSIVE: "INCLUSIVE",
+  ON: "ON",
+} as const;
 
 /**
+ * @public
+ */
+export type AttributeType = (typeof AttributeType)[keyof typeof AttributeType];
+
+/**
+ * @public
  * <p>Specifies attribute-based criteria for including or excluding endpoints from a segment.</p>
  */
 export interface AttributeDimension {
@@ -135,12 +170,22 @@ export interface AttributeDimension {
   Values: string[] | undefined;
 }
 
-export enum DimensionType {
-  EXCLUSIVE = "EXCLUSIVE",
-  INCLUSIVE = "INCLUSIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DimensionType = {
+  EXCLUSIVE: "EXCLUSIVE",
+  INCLUSIVE: "INCLUSIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type DimensionType = (typeof DimensionType)[keyof typeof DimensionType];
+
+/**
+ * @public
  * <p>Specifies the dimension type and values for a segment dimension.</p>
  */
 export interface SetDimension {
@@ -156,6 +201,7 @@ export interface SetDimension {
 }
 
 /**
+ * @public
  * <p>Specifies metric-based criteria for including or excluding endpoints from a segment. These criteria derive from custom metrics that you define for endpoints.</p>
  */
 export interface MetricDimension {
@@ -171,6 +217,7 @@ export interface MetricDimension {
 }
 
 /**
+ * @public
  * <p>Specifies the dimensions for an event filter that determines when a campaign is sent or a journey activity is performed.</p>
  */
 export interface EventDimensions {
@@ -191,6 +238,7 @@ export interface EventDimensions {
 }
 
 /**
+ * @public
  * <p>Specifies the conditions to evaluate for an event that applies to an activity in a journey.</p>
  */
 export interface EventCondition {
@@ -206,6 +254,7 @@ export interface EventCondition {
 }
 
 /**
+ * @public
  * <p>Specifies a segment to associate with an activity in a journey.</p>
  */
 export interface SegmentCondition {
@@ -215,19 +264,38 @@ export interface SegmentCondition {
   SegmentId: string | undefined;
 }
 
-export enum Duration {
-  DAY_14 = "DAY_14",
-  DAY_30 = "DAY_30",
-  DAY_7 = "DAY_7",
-  HR_24 = "HR_24",
-}
-
-export enum RecencyType {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Duration = {
+  DAY_14: "DAY_14",
+  DAY_30: "DAY_30",
+  DAY_7: "DAY_7",
+  HR_24: "HR_24",
+} as const;
 
 /**
+ * @public
+ */
+export type Duration = (typeof Duration)[keyof typeof Duration];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecencyType = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type RecencyType = (typeof RecencyType)[keyof typeof RecencyType];
+
+/**
+ * @public
  * <p>Specifies criteria for including or excluding endpoints from a segment based on how recently an endpoint was active.</p>
  */
 export interface RecencyDimension {
@@ -243,6 +311,7 @@ export interface RecencyDimension {
 }
 
 /**
+ * @public
  * <p>Specifies dimension settings for including or excluding endpoints from a segment based on how recently an endpoint was active.</p>
  */
 export interface SegmentBehaviors {
@@ -253,6 +322,7 @@ export interface SegmentBehaviors {
 }
 
 /**
+ * @public
  * <p>Specifies demographic-based dimension settings for including or excluding endpoints from a segment. These settings derive from characteristics of endpoint devices, such as platform, make, and model.</p>
  */
 export interface SegmentDemographics {
@@ -288,6 +358,7 @@ export interface SegmentDemographics {
 }
 
 /**
+ * @public
  * <p>Specifies the GPS coordinates of a location.</p>
  */
 export interface GPSCoordinates {
@@ -303,6 +374,7 @@ export interface GPSCoordinates {
 }
 
 /**
+ * @public
  * <p>Specifies GPS-based criteria for including or excluding endpoints from a segment.</p>
  */
 export interface GPSPointDimension {
@@ -318,6 +390,7 @@ export interface GPSPointDimension {
 }
 
 /**
+ * @public
  * <p>Specifies geographical dimension settings for a segment.</p>
  */
 export interface SegmentLocation {
@@ -333,6 +406,7 @@ export interface SegmentLocation {
 }
 
 /**
+ * @public
  * <p>Specifies the dimension settings for a segment.</p>
  */
 export interface SegmentDimensions {
@@ -368,6 +442,7 @@ export interface SegmentDimensions {
 }
 
 /**
+ * @public
  * <p>Specifies a condition to evaluate for an activity in a journey.</p>
  */
 export interface SimpleCondition {
@@ -387,12 +462,22 @@ export interface SimpleCondition {
   SegmentDimensions?: SegmentDimensions;
 }
 
-export enum Operator {
-  ALL = "ALL",
-  ANY = "ANY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Operator = {
+  ALL: "ALL",
+  ANY: "ANY",
+} as const;
 
 /**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
+
+/**
+ * @public
  * <p>Specifies the conditions to evaluate for an activity in a journey, and how to evaluate those conditions.</p>
  */
 export interface Condition {
@@ -408,6 +493,7 @@ export interface Condition {
 }
 
 /**
+ * @public
  * <p>Specifies a duration or a date and time that indicates when Amazon Pinpoint determines whether an activity's conditions have been met or an activity moves participants to the next activity in a journey.</p>
  */
 export interface WaitTime {
@@ -423,6 +509,7 @@ export interface WaitTime {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a yes/no split activity in a journey. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p> <note><p>To create yes/no split activities that send participants down different paths based on push notification events (such as Open or Received events), your mobile app has to specify the User ID and Endpoint ID values. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html">Integrating Amazon Pinpoint with your application</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p></note>
  */
 export interface ConditionalSplitActivity {
@@ -447,6 +534,9 @@ export interface ConditionalSplitActivity {
   TrueActivity?: string;
 }
 
+/**
+ * @public
+ */
 export interface ContactCenterActivity {
   /**
    * <p>The unique identifier for the next activity to perform after the this activity.</p>
@@ -455,6 +545,7 @@ export interface ContactCenterActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the message content for a custom channel message that's sent to participants in a journey.</p>
  */
 export interface JourneyCustomMessage {
@@ -465,6 +556,7 @@ export interface JourneyCustomMessage {
 }
 
 /**
+ * @public
  * <p>The settings for a custom message activity. This type of activity calls an AWS Lambda function or web hook that sends messages to participants.</p>
  */
 export interface CustomMessageActivity {
@@ -500,6 +592,7 @@ export interface CustomMessageActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the "From" address for an email message that's sent to participants in a journey.</p>
  */
 export interface JourneyEmailMessage {
@@ -510,6 +603,7 @@ export interface JourneyEmailMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for an email activity in a journey. This type of activity sends an email message to participants.</p>
  */
 export interface EmailMessageActivity {
@@ -535,6 +629,7 @@ export interface EmailMessageActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a holdout activity in a journey. This type of activity stops a journey for a specified percentage of participants.</p>
  */
 export interface HoldoutActivity {
@@ -550,6 +645,7 @@ export interface HoldoutActivity {
 }
 
 /**
+ * @public
  * <p>Specifies a condition to evaluate for an activity path in a journey.</p>
  */
 export interface MultiConditionalBranch {
@@ -565,6 +661,7 @@ export interface MultiConditionalBranch {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p> <note><p>To create multivariate split activities that send participants down different paths based on push notification events (such as Open or Received events), your mobile app has to specify the User ID and Endpoint ID values. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html">Integrating Amazon Pinpoint with your application</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p></note>
  */
 export interface MultiConditionalSplitActivity {
@@ -585,6 +682,7 @@ export interface MultiConditionalSplitActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the message configuration for a push notification that's sent to participants in a journey.</p>
  */
 export interface JourneyPushMessage {
@@ -595,6 +693,7 @@ export interface JourneyPushMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a push notification activity in a journey. This type of activity sends a push notification to participants.</p>
  */
 export interface PushMessageActivity {
@@ -620,6 +719,7 @@ export interface PushMessageActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a path in a random split activity in a journey.</p>
  */
 export interface RandomSplitEntry {
@@ -635,6 +735,7 @@ export interface RandomSplitEntry {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a random split activity in a journey. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
  */
 export interface RandomSplitActivity {
@@ -644,12 +745,22 @@ export interface RandomSplitActivity {
   Branches?: RandomSplitEntry[];
 }
 
-export enum MessageType {
-  PROMOTIONAL = "PROMOTIONAL",
-  TRANSACTIONAL = "TRANSACTIONAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MessageType = {
+  PROMOTIONAL: "PROMOTIONAL",
+  TRANSACTIONAL: "TRANSACTIONAL",
+} as const;
 
 /**
+ * @public
+ */
+export type MessageType = (typeof MessageType)[keyof typeof MessageType];
+
+/**
+ * @public
  * <p>Specifies the sender ID and message type for an SMS message that's sent to participants in a journey.</p>
  */
 export interface JourneySMSMessage {
@@ -680,6 +791,7 @@ export interface JourneySMSMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for an SMS activity in a journey. This type of activity sends a text message to participants.</p>
  */
 export interface SMSMessageActivity {
@@ -705,6 +817,7 @@ export interface SMSMessageActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a wait activity in a journey. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p>
  */
 export interface WaitActivity {
@@ -720,6 +833,7 @@ export interface WaitActivity {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration and other settings for an activity in a journey.</p>
  */
 export interface Activity {
@@ -779,23 +893,33 @@ export interface Activity {
   ContactCenter?: ContactCenterActivity;
 }
 
-export enum ChannelType {
-  ADM = "ADM",
-  APNS = "APNS",
-  APNS_SANDBOX = "APNS_SANDBOX",
-  APNS_VOIP = "APNS_VOIP",
-  APNS_VOIP_SANDBOX = "APNS_VOIP_SANDBOX",
-  BAIDU = "BAIDU",
-  CUSTOM = "CUSTOM",
-  EMAIL = "EMAIL",
-  GCM = "GCM",
-  IN_APP = "IN_APP",
-  PUSH = "PUSH",
-  SMS = "SMS",
-  VOICE = "VOICE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChannelType = {
+  ADM: "ADM",
+  APNS: "APNS",
+  APNS_SANDBOX: "APNS_SANDBOX",
+  APNS_VOIP: "APNS_VOIP",
+  APNS_VOIP_SANDBOX: "APNS_VOIP_SANDBOX",
+  BAIDU: "BAIDU",
+  CUSTOM: "CUSTOM",
+  EMAIL: "EMAIL",
+  GCM: "GCM",
+  IN_APP: "IN_APP",
+  PUSH: "PUSH",
+  SMS: "SMS",
+  VOICE: "VOICE",
+} as const;
 
 /**
+ * @public
+ */
+export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
+
+/**
+ * @public
  * <p>Specifies address-based configuration settings for a message that's sent directly to an endpoint.</p>
  */
 export interface AddressConfiguration {
@@ -831,6 +955,7 @@ export interface AddressConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
  */
 export interface ADMChannelRequest {
@@ -851,6 +976,7 @@ export interface ADMChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
  */
 export interface ADMChannelResponse {
@@ -906,6 +1032,7 @@ export interface ADMChannelResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the ADM (Amazon Device Messaging) channel.</p>
  */
 export interface ADMMessage {
@@ -990,13 +1117,23 @@ export interface ADMMessage {
   Url?: string;
 }
 
-export enum Alignment {
-  CENTER = "CENTER",
-  LEFT = "LEFT",
-  RIGHT = "RIGHT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Alignment = {
+  CENTER: "CENTER",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+} as const;
 
 /**
+ * @public
+ */
+export type Alignment = (typeof Alignment)[keyof typeof Alignment];
+
+/**
+ * @public
  * <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the ADM (Amazon Device Messaging), Baidu (Baidu Cloud Push), or GCM (Firebase Cloud Messaging, formerly Google Cloud Messaging) channel.</p>
  */
 export interface AndroidPushNotificationTemplate {
@@ -1047,6 +1184,7 @@ export interface AndroidPushNotificationTemplate {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
  */
 export interface APNSChannelRequest {
@@ -1092,6 +1230,7 @@ export interface APNSChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
  */
 export interface APNSChannelResponse {
@@ -1157,6 +1296,7 @@ export interface APNSChannelResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the APNs (Apple Push Notification service) channel.</p>
  */
 export interface APNSMessage {
@@ -1252,6 +1392,7 @@ export interface APNSMessage {
 }
 
 /**
+ * @public
  * <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the APNs (Apple Push Notification service) channel.</p>
  */
 export interface APNSPushNotificationTemplate {
@@ -1292,6 +1433,7 @@ export interface APNSPushNotificationTemplate {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
  */
 export interface APNSSandboxChannelRequest {
@@ -1337,6 +1479,7 @@ export interface APNSSandboxChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
  */
 export interface APNSSandboxChannelResponse {
@@ -1402,6 +1545,7 @@ export interface APNSSandboxChannelResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
  */
 export interface APNSVoipChannelRequest {
@@ -1447,6 +1591,7 @@ export interface APNSVoipChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
  */
 export interface APNSVoipChannelResponse {
@@ -1512,6 +1657,7 @@ export interface APNSVoipChannelResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
  */
 export interface APNSVoipSandboxChannelRequest {
@@ -1557,6 +1703,7 @@ export interface APNSVoipSandboxChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
  */
 export interface APNSVoipSandboxChannelResponse {
@@ -1622,6 +1769,7 @@ export interface APNSVoipSandboxChannelResponse {
 }
 
 /**
+ * @public
  * <p>Provides a single value and metadata about that value as part of an array of query results for a standard metric that applies to an application, campaign, or journey.</p>
  */
 export interface ResultRowValue {
@@ -1642,6 +1790,7 @@ export interface ResultRowValue {
 }
 
 /**
+ * @public
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
  */
 export interface ResultRow {
@@ -1657,6 +1806,7 @@ export interface ResultRow {
 }
 
 /**
+ * @public
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
  */
 export interface BaseKpiResult {
@@ -1667,6 +1817,7 @@ export interface BaseKpiResult {
 }
 
 /**
+ * @public
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, and provides information about that query.</p>
  */
 export interface ApplicationDateRangeKpiResponse {
@@ -1702,6 +1853,7 @@ export interface ApplicationDateRangeKpiResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about an application.</p>
  */
 export interface ApplicationResponse {
@@ -1731,12 +1883,22 @@ export interface ApplicationResponse {
   CreationDate?: string;
 }
 
-export enum Mode {
-  DELIVERY = "DELIVERY",
-  FILTER = "FILTER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Mode = {
+  DELIVERY: "DELIVERY",
+  FILTER: "FILTER",
+} as const;
 
 /**
+ * @public
+ */
+export type Mode = (typeof Mode)[keyof typeof Mode];
+
+/**
+ * @public
  * <p>Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign.</p>
  */
 export interface CampaignHook {
@@ -1757,6 +1919,7 @@ export interface CampaignHook {
 }
 
 /**
+ * @public
  * <p>For a campaign, specifies limits on the messages that the campaign can send. For an application, specifies the default limits for messages that campaigns in the application can send.</p>
  */
 export interface CampaignLimits {
@@ -1787,6 +1950,7 @@ export interface CampaignLimits {
 }
 
 /**
+ * @public
  * <p>Specifies the start and end times that define a time range when messages aren't sent to endpoints.</p>
  */
 export interface QuietTime {
@@ -1802,6 +1966,7 @@ export interface QuietTime {
 }
 
 /**
+ * @public
  * <p>Provides information about an application, including the default settings for an application.</p>
  */
 export interface ApplicationSettingsResource {
@@ -1832,6 +1997,7 @@ export interface ApplicationSettingsResource {
 }
 
 /**
+ * @public
  * <p>Provides information about all of your applications.</p>
  */
 export interface ApplicationsResponse {
@@ -1847,6 +2013,7 @@ export interface ApplicationsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the type and the names of attributes that were removed from all the endpoints that are associated with an application.</p>
  */
 export interface AttributesResource {
@@ -1867,6 +2034,7 @@ export interface AttributesResource {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -1897,6 +2065,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
  */
 export interface BaiduChannelRequest {
@@ -1917,6 +2086,7 @@ export interface BaiduChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
  */
 export interface BaiduChannelResponse {
@@ -1977,6 +2147,7 @@ export interface BaiduChannelResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the Baidu (Baidu Cloud Push) channel.</p>
  */
 export interface BaiduMessage {
@@ -2051,13 +2222,23 @@ export interface BaiduMessage {
   Url?: string;
 }
 
-export enum ButtonAction {
-  CLOSE = "CLOSE",
-  DEEP_LINK = "DEEP_LINK",
-  LINK = "LINK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ButtonAction = {
+  CLOSE: "CLOSE",
+  DEEP_LINK: "DEEP_LINK",
+  LINK: "LINK",
+} as const;
 
 /**
+ * @public
+ */
+export type ButtonAction = (typeof ButtonAction)[keyof typeof ButtonAction];
+
+/**
+ * @public
  * <p>Specifies the contents of a message that's sent through a custom channel to recipients of a campaign.</p>
  */
 export interface CampaignCustomMessage {
@@ -2068,6 +2249,7 @@ export interface CampaignCustomMessage {
 }
 
 /**
+ * @public
  * <p>Provides the results of a query that retrieved the data for a standard metric that applies to a campaign, and provides information about that query.</p>
  */
 export interface CampaignDateRangeKpiResponse {
@@ -2108,6 +2290,7 @@ export interface CampaignDateRangeKpiResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the content and "From" address for an email message that's sent to recipients of a campaign.</p>
  */
 export interface CampaignEmailMessage {
@@ -2132,12 +2315,22 @@ export interface CampaignEmailMessage {
   Title?: string;
 }
 
-export enum FilterType {
-  ENDPOINT = "ENDPOINT",
-  SYSTEM = "SYSTEM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FilterType = {
+  ENDPOINT: "ENDPOINT",
+  SYSTEM: "SYSTEM",
+} as const;
 
 /**
+ * @public
+ */
+export type FilterType = (typeof FilterType)[keyof typeof FilterType];
+
+/**
+ * @public
  * <p>Specifies the settings for events that cause a campaign to be sent.</p>
  */
 export interface CampaignEventFilter {
@@ -2153,6 +2346,7 @@ export interface CampaignEventFilter {
 }
 
 /**
+ * @public
  * <p>Text config for Message Body.</p>
  */
 export interface InAppMessageBodyConfig {
@@ -2173,6 +2367,7 @@ export interface InAppMessageBodyConfig {
 }
 
 /**
+ * @public
  * <p>Text config for Message Header.</p>
  */
 export interface InAppMessageHeaderConfig {
@@ -2193,6 +2388,7 @@ export interface InAppMessageHeaderConfig {
 }
 
 /**
+ * @public
  * <p>Override button configuration.</p>
  */
 export interface OverrideButtonConfiguration {
@@ -2208,6 +2404,7 @@ export interface OverrideButtonConfiguration {
 }
 
 /**
+ * @public
  * <p>Default button configuration.</p>
  */
 export interface DefaultButtonConfiguration {
@@ -2243,6 +2440,7 @@ export interface DefaultButtonConfiguration {
 }
 
 /**
+ * @public
  * <p>Button Config for an in-app message.</p>
  */
 export interface InAppMessageButton {
@@ -2268,6 +2466,7 @@ export interface InAppMessageButton {
 }
 
 /**
+ * @public
  * <p>The configuration for the message content.</p>
  */
 export interface InAppMessageContent {
@@ -2302,16 +2501,26 @@ export interface InAppMessageContent {
   SecondaryBtn?: InAppMessageButton;
 }
 
-export enum Layout {
-  BOTTOM_BANNER = "BOTTOM_BANNER",
-  CAROUSEL = "CAROUSEL",
-  MIDDLE_BANNER = "MIDDLE_BANNER",
-  MOBILE_FEED = "MOBILE_FEED",
-  OVERLAYS = "OVERLAYS",
-  TOP_BANNER = "TOP_BANNER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Layout = {
+  BOTTOM_BANNER: "BOTTOM_BANNER",
+  CAROUSEL: "CAROUSEL",
+  MIDDLE_BANNER: "MIDDLE_BANNER",
+  MOBILE_FEED: "MOBILE_FEED",
+  OVERLAYS: "OVERLAYS",
+  TOP_BANNER: "TOP_BANNER",
+} as const;
 
 /**
+ * @public
+ */
+export type Layout = (typeof Layout)[keyof typeof Layout];
+
+/**
+ * @public
  * <p>In-app message configuration.</p>
  */
 export interface CampaignInAppMessage {
@@ -2337,6 +2546,7 @@ export interface CampaignInAppMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the delivery configuration settings for sending a campaign or campaign treatment through a custom channel. This object is required if you use the CampaignCustomMessage object to define the message to send for the campaign or campaign treatment.</p>
  */
 export interface CustomDeliveryConfiguration {
@@ -2352,6 +2562,7 @@ export interface CustomDeliveryConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for a push notification that's sent to recipients of a campaign.</p>
  */
 export interface Message {
@@ -2417,6 +2628,7 @@ export interface Message {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for an SMS message that's sent to recipients of a campaign.</p>
  */
 export interface CampaignSmsMessage {
@@ -2452,6 +2664,7 @@ export interface CampaignSmsMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the message configuration settings for a campaign.</p>
  */
 export interface MessageConfiguration {
@@ -2501,17 +2714,27 @@ export interface MessageConfiguration {
   InAppMessage?: CampaignInAppMessage;
 }
 
-export enum Frequency {
-  DAILY = "DAILY",
-  EVENT = "EVENT",
-  HOURLY = "HOURLY",
-  IN_APP_EVENT = "IN_APP_EVENT",
-  MONTHLY = "MONTHLY",
-  ONCE = "ONCE",
-  WEEKLY = "WEEKLY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Frequency = {
+  DAILY: "DAILY",
+  EVENT: "EVENT",
+  HOURLY: "HOURLY",
+  IN_APP_EVENT: "IN_APP_EVENT",
+  MONTHLY: "MONTHLY",
+  ONCE: "ONCE",
+  WEEKLY: "WEEKLY",
+} as const;
 
 /**
+ * @public
+ */
+export type Frequency = (typeof Frequency)[keyof typeof Frequency];
+
+/**
+ * @public
  * <p>Specifies the schedule settings for a campaign.</p>
  */
 export interface Schedule {
@@ -2554,17 +2777,27 @@ export interface Schedule {
   Timezone?: string;
 }
 
-export enum CampaignStatus {
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  EXECUTING = "EXECUTING",
-  INVALID = "INVALID",
-  PAUSED = "PAUSED",
-  PENDING_NEXT_RUN = "PENDING_NEXT_RUN",
-  SCHEDULED = "SCHEDULED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CampaignStatus = {
+  COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  EXECUTING: "EXECUTING",
+  INVALID: "INVALID",
+  PAUSED: "PAUSED",
+  PENDING_NEXT_RUN: "PENDING_NEXT_RUN",
+  SCHEDULED: "SCHEDULED",
+} as const;
 
 /**
+ * @public
+ */
+export type CampaignStatus = (typeof CampaignStatus)[keyof typeof CampaignStatus];
+
+/**
+ * @public
  * <p>Provides information about the status of a campaign.</p>
  */
 export interface CampaignState {
@@ -2575,6 +2808,7 @@ export interface CampaignState {
 }
 
 /**
+ * @public
  * <p>Specifies the name and version of the message template to use for the message.</p>
  */
 export interface Template {
@@ -2590,6 +2824,7 @@ export interface Template {
 }
 
 /**
+ * @public
  * <p>Specifies the message template to use for the message, for each type of channel.</p>
  */
 export interface TemplateConfiguration {
@@ -2615,6 +2850,7 @@ export interface TemplateConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a campaign treatment. A <i>treatment</i> is a variation of a campaign that's used for A/B testing of a campaign.</p>
  */
 export interface TreatmentResource {
@@ -2665,6 +2901,7 @@ export interface TreatmentResource {
 }
 
 /**
+ * @public
  * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
  */
 export interface CampaignResponse {
@@ -2795,6 +3032,7 @@ export interface CampaignResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
  */
 export interface CampaignsResponse {
@@ -2810,6 +3048,7 @@ export interface CampaignsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the general settings and status of a channel for an application.</p>
  */
 export interface ChannelResponse {
@@ -2860,6 +3099,7 @@ export interface ChannelResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the general settings and status of all channels for an application, including channels that aren't enabled for the application.</p>
  */
 export interface ChannelsResponse {
@@ -2870,56 +3110,59 @@ export interface ChannelsResponse {
 }
 
 /**
- * <p>Closed Days Rule. Part of Journey sending schedule.</p>
+ * @public
+ * <p>Specifies the rule settings for when messages can't be sent.</p>
  */
 export interface ClosedDaysRule {
   /**
-   * <p>Name of the rule.</p>
+   * <p>The name of the closed day rule.</p>
    */
   Name?: string;
 
   /**
-   * <p>Start Datetime in ISO 8601 format.</p>
+   * <p>Start DateTime ISO 8601 format</p>
    */
   StartDateTime?: string;
 
   /**
-   * <p>End Datetime in ISO 8601 format.</p>
+   * <p>End DateTime ISO 8601 format</p>
    */
   EndDateTime?: string;
 }
 
 /**
- * <p>The time when journey will stop sending messages.</p>
+ * @public
+ * <p>The time when a journey will not send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
  */
 export interface ClosedDays {
   /**
-   * <p>Rules for Email Channel.</p>
+   * <p>Rules for the Email channel.</p>
    */
   EMAIL?: ClosedDaysRule[];
 
   /**
-   * <p>Rules for SMS Channel.</p>
+   * <p>Rules for the SMS channel.</p>
    */
   SMS?: ClosedDaysRule[];
 
   /**
-   * <p>Rules for Push Channel.</p>
+   * <p>Rules for the Push channel.</p>
    */
   PUSH?: ClosedDaysRule[];
 
   /**
-   * <p>Rules for Voice Channel.</p>
+   * <p>Rules for the Voice channel.</p>
    */
   VOICE?: ClosedDaysRule[];
 
   /**
-   * <p>Rules for Custom Channel.</p>
+   * <p>Rules for the Custom channel.</p>
    */
   CUSTOM?: ClosedDaysRule[];
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class ConflictException extends __BaseException {
@@ -2950,6 +3193,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies the display name of an application and the tags to associate with the application.</p>
  */
 export interface CreateApplicationRequest {
@@ -2964,6 +3208,9 @@ export interface CreateApplicationRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppRequest {
   /**
    * <p>Specifies the display name of an application and the tags to associate with the application.</p>
@@ -2971,6 +3218,9 @@ export interface CreateAppRequest {
   CreateApplicationRequest: CreateApplicationRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAppResponse {
   /**
    * <p>Provides information about an application.</p>
@@ -2979,6 +3229,7 @@ export interface CreateAppResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -3009,6 +3260,7 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -3039,6 +3291,7 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class MethodNotAllowedException extends __BaseException {
@@ -3069,6 +3322,7 @@ export class MethodNotAllowedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -3099,6 +3353,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class PayloadTooLargeException extends __BaseException {
@@ -3129,6 +3384,7 @@ export class PayloadTooLargeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -3159,6 +3415,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a campaign treatment. A <i>treatment</i> is a variation of a campaign that's used for A/B testing of a campaign.</p>
  */
 export interface WriteTreatmentResource {
@@ -3199,6 +3456,7 @@ export interface WriteTreatmentResource {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration and other settings for a campaign.</p>
  */
 export interface WriteCampaignRequest {
@@ -3288,6 +3546,9 @@ export interface WriteCampaignRequest {
   Priority?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateCampaignRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -3300,6 +3561,9 @@ export interface CreateCampaignRequest {
   WriteCampaignRequest: WriteCampaignRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCampaignResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -3308,6 +3572,7 @@ export interface CreateCampaignResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
  */
 export interface EmailTemplateRequest {
@@ -3347,6 +3612,9 @@ export interface EmailTemplateRequest {
   TextPart?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEmailTemplateRequest {
   /**
    * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
@@ -3360,6 +3628,7 @@ export interface CreateEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a request to create a message template.</p>
  */
 export interface CreateTemplateMessageBody {
@@ -3379,6 +3648,9 @@ export interface CreateTemplateMessageBody {
   RequestID?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateEmailTemplateResponse {
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -3387,6 +3659,7 @@ export interface CreateEmailTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a job that exports endpoint definitions to an Amazon Simple Storage Service (Amazon S3) bucket.</p>
  */
 export interface ExportJobRequest {
@@ -3411,6 +3684,9 @@ export interface ExportJobRequest {
   SegmentVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateExportJobRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -3424,6 +3700,7 @@ export interface CreateExportJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the resource settings for a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ExportJobResource {
@@ -3448,19 +3725,29 @@ export interface ExportJobResource {
   SegmentVersion?: number;
 }
 
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETING = "COMPLETING",
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  FAILING = "FAILING",
-  INITIALIZING = "INITIALIZING",
-  PENDING_JOB = "PENDING_JOB",
-  PREPARING_FOR_INITIALIZATION = "PREPARING_FOR_INITIALIZATION",
-  PROCESSING = "PROCESSING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETING: "COMPLETING",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  FAILING: "FAILING",
+  INITIALIZING: "INITIALIZING",
+  PENDING_JOB: "PENDING_JOB",
+  PREPARING_FOR_INITIALIZATION: "PREPARING_FOR_INITIALIZATION",
+  PROCESSING: "PROCESSING",
+} as const;
 
 /**
+ * @public
+ */
+export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
  * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ExportJobResponse {
@@ -3530,6 +3817,9 @@ export interface ExportJobResponse {
   Type: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateExportJobResponse {
   /**
    * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
@@ -3537,12 +3827,22 @@ export interface CreateExportJobResponse {
   ExportJobResponse: ExportJobResponse | undefined;
 }
 
-export enum Format {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Format = {
+  CSV: "CSV",
+  JSON: "JSON",
+} as const;
 
 /**
+ * @public
+ */
+export type Format = (typeof Format)[keyof typeof Format];
+
+/**
+ * @public
  * <p>Specifies the settings for a job that imports endpoint definitions from an Amazon Simple Storage Service (Amazon S3) bucket.</p>
  */
 export interface ImportJobRequest {
@@ -3587,6 +3887,9 @@ export interface ImportJobRequest {
   SegmentName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateImportJobRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -3600,6 +3903,7 @@ export interface CreateImportJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the resource settings for a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ImportJobResource {
@@ -3645,6 +3949,7 @@ export interface ImportJobResource {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
  */
 export interface ImportJobResponse {
@@ -3714,6 +4019,9 @@ export interface ImportJobResponse {
   Type: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateImportJobResponse {
   /**
    * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
@@ -3722,6 +4030,7 @@ export interface CreateImportJobResponse {
 }
 
 /**
+ * @public
  * <p>InApp Template Request.</p>
  */
 export interface InAppTemplateRequest {
@@ -3751,6 +4060,9 @@ export interface InAppTemplateRequest {
   TemplateDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateInAppTemplateRequest {
   /**
    * <p>InApp Template Request.</p>
@@ -3764,6 +4076,7 @@ export interface CreateInAppTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about a request to create a message template.</p>
  */
 export interface TemplateCreateMessageBody {
@@ -3783,6 +4096,9 @@ export interface TemplateCreateMessageBody {
   RequestID?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateInAppTemplateResponse {
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -3791,6 +4107,7 @@ export interface CreateInAppTemplateResponse {
 }
 
 /**
+ * @public
  * <p>The channel-specific configurations for the journey.</p>
  */
 export interface JourneyChannelSettings {
@@ -3806,6 +4123,7 @@ export interface JourneyChannelSettings {
 }
 
 /**
+ * @public
  * <p>Specifies limits on the messages that a journey can send and the number of times participants can enter a journey.</p>
  */
 export interface JourneyLimits {
@@ -3830,62 +4148,74 @@ export interface JourneyLimits {
   EndpointReentryInterval?: string;
 }
 
-export enum DayOfWeek {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
 
 /**
- * <p>List of OpenHours Rules.</p>
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+/**
+ * @public
+ * <p>Specifies the start and end time for OpenHours.</p>
  */
 export interface OpenHoursRule {
   /**
-   * <p>Local start time in ISO 8601 format.</p>
+   * <p>The start of the scheduled time, in ISO 8601 format, when the channel can send messages.</p>
    */
   StartTime?: string;
 
   /**
-   * <p>Local start time in ISO 8601 format.</p>
+   * <p>The end of the scheduled time, in ISO 8601 format, when the channel can't send messages.</p>
    */
   EndTime?: string;
 }
 
 /**
- * <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+ * @public
+ * <p>Specifies the times when message are allowed to be sent to endpoints.</p>
  */
 export interface OpenHours {
   /**
-   * <p>Rules for Email Channel.</p>
+   * <p>Specifies the schedule settings for the email channel.</p>
    */
   EMAIL?: Record<string, OpenHoursRule[]>;
 
   /**
-   * <p>Rules for SMS Channel.</p>
+   * <p>Specifies the schedule settings for the SMS channel.</p>
    */
   SMS?: Record<string, OpenHoursRule[]>;
 
   /**
-   * <p>Rules for Push Channel.</p>
+   * <p>Specifies the schedule settings for the push channel.</p>
    */
   PUSH?: Record<string, OpenHoursRule[]>;
 
   /**
-   * <p>Rules for Voice Channel.</p>
+   * <p>Specifies the schedule settings for the voice channel.</p>
    */
   VOICE?: Record<string, OpenHoursRule[]>;
 
   /**
-   * <p>Rules for Custom Channel.</p>
+   * <p>Specifies the schedule settings for the custom channel.</p>
    */
   CUSTOM?: Record<string, OpenHoursRule[]>;
 }
 
 /**
+ * @public
  * <p>Specifies the schedule settings for a journey.</p>
  */
 export interface JourneySchedule {
@@ -3911,6 +4241,7 @@ export interface JourneySchedule {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for an event that causes a campaign to be sent or a journey activity to be performed.</p>
  */
 export interface EventFilter {
@@ -3926,6 +4257,7 @@ export interface EventFilter {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for an event that causes a journey activity to start.</p>
  */
 export interface EventStartCondition {
@@ -3938,6 +4270,7 @@ export interface EventStartCondition {
 }
 
 /**
+ * @public
  * <p>Specifies the conditions for the first activity in a journey. This activity and its conditions determine which users are participants in a journey.</p>
  */
 export interface StartCondition {
@@ -3957,16 +4290,26 @@ export interface StartCondition {
   SegmentStartCondition?: SegmentCondition;
 }
 
-export enum State {
-  ACTIVE = "ACTIVE",
-  CANCELLED = "CANCELLED",
-  CLOSED = "CLOSED",
-  COMPLETED = "COMPLETED",
-  DRAFT = "DRAFT",
-  PAUSED = "PAUSED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const State = {
+  ACTIVE: "ACTIVE",
+  CANCELLED: "CANCELLED",
+  CLOSED: "CLOSED",
+  COMPLETED: "COMPLETED",
+  DRAFT: "DRAFT",
+  PAUSED: "PAUSED",
+} as const;
 
 /**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
  * <p>Specifies the configuration and other settings for a journey.</p>
  */
 export interface WriteJourneyRequest {
@@ -4036,7 +4379,7 @@ export interface WriteJourneyRequest {
   WaitForQuietTime?: boolean;
 
   /**
-   * <p>Specifies whether a journey should be refreshed on segment update.</p>
+   * <p>Indicates whether the journey participants should be refreshed when a segment is updated.</p>
    */
   RefreshOnSegmentUpdate?: boolean;
 
@@ -4046,7 +4389,7 @@ export interface WriteJourneyRequest {
   JourneyChannelSettings?: JourneyChannelSettings;
 
   /**
-   * <p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>
+   * <p>Indicates if journey has Advance Quiet Time enabled. This flag should be set to true in order to allow using OpenHours and ClosedDays.</p>
    */
   SendingSchedule?: boolean;
 
@@ -4061,6 +4404,9 @@ export interface WriteJourneyRequest {
   ClosedDays?: ClosedDays;
 }
 
+/**
+ * @public
+ */
 export interface CreateJourneyRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4074,6 +4420,7 @@ export interface CreateJourneyRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status, configuration, and other settings for a journey.</p>
  */
 export interface JourneyResponse {
@@ -4153,12 +4500,12 @@ export interface JourneyResponse {
   tags?: Record<string, string>;
 
   /**
-   * <p>Specifies whether endpoints in quiet hours should enter a wait till the end of their quiet hours.</p>
+   * <p>Indicates whether endpoints in quiet hours should enter a wait activity until quiet hours have elapsed.</p>
    */
   WaitForQuietTime?: boolean;
 
   /**
-   * <p>Specifies whether a journey should be refreshed on segment update.</p>
+   * <p>Indicates whether the journey participants should be refreshed when a segment is updated.</p>
    */
   RefreshOnSegmentUpdate?: boolean;
 
@@ -4168,21 +4515,24 @@ export interface JourneyResponse {
   JourneyChannelSettings?: JourneyChannelSettings;
 
   /**
-   * <p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>
+   * <p>Indicates if journey has Advance Quiet Time enabled. This flag should be set to true in order to allow using OpenHours and ClosedDays.</p>
    */
   SendingSchedule?: boolean;
 
   /**
-   * <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+   * <p>The time when a journey can send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
    */
   OpenHours?: OpenHours;
 
   /**
-   * <p>The time when journey will stop sending messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+   * <p>The time when a journey will not send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
    */
   ClosedDays?: ClosedDays;
 }
 
+/**
+ * @public
+ */
 export interface CreateJourneyResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -4191,6 +4541,7 @@ export interface CreateJourneyResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the default settings and content for a message template that can be used in messages that are sent through a push notification channel.</p>
  */
 export interface DefaultPushNotificationTemplate {
@@ -4221,6 +4572,7 @@ export interface DefaultPushNotificationTemplate {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
  */
 export interface PushNotificationTemplateRequest {
@@ -4270,6 +4622,9 @@ export interface PushNotificationTemplateRequest {
   TemplateDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePushTemplateRequest {
   /**
    * <p>Specifies the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
@@ -4282,6 +4637,9 @@ export interface CreatePushTemplateRequest {
   TemplateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreatePushTemplateResponse {
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -4290,6 +4648,7 @@ export interface CreatePushTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies Amazon Pinpoint configuration settings for retrieving and processing recommendation data from a recommender model.</p>
  */
 export interface CreateRecommenderConfigurationShape {
@@ -4339,6 +4698,9 @@ export interface CreateRecommenderConfigurationShape {
   RecommendationsPerMessage?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateRecommenderConfigurationRequest {
   /**
    * <p>Specifies Amazon Pinpoint configuration settings for retrieving and processing recommendation data from a recommender model.</p>
@@ -4347,6 +4709,7 @@ export interface CreateRecommenderConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
  */
 export interface RecommenderConfigurationResponse {
@@ -4411,6 +4774,9 @@ export interface RecommenderConfigurationResponse {
   RecommendationsPerMessage?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateRecommenderConfigurationResponse {
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
@@ -4419,6 +4785,7 @@ export interface CreateRecommenderConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the segment identifier and version of a segment.</p>
  */
 export interface SegmentReference {
@@ -4433,19 +4800,38 @@ export interface SegmentReference {
   Version?: number;
 }
 
-export enum SourceType {
-  ALL = "ALL",
-  ANY = "ANY",
-  NONE = "NONE",
-}
-
-export enum Type {
-  ALL = "ALL",
-  ANY = "ANY",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  ALL: "ALL",
+  ANY: "ANY",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  ALL: "ALL",
+  ANY: "ANY",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * @public
  * <p>Specifies the base segments and dimensions for a segment, and the relationships between these base segments and dimensions.</p>
  */
 export interface SegmentGroup {
@@ -4470,13 +4856,23 @@ export interface SegmentGroup {
   Type?: Type | string;
 }
 
-export enum Include {
-  ALL = "ALL",
-  ANY = "ANY",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Include = {
+  ALL: "ALL",
+  ANY: "ANY",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type Include = (typeof Include)[keyof typeof Include];
+
+/**
+ * @public
  * <p>Specifies the settings that define the relationships between segment groups for a segment.</p>
  */
 export interface SegmentGroupList {
@@ -4492,6 +4888,7 @@ export interface SegmentGroupList {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration, dimension, and other settings for a segment. A WriteSegmentRequest object can include a Dimensions object or a SegmentGroups object, but not both.</p>
  */
 export interface WriteSegmentRequest {
@@ -4516,6 +4913,9 @@ export interface WriteSegmentRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSegmentRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4529,6 +4929,7 @@ export interface CreateSegmentRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the import job that created a segment. An import job is a job that creates a user segment by importing endpoint definitions.</p>
  */
 export interface SegmentImportResource {
@@ -4563,12 +4964,22 @@ export interface SegmentImportResource {
   Size: number | undefined;
 }
 
-export enum SegmentType {
-  DIMENSIONAL = "DIMENSIONAL",
-  IMPORT = "IMPORT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SegmentType = {
+  DIMENSIONAL: "DIMENSIONAL",
+  IMPORT: "IMPORT",
+} as const;
 
 /**
+ * @public
+ */
+export type SegmentType = (typeof SegmentType)[keyof typeof SegmentType];
+
+/**
+ * @public
  * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
  */
 export interface SegmentResponse {
@@ -4633,6 +5044,9 @@ export interface SegmentResponse {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateSegmentResponse {
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -4641,6 +5055,7 @@ export interface CreateSegmentResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
  */
 export interface SMSTemplateRequest {
@@ -4670,6 +5085,9 @@ export interface SMSTemplateRequest {
   TemplateDescription?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSmsTemplateRequest {
   /**
    * <p>Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
@@ -4682,6 +5100,9 @@ export interface CreateSmsTemplateRequest {
   TemplateName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateSmsTemplateResponse {
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -4690,6 +5111,7 @@ export interface CreateSmsTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the voice channel.</p>
  */
 export interface VoiceTemplateRequest {
@@ -4724,6 +5146,9 @@ export interface VoiceTemplateRequest {
   VoiceId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -4736,6 +5161,9 @@ export interface CreateVoiceTemplateRequest {
   VoiceTemplateRequest: VoiceTemplateRequest | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateVoiceTemplateResponse {
   /**
    * <p>Provides information about a request to create a message template.</p>
@@ -4744,6 +5172,7 @@ export interface CreateVoiceTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the default message for all channels.</p>
  */
 export interface DefaultMessage {
@@ -4759,6 +5188,7 @@ export interface DefaultMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the default settings and content for a push notification that's sent directly to an endpoint.</p>
  */
 export interface DefaultPushNotificationMessage {
@@ -4798,6 +5228,9 @@ export interface DefaultPushNotificationMessage {
   Url?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAdmChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4805,6 +5238,9 @@ export interface DeleteAdmChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAdmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
@@ -4812,6 +5248,9 @@ export interface DeleteAdmChannelResponse {
   ADMChannelResponse: ADMChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4819,6 +5258,9 @@ export interface DeleteApnsChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
@@ -4826,6 +5268,9 @@ export interface DeleteApnsChannelResponse {
   APNSChannelResponse: APNSChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsSandboxChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4833,6 +5278,9 @@ export interface DeleteApnsSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
@@ -4840,6 +5288,9 @@ export interface DeleteApnsSandboxChannelResponse {
   APNSSandboxChannelResponse: APNSSandboxChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsVoipChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4847,6 +5298,9 @@ export interface DeleteApnsVoipChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsVoipChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
@@ -4854,6 +5308,9 @@ export interface DeleteApnsVoipChannelResponse {
   APNSVoipChannelResponse: APNSVoipChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsVoipSandboxChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4861,6 +5318,9 @@ export interface DeleteApnsVoipSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteApnsVoipSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
@@ -4868,6 +5328,9 @@ export interface DeleteApnsVoipSandboxChannelResponse {
   APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4875,6 +5338,9 @@ export interface DeleteAppRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAppResponse {
   /**
    * <p>Provides information about an application.</p>
@@ -4882,6 +5348,9 @@ export interface DeleteAppResponse {
   ApplicationResponse: ApplicationResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBaiduChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4889,6 +5358,9 @@ export interface DeleteBaiduChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteBaiduChannelResponse {
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
@@ -4896,6 +5368,9 @@ export interface DeleteBaiduChannelResponse {
   BaiduChannelResponse: BaiduChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCampaignRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4908,6 +5383,9 @@ export interface DeleteCampaignRequest {
   CampaignId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCampaignResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -4915,6 +5393,9 @@ export interface DeleteCampaignResponse {
   CampaignResponse: CampaignResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEmailChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -4923,6 +5404,7 @@ export interface DeleteEmailChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the email channel for an application.</p>
  */
 export interface EmailChannelResponse {
@@ -5002,6 +5484,9 @@ export interface EmailChannelResponse {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEmailChannelResponse {
   /**
    * <p>Provides information about the status and settings of the email channel for an application.</p>
@@ -5009,6 +5494,9 @@ export interface DeleteEmailChannelResponse {
   EmailChannelResponse: EmailChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEmailTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -5022,6 +5510,7 @@ export interface DeleteEmailTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about an API request or response.</p>
  */
 export interface MessageBody {
@@ -5036,6 +5525,9 @@ export interface MessageBody {
   RequestID?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEmailTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -5043,6 +5535,9 @@ export interface DeleteEmailTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEndpointRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5056,6 +5551,7 @@ export interface DeleteEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Specifies demographic information about an endpoint, such as the applicable time zone and platform.</p>
  */
 export interface EndpointDemographic {
@@ -5101,6 +5597,7 @@ export interface EndpointDemographic {
 }
 
 /**
+ * @public
  * <p>Specifies geographic information about an endpoint.</p>
  */
 export interface EndpointLocation {
@@ -5136,6 +5633,7 @@ export interface EndpointLocation {
 }
 
 /**
+ * @public
  * <p>Specifies data for one or more attributes that describe the user who's associated with an endpoint.</p>
  */
 export interface EndpointUser {
@@ -5151,6 +5649,7 @@ export interface EndpointUser {
 }
 
 /**
+ * @public
  * <p>Provides information about the channel type and other settings for an endpoint.</p>
  */
 export interface EndpointResponse {
@@ -5230,6 +5729,9 @@ export interface EndpointResponse {
   User?: EndpointUser;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEndpointResponse {
   /**
    * <p>Provides information about the channel type and other settings for an endpoint.</p>
@@ -5237,6 +5739,9 @@ export interface DeleteEndpointResponse {
   EndpointResponse: EndpointResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventStreamRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5245,6 +5750,7 @@ export interface DeleteEventStreamRequest {
 }
 
 /**
+ * @public
  * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
  */
 export interface EventStream {
@@ -5281,6 +5787,9 @@ export interface EventStream {
   RoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteEventStreamResponse {
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
@@ -5288,6 +5797,9 @@ export interface DeleteEventStreamResponse {
   EventStream: EventStream | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGcmChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5296,6 +5808,7 @@ export interface DeleteGcmChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
  */
 export interface GCMChannelResponse {
@@ -5355,6 +5868,9 @@ export interface GCMChannelResponse {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGcmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
@@ -5362,6 +5878,9 @@ export interface DeleteGcmChannelResponse {
   GCMChannelResponse: GCMChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInAppTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -5374,6 +5893,9 @@ export interface DeleteInAppTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteInAppTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -5381,6 +5903,9 @@ export interface DeleteInAppTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJourneyRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5393,6 +5918,9 @@ export interface DeleteJourneyRequest {
   JourneyId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteJourneyResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
@@ -5400,6 +5928,9 @@ export interface DeleteJourneyResponse {
   JourneyResponse: JourneyResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeletePushTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -5412,6 +5943,9 @@ export interface DeletePushTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeletePushTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -5419,6 +5953,9 @@ export interface DeletePushTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRecommenderConfigurationRequest {
   /**
    * <p>The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.</p>
@@ -5426,6 +5963,9 @@ export interface DeleteRecommenderConfigurationRequest {
   RecommenderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteRecommenderConfigurationResponse {
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
@@ -5433,6 +5973,9 @@ export interface DeleteRecommenderConfigurationResponse {
   RecommenderConfigurationResponse: RecommenderConfigurationResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSegmentRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5445,6 +5988,9 @@ export interface DeleteSegmentRequest {
   SegmentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSegmentResponse {
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -5452,6 +5998,9 @@ export interface DeleteSegmentResponse {
   SegmentResponse: SegmentResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSmsChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5460,6 +6009,7 @@ export interface DeleteSmsChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the SMS channel for an application.</p>
  */
 export interface SMSChannelResponse {
@@ -5534,6 +6084,9 @@ export interface SMSChannelResponse {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSmsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
@@ -5541,6 +6094,9 @@ export interface DeleteSmsChannelResponse {
   SMSChannelResponse: SMSChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSmsTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -5553,6 +6109,9 @@ export interface DeleteSmsTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSmsTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -5560,6 +6119,9 @@ export interface DeleteSmsTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserEndpointsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5573,6 +6135,7 @@ export interface DeleteUserEndpointsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about all the endpoints that are associated with a user ID.</p>
  */
 export interface EndpointsResponse {
@@ -5582,6 +6145,9 @@ export interface EndpointsResponse {
   Item: EndpointResponse[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserEndpointsResponse {
   /**
    * <p>Provides information about all the endpoints that are associated with a user ID.</p>
@@ -5589,6 +6155,9 @@ export interface DeleteUserEndpointsResponse {
   EndpointsResponse: EndpointsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -5597,6 +6166,7 @@ export interface DeleteVoiceChannelRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the status and settings of the voice channel for an application.</p>
  */
 export interface VoiceChannelResponse {
@@ -5651,6 +6221,9 @@ export interface VoiceChannelResponse {
   Version?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceChannelResponse {
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
@@ -5658,6 +6231,9 @@ export interface DeleteVoiceChannelResponse {
   VoiceChannelResponse: VoiceChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceTemplateRequest {
   /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
@@ -5670,6 +6246,9 @@ export interface DeleteVoiceTemplateRequest {
   Version?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteVoiceTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
@@ -5677,17 +6256,27 @@ export interface DeleteVoiceTemplateResponse {
   MessageBody: MessageBody | undefined;
 }
 
-export enum DeliveryStatus {
-  DUPLICATE = "DUPLICATE",
-  OPT_OUT = "OPT_OUT",
-  PERMANENT_FAILURE = "PERMANENT_FAILURE",
-  SUCCESSFUL = "SUCCESSFUL",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-  THROTTLED = "THROTTLED",
-  UNKNOWN_FAILURE = "UNKNOWN_FAILURE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeliveryStatus = {
+  DUPLICATE: "DUPLICATE",
+  OPT_OUT: "OPT_OUT",
+  PERMANENT_FAILURE: "PERMANENT_FAILURE",
+  SUCCESSFUL: "SUCCESSFUL",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+  THROTTLED: "THROTTLED",
+  UNKNOWN_FAILURE: "UNKNOWN_FAILURE",
+} as const;
 
 /**
+ * @public
+ */
+export type DeliveryStatus = (typeof DeliveryStatus)[keyof typeof DeliveryStatus];
+
+/**
+ * @public
  * <p>Specifies the contents of an email message, represented as a raw MIME message.</p>
  */
 export interface RawEmail {
@@ -5698,6 +6287,7 @@ export interface RawEmail {
 }
 
 /**
+ * @public
  * <p>Specifies the subject or body of an email message, represented as textual email data and the applicable character set.</p>
  */
 export interface SimpleEmailPart {
@@ -5713,6 +6303,7 @@ export interface SimpleEmailPart {
 }
 
 /**
+ * @public
  * <p>Specifies the contents of an email message, composed of a subject, a text part, and an HTML part.</p>
  */
 export interface SimpleEmail {
@@ -5733,6 +6324,7 @@ export interface SimpleEmail {
 }
 
 /**
+ * @public
  * <p>Specifies the default settings and content for a one-time email message that's sent directly to an endpoint.</p>
  */
 export interface EmailMessage {
@@ -5773,6 +6365,7 @@ export interface EmailMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the GCM channel. The GCM channel enables Amazon Pinpoint to send messages to the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
  */
 export interface GCMMessage {
@@ -5863,6 +6456,7 @@ export interface GCMMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the default settings for a one-time SMS message that's sent directly to an endpoint.</p>
  */
 export interface SMSMessage {
@@ -5913,6 +6507,7 @@ export interface SMSMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings for a one-time voice message that's sent directly to an endpoint through the voice channel.</p>
  */
 export interface VoiceMessage {
@@ -5943,6 +6538,7 @@ export interface VoiceMessage {
 }
 
 /**
+ * @public
  * <p>Specifies the settings and content for the default message and any default messages that you tailored for specific channels.</p>
  */
 export interface DirectMessageConfiguration {
@@ -5993,6 +6589,7 @@ export interface DirectMessageConfiguration {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the email channel for an application.</p>
  */
 export interface EmailChannelRequest {
@@ -6022,15 +6619,25 @@ export interface EmailChannelRequest {
   RoleArn?: string;
 }
 
-export enum TemplateType {
-  EMAIL = "EMAIL",
-  INAPP = "INAPP",
-  PUSH = "PUSH",
-  SMS = "SMS",
-  VOICE = "VOICE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TemplateType = {
+  EMAIL: "EMAIL",
+  INAPP: "INAPP",
+  PUSH: "PUSH",
+  SMS: "SMS",
+  VOICE: "VOICE",
+} as const;
 
 /**
+ * @public
+ */
+export type TemplateType = (typeof TemplateType)[keyof typeof TemplateType];
+
+/**
+ * @public
  * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
  */
 export interface EmailTemplateResponse {
@@ -6101,6 +6708,7 @@ export interface EmailTemplateResponse {
 }
 
 /**
+ * @public
  * <p>Specifies an endpoint to create or update and the settings and attributes to set or change for the endpoint.</p>
  */
 export interface EndpointBatchItem {
@@ -6166,6 +6774,7 @@ export interface EndpointBatchItem {
 }
 
 /**
+ * @public
  * <p>Specifies a batch of endpoints to create or update and the settings and attributes to set or change for each endpoint.</p>
  */
 export interface EndpointBatchRequest {
@@ -6176,6 +6785,7 @@ export interface EndpointBatchRequest {
 }
 
 /**
+ * @public
  * <p>Provides the status code and message that result from processing data for an endpoint.</p>
  */
 export interface EndpointItemResponse {
@@ -6191,6 +6801,7 @@ export interface EndpointItemResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about the delivery status and results of sending a message directly to an endpoint.</p>
  */
 export interface EndpointMessageResult {
@@ -6226,6 +6837,7 @@ export interface EndpointMessageResult {
 }
 
 /**
+ * @public
  * <p>Specifies the channel type and other settings for an endpoint.</p>
  */
 export interface EndpointRequest {
@@ -6286,6 +6898,7 @@ export interface EndpointRequest {
 }
 
 /**
+ * @public
  * <p>Specifies the content, including message variables and attributes, to use in a message that's sent directly to an endpoint.</p>
  */
 export interface EndpointSendConfiguration {
@@ -6316,6 +6929,7 @@ export interface EndpointSendConfiguration {
 }
 
 /**
+ * @public
  * <p>Provides information about a session.</p>
  */
 export interface Session {
@@ -6341,6 +6955,7 @@ export interface Session {
 }
 
 /**
+ * @public
  * <p>Specifies information about an event that reports data to Amazon Pinpoint.</p>
  */
 export interface Event {
@@ -6396,6 +7011,7 @@ export interface Event {
 }
 
 /**
+ * @public
  * <p>Provides the status code and message that result from processing an event.</p>
  */
 export interface EventItemResponse {
@@ -6411,6 +7027,7 @@ export interface EventItemResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the properties and attributes of an endpoint that's associated with an event.</p>
  */
 export interface PublicEndpoint {
@@ -6471,6 +7088,7 @@ export interface PublicEndpoint {
 }
 
 /**
+ * @public
  * <p>Specifies a batch of endpoints and events to process.</p>
  */
 export interface EventsBatch {
@@ -6486,6 +7104,7 @@ export interface EventsBatch {
 }
 
 /**
+ * @public
  * <p>Specifies a batch of events to process.</p>
  */
 export interface EventsRequest {
@@ -6496,6 +7115,7 @@ export interface EventsRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the results of a request to create or update an endpoint that's associated with an event.</p>
  */
 export interface ItemResponse {
@@ -6511,6 +7131,7 @@ export interface ItemResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about endpoints and the events that they're associated with.</p>
  */
 export interface EventsResponse {
@@ -6521,6 +7142,7 @@ export interface EventsResponse {
 }
 
 /**
+ * @public
  * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
  */
 export interface ExportJobsResponse {
@@ -6536,6 +7158,7 @@ export interface ExportJobsResponse {
 }
 
 /**
+ * @public
  * <p>Specifies the status and settings of the GCM channel for an application. This channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
  */
 export interface GCMChannelRequest {
@@ -6550,6 +7173,9 @@ export interface GCMChannelRequest {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetAdmChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6557,6 +7183,9 @@ export interface GetAdmChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAdmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
@@ -6564,6 +7193,9 @@ export interface GetAdmChannelResponse {
   ADMChannelResponse: ADMChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6571,6 +7203,9 @@ export interface GetApnsChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
@@ -6578,6 +7213,9 @@ export interface GetApnsChannelResponse {
   APNSChannelResponse: APNSChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsSandboxChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6585,6 +7223,9 @@ export interface GetApnsSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
@@ -6592,6 +7233,9 @@ export interface GetApnsSandboxChannelResponse {
   APNSSandboxChannelResponse: APNSSandboxChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsVoipChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6599,6 +7243,9 @@ export interface GetApnsVoipChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsVoipChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
@@ -6606,6 +7253,9 @@ export interface GetApnsVoipChannelResponse {
   APNSVoipChannelResponse: APNSVoipChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsVoipSandboxChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6613,6 +7263,9 @@ export interface GetApnsVoipSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApnsVoipSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
@@ -6620,6 +7273,9 @@ export interface GetApnsVoipSandboxChannelResponse {
   APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6627,6 +7283,9 @@ export interface GetAppRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppResponse {
   /**
    * <p>Provides information about an application.</p>
@@ -6634,6 +7293,9 @@ export interface GetAppResponse {
   ApplicationResponse: ApplicationResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationDateRangeKpiRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6666,6 +7328,9 @@ export interface GetApplicationDateRangeKpiRequest {
   StartTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationDateRangeKpiResponse {
   /**
    * <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, and provides information about that query.</p>
@@ -6673,6 +7338,9 @@ export interface GetApplicationDateRangeKpiResponse {
   ApplicationDateRangeKpiResponse: ApplicationDateRangeKpiResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationSettingsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6680,6 +7348,9 @@ export interface GetApplicationSettingsRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetApplicationSettingsResponse {
   /**
    * <p>Provides information about an application, including the default settings for an application.</p>
@@ -6687,6 +7358,9 @@ export interface GetApplicationSettingsResponse {
   ApplicationSettingsResource: ApplicationSettingsResource | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetAppsRequest {
   /**
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
@@ -6699,6 +7373,9 @@ export interface GetAppsRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetAppsResponse {
   /**
    * <p>Provides information about all of your applications.</p>
@@ -6706,6 +7383,9 @@ export interface GetAppsResponse {
   ApplicationsResponse: ApplicationsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBaiduChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6713,6 +7393,9 @@ export interface GetBaiduChannelRequest {
   ApplicationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetBaiduChannelResponse {
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
@@ -6720,6 +7403,9 @@ export interface GetBaiduChannelResponse {
   BaiduChannelResponse: BaiduChannelResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6732,6 +7418,9 @@ export interface GetCampaignRequest {
   CampaignId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -6739,6 +7428,9 @@ export interface GetCampaignResponse {
   CampaignResponse: CampaignResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignActivitiesRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6761,6 +7453,9 @@ export interface GetCampaignActivitiesRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignActivitiesResponse {
   /**
    * <p>Provides information about the activities that were performed by a campaign.</p>
@@ -6768,6 +7463,9 @@ export interface GetCampaignActivitiesResponse {
   ActivitiesResponse: ActivitiesResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignDateRangeKpiRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6805,6 +7503,9 @@ export interface GetCampaignDateRangeKpiRequest {
   StartTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignDateRangeKpiResponse {
   /**
    * <p>Provides the results of a query that retrieved the data for a standard metric that applies to a campaign, and provides information about that query.</p>
@@ -6812,6 +7513,9 @@ export interface GetCampaignDateRangeKpiResponse {
   CampaignDateRangeKpiResponse: CampaignDateRangeKpiResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6829,6 +7533,9 @@ export interface GetCampaignsRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignsResponse {
   /**
    * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
@@ -6836,6 +7543,9 @@ export interface GetCampaignsResponse {
   CampaignsResponse: CampaignsResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignVersionRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6853,6 +7563,9 @@ export interface GetCampaignVersionRequest {
   Version: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignVersionResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -6860,6 +7573,9 @@ export interface GetCampaignVersionResponse {
   CampaignResponse: CampaignResponse | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignVersionsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -6882,1885 +7598,12 @@ export interface GetCampaignVersionsRequest {
   Token?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetCampaignVersionsResponse {
   /**
    * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
    */
   CampaignsResponse: CampaignsResponse | undefined;
 }
-
-/**
- * @internal
- */
-export const ActivityResponseFilterSensitiveLog = (obj: ActivityResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivitiesResponseFilterSensitiveLog = (obj: ActivitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeDimensionFilterSensitiveLog = (obj: AttributeDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetDimensionFilterSensitiveLog = (obj: SetDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDimensionFilterSensitiveLog = (obj: MetricDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventDimensionsFilterSensitiveLog = (obj: EventDimensions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventConditionFilterSensitiveLog = (obj: EventCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentConditionFilterSensitiveLog = (obj: SegmentCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecencyDimensionFilterSensitiveLog = (obj: RecencyDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentBehaviorsFilterSensitiveLog = (obj: SegmentBehaviors): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentDemographicsFilterSensitiveLog = (obj: SegmentDemographics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GPSCoordinatesFilterSensitiveLog = (obj: GPSCoordinates): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GPSPointDimensionFilterSensitiveLog = (obj: GPSPointDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentLocationFilterSensitiveLog = (obj: SegmentLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentDimensionsFilterSensitiveLog = (obj: SegmentDimensions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimpleConditionFilterSensitiveLog = (obj: SimpleCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionFilterSensitiveLog = (obj: Condition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WaitTimeFilterSensitiveLog = (obj: WaitTime): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionalSplitActivityFilterSensitiveLog = (obj: ConditionalSplitActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContactCenterActivityFilterSensitiveLog = (obj: ContactCenterActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JourneyCustomMessageFilterSensitiveLog = (obj: JourneyCustomMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomMessageActivityFilterSensitiveLog = (obj: CustomMessageActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JourneyEmailMessageFilterSensitiveLog = (obj: JourneyEmailMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmailMessageActivityFilterSensitiveLog = (obj: EmailMessageActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HoldoutActivityFilterSensitiveLog = (obj: HoldoutActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiConditionalBranchFilterSensitiveLog = (obj: MultiConditionalBranch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiConditionalSplitActivityFilterSensitiveLog = (obj: MultiConditionalSplitActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JourneyPushMessageFilterSensitiveLog = (obj: JourneyPushMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PushMessageActivityFilterSensitiveLog = (obj: PushMessageActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RandomSplitEntryFilterSensitiveLog = (obj: RandomSplitEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RandomSplitActivityFilterSensitiveLog = (obj: RandomSplitActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JourneySMSMessageFilterSensitiveLog = (obj: JourneySMSMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SMSMessageActivityFilterSensitiveLog = (obj: SMSMessageActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WaitActivityFilterSensitiveLog = (obj: WaitActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivityFilterSensitiveLog = (obj: Activity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddressConfigurationFilterSensitiveLog = (obj: AddressConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ADMChannelRequestFilterSensitiveLog = (obj: ADMChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ADMChannelResponseFilterSensitiveLog = (obj: ADMChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ADMMessageFilterSensitiveLog = (obj: ADMMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AndroidPushNotificationTemplateFilterSensitiveLog = (obj: AndroidPushNotificationTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const APNSChannelRequestFilterSensitiveLog = (obj: APNSChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const APNSChannelResponseFilterSensitiveLog = (obj: APNSChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const APNSMessageFilterSensitiveLog = (obj: APNSMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const APNSPushNotificationTemplateFilterSensitiveLog = (obj: APNSPushNotificationTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const APNSSandboxChannelRequestFilterSensitiveLog = (obj: APNSSandboxChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const APNSSandboxChannelResponseFilterSensitiveLog = (obj: APNSSandboxChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const APNSVoipChannelRequestFilterSensitiveLog = (obj: APNSVoipChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const APNSVoipChannelResponseFilterSensitiveLog = (obj: APNSVoipChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const APNSVoipSandboxChannelRequestFilterSensitiveLog = (obj: APNSVoipSandboxChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const APNSVoipSandboxChannelResponseFilterSensitiveLog = (obj: APNSVoipSandboxChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResultRowValueFilterSensitiveLog = (obj: ResultRowValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResultRowFilterSensitiveLog = (obj: ResultRow): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BaseKpiResultFilterSensitiveLog = (obj: BaseKpiResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationDateRangeKpiResponseFilterSensitiveLog = (obj: ApplicationDateRangeKpiResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationResponseFilterSensitiveLog = (obj: ApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignHookFilterSensitiveLog = (obj: CampaignHook): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignLimitsFilterSensitiveLog = (obj: CampaignLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QuietTimeFilterSensitiveLog = (obj: QuietTime): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationSettingsResourceFilterSensitiveLog = (obj: ApplicationSettingsResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationsResponseFilterSensitiveLog = (obj: ApplicationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributesResourceFilterSensitiveLog = (obj: AttributesResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BaiduChannelRequestFilterSensitiveLog = (obj: BaiduChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BaiduChannelResponseFilterSensitiveLog = (obj: BaiduChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BaiduMessageFilterSensitiveLog = (obj: BaiduMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignCustomMessageFilterSensitiveLog = (obj: CampaignCustomMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignDateRangeKpiResponseFilterSensitiveLog = (obj: CampaignDateRangeKpiResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignEmailMessageFilterSensitiveLog = (obj: CampaignEmailMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignEventFilterFilterSensitiveLog = (obj: CampaignEventFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InAppMessageBodyConfigFilterSensitiveLog = (obj: InAppMessageBodyConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InAppMessageHeaderConfigFilterSensitiveLog = (obj: InAppMessageHeaderConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OverrideButtonConfigurationFilterSensitiveLog = (obj: OverrideButtonConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultButtonConfigurationFilterSensitiveLog = (obj: DefaultButtonConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InAppMessageButtonFilterSensitiveLog = (obj: InAppMessageButton): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InAppMessageContentFilterSensitiveLog = (obj: InAppMessageContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignInAppMessageFilterSensitiveLog = (obj: CampaignInAppMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomDeliveryConfigurationFilterSensitiveLog = (obj: CustomDeliveryConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MessageFilterSensitiveLog = (obj: Message): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignSmsMessageFilterSensitiveLog = (obj: CampaignSmsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MessageConfigurationFilterSensitiveLog = (obj: MessageConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleFilterSensitiveLog = (obj: Schedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignStateFilterSensitiveLog = (obj: CampaignState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateFilterSensitiveLog = (obj: Template): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateConfigurationFilterSensitiveLog = (obj: TemplateConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TreatmentResourceFilterSensitiveLog = (obj: TreatmentResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignResponseFilterSensitiveLog = (obj: CampaignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CampaignsResponseFilterSensitiveLog = (obj: CampaignsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelResponseFilterSensitiveLog = (obj: ChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelsResponseFilterSensitiveLog = (obj: ChannelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClosedDaysRuleFilterSensitiveLog = (obj: ClosedDaysRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClosedDaysFilterSensitiveLog = (obj: ClosedDays): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppRequestFilterSensitiveLog = (obj: CreateAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppResponseFilterSensitiveLog = (obj: CreateAppResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WriteTreatmentResourceFilterSensitiveLog = (obj: WriteTreatmentResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WriteCampaignRequestFilterSensitiveLog = (obj: WriteCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCampaignRequestFilterSensitiveLog = (obj: CreateCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCampaignResponseFilterSensitiveLog = (obj: CreateCampaignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmailTemplateRequestFilterSensitiveLog = (obj: EmailTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEmailTemplateRequestFilterSensitiveLog = (obj: CreateEmailTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTemplateMessageBodyFilterSensitiveLog = (obj: CreateTemplateMessageBody): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEmailTemplateResponseFilterSensitiveLog = (obj: CreateEmailTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportJobRequestFilterSensitiveLog = (obj: ExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExportJobRequestFilterSensitiveLog = (obj: CreateExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportJobResourceFilterSensitiveLog = (obj: ExportJobResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportJobResponseFilterSensitiveLog = (obj: ExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExportJobResponseFilterSensitiveLog = (obj: CreateExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportJobRequestFilterSensitiveLog = (obj: ImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateImportJobRequestFilterSensitiveLog = (obj: CreateImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportJobResourceFilterSensitiveLog = (obj: ImportJobResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportJobResponseFilterSensitiveLog = (obj: ImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateImportJobResponseFilterSensitiveLog = (obj: CreateImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InAppTemplateRequestFilterSensitiveLog = (obj: InAppTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInAppTemplateRequestFilterSensitiveLog = (obj: CreateInAppTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateCreateMessageBodyFilterSensitiveLog = (obj: TemplateCreateMessageBody): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInAppTemplateResponseFilterSensitiveLog = (obj: CreateInAppTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JourneyChannelSettingsFilterSensitiveLog = (obj: JourneyChannelSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JourneyLimitsFilterSensitiveLog = (obj: JourneyLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpenHoursRuleFilterSensitiveLog = (obj: OpenHoursRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpenHoursFilterSensitiveLog = (obj: OpenHours): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JourneyScheduleFilterSensitiveLog = (obj: JourneySchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFilterFilterSensitiveLog = (obj: EventFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventStartConditionFilterSensitiveLog = (obj: EventStartCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartConditionFilterSensitiveLog = (obj: StartCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WriteJourneyRequestFilterSensitiveLog = (obj: WriteJourneyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJourneyRequestFilterSensitiveLog = (obj: CreateJourneyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JourneyResponseFilterSensitiveLog = (obj: JourneyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJourneyResponseFilterSensitiveLog = (obj: CreateJourneyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultPushNotificationTemplateFilterSensitiveLog = (obj: DefaultPushNotificationTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PushNotificationTemplateRequestFilterSensitiveLog = (obj: PushNotificationTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePushTemplateRequestFilterSensitiveLog = (obj: CreatePushTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePushTemplateResponseFilterSensitiveLog = (obj: CreatePushTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRecommenderConfigurationShapeFilterSensitiveLog = (
-  obj: CreateRecommenderConfigurationShape
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRecommenderConfigurationRequestFilterSensitiveLog = (
-  obj: CreateRecommenderConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommenderConfigurationResponseFilterSensitiveLog = (obj: RecommenderConfigurationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRecommenderConfigurationResponseFilterSensitiveLog = (
-  obj: CreateRecommenderConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentReferenceFilterSensitiveLog = (obj: SegmentReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentGroupFilterSensitiveLog = (obj: SegmentGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentGroupListFilterSensitiveLog = (obj: SegmentGroupList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WriteSegmentRequestFilterSensitiveLog = (obj: WriteSegmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSegmentRequestFilterSensitiveLog = (obj: CreateSegmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentImportResourceFilterSensitiveLog = (obj: SegmentImportResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentResponseFilterSensitiveLog = (obj: SegmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSegmentResponseFilterSensitiveLog = (obj: CreateSegmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SMSTemplateRequestFilterSensitiveLog = (obj: SMSTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSmsTemplateRequestFilterSensitiveLog = (obj: CreateSmsTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSmsTemplateResponseFilterSensitiveLog = (obj: CreateSmsTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoiceTemplateRequestFilterSensitiveLog = (obj: VoiceTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVoiceTemplateRequestFilterSensitiveLog = (obj: CreateVoiceTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVoiceTemplateResponseFilterSensitiveLog = (obj: CreateVoiceTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultMessageFilterSensitiveLog = (obj: DefaultMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultPushNotificationMessageFilterSensitiveLog = (obj: DefaultPushNotificationMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAdmChannelRequestFilterSensitiveLog = (obj: DeleteAdmChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAdmChannelResponseFilterSensitiveLog = (obj: DeleteAdmChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApnsChannelRequestFilterSensitiveLog = (obj: DeleteApnsChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApnsChannelResponseFilterSensitiveLog = (obj: DeleteApnsChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApnsSandboxChannelRequestFilterSensitiveLog = (obj: DeleteApnsSandboxChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApnsSandboxChannelResponseFilterSensitiveLog = (obj: DeleteApnsSandboxChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApnsVoipChannelRequestFilterSensitiveLog = (obj: DeleteApnsVoipChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApnsVoipChannelResponseFilterSensitiveLog = (obj: DeleteApnsVoipChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApnsVoipSandboxChannelRequestFilterSensitiveLog = (
-  obj: DeleteApnsVoipSandboxChannelRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApnsVoipSandboxChannelResponseFilterSensitiveLog = (
-  obj: DeleteApnsVoipSandboxChannelResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppRequestFilterSensitiveLog = (obj: DeleteAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppResponseFilterSensitiveLog = (obj: DeleteAppResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBaiduChannelRequestFilterSensitiveLog = (obj: DeleteBaiduChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBaiduChannelResponseFilterSensitiveLog = (obj: DeleteBaiduChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCampaignRequestFilterSensitiveLog = (obj: DeleteCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCampaignResponseFilterSensitiveLog = (obj: DeleteCampaignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEmailChannelRequestFilterSensitiveLog = (obj: DeleteEmailChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmailChannelResponseFilterSensitiveLog = (obj: EmailChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEmailChannelResponseFilterSensitiveLog = (obj: DeleteEmailChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEmailTemplateRequestFilterSensitiveLog = (obj: DeleteEmailTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MessageBodyFilterSensitiveLog = (obj: MessageBody): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEmailTemplateResponseFilterSensitiveLog = (obj: DeleteEmailTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEndpointRequestFilterSensitiveLog = (obj: DeleteEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointDemographicFilterSensitiveLog = (obj: EndpointDemographic): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointLocationFilterSensitiveLog = (obj: EndpointLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointUserFilterSensitiveLog = (obj: EndpointUser): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointResponseFilterSensitiveLog = (obj: EndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEndpointResponseFilterSensitiveLog = (obj: DeleteEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventStreamRequestFilterSensitiveLog = (obj: DeleteEventStreamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventStreamFilterSensitiveLog = (obj: EventStream): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventStreamResponseFilterSensitiveLog = (obj: DeleteEventStreamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGcmChannelRequestFilterSensitiveLog = (obj: DeleteGcmChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GCMChannelResponseFilterSensitiveLog = (obj: GCMChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGcmChannelResponseFilterSensitiveLog = (obj: DeleteGcmChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInAppTemplateRequestFilterSensitiveLog = (obj: DeleteInAppTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInAppTemplateResponseFilterSensitiveLog = (obj: DeleteInAppTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJourneyRequestFilterSensitiveLog = (obj: DeleteJourneyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJourneyResponseFilterSensitiveLog = (obj: DeleteJourneyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePushTemplateRequestFilterSensitiveLog = (obj: DeletePushTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePushTemplateResponseFilterSensitiveLog = (obj: DeletePushTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRecommenderConfigurationRequestFilterSensitiveLog = (
-  obj: DeleteRecommenderConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRecommenderConfigurationResponseFilterSensitiveLog = (
-  obj: DeleteRecommenderConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSegmentRequestFilterSensitiveLog = (obj: DeleteSegmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSegmentResponseFilterSensitiveLog = (obj: DeleteSegmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSmsChannelRequestFilterSensitiveLog = (obj: DeleteSmsChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SMSChannelResponseFilterSensitiveLog = (obj: SMSChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSmsChannelResponseFilterSensitiveLog = (obj: DeleteSmsChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSmsTemplateRequestFilterSensitiveLog = (obj: DeleteSmsTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSmsTemplateResponseFilterSensitiveLog = (obj: DeleteSmsTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserEndpointsRequestFilterSensitiveLog = (obj: DeleteUserEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointsResponseFilterSensitiveLog = (obj: EndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserEndpointsResponseFilterSensitiveLog = (obj: DeleteUserEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVoiceChannelRequestFilterSensitiveLog = (obj: DeleteVoiceChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoiceChannelResponseFilterSensitiveLog = (obj: VoiceChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVoiceChannelResponseFilterSensitiveLog = (obj: DeleteVoiceChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVoiceTemplateRequestFilterSensitiveLog = (obj: DeleteVoiceTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVoiceTemplateResponseFilterSensitiveLog = (obj: DeleteVoiceTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RawEmailFilterSensitiveLog = (obj: RawEmail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimpleEmailPartFilterSensitiveLog = (obj: SimpleEmailPart): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimpleEmailFilterSensitiveLog = (obj: SimpleEmail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmailMessageFilterSensitiveLog = (obj: EmailMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GCMMessageFilterSensitiveLog = (obj: GCMMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SMSMessageFilterSensitiveLog = (obj: SMSMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoiceMessageFilterSensitiveLog = (obj: VoiceMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DirectMessageConfigurationFilterSensitiveLog = (obj: DirectMessageConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmailChannelRequestFilterSensitiveLog = (obj: EmailChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmailTemplateResponseFilterSensitiveLog = (obj: EmailTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointBatchItemFilterSensitiveLog = (obj: EndpointBatchItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointBatchRequestFilterSensitiveLog = (obj: EndpointBatchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointItemResponseFilterSensitiveLog = (obj: EndpointItemResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointMessageResultFilterSensitiveLog = (obj: EndpointMessageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointRequestFilterSensitiveLog = (obj: EndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointSendConfigurationFilterSensitiveLog = (obj: EndpointSendConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SessionFilterSensitiveLog = (obj: Session): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFilterSensitiveLog = (obj: Event): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventItemResponseFilterSensitiveLog = (obj: EventItemResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublicEndpointFilterSensitiveLog = (obj: PublicEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventsBatchFilterSensitiveLog = (obj: EventsBatch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventsRequestFilterSensitiveLog = (obj: EventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ItemResponseFilterSensitiveLog = (obj: ItemResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventsResponseFilterSensitiveLog = (obj: EventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportJobsResponseFilterSensitiveLog = (obj: ExportJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GCMChannelRequestFilterSensitiveLog = (obj: GCMChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAdmChannelRequestFilterSensitiveLog = (obj: GetAdmChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAdmChannelResponseFilterSensitiveLog = (obj: GetAdmChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApnsChannelRequestFilterSensitiveLog = (obj: GetApnsChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApnsChannelResponseFilterSensitiveLog = (obj: GetApnsChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApnsSandboxChannelRequestFilterSensitiveLog = (obj: GetApnsSandboxChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApnsSandboxChannelResponseFilterSensitiveLog = (obj: GetApnsSandboxChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApnsVoipChannelRequestFilterSensitiveLog = (obj: GetApnsVoipChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApnsVoipChannelResponseFilterSensitiveLog = (obj: GetApnsVoipChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApnsVoipSandboxChannelRequestFilterSensitiveLog = (obj: GetApnsVoipSandboxChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApnsVoipSandboxChannelResponseFilterSensitiveLog = (obj: GetApnsVoipSandboxChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppRequestFilterSensitiveLog = (obj: GetAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppResponseFilterSensitiveLog = (obj: GetAppResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationDateRangeKpiRequestFilterSensitiveLog = (obj: GetApplicationDateRangeKpiRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationDateRangeKpiResponseFilterSensitiveLog = (obj: GetApplicationDateRangeKpiResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationSettingsRequestFilterSensitiveLog = (obj: GetApplicationSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationSettingsResponseFilterSensitiveLog = (obj: GetApplicationSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppsRequestFilterSensitiveLog = (obj: GetAppsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppsResponseFilterSensitiveLog = (obj: GetAppsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBaiduChannelRequestFilterSensitiveLog = (obj: GetBaiduChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBaiduChannelResponseFilterSensitiveLog = (obj: GetBaiduChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignRequestFilterSensitiveLog = (obj: GetCampaignRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignResponseFilterSensitiveLog = (obj: GetCampaignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignActivitiesRequestFilterSensitiveLog = (obj: GetCampaignActivitiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignActivitiesResponseFilterSensitiveLog = (obj: GetCampaignActivitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignDateRangeKpiRequestFilterSensitiveLog = (obj: GetCampaignDateRangeKpiRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignDateRangeKpiResponseFilterSensitiveLog = (obj: GetCampaignDateRangeKpiResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignsRequestFilterSensitiveLog = (obj: GetCampaignsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignsResponseFilterSensitiveLog = (obj: GetCampaignsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignVersionRequestFilterSensitiveLog = (obj: GetCampaignVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignVersionResponseFilterSensitiveLog = (obj: GetCampaignVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignVersionsRequestFilterSensitiveLog = (obj: GetCampaignVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCampaignVersionsResponseFilterSensitiveLog = (obj: GetCampaignVersionsResponse): any => ({
-  ...obj,
-});

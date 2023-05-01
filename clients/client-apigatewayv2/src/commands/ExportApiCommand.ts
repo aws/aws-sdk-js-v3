@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  ExportApiRequest,
-  ExportApiRequestFilterSensitiveLog,
-  ExportApiResponse,
-  ExportApiResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportApiCommand,
-  serializeAws_restJson1ExportApiCommand,
-} from "../protocols/Aws_restJson1";
+import { ExportApiRequest, ExportApiResponse } from "../models/models_0";
+import { de_ExportApiCommand, se_ExportApiCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportApiCommand}.
  */
 export interface ExportApiCommandInput extends ExportApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportApiCommand}.
  */
 export interface ExportApiCommandOutput extends ExportApiResponse, __MetadataBearer {}
@@ -51,6 +47,9 @@ export class ExportApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,8 +76,8 @@ export class ExportApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportApiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +87,18 @@ export class ExportApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportApiCommand(input, context);
+    return se_ExportApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportApiCommandOutput> {
-    return deserializeAws_restJson1ExportApiCommand(output, context);
+    return de_ExportApiCommand(output, context);
   }
 
   // Start section: command_body_extra

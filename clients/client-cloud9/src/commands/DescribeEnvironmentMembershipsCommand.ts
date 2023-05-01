@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
+import { DescribeEnvironmentMembershipsRequest, DescribeEnvironmentMembershipsResult } from "../models/models_0";
 import {
-  DescribeEnvironmentMembershipsRequest,
-  DescribeEnvironmentMembershipsRequestFilterSensitiveLog,
-  DescribeEnvironmentMembershipsResult,
-  DescribeEnvironmentMembershipsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEnvironmentMembershipsCommand,
-  serializeAws_json1_1DescribeEnvironmentMembershipsCommand,
+  de_DescribeEnvironmentMembershipsCommand,
+  se_DescribeEnvironmentMembershipsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentMembershipsCommand}.
  */
 export interface DescribeEnvironmentMembershipsCommandInput extends DescribeEnvironmentMembershipsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentMembershipsCommand}.
  */
 export interface DescribeEnvironmentMembershipsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeEnvironmentMembershipsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about environment members for an Cloud9 development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,21 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * import { Cloud9Client, DescribeEnvironmentMembershipsCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, DescribeEnvironmentMembershipsCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
+ * const input = { // DescribeEnvironmentMembershipsRequest
+ *   userArn: "STRING_VALUE",
+ *   environmentId: "STRING_VALUE",
+ *   permissions: [ // PermissionsList
+ *     "owner" || "read-write" || "read-only",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeEnvironmentMembershipsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentMembershipsCommandInput - {@link DescribeEnvironmentMembershipsCommandInput}
+ * @returns {@link DescribeEnvironmentMembershipsCommandOutput}
  * @see {@link DescribeEnvironmentMembershipsCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentMembershipsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
@@ -178,6 +189,9 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentMembershipsCommandInput) {
     // Start section: command_constructor
     super();
@@ -206,8 +220,8 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentMembershipsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEnvironmentMembershipsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -217,18 +231,24 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEnvironmentMembershipsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEnvironmentMembershipsCommand(input, context);
+    return se_DescribeEnvironmentMembershipsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentMembershipsCommandOutput> {
-    return deserializeAws_json1_1DescribeEnvironmentMembershipsCommand(output, context);
+    return de_DescribeEnvironmentMembershipsCommand(output, context);
   }
 
   // Start section: command_body_extra

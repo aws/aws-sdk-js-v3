@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DescribeLimitsInput,
-  DescribeLimitsInputFilterSensitiveLog,
-  DescribeLimitsOutput,
-  DescribeLimitsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeLimitsCommand,
-  serializeAws_json1_0DescribeLimitsCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeLimitsInput, DescribeLimitsOutput } from "../models/models_0";
+import { de_DescribeLimitsCommand, se_DescribeLimitsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLimitsCommand}.
  */
 export interface DescribeLimitsCommandInput extends DescribeLimitsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLimitsCommand}.
  */
 export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current provisioned-capacity quotas for your Amazon Web Services account in
  *             a Region, both for the Region as a whole and for any one DynamoDB table that you create
  *             there.</p>
@@ -111,10 +108,13 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * import { DynamoDBClient, DescribeLimitsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeLimitsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {};
  * const command = new DescribeLimitsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLimitsCommandInput - {@link DescribeLimitsCommandInput}
+ * @returns {@link DescribeLimitsCommandOutput}
  * @see {@link DescribeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeLimitsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -160,6 +160,9 @@ export class DescribeLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -188,8 +191,8 @@ export class DescribeLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLimitsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLimitsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -199,12 +202,18 @@ export class DescribeLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeLimitsCommand(input, context);
+    return se_DescribeLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLimitsCommandOutput> {
-    return deserializeAws_json1_0DescribeLimitsCommand(output, context);
+    return de_DescribeLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

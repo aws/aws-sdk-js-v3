@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  DescribeDeliveryChannelsRequest,
-  DescribeDeliveryChannelsRequestFilterSensitiveLog,
-  DescribeDeliveryChannelsResponse,
-  DescribeDeliveryChannelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDeliveryChannelsCommand,
-  serializeAws_json1_1DescribeDeliveryChannelsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDeliveryChannelsRequest, DescribeDeliveryChannelsResponse } from "../models/models_0";
+import { de_DescribeDeliveryChannelsCommand, se_DescribeDeliveryChannelsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDeliveryChannelsCommand}.
  */
 export interface DescribeDeliveryChannelsCommandInput extends DescribeDeliveryChannelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDeliveryChannelsCommand}.
  */
 export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryChannelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about the specified delivery channel. If a
  * 			delivery channel is not specified, this action returns the details
  * 			of all delivery channels associated with the account.</p>
@@ -48,10 +45,17 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  * import { ConfigServiceClient, DescribeDeliveryChannelsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeDeliveryChannelsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeDeliveryChannelsRequest
+ *   DeliveryChannelNames: [ // DeliveryChannelNameList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeDeliveryChannelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDeliveryChannelsCommandInput - {@link DescribeDeliveryChannelsCommandInput}
+ * @returns {@link DescribeDeliveryChannelsCommandOutput}
  * @see {@link DescribeDeliveryChannelsCommandInput} for command's `input` shape.
  * @see {@link DescribeDeliveryChannelsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -79,6 +83,9 @@ export class DescribeDeliveryChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDeliveryChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class DescribeDeliveryChannelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDeliveryChannelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDeliveryChannelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class DescribeDeliveryChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDeliveryChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDeliveryChannelsCommand(input, context);
+    return se_DescribeDeliveryChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeliveryChannelsCommandOutput> {
-    return deserializeAws_json1_1DescribeDeliveryChannelsCommand(output, context);
+    return de_DescribeDeliveryChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

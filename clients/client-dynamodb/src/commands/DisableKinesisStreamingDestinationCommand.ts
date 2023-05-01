@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
+import { KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput } from "../models/models_0";
 import {
-  KinesisStreamingDestinationInput,
-  KinesisStreamingDestinationInputFilterSensitiveLog,
-  KinesisStreamingDestinationOutput,
-  KinesisStreamingDestinationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DisableKinesisStreamingDestinationCommand,
-  serializeAws_json1_0DisableKinesisStreamingDestinationCommand,
+  de_DisableKinesisStreamingDestinationCommand,
+  se_DisableKinesisStreamingDestinationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DisableKinesisStreamingDestinationCommand}.
  */
 export interface DisableKinesisStreamingDestinationCommandInput extends KinesisStreamingDestinationInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableKinesisStreamingDestinationCommand}.
  */
 export interface DisableKinesisStreamingDestinationCommandOutput
@@ -37,6 +36,7 @@ export interface DisableKinesisStreamingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done
  *             without deleting either of the resources.</p>
  * @example
@@ -45,10 +45,16 @@ export interface DisableKinesisStreamingDestinationCommandOutput
  * import { DynamoDBClient, DisableKinesisStreamingDestinationCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DisableKinesisStreamingDestinationCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // KinesisStreamingDestinationInput
+ *   TableName: "STRING_VALUE", // required
+ *   StreamArn: "STRING_VALUE", // required
+ * };
  * const command = new DisableKinesisStreamingDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableKinesisStreamingDestinationCommandInput - {@link DisableKinesisStreamingDestinationCommandInput}
+ * @returns {@link DisableKinesisStreamingDestinationCommandOutput}
  * @see {@link DisableKinesisStreamingDestinationCommandInput} for command's `input` shape.
  * @see {@link DisableKinesisStreamingDestinationCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -99,6 +105,9 @@ export class DisableKinesisStreamingDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableKinesisStreamingDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +136,8 @@ export class DisableKinesisStreamingDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: KinesisStreamingDestinationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: KinesisStreamingDestinationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,18 +147,24 @@ export class DisableKinesisStreamingDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableKinesisStreamingDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisableKinesisStreamingDestinationCommand(input, context);
+    return se_DisableKinesisStreamingDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableKinesisStreamingDestinationCommandOutput> {
-    return deserializeAws_json1_0DisableKinesisStreamingDestinationCommand(output, context);
+    return de_DisableKinesisStreamingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

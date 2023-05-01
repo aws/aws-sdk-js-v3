@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteCollectionRequest,
-  DeleteCollectionRequestFilterSensitiveLog,
-  DeleteCollectionResponse,
-  DeleteCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCollectionRequest, DeleteCollectionResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0DeleteCollectionCommand,
-  serializeAws_json1_0DeleteCollectionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteCollectionCommand, se_DeleteCollectionCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCollectionCommand}.
  */
 export interface DeleteCollectionCommandInput extends DeleteCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCollectionCommand}.
  */
 export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an OpenSearch Serverless collection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
  * @example
@@ -47,17 +44,23 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * import { OpenSearchServerlessClient, DeleteCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, DeleteCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // DeleteCollectionRequest
+ *   id: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCollectionCommandInput - {@link DeleteCollectionCommandInput}
+ * @returns {@link DeleteCollectionCommandOutput}
  * @see {@link DeleteCollectionCommandInput} for command's `input` shape.
  * @see {@link DeleteCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a collection, thrown when a collection with the same name already exists
- *             or is being created. When deleting a collection, thrown when the collection is not in
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
  *             the ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
@@ -89,6 +92,9 @@ export class DeleteCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +123,8 @@ export class DeleteCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +134,18 @@ export class DeleteCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteCollectionCommand(input, context);
+    return se_DeleteCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCollectionCommandOutput> {
-    return deserializeAws_json1_0DeleteCollectionCommand(output, context);
+    return de_DeleteCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

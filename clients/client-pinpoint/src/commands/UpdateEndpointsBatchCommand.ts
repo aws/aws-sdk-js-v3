@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateEndpointsBatchRequest,
-  UpdateEndpointsBatchRequestFilterSensitiveLog,
-  UpdateEndpointsBatchResponse,
-  UpdateEndpointsBatchResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateEndpointsBatchRequest, UpdateEndpointsBatchResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateEndpointsBatchCommand,
-  serializeAws_restJson1UpdateEndpointsBatchCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateEndpointsBatchCommand, se_UpdateEndpointsBatchCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEndpointsBatchCommand}.
  */
 export interface UpdateEndpointsBatchCommandInput extends UpdateEndpointsBatchRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEndpointsBatchCommand}.
  */
 export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes for a batch of endpoints. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,62 @@ export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchR
  * import { PinpointClient, UpdateEndpointsBatchCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateEndpointsBatchCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateEndpointsBatchRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EndpointBatchRequest: { // EndpointBatchRequest
+ *     Item: [ // ListOfEndpointBatchItem // required
+ *       { // EndpointBatchItem
+ *         Address: "STRING_VALUE",
+ *         Attributes: { // MapOfListOf__string
+ *           "<keys>": [ // ListOf__string
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         ChannelType: "PUSH" || "GCM" || "APNS" || "APNS_SANDBOX" || "APNS_VOIP" || "APNS_VOIP_SANDBOX" || "ADM" || "SMS" || "VOICE" || "EMAIL" || "BAIDU" || "CUSTOM" || "IN_APP",
+ *         Demographic: { // EndpointDemographic
+ *           AppVersion: "STRING_VALUE",
+ *           Locale: "STRING_VALUE",
+ *           Make: "STRING_VALUE",
+ *           Model: "STRING_VALUE",
+ *           ModelVersion: "STRING_VALUE",
+ *           Platform: "STRING_VALUE",
+ *           PlatformVersion: "STRING_VALUE",
+ *           Timezone: "STRING_VALUE",
+ *         },
+ *         EffectiveDate: "STRING_VALUE",
+ *         EndpointStatus: "STRING_VALUE",
+ *         Id: "STRING_VALUE",
+ *         Location: { // EndpointLocation
+ *           City: "STRING_VALUE",
+ *           Country: "STRING_VALUE",
+ *           Latitude: Number("double"),
+ *           Longitude: Number("double"),
+ *           PostalCode: "STRING_VALUE",
+ *           Region: "STRING_VALUE",
+ *         },
+ *         Metrics: { // MapOf__double
+ *           "<keys>": Number("double"),
+ *         },
+ *         OptOut: "STRING_VALUE",
+ *         RequestId: "STRING_VALUE",
+ *         User: { // EndpointUser
+ *           UserAttributes: {
+ *             "<keys>": [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           UserId: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateEndpointsBatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointsBatchCommandInput - {@link UpdateEndpointsBatchCommandInput}
+ * @returns {@link UpdateEndpointsBatchCommandOutput}
  * @see {@link UpdateEndpointsBatchCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointsBatchCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +139,9 @@ export class UpdateEndpointsBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointsBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +170,8 @@ export class UpdateEndpointsBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEndpointsBatchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEndpointsBatchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +181,18 @@ export class UpdateEndpointsBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEndpointsBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEndpointsBatchCommand(input, context);
+    return se_UpdateEndpointsBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointsBatchCommandOutput> {
-    return deserializeAws_restJson1UpdateEndpointsBatchCommand(output, context);
+    return de_UpdateEndpointsBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CacheParameterGroupDetails,
-  CacheParameterGroupDetailsFilterSensitiveLog,
-  DescribeCacheParametersMessage,
-  DescribeCacheParametersMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeCacheParametersCommand,
-  serializeAws_queryDescribeCacheParametersCommand,
-} from "../protocols/Aws_query";
+import { CacheParameterGroupDetails, DescribeCacheParametersMessage } from "../models/models_0";
+import { de_DescribeCacheParametersCommand, se_DescribeCacheParametersCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheParametersCommand}.
  */
 export interface DescribeCacheParametersCommandInput extends DescribeCacheParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheParametersCommand}.
  */
 export interface DescribeCacheParametersCommandOutput extends CacheParameterGroupDetails, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the detailed parameter list for a
  *             particular cache parameter group.</p>
  * @example
@@ -43,10 +40,18 @@ export interface DescribeCacheParametersCommandOutput extends CacheParameterGrou
  * import { ElastiCacheClient, DescribeCacheParametersCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheParametersCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeCacheParametersMessage
+ *   CacheParameterGroupName: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeCacheParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheParametersCommandInput - {@link DescribeCacheParametersCommandInput}
+ * @returns {@link DescribeCacheParametersCommandOutput}
  * @see {@link DescribeCacheParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheParametersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -482,6 +487,9 @@ export class DescribeCacheParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -510,8 +518,8 @@ export class DescribeCacheParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCacheParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CacheParameterGroupDetailsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -521,12 +529,18 @@ export class DescribeCacheParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeCacheParametersCommand(input, context);
+    return se_DescribeCacheParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCacheParametersCommandOutput> {
-    return deserializeAws_queryDescribeCacheParametersCommand(output, context);
+    return de_DescribeCacheParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

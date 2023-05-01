@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  DeleteResolverRequest,
-  DeleteResolverRequestFilterSensitiveLog,
-  DeleteResolverResponse,
-  DeleteResolverResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResolverCommand,
-  serializeAws_restJson1DeleteResolverCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteResolverRequest, DeleteResolverResponse } from "../models/models_0";
+import { de_DeleteResolverCommand, se_DeleteResolverCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResolverCommand}.
  */
 export interface DeleteResolverCommandInput extends DeleteResolverRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResolverCommand}.
  */
 export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <code>Resolver</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __M
  * import { AppSyncClient, DeleteResolverCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteResolverCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // DeleteResolverRequest
+ *   apiId: "STRING_VALUE", // required
+ *   typeName: "STRING_VALUE", // required
+ *   fieldName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResolverCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResolverCommandInput - {@link DeleteResolverCommandInput}
+ * @returns {@link DeleteResolverCommandOutput}
  * @see {@link DeleteResolverCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -86,6 +90,9 @@ export class DeleteResolverCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResolverCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class DeleteResolverCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResolverRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResolverResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class DeleteResolverCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResolverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResolverCommand(input, context);
+    return se_DeleteResolverCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResolverCommandOutput> {
-    return deserializeAws_restJson1DeleteResolverCommand(output, context);
+    return de_DeleteResolverCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListArtifactsRequest,
-  ListArtifactsRequestFilterSensitiveLog,
-  ListArtifactsResponse,
-  ListArtifactsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListArtifactsCommand,
-  serializeAws_json1_1ListArtifactsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListArtifactsRequest, ListArtifactsResponse } from "../models/models_3";
+import { de_ListArtifactsCommand, se_ListArtifactsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListArtifactsCommand}.
  */
 export interface ListArtifactsCommandInput extends ListArtifactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListArtifactsCommand}.
  */
 export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the artifacts in your account and their properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __Met
  * import { SageMakerClient, ListArtifactsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListArtifactsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListArtifactsRequest
+ *   SourceUri: "STRING_VALUE",
+ *   ArtifactType: "STRING_VALUE",
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   SortBy: "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListArtifactsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListArtifactsCommandInput - {@link ListArtifactsCommandInput}
+ * @returns {@link ListArtifactsCommandOutput}
  * @see {@link ListArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListArtifactsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +81,9 @@ export class ListArtifactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +110,8 @@ export class ListArtifactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListArtifactsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListArtifactsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +121,18 @@ export class ListArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListArtifactsCommand(input, context);
+    return se_ListArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListArtifactsCommandOutput> {
-    return deserializeAws_json1_1ListArtifactsCommand(output, context);
+    return de_ListArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

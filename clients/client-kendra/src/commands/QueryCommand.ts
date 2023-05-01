@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  QueryRequest,
-  QueryRequestFilterSensitiveLog,
-  QueryResult,
-  QueryResultFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1QueryCommand, serializeAws_json1_1QueryCommand } from "../protocols/Aws_json1_1";
+import { QueryRequest, QueryResult } from "../models/models_1";
+import { de_QueryCommand, se_QueryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link QueryCommand}.
  */
 export interface QueryCommandInput extends QueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link QueryCommand}.
  */
 export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches an active index. Use this API to search your documents using query. The
  *             <code>Query</code> API enables to do faceted search and to filter results based on
  *          document attributes.</p>
@@ -59,10 +59,151 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  * import { KendraClient, QueryCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, QueryCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // QueryRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   QueryText: "STRING_VALUE",
+ *   AttributeFilter: { // AttributeFilter
+ *     AndAllFilters: [ // AttributeFilterList
+ *       {
+ *         AndAllFilters: [
+ *           "<AttributeFilter>",
+ *         ],
+ *         OrAllFilters: [
+ *           "<AttributeFilter>",
+ *         ],
+ *         NotFilter: "<AttributeFilter>",
+ *         EqualsTo: { // DocumentAttribute
+ *           Key: "STRING_VALUE", // required
+ *           Value: { // DocumentAttributeValue
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [ // DocumentAttributeStringListValue
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         ContainsAll: {
+ *           Key: "STRING_VALUE", // required
+ *           Value: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         ContainsAny: {
+ *           Key: "STRING_VALUE", // required
+ *           Value: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         GreaterThan: {
+ *           Key: "STRING_VALUE", // required
+ *           Value: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         GreaterThanOrEquals: {
+ *           Key: "STRING_VALUE", // required
+ *           Value: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         LessThan: "<DocumentAttribute>",
+ *         LessThanOrEquals: "<DocumentAttribute>",
+ *       },
+ *     ],
+ *     OrAllFilters: [
+ *       "<AttributeFilter>",
+ *     ],
+ *     NotFilter: "<AttributeFilter>",
+ *     EqualsTo: "<DocumentAttribute>",
+ *     ContainsAll: "<DocumentAttribute>",
+ *     ContainsAny: "<DocumentAttribute>",
+ *     GreaterThan: "<DocumentAttribute>",
+ *     GreaterThanOrEquals: "<DocumentAttribute>",
+ *     LessThan: "<DocumentAttribute>",
+ *     LessThanOrEquals: "<DocumentAttribute>",
+ *   },
+ *   Facets: [ // FacetList
+ *     { // Facet
+ *       DocumentAttributeKey: "STRING_VALUE",
+ *       Facets: [
+ *         {
+ *           DocumentAttributeKey: "STRING_VALUE",
+ *           Facets: "<FacetList>",
+ *           MaxResults: Number("int"),
+ *         },
+ *       ],
+ *       MaxResults: Number("int"),
+ *     },
+ *   ],
+ *   RequestedDocumentAttributes: [ // DocumentAttributeKeyList
+ *     "STRING_VALUE",
+ *   ],
+ *   QueryResultTypeFilter: "DOCUMENT" || "QUESTION_ANSWER" || "ANSWER",
+ *   DocumentRelevanceOverrideConfigurations: [ // DocumentRelevanceOverrideConfigurationList
+ *     { // DocumentRelevanceConfiguration
+ *       Name: "STRING_VALUE", // required
+ *       Relevance: { // Relevance
+ *         Freshness: true || false,
+ *         Importance: Number("int"),
+ *         Duration: "STRING_VALUE",
+ *         RankOrder: "ASCENDING" || "DESCENDING",
+ *         ValueImportanceMap: { // ValueImportanceMap
+ *           "<keys>": Number("int"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   PageNumber: Number("int"),
+ *   PageSize: Number("int"),
+ *   SortingConfiguration: { // SortingConfiguration
+ *     DocumentAttributeKey: "STRING_VALUE", // required
+ *     SortOrder: "DESC" || "ASC", // required
+ *   },
+ *   UserContext: { // UserContext
+ *     Token: "STRING_VALUE",
+ *     UserId: "STRING_VALUE",
+ *     Groups: [ // Groups
+ *       "STRING_VALUE",
+ *     ],
+ *     DataSourceGroups: [ // DataSourceGroups
+ *       { // DataSourceGroup
+ *         GroupId: "STRING_VALUE", // required
+ *         DataSourceId: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   VisitorId: "STRING_VALUE",
+ *   SpellCorrectionConfiguration: { // SpellCorrectionConfiguration
+ *     IncludeQuerySpellCheckSuggestions: true || false, // required
+ *   },
+ * };
  * const command = new QueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryCommandInput - {@link QueryCommandInput}
+ * @returns {@link QueryCommandOutput}
  * @see {@link QueryCommandInput} for command's `input` shape.
  * @see {@link QueryCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -77,7 +218,7 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -85,7 +226,8 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             Quotas[hyperlink Kendra Quotas pg] for more information, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> to inquire about
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
+ *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
  *             an increase of limits.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -111,6 +253,9 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +282,8 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +293,18 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1QueryCommand(input, context);
+    return se_QueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> {
-    return deserializeAws_json1_1QueryCommand(output, context);
+    return de_QueryCommand(output, context);
   }
 
   // Start section: command_body_extra

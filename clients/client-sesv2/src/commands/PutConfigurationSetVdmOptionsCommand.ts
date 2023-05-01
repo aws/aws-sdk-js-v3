@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutConfigurationSetVdmOptionsRequest, PutConfigurationSetVdmOptionsResponse } from "../models/models_0";
 import {
-  PutConfigurationSetVdmOptionsRequest,
-  PutConfigurationSetVdmOptionsRequestFilterSensitiveLog,
-  PutConfigurationSetVdmOptionsResponse,
-  PutConfigurationSetVdmOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutConfigurationSetVdmOptionsCommand,
-  serializeAws_restJson1PutConfigurationSetVdmOptionsCommand,
+  de_PutConfigurationSetVdmOptionsCommand,
+  se_PutConfigurationSetVdmOptionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationSetVdmOptionsCommand}.
  */
 export interface PutConfigurationSetVdmOptionsCommandInput extends PutConfigurationSetVdmOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationSetVdmOptionsCommand}.
  */
 export interface PutConfigurationSetVdmOptionsCommandOutput
@@ -37,6 +36,7 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify VDM preferences for email that you send using the configuration set.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -45,10 +45,23 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
  * import { SESv2Client, PutConfigurationSetVdmOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutConfigurationSetVdmOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // PutConfigurationSetVdmOptionsRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   VdmOptions: { // VdmOptions
+ *     DashboardOptions: { // DashboardOptions
+ *       EngagementMetrics: "ENABLED" || "DISABLED",
+ *     },
+ *     GuardianOptions: { // GuardianOptions
+ *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ * };
  * const command = new PutConfigurationSetVdmOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationSetVdmOptionsCommandInput - {@link PutConfigurationSetVdmOptionsCommandInput}
+ * @returns {@link PutConfigurationSetVdmOptionsCommandOutput}
  * @see {@link PutConfigurationSetVdmOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetVdmOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -81,6 +94,9 @@ export class PutConfigurationSetVdmOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationSetVdmOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +125,8 @@ export class PutConfigurationSetVdmOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationSetVdmOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutConfigurationSetVdmOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +136,21 @@ export class PutConfigurationSetVdmOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConfigurationSetVdmOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutConfigurationSetVdmOptionsCommand(input, context);
+    return se_PutConfigurationSetVdmOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetVdmOptionsCommandOutput> {
-    return deserializeAws_restJson1PutConfigurationSetVdmOptionsCommand(output, context);
+    return de_PutConfigurationSetVdmOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

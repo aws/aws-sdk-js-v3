@@ -20,21 +20,23 @@ import {
   UpdateSiteResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1UpdateSiteCommand,
-  serializeAws_restJson1UpdateSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSiteCommand, se_UpdateSiteCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSiteCommand}.
  */
 export interface UpdateSiteCommandInput extends UpdateSiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSiteCommand}.
  */
 export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the information for an existing site. To remove information for any of the
  *             parameters, specify an empty string.</p>
  * @example
@@ -43,10 +45,22 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * import { NetworkManagerClient, UpdateSiteCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateSiteCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // UpdateSiteRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   SiteId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Location: { // Location
+ *     Address: "STRING_VALUE",
+ *     Latitude: "STRING_VALUE",
+ *     Longitude: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateSiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSiteCommandInput - {@link UpdateSiteCommandInput}
+ * @returns {@link UpdateSiteCommandOutput}
  * @see {@link UpdateSiteCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -89,6 +103,9 @@ export class UpdateSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,12 +143,18 @@ export class UpdateSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSiteCommand(input, context);
+    return se_UpdateSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSiteCommandOutput> {
-    return deserializeAws_restJson1UpdateSiteCommand(output, context);
+    return de_UpdateSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

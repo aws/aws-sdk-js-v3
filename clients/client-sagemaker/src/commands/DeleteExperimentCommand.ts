@@ -13,30 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteExperimentRequest,
-  DeleteExperimentRequestFilterSensitiveLog,
-  DeleteExperimentResponse,
-  DeleteExperimentResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteExperimentCommand,
-  serializeAws_json1_1DeleteExperimentCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteExperimentRequest, DeleteExperimentResponse } from "../models/models_1";
+import { de_DeleteExperimentCommand, se_DeleteExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExperimentCommand}.
  */
 export interface DeleteExperimentCommandInput extends DeleteExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExperimentCommand}.
  */
 export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an SageMaker experiment. All trials associated with the experiment must be deleted
- *       first. Use the <a>ListTrials</a> API to get a list of the trials associated with
+ *       first. Use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html">ListTrials</a> API to get a list of the trials associated with
  *       the experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,15 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * import { SageMakerClient, DeleteExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteExperimentRequest
+ *   ExperimentName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExperimentCommandInput - {@link DeleteExperimentCommandInput}
+ * @returns {@link DeleteExperimentCommandOutput}
  * @see {@link DeleteExperimentCommandInput} for command's `input` shape.
  * @see {@link DeleteExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -74,6 +76,9 @@ export class DeleteExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +107,8 @@ export class DeleteExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +118,18 @@ export class DeleteExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteExperimentCommand(input, context);
+    return se_DeleteExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperimentCommandOutput> {
-    return deserializeAws_json1_1DeleteExperimentCommand(output, context);
+    return de_DeleteExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

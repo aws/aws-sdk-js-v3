@@ -1,4 +1,3 @@
-import { parseUrl } from "@aws-sdk/url-parser";
 import { createSign } from "crypto";
 
 /** Input type to getSignedUrl and getSignedCookies. */
@@ -70,11 +69,6 @@ export function getSignedUrl({
   policy,
   passphrase,
 }: CloudfrontSignInput): string {
-  const parsedUrl = parseUrl(url);
-  const queryParams: string[] = [];
-  for (const key in parsedUrl.query) {
-    queryParams.push(`${key}=${parsedUrl.query[key]}`);
-  }
   const cloudfrontSignBuilder = new CloudfrontSignBuilder({
     keyPairId,
     privateKey,
@@ -90,21 +84,15 @@ export function getSignedUrl({
       ipAddress,
     });
   }
-  const cloudfrontQueryParams = cloudfrontSignBuilder.createCloudfrontAttribute();
-  if (cloudfrontQueryParams["Expires"]) {
-    queryParams.push(`Expires=${cloudfrontQueryParams["Expires"]}`);
-  }
-  if (cloudfrontQueryParams["Policy"]) {
-    queryParams.push(`Policy=${cloudfrontQueryParams["Policy"]}`);
-  }
-  queryParams.push(`Key-Pair-Id=${keyPairId}`);
-  queryParams.push(`Signature=${cloudfrontQueryParams["Signature"]}`);
-  const urlWithNewQueryParams = `${url.split("?")[0]}?${queryParams.join("&")}`;
-  const urlParser = new CloudfrontURLParser();
-  if (urlParser.determineScheme(url) === "rtmp") {
-    return urlParser.getRtmpUrl(urlWithNewQueryParams);
-  }
-  return urlWithNewQueryParams;
+
+  const newURL = new URL(url);
+  newURL.search = Array.from(newURL.searchParams.entries())
+    .concat(Object.entries(cloudfrontSignBuilder.createCloudfrontAttribute()))
+    .filter(([key, value]) => value !== undefined)
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+    .join("&");
+
+  return getResource(newURL);
 }
 
 /**
@@ -183,30 +171,15 @@ interface CloudfrontAttributes {
   Signature: string;
 }
 
-class CloudfrontURLParser {
-  public determineScheme(url: string) {
-    const parts = url.split("://");
-    if (parts.length < 2) {
-      throw new Error("Invalid URL.");
-    }
-    return parts[0].replace("*", "");
-  }
-
-  public getRtmpUrl(rtmpUrl: string) {
-    const parsed = new URL(rtmpUrl);
-    return parsed.pathname.replace(/^\//, "") + parsed.search + parsed.hash;
-  }
-
-  public getResource(url: string): string {
-    switch (this.determineScheme(url)) {
-      case "http":
-      case "https":
-        return url;
-      case "rtmp":
-        return this.getRtmpUrl(url);
-      default:
-        throw new Error("Invalid URI scheme. Scheme must be one of http, https, or rtmp");
-    }
+function getResource(url: URL): string {
+  switch (url.protocol) {
+    case "http:":
+    case "https:":
+      return url.toString();
+    case "rtmp:":
+      return url.pathname.replace(/^\//, "") + url.search + url.hash;
+    default:
+      throw new Error("Invalid URI scheme. Scheme must be one of http, https, or rtmp");
   }
 }
 
@@ -217,7 +190,6 @@ class CloudfrontSignBuilder {
   private policy: string;
   private customPolicy = false;
   private dateLessThan?: number | undefined;
-  private urlParser = new CloudfrontURLParser();
   constructor({
     privateKey,
     keyPairId,
@@ -372,7 +344,7 @@ class CloudfrontSignBuilder {
     if (!url || !dateLessThan) {
       return false;
     }
-    const resource = this.urlParser.getResource(url);
+    const resource = getResource(new URL(url));
     const parsedDates = this.parseDateWindow(dateLessThan, dateGreaterThan);
     this.dateLessThan = parsedDates.dateLessThan;
     this.customPolicy = Boolean(parsedDates.dateGreaterThan) || Boolean(ipAddress);

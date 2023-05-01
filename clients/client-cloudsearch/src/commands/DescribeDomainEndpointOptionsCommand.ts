@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
+import { DescribeDomainEndpointOptionsRequest, DescribeDomainEndpointOptionsResponse } from "../models/models_0";
 import {
-  DescribeDomainEndpointOptionsRequest,
-  DescribeDomainEndpointOptionsRequestFilterSensitiveLog,
-  DescribeDomainEndpointOptionsResponse,
-  DescribeDomainEndpointOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDomainEndpointOptionsCommand,
-  serializeAws_queryDescribeDomainEndpointOptionsCommand,
+  de_DescribeDomainEndpointOptionsCommand,
+  se_DescribeDomainEndpointOptionsCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainEndpointOptionsCommand}.
  */
 export interface DescribeDomainEndpointOptionsCommandInput extends DescribeDomainEndpointOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainEndpointOptionsCommand}.
  */
 export interface DescribeDomainEndpointOptionsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeDomainEndpointOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see  <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html" target="_blank">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DescribeDomainEndpointOptionsCommandOutput
  * import { CloudSearchClient, DescribeDomainEndpointOptionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeDomainEndpointOptionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // DescribeDomainEndpointOptionsRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   Deployed: true || false,
+ * };
  * const command = new DescribeDomainEndpointOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainEndpointOptionsCommandInput - {@link DescribeDomainEndpointOptionsCommandInput}
+ * @returns {@link DescribeDomainEndpointOptionsCommandOutput}
  * @see {@link DescribeDomainEndpointOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainEndpointOptionsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -87,6 +93,9 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainEndpointOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainEndpointOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainEndpointOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +135,21 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainEndpointOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDomainEndpointOptionsCommand(input, context);
+    return se_DescribeDomainEndpointOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainEndpointOptionsCommandOutput> {
-    return deserializeAws_queryDescribeDomainEndpointOptionsCommand(output, context);
+    return de_DescribeDomainEndpointOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

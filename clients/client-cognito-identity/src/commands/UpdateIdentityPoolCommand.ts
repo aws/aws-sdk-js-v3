@@ -15,22 +15,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { IdentityPool, IdentityPoolFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateIdentityPoolCommand,
-  serializeAws_json1_1UpdateIdentityPoolCommand,
-} from "../protocols/Aws_json1_1";
+import { IdentityPool } from "../models/models_0";
+import { de_UpdateIdentityPoolCommand, se_UpdateIdentityPoolCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIdentityPoolCommand}.
  */
 export interface UpdateIdentityPoolCommandInput extends IdentityPool {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIdentityPoolCommand}.
  */
 export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an identity pool.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
@@ -39,10 +41,38 @@ export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * import { CognitoIdentityClient, UpdateIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, UpdateIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = { // IdentityPool
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityPoolName: "STRING_VALUE", // required
+ *   AllowUnauthenticatedIdentities: true || false, // required
+ *   AllowClassicFlow: true || false,
+ *   SupportedLoginProviders: { // IdentityProviders
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   DeveloperProviderName: "STRING_VALUE",
+ *   OpenIdConnectProviderARNs: [ // OIDCProviderList
+ *     "STRING_VALUE",
+ *   ],
+ *   CognitoIdentityProviders: [ // CognitoIdentityProviderList
+ *     { // CognitoIdentityProvider
+ *       ProviderName: "STRING_VALUE",
+ *       ClientId: "STRING_VALUE",
+ *       ServerSideTokenCheck: true || false,
+ *     },
+ *   ],
+ *   SamlProviderARNs: [ // SAMLProviderList
+ *     "STRING_VALUE",
+ *   ],
+ *   IdentityPoolTags: { // IdentityPoolTagsType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateIdentityPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIdentityPoolCommandInput - {@link UpdateIdentityPoolCommandInput}
+ * @returns {@link UpdateIdentityPoolCommandOutput}
  * @see {@link UpdateIdentityPoolCommandInput} for command's `input` shape.
  * @see {@link UpdateIdentityPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
@@ -92,6 +122,9 @@ export class UpdateIdentityPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIdentityPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +154,8 @@ export class UpdateIdentityPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IdentityPoolFilterSensitiveLog,
-      outputFilterSensitiveLog: IdentityPoolFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +165,18 @@ export class UpdateIdentityPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIdentityPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateIdentityPoolCommand(input, context);
+    return se_UpdateIdentityPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIdentityPoolCommandOutput> {
-    return deserializeAws_json1_1UpdateIdentityPoolCommand(output, context);
+    return de_UpdateIdentityPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4-multi-region",
-  "version": "3.296.0",
+  "version": "3.310.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -29,7 +29,6 @@
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4": "*",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-arn-parser": "*",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
@@ -60,7 +59,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/signature-v4-multi-region",
   "repository": {

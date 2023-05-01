@@ -14,30 +14,32 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteAliasInput, DeleteAliasInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAliasCommand,
-  serializeAws_json1_1DeleteAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAliasInput } from "../models/models_0";
+import { de_DeleteAliasCommand, se_DeleteAliasCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAliasCommand}.
  */
 export interface DeleteAliasCommandInput extends DeleteAliasInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAliasCommand}.
  */
 export interface DeleteAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an alias. This operation removes all record of the alias. Game clients
  *             attempting to access a server process using the deleted alias receive an error. To
  *             delete an alias, specify the alias ID to be deleted.</p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +47,15 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * import { GameLiftClient, DeleteAliasCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteAliasCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DeleteAliasInput
+ *   AliasId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
+ * @returns {@link DeleteAliasCommandOutput}
  * @see {@link DeleteAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -91,6 +98,9 @@ export class DeleteAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class DeleteAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAliasInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +138,18 @@ export class DeleteAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAliasCommand(input, context);
+    return se_DeleteAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAliasCommandOutput> {
-    return deserializeAws_json1_1DeleteAliasCommand(output, context);
+    return de_DeleteAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

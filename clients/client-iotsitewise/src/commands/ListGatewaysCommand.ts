@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListGatewaysRequest,
-  ListGatewaysRequestFilterSensitiveLog,
-  ListGatewaysResponse,
-  ListGatewaysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGatewaysCommand,
-  serializeAws_restJson1ListGatewaysCommand,
-} from "../protocols/Aws_restJson1";
+import { ListGatewaysRequest, ListGatewaysResponse } from "../models/models_0";
+import { de_ListGatewaysCommand, se_ListGatewaysCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGatewaysCommand}.
  */
 export interface ListGatewaysCommandInput extends ListGatewaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGatewaysCommand}.
  */
 export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a paginated list of gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * import { IoTSiteWiseClient, ListGatewaysCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListGatewaysCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // ListGatewaysRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
+ * @returns {@link ListGatewaysCommandOutput}
  * @see {@link ListGatewaysCommandInput} for command's `input` shape.
  * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +114,8 @@ export class ListGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGatewaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGatewaysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +125,18 @@ export class ListGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGatewaysCommand(input, context);
+    return se_ListGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGatewaysCommandOutput> {
-    return deserializeAws_restJson1ListGatewaysCommand(output, context);
+    return de_ListGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

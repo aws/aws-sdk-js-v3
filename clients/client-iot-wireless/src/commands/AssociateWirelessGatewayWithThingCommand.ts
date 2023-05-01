@@ -16,20 +16,22 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   AssociateWirelessGatewayWithThingRequest,
-  AssociateWirelessGatewayWithThingRequestFilterSensitiveLog,
   AssociateWirelessGatewayWithThingResponse,
-  AssociateWirelessGatewayWithThingResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateWirelessGatewayWithThingCommand,
-  serializeAws_restJson1AssociateWirelessGatewayWithThingCommand,
+  de_AssociateWirelessGatewayWithThingCommand,
+  se_AssociateWirelessGatewayWithThingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateWirelessGatewayWithThingCommand}.
  */
 export interface AssociateWirelessGatewayWithThingCommandInput extends AssociateWirelessGatewayWithThingRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateWirelessGatewayWithThingCommand}.
  */
 export interface AssociateWirelessGatewayWithThingCommandOutput
@@ -37,6 +39,7 @@ export interface AssociateWirelessGatewayWithThingCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a wireless gateway with a thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,16 @@ export interface AssociateWirelessGatewayWithThingCommandOutput
  * import { IoTWirelessClient, AssociateWirelessGatewayWithThingCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateWirelessGatewayWithThingCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // AssociateWirelessGatewayWithThingRequest
+ *   Id: "STRING_VALUE", // required
+ *   ThingArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateWirelessGatewayWithThingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateWirelessGatewayWithThingCommandInput - {@link AssociateWirelessGatewayWithThingCommandInput}
+ * @returns {@link AssociateWirelessGatewayWithThingCommandOutput}
  * @see {@link AssociateWirelessGatewayWithThingCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessGatewayWithThingCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -89,6 +98,9 @@ export class AssociateWirelessGatewayWithThingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateWirelessGatewayWithThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +129,8 @@ export class AssociateWirelessGatewayWithThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateWirelessGatewayWithThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateWirelessGatewayWithThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +140,24 @@ export class AssociateWirelessGatewayWithThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateWirelessGatewayWithThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateWirelessGatewayWithThingCommand(input, context);
+    return se_AssociateWirelessGatewayWithThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateWirelessGatewayWithThingCommandOutput> {
-    return deserializeAws_restJson1AssociateWirelessGatewayWithThingCommand(output, context);
+    return de_AssociateWirelessGatewayWithThingCommand(output, context);
   }
 
   // Start section: command_body_extra

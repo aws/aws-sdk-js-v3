@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DisassociateDelegateFromResourceRequest, DisassociateDelegateFromResourceResponse } from "../models/models_0";
 import {
-  DisassociateDelegateFromResourceRequest,
-  DisassociateDelegateFromResourceRequestFilterSensitiveLog,
-  DisassociateDelegateFromResourceResponse,
-  DisassociateDelegateFromResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateDelegateFromResourceCommand,
-  serializeAws_json1_1DisassociateDelegateFromResourceCommand,
+  de_DisassociateDelegateFromResourceCommand,
+  se_DisassociateDelegateFromResourceCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateDelegateFromResourceCommand}.
  */
 export interface DisassociateDelegateFromResourceCommandInput extends DisassociateDelegateFromResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateDelegateFromResourceCommand}.
  */
 export interface DisassociateDelegateFromResourceCommandOutput
@@ -37,6 +36,7 @@ export interface DisassociateDelegateFromResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a member from the resource's set of delegates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface DisassociateDelegateFromResourceCommandOutput
  * import { WorkMailClient, DisassociateDelegateFromResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DisassociateDelegateFromResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // DisassociateDelegateFromResourceRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateDelegateFromResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateDelegateFromResourceCommandInput - {@link DisassociateDelegateFromResourceCommandInput}
+ * @returns {@link DisassociateDelegateFromResourceCommandOutput}
  * @see {@link DisassociateDelegateFromResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateDelegateFromResourceCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -90,6 +97,9 @@ export class DisassociateDelegateFromResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateDelegateFromResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class DisassociateDelegateFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDelegateFromResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDelegateFromResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +139,24 @@ export class DisassociateDelegateFromResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateDelegateFromResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateDelegateFromResourceCommand(input, context);
+    return se_DisassociateDelegateFromResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateDelegateFromResourceCommandOutput> {
-    return deserializeAws_json1_1DisassociateDelegateFromResourceCommand(output, context);
+    return de_DisassociateDelegateFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

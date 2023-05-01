@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  StopRunRequest,
-  StopRunRequestFilterSensitiveLog,
-  StopRunResult,
-  StopRunResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1StopRunCommand, serializeAws_json1_1StopRunCommand } from "../protocols/Aws_json1_1";
+import { StopRunRequest, StopRunResult } from "../models/models_0";
+import { de_StopRunCommand, se_StopRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopRunCommand}.
  */
 export interface StopRunCommandInput extends StopRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopRunCommand}.
  */
 export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a stop request for the current test run. AWS Device Farm immediately stops the run on devices
  *             where tests have not started. You are not billed for these devices. On devices where tests have started
  *             executing, setup suite and teardown suite tests run to completion on those devices. You are billed for
@@ -42,10 +42,15 @@ export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
  * import { DeviceFarmClient, StopRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, StopRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // StopRunRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new StopRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopRunCommandInput - {@link StopRunCommandInput}
+ * @returns {@link StopRunCommandOutput}
  * @see {@link StopRunCommandInput} for command's `input` shape.
  * @see {@link StopRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -97,6 +102,9 @@ export class StopRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +131,8 @@ export class StopRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopRunResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +142,18 @@ export class StopRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopRunCommand(input, context);
+    return se_StopRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopRunCommandOutput> {
-    return deserializeAws_json1_1StopRunCommand(output, context);
+    return de_StopRunCommand(output, context);
   }
 
   // Start section: command_body_extra

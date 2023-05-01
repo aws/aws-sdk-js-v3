@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListThingTypesRequest,
-  ListThingTypesRequestFilterSensitiveLog,
-  ListThingTypesResponse,
-  ListThingTypesResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListThingTypesCommand,
-  serializeAws_restJson1ListThingTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListThingTypesRequest, ListThingTypesResponse } from "../models/models_2";
+import { de_ListThingTypesCommand, se_ListThingTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThingTypesCommand}.
  */
 export interface ListThingTypesCommandInput extends ListThingTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThingTypesCommand}.
  */
 export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the existing thing types.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingTypes</a> action.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __M
  * import { IoTClient, ListThingTypesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingTypesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListThingTypesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   thingTypeName: "STRING_VALUE",
+ * };
  * const command = new ListThingTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThingTypesCommandInput - {@link ListThingTypesCommandInput}
+ * @returns {@link ListThingTypesCommandOutput}
  * @see {@link ListThingTypesCommandInput} for command's `input` shape.
  * @see {@link ListThingTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListThingTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThingTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class ListThingTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListThingTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListThingTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class ListThingTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThingTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListThingTypesCommand(input, context);
+    return se_ListThingTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingTypesCommandOutput> {
-    return deserializeAws_restJson1ListThingTypesCommand(output, context);
+    return de_ListThingTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

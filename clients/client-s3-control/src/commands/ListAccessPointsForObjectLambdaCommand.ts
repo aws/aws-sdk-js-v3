@@ -14,23 +14,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListAccessPointsForObjectLambdaRequest, ListAccessPointsForObjectLambdaResult } from "../models/models_0";
 import {
-  ListAccessPointsForObjectLambdaRequest,
-  ListAccessPointsForObjectLambdaRequestFilterSensitiveLog,
-  ListAccessPointsForObjectLambdaResult,
-  ListAccessPointsForObjectLambdaResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlListAccessPointsForObjectLambdaCommand,
-  serializeAws_restXmlListAccessPointsForObjectLambdaCommand,
+  de_ListAccessPointsForObjectLambdaCommand,
+  se_ListAccessPointsForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessPointsForObjectLambdaCommand}.
  */
 export interface ListAccessPointsForObjectLambdaCommandInput extends ListAccessPointsForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessPointsForObjectLambdaCommand}.
  */
 export interface ListAccessPointsForObjectLambdaCommandOutput
@@ -38,6 +37,7 @@ export interface ListAccessPointsForObjectLambdaCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns some or all (up to 1,000) access points associated with the Object Lambda Access Point per call. If there
  *          are more access points than what can be returned in one call, the response will include a
  *          continuation token that you can use to list the additional access points.</p>
@@ -66,10 +66,17 @@ export interface ListAccessPointsForObjectLambdaCommandOutput
  * import { S3ControlClient, ListAccessPointsForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, ListAccessPointsForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // ListAccessPointsForObjectLambdaRequest
+ *   AccountId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAccessPointsForObjectLambdaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessPointsForObjectLambdaCommandInput - {@link ListAccessPointsForObjectLambdaCommandInput}
+ * @returns {@link ListAccessPointsForObjectLambdaCommandOutput}
  * @see {@link ListAccessPointsForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link ListAccessPointsForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -96,6 +103,9 @@ export class ListAccessPointsForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessPointsForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +135,8 @@ export class ListAccessPointsForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessPointsForObjectLambdaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessPointsForObjectLambdaResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +146,24 @@ export class ListAccessPointsForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAccessPointsForObjectLambdaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListAccessPointsForObjectLambdaCommand(input, context);
+    return se_ListAccessPointsForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAccessPointsForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlListAccessPointsForObjectLambdaCommand(output, context);
+    return de_ListAccessPointsForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

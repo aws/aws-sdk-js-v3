@@ -3,12 +3,18 @@ import { AwsCredentialIdentity, Profile } from "@aws-sdk/types";
 
 import { FromIniInit } from "./fromIni";
 
+/**
+ * @internal
+ */
 export interface WebIdentityProfile extends Profile {
   web_identity_token_file: string;
   role_arn: string;
   role_session_name?: string;
 }
 
+/**
+ * @internal
+ */
 export const isWebIdentityProfile = (arg: any): arg is WebIdentityProfile =>
   Boolean(arg) &&
   typeof arg === "object" &&
@@ -16,6 +22,9 @@ export const isWebIdentityProfile = (arg: any): arg is WebIdentityProfile =>
   typeof arg.role_arn === "string" &&
   ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1;
 
+/**
+ * @internal
+ */
 export const resolveWebIdentityCredentials = async (
   profile: WebIdentityProfile,
   options: FromIniInit

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  AddThingToThingGroupRequest,
-  AddThingToThingGroupRequestFilterSensitiveLog,
-  AddThingToThingGroupResponse,
-  AddThingToThingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AddThingToThingGroupCommand,
-  serializeAws_restJson1AddThingToThingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { AddThingToThingGroupRequest, AddThingToThingGroupResponse } from "../models/models_0";
+import { de_AddThingToThingGroupCommand, se_AddThingToThingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddThingToThingGroupCommand}.
  */
 export interface AddThingToThingGroupCommandInput extends AddThingToThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddThingToThingGroupCommand}.
  */
 export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a thing to a thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToThingGroup</a> action.</p>
  * @example
@@ -43,10 +40,19 @@ export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupR
  * import { IoTClient, AddThingToThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AddThingToThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // AddThingToThingGroupRequest
+ *   thingGroupName: "STRING_VALUE",
+ *   thingGroupArn: "STRING_VALUE",
+ *   thingName: "STRING_VALUE",
+ *   thingArn: "STRING_VALUE",
+ *   overrideDynamicGroups: true || false,
+ * };
  * const command = new AddThingToThingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddThingToThingGroupCommandInput - {@link AddThingToThingGroupCommandInput}
+ * @returns {@link AddThingToThingGroupCommandOutput}
  * @see {@link AddThingToThingGroupCommandInput} for command's `input` shape.
  * @see {@link AddThingToThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +88,9 @@ export class AddThingToThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddThingToThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +119,8 @@ export class AddThingToThingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddThingToThingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddThingToThingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +130,18 @@ export class AddThingToThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddThingToThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddThingToThingGroupCommand(input, context);
+    return se_AddThingToThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddThingToThingGroupCommandOutput> {
-    return deserializeAws_restJson1AddThingToThingGroupCommand(output, context);
+    return de_AddThingToThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

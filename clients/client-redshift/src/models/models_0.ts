@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
 
+/**
+ * @public
+ */
 export interface AcceptReservedNodeExchangeInputMessage {
   /**
    * <p>A string representing the node identifier of the DC1 Reserved Node to be
@@ -19,6 +22,7 @@ export interface AcceptReservedNodeExchangeInputMessage {
 }
 
 /**
+ * @public
  * <p>Describes a recurring charge.</p>
  */
 export interface RecurringCharge {
@@ -34,12 +38,22 @@ export interface RecurringCharge {
   RecurringChargeFrequency?: string;
 }
 
-export enum ReservedNodeOfferingType {
-  Regular = "Regular",
-  Upgradable = "Upgradable",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReservedNodeOfferingType = {
+  Regular: "Regular",
+  Upgradable: "Upgradable",
+} as const;
 
 /**
+ * @public
+ */
+export type ReservedNodeOfferingType = (typeof ReservedNodeOfferingType)[keyof typeof ReservedNodeOfferingType];
+
+/**
+ * @public
  * <p>Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
  *             offerings. </p>
  */
@@ -133,6 +147,9 @@ export interface ReservedNode {
   ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptReservedNodeExchangeOutputMessage {
   /**
    * <p></p>
@@ -141,6 +158,7 @@ export interface AcceptReservedNodeExchangeOutputMessage {
 }
 
 /**
+ * @public
  * <p>Your request cannot be completed because a dependent internal service is
  *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
  */
@@ -161,6 +179,7 @@ export class DependentServiceUnavailableFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
  */
 export class InvalidReservedNodeStateFault extends __BaseException {
@@ -180,6 +199,7 @@ export class InvalidReservedNodeStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>User already has a reservation with the given identifier.</p>
  */
 export class ReservedNodeAlreadyExistsFault extends __BaseException {
@@ -199,6 +219,7 @@ export class ReservedNodeAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Indicates that the reserved node has already been exchanged.</p>
  */
 export class ReservedNodeAlreadyMigratedFault extends __BaseException {
@@ -218,6 +239,7 @@ export class ReservedNodeAlreadyMigratedFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified reserved compute node not found.</p>
  */
 export class ReservedNodeNotFoundFault extends __BaseException {
@@ -237,6 +259,7 @@ export class ReservedNodeNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specified offering does not exist.</p>
  */
 export class ReservedNodeOfferingNotFoundFault extends __BaseException {
@@ -256,6 +279,7 @@ export class ReservedNodeOfferingNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation isn't supported.</p>
  */
 export class UnsupportedOperationFault extends __BaseException {
@@ -275,6 +299,7 @@ export class UnsupportedOperationFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You are not authorized to access the cluster.</p>
  */
 export class AccessToClusterDeniedFault extends __BaseException {
@@ -294,6 +319,7 @@ export class AccessToClusterDeniedFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The owner of the specified snapshot has not authorized your account to access the
  *             snapshot.</p>
  */
@@ -314,6 +340,7 @@ export class AccessToSnapshotDeniedFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes an attribute value.</p>
  */
 export interface AttributeValueTarget {
@@ -324,6 +351,7 @@ export interface AttributeValueTarget {
 }
 
 /**
+ * @public
  * <p>A name value pair that describes an aspect of an account. </p>
  */
 export interface AccountAttribute {
@@ -338,6 +366,9 @@ export interface AccountAttribute {
   AttributeValues?: AttributeValueTarget[];
 }
 
+/**
+ * @public
+ */
 export interface AccountAttributeList {
   /**
    * <p>A list of attributes assigned to an account.</p>
@@ -346,6 +377,7 @@ export interface AccountAttributeList {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon Web Services account authorized to restore a snapshot.</p>
  */
 export interface AccountWithRestoreAccess {
@@ -362,13 +394,23 @@ export interface AccountWithRestoreAccess {
   AccountAlias?: string;
 }
 
-export enum ActionType {
-  RECOMMEND_NODE_CONFIG = "recommend-node-config",
-  RESIZE_CLUSTER = "resize-cluster",
-  RESTORE_CLUSTER = "restore-cluster",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionType = {
+  RECOMMEND_NODE_CONFIG: "recommend-node-config",
+  RESIZE_CLUSTER: "resize-cluster",
+  RESTORE_CLUSTER: "restore-cluster",
+} as const;
 
 /**
+ * @public
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+/**
+ * @public
  * <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
  *         </p>
  */
@@ -388,6 +430,9 @@ export class ClusterNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PartnerIntegrationInputMessage {
   /**
    * <p>The Amazon Web Services account ID that owns the cluster.</p>
@@ -410,6 +455,9 @@ export interface PartnerIntegrationInputMessage {
   PartnerName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PartnerIntegrationOutputMessage {
   /**
    * <p>The name of the database that receives data from the partner.</p>
@@ -423,6 +471,7 @@ export interface PartnerIntegrationOutputMessage {
 }
 
 /**
+ * @public
  * <p>The name of the partner was not found.</p>
  */
 export class PartnerNotFoundFault extends __BaseException {
@@ -442,6 +491,7 @@ export class PartnerNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The partner integration is not authorized.</p>
  */
 export class UnauthorizedPartnerIntegrationFault extends __BaseException {
@@ -460,19 +510,38 @@ export class UnauthorizedPartnerIntegrationFault extends __BaseException {
   }
 }
 
-export enum AquaConfigurationStatus {
-  AUTO = "auto",
-  DISABLED = "disabled",
-  ENABLED = "enabled",
-}
-
-export enum AquaStatus {
-  APPLYING = "applying",
-  DISABLED = "disabled",
-  ENABLED = "enabled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AquaConfigurationStatus = {
+  AUTO: "auto",
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
 
 /**
+ * @public
+ */
+export type AquaConfigurationStatus = (typeof AquaConfigurationStatus)[keyof typeof AquaConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AquaStatus = {
+  APPLYING: "applying",
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type AquaStatus = (typeof AquaStatus)[keyof typeof AquaStatus];
+
+/**
+ * @public
  * <p>The operation that uses this structure is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
  */
 export interface AquaConfiguration {
@@ -487,6 +556,9 @@ export interface AquaConfiguration {
   AquaConfigurationStatus?: AquaConfigurationStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDataShareConsumerMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.</p>
@@ -510,16 +582,26 @@ export interface AssociateDataShareConsumerMessage {
   ConsumerRegion?: string;
 }
 
-export enum DataShareStatus {
-  ACTIVE = "ACTIVE",
-  AUTHORIZED = "AUTHORIZED",
-  AVAILABLE = "AVAILABLE",
-  DEAUTHORIZED = "DEAUTHORIZED",
-  PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION",
-  REJECTED = "REJECTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataShareStatus = {
+  ACTIVE: "ACTIVE",
+  AUTHORIZED: "AUTHORIZED",
+  AVAILABLE: "AVAILABLE",
+  DEAUTHORIZED: "DEAUTHORIZED",
+  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
+  REJECTED: "REJECTED",
+} as const;
 
 /**
+ * @public
+ */
+export type DataShareStatus = (typeof DataShareStatus)[keyof typeof DataShareStatus];
+
+/**
+ * @public
  * <p>The association of a datashare from a producer account with a data consumer.
  * </p>
  */
@@ -551,9 +633,12 @@ export interface DataShareAssociation {
   StatusChangeDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DataShare {
   /**
-   * <p>An Amazon Resource Name (ARN) that references the datashare that is owned by a specific namespace of the producer cluster. A datashare ARN is in the <code>arn:aws:redshift:{region}:{account-id}:{datashare}:{namespace-guid}/{datashare-name}</code> format.</p>
+   * <p>An Amazon Resource Name (ARN) that references the datashare that is owned by a specific namespace of the producer cluster. A datashare ARN is in the <code>arn:aws:redshift:\{region\}:\{account-id\}:\{datashare\}:\{namespace-guid\}/\{datashare-name\}</code> format.</p>
    */
   DataShareArn?: string;
 
@@ -580,6 +665,7 @@ export interface DataShare {
 }
 
 /**
+ * @public
  * <p>There is an error with the datashare.</p>
  */
 export class InvalidDataShareFault extends __BaseException {
@@ -599,6 +685,7 @@ export class InvalidDataShareFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
  */
 export class InvalidNamespaceFault extends __BaseException {
@@ -617,13 +704,23 @@ export class InvalidNamespaceFault extends __BaseException {
   }
 }
 
-export enum ScheduleState {
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  MODIFYING = "MODIFYING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduleState = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  MODIFYING: "MODIFYING",
+} as const;
 
 /**
+ * @public
+ */
+export type ScheduleState = (typeof ScheduleState)[keyof typeof ScheduleState];
+
+/**
+ * @public
  * <p></p>
  */
 export interface ClusterAssociatedToSchedule {
@@ -639,6 +736,7 @@ export interface ClusterAssociatedToSchedule {
 }
 
 /**
+ * @public
  * <p>Describes an authentication profile.</p>
  */
 export interface AuthenticationProfile {
@@ -655,6 +753,7 @@ export interface AuthenticationProfile {
 }
 
 /**
+ * @public
  * <p>The authentication profile already exists.</p>
  */
 export class AuthenticationProfileAlreadyExistsFault extends __BaseException {
@@ -674,6 +773,7 @@ export class AuthenticationProfileAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The authentication profile can't be found.</p>
  */
 export class AuthenticationProfileNotFoundFault extends __BaseException {
@@ -693,6 +793,7 @@ export class AuthenticationProfileNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The size or number of authentication profiles has exceeded the quota.
  *             The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.</p>
  */
@@ -713,6 +814,7 @@ export class AuthenticationProfileQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified CIDR block or EC2 security group is already authorized for the
  *             specified cluster security group.</p>
  */
@@ -733,6 +835,7 @@ export class AuthorizationAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified CIDR IP range or EC2 security group is not authorized for the
  *             specified cluster security group.</p>
  */
@@ -753,6 +856,7 @@ export class AuthorizationNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The authorization quota for the cluster security group has been reached.</p>
  */
 export class AuthorizationQuotaExceededFault extends __BaseException {
@@ -771,12 +875,22 @@ export class AuthorizationQuotaExceededFault extends __BaseException {
   }
 }
 
-export enum AuthorizationStatus {
-  AUTHORIZED = "Authorized",
-  REVOKING = "Revoking",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthorizationStatus = {
+  AUTHORIZED: "Authorized",
+  REVOKING: "Revoking",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthorizationStatus = (typeof AuthorizationStatus)[keyof typeof AuthorizationStatus];
+
+/**
+ * @public
  * <p></p>
  */
 export interface AuthorizeClusterSecurityGroupIngressMessage {
@@ -806,6 +920,7 @@ export interface AuthorizeClusterSecurityGroupIngressMessage {
 }
 
 /**
+ * @public
  * <p>A tag consisting of a name/value pair for a resource.</p>
  */
 export interface Tag {
@@ -821,6 +936,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Describes an Amazon EC2 security group.</p>
  */
 export interface EC2SecurityGroup {
@@ -847,6 +963,7 @@ export interface EC2SecurityGroup {
 }
 
 /**
+ * @public
  * <p>Describes an IP range used in a security group.</p>
  */
 export interface IPRange {
@@ -867,6 +984,7 @@ export interface IPRange {
 }
 
 /**
+ * @public
  * <p>Describes a security group.</p>
  */
 export interface ClusterSecurityGroup {
@@ -899,6 +1017,9 @@ export interface ClusterSecurityGroup {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeClusterSecurityGroupIngressResult {
   /**
    * <p>Describes a security group.</p>
@@ -907,6 +1028,7 @@ export interface AuthorizeClusterSecurityGroupIngressResult {
 }
 
 /**
+ * @public
  * <p>The cluster security group name does not refer to an existing cluster security
  *             group.</p>
  */
@@ -927,6 +1049,7 @@ export class ClusterSecurityGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The state of the cluster security group is not <code>available</code>. </p>
  */
 export class InvalidClusterSecurityGroupStateFault extends __BaseException {
@@ -945,6 +1068,9 @@ export class InvalidClusterSecurityGroupStateFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeDataShareMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the datashare that producers are to authorize
@@ -958,6 +1084,9 @@ export interface AuthorizeDataShareMessage {
   ConsumerIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeEndpointAccessMessage {
   /**
    * <p>The cluster identifier of the cluster to grant access to.</p>
@@ -976,6 +1105,7 @@ export interface AuthorizeEndpointAccessMessage {
 }
 
 /**
+ * @public
  * <p>Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across Amazon Web Services accounts.</p>
  */
 export interface EndpointAuthorization {
@@ -1026,6 +1156,7 @@ export interface EndpointAuthorization {
 }
 
 /**
+ * @public
  * <p>The authorization already exists for this endpoint.</p>
  */
 export class EndpointAuthorizationAlreadyExistsFault extends __BaseException {
@@ -1045,6 +1176,7 @@ export class EndpointAuthorizationAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of endpoint authorizations per cluster has exceeded its limit.</p>
  */
 export class EndpointAuthorizationsPerClusterLimitExceededFault extends __BaseException {
@@ -1065,6 +1197,7 @@ export class EndpointAuthorizationsPerClusterLimitExceededFault extends __BaseEx
 }
 
 /**
+ * @public
  * <p>The status of the authorization is not valid.</p>
  */
 export class InvalidAuthorizationStateFault extends __BaseException {
@@ -1084,6 +1217,7 @@ export class InvalidAuthorizationStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified cluster is not in the <code>available</code> state. </p>
  */
 export class InvalidClusterStateFault extends __BaseException {
@@ -1103,6 +1237,7 @@ export class InvalidClusterStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface AuthorizeSnapshotAccessMessage {
@@ -1132,6 +1267,7 @@ export interface AuthorizeSnapshotAccessMessage {
 }
 
 /**
+ * @public
  * <p>Describes a snapshot.</p>
  */
 export interface Snapshot {
@@ -1344,6 +1480,9 @@ export interface Snapshot {
   SnapshotRetentionStartTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface AuthorizeSnapshotAccessResult {
   /**
    * <p>Describes a snapshot.</p>
@@ -1352,6 +1491,7 @@ export interface AuthorizeSnapshotAccessResult {
 }
 
 /**
+ * @public
  * <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
  */
 export class ClusterSnapshotNotFoundFault extends __BaseException {
@@ -1371,6 +1511,7 @@ export class ClusterSnapshotNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be completed because a dependent service is throttling requests
  *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
  */
@@ -1391,6 +1532,7 @@ export class DependentServiceRequestThrottlingFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified cluster snapshot is not in the <code>available</code> state, or other
  *             accounts are authorized to access the snapshot. </p>
  */
@@ -1411,6 +1553,7 @@ export class InvalidClusterSnapshotStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
  */
 export class LimitExceededFault extends __BaseException {
@@ -1430,6 +1573,7 @@ export class LimitExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A list of supported platforms for orderable clusters.</p>
  */
 export interface SupportedPlatform {
@@ -1440,6 +1584,7 @@ export interface SupportedPlatform {
 }
 
 /**
+ * @public
  * <p>Describes an availability zone.</p>
  */
 export interface AvailabilityZone {
@@ -1455,6 +1600,7 @@ export interface AvailabilityZone {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteClusterSnapshotMessage {
@@ -1475,6 +1621,9 @@ export interface DeleteClusterSnapshotMessage {
   SnapshotClusterIdentifier?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteClusterSnapshotsRequest {
   /**
    * <p>A list of identifiers for the snapshots that you want to delete.</p>
@@ -1483,6 +1632,7 @@ export interface BatchDeleteClusterSnapshotsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the errors returned by a snapshot.</p>
  */
 export interface SnapshotErrorMessage {
@@ -1507,6 +1657,9 @@ export interface SnapshotErrorMessage {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchDeleteClusterSnapshotsResult {
   /**
    * <p>A list of the snapshot identifiers that were deleted. </p>
@@ -1520,6 +1673,7 @@ export interface BatchDeleteClusterSnapshotsResult {
 }
 
 /**
+ * @public
  * <p>The maximum number for a batch delete of snapshots has been reached. The limit is
  *             100. </p>
  */
@@ -1540,6 +1694,7 @@ export class BatchDeleteRequestSizeExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
  *         </p>
  */
@@ -1559,6 +1714,9 @@ export class BatchModifyClusterSnapshotsLimitExceededFault extends __BaseExcepti
   }
 }
 
+/**
+ * @public
+ */
 export interface BatchModifyClusterSnapshotsMessage {
   /**
    * <p>A list of snapshot identifiers you want to modify.</p>
@@ -1582,6 +1740,9 @@ export interface BatchModifyClusterSnapshotsMessage {
   Force?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface BatchModifyClusterSnapshotsOutputMessage {
   /**
    * <p>A list of the snapshots that were modified.</p>
@@ -1595,6 +1756,7 @@ export interface BatchModifyClusterSnapshotsOutputMessage {
 }
 
 /**
+ * @public
  * <p>The retention period specified is either in the past or is not a valid value.</p>
  *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
  */
@@ -1615,6 +1777,7 @@ export class InvalidRetentionPeriodFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Could not find the specified S3 bucket.</p>
  */
 export class BucketNotFoundFault extends __BaseException {
@@ -1633,6 +1796,9 @@ export class BucketNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CancelResizeMessage {
   /**
    * <p>The unique identifier for the cluster that you want to cancel a resize operation
@@ -1642,6 +1808,7 @@ export interface CancelResizeMessage {
 }
 
 /**
+ * @public
  * <p>A resize operation for the specified cluster is not found.</p>
  */
 export class ResizeNotFoundFault extends __BaseException {
@@ -1661,6 +1828,7 @@ export class ResizeNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes the result of a cluster resize operation.</p>
  */
 export interface ResizeProgressMessage {
@@ -1771,6 +1939,7 @@ export interface ResizeProgressMessage {
 }
 
 /**
+ * @public
  * <p>The identifier of a node in a cluster.</p>
  */
 export interface ClusterNode {
@@ -1791,6 +1960,7 @@ export interface ClusterNode {
 }
 
 /**
+ * @public
  * <p>Describes the status of a parameter group.</p>
  */
 export interface ClusterParameterStatus {
@@ -1852,6 +2022,7 @@ export interface ClusterParameterStatus {
 }
 
 /**
+ * @public
  * <p>Describes the status of a parameter group.</p>
  */
 export interface ClusterParameterGroupStatus {
@@ -1876,6 +2047,7 @@ export interface ClusterParameterGroupStatus {
 }
 
 /**
+ * @public
  * <p>Describes a cluster security group.</p>
  */
 export interface ClusterSecurityGroupMembership {
@@ -1891,6 +2063,7 @@ export interface ClusterSecurityGroupMembership {
 }
 
 /**
+ * @public
  * <p>Returns the destination region and retention period that are configured for
  *             cross-region snapshot copy.</p>
  */
@@ -1922,6 +2095,7 @@ export interface ClusterSnapshotCopyStatus {
 }
 
 /**
+ * @public
  * <p>Describes the status of a cluster while it is in the process of resizing with an
  *             incremental resize.</p>
  */
@@ -1959,6 +2133,7 @@ export interface DataTransferProgress {
 }
 
 /**
+ * @public
  * <p>Describes a deferred maintenance window</p>
  */
 export interface DeferredMaintenanceWindow {
@@ -1979,6 +2154,7 @@ export interface DeferredMaintenanceWindow {
 }
 
 /**
+ * @public
  * <p>Describes the status of the elastic IP (EIP) address.</p>
  */
 export interface ElasticIpStatus {
@@ -1994,6 +2170,7 @@ export interface ElasticIpStatus {
 }
 
 /**
+ * @public
  * <p>Describes a network interface. </p>
  */
 export interface NetworkInterface {
@@ -2019,6 +2196,7 @@ export interface NetworkInterface {
 }
 
 /**
+ * @public
  * <p>The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.</p>
  */
 export interface VpcEndpoint {
@@ -2039,6 +2217,7 @@ export interface VpcEndpoint {
 }
 
 /**
+ * @public
  * <p>Describes a connection endpoint.</p>
  */
 export interface Endpoint {
@@ -2059,6 +2238,7 @@ export interface Endpoint {
 }
 
 /**
+ * @public
  * <p>Describes the status of changes to HSM settings.</p>
  */
 export interface HsmStatus {
@@ -2083,6 +2263,7 @@ export interface HsmStatus {
 }
 
 /**
+ * @public
  * <p>An Identity and Access Management (IAM) role that can be used by the associated
  *             Amazon Redshift cluster to access other Amazon Web Services services.</p>
  */
@@ -2118,6 +2299,7 @@ export interface ClusterIamRole {
 }
 
 /**
+ * @public
  * <p>Describes cluster attributes that are in a pending state. A change to one or more
  *             the attributes was requested and is in progress or will be applied.</p>
  */
@@ -2187,16 +2369,27 @@ export interface PendingModifiedValues {
   EncryptionType?: string;
 }
 
-export enum ReservedNodeExchangeStatusType {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  REQUESTED = "REQUESTED",
-  RETRYING = "RETRYING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReservedNodeExchangeStatusType = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  REQUESTED: "REQUESTED",
+  RETRYING: "RETRYING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type ReservedNodeExchangeStatusType =
+  (typeof ReservedNodeExchangeStatusType)[keyof typeof ReservedNodeExchangeStatusType];
+
+/**
+ * @public
  * <p>Reserved-node status details, such as the source reserved-node
  *             identifier, the target reserved-node identifier, the node type, the node count, and
  *             other details.</p>
@@ -2249,6 +2442,7 @@ export interface ReservedNodeExchangeStatus {
 }
 
 /**
+ * @public
  * <p>Describes a resize operation.</p>
  */
 export interface ResizeInfo {
@@ -2264,6 +2458,7 @@ export interface ResizeInfo {
 }
 
 /**
+ * @public
  * <p>Describes the status of a cluster restore action. Returns null if the cluster was
  *             not created by restoring a snapshot.</p>
  */
@@ -2309,6 +2504,7 @@ export interface RestoreStatus {
 }
 
 /**
+ * @public
  * <p>Describes the members of a VPC security group.</p>
  */
 export interface VpcSecurityGroupMembership {
@@ -2324,6 +2520,7 @@ export interface VpcSecurityGroupMembership {
 }
 
 /**
+ * @public
  * <p>Describes a cluster.</p>
  */
 export interface Cluster {
@@ -2760,6 +2957,7 @@ export interface Cluster {
 }
 
 /**
+ * @public
  * <p>The account already has a cluster with the given identifier.</p>
  */
 export class ClusterAlreadyExistsFault extends __BaseException {
@@ -2779,6 +2977,7 @@ export class ClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Temporary credentials with authorization to log on to an Amazon Redshift database.
  *         </p>
  */
@@ -2806,6 +3005,7 @@ export interface ClusterCredentials {
 }
 
 /**
+ * @public
  * <p>Describes a <code>RevisionTarget</code>.</p>
  */
 export interface RevisionTarget {
@@ -2828,6 +3028,7 @@ export interface RevisionTarget {
 }
 
 /**
+ * @public
  * <p>Describes a <code>ClusterDbRevision</code>.</p>
  */
 export interface ClusterDbRevision {
@@ -2853,6 +3054,9 @@ export interface ClusterDbRevision {
   RevisionTargets?: RevisionTarget[];
 }
 
+/**
+ * @public
+ */
 export interface ClusterDbRevisionsMessage {
   /**
    * <p>A string representing the starting point for the next set of revisions. If a value is
@@ -2868,6 +3072,9 @@ export interface ClusterDbRevisionsMessage {
   ClusterDbRevisions?: ClusterDbRevision[];
 }
 
+/**
+ * @public
+ */
 export interface ClusterExtendedCredentials {
   /**
    * <p>A database user name that you provide when you connect to a database. The database user is mapped 1:1 to the source IAM identity. </p>
@@ -2891,6 +3098,7 @@ export interface ClusterExtendedCredentials {
 }
 
 /**
+ * @public
  * <p>Cluster is already on the latest database revision.</p>
  */
 export class ClusterOnLatestRevisionFault extends __BaseException {
@@ -2910,6 +3118,7 @@ export class ClusterOnLatestRevisionFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a parameter group.</p>
  */
 export interface ClusterParameterGroup {
@@ -2936,6 +3145,7 @@ export interface ClusterParameterGroup {
 }
 
 /**
+ * @public
  * <p>A cluster parameter group with the same name already exists.</p>
  */
 export class ClusterParameterGroupAlreadyExistsFault extends __BaseException {
@@ -2954,12 +3164,22 @@ export class ClusterParameterGroupAlreadyExistsFault extends __BaseException {
   }
 }
 
-export enum ParameterApplyType {
-  dynamic = "dynamic",
-  static = "static",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ParameterApplyType = {
+  dynamic: "dynamic",
+  static: "static",
+} as const;
 
 /**
+ * @public
+ */
+export type ParameterApplyType = (typeof ParameterApplyType)[keyof typeof ParameterApplyType];
+
+/**
+ * @public
  * <p>Describes a parameter in a cluster parameter group.</p>
  */
 export interface Parameter {
@@ -3017,6 +3237,7 @@ export interface Parameter {
 }
 
 /**
+ * @public
  * <p>Contains the output from the <a>DescribeClusterParameters</a> action.
  *         </p>
  */
@@ -3038,6 +3259,7 @@ export interface ClusterParameterGroupDetails {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ClusterParameterGroupNameMessage {
@@ -3055,6 +3277,7 @@ export interface ClusterParameterGroupNameMessage {
 }
 
 /**
+ * @public
  * <p>The parameter group name does not refer to an existing parameter group.</p>
  */
 export class ClusterParameterGroupNotFoundFault extends __BaseException {
@@ -3074,6 +3297,7 @@ export class ClusterParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would result in the user exceeding the allowed number of cluster
  *             parameter groups.
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
@@ -3097,6 +3321,7 @@ export class ClusterParameterGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the output from the <a>DescribeClusterParameterGroups</a>
  *             action. </p>
  */
@@ -3118,6 +3343,7 @@ export interface ClusterParameterGroupsMessage {
 }
 
 /**
+ * @public
  * <p>The request would exceed the allowed number of cluster instances for this account.
  *
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
@@ -3141,6 +3367,7 @@ export class ClusterQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A cluster security group with the same name already exists.</p>
  */
 export class ClusterSecurityGroupAlreadyExistsFault extends __BaseException {
@@ -3160,6 +3387,7 @@ export class ClusterSecurityGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ClusterSecurityGroupMessage {
@@ -3179,6 +3407,7 @@ export interface ClusterSecurityGroupMessage {
 }
 
 /**
+ * @public
  * <p>The request would result in the user exceeding the allowed number of cluster
  *             security groups.
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
@@ -3202,6 +3431,7 @@ export class ClusterSecurityGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the output from the <a>DescribeClusters</a> action. </p>
  */
 export interface ClustersMessage {
@@ -3222,6 +3452,7 @@ export interface ClustersMessage {
 }
 
 /**
+ * @public
  * <p>The value specified as a snapshot identifier is already used by an existing
  *             snapshot.</p>
  */
@@ -3242,6 +3473,7 @@ export class ClusterSnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would result in the user exceeding the allowed number of cluster
  *             snapshots.</p>
  */
@@ -3262,6 +3494,7 @@ export class ClusterSnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a subnet.</p>
  */
 export interface Subnet {
@@ -3282,6 +3515,7 @@ export interface Subnet {
 }
 
 /**
+ * @public
  * <p>Describes a subnet group.</p>
  */
 export interface ClusterSubnetGroup {
@@ -3318,6 +3552,7 @@ export interface ClusterSubnetGroup {
 }
 
 /**
+ * @public
  * <p>A <i>ClusterSubnetGroupName</i> is already used by an existing
  *             cluster subnet group. </p>
  */
@@ -3338,6 +3573,7 @@ export class ClusterSubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the output from the <a>DescribeClusterSubnetGroups</a> action.
  *         </p>
  */
@@ -3358,6 +3594,7 @@ export interface ClusterSubnetGroupMessage {
 }
 
 /**
+ * @public
  * <p>The cluster subnet group name does not refer to an existing cluster subnet
  *             group.</p>
  */
@@ -3378,6 +3615,7 @@ export class ClusterSubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would result in user exceeding the allowed number of cluster subnet
  *             groups.
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
@@ -3401,6 +3639,7 @@ export class ClusterSubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request would result in user exceeding the allowed number of subnets in a
  *             cluster subnet groups.
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
@@ -3424,6 +3663,7 @@ export class ClusterSubnetQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a cluster version, including the parameter group family and description
  *             of the version.</p>
  */
@@ -3445,6 +3685,7 @@ export interface ClusterVersion {
 }
 
 /**
+ * @public
  * <p>Contains the output from the <a>DescribeClusterVersions</a> action.
  *         </p>
  */
@@ -3465,6 +3706,7 @@ export interface ClusterVersionsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CopyClusterSnapshotMessage {
@@ -3525,6 +3767,9 @@ export interface CopyClusterSnapshotMessage {
   ManualSnapshotRetentionPeriod?: number;
 }
 
+/**
+ * @public
+ */
 export interface CopyClusterSnapshotResult {
   /**
    * <p>Describes a snapshot.</p>
@@ -3533,6 +3778,7 @@ export interface CopyClusterSnapshotResult {
 }
 
 /**
+ * @public
  * <p>Cross-region snapshot copy was temporarily disabled. Try your request
  *             again.</p>
  */
@@ -3552,6 +3798,9 @@ export class CopyToRegionDisabledFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateAuthenticationProfileMessage {
   /**
    * <p>The name of the authentication profile to be created.</p>
@@ -3565,6 +3814,9 @@ export interface CreateAuthenticationProfileMessage {
   AuthenticationProfileContent: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateAuthenticationProfileResult {
   /**
    * <p>The name of the authentication profile that was created.</p>
@@ -3578,6 +3830,7 @@ export interface CreateAuthenticationProfileResult {
 }
 
 /**
+ * @public
  * <p>The authentication profile request is not valid. The profile name can't be null or empty.
  *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
  */
@@ -3598,6 +3851,7 @@ export class InvalidAuthenticationProfileRequestFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateClusterMessage {
@@ -3974,6 +4228,9 @@ export interface CreateClusterMessage {
   LoadSampleData?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterResult {
   /**
    * <p>Describes a cluster.</p>
@@ -3982,6 +4239,7 @@ export interface CreateClusterResult {
 }
 
 /**
+ * @public
  * <p>There is no Amazon Redshift HSM client certificate with the specified
  *             identifier.</p>
  */
@@ -4002,6 +4260,7 @@ export class HsmClientCertificateNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
  */
 export class HsmConfigurationNotFoundFault extends __BaseException {
@@ -4021,6 +4280,7 @@ export class HsmConfigurationNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of nodes specified exceeds the allotted capacity of the
  *             cluster.</p>
  */
@@ -4041,6 +4301,7 @@ export class InsufficientClusterCapacityFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The cluster subnet group cannot be deleted because it is in use.</p>
  */
 export class InvalidClusterSubnetGroupStateFault extends __BaseException {
@@ -4060,6 +4321,7 @@ export class InvalidClusterSubnetGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The provided cluster track name is not valid.</p>
  */
 export class InvalidClusterTrackFault extends __BaseException {
@@ -4079,6 +4341,7 @@ export class InvalidClusterTrackFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
  */
 export class InvalidElasticIpFault extends __BaseException {
@@ -4098,6 +4361,7 @@ export class InvalidElasticIpFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested subnet is not valid, or not all of the subnets are in the same
  *             VPC.</p>
  */
@@ -4118,6 +4382,7 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The tag is invalid.</p>
  */
 export class InvalidTagFault extends __BaseException {
@@ -4137,6 +4402,7 @@ export class InvalidTagFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The cluster subnet group does not cover all Availability Zones.</p>
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
@@ -4156,6 +4422,7 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation would exceed the number of nodes allowed for a cluster.</p>
  */
 export class NumberOfNodesPerClusterLimitExceededFault extends __BaseException {
@@ -4175,6 +4442,7 @@ export class NumberOfNodesPerClusterLimitExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation would exceed the number of nodes allotted to the account.
  *
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
@@ -4198,6 +4466,7 @@ export class NumberOfNodesQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>We could not find the specified snapshot schedule. </p>
  */
 export class SnapshotScheduleNotFoundFault extends __BaseException {
@@ -4217,6 +4486,7 @@ export class SnapshotScheduleNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the number of tags allowed.</p>
  */
 export class TagLimitExceededFault extends __BaseException {
@@ -4236,6 +4506,7 @@ export class TagLimitExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Your account is not authorized to perform the requested operation.</p>
  */
 export class UnauthorizedOperation extends __BaseException {
@@ -4255,6 +4526,7 @@ export class UnauthorizedOperation extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateClusterParameterGroupMessage {
@@ -4303,6 +4575,9 @@ export interface CreateClusterParameterGroupMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterParameterGroupResult {
   /**
    * <p>Describes a parameter group.</p>
@@ -4311,6 +4586,7 @@ export interface CreateClusterParameterGroupResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateClusterSecurityGroupMessage {
@@ -4345,6 +4621,9 @@ export interface CreateClusterSecurityGroupMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterSecurityGroupResult {
   /**
    * <p>Describes a security group.</p>
@@ -4353,6 +4632,7 @@ export interface CreateClusterSecurityGroupResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateClusterSnapshotMessage {
@@ -4398,6 +4678,9 @@ export interface CreateClusterSnapshotMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterSnapshotResult {
   /**
    * <p>Describes a snapshot.</p>
@@ -4406,6 +4689,7 @@ export interface CreateClusterSnapshotResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateClusterSubnetGroupMessage {
@@ -4446,6 +4730,9 @@ export interface CreateClusterSubnetGroupMessage {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterSubnetGroupResult {
   /**
    * <p>Describes a subnet group.</p>
@@ -4453,6 +4740,9 @@ export interface CreateClusterSubnetGroupResult {
   ClusterSubnetGroup?: ClusterSubnetGroup;
 }
 
+/**
+ * @public
+ */
 export interface CreateEndpointAccessMessage {
   /**
    * <p>The cluster identifier of the cluster to access.</p>
@@ -4485,6 +4775,7 @@ export interface CreateEndpointAccessMessage {
 }
 
 /**
+ * @public
  * <p>Describes a Redshift-managed VPC endpoint.</p>
  */
 export interface EndpointAccess {
@@ -4540,6 +4831,7 @@ export interface EndpointAccess {
 }
 
 /**
+ * @public
  * <p>The account already has a Redshift-managed VPC endpoint with the given identifier.</p>
  */
 export class EndpointAlreadyExistsFault extends __BaseException {
@@ -4559,6 +4851,7 @@ export class EndpointAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.</p>
  */
 export class EndpointsPerAuthorizationLimitExceededFault extends __BaseException {
@@ -4578,6 +4871,7 @@ export class EndpointsPerAuthorizationLimitExceededFault extends __BaseException
 }
 
 /**
+ * @public
  * <p>The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.</p>
  */
 export class EndpointsPerClusterLimitExceededFault extends __BaseException {
@@ -4597,6 +4891,7 @@ export class EndpointsPerClusterLimitExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateEventSubscriptionMessage {
@@ -4674,6 +4969,7 @@ export interface CreateEventSubscriptionMessage {
 }
 
 /**
+ * @public
  * <p>Describes event subscriptions.</p>
  */
 export interface EventSubscription {
@@ -4756,6 +5052,9 @@ export interface EventSubscription {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateEventSubscriptionResult {
   /**
    * <p>Describes event subscriptions.</p>
@@ -4764,6 +5063,7 @@ export interface CreateEventSubscriptionResult {
 }
 
 /**
+ * @public
  * <p>The request would exceed the allowed number of event subscriptions for this
  *             account.
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
@@ -4787,6 +5087,7 @@ export class EventSubscriptionQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS
  *             topic.</p>
  */
@@ -4807,6 +5108,7 @@ export class SNSInvalidTopicFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
  */
 export class SNSNoAuthorizationFault extends __BaseException {
@@ -4826,6 +5128,7 @@ export class SNSNoAuthorizationFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not
  *             exist.</p>
  */
@@ -4846,6 +5149,7 @@ export class SNSTopicArnNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified Amazon Redshift event source could not be found.</p>
  */
 export class SourceNotFoundFault extends __BaseException {
@@ -4865,6 +5169,7 @@ export class SourceNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There is already an existing event notification subscription with the specified
  *             name.</p>
  */
@@ -4885,6 +5190,7 @@ export class SubscriptionAlreadyExistFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The value specified for the event category was not one of the allowed values, or it
  *             specified a category that does not apply to the specified source type. The allowed
  *             values are Configuration, Management, Monitoring, and Security.</p>
@@ -4906,6 +5212,7 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An Amazon Redshift event with the specified event ID does not exist.</p>
  */
 export class SubscriptionEventIdNotFoundFault extends __BaseException {
@@ -4925,6 +5232,7 @@ export class SubscriptionEventIdNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The value specified for the event severity was not one of the allowed values, or it
  *             specified a severity that does not apply to the specified source type. The allowed
  *             values are ERROR and INFO.</p>
@@ -4946,6 +5254,7 @@ export class SubscriptionSeverityNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateHsmClientCertificateMessage {
@@ -4962,6 +5271,7 @@ export interface CreateHsmClientCertificateMessage {
 }
 
 /**
+ * @public
  * <p>Returns information about an HSM client certificate. The certificate is stored in a
  *             secure Hardware Storage Module (HSM), and used by the Amazon Redshift cluster to encrypt data
  *             files.</p>
@@ -4984,6 +5294,9 @@ export interface HsmClientCertificate {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateHsmClientCertificateResult {
   /**
    * <p>Returns information about an HSM client certificate. The certificate is stored in a
@@ -4994,6 +5307,7 @@ export interface CreateHsmClientCertificateResult {
 }
 
 /**
+ * @public
  * <p>There is already an existing Amazon Redshift HSM client certificate with the specified
  *             identifier.</p>
  */
@@ -5014,6 +5328,7 @@ export class HsmClientCertificateAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The quota for HSM client certificates has been reached.
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
@@ -5036,6 +5351,7 @@ export class HsmClientCertificateQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface CreateHsmConfigurationMessage {
@@ -5078,6 +5394,7 @@ export interface CreateHsmConfigurationMessage {
 }
 
 /**
+ * @public
  * <p>Returns information about an HSM configuration, which is an object that describes
  *             to Amazon Redshift clusters the information they require to connect to an HSM where they can
  *             store database encryption keys.</p>
@@ -5110,6 +5427,9 @@ export interface HsmConfiguration {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateHsmConfigurationResult {
   /**
    * <p>Returns information about an HSM configuration, which is an object that describes
@@ -5120,6 +5440,7 @@ export interface CreateHsmConfigurationResult {
 }
 
 /**
+ * @public
  * <p>There is already an existing Amazon Redshift HSM configuration with the specified
  *             identifier.</p>
  */
@@ -5140,6 +5461,7 @@ export class HsmConfigurationAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The quota for HSM configurations has been reached.
  * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
@@ -5162,6 +5484,7 @@ export class HsmConfigurationQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a pause cluster operation. For example, a scheduled action to run the <code>PauseCluster</code> API operation. </p>
  */
 export interface PauseClusterMessage {
@@ -5172,6 +5495,7 @@ export interface PauseClusterMessage {
 }
 
 /**
+ * @public
  * <p>Describes a resize cluster operation. For example, a scheduled action to run the <code>ResizeCluster</code> API operation. </p>
  */
 export interface ResizeClusterMessage {
@@ -5214,6 +5538,7 @@ export interface ResizeClusterMessage {
 }
 
 /**
+ * @public
  * <p>Describes a resume cluster operation. For example, a scheduled action to run the <code>ResumeCluster</code> API operation. </p>
  */
 export interface ResumeClusterMessage {
@@ -5224,6 +5549,7 @@ export interface ResumeClusterMessage {
 }
 
 /**
+ * @public
  * <p>The action type that specifies an Amazon Redshift API operation that is supported by the Amazon Redshift scheduler. </p>
  */
 export interface ScheduledActionType {
@@ -5243,6 +5569,9 @@ export interface ScheduledActionType {
   ResumeCluster?: ResumeClusterMessage;
 }
 
+/**
+ * @public
+ */
 export interface CreateScheduledActionMessage {
   /**
    * <p>The name of the scheduled action. The name must be unique within an account.
@@ -5295,6 +5624,7 @@ export interface CreateScheduledActionMessage {
 }
 
 /**
+ * @public
  * <p>The scheduled action is not valid. </p>
  */
 export class InvalidScheduledActionFault extends __BaseException {
@@ -5314,6 +5644,7 @@ export class InvalidScheduledActionFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The schedule you submitted isn't valid.</p>
  */
 export class InvalidScheduleFault extends __BaseException {
@@ -5332,12 +5663,22 @@ export class InvalidScheduleFault extends __BaseException {
   }
 }
 
-export enum ScheduledActionState {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledActionState = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ScheduledActionState = (typeof ScheduledActionState)[keyof typeof ScheduledActionState];
+
+/**
+ * @public
  * <p>Describes a scheduled action. You can use a scheduled action to trigger some Amazon Redshift API operations on a schedule.
  *             For information about which API operations can be scheduled, see  <a>ScheduledActionType</a>. </p>
  */
@@ -5349,7 +5690,7 @@ export interface ScheduledAction {
 
   /**
    * <p>A JSON format string of the Amazon Redshift API operation with input parameters. </p>
-   *          <p>"<code>{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}</code>". </p>
+   *          <p>"<code>\{\"ResizeCluster\":\{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3\}\}</code>". </p>
    */
   TargetAction?: ScheduledActionType;
 
@@ -5403,6 +5744,7 @@ export interface ScheduledAction {
 }
 
 /**
+ * @public
  * <p>The scheduled action already exists. </p>
  */
 export class ScheduledActionAlreadyExistsFault extends __BaseException {
@@ -5422,6 +5764,7 @@ export class ScheduledActionAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The quota for scheduled actions exceeded. </p>
  */
 export class ScheduledActionQuotaExceededFault extends __BaseException {
@@ -5441,6 +5784,7 @@ export class ScheduledActionQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The action type specified for a scheduled action is not supported. </p>
  */
 export class ScheduledActionTypeUnsupportedFault extends __BaseException {
@@ -5460,6 +5804,7 @@ export class ScheduledActionTypeUnsupportedFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The result of the <code>CreateSnapshotCopyGrant</code> action.</p>
  */
 export interface CreateSnapshotCopyGrantMessage {
@@ -5500,6 +5845,7 @@ export interface CreateSnapshotCopyGrantMessage {
 }
 
 /**
+ * @public
  * <p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied
  *             snapshots with the specified encrypted symmetric key from Amazon Web Services KMS in the destination
  *             region.</p>
@@ -5527,6 +5873,9 @@ export interface SnapshotCopyGrant {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotCopyGrantResult {
   /**
    * <p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied
@@ -5542,6 +5891,7 @@ export interface CreateSnapshotCopyGrantResult {
 }
 
 /**
+ * @public
  * <p>The snapshot copy grant can't be created because a grant with the same name already
  *             exists.</p>
  */
@@ -5562,6 +5912,7 @@ export class SnapshotCopyGrantAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Amazon Web Services account has exceeded the maximum number of snapshot copy grants in this
  *             region.</p>
  */
@@ -5581,6 +5932,9 @@ export class SnapshotCopyGrantQuotaExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotScheduleMessage {
   /**
    * <p>The definition of the snapshot schedule. The definition is made up of schedule
@@ -5616,6 +5970,7 @@ export interface CreateSnapshotScheduleMessage {
 }
 
 /**
+ * @public
  * <p>The definition you submitted is not supported.</p>
  */
 export class ScheduleDefinitionTypeUnsupportedFault extends __BaseException {
@@ -5635,6 +5990,7 @@ export class ScheduleDefinitionTypeUnsupportedFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a snapshot schedule. You can set a regular interval for creating
  *             snapshots of a cluster. You can also schedule snapshots for specific dates. </p>
  */
@@ -5676,6 +6032,7 @@ export interface SnapshotSchedule {
 }
 
 /**
+ * @public
  * <p>The specified snapshot schedule already exists. </p>
  */
 export class SnapshotScheduleAlreadyExistsFault extends __BaseException {
@@ -5695,6 +6052,7 @@ export class SnapshotScheduleAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the quota of snapshot schedules. </p>
  */
 export class SnapshotScheduleQuotaExceededFault extends __BaseException {
@@ -5714,6 +6072,7 @@ export class SnapshotScheduleQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the output from the <code>CreateTags</code> action. </p>
  */
 export interface CreateTagsMessage {
@@ -5735,6 +6094,7 @@ export interface CreateTagsMessage {
 }
 
 /**
+ * @public
  * <p>The resource could not be found.</p>
  */
 export class ResourceNotFoundFault extends __BaseException {
@@ -5753,29 +6113,68 @@ export class ResourceNotFoundFault extends __BaseException {
   }
 }
 
-export enum UsageLimitBreachAction {
-  DISABLE = "disable",
-  EMIT_METRIC = "emit-metric",
-  LOG = "log",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UsageLimitBreachAction = {
+  DISABLE: "disable",
+  EMIT_METRIC: "emit-metric",
+  LOG: "log",
+} as const;
 
-export enum UsageLimitFeatureType {
-  CONCURRENCY_SCALING = "concurrency-scaling",
-  CROSS_REGION_DATASHARING = "cross-region-datasharing",
-  SPECTRUM = "spectrum",
-}
+/**
+ * @public
+ */
+export type UsageLimitBreachAction = (typeof UsageLimitBreachAction)[keyof typeof UsageLimitBreachAction];
 
-export enum UsageLimitLimitType {
-  DATA_SCANNED = "data-scanned",
-  TIME = "time",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UsageLimitFeatureType = {
+  CONCURRENCY_SCALING: "concurrency-scaling",
+  CROSS_REGION_DATASHARING: "cross-region-datasharing",
+  SPECTRUM: "spectrum",
+} as const;
 
-export enum UsageLimitPeriod {
-  DAILY = "daily",
-  MONTHLY = "monthly",
-  WEEKLY = "weekly",
-}
+/**
+ * @public
+ */
+export type UsageLimitFeatureType = (typeof UsageLimitFeatureType)[keyof typeof UsageLimitFeatureType];
 
+/**
+ * @public
+ * @enum
+ */
+export const UsageLimitLimitType = {
+  DATA_SCANNED: "data-scanned",
+  TIME: "time",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageLimitLimitType = (typeof UsageLimitLimitType)[keyof typeof UsageLimitLimitType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UsageLimitPeriod = {
+  DAILY: "daily",
+  MONTHLY: "monthly",
+  WEEKLY: "weekly",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageLimitPeriod = (typeof UsageLimitPeriod)[keyof typeof UsageLimitPeriod];
+
+/**
+ * @public
+ */
 export interface CreateUsageLimitMessage {
   /**
    * <p>The identifier of the cluster that you want to limit usage.</p>
@@ -5822,6 +6221,7 @@ export interface CreateUsageLimitMessage {
 }
 
 /**
+ * @public
  * <p>The usage limit is not valid.</p>
  */
 export class InvalidUsageLimitFault extends __BaseException {
@@ -5841,6 +6241,7 @@ export class InvalidUsageLimitFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a usage limit object for a cluster. </p>
  */
 export interface UsageLimit {
@@ -5900,6 +6301,7 @@ export interface UsageLimit {
 }
 
 /**
+ * @public
  * <p>The usage limit already exists. </p>
  */
 export class UsageLimitAlreadyExistsFault extends __BaseException {
@@ -5918,6 +6320,9 @@ export class UsageLimitAlreadyExistsFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CustomerStorageMessage {
   /**
    * <p>The total amount of storage currently used for snapshots.</p>
@@ -5930,19 +6335,40 @@ export interface CustomerStorageMessage {
   TotalProvisionedStorageInMegaBytes?: number;
 }
 
-export enum DataShareStatusForConsumer {
-  ACTIVE = "ACTIVE",
-  AVAILABLE = "AVAILABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataShareStatusForConsumer = {
+  ACTIVE: "ACTIVE",
+  AVAILABLE: "AVAILABLE",
+} as const;
 
-export enum DataShareStatusForProducer {
-  ACTIVE = "ACTIVE",
-  AUTHORIZED = "AUTHORIZED",
-  DEAUTHORIZED = "DEAUTHORIZED",
-  PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION",
-  REJECTED = "REJECTED",
-}
+/**
+ * @public
+ */
+export type DataShareStatusForConsumer = (typeof DataShareStatusForConsumer)[keyof typeof DataShareStatusForConsumer];
 
+/**
+ * @public
+ * @enum
+ */
+export const DataShareStatusForProducer = {
+  ACTIVE: "ACTIVE",
+  AUTHORIZED: "AUTHORIZED",
+  DEAUTHORIZED: "DEAUTHORIZED",
+  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataShareStatusForProducer = (typeof DataShareStatusForProducer)[keyof typeof DataShareStatusForProducer];
+
+/**
+ * @public
+ */
 export interface DeauthorizeDataShareMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the datashare to remove authorization from.</p>
@@ -5957,6 +6383,7 @@ export interface DeauthorizeDataShareMessage {
 }
 
 /**
+ * @public
  * <p>Describes the default cluster parameters for a parameter group family.</p>
  */
 export interface DefaultClusterParameters {
@@ -5981,6 +6408,9 @@ export interface DefaultClusterParameters {
   Parameters?: Parameter[];
 }
 
+/**
+ * @public
+ */
 export interface DeleteAuthenticationProfileMessage {
   /**
    * <p>The name of the authentication profile to delete.</p>
@@ -5988,6 +6418,9 @@ export interface DeleteAuthenticationProfileMessage {
   AuthenticationProfileName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteAuthenticationProfileResult {
   /**
    * <p>The name of the authentication profile that was deleted.</p>
@@ -5996,6 +6429,7 @@ export interface DeleteAuthenticationProfileResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteClusterMessage {
@@ -6062,6 +6496,9 @@ export interface DeleteClusterMessage {
   FinalClusterSnapshotRetentionPeriod?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterResult {
   /**
    * <p>Describes a cluster.</p>
@@ -6070,6 +6507,7 @@ export interface DeleteClusterResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteClusterParameterGroupMessage {
@@ -6089,6 +6527,7 @@ export interface DeleteClusterParameterGroupMessage {
 }
 
 /**
+ * @public
  * <p>The cluster parameter group action can not be completed because another task is in
  *             progress that involves the parameter group. Wait a few moments and try the operation
  *             again.</p>
@@ -6110,6 +6549,7 @@ export class InvalidClusterParameterGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteClusterSecurityGroupMessage {
@@ -6119,6 +6559,9 @@ export interface DeleteClusterSecurityGroupMessage {
   ClusterSecurityGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterSnapshotResult {
   /**
    * <p>Describes a snapshot.</p>
@@ -6127,6 +6570,7 @@ export interface DeleteClusterSnapshotResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteClusterSubnetGroupMessage {
@@ -6137,6 +6581,7 @@ export interface DeleteClusterSubnetGroupMessage {
 }
 
 /**
+ * @public
  * <p>The state of the subnet is invalid.</p>
  */
 export class InvalidClusterSubnetStateFault extends __BaseException {
@@ -6155,6 +6600,9 @@ export class InvalidClusterSubnetStateFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteEndpointAccessMessage {
   /**
    * <p>The Redshift-managed VPC endpoint to delete.</p>
@@ -6163,6 +6611,7 @@ export interface DeleteEndpointAccessMessage {
 }
 
 /**
+ * @public
  * <p>The endpoint name doesn't refer to an existing endpoint.</p>
  */
 export class EndpointNotFoundFault extends __BaseException {
@@ -6182,6 +6631,7 @@ export class EndpointNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The status of the endpoint is not valid.</p>
  */
 export class InvalidEndpointStateFault extends __BaseException {
@@ -6201,6 +6651,7 @@ export class InvalidEndpointStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteEventSubscriptionMessage {
@@ -6211,6 +6662,7 @@ export interface DeleteEventSubscriptionMessage {
 }
 
 /**
+ * @public
  * <p>The subscription request is invalid because it is a duplicate request. This
  *             subscription request is already in progress.</p>
  */
@@ -6231,6 +6683,7 @@ export class InvalidSubscriptionStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An Amazon Redshift event notification subscription with the specified name does not
  *             exist.</p>
  */
@@ -6251,6 +6704,7 @@ export class SubscriptionNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteHsmClientCertificateMessage {
@@ -6261,6 +6715,7 @@ export interface DeleteHsmClientCertificateMessage {
 }
 
 /**
+ * @public
  * <p>The specified HSM client certificate is not in the <code>available</code> state, or
  *             it is still in use by one or more Amazon Redshift clusters.</p>
  */
@@ -6281,6 +6736,7 @@ export class InvalidHsmClientCertificateStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DeleteHsmConfigurationMessage {
@@ -6291,6 +6747,7 @@ export interface DeleteHsmConfigurationMessage {
 }
 
 /**
+ * @public
  * <p>The specified HSM configuration is not in the <code>available</code> state, or it
  *             is still in use by one or more Amazon Redshift clusters.</p>
  */
@@ -6310,6 +6767,9 @@ export class InvalidHsmConfigurationStateFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduledActionMessage {
   /**
    * <p>The name of the scheduled action to delete. </p>
@@ -6318,6 +6778,7 @@ export interface DeleteScheduledActionMessage {
 }
 
 /**
+ * @public
  * <p>The scheduled action cannot be found. </p>
  */
 export class ScheduledActionNotFoundFault extends __BaseException {
@@ -6337,6 +6798,7 @@ export class ScheduledActionNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The result of the <code>DeleteSnapshotCopyGrant</code> action.</p>
  */
 export interface DeleteSnapshotCopyGrantMessage {
@@ -6347,6 +6809,7 @@ export interface DeleteSnapshotCopyGrantMessage {
 }
 
 /**
+ * @public
  * <p>The snapshot copy grant can't be deleted because it is used by one or more
  *             clusters.</p>
  */
@@ -6367,6 +6830,7 @@ export class InvalidSnapshotCopyGrantStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
  *             correctly and that the grant exists in the destination region.</p>
  */
@@ -6386,6 +6850,9 @@ export class SnapshotCopyGrantNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteSnapshotScheduleMessage {
   /**
    * <p>A unique identifier of the snapshot schedule to delete.</p>
@@ -6394,6 +6861,7 @@ export interface DeleteSnapshotScheduleMessage {
 }
 
 /**
+ * @public
  * <p>The cluster snapshot schedule state is not valid.</p>
  */
 export class InvalidClusterSnapshotScheduleStateFault extends __BaseException {
@@ -6413,6 +6881,7 @@ export class InvalidClusterSnapshotScheduleStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the output from the <code>DeleteTags</code> action. </p>
  */
 export interface DeleteTagsMessage {
@@ -6428,6 +6897,9 @@ export interface DeleteTagsMessage {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUsageLimitMessage {
   /**
    * <p>The identifier of the usage limit to delete.</p>
@@ -6436,6 +6908,7 @@ export interface DeleteUsageLimitMessage {
 }
 
 /**
+ * @public
  * <p>The usage limit identifier can't be found.</p>
  */
 export class UsageLimitNotFoundFault extends __BaseException {
@@ -6454,6 +6927,9 @@ export class UsageLimitNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountAttributesMessage {
   /**
    * <p>A list of attribute names.</p>
@@ -6461,6 +6937,9 @@ export interface DescribeAccountAttributesMessage {
   AttributeNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeAuthenticationProfilesMessage {
   /**
    * <p>The name of the authentication profile to describe. If not specified then all authentication profiles owned by the account are listed.</p>
@@ -6468,6 +6947,9 @@ export interface DescribeAuthenticationProfilesMessage {
   AuthenticationProfileName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAuthenticationProfilesResult {
   /**
    * <p>The list of authentication profiles.</p>
@@ -6475,6 +6957,9 @@ export interface DescribeAuthenticationProfilesResult {
   AuthenticationProfiles?: AuthenticationProfile[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeClusterDbRevisionsMessage {
   /**
    * <p>A unique identifier for a cluster whose <code>ClusterDbRevisions</code> you are
@@ -6508,6 +6993,7 @@ export interface DescribeClusterDbRevisionsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeClusterParameterGroupsMessage {
@@ -6561,6 +7047,7 @@ export interface DescribeClusterParameterGroupsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeClusterParametersMessage {
@@ -6602,6 +7089,7 @@ export interface DescribeClusterParametersMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeClustersMessage {
@@ -6655,6 +7143,7 @@ export interface DescribeClustersMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeClusterSecurityGroupsMessage {
@@ -6709,18 +7198,37 @@ export interface DescribeClusterSecurityGroupsMessage {
   TagValues?: string[];
 }
 
-export enum SnapshotAttributeToSortBy {
-  CREATE_TIME = "CREATE_TIME",
-  SOURCE_TYPE = "SOURCE_TYPE",
-  TOTAL_SIZE = "TOTAL_SIZE",
-}
-
-export enum SortByOrder {
-  ASCENDING = "ASC",
-  DESCENDING = "DESC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotAttributeToSortBy = {
+  CREATE_TIME: "CREATE_TIME",
+  SOURCE_TYPE: "SOURCE_TYPE",
+  TOTAL_SIZE: "TOTAL_SIZE",
+} as const;
 
 /**
+ * @public
+ */
+export type SnapshotAttributeToSortBy = (typeof SnapshotAttributeToSortBy)[keyof typeof SnapshotAttributeToSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortByOrder = {
+  ASCENDING: "ASC",
+  DESCENDING: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortByOrder = (typeof SortByOrder)[keyof typeof SortByOrder];
+
+/**
+ * @public
  * <p>Describes a sorting entity</p>
  */
 export interface SnapshotSortingEntity {
@@ -6736,6 +7244,7 @@ export interface SnapshotSortingEntity {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeClusterSnapshotsMessage {
@@ -6868,6 +7377,7 @@ export interface DescribeClusterSnapshotsMessage {
 }
 
 /**
+ * @public
  * <p>Contains the output from the <a>DescribeClusterSnapshots</a> action.
  *         </p>
  */
@@ -6888,6 +7398,7 @@ export interface SnapshotMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeClusterSubnetGroupsMessage {
@@ -6938,6 +7449,9 @@ export interface DescribeClusterSubnetGroupsMessage {
   TagValues?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeClusterTracksMessage {
   /**
    * <p>The name of the maintenance track. </p>
@@ -6961,6 +7475,7 @@ export interface DescribeClusterTracksMessage {
 }
 
 /**
+ * @public
  * <p>Describes the operations that are allowed on a maintenance track.</p>
  */
 export interface SupportedOperation {
@@ -6971,6 +7486,7 @@ export interface SupportedOperation {
 }
 
 /**
+ * @public
  * <p>A maintenance track that you can switch the current track to.</p>
  */
 export interface UpdateTarget {
@@ -6991,6 +7507,7 @@ export interface UpdateTarget {
 }
 
 /**
+ * @public
  * <p>Defines a maintenance track that determines which Amazon Redshift version to apply
  *             during a maintenance window. If the value for <code>MaintenanceTrack</code> is
  *                 <code>current</code>, the cluster is updated to the most recently certified
@@ -7016,6 +7533,9 @@ export interface MaintenanceTrack {
   UpdateTargets?: UpdateTarget[];
 }
 
+/**
+ * @public
+ */
 export interface TrackListMessage {
   /**
    * <p>A list of maintenance tracks output by the <code>DescribeClusterTracks</code>
@@ -7032,6 +7552,7 @@ export interface TrackListMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeClusterVersionsMessage {
@@ -7082,6 +7603,9 @@ export interface DescribeClusterVersionsMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSharesMessage {
   /**
    * <p>The identifier of the datashare to describe details of.</p>
@@ -7102,6 +7626,9 @@ export interface DescribeDataSharesMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSharesResult {
   /**
    * <p>The results returned from describing datashares.</p>
@@ -7114,6 +7641,9 @@ export interface DescribeDataSharesResult {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSharesForConsumerMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the consumer that returns in the list of datashares.</p>
@@ -7145,6 +7675,9 @@ export interface DescribeDataSharesForConsumerMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSharesForConsumerResult {
   /**
    * <p>Shows the results of datashares available for consumers.</p>
@@ -7162,6 +7695,9 @@ export interface DescribeDataSharesForConsumerResult {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSharesForProducerMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the producer that returns in the list of datashares.</p>
@@ -7193,6 +7729,9 @@ export interface DescribeDataSharesForProducerMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataSharesForProducerResult {
   /**
    * <p>Shows the results of datashares available for producers.</p>
@@ -7211,6 +7750,7 @@ export interface DescribeDataSharesForProducerResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeDefaultClusterParametersMessage {
@@ -7241,6 +7781,9 @@ export interface DescribeDefaultClusterParametersMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDefaultClusterParametersResult {
   /**
    * <p>Describes the default cluster parameters for a parameter group family.</p>
@@ -7248,6 +7791,9 @@ export interface DescribeDefaultClusterParametersResult {
   DefaultClusterParameters?: DefaultClusterParameters;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointAccessMessage {
   /**
    * <p>The cluster identifier associated with the described endpoint.</p>
@@ -7285,6 +7831,9 @@ export interface DescribeEndpointAccessMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface EndpointAccessList {
   /**
    * <p>The list of endpoints with access to the cluster.</p>
@@ -7300,6 +7849,9 @@ export interface EndpointAccessList {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointAuthorizationMessage {
   /**
    * <p>The cluster identifier of the cluster to access.</p>
@@ -7335,6 +7887,9 @@ export interface DescribeEndpointAuthorizationMessage {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface EndpointAuthorizationList {
   /**
    * <p>The authorizations to an endpoint.</p>
@@ -7351,6 +7906,7 @@ export interface EndpointAuthorizationList {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEventCategoriesMessage {
@@ -7363,6 +7919,7 @@ export interface DescribeEventCategoriesMessage {
 }
 
 /**
+ * @public
  * <p>Describes event information.</p>
  */
 export interface EventInfoMap {
@@ -7389,6 +7946,7 @@ export interface EventInfoMap {
 }
 
 /**
+ * @public
  * <p>Describes event categories.</p>
  */
 export interface EventCategoriesMap {
@@ -7405,6 +7963,7 @@ export interface EventCategoriesMap {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface EventCategoriesMessage {
@@ -7414,15 +7973,25 @@ export interface EventCategoriesMessage {
   EventCategoriesMapList?: EventCategoriesMap[];
 }
 
-export enum SourceType {
-  cluster = "cluster",
-  cluster_parameter_group = "cluster-parameter-group",
-  cluster_security_group = "cluster-security-group",
-  cluster_snapshot = "cluster-snapshot",
-  scheduled_action = "scheduled-action",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  cluster: "cluster",
+  cluster_parameter_group: "cluster-parameter-group",
+  cluster_security_group: "cluster-security-group",
+  cluster_snapshot: "cluster-snapshot",
+  scheduled_action: "scheduled-action",
+} as const;
 
 /**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
  * <p></p>
  */
 export interface DescribeEventsMessage {
@@ -7533,6 +8102,7 @@ export interface DescribeEventsMessage {
 }
 
 /**
+ * @public
  * <p>Describes an event.</p>
  */
 export interface Event {
@@ -7575,6 +8145,7 @@ export interface Event {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface EventsMessage {
@@ -7594,6 +8165,7 @@ export interface EventsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeEventSubscriptionsMessage {
@@ -7646,6 +8218,7 @@ export interface DescribeEventSubscriptionsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface EventSubscriptionsMessage {
@@ -7665,6 +8238,7 @@ export interface EventSubscriptionsMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface DescribeHsmClientCertificatesMessage {
@@ -7718,6 +8292,7 @@ export interface DescribeHsmClientCertificatesMessage {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface HsmClientCertificateMessage {
@@ -7740,415 +8315,6 @@ export interface HsmClientCertificateMessage {
 /**
  * @internal
  */
-export const AcceptReservedNodeExchangeInputMessageFilterSensitiveLog = (
-  obj: AcceptReservedNodeExchangeInputMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecurringChargeFilterSensitiveLog = (obj: RecurringCharge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedNodeFilterSensitiveLog = (obj: ReservedNode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptReservedNodeExchangeOutputMessageFilterSensitiveLog = (
-  obj: AcceptReservedNodeExchangeOutputMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeValueTargetFilterSensitiveLog = (obj: AttributeValueTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountAttributeFilterSensitiveLog = (obj: AccountAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountAttributeListFilterSensitiveLog = (obj: AccountAttributeList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountWithRestoreAccessFilterSensitiveLog = (obj: AccountWithRestoreAccess): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartnerIntegrationInputMessageFilterSensitiveLog = (obj: PartnerIntegrationInputMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartnerIntegrationOutputMessageFilterSensitiveLog = (obj: PartnerIntegrationOutputMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AquaConfigurationFilterSensitiveLog = (obj: AquaConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDataShareConsumerMessageFilterSensitiveLog = (obj: AssociateDataShareConsumerMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataShareAssociationFilterSensitiveLog = (obj: DataShareAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataShareFilterSensitiveLog = (obj: DataShare): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterAssociatedToScheduleFilterSensitiveLog = (obj: ClusterAssociatedToSchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthenticationProfileFilterSensitiveLog = (obj: AuthenticationProfile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeClusterSecurityGroupIngressMessageFilterSensitiveLog = (
-  obj: AuthorizeClusterSecurityGroupIngressMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EC2SecurityGroupFilterSensitiveLog = (obj: EC2SecurityGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IPRangeFilterSensitiveLog = (obj: IPRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterSecurityGroupFilterSensitiveLog = (obj: ClusterSecurityGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeClusterSecurityGroupIngressResultFilterSensitiveLog = (
-  obj: AuthorizeClusterSecurityGroupIngressResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeDataShareMessageFilterSensitiveLog = (obj: AuthorizeDataShareMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeEndpointAccessMessageFilterSensitiveLog = (obj: AuthorizeEndpointAccessMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointAuthorizationFilterSensitiveLog = (obj: EndpointAuthorization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeSnapshotAccessMessageFilterSensitiveLog = (obj: AuthorizeSnapshotAccessMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeSnapshotAccessResultFilterSensitiveLog = (obj: AuthorizeSnapshotAccessResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SupportedPlatformFilterSensitiveLog = (obj: SupportedPlatform): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterSnapshotMessageFilterSensitiveLog = (obj: DeleteClusterSnapshotMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteClusterSnapshotsRequestFilterSensitiveLog = (obj: BatchDeleteClusterSnapshotsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotErrorMessageFilterSensitiveLog = (obj: SnapshotErrorMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteClusterSnapshotsResultFilterSensitiveLog = (obj: BatchDeleteClusterSnapshotsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchModifyClusterSnapshotsMessageFilterSensitiveLog = (obj: BatchModifyClusterSnapshotsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchModifyClusterSnapshotsOutputMessageFilterSensitiveLog = (
-  obj: BatchModifyClusterSnapshotsOutputMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelResizeMessageFilterSensitiveLog = (obj: CancelResizeMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResizeProgressMessageFilterSensitiveLog = (obj: ResizeProgressMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterNodeFilterSensitiveLog = (obj: ClusterNode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterParameterStatusFilterSensitiveLog = (obj: ClusterParameterStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterParameterGroupStatusFilterSensitiveLog = (obj: ClusterParameterGroupStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterSecurityGroupMembershipFilterSensitiveLog = (obj: ClusterSecurityGroupMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterSnapshotCopyStatusFilterSensitiveLog = (obj: ClusterSnapshotCopyStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataTransferProgressFilterSensitiveLog = (obj: DataTransferProgress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeferredMaintenanceWindowFilterSensitiveLog = (obj: DeferredMaintenanceWindow): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticIpStatusFilterSensitiveLog = (obj: ElasticIpStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointFilterSensitiveLog = (obj: VpcEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HsmStatusFilterSensitiveLog = (obj: HsmStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterIamRoleFilterSensitiveLog = (obj: ClusterIamRole): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingModifiedValuesFilterSensitiveLog = (obj: PendingModifiedValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedNodeExchangeStatusFilterSensitiveLog = (obj: ReservedNodeExchangeStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResizeInfoFilterSensitiveLog = (obj: ResizeInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreStatusFilterSensitiveLog = (obj: RestoreStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcSecurityGroupMembershipFilterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ClusterCredentialsFilterSensitiveLog = (obj: ClusterCredentials): any => ({
   ...obj,
   ...(obj.DbPassword && { DbPassword: SENSITIVE_STRING }),
@@ -8157,836 +8323,7 @@ export const ClusterCredentialsFilterSensitiveLog = (obj: ClusterCredentials): a
 /**
  * @internal
  */
-export const RevisionTargetFilterSensitiveLog = (obj: RevisionTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterDbRevisionFilterSensitiveLog = (obj: ClusterDbRevision): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterDbRevisionsMessageFilterSensitiveLog = (obj: ClusterDbRevisionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ClusterExtendedCredentialsFilterSensitiveLog = (obj: ClusterExtendedCredentials): any => ({
   ...obj,
   ...(obj.DbPassword && { DbPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ClusterParameterGroupFilterSensitiveLog = (obj: ClusterParameterGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterParameterGroupDetailsFilterSensitiveLog = (obj: ClusterParameterGroupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterParameterGroupNameMessageFilterSensitiveLog = (obj: ClusterParameterGroupNameMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterParameterGroupsMessageFilterSensitiveLog = (obj: ClusterParameterGroupsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterSecurityGroupMessageFilterSensitiveLog = (obj: ClusterSecurityGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClustersMessageFilterSensitiveLog = (obj: ClustersMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterSubnetGroupFilterSensitiveLog = (obj: ClusterSubnetGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterSubnetGroupMessageFilterSensitiveLog = (obj: ClusterSubnetGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterVersionFilterSensitiveLog = (obj: ClusterVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterVersionsMessageFilterSensitiveLog = (obj: ClusterVersionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyClusterSnapshotMessageFilterSensitiveLog = (obj: CopyClusterSnapshotMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyClusterSnapshotResultFilterSensitiveLog = (obj: CopyClusterSnapshotResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAuthenticationProfileMessageFilterSensitiveLog = (obj: CreateAuthenticationProfileMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAuthenticationProfileResultFilterSensitiveLog = (obj: CreateAuthenticationProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterMessageFilterSensitiveLog = (obj: CreateClusterMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterResultFilterSensitiveLog = (obj: CreateClusterResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterParameterGroupMessageFilterSensitiveLog = (obj: CreateClusterParameterGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterParameterGroupResultFilterSensitiveLog = (obj: CreateClusterParameterGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterSecurityGroupMessageFilterSensitiveLog = (obj: CreateClusterSecurityGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterSecurityGroupResultFilterSensitiveLog = (obj: CreateClusterSecurityGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterSnapshotMessageFilterSensitiveLog = (obj: CreateClusterSnapshotMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterSnapshotResultFilterSensitiveLog = (obj: CreateClusterSnapshotResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterSubnetGroupMessageFilterSensitiveLog = (obj: CreateClusterSubnetGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterSubnetGroupResultFilterSensitiveLog = (obj: CreateClusterSubnetGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEndpointAccessMessageFilterSensitiveLog = (obj: CreateEndpointAccessMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointAccessFilterSensitiveLog = (obj: EndpointAccess): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventSubscriptionMessageFilterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventSubscriptionFilterSensitiveLog = (obj: EventSubscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEventSubscriptionResultFilterSensitiveLog = (obj: CreateEventSubscriptionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHsmClientCertificateMessageFilterSensitiveLog = (obj: CreateHsmClientCertificateMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HsmClientCertificateFilterSensitiveLog = (obj: HsmClientCertificate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHsmClientCertificateResultFilterSensitiveLog = (obj: CreateHsmClientCertificateResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHsmConfigurationMessageFilterSensitiveLog = (obj: CreateHsmConfigurationMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HsmConfigurationFilterSensitiveLog = (obj: HsmConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHsmConfigurationResultFilterSensitiveLog = (obj: CreateHsmConfigurationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PauseClusterMessageFilterSensitiveLog = (obj: PauseClusterMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResizeClusterMessageFilterSensitiveLog = (obj: ResizeClusterMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResumeClusterMessageFilterSensitiveLog = (obj: ResumeClusterMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledActionTypeFilterSensitiveLog = (obj: ScheduledActionType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateScheduledActionMessageFilterSensitiveLog = (obj: CreateScheduledActionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledActionFilterSensitiveLog = (obj: ScheduledAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSnapshotCopyGrantMessageFilterSensitiveLog = (obj: CreateSnapshotCopyGrantMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotCopyGrantFilterSensitiveLog = (obj: SnapshotCopyGrant): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSnapshotCopyGrantResultFilterSensitiveLog = (obj: CreateSnapshotCopyGrantResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSnapshotScheduleMessageFilterSensitiveLog = (obj: CreateSnapshotScheduleMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotScheduleFilterSensitiveLog = (obj: SnapshotSchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTagsMessageFilterSensitiveLog = (obj: CreateTagsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUsageLimitMessageFilterSensitiveLog = (obj: CreateUsageLimitMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UsageLimitFilterSensitiveLog = (obj: UsageLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomerStorageMessageFilterSensitiveLog = (obj: CustomerStorageMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeauthorizeDataShareMessageFilterSensitiveLog = (obj: DeauthorizeDataShareMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultClusterParametersFilterSensitiveLog = (obj: DefaultClusterParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAuthenticationProfileMessageFilterSensitiveLog = (obj: DeleteAuthenticationProfileMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAuthenticationProfileResultFilterSensitiveLog = (obj: DeleteAuthenticationProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterMessageFilterSensitiveLog = (obj: DeleteClusterMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterResultFilterSensitiveLog = (obj: DeleteClusterResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterParameterGroupMessageFilterSensitiveLog = (obj: DeleteClusterParameterGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterSecurityGroupMessageFilterSensitiveLog = (obj: DeleteClusterSecurityGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterSnapshotResultFilterSensitiveLog = (obj: DeleteClusterSnapshotResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterSubnetGroupMessageFilterSensitiveLog = (obj: DeleteClusterSubnetGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEndpointAccessMessageFilterSensitiveLog = (obj: DeleteEndpointAccessMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventSubscriptionMessageFilterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHsmClientCertificateMessageFilterSensitiveLog = (obj: DeleteHsmClientCertificateMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteHsmConfigurationMessageFilterSensitiveLog = (obj: DeleteHsmConfigurationMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScheduledActionMessageFilterSensitiveLog = (obj: DeleteScheduledActionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSnapshotCopyGrantMessageFilterSensitiveLog = (obj: DeleteSnapshotCopyGrantMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSnapshotScheduleMessageFilterSensitiveLog = (obj: DeleteSnapshotScheduleMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagsMessageFilterSensitiveLog = (obj: DeleteTagsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUsageLimitMessageFilterSensitiveLog = (obj: DeleteUsageLimitMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountAttributesMessageFilterSensitiveLog = (obj: DescribeAccountAttributesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAuthenticationProfilesMessageFilterSensitiveLog = (
-  obj: DescribeAuthenticationProfilesMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAuthenticationProfilesResultFilterSensitiveLog = (
-  obj: DescribeAuthenticationProfilesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterDbRevisionsMessageFilterSensitiveLog = (obj: DescribeClusterDbRevisionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterParameterGroupsMessageFilterSensitiveLog = (
-  obj: DescribeClusterParameterGroupsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterParametersMessageFilterSensitiveLog = (obj: DescribeClusterParametersMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClustersMessageFilterSensitiveLog = (obj: DescribeClustersMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterSecurityGroupsMessageFilterSensitiveLog = (
-  obj: DescribeClusterSecurityGroupsMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotSortingEntityFilterSensitiveLog = (obj: SnapshotSortingEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterSnapshotsMessageFilterSensitiveLog = (obj: DescribeClusterSnapshotsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotMessageFilterSensitiveLog = (obj: SnapshotMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterSubnetGroupsMessageFilterSensitiveLog = (obj: DescribeClusterSubnetGroupsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterTracksMessageFilterSensitiveLog = (obj: DescribeClusterTracksMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SupportedOperationFilterSensitiveLog = (obj: SupportedOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTargetFilterSensitiveLog = (obj: UpdateTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaintenanceTrackFilterSensitiveLog = (obj: MaintenanceTrack): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrackListMessageFilterSensitiveLog = (obj: TrackListMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClusterVersionsMessageFilterSensitiveLog = (obj: DescribeClusterVersionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSharesMessageFilterSensitiveLog = (obj: DescribeDataSharesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSharesResultFilterSensitiveLog = (obj: DescribeDataSharesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSharesForConsumerMessageFilterSensitiveLog = (
-  obj: DescribeDataSharesForConsumerMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSharesForConsumerResultFilterSensitiveLog = (
-  obj: DescribeDataSharesForConsumerResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSharesForProducerMessageFilterSensitiveLog = (
-  obj: DescribeDataSharesForProducerMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataSharesForProducerResultFilterSensitiveLog = (
-  obj: DescribeDataSharesForProducerResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDefaultClusterParametersMessageFilterSensitiveLog = (
-  obj: DescribeDefaultClusterParametersMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDefaultClusterParametersResultFilterSensitiveLog = (
-  obj: DescribeDefaultClusterParametersResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointAccessMessageFilterSensitiveLog = (obj: DescribeEndpointAccessMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointAccessListFilterSensitiveLog = (obj: EndpointAccessList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointAuthorizationMessageFilterSensitiveLog = (
-  obj: DescribeEndpointAuthorizationMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointAuthorizationListFilterSensitiveLog = (obj: EndpointAuthorizationList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventCategoriesMessageFilterSensitiveLog = (obj: DescribeEventCategoriesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventInfoMapFilterSensitiveLog = (obj: EventInfoMap): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventCategoriesMapFilterSensitiveLog = (obj: EventCategoriesMap): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventCategoriesMessageFilterSensitiveLog = (obj: EventCategoriesMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsMessageFilterSensitiveLog = (obj: DescribeEventsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFilterSensitiveLog = (obj: Event): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventsMessageFilterSensitiveLog = (obj: EventsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventSubscriptionsMessageFilterSensitiveLog = (obj: DescribeEventSubscriptionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventSubscriptionsMessageFilterSensitiveLog = (obj: EventSubscriptionsMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHsmClientCertificatesMessageFilterSensitiveLog = (
-  obj: DescribeHsmClientCertificatesMessage
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HsmClientCertificateMessageFilterSensitiveLog = (obj: HsmClientCertificateMessage): any => ({
-  ...obj,
 });

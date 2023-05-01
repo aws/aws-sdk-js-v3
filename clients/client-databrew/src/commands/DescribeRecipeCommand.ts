@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  DescribeRecipeRequest,
-  DescribeRecipeRequestFilterSensitiveLog,
-  DescribeRecipeResponse,
-  DescribeRecipeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRecipeCommand,
-  serializeAws_restJson1DescribeRecipeCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeRecipeRequest, DescribeRecipeResponse } from "../models/models_0";
+import { de_DescribeRecipeCommand, se_DescribeRecipeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecipeCommand}.
  */
 export interface DescribeRecipeCommandInput extends DescribeRecipeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecipeCommand}.
  */
 export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the definition of a specific DataBrew recipe corresponding to a particular
  *             version.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * import { DataBrewClient, DescribeRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // DescribeRecipeRequest
+ *   Name: "STRING_VALUE", // required
+ *   RecipeVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeRecipeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecipeCommandInput - {@link DescribeRecipeCommandInput}
+ * @returns {@link DescribeRecipeCommandOutput}
  * @see {@link DescribeRecipeCommandInput} for command's `input` shape.
  * @see {@link DescribeRecipeCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -76,6 +79,9 @@ export class DescribeRecipeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecipeCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class DescribeRecipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class DescribeRecipeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRecipeCommand(input, context);
+    return se_DescribeRecipeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecipeCommandOutput> {
-    return deserializeAws_restJson1DescribeRecipeCommand(output, context);
+    return de_DescribeRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

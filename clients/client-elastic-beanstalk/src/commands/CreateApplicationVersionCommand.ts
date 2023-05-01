@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ApplicationVersionDescriptionMessage,
-  ApplicationVersionDescriptionMessageFilterSensitiveLog,
-  CreateApplicationVersionMessage,
-  CreateApplicationVersionMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateApplicationVersionCommand,
-  serializeAws_queryCreateApplicationVersionCommand,
-} from "../protocols/Aws_query";
+import { ApplicationVersionDescriptionMessage, CreateApplicationVersionMessage } from "../models/models_0";
+import { de_CreateApplicationVersionCommand, se_CreateApplicationVersionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationVersionCommand}.
  */
 export interface CreateApplicationVersionCommandInput extends CreateApplicationVersionMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationVersionCommand}.
  */
 export interface CreateApplicationVersionCommandOutput extends ApplicationVersionDescriptionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application version for the specified application. You can create an
  *       application version from a source bundle in Amazon S3, a commit in AWS CodeCommit, or the
  *       output of an AWS CodeBuild build as follows:</p>
@@ -58,10 +55,41 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * import { ElasticBeanstalkClient, CreateApplicationVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreateApplicationVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // CreateApplicationVersionMessage
+ *   ApplicationName: "STRING_VALUE", // required
+ *   VersionLabel: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   SourceBuildInformation: { // SourceBuildInformation
+ *     SourceType: "Git" || "Zip", // required
+ *     SourceRepository: "CodeCommit" || "S3", // required
+ *     SourceLocation: "STRING_VALUE", // required
+ *   },
+ *   SourceBundle: { // S3Location
+ *     S3Bucket: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *   },
+ *   BuildConfiguration: { // BuildConfiguration
+ *     ArtifactName: "STRING_VALUE",
+ *     CodeBuildServiceRole: "STRING_VALUE", // required
+ *     ComputeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE",
+ *     Image: "STRING_VALUE", // required
+ *     TimeoutInMinutes: Number("int"),
+ *   },
+ *   AutoCreateApplication: true || false,
+ *   Process: true || false,
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateApplicationVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationVersionCommandInput - {@link CreateApplicationVersionCommandInput}
+ * @returns {@link CreateApplicationVersionCommandOutput}
  * @see {@link CreateApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -147,6 +175,9 @@ export class CreateApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,8 +206,8 @@ export class CreateApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationVersionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplicationVersionDescriptionMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -186,12 +217,18 @@ export class CreateApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateApplicationVersionCommand(input, context);
+    return se_CreateApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationVersionCommandOutput> {
-    return deserializeAws_queryCreateApplicationVersionCommand(output, context);
+    return de_CreateApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

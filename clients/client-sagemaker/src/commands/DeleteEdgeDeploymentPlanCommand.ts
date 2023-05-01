@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteEdgeDeploymentPlanRequest, DeleteEdgeDeploymentPlanRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteEdgeDeploymentPlanCommand,
-  serializeAws_json1_1DeleteEdgeDeploymentPlanCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEdgeDeploymentPlanRequest } from "../models/models_1";
+import { de_DeleteEdgeDeploymentPlanCommand, se_DeleteEdgeDeploymentPlanCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEdgeDeploymentPlanCommand}.
  */
 export interface DeleteEdgeDeploymentPlanCommandInput extends DeleteEdgeDeploymentPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEdgeDeploymentPlanCommand}.
  */
 export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an edge deployment plan if (and only if) all the stages in the plan are inactive or there are no stages in the plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer 
  * import { SageMakerClient, DeleteEdgeDeploymentPlanCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteEdgeDeploymentPlanCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteEdgeDeploymentPlanRequest
+ *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEdgeDeploymentPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEdgeDeploymentPlanCommandInput - {@link DeleteEdgeDeploymentPlanCommandInput}
+ * @returns {@link DeleteEdgeDeploymentPlanCommandOutput}
  * @see {@link DeleteEdgeDeploymentPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteEdgeDeploymentPlanCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -67,6 +74,9 @@ export class DeleteEdgeDeploymentPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEdgeDeploymentPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +105,8 @@ export class DeleteEdgeDeploymentPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEdgeDeploymentPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +116,18 @@ export class DeleteEdgeDeploymentPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEdgeDeploymentPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEdgeDeploymentPlanCommand(input, context);
+    return se_DeleteEdgeDeploymentPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEdgeDeploymentPlanCommandOutput> {
-    return deserializeAws_json1_1DeleteEdgeDeploymentPlanCommand(output, context);
+    return de_DeleteEdgeDeploymentPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

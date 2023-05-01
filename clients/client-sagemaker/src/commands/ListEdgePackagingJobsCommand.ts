@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListEdgePackagingJobsRequest,
-  ListEdgePackagingJobsRequestFilterSensitiveLog,
-  ListEdgePackagingJobsResponse,
-  ListEdgePackagingJobsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListEdgePackagingJobsCommand,
-  serializeAws_json1_1ListEdgePackagingJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEdgePackagingJobsRequest, ListEdgePackagingJobsResponse } from "../models/models_3";
+import { de_ListEdgePackagingJobsCommand, se_ListEdgePackagingJobsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListEdgePackagingJobsCommand}.
  */
 export interface ListEdgePackagingJobsCommandInput extends ListEdgePackagingJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEdgePackagingJobsCommand}.
  */
 export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of edge packaging jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
  * import { SageMakerClient, ListEdgePackagingJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListEdgePackagingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListEdgePackagingJobsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   NameContains: "STRING_VALUE",
+ *   ModelNameContains: "STRING_VALUE",
+ *   StatusEquals: "STARTING" || "INPROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED",
+ *   SortBy: "NAME" || "MODEL_NAME" || "CREATION_TIME" || "LAST_MODIFIED_TIME" || "STATUS",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListEdgePackagingJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEdgePackagingJobsCommandInput - {@link ListEdgePackagingJobsCommandInput}
+ * @returns {@link ListEdgePackagingJobsCommandOutput}
  * @see {@link ListEdgePackagingJobsCommandInput} for command's `input` shape.
  * @see {@link ListEdgePackagingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +81,9 @@ export class ListEdgePackagingJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEdgePackagingJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +112,8 @@ export class ListEdgePackagingJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEdgePackagingJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEdgePackagingJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +123,18 @@ export class ListEdgePackagingJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEdgePackagingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEdgePackagingJobsCommand(input, context);
+    return se_ListEdgePackagingJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEdgePackagingJobsCommandOutput> {
-    return deserializeAws_json1_1ListEdgePackagingJobsCommand(output, context);
+    return de_ListEdgePackagingJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

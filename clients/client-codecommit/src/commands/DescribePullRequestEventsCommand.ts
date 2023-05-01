@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  DescribePullRequestEventsInput,
-  DescribePullRequestEventsInputFilterSensitiveLog,
-  DescribePullRequestEventsOutput,
-  DescribePullRequestEventsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePullRequestEventsCommand,
-  serializeAws_json1_1DescribePullRequestEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePullRequestEventsInput, DescribePullRequestEventsOutput } from "../models/models_0";
+import { de_DescribePullRequestEventsCommand, se_DescribePullRequestEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePullRequestEventsCommand}.
  */
 export interface DescribePullRequestEventsCommandInput extends DescribePullRequestEventsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribePullRequestEventsCommand}.
  */
 export interface DescribePullRequestEventsCommandOutput extends DescribePullRequestEventsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about one or more pull request events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * import { CodeCommitClient, DescribePullRequestEventsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DescribePullRequestEventsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // DescribePullRequestEventsInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   pullRequestEventType: "STRING_VALUE",
+ *   actorArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribePullRequestEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePullRequestEventsCommandInput - {@link DescribePullRequestEventsCommandInput}
+ * @returns {@link DescribePullRequestEventsCommandOutput}
  * @see {@link DescribePullRequestEventsCommandInput} for command's `input` shape.
  * @see {@link DescribePullRequestEventsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -109,6 +115,9 @@ export class DescribePullRequestEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePullRequestEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +146,8 @@ export class DescribePullRequestEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePullRequestEventsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePullRequestEventsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,15 +157,21 @@ export class DescribePullRequestEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePullRequestEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePullRequestEventsCommand(input, context);
+    return se_DescribePullRequestEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePullRequestEventsCommandOutput> {
-    return deserializeAws_json1_1DescribePullRequestEventsCommand(output, context);
+    return de_DescribePullRequestEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

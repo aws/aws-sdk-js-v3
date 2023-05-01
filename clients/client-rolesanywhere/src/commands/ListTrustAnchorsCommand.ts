@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRequest,
-  ListRequestFilterSensitiveLog,
-  ListTrustAnchorsResponse,
-  ListTrustAnchorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTrustAnchorsCommand,
-  serializeAws_restJson1ListTrustAnchorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRequest, ListTrustAnchorsResponse } from "../models/models_0";
+import { de_ListTrustAnchorsCommand, se_ListTrustAnchorsCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrustAnchorsCommand}.
  */
 export interface ListTrustAnchorsCommandInput extends ListRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrustAnchorsCommand}.
  */
 export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the trust anchors in the authenticated account and Amazon Web Services Region.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -46,10 +43,16 @@ export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse,
  * import { RolesAnywhereClient, ListTrustAnchorsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ListTrustAnchorsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = { // ListRequest
+ *   nextToken: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListTrustAnchorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrustAnchorsCommandInput - {@link ListTrustAnchorsCommandInput}
+ * @returns {@link ListTrustAnchorsCommandOutput}
  * @see {@link ListTrustAnchorsCommandInput} for command's `input` shape.
  * @see {@link ListTrustAnchorsCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
@@ -79,6 +82,9 @@ export class ListTrustAnchorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrustAnchorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class ListTrustAnchorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrustAnchorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class ListTrustAnchorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrustAnchorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTrustAnchorsCommand(input, context);
+    return se_ListTrustAnchorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrustAnchorsCommandOutput> {
-    return deserializeAws_restJson1ListTrustAnchorsCommand(output, context);
+    return de_ListTrustAnchorsCommand(output, context);
   }
 
   // Start section: command_body_extra

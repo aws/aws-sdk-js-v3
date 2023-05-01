@@ -16,20 +16,22 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeConfigurationRecorderStatusRequest,
-  DescribeConfigurationRecorderStatusRequestFilterSensitiveLog,
   DescribeConfigurationRecorderStatusResponse,
-  DescribeConfigurationRecorderStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeConfigurationRecorderStatusCommand,
-  serializeAws_json1_1DescribeConfigurationRecorderStatusCommand,
+  de_DescribeConfigurationRecorderStatusCommand,
+  se_DescribeConfigurationRecorderStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationRecorderStatusCommand}.
  */
 export interface DescribeConfigurationRecorderStatusCommandInput extends DescribeConfigurationRecorderStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationRecorderStatusCommand}.
  */
 export interface DescribeConfigurationRecorderStatusCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the current status of the specified configuration
  * 			recorder as well as the status of the last recording event for the recorder. If a configuration recorder is not specified, this action
  * 			returns the status of all configuration recorders associated with
@@ -51,10 +54,17 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
  * import { ConfigServiceClient, DescribeConfigurationRecorderStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigurationRecorderStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeConfigurationRecorderStatusRequest
+ *   ConfigurationRecorderNames: [ // ConfigurationRecorderNameList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeConfigurationRecorderStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationRecorderStatusCommandInput - {@link DescribeConfigurationRecorderStatusCommandInput}
+ * @returns {@link DescribeConfigurationRecorderStatusCommandOutput}
  * @see {@link DescribeConfigurationRecorderStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationRecorderStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -82,6 +92,9 @@ export class DescribeConfigurationRecorderStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationRecorderStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +123,8 @@ export class DescribeConfigurationRecorderStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationRecorderStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationRecorderStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +134,24 @@ export class DescribeConfigurationRecorderStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeConfigurationRecorderStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigurationRecorderStatusCommand(input, context);
+    return se_DescribeConfigurationRecorderStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationRecorderStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigurationRecorderStatusCommand(output, context);
+    return de_DescribeConfigurationRecorderStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { PutRemediationConfigurationsRequest, PutRemediationConfigurationsResponse } from "../models/models_1";
 import {
-  PutRemediationConfigurationsRequest,
-  PutRemediationConfigurationsRequestFilterSensitiveLog,
-  PutRemediationConfigurationsResponse,
-  PutRemediationConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutRemediationConfigurationsCommand,
-  serializeAws_json1_1PutRemediationConfigurationsCommand,
+  de_PutRemediationConfigurationsCommand,
+  se_PutRemediationConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRemediationConfigurationsCommand}.
  */
 export interface PutRemediationConfigurationsCommandInput extends PutRemediationConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRemediationConfigurationsCommand}.
  */
 export interface PutRemediationConfigurationsCommandOutput
@@ -37,6 +36,7 @@ export interface PutRemediationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates the remediation configuration with a specific Config rule with the
  * 			selected target or action.
  * 			The API creates the <code>RemediationConfiguration</code> object for the Config rule.
@@ -58,10 +58,46 @@ export interface PutRemediationConfigurationsCommandOutput
  * import { ConfigServiceClient, PutRemediationConfigurationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutRemediationConfigurationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // PutRemediationConfigurationsRequest
+ *   RemediationConfigurations: [ // RemediationConfigurations // required
+ *     { // RemediationConfiguration
+ *       ConfigRuleName: "STRING_VALUE", // required
+ *       TargetType: "SSM_DOCUMENT", // required
+ *       TargetId: "STRING_VALUE", // required
+ *       TargetVersion: "STRING_VALUE",
+ *       Parameters: { // RemediationParameters
+ *         "<keys>": { // RemediationParameterValue
+ *           ResourceValue: { // ResourceValue
+ *             Value: "RESOURCE_ID", // required
+ *           },
+ *           StaticValue: { // StaticValue
+ *             Values: [ // StaticParameterValues // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       },
+ *       ResourceType: "STRING_VALUE",
+ *       Automatic: true || false,
+ *       ExecutionControls: { // ExecutionControls
+ *         SsmControls: { // SsmControls
+ *           ConcurrentExecutionRatePercentage: Number("int"),
+ *           ErrorPercentage: Number("int"),
+ *         },
+ *       },
+ *       MaximumAutomaticAttempts: Number("int"),
+ *       RetryAttemptSeconds: Number("long"),
+ *       Arn: "STRING_VALUE",
+ *       CreatedByService: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutRemediationConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRemediationConfigurationsCommandInput - {@link PutRemediationConfigurationsCommandInput}
+ * @returns {@link PutRemediationConfigurationsCommandOutput}
  * @see {@link PutRemediationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link PutRemediationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -114,6 +150,9 @@ export class PutRemediationConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRemediationConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +181,8 @@ export class PutRemediationConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRemediationConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRemediationConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,15 +192,21 @@ export class PutRemediationConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRemediationConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRemediationConfigurationsCommand(input, context);
+    return se_PutRemediationConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRemediationConfigurationsCommandOutput> {
-    return deserializeAws_json1_1PutRemediationConfigurationsCommand(output, context);
+    return de_PutRemediationConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

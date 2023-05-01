@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetAccountSettingsRequest,
-  GetAccountSettingsRequestFilterSensitiveLog,
-  GetAccountSettingsResult,
-  GetAccountSettingsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAccountSettingsCommand,
-  serializeAws_json1_1GetAccountSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAccountSettingsRequest, GetAccountSettingsResult } from "../models/models_0";
+import { de_GetAccountSettingsCommand, se_GetAccountSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountSettingsCommand}.
  */
 export interface GetAccountSettingsCommandInput extends GetAccountSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountSettingsCommand}.
  */
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the
  *             account.</p>
  * @example
@@ -43,10 +40,13 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  * import { DeviceFarmClient, GetAccountSettingsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetAccountSettingsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
+ * @returns {@link GetAccountSettingsCommandOutput}
  * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -102,6 +102,9 @@ export class GetAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +133,8 @@ export class GetAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountSettingsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +144,18 @@ export class GetAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccountSettingsCommand(input, context);
+    return se_GetAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSettingsCommandOutput> {
-    return deserializeAws_json1_1GetAccountSettingsCommand(output, context);
+    return de_GetAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

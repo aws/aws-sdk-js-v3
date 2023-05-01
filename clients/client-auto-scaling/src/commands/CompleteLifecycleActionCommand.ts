@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  CompleteLifecycleActionAnswer,
-  CompleteLifecycleActionAnswerFilterSensitiveLog,
-  CompleteLifecycleActionType,
-  CompleteLifecycleActionTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCompleteLifecycleActionCommand,
-  serializeAws_queryCompleteLifecycleActionCommand,
-} from "../protocols/Aws_query";
+import { CompleteLifecycleActionAnswer, CompleteLifecycleActionType } from "../models/models_0";
+import { de_CompleteLifecycleActionCommand, se_CompleteLifecycleActionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CompleteLifecycleActionCommand}.
  */
 export interface CompleteLifecycleActionCommandInput extends CompleteLifecycleActionType {}
 /**
+ * @public
+ *
  * The output of {@link CompleteLifecycleActionCommand}.
  */
 export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleActionAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Completes the lifecycle action for the specified token or instance with the specified
  *             result.</p>
  *          <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
@@ -79,10 +76,19 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  * import { AutoScalingClient, CompleteLifecycleActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CompleteLifecycleActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // CompleteLifecycleActionType
+ *   LifecycleHookName: "STRING_VALUE", // required
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   LifecycleActionToken: "STRING_VALUE",
+ *   LifecycleActionResult: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE",
+ * };
  * const command = new CompleteLifecycleActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteLifecycleActionCommandInput - {@link CompleteLifecycleActionCommandInput}
+ * @returns {@link CompleteLifecycleActionCommandOutput}
  * @see {@link CompleteLifecycleActionCommandInput} for command's `input` shape.
  * @see {@link CompleteLifecycleActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -124,6 +130,9 @@ export class CompleteLifecycleActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteLifecycleActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,8 +161,8 @@ export class CompleteLifecycleActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompleteLifecycleActionTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: CompleteLifecycleActionAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -163,12 +172,18 @@ export class CompleteLifecycleActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteLifecycleActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCompleteLifecycleActionCommand(input, context);
+    return se_CompleteLifecycleActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteLifecycleActionCommandOutput> {
-    return deserializeAws_queryCompleteLifecycleActionCommand(output, context);
+    return de_CompleteLifecycleActionCommand(output, context);
   }
 
   // Start section: command_body_extra

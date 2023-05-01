@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  UpdateDataRetentionInput,
-  UpdateDataRetentionInputFilterSensitiveLog,
-  UpdateDataRetentionOutput,
-  UpdateDataRetentionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDataRetentionCommand,
-  serializeAws_restJson1UpdateDataRetentionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDataRetentionInput, UpdateDataRetentionOutput } from "../models/models_0";
+import { de_UpdateDataRetentionCommand, se_UpdateDataRetentionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDataRetentionCommand}.
  */
 export interface UpdateDataRetentionCommandInput extends UpdateDataRetentionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDataRetentionCommand}.
  */
 export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Increases or decreases the stream's data retention period by the value that you
  *             specify. To indicate whether you want to increase or decrease the data retention period,
  *             specify the <code>Operation</code> parameter in the request body. In the request, you
@@ -66,10 +63,19 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  * import { KinesisVideoClient, UpdateDataRetentionCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateDataRetentionCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // UpdateDataRetentionInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   CurrentVersion: "STRING_VALUE", // required
+ *   Operation: "INCREASE_DATA_RETENTION" || "DECREASE_DATA_RETENTION", // required
+ *   DataRetentionChangeInHours: Number("int"), // required
+ * };
  * const command = new UpdateDataRetentionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDataRetentionCommandInput - {@link UpdateDataRetentionCommandInput}
+ * @returns {@link UpdateDataRetentionCommandOutput}
  * @see {@link UpdateDataRetentionCommandInput} for command's `input` shape.
  * @see {@link UpdateDataRetentionCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -131,6 +137,9 @@ export class UpdateDataRetentionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDataRetentionCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +168,8 @@ export class UpdateDataRetentionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDataRetentionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataRetentionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,12 +179,18 @@ export class UpdateDataRetentionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDataRetentionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataRetentionCommand(input, context);
+    return se_UpdateDataRetentionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataRetentionCommandOutput> {
-    return deserializeAws_restJson1UpdateDataRetentionCommand(output, context);
+    return de_UpdateDataRetentionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCoreNetworkChangeSetRequest,
-  GetCoreNetworkChangeSetRequestFilterSensitiveLog,
-  GetCoreNetworkChangeSetResponse,
-  GetCoreNetworkChangeSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCoreNetworkChangeSetRequest, GetCoreNetworkChangeSetResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetCoreNetworkChangeSetCommand,
-  serializeAws_restJson1GetCoreNetworkChangeSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCoreNetworkChangeSetCommand, se_GetCoreNetworkChangeSetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCoreNetworkChangeSetCommand}.
  */
 export interface GetCoreNetworkChangeSetCommandInput extends GetCoreNetworkChangeSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCoreNetworkChangeSetCommand}.
  */
 export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChangeSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a change set between the LIVE core network policy and a submitted policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * import { NetworkManagerClient, GetCoreNetworkChangeSetCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetCoreNetworkChangeSetCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetCoreNetworkChangeSetRequest
+ *   CoreNetworkId: "STRING_VALUE", // required
+ *   PolicyVersionId: Number("int"), // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetCoreNetworkChangeSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCoreNetworkChangeSetCommandInput - {@link GetCoreNetworkChangeSetCommandInput}
+ * @returns {@link GetCoreNetworkChangeSetCommandOutput}
  * @see {@link GetCoreNetworkChangeSetCommandInput} for command's `input` shape.
  * @see {@link GetCoreNetworkChangeSetCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +89,9 @@ export class GetCoreNetworkChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCoreNetworkChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class GetCoreNetworkChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCoreNetworkChangeSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCoreNetworkChangeSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class GetCoreNetworkChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCoreNetworkChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCoreNetworkChangeSetCommand(input, context);
+    return se_GetCoreNetworkChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreNetworkChangeSetCommandOutput> {
-    return deserializeAws_restJson1GetCoreNetworkChangeSetCommand(output, context);
+    return de_GetCoreNetworkChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

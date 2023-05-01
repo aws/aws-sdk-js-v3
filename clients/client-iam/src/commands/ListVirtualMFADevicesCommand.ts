@@ -16,25 +16,26 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   ListVirtualMFADevicesRequest,
-  ListVirtualMFADevicesRequestFilterSensitiveLog,
   ListVirtualMFADevicesResponse,
   ListVirtualMFADevicesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_queryListVirtualMFADevicesCommand,
-  serializeAws_queryListVirtualMFADevicesCommand,
-} from "../protocols/Aws_query";
+import { de_ListVirtualMFADevicesCommand, se_ListVirtualMFADevicesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListVirtualMFADevicesCommand}.
  */
 export interface ListVirtualMFADevicesCommandInput extends ListVirtualMFADevicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVirtualMFADevicesCommand}.
  */
 export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the virtual MFA devices defined in the Amazon Web Services account by assignment status. If
  *             you do not specify an assignment status, the operation returns a list of all virtual MFA
  *             devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or
@@ -51,10 +52,17 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  * import { IAMClient, ListVirtualMFADevicesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListVirtualMFADevicesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListVirtualMFADevicesRequest
+ *   AssignmentStatus: "Assigned" || "Unassigned" || "Any",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListVirtualMFADevicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVirtualMFADevicesCommandInput - {@link ListVirtualMFADevicesCommandInput}
+ * @returns {@link ListVirtualMFADevicesCommandOutput}
  * @see {@link ListVirtualMFADevicesCommandInput} for command's `input` shape.
  * @see {@link ListVirtualMFADevicesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -99,6 +107,9 @@ export class ListVirtualMFADevicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVirtualMFADevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,7 +138,7 @@ export class ListVirtualMFADevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVirtualMFADevicesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListVirtualMFADevicesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -138,12 +149,18 @@ export class ListVirtualMFADevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVirtualMFADevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListVirtualMFADevicesCommand(input, context);
+    return se_ListVirtualMFADevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualMFADevicesCommandOutput> {
-    return deserializeAws_queryListVirtualMFADevicesCommand(output, context);
+    return de_ListVirtualMFADevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,21 +19,26 @@ import {
   DeleteVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand,
-  serializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand,
+  de_DeleteVoiceConnectorTerminationCredentialsCommand,
+  se_DeleteVoiceConnectorTerminationCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceConnectorTerminationCredentialsCommand}.
  */
 export interface DeleteVoiceConnectorTerminationCredentialsCommandInput
   extends DeleteVoiceConnectorTerminationCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceConnectorTerminationCredentialsCommand}.
  */
 export interface DeleteVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified SIP credentials used by your equipment to authenticate during call termination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,10 +46,18 @@ export interface DeleteVoiceConnectorTerminationCredentialsCommandOutput extends
  * import { ChimeClient, DeleteVoiceConnectorTerminationCredentialsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteVoiceConnectorTerminationCredentialsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DeleteVoiceConnectorTerminationCredentialsRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   Usernames: [ // SensitiveStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteVoiceConnectorTerminationCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVoiceConnectorTerminationCredentialsCommandInput - {@link DeleteVoiceConnectorTerminationCredentialsCommandInput}
+ * @returns {@link DeleteVoiceConnectorTerminationCredentialsCommandOutput}
  * @see {@link DeleteVoiceConnectorTerminationCredentialsCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorTerminationCredentialsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -89,6 +102,9 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceConnectorTerminationCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,7 +140,7 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +150,24 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand(input, context);
+    return se_DeleteVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput> {
-    return deserializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommand(output, context);
+    return de_DeleteVoiceConnectorTerminationCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

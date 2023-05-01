@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  PutConfigurationAggregatorRequest,
-  PutConfigurationAggregatorRequestFilterSensitiveLog,
-  PutConfigurationAggregatorResponse,
-  PutConfigurationAggregatorResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutConfigurationAggregatorCommand,
-  serializeAws_json1_1PutConfigurationAggregatorCommand,
-} from "../protocols/Aws_json1_1";
+import { PutConfigurationAggregatorRequest, PutConfigurationAggregatorResponse } from "../models/models_1";
+import { de_PutConfigurationAggregatorCommand, se_PutConfigurationAggregatorCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutConfigurationAggregatorCommand}.
  */
 export interface PutConfigurationAggregatorCommandInput extends PutConfigurationAggregatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutConfigurationAggregatorCommand}.
  */
 export interface PutConfigurationAggregatorCommandOutput extends PutConfigurationAggregatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and updates the configuration aggregator with the
  * 			selected source accounts and regions. The source account can be
  * 			individual account(s) or an organization.</p>
@@ -60,10 +57,39 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * import { ConfigServiceClient, PutConfigurationAggregatorCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutConfigurationAggregatorCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // PutConfigurationAggregatorRequest
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   AccountAggregationSources: [ // AccountAggregationSourceList
+ *     { // AccountAggregationSource
+ *       AccountIds: [ // AccountAggregationSourceAccountList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       AllAwsRegions: true || false,
+ *       AwsRegions: [ // AggregatorRegionList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   OrganizationAggregationSource: { // OrganizationAggregationSource
+ *     RoleArn: "STRING_VALUE", // required
+ *     AwsRegions: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllAwsRegions: true || false,
+ *   },
+ *   Tags: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutConfigurationAggregatorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutConfigurationAggregatorCommandInput - {@link PutConfigurationAggregatorCommandInput}
+ * @returns {@link PutConfigurationAggregatorCommandOutput}
  * @see {@link PutConfigurationAggregatorCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationAggregatorCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -129,6 +155,9 @@ export class PutConfigurationAggregatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutConfigurationAggregatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,8 +186,8 @@ export class PutConfigurationAggregatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationAggregatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutConfigurationAggregatorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,15 +197,21 @@ export class PutConfigurationAggregatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutConfigurationAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutConfigurationAggregatorCommand(input, context);
+    return se_PutConfigurationAggregatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationAggregatorCommandOutput> {
-    return deserializeAws_json1_1PutConfigurationAggregatorCommand(output, context);
+    return de_PutConfigurationAggregatorCommand(output, context);
   }
 
   // Start section: command_body_extra

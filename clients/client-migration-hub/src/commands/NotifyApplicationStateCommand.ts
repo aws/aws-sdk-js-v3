@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  NotifyApplicationStateRequest,
-  NotifyApplicationStateRequestFilterSensitiveLog,
-  NotifyApplicationStateResult,
-  NotifyApplicationStateResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1NotifyApplicationStateCommand,
-  serializeAws_json1_1NotifyApplicationStateCommand,
-} from "../protocols/Aws_json1_1";
+import { NotifyApplicationStateRequest, NotifyApplicationStateResult } from "../models/models_0";
+import { de_NotifyApplicationStateCommand, se_NotifyApplicationStateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link NotifyApplicationStateCommand}.
  */
 export interface NotifyApplicationStateCommandInput extends NotifyApplicationStateRequest {}
 /**
+ * @public
+ *
  * The output of {@link NotifyApplicationStateCommand}.
  */
 export interface NotifyApplicationStateCommandOutput extends NotifyApplicationStateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the migration state of an application. For a given application identified by the
  *          value passed to <code>ApplicationId</code>, its status is set or updated by passing one of
  *          three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS |
@@ -45,10 +42,18 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  * import { MigrationHubClient, NotifyApplicationStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, NotifyApplicationStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = { // NotifyApplicationStateRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   Status: "STRING_VALUE", // required
+ *   UpdateDateTime: new Date("TIMESTAMP"),
+ *   DryRun: true || false,
+ * };
  * const command = new NotifyApplicationStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param NotifyApplicationStateCommandInput - {@link NotifyApplicationStateCommandInput}
+ * @returns {@link NotifyApplicationStateCommandOutput}
  * @see {@link NotifyApplicationStateCommandInput} for command's `input` shape.
  * @see {@link NotifyApplicationStateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
@@ -111,6 +116,9 @@ export class NotifyApplicationStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: NotifyApplicationStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +147,8 @@ export class NotifyApplicationStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyApplicationStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: NotifyApplicationStateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +158,18 @@ export class NotifyApplicationStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NotifyApplicationStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1NotifyApplicationStateCommand(input, context);
+    return se_NotifyApplicationStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyApplicationStateCommandOutput> {
-    return deserializeAws_json1_1NotifyApplicationStateCommand(output, context);
+    return de_NotifyApplicationStateCommand(output, context);
   }
 
   // Start section: command_body_extra

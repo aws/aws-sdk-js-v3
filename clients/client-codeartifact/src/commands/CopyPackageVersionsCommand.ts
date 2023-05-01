@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  CopyPackageVersionsRequest,
-  CopyPackageVersionsRequestFilterSensitiveLog,
-  CopyPackageVersionsResult,
-  CopyPackageVersionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CopyPackageVersionsCommand,
-  serializeAws_restJson1CopyPackageVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { CopyPackageVersionsRequest, CopyPackageVersionsResult } from "../models/models_0";
+import { de_CopyPackageVersionsCommand, se_CopyPackageVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CopyPackageVersionsCommand}.
  */
 export interface CopyPackageVersionsCommandInput extends CopyPackageVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyPackageVersionsCommand}.
  */
 export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Copies package versions from one repository to another repository in the same domain.
  *       </p>
@@ -49,10 +46,29 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  * import { CodeartifactClient, CopyPackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, CopyPackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // CopyPackageVersionsRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   sourceRepository: "STRING_VALUE", // required
+ *   destinationRepository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   versions: [ // PackageVersionList
+ *     "STRING_VALUE",
+ *   ],
+ *   versionRevisions: { // PackageVersionRevisionMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   allowOverwrite: true || false,
+ *   includeFromUpstream: true || false,
+ * };
  * const command = new CopyPackageVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyPackageVersionsCommandInput - {@link CopyPackageVersionsCommandInput}
+ * @returns {@link CopyPackageVersionsCommandOutput}
  * @see {@link CopyPackageVersionsCommandInput} for command's `input` shape.
  * @see {@link CopyPackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -109,6 +125,9 @@ export class CopyPackageVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyPackageVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +156,8 @@ export class CopyPackageVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyPackageVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyPackageVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +167,18 @@ export class CopyPackageVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyPackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CopyPackageVersionsCommand(input, context);
+    return se_CopyPackageVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyPackageVersionsCommandOutput> {
-    return deserializeAws_restJson1CopyPackageVersionsCommand(output, context);
+    return de_CopyPackageVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

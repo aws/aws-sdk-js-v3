@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  DeleteStoredQueryRequest,
-  DeleteStoredQueryRequestFilterSensitiveLog,
-  DeleteStoredQueryResponse,
-  DeleteStoredQueryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteStoredQueryCommand,
-  serializeAws_json1_1DeleteStoredQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteStoredQueryRequest, DeleteStoredQueryResponse } from "../models/models_0";
+import { de_DeleteStoredQueryCommand, se_DeleteStoredQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStoredQueryCommand}.
  */
 export interface DeleteStoredQueryCommandInput extends DeleteStoredQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStoredQueryCommand}.
  */
 export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the stored query for a single Amazon Web Services account and a single Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  * import { ConfigServiceClient, DeleteStoredQueryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteStoredQueryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeleteStoredQueryRequest
+ *   QueryName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStoredQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStoredQueryCommandInput - {@link DeleteStoredQueryCommandInput}
+ * @returns {@link DeleteStoredQueryCommandOutput}
  * @see {@link DeleteStoredQueryCommandInput} for command's `input` shape.
  * @see {@link DeleteStoredQueryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -77,6 +79,9 @@ export class DeleteStoredQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStoredQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +110,8 @@ export class DeleteStoredQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStoredQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStoredQueryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +121,18 @@ export class DeleteStoredQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStoredQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStoredQueryCommand(input, context);
+    return se_DeleteStoredQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStoredQueryCommandOutput> {
-    return deserializeAws_json1_1DeleteStoredQueryCommand(output, context);
+    return de_DeleteStoredQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

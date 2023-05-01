@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteFindingAggregatorRequest,
-  DeleteFindingAggregatorRequestFilterSensitiveLog,
-  DeleteFindingAggregatorResponse,
-  DeleteFindingAggregatorResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteFindingAggregatorCommand,
-  serializeAws_restJson1DeleteFindingAggregatorCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFindingAggregatorRequest, DeleteFindingAggregatorResponse } from "../models/models_2";
+import { de_DeleteFindingAggregatorCommand, se_DeleteFindingAggregatorCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFindingAggregatorCommand}.
  */
 export interface DeleteFindingAggregatorCommandInput extends DeleteFindingAggregatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFindingAggregatorCommand}.
  */
 export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggregatorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a finding aggregator. When you delete the finding aggregator, you stop finding aggregation.</p>
  *          <p>When you stop finding aggregation, findings that were already aggregated to the aggregation Region are still visible from the aggregation Region. New findings and finding updates are not aggregated.
  *       </p>
@@ -44,10 +41,15 @@ export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggre
  * import { SecurityHubClient, DeleteFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DeleteFindingAggregatorRequest
+ *   FindingAggregatorArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFindingAggregatorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFindingAggregatorCommandInput - {@link DeleteFindingAggregatorCommandInput}
+ * @returns {@link DeleteFindingAggregatorCommandOutput}
  * @see {@link DeleteFindingAggregatorCommandInput} for command's `input` shape.
  * @see {@link DeleteFindingAggregatorCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -73,6 +75,17 @@ export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggre
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To delete a finding aggregator
+ * ```javascript
+ * // The following example deletes a finding aggregator in Security Hub. Deleting the finding aggregator stops cross-Region aggregation. This operation produces no output.
+ * const input = {
+ *   "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ * };
+ * const command = new DeleteFindingAggregatorCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-finding-aggregator-1675701750629
+ * ```
+ *
  */
 export class DeleteFindingAggregatorCommand extends $Command<
   DeleteFindingAggregatorCommandInput,
@@ -91,6 +104,9 @@ export class DeleteFindingAggregatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFindingAggregatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +135,8 @@ export class DeleteFindingAggregatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFindingAggregatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFindingAggregatorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +146,18 @@ export class DeleteFindingAggregatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFindingAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFindingAggregatorCommand(input, context);
+    return se_DeleteFindingAggregatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFindingAggregatorCommandOutput> {
-    return deserializeAws_restJson1DeleteFindingAggregatorCommand(output, context);
+    return de_DeleteFindingAggregatorCommand(output, context);
   }
 
   // Start section: command_body_extra

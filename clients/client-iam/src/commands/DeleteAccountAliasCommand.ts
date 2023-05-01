@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteAccountAliasRequest, DeleteAccountAliasRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteAccountAliasCommand,
-  serializeAws_queryDeleteAccountAliasCommand,
-} from "../protocols/Aws_query";
+import { DeleteAccountAliasRequest } from "../models/models_0";
+import { de_DeleteAccountAliasCommand, se_DeleteAccountAliasCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccountAliasCommand}.
  */
 export interface DeleteAccountAliasCommandInput extends DeleteAccountAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccountAliasCommand}.
  */
 export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes the specified Amazon Web Services account alias. For information about using an Amazon Web Services
  *             account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your Amazon Web Services account ID</a> in the
  *                 <i>IAM User Guide</i>.</p>
@@ -39,10 +41,15 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteAccountAliasCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteAccountAliasCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteAccountAliasRequest
+ *   AccountAlias: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccountAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccountAliasCommandInput - {@link DeleteAccountAliasCommandInput}
+ * @returns {@link DeleteAccountAliasCommandOutput}
  * @see {@link DeleteAccountAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteAccountAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccountAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class DeleteAccountAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +138,18 @@ export class DeleteAccountAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAccountAliasCommand(input, context);
+    return se_DeleteAccountAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountAliasCommandOutput> {
-    return deserializeAws_queryDeleteAccountAliasCommand(output, context);
+    return de_DeleteAccountAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

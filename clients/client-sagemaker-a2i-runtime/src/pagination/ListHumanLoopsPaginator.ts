@@ -10,7 +10,7 @@ import { SageMakerA2IRuntimeClient } from "../SageMakerA2IRuntimeClient";
 import { SageMakerA2IRuntimePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SageMakerA2IRuntimeClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListHumanLoopsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListHumanLoops(
   config: SageMakerA2IRuntimePaginationConfiguration,
   input: ListHumanLoopsCommandInput,

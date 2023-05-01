@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  DeleteConnectorDefinitionRequest,
-  DeleteConnectorDefinitionRequestFilterSensitiveLog,
-  DeleteConnectorDefinitionResponse,
-  DeleteConnectorDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteConnectorDefinitionCommand,
-  serializeAws_restJson1DeleteConnectorDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteConnectorDefinitionRequest, DeleteConnectorDefinitionResponse } from "../models/models_0";
+import { de_DeleteConnectorDefinitionCommand, se_DeleteConnectorDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectorDefinitionCommand}.
  */
 export interface DeleteConnectorDefinitionCommandInput extends DeleteConnectorDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectorDefinitionCommand}.
  */
 export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes a connector definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorD
  * import { GreengrassClient, DeleteConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DeleteConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // DeleteConnectorDefinitionRequest
+ *   ConnectorDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConnectorDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectorDefinitionCommandInput - {@link DeleteConnectorDefinitionCommandInput}
+ * @returns {@link DeleteConnectorDefinitionCommandOutput}
  * @see {@link DeleteConnectorDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectorDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +74,9 @@ export class DeleteConnectorDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectorDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class DeleteConnectorDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectorDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConnectorDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +116,21 @@ export class DeleteConnectorDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectorDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConnectorDefinitionCommand(input, context);
+    return se_DeleteConnectorDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteConnectorDefinitionCommand(output, context);
+    return de_DeleteConnectorDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

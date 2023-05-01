@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
+import { ListSourceRepositoryBranchesRequest, ListSourceRepositoryBranchesResponse } from "../models/models_0";
 import {
-  ListSourceRepositoryBranchesRequest,
-  ListSourceRepositoryBranchesRequestFilterSensitiveLog,
-  ListSourceRepositoryBranchesResponse,
-  ListSourceRepositoryBranchesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSourceRepositoryBranchesCommand,
-  serializeAws_restJson1ListSourceRepositoryBranchesCommand,
+  de_ListSourceRepositoryBranchesCommand,
+  se_ListSourceRepositoryBranchesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSourceRepositoryBranchesCommand}.
  */
 export interface ListSourceRepositoryBranchesCommandInput extends ListSourceRepositoryBranchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSourceRepositoryBranchesCommand}.
  */
 export interface ListSourceRepositoryBranchesCommandOutput
@@ -37,6 +36,7 @@ export interface ListSourceRepositoryBranchesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of branches in a specified source repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,19 @@ export interface ListSourceRepositoryBranchesCommandOutput
  * import { CodeCatalystClient, ListSourceRepositoryBranchesCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, ListSourceRepositoryBranchesCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // ListSourceRepositoryBranchesRequest
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   sourceRepositoryName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSourceRepositoryBranchesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSourceRepositoryBranchesCommandInput - {@link ListSourceRepositoryBranchesCommandInput}
+ * @returns {@link ListSourceRepositoryBranchesCommandOutput}
  * @see {@link ListSourceRepositoryBranchesCommandInput} for command's `input` shape.
  * @see {@link ListSourceRepositoryBranchesCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -90,6 +99,9 @@ export class ListSourceRepositoryBranchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSourceRepositoryBranchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class ListSourceRepositoryBranchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSourceRepositoryBranchesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSourceRepositoryBranchesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +141,21 @@ export class ListSourceRepositoryBranchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSourceRepositoryBranchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSourceRepositoryBranchesCommand(input, context);
+    return se_ListSourceRepositoryBranchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSourceRepositoryBranchesCommandOutput> {
-    return deserializeAws_restJson1ListSourceRepositoryBranchesCommand(output, context);
+    return de_ListSourceRepositoryBranchesCommand(output, context);
   }
 
   // Start section: command_body_extra

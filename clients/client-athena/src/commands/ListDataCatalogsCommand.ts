@@ -14,30 +14,28 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListDataCatalogsInput,
-  ListDataCatalogsInputFilterSensitiveLog,
-  ListDataCatalogsOutput,
-  ListDataCatalogsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDataCatalogsCommand,
-  serializeAws_json1_1ListDataCatalogsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDataCatalogsInput, ListDataCatalogsOutput } from "../models/models_0";
+import { de_ListDataCatalogsCommand, se_ListDataCatalogsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataCatalogsCommand}.
  */
 export interface ListDataCatalogsCommandInput extends ListDataCatalogsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDataCatalogsCommand}.
  */
 export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the data catalogs in the current Amazon Web Services account.</p>
  *          <note>
- *             <p>In the Athena console, data catalogs are listed as "data sources" on the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
+ *             <p>In the Athena console, data catalogs are listed as "data sources" on
+ *                 the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +43,16 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  * import { AthenaClient, ListDataCatalogsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListDataCatalogsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // ListDataCatalogsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDataCatalogsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataCatalogsCommandInput - {@link ListDataCatalogsCommandInput}
+ * @returns {@link ListDataCatalogsCommandOutput}
  * @see {@link ListDataCatalogsCommandInput} for command's `input` shape.
  * @see {@link ListDataCatalogsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +84,9 @@ export class ListDataCatalogsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataCatalogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class ListDataCatalogsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataCatalogsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataCatalogsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class ListDataCatalogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataCatalogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDataCatalogsCommand(input, context);
+    return se_ListDataCatalogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataCatalogsCommandOutput> {
-    return deserializeAws_json1_1ListDataCatalogsCommand(output, context);
+    return de_ListDataCatalogsCommand(output, context);
   }
 
   // Start section: command_body_extra

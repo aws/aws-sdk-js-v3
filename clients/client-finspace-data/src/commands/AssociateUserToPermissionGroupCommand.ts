@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
+import { AssociateUserToPermissionGroupRequest, AssociateUserToPermissionGroupResponse } from "../models/models_0";
 import {
-  AssociateUserToPermissionGroupRequest,
-  AssociateUserToPermissionGroupRequestFilterSensitiveLog,
-  AssociateUserToPermissionGroupResponse,
-  AssociateUserToPermissionGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateUserToPermissionGroupCommand,
-  serializeAws_restJson1AssociateUserToPermissionGroupCommand,
+  de_AssociateUserToPermissionGroupCommand,
+  se_AssociateUserToPermissionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateUserToPermissionGroupCommand}.
  */
 export interface AssociateUserToPermissionGroupCommandInput extends AssociateUserToPermissionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateUserToPermissionGroupCommand}.
  */
 export interface AssociateUserToPermissionGroupCommandOutput
@@ -37,6 +36,7 @@ export interface AssociateUserToPermissionGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a user account to a permission group to grant permissions for actions a user can perform in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface AssociateUserToPermissionGroupCommandOutput
  * import { FinspaceDataClient, AssociateUserToPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, AssociateUserToPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // AssociateUserToPermissionGroupRequest
+ *   permissionGroupId: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new AssociateUserToPermissionGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateUserToPermissionGroupCommandInput - {@link AssociateUserToPermissionGroupCommandInput}
+ * @returns {@link AssociateUserToPermissionGroupCommandOutput}
  * @see {@link AssociateUserToPermissionGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateUserToPermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -90,6 +97,9 @@ export class AssociateUserToPermissionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateUserToPermissionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class AssociateUserToPermissionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateUserToPermissionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateUserToPermissionGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +139,24 @@ export class AssociateUserToPermissionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateUserToPermissionGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateUserToPermissionGroupCommand(input, context);
+    return se_AssociateUserToPermissionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateUserToPermissionGroupCommandOutput> {
-    return deserializeAws_restJson1AssociateUserToPermissionGroupCommand(output, context);
+    return de_AssociateUserToPermissionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

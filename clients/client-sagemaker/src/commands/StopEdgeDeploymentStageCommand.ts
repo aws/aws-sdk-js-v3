@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopEdgeDeploymentStageRequest, StopEdgeDeploymentStageRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopEdgeDeploymentStageCommand,
-  serializeAws_json1_1StopEdgeDeploymentStageCommand,
-} from "../protocols/Aws_json1_1";
+import { StopEdgeDeploymentStageRequest } from "../models/models_3";
+import { de_StopEdgeDeploymentStageCommand, se_StopEdgeDeploymentStageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopEdgeDeploymentStageCommand}.
  */
 export interface StopEdgeDeploymentStageCommandInput extends StopEdgeDeploymentStageRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopEdgeDeploymentStageCommand}.
  */
 export interface StopEdgeDeploymentStageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a stage in an edge deployment plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface StopEdgeDeploymentStageCommandOutput extends __MetadataBearer {
  * import { SageMakerClient, StopEdgeDeploymentStageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopEdgeDeploymentStageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopEdgeDeploymentStageRequest
+ *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ * };
  * const command = new StopEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopEdgeDeploymentStageCommandInput - {@link StopEdgeDeploymentStageCommandInput}
+ * @returns {@link StopEdgeDeploymentStageCommandOutput}
  * @see {@link StopEdgeDeploymentStageCommandInput} for command's `input` shape.
  * @see {@link StopEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -64,6 +72,9 @@ export class StopEdgeDeploymentStageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopEdgeDeploymentStageCommandInput) {
     // Start section: command_constructor
     super();
@@ -92,8 +103,8 @@ export class StopEdgeDeploymentStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopEdgeDeploymentStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +114,18 @@ export class StopEdgeDeploymentStageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopEdgeDeploymentStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopEdgeDeploymentStageCommand(input, context);
+    return se_StopEdgeDeploymentStageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEdgeDeploymentStageCommandOutput> {
-    return deserializeAws_json1_1StopEdgeDeploymentStageCommand(output, context);
+    return de_StopEdgeDeploymentStageCommand(output, context);
   }
 
   // Start section: command_body_extra

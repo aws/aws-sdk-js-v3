@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePipelineExecutionRequest,
-  UpdatePipelineExecutionRequestFilterSensitiveLog,
-  UpdatePipelineExecutionResponse,
-  UpdatePipelineExecutionResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdatePipelineExecutionCommand,
-  serializeAws_json1_1UpdatePipelineExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdatePipelineExecutionRequest, UpdatePipelineExecutionResponse } from "../models/models_4";
+import { de_UpdatePipelineExecutionCommand, se_UpdatePipelineExecutionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePipelineExecutionCommand}.
  */
 export interface UpdatePipelineExecutionCommandInput extends UpdatePipelineExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePipelineExecutionCommand}.
  */
 export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a pipeline execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExec
  * import { SageMakerClient, UpdatePipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdatePipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdatePipelineExecutionRequest
+ *   PipelineExecutionArn: "STRING_VALUE", // required
+ *   PipelineExecutionDescription: "STRING_VALUE",
+ *   PipelineExecutionDisplayName: "STRING_VALUE",
+ *   ParallelismConfiguration: { // ParallelismConfiguration
+ *     MaxParallelExecutionSteps: Number("int"), // required
+ *   },
+ * };
  * const command = new UpdatePipelineExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePipelineExecutionCommandInput - {@link UpdatePipelineExecutionCommandInput}
+ * @returns {@link UpdatePipelineExecutionCommandOutput}
  * @see {@link UpdatePipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +79,9 @@ export class UpdatePipelineExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipelineExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +110,8 @@ export class UpdatePipelineExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePipelineExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePipelineExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +121,18 @@ export class UpdatePipelineExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePipelineExecutionCommand(input, context);
+    return se_UpdatePipelineExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineExecutionCommandOutput> {
-    return deserializeAws_json1_1UpdatePipelineExecutionCommand(output, context);
+    return de_UpdatePipelineExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

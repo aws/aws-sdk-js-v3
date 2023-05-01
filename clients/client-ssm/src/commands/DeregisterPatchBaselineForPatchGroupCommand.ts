@@ -15,21 +15,23 @@ import {
 
 import {
   DeregisterPatchBaselineForPatchGroupRequest,
-  DeregisterPatchBaselineForPatchGroupRequestFilterSensitiveLog,
   DeregisterPatchBaselineForPatchGroupResult,
-  DeregisterPatchBaselineForPatchGroupResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand,
-  serializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand,
+  de_DeregisterPatchBaselineForPatchGroupCommand,
+  se_DeregisterPatchBaselineForPatchGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterPatchBaselineForPatchGroupCommand}.
  */
 export interface DeregisterPatchBaselineForPatchGroupCommandInput extends DeregisterPatchBaselineForPatchGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterPatchBaselineForPatchGroupCommand}.
  */
 export interface DeregisterPatchBaselineForPatchGroupCommandOutput
@@ -37,6 +39,7 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a patch group from a patch baseline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,16 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  * import { SSMClient, DeregisterPatchBaselineForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeregisterPatchBaselineForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DeregisterPatchBaselineForPatchGroupRequest
+ *   BaselineId: "STRING_VALUE", // required
+ *   PatchGroup: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterPatchBaselineForPatchGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterPatchBaselineForPatchGroupCommandInput - {@link DeregisterPatchBaselineForPatchGroupCommandInput}
+ * @returns {@link DeregisterPatchBaselineForPatchGroupCommandOutput}
  * @see {@link DeregisterPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link DeregisterPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -77,6 +86,9 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterPatchBaselineForPatchGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +117,8 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterPatchBaselineForPatchGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterPatchBaselineForPatchGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +128,24 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterPatchBaselineForPatchGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand(input, context);
+    return se_DeregisterPatchBaselineForPatchGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput> {
-    return deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand(output, context);
+    return de_DeregisterPatchBaselineForPatchGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

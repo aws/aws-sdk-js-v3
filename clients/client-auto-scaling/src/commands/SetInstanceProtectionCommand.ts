@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  SetInstanceProtectionAnswer,
-  SetInstanceProtectionAnswerFilterSensitiveLog,
-  SetInstanceProtectionQuery,
-  SetInstanceProtectionQueryFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetInstanceProtectionCommand,
-  serializeAws_querySetInstanceProtectionCommand,
-} from "../protocols/Aws_query";
+import { SetInstanceProtectionAnswer, SetInstanceProtectionQuery } from "../models/models_0";
+import { de_SetInstanceProtectionCommand, se_SetInstanceProtectionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetInstanceProtectionCommand}.
  */
 export interface SetInstanceProtectionCommandInput extends SetInstanceProtectionQuery {}
 /**
+ * @public
+ *
  * The output of {@link SetInstanceProtectionCommand}.
  */
 export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectionAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the instance protection settings of the specified instances. This operation
  *             cannot be called on instances in a warm pool.</p>
  *          <p>For more information about preventing instances that are part of an Auto Scaling group from
@@ -49,10 +46,19 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  * import { AutoScalingClient, SetInstanceProtectionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, SetInstanceProtectionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // SetInstanceProtectionQuery
+ *   InstanceIds: [ // InstanceIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ProtectedFromScaleIn: true || false, // required
+ * };
  * const command = new SetInstanceProtectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetInstanceProtectionCommandInput - {@link SetInstanceProtectionCommandInput}
+ * @returns {@link SetInstanceProtectionCommandOutput}
  * @see {@link SetInstanceProtectionCommandInput} for command's `input` shape.
  * @see {@link SetInstanceProtectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -116,6 +122,9 @@ export class SetInstanceProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetInstanceProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +153,8 @@ export class SetInstanceProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetInstanceProtectionQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: SetInstanceProtectionAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +164,18 @@ export class SetInstanceProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetInstanceProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetInstanceProtectionCommand(input, context);
+    return se_SetInstanceProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetInstanceProtectionCommandOutput> {
-    return deserializeAws_querySetInstanceProtectionCommand(output, context);
+    return de_SetInstanceProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

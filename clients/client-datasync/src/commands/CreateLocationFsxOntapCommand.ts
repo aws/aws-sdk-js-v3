@@ -18,41 +18,72 @@ import {
   CreateLocationFsxOntapRequest,
   CreateLocationFsxOntapRequestFilterSensitiveLog,
   CreateLocationFsxOntapResponse,
-  CreateLocationFsxOntapResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationFsxOntapCommand,
-  serializeAws_json1_1CreateLocationFsxOntapCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationFsxOntapCommand, se_CreateLocationFsxOntapCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationFsxOntapCommand}.
  */
 export interface CreateLocationFsxOntapCommandInput extends CreateLocationFsxOntapRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationFsxOntapCommand}.
  */
 export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOntapResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync
- *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Creating a location for FSx for ONTAP</a>.</p>
+ * @public
+ * <p>Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Creating a location for FSx for ONTAP</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, CreateLocationFsxOntapCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationFsxOntapCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateLocationFsxOntapRequest
+ *   Protocol: { // FsxProtocol
+ *     NFS: { // FsxProtocolNfs
+ *       MountOptions: { // NfsMountOptions
+ *         Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ *       },
+ *     },
+ *     SMB: { // FsxProtocolSmb
+ *       Domain: "STRING_VALUE",
+ *       MountOptions: { // SmbMountOptions
+ *         Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ *       },
+ *       Password: "STRING_VALUE", // required
+ *       User: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   StorageVirtualMachineArn: "STRING_VALUE", // required
+ *   Subdirectory: "STRING_VALUE",
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationFsxOntapCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationFsxOntapCommandInput - {@link CreateLocationFsxOntapCommandInput}
+ * @returns {@link CreateLocationFsxOntapCommandOutput}
  * @see {@link CreateLocationFsxOntapCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxOntapCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
@@ -76,6 +107,9 @@ export class CreateLocationFsxOntapCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationFsxOntapCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,7 +139,7 @@ export class CreateLocationFsxOntapCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLocationFsxOntapRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationFsxOntapResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +149,18 @@ export class CreateLocationFsxOntapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationFsxOntapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationFsxOntapCommand(input, context);
+    return se_CreateLocationFsxOntapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxOntapCommandOutput> {
-    return deserializeAws_json1_1CreateLocationFsxOntapCommand(output, context);
+    return de_CreateLocationFsxOntapCommand(output, context);
   }
 
   // Start section: command_body_extra

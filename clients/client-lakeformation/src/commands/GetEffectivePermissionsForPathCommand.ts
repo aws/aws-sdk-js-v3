@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { GetEffectivePermissionsForPathRequest, GetEffectivePermissionsForPathResponse } from "../models/models_0";
 import {
-  GetEffectivePermissionsForPathRequest,
-  GetEffectivePermissionsForPathRequestFilterSensitiveLog,
-  GetEffectivePermissionsForPathResponse,
-  GetEffectivePermissionsForPathResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEffectivePermissionsForPathCommand,
-  serializeAws_restJson1GetEffectivePermissionsForPathCommand,
+  de_GetEffectivePermissionsForPathCommand,
+  se_GetEffectivePermissionsForPathCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEffectivePermissionsForPathCommand}.
  */
 export interface GetEffectivePermissionsForPathCommandInput extends GetEffectivePermissionsForPathRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEffectivePermissionsForPathCommand}.
  */
 export interface GetEffectivePermissionsForPathCommandOutput
@@ -37,6 +36,7 @@ export interface GetEffectivePermissionsForPathCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Lake Formation permissions for a specified table or database resource located
  *       at a path in Amazon S3. <code>GetEffectivePermissionsForPath</code> will not return databases and tables if the catalog is encrypted.</p>
  * @example
@@ -45,16 +45,24 @@ export interface GetEffectivePermissionsForPathCommandOutput
  * import { LakeFormationClient, GetEffectivePermissionsForPathCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetEffectivePermissionsForPathCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // GetEffectivePermissionsForPathRequest
+ *   CatalogId: "STRING_VALUE",
+ *   ResourceArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetEffectivePermissionsForPathCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEffectivePermissionsForPathCommandInput - {@link GetEffectivePermissionsForPathCommandInput}
+ * @returns {@link GetEffectivePermissionsForPathCommandOutput}
  * @see {@link GetEffectivePermissionsForPathCommandInput} for command's `input` shape.
  * @see {@link GetEffectivePermissionsForPathCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
@@ -84,6 +92,9 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEffectivePermissionsForPathCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +123,8 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEffectivePermissionsForPathRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEffectivePermissionsForPathResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +134,24 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEffectivePermissionsForPathCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEffectivePermissionsForPathCommand(input, context);
+    return se_GetEffectivePermissionsForPathCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEffectivePermissionsForPathCommandOutput> {
-    return deserializeAws_restJson1GetEffectivePermissionsForPathCommand(output, context);
+    return de_GetEffectivePermissionsForPathCommand(output, context);
   }
 
   // Start section: command_body_extra

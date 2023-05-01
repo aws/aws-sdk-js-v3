@@ -18,24 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  SetSubnetsInput,
-  SetSubnetsInputFilterSensitiveLog,
-  SetSubnetsOutput,
-  SetSubnetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_querySetSubnetsCommand, serializeAws_querySetSubnetsCommand } from "../protocols/Aws_query";
+import { SetSubnetsInput, SetSubnetsOutput } from "../models/models_0";
+import { de_SetSubnetsCommand, se_SetSubnetsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetSubnetsCommand}.
  */
 export interface SetSubnetsCommandInput extends SetSubnetsInput {}
 /**
+ * @public
+ *
  * The output of {@link SetSubnetsCommand}.
  */
 export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the Availability Zones for the specified public subnets for the specified
  *       Application Load Balancer or Network Load Balancer. The specified subnets replace the
  *       previously enabled subnets.</p>
@@ -48,10 +48,27 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * import { ElasticLoadBalancingV2Client, SetSubnetsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, SetSubnetsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // SetSubnetsInput
+ *   LoadBalancerArn: "STRING_VALUE", // required
+ *   Subnets: [ // Subnets
+ *     "STRING_VALUE",
+ *   ],
+ *   SubnetMappings: [ // SubnetMappings
+ *     { // SubnetMapping
+ *       SubnetId: "STRING_VALUE",
+ *       AllocationId: "STRING_VALUE",
+ *       PrivateIPv4Address: "STRING_VALUE",
+ *       IPv6Address: "STRING_VALUE",
+ *     },
+ *   ],
+ *   IpAddressType: "ipv4" || "dualstack",
+ * };
  * const command = new SetSubnetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSubnetsCommandInput - {@link SetSubnetsCommandInput}
+ * @returns {@link SetSubnetsCommandOutput}
  * @see {@link SetSubnetsCommandInput} for command's `input` shape.
  * @see {@link SetSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -122,6 +139,9 @@ export class SetSubnetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSubnetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +168,8 @@ export class SetSubnetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSubnetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetSubnetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +179,18 @@ export class SetSubnetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetSubnetsCommand(input, context);
+    return se_SetSubnetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSubnetsCommandOutput> {
-    return deserializeAws_querySetSubnetsCommand(output, context);
+    return de_SetSubnetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyCapacityReservationRequest,
-  ModifyCapacityReservationRequestFilterSensitiveLog,
-  ModifyCapacityReservationResult,
-  ModifyCapacityReservationResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyCapacityReservationCommand,
-  serializeAws_ec2ModifyCapacityReservationCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyCapacityReservationRequest, ModifyCapacityReservationResult } from "../models/models_6";
+import { de_ModifyCapacityReservationCommand, se_ModifyCapacityReservationCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCapacityReservationCommand}.
  */
 export interface ModifyCapacityReservationCommandInput extends ModifyCapacityReservationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCapacityReservationCommand}.
  */
 export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityReservationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a Capacity Reservation's capacity and the conditions under which it is to be released. You
  * 			cannot change a Capacity Reservation's instance type, EBS optimization, instance store settings,
  * 			platform, Availability Zone, or instance eligibility. If you need to modify any of these
@@ -46,10 +43,21 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * import { EC2Client, ModifyCapacityReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyCapacityReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyCapacityReservationRequest
+ *   CapacityReservationId: "STRING_VALUE", // required
+ *   InstanceCount: Number("int"),
+ *   EndDate: new Date("TIMESTAMP"),
+ *   EndDateType: "unlimited" || "limited",
+ *   Accept: true || false,
+ *   DryRun: true || false,
+ *   AdditionalInfo: "STRING_VALUE",
+ * };
  * const command = new ModifyCapacityReservationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCapacityReservationCommandInput - {@link ModifyCapacityReservationCommandInput}
+ * @returns {@link ModifyCapacityReservationCommandOutput}
  * @see {@link ModifyCapacityReservationCommandInput} for command's `input` shape.
  * @see {@link ModifyCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +81,9 @@ export class ModifyCapacityReservationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCapacityReservationCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +112,8 @@ export class ModifyCapacityReservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCapacityReservationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyCapacityReservationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,15 +123,21 @@ export class ModifyCapacityReservationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyCapacityReservationCommand(input, context);
+    return se_ModifyCapacityReservationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCapacityReservationCommandOutput> {
-    return deserializeAws_ec2ModifyCapacityReservationCommand(output, context);
+    return de_ModifyCapacityReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

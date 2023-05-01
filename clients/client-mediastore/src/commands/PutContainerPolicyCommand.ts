@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  PutContainerPolicyInput,
-  PutContainerPolicyInputFilterSensitiveLog,
-  PutContainerPolicyOutput,
-  PutContainerPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutContainerPolicyCommand,
-  serializeAws_json1_1PutContainerPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutContainerPolicyInput, PutContainerPolicyOutput } from "../models/models_0";
+import { de_PutContainerPolicyCommand, se_PutContainerPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutContainerPolicyCommand}.
  */
 export interface PutContainerPolicyCommandInput extends PutContainerPolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutContainerPolicyCommand}.
  */
 export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an access policy for the specified container to restrict the users and
  *          clients that can access it. For information about the data that is included in an access
  *          policy, see the <a href="https://aws.amazon.com/documentation/iam/">AWS Identity and
@@ -48,10 +45,16 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  * import { MediaStoreClient, PutContainerPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, PutContainerPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = { // PutContainerPolicyInput
+ *   ContainerName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutContainerPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutContainerPolicyCommandInput - {@link PutContainerPolicyCommandInput}
+ * @returns {@link PutContainerPolicyCommandOutput}
  * @see {@link PutContainerPolicyCommandInput} for command's `input` shape.
  * @see {@link PutContainerPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
@@ -85,6 +88,9 @@ export class PutContainerPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutContainerPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class PutContainerPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutContainerPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutContainerPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class PutContainerPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutContainerPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutContainerPolicyCommand(input, context);
+    return se_PutContainerPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutContainerPolicyCommandOutput> {
-    return deserializeAws_json1_1PutContainerPolicyCommand(output, context);
+    return de_PutContainerPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

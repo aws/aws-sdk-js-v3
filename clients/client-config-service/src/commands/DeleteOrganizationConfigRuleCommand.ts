@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DeleteOrganizationConfigRuleRequest } from "../models/models_0";
 import {
-  DeleteOrganizationConfigRuleRequest,
-  DeleteOrganizationConfigRuleRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteOrganizationConfigRuleCommand,
-  serializeAws_json1_1DeleteOrganizationConfigRuleCommand,
+  de_DeleteOrganizationConfigRuleCommand,
+  se_DeleteOrganizationConfigRuleCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOrganizationConfigRuleCommand}.
  */
 export interface DeleteOrganizationConfigRuleCommandInput extends DeleteOrganizationConfigRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOrganizationConfigRuleCommand}.
  */
 export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified organization Config rule and all of its evaluation results from all member accounts in that organization. </p>
  *          <p>Only a management account and a delegated administrator account can delete an organization Config rule.
  * 		When calling this API with a delegated administrator, you must ensure Organizations
@@ -45,10 +47,15 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  * import { ConfigServiceClient, DeleteOrganizationConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteOrganizationConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeleteOrganizationConfigRuleRequest
+ *   OrganizationConfigRuleName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOrganizationConfigRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOrganizationConfigRuleCommandInput - {@link DeleteOrganizationConfigRuleCommandInput}
+ * @returns {@link DeleteOrganizationConfigRuleCommandOutput}
  * @see {@link DeleteOrganizationConfigRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -122,6 +129,9 @@ export class DeleteOrganizationConfigRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOrganizationConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,8 +160,8 @@ export class DeleteOrganizationConfigRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOrganizationConfigRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -161,15 +171,21 @@ export class DeleteOrganizationConfigRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOrganizationConfigRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteOrganizationConfigRuleCommand(input, context);
+    return se_DeleteOrganizationConfigRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOrganizationConfigRuleCommandOutput> {
-    return deserializeAws_json1_1DeleteOrganizationConfigRuleCommand(output, context);
+    return de_DeleteOrganizationConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

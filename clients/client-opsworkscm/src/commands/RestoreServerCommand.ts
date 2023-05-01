@@ -15,26 +15,27 @@ import {
 
 import {
   RestoreServerRequest,
-  RestoreServerRequestFilterSensitiveLog,
   RestoreServerResponse,
   RestoreServerResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1RestoreServerCommand,
-  serializeAws_json1_1RestoreServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RestoreServerCommand, se_RestoreServerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreServerCommand}.
  */
 export interface RestoreServerCommandInput extends RestoreServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreServerCommand}.
  */
 export interface RestoreServerCommandOutput extends RestoreServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Restores a backup to a server that is in a <code>CONNECTION_LOST</code>, <code>HEALTHY</code>, <code>RUNNING</code>, <code>UNHEALTHY</code>, or <code>TERMINATED</code> state.
  *       When you run RestoreServer, the server's EC2 instance is deleted, and a new EC2 instance is configured. RestoreServer maintains
@@ -56,10 +57,18 @@ export interface RestoreServerCommandOutput extends RestoreServerResponse, __Met
  * import { OpsWorksCMClient, RestoreServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, RestoreServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // RestoreServerRequest
+ *   BackupId: "STRING_VALUE", // required
+ *   ServerName: "STRING_VALUE", // required
+ *   InstanceType: "STRING_VALUE",
+ *   KeyPair: "STRING_VALUE",
+ * };
  * const command = new RestoreServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreServerCommandInput - {@link RestoreServerCommandInput}
+ * @returns {@link RestoreServerCommandOutput}
  * @see {@link RestoreServerCommandInput} for command's `input` shape.
  * @see {@link RestoreServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
@@ -95,6 +104,9 @@ export class RestoreServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,7 +133,7 @@ export class RestoreServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreServerRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RestoreServerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -132,12 +144,18 @@ export class RestoreServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreServerCommand(input, context);
+    return se_RestoreServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreServerCommandOutput> {
-    return deserializeAws_json1_1RestoreServerCommand(output, context);
+    return de_RestoreServerCommand(output, context);
   }
 
   // Start section: command_body_extra

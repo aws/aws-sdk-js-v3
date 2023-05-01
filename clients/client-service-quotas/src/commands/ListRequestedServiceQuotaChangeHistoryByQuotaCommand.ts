@@ -15,22 +15,24 @@ import {
 
 import {
   ListRequestedServiceQuotaChangeHistoryByQuotaRequest,
-  ListRequestedServiceQuotaChangeHistoryByQuotaRequestFilterSensitiveLog,
   ListRequestedServiceQuotaChangeHistoryByQuotaResponse,
-  ListRequestedServiceQuotaChangeHistoryByQuotaResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
-  serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
+  de_ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
+  se_ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommand}.
  */
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput
   extends ListRequestedServiceQuotaChangeHistoryByQuotaRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommand}.
  */
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
@@ -38,6 +40,7 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the quota increase requests for the specified quota.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,19 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
  * import { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryByQuotaCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryByQuotaCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = { // ListRequestedServiceQuotaChangeHistoryByQuotaRequest
+ *   ServiceCode: "STRING_VALUE", // required
+ *   QuotaCode: "STRING_VALUE", // required
+ *   Status: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput - {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput}
+ * @returns {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput}
  * @see {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput} for command's `input` shape.
  * @see {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
@@ -91,6 +103,9 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +140,8 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryByQuotaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryByQuotaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +151,24 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input, context);
+    return se_ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> {
-    return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(output, context);
+    return de_ListRequestedServiceQuotaChangeHistoryByQuotaCommand(output, context);
   }
 
   // Start section: command_body_extra

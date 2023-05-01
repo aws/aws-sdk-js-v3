@@ -14,40 +14,38 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  DeleteImageRequest,
-  DeleteImageRequestFilterSensitiveLog,
-  DeleteImageResponse,
-  DeleteImageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteImageCommand,
-  serializeAws_restJson1DeleteImageCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteImageRequest, DeleteImageResponse } from "../models/models_0";
+import { de_DeleteImageCommand, se_DeleteImageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteImageCommand}.
  */
 export interface DeleteImageCommandInput extends DeleteImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteImageCommand}.
  */
 export interface DeleteImageCommandOutput extends DeleteImageResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container images
- * 			that are created during the image build process. You must clean those up separately,
- * 			using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI commands.</p>
+ * @public
+ * <p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container
+ * 			images that are created during the image build process. You must clean those up
+ * 			separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI
+ * 			commands.</p>
  *          <ul>
  *             <li>
- *                <p>To deregister an EC2 Linux AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister
- * 						your Linux AMI</a> in the <i>
+ *                <p>To deregister an EC2 Linux AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister your
+ * 						Linux AMI</a> in the <i>
  *                      <i>Amazon EC2 User Guide</i>
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>To deregister an EC2 Windows AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister
- * 						your Windows AMI</a> in the <i>
+ *                <p>To deregister an EC2 Windows AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister your
+ * 						Windows AMI</a> in the <i>
  *                      <i>Amazon EC2 Windows Guide</i>
  *                   </i>.</p>
  *             </li>
@@ -62,10 +60,15 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * import { ImagebuilderClient, DeleteImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // DeleteImageRequest
+ *   imageBuildVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteImageCommandInput - {@link DeleteImageCommandInput}
+ * @returns {@link DeleteImageCommandOutput}
  * @see {@link DeleteImageCommandInput} for command's `input` shape.
  * @see {@link DeleteImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -74,22 +77,23 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceDependencyException} (client fault)
- *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits this
- * 			action. See the error message for more details.</p>
+ *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits
+ * 			this action. See the error message for more details.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -113,6 +117,9 @@ export class DeleteImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +146,8 @@ export class DeleteImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +157,18 @@ export class DeleteImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteImageCommand(input, context);
+    return se_DeleteImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImageCommandOutput> {
-    return deserializeAws_restJson1DeleteImageCommand(output, context);
+    return de_DeleteImageCommand(output, context);
   }
 
   // Start section: command_body_extra

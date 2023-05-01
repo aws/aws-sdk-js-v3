@@ -5,6 +5,7 @@ import { Readable } from "stream";
 import { CloudSearchDomainServiceException as __BaseException } from "./CloudSearchDomainServiceException";
 
 /**
+ * @public
  * <p>Information about any problems encountered while processing a search request.</p>
  */
 export class SearchException extends __BaseException {
@@ -23,9 +24,13 @@ export class SearchException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type QueryParser = "dismax" | "lucene" | "simple" | "structured";
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>Search</code> request.</p>
  */
 export interface SearchRequest {
@@ -41,9 +46,9 @@ export interface SearchRequest {
   /**
    * <p>Defines one or more numeric expressions that can be used to sort results or specify search or filter
    *          criteria. You can also specify expressions as return fields. </p>
-   *       <p>You specify the expressions in JSON using the form <code>{"EXPRESSIONNAME":"EXPRESSION"}</code>. You can define and use multiple expressions in a search request. For example:</p>
+   *       <p>You specify the expressions in JSON using the form <code>\{"EXPRESSIONNAME":"EXPRESSION"\}</code>. You can define and use multiple expressions in a search request. For example:</p>
    *       <p><code>
-   *          {"expression1":"_score*rating", "expression2":"(1/rank)*year"}
+   *          \{"expression1":"_score*rating", "expression2":"(1/rank)*year"\}
    *       </code> </p>
    *       <p>For information about the variables, operators, and functions you can use in expressions, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html#writing-expressions">Writing Expressions</a>
    *          in the <i>Amazon CloudSearch Developer Guide</i>.</p>
@@ -51,7 +56,7 @@ export interface SearchRequest {
   expr?: string;
 
   /**
-   * <p>Specifies one or more fields for which to get facet information, and options that control how the facet information is returned. Each specified field must be facet-enabled in the domain configuration. The fields and options are specified in JSON using the form <code>{"FIELD":{"OPTION":VALUE,"OPTION:"STRING"},"FIELD":{"OPTION":VALUE,"OPTION":"STRING"}}</code>.</p>
+   * <p>Specifies one or more fields for which to get facet information, and options that control how the facet information is returned. Each specified field must be facet-enabled in the domain configuration. The fields and options are specified in JSON using the form <code>\{"FIELD":\{"OPTION":VALUE,"OPTION:"STRING"\},"FIELD":\{"OPTION":VALUE,"OPTION":"STRING"\}\}</code>.</p>
    *          <p>You can specify the following faceting options:</p>
    *       <ul>
    *          <li>
@@ -84,18 +89,18 @@ export interface SearchRequest {
    *
    *       <p>To count particular buckets of values, use the <code>buckets</code> option. For example, the following request uses the <code>buckets</code> option to calculate and return facet counts by decade.</p>
    *       <p><code>
-   *          {"year":{"buckets":["[1970,1979]","[1980,1989]","[1990,1999]","[2000,2009]","[2010,}"]}}
+   *          \{"year":\{"buckets":["[1970,1979]","[1980,1989]","[1990,1999]","[2000,2009]","[2010,\}"]\}\}
    *       </code></p>
    *
    *          <p>To sort facets by facet count, use the <code>count</code> option. For example, the following request sets the <code>sort</code> option to <code>count</code> to sort the facet values by facet count, with the facet
    *             values that have the most matching documents listed first. Setting the <code>size</code> option to 3 returns only the top three facet values.</p>
    *          <p><code>
-   *             {"year":{"sort":"count","size":3}}
+   *             \{"year":\{"sort":"count","size":3\}\}
    *          </code></p>
    *
    *          <p>To sort the facets by value, use the <code>bucket</code> option. For example, the following  request sets the <code>sort</code> option to <code>bucket</code> to sort the facet values numerically by year, with earliest year listed first. </p>
    *          <p><code>
-   *             {"year":{"sort":"bucket"}}
+   *             \{"year":\{"sort":"bucket"\}\}
    *          </code></p>
    *       <p>For more
    *          information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/faceting.html">Getting and Using Facet Information</a>
@@ -112,7 +117,7 @@ export interface SearchRequest {
 
   /**
    * <p>Retrieves highlights for matches in the specified <code>text</code> or
-   *          <code>text-array</code> fields. Each specified field must be highlight enabled in the domain configuration. The fields and options are specified in JSON using the form <code>{"FIELD":{"OPTION":VALUE,"OPTION:"STRING"},"FIELD":{"OPTION":VALUE,"OPTION":"STRING"}}</code>.</p>
+   *          <code>text-array</code> fields. Each specified field must be highlight enabled in the domain configuration. The fields and options are specified in JSON using the form <code>\{"FIELD":\{"OPTION":VALUE,"OPTION:"STRING"\},"FIELD":\{"OPTION":VALUE,"OPTION":"STRING"\}\}</code>.</p>
    *       <p>You can specify the following highlight options:</p>
    *          <ul>
    *             <li>
@@ -142,10 +147,10 @@ export interface SearchRequest {
    *          <p>If no highlight options are specified for a field, the returned field text is treated as HTML and the first match is
    *             highlighted with emphasis tags:  <code>&lt;em>search-term&lt;/em&gt;</code>.</p>
    *             <p>For example, the following request retrieves highlights for the <code>actors</code> and <code>title</code> fields.</p>
-   *                  <p> <code>{
-   *     "actors": {},
-   *     "title": {"format": "text","max_phrases": 2,"pre_tag": "<b>","post_tag": "</b>"}
-   *                     }</code></p>
+   *                  <p> <code>\{
+   *     "actors": \{\},
+   *     "title": \{"format": "text","max_phrases": 2,"pre_tag": "<b>","post_tag": "</b>"\}
+   *                     \}</code></p>
    */
   highlight?: string;
 
@@ -166,7 +171,7 @@ export interface SearchRequest {
   query: string | undefined;
 
   /**
-   * <p>Configures options for the query parser specified in the <code>queryParser</code> parameter. You specify the options in JSON using the following form <code>{"OPTION1":"VALUE1","OPTION2":VALUE2"..."OPTIONN":"VALUEN"}.</code></p>
+   * <p>Configures options for the query parser specified in the <code>queryParser</code> parameter. You specify the options in JSON using the following form <code>\{"OPTION1":"VALUE1","OPTION2":VALUE2"..."OPTIONN":"VALUEN"\}.</code></p>
    *
    *       <p>The options you can configure vary according to which parser you use:</p>
    *       <ul>
@@ -305,13 +310,14 @@ export interface SearchRequest {
 
   /**
    * <p>Specifies one or more fields for which to get statistics information. Each specified field must be facet-enabled in the domain configuration. The fields are specified in JSON using the form:</p>
-   *       <code>{"FIELD-A":{},"FIELD-B":{}}</code>
+   *       <code>\{"FIELD-A":\{\},"FIELD-B":\{\}\}</code>
    *       <p>There are currently no options supported for statistics.</p>
    */
   stats?: string;
 }
 
 /**
+ * @public
  * <p>A container for facet information. </p>
  */
 export interface Bucket {
@@ -327,6 +333,7 @@ export interface Bucket {
 }
 
 /**
+ * @public
  * <p>A container for the calculated facet values and counts.</p>
  */
 export interface BucketInfo {
@@ -337,6 +344,7 @@ export interface BucketInfo {
 }
 
 /**
+ * @public
  * <p>Information about a document that matches the search request.</p>
  */
 export interface Hit {
@@ -362,6 +370,7 @@ export interface Hit {
 }
 
 /**
+ * @public
  * <p>The collection of documents that match the search request.</p>
  */
 export interface Hits {
@@ -387,6 +396,7 @@ export interface Hits {
 }
 
 /**
+ * @public
  * <p>The statistics for a field calculated in the request.</p>
  */
 export interface FieldStats {
@@ -435,6 +445,7 @@ export interface FieldStats {
 }
 
 /**
+ * @public
  * <p>Contains the resource id (<code>rid</code>) and the time it took to process the request (<code>timems</code>).</p>
  */
 export interface SearchStatus {
@@ -450,6 +461,7 @@ export interface SearchStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code>Search</code> request. Contains the documents that match the specified search criteria and any requested fields, highlights, and facet information.</p>
  */
 export interface SearchResponse {
@@ -475,6 +487,7 @@ export interface SearchResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>Suggest</code> request.</p>
  */
 export interface SuggestRequest {
@@ -495,6 +508,7 @@ export interface SuggestRequest {
 }
 
 /**
+ * @public
  * <p>Contains the resource id (<code>rid</code>) and the time it took to process the request (<code>timems</code>).</p>
  */
 export interface SuggestStatus {
@@ -510,6 +524,7 @@ export interface SuggestStatus {
 }
 
 /**
+ * @public
  * <p>An autocomplete suggestion that matches the query string specified in a <code>SuggestRequest</code>. </p>
  */
 export interface SuggestionMatch {
@@ -530,6 +545,7 @@ export interface SuggestionMatch {
 }
 
 /**
+ * @public
  * <p>Container for the suggestion information returned in a <code>SuggestResponse</code>.</p>
  */
 export interface SuggestModel {
@@ -550,6 +566,7 @@ export interface SuggestModel {
 }
 
 /**
+ * @public
  * <p>Contains the response to a <code>Suggest</code> request.</p>
  */
 export interface SuggestResponse {
@@ -565,6 +582,7 @@ export interface SuggestResponse {
 }
 
 /**
+ * @public
  * <p>Information about any problems encountered while processing an upload request.</p>
  */
 export class DocumentServiceException extends __BaseException {
@@ -589,9 +607,13 @@ export class DocumentServiceException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type ContentType = "application/json" | "application/xml";
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>UploadDocuments</code> request.</p>
  */
 export interface UploadDocumentsRequest {
@@ -611,6 +633,7 @@ export interface UploadDocumentsRequest {
 }
 
 /**
+ * @public
  * <p>A warning returned by the document service when an issue is discovered while processing an upload request.</p>
  */
 export interface DocumentServiceWarning {
@@ -621,6 +644,7 @@ export interface DocumentServiceWarning {
 }
 
 /**
+ * @public
  * <p>Contains the response to an <code>UploadDocuments</code> request.</p>
  */
 export interface UploadDocumentsResponse {
@@ -648,111 +672,6 @@ export interface UploadDocumentsResponse {
 /**
  * @internal
  */
-export const SearchRequestFilterSensitiveLog = (obj: SearchRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BucketFilterSensitiveLog = (obj: Bucket): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BucketInfoFilterSensitiveLog = (obj: BucketInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HitFilterSensitiveLog = (obj: Hit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HitsFilterSensitiveLog = (obj: Hits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldStatsFilterSensitiveLog = (obj: FieldStats): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchStatusFilterSensitiveLog = (obj: SearchStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchResponseFilterSensitiveLog = (obj: SearchResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuggestRequestFilterSensitiveLog = (obj: SuggestRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuggestStatusFilterSensitiveLog = (obj: SuggestStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuggestionMatchFilterSensitiveLog = (obj: SuggestionMatch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuggestModelFilterSensitiveLog = (obj: SuggestModel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuggestResponseFilterSensitiveLog = (obj: SuggestResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UploadDocumentsRequestFilterSensitiveLog = (obj: UploadDocumentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentServiceWarningFilterSensitiveLog = (obj: DocumentServiceWarning): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadDocumentsResponseFilterSensitiveLog = (obj: UploadDocumentsResponse): any => ({
   ...obj,
 });

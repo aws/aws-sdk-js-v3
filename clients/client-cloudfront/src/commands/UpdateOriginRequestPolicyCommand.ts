@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  UpdateOriginRequestPolicyRequest,
-  UpdateOriginRequestPolicyRequestFilterSensitiveLog,
-  UpdateOriginRequestPolicyResult,
-  UpdateOriginRequestPolicyResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateOriginRequestPolicyCommand,
-  serializeAws_restXmlUpdateOriginRequestPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { UpdateOriginRequestPolicyRequest, UpdateOriginRequestPolicyResult } from "../models/models_1";
+import { de_UpdateOriginRequestPolicyCommand, se_UpdateOriginRequestPolicyCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOriginRequestPolicyCommand}.
  */
 export interface UpdateOriginRequestPolicyCommandInput extends UpdateOriginRequestPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOriginRequestPolicyCommand}.
  */
 export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an origin request policy configuration.</p>
  *          <p>When you update an origin request policy configuration, all the fields are updated
  * 			with the values provided in the request. You cannot update some fields independent of
@@ -60,10 +57,47 @@ export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequ
  * import { CloudFrontClient, UpdateOriginRequestPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateOriginRequestPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // UpdateOriginRequestPolicyRequest
+ *   OriginRequestPolicyConfig: { // OriginRequestPolicyConfig
+ *     Comment: "STRING_VALUE",
+ *     Name: "STRING_VALUE", // required
+ *     HeadersConfig: { // OriginRequestPolicyHeadersConfig
+ *       HeaderBehavior: "none" || "whitelist" || "allViewer" || "allViewerAndWhitelistCloudFront" || "allExcept", // required
+ *       Headers: { // Headers
+ *         Quantity: Number("int"), // required
+ *         Items: [ // HeaderList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     CookiesConfig: { // OriginRequestPolicyCookiesConfig
+ *       CookieBehavior: "none" || "whitelist" || "all" || "allExcept", // required
+ *       Cookies: { // CookieNames
+ *         Quantity: Number("int"), // required
+ *         Items: [ // CookieNameList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     QueryStringsConfig: { // OriginRequestPolicyQueryStringsConfig
+ *       QueryStringBehavior: "none" || "whitelist" || "all" || "allExcept", // required
+ *       QueryStrings: { // QueryStringNames
+ *         Quantity: Number("int"), // required
+ *         Items: [ // QueryStringNamesList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new UpdateOriginRequestPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOriginRequestPolicyCommandInput - {@link UpdateOriginRequestPolicyCommandInput}
+ * @returns {@link UpdateOriginRequestPolicyCommandOutput}
  * @see {@link UpdateOriginRequestPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateOriginRequestPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -130,6 +164,9 @@ export class UpdateOriginRequestPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOriginRequestPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,8 +195,8 @@ export class UpdateOriginRequestPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOriginRequestPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOriginRequestPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -169,15 +206,21 @@ export class UpdateOriginRequestPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateOriginRequestPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateOriginRequestPolicyCommand(input, context);
+    return se_UpdateOriginRequestPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOriginRequestPolicyCommandOutput> {
-    return deserializeAws_restXmlUpdateOriginRequestPolicyCommand(output, context);
+    return de_UpdateOriginRequestPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

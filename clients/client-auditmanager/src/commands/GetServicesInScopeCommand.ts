@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  GetServicesInScopeRequest,
-  GetServicesInScopeRequestFilterSensitiveLog,
-  GetServicesInScopeResponse,
-  GetServicesInScopeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServicesInScopeCommand,
-  serializeAws_restJson1GetServicesInScopeCommand,
-} from "../protocols/Aws_restJson1";
+import { GetServicesInScopeRequest, GetServicesInScopeResponse } from "../models/models_0";
+import { de_GetServicesInScopeCommand, se_GetServicesInScopeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetServicesInScopeCommand}.
  */
 export interface GetServicesInScopeCommandInput extends GetServicesInScopeRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServicesInScopeCommand}.
  */
 export interface GetServicesInScopeCommandOutput extends GetServicesInScopeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all of the Amazon Web Services that you can choose to include
  *          in your assessment. When you <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html">create an assessment</a>, specify which of these services you want to include to
  *          narrow the assessment's <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Scope.html">scope</a>.</p>
@@ -44,10 +41,13 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  * import { AuditManagerClient, GetServicesInScopeCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetServicesInScopeCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {};
  * const command = new GetServicesInScopeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServicesInScopeCommandInput - {@link GetServicesInScopeCommandInput}
+ * @returns {@link GetServicesInScopeCommandOutput}
  * @see {@link GetServicesInScopeCommandInput} for command's `input` shape.
  * @see {@link GetServicesInScopeCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -82,6 +82,9 @@ export class GetServicesInScopeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServicesInScopeCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +113,8 @@ export class GetServicesInScopeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServicesInScopeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServicesInScopeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +124,18 @@ export class GetServicesInScopeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServicesInScopeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServicesInScopeCommand(input, context);
+    return se_GetServicesInScopeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServicesInScopeCommandOutput> {
-    return deserializeAws_restJson1GetServicesInScopeCommand(output, context);
+    return de_GetServicesInScopeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,27 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SetVoiceMessageSpendLimitOverrideRequest,
-  SetVoiceMessageSpendLimitOverrideRequestFilterSensitiveLog,
-  SetVoiceMessageSpendLimitOverrideResult,
-  SetVoiceMessageSpendLimitOverrideResultFilterSensitiveLog,
-} from "../models/models_0";
+import { SetVoiceMessageSpendLimitOverrideRequest, SetVoiceMessageSpendLimitOverrideResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
 import {
-  deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand,
-  serializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand,
+  de_SetVoiceMessageSpendLimitOverrideCommand,
+  se_SetVoiceMessageSpendLimitOverrideCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link SetVoiceMessageSpendLimitOverrideCommand}.
  */
 export interface SetVoiceMessageSpendLimitOverrideCommandInput extends SetVoiceMessageSpendLimitOverrideRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetVoiceMessageSpendLimitOverrideCommand}.
  */
 export interface SetVoiceMessageSpendLimitOverrideCommandOutput
@@ -41,6 +40,7 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets an account level monthly spend limit override for sending voice messages. The
  *             requested spend limit must be less than or equal to the <code>MaxLimit</code>, which is
  *             set by Amazon Web Services. </p>
@@ -50,10 +50,15 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
  * import { PinpointSMSVoiceV2Client, SetVoiceMessageSpendLimitOverrideCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, SetVoiceMessageSpendLimitOverrideCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // SetVoiceMessageSpendLimitOverrideRequest
+ *   MonthlyLimit: Number("long"), // required
+ * };
  * const command = new SetVoiceMessageSpendLimitOverrideCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetVoiceMessageSpendLimitOverrideCommandInput - {@link SetVoiceMessageSpendLimitOverrideCommandInput}
+ * @returns {@link SetVoiceMessageSpendLimitOverrideCommandOutput}
  * @see {@link SetVoiceMessageSpendLimitOverrideCommandInput} for command's `input` shape.
  * @see {@link SetVoiceMessageSpendLimitOverrideCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -92,6 +97,9 @@ export class SetVoiceMessageSpendLimitOverrideCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetVoiceMessageSpendLimitOverrideCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class SetVoiceMessageSpendLimitOverrideCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetVoiceMessageSpendLimitOverrideRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetVoiceMessageSpendLimitOverrideResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +139,24 @@ export class SetVoiceMessageSpendLimitOverrideCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetVoiceMessageSpendLimitOverrideCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand(input, context);
+    return se_SetVoiceMessageSpendLimitOverrideCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetVoiceMessageSpendLimitOverrideCommandOutput> {
-    return deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand(output, context);
+    return de_SetVoiceMessageSpendLimitOverrideCommand(output, context);
   }
 
   // Start section: command_body_extra

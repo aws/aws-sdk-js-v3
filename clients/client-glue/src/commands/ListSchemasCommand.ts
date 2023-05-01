@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListSchemasInput,
-  ListSchemasInputFilterSensitiveLog,
-  ListSchemasResponse,
-  ListSchemasResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListSchemasCommand,
-  serializeAws_json1_1ListSchemasCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSchemasInput, ListSchemasResponse } from "../models/models_2";
+import { de_ListSchemasCommand, se_ListSchemasCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSchemasCommand}.
  */
 export interface ListSchemasCommandInput extends ListSchemasInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSchemasCommand}.
  */
 export interface ListSchemasCommandOutput extends ListSchemasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of schemas with minimal details. Schemas in Deleting status will not be included in the results. Empty results will be returned if there are no schemas available.</p>
  *          <p>When the <code>RegistryId</code> is not provided, all the schemas across registries will be part of the API response.</p>
  * @example
@@ -43,10 +40,20 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * import { GlueClient, ListSchemasCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListSchemasCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListSchemasInput
+ *   RegistryId: { // RegistryId
+ *     RegistryName: "STRING_VALUE",
+ *     RegistryArn: "STRING_VALUE",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
+ * @returns {@link ListSchemasCommandOutput}
  * @see {@link ListSchemasCommandInput} for command's `input` shape.
  * @see {@link ListSchemasCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -82,6 +89,9 @@ export class ListSchemasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSchemasCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class ListSchemasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSchemasInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSchemasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +129,18 @@ export class ListSchemasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSchemasCommand(input, context);
+    return se_ListSchemasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemasCommandOutput> {
-    return deserializeAws_json1_1ListSchemasCommand(output, context);
+    return de_ListSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

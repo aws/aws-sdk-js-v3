@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { DescribeFleetAdvisorLsaAnalysisRequest, DescribeFleetAdvisorLsaAnalysisResponse } from "../models/models_0";
 import {
-  DescribeFleetAdvisorLsaAnalysisRequest,
-  DescribeFleetAdvisorLsaAnalysisRequestFilterSensitiveLog,
-  DescribeFleetAdvisorLsaAnalysisResponse,
-  DescribeFleetAdvisorLsaAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommand,
-  serializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommand,
+  de_DescribeFleetAdvisorLsaAnalysisCommand,
+  se_DescribeFleetAdvisorLsaAnalysisCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetAdvisorLsaAnalysisCommand}.
  */
 export interface DescribeFleetAdvisorLsaAnalysisCommandInput extends DescribeFleetAdvisorLsaAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetAdvisorLsaAnalysisCommand}.
  */
 export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
@@ -41,6 +40,7 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
  *             Advisor collectors. </p>
  * @example
@@ -49,10 +49,16 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeFleetAdvisorLsaAnalysisCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeFleetAdvisorLsaAnalysisCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeFleetAdvisorLsaAnalysisRequest
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetAdvisorLsaAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetAdvisorLsaAnalysisCommandInput - {@link DescribeFleetAdvisorLsaAnalysisCommandInput}
+ * @returns {@link DescribeFleetAdvisorLsaAnalysisCommandOutput}
  * @see {@link DescribeFleetAdvisorLsaAnalysisCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAdvisorLsaAnalysisCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -79,6 +85,9 @@ export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetAdvisorLsaAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +116,8 @@ export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetAdvisorLsaAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetAdvisorLsaAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +127,24 @@ export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeFleetAdvisorLsaAnalysisCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommand(input, context);
+    return se_DescribeFleetAdvisorLsaAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetAdvisorLsaAnalysisCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommand(output, context);
+    return de_DescribeFleetAdvisorLsaAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

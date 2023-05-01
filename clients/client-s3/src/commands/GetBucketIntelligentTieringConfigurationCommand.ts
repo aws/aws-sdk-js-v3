@@ -15,22 +15,24 @@ import {
 
 import {
   GetBucketIntelligentTieringConfigurationOutput,
-  GetBucketIntelligentTieringConfigurationOutputFilterSensitiveLog,
   GetBucketIntelligentTieringConfigurationRequest,
-  GetBucketIntelligentTieringConfigurationRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand,
-  serializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand,
+  de_GetBucketIntelligentTieringConfigurationCommand,
+  se_GetBucketIntelligentTieringConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketIntelligentTieringConfigurationCommand}.
  */
 export interface GetBucketIntelligentTieringConfigurationCommandInput
   extends GetBucketIntelligentTieringConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketIntelligentTieringConfigurationCommand}.
  */
 export interface GetBucketIntelligentTieringConfigurationCommandOutput
@@ -38,6 +40,7 @@ export interface GetBucketIntelligentTieringConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the S3 Intelligent-Tiering configuration from the specified bucket.</p>
  *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
  *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not monitored and not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
@@ -67,10 +70,16 @@ export interface GetBucketIntelligentTieringConfigurationCommandOutput
  * import { S3Client, GetBucketIntelligentTieringConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketIntelligentTieringConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketIntelligentTieringConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetBucketIntelligentTieringConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketIntelligentTieringConfigurationCommandInput - {@link GetBucketIntelligentTieringConfigurationCommandInput}
+ * @returns {@link GetBucketIntelligentTieringConfigurationCommandOutput}
  * @see {@link GetBucketIntelligentTieringConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketIntelligentTieringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -100,6 +109,9 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketIntelligentTieringConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +146,8 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketIntelligentTieringConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketIntelligentTieringConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +157,24 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketIntelligentTieringConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand(input, context);
+    return se_GetBucketIntelligentTieringConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketIntelligentTieringConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand(output, context);
+    return de_GetBucketIntelligentTieringConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSnapshotScheduleInput,
-  UpdateSnapshotScheduleInputFilterSensitiveLog,
-  UpdateSnapshotScheduleOutput,
-  UpdateSnapshotScheduleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSnapshotScheduleCommand,
-  serializeAws_json1_1UpdateSnapshotScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSnapshotScheduleInput, UpdateSnapshotScheduleOutput } from "../models/models_0";
+import { de_UpdateSnapshotScheduleCommand, se_UpdateSnapshotScheduleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSnapshotScheduleCommand}.
  */
 export interface UpdateSnapshotScheduleCommandInput extends UpdateSnapshotScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSnapshotScheduleCommand}.
  */
 export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a snapshot schedule configured for a gateway volume. This operation is only
  *          supported in the cached volume and stored volume gateway types.</p>
  *
@@ -51,10 +48,24 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  * import { StorageGatewayClient, UpdateSnapshotScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateSnapshotScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // UpdateSnapshotScheduleInput
+ *   VolumeARN: "STRING_VALUE", // required
+ *   StartAt: Number("int"), // required
+ *   RecurrenceInHours: Number("int"), // required
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateSnapshotScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSnapshotScheduleCommandInput - {@link UpdateSnapshotScheduleCommandInput}
+ * @returns {@link UpdateSnapshotScheduleCommandOutput}
  * @see {@link UpdateSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -105,6 +116,9 @@ export class UpdateSnapshotScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +147,8 @@ export class UpdateSnapshotScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSnapshotScheduleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSnapshotScheduleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +158,18 @@ export class UpdateSnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSnapshotScheduleCommand(input, context);
+    return se_UpdateSnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSnapshotScheduleCommandOutput> {
-    return deserializeAws_json1_1UpdateSnapshotScheduleCommand(output, context);
+    return de_UpdateSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

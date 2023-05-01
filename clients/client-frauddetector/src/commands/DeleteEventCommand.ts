@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DeleteEventRequest,
-  DeleteEventRequestFilterSensitiveLog,
-  DeleteEventResult,
-  DeleteEventResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEventCommand,
-  serializeAws_json1_1DeleteEventCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEventRequest, DeleteEventResult } from "../models/models_0";
+import { de_DeleteEventCommand, se_DeleteEventCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventCommand}.
  */
 export interface DeleteEventCommandInput extends DeleteEventRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventCommand}.
  */
 export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified event.</p>
  *          <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.</p>
  * @example
@@ -43,10 +40,17 @@ export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataB
  * import { FraudDetectorClient, DeleteEventCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteEventCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // DeleteEventRequest
+ *   eventId: "STRING_VALUE", // required
+ *   eventTypeName: "STRING_VALUE", // required
+ *   deleteAuditHistory: true || false,
+ * };
  * const command = new DeleteEventCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventCommandInput - {@link DeleteEventCommandInput}
+ * @returns {@link DeleteEventCommandOutput}
  * @see {@link DeleteEventCommandInput} for command's `input` shape.
  * @see {@link DeleteEventCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -82,6 +86,9 @@ export class DeleteEventCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class DeleteEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEventResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class DeleteEventCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEventCommand(input, context);
+    return se_DeleteEventCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventCommandOutput> {
-    return deserializeAws_json1_1DeleteEventCommand(output, context);
+    return de_DeleteEventCommand(output, context);
   }
 
   // Start section: command_body_extra

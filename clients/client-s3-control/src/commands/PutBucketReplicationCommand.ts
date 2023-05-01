@@ -15,23 +15,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketReplicationRequest, PutBucketReplicationRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketReplicationCommand,
-  serializeAws_restXmlPutBucketReplicationCommand,
-} from "../protocols/Aws_restXml";
+import { PutBucketReplicationRequest } from "../models/models_0";
+import { de_PutBucketReplicationCommand, se_PutBucketReplicationCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketReplicationCommand}.
  */
 export interface PutBucketReplicationCommandInput extends PutBucketReplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketReplicationCommand}.
  */
 export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action creates an Amazon S3 on Outposts bucket's replication configuration. To create
  *             an S3 bucket's replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html">PutBucketReplication</a>
@@ -119,10 +121,81 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, PutBucketReplicationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutBucketReplicationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // PutBucketReplicationRequest
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ *   ReplicationConfiguration: { // ReplicationConfiguration
+ *     Role: "STRING_VALUE", // required
+ *     Rules: [ // ReplicationRules // required
+ *       { // ReplicationRule
+ *         ID: "STRING_VALUE",
+ *         Priority: Number("int"),
+ *         Prefix: "STRING_VALUE",
+ *         Filter: { // ReplicationRuleFilter
+ *           Prefix: "STRING_VALUE",
+ *           Tag: { // S3Tag
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *           And: { // ReplicationRuleAndOperator
+ *             Prefix: "STRING_VALUE",
+ *             Tags: [ // S3TagSet
+ *               {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *         Status: "Enabled" || "Disabled", // required
+ *         SourceSelectionCriteria: { // SourceSelectionCriteria
+ *           SseKmsEncryptedObjects: { // SseKmsEncryptedObjects
+ *             Status: "Enabled" || "Disabled", // required
+ *           },
+ *           ReplicaModifications: { // ReplicaModifications
+ *             Status: "Enabled" || "Disabled", // required
+ *           },
+ *         },
+ *         ExistingObjectReplication: { // ExistingObjectReplication
+ *           Status: "Enabled" || "Disabled", // required
+ *         },
+ *         Destination: { // Destination
+ *           Account: "STRING_VALUE",
+ *           Bucket: "STRING_VALUE", // required
+ *           ReplicationTime: { // ReplicationTime
+ *             Status: "Enabled" || "Disabled", // required
+ *             Time: { // ReplicationTimeValue
+ *               Minutes: Number("int"),
+ *             },
+ *           },
+ *           AccessControlTranslation: { // AccessControlTranslation
+ *             Owner: "Destination", // required
+ *           },
+ *           EncryptionConfiguration: { // EncryptionConfiguration
+ *             ReplicaKmsKeyID: "STRING_VALUE",
+ *           },
+ *           Metrics: { // Metrics
+ *             Status: "Enabled" || "Disabled", // required
+ *             EventThreshold: {
+ *               Minutes: Number("int"),
+ *             },
+ *           },
+ *           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR",
+ *         },
+ *         DeleteMarkerReplication: { // DeleteMarkerReplication
+ *           Status: "Enabled" || "Disabled", // required
+ *         },
+ *         Bucket: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutBucketReplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketReplicationCommandInput - {@link PutBucketReplicationCommandInput}
+ * @returns {@link PutBucketReplicationCommandOutput}
  * @see {@link PutBucketReplicationCommandInput} for command's `input` shape.
  * @see {@link PutBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -150,6 +223,9 @@ export class PutBucketReplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketReplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,8 +256,8 @@ export class PutBucketReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketReplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -191,12 +267,18 @@ export class PutBucketReplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketReplicationCommand(input, context);
+    return se_PutBucketReplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketReplicationCommandOutput> {
-    return deserializeAws_restXmlPutBucketReplicationCommand(output, context);
+    return de_PutBucketReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

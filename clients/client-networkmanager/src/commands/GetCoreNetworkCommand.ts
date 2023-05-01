@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCoreNetworkRequest,
-  GetCoreNetworkRequestFilterSensitiveLog,
-  GetCoreNetworkResponse,
-  GetCoreNetworkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCoreNetworkRequest, GetCoreNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetCoreNetworkCommand,
-  serializeAws_restJson1GetCoreNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCoreNetworkCommand, se_GetCoreNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCoreNetworkCommand}.
  */
 export interface GetCoreNetworkCommandInput extends GetCoreNetworkRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCoreNetworkCommand}.
  */
 export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the LIVE policy for a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __M
  * import { NetworkManagerClient, GetCoreNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetCoreNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetCoreNetworkRequest
+ *   CoreNetworkId: "STRING_VALUE", // required
+ * };
  * const command = new GetCoreNetworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCoreNetworkCommandInput - {@link GetCoreNetworkCommandInput}
+ * @returns {@link GetCoreNetworkCommandOutput}
  * @see {@link GetCoreNetworkCommandInput} for command's `input` shape.
  * @see {@link GetCoreNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetCoreNetworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCoreNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetCoreNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCoreNetworkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCoreNetworkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetCoreNetworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCoreNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCoreNetworkCommand(input, context);
+    return se_GetCoreNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreNetworkCommandOutput> {
-    return deserializeAws_restJson1GetCoreNetworkCommand(output, context);
+    return de_GetCoreNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

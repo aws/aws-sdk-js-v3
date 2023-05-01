@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  GetThreatIntelSetRequest,
-  GetThreatIntelSetRequestFilterSensitiveLog,
-  GetThreatIntelSetResponse,
-  GetThreatIntelSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetThreatIntelSetCommand,
-  serializeAws_restJson1GetThreatIntelSetCommand,
-} from "../protocols/Aws_restJson1";
+import { GetThreatIntelSetRequest, GetThreatIntelSetResponse } from "../models/models_0";
+import { de_GetThreatIntelSetCommand, se_GetThreatIntelSetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetThreatIntelSetCommand}.
  */
 export interface GetThreatIntelSetCommandInput extends GetThreatIntelSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetThreatIntelSetCommand}.
  */
 export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetRespons
  * import { GuardDutyClient, GetThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // GetThreatIntelSetRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   ThreatIntelSetId: "STRING_VALUE", // required
+ * };
  * const command = new GetThreatIntelSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetThreatIntelSetCommandInput - {@link GetThreatIntelSetCommandInput}
+ * @returns {@link GetThreatIntelSetCommandOutput}
  * @see {@link GetThreatIntelSetCommandInput} for command's `input` shape.
  * @see {@link GetThreatIntelSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +78,9 @@ export class GetThreatIntelSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetThreatIntelSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class GetThreatIntelSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetThreatIntelSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetThreatIntelSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class GetThreatIntelSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetThreatIntelSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetThreatIntelSetCommand(input, context);
+    return se_GetThreatIntelSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetThreatIntelSetCommandOutput> {
-    return deserializeAws_restJson1GetThreatIntelSetCommand(output, context);
+    return de_GetThreatIntelSetCommand(output, context);
   }
 
   // Start section: command_body_extra

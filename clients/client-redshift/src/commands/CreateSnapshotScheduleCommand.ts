@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSnapshotScheduleMessage,
-  CreateSnapshotScheduleMessageFilterSensitiveLog,
-  SnapshotSchedule,
-  SnapshotScheduleFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateSnapshotScheduleCommand,
-  serializeAws_queryCreateSnapshotScheduleCommand,
-} from "../protocols/Aws_query";
+import { CreateSnapshotScheduleMessage, SnapshotSchedule } from "../models/models_0";
+import { de_CreateSnapshotScheduleCommand, se_CreateSnapshotScheduleCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSnapshotScheduleCommand}.
  */
 export interface CreateSnapshotScheduleCommandInput extends CreateSnapshotScheduleMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateSnapshotScheduleCommand}.
  */
 export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a snapshot schedule that can be associated to a cluster and which overrides the default system backup schedule. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * import { RedshiftClient, CreateSnapshotScheduleCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateSnapshotScheduleCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // CreateSnapshotScheduleMessage
+ *   ScheduleDefinitions: [ // ScheduleDefinitionList
+ *     "STRING_VALUE",
+ *   ],
+ *   ScheduleIdentifier: "STRING_VALUE",
+ *   ScheduleDescription: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   NextInvocations: Number("int"),
+ * };
  * const command = new CreateSnapshotScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSnapshotScheduleCommandInput - {@link CreateSnapshotScheduleCommandInput}
+ * @returns {@link CreateSnapshotScheduleCommandOutput}
  * @see {@link CreateSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -87,6 +101,9 @@ export class CreateSnapshotScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +132,8 @@ export class CreateSnapshotScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSnapshotScheduleMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: SnapshotScheduleFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +143,18 @@ export class CreateSnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateSnapshotScheduleCommand(input, context);
+    return se_CreateSnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSnapshotScheduleCommandOutput> {
-    return deserializeAws_queryCreateSnapshotScheduleCommand(output, context);
+    return de_CreateSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

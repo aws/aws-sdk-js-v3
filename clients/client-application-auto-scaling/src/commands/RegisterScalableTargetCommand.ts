@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  RegisterScalableTargetRequest,
-  RegisterScalableTargetRequestFilterSensitiveLog,
-  RegisterScalableTargetResponse,
-  RegisterScalableTargetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterScalableTargetCommand,
-  serializeAws_json1_1RegisterScalableTargetCommand,
-} from "../protocols/Aws_json1_1";
+import { RegisterScalableTargetRequest, RegisterScalableTargetResponse } from "../models/models_0";
+import { de_RegisterScalableTargetCommand, se_RegisterScalableTargetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterScalableTargetCommand}.
  */
 export interface RegisterScalableTargetCommandInput extends RegisterScalableTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterScalableTargetCommand}.
  */
 export interface RegisterScalableTargetCommandOutput extends RegisterScalableTargetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers or updates a scalable target, which is the resource that you want to
  *          scale.</p>
  *          <p>Scalable targets are uniquely identified by the combination of resource ID, scalable
@@ -77,10 +74,28 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  * import { ApplicationAutoScalingClient, RegisterScalableTargetCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, RegisterScalableTargetCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
+ * const input = { // RegisterScalableTargetRequest
+ *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount", // required
+ *   MinCapacity: Number("int"),
+ *   MaxCapacity: Number("int"),
+ *   RoleARN: "STRING_VALUE",
+ *   SuspendedState: { // SuspendedState
+ *     DynamicScalingInSuspended: true || false,
+ *     DynamicScalingOutSuspended: true || false,
+ *     ScheduledScalingSuspended: true || false,
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new RegisterScalableTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterScalableTargetCommandInput - {@link RegisterScalableTargetCommandInput}
+ * @returns {@link RegisterScalableTargetCommandOutput}
  * @see {@link RegisterScalableTargetCommandInput} for command's `input` shape.
  * @see {@link RegisterScalableTargetCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -133,6 +148,9 @@ export class RegisterScalableTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterScalableTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -161,8 +179,8 @@ export class RegisterScalableTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterScalableTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterScalableTargetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -172,12 +190,18 @@ export class RegisterScalableTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterScalableTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterScalableTargetCommand(input, context);
+    return se_RegisterScalableTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterScalableTargetCommandOutput> {
-    return deserializeAws_json1_1RegisterScalableTargetCommand(output, context);
+    return de_RegisterScalableTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

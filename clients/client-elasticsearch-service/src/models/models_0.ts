@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ElasticsearchServiceServiceException as __BaseException } from "./ElasticsearchServiceServiceException";
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>AcceptInboundCrossClusterSearchConnection</a></code> operation.</p>
  */
 export interface AcceptInboundCrossClusterSearchConnectionRequest {
@@ -13,16 +14,27 @@ export interface AcceptInboundCrossClusterSearchConnectionRequest {
   CrossClusterSearchConnectionId: string | undefined;
 }
 
-export enum InboundCrossClusterSearchConnectionStatusCode {
-  APPROVED = "APPROVED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE",
-  REJECTED = "REJECTED",
-  REJECTING = "REJECTING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InboundCrossClusterSearchConnectionStatusCode = {
+  APPROVED: "APPROVED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
+  REJECTED: "REJECTED",
+  REJECTING: "REJECTING",
+} as const;
 
 /**
+ * @public
+ */
+export type InboundCrossClusterSearchConnectionStatusCode =
+  (typeof InboundCrossClusterSearchConnectionStatusCode)[keyof typeof InboundCrossClusterSearchConnectionStatusCode];
+
+/**
+ * @public
  * <p>Specifies the coonection status of an inbound cross-cluster search connection.</p>
  */
 export interface InboundCrossClusterSearchConnectionStatus {
@@ -45,6 +57,9 @@ export interface InboundCrossClusterSearchConnectionStatus {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface DomainInformation {
   OwnerId?: string;
   /**
@@ -56,6 +71,7 @@ export interface DomainInformation {
 }
 
 /**
+ * @public
  * <p>Specifies details of an inbound connection.</p>
  */
 export interface InboundCrossClusterSearchConnection {
@@ -81,6 +97,7 @@ export interface InboundCrossClusterSearchConnection {
 }
 
 /**
+ * @public
  * <p>The result of a <code><a>AcceptInboundCrossClusterSearchConnection</a></code> operation. Contains details of accepted inbound connection.</p>
  */
 export interface AcceptInboundCrossClusterSearchConnectionResponse {
@@ -91,6 +108,7 @@ export interface AcceptInboundCrossClusterSearchConnectionResponse {
 }
 
 /**
+ * @public
  * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
  */
 export class DisabledOperationException extends __BaseException {
@@ -110,6 +128,7 @@ export class DisabledOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -129,6 +148,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -148,6 +168,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -166,13 +187,23 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum OptionState {
-  Active = "Active",
-  Processing = "Processing",
-  RequiresIndexDocuments = "RequiresIndexDocuments",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OptionState = {
+  Active: "Active",
+  Processing: "Processing",
+  RequiresIndexDocuments: "RequiresIndexDocuments",
+} as const;
 
 /**
+ * @public
+ */
+export type OptionState = (typeof OptionState)[keyof typeof OptionState];
+
+/**
+ * @public
  * <p>Provides the current status of the entity.</p>
  */
 export interface OptionStatus {
@@ -203,6 +234,7 @@ export interface OptionStatus {
 }
 
 /**
+ * @public
  * <p>The configured access rules for the domain's document and search endpoints, and the current status of those rules.</p>
  */
 export interface AccessPoliciesStatus {
@@ -219,6 +251,7 @@ export interface AccessPoliciesStatus {
 }
 
 /**
+ * @public
  * <p>
  *       List of limits that are specific to a given InstanceType and for each of it's
  *       <code>
@@ -271,6 +304,7 @@ export interface AdditionalLimit {
 }
 
 /**
+ * @public
  * <p>Specifies a key value pair for a resource tag.</p>
  */
 export interface Tag {
@@ -287,6 +321,7 @@ export interface Tag {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>AddTags</a></code> operation. Specify the tags that you want to attach to the Elasticsearch domain.</p>
  */
 export interface AddTagsRequest {
@@ -302,6 +337,7 @@ export interface AddTagsRequest {
 }
 
 /**
+ * @public
  * <p>An error occurred while processing the request.</p>
  */
 export class BaseException extends __BaseException {
@@ -321,6 +357,7 @@ export class BaseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
  */
 export class InternalException extends __BaseException {
@@ -340,6 +377,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  */
 export class ValidationException extends __BaseException {
@@ -359,6 +397,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p> Status of the advanced options for the specified Elasticsearch domain. Currently, the following advanced options are available:</p>
  *        <ul>
  *            <li>Option to allow references to indices in an HTTP request body.  Must be <code>false</code> when configuring access to individual sub-resources.  By default, the value is <code>true</code>.
@@ -380,6 +419,7 @@ export interface AdvancedOptionsStatus {
 }
 
 /**
+ * @public
  * <p>Specifies the SAML Identity Provider's information.</p>
  */
 export interface SAMLIdp {
@@ -395,6 +435,7 @@ export interface SAMLIdp {
 }
 
 /**
+ * @public
  * <p>Describes the SAML application configured for the domain.</p>
  */
 export interface SAMLOptionsOutput {
@@ -425,6 +466,7 @@ export interface SAMLOptionsOutput {
 }
 
 /**
+ * @public
  * <p>Specifies the advanced security configuration: whether advanced security is enabled, whether the internal database option is enabled.</p>
  */
 export interface AdvancedSecurityOptions {
@@ -455,6 +497,7 @@ export interface AdvancedSecurityOptions {
 }
 
 /**
+ * @public
  * <p>Credentials for the master user: username and password, ARN, or both.</p>
  */
 export interface MasterUserOptions {
@@ -475,6 +518,7 @@ export interface MasterUserOptions {
 }
 
 /**
+ * @public
  * <p>Specifies the SAML application configuration for the domain.</p>
  */
 export interface SAMLOptionsInput {
@@ -515,6 +559,7 @@ export interface SAMLOptionsInput {
 }
 
 /**
+ * @public
  * <p>Specifies the advanced security configuration: whether advanced security is enabled, whether the internal database option is enabled, master username and password (if internal database is enabled), and master user ARN (if IAM is enabled).</p>
  */
 export interface AdvancedSecurityOptionsInput {
@@ -545,6 +590,7 @@ export interface AdvancedSecurityOptionsInput {
 }
 
 /**
+ * @public
  * <p> Specifies the status of advanced security options for the specified Elasticsearch domain.</p>
  */
 export interface AdvancedSecurityOptionsStatus {
@@ -560,6 +606,7 @@ export interface AdvancedSecurityOptionsStatus {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -580,24 +627,46 @@ export interface AssociatePackageRequest {
   DomainName: string | undefined;
 }
 
-export enum DomainPackageStatus {
-  ACTIVE = "ACTIVE",
-  ASSOCIATING = "ASSOCIATING",
-  ASSOCIATION_FAILED = "ASSOCIATION_FAILED",
-  DISSOCIATING = "DISSOCIATING",
-  DISSOCIATION_FAILED = "DISSOCIATION_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DomainPackageStatus = {
+  ACTIVE: "ACTIVE",
+  ASSOCIATING: "ASSOCIATING",
+  ASSOCIATION_FAILED: "ASSOCIATION_FAILED",
+  DISSOCIATING: "DISSOCIATING",
+  DISSOCIATION_FAILED: "DISSOCIATION_FAILED",
+} as const;
 
+/**
+ * @public
+ */
+export type DomainPackageStatus = (typeof DomainPackageStatus)[keyof typeof DomainPackageStatus];
+
+/**
+ * @public
+ */
 export interface ErrorDetails {
   ErrorType?: string;
   ErrorMessage?: string;
 }
 
-export enum PackageType {
-  TXT_DICTIONARY = "TXT-DICTIONARY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageType = {
+  TXT_DICTIONARY: "TXT-DICTIONARY",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageType = (typeof PackageType)[keyof typeof PackageType];
+
+/**
+ * @public
  * <p>Information on a package that is associated with a domain.</p>
  */
 export interface DomainPackageDetails {
@@ -644,6 +713,7 @@ export interface DomainPackageDetails {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response returned by
  *       <code>
@@ -660,6 +730,7 @@ export interface AssociatePackageResponse {
 }
 
 /**
+ * @public
  * <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status code 409.</p>
  */
 export class ConflictException extends __BaseException {
@@ -679,6 +750,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Container for request parameters to the <code><a>AuthorizeVpcEndpointAccess</a></code> operation.
  *           Specifies the account to be permitted to manage VPC endpoints against the domain.</p>
  */
@@ -694,12 +766,22 @@ export interface AuthorizeVpcEndpointAccessRequest {
   Account: string | undefined;
 }
 
-export enum PrincipalType {
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-  AWS_SERVICE = "AWS_SERVICE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalType = {
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+  AWS_SERVICE: "AWS_SERVICE",
+} as const;
 
 /**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+/**
+ * @public
  * <p>Information about an  account or service that has access to an Amazon
  *    OpenSearch Service domain through the use of an interface VPC endpoint.</p>
  */
@@ -716,6 +798,7 @@ export interface AuthorizedPrincipal {
 }
 
 /**
+ * @public
  * <p>Container for response parameters to the <code><a>AuthorizeVpcEndpointAccess</a></code> operation.
  *           Contains the account ID and the type of the account being authorized to access the VPC endpoint.</p>
  */
@@ -728,6 +811,7 @@ export interface AuthorizeVpcEndpointAccessResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>CancelElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to cancel a service software update on.</p>
  */
 export interface CancelElasticsearchServiceSoftwareUpdateRequest {
@@ -737,15 +821,25 @@ export interface CancelElasticsearchServiceSoftwareUpdateRequest {
   DomainName: string | undefined;
 }
 
-export enum DeploymentStatus {
-  COMPLETED = "COMPLETED",
-  ELIGIBLE = "ELIGIBLE",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_ELIGIBLE = "NOT_ELIGIBLE",
-  PENDING_UPDATE = "PENDING_UPDATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentStatus = {
+  COMPLETED: "COMPLETED",
+  ELIGIBLE: "ELIGIBLE",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_ELIGIBLE: "NOT_ELIGIBLE",
+  PENDING_UPDATE: "PENDING_UPDATE",
+} as const;
 
 /**
+ * @public
+ */
+export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
+
+/**
+ * @public
  * <p>The current options of an Elasticsearch domain service software options.</p>
  */
 export interface ServiceSoftwareOptions {
@@ -791,6 +885,7 @@ export interface ServiceSoftwareOptions {
 }
 
 /**
+ * @public
  * <p>The result of a <code>CancelElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  */
 export interface CancelElasticsearchServiceSoftwareUpdateResponse {
@@ -800,16 +895,35 @@ export interface CancelElasticsearchServiceSoftwareUpdateResponse {
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
 }
 
-export enum AutoTuneDesiredState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum TimeUnit {
-  HOURS = "HOURS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoTuneDesiredState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoTuneDesiredState = (typeof AutoTuneDesiredState)[keyof typeof AutoTuneDesiredState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TimeUnit = {
+  HOURS: "HOURS",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
+
+/**
+ * @public
  * <p>Specifies maintenance schedule duration: duration value and duration unit. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
  */
 export interface Duration {
@@ -825,6 +939,7 @@ export interface Duration {
 }
 
 /**
+ * @public
  * <p>Specifies Auto-Tune maitenance schedule. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
  */
 export interface AutoTuneMaintenanceSchedule {
@@ -845,6 +960,7 @@ export interface AutoTuneMaintenanceSchedule {
 }
 
 /**
+ * @public
  * <p>Specifies the Auto-Tune options: the Auto-Tune desired state for the domain and list of maintenance schedules.</p>
  */
 export interface AutoTuneOptionsInput {
@@ -860,6 +976,7 @@ export interface AutoTuneOptionsInput {
 }
 
 /**
+ * @public
  * <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
  */
 export interface CognitoOptions {
@@ -884,12 +1001,22 @@ export interface CognitoOptions {
   RoleArn?: string;
 }
 
-export enum TLSSecurityPolicy {
-  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TLSSecurityPolicy = {
+  POLICY_MIN_TLS_1_0_2019_07: "Policy-Min-TLS-1-0-2019-07",
+  POLICY_MIN_TLS_1_2_2019_07: "Policy-Min-TLS-1-2-2019-07",
+} as const;
 
 /**
+ * @public
+ */
+export type TLSSecurityPolicy = (typeof TLSSecurityPolicy)[keyof typeof TLSSecurityPolicy];
+
+/**
+ * @public
  * <p>Options to configure endpoint for the Elasticsearch domain.</p>
  */
 export interface DomainEndpointOptions {
@@ -925,14 +1052,24 @@ export interface DomainEndpointOptions {
   CustomEndpointCertificateArn?: string;
 }
 
-export enum VolumeType {
-  gp2 = "gp2",
-  gp3 = "gp3",
-  io1 = "io1",
-  standard = "standard",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VolumeType = {
+  gp2: "gp2",
+  gp3: "gp3",
+  io1: "io1",
+  standard: "standard",
+} as const;
 
 /**
+ * @public
+ */
+export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
+
+/**
+ * @public
  * <p>Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.</p>
  */
 export interface EBSOptions {
@@ -963,6 +1100,7 @@ export interface EBSOptions {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration for cold storage options such as enabled</p>
  */
 export interface ColdStorageOptions {
@@ -972,73 +1110,93 @@ export interface ColdStorageOptions {
   Enabled: boolean | undefined;
 }
 
-export enum ESPartitionInstanceType {
-  c4_2xlarge_elasticsearch = "c4.2xlarge.elasticsearch",
-  c4_4xlarge_elasticsearch = "c4.4xlarge.elasticsearch",
-  c4_8xlarge_elasticsearch = "c4.8xlarge.elasticsearch",
-  c4_large_elasticsearch = "c4.large.elasticsearch",
-  c4_xlarge_elasticsearch = "c4.xlarge.elasticsearch",
-  c5_18xlarge_elasticsearch = "c5.18xlarge.elasticsearch",
-  c5_2xlarge_elasticsearch = "c5.2xlarge.elasticsearch",
-  c5_4xlarge_elasticsearch = "c5.4xlarge.elasticsearch",
-  c5_9xlarge_elasticsearch = "c5.9xlarge.elasticsearch",
-  c5_large_elasticsearch = "c5.large.elasticsearch",
-  c5_xlarge_elasticsearch = "c5.xlarge.elasticsearch",
-  d2_2xlarge_elasticsearch = "d2.2xlarge.elasticsearch",
-  d2_4xlarge_elasticsearch = "d2.4xlarge.elasticsearch",
-  d2_8xlarge_elasticsearch = "d2.8xlarge.elasticsearch",
-  d2_xlarge_elasticsearch = "d2.xlarge.elasticsearch",
-  i2_2xlarge_elasticsearch = "i2.2xlarge.elasticsearch",
-  i2_xlarge_elasticsearch = "i2.xlarge.elasticsearch",
-  i3_16xlarge_elasticsearch = "i3.16xlarge.elasticsearch",
-  i3_2xlarge_elasticsearch = "i3.2xlarge.elasticsearch",
-  i3_4xlarge_elasticsearch = "i3.4xlarge.elasticsearch",
-  i3_8xlarge_elasticsearch = "i3.8xlarge.elasticsearch",
-  i3_large_elasticsearch = "i3.large.elasticsearch",
-  i3_xlarge_elasticsearch = "i3.xlarge.elasticsearch",
-  m3_2xlarge_elasticsearch = "m3.2xlarge.elasticsearch",
-  m3_large_elasticsearch = "m3.large.elasticsearch",
-  m3_medium_elasticsearch = "m3.medium.elasticsearch",
-  m3_xlarge_elasticsearch = "m3.xlarge.elasticsearch",
-  m4_10xlarge_elasticsearch = "m4.10xlarge.elasticsearch",
-  m4_2xlarge_elasticsearch = "m4.2xlarge.elasticsearch",
-  m4_4xlarge_elasticsearch = "m4.4xlarge.elasticsearch",
-  m4_large_elasticsearch = "m4.large.elasticsearch",
-  m4_xlarge_elasticsearch = "m4.xlarge.elasticsearch",
-  m5_12xlarge_elasticsearch = "m5.12xlarge.elasticsearch",
-  m5_2xlarge_elasticsearch = "m5.2xlarge.elasticsearch",
-  m5_4xlarge_elasticsearch = "m5.4xlarge.elasticsearch",
-  m5_large_elasticsearch = "m5.large.elasticsearch",
-  m5_xlarge_elasticsearch = "m5.xlarge.elasticsearch",
-  r3_2xlarge_elasticsearch = "r3.2xlarge.elasticsearch",
-  r3_4xlarge_elasticsearch = "r3.4xlarge.elasticsearch",
-  r3_8xlarge_elasticsearch = "r3.8xlarge.elasticsearch",
-  r3_large_elasticsearch = "r3.large.elasticsearch",
-  r3_xlarge_elasticsearch = "r3.xlarge.elasticsearch",
-  r4_16xlarge_elasticsearch = "r4.16xlarge.elasticsearch",
-  r4_2xlarge_elasticsearch = "r4.2xlarge.elasticsearch",
-  r4_4xlarge_elasticsearch = "r4.4xlarge.elasticsearch",
-  r4_8xlarge_elasticsearch = "r4.8xlarge.elasticsearch",
-  r4_large_elasticsearch = "r4.large.elasticsearch",
-  r4_xlarge_elasticsearch = "r4.xlarge.elasticsearch",
-  r5_12xlarge_elasticsearch = "r5.12xlarge.elasticsearch",
-  r5_2xlarge_elasticsearch = "r5.2xlarge.elasticsearch",
-  r5_4xlarge_elasticsearch = "r5.4xlarge.elasticsearch",
-  r5_large_elasticsearch = "r5.large.elasticsearch",
-  r5_xlarge_elasticsearch = "r5.xlarge.elasticsearch",
-  t2_medium_elasticsearch = "t2.medium.elasticsearch",
-  t2_micro_elasticsearch = "t2.micro.elasticsearch",
-  t2_small_elasticsearch = "t2.small.elasticsearch",
-  ultrawarm1_large_elasticsearch = "ultrawarm1.large.elasticsearch",
-  ultrawarm1_medium_elasticsearch = "ultrawarm1.medium.elasticsearch",
-}
-
-export enum ESWarmPartitionInstanceType {
-  ultrawarm1_large_elasticsearch = "ultrawarm1.large.elasticsearch",
-  ultrawarm1_medium_elasticsearch = "ultrawarm1.medium.elasticsearch",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ESPartitionInstanceType = {
+  c4_2xlarge_elasticsearch: "c4.2xlarge.elasticsearch",
+  c4_4xlarge_elasticsearch: "c4.4xlarge.elasticsearch",
+  c4_8xlarge_elasticsearch: "c4.8xlarge.elasticsearch",
+  c4_large_elasticsearch: "c4.large.elasticsearch",
+  c4_xlarge_elasticsearch: "c4.xlarge.elasticsearch",
+  c5_18xlarge_elasticsearch: "c5.18xlarge.elasticsearch",
+  c5_2xlarge_elasticsearch: "c5.2xlarge.elasticsearch",
+  c5_4xlarge_elasticsearch: "c5.4xlarge.elasticsearch",
+  c5_9xlarge_elasticsearch: "c5.9xlarge.elasticsearch",
+  c5_large_elasticsearch: "c5.large.elasticsearch",
+  c5_xlarge_elasticsearch: "c5.xlarge.elasticsearch",
+  d2_2xlarge_elasticsearch: "d2.2xlarge.elasticsearch",
+  d2_4xlarge_elasticsearch: "d2.4xlarge.elasticsearch",
+  d2_8xlarge_elasticsearch: "d2.8xlarge.elasticsearch",
+  d2_xlarge_elasticsearch: "d2.xlarge.elasticsearch",
+  i2_2xlarge_elasticsearch: "i2.2xlarge.elasticsearch",
+  i2_xlarge_elasticsearch: "i2.xlarge.elasticsearch",
+  i3_16xlarge_elasticsearch: "i3.16xlarge.elasticsearch",
+  i3_2xlarge_elasticsearch: "i3.2xlarge.elasticsearch",
+  i3_4xlarge_elasticsearch: "i3.4xlarge.elasticsearch",
+  i3_8xlarge_elasticsearch: "i3.8xlarge.elasticsearch",
+  i3_large_elasticsearch: "i3.large.elasticsearch",
+  i3_xlarge_elasticsearch: "i3.xlarge.elasticsearch",
+  m3_2xlarge_elasticsearch: "m3.2xlarge.elasticsearch",
+  m3_large_elasticsearch: "m3.large.elasticsearch",
+  m3_medium_elasticsearch: "m3.medium.elasticsearch",
+  m3_xlarge_elasticsearch: "m3.xlarge.elasticsearch",
+  m4_10xlarge_elasticsearch: "m4.10xlarge.elasticsearch",
+  m4_2xlarge_elasticsearch: "m4.2xlarge.elasticsearch",
+  m4_4xlarge_elasticsearch: "m4.4xlarge.elasticsearch",
+  m4_large_elasticsearch: "m4.large.elasticsearch",
+  m4_xlarge_elasticsearch: "m4.xlarge.elasticsearch",
+  m5_12xlarge_elasticsearch: "m5.12xlarge.elasticsearch",
+  m5_2xlarge_elasticsearch: "m5.2xlarge.elasticsearch",
+  m5_4xlarge_elasticsearch: "m5.4xlarge.elasticsearch",
+  m5_large_elasticsearch: "m5.large.elasticsearch",
+  m5_xlarge_elasticsearch: "m5.xlarge.elasticsearch",
+  r3_2xlarge_elasticsearch: "r3.2xlarge.elasticsearch",
+  r3_4xlarge_elasticsearch: "r3.4xlarge.elasticsearch",
+  r3_8xlarge_elasticsearch: "r3.8xlarge.elasticsearch",
+  r3_large_elasticsearch: "r3.large.elasticsearch",
+  r3_xlarge_elasticsearch: "r3.xlarge.elasticsearch",
+  r4_16xlarge_elasticsearch: "r4.16xlarge.elasticsearch",
+  r4_2xlarge_elasticsearch: "r4.2xlarge.elasticsearch",
+  r4_4xlarge_elasticsearch: "r4.4xlarge.elasticsearch",
+  r4_8xlarge_elasticsearch: "r4.8xlarge.elasticsearch",
+  r4_large_elasticsearch: "r4.large.elasticsearch",
+  r4_xlarge_elasticsearch: "r4.xlarge.elasticsearch",
+  r5_12xlarge_elasticsearch: "r5.12xlarge.elasticsearch",
+  r5_2xlarge_elasticsearch: "r5.2xlarge.elasticsearch",
+  r5_4xlarge_elasticsearch: "r5.4xlarge.elasticsearch",
+  r5_large_elasticsearch: "r5.large.elasticsearch",
+  r5_xlarge_elasticsearch: "r5.xlarge.elasticsearch",
+  t2_medium_elasticsearch: "t2.medium.elasticsearch",
+  t2_micro_elasticsearch: "t2.micro.elasticsearch",
+  t2_small_elasticsearch: "t2.small.elasticsearch",
+  ultrawarm1_large_elasticsearch: "ultrawarm1.large.elasticsearch",
+  ultrawarm1_medium_elasticsearch: "ultrawarm1.medium.elasticsearch",
+} as const;
 
 /**
+ * @public
+ */
+export type ESPartitionInstanceType = (typeof ESPartitionInstanceType)[keyof typeof ESPartitionInstanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ESWarmPartitionInstanceType = {
+  ultrawarm1_large_elasticsearch: "ultrawarm1.large.elasticsearch",
+  ultrawarm1_medium_elasticsearch: "ultrawarm1.medium.elasticsearch",
+} as const;
+
+/**
+ * @public
+ */
+export type ESWarmPartitionInstanceType =
+  (typeof ESWarmPartitionInstanceType)[keyof typeof ESWarmPartitionInstanceType];
+
+/**
+ * @public
  * <p>Specifies the zone awareness configuration for the domain cluster, such as the number of availability zones.</p>
  */
 export interface ZoneAwarenessConfig {
@@ -1049,6 +1207,7 @@ export interface ZoneAwarenessConfig {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration for the domain cluster, such as the type and number of instances.</p>
  */
 export interface ElasticsearchClusterConfig {
@@ -1109,6 +1268,7 @@ export interface ElasticsearchClusterConfig {
 }
 
 /**
+ * @public
  * <p>Specifies the Encryption At Rest Options.</p>
  */
 export interface EncryptionAtRestOptions {
@@ -1123,14 +1283,24 @@ export interface EncryptionAtRestOptions {
   KmsKeyId?: string;
 }
 
-export enum LogType {
-  AUDIT_LOGS = "AUDIT_LOGS",
-  ES_APPLICATION_LOGS = "ES_APPLICATION_LOGS",
-  INDEX_SLOW_LOGS = "INDEX_SLOW_LOGS",
-  SEARCH_SLOW_LOGS = "SEARCH_SLOW_LOGS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LogType = {
+  AUDIT_LOGS: "AUDIT_LOGS",
+  ES_APPLICATION_LOGS: "ES_APPLICATION_LOGS",
+  INDEX_SLOW_LOGS: "INDEX_SLOW_LOGS",
+  SEARCH_SLOW_LOGS: "SEARCH_SLOW_LOGS",
+} as const;
 
 /**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
+
+/**
+ * @public
  * <p>Log Publishing option that is set for given domain.
  *        <br></br>Attributes and their details:
  *      <ul>
@@ -1152,6 +1322,7 @@ export interface LogPublishingOption {
 }
 
 /**
+ * @public
  * <p>Specifies the node-to-node encryption options.</p>
  */
 export interface NodeToNodeEncryptionOptions {
@@ -1162,6 +1333,7 @@ export interface NodeToNodeEncryptionOptions {
 }
 
 /**
+ * @public
  * <p>Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.</p>
  */
 export interface SnapshotOptions {
@@ -1172,6 +1344,7 @@ export interface SnapshotOptions {
 }
 
 /**
+ * @public
  * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
  */
 export interface VPCOptions {
@@ -1186,6 +1359,9 @@ export interface VPCOptions {
   SecurityGroupIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateElasticsearchDomainRequest {
   /**
    * <p>The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
@@ -1270,19 +1446,29 @@ export interface CreateElasticsearchDomainRequest {
   TagList?: Tag[];
 }
 
-export enum AutoTuneState {
-  DISABLED = "DISABLED",
-  DISABLED_AND_ROLLBACK_COMPLETE = "DISABLED_AND_ROLLBACK_COMPLETE",
-  DISABLED_AND_ROLLBACK_ERROR = "DISABLED_AND_ROLLBACK_ERROR",
-  DISABLED_AND_ROLLBACK_IN_PROGRESS = "DISABLED_AND_ROLLBACK_IN_PROGRESS",
-  DISABLED_AND_ROLLBACK_SCHEDULED = "DISABLED_AND_ROLLBACK_SCHEDULED",
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
-  ERROR = "ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoTuneState = {
+  DISABLED: "DISABLED",
+  DISABLED_AND_ROLLBACK_COMPLETE: "DISABLED_AND_ROLLBACK_COMPLETE",
+  DISABLED_AND_ROLLBACK_ERROR: "DISABLED_AND_ROLLBACK_ERROR",
+  DISABLED_AND_ROLLBACK_IN_PROGRESS: "DISABLED_AND_ROLLBACK_IN_PROGRESS",
+  DISABLED_AND_ROLLBACK_SCHEDULED: "DISABLED_AND_ROLLBACK_SCHEDULED",
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
+  ERROR: "ERROR",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoTuneState = (typeof AutoTuneState)[keyof typeof AutoTuneState];
+
+/**
+ * @public
  * <p>Specifies the Auto-Tune options: the Auto-Tune desired state for the domain and list of maintenance schedules.</p>
  */
 export interface AutoTuneOptionsOutput {
@@ -1298,6 +1484,7 @@ export interface AutoTuneOptionsOutput {
 }
 
 /**
+ * @public
  * <p>Specifies change details of the domain configuration change.</p>
  */
 export interface ChangeProgressDetails {
@@ -1313,6 +1500,7 @@ export interface ChangeProgressDetails {
 }
 
 /**
+ * @public
  * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
  */
 export interface VPCDerivedInfo {
@@ -1338,6 +1526,7 @@ export interface VPCDerivedInfo {
 }
 
 /**
+ * @public
  * <p>The current status of an Elasticsearch domain.</p>
  */
 export interface ElasticsearchDomainStatus {
@@ -1464,6 +1653,7 @@ export interface ElasticsearchDomainStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code>CreateElasticsearchDomain</code> operation. Contains the status of the newly created Elasticsearch domain.</p>
  */
 export interface CreateElasticsearchDomainResponse {
@@ -1474,6 +1664,7 @@ export interface CreateElasticsearchDomainResponse {
 }
 
 /**
+ * @public
  * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
  */
 export class InvalidTypeException extends __BaseException {
@@ -1493,6 +1684,7 @@ export class InvalidTypeException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -1512,6 +1704,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>CreateOutboundCrossClusterSearchConnection</a></code> operation.</p>
  */
 export interface CreateOutboundCrossClusterSearchConnectionRequest {
@@ -1531,18 +1724,29 @@ export interface CreateOutboundCrossClusterSearchConnectionRequest {
   ConnectionAlias: string | undefined;
 }
 
-export enum OutboundCrossClusterSearchConnectionStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE",
-  PROVISIONING = "PROVISIONING",
-  REJECTED = "REJECTED",
-  VALIDATING = "VALIDATING",
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OutboundCrossClusterSearchConnectionStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
+  PROVISIONING: "PROVISIONING",
+  REJECTED: "REJECTED",
+  VALIDATING: "VALIDATING",
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type OutboundCrossClusterSearchConnectionStatusCode =
+  (typeof OutboundCrossClusterSearchConnectionStatusCode)[keyof typeof OutboundCrossClusterSearchConnectionStatusCode];
+
+/**
+ * @public
  * <p>Specifies the connection status of an outbound cross-cluster search connection.</p>
  */
 export interface OutboundCrossClusterSearchConnectionStatus {
@@ -1568,6 +1772,7 @@ export interface OutboundCrossClusterSearchConnectionStatus {
 }
 
 /**
+ * @public
  * <p>The result of a <code><a>CreateOutboundCrossClusterSearchConnection</a></code> request. Contains the details of the newly created cross-cluster search connection.</p>
  */
 export interface CreateOutboundCrossClusterSearchConnectionResponse {
@@ -1598,6 +1803,7 @@ export interface CreateOutboundCrossClusterSearchConnectionResponse {
 }
 
 /**
+ * @public
  * <p>The S3 location for importing the package specified as <code>S3BucketName</code> and <code>S3Key</code></p>
  */
 export interface PackageSource {
@@ -1613,6 +1819,7 @@ export interface PackageSource {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -1643,18 +1850,28 @@ export interface CreatePackageRequest {
   PackageSource: PackageSource | undefined;
 }
 
-export enum PackageStatus {
-  AVAILABLE = "AVAILABLE",
-  COPYING = "COPYING",
-  COPY_FAILED = "COPY_FAILED",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  VALIDATING = "VALIDATING",
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PackageStatus = {
+  AVAILABLE: "AVAILABLE",
+  COPYING: "COPYING",
+  COPY_FAILED: "COPY_FAILED",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  VALIDATING: "VALIDATING",
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+} as const;
 
 /**
+ * @public
+ */
+export type PackageStatus = (typeof PackageStatus)[keyof typeof PackageStatus];
+
+/**
+ * @public
  * <p>Basic information about a package.</p>
  */
 export interface PackageDetails {
@@ -1697,6 +1914,7 @@ export interface PackageDetails {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response returned by
  *       <code>
@@ -1713,6 +1931,7 @@ export interface CreatePackageResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>CreateVpcEndpointRequest</a></code> operation.</p>
  */
 export interface CreateVpcEndpointRequest {
@@ -1732,17 +1951,27 @@ export interface CreateVpcEndpointRequest {
   ClientToken?: string;
 }
 
-export enum VpcEndpointStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VpcEndpointStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type VpcEndpointStatus = (typeof VpcEndpointStatus)[keyof typeof VpcEndpointStatus];
+
+/**
+ * @public
  * <p>The connection endpoint for connecting to an Amazon OpenSearch Service domain through a
  *    proxy.</p>
  */
@@ -1780,6 +2009,7 @@ export interface VpcEndpoint {
 }
 
 /**
+ * @public
  * <p>Container for response parameters to the <code><a>CreateVpcEndpoint</a></code> operation. Contains the configuration and status of the VPC Endpoint being created.</p>
  */
 export interface CreateVpcEndpointResponse {
@@ -1790,6 +2020,7 @@ export interface CreateVpcEndpointResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DeleteElasticsearchDomain</a></code> operation. Specifies the name of the Elasticsearch domain that you want to delete.</p>
  */
 export interface DeleteElasticsearchDomainRequest {
@@ -1800,6 +2031,7 @@ export interface DeleteElasticsearchDomainRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DeleteElasticsearchDomain</code> request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.</p>
  */
 export interface DeleteElasticsearchDomainResponse {
@@ -1810,6 +2042,7 @@ export interface DeleteElasticsearchDomainResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DeleteInboundCrossClusterSearchConnection</a></code> operation.</p>
  */
 export interface DeleteInboundCrossClusterSearchConnectionRequest {
@@ -1820,6 +2053,7 @@ export interface DeleteInboundCrossClusterSearchConnectionRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code><a>DeleteInboundCrossClusterSearchConnection</a></code> operation. Contains details of deleted inbound connection.</p>
  */
 export interface DeleteInboundCrossClusterSearchConnectionResponse {
@@ -1830,6 +2064,7 @@ export interface DeleteInboundCrossClusterSearchConnectionResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DeleteOutboundCrossClusterSearchConnection</a></code> operation.</p>
  */
 export interface DeleteOutboundCrossClusterSearchConnectionRequest {
@@ -1840,6 +2075,7 @@ export interface DeleteOutboundCrossClusterSearchConnectionRequest {
 }
 
 /**
+ * @public
  * <p>Specifies details of an outbound connection.</p>
  */
 export interface OutboundCrossClusterSearchConnection {
@@ -1870,6 +2106,7 @@ export interface OutboundCrossClusterSearchConnection {
 }
 
 /**
+ * @public
  * <p>The result of a <code><a>DeleteOutboundCrossClusterSearchConnection</a></code> operation. Contains details of deleted outbound connection.</p>
  */
 export interface DeleteOutboundCrossClusterSearchConnectionResponse {
@@ -1880,6 +2117,7 @@ export interface DeleteOutboundCrossClusterSearchConnectionResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -1896,6 +2134,7 @@ export interface DeletePackageRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response parameters to
  *       <code>
@@ -1912,6 +2151,7 @@ export interface DeletePackageResponse {
 }
 
 /**
+ * @public
  * <p>Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
  */
 export interface DeleteVpcEndpointRequest {
@@ -1922,6 +2162,7 @@ export interface DeleteVpcEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for an Amazon OpenSearch Service-managed VPC endpoint.</p>
  */
 export interface VpcEndpointSummary {
@@ -1947,6 +2188,7 @@ export interface VpcEndpointSummary {
 }
 
 /**
+ * @public
  * <p>Container for response parameters to the <code><a>DeleteVpcEndpoint</a></code> operation. Contains the summarized detail of the VPC Endpoint being deleted.</p>
  */
 export interface DeleteVpcEndpointResponse {
@@ -1958,6 +2200,7 @@ export interface DeleteVpcEndpointResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DescribeDomainAutoTunes</code> operation.</p>
  */
 export interface DescribeDomainAutoTunesRequest {
@@ -1977,18 +2220,39 @@ export interface DescribeDomainAutoTunesRequest {
   NextToken?: string;
 }
 
-export enum ScheduledAutoTuneActionType {
-  JVM_HEAP_SIZE_TUNING = "JVM_HEAP_SIZE_TUNING",
-  JVM_YOUNG_GEN_TUNING = "JVM_YOUNG_GEN_TUNING",
-}
-
-export enum ScheduledAutoTuneSeverityType {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledAutoTuneActionType = {
+  JVM_HEAP_SIZE_TUNING: "JVM_HEAP_SIZE_TUNING",
+  JVM_YOUNG_GEN_TUNING: "JVM_YOUNG_GEN_TUNING",
+} as const;
 
 /**
+ * @public
+ */
+export type ScheduledAutoTuneActionType =
+  (typeof ScheduledAutoTuneActionType)[keyof typeof ScheduledAutoTuneActionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledAutoTuneSeverityType = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledAutoTuneSeverityType =
+  (typeof ScheduledAutoTuneSeverityType)[keyof typeof ScheduledAutoTuneSeverityType];
+
+/**
+ * @public
  * <p>Specifies details of the scheduled Auto-Tune action. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
  */
 export interface ScheduledAutoTuneDetails {
@@ -2014,6 +2278,7 @@ export interface ScheduledAutoTuneDetails {
 }
 
 /**
+ * @public
  * <p>Specifies details of the Auto-Tune action. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
  */
 export interface AutoTuneDetails {
@@ -2023,11 +2288,21 @@ export interface AutoTuneDetails {
   ScheduledAutoTuneDetails?: ScheduledAutoTuneDetails;
 }
 
-export enum AutoTuneType {
-  SCHEDULED_ACTION = "SCHEDULED_ACTION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoTuneType = {
+  SCHEDULED_ACTION: "SCHEDULED_ACTION",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoTuneType = (typeof AutoTuneType)[keyof typeof AutoTuneType];
+
+/**
+ * @public
  * <p>Specifies Auto-Tune type and Auto-Tune action details. </p>
  */
 export interface AutoTune {
@@ -2043,6 +2318,7 @@ export interface AutoTune {
 }
 
 /**
+ * @public
  * <p>The result of <code>DescribeDomainAutoTunes</code> request. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
  */
 export interface DescribeDomainAutoTunesResponse {
@@ -2058,6 +2334,7 @@ export interface DescribeDomainAutoTunesResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code>DescribeDomainChangeProgress</code> operation. Specifies the
  *         domain name and optional change specific identity for which you want progress information.
  *       </p>
@@ -2077,6 +2354,7 @@ export interface DescribeDomainChangeProgressRequest {
 }
 
 /**
+ * @public
  * <p>A progress stage details of a specific domain configuration change.</p>
  */
 export interface ChangeProgressStage {
@@ -2101,14 +2379,24 @@ export interface ChangeProgressStage {
   LastUpdated?: Date;
 }
 
-export enum OverallChangeStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PROCESSING = "PROCESSING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OverallChangeStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  PROCESSING: "PROCESSING",
+} as const;
 
 /**
+ * @public
+ */
+export type OverallChangeStatus = (typeof OverallChangeStatus)[keyof typeof OverallChangeStatus];
+
+/**
+ * @public
  * <p>The progress details of a specific domain configuration change.</p>
  */
 export interface ChangeProgressStatusDetails {
@@ -2149,6 +2437,7 @@ export interface ChangeProgressStatusDetails {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeDomainChangeProgress</code> request. Contains the progress information of
  *         the requested domain change.
  *       </p>
@@ -2162,6 +2451,7 @@ export interface DescribeDomainChangeProgressResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeElasticsearchDomain</a></code> operation.</p>
  */
 export interface DescribeElasticsearchDomainRequest {
@@ -2172,6 +2462,7 @@ export interface DescribeElasticsearchDomainRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeElasticsearchDomain</code> request. Contains the status of the domain specified in the request.</p>
  */
 export interface DescribeElasticsearchDomainResponse {
@@ -2182,6 +2473,7 @@ export interface DescribeElasticsearchDomainResponse {
 }
 
 /**
+ * @public
  * <p> Container for the parameters to the <code>DescribeElasticsearchDomainConfig</code> operation. Specifies the domain name for which you want configuration information.</p>
  */
 export interface DescribeElasticsearchDomainConfigRequest {
@@ -2191,12 +2483,22 @@ export interface DescribeElasticsearchDomainConfigRequest {
   DomainName: string | undefined;
 }
 
-export enum RollbackOnDisable {
-  DEFAULT_ROLLBACK = "DEFAULT_ROLLBACK",
-  NO_ROLLBACK = "NO_ROLLBACK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RollbackOnDisable = {
+  DEFAULT_ROLLBACK: "DEFAULT_ROLLBACK",
+  NO_ROLLBACK: "NO_ROLLBACK",
+} as const;
 
 /**
+ * @public
+ */
+export type RollbackOnDisable = (typeof RollbackOnDisable)[keyof typeof RollbackOnDisable];
+
+/**
+ * @public
  * <p>Specifies the Auto-Tune options: the Auto-Tune desired state for the domain, rollback state when disabling Auto-Tune options and list of maintenance schedules.</p>
  */
 export interface AutoTuneOptions {
@@ -2217,6 +2519,7 @@ export interface AutoTuneOptions {
 }
 
 /**
+ * @public
  * <p>Provides the current status of the Auto-Tune options. </p>
  */
 export interface AutoTuneStatus {
@@ -2252,6 +2555,7 @@ export interface AutoTuneStatus {
 }
 
 /**
+ * @public
  * <p> Specifies the status of Auto-Tune options for the specified Elasticsearch domain.</p>
  */
 export interface AutoTuneOptionsStatus {
@@ -2267,6 +2571,7 @@ export interface AutoTuneOptionsStatus {
 }
 
 /**
+ * @public
  * <p>Status of the Cognito options for the specified Elasticsearch domain.</p>
  */
 export interface CognitoOptionsStatus {
@@ -2282,6 +2587,7 @@ export interface CognitoOptionsStatus {
 }
 
 /**
+ * @public
  * <p>The configured endpoint options for the domain and their current status.</p>
  */
 export interface DomainEndpointOptionsStatus {
@@ -2297,6 +2603,7 @@ export interface DomainEndpointOptionsStatus {
 }
 
 /**
+ * @public
  * <p> Status of the EBS options for the specified Elasticsearch domain.</p>
  */
 export interface EBSOptionsStatus {
@@ -2312,6 +2619,7 @@ export interface EBSOptionsStatus {
 }
 
 /**
+ * @public
  * <p> Specifies the configuration status for the specified Elasticsearch domain.</p>
  */
 export interface ElasticsearchClusterConfigStatus {
@@ -2327,6 +2635,7 @@ export interface ElasticsearchClusterConfigStatus {
 }
 
 /**
+ * @public
  * <p> Status of the Elasticsearch version options for the specified Elasticsearch domain.</p>
  */
 export interface ElasticsearchVersionStatus {
@@ -2342,6 +2651,7 @@ export interface ElasticsearchVersionStatus {
 }
 
 /**
+ * @public
  * <p> Status of the Encryption At Rest options for the specified Elasticsearch domain.</p>
  */
 export interface EncryptionAtRestOptionsStatus {
@@ -2357,6 +2667,7 @@ export interface EncryptionAtRestOptionsStatus {
 }
 
 /**
+ * @public
  * <p>The configured log publishing options for the domain and their current status.</p>
  */
 export interface LogPublishingOptionsStatus {
@@ -2372,6 +2683,7 @@ export interface LogPublishingOptionsStatus {
 }
 
 /**
+ * @public
  * <p>Status of the node-to-node encryption options for the specified Elasticsearch domain.</p>
  */
 export interface NodeToNodeEncryptionOptionsStatus {
@@ -2387,6 +2699,7 @@ export interface NodeToNodeEncryptionOptionsStatus {
 }
 
 /**
+ * @public
  * <p>Status of a daily automated snapshot.</p>
  */
 export interface SnapshotOptionsStatus {
@@ -2402,6 +2715,7 @@ export interface SnapshotOptionsStatus {
 }
 
 /**
+ * @public
  * <p> Status of the VPC options for the specified Elasticsearch domain.</p>
  */
 export interface VPCDerivedInfoStatus {
@@ -2417,6 +2731,7 @@ export interface VPCDerivedInfoStatus {
 }
 
 /**
+ * @public
  * <p>The configuration of an Elasticsearch domain.</p>
  */
 export interface ElasticsearchDomainConfig {
@@ -2497,6 +2812,7 @@ export interface ElasticsearchDomainConfig {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeElasticsearchDomainConfig</code> request. Contains the configuration information of the requested domain.</p>
  */
 export interface DescribeElasticsearchDomainConfigResponse {
@@ -2507,6 +2823,7 @@ export interface DescribeElasticsearchDomainConfigResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeElasticsearchDomains</a></code> operation. By default, the API returns the status of all Elasticsearch domains.</p>
  */
 export interface DescribeElasticsearchDomainsRequest {
@@ -2517,6 +2834,7 @@ export interface DescribeElasticsearchDomainsRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>DescribeElasticsearchDomains</code> request. Contains the status of the specified domains or all domains owned by the account.</p>
  */
 export interface DescribeElasticsearchDomainsResponse {
@@ -2527,6 +2845,7 @@ export interface DescribeElasticsearchDomainsResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for the parameters to
  *       <code>
@@ -2573,6 +2892,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsRequest {
 }
 
 /**
+ * @public
  * <p>
  *       InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for
  *       given InstanceType.
@@ -2595,6 +2915,7 @@ export interface InstanceCountLimits {
 }
 
 /**
+ * @public
  * <p>InstanceLimits represents the list of instance related attributes that are available for given InstanceType.
  *     </p>
  */
@@ -2609,6 +2930,7 @@ export interface InstanceLimits {
 }
 
 /**
+ * @public
  * <p>Limits that are applicable for given storage type.
  *     </p>
  */
@@ -2652,6 +2974,7 @@ export interface StorageTypeLimit {
 }
 
 /**
+ * @public
  * <p>StorageTypes represents the list of storage related types and their attributes
  *       that are available for given InstanceType.
  *     </p>
@@ -2694,6 +3017,7 @@ export interface StorageType {
 }
 
 /**
+ * @public
  * <p>
  *       Limits for given InstanceType and for each of it's role.
  *       <br></br>
@@ -2737,6 +3061,7 @@ export interface Limits {
 }
 
 /**
+ * @public
  * <p>
  *       Container for the parameters received from
  *       <code>
@@ -2762,6 +3087,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsResponse {
 }
 
 /**
+ * @public
  * <p>
  *       A filter used to limit results when describing inbound or outbound cross-cluster search connections.
  *       Multiple values can be specified per filter.
@@ -2786,6 +3112,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeInboundCrossClusterSearchConnections</a></code> operation.</p>
  */
 export interface DescribeInboundCrossClusterSearchConnectionsRequest {
@@ -2816,6 +3143,7 @@ export interface DescribeInboundCrossClusterSearchConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code><a>DescribeInboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>
  */
 export interface DescribeInboundCrossClusterSearchConnectionsResponse {
@@ -2832,6 +3160,7 @@ export interface DescribeInboundCrossClusterSearchConnectionsResponse {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400. </p>
  */
 export class InvalidPaginationTokenException extends __BaseException {
@@ -2851,6 +3180,7 @@ export class InvalidPaginationTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> operation.</p>
  */
 export interface DescribeOutboundCrossClusterSearchConnectionsRequest {
@@ -2881,6 +3211,7 @@ export interface DescribeOutboundCrossClusterSearchConnectionsRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>
  */
 export interface DescribeOutboundCrossClusterSearchConnectionsResponse {
@@ -2896,13 +3227,23 @@ export interface DescribeOutboundCrossClusterSearchConnectionsResponse {
   NextToken?: string;
 }
 
-export enum DescribePackagesFilterName {
-  PackageID = "PackageID",
-  PackageName = "PackageName",
-  PackageStatus = "PackageStatus",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DescribePackagesFilterName = {
+  PackageID: "PackageID",
+  PackageName: "PackageName",
+  PackageStatus: "PackageStatus",
+} as const;
 
 /**
+ * @public
+ */
+export type DescribePackagesFilterName = (typeof DescribePackagesFilterName)[keyof typeof DescribePackagesFilterName];
+
+/**
+ * @public
  * <p>Filter to apply in <code>DescribePackage</code> response.</p>
  */
 export interface DescribePackagesFilter {
@@ -2918,6 +3259,7 @@ export interface DescribePackagesFilter {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -2944,6 +3286,7 @@ export interface DescribePackagesRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response returned by
  *       <code>
@@ -2962,6 +3305,7 @@ export interface DescribePackagesResponse {
 }
 
 /**
+ * @public
  * <p>Container for parameters to <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
  */
 export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
@@ -2982,13 +3326,24 @@ export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
   NextToken?: string;
 }
 
-export enum ReservedElasticsearchInstancePaymentOption {
-  ALL_UPFRONT = "ALL_UPFRONT",
-  NO_UPFRONT = "NO_UPFRONT",
-  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReservedElasticsearchInstancePaymentOption = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  NO_UPFRONT: "NO_UPFRONT",
+  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
+} as const;
 
 /**
+ * @public
+ */
+export type ReservedElasticsearchInstancePaymentOption =
+  (typeof ReservedElasticsearchInstancePaymentOption)[keyof typeof ReservedElasticsearchInstancePaymentOption];
+
+/**
+ * @public
  * <p>Contains the specific price and frequency of a recurring charges for a reserved Elasticsearch instance, or for a reserved Elasticsearch instance offering.</p>
  */
 export interface RecurringCharge {
@@ -3004,6 +3359,7 @@ export interface RecurringCharge {
 }
 
 /**
+ * @public
  * <p>Details of a reserved Elasticsearch instance offering.</p>
  */
 export interface ReservedElasticsearchInstanceOffering {
@@ -3049,6 +3405,7 @@ export interface ReservedElasticsearchInstanceOffering {
 }
 
 /**
+ * @public
  * <p>Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
  */
 export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
@@ -3064,6 +3421,7 @@ export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
 }
 
 /**
+ * @public
  * <p>Container for parameters to <code>DescribeReservedElasticsearchInstances</code></p>
  */
 export interface DescribeReservedElasticsearchInstancesRequest {
@@ -3085,6 +3443,7 @@ export interface DescribeReservedElasticsearchInstancesRequest {
 }
 
 /**
+ * @public
  * <p>Details of a reserved Elasticsearch instance.</p>
  */
 export interface ReservedElasticsearchInstance {
@@ -3155,6 +3514,7 @@ export interface ReservedElasticsearchInstance {
 }
 
 /**
+ * @public
  * <p>Container for results from <code>DescribeReservedElasticsearchInstances</code></p>
  */
 export interface DescribeReservedElasticsearchInstancesResponse {
@@ -3170,6 +3530,7 @@ export interface DescribeReservedElasticsearchInstancesResponse {
 }
 
 /**
+ * @public
  * <p>Container for request parameters to the <code><a>DescribeVpcEndpoints</a></code> operation. Specifies the list of VPC endpoints to be described.</p>
  */
 export interface DescribeVpcEndpointsRequest {
@@ -3179,12 +3540,22 @@ export interface DescribeVpcEndpointsRequest {
   VpcEndpointIds: string[] | undefined;
 }
 
-export enum VpcEndpointErrorCode {
-  ENDPOINT_NOT_FOUND = "ENDPOINT_NOT_FOUND",
-  SERVER_ERROR = "SERVER_ERROR",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VpcEndpointErrorCode = {
+  ENDPOINT_NOT_FOUND: "ENDPOINT_NOT_FOUND",
+  SERVER_ERROR: "SERVER_ERROR",
+} as const;
 
 /**
+ * @public
+ */
+export type VpcEndpointErrorCode = (typeof VpcEndpointErrorCode)[keyof typeof VpcEndpointErrorCode];
+
+/**
+ * @public
  * <p>Error information when attempting to describe an Amazon OpenSearch Service-managed VPC
  *    endpoint.</p>
  */
@@ -3206,6 +3577,7 @@ export interface VpcEndpointError {
 }
 
 /**
+ * @public
  * <p>Container for response parameters to the <code><a>DescribeVpcEndpoints</a></code> operation. Returns a list containing configuration details and
  *           status of the VPC Endpoints as well as a list containing error responses of the endpoints that could not be described</p>
  */
@@ -3222,6 +3594,7 @@ export interface DescribeVpcEndpointsResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -3243,6 +3616,7 @@ export interface DissociatePackageRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response returned by
  *       <code>
@@ -3259,6 +3633,7 @@ export interface DissociatePackageResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -3275,6 +3650,7 @@ export interface GetCompatibleElasticsearchVersionsRequest {
 }
 
 /**
+ * @public
  * <p>
  *       A map from an
  *       <code>
@@ -3301,6 +3677,7 @@ export interface CompatibleVersionsMap {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response returned by
  *       <code>
@@ -3323,6 +3700,7 @@ export interface GetCompatibleElasticsearchVersionsResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -3349,6 +3727,7 @@ export interface GetPackageVersionHistoryRequest {
 }
 
 /**
+ * @public
  * <p>Details of a package version.</p>
  */
 export interface PackageVersionHistory {
@@ -3369,6 +3748,7 @@ export interface PackageVersionHistory {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response returned by
  *       <code>
@@ -3388,6 +3768,7 @@ export interface GetPackageVersionHistoryResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -3418,20 +3799,39 @@ export interface GetUpgradeHistoryRequest {
   NextToken?: string;
 }
 
-export enum UpgradeStep {
-  PRE_UPGRADE_CHECK = "PRE_UPGRADE_CHECK",
-  SNAPSHOT = "SNAPSHOT",
-  UPGRADE = "UPGRADE",
-}
-
-export enum UpgradeStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-  SUCCEEDED_WITH_ISSUES = "SUCCEEDED_WITH_ISSUES",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UpgradeStep = {
+  PRE_UPGRADE_CHECK: "PRE_UPGRADE_CHECK",
+  SNAPSHOT: "SNAPSHOT",
+  UPGRADE: "UPGRADE",
+} as const;
 
 /**
+ * @public
+ */
+export type UpgradeStep = (typeof UpgradeStep)[keyof typeof UpgradeStep];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpgradeStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+  SUCCEEDED_WITH_ISSUES: "SUCCEEDED_WITH_ISSUES",
+} as const;
+
+/**
+ * @public
+ */
+export type UpgradeStatus = (typeof UpgradeStatus)[keyof typeof UpgradeStatus];
+
+/**
+ * @public
  * <p>Represents a single step of the Upgrade or Upgrade Eligibility Check workflow.</p>
  */
 export interface UpgradeStepItem {
@@ -3472,6 +3872,7 @@ export interface UpgradeStepItem {
 }
 
 /**
+ * @public
  * <p>History of the last 10 Upgrades and Upgrade Eligibility Checks.</p>
  */
 export interface UpgradeHistory {
@@ -3511,6 +3912,7 @@ export interface UpgradeHistory {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response returned by
  *       <code>
@@ -3542,6 +3944,7 @@ export interface GetUpgradeHistoryResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -3558,6 +3961,7 @@ export interface GetUpgradeStatusRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response returned by
  *       <code>
@@ -3602,12 +4006,22 @@ export interface GetUpgradeStatusResponse {
   UpgradeName?: string;
 }
 
-export enum EngineType {
-  Elasticsearch = "Elasticsearch",
-  OpenSearch = "OpenSearch",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EngineType = {
+  Elasticsearch: "Elasticsearch",
+  OpenSearch: "OpenSearch",
+} as const;
 
 /**
+ * @public
+ */
+export type EngineType = (typeof EngineType)[keyof typeof EngineType];
+
+/**
+ * @public
  * <p> Container for the parameters to the <code><a>ListDomainNames</a></code> operation.</p>
  */
 export interface ListDomainNamesRequest {
@@ -3617,6 +4031,9 @@ export interface ListDomainNamesRequest {
   EngineType?: EngineType | string;
 }
 
+/**
+ * @public
+ */
 export interface DomainInfo {
   /**
    * <p> Specifies the <code>DomainName</code>.</p>
@@ -3630,6 +4047,7 @@ export interface DomainInfo {
 }
 
 /**
+ * @public
  * <p>The result of a <code>ListDomainNames</code> operation. Contains the names of all domains owned by this account and their respective engine types.</p>
  */
 export interface ListDomainNamesResponse {
@@ -3640,6 +4058,7 @@ export interface ListDomainNamesResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -3666,6 +4085,7 @@ export interface ListDomainsForPackageRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response parameters to
  *       <code>
@@ -3684,6 +4104,7 @@ export interface ListDomainsForPackageResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for the parameters to the
  *       <code>
@@ -3724,6 +4145,7 @@ export interface ListElasticsearchInstanceTypesRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Container for the parameters returned by
  *       <code>
@@ -3754,6 +4176,7 @@ export interface ListElasticsearchInstanceTypesResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for the parameters to the
  *       <code>
@@ -3797,6 +4220,7 @@ export interface ListElasticsearchVersionsRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Container for the parameters for response received from
  *       <code>
@@ -3822,6 +4246,7 @@ export interface ListElasticsearchVersionsResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -3848,6 +4273,7 @@ export interface ListPackagesForDomainRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response parameters to
  *       <code>
@@ -3869,6 +4295,7 @@ export interface ListPackagesForDomainResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>ListTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view are attached.</p>
  */
 export interface ListTagsRequest {
@@ -3879,6 +4306,7 @@ export interface ListTagsRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>ListTags</code> operation. Contains tags for all requested Elasticsearch domains.</p>
  */
 export interface ListTagsResponse {
@@ -3889,6 +4317,7 @@ export interface ListTagsResponse {
 }
 
 /**
+ * @public
  * <p>Retrieves information about each principal that is allowed to access a
  *    given Amazon OpenSearch Service domain through the use of an interface VPC endpoint</p>
  */
@@ -3905,6 +4334,7 @@ export interface ListVpcEndpointAccessRequest {
 }
 
 /**
+ * @public
  * <p>Container for response parameters to the <code><a>ListVpcEndpointAccess</a></code> operation.
  *           Returns a list of accounts id and account type authorized to manage VPC endpoints.</p>
  */
@@ -3921,6 +4351,7 @@ export interface ListVpcEndpointAccessResponse {
 }
 
 /**
+ * @public
  * <p>Container for request parameters to the <code><a>ListVpcEndpoints</a></code> operation.</p>
  */
 export interface ListVpcEndpointsRequest {
@@ -3931,6 +4362,7 @@ export interface ListVpcEndpointsRequest {
 }
 
 /**
+ * @public
  * <p>Container for response parameters to the <code><a>ListVpcEndpoints</a></code> operation. Returns a list containing summarized details of the VPC endpoints.</p>
  */
 export interface ListVpcEndpointsResponse {
@@ -3946,6 +4378,7 @@ export interface ListVpcEndpointsResponse {
 }
 
 /**
+ * @public
  * <p>Container for request parameters to the <code><a>ListVpcEndpointsForDomain</a></code> operation. Specifies the domain whose VPC endpoints will be listed.</p>
  */
 export interface ListVpcEndpointsForDomainRequest {
@@ -3961,6 +4394,7 @@ export interface ListVpcEndpointsForDomainRequest {
 }
 
 /**
+ * @public
  * <p>Container for response parameters to the <code><a>ListVpcEndpointsForDomain</a></code> operation. Returns a list containing summarized details of the VPC endpoints.</p>
  */
 export interface ListVpcEndpointsForDomainResponse {
@@ -3976,6 +4410,7 @@ export interface ListVpcEndpointsForDomainResponse {
 }
 
 /**
+ * @public
  * <p>Container for parameters to <code>PurchaseReservedElasticsearchInstanceOffering</code></p>
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
@@ -3996,6 +4431,7 @@ export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.</p>
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingResponse {
@@ -4011,6 +4447,7 @@ export interface PurchaseReservedElasticsearchInstanceOfferingResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>RejectInboundCrossClusterSearchConnection</a></code> operation.</p>
  */
 export interface RejectInboundCrossClusterSearchConnectionRequest {
@@ -4021,6 +4458,7 @@ export interface RejectInboundCrossClusterSearchConnectionRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code><a>RejectInboundCrossClusterSearchConnection</a></code> operation. Contains details of rejected inbound connection.</p>
  */
 export interface RejectInboundCrossClusterSearchConnectionResponse {
@@ -4031,6 +4469,7 @@ export interface RejectInboundCrossClusterSearchConnectionResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>RemoveTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain from which you want to remove the specified <code>TagKey</code>.</p>
  */
 export interface RemoveTagsRequest {
@@ -4046,6 +4485,7 @@ export interface RemoveTagsRequest {
 }
 
 /**
+ * @public
  * <p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface
  *    VPC endpoint.</p>
  */
@@ -4062,11 +4502,13 @@ export interface RevokeVpcEndpointAccessRequest {
 }
 
 /**
+ * @public
  * <p>Container for response parameters to the <code><a>RevokeVpcEndpointAccess</a></code> operation. The response body for this operation is empty.</p>
  */
 export interface RevokeVpcEndpointAccessResponse {}
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>StartElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to schedule a service software update on.</p>
  */
 export interface StartElasticsearchServiceSoftwareUpdateRequest {
@@ -4077,6 +4519,7 @@ export interface StartElasticsearchServiceSoftwareUpdateRequest {
 }
 
 /**
+ * @public
  * <p>The result of a <code>StartElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  */
 export interface StartElasticsearchServiceSoftwareUpdateResponse {
@@ -4087,6 +4530,7 @@ export interface StartElasticsearchServiceSoftwareUpdateResponse {
 }
 
 /**
+ * @public
  * <p>Container for the parameters to the <code><a>UpdateElasticsearchDomain</a></code> operation. Specifies the type and number of instances in the domain cluster.</p>
  */
 export interface UpdateElasticsearchDomainConfigRequest {
@@ -4171,6 +4615,9 @@ export interface UpdateElasticsearchDomainConfigRequest {
   DryRun?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DryRunResults {
   /**
    * <p>
@@ -4191,6 +4638,7 @@ export interface DryRunResults {
 }
 
 /**
+ * @public
  * <p>The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.</p>
  */
 export interface UpdateElasticsearchDomainConfigResponse {
@@ -4206,6 +4654,7 @@ export interface UpdateElasticsearchDomainConfigResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -4237,6 +4686,7 @@ export interface UpdatePackageRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response returned by
  *       <code>
@@ -4253,6 +4703,7 @@ export interface UpdatePackageResponse {
 }
 
 /**
+ * @public
  * <p>Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
  */
 export interface UpdateVpcEndpointRequest {
@@ -4268,6 +4719,7 @@ export interface UpdateVpcEndpointRequest {
 }
 
 /**
+ * @public
  * <p>Contains the configuration and status of the VPC endpoint being updated.</p>
  */
 export interface UpdateVpcEndpointResponse {
@@ -4278,6 +4730,7 @@ export interface UpdateVpcEndpointResponse {
 }
 
 /**
+ * @public
  * <p>
  *       Container for request parameters to
  *       <code>
@@ -4307,6 +4760,7 @@ export interface UpgradeElasticsearchDomainRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Container for response returned by
  *       <code>
@@ -4343,112 +4797,6 @@ export interface UpgradeElasticsearchDomainResponse {
 /**
  * @internal
  */
-export const AcceptInboundCrossClusterSearchConnectionRequestFilterSensitiveLog = (
-  obj: AcceptInboundCrossClusterSearchConnectionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InboundCrossClusterSearchConnectionStatusFilterSensitiveLog = (
-  obj: InboundCrossClusterSearchConnectionStatus
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainInformationFilterSensitiveLog = (obj: DomainInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InboundCrossClusterSearchConnectionFilterSensitiveLog = (
-  obj: InboundCrossClusterSearchConnection
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptInboundCrossClusterSearchConnectionResponseFilterSensitiveLog = (
-  obj: AcceptInboundCrossClusterSearchConnectionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OptionStatusFilterSensitiveLog = (obj: OptionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccessPoliciesStatusFilterSensitiveLog = (obj: AccessPoliciesStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdditionalLimitFilterSensitiveLog = (obj: AdditionalLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AddTagsRequestFilterSensitiveLog = (obj: AddTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdvancedOptionsStatusFilterSensitiveLog = (obj: AdvancedOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SAMLIdpFilterSensitiveLog = (obj: SAMLIdp): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SAMLOptionsOutputFilterSensitiveLog = (obj: SAMLOptionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdvancedSecurityOptionsFilterSensitiveLog = (obj: AdvancedSecurityOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const MasterUserOptionsFilterSensitiveLog = (obj: MasterUserOptions): any => ({
   ...obj,
   ...(obj.MasterUserName && { MasterUserName: SENSITIVE_STRING }),
@@ -4475,1123 +4823,11 @@ export const AdvancedSecurityOptionsInputFilterSensitiveLog = (obj: AdvancedSecu
 /**
  * @internal
  */
-export const AdvancedSecurityOptionsStatusFilterSensitiveLog = (obj: AdvancedSecurityOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatePackageRequestFilterSensitiveLog = (obj: AssociatePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorDetailsFilterSensitiveLog = (obj: ErrorDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainPackageDetailsFilterSensitiveLog = (obj: DomainPackageDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatePackageResponseFilterSensitiveLog = (obj: AssociatePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeVpcEndpointAccessRequestFilterSensitiveLog = (obj: AuthorizeVpcEndpointAccessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizedPrincipalFilterSensitiveLog = (obj: AuthorizedPrincipal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthorizeVpcEndpointAccessResponseFilterSensitiveLog = (obj: AuthorizeVpcEndpointAccessResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog = (
-  obj: CancelElasticsearchServiceSoftwareUpdateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceSoftwareOptionsFilterSensitiveLog = (obj: ServiceSoftwareOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog = (
-  obj: CancelElasticsearchServiceSoftwareUpdateResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DurationFilterSensitiveLog = (obj: Duration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneMaintenanceScheduleFilterSensitiveLog = (obj: AutoTuneMaintenanceSchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneOptionsInputFilterSensitiveLog = (obj: AutoTuneOptionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CognitoOptionsFilterSensitiveLog = (obj: CognitoOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainEndpointOptionsFilterSensitiveLog = (obj: DomainEndpointOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EBSOptionsFilterSensitiveLog = (obj: EBSOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColdStorageOptionsFilterSensitiveLog = (obj: ColdStorageOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ZoneAwarenessConfigFilterSensitiveLog = (obj: ZoneAwarenessConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchClusterConfigFilterSensitiveLog = (obj: ElasticsearchClusterConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionAtRestOptionsFilterSensitiveLog = (obj: EncryptionAtRestOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogPublishingOptionFilterSensitiveLog = (obj: LogPublishingOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeToNodeEncryptionOptionsFilterSensitiveLog = (obj: NodeToNodeEncryptionOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotOptionsFilterSensitiveLog = (obj: SnapshotOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VPCOptionsFilterSensitiveLog = (obj: VPCOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateElasticsearchDomainRequestFilterSensitiveLog = (obj: CreateElasticsearchDomainRequest): any => ({
   ...obj,
   ...(obj.AdvancedSecurityOptions && {
     AdvancedSecurityOptions: AdvancedSecurityOptionsInputFilterSensitiveLog(obj.AdvancedSecurityOptions),
   }),
-});
-
-/**
- * @internal
- */
-export const AutoTuneOptionsOutputFilterSensitiveLog = (obj: AutoTuneOptionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeProgressDetailsFilterSensitiveLog = (obj: ChangeProgressDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VPCDerivedInfoFilterSensitiveLog = (obj: VPCDerivedInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchDomainStatusFilterSensitiveLog = (obj: ElasticsearchDomainStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateElasticsearchDomainResponseFilterSensitiveLog = (obj: CreateElasticsearchDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOutboundCrossClusterSearchConnectionRequestFilterSensitiveLog = (
-  obj: CreateOutboundCrossClusterSearchConnectionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutboundCrossClusterSearchConnectionStatusFilterSensitiveLog = (
-  obj: OutboundCrossClusterSearchConnectionStatus
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateOutboundCrossClusterSearchConnectionResponseFilterSensitiveLog = (
-  obj: CreateOutboundCrossClusterSearchConnectionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageSourceFilterSensitiveLog = (obj: PackageSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackageRequestFilterSensitiveLog = (obj: CreatePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageDetailsFilterSensitiveLog = (obj: PackageDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePackageResponseFilterSensitiveLog = (obj: CreatePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcEndpointRequestFilterSensitiveLog = (obj: CreateVpcEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointFilterSensitiveLog = (obj: VpcEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVpcEndpointResponseFilterSensitiveLog = (obj: CreateVpcEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteElasticsearchDomainRequestFilterSensitiveLog = (obj: DeleteElasticsearchDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteElasticsearchDomainResponseFilterSensitiveLog = (obj: DeleteElasticsearchDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInboundCrossClusterSearchConnectionRequestFilterSensitiveLog = (
-  obj: DeleteInboundCrossClusterSearchConnectionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteInboundCrossClusterSearchConnectionResponseFilterSensitiveLog = (
-  obj: DeleteInboundCrossClusterSearchConnectionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOutboundCrossClusterSearchConnectionRequestFilterSensitiveLog = (
-  obj: DeleteOutboundCrossClusterSearchConnectionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutboundCrossClusterSearchConnectionFilterSensitiveLog = (
-  obj: OutboundCrossClusterSearchConnection
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteOutboundCrossClusterSearchConnectionResponseFilterSensitiveLog = (
-  obj: DeleteOutboundCrossClusterSearchConnectionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackageRequestFilterSensitiveLog = (obj: DeletePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePackageResponseFilterSensitiveLog = (obj: DeletePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointRequestFilterSensitiveLog = (obj: DeleteVpcEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointSummaryFilterSensitiveLog = (obj: VpcEndpointSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointResponseFilterSensitiveLog = (obj: DeleteVpcEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainAutoTunesRequestFilterSensitiveLog = (obj: DescribeDomainAutoTunesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledAutoTuneDetailsFilterSensitiveLog = (obj: ScheduledAutoTuneDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneDetailsFilterSensitiveLog = (obj: AutoTuneDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneFilterSensitiveLog = (obj: AutoTune): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainAutoTunesResponseFilterSensitiveLog = (obj: DescribeDomainAutoTunesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainChangeProgressRequestFilterSensitiveLog = (
-  obj: DescribeDomainChangeProgressRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeProgressStageFilterSensitiveLog = (obj: ChangeProgressStage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangeProgressStatusDetailsFilterSensitiveLog = (obj: ChangeProgressStatusDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainChangeProgressResponseFilterSensitiveLog = (
-  obj: DescribeDomainChangeProgressResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticsearchDomainRequestFilterSensitiveLog = (obj: DescribeElasticsearchDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticsearchDomainResponseFilterSensitiveLog = (
-  obj: DescribeElasticsearchDomainResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticsearchDomainConfigRequestFilterSensitiveLog = (
-  obj: DescribeElasticsearchDomainConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneOptionsFilterSensitiveLog = (obj: AutoTuneOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneStatusFilterSensitiveLog = (obj: AutoTuneStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AutoTuneOptionsStatusFilterSensitiveLog = (obj: AutoTuneOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CognitoOptionsStatusFilterSensitiveLog = (obj: CognitoOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainEndpointOptionsStatusFilterSensitiveLog = (obj: DomainEndpointOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EBSOptionsStatusFilterSensitiveLog = (obj: EBSOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchClusterConfigStatusFilterSensitiveLog = (obj: ElasticsearchClusterConfigStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchVersionStatusFilterSensitiveLog = (obj: ElasticsearchVersionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionAtRestOptionsStatusFilterSensitiveLog = (obj: EncryptionAtRestOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogPublishingOptionsStatusFilterSensitiveLog = (obj: LogPublishingOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeToNodeEncryptionOptionsStatusFilterSensitiveLog = (obj: NodeToNodeEncryptionOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotOptionsStatusFilterSensitiveLog = (obj: SnapshotOptionsStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VPCDerivedInfoStatusFilterSensitiveLog = (obj: VPCDerivedInfoStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchDomainConfigFilterSensitiveLog = (obj: ElasticsearchDomainConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticsearchDomainConfigResponseFilterSensitiveLog = (
-  obj: DescribeElasticsearchDomainConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticsearchDomainsRequestFilterSensitiveLog = (
-  obj: DescribeElasticsearchDomainsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticsearchDomainsResponseFilterSensitiveLog = (
-  obj: DescribeElasticsearchDomainsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticsearchInstanceTypeLimitsRequestFilterSensitiveLog = (
-  obj: DescribeElasticsearchInstanceTypeLimitsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceCountLimitsFilterSensitiveLog = (obj: InstanceCountLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceLimitsFilterSensitiveLog = (obj: InstanceLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StorageTypeLimitFilterSensitiveLog = (obj: StorageTypeLimit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StorageTypeFilterSensitiveLog = (obj: StorageType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LimitsFilterSensitiveLog = (obj: Limits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeElasticsearchInstanceTypeLimitsResponseFilterSensitiveLog = (
-  obj: DescribeElasticsearchInstanceTypeLimitsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInboundCrossClusterSearchConnectionsRequestFilterSensitiveLog = (
-  obj: DescribeInboundCrossClusterSearchConnectionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInboundCrossClusterSearchConnectionsResponseFilterSensitiveLog = (
-  obj: DescribeInboundCrossClusterSearchConnectionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOutboundCrossClusterSearchConnectionsRequestFilterSensitiveLog = (
-  obj: DescribeOutboundCrossClusterSearchConnectionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeOutboundCrossClusterSearchConnectionsResponseFilterSensitiveLog = (
-  obj: DescribeOutboundCrossClusterSearchConnectionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackagesFilterFilterSensitiveLog = (obj: DescribePackagesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackagesRequestFilterSensitiveLog = (obj: DescribePackagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePackagesResponseFilterSensitiveLog = (obj: DescribePackagesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedElasticsearchInstanceOfferingsRequestFilterSensitiveLog = (
-  obj: DescribeReservedElasticsearchInstanceOfferingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecurringChargeFilterSensitiveLog = (obj: RecurringCharge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedElasticsearchInstanceOfferingFilterSensitiveLog = (
-  obj: ReservedElasticsearchInstanceOffering
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedElasticsearchInstanceOfferingsResponseFilterSensitiveLog = (
-  obj: DescribeReservedElasticsearchInstanceOfferingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedElasticsearchInstancesRequestFilterSensitiveLog = (
-  obj: DescribeReservedElasticsearchInstancesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedElasticsearchInstanceFilterSensitiveLog = (obj: ReservedElasticsearchInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedElasticsearchInstancesResponseFilterSensitiveLog = (
-  obj: DescribeReservedElasticsearchInstancesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointsRequestFilterSensitiveLog = (obj: DescribeVpcEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcEndpointErrorFilterSensitiveLog = (obj: VpcEndpointError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVpcEndpointsResponseFilterSensitiveLog = (obj: DescribeVpcEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DissociatePackageRequestFilterSensitiveLog = (obj: DissociatePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DissociatePackageResponseFilterSensitiveLog = (obj: DissociatePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCompatibleElasticsearchVersionsRequestFilterSensitiveLog = (
-  obj: GetCompatibleElasticsearchVersionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompatibleVersionsMapFilterSensitiveLog = (obj: CompatibleVersionsMap): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCompatibleElasticsearchVersionsResponseFilterSensitiveLog = (
-  obj: GetCompatibleElasticsearchVersionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPackageVersionHistoryRequestFilterSensitiveLog = (obj: GetPackageVersionHistoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PackageVersionHistoryFilterSensitiveLog = (obj: PackageVersionHistory): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPackageVersionHistoryResponseFilterSensitiveLog = (obj: GetPackageVersionHistoryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUpgradeHistoryRequestFilterSensitiveLog = (obj: GetUpgradeHistoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpgradeStepItemFilterSensitiveLog = (obj: UpgradeStepItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpgradeHistoryFilterSensitiveLog = (obj: UpgradeHistory): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUpgradeHistoryResponseFilterSensitiveLog = (obj: GetUpgradeHistoryResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUpgradeStatusRequestFilterSensitiveLog = (obj: GetUpgradeStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUpgradeStatusResponseFilterSensitiveLog = (obj: GetUpgradeStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainNamesRequestFilterSensitiveLog = (obj: ListDomainNamesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainInfoFilterSensitiveLog = (obj: DomainInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainNamesResponseFilterSensitiveLog = (obj: ListDomainNamesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsForPackageRequestFilterSensitiveLog = (obj: ListDomainsForPackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainsForPackageResponseFilterSensitiveLog = (obj: ListDomainsForPackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListElasticsearchInstanceTypesRequestFilterSensitiveLog = (
-  obj: ListElasticsearchInstanceTypesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListElasticsearchInstanceTypesResponseFilterSensitiveLog = (
-  obj: ListElasticsearchInstanceTypesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListElasticsearchVersionsRequestFilterSensitiveLog = (obj: ListElasticsearchVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListElasticsearchVersionsResponseFilterSensitiveLog = (obj: ListElasticsearchVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagesForDomainRequestFilterSensitiveLog = (obj: ListPackagesForDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPackagesForDomainResponseFilterSensitiveLog = (obj: ListPackagesForDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointAccessRequestFilterSensitiveLog = (obj: ListVpcEndpointAccessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointAccessResponseFilterSensitiveLog = (obj: ListVpcEndpointAccessResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointsRequestFilterSensitiveLog = (obj: ListVpcEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointsResponseFilterSensitiveLog = (obj: ListVpcEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointsForDomainRequestFilterSensitiveLog = (obj: ListVpcEndpointsForDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListVpcEndpointsForDomainResponseFilterSensitiveLog = (obj: ListVpcEndpointsForDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseReservedElasticsearchInstanceOfferingRequestFilterSensitiveLog = (
-  obj: PurchaseReservedElasticsearchInstanceOfferingRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseReservedElasticsearchInstanceOfferingResponseFilterSensitiveLog = (
-  obj: PurchaseReservedElasticsearchInstanceOfferingResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectInboundCrossClusterSearchConnectionRequestFilterSensitiveLog = (
-  obj: RejectInboundCrossClusterSearchConnectionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectInboundCrossClusterSearchConnectionResponseFilterSensitiveLog = (
-  obj: RejectInboundCrossClusterSearchConnectionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RemoveTagsRequestFilterSensitiveLog = (obj: RemoveTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeVpcEndpointAccessRequestFilterSensitiveLog = (obj: RevokeVpcEndpointAccessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeVpcEndpointAccessResponseFilterSensitiveLog = (obj: RevokeVpcEndpointAccessResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog = (
-  obj: StartElasticsearchServiceSoftwareUpdateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog = (
-  obj: StartElasticsearchServiceSoftwareUpdateResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -5604,62 +4840,4 @@ export const UpdateElasticsearchDomainConfigRequestFilterSensitiveLog = (
   ...(obj.AdvancedSecurityOptions && {
     AdvancedSecurityOptions: AdvancedSecurityOptionsInputFilterSensitiveLog(obj.AdvancedSecurityOptions),
   }),
-});
-
-/**
- * @internal
- */
-export const DryRunResultsFilterSensitiveLog = (obj: DryRunResults): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateElasticsearchDomainConfigResponseFilterSensitiveLog = (
-  obj: UpdateElasticsearchDomainConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePackageRequestFilterSensitiveLog = (obj: UpdatePackageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePackageResponseFilterSensitiveLog = (obj: UpdatePackageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVpcEndpointRequestFilterSensitiveLog = (obj: UpdateVpcEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateVpcEndpointResponseFilterSensitiveLog = (obj: UpdateVpcEndpointResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpgradeElasticsearchDomainRequestFilterSensitiveLog = (obj: UpgradeElasticsearchDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpgradeElasticsearchDomainResponseFilterSensitiveLog = (obj: UpgradeElasticsearchDomainResponse): any => ({
-  ...obj,
 });

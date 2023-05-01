@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  PutIntentRequest,
-  PutIntentRequestFilterSensitiveLog,
-  PutIntentResponse,
-  PutIntentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutIntentCommand,
-  serializeAws_restJson1PutIntentCommand,
-} from "../protocols/Aws_restJson1";
+import { PutIntentRequest, PutIntentResponse } from "../models/models_0";
+import { de_PutIntentCommand, se_PutIntentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutIntentCommand}.
  */
 export interface PutIntentCommandInput extends PutIntentRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutIntentCommand}.
  */
 export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an intent or replaces an existing intent.</p>
  *          <p>To define the interaction between the user and your bot, you use
  *       one or more intents. For a pizza ordering bot, for example, you would
@@ -103,10 +100,115 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * import { LexModelBuildingServiceClient, PutIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, PutIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // PutIntentRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   slots: [ // SlotList
+ *     { // Slot
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       slotConstraint: "STRING_VALUE", // required
+ *       slotType: "STRING_VALUE",
+ *       slotTypeVersion: "STRING_VALUE",
+ *       valueElicitationPrompt: { // Prompt
+ *         messages: [ // MessageList // required
+ *           { // Message
+ *             contentType: "STRING_VALUE", // required
+ *             content: "STRING_VALUE", // required
+ *             groupNumber: Number("int"),
+ *           },
+ *         ],
+ *         maxAttempts: Number("int"), // required
+ *         responseCard: "STRING_VALUE",
+ *       },
+ *       priority: Number("int"),
+ *       sampleUtterances: [ // SlotUtteranceList
+ *         "STRING_VALUE",
+ *       ],
+ *       responseCard: "STRING_VALUE",
+ *       obfuscationSetting: "STRING_VALUE",
+ *       defaultValueSpec: { // SlotDefaultValueSpec
+ *         defaultValueList: [ // SlotDefaultValueList // required
+ *           { // SlotDefaultValue
+ *             defaultValue: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   sampleUtterances: [ // IntentUtteranceList
+ *     "STRING_VALUE",
+ *   ],
+ *   confirmationPrompt: {
+ *     messages: [ // required
+ *       {
+ *         contentType: "STRING_VALUE", // required
+ *         content: "STRING_VALUE", // required
+ *         groupNumber: Number("int"),
+ *       },
+ *     ],
+ *     maxAttempts: Number("int"), // required
+ *     responseCard: "STRING_VALUE",
+ *   },
+ *   rejectionStatement: { // Statement
+ *     messages: [ // required
+ *       {
+ *         contentType: "STRING_VALUE", // required
+ *         content: "STRING_VALUE", // required
+ *         groupNumber: Number("int"),
+ *       },
+ *     ],
+ *     responseCard: "STRING_VALUE",
+ *   },
+ *   followUpPrompt: { // FollowUpPrompt
+ *     prompt: "<Prompt>", // required
+ *     rejectionStatement: {
+ *       messages: "<MessageList>", // required
+ *       responseCard: "STRING_VALUE",
+ *     },
+ *   },
+ *   conclusionStatement: {
+ *     messages: "<MessageList>", // required
+ *     responseCard: "STRING_VALUE",
+ *   },
+ *   dialogCodeHook: { // CodeHook
+ *     uri: "STRING_VALUE", // required
+ *     messageVersion: "STRING_VALUE", // required
+ *   },
+ *   fulfillmentActivity: { // FulfillmentActivity
+ *     type: "STRING_VALUE", // required
+ *     codeHook: {
+ *       uri: "STRING_VALUE", // required
+ *       messageVersion: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   parentIntentSignature: "STRING_VALUE",
+ *   checksum: "STRING_VALUE",
+ *   createVersion: true || false,
+ *   kendraConfiguration: { // KendraConfiguration
+ *     kendraIndex: "STRING_VALUE", // required
+ *     queryFilterString: "STRING_VALUE",
+ *     role: "STRING_VALUE", // required
+ *   },
+ *   inputContexts: [ // InputContextList
+ *     { // InputContext
+ *       name: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   outputContexts: [ // OutputContextList
+ *     { // OutputContext
+ *       name: "STRING_VALUE", // required
+ *       timeToLiveInSeconds: Number("int"), // required
+ *       turnsToLive: Number("int"), // required
+ *     },
+ *   ],
+ * };
  * const command = new PutIntentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutIntentCommandInput - {@link PutIntentCommandInput}
+ * @returns {@link PutIntentCommandOutput}
  * @see {@link PutIntentCommandInput} for command's `input` shape.
  * @see {@link PutIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -422,6 +524,9 @@ export class PutIntentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutIntentCommandInput) {
     // Start section: command_constructor
     super();
@@ -448,8 +553,8 @@ export class PutIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutIntentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutIntentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -459,12 +564,18 @@ export class PutIntentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutIntentCommand(input, context);
+    return se_PutIntentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIntentCommandOutput> {
-    return deserializeAws_restJson1PutIntentCommand(output, context);
+    return de_PutIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

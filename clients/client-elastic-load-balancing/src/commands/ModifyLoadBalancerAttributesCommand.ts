@@ -18,22 +18,18 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  ModifyLoadBalancerAttributesInput,
-  ModifyLoadBalancerAttributesInputFilterSensitiveLog,
-  ModifyLoadBalancerAttributesOutput,
-  ModifyLoadBalancerAttributesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyLoadBalancerAttributesCommand,
-  serializeAws_queryModifyLoadBalancerAttributesCommand,
-} from "../protocols/Aws_query";
+import { ModifyLoadBalancerAttributesInput, ModifyLoadBalancerAttributesOutput } from "../models/models_0";
+import { de_ModifyLoadBalancerAttributesCommand, se_ModifyLoadBalancerAttributesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyLoadBalancerAttributesCommand}.
  */
 export interface ModifyLoadBalancerAttributesCommandInput extends ModifyLoadBalancerAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyLoadBalancerAttributesCommand}.
  */
 export interface ModifyLoadBalancerAttributesCommandOutput
@@ -41,6 +37,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the attributes of the specified load balancer.</p>
  *         <p>You can modify the load balancer attributes, such as <code>AccessLogs</code>, <code>ConnectionDraining</code>, and
  *             <code>CrossZoneLoadBalancing</code> by either enabling or disabling them. Or, you can modify the load balancer attribute
@@ -74,10 +71,39 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * import { ElasticLoadBalancingClient, ModifyLoadBalancerAttributesCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, ModifyLoadBalancerAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // ModifyLoadBalancerAttributesInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerAttributes: { // LoadBalancerAttributes
+ *     CrossZoneLoadBalancing: { // CrossZoneLoadBalancing
+ *       Enabled: true || false, // required
+ *     },
+ *     AccessLog: { // AccessLog
+ *       Enabled: true || false, // required
+ *       S3BucketName: "STRING_VALUE",
+ *       EmitInterval: Number("int"),
+ *       S3BucketPrefix: "STRING_VALUE",
+ *     },
+ *     ConnectionDraining: { // ConnectionDraining
+ *       Enabled: true || false, // required
+ *       Timeout: Number("int"),
+ *     },
+ *     ConnectionSettings: { // ConnectionSettings
+ *       IdleTimeout: Number("int"), // required
+ *     },
+ *     AdditionalAttributes: [ // AdditionalAttributes
+ *       { // AdditionalAttribute
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyLoadBalancerAttributesCommandInput - {@link ModifyLoadBalancerAttributesCommandInput}
+ * @returns {@link ModifyLoadBalancerAttributesCommandOutput}
  * @see {@link ModifyLoadBalancerAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -164,6 +190,9 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyLoadBalancerAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -192,8 +221,8 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyLoadBalancerAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyLoadBalancerAttributesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -203,15 +232,21 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyLoadBalancerAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyLoadBalancerAttributesCommand(input, context);
+    return se_ModifyLoadBalancerAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyLoadBalancerAttributesCommandOutput> {
-    return deserializeAws_queryModifyLoadBalancerAttributesCommand(output, context);
+    return de_ModifyLoadBalancerAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

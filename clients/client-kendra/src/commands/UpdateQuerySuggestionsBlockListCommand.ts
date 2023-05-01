@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { UpdateQuerySuggestionsBlockListRequest } from "../models/models_1";
 import {
-  UpdateQuerySuggestionsBlockListRequest,
-  UpdateQuerySuggestionsBlockListRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateQuerySuggestionsBlockListCommand,
-  serializeAws_json1_1UpdateQuerySuggestionsBlockListCommand,
+  de_UpdateQuerySuggestionsBlockListCommand,
+  se_UpdateQuerySuggestionsBlockListCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateQuerySuggestionsBlockListCommand}.
  */
 export interface UpdateQuerySuggestionsBlockListCommandInput extends UpdateQuerySuggestionsBlockListRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateQuerySuggestionsBlockListCommand}.
  */
 export interface UpdateQuerySuggestionsBlockListCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a block list used for query suggestions for an index.</p>
  *          <p>Updates to a block list might not take effect right away. Amazon Kendra
  *             needs to refresh the entire suggestions list to apply any updates to the
@@ -50,10 +52,23 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
  * import { KendraClient, UpdateQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, UpdateQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // UpdateQuerySuggestionsBlockListRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   SourceS3Path: { // S3Path
+ *     Bucket: "STRING_VALUE", // required
+ *     Key: "STRING_VALUE", // required
+ *   },
+ *   RoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateQuerySuggestionsBlockListCommandInput - {@link UpdateQuerySuggestionsBlockListCommandInput}
+ * @returns {@link UpdateQuerySuggestionsBlockListCommandOutput}
  * @see {@link UpdateQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link UpdateQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -68,7 +83,7 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -101,6 +116,9 @@ export class UpdateQuerySuggestionsBlockListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateQuerySuggestionsBlockListCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +147,8 @@ export class UpdateQuerySuggestionsBlockListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQuerySuggestionsBlockListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +158,24 @@ export class UpdateQuerySuggestionsBlockListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateQuerySuggestionsBlockListCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateQuerySuggestionsBlockListCommand(input, context);
+    return se_UpdateQuerySuggestionsBlockListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateQuerySuggestionsBlockListCommandOutput> {
-    return deserializeAws_json1_1UpdateQuerySuggestionsBlockListCommand(output, context);
+    return de_UpdateQuerySuggestionsBlockListCommand(output, context);
   }
 
   // Start section: command_body_extra

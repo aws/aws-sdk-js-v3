@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { SetSecurityTokenServicePreferencesRequest } from "../models/models_0";
 import {
-  SetSecurityTokenServicePreferencesRequest,
-  SetSecurityTokenServicePreferencesRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetSecurityTokenServicePreferencesCommand,
-  serializeAws_querySetSecurityTokenServicePreferencesCommand,
+  de_SetSecurityTokenServicePreferencesCommand,
+  se_SetSecurityTokenServicePreferencesCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetSecurityTokenServicePreferencesCommand}.
  */
 export interface SetSecurityTokenServicePreferencesCommandInput extends SetSecurityTokenServicePreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetSecurityTokenServicePreferencesCommand}.
  */
 export interface SetSecurityTokenServicePreferencesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified version of the global endpoint token as the token version used for
  *             the Amazon Web Services account.</p>
  *          <p>By default, Security Token Service (STS) is available as a global service, and all STS requests
@@ -58,10 +60,15 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  * import { IAMClient, SetSecurityTokenServicePreferencesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, SetSecurityTokenServicePreferencesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // SetSecurityTokenServicePreferencesRequest
+ *   GlobalEndpointTokenVersion: "v1Token" || "v2Token", // required
+ * };
  * const command = new SetSecurityTokenServicePreferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSecurityTokenServicePreferencesCommandInput - {@link SetSecurityTokenServicePreferencesCommandInput}
+ * @returns {@link SetSecurityTokenServicePreferencesCommandOutput}
  * @see {@link SetSecurityTokenServicePreferencesCommandInput} for command's `input` shape.
  * @see {@link SetSecurityTokenServicePreferencesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -100,6 +107,9 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSecurityTokenServicePreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +138,8 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSecurityTokenServicePreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,18 +149,24 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetSecurityTokenServicePreferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetSecurityTokenServicePreferencesCommand(input, context);
+    return se_SetSecurityTokenServicePreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetSecurityTokenServicePreferencesCommandOutput> {
-    return deserializeAws_querySetSecurityTokenServicePreferencesCommand(output, context);
+    return de_SetSecurityTokenServicePreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

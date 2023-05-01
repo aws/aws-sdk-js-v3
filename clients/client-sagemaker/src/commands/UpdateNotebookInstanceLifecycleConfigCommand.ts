@@ -15,21 +15,23 @@ import {
 
 import {
   UpdateNotebookInstanceLifecycleConfigInput,
-  UpdateNotebookInstanceLifecycleConfigInputFilterSensitiveLog,
   UpdateNotebookInstanceLifecycleConfigOutput,
-  UpdateNotebookInstanceLifecycleConfigOutputFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand,
-  serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand,
+  de_UpdateNotebookInstanceLifecycleConfigCommand,
+  se_UpdateNotebookInstanceLifecycleConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNotebookInstanceLifecycleConfigCommand}.
  */
 export interface UpdateNotebookInstanceLifecycleConfigCommandInput extends UpdateNotebookInstanceLifecycleConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNotebookInstanceLifecycleConfigCommand}.
  */
 export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
@@ -37,17 +39,33 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates a notebook instance lifecycle configuration created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>
+ * @public
+ * <p>Updates a notebook instance lifecycle configuration created with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html">CreateNotebookInstanceLifecycleConfig</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, UpdateNotebookInstanceLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateNotebookInstanceLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateNotebookInstanceLifecycleConfigInput
+ *   NotebookInstanceLifecycleConfigName: "STRING_VALUE", // required
+ *   OnCreate: [ // NotebookInstanceLifecycleConfigList
+ *     { // NotebookInstanceLifecycleHook
+ *       Content: "STRING_VALUE",
+ *     },
+ *   ],
+ *   OnStart: [
+ *     {
+ *       Content: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNotebookInstanceLifecycleConfigCommandInput - {@link UpdateNotebookInstanceLifecycleConfigCommandInput}
+ * @returns {@link UpdateNotebookInstanceLifecycleConfigCommandOutput}
  * @see {@link UpdateNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +93,9 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNotebookInstanceLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +124,8 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNotebookInstanceLifecycleConfigInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNotebookInstanceLifecycleConfigOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,18 +135,24 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateNotebookInstanceLifecycleConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand(input, context);
+    return se_UpdateNotebookInstanceLifecycleConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput> {
-    return deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand(output, context);
+    return de_UpdateNotebookInstanceLifecycleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

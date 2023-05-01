@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  DeleteEphemerisRequest,
-  DeleteEphemerisRequestFilterSensitiveLog,
-  EphemerisIdResponse,
-  EphemerisIdResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEphemerisCommand,
-  serializeAws_restJson1DeleteEphemerisCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteEphemerisRequest, EphemerisIdResponse } from "../models/models_0";
+import { de_DeleteEphemerisCommand, se_DeleteEphemerisCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEphemerisCommand}.
  */
 export interface DeleteEphemerisCommandInput extends DeleteEphemerisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEphemerisCommand}.
  */
 export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an ephemeris</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * import { GroundStationClient, DeleteEphemerisCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, DeleteEphemerisCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = { // DeleteEphemerisRequest
+ *   ephemerisId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEphemerisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEphemerisCommandInput - {@link DeleteEphemerisCommandInput}
+ * @returns {@link DeleteEphemerisCommandOutput}
  * @see {@link DeleteEphemerisCommandInput} for command's `input` shape.
  * @see {@link DeleteEphemerisCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
@@ -78,6 +80,9 @@ export class DeleteEphemerisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEphemerisCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class DeleteEphemerisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEphemerisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EphemerisIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class DeleteEphemerisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEphemerisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEphemerisCommand(input, context);
+    return se_DeleteEphemerisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEphemerisCommandOutput> {
-    return deserializeAws_restJson1DeleteEphemerisCommand(output, context);
+    return de_DeleteEphemerisCommand(output, context);
   }
 
   // Start section: command_body_extra

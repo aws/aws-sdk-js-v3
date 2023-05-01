@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateServiceRequest,
-  CreateServiceRequestFilterSensitiveLog,
-  CreateServiceResponse,
-  CreateServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateServiceCommand,
-  serializeAws_json1_1CreateServiceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateServiceRequest, CreateServiceResponse } from "../models/models_0";
+import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandInput extends CreateServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceCommand}.
  */
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a service. This action defines the configuration for the following entities:</p>
  *          <ul>
  *             <li>
@@ -83,10 +80,43 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * import { ServiceDiscoveryClient, CreateServiceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, CreateServiceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // CreateServiceRequest
+ *   Name: "STRING_VALUE", // required
+ *   NamespaceId: "STRING_VALUE",
+ *   CreatorRequestId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DnsConfig: { // DnsConfig
+ *     NamespaceId: "STRING_VALUE",
+ *     RoutingPolicy: "MULTIVALUE" || "WEIGHTED",
+ *     DnsRecords: [ // DnsRecordList // required
+ *       { // DnsRecord
+ *         Type: "SRV" || "A" || "AAAA" || "CNAME", // required
+ *         TTL: Number("long"), // required
+ *       },
+ *     ],
+ *   },
+ *   HealthCheckConfig: { // HealthCheckConfig
+ *     Type: "HTTP" || "HTTPS" || "TCP", // required
+ *     ResourcePath: "STRING_VALUE",
+ *     FailureThreshold: Number("int"),
+ *   },
+ *   HealthCheckCustomConfig: { // HealthCheckCustomConfig
+ *     FailureThreshold: Number("int"),
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Type: "HTTP",
+ * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
+ * @returns {@link CreateServiceCommandOutput}
  * @see {@link CreateServiceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -98,11 +128,6 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *
  * @throws {@link NamespaceNotFound} (client fault)
  *  <p>No namespace exists with the specified ID.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
  *  <p>The resource can't be created because you've reached the quota on the number of
@@ -179,6 +204,9 @@ export class CreateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -205,8 +233,8 @@ export class CreateServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateServiceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -216,12 +244,18 @@ export class CreateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateServiceCommand(input, context);
+    return se_CreateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceCommandOutput> {
-    return deserializeAws_json1_1CreateServiceCommand(output, context);
+    return de_CreateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

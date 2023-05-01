@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagMFADeviceRequest, UntagMFADeviceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryUntagMFADeviceCommand,
-  serializeAws_queryUntagMFADeviceCommand,
-} from "../protocols/Aws_query";
+import { UntagMFADeviceRequest } from "../models/models_0";
+import { de_UntagMFADeviceCommand, se_UntagMFADeviceCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UntagMFADeviceCommand}.
  */
 export interface UntagMFADeviceCommandInput extends UntagMFADeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagMFADeviceCommand}.
  */
 export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the IAM virtual multi-factor authentication (MFA)
  *       device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -39,10 +41,18 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UntagMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UntagMFADeviceRequest
+ *   SerialNumber: "STRING_VALUE", // required
+ *   TagKeys: [ // tagKeyListType // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagMFADeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagMFADeviceCommandInput - {@link UntagMFADeviceCommandInput}
+ * @returns {@link UntagMFADeviceCommandOutput}
  * @see {@link UntagMFADeviceCommandInput} for command's `input` shape.
  * @see {@link UntagMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -82,6 +92,9 @@ export class UntagMFADeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagMFADeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +123,8 @@ export class UntagMFADeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagMFADeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +134,18 @@ export class UntagMFADeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagMFADeviceCommand(input, context);
+    return se_UntagMFADeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagMFADeviceCommandOutput> {
-    return deserializeAws_queryUntagMFADeviceCommand(output, context);
+    return de_UntagMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

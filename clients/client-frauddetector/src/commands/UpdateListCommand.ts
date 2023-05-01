@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  UpdateListRequest,
-  UpdateListRequestFilterSensitiveLog,
-  UpdateListResult,
-  UpdateListResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateListCommand,
-  serializeAws_json1_1UpdateListCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateListRequest, UpdateListRequestFilterSensitiveLog, UpdateListResult } from "../models/models_0";
+import { de_UpdateListCommand, se_UpdateListCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateListCommand}.
  */
 export interface UpdateListCommandInput extends UpdateListRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateListCommand}.
  */
 export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Updates a list.
  *         </p>
@@ -44,10 +41,21 @@ export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBea
  * import { FraudDetectorClient, UpdateListCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateListCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // UpdateListRequest
+ *   name: "STRING_VALUE", // required
+ *   elements: [ // ElementsList
+ *     "STRING_VALUE",
+ *   ],
+ *   description: "STRING_VALUE",
+ *   updateMode: "REPLACE" || "APPEND" || "REMOVE",
+ *   variableType: "STRING_VALUE",
+ * };
  * const command = new UpdateListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateListCommandInput - {@link UpdateListCommandInput}
+ * @returns {@link UpdateListCommandOutput}
  * @see {@link UpdateListCommandInput} for command's `input` shape.
  * @see {@link UpdateListCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -89,6 +97,9 @@ export class UpdateListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateListCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +127,7 @@ export class UpdateListCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateListResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +137,18 @@ export class UpdateListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateListCommand(input, context);
+    return se_UpdateListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateListCommandOutput> {
-    return deserializeAws_json1_1UpdateListCommand(output, context);
+    return de_UpdateListCommand(output, context);
   }
 
   // Start section: command_body_extra

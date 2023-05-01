@@ -6,7 +6,7 @@ import { GroundStationClient } from "../GroundStationClient";
 import { GroundStationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GroundStationClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListConfigsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListConfigs(
   config: GroundStationPaginationConfiguration,
   input: ListConfigsCommandInput,

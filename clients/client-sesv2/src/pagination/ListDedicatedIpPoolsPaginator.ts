@@ -10,7 +10,7 @@ import { SESv2Client } from "../SESv2Client";
 import { SESv2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SESv2Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDedicatedIpPoolsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDedicatedIpPools(
   config: SESv2PaginationConfiguration,
   input: ListDedicatedIpPoolsCommandInput,

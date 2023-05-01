@@ -16,22 +16,24 @@ import {
 
 import {
   GetAccessPointConfigurationForObjectLambdaRequest,
-  GetAccessPointConfigurationForObjectLambdaRequestFilterSensitiveLog,
   GetAccessPointConfigurationForObjectLambdaResult,
-  GetAccessPointConfigurationForObjectLambdaResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommand,
-  serializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommand,
+  de_GetAccessPointConfigurationForObjectLambdaCommand,
+  se_GetAccessPointConfigurationForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessPointConfigurationForObjectLambdaCommand}.
  */
 export interface GetAccessPointConfigurationForObjectLambdaCommandInput
   extends GetAccessPointConfigurationForObjectLambdaRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessPointConfigurationForObjectLambdaCommand}.
  */
 export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
@@ -39,6 +41,7 @@ export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration for an Object Lambda Access Point.</p>
  *          <p>The following actions are related to
  *             <code>GetAccessPointConfigurationForObjectLambda</code>:</p>
@@ -55,10 +58,16 @@ export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
  * import { S3ControlClient, GetAccessPointConfigurationForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetAccessPointConfigurationForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetAccessPointConfigurationForObjectLambdaRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessPointConfigurationForObjectLambdaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessPointConfigurationForObjectLambdaCommandInput - {@link GetAccessPointConfigurationForObjectLambdaCommandInput}
+ * @returns {@link GetAccessPointConfigurationForObjectLambdaCommandOutput}
  * @see {@link GetAccessPointConfigurationForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointConfigurationForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -85,6 +94,9 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessPointConfigurationForObjectLambdaCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +132,8 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessPointConfigurationForObjectLambdaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessPointConfigurationForObjectLambdaResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +143,24 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAccessPointConfigurationForObjectLambdaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommand(input, context);
+    return se_GetAccessPointConfigurationForObjectLambdaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAccessPointConfigurationForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommand(output, context);
+    return de_GetAccessPointConfigurationForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

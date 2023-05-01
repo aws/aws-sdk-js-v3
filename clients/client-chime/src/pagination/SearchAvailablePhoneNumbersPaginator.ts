@@ -10,7 +10,7 @@ import {
 import { ChimePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchAvailablePhoneNumbersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateSearchAvailablePhoneNumbers(
   config: ChimePaginationConfiguration,
   input: SearchAvailablePhoneNumbersCommandInput,

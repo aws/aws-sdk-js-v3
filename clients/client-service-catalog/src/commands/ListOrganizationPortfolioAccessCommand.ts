@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListOrganizationPortfolioAccessInput, ListOrganizationPortfolioAccessOutput } from "../models/models_0";
 import {
-  ListOrganizationPortfolioAccessInput,
-  ListOrganizationPortfolioAccessInputFilterSensitiveLog,
-  ListOrganizationPortfolioAccessOutput,
-  ListOrganizationPortfolioAccessOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListOrganizationPortfolioAccessCommand,
-  serializeAws_json1_1ListOrganizationPortfolioAccessCommand,
+  de_ListOrganizationPortfolioAccessCommand,
+  se_ListOrganizationPortfolioAccessCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrganizationPortfolioAccessCommand}.
  */
 export interface ListOrganizationPortfolioAccessCommandInput extends ListOrganizationPortfolioAccessInput {}
 /**
+ * @public
+ *
  * The output of {@link ListOrganizationPortfolioAccessCommand}.
  */
 export interface ListOrganizationPortfolioAccessCommandOutput
@@ -37,6 +36,7 @@ export interface ListOrganizationPortfolioAccessCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the organization nodes that have access to the specified portfolio. This API can
  *          only be called by the management account in the organization or by a delegated
  *          admin.</p>
@@ -47,10 +47,19 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  * import { ServiceCatalogClient, ListOrganizationPortfolioAccessCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListOrganizationPortfolioAccessCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListOrganizationPortfolioAccessInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   OrganizationNodeType: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT", // required
+ *   PageToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListOrganizationPortfolioAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationPortfolioAccessCommandInput - {@link ListOrganizationPortfolioAccessCommandInput}
+ * @returns {@link ListOrganizationPortfolioAccessCommandOutput}
  * @see {@link ListOrganizationPortfolioAccessCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationPortfolioAccessCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -83,6 +92,9 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationPortfolioAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +123,8 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOrganizationPortfolioAccessInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOrganizationPortfolioAccessOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +134,24 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListOrganizationPortfolioAccessCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOrganizationPortfolioAccessCommand(input, context);
+    return se_ListOrganizationPortfolioAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOrganizationPortfolioAccessCommandOutput> {
-    return deserializeAws_json1_1ListOrganizationPortfolioAccessCommand(output, context);
+    return de_ListOrganizationPortfolioAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

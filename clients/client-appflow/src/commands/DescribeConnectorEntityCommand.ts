@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  DescribeConnectorEntityRequest,
-  DescribeConnectorEntityRequestFilterSensitiveLog,
-  DescribeConnectorEntityResponse,
-  DescribeConnectorEntityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeConnectorEntityCommand,
-  serializeAws_restJson1DescribeConnectorEntityCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeConnectorEntityRequest, DescribeConnectorEntityResponse } from "../models/models_0";
+import { de_DescribeConnectorEntityCommand, se_DescribeConnectorEntityCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConnectorEntityCommand}.
  */
 export interface DescribeConnectorEntityCommandInput extends DescribeConnectorEntityRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConnectorEntityCommand}.
  */
 export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorEntityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Provides details regarding the entity used with the connector, with a description of the
  *       data model for each field in that entity. </p>
  * @example
@@ -43,10 +40,18 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  * import { AppflowClient, DescribeConnectorEntityCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DescribeConnectorEntityCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = { // DescribeConnectorEntityRequest
+ *   connectorEntityName: "STRING_VALUE", // required
+ *   connectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot",
+ *   connectorProfileName: "STRING_VALUE",
+ *   apiVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeConnectorEntityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConnectorEntityCommandInput - {@link DescribeConnectorEntityCommandInput}
+ * @returns {@link DescribeConnectorEntityCommandOutput}
  * @see {@link DescribeConnectorEntityCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorEntityCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -87,6 +92,9 @@ export class DescribeConnectorEntityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConnectorEntityCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class DescribeConnectorEntityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectorEntityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConnectorEntityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +134,18 @@ export class DescribeConnectorEntityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConnectorEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeConnectorEntityCommand(input, context);
+    return se_DescribeConnectorEntityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectorEntityCommandOutput> {
-    return deserializeAws_restJson1DescribeConnectorEntityCommand(output, context);
+    return de_DescribeConnectorEntityCommand(output, context);
   }
 
   // Start section: command_body_extra

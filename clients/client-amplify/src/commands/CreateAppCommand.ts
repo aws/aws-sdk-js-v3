@@ -20,21 +20,23 @@ import {
   CreateAppResult,
   CreateAppResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAppCommand,
-  serializeAws_restJson1CreateAppCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAppCommand, se_CreateAppCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppCommand}.
  */
 export interface CreateAppCommandInput extends CreateAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppCommand}.
  */
 export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,59 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  * import { AmplifyClient, CreateAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // CreateAppRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   repository: "STRING_VALUE",
+ *   platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE",
+ *   iamServiceRoleArn: "STRING_VALUE",
+ *   oauthToken: "STRING_VALUE",
+ *   accessToken: "STRING_VALUE",
+ *   environmentVariables: { // EnvironmentVariables
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   enableBranchAutoBuild: true || false,
+ *   enableBranchAutoDeletion: true || false,
+ *   enableBasicAuth: true || false,
+ *   basicAuthCredentials: "STRING_VALUE",
+ *   customRules: [ // CustomRules
+ *     { // CustomRule
+ *       source: "STRING_VALUE", // required
+ *       target: "STRING_VALUE", // required
+ *       status: "STRING_VALUE",
+ *       condition: "STRING_VALUE",
+ *     },
+ *   ],
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   buildSpec: "STRING_VALUE",
+ *   customHeaders: "STRING_VALUE",
+ *   enableAutoBranchCreation: true || false,
+ *   autoBranchCreationPatterns: [ // AutoBranchCreationPatterns
+ *     "STRING_VALUE",
+ *   ],
+ *   autoBranchCreationConfig: { // AutoBranchCreationConfig
+ *     stage: "PRODUCTION" || "BETA" || "DEVELOPMENT" || "EXPERIMENTAL" || "PULL_REQUEST",
+ *     framework: "STRING_VALUE",
+ *     enableAutoBuild: true || false,
+ *     environmentVariables: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     basicAuthCredentials: "STRING_VALUE",
+ *     enableBasicAuth: true || false,
+ *     enablePerformanceMode: true || false,
+ *     buildSpec: "STRING_VALUE",
+ *     enablePullRequestPreview: true || false,
+ *     pullRequestEnvironmentName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppCommandInput - {@link CreateAppCommandInput}
+ * @returns {@link CreateAppCommandOutput}
  * @see {@link CreateAppCommandInput} for command's `input` shape.
  * @see {@link CreateAppCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +135,9 @@ export class CreateAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,12 +175,18 @@ export class CreateAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAppCommand(input, context);
+    return se_CreateAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppCommandOutput> {
-    return deserializeAws_restJson1CreateAppCommand(output, context);
+    return de_CreateAppCommand(output, context);
   }
 
   // Start section: command_body_extra

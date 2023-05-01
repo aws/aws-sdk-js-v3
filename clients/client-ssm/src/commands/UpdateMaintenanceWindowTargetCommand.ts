@@ -20,16 +20,20 @@ import {
   UpdateMaintenanceWindowTargetResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1UpdateMaintenanceWindowTargetCommand,
-  serializeAws_json1_1UpdateMaintenanceWindowTargetCommand,
+  de_UpdateMaintenanceWindowTargetCommand,
+  se_UpdateMaintenanceWindowTargetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMaintenanceWindowTargetCommand}.
  */
 export interface UpdateMaintenanceWindowTargetCommandInput extends UpdateMaintenanceWindowTargetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMaintenanceWindowTargetCommand}.
  */
 export interface UpdateMaintenanceWindowTargetCommandOutput
@@ -37,6 +41,7 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the target of an existing maintenance window. You
  *    can change the following:</p>
  *          <ul>
@@ -69,10 +74,28 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
  * import { SSMClient, UpdateMaintenanceWindowTargetCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateMaintenanceWindowTargetCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UpdateMaintenanceWindowTargetRequest
+ *   WindowId: "STRING_VALUE", // required
+ *   WindowTargetId: "STRING_VALUE", // required
+ *   Targets: [ // Targets
+ *     { // Target
+ *       Key: "STRING_VALUE",
+ *       Values: [ // TargetValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   OwnerInformation: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Replace: true || false,
+ * };
  * const command = new UpdateMaintenanceWindowTargetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMaintenanceWindowTargetCommandInput - {@link UpdateMaintenanceWindowTargetCommandInput}
+ * @returns {@link UpdateMaintenanceWindowTargetCommandOutput}
  * @see {@link UpdateMaintenanceWindowTargetCommandInput} for command's `input` shape.
  * @see {@link UpdateMaintenanceWindowTargetCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -105,6 +128,9 @@ export class UpdateMaintenanceWindowTargetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMaintenanceWindowTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,15 +170,21 @@ export class UpdateMaintenanceWindowTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMaintenanceWindowTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMaintenanceWindowTargetCommand(input, context);
+    return se_UpdateMaintenanceWindowTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMaintenanceWindowTargetCommandOutput> {
-    return deserializeAws_json1_1UpdateMaintenanceWindowTargetCommand(output, context);
+    return de_UpdateMaintenanceWindowTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  ListModelManifestsRequest,
-  ListModelManifestsRequestFilterSensitiveLog,
-  ListModelManifestsResponse,
-  ListModelManifestsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListModelManifestsCommand,
-  serializeAws_json1_0ListModelManifestsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListModelManifestsRequest, ListModelManifestsResponse } from "../models/models_0";
+import { de_ListModelManifestsCommand, se_ListModelManifestsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelManifestsCommand}.
  */
 export interface ListModelManifestsCommandInput extends ListModelManifestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelManifestsCommand}.
  */
 export interface ListModelManifestsCommandOutput extends ListModelManifestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a list of vehicle models (model manifests). </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -45,10 +42,17 @@ export interface ListModelManifestsCommandOutput extends ListModelManifestsRespo
  * import { IoTFleetWiseClient, ListModelManifestsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListModelManifestsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // ListModelManifestsRequest
+ *   signalCatalogArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListModelManifestsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelManifestsCommandInput - {@link ListModelManifestsCommandInput}
+ * @returns {@link ListModelManifestsCommandOutput}
  * @see {@link ListModelManifestsCommandInput} for command's `input` shape.
  * @see {@link ListModelManifestsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListModelManifestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelManifestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class ListModelManifestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelManifestsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelManifestsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class ListModelManifestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelManifestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListModelManifestsCommand(input, context);
+    return se_ListModelManifestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelManifestsCommandOutput> {
-    return deserializeAws_json1_0ListModelManifestsCommand(output, context);
+    return de_ListModelManifestsCommand(output, context);
   }
 
   // Start section: command_body_extra

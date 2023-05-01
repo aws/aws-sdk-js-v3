@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateAuthorizerRequest,
-  UpdateAuthorizerRequestFilterSensitiveLog,
-  UpdateAuthorizerResponse,
-  UpdateAuthorizerResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateAuthorizerCommand,
-  serializeAws_restJson1UpdateAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateAuthorizerRequest, UpdateAuthorizerResponse } from "../models/models_2";
+import { de_UpdateAuthorizerCommand, se_UpdateAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAuthorizerCommand}.
  */
 export interface UpdateAuthorizerCommandInput extends UpdateAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAuthorizerCommand}.
  */
 export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateAuthorizer</a> action.</p>
  * @example
@@ -43,10 +40,22 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * import { IoTClient, UpdateAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateAuthorizerRequest
+ *   authorizerName: "STRING_VALUE", // required
+ *   authorizerFunctionArn: "STRING_VALUE",
+ *   tokenKeyName: "STRING_VALUE",
+ *   tokenSigningPublicKeys: { // PublicKeyMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   status: "ACTIVE" || "INACTIVE",
+ *   enableCachingForHttp: true || false,
+ * };
  * const command = new UpdateAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAuthorizerCommandInput - {@link UpdateAuthorizerCommandInput}
+ * @returns {@link UpdateAuthorizerCommandOutput}
  * @see {@link UpdateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link UpdateAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +100,9 @@ export class UpdateAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +131,8 @@ export class UpdateAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAuthorizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +142,18 @@ export class UpdateAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAuthorizerCommand(input, context);
+    return se_UpdateAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAuthorizerCommandOutput> {
-    return deserializeAws_restJson1UpdateAuthorizerCommand(output, context);
+    return de_UpdateAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

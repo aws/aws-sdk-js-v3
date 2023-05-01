@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEmailIdentityRequest,
-  GetEmailIdentityRequestFilterSensitiveLog,
-  GetEmailIdentityResponse,
-  GetEmailIdentityResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetEmailIdentityRequest, GetEmailIdentityResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1GetEmailIdentityCommand,
-  serializeAws_restJson1GetEmailIdentityCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEmailIdentityCommand, se_GetEmailIdentityCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEmailIdentityCommand}.
  */
 export interface GetEmailIdentityCommandInput extends GetEmailIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEmailIdentityCommand}.
  */
 export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a specific identity associated with your Amazon Pinpoint account,
  *             including the identity's verification status, its DKIM authentication status, and its
  *             custom Mail-From settings.</p>
@@ -44,10 +41,15 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * import { PinpointEmailClient, GetEmailIdentityCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetEmailIdentityCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // GetEmailIdentityRequest
+ *   EmailIdentity: "STRING_VALUE", // required
+ * };
  * const command = new GetEmailIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEmailIdentityCommandInput - {@link GetEmailIdentityCommandInput}
+ * @returns {@link GetEmailIdentityCommandOutput}
  * @see {@link GetEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link GetEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -80,6 +82,9 @@ export class GetEmailIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEmailIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class GetEmailIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEmailIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEmailIdentityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class GetEmailIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEmailIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEmailIdentityCommand(input, context);
+    return se_GetEmailIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEmailIdentityCommandOutput> {
-    return deserializeAws_restJson1GetEmailIdentityCommand(output, context);
+    return de_GetEmailIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

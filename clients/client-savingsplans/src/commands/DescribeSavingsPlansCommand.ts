@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSavingsPlansRequest,
-  DescribeSavingsPlansRequestFilterSensitiveLog,
-  DescribeSavingsPlansResponse,
-  DescribeSavingsPlansResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSavingsPlansCommand,
-  serializeAws_restJson1DescribeSavingsPlansCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSavingsPlansRequest, DescribeSavingsPlansResponse } from "../models/models_0";
+import { de_DescribeSavingsPlansCommand, se_DescribeSavingsPlansCommand } from "../protocols/Aws_restJson1";
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSavingsPlansCommand}.
  */
 export interface DescribeSavingsPlansCommandInput extends DescribeSavingsPlansRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSavingsPlansCommand}.
  */
 export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Savings Plans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,33 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * import { SavingsplansClient, DescribeSavingsPlansCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, DescribeSavingsPlansCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
  * const client = new SavingsplansClient(config);
+ * const input = { // DescribeSavingsPlansRequest
+ *   savingsPlanArns: [ // SavingsPlanArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   savingsPlanIds: [ // SavingsPlanIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   states: [ // SavingsPlanStateList
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [ // SavingsPlanFilterList
+ *     { // SavingsPlanFilter
+ *       name: "STRING_VALUE",
+ *       values: [ // ListOfStrings
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribeSavingsPlansCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSavingsPlansCommandInput - {@link DescribeSavingsPlansCommandInput}
+ * @returns {@link DescribeSavingsPlansCommandOutput}
  * @see {@link DescribeSavingsPlansCommandInput} for command's `input` shape.
  * @see {@link DescribeSavingsPlansCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
@@ -75,6 +95,9 @@ export class DescribeSavingsPlansCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSavingsPlansCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +126,8 @@ export class DescribeSavingsPlansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSavingsPlansRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSavingsPlansResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +137,18 @@ export class DescribeSavingsPlansCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSavingsPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSavingsPlansCommand(input, context);
+    return se_DescribeSavingsPlansCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSavingsPlansCommandOutput> {
-    return deserializeAws_restJson1DescribeSavingsPlansCommand(output, context);
+    return de_DescribeSavingsPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

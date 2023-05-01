@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  CreateVaultInput,
-  CreateVaultInputFilterSensitiveLog,
-  CreateVaultOutput,
-  CreateVaultOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVaultCommand,
-  serializeAws_restJson1CreateVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateVaultInput, CreateVaultOutput } from "../models/models_0";
+import { de_CreateVaultCommand, se_CreateVaultCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVaultCommand}.
  */
 export interface CreateVaultCommandInput extends CreateVaultInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateVaultCommand}.
  */
 export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation creates a new vault with the specified name. The name of the vault
  *          must be unique within a region for an AWS account. You can create up to 1,000 vaults per
  *          account. If you need to create more vaults, contact Amazon S3 Glacier.</p>
@@ -65,10 +62,16 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  * import { GlacierClient, CreateVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, CreateVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // CreateVaultInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new CreateVaultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVaultCommandInput - {@link CreateVaultCommandInput}
+ * @returns {@link CreateVaultCommandOutput}
  * @see {@link CreateVaultCommandInput} for command's `input` shape.
  * @see {@link CreateVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -121,6 +124,9 @@ export class CreateVaultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +153,8 @@ export class CreateVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVaultOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,12 +164,18 @@ export class CreateVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVaultCommand(input, context);
+    return se_CreateVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVaultCommandOutput> {
-    return deserializeAws_restJson1CreateVaultCommand(output, context);
+    return de_CreateVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

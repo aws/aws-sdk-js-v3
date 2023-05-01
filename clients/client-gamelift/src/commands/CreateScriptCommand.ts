@@ -14,66 +14,62 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateScriptInput,
-  CreateScriptInputFilterSensitiveLog,
-  CreateScriptOutput,
-  CreateScriptOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateScriptCommand,
-  serializeAws_json1_1CreateScriptCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateScriptInput, CreateScriptOutput } from "../models/models_0";
+import { de_CreateScriptCommand, se_CreateScriptCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateScriptCommand}.
  */
 export interface CreateScriptCommandInput extends CreateScriptInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateScriptCommand}.
  */
 export interface CreateScriptCommandOutput extends CreateScriptOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that
  *             provide configuration settings and optional custom game logic for your game. The script
  *             is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is
  *             executed during an active game session. </p>
- *         <p>To create a new script record, specify a script name and provide the script file(s).
+ *          <p>To create a new script record, specify a script name and provide the script file(s).
  *             The script files and all dependencies must be zipped into a single file. You can pull
  *             the zip file from either of these locations: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>A locally available directory. Use the <i>ZipFile</i> parameter
+ *                <p>A locally available directory. Use the <i>ZipFile</i> parameter
  *                     for this option.</p>
  *             </li>
  *             <li>
- *                 <p>An Amazon Simple Storage Service (Amazon S3) bucket under your Amazon Web Services account. Use the
+ *                <p>An Amazon Simple Storage Service (Amazon S3) bucket under your Amazon Web Services account. Use the
  *                         <i>StorageLocation</i> parameter for this option. You'll need
  *                     to have an Identity Access Management (IAM) role that allows the Amazon GameLift service
  *                     to access your S3 bucket. </p>
  *             </li>
  *          </ul>
- *         <p>If the call is successful, a new script record is created with a unique script ID. If
+ *          <p>If the call is successful, a new script record is created with a unique script ID. If
  *             the script file is provided as a local file, the file is uploaded to an Amazon GameLift-owned S3
  *             bucket and the script record's storage location reflects this location. If the script
  *             file is provided as an S3 bucket, Amazon GameLift accesses the file at this storage location as
  *             needed for deployment.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set Up a Role for Amazon GameLift Access</a>
  *          </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,10 +77,29 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * import { GameLiftClient, CreateScriptCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateScriptCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreateScriptInput
+ *   Name: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ *   StorageLocation: { // S3Location
+ *     Bucket: "STRING_VALUE",
+ *     Key: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     ObjectVersion: "STRING_VALUE",
+ *   },
+ *   ZipFile: "BLOB_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateScriptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScriptCommandInput - {@link CreateScriptCommandInput}
+ * @returns {@link CreateScriptCommandOutput}
  * @see {@link CreateScriptCommandInput} for command's `input` shape.
  * @see {@link CreateScriptCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -93,7 +108,7 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>The service encountered an unrecoverable internal failure while processing the
@@ -130,6 +145,9 @@ export class CreateScriptCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScriptCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,8 +174,8 @@ export class CreateScriptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateScriptInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateScriptOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -167,12 +185,18 @@ export class CreateScriptCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateScriptCommand(input, context);
+    return se_CreateScriptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScriptCommandOutput> {
-    return deserializeAws_json1_1CreateScriptCommand(output, context);
+    return de_CreateScriptCommand(output, context);
   }
 
   // Start section: command_body_extra

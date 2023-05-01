@@ -15,21 +15,23 @@ import {
 
 import {
   DescribeReservedInstanceOfferingsRequest,
-  DescribeReservedInstanceOfferingsRequestFilterSensitiveLog,
   DescribeReservedInstanceOfferingsResponse,
-  DescribeReservedInstanceOfferingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  deserializeAws_restJson1DescribeReservedInstanceOfferingsCommand,
-  serializeAws_restJson1DescribeReservedInstanceOfferingsCommand,
+  de_DescribeReservedInstanceOfferingsCommand,
+  se_DescribeReservedInstanceOfferingsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReservedInstanceOfferingsCommand}.
  */
 export interface DescribeReservedInstanceOfferingsCommandInput extends DescribeReservedInstanceOfferingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReservedInstanceOfferingsCommand}.
  */
 export interface DescribeReservedInstanceOfferingsCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeReservedInstanceOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available Amazon OpenSearch Service Reserved Instance offerings for a given
  *    Region. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch Service</a>.</p>
  * @example
@@ -45,10 +48,17 @@ export interface DescribeReservedInstanceOfferingsCommandOutput
  * import { OpenSearchClient, DescribeReservedInstanceOfferingsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeReservedInstanceOfferingsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DescribeReservedInstanceOfferingsRequest
+ *   ReservedInstanceOfferingId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedInstanceOfferingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReservedInstanceOfferingsCommandInput - {@link DescribeReservedInstanceOfferingsCommandInput}
+ * @returns {@link DescribeReservedInstanceOfferingsCommandOutput}
  * @see {@link DescribeReservedInstanceOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstanceOfferingsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -84,6 +94,9 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReservedInstanceOfferingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +125,8 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedInstanceOfferingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservedInstanceOfferingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +136,24 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReservedInstanceOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReservedInstanceOfferingsCommand(input, context);
+    return se_DescribeReservedInstanceOfferingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedInstanceOfferingsCommandOutput> {
-    return deserializeAws_restJson1DescribeReservedInstanceOfferingsCommand(output, context);
+    return de_DescribeReservedInstanceOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

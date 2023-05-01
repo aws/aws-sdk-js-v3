@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StopSessionRequest,
-  StopSessionRequestFilterSensitiveLog,
-  StopSessionResponse,
-  StopSessionResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1StopSessionCommand,
-  serializeAws_json1_1StopSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { StopSessionRequest, StopSessionResponse } from "../models/models_2";
+import { de_StopSessionCommand, se_StopSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopSessionCommand}.
  */
 export interface StopSessionCommandInput extends StopSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopSessionCommand}.
  */
 export interface StopSessionCommandOutput extends StopSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface StopSessionCommandOutput extends StopSessionResponse, __Metadat
  * import { GlueClient, StopSessionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopSessionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StopSessionRequest
+ *   Id: "STRING_VALUE", // required
+ *   RequestOrigin: "STRING_VALUE",
+ * };
  * const command = new StopSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopSessionCommandInput - {@link StopSessionCommandInput}
+ * @returns {@link StopSessionCommandOutput}
  * @see {@link StopSessionCommandInput} for command's `input` shape.
  * @see {@link StopSessionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -87,6 +90,9 @@ export class StopSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class StopSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class StopSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopSessionCommand(input, context);
+    return se_StopSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSessionCommandOutput> {
-    return deserializeAws_json1_1StopSessionCommand(output, context);
+    return de_StopSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

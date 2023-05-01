@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetApplicationInput,
-  GetApplicationInputFilterSensitiveLog,
-  GetApplicationOutput,
-  GetApplicationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApplicationCommand,
-  serializeAws_restJson1GetApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetApplicationInput, GetApplicationOutput } from "../models/models_0";
+import { de_GetApplicationCommand, se_GetApplicationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetApplicationCommand}.
  */
 export interface GetApplicationCommandInput extends GetApplicationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetApplicationCommand}.
  */
 export interface GetApplicationCommandOutput extends GetApplicationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an application registered with AWS Systems Manager for SAP. It also returns the
  *          components of the application.</p>
  * @example
@@ -43,10 +40,17 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * import { SsmSapClient, GetApplicationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, GetApplicationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // GetApplicationInput
+ *   ApplicationId: "STRING_VALUE",
+ *   ApplicationArn: "STRING_VALUE",
+ *   AppRegistryArn: "STRING_VALUE",
+ * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
+ * @returns {@link GetApplicationCommandOutput}
  * @see {@link GetApplicationCommandInput} for command's `input` shape.
  * @see {@link GetApplicationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -76,6 +80,9 @@ export class GetApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class GetApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApplicationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApplicationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class GetApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationCommand(input, context);
+    return se_GetApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationCommandOutput> {
-    return deserializeAws_restJson1GetApplicationCommand(output, context);
+    return de_GetApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

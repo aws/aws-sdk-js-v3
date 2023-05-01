@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  UpdateFileCacheRequest,
-  UpdateFileCacheRequestFilterSensitiveLog,
-  UpdateFileCacheResponse,
-  UpdateFileCacheResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFileCacheCommand,
-  serializeAws_json1_1UpdateFileCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateFileCacheRequest, UpdateFileCacheResponse } from "../models/models_0";
+import { de_UpdateFileCacheCommand, se_UpdateFileCacheCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFileCacheCommand}.
  */
 export interface UpdateFileCacheCommandInput extends UpdateFileCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFileCacheCommand}.
  */
 export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of an existing Amazon File Cache resource.
  *             You can update multiple properties in a single request.</p>
  * @example
@@ -43,10 +40,19 @@ export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, _
  * import { FSxClient, UpdateFileCacheCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateFileCacheCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // UpdateFileCacheRequest
+ *   FileCacheId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   LustreConfiguration: { // UpdateFileCacheLustreConfiguration
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateFileCacheCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFileCacheCommandInput - {@link UpdateFileCacheCommandInput}
+ * @returns {@link UpdateFileCacheCommandOutput}
  * @see {@link UpdateFileCacheCommandInput} for command's `input` shape.
  * @see {@link UpdateFileCacheCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -94,6 +100,9 @@ export class UpdateFileCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFileCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +131,8 @@ export class UpdateFileCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFileCacheRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFileCacheResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +142,18 @@ export class UpdateFileCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFileCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFileCacheCommand(input, context);
+    return se_UpdateFileCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFileCacheCommandOutput> {
-    return deserializeAws_json1_1UpdateFileCacheCommand(output, context);
+    return de_UpdateFileCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

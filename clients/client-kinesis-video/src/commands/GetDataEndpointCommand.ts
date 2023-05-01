@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  GetDataEndpointInput,
-  GetDataEndpointInputFilterSensitiveLog,
-  GetDataEndpointOutput,
-  GetDataEndpointOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataEndpointCommand,
-  serializeAws_restJson1GetDataEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDataEndpointInput, GetDataEndpointOutput } from "../models/models_0";
+import { de_GetDataEndpointCommand, se_GetDataEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataEndpointCommand}.
  */
 export interface GetDataEndpointCommandInput extends GetDataEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDataEndpointCommand}.
  */
 export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an endpoint for a specified stream for either reading or writing. Use this
  *             endpoint in your application to read from the specified stream (using the
  *                 <code>GetMedia</code> or <code>GetMediaForFragmentList</code> operations) or write
@@ -52,10 +49,17 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  * import { KinesisVideoClient, GetDataEndpointCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, GetDataEndpointCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // GetDataEndpointInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   APIName: "PUT_MEDIA" || "GET_MEDIA" || "LIST_FRAGMENTS" || "GET_MEDIA_FOR_FRAGMENT_LIST" || "GET_HLS_STREAMING_SESSION_URL" || "GET_DASH_STREAMING_SESSION_URL" || "GET_CLIP" || "GET_IMAGES", // required
+ * };
  * const command = new GetDataEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataEndpointCommandInput - {@link GetDataEndpointCommandInput}
+ * @returns {@link GetDataEndpointCommandOutput}
  * @see {@link GetDataEndpointCommandInput} for command's `input` shape.
  * @see {@link GetDataEndpointCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -92,6 +96,9 @@ export class GetDataEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class GetDataEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataEndpointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataEndpointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +138,18 @@ export class GetDataEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataEndpointCommand(input, context);
+    return se_GetDataEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataEndpointCommandOutput> {
-    return deserializeAws_restJson1GetDataEndpointCommand(output, context);
+    return de_GetDataEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AuthorizeSecurityGroupIngressRequest,
-  AuthorizeSecurityGroupIngressRequestFilterSensitiveLog,
-  AuthorizeSecurityGroupIngressResult,
-  AuthorizeSecurityGroupIngressResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AuthorizeSecurityGroupIngressCommand,
-  serializeAws_ec2AuthorizeSecurityGroupIngressCommand,
-} from "../protocols/Aws_ec2";
+import { AuthorizeSecurityGroupIngressRequest, AuthorizeSecurityGroupIngressResult } from "../models/models_0";
+import { de_AuthorizeSecurityGroupIngressCommand, se_AuthorizeSecurityGroupIngressCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AuthorizeSecurityGroupIngressCommand}.
  */
 export interface AuthorizeSecurityGroupIngressCommandInput extends AuthorizeSecurityGroupIngressRequest {}
 /**
+ * @public
+ *
  * The output of {@link AuthorizeSecurityGroupIngressCommand}.
  */
 export interface AuthorizeSecurityGroupIngressCommandOutput
@@ -37,6 +33,7 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified inbound (ingress) rules to a security group.</p>
  *          <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR
  *        address range, or from the instances that are associated with the specified destination security
@@ -58,10 +55,70 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * import { EC2Client, AuthorizeSecurityGroupIngressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AuthorizeSecurityGroupIngressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AuthorizeSecurityGroupIngressRequest
+ *   CidrIp: "STRING_VALUE",
+ *   FromPort: Number("int"),
+ *   GroupId: "STRING_VALUE",
+ *   GroupName: "STRING_VALUE",
+ *   IpPermissions: [ // IpPermissionList
+ *     { // IpPermission
+ *       FromPort: Number("int"),
+ *       IpProtocol: "STRING_VALUE",
+ *       IpRanges: [ // IpRangeList
+ *         { // IpRange
+ *           CidrIp: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       Ipv6Ranges: [ // Ipv6RangeList
+ *         { // Ipv6Range
+ *           CidrIpv6: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PrefixListIds: [ // PrefixListIdList
+ *         { // PrefixListId
+ *           Description: "STRING_VALUE",
+ *           PrefixListId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       ToPort: Number("int"),
+ *       UserIdGroupPairs: [ // UserIdGroupPairList
+ *         { // UserIdGroupPair
+ *           Description: "STRING_VALUE",
+ *           GroupId: "STRING_VALUE",
+ *           GroupName: "STRING_VALUE",
+ *           PeeringStatus: "STRING_VALUE",
+ *           UserId: "STRING_VALUE",
+ *           VpcId: "STRING_VALUE",
+ *           VpcPeeringConnectionId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   IpProtocol: "STRING_VALUE",
+ *   SourceSecurityGroupName: "STRING_VALUE",
+ *   SourceSecurityGroupOwnerId: "STRING_VALUE",
+ *   ToPort: Number("int"),
+ *   DryRun: true || false,
+ *   TagSpecifications: [ // TagSpecificationList
+ *     { // TagSpecification
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association",
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new AuthorizeSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AuthorizeSecurityGroupIngressCommandInput - {@link AuthorizeSecurityGroupIngressCommandInput}
+ * @returns {@link AuthorizeSecurityGroupIngressCommandOutput}
  * @see {@link AuthorizeSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -157,6 +214,9 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AuthorizeSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -185,8 +245,8 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeSecurityGroupIngressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeSecurityGroupIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -196,15 +256,21 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AuthorizeSecurityGroupIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AuthorizeSecurityGroupIngressCommand(input, context);
+    return se_AuthorizeSecurityGroupIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeSecurityGroupIngressCommandOutput> {
-    return deserializeAws_ec2AuthorizeSecurityGroupIngressCommand(output, context);
+    return de_AuthorizeSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

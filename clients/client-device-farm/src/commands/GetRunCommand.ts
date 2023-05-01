@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetRunRequest,
-  GetRunRequestFilterSensitiveLog,
-  GetRunResult,
-  GetRunResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetRunCommand, serializeAws_json1_1GetRunCommand } from "../protocols/Aws_json1_1";
+import { GetRunRequest, GetRunResult } from "../models/models_0";
+import { de_GetRunCommand, se_GetRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRunCommand}.
  */
 export interface GetRunCommandInput extends GetRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRunCommand}.
  */
 export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,15 @@ export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
  * import { DeviceFarmClient, GetRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetRunRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRunCommandInput - {@link GetRunCommandInput}
+ * @returns {@link GetRunCommandOutput}
  * @see {@link GetRunCommandInput} for command's `input` shape.
  * @see {@link GetRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -115,6 +120,9 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +149,8 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRunResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +160,18 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRunCommand(input, context);
+    return se_GetRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRunCommandOutput> {
-    return deserializeAws_json1_1GetRunCommand(output, context);
+    return de_GetRunCommand(output, context);
   }
 
   // Start section: command_body_extra

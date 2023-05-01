@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateVoiceChannelRequest,
-  UpdateVoiceChannelRequestFilterSensitiveLog,
-  UpdateVoiceChannelResponse,
-  UpdateVoiceChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateVoiceChannelRequest, UpdateVoiceChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateVoiceChannelCommand,
-  serializeAws_restJson1UpdateVoiceChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateVoiceChannelCommand, se_UpdateVoiceChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVoiceChannelCommand}.
  */
 export interface UpdateVoiceChannelCommandInput extends UpdateVoiceChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVoiceChannelCommand}.
  */
 export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the voice channel for an application or updates the status and settings of the voice channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelRespo
  * import { PinpointClient, UpdateVoiceChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateVoiceChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateVoiceChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   VoiceChannelRequest: { // VoiceChannelRequest
+ *     Enabled: true || false,
+ *   },
+ * };
  * const command = new UpdateVoiceChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVoiceChannelCommandInput - {@link UpdateVoiceChannelCommandInput}
+ * @returns {@link UpdateVoiceChannelCommandOutput}
  * @see {@link UpdateVoiceChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +95,9 @@ export class UpdateVoiceChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVoiceChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class UpdateVoiceChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVoiceChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVoiceChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +137,18 @@ export class UpdateVoiceChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVoiceChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVoiceChannelCommand(input, context);
+    return se_UpdateVoiceChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVoiceChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateVoiceChannelCommand(output, context);
+    return de_UpdateVoiceChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,23 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketTaggingRequest, PutBucketTaggingRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketTaggingCommand,
-  serializeAws_restXmlPutBucketTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { PutBucketTaggingRequest } from "../models/models_0";
+import { de_PutBucketTaggingCommand, se_PutBucketTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketTaggingCommand}.
  */
 export interface PutBucketTaggingCommandInput extends PutBucketTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketTaggingCommand}.
  */
 export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the tags for a bucket.</p>
  *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this, sign
  *          up to get your Amazon Web Services account bill with tag key values included. Then, to see the cost of
@@ -112,10 +114,26 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketTaggingRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   Tagging: { // Tagging
+ *     TagSet: [ // TagSet // required
+ *       { // Tag
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketTaggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketTaggingCommandInput - {@link PutBucketTaggingCommandInput}
+ * @returns {@link PutBucketTaggingCommandOutput}
  * @see {@link PutBucketTaggingCommandInput} for command's `input` shape.
  * @see {@link PutBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -168,6 +186,9 @@ export class PutBucketTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -203,8 +224,8 @@ export class PutBucketTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -214,12 +235,18 @@ export class PutBucketTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBucketTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketTaggingCommand(input, context);
+    return se_PutBucketTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketTaggingCommandOutput> {
-    return deserializeAws_restXmlPutBucketTaggingCommand(output, context);
+    return de_PutBucketTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  UpdateProjectRequest,
-  UpdateProjectRequestFilterSensitiveLog,
-  UpdateProjectResult,
-  UpdateProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProjectCommand,
-  serializeAws_json1_1UpdateProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateProjectRequest, UpdateProjectResult } from "../models/models_0";
+import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProjectCommand}.
  */
 export interface UpdateProjectCommandOutput extends UpdateProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified project name, given the project ARN and a new
  *             name.</p>
  * @example
@@ -43,10 +40,26 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * import { DeviceFarmClient, UpdateProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // UpdateProjectRequest
+ *   arn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   defaultJobTimeoutMinutes: Number("int"),
+ *   vpcConfig: { // VpcConfig
+ *     securityGroupIds: [ // VpcSecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // VpcSubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpcId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
+ * @returns {@link UpdateProjectCommandOutput}
  * @see {@link UpdateProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -103,6 +116,9 @@ export class UpdateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +145,8 @@ export class UpdateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +156,18 @@ export class UpdateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProjectCommand(input, context);
+    return se_UpdateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectCommandOutput> {
-    return deserializeAws_json1_1UpdateProjectCommand(output, context);
+    return de_UpdateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

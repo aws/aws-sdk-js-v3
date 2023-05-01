@@ -19,22 +19,24 @@ import {
   CreateAssociationBatchResult,
   CreateAssociationBatchResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAssociationBatchCommand,
-  serializeAws_json1_1CreateAssociationBatchCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAssociationBatchCommand, se_CreateAssociationBatchCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAssociationBatchCommand}.
  */
 export interface CreateAssociationBatchCommandInput extends CreateAssociationBatchRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAssociationBatchCommand}.
  */
 export interface CreateAssociationBatchCommandOutput extends CreateAssociationBatchResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified managed nodes
  *    or targets.</p>
  *          <p>When you associate a document with one or more managed nodes using IDs or tags, Amazon Web Services Systems Manager
@@ -48,10 +50,89 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * import { SSMClient, CreateAssociationBatchCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateAssociationBatchCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // CreateAssociationBatchRequest
+ *   Entries: [ // CreateAssociationBatchRequestEntries // required
+ *     { // CreateAssociationBatchRequestEntry
+ *       Name: "STRING_VALUE", // required
+ *       InstanceId: "STRING_VALUE",
+ *       Parameters: { // Parameters
+ *         "<keys>": [ // ParameterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       AutomationTargetParameterName: "STRING_VALUE",
+ *       DocumentVersion: "STRING_VALUE",
+ *       Targets: [ // Targets
+ *         { // Target
+ *           Key: "STRING_VALUE",
+ *           Values: [ // TargetValues
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       ScheduleExpression: "STRING_VALUE",
+ *       OutputLocation: { // InstanceAssociationOutputLocation
+ *         S3Location: { // S3OutputLocation
+ *           OutputS3Region: "STRING_VALUE",
+ *           OutputS3BucketName: "STRING_VALUE",
+ *           OutputS3KeyPrefix: "STRING_VALUE",
+ *         },
+ *       },
+ *       AssociationName: "STRING_VALUE",
+ *       MaxErrors: "STRING_VALUE",
+ *       MaxConcurrency: "STRING_VALUE",
+ *       ComplianceSeverity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "UNSPECIFIED",
+ *       SyncCompliance: "AUTO" || "MANUAL",
+ *       ApplyOnlyAtCronInterval: true || false,
+ *       CalendarNames: [ // CalendarNameOrARNList
+ *         "STRING_VALUE",
+ *       ],
+ *       TargetLocations: [ // TargetLocations
+ *         { // TargetLocation
+ *           Accounts: [ // Accounts
+ *             "STRING_VALUE",
+ *           ],
+ *           Regions: [ // Regions
+ *             "STRING_VALUE",
+ *           ],
+ *           TargetLocationMaxConcurrency: "STRING_VALUE",
+ *           TargetLocationMaxErrors: "STRING_VALUE",
+ *           ExecutionRoleName: "STRING_VALUE",
+ *           TargetLocationAlarmConfiguration: { // AlarmConfiguration
+ *             IgnorePollAlarmFailure: true || false,
+ *             Alarms: [ // AlarmList // required
+ *               { // Alarm
+ *                 Name: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       ScheduleOffset: Number("int"),
+ *       TargetMaps: [ // TargetMaps
+ *         { // TargetMap
+ *           "<keys>": [ // TargetMapValueList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       AlarmConfiguration: {
+ *         IgnorePollAlarmFailure: true || false,
+ *         Alarms: [ // required
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateAssociationBatchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAssociationBatchCommandInput - {@link CreateAssociationBatchCommandInput}
+ * @returns {@link CreateAssociationBatchCommandOutput}
  * @see {@link CreateAssociationBatchCommandInput} for command's `input` shape.
  * @see {@link CreateAssociationBatchCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -131,6 +212,9 @@ export class CreateAssociationBatchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAssociationBatchCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,12 +254,18 @@ export class CreateAssociationBatchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAssociationBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAssociationBatchCommand(input, context);
+    return se_CreateAssociationBatchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssociationBatchCommandOutput> {
-    return deserializeAws_json1_1CreateAssociationBatchCommand(output, context);
+    return de_CreateAssociationBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  StartFleetRequest,
-  StartFleetRequestFilterSensitiveLog,
-  StartFleetResult,
-  StartFleetResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartFleetCommand,
-  serializeAws_json1_1StartFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { StartFleetRequest, StartFleetResult } from "../models/models_0";
+import { de_StartFleetCommand, se_StartFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartFleetCommand}.
  */
 export interface StartFleetCommandInput extends StartFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFleetCommand}.
  */
 export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  * import { AppStreamClient, StartFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, StartFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // StartFleetRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StartFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFleetCommandInput - {@link StartFleetCommandInput}
+ * @returns {@link StartFleetCommandOutput}
  * @see {@link StartFleetCommandInput} for command's `input` shape.
  * @see {@link StartFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -93,6 +95,9 @@ export class StartFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class StartFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class StartFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartFleetCommand(input, context);
+    return se_StartFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFleetCommandOutput> {
-    return deserializeAws_json1_1StartFleetCommand(output, context);
+    return de_StartFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

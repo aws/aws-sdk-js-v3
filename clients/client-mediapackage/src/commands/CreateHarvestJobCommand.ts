@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import {
-  CreateHarvestJobRequest,
-  CreateHarvestJobRequestFilterSensitiveLog,
-  CreateHarvestJobResponse,
-  CreateHarvestJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateHarvestJobCommand,
-  serializeAws_restJson1CreateHarvestJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateHarvestJobRequest, CreateHarvestJobResponse } from "../models/models_0";
+import { de_CreateHarvestJobCommand, se_CreateHarvestJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHarvestJobCommand}.
  */
 export interface CreateHarvestJobCommandInput extends CreateHarvestJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHarvestJobCommand}.
  */
 export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Creates a new HarvestJob record.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse,
  * import { MediaPackageClient, CreateHarvestJobCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, CreateHarvestJobCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
+ * const input = { // CreateHarvestJobRequest
+ *   EndTime: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   OriginEndpointId: "STRING_VALUE", // required
+ *   S3Destination: { // S3Destination
+ *     BucketName: "STRING_VALUE", // required
+ *     ManifestKey: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   StartTime: "STRING_VALUE", // required
+ * };
  * const command = new CreateHarvestJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHarvestJobCommandInput - {@link CreateHarvestJobCommandInput}
+ * @returns {@link CreateHarvestJobCommandOutput}
  * @see {@link CreateHarvestJobCommandInput} for command's `input` shape.
  * @see {@link CreateHarvestJobCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -87,6 +97,9 @@ export class CreateHarvestJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHarvestJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +128,8 @@ export class CreateHarvestJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHarvestJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHarvestJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +139,18 @@ export class CreateHarvestJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHarvestJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateHarvestJobCommand(input, context);
+    return se_CreateHarvestJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHarvestJobCommandOutput> {
-    return deserializeAws_restJson1CreateHarvestJobCommand(output, context);
+    return de_CreateHarvestJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpgradeDomainRequest,
-  UpgradeDomainRequestFilterSensitiveLog,
-  UpgradeDomainResponse,
-  UpgradeDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpgradeDomainRequest, UpgradeDomainResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1UpgradeDomainCommand,
-  serializeAws_restJson1UpgradeDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpgradeDomainCommand, se_UpgradeDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpgradeDomainCommand}.
  */
 export interface UpgradeDomainCommandInput extends UpgradeDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpgradeDomainCommand}.
  */
 export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to either upgrade your Amazon OpenSearch Service domain or perform an upgrade
  *    eligibility check to a compatible version of OpenSearch or Elasticsearch.</p>
  * @example
@@ -43,10 +40,20 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  * import { OpenSearchClient, UpgradeDomainCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, UpgradeDomainCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // UpgradeDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   TargetVersion: "STRING_VALUE", // required
+ *   PerformCheckOnly: true || false,
+ *   AdvancedOptions: { // AdvancedOptions
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpgradeDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpgradeDomainCommandInput - {@link UpgradeDomainCommandInput}
+ * @returns {@link UpgradeDomainCommandOutput}
  * @see {@link UpgradeDomainCommandInput} for command's `input` shape.
  * @see {@link UpgradeDomainCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -88,6 +95,9 @@ export class UpgradeDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpgradeDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +124,8 @@ export class UpgradeDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpgradeDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpgradeDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +135,18 @@ export class UpgradeDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpgradeDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpgradeDomainCommand(input, context);
+    return se_UpgradeDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpgradeDomainCommandOutput> {
-    return deserializeAws_restJson1UpgradeDomainCommand(output, context);
+    return de_UpgradeDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -61,395 +62,220 @@ import {
   UpdateConnectorCommandInput,
   UpdateConnectorCommandOutput,
 } from "./commands/UpdateConnectorCommand";
-import { KafkaConnectClient } from "./KafkaConnectClient";
+import { KafkaConnectClient, KafkaConnectClientConfig } from "./KafkaConnectClient";
 
-/**
- * <p/>
- */
-export class KafkaConnect extends KafkaConnectClient {
+const commands = {
+  CreateConnectorCommand,
+  CreateCustomPluginCommand,
+  CreateWorkerConfigurationCommand,
+  DeleteConnectorCommand,
+  DeleteCustomPluginCommand,
+  DescribeConnectorCommand,
+  DescribeCustomPluginCommand,
+  DescribeWorkerConfigurationCommand,
+  ListConnectorsCommand,
+  ListCustomPluginsCommand,
+  ListWorkerConfigurationsCommand,
+  UpdateConnectorCommand,
+};
+
+export interface KafkaConnect {
   /**
-   * <p>Creates a connector using the specified properties.</p>
+   * @see {@link CreateConnectorCommand}
    */
-  public createConnector(
+  createConnector(
     args: CreateConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateConnectorCommandOutput>;
-  public createConnector(
-    args: CreateConnectorCommandInput,
-    cb: (err: any, data?: CreateConnectorCommandOutput) => void
-  ): void;
-  public createConnector(
+  createConnector(args: CreateConnectorCommandInput, cb: (err: any, data?: CreateConnectorCommandOutput) => void): void;
+  createConnector(
     args: CreateConnectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateConnectorCommandOutput) => void
   ): void;
-  public createConnector(
-    args: CreateConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectorCommandOutput) => void),
-    cb?: (err: any, data?: CreateConnectorCommandOutput) => void
-  ): Promise<CreateConnectorCommandOutput> | void {
-    const command = new CreateConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a custom plugin using the specified properties.</p>
+   * @see {@link CreateCustomPluginCommand}
    */
-  public createCustomPlugin(
+  createCustomPlugin(
     args: CreateCustomPluginCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateCustomPluginCommandOutput>;
-  public createCustomPlugin(
+  createCustomPlugin(
     args: CreateCustomPluginCommandInput,
     cb: (err: any, data?: CreateCustomPluginCommandOutput) => void
   ): void;
-  public createCustomPlugin(
+  createCustomPlugin(
     args: CreateCustomPluginCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCustomPluginCommandOutput) => void
   ): void;
-  public createCustomPlugin(
-    args: CreateCustomPluginCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomPluginCommandOutput) => void),
-    cb?: (err: any, data?: CreateCustomPluginCommandOutput) => void
-  ): Promise<CreateCustomPluginCommandOutput> | void {
-    const command = new CreateCustomPluginCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a worker configuration using the specified properties.</p>
+   * @see {@link CreateWorkerConfigurationCommand}
    */
-  public createWorkerConfiguration(
+  createWorkerConfiguration(
     args: CreateWorkerConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkerConfigurationCommandOutput>;
-  public createWorkerConfiguration(
+  createWorkerConfiguration(
     args: CreateWorkerConfigurationCommandInput,
     cb: (err: any, data?: CreateWorkerConfigurationCommandOutput) => void
   ): void;
-  public createWorkerConfiguration(
+  createWorkerConfiguration(
     args: CreateWorkerConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateWorkerConfigurationCommandOutput) => void
   ): void;
-  public createWorkerConfiguration(
-    args: CreateWorkerConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkerConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: CreateWorkerConfigurationCommandOutput) => void
-  ): Promise<CreateWorkerConfigurationCommandOutput> | void {
-    const command = new CreateWorkerConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the specified connector.</p>
+   * @see {@link DeleteConnectorCommand}
    */
-  public deleteConnector(
+  deleteConnector(
     args: DeleteConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteConnectorCommandOutput>;
-  public deleteConnector(
-    args: DeleteConnectorCommandInput,
-    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
-  ): void;
-  public deleteConnector(
+  deleteConnector(args: DeleteConnectorCommandInput, cb: (err: any, data?: DeleteConnectorCommandOutput) => void): void;
+  deleteConnector(
     args: DeleteConnectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
-  public deleteConnector(
-    args: DeleteConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectorCommandOutput) => void),
-    cb?: (err: any, data?: DeleteConnectorCommandOutput) => void
-  ): Promise<DeleteConnectorCommandOutput> | void {
-    const command = new DeleteConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a custom plugin.</p>
+   * @see {@link DeleteCustomPluginCommand}
    */
-  public deleteCustomPlugin(
+  deleteCustomPlugin(
     args: DeleteCustomPluginCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteCustomPluginCommandOutput>;
-  public deleteCustomPlugin(
+  deleteCustomPlugin(
     args: DeleteCustomPluginCommandInput,
     cb: (err: any, data?: DeleteCustomPluginCommandOutput) => void
   ): void;
-  public deleteCustomPlugin(
+  deleteCustomPlugin(
     args: DeleteCustomPluginCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCustomPluginCommandOutput) => void
   ): void;
-  public deleteCustomPlugin(
-    args: DeleteCustomPluginCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomPluginCommandOutput) => void),
-    cb?: (err: any, data?: DeleteCustomPluginCommandOutput) => void
-  ): Promise<DeleteCustomPluginCommandOutput> | void {
-    const command = new DeleteCustomPluginCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns summary information about the connector.</p>
+   * @see {@link DescribeConnectorCommand}
    */
-  public describeConnector(
+  describeConnector(
     args: DescribeConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeConnectorCommandOutput>;
-  public describeConnector(
+  describeConnector(
     args: DescribeConnectorCommandInput,
     cb: (err: any, data?: DescribeConnectorCommandOutput) => void
   ): void;
-  public describeConnector(
+  describeConnector(
     args: DescribeConnectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeConnectorCommandOutput) => void
   ): void;
-  public describeConnector(
-    args: DescribeConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConnectorCommandOutput) => void),
-    cb?: (err: any, data?: DescribeConnectorCommandOutput) => void
-  ): Promise<DescribeConnectorCommandOutput> | void {
-    const command = new DescribeConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>A summary description of the custom plugin.</p>
+   * @see {@link DescribeCustomPluginCommand}
    */
-  public describeCustomPlugin(
+  describeCustomPlugin(
     args: DescribeCustomPluginCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeCustomPluginCommandOutput>;
-  public describeCustomPlugin(
+  describeCustomPlugin(
     args: DescribeCustomPluginCommandInput,
     cb: (err: any, data?: DescribeCustomPluginCommandOutput) => void
   ): void;
-  public describeCustomPlugin(
+  describeCustomPlugin(
     args: DescribeCustomPluginCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeCustomPluginCommandOutput) => void
   ): void;
-  public describeCustomPlugin(
-    args: DescribeCustomPluginCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCustomPluginCommandOutput) => void),
-    cb?: (err: any, data?: DescribeCustomPluginCommandOutput) => void
-  ): Promise<DescribeCustomPluginCommandOutput> | void {
-    const command = new DescribeCustomPluginCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about a worker configuration.</p>
+   * @see {@link DescribeWorkerConfigurationCommand}
    */
-  public describeWorkerConfiguration(
+  describeWorkerConfiguration(
     args: DescribeWorkerConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeWorkerConfigurationCommandOutput>;
-  public describeWorkerConfiguration(
+  describeWorkerConfiguration(
     args: DescribeWorkerConfigurationCommandInput,
     cb: (err: any, data?: DescribeWorkerConfigurationCommandOutput) => void
   ): void;
-  public describeWorkerConfiguration(
+  describeWorkerConfiguration(
     args: DescribeWorkerConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeWorkerConfigurationCommandOutput) => void
   ): void;
-  public describeWorkerConfiguration(
-    args: DescribeWorkerConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkerConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeWorkerConfigurationCommandOutput) => void
-  ): Promise<DescribeWorkerConfigurationCommandOutput> | void {
-    const command = new DescribeWorkerConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of all the connectors in this account and Region. The list is limited to
-   *          connectors whose name starts with the specified prefix. The response also includes a
-   *          description of each of the listed connectors.</p>
+   * @see {@link ListConnectorsCommand}
    */
-  public listConnectors(
+  listConnectors(
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListConnectorsCommandOutput>;
-  public listConnectors(
-    args: ListConnectorsCommandInput,
-    cb: (err: any, data?: ListConnectorsCommandOutput) => void
-  ): void;
-  public listConnectors(
+  listConnectors(args: ListConnectorsCommandInput, cb: (err: any, data?: ListConnectorsCommandOutput) => void): void;
+  listConnectors(
     args: ListConnectorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListConnectorsCommandOutput) => void
   ): void;
-  public listConnectors(
-    args: ListConnectorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConnectorsCommandOutput) => void),
-    cb?: (err: any, data?: ListConnectorsCommandOutput) => void
-  ): Promise<ListConnectorsCommandOutput> | void {
-    const command = new ListConnectorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of all of the custom plugins in this account and Region.</p>
+   * @see {@link ListCustomPluginsCommand}
    */
-  public listCustomPlugins(
+  listCustomPlugins(
     args: ListCustomPluginsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListCustomPluginsCommandOutput>;
-  public listCustomPlugins(
+  listCustomPlugins(
     args: ListCustomPluginsCommandInput,
     cb: (err: any, data?: ListCustomPluginsCommandOutput) => void
   ): void;
-  public listCustomPlugins(
+  listCustomPlugins(
     args: ListCustomPluginsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCustomPluginsCommandOutput) => void
   ): void;
-  public listCustomPlugins(
-    args: ListCustomPluginsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCustomPluginsCommandOutput) => void),
-    cb?: (err: any, data?: ListCustomPluginsCommandOutput) => void
-  ): Promise<ListCustomPluginsCommandOutput> | void {
-    const command = new ListCustomPluginsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of all of the worker configurations in this account and Region.</p>
+   * @see {@link ListWorkerConfigurationsCommand}
    */
-  public listWorkerConfigurations(
+  listWorkerConfigurations(
     args: ListWorkerConfigurationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListWorkerConfigurationsCommandOutput>;
-  public listWorkerConfigurations(
+  listWorkerConfigurations(
     args: ListWorkerConfigurationsCommandInput,
     cb: (err: any, data?: ListWorkerConfigurationsCommandOutput) => void
   ): void;
-  public listWorkerConfigurations(
+  listWorkerConfigurations(
     args: ListWorkerConfigurationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListWorkerConfigurationsCommandOutput) => void
   ): void;
-  public listWorkerConfigurations(
-    args: ListWorkerConfigurationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkerConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: ListWorkerConfigurationsCommandOutput) => void
-  ): Promise<ListWorkerConfigurationsCommandOutput> | void {
-    const command = new ListWorkerConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates the specified connector.</p>
+   * @see {@link UpdateConnectorCommand}
    */
-  public updateConnector(
+  updateConnector(
     args: UpdateConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateConnectorCommandOutput>;
-  public updateConnector(
-    args: UpdateConnectorCommandInput,
-    cb: (err: any, data?: UpdateConnectorCommandOutput) => void
-  ): void;
-  public updateConnector(
+  updateConnector(args: UpdateConnectorCommandInput, cb: (err: any, data?: UpdateConnectorCommandOutput) => void): void;
+  updateConnector(
     args: UpdateConnectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateConnectorCommandOutput) => void
   ): void;
-  public updateConnector(
-    args: UpdateConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectorCommandOutput) => void),
-    cb?: (err: any, data?: UpdateConnectorCommandOutput) => void
-  ): Promise<UpdateConnectorCommandOutput> | void {
-    const command = new UpdateConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p/>
+ */
+export class KafkaConnect extends KafkaConnectClient implements KafkaConnect {}
+createAggregatedClient(commands, KafkaConnect);

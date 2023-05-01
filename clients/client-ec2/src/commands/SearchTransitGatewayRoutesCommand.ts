@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  SearchTransitGatewayRoutesRequest,
-  SearchTransitGatewayRoutesRequestFilterSensitiveLog,
-  SearchTransitGatewayRoutesResult,
-  SearchTransitGatewayRoutesResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2SearchTransitGatewayRoutesCommand,
-  serializeAws_ec2SearchTransitGatewayRoutesCommand,
-} from "../protocols/Aws_ec2";
+import { SearchTransitGatewayRoutesRequest, SearchTransitGatewayRoutesResult } from "../models/models_6";
+import { de_SearchTransitGatewayRoutesCommand, se_SearchTransitGatewayRoutesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link SearchTransitGatewayRoutesCommand}.
  */
 export interface SearchTransitGatewayRoutesCommandInput extends SearchTransitGatewayRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchTransitGatewayRoutesCommand}.
  */
 export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGatewayRoutesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for routes in the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGa
  * import { EC2Client, SearchTransitGatewayRoutesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, SearchTransitGatewayRoutesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // SearchTransitGatewayRoutesRequest
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   Filters: [ // FilterList // required
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new SearchTransitGatewayRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchTransitGatewayRoutesCommandInput - {@link SearchTransitGatewayRoutesCommandInput}
+ * @returns {@link SearchTransitGatewayRoutesCommandOutput}
  * @see {@link SearchTransitGatewayRoutesCommandInput} for command's `input` shape.
  * @see {@link SearchTransitGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +81,9 @@ export class SearchTransitGatewayRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchTransitGatewayRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +112,8 @@ export class SearchTransitGatewayRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchTransitGatewayRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchTransitGatewayRoutesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,15 +123,21 @@ export class SearchTransitGatewayRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchTransitGatewayRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2SearchTransitGatewayRoutesCommand(input, context);
+    return se_SearchTransitGatewayRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchTransitGatewayRoutesCommandOutput> {
-    return deserializeAws_ec2SearchTransitGatewayRoutesCommand(output, context);
+    return de_SearchTransitGatewayRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

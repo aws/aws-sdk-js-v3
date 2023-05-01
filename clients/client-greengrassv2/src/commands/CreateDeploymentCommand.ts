@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  CreateDeploymentRequest,
-  CreateDeploymentRequestFilterSensitiveLog,
-  CreateDeploymentResponse,
-  CreateDeploymentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDeploymentCommand,
-  serializeAws_restJson1CreateDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDeploymentRequest, CreateDeploymentResponse } from "../models/models_0";
+import { de_CreateDeploymentCommand, se_CreateDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a continuous deployment for a target, which is a Greengrass core device or group of core
  *       devices. When you add a new core device to a group of core devices that has a deployment, IoT Greengrass
  *       deploys that group's deployment to the new device.</p>
@@ -52,10 +49,76 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * import { GreengrassV2Client, CreateDeploymentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, CreateDeploymentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // CreateDeploymentRequest
+ *   targetArn: "STRING_VALUE", // required
+ *   deploymentName: "STRING_VALUE",
+ *   components: { // ComponentDeploymentSpecifications
+ *     "<keys>": { // ComponentDeploymentSpecification
+ *       componentVersion: "STRING_VALUE",
+ *       configurationUpdate: { // ComponentConfigurationUpdate
+ *         merge: "STRING_VALUE",
+ *         reset: [ // ComponentConfigurationPathList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       runWith: { // ComponentRunWith
+ *         posixUser: "STRING_VALUE",
+ *         systemResourceLimits: { // SystemResourceLimits
+ *           memory: Number("long"),
+ *           cpus: Number("double"),
+ *         },
+ *         windowsUser: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   iotJobConfiguration: { // DeploymentIoTJobConfiguration
+ *     jobExecutionsRolloutConfig: { // IoTJobExecutionsRolloutConfig
+ *       exponentialRate: { // IoTJobExponentialRolloutRate
+ *         baseRatePerMinute: Number("int"), // required
+ *         incrementFactor: Number("double"), // required
+ *         rateIncreaseCriteria: { // IoTJobRateIncreaseCriteria
+ *           numberOfNotifiedThings: Number("int"),
+ *           numberOfSucceededThings: Number("int"),
+ *         },
+ *       },
+ *       maximumPerMinute: Number("int"),
+ *     },
+ *     abortConfig: { // IoTJobAbortConfig
+ *       criteriaList: [ // IoTJobAbortCriteriaList // required
+ *         { // IoTJobAbortCriteria
+ *           failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ *           action: "CANCEL", // required
+ *           thresholdPercentage: Number("double"), // required
+ *           minNumberOfExecutedThings: Number("int"), // required
+ *         },
+ *       ],
+ *     },
+ *     timeoutConfig: { // IoTJobTimeoutConfig
+ *       inProgressTimeoutInMinutes: Number("long"),
+ *     },
+ *   },
+ *   deploymentPolicies: { // DeploymentPolicies
+ *     failureHandlingPolicy: "ROLLBACK" || "DO_NOTHING",
+ *     componentUpdatePolicy: { // DeploymentComponentUpdatePolicy
+ *       timeoutInSeconds: Number("int"),
+ *       action: "NOTIFY_COMPONENTS" || "SKIP_NOTIFY_COMPONENTS",
+ *     },
+ *     configurationValidationPolicy: { // DeploymentConfigurationValidationPolicy
+ *       timeoutInSeconds: Number("int"),
+ *     },
+ *   },
+ *   parentTargetArn: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
+ * @returns {@link CreateDeploymentCommandOutput}
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -105,6 +168,9 @@ export class CreateDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +199,8 @@ export class CreateDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +210,18 @@ export class CreateDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeploymentCommand(input, context);
+    return se_CreateDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentCommandOutput> {
-    return deserializeAws_restJson1CreateDeploymentCommand(output, context);
+    return de_CreateDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

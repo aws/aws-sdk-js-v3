@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListModelBiasJobDefinitionsRequest,
-  ListModelBiasJobDefinitionsRequestFilterSensitiveLog,
-  ListModelBiasJobDefinitionsResponse,
-  ListModelBiasJobDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListModelBiasJobDefinitionsCommand,
-  serializeAws_json1_1ListModelBiasJobDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListModelBiasJobDefinitionsRequest, ListModelBiasJobDefinitionsResponse } from "../models/models_3";
+import { de_ListModelBiasJobDefinitionsCommand, se_ListModelBiasJobDefinitionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelBiasJobDefinitionsCommand}.
  */
 export interface ListModelBiasJobDefinitionsCommandInput extends ListModelBiasJobDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelBiasJobDefinitionsCommand}.
  */
 export interface ListModelBiasJobDefinitionsCommandOutput
@@ -37,6 +33,7 @@ export interface ListModelBiasJobDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists model bias jobs definitions that satisfy various filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,22 @@ export interface ListModelBiasJobDefinitionsCommandOutput
  * import { SageMakerClient, ListModelBiasJobDefinitionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelBiasJobDefinitionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListModelBiasJobDefinitionsRequest
+ *   EndpointName: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ * };
  * const command = new ListModelBiasJobDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelBiasJobDefinitionsCommandInput - {@link ListModelBiasJobDefinitionsCommandInput}
+ * @returns {@link ListModelBiasJobDefinitionsCommandOutput}
  * @see {@link ListModelBiasJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListModelBiasJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +80,9 @@ export class ListModelBiasJobDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelBiasJobDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +111,8 @@ export class ListModelBiasJobDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelBiasJobDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelBiasJobDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +122,21 @@ export class ListModelBiasJobDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelBiasJobDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListModelBiasJobDefinitionsCommand(input, context);
+    return se_ListModelBiasJobDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListModelBiasJobDefinitionsCommandOutput> {
-    return deserializeAws_json1_1ListModelBiasJobDefinitionsCommand(output, context);
+    return de_ListModelBiasJobDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

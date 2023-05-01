@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { DescribeReplicationInstancesMessage, DescribeReplicationInstancesResponse } from "../models/models_0";
 import {
-  DescribeReplicationInstancesMessage,
-  DescribeReplicationInstancesMessageFilterSensitiveLog,
-  DescribeReplicationInstancesResponse,
-  DescribeReplicationInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReplicationInstancesCommand,
-  serializeAws_json1_1DescribeReplicationInstancesCommand,
+  de_DescribeReplicationInstancesCommand,
+  se_DescribeReplicationInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeReplicationInstancesCommand}.
  */
 export interface DescribeReplicationInstancesCommandInput extends DescribeReplicationInstancesMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeReplicationInstancesCommand}.
  */
 export interface DescribeReplicationInstancesCommandOutput
@@ -41,6 +40,7 @@ export interface DescribeReplicationInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about replication instances for your account in the current
  *          region.</p>
  * @example
@@ -49,10 +49,24 @@ export interface DescribeReplicationInstancesCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeReplicationInstancesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeReplicationInstancesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeReplicationInstancesMessage
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReplicationInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeReplicationInstancesCommandInput - {@link DescribeReplicationInstancesCommandInput}
+ * @returns {@link DescribeReplicationInstancesCommandOutput}
  * @see {@link DescribeReplicationInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -106,6 +120,9 @@ export class DescribeReplicationInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +151,8 @@ export class DescribeReplicationInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationInstancesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplicationInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,15 +162,21 @@ export class DescribeReplicationInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReplicationInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationInstancesCommand(input, context);
+    return se_DescribeReplicationInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationInstancesCommand(output, context);
+    return de_DescribeReplicationInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

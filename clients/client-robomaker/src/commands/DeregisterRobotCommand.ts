@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeregisterRobotRequest,
-  DeregisterRobotRequestFilterSensitiveLog,
-  DeregisterRobotResponse,
-  DeregisterRobotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterRobotCommand,
-  serializeAws_restJson1DeregisterRobotCommand,
-} from "../protocols/Aws_restJson1";
+import { DeregisterRobotRequest, DeregisterRobotResponse } from "../models/models_0";
+import { de_DeregisterRobotCommand, se_DeregisterRobotCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterRobotCommand}.
  */
 export interface DeregisterRobotCommandInput extends DeregisterRobotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterRobotCommand}.
  */
 export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Deregisters a robot.</p>
@@ -47,10 +44,16 @@ export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, _
  * import { RoboMakerClient, DeregisterRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DeregisterRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DeregisterRobotRequest
+ *   fleet: "STRING_VALUE", // required
+ *   robot: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterRobotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterRobotCommandInput - {@link DeregisterRobotCommandInput}
+ * @returns {@link DeregisterRobotCommandOutput}
  * @see {@link DeregisterRobotCommandInput} for command's `input` shape.
  * @see {@link DeregisterRobotCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -87,6 +90,9 @@ export class DeregisterRobotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterRobotCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DeregisterRobotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterRobotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterRobotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DeregisterRobotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterRobotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterRobotCommand(input, context);
+    return se_DeregisterRobotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterRobotCommandOutput> {
-    return deserializeAws_restJson1DeregisterRobotCommand(output, context);
+    return de_DeregisterRobotCommand(output, context);
   }
 
   // Start section: command_body_extra

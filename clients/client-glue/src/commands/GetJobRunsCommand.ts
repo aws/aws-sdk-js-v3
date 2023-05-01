@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetJobRunsRequest,
-  GetJobRunsRequestFilterSensitiveLog,
-  GetJobRunsResponse,
-  GetJobRunsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetJobRunsCommand,
-  serializeAws_json1_1GetJobRunsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetJobRunsRequest, GetJobRunsResponse } from "../models/models_1";
+import { de_GetJobRunsCommand, se_GetJobRunsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobRunsCommand}.
  */
 export interface GetJobRunsCommandInput extends GetJobRunsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobRunsCommand}.
  */
 export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves metadata for all runs of a given job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * import { GlueClient, GetJobRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetJobRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetJobRunsRequest
+ *   JobName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetJobRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobRunsCommandInput - {@link GetJobRunsCommandInput}
+ * @returns {@link GetJobRunsCommandOutput}
  * @see {@link GetJobRunsCommandInput} for command's `input` shape.
  * @see {@link GetJobRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +85,9 @@ export class GetJobRunsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class GetJobRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobRunsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobRunsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class GetJobRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobRunsCommand(input, context);
+    return se_GetJobRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobRunsCommandOutput> {
-    return deserializeAws_json1_1GetJobRunsCommand(output, context);
+    return de_GetJobRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

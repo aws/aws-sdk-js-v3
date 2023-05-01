@@ -18,23 +18,24 @@ import {
   CreateForecastExportJobRequest,
   CreateForecastExportJobRequestFilterSensitiveLog,
   CreateForecastExportJobResponse,
-  CreateForecastExportJobResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateForecastExportJobCommand,
-  serializeAws_json1_1CreateForecastExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateForecastExportJobCommand, se_CreateForecastExportJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateForecastExportJobCommand}.
  */
 export interface CreateForecastExportJobCommandInput extends CreateForecastExportJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateForecastExportJobCommand}.
  */
 export interface CreateForecastExportJobCommandOutput extends CreateForecastExportJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports a forecast created by the <a>CreateForecast</a> operation to your
  *       Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:</p>
  *          <p><ForecastExportJobName>_<ExportTimestamp>_<PartNumber></p>
@@ -55,10 +56,30 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  * import { ForecastClient, CreateForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // CreateForecastExportJobRequest
+ *   ForecastExportJobName: "STRING_VALUE", // required
+ *   ForecastArn: "STRING_VALUE", // required
+ *   Destination: { // DataDestination
+ *     S3Config: { // S3Config
+ *       Path: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE", // required
+ *       KMSKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Format: "STRING_VALUE",
+ * };
  * const command = new CreateForecastExportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateForecastExportJobCommandInput - {@link CreateForecastExportJobCommandInput}
+ * @returns {@link CreateForecastExportJobCommandOutput}
  * @see {@link CreateForecastExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateForecastExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -99,6 +120,9 @@ export class CreateForecastExportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateForecastExportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,7 +152,7 @@ export class CreateForecastExportJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateForecastExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateForecastExportJobResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +162,18 @@ export class CreateForecastExportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateForecastExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateForecastExportJobCommand(input, context);
+    return se_CreateForecastExportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1CreateForecastExportJobCommand(output, context);
+    return de_CreateForecastExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

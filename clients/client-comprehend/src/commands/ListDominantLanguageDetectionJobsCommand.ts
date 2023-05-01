@@ -16,20 +16,22 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   ListDominantLanguageDetectionJobsRequest,
-  ListDominantLanguageDetectionJobsRequestFilterSensitiveLog,
   ListDominantLanguageDetectionJobsResponse,
-  ListDominantLanguageDetectionJobsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand,
-  serializeAws_json1_1ListDominantLanguageDetectionJobsCommand,
+  de_ListDominantLanguageDetectionJobsCommand,
+  se_ListDominantLanguageDetectionJobsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDominantLanguageDetectionJobsCommand}.
  */
 export interface ListDominantLanguageDetectionJobsCommandInput extends ListDominantLanguageDetectionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDominantLanguageDetectionJobsCommand}.
  */
 export interface ListDominantLanguageDetectionJobsCommandOutput
@@ -37,6 +39,7 @@ export interface ListDominantLanguageDetectionJobsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the dominant language detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,22 @@ export interface ListDominantLanguageDetectionJobsCommandOutput
  * import { ComprehendClient, ListDominantLanguageDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListDominantLanguageDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListDominantLanguageDetectionJobsRequest
+ *   Filter: { // DominantLanguageDetectionJobFilter
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDominantLanguageDetectionJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDominantLanguageDetectionJobsCommandInput - {@link ListDominantLanguageDetectionJobsCommandInput}
+ * @returns {@link ListDominantLanguageDetectionJobsCommandOutput}
  * @see {@link ListDominantLanguageDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListDominantLanguageDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -84,6 +99,9 @@ export class ListDominantLanguageDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDominantLanguageDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +130,8 @@ export class ListDominantLanguageDetectionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDominantLanguageDetectionJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDominantLanguageDetectionJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +141,24 @@ export class ListDominantLanguageDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDominantLanguageDetectionJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDominantLanguageDetectionJobsCommand(input, context);
+    return se_ListDominantLanguageDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDominantLanguageDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand(output, context);
+    return de_ListDominantLanguageDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

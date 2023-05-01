@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateConfigurationSetRequest,
-  CreateConfigurationSetRequestFilterSensitiveLog,
-  CreateConfigurationSetResult,
-  CreateConfigurationSetResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateConfigurationSetRequest, CreateConfigurationSetResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0CreateConfigurationSetCommand,
-  serializeAws_json1_0CreateConfigurationSetCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateConfigurationSetCommand, se_CreateConfigurationSetCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateConfigurationSetCommand}.
  */
 export interface CreateConfigurationSetCommandInput extends CreateConfigurationSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateConfigurationSetCommand}.
  */
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new configuration set. After you create the configuration set, you can add
  *             one or more event destinations to it.</p>
  *         <p>A configuration set is a set of rules that you apply to the SMS and voice messages
@@ -50,10 +47,22 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * import { PinpointSMSVoiceV2Client, CreateConfigurationSetCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, CreateConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = { // CreateConfigurationSetRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
+ * @returns {@link CreateConfigurationSetCommandOutput}
  * @see {@link CreateConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
@@ -101,6 +110,9 @@ export class CreateConfigurationSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateConfigurationSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +141,8 @@ export class CreateConfigurationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfigurationSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfigurationSetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +152,18 @@ export class CreateConfigurationSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateConfigurationSetCommand(input, context);
+    return se_CreateConfigurationSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfigurationSetCommandOutput> {
-    return deserializeAws_json1_0CreateConfigurationSetCommand(output, context);
+    return de_CreateConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

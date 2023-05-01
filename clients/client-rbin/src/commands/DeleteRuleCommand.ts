@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteRuleRequest,
-  DeleteRuleRequestFilterSensitiveLog,
-  DeleteRuleResponse,
-  DeleteRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRuleCommand,
-  serializeAws_restJson1DeleteRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRuleRequest, DeleteRuleResponse } from "../models/models_0";
+import { de_DeleteRuleCommand, se_DeleteRuleCommand } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRuleCommand}.
  */
 export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRuleCommand}.
  */
 export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-delete-rule">
  *       Delete Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * import { RbinClient, DeleteRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, DeleteRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
+ * const input = { // DeleteRuleRequest
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
+ * @returns {@link DeleteRuleCommandOutput}
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
@@ -82,6 +84,9 @@ export class DeleteRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class DeleteRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class DeleteRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRuleCommand(input, context);
+    return se_DeleteRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteRuleCommand(output, context);
+    return de_DeleteRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

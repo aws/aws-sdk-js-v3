@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetGroupQueryInput,
-  GetGroupQueryInputFilterSensitiveLog,
-  GetGroupQueryOutput,
-  GetGroupQueryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGroupQueryCommand,
-  serializeAws_restJson1GetGroupQueryCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGroupQueryInput, GetGroupQueryOutput } from "../models/models_0";
+import { de_GetGroupQueryCommand, se_GetGroupQueryCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetGroupQueryCommand}.
  */
 export interface GetGroupQueryCommandInput extends GetGroupQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetGroupQueryCommand}.
  */
 export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the resource query associated with the specified resource group. For more
  *             information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
  *                 a tag-based group in Resource Groups</a>.</p>
@@ -55,10 +52,16 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  * import { ResourceGroupsClient, GetGroupQueryCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetGroupQueryCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // GetGroupQueryInput
+ *   GroupName: "STRING_VALUE",
+ *   Group: "STRING_VALUE",
+ * };
  * const command = new GetGroupQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGroupQueryCommandInput - {@link GetGroupQueryCommandInput}
+ * @returns {@link GetGroupQueryCommandOutput}
  * @see {@link GetGroupQueryCommandInput} for command's `input` shape.
  * @see {@link GetGroupQueryCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -101,6 +104,9 @@ export class GetGroupQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGroupQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +133,8 @@ export class GetGroupQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupQueryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupQueryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +144,18 @@ export class GetGroupQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGroupQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGroupQueryCommand(input, context);
+    return se_GetGroupQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupQueryCommandOutput> {
-    return deserializeAws_restJson1GetGroupQueryCommand(output, context);
+    return de_GetGroupQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

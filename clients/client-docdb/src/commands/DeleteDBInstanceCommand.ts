@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  DeleteDBInstanceMessage,
-  DeleteDBInstanceMessageFilterSensitiveLog,
-  DeleteDBInstanceResult,
-  DeleteDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBInstanceCommand,
-  serializeAws_queryDeleteDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0";
+import { de_DeleteDBInstanceCommand, se_DeleteDBInstanceCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBInstanceCommand}.
  */
 export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBInstanceCommand}.
  */
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a previously provisioned instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * import { DocDBClient, DeleteDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DeleteDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DeleteDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBInstanceCommandInput - {@link DeleteDBInstanceCommandInput}
+ * @returns {@link DeleteDBInstanceCommandOutput}
  * @see {@link DeleteDBInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DeleteDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DeleteDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBInstanceCommand(input, context);
+    return se_DeleteDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBInstanceCommandOutput> {
-    return deserializeAws_queryDeleteDBInstanceCommand(output, context);
+    return de_DeleteDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

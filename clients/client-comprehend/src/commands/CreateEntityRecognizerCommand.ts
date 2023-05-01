@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  CreateEntityRecognizerRequest,
-  CreateEntityRecognizerRequestFilterSensitiveLog,
-  CreateEntityRecognizerResponse,
-  CreateEntityRecognizerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEntityRecognizerCommand,
-  serializeAws_json1_1CreateEntityRecognizerCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateEntityRecognizerRequest, CreateEntityRecognizerResponse } from "../models/models_0";
+import { de_CreateEntityRecognizerCommand, se_CreateEntityRecognizerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEntityRecognizerCommand}.
  */
 export interface CreateEntityRecognizerCommandInput extends CreateEntityRecognizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEntityRecognizerCommand}.
  */
 export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecognizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an entity recognizer using submitted files. After your
  *         <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the
  *         <code>DescribeEntityRecognizer</code> API. </p>
@@ -44,10 +41,68 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * import { ComprehendClient, CreateEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // CreateEntityRecognizerRequest
+ *   RecognizerName: "STRING_VALUE", // required
+ *   VersionName: "STRING_VALUE",
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   InputDataConfig: { // EntityRecognizerInputDataConfig
+ *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
+ *     EntityTypes: [ // EntityTypesList // required
+ *       { // EntityTypesListItem
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     Documents: { // EntityRecognizerDocuments
+ *       S3Uri: "STRING_VALUE", // required
+ *       TestS3Uri: "STRING_VALUE",
+ *       InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ *     },
+ *     Annotations: { // EntityRecognizerAnnotations
+ *       S3Uri: "STRING_VALUE", // required
+ *       TestS3Uri: "STRING_VALUE",
+ *     },
+ *     EntityList: { // EntityRecognizerEntityList
+ *       S3Uri: "STRING_VALUE", // required
+ *     },
+ *     AugmentedManifests: [ // EntityRecognizerAugmentedManifestsList
+ *       { // AugmentedManifestsListItem
+ *         S3Uri: "STRING_VALUE", // required
+ *         Split: "TRAIN" || "TEST",
+ *         AttributeNames: [ // AttributeNamesList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         AnnotationDataS3Uri: "STRING_VALUE",
+ *         SourceDocumentsS3Uri: "STRING_VALUE",
+ *         DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *       },
+ *     ],
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ *   VolumeKmsKeyId: "STRING_VALUE",
+ *   VpcConfig: { // VpcConfig
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // Subnets // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ModelKmsKeyId: "STRING_VALUE",
+ *   ModelPolicy: "STRING_VALUE",
+ * };
  * const command = new CreateEntityRecognizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEntityRecognizerCommandInput - {@link CreateEntityRecognizerCommandInput}
+ * @returns {@link CreateEntityRecognizerCommandOutput}
  * @see {@link CreateEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link CreateEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -104,6 +159,9 @@ export class CreateEntityRecognizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEntityRecognizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +190,8 @@ export class CreateEntityRecognizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEntityRecognizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEntityRecognizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +201,18 @@ export class CreateEntityRecognizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEntityRecognizerCommand(input, context);
+    return se_CreateEntityRecognizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEntityRecognizerCommandOutput> {
-    return deserializeAws_json1_1CreateEntityRecognizerCommand(output, context);
+    return de_CreateEntityRecognizerCommand(output, context);
   }
 
   // Start section: command_body_extra

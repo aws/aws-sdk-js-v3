@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { KeyspacesServiceException as __BaseException } from "./KeyspacesServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action. </p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -22,12 +23,22 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum ThroughputMode {
-  PAY_PER_REQUEST = "PAY_PER_REQUEST",
-  PROVISIONED = "PROVISIONED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ThroughputMode = {
+  PAY_PER_REQUEST: "PAY_PER_REQUEST",
+  PROVISIONED: "PROVISIONED",
+} as const;
 
 /**
+ * @public
+ */
+export type ThroughputMode = (typeof ThroughputMode)[keyof typeof ThroughputMode];
+
+/**
+ * @public
  * <p>Amazon Keyspaces has two read/write capacity modes for processing reads and writes on your tables: </p>
  *          <ul>
  *             <li>
@@ -76,6 +87,7 @@ export interface CapacitySpecification {
 }
 
 /**
+ * @public
  * <p>The read/write throughput capacity mode for a table. The options are:</p>
  *          <ul>
  *             <li>
@@ -128,11 +140,21 @@ export interface CapacitySpecificationSummary {
   lastUpdateToPayPerRequestTimestamp?: Date;
 }
 
-export enum ClientSideTimestampsStatus {
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClientSideTimestampsStatus = {
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ClientSideTimestampsStatus = (typeof ClientSideTimestampsStatus)[keyof typeof ClientSideTimestampsStatus];
+
+/**
+ * @public
  * <p>The client-side timestamp setting of the table.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps-how-it-works.html">How it works: Amazon Keyspaces client-side timestamps</a> in the <i>Amazon Keyspaces Developer
  *             Guide</i>.</p>
@@ -144,12 +166,22 @@ export interface ClientSideTimestamps {
   status: ClientSideTimestampsStatus | string | undefined;
 }
 
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
 
 /**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
  * <p>The optional clustering column portion of your primary key determines how the data is clustered and sorted within each partition.</p>
  */
 export interface ClusteringKey {
@@ -165,6 +197,7 @@ export interface ClusteringKey {
 }
 
 /**
+ * @public
  * <p>The names and data types of regular columns.</p>
  */
 export interface ColumnDefinition {
@@ -181,6 +214,7 @@ export interface ColumnDefinition {
 }
 
 /**
+ * @public
  * <p>An optional comment that describes the table.</p>
  */
 export interface Comment {
@@ -191,6 +225,7 @@ export interface Comment {
 }
 
 /**
+ * @public
  * <p>Amazon Keyspaces could not complete the requested action. This error may occur if you try to
  *          perform an action and the same or a different action is already
  *          in progress, or if you try to create a resource that already exists. </p>
@@ -212,6 +247,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.</p>
  *          <p>Amazon Web Services-assigned tag names and values are automatically assigned the <code>aws:</code> prefix, which the user cannot assign.
  *          Amazon Web Services-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the
@@ -232,6 +268,9 @@ export interface Tag {
   value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateKeyspaceRequest {
   /**
    * <p>The name of the keyspace to be created.</p>
@@ -246,6 +285,9 @@ export interface CreateKeyspaceRequest {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateKeyspaceResponse {
   /**
    * <p>The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).</p>
@@ -254,6 +296,7 @@ export interface CreateKeyspaceResponse {
 }
 
 /**
+ * @public
  * <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -273,6 +316,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
  *             Guide</i>.</p>
  */
@@ -293,6 +337,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation failed due to an invalid or malformed request.</p>
  */
 export class ValidationException extends __BaseException {
@@ -311,12 +356,22 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum EncryptionType {
-  AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY",
-  CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
+  CUSTOMER_MANAGED_KMS_KEY: "CUSTOMER_MANAGED_KMS_KEY",
+} as const;
 
 /**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * @public
  * <p>Amazon Keyspaces encrypts and decrypts the table data at rest transparently and integrates with Key Management Service for storing and managing the encryption key.
  *          You can choose one of the following KMS keys (KMS keys):</p>
  *          <ul>
@@ -359,12 +414,22 @@ export interface EncryptionSpecification {
   kmsKeyIdentifier?: string;
 }
 
-export enum PointInTimeRecoveryStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PointInTimeRecoveryStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type PointInTimeRecoveryStatus = (typeof PointInTimeRecoveryStatus)[keyof typeof PointInTimeRecoveryStatus];
+
+/**
+ * @public
  * <p>Point-in-time recovery (PITR) helps protect your Amazon Keyspaces tables from accidental write or delete operations by providing you continuous backups of your table data.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html">Point-in-time recovery</a> in the <i>Amazon Keyspaces Developer
  *             Guide</i>.</p>
@@ -389,6 +454,7 @@ export interface PointInTimeRecovery {
 }
 
 /**
+ * @public
  * <p>The partition key portion of the primary key is required
  *          and determines how Amazon Keyspaces stores the data.
  *          The partition key can be a single column, or it can be a compound value composed of two or more columns.</p>
@@ -401,6 +467,7 @@ export interface PartitionKey {
 }
 
 /**
+ * @public
  * <p>The static columns of the table. Static columns store values that are shared by all rows in the same partition.</p>
  */
 export interface StaticColumn {
@@ -411,6 +478,7 @@ export interface StaticColumn {
 }
 
 /**
+ * @public
  * <p>Describes the schema of the table.</p>
  */
 export interface SchemaDefinition {
@@ -435,11 +503,21 @@ export interface SchemaDefinition {
   staticColumns?: StaticColumn[];
 }
 
-export enum TimeToLiveStatus {
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TimeToLiveStatus = {
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type TimeToLiveStatus = (typeof TimeToLiveStatus)[keyof typeof TimeToLiveStatus];
+
+/**
+ * @public
  * <p>Enable custom Time to Live (TTL) settings for rows and columns without setting a TTL default for the specified table.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_enabling">Enabling TTL on tables</a> in the <i>Amazon Keyspaces Developer
  *             Guide</i>.</p>
@@ -451,6 +529,9 @@ export interface TimeToLive {
   status: TimeToLiveStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateTableRequest {
   /**
    * <p>The name of the keyspace that the table is going to be created in.</p>
@@ -647,6 +728,9 @@ export interface CreateTableRequest {
   clientSideTimestamps?: ClientSideTimestamps;
 }
 
+/**
+ * @public
+ */
 export interface CreateTableResponse {
   /**
    * <p>The unique identifier of the table in the format of an Amazon Resource Name (ARN).</p>
@@ -655,6 +739,7 @@ export interface CreateTableResponse {
 }
 
 /**
+ * @public
  * <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -679,6 +764,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeyspaceRequest {
   /**
    * <p>The name of the keyspace to be deleted.</p>
@@ -686,8 +774,14 @@ export interface DeleteKeyspaceRequest {
   keyspaceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteKeyspaceResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteTableRequest {
   /**
    * <p>The name of the keyspace of the to be deleted table.</p>
@@ -700,8 +794,14 @@ export interface DeleteTableRequest {
   tableName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteTableResponse {}
 
+/**
+ * @public
+ */
 export interface GetKeyspaceRequest {
   /**
    * <p>The name of the keyspace.</p>
@@ -709,6 +809,9 @@ export interface GetKeyspaceRequest {
   keyspaceName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetKeyspaceResponse {
   /**
    * <p>The name of the keyspace.</p>
@@ -721,6 +824,9 @@ export interface GetKeyspaceResponse {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetTableRequest {
   /**
    * <p>The name of the keyspace that the table is stored in.</p>
@@ -734,6 +840,7 @@ export interface GetTableRequest {
 }
 
 /**
+ * @public
  * <p>The point-in-time recovery status of the specified table.</p>
  */
 export interface PointInTimeRecoverySummary {
@@ -748,16 +855,28 @@ export interface PointInTimeRecoverySummary {
   earliestRestorableTimestamp?: Date;
 }
 
-export enum TableStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  RESTORING = "RESTORING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TableStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  RESTORING: "RESTORING",
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
+
+/**
+ * @public
+ */
 export interface GetTableResponse {
   /**
    * <p>The name of the keyspace that the specified table is stored in.</p>
@@ -838,6 +957,9 @@ export interface GetTableResponse {
   clientSideTimestamps?: ClientSideTimestamps;
 }
 
+/**
+ * @public
+ */
 export interface ListKeyspacesRequest {
   /**
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
@@ -853,6 +975,7 @@ export interface ListKeyspacesRequest {
 }
 
 /**
+ * @public
  * <p>Represents the properties of a keyspace.</p>
  */
 export interface KeyspaceSummary {
@@ -867,6 +990,9 @@ export interface KeyspaceSummary {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListKeyspacesResponse {
   /**
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
@@ -879,6 +1005,9 @@ export interface ListKeyspacesResponse {
   keyspaces: KeyspaceSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTablesRequest {
   /**
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
@@ -899,6 +1028,7 @@ export interface ListTablesRequest {
 }
 
 /**
+ * @public
  * <p>Returns the name of the specified table, the keyspace it is stored in, and the unique identifier in the format of an Amazon Resource Name (ARN).</p>
  */
 export interface TableSummary {
@@ -918,6 +1048,9 @@ export interface TableSummary {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTablesResponse {
   /**
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
@@ -930,6 +1063,9 @@ export interface ListTablesResponse {
   tables?: TableSummary[];
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Keyspaces resource.</p>
@@ -949,6 +1085,9 @@ export interface ListTagsForResourceRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
@@ -961,6 +1100,9 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableRequest {
   /**
    * <p>The keyspace name of the source table.</p>
@@ -1057,6 +1199,9 @@ export interface RestoreTableRequest {
   tagsOverride?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface RestoreTableResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the restored table.</p>
@@ -1064,6 +1209,9 @@ export interface RestoreTableResponse {
   restoredTableARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Keyspaces resource to which to add tags.</p>
@@ -1076,8 +1224,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Keyspaces resource that the tags will be removed from. This value is an Amazon Resource Name (ARN).</p>
@@ -1090,8 +1244,14 @@ export interface UntagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateTableRequest {
   /**
    * <p>The name of the keyspace the specified table is stored in.</p>
@@ -1224,303 +1384,12 @@ export interface UpdateTableRequest {
   clientSideTimestamps?: ClientSideTimestamps;
 }
 
+/**
+ * @public
+ */
 export interface UpdateTableResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the modified table.</p>
    */
   resourceArn: string | undefined;
 }
-
-/**
- * @internal
- */
-export const CapacitySpecificationFilterSensitiveLog = (obj: CapacitySpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacitySpecificationSummaryFilterSensitiveLog = (obj: CapacitySpecificationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientSideTimestampsFilterSensitiveLog = (obj: ClientSideTimestamps): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusteringKeyFilterSensitiveLog = (obj: ClusteringKey): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnDefinitionFilterSensitiveLog = (obj: ColumnDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CommentFilterSensitiveLog = (obj: Comment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateKeyspaceRequestFilterSensitiveLog = (obj: CreateKeyspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateKeyspaceResponseFilterSensitiveLog = (obj: CreateKeyspaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionSpecificationFilterSensitiveLog = (obj: EncryptionSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PointInTimeRecoveryFilterSensitiveLog = (obj: PointInTimeRecovery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PartitionKeyFilterSensitiveLog = (obj: PartitionKey): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StaticColumnFilterSensitiveLog = (obj: StaticColumn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaDefinitionFilterSensitiveLog = (obj: SchemaDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeToLiveFilterSensitiveLog = (obj: TimeToLive): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTableRequestFilterSensitiveLog = (obj: CreateTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTableResponseFilterSensitiveLog = (obj: CreateTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteKeyspaceRequestFilterSensitiveLog = (obj: DeleteKeyspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteKeyspaceResponseFilterSensitiveLog = (obj: DeleteKeyspaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTableRequestFilterSensitiveLog = (obj: DeleteTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTableResponseFilterSensitiveLog = (obj: DeleteTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyspaceRequestFilterSensitiveLog = (obj: GetKeyspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyspaceResponseFilterSensitiveLog = (obj: GetKeyspaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTableRequestFilterSensitiveLog = (obj: GetTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PointInTimeRecoverySummaryFilterSensitiveLog = (obj: PointInTimeRecoverySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTableResponseFilterSensitiveLog = (obj: GetTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeyspacesRequestFilterSensitiveLog = (obj: ListKeyspacesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyspaceSummaryFilterSensitiveLog = (obj: KeyspaceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeyspacesResponseFilterSensitiveLog = (obj: ListKeyspacesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTablesRequestFilterSensitiveLog = (obj: ListTablesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableSummaryFilterSensitiveLog = (obj: TableSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTablesResponseFilterSensitiveLog = (obj: ListTablesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreTableRequestFilterSensitiveLog = (obj: RestoreTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreTableResponseFilterSensitiveLog = (obj: RestoreTableResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableRequestFilterSensitiveLog = (obj: UpdateTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTableResponseFilterSensitiveLog = (obj: UpdateTableResponse): any => ({
-  ...obj,
-});

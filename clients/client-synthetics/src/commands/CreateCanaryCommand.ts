@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCanaryRequest,
-  CreateCanaryRequestFilterSensitiveLog,
-  CreateCanaryResponse,
-  CreateCanaryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCanaryCommand,
-  serializeAws_restJson1CreateCanaryCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateCanaryRequest, CreateCanaryResponse } from "../models/models_0";
+import { de_CreateCanaryCommand, se_CreateCanaryCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCanaryCommand}.
  */
 export interface CreateCanaryCommandInput extends CreateCanaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCanaryCommand}.
  */
 export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a canary. Canaries are scripts that monitor your endpoints and APIs from the
  *          outside-in. Canaries help you check the availability and latency of your web services and
  *          troubleshoot anomalies by investigating load time data, screenshots of the UI, logs, and
@@ -55,10 +52,56 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * import { SyntheticsClient, CreateCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, CreateCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // CreateCanaryRequest
+ *   Name: "STRING_VALUE", // required
+ *   Code: { // CanaryCodeInput
+ *     S3Bucket: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *     S3Version: "STRING_VALUE",
+ *     ZipFile: "BLOB_VALUE",
+ *     Handler: "STRING_VALUE", // required
+ *   },
+ *   ArtifactS3Location: "STRING_VALUE", // required
+ *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   Schedule: { // CanaryScheduleInput
+ *     Expression: "STRING_VALUE", // required
+ *     DurationInSeconds: Number("long"),
+ *   },
+ *   RunConfig: { // CanaryRunConfigInput
+ *     TimeoutInSeconds: Number("int"),
+ *     MemoryInMB: Number("int"),
+ *     ActiveTracing: true || false,
+ *     EnvironmentVariables: { // EnvironmentVariablesMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   SuccessRetentionPeriodInDays: Number("int"),
+ *   FailureRetentionPeriodInDays: Number("int"),
+ *   RuntimeVersion: "STRING_VALUE", // required
+ *   VpcConfig: { // VpcConfigInput
+ *     SubnetIds: [ // SubnetIds
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // SecurityGroupIds
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ArtifactConfig: { // ArtifactConfigInput
+ *     S3Encryption: { // S3EncryptionConfig
+ *       EncryptionMode: "STRING_VALUE",
+ *       KmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateCanaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCanaryCommandInput - {@link CreateCanaryCommandInput}
+ * @returns {@link CreateCanaryCommandOutput}
  * @see {@link CreateCanaryCommandInput} for command's `input` shape.
  * @see {@link CreateCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -91,6 +134,9 @@ export class CreateCanaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCanaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +163,8 @@ export class CreateCanaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCanaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCanaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +174,18 @@ export class CreateCanaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCanaryCommand(input, context);
+    return se_CreateCanaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCanaryCommandOutput> {
-    return deserializeAws_restJson1CreateCanaryCommand(output, context);
+    return de_CreateCanaryCommand(output, context);
   }
 
   // Start section: command_body_extra

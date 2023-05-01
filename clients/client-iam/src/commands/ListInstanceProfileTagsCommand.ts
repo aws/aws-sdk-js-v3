@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListInstanceProfileTagsRequest,
-  ListInstanceProfileTagsRequestFilterSensitiveLog,
-  ListInstanceProfileTagsResponse,
-  ListInstanceProfileTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListInstanceProfileTagsCommand,
-  serializeAws_queryListInstanceProfileTagsCommand,
-} from "../protocols/Aws_query";
+import { ListInstanceProfileTagsRequest, ListInstanceProfileTagsResponse } from "../models/models_0";
+import { de_ListInstanceProfileTagsCommand, se_ListInstanceProfileTagsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceProfileTagsCommand}.
  */
 export interface ListInstanceProfileTagsCommandInput extends ListInstanceProfileTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceProfileTagsCommand}.
  */
 export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfileTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified IAM instance profile. The returned list of tags is sorted by tag key.
  *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -44,10 +41,17 @@ export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfil
  * import { IAMClient, ListInstanceProfileTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListInstanceProfileTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListInstanceProfileTagsRequest
+ *   InstanceProfileName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListInstanceProfileTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceProfileTagsCommandInput - {@link ListInstanceProfileTagsCommandInput}
+ * @returns {@link ListInstanceProfileTagsCommandOutput}
  * @see {@link ListInstanceProfileTagsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfileTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -79,6 +83,9 @@ export class ListInstanceProfileTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceProfileTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class ListInstanceProfileTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstanceProfileTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInstanceProfileTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class ListInstanceProfileTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceProfileTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListInstanceProfileTagsCommand(input, context);
+    return se_ListInstanceProfileTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceProfileTagsCommandOutput> {
-    return deserializeAws_queryListInstanceProfileTagsCommand(output, context);
+    return de_ListInstanceProfileTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

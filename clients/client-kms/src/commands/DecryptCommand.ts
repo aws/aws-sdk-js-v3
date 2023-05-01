@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  DecryptRequest,
-  DecryptRequestFilterSensitiveLog,
-  DecryptResponse,
-  DecryptResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1DecryptCommand, serializeAws_json1_1DecryptCommand } from "../protocols/Aws_json1_1";
+import { DecryptRequest, DecryptResponse, DecryptResponseFilterSensitiveLog } from "../models/models_0";
+import { de_DecryptCommand, se_DecryptCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DecryptCommand}.
  */
 export interface DecryptCommandInput extends DecryptRequest {}
 /**
+ * @public
+ *
  * The output of {@link DecryptCommand}.
  */
 export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Decrypts ciphertext that was encrypted by a KMS key using any of the following
  *       operations:</p>
  *          <ul>
@@ -86,7 +86,13 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *       an IAM policy for <code>Decrypt</code> permissions, limit the user to particular KMS keys or
  *       particular trusted accounts. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policies-best-practices">Best practices for IAM
  *         policies</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>Applications in Amazon Web Services Nitro Enclaves can call this operation by using the <a href="https://github.com/aws/aws-nitro-enclaves-sdk-c">Amazon Web Services Nitro Enclaves Development Kit</a>. For information about the supporting parameters, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves use KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <code>Decrypt</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
+ *       isolated compute environment in Amazon EC2. To call <code>Decrypt</code> for a Nitro enclave, use
+ *       the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code> parameter to provide the
+ *       attestation document for the enclave. Instead of the plaintext data, the response includes the
+ *       plaintext data encrypted with the public key from the attestation document
+ *       (<code>CiphertextForRecipient</code>).For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>..</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
@@ -126,10 +132,27 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * import { KMSClient, DecryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DecryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // DecryptRequest
+ *   CiphertextBlob: "BLOB_VALUE", // required
+ *   EncryptionContext: { // EncryptionContextType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ *   KeyId: "STRING_VALUE",
+ *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ *   Recipient: { // RecipientInfo
+ *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *     AttestationDocument: "BLOB_VALUE",
+ *   },
+ * };
  * const command = new DecryptCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DecryptCommandInput - {@link DecryptCommandInput}
+ * @returns {@link DecryptCommandOutput}
  * @see {@link DecryptCommandInput} for command's `input` shape.
  * @see {@link DecryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -242,6 +265,9 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DecryptCommandInput) {
     // Start section: command_constructor
     super();
@@ -268,7 +294,7 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DecryptRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DecryptResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -279,12 +305,18 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DecryptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DecryptCommand(input, context);
+    return se_DecryptCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DecryptCommandOutput> {
-    return deserializeAws_json1_1DecryptCommand(output, context);
+    return de_DecryptCommand(output, context);
   }
 
   // Start section: command_body_extra

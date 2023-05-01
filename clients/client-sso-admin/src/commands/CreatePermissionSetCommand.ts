@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePermissionSetRequest,
-  CreatePermissionSetRequestFilterSensitiveLog,
-  CreatePermissionSetResponse,
-  CreatePermissionSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePermissionSetCommand,
-  serializeAws_json1_1CreatePermissionSetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePermissionSetRequest, CreatePermissionSetResponse } from "../models/models_0";
+import { de_CreatePermissionSetCommand, se_CreatePermissionSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePermissionSetCommand}.
  */
 export interface CreatePermissionSetCommandInput extends CreatePermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePermissionSetCommand}.
  */
 export interface CreatePermissionSetCommandOutput extends CreatePermissionSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a permission set within a specified IAM Identity Center instance.</p>
  *          <note>
  *             <p>To grant users and groups access to AWS account resources, use <code>
@@ -47,10 +44,25 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * import { SSOAdminClient, CreatePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, CreatePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // CreatePermissionSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   InstanceArn: "STRING_VALUE", // required
+ *   SessionDuration: "STRING_VALUE",
+ *   RelayState: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreatePermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePermissionSetCommandInput - {@link CreatePermissionSetCommandInput}
+ * @returns {@link CreatePermissionSetCommandOutput}
  * @see {@link CreatePermissionSetCommandInput} for command's `input` shape.
  * @see {@link CreatePermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -101,6 +113,9 @@ export class CreatePermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +144,8 @@ export class CreatePermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +155,18 @@ export class CreatePermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePermissionSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePermissionSetCommand(input, context);
+    return se_CreatePermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePermissionSetCommandOutput> {
-    return deserializeAws_json1_1CreatePermissionSetCommand(output, context);
+    return de_CreatePermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

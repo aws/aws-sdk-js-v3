@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  RemoveSchemaVersionMetadataInput,
-  RemoveSchemaVersionMetadataInputFilterSensitiveLog,
-  RemoveSchemaVersionMetadataResponse,
-  RemoveSchemaVersionMetadataResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1RemoveSchemaVersionMetadataCommand,
-  serializeAws_json1_1RemoveSchemaVersionMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveSchemaVersionMetadataInput, RemoveSchemaVersionMetadataResponse } from "../models/models_2";
+import { de_RemoveSchemaVersionMetadataCommand, se_RemoveSchemaVersionMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveSchemaVersionMetadataCommand}.
  */
 export interface RemoveSchemaVersionMetadataCommandInput extends RemoveSchemaVersionMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link RemoveSchemaVersionMetadataCommand}.
  */
 export interface RemoveSchemaVersionMetadataCommandOutput
@@ -37,6 +33,7 @@ export interface RemoveSchemaVersionMetadataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a key value pair from the schema version metadata for the specified schema version ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,28 @@ export interface RemoveSchemaVersionMetadataCommandOutput
  * import { GlueClient, RemoveSchemaVersionMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, RemoveSchemaVersionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // RemoveSchemaVersionMetadataInput
+ *   SchemaId: { // SchemaId
+ *     SchemaArn: "STRING_VALUE",
+ *     SchemaName: "STRING_VALUE",
+ *     RegistryName: "STRING_VALUE",
+ *   },
+ *   SchemaVersionNumber: { // SchemaVersionNumber
+ *     LatestVersion: true || false,
+ *     VersionNumber: Number("long"),
+ *   },
+ *   SchemaVersionId: "STRING_VALUE",
+ *   MetadataKeyValue: { // MetadataKeyValuePair
+ *     MetadataKey: "STRING_VALUE",
+ *     MetadataValue: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RemoveSchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveSchemaVersionMetadataCommandInput - {@link RemoveSchemaVersionMetadataCommandInput}
+ * @returns {@link RemoveSchemaVersionMetadataCommandOutput}
  * @see {@link RemoveSchemaVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link RemoveSchemaVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -80,6 +95,9 @@ export class RemoveSchemaVersionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveSchemaVersionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +126,8 @@ export class RemoveSchemaVersionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveSchemaVersionMetadataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveSchemaVersionMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +137,21 @@ export class RemoveSchemaVersionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveSchemaVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveSchemaVersionMetadataCommand(input, context);
+    return se_RemoveSchemaVersionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveSchemaVersionMetadataCommandOutput> {
-    return deserializeAws_json1_1RemoveSchemaVersionMetadataCommand(output, context);
+    return de_RemoveSchemaVersionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

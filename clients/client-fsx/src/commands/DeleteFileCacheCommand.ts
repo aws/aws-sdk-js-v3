@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DeleteFileCacheRequest,
-  DeleteFileCacheRequestFilterSensitiveLog,
-  DeleteFileCacheResponse,
-  DeleteFileCacheResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFileCacheCommand,
-  serializeAws_json1_1DeleteFileCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteFileCacheRequest, DeleteFileCacheResponse } from "../models/models_0";
+import { de_DeleteFileCacheCommand, se_DeleteFileCacheCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFileCacheCommand}.
  */
 export interface DeleteFileCacheCommandInput extends DeleteFileCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFileCacheCommand}.
  */
 export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon File Cache resource. After deletion, the cache no longer exists, and its data
  *             is gone.</p>
  *          <p>The <code>DeleteFileCache</code> operation returns while the cache has the
@@ -53,10 +50,16 @@ export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, _
  * import { FSxClient, DeleteFileCacheCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteFileCacheCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DeleteFileCacheRequest
+ *   FileCacheId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new DeleteFileCacheCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFileCacheCommandInput - {@link DeleteFileCacheCommandInput}
+ * @returns {@link DeleteFileCacheCommandOutput}
  * @see {@link DeleteFileCacheCommandInput} for command's `input` shape.
  * @see {@link DeleteFileCacheCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -98,6 +101,9 @@ export class DeleteFileCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFileCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +132,8 @@ export class DeleteFileCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFileCacheRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFileCacheResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +143,18 @@ export class DeleteFileCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFileCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFileCacheCommand(input, context);
+    return se_DeleteFileCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileCacheCommandOutput> {
-    return deserializeAws_json1_1DeleteFileCacheCommand(output, context);
+    return de_DeleteFileCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

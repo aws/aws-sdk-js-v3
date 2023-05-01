@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTrainingJobRequest,
-  DescribeTrainingJobRequestFilterSensitiveLog,
-  DescribeTrainingJobResponse,
-  DescribeTrainingJobResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeTrainingJobCommand,
-  serializeAws_json1_1DescribeTrainingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTrainingJobRequest, DescribeTrainingJobResponse } from "../models/models_2";
+import { de_DescribeTrainingJobCommand, se_DescribeTrainingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrainingJobCommand}.
  */
 export interface DescribeTrainingJobCommandInput extends DescribeTrainingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrainingJobCommand}.
  */
 export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a training job. </p>
  *          <p>Some of the attributes below only appear if the training job successfully starts.
  *             If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,
@@ -48,10 +45,15 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * import { SageMakerClient, DescribeTrainingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeTrainingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeTrainingJobRequest
+ *   TrainingJobName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTrainingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrainingJobCommandInput - {@link DescribeTrainingJobCommandInput}
+ * @returns {@link DescribeTrainingJobCommandOutput}
  * @see {@link DescribeTrainingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTrainingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -78,6 +80,9 @@ export class DescribeTrainingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrainingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class DescribeTrainingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrainingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrainingJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class DescribeTrainingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrainingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrainingJobCommand(input, context);
+    return se_DescribeTrainingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrainingJobCommandOutput> {
-    return deserializeAws_json1_1DescribeTrainingJobCommand(output, context);
+    return de_DescribeTrainingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

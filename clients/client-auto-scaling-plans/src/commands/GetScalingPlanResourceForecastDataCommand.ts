@@ -16,20 +16,22 @@ import {
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
 import {
   GetScalingPlanResourceForecastDataRequest,
-  GetScalingPlanResourceForecastDataRequestFilterSensitiveLog,
   GetScalingPlanResourceForecastDataResponse,
-  GetScalingPlanResourceForecastDataResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand,
-  serializeAws_json1_1GetScalingPlanResourceForecastDataCommand,
+  de_GetScalingPlanResourceForecastDataCommand,
+  se_GetScalingPlanResourceForecastDataCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetScalingPlanResourceForecastDataCommand}.
  */
 export interface GetScalingPlanResourceForecastDataCommandInput extends GetScalingPlanResourceForecastDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetScalingPlanResourceForecastDataCommand}.
  */
 export interface GetScalingPlanResourceForecastDataCommandOutput
@@ -37,6 +39,7 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the forecast data for a scalable resource.</p>
  *          <p>Capacity forecasts are represented as predicted values, or data points, that are
  *          calculated using historical data points from a specified CloudWatch load metric. Data points are
@@ -47,10 +50,22 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * import { AutoScalingPlansClient, GetScalingPlanResourceForecastDataCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, GetScalingPlanResourceForecastDataCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
+ * const input = { // GetScalingPlanResourceForecastDataRequest
+ *   ScalingPlanName: "STRING_VALUE", // required
+ *   ScalingPlanVersion: Number("long"), // required
+ *   ServiceNamespace: "STRING_VALUE", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   ScalableDimension: "STRING_VALUE", // required
+ *   ForecastDataType: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new GetScalingPlanResourceForecastDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetScalingPlanResourceForecastDataCommandInput - {@link GetScalingPlanResourceForecastDataCommandInput}
+ * @returns {@link GetScalingPlanResourceForecastDataCommandOutput}
  * @see {@link GetScalingPlanResourceForecastDataCommandInput} for command's `input` shape.
  * @see {@link GetScalingPlanResourceForecastDataCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
@@ -80,6 +95,9 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetScalingPlanResourceForecastDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +126,8 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetScalingPlanResourceForecastDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetScalingPlanResourceForecastDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +137,24 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetScalingPlanResourceForecastDataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetScalingPlanResourceForecastDataCommand(input, context);
+    return se_GetScalingPlanResourceForecastDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetScalingPlanResourceForecastDataCommandOutput> {
-    return deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand(output, context);
+    return de_GetScalingPlanResourceForecastDataCommand(output, context);
   }
 
   // Start section: command_body_extra

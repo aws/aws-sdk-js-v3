@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateVoiceTemplateRequest,
-  UpdateVoiceTemplateRequestFilterSensitiveLog,
-  UpdateVoiceTemplateResponse,
-  UpdateVoiceTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateVoiceTemplateRequest, UpdateVoiceTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateVoiceTemplateCommand,
-  serializeAws_restJson1UpdateVoiceTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateVoiceTemplateCommand, se_UpdateVoiceTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVoiceTemplateCommand}.
  */
 export interface UpdateVoiceTemplateCommandInput extends UpdateVoiceTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVoiceTemplateCommand}.
  */
 export interface UpdateVoiceTemplateCommandOutput extends UpdateVoiceTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing message template for messages that are sent through the voice channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface UpdateVoiceTemplateCommandOutput extends UpdateVoiceTemplateRes
  * import { PinpointClient, UpdateVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateVoiceTemplateRequest
+ *   CreateNewVersion: true || false,
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ *   VoiceTemplateRequest: { // VoiceTemplateRequest
+ *     Body: "STRING_VALUE",
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     LanguageCode: "STRING_VALUE",
+ *     tags: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *     VoiceId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateVoiceTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVoiceTemplateCommandInput - {@link UpdateVoiceTemplateCommandInput}
+ * @returns {@link UpdateVoiceTemplateCommandOutput}
  * @see {@link UpdateVoiceTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +104,9 @@ export class UpdateVoiceTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVoiceTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +135,8 @@ export class UpdateVoiceTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVoiceTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVoiceTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +146,18 @@ export class UpdateVoiceTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVoiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVoiceTemplateCommand(input, context);
+    return se_UpdateVoiceTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVoiceTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateVoiceTemplateCommand(output, context);
+    return de_UpdateVoiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  PutDashboardInput,
-  PutDashboardInputFilterSensitiveLog,
-  PutDashboardOutput,
-  PutDashboardOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryPutDashboardCommand, serializeAws_queryPutDashboardCommand } from "../protocols/Aws_query";
+import { PutDashboardInput, PutDashboardOutput } from "../models/models_0";
+import { de_PutDashboardCommand, se_PutDashboardCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutDashboardCommand}.
  */
 export interface PutDashboardCommandInput extends PutDashboardInput {}
 /**
+ * @public
+ *
  * The output of {@link PutDashboardCommand}.
  */
 export interface PutDashboardCommandOutput extends PutDashboardOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard,
  * 		the entire contents are replaced with what you specify here.</p>
  *          <p>All dashboards in your account are global, not region-specific.</p>
@@ -52,10 +52,16 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * import { CloudWatchClient, PutDashboardCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutDashboardCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // PutDashboardInput
+ *   DashboardName: "STRING_VALUE", // required
+ *   DashboardBody: "STRING_VALUE", // required
+ * };
  * const command = new PutDashboardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDashboardCommandInput - {@link PutDashboardCommandInput}
+ * @returns {@link PutDashboardCommandOutput}
  * @see {@link PutDashboardCommandInput} for command's `input` shape.
  * @see {@link PutDashboardCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -85,6 +91,9 @@ export class PutDashboardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +120,8 @@ export class PutDashboardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDashboardInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDashboardOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +131,18 @@ export class PutDashboardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutDashboardCommand(input, context);
+    return se_PutDashboardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDashboardCommandOutput> {
-    return deserializeAws_queryPutDashboardCommand(output, context);
+    return de_PutDashboardCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListBonusPaymentsRequest,
-  ListBonusPaymentsRequestFilterSensitiveLog,
-  ListBonusPaymentsResponse,
-  ListBonusPaymentsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListBonusPaymentsRequest, ListBonusPaymentsResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1ListBonusPaymentsCommand,
-  serializeAws_json1_1ListBonusPaymentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListBonusPaymentsCommand, se_ListBonusPaymentsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBonusPaymentsCommand}.
  */
 export interface ListBonusPaymentsCommandInput extends ListBonusPaymentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBonusPaymentsCommand}.
  */
 export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>ListBonusPayments</code>
@@ -47,10 +44,18 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  * import { MTurkClient, ListBonusPaymentsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListBonusPaymentsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // ListBonusPaymentsRequest
+ *   HITId: "STRING_VALUE",
+ *   AssignmentId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListBonusPaymentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBonusPaymentsCommandInput - {@link ListBonusPaymentsCommandInput}
+ * @returns {@link ListBonusPaymentsCommandOutput}
  * @see {@link ListBonusPaymentsCommandInput} for command's `input` shape.
  * @see {@link ListBonusPaymentsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -80,6 +85,9 @@ export class ListBonusPaymentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBonusPaymentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class ListBonusPaymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBonusPaymentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBonusPaymentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +127,18 @@ export class ListBonusPaymentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBonusPaymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBonusPaymentsCommand(input, context);
+    return se_ListBonusPaymentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBonusPaymentsCommandOutput> {
-    return deserializeAws_json1_1ListBonusPaymentsCommand(output, context);
+    return de_ListBonusPaymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

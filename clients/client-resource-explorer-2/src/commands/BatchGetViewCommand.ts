@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchGetViewInput,
-  BatchGetViewInputFilterSensitiveLog,
-  BatchGetViewOutput,
-  BatchGetViewOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetViewCommand,
-  serializeAws_restJson1BatchGetViewCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchGetViewInput, BatchGetViewOutput, BatchGetViewOutputFilterSensitiveLog } from "../models/models_0";
+import { de_BatchGetViewCommand, se_BatchGetViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ResourceExplorer2Client";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetViewCommand}.
  */
 export interface BatchGetViewCommandInput extends BatchGetViewInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetViewCommand}.
  */
 export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about a list of views.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __Metadat
  * import { ResourceExplorer2Client, BatchGetViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, BatchGetViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = { // BatchGetViewInput
+ *   ViewArns: [ // ViewArnList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetViewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetViewCommandInput - {@link BatchGetViewCommandInput}
+ * @returns {@link BatchGetViewCommandOutput}
  * @see {@link BatchGetViewCommandInput} for command's `input` shape.
  * @see {@link BatchGetViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
@@ -92,6 +96,9 @@ export class BatchGetViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +125,7 @@ export class BatchGetViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetViewInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: BatchGetViewOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -129,12 +136,18 @@ export class BatchGetViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetViewCommand(input, context);
+    return se_BatchGetViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetViewCommandOutput> {
-    return deserializeAws_restJson1BatchGetViewCommand(output, context);
+    return de_BatchGetViewCommand(output, context);
   }
 
   // Start section: command_body_extra

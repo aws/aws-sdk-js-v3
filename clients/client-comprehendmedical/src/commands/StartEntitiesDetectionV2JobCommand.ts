@@ -18,22 +18,18 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  StartEntitiesDetectionV2JobRequest,
-  StartEntitiesDetectionV2JobRequestFilterSensitiveLog,
-  StartEntitiesDetectionV2JobResponse,
-  StartEntitiesDetectionV2JobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartEntitiesDetectionV2JobCommand,
-  serializeAws_json1_1StartEntitiesDetectionV2JobCommand,
-} from "../protocols/Aws_json1_1";
+import { StartEntitiesDetectionV2JobRequest, StartEntitiesDetectionV2JobResponse } from "../models/models_0";
+import { de_StartEntitiesDetectionV2JobCommand, se_StartEntitiesDetectionV2JobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartEntitiesDetectionV2JobCommand}.
  */
 export interface StartEntitiesDetectionV2JobCommandInput extends StartEntitiesDetectionV2JobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartEntitiesDetectionV2JobCommand}.
  */
 export interface StartEntitiesDetectionV2JobCommandOutput
@@ -41,6 +37,7 @@ export interface StartEntitiesDetectionV2JobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous medical entity detection job for a collection of documents. Use the
  *         <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.</p>
  * @example
@@ -49,10 +46,27 @@ export interface StartEntitiesDetectionV2JobCommandOutput
  * import { ComprehendMedicalClient, StartEntitiesDetectionV2JobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StartEntitiesDetectionV2JobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // StartEntitiesDetectionV2JobRequest
+ *   InputDataConfig: { // InputDataConfig
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE",
+ *   },
+ *   OutputDataConfig: { // OutputDataConfig
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE",
+ *   },
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   JobName: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   KMSKey: "STRING_VALUE",
+ *   LanguageCode: "en", // required
+ * };
  * const command = new StartEntitiesDetectionV2JobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartEntitiesDetectionV2JobCommandInput - {@link StartEntitiesDetectionV2JobCommandInput}
+ * @returns {@link StartEntitiesDetectionV2JobCommandOutput}
  * @see {@link StartEntitiesDetectionV2JobCommandInput} for command's `input` shape.
  * @see {@link StartEntitiesDetectionV2JobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -92,6 +106,9 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartEntitiesDetectionV2JobCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +137,8 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartEntitiesDetectionV2JobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartEntitiesDetectionV2JobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +148,21 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartEntitiesDetectionV2JobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartEntitiesDetectionV2JobCommand(input, context);
+    return se_StartEntitiesDetectionV2JobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartEntitiesDetectionV2JobCommandOutput> {
-    return deserializeAws_json1_1StartEntitiesDetectionV2JobCommand(output, context);
+    return de_StartEntitiesDetectionV2JobCommand(output, context);
   }
 
   // Start section: command_body_extra

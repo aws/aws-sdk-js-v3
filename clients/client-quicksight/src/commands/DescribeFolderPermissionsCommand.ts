@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeFolderPermissionsRequest,
-  DescribeFolderPermissionsRequestFilterSensitiveLog,
-  DescribeFolderPermissionsResponse,
-  DescribeFolderPermissionsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeFolderPermissionsCommand,
-  serializeAws_restJson1DescribeFolderPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeFolderPermissionsRequest, DescribeFolderPermissionsResponse } from "../models/models_2";
+import { de_DescribeFolderPermissionsCommand, se_DescribeFolderPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFolderPermissionsCommand}.
  */
 export interface DescribeFolderPermissionsCommandInput extends DescribeFolderPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFolderPermissionsCommand}.
  */
 export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes permissions for a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  * import { QuickSightClient, DescribeFolderPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeFolderPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeFolderPermissionsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   FolderId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFolderPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFolderPermissionsCommandInput - {@link DescribeFolderPermissionsCommandInput}
+ * @returns {@link DescribeFolderPermissionsCommandOutput}
  * @see {@link DescribeFolderPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeFolderPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +96,9 @@ export class DescribeFolderPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFolderPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DescribeFolderPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFolderPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFolderPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +138,21 @@ export class DescribeFolderPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFolderPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFolderPermissionsCommand(input, context);
+    return se_DescribeFolderPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFolderPermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeFolderPermissionsCommand(output, context);
+    return de_DescribeFolderPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

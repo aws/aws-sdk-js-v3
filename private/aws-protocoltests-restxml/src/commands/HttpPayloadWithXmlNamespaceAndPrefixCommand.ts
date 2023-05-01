@@ -12,22 +12,23 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { HttpPayloadWithXmlNamespaceAndPrefixInputOutput } from "../models/models_0";
 import {
-  HttpPayloadWithXmlNamespaceAndPrefixInputOutput,
-  HttpPayloadWithXmlNamespaceAndPrefixInputOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand,
-  serializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand,
+  de_HttpPayloadWithXmlNamespaceAndPrefixCommand,
+  se_HttpPayloadWithXmlNamespaceAndPrefixCommand,
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpPayloadWithXmlNamespaceAndPrefixCommand}.
  */
 export interface HttpPayloadWithXmlNamespaceAndPrefixCommandInput
   extends HttpPayloadWithXmlNamespaceAndPrefixInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link HttpPayloadWithXmlNamespaceAndPrefixCommand}.
  */
 export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
@@ -35,6 +36,7 @@ export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * The following example serializes a payload that uses an XML namespace.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,17 @@ export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
  * import { RestXmlProtocolClient, HttpPayloadWithXmlNamespaceAndPrefixCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadWithXmlNamespaceAndPrefixCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = { // HttpPayloadWithXmlNamespaceAndPrefixInputOutput
+ *   nested: { // PayloadWithXmlNamespaceAndPrefix
+ *     name: "STRING_VALUE",
+ *   },
+ * };
  * const command = new HttpPayloadWithXmlNamespaceAndPrefixCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpPayloadWithXmlNamespaceAndPrefixCommandInput - {@link HttpPayloadWithXmlNamespaceAndPrefixCommandInput}
+ * @returns {@link HttpPayloadWithXmlNamespaceAndPrefixCommandOutput}
  * @see {@link HttpPayloadWithXmlNamespaceAndPrefixCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadWithXmlNamespaceAndPrefixCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -60,6 +69,9 @@ export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpPayloadWithXmlNamespaceAndPrefixCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +97,8 @@ export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadWithXmlNamespaceAndPrefixInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadWithXmlNamespaceAndPrefixInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,18 +108,24 @@ export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand(input, context);
+    return se_HttpPayloadWithXmlNamespaceAndPrefixCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadWithXmlNamespaceAndPrefixCommandOutput> {
-    return deserializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand(output, context);
+    return de_HttpPayloadWithXmlNamespaceAndPrefixCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import {
   DisassociateUserFromPermissionGroupRequest,
-  DisassociateUserFromPermissionGroupRequestFilterSensitiveLog,
   DisassociateUserFromPermissionGroupResponse,
-  DisassociateUserFromPermissionGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateUserFromPermissionGroupCommand,
-  serializeAws_restJson1DisassociateUserFromPermissionGroupCommand,
+  de_DisassociateUserFromPermissionGroupCommand,
+  se_DisassociateUserFromPermissionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateUserFromPermissionGroupCommand}.
  */
 export interface DisassociateUserFromPermissionGroupCommandInput extends DisassociateUserFromPermissionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateUserFromPermissionGroupCommand}.
  */
 export interface DisassociateUserFromPermissionGroupCommandOutput
@@ -37,6 +39,7 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a user account from a permission group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,17 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
  * import { FinspaceDataClient, DisassociateUserFromPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, DisassociateUserFromPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // DisassociateUserFromPermissionGroupRequest
+ *   permissionGroupId: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DisassociateUserFromPermissionGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateUserFromPermissionGroupCommandInput - {@link DisassociateUserFromPermissionGroupCommandInput}
+ * @returns {@link DisassociateUserFromPermissionGroupCommandOutput}
  * @see {@link DisassociateUserFromPermissionGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateUserFromPermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -90,6 +100,9 @@ export class DisassociateUserFromPermissionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateUserFromPermissionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +131,8 @@ export class DisassociateUserFromPermissionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateUserFromPermissionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateUserFromPermissionGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +142,24 @@ export class DisassociateUserFromPermissionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateUserFromPermissionGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateUserFromPermissionGroupCommand(input, context);
+    return se_DisassociateUserFromPermissionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateUserFromPermissionGroupCommandOutput> {
-    return deserializeAws_restJson1DisassociateUserFromPermissionGroupCommand(output, context);
+    return de_DisassociateUserFromPermissionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

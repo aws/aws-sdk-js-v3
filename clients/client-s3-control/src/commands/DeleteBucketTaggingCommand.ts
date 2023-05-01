@@ -14,23 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteBucketTaggingRequest, DeleteBucketTaggingRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketTaggingCommand,
-  serializeAws_restXmlDeleteBucketTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteBucketTaggingRequest } from "../models/models_0";
+import { de_DeleteBucketTaggingCommand, se_DeleteBucketTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketTaggingCommand}.
  */
 export interface DeleteBucketTaggingCommandInput extends DeleteBucketTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketTaggingCommand}.
  */
 export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This action deletes an Amazon S3 on Outposts bucket's tags. To delete an S3 bucket tags,
  *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -60,10 +62,16 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, DeleteBucketTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteBucketTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // DeleteBucketTaggingRequest
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBucketTaggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketTaggingCommandInput - {@link DeleteBucketTaggingCommandInput}
+ * @returns {@link DeleteBucketTaggingCommandOutput}
  * @see {@link DeleteBucketTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -91,6 +99,9 @@ export class DeleteBucketTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +131,8 @@ export class DeleteBucketTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +142,18 @@ export class DeleteBucketTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketTaggingCommand(input, context);
+    return se_DeleteBucketTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketTaggingCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketTaggingCommand(output, context);
+    return de_DeleteBucketTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

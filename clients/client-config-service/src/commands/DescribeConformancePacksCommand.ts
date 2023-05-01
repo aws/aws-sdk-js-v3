@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  DescribeConformancePacksRequest,
-  DescribeConformancePacksRequestFilterSensitiveLog,
-  DescribeConformancePacksResponse,
-  DescribeConformancePacksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConformancePacksCommand,
-  serializeAws_json1_1DescribeConformancePacksCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeConformancePacksRequest, DescribeConformancePacksResponse } from "../models/models_0";
+import { de_DescribeConformancePacksCommand, se_DescribeConformancePacksCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConformancePacksCommand}.
  */
 export interface DescribeConformancePacksCommandInput extends DescribeConformancePacksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConformancePacksCommand}.
  */
 export interface DescribeConformancePacksCommandOutput extends DescribeConformancePacksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of one or more conformance packs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
  * import { ConfigServiceClient, DescribeConformancePacksCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConformancePacksCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeConformancePacksRequest
+ *   ConformancePackNames: [ // ConformancePackNamesList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeConformancePacksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConformancePacksCommandInput - {@link DescribeConformancePacksCommandInput}
+ * @returns {@link DescribeConformancePacksCommandOutput}
  * @see {@link DescribeConformancePacksCommandInput} for command's `input` shape.
  * @see {@link DescribeConformancePacksCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -84,6 +90,9 @@ export class DescribeConformancePacksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConformancePacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +121,8 @@ export class DescribeConformancePacksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConformancePacksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConformancePacksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +132,18 @@ export class DescribeConformancePacksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConformancePacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConformancePacksCommand(input, context);
+    return se_DescribeConformancePacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConformancePacksCommandOutput> {
-    return deserializeAws_json1_1DescribeConformancePacksCommand(output, context);
+    return de_DescribeConformancePacksCommand(output, context);
   }
 
   // Start section: command_body_extra

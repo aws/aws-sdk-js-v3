@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  GetApplicationVersionRequest,
-  GetApplicationVersionRequestFilterSensitiveLog,
-  GetApplicationVersionResponse,
-  GetApplicationVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApplicationVersionCommand,
-  serializeAws_restJson1GetApplicationVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetApplicationVersionRequest, GetApplicationVersionResponse } from "../models/models_0";
+import { de_GetApplicationVersionCommand, se_GetApplicationVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApplicationVersionCommand}.
  */
 export interface GetApplicationVersionCommandInput extends GetApplicationVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApplicationVersionCommand}.
  */
 export interface GetApplicationVersionCommandOutput extends GetApplicationVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details about a specific version of a specific application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetApplicationVersionCommandOutput extends GetApplicationVersio
  * import { M2Client, GetApplicationVersionCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, GetApplicationVersionCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // GetApplicationVersionRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   applicationVersion: Number("int"), // required
+ * };
  * const command = new GetApplicationVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApplicationVersionCommandInput - {@link GetApplicationVersionCommandInput}
+ * @returns {@link GetApplicationVersionCommandOutput}
  * @see {@link GetApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link GetApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -84,6 +87,9 @@ export class GetApplicationVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApplicationVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApplicationVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApplicationVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetApplicationVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationVersionCommand(input, context);
+    return se_GetApplicationVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1GetApplicationVersionCommand(output, context);
+    return de_GetApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

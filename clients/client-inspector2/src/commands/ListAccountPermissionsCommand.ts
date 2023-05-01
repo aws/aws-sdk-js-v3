@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  ListAccountPermissionsRequest,
-  ListAccountPermissionsRequestFilterSensitiveLog,
-  ListAccountPermissionsResponse,
-  ListAccountPermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAccountPermissionsCommand,
-  serializeAws_restJson1ListAccountPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAccountPermissionsRequest, ListAccountPermissionsResponse } from "../models/models_0";
+import { de_ListAccountPermissionsCommand, se_ListAccountPermissionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccountPermissionsCommand}.
  */
 export interface ListAccountPermissionsCommandInput extends ListAccountPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccountPermissionsCommand}.
  */
 export interface ListAccountPermissionsCommandOutput extends ListAccountPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the permissions an account has to configure Amazon Inspector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListAccountPermissionsCommandOutput extends ListAccountPermissi
  * import { Inspector2Client, ListAccountPermissionsCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListAccountPermissionsCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // ListAccountPermissionsRequest
+ *   service: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListAccountPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccountPermissionsCommandInput - {@link ListAccountPermissionsCommandInput}
+ * @returns {@link ListAccountPermissionsCommandOutput}
  * @see {@link ListAccountPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListAccountPermissionsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -82,6 +86,9 @@ export class ListAccountPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccountPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListAccountPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class ListAccountPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccountPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccountPermissionsCommand(input, context);
+    return se_ListAccountPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountPermissionsCommandOutput> {
-    return deserializeAws_restJson1ListAccountPermissionsCommand(output, context);
+    return de_ListAccountPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { LookoutMetricsClient } from "../LookoutMetricsClient";
 import { LookoutMetricsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LookoutMetricsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListMetricSetsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListMetricSets(
   config: LookoutMetricsPaginationConfiguration,
   input: ListMetricSetsCommandInput,

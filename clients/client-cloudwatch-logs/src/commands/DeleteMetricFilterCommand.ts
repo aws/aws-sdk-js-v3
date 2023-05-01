@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DeleteMetricFilterRequest, DeleteMetricFilterRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteMetricFilterCommand,
-  serializeAws_json1_1DeleteMetricFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteMetricFilterRequest } from "../models/models_0";
+import { de_DeleteMetricFilterCommand, se_DeleteMetricFilterCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMetricFilterCommand}.
  */
 export interface DeleteMetricFilterCommandInput extends DeleteMetricFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMetricFilterCommand}.
  */
 export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified metric filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DeleteMetricFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteMetricFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DeleteMetricFilterRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   filterName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMetricFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMetricFilterCommandInput - {@link DeleteMetricFilterCommandInput}
+ * @returns {@link DeleteMetricFilterCommandOutput}
  * @see {@link DeleteMetricFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -76,6 +84,9 @@ export class DeleteMetricFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMetricFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +115,8 @@ export class DeleteMetricFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMetricFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +126,18 @@ export class DeleteMetricFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMetricFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMetricFilterCommand(input, context);
+    return se_DeleteMetricFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMetricFilterCommandOutput> {
-    return deserializeAws_json1_1DeleteMetricFilterCommand(output, context);
+    return de_DeleteMetricFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

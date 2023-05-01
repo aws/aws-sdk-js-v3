@@ -18,22 +18,18 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  CreateFleetAdvisorCollectorRequest,
-  CreateFleetAdvisorCollectorRequestFilterSensitiveLog,
-  CreateFleetAdvisorCollectorResponse,
-  CreateFleetAdvisorCollectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFleetAdvisorCollectorCommand,
-  serializeAws_json1_1CreateFleetAdvisorCollectorCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateFleetAdvisorCollectorRequest, CreateFleetAdvisorCollectorResponse } from "../models/models_0";
+import { de_CreateFleetAdvisorCollectorCommand, se_CreateFleetAdvisorCollectorCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFleetAdvisorCollectorCommand}.
  */
 export interface CreateFleetAdvisorCollectorCommandInput extends CreateFleetAdvisorCollectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFleetAdvisorCollectorCommand}.
  */
 export interface CreateFleetAdvisorCollectorCommandOutput
@@ -41,6 +37,7 @@ export interface CreateFleetAdvisorCollectorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Fleet Advisor collector using the specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +45,18 @@ export interface CreateFleetAdvisorCollectorCommandOutput
  * import { DatabaseMigrationServiceClient, CreateFleetAdvisorCollectorCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateFleetAdvisorCollectorCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // CreateFleetAdvisorCollectorRequest
+ *   CollectorName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ServiceAccessRoleArn: "STRING_VALUE", // required
+ *   S3BucketName: "STRING_VALUE", // required
+ * };
  * const command = new CreateFleetAdvisorCollectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFleetAdvisorCollectorCommandInput - {@link CreateFleetAdvisorCollectorCommandInput}
+ * @returns {@link CreateFleetAdvisorCollectorCommandOutput}
  * @see {@link CreateFleetAdvisorCollectorCommandInput} for command's `input` shape.
  * @see {@link CreateFleetAdvisorCollectorCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -92,6 +97,9 @@ export class CreateFleetAdvisorCollectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFleetAdvisorCollectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class CreateFleetAdvisorCollectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFleetAdvisorCollectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFleetAdvisorCollectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +139,21 @@ export class CreateFleetAdvisorCollectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFleetAdvisorCollectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFleetAdvisorCollectorCommand(input, context);
+    return se_CreateFleetAdvisorCollectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFleetAdvisorCollectorCommandOutput> {
-    return deserializeAws_json1_1CreateFleetAdvisorCollectorCommand(output, context);
+    return de_CreateFleetAdvisorCollectorCommand(output, context);
   }
 
   // Start section: command_body_extra

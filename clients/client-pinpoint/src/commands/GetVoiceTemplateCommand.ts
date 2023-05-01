@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetVoiceTemplateRequest,
-  GetVoiceTemplateRequestFilterSensitiveLog,
-  GetVoiceTemplateResponse,
-  GetVoiceTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetVoiceTemplateRequest, GetVoiceTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetVoiceTemplateCommand,
-  serializeAws_restJson1GetVoiceTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVoiceTemplateCommand, se_GetVoiceTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceTemplateCommand}.
  */
 export interface GetVoiceTemplateCommandInput extends GetVoiceTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceTemplateCommand}.
  */
 export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the content and settings of a message template for messages that are sent through the voice channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse,
  * import { PinpointClient, GetVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetVoiceTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new GetVoiceTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVoiceTemplateCommandInput - {@link GetVoiceTemplateCommandInput}
+ * @returns {@link GetVoiceTemplateCommandOutput}
  * @see {@link GetVoiceTemplateCommandInput} for command's `input` shape.
  * @see {@link GetVoiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +93,9 @@ export class GetVoiceTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class GetVoiceTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVoiceTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class GetVoiceTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVoiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceTemplateCommand(input, context);
+    return se_GetVoiceTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceTemplateCommandOutput> {
-    return deserializeAws_restJson1GetVoiceTemplateCommand(output, context);
+    return de_GetVoiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

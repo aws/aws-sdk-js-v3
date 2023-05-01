@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetectLabelsRequest,
-  DetectLabelsRequestFilterSensitiveLog,
-  DetectLabelsResponse,
-  DetectLabelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectLabelsCommand,
-  serializeAws_json1_1DetectLabelsCommand,
-} from "../protocols/Aws_json1_1";
+import { DetectLabelsRequest, DetectLabelsResponse } from "../models/models_0";
+import { de_DetectLabelsCommand, se_DetectLabelsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectLabelsCommand}.
  */
 export interface DetectLabelsCommandInput extends DetectLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectLabelsCommand}.
  */
 export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects instances of real-world entities within an image (JPEG or PNG) provided as
  *       input. This includes objects like flower, tree, and table; events like wedding, graduation,
  *       and birthday party; and concepts like landscape, evening, and nature. </p>
@@ -65,7 +62,7 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *             <b>Response Elements</b>
  *          </p>
  *          <p> For each object, scene, and concept the API returns one or more labels. The API
- *       returns the following types of information regarding labels:</p>
+ *       returns the following types of information about labels:</p>
  *          <ul>
  *             <li>
  *                <p> Name - The name of the detected label. </p>
@@ -118,25 +115,25 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *       a lighthouse, the sea, and a rock. The response includes all three labels, one for each
  *       object, as well as the confidence in the label:</p>
  *          <p>
- *             <code>{Name: lighthouse, Confidence: 98.4629}</code>
+ *             <code>\{Name: lighthouse, Confidence: 98.4629\}</code>
  *          </p>
  *          <p>
- *             <code>{Name: rock,Confidence: 79.2097}</code>
+ *             <code>\{Name: rock,Confidence: 79.2097\}</code>
  *          </p>
  *          <p>
- *             <code> {Name: sea,Confidence: 75.061}</code>
+ *             <code> \{Name: sea,Confidence: 75.061\}</code>
  *          </p>
  *          <p>The list of labels can include multiple labels for the same object. For example, if the
  *       input image shows a flower (for example, a tulip), the operation might return the following
  *       three labels. </p>
  *          <p>
- *             <code>{Name: flower,Confidence: 99.0562}</code>
+ *             <code>\{Name: flower,Confidence: 99.0562\}</code>
  *          </p>
  *          <p>
- *             <code>{Name: plant,Confidence: 99.0562}</code>
+ *             <code>\{Name: plant,Confidence: 99.0562\}</code>
  *          </p>
  *          <p>
- *             <code>{Name: tulip,Confidence: 99.0562}</code>
+ *             <code>\{Name: tulip,Confidence: 99.0562\}</code>
  *          </p>
  *          <p>In this example, the detection algorithm more precisely identifies the flower as a
  *       tulip.</p>
@@ -144,8 +141,7 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *             <p>If the object detected is a person, the operation doesn't provide the same facial
  *         details that the <a>DetectFaces</a> operation provides.</p>
  *          </note>
- *          <p>This is a stateless API operation. That is, the operation does not persist any
- *       data.</p>
+ *          <p>This is a stateless API operation that doesn't return any data.</p>
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:DetectLabels</code> action. </p>
  * @example
@@ -154,10 +150,46 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * import { RekognitionClient, DetectLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DetectLabelsRequest
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   MaxLabels: Number("int"),
+ *   MinConfidence: Number("float"),
+ *   Features: [ // DetectLabelsFeatureList
+ *     "GENERAL_LABELS" || "IMAGE_PROPERTIES",
+ *   ],
+ *   Settings: { // DetectLabelsSettings
+ *     GeneralLabels: { // GeneralLabelsSettings
+ *       LabelInclusionFilters: [ // GeneralLabelsFilterList
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelExclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelCategoryInclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelCategoryExclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ImageProperties: { // DetectLabelsImagePropertiesSettings
+ *       MaxDominantColors: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new DetectLabelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectLabelsCommandInput - {@link DetectLabelsCommandInput}
+ * @returns {@link DetectLabelsCommandOutput}
  * @see {@link DetectLabelsCommandInput} for command's `input` shape.
  * @see {@link DetectLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -242,6 +274,9 @@ export class DetectLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -268,8 +303,8 @@ export class DetectLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectLabelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectLabelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -279,12 +314,18 @@ export class DetectLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectLabelsCommand(input, context);
+    return se_DetectLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectLabelsCommandOutput> {
-    return deserializeAws_json1_1DetectLabelsCommand(output, context);
+    return de_DetectLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

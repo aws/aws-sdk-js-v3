@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListServerCertificateTagsRequest,
-  ListServerCertificateTagsRequestFilterSensitiveLog,
-  ListServerCertificateTagsResponse,
-  ListServerCertificateTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListServerCertificateTagsCommand,
-  serializeAws_queryListServerCertificateTagsCommand,
-} from "../protocols/Aws_query";
+import { ListServerCertificateTagsRequest, ListServerCertificateTagsResponse } from "../models/models_0";
+import { de_ListServerCertificateTagsCommand, se_ListServerCertificateTagsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListServerCertificateTagsCommand}.
  */
 export interface ListServerCertificateTagsCommandInput extends ListServerCertificateTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServerCertificateTagsCommand}.
  */
 export interface ListServerCertificateTagsCommandOutput extends ListServerCertificateTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified IAM server certificate. The
  *       returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -51,10 +48,17 @@ export interface ListServerCertificateTagsCommandOutput extends ListServerCertif
  * import { IAMClient, ListServerCertificateTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListServerCertificateTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListServerCertificateTagsRequest
+ *   ServerCertificateName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListServerCertificateTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServerCertificateTagsCommandInput - {@link ListServerCertificateTagsCommandInput}
+ * @returns {@link ListServerCertificateTagsCommandOutput}
  * @see {@link ListServerCertificateTagsCommandInput} for command's `input` shape.
  * @see {@link ListServerCertificateTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -86,6 +90,9 @@ export class ListServerCertificateTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServerCertificateTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class ListServerCertificateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServerCertificateTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServerCertificateTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +132,21 @@ export class ListServerCertificateTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServerCertificateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListServerCertificateTagsCommand(input, context);
+    return se_ListServerCertificateTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServerCertificateTagsCommandOutput> {
-    return deserializeAws_queryListServerCertificateTagsCommand(output, context);
+    return de_ListServerCertificateTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

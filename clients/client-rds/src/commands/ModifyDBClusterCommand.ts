@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBClusterMessage,
-  ModifyDBClusterMessageFilterSensitiveLog,
-  ModifyDBClusterResult,
-  ModifyDBClusterResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBClusterCommand,
-  serializeAws_queryModifyDBClusterCommand,
-} from "../protocols/Aws_query";
+import { ModifyDBClusterMessage, ModifyDBClusterResult } from "../models/models_1";
+import { de_ModifyDBClusterCommand, se_ModifyDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBClusterCommand}.
  */
 export interface ModifyDBClusterCommandInput extends ModifyDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBClusterCommand}.
  */
 export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify the settings for an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
  *            You can change one or more settings by specifying these parameters and the new values in the
  *            request.</p>
@@ -50,10 +47,74 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * import { RDSClient, ModifyDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   NewDBClusterIdentifier: "STRING_VALUE",
+ *   ApplyImmediately: true || false,
+ *   BackupRetentionPeriod: Number("int"),
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Port: Number("int"),
+ *   MasterUserPassword: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   BacktrackWindow: Number("long"),
+ *   CloudwatchLogsExportConfiguration: { // CloudwatchLogsExportConfiguration
+ *     EnableLogTypes: [ // LogTypeList
+ *       "STRING_VALUE",
+ *     ],
+ *     DisableLogTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   EngineVersion: "STRING_VALUE",
+ *   AllowMajorVersionUpgrade: true || false,
+ *   DBInstanceParameterGroupName: "STRING_VALUE",
+ *   Domain: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   ScalingConfiguration: { // ScalingConfiguration
+ *     MinCapacity: Number("int"),
+ *     MaxCapacity: Number("int"),
+ *     AutoPause: true || false,
+ *     SecondsUntilAutoPause: Number("int"),
+ *     TimeoutAction: "STRING_VALUE",
+ *     SecondsBeforeTimeout: Number("int"),
+ *   },
+ *   DeletionProtection: true || false,
+ *   EnableHttpEndpoint: true || false,
+ *   CopyTagsToSnapshot: true || false,
+ *   EnableGlobalWriteForwarding: true || false,
+ *   DBClusterInstanceClass: "STRING_VALUE",
+ *   AllocatedStorage: Number("int"),
+ *   StorageType: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   AutoMinorVersionUpgrade: true || false,
+ *   MonitoringInterval: Number("int"),
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
+ *   NetworkType: "STRING_VALUE",
+ *   ManageMasterUserPassword: true || false,
+ *   RotateMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ *   EngineMode: "STRING_VALUE",
+ *   AllowEngineModeChange: true || false,
+ * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterCommandInput - {@link ModifyDBClusterCommandInput}
+ * @returns {@link ModifyDBClusterCommandOutput}
  * @see {@link ModifyDBClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -69,6 +130,9 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *  <p>
  *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB
  *             cluster parameter group.</p>
+ *
+ * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
+ *  <p>The user already has a DB instance with the given identifier.</p>
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
  *  <p>
@@ -102,25 +166,76 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *             available across all DB instances.</p>
  *
  *
- * @example To change DB cluster settings
+ * @example To modify a DB cluster
  * ```javascript
- * // This example changes the specified settings for the specified DB cluster.
+ * // The following example changes the master user password for the DB cluster named cluster-2 and sets the backup retention period to 14 days. The ApplyImmediately parameter causes the changes to be made immediately, instead of waiting until the next maintenance window.
  * const input = {
  *   "ApplyImmediately": true,
- *   "DBClusterIdentifier": "mydbcluster",
- *   "MasterUserPassword": "mynewpassword",
- *   "NewDBClusterIdentifier": "mynewdbcluster",
- *   "PreferredBackupWindow": "04:00-04:30",
- *   "PreferredMaintenanceWindow": "Tue:05:00-Tue:05:30"
+ *   "BackupRetentionPeriod": 14,
+ *   "DBClusterIdentifier": "cluster-2",
+ *   "MasterUserPassword": "newpassword99"
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBCluster": {}
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AssociatedRoles": [],
+ *     "AvailabilityZones": [
+ *       "eu-central-1b",
+ *       "eu-central-1c",
+ *       "eu-central-1a"
+ *     ],
+ *     "BackupRetentionPeriod": 14,
+ *     "ClusterCreateTime": "2020-04-03T14:44:02.764Z",
+ *     "CopyTagsToSnapshot": true,
+ *     "CrossAccountClone": false,
+ *     "DBClusterArn": "arn:aws:rds:eu-central-1:123456789012:cluster:cluster-2",
+ *     "DBClusterIdentifier": "cluster-2",
+ *     "DBClusterMembers": [
+ *       {
+ *         "DBClusterParameterGroupStatus": "in-sync",
+ *         "DBInstanceIdentifier": "cluster-2-instance-1",
+ *         "IsClusterWriter": true,
+ *         "PromotionTier": 1
+ *       }
+ *     ],
+ *     "DBClusterParameterGroup": "default.aurora5.6",
+ *     "DBSubnetGroup": "default-vpc-2305ca49",
+ *     "DatabaseName": "",
+ *     "DbClusterResourceId": "cluster-AGJ7XI77XVIS6FUXHU1EXAMPLE",
+ *     "DeletionProtection": false,
+ *     "DomainMemberships": [],
+ *     "EarliestRestorableTime": "2020-06-03T02:07:29.637Z",
+ *     "Endpoint": "cluster-2.cluster-############.eu-central-1.rds.amazonaws.com",
+ *     "Engine": "aurora",
+ *     "EngineMode": "provisioned",
+ *     "EngineVersion": "5.6.10a",
+ *     "HostedZoneId": "Z1RLNU0EXAMPLE",
+ *     "HttpEndpointEnabled": false,
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "KmsKeyId": "arn:aws:kms:eu-central-1:123456789012:key/d1bd7c8f-5cdb-49ca-8a62-a1b2c3d4e5f6",
+ *     "LatestRestorableTime": "2020-06-04T15:11:25.748Z",
+ *     "MasterUsername": "admin",
+ *     "MultiAZ": false,
+ *     "Port": 3306,
+ *     "PreferredBackupWindow": "01:55-02:25",
+ *     "PreferredMaintenanceWindow": "thu:21:14-thu:21:44",
+ *     "ReadReplicaIdentifiers": [],
+ *     "ReaderEndpoint": "cluster-2.cluster-ro-############.eu-central-1.rds.amazonaws.com",
+ *     "Status": "available",
+ *     "StorageEncrypted": true,
+ *     "VpcSecurityGroups": [
+ *       {
+ *         "Status": "active",
+ *         "VpcSecurityGroupId": "sg-20a5c047"
+ *       }
+ *     ]
+ *   }
  * }
  * *\/
- * // example id: modify-db-cluster-a370ee1b-768d-450a-853b-707cb1ab663d
+ * // example id: to-modify-a-db-cluster-1680310823999
  * ```
  *
  */
@@ -141,6 +256,9 @@ export class ModifyDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -169,8 +287,8 @@ export class ModifyDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -180,12 +298,18 @@ export class ModifyDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterCommand(input, context);
+    return se_ModifyDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBClusterCommandOutput> {
-    return deserializeAws_queryModifyDBClusterCommand(output, context);
+    return de_ModifyDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

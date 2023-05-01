@@ -18,23 +18,24 @@ import {
   CreateFileSystemFromBackupRequest,
   CreateFileSystemFromBackupRequestFilterSensitiveLog,
   CreateFileSystemFromBackupResponse,
-  CreateFileSystemFromBackupResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFileSystemFromBackupCommand,
-  serializeAws_json1_1CreateFileSystemFromBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateFileSystemFromBackupCommand, se_CreateFileSystemFromBackupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFileSystemFromBackupCommand}.
  */
 export interface CreateFileSystemFromBackupCommandInput extends CreateFileSystemFromBackupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFileSystemFromBackupCommand}.
  */
 export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSystemFromBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon FSx for Lustre, Amazon FSx for Windows File
  *             Server, or Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.</p>
  *          <p>If a file system with the specified client request token exists and the parameters
@@ -74,10 +75,122 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * import { FSxClient, CreateFileSystemFromBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateFileSystemFromBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // CreateFileSystemFromBackupRequest
+ *   BackupId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   SubnetIds: [ // SubnetIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [ // SecurityGroupIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   WindowsConfiguration: { // CreateFileSystemWindowsConfiguration
+ *     ActiveDirectoryId: "STRING_VALUE",
+ *     SelfManagedActiveDirectoryConfiguration: { // SelfManagedActiveDirectoryConfiguration
+ *       DomainName: "STRING_VALUE", // required
+ *       OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ *       FileSystemAdministratorsGroup: "STRING_VALUE",
+ *       UserName: "STRING_VALUE", // required
+ *       Password: "STRING_VALUE", // required
+ *       DnsIps: [ // DnsIps // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ *     PreferredSubnetId: "STRING_VALUE",
+ *     ThroughputCapacity: Number("int"), // required
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     CopyTagsToBackups: true || false,
+ *     Aliases: [ // AlternateDNSNames
+ *       "STRING_VALUE",
+ *     ],
+ *     AuditLogConfiguration: { // WindowsAuditLogCreateConfiguration
+ *       FileAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
+ *       FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
+ *       AuditLogDestination: "STRING_VALUE",
+ *     },
+ *   },
+ *   LustreConfiguration: { // CreateFileSystemLustreConfiguration
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     ImportPath: "STRING_VALUE",
+ *     ExportPath: "STRING_VALUE",
+ *     ImportedFileChunkSize: Number("int"),
+ *     DeploymentType: "SCRATCH_1" || "SCRATCH_2" || "PERSISTENT_1" || "PERSISTENT_2",
+ *     AutoImportPolicy: "NONE" || "NEW" || "NEW_CHANGED" || "NEW_CHANGED_DELETED",
+ *     PerUnitStorageThroughput: Number("int"),
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     CopyTagsToBackups: true || false,
+ *     DriveCacheType: "NONE" || "READ",
+ *     DataCompressionType: "NONE" || "LZ4",
+ *     LogConfiguration: { // LustreLogCreateConfiguration
+ *       Level: "DISABLED" || "WARN_ONLY" || "ERROR_ONLY" || "WARN_ERROR", // required
+ *       Destination: "STRING_VALUE",
+ *     },
+ *     RootSquashConfiguration: { // LustreRootSquashConfiguration
+ *       RootSquash: "STRING_VALUE",
+ *       NoSquashNids: [ // LustreNoSquashNids
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   StorageType: "SSD" || "HDD",
+ *   KmsKeyId: "STRING_VALUE",
+ *   FileSystemTypeVersion: "STRING_VALUE",
+ *   OpenZFSConfiguration: { // CreateFileSystemOpenZFSConfiguration
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     CopyTagsToBackups: true || false,
+ *     CopyTagsToVolumes: true || false,
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2", // required
+ *     ThroughputCapacity: Number("int"), // required
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DiskIopsConfiguration: { // DiskIopsConfiguration
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *       Iops: Number("long"),
+ *     },
+ *     RootVolumeConfiguration: { // OpenZFSCreateRootVolumeConfiguration
+ *       RecordSizeKiB: Number("int"),
+ *       DataCompressionType: "NONE" || "ZSTD" || "LZ4",
+ *       NfsExports: [ // OpenZFSNfsExports
+ *         { // OpenZFSNfsExport
+ *           ClientConfigurations: [ // OpenZFSClientConfigurations // required
+ *             { // OpenZFSClientConfiguration
+ *               Clients: "STRING_VALUE", // required
+ *               Options: [ // OpenZFSNfsExportOptions // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       UserAndGroupQuotas: [ // OpenZFSUserAndGroupQuotas
+ *         { // OpenZFSUserOrGroupQuota
+ *           Type: "USER" || "GROUP", // required
+ *           Id: Number("int"), // required
+ *           StorageCapacityQuotaGiB: Number("int"), // required
+ *         },
+ *       ],
+ *       CopyTagsToSnapshots: true || false,
+ *       ReadOnly: true || false,
+ *     },
+ *   },
+ *   StorageCapacity: Number("int"),
+ * };
  * const command = new CreateFileSystemFromBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFileSystemFromBackupCommandInput - {@link CreateFileSystemFromBackupCommandInput}
+ * @returns {@link CreateFileSystemFromBackupCommandOutput}
  * @see {@link CreateFileSystemFromBackupCommandInput} for command's `input` shape.
  * @see {@link CreateFileSystemFromBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -189,6 +302,9 @@ export class CreateFileSystemFromBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFileSystemFromBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -218,7 +334,7 @@ export class CreateFileSystemFromBackupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateFileSystemFromBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFileSystemFromBackupResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -228,15 +344,21 @@ export class CreateFileSystemFromBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFileSystemFromBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFileSystemFromBackupCommand(input, context);
+    return se_CreateFileSystemFromBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFileSystemFromBackupCommandOutput> {
-    return deserializeAws_json1_1CreateFileSystemFromBackupCommand(output, context);
+    return de_CreateFileSystemFromBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

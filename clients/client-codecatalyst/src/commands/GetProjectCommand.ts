@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  GetProjectRequest,
-  GetProjectRequestFilterSensitiveLog,
-  GetProjectResponse,
-  GetProjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetProjectCommand,
-  serializeAws_restJson1GetProjectCommand,
-} from "../protocols/Aws_restJson1";
+import { GetProjectRequest, GetProjectResponse } from "../models/models_0";
+import { de_GetProjectCommand, se_GetProjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProjectCommand}.
  */
 export interface GetProjectCommandInput extends GetProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetProjectCommand}.
  */
 export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataB
  * import { CodeCatalystClient, GetProjectCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetProjectCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // GetProjectRequest
+ *   spaceName: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProjectCommandInput - {@link GetProjectCommandInput}
+ * @returns {@link GetProjectCommandOutput}
  * @see {@link GetProjectCommandInput} for command's `input` shape.
  * @see {@link GetProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +91,9 @@ export class GetProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class GetProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class GetProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProjectCommand(input, context);
+    return se_GetProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProjectCommandOutput> {
-    return deserializeAws_restJson1GetProjectCommand(output, context);
+    return de_GetProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

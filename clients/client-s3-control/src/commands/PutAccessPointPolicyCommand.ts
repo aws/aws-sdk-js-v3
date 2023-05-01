@@ -14,23 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutAccessPointPolicyRequest, PutAccessPointPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutAccessPointPolicyCommand,
-  serializeAws_restXmlPutAccessPointPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { PutAccessPointPolicyRequest } from "../models/models_0";
+import { de_PutAccessPointPolicyCommand, se_PutAccessPointPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutAccessPointPolicyCommand}.
  */
 export interface PutAccessPointPolicyCommandInput extends PutAccessPointPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAccessPointPolicyCommand}.
  */
 export interface PutAccessPointPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an access policy with the specified access point. Each access point can have only one policy,
  *          so a request made to this API replaces any existing policy associated with the specified
  *          access point.</p>
@@ -55,10 +57,17 @@ export interface PutAccessPointPolicyCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, PutAccessPointPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutAccessPointPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // PutAccessPointPolicyRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutAccessPointPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAccessPointPolicyCommandInput - {@link PutAccessPointPolicyCommandInput}
+ * @returns {@link PutAccessPointPolicyCommandOutput}
  * @see {@link PutAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link PutAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -86,6 +95,9 @@ export class PutAccessPointPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAccessPointPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +127,8 @@ export class PutAccessPointPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccessPointPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +138,18 @@ export class PutAccessPointPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAccessPointPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutAccessPointPolicyCommand(input, context);
+    return se_PutAccessPointPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccessPointPolicyCommandOutput> {
-    return deserializeAws_restXmlPutAccessPointPolicyCommand(output, context);
+    return de_PutAccessPointPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

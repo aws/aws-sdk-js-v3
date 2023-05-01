@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import {
-  ListDeliveryStreamsInput,
-  ListDeliveryStreamsInputFilterSensitiveLog,
-  ListDeliveryStreamsOutput,
-  ListDeliveryStreamsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeliveryStreamsCommand,
-  serializeAws_json1_1ListDeliveryStreamsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDeliveryStreamsInput, ListDeliveryStreamsOutput } from "../models/models_0";
+import { de_ListDeliveryStreamsCommand, se_ListDeliveryStreamsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeliveryStreamsCommand}.
  */
 export interface ListDeliveryStreamsCommandInput extends ListDeliveryStreamsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDeliveryStreamsCommand}.
  */
 export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your delivery streams in alphabetical order of their names.</p>
  *          <p>The number of delivery streams might be too large to return using a single call to
  *             <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
@@ -49,10 +46,17 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * import { FirehoseClient, ListDeliveryStreamsCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, ListDeliveryStreamsCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // ListDeliveryStreamsInput
+ *   Limit: Number("int"),
+ *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource",
+ *   ExclusiveStartDeliveryStreamName: "STRING_VALUE",
+ * };
  * const command = new ListDeliveryStreamsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeliveryStreamsCommandInput - {@link ListDeliveryStreamsCommandInput}
+ * @returns {@link ListDeliveryStreamsCommandOutput}
  * @see {@link ListDeliveryStreamsCommandInput} for command's `input` shape.
  * @see {@link ListDeliveryStreamsCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -76,6 +80,9 @@ export class ListDeliveryStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeliveryStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class ListDeliveryStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeliveryStreamsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeliveryStreamsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class ListDeliveryStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeliveryStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeliveryStreamsCommand(input, context);
+    return se_ListDeliveryStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeliveryStreamsCommandOutput> {
-    return deserializeAws_json1_1ListDeliveryStreamsCommand(output, context);
+    return de_ListDeliveryStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

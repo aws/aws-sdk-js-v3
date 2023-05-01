@@ -21,20 +21,25 @@ import {
   UpdateReplicationConfigurationRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateReplicationConfigurationCommand,
-  serializeAws_restJson1UpdateReplicationConfigurationCommand,
+  de_UpdateReplicationConfigurationCommand,
+  se_UpdateReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReplicationConfigurationCommand}.
  */
 export interface UpdateReplicationConfigurationCommandInput extends UpdateReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReplicationConfigurationCommand}.
  */
 export interface UpdateReplicationConfigurationCommandOutput extends ReplicationConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows you to update a ReplicationConfiguration by Source Server ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +47,52 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * import { DrsClient, UpdateReplicationConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, UpdateReplicationConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // UpdateReplicationConfigurationRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   stagingAreaSubnetId: "STRING_VALUE",
+ *   associateDefaultSecurityGroup: true || false,
+ *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
+ *     "STRING_VALUE",
+ *   ],
+ *   replicationServerInstanceType: "STRING_VALUE",
+ *   useDedicatedReplicationServer: true || false,
+ *   defaultLargeStagingDiskType: "STRING_VALUE",
+ *   replicatedDisks: [ // ReplicationConfigurationReplicatedDisks
+ *     { // ReplicationConfigurationReplicatedDisk
+ *       deviceName: "STRING_VALUE",
+ *       isBootDisk: true || false,
+ *       stagingDiskType: "STRING_VALUE",
+ *       iops: Number("long"),
+ *       throughput: Number("long"),
+ *       optimizedStagingDiskType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ebsEncryption: "STRING_VALUE",
+ *   ebsEncryptionKeyArn: "STRING_VALUE",
+ *   bandwidthThrottling: Number("long"),
+ *   dataPlaneRouting: "STRING_VALUE",
+ *   createPublicIP: true || false,
+ *   stagingAreaTags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   pitPolicy: [ // PITPolicy
+ *     { // PITPolicyRule
+ *       ruleID: Number("long"),
+ *       units: "STRING_VALUE", // required
+ *       interval: Number("int"), // required
+ *       retentionDuration: Number("int"), // required
+ *       enabled: true || false,
+ *     },
+ *   ],
+ *   autoReplicateNewDisks: true || false,
+ * };
  * const command = new UpdateReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReplicationConfigurationCommandInput - {@link UpdateReplicationConfigurationCommandInput}
+ * @returns {@link UpdateReplicationConfigurationCommandOutput}
  * @see {@link UpdateReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -90,6 +137,9 @@ export class UpdateReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,18 +179,24 @@ export class UpdateReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateReplicationConfigurationCommand(input, context);
+    return se_UpdateReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateReplicationConfigurationCommand(output, context);
+    return de_UpdateReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

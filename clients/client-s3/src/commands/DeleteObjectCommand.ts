@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteObjectOutput,
-  DeleteObjectOutputFilterSensitiveLog,
-  DeleteObjectRequest,
-  DeleteObjectRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteObjectCommand,
-  serializeAws_restXmlDeleteObjectCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteObjectOutput, DeleteObjectRequest } from "../models/models_0";
+import { de_DeleteObjectCommand, se_DeleteObjectCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteObjectCommand}.
  */
 export interface DeleteObjectCommandInput extends DeleteObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteObjectCommand}.
  */
 export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the null version (if there is one) of an object and inserts a delete marker,
  *          which becomes the latest version of the object. If there isn't a null version, Amazon S3 does
  *          not remove any objects but will still respond that the command was successful.</p>
@@ -67,10 +64,21 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * import { S3Client, DeleteObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeleteObjectRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   MFA: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   BypassGovernanceRetention: true || false,
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
+ * @returns {@link DeleteObjectCommandOutput}
  * @see {@link DeleteObjectCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -124,6 +132,9 @@ export class DeleteObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -150,8 +161,8 @@ export class DeleteObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteObjectOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -161,12 +172,18 @@ export class DeleteObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteObjectCommand(input, context);
+    return se_DeleteObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectCommandOutput> {
-    return deserializeAws_restXmlDeleteObjectCommand(output, context);
+    return de_DeleteObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

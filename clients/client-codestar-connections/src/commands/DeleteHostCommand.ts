@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import {
-  DeleteHostInput,
-  DeleteHostInputFilterSensitiveLog,
-  DeleteHostOutput,
-  DeleteHostOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteHostCommand,
-  serializeAws_json1_0DeleteHostCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteHostInput, DeleteHostOutput } from "../models/models_0";
+import { de_DeleteHostCommand, se_DeleteHostCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHostCommand}.
  */
 export interface DeleteHostCommandInput extends DeleteHostInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHostCommand}.
  */
 export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The host to be deleted. Before you delete a host, all connections associated to the host must be deleted.</p>
  *          <note>
  *             <p>A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or VPC_CONFIG_DELETING state.</p>
@@ -49,10 +46,15 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * import { CodeStarConnectionsClient, DeleteHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, DeleteHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = { // DeleteHostInput
+ *   HostArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHostCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHostCommandInput - {@link DeleteHostCommandInput}
+ * @returns {@link DeleteHostCommandOutput}
  * @see {@link DeleteHostCommandInput} for command's `input` shape.
  * @see {@link DeleteHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -82,6 +84,9 @@ export class DeleteHostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHostCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class DeleteHostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class DeleteHostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteHostCommand(input, context);
+    return se_DeleteHostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHostCommandOutput> {
-    return deserializeAws_json1_0DeleteHostCommand(output, context);
+    return de_DeleteHostCommand(output, context);
   }
 
   // Start section: command_body_extra

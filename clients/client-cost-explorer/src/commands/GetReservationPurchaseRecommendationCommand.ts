@@ -16,20 +16,22 @@ import {
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import {
   GetReservationPurchaseRecommendationRequest,
-  GetReservationPurchaseRecommendationRequestFilterSensitiveLog,
   GetReservationPurchaseRecommendationResponse,
-  GetReservationPurchaseRecommendationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetReservationPurchaseRecommendationCommand,
-  serializeAws_json1_1GetReservationPurchaseRecommendationCommand,
+  de_GetReservationPurchaseRecommendationCommand,
+  se_GetReservationPurchaseRecommendationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReservationPurchaseRecommendationCommand}.
  */
 export interface GetReservationPurchaseRecommendationCommandInput extends GetReservationPurchaseRecommendationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReservationPurchaseRecommendationCommand}.
  */
 export interface GetReservationPurchaseRecommendationCommandOutput
@@ -37,6 +39,7 @@ export interface GetReservationPurchaseRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets recommendations for reservation purchases. These recommendations might help you to
  *       reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to
  *       On-Demand pricing.</p>
@@ -59,10 +62,94 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * import { CostExplorerClient, GetReservationPurchaseRecommendationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetReservationPurchaseRecommendationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // GetReservationPurchaseRecommendationRequest
+ *   AccountId: "STRING_VALUE",
+ *   Service: "STRING_VALUE", // required
+ *   Filter: { // Expression
+ *     Or: [ // Expressions
+ *       {
+ *         Or: [
+ *           "<Expression>",
+ *         ],
+ *         And: [
+ *           "<Expression>",
+ *         ],
+ *         Not: "<Expression>",
+ *         Dimensions: { // DimensionValues
+ *           Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *           Values: [ // Values
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [ // MatchOptions
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
+ *         Tags: { // TagValues
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
+ *         CostCategories: { // CostCategoryValues
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *           MatchOptions: [
+ *             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     And: [
+ *       "<Expression>",
+ *     ],
+ *     Not: "<Expression>",
+ *     Dimensions: {
+ *       Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *       MatchOptions: [
+ *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *       ],
+ *     },
+ *     Tags: {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *       MatchOptions: [
+ *         "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *       ],
+ *     },
+ *     CostCategories: {
+ *       Key: "STRING_VALUE",
+ *       Values: "<Values>",
+ *       MatchOptions: "<MatchOptions>",
+ *     },
+ *   },
+ *   AccountScope: "PAYER" || "LINKED",
+ *   LookbackPeriodInDays: "SEVEN_DAYS" || "THIRTY_DAYS" || "SIXTY_DAYS",
+ *   TermInYears: "ONE_YEAR" || "THREE_YEARS",
+ *   PaymentOption: "NO_UPFRONT" || "PARTIAL_UPFRONT" || "ALL_UPFRONT" || "LIGHT_UTILIZATION" || "MEDIUM_UTILIZATION" || "HEAVY_UTILIZATION",
+ *   ServiceSpecification: { // ServiceSpecification
+ *     EC2Specification: { // EC2Specification
+ *       OfferingClass: "STANDARD" || "CONVERTIBLE",
+ *     },
+ *   },
+ *   PageSize: Number("int"),
+ *   NextPageToken: "STRING_VALUE",
+ * };
  * const command = new GetReservationPurchaseRecommendationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReservationPurchaseRecommendationCommandInput - {@link GetReservationPurchaseRecommendationCommandInput}
+ * @returns {@link GetReservationPurchaseRecommendationCommandOutput}
  * @see {@link GetReservationPurchaseRecommendationCommandInput} for command's `input` shape.
  * @see {@link GetReservationPurchaseRecommendationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -95,6 +182,9 @@ export class GetReservationPurchaseRecommendationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReservationPurchaseRecommendationCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +213,8 @@ export class GetReservationPurchaseRecommendationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReservationPurchaseRecommendationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReservationPurchaseRecommendationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +224,24 @@ export class GetReservationPurchaseRecommendationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetReservationPurchaseRecommendationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetReservationPurchaseRecommendationCommand(input, context);
+    return se_GetReservationPurchaseRecommendationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReservationPurchaseRecommendationCommandOutput> {
-    return deserializeAws_json1_1GetReservationPurchaseRecommendationCommand(output, context);
+    return de_GetReservationPurchaseRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

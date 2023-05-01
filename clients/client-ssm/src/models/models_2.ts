@@ -44,6 +44,7 @@ import {
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
 
 /**
+ * @public
  * <p>The update isn't valid.</p>
  */
 export class InvalidUpdate extends __BaseException {
@@ -64,6 +65,9 @@ export class InvalidUpdate extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssociationRequest {
   /**
    * <p>The ID of the association you want to update. </p>
@@ -73,7 +77,7 @@ export interface UpdateAssociationRequest {
   /**
    * <p>The parameters you want to update for the association. If you create a parameter using
    *    Parameter Store, a capability of Amazon Web Services Systems Manager, you can reference the parameter using
-   *     <code>{{ssm:parameter-name}}</code>.</p>
+   *     <code>\{\{ssm:parameter-name\}\}</code>.</p>
    */
   Parameters?: Record<string, string[]>;
 
@@ -249,6 +253,9 @@ export interface UpdateAssociationRequest {
   AlarmConfiguration?: AlarmConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssociationResult {
   /**
    * <p>The description of the association that was updated.</p>
@@ -257,6 +264,7 @@ export interface UpdateAssociationResult {
 }
 
 /**
+ * @public
  * <p>The updated status is the same as the current status.</p>
  */
 export class StatusUnchanged extends __BaseException {
@@ -275,6 +283,9 @@ export class StatusUnchanged extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssociationStatusRequest {
   /**
    * <p>The name of the SSM document.</p>
@@ -292,6 +303,9 @@ export interface UpdateAssociationStatusRequest {
   AssociationStatus: AssociationStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateAssociationStatusResult {
   /**
    * <p>Information about the association.</p>
@@ -300,6 +314,7 @@ export interface UpdateAssociationStatusResult {
 }
 
 /**
+ * @public
  * <p>The document has too many versions. Delete one or more document versions and try
  *    again.</p>
  */
@@ -322,6 +337,7 @@ export class DocumentVersionLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The content of the association document matches another document. Change the content of the
  *    document and try again.</p>
  */
@@ -344,6 +360,7 @@ export class DuplicateDocumentContent extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The version name has already been used in this document. Specify a different version name,
  *    and then try again.</p>
  */
@@ -365,6 +382,9 @@ export class DuplicateDocumentVersionName extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateDocumentRequest {
   /**
    * <p>A valid JSON or YAML string.</p>
@@ -419,6 +439,9 @@ export interface UpdateDocumentRequest {
   TargetType?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDocumentResult {
   /**
    * <p>A description of the document that was updated.</p>
@@ -426,6 +449,9 @@ export interface UpdateDocumentResult {
   DocumentDescription?: DocumentDescription;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDocumentDefaultVersionRequest {
   /**
    * <p>The name of a custom document that you want to set as the default version.</p>
@@ -439,6 +465,7 @@ export interface UpdateDocumentDefaultVersionRequest {
 }
 
 /**
+ * @public
  * <p>A default version of a document.</p>
  */
 export interface DocumentDefaultVersionDescription {
@@ -458,6 +485,9 @@ export interface DocumentDefaultVersionDescription {
   DefaultVersionName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDocumentDefaultVersionResult {
   /**
    * <p>The description of a custom document that you want to set as the default version.</p>
@@ -465,14 +495,24 @@ export interface UpdateDocumentDefaultVersionResult {
   Description?: DocumentDefaultVersionDescription;
 }
 
-export enum DocumentReviewAction {
-  Approve = "Approve",
-  Reject = "Reject",
-  SendForReview = "SendForReview",
-  UpdateReview = "UpdateReview",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DocumentReviewAction = {
+  Approve: "Approve",
+  Reject: "Reject",
+  SendForReview: "SendForReview",
+  UpdateReview: "UpdateReview",
+} as const;
 
 /**
+ * @public
+ */
+export type DocumentReviewAction = (typeof DocumentReviewAction)[keyof typeof DocumentReviewAction];
+
+/**
+ * @public
  * <p>Information about a document approval review.</p>
  */
 export interface DocumentReviews {
@@ -487,6 +527,9 @@ export interface DocumentReviews {
   Comment?: DocumentReviewCommentSource[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateDocumentMetadataRequest {
   /**
    * <p>The name of the change template for which a version's metadata is to be updated.</p>
@@ -504,8 +547,14 @@ export interface UpdateDocumentMetadataRequest {
   DocumentReviews: DocumentReviews | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDocumentMetadataResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateMaintenanceWindowRequest {
   /**
    * <p>The ID of the maintenance window to update.</p>
@@ -591,6 +640,9 @@ export interface UpdateMaintenanceWindowRequest {
   Replace?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMaintenanceWindowResult {
   /**
    * <p>The ID of the created maintenance window.</p>
@@ -661,6 +713,9 @@ export interface UpdateMaintenanceWindowResult {
   Enabled?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMaintenanceWindowTargetRequest {
   /**
    * <p>The maintenance window ID with which to modify the target.</p>
@@ -700,6 +755,9 @@ export interface UpdateMaintenanceWindowTargetRequest {
   Replace?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMaintenanceWindowTargetResult {
   /**
    * <p>The maintenance window ID specified in the update request.</p>
@@ -732,6 +790,9 @@ export interface UpdateMaintenanceWindowTargetResult {
   Description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMaintenanceWindowTaskRequest {
   /**
    * <p>The maintenance window ID that contains the task to modify.</p>
@@ -915,6 +976,9 @@ export interface UpdateMaintenanceWindowTaskRequest {
   AlarmConfiguration?: AlarmConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMaintenanceWindowTaskResult {
   /**
    * <p>The ID of the maintenance window that was updated.</p>
@@ -1009,6 +1073,9 @@ export interface UpdateMaintenanceWindowTaskResult {
   AlarmConfiguration?: AlarmConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateManagedInstanceRoleRequest {
   /**
    * <p>The ID of the managed node where you want to update the role.</p>
@@ -1029,8 +1096,14 @@ export interface UpdateManagedInstanceRoleRequest {
   IamRole: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateManagedInstanceRoleResult {}
 
+/**
+ * @public
+ */
 export interface UpdateOpsItemRequest {
   /**
    * <p>Update the information about the OpsItem. Provide enough information so that users reading
@@ -1141,9 +1214,13 @@ export interface UpdateOpsItemRequest {
   OpsItemArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateOpsItemResponse {}
 
 /**
+ * @public
  * <p>The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can assign to
  *    an application in Application Manager.</p>
  */
@@ -1163,6 +1240,9 @@ export class OpsMetadataKeyLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateOpsMetadataRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the OpsMetadata Object to update.</p>
@@ -1180,6 +1260,9 @@ export interface UpdateOpsMetadataRequest {
   KeysToDelete?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateOpsMetadataResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the OpsMetadata Object that was updated.</p>
@@ -1187,6 +1270,9 @@ export interface UpdateOpsMetadataResult {
   OpsMetadataArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePatchBaselineRequest {
   /**
    * <p>The ID of the patch baseline to update.</p>
@@ -1282,6 +1368,9 @@ export interface UpdatePatchBaselineRequest {
   Replace?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePatchBaselineResult {
   /**
    * <p>The ID of the deleted patch baseline.</p>
@@ -1361,6 +1450,7 @@ export interface UpdatePatchBaselineResult {
 }
 
 /**
+ * @public
  * <p>Another <code>UpdateResourceDataSync</code> request is being processed. Wait a few minutes
  *    and try again.</p>
  */
@@ -1382,6 +1472,9 @@ export class ResourceDataSyncConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceDataSyncRequest {
   /**
    * <p>The name of the resource data sync you want to update.</p>
@@ -1400,14 +1493,18 @@ export interface UpdateResourceDataSyncRequest {
   SyncSource: ResourceDataSyncSource | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateResourceDataSyncResult {}
 
 /**
+ * @public
  * <p>The request body of the UpdateServiceSetting API operation.</p>
  */
 export interface UpdateServiceSettingRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service setting to reset. For example,
+   * <p>The Amazon Resource Name (ARN) of the service setting to update. For example,
    *     <code>arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled</code>.
    *    The setting ID can be one of the following.</p>
    *          <ul>
@@ -1452,6 +1549,9 @@ export interface UpdateServiceSettingRequest {
    *                </p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>Permissions to update the <code>/ssm/managed-instance/default-ec2-instance-management-role</code> setting should only be provided to administrators. Implement least privilege access when allowing individuals to configure or modify the Default Host Management Configuration.</p>
+   *          </note>
    */
   SettingId: string | undefined;
 
@@ -1461,12 +1561,17 @@ export interface UpdateServiceSettingRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role: The name of an IAM role</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>/ssm/automation/customer-script-log-destination</code>: <code>CloudWatch</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/ssm/automation/customer-script-log-group-name</code>: the name of an Amazon CloudWatch Logs log group</p>
+   *                   <code>/ssm/automation/customer-script-log-group-name</code>: The name of an Amazon CloudWatch Logs log group</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1503,11 +1608,13 @@ export interface UpdateServiceSettingRequest {
 }
 
 /**
+ * @public
  * <p>The result body of the UpdateServiceSetting API operation.</p>
  */
 export interface UpdateServiceSettingResult {}
 
 /**
+ * @public
  * <p>Specifies the inventory type and attribute for the aggregation execution.</p>
  */
 export interface InventoryAggregator {
@@ -1529,6 +1636,7 @@ export interface InventoryAggregator {
 }
 
 /**
+ * @public
  * <p>One or more aggregators for viewing counts of OpsData using different dimensions such as
  *     <code>Source</code>, <code>CreatedTime</code>, or <code>Source and CreatedTime</code>, to name a
  *    few.</p>
@@ -1566,6 +1674,9 @@ export interface OpsAggregator {
   Aggregators?: OpsAggregator[];
 }
 
+/**
+ * @public
+ */
 export interface GetInventoryRequest {
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
@@ -1598,6 +1709,9 @@ export interface GetInventoryRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetOpsSummaryRequest {
   /**
    * <p>Specify the name of a resource data sync to get.</p>
@@ -1652,76 +1766,11 @@ export const UpdateAssociationResultFilterSensitiveLog = (obj: UpdateAssociation
 /**
  * @internal
  */
-export const UpdateAssociationStatusRequestFilterSensitiveLog = (obj: UpdateAssociationStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateAssociationStatusResultFilterSensitiveLog = (obj: UpdateAssociationStatusResult): any => ({
   ...obj,
   ...(obj.AssociationDescription && {
     AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
   }),
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentRequestFilterSensitiveLog = (obj: UpdateDocumentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentResultFilterSensitiveLog = (obj: UpdateDocumentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentDefaultVersionRequestFilterSensitiveLog = (
-  obj: UpdateDocumentDefaultVersionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentDefaultVersionDescriptionFilterSensitiveLog = (obj: DocumentDefaultVersionDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentDefaultVersionResultFilterSensitiveLog = (obj: UpdateDocumentDefaultVersionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentReviewsFilterSensitiveLog = (obj: DocumentReviews): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentMetadataRequestFilterSensitiveLog = (obj: UpdateDocumentMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentMetadataResponseFilterSensitiveLog = (obj: UpdateDocumentMetadataResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -1789,48 +1838,6 @@ export const UpdateMaintenanceWindowTaskResultFilterSensitiveLog = (obj: UpdateM
 /**
  * @internal
  */
-export const UpdateManagedInstanceRoleRequestFilterSensitiveLog = (obj: UpdateManagedInstanceRoleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateManagedInstanceRoleResultFilterSensitiveLog = (obj: UpdateManagedInstanceRoleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOpsItemRequestFilterSensitiveLog = (obj: UpdateOpsItemRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOpsItemResponseFilterSensitiveLog = (obj: UpdateOpsItemResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOpsMetadataRequestFilterSensitiveLog = (obj: UpdateOpsMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOpsMetadataResultFilterSensitiveLog = (obj: UpdateOpsMetadataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdatePatchBaselineRequestFilterSensitiveLog = (obj: UpdatePatchBaselineRequest): any => ({
   ...obj,
   ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
@@ -1842,60 +1849,4 @@ export const UpdatePatchBaselineRequestFilterSensitiveLog = (obj: UpdatePatchBas
 export const UpdatePatchBaselineResultFilterSensitiveLog = (obj: UpdatePatchBaselineResult): any => ({
   ...obj,
   ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateResourceDataSyncRequestFilterSensitiveLog = (obj: UpdateResourceDataSyncRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceDataSyncResultFilterSensitiveLog = (obj: UpdateResourceDataSyncResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceSettingRequestFilterSensitiveLog = (obj: UpdateServiceSettingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceSettingResultFilterSensitiveLog = (obj: UpdateServiceSettingResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InventoryAggregatorFilterSensitiveLog = (obj: InventoryAggregator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpsAggregatorFilterSensitiveLog = (obj: OpsAggregator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInventoryRequestFilterSensitiveLog = (obj: GetInventoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOpsSummaryRequestFilterSensitiveLog = (obj: GetOpsSummaryRequest): any => ({
-  ...obj,
 });

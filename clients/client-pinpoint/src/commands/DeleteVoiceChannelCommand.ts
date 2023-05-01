@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteVoiceChannelRequest,
-  DeleteVoiceChannelRequestFilterSensitiveLog,
-  DeleteVoiceChannelResponse,
-  DeleteVoiceChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteVoiceChannelRequest, DeleteVoiceChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteVoiceChannelCommand,
-  serializeAws_restJson1DeleteVoiceChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVoiceChannelCommand, se_DeleteVoiceChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceChannelCommand}.
  */
 export interface DeleteVoiceChannelCommandInput extends DeleteVoiceChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceChannelCommand}.
  */
 export interface DeleteVoiceChannelCommandOutput extends DeleteVoiceChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the voice channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteVoiceChannelCommandOutput extends DeleteVoiceChannelRespo
  * import { PinpointClient, DeleteVoiceChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteVoiceChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeleteVoiceChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVoiceChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVoiceChannelCommandInput - {@link DeleteVoiceChannelCommandInput}
+ * @returns {@link DeleteVoiceChannelCommandOutput}
  * @see {@link DeleteVoiceChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +92,9 @@ export class DeleteVoiceChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class DeleteVoiceChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVoiceChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVoiceChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class DeleteVoiceChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVoiceChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVoiceChannelCommand(input, context);
+    return se_DeleteVoiceChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVoiceChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteVoiceChannelCommand(output, context);
+    return de_DeleteVoiceChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

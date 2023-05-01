@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTagsRequest,
-  CreateTagsRequestFilterSensitiveLog,
-  CreateTagsResult,
-  CreateTagsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTagsCommand,
-  serializeAws_json1_1CreateTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTagsRequest, CreateTagsResult } from "../models/models_0";
+import { de_CreateTagsCommand, se_CreateTagsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTagsCommand}.
  */
 export interface CreateTagsCommandInput extends CreateTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTagsCommand}.
  */
 export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates the specified tags for the specified WorkSpaces resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBea
  * import { WorkSpacesClient, CreateTagsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateTagsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // CreateTagsRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTagsCommandInput - {@link CreateTagsCommandInput}
+ * @returns {@link CreateTagsCommandOutput}
  * @see {@link CreateTagsCommandInput} for command's `input` shape.
  * @see {@link CreateTagsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -78,6 +86,9 @@ export class CreateTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +115,8 @@ export class CreateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTagsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +126,18 @@ export class CreateTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTagsCommand(input, context);
+    return se_CreateTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTagsCommandOutput> {
-    return deserializeAws_json1_1CreateTagsCommand(output, context);
+    return de_CreateTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

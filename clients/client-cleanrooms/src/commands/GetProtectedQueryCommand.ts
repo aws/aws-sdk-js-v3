@@ -16,25 +16,26 @@ import {
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import {
   GetProtectedQueryInput,
-  GetProtectedQueryInputFilterSensitiveLog,
   GetProtectedQueryOutput,
   GetProtectedQueryOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetProtectedQueryCommand,
-  serializeAws_restJson1GetProtectedQueryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetProtectedQueryCommand, se_GetProtectedQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetProtectedQueryCommand}.
  */
 export interface GetProtectedQueryCommandInput extends GetProtectedQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetProtectedQueryCommand}.
  */
 export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns query processing metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * import { CleanRoomsClient, GetProtectedQueryCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetProtectedQueryCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // GetProtectedQueryInput
+ *   membershipIdentifier: "STRING_VALUE", // required
+ *   protectedQueryIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetProtectedQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetProtectedQueryCommandInput - {@link GetProtectedQueryCommandInput}
+ * @returns {@link GetProtectedQueryCommandOutput}
  * @see {@link GetProtectedQueryCommandInput} for command's `input` shape.
  * @see {@link GetProtectedQueryCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +91,9 @@ export class GetProtectedQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetProtectedQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +122,7 @@ export class GetProtectedQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProtectedQueryInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetProtectedQueryOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,12 +133,18 @@ export class GetProtectedQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetProtectedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProtectedQueryCommand(input, context);
+    return se_GetProtectedQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProtectedQueryCommandOutput> {
-    return deserializeAws_restJson1GetProtectedQueryCommand(output, context);
+    return de_GetProtectedQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

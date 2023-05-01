@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { UpdateCampaignNameRequest, UpdateCampaignNameRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateCampaignNameCommand,
-  serializeAws_restJson1UpdateCampaignNameCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateCampaignNameRequest } from "../models/models_0";
+import { de_UpdateCampaignNameCommand, se_UpdateCampaignNameCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCampaignNameCommand}.
  */
 export interface UpdateCampaignNameCommandInput extends UpdateCampaignNameRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCampaignNameCommand}.
  */
 export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Updates the name of a campaign. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
  * import { ConnectCampaignsClient, UpdateCampaignNameCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, UpdateCampaignNameCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // UpdateCampaignNameRequest
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new UpdateCampaignNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCampaignNameCommandInput - {@link UpdateCampaignNameCommandInput}
+ * @returns {@link UpdateCampaignNameCommandOutput}
  * @see {@link UpdateCampaignNameCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignNameCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -79,6 +87,9 @@ export class UpdateCampaignNameCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCampaignNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +118,8 @@ export class UpdateCampaignNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCampaignNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +129,18 @@ export class UpdateCampaignNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCampaignNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCampaignNameCommand(input, context);
+    return se_UpdateCampaignNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCampaignNameCommandOutput> {
-    return deserializeAws_restJson1UpdateCampaignNameCommand(output, context);
+    return de_UpdateCampaignNameCommand(output, context);
   }
 
   // Start section: command_body_extra

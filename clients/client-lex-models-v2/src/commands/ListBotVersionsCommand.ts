@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  ListBotVersionsRequest,
-  ListBotVersionsRequestFilterSensitiveLog,
-  ListBotVersionsResponse,
-  ListBotVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBotVersionsCommand,
-  serializeAws_restJson1ListBotVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBotVersionsRequest, ListBotVersionsResponse } from "../models/models_0";
+import { de_ListBotVersionsCommand, se_ListBotVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBotVersionsCommand}.
  */
 export interface ListBotVersionsCommandInput extends ListBotVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListBotVersionsCommand}.
  */
 export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about all of the versions of a bot.</p>
  *          <p>The <code>ListBotVersions</code> operation returns a summary of each
  *          version of a bot. For example, if a bot has three numbered versions,
@@ -49,10 +46,21 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  * import { LexModelsV2Client, ListBotVersionsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBotVersionsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // ListBotVersionsRequest
+ *   botId: "STRING_VALUE", // required
+ *   sortBy: { // BotVersionSortBy
+ *     attribute: "BotVersion", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBotVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBotVersionsCommandInput - {@link ListBotVersionsCommandInput}
+ * @returns {@link ListBotVersionsCommandOutput}
  * @see {@link ListBotVersionsCommandInput} for command's `input` shape.
  * @see {@link ListBotVersionsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -91,6 +99,9 @@ export class ListBotVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBotVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +130,8 @@ export class ListBotVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBotVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBotVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +141,18 @@ export class ListBotVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBotVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBotVersionsCommand(input, context);
+    return se_ListBotVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBotVersionsCommandOutput> {
-    return deserializeAws_restJson1ListBotVersionsCommand(output, context);
+    return de_ListBotVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

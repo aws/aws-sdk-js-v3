@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeLocalGatewayVirtualInterfacesRequest,
-  DescribeLocalGatewayVirtualInterfacesRequestFilterSensitiveLog,
   DescribeLocalGatewayVirtualInterfacesResult,
-  DescribeLocalGatewayVirtualInterfacesResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand,
-  serializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand,
+  de_DescribeLocalGatewayVirtualInterfacesCommand,
+  se_DescribeLocalGatewayVirtualInterfacesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLocalGatewayVirtualInterfacesCommand}.
  */
 export interface DescribeLocalGatewayVirtualInterfacesCommandInput
   extends DescribeLocalGatewayVirtualInterfacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLocalGatewayVirtualInterfacesCommand}.
  */
 export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified local gateway virtual interfaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,28 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  * import { EC2Client, DescribeLocalGatewayVirtualInterfacesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeLocalGatewayVirtualInterfacesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeLocalGatewayVirtualInterfacesRequest
+ *   LocalGatewayVirtualInterfaceIds: [ // LocalGatewayVirtualInterfaceIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeLocalGatewayVirtualInterfacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLocalGatewayVirtualInterfacesCommandInput - {@link DescribeLocalGatewayVirtualInterfacesCommandInput}
+ * @returns {@link DescribeLocalGatewayVirtualInterfacesCommandOutput}
  * @see {@link DescribeLocalGatewayVirtualInterfacesCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayVirtualInterfacesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +93,9 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLocalGatewayVirtualInterfacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +124,8 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocalGatewayVirtualInterfacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocalGatewayVirtualInterfacesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +135,24 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeLocalGatewayVirtualInterfacesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand(input, context);
+    return se_DescribeLocalGatewayVirtualInterfacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput> {
-    return deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand(output, context);
+    return de_DescribeLocalGatewayVirtualInterfacesCommand(output, context);
   }
 
   // Start section: command_body_extra

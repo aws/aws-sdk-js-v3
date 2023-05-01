@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  DeleteVirtualRouterInput,
-  DeleteVirtualRouterInputFilterSensitiveLog,
-  DeleteVirtualRouterOutput,
-  DeleteVirtualRouterOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVirtualRouterCommand,
-  serializeAws_restJson1DeleteVirtualRouterCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVirtualRouterInput, DeleteVirtualRouterOutput } from "../models/models_0";
+import { de_DeleteVirtualRouterCommand, se_DeleteVirtualRouterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVirtualRouterCommand}.
  */
 export interface DeleteVirtualRouterCommandInput extends DeleteVirtualRouterInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVirtualRouterCommand}.
  */
 export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing virtual router.</p>
  *          <p>You must delete any routes associated with the virtual router before you can delete the
  *          router itself.</p>
@@ -44,10 +41,17 @@ export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOut
  * import { AppMeshClient, DeleteVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DeleteVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // DeleteVirtualRouterInput
+ *   virtualRouterName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteVirtualRouterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVirtualRouterCommandInput - {@link DeleteVirtualRouterCommandInput}
+ * @returns {@link DeleteVirtualRouterCommandOutput}
  * @see {@link DeleteVirtualRouterCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualRouterCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -96,6 +100,9 @@ export class DeleteVirtualRouterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVirtualRouterCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +131,8 @@ export class DeleteVirtualRouterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVirtualRouterInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVirtualRouterOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +142,18 @@ export class DeleteVirtualRouterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVirtualRouterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVirtualRouterCommand(input, context);
+    return se_DeleteVirtualRouterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1DeleteVirtualRouterCommand(output, context);
+    return de_DeleteVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

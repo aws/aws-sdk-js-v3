@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListRegistriesInput,
-  ListRegistriesInputFilterSensitiveLog,
-  ListRegistriesResponse,
-  ListRegistriesResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListRegistriesCommand,
-  serializeAws_json1_1ListRegistriesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListRegistriesInput, ListRegistriesResponse } from "../models/models_2";
+import { de_ListRegistriesCommand, se_ListRegistriesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRegistriesCommand}.
  */
 export interface ListRegistriesCommandInput extends ListRegistriesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRegistriesCommand}.
  */
 export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of registries that you have created, with minimal registry information. Registries in the <code>Deleting</code> status will not be included in the results. Empty results will be returned if there are no registries available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * import { GlueClient, ListRegistriesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListRegistriesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListRegistriesInput
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListRegistriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRegistriesCommandInput - {@link ListRegistriesCommandInput}
+ * @returns {@link ListRegistriesCommandOutput}
  * @see {@link ListRegistriesCommandInput} for command's `input` shape.
  * @see {@link ListRegistriesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +81,9 @@ export class ListRegistriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRegistriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class ListRegistriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRegistriesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRegistriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class ListRegistriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRegistriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRegistriesCommand(input, context);
+    return se_ListRegistriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegistriesCommandOutput> {
-    return deserializeAws_json1_1ListRegistriesCommand(output, context);
+    return de_ListRegistriesCommand(output, context);
   }
 
   // Start section: command_body_extra

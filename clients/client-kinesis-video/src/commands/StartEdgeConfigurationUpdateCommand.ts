@@ -21,15 +21,19 @@ import {
   StartEdgeConfigurationUpdateOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartEdgeConfigurationUpdateCommand,
-  serializeAws_restJson1StartEdgeConfigurationUpdateCommand,
+  de_StartEdgeConfigurationUpdateCommand,
+  se_StartEdgeConfigurationUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartEdgeConfigurationUpdateCommand}.
  */
 export interface StartEdgeConfigurationUpdateCommandInput extends StartEdgeConfigurationUpdateInput {}
 /**
+ * @public
+ *
  * The output of {@link StartEdgeConfigurationUpdateCommand}.
  */
 export interface StartEdgeConfigurationUpdateCommandOutput
@@ -37,6 +41,7 @@ export interface StartEdgeConfigurationUpdateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>An asynchronous API that updates a stream’s existing edge configuration.
  *             The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass
  *             component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary
@@ -55,10 +60,43 @@ export interface StartEdgeConfigurationUpdateCommandOutput
  * import { KinesisVideoClient, StartEdgeConfigurationUpdateCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, StartEdgeConfigurationUpdateCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // StartEdgeConfigurationUpdateInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   EdgeConfig: { // EdgeConfig
+ *     HubDeviceArn: "STRING_VALUE", // required
+ *     RecorderConfig: { // RecorderConfig
+ *       MediaSourceConfig: { // MediaSourceConfig
+ *         MediaUriSecretArn: "STRING_VALUE", // required
+ *         MediaUriType: "RTSP_URI" || "FILE_URI", // required
+ *       },
+ *       ScheduleConfig: { // ScheduleConfig
+ *         ScheduleExpression: "STRING_VALUE", // required
+ *         DurationInSeconds: Number("int"), // required
+ *       },
+ *     },
+ *     UploaderConfig: { // UploaderConfig
+ *       ScheduleConfig: {
+ *         ScheduleExpression: "STRING_VALUE", // required
+ *         DurationInSeconds: Number("int"), // required
+ *       },
+ *     },
+ *     DeletionConfig: { // DeletionConfig
+ *       EdgeRetentionInHours: Number("int"),
+ *       LocalSizeConfig: { // LocalSizeConfig
+ *         MaxLocalMediaSizeInMB: Number("int"),
+ *         StrategyOnFullSize: "DELETE_OLDEST_MEDIA" || "DENY_NEW_MEDIA",
+ *       },
+ *       DeleteAfterUpload: true || false,
+ *     },
+ *   },
+ * };
  * const command = new StartEdgeConfigurationUpdateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartEdgeConfigurationUpdateCommandInput - {@link StartEdgeConfigurationUpdateCommandInput}
+ * @returns {@link StartEdgeConfigurationUpdateCommandOutput}
  * @see {@link StartEdgeConfigurationUpdateCommandInput} for command's `input` shape.
  * @see {@link StartEdgeConfigurationUpdateCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -118,6 +156,9 @@ export class StartEdgeConfigurationUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartEdgeConfigurationUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,15 +198,21 @@ export class StartEdgeConfigurationUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartEdgeConfigurationUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartEdgeConfigurationUpdateCommand(input, context);
+    return se_StartEdgeConfigurationUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartEdgeConfigurationUpdateCommandOutput> {
-    return deserializeAws_restJson1StartEdgeConfigurationUpdateCommand(output, context);
+    return de_StartEdgeConfigurationUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  StopProductSubscriptionRequest,
-  StopProductSubscriptionRequestFilterSensitiveLog,
-  StopProductSubscriptionResponse,
-  StopProductSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopProductSubscriptionCommand,
-  serializeAws_restJson1StopProductSubscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { StopProductSubscriptionRequest, StopProductSubscriptionResponse } from "../models/models_0";
+import { de_StopProductSubscriptionCommand, se_StopProductSubscriptionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopProductSubscriptionCommand}.
  */
 export interface StopProductSubscriptionCommandInput extends StopProductSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopProductSubscriptionCommand}.
  */
 export interface StopProductSubscriptionCommandOutput extends StopProductSubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a product subscription for a user with the specified identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,22 @@ export interface StopProductSubscriptionCommandOutput extends StopProductSubscri
  * import { LicenseManagerUserSubscriptionsClient, StopProductSubscriptionCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, StopProductSubscriptionCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
+ * const input = { // StopProductSubscriptionRequest
+ *   Username: "STRING_VALUE", // required
+ *   IdentityProvider: { // IdentityProvider Union: only one key present
+ *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ *       DirectoryId: "STRING_VALUE",
+ *     },
+ *   },
+ *   Product: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE",
+ * };
  * const command = new StopProductSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopProductSubscriptionCommandInput - {@link StopProductSubscriptionCommandInput}
+ * @returns {@link StopProductSubscriptionCommandOutput}
  * @see {@link StopProductSubscriptionCommandInput} for command's `input` shape.
  * @see {@link StopProductSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
@@ -95,6 +104,9 @@ export class StopProductSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopProductSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +135,8 @@ export class StopProductSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopProductSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopProductSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +146,18 @@ export class StopProductSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopProductSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopProductSubscriptionCommand(input, context);
+    return se_StopProductSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopProductSubscriptionCommandOutput> {
-    return deserializeAws_restJson1StopProductSubscriptionCommand(output, context);
+    return de_StopProductSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

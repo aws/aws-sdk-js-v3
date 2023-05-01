@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListHITsRequest,
-  ListHITsRequestFilterSensitiveLog,
-  ListHITsResponse,
-  ListHITsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListHITsRequest, ListHITsResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { deserializeAws_json1_1ListHITsCommand, serializeAws_json1_1ListHITsCommand } from "../protocols/Aws_json1_1";
+import { de_ListHITsCommand, se_ListHITsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListHITsCommand}.
  */
 export interface ListHITsCommandInput extends ListHITsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHITsCommand}.
  */
 export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>ListHITs</code>
@@ -45,10 +45,16 @@ export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBeare
  * import { MTurkClient, ListHITsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListHITsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // ListHITsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListHITsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHITsCommandInput - {@link ListHITsCommandInput}
+ * @returns {@link ListHITsCommandOutput}
  * @see {@link ListHITsCommandInput} for command's `input` shape.
  * @see {@link ListHITsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -74,6 +80,9 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHITsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +109,8 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHITsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHITsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +120,18 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHITsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHITsCommand(input, context);
+    return se_ListHITsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHITsCommandOutput> {
-    return deserializeAws_json1_1ListHITsCommand(output, context);
+    return de_ListHITsCommand(output, context);
   }
 
   // Start section: command_body_extra

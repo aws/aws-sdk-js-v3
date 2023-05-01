@@ -24,11 +24,13 @@ async function main() {
   const clients = fs.readdirSync(path.join(root, "clients"));
   const lib = fs.readdirSync(path.join(root, "lib"));
   const packages = fs.readdirSync(path.join(root, "packages"));
+  const private = fs.readdirSync(path.join(root, "private"));
 
   const allPackages = [
     ...clients.map((c) => new Package(c, path.join(root, "clients", c))),
     ...lib.map((l) => new Package(l, path.join(root, "lib", l))),
     ...packages.map((p) => new Package(p, path.join(root, "packages", p))),
+    ...private.map((p) => new Package(p, path.join(root, "private", p))),
   ];
 
   const [node, dispatcher, ...rest] = argv;
@@ -53,11 +55,11 @@ async function main() {
       Match priority goes to whole-word matching and initial matching.
 
     Options:
-      --dry 
+      --dry
         dry run with no command execution.
       --help
         show this message.
-      --c 
+      --c
         ask for confirmation before executing command.
 `);
     return 0;

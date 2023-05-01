@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import {
-  ListFragmentsInput,
-  ListFragmentsInputFilterSensitiveLog,
-  ListFragmentsOutput,
-  ListFragmentsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFragmentsCommand,
-  serializeAws_restJson1ListFragmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFragmentsInput, ListFragmentsOutput } from "../models/models_0";
+import { de_ListFragmentsCommand, se_ListFragmentsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFragmentsCommand}.
  */
 export interface ListFragmentsCommandInput extends ListFragmentsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListFragmentsCommand}.
  */
 export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <a>Fragment</a> objects from the specified stream and
  *             timestamp range within the archived data.</p>
  *         <p>Listing fragments is eventually consistent. This means that even if the producer
@@ -82,10 +79,25 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  * import { KinesisVideoArchivedMediaClient, ListFragmentsCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, ListFragmentsCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
+ * const input = { // ListFragmentsInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   MaxResults: Number("long"),
+ *   NextToken: "STRING_VALUE",
+ *   FragmentSelector: { // FragmentSelector
+ *     FragmentSelectorType: "STRING_VALUE", // required
+ *     TimestampRange: { // TimestampRange
+ *       StartTimestamp: new Date("TIMESTAMP"), // required
+ *       EndTimestamp: new Date("TIMESTAMP"), // required
+ *     },
+ *   },
+ * };
  * const command = new ListFragmentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFragmentsCommandInput - {@link ListFragmentsCommandInput}
+ * @returns {@link ListFragmentsCommandOutput}
  * @see {@link ListFragmentsCommandInput} for command's `input` shape.
  * @see {@link ListFragmentsCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
@@ -132,6 +144,9 @@ export class ListFragmentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFragmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -158,8 +173,8 @@ export class ListFragmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFragmentsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFragmentsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -169,12 +184,18 @@ export class ListFragmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFragmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFragmentsCommand(input, context);
+    return se_ListFragmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFragmentsCommandOutput> {
-    return deserializeAws_restJson1ListFragmentsCommand(output, context);
+    return de_ListFragmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

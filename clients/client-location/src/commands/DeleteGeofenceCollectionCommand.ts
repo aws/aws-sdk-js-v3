@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DeleteGeofenceCollectionRequest,
-  DeleteGeofenceCollectionRequestFilterSensitiveLog,
-  DeleteGeofenceCollectionResponse,
-  DeleteGeofenceCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteGeofenceCollectionCommand,
-  serializeAws_restJson1DeleteGeofenceCollectionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteGeofenceCollectionRequest, DeleteGeofenceCollectionResponse } from "../models/models_0";
+import { de_DeleteGeofenceCollectionCommand, se_DeleteGeofenceCollectionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGeofenceCollectionCommand}.
  */
 export interface DeleteGeofenceCollectionCommandInput extends DeleteGeofenceCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGeofenceCollectionCommand}.
  */
 export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a geofence collection from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently. If the geofence collection is the
@@ -46,10 +43,15 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  * import { LocationClient, DeleteGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeleteGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // DeleteGeofenceCollectionRequest
+ *   CollectionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGeofenceCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGeofenceCollectionCommandInput - {@link DeleteGeofenceCollectionCommandInput}
+ * @returns {@link DeleteGeofenceCollectionCommandOutput}
  * @see {@link DeleteGeofenceCollectionCommandInput} for command's `input` shape.
  * @see {@link DeleteGeofenceCollectionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -89,6 +91,9 @@ export class DeleteGeofenceCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGeofenceCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class DeleteGeofenceCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGeofenceCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGeofenceCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class DeleteGeofenceCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGeofenceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGeofenceCollectionCommand(input, context);
+    return se_DeleteGeofenceCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGeofenceCollectionCommandOutput> {
-    return deserializeAws_restJson1DeleteGeofenceCollectionCommand(output, context);
+    return de_DeleteGeofenceCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

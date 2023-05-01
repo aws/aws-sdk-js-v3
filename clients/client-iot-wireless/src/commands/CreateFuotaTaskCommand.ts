@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  CreateFuotaTaskRequest,
-  CreateFuotaTaskRequestFilterSensitiveLog,
-  CreateFuotaTaskResponse,
-  CreateFuotaTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFuotaTaskCommand,
-  serializeAws_restJson1CreateFuotaTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateFuotaTaskRequest, CreateFuotaTaskResponse } from "../models/models_0";
+import { de_CreateFuotaTaskCommand, se_CreateFuotaTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFuotaTaskCommand}.
  */
 export interface CreateFuotaTaskCommandInput extends CreateFuotaTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFuotaTaskCommand}.
  */
 export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,31 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  * import { IoTWirelessClient, CreateFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // CreateFuotaTaskRequest
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   LoRaWAN: { // LoRaWANFuotaTask
+ *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
+ *   },
+ *   FirmwareUpdateImage: "STRING_VALUE", // required
+ *   FirmwareUpdateRole: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   RedundancyPercent: Number("int"),
+ *   FragmentSizeBytes: Number("int"),
+ *   FragmentIntervalMS: Number("int"),
+ * };
  * const command = new CreateFuotaTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFuotaTaskCommandInput - {@link CreateFuotaTaskCommandInput}
+ * @returns {@link CreateFuotaTaskCommandOutput}
  * @see {@link CreateFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link CreateFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +105,9 @@ export class CreateFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +136,8 @@ export class CreateFuotaTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFuotaTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFuotaTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +147,18 @@ export class CreateFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFuotaTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFuotaTaskCommand(input, context);
+    return se_CreateFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFuotaTaskCommandOutput> {
-    return deserializeAws_restJson1CreateFuotaTaskCommand(output, context);
+    return de_CreateFuotaTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

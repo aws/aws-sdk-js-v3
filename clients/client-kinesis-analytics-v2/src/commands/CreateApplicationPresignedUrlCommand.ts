@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
+import { CreateApplicationPresignedUrlRequest, CreateApplicationPresignedUrlResponse } from "../models/models_0";
 import {
-  CreateApplicationPresignedUrlRequest,
-  CreateApplicationPresignedUrlRequestFilterSensitiveLog,
-  CreateApplicationPresignedUrlResponse,
-  CreateApplicationPresignedUrlResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateApplicationPresignedUrlCommand,
-  serializeAws_json1_1CreateApplicationPresignedUrlCommand,
+  de_CreateApplicationPresignedUrlCommand,
+  se_CreateApplicationPresignedUrlCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateApplicationPresignedUrlCommand}.
  */
 export interface CreateApplicationPresignedUrlCommandInput extends CreateApplicationPresignedUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateApplicationPresignedUrlCommand}.
  */
 export interface CreateApplicationPresignedUrlCommandOutput
@@ -41,6 +40,7 @@ export interface CreateApplicationPresignedUrlCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and returns a URL that you can use to connect to
  *             an application's extension.</p>
  *         <p>The IAM role or user used to call this API defines the permissions to access the
@@ -60,10 +60,17 @@ export interface CreateApplicationPresignedUrlCommandOutput
  * import { KinesisAnalyticsV2Client, CreateApplicationPresignedUrlCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, CreateApplicationPresignedUrlCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // CreateApplicationPresignedUrlRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   UrlType: "FLINK_DASHBOARD_URL" || "ZEPPELIN_UI_URL", // required
+ *   SessionExpirationDurationInSeconds: Number("long"),
+ * };
  * const command = new CreateApplicationPresignedUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateApplicationPresignedUrlCommandInput - {@link CreateApplicationPresignedUrlCommandInput}
+ * @returns {@link CreateApplicationPresignedUrlCommandOutput}
  * @see {@link CreateApplicationPresignedUrlCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationPresignedUrlCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateApplicationPresignedUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +134,8 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationPresignedUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationPresignedUrlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,15 +145,21 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateApplicationPresignedUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateApplicationPresignedUrlCommand(input, context);
+    return se_CreateApplicationPresignedUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateApplicationPresignedUrlCommandOutput> {
-    return deserializeAws_json1_1CreateApplicationPresignedUrlCommand(output, context);
+    return de_CreateApplicationPresignedUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

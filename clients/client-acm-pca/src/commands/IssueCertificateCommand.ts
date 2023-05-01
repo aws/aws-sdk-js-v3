@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import {
-  IssueCertificateRequest,
-  IssueCertificateRequestFilterSensitiveLog,
-  IssueCertificateResponse,
-  IssueCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1IssueCertificateCommand,
-  serializeAws_json1_1IssueCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { IssueCertificateRequest, IssueCertificateResponse } from "../models/models_0";
+import { de_IssueCertificateCommand, se_IssueCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link IssueCertificateCommand}.
  */
 export interface IssueCertificateCommandInput extends IssueCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link IssueCertificateCommand}.
  */
 export interface IssueCertificateCommandOutput extends IssueCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uses your private certificate authority (CA), or one that has been shared with you, to
  * 			issue a client certificate. This action returns the Amazon Resource Name (ARN) of the
  * 			certificate. You can retrieve the certificate by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> action and
@@ -49,10 +46,129 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  * import { ACMPCAClient, IssueCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, IssueCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // IssueCertificateRequest
+ *   ApiPassthrough: { // ApiPassthrough
+ *     Extensions: { // Extensions
+ *       CertificatePolicies: [ // CertificatePolicyList
+ *         { // PolicyInformation
+ *           CertPolicyId: "STRING_VALUE", // required
+ *           PolicyQualifiers: [ // PolicyQualifierInfoList
+ *             { // PolicyQualifierInfo
+ *               PolicyQualifierId: "CPS", // required
+ *               Qualifier: { // Qualifier
+ *                 CpsUri: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       ExtendedKeyUsage: [ // ExtendedKeyUsageList
+ *         { // ExtendedKeyUsage
+ *           ExtendedKeyUsageType: "SERVER_AUTH" || "CLIENT_AUTH" || "CODE_SIGNING" || "EMAIL_PROTECTION" || "TIME_STAMPING" || "OCSP_SIGNING" || "SMART_CARD_LOGIN" || "DOCUMENT_SIGNING" || "CERTIFICATE_TRANSPARENCY",
+ *           ExtendedKeyUsageObjectIdentifier: "STRING_VALUE",
+ *         },
+ *       ],
+ *       KeyUsage: { // KeyUsage
+ *         DigitalSignature: true || false,
+ *         NonRepudiation: true || false,
+ *         KeyEncipherment: true || false,
+ *         DataEncipherment: true || false,
+ *         KeyAgreement: true || false,
+ *         KeyCertSign: true || false,
+ *         CRLSign: true || false,
+ *         EncipherOnly: true || false,
+ *         DecipherOnly: true || false,
+ *       },
+ *       SubjectAlternativeNames: [ // GeneralNameList
+ *         { // GeneralName
+ *           OtherName: { // OtherName
+ *             TypeId: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *           Rfc822Name: "STRING_VALUE",
+ *           DnsName: "STRING_VALUE",
+ *           DirectoryName: { // ASN1Subject
+ *             Country: "STRING_VALUE",
+ *             Organization: "STRING_VALUE",
+ *             OrganizationalUnit: "STRING_VALUE",
+ *             DistinguishedNameQualifier: "STRING_VALUE",
+ *             State: "STRING_VALUE",
+ *             CommonName: "STRING_VALUE",
+ *             SerialNumber: "STRING_VALUE",
+ *             Locality: "STRING_VALUE",
+ *             Title: "STRING_VALUE",
+ *             Surname: "STRING_VALUE",
+ *             GivenName: "STRING_VALUE",
+ *             Initials: "STRING_VALUE",
+ *             Pseudonym: "STRING_VALUE",
+ *             GenerationQualifier: "STRING_VALUE",
+ *             CustomAttributes: [ // CustomAttributeList
+ *               { // CustomAttribute
+ *                 ObjectIdentifier: "STRING_VALUE", // required
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *           EdiPartyName: { // EdiPartyName
+ *             PartyName: "STRING_VALUE", // required
+ *             NameAssigner: "STRING_VALUE",
+ *           },
+ *           UniformResourceIdentifier: "STRING_VALUE",
+ *           IpAddress: "STRING_VALUE",
+ *           RegisteredId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       CustomExtensions: [ // CustomExtensionList
+ *         { // CustomExtension
+ *           ObjectIdentifier: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *           Critical: true || false,
+ *         },
+ *       ],
+ *     },
+ *     Subject: {
+ *       Country: "STRING_VALUE",
+ *       Organization: "STRING_VALUE",
+ *       OrganizationalUnit: "STRING_VALUE",
+ *       DistinguishedNameQualifier: "STRING_VALUE",
+ *       State: "STRING_VALUE",
+ *       CommonName: "STRING_VALUE",
+ *       SerialNumber: "STRING_VALUE",
+ *       Locality: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Surname: "STRING_VALUE",
+ *       GivenName: "STRING_VALUE",
+ *       Initials: "STRING_VALUE",
+ *       Pseudonym: "STRING_VALUE",
+ *       GenerationQualifier: "STRING_VALUE",
+ *       CustomAttributes: [
+ *         {
+ *           ObjectIdentifier: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   Csr: "BLOB_VALUE", // required
+ *   SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA", // required
+ *   TemplateArn: "STRING_VALUE",
+ *   Validity: { // Validity
+ *     Value: Number("long"), // required
+ *     Type: "END_DATE" || "ABSOLUTE" || "DAYS" || "MONTHS" || "YEARS", // required
+ *   },
+ *   ValidityNotBefore: {
+ *     Value: Number("long"), // required
+ *     Type: "END_DATE" || "ABSOLUTE" || "DAYS" || "MONTHS" || "YEARS", // required
+ *   },
+ *   IdempotencyToken: "STRING_VALUE",
+ * };
  * const command = new IssueCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param IssueCertificateCommandInput - {@link IssueCertificateCommandInput}
+ * @returns {@link IssueCertificateCommandOutput}
  * @see {@link IssueCertificateCommandInput} for command's `input` shape.
  * @see {@link IssueCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -97,6 +213,9 @@ export class IssueCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IssueCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +244,8 @@ export class IssueCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IssueCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: IssueCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +255,18 @@ export class IssueCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IssueCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1IssueCertificateCommand(input, context);
+    return se_IssueCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IssueCertificateCommandOutput> {
-    return deserializeAws_json1_1IssueCertificateCommand(output, context);
+    return de_IssueCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

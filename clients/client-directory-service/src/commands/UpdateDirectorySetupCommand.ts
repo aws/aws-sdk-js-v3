@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  UpdateDirectorySetupRequest,
-  UpdateDirectorySetupRequestFilterSensitiveLog,
-  UpdateDirectorySetupResult,
-  UpdateDirectorySetupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDirectorySetupCommand,
-  serializeAws_json1_1UpdateDirectorySetupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDirectorySetupRequest, UpdateDirectorySetupResult } from "../models/models_0";
+import { de_UpdateDirectorySetupCommand, se_UpdateDirectorySetupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDirectorySetupCommand}.
  */
 export interface UpdateDirectorySetupCommandInput extends UpdateDirectorySetupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDirectorySetupCommand}.
  */
 export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Updates the directory for a particular update type.
  *     </p>
@@ -44,10 +41,20 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * import { DirectoryServiceClient, UpdateDirectorySetupCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UpdateDirectorySetupCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // UpdateDirectorySetupRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   UpdateType: "OS", // required
+ *   OSUpdateSettings: { // OSUpdateSettings
+ *     OSVersion: "SERVER_2012" || "SERVER_2019",
+ *   },
+ *   CreateSnapshotBeforeUpdate: true || false,
+ * };
  * const command = new UpdateDirectorySetupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDirectorySetupCommandInput - {@link UpdateDirectorySetupCommandInput}
+ * @returns {@link UpdateDirectorySetupCommandOutput}
  * @see {@link UpdateDirectorySetupCommandInput} for command's `input` shape.
  * @see {@link UpdateDirectorySetupCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -102,6 +109,9 @@ export class UpdateDirectorySetupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDirectorySetupCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +140,8 @@ export class UpdateDirectorySetupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDirectorySetupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDirectorySetupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +151,18 @@ export class UpdateDirectorySetupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDirectorySetupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDirectorySetupCommand(input, context);
+    return se_UpdateDirectorySetupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDirectorySetupCommandOutput> {
-    return deserializeAws_json1_1UpdateDirectorySetupCommand(output, context);
+    return de_UpdateDirectorySetupCommand(output, context);
   }
 
   // Start section: command_body_extra

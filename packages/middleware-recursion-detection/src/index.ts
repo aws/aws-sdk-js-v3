@@ -48,6 +48,9 @@ export const recursionDetectionMiddleware =
   };
 
 // @internal
+/**
+ * @internal
+ */
 export const addRecursionDetectionMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
   step: "build",
   tags: ["RECURSION_DETECTION"],
@@ -57,6 +60,9 @@ export const addRecursionDetectionMiddlewareOptions: BuildHandlerOptions & Absol
 };
 
 // @internal
+/**
+ * @internal
+ */
 export const getRecursionDetectionPlugin = (options: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(recursionDetectionMiddleware(options), addRecursionDetectionMiddlewareOptions);

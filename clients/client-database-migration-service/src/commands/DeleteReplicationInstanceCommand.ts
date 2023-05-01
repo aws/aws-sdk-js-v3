@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteReplicationInstanceMessage,
-  DeleteReplicationInstanceMessageFilterSensitiveLog,
-  DeleteReplicationInstanceResponse,
-  DeleteReplicationInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteReplicationInstanceCommand,
-  serializeAws_json1_1DeleteReplicationInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteReplicationInstanceMessage, DeleteReplicationInstanceResponse } from "../models/models_0";
+import { de_DeleteReplicationInstanceCommand, se_DeleteReplicationInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReplicationInstanceCommand}.
  */
 export interface DeleteReplicationInstanceCommandInput extends DeleteReplicationInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReplicationInstanceCommand}.
  */
 export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicationInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified replication instance.</p>
  *          <note>
  *             <p>You must delete any migration tasks that are associated with the replication instance
@@ -51,10 +48,15 @@ export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicatio
  * import { DatabaseMigrationServiceClient, DeleteReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DeleteReplicationInstanceMessage
+ *   ReplicationInstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReplicationInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReplicationInstanceCommandInput - {@link DeleteReplicationInstanceCommandInput}
+ * @returns {@link DeleteReplicationInstanceCommandOutput}
  * @see {@link DeleteReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -150,6 +152,9 @@ export class DeleteReplicationInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReplicationInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -178,8 +183,8 @@ export class DeleteReplicationInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReplicationInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -189,15 +194,21 @@ export class DeleteReplicationInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteReplicationInstanceCommand(input, context);
+    return se_DeleteReplicationInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1DeleteReplicationInstanceCommand(output, context);
+    return de_DeleteReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

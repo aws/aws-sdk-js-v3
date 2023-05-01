@@ -13,48 +13,55 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCollectionsRequest,
-  ListCollectionsRequestFilterSensitiveLog,
-  ListCollectionsResponse,
-  ListCollectionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCollectionsRequest, ListCollectionsResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0ListCollectionsCommand,
-  serializeAws_json1_0ListCollectionsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListCollectionsCommand, se_ListCollectionsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListCollectionsCommand}.
  */
 export interface ListCollectionsCommandInput extends ListCollectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCollectionsCommand}.
  */
 export interface ListCollectionsCommandOutput extends ListCollectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all OpenSearch Serverless collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
- *         <note>
- *             <p>Make sure to include an empty request body {} if you don't include any collection
+ *          <note>
+ *             <p>Make sure to include an empty request body \{\} if you don't include any collection
  *                 filters in the request.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OpenSearchServerlessClient, ListCollectionsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListCollectionsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // ListCollectionsRequest
+ *   collectionFilters: { // CollectionFilters
+ *     name: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListCollectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCollectionsCommandInput - {@link ListCollectionsCommandInput}
+ * @returns {@link ListCollectionsCommandOutput}
  * @see {@link ListCollectionsCommandInput} for command's `input` shape.
  * @see {@link ListCollectionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
@@ -85,6 +92,9 @@ export class ListCollectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCollectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +123,8 @@ export class ListCollectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCollectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCollectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +134,18 @@ export class ListCollectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCollectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListCollectionsCommand(input, context);
+    return se_ListCollectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCollectionsCommandOutput> {
-    return deserializeAws_json1_0ListCollectionsCommand(output, context);
+    return de_ListCollectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

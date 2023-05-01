@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  BackupPolicyDescription,
-  BackupPolicyDescriptionFilterSensitiveLog,
-  DescribeBackupPolicyRequest,
-  DescribeBackupPolicyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBackupPolicyCommand,
-  serializeAws_restJson1DescribeBackupPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { BackupPolicyDescription, DescribeBackupPolicyRequest } from "../models/models_0";
+import { de_DescribeBackupPolicyCommand, se_DescribeBackupPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBackupPolicyCommand}.
  */
 export interface DescribeBackupPolicyCommandInput extends DescribeBackupPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBackupPolicyCommand}.
  */
 export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the backup policy for the specified EFS file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  * import { EFSClient, DescribeBackupPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeBackupPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeBackupPolicyRequest
+ *   FileSystemId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBackupPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBackupPolicyCommandInput - {@link DescribeBackupPolicyCommandInput}
+ * @returns {@link DescribeBackupPolicyCommandOutput}
  * @see {@link DescribeBackupPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -86,6 +88,9 @@ export class DescribeBackupPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBackupPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class DescribeBackupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBackupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BackupPolicyDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class DescribeBackupPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBackupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBackupPolicyCommand(input, context);
+    return se_DescribeBackupPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupPolicyCommandOutput> {
-    return deserializeAws_restJson1DescribeBackupPolicyCommand(output, context);
+    return de_DescribeBackupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

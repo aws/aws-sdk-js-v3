@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  GetReportGroupTrendInput,
-  GetReportGroupTrendInputFilterSensitiveLog,
-  GetReportGroupTrendOutput,
-  GetReportGroupTrendOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetReportGroupTrendCommand,
-  serializeAws_json1_1GetReportGroupTrendCommand,
-} from "../protocols/Aws_json1_1";
+import { GetReportGroupTrendInput, GetReportGroupTrendOutput } from "../models/models_0";
+import { de_GetReportGroupTrendCommand, se_GetReportGroupTrendCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReportGroupTrendCommand}.
  */
 export interface GetReportGroupTrendCommandInput extends GetReportGroupTrendInput {}
 /**
+ * @public
+ *
  * The output of {@link GetReportGroupTrendCommand}.
  */
 export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Analyzes and accumulates test report values for the specified test reports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOut
  * import { CodeBuildClient, GetReportGroupTrendCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, GetReportGroupTrendCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // GetReportGroupTrendInput
+ *   reportGroupArn: "STRING_VALUE", // required
+ *   numOfReports: Number("int"),
+ *   trendField: "STRING_VALUE", // required
+ * };
  * const command = new GetReportGroupTrendCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReportGroupTrendCommandInput - {@link GetReportGroupTrendCommandInput}
+ * @returns {@link GetReportGroupTrendCommandOutput}
  * @see {@link GetReportGroupTrendCommandInput} for command's `input` shape.
  * @see {@link GetReportGroupTrendCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -75,6 +79,9 @@ export class GetReportGroupTrendCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReportGroupTrendCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +110,8 @@ export class GetReportGroupTrendCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReportGroupTrendInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReportGroupTrendOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +121,18 @@ export class GetReportGroupTrendCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReportGroupTrendCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetReportGroupTrendCommand(input, context);
+    return se_GetReportGroupTrendCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReportGroupTrendCommandOutput> {
-    return deserializeAws_json1_1GetReportGroupTrendCommand(output, context);
+    return de_GetReportGroupTrendCommand(output, context);
   }
 
   // Start section: command_body_extra

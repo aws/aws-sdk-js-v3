@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  AssociateHostedConnectionRequest,
-  AssociateHostedConnectionRequestFilterSensitiveLog,
-  Connection,
-  ConnectionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateHostedConnectionCommand,
-  serializeAws_json1_1AssociateHostedConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateHostedConnectionRequest, Connection } from "../models/models_0";
+import { de_AssociateHostedConnectionCommand, se_AssociateHostedConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateHostedConnectionCommand}.
  */
 export interface AssociateHostedConnectionCommandInput extends AssociateHostedConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateHostedConnectionCommand}.
  */
 export interface AssociateHostedConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a hosted connection and its virtual interfaces with a link aggregation
  *       group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted
  *       connection with a conflicting VLAN number or IP address, the operation fails. This
@@ -49,10 +46,16 @@ export interface AssociateHostedConnectionCommandOutput extends Connection, __Me
  * import { DirectConnectClient, AssociateHostedConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AssociateHostedConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // AssociateHostedConnectionRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   parentConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateHostedConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateHostedConnectionCommandInput - {@link AssociateHostedConnectionCommandInput}
+ * @returns {@link AssociateHostedConnectionCommandOutput}
  * @see {@link AssociateHostedConnectionCommandInput} for command's `input` shape.
  * @see {@link AssociateHostedConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -82,6 +85,9 @@ export class AssociateHostedConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateHostedConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class AssociateHostedConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateHostedConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +127,21 @@ export class AssociateHostedConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateHostedConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateHostedConnectionCommand(input, context);
+    return se_AssociateHostedConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateHostedConnectionCommandOutput> {
-    return deserializeAws_json1_1AssociateHostedConnectionCommand(output, context);
+    return de_AssociateHostedConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

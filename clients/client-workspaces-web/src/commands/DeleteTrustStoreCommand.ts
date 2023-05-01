@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTrustStoreRequest,
-  DeleteTrustStoreRequestFilterSensitiveLog,
-  DeleteTrustStoreResponse,
-  DeleteTrustStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTrustStoreCommand,
-  serializeAws_restJson1DeleteTrustStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteTrustStoreRequest, DeleteTrustStoreResponse } from "../models/models_0";
+import { de_DeleteTrustStoreCommand, se_DeleteTrustStoreCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrustStoreCommand}.
  */
 export interface DeleteTrustStoreCommandInput extends DeleteTrustStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrustStoreCommand}.
  */
 export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse,
  * import { WorkSpacesWebClient, DeleteTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DeleteTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // DeleteTrustStoreRequest
+ *   trustStoreArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTrustStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrustStoreCommandInput - {@link DeleteTrustStoreCommandInput}
+ * @returns {@link DeleteTrustStoreCommandOutput}
  * @see {@link DeleteTrustStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeleteTrustStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrustStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DeleteTrustStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrustStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrustStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DeleteTrustStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTrustStoreCommand(input, context);
+    return se_DeleteTrustStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrustStoreCommandOutput> {
-    return deserializeAws_restJson1DeleteTrustStoreCommand(output, context);
+    return de_DeleteTrustStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

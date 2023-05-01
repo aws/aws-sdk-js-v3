@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDefaultPatchBaselineRequest,
-  GetDefaultPatchBaselineRequestFilterSensitiveLog,
-  GetDefaultPatchBaselineResult,
-  GetDefaultPatchBaselineResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDefaultPatchBaselineCommand,
-  serializeAws_json1_1GetDefaultPatchBaselineCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDefaultPatchBaselineRequest, GetDefaultPatchBaselineResult } from "../models/models_1";
+import { de_GetDefaultPatchBaselineCommand, se_GetDefaultPatchBaselineCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDefaultPatchBaselineCommand}.
  */
 export interface GetDefaultPatchBaselineCommandInput extends GetDefaultPatchBaselineRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDefaultPatchBaselineCommand}.
  */
 export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBaselineResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the default patch baseline. Amazon Web Services Systems Manager supports creating multiple default patch
  *    baselines. For example, you can create a default patch baseline for each operating system.</p>
  *          <p>If you don't specify an operating system value, the default patch baseline for Windows is
@@ -45,10 +42,15 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  * import { SSMClient, GetDefaultPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetDefaultPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetDefaultPatchBaselineRequest
+ *   OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ * };
  * const command = new GetDefaultPatchBaselineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDefaultPatchBaselineCommandInput - {@link GetDefaultPatchBaselineCommandInput}
+ * @returns {@link GetDefaultPatchBaselineCommandOutput}
  * @see {@link GetDefaultPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link GetDefaultPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -75,6 +77,9 @@ export class GetDefaultPatchBaselineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDefaultPatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class GetDefaultPatchBaselineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDefaultPatchBaselineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDefaultPatchBaselineResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class GetDefaultPatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDefaultPatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDefaultPatchBaselineCommand(input, context);
+    return se_GetDefaultPatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDefaultPatchBaselineCommandOutput> {
-    return deserializeAws_json1_1GetDefaultPatchBaselineCommand(output, context);
+    return de_GetDefaultPatchBaselineCommand(output, context);
   }
 
   // Start section: command_body_extra

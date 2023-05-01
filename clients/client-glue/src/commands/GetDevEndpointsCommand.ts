@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetDevEndpointsRequest,
-  GetDevEndpointsRequestFilterSensitiveLog,
-  GetDevEndpointsResponse,
-  GetDevEndpointsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDevEndpointsCommand,
-  serializeAws_json1_1GetDevEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDevEndpointsRequest, GetDevEndpointsResponse } from "../models/models_1";
+import { de_GetDevEndpointsCommand, se_GetDevEndpointsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDevEndpointsCommand}.
  */
 export interface GetDevEndpointsCommandInput extends GetDevEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDevEndpointsCommand}.
  */
 export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all the development endpoints in this Amazon Web Services account.</p>
  *          <note>
  *             <p>When you create a development endpoint in a virtual private cloud (VPC), Glue returns only a private IP address
@@ -47,10 +44,16 @@ export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, _
  * import { GlueClient, GetDevEndpointsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDevEndpointsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetDevEndpointsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetDevEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDevEndpointsCommandInput - {@link GetDevEndpointsCommandInput}
+ * @returns {@link GetDevEndpointsCommandOutput}
  * @see {@link GetDevEndpointsCommandInput} for command's `input` shape.
  * @see {@link GetDevEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +89,9 @@ export class GetDevEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDevEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class GetDevEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDevEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDevEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class GetDevEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDevEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDevEndpointsCommand(input, context);
+    return se_GetDevEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevEndpointsCommandOutput> {
-    return deserializeAws_json1_1GetDevEndpointsCommand(output, context);
+    return de_GetDevEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

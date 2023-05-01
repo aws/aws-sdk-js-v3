@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateReplicationJobRequest,
-  UpdateReplicationJobRequestFilterSensitiveLog,
-  UpdateReplicationJobResponse,
-  UpdateReplicationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateReplicationJobCommand,
-  serializeAws_json1_1UpdateReplicationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateReplicationJobRequest, UpdateReplicationJobResponse } from "../models/models_0";
+import { de_UpdateReplicationJobCommand, se_UpdateReplicationJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateReplicationJobCommand}.
  */
 export interface UpdateReplicationJobCommandInput extends UpdateReplicationJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateReplicationJobCommand}.
  */
 export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified settings for the specified replication job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  * import { SMSClient, UpdateReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, UpdateReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // UpdateReplicationJobRequest
+ *   replicationJobId: "STRING_VALUE", // required
+ *   frequency: Number("int"),
+ *   nextReplicationRunStartTime: new Date("TIMESTAMP"),
+ *   licenseType: "AWS" || "BYOL",
+ *   roleName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   numberOfRecentAmisToKeep: Number("int"),
+ *   encrypted: true || false,
+ *   kmsKeyId: "STRING_VALUE",
+ * };
  * const command = new UpdateReplicationJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateReplicationJobCommandInput - {@link UpdateReplicationJobCommandInput}
+ * @returns {@link UpdateReplicationJobCommandOutput}
  * @see {@link UpdateReplicationJobCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationJobCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -94,6 +104,9 @@ export class UpdateReplicationJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateReplicationJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +135,8 @@ export class UpdateReplicationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateReplicationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateReplicationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +146,18 @@ export class UpdateReplicationJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateReplicationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateReplicationJobCommand(input, context);
+    return se_UpdateReplicationJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReplicationJobCommandOutput> {
-    return deserializeAws_json1_1UpdateReplicationJobCommand(output, context);
+    return de_UpdateReplicationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

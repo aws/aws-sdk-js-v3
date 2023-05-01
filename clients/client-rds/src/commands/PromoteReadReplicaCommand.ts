@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PromoteReadReplicaMessage,
-  PromoteReadReplicaMessageFilterSensitiveLog,
-  PromoteReadReplicaResult,
-  PromoteReadReplicaResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryPromoteReadReplicaCommand,
-  serializeAws_queryPromoteReadReplicaCommand,
-} from "../protocols/Aws_query";
+import { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/models_1";
+import { de_PromoteReadReplicaCommand, se_PromoteReadReplicaCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PromoteReadReplicaCommand}.
  */
 export interface PromoteReadReplicaCommandInput extends PromoteReadReplicaMessage {}
 /**
+ * @public
+ *
  * The output of {@link PromoteReadReplicaCommand}.
  */
 export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Promotes a read replica DB instance to a standalone DB instance.</p>
  *          <note>
  *             <ul>
@@ -59,10 +56,17 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * import { RDSClient, PromoteReadReplicaCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, PromoteReadReplicaCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // PromoteReadReplicaMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   BackupRetentionPeriod: Number("int"),
+ *   PreferredBackupWindow: "STRING_VALUE",
+ * };
  * const command = new PromoteReadReplicaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PromoteReadReplicaCommandInput - {@link PromoteReadReplicaCommandInput}
+ * @returns {@link PromoteReadReplicaCommandOutput}
  * @see {@link PromoteReadReplicaCommandInput} for command's `input` shape.
  * @see {@link PromoteReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -77,20 +81,23 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  *
  * @example To promote a read replica
  * ```javascript
- * // This example promotes the specified read replica and sets its backup retention period and preferred backup window.
+ * // The following example promotes the specified read replica to become a standalone DB instance.
  * const input = {
- *   "BackupRetentionPeriod": 1,
- *   "DBInstanceIdentifier": "mydbreadreplica",
- *   "PreferredBackupWindow": "03:30-04:00"
+ *   "DBInstanceIdentifier": "test-instance-repl"
  * };
  * const command = new PromoteReadReplicaCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBInstance": {}
+ *   "DBInstance": {
+ *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
+ *     "DBInstanceStatus": "modifying",
+ *     "ReadReplicaSourceDBInstanceIdentifier": "test-instance",
+ *     "StorageType": "standard"
+ *   }
  * }
  * *\/
- * // example id: promote-read-replica-cc580039-c55d-4035-838a-def4a1ae4181
+ * // example id: to-promote-a-read-replica-1680263877808
  * ```
  *
  */
@@ -111,6 +118,9 @@ export class PromoteReadReplicaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PromoteReadReplicaCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +149,8 @@ export class PromoteReadReplicaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PromoteReadReplicaMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PromoteReadReplicaResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +160,18 @@ export class PromoteReadReplicaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PromoteReadReplicaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPromoteReadReplicaCommand(input, context);
+    return se_PromoteReadReplicaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PromoteReadReplicaCommandOutput> {
-    return deserializeAws_queryPromoteReadReplicaCommand(output, context);
+    return de_PromoteReadReplicaCommand(output, context);
   }
 
   // Start section: command_body_extra

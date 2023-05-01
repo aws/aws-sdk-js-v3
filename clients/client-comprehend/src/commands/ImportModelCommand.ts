@@ -14,43 +14,55 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ImportModelRequest,
-  ImportModelRequestFilterSensitiveLog,
-  ImportModelResponse,
-  ImportModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportModelCommand,
-  serializeAws_json1_1ImportModelCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportModelRequest, ImportModelResponse } from "../models/models_0";
+import { de_ImportModelCommand, se_ImportModelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportModelCommand}.
  */
 export interface ImportModelCommandInput extends ImportModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportModelCommand}.
  */
 export interface ImportModelCommandOutput extends ImportModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom model that replicates a source custom model that you import. The
- *       source model can be in your AWS account or another one.</p>
- *          <p>If the source model is in another AWS account, then it must have a resource-based policy
+ *       source model can be in your Amazon Web Services account or another one.</p>
+ *          <p>If the source model is in another Amazon Web Services account, then it must have a resource-based policy
  *       that authorizes you to import it.</p>
- *          <p>The source model must be in the same AWS region that you're using when you import. You
- *       can't import a model that's in a different region.</p>
+ *          <p>The source model must be in the same Amazon Web Services Region that you're using when you import. You
+ *       can't import a model that's in a different Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, ImportModelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ImportModelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ImportModelRequest
+ *   SourceModelArn: "STRING_VALUE", // required
+ *   ModelName: "STRING_VALUE",
+ *   VersionName: "STRING_VALUE",
+ *   ModelKmsKeyId: "STRING_VALUE",
+ *   DataAccessRoleArn: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ImportModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportModelCommandInput - {@link ImportModelCommandInput}
+ * @returns {@link ImportModelCommandOutput}
  * @see {@link ImportModelCommandInput} for command's `input` shape.
  * @see {@link ImportModelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -107,6 +119,9 @@ export class ImportModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +148,8 @@ export class ImportModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +159,18 @@ export class ImportModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportModelCommand(input, context);
+    return se_ImportModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportModelCommandOutput> {
-    return deserializeAws_json1_1ImportModelCommand(output, context);
+    return de_ImportModelCommand(output, context);
   }
 
   // Start section: command_body_extra

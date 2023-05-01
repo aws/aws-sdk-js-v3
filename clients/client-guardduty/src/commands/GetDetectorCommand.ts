@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  GetDetectorRequest,
-  GetDetectorRequestFilterSensitiveLog,
-  GetDetectorResponse,
-  GetDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDetectorCommand,
-  serializeAws_restJson1GetDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDetectorRequest, GetDetectorResponse } from "../models/models_0";
+import { de_GetDetectorCommand, se_GetDetectorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDetectorCommand}.
  */
 export interface GetDetectorCommandInput extends GetDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDetectorCommand}.
  */
 export interface GetDetectorCommandOutput extends GetDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -45,10 +42,15 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
  * import { GuardDutyClient, GetDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // GetDetectorRequest
+ *   DetectorId: "STRING_VALUE", // required
+ * };
  * const command = new GetDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDetectorCommandInput - {@link GetDetectorCommandInput}
+ * @returns {@link GetDetectorCommandOutput}
  * @see {@link GetDetectorCommandInput} for command's `input` shape.
  * @see {@link GetDetectorCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -78,6 +80,9 @@ export class GetDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class GetDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class GetDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDetectorCommand(input, context);
+    return se_GetDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDetectorCommandOutput> {
-    return deserializeAws_restJson1GetDetectorCommand(output, context);
+    return de_GetDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

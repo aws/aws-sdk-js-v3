@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteDataQualityRulesetRequest,
-  DeleteDataQualityRulesetRequestFilterSensitiveLog,
-  DeleteDataQualityRulesetResponse,
-  DeleteDataQualityRulesetResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteDataQualityRulesetCommand,
-  serializeAws_json1_1DeleteDataQualityRulesetCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDataQualityRulesetRequest, DeleteDataQualityRulesetResponse } from "../models/models_1";
+import { de_DeleteDataQualityRulesetCommand, se_DeleteDataQualityRulesetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDataQualityRulesetCommand}.
  */
 export interface DeleteDataQualityRulesetCommandInput extends DeleteDataQualityRulesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDataQualityRulesetCommand}.
  */
 export interface DeleteDataQualityRulesetCommandOutput extends DeleteDataQualityRulesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a data quality ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteDataQualityRulesetCommandOutput extends DeleteDataQuality
  * import { GlueClient, DeleteDataQualityRulesetCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteDataQualityRulesetCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeleteDataQualityRulesetRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataQualityRulesetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDataQualityRulesetCommandInput - {@link DeleteDataQualityRulesetCommandInput}
+ * @returns {@link DeleteDataQualityRulesetCommandOutput}
  * @see {@link DeleteDataQualityRulesetCommandInput} for command's `input` shape.
  * @see {@link DeleteDataQualityRulesetCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteDataQualityRulesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDataQualityRulesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteDataQualityRulesetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataQualityRulesetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataQualityRulesetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteDataQualityRulesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDataQualityRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataQualityRulesetCommand(input, context);
+    return se_DeleteDataQualityRulesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataQualityRulesetCommandOutput> {
-    return deserializeAws_json1_1DeleteDataQualityRulesetCommand(output, context);
+    return de_DeleteDataQualityRulesetCommand(output, context);
   }
 
   // Start section: command_body_extra

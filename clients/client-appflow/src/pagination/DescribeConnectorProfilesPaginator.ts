@@ -10,7 +10,7 @@ import {
 import { AppflowPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppflowClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeConnectorProfilesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeConnectorProfiles(
   config: AppflowPaginationConfiguration,
   input: DescribeConnectorProfilesCommandInput,

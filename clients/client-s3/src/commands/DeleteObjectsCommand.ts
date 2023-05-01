@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteObjectsOutput,
-  DeleteObjectsOutputFilterSensitiveLog,
-  DeleteObjectsRequest,
-  DeleteObjectsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteObjectsCommand,
-  serializeAws_restXmlDeleteObjectsCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteObjectsOutput, DeleteObjectsRequest } from "../models/models_0";
+import { de_DeleteObjectsCommand, se_DeleteObjectsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteObjectsCommand}.
  */
 export interface DeleteObjectsCommandInput extends DeleteObjectsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteObjectsCommand}.
  */
 export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action enables you to delete multiple objects from a bucket using a single HTTP
  *          request. If you know the object keys that you want to delete, then this action provides
  *          a suitable alternative to sending individual delete requests, reducing per-request
@@ -94,10 +91,29 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * import { S3Client, DeleteObjectsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteObjectsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeleteObjectsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Delete: { // Delete
+ *     Objects: [ // ObjectIdentifierList // required
+ *       { // ObjectIdentifier
+ *         Key: "STRING_VALUE", // required
+ *         VersionId: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Quiet: true || false,
+ *   },
+ *   MFA: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   BypassGovernanceRetention: true || false,
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * };
  * const command = new DeleteObjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteObjectsCommandInput - {@link DeleteObjectsCommandInput}
+ * @returns {@link DeleteObjectsCommandOutput}
  * @see {@link DeleteObjectsCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -203,6 +219,9 @@ export class DeleteObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -236,8 +255,8 @@ export class DeleteObjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteObjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteObjectsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -247,12 +266,18 @@ export class DeleteObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteObjectsCommand(input, context);
+    return se_DeleteObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectsCommandOutput> {
-    return deserializeAws_restXmlDeleteObjectsCommand(output, context);
+    return de_DeleteObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

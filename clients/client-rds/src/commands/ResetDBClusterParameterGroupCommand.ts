@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBClusterParameterGroupNameMessage,
-  DBClusterParameterGroupNameMessageFilterSensitiveLog,
-  ResetDBClusterParameterGroupMessage,
-  ResetDBClusterParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryResetDBClusterParameterGroupCommand,
-  serializeAws_queryResetDBClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/models_1";
+import { de_ResetDBClusterParameterGroupCommand, se_ResetDBClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ResetDBClusterParameterGroupCommand}.
  */
 export interface ResetDBClusterParameterGroupCommandInput extends ResetDBClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ResetDBClusterParameterGroupCommand}.
  */
 export interface ResetDBClusterParameterGroupCommandOutput
@@ -37,6 +33,7 @@ export interface ResetDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a DB cluster parameter group to the default value. To
  *             reset specific parameters submit a list of the following: <code>ParameterName</code>
  *             and <code>ApplyMethod</code>. To reset the
@@ -59,10 +56,33 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * import { RDSClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ResetDBClusterParameterGroupMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   ResetAllParameters: true || false,
+ *   Parameters: [ // ParametersList
+ *     { // Parameter
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       ApplyType: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       ApplyMethod: "immediate" || "pending-reboot",
+ *       SupportedEngineModes: [ // EngineModeList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ResetDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetDBClusterParameterGroupCommandInput - {@link ResetDBClusterParameterGroupCommandInput}
+ * @returns {@link ResetDBClusterParameterGroupCommandOutput}
  * @see {@link ResetDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -78,16 +98,21 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *             this state.</p>
  *
  *
- * @example To reset the values of a DB cluster parameter group
+ * @example To reset all parameters to their default values
  * ```javascript
- * // This example resets all parameters for the specified DB cluster parameter group to their default values.
+ * // The following example resets all parameter values in a customer-created DB cluster parameter group to their default values.
  * const input = {
- *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
+ *   "DBClusterParameterGroupName": "mydbclpg",
  *   "ResetAllParameters": true
  * };
  * const command = new ResetDBClusterParameterGroupCommand(input);
- * await client.send(command);
- * // example id: reset-db-cluster-parameter-group-b04aeaf7-7f73-49e1-9bb4-857573ea3ee4
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterParameterGroupName": "mydbclpg"
+ * }
+ * *\/
+ * // example id: to-reset-all-parameters-to-their-default-values-1680070254216
  * ```
  *
  */
@@ -108,6 +133,9 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +164,8 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetDBClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupNameMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,15 +175,21 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResetDBClusterParameterGroupCommand(input, context);
+    return se_ResetDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryResetDBClusterParameterGroupCommand(output, context);
+    return de_ResetDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

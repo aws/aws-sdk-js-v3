@@ -6,7 +6,7 @@ import { OrganizationsClient } from "../OrganizationsClient";
 import { OrganizationsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OrganizationsClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListRootsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListRoots(
   config: OrganizationsPaginationConfiguration,
   input: ListRootsCommandInput,

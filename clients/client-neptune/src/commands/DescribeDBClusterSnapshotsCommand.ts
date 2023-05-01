@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBClusterSnapshotMessage,
-  DBClusterSnapshotMessageFilterSensitiveLog,
-  DescribeDBClusterSnapshotsMessage,
-  DescribeDBClusterSnapshotsMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DBClusterSnapshotMessage, DescribeDBClusterSnapshotsMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeDBClusterSnapshotsCommand,
-  serializeAws_queryDescribeDBClusterSnapshotsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBClusterSnapshotsCommand, se_DescribeDBClusterSnapshotsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBClusterSnapshotsCommand}.
  */
 export interface DescribeDBClusterSnapshotsCommandInput extends DescribeDBClusterSnapshotsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBClusterSnapshotsCommand}.
  */
 export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapshotMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about DB cluster snapshots. This API action supports
  *       pagination.</p>
  * @example
@@ -43,10 +40,29 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * import { NeptuneClient, DescribeDBClusterSnapshotsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBClusterSnapshotsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DescribeDBClusterSnapshotsMessage
+ *   DBClusterIdentifier: "STRING_VALUE",
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE",
+ *   SnapshotType: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   IncludeShared: true || false,
+ *   IncludePublic: true || false,
+ * };
  * const command = new DescribeDBClusterSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBClusterSnapshotsCommandInput - {@link DescribeDBClusterSnapshotsCommandInput}
+ * @returns {@link DescribeDBClusterSnapshotsCommandOutput}
  * @see {@link DescribeDBClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -75,6 +91,9 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +122,8 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterSnapshotsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterSnapshotMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +133,21 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterSnapshotsCommand(input, context);
+    return se_DescribeDBClusterSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterSnapshotsCommand(output, context);
+    return de_DescribeDBClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

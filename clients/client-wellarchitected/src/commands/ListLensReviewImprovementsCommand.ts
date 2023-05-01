@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLensReviewImprovementsInput,
-  ListLensReviewImprovementsInputFilterSensitiveLog,
-  ListLensReviewImprovementsOutput,
-  ListLensReviewImprovementsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLensReviewImprovementsCommand,
-  serializeAws_restJson1ListLensReviewImprovementsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListLensReviewImprovementsInput, ListLensReviewImprovementsOutput } from "../models/models_0";
+import { de_ListLensReviewImprovementsCommand, se_ListLensReviewImprovementsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLensReviewImprovementsCommand}.
  */
 export interface ListLensReviewImprovementsCommandInput extends ListLensReviewImprovementsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLensReviewImprovementsCommand}.
  */
 export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewImprovementsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List lens review improvements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewI
  * import { WellArchitectedClient, ListLensReviewImprovementsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListLensReviewImprovementsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListLensReviewImprovementsInput
+ *   WorkloadId: "STRING_VALUE", // required
+ *   LensAlias: "STRING_VALUE", // required
+ *   PillarId: "STRING_VALUE",
+ *   MilestoneNumber: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLensReviewImprovementsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLensReviewImprovementsCommandInput - {@link ListLensReviewImprovementsCommandInput}
+ * @returns {@link ListLensReviewImprovementsCommandOutput}
  * @see {@link ListLensReviewImprovementsCommandInput} for command's `input` shape.
  * @see {@link ListLensReviewImprovementsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListLensReviewImprovementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLensReviewImprovementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class ListLensReviewImprovementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLensReviewImprovementsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLensReviewImprovementsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +133,21 @@ export class ListLensReviewImprovementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLensReviewImprovementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLensReviewImprovementsCommand(input, context);
+    return se_ListLensReviewImprovementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLensReviewImprovementsCommandOutput> {
-    return deserializeAws_restJson1ListLensReviewImprovementsCommand(output, context);
+    return de_ListLensReviewImprovementsCommand(output, context);
   }
 
   // Start section: command_body_extra

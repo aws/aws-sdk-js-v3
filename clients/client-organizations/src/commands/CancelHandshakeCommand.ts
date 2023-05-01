@@ -15,26 +15,27 @@ import {
 
 import {
   CancelHandshakeRequest,
-  CancelHandshakeRequestFilterSensitiveLog,
   CancelHandshakeResponse,
   CancelHandshakeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1CancelHandshakeCommand,
-  serializeAws_json1_1CancelHandshakeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelHandshakeCommand, se_CancelHandshakeCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelHandshakeCommand}.
  */
 export interface CancelHandshakeCommandInput extends CancelHandshakeRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelHandshakeCommand}.
  */
 export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a handshake. Canceling a handshake sets the handshake state to
  *                 <code>CANCELED</code>.</p>
  *          <p>This operation can be called only from the account that originated the handshake. The recipient of the handshake can't cancel it, but can use <a>DeclineHandshake</a> instead. After a handshake is canceled, the recipient
@@ -47,10 +48,15 @@ export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, _
  * import { OrganizationsClient, CancelHandshakeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CancelHandshakeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // CancelHandshakeRequest
+ *   HandshakeId: "STRING_VALUE", // required
+ * };
  * const command = new CancelHandshakeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelHandshakeCommandInput - {@link CancelHandshakeCommandInput}
+ * @returns {@link CancelHandshakeCommandOutput}
  * @see {@link CancelHandshakeCommandInput} for command's `input` shape.
  * @see {@link CancelHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -274,6 +280,9 @@ export class CancelHandshakeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelHandshakeCommandInput) {
     // Start section: command_constructor
     super();
@@ -302,7 +311,7 @@ export class CancelHandshakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelHandshakeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CancelHandshakeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -313,12 +322,18 @@ export class CancelHandshakeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelHandshakeCommand(input, context);
+    return se_CancelHandshakeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelHandshakeCommandOutput> {
-    return deserializeAws_json1_1CancelHandshakeCommand(output, context);
+    return de_CancelHandshakeCommand(output, context);
   }
 
   // Start section: command_body_extra

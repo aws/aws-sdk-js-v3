@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  CreateLocationFsxLustreRequest,
-  CreateLocationFsxLustreRequestFilterSensitiveLog,
-  CreateLocationFsxLustreResponse,
-  CreateLocationFsxLustreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationFsxLustreCommand,
-  serializeAws_json1_1CreateLocationFsxLustreCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLocationFsxLustreRequest, CreateLocationFsxLustreResponse } from "../models/models_0";
+import { de_CreateLocationFsxLustreCommand, se_CreateLocationFsxLustreCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationFsxLustreCommand}.
  */
 export interface CreateLocationFsxLustreCommandInput extends CreateLocationFsxLustreRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationFsxLustreCommand}.
  */
 export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxLustreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for an Amazon FSx for Lustre file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,16 +39,32 @@ export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxL
  * import { DataSyncClient, CreateLocationFsxLustreCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationFsxLustreCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateLocationFsxLustreRequest
+ *   FsxFilesystemArn: "STRING_VALUE", // required
+ *   SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Subdirectory: "STRING_VALUE",
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationFsxLustreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationFsxLustreCommandInput - {@link CreateLocationFsxLustreCommandInput}
+ * @returns {@link CreateLocationFsxLustreCommandOutput}
  * @see {@link CreateLocationFsxLustreCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxLustreCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
@@ -75,6 +88,9 @@ export class CreateLocationFsxLustreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationFsxLustreCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +119,8 @@ export class CreateLocationFsxLustreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationFsxLustreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationFsxLustreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +130,18 @@ export class CreateLocationFsxLustreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationFsxLustreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationFsxLustreCommand(input, context);
+    return se_CreateLocationFsxLustreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxLustreCommandOutput> {
-    return deserializeAws_json1_1CreateLocationFsxLustreCommand(output, context);
+    return de_CreateLocationFsxLustreCommand(output, context);
   }
 
   // Start section: command_body_extra

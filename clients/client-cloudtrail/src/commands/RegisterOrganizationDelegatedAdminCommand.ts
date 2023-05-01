@@ -16,20 +16,22 @@ import {
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import {
   RegisterOrganizationDelegatedAdminRequest,
-  RegisterOrganizationDelegatedAdminRequestFilterSensitiveLog,
   RegisterOrganizationDelegatedAdminResponse,
-  RegisterOrganizationDelegatedAdminResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommand,
-  serializeAws_json1_1RegisterOrganizationDelegatedAdminCommand,
+  de_RegisterOrganizationDelegatedAdminCommand,
+  se_RegisterOrganizationDelegatedAdminCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterOrganizationDelegatedAdminCommand}.
  */
 export interface RegisterOrganizationDelegatedAdminCommandInput extends RegisterOrganizationDelegatedAdminRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterOrganizationDelegatedAdminCommand}.
  */
 export interface RegisterOrganizationDelegatedAdminCommandOutput
@@ -37,6 +39,7 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers an organization’s member account as the CloudTrail delegated
  *          administrator.</p>
  * @example
@@ -45,10 +48,15 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
  * import { CloudTrailClient, RegisterOrganizationDelegatedAdminCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, RegisterOrganizationDelegatedAdminCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // RegisterOrganizationDelegatedAdminRequest
+ *   MemberAccountId: "STRING_VALUE", // required
+ * };
  * const command = new RegisterOrganizationDelegatedAdminCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterOrganizationDelegatedAdminCommandInput - {@link RegisterOrganizationDelegatedAdminCommandInput}
+ * @returns {@link RegisterOrganizationDelegatedAdminCommandOutput}
  * @see {@link RegisterOrganizationDelegatedAdminCommandInput} for command's `input` shape.
  * @see {@link RegisterOrganizationDelegatedAdminCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -125,6 +133,9 @@ export class RegisterOrganizationDelegatedAdminCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterOrganizationDelegatedAdminCommandInput) {
     // Start section: command_constructor
     super();
@@ -153,8 +164,8 @@ export class RegisterOrganizationDelegatedAdminCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterOrganizationDelegatedAdminRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterOrganizationDelegatedAdminResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -164,18 +175,24 @@ export class RegisterOrganizationDelegatedAdminCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RegisterOrganizationDelegatedAdminCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterOrganizationDelegatedAdminCommand(input, context);
+    return se_RegisterOrganizationDelegatedAdminCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterOrganizationDelegatedAdminCommandOutput> {
-    return deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommand(output, context);
+    return de_RegisterOrganizationDelegatedAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

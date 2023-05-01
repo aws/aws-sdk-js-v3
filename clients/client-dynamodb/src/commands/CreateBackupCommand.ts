@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  CreateBackupInput,
-  CreateBackupInputFilterSensitiveLog,
-  CreateBackupOutput,
-  CreateBackupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateBackupCommand,
-  serializeAws_json1_0CreateBackupCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateBackupInput, CreateBackupOutput } from "../models/models_0";
+import { de_CreateBackupCommand, se_CreateBackupCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateBackupCommand}.
  */
 export interface CreateBackupCommandInput extends CreateBackupInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateBackupCommand}.
  */
 export interface CreateBackupCommandOutput extends CreateBackupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a backup for an existing table.</p>
  *          <p> Each time you create an on-demand backup, the entire table data is backed up. There
  *             is no limit to the number of on-demand backups that can be taken. </p>
@@ -71,10 +68,16 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  * import { DynamoDBClient, CreateBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, CreateBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // CreateBackupInput
+ *   TableName: "STRING_VALUE", // required
+ *   BackupName: "STRING_VALUE", // required
+ * };
  * const command = new CreateBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateBackupCommandInput - {@link CreateBackupCommandInput}
+ * @returns {@link CreateBackupCommandOutput}
  * @see {@link CreateBackupCommandInput} for command's `input` shape.
  * @see {@link CreateBackupCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -131,6 +134,9 @@ export class CreateBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,8 +163,8 @@ export class CreateBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,12 +174,18 @@ export class CreateBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateBackupCommand(input, context);
+    return se_CreateBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupCommandOutput> {
-    return deserializeAws_json1_0CreateBackupCommand(output, context);
+    return de_CreateBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

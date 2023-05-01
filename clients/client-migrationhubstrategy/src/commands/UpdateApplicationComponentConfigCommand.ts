@@ -22,18 +22,21 @@ import {
   UpdateApplicationComponentConfigRequest,
   UpdateApplicationComponentConfigRequestFilterSensitiveLog,
   UpdateApplicationComponentConfigResponse,
-  UpdateApplicationComponentConfigResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateApplicationComponentConfigCommand,
-  serializeAws_restJson1UpdateApplicationComponentConfigCommand,
+  de_UpdateApplicationComponentConfigCommand,
+  se_UpdateApplicationComponentConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApplicationComponentConfigCommand}.
  */
 export interface UpdateApplicationComponentConfigCommandInput extends UpdateApplicationComponentConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApplicationComponentConfigCommand}.
  */
 export interface UpdateApplicationComponentConfigCommandOutput
@@ -41,6 +44,7 @@ export interface UpdateApplicationComponentConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the configuration of an application component. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +52,33 @@ export interface UpdateApplicationComponentConfigCommandOutput
  * import { MigrationHubStrategyClient, UpdateApplicationComponentConfigCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, UpdateApplicationComponentConfigCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // UpdateApplicationComponentConfigRequest
+ *   applicationComponentId: "STRING_VALUE", // required
+ *   inclusionStatus: "STRING_VALUE",
+ *   strategyOption: { // StrategyOption
+ *     strategy: "STRING_VALUE",
+ *     toolName: "STRING_VALUE",
+ *     targetDestination: "STRING_VALUE",
+ *     isPreferred: true || false,
+ *   },
+ *   sourceCodeList: [ // SourceCodeList
+ *     { // SourceCode
+ *       versionControl: "STRING_VALUE",
+ *       sourceVersion: "STRING_VALUE",
+ *       location: "STRING_VALUE",
+ *       projectName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   secretsManagerKey: "STRING_VALUE",
+ *   configureOnly: true || false,
+ *   appType: "STRING_VALUE",
+ * };
  * const command = new UpdateApplicationComponentConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApplicationComponentConfigCommandInput - {@link UpdateApplicationComponentConfigCommandInput}
+ * @returns {@link UpdateApplicationComponentConfigCommandOutput}
  * @see {@link UpdateApplicationComponentConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationComponentConfigCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
@@ -87,6 +114,9 @@ export class UpdateApplicationComponentConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApplicationComponentConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +146,7 @@ export class UpdateApplicationComponentConfigCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateApplicationComponentConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationComponentConfigResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +156,24 @@ export class UpdateApplicationComponentConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApplicationComponentConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApplicationComponentConfigCommand(input, context);
+    return se_UpdateApplicationComponentConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationComponentConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateApplicationComponentConfigCommand(output, context);
+    return de_UpdateApplicationComponentConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

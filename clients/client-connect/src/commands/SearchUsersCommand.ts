@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  SearchUsersRequest,
-  SearchUsersRequestFilterSensitiveLog,
-  SearchUsersResponse,
-  SearchUsersResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1SearchUsersCommand,
-  serializeAws_restJson1SearchUsersCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchUsersRequest, SearchUsersResponse } from "../models/models_1";
+import { de_SearchUsersCommand, se_SearchUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchUsersCommand}.
  */
 export interface SearchUsersCommandInput extends SearchUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchUsersCommand}.
  */
 export interface SearchUsersCommandOutput extends SearchUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches users in an Amazon Connect instance, with optional filtering.</p>
  *          <note>
  *             <p>
@@ -46,10 +43,69 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * import { ConnectClient, SearchUsersCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchUsersCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // SearchUsersRequest
+ *   InstanceId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SearchFilter: { // UserSearchFilter
+ *     TagFilter: { // ControlPlaneTagFilter
+ *       OrConditions: [ // TagOrConditionList
+ *         [ // TagAndConditionList
+ *           { // TagCondition
+ *             TagKey: "STRING_VALUE",
+ *             TagValue: "STRING_VALUE",
+ *           },
+ *         ],
+ *       ],
+ *       AndConditions: [
+ *         {
+ *           TagKey: "STRING_VALUE",
+ *           TagValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       TagCondition: "<TagCondition>",
+ *     },
+ *   },
+ *   SearchCriteria: { // UserSearchCriteria
+ *     OrConditions: [ // UserSearchConditionList
+ *       {
+ *         OrConditions: [
+ *           "<UserSearchCriteria>",
+ *         ],
+ *         AndConditions: [
+ *           "<UserSearchCriteria>",
+ *         ],
+ *         StringCondition: { // StringCondition
+ *           FieldName: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *         },
+ *         HierarchyGroupCondition: { // HierarchyGroupCondition
+ *           Value: "STRING_VALUE",
+ *           HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
+ *         },
+ *       },
+ *     ],
+ *     AndConditions: [
+ *       "<UserSearchCriteria>",
+ *     ],
+ *     StringCondition: {
+ *       FieldName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *     },
+ *     HierarchyGroupCondition: {
+ *       Value: "STRING_VALUE",
+ *       HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
+ *     },
+ *   },
+ * };
  * const command = new SearchUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchUsersCommandInput - {@link SearchUsersCommandInput}
+ * @returns {@link SearchUsersCommandOutput}
  * @see {@link SearchUsersCommandInput} for command's `input` shape.
  * @see {@link SearchUsersCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -88,6 +144,9 @@ export class SearchUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +173,8 @@ export class SearchUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchUsersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchUsersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +184,18 @@ export class SearchUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchUsersCommand(input, context);
+    return se_SearchUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchUsersCommandOutput> {
-    return deserializeAws_restJson1SearchUsersCommand(output, context);
+    return de_SearchUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

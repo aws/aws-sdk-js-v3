@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetIPSetRequest,
-  GetIPSetRequestFilterSensitiveLog,
-  GetIPSetResponse,
-  GetIPSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetIPSetCommand, serializeAws_json1_1GetIPSetCommand } from "../protocols/Aws_json1_1";
+import { GetIPSetRequest, GetIPSetResponse } from "../models/models_0";
+import { de_GetIPSetCommand, se_GetIPSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetIPSetCommand}.
  */
 export interface GetIPSetCommandInput extends GetIPSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIPSetCommand}.
  */
 export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified <a>IPSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,17 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * import { WAFV2Client, GetIPSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetIPSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // GetIPSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetIPSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIPSetCommandInput - {@link GetIPSetCommandInput}
+ * @returns {@link GetIPSetCommandOutput}
  * @see {@link GetIPSetCommandInput} for command's `input` shape.
  * @see {@link GetIPSetCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -96,6 +103,9 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIPSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +132,8 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIPSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIPSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +143,18 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetIPSetCommand(input, context);
+    return se_GetIPSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIPSetCommandOutput> {
-    return deserializeAws_json1_1GetIPSetCommand(output, context);
+    return de_GetIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

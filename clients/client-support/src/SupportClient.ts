@@ -98,6 +98,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddAttachmentsToSetCommandInput
   | AddCommunicationToCaseCommandInput
@@ -114,6 +117,9 @@ export type ServiceInputTypes =
   | RefreshTrustedAdvisorCheckCommandInput
   | ResolveCaseCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddAttachmentsToSetCommandOutput
   | AddCommunicationToCaseCommandOutput
@@ -130,6 +136,9 @@ export type ServiceOutputTypes =
   | RefreshTrustedAdvisorCheckCommandOutput
   | ResolveCaseCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -137,7 +146,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -246,11 +255,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type SupportClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -261,10 +273,15 @@ type SupportClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOption
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SupportClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SupportClient class constructor that set the region, credentials and other options.
  */
 export interface SupportClientConfig extends SupportClientConfigType {}
 
+/**
+ * @public
+ */
 type SupportClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -275,11 +292,14 @@ type SupportClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SupportClient class. This is resolved and normalized from the {@link SupportClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SupportClient class. This is resolved and normalized from the {@link SupportClientConfig | constructor configuration interface}.
  */
 export interface SupportClientResolvedConfig extends SupportClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Web Services Support</fullname>
  *          <p>The <i>Amazon Web Services Support API Reference</i> is intended for programmers who need detailed
  *             information about the Amazon Web Services Support operations and data types. You can use the API to manage

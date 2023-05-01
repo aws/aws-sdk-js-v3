@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ListLocationsInput,
-  ListLocationsInputFilterSensitiveLog,
-  ListLocationsOutput,
-  ListLocationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLocationsCommand,
-  serializeAws_json1_1ListLocationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListLocationsInput, ListLocationsOutput } from "../models/models_0";
+import { de_ListLocationsCommand, se_ListLocationsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLocationsCommand}.
  */
 export interface ListLocationsCommandInput extends ListLocationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLocationsCommand}.
  */
 export interface ListLocationsCommandOutput extends ListLocationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all custom and Amazon Web Services locations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * import { GameLiftClient, ListLocationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListLocationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ListLocationsInput
+ *   Filters: [ // LocationFilterList
+ *     "AWS" || "CUSTOM",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLocationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLocationsCommandInput - {@link ListLocationsCommandInput}
+ * @returns {@link ListLocationsCommandOutput}
  * @see {@link ListLocationsCommandInput} for command's `input` shape.
  * @see {@link ListLocationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -80,6 +86,9 @@ export class ListLocationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLocationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +115,8 @@ export class ListLocationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLocationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLocationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +126,18 @@ export class ListLocationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLocationsCommand(input, context);
+    return se_ListLocationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLocationsCommandOutput> {
-    return deserializeAws_json1_1ListLocationsCommand(output, context);
+    return de_ListLocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

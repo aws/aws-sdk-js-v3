@@ -75,6 +75,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DescribeAcceleratorOfferingsCommandInput
   | DescribeAcceleratorTypesCommandInput
@@ -83,6 +86,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DescribeAcceleratorOfferingsCommandOutput
   | DescribeAcceleratorTypesCommandOutput
@@ -91,6 +97,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -98,7 +107,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -207,11 +216,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ElasticInferenceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -222,10 +234,15 @@ type ElasticInferenceClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ElasticInferenceClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ElasticInferenceClient class constructor that set the region, credentials and other options.
  */
 export interface ElasticInferenceClientConfig extends ElasticInferenceClientConfigType {}
 
+/**
+ * @public
+ */
 type ElasticInferenceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -236,13 +253,21 @@ type ElasticInferenceClientResolvedConfigType = __SmithyResolvedConfiguration<__
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ElasticInferenceClient class. This is resolved and normalized from the {@link ElasticInferenceClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ElasticInferenceClient class. This is resolved and normalized from the {@link ElasticInferenceClientConfig | constructor configuration interface}.
  */
 export interface ElasticInferenceClientResolvedConfig extends ElasticInferenceClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>
  *             Elastic Inference public APIs.
+ *         </p>
+ *          <p>
+ *             February 15, 2023: Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance.
+ *             After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2.
+ *             However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
  *         </p>
  */
 export class ElasticInferenceClient extends __Client<

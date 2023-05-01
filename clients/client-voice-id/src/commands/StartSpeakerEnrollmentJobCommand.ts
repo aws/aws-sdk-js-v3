@@ -19,22 +19,24 @@ import {
   StartSpeakerEnrollmentJobResponse,
   StartSpeakerEnrollmentJobResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0StartSpeakerEnrollmentJobCommand,
-  serializeAws_json1_0StartSpeakerEnrollmentJobCommand,
-} from "../protocols/Aws_json1_0";
+import { de_StartSpeakerEnrollmentJobCommand, se_StartSpeakerEnrollmentJobCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartSpeakerEnrollmentJobCommand}.
  */
 export interface StartSpeakerEnrollmentJobCommandInput extends StartSpeakerEnrollmentJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSpeakerEnrollmentJobCommand}.
  */
 export interface StartSpeakerEnrollmentJobCommandOutput extends StartSpeakerEnrollmentJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a new batch speaker enrollment job using specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,35 @@ export interface StartSpeakerEnrollmentJobCommandOutput extends StartSpeakerEnro
  * import { VoiceIDClient, StartSpeakerEnrollmentJobCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, StartSpeakerEnrollmentJobCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = { // StartSpeakerEnrollmentJobRequest
+ *   ClientToken: "STRING_VALUE",
+ *   JobName: "STRING_VALUE",
+ *   DomainId: "STRING_VALUE", // required
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   EnrollmentConfig: { // EnrollmentConfig
+ *     ExistingEnrollmentAction: "STRING_VALUE",
+ *     FraudDetectionConfig: { // EnrollmentJobFraudDetectionConfig
+ *       FraudDetectionAction: "STRING_VALUE",
+ *       RiskThreshold: Number("int"),
+ *       WatchlistIds: [ // EnrollmentJobFraudDetectionConfigWatchlistIds
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   InputDataConfig: { // InputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *   },
+ *   OutputDataConfig: { // OutputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartSpeakerEnrollmentJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSpeakerEnrollmentJobCommandInput - {@link StartSpeakerEnrollmentJobCommandInput}
+ * @returns {@link StartSpeakerEnrollmentJobCommandOutput}
  * @see {@link StartSpeakerEnrollmentJobCommandInput} for command's `input` shape.
  * @see {@link StartSpeakerEnrollmentJobCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -97,6 +124,9 @@ export class StartSpeakerEnrollmentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSpeakerEnrollmentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,15 +166,21 @@ export class StartSpeakerEnrollmentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSpeakerEnrollmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartSpeakerEnrollmentJobCommand(input, context);
+    return se_StartSpeakerEnrollmentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartSpeakerEnrollmentJobCommandOutput> {
-    return deserializeAws_json1_0StartSpeakerEnrollmentJobCommand(output, context);
+    return de_StartSpeakerEnrollmentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

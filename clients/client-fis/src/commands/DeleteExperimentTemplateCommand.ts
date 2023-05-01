@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import {
-  DeleteExperimentTemplateRequest,
-  DeleteExperimentTemplateRequestFilterSensitiveLog,
-  DeleteExperimentTemplateResponse,
-  DeleteExperimentTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteExperimentTemplateCommand,
-  serializeAws_restJson1DeleteExperimentTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteExperimentTemplateRequest, DeleteExperimentTemplateResponse } from "../models/models_0";
+import { de_DeleteExperimentTemplateCommand, se_DeleteExperimentTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteExperimentTemplateCommand}.
  */
 export interface DeleteExperimentTemplateCommandInput extends DeleteExperimentTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteExperimentTemplateCommand}.
  */
 export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified experiment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentT
  * import { FisClient, DeleteExperimentTemplateCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, DeleteExperimentTemplateCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = { // DeleteExperimentTemplateRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteExperimentTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteExperimentTemplateCommandInput - {@link DeleteExperimentTemplateCommandInput}
+ * @returns {@link DeleteExperimentTemplateCommandOutput}
  * @see {@link DeleteExperimentTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteExperimentTemplateCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
@@ -75,6 +77,9 @@ export class DeleteExperimentTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteExperimentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DeleteExperimentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExperimentTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExperimentTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DeleteExperimentTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteExperimentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteExperimentTemplateCommand(input, context);
+    return se_DeleteExperimentTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperimentTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteExperimentTemplateCommand(output, context);
+    return de_DeleteExperimentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

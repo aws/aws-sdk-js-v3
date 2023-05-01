@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateUpdatedWorkspaceImageRequest,
-  CreateUpdatedWorkspaceImageRequestFilterSensitiveLog,
-  CreateUpdatedWorkspaceImageResult,
-  CreateUpdatedWorkspaceImageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateUpdatedWorkspaceImageCommand,
-  serializeAws_json1_1CreateUpdatedWorkspaceImageCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateUpdatedWorkspaceImageRequest, CreateUpdatedWorkspaceImageResult } from "../models/models_0";
+import { de_CreateUpdatedWorkspaceImageCommand, se_CreateUpdatedWorkspaceImageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUpdatedWorkspaceImageCommand}.
  */
 export interface CreateUpdatedWorkspaceImageCommandInput extends CreateUpdatedWorkspaceImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUpdatedWorkspaceImageCommand}.
  */
 export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedWorkspaceImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new updated WorkSpace image based on the specified source image. The new
  *          updated WorkSpace image has the latest drivers and other updates required by the
  *          Amazon WorkSpaces components.</p>
@@ -63,10 +60,23 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * import { WorkSpacesClient, CreateUpdatedWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateUpdatedWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // CreateUpdatedWorkspaceImageRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   SourceImageId: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateUpdatedWorkspaceImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUpdatedWorkspaceImageCommandInput - {@link CreateUpdatedWorkspaceImageCommandInput}
+ * @returns {@link CreateUpdatedWorkspaceImageCommandOutput}
  * @see {@link CreateUpdatedWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link CreateUpdatedWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -111,6 +121,9 @@ export class CreateUpdatedWorkspaceImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUpdatedWorkspaceImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +152,8 @@ export class CreateUpdatedWorkspaceImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUpdatedWorkspaceImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUpdatedWorkspaceImageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,15 +163,21 @@ export class CreateUpdatedWorkspaceImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUpdatedWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUpdatedWorkspaceImageCommand(input, context);
+    return se_CreateUpdatedWorkspaceImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateUpdatedWorkspaceImageCommandOutput> {
-    return deserializeAws_json1_1CreateUpdatedWorkspaceImageCommand(output, context);
+    return de_CreateUpdatedWorkspaceImageCommand(output, context);
   }
 
   // Start section: command_body_extra

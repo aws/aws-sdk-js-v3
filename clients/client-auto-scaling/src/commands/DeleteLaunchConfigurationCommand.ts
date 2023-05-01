@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { LaunchConfigurationNameType, LaunchConfigurationNameTypeFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteLaunchConfigurationCommand,
-  serializeAws_queryDeleteLaunchConfigurationCommand,
-} from "../protocols/Aws_query";
+import { LaunchConfigurationNameType } from "../models/models_0";
+import { de_DeleteLaunchConfigurationCommand, se_DeleteLaunchConfigurationCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLaunchConfigurationCommand}.
  */
 export interface DeleteLaunchConfigurationCommandInput extends LaunchConfigurationNameType {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLaunchConfigurationCommand}.
  */
 export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified launch configuration.</p>
  *          <p>The launch configuration must not be attached to an Auto Scaling group. When this call
  *             completes, the launch configuration is no longer available for use.</p>
@@ -39,10 +41,15 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  * import { AutoScalingClient, DeleteLaunchConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteLaunchConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // LaunchConfigurationNameType
+ *   LaunchConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLaunchConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLaunchConfigurationCommandInput - {@link DeleteLaunchConfigurationCommandInput}
+ * @returns {@link DeleteLaunchConfigurationCommandOutput}
  * @see {@link DeleteLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class DeleteLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LaunchConfigurationNameTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +133,21 @@ export class DeleteLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteLaunchConfigurationCommand(input, context);
+    return se_DeleteLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLaunchConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteLaunchConfigurationCommand(output, context);
+    return de_DeleteLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

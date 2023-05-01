@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateLanguageModelRequest,
-  CreateLanguageModelRequestFilterSensitiveLog,
-  CreateLanguageModelResponse,
-  CreateLanguageModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLanguageModelCommand,
-  serializeAws_json1_1CreateLanguageModelCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLanguageModelRequest, CreateLanguageModelResponse } from "../models/models_0";
+import { de_CreateLanguageModelCommand, se_CreateLanguageModelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLanguageModelCommand}.
  */
 export interface CreateLanguageModelCommandInput extends CreateLanguageModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLanguageModelCommand}.
  */
 export interface CreateLanguageModelCommandOutput extends CreateLanguageModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom language model.</p>
  *          <p>When creating a new custom language model, you must specify:</p>
  *          <ul>
@@ -58,10 +55,28 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
  * import { TranscribeClient, CreateLanguageModelCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, CreateLanguageModelCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // CreateLanguageModelRequest
+ *   LanguageCode: "en-US" || "hi-IN" || "es-US" || "en-GB" || "en-AU" || "de-DE" || "ja-JP", // required
+ *   BaseModelName: "NarrowBand" || "WideBand", // required
+ *   ModelName: "STRING_VALUE", // required
+ *   InputDataConfig: { // InputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     TuningDataS3Uri: "STRING_VALUE",
+ *     DataAccessRoleArn: "STRING_VALUE", // required
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateLanguageModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLanguageModelCommandInput - {@link CreateLanguageModelCommandInput}
+ * @returns {@link CreateLanguageModelCommandOutput}
  * @see {@link CreateLanguageModelCommandInput} for command's `input` shape.
  * @see {@link CreateLanguageModelCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -103,6 +118,9 @@ export class CreateLanguageModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLanguageModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +149,8 @@ export class CreateLanguageModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLanguageModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLanguageModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +160,18 @@ export class CreateLanguageModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLanguageModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLanguageModelCommand(input, context);
+    return se_CreateLanguageModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLanguageModelCommandOutput> {
-    return deserializeAws_json1_1CreateLanguageModelCommand(output, context);
+    return de_CreateLanguageModelCommand(output, context);
   }
 
   // Start section: command_body_extra

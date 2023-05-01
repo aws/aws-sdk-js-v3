@@ -14,39 +14,43 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  DeclineInvitationsRequest,
-  DeclineInvitationsRequestFilterSensitiveLog,
-  DeclineInvitationsResponse,
-  DeclineInvitationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeclineInvitationsCommand,
-  serializeAws_restJson1DeclineInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/models_0";
+import { de_DeclineInvitationsCommand, se_DeclineInvitationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeclineInvitationsCommand}.
  */
 export interface DeclineInvitationsCommandInput extends DeclineInvitationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeclineInvitationsCommand}.
  */
 export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**
- * <p>Declines invitations sent to the current member account by Amazon Web Services accounts specified by their
- *       account IDs.</p>
+ * @public
+ * <p>Declines invitations sent to the current member account by Amazon Web Services accounts specified by
+ *       their account IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, DeclineInvitationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeclineInvitationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // DeclineInvitationsRequest
+ *   AccountIds: [ // AccountIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeclineInvitationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeclineInvitationsCommandInput - {@link DeclineInvitationsCommandInput}
+ * @returns {@link DeclineInvitationsCommandOutput}
  * @see {@link DeclineInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeclineInvitationsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -76,6 +80,9 @@ export class DeclineInvitationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeclineInvitationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class DeclineInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeclineInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeclineInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class DeclineInvitationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeclineInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeclineInvitationsCommand(input, context);
+    return se_DeclineInvitationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeclineInvitationsCommandOutput> {
-    return deserializeAws_restJson1DeclineInvitationsCommand(output, context);
+    return de_DeclineInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

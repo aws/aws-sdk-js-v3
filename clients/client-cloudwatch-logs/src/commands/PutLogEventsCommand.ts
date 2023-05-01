@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  PutLogEventsRequest,
-  PutLogEventsRequestFilterSensitiveLog,
-  PutLogEventsResponse,
-  PutLogEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutLogEventsCommand,
-  serializeAws_json1_1PutLogEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { PutLogEventsRequest, PutLogEventsResponse } from "../models/models_0";
+import { de_PutLogEventsCommand, se_PutLogEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutLogEventsCommand}.
  */
 export interface PutLogEventsCommandInput extends PutLogEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutLogEventsCommand}.
  */
 export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads a batch of log events to the specified log stream.</p>
  *          <important>
  *             <p>The sequence token is now ignored in <code>PutLogEvents</code>
@@ -87,10 +84,23 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * import { CloudWatchLogsClient, PutLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutLogEventsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // PutLogEventsRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   logStreamName: "STRING_VALUE", // required
+ *   logEvents: [ // InputLogEvents // required
+ *     { // InputLogEvent
+ *       timestamp: Number("long"), // required
+ *       message: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   sequenceToken: "STRING_VALUE",
+ * };
  * const command = new PutLogEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutLogEventsCommandInput - {@link PutLogEventsCommandInput}
+ * @returns {@link PutLogEventsCommandOutput}
  * @see {@link PutLogEventsCommandInput} for command's `input` shape.
  * @see {@link PutLogEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -148,6 +158,9 @@ export class PutLogEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutLogEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -174,8 +187,8 @@ export class PutLogEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLogEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLogEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -185,12 +198,18 @@ export class PutLogEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutLogEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLogEventsCommand(input, context);
+    return se_PutLogEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLogEventsCommandOutput> {
-    return deserializeAws_json1_1PutLogEventsCommand(output, context);
+    return de_PutLogEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  CreateDeploymentInput,
-  CreateDeploymentInputFilterSensitiveLog,
-  CreateDeploymentOutput,
-  CreateDeploymentOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDeploymentCommand,
-  serializeAws_json1_1CreateDeploymentCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDeploymentInput, CreateDeploymentOutput } from "../models/models_0";
+import { de_CreateDeploymentCommand, se_CreateDeploymentCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandInput extends CreateDeploymentInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeploymentCommand}.
  */
 export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deploys an application revision through the specified deployment group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,81 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * import { CodeDeployClient, CreateDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, CreateDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // CreateDeploymentInput
+ *   applicationName: "STRING_VALUE", // required
+ *   deploymentGroupName: "STRING_VALUE",
+ *   revision: { // RevisionLocation
+ *     revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ *     s3Location: { // S3Location
+ *       bucket: "STRING_VALUE",
+ *       key: "STRING_VALUE",
+ *       bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
+ *       version: "STRING_VALUE",
+ *       eTag: "STRING_VALUE",
+ *     },
+ *     gitHubLocation: { // GitHubLocation
+ *       repository: "STRING_VALUE",
+ *       commitId: "STRING_VALUE",
+ *     },
+ *     string: { // RawString
+ *       content: "STRING_VALUE",
+ *       sha256: "STRING_VALUE",
+ *     },
+ *     appSpecContent: { // AppSpecContent
+ *       content: "STRING_VALUE",
+ *       sha256: "STRING_VALUE",
+ *     },
+ *   },
+ *   deploymentConfigName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   ignoreApplicationStopFailures: true || false,
+ *   targetInstances: { // TargetInstances
+ *     tagFilters: [ // EC2TagFilterList
+ *       { // EC2TagFilter
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *         Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *       },
+ *     ],
+ *     autoScalingGroups: [ // AutoScalingGroupNameList
+ *       "STRING_VALUE",
+ *     ],
+ *     ec2TagSet: { // EC2TagSet
+ *       ec2TagSetList: [ // EC2TagSetList
+ *         [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *           },
+ *         ],
+ *       ],
+ *     },
+ *   },
+ *   autoRollbackConfiguration: { // AutoRollbackConfiguration
+ *     enabled: true || false,
+ *     events: [ // AutoRollbackEventsList
+ *       "DEPLOYMENT_FAILURE" || "DEPLOYMENT_STOP_ON_ALARM" || "DEPLOYMENT_STOP_ON_REQUEST",
+ *     ],
+ *   },
+ *   updateOutdatedInstancesOnly: true || false,
+ *   fileExistsBehavior: "DISALLOW" || "OVERWRITE" || "RETAIN",
+ *   overrideAlarmConfiguration: { // AlarmConfiguration
+ *     enabled: true || false,
+ *     ignorePollAlarmFailure: true || false,
+ *     alarms: [ // AlarmList
+ *       { // Alarm
+ *         name: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
+ * @returns {@link CreateDeploymentCommandOutput}
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -192,6 +260,9 @@ export class CreateDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -220,8 +291,8 @@ export class CreateDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeploymentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -231,12 +302,18 @@ export class CreateDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDeploymentCommand(input, context);
+    return se_CreateDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentCommandOutput> {
-    return deserializeAws_json1_1CreateDeploymentCommand(output, context);
+    return de_CreateDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  CreateProjectRequest,
-  CreateProjectRequestFilterSensitiveLog,
-  CreateProjectResult,
-  CreateProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateProjectCommand,
-  serializeAws_json1_1CreateProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateProjectRequest, CreateProjectResult } from "../models/models_0";
+import { de_CreateProjectCommand, se_CreateProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProjectCommand}.
  */
 export interface CreateProjectCommandInput extends CreateProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProjectCommand}.
  */
 export interface CreateProjectCommandOutput extends CreateProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * import { DeviceFarmClient, CreateProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // CreateProjectRequest
+ *   name: "STRING_VALUE", // required
+ *   defaultJobTimeoutMinutes: Number("int"),
+ *   vpcConfig: { // VpcConfig
+ *     securityGroupIds: [ // VpcSecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // VpcSubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpcId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
+ * @returns {@link CreateProjectCommandOutput}
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -104,6 +116,9 @@ export class CreateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +145,8 @@ export class CreateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +156,18 @@ export class CreateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProjectCommand(input, context);
+    return se_CreateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectCommandOutput> {
-    return deserializeAws_json1_1CreateProjectCommand(output, context);
+    return de_CreateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

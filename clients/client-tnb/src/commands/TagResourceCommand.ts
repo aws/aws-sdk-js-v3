@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TagResourceInput,
-  TagResourceInputFilterSensitiveLog,
-  TagResourceOutput,
-  TagResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1TagResourceCommand,
-  serializeAws_restJson1TagResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { TagResourceInput, TagResourceInputFilterSensitiveLog, TagResourceOutput } from "../models/models_0";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link TagResourceCommand}.
  */
 export interface TagResourceCommandInput extends TagResourceInput {}
 /**
+ * @public
+ *
  * The output of {@link TagResourceCommand}.
  */
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tags an AWS TNB resource.</p>
  *          <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
  * @example
@@ -43,10 +40,18 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { TnbClient, TagResourceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, TagResourceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // TagResourceInput
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // TagMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -85,6 +90,9 @@ export class TagResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +120,7 @@ export class TagResourceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TagResourceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +130,18 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagResourceCommand(input, context);
+    return se_TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_restJson1TagResourceCommand(output, context);
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

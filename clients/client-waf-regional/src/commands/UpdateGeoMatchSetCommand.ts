@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateGeoMatchSetRequest,
-  UpdateGeoMatchSetRequestFilterSensitiveLog,
-  UpdateGeoMatchSetResponse,
-  UpdateGeoMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateGeoMatchSetCommand,
-  serializeAws_json1_1UpdateGeoMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateGeoMatchSetRequest, UpdateGeoMatchSetResponse } from "../models/models_0";
+import { de_UpdateGeoMatchSetCommand, se_UpdateGeoMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGeoMatchSetCommand}.
  */
 export interface UpdateGeoMatchSetCommandInput extends UpdateGeoMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGeoMatchSetCommand}.
  */
 export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -80,10 +77,25 @@ export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetRespons
  * import { WAFRegionalClient, UpdateGeoMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateGeoMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // UpdateGeoMatchSetRequest
+ *   GeoMatchSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // GeoMatchSetUpdates // required
+ *     { // GeoMatchSetUpdate
+ *       Action: "STRING_VALUE", // required
+ *       GeoMatchConstraint: { // GeoMatchConstraint
+ *         Type: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateGeoMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGeoMatchSetCommandInput - {@link UpdateGeoMatchSetCommandInput}
+ * @returns {@link UpdateGeoMatchSetCommandOutput}
  * @see {@link UpdateGeoMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateGeoMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -216,6 +228,9 @@ export class UpdateGeoMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGeoMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -244,8 +259,8 @@ export class UpdateGeoMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGeoMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGeoMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -255,12 +270,18 @@ export class UpdateGeoMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGeoMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGeoMatchSetCommand(input, context);
+    return se_UpdateGeoMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGeoMatchSetCommandOutput> {
-    return deserializeAws_json1_1UpdateGeoMatchSetCommand(output, context);
+    return de_UpdateGeoMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

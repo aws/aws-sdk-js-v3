@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteMedicalVocabularyRequest, DeleteMedicalVocabularyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteMedicalVocabularyCommand,
-  serializeAws_json1_1DeleteMedicalVocabularyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteMedicalVocabularyRequest } from "../models/models_0";
+import { de_DeleteMedicalVocabularyCommand, se_DeleteMedicalVocabularyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMedicalVocabularyCommand}.
  */
 export interface DeleteMedicalVocabularyCommandInput extends DeleteMedicalVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMedicalVocabularyCommand}.
  */
 export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom medical vocabulary. To use this operation, specify the name of the
  *             custom vocabulary you want to delete using <code>VocabularyName</code>. Custom
  *             vocabulary names are case sensitive.</p>
@@ -39,10 +41,15 @@ export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {
  * import { TranscribeClient, DeleteMedicalVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DeleteMedicalVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // DeleteMedicalVocabularyRequest
+ *   VocabularyName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMedicalVocabularyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMedicalVocabularyCommandInput - {@link DeleteMedicalVocabularyCommandInput}
+ * @returns {@link DeleteMedicalVocabularyCommandOutput}
  * @see {@link DeleteMedicalVocabularyCommandInput} for command's `input` shape.
  * @see {@link DeleteMedicalVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -84,6 +91,9 @@ export class DeleteMedicalVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMedicalVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class DeleteMedicalVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMedicalVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +133,18 @@ export class DeleteMedicalVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMedicalVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMedicalVocabularyCommand(input, context);
+    return se_DeleteMedicalVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMedicalVocabularyCommandOutput> {
-    return deserializeAws_json1_1DeleteMedicalVocabularyCommand(output, context);
+    return de_DeleteMedicalVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

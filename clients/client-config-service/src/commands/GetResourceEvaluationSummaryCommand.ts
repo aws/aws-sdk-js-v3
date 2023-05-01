@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { GetResourceEvaluationSummaryRequest, GetResourceEvaluationSummaryResponse } from "../models/models_0";
 import {
-  GetResourceEvaluationSummaryRequest,
-  GetResourceEvaluationSummaryRequestFilterSensitiveLog,
-  GetResourceEvaluationSummaryResponse,
-  GetResourceEvaluationSummaryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetResourceEvaluationSummaryCommand,
-  serializeAws_json1_1GetResourceEvaluationSummaryCommand,
+  de_GetResourceEvaluationSummaryCommand,
+  se_GetResourceEvaluationSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceEvaluationSummaryCommand}.
  */
 export interface GetResourceEvaluationSummaryCommandInput extends GetResourceEvaluationSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceEvaluationSummaryCommand}.
  */
 export interface GetResourceEvaluationSummaryCommandOutput
@@ -37,6 +36,7 @@ export interface GetResourceEvaluationSummaryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a summary of resource evaluation for the specified resource evaluation ID from the proactive rules that were run.
  * 			The results indicate which evaluation context was used to evaluate the rules, which resource details were evaluated,
  * 			the evaluation mode that was run, and whether the resource details comply with the configuration of the proactive rules. </p>
@@ -50,10 +50,15 @@ export interface GetResourceEvaluationSummaryCommandOutput
  * import { ConfigServiceClient, GetResourceEvaluationSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetResourceEvaluationSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetResourceEvaluationSummaryRequest
+ *   ResourceEvaluationId: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceEvaluationSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceEvaluationSummaryCommandInput - {@link GetResourceEvaluationSummaryCommandInput}
+ * @returns {@link GetResourceEvaluationSummaryCommandOutput}
  * @see {@link GetResourceEvaluationSummaryCommandInput} for command's `input` shape.
  * @see {@link GetResourceEvaluationSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -80,6 +85,9 @@ export class GetResourceEvaluationSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceEvaluationSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class GetResourceEvaluationSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceEvaluationSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceEvaluationSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +127,21 @@ export class GetResourceEvaluationSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceEvaluationSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourceEvaluationSummaryCommand(input, context);
+    return se_GetResourceEvaluationSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourceEvaluationSummaryCommandOutput> {
-    return deserializeAws_json1_1GetResourceEvaluationSummaryCommand(output, context);
+    return de_GetResourceEvaluationSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

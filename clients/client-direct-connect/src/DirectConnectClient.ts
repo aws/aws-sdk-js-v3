@@ -255,6 +255,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptDirectConnectGatewayAssociationProposalCommandInput
   | AllocateConnectionOnInterconnectCommandInput
@@ -320,6 +323,9 @@ export type ServiceInputTypes =
   | UpdateLagCommandInput
   | UpdateVirtualInterfaceAttributesCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptDirectConnectGatewayAssociationProposalCommandOutput
   | AllocateConnectionOnInterconnectCommandOutput
@@ -385,6 +391,9 @@ export type ServiceOutputTypes =
   | UpdateLagCommandOutput
   | UpdateVirtualInterfaceAttributesCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -392,7 +401,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -501,11 +510,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type DirectConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -516,10 +528,15 @@ type DirectConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of DirectConnectClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of DirectConnectClient class constructor that set the region, credentials and other options.
  */
 export interface DirectConnectClientConfig extends DirectConnectClientConfigType {}
 
+/**
+ * @public
+ */
 type DirectConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -530,11 +547,14 @@ type DirectConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of DirectConnectClient class. This is resolved and normalized from the {@link DirectConnectClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of DirectConnectClient class. This is resolved and normalized from the {@link DirectConnectClientConfig | constructor configuration interface}.
  */
 export interface DirectConnectClientResolvedConfig extends DirectConnectClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Direct Connect links your internal network to an Direct Connect location over a standard Ethernet fiber-optic cable.
  *       One end of the cable is connected to your router, the other to an Direct Connect router. With this connection
  *       in place, you can create virtual interfaces directly to the Amazon Web Services Cloud (for example, to Amazon EC2

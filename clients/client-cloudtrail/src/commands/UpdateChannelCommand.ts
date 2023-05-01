@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  UpdateChannelRequest,
-  UpdateChannelRequestFilterSensitiveLog,
-  UpdateChannelResponse,
-  UpdateChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateChannelCommand,
-  serializeAws_json1_1UpdateChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateChannelRequest, UpdateChannelResponse } from "../models/models_0";
+import { de_UpdateChannelCommand, se_UpdateChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateChannelCommand}.
  */
 export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateChannelCommand}.
  */
 export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a channel specified by a required channel ARN or UUID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * import { CloudTrailClient, UpdateChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, UpdateChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // UpdateChannelRequest
+ *   Channel: "STRING_VALUE", // required
+ *   Destinations: [ // Destinations
+ *     { // Destination
+ *       Type: "EVENT_DATA_STORE" || "AWS_SERVICE", // required
+ *       Location: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
+ * @returns {@link UpdateChannelCommandOutput}
  * @see {@link UpdateChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -104,6 +113,9 @@ export class UpdateChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +142,8 @@ export class UpdateChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +153,18 @@ export class UpdateChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateChannelCommand(input, context);
+    return se_UpdateChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelCommandOutput> {
-    return deserializeAws_json1_1UpdateChannelCommand(output, context);
+    return de_UpdateChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

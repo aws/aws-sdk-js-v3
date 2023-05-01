@@ -16,20 +16,22 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GenerateServiceLastAccessedDetailsRequest,
-  GenerateServiceLastAccessedDetailsRequestFilterSensitiveLog,
   GenerateServiceLastAccessedDetailsResponse,
-  GenerateServiceLastAccessedDetailsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGenerateServiceLastAccessedDetailsCommand,
-  serializeAws_queryGenerateServiceLastAccessedDetailsCommand,
+  de_GenerateServiceLastAccessedDetailsCommand,
+  se_GenerateServiceLastAccessedDetailsCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateServiceLastAccessedDetailsCommand}.
  */
 export interface GenerateServiceLastAccessedDetailsCommandInput extends GenerateServiceLastAccessedDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateServiceLastAccessedDetailsCommand}.
  */
 export interface GenerateServiceLastAccessedDetailsCommandOutput
@@ -37,6 +39,7 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a report that includes details about when an IAM resource (user, group,
  *             role, or policy) was last used in an attempt to access Amazon Web Services services. Recent activity
  *             usually appears within four hours. IAM reports activity for at least the last 400
@@ -97,10 +100,16 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  * import { IAMClient, GenerateServiceLastAccessedDetailsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GenerateServiceLastAccessedDetailsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GenerateServiceLastAccessedDetailsRequest
+ *   Arn: "STRING_VALUE", // required
+ *   Granularity: "SERVICE_LEVEL" || "ACTION_LEVEL",
+ * };
  * const command = new GenerateServiceLastAccessedDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateServiceLastAccessedDetailsCommandInput - {@link GenerateServiceLastAccessedDetailsCommandInput}
+ * @returns {@link GenerateServiceLastAccessedDetailsCommandOutput}
  * @see {@link GenerateServiceLastAccessedDetailsCommandInput} for command's `input` shape.
  * @see {@link GenerateServiceLastAccessedDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -148,6 +157,9 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateServiceLastAccessedDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,8 +188,8 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateServiceLastAccessedDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateServiceLastAccessedDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -187,18 +199,24 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateServiceLastAccessedDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGenerateServiceLastAccessedDetailsCommand(input, context);
+    return se_GenerateServiceLastAccessedDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateServiceLastAccessedDetailsCommandOutput> {
-    return deserializeAws_queryGenerateServiceLastAccessedDetailsCommand(output, context);
+    return de_GenerateServiceLastAccessedDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

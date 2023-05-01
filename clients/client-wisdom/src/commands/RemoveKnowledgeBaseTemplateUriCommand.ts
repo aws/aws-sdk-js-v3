@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { RemoveKnowledgeBaseTemplateUriRequest, RemoveKnowledgeBaseTemplateUriResponse } from "../models/models_0";
 import {
-  RemoveKnowledgeBaseTemplateUriRequest,
-  RemoveKnowledgeBaseTemplateUriRequestFilterSensitiveLog,
-  RemoveKnowledgeBaseTemplateUriResponse,
-  RemoveKnowledgeBaseTemplateUriResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand,
-  serializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand,
+  de_RemoveKnowledgeBaseTemplateUriCommand,
+  se_RemoveKnowledgeBaseTemplateUriCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveKnowledgeBaseTemplateUriCommand}.
  */
 export interface RemoveKnowledgeBaseTemplateUriCommandInput extends RemoveKnowledgeBaseTemplateUriRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveKnowledgeBaseTemplateUriCommand}.
  */
 export interface RemoveKnowledgeBaseTemplateUriCommandOutput
@@ -37,6 +36,7 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a URI template from a knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
  * import { WisdomClient, RemoveKnowledgeBaseTemplateUriCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, RemoveKnowledgeBaseTemplateUriCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // RemoveKnowledgeBaseTemplateUriRequest
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveKnowledgeBaseTemplateUriCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveKnowledgeBaseTemplateUriCommandInput - {@link RemoveKnowledgeBaseTemplateUriCommandInput}
+ * @returns {@link RemoveKnowledgeBaseTemplateUriCommandOutput}
  * @see {@link RemoveKnowledgeBaseTemplateUriCommandInput} for command's `input` shape.
  * @see {@link RemoveKnowledgeBaseTemplateUriCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
@@ -80,6 +85,9 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveKnowledgeBaseTemplateUriCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveKnowledgeBaseTemplateUriRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveKnowledgeBaseTemplateUriResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +127,24 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RemoveKnowledgeBaseTemplateUriCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand(input, context);
+    return se_RemoveKnowledgeBaseTemplateUriCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveKnowledgeBaseTemplateUriCommandOutput> {
-    return deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand(output, context);
+    return de_RemoveKnowledgeBaseTemplateUriCommand(output, context);
   }
 
   // Start section: command_body_extra

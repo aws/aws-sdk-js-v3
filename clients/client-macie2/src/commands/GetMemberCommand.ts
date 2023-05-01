@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetMemberRequest,
-  GetMemberRequestFilterSensitiveLog,
-  GetMemberResponse,
-  GetMemberResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMemberCommand,
-  serializeAws_restJson1GetMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMemberRequest, GetMemberResponse } from "../models/models_0";
+import { de_GetMemberCommand, se_GetMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMemberCommand}.
  */
 export interface GetMemberCommandInput extends GetMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMemberCommand}.
  */
 export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an account that's associated with an Amazon Macie administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  * import { Macie2Client, GetMemberCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetMemberCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // GetMemberRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMemberCommandInput - {@link GetMemberCommandInput}
+ * @returns {@link GetMemberCommandOutput}
  * @see {@link GetMemberCommandInput} for command's `input` shape.
  * @see {@link GetMemberCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +92,9 @@ export class GetMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class GetMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMemberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class GetMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMemberCommand(input, context);
+    return se_GetMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMemberCommandOutput> {
-    return deserializeAws_restJson1GetMemberCommand(output, context);
+    return de_GetMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

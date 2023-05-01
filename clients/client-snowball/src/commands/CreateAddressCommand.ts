@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAddressRequest,
-  CreateAddressRequestFilterSensitiveLog,
-  CreateAddressResult,
-  CreateAddressResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAddressCommand,
-  serializeAws_json1_1CreateAddressCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAddressRequest, CreateAddressResult } from "../models/models_0";
+import { de_CreateAddressCommand, se_CreateAddressCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAddressCommand}.
  */
 export interface CreateAddressCommandInput extends CreateAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAddressCommand}.
  */
 export interface CreateAddressCommandOutput extends CreateAddressResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an address for a Snow device to be shipped to. In most regions,
  *       addresses are validated at the time of creation. The address you provide must be located
  *       within the serviceable area of your region. If the address is invalid or unsupported, then an
@@ -45,10 +42,30 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  * import { SnowballClient, CreateAddressCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CreateAddressCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // CreateAddressRequest
+ *   Address: { // Address
+ *     AddressId: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     Company: "STRING_VALUE",
+ *     Street1: "STRING_VALUE",
+ *     Street2: "STRING_VALUE",
+ *     Street3: "STRING_VALUE",
+ *     City: "STRING_VALUE",
+ *     StateOrProvince: "STRING_VALUE",
+ *     PrefectureOrDistrict: "STRING_VALUE",
+ *     Landmark: "STRING_VALUE",
+ *     Country: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE",
+ *     PhoneNumber: "STRING_VALUE",
+ *     IsRestricted: true || false,
+ *   },
+ * };
  * const command = new CreateAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAddressCommandInput - {@link CreateAddressCommandInput}
+ * @returns {@link CreateAddressCommandOutput}
  * @see {@link CreateAddressCommandInput} for command's `input` shape.
  * @see {@link CreateAddressCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -106,6 +123,9 @@ export class CreateAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +152,8 @@ export class CreateAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAddressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +163,18 @@ export class CreateAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAddressCommand(input, context);
+    return se_CreateAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAddressCommandOutput> {
-    return deserializeAws_json1_1CreateAddressCommand(output, context);
+    return de_CreateAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

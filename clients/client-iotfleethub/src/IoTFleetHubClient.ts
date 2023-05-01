@@ -71,6 +71,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateApplicationCommandInput
   | DeleteApplicationCommandInput
@@ -81,6 +84,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateApplicationCommandOutput
   | DeleteApplicationCommandOutput
@@ -91,6 +97,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -98,7 +107,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -207,11 +216,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type IoTFleetHubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -222,10 +234,15 @@ type IoTFleetHubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOp
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of IoTFleetHubClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of IoTFleetHubClient class constructor that set the region, credentials and other options.
  */
 export interface IoTFleetHubClientConfig extends IoTFleetHubClientConfigType {}
 
+/**
+ * @public
+ */
 type IoTFleetHubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -236,11 +253,14 @@ type IoTFleetHubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of IoTFleetHubClient class. This is resolved and normalized from the {@link IoTFleetHubClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of IoTFleetHubClient class. This is resolved and normalized from the {@link IoTFleetHubClientConfig | constructor configuration interface}.
  */
 export interface IoTFleetHubClientResolvedConfig extends IoTFleetHubClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>With Fleet Hub for AWS IoT Device Management you can build stand-alone web applications for monitoring the health of your device fleets.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>

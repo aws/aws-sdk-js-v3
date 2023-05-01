@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { EnableMetricsCollectionQuery, EnableMetricsCollectionQueryFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryEnableMetricsCollectionCommand,
-  serializeAws_queryEnableMetricsCollectionCommand,
-} from "../protocols/Aws_query";
+import { EnableMetricsCollectionQuery } from "../models/models_0";
+import { de_EnableMetricsCollectionCommand, se_EnableMetricsCollectionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link EnableMetricsCollectionCommand}.
  */
 export interface EnableMetricsCollectionCommandInput extends EnableMetricsCollectionQuery {}
 /**
+ * @public
+ *
  * The output of {@link EnableMetricsCollectionCommand}.
  */
 export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables group metrics collection for the specified Auto Scaling group.</p>
  *          <p>You can use these metrics to track changes in an Auto Scaling group and to set alarms on
  *             threshold values. You can view group metrics using the Amazon EC2 Auto Scaling console or the CloudWatch
@@ -42,10 +44,19 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  * import { AutoScalingClient, EnableMetricsCollectionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, EnableMetricsCollectionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // EnableMetricsCollectionQuery
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   Metrics: [ // Metrics
+ *     "STRING_VALUE",
+ *   ],
+ *   Granularity: "STRING_VALUE", // required
+ * };
  * const command = new EnableMetricsCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableMetricsCollectionCommandInput - {@link EnableMetricsCollectionCommandInput}
+ * @returns {@link EnableMetricsCollectionCommandOutput}
  * @see {@link EnableMetricsCollectionCommandInput} for command's `input` shape.
  * @see {@link EnableMetricsCollectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -85,6 +96,9 @@ export class EnableMetricsCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableMetricsCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +127,8 @@ export class EnableMetricsCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableMetricsCollectionQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +138,18 @@ export class EnableMetricsCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableMetricsCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableMetricsCollectionCommand(input, context);
+    return se_EnableMetricsCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableMetricsCollectionCommandOutput> {
-    return deserializeAws_queryEnableMetricsCollectionCommand(output, context);
+    return de_EnableMetricsCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

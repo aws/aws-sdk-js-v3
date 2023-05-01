@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  StopICD10CMInferenceJobRequest,
-  StopICD10CMInferenceJobRequestFilterSensitiveLog,
-  StopICD10CMInferenceJobResponse,
-  StopICD10CMInferenceJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopICD10CMInferenceJobCommand,
-  serializeAws_json1_1StopICD10CMInferenceJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopICD10CMInferenceJobRequest, StopICD10CMInferenceJobResponse } from "../models/models_0";
+import { de_StopICD10CMInferenceJobCommand, se_StopICD10CMInferenceJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopICD10CMInferenceJobCommand}.
  */
 export interface StopICD10CMInferenceJobCommandInput extends StopICD10CMInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopICD10CMInferenceJobCommand}.
  */
 export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an InferICD10CM inference job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferen
  * import { ComprehendMedicalClient, StopICD10CMInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StopICD10CMInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // StopICD10CMInferenceJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopICD10CMInferenceJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopICD10CMInferenceJobCommandInput - {@link StopICD10CMInferenceJobCommandInput}
+ * @returns {@link StopICD10CMInferenceJobCommandOutput}
  * @see {@link StopICD10CMInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StopICD10CMInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -84,6 +86,9 @@ export class StopICD10CMInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopICD10CMInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class StopICD10CMInferenceJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopICD10CMInferenceJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopICD10CMInferenceJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class StopICD10CMInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopICD10CMInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopICD10CMInferenceJobCommand(input, context);
+    return se_StopICD10CMInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopICD10CMInferenceJobCommandOutput> {
-    return deserializeAws_json1_1StopICD10CMInferenceJobCommand(output, context);
+    return de_StopICD10CMInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

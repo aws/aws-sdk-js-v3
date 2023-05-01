@@ -15,21 +15,24 @@ import {
 
 import {
   GetEnvironmentTemplateVersionInput,
-  GetEnvironmentTemplateVersionInputFilterSensitiveLog,
   GetEnvironmentTemplateVersionOutput,
   GetEnvironmentTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetEnvironmentTemplateVersionCommand,
-  serializeAws_json1_0GetEnvironmentTemplateVersionCommand,
+  de_GetEnvironmentTemplateVersionCommand,
+  se_GetEnvironmentTemplateVersionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetEnvironmentTemplateVersionCommand}.
  */
 export interface GetEnvironmentTemplateVersionCommandInput extends GetEnvironmentTemplateVersionInput {}
 /**
+ * @public
+ *
  * The output of {@link GetEnvironmentTemplateVersionCommand}.
  */
 export interface GetEnvironmentTemplateVersionCommandOutput
@@ -37,6 +40,7 @@ export interface GetEnvironmentTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed data for a major or minor version of an environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +48,17 @@ export interface GetEnvironmentTemplateVersionCommandOutput
  * import { ProtonClient, GetEnvironmentTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetEnvironmentTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // GetEnvironmentTemplateVersionInput
+ *   templateName: "STRING_VALUE", // required
+ *   majorVersion: "STRING_VALUE", // required
+ *   minorVersion: "STRING_VALUE", // required
+ * };
  * const command = new GetEnvironmentTemplateVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnvironmentTemplateVersionCommandInput - {@link GetEnvironmentTemplateVersionCommandInput}
+ * @returns {@link GetEnvironmentTemplateVersionCommandOutput}
  * @see {@link GetEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -86,6 +97,9 @@ export class GetEnvironmentTemplateVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnvironmentTemplateVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,7 +128,7 @@ export class GetEnvironmentTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentTemplateVersionInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEnvironmentTemplateVersionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -125,15 +139,21 @@ export class GetEnvironmentTemplateVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEnvironmentTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEnvironmentTemplateVersionCommand(input, context);
+    return se_GetEnvironmentTemplateVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEnvironmentTemplateVersionCommandOutput> {
-    return deserializeAws_json1_0GetEnvironmentTemplateVersionCommand(output, context);
+    return de_GetEnvironmentTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   AcceptTransitGatewayMulticastDomainAssociationsRequest,
-  AcceptTransitGatewayMulticastDomainAssociationsRequestFilterSensitiveLog,
   AcceptTransitGatewayMulticastDomainAssociationsResult,
-  AcceptTransitGatewayMulticastDomainAssociationsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_ec2AcceptTransitGatewayMulticastDomainAssociationsCommand,
-  serializeAws_ec2AcceptTransitGatewayMulticastDomainAssociationsCommand,
+  de_AcceptTransitGatewayMulticastDomainAssociationsCommand,
+  se_AcceptTransitGatewayMulticastDomainAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptTransitGatewayMulticastDomainAssociationsCommand}.
  */
 export interface AcceptTransitGatewayMulticastDomainAssociationsCommandInput
   extends AcceptTransitGatewayMulticastDomainAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptTransitGatewayMulticastDomainAssociationsCommand}.
  */
 export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
@@ -38,6 +40,7 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a request to associate subnets with a transit gateway multicast domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,20 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
  * import { EC2Client, AcceptTransitGatewayMulticastDomainAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AcceptTransitGatewayMulticastDomainAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AcceptTransitGatewayMulticastDomainAssociationsRequest
+ *   TransitGatewayMulticastDomainId: "STRING_VALUE",
+ *   TransitGatewayAttachmentId: "STRING_VALUE",
+ *   SubnetIds: [ // ValueStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new AcceptTransitGatewayMulticastDomainAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptTransitGatewayMulticastDomainAssociationsCommandInput - {@link AcceptTransitGatewayMulticastDomainAssociationsCommandInput}
+ * @returns {@link AcceptTransitGatewayMulticastDomainAssociationsCommandOutput}
  * @see {@link AcceptTransitGatewayMulticastDomainAssociationsCommandInput} for command's `input` shape.
  * @see {@link AcceptTransitGatewayMulticastDomainAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +85,9 @@ export class AcceptTransitGatewayMulticastDomainAssociationsCommand extends $Com
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptTransitGatewayMulticastDomainAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +122,8 @@ export class AcceptTransitGatewayMulticastDomainAssociationsCommand extends $Com
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptTransitGatewayMulticastDomainAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptTransitGatewayMulticastDomainAssociationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +133,24 @@ export class AcceptTransitGatewayMulticastDomainAssociationsCommand extends $Com
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2AcceptTransitGatewayMulticastDomainAssociationsCommand(input, context);
+    return se_AcceptTransitGatewayMulticastDomainAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptTransitGatewayMulticastDomainAssociationsCommandOutput> {
-    return deserializeAws_ec2AcceptTransitGatewayMulticastDomainAssociationsCommand(output, context);
+    return de_AcceptTransitGatewayMulticastDomainAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

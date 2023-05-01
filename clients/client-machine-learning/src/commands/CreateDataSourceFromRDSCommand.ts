@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  CreateDataSourceFromRDSInput,
-  CreateDataSourceFromRDSInputFilterSensitiveLog,
-  CreateDataSourceFromRDSOutput,
-  CreateDataSourceFromRDSOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDataSourceFromRDSCommand,
-  serializeAws_json1_1CreateDataSourceFromRDSCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDataSourceFromRDSInput, CreateDataSourceFromRDSOutput } from "../models/models_0";
+import { de_CreateDataSourceFromRDSCommand, se_CreateDataSourceFromRDSCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDataSourceFromRDSCommand}.
  */
 export interface CreateDataSourceFromRDSCommandInput extends CreateDataSourceFromRDSInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateDataSourceFromRDSCommand}.
  */
 export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFromRDSOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>DataSource</code> object from an <a href="http://aws.amazon.com/rds/"> Amazon Relational Database Service</a> (Amazon RDS). A <code>DataSource</code> references data that can be used to perform <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations.</p>
  *
  *         <p>
@@ -53,10 +50,39 @@ export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFr
  * import { MachineLearningClient, CreateDataSourceFromRDSCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateDataSourceFromRDSCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // CreateDataSourceFromRDSInput
+ *   DataSourceId: "STRING_VALUE", // required
+ *   DataSourceName: "STRING_VALUE",
+ *   RDSData: { // RDSDataSpec
+ *     DatabaseInformation: { // RDSDatabase
+ *       InstanceIdentifier: "STRING_VALUE", // required
+ *       DatabaseName: "STRING_VALUE", // required
+ *     },
+ *     SelectSqlQuery: "STRING_VALUE", // required
+ *     DatabaseCredentials: { // RDSDatabaseCredentials
+ *       Username: "STRING_VALUE", // required
+ *       Password: "STRING_VALUE", // required
+ *     },
+ *     S3StagingLocation: "STRING_VALUE", // required
+ *     DataRearrangement: "STRING_VALUE",
+ *     DataSchema: "STRING_VALUE",
+ *     DataSchemaUri: "STRING_VALUE",
+ *     ResourceRole: "STRING_VALUE", // required
+ *     ServiceRole: "STRING_VALUE", // required
+ *     SubnetId: "STRING_VALUE", // required
+ *     SecurityGroupIds: [ // EDPSecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   RoleARN: "STRING_VALUE", // required
+ *   ComputeStatistics: true || false,
+ * };
  * const command = new CreateDataSourceFromRDSCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDataSourceFromRDSCommandInput - {@link CreateDataSourceFromRDSCommandInput}
+ * @returns {@link CreateDataSourceFromRDSCommandOutput}
  * @see {@link CreateDataSourceFromRDSCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceFromRDSCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -89,6 +115,9 @@ export class CreateDataSourceFromRDSCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataSourceFromRDSCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +146,8 @@ export class CreateDataSourceFromRDSCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataSourceFromRDSInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataSourceFromRDSOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +157,18 @@ export class CreateDataSourceFromRDSCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataSourceFromRDSCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDataSourceFromRDSCommand(input, context);
+    return se_CreateDataSourceFromRDSCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSourceFromRDSCommandOutput> {
-    return deserializeAws_json1_1CreateDataSourceFromRDSCommand(output, context);
+    return de_CreateDataSourceFromRDSCommand(output, context);
   }
 
   // Start section: command_body_extra

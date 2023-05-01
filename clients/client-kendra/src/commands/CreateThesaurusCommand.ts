@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  CreateThesaurusRequest,
-  CreateThesaurusRequestFilterSensitiveLog,
-  CreateThesaurusResponse,
-  CreateThesaurusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateThesaurusCommand,
-  serializeAws_json1_1CreateThesaurusCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateThesaurusRequest, CreateThesaurusResponse } from "../models/models_0";
+import { de_CreateThesaurusCommand, se_CreateThesaurusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateThesaurusCommand}.
  */
 export interface CreateThesaurusCommandInput extends CreateThesaurusRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateThesaurusCommand}.
  */
 export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a thesaurus for an index. The thesaurus
  *       contains a list of synonyms in Solr format.</p>
  *          <p>For an example of adding a thesaurus file to an index, see
@@ -46,10 +43,29 @@ export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, _
  * import { KendraClient, CreateThesaurusCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateThesaurusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // CreateThesaurusRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   SourceS3Path: { // S3Path
+ *     Bucket: "STRING_VALUE", // required
+ *     Key: "STRING_VALUE", // required
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateThesaurusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateThesaurusCommandInput - {@link CreateThesaurusCommandInput}
+ * @returns {@link CreateThesaurusCommandOutput}
  * @see {@link CreateThesaurusCommandInput} for command's `input` shape.
  * @see {@link CreateThesaurusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -64,7 +80,7 @@ export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, _
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -72,7 +88,8 @@ export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, _
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             Quotas[hyperlink Kendra Quotas pg] for more information, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> to inquire about
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
+ *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
  *             an increase of limits.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -102,6 +119,9 @@ export class CreateThesaurusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateThesaurusCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +150,8 @@ export class CreateThesaurusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateThesaurusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateThesaurusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +161,18 @@ export class CreateThesaurusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateThesaurusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateThesaurusCommand(input, context);
+    return se_CreateThesaurusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThesaurusCommandOutput> {
-    return deserializeAws_json1_1CreateThesaurusCommand(output, context);
+    return de_CreateThesaurusCommand(output, context);
   }
 
   // Start section: command_body_extra

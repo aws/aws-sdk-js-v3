@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  CreateProfileJobRequest,
-  CreateProfileJobRequestFilterSensitiveLog,
-  CreateProfileJobResponse,
-  CreateProfileJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProfileJobCommand,
-  serializeAws_restJson1CreateProfileJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateProfileJobRequest, CreateProfileJobResponse } from "../models/models_0";
+import { de_CreateProfileJobCommand, se_CreateProfileJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProfileJobCommand}.
  */
 export interface CreateProfileJobCommandInput extends CreateProfileJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProfileJobCommand}.
  */
 export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new job to analyze a dataset and create its data profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,97 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  * import { DataBrewClient, CreateProfileJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateProfileJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // CreateProfileJobRequest
+ *   DatasetName: "STRING_VALUE", // required
+ *   EncryptionKeyArn: "STRING_VALUE",
+ *   EncryptionMode: "SSE-KMS" || "SSE-S3",
+ *   Name: "STRING_VALUE", // required
+ *   LogSubscription: "ENABLE" || "DISABLE",
+ *   MaxCapacity: Number("int"),
+ *   MaxRetries: Number("int"),
+ *   OutputLocation: { // S3Location
+ *     Bucket: "STRING_VALUE", // required
+ *     Key: "STRING_VALUE",
+ *     BucketOwner: "STRING_VALUE",
+ *   },
+ *   Configuration: { // ProfileConfiguration
+ *     DatasetStatisticsConfiguration: { // StatisticsConfiguration
+ *       IncludedStatistics: [ // StatisticList
+ *         "STRING_VALUE",
+ *       ],
+ *       Overrides: [ // StatisticOverrideList
+ *         { // StatisticOverride
+ *           Statistic: "STRING_VALUE", // required
+ *           Parameters: { // ParameterMap // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     ProfileColumns: [ // ColumnSelectorList
+ *       { // ColumnSelector
+ *         Regex: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ColumnStatisticsConfigurations: [ // ColumnStatisticsConfigurationList
+ *       { // ColumnStatisticsConfiguration
+ *         Selectors: [
+ *           {
+ *             Regex: "STRING_VALUE",
+ *             Name: "STRING_VALUE",
+ *           },
+ *         ],
+ *         Statistics: {
+ *           IncludedStatistics: [
+ *             "STRING_VALUE",
+ *           ],
+ *           Overrides: [
+ *             {
+ *               Statistic: "STRING_VALUE", // required
+ *               Parameters: { // required
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     EntityDetectorConfiguration: { // EntityDetectorConfiguration
+ *       EntityTypes: [ // EntityTypeList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       AllowedStatistics: [ // AllowedStatisticList
+ *         { // AllowedStatistics
+ *           Statistics: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   ValidationConfigurations: [ // ValidationConfigurationList
+ *     { // ValidationConfiguration
+ *       RulesetArn: "STRING_VALUE", // required
+ *       ValidationMode: "CHECK_ALL",
+ *     },
+ *   ],
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Timeout: Number("int"),
+ *   JobSample: { // JobSample
+ *     Mode: "FULL_DATASET" || "CUSTOM_ROWS",
+ *     Size: Number("long"),
+ *   },
+ * };
  * const command = new CreateProfileJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProfileJobCommandInput - {@link CreateProfileJobCommandInput}
+ * @returns {@link CreateProfileJobCommandOutput}
  * @see {@link CreateProfileJobCommandInput} for command's `input` shape.
  * @see {@link CreateProfileJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -84,6 +168,9 @@ export class CreateProfileJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProfileJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +199,8 @@ export class CreateProfileJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProfileJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProfileJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +210,18 @@ export class CreateProfileJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProfileJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProfileJobCommand(input, context);
+    return se_CreateProfileJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProfileJobCommandOutput> {
-    return deserializeAws_restJson1CreateProfileJobCommand(output, context);
+    return de_CreateProfileJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteQueuedReservedInstancesRequest,
-  DeleteQueuedReservedInstancesRequestFilterSensitiveLog,
-  DeleteQueuedReservedInstancesResult,
-  DeleteQueuedReservedInstancesResultFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteQueuedReservedInstancesCommand,
-  serializeAws_ec2DeleteQueuedReservedInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteQueuedReservedInstancesRequest, DeleteQueuedReservedInstancesResult } from "../models/models_2";
+import { de_DeleteQueuedReservedInstancesCommand, se_DeleteQueuedReservedInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQueuedReservedInstancesCommand}.
  */
 export interface DeleteQueuedReservedInstancesCommandInput extends DeleteQueuedReservedInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQueuedReservedInstancesCommand}.
  */
 export interface DeleteQueuedReservedInstancesCommandOutput
@@ -37,6 +33,7 @@ export interface DeleteQueuedReservedInstancesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the queued purchases for the specified Reserved Instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,18 @@ export interface DeleteQueuedReservedInstancesCommandOutput
  * import { EC2Client, DeleteQueuedReservedInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteQueuedReservedInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteQueuedReservedInstancesRequest
+ *   DryRun: true || false,
+ *   ReservedInstancesIds: [ // DeleteQueuedReservedInstancesIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteQueuedReservedInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQueuedReservedInstancesCommandInput - {@link DeleteQueuedReservedInstancesCommandInput}
+ * @returns {@link DeleteQueuedReservedInstancesCommandOutput}
  * @see {@link DeleteQueuedReservedInstancesCommandInput} for command's `input` shape.
  * @see {@link DeleteQueuedReservedInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +76,9 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQueuedReservedInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +107,8 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQueuedReservedInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteQueuedReservedInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +118,21 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQueuedReservedInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteQueuedReservedInstancesCommand(input, context);
+    return se_DeleteQueuedReservedInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteQueuedReservedInstancesCommandOutput> {
-    return deserializeAws_ec2DeleteQueuedReservedInstancesCommand(output, context);
+    return de_DeleteQueuedReservedInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

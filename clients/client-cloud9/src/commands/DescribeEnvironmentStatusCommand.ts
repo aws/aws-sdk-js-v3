@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import {
-  DescribeEnvironmentStatusRequest,
-  DescribeEnvironmentStatusRequestFilterSensitiveLog,
-  DescribeEnvironmentStatusResult,
-  DescribeEnvironmentStatusResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEnvironmentStatusCommand,
-  serializeAws_json1_1DescribeEnvironmentStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEnvironmentStatusRequest, DescribeEnvironmentStatusResult } from "../models/models_0";
+import { de_DescribeEnvironmentStatusCommand, se_DescribeEnvironmentStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentStatusCommand}.
  */
 export interface DescribeEnvironmentStatusCommandInput extends DescribeEnvironmentStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentStatusCommand}.
  */
 export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironmentStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets status information for an Cloud9 development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  * import { Cloud9Client, DescribeEnvironmentStatusCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, DescribeEnvironmentStatusCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
+ * const input = { // DescribeEnvironmentStatusRequest
+ *   environmentId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEnvironmentStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentStatusCommandInput - {@link DescribeEnvironmentStatusCommandInput}
+ * @returns {@link DescribeEnvironmentStatusCommandOutput}
  * @see {@link DescribeEnvironmentStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentStatusCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
@@ -107,6 +109,9 @@ export class DescribeEnvironmentStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +140,8 @@ export class DescribeEnvironmentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEnvironmentStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,15 +151,21 @@ export class DescribeEnvironmentStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEnvironmentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEnvironmentStatusCommand(input, context);
+    return se_DescribeEnvironmentStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeEnvironmentStatusCommand(output, context);
+    return de_DescribeEnvironmentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
-import {
-  CreateRescoreExecutionPlanRequest,
-  CreateRescoreExecutionPlanRequestFilterSensitiveLog,
-  CreateRescoreExecutionPlanResponse,
-  CreateRescoreExecutionPlanResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateRescoreExecutionPlanCommand,
-  serializeAws_json1_0CreateRescoreExecutionPlanCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateRescoreExecutionPlanRequest, CreateRescoreExecutionPlanResponse } from "../models/models_0";
+import { de_CreateRescoreExecutionPlanCommand, se_CreateRescoreExecutionPlanCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRescoreExecutionPlanCommand}.
  */
 export interface CreateRescoreExecutionPlanCommandInput extends CreateRescoreExecutionPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRescoreExecutionPlanCommand}.
  */
 export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreExecutionPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a rescore execution plan. A rescore execution
  *             plan is an Amazon Kendra Intelligent Ranking resource
  *             used for provisioning the <code>Rescore</code> API. You set
@@ -51,10 +48,26 @@ export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreEx
  * import { KendraRankingClient, CreateRescoreExecutionPlanCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, CreateRescoreExecutionPlanCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
  * const client = new KendraRankingClient(config);
+ * const input = { // CreateRescoreExecutionPlanRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   CapacityUnits: { // CapacityUnitsConfiguration
+ *     RescoreCapacityUnits: Number("int"), // required
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRescoreExecutionPlanCommandInput - {@link CreateRescoreExecutionPlanCommandInput}
+ * @returns {@link CreateRescoreExecutionPlanCommandOutput}
  * @see {@link CreateRescoreExecutionPlanCommandInput} for command's `input` shape.
  * @see {@link CreateRescoreExecutionPlanCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.
@@ -109,6 +122,9 @@ export class CreateRescoreExecutionPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRescoreExecutionPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +153,8 @@ export class CreateRescoreExecutionPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRescoreExecutionPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRescoreExecutionPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,15 +164,21 @@ export class CreateRescoreExecutionPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRescoreExecutionPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateRescoreExecutionPlanCommand(input, context);
+    return se_CreateRescoreExecutionPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRescoreExecutionPlanCommandOutput> {
-    return deserializeAws_json1_0CreateRescoreExecutionPlanCommand(output, context);
+    return de_CreateRescoreExecutionPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

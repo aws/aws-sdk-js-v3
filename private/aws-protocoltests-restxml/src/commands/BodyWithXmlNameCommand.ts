@@ -12,23 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { BodyWithXmlNameInputOutput, BodyWithXmlNameInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlBodyWithXmlNameCommand,
-  serializeAws_restXmlBodyWithXmlNameCommand,
-} from "../protocols/Aws_restXml";
+import { BodyWithXmlNameInputOutput } from "../models/models_0";
+import { de_BodyWithXmlNameCommand, se_BodyWithXmlNameCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link BodyWithXmlNameCommand}.
  */
 export interface BodyWithXmlNameCommandInput extends BodyWithXmlNameInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link BodyWithXmlNameCommand}.
  */
 export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * The following example serializes a body that uses an XML name,
  * changing the wrapper name.
  * @example
@@ -37,10 +39,17 @@ export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput
  * import { RestXmlProtocolClient, BodyWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, BodyWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = { // BodyWithXmlNameInputOutput
+ *   nested: { // PayloadWithXmlName
+ *     name: "STRING_VALUE",
+ *   },
+ * };
  * const command = new BodyWithXmlNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BodyWithXmlNameCommandInput - {@link BodyWithXmlNameCommandInput}
+ * @returns {@link BodyWithXmlNameCommandOutput}
  * @see {@link BodyWithXmlNameCommandInput} for command's `input` shape.
  * @see {@link BodyWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -55,6 +64,9 @@ export class BodyWithXmlNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: BodyWithXmlNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,8 +92,8 @@ export class BodyWithXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BodyWithXmlNameInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: BodyWithXmlNameInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +103,18 @@ export class BodyWithXmlNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BodyWithXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlBodyWithXmlNameCommand(input, context);
+    return se_BodyWithXmlNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BodyWithXmlNameCommandOutput> {
-    return deserializeAws_restXmlBodyWithXmlNameCommand(output, context);
+    return de_BodyWithXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

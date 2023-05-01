@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorkersWithQualificationTypeRequest,
-  ListWorkersWithQualificationTypeRequestFilterSensitiveLog,
-  ListWorkersWithQualificationTypeResponse,
-  ListWorkersWithQualificationTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListWorkersWithQualificationTypeRequest, ListWorkersWithQualificationTypeResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
-  deserializeAws_json1_1ListWorkersWithQualificationTypeCommand,
-  serializeAws_json1_1ListWorkersWithQualificationTypeCommand,
+  de_ListWorkersWithQualificationTypeCommand,
+  se_ListWorkersWithQualificationTypeCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkersWithQualificationTypeCommand}.
  */
 export interface ListWorkersWithQualificationTypeCommandInput extends ListWorkersWithQualificationTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkersWithQualificationTypeCommand}.
  */
 export interface ListWorkersWithQualificationTypeCommandOutput
@@ -37,6 +36,7 @@ export interface ListWorkersWithQualificationTypeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>ListWorkersWithQualificationType</code> operation returns all of the Workers
  *             that have been associated with a given Qualification type.
@@ -47,10 +47,18 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  * import { MTurkClient, ListWorkersWithQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListWorkersWithQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // ListWorkersWithQualificationTypeRequest
+ *   QualificationTypeId: "STRING_VALUE", // required
+ *   Status: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListWorkersWithQualificationTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkersWithQualificationTypeCommandInput - {@link ListWorkersWithQualificationTypeCommandInput}
+ * @returns {@link ListWorkersWithQualificationTypeCommandOutput}
  * @see {@link ListWorkersWithQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link ListWorkersWithQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -80,6 +88,9 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkersWithQualificationTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +119,8 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkersWithQualificationTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkersWithQualificationTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +130,24 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListWorkersWithQualificationTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWorkersWithQualificationTypeCommand(input, context);
+    return se_ListWorkersWithQualificationTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListWorkersWithQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1ListWorkersWithQualificationTypeCommand(output, context);
+    return de_ListWorkersWithQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

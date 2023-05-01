@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  SearchLocalGatewayRoutesRequest,
-  SearchLocalGatewayRoutesRequestFilterSensitiveLog,
-  SearchLocalGatewayRoutesResult,
-  SearchLocalGatewayRoutesResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2SearchLocalGatewayRoutesCommand,
-  serializeAws_ec2SearchLocalGatewayRoutesCommand,
-} from "../protocols/Aws_ec2";
+import { SearchLocalGatewayRoutesRequest, SearchLocalGatewayRoutesResult } from "../models/models_6";
+import { de_SearchLocalGatewayRoutesCommand, se_SearchLocalGatewayRoutesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link SearchLocalGatewayRoutesCommand}.
  */
 export interface SearchLocalGatewayRoutesCommandInput extends SearchLocalGatewayRoutesRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchLocalGatewayRoutesCommand}.
  */
 export interface SearchLocalGatewayRoutesCommandOutput extends SearchLocalGatewayRoutesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Searches for routes in the specified local gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface SearchLocalGatewayRoutesCommandOutput extends SearchLocalGatewa
  * import { EC2Client, SearchLocalGatewayRoutesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, SearchLocalGatewayRoutesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // SearchLocalGatewayRoutesRequest
+ *   LocalGatewayRouteTableId: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new SearchLocalGatewayRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchLocalGatewayRoutesCommandInput - {@link SearchLocalGatewayRoutesCommandInput}
+ * @returns {@link SearchLocalGatewayRoutesCommandOutput}
  * @see {@link SearchLocalGatewayRoutesCommandInput} for command's `input` shape.
  * @see {@link SearchLocalGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +82,9 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchLocalGatewayRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +113,8 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchLocalGatewayRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchLocalGatewayRoutesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +124,18 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchLocalGatewayRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2SearchLocalGatewayRoutesCommand(input, context);
+    return se_SearchLocalGatewayRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchLocalGatewayRoutesCommandOutput> {
-    return deserializeAws_ec2SearchLocalGatewayRoutesCommand(output, context);
+    return de_SearchLocalGatewayRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

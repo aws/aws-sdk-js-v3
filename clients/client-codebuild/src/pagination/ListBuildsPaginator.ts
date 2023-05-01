@@ -6,7 +6,7 @@ import { ListBuildsCommand, ListBuildsCommandInput, ListBuildsCommandOutput } fr
 import { CodeBuildPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeBuildClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBuildsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListBuilds(
   config: CodeBuildPaginationConfiguration,
   input: ListBuildsCommandInput,

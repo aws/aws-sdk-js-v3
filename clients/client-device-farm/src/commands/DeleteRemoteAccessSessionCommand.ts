@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  DeleteRemoteAccessSessionRequest,
-  DeleteRemoteAccessSessionRequestFilterSensitiveLog,
-  DeleteRemoteAccessSessionResult,
-  DeleteRemoteAccessSessionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRemoteAccessSessionCommand,
-  serializeAws_json1_1DeleteRemoteAccessSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteRemoteAccessSessionRequest, DeleteRemoteAccessSessionResult } from "../models/models_0";
+import { de_DeleteRemoteAccessSessionCommand, se_DeleteRemoteAccessSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRemoteAccessSessionCommand}.
  */
 export interface DeleteRemoteAccessSessionCommandInput extends DeleteRemoteAccessSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRemoteAccessSessionCommand}.
  */
 export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a completed remote access session and its results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * import { DeviceFarmClient, DeleteRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // DeleteRemoteAccessSessionRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRemoteAccessSessionCommandInput - {@link DeleteRemoteAccessSessionCommandInput}
+ * @returns {@link DeleteRemoteAccessSessionCommandOutput}
  * @see {@link DeleteRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -92,6 +94,9 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRemoteAccessSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +125,8 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRemoteAccessSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRemoteAccessSessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +136,21 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRemoteAccessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRemoteAccessSessionCommand(input, context);
+    return se_DeleteRemoteAccessSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRemoteAccessSessionCommandOutput> {
-    return deserializeAws_json1_1DeleteRemoteAccessSessionCommand(output, context);
+    return de_DeleteRemoteAccessSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

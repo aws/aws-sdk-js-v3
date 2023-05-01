@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetFindingStatisticsRequest,
-  GetFindingStatisticsRequestFilterSensitiveLog,
-  GetFindingStatisticsResponse,
-  GetFindingStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFindingStatisticsCommand,
-  serializeAws_restJson1GetFindingStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFindingStatisticsRequest, GetFindingStatisticsResponse } from "../models/models_0";
+import { de_GetFindingStatisticsCommand, se_GetFindingStatisticsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFindingStatisticsCommand}.
  */
 export interface GetFindingStatisticsCommandInput extends GetFindingStatisticsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFindingStatisticsCommand}.
  */
 export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves (queries) aggregated statistical data about findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,39 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  * import { Macie2Client, GetFindingStatisticsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetFindingStatisticsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // GetFindingStatisticsRequest
+ *   findingCriteria: { // FindingCriteria
+ *     criterion: { // Criterion
+ *       "<keys>": { // CriterionAdditionalProperties
+ *         eq: [ // __listOf__string
+ *           "STRING_VALUE",
+ *         ],
+ *         eqExactMatch: [
+ *           "STRING_VALUE",
+ *         ],
+ *         gt: Number("long"),
+ *         gte: Number("long"),
+ *         lt: Number("long"),
+ *         lte: Number("long"),
+ *         neq: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   groupBy: "resourcesAffected.s3Bucket.name" || "type" || "classificationDetails.jobId" || "severity.description", // required
+ *   size: Number("int"),
+ *   sortCriteria: { // FindingStatisticsSortCriteria
+ *     attributeName: "groupKey" || "count",
+ *     orderBy: "ASC" || "DESC",
+ *   },
+ * };
  * const command = new GetFindingStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFindingStatisticsCommandInput - {@link GetFindingStatisticsCommandInput}
+ * @returns {@link GetFindingStatisticsCommandOutput}
  * @see {@link GetFindingStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetFindingStatisticsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +116,9 @@ export class GetFindingStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFindingStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +147,8 @@ export class GetFindingStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +158,18 @@ export class GetFindingStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFindingStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingStatisticsCommand(input, context);
+    return se_GetFindingStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetFindingStatisticsCommand(output, context);
+    return de_GetFindingStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

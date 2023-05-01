@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagInstanceProfileRequest, UntagInstanceProfileRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryUntagInstanceProfileCommand,
-  serializeAws_queryUntagInstanceProfileCommand,
-} from "../protocols/Aws_query";
+import { UntagInstanceProfileRequest } from "../models/models_0";
+import { de_UntagInstanceProfileCommand, se_UntagInstanceProfileCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UntagInstanceProfileCommand}.
  */
 export interface UntagInstanceProfileCommandInput extends UntagInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagInstanceProfileCommand}.
  */
 export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the IAM instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
  * @example
@@ -38,10 +40,18 @@ export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UntagInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UntagInstanceProfileRequest
+ *   InstanceProfileName: "STRING_VALUE", // required
+ *   TagKeys: [ // tagKeyListType // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagInstanceProfileCommandInput - {@link UntagInstanceProfileCommandInput}
+ * @returns {@link UntagInstanceProfileCommandOutput}
  * @see {@link UntagInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link UntagInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -81,6 +91,9 @@ export class UntagInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +122,8 @@ export class UntagInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +133,18 @@ export class UntagInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagInstanceProfileCommand(input, context);
+    return se_UntagInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagInstanceProfileCommandOutput> {
-    return deserializeAws_queryUntagInstanceProfileCommand(output, context);
+    return de_UntagInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

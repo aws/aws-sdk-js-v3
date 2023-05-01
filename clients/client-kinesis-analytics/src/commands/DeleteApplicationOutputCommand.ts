@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import {
-  DeleteApplicationOutputRequest,
-  DeleteApplicationOutputRequestFilterSensitiveLog,
-  DeleteApplicationOutputResponse,
-  DeleteApplicationOutputResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteApplicationOutputCommand,
-  serializeAws_json1_1DeleteApplicationOutputCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteApplicationOutputRequest, DeleteApplicationOutputResponse } from "../models/models_0";
+import { de_DeleteApplicationOutputCommand, se_DeleteApplicationOutputCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationOutputCommand}.
  */
 export interface DeleteApplicationOutputCommandInput extends DeleteApplicationOutputRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationOutputCommand}.
  */
 export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationOutputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -47,10 +44,17 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * import { KinesisAnalyticsClient, DeleteApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, DeleteApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = { // DeleteApplicationOutputRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   OutputId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApplicationOutputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationOutputCommandInput - {@link DeleteApplicationOutputCommandInput}
+ * @returns {@link DeleteApplicationOutputCommandOutput}
  * @see {@link DeleteApplicationOutputCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationOutputCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
@@ -89,6 +93,9 @@ export class DeleteApplicationOutputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +124,8 @@ export class DeleteApplicationOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationOutputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationOutputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +135,18 @@ export class DeleteApplicationOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApplicationOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationOutputCommand(input, context);
+    return se_DeleteApplicationOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationOutputCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationOutputCommand(output, context);
+    return de_DeleteApplicationOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

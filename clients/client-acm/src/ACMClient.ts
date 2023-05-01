@@ -96,6 +96,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddTagsToCertificateCommandInput
   | DeleteCertificateCommandInput
@@ -113,6 +116,9 @@ export type ServiceInputTypes =
   | ResendValidationEmailCommandInput
   | UpdateCertificateOptionsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddTagsToCertificateCommandOutput
   | DeleteCertificateCommandOutput
@@ -130,6 +136,9 @@ export type ServiceOutputTypes =
   | ResendValidationEmailCommandOutput
   | UpdateCertificateOptionsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -137,7 +146,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -246,11 +255,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type ACMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -261,10 +273,15 @@ type ACMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of ACMClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ACMClient class constructor that set the region, credentials and other options.
  */
 export interface ACMClientConfig extends ACMClientConfigType {}
 
+/**
+ * @public
+ */
 type ACMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -275,11 +292,14 @@ type ACMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ACMClient class. This is resolved and normalized from the {@link ACMClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ACMClient class. This is resolved and normalized from the {@link ACMClientConfig | constructor configuration interface}.
  */
 export interface ACMClientResolvedConfig extends ACMClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Certificate Manager</fullname>
  *          <p>You can use Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites
  *       and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>

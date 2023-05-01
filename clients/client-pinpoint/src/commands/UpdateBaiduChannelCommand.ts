@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateBaiduChannelRequest,
-  UpdateBaiduChannelRequestFilterSensitiveLog,
-  UpdateBaiduChannelResponse,
-  UpdateBaiduChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateBaiduChannelRequest, UpdateBaiduChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateBaiduChannelCommand,
-  serializeAws_restJson1UpdateBaiduChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBaiduChannelCommand, se_UpdateBaiduChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBaiduChannelCommand}.
  */
 export interface UpdateBaiduChannelCommandInput extends UpdateBaiduChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBaiduChannelCommand}.
  */
 export interface UpdateBaiduChannelCommandOutput extends UpdateBaiduChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the Baidu channel for an application or updates the status and settings of the Baidu channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface UpdateBaiduChannelCommandOutput extends UpdateBaiduChannelRespo
  * import { PinpointClient, UpdateBaiduChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateBaiduChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateBaiduChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   BaiduChannelRequest: { // BaiduChannelRequest
+ *     ApiKey: "STRING_VALUE", // required
+ *     Enabled: true || false,
+ *     SecretKey: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateBaiduChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBaiduChannelCommandInput - {@link UpdateBaiduChannelCommandInput}
+ * @returns {@link UpdateBaiduChannelCommandOutput}
  * @see {@link UpdateBaiduChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateBaiduChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateBaiduChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBaiduChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class UpdateBaiduChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBaiduChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBaiduChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +139,18 @@ export class UpdateBaiduChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBaiduChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBaiduChannelCommand(input, context);
+    return se_UpdateBaiduChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBaiduChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateBaiduChannelCommand(output, context);
+    return de_UpdateBaiduChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

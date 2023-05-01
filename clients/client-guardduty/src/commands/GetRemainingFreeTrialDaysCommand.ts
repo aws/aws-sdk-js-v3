@@ -14,38 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  GetRemainingFreeTrialDaysRequest,
-  GetRemainingFreeTrialDaysRequestFilterSensitiveLog,
-  GetRemainingFreeTrialDaysResponse,
-  GetRemainingFreeTrialDaysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRemainingFreeTrialDaysCommand,
-  serializeAws_restJson1GetRemainingFreeTrialDaysCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRemainingFreeTrialDaysRequest, GetRemainingFreeTrialDaysResponse } from "../models/models_0";
+import { de_GetRemainingFreeTrialDaysCommand, se_GetRemainingFreeTrialDaysCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRemainingFreeTrialDaysCommand}.
  */
 export interface GetRemainingFreeTrialDaysCommandInput extends GetRemainingFreeTrialDaysRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRemainingFreeTrialDaysCommand}.
  */
 export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFreeTrialDaysResponse, __MetadataBearer {}
 
 /**
- * <p>Provides the number of days left for each data source used in the free trial period.</p>
+ * @public
+ * <p>Provides the number of days left for each data source used in the free trial
+ *       period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, GetRemainingFreeTrialDaysCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetRemainingFreeTrialDaysCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // GetRemainingFreeTrialDaysRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   AccountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetRemainingFreeTrialDaysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRemainingFreeTrialDaysCommandInput - {@link GetRemainingFreeTrialDaysCommandInput}
+ * @returns {@link GetRemainingFreeTrialDaysCommandOutput}
  * @see {@link GetRemainingFreeTrialDaysCommandInput} for command's `input` shape.
  * @see {@link GetRemainingFreeTrialDaysCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +81,9 @@ export class GetRemainingFreeTrialDaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRemainingFreeTrialDaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +112,8 @@ export class GetRemainingFreeTrialDaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRemainingFreeTrialDaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRemainingFreeTrialDaysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +123,21 @@ export class GetRemainingFreeTrialDaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRemainingFreeTrialDaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRemainingFreeTrialDaysCommand(input, context);
+    return se_GetRemainingFreeTrialDaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRemainingFreeTrialDaysCommandOutput> {
-    return deserializeAws_restJson1GetRemainingFreeTrialDaysCommand(output, context);
+    return de_GetRemainingFreeTrialDaysCommand(output, context);
   }
 
   // Start section: command_body_extra

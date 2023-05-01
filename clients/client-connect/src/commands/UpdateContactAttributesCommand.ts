@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateContactAttributesRequest,
-  UpdateContactAttributesRequestFilterSensitiveLog,
-  UpdateContactAttributesResponse,
-  UpdateContactAttributesResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateContactAttributesCommand,
-  serializeAws_restJson1UpdateContactAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateContactAttributesRequest, UpdateContactAttributesResponse } from "../models/models_1";
+import { de_UpdateContactAttributesCommand, se_UpdateContactAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactAttributesCommand}.
  */
 export interface UpdateContactAttributesCommandInput extends UpdateContactAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactAttributesCommand}.
  */
 export interface UpdateContactAttributesCommandOutput extends UpdateContactAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates
  *    user-defined contact attributes
  *    associated with the specified contact.</p>
@@ -55,10 +52,19 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  * import { ConnectClient, UpdateContactAttributesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateContactAttributesRequest
+ *   InitialContactId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   Attributes: { // Attributes // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateContactAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactAttributesCommandInput - {@link UpdateContactAttributesCommandInput}
+ * @returns {@link UpdateContactAttributesCommandOutput}
  * @see {@link UpdateContactAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateContactAttributesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -94,6 +100,9 @@ export class UpdateContactAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +131,8 @@ export class UpdateContactAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContactAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContactAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +142,18 @@ export class UpdateContactAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateContactAttributesCommand(input, context);
+    return se_UpdateContactAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactAttributesCommandOutput> {
-    return deserializeAws_restJson1UpdateContactAttributesCommand(output, context);
+    return de_UpdateContactAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

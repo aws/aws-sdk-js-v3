@@ -14,29 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  ResumeGameServerGroupInput,
-  ResumeGameServerGroupInputFilterSensitiveLog,
-  ResumeGameServerGroupOutput,
-  ResumeGameServerGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ResumeGameServerGroupCommand,
-  serializeAws_json1_1ResumeGameServerGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { ResumeGameServerGroupInput, ResumeGameServerGroupOutput } from "../models/models_0";
+import { de_ResumeGameServerGroupCommand, se_ResumeGameServerGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResumeGameServerGroupCommand}.
  */
 export interface ResumeGameServerGroupCommandInput extends ResumeGameServerGroupInput {}
 /**
+ * @public
+ *
  * The output of {@link ResumeGameServerGroupCommand}.
  */
 export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Reinstates activity on a game
  *             server group after it has been suspended. A game server group might be suspended by the
@@ -45,26 +42,34 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
  *             the group once the configuration problem has been resolved. Refer to the game server
  *             group status and status reason for more information on why group activity is
  *             suspended.</p>
- *         <p>To resume activity, specify a game server group ARN and the type of activity to be
+ *          <p>To resume activity, specify a game server group ARN and the type of activity to be
  *             resumed. If successful, a <code>GameServerGroup</code> object is returned showing that
  *             the resumed activity is no longer listed in <code>SuspendedActions</code>. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
  *                 Guide</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GameLiftClient, ResumeGameServerGroupCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ResumeGameServerGroupCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // ResumeGameServerGroupInput
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   ResumeActions: [ // GameServerGroupActions // required
+ *     "REPLACE_INSTANCE_TYPES",
+ *   ],
+ * };
  * const command = new ResumeGameServerGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResumeGameServerGroupCommandInput - {@link ResumeGameServerGroupCommandInput}
+ * @returns {@link ResumeGameServerGroupCommandOutput}
  * @see {@link ResumeGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link ResumeGameServerGroupCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -102,6 +107,9 @@ export class ResumeGameServerGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResumeGameServerGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +138,8 @@ export class ResumeGameServerGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeGameServerGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ResumeGameServerGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +149,18 @@ export class ResumeGameServerGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResumeGameServerGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResumeGameServerGroupCommand(input, context);
+    return se_ResumeGameServerGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeGameServerGroupCommandOutput> {
-    return deserializeAws_json1_1ResumeGameServerGroupCommand(output, context);
+    return de_ResumeGameServerGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

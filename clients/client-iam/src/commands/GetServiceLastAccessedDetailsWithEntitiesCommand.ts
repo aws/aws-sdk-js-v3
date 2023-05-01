@@ -16,21 +16,23 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GetServiceLastAccessedDetailsWithEntitiesRequest,
-  GetServiceLastAccessedDetailsWithEntitiesRequestFilterSensitiveLog,
   GetServiceLastAccessedDetailsWithEntitiesResponse,
-  GetServiceLastAccessedDetailsWithEntitiesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand,
-  serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand,
+  de_GetServiceLastAccessedDetailsWithEntitiesCommand,
+  se_GetServiceLastAccessedDetailsWithEntitiesCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceLastAccessedDetailsWithEntitiesCommand}.
  */
 export interface GetServiceLastAccessedDetailsWithEntitiesCommandInput
   extends GetServiceLastAccessedDetailsWithEntitiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceLastAccessedDetailsWithEntitiesCommand}.
  */
 export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
@@ -38,6 +40,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>After you generate a group or policy report using the
  *                 <code>GenerateServiceLastAccessedDetails</code> operation, you can use the
  *                 <code>JobId</code> parameter in
@@ -70,10 +73,18 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
  * import { IAMClient, GetServiceLastAccessedDetailsWithEntitiesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetServiceLastAccessedDetailsWithEntitiesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetServiceLastAccessedDetailsWithEntitiesRequest
+ *   JobId: "STRING_VALUE", // required
+ *   ServiceNamespace: "STRING_VALUE", // required
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new GetServiceLastAccessedDetailsWithEntitiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceLastAccessedDetailsWithEntitiesCommandInput - {@link GetServiceLastAccessedDetailsWithEntitiesCommandInput}
+ * @returns {@link GetServiceLastAccessedDetailsWithEntitiesCommandOutput}
  * @see {@link GetServiceLastAccessedDetailsWithEntitiesCommandInput} for command's `input` shape.
  * @see {@link GetServiceLastAccessedDetailsWithEntitiesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -146,6 +157,9 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceLastAccessedDetailsWithEntitiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -180,8 +194,8 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceLastAccessedDetailsWithEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceLastAccessedDetailsWithEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -191,18 +205,24 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(input, context);
+    return se_GetServiceLastAccessedDetailsWithEntitiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> {
-    return deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(output, context);
+    return de_GetServiceLastAccessedDetailsWithEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

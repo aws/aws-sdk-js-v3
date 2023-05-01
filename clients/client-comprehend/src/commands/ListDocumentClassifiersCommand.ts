@@ -16,25 +16,26 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   ListDocumentClassifiersRequest,
-  ListDocumentClassifiersRequestFilterSensitiveLog,
   ListDocumentClassifiersResponse,
   ListDocumentClassifiersResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDocumentClassifiersCommand,
-  serializeAws_json1_1ListDocumentClassifiersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDocumentClassifiersCommand, se_ListDocumentClassifiersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDocumentClassifiersCommand}.
  */
 export interface ListDocumentClassifiersCommandInput extends ListDocumentClassifiersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDocumentClassifiersCommand}.
  */
 export interface ListDocumentClassifiersCommandOutput extends ListDocumentClassifiersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the document classifiers that you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,22 @@ export interface ListDocumentClassifiersCommandOutput extends ListDocumentClassi
  * import { ComprehendClient, ListDocumentClassifiersCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListDocumentClassifiersCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListDocumentClassifiersRequest
+ *   Filter: { // DocumentClassifierFilter
+ *     Status: "SUBMITTED" || "TRAINING" || "DELETING" || "STOP_REQUESTED" || "STOPPED" || "IN_ERROR" || "TRAINED" || "TRAINED_WITH_WARNING",
+ *     DocumentClassifierName: "STRING_VALUE",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDocumentClassifiersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDocumentClassifiersCommandInput - {@link ListDocumentClassifiersCommandInput}
+ * @returns {@link ListDocumentClassifiersCommandOutput}
  * @see {@link ListDocumentClassifiersCommandInput} for command's `input` shape.
  * @see {@link ListDocumentClassifiersCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +95,9 @@ export class ListDocumentClassifiersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDocumentClassifiersCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +126,7 @@ export class ListDocumentClassifiersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDocumentClassifiersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListDocumentClassifiersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -121,12 +137,18 @@ export class ListDocumentClassifiersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDocumentClassifiersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentClassifiersCommand(input, context);
+    return se_ListDocumentClassifiersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDocumentClassifiersCommandOutput> {
-    return deserializeAws_json1_1ListDocumentClassifiersCommand(output, context);
+    return de_ListDocumentClassifiersCommand(output, context);
   }
 
   // Start section: command_body_extra

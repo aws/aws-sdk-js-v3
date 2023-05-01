@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  SendApiAssetRequest,
-  SendApiAssetRequestFilterSensitiveLog,
-  SendApiAssetResponse,
-  SendApiAssetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SendApiAssetCommand,
-  serializeAws_restJson1SendApiAssetCommand,
-} from "../protocols/Aws_restJson1";
+import { SendApiAssetRequest, SendApiAssetResponse } from "../models/models_0";
+import { de_SendApiAssetCommand, se_SendApiAssetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendApiAssetCommand}.
  */
 export interface SendApiAssetCommandInput extends SendApiAssetRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendApiAssetCommand}.
  */
 export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation invokes an API Gateway API asset. The request is proxied to the provider’s API Gateway API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * import { DataExchangeClient, SendApiAssetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, SendApiAssetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // SendApiAssetRequest
+ *   Body: "STRING_VALUE",
+ *   QueryStringParameters: { // MapOf__string
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AssetId: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ *   RequestHeaders: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Method: "STRING_VALUE",
+ *   Path: "STRING_VALUE",
+ *   RevisionId: "STRING_VALUE", // required
+ * };
  * const command = new SendApiAssetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendApiAssetCommandInput - {@link SendApiAssetCommandInput}
+ * @returns {@link SendApiAssetCommandOutput}
  * @see {@link SendApiAssetCommandInput} for command's `input` shape.
  * @see {@link SendApiAssetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -84,6 +97,9 @@ export class SendApiAssetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendApiAssetCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +126,8 @@ export class SendApiAssetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendApiAssetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendApiAssetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +137,18 @@ export class SendApiAssetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendApiAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendApiAssetCommand(input, context);
+    return se_SendApiAssetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendApiAssetCommandOutput> {
-    return deserializeAws_restJson1SendApiAssetCommand(output, context);
+    return de_SendApiAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

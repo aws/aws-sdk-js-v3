@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import {
-  BatchDeleteTableRowsRequest,
-  BatchDeleteTableRowsRequestFilterSensitiveLog,
-  BatchDeleteTableRowsResult,
-  BatchDeleteTableRowsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDeleteTableRowsCommand,
-  serializeAws_restJson1BatchDeleteTableRowsCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchDeleteTableRowsRequest, BatchDeleteTableRowsResult } from "../models/models_0";
+import { de_BatchDeleteTableRowsCommand, se_BatchDeleteTableRowsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteTableRowsCommand}.
  */
 export interface BatchDeleteTableRowsCommandInput extends BatchDeleteTableRowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteTableRowsCommand}.
  */
 export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The BatchDeleteTableRows API allows you to delete one or more rows from a table in a workbook.
  *             You need to specify the ids of the rows that you want to delete from the table.
@@ -45,10 +42,20 @@ export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsR
  * import { HoneycodeClient, BatchDeleteTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, BatchDeleteTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = { // BatchDeleteTableRowsRequest
+ *   workbookId: "STRING_VALUE", // required
+ *   tableId: "STRING_VALUE", // required
+ *   rowIds: [ // RowIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new BatchDeleteTableRowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteTableRowsCommandInput - {@link BatchDeleteTableRowsCommandInput}
+ * @returns {@link BatchDeleteTableRowsCommandOutput}
  * @see {@link BatchDeleteTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -98,6 +105,9 @@ export class BatchDeleteTableRowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteTableRowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +136,8 @@ export class BatchDeleteTableRowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteTableRowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteTableRowsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +147,18 @@ export class BatchDeleteTableRowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchDeleteTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteTableRowsCommand(input, context);
+    return se_BatchDeleteTableRowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteTableRowsCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteTableRowsCommand(output, context);
+    return de_BatchDeleteTableRowsCommand(output, context);
   }
 
   // Start section: command_body_extra

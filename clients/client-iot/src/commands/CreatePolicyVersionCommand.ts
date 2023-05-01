@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreatePolicyVersionRequest,
-  CreatePolicyVersionRequestFilterSensitiveLog,
-  CreatePolicyVersionResponse,
-  CreatePolicyVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePolicyVersionCommand,
-  serializeAws_restJson1CreatePolicyVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreatePolicyVersionRequest, CreatePolicyVersionResponse } from "../models/models_0";
+import { de_CreatePolicyVersionCommand, se_CreatePolicyVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePolicyVersionCommand}.
  */
 export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePolicyVersionCommand}.
  */
 export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new version of the specified IoT policy. To update a policy, create a
  *          new policy version. A managed policy can have up to five versions. If the policy has five
  *          versions, you must use <a>DeletePolicyVersion</a> to delete an existing version
@@ -49,10 +46,17 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * import { IoTClient, CreatePolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreatePolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreatePolicyVersionRequest
+ *   policyName: "STRING_VALUE", // required
+ *   policyDocument: "STRING_VALUE", // required
+ *   setAsDefault: true || false,
+ * };
  * const command = new CreatePolicyVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePolicyVersionCommandInput - {@link CreatePolicyVersionCommandInput}
+ * @returns {@link CreatePolicyVersionCommandOutput}
  * @see {@link CreatePolicyVersionCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -100,6 +104,9 @@ export class CreatePolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +135,8 @@ export class CreatePolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePolicyVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePolicyVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +146,18 @@ export class CreatePolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePolicyVersionCommand(input, context);
+    return se_CreatePolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyVersionCommandOutput> {
-    return deserializeAws_restJson1CreatePolicyVersionCommand(output, context);
+    return de_CreatePolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

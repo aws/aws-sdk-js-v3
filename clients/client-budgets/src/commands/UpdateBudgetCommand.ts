@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import {
-  UpdateBudgetRequest,
-  UpdateBudgetRequestFilterSensitiveLog,
-  UpdateBudgetResponse,
-  UpdateBudgetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateBudgetCommand,
-  serializeAws_json1_1UpdateBudgetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateBudgetRequest, UpdateBudgetResponse } from "../models/models_0";
+import { de_UpdateBudgetCommand, se_UpdateBudgetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBudgetCommand}.
  */
 export interface UpdateBudgetCommandInput extends UpdateBudgetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBudgetCommand}.
  */
 export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a budget. You can change every part of a budget except for the <code>budgetName</code> and the <code>calculatedSpend</code>. When you modify a budget, the <code>calculatedSpend</code> drops to zero until Amazon Web Services has new usage data to use for forecasting.</p>
  * 		       <important>
  * 			         <p>Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present in the syntax at one time. Use the syntax that matches your case. The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_UpdateBudget.html#API_UpdateBudget_Examples">Examples</a> section. </p>
@@ -45,10 +42,71 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  * import { BudgetsClient, UpdateBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, UpdateBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // UpdateBudgetRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   NewBudget: { // Budget
+ *     BudgetName: "STRING_VALUE", // required
+ *     BudgetLimit: { // Spend
+ *       Amount: "STRING_VALUE", // required
+ *       Unit: "STRING_VALUE", // required
+ *     },
+ *     PlannedBudgetLimits: { // PlannedBudgetLimits
+ *       "<keys>": {
+ *         Amount: "STRING_VALUE", // required
+ *         Unit: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     CostFilters: { // CostFilters
+ *       "<keys>": [ // DimensionValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     CostTypes: { // CostTypes
+ *       IncludeTax: true || false,
+ *       IncludeSubscription: true || false,
+ *       UseBlended: true || false,
+ *       IncludeRefund: true || false,
+ *       IncludeCredit: true || false,
+ *       IncludeUpfront: true || false,
+ *       IncludeRecurring: true || false,
+ *       IncludeOtherSubscription: true || false,
+ *       IncludeSupport: true || false,
+ *       IncludeDiscount: true || false,
+ *       UseAmortized: true || false,
+ *     },
+ *     TimeUnit: "STRING_VALUE", // required
+ *     TimePeriod: { // TimePeriod
+ *       Start: new Date("TIMESTAMP"),
+ *       End: new Date("TIMESTAMP"),
+ *     },
+ *     CalculatedSpend: { // CalculatedSpend
+ *       ActualSpend: {
+ *         Amount: "STRING_VALUE", // required
+ *         Unit: "STRING_VALUE", // required
+ *       },
+ *       ForecastedSpend: {
+ *         Amount: "STRING_VALUE", // required
+ *         Unit: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     BudgetType: "STRING_VALUE", // required
+ *     LastUpdatedTime: new Date("TIMESTAMP"),
+ *     AutoAdjustData: { // AutoAdjustData
+ *       AutoAdjustType: "STRING_VALUE", // required
+ *       HistoricalOptions: { // HistoricalOptions
+ *         BudgetAdjustmentPeriod: Number("int"), // required
+ *         LookBackAvailablePeriods: Number("int"),
+ *       },
+ *       LastAutoAdjustTime: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ * };
  * const command = new UpdateBudgetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBudgetCommandInput - {@link UpdateBudgetCommandInput}
+ * @returns {@link UpdateBudgetCommandOutput}
  * @see {@link UpdateBudgetCommandInput} for command's `input` shape.
  * @see {@link UpdateBudgetCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -89,6 +147,9 @@ export class UpdateBudgetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBudgetCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +176,8 @@ export class UpdateBudgetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBudgetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBudgetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +187,18 @@ export class UpdateBudgetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBudgetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateBudgetCommand(input, context);
+    return se_UpdateBudgetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBudgetCommandOutput> {
-    return deserializeAws_json1_1UpdateBudgetCommand(output, context);
+    return de_UpdateBudgetCommand(output, context);
   }
 
   // Start section: command_body_extra

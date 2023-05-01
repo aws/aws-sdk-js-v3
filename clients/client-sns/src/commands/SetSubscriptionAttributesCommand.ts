@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetSubscriptionAttributesInput, SetSubscriptionAttributesInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_querySetSubscriptionAttributesCommand,
-  serializeAws_querySetSubscriptionAttributesCommand,
-} from "../protocols/Aws_query";
+import { SetSubscriptionAttributesInput } from "../models/models_0";
+import { de_SetSubscriptionAttributesCommand, se_SetSubscriptionAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetSubscriptionAttributesCommand}.
  */
 export interface SetSubscriptionAttributesCommandInput extends SetSubscriptionAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link SetSubscriptionAttributesCommand}.
  */
 export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows a subscription owner to set an attribute of the subscription to a new
  *             value.</p>
  * @example
@@ -38,10 +40,17 @@ export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer
  * import { SNSClient, SetSubscriptionAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SetSubscriptionAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // SetSubscriptionAttributesInput
+ *   SubscriptionArn: "STRING_VALUE", // required
+ *   AttributeName: "STRING_VALUE", // required
+ *   AttributeValue: "STRING_VALUE",
+ * };
  * const command = new SetSubscriptionAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetSubscriptionAttributesCommandInput - {@link SetSubscriptionAttributesCommandInput}
+ * @returns {@link SetSubscriptionAttributesCommandOutput}
  * @see {@link SetSubscriptionAttributesCommandInput} for command's `input` shape.
  * @see {@link SetSubscriptionAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -83,6 +92,9 @@ export class SetSubscriptionAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetSubscriptionAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +123,8 @@ export class SetSubscriptionAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSubscriptionAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,15 +134,21 @@ export class SetSubscriptionAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetSubscriptionAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetSubscriptionAttributesCommand(input, context);
+    return se_SetSubscriptionAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetSubscriptionAttributesCommandOutput> {
-    return deserializeAws_querySetSubscriptionAttributesCommand(output, context);
+    return de_SetSubscriptionAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDBSnapshotMessage,
-  DeleteDBSnapshotMessageFilterSensitiveLog,
-  DeleteDBSnapshotResult,
-  DeleteDBSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBSnapshotCommand,
-  serializeAws_queryDeleteDBSnapshotCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBSnapshotMessage, DeleteDBSnapshotResult } from "../models/models_0";
+import { de_DeleteDBSnapshotCommand, se_DeleteDBSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBSnapshotCommand}.
  */
 export interface DeleteDBSnapshotCommandInput extends DeleteDBSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBSnapshotCommand}.
  */
 export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is
  *             terminated.</p>
  *          <note>
@@ -46,10 +43,15 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * import { RDSClient, DeleteDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteDBSnapshotMessage
+ *   DBSnapshotIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBSnapshotCommandInput - {@link DeleteDBSnapshotCommandInput}
+ * @returns {@link DeleteDBSnapshotCommandOutput}
  * @see {@link DeleteDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -62,9 +64,9 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  *  <p>The state of the DB snapshot doesn't allow deletion.</p>
  *
  *
- * @example To delete a DB cluster snapshot.
+ * @example To delete a DB snapshot
  * ```javascript
- * // This example deletes the specified DB snapshot.
+ * // The following example deletes the specified DB snapshot.
  * const input = {
  *   "DBSnapshotIdentifier": "mydbsnapshot"
  * };
@@ -72,10 +74,35 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBSnapshot": {}
+ *   "DBSnapshot": {
+ *     "AllocatedStorage": 100,
+ *     "AvailabilityZone": "us-east-1b",
+ *     "DBInstanceIdentifier": "database-mysql",
+ *     "DBSnapshotArn": "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshot",
+ *     "DBSnapshotIdentifier": "mydbsnapshot",
+ *     "DbiResourceId": "db-AKIAIOSFODNN7EXAMPLE",
+ *     "Encrypted": true,
+ *     "Engine": "mysql",
+ *     "EngineVersion": "5.6.40",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "InstanceCreateTime": "2019-04-30T15:45:53.663Z",
+ *     "Iops": 1000,
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     "LicenseModel": "general-public-license",
+ *     "MasterUsername": "admin",
+ *     "OptionGroupName": "default:mysql-5-6",
+ *     "PercentProgress": 100,
+ *     "Port": 3306,
+ *     "ProcessorFeatures": [],
+ *     "SnapshotCreateTime": "2019-06-18T22:08:40.702Z",
+ *     "SnapshotType": "manual",
+ *     "Status": "deleted",
+ *     "StorageType": "io1",
+ *     "VpcId": "vpc-6594f31c"
+ *   }
  * }
  * *\/
- * // example id: delete-db-snapshot-505d6b4e-8ced-479c-856a-c460a33fe07b
+ * // example id: to-delete-a-db-snapshot-1680111103708
  * ```
  *
  */
@@ -96,6 +123,9 @@ export class DeleteDBSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +154,8 @@ export class DeleteDBSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +165,18 @@ export class DeleteDBSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBSnapshotCommand(input, context);
+    return se_DeleteDBSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBSnapshotCommandOutput> {
-    return deserializeAws_queryDeleteDBSnapshotCommand(output, context);
+    return de_DeleteDBSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

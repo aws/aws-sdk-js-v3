@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  MoveAddressToVpcRequest,
-  MoveAddressToVpcRequestFilterSensitiveLog,
-  MoveAddressToVpcResult,
-  MoveAddressToVpcResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2MoveAddressToVpcCommand,
-  serializeAws_ec2MoveAddressToVpcCommand,
-} from "../protocols/Aws_ec2";
+import { MoveAddressToVpcRequest, MoveAddressToVpcResult } from "../models/models_6";
+import { de_MoveAddressToVpcCommand, se_MoveAddressToVpcCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link MoveAddressToVpcCommand}.
  */
 export interface MoveAddressToVpcCommandInput extends MoveAddressToVpcRequest {}
 /**
+ * @public
+ *
  * The output of {@link MoveAddressToVpcCommand}.
  */
 export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The
  *       Elastic IP address must be allocated to your account for more than 24 hours, and it must not
  *       be associated with an instance. After the Elastic IP address is moved, it is no longer
@@ -50,10 +47,16 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  * import { EC2Client, MoveAddressToVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, MoveAddressToVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // MoveAddressToVpcRequest
+ *   DryRun: true || false,
+ *   PublicIp: "STRING_VALUE", // required
+ * };
  * const command = new MoveAddressToVpcCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MoveAddressToVpcCommandInput - {@link MoveAddressToVpcCommandInput}
+ * @returns {@link MoveAddressToVpcCommandOutput}
  * @see {@link MoveAddressToVpcCommandInput} for command's `input` shape.
  * @see {@link MoveAddressToVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -93,6 +96,9 @@ export class MoveAddressToVpcCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MoveAddressToVpcCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class MoveAddressToVpcCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MoveAddressToVpcRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MoveAddressToVpcResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class MoveAddressToVpcCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MoveAddressToVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2MoveAddressToVpcCommand(input, context);
+    return se_MoveAddressToVpcCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MoveAddressToVpcCommandOutput> {
-    return deserializeAws_ec2MoveAddressToVpcCommand(output, context);
+    return de_MoveAddressToVpcCommand(output, context);
   }
 
   // Start section: command_body_extra

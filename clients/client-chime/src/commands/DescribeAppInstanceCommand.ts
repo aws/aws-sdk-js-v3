@@ -16,25 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DescribeAppInstanceRequest,
-  DescribeAppInstanceRequestFilterSensitiveLog,
   DescribeAppInstanceResponse,
   DescribeAppInstanceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAppInstanceCommand,
-  serializeAws_restJson1DescribeAppInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAppInstanceCommand, se_DescribeAppInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAppInstanceCommand}.
  */
 export interface DescribeAppInstanceCommandInput extends DescribeAppInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAppInstanceCommand}.
  */
 export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of an <code>AppInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceRes
  * import { ChimeClient, DescribeAppInstanceCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DescribeAppInstanceCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DescribeAppInstanceRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAppInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAppInstanceCommandInput - {@link DescribeAppInstanceCommandInput}
+ * @returns {@link DescribeAppInstanceCommandOutput}
  * @see {@link DescribeAppInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeAppInstanceCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -87,6 +93,9 @@ export class DescribeAppInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAppInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +124,7 @@ export class DescribeAppInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppInstanceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAppInstanceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,12 +135,18 @@ export class DescribeAppInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAppInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppInstanceCommand(input, context);
+    return se_DescribeAppInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppInstanceCommandOutput> {
-    return deserializeAws_restJson1DescribeAppInstanceCommand(output, context);
+    return de_DescribeAppInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

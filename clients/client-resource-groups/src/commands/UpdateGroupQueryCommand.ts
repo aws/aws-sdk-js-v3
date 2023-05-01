@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateGroupQueryInput,
-  UpdateGroupQueryInputFilterSensitiveLog,
-  UpdateGroupQueryOutput,
-  UpdateGroupQueryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGroupQueryCommand,
-  serializeAws_restJson1UpdateGroupQueryCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateGroupQueryInput, UpdateGroupQueryOutput } from "../models/models_0";
+import { de_UpdateGroupQueryCommand, se_UpdateGroupQueryCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGroupQueryCommand}.
  */
 export interface UpdateGroupQueryCommandInput extends UpdateGroupQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGroupQueryCommand}.
  */
 export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the resource query of a group. For more information about resource queries,
  *             see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>.</p>
  *          <p>
@@ -54,10 +51,20 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  * import { ResourceGroupsClient, UpdateGroupQueryCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, UpdateGroupQueryCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = { // UpdateGroupQueryInput
+ *   GroupName: "STRING_VALUE",
+ *   Group: "STRING_VALUE",
+ *   ResourceQuery: { // ResourceQuery
+ *     Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
+ *     Query: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateGroupQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGroupQueryCommandInput - {@link UpdateGroupQueryCommandInput}
+ * @returns {@link UpdateGroupQueryCommandOutput}
  * @see {@link UpdateGroupQueryCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupQueryCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
@@ -100,6 +107,9 @@ export class UpdateGroupQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGroupQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +138,8 @@ export class UpdateGroupQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGroupQueryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGroupQueryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +149,18 @@ export class UpdateGroupQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGroupQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGroupQueryCommand(input, context);
+    return se_UpdateGroupQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGroupQueryCommandOutput> {
-    return deserializeAws_restJson1UpdateGroupQueryCommand(output, context);
+    return de_UpdateGroupQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateFleetMetadataRequest,
-  UpdateFleetMetadataRequestFilterSensitiveLog,
-  UpdateFleetMetadataResponse,
-  UpdateFleetMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFleetMetadataCommand,
-  serializeAws_restJson1UpdateFleetMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFleetMetadataRequest, UpdateFleetMetadataResponse } from "../models/models_0";
+import { de_UpdateFleetMetadataCommand, se_UpdateFleetMetadataCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFleetMetadataCommand}.
  */
 export interface UpdateFleetMetadataCommandInput extends UpdateFleetMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFleetMetadataCommand}.
  */
 export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates fleet metadata, such as DisplayName.</p>
@@ -44,10 +41,17 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
  * import { WorkLinkClient, UpdateFleetMetadataCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UpdateFleetMetadataCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // UpdateFleetMetadataRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   OptimizeForEndUserLocation: true || false,
+ * };
  * const command = new UpdateFleetMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFleetMetadataCommandInput - {@link UpdateFleetMetadataCommandInput}
+ * @returns {@link UpdateFleetMetadataCommandOutput}
  * @see {@link UpdateFleetMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -86,6 +90,9 @@ export class UpdateFleetMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFleetMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class UpdateFleetMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFleetMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFleetMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class UpdateFleetMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFleetMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFleetMetadataCommand(input, context);
+    return se_UpdateFleetMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetMetadataCommandOutput> {
-    return deserializeAws_restJson1UpdateFleetMetadataCommand(output, context);
+    return de_UpdateFleetMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

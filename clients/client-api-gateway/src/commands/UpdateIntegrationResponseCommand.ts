@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  IntegrationResponse,
-  IntegrationResponseFilterSensitiveLog,
-  UpdateIntegrationResponseRequest,
-  UpdateIntegrationResponseRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateIntegrationResponseCommand,
-  serializeAws_restJson1UpdateIntegrationResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { IntegrationResponse, UpdateIntegrationResponseRequest } from "../models/models_0";
+import { de_UpdateIntegrationResponseCommand, se_UpdateIntegrationResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateIntegrationResponseCommand}.
  */
 export interface UpdateIntegrationResponseCommandInput extends UpdateIntegrationResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateIntegrationResponseCommand}.
  */
 export interface UpdateIntegrationResponseCommandOutput extends IntegrationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents an update integration response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface UpdateIntegrationResponseCommandOutput extends IntegrationRespo
  * import { APIGatewayClient, UpdateIntegrationResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateIntegrationResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // UpdateIntegrationResponseRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ *   statusCode: "STRING_VALUE", // required
+ *   patchOperations: [ // ListOfPatchOperation
+ *     { // PatchOperation
+ *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
+ *       path: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       from: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateIntegrationResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateIntegrationResponseCommandInput - {@link UpdateIntegrationResponseCommandInput}
+ * @returns {@link UpdateIntegrationResponseCommandOutput}
  * @see {@link UpdateIntegrationResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateIntegrationResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +100,9 @@ export class UpdateIntegrationResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateIntegrationResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +131,8 @@ export class UpdateIntegrationResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIntegrationResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: IntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +142,21 @@ export class UpdateIntegrationResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateIntegrationResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIntegrationResponseCommand(input, context);
+    return se_UpdateIntegrationResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1UpdateIntegrationResponseCommand(output, context);
+    return de_UpdateIntegrationResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

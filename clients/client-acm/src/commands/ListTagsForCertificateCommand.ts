@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import {
-  ListTagsForCertificateRequest,
-  ListTagsForCertificateRequestFilterSensitiveLog,
-  ListTagsForCertificateResponse,
-  ListTagsForCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagsForCertificateCommand,
-  serializeAws_json1_1ListTagsForCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTagsForCertificateRequest, ListTagsForCertificateResponse } from "../models/models_0";
+import { de_ListTagsForCertificateCommand, se_ListTagsForCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForCertificateCommand}.
  */
 export interface ListTagsForCertificateCommandInput extends ListTagsForCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForCertificateCommand}.
  */
 export interface ListTagsForCertificateCommandOutput extends ListTagsForCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that have been applied to the ACM certificate. Use the certificate's
  *       Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate,
  *       use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a> action. </p>
@@ -44,10 +41,15 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  * import { ACMClient, ListTagsForCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ListTagsForCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // ListTagsForCertificateRequest
+ *   CertificateArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForCertificateCommandInput - {@link ListTagsForCertificateCommandInput}
+ * @returns {@link ListTagsForCertificateCommandOutput}
  * @see {@link ListTagsForCertificateCommandInput} for command's `input` shape.
  * @see {@link ListTagsForCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -78,6 +80,9 @@ export class ListTagsForCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class ListTagsForCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class ListTagsForCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsForCertificateCommand(input, context);
+    return se_ListTagsForCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForCertificateCommandOutput> {
-    return deserializeAws_json1_1ListTagsForCertificateCommand(output, context);
+    return de_ListTagsForCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

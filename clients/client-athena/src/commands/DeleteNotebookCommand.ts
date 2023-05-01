@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  DeleteNotebookInput,
-  DeleteNotebookInputFilterSensitiveLog,
-  DeleteNotebookOutput,
-  DeleteNotebookOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNotebookCommand,
-  serializeAws_json1_1DeleteNotebookCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteNotebookInput, DeleteNotebookOutput } from "../models/models_0";
+import { de_DeleteNotebookCommand, se_DeleteNotebookCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteNotebookCommand}.
  */
 export interface DeleteNotebookCommandInput extends DeleteNotebookInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteNotebookCommand}.
  */
 export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified notebook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __Met
  * import { AthenaClient, DeleteNotebookCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeleteNotebookCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // DeleteNotebookInput
+ *   NotebookId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNotebookCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteNotebookCommandInput - {@link DeleteNotebookCommandInput}
+ * @returns {@link DeleteNotebookCommandOutput}
  * @see {@link DeleteNotebookCommandInput} for command's `input` shape.
  * @see {@link DeleteNotebookCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -80,6 +82,9 @@ export class DeleteNotebookCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteNotebookCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class DeleteNotebookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNotebookInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNotebookOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class DeleteNotebookCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteNotebookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNotebookCommand(input, context);
+    return se_DeleteNotebookCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNotebookCommandOutput> {
-    return deserializeAws_json1_1DeleteNotebookCommand(output, context);
+    return de_DeleteNotebookCommand(output, context);
   }
 
   // Start section: command_body_extra

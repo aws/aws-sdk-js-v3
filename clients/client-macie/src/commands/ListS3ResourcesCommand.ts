@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import {
-  ListS3ResourcesRequest,
-  ListS3ResourcesRequestFilterSensitiveLog,
-  ListS3ResourcesResult,
-  ListS3ResourcesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListS3ResourcesCommand,
-  serializeAws_json1_1ListS3ResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListS3ResourcesRequest, ListS3ResourcesResult } from "../models/models_0";
+import { de_ListS3ResourcesCommand, se_ListS3ResourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListS3ResourcesCommand}.
  */
 export interface ListS3ResourcesCommandInput extends ListS3ResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListS3ResourcesCommand}.
  */
 export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>(Discontinued) Lists all the S3 resources associated with Amazon Macie Classic. If
  *       <code>memberAccountId</code> isn't specified, the action lists the S3 resources associated with Macie
  *       Classic for the current Macie Classic administrator account. If <code>memberAccountId</code> is specified,
@@ -46,10 +43,17 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  * import { MacieClient, ListS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, ListS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
+ * const input = { // ListS3ResourcesRequest
+ *   memberAccountId: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListS3ResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListS3ResourcesCommandInput - {@link ListS3ResourcesCommandInput}
+ * @returns {@link ListS3ResourcesCommandOutput}
  * @see {@link ListS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link ListS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
@@ -83,6 +87,9 @@ export class ListS3ResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListS3ResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class ListS3ResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListS3ResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListS3ResourcesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +129,18 @@ export class ListS3ResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListS3ResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListS3ResourcesCommand(input, context);
+    return se_ListS3ResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListS3ResourcesCommandOutput> {
-    return deserializeAws_json1_1ListS3ResourcesCommand(output, context);
+    return de_ListS3ResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

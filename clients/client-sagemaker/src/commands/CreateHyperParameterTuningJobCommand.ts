@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateHyperParameterTuningJobRequest, CreateHyperParameterTuningJobResponse } from "../models/models_1";
 import {
-  CreateHyperParameterTuningJobRequest,
-  CreateHyperParameterTuningJobRequestFilterSensitiveLog,
-  CreateHyperParameterTuningJobResponse,
-  CreateHyperParameterTuningJobResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateHyperParameterTuningJobCommand,
-  serializeAws_json1_1CreateHyperParameterTuningJobCommand,
+  de_CreateHyperParameterTuningJobCommand,
+  se_CreateHyperParameterTuningJobCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHyperParameterTuningJobCommand}.
  */
 export interface CreateHyperParameterTuningJobCommandInput extends CreateHyperParameterTuningJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHyperParameterTuningJobCommand}.
  */
 export interface CreateHyperParameterTuningJobCommandOutput
@@ -37,6 +36,7 @@ export interface CreateHyperParameterTuningJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a hyperparameter tuning job. A hyperparameter tuning job finds the best version
  *             of a model by running many training jobs on your dataset using the algorithm you choose
  *             and values for hyperparameters within ranges that you specify. It then chooses the
@@ -58,10 +58,358 @@ export interface CreateHyperParameterTuningJobCommandOutput
  * import { SageMakerClient, CreateHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateHyperParameterTuningJobRequest
+ *   HyperParameterTuningJobName: "STRING_VALUE", // required
+ *   HyperParameterTuningJobConfig: { // HyperParameterTuningJobConfig
+ *     Strategy: "Bayesian" || "Random" || "Hyperband" || "Grid", // required
+ *     StrategyConfig: { // HyperParameterTuningJobStrategyConfig
+ *       HyperbandStrategyConfig: { // HyperbandStrategyConfig
+ *         MinResource: Number("int"),
+ *         MaxResource: Number("int"),
+ *       },
+ *     },
+ *     HyperParameterTuningJobObjective: { // HyperParameterTuningJobObjective
+ *       Type: "Maximize" || "Minimize", // required
+ *       MetricName: "STRING_VALUE", // required
+ *     },
+ *     ResourceLimits: { // ResourceLimits
+ *       MaxNumberOfTrainingJobs: Number("int"),
+ *       MaxParallelTrainingJobs: Number("int"), // required
+ *       MaxRuntimeInSeconds: Number("int"),
+ *     },
+ *     ParameterRanges: { // ParameterRanges
+ *       IntegerParameterRanges: [ // IntegerParameterRanges
+ *         { // IntegerParameterRange
+ *           Name: "STRING_VALUE", // required
+ *           MinValue: "STRING_VALUE", // required
+ *           MaxValue: "STRING_VALUE", // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *       ContinuousParameterRanges: [ // ContinuousParameterRanges
+ *         { // ContinuousParameterRange
+ *           Name: "STRING_VALUE", // required
+ *           MinValue: "STRING_VALUE", // required
+ *           MaxValue: "STRING_VALUE", // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *       CategoricalParameterRanges: [ // CategoricalParameterRanges
+ *         { // CategoricalParameterRange
+ *           Name: "STRING_VALUE", // required
+ *           Values: [ // ParameterValues // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     TrainingJobEarlyStoppingType: "Off" || "Auto",
+ *     TuningJobCompletionCriteria: { // TuningJobCompletionCriteria
+ *       TargetObjectiveMetricValue: Number("float"),
+ *       BestObjectiveNotImproving: { // BestObjectiveNotImproving
+ *         MaxNumberOfTrainingJobsNotImproving: Number("int"),
+ *       },
+ *       ConvergenceDetected: { // ConvergenceDetected
+ *         CompleteOnConvergence: "Disabled" || "Enabled",
+ *       },
+ *     },
+ *     RandomSeed: Number("int"),
+ *   },
+ *   TrainingJobDefinition: { // HyperParameterTrainingJobDefinition
+ *     DefinitionName: "STRING_VALUE",
+ *     TuningObjective: {
+ *       Type: "Maximize" || "Minimize", // required
+ *       MetricName: "STRING_VALUE", // required
+ *     },
+ *     HyperParameterRanges: {
+ *       IntegerParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           MinValue: "STRING_VALUE", // required
+ *           MaxValue: "STRING_VALUE", // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *       ContinuousParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           MinValue: "STRING_VALUE", // required
+ *           MaxValue: "STRING_VALUE", // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *       CategoricalParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     StaticHyperParameters: { // HyperParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     AlgorithmSpecification: { // HyperParameterAlgorithmSpecification
+ *       TrainingImage: "STRING_VALUE",
+ *       TrainingInputMode: "Pipe" || "File" || "FastFile", // required
+ *       AlgorithmName: "STRING_VALUE",
+ *       MetricDefinitions: [ // MetricDefinitionList
+ *         { // MetricDefinition
+ *           Name: "STRING_VALUE", // required
+ *           Regex: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     RoleArn: "STRING_VALUE", // required
+ *     InputDataConfig: [ // InputDataConfig
+ *       { // Channel
+ *         ChannelName: "STRING_VALUE", // required
+ *         DataSource: { // DataSource
+ *           S3DataSource: { // S3DataSource
+ *             S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
+ *             S3Uri: "STRING_VALUE", // required
+ *             S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ *             AttributeNames: [ // AttributeNames
+ *               "STRING_VALUE",
+ *             ],
+ *             InstanceGroupNames: [ // InstanceGroupNames
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           FileSystemDataSource: { // FileSystemDataSource
+ *             FileSystemId: "STRING_VALUE", // required
+ *             FileSystemAccessMode: "rw" || "ro", // required
+ *             FileSystemType: "EFS" || "FSxLustre", // required
+ *             DirectoryPath: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         ContentType: "STRING_VALUE",
+ *         CompressionType: "None" || "Gzip",
+ *         RecordWrapperType: "None" || "RecordIO",
+ *         InputMode: "Pipe" || "File" || "FastFile",
+ *         ShuffleConfig: { // ShuffleConfig
+ *           Seed: Number("long"), // required
+ *         },
+ *       },
+ *     ],
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // VpcSecurityGroupIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Subnets: [ // Subnets // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     OutputDataConfig: { // OutputDataConfig
+ *       KmsKeyId: "STRING_VALUE",
+ *       S3OutputPath: "STRING_VALUE", // required
+ *     },
+ *     ResourceConfig: { // ResourceConfig
+ *       InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge",
+ *       InstanceCount: Number("int"),
+ *       VolumeSizeInGB: Number("int"), // required
+ *       VolumeKmsKeyId: "STRING_VALUE",
+ *       InstanceGroups: [ // InstanceGroups
+ *         { // InstanceGroup
+ *           InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge", // required
+ *           InstanceCount: Number("int"), // required
+ *           InstanceGroupName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       KeepAlivePeriodInSeconds: Number("int"),
+ *     },
+ *     StoppingCondition: { // StoppingCondition
+ *       MaxRuntimeInSeconds: Number("int"),
+ *       MaxWaitTimeInSeconds: Number("int"),
+ *     },
+ *     EnableNetworkIsolation: true || false,
+ *     EnableInterContainerTrafficEncryption: true || false,
+ *     EnableManagedSpotTraining: true || false,
+ *     CheckpointConfig: { // CheckpointConfig
+ *       S3Uri: "STRING_VALUE", // required
+ *       LocalPath: "STRING_VALUE",
+ *     },
+ *     RetryStrategy: { // RetryStrategy
+ *       MaximumRetryAttempts: Number("int"), // required
+ *     },
+ *     HyperParameterTuningResourceConfig: { // HyperParameterTuningResourceConfig
+ *       InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge",
+ *       InstanceCount: Number("int"),
+ *       VolumeSizeInGB: Number("int"),
+ *       VolumeKmsKeyId: "STRING_VALUE",
+ *       AllocationStrategy: "Prioritized",
+ *       InstanceConfigs: [ // HyperParameterTuningInstanceConfigs
+ *         { // HyperParameterTuningInstanceConfig
+ *           InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge", // required
+ *           InstanceCount: Number("int"), // required
+ *           VolumeSizeInGB: Number("int"), // required
+ *         },
+ *       ],
+ *     },
+ *     Environment: { // HyperParameterTrainingJobEnvironmentMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   TrainingJobDefinitions: [ // HyperParameterTrainingJobDefinitions
+ *     {
+ *       DefinitionName: "STRING_VALUE",
+ *       TuningObjective: {
+ *         Type: "Maximize" || "Minimize", // required
+ *         MetricName: "STRING_VALUE", // required
+ *       },
+ *       HyperParameterRanges: {
+ *         IntegerParameterRanges: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             MinValue: "STRING_VALUE", // required
+ *             MaxValue: "STRING_VALUE", // required
+ *             ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *           },
+ *         ],
+ *         ContinuousParameterRanges: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             MinValue: "STRING_VALUE", // required
+ *             MaxValue: "STRING_VALUE", // required
+ *             ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *           },
+ *         ],
+ *         CategoricalParameterRanges: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Values: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       StaticHyperParameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       AlgorithmSpecification: {
+ *         TrainingImage: "STRING_VALUE",
+ *         TrainingInputMode: "Pipe" || "File" || "FastFile", // required
+ *         AlgorithmName: "STRING_VALUE",
+ *         MetricDefinitions: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Regex: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       RoleArn: "STRING_VALUE", // required
+ *       InputDataConfig: [
+ *         {
+ *           ChannelName: "STRING_VALUE", // required
+ *           DataSource: {
+ *             S3DataSource: {
+ *               S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
+ *               S3Uri: "STRING_VALUE", // required
+ *               S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ *               AttributeNames: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               InstanceGroupNames: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             FileSystemDataSource: {
+ *               FileSystemId: "STRING_VALUE", // required
+ *               FileSystemAccessMode: "rw" || "ro", // required
+ *               FileSystemType: "EFS" || "FSxLustre", // required
+ *               DirectoryPath: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           ContentType: "STRING_VALUE",
+ *           CompressionType: "None" || "Gzip",
+ *           RecordWrapperType: "None" || "RecordIO",
+ *           InputMode: "Pipe" || "File" || "FastFile",
+ *           ShuffleConfig: {
+ *             Seed: Number("long"), // required
+ *           },
+ *         },
+ *       ],
+ *       VpcConfig: {
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Subnets: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       OutputDataConfig: {
+ *         KmsKeyId: "STRING_VALUE",
+ *         S3OutputPath: "STRING_VALUE", // required
+ *       },
+ *       ResourceConfig: {
+ *         InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge",
+ *         InstanceCount: Number("int"),
+ *         VolumeSizeInGB: Number("int"), // required
+ *         VolumeKmsKeyId: "STRING_VALUE",
+ *         InstanceGroups: [
+ *           {
+ *             InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge", // required
+ *             InstanceCount: Number("int"), // required
+ *             InstanceGroupName: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         KeepAlivePeriodInSeconds: Number("int"),
+ *       },
+ *       StoppingCondition: {
+ *         MaxRuntimeInSeconds: Number("int"),
+ *         MaxWaitTimeInSeconds: Number("int"),
+ *       },
+ *       EnableNetworkIsolation: true || false,
+ *       EnableInterContainerTrafficEncryption: true || false,
+ *       EnableManagedSpotTraining: true || false,
+ *       CheckpointConfig: {
+ *         S3Uri: "STRING_VALUE", // required
+ *         LocalPath: "STRING_VALUE",
+ *       },
+ *       RetryStrategy: {
+ *         MaximumRetryAttempts: Number("int"), // required
+ *       },
+ *       HyperParameterTuningResourceConfig: {
+ *         InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge",
+ *         InstanceCount: Number("int"),
+ *         VolumeSizeInGB: Number("int"),
+ *         VolumeKmsKeyId: "STRING_VALUE",
+ *         AllocationStrategy: "Prioritized",
+ *         InstanceConfigs: [
+ *           {
+ *             InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge", // required
+ *             InstanceCount: Number("int"), // required
+ *             VolumeSizeInGB: Number("int"), // required
+ *           },
+ *         ],
+ *       },
+ *       Environment: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   WarmStartConfig: { // HyperParameterTuningJobWarmStartConfig
+ *     ParentHyperParameterTuningJobs: [ // ParentHyperParameterTuningJobs // required
+ *       { // ParentHyperParameterTuningJob
+ *         HyperParameterTuningJobName: "STRING_VALUE",
+ *       },
+ *     ],
+ *     WarmStartType: "IdenticalDataAndAlgorithm" || "TransferLearning", // required
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHyperParameterTuningJobCommandInput - {@link CreateHyperParameterTuningJobCommandInput}
+ * @returns {@link CreateHyperParameterTuningJobCommandOutput}
  * @see {@link CreateHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link CreateHyperParameterTuningJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -92,6 +440,9 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHyperParameterTuningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +471,8 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHyperParameterTuningJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHyperParameterTuningJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +482,21 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHyperParameterTuningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHyperParameterTuningJobCommand(input, context);
+    return se_CreateHyperParameterTuningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateHyperParameterTuningJobCommandOutput> {
-    return deserializeAws_json1_1CreateHyperParameterTuningJobCommand(output, context);
+    return de_CreateHyperParameterTuningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

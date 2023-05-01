@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeCustomMetricRequest,
-  DescribeCustomMetricRequestFilterSensitiveLog,
-  DescribeCustomMetricResponse,
-  DescribeCustomMetricResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeCustomMetricCommand,
-  serializeAws_restJson1DescribeCustomMetricCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeCustomMetricRequest, DescribeCustomMetricResponse } from "../models/models_1";
+import { de_DescribeCustomMetricCommand, se_DescribeCustomMetricCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCustomMetricCommand}.
  */
 export interface DescribeCustomMetricCommandInput extends DescribeCustomMetricRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCustomMetricCommand}.
  */
 export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Gets information about a Device Defender detect custom metric.
  *     </p>
@@ -45,10 +42,15 @@ export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricR
  * import { IoTClient, DescribeCustomMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeCustomMetricRequest
+ *   metricName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCustomMetricCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCustomMetricCommandInput - {@link DescribeCustomMetricCommandInput}
+ * @returns {@link DescribeCustomMetricCommandOutput}
  * @see {@link DescribeCustomMetricCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -84,6 +86,9 @@ export class DescribeCustomMetricCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCustomMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DescribeCustomMetricCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCustomMetricRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCustomMetricResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DescribeCustomMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCustomMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCustomMetricCommand(input, context);
+    return se_DescribeCustomMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCustomMetricCommandOutput> {
-    return deserializeAws_restJson1DescribeCustomMetricCommand(output, context);
+    return de_DescribeCustomMetricCommand(output, context);
   }
 
   // Start section: command_body_extra

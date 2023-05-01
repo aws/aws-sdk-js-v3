@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateQueryLoggingConfigRequest,
-  CreateQueryLoggingConfigRequestFilterSensitiveLog,
-  CreateQueryLoggingConfigResponse,
-  CreateQueryLoggingConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateQueryLoggingConfigCommand,
-  serializeAws_restXmlCreateQueryLoggingConfigCommand,
-} from "../protocols/Aws_restXml";
+import { CreateQueryLoggingConfigRequest, CreateQueryLoggingConfigResponse } from "../models/models_0";
+import { de_CreateQueryLoggingConfigCommand, se_CreateQueryLoggingConfigCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateQueryLoggingConfigCommand}.
  */
 export interface CreateQueryLoggingConfigCommandInput extends CreateQueryLoggingConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateQueryLoggingConfigCommand}.
  */
 export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a configuration for DNS query logging. After you create a query logging
  * 			configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs
  * 			log group.</p>
@@ -210,10 +207,16 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  * import { Route53Client, CreateQueryLoggingConfigCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateQueryLoggingConfigCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // CreateQueryLoggingConfigRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new CreateQueryLoggingConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateQueryLoggingConfigCommandInput - {@link CreateQueryLoggingConfigCommandInput}
+ * @returns {@link CreateQueryLoggingConfigCommandOutput}
  * @see {@link CreateQueryLoggingConfigCommandInput} for command's `input` shape.
  * @see {@link CreateQueryLoggingConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -281,6 +284,9 @@ export class CreateQueryLoggingConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateQueryLoggingConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -310,8 +316,8 @@ export class CreateQueryLoggingConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQueryLoggingConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateQueryLoggingConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -321,12 +327,18 @@ export class CreateQueryLoggingConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateQueryLoggingConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateQueryLoggingConfigCommand(input, context);
+    return se_CreateQueryLoggingConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQueryLoggingConfigCommandOutput> {
-    return deserializeAws_restXmlCreateQueryLoggingConfigCommand(output, context);
+    return de_CreateQueryLoggingConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

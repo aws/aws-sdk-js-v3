@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeCommunicationsRequest,
-  DescribeCommunicationsRequestFilterSensitiveLog,
-  DescribeCommunicationsResponse,
-  DescribeCommunicationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCommunicationsCommand,
-  serializeAws_json1_1DescribeCommunicationsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeCommunicationsRequest, DescribeCommunicationsResponse } from "../models/models_0";
+import { de_DescribeCommunicationsCommand, se_DescribeCommunicationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCommunicationsCommand}.
  */
 export interface DescribeCommunicationsCommandInput extends DescribeCommunicationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCommunicationsCommand}.
  */
 export interface DescribeCommunicationsCommandOutput extends DescribeCommunicationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns communications and attachments for one or more support cases. Use the
  *                 <code>afterTime</code> and <code>beforeTime</code> parameters to filter by date. You
  *             can use the <code>caseId</code> parameter to restrict the results to a specific
@@ -65,10 +62,19 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  * import { SupportClient, DescribeCommunicationsCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeCommunicationsCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // DescribeCommunicationsRequest
+ *   caseId: "STRING_VALUE", // required
+ *   beforeTime: "STRING_VALUE",
+ *   afterTime: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeCommunicationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCommunicationsCommandInput - {@link DescribeCommunicationsCommandInput}
+ * @returns {@link DescribeCommunicationsCommandOutput}
  * @see {@link DescribeCommunicationsCommandInput} for command's `input` shape.
  * @see {@link DescribeCommunicationsCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -98,6 +104,9 @@ export class DescribeCommunicationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCommunicationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +135,8 @@ export class DescribeCommunicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCommunicationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCommunicationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +146,18 @@ export class DescribeCommunicationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCommunicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCommunicationsCommand(input, context);
+    return se_DescribeCommunicationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCommunicationsCommandOutput> {
-    return deserializeAws_json1_1DescribeCommunicationsCommand(output, context);
+    return de_DescribeCommunicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

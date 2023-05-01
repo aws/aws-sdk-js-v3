@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListJobsRequest,
-  ListJobsRequestFilterSensitiveLog,
-  ListJobsResponse,
-  ListJobsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListJobsCommand,
-  serializeAws_restJson1ListJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListJobsRequest, ListJobsResponse } from "../models/models_1";
+import { de_ListJobsCommand, se_ListJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListJobsCommand}.
  */
 export interface ListJobsCommandInput extends ListJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListJobsCommand}.
  */
 export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists jobs.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobs</a> action.</p>
  * @example
@@ -43,10 +40,21 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * import { IoTClient, ListJobsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListJobsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListJobsRequest
+ *   status: "IN_PROGRESS" || "CANCELED" || "COMPLETED" || "DELETION_IN_PROGRESS" || "SCHEDULED",
+ *   targetSelection: "CONTINUOUS" || "SNAPSHOT",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   thingGroupName: "STRING_VALUE",
+ *   thingGroupId: "STRING_VALUE",
+ *   namespaceId: "STRING_VALUE",
+ * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListJobsCommandInput - {@link ListJobsCommandInput}
+ * @returns {@link ListJobsCommandOutput}
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -78,6 +86,9 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +115,8 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +126,18 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJobsCommand(input, context);
+    return se_ListJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobsCommandOutput> {
-    return deserializeAws_restJson1ListJobsCommand(output, context);
+    return de_ListJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  GetLinkAttributesRequest,
-  GetLinkAttributesRequestFilterSensitiveLog,
-  GetLinkAttributesResponse,
-  GetLinkAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLinkAttributesCommand,
-  serializeAws_restJson1GetLinkAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLinkAttributesRequest, GetLinkAttributesResponse } from "../models/models_0";
+import { de_GetLinkAttributesCommand, se_GetLinkAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLinkAttributesCommand}.
  */
 export interface GetLinkAttributesCommandInput extends GetLinkAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLinkAttributesCommand}.
  */
 export interface GetLinkAttributesCommandOutput extends GetLinkAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves attributes that are associated with a typed link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,43 @@ export interface GetLinkAttributesCommandOutput extends GetLinkAttributesRespons
  * import { CloudDirectoryClient, GetLinkAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetLinkAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // GetLinkAttributesRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   TypedLinkSpecifier: { // TypedLinkSpecifier
+ *     TypedLinkFacet: { // TypedLinkSchemaAndFacetName
+ *       SchemaArn: "STRING_VALUE", // required
+ *       TypedLinkName: "STRING_VALUE", // required
+ *     },
+ *     SourceObjectReference: { // ObjectReference
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     TargetObjectReference: {
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ *       { // AttributeNameAndValue
+ *         AttributeName: "STRING_VALUE", // required
+ *         Value: { // TypedAttributeValue Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   AttributeNames: [ // AttributeNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ * };
  * const command = new GetLinkAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLinkAttributesCommandInput - {@link GetLinkAttributesCommandInput}
+ * @returns {@link GetLinkAttributesCommandOutput}
  * @see {@link GetLinkAttributesCommandInput} for command's `input` shape.
  * @see {@link GetLinkAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +128,9 @@ export class GetLinkAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLinkAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +159,8 @@ export class GetLinkAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLinkAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLinkAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +170,18 @@ export class GetLinkAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLinkAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLinkAttributesCommand(input, context);
+    return se_GetLinkAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinkAttributesCommandOutput> {
-    return deserializeAws_restJson1GetLinkAttributesCommand(output, context);
+    return de_GetLinkAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

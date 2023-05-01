@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  AutoScalingGroupNamesType,
-  AutoScalingGroupNamesTypeFilterSensitiveLog,
-  AutoScalingGroupsType,
-  AutoScalingGroupsTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAutoScalingGroupsCommand,
-  serializeAws_queryDescribeAutoScalingGroupsCommand,
-} from "../protocols/Aws_query";
+import { AutoScalingGroupNamesType, AutoScalingGroupsType } from "../models/models_0";
+import { de_DescribeAutoScalingGroupsCommand, se_DescribeAutoScalingGroupsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAutoScalingGroupsCommand}.
  */
 export interface DescribeAutoScalingGroupsCommandInput extends AutoScalingGroupNamesType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAutoScalingGroupsCommand}.
  */
 export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroupsType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the Auto Scaling groups in the account and Region.</p>
  *          <p>If you specify Auto Scaling group names, the output includes information for only the
  *             specified Auto Scaling groups. If you specify filters, the output includes information for only
@@ -48,10 +45,27 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * import { AutoScalingClient, DescribeAutoScalingGroupsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeAutoScalingGroupsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // AutoScalingGroupNamesType
+ *   AutoScalingGroupNames: [ // AutoScalingGroupNames
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // Values
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribeAutoScalingGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutoScalingGroupsCommandInput - {@link DescribeAutoScalingGroupsCommandInput}
+ * @returns {@link DescribeAutoScalingGroupsCommandOutput}
  * @see {@link DescribeAutoScalingGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -135,6 +149,9 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutoScalingGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,8 +180,8 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AutoScalingGroupNamesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: AutoScalingGroupsTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -174,15 +191,21 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAutoScalingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAutoScalingGroupsCommand(input, context);
+    return se_DescribeAutoScalingGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingGroupsCommandOutput> {
-    return deserializeAws_queryDescribeAutoScalingGroupsCommand(output, context);
+    return de_DescribeAutoScalingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

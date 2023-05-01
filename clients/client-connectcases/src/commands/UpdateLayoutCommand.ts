@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  UpdateLayoutRequest,
-  UpdateLayoutRequestFilterSensitiveLog,
-  UpdateLayoutResponse,
-  UpdateLayoutResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLayoutCommand,
-  serializeAws_restJson1UpdateLayoutCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateLayoutRequest, UpdateLayoutResponse } from "../models/models_0";
+import { de_UpdateLayoutCommand, se_UpdateLayoutCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLayoutCommand}.
  */
 export interface UpdateLayoutCommandInput extends UpdateLayoutRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLayoutCommand}.
  */
 export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the attributes of an existing layout.</p>
  *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *       HTTP body.</p>
@@ -50,10 +47,49 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * import { ConnectCasesClient, UpdateLayoutCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, UpdateLayoutCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // UpdateLayoutRequest
+ *   domainId: "STRING_VALUE", // required
+ *   layoutId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   content: { // LayoutContent Union: only one key present
+ *     basic: { // BasicLayout
+ *       topPanel: { // LayoutSections
+ *         sections: [ // SectionsList
+ *           { // Section Union: only one key present
+ *             fieldGroup: { // FieldGroup
+ *               name: "STRING_VALUE",
+ *               fields: [ // FieldList // required
+ *                 { // FieldItem
+ *                   id: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       moreInfo: {
+ *         sections: [
+ *           {//  Union: only one key present
+ *             fieldGroup: {
+ *               name: "STRING_VALUE",
+ *               fields: [ // required
+ *                 {
+ *                   id: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateLayoutCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLayoutCommandInput - {@link UpdateLayoutCommandInput}
+ * @returns {@link UpdateLayoutCommandOutput}
  * @see {@link UpdateLayoutCommandInput} for command's `input` shape.
  * @see {@link UpdateLayoutCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -103,6 +139,9 @@ export class UpdateLayoutCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLayoutCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +168,8 @@ export class UpdateLayoutCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLayoutRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLayoutResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +179,18 @@ export class UpdateLayoutCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLayoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLayoutCommand(input, context);
+    return se_UpdateLayoutCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLayoutCommandOutput> {
-    return deserializeAws_restJson1UpdateLayoutCommand(output, context);
+    return de_UpdateLayoutCommand(output, context);
   }
 
   // Start section: command_body_extra

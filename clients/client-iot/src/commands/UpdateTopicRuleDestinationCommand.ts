@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateTopicRuleDestinationRequest,
-  UpdateTopicRuleDestinationRequestFilterSensitiveLog,
-  UpdateTopicRuleDestinationResponse,
-  UpdateTopicRuleDestinationResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateTopicRuleDestinationCommand,
-  serializeAws_restJson1UpdateTopicRuleDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateTopicRuleDestinationRequest, UpdateTopicRuleDestinationResponse } from "../models/models_2";
+import { de_UpdateTopicRuleDestinationCommand, se_UpdateTopicRuleDestinationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTopicRuleDestinationCommand}.
  */
 export interface UpdateTopicRuleDestinationCommandInput extends UpdateTopicRuleDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTopicRuleDestinationCommand}.
  */
 export interface UpdateTopicRuleDestinationCommandOutput extends UpdateTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or
  *          confirmation URL of the destination.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateTopicRuleDestination</a> action.</p>
@@ -44,10 +41,16 @@ export interface UpdateTopicRuleDestinationCommandOutput extends UpdateTopicRule
  * import { IoTClient, UpdateTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateTopicRuleDestinationRequest
+ *   arn: "STRING_VALUE", // required
+ *   status: "ENABLED" || "IN_PROGRESS" || "DISABLED" || "ERROR" || "DELETING", // required
+ * };
  * const command = new UpdateTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTopicRuleDestinationCommandInput - {@link UpdateTopicRuleDestinationCommandInput}
+ * @returns {@link UpdateTopicRuleDestinationCommandOutput}
  * @see {@link UpdateTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +90,9 @@ export class UpdateTopicRuleDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTopicRuleDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class UpdateTopicRuleDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTopicRuleDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTopicRuleDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +132,21 @@ export class UpdateTopicRuleDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTopicRuleDestinationCommand(input, context);
+    return se_UpdateTopicRuleDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1UpdateTopicRuleDestinationCommand(output, context);
+    return de_UpdateTopicRuleDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

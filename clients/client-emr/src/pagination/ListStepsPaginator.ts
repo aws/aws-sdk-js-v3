@@ -6,7 +6,7 @@ import { EMRClient } from "../EMRClient";
 import { EMRPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EMRClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListStepsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSteps(
   config: EMRPaginationConfiguration,
   input: ListStepsCommandInput,

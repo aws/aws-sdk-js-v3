@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeAccountModificationsRequest, DescribeAccountModificationsResult } from "../models/models_0";
 import {
-  DescribeAccountModificationsRequest,
-  DescribeAccountModificationsRequestFilterSensitiveLog,
-  DescribeAccountModificationsResult,
-  DescribeAccountModificationsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAccountModificationsCommand,
-  serializeAws_json1_1DescribeAccountModificationsCommand,
+  de_DescribeAccountModificationsCommand,
+  se_DescribeAccountModificationsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountModificationsCommand}.
  */
 export interface DescribeAccountModificationsCommandInput extends DescribeAccountModificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountModificationsCommand}.
  */
 export interface DescribeAccountModificationsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeAccountModificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes modifications to the configuration of Bring Your Own
  *          License (BYOL) for the specified account.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DescribeAccountModificationsCommandOutput
  * import { WorkSpacesClient, DescribeAccountModificationsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeAccountModificationsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeAccountModificationsRequest
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAccountModificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountModificationsCommandInput - {@link DescribeAccountModificationsCommandInput}
+ * @returns {@link DescribeAccountModificationsCommandOutput}
  * @see {@link DescribeAccountModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountModificationsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -75,6 +80,9 @@ export class DescribeAccountModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +111,8 @@ export class DescribeAccountModificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountModificationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountModificationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +122,21 @@ export class DescribeAccountModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountModificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAccountModificationsCommand(input, context);
+    return se_DescribeAccountModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountModificationsCommandOutput> {
-    return deserializeAws_json1_1DescribeAccountModificationsCommand(output, context);
+    return de_DescribeAccountModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

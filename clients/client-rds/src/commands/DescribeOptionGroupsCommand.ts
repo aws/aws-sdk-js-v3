@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeOptionGroupsMessage,
-  DescribeOptionGroupsMessageFilterSensitiveLog,
-  OptionGroups,
-  OptionGroupsFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeOptionGroupsCommand,
-  serializeAws_queryDescribeOptionGroupsCommand,
-} from "../protocols/Aws_query";
+import { DescribeOptionGroupsMessage, OptionGroups } from "../models/models_1";
+import { de_DescribeOptionGroupsCommand, se_DescribeOptionGroupsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOptionGroupsCommand}.
  */
 export interface DescribeOptionGroupsCommandInput extends DescribeOptionGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOptionGroupsCommand}.
  */
 export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the available option groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  * import { RDSClient, DescribeOptionGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeOptionGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeOptionGroupsMessage
+ *   OptionGroupName: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   EngineName: "STRING_VALUE",
+ *   MajorEngineVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeOptionGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOptionGroupsCommandInput - {@link DescribeOptionGroupsCommandInput}
+ * @returns {@link DescribeOptionGroupsCommandOutput}
  * @see {@link DescribeOptionGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeOptionGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -54,16 +68,31 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  *  <p>The specified option group could not be found.</p>
  *
  *
- * @example To list information about DB option groups
+ * @example To describe the available option groups
  * ```javascript
- * // This example lists information for all option groups for the specified DB engine.
+ * // The following example lists the options groups for an Oracle Database 19c instance.
  * const input = {
- *   "EngineName": "mysql",
- *   "MajorEngineVersion": "5.6"
+ *   "EngineName": "oracle-ee",
+ *   "MajorEngineVersion": "19"
  * };
  * const command = new DescribeOptionGroupsCommand(input);
- * await client.send(command);
- * // example id: describe-option-groups-4ef478a1-66d5-45f2-bec3-e608720418a4
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OptionGroupsList": [
+ *     {
+ *       "AllowsVpcAndNonVpcInstanceMemberships": true,
+ *       "EngineName": "oracle-ee",
+ *       "MajorEngineVersion": "19",
+ *       "OptionGroupArn": "arn:aws:rds:us-west-1:111122223333:og:default:oracle-ee-19",
+ *       "OptionGroupDescription": "Default option group for oracle-ee 19",
+ *       "OptionGroupName": "default:oracle-ee-19",
+ *       "Options": []
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-available-option-groups-1680283066000
  * ```
  *
  */
@@ -84,6 +113,9 @@ export class DescribeOptionGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOptionGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +144,8 @@ export class DescribeOptionGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOptionGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: OptionGroupsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +155,18 @@ export class DescribeOptionGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOptionGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeOptionGroupsCommand(input, context);
+    return se_DescribeOptionGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOptionGroupsCommandOutput> {
-    return deserializeAws_queryDescribeOptionGroupsCommand(output, context);
+    return de_DescribeOptionGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

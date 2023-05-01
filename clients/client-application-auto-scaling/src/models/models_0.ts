@@ -3,13 +3,23 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { ApplicationAutoScalingServiceException as __BaseException } from "./ApplicationAutoScalingServiceException";
 
-export enum AdjustmentType {
-  ChangeInCapacity = "ChangeInCapacity",
-  ExactCapacity = "ExactCapacity",
-  PercentChangeInCapacity = "PercentChangeInCapacity",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AdjustmentType = {
+  ChangeInCapacity: "ChangeInCapacity",
+  ExactCapacity: "ExactCapacity",
+  PercentChangeInCapacity: "PercentChangeInCapacity",
+} as const;
 
 /**
+ * @public
+ */
+export type AdjustmentType = (typeof AdjustmentType)[keyof typeof AdjustmentType];
+
+/**
+ * @public
  * <p>Represents a CloudWatch alarm associated with a scaling policy.</p>
  */
 export interface Alarm {
@@ -25,6 +35,7 @@ export interface Alarm {
 }
 
 /**
+ * @public
  * <p>Concurrent updates caused an exception, for example, if you request an update to an
  *          Application Auto Scaling resource that already has a pending update.</p>
  */
@@ -46,46 +57,67 @@ export class ConcurrentUpdateException extends __BaseException {
   }
 }
 
-export enum ScalableDimension {
-  AppstreamFleetDesiredCapacity = "appstream:fleet:DesiredCapacity",
-  CassandraTableReadCapacityUnits = "cassandra:table:ReadCapacityUnits",
-  CassandraTableWriteCapacityUnits = "cassandra:table:WriteCapacityUnits",
-  ComprehendDocClassifierEndpointInferenceUnits = "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-  ComprehendEntityRecognizerEndpointInferenceUnits = "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-  CustomResourceScalableDimension = "custom-resource:ResourceType:Property",
-  DynamoDBIndexReadCapacityUnits = "dynamodb:index:ReadCapacityUnits",
-  DynamoDBIndexWriteCapacityUnits = "dynamodb:index:WriteCapacityUnits",
-  DynamoDBTableReadCapacityUnits = "dynamodb:table:ReadCapacityUnits",
-  DynamoDBTableWriteCapacityUnits = "dynamodb:table:WriteCapacityUnits",
-  EC2SpotFleetRequestTargetCapacity = "ec2:spot-fleet-request:TargetCapacity",
-  ECSServiceDesiredCount = "ecs:service:DesiredCount",
-  EMRInstanceGroupInstanceCount = "elasticmapreduce:instancegroup:InstanceCount",
-  ElastiCacheReplicationGroupNodeGroups = "elasticache:replication-group:NodeGroups",
-  ElastiCacheReplicationGroupReplicas = "elasticache:replication-group:Replicas",
-  KafkaBrokerStorageVolumeSize = "kafka:broker-storage:VolumeSize",
-  LambdaFunctionProvisionedConcurrency = "lambda:function:ProvisionedConcurrency",
-  NeptuneClusterReadReplicaCount = "neptune:cluster:ReadReplicaCount",
-  RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount",
-  SageMakerVariantDesiredInstanceCount = "sagemaker:variant:DesiredInstanceCount",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScalableDimension = {
+  AppstreamFleetDesiredCapacity: "appstream:fleet:DesiredCapacity",
+  CassandraTableReadCapacityUnits: "cassandra:table:ReadCapacityUnits",
+  CassandraTableWriteCapacityUnits: "cassandra:table:WriteCapacityUnits",
+  ComprehendDocClassifierEndpointInferenceUnits: "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
+  ComprehendEntityRecognizerEndpointInferenceUnits: "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
+  CustomResourceScalableDimension: "custom-resource:ResourceType:Property",
+  DynamoDBIndexReadCapacityUnits: "dynamodb:index:ReadCapacityUnits",
+  DynamoDBIndexWriteCapacityUnits: "dynamodb:index:WriteCapacityUnits",
+  DynamoDBTableReadCapacityUnits: "dynamodb:table:ReadCapacityUnits",
+  DynamoDBTableWriteCapacityUnits: "dynamodb:table:WriteCapacityUnits",
+  EC2SpotFleetRequestTargetCapacity: "ec2:spot-fleet-request:TargetCapacity",
+  ECSServiceDesiredCount: "ecs:service:DesiredCount",
+  EMRInstanceGroupInstanceCount: "elasticmapreduce:instancegroup:InstanceCount",
+  ElastiCacheReplicationGroupNodeGroups: "elasticache:replication-group:NodeGroups",
+  ElastiCacheReplicationGroupReplicas: "elasticache:replication-group:Replicas",
+  KafkaBrokerStorageVolumeSize: "kafka:broker-storage:VolumeSize",
+  LambdaFunctionProvisionedConcurrency: "lambda:function:ProvisionedConcurrency",
+  NeptuneClusterReadReplicaCount: "neptune:cluster:ReadReplicaCount",
+  RDSClusterReadReplicaCount: "rds:cluster:ReadReplicaCount",
+  SageMakerVariantDesiredInstanceCount: "sagemaker:variant:DesiredInstanceCount",
+} as const;
 
-export enum ServiceNamespace {
-  APPSTREAM = "appstream",
-  CASSANDRA = "cassandra",
-  COMPREHEND = "comprehend",
-  CUSTOM_RESOURCE = "custom-resource",
-  DYNAMODB = "dynamodb",
-  EC2 = "ec2",
-  ECS = "ecs",
-  ELASTICACHE = "elasticache",
-  EMR = "elasticmapreduce",
-  KAFKA = "kafka",
-  LAMBDA = "lambda",
-  NEPTUNE = "neptune",
-  RDS = "rds",
-  SAGEMAKER = "sagemaker",
-}
+/**
+ * @public
+ */
+export type ScalableDimension = (typeof ScalableDimension)[keyof typeof ScalableDimension];
 
+/**
+ * @public
+ * @enum
+ */
+export const ServiceNamespace = {
+  APPSTREAM: "appstream",
+  CASSANDRA: "cassandra",
+  COMPREHEND: "comprehend",
+  CUSTOM_RESOURCE: "custom-resource",
+  DYNAMODB: "dynamodb",
+  EC2: "ec2",
+  ECS: "ecs",
+  ELASTICACHE: "elasticache",
+  EMR: "elasticmapreduce",
+  KAFKA: "kafka",
+  LAMBDA: "lambda",
+  NEPTUNE: "neptune",
+  RDS: "rds",
+  SAGEMAKER: "sagemaker",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceNamespace = (typeof ServiceNamespace)[keyof typeof ServiceNamespace];
+
+/**
+ * @public
+ */
 export interface DeleteScalingPolicyRequest {
   /**
    * <p>The name of the scaling policy.</p>
@@ -256,9 +288,13 @@ export interface DeleteScalingPolicyRequest {
   ScalableDimension: ScalableDimension | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScalingPolicyResponse {}
 
 /**
+ * @public
  * <p>The service encountered an internal error.</p>
  */
 export class InternalServiceException extends __BaseException {
@@ -280,6 +316,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified object could not be found. For any operation that depends on the existence
  *          of a scalable target, this exception is thrown if the scalable target with the specified
  *          service namespace, resource ID, and scalable dimension does not exist. For any operation
@@ -305,6 +342,7 @@ export class ObjectNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  */
@@ -326,6 +364,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduledActionRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -496,8 +537,14 @@ export interface DeleteScheduledActionRequest {
   ScalableDimension: ScalableDimension | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteScheduledActionResponse {}
 
+/**
+ * @public
+ */
 export interface DeregisterScalableTargetRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -664,8 +711,14 @@ export interface DeregisterScalableTargetRequest {
   ScalableDimension: ScalableDimension | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterScalableTargetResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeScalableTargetsRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -849,6 +902,7 @@ export interface DescribeScalableTargetsRequest {
 }
 
 /**
+ * @public
  * <p>Specifies whether the scaling activities for a scalable target are in a suspended state.
  *       </p>
  */
@@ -876,6 +930,7 @@ export interface SuspendedState {
 }
 
 /**
+ * @public
  * <p>Represents a scalable target.</p>
  */
 export interface ScalableTarget {
@@ -1076,6 +1131,9 @@ export interface ScalableTarget {
   ScalableTargetARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalableTargetsResponse {
   /**
    * <p>The scalable targets that match the request parameters.</p>
@@ -1090,6 +1148,7 @@ export interface DescribeScalableTargetsResponse {
 }
 
 /**
+ * @public
  * <p>The next token supplied was invalid.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -1110,6 +1169,9 @@ export class InvalidNextTokenException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingActivitiesRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -1301,6 +1363,7 @@ export interface DescribeScalingActivitiesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the reason for an activity that isn't scaled (<i>not scaled
  *             activity</i>), in machine-readable format. For help interpreting the not scaled
  *          reason details, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling activities for Application Auto Scaling</a>.</p>
@@ -1345,16 +1408,26 @@ export interface NotScaledReason {
   CurrentCapacity?: number;
 }
 
-export enum ScalingActivityStatusCode {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Overridden = "Overridden",
-  Pending = "Pending",
-  Successful = "Successful",
-  Unfulfilled = "Unfulfilled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScalingActivityStatusCode = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Overridden: "Overridden",
+  Pending: "Pending",
+  Successful: "Successful",
+  Unfulfilled: "Unfulfilled",
+} as const;
 
 /**
+ * @public
+ */
+export type ScalingActivityStatusCode = (typeof ScalingActivityStatusCode)[keyof typeof ScalingActivityStatusCode];
+
+/**
+ * @public
  * <p>Represents a scaling activity.</p>
  */
 export interface ScalingActivity {
@@ -1568,6 +1641,9 @@ export interface ScalingActivity {
   NotScaledReasons?: NotScaledReason[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingActivitiesResponse {
   /**
    * <p>A list of scaling activity objects.</p>
@@ -1581,6 +1657,9 @@ export interface DescribeScalingActivitiesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingPoliciesRequest {
   /**
    * <p>The names of the scaling policies to describe.</p>
@@ -1768,18 +1847,37 @@ export interface DescribeScalingPoliciesRequest {
   NextToken?: string;
 }
 
-export enum PolicyType {
-  StepScaling = "StepScaling",
-  TargetTrackingScaling = "TargetTrackingScaling",
-}
-
-export enum MetricAggregationType {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PolicyType = {
+  StepScaling: "StepScaling",
+  TargetTrackingScaling: "TargetTrackingScaling",
+} as const;
 
 /**
+ * @public
+ */
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricAggregationType = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricAggregationType = (typeof MetricAggregationType)[keyof typeof MetricAggregationType];
+
+/**
+ * @public
  * <p>Represents a step adjustment for a <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html">StepScalingPolicyConfiguration</a>. Describes an adjustment based on the difference
  *          between the value of the aggregated CloudWatch metric and the breach threshold that you've
  *          defined for the alarm. </p>
@@ -1846,6 +1944,7 @@ export interface StepAdjustment {
 }
 
 /**
+ * @public
  * <p>Represents a step scaling policy configuration to use with Application Auto Scaling.</p>
  */
 export interface StepScalingPolicyConfiguration {
@@ -1953,6 +2052,7 @@ export interface StepScalingPolicyConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the dimension names and values associated with a metric.</p>
  */
 export interface MetricDimension {
@@ -1968,6 +2068,7 @@ export interface MetricDimension {
 }
 
 /**
+ * @public
  * <p>Describes the dimension of a metric.</p>
  */
 export interface TargetTrackingMetricDimension {
@@ -1983,6 +2084,7 @@ export interface TargetTrackingMetricDimension {
 }
 
 /**
+ * @public
  * <p>Represents a specific metric.</p>
  *          <p>Metric is a property of the <a>TargetTrackingMetricStat</a> object.</p>
  */
@@ -2011,6 +2113,7 @@ export interface TargetTrackingMetric {
 }
 
 /**
+ * @public
  * <p>This structure defines the CloudWatch metric to return, along with the statistic, period, and
  *          unit.</p>
  *          <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
@@ -2040,6 +2143,7 @@ export interface TargetTrackingMetricStat {
 }
 
 /**
+ * @public
  * <p>The metric data to return. Also defines whether this call is returning data for one
  *          metric only, or whether it is performing a math expression on the values of returned metric
  *          statistics to create a new time series. A time series is a series of data points, each of
@@ -2094,15 +2198,25 @@ export interface TargetTrackingMetricDataQuery {
   ReturnData?: boolean;
 }
 
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MetricStatistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+} as const;
 
 /**
+ * @public
+ */
+export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatistic];
+
+/**
+ * @public
  * <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use
  *          with Application Auto Scaling.</p>
  *          <p>For information about the available metrics for a service, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
@@ -2164,31 +2278,41 @@ export interface CustomizedMetricSpecification {
   Metrics?: TargetTrackingMetricDataQuery[];
 }
 
-export enum MetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  AppStreamAverageCapacityUtilization = "AppStreamAverageCapacityUtilization",
-  CassandraReadCapacityUtilization = "CassandraReadCapacityUtilization",
-  CassandraWriteCapacityUtilization = "CassandraWriteCapacityUtilization",
-  ComprehendInferenceUtilization = "ComprehendInferenceUtilization",
-  DynamoDBReadCapacityUtilization = "DynamoDBReadCapacityUtilization",
-  DynamoDBWriteCapacityUtilization = "DynamoDBWriteCapacityUtilization",
-  EC2SpotFleetRequestAverageCPUUtilization = "EC2SpotFleetRequestAverageCPUUtilization",
-  EC2SpotFleetRequestAverageNetworkIn = "EC2SpotFleetRequestAverageNetworkIn",
-  EC2SpotFleetRequestAverageNetworkOut = "EC2SpotFleetRequestAverageNetworkOut",
-  ECSServiceAverageCPUUtilization = "ECSServiceAverageCPUUtilization",
-  ECSServiceAverageMemoryUtilization = "ECSServiceAverageMemoryUtilization",
-  ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage = "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage",
-  ElastiCachePrimaryEngineCPUUtilization = "ElastiCachePrimaryEngineCPUUtilization",
-  ElastiCacheReplicaEngineCPUUtilization = "ElastiCacheReplicaEngineCPUUtilization",
-  KafkaBrokerStorageUtilization = "KafkaBrokerStorageUtilization",
-  LambdaProvisionedConcurrencyUtilization = "LambdaProvisionedConcurrencyUtilization",
-  NeptuneReaderAverageCPUUtilization = "NeptuneReaderAverageCPUUtilization",
-  RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
-  RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections",
-  SageMakerVariantInvocationsPerInstance = "SageMakerVariantInvocationsPerInstance",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MetricType = {
+  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
+  AppStreamAverageCapacityUtilization: "AppStreamAverageCapacityUtilization",
+  CassandraReadCapacityUtilization: "CassandraReadCapacityUtilization",
+  CassandraWriteCapacityUtilization: "CassandraWriteCapacityUtilization",
+  ComprehendInferenceUtilization: "ComprehendInferenceUtilization",
+  DynamoDBReadCapacityUtilization: "DynamoDBReadCapacityUtilization",
+  DynamoDBWriteCapacityUtilization: "DynamoDBWriteCapacityUtilization",
+  EC2SpotFleetRequestAverageCPUUtilization: "EC2SpotFleetRequestAverageCPUUtilization",
+  EC2SpotFleetRequestAverageNetworkIn: "EC2SpotFleetRequestAverageNetworkIn",
+  EC2SpotFleetRequestAverageNetworkOut: "EC2SpotFleetRequestAverageNetworkOut",
+  ECSServiceAverageCPUUtilization: "ECSServiceAverageCPUUtilization",
+  ECSServiceAverageMemoryUtilization: "ECSServiceAverageMemoryUtilization",
+  ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage: "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage",
+  ElastiCachePrimaryEngineCPUUtilization: "ElastiCachePrimaryEngineCPUUtilization",
+  ElastiCacheReplicaEngineCPUUtilization: "ElastiCacheReplicaEngineCPUUtilization",
+  KafkaBrokerStorageUtilization: "KafkaBrokerStorageUtilization",
+  LambdaProvisionedConcurrencyUtilization: "LambdaProvisionedConcurrencyUtilization",
+  NeptuneReaderAverageCPUUtilization: "NeptuneReaderAverageCPUUtilization",
+  RDSReaderAverageCPUUtilization: "RDSReaderAverageCPUUtilization",
+  RDSReaderAverageDatabaseConnections: "RDSReaderAverageDatabaseConnections",
+  SageMakerVariantInvocationsPerInstance: "SageMakerVariantInvocationsPerInstance",
+} as const;
 
 /**
+ * @public
+ */
+export type MetricType = (typeof MetricType)[keyof typeof MetricType];
+
+/**
+ * @public
  * <p>Represents a predefined metric for a target tracking scaling policy to use with
  *          Application Auto Scaling.</p>
  *          <p>Only the Amazon Web Services that you're using send metrics to Amazon CloudWatch. To determine whether a
@@ -2230,6 +2354,7 @@ export interface PredefinedMetricSpecification {
 }
 
 /**
+ * @public
  * <p>Represents a target tracking scaling policy configuration to use with Application Auto Scaling.</p>
  */
 export interface TargetTrackingScalingPolicyConfiguration {
@@ -2386,6 +2511,7 @@ export interface TargetTrackingScalingPolicyConfiguration {
 }
 
 /**
+ * @public
  * <p>Represents a scaling policy to use with Application Auto Scaling.</p>
  *          <p>For more information about configuring scaling policies for a specific service, see
  *             <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/integrated-services-list.html">Amazon Web Services services
@@ -2598,6 +2724,9 @@ export interface ScalingPolicy {
   CreationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScalingPoliciesResponse {
   /**
    * <p>Information about the scaling policies.</p>
@@ -2612,6 +2741,7 @@ export interface DescribeScalingPoliciesResponse {
 }
 
 /**
+ * @public
  * <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling
  *          is unable to retrieve the alarms associated with a scaling policy due to a client error,
  *          for example, if the role ARN specified for a scalable target does not have permission to
@@ -2635,6 +2765,9 @@ export class FailedResourceAccessException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeScheduledActionsRequest {
   /**
    * <p>The names of the scheduled actions to describe.</p>
@@ -2823,6 +2956,7 @@ export interface DescribeScheduledActionsRequest {
 }
 
 /**
+ * @public
  * <p>Represents the minimum and maximum capacity for a scheduled action.</p>
  */
 export interface ScalableTargetAction {
@@ -2847,6 +2981,7 @@ export interface ScalableTargetAction {
 }
 
 /**
+ * @public
  * <p>Represents a scheduled action.</p>
  */
 export interface ScheduledAction {
@@ -3079,6 +3214,9 @@ export interface ScheduledAction {
   CreationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeScheduledActionsResponse {
   /**
    * <p>Information about the scheduled actions.</p>
@@ -3092,6 +3230,9 @@ export interface DescribeScheduledActionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>Specify the ARN of the scalable target.</p>
@@ -3103,6 +3244,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags. Each tag consists of a tag key and a tag value.</p>
@@ -3111,6 +3255,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -3137,6 +3282,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html">Application Auto Scaling service quotas</a>.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -3157,6 +3303,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutScalingPolicyRequest {
   /**
    * <p>The name of the scaling policy.</p>
@@ -3358,6 +3507,9 @@ export interface PutScalingPolicyRequest {
   TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface PutScalingPolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the resulting scaling policy.</p>
@@ -3370,6 +3522,9 @@ export interface PutScalingPolicyResponse {
   Alarms?: Alarm[];
 }
 
+/**
+ * @public
+ */
 export interface PutScheduledActionRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -3593,8 +3748,14 @@ export interface PutScheduledActionRequest {
   ScalableTargetAction?: ScalableTargetAction;
 }
 
+/**
+ * @public
+ */
 export interface PutScheduledActionResponse {}
 
+/**
+ * @public
+ */
 export interface RegisterScalableTargetRequest {
   /**
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
@@ -3862,6 +4023,9 @@ export interface RegisterScalableTargetRequest {
   Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface RegisterScalableTargetResponse {
   /**
    * <p>The ARN of the scalable target.</p>
@@ -3869,6 +4033,9 @@ export interface RegisterScalableTargetResponse {
   ScalableTargetARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>Identifies the Application Auto Scaling scalable target that you want to apply tags to.</p>
@@ -3893,9 +4060,13 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>The request contains too many tags. Try the request again with fewer tags.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -3921,6 +4092,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>Identifies the Application Auto Scaling scalable target from which to remove tags.</p>
@@ -3937,314 +4111,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScalingPolicyRequestFilterSensitiveLog = (obj: DeleteScalingPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScalingPolicyResponseFilterSensitiveLog = (obj: DeleteScalingPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScheduledActionRequestFilterSensitiveLog = (obj: DeleteScheduledActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteScheduledActionResponseFilterSensitiveLog = (obj: DeleteScheduledActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterScalableTargetRequestFilterSensitiveLog = (obj: DeregisterScalableTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterScalableTargetResponseFilterSensitiveLog = (obj: DeregisterScalableTargetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalableTargetsRequestFilterSensitiveLog = (obj: DescribeScalableTargetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuspendedStateFilterSensitiveLog = (obj: SuspendedState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalableTargetFilterSensitiveLog = (obj: ScalableTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalableTargetsResponseFilterSensitiveLog = (obj: DescribeScalableTargetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalingActivitiesRequestFilterSensitiveLog = (obj: DescribeScalingActivitiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotScaledReasonFilterSensitiveLog = (obj: NotScaledReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalingActivityFilterSensitiveLog = (obj: ScalingActivity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalingActivitiesResponseFilterSensitiveLog = (obj: DescribeScalingActivitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalingPoliciesRequestFilterSensitiveLog = (obj: DescribeScalingPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepAdjustmentFilterSensitiveLog = (obj: StepAdjustment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepScalingPolicyConfigurationFilterSensitiveLog = (obj: StepScalingPolicyConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDimensionFilterSensitiveLog = (obj: MetricDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetTrackingMetricDimensionFilterSensitiveLog = (obj: TargetTrackingMetricDimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetTrackingMetricFilterSensitiveLog = (obj: TargetTrackingMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetTrackingMetricStatFilterSensitiveLog = (obj: TargetTrackingMetricStat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetTrackingMetricDataQueryFilterSensitiveLog = (obj: TargetTrackingMetricDataQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomizedMetricSpecificationFilterSensitiveLog = (obj: CustomizedMetricSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredefinedMetricSpecificationFilterSensitiveLog = (obj: PredefinedMetricSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetTrackingScalingPolicyConfigurationFilterSensitiveLog = (
-  obj: TargetTrackingScalingPolicyConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalingPolicyFilterSensitiveLog = (obj: ScalingPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScalingPoliciesResponseFilterSensitiveLog = (obj: DescribeScalingPoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduledActionsRequestFilterSensitiveLog = (obj: DescribeScheduledActionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalableTargetActionFilterSensitiveLog = (obj: ScalableTargetAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduledActionFilterSensitiveLog = (obj: ScheduledAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeScheduledActionsResponseFilterSensitiveLog = (obj: DescribeScheduledActionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutScalingPolicyRequestFilterSensitiveLog = (obj: PutScalingPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutScalingPolicyResponseFilterSensitiveLog = (obj: PutScalingPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutScheduledActionRequestFilterSensitiveLog = (obj: PutScheduledActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutScheduledActionResponseFilterSensitiveLog = (obj: PutScheduledActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterScalableTargetRequestFilterSensitiveLog = (obj: RegisterScalableTargetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterScalableTargetResponseFilterSensitiveLog = (obj: RegisterScalableTargetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});

@@ -23,23 +23,24 @@ import {
   AdminUpdateUserAttributesRequest,
   AdminUpdateUserAttributesRequestFilterSensitiveLog,
   AdminUpdateUserAttributesResponse,
-  AdminUpdateUserAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminUpdateUserAttributesCommand,
-  serializeAws_json1_1AdminUpdateUserAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminUpdateUserAttributesCommand, se_AdminUpdateUserAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminUpdateUserAttributesCommand}.
  */
 export interface AdminUpdateUserAttributesCommandInput extends AdminUpdateUserAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminUpdateUserAttributesCommand}.
  */
 export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified user's attributes, including developer attributes, as an
  *             administrator. Works on any user.</p>
  *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
@@ -72,10 +73,25 @@ export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserA
  * import { CognitoIdentityProviderClient, AdminUpdateUserAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminUpdateUserAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminUpdateUserAttributesRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   UserAttributes: [ // AttributeListType // required
+ *     { // AttributeType
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new AdminUpdateUserAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminUpdateUserAttributesCommandInput - {@link AdminUpdateUserAttributesCommandInput}
+ * @returns {@link AdminUpdateUserAttributesCommandOutput}
  * @see {@link AdminUpdateUserAttributesCommandInput} for command's `input` shape.
  * @see {@link AdminUpdateUserAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -152,6 +168,9 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminUpdateUserAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,7 +201,7 @@ export class AdminUpdateUserAttributesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminUpdateUserAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminUpdateUserAttributesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -192,15 +211,21 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminUpdateUserAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminUpdateUserAttributesCommand(input, context);
+    return se_AdminUpdateUserAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminUpdateUserAttributesCommandOutput> {
-    return deserializeAws_json1_1AdminUpdateUserAttributesCommand(output, context);
+    return de_AdminUpdateUserAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

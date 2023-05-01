@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateEndpointResponse,
-  CreateEndpointResponseFilterSensitiveLog,
-  CreatePlatformEndpointInput,
-  CreatePlatformEndpointInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreatePlatformEndpointCommand,
-  serializeAws_queryCreatePlatformEndpointCommand,
-} from "../protocols/Aws_query";
+import { CreateEndpointResponse, CreatePlatformEndpointInput } from "../models/models_0";
+import { de_CreatePlatformEndpointCommand, se_CreatePlatformEndpointCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePlatformEndpointCommand}.
  */
 export interface CreatePlatformEndpointCommandInput extends CreatePlatformEndpointInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePlatformEndpointCommand}.
  */
 export interface CreatePlatformEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for a device and mobile app on one of the supported push
  *             notification services, such as GCM (Firebase Cloud Messaging) and APNS.
  *                 <code>CreatePlatformEndpoint</code> requires the <code>PlatformApplicationArn</code>
@@ -55,10 +52,20 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  * import { SNSClient, CreatePlatformEndpointCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, CreatePlatformEndpointCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // CreatePlatformEndpointInput
+ *   PlatformApplicationArn: "STRING_VALUE", // required
+ *   Token: "STRING_VALUE", // required
+ *   CustomUserData: "STRING_VALUE",
+ *   Attributes: { // MapStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePlatformEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlatformEndpointCommandInput - {@link CreatePlatformEndpointCommandInput}
+ * @returns {@link CreatePlatformEndpointCommandOutput}
  * @see {@link CreatePlatformEndpointCommandInput} for command's `input` shape.
  * @see {@link CreatePlatformEndpointCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -95,6 +102,9 @@ export class CreatePlatformEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlatformEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +133,8 @@ export class CreatePlatformEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePlatformEndpointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +144,18 @@ export class CreatePlatformEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlatformEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreatePlatformEndpointCommand(input, context);
+    return se_CreatePlatformEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlatformEndpointCommandOutput> {
-    return deserializeAws_queryCreatePlatformEndpointCommand(output, context);
+    return de_CreatePlatformEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

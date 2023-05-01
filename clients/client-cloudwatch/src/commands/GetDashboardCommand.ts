@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  GetDashboardInput,
-  GetDashboardInputFilterSensitiveLog,
-  GetDashboardOutput,
-  GetDashboardOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryGetDashboardCommand, serializeAws_queryGetDashboardCommand } from "../protocols/Aws_query";
+import { GetDashboardInput, GetDashboardOutput } from "../models/models_0";
+import { de_GetDashboardCommand, se_GetDashboardCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetDashboardCommand}.
  */
 export interface GetDashboardCommandInput extends GetDashboardInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDashboardCommand}.
  */
 export interface GetDashboardCommandOutput extends GetDashboardOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays the details of the dashboard that you specify.</p>
  *          <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned
  * 			within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code> to create
@@ -42,10 +42,15 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * import { CloudWatchClient, GetDashboardCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetDashboardCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // GetDashboardInput
+ *   DashboardName: "STRING_VALUE", // required
+ * };
  * const command = new GetDashboardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDashboardCommandInput - {@link GetDashboardCommandInput}
+ * @returns {@link GetDashboardCommandOutput}
  * @see {@link GetDashboardCommandInput} for command's `input` shape.
  * @see {@link GetDashboardCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -78,6 +83,9 @@ export class GetDashboardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +112,8 @@ export class GetDashboardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDashboardInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDashboardOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +123,18 @@ export class GetDashboardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetDashboardCommand(input, context);
+    return se_GetDashboardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDashboardCommandOutput> {
-    return deserializeAws_queryGetDashboardCommand(output, context);
+    return de_GetDashboardCommand(output, context);
   }
 
   // Start section: command_body_extra

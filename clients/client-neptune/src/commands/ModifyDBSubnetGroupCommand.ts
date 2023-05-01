@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBSubnetGroupMessage,
-  ModifyDBSubnetGroupMessageFilterSensitiveLog,
-  ModifyDBSubnetGroupResult,
-  ModifyDBSubnetGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryModifyDBSubnetGroupCommand,
-  serializeAws_queryModifyDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBSubnetGroupCommand, se_ModifyDBSubnetGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBSubnetGroupCommand}.
  */
 export interface ModifyDBSubnetGroupCommandInput extends ModifyDBSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBSubnetGroupCommand}.
  */
 export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in
  *       at least two AZs in the Amazon Region.</p>
  * @example
@@ -43,10 +40,19 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * import { NeptuneClient, ModifyDBSubnetGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBSubnetGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // ModifyDBSubnetGroupMessage
+ *   DBSubnetGroupName: "STRING_VALUE", // required
+ *   DBSubnetGroupDescription: "STRING_VALUE",
+ *   SubnetIds: [ // SubnetIdentifierList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyDBSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBSubnetGroupCommandInput - {@link ModifyDBSubnetGroupCommandInput}
+ * @returns {@link ModifyDBSubnetGroupCommandOutput}
  * @see {@link ModifyDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -89,6 +95,9 @@ export class ModifyDBSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +126,8 @@ export class ModifyDBSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBSubnetGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +137,18 @@ export class ModifyDBSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBSubnetGroupCommand(input, context);
+    return se_ModifyDBSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryModifyDBSubnetGroupCommand(output, context);
+    return de_ModifyDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

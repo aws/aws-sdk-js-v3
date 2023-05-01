@@ -13,15 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateCloudFormationChangeSetRequest, CreateCloudFormationChangeSetResponse } from "../models/models_0";
 import {
-  CreateCloudFormationChangeSetRequest,
-  CreateCloudFormationChangeSetRequestFilterSensitiveLog,
-  CreateCloudFormationChangeSetResponse,
-  CreateCloudFormationChangeSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCloudFormationChangeSetCommand,
-  serializeAws_restJson1CreateCloudFormationChangeSetCommand,
+  de_CreateCloudFormationChangeSetCommand,
+  se_CreateCloudFormationChangeSetCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
@@ -30,10 +25,14 @@ import {
 } from "../ServerlessApplicationRepositoryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCloudFormationChangeSetCommand}.
  */
 export interface CreateCloudFormationChangeSetCommandInput extends CreateCloudFormationChangeSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCloudFormationChangeSetCommand}.
  */
 export interface CreateCloudFormationChangeSetCommandOutput
@@ -41,6 +40,7 @@ export interface CreateCloudFormationChangeSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an AWS CloudFormation change set for the given application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +48,51 @@ export interface CreateCloudFormationChangeSetCommandOutput
  * import { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = { // CreateCloudFormationChangeSetRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   Capabilities: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   ChangeSetName: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   NotificationArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ParameterOverrides: [ // __listOfParameterValue
+ *     { // ParameterValue
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ResourceTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RollbackConfiguration: { // RollbackConfiguration
+ *     MonitoringTimeInMinutes: Number("int"),
+ *     RollbackTriggers: [ // __listOfRollbackTrigger
+ *       { // RollbackTrigger
+ *         Arn: "STRING_VALUE", // required
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   SemanticVersion: "STRING_VALUE",
+ *   StackName: "STRING_VALUE", // required
+ *   Tags: [ // __listOfTag
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TemplateId: "STRING_VALUE",
+ * };
  * const command = new CreateCloudFormationChangeSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCloudFormationChangeSetCommandInput - {@link CreateCloudFormationChangeSetCommandInput}
+ * @returns {@link CreateCloudFormationChangeSetCommandOutput}
  * @see {@link CreateCloudFormationChangeSetCommandInput} for command's `input` shape.
  * @see {@link CreateCloudFormationChangeSetCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
@@ -87,6 +128,9 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCloudFormationChangeSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +159,8 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCloudFormationChangeSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCloudFormationChangeSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +170,21 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCloudFormationChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCloudFormationChangeSetCommand(input, context);
+    return se_CreateCloudFormationChangeSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCloudFormationChangeSetCommandOutput> {
-    return deserializeAws_restJson1CreateCloudFormationChangeSetCommand(output, context);
+    return de_CreateCloudFormationChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   StartDataQualityRulesetEvaluationRunRequest,
-  StartDataQualityRulesetEvaluationRunRequestFilterSensitiveLog,
   StartDataQualityRulesetEvaluationRunResponse,
-  StartDataQualityRulesetEvaluationRunResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1StartDataQualityRulesetEvaluationRunCommand,
-  serializeAws_json1_1StartDataQualityRulesetEvaluationRunCommand,
+  de_StartDataQualityRulesetEvaluationRunCommand,
+  se_StartDataQualityRulesetEvaluationRunCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDataQualityRulesetEvaluationRunCommand}.
  */
 export interface StartDataQualityRulesetEvaluationRunCommandInput extends StartDataQualityRulesetEvaluationRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDataQualityRulesetEvaluationRunCommand}.
  */
 export interface StartDataQualityRulesetEvaluationRunCommandOutput
@@ -37,6 +39,7 @@ export interface StartDataQualityRulesetEvaluationRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Once you have a ruleset definition (either recommended or your own), you call this operation to evaluate the ruleset against a data source (Glue table). The evaluation computes results which you can retrieve with the <code>GetDataQualityResult</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,36 @@ export interface StartDataQualityRulesetEvaluationRunCommandOutput
  * import { GlueClient, StartDataQualityRulesetEvaluationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartDataQualityRulesetEvaluationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StartDataQualityRulesetEvaluationRunRequest
+ *   DataSource: { // DataSource
+ *     GlueTable: { // GlueTable
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       CatalogId: "STRING_VALUE",
+ *       ConnectionName: "STRING_VALUE",
+ *       AdditionalOptions: { // GlueTableAdditionalOptions
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   Role: "STRING_VALUE", // required
+ *   NumberOfWorkers: Number("int"),
+ *   Timeout: Number("int"),
+ *   ClientToken: "STRING_VALUE",
+ *   AdditionalRunOptions: { // DataQualityEvaluationRunAdditionalRunOptions
+ *     CloudWatchMetricsEnabled: true || false,
+ *     ResultsS3Prefix: "STRING_VALUE",
+ *   },
+ *   RulesetNames: [ // RulesetNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartDataQualityRulesetEvaluationRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDataQualityRulesetEvaluationRunCommandInput - {@link StartDataQualityRulesetEvaluationRunCommandInput}
+ * @returns {@link StartDataQualityRulesetEvaluationRunCommandOutput}
  * @see {@link StartDataQualityRulesetEvaluationRunCommandInput} for command's `input` shape.
  * @see {@link StartDataQualityRulesetEvaluationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -86,6 +115,9 @@ export class StartDataQualityRulesetEvaluationRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDataQualityRulesetEvaluationRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +146,8 @@ export class StartDataQualityRulesetEvaluationRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDataQualityRulesetEvaluationRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDataQualityRulesetEvaluationRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +157,24 @@ export class StartDataQualityRulesetEvaluationRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartDataQualityRulesetEvaluationRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDataQualityRulesetEvaluationRunCommand(input, context);
+    return se_StartDataQualityRulesetEvaluationRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDataQualityRulesetEvaluationRunCommandOutput> {
-    return deserializeAws_json1_1StartDataQualityRulesetEvaluationRunCommand(output, context);
+    return de_StartDataQualityRulesetEvaluationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

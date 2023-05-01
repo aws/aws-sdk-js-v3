@@ -14,23 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTableRequest, DeleteTableRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteTableCommand,
-  serializeAws_json1_0DeleteTableCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteTableRequest } from "../models/models_0";
+import { de_DeleteTableCommand, se_DeleteTableCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTableCommand}.
  */
 export interface DeleteTableCommandInput extends DeleteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTableCommand}.
  */
 export interface DeleteTableCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a given Timestream table. This is an irreversible operation. After a
  *             Timestream database table is deleted, the time-series data stored in the table
  *          cannot be recovered. </p>
@@ -46,10 +48,16 @@ export interface DeleteTableCommandOutput extends __MetadataBearer {}
  * import { TimestreamWriteClient, DeleteTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, DeleteTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = { // DeleteTableRequest
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTableCommandInput - {@link DeleteTableCommandInput}
+ * @returns {@link DeleteTableCommandOutput}
  * @see {@link DeleteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteTableCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -95,6 +103,9 @@ export class DeleteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +135,8 @@ export class DeleteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +146,18 @@ export class DeleteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteTableCommand(input, context);
+    return se_DeleteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTableCommandOutput> {
-    return deserializeAws_json1_0DeleteTableCommand(output, context);
+    return de_DeleteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

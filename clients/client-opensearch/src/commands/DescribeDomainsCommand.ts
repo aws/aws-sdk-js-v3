@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDomainsRequest,
-  DescribeDomainsRequestFilterSensitiveLog,
-  DescribeDomainsResponse,
-  DescribeDomainsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DescribeDomainsCommand,
-  serializeAws_restJson1DescribeDomainsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDomainsCommand, se_DescribeDomainsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDomainsCommand}.
  */
 export interface DescribeDomainsCommandInput extends DescribeDomainsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDomainsCommand}.
  */
 export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns domain configuration information about the specified Amazon OpenSearch Service
  *    domains.</p>
  * @example
@@ -43,10 +40,17 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * import { OpenSearchClient, DescribeDomainsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeDomainsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DescribeDomainsRequest
+ *   DomainNames: [ // DomainNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeDomainsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDomainsCommandInput - {@link DescribeDomainsCommandInput}
+ * @returns {@link DescribeDomainsCommandOutput}
  * @see {@link DescribeDomainsCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -79,6 +83,9 @@ export class DescribeDomainsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDomainsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class DescribeDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class DescribeDomainsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDomainsCommand(input, context);
+    return se_DescribeDomainsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainsCommandOutput> {
-    return deserializeAws_restJson1DescribeDomainsCommand(output, context);
+    return de_DescribeDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

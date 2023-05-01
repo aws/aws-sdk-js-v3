@@ -10,7 +10,7 @@ import { IoTWirelessClient } from "../IoTWirelessClient";
 import { IoTWirelessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTWirelessClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWirelessDevicesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListWirelessDevices(
   config: IoTWirelessPaginationConfiguration,
   input: ListWirelessDevicesCommandInput,

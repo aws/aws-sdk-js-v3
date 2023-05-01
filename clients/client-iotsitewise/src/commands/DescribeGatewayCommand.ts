@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribeGatewayRequest,
-  DescribeGatewayRequestFilterSensitiveLog,
-  DescribeGatewayResponse,
-  DescribeGatewayResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeGatewayCommand,
-  serializeAws_restJson1DescribeGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeGatewayRequest, DescribeGatewayResponse } from "../models/models_0";
+import { de_DescribeGatewayCommand, se_DescribeGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGatewayCommand}.
  */
 export interface DescribeGatewayCommandInput extends DescribeGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGatewayCommand}.
  */
 export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, _
  * import { IoTSiteWiseClient, DescribeGatewayCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeGatewayCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DescribeGatewayRequest
+ *   gatewayId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGatewayCommandInput - {@link DescribeGatewayCommandInput}
+ * @returns {@link DescribeGatewayCommandOutput}
  * @see {@link DescribeGatewayCommandInput} for command's `input` shape.
  * @see {@link DescribeGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +87,9 @@ export class DescribeGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DescribeGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGatewayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DescribeGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeGatewayCommand(input, context);
+    return se_DescribeGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGatewayCommandOutput> {
-    return deserializeAws_restJson1DescribeGatewayCommand(output, context);
+    return de_DescribeGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  BatchGetSchemaInput,
-  BatchGetSchemaInputFilterSensitiveLog,
-  BatchGetSchemaOutput,
-  BatchGetSchemaOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetSchemaCommand,
-  serializeAws_restJson1BatchGetSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchGetSchemaInput, BatchGetSchemaOutput } from "../models/models_0";
+import { de_BatchGetSchemaCommand, se_BatchGetSchemaCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetSchemaCommand}.
  */
 export interface BatchGetSchemaCommandInput extends BatchGetSchemaInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetSchemaCommand}.
  */
 export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves multiple schemas by their identifiers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * import { CleanRoomsClient, BatchGetSchemaCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, BatchGetSchemaCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // BatchGetSchemaInput
+ *   collaborationIdentifier: "STRING_VALUE", // required
+ *   names: [ // TableAliasList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetSchemaCommandInput - {@link BatchGetSchemaCommandInput}
+ * @returns {@link BatchGetSchemaCommandOutput}
  * @see {@link BatchGetSchemaCommandInput} for command's `input` shape.
  * @see {@link BatchGetSchemaCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -84,6 +89,9 @@ export class BatchGetSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class BatchGetSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetSchemaInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetSchemaOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class BatchGetSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetSchemaCommand(input, context);
+    return se_BatchGetSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetSchemaCommandOutput> {
-    return deserializeAws_restJson1BatchGetSchemaCommand(output, context);
+    return de_BatchGetSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

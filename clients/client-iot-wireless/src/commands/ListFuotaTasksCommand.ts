@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  ListFuotaTasksRequest,
-  ListFuotaTasksRequestFilterSensitiveLog,
-  ListFuotaTasksResponse,
-  ListFuotaTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFuotaTasksCommand,
-  serializeAws_restJson1ListFuotaTasksCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFuotaTasksRequest, ListFuotaTasksResponse } from "../models/models_0";
+import { de_ListFuotaTasksCommand, se_ListFuotaTasksCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFuotaTasksCommand}.
  */
 export interface ListFuotaTasksCommandInput extends ListFuotaTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFuotaTasksCommand}.
  */
 export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the FUOTA tasks registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __M
  * import { IoTWirelessClient, ListFuotaTasksCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListFuotaTasksCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // ListFuotaTasksRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFuotaTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFuotaTasksCommandInput - {@link ListFuotaTasksCommandInput}
+ * @returns {@link ListFuotaTasksCommandOutput}
  * @see {@link ListFuotaTasksCommandInput} for command's `input` shape.
  * @see {@link ListFuotaTasksCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListFuotaTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFuotaTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListFuotaTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFuotaTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFuotaTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListFuotaTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFuotaTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFuotaTasksCommand(input, context);
+    return se_ListFuotaTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFuotaTasksCommandOutput> {
-    return deserializeAws_restJson1ListFuotaTasksCommand(output, context);
+    return de_ListFuotaTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

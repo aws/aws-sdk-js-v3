@@ -16,20 +16,22 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   GetConformancePackComplianceSummaryRequest,
-  GetConformancePackComplianceSummaryRequestFilterSensitiveLog,
   GetConformancePackComplianceSummaryResponse,
-  GetConformancePackComplianceSummaryResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetConformancePackComplianceSummaryCommand,
-  serializeAws_json1_1GetConformancePackComplianceSummaryCommand,
+  de_GetConformancePackComplianceSummaryCommand,
+  se_GetConformancePackComplianceSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConformancePackComplianceSummaryCommand}.
  */
 export interface GetConformancePackComplianceSummaryCommandInput extends GetConformancePackComplianceSummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConformancePackComplianceSummaryCommand}.
  */
 export interface GetConformancePackComplianceSummaryCommandOutput
@@ -37,6 +39,7 @@ export interface GetConformancePackComplianceSummaryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,19 @@ export interface GetConformancePackComplianceSummaryCommandOutput
  * import { ConfigServiceClient, GetConformancePackComplianceSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetConformancePackComplianceSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetConformancePackComplianceSummaryRequest
+ *   ConformancePackNames: [ // ConformancePackNamesToSummarizeList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetConformancePackComplianceSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConformancePackComplianceSummaryCommandInput - {@link GetConformancePackComplianceSummaryCommandInput}
+ * @returns {@link GetConformancePackComplianceSummaryCommandOutput}
  * @see {@link GetConformancePackComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetConformancePackComplianceSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -82,6 +94,9 @@ export class GetConformancePackComplianceSummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConformancePackComplianceSummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +125,8 @@ export class GetConformancePackComplianceSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConformancePackComplianceSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConformancePackComplianceSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +136,24 @@ export class GetConformancePackComplianceSummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetConformancePackComplianceSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetConformancePackComplianceSummaryCommand(input, context);
+    return se_GetConformancePackComplianceSummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConformancePackComplianceSummaryCommandOutput> {
-    return deserializeAws_json1_1GetConformancePackComplianceSummaryCommand(output, context);
+    return de_GetConformancePackComplianceSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

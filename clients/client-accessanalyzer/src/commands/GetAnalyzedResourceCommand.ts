@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import {
-  GetAnalyzedResourceRequest,
-  GetAnalyzedResourceRequestFilterSensitiveLog,
-  GetAnalyzedResourceResponse,
-  GetAnalyzedResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAnalyzedResourceCommand,
-  serializeAws_restJson1GetAnalyzedResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAnalyzedResourceRequest, GetAnalyzedResourceResponse } from "../models/models_0";
+import { de_GetAnalyzedResourceCommand, se_GetAnalyzedResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAnalyzedResourceCommand}.
  */
 export interface GetAnalyzedResourceCommandInput extends GetAnalyzedResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAnalyzedResourceCommand}.
  */
 export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a resource that was analyzed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceRes
  * import { AccessAnalyzerClient, GetAnalyzedResourceCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetAnalyzedResourceCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = { // GetAnalyzedResourceRequest
+ *   analyzerArn: "STRING_VALUE", // required
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetAnalyzedResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnalyzedResourceCommandInput - {@link GetAnalyzedResourceCommandInput}
+ * @returns {@link GetAnalyzedResourceCommandOutput}
  * @see {@link GetAnalyzedResourceCommandInput} for command's `input` shape.
  * @see {@link GetAnalyzedResourceCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetAnalyzedResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnalyzedResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetAnalyzedResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAnalyzedResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAnalyzedResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetAnalyzedResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnalyzedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAnalyzedResourceCommand(input, context);
+    return se_GetAnalyzedResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnalyzedResourceCommandOutput> {
-    return deserializeAws_restJson1GetAnalyzedResourceCommand(output, context);
+    return de_GetAnalyzedResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

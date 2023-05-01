@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeSimulationApplicationRequest, DescribeSimulationApplicationResponse } from "../models/models_0";
 import {
-  DescribeSimulationApplicationRequest,
-  DescribeSimulationApplicationRequestFilterSensitiveLog,
-  DescribeSimulationApplicationResponse,
-  DescribeSimulationApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSimulationApplicationCommand,
-  serializeAws_restJson1DescribeSimulationApplicationCommand,
+  de_DescribeSimulationApplicationCommand,
+  se_DescribeSimulationApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSimulationApplicationCommand}.
  */
 export interface DescribeSimulationApplicationCommandInput extends DescribeSimulationApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSimulationApplicationCommand}.
  */
 export interface DescribeSimulationApplicationCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeSimulationApplicationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a simulation application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DescribeSimulationApplicationCommandOutput
  * import { RoboMakerClient, DescribeSimulationApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DescribeSimulationApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DescribeSimulationApplicationRequest
+ *   application: "STRING_VALUE", // required
+ *   applicationVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeSimulationApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSimulationApplicationCommandInput - {@link DescribeSimulationApplicationCommandInput}
+ * @returns {@link DescribeSimulationApplicationCommandOutput}
  * @see {@link DescribeSimulationApplicationCommandInput} for command's `input` shape.
  * @see {@link DescribeSimulationApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -84,6 +90,9 @@ export class DescribeSimulationApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSimulationApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +121,8 @@ export class DescribeSimulationApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSimulationApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSimulationApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +132,21 @@ export class DescribeSimulationApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSimulationApplicationCommand(input, context);
+    return se_DescribeSimulationApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1DescribeSimulationApplicationCommand(output, context);
+    return de_DescribeSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

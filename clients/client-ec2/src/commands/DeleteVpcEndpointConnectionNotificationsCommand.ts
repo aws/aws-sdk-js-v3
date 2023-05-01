@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteVpcEndpointConnectionNotificationsRequest,
-  DeleteVpcEndpointConnectionNotificationsRequestFilterSensitiveLog,
   DeleteVpcEndpointConnectionNotificationsResult,
-  DeleteVpcEndpointConnectionNotificationsResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand,
-  serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand,
+  de_DeleteVpcEndpointConnectionNotificationsCommand,
+  se_DeleteVpcEndpointConnectionNotificationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcEndpointConnectionNotificationsCommand}.
  */
 export interface DeleteVpcEndpointConnectionNotificationsCommandInput
   extends DeleteVpcEndpointConnectionNotificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcEndpointConnectionNotificationsCommand}.
  */
 export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
@@ -38,6 +40,7 @@ export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified VPC endpoint connection notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,18 @@ export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
  * import { EC2Client, DeleteVpcEndpointConnectionNotificationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpcEndpointConnectionNotificationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteVpcEndpointConnectionNotificationsRequest
+ *   DryRun: true || false,
+ *   ConnectionNotificationIds: [ // ConnectionNotificationIdsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteVpcEndpointConnectionNotificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcEndpointConnectionNotificationsCommandInput - {@link DeleteVpcEndpointConnectionNotificationsCommandInput}
+ * @returns {@link DeleteVpcEndpointConnectionNotificationsCommandOutput}
  * @see {@link DeleteVpcEndpointConnectionNotificationsCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointConnectionNotificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +83,9 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcEndpointConnectionNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +120,8 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcEndpointConnectionNotificationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcEndpointConnectionNotificationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,18 +131,24 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteVpcEndpointConnectionNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(input, context);
+    return se_DeleteVpcEndpointConnectionNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput> {
-    return deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(output, context);
+    return de_DeleteVpcEndpointConnectionNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

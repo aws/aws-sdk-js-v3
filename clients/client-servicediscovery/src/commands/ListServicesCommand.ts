@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListServicesRequest,
-  ListServicesRequestFilterSensitiveLog,
-  ListServicesResponse,
-  ListServicesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServicesCommand,
-  serializeAws_json1_1ListServicesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListServicesRequest, ListServicesResponse } from "../models/models_0";
+import { de_ListServicesCommand, se_ListServicesCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServicesCommand}.
  */
 export interface ListServicesCommandInput extends ListServicesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServicesCommand}.
  */
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists summary information for all the services that are associated with one or more
  *    specified namespaces.</p>
  * @example
@@ -43,10 +40,25 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * import { ServiceDiscoveryClient, ListServicesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListServicesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // ListServicesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // ServiceFilters
+ *     { // ServiceFilter
+ *       Name: "NAMESPACE_ID", // required
+ *       Values: [ // FilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Condition: "EQ" || "IN" || "BETWEEN" || "BEGINS_WITH",
+ *     },
+ *   ],
+ * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServicesCommandInput - {@link ListServicesCommandInput}
+ * @returns {@link ListServicesCommandOutput}
  * @see {@link ListServicesCommandInput} for command's `input` shape.
  * @see {@link ListServicesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -55,11 +67,6 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  *
  * @example Example: List services
@@ -110,6 +117,9 @@ export class ListServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +146,8 @@ export class ListServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,12 +157,18 @@ export class ListServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServicesCommand(input, context);
+    return se_ListServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServicesCommandOutput> {
-    return deserializeAws_json1_1ListServicesCommand(output, context);
+    return de_ListServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

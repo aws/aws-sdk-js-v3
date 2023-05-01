@@ -19,22 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { DeleteResourceServerRequest, DeleteResourceServerRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResourceServerCommand,
-  serializeAws_json1_1DeleteResourceServerCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteResourceServerRequest } from "../models/models_0";
+import { de_DeleteResourceServerCommand, se_DeleteResourceServerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourceServerCommand}.
  */
 export interface DeleteResourceServerCommandInput extends DeleteResourceServerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourceServerCommand}.
  */
 export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a resource server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,16 @@ export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityProviderClient, DeleteResourceServerCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DeleteResourceServerCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // DeleteResourceServerRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourceServerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourceServerCommandInput - {@link DeleteResourceServerCommandInput}
+ * @returns {@link DeleteResourceServerCommandOutput}
  * @see {@link DeleteResourceServerCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceServerCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -87,6 +95,9 @@ export class DeleteResourceServerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourceServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +127,8 @@ export class DeleteResourceServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceServerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +138,18 @@ export class DeleteResourceServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResourceServerCommand(input, context);
+    return se_DeleteResourceServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceServerCommandOutput> {
-    return deserializeAws_json1_1DeleteResourceServerCommand(output, context);
+    return de_DeleteResourceServerCommand(output, context);
   }
 
   // Start section: command_body_extra

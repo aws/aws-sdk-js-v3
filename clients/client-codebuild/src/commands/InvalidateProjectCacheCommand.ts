@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  InvalidateProjectCacheInput,
-  InvalidateProjectCacheInputFilterSensitiveLog,
-  InvalidateProjectCacheOutput,
-  InvalidateProjectCacheOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1InvalidateProjectCacheCommand,
-  serializeAws_json1_1InvalidateProjectCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { InvalidateProjectCacheInput, InvalidateProjectCacheOutput } from "../models/models_0";
+import { de_InvalidateProjectCacheCommand, se_InvalidateProjectCacheCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link InvalidateProjectCacheCommand}.
  */
 export interface InvalidateProjectCacheCommandInput extends InvalidateProjectCacheInput {}
 /**
+ * @public
+ *
  * The output of {@link InvalidateProjectCacheCommand}.
  */
 export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCacheOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the cache for a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  * import { CodeBuildClient, InvalidateProjectCacheCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, InvalidateProjectCacheCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // InvalidateProjectCacheInput
+ *   projectName: "STRING_VALUE", // required
+ * };
  * const command = new InvalidateProjectCacheCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InvalidateProjectCacheCommandInput - {@link InvalidateProjectCacheCommandInput}
+ * @returns {@link InvalidateProjectCacheCommandOutput}
  * @see {@link InvalidateProjectCacheCommandInput} for command's `input` shape.
  * @see {@link InvalidateProjectCacheCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -75,6 +77,9 @@ export class InvalidateProjectCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InvalidateProjectCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class InvalidateProjectCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InvalidateProjectCacheInputFilterSensitiveLog,
-      outputFilterSensitiveLog: InvalidateProjectCacheOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class InvalidateProjectCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvalidateProjectCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InvalidateProjectCacheCommand(input, context);
+    return se_InvalidateProjectCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvalidateProjectCacheCommandOutput> {
-    return deserializeAws_json1_1InvalidateProjectCacheCommand(output, context);
+    return de_InvalidateProjectCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

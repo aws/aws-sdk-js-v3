@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketCorsOutput,
-  GetBucketCorsOutputFilterSensitiveLog,
-  GetBucketCorsRequest,
-  GetBucketCorsRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketCorsCommand,
-  serializeAws_restXmlGetBucketCorsCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketCorsOutput, GetBucketCorsRequest } from "../models/models_0";
+import { de_GetBucketCorsCommand, se_GetBucketCorsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketCorsCommand}.
  */
 export interface GetBucketCorsCommandInput extends GetBucketCorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketCorsCommand}.
  */
 export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Cross-Origin Resource Sharing (CORS) configuration information set for the
  *          bucket.</p>
  *          <p> To use this operation, you must have permission to perform the
@@ -61,10 +58,16 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  * import { S3Client, GetBucketCorsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketCorsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketCorsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketCorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketCorsCommandInput - {@link GetBucketCorsCommandInput}
+ * @returns {@link GetBucketCorsCommandOutput}
  * @see {@link GetBucketCorsCommandInput} for command's `input` shape.
  * @see {@link GetBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -123,6 +126,9 @@ export class GetBucketCorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketCorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +155,8 @@ export class GetBucketCorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketCorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketCorsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,12 +166,18 @@ export class GetBucketCorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketCorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketCorsCommand(input, context);
+    return se_GetBucketCorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketCorsCommandOutput> {
-    return deserializeAws_restXmlGetBucketCorsCommand(output, context);
+    return de_GetBucketCorsCommand(output, context);
   }
 
   // Start section: command_body_extra

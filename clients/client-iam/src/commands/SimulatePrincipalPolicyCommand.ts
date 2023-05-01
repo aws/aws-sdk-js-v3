@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  SimulatePolicyResponse,
-  SimulatePolicyResponseFilterSensitiveLog,
-  SimulatePrincipalPolicyRequest,
-  SimulatePrincipalPolicyRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySimulatePrincipalPolicyCommand,
-  serializeAws_querySimulatePrincipalPolicyCommand,
-} from "../protocols/Aws_query";
+import { SimulatePolicyResponse, SimulatePrincipalPolicyRequest } from "../models/models_0";
+import { de_SimulatePrincipalPolicyCommand, se_SimulatePrincipalPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SimulatePrincipalPolicyCommand}.
  */
 export interface SimulatePrincipalPolicyCommandInput extends SimulatePrincipalPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link SimulatePrincipalPolicyCommand}.
  */
 export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulate how a set of IAM policies attached to an IAM entity works with a list of
  *             API operations and Amazon Web Services resources to determine the policies' effective permissions. The
  *             entity can be an IAM user, group, or role. If you specify a user, then the simulation
@@ -74,10 +71,42 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  * import { IAMClient, SimulatePrincipalPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, SimulatePrincipalPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // SimulatePrincipalPolicyRequest
+ *   PolicySourceArn: "STRING_VALUE", // required
+ *   PolicyInputList: [ // SimulationPolicyListType
+ *     "STRING_VALUE",
+ *   ],
+ *   PermissionsBoundaryPolicyInputList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ActionNames: [ // ActionNameListType // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceArns: [ // ResourceNameListType
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourcePolicy: "STRING_VALUE",
+ *   ResourceOwner: "STRING_VALUE",
+ *   CallerArn: "STRING_VALUE",
+ *   ContextEntries: [ // ContextEntryListType
+ *     { // ContextEntry
+ *       ContextKeyName: "STRING_VALUE",
+ *       ContextKeyValues: [ // ContextKeyValueListType
+ *         "STRING_VALUE",
+ *       ],
+ *       ContextKeyType: "string" || "stringList" || "numeric" || "numericList" || "boolean" || "booleanList" || "ip" || "ipList" || "binary" || "binaryList" || "date" || "dateList",
+ *     },
+ *   ],
+ *   ResourceHandlingOption: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new SimulatePrincipalPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SimulatePrincipalPolicyCommandInput - {@link SimulatePrincipalPolicyCommandInput}
+ * @returns {@link SimulatePrincipalPolicyCommandOutput}
  * @see {@link SimulatePrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link SimulatePrincipalPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -113,6 +142,9 @@ export class SimulatePrincipalPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SimulatePrincipalPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +173,8 @@ export class SimulatePrincipalPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimulatePrincipalPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SimulatePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +184,18 @@ export class SimulatePrincipalPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SimulatePrincipalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySimulatePrincipalPolicyCommand(input, context);
+    return se_SimulatePrincipalPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimulatePrincipalPolicyCommandOutput> {
-    return deserializeAws_querySimulatePrincipalPolicyCommand(output, context);
+    return de_SimulatePrincipalPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

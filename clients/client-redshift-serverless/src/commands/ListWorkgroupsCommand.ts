@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorkgroupsRequest,
-  ListWorkgroupsRequestFilterSensitiveLog,
-  ListWorkgroupsResponse,
-  ListWorkgroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListWorkgroupsCommand,
-  serializeAws_json1_1ListWorkgroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListWorkgroupsRequest, ListWorkgroupsResponse } from "../models/models_0";
+import { de_ListWorkgroupsCommand, se_ListWorkgroupsCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkgroupsCommand}.
  */
 export interface ListWorkgroupsCommandInput extends ListWorkgroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkgroupsCommand}.
  */
 export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a list of specified workgroups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,16 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * import { RedshiftServerlessClient, ListWorkgroupsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListWorkgroupsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // ListWorkgroupsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListWorkgroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkgroupsCommandInput - {@link ListWorkgroupsCommandInput}
+ * @returns {@link ListWorkgroupsCommandOutput}
  * @see {@link ListWorkgroupsCommandInput} for command's `input` shape.
  * @see {@link ListWorkgroupsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -79,6 +82,9 @@ export class ListWorkgroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkgroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class ListWorkgroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkgroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkgroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class ListWorkgroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkgroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWorkgroupsCommand(input, context);
+    return se_ListWorkgroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkgroupsCommandOutput> {
-    return deserializeAws_json1_1ListWorkgroupsCommand(output, context);
+    return de_ListWorkgroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { EBSClient } from "../EBSClient";
 import { EBSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EBSClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSnapshotBlocksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSnapshotBlocks(
   config: EBSPaginationConfiguration,
   input: ListSnapshotBlocksCommandInput,

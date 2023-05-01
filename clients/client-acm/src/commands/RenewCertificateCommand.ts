@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { RenewCertificateRequest, RenewCertificateRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1RenewCertificateCommand,
-  serializeAws_json1_1RenewCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { RenewCertificateRequest } from "../models/models_0";
+import { de_RenewCertificateCommand, se_RenewCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RenewCertificateCommand}.
  */
 export interface RenewCertificateCommandInput extends RenewCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link RenewCertificateCommand}.
  */
 export interface RenewCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Renews an eligible ACM certificate. At this time, only exported private certificates can
  *       be renewed with this operation. In order to renew your Amazon Web Services Private CA certificates with ACM, you
  *       must first <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaPermissions.html">grant the ACM
@@ -41,10 +43,15 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  * import { ACMClient, RenewCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, RenewCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // RenewCertificateRequest
+ *   CertificateArn: "STRING_VALUE", // required
+ * };
  * const command = new RenewCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RenewCertificateCommandInput - {@link RenewCertificateCommandInput}
+ * @returns {@link RenewCertificateCommandOutput}
  * @see {@link RenewCertificateCommandInput} for command's `input` shape.
  * @see {@link RenewCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -75,6 +82,9 @@ export class RenewCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RenewCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +113,8 @@ export class RenewCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RenewCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +124,18 @@ export class RenewCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RenewCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RenewCertificateCommand(input, context);
+    return se_RenewCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RenewCertificateCommandOutput> {
-    return deserializeAws_json1_1RenewCertificateCommand(output, context);
+    return de_RenewCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

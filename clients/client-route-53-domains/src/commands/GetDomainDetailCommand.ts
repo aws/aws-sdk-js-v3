@@ -15,26 +15,27 @@ import {
 
 import {
   GetDomainDetailRequest,
-  GetDomainDetailRequestFilterSensitiveLog,
   GetDomainDetailResponse,
   GetDomainDetailResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDomainDetailCommand,
-  serializeAws_json1_1GetDomainDetailCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDomainDetailCommand, se_GetDomainDetailCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDomainDetailCommand}.
  */
 export interface GetDomainDetailCommandInput extends GetDomainDetailRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDomainDetailCommand}.
  */
 export interface GetDomainDetailCommandOutput extends GetDomainDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns detailed information about a specified domain that is
  * 			associated with the current Amazon Web Services account. Contact information for the
  * 			domain is also returned as part of the output.</p>
@@ -44,10 +45,15 @@ export interface GetDomainDetailCommandOutput extends GetDomainDetailResponse, _
  * import { Route53DomainsClient, GetDomainDetailCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, GetDomainDetailCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // GetDomainDetailRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new GetDomainDetailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDomainDetailCommandInput - {@link GetDomainDetailCommandInput}
+ * @returns {@link GetDomainDetailCommandOutput}
  * @see {@link GetDomainDetailCommandInput} for command's `input` shape.
  * @see {@link GetDomainDetailCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -80,6 +86,9 @@ export class GetDomainDetailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainDetailCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,7 +117,7 @@ export class GetDomainDetailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainDetailRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDomainDetailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -119,12 +128,18 @@ export class GetDomainDetailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainDetailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDomainDetailCommand(input, context);
+    return se_GetDomainDetailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainDetailCommandOutput> {
-    return deserializeAws_json1_1GetDomainDetailCommand(output, context);
+    return de_GetDomainDetailCommand(output, context);
   }
 
   // Start section: command_body_extra

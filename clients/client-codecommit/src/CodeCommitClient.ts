@@ -278,6 +278,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AssociateApprovalRuleTemplateWithRepositoryCommandInput
   | BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput
@@ -357,6 +360,9 @@ export type ServiceInputTypes =
   | UpdateRepositoryDescriptionCommandInput
   | UpdateRepositoryNameCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AssociateApprovalRuleTemplateWithRepositoryCommandOutput
   | BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
@@ -436,6 +442,9 @@ export type ServiceOutputTypes =
   | UpdateRepositoryDescriptionCommandOutput
   | UpdateRepositoryNameCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -443,7 +452,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -552,11 +561,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CodeCommitClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -567,10 +579,15 @@ type CodeCommitClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CodeCommitClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CodeCommitClient class constructor that set the region, credentials and other options.
  */
 export interface CodeCommitClientConfig extends CodeCommitClientConfigType {}
 
+/**
+ * @public
+ */
 type CodeCommitClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -581,11 +598,14 @@ type CodeCommitClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CodeCommitClient class. This is resolved and normalized from the {@link CodeCommitClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CodeCommitClient class. This is resolved and normalized from the {@link CodeCommitClientConfig | constructor configuration interface}.
  */
 export interface CodeCommitClientResolvedConfig extends CodeCommitClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>AWS CodeCommit</fullname>
  *         <p>This is the <i>AWS CodeCommit API Reference</i>. This reference provides descriptions of the operations and data types for
  *             AWS CodeCommit API along with usage examples.</p>

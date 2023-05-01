@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateDomainEntryRequest,
-  CreateDomainEntryRequestFilterSensitiveLog,
-  CreateDomainEntryResult,
-  CreateDomainEntryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDomainEntryCommand,
-  serializeAws_json1_1CreateDomainEntryCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDomainEntryRequest, CreateDomainEntryResult } from "../models/models_0";
+import { de_CreateDomainEntryCommand, se_CreateDomainEntryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDomainEntryCommand}.
  */
 export interface CreateDomainEntryCommandInput extends CreateDomainEntryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDomainEntryCommand}.
  */
 export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates one of the following domain name system (DNS) records in a domain DNS zone:
  *       Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority
  *       (SOA), service locator (SRV), or text (TXT).</p>
@@ -47,10 +44,25 @@ export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult,
  * import { LightsailClient, CreateDomainEntryCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateDomainEntryCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateDomainEntryRequest
+ *   domainName: "STRING_VALUE", // required
+ *   domainEntry: { // DomainEntry
+ *     id: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     target: "STRING_VALUE",
+ *     isAlias: true || false,
+ *     type: "STRING_VALUE",
+ *     options: { // DomainEntryOptions
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateDomainEntryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDomainEntryCommandInput - {@link CreateDomainEntryCommandInput}
+ * @returns {@link CreateDomainEntryCommandOutput}
  * @see {@link CreateDomainEntryCommandInput} for command's `input` shape.
  * @see {@link CreateDomainEntryCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -104,6 +116,9 @@ export class CreateDomainEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDomainEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +147,8 @@ export class CreateDomainEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainEntryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainEntryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +158,18 @@ export class CreateDomainEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDomainEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDomainEntryCommand(input, context);
+    return se_CreateDomainEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainEntryCommandOutput> {
-    return deserializeAws_json1_1CreateDomainEntryCommand(output, context);
+    return de_CreateDomainEntryCommand(output, context);
   }
 
   // Start section: command_body_extra

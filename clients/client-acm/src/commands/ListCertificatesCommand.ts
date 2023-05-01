@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import {
-  ListCertificatesRequest,
-  ListCertificatesRequestFilterSensitiveLog,
-  ListCertificatesResponse,
-  ListCertificatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCertificatesCommand,
-  serializeAws_json1_1ListCertificatesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCertificatesRequest, ListCertificatesResponse } from "../models/models_0";
+import { de_ListCertificatesCommand, se_ListCertificatesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCertificatesCommand}.
  */
 export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCertificatesCommand}.
  */
 export interface ListCertificatesCommandOutput extends ListCertificatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of certificate ARNs and domain names. You can request that only
  *       certificates that match a specific status be listed. You can also filter by specific
  *       attributes of the certificate. Default filtering returns only <code>RSA_2048</code>
@@ -45,10 +42,32 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * import { ACMClient, ListCertificatesCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ListCertificatesCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // ListCertificatesRequest
+ *   CertificateStatuses: [ // CertificateStatuses
+ *     "PENDING_VALIDATION" || "ISSUED" || "INACTIVE" || "EXPIRED" || "VALIDATION_TIMED_OUT" || "REVOKED" || "FAILED",
+ *   ],
+ *   Includes: { // Filters
+ *     extendedKeyUsage: [ // ExtendedKeyUsageFilterList
+ *       "TLS_WEB_SERVER_AUTHENTICATION" || "TLS_WEB_CLIENT_AUTHENTICATION" || "CODE_SIGNING" || "EMAIL_PROTECTION" || "TIME_STAMPING" || "OCSP_SIGNING" || "IPSEC_END_SYSTEM" || "IPSEC_TUNNEL" || "IPSEC_USER" || "ANY" || "NONE" || "CUSTOM",
+ *     ],
+ *     keyUsage: [ // KeyUsageFilterList
+ *       "DIGITAL_SIGNATURE" || "NON_REPUDIATION" || "KEY_ENCIPHERMENT" || "DATA_ENCIPHERMENT" || "KEY_AGREEMENT" || "CERTIFICATE_SIGNING" || "CRL_SIGNING" || "ENCIPHER_ONLY" || "DECIPHER_ONLY" || "ANY" || "CUSTOM",
+ *     ],
+ *     keyTypes: [ // KeyAlgorithmList
+ *       "RSA_1024" || "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1",
+ *     ],
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   SortBy: "CREATED_AT",
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ * };
  * const command = new ListCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCertificatesCommandInput - {@link ListCertificatesCommandInput}
+ * @returns {@link ListCertificatesCommandOutput}
  * @see {@link ListCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -78,6 +97,9 @@ export class ListCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +128,8 @@ export class ListCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCertificatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCertificatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +139,18 @@ export class ListCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCertificatesCommand(input, context);
+    return se_ListCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCertificatesCommandOutput> {
-    return deserializeAws_json1_1ListCertificatesCommand(output, context);
+    return de_ListCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

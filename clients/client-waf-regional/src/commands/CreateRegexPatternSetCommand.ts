@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRegexPatternSetRequest,
-  CreateRegexPatternSetRequestFilterSensitiveLog,
-  CreateRegexPatternSetResponse,
-  CreateRegexPatternSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRegexPatternSetCommand,
-  serializeAws_json1_1CreateRegexPatternSetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateRegexPatternSetRequest, CreateRegexPatternSetResponse } from "../models/models_0";
+import { de_CreateRegexPatternSetCommand, se_CreateRegexPatternSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRegexPatternSetCommand}.
  */
 export interface CreateRegexPatternSetCommandInput extends CreateRegexPatternSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRegexPatternSetCommand}.
  */
 export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -69,10 +66,16 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * import { WAFRegionalClient, CreateRegexPatternSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateRegexPatternSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // CreateRegexPatternSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateRegexPatternSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRegexPatternSetCommandInput - {@link CreateRegexPatternSetCommandInput}
+ * @returns {@link CreateRegexPatternSetCommandOutput}
  * @see {@link CreateRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link CreateRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -110,6 +113,9 @@ export class CreateRegexPatternSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRegexPatternSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +144,8 @@ export class CreateRegexPatternSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRegexPatternSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRegexPatternSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +155,18 @@ export class CreateRegexPatternSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRegexPatternSetCommand(input, context);
+    return se_CreateRegexPatternSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRegexPatternSetCommandOutput> {
-    return deserializeAws_json1_1CreateRegexPatternSetCommand(output, context);
+    return de_CreateRegexPatternSetCommand(output, context);
   }
 
   // Start section: command_body_extra

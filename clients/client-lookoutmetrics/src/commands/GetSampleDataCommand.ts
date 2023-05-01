@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  GetSampleDataRequest,
-  GetSampleDataRequestFilterSensitiveLog,
-  GetSampleDataResponse,
-  GetSampleDataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSampleDataCommand,
-  serializeAws_restJson1GetSampleDataCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSampleDataRequest, GetSampleDataResponse } from "../models/models_0";
+import { de_GetSampleDataCommand, se_GetSampleDataCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSampleDataCommand}.
  */
 export interface GetSampleDataCommandInput extends GetSampleDataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSampleDataCommand}.
  */
 export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a selection of sample records from an Amazon S3 datasource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,39 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  * import { LookoutMetricsClient, GetSampleDataCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, GetSampleDataCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // GetSampleDataRequest
+ *   S3SourceConfig: { // SampleDataS3SourceConfig
+ *     RoleArn: "STRING_VALUE", // required
+ *     TemplatedPathList: [ // TemplatedPathList
+ *       "STRING_VALUE",
+ *     ],
+ *     HistoricalDataPathList: [ // HistoricalDataPathList
+ *       "STRING_VALUE",
+ *     ],
+ *     FileFormatDescriptor: { // FileFormatDescriptor
+ *       CsvFormatDescriptor: { // CsvFormatDescriptor
+ *         FileCompression: "STRING_VALUE",
+ *         Charset: "STRING_VALUE",
+ *         ContainsHeader: true || false,
+ *         Delimiter: "STRING_VALUE",
+ *         HeaderList: [ // HeaderList
+ *           "STRING_VALUE",
+ *         ],
+ *         QuoteSymbol: "STRING_VALUE",
+ *       },
+ *       JsonFormatDescriptor: { // JsonFormatDescriptor
+ *         FileCompression: "STRING_VALUE",
+ *         Charset: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new GetSampleDataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSampleDataCommandInput - {@link GetSampleDataCommandInput}
+ * @returns {@link GetSampleDataCommandOutput}
  * @see {@link GetSampleDataCommandInput} for command's `input` shape.
  * @see {@link GetSampleDataCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -85,6 +111,9 @@ export class GetSampleDataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSampleDataCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +140,8 @@ export class GetSampleDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSampleDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSampleDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +151,18 @@ export class GetSampleDataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSampleDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSampleDataCommand(input, context);
+    return se_GetSampleDataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSampleDataCommandOutput> {
-    return deserializeAws_restJson1GetSampleDataCommand(output, context);
+    return de_GetSampleDataCommand(output, context);
   }
 
   // Start section: command_body_extra

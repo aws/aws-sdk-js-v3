@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteWorldTemplateRequest,
-  DeleteWorldTemplateRequestFilterSensitiveLog,
-  DeleteWorldTemplateResponse,
-  DeleteWorldTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorldTemplateCommand,
-  serializeAws_restJson1DeleteWorldTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteWorldTemplateRequest, DeleteWorldTemplateResponse } from "../models/models_0";
+import { de_DeleteWorldTemplateCommand, se_DeleteWorldTemplateCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWorldTemplateCommand}.
  */
 export interface DeleteWorldTemplateCommandInput extends DeleteWorldTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWorldTemplateCommand}.
  */
 export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a world template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateRes
  * import { RoboMakerClient, DeleteWorldTemplateCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DeleteWorldTemplateCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // DeleteWorldTemplateRequest
+ *   template: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorldTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWorldTemplateCommandInput - {@link DeleteWorldTemplateCommandInput}
+ * @returns {@link DeleteWorldTemplateCommandOutput}
  * @see {@link DeleteWorldTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteWorldTemplateCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
@@ -82,6 +84,9 @@ export class DeleteWorldTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWorldTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DeleteWorldTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorldTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorldTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DeleteWorldTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWorldTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorldTemplateCommand(input, context);
+    return se_DeleteWorldTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorldTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteWorldTemplateCommand(output, context);
+    return de_DeleteWorldTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

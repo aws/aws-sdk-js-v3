@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateUserRequest, UpdateUserRequestFilterSensitiveLog } from "../models/models_1";
-import { deserializeAws_queryUpdateUserCommand, serializeAws_queryUpdateUserCommand } from "../protocols/Aws_query";
+import { UpdateUserRequest } from "../models/models_1";
+import { de_UpdateUserCommand, se_UpdateUserCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserCommand}.
  */
 export interface UpdateUserCommandInput extends UpdateUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserCommand}.
  */
 export interface UpdateUserCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name and/or the path of the specified IAM user.</p>
  *          <important>
  *             <p> You should understand the implications of changing an IAM user's path or
@@ -46,10 +51,17 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UpdateUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UpdateUserRequest
+ *   UserName: "STRING_VALUE", // required
+ *   NewPath: "STRING_VALUE",
+ *   NewUserName: "STRING_VALUE",
+ * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
+ * @returns {@link UpdateUserCommandOutput}
  * @see {@link UpdateUserCommandInput} for command's `input` shape.
  * @see {@link UpdateUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -111,6 +123,9 @@ export class UpdateUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +152,8 @@ export class UpdateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +163,18 @@ export class UpdateUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateUserCommand(input, context);
+    return se_UpdateUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserCommandOutput> {
-    return deserializeAws_queryUpdateUserCommand(output, context);
+    return de_UpdateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

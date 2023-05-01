@@ -14,21 +14,23 @@ import {
 } from "@aws-sdk/types";
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DeleteResourcePolicyCommand,
-  serializeAws_json1_1DeleteResourcePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourcePolicyCommand}.
  */
 export interface DeleteResourcePolicyCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourcePolicyCommand}.
  */
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the resource policy from your organization.</p>
  *          <p>You can only call this operation from the organization's management account.</p>
  * @example
@@ -37,10 +39,13 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {};
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
+ * @returns {@link DeleteResourcePolicyCommandOutput}
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -293,6 +298,9 @@ export class DeleteResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -321,8 +329,8 @@ export class DeleteResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -332,12 +340,18 @@ export class DeleteResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResourcePolicyCommand(input, context);
+    return se_DeleteResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteResourcePolicyCommand(output, context);
+    return de_DeleteResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

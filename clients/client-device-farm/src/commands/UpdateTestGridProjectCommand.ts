@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  UpdateTestGridProjectRequest,
-  UpdateTestGridProjectRequestFilterSensitiveLog,
-  UpdateTestGridProjectResult,
-  UpdateTestGridProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTestGridProjectCommand,
-  serializeAws_json1_1UpdateTestGridProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTestGridProjectRequest, UpdateTestGridProjectResult } from "../models/models_0";
+import { de_UpdateTestGridProjectCommand, se_UpdateTestGridProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTestGridProjectCommand}.
  */
 export interface UpdateTestGridProjectCommandInput extends UpdateTestGridProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTestGridProjectCommand}.
  */
 export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Change details of a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
  * import { DeviceFarmClient, UpdateTestGridProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateTestGridProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // UpdateTestGridProjectRequest
+ *   projectArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   vpcConfig: { // TestGridVpcConfig
+ *     securityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpcId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateTestGridProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTestGridProjectCommandInput - {@link UpdateTestGridProjectCommandInput}
+ * @returns {@link UpdateTestGridProjectCommandOutput}
  * @see {@link UpdateTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateTestGridProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -82,6 +95,9 @@ export class UpdateTestGridProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTestGridProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +126,8 @@ export class UpdateTestGridProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTestGridProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTestGridProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +137,18 @@ export class UpdateTestGridProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTestGridProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTestGridProjectCommand(input, context);
+    return se_UpdateTestGridProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTestGridProjectCommandOutput> {
-    return deserializeAws_json1_1UpdateTestGridProjectCommand(output, context);
+    return de_UpdateTestGridProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

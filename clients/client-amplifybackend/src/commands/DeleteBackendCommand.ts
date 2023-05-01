@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  DeleteBackendRequest,
-  DeleteBackendRequestFilterSensitiveLog,
-  DeleteBackendResponse,
-  DeleteBackendResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBackendCommand,
-  serializeAws_restJson1DeleteBackendCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBackendRequest, DeleteBackendResponse } from "../models/models_0";
+import { de_DeleteBackendCommand, se_DeleteBackendCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackendCommand}.
  */
 export interface DeleteBackendCommandInput extends DeleteBackendRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackendCommand}.
  */
 export interface DeleteBackendCommandOutput extends DeleteBackendResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes an existing environment from your Amplify project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteBackendCommandOutput extends DeleteBackendResponse, __Met
  * import { AmplifyBackendClient, DeleteBackendCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, DeleteBackendCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // DeleteBackendRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBackendCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackendCommandInput - {@link DeleteBackendCommandInput}
+ * @returns {@link DeleteBackendCommandOutput}
  * @see {@link DeleteBackendCommandInput} for command's `input` shape.
  * @see {@link DeleteBackendCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +84,9 @@ export class DeleteBackendCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackendCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class DeleteBackendCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackendRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBackendResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class DeleteBackendCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBackendCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackendCommand(input, context);
+    return se_DeleteBackendCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackendCommandOutput> {
-    return deserializeAws_restJson1DeleteBackendCommand(output, context);
+    return de_DeleteBackendCommand(output, context);
   }
 
   // Start section: command_body_extra

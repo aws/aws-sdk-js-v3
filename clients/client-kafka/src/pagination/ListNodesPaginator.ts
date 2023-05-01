@@ -6,7 +6,7 @@ import { KafkaClient } from "../KafkaClient";
 import { KafkaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KafkaClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListNodesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListNodes(
   config: KafkaPaginationConfiguration,
   input: ListNodesCommandInput,

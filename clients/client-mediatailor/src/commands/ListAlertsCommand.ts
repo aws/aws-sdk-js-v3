@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  ListAlertsRequest,
-  ListAlertsRequestFilterSensitiveLog,
-  ListAlertsResponse,
-  ListAlertsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAlertsCommand,
-  serializeAws_restJson1ListAlertsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAlertsRequest, ListAlertsResponse } from "../models/models_0";
+import { de_ListAlertsCommand, se_ListAlertsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAlertsCommand}.
  */
 export interface ListAlertsCommandInput extends ListAlertsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAlertsCommand}.
  */
 export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the alerts that are associated with a MediaTailor channel assembly resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * import { MediaTailorClient, ListAlertsCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListAlertsCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // ListAlertsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListAlertsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAlertsCommandInput - {@link ListAlertsCommandInput}
+ * @returns {@link ListAlertsCommandOutput}
  * @see {@link ListAlertsCommandInput} for command's `input` shape.
  * @see {@link ListAlertsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +73,9 @@ export class ListAlertsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAlertsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +102,8 @@ export class ListAlertsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAlertsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAlertsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +113,18 @@ export class ListAlertsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAlertsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAlertsCommand(input, context);
+    return se_ListAlertsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlertsCommandOutput> {
-    return deserializeAws_restJson1ListAlertsCommand(output, context);
+    return de_ListAlertsCommand(output, context);
   }
 
   // Start section: command_body_extra

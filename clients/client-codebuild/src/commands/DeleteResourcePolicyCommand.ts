@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  DeleteResourcePolicyInput,
-  DeleteResourcePolicyInputFilterSensitiveLog,
-  DeleteResourcePolicyOutput,
-  DeleteResourcePolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResourcePolicyCommand,
-  serializeAws_json1_1DeleteResourcePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteResourcePolicyInput, DeleteResourcePolicyOutput } from "../models/models_0";
+import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteResourcePolicyCommand}.
  */
 export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteResourcePolicyCommand}.
  */
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a resource policy that is identified by its resource ARN. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * import { CodeBuildClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // DeleteResourcePolicyInput
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
+ * @returns {@link DeleteResourcePolicyCommandOutput}
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +74,9 @@ export class DeleteResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class DeleteResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcePolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +116,18 @@ export class DeleteResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResourcePolicyCommand(input, context);
+    return se_DeleteResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteResourcePolicyCommand(output, context);
+    return de_DeleteResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

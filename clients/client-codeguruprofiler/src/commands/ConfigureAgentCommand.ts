@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  ConfigureAgentRequest,
-  ConfigureAgentRequestFilterSensitiveLog,
-  ConfigureAgentResponse,
-  ConfigureAgentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ConfigureAgentCommand,
-  serializeAws_restJson1ConfigureAgentCommand,
-} from "../protocols/Aws_restJson1";
+import { ConfigureAgentRequest, ConfigureAgentResponse } from "../models/models_0";
+import { de_ConfigureAgentCommand, se_ConfigureAgentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfigureAgentCommand}.
  */
 export interface ConfigureAgentCommandInput extends ConfigureAgentRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfigureAgentCommand}.
  */
 export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *           Used by profiler agents to report their current state and to receive remote
  *           configuration updates. For example, <code>ConfigureAgent</code> can be used
@@ -46,10 +43,19 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  * import { CodeGuruProfilerClient, ConfigureAgentCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, ConfigureAgentCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // ConfigureAgentRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   fleetInstanceId: "STRING_VALUE",
+ *   metadata: { // Metadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ConfigureAgentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfigureAgentCommandInput - {@link ConfigureAgentCommandInput}
+ * @returns {@link ConfigureAgentCommandOutput}
  * @see {@link ConfigureAgentCommandInput} for command's `input` shape.
  * @see {@link ConfigureAgentCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -85,6 +91,9 @@ export class ConfigureAgentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfigureAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class ConfigureAgentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfigureAgentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigureAgentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class ConfigureAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfigureAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfigureAgentCommand(input, context);
+    return se_ConfigureAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureAgentCommandOutput> {
-    return deserializeAws_restJson1ConfigureAgentCommand(output, context);
+    return de_ConfigureAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

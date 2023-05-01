@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  CreateInstanceProfileRequest,
-  CreateInstanceProfileRequestFilterSensitiveLog,
-  CreateInstanceProfileResponse,
-  CreateInstanceProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateInstanceProfileCommand,
-  serializeAws_queryCreateInstanceProfileCommand,
-} from "../protocols/Aws_query";
+import { CreateInstanceProfileRequest, CreateInstanceProfileResponse } from "../models/models_0";
+import { de_CreateInstanceProfileCommand, se_CreateInstanceProfileCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInstanceProfileCommand}.
  */
 export interface CreateInstanceProfileCommandInput extends CreateInstanceProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInstanceProfileCommand}.
  */
 export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfileResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Creates a new instance profile. For information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">Using
  *                 roles for applications on Amazon EC2</a> in the
  *                 <i>IAM User Guide</i>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#ec2-instance-profile">Instance profiles</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -46,10 +43,22 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * import { IAMClient, CreateInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // CreateInstanceProfileRequest
+ *   InstanceProfileName: "STRING_VALUE", // required
+ *   Path: "STRING_VALUE",
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInstanceProfileCommandInput - {@link CreateInstanceProfileCommandInput}
+ * @returns {@link CreateInstanceProfileCommandOutput}
  * @see {@link CreateInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -116,6 +125,9 @@ export class CreateInstanceProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInstanceProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +156,8 @@ export class CreateInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInstanceProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +167,18 @@ export class CreateInstanceProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateInstanceProfileCommand(input, context);
+    return se_CreateInstanceProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceProfileCommandOutput> {
-    return deserializeAws_queryCreateInstanceProfileCommand(output, context);
+    return de_CreateInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

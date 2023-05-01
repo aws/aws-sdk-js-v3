@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  ListResourceSetResourcesRequest,
-  ListResourceSetResourcesRequestFilterSensitiveLog,
-  ListResourceSetResourcesResponse,
-  ListResourceSetResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourceSetResourcesCommand,
-  serializeAws_json1_1ListResourceSetResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourceSetResourcesRequest, ListResourceSetResourcesResponse } from "../models/models_0";
+import { de_ListResourceSetResourcesCommand, se_ListResourceSetResourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceSetResourcesCommand}.
  */
 export interface ListResourceSetResourcesCommandInput extends ListResourceSetResourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceSetResourcesCommand}.
  */
 export interface ListResourceSetResourcesCommandOutput extends ListResourceSetResourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an array of resources that are currently associated to a resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListResourceSetResourcesCommandOutput extends ListResourceSetRe
  * import { FMSClient, ListResourceSetResourcesCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListResourceSetResourcesCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // ListResourceSetResourcesRequest
+ *   Identifier: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListResourceSetResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceSetResourcesCommandInput - {@link ListResourceSetResourcesCommandInput}
+ * @returns {@link ListResourceSetResourcesCommandOutput}
  * @see {@link ListResourceSetResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourceSetResourcesCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -86,6 +90,9 @@ export class ListResourceSetResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceSetResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class ListResourceSetResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceSetResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceSetResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class ListResourceSetResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceSetResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceSetResourcesCommand(input, context);
+    return se_ListResourceSetResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceSetResourcesCommandOutput> {
-    return deserializeAws_json1_1ListResourceSetResourcesCommand(output, context);
+    return de_ListResourceSetResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

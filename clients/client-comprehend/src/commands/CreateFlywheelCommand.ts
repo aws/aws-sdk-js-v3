@@ -14,28 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  CreateFlywheelRequest,
-  CreateFlywheelRequestFilterSensitiveLog,
-  CreateFlywheelResponse,
-  CreateFlywheelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFlywheelCommand,
-  serializeAws_json1_1CreateFlywheelCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateFlywheelRequest, CreateFlywheelResponse } from "../models/models_0";
+import { de_CreateFlywheelCommand, se_CreateFlywheelCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFlywheelCommand}.
  */
 export interface CreateFlywheelCommandInput extends CreateFlywheelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFlywheelCommand}.
  */
 export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __MetadataBearer {}
 
 /**
- * <p>A flywheel is an AWS resource that orchestrates the ongoing training of a model for custom classification
+ * @public
+ * <p>A flywheel is an Amazon Web Services resource that orchestrates the ongoing training of a model for custom classification
  *       or custom entity recognition. You can create a flywheel to start with an existing trained model, or
  *       Comprehend can create and train a new model.</p>
  *          <p>When you create the flywheel, Comprehend creates a data lake in your account. The data lake holds the training
@@ -52,10 +49,55 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  * import { ComprehendClient, CreateFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // CreateFlywheelRequest
+ *   FlywheelName: "STRING_VALUE", // required
+ *   ActiveModelArn: "STRING_VALUE",
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   TaskConfig: { // TaskConfig
+ *     LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ *     DocumentClassificationConfig: { // DocumentClassificationConfig
+ *       Mode: "MULTI_CLASS" || "MULTI_LABEL", // required
+ *       Labels: [ // LabelsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     EntityRecognitionConfig: { // EntityRecognitionConfig
+ *       EntityTypes: [ // EntityTypesList // required
+ *         { // EntityTypesListItem
+ *           Type: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   ModelType: "DOCUMENT_CLASSIFIER" || "ENTITY_RECOGNIZER",
+ *   DataLakeS3Uri: "STRING_VALUE", // required
+ *   DataSecurityConfig: { // DataSecurityConfig
+ *     ModelKmsKeyId: "STRING_VALUE",
+ *     VolumeKmsKeyId: "STRING_VALUE",
+ *     DataLakeKmsKeyId: "STRING_VALUE",
+ *     VpcConfig: { // VpcConfig
+ *       SecurityGroupIds: [ // SecurityGroupIds // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Subnets: [ // Subnets // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateFlywheelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFlywheelCommandInput - {@link CreateFlywheelCommandInput}
+ * @returns {@link CreateFlywheelCommandOutput}
  * @see {@link CreateFlywheelCommandInput} for command's `input` shape.
  * @see {@link CreateFlywheelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -119,6 +161,9 @@ export class CreateFlywheelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFlywheelCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +192,8 @@ export class CreateFlywheelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFlywheelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFlywheelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,12 +203,18 @@ export class CreateFlywheelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFlywheelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFlywheelCommand(input, context);
+    return se_CreateFlywheelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFlywheelCommandOutput> {
-    return deserializeAws_json1_1CreateFlywheelCommand(output, context);
+    return de_CreateFlywheelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  ListCertificatesRequest,
-  ListCertificatesRequestFilterSensitiveLog,
-  ListCertificatesResult,
-  ListCertificatesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCertificatesCommand,
-  serializeAws_json1_1ListCertificatesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCertificatesRequest, ListCertificatesResult } from "../models/models_0";
+import { de_ListCertificatesCommand, se_ListCertificatesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCertificatesCommand}.
  */
 export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCertificatesCommand}.
  */
 export interface ListCertificatesCommandOutput extends ListCertificatesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For the specified directory, lists all the certificates registered for a secure LDAP or client certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResult, _
  * import { DirectoryServiceClient, ListCertificatesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ListCertificatesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // ListCertificatesRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCertificatesCommandInput - {@link ListCertificatesCommandInput}
+ * @returns {@link ListCertificatesCommandOutput}
  * @see {@link ListCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListCertificatesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -87,6 +91,9 @@ export class ListCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCertificatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCertificatesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class ListCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCertificatesCommand(input, context);
+    return se_ListCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCertificatesCommandOutput> {
-    return deserializeAws_json1_1ListCertificatesCommand(output, context);
+    return de_ListCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

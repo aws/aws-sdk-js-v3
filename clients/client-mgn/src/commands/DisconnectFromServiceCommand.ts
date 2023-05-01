@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  DisconnectFromServiceRequest,
-  DisconnectFromServiceRequestFilterSensitiveLog,
-  SourceServer,
-  SourceServerFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisconnectFromServiceCommand,
-  serializeAws_restJson1DisconnectFromServiceCommand,
-} from "../protocols/Aws_restJson1";
+import { DisconnectFromServiceRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
+import { de_DisconnectFromServiceCommand, se_DisconnectFromServiceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisconnectFromServiceCommand}.
  */
 export interface DisconnectFromServiceCommandInput extends DisconnectFromServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisconnectFromServiceCommand}.
  */
 export interface DisconnectFromServiceCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disconnects specific Source Servers from Application Migration Service. Data replication is stopped immediately. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. If the agent on the source server has not been prevented from communicating with the Application Migration Service service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DisconnectFromServiceCommandOutput extends SourceServer, __Meta
  * import { MgnClient, DisconnectFromServiceCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DisconnectFromServiceCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // DisconnectFromServiceRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new DisconnectFromServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisconnectFromServiceCommandInput - {@link DisconnectFromServiceCommandInput}
+ * @returns {@link DisconnectFromServiceCommandOutput}
  * @see {@link DisconnectFromServiceCommandInput} for command's `input` shape.
  * @see {@link DisconnectFromServiceCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +80,9 @@ export class DisconnectFromServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisconnectFromServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +111,7 @@ export class DisconnectFromServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectFromServiceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -117,12 +122,18 @@ export class DisconnectFromServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisconnectFromServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisconnectFromServiceCommand(input, context);
+    return se_DisconnectFromServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectFromServiceCommandOutput> {
-    return deserializeAws_restJson1DisconnectFromServiceCommand(output, context);
+    return de_DisconnectFromServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

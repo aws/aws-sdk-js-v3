@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { DBClusterParameterGroupNameMessage, ModifyDBClusterParameterGroupMessage } from "../models/models_0";
 import {
-  DBClusterParameterGroupNameMessage,
-  DBClusterParameterGroupNameMessageFilterSensitiveLog,
-  ModifyDBClusterParameterGroupMessage,
-  ModifyDBClusterParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyDBClusterParameterGroupCommand,
-  serializeAws_queryModifyDBClusterParameterGroupCommand,
+  de_ModifyDBClusterParameterGroupCommand,
+  se_ModifyDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBClusterParameterGroupCommand}.
  */
 export interface ModifyDBClusterParameterGroupCommandInput extends ModifyDBClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBClusterParameterGroupCommand}.
  */
 export interface ModifyDBClusterParameterGroupCommandOutput
@@ -37,17 +36,18 @@ export interface ModifyDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Modifies the parameters of a cluster parameter group. To modify more than one
  *             parameter, submit a list of the following: <code>ParameterName</code>,
  *                 <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20
  *             parameters can be modified in a single request. </p>
- *         <note>
+ *          <note>
  *             <p>Changes to dynamic parameters are applied immediately. Changes to static
  *                 parameters require a reboot or maintenance window
  *
  *                 before the change can take effect.</p>
- *         </note>
- *         <important>
+ *          </note>
+ *          <important>
  *             <p>After you create a cluster parameter group, you should wait at least 5 minutes
  *                 before creating your first cluster that uses that cluster parameter group as
  *                 the default parameter group. This allows Amazon DocumentDB to fully complete the create action
@@ -55,17 +55,36 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *                 especially important for parameters that are critical when creating the default
  *                 database for a cluster, such as the character set for the default database
  *                 defined by the <code>character_set_database</code> parameter.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, ModifyDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // ModifyDBClusterParameterGroupMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   Parameters: [ // ParametersList // required
+ *     { // Parameter
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       ApplyType: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       ApplyMethod: "immediate" || "pending-reboot",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterParameterGroupCommandInput - {@link ModifyDBClusterParameterGroupCommandInput}
+ * @returns {@link ModifyDBClusterParameterGroupCommandOutput}
  * @see {@link ModifyDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -96,6 +115,9 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +146,8 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupNameMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,15 +157,21 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterParameterGroupCommand(input, context);
+    return se_ModifyDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyDBClusterParameterGroupCommand(output, context);
+    return de_ModifyDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

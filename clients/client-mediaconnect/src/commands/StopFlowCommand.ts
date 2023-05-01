@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  StopFlowRequest,
-  StopFlowRequestFilterSensitiveLog,
-  StopFlowResponse,
-  StopFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopFlowCommand,
-  serializeAws_restJson1StopFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { StopFlowRequest, StopFlowResponse } from "../models/models_0";
+import { de_StopFlowCommand, se_StopFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopFlowCommand}.
  */
 export interface StopFlowCommandInput extends StopFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopFlowCommand}.
  */
 export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Stops a flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * import { MediaConnectClient, StopFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, StopFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // StopFlowRequest
+ *   FlowArn: "STRING_VALUE", // required
+ * };
  * const command = new StopFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopFlowCommandInput - {@link StopFlowCommandInput}
+ * @returns {@link StopFlowCommandOutput}
  * @see {@link StopFlowCommandInput} for command's `input` shape.
  * @see {@link StopFlowCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +89,9 @@ export class StopFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class StopFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class StopFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopFlowCommand(input, context);
+    return se_StopFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFlowCommandOutput> {
-    return deserializeAws_restJson1StopFlowCommand(output, context);
+    return de_StopFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

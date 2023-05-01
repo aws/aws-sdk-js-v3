@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  PutProjectEventsRequest,
-  PutProjectEventsRequestFilterSensitiveLog,
-  PutProjectEventsResponse,
-  PutProjectEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutProjectEventsCommand,
-  serializeAws_restJson1PutProjectEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { PutProjectEventsRequest, PutProjectEventsResponse } from "../models/models_0";
+import { de_PutProjectEventsCommand, se_PutProjectEventsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutProjectEventsCommand}.
  */
 export interface PutProjectEventsCommandInput extends PutProjectEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutProjectEventsCommand}.
  */
 export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends performance events to Evidently. These events can be used to evaluate a launch or
  *       an experiment.</p>
  * @example
@@ -43,10 +40,22 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  * import { EvidentlyClient, PutProjectEventsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, PutProjectEventsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // PutProjectEventsRequest
+ *   project: "STRING_VALUE", // required
+ *   events: [ // EventList // required
+ *     { // Event
+ *       timestamp: new Date("TIMESTAMP"), // required
+ *       type: "STRING_VALUE", // required
+ *       data: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutProjectEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutProjectEventsCommandInput - {@link PutProjectEventsCommandInput}
+ * @returns {@link PutProjectEventsCommandOutput}
  * @see {@link PutProjectEventsCommandInput} for command's `input` shape.
  * @see {@link PutProjectEventsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -82,6 +91,9 @@ export class PutProjectEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutProjectEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +122,8 @@ export class PutProjectEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutProjectEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutProjectEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +133,18 @@ export class PutProjectEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutProjectEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutProjectEventsCommand(input, context);
+    return se_PutProjectEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutProjectEventsCommandOutput> {
-    return deserializeAws_restJson1PutProjectEventsCommand(output, context);
+    return de_PutProjectEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

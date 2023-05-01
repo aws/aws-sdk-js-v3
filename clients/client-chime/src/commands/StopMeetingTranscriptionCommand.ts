@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  StopMeetingTranscriptionRequest,
-  StopMeetingTranscriptionRequestFilterSensitiveLog,
-  StopMeetingTranscriptionResponse,
-  StopMeetingTranscriptionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1StopMeetingTranscriptionCommand,
-  serializeAws_restJson1StopMeetingTranscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { StopMeetingTranscriptionRequest, StopMeetingTranscriptionResponse } from "../models/models_1";
+import { de_StopMeetingTranscriptionCommand, se_StopMeetingTranscriptionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopMeetingTranscriptionCommand}.
  */
 export interface StopMeetingTranscriptionCommandInput extends StopMeetingTranscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopMeetingTranscriptionCommand}.
  */
 export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTranscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops transcription for the specified <code>meetingId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTransc
  * import { ChimeClient, StopMeetingTranscriptionCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, StopMeetingTranscriptionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // StopMeetingTranscriptionRequest
+ *   MeetingId: "STRING_VALUE", // required
+ * };
  * const command = new StopMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopMeetingTranscriptionCommandInput - {@link StopMeetingTranscriptionCommandInput}
+ * @returns {@link StopMeetingTranscriptionCommandOutput}
  * @see {@link StopMeetingTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StopMeetingTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +95,9 @@ export class StopMeetingTranscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopMeetingTranscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class StopMeetingTranscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMeetingTranscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopMeetingTranscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +137,18 @@ export class StopMeetingTranscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopMeetingTranscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopMeetingTranscriptionCommand(input, context);
+    return se_StopMeetingTranscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMeetingTranscriptionCommandOutput> {
-    return deserializeAws_restJson1StopMeetingTranscriptionCommand(output, context);
+    return de_StopMeetingTranscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

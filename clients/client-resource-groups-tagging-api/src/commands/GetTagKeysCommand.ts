@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTagKeysInput,
-  GetTagKeysInputFilterSensitiveLog,
-  GetTagKeysOutput,
-  GetTagKeysOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTagKeysCommand,
-  serializeAws_json1_1GetTagKeysCommand,
-} from "../protocols/Aws_json1_1";
+import { GetTagKeysInput, GetTagKeysOutput } from "../models/models_0";
+import { de_GetTagKeysCommand, se_GetTagKeysCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTagKeysCommand}.
  */
 export interface GetTagKeysCommandInput extends GetTagKeysInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTagKeysCommand}.
  */
 export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all tag keys currently in use in the specified Amazon Web Services Region for the calling
  *             account.</p>
  *         <p>This operation supports pagination, where the response can be sent in
@@ -53,10 +50,15 @@ export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBea
  * import { ResourceGroupsTaggingAPIClient, GetTagKeysCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, GetTagKeysCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const input = { // GetTagKeysInput
+ *   PaginationToken: "STRING_VALUE",
+ * };
  * const command = new GetTagKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTagKeysCommandInput - {@link GetTagKeysCommandInput}
+ * @returns {@link GetTagKeysCommandOutput}
  * @see {@link GetTagKeysCommandInput} for command's `input` shape.
  * @see {@link GetTagKeysCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -114,6 +116,9 @@ export class GetTagKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTagKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +145,8 @@ export class GetTagKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTagKeysInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTagKeysOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +156,18 @@ export class GetTagKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTagKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTagKeysCommand(input, context);
+    return se_GetTagKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagKeysCommandOutput> {
-    return deserializeAws_json1_1GetTagKeysCommand(output, context);
+    return de_GetTagKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

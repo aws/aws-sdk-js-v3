@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  ModifyHapgRequest,
-  ModifyHapgRequestFilterSensitiveLog,
-  ModifyHapgResponse,
-  ModifyHapgResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyHapgCommand,
-  serializeAws_json1_1ModifyHapgCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifyHapgRequest, ModifyHapgResponse } from "../models/models_0";
+import { de_ModifyHapgCommand, se_ModifyHapgCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyHapgCommand}.
  */
 export interface ModifyHapgCommandInput extends ModifyHapgRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyHapgCommand}.
  */
 export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -52,10 +49,19 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  * import { CloudHSMClient, ModifyHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ModifyHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = { // ModifyHapgRequest
+ *   HapgArn: "STRING_VALUE", // required
+ *   Label: "STRING_VALUE",
+ *   PartitionSerialList: [ // PartitionSerialList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyHapgCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyHapgCommandInput - {@link ModifyHapgCommandInput}
+ * @returns {@link ModifyHapgCommandOutput}
  * @see {@link ModifyHapgCommandInput} for command's `input` shape.
  * @see {@link ModifyHapgCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
@@ -88,6 +94,9 @@ export class ModifyHapgCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyHapgCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +123,8 @@ export class ModifyHapgCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyHapgRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyHapgResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +134,18 @@ export class ModifyHapgCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyHapgCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyHapgCommand(input, context);
+    return se_ModifyHapgCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyHapgCommandOutput> {
-    return deserializeAws_json1_1ModifyHapgCommand(output, context);
+    return de_ModifyHapgCommand(output, context);
   }
 
   // Start section: command_body_extra

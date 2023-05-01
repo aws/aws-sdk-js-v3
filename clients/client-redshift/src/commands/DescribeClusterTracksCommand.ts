@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeClusterTracksMessage,
-  DescribeClusterTracksMessageFilterSensitiveLog,
-  TrackListMessage,
-  TrackListMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterTracksCommand,
-  serializeAws_queryDescribeClusterTracksCommand,
-} from "../protocols/Aws_query";
+import { DescribeClusterTracksMessage, TrackListMessage } from "../models/models_0";
+import { de_DescribeClusterTracksCommand, se_DescribeClusterTracksCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterTracksCommand}.
  */
 export interface DescribeClusterTracksCommandInput extends DescribeClusterTracksMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterTracksCommand}.
  */
 export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the available maintenance tracks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
  * import { RedshiftClient, DescribeClusterTracksCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterTracksCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeClusterTracksMessage
+ *   MaintenanceTrackName: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeClusterTracksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterTracksCommandInput - {@link DescribeClusterTracksCommandInput}
+ * @returns {@link DescribeClusterTracksCommandOutput}
  * @see {@link DescribeClusterTracksCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterTracksCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -75,6 +79,9 @@ export class DescribeClusterTracksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterTracksCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +110,8 @@ export class DescribeClusterTracksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterTracksMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: TrackListMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +121,18 @@ export class DescribeClusterTracksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterTracksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterTracksCommand(input, context);
+    return se_DescribeClusterTracksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterTracksCommandOutput> {
-    return deserializeAws_queryDescribeClusterTracksCommand(output, context);
+    return de_DescribeClusterTracksCommand(output, context);
   }
 
   // Start section: command_body_extra

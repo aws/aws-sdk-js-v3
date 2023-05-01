@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { InternetMonitorServiceException as __BaseException } from "./InternetMonitorServiceException";
 
 /**
+ * @public
  * <p>You don't have sufficient permission to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,42 +24,44 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Measurements about the availability for your application on the internet, calculated by Amazon CloudWatch Internet Monitor. Amazon Web Services has substantial historical data about internet
  * 			performance and availability between Amazon Web Services services and different network providers and geographies. By applying statistical analysis to the data, Internet Monitor
  * 			can detect when the performance and availability for your application has dropped, compared to an estimated baseline that's already calculated. To make it
  * 			easier to see those drops, we report that information to you in the form of health scores: a performance score and an availability score.</p>
  *          <p>Availability in Internet Monitor represents the estimated percentage of traffic that is not seeing an availability drop. For example, an availability score of 99%
  * 			for an end user and service location pair is equivalent to 1% of the traffic experiencing an availability drop for that pair.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores"> How Internet Monitor calculates performance and availability
- * 				scores</a> in the Amazon CloudWatch Internet Monitor section of the Amazon CloudWatch User Guide.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores">How Internet Monitor calculates performance and availability
+ * 				scores</a> in the Amazon CloudWatch Internet Monitor section of the <i>Amazon CloudWatch User Guide</i>.</p>
  */
 export interface AvailabilityMeasurement {
   /**
    * <p>Experience scores, or health scores are calculated for different geographic and network provider combinations (that is, different granularities) and
    * 			also summed into global scores. If you view performance or availability scores without filtering for any specific geography or service provider, Amazon CloudWatch Internet Monitor
    * 			provides global health scores.</p>
-   *          <p>The Amazon CloudWatch Internet Monitor chapter in the CloudWatch User Guide includes detailed information about how Internet Monitor calculates health scores, including performance and
-   * 			availability scores, and when it creates and resolves health events. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores"> How Amazon Web Services calculates performance and
-   * 				availability scores</a> in the Amazon CloudWatch Internet Monitor section of the CloudWatch User Guide.</p>
+   *          <p>The Amazon CloudWatch Internet Monitor chapter in the <i>CloudWatch User Guide</i> includes detailed information about how Internet Monitor calculates health scores, including performance and
+   * 			availability scores, and when it creates and resolves health events. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores">How Amazon Web Services calculates performance and
+   * 				availability scores</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    */
   ExperienceScore?: number;
 
   /**
    * <p>The percentage of impact caused by a health event for total traffic globally.</p>
-   *          <p>For information about how Internet Monitor calculates impact, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html"> Inside Internet Monitor</a> in the Amazon CloudWatch Internet Monitor section of the Amazon CloudWatch User
+   *          <p>For information about how Internet Monitor calculates impact, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html">Inside Internet Monitor</a> in the Amazon CloudWatch Internet Monitor section of the Amazon CloudWatch User
    * 			Guide.</p>
    */
   PercentOfTotalTrafficImpacted?: number;
 
   /**
    * <p>The percentage of impact caused by a health event for client location traffic globally.</p>
-   *          <p>For information about how Internet Monitor calculates impact, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html"> Inside Internet Monitor</a> in the Amazon CloudWatch Internet Monitor section of the Amazon CloudWatch User
+   *          <p>For information about how Internet Monitor calculates impact, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html">Inside Internet Monitor</a> in the Amazon CloudWatch Internet Monitor section of the Amazon CloudWatch User
    * 			Guide.</p>
    */
   PercentOfClientLocationImpacted?: number;
 }
 
 /**
+ * @public
  * <p>A bad request was received.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -78,6 +81,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource is in use.</p>
  */
 export class ConflictException extends __BaseException {
@@ -96,6 +100,59 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ * @enum
+ */
+export const LogDeliveryStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type LogDeliveryStatus = (typeof LogDeliveryStatus)[keyof typeof LogDeliveryStatus];
+
+/**
+ * @public
+ * <p>The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3. The configuration includes the bucket name and (optionally) prefix
+ * 			for the S3 bucket to store the measurements, and the delivery status. The delivery status is <code>ENABLED</code> or <code>DISABLED</code>, depending on
+ * 			whether you choose to deliver internet measurements to S3 logs.</p>
+ */
+export interface S3Config {
+  /**
+   * <p>The Amazon S3 bucket name.</p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>The Amazon S3 bucket prefix.</p>
+   */
+  BucketPrefix?: string;
+
+  /**
+   * <p>The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket.</p>
+   */
+  LogDeliveryStatus?: LogDeliveryStatus | string;
+}
+
+/**
+ * @public
+ * <p>Publish internet measurements to an Amazon S3 bucket in addition to CloudWatch Logs.</p>
+ */
+export interface InternetMeasurementsLogDelivery {
+  /**
+   * <p>The configuration information for publishing Internet Monitor internet measurements to Amazon S3. The configuration includes the bucket name and (optionally) prefix
+   * 			for the S3 bucket to store the measurements, and the delivery status. The delivery status is <code>ENABLED</code> or <code>DISABLED</code>, depending on
+   * 			whether you choose to deliver internet measurements to S3 logs.</p>
+   */
+  S3Config?: S3Config;
+}
+
+/**
+ * @public
+ */
 export interface CreateMonitorInput {
   /**
    * <p>The name of the monitor. </p>
@@ -124,19 +181,43 @@ export interface CreateMonitorInput {
   Tags?: Record<string, string>;
 
   /**
-   * <p>The maximum number of city-network combinations (that is, combinations of a city location and network, such as an ISP) to be monitored
-   * 			for your resources.</p>
+   * <p>The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and
+   * 			the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.</p>
+   *          <p>To learn more, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value
+   * 		</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    */
-  MaxCityNetworksToMonitor: number | undefined;
+  MaxCityNetworksToMonitor?: number;
+
+  /**
+   * <p>Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.</p>
+   */
+  InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
+
+  /**
+   * <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.</p>
+   */
+  TrafficPercentageToMonitor?: number;
 }
 
-export enum MonitorConfigState {
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MonitorConfigState = {
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+  PENDING: "PENDING",
+} as const;
 
+/**
+ * @public
+ */
+export type MonitorConfigState = (typeof MonitorConfigState)[keyof typeof MonitorConfigState];
+
+/**
+ * @public
+ */
 export interface CreateMonitorOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor.</p>
@@ -150,6 +231,7 @@ export interface CreateMonitorOutput {
 }
 
 /**
+ * @public
  * <p>An internal error occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -170,6 +252,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeded a service quota.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -189,6 +272,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -211,6 +295,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Invalid request.</p>
  */
 export class ValidationException extends __BaseException {
@@ -229,6 +314,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteMonitorInput {
   /**
    * <p>The name of the monitor to delete.</p>
@@ -236,8 +324,14 @@ export interface DeleteMonitorInput {
   MonitorName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMonitorOutput {}
 
+/**
+ * @public
+ */
 export interface GetHealthEventInput {
   /**
    * <p>The name of the monitor.</p>
@@ -252,6 +346,7 @@ export interface GetHealthEventInput {
 }
 
 /**
+ * @public
  * <p>An internet service provider (ISP) or network in Amazon CloudWatch Internet Monitor.</p>
  */
 export interface Network {
@@ -266,12 +361,22 @@ export interface Network {
   ASNumber: number | undefined;
 }
 
-export enum TriangulationEventType {
-  AWS = "AWS",
-  INTERNET = "Internet",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TriangulationEventType = {
+  AWS: "AWS",
+  INTERNET: "Internet",
+} as const;
 
 /**
+ * @public
+ */
+export type TriangulationEventType = (typeof TriangulationEventType)[keyof typeof TriangulationEventType];
+
+/**
+ * @public
  * <p>Information about the network impairment for a specific network measured by Amazon CloudWatch Internet Monitor.</p>
  */
 export interface NetworkImpairment {
@@ -292,6 +397,7 @@ export interface NetworkImpairment {
 }
 
 /**
+ * @public
  * <p>Round-trip time (RTT) is how long it takes for a request from the user to return a response to the user. Amazon CloudWatch Internet Monitor calculates RTT at different
  * 			percentiles: p50, p90, and p95.</p>
  */
@@ -313,14 +419,15 @@ export interface RoundTripTime {
 }
 
 /**
+ * @public
  * <p>Measurements about the performance for your application on the internet calculated by Amazon CloudWatch Internet Monitor. Amazon Web Services has substantial historical data about internet
  * 			performance and availability between Amazon Web Services services and different network providers and geographies. By applying statistical analysis to the data, Internet Monitor
  * 			can detect when the performance and availability for your application has dropped, compared to an estimated baseline that's already calculated. To make it
  * 			easier to see those drops, we report that information to you in the form of health scores: a performance score and an availability score.</p>
  *          <p>Performance in Internet Monitor represents the estimated percentage of traffic that is not seeing a performance drop. For example, a performance score of 99% for
  * 			an end user and service location pair is equivalent to 1% of the traffic experiencing a performance drop for that pair.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores"> How Internet Monitor calculates performance and availability
- * 				scores</a> in the Amazon CloudWatch Internet Monitor section of the Amazon CloudWatch User Guide.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores">How Internet Monitor calculates performance and availability
+ * 			scores</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
  */
 export interface PerformanceMeasurement {
   /**
@@ -328,36 +435,37 @@ export interface PerformanceMeasurement {
    * 			also totaled into global scores. If you view performance or availability scores without filtering for any specific geography or service provider, Amazon CloudWatch Internet Monitor
    * 			provides global health scores.</p>
    *          <p>The Amazon CloudWatch Internet Monitor chapter in the CloudWatch User Guide includes detailed information about how Internet Monitor calculates health scores, including performance and
-   * 			availability scores, and when it creates and resolves health events. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores"> How Amazon Web Services calculates performance and
-   * 				availability scores</a> in the Amazon CloudWatch Internet Monitor section of the CloudWatch User Guide.</p>
+   * 			availability scores, and when it creates and resolves health events. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores">How Amazon Web Services calculates performance and
+   * 				availability scores</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    */
   ExperienceScore?: number;
 
   /**
    * <p>How much performance impact was caused by a health event for total traffic globally. For performance, this is the percentage of how much latency
    * 			increased during the event compared to typical performance for your application traffic globally. </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMHealthEventStartStop"> When Amazon Web Services creates and resolves health
-   * 				events</a> in the Amazon CloudWatch Internet Monitor section of the CloudWatch User Guide.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMHealthEventStartStop">When Amazon Web Services creates and resolves health
+   * 			events</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    */
   PercentOfTotalTrafficImpacted?: number;
 
   /**
    * <p>How much performance impact was caused by a health event at a client location. For performance, this is the percentage of how much latency increased
    * 			during the event compared to typical performance for traffic, from this client location to an Amazon Web Services location, using a specific client network. </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMHealthEventStartStop"> When Amazon Web Services creates and resolves health
-   * 				events</a> in the Amazon CloudWatch Internet Monitor section of the CloudWatch User Guide.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMHealthEventStartStop">When Amazon Web Services creates and resolves health
+   * 			events</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    */
   PercentOfClientLocationImpacted?: number;
 
   /**
    * <p>This is the percentage of how much round-trip time increased during the event compared to typical round-trip time for your application for traffic. </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMHealthEventStartStop"> When Amazon Web Services creates and resolves health
-   * 				events</a> in the Amazon CloudWatch Internet Monitor section of the CloudWatch User Guide.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMHealthEventStartStop">When Amazon Web Services creates and resolves health
+   * 			events</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    */
   RoundTripTime?: RoundTripTime;
 }
 
 /**
+ * @public
  * <p>Internet health includes measurements calculated by Amazon CloudWatch Internet Monitor about the performance and availability for your application on the internet. Amazon Web Services has
  * 			substantial historical data about internet performance and availability between Amazon Web Services services and different network providers and geographies. By
  * 			applying statistical analysis to the data, Internet Monitor can detect when the performance and availability for your application has dropped, compared to an
@@ -368,26 +476,36 @@ export interface InternetHealth {
   /**
    * <p>Availability in Internet Monitor represents the estimated percentage of traffic that is not seeing an availability drop. For example, an availability score of 99%
    * 			for an end user and service location pair is equivalent to 1% of the traffic experiencing an availability drop for that pair.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores"> How Internet Monitor calculates performance and availability
-   * 				scores</a> in the Amazon CloudWatch Internet Monitor section of the Amazon CloudWatch User Guide.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores">How Internet Monitor calculates performance and availability
+   * 			scores</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    */
   Availability?: AvailabilityMeasurement;
 
   /**
    * <p>Performance in Internet Monitor represents the estimated percentage of traffic that is not seeing a performance drop. For example, a performance score of 99% for
    * 			an end user and service location pair is equivalent to 1% of the traffic experiencing a performance drop for that pair.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores"> How Internet Monitor calculates performance and availability
-   * 				scores</a> in the Amazon CloudWatch Internet Monitor section of the Amazon CloudWatch User Guide.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-inside-internet-monitor.html#IMExperienceScores">How Internet Monitor calculates performance and availability
+   * 			scores</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    */
   Performance?: PerformanceMeasurement;
 }
 
-export enum HealthEventStatus {
-  ACTIVE = "ACTIVE",
-  RESOLVED = "RESOLVED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HealthEventStatus = {
+  ACTIVE: "ACTIVE",
+  RESOLVED: "RESOLVED",
+} as const;
 
 /**
+ * @public
+ */
+export type HealthEventStatus = (typeof HealthEventStatus)[keyof typeof HealthEventStatus];
+
+/**
+ * @public
  * <p>Information about a location impacted by a health event in Amazon CloudWatch Internet Monitor.</p>
  *          <p>Geographic regions are hierarchically categorized into country, subdivision,
  *    		metro and city geographic granularities. The geographic region is identified based
@@ -473,11 +591,23 @@ export interface ImpactedLocation {
   InternetHealth?: InternetHealth;
 }
 
-export enum HealthEventImpactType {
-  AVAILABILITY = "AVAILABILITY",
-  PERFORMANCE = "PERFORMANCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HealthEventImpactType = {
+  AVAILABILITY: "AVAILABILITY",
+  PERFORMANCE: "PERFORMANCE",
+} as const;
 
+/**
+ * @public
+ */
+export type HealthEventImpactType = (typeof HealthEventImpactType)[keyof typeof HealthEventImpactType];
+
+/**
+ * @public
+ */
 export interface GetHealthEventOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the event.</p>
@@ -530,6 +660,9 @@ export interface GetHealthEventOutput {
   ImpactType: HealthEventImpactType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMonitorInput {
   /**
    * <p>The name of the monitor.</p>
@@ -537,15 +670,28 @@ export interface GetMonitorInput {
   MonitorName: string | undefined;
 }
 
-export enum MonitorProcessingStatusCode {
-  COLLECTING_DATA = "COLLECTING_DATA",
-  FAULT_ACCESS_CLOUDWATCH = "FAULT_ACCESS_CLOUDWATCH",
-  FAULT_SERVICE = "FAULT_SERVICE",
-  INACTIVE = "INACTIVE",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  OK = "OK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MonitorProcessingStatusCode = {
+  COLLECTING_DATA: "COLLECTING_DATA",
+  FAULT_ACCESS_CLOUDWATCH: "FAULT_ACCESS_CLOUDWATCH",
+  FAULT_SERVICE: "FAULT_SERVICE",
+  INACTIVE: "INACTIVE",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  OK: "OK",
+} as const;
 
+/**
+ * @public
+ */
+export type MonitorProcessingStatusCode =
+  (typeof MonitorProcessingStatusCode)[keyof typeof MonitorProcessingStatusCode];
+
+/**
+ * @public
+ */
 export interface GetMonitorOutput {
   /**
    * <p>The name of the monitor.</p>
@@ -593,13 +739,26 @@ export interface GetMonitorOutput {
   Tags?: Record<string, string>;
 
   /**
-   * <p>The maximum number of city-network combinations (that is, combinations of a city location and network, such as an ISP) to be monitored
-   * 			for your resources.</p>
+   * <p>The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and
+   * 			the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.</p>
+   *          <p>To learn more, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value
+   * 		</a> in the Amazon CloudWatch Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
    */
-  MaxCityNetworksToMonitor: number | undefined;
+  MaxCityNetworksToMonitor?: number;
+
+  /**
+   * <p>Publish internet measurements for Internet Monitor to another location, such as an Amazon S3 bucket. The measurements are also published to Amazon CloudWatch Logs.</p>
+   */
+  InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
+
+  /**
+   * <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.</p>
+   */
+  TrafficPercentageToMonitor?: number;
 }
 
 /**
+ * @public
  * <p>Information about a health event created in a monitor in Amazon CloudWatch Internet Monitor.</p>
  */
 export interface HealthEvent {
@@ -654,6 +813,9 @@ export interface HealthEvent {
   ImpactType: HealthEventImpactType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListHealthEventsInput {
   /**
    * <p>The name of the monitor.</p>
@@ -686,6 +848,9 @@ export interface ListHealthEventsInput {
   EventStatus?: HealthEventStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListHealthEventsOutput {
   /**
    * <p>A list of health events.</p>
@@ -699,6 +864,7 @@ export interface ListHealthEventsOutput {
 }
 
 /**
+ * @public
  * <p>There was an internal server error.</p>
  */
 export class InternalServerErrorException extends __BaseException {
@@ -718,6 +884,9 @@ export class InternalServerErrorException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for a resource.</p>
@@ -725,6 +894,9 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>Tags for a resource.</p>
@@ -733,6 +905,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p>The request specifies something that doesn't exist.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -752,6 +925,7 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>There were too many requests.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -773,6 +947,9 @@ export class TooManyRequestsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorsInput {
   /**
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
@@ -793,6 +970,7 @@ export interface ListMonitorsInput {
 }
 
 /**
+ * @public
  * <p>The description of and information about a monitor in Amazon CloudWatch Internet Monitor. </p>
  */
 export interface Monitor {
@@ -817,6 +995,9 @@ export interface Monitor {
   ProcessingStatus?: MonitorProcessingStatusCode | string;
 }
 
+/**
+ * @public
+ */
 export interface ListMonitorsOutput {
   /**
    * <p>A list of monitors.</p>
@@ -830,6 +1011,7 @@ export interface ListMonitorsOutput {
 }
 
 /**
+ * @public
  * <p>The request specifies a resource that doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -848,6 +1030,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitorInput {
   /**
    * <p>The name of the monitor. </p>
@@ -883,12 +1068,26 @@ export interface UpdateMonitorInput {
   ClientToken?: string;
 
   /**
-   * <p>The maximum number of city-network combinations (that is, combinations of a city location and network, such as an ISP) to be monitored
-   * 			for your resources.</p>
+   * <p>The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from
+   * 			and the network or ASN,
+   * 			such as an internet service provider, that clients access the resources through.</p>
    */
   MaxCityNetworksToMonitor?: number;
+
+  /**
+   * <p>Publish internet measurements for Internet Monitor to another location, such as an Amazon S3 bucket. The measurements are also published to Amazon CloudWatch Logs.</p>
+   */
+  InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
+
+  /**
+   * <p>The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.</p>
+   */
+  TrafficPercentageToMonitor?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMonitorOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor.</p>
@@ -901,6 +1100,9 @@ export interface UpdateMonitorOutput {
   Status: MonitorConfigState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for a tag that you add to a resource. Tags are supported only for monitors in Amazon CloudWatch Internet Monitor.</p>
@@ -913,8 +1115,14 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for a tag you remove a resource from.</p>
@@ -927,207 +1135,7 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
-
-/**
- * @internal
- */
-export const AvailabilityMeasurementFilterSensitiveLog = (obj: AvailabilityMeasurement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMonitorInputFilterSensitiveLog = (obj: CreateMonitorInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMonitorOutputFilterSensitiveLog = (obj: CreateMonitorOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMonitorInputFilterSensitiveLog = (obj: DeleteMonitorInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMonitorOutputFilterSensitiveLog = (obj: DeleteMonitorOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHealthEventInputFilterSensitiveLog = (obj: GetHealthEventInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkFilterSensitiveLog = (obj: Network): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkImpairmentFilterSensitiveLog = (obj: NetworkImpairment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RoundTripTimeFilterSensitiveLog = (obj: RoundTripTime): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PerformanceMeasurementFilterSensitiveLog = (obj: PerformanceMeasurement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InternetHealthFilterSensitiveLog = (obj: InternetHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImpactedLocationFilterSensitiveLog = (obj: ImpactedLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHealthEventOutputFilterSensitiveLog = (obj: GetHealthEventOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMonitorInputFilterSensitiveLog = (obj: GetMonitorInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMonitorOutputFilterSensitiveLog = (obj: GetMonitorOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HealthEventFilterSensitiveLog = (obj: HealthEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHealthEventsInputFilterSensitiveLog = (obj: ListHealthEventsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListHealthEventsOutputFilterSensitiveLog = (obj: ListHealthEventsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitorsInputFilterSensitiveLog = (obj: ListMonitorsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitorFilterSensitiveLog = (obj: Monitor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMonitorsOutputFilterSensitiveLog = (obj: ListMonitorsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMonitorInputFilterSensitiveLog = (obj: UpdateMonitorInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMonitorOutputFilterSensitiveLog = (obj: UpdateMonitorOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});

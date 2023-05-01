@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-locate-window",
-  "version": "3.295.0",
+  "version": "3.310.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -42,7 +42,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-locate-window",
   "repository": {

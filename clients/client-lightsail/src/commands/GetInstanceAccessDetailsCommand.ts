@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetInstanceAccessDetailsRequest,
-  GetInstanceAccessDetailsRequestFilterSensitiveLog,
-  GetInstanceAccessDetailsResult,
-  GetInstanceAccessDetailsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetInstanceAccessDetailsCommand,
-  serializeAws_json1_1GetInstanceAccessDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetInstanceAccessDetailsRequest, GetInstanceAccessDetailsResult } from "../models/models_1";
+import { de_GetInstanceAccessDetailsCommand, se_GetInstanceAccessDetailsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceAccessDetailsCommand}.
  */
 export interface GetInstanceAccessDetailsCommandInput extends GetInstanceAccessDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceAccessDetailsCommand}.
  */
 export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccessDetailsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns temporary SSH keys you can use to connect to a specific virtual private server, or
  *         <i>instance</i>.</p>
  *          <p>The <code>get instance access details</code> operation supports tag-based access control
@@ -46,10 +43,16 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  * import { LightsailClient, GetInstanceAccessDetailsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstanceAccessDetailsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // GetInstanceAccessDetailsRequest
+ *   instanceName: "STRING_VALUE", // required
+ *   protocol: "ssh" || "rdp",
+ * };
  * const command = new GetInstanceAccessDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceAccessDetailsCommandInput - {@link GetInstanceAccessDetailsCommandInput}
+ * @returns {@link GetInstanceAccessDetailsCommandOutput}
  * @see {@link GetInstanceAccessDetailsCommandInput} for command's `input` shape.
  * @see {@link GetInstanceAccessDetailsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -103,6 +106,9 @@ export class GetInstanceAccessDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceAccessDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +137,8 @@ export class GetInstanceAccessDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceAccessDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceAccessDetailsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +148,18 @@ export class GetInstanceAccessDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInstanceAccessDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceAccessDetailsCommand(input, context);
+    return se_GetInstanceAccessDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceAccessDetailsCommandOutput> {
-    return deserializeAws_json1_1GetInstanceAccessDetailsCommand(output, context);
+    return de_GetInstanceAccessDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteProfileRequest, DeleteProfileRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProfileCommand,
-  serializeAws_json1_1DeleteProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProfileRequest } from "../models/models_0";
+import { de_DeleteProfileCommand, se_DeleteProfileCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProfileCommand}.
  */
 export interface DeleteProfileCommandInput extends DeleteProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProfileCommand}.
  */
 export interface DeleteProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the profile that's specified in the <code>ProfileId</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteProfileCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteProfileCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteProfileCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DeleteProfileRequest
+ *   ProfileId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProfileCommandInput - {@link DeleteProfileCommandInput}
+ * @returns {@link DeleteProfileCommandOutput}
  * @see {@link DeleteProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +113,8 @@ export class DeleteProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +124,18 @@ export class DeleteProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProfileCommand(input, context);
+    return se_DeleteProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfileCommandOutput> {
-    return deserializeAws_json1_1DeleteProfileCommand(output, context);
+    return de_DeleteProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

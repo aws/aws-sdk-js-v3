@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DescribeCertificateRequest,
-  DescribeCertificateRequestFilterSensitiveLog,
-  DescribeCertificateResult,
-  DescribeCertificateResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCertificateCommand,
-  serializeAws_json1_1DescribeCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeCertificateRequest, DescribeCertificateResult } from "../models/models_0";
+import { de_DescribeCertificateCommand, se_DescribeCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCertificateCommand}.
  */
 export interface DescribeCertificateCommandInput extends DescribeCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCertificateCommand}.
  */
 export interface DescribeCertificateCommandOutput extends DescribeCertificateResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays information about the certificate registered for secure LDAP or client certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * import { DirectoryServiceClient, DescribeCertificateCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeCertificateCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DescribeCertificateRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   CertificateId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCertificateCommandInput - {@link DescribeCertificateCommandInput}
+ * @returns {@link DescribeCertificateCommandOutput}
  * @see {@link DescribeCertificateCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -87,6 +90,9 @@ export class DescribeCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DescribeCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DescribeCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCertificateCommand(input, context);
+    return se_DescribeCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificateCommandOutput> {
-    return deserializeAws_json1_1DescribeCertificateCommand(output, context);
+    return de_DescribeCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

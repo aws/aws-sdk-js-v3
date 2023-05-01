@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  GetLayerVersionPolicyRequest,
-  GetLayerVersionPolicyRequestFilterSensitiveLog,
-  GetLayerVersionPolicyResponse,
-  GetLayerVersionPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLayerVersionPolicyCommand,
-  serializeAws_restJson1GetLayerVersionPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLayerVersionPolicyRequest, GetLayerVersionPolicyResponse } from "../models/models_0";
+import { de_GetLayerVersionPolicyCommand, se_GetLayerVersionPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLayerVersionPolicyCommand}.
  */
 export interface GetLayerVersionPolicyCommandInput extends GetLayerVersionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLayerVersionPolicyCommand}.
  */
 export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolic
  * import { LambdaClient, GetLayerVersionPolicyCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetLayerVersionPolicyCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // GetLayerVersionPolicyRequest
+ *   LayerName: "STRING_VALUE", // required
+ *   VersionNumber: Number("long"), // required
+ * };
  * const command = new GetLayerVersionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLayerVersionPolicyCommandInput - {@link GetLayerVersionPolicyCommandInput}
+ * @returns {@link GetLayerVersionPolicyCommandOutput}
  * @see {@link GetLayerVersionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetLayerVersionPolicyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -82,6 +85,9 @@ export class GetLayerVersionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLayerVersionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class GetLayerVersionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLayerVersionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLayerVersionPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class GetLayerVersionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLayerVersionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLayerVersionPolicyCommand(input, context);
+    return se_GetLayerVersionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayerVersionPolicyCommandOutput> {
-    return deserializeAws_restJson1GetLayerVersionPolicyCommand(output, context);
+    return de_GetLayerVersionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

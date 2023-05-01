@@ -16,21 +16,24 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DescribeChannelModeratedByAppInstanceUserRequest,
-  DescribeChannelModeratedByAppInstanceUserRequestFilterSensitiveLog,
   DescribeChannelModeratedByAppInstanceUserResponse,
   DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand,
-  serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand,
+  de_DescribeChannelModeratedByAppInstanceUserCommand,
+  se_DescribeChannelModeratedByAppInstanceUserCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeChannelModeratedByAppInstanceUserCommand}.
  */
 export interface DescribeChannelModeratedByAppInstanceUserCommandInput
   extends DescribeChannelModeratedByAppInstanceUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeChannelModeratedByAppInstanceUserCommand}.
  */
 export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
@@ -38,9 +41,9 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the full details of a channel moderated by the specified
  *             <code>AppInstanceUser</code>.</p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
@@ -52,10 +55,17 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
  * import { ChimeClient, DescribeChannelModeratedByAppInstanceUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DescribeChannelModeratedByAppInstanceUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DescribeChannelModeratedByAppInstanceUserRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new DescribeChannelModeratedByAppInstanceUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeChannelModeratedByAppInstanceUserCommandInput - {@link DescribeChannelModeratedByAppInstanceUserCommandInput}
+ * @returns {@link DescribeChannelModeratedByAppInstanceUserCommandOutput}
  * @see {@link DescribeChannelModeratedByAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelModeratedByAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +107,9 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeChannelModeratedByAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,7 +144,7 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelModeratedByAppInstanceUserRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -142,18 +155,24 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeChannelModeratedByAppInstanceUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand(input, context);
+    return se_DescribeChannelModeratedByAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand(output, context);
+    return de_DescribeChannelModeratedByAppInstanceUserCommand(output, context);
   }
 
   // Start section: command_body_extra

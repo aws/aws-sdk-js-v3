@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  UpdateClusterConfigurationRequest,
-  UpdateClusterConfigurationRequestFilterSensitiveLog,
-  UpdateClusterConfigurationResponse,
-  UpdateClusterConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateClusterConfigurationCommand,
-  serializeAws_restJson1UpdateClusterConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateClusterConfigurationRequest, UpdateClusterConfigurationResponse } from "../models/models_0";
+import { de_UpdateClusterConfigurationCommand, se_UpdateClusterConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClusterConfigurationCommand}.
  */
 export interface UpdateClusterConfigurationCommandInput extends UpdateClusterConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClusterConfigurationCommand}.
  */
 export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the cluster with the configuration that is specified in the request body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterCo
  * import { KafkaClient, UpdateClusterConfigurationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateClusterConfigurationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // UpdateClusterConfigurationRequest
+ *   ClusterArn: "STRING_VALUE", // required
+ *   ConfigurationInfo: { // ConfigurationInfo
+ *     Arn: "STRING_VALUE", // required
+ *     Revision: Number("long"), // required
+ *   },
+ *   CurrentVersion: "STRING_VALUE", // required
+ * };
  * const command = new UpdateClusterConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClusterConfigurationCommandInput - {@link UpdateClusterConfigurationCommandInput}
+ * @returns {@link UpdateClusterConfigurationCommandOutput}
  * @see {@link UpdateClusterConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -87,6 +94,9 @@ export class UpdateClusterConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClusterConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +125,8 @@ export class UpdateClusterConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +136,21 @@ export class UpdateClusterConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClusterConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateClusterConfigurationCommand(input, context);
+    return se_UpdateClusterConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateClusterConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateClusterConfigurationCommand(output, context);
+    return de_UpdateClusterConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

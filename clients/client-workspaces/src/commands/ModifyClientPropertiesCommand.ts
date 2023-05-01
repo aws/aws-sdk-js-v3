@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyClientPropertiesRequest,
-  ModifyClientPropertiesRequestFilterSensitiveLog,
-  ModifyClientPropertiesResult,
-  ModifyClientPropertiesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyClientPropertiesCommand,
-  serializeAws_json1_1ModifyClientPropertiesCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifyClientPropertiesRequest, ModifyClientPropertiesResult } from "../models/models_0";
+import { de_ModifyClientPropertiesCommand, se_ModifyClientPropertiesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClientPropertiesCommand}.
  */
 export interface ModifyClientPropertiesCommandInput extends ModifyClientPropertiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClientPropertiesCommand}.
  */
 export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropertiesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * import { WorkSpacesClient, ModifyClientPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyClientPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // ModifyClientPropertiesRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   ClientProperties: { // ClientProperties
+ *     ReconnectEnabled: "ENABLED" || "DISABLED",
+ *     LogUploadEnabled: "ENABLED" || "DISABLED",
+ *   },
+ * };
  * const command = new ModifyClientPropertiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClientPropertiesCommandInput - {@link ModifyClientPropertiesCommandInput}
+ * @returns {@link ModifyClientPropertiesCommandOutput}
  * @see {@link ModifyClientPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyClientPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -78,6 +84,9 @@ export class ModifyClientPropertiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClientPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +115,8 @@ export class ModifyClientPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClientPropertiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClientPropertiesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +126,18 @@ export class ModifyClientPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClientPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyClientPropertiesCommand(input, context);
+    return se_ModifyClientPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClientPropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyClientPropertiesCommand(output, context);
+    return de_ModifyClientPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

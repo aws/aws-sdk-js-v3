@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { StopFailbackRequest, StopFailbackRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopFailbackCommand,
-  serializeAws_restJson1StopFailbackCommand,
-} from "../protocols/Aws_restJson1";
+import { StopFailbackRequest } from "../models/models_0";
+import { de_StopFailbackCommand, se_StopFailbackCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopFailbackCommand}.
  */
 export interface StopFailbackCommandInput extends StopFailbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopFailbackCommand}.
  */
 export interface StopFailbackCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the failback process for a specified Recovery Instance. This changes the Failback State of the Recovery Instance back to FAILBACK_NOT_STARTED.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface StopFailbackCommandOutput extends __MetadataBearer {}
  * import { DrsClient, StopFailbackCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, StopFailbackCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = { // StopFailbackRequest
+ *   recoveryInstanceID: "STRING_VALUE", // required
+ * };
  * const command = new StopFailbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopFailbackCommandInput - {@link StopFailbackCommandInput}
+ * @returns {@link StopFailbackCommandOutput}
  * @see {@link StopFailbackCommandInput} for command's `input` shape.
  * @see {@link StopFailbackCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
@@ -76,6 +83,9 @@ export class StopFailbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopFailbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +112,8 @@ export class StopFailbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopFailbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +123,18 @@ export class StopFailbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopFailbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopFailbackCommand(input, context);
+    return se_StopFailbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFailbackCommandOutput> {
-    return deserializeAws_restJson1StopFailbackCommand(output, context);
+    return de_StopFailbackCommand(output, context);
   }
 
   // Start section: command_body_extra

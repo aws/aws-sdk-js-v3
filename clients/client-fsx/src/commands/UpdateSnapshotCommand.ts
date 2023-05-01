@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  UpdateSnapshotRequest,
-  UpdateSnapshotRequestFilterSensitiveLog,
-  UpdateSnapshotResponse,
-  UpdateSnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSnapshotCommand,
-  serializeAws_json1_1UpdateSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSnapshotRequest, UpdateSnapshotResponse } from "../models/models_0";
+import { de_UpdateSnapshotCommand, se_UpdateSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSnapshotCommand}.
  */
 export interface UpdateSnapshotCommandInput extends UpdateSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSnapshotCommand}.
  */
 export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name of an Amazon FSx for OpenZFS snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * import { FSxClient, UpdateSnapshotCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateSnapshotCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // UpdateSnapshotRequest
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSnapshotCommandInput - {@link UpdateSnapshotCommandInput}
+ * @returns {@link UpdateSnapshotCommandOutput}
  * @see {@link UpdateSnapshotCommandInput} for command's `input` shape.
  * @see {@link UpdateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -78,6 +82,9 @@ export class UpdateSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class UpdateSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSnapshotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class UpdateSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSnapshotCommand(input, context);
+    return se_UpdateSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSnapshotCommandOutput> {
-    return deserializeAws_json1_1UpdateSnapshotCommand(output, context);
+    return de_UpdateSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

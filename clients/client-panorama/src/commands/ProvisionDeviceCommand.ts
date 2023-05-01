@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ProvisionDeviceRequest,
-  ProvisionDeviceRequestFilterSensitiveLog,
-  ProvisionDeviceResponse,
-  ProvisionDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ProvisionDeviceRequest, ProvisionDeviceResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1ProvisionDeviceCommand,
-  serializeAws_restJson1ProvisionDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ProvisionDeviceCommand, se_ProvisionDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ProvisionDeviceCommand}.
  */
 export interface ProvisionDeviceCommandInput extends ProvisionDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link ProvisionDeviceCommand}.
  */
 export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a device and returns a configuration archive. The configuration archive is a ZIP file that contains a
  *       provisioning certificate that is valid for 5 minutes. Name the configuration archive
  *           <code>certificates-omni_<i>device-name</i>.zip</code> and transfer it to the device within 5
@@ -45,10 +42,48 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * import { PanoramaClient, ProvisionDeviceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ProvisionDeviceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // ProvisionDeviceRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   NetworkingConfiguration: { // NetworkPayload
+ *     Ethernet0: { // EthernetPayload
+ *       ConnectionType: "STRING_VALUE", // required
+ *       StaticIpConnectionInfo: { // StaticIpConnectionInfo
+ *         IpAddress: "STRING_VALUE", // required
+ *         Mask: "STRING_VALUE", // required
+ *         Dns: [ // DnsList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         DefaultGateway: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     Ethernet1: {
+ *       ConnectionType: "STRING_VALUE", // required
+ *       StaticIpConnectionInfo: {
+ *         IpAddress: "STRING_VALUE", // required
+ *         Mask: "STRING_VALUE", // required
+ *         Dns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         DefaultGateway: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     Ntp: { // NtpPayload
+ *       NtpServers: [ // NtpServerList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new ProvisionDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ProvisionDeviceCommandInput - {@link ProvisionDeviceCommandInput}
+ * @returns {@link ProvisionDeviceCommandOutput}
  * @see {@link ProvisionDeviceCommandInput} for command's `input` shape.
  * @see {@link ProvisionDeviceCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -87,6 +122,9 @@ export class ProvisionDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ProvisionDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +153,8 @@ export class ProvisionDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ProvisionDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProvisionDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +164,18 @@ export class ProvisionDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ProvisionDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ProvisionDeviceCommand(input, context);
+    return se_ProvisionDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionDeviceCommandOutput> {
-    return deserializeAws_restJson1ProvisionDeviceCommand(output, context);
+    return de_ProvisionDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

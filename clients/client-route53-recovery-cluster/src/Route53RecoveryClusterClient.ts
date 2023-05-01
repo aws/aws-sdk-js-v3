@@ -73,18 +73,27 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | GetRoutingControlStateCommandInput
   | ListRoutingControlsCommandInput
   | UpdateRoutingControlStateCommandInput
   | UpdateRoutingControlStatesCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | GetRoutingControlStateCommandOutput
   | ListRoutingControlsCommandOutput
   | UpdateRoutingControlStateCommandOutput
   | UpdateRoutingControlStatesCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -92,7 +101,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -201,11 +210,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type Route53RecoveryClusterClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -216,10 +228,15 @@ type Route53RecoveryClusterClientConfigType = Partial<__SmithyConfiguration<__Ht
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of Route53RecoveryClusterClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of Route53RecoveryClusterClient class constructor that set the region, credentials and other options.
  */
 export interface Route53RecoveryClusterClientConfig extends Route53RecoveryClusterClientConfigType {}
 
+/**
+ * @public
+ */
 type Route53RecoveryClusterClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -230,11 +247,14 @@ type Route53RecoveryClusterClientResolvedConfigType = __SmithyResolvedConfigurat
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of Route53RecoveryClusterClient class. This is resolved and normalized from the {@link Route53RecoveryClusterClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of Route53RecoveryClusterClient class. This is resolved and normalized from the {@link Route53RecoveryClusterClientConfig | constructor configuration interface}.
  */
 export interface Route53RecoveryClusterClientResolvedConfig extends Route53RecoveryClusterClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Welcome to the Routing Control (Recovery Cluster) API Reference Guide for Amazon Route 53 Application Recovery Controller.</p>
  * 			      <p>With Route 53 ARC, you can use routing control with extreme reliability to
  * 			recover applications by rerouting traffic across

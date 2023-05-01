@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  PutEventSelectorsRequest,
-  PutEventSelectorsRequestFilterSensitiveLog,
-  PutEventSelectorsResponse,
-  PutEventSelectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutEventSelectorsCommand,
-  serializeAws_json1_1PutEventSelectorsCommand,
-} from "../protocols/Aws_json1_1";
+import { PutEventSelectorsRequest, PutEventSelectorsResponse } from "../models/models_0";
+import { de_PutEventSelectorsCommand, se_PutEventSelectorsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutEventSelectorsCommand}.
  */
 export interface PutEventSelectorsCommandInput extends PutEventSelectorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutEventSelectorsCommand}.
  */
 export interface PutEventSelectorsCommandOutput extends PutEventSelectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures an event selector or advanced event selectors for your trail. Use event
  *          selectors or advanced event selectors to specify management and data event settings for
  *          your trail. By default, trails created without specific event selectors are configured to
@@ -84,10 +81,58 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * import { CloudTrailClient, PutEventSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, PutEventSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // PutEventSelectorsRequest
+ *   TrailName: "STRING_VALUE", // required
+ *   EventSelectors: [ // EventSelectors
+ *     { // EventSelector
+ *       ReadWriteType: "ReadOnly" || "WriteOnly" || "All",
+ *       IncludeManagementEvents: true || false,
+ *       DataResources: [ // DataResources
+ *         { // DataResource
+ *           Type: "STRING_VALUE",
+ *           Values: [ // DataResourceValues
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       ExcludeManagementEventSources: [ // ExcludeManagementEventSources
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   AdvancedEventSelectors: [ // AdvancedEventSelectors
+ *     { // AdvancedEventSelector
+ *       Name: "STRING_VALUE",
+ *       FieldSelectors: [ // AdvancedFieldSelectors // required
+ *         { // AdvancedFieldSelector
+ *           Field: "STRING_VALUE", // required
+ *           Equals: [ // Operator
+ *             "STRING_VALUE",
+ *           ],
+ *           StartsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           EndsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotEquals: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotStartsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotEndsWith: "<Operator>",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutEventSelectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutEventSelectorsCommandInput - {@link PutEventSelectorsCommandInput}
+ * @returns {@link PutEventSelectorsCommandOutput}
  * @see {@link PutEventSelectorsCommandInput} for command's `input` shape.
  * @see {@link PutEventSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -205,6 +250,9 @@ export class PutEventSelectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutEventSelectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -233,8 +281,8 @@ export class PutEventSelectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEventSelectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEventSelectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -244,12 +292,18 @@ export class PutEventSelectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutEventSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutEventSelectorsCommand(input, context);
+    return se_PutEventSelectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventSelectorsCommandOutput> {
-    return deserializeAws_json1_1PutEventSelectorsCommand(output, context);
+    return de_PutEventSelectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

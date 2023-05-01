@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteOrganizationRequest,
-  DeleteOrganizationRequestFilterSensitiveLog,
-  DeleteOrganizationResponse,
-  DeleteOrganizationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteOrganizationCommand,
-  serializeAws_json1_1DeleteOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteOrganizationRequest, DeleteOrganizationResponse } from "../models/models_0";
+import { de_DeleteOrganizationCommand, se_DeleteOrganizationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOrganizationCommand}.
  */
 export interface DeleteOrganizationCommandInput extends DeleteOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOrganizationCommand}.
  */
 export interface DeleteOrganizationCommandOutput extends DeleteOrganizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an WorkMail organization and all underlying AWS resources managed by WorkMail as part of the organization. You can choose whether to delete the associated directory. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html">Removing an organization</a> in the <i>WorkMail Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  * import { WorkMailClient, DeleteOrganizationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteOrganizationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // DeleteOrganizationRequest
+ *   ClientToken: "STRING_VALUE",
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DeleteDirectory: true || false, // required
+ * };
  * const command = new DeleteOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOrganizationCommandInput - {@link DeleteOrganizationCommandInput}
+ * @returns {@link DeleteOrganizationCommandOutput}
  * @see {@link DeleteOrganizationCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -80,6 +84,9 @@ export class DeleteOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class DeleteOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class DeleteOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteOrganizationCommand(input, context);
+    return se_DeleteOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOrganizationCommandOutput> {
-    return deserializeAws_json1_1DeleteOrganizationCommand(output, context);
+    return de_DeleteOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

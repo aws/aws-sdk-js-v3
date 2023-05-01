@@ -18,23 +18,24 @@ import {
   CreateForecastRequest,
   CreateForecastRequestFilterSensitiveLog,
   CreateForecastResponse,
-  CreateForecastResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateForecastCommand,
-  serializeAws_json1_1CreateForecastCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateForecastCommand, se_CreateForecastCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateForecastCommand}.
  */
 export interface CreateForecastCommandInput extends CreateForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateForecastCommand}.
  */
 export interface CreateForecastCommandOutput extends CreateForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a forecast for each item in the <code>TARGET_TIME_SERIES</code> dataset that was
  *       used to train the predictor. This is known as inference. To retrieve the forecast for a single
  *       item at low latency, use the  operation. To
@@ -62,10 +63,45 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  * import { ForecastClient, CreateForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // CreateForecastRequest
+ *   ForecastName: "STRING_VALUE", // required
+ *   PredictorArn: "STRING_VALUE", // required
+ *   ForecastTypes: [ // ForecastTypes
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TimeSeriesSelector: { // TimeSeriesSelector
+ *     TimeSeriesIdentifiers: { // TimeSeriesIdentifiers
+ *       DataSource: { // DataSource
+ *         S3Config: { // S3Config
+ *           Path: "STRING_VALUE", // required
+ *           RoleArn: "STRING_VALUE", // required
+ *           KMSKeyArn: "STRING_VALUE",
+ *         },
+ *       },
+ *       Schema: { // Schema
+ *         Attributes: [ // SchemaAttributes
+ *           { // SchemaAttribute
+ *             AttributeName: "STRING_VALUE",
+ *             AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *           },
+ *         ],
+ *       },
+ *       Format: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateForecastCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateForecastCommandInput - {@link CreateForecastCommandInput}
+ * @returns {@link CreateForecastCommandOutput}
  * @see {@link CreateForecastCommandInput} for command's `input` shape.
  * @see {@link CreateForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -106,6 +142,9 @@ export class CreateForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,7 +174,7 @@ export class CreateForecastCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateForecastRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateForecastResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +184,18 @@ export class CreateForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateForecastCommand(input, context);
+    return se_CreateForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateForecastCommandOutput> {
-    return deserializeAws_json1_1CreateForecastCommand(output, context);
+    return de_CreateForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

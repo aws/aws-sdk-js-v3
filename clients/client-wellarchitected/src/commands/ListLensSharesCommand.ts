@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLensSharesInput,
-  ListLensSharesInputFilterSensitiveLog,
-  ListLensSharesOutput,
-  ListLensSharesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLensSharesCommand,
-  serializeAws_restJson1ListLensSharesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListLensSharesInput, ListLensSharesOutput } from "../models/models_0";
+import { de_ListLensSharesCommand, se_ListLensSharesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListLensSharesCommand}.
  */
 export interface ListLensSharesCommandInput extends ListLensSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListLensSharesCommand}.
  */
 export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the lens shares associated with the lens.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __Met
  * import { WellArchitectedClient, ListLensSharesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListLensSharesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // ListLensSharesInput
+ *   LensAlias: "STRING_VALUE", // required
+ *   SharedWithPrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * };
  * const command = new ListLensSharesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLensSharesCommandInput - {@link ListLensSharesCommandInput}
+ * @returns {@link ListLensSharesCommandOutput}
  * @see {@link ListLensSharesCommandInput} for command's `input` shape.
  * @see {@link ListLensSharesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +90,9 @@ export class ListLensSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLensSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +121,8 @@ export class ListLensSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLensSharesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLensSharesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +132,18 @@ export class ListLensSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLensSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLensSharesCommand(input, context);
+    return se_ListLensSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLensSharesCommandOutput> {
-    return deserializeAws_restJson1ListLensSharesCommand(output, context);
+    return de_ListLensSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

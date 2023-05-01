@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import {
-  DescribeModelPackagingJobRequest,
-  DescribeModelPackagingJobRequestFilterSensitiveLog,
-  DescribeModelPackagingJobResponse,
-  DescribeModelPackagingJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeModelPackagingJobCommand,
-  serializeAws_restJson1DescribeModelPackagingJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeModelPackagingJobRequest, DescribeModelPackagingJobResponse } from "../models/models_0";
+import { de_DescribeModelPackagingJobCommand, se_DescribeModelPackagingJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeModelPackagingJobCommand}.
  */
 export interface DescribeModelPackagingJobCommandInput extends DescribeModelPackagingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeModelPackagingJobCommand}.
  */
 export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPackagingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an Amazon Lookout for Vision model packaging job.
  * </p>
  *          <p>This operation requires permissions to perform the
@@ -48,10 +45,16 @@ export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPac
  * import { LookoutVisionClient, DescribeModelPackagingJobCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DescribeModelPackagingJobCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = { // DescribeModelPackagingJobRequest
+ *   ProjectName: "STRING_VALUE", // required
+ *   JobName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeModelPackagingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeModelPackagingJobCommandInput - {@link DescribeModelPackagingJobCommandInput}
+ * @returns {@link DescribeModelPackagingJobCommandOutput}
  * @see {@link DescribeModelPackagingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeModelPackagingJobCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -91,6 +94,9 @@ export class DescribeModelPackagingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeModelPackagingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class DescribeModelPackagingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelPackagingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelPackagingJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +136,21 @@ export class DescribeModelPackagingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeModelPackagingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeModelPackagingJobCommand(input, context);
+    return se_DescribeModelPackagingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeModelPackagingJobCommandOutput> {
-    return deserializeAws_restJson1DescribeModelPackagingJobCommand(output, context);
+    return de_DescribeModelPackagingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

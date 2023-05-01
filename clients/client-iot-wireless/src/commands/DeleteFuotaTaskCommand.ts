@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  DeleteFuotaTaskRequest,
-  DeleteFuotaTaskRequestFilterSensitiveLog,
-  DeleteFuotaTaskResponse,
-  DeleteFuotaTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFuotaTaskCommand,
-  serializeAws_restJson1DeleteFuotaTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFuotaTaskRequest, DeleteFuotaTaskResponse } from "../models/models_0";
+import { de_DeleteFuotaTaskCommand, se_DeleteFuotaTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFuotaTaskCommand}.
  */
 export interface DeleteFuotaTaskCommandInput extends DeleteFuotaTaskRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFuotaTaskCommand}.
  */
 export interface DeleteFuotaTaskCommandOutput extends DeleteFuotaTaskResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteFuotaTaskCommandOutput extends DeleteFuotaTaskResponse, _
  * import { IoTWirelessClient, DeleteFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DeleteFuotaTaskRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFuotaTaskCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFuotaTaskCommandInput - {@link DeleteFuotaTaskCommandInput}
+ * @returns {@link DeleteFuotaTaskCommandOutput}
  * @see {@link DeleteFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link DeleteFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeleteFuotaTaskCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFuotaTaskCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DeleteFuotaTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFuotaTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFuotaTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DeleteFuotaTaskCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFuotaTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFuotaTaskCommand(input, context);
+    return se_DeleteFuotaTaskCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFuotaTaskCommandOutput> {
-    return deserializeAws_restJson1DeleteFuotaTaskCommand(output, context);
+    return de_DeleteFuotaTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

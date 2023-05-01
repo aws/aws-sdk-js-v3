@@ -10,7 +10,7 @@ import { SSMContactsClient } from "../SSMContactsClient";
 import { SSMContactsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSMContactsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListContactChannelsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListContactChannels(
   config: SSMContactsPaginationConfiguration,
   input: ListContactChannelsCommandInput,

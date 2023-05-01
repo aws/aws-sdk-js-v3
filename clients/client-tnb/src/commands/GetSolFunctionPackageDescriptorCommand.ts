@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetSolFunctionPackageDescriptorInput, GetSolFunctionPackageDescriptorOutput } from "../models/models_0";
 import {
-  GetSolFunctionPackageDescriptorInput,
-  GetSolFunctionPackageDescriptorInputFilterSensitiveLog,
-  GetSolFunctionPackageDescriptorOutput,
-  GetSolFunctionPackageDescriptorOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSolFunctionPackageDescriptorCommand,
-  serializeAws_restJson1GetSolFunctionPackageDescriptorCommand,
+  de_GetSolFunctionPackageDescriptorCommand,
+  se_GetSolFunctionPackageDescriptorCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSolFunctionPackageDescriptorCommand}.
  */
 export interface GetSolFunctionPackageDescriptorCommandInput extends GetSolFunctionPackageDescriptorInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSolFunctionPackageDescriptorCommand}.
  */
 export interface GetSolFunctionPackageDescriptorCommandOutput
@@ -37,6 +36,7 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a function package descriptor in a function package.</p>
  *          <p>A function package descriptor is a .yaml file in a function package that uses the TOSCA standard to describe how the network function in the function package should run on your network.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
@@ -46,10 +46,16 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
  * import { TnbClient, GetSolFunctionPackageDescriptorCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolFunctionPackageDescriptorCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // GetSolFunctionPackageDescriptorInput
+ *   vnfPkgId: "STRING_VALUE", // required
+ *   accept: "text/plain", // required
+ * };
  * const command = new GetSolFunctionPackageDescriptorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSolFunctionPackageDescriptorCommandInput - {@link GetSolFunctionPackageDescriptorCommandInput}
+ * @returns {@link GetSolFunctionPackageDescriptorCommandOutput}
  * @see {@link GetSolFunctionPackageDescriptorCommandInput} for command's `input` shape.
  * @see {@link GetSolFunctionPackageDescriptorCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -88,6 +94,9 @@ export class GetSolFunctionPackageDescriptorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSolFunctionPackageDescriptorCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +125,8 @@ export class GetSolFunctionPackageDescriptorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSolFunctionPackageDescriptorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSolFunctionPackageDescriptorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +136,24 @@ export class GetSolFunctionPackageDescriptorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSolFunctionPackageDescriptorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSolFunctionPackageDescriptorCommand(input, context);
+    return se_GetSolFunctionPackageDescriptorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSolFunctionPackageDescriptorCommandOutput> {
-    return deserializeAws_restJson1GetSolFunctionPackageDescriptorCommand(output, context);
+    return de_GetSolFunctionPackageDescriptorCommand(output, context);
   }
 
   // Start section: command_body_extra

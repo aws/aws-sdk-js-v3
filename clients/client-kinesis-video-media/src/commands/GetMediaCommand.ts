@@ -21,27 +21,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoMediaClient";
-import {
-  GetMediaInput,
-  GetMediaInputFilterSensitiveLog,
-  GetMediaOutput,
-  GetMediaOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMediaCommand,
-  serializeAws_restJson1GetMediaCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMediaInput, GetMediaOutput, GetMediaOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetMediaCommand, se_GetMediaCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMediaCommand}.
  */
 export interface GetMediaCommandInput extends GetMediaInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMediaCommand}.
  */
 export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutput, "Payload">, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Use this API to retrieve media content from a Kinesis video stream. In the request,
  *       you identify the stream name or stream Amazon Resource Name (ARN), and the starting chunk.
  *       Kinesis Video Streams then returns a stream of chunks in order by fragment number.</p>
@@ -94,10 +91,22 @@ export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutp
  * import { KinesisVideoMediaClient, GetMediaCommand } from "@aws-sdk/client-kinesis-video-media"; // ES Modules import
  * // const { KinesisVideoMediaClient, GetMediaCommand } = require("@aws-sdk/client-kinesis-video-media"); // CommonJS import
  * const client = new KinesisVideoMediaClient(config);
+ * const input = { // GetMediaInput
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   StartSelector: { // StartSelector
+ *     StartSelectorType: "STRING_VALUE", // required
+ *     AfterFragmentNumber: "STRING_VALUE",
+ *     StartTimestamp: new Date("TIMESTAMP"),
+ *     ContinuationToken: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetMediaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMediaCommandInput - {@link GetMediaCommandInput}
+ * @returns {@link GetMediaCommandOutput}
  * @see {@link GetMediaCommandInput} for command's `input` shape.
  * @see {@link GetMediaCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoMediaClientResolvedConfig | config} for KinesisVideoMediaClient's `config` shape.
@@ -145,6 +154,9 @@ export class GetMediaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMediaCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,7 +183,7 @@ export class GetMediaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMediaInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMediaOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -182,15 +194,21 @@ export class GetMediaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMediaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMediaCommand(input, context);
+    return se_GetMediaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetMediaCommandOutput> {
-    return deserializeAws_restJson1GetMediaCommand(output, context);
+    return de_GetMediaCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  Account,
-  AccountFilterSensitiveLog,
-  GetAccountRequest,
-  GetAccountRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAccountCommand,
-  serializeAws_restJson1GetAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { Account, GetAccountRequest } from "../models/models_0";
+import { de_GetAccountCommand, se_GetAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccountCommand}.
  */
 export interface GetAccountCommandInput extends GetAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccountCommand}.
  */
 export interface GetAccountCommandOutput extends Account, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the current Account resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface GetAccountCommandOutput extends Account, __MetadataBearer {}
  * import { APIGatewayClient, GetAccountCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetAccountCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {};
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccountCommandInput - {@link GetAccountCommandInput}
+ * @returns {@link GetAccountCommandOutput}
  * @see {@link GetAccountCommandInput} for command's `input` shape.
  * @see {@link GetAccountCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +81,9 @@ export class GetAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +110,8 @@ export class GetAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AccountFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +121,18 @@ export class GetAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccountCommand(input, context);
+    return se_GetAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountCommandOutput> {
-    return deserializeAws_restJson1GetAccountCommand(output, context);
+    return de_GetAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  StartBulkDeploymentRequest,
-  StartBulkDeploymentRequestFilterSensitiveLog,
-  StartBulkDeploymentResponse,
-  StartBulkDeploymentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartBulkDeploymentCommand,
-  serializeAws_restJson1StartBulkDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { StartBulkDeploymentRequest, StartBulkDeploymentResponse } from "../models/models_0";
+import { de_StartBulkDeploymentCommand, se_StartBulkDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartBulkDeploymentCommand}.
  */
 export interface StartBulkDeploymentCommandInput extends StartBulkDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartBulkDeploymentCommand}.
  */
 export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deploys multiple groups in one operation. This action starts the bulk deployment of a specified set of group versions. Each group version deployment will be triggered with an adaptive rate that has a fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token'' token in every ''StartBulkDeployment'' request. These requests are idempotent with respect to the token and the request parameters.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentRes
  * import { GreengrassClient, StartBulkDeploymentCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, StartBulkDeploymentCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // StartBulkDeploymentRequest
+ *   AmznClientToken: "STRING_VALUE",
+ *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   InputFileUri: "STRING_VALUE", // required
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartBulkDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartBulkDeploymentCommandInput - {@link StartBulkDeploymentCommandInput}
+ * @returns {@link StartBulkDeploymentCommandOutput}
  * @see {@link StartBulkDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartBulkDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -72,6 +79,9 @@ export class StartBulkDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartBulkDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +110,8 @@ export class StartBulkDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartBulkDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartBulkDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +121,18 @@ export class StartBulkDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartBulkDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartBulkDeploymentCommand(input, context);
+    return se_StartBulkDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBulkDeploymentCommandOutput> {
-    return deserializeAws_restJson1StartBulkDeploymentCommand(output, context);
+    return de_StartBulkDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  PutScalingPolicyRequest,
-  PutScalingPolicyRequestFilterSensitiveLog,
-  PutScalingPolicyResponse,
-  PutScalingPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutScalingPolicyCommand,
-  serializeAws_json1_1PutScalingPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutScalingPolicyRequest, PutScalingPolicyResponse } from "../models/models_0";
+import { de_PutScalingPolicyCommand, se_PutScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutScalingPolicyCommand}.
  */
 export interface PutScalingPolicyCommandInput extends PutScalingPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutScalingPolicyCommand}.
  */
 export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a scaling policy for an Application Auto Scaling scalable target.</p>
  *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
  *          dimension. A scaling policy applies to the scalable target identified by those three
@@ -70,10 +67,76 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * import { ApplicationAutoScalingClient, PutScalingPolicyCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, PutScalingPolicyCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
+ * const input = { // PutScalingPolicyRequest
+ *   PolicyName: "STRING_VALUE", // required
+ *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount", // required
+ *   PolicyType: "StepScaling" || "TargetTrackingScaling",
+ *   StepScalingPolicyConfiguration: { // StepScalingPolicyConfiguration
+ *     AdjustmentType: "ChangeInCapacity" || "PercentChangeInCapacity" || "ExactCapacity",
+ *     StepAdjustments: [ // StepAdjustments
+ *       { // StepAdjustment
+ *         MetricIntervalLowerBound: Number("double"),
+ *         MetricIntervalUpperBound: Number("double"),
+ *         ScalingAdjustment: Number("int"), // required
+ *       },
+ *     ],
+ *     MinAdjustmentMagnitude: Number("int"),
+ *     Cooldown: Number("int"),
+ *     MetricAggregationType: "Average" || "Minimum" || "Maximum",
+ *   },
+ *   TargetTrackingScalingPolicyConfiguration: { // TargetTrackingScalingPolicyConfiguration
+ *     TargetValue: Number("double"), // required
+ *     PredefinedMetricSpecification: { // PredefinedMetricSpecification
+ *       PredefinedMetricType: "DynamoDBReadCapacityUtilization" || "DynamoDBWriteCapacityUtilization" || "ALBRequestCountPerTarget" || "RDSReaderAverageCPUUtilization" || "RDSReaderAverageDatabaseConnections" || "EC2SpotFleetRequestAverageCPUUtilization" || "EC2SpotFleetRequestAverageNetworkIn" || "EC2SpotFleetRequestAverageNetworkOut" || "SageMakerVariantInvocationsPerInstance" || "ECSServiceAverageCPUUtilization" || "ECSServiceAverageMemoryUtilization" || "AppStreamAverageCapacityUtilization" || "ComprehendInferenceUtilization" || "LambdaProvisionedConcurrencyUtilization" || "CassandraReadCapacityUtilization" || "CassandraWriteCapacityUtilization" || "KafkaBrokerStorageUtilization" || "ElastiCachePrimaryEngineCPUUtilization" || "ElastiCacheReplicaEngineCPUUtilization" || "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage" || "NeptuneReaderAverageCPUUtilization", // required
+ *       ResourceLabel: "STRING_VALUE",
+ *     },
+ *     CustomizedMetricSpecification: { // CustomizedMetricSpecification
+ *       MetricName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       Dimensions: [ // MetricDimensions
+ *         { // MetricDimension
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
+ *       Unit: "STRING_VALUE",
+ *       Metrics: [ // TargetTrackingMetricDataQueries
+ *         { // TargetTrackingMetricDataQuery
+ *           Expression: "STRING_VALUE",
+ *           Id: "STRING_VALUE", // required
+ *           Label: "STRING_VALUE",
+ *           MetricStat: { // TargetTrackingMetricStat
+ *             Metric: { // TargetTrackingMetric
+ *               Dimensions: [ // TargetTrackingMetricDimensions
+ *                 { // TargetTrackingMetricDimension
+ *                   Name: "STRING_VALUE", // required
+ *                   Value: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *               MetricName: "STRING_VALUE",
+ *               Namespace: "STRING_VALUE",
+ *             },
+ *             Stat: "STRING_VALUE", // required
+ *             Unit: "STRING_VALUE",
+ *           },
+ *           ReturnData: true || false,
+ *         },
+ *       ],
+ *     },
+ *     ScaleOutCooldown: Number("int"),
+ *     ScaleInCooldown: Number("int"),
+ *     DisableScaleIn: true || false,
+ *   },
+ * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
+ * @returns {@link PutScalingPolicyCommandOutput}
  * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -162,6 +225,9 @@ export class PutScalingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutScalingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -190,8 +256,8 @@ export class PutScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutScalingPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutScalingPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -201,12 +267,18 @@ export class PutScalingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutScalingPolicyCommand(input, context);
+    return se_PutScalingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1PutScalingPolicyCommand(output, context);
+    return de_PutScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

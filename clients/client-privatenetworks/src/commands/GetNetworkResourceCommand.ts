@@ -15,26 +15,27 @@ import {
 
 import {
   GetNetworkResourceRequest,
-  GetNetworkResourceRequestFilterSensitiveLog,
   GetNetworkResourceResponse,
   GetNetworkResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1GetNetworkResourceCommand,
-  serializeAws_restJson1GetNetworkResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetNetworkResourceCommand, se_GetNetworkResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNetworkResourceCommand}.
  */
 export interface GetNetworkResourceCommandInput extends GetNetworkResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNetworkResourceCommand}.
  */
 export interface GetNetworkResourceCommandOutput extends GetNetworkResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified network resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface GetNetworkResourceCommandOutput extends GetNetworkResourceRespo
  * import { PrivateNetworksClient, GetNetworkResourceCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, GetNetworkResourceCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // GetNetworkResourceRequest
+ *   networkResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetNetworkResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNetworkResourceCommandInput - {@link GetNetworkResourceCommandInput}
+ * @returns {@link GetNetworkResourceCommandOutput}
  * @see {@link GetNetworkResourceCommandInput} for command's `input` shape.
  * @see {@link GetNetworkResourceCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -78,6 +84,9 @@ export class GetNetworkResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNetworkResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +115,7 @@ export class GetNetworkResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkResourceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetNetworkResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -117,12 +126,18 @@ export class GetNetworkResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNetworkResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkResourceCommand(input, context);
+    return se_GetNetworkResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkResourceCommandOutput> {
-    return deserializeAws_restJson1GetNetworkResourceCommand(output, context);
+    return de_GetNetworkResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

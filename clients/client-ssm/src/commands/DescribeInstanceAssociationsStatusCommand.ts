@@ -15,21 +15,23 @@ import {
 
 import {
   DescribeInstanceAssociationsStatusRequest,
-  DescribeInstanceAssociationsStatusRequestFilterSensitiveLog,
   DescribeInstanceAssociationsStatusResult,
-  DescribeInstanceAssociationsStatusResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeInstanceAssociationsStatusCommand,
-  serializeAws_json1_1DescribeInstanceAssociationsStatusCommand,
+  de_DescribeInstanceAssociationsStatusCommand,
+  se_DescribeInstanceAssociationsStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceAssociationsStatusCommand}.
  */
 export interface DescribeInstanceAssociationsStatusCommandInput extends DescribeInstanceAssociationsStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceAssociationsStatusCommand}.
  */
 export interface DescribeInstanceAssociationsStatusCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeInstanceAssociationsStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>The status of the associations for the managed node(s).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,17 @@ export interface DescribeInstanceAssociationsStatusCommandOutput
  * import { SSMClient, DescribeInstanceAssociationsStatusCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstanceAssociationsStatusCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeInstanceAssociationsStatusRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeInstanceAssociationsStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceAssociationsStatusCommandInput - {@link DescribeInstanceAssociationsStatusCommandInput}
+ * @returns {@link DescribeInstanceAssociationsStatusCommandOutput}
  * @see {@link DescribeInstanceAssociationsStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAssociationsStatusCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -97,6 +107,9 @@ export class DescribeInstanceAssociationsStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceAssociationsStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +138,8 @@ export class DescribeInstanceAssociationsStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceAssociationsStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceAssociationsStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +149,24 @@ export class DescribeInstanceAssociationsStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeInstanceAssociationsStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstanceAssociationsStatusCommand(input, context);
+    return se_DescribeInstanceAssociationsStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceAssociationsStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeInstanceAssociationsStatusCommand(output, context);
+    return de_DescribeInstanceAssociationsStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

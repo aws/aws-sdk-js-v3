@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateMobileDeviceAccessRuleRequest, CreateMobileDeviceAccessRuleResponse } from "../models/models_0";
 import {
-  CreateMobileDeviceAccessRuleRequest,
-  CreateMobileDeviceAccessRuleRequestFilterSensitiveLog,
-  CreateMobileDeviceAccessRuleResponse,
-  CreateMobileDeviceAccessRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateMobileDeviceAccessRuleCommand,
-  serializeAws_json1_1CreateMobileDeviceAccessRuleCommand,
+  de_CreateMobileDeviceAccessRuleCommand,
+  se_CreateMobileDeviceAccessRuleCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMobileDeviceAccessRuleCommand}.
  */
 export interface CreateMobileDeviceAccessRuleCommandInput extends CreateMobileDeviceAccessRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMobileDeviceAccessRuleCommand}.
  */
 export interface CreateMobileDeviceAccessRuleCommandOutput
@@ -37,6 +36,7 @@ export interface CreateMobileDeviceAccessRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new mobile device access rule for the specified WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,43 @@ export interface CreateMobileDeviceAccessRuleCommandOutput
  * import { WorkMailClient, CreateMobileDeviceAccessRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateMobileDeviceAccessRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // CreateMobileDeviceAccessRuleRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Effect: "ALLOW" || "DENY", // required
+ *   DeviceTypes: [ // DeviceTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   NotDeviceTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DeviceModels: [ // DeviceModelList
+ *     "STRING_VALUE",
+ *   ],
+ *   NotDeviceModels: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DeviceOperatingSystems: [ // DeviceOperatingSystemList
+ *     "STRING_VALUE",
+ *   ],
+ *   NotDeviceOperatingSystems: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DeviceUserAgents: [ // DeviceUserAgentList
+ *     "STRING_VALUE",
+ *   ],
+ *   NotDeviceUserAgents: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateMobileDeviceAccessRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMobileDeviceAccessRuleCommandInput - {@link CreateMobileDeviceAccessRuleCommandInput}
+ * @returns {@link CreateMobileDeviceAccessRuleCommandOutput}
  * @see {@link CreateMobileDeviceAccessRuleCommandInput} for command's `input` shape.
  * @see {@link CreateMobileDeviceAccessRuleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -85,6 +118,9 @@ export class CreateMobileDeviceAccessRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMobileDeviceAccessRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +149,8 @@ export class CreateMobileDeviceAccessRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMobileDeviceAccessRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMobileDeviceAccessRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +160,21 @@ export class CreateMobileDeviceAccessRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMobileDeviceAccessRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMobileDeviceAccessRuleCommand(input, context);
+    return se_CreateMobileDeviceAccessRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMobileDeviceAccessRuleCommandOutput> {
-    return deserializeAws_json1_1CreateMobileDeviceAccessRuleCommand(output, context);
+    return de_CreateMobileDeviceAccessRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

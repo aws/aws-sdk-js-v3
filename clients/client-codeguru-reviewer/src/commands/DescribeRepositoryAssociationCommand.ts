@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
+import { DescribeRepositoryAssociationRequest, DescribeRepositoryAssociationResponse } from "../models/models_0";
 import {
-  DescribeRepositoryAssociationRequest,
-  DescribeRepositoryAssociationRequestFilterSensitiveLog,
-  DescribeRepositoryAssociationResponse,
-  DescribeRepositoryAssociationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRepositoryAssociationCommand,
-  serializeAws_restJson1DescribeRepositoryAssociationCommand,
+  de_DescribeRepositoryAssociationCommand,
+  se_DescribeRepositoryAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRepositoryAssociationCommand}.
  */
 export interface DescribeRepositoryAssociationCommandInput extends DescribeRepositoryAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRepositoryAssociationCommand}.
  */
 export interface DescribeRepositoryAssociationCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeRepositoryAssociationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object that contains information about the requested
  *          repository association.</p>
  * @example
@@ -45,10 +45,15 @@ export interface DescribeRepositoryAssociationCommandOutput
  * import { CodeGuruReviewerClient, DescribeRepositoryAssociationCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, DescribeRepositoryAssociationCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = { // DescribeRepositoryAssociationRequest
+ *   AssociationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRepositoryAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRepositoryAssociationCommandInput - {@link DescribeRepositoryAssociationCommandInput}
+ * @returns {@link DescribeRepositoryAssociationCommandOutput}
  * @see {@link DescribeRepositoryAssociationCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoryAssociationCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -87,6 +92,9 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRepositoryAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class DescribeRepositoryAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRepositoryAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRepositoryAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +134,21 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRepositoryAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRepositoryAssociationCommand(input, context);
+    return se_DescribeRepositoryAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRepositoryAssociationCommandOutput> {
-    return deserializeAws_restJson1DescribeRepositoryAssociationCommand(output, context);
+    return de_DescribeRepositoryAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

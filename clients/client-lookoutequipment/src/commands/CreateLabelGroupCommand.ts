@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  CreateLabelGroupRequest,
-  CreateLabelGroupRequestFilterSensitiveLog,
-  CreateLabelGroupResponse,
-  CreateLabelGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateLabelGroupCommand,
-  serializeAws_json1_0CreateLabelGroupCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateLabelGroupRequest, CreateLabelGroupResponse } from "../models/models_0";
+import { de_CreateLabelGroupCommand, se_CreateLabelGroupCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLabelGroupCommand}.
  */
 export interface CreateLabelGroupCommandInput extends CreateLabelGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLabelGroupCommand}.
  */
 export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Creates a group of labels.
  * </p>
@@ -44,10 +41,25 @@ export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse,
  * import { LookoutEquipmentClient, CreateLabelGroupCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateLabelGroupCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // CreateLabelGroupRequest
+ *   LabelGroupName: "STRING_VALUE", // required
+ *   FaultCodes: [ // FaultCodes
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateLabelGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLabelGroupCommandInput - {@link CreateLabelGroupCommandInput}
+ * @returns {@link CreateLabelGroupCommandOutput}
  * @see {@link CreateLabelGroupCommandInput} for command's `input` shape.
  * @see {@link CreateLabelGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -93,6 +105,9 @@ export class CreateLabelGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLabelGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +136,8 @@ export class CreateLabelGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLabelGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLabelGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +147,18 @@ export class CreateLabelGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLabelGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateLabelGroupCommand(input, context);
+    return se_CreateLabelGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLabelGroupCommandOutput> {
-    return deserializeAws_json1_0CreateLabelGroupCommand(output, context);
+    return de_CreateLabelGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

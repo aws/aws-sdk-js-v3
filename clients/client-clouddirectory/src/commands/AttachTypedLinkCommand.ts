@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  AttachTypedLinkRequest,
-  AttachTypedLinkRequestFilterSensitiveLog,
-  AttachTypedLinkResponse,
-  AttachTypedLinkResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AttachTypedLinkCommand,
-  serializeAws_restJson1AttachTypedLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { AttachTypedLinkRequest, AttachTypedLinkResponse } from "../models/models_0";
+import { de_AttachTypedLinkCommand, se_AttachTypedLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AttachTypedLinkCommand}.
  */
 export interface AttachTypedLinkCommandInput extends AttachTypedLinkRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachTypedLinkCommand}.
  */
 export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,37 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  * import { CloudDirectoryClient, AttachTypedLinkCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AttachTypedLinkCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // AttachTypedLinkRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   SourceObjectReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   TargetObjectReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   TypedLinkFacet: { // TypedLinkSchemaAndFacetName
+ *     SchemaArn: "STRING_VALUE", // required
+ *     TypedLinkName: "STRING_VALUE", // required
+ *   },
+ *   Attributes: [ // AttributeNameAndValueList // required
+ *     { // AttributeNameAndValue
+ *       AttributeName: "STRING_VALUE", // required
+ *       Value: { // TypedAttributeValue Union: only one key present
+ *         StringValue: "STRING_VALUE",
+ *         BinaryValue: "BLOB_VALUE",
+ *         BooleanValue: true || false,
+ *         NumberValue: "STRING_VALUE",
+ *         DatetimeValue: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new AttachTypedLinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachTypedLinkCommandInput - {@link AttachTypedLinkCommandInput}
+ * @returns {@link AttachTypedLinkCommandOutput}
  * @see {@link AttachTypedLinkCommandInput} for command's `input` shape.
  * @see {@link AttachTypedLinkCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +126,9 @@ export class AttachTypedLinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachTypedLinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +157,8 @@ export class AttachTypedLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachTypedLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachTypedLinkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +168,18 @@ export class AttachTypedLinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachTypedLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AttachTypedLinkCommand(input, context);
+    return se_AttachTypedLinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachTypedLinkCommandOutput> {
-    return deserializeAws_restJson1AttachTypedLinkCommand(output, context);
+    return de_AttachTypedLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

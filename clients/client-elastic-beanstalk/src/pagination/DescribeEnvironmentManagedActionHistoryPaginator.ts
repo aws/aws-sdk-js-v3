@@ -10,7 +10,7 @@ import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
 import { ElasticBeanstalkPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticBeanstalkClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeEnvironmentManagedActionHistoryCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeEnvironmentManagedActionHistory(
   config: ElasticBeanstalkPaginationConfiguration,
   input: DescribeEnvironmentManagedActionHistoryCommandInput,

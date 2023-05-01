@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  StopExperimentRequest,
-  StopExperimentRequestFilterSensitiveLog,
-  StopExperimentResponse,
-  StopExperimentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopExperimentCommand,
-  serializeAws_restJson1StopExperimentCommand,
-} from "../protocols/Aws_restJson1";
+import { StopExperimentRequest, StopExperimentResponse } from "../models/models_0";
+import { de_StopExperimentCommand, se_StopExperimentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopExperimentCommand}.
  */
 export interface StopExperimentCommandInput extends StopExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopExperimentCommand}.
  */
 export interface StopExperimentCommandOutput extends StopExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops an experiment that is currently running. If you stop an experiment, you can't
  *       resume it or restart it.</p>
  * @example
@@ -43,10 +40,18 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * import { EvidentlyClient, StopExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, StopExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // StopExperimentRequest
+ *   project: "STRING_VALUE", // required
+ *   experiment: "STRING_VALUE", // required
+ *   desiredState: "STRING_VALUE",
+ *   reason: "STRING_VALUE",
+ * };
  * const command = new StopExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopExperimentCommandInput - {@link StopExperimentCommandInput}
+ * @returns {@link StopExperimentCommandOutput}
  * @see {@link StopExperimentCommandInput} for command's `input` shape.
  * @see {@link StopExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -88,6 +93,9 @@ export class StopExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class StopExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +135,18 @@ export class StopExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopExperimentCommand(input, context);
+    return se_StopExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopExperimentCommandOutput> {
-    return deserializeAws_restJson1StopExperimentCommand(output, context);
+    return de_StopExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

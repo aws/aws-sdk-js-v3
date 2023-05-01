@@ -13,15 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListAssociatedAttributeGroupsRequest, ListAssociatedAttributeGroupsResponse } from "../models/models_0";
 import {
-  ListAssociatedAttributeGroupsRequest,
-  ListAssociatedAttributeGroupsRequestFilterSensitiveLog,
-  ListAssociatedAttributeGroupsResponse,
-  ListAssociatedAttributeGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssociatedAttributeGroupsCommand,
-  serializeAws_restJson1ListAssociatedAttributeGroupsCommand,
+  de_ListAssociatedAttributeGroupsCommand,
+  se_ListAssociatedAttributeGroupsCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
@@ -30,10 +25,14 @@ import {
 } from "../ServiceCatalogAppRegistryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssociatedAttributeGroupsCommand}.
  */
 export interface ListAssociatedAttributeGroupsCommandInput extends ListAssociatedAttributeGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssociatedAttributeGroupsCommand}.
  */
 export interface ListAssociatedAttributeGroupsCommandOutput
@@ -41,6 +40,7 @@ export interface ListAssociatedAttributeGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all attribute groups that are associated with specified application.  Results are paginated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +48,17 @@ export interface ListAssociatedAttributeGroupsCommandOutput
  * import { ServiceCatalogAppRegistryClient, ListAssociatedAttributeGroupsCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, ListAssociatedAttributeGroupsCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // ListAssociatedAttributeGroupsRequest
+ *   application: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssociatedAttributeGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssociatedAttributeGroupsCommandInput - {@link ListAssociatedAttributeGroupsCommandInput}
+ * @returns {@link ListAssociatedAttributeGroupsCommandOutput}
  * @see {@link ListAssociatedAttributeGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedAttributeGroupsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
@@ -84,6 +91,9 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssociatedAttributeGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociatedAttributeGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociatedAttributeGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +133,21 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssociatedAttributeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssociatedAttributeGroupsCommand(input, context);
+    return se_ListAssociatedAttributeGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssociatedAttributeGroupsCommandOutput> {
-    return deserializeAws_restJson1ListAssociatedAttributeGroupsCommand(output, context);
+    return de_ListAssociatedAttributeGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

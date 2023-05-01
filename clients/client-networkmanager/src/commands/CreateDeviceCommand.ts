@@ -20,21 +20,23 @@ import {
   CreateDeviceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1CreateDeviceCommand,
-  serializeAws_restJson1CreateDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDeviceCommand, se_CreateDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeviceCommand}.
  */
 export interface CreateDeviceCommandInput extends CreateDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeviceCommand}.
  */
 export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new device in a global network. If you specify both a site ID and a
  *             location, the location of the site is used for visualization in the Network Manager console.</p>
  * @example
@@ -43,10 +45,36 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  * import { NetworkManagerClient, CreateDeviceCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateDeviceCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // CreateDeviceRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   AWSLocation: { // AWSLocation
+ *     Zone: "STRING_VALUE",
+ *     SubnetArn: "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   Type: "STRING_VALUE",
+ *   Vendor: "STRING_VALUE",
+ *   Model: "STRING_VALUE",
+ *   SerialNumber: "STRING_VALUE",
+ *   Location: { // Location
+ *     Address: "STRING_VALUE",
+ *     Latitude: "STRING_VALUE",
+ *     Longitude: "STRING_VALUE",
+ *   },
+ *   SiteId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeviceCommandInput - {@link CreateDeviceCommandInput}
+ * @returns {@link CreateDeviceCommandOutput}
  * @see {@link CreateDeviceCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -92,6 +120,9 @@ export class CreateDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,12 +160,18 @@ export class CreateDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeviceCommand(input, context);
+    return se_CreateDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeviceCommandOutput> {
-    return deserializeAws_restJson1CreateDeviceCommand(output, context);
+    return de_CreateDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

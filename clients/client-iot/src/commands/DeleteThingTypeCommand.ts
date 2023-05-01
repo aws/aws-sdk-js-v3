@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteThingTypeRequest,
-  DeleteThingTypeRequestFilterSensitiveLog,
-  DeleteThingTypeResponse,
-  DeleteThingTypeResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteThingTypeCommand,
-  serializeAws_restJson1DeleteThingTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteThingTypeRequest, DeleteThingTypeResponse } from "../models/models_1";
+import { de_DeleteThingTypeCommand, se_DeleteThingTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteThingTypeCommand}.
  */
 export interface DeleteThingTypeCommandInput extends DeleteThingTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteThingTypeCommand}.
  */
 export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified thing type. You cannot delete a thing type if it has things
  * 			associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and
  * 			finally use <a>DeleteThingType</a> to delete the thing type.</p>
@@ -45,10 +42,15 @@ export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, _
  * import { IoTClient, DeleteThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteThingTypeRequest
+ *   thingTypeName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteThingTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteThingTypeCommandInput - {@link DeleteThingTypeCommandInput}
+ * @returns {@link DeleteThingTypeCommandOutput}
  * @see {@link DeleteThingTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteThingTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -90,6 +92,9 @@ export class DeleteThingTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteThingTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class DeleteThingTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteThingTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteThingTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class DeleteThingTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteThingTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteThingTypeCommand(input, context);
+    return se_DeleteThingTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThingTypeCommandOutput> {
-    return deserializeAws_restJson1DeleteThingTypeCommand(output, context);
+    return de_DeleteThingTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

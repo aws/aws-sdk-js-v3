@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateUseCaseRequest,
-  CreateUseCaseRequestFilterSensitiveLog,
-  CreateUseCaseResponse,
-  CreateUseCaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateUseCaseCommand,
-  serializeAws_restJson1CreateUseCaseCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateUseCaseRequest, CreateUseCaseResponse } from "../models/models_0";
+import { de_CreateUseCaseCommand, se_CreateUseCaseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateUseCaseCommand}.
  */
 export interface CreateUseCaseCommandInput extends CreateUseCaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateUseCaseCommand}.
  */
 export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a use case for an integration association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
  * import { ConnectClient, CreateUseCaseCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateUseCaseCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // CreateUseCaseRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   IntegrationAssociationId: "STRING_VALUE", // required
+ *   UseCaseType: "RULES_EVALUATION" || "CONNECT_CAMPAIGNS", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateUseCaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateUseCaseCommandInput - {@link CreateUseCaseCommandInput}
+ * @returns {@link CreateUseCaseCommandOutput}
  * @see {@link CreateUseCaseCommandInput} for command's `input` shape.
  * @see {@link CreateUseCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +91,9 @@ export class CreateUseCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateUseCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class CreateUseCaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUseCaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUseCaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +131,18 @@ export class CreateUseCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateUseCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUseCaseCommand(input, context);
+    return se_CreateUseCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUseCaseCommandOutput> {
-    return deserializeAws_restJson1CreateUseCaseCommand(output, context);
+    return de_CreateUseCaseCommand(output, context);
   }
 
   // Start section: command_body_extra

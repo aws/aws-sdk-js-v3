@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetNamespaceRequest,
-  GetNamespaceRequestFilterSensitiveLog,
-  GetNamespaceResponse,
-  GetNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNamespaceCommand,
-  serializeAws_json1_1GetNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { GetNamespaceRequest, GetNamespaceResponse } from "../models/models_0";
+import { de_GetNamespaceCommand, se_GetNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetNamespaceCommand}.
  */
 export interface GetNamespaceCommandInput extends GetNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetNamespaceCommand}.
  */
 export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * import { ServiceDiscoveryClient, GetNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, GetNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // GetNamespaceRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNamespaceCommandInput - {@link GetNamespaceCommandInput}
+ * @returns {@link GetNamespaceCommandOutput}
  * @see {@link GetNamespaceCommandInput} for command's `input` shape.
  * @see {@link GetNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -107,6 +109,9 @@ export class GetNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +138,8 @@ export class GetNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +149,18 @@ export class GetNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNamespaceCommand(input, context);
+    return se_GetNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNamespaceCommandOutput> {
-    return deserializeAws_json1_1GetNamespaceCommand(output, context);
+    return de_GetNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

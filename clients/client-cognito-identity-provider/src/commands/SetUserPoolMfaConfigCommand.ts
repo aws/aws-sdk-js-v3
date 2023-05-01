@@ -19,27 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  SetUserPoolMfaConfigRequest,
-  SetUserPoolMfaConfigRequestFilterSensitiveLog,
-  SetUserPoolMfaConfigResponse,
-  SetUserPoolMfaConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SetUserPoolMfaConfigCommand,
-  serializeAws_json1_1SetUserPoolMfaConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/models_0";
+import { de_SetUserPoolMfaConfigCommand, se_SetUserPoolMfaConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetUserPoolMfaConfigCommand}.
  */
 export interface SetUserPoolMfaConfigCommandInput extends SetUserPoolMfaConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetUserPoolMfaConfigCommand}.
  */
 export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the user pool multi-factor authentication (MFA) configuration.</p>
  *
  *          <note>
@@ -65,10 +62,27 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * import { CognitoIdentityProviderClient, SetUserPoolMfaConfigCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetUserPoolMfaConfigCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // SetUserPoolMfaConfigRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   SmsMfaConfiguration: { // SmsMfaConfigType
+ *     SmsAuthenticationMessage: "STRING_VALUE",
+ *     SmsConfiguration: { // SmsConfigurationType
+ *       SnsCallerArn: "STRING_VALUE", // required
+ *       ExternalId: "STRING_VALUE",
+ *       SnsRegion: "STRING_VALUE",
+ *     },
+ *   },
+ *   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
+ *     Enabled: true || false,
+ *   },
+ *   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ * };
  * const command = new SetUserPoolMfaConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetUserPoolMfaConfigCommandInput - {@link SetUserPoolMfaConfigCommandInput}
+ * @returns {@link SetUserPoolMfaConfigCommandOutput}
  * @see {@link SetUserPoolMfaConfigCommandInput} for command's `input` shape.
  * @see {@link SetUserPoolMfaConfigCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -120,6 +134,9 @@ export class SetUserPoolMfaConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetUserPoolMfaConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +166,8 @@ export class SetUserPoolMfaConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetUserPoolMfaConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetUserPoolMfaConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,12 +177,18 @@ export class SetUserPoolMfaConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetUserPoolMfaConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetUserPoolMfaConfigCommand(input, context);
+    return se_SetUserPoolMfaConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserPoolMfaConfigCommandOutput> {
-    return deserializeAws_json1_1SetUserPoolMfaConfigCommand(output, context);
+    return de_SetUserPoolMfaConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

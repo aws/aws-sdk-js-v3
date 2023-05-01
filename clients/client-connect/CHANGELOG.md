@@ -3,6 +3,169 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.320.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.319.0...v3.320.0) (2023-04-25)
+
+
+### Features
+
+* **client-connect:** Amazon Connect, Contact Lens Evaluation API release including ability to manage forms and to submit contact evaluations. ([9ab9bfb](https://github.com/aws/aws-sdk-js-v3/commit/9ab9bfb7fc94b981ed83a5b641fc21b7a64616e2))
+
+
+
+
+
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.318.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.317.0...v3.318.0) (2023-04-21)
+
+
+### Features
+
+* **client-connect:** This release adds a new API CreateParticipant. For Amazon Connect Chat, you can use this new API to customize chat flow experiences. ([257af63](https://github.com/aws/aws-sdk-js-v3/commit/257af63e876d3077f5b3be5f0089483622f6df90))
+
+
+
+
+
+# [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
+
+
+### Bug Fixes
+
+* **clients:** always allow idempotency token ([#4642](https://github.com/aws/aws-sdk-js-v3/issues/4642)) ([aaff894](https://github.com/aws/aws-sdk-js-v3/commit/aaff894f7840d199bae043594ca56e290d5f3deb))
+
+
+### Features
+
+* **smithy-client:** factory for aggregated clients ([#4639](https://github.com/aws/aws-sdk-js-v3/issues/4639)) ([852b99d](https://github.com/aws/aws-sdk-js-v3/commit/852b99d393fe5f1a9ff6345f797949f3901a9cbf))
+
+
+
+
+
+# [3.315.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.314.0...v3.315.0) (2023-04-17)
+
+
+### Features
+
+* **codegen:** shorten serialization and deserialization code in protocols files ([#4625](https://github.com/aws/aws-sdk-js-v3/issues/4625)) ([8798a6e](https://github.com/aws/aws-sdk-js-v3/commit/8798a6eac1b48f0a807c51e38b864ef62b712943))
+
+
+
+
+
+# [3.312.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.311.0...v3.312.0) (2023-04-12)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
+
+
+### Bug Fixes
+
+* use updated dist glob pattern in package.json ([#4628](https://github.com/aws/aws-sdk-js-v3/issues/4628)) ([352393d](https://github.com/aws/aws-sdk-js-v3/commit/352393dcdba5ba16dca589c265c40e22913c7f2b))
+
+
+### Features
+
+* **client-connect:** This release adds the ability to configure an agent's routing profile to receive contacts from multiple channels at the same time via extending the UpdateRoutingProfileConcurrency, CreateRoutingProfile and DescribeRoutingProfile APIs. ([449823d](https://github.com/aws/aws-sdk-js-v3/commit/449823db503181513cb39ba443e382a40788c0bf))
+
+
+
+
+
+# [3.309.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.308.0...v3.309.0) (2023-04-07)
+
+
+### Features
+
+* **codegen:** shorten internal serde function names ([#4611](https://github.com/aws/aws-sdk-js-v3/issues/4611)) ([e385e85](https://github.com/aws/aws-sdk-js-v3/commit/e385e85938d112434b752abb38ab5de2d094f669))
+
+
+
+
+
+# [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.301.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.300.0...v3.301.0) (2023-03-28)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.300.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.299.0...v3.300.0) (2023-03-27)
+
+
+### Features
+
+* **client-connect:** This release introduces support for RelatedContactId in the StartChatContact API. Interactive message and interactive message response have been added to the list of supported message content types for this API as well. ([ffed7a8](https://github.com/aws/aws-sdk-js-v3/commit/ffed7a88259002a16202cfc3776554fdae63629a))
+* **clients:** codegen for structural hint documentation in commands ([#4573](https://github.com/aws/aws-sdk-js-v3/issues/4573)) ([b3ff58d](https://github.com/aws/aws-sdk-js-v3/commit/b3ff58d3606ceefcdd04ac82fc1ca54f5f811989))
+
+
+
+
+
+# [3.299.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.298.0...v3.299.0) (2023-03-24)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.298.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.297.0...v3.298.0) (2023-03-23)
+
+
+### Features
+
+* **clients:** remove generated log filters for data with no sensitive data ([#4544](https://github.com/aws/aws-sdk-js-v3/issues/4544)) ([569155d](https://github.com/aws/aws-sdk-js-v3/commit/569155d6cce710b102cefa7511ba1bc1d28bc87e))
+
+
+
+
+
+# [3.297.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.296.0...v3.297.0) (2023-03-22)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
 # [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListIPSetsRequest,
-  ListIPSetsRequestFilterSensitiveLog,
-  ListIPSetsResponse,
-  ListIPSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListIPSetsCommand,
-  serializeAws_json1_1ListIPSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListIPSetsRequest, ListIPSetsResponse } from "../models/models_0";
+import { de_ListIPSetsCommand, se_ListIPSetsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link ListIPSetsCommand}.
  */
 export interface ListIPSetsCommandInput extends ListIPSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIPSetsCommand}.
  */
 export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you
  *          manage.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * import { WAFV2Client, ListIPSetsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListIPSetsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // ListIPSetsRequest
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIPSetsCommandInput - {@link ListIPSetsCommandInput}
+ * @returns {@link ListIPSetsCommandOutput}
  * @see {@link ListIPSetsCommandInput} for command's `input` shape.
  * @see {@link ListIPSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -98,6 +102,9 @@ export class ListIPSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIPSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +131,8 @@ export class ListIPSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIPSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIPSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +142,18 @@ export class ListIPSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIPSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListIPSetsCommand(input, context);
+    return se_ListIPSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIPSetsCommandOutput> {
-    return deserializeAws_json1_1ListIPSetsCommand(output, context);
+    return de_ListIPSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

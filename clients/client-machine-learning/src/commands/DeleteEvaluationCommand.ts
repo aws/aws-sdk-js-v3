@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DeleteEvaluationInput,
-  DeleteEvaluationInputFilterSensitiveLog,
-  DeleteEvaluationOutput,
-  DeleteEvaluationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEvaluationCommand,
-  serializeAws_json1_1DeleteEvaluationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEvaluationInput, DeleteEvaluationOutput } from "../models/models_0";
+import { de_DeleteEvaluationCommand, se_DeleteEvaluationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEvaluationCommand}.
  */
 export interface DeleteEvaluationCommandInput extends DeleteEvaluationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEvaluationCommand}.
  */
 export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the <code>DELETED</code> status to an <code>Evaluation</code>, rendering it unusable.</p>
  *
  *         <p>After invoking the <code>DeleteEvaluation</code> operation, you can use the
@@ -47,10 +44,15 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  * import { MachineLearningClient, DeleteEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // DeleteEvaluationInput
+ *   EvaluationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEvaluationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEvaluationCommandInput - {@link DeleteEvaluationCommandInput}
+ * @returns {@link DeleteEvaluationCommandOutput}
  * @see {@link DeleteEvaluationCommandInput} for command's `input` shape.
  * @see {@link DeleteEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -83,6 +85,9 @@ export class DeleteEvaluationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeleteEvaluationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEvaluationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEvaluationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DeleteEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEvaluationCommand(input, context);
+    return se_DeleteEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEvaluationCommandOutput> {
-    return deserializeAws_json1_1DeleteEvaluationCommand(output, context);
+    return de_DeleteEvaluationCommand(output, context);
   }
 
   // Start section: command_body_extra

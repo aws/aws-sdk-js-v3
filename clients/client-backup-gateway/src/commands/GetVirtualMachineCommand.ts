@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  GetVirtualMachineInput,
-  GetVirtualMachineInputFilterSensitiveLog,
-  GetVirtualMachineOutput,
-  GetVirtualMachineOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetVirtualMachineCommand,
-  serializeAws_json1_0GetVirtualMachineCommand,
-} from "../protocols/Aws_json1_0";
+import { GetVirtualMachineInput, GetVirtualMachineOutput } from "../models/models_0";
+import { de_GetVirtualMachineCommand, se_GetVirtualMachineCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetVirtualMachineCommand}.
  */
 export interface GetVirtualMachineCommandInput extends GetVirtualMachineInput {}
 /**
+ * @public
+ *
  * The output of {@link GetVirtualMachineCommand}.
  */
 export interface GetVirtualMachineCommandOutput extends GetVirtualMachineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>By providing the ARN (Amazon Resource Name), this API returns the virtual machine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetVirtualMachineCommandOutput extends GetVirtualMachineOutput,
  * import { BackupGatewayClient, GetVirtualMachineCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, GetVirtualMachineCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // GetVirtualMachineInput
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetVirtualMachineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVirtualMachineCommandInput - {@link GetVirtualMachineCommandInput}
+ * @returns {@link GetVirtualMachineCommandOutput}
  * @see {@link GetVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link GetVirtualMachineCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetVirtualMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVirtualMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetVirtualMachineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVirtualMachineInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVirtualMachineOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetVirtualMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVirtualMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetVirtualMachineCommand(input, context);
+    return se_GetVirtualMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVirtualMachineCommandOutput> {
-    return deserializeAws_json1_0GetVirtualMachineCommand(output, context);
+    return de_GetVirtualMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

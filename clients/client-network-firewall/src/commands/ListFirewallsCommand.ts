@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFirewallsRequest,
-  ListFirewallsRequestFilterSensitiveLog,
-  ListFirewallsResponse,
-  ListFirewallsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListFirewallsRequest, ListFirewallsResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0ListFirewallsCommand,
-  serializeAws_json1_0ListFirewallsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListFirewallsCommand, se_ListFirewallsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListFirewallsCommand}.
  */
 export interface ListFirewallsCommandInput extends ListFirewallsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFirewallsCommand}.
  */
 export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the metadata for the firewalls that you have defined. If you provide VPC
  *          identifiers in your request, this returns only the firewalls for those VPCs.</p>
  *          <p>Depending on your setting for max results and the number of firewalls, a single call
@@ -45,10 +42,19 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  * import { NetworkFirewallClient, ListFirewallsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, ListFirewallsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // ListFirewallsRequest
+ *   NextToken: "STRING_VALUE",
+ *   VpcIds: [ // VpcIds
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFirewallsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFirewallsCommandInput - {@link ListFirewallsCommandInput}
+ * @returns {@link ListFirewallsCommandOutput}
  * @see {@link ListFirewallsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallsCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -95,6 +101,9 @@ export class ListFirewallsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFirewallsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +130,8 @@ export class ListFirewallsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFirewallsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFirewallsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +141,18 @@ export class ListFirewallsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFirewallsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListFirewallsCommand(input, context);
+    return se_ListFirewallsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallsCommandOutput> {
-    return deserializeAws_json1_0ListFirewallsCommand(output, context);
+    return de_ListFirewallsCommand(output, context);
   }
 
   // Start section: command_body_extra

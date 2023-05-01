@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import {
-  PutRecordInput,
-  PutRecordInputFilterSensitiveLog,
-  PutRecordOutput,
-  PutRecordOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1PutRecordCommand, serializeAws_json1_1PutRecordCommand } from "../protocols/Aws_json1_1";
+import { PutRecordInput, PutRecordOutput } from "../models/models_0";
+import { de_PutRecordCommand, se_PutRecordCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRecordCommand}.
  */
 export interface PutRecordCommandInput extends PutRecordInput {}
 /**
+ * @public
+ *
  * The output of {@link PutRecordCommand}.
  */
 export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To
  *          write multiple data records into a delivery stream, use <a>PutRecordBatch</a>.
  *          Applications using these operations are referred to as producers.</p>
@@ -70,10 +70,18 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * import { FirehoseClient, PutRecordCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, PutRecordCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // PutRecordInput
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   Record: { // Record
+ *     Data: "BLOB_VALUE", // required
+ *   },
+ * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecordCommandInput - {@link PutRecordCommandInput}
+ * @returns {@link PutRecordCommandOutput}
  * @see {@link PutRecordCommandInput} for command's `input` shape.
  * @see {@link PutRecordCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -116,6 +124,9 @@ export class PutRecordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecordCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +153,8 @@ export class PutRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecordInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRecordOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +164,18 @@ export class PutRecordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRecordCommand(input, context);
+    return se_PutRecordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordCommandOutput> {
-    return deserializeAws_json1_1PutRecordCommand(output, context);
+    return de_PutRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

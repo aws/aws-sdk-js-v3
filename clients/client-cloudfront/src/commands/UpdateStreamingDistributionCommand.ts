@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  UpdateStreamingDistributionRequest,
-  UpdateStreamingDistributionRequestFilterSensitiveLog,
-  UpdateStreamingDistributionResult,
-  UpdateStreamingDistributionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateStreamingDistributionCommand,
-  serializeAws_restXmlUpdateStreamingDistributionCommand,
-} from "../protocols/Aws_restXml";
+import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/models_1";
+import { de_UpdateStreamingDistributionCommand, se_UpdateStreamingDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStreamingDistributionCommand}.
  */
 export interface UpdateStreamingDistributionCommandInput extends UpdateStreamingDistributionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStreamingDistributionCommand}.
  */
 export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamingDistributionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a streaming distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,44 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  * import { CloudFrontClient, UpdateStreamingDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateStreamingDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // UpdateStreamingDistributionRequest
+ *   StreamingDistributionConfig: { // StreamingDistributionConfig
+ *     CallerReference: "STRING_VALUE", // required
+ *     S3Origin: { // S3Origin
+ *       DomainName: "STRING_VALUE", // required
+ *       OriginAccessIdentity: "STRING_VALUE", // required
+ *     },
+ *     Aliases: { // Aliases
+ *       Quantity: Number("int"), // required
+ *       Items: [ // AliasList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Comment: "STRING_VALUE", // required
+ *     Logging: { // StreamingLoggingConfig
+ *       Enabled: true || false, // required
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE", // required
+ *     },
+ *     TrustedSigners: { // TrustedSigners
+ *       Enabled: true || false, // required
+ *       Quantity: Number("int"), // required
+ *       Items: [ // AwsAccountNumberList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *     Enabled: true || false, // required
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new UpdateStreamingDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStreamingDistributionCommandInput - {@link UpdateStreamingDistributionCommandInput}
+ * @returns {@link UpdateStreamingDistributionCommandOutput}
  * @see {@link UpdateStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -114,6 +145,9 @@ export class UpdateStreamingDistributionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStreamingDistributionCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +176,8 @@ export class UpdateStreamingDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStreamingDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStreamingDistributionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,15 +187,21 @@ export class UpdateStreamingDistributionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStreamingDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateStreamingDistributionCommand(input, context);
+    return se_UpdateStreamingDistributionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateStreamingDistributionCommandOutput> {
-    return deserializeAws_restXmlUpdateStreamingDistributionCommand(output, context);
+    return de_UpdateStreamingDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

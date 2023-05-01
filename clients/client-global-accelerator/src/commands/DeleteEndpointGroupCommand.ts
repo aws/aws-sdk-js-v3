@@ -18,22 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { DeleteEndpointGroupRequest, DeleteEndpointGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEndpointGroupCommand,
-  serializeAws_json1_1DeleteEndpointGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEndpointGroupRequest } from "../models/models_0";
+import { de_DeleteEndpointGroupCommand, se_DeleteEndpointGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEndpointGroupCommand}.
  */
 export interface DeleteEndpointGroupCommandInput extends DeleteEndpointGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEndpointGroupCommand}.
  */
 export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an endpoint group from a listener.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,10 +43,15 @@ export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
  * import { GlobalAcceleratorClient, DeleteEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DeleteEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // DeleteEndpointGroupRequest
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEndpointGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEndpointGroupCommandInput - {@link DeleteEndpointGroupCommandInput}
+ * @returns {@link DeleteEndpointGroupCommandOutput}
  * @see {@link DeleteEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +115,8 @@ export class DeleteEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +126,18 @@ export class DeleteEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEndpointGroupCommand(input, context);
+    return se_DeleteEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteEndpointGroupCommand(output, context);
+    return de_DeleteEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

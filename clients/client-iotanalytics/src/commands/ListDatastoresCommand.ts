@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  ListDatastoresRequest,
-  ListDatastoresRequestFilterSensitiveLog,
-  ListDatastoresResponse,
-  ListDatastoresResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDatastoresCommand,
-  serializeAws_restJson1ListDatastoresCommand,
-} from "../protocols/Aws_restJson1";
+import { ListDatastoresRequest, ListDatastoresResponse } from "../models/models_0";
+import { de_ListDatastoresCommand, se_ListDatastoresCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDatastoresCommand}.
  */
 export interface ListDatastoresCommandInput extends ListDatastoresRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDatastoresCommand}.
  */
 export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of data stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * import { IoTAnalyticsClient, ListDatastoresCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, ListDatastoresCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // ListDatastoresRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDatastoresCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDatastoresCommandInput - {@link ListDatastoresCommandInput}
+ * @returns {@link ListDatastoresCommandOutput}
  * @see {@link ListDatastoresCommandInput} for command's `input` shape.
  * @see {@link ListDatastoresCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListDatastoresCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDatastoresCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class ListDatastoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatastoresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatastoresResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class ListDatastoresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDatastoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDatastoresCommand(input, context);
+    return se_ListDatastoresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatastoresCommandOutput> {
-    return deserializeAws_restJson1ListDatastoresCommand(output, context);
+    return de_ListDatastoresCommand(output, context);
   }
 
   // Start section: command_body_extra

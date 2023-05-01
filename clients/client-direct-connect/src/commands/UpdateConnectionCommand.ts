@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  Connection,
-  ConnectionFilterSensitiveLog,
-  UpdateConnectionRequest,
-  UpdateConnectionRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateConnectionCommand,
-  serializeAws_json1_1UpdateConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { Connection, UpdateConnectionRequest } from "../models/models_0";
+import { de_UpdateConnectionCommand, se_UpdateConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectionCommand}.
  */
 export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectionCommand}.
  */
 export interface UpdateConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Direct Connect dedicated connection configuration.</p>
  *          <p>You can update the following parameters for a connection:</p>
  *          <ul>
@@ -51,10 +48,17 @@ export interface UpdateConnectionCommandOutput extends Connection, __MetadataBea
  * import { DirectConnectClient, UpdateConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, UpdateConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // UpdateConnectionRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   connectionName: "STRING_VALUE",
+ *   encryptionMode: "STRING_VALUE",
+ * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectionCommandInput - {@link UpdateConnectionCommandInput}
+ * @returns {@link UpdateConnectionCommandOutput}
  * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -84,6 +88,9 @@ export class UpdateConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class UpdateConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class UpdateConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConnectionCommand(input, context);
+    return se_UpdateConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectionCommandOutput> {
-    return deserializeAws_json1_1UpdateConnectionCommand(output, context);
+    return de_UpdateConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,22 +15,24 @@ import {
 
 import {
   DisassociateResolverEndpointIpAddressRequest,
-  DisassociateResolverEndpointIpAddressRequestFilterSensitiveLog,
   DisassociateResolverEndpointIpAddressResponse,
-  DisassociateResolverEndpointIpAddressResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand,
-  serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand,
+  de_DisassociateResolverEndpointIpAddressCommand,
+  se_DisassociateResolverEndpointIpAddressCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateResolverEndpointIpAddressCommand}.
  */
 export interface DisassociateResolverEndpointIpAddressCommandInput
   extends DisassociateResolverEndpointIpAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateResolverEndpointIpAddressCommand}.
  */
 export interface DisassociateResolverEndpointIpAddressCommandOutput
@@ -38,6 +40,7 @@ export interface DisassociateResolverEndpointIpAddressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,
  * 			submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p>
  *          <p>To add an IP address to an endpoint, see
@@ -49,10 +52,21 @@ export interface DisassociateResolverEndpointIpAddressCommandOutput
  * import { Route53ResolverClient, DisassociateResolverEndpointIpAddressCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DisassociateResolverEndpointIpAddressCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // DisassociateResolverEndpointIpAddressRequest
+ *   ResolverEndpointId: "STRING_VALUE", // required
+ *   IpAddress: { // IpAddressUpdate
+ *     IpId: "STRING_VALUE",
+ *     SubnetId: "STRING_VALUE",
+ *     Ip: "STRING_VALUE",
+ *     Ipv6: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DisassociateResolverEndpointIpAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateResolverEndpointIpAddressCommandInput - {@link DisassociateResolverEndpointIpAddressCommandInput}
+ * @returns {@link DisassociateResolverEndpointIpAddressCommandOutput}
  * @see {@link DisassociateResolverEndpointIpAddressCommandInput} for command's `input` shape.
  * @see {@link DisassociateResolverEndpointIpAddressCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -94,6 +108,9 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResolverEndpointIpAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +139,8 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResolverEndpointIpAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResolverEndpointIpAddressResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +150,24 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateResolverEndpointIpAddressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(input, context);
+    return se_DisassociateResolverEndpointIpAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> {
-    return deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(output, context);
+    return de_DisassociateResolverEndpointIpAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

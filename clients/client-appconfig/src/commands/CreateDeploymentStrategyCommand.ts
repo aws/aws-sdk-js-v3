@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  CreateDeploymentStrategyRequest,
-  CreateDeploymentStrategyRequestFilterSensitiveLog,
-  DeploymentStrategy,
-  DeploymentStrategyFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDeploymentStrategyCommand,
-  serializeAws_restJson1CreateDeploymentStrategyCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDeploymentStrategyRequest, DeploymentStrategy } from "../models/models_0";
+import { de_CreateDeploymentStrategyCommand, se_CreateDeploymentStrategyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeploymentStrategyCommand}.
  */
 export interface CreateDeploymentStrategyCommandInput extends CreateDeploymentStrategyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeploymentStrategyCommand}.
  */
 export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a deployment strategy that defines important criteria for rolling out your
  *          configuration to the designated targets. A deployment strategy includes the overall
  *          duration required, a percentage of targets to receive the deployment during each interval,
@@ -45,10 +42,24 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * import { AppConfigClient, CreateDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // CreateDeploymentStrategyRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DeploymentDurationInMinutes: Number("int"), // required
+ *   FinalBakeTimeInMinutes: Number("int"),
+ *   GrowthFactor: Number("float"), // required
+ *   GrowthType: "LINEAR" || "EXPONENTIAL",
+ *   ReplicateTo: "NONE" || "SSM_DOCUMENT",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDeploymentStrategyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeploymentStrategyCommandInput - {@link CreateDeploymentStrategyCommandInput}
+ * @returns {@link CreateDeploymentStrategyCommandOutput}
  * @see {@link CreateDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentStrategyCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -103,6 +114,9 @@ export class CreateDeploymentStrategyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeploymentStrategyCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +145,8 @@ export class CreateDeploymentStrategyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentStrategyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeploymentStrategyFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +156,18 @@ export class CreateDeploymentStrategyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeploymentStrategyCommand(input, context);
+    return se_CreateDeploymentStrategyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1CreateDeploymentStrategyCommand(output, context);
+    return de_CreateDeploymentStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

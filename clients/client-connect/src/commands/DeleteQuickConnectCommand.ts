@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteQuickConnectRequest, DeleteQuickConnectRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteQuickConnectCommand,
-  serializeAws_restJson1DeleteQuickConnectCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteQuickConnectRequest } from "../models/models_0";
+import { de_DeleteQuickConnectCommand, se_DeleteQuickConnectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQuickConnectCommand}.
  */
 export interface DeleteQuickConnectCommandInput extends DeleteQuickConnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQuickConnectCommand}.
  */
 export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a quick connect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DeleteQuickConnectCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteQuickConnectCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DeleteQuickConnectRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   QuickConnectId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteQuickConnectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQuickConnectCommandInput - {@link DeleteQuickConnectCommandInput}
+ * @returns {@link DeleteQuickConnectCommandOutput}
  * @see {@link DeleteQuickConnectCommandInput} for command's `input` shape.
  * @see {@link DeleteQuickConnectCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -79,6 +87,9 @@ export class DeleteQuickConnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQuickConnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +118,8 @@ export class DeleteQuickConnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQuickConnectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +129,18 @@ export class DeleteQuickConnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQuickConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteQuickConnectCommand(input, context);
+    return se_DeleteQuickConnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQuickConnectCommandOutput> {
-    return deserializeAws_restJson1DeleteQuickConnectCommand(output, context);
+    return de_DeleteQuickConnectCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CacheSecurityGroupMessage,
-  CacheSecurityGroupMessageFilterSensitiveLog,
-  DescribeCacheSecurityGroupsMessage,
-  DescribeCacheSecurityGroupsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeCacheSecurityGroupsCommand,
-  serializeAws_queryDescribeCacheSecurityGroupsCommand,
-} from "../protocols/Aws_query";
+import { CacheSecurityGroupMessage, DescribeCacheSecurityGroupsMessage } from "../models/models_0";
+import { de_DescribeCacheSecurityGroupsCommand, se_DescribeCacheSecurityGroupsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheSecurityGroupsCommand}.
  */
 export interface DescribeCacheSecurityGroupsCommandInput extends DescribeCacheSecurityGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheSecurityGroupsCommand}.
  */
 export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of cache security group
  *             descriptions. If a cache security group name is specified, the list contains only
  *             the description of that group. This applicable only when you have ElastiCache in Classic setup
@@ -45,10 +42,17 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  * import { ElastiCacheClient, DescribeCacheSecurityGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheSecurityGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeCacheSecurityGroupsMessage
+ *   CacheSecurityGroupName: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeCacheSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheSecurityGroupsCommandInput - {@link DescribeCacheSecurityGroupsCommandInput}
+ * @returns {@link DescribeCacheSecurityGroupsCommandOutput}
  * @see {@link DescribeCacheSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -92,6 +96,9 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCacheSecurityGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CacheSecurityGroupMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +138,21 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeCacheSecurityGroupsCommand(input, context);
+    return se_DescribeCacheSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCacheSecurityGroupsCommandOutput> {
-    return deserializeAws_queryDescribeCacheSecurityGroupsCommand(output, context);
+    return de_DescribeCacheSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

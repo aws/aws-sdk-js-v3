@@ -6,7 +6,7 @@ import { KendraClient } from "../KendraClient";
 import { KendraPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KendraClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListIndicesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListIndices(
   config: KendraPaginationConfiguration,
   input: ListIndicesCommandInput,

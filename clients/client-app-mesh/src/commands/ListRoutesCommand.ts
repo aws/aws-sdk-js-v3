@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  ListRoutesInput,
-  ListRoutesInputFilterSensitiveLog,
-  ListRoutesOutput,
-  ListRoutesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRoutesCommand,
-  serializeAws_restJson1ListRoutesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRoutesInput, ListRoutesOutput } from "../models/models_0";
+import { de_ListRoutesCommand, se_ListRoutesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRoutesCommand}.
  */
 export interface ListRoutesCommandInput extends ListRoutesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRoutesCommand}.
  */
 export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing routes in a service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBea
  * import { AppMeshClient, ListRoutesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListRoutesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // ListRoutesInput
+ *   meshName: "STRING_VALUE", // required
+ *   virtualRouterName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new ListRoutesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoutesCommandInput - {@link ListRoutesCommandInput}
+ * @returns {@link ListRoutesCommandOutput}
  * @see {@link ListRoutesCommandInput} for command's `input` shape.
  * @see {@link ListRoutesCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -90,6 +96,9 @@ export class ListRoutesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoutesCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +125,8 @@ export class ListRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRoutesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRoutesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +136,18 @@ export class ListRoutesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRoutesCommand(input, context);
+    return se_ListRoutesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutesCommandOutput> {
-    return deserializeAws_restJson1ListRoutesCommand(output, context);
+    return de_ListRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

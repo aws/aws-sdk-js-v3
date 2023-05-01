@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetSdkRequest,
-  GetSdkRequestFilterSensitiveLog,
-  SdkResponse,
-  SdkResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_restJson1GetSdkCommand, serializeAws_restJson1GetSdkCommand } from "../protocols/Aws_restJson1";
+import { GetSdkRequest, SdkResponse } from "../models/models_0";
+import { de_GetSdkCommand, se_GetSdkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSdkCommand}.
  */
 export interface GetSdkCommandInput extends GetSdkRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSdkCommand}.
  */
 export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a client SDK for a RestApi and Stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,20 @@ export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
  * import { APIGatewayClient, GetSdkCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetSdkCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetSdkRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   sdkType: "STRING_VALUE", // required
+ *   parameters: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetSdkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSdkCommandInput - {@link GetSdkCommandInput}
+ * @returns {@link GetSdkCommandOutput}
  * @see {@link GetSdkCommandInput} for command's `input` shape.
  * @see {@link GetSdkCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -80,6 +90,9 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSdkCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +119,8 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSdkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SdkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +130,18 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSdkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSdkCommand(input, context);
+    return se_GetSdkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSdkCommandOutput> {
-    return deserializeAws_restJson1GetSdkCommand(output, context);
+    return de_GetSdkCommand(output, context);
   }
 
   // Start section: command_body_extra

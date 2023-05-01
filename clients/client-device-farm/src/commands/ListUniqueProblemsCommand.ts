@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListUniqueProblemsRequest,
-  ListUniqueProblemsRequestFilterSensitiveLog,
-  ListUniqueProblemsResult,
-  ListUniqueProblemsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListUniqueProblemsCommand,
-  serializeAws_json1_1ListUniqueProblemsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListUniqueProblemsRequest, ListUniqueProblemsResult } from "../models/models_0";
+import { de_ListUniqueProblemsCommand, se_ListUniqueProblemsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListUniqueProblemsCommand}.
  */
 export interface ListUniqueProblemsCommandInput extends ListUniqueProblemsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListUniqueProblemsCommand}.
  */
 export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about unique problems, such as exceptions or crashes.</p>
  *         <p>Unique problems are defined as a single instance of an error across a run, job, or suite. For example,
  *             if a call in your application consistently raises an exception (<code>OutOfBoundsException in
@@ -46,10 +43,16 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  * import { DeviceFarmClient, ListUniqueProblemsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListUniqueProblemsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListUniqueProblemsRequest
+ *   arn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListUniqueProblemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListUniqueProblemsCommandInput - {@link ListUniqueProblemsCommandInput}
+ * @returns {@link ListUniqueProblemsCommandOutput}
  * @see {@link ListUniqueProblemsCommandInput} for command's `input` shape.
  * @see {@link ListUniqueProblemsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -102,6 +105,9 @@ export class ListUniqueProblemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListUniqueProblemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +136,8 @@ export class ListUniqueProblemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUniqueProblemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUniqueProblemsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +147,18 @@ export class ListUniqueProblemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUniqueProblemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUniqueProblemsCommand(input, context);
+    return se_ListUniqueProblemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUniqueProblemsCommandOutput> {
-    return deserializeAws_json1_1ListUniqueProblemsCommand(output, context);
+    return de_ListUniqueProblemsCommand(output, context);
   }
 
   // Start section: command_body_extra

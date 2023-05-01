@@ -6,7 +6,7 @@ import { PipesClient } from "../PipesClient";
 import { PipesPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: PipesClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPipesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListPipes(
   config: PipesPaginationConfiguration,
   input: ListPipesCommandInput,

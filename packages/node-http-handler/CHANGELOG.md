@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
+
+
+### Bug Fixes
+
+* **node-http-handler:** undeprecate connectionTimeout ([#4669](https://github.com/aws/aws-sdk-js-v3/issues/4669)) ([79c46f3](https://github.com/aws/aws-sdk-js-v3/commit/79c46f35f6dace05b54d328d0632604a0fec8f85))
+
+
+
+
+
+# [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
+
+
+### Bug Fixes
+
+* use updated dist glob pattern in package.json ([#4628](https://github.com/aws/aws-sdk-js-v3/issues/4628)) ([352393d](https://github.com/aws/aws-sdk-js-v3/commit/352393dcdba5ba16dca589c265c40e22913c7f2b))
+
+
+
+
+
+# [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
+
+
+### Bug Fixes
+
+* **types:** node-http-handler type imports and @aws-sdk/types exports ([#4610](https://github.com/aws/aws-sdk-js-v3/issues/4610)) ([8ee06d4](https://github.com/aws/aws-sdk-js-v3/commit/8ee06d4af4513ffc9aaa8909f48b5482522834b4))
+
+
+
+
+
+# [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
+
+**Note:** Version bump only for package @aws-sdk/node-http-handler
+
+
+
+
+
 # [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
 
 

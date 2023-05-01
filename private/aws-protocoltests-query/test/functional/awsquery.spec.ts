@@ -11,6 +11,7 @@ import { EndpointWithHostLabelOperationCommand } from "../../src/commands/Endpoi
 import { FlattenedXmlMapCommand } from "../../src/commands/FlattenedXmlMapCommand";
 import { FlattenedXmlMapWithXmlNameCommand } from "../../src/commands/FlattenedXmlMapWithXmlNameCommand";
 import { FlattenedXmlMapWithXmlNamespaceCommand } from "../../src/commands/FlattenedXmlMapWithXmlNamespaceCommand";
+import { FractionalSecondsCommand } from "../../src/commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommand } from "../../src/commands/GreetingWithErrorsCommand";
 import { HostWithPathOperationCommand } from "../../src/commands/HostWithPathOperationCommand";
 import { IgnoresWrappingXmlNameCommand } from "../../src/commands/IgnoresWrappingXmlNameCommand";
@@ -540,6 +541,92 @@ it("QueryQueryFlattenedXmlMapWithXmlNamespace:Response", async () => {
 
         b: "B",
       },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that clients can correctly parse datetime timestamps with fractional seconds
+ */
+it("AwsQueryDateTimeWithFractionalSeconds:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<FractionalSecondsResponse xmlns="https://example.com/">
+          <FractionalSecondsResult>
+              <datetime>2000-01-02T20:34:56.123Z</datetime>
+          </FractionalSecondsResult>
+      </FractionalSecondsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new FractionalSecondsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(9.46845296123e8000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that clients can correctly parse http-date timestamps with fractional seconds
+ */
+it("AwsQueryHttpDateWithFractionalSeconds:Response", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml",
+      },
+      `<FractionalSecondsResponse xmlns="https://example.com/">
+          <FractionalSecondsResult>
+              <httpdate>Sun, 02 Jan 2000 20:34:56.456 GMT</httpdate>
+          </FractionalSecondsResult>
+      </FractionalSecondsResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new FractionalSecondsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      httpdate: new Date(9.46845296456e8000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

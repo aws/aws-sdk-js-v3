@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetRolePolicyRequest,
-  GetRolePolicyRequestFilterSensitiveLog,
-  GetRolePolicyResponse,
-  GetRolePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetRolePolicyCommand,
-  serializeAws_queryGetRolePolicyCommand,
-} from "../protocols/Aws_query";
+import { GetRolePolicyRequest, GetRolePolicyResponse } from "../models/models_0";
+import { de_GetRolePolicyCommand, se_GetRolePolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetRolePolicyCommand}.
  */
 export interface GetRolePolicyCommandInput extends GetRolePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRolePolicyCommand}.
  */
 export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified inline policy document that is embedded with the specified
  *             IAM role.</p>
  *          <note>
@@ -58,10 +55,16 @@ export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __Met
  * import { IAMClient, GetRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetRolePolicyRequest
+ *   RoleName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ * };
  * const command = new GetRolePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRolePolicyCommandInput - {@link GetRolePolicyCommandInput}
+ * @returns {@link GetRolePolicyCommandOutput}
  * @see {@link GetRolePolicyCommandInput} for command's `input` shape.
  * @see {@link GetRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -93,6 +96,9 @@ export class GetRolePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRolePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class GetRolePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRolePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRolePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +136,18 @@ export class GetRolePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetRolePolicyCommand(input, context);
+    return se_GetRolePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRolePolicyCommandOutput> {
-    return deserializeAws_queryGetRolePolicyCommand(output, context);
+    return de_GetRolePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

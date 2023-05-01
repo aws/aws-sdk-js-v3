@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCallAnalyticsJobRequest,
-  GetCallAnalyticsJobRequestFilterSensitiveLog,
-  GetCallAnalyticsJobResponse,
-  GetCallAnalyticsJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCallAnalyticsJobCommand,
-  serializeAws_json1_1GetCallAnalyticsJobCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCallAnalyticsJobRequest, GetCallAnalyticsJobResponse } from "../models/models_0";
+import { de_GetCallAnalyticsJobCommand, se_GetCallAnalyticsJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetCallAnalyticsJobCommand}.
  */
 export interface GetCallAnalyticsJobCommandInput extends GetCallAnalyticsJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCallAnalyticsJobCommand}.
  */
 export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about the specified Call Analytics job.</p>
  *          <p>To view the job's status, refer to <code>CallAnalyticsJobStatus</code>. If the status
  *             is <code>COMPLETED</code>, the job is finished. You can find your completed transcript
@@ -53,10 +50,15 @@ export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobRes
  * import { TranscribeClient, GetCallAnalyticsJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetCallAnalyticsJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // GetCallAnalyticsJobRequest
+ *   CallAnalyticsJobName: "STRING_VALUE", // required
+ * };
  * const command = new GetCallAnalyticsJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCallAnalyticsJobCommandInput - {@link GetCallAnalyticsJobCommandInput}
+ * @returns {@link GetCallAnalyticsJobCommandOutput}
  * @see {@link GetCallAnalyticsJobCommandInput} for command's `input` shape.
  * @see {@link GetCallAnalyticsJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -98,6 +100,9 @@ export class GetCallAnalyticsJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCallAnalyticsJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +131,8 @@ export class GetCallAnalyticsJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCallAnalyticsJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCallAnalyticsJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +142,18 @@ export class GetCallAnalyticsJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCallAnalyticsJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCallAnalyticsJobCommand(input, context);
+    return se_GetCallAnalyticsJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCallAnalyticsJobCommandOutput> {
-    return deserializeAws_json1_1GetCallAnalyticsJobCommand(output, context);
+    return de_GetCallAnalyticsJobCommand(output, context);
   }
 
   // Start section: command_body_extra

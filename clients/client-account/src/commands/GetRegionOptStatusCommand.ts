@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import {
-  GetRegionOptStatusRequest,
-  GetRegionOptStatusRequestFilterSensitiveLog,
-  GetRegionOptStatusResponse,
-  GetRegionOptStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRegionOptStatusCommand,
-  serializeAws_restJson1GetRegionOptStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRegionOptStatusRequest, GetRegionOptStatusResponse } from "../models/models_0";
+import { de_GetRegionOptStatusCommand, se_GetRegionOptStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRegionOptStatusCommand}.
  */
 export interface GetRegionOptStatusCommandInput extends GetRegionOptStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRegionOptStatusCommand}.
  */
 export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the opt-in status of a particular Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusRespo
  * import { AccountClient, GetRegionOptStatusCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, GetRegionOptStatusCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
+ * const input = { // GetRegionOptStatusRequest
+ *   AccountId: "STRING_VALUE",
+ *   RegionName: "STRING_VALUE", // required
+ * };
  * const command = new GetRegionOptStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRegionOptStatusCommandInput - {@link GetRegionOptStatusCommandInput}
+ * @returns {@link GetRegionOptStatusCommandOutput}
  * @see {@link GetRegionOptStatusCommandInput} for command's `input` shape.
  * @see {@link GetRegionOptStatusCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetRegionOptStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRegionOptStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetRegionOptStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegionOptStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRegionOptStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetRegionOptStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRegionOptStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRegionOptStatusCommand(input, context);
+    return se_GetRegionOptStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegionOptStatusCommandOutput> {
-    return deserializeAws_restJson1GetRegionOptStatusCommand(output, context);
+    return de_GetRegionOptStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

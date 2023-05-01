@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import {
-  QueryObjectsInput,
-  QueryObjectsInputFilterSensitiveLog,
-  QueryObjectsOutput,
-  QueryObjectsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1QueryObjectsCommand,
-  serializeAws_json1_1QueryObjectsCommand,
-} from "../protocols/Aws_json1_1";
+import { QueryObjectsInput, QueryObjectsOutput } from "../models/models_0";
+import { de_QueryObjectsCommand, se_QueryObjectsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link QueryObjectsCommand}.
  */
 export interface QueryObjectsCommandInput extends QueryObjectsInput {}
 /**
+ * @public
+ *
  * The output of {@link QueryObjectsCommand}.
  */
 export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Queries the specified pipeline for the names of objects that match the specified set of conditions.</p>
  *
  *         <examples>
@@ -48,15 +45,15 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"pipelineId": "df-06372391ZG65EXAMPLE",
+ * \{"pipelineId": "df-06372391ZG65EXAMPLE",
  *  "query":
- *   {"selectors":
+ *   \{"selectors":
  *     [
  *     ]
- *   },
+ *   \},
  *  "sphere": "INSTANCE",
  *  "marker": "",
- *  "limit": 10}
+ *  "limit": 10\}
  *
  *             </request>
  *
@@ -68,10 +65,10 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * Content-Length: 72
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {"hasMoreResults": false,
+ * \{"hasMoreResults": false,
  *  "ids":
  *   ["@SayHello_1_2012-09-25T17:00:00"]
- * }
+ * \}
  *          </response>
  *         </examples>
  * @example
@@ -80,10 +77,31 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * import { DataPipelineClient, QueryObjectsCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, QueryObjectsCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = { // QueryObjectsInput
+ *   pipelineId: "STRING_VALUE", // required
+ *   query: { // Query
+ *     selectors: [ // SelectorList
+ *       { // Selector
+ *         fieldName: "STRING_VALUE",
+ *         operator: { // Operator
+ *           type: "STRING_VALUE",
+ *           values: [ // stringList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   sphere: "STRING_VALUE", // required
+ *   marker: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new QueryObjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryObjectsCommandInput - {@link QueryObjectsCommandInput}
+ * @returns {@link QueryObjectsCommandOutput}
  * @see {@link QueryObjectsCommandInput} for command's `input` shape.
  * @see {@link QueryObjectsCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -119,6 +137,9 @@ export class QueryObjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryObjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +166,8 @@ export class QueryObjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryObjectsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryObjectsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +177,18 @@ export class QueryObjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1QueryObjectsCommand(input, context);
+    return se_QueryObjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryObjectsCommandOutput> {
-    return deserializeAws_json1_1QueryObjectsCommand(output, context);
+    return de_QueryObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -12,22 +12,24 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  deserializeAws_restJson1UnitInputAndOutputCommand,
-  serializeAws_restJson1UnitInputAndOutputCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UnitInputAndOutputCommand, se_UnitInputAndOutputCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link UnitInputAndOutputCommand}.
  */
 export interface UnitInputAndOutputCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link UnitInputAndOutputCommand}.
  */
 export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * This test is similar to NoInputAndNoOutput, but uses explicit Unit types.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,10 +37,13 @@ export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
  * import { RestJsonProtocolClient, UnitInputAndOutputCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, UnitInputAndOutputCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {};
  * const command = new UnitInputAndOutputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnitInputAndOutputCommandInput - {@link UnitInputAndOutputCommandInput}
+ * @returns {@link UnitInputAndOutputCommandOutput}
  * @see {@link UnitInputAndOutputCommandInput} for command's `input` shape.
  * @see {@link UnitInputAndOutputCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -53,6 +58,9 @@ export class UnitInputAndOutputCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnitInputAndOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,8 +86,8 @@ export class UnitInputAndOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +97,18 @@ export class UnitInputAndOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnitInputAndOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnitInputAndOutputCommand(input, context);
+    return se_UnitInputAndOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnitInputAndOutputCommandOutput> {
-    return deserializeAws_restJson1UnitInputAndOutputCommand(output, context);
+    return de_UnitInputAndOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

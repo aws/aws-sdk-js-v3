@@ -16,25 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   UpdateRoomMembershipRequest,
-  UpdateRoomMembershipRequestFilterSensitiveLog,
   UpdateRoomMembershipResponse,
   UpdateRoomMembershipResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateRoomMembershipCommand,
-  serializeAws_restJson1UpdateRoomMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRoomMembershipCommand, se_UpdateRoomMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoomMembershipCommand}.
  */
 export interface UpdateRoomMembershipCommandInput extends UpdateRoomMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoomMembershipCommand}.
  */
 export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates room membership details, such as the member role, for a room in an Amazon Chime
  *             Enterprise account. The member role designates whether the member is a chat room
  *             administrator or a general chat room member. The member role can be updated only for
@@ -45,10 +46,18 @@ export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipR
  * import { ChimeClient, UpdateRoomMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateRoomMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // UpdateRoomMembershipRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   RoomId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE", // required
+ *   Role: "Administrator" || "Member",
+ * };
  * const command = new UpdateRoomMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoomMembershipCommandInput - {@link UpdateRoomMembershipCommandInput}
+ * @returns {@link UpdateRoomMembershipCommandOutput}
  * @see {@link UpdateRoomMembershipCommandInput} for command's `input` shape.
  * @see {@link UpdateRoomMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +102,9 @@ export class UpdateRoomMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoomMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,7 +133,7 @@ export class UpdateRoomMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoomMembershipRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateRoomMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -132,12 +144,18 @@ export class UpdateRoomMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoomMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoomMembershipCommand(input, context);
+    return se_UpdateRoomMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoomMembershipCommandOutput> {
-    return deserializeAws_restJson1UpdateRoomMembershipCommand(output, context);
+    return de_UpdateRoomMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

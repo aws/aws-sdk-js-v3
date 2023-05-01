@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  ListAssessmentTemplatesRequest,
-  ListAssessmentTemplatesRequestFilterSensitiveLog,
-  ListAssessmentTemplatesResponse,
-  ListAssessmentTemplatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAssessmentTemplatesCommand,
-  serializeAws_json1_1ListAssessmentTemplatesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAssessmentTemplatesRequest, ListAssessmentTemplatesResponse } from "../models/models_0";
+import { de_ListAssessmentTemplatesCommand, se_ListAssessmentTemplatesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAssessmentTemplatesCommand}.
  */
 export interface ListAssessmentTemplatesCommandInput extends ListAssessmentTemplatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAssessmentTemplatesCommand}.
  */
 export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the assessment templates that correspond to the assessment targets that are
  *          specified by the ARNs of the assessment targets.</p>
  * @example
@@ -43,10 +40,29 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  * import { InspectorClient, ListAssessmentTemplatesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListAssessmentTemplatesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // ListAssessmentTemplatesRequest
+ *   assessmentTargetArns: [ // ListParentArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   filter: { // AssessmentTemplateFilter
+ *     namePattern: "STRING_VALUE",
+ *     durationRange: { // DurationRange
+ *       minSeconds: Number("int"),
+ *       maxSeconds: Number("int"),
+ *     },
+ *     rulesPackageArns: [ // FilterRulesPackageArnList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentTemplatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAssessmentTemplatesCommandInput - {@link ListAssessmentTemplatesCommandInput}
+ * @returns {@link ListAssessmentTemplatesCommandOutput}
  * @see {@link ListAssessmentTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -107,6 +123,9 @@ export class ListAssessmentTemplatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAssessmentTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +154,8 @@ export class ListAssessmentTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssessmentTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssessmentTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +165,18 @@ export class ListAssessmentTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAssessmentTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssessmentTemplatesCommand(input, context);
+    return se_ListAssessmentTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentTemplatesCommandOutput> {
-    return deserializeAws_json1_1ListAssessmentTemplatesCommand(output, context);
+    return de_ListAssessmentTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

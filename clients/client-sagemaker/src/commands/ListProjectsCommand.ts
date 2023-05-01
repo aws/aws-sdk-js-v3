@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListProjectsInput,
-  ListProjectsInputFilterSensitiveLog,
-  ListProjectsOutput,
-  ListProjectsOutputFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListProjectsCommand,
-  serializeAws_json1_1ListProjectsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListProjectsInput, ListProjectsOutput } from "../models/models_3";
+import { de_ListProjectsCommand, se_ListProjectsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListProjectsCommand}.
  */
 export interface ListProjectsCommandInput extends ListProjectsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListProjectsCommand}.
  */
 export interface ListProjectsCommandOutput extends ListProjectsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the projects in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * import { SageMakerClient, ListProjectsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListProjectsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListProjectsInput
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
+ * @returns {@link ListProjectsCommandOutput}
  * @see {@link ListProjectsCommandInput} for command's `input` shape.
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +77,9 @@ export class ListProjectsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +106,8 @@ export class ListProjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProjectsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProjectsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +117,18 @@ export class ListProjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProjectsCommand(input, context);
+    return se_ListProjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProjectsCommandOutput> {
-    return deserializeAws_json1_1ListProjectsCommand(output, context);
+    return de_ListProjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateResolverRuleRequest,
-  CreateResolverRuleRequestFilterSensitiveLog,
-  CreateResolverRuleResponse,
-  CreateResolverRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateResolverRuleCommand,
-  serializeAws_json1_1CreateResolverRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateResolverRuleRequest, CreateResolverRuleResponse } from "../models/models_0";
+import { de_CreateResolverRuleCommand, se_CreateResolverRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResolverRuleCommand}.
  */
 export interface CreateResolverRuleCommandInput extends CreateResolverRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResolverRuleCommand}.
  */
 export interface CreateResolverRuleCommandOutput extends CreateResolverRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through,
  * 			one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.</p>
  * @example
@@ -43,10 +40,32 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * import { Route53ResolverClient, CreateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, CreateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // CreateResolverRuleRequest
+ *   CreatorRequestId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE", // required
+ *   DomainName: "STRING_VALUE", // required
+ *   TargetIps: [ // TargetList
+ *     { // TargetAddress
+ *       Ip: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       Ipv6: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ResolverEndpointId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateResolverRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResolverRuleCommandInput - {@link CreateResolverRuleCommandInput}
+ * @returns {@link CreateResolverRuleCommandOutput}
  * @see {@link CreateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link CreateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
@@ -94,6 +113,9 @@ export class CreateResolverRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResolverRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +144,8 @@ export class CreateResolverRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResolverRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateResolverRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +155,18 @@ export class CreateResolverRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateResolverRuleCommand(input, context);
+    return se_CreateResolverRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResolverRuleCommandOutput> {
-    return deserializeAws_json1_1CreateResolverRuleCommand(output, context);
+    return de_CreateResolverRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

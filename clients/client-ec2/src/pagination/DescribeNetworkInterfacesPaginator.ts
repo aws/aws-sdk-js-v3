@@ -10,7 +10,7 @@ import { EC2Client } from "../EC2Client";
 import { EC2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EC2Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeNetworkInterfacesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeNetworkInterfaces(
   config: EC2PaginationConfiguration,
   input: DescribeNetworkInterfacesCommandInput,

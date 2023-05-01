@@ -10,6 +10,9 @@ import {
 } from "./constants";
 import { getDefaultRetryBackoffStrategy } from "./defaultRetryBackoffStrategy";
 
+/**
+ * @internal
+ */
 export interface DefaultRetryTokenOptions {
   /**
    * The total amount of retry tokens to be decremented from retry token balance.
@@ -28,6 +31,9 @@ export interface DefaultRetryTokenOptions {
   retryBackoffStrategy?: StandardRetryBackoffStrategy;
 }
 
+/**
+ * @internal
+ */
 export const getDefaultRetryToken = (
   initialRetryTokens: number,
   initialRetryDelay: number,

@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  DeleteWhatIfForecastExportRequest,
-  DeleteWhatIfForecastExportRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWhatIfForecastExportCommand,
-  serializeAws_json1_1DeleteWhatIfForecastExportCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteWhatIfForecastExportRequest } from "../models/models_0";
+import { de_DeleteWhatIfForecastExportCommand, se_DeleteWhatIfForecastExportCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWhatIfForecastExportCommand}.
  */
 export interface DeleteWhatIfForecastExportCommandInput extends DeleteWhatIfForecastExportRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWhatIfForecastExportCommand}.
  */
 export interface DeleteWhatIfForecastExportCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a what-if forecast export created using the <a>CreateWhatIfForecastExport</a>
  *       operation. You can delete only what-if forecast exports that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeWhatIfForecastExport</a> operation. </p>
  * @example
@@ -41,10 +40,15 @@ export interface DeleteWhatIfForecastExportCommandOutput extends __MetadataBeare
  * import { ForecastClient, DeleteWhatIfForecastExportCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteWhatIfForecastExportCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DeleteWhatIfForecastExportRequest
+ *   WhatIfForecastExportArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWhatIfForecastExportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWhatIfForecastExportCommandInput - {@link DeleteWhatIfForecastExportCommandInput}
+ * @returns {@link DeleteWhatIfForecastExportCommandOutput}
  * @see {@link DeleteWhatIfForecastExportCommandInput} for command's `input` shape.
  * @see {@link DeleteWhatIfForecastExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -79,6 +83,9 @@ export class DeleteWhatIfForecastExportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWhatIfForecastExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class DeleteWhatIfForecastExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWhatIfForecastExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +125,21 @@ export class DeleteWhatIfForecastExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWhatIfForecastExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWhatIfForecastExportCommand(input, context);
+    return se_DeleteWhatIfForecastExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteWhatIfForecastExportCommandOutput> {
-    return deserializeAws_json1_1DeleteWhatIfForecastExportCommand(output, context);
+    return de_DeleteWhatIfForecastExportCommand(output, context);
   }
 
   // Start section: command_body_extra

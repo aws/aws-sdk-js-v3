@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DBInstanceAutomatedBackupMessage, DescribeDBInstanceAutomatedBackupsMessage } from "../models/models_0";
 import {
-  DBInstanceAutomatedBackupMessage,
-  DBInstanceAutomatedBackupMessageFilterSensitiveLog,
-  DescribeDBInstanceAutomatedBackupsMessage,
-  DescribeDBInstanceAutomatedBackupsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand,
-  serializeAws_queryDescribeDBInstanceAutomatedBackupsCommand,
+  de_DescribeDBInstanceAutomatedBackupsCommand,
+  se_DescribeDBInstanceAutomatedBackupsCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBInstanceAutomatedBackupsCommand}.
  */
 export interface DescribeDBInstanceAutomatedBackupsCommandInput extends DescribeDBInstanceAutomatedBackupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBInstanceAutomatedBackupsCommand}.
  */
 export interface DescribeDBInstanceAutomatedBackupsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays backups for both current and deleted
  *             instances. For example, use this operation to
  *             find details about automated backups for previously deleted instances. Current instances
@@ -50,10 +50,27 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * import { RDSClient, DescribeDBInstanceAutomatedBackupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBInstanceAutomatedBackupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBInstanceAutomatedBackupsMessage
+ *   DbiResourceId: "STRING_VALUE",
+ *   DBInstanceIdentifier: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ * };
  * const command = new DescribeDBInstanceAutomatedBackupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBInstanceAutomatedBackupsCommandInput - {@link DescribeDBInstanceAutomatedBackupsCommandInput}
+ * @returns {@link DescribeDBInstanceAutomatedBackupsCommandOutput}
  * @see {@link DescribeDBInstanceAutomatedBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBInstanceAutomatedBackupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -61,6 +78,47 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * @throws {@link DBInstanceAutomatedBackupNotFoundFault} (client fault)
  *  <p>No automated backup for this DB instance was found.</p>
  *
+ *
+ * @example To describe the automated backups for a DB instance
+ * ```javascript
+ * // The following example displays details about the automated backups for the specified DB instance. The details include replicated automated backups in other AWS Regions.
+ * const input = {
+ *   "DBInstanceIdentifier": "new-orcl-db"
+ * };
+ * const command = new DescribeDBInstanceAutomatedBackupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstanceAutomatedBackups": [
+ *     {
+ *       "AllocatedStorage": 20,
+ *       "BackupRetentionPeriod": 14,
+ *       "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
+ *       "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
+ *       "DBInstanceIdentifier": "new-orcl-db",
+ *       "DbiResourceId": "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
+ *       "Encrypted": false,
+ *       "Engine": "oracle-se2",
+ *       "EngineVersion": "12.1.0.2.v21",
+ *       "IAMDatabaseAuthenticationEnabled": false,
+ *       "InstanceCreateTime": "2020-12-04T15:28:31Z",
+ *       "LicenseModel": "bring-your-own-license",
+ *       "MasterUsername": "admin",
+ *       "OptionGroupName": "default:oracle-se2-12-1",
+ *       "Port": 1521,
+ *       "Region": "us-east-1",
+ *       "RestoreWindow": {
+ *         "EarliestTime": "2020-12-07T21:05:20.939Z",
+ *         "LatestTime": "2020-12-07T21:05:20.939Z"
+ *       },
+ *       "Status": "replicating",
+ *       "StorageType": "gp2"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-automated-backups-for-a-db-instance-1680217198750
+ * ```
  *
  */
 export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
@@ -80,6 +138,9 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBInstanceAutomatedBackupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +169,8 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBInstanceAutomatedBackupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBInstanceAutomatedBackupMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +180,24 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeDBInstanceAutomatedBackupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBInstanceAutomatedBackupsCommand(input, context);
+    return se_DescribeDBInstanceAutomatedBackupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> {
-    return deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand(output, context);
+    return de_DescribeDBInstanceAutomatedBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

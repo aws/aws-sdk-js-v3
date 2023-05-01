@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
+import { BatchDescribeTypeConfigurationsInput, BatchDescribeTypeConfigurationsOutput } from "../models/models_0";
 import {
-  BatchDescribeTypeConfigurationsInput,
-  BatchDescribeTypeConfigurationsInputFilterSensitiveLog,
-  BatchDescribeTypeConfigurationsOutput,
-  BatchDescribeTypeConfigurationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryBatchDescribeTypeConfigurationsCommand,
-  serializeAws_queryBatchDescribeTypeConfigurationsCommand,
+  de_BatchDescribeTypeConfigurationsCommand,
+  se_BatchDescribeTypeConfigurationsCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDescribeTypeConfigurationsCommand}.
  */
 export interface BatchDescribeTypeConfigurationsCommandInput extends BatchDescribeTypeConfigurationsInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchDescribeTypeConfigurationsCommand}.
  */
 export interface BatchDescribeTypeConfigurationsCommandOutput
@@ -37,6 +36,7 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns configuration data for the specified CloudFormation extensions, from
  *          the CloudFormation registry for the account and region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the
@@ -47,10 +47,23 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
  * import { CloudFormationClient, BatchDescribeTypeConfigurationsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, BatchDescribeTypeConfigurationsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // BatchDescribeTypeConfigurationsInput
+ *   TypeConfigurationIdentifiers: [ // TypeConfigurationIdentifiers // required
+ *     { // TypeConfigurationIdentifier
+ *       TypeArn: "STRING_VALUE",
+ *       TypeConfigurationAlias: "STRING_VALUE",
+ *       TypeConfigurationArn: "STRING_VALUE",
+ *       Type: "RESOURCE" || "MODULE" || "HOOK",
+ *       TypeName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchDescribeTypeConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDescribeTypeConfigurationsCommandInput - {@link BatchDescribeTypeConfigurationsCommandInput}
+ * @returns {@link BatchDescribeTypeConfigurationsCommandOutput}
  * @see {@link BatchDescribeTypeConfigurationsCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeTypeConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -80,6 +93,9 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDescribeTypeConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +124,8 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDescribeTypeConfigurationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDescribeTypeConfigurationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +135,24 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDescribeTypeConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryBatchDescribeTypeConfigurationsCommand(input, context);
+    return se_BatchDescribeTypeConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDescribeTypeConfigurationsCommandOutput> {
-    return deserializeAws_queryBatchDescribeTypeConfigurationsCommand(output, context);
+    return de_BatchDescribeTypeConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

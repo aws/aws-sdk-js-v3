@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteContainerImageRequest,
-  DeleteContainerImageRequestFilterSensitiveLog,
-  DeleteContainerImageResult,
-  DeleteContainerImageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteContainerImageCommand,
-  serializeAws_json1_1DeleteContainerImageCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteContainerImageRequest, DeleteContainerImageResult } from "../models/models_0";
+import { de_DeleteContainerImageCommand, se_DeleteContainerImageCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteContainerImageCommand}.
  */
 export interface DeleteContainerImageCommandInput extends DeleteContainerImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteContainerImageCommand}.
  */
 export interface DeleteContainerImageCommandOutput extends DeleteContainerImageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a container image that is registered to your Amazon Lightsail container
  *       service.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeleteContainerImageCommandOutput extends DeleteContainerImageR
  * import { LightsailClient, DeleteContainerImageCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteContainerImageCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteContainerImageRequest
+ *   serviceName: "STRING_VALUE", // required
+ *   image: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContainerImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteContainerImageCommandInput - {@link DeleteContainerImageCommandInput}
+ * @returns {@link DeleteContainerImageCommandOutput}
  * @see {@link DeleteContainerImageCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerImageCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -93,6 +96,9 @@ export class DeleteContainerImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteContainerImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DeleteContainerImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContainerImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContainerImageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class DeleteContainerImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteContainerImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteContainerImageCommand(input, context);
+    return se_DeleteContainerImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContainerImageCommandOutput> {
-    return deserializeAws_json1_1DeleteContainerImageCommand(output, context);
+    return de_DeleteContainerImageCommand(output, context);
   }
 
   // Start section: command_body_extra

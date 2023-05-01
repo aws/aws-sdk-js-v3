@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  DisassociateVehicleFleetRequest,
-  DisassociateVehicleFleetRequestFilterSensitiveLog,
-  DisassociateVehicleFleetResponse,
-  DisassociateVehicleFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DisassociateVehicleFleetCommand,
-  serializeAws_json1_0DisassociateVehicleFleetCommand,
-} from "../protocols/Aws_json1_0";
+import { DisassociateVehicleFleetRequest, DisassociateVehicleFleetResponse } from "../models/models_0";
+import { de_DisassociateVehicleFleetCommand, se_DisassociateVehicleFleetCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateVehicleFleetCommand}.
  */
 export interface DisassociateVehicleFleetCommandInput extends DisassociateVehicleFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateVehicleFleetCommand}.
  */
 export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehicleFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes, or disassociates, a vehicle from a fleet. Disassociating a vehicle from a
  *             fleet doesn't delete the vehicle.</p>
  *         <note>
@@ -47,10 +44,16 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  * import { IoTFleetWiseClient, DisassociateVehicleFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DisassociateVehicleFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // DisassociateVehicleFleetRequest
+ *   vehicleName: "STRING_VALUE", // required
+ *   fleetId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateVehicleFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateVehicleFleetCommandInput - {@link DisassociateVehicleFleetCommandInput}
+ * @returns {@link DisassociateVehicleFleetCommandOutput}
  * @see {@link DisassociateVehicleFleetCommandInput} for command's `input` shape.
  * @see {@link DisassociateVehicleFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -89,6 +92,9 @@ export class DisassociateVehicleFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateVehicleFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +123,8 @@ export class DisassociateVehicleFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateVehicleFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateVehicleFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +134,18 @@ export class DisassociateVehicleFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateVehicleFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisassociateVehicleFleetCommand(input, context);
+    return se_DisassociateVehicleFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateVehicleFleetCommandOutput> {
-    return deserializeAws_json1_0DisassociateVehicleFleetCommand(output, context);
+    return de_DisassociateVehicleFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

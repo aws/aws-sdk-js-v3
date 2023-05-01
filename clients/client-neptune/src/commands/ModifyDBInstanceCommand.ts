@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBInstanceMessage,
-  ModifyDBInstanceMessageFilterSensitiveLog,
-  ModifyDBInstanceResult,
-  ModifyDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryModifyDBInstanceCommand,
-  serializeAws_queryModifyDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBInstanceCommand, se_ModifyDBInstanceCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBInstanceCommand}.
  */
 export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBInstanceCommand}.
  */
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies settings for a DB instance. You can change one or more database configuration
  *       parameters by specifying these parameters and the new values in the request. To learn what
  *       modifications you can make to your DB instance, call <a>DescribeValidDBInstanceModifications</a> before you call <a>ModifyDBInstance</a>.</p>
@@ -44,10 +41,62 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * import { NeptuneClient, ModifyDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // ModifyDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   AllocatedStorage: Number("int"),
+ *   DBInstanceClass: "STRING_VALUE",
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   DBSecurityGroups: [ // DBSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   ApplyImmediately: true || false,
+ *   MasterUserPassword: "STRING_VALUE",
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   BackupRetentionPeriod: Number("int"),
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AllowMajorVersionUpgrade: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   LicenseModel: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   OptionGroupName: "STRING_VALUE",
+ *   NewDBInstanceIdentifier: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
+ *   TdeCredentialArn: "STRING_VALUE",
+ *   TdeCredentialPassword: "STRING_VALUE",
+ *   CACertificateIdentifier: "STRING_VALUE",
+ *   Domain: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   MonitoringInterval: Number("int"),
+ *   DBPortNumber: Number("int"),
+ *   PubliclyAccessible: true || false,
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   PromotionTier: Number("int"),
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   CloudwatchLogsExportConfiguration: { // CloudwatchLogsExportConfiguration
+ *     EnableLogTypes: [ // LogTypeList
+ *       "STRING_VALUE",
+ *     ],
+ *     DisableLogTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   DeletionProtection: true || false,
+ * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBInstanceCommandInput - {@link ModifyDBInstanceCommandInput}
+ * @returns {@link ModifyDBInstanceCommandOutput}
  * @see {@link ModifyDBInstanceCommandInput} for command's `input` shape.
  * @see {@link ModifyDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -129,6 +178,9 @@ export class ModifyDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,8 +209,8 @@ export class ModifyDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,12 +220,18 @@ export class ModifyDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBInstanceCommand(input, context);
+    return se_ModifyDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBInstanceCommandOutput> {
-    return deserializeAws_queryModifyDBInstanceCommand(output, context);
+    return de_ModifyDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

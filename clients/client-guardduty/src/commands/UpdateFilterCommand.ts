@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  UpdateFilterRequest,
-  UpdateFilterRequestFilterSensitiveLog,
-  UpdateFilterResponse,
-  UpdateFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFilterCommand,
-  serializeAws_restJson1UpdateFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFilterRequest, UpdateFilterResponse } from "../models/models_1";
+import { de_UpdateFilterCommand, se_UpdateFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFilterCommand}.
  */
 export interface UpdateFilterCommandInput extends UpdateFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFilterCommand}.
  */
 export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the filter specified by the filter name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,45 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  * import { GuardDutyClient, UpdateFilterCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateFilterCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // UpdateFilterRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   FilterName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Action: "NOOP" || "ARCHIVE",
+ *   Rank: Number("int"),
+ *   FindingCriteria: { // FindingCriteria
+ *     Criterion: { // Criterion
+ *       "<keys>": { // Condition
+ *         Eq: [ // Eq
+ *           "STRING_VALUE",
+ *         ],
+ *         Neq: [ // Neq
+ *           "STRING_VALUE",
+ *         ],
+ *         Gt: Number("int"),
+ *         Gte: Number("int"),
+ *         Lt: Number("int"),
+ *         Lte: Number("int"),
+ *         Equals: [ // Equals
+ *           "STRING_VALUE",
+ *         ],
+ *         NotEquals: [ // NotEquals
+ *           "STRING_VALUE",
+ *         ],
+ *         GreaterThan: Number("long"),
+ *         GreaterThanOrEqual: Number("long"),
+ *         LessThan: Number("long"),
+ *         LessThanOrEqual: Number("long"),
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFilterCommandInput - {@link UpdateFilterCommandInput}
+ * @returns {@link UpdateFilterCommandOutput}
  * @see {@link UpdateFilterCommandInput} for command's `input` shape.
  * @see {@link UpdateFilterCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +107,9 @@ export class UpdateFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +136,8 @@ export class UpdateFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +147,18 @@ export class UpdateFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFilterCommand(input, context);
+    return se_UpdateFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFilterCommandOutput> {
-    return deserializeAws_restJson1UpdateFilterCommand(output, context);
+    return de_UpdateFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { TranslateClient } from "../TranslateClient";
 import { TranslatePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TranslateClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListParallelDataCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListParallelData(
   config: TranslatePaginationConfiguration,
   input: ListParallelDataCommandInput,

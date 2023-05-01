@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetOrderInput,
-  GetOrderInputFilterSensitiveLog,
-  GetOrderOutput,
-  GetOrderOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetOrderInput, GetOrderOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1GetOrderCommand,
-  serializeAws_restJson1GetOrderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetOrderCommand, se_GetOrderCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetOrderCommand}.
  */
 export interface GetOrderCommandInput extends GetOrderInput {}
 /**
+ * @public
+ *
  * The output of {@link GetOrderCommand}.
  */
 export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer 
  * import { OutpostsClient, GetOrderCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetOrderCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // GetOrderInput
+ *   OrderId: "STRING_VALUE", // required
+ * };
  * const command = new GetOrderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOrderCommandInput - {@link GetOrderCommandInput}
+ * @returns {@link GetOrderCommandOutput}
  * @see {@link GetOrderCommandInput} for command's `input` shape.
  * @see {@link GetOrderCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -78,6 +80,9 @@ export class GetOrderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOrderCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class GetOrderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOrderInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOrderOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class GetOrderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetOrderCommand(input, context);
+    return se_GetOrderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOrderCommandOutput> {
-    return deserializeAws_restJson1GetOrderCommand(output, context);
+    return de_GetOrderCommand(output, context);
   }
 
   // Start section: command_body_extra

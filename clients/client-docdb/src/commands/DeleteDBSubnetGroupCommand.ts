@@ -14,37 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DeleteDBSubnetGroupMessage, DeleteDBSubnetGroupMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBSubnetGroupCommand,
-  serializeAws_queryDeleteDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBSubnetGroupMessage } from "../models/models_0";
+import { de_DeleteDBSubnetGroupCommand, se_DeleteDBSubnetGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBSubnetGroupCommand}.
  */
 export interface DeleteDBSubnetGroupCommandInput extends DeleteDBSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBSubnetGroupCommand}.
  */
 export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a subnet group.</p>
- *         <note>
+ *          <note>
  *             <p>The specified database subnet group must not be associated with any DB
  *                 instances.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DeleteDBSubnetGroupMessage
+ *   DBSubnetGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBSubnetGroupCommandInput - {@link DeleteDBSubnetGroupCommandInput}
+ * @returns {@link DeleteDBSubnetGroupCommandOutput}
  * @see {@link DeleteDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -78,6 +85,9 @@ export class DeleteDBSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +116,8 @@ export class DeleteDBSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +127,18 @@ export class DeleteDBSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBSubnetGroupCommand(input, context);
+    return se_DeleteDBSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBSubnetGroupCommand(output, context);
+    return de_DeleteDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

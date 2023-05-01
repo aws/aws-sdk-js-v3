@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  ModifyDBInstanceMessage,
-  ModifyDBInstanceMessageFilterSensitiveLog,
-  ModifyDBInstanceResult,
-  ModifyDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyDBInstanceCommand,
-  serializeAws_queryModifyDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_0";
+import { de_ModifyDBInstanceCommand, se_ModifyDBInstanceCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBInstanceCommand}.
  */
 export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBInstanceCommand}.
  */
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies settings for an instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,17 +39,32 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * import { DocDBClient, ModifyDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // ModifyDBInstanceMessage
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   DBInstanceClass: "STRING_VALUE",
+ *   ApplyImmediately: true || false,
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   NewDBInstanceIdentifier: "STRING_VALUE",
+ *   CACertificateIdentifier: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   PromotionTier: Number("int"),
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBInstanceCommandInput - {@link ModifyDBInstanceCommandInput}
+ * @returns {@link ModifyDBInstanceCommandOutput}
  * @see {@link ModifyDBInstanceCommandInput} for command's `input` shape.
  * @see {@link ModifyDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
  *  <p>The specified CIDR IP or Amazon EC2 security group isn't authorized for the specified security group.</p>
- *         <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
+ *          <p>Amazon DocumentDB also might not be authorized to perform necessary actions on your behalf using IAM.</p>
  *
  * @throws {@link CertificateNotFoundFault} (client fault)
  *  <p>
@@ -118,6 +130,9 @@ export class ModifyDBInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +161,8 @@ export class ModifyDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +172,18 @@ export class ModifyDBInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBInstanceCommand(input, context);
+    return se_ModifyDBInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBInstanceCommandOutput> {
-    return deserializeAws_queryModifyDBInstanceCommand(output, context);
+    return de_ModifyDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

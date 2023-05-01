@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAccessRequest,
-  CreateAccessRequestFilterSensitiveLog,
-  CreateAccessResponse,
-  CreateAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAccessCommand,
-  serializeAws_json1_1CreateAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateAccessRequest, CreateAccessResponse } from "../models/models_0";
+import { de_CreateAccessCommand, se_CreateAccessCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccessCommand}.
  */
 export interface CreateAccessCommandInput extends CreateAccessRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccessCommand}.
  */
 export interface CreateAccessCommandOutput extends CreateAccessResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by administrators to choose which groups in the directory should have access to
  *       upload and download files over the enabled protocols using Transfer Family. For example, a
  *       Microsoft Active Directory might contain 50,000 users, but only a small fraction might need
@@ -47,10 +44,33 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
  * import { TransferClient, CreateAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // CreateAccessRequest
+ *   HomeDirectory: "STRING_VALUE",
+ *   HomeDirectoryType: "PATH" || "LOGICAL",
+ *   HomeDirectoryMappings: [ // HomeDirectoryMappings
+ *     { // HomeDirectoryMapEntry
+ *       Entry: "STRING_VALUE", // required
+ *       Target: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Policy: "STRING_VALUE",
+ *   PosixProfile: { // PosixProfile
+ *     Uid: Number("long"), // required
+ *     Gid: Number("long"), // required
+ *     SecondaryGids: [ // SecondaryGids
+ *       Number("long"),
+ *     ],
+ *   },
+ *   Role: "STRING_VALUE", // required
+ *   ServerId: "STRING_VALUE", // required
+ *   ExternalId: "STRING_VALUE", // required
+ * };
  * const command = new CreateAccessCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccessCommandInput - {@link CreateAccessCommandInput}
+ * @returns {@link CreateAccessCommandOutput}
  * @see {@link CreateAccessCommandInput} for command's `input` shape.
  * @see {@link CreateAccessCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -90,6 +110,9 @@ export class CreateAccessCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccessCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +139,8 @@ export class CreateAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +150,18 @@ export class CreateAccessCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAccessCommand(input, context);
+    return se_CreateAccessCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessCommandOutput> {
-    return deserializeAws_json1_1CreateAccessCommand(output, context);
+    return de_CreateAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

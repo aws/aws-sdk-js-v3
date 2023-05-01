@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  UpdateFrameworkInput,
-  UpdateFrameworkInputFilterSensitiveLog,
-  UpdateFrameworkOutput,
-  UpdateFrameworkOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFrameworkCommand,
-  serializeAws_restJson1UpdateFrameworkCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFrameworkInput, UpdateFrameworkOutput } from "../models/models_0";
+import { de_UpdateFrameworkCommand, se_UpdateFrameworkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFrameworkCommand}.
  */
 export interface UpdateFrameworkCommandInput extends UpdateFrameworkInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFrameworkCommand}.
  */
 export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing framework identified by its <code>FrameworkName</code> with the
  *          input document in JSON format.</p>
  * @example
@@ -43,10 +40,39 @@ export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __M
  * import { BackupClient, UpdateFrameworkCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateFrameworkCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // UpdateFrameworkInput
+ *   FrameworkName: "STRING_VALUE", // required
+ *   FrameworkDescription: "STRING_VALUE",
+ *   FrameworkControls: [ // FrameworkControls
+ *     { // FrameworkControl
+ *       ControlName: "STRING_VALUE", // required
+ *       ControlInputParameters: [ // ControlInputParameters
+ *         { // ControlInputParameter
+ *           ParameterName: "STRING_VALUE",
+ *           ParameterValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       ControlScope: { // ControlScope
+ *         ComplianceResourceIds: [ // ComplianceResourceIdList
+ *           "STRING_VALUE",
+ *         ],
+ *         ComplianceResourceTypes: [ // ResourceTypeList
+ *           "STRING_VALUE",
+ *         ],
+ *         Tags: { // stringMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   IdempotencyToken: "STRING_VALUE",
+ * };
  * const command = new UpdateFrameworkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFrameworkCommandInput - {@link UpdateFrameworkCommandInput}
+ * @returns {@link UpdateFrameworkCommandOutput}
  * @see {@link UpdateFrameworkCommandInput} for command's `input` shape.
  * @see {@link UpdateFrameworkCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -94,6 +120,9 @@ export class UpdateFrameworkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFrameworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +151,8 @@ export class UpdateFrameworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFrameworkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFrameworkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +162,18 @@ export class UpdateFrameworkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFrameworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFrameworkCommand(input, context);
+    return se_UpdateFrameworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFrameworkCommandOutput> {
-    return deserializeAws_restJson1UpdateFrameworkCommand(output, context);
+    return de_UpdateFrameworkCommand(output, context);
   }
 
   // Start section: command_body_extra

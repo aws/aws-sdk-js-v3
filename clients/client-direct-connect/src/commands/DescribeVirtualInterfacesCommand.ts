@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DescribeVirtualInterfacesRequest,
-  DescribeVirtualInterfacesRequestFilterSensitiveLog,
-  VirtualInterfaces,
-  VirtualInterfacesFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeVirtualInterfacesCommand,
-  serializeAws_json1_1DescribeVirtualInterfacesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeVirtualInterfacesRequest, VirtualInterfaces } from "../models/models_0";
+import { de_DescribeVirtualInterfacesCommand, se_DescribeVirtualInterfacesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVirtualInterfacesCommand}.
  */
 export interface DescribeVirtualInterfacesCommandInput extends DescribeVirtualInterfacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVirtualInterfacesCommand}.
  */
 export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterfaces, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays all virtual interfaces for an Amazon Web Services account. Virtual interfaces deleted fewer
  *       than 15 minutes before you make the request are also returned. If you specify a
  *       connection ID, only the virtual interfaces associated with the connection are returned.
@@ -46,10 +43,16 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  * import { DirectConnectClient, DescribeVirtualInterfacesCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeVirtualInterfacesCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DescribeVirtualInterfacesRequest
+ *   connectionId: "STRING_VALUE",
+ *   virtualInterfaceId: "STRING_VALUE",
+ * };
  * const command = new DescribeVirtualInterfacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVirtualInterfacesCommandInput - {@link DescribeVirtualInterfacesCommandInput}
+ * @returns {@link DescribeVirtualInterfacesCommandOutput}
  * @see {@link DescribeVirtualInterfacesCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualInterfacesCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +82,9 @@ export class DescribeVirtualInterfacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVirtualInterfacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class DescribeVirtualInterfacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVirtualInterfacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VirtualInterfacesFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +124,21 @@ export class DescribeVirtualInterfacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVirtualInterfacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVirtualInterfacesCommand(input, context);
+    return se_DescribeVirtualInterfacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVirtualInterfacesCommandOutput> {
-    return deserializeAws_json1_1DescribeVirtualInterfacesCommand(output, context);
+    return de_DescribeVirtualInterfacesCommand(output, context);
   }
 
   // Start section: command_body_extra

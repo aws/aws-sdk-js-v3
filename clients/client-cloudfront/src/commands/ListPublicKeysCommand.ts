@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListPublicKeysRequest,
-  ListPublicKeysRequestFilterSensitiveLog,
-  ListPublicKeysResult,
-  ListPublicKeysResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListPublicKeysCommand,
-  serializeAws_restXmlListPublicKeysCommand,
-} from "../protocols/Aws_restXml";
+import { ListPublicKeysRequest, ListPublicKeysResult } from "../models/models_1";
+import { de_ListPublicKeysCommand, se_ListPublicKeysCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListPublicKeysCommand}.
  */
 export interface ListPublicKeysCommandInput extends ListPublicKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPublicKeysCommand}.
  */
 export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all public keys that have been added to CloudFront for this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __Met
  * import { CloudFrontClient, ListPublicKeysCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListPublicKeysCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListPublicKeysRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListPublicKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPublicKeysCommandInput - {@link ListPublicKeysCommandInput}
+ * @returns {@link ListPublicKeysCommandOutput}
  * @see {@link ListPublicKeysCommandInput} for command's `input` shape.
  * @see {@link ListPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -72,6 +75,9 @@ export class ListPublicKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPublicKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +106,8 @@ export class ListPublicKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPublicKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPublicKeysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +117,18 @@ export class ListPublicKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPublicKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListPublicKeysCommand(input, context);
+    return se_ListPublicKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPublicKeysCommandOutput> {
-    return deserializeAws_restXmlListPublicKeysCommand(output, context);
+    return de_ListPublicKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

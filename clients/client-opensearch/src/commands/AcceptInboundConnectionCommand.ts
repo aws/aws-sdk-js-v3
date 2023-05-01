@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AcceptInboundConnectionRequest,
-  AcceptInboundConnectionRequestFilterSensitiveLog,
-  AcceptInboundConnectionResponse,
-  AcceptInboundConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AcceptInboundConnectionRequest, AcceptInboundConnectionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1AcceptInboundConnectionCommand,
-  serializeAws_restJson1AcceptInboundConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AcceptInboundConnectionCommand, se_AcceptInboundConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptInboundConnectionCommand}.
  */
 export interface AcceptInboundConnectionCommandInput extends AcceptInboundConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptInboundConnectionCommand}.
  */
 export interface AcceptInboundConnectionCommandOutput extends AcceptInboundConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows the destination Amazon OpenSearch Service domain owner to accept an inbound
  *    cross-cluster search connection request. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -44,10 +41,15 @@ export interface AcceptInboundConnectionCommandOutput extends AcceptInboundConne
  * import { OpenSearchClient, AcceptInboundConnectionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, AcceptInboundConnectionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // AcceptInboundConnectionRequest
+ *   ConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptInboundConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptInboundConnectionCommandInput - {@link AcceptInboundConnectionCommandInput}
+ * @returns {@link AcceptInboundConnectionCommandOutput}
  * @see {@link AcceptInboundConnectionCommandInput} for command's `input` shape.
  * @see {@link AcceptInboundConnectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -80,6 +82,9 @@ export class AcceptInboundConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptInboundConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class AcceptInboundConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptInboundConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptInboundConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class AcceptInboundConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptInboundConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptInboundConnectionCommand(input, context);
+    return se_AcceptInboundConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptInboundConnectionCommandOutput> {
-    return deserializeAws_restJson1AcceptInboundConnectionCommand(output, context);
+    return de_AcceptInboundConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

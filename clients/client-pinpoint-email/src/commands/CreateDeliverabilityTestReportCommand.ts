@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDeliverabilityTestReportRequest,
-  CreateDeliverabilityTestReportRequestFilterSensitiveLog,
-  CreateDeliverabilityTestReportResponse,
-  CreateDeliverabilityTestReportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1CreateDeliverabilityTestReportCommand,
-  serializeAws_restJson1CreateDeliverabilityTestReportCommand,
+  de_CreateDeliverabilityTestReportCommand,
+  se_CreateDeliverabilityTestReportCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDeliverabilityTestReportCommand}.
  */
 export interface CreateDeliverabilityTestReportCommandInput extends CreateDeliverabilityTestReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDeliverabilityTestReportCommand}.
  */
 export interface CreateDeliverabilityTestReportCommandOutput
@@ -37,6 +36,7 @@ export interface CreateDeliverabilityTestReportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled
  *             by various email providers around the world. When you perform a predictive inbox placement test, you provide a
  *             sample message that contains the content that you plan to send to your customers. Amazon Pinpoint
@@ -50,10 +50,47 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * import { PinpointEmailClient, CreateDeliverabilityTestReportCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, CreateDeliverabilityTestReportCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // CreateDeliverabilityTestReportRequest
+ *   ReportName: "STRING_VALUE",
+ *   FromEmailAddress: "STRING_VALUE", // required
+ *   Content: { // EmailContent
+ *     Simple: { // Message
+ *       Subject: { // Content
+ *         Data: "STRING_VALUE", // required
+ *         Charset: "STRING_VALUE",
+ *       },
+ *       Body: { // Body
+ *         Text: {
+ *           Data: "STRING_VALUE", // required
+ *           Charset: "STRING_VALUE",
+ *         },
+ *         Html: {
+ *           Data: "STRING_VALUE", // required
+ *           Charset: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     Raw: { // RawMessage
+ *       Data: "BLOB_VALUE", // required
+ *     },
+ *     Template: { // Template
+ *       TemplateArn: "STRING_VALUE",
+ *       TemplateData: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDeliverabilityTestReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDeliverabilityTestReportCommandInput - {@link CreateDeliverabilityTestReportCommandInput}
+ * @returns {@link CreateDeliverabilityTestReportCommandOutput}
  * @see {@link CreateDeliverabilityTestReportCommandInput} for command's `input` shape.
  * @see {@link CreateDeliverabilityTestReportCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -106,6 +143,9 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeliverabilityTestReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +174,8 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeliverabilityTestReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeliverabilityTestReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,18 +185,24 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateDeliverabilityTestReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeliverabilityTestReportCommand(input, context);
+    return se_CreateDeliverabilityTestReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeliverabilityTestReportCommandOutput> {
-    return deserializeAws_restJson1CreateDeliverabilityTestReportCommand(output, context);
+    return de_CreateDeliverabilityTestReportCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DeleteAutoScalingGroupType, DeleteAutoScalingGroupTypeFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteAutoScalingGroupCommand,
-  serializeAws_queryDeleteAutoScalingGroupCommand,
-} from "../protocols/Aws_query";
+import { DeleteAutoScalingGroupType } from "../models/models_0";
+import { de_DeleteAutoScalingGroupCommand, se_DeleteAutoScalingGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAutoScalingGroupCommand}.
  */
 export interface DeleteAutoScalingGroupCommandInput extends DeleteAutoScalingGroupType {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAutoScalingGroupCommand}.
  */
 export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Auto Scaling group.</p>
  *          <p>If the group has instances or scaling activities in progress, you must specify the
  *             option to force the deletion in order for it to succeed. The force delete operation will
@@ -51,10 +53,16 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, DeleteAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DeleteAutoScalingGroupType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ForceDelete: true || false,
+ * };
  * const command = new DeleteAutoScalingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAutoScalingGroupCommandInput - {@link DeleteAutoScalingGroupCommandInput}
+ * @returns {@link DeleteAutoScalingGroupCommandOutput}
  * @see {@link DeleteAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -112,6 +120,9 @@ export class DeleteAutoScalingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAutoScalingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +151,8 @@ export class DeleteAutoScalingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAutoScalingGroupTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +162,18 @@ export class DeleteAutoScalingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAutoScalingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAutoScalingGroupCommand(input, context);
+    return se_DeleteAutoScalingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAutoScalingGroupCommandOutput> {
-    return deserializeAws_queryDeleteAutoScalingGroupCommand(output, context);
+    return de_DeleteAutoScalingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { IoTRoboRunnerClient } from "../IoTRoboRunnerClient";
 import { IoTRoboRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTRoboRunnerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDestinationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDestinations(
   config: IoTRoboRunnerPaginationConfiguration,
   input: ListDestinationsCommandInput,

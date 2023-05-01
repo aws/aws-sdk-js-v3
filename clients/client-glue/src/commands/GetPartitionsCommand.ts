@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetPartitionsRequest,
-  GetPartitionsRequestFilterSensitiveLog,
-  GetPartitionsResponse,
-  GetPartitionsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetPartitionsCommand,
-  serializeAws_json1_1GetPartitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetPartitionsRequest, GetPartitionsResponse } from "../models/models_1";
+import { de_GetPartitionsCommand, se_GetPartitionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPartitionsCommand}.
  */
 export interface GetPartitionsCommandInput extends GetPartitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPartitionsCommand}.
  */
 export interface GetPartitionsCommandOutput extends GetPartitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the partitions in a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,16 +39,38 @@ export interface GetPartitionsCommandOutput extends GetPartitionsResponse, __Met
  * import { GlueClient, GetPartitionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetPartitionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetPartitionsRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   Expression: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Segment: { // Segment
+ *     SegmentNumber: Number("int"), // required
+ *     TotalSegments: Number("int"), // required
+ *   },
+ *   MaxResults: Number("int"),
+ *   ExcludeColumnSchema: true || false,
+ *   TransactionId: "STRING_VALUE",
+ *   QueryAsOfTime: new Date("TIMESTAMP"),
+ * };
  * const command = new GetPartitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPartitionsCommandInput - {@link GetPartitionsCommandInput}
+ * @returns {@link GetPartitionsCommandOutput}
  * @see {@link GetPartitionsCommandInput} for command's `input` shape.
  * @see {@link GetPartitionsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
@@ -90,6 +109,9 @@ export class GetPartitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPartitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +138,8 @@ export class GetPartitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPartitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPartitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +149,18 @@ export class GetPartitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPartitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPartitionsCommand(input, context);
+    return se_GetPartitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPartitionsCommandOutput> {
-    return deserializeAws_json1_1GetPartitionsCommand(output, context);
+    return de_GetPartitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

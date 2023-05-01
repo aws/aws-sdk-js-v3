@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  UpdateServiceRequest,
-  UpdateServiceRequestFilterSensitiveLog,
-  UpdateServiceResponse,
-  UpdateServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateServiceCommand,
-  serializeAws_json1_1UpdateServiceCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
+import { de_UpdateServiceCommand, se_UpdateServiceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceCommand}.
  */
 export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceCommand}.
  */
 export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a service.</p>
  *          <p>For services using the rolling update (<code>ECS</code>) you can update the desired
  * 			count, deployment configuration, network configuration, load balancers, service
@@ -164,10 +161,114 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * import { ECSClient, UpdateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // UpdateServiceRequest
+ *   cluster: "STRING_VALUE",
+ *   service: "STRING_VALUE", // required
+ *   desiredCount: Number("int"),
+ *   taskDefinition: "STRING_VALUE",
+ *   capacityProviderStrategy: [ // CapacityProviderStrategy
+ *     { // CapacityProviderStrategyItem
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   deploymentConfiguration: { // DeploymentConfiguration
+ *     deploymentCircuitBreaker: { // DeploymentCircuitBreaker
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *     maximumPercent: Number("int"),
+ *     minimumHealthyPercent: Number("int"),
+ *     alarms: { // DeploymentAlarms
+ *       alarmNames: [ // StringList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *   },
+ *   networkConfiguration: { // NetworkConfiguration
+ *     awsvpcConfiguration: { // AwsVpcConfiguration
+ *       subnets: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       assignPublicIp: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ *   placementConstraints: [ // PlacementConstraints
+ *     { // PlacementConstraint
+ *       type: "distinctInstance" || "memberOf",
+ *       expression: "STRING_VALUE",
+ *     },
+ *   ],
+ *   placementStrategy: [ // PlacementStrategies
+ *     { // PlacementStrategy
+ *       type: "random" || "spread" || "binpack",
+ *       field: "STRING_VALUE",
+ *     },
+ *   ],
+ *   platformVersion: "STRING_VALUE",
+ *   forceNewDeployment: true || false,
+ *   healthCheckGracePeriodSeconds: Number("int"),
+ *   enableExecuteCommand: true || false,
+ *   enableECSManagedTags: true || false,
+ *   loadBalancers: [ // LoadBalancers
+ *     { // LoadBalancer
+ *       targetGroupArn: "STRING_VALUE",
+ *       loadBalancerName: "STRING_VALUE",
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *   serviceRegistries: [ // ServiceRegistries
+ *     { // ServiceRegistry
+ *       registryArn: "STRING_VALUE",
+ *       port: Number("int"),
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   serviceConnectConfiguration: { // ServiceConnectConfiguration
+ *     enabled: true || false, // required
+ *     namespace: "STRING_VALUE",
+ *     services: [ // ServiceConnectServiceList
+ *       { // ServiceConnectService
+ *         portName: "STRING_VALUE", // required
+ *         discoveryName: "STRING_VALUE",
+ *         clientAliases: [ // ServiceConnectClientAliasList
+ *           { // ServiceConnectClientAlias
+ *             port: Number("int"), // required
+ *             dnsName: "STRING_VALUE",
+ *           },
+ *         ],
+ *         ingressPortOverride: Number("int"),
+ *       },
+ *     ],
+ *     logConfiguration: { // LogConfiguration
+ *       logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
+ *       options: { // LogConfigurationOptionsMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       secretOptions: [ // SecretList
+ *         { // Secret
+ *           name: "STRING_VALUE", // required
+ *           valueFrom: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
+ * @returns {@link UpdateServiceCommandOutput}
  * @see {@link UpdateServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -251,6 +352,9 @@ export class UpdateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -277,8 +381,8 @@ export class UpdateServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServiceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -288,12 +392,18 @@ export class UpdateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServiceCommand(input, context);
+    return se_UpdateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceCommandOutput> {
-    return deserializeAws_json1_1UpdateServiceCommand(output, context);
+    return de_UpdateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   UpdateCloudFrontOriginAccessIdentityRequest,
-  UpdateCloudFrontOriginAccessIdentityRequestFilterSensitiveLog,
   UpdateCloudFrontOriginAccessIdentityResult,
-  UpdateCloudFrontOriginAccessIdentityResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand,
-  serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand,
+  de_UpdateCloudFrontOriginAccessIdentityCommand,
+  se_UpdateCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCloudFrontOriginAccessIdentityCommand}.
  */
 export interface UpdateCloudFrontOriginAccessIdentityCommandInput extends UpdateCloudFrontOriginAccessIdentityRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCloudFrontOriginAccessIdentityCommand}.
  */
 export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
@@ -37,6 +39,7 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,20 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  * import { CloudFrontClient, UpdateCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateCloudFrontOriginAccessIdentityCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // UpdateCloudFrontOriginAccessIdentityRequest
+ *   CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
+ *     CallerReference: "STRING_VALUE", // required
+ *     Comment: "STRING_VALUE", // required
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new UpdateCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCloudFrontOriginAccessIdentityCommandInput - {@link UpdateCloudFrontOriginAccessIdentityCommandInput}
+ * @returns {@link UpdateCloudFrontOriginAccessIdentityCommandOutput}
  * @see {@link UpdateCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
  * @see {@link UpdateCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -98,6 +111,9 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCloudFrontOriginAccessIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +142,8 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCloudFrontOriginAccessIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCloudFrontOriginAccessIdentityResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,18 +153,24 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(input, context);
+    return se_UpdateCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(output, context);
+    return de_UpdateCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,30 +19,34 @@ import {
   UpdateServiceOutput,
   UpdateServiceOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateServiceCommand,
-  serializeAws_json1_0UpdateServiceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateServiceCommand, se_UpdateServiceCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceCommand}.
  */
 export interface UpdateServiceCommandInput extends UpdateServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceCommand}.
  */
 export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Edit a service description or use a spec to add and delete service instances.</p>
  *          <note>
- *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p>
+ *             <p>Existing service instances and the service pipeline <i>can't</i> be edited
+ *         using this API. They can only be deleted.</p>
  *          </note>
  *          <p>Use the <code>description</code> parameter to modify the description.</p>
  *          <p>Edit the <code>spec</code> parameter to add or delete instances.</p>
  *          <note>
- *             <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p>
+ *             <p>You can't delete a service instance (remove it from the spec) if it has an attached
+ *         component.</p>
  *             <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
  *   <i>Proton User Guide</i>.</p>
@@ -53,10 +57,17 @@ export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __Metad
  * import { ProtonClient, UpdateServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // UpdateServiceInput
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   spec: "STRING_VALUE",
+ * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
+ * @returns {@link UpdateServiceCommandOutput}
  * @see {@link UpdateServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -102,6 +113,9 @@ export class UpdateServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,12 +153,18 @@ export class UpdateServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateServiceCommand(input, context);
+    return se_UpdateServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceCommandOutput> {
-    return deserializeAws_json1_0UpdateServiceCommand(output, context);
+    return de_UpdateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

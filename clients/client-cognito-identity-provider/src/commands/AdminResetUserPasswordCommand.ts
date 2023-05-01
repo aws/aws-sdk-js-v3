@@ -23,23 +23,24 @@ import {
   AdminResetUserPasswordRequest,
   AdminResetUserPasswordRequestFilterSensitiveLog,
   AdminResetUserPasswordResponse,
-  AdminResetUserPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminResetUserPasswordCommand,
-  serializeAws_json1_1AdminResetUserPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminResetUserPasswordCommand, se_AdminResetUserPasswordCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminResetUserPasswordCommand}.
  */
 export interface AdminResetUserPasswordCommandInput extends AdminResetUserPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminResetUserPasswordCommand}.
  */
 export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets the specified user's password in a user pool as an administrator. Works on any
  *             user.</p>
  *         <p>When a developer calls this API, the current password is invalidated, so it must be
@@ -76,10 +77,19 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  * import { CognitoIdentityProviderClient, AdminResetUserPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminResetUserPasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminResetUserPasswordRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new AdminResetUserPasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminResetUserPasswordCommandInput - {@link AdminResetUserPasswordCommandInput}
+ * @returns {@link AdminResetUserPasswordCommandOutput}
  * @see {@link AdminResetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link AdminResetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -153,6 +163,9 @@ export class AdminResetUserPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminResetUserPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -183,7 +196,7 @@ export class AdminResetUserPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminResetUserPasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminResetUserPasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -193,12 +206,18 @@ export class AdminResetUserPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminResetUserPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminResetUserPasswordCommand(input, context);
+    return se_AdminResetUserPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminResetUserPasswordCommandOutput> {
-    return deserializeAws_json1_1AdminResetUserPasswordCommand(output, context);
+    return de_AdminResetUserPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

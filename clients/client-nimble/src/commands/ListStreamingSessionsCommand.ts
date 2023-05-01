@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListStreamingSessionsRequest,
-  ListStreamingSessionsRequestFilterSensitiveLog,
-  ListStreamingSessionsResponse,
-  ListStreamingSessionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListStreamingSessionsRequest, ListStreamingSessionsResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1ListStreamingSessionsCommand,
-  serializeAws_restJson1ListStreamingSessionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListStreamingSessionsCommand, se_ListStreamingSessionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamingSessionsCommand}.
  */
 export interface ListStreamingSessionsCommandInput extends ListStreamingSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamingSessionsCommand}.
  */
 export interface ListStreamingSessionsCommandOutput extends ListStreamingSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the streaming sessions in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListStreamingSessionsCommandOutput extends ListStreamingSession
  * import { NimbleClient, ListStreamingSessionsCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStreamingSessionsCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // ListStreamingSessionsRequest
+ *   createdBy: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   ownedBy: "STRING_VALUE",
+ *   sessionIds: "STRING_VALUE",
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new ListStreamingSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamingSessionsCommandInput - {@link ListStreamingSessionsCommandInput}
+ * @returns {@link ListStreamingSessionsCommandOutput}
  * @see {@link ListStreamingSessionsCommandInput} for command's `input` shape.
  * @see {@link ListStreamingSessionsCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +99,9 @@ export class ListStreamingSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamingSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +130,8 @@ export class ListStreamingSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamingSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamingSessionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +141,18 @@ export class ListStreamingSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamingSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStreamingSessionsCommand(input, context);
+    return se_ListStreamingSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamingSessionsCommandOutput> {
-    return deserializeAws_restJson1ListStreamingSessionsCommand(output, context);
+    return de_ListStreamingSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

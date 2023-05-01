@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateSubnetsRequest,
-  DisassociateSubnetsRequestFilterSensitiveLog,
-  DisassociateSubnetsResponse,
-  DisassociateSubnetsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateSubnetsRequest, DisassociateSubnetsResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DisassociateSubnetsCommand,
-  serializeAws_json1_0DisassociateSubnetsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DisassociateSubnetsCommand, se_DisassociateSubnetsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateSubnetsCommand}.
  */
 export interface DisassociateSubnetsCommandInput extends DisassociateSubnetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateSubnetsCommand}.
  */
 export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified subnet associations from the firewall. This removes the
  *           firewall endpoints from the subnets and removes any network filtering protections that the endpoints
  *           were providing.
@@ -45,10 +42,20 @@ export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsRes
  * import { NetworkFirewallClient, DisassociateSubnetsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DisassociateSubnetsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // DisassociateSubnetsRequest
+ *   UpdateToken: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   SubnetIds: [ // AzSubnets // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateSubnetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSubnetsCommandInput - {@link DisassociateSubnetsCommandInput}
+ * @returns {@link DisassociateSubnetsCommandOutput}
  * @see {@link DisassociateSubnetsCommandInput} for command's `input` shape.
  * @see {@link DisassociateSubnetsCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -105,6 +112,9 @@ export class DisassociateSubnetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSubnetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +143,8 @@ export class DisassociateSubnetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSubnetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateSubnetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +154,18 @@ export class DisassociateSubnetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisassociateSubnetsCommand(input, context);
+    return se_DisassociateSubnetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateSubnetsCommandOutput> {
-    return deserializeAws_json1_0DisassociateSubnetsCommand(output, context);
+    return de_DisassociateSubnetsCommand(output, context);
   }
 
   // Start section: command_body_extra

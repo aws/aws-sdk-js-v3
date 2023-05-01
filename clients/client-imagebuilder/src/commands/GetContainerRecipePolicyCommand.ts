@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  GetContainerRecipePolicyRequest,
-  GetContainerRecipePolicyRequestFilterSensitiveLog,
-  GetContainerRecipePolicyResponse,
-  GetContainerRecipePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetContainerRecipePolicyCommand,
-  serializeAws_restJson1GetContainerRecipePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetContainerRecipePolicyRequest, GetContainerRecipePolicyResponse } from "../models/models_0";
+import { de_GetContainerRecipePolicyCommand, se_GetContainerRecipePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetContainerRecipePolicyCommand}.
  */
 export interface GetContainerRecipePolicyCommandInput extends GetContainerRecipePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContainerRecipePolicyCommand}.
  */
 export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecipePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the policy for a container recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecip
  * import { ImagebuilderClient, GetContainerRecipePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetContainerRecipePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // GetContainerRecipePolicyRequest
+ *   containerRecipeArn: "STRING_VALUE", // required
+ * };
  * const command = new GetContainerRecipePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContainerRecipePolicyCommandInput - {@link GetContainerRecipePolicyCommandInput}
+ * @returns {@link GetContainerRecipePolicyCommandOutput}
  * @see {@link GetContainerRecipePolicyCommandInput} for command's `input` shape.
  * @see {@link GetContainerRecipePolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -57,13 +59,14 @@ export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecip
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -87,6 +90,9 @@ export class GetContainerRecipePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContainerRecipePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class GetContainerRecipePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContainerRecipePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContainerRecipePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class GetContainerRecipePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContainerRecipePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetContainerRecipePolicyCommand(input, context);
+    return se_GetContainerRecipePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerRecipePolicyCommandOutput> {
-    return deserializeAws_restJson1GetContainerRecipePolicyCommand(output, context);
+    return de_GetContainerRecipePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

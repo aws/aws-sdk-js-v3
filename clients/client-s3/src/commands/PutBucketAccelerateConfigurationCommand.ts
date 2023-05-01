@@ -14,26 +14,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutBucketAccelerateConfigurationRequest } from "../models/models_0";
 import {
-  PutBucketAccelerateConfigurationRequest,
-  PutBucketAccelerateConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketAccelerateConfigurationCommand,
-  serializeAws_restXmlPutBucketAccelerateConfigurationCommand,
+  de_PutBucketAccelerateConfigurationCommand,
+  se_PutBucketAccelerateConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketAccelerateConfigurationCommand}.
  */
 export interface PutBucketAccelerateConfigurationCommandInput extends PutBucketAccelerateConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketAccelerateConfigurationCommand}.
  */
 export interface PutBucketAccelerateConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration is a
  *          bucket-level feature that enables you to perform faster data transfers to Amazon S3.</p>
  *          <p> To use this operation, you must have permission to perform the
@@ -78,10 +80,20 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  * import { S3Client, PutBucketAccelerateConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketAccelerateConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketAccelerateConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   AccelerateConfiguration: { // AccelerateConfiguration
+ *     Status: "Enabled" || "Suspended",
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * };
  * const command = new PutBucketAccelerateConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketAccelerateConfigurationCommandInput - {@link PutBucketAccelerateConfigurationCommandInput}
+ * @returns {@link PutBucketAccelerateConfigurationCommandOutput}
  * @see {@link PutBucketAccelerateConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketAccelerateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -111,6 +123,9 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketAccelerateConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +161,8 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketAccelerateConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,18 +172,24 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketAccelerateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketAccelerateConfigurationCommand(input, context);
+    return se_PutBucketAccelerateConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketAccelerateConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketAccelerateConfigurationCommand(output, context);
+    return de_PutBucketAccelerateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

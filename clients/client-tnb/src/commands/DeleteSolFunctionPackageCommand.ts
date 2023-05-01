@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSolFunctionPackageInput, DeleteSolFunctionPackageInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSolFunctionPackageCommand,
-  serializeAws_restJson1DeleteSolFunctionPackageCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSolFunctionPackageInput } from "../models/models_0";
+import { de_DeleteSolFunctionPackageCommand, se_DeleteSolFunctionPackageCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSolFunctionPackageCommand}.
  */
 export interface DeleteSolFunctionPackageCommandInput extends DeleteSolFunctionPackageInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSolFunctionPackageCommand}.
  */
 export interface DeleteSolFunctionPackageCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a function package.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  *          <p>To delete a function package, the package must be in a disabled state. To disable a function package, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolFunctionPackage.html">UpdateSolFunctionPackage</a>.
@@ -40,10 +42,15 @@ export interface DeleteSolFunctionPackageCommandOutput extends __MetadataBearer 
  * import { TnbClient, DeleteSolFunctionPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, DeleteSolFunctionPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // DeleteSolFunctionPackageInput
+ *   vnfPkgId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSolFunctionPackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSolFunctionPackageCommandInput - {@link DeleteSolFunctionPackageCommandInput}
+ * @returns {@link DeleteSolFunctionPackageCommandOutput}
  * @see {@link DeleteSolFunctionPackageCommandInput} for command's `input` shape.
  * @see {@link DeleteSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -82,6 +89,9 @@ export class DeleteSolFunctionPackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSolFunctionPackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class DeleteSolFunctionPackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSolFunctionPackageInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +131,18 @@ export class DeleteSolFunctionPackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSolFunctionPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSolFunctionPackageCommand(input, context);
+    return se_DeleteSolFunctionPackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSolFunctionPackageCommandOutput> {
-    return deserializeAws_restJson1DeleteSolFunctionPackageCommand(output, context);
+    return de_DeleteSolFunctionPackageCommand(output, context);
   }
 
   // Start section: command_body_extra

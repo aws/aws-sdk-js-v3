@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  DeleteFleetRequest,
-  DeleteFleetRequestFilterSensitiveLog,
-  DeleteFleetResponse,
-  DeleteFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteFleetCommand,
-  serializeAws_json1_0DeleteFleetCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteFleetRequest, DeleteFleetResponse } from "../models/models_0";
+import { de_DeleteFleetCommand, se_DeleteFleetCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandInput extends DeleteFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetCommand}.
  */
 export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes a fleet. Before you delete a fleet, all vehicles must be
  *             dissociated from the fleet. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html">Delete a fleet (AWS
  *                 CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
@@ -48,10 +45,15 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * import { IoTFleetWiseClient, DeleteFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DeleteFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // DeleteFleetRequest
+ *   fleetId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
+ * @returns {@link DeleteFleetCommandOutput}
  * @see {@link DeleteFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteFleetCommand(input, context);
+    return se_DeleteFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetCommandOutput> {
-    return deserializeAws_json1_0DeleteFleetCommand(output, context);
+    return de_DeleteFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

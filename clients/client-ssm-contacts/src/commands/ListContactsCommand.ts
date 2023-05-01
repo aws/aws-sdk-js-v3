@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListContactsRequest,
-  ListContactsRequestFilterSensitiveLog,
-  ListContactsResult,
-  ListContactsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListContactsCommand,
-  serializeAws_json1_1ListContactsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListContactsRequest, ListContactsResult } from "../models/models_0";
+import { de_ListContactsCommand, se_ListContactsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListContactsCommand}.
  */
 export interface ListContactsCommandInput extends ListContactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListContactsCommand}.
  */
 export interface ListContactsCommandOutput extends ListContactsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all contacts and escalation plans in Incident Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  * import { SSMContactsClient, ListContactsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListContactsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = { // ListContactsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   AliasPrefix: "STRING_VALUE",
+ *   Type: "PERSONAL" || "ESCALATION" || "ONCALL_SCHEDULE",
+ * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContactsCommandInput - {@link ListContactsCommandInput}
+ * @returns {@link ListContactsCommandOutput}
  * @see {@link ListContactsCommandInput} for command's `input` shape.
  * @see {@link ListContactsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
@@ -54,8 +59,7 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  *  <p>You don't have sufficient access to perform this operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while
- *          processing the request.</p>
+ *  <p>Unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -64,45 +68,6 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
- *
- * @example To list all escalation plans and contacts
- * ```javascript
- * // The following list-contacts example lists the contacts and escalation plans in your account.
- * const input = {};
- * const command = new ListContactsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Contacts": [
- *     {
- *       "Alias": "akuam",
- *       "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/akuam",
- *       "DisplayName": "Akua Mansa",
- *       "Type": "PERSONAL"
- *     },
- *     {
- *       "Alias": "alejr",
- *       "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/alejr",
- *       "DisplayName": "Alejandro Rosalez",
- *       "Type": "PERSONAL"
- *     },
- *     {
- *       "Alias": "anasi",
- *       "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/anasi",
- *       "DisplayName": "Ana Carolina Silva",
- *       "Type": "PERSONAL"
- *     },
- *     {
- *       "Alias": "example_escalation",
- *       "ContactArn": "arn:aws:ssm-contacts:us-east-2:111122223333:contact/example_escalation",
- *       "DisplayName": "Example Escalation",
- *       "Type": "ESCALATION"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-all-escalation-plans-and-contacts-1630367103082
- * ```
  *
  */
 export class ListContactsCommand extends $Command<
@@ -122,6 +87,9 @@ export class ListContactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +116,8 @@ export class ListContactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContactsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContactsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +127,18 @@ export class ListContactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListContactsCommand(input, context);
+    return se_ListContactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactsCommandOutput> {
-    return deserializeAws_json1_1ListContactsCommand(output, context);
+    return de_ListContactsCommand(output, context);
   }
 
   // Start section: command_body_extra

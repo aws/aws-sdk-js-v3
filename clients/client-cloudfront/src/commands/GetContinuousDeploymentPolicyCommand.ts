@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { GetContinuousDeploymentPolicyRequest, GetContinuousDeploymentPolicyResult } from "../models/models_1";
 import {
-  GetContinuousDeploymentPolicyRequest,
-  GetContinuousDeploymentPolicyRequestFilterSensitiveLog,
-  GetContinuousDeploymentPolicyResult,
-  GetContinuousDeploymentPolicyResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetContinuousDeploymentPolicyCommand,
-  serializeAws_restXmlGetContinuousDeploymentPolicyCommand,
+  de_GetContinuousDeploymentPolicyCommand,
+  se_GetContinuousDeploymentPolicyCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetContinuousDeploymentPolicyCommand}.
  */
 export interface GetContinuousDeploymentPolicyCommandInput extends GetContinuousDeploymentPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetContinuousDeploymentPolicyCommand}.
  */
 export interface GetContinuousDeploymentPolicyCommandOutput
@@ -37,6 +36,7 @@ export interface GetContinuousDeploymentPolicyCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a continuous deployment policy, including metadata (the policy's identifier and
  * 			the date and time when the policy was last modified).</p>
  * @example
@@ -45,10 +45,15 @@ export interface GetContinuousDeploymentPolicyCommandOutput
  * import { CloudFrontClient, GetContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetContinuousDeploymentPolicyRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetContinuousDeploymentPolicyCommandInput - {@link GetContinuousDeploymentPolicyCommandInput}
+ * @returns {@link GetContinuousDeploymentPolicyCommandOutput}
  * @see {@link GetContinuousDeploymentPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -78,6 +83,9 @@ export class GetContinuousDeploymentPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetContinuousDeploymentPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class GetContinuousDeploymentPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContinuousDeploymentPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContinuousDeploymentPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +125,21 @@ export class GetContinuousDeploymentPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetContinuousDeploymentPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetContinuousDeploymentPolicyCommand(input, context);
+    return se_GetContinuousDeploymentPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContinuousDeploymentPolicyCommandOutput> {
-    return deserializeAws_restXmlGetContinuousDeploymentPolicyCommand(output, context);
+    return de_GetContinuousDeploymentPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

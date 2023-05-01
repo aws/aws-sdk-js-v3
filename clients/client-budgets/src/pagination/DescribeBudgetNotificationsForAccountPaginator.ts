@@ -10,7 +10,7 @@ import {
 import { BudgetsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BudgetsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeBudgetNotificationsForAccountCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeBudgetNotificationsForAccount(
   config: BudgetsPaginationConfiguration,
   input: DescribeBudgetNotificationsForAccountCommandInput,

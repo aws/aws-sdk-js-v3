@@ -6,7 +6,7 @@ import { IoTRoboRunnerClient } from "../IoTRoboRunnerClient";
 import { IoTRoboRunnerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTRoboRunnerClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListWorkersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListWorkers(
   config: IoTRoboRunnerPaginationConfiguration,
   input: ListWorkersCommandInput,

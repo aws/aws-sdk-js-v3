@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
+import { GetInstanceOnboardingJobStatusRequest, GetInstanceOnboardingJobStatusResponse } from "../models/models_0";
 import {
-  GetInstanceOnboardingJobStatusRequest,
-  GetInstanceOnboardingJobStatusRequestFilterSensitiveLog,
-  GetInstanceOnboardingJobStatusResponse,
-  GetInstanceOnboardingJobStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetInstanceOnboardingJobStatusCommand,
-  serializeAws_restJson1GetInstanceOnboardingJobStatusCommand,
+  de_GetInstanceOnboardingJobStatusCommand,
+  se_GetInstanceOnboardingJobStatusCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInstanceOnboardingJobStatusCommand}.
  */
 export interface GetInstanceOnboardingJobStatusCommandInput extends GetInstanceOnboardingJobStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInstanceOnboardingJobStatusCommand}.
  */
 export interface GetInstanceOnboardingJobStatusCommandOutput
@@ -37,6 +36,7 @@ export interface GetInstanceOnboardingJobStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Get the specific instance onboarding job status.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetInstanceOnboardingJobStatusCommandOutput
  * import { ConnectCampaignsClient, GetInstanceOnboardingJobStatusCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, GetInstanceOnboardingJobStatusCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // GetInstanceOnboardingJobStatusRequest
+ *   connectInstanceId: "STRING_VALUE", // required
+ * };
  * const command = new GetInstanceOnboardingJobStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInstanceOnboardingJobStatusCommandInput - {@link GetInstanceOnboardingJobStatusCommandInput}
+ * @returns {@link GetInstanceOnboardingJobStatusCommandOutput}
  * @see {@link GetInstanceOnboardingJobStatusCommandInput} for command's `input` shape.
  * @see {@link GetInstanceOnboardingJobStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -83,6 +88,9 @@ export class GetInstanceOnboardingJobStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInstanceOnboardingJobStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +119,8 @@ export class GetInstanceOnboardingJobStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceOnboardingJobStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceOnboardingJobStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +130,24 @@ export class GetInstanceOnboardingJobStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetInstanceOnboardingJobStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInstanceOnboardingJobStatusCommand(input, context);
+    return se_GetInstanceOnboardingJobStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInstanceOnboardingJobStatusCommandOutput> {
-    return deserializeAws_restJson1GetInstanceOnboardingJobStatusCommand(output, context);
+    return de_GetInstanceOnboardingJobStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

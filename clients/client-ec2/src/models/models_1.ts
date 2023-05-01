@@ -34,13 +34,24 @@ import {
   WeekDay,
 } from "./models_0";
 
-export enum ClientVpnAuthenticationType {
-  certificate_authentication = "certificate-authentication",
-  directory_service_authentication = "directory-service-authentication",
-  federated_authentication = "federated-authentication",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClientVpnAuthenticationType = {
+  certificate_authentication: "certificate-authentication",
+  directory_service_authentication: "directory-service-authentication",
+  federated_authentication: "federated-authentication",
+} as const;
 
 /**
+ * @public
+ */
+export type ClientVpnAuthenticationType =
+  (typeof ClientVpnAuthenticationType)[keyof typeof ClientVpnAuthenticationType];
+
+/**
+ * @public
  * <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a>
  * 			in the <i>Client VPN Administrator Guide</i>.</p>
  */
@@ -67,6 +78,7 @@ export interface ClientVpnAuthenticationRequest {
 }
 
 /**
+ * @public
  * <p>The options for managing connection authorization for new client connections.</p>
  */
 export interface ClientConnectOptions {
@@ -82,6 +94,7 @@ export interface ClientConnectOptions {
 }
 
 /**
+ * @public
  * <p>Options for enabling a customizable text banner that will be displayed on
  * 			Amazon Web Services provided clients when a VPN session is established.</p>
  */
@@ -105,6 +118,7 @@ export interface ClientLoginBannerOptions {
 }
 
 /**
+ * @public
  * <p>Describes the client connection logging options for the Client VPN endpoint.</p>
  */
 export interface ConnectionLogOptions {
@@ -124,16 +138,37 @@ export interface ConnectionLogOptions {
   CloudwatchLogStream?: string;
 }
 
-export enum SelfServicePortal {
-  disabled = "disabled",
-  enabled = "enabled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SelfServicePortal = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
 
-export enum TransportProtocol {
-  tcp = "tcp",
-  udp = "udp",
-}
+/**
+ * @public
+ */
+export type SelfServicePortal = (typeof SelfServicePortal)[keyof typeof SelfServicePortal];
 
+/**
+ * @public
+ * @enum
+ */
+export const TransportProtocol = {
+  tcp: "tcp",
+  udp: "udp",
+} as const;
+
+/**
+ * @public
+ */
+export type TransportProtocol = (typeof TransportProtocol)[keyof typeof TransportProtocol];
+
+/**
+ * @public
+ */
 export interface CreateClientVpnEndpointRequest {
   /**
    * <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.</p>
@@ -260,14 +295,25 @@ export interface CreateClientVpnEndpointRequest {
   ClientLoginBannerOptions?: ClientLoginBannerOptions;
 }
 
-export enum ClientVpnEndpointStatusCode {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending_associate = "pending-associate",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClientVpnEndpointStatusCode = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending_associate: "pending-associate",
+} as const;
 
 /**
+ * @public
+ */
+export type ClientVpnEndpointStatusCode =
+  (typeof ClientVpnEndpointStatusCode)[keyof typeof ClientVpnEndpointStatusCode];
+
+/**
+ * @public
  * <p>Describes the state of a Client VPN endpoint.</p>
  */
 export interface ClientVpnEndpointStatus {
@@ -304,6 +350,9 @@ export interface ClientVpnEndpointStatus {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateClientVpnEndpointResult {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -321,6 +370,9 @@ export interface CreateClientVpnEndpointResult {
   DnsName?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateClientVpnRouteRequest {
   /**
    * <p>The ID of the Client VPN endpoint to which to add the route.</p>
@@ -370,14 +422,24 @@ export interface CreateClientVpnRouteRequest {
   DryRun?: boolean;
 }
 
-export enum ClientVpnRouteStatusCode {
-  active = "active",
-  creating = "creating",
-  deleting = "deleting",
-  failed = "failed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClientVpnRouteStatusCode = {
+  active: "active",
+  creating: "creating",
+  deleting: "deleting",
+  failed: "failed",
+} as const;
 
 /**
+ * @public
+ */
+export type ClientVpnRouteStatusCode = (typeof ClientVpnRouteStatusCode)[keyof typeof ClientVpnRouteStatusCode];
+
+/**
+ * @public
  * <p>Describes the state of a Client VPN endpoint route.</p>
  */
 export interface ClientVpnRouteStatus {
@@ -392,6 +454,9 @@ export interface ClientVpnRouteStatus {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateClientVpnRouteResult {
   /**
    * <p>The current state of the route.</p>
@@ -399,6 +464,9 @@ export interface CreateClientVpnRouteResult {
   Status?: ClientVpnRouteStatus;
 }
 
+/**
+ * @public
+ */
 export interface CreateCoipCidrRequest {
   /**
    * <p>
@@ -423,6 +491,7 @@ export interface CreateCoipCidrRequest {
 }
 
 /**
+ * @public
  * <p>
  *       Information about a customer-owned IP address range.
  *       </p>
@@ -450,6 +519,9 @@ export interface CoipCidr {
   LocalGatewayRouteTableId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCoipCidrResult {
   /**
    * <p>
@@ -459,6 +531,9 @@ export interface CreateCoipCidrResult {
   CoipCidr?: CoipCidr;
 }
 
+/**
+ * @public
+ */
 export interface CreateCoipPoolRequest {
   /**
    * <p>
@@ -483,6 +558,7 @@ export interface CreateCoipPoolRequest {
 }
 
 /**
+ * @public
  * <p>Describes a customer-owned address pool.</p>
  */
 export interface CoipPool {
@@ -512,6 +588,9 @@ export interface CoipPool {
   PoolArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCoipPoolResult {
   /**
    * <p>Information about the CoIP address pool.</p>
@@ -519,11 +598,21 @@ export interface CreateCoipPoolResult {
   CoipPool?: CoipPool;
 }
 
-export enum GatewayType {
-  ipsec_1 = "ipsec.1",
-}
+/**
+ * @public
+ * @enum
+ */
+export const GatewayType = {
+  ipsec_1: "ipsec.1",
+} as const;
 
 /**
+ * @public
+ */
+export type GatewayType = (typeof GatewayType)[keyof typeof GatewayType];
+
+/**
+ * @public
  * <p>Contains the parameters for CreateCustomerGateway.</p>
  */
 export interface CreateCustomerGatewayRequest {
@@ -579,6 +668,7 @@ export interface CreateCustomerGatewayRequest {
 }
 
 /**
+ * @public
  * <p>Describes a customer gateway.</p>
  */
 export interface CustomerGateway {
@@ -627,6 +717,7 @@ export interface CustomerGateway {
 }
 
 /**
+ * @public
  * <p>Contains the output of CreateCustomerGateway.</p>
  */
 export interface CreateCustomerGatewayResult {
@@ -636,6 +727,9 @@ export interface CreateCustomerGatewayResult {
   CustomerGateway?: CustomerGateway;
 }
 
+/**
+ * @public
+ */
 export interface CreateDefaultSubnetRequest {
   /**
    * <p>The Availability Zone in which to create the default subnet.</p>
@@ -656,12 +750,22 @@ export interface CreateDefaultSubnetRequest {
   Ipv6Native?: boolean;
 }
 
-export enum HostnameType {
-  ip_name = "ip-name",
-  resource_name = "resource-name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HostnameType = {
+  ip_name: "ip-name",
+  resource_name: "resource-name",
+} as const;
 
 /**
+ * @public
+ */
+export type HostnameType = (typeof HostnameType)[keyof typeof HostnameType];
+
+/**
+ * @public
  * <p>Describes the options for instance hostnames.</p>
  */
 export interface PrivateDnsNameOptionsOnLaunch {
@@ -686,12 +790,22 @@ export interface PrivateDnsNameOptionsOnLaunch {
   EnableResourceNameDnsAAAARecord?: boolean;
 }
 
-export enum SubnetState {
-  available = "available",
-  pending = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SubnetState = {
+  available: "available",
+  pending: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type SubnetState = (typeof SubnetState)[keyof typeof SubnetState];
+
+/**
+ * @public
  * <p>Describes a subnet.</p>
  */
 export interface Subnet {
@@ -810,6 +924,9 @@ export interface Subnet {
   PrivateDnsNameOptionsOnLaunch?: PrivateDnsNameOptionsOnLaunch;
 }
 
+/**
+ * @public
+ */
 export interface CreateDefaultSubnetResult {
   /**
    * <p>Information about the subnet.</p>
@@ -817,6 +934,9 @@ export interface CreateDefaultSubnetResult {
   Subnet?: Subnet;
 }
 
+/**
+ * @public
+ */
 export interface CreateDefaultVpcRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -826,18 +946,37 @@ export interface CreateDefaultVpcRequest {
   DryRun?: boolean;
 }
 
-export enum Tenancy {
-  dedicated = "dedicated",
-  default = "default",
-  host = "host",
-}
-
-export enum VpcState {
-  available = "available",
-  pending = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Tenancy = {
+  dedicated: "dedicated",
+  default: "default",
+  host: "host",
+} as const;
 
 /**
+ * @public
+ */
+export type Tenancy = (typeof Tenancy)[keyof typeof Tenancy];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcState = {
+  available: "available",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcState = (typeof VpcState)[keyof typeof VpcState];
+
+/**
+ * @public
  * <p>Describes a VPC.</p>
  */
 export interface Vpc {
@@ -892,6 +1031,9 @@ export interface Vpc {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDefaultVpcResult {
   /**
    * <p>Information about the VPC.</p>
@@ -900,6 +1042,7 @@ export interface CreateDefaultVpcResult {
 }
 
 /**
+ * @public
  * <p>Describes a DHCP configuration option.</p>
  */
 export interface NewDhcpConfiguration {
@@ -914,6 +1057,9 @@ export interface NewDhcpConfiguration {
   Values?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDhcpOptionsRequest {
   /**
    * <p>A DHCP configuration option.</p>
@@ -934,6 +1080,7 @@ export interface CreateDhcpOptionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a value for a resource attribute that is a String.</p>
  */
 export interface AttributeValue {
@@ -944,6 +1091,7 @@ export interface AttributeValue {
 }
 
 /**
+ * @public
  * <p>Describes a DHCP configuration option.</p>
  */
 export interface DhcpConfiguration {
@@ -959,6 +1107,7 @@ export interface DhcpConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes a set of DHCP options.</p>
  */
 export interface DhcpOptions {
@@ -983,6 +1132,9 @@ export interface DhcpOptions {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateDhcpOptionsResult {
   /**
    * <p>A set of DHCP options.</p>
@@ -990,6 +1142,9 @@ export interface CreateDhcpOptionsResult {
   DhcpOptions?: DhcpOptions;
 }
 
+/**
+ * @public
+ */
 export interface CreateEgressOnlyInternetGatewayRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1017,6 +1172,7 @@ export interface CreateEgressOnlyInternetGatewayRequest {
 }
 
 /**
+ * @public
  * <p>Describes the attachment of a VPC to an internet gateway or an egress-only internet
  * 			gateway.</p>
  */
@@ -1035,6 +1191,7 @@ export interface InternetGatewayAttachment {
 }
 
 /**
+ * @public
  * <p>Describes an egress-only internet gateway.</p>
  */
 export interface EgressOnlyInternetGateway {
@@ -1054,6 +1211,9 @@ export interface EgressOnlyInternetGateway {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateEgressOnlyInternetGatewayResult {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -1067,12 +1227,23 @@ export interface CreateEgressOnlyInternetGatewayResult {
   EgressOnlyInternetGateway?: EgressOnlyInternetGateway;
 }
 
-export enum FleetExcessCapacityTerminationPolicy {
-  NO_TERMINATION = "no-termination",
-  TERMINATION = "termination",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetExcessCapacityTerminationPolicy = {
+  NO_TERMINATION: "no-termination",
+  TERMINATION: "termination",
+} as const;
 
 /**
+ * @public
+ */
+export type FleetExcessCapacityTerminationPolicy =
+  (typeof FleetExcessCapacityTerminationPolicy)[keyof typeof FleetExcessCapacityTerminationPolicy];
+
+/**
+ * @public
  * <p>The Amazon EC2 launch template that can be used by
  *          an EC2 Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p>
  *          <p>For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch
@@ -1100,13 +1271,23 @@ export interface FleetLaunchTemplateSpecificationRequest {
   Version?: string;
 }
 
-export enum BareMetal {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BareMetal = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+} as const;
 
 /**
+ * @public
+ */
+export type BareMetal = (typeof BareMetal)[keyof typeof BareMetal];
+
+/**
+ * @public
  * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
  *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
  *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -1125,35 +1306,81 @@ export interface BaselineEbsBandwidthMbpsRequest {
   Max?: number;
 }
 
-export enum BurstablePerformance {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
-
-export enum CpuManufacturer {
-  AMAZON_WEB_SERVICES = "amazon-web-services",
-  AMD = "amd",
-  INTEL = "intel",
-}
-
-export enum InstanceGeneration {
-  CURRENT = "current",
-  PREVIOUS = "previous",
-}
-
-export enum LocalStorage {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
-
-export enum LocalStorageType {
-  HDD = "hdd",
-  SSD = "ssd",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BurstablePerformance = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+} as const;
 
 /**
+ * @public
+ */
+export type BurstablePerformance = (typeof BurstablePerformance)[keyof typeof BurstablePerformance];
+
+/**
+ * @public
+ * @enum
+ */
+export const CpuManufacturer = {
+  AMAZON_WEB_SERVICES: "amazon-web-services",
+  AMD: "amd",
+  INTEL: "intel",
+} as const;
+
+/**
+ * @public
+ */
+export type CpuManufacturer = (typeof CpuManufacturer)[keyof typeof CpuManufacturer];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceGeneration = {
+  CURRENT: "current",
+  PREVIOUS: "previous",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceGeneration = (typeof InstanceGeneration)[keyof typeof InstanceGeneration];
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalStorage = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+} as const;
+
+/**
+ * @public
+ */
+export type LocalStorage = (typeof LocalStorage)[keyof typeof LocalStorage];
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalStorageType = {
+  HDD: "hdd",
+  SSD: "ssd",
+} as const;
+
+/**
+ * @public
+ */
+export type LocalStorageType = (typeof LocalStorageType)[keyof typeof LocalStorageType];
+
+/**
+ * @public
  * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
  */
 export interface MemoryGiBPerVCpuRequest {
@@ -1171,6 +1398,7 @@ export interface MemoryGiBPerVCpuRequest {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum amount of memory, in MiB.</p>
  */
 export interface MemoryMiBRequest {
@@ -1188,6 +1416,7 @@ export interface MemoryMiBRequest {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
  *          <note>
  *             <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the
@@ -1212,6 +1441,7 @@ export interface NetworkBandwidthGbpsRequest {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum number of network interfaces.</p>
  */
 export interface NetworkInterfaceCountRequest {
@@ -1229,6 +1459,7 @@ export interface NetworkInterfaceCountRequest {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum amount of total local storage, in GB.</p>
  */
 export interface TotalLocalStorageGBRequest {
@@ -1246,6 +1477,7 @@ export interface TotalLocalStorageGBRequest {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum number of vCPUs.</p>
  */
 export interface VCpuCountRangeRequest {
@@ -1261,6 +1493,7 @@ export interface VCpuCountRangeRequest {
 }
 
 /**
+ * @public
  * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
  *          identify instance types with these attributes.</p>
  *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
@@ -1607,6 +1840,7 @@ export interface InstanceRequirementsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the placement of an instance.</p>
  */
 export interface Placement {
@@ -1644,7 +1878,7 @@ export interface Placement {
   HostId?: string;
 
   /**
-   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
+   * <p>The tenancy of the instance. An instance with a
    *             tenancy of <code>dedicated</code> runs on single-tenant hardware.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>. The
    *                 <code>host</code> tenancy is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a> or
@@ -1673,6 +1907,7 @@ export interface Placement {
 }
 
 /**
+ * @public
  * <p>Describes overrides for a launch template.</p>
  */
 export interface FleetLaunchTemplateOverridesRequest {
@@ -1749,6 +1984,7 @@ export interface FleetLaunchTemplateOverridesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a launch template and overrides.</p>
  */
 export interface FleetLaunchTemplateConfigRequest {
@@ -1767,16 +2003,37 @@ export interface FleetLaunchTemplateConfigRequest {
   Overrides?: FleetLaunchTemplateOverridesRequest[];
 }
 
-export enum FleetOnDemandAllocationStrategy {
-  LOWEST_PRICE = "lowest-price",
-  PRIORITIZED = "prioritized",
-}
-
-export enum FleetCapacityReservationUsageStrategy {
-  USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetOnDemandAllocationStrategy = {
+  LOWEST_PRICE: "lowest-price",
+  PRIORITIZED: "prioritized",
+} as const;
 
 /**
+ * @public
+ */
+export type FleetOnDemandAllocationStrategy =
+  (typeof FleetOnDemandAllocationStrategy)[keyof typeof FleetOnDemandAllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const FleetCapacityReservationUsageStrategy = {
+  USE_CAPACITY_RESERVATIONS_FIRST: "use-capacity-reservations-first",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetCapacityReservationUsageStrategy =
+  (typeof FleetCapacityReservationUsageStrategy)[keyof typeof FleetCapacityReservationUsageStrategy];
+
+/**
+ * @public
  * <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
  *          capacity.</p>
  *          <note>
@@ -1804,6 +2061,7 @@ export interface CapacityReservationOptionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
  */
 export interface OnDemandOptionsRequest {
@@ -1857,26 +2115,55 @@ export interface OnDemandOptionsRequest {
   MaxTotalPrice?: string;
 }
 
-export enum SpotAllocationStrategy {
-  CAPACITY_OPTIMIZED = "capacity-optimized",
-  CAPACITY_OPTIMIZED_PRIORITIZED = "capacity-optimized-prioritized",
-  DIVERSIFIED = "diversified",
-  LOWEST_PRICE = "lowest-price",
-  PRICE_CAPACITY_OPTIMIZED = "price-capacity-optimized",
-}
-
-export enum SpotInstanceInterruptionBehavior {
-  hibernate = "hibernate",
-  stop = "stop",
-  terminate = "terminate",
-}
-
-export enum FleetReplacementStrategy {
-  LAUNCH = "launch",
-  LAUNCH_BEFORE_TERMINATE = "launch-before-terminate",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SpotAllocationStrategy = {
+  CAPACITY_OPTIMIZED: "capacity-optimized",
+  CAPACITY_OPTIMIZED_PRIORITIZED: "capacity-optimized-prioritized",
+  DIVERSIFIED: "diversified",
+  LOWEST_PRICE: "lowest-price",
+  PRICE_CAPACITY_OPTIMIZED: "price-capacity-optimized",
+} as const;
 
 /**
+ * @public
+ */
+export type SpotAllocationStrategy = (typeof SpotAllocationStrategy)[keyof typeof SpotAllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SpotInstanceInterruptionBehavior = {
+  hibernate: "hibernate",
+  stop: "stop",
+  terminate: "terminate",
+} as const;
+
+/**
+ * @public
+ */
+export type SpotInstanceInterruptionBehavior =
+  (typeof SpotInstanceInterruptionBehavior)[keyof typeof SpotInstanceInterruptionBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const FleetReplacementStrategy = {
+  LAUNCH: "launch",
+  LAUNCH_BEFORE_TERMINATE: "launch-before-terminate",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetReplacementStrategy = (typeof FleetReplacementStrategy)[keyof typeof FleetReplacementStrategy];
+
+/**
+ * @public
  * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance
  *          notification signal that your Spot Instance is at an elevated risk of being interrupted.
  *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -1910,6 +2197,7 @@ export interface FleetSpotCapacityRebalanceRequest {
 }
 
 /**
+ * @public
  * <p>The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.</p>
  */
 export interface FleetSpotMaintenanceStrategiesRequest {
@@ -1921,6 +2209,7 @@ export interface FleetSpotMaintenanceStrategiesRequest {
 }
 
 /**
+ * @public
  * <p>Describes the configuration of Spot Instances in an EC2 Fleet request.</p>
  */
 export interface SpotOptionsRequest {
@@ -2035,18 +2324,37 @@ export interface SpotOptionsRequest {
   MaxTotalPrice?: string;
 }
 
-export enum DefaultTargetCapacityType {
-  ON_DEMAND = "on-demand",
-  SPOT = "spot",
-}
-
-export enum TargetCapacityUnitType {
-  MEMORY_MIB = "memory-mib",
-  UNITS = "units",
-  VCPU = "vcpu",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DefaultTargetCapacityType = {
+  ON_DEMAND: "on-demand",
+  SPOT: "spot",
+} as const;
 
 /**
+ * @public
+ */
+export type DefaultTargetCapacityType = (typeof DefaultTargetCapacityType)[keyof typeof DefaultTargetCapacityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetCapacityUnitType = {
+  MEMORY_MIB: "memory-mib",
+  UNITS: "units",
+  VCPU: "vcpu",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetCapacityUnitType = (typeof TargetCapacityUnitType)[keyof typeof TargetCapacityUnitType];
+
+/**
+ * @public
  * <p>The number of units to request. You can choose to set the target capacity as the number of
  *          instances. Or you can set the target capacity to a performance characteristic that is important to your application workload,
  *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
@@ -2090,12 +2398,24 @@ export interface TargetCapacitySpecificationRequest {
   TargetCapacityUnitType?: TargetCapacityUnitType | string;
 }
 
-export enum FleetType {
-  INSTANT = "instant",
-  MAINTAIN = "maintain",
-  REQUEST = "request",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetType = {
+  INSTANT: "instant",
+  MAINTAIN: "maintain",
+  REQUEST: "request",
+} as const;
 
+/**
+ * @public
+ */
+export type FleetType = (typeof FleetType)[keyof typeof FleetType];
+
+/**
+ * @public
+ */
 export interface CreateFleetRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2210,6 +2530,7 @@ export interface CreateFleetRequest {
 }
 
 /**
+ * @public
  * <p>The Amazon EC2 launch template that can be used by
  *             a Spot Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p>
  *          <p>For information about launch templates,
@@ -2241,6 +2562,7 @@ export interface FleetLaunchTemplateSpecification {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
  *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
  *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -2260,6 +2582,7 @@ export interface BaselineEbsBandwidthMbps {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
  *          <p></p>
  */
@@ -2278,6 +2601,7 @@ export interface MemoryGiBPerVCpu {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum amount of memory, in MiB.</p>
  */
 export interface MemoryMiB {
@@ -2295,6 +2619,7 @@ export interface MemoryMiB {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
  *          <note>
  *             <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the
@@ -2319,6 +2644,7 @@ export interface NetworkBandwidthGbps {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum number of network interfaces.</p>
  */
 export interface NetworkInterfaceCount {
@@ -2336,6 +2662,7 @@ export interface NetworkInterfaceCount {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum amount of total local storage, in GB.</p>
  */
 export interface TotalLocalStorageGB {
@@ -2353,6 +2680,7 @@ export interface TotalLocalStorageGB {
 }
 
 /**
+ * @public
  * <p>The minimum and maximum number of vCPUs.</p>
  */
 export interface VCpuCountRange {
@@ -2370,6 +2698,7 @@ export interface VCpuCountRange {
 }
 
 /**
+ * @public
  * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
  *          identify instance types with these attributes.</p>
  *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
@@ -2717,6 +3046,7 @@ export interface InstanceRequirements {
 }
 
 /**
+ * @public
  * <p>Describes the placement of an instance.</p>
  */
 export interface PlacementResponse {
@@ -2727,6 +3057,7 @@ export interface PlacementResponse {
 }
 
 /**
+ * @public
  * <p>Describes overrides for a launch template.</p>
  */
 export interface FleetLaunchTemplateOverrides {
@@ -2803,6 +3134,7 @@ export interface FleetLaunchTemplateOverrides {
 }
 
 /**
+ * @public
  * <p>Describes a launch template and overrides.</p>
  */
 export interface LaunchTemplateAndOverridesResponse {
@@ -2818,12 +3150,22 @@ export interface LaunchTemplateAndOverridesResponse {
   Overrides?: FleetLaunchTemplateOverrides;
 }
 
-export enum InstanceLifecycle {
-  ON_DEMAND = "on-demand",
-  SPOT = "spot",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceLifecycle = {
+  ON_DEMAND: "on-demand",
+  SPOT: "spot",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceLifecycle = (typeof InstanceLifecycle)[keyof typeof InstanceLifecycle];
+
+/**
+ * @public
  * <p>Describes the instances that could not be launched by the fleet.</p>
  */
 export interface CreateFleetError {
@@ -2851,11 +3193,21 @@ export interface CreateFleetError {
   ErrorMessage?: string;
 }
 
-export enum PlatformValues {
-  Windows = "Windows",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlatformValues = {
+  Windows: "Windows",
+} as const;
 
 /**
+ * @public
+ */
+export type PlatformValues = (typeof PlatformValues)[keyof typeof PlatformValues];
+
+/**
+ * @public
  * <p>Describes the instances that were launched by the fleet.</p>
  */
 export interface CreateFleetInstance {
@@ -2887,6 +3239,9 @@ export interface CreateFleetInstance {
   Platform?: PlatformValues | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFleetResult {
   /**
    * <p>The ID of the EC2 Fleet.</p>
@@ -2906,12 +3261,22 @@ export interface CreateFleetResult {
   Instances?: CreateFleetInstance[];
 }
 
-export enum DestinationFileFormat {
-  parquet = "parquet",
-  plain_text = "plain-text",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DestinationFileFormat = {
+  parquet: "parquet",
+  plain_text: "plain-text",
+} as const;
 
 /**
+ * @public
+ */
+export type DestinationFileFormat = (typeof DestinationFileFormat)[keyof typeof DestinationFileFormat];
+
+/**
+ * @public
  * <p>Describes the destination options for a flow log.</p>
  */
 export interface DestinationOptionsRequest {
@@ -2933,26 +3298,56 @@ export interface DestinationOptionsRequest {
   PerHourPartition?: boolean;
 }
 
-export enum LogDestinationType {
-  cloud_watch_logs = "cloud-watch-logs",
-  kinesis_data_firehose = "kinesis-data-firehose",
-  s3 = "s3",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LogDestinationType = {
+  cloud_watch_logs: "cloud-watch-logs",
+  kinesis_data_firehose: "kinesis-data-firehose",
+  s3: "s3",
+} as const;
 
-export enum FlowLogsResourceType {
-  NetworkInterface = "NetworkInterface",
-  Subnet = "Subnet",
-  TransitGateway = "TransitGateway",
-  TransitGatewayAttachment = "TransitGatewayAttachment",
-  VPC = "VPC",
-}
+/**
+ * @public
+ */
+export type LogDestinationType = (typeof LogDestinationType)[keyof typeof LogDestinationType];
 
-export enum TrafficType {
-  ACCEPT = "ACCEPT",
-  ALL = "ALL",
-  REJECT = "REJECT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FlowLogsResourceType = {
+  NetworkInterface: "NetworkInterface",
+  Subnet: "Subnet",
+  TransitGateway: "TransitGateway",
+  TransitGatewayAttachment: "TransitGatewayAttachment",
+  VPC: "VPC",
+} as const;
 
+/**
+ * @public
+ */
+export type FlowLogsResourceType = (typeof FlowLogsResourceType)[keyof typeof FlowLogsResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrafficType = {
+  ACCEPT: "ACCEPT",
+  ALL: "ALL",
+  REJECT: "REJECT",
+} as const;
+
+/**
+ * @public
+ */
+export type TrafficType = (typeof TrafficType)[keyof typeof TrafficType];
+
+/**
+ * @public
+ */
 export interface CreateFlowLogsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3044,7 +3439,7 @@ export interface CreateFlowLogsRequest {
    *             field. For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log
    *                 records</a> in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit Gateway Flow Log
    *                     records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
-   *          <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For
+   *          <p>Specify the fields using the <code>$\{field-id\}</code> format, separated by spaces. For
    *             the CLI, surround this parameter value with single quotes on Linux or
    *             double quotes on Windows.</p>
    */
@@ -3072,6 +3467,9 @@ export interface CreateFlowLogsRequest {
   DestinationOptions?: DestinationOptionsRequest;
 }
 
+/**
+ * @public
+ */
 export interface CreateFlowLogsResult {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3091,6 +3489,7 @@ export interface CreateFlowLogsResult {
 }
 
 /**
+ * @public
  * <p>Describes a storage location in Amazon S3.</p>
  */
 export interface StorageLocation {
@@ -3105,6 +3504,9 @@ export interface StorageLocation {
   Key?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateFpgaImageRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3145,6 +3547,9 @@ export interface CreateFpgaImageRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface CreateFpgaImageResult {
   /**
    * <p>The FPGA image identifier (AFI ID).</p>
@@ -3157,17 +3562,27 @@ export interface CreateFpgaImageResult {
   FpgaImageGlobalId?: string;
 }
 
-export enum VolumeType {
-  gp2 = "gp2",
-  gp3 = "gp3",
-  io1 = "io1",
-  io2 = "io2",
-  sc1 = "sc1",
-  st1 = "st1",
-  standard = "standard",
-}
+/**
+ * @public
+ * @enum
+ */
+export const VolumeType = {
+  gp2: "gp2",
+  gp3: "gp3",
+  io1: "io1",
+  io2: "io2",
+  sc1: "sc1",
+  st1: "st1",
+  standard: "standard",
+} as const;
 
 /**
+ * @public
+ */
+export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
+
+/**
+ * @public
  * <p>Describes a block device for an EBS volume.</p>
  */
 export interface EbsBlockDevice {
@@ -3313,6 +3728,7 @@ export interface EbsBlockDevice {
 }
 
 /**
+ * @public
  * <p>Describes a block device mapping, which defines the EBS volumes and instance store
  *             volumes to attach to an instance at launch.</p>
  */
@@ -3350,6 +3766,9 @@ export interface BlockDeviceMapping {
   NoDevice?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateImageRequest {
   /**
    * <p>The block device mappings. This parameter cannot be used to modify the encryption
@@ -3417,6 +3836,9 @@ export interface CreateImageRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface CreateImageResult {
   /**
    * <p>The ID of the new AMI.</p>
@@ -3425,6 +3847,7 @@ export interface CreateImageResult {
 }
 
 /**
+ * @public
  * <p>The start day and time and the end day and time of the time range, in UTC.</p>
  */
 export interface InstanceEventWindowTimeRangeRequest {
@@ -3449,6 +3872,9 @@ export interface InstanceEventWindowTimeRangeRequest {
   EndHour?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceEventWindowRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3508,6 +3934,9 @@ export interface CreateInstanceEventWindowRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceEventWindowResult {
   /**
    * <p>Information about the event window.</p>
@@ -3515,17 +3944,36 @@ export interface CreateInstanceEventWindowResult {
   InstanceEventWindow?: InstanceEventWindow;
 }
 
-export enum ContainerFormat {
-  ova = "ova",
-}
-
-export enum DiskImageFormat {
-  RAW = "RAW",
-  VHD = "VHD",
-  VMDK = "VMDK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContainerFormat = {
+  ova: "ova",
+} as const;
 
 /**
+ * @public
+ */
+export type ContainerFormat = (typeof ContainerFormat)[keyof typeof ContainerFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const DiskImageFormat = {
+  RAW: "RAW",
+  VHD: "VHD",
+  VMDK: "VMDK",
+} as const;
+
+/**
+ * @public
+ */
+export type DiskImageFormat = (typeof DiskImageFormat)[keyof typeof DiskImageFormat];
+
+/**
+ * @public
  * <p>Describes an export instance task.</p>
  */
 export interface ExportToS3TaskSpecification {
@@ -3554,12 +4002,24 @@ export interface ExportToS3TaskSpecification {
   S3Prefix?: string;
 }
 
-export enum ExportEnvironment {
-  citrix = "citrix",
-  microsoft = "microsoft",
-  vmware = "vmware",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExportEnvironment = {
+  citrix: "citrix",
+  microsoft: "microsoft",
+  vmware: "vmware",
+} as const;
 
+/**
+ * @public
+ */
+export type ExportEnvironment = (typeof ExportEnvironment)[keyof typeof ExportEnvironment];
+
+/**
+ * @public
+ */
 export interface CreateInstanceExportTaskRequest {
   /**
    * <p>A description for the conversion task or the resource being exported. The maximum length is 255 characters.</p>
@@ -3588,6 +4048,7 @@ export interface CreateInstanceExportTaskRequest {
 }
 
 /**
+ * @public
  * <p>Describes the format and location for the export task.</p>
  */
 export interface ExportToS3Task {
@@ -3616,6 +4077,7 @@ export interface ExportToS3Task {
 }
 
 /**
+ * @public
  * <p>Describes an instance to export.</p>
  */
 export interface InstanceExportDetails {
@@ -3630,14 +4092,24 @@ export interface InstanceExportDetails {
   TargetEnvironment?: ExportEnvironment | string;
 }
 
-export enum ExportTaskState {
-  active = "active",
-  cancelled = "cancelled",
-  cancelling = "cancelling",
-  completed = "completed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExportTaskState = {
+  active: "active",
+  cancelled: "cancelled",
+  cancelling: "cancelling",
+  completed: "completed",
+} as const;
 
 /**
+ * @public
+ */
+export type ExportTaskState = (typeof ExportTaskState)[keyof typeof ExportTaskState];
+
+/**
+ * @public
  * <p>Describes an export instance task.</p>
  */
 export interface ExportTask {
@@ -3677,6 +4149,9 @@ export interface ExportTask {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateInstanceExportTaskResult {
   /**
    * <p>Information about the export instance task.</p>
@@ -3684,6 +4159,9 @@ export interface CreateInstanceExportTaskResult {
   ExportTask?: ExportTask;
 }
 
+/**
+ * @public
+ */
 export interface CreateInternetGatewayRequest {
   /**
    * <p>The tags to assign to the internet gateway.</p>
@@ -3699,6 +4177,7 @@ export interface CreateInternetGatewayRequest {
 }
 
 /**
+ * @public
  * <p>Describes an internet gateway.</p>
  */
 export interface InternetGateway {
@@ -3723,6 +4202,9 @@ export interface InternetGateway {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateInternetGatewayResult {
   /**
    * <p>Information about the internet gateway.</p>
@@ -3730,6 +4212,9 @@ export interface CreateInternetGatewayResult {
   InternetGateway?: InternetGateway;
 }
 
+/**
+ * @public
+ */
 export interface CreateIpamRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -3763,6 +4248,7 @@ export interface CreateIpamRequest {
 }
 
 /**
+ * @public
  * <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
  *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
@@ -3773,22 +4259,32 @@ export interface IpamOperatingRegion {
   RegionName?: string;
 }
 
-export enum IpamState {
-  create_complete = "create-complete",
-  create_failed = "create-failed",
-  create_in_progress = "create-in-progress",
-  delete_complete = "delete-complete",
-  delete_failed = "delete-failed",
-  delete_in_progress = "delete-in-progress",
-  isolate_complete = "isolate-complete",
-  isolate_in_progress = "isolate-in-progress",
-  modify_complete = "modify-complete",
-  modify_failed = "modify-failed",
-  modify_in_progress = "modify-in-progress",
-  restore_in_progress = "restore-in-progress",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpamState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+  isolate_complete: "isolate-complete",
+  isolate_in_progress: "isolate-in-progress",
+  modify_complete: "modify-complete",
+  modify_failed: "modify-failed",
+  modify_in_progress: "modify-in-progress",
+  restore_in_progress: "restore-in-progress",
+} as const;
 
 /**
+ * @public
+ */
+export type IpamState = (typeof IpamState)[keyof typeof IpamState];
+
+/**
+ * @public
  * <p>IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 export interface Ipam {
@@ -3866,6 +4362,9 @@ export interface Ipam {
   ResourceDiscoveryAssociationCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateIpamResult {
   /**
    * <p>Information about the IPAM created.</p>
@@ -3874,6 +4373,7 @@ export interface CreateIpamResult {
 }
 
 /**
+ * @public
  * <p>A tag on an IPAM resource.</p>
  */
 export interface RequestIpamResourceTag {
@@ -3888,15 +4388,36 @@ export interface RequestIpamResourceTag {
   Value?: string;
 }
 
-export enum IpamPoolAwsService {
-  ec2 = "ec2",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpamPoolAwsService = {
+  ec2: "ec2",
+} as const;
 
-export enum IpamPoolPublicIpSource {
-  amazon = "amazon",
-  byoip = "byoip",
-}
+/**
+ * @public
+ */
+export type IpamPoolAwsService = (typeof IpamPoolAwsService)[keyof typeof IpamPoolAwsService];
 
+/**
+ * @public
+ * @enum
+ */
+export const IpamPoolPublicIpSource = {
+  amazon: "amazon",
+  byoip: "byoip",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamPoolPublicIpSource = (typeof IpamPoolPublicIpSource)[keyof typeof IpamPoolPublicIpSource];
+
+/**
+ * @public
+ */
 export interface CreateIpamPoolRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -3995,6 +4516,7 @@ export interface CreateIpamPoolRequest {
 }
 
 /**
+ * @public
  * <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
  *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
  */
@@ -4010,27 +4532,46 @@ export interface IpamResourceTag {
   Value?: string;
 }
 
-export enum IpamScopeType {
-  private = "private",
-  public = "public",
-}
-
-export enum IpamPoolState {
-  create_complete = "create-complete",
-  create_failed = "create-failed",
-  create_in_progress = "create-in-progress",
-  delete_complete = "delete-complete",
-  delete_failed = "delete-failed",
-  delete_in_progress = "delete-in-progress",
-  isolate_complete = "isolate-complete",
-  isolate_in_progress = "isolate-in-progress",
-  modify_complete = "modify-complete",
-  modify_failed = "modify-failed",
-  modify_in_progress = "modify-in-progress",
-  restore_in_progress = "restore-in-progress",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpamScopeType = {
+  private: "private",
+  public: "public",
+} as const;
 
 /**
+ * @public
+ */
+export type IpamScopeType = (typeof IpamScopeType)[keyof typeof IpamScopeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamPoolState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+  isolate_complete: "isolate-complete",
+  isolate_in_progress: "isolate-in-progress",
+  modify_complete: "modify-complete",
+  modify_failed: "modify-failed",
+  modify_in_progress: "modify-in-progress",
+  restore_in_progress: "restore-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamPoolState = (typeof IpamPoolState)[keyof typeof IpamPoolState];
+
+/**
+ * @public
  * <p>In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>
  */
 export interface IpamPool {
@@ -4161,6 +4702,9 @@ export interface IpamPool {
   PublicIpSource?: IpamPoolPublicIpSource | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateIpamPoolResult {
   /**
    * <p>Information about the IPAM pool created.</p>
@@ -4168,6 +4712,9 @@ export interface CreateIpamPoolResult {
   IpamPool?: IpamPool;
 }
 
+/**
+ * @public
+ */
 export interface CreateIpamResourceDiscoveryRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -4197,22 +4744,32 @@ export interface CreateIpamResourceDiscoveryRequest {
   ClientToken?: string;
 }
 
-export enum IpamResourceDiscoveryState {
-  CREATE_COMPLETE = "create-complete",
-  CREATE_FAILED = "create-failed",
-  CREATE_IN_PROGRESS = "create-in-progress",
-  DELETE_COMPLETE = "delete-complete",
-  DELETE_FAILED = "delete-failed",
-  DELETE_IN_PROGRESS = "delete-in-progress",
-  ISOLATE_COMPLETE = "isolate-complete",
-  ISOLATE_IN_PROGRESS = "isolate-in-progress",
-  MODIFY_COMPLETE = "modify-complete",
-  MODIFY_FAILED = "modify-failed",
-  MODIFY_IN_PROGRESS = "modify-in-progress",
-  RESTORE_IN_PROGRESS = "restore-in-progress",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpamResourceDiscoveryState = {
+  CREATE_COMPLETE: "create-complete",
+  CREATE_FAILED: "create-failed",
+  CREATE_IN_PROGRESS: "create-in-progress",
+  DELETE_COMPLETE: "delete-complete",
+  DELETE_FAILED: "delete-failed",
+  DELETE_IN_PROGRESS: "delete-in-progress",
+  ISOLATE_COMPLETE: "isolate-complete",
+  ISOLATE_IN_PROGRESS: "isolate-in-progress",
+  MODIFY_COMPLETE: "modify-complete",
+  MODIFY_FAILED: "modify-failed",
+  MODIFY_IN_PROGRESS: "modify-in-progress",
+  RESTORE_IN_PROGRESS: "restore-in-progress",
+} as const;
 
 /**
+ * @public
+ */
+export type IpamResourceDiscoveryState = (typeof IpamResourceDiscoveryState)[keyof typeof IpamResourceDiscoveryState];
+
+/**
+ * @public
  * <p>A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  */
 export interface IpamResourceDiscovery {
@@ -4312,6 +4869,9 @@ export interface IpamResourceDiscovery {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateIpamResourceDiscoveryResult {
   /**
    * <p>An IPAM resource discovery.</p>
@@ -4319,6 +4879,9 @@ export interface CreateIpamResourceDiscoveryResult {
   IpamResourceDiscovery?: IpamResourceDiscovery;
 }
 
+/**
+ * @public
+ */
 export interface CreateIpamScopeRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -4349,22 +4912,32 @@ export interface CreateIpamScopeRequest {
   ClientToken?: string;
 }
 
-export enum IpamScopeState {
-  create_complete = "create-complete",
-  create_failed = "create-failed",
-  create_in_progress = "create-in-progress",
-  delete_complete = "delete-complete",
-  delete_failed = "delete-failed",
-  delete_in_progress = "delete-in-progress",
-  isolate_complete = "isolate-complete",
-  isolate_in_progress = "isolate-in-progress",
-  modify_complete = "modify-complete",
-  modify_failed = "modify-failed",
-  modify_in_progress = "modify-in-progress",
-  restore_in_progress = "restore-in-progress",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IpamScopeState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+  isolate_complete: "isolate-complete",
+  isolate_in_progress: "isolate-in-progress",
+  modify_complete: "modify-complete",
+  modify_failed: "modify-failed",
+  modify_in_progress: "modify-in-progress",
+  restore_in_progress: "restore-in-progress",
+} as const;
 
 /**
+ * @public
+ */
+export type IpamScopeState = (typeof IpamScopeState)[keyof typeof IpamScopeState];
+
+/**
+ * @public
  * <p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html">How IPAM works</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
@@ -4426,6 +4999,9 @@ export interface IpamScope {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateIpamScopeResult {
   /**
    * <p>Information about the created scope.</p>
@@ -4433,16 +5009,37 @@ export interface CreateIpamScopeResult {
   IpamScope?: IpamScope;
 }
 
-export enum KeyFormat {
-  pem = "pem",
-  ppk = "ppk",
-}
+/**
+ * @public
+ * @enum
+ */
+export const KeyFormat = {
+  pem: "pem",
+  ppk: "ppk",
+} as const;
 
-export enum KeyType {
-  ed25519 = "ed25519",
-  rsa = "rsa",
-}
+/**
+ * @public
+ */
+export type KeyFormat = (typeof KeyFormat)[keyof typeof KeyFormat];
 
+/**
+ * @public
+ * @enum
+ */
+export const KeyType = {
+  ed25519: "ed25519",
+  rsa: "rsa",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyType = (typeof KeyType)[keyof typeof KeyType];
+
+/**
+ * @public
+ */
 export interface CreateKeyPairRequest {
   /**
    * <p>A unique name for the key pair.</p>
@@ -4478,6 +5075,7 @@ export interface CreateKeyPairRequest {
 }
 
 /**
+ * @public
  * <p>Describes a key pair.</p>
  */
 export interface KeyPair {
@@ -4515,6 +5113,7 @@ export interface KeyPair {
 }
 
 /**
+ * @public
  * <p>The parameters for a block device for an EBS volume.</p>
  */
 export interface LaunchTemplateEbsBlockDeviceRequest {
@@ -4609,6 +5208,7 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
 }
 
 /**
+ * @public
  * <p>Describes a block device mapping.</p>
  */
 export interface LaunchTemplateBlockDeviceMappingRequest {
@@ -4637,12 +5237,23 @@ export interface LaunchTemplateBlockDeviceMappingRequest {
   NoDevice?: string;
 }
 
-export enum CapacityReservationPreference {
-  none = "none",
-  open = "open",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationPreference = {
+  none: "none",
+  open: "open",
+} as const;
 
 /**
+ * @public
+ */
+export type CapacityReservationPreference =
+  (typeof CapacityReservationPreference)[keyof typeof CapacityReservationPreference];
+
+/**
+ * @public
  * <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
  */
 export interface CapacityReservationTarget {
@@ -4658,6 +5269,7 @@ export interface CapacityReservationTarget {
 }
 
 /**
+ * @public
  * <p>Describes an instance's Capacity Reservation targeting option. You can specify only
  *             one option at a time. Use the <code>CapacityReservationPreference</code> parameter to
  *             configure the instance to run in On-Demand capacity or to run in any <code>open</code>
@@ -4693,6 +5305,21 @@ export interface LaunchTemplateCapacityReservationSpecificationRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AmdSevSnpSpecification = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type AmdSevSnpSpecification = (typeof AmdSevSnpSpecification)[keyof typeof AmdSevSnpSpecification];
+
+/**
+ * @public
  * <p>The CPU options for the instance. Both the core count and threads per core must be
  *             specified in the request.</p>
  */
@@ -4708,9 +5335,16 @@ export interface LaunchTemplateCpuOptionsRequest {
    *                 <code>2</code>.</p>
    */
   ThreadsPerCore?: number;
+
+  /**
+   * <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported
+   *             with M6a, R6a, and C6a instance types only.</p>
+   */
+  AmdSevSnp?: AmdSevSnpSpecification | string;
 }
 
 /**
+ * @public
  * <p>The credit option for CPU usage of a T instance.</p>
  */
 export interface CreditSpecificationRequest {
@@ -4723,6 +5357,7 @@ export interface CreditSpecificationRequest {
 }
 
 /**
+ * @public
  * <p>A specification for an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpuSpecification {
@@ -4735,6 +5370,7 @@ export interface ElasticGpuSpecification {
 }
 
 /**
+ * @public
  * <p> Describes an elastic inference accelerator. </p>
  */
 export interface LaunchTemplateElasticInferenceAccelerator {
@@ -4752,6 +5388,7 @@ export interface LaunchTemplateElasticInferenceAccelerator {
 }
 
 /**
+ * @public
  * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more
  *             information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Amazon Web Services Nitro Enclaves?</a>
  *             in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
@@ -4765,6 +5402,7 @@ export interface LaunchTemplateEnclaveOptionsRequest {
 }
 
 /**
+ * @public
  * <p>Indicates whether the instance is configured for hibernation. This parameter is valid
  *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
  *                 prerequisites</a>.</p>
@@ -4780,6 +5418,7 @@ export interface LaunchTemplateHibernationOptionsRequest {
 }
 
 /**
+ * @public
  * <p>An IAM instance profile.</p>
  */
 export interface LaunchTemplateIamInstanceProfileSpecificationRequest {
@@ -4794,27 +5433,65 @@ export interface LaunchTemplateIamInstanceProfileSpecificationRequest {
   Name?: string;
 }
 
-export enum ShutdownBehavior {
-  stop = "stop",
-  terminate = "terminate",
-}
-
-export enum MarketType {
-  spot = "spot",
-}
-
-export enum InstanceInterruptionBehavior {
-  hibernate = "hibernate",
-  stop = "stop",
-  terminate = "terminate",
-}
-
-export enum SpotInstanceType {
-  one_time = "one-time",
-  persistent = "persistent",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ShutdownBehavior = {
+  stop: "stop",
+  terminate: "terminate",
+} as const;
 
 /**
+ * @public
+ */
+export type ShutdownBehavior = (typeof ShutdownBehavior)[keyof typeof ShutdownBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const MarketType = {
+  spot: "spot",
+} as const;
+
+/**
+ * @public
+ */
+export type MarketType = (typeof MarketType)[keyof typeof MarketType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceInterruptionBehavior = {
+  hibernate: "hibernate",
+  stop: "stop",
+  terminate: "terminate",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceInterruptionBehavior =
+  (typeof InstanceInterruptionBehavior)[keyof typeof InstanceInterruptionBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const SpotInstanceType = {
+  one_time: "one-time",
+  persistent: "persistent",
+} as const;
+
+/**
+ * @public
+ */
+export type SpotInstanceType = (typeof SpotInstanceType)[keyof typeof SpotInstanceType];
+
+/**
+ * @public
  * <p>The options for Spot Instances.</p>
  */
 export interface LaunchTemplateSpotMarketOptionsRequest {
@@ -4866,6 +5543,7 @@ export interface LaunchTemplateSpotMarketOptionsRequest {
 }
 
 /**
+ * @public
  * <p>The market (purchasing) option for the instances.</p>
  */
 export interface LaunchTemplateInstanceMarketOptionsRequest {
@@ -4881,6 +5559,7 @@ export interface LaunchTemplateInstanceMarketOptionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes a license configuration.</p>
  */
 export interface LaunchTemplateLicenseConfigurationRequest {
@@ -4890,12 +5569,23 @@ export interface LaunchTemplateLicenseConfigurationRequest {
   LicenseConfigurationArn?: string;
 }
 
-export enum LaunchTemplateAutoRecoveryState {
-  default = "default",
-  disabled = "disabled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchTemplateAutoRecoveryState = {
+  default: "default",
+  disabled: "disabled",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchTemplateAutoRecoveryState =
+  (typeof LaunchTemplateAutoRecoveryState)[keyof typeof LaunchTemplateAutoRecoveryState];
+
+/**
+ * @public
  * <p>The maintenance options of your instance.</p>
  */
 export interface LaunchTemplateInstanceMaintenanceOptionsRequest {
@@ -4906,27 +5596,68 @@ export interface LaunchTemplateInstanceMaintenanceOptionsRequest {
   AutoRecovery?: LaunchTemplateAutoRecoveryState | string;
 }
 
-export enum LaunchTemplateInstanceMetadataEndpointState {
-  disabled = "disabled",
-  enabled = "enabled",
-}
-
-export enum LaunchTemplateInstanceMetadataProtocolIpv6 {
-  disabled = "disabled",
-  enabled = "enabled",
-}
-
-export enum LaunchTemplateHttpTokensState {
-  optional = "optional",
-  required = "required",
-}
-
-export enum LaunchTemplateInstanceMetadataTagsState {
-  disabled = "disabled",
-  enabled = "enabled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchTemplateInstanceMetadataEndpointState = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchTemplateInstanceMetadataEndpointState =
+  (typeof LaunchTemplateInstanceMetadataEndpointState)[keyof typeof LaunchTemplateInstanceMetadataEndpointState];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchTemplateInstanceMetadataProtocolIpv6 = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchTemplateInstanceMetadataProtocolIpv6 =
+  (typeof LaunchTemplateInstanceMetadataProtocolIpv6)[keyof typeof LaunchTemplateInstanceMetadataProtocolIpv6];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchTemplateHttpTokensState = {
+  optional: "optional",
+  required: "required",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchTemplateHttpTokensState =
+  (typeof LaunchTemplateHttpTokensState)[keyof typeof LaunchTemplateHttpTokensState];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchTemplateInstanceMetadataTagsState = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchTemplateInstanceMetadataTagsState =
+  (typeof LaunchTemplateInstanceMetadataTagsState)[keyof typeof LaunchTemplateInstanceMetadataTagsState];
+
+/**
+ * @public
  * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
  *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
@@ -4994,6 +5725,7 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the monitoring for the instance.</p>
  */
 export interface LaunchTemplatesMonitoringRequest {
@@ -5005,6 +5737,7 @@ export interface LaunchTemplatesMonitoringRequest {
 }
 
 /**
+ * @public
  * <p>Describes the IPv4 prefix option for a network interface.</p>
  */
 export interface Ipv4PrefixSpecificationRequest {
@@ -5017,6 +5750,7 @@ export interface Ipv4PrefixSpecificationRequest {
 }
 
 /**
+ * @public
  * <p>Describes an IPv6 address.</p>
  */
 export interface InstanceIpv6AddressRequest {
@@ -5027,6 +5761,7 @@ export interface InstanceIpv6AddressRequest {
 }
 
 /**
+ * @public
  * <p>Describes the IPv4 prefix option for a network interface.</p>
  */
 export interface Ipv6PrefixSpecificationRequest {
@@ -5037,6 +5772,7 @@ export interface Ipv6PrefixSpecificationRequest {
 }
 
 /**
+ * @public
  * <p>Describes a secondary private IPv4 address for a network interface.</p>
  */
 export interface PrivateIpAddressSpecification {
@@ -5053,6 +5789,7 @@ export interface PrivateIpAddressSpecification {
 }
 
 /**
+ * @public
  * <p>The parameters for a network interface.</p>
  */
 export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
@@ -5174,6 +5911,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
 }
 
 /**
+ * @public
  * <p>Describes the placement of an instance.</p>
  */
 export interface LaunchTemplatePlacementRequest {
@@ -5198,7 +5936,7 @@ export interface LaunchTemplatePlacementRequest {
   HostId?: string;
 
   /**
-   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
+   * <p>The tenancy of the instance. An instance with a
    *             tenancy of dedicated runs on single-tenant hardware.</p>
    */
   Tenancy?: Tenancy | string;
@@ -5229,6 +5967,7 @@ export interface LaunchTemplatePlacementRequest {
 }
 
 /**
+ * @public
  * <p>Describes the options for instance hostnames.</p>
  */
 export interface LaunchTemplatePrivateDnsNameOptionsRequest {
@@ -5254,6 +5993,7 @@ export interface LaunchTemplatePrivateDnsNameOptionsRequest {
 }
 
 /**
+ * @public
  * <p>The tags specification for the resources that are created during instance
  *             launch.</p>
  */
@@ -5276,6 +6016,7 @@ export interface LaunchTemplateTagSpecificationRequest {
 }
 
 /**
+ * @public
  * <p>The information to include in the launch template.</p>
  *          <note>
  *             <p>You must specify at least one parameter for the launch template data.</p>
@@ -5342,8 +6083,17 @@ export interface RequestLaunchTemplateData {
    *                   <code>resolve:ssm:parameter-name:label</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:public-parameter</code>
+   *                </p>
+   *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI">Use a Systems Manager parameter to find an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <note>
+   *             <p>Currently, EC2 Fleet and Spot Fleet do not support specifying a Systems Manager parameter.
+   *                 If the launch template will be used by an EC2 Fleet or Spot Fleet, you must specify the AMI ID.</p>
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   ImageId?: string;
 
@@ -5540,6 +6290,9 @@ export interface RequestLaunchTemplateData {
   DisableApiStop?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchTemplateRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -5585,6 +6338,7 @@ export interface CreateLaunchTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Describes a launch template.</p>
  */
 export interface LaunchTemplate {
@@ -5625,6 +6379,7 @@ export interface LaunchTemplate {
 }
 
 /**
+ * @public
  * <p>The error code and error message that is returned for a parameter or parameter
  *             combination that is not valid when a new launch template or new version of a launch
  *             template is created.</p>
@@ -5644,6 +6399,7 @@ export interface ValidationError {
 }
 
 /**
+ * @public
  * <p>The error codes and error messages that are returned for the parameters or parameter
  *             combinations that are not valid when a new launch template or new version of a launch
  *             template is created.</p>
@@ -5655,6 +6411,9 @@ export interface ValidationWarning {
   Errors?: ValidationError[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchTemplateResult {
   /**
    * <p>Information about the launch template.</p>
@@ -5669,6 +6428,9 @@ export interface CreateLaunchTemplateResult {
   Warning?: ValidationWarning;
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchTemplateVersionRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -5730,6 +6492,7 @@ export interface CreateLaunchTemplateVersionRequest {
 }
 
 /**
+ * @public
  * <p>Describes a block device for an EBS volume.</p>
  */
 export interface LaunchTemplateEbsBlockDevice {
@@ -5775,6 +6538,7 @@ export interface LaunchTemplateEbsBlockDevice {
 }
 
 /**
+ * @public
  * <p>Describes a block device mapping.</p>
  */
 export interface LaunchTemplateBlockDeviceMapping {
@@ -5800,6 +6564,7 @@ export interface LaunchTemplateBlockDeviceMapping {
 }
 
 /**
+ * @public
  * <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
  */
 export interface CapacityReservationTargetResponse {
@@ -5815,6 +6580,7 @@ export interface CapacityReservationTargetResponse {
 }
 
 /**
+ * @public
  * <p>Information about the Capacity Reservation targeting option.</p>
  */
 export interface LaunchTemplateCapacityReservationSpecificationResponse {
@@ -5845,6 +6611,7 @@ export interface LaunchTemplateCapacityReservationSpecificationResponse {
 }
 
 /**
+ * @public
  * <p>The CPU options for the instance.</p>
  */
 export interface LaunchTemplateCpuOptions {
@@ -5857,9 +6624,16 @@ export interface LaunchTemplateCpuOptions {
    * <p>The number of threads per CPU core.</p>
    */
   ThreadsPerCore?: number;
+
+  /**
+   * <p>Indicates whether the instance is enabled for
+   *             AMD SEV-SNP.</p>
+   */
+  AmdSevSnp?: AmdSevSnpSpecification | string;
 }
 
 /**
+ * @public
  * <p>Describes the credit option for CPU usage of a T instance.</p>
  */
 export interface CreditSpecification {
@@ -5872,6 +6646,7 @@ export interface CreditSpecification {
 }
 
 /**
+ * @public
  * <p>Describes an elastic GPU.</p>
  */
 export interface ElasticGpuSpecificationResponse {
@@ -5882,6 +6657,7 @@ export interface ElasticGpuSpecificationResponse {
 }
 
 /**
+ * @public
  * <p> Describes an elastic inference accelerator. </p>
  */
 export interface LaunchTemplateElasticInferenceAcceleratorResponse {
@@ -5899,6 +6675,7 @@ export interface LaunchTemplateElasticInferenceAcceleratorResponse {
 }
 
 /**
+ * @public
  * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
  */
 export interface LaunchTemplateEnclaveOptions {
@@ -5910,6 +6687,7 @@ export interface LaunchTemplateEnclaveOptions {
 }
 
 /**
+ * @public
  * <p>Indicates whether an instance is configured for hibernation.</p>
  */
 export interface LaunchTemplateHibernationOptions {
@@ -5921,6 +6699,7 @@ export interface LaunchTemplateHibernationOptions {
 }
 
 /**
+ * @public
  * <p>Describes an IAM instance profile.</p>
  */
 export interface LaunchTemplateIamInstanceProfileSpecification {
@@ -5936,6 +6715,7 @@ export interface LaunchTemplateIamInstanceProfileSpecification {
 }
 
 /**
+ * @public
  * <p>The options for Spot Instances.</p>
  */
 export interface LaunchTemplateSpotMarketOptions {
@@ -5976,6 +6756,7 @@ export interface LaunchTemplateSpotMarketOptions {
 }
 
 /**
+ * @public
  * <p>The market (purchasing) option for the instances.</p>
  */
 export interface LaunchTemplateInstanceMarketOptions {
@@ -5991,6 +6772,7 @@ export interface LaunchTemplateInstanceMarketOptions {
 }
 
 /**
+ * @public
  * <p>Describes a license configuration.</p>
  */
 export interface LaunchTemplateLicenseConfiguration {
@@ -6001,6 +6783,7 @@ export interface LaunchTemplateLicenseConfiguration {
 }
 
 /**
+ * @public
  * <p>The maintenance options of your instance.</p>
  */
 export interface LaunchTemplateInstanceMaintenanceOptions {
@@ -6011,12 +6794,23 @@ export interface LaunchTemplateInstanceMaintenanceOptions {
   AutoRecovery?: LaunchTemplateAutoRecoveryState | string;
 }
 
-export enum LaunchTemplateInstanceMetadataOptionsState {
-  applied = "applied",
-  pending = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LaunchTemplateInstanceMetadataOptionsState = {
+  applied: "applied",
+  pending: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type LaunchTemplateInstanceMetadataOptionsState =
+  (typeof LaunchTemplateInstanceMetadataOptionsState)[keyof typeof LaunchTemplateInstanceMetadataOptionsState];
+
+/**
+ * @public
  * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
  *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
@@ -6085,6 +6879,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
 }
 
 /**
+ * @public
  * <p>Describes the monitoring for the instance.</p>
  */
 export interface LaunchTemplatesMonitoring {
@@ -6096,6 +6891,7 @@ export interface LaunchTemplatesMonitoring {
 }
 
 /**
+ * @public
  * <p>Information about the IPv4 delegated prefixes assigned
  *             to a network interface.</p>
  */
@@ -6107,6 +6903,7 @@ export interface Ipv4PrefixSpecificationResponse {
 }
 
 /**
+ * @public
  * <p>Describes an IPv6 address.</p>
  */
 export interface InstanceIpv6Address {
@@ -6117,6 +6914,7 @@ export interface InstanceIpv6Address {
 }
 
 /**
+ * @public
  * <p>Information about the IPv6 delegated prefixes assigned
  *             to a network interface.</p>
  */
@@ -6128,6 +6926,7 @@ export interface Ipv6PrefixSpecificationResponse {
 }
 
 /**
+ * @public
  * <p>Describes a network interface.</p>
  */
 export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
@@ -6237,6 +7036,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
 }
 
 /**
+ * @public
  * <p>Describes the placement of an instance.</p>
  */
 export interface LaunchTemplatePlacement {
@@ -6261,7 +7061,7 @@ export interface LaunchTemplatePlacement {
   HostId?: string;
 
   /**
-   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
+   * <p>The tenancy of the instance. An instance with a
    *             tenancy of <code>dedicated</code> runs on single-tenant hardware. </p>
    */
   Tenancy?: Tenancy | string;
@@ -6290,6 +7090,7 @@ export interface LaunchTemplatePlacement {
 }
 
 /**
+ * @public
  * <p>Describes the options for instance hostnames.</p>
  */
 export interface LaunchTemplatePrivateDnsNameOptions {
@@ -6312,6 +7113,7 @@ export interface LaunchTemplatePrivateDnsNameOptions {
 }
 
 /**
+ * @public
  * <p>The tags specification for the launch template.</p>
  */
 export interface LaunchTemplateTagSpecification {
@@ -6327,6 +7129,7 @@ export interface LaunchTemplateTagSpecification {
 }
 
 /**
+ * @public
  * <p>The information for a launch template. </p>
  */
 export interface ResponseLaunchTemplateData {
@@ -6517,6 +7320,7 @@ export interface ResponseLaunchTemplateData {
 }
 
 /**
+ * @public
  * <p>Describes a launch template version.</p>
  */
 export interface LaunchTemplateVersion {
@@ -6561,6 +7365,9 @@ export interface LaunchTemplateVersion {
   LaunchTemplateData?: ResponseLaunchTemplateData;
 }
 
+/**
+ * @public
+ */
 export interface CreateLaunchTemplateVersionResult {
   /**
    * <p>Information about the launch template version.</p>
@@ -6575,6 +7382,9 @@ export interface CreateLaunchTemplateVersionResult {
   Warning?: ValidationWarning;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocalGatewayRouteRequest {
   /**
    * <p>The CIDR range used for destination matches. Routing decisions are based on
@@ -6613,20 +7423,39 @@ export interface CreateLocalGatewayRouteRequest {
   DestinationPrefixListId?: string;
 }
 
-export enum LocalGatewayRouteState {
-  active = "active",
-  blackhole = "blackhole",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
-
-export enum LocalGatewayRouteType {
-  propagated = "propagated",
-  static = "static",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LocalGatewayRouteState = {
+  active: "active",
+  blackhole: "blackhole",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type LocalGatewayRouteState = (typeof LocalGatewayRouteState)[keyof typeof LocalGatewayRouteState];
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalGatewayRouteType = {
+  propagated: "propagated",
+  static: "static",
+} as const;
+
+/**
+ * @public
+ */
+export type LocalGatewayRouteType = (typeof LocalGatewayRouteType)[keyof typeof LocalGatewayRouteType];
+
+/**
+ * @public
  * <p>Describes a route for a local gateway route table.</p>
  */
 export interface LocalGatewayRoute {
@@ -6688,6 +7517,9 @@ export interface LocalGatewayRoute {
   DestinationPrefixListId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocalGatewayRouteResult {
   /**
    * <p>Information about the route.</p>
@@ -6695,11 +7527,23 @@ export interface CreateLocalGatewayRouteResult {
   Route?: LocalGatewayRoute;
 }
 
-export enum LocalGatewayRouteTableMode {
-  coip = "coip",
-  direct_vpc_routing = "direct-vpc-routing",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LocalGatewayRouteTableMode = {
+  coip: "coip",
+  direct_vpc_routing: "direct-vpc-routing",
+} as const;
 
+/**
+ * @public
+ */
+export type LocalGatewayRouteTableMode = (typeof LocalGatewayRouteTableMode)[keyof typeof LocalGatewayRouteTableMode];
+
+/**
+ * @public
+ */
 export interface CreateLocalGatewayRouteTableRequest {
   /**
    * <p>
@@ -6731,6 +7575,7 @@ export interface CreateLocalGatewayRouteTableRequest {
 }
 
 /**
+ * @public
  * <p>Describes a state change.</p>
  */
 export interface StateReason {
@@ -6813,6 +7658,7 @@ export interface StateReason {
 }
 
 /**
+ * @public
  * <p>Describes a local gateway route table.</p>
  */
 export interface LocalGatewayRouteTable {
@@ -6862,6 +7708,9 @@ export interface LocalGatewayRouteTable {
   StateReason?: StateReason;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocalGatewayRouteTableResult {
   /**
    * <p>Information about the local gateway route table.</p>
@@ -6869,6 +7718,9 @@ export interface CreateLocalGatewayRouteTableResult {
   LocalGatewayRouteTable?: LocalGatewayRouteTable;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
   /**
    * <p>
@@ -6900,6 +7752,7 @@ export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationReq
 }
 
 /**
+ * @public
  * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
  */
 export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
@@ -6944,6 +7797,9 @@ export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
   /**
    * <p>Information about the local gateway route table virtual interface group association.</p>
@@ -6951,6 +7807,9 @@ export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRes
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation;
 }
 
+/**
+ * @public
+ */
 export interface CreateLocalGatewayRouteTableVpcAssociationRequest {
   /**
    * <p>The ID of the local gateway route table.</p>
@@ -6976,6 +7835,7 @@ export interface CreateLocalGatewayRouteTableVpcAssociationRequest {
 }
 
 /**
+ * @public
  * <p>Describes an association between a local gateway route table and a VPC.</p>
  */
 export interface LocalGatewayRouteTableVpcAssociation {
@@ -7020,6 +7880,9 @@ export interface LocalGatewayRouteTableVpcAssociation {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateLocalGatewayRouteTableVpcAssociationResult {
   /**
    * <p>Information about the association.</p>
@@ -7027,6 +7890,9 @@ export interface CreateLocalGatewayRouteTableVpcAssociationResult {
   LocalGatewayRouteTableVpcAssociation?: LocalGatewayRouteTableVpcAssociation;
 }
 
+/**
+ * @public
+ */
 export interface CreateManagedPrefixListRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -7072,22 +7938,32 @@ export interface CreateManagedPrefixListRequest {
   ClientToken?: string;
 }
 
-export enum PrefixListState {
-  create_complete = "create-complete",
-  create_failed = "create-failed",
-  create_in_progress = "create-in-progress",
-  delete_complete = "delete-complete",
-  delete_failed = "delete-failed",
-  delete_in_progress = "delete-in-progress",
-  modify_complete = "modify-complete",
-  modify_failed = "modify-failed",
-  modify_in_progress = "modify-in-progress",
-  restore_complete = "restore-complete",
-  restore_failed = "restore-failed",
-  restore_in_progress = "restore-in-progress",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PrefixListState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+  modify_complete: "modify-complete",
+  modify_failed: "modify-failed",
+  modify_in_progress: "modify-in-progress",
+  restore_complete: "restore-complete",
+  restore_failed: "restore-failed",
+  restore_in_progress: "restore-in-progress",
+} as const;
 
 /**
+ * @public
+ */
+export type PrefixListState = (typeof PrefixListState)[keyof typeof PrefixListState];
+
+/**
+ * @public
  * <p>Describes a managed prefix list.</p>
  */
 export interface ManagedPrefixList {
@@ -7142,6 +8018,9 @@ export interface ManagedPrefixList {
   OwnerId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateManagedPrefixListResult {
   /**
    * <p>Information about the prefix list.</p>
@@ -7149,11 +8028,23 @@ export interface CreateManagedPrefixListResult {
   PrefixList?: ManagedPrefixList;
 }
 
-export enum ConnectivityType {
-  PRIVATE = "private",
-  PUBLIC = "public",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConnectivityType = {
+  PRIVATE: "private",
+  PUBLIC: "public",
+} as const;
 
+/**
+ * @public
+ */
+export type ConnectivityType = (typeof ConnectivityType)[keyof typeof ConnectivityType];
+
+/**
+ * @public
+ */
 export interface CreateNatGatewayRequest {
   /**
    * <p>[Public NAT gateways only] The allocation ID of an Elastic IP address to associate
@@ -7215,6 +8106,7 @@ export interface CreateNatGatewayRequest {
 }
 
 /**
+ * @public
  * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
  */
 export interface ProvisionedBandwidth {
@@ -7244,15 +8136,25 @@ export interface ProvisionedBandwidth {
   Status?: string;
 }
 
-export enum NatGatewayState {
-  AVAILABLE = "available",
-  DELETED = "deleted",
-  DELETING = "deleting",
-  FAILED = "failed",
-  PENDING = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NatGatewayState = {
+  AVAILABLE: "available",
+  DELETED: "deleted",
+  DELETING: "deleting",
+  FAILED: "failed",
+  PENDING: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type NatGatewayState = (typeof NatGatewayState)[keyof typeof NatGatewayState];
+
+/**
+ * @public
  * <p>Describes a NAT gateway.</p>
  */
 export interface NatGateway {
@@ -7368,6 +8270,9 @@ export interface NatGateway {
   ConnectivityType?: ConnectivityType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateNatGatewayResult {
   /**
    * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
@@ -7380,6 +8285,9 @@ export interface CreateNatGatewayResult {
   NatGateway?: NatGateway;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkAclRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -7400,6 +8308,7 @@ export interface CreateNetworkAclRequest {
 }
 
 /**
+ * @public
  * <p>Describes an association between a network ACL and a subnet.</p>
  */
 export interface NetworkAclAssociation {
@@ -7420,6 +8329,7 @@ export interface NetworkAclAssociation {
 }
 
 /**
+ * @public
  * <p>Describes the ICMP type and code.</p>
  */
 export interface IcmpTypeCode {
@@ -7434,12 +8344,22 @@ export interface IcmpTypeCode {
   Type?: number;
 }
 
-export enum RuleAction {
-  allow = "allow",
-  deny = "deny",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RuleAction = {
+  allow: "allow",
+  deny: "deny",
+} as const;
 
 /**
+ * @public
+ */
+export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
+
+/**
+ * @public
  * <p>Describes an entry in a network ACL.</p>
  */
 export interface NetworkAclEntry {
@@ -7485,6 +8405,7 @@ export interface NetworkAclEntry {
 }
 
 /**
+ * @public
  * <p>Describes a network ACL.</p>
  */
 export interface NetworkAcl {
@@ -7524,6 +8445,9 @@ export interface NetworkAcl {
   OwnerId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkAclResult {
   /**
    * <p>Information about the network ACL.</p>
@@ -7531,6 +8455,9 @@ export interface CreateNetworkAclResult {
   NetworkAcl?: NetworkAcl;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkAclEntryRequest {
   /**
    * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
@@ -7595,6 +8522,9 @@ export interface CreateNetworkAclEntryRequest {
   RuleNumber: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkInsightsAccessScopeRequest {
   /**
    * <p>The paths to match.</p>
@@ -7626,6 +8556,7 @@ export interface CreateNetworkInsightsAccessScopeRequest {
 }
 
 /**
+ * @public
  * <p>Describes a Network Access Scope.</p>
  */
 export interface NetworkInsightsAccessScope {
@@ -7656,6 +8587,7 @@ export interface NetworkInsightsAccessScope {
 }
 
 /**
+ * @public
  * <p>Describes the Network Access Scope content.</p>
  */
 export interface NetworkInsightsAccessScopeContent {
@@ -7675,6 +8607,9 @@ export interface NetworkInsightsAccessScopeContent {
   ExcludePaths?: AccessScopePath[];
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkInsightsAccessScopeResult {
   /**
    * <p>The Network Access Scope.</p>
@@ -7688,6 +8623,7 @@ export interface CreateNetworkInsightsAccessScopeResult {
 }
 
 /**
+ * @public
  * <p>Describes a port range.</p>
  */
 export interface RequestFilterPortRange {
@@ -7703,6 +8639,7 @@ export interface RequestFilterPortRange {
 }
 
 /**
+ * @public
  * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
  *          there can be multiple resulting paths.</p>
  */
@@ -7728,6 +8665,9 @@ export interface PathRequestFilter {
   DestinationPortRange?: RequestFilterPortRange;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkInsightsPathRequest {
   /**
    * <p>The IP address of the source.</p>
@@ -7791,6 +8731,7 @@ export interface CreateNetworkInsightsPathRequest {
 }
 
 /**
+ * @public
  * <p>Describes a port range.</p>
  */
 export interface FilterPortRange {
@@ -7806,6 +8747,7 @@ export interface FilterPortRange {
 }
 
 /**
+ * @public
  * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
  *           there can be multiple resulting paths.</p>
  */
@@ -7832,6 +8774,7 @@ export interface PathFilter {
 }
 
 /**
+ * @public
  * <p>Describes a path.</p>
  */
 export interface NetworkInsightsPath {
@@ -7906,6 +8849,9 @@ export interface NetworkInsightsPath {
   FilterAtDestination?: PathFilter;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkInsightsPathResult {
   /**
    * <p>Information about the path.</p>
@@ -7913,12 +8859,25 @@ export interface CreateNetworkInsightsPathResult {
   NetworkInsightsPath?: NetworkInsightsPath;
 }
 
-export enum NetworkInterfaceCreationType {
-  branch = "branch",
-  efa = "efa",
-  trunk = "trunk",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfaceCreationType = {
+  branch: "branch",
+  efa: "efa",
+  trunk: "trunk",
+} as const;
 
+/**
+ * @public
+ */
+export type NetworkInterfaceCreationType =
+  (typeof NetworkInterfaceCreationType)[keyof typeof NetworkInterfaceCreationType];
+
+/**
+ * @public
+ */
 export interface CreateNetworkInterfaceRequest {
   /**
    * <p>A description for the network interface.</p>
@@ -8032,6 +8991,7 @@ export interface CreateNetworkInterfaceRequest {
 }
 
 /**
+ * @public
  * <p>Describes association information for an Elastic IP address (IPv4 only), or a Carrier
  *             IP address (for a network interface which resides in a subnet in a Wavelength
  *             Zone).</p>
@@ -8076,6 +9036,7 @@ export interface NetworkInterfaceAssociation {
 }
 
 /**
+ * @public
  * <p>Describes the ENA Express configuration for UDP traffic on the network interface that's attached to
  * 			the instance.</p>
  */
@@ -8088,6 +9049,7 @@ export interface AttachmentEnaSrdUdpSpecification {
 }
 
 /**
+ * @public
  * <p>Describes the ENA Express configuration for the network interface that's attached to the instance.</p>
  */
 export interface AttachmentEnaSrdSpecification {
@@ -8104,6 +9066,7 @@ export interface AttachmentEnaSrdSpecification {
 }
 
 /**
+ * @public
  * <p>Describes a network interface attachment.</p>
  */
 export interface NetworkInterfaceAttachment {
@@ -8154,6 +9117,7 @@ export interface NetworkInterfaceAttachment {
 }
 
 /**
+ * @public
  * <p>Describes a security group.</p>
  */
 export interface GroupIdentifier {
@@ -8168,27 +9132,37 @@ export interface GroupIdentifier {
   GroupId?: string;
 }
 
-export enum NetworkInterfaceType {
-  api_gateway_managed = "api_gateway_managed",
-  aws_codestar_connections_managed = "aws_codestar_connections_managed",
-  branch = "branch",
-  efa = "efa",
-  gateway_load_balancer = "gateway_load_balancer",
-  gateway_load_balancer_endpoint = "gateway_load_balancer_endpoint",
-  global_accelerator_managed = "global_accelerator_managed",
-  interface = "interface",
-  iot_rules_managed = "iot_rules_managed",
-  lambda = "lambda",
-  load_balancer = "load_balancer",
-  natGateway = "natGateway",
-  network_load_balancer = "network_load_balancer",
-  quicksight = "quicksight",
-  transit_gateway = "transit_gateway",
-  trunk = "trunk",
-  vpc_endpoint = "vpc_endpoint",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfaceType = {
+  api_gateway_managed: "api_gateway_managed",
+  aws_codestar_connections_managed: "aws_codestar_connections_managed",
+  branch: "branch",
+  efa: "efa",
+  gateway_load_balancer: "gateway_load_balancer",
+  gateway_load_balancer_endpoint: "gateway_load_balancer_endpoint",
+  global_accelerator_managed: "global_accelerator_managed",
+  interface: "interface",
+  iot_rules_managed: "iot_rules_managed",
+  lambda: "lambda",
+  load_balancer: "load_balancer",
+  natGateway: "natGateway",
+  network_load_balancer: "network_load_balancer",
+  quicksight: "quicksight",
+  transit_gateway: "transit_gateway",
+  trunk: "trunk",
+  vpc_endpoint: "vpc_endpoint",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
+
+/**
+ * @public
  * <p>Describes an IPv6 address associated with a network interface.</p>
  */
 export interface NetworkInterfaceIpv6Address {
@@ -8199,6 +9173,7 @@ export interface NetworkInterfaceIpv6Address {
 }
 
 /**
+ * @public
  * <p>Describes the IPv6 prefix.</p>
  */
 export interface Ipv6PrefixSpecification {
@@ -8209,6 +9184,7 @@ export interface Ipv6PrefixSpecification {
 }
 
 /**
+ * @public
  * <p>Describes the private IPv4 address of a network interface.</p>
  */
 export interface NetworkInterfacePrivateIpAddress {
@@ -8233,15 +9209,25 @@ export interface NetworkInterfacePrivateIpAddress {
   PrivateIpAddress?: string;
 }
 
-export enum NetworkInterfaceStatus {
-  associated = "associated",
-  attaching = "attaching",
-  available = "available",
-  detaching = "detaching",
-  in_use = "in-use",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfaceStatus = {
+  associated: "associated",
+  attaching: "attaching",
+  available: "available",
+  detaching: "detaching",
+  in_use: "in-use",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkInterfaceStatus = (typeof NetworkInterfaceStatus)[keyof typeof NetworkInterfaceStatus];
+
+/**
+ * @public
  * <p>Describes a network interface.</p>
  */
 export interface NetworkInterface {
@@ -8380,6 +9366,9 @@ export interface NetworkInterface {
   Ipv6Address?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateNetworkInterfaceResult {
   /**
    * <p>Information about the network interface.</p>
@@ -8392,12 +9381,22 @@ export interface CreateNetworkInterfaceResult {
   ClientToken?: string;
 }
 
-export enum InterfacePermissionType {
-  EIP_ASSOCIATE = "EIP-ASSOCIATE",
-  INSTANCE_ATTACH = "INSTANCE-ATTACH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InterfacePermissionType = {
+  EIP_ASSOCIATE: "EIP-ASSOCIATE",
+  INSTANCE_ATTACH: "INSTANCE-ATTACH",
+} as const;
 
 /**
+ * @public
+ */
+export type InterfacePermissionType = (typeof InterfacePermissionType)[keyof typeof InterfacePermissionType];
+
+/**
+ * @public
  * <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
  */
 export interface CreateNetworkInterfacePermissionRequest {
@@ -8429,14 +9428,25 @@ export interface CreateNetworkInterfacePermissionRequest {
   DryRun?: boolean;
 }
 
-export enum NetworkInterfacePermissionStateCode {
-  granted = "granted",
-  pending = "pending",
-  revoked = "revoked",
-  revoking = "revoking",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfacePermissionStateCode = {
+  granted: "granted",
+  pending: "pending",
+  revoked: "revoked",
+  revoking: "revoking",
+} as const;
 
 /**
+ * @public
+ */
+export type NetworkInterfacePermissionStateCode =
+  (typeof NetworkInterfacePermissionStateCode)[keyof typeof NetworkInterfacePermissionStateCode];
+
+/**
+ * @public
  * <p>Describes the state of a network interface permission.</p>
  */
 export interface NetworkInterfacePermissionState {
@@ -8452,6 +9462,7 @@ export interface NetworkInterfacePermissionState {
 }
 
 /**
+ * @public
  * <p>Describes a permission for a network interface.</p>
  */
 export interface NetworkInterfacePermission {
@@ -8487,6 +9498,7 @@ export interface NetworkInterfacePermission {
 }
 
 /**
+ * @public
  * <p>Contains the output of CreateNetworkInterfacePermission.</p>
  */
 export interface CreateNetworkInterfacePermissionResult {
@@ -8496,17 +9508,38 @@ export interface CreateNetworkInterfacePermissionResult {
   InterfacePermission?: NetworkInterfacePermission;
 }
 
-export enum SpreadLevel {
-  host = "host",
-  rack = "rack",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SpreadLevel = {
+  host: "host",
+  rack: "rack",
+} as const;
 
-export enum PlacementStrategy {
-  cluster = "cluster",
-  partition = "partition",
-  spread = "spread",
-}
+/**
+ * @public
+ */
+export type SpreadLevel = (typeof SpreadLevel)[keyof typeof SpreadLevel];
 
+/**
+ * @public
+ * @enum
+ */
+export const PlacementStrategy = {
+  cluster: "cluster",
+  partition: "partition",
+  spread: "spread",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementStrategy = (typeof PlacementStrategy)[keyof typeof PlacementStrategy];
+
+/**
+ * @public
+ */
 export interface CreatePlacementGroupRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -8553,14 +9586,24 @@ export interface CreatePlacementGroupRequest {
   SpreadLevel?: SpreadLevel | string;
 }
 
-export enum PlacementGroupState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PlacementGroupState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
 
 /**
+ * @public
+ */
+export type PlacementGroupState = (typeof PlacementGroupState)[keyof typeof PlacementGroupState];
+
+/**
+ * @public
  * <p>Describes a placement group.</p>
  */
 export interface PlacementGroup {
@@ -8607,6 +9650,9 @@ export interface PlacementGroup {
   SpreadLevel?: SpreadLevel | string;
 }
 
+/**
+ * @public
+ */
 export interface CreatePlacementGroupResult {
   /**
    * <p>Information about the placement group.</p>
@@ -8614,6 +9660,9 @@ export interface CreatePlacementGroupResult {
   PlacementGroup?: PlacementGroup;
 }
 
+/**
+ * @public
+ */
 export interface CreatePublicIpv4PoolRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -8629,6 +9678,9 @@ export interface CreatePublicIpv4PoolRequest {
   TagSpecifications?: TagSpecification[];
 }
 
+/**
+ * @public
+ */
 export interface CreatePublicIpv4PoolResult {
   /**
    * <p>The ID of the public IPv4 pool.</p>
@@ -8636,6 +9688,9 @@ export interface CreatePublicIpv4PoolResult {
   PoolId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateReplaceRootVolumeTaskRequest {
   /**
    * <p>The ID of the instance for which to replace the root volume.</p>
@@ -8689,868 +9744,23 @@ export interface CreateReplaceRootVolumeTaskRequest {
   DeleteReplacedRootVolume?: boolean;
 }
 
-export enum ReplaceRootVolumeTaskState {
-  failed = "failed",
-  failed_detached = "failed-detached",
-  failing = "failing",
-  in_progress = "in-progress",
-  pending = "pending",
-  succeeded = "succeeded",
-}
-
-/**
- * <p>Information about a root volume replacement task.</p>
- */
-export interface ReplaceRootVolumeTask {
-  /**
-   * <p>The ID of the root volume replacement task.</p>
-   */
-  ReplaceRootVolumeTaskId?: string;
-
-  /**
-   * <p>The ID of the instance for which the root volume replacement task was created.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The state of the task. The task can be in one of the following states:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code> - the replacement volume is being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>in-progress</code> - the original volume is being detached and the
-   *           replacement volume is being attached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>succeeded</code> - the replacement volume has been successfully attached
-   *           to the instance and the instance is available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failing</code> - the replacement task is in the process of failing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed</code> - the replacement task has failed but the original root
-   *           volume is still attached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failing-detached</code> - the replacement task is in the process of failing.
-   *           The instance might have no root volume attached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed-detached</code> - the replacement task has failed and the instance
-   *           has no root volume attached.</p>
-   *             </li>
-   *          </ul>
-   */
-  TaskState?: ReplaceRootVolumeTaskState | string;
-
-  /**
-   * <p>The time the task was started.</p>
-   */
-  StartTime?: string;
-
-  /**
-   * <p>The time the task completed.</p>
-   */
-  CompleteTime?: string;
-
-  /**
-   * <p>The tags assigned to the task.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ID of the AMI used to create the replacement root volume.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The ID of the snapshot used to create the replacement root volume.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>Indicates whether the original root volume is to be deleted after the root volume
-   *       replacement task completes.</p>
-   */
-  DeleteReplacedRootVolume?: boolean;
-}
-
-/**
- * @internal
- */
-export const ClientVpnAuthenticationRequestFilterSensitiveLog = (obj: ClientVpnAuthenticationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientConnectOptionsFilterSensitiveLog = (obj: ClientConnectOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientLoginBannerOptionsFilterSensitiveLog = (obj: ClientLoginBannerOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionLogOptionsFilterSensitiveLog = (obj: ConnectionLogOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnEndpointRequestFilterSensitiveLog = (obj: CreateClientVpnEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnEndpointStatusFilterSensitiveLog = (obj: ClientVpnEndpointStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnEndpointResultFilterSensitiveLog = (obj: CreateClientVpnEndpointResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnRouteRequestFilterSensitiveLog = (obj: CreateClientVpnRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnRouteStatusFilterSensitiveLog = (obj: ClientVpnRouteStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClientVpnRouteResultFilterSensitiveLog = (obj: CreateClientVpnRouteResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipCidrRequestFilterSensitiveLog = (obj: CreateCoipCidrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoipCidrFilterSensitiveLog = (obj: CoipCidr): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipCidrResultFilterSensitiveLog = (obj: CreateCoipCidrResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipPoolRequestFilterSensitiveLog = (obj: CreateCoipPoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoipPoolFilterSensitiveLog = (obj: CoipPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipPoolResultFilterSensitiveLog = (obj: CreateCoipPoolResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomerGatewayRequestFilterSensitiveLog = (obj: CreateCustomerGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomerGatewayFilterSensitiveLog = (obj: CustomerGateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomerGatewayResultFilterSensitiveLog = (obj: CreateCustomerGatewayResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultSubnetRequestFilterSensitiveLog = (obj: CreateDefaultSubnetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrivateDnsNameOptionsOnLaunchFilterSensitiveLog = (obj: PrivateDnsNameOptionsOnLaunch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultSubnetResultFilterSensitiveLog = (obj: CreateDefaultSubnetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultVpcRequestFilterSensitiveLog = (obj: CreateDefaultVpcRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcFilterSensitiveLog = (obj: Vpc): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultVpcResultFilterSensitiveLog = (obj: CreateDefaultVpcResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NewDhcpConfigurationFilterSensitiveLog = (obj: NewDhcpConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDhcpOptionsRequestFilterSensitiveLog = (obj: CreateDhcpOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DhcpConfigurationFilterSensitiveLog = (obj: DhcpConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DhcpOptionsFilterSensitiveLog = (obj: DhcpOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDhcpOptionsResultFilterSensitiveLog = (obj: CreateDhcpOptionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEgressOnlyInternetGatewayRequestFilterSensitiveLog = (
-  obj: CreateEgressOnlyInternetGatewayRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InternetGatewayAttachmentFilterSensitiveLog = (obj: InternetGatewayAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EgressOnlyInternetGatewayFilterSensitiveLog = (obj: EgressOnlyInternetGateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEgressOnlyInternetGatewayResultFilterSensitiveLog = (
-  obj: CreateEgressOnlyInternetGatewayResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetLaunchTemplateSpecificationRequestFilterSensitiveLog = (
-  obj: FleetLaunchTemplateSpecificationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BaselineEbsBandwidthMbpsRequestFilterSensitiveLog = (obj: BaselineEbsBandwidthMbpsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemoryGiBPerVCpuRequestFilterSensitiveLog = (obj: MemoryGiBPerVCpuRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemoryMiBRequestFilterSensitiveLog = (obj: MemoryMiBRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkBandwidthGbpsRequestFilterSensitiveLog = (obj: NetworkBandwidthGbpsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceCountRequestFilterSensitiveLog = (obj: NetworkInterfaceCountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TotalLocalStorageGBRequestFilterSensitiveLog = (obj: TotalLocalStorageGBRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VCpuCountRangeRequestFilterSensitiveLog = (obj: VCpuCountRangeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceRequirementsRequestFilterSensitiveLog = (obj: InstanceRequirementsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementFilterSensitiveLog = (obj: Placement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetLaunchTemplateOverridesRequestFilterSensitiveLog = (
-  obj: FleetLaunchTemplateOverridesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetLaunchTemplateConfigRequestFilterSensitiveLog = (obj: FleetLaunchTemplateConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityReservationOptionsRequestFilterSensitiveLog = (obj: CapacityReservationOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OnDemandOptionsRequestFilterSensitiveLog = (obj: OnDemandOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetSpotCapacityRebalanceRequestFilterSensitiveLog = (obj: FleetSpotCapacityRebalanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetSpotMaintenanceStrategiesRequestFilterSensitiveLog = (
-  obj: FleetSpotMaintenanceStrategiesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpotOptionsRequestFilterSensitiveLog = (obj: SpotOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetCapacitySpecificationRequestFilterSensitiveLog = (obj: TargetCapacitySpecificationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetRequestFilterSensitiveLog = (obj: CreateFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetLaunchTemplateSpecificationFilterSensitiveLog = (obj: FleetLaunchTemplateSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BaselineEbsBandwidthMbpsFilterSensitiveLog = (obj: BaselineEbsBandwidthMbps): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemoryGiBPerVCpuFilterSensitiveLog = (obj: MemoryGiBPerVCpu): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemoryMiBFilterSensitiveLog = (obj: MemoryMiB): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkBandwidthGbpsFilterSensitiveLog = (obj: NetworkBandwidthGbps): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceCountFilterSensitiveLog = (obj: NetworkInterfaceCount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TotalLocalStorageGBFilterSensitiveLog = (obj: TotalLocalStorageGB): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VCpuCountRangeFilterSensitiveLog = (obj: VCpuCountRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceRequirementsFilterSensitiveLog = (obj: InstanceRequirements): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementResponseFilterSensitiveLog = (obj: PlacementResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FleetLaunchTemplateOverridesFilterSensitiveLog = (obj: FleetLaunchTemplateOverrides): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateAndOverridesResponseFilterSensitiveLog = (obj: LaunchTemplateAndOverridesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetErrorFilterSensitiveLog = (obj: CreateFleetError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetInstanceFilterSensitiveLog = (obj: CreateFleetInstance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFleetResultFilterSensitiveLog = (obj: CreateFleetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DestinationOptionsRequestFilterSensitiveLog = (obj: DestinationOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFlowLogsRequestFilterSensitiveLog = (obj: CreateFlowLogsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFlowLogsResultFilterSensitiveLog = (obj: CreateFlowLogsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StorageLocationFilterSensitiveLog = (obj: StorageLocation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFpgaImageRequestFilterSensitiveLog = (obj: CreateFpgaImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFpgaImageResultFilterSensitiveLog = (obj: CreateFpgaImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsBlockDeviceFilterSensitiveLog = (obj: EbsBlockDevice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BlockDeviceMappingFilterSensitiveLog = (obj: BlockDeviceMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateImageRequestFilterSensitiveLog = (obj: CreateImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateImageResultFilterSensitiveLog = (obj: CreateImageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceEventWindowTimeRangeRequestFilterSensitiveLog = (
-  obj: InstanceEventWindowTimeRangeRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInstanceEventWindowRequestFilterSensitiveLog = (obj: CreateInstanceEventWindowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInstanceEventWindowResultFilterSensitiveLog = (obj: CreateInstanceEventWindowResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportToS3TaskSpecificationFilterSensitiveLog = (obj: ExportToS3TaskSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInstanceExportTaskRequestFilterSensitiveLog = (obj: CreateInstanceExportTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportToS3TaskFilterSensitiveLog = (obj: ExportToS3Task): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceExportDetailsFilterSensitiveLog = (obj: InstanceExportDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportTaskFilterSensitiveLog = (obj: ExportTask): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInstanceExportTaskResultFilterSensitiveLog = (obj: CreateInstanceExportTaskResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInternetGatewayRequestFilterSensitiveLog = (obj: CreateInternetGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InternetGatewayFilterSensitiveLog = (obj: InternetGateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateInternetGatewayResultFilterSensitiveLog = (obj: CreateInternetGatewayResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIpamRequestFilterSensitiveLog = (obj: CreateIpamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamOperatingRegionFilterSensitiveLog = (obj: IpamOperatingRegion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamFilterSensitiveLog = (obj: Ipam): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIpamResultFilterSensitiveLog = (obj: CreateIpamResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RequestIpamResourceTagFilterSensitiveLog = (obj: RequestIpamResourceTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIpamPoolRequestFilterSensitiveLog = (obj: CreateIpamPoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamResourceTagFilterSensitiveLog = (obj: IpamResourceTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamPoolFilterSensitiveLog = (obj: IpamPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIpamPoolResultFilterSensitiveLog = (obj: CreateIpamPoolResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIpamResourceDiscoveryRequestFilterSensitiveLog = (obj: CreateIpamResourceDiscoveryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamResourceDiscoveryFilterSensitiveLog = (obj: IpamResourceDiscovery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIpamResourceDiscoveryResultFilterSensitiveLog = (obj: CreateIpamResourceDiscoveryResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIpamScopeRequestFilterSensitiveLog = (obj: CreateIpamScopeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamScopeFilterSensitiveLog = (obj: IpamScope): any => ({
-  ...obj,
-});
-
 /**
- * @internal
+ * @public
+ * @enum
  */
-export const CreateIpamScopeResultFilterSensitiveLog = (obj: CreateIpamScopeResult): any => ({
-  ...obj,
-});
+export const ReplaceRootVolumeTaskState = {
+  failed: "failed",
+  failed_detached: "failed-detached",
+  failing: "failing",
+  in_progress: "in-progress",
+  pending: "pending",
+  succeeded: "succeeded",
+} as const;
 
 /**
- * @internal
+ * @public
  */
-export const CreateKeyPairRequestFilterSensitiveLog = (obj: CreateKeyPairRequest): any => ({
-  ...obj,
-});
+export type ReplaceRootVolumeTaskState = (typeof ReplaceRootVolumeTaskState)[keyof typeof ReplaceRootVolumeTaskState];
 
 /**
  * @internal
@@ -9558,211 +9768,6 @@ export const CreateKeyPairRequestFilterSensitiveLog = (obj: CreateKeyPairRequest
 export const KeyPairFilterSensitiveLog = (obj: KeyPair): any => ({
   ...obj,
   ...(obj.KeyMaterial && { KeyMaterial: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateEbsBlockDeviceRequestFilterSensitiveLog = (
-  obj: LaunchTemplateEbsBlockDeviceRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateBlockDeviceMappingRequestFilterSensitiveLog = (
-  obj: LaunchTemplateBlockDeviceMappingRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityReservationTargetFilterSensitiveLog = (obj: CapacityReservationTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateCapacityReservationSpecificationRequestFilterSensitiveLog = (
-  obj: LaunchTemplateCapacityReservationSpecificationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateCpuOptionsRequestFilterSensitiveLog = (obj: LaunchTemplateCpuOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreditSpecificationRequestFilterSensitiveLog = (obj: CreditSpecificationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticGpuSpecificationFilterSensitiveLog = (obj: ElasticGpuSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateElasticInferenceAcceleratorFilterSensitiveLog = (
-  obj: LaunchTemplateElasticInferenceAccelerator
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateEnclaveOptionsRequestFilterSensitiveLog = (
-  obj: LaunchTemplateEnclaveOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateHibernationOptionsRequestFilterSensitiveLog = (
-  obj: LaunchTemplateHibernationOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateIamInstanceProfileSpecificationRequestFilterSensitiveLog = (
-  obj: LaunchTemplateIamInstanceProfileSpecificationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateSpotMarketOptionsRequestFilterSensitiveLog = (
-  obj: LaunchTemplateSpotMarketOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateInstanceMarketOptionsRequestFilterSensitiveLog = (
-  obj: LaunchTemplateInstanceMarketOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateLicenseConfigurationRequestFilterSensitiveLog = (
-  obj: LaunchTemplateLicenseConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateInstanceMaintenanceOptionsRequestFilterSensitiveLog = (
-  obj: LaunchTemplateInstanceMaintenanceOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateInstanceMetadataOptionsRequestFilterSensitiveLog = (
-  obj: LaunchTemplateInstanceMetadataOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplatesMonitoringRequestFilterSensitiveLog = (obj: LaunchTemplatesMonitoringRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv4PrefixSpecificationRequestFilterSensitiveLog = (obj: Ipv4PrefixSpecificationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceIpv6AddressRequestFilterSensitiveLog = (obj: InstanceIpv6AddressRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv6PrefixSpecificationRequestFilterSensitiveLog = (obj: Ipv6PrefixSpecificationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrivateIpAddressSpecificationFilterSensitiveLog = (obj: PrivateIpAddressSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateInstanceNetworkInterfaceSpecificationRequestFilterSensitiveLog = (
-  obj: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplatePlacementRequestFilterSensitiveLog = (obj: LaunchTemplatePlacementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplatePrivateDnsNameOptionsRequestFilterSensitiveLog = (
-  obj: LaunchTemplatePrivateDnsNameOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateTagSpecificationRequestFilterSensitiveLog = (
-  obj: LaunchTemplateTagSpecificationRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -9783,221 +9788,9 @@ export const CreateLaunchTemplateRequestFilterSensitiveLog = (obj: CreateLaunchT
 /**
  * @internal
  */
-export const LaunchTemplateFilterSensitiveLog = (obj: LaunchTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationErrorFilterSensitiveLog = (obj: ValidationError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationWarningFilterSensitiveLog = (obj: ValidationWarning): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLaunchTemplateResultFilterSensitiveLog = (obj: CreateLaunchTemplateResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateLaunchTemplateVersionRequestFilterSensitiveLog = (obj: CreateLaunchTemplateVersionRequest): any => ({
   ...obj,
   ...(obj.LaunchTemplateData && { LaunchTemplateData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateEbsBlockDeviceFilterSensitiveLog = (obj: LaunchTemplateEbsBlockDevice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateBlockDeviceMappingFilterSensitiveLog = (obj: LaunchTemplateBlockDeviceMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CapacityReservationTargetResponseFilterSensitiveLog = (obj: CapacityReservationTargetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateCapacityReservationSpecificationResponseFilterSensitiveLog = (
-  obj: LaunchTemplateCapacityReservationSpecificationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateCpuOptionsFilterSensitiveLog = (obj: LaunchTemplateCpuOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreditSpecificationFilterSensitiveLog = (obj: CreditSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticGpuSpecificationResponseFilterSensitiveLog = (obj: ElasticGpuSpecificationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateElasticInferenceAcceleratorResponseFilterSensitiveLog = (
-  obj: LaunchTemplateElasticInferenceAcceleratorResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateEnclaveOptionsFilterSensitiveLog = (obj: LaunchTemplateEnclaveOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateHibernationOptionsFilterSensitiveLog = (obj: LaunchTemplateHibernationOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateIamInstanceProfileSpecificationFilterSensitiveLog = (
-  obj: LaunchTemplateIamInstanceProfileSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateSpotMarketOptionsFilterSensitiveLog = (obj: LaunchTemplateSpotMarketOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateInstanceMarketOptionsFilterSensitiveLog = (
-  obj: LaunchTemplateInstanceMarketOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateLicenseConfigurationFilterSensitiveLog = (obj: LaunchTemplateLicenseConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateInstanceMaintenanceOptionsFilterSensitiveLog = (
-  obj: LaunchTemplateInstanceMaintenanceOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateInstanceMetadataOptionsFilterSensitiveLog = (
-  obj: LaunchTemplateInstanceMetadataOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplatesMonitoringFilterSensitiveLog = (obj: LaunchTemplatesMonitoring): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv4PrefixSpecificationResponseFilterSensitiveLog = (obj: Ipv4PrefixSpecificationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceIpv6AddressFilterSensitiveLog = (obj: InstanceIpv6Address): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv6PrefixSpecificationResponseFilterSensitiveLog = (obj: Ipv6PrefixSpecificationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateInstanceNetworkInterfaceSpecificationFilterSensitiveLog = (
-  obj: LaunchTemplateInstanceNetworkInterfaceSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplatePlacementFilterSensitiveLog = (obj: LaunchTemplatePlacement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplatePrivateDnsNameOptionsFilterSensitiveLog = (
-  obj: LaunchTemplatePrivateDnsNameOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchTemplateTagSpecificationFilterSensitiveLog = (obj: LaunchTemplateTagSpecification): any => ({
-  ...obj,
 });
 
 /**
@@ -10026,446 +9819,4 @@ export const CreateLaunchTemplateVersionResultFilterSensitiveLog = (obj: CreateL
   ...(obj.LaunchTemplateVersion && {
     LaunchTemplateVersion: LaunchTemplateVersionFilterSensitiveLog(obj.LaunchTemplateVersion),
   }),
-});
-
-/**
- * @internal
- */
-export const CreateLocalGatewayRouteRequestFilterSensitiveLog = (obj: CreateLocalGatewayRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalGatewayRouteFilterSensitiveLog = (obj: LocalGatewayRoute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocalGatewayRouteResultFilterSensitiveLog = (obj: CreateLocalGatewayRouteResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocalGatewayRouteTableRequestFilterSensitiveLog = (
-  obj: CreateLocalGatewayRouteTableRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StateReasonFilterSensitiveLog = (obj: StateReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalGatewayRouteTableFilterSensitiveLog = (obj: LocalGatewayRouteTable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocalGatewayRouteTableResultFilterSensitiveLog = (obj: CreateLocalGatewayRouteTableResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestFilterSensitiveLog = (
-  obj: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalGatewayRouteTableVirtualInterfaceGroupAssociationFilterSensitiveLog = (
-  obj: LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultFilterSensitiveLog = (
-  obj: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocalGatewayRouteTableVpcAssociationRequestFilterSensitiveLog = (
-  obj: CreateLocalGatewayRouteTableVpcAssociationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalGatewayRouteTableVpcAssociationFilterSensitiveLog = (
-  obj: LocalGatewayRouteTableVpcAssociation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateLocalGatewayRouteTableVpcAssociationResultFilterSensitiveLog = (
-  obj: CreateLocalGatewayRouteTableVpcAssociationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateManagedPrefixListRequestFilterSensitiveLog = (obj: CreateManagedPrefixListRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ManagedPrefixListFilterSensitiveLog = (obj: ManagedPrefixList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateManagedPrefixListResultFilterSensitiveLog = (obj: CreateManagedPrefixListResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNatGatewayRequestFilterSensitiveLog = (obj: CreateNatGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedBandwidthFilterSensitiveLog = (obj: ProvisionedBandwidth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NatGatewayFilterSensitiveLog = (obj: NatGateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNatGatewayResultFilterSensitiveLog = (obj: CreateNatGatewayResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkAclRequestFilterSensitiveLog = (obj: CreateNetworkAclRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkAclAssociationFilterSensitiveLog = (obj: NetworkAclAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IcmpTypeCodeFilterSensitiveLog = (obj: IcmpTypeCode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkAclEntryFilterSensitiveLog = (obj: NetworkAclEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkAclFilterSensitiveLog = (obj: NetworkAcl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkAclResultFilterSensitiveLog = (obj: CreateNetworkAclResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkAclEntryRequestFilterSensitiveLog = (obj: CreateNetworkAclEntryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkInsightsAccessScopeRequestFilterSensitiveLog = (
-  obj: CreateNetworkInsightsAccessScopeRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInsightsAccessScopeFilterSensitiveLog = (obj: NetworkInsightsAccessScope): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInsightsAccessScopeContentFilterSensitiveLog = (obj: NetworkInsightsAccessScopeContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkInsightsAccessScopeResultFilterSensitiveLog = (
-  obj: CreateNetworkInsightsAccessScopeResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RequestFilterPortRangeFilterSensitiveLog = (obj: RequestFilterPortRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PathRequestFilterFilterSensitiveLog = (obj: PathRequestFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkInsightsPathRequestFilterSensitiveLog = (obj: CreateNetworkInsightsPathRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterPortRangeFilterSensitiveLog = (obj: FilterPortRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PathFilterFilterSensitiveLog = (obj: PathFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInsightsPathFilterSensitiveLog = (obj: NetworkInsightsPath): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkInsightsPathResultFilterSensitiveLog = (obj: CreateNetworkInsightsPathResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkInterfaceRequestFilterSensitiveLog = (obj: CreateNetworkInterfaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceAssociationFilterSensitiveLog = (obj: NetworkInterfaceAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachmentEnaSrdUdpSpecificationFilterSensitiveLog = (obj: AttachmentEnaSrdUdpSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttachmentEnaSrdSpecificationFilterSensitiveLog = (obj: AttachmentEnaSrdSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceAttachmentFilterSensitiveLog = (obj: NetworkInterfaceAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GroupIdentifierFilterSensitiveLog = (obj: GroupIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceIpv6AddressFilterSensitiveLog = (obj: NetworkInterfaceIpv6Address): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv6PrefixSpecificationFilterSensitiveLog = (obj: Ipv6PrefixSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfacePrivateIpAddressFilterSensitiveLog = (obj: NetworkInterfacePrivateIpAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkInterfaceResultFilterSensitiveLog = (obj: CreateNetworkInterfaceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkInterfacePermissionRequestFilterSensitiveLog = (
-  obj: CreateNetworkInterfacePermissionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfacePermissionStateFilterSensitiveLog = (obj: NetworkInterfacePermissionState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInterfacePermissionFilterSensitiveLog = (obj: NetworkInterfacePermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNetworkInterfacePermissionResultFilterSensitiveLog = (
-  obj: CreateNetworkInterfacePermissionResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePlacementGroupRequestFilterSensitiveLog = (obj: CreatePlacementGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementGroupFilterSensitiveLog = (obj: PlacementGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePlacementGroupResultFilterSensitiveLog = (obj: CreatePlacementGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePublicIpv4PoolRequestFilterSensitiveLog = (obj: CreatePublicIpv4PoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreatePublicIpv4PoolResultFilterSensitiveLog = (obj: CreatePublicIpv4PoolResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplaceRootVolumeTaskRequestFilterSensitiveLog = (obj: CreateReplaceRootVolumeTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplaceRootVolumeTaskFilterSensitiveLog = (obj: ReplaceRootVolumeTask): any => ({
-  ...obj,
 });

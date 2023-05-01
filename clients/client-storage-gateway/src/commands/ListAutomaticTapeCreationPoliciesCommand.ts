@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListAutomaticTapeCreationPoliciesInput, ListAutomaticTapeCreationPoliciesOutput } from "../models/models_0";
 import {
-  ListAutomaticTapeCreationPoliciesInput,
-  ListAutomaticTapeCreationPoliciesInputFilterSensitiveLog,
-  ListAutomaticTapeCreationPoliciesOutput,
-  ListAutomaticTapeCreationPoliciesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand,
-  serializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand,
+  de_ListAutomaticTapeCreationPoliciesCommand,
+  se_ListAutomaticTapeCreationPoliciesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAutomaticTapeCreationPoliciesCommand}.
  */
 export interface ListAutomaticTapeCreationPoliciesCommandInput extends ListAutomaticTapeCreationPoliciesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAutomaticTapeCreationPoliciesCommand}.
  */
 export interface ListAutomaticTapeCreationPoliciesCommandOutput
@@ -37,6 +36,7 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the automatic tape creation policies for a gateway. If there are no automatic tape
  *          creation policies for the gateway, it returns an empty list.</p>
  *
@@ -47,10 +47,15 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  * import { StorageGatewayClient, ListAutomaticTapeCreationPoliciesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListAutomaticTapeCreationPoliciesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // ListAutomaticTapeCreationPoliciesInput
+ *   GatewayARN: "STRING_VALUE",
+ * };
  * const command = new ListAutomaticTapeCreationPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAutomaticTapeCreationPoliciesCommandInput - {@link ListAutomaticTapeCreationPoliciesCommandInput}
+ * @returns {@link ListAutomaticTapeCreationPoliciesCommandOutput}
  * @see {@link ListAutomaticTapeCreationPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAutomaticTapeCreationPoliciesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -82,6 +87,9 @@ export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAutomaticTapeCreationPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +118,8 @@ export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAutomaticTapeCreationPoliciesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAutomaticTapeCreationPoliciesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +129,24 @@ export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListAutomaticTapeCreationPoliciesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand(input, context);
+    return se_ListAutomaticTapeCreationPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAutomaticTapeCreationPoliciesCommandOutput> {
-    return deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand(output, context);
+    return de_ListAutomaticTapeCreationPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

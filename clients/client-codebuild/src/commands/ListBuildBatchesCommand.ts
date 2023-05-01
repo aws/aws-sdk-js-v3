@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  ListBuildBatchesInput,
-  ListBuildBatchesInputFilterSensitiveLog,
-  ListBuildBatchesOutput,
-  ListBuildBatchesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListBuildBatchesCommand,
-  serializeAws_json1_1ListBuildBatchesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListBuildBatchesInput, ListBuildBatchesOutput } from "../models/models_0";
+import { de_ListBuildBatchesCommand, se_ListBuildBatchesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBuildBatchesCommand}.
  */
 export interface ListBuildBatchesCommandInput extends ListBuildBatchesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBuildBatchesCommand}.
  */
 export interface ListBuildBatchesCommandOutput extends ListBuildBatchesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the identifiers of your build batches in the current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface ListBuildBatchesCommandOutput extends ListBuildBatchesOutput, _
  * import { CodeBuildClient, ListBuildBatchesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListBuildBatchesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // ListBuildBatchesInput
+ *   filter: { // BuildBatchFilter
+ *     status: "STRING_VALUE",
+ *   },
+ *   maxResults: Number("int"),
+ *   sortOrder: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBuildBatchesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBuildBatchesCommandInput - {@link ListBuildBatchesCommandInput}
+ * @returns {@link ListBuildBatchesCommandOutput}
  * @see {@link ListBuildBatchesCommandInput} for command's `input` shape.
  * @see {@link ListBuildBatchesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListBuildBatchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBuildBatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +110,8 @@ export class ListBuildBatchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBuildBatchesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBuildBatchesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +121,18 @@ export class ListBuildBatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBuildBatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBuildBatchesCommand(input, context);
+    return se_ListBuildBatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuildBatchesCommandOutput> {
-    return deserializeAws_json1_1ListBuildBatchesCommand(output, context);
+    return de_ListBuildBatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

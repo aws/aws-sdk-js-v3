@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeIpamScopesRequest,
-  DescribeIpamScopesRequestFilterSensitiveLog,
-  DescribeIpamScopesResult,
-  DescribeIpamScopesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeIpamScopesCommand,
-  serializeAws_ec2DescribeIpamScopesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeIpamScopesRequest, DescribeIpamScopesResult } from "../models/models_4";
+import { de_DescribeIpamScopesCommand, se_DescribeIpamScopesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIpamScopesCommand}.
  */
 export interface DescribeIpamScopesCommandInput extends DescribeIpamScopesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIpamScopesCommand}.
  */
 export interface DescribeIpamScopesCommandOutput extends DescribeIpamScopesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about your IPAM scopes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface DescribeIpamScopesCommandOutput extends DescribeIpamScopesResul
  * import { EC2Client, DescribeIpamScopesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIpamScopesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeIpamScopesRequest
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   IpamScopeIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeIpamScopesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIpamScopesCommandInput - {@link DescribeIpamScopesCommandInput}
+ * @returns {@link DescribeIpamScopesCommandOutput}
  * @see {@link DescribeIpamScopesCommandInput} for command's `input` shape.
  * @see {@link DescribeIpamScopesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +84,9 @@ export class DescribeIpamScopesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIpamScopesCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +115,8 @@ export class DescribeIpamScopesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIpamScopesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIpamScopesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +126,18 @@ export class DescribeIpamScopesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIpamScopesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIpamScopesCommand(input, context);
+    return se_DescribeIpamScopesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpamScopesCommandOutput> {
-    return deserializeAws_ec2DescribeIpamScopesCommand(output, context);
+    return de_DescribeIpamScopesCommand(output, context);
   }
 
   // Start section: command_body_extra

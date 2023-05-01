@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateFileCacheRequest,
-  CreateFileCacheRequestFilterSensitiveLog,
-  CreateFileCacheResponse,
-  CreateFileCacheResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateFileCacheCommand,
-  serializeAws_json1_1CreateFileCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateFileCacheRequest, CreateFileCacheResponse } from "../models/models_0";
+import { de_CreateFileCacheCommand, se_CreateFileCacheCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFileCacheCommand}.
  */
 export interface CreateFileCacheCommandInput extends CreateFileCacheRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFileCacheCommand}.
  */
 export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon File Cache resource.</p>
  *          <p>You can use this operation with a client request token in the request that
  *             Amazon File Cache uses to ensure idempotent creation.
@@ -65,10 +62,55 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  * import { FSxClient, CreateFileCacheCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateFileCacheCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // CreateFileCacheRequest
+ *   ClientRequestToken: "STRING_VALUE",
+ *   FileCacheType: "LUSTRE", // required
+ *   FileCacheTypeVersion: "STRING_VALUE", // required
+ *   StorageCapacity: Number("int"), // required
+ *   SubnetIds: [ // SubnetIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [ // SecurityGroupIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   CopyTagsToDataRepositoryAssociations: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   LustreConfiguration: { // CreateFileCacheLustreConfiguration
+ *     PerUnitStorageThroughput: Number("int"), // required
+ *     DeploymentType: "CACHE_1", // required
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     MetadataConfiguration: { // FileCacheLustreMetadataConfiguration
+ *       StorageCapacity: Number("int"), // required
+ *     },
+ *   },
+ *   DataRepositoryAssociations: [ // CreateFileCacheDataRepositoryAssociations
+ *     { // FileCacheDataRepositoryAssociation
+ *       FileCachePath: "STRING_VALUE", // required
+ *       DataRepositoryPath: "STRING_VALUE", // required
+ *       DataRepositorySubdirectories: [ // SubDirectoriesPaths
+ *         "STRING_VALUE",
+ *       ],
+ *       NFS: { // FileCacheNFSConfiguration
+ *         Version: "NFS3", // required
+ *         DnsIps: [ // RepositoryDnsIps
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateFileCacheCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFileCacheCommandInput - {@link CreateFileCacheCommandInput}
+ * @returns {@link CreateFileCacheCommandOutput}
  * @see {@link CreateFileCacheCommandInput} for command's `input` shape.
  * @see {@link CreateFileCacheCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -116,6 +158,9 @@ export class CreateFileCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFileCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +189,8 @@ export class CreateFileCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFileCacheRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFileCacheResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +200,18 @@ export class CreateFileCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFileCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFileCacheCommand(input, context);
+    return se_CreateFileCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFileCacheCommandOutput> {
-    return deserializeAws_json1_1CreateFileCacheCommand(output, context);
+    return de_CreateFileCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

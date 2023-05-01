@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { GetSubscriptionDefinitionVersionRequest, GetSubscriptionDefinitionVersionResponse } from "../models/models_0";
 import {
-  GetSubscriptionDefinitionVersionRequest,
-  GetSubscriptionDefinitionVersionRequestFilterSensitiveLog,
-  GetSubscriptionDefinitionVersionResponse,
-  GetSubscriptionDefinitionVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand,
-  serializeAws_restJson1GetSubscriptionDefinitionVersionCommand,
+  de_GetSubscriptionDefinitionVersionCommand,
+  se_GetSubscriptionDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSubscriptionDefinitionVersionCommand}.
  */
 export interface GetSubscriptionDefinitionVersionCommandInput extends GetSubscriptionDefinitionVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSubscriptionDefinitionVersionCommand}.
  */
 export interface GetSubscriptionDefinitionVersionCommandOutput
@@ -37,6 +36,7 @@ export interface GetSubscriptionDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves information about a subscription definition version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface GetSubscriptionDefinitionVersionCommandOutput
  * import { GreengrassClient, GetSubscriptionDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetSubscriptionDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // GetSubscriptionDefinitionVersionRequest
+ *   NextToken: "STRING_VALUE",
+ *   SubscriptionDefinitionId: "STRING_VALUE", // required
+ *   SubscriptionDefinitionVersionId: "STRING_VALUE", // required
+ * };
  * const command = new GetSubscriptionDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSubscriptionDefinitionVersionCommandInput - {@link GetSubscriptionDefinitionVersionCommandInput}
+ * @returns {@link GetSubscriptionDefinitionVersionCommandOutput}
  * @see {@link GetSubscriptionDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -74,6 +81,9 @@ export class GetSubscriptionDefinitionVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSubscriptionDefinitionVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +112,8 @@ export class GetSubscriptionDefinitionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSubscriptionDefinitionVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSubscriptionDefinitionVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,18 +123,24 @@ export class GetSubscriptionDefinitionVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSubscriptionDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSubscriptionDefinitionVersionCommand(input, context);
+    return se_GetSubscriptionDefinitionVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSubscriptionDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand(output, context);
+    return de_GetSubscriptionDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

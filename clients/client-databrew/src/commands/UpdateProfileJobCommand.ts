@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  UpdateProfileJobRequest,
-  UpdateProfileJobRequestFilterSensitiveLog,
-  UpdateProfileJobResponse,
-  UpdateProfileJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateProfileJobCommand,
-  serializeAws_restJson1UpdateProfileJobCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateProfileJobRequest, UpdateProfileJobResponse } from "../models/models_0";
+import { de_UpdateProfileJobCommand, se_UpdateProfileJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProfileJobCommand}.
  */
 export interface UpdateProfileJobCommandInput extends UpdateProfileJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProfileJobCommand}.
  */
 export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the definition of an existing profile job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,93 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  * import { DataBrewClient, UpdateProfileJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateProfileJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // UpdateProfileJobRequest
+ *   Configuration: { // ProfileConfiguration
+ *     DatasetStatisticsConfiguration: { // StatisticsConfiguration
+ *       IncludedStatistics: [ // StatisticList
+ *         "STRING_VALUE",
+ *       ],
+ *       Overrides: [ // StatisticOverrideList
+ *         { // StatisticOverride
+ *           Statistic: "STRING_VALUE", // required
+ *           Parameters: { // ParameterMap // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     ProfileColumns: [ // ColumnSelectorList
+ *       { // ColumnSelector
+ *         Regex: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ColumnStatisticsConfigurations: [ // ColumnStatisticsConfigurationList
+ *       { // ColumnStatisticsConfiguration
+ *         Selectors: [
+ *           {
+ *             Regex: "STRING_VALUE",
+ *             Name: "STRING_VALUE",
+ *           },
+ *         ],
+ *         Statistics: {
+ *           IncludedStatistics: [
+ *             "STRING_VALUE",
+ *           ],
+ *           Overrides: [
+ *             {
+ *               Statistic: "STRING_VALUE", // required
+ *               Parameters: { // required
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     EntityDetectorConfiguration: { // EntityDetectorConfiguration
+ *       EntityTypes: [ // EntityTypeList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       AllowedStatistics: [ // AllowedStatisticList
+ *         { // AllowedStatistics
+ *           Statistics: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   EncryptionKeyArn: "STRING_VALUE",
+ *   EncryptionMode: "SSE-KMS" || "SSE-S3",
+ *   Name: "STRING_VALUE", // required
+ *   LogSubscription: "ENABLE" || "DISABLE",
+ *   MaxCapacity: Number("int"),
+ *   MaxRetries: Number("int"),
+ *   OutputLocation: { // S3Location
+ *     Bucket: "STRING_VALUE", // required
+ *     Key: "STRING_VALUE",
+ *     BucketOwner: "STRING_VALUE",
+ *   },
+ *   ValidationConfigurations: [ // ValidationConfigurationList
+ *     { // ValidationConfiguration
+ *       RulesetArn: "STRING_VALUE", // required
+ *       ValidationMode: "CHECK_ALL",
+ *     },
+ *   ],
+ *   RoleArn: "STRING_VALUE", // required
+ *   Timeout: Number("int"),
+ *   JobSample: { // JobSample
+ *     Mode: "FULL_DATASET" || "CUSTOM_ROWS",
+ *     Size: Number("long"),
+ *   },
+ * };
  * const command = new UpdateProfileJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProfileJobCommandInput - {@link UpdateProfileJobCommandInput}
+ * @returns {@link UpdateProfileJobCommandOutput}
  * @see {@link UpdateProfileJobCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -78,6 +158,9 @@ export class UpdateProfileJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProfileJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +189,8 @@ export class UpdateProfileJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProfileJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProfileJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +200,18 @@ export class UpdateProfileJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProfileJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProfileJobCommand(input, context);
+    return se_UpdateProfileJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProfileJobCommandOutput> {
-    return deserializeAws_restJson1UpdateProfileJobCommand(output, context);
+    return de_UpdateProfileJobCommand(output, context);
   }
 
   // Start section: command_body_extra

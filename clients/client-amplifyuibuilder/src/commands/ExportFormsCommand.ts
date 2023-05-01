@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  ExportFormsRequest,
-  ExportFormsRequestFilterSensitiveLog,
-  ExportFormsResponse,
-  ExportFormsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportFormsCommand,
-  serializeAws_restJson1ExportFormsCommand,
-} from "../protocols/Aws_restJson1";
+import { ExportFormsRequest, ExportFormsResponse } from "../models/models_0";
+import { de_ExportFormsCommand, se_ExportFormsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExportFormsCommand}.
  */
 export interface ExportFormsCommandInput extends ExportFormsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExportFormsCommand}.
  */
 export interface ExportFormsCommandOutput extends ExportFormsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Exports form configurations to code that is ready to integrate into an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * import { AmplifyUIBuilderClient, ExportFormsCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, ExportFormsCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = { // ExportFormsRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ExportFormsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExportFormsCommandInput - {@link ExportFormsCommandInput}
+ * @returns {@link ExportFormsCommandOutput}
  * @see {@link ExportFormsCommandInput} for command's `input` shape.
  * @see {@link ExportFormsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -75,6 +79,9 @@ export class ExportFormsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExportFormsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +108,8 @@ export class ExportFormsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportFormsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportFormsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +119,18 @@ export class ExportFormsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportFormsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportFormsCommand(input, context);
+    return se_ExportFormsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportFormsCommandOutput> {
-    return deserializeAws_restJson1ExportFormsCommand(output, context);
+    return de_ExportFormsCommand(output, context);
   }
 
   // Start section: command_body_extra

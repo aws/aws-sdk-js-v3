@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { PutCompositeAlarmInput, PutCompositeAlarmInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryPutCompositeAlarmCommand,
-  serializeAws_queryPutCompositeAlarmCommand,
-} from "../protocols/Aws_query";
+import { PutCompositeAlarmInput } from "../models/models_0";
+import { de_PutCompositeAlarmCommand, se_PutCompositeAlarmCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutCompositeAlarmCommand}.
  */
 export interface PutCompositeAlarmCommandInput extends PutCompositeAlarmInput {}
 /**
+ * @public
+ *
  * The output of {@link PutCompositeAlarmCommand}.
  */
 export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a <i>composite alarm</i>. When you create a composite
  * 			alarm, you specify a rule expression for the alarm that takes into account the alarm
  * 			states of other alarms that you have created. The composite alarm goes into ALARM state
@@ -75,10 +77,36 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, PutCompositeAlarmCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutCompositeAlarmCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // PutCompositeAlarmInput
+ *   ActionsEnabled: true || false,
+ *   AlarmActions: [ // ResourceList
+ *     "STRING_VALUE",
+ *   ],
+ *   AlarmDescription: "STRING_VALUE",
+ *   AlarmName: "STRING_VALUE", // required
+ *   AlarmRule: "STRING_VALUE", // required
+ *   InsufficientDataActions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   OKActions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ActionsSuppressor: "STRING_VALUE",
+ *   ActionsSuppressorWaitPeriod: Number("int"),
+ *   ActionsSuppressorExtensionPeriod: Number("int"),
+ * };
  * const command = new PutCompositeAlarmCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutCompositeAlarmCommandInput - {@link PutCompositeAlarmCommandInput}
+ * @returns {@link PutCompositeAlarmCommandOutput}
  * @see {@link PutCompositeAlarmCommandInput} for command's `input` shape.
  * @see {@link PutCompositeAlarmCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -105,6 +133,9 @@ export class PutCompositeAlarmCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutCompositeAlarmCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +164,8 @@ export class PutCompositeAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutCompositeAlarmInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +175,18 @@ export class PutCompositeAlarmCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutCompositeAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutCompositeAlarmCommand(input, context);
+    return se_PutCompositeAlarmCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCompositeAlarmCommandOutput> {
-    return deserializeAws_queryPutCompositeAlarmCommand(output, context);
+    return de_PutCompositeAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RefreshCacheInput,
-  RefreshCacheInputFilterSensitiveLog,
-  RefreshCacheOutput,
-  RefreshCacheOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RefreshCacheCommand,
-  serializeAws_json1_1RefreshCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { RefreshCacheInput, RefreshCacheOutput } from "../models/models_0";
+import { de_RefreshCacheCommand, se_RefreshCacheCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link RefreshCacheCommand}.
  */
 export interface RefreshCacheCommandInput extends RefreshCacheInput {}
 /**
+ * @public
+ *
  * The output of {@link RefreshCacheCommand}.
  */
 export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Refreshes the cached inventory of objects for the specified file share. This operation
  *          finds objects in the Amazon S3 bucket that were added, removed, or replaced since
  *          the gateway last listed the bucket's contents and cached the results. This operation
@@ -91,10 +88,19 @@ export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __Metadat
  * import { StorageGatewayClient, RefreshCacheCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, RefreshCacheCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // RefreshCacheInput
+ *   FileShareARN: "STRING_VALUE", // required
+ *   FolderList: [ // FolderList
+ *     "STRING_VALUE",
+ *   ],
+ *   Recursive: true || false,
+ * };
  * const command = new RefreshCacheCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RefreshCacheCommandInput - {@link RefreshCacheCommandInput}
+ * @returns {@link RefreshCacheCommandOutput}
  * @see {@link RefreshCacheCommandInput} for command's `input` shape.
  * @see {@link RefreshCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -126,6 +132,9 @@ export class RefreshCacheCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RefreshCacheCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,8 +161,8 @@ export class RefreshCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RefreshCacheInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RefreshCacheOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -163,12 +172,18 @@ export class RefreshCacheCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RefreshCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RefreshCacheCommand(input, context);
+    return se_RefreshCacheCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshCacheCommandOutput> {
-    return deserializeAws_json1_1RefreshCacheCommand(output, context);
+    return de_RefreshCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

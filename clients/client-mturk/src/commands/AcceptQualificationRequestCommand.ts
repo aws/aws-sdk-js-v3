@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AcceptQualificationRequestRequest,
-  AcceptQualificationRequestRequestFilterSensitiveLog,
-  AcceptQualificationRequestResponse,
-  AcceptQualificationRequestResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AcceptQualificationRequestRequest, AcceptQualificationRequestResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1AcceptQualificationRequestCommand,
-  serializeAws_json1_1AcceptQualificationRequestCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AcceptQualificationRequestCommand, se_AcceptQualificationRequestCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptQualificationRequestCommand}.
  */
 export interface AcceptQualificationRequestCommandInput extends AcceptQualificationRequestRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptQualificationRequestCommand}.
  */
 export interface AcceptQualificationRequestCommandOutput extends AcceptQualificationRequestResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>AcceptQualificationRequest</code> operation approves a Worker's request for a Qualification.
  *         </p>
@@ -51,10 +48,16 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  * import { MTurkClient, AcceptQualificationRequestCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, AcceptQualificationRequestCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // AcceptQualificationRequestRequest
+ *   QualificationRequestId: "STRING_VALUE", // required
+ *   IntegerValue: Number("int"),
+ * };
  * const command = new AcceptQualificationRequestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptQualificationRequestCommandInput - {@link AcceptQualificationRequestCommandInput}
+ * @returns {@link AcceptQualificationRequestCommandOutput}
  * @see {@link AcceptQualificationRequestCommandInput} for command's `input` shape.
  * @see {@link AcceptQualificationRequestCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
@@ -84,6 +87,9 @@ export class AcceptQualificationRequestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptQualificationRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class AcceptQualificationRequestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptQualificationRequestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptQualificationRequestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +129,21 @@ export class AcceptQualificationRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptQualificationRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptQualificationRequestCommand(input, context);
+    return se_AcceptQualificationRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptQualificationRequestCommandOutput> {
-    return deserializeAws_json1_1AcceptQualificationRequestCommand(output, context);
+    return de_AcceptQualificationRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

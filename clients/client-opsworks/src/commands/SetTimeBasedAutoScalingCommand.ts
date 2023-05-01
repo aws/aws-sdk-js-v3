@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetTimeBasedAutoScalingRequest, SetTimeBasedAutoScalingRequestFilterSensitiveLog } from "../models/models_0";
+import { SetTimeBasedAutoScalingRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1SetTimeBasedAutoScalingCommand,
-  serializeAws_json1_1SetTimeBasedAutoScalingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetTimeBasedAutoScalingCommand, se_SetTimeBasedAutoScalingCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetTimeBasedAutoScalingCommand}.
  */
 export interface SetTimeBasedAutoScalingCommandInput extends SetTimeBasedAutoScalingRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetTimeBasedAutoScalingCommand}.
  */
 export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specify the time-based auto scaling configuration for a specified instance. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html">Managing
  *         Load with Time-based and Load-based Instances</a>.</p>
@@ -44,10 +46,34 @@ export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {
  * import { OpsWorksClient, SetTimeBasedAutoScalingCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, SetTimeBasedAutoScalingCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // SetTimeBasedAutoScalingRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   AutoScalingSchedule: { // WeeklyAutoScalingSchedule
+ *     Monday: { // DailyAutoScalingSchedule
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Tuesday: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Wednesday: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Thursday: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Friday: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Saturday: "<DailyAutoScalingSchedule>",
+ *     Sunday: "<DailyAutoScalingSchedule>",
+ *   },
+ * };
  * const command = new SetTimeBasedAutoScalingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTimeBasedAutoScalingCommandInput - {@link SetTimeBasedAutoScalingCommandInput}
+ * @returns {@link SetTimeBasedAutoScalingCommandOutput}
  * @see {@link SetTimeBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link SetTimeBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -77,6 +103,9 @@ export class SetTimeBasedAutoScalingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTimeBasedAutoScalingCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +134,8 @@ export class SetTimeBasedAutoScalingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTimeBasedAutoScalingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +145,18 @@ export class SetTimeBasedAutoScalingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTimeBasedAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetTimeBasedAutoScalingCommand(input, context);
+    return se_SetTimeBasedAutoScalingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTimeBasedAutoScalingCommandOutput> {
-    return deserializeAws_json1_1SetTimeBasedAutoScalingCommand(output, context);
+    return de_SetTimeBasedAutoScalingCommand(output, context);
   }
 
   // Start section: command_body_extra

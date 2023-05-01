@@ -19,27 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  CreateIdentityProviderRequest,
-  CreateIdentityProviderRequestFilterSensitiveLog,
-  CreateIdentityProviderResponse,
-  CreateIdentityProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateIdentityProviderCommand,
-  serializeAws_json1_1CreateIdentityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateIdentityProviderRequest, CreateIdentityProviderResponse } from "../models/models_0";
+import { de_CreateIdentityProviderCommand, se_CreateIdentityProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIdentityProviderCommand}.
  */
 export interface CreateIdentityProviderCommandInput extends CreateIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIdentityProviderCommand}.
  */
 export interface CreateIdentityProviderCommandOutput extends CreateIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IdP for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -47,10 +44,26 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * import { CognitoIdentityProviderClient, CreateIdentityProviderCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateIdentityProviderCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // CreateIdentityProviderRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ProviderName: "STRING_VALUE", // required
+ *   ProviderType: "SAML" || "Facebook" || "Google" || "LoginWithAmazon" || "SignInWithApple" || "OIDC", // required
+ *   ProviderDetails: { // ProviderDetailsType // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AttributeMapping: { // AttributeMappingType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   IdpIdentifiers: [ // IdpIdentifiersListType
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateIdentityProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIdentityProviderCommandInput - {@link CreateIdentityProviderCommandInput}
+ * @returns {@link CreateIdentityProviderCommandOutput}
  * @see {@link CreateIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link CreateIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -100,6 +113,9 @@ export class CreateIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +145,8 @@ export class CreateIdentityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIdentityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIdentityProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +156,18 @@ export class CreateIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateIdentityProviderCommand(input, context);
+    return se_CreateIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIdentityProviderCommandOutput> {
-    return deserializeAws_json1_1CreateIdentityProviderCommand(output, context);
+    return de_CreateIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

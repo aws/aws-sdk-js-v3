@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateXssMatchSetRequest,
-  CreateXssMatchSetRequestFilterSensitiveLog,
-  CreateXssMatchSetResponse,
-  CreateXssMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateXssMatchSetCommand,
-  serializeAws_json1_1CreateXssMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateXssMatchSetRequest, CreateXssMatchSetResponse } from "../models/models_0";
+import { de_CreateXssMatchSetCommand, se_CreateXssMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateXssMatchSetCommand}.
  */
 export interface CreateXssMatchSetCommandInput extends CreateXssMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateXssMatchSetCommand}.
  */
 export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -71,10 +68,16 @@ export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetRespons
  * import { WAFRegionalClient, CreateXssMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateXssMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // CreateXssMatchSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateXssMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateXssMatchSetCommandInput - {@link CreateXssMatchSetCommandInput}
+ * @returns {@link CreateXssMatchSetCommandOutput}
  * @see {@link CreateXssMatchSetCommandInput} for command's `input` shape.
  * @see {@link CreateXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -184,6 +187,9 @@ export class CreateXssMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateXssMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -212,8 +218,8 @@ export class CreateXssMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateXssMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateXssMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -223,12 +229,18 @@ export class CreateXssMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateXssMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateXssMatchSetCommand(input, context);
+    return se_CreateXssMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateXssMatchSetCommandOutput> {
-    return deserializeAws_json1_1CreateXssMatchSetCommand(output, context);
+    return de_CreateXssMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

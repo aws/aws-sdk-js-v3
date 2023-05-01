@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListInventoryEntriesRequest,
-  ListInventoryEntriesRequestFilterSensitiveLog,
-  ListInventoryEntriesResult,
-  ListInventoryEntriesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ListInventoryEntriesCommand,
-  serializeAws_json1_1ListInventoryEntriesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListInventoryEntriesRequest, ListInventoryEntriesResult } from "../models/models_1";
+import { de_ListInventoryEntriesCommand, se_ListInventoryEntriesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListInventoryEntriesCommand}.
  */
 export interface ListInventoryEntriesCommandInput extends ListInventoryEntriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInventoryEntriesCommand}.
  */
 export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A list of inventory items returned by the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
  * import { SSMClient, ListInventoryEntriesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListInventoryEntriesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // ListInventoryEntriesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   TypeName: "STRING_VALUE", // required
+ *   Filters: [ // InventoryFilterList
+ *     { // InventoryFilter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // InventoryFilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListInventoryEntriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInventoryEntriesCommandInput - {@link ListInventoryEntriesCommandInput}
+ * @returns {@link ListInventoryEntriesCommandOutput}
  * @see {@link ListInventoryEntriesCommandInput} for command's `input` shape.
  * @see {@link ListInventoryEntriesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -101,6 +115,9 @@ export class ListInventoryEntriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInventoryEntriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +146,8 @@ export class ListInventoryEntriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInventoryEntriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInventoryEntriesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +157,18 @@ export class ListInventoryEntriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInventoryEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListInventoryEntriesCommand(input, context);
+    return se_ListInventoryEntriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInventoryEntriesCommandOutput> {
-    return deserializeAws_json1_1ListInventoryEntriesCommand(output, context);
+    return de_ListInventoryEntriesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  DeleteVoiceConnectorGroupRequest,
-  DeleteVoiceConnectorGroupRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVoiceConnectorGroupCommand,
-  serializeAws_restJson1DeleteVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVoiceConnectorGroupRequest } from "../models/models_0";
+import { de_DeleteVoiceConnectorGroupCommand, se_DeleteVoiceConnectorGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVoiceConnectorGroupCommand}.
  */
 export interface DeleteVoiceConnectorGroupCommandInput extends DeleteVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVoiceConnectorGroupCommand}.
  */
 export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified Amazon Chime Voice Connector group. Any
  * <code>VoiceConnectorItems</code>
  * and phone numbers associated with the group must be removed before it can be deleted.</p>
@@ -42,10 +41,15 @@ export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer
  * import { ChimeClient, DeleteVoiceConnectorGroupCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DeleteVoiceConnectorGroupRequest
+ *   VoiceConnectorGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVoiceConnectorGroupCommandInput - {@link DeleteVoiceConnectorGroupCommandInput}
+ * @returns {@link DeleteVoiceConnectorGroupCommandOutput}
  * @see {@link DeleteVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -94,6 +98,9 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +129,8 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVoiceConnectorGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,15 +140,21 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVoiceConnectorGroupCommand(input, context);
+    return se_DeleteVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteVoiceConnectorGroupCommand(output, context);
+    return de_DeleteVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

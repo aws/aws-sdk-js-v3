@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CloseInstancePublicPortsRequest,
-  CloseInstancePublicPortsRequestFilterSensitiveLog,
-  CloseInstancePublicPortsResult,
-  CloseInstancePublicPortsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CloseInstancePublicPortsCommand,
-  serializeAws_json1_1CloseInstancePublicPortsCommand,
-} from "../protocols/Aws_json1_1";
+import { CloseInstancePublicPortsRequest, CloseInstancePublicPortsResult } from "../models/models_0";
+import { de_CloseInstancePublicPortsCommand, se_CloseInstancePublicPortsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CloseInstancePublicPortsCommand}.
  */
 export interface CloseInstancePublicPortsCommandInput extends CloseInstancePublicPortsRequest {}
 /**
+ * @public
+ *
  * The output of {@link CloseInstancePublicPortsCommand}.
  */
 export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePublicPortsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Closes ports for a specific Amazon Lightsail instance.</p>
  *          <p>The <code>CloseInstancePublicPorts</code> action supports tag-based access control via
  *       resource tags applied to the resource identified by <code>instanceName</code>. For more
@@ -45,10 +42,29 @@ export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePubl
  * import { LightsailClient, CloseInstancePublicPortsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CloseInstancePublicPortsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CloseInstancePublicPortsRequest
+ *   portInfo: { // PortInfo
+ *     fromPort: Number("int"),
+ *     toPort: Number("int"),
+ *     protocol: "tcp" || "all" || "udp" || "icmp",
+ *     cidrs: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     ipv6Cidrs: [
+ *       "STRING_VALUE",
+ *     ],
+ *     cidrListAliases: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new CloseInstancePublicPortsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CloseInstancePublicPortsCommandInput - {@link CloseInstancePublicPortsCommandInput}
+ * @returns {@link CloseInstancePublicPortsCommandOutput}
  * @see {@link CloseInstancePublicPortsCommandInput} for command's `input` shape.
  * @see {@link CloseInstancePublicPortsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -102,6 +118,9 @@ export class CloseInstancePublicPortsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CloseInstancePublicPortsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +149,8 @@ export class CloseInstancePublicPortsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CloseInstancePublicPortsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CloseInstancePublicPortsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +160,18 @@ export class CloseInstancePublicPortsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CloseInstancePublicPortsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CloseInstancePublicPortsCommand(input, context);
+    return se_CloseInstancePublicPortsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseInstancePublicPortsCommandOutput> {
-    return deserializeAws_json1_1CloseInstancePublicPortsCommand(output, context);
+    return de_CloseInstancePublicPortsCommand(output, context);
   }
 
   // Start section: command_body_extra

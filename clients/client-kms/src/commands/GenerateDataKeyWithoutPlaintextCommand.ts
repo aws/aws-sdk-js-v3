@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { GenerateDataKeyWithoutPlaintextRequest, GenerateDataKeyWithoutPlaintextResponse } from "../models/models_0";
 import {
-  GenerateDataKeyWithoutPlaintextRequest,
-  GenerateDataKeyWithoutPlaintextRequestFilterSensitiveLog,
-  GenerateDataKeyWithoutPlaintextResponse,
-  GenerateDataKeyWithoutPlaintextResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand,
-  serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand,
+  de_GenerateDataKeyWithoutPlaintextCommand,
+  se_GenerateDataKeyWithoutPlaintextCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateDataKeyWithoutPlaintextCommand}.
  */
 export interface GenerateDataKeyWithoutPlaintextCommandInput extends GenerateDataKeyWithoutPlaintextRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateDataKeyWithoutPlaintextCommand}.
  */
 export interface GenerateDataKeyWithoutPlaintextCommandOutput
@@ -37,6 +36,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
  *       data key that is encrypted under a symmetric encryption KMS key that you specify. The bytes in
  *       the key are random; they are not related to the caller or to the KMS key.</p>
@@ -62,7 +62,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *       <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data keys, use
  *       the <code>KeySpec</code> parameter.</p>
  *          <p>To generate an SM4 data key (China Regions only), specify a <code>KeySpec</code> value of
- *       <code>AES_128</code> or <code>NumberOfBytes</code> value of <code>128</code>. The symmetric
+ *         <code>AES_128</code> or <code>NumberOfBytes</code> value of <code>16</code>. The symmetric
  *       encryption key used in China Regions to encrypt your data key is an SM4 encryption key.</p>
  *          <p>If the operation succeeds, you will find the encrypted copy of the data key in the
  *         <code>CiphertextBlob</code> field.</p>
@@ -115,10 +115,23 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * import { KMSClient, GenerateDataKeyWithoutPlaintextCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateDataKeyWithoutPlaintextCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // GenerateDataKeyWithoutPlaintextRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   EncryptionContext: { // EncryptionContextType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KeySpec: "AES_256" || "AES_128",
+ *   NumberOfBytes: Number("int"),
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GenerateDataKeyWithoutPlaintextCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateDataKeyWithoutPlaintextCommandInput - {@link GenerateDataKeyWithoutPlaintextCommandInput}
+ * @returns {@link GenerateDataKeyWithoutPlaintextCommandOutput}
  * @see {@link GenerateDataKeyWithoutPlaintextCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyWithoutPlaintextCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -221,6 +234,9 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateDataKeyWithoutPlaintextCommandInput) {
     // Start section: command_constructor
     super();
@@ -249,8 +265,8 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateDataKeyWithoutPlaintextRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateDataKeyWithoutPlaintextResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -260,18 +276,24 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateDataKeyWithoutPlaintextCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand(input, context);
+    return se_GenerateDataKeyWithoutPlaintextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput> {
-    return deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand(output, context);
+    return de_GenerateDataKeyWithoutPlaintextCommand(output, context);
   }
 
   // Start section: command_body_extra

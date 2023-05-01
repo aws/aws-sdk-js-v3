@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateSessionRequest,
-  CreateSessionRequestFilterSensitiveLog,
-  CreateSessionResponse,
-  CreateSessionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateSessionCommand,
-  serializeAws_json1_1CreateSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSessionRequest, CreateSessionResponse } from "../models/models_1";
+import { de_CreateSessionCommand, se_CreateSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSessionCommand}.
  */
 export interface CreateSessionCommandInput extends CreateSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSessionCommand}.
  */
 export interface CreateSessionCommandOutput extends CreateSessionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,40 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * import { GlueClient, CreateSessionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateSessionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateSessionRequest
+ *   Id: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Role: "STRING_VALUE", // required
+ *   Command: { // SessionCommand
+ *     Name: "STRING_VALUE",
+ *     PythonVersion: "STRING_VALUE",
+ *   },
+ *   Timeout: Number("int"),
+ *   IdleTimeout: Number("int"),
+ *   DefaultArguments: { // OrchestrationArgumentsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Connections: { // ConnectionsList
+ *     Connections: [ // OrchestrationStringList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   MaxCapacity: Number("double"),
+ *   NumberOfWorkers: Number("int"),
+ *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ *   SecurityConfiguration: "STRING_VALUE",
+ *   GlueVersion: "STRING_VALUE",
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   RequestOrigin: "STRING_VALUE",
+ * };
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSessionCommandInput - {@link CreateSessionCommandInput}
+ * @returns {@link CreateSessionCommandOutput}
  * @see {@link CreateSessionCommandInput} for command's `input` shape.
  * @see {@link CreateSessionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -93,6 +120,9 @@ export class CreateSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +149,8 @@ export class CreateSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +160,18 @@ export class CreateSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSessionCommand(input, context);
+    return se_CreateSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSessionCommandOutput> {
-    return deserializeAws_json1_1CreateSessionCommand(output, context);
+    return de_CreateSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

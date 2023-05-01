@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AttachClassicLinkVpcRequest,
-  AttachClassicLinkVpcRequestFilterSensitiveLog,
-  AttachClassicLinkVpcResult,
-  AttachClassicLinkVpcResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AttachClassicLinkVpcCommand,
-  serializeAws_ec2AttachClassicLinkVpcCommand,
-} from "../protocols/Aws_ec2";
+import { AttachClassicLinkVpcRequest, AttachClassicLinkVpcResult } from "../models/models_0";
+import { de_AttachClassicLinkVpcCommand, se_AttachClassicLinkVpcCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AttachClassicLinkVpcCommand}.
  */
 export interface AttachClassicLinkVpcCommandInput extends AttachClassicLinkVpcRequest {}
 /**
+ * @public
+ *
  * The output of {@link AttachClassicLinkVpcCommand}.
  */
 export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcResult, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
@@ -51,10 +48,20 @@ export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcR
  * import { EC2Client, AttachClassicLinkVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AttachClassicLinkVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AttachClassicLinkVpcRequest
+ *   DryRun: true || false,
+ *   Groups: [ // GroupIdStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   InstanceId: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE", // required
+ * };
  * const command = new AttachClassicLinkVpcCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AttachClassicLinkVpcCommandInput - {@link AttachClassicLinkVpcCommandInput}
+ * @returns {@link AttachClassicLinkVpcCommandOutput}
  * @see {@link AttachClassicLinkVpcCommandInput} for command's `input` shape.
  * @see {@link AttachClassicLinkVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -78,6 +85,9 @@ export class AttachClassicLinkVpcCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AttachClassicLinkVpcCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +116,8 @@ export class AttachClassicLinkVpcCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachClassicLinkVpcRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachClassicLinkVpcResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +127,18 @@ export class AttachClassicLinkVpcCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachClassicLinkVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AttachClassicLinkVpcCommand(input, context);
+    return se_AttachClassicLinkVpcCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachClassicLinkVpcCommandOutput> {
-    return deserializeAws_ec2AttachClassicLinkVpcCommand(output, context);
+    return de_AttachClassicLinkVpcCommand(output, context);
   }
 
   // Start section: command_body_extra

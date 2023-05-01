@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { CreateRecordingConfigurationRequest, CreateRecordingConfigurationResponse } from "../models/models_0";
 import {
-  CreateRecordingConfigurationRequest,
-  CreateRecordingConfigurationRequestFilterSensitiveLog,
-  CreateRecordingConfigurationResponse,
-  CreateRecordingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRecordingConfigurationCommand,
-  serializeAws_restJson1CreateRecordingConfigurationCommand,
+  de_CreateRecordingConfigurationCommand,
+  se_CreateRecordingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRecordingConfigurationCommand}.
  */
 export interface CreateRecordingConfigurationCommandInput extends CreateRecordingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRecordingConfigurationCommand}.
  */
 export interface CreateRecordingConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface CreateRecordingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new recording configuration, used to enable recording to Amazon S3.</p>
  *          <p>
  *             <b>Known issue:</b> In the us-east-1 region, if you use the
@@ -55,10 +55,28 @@ export interface CreateRecordingConfigurationCommandOutput
  * import { IvsClient, CreateRecordingConfigurationCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, CreateRecordingConfigurationCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // CreateRecordingConfigurationRequest
+ *   name: "STRING_VALUE",
+ *   destinationConfiguration: { // DestinationConfiguration
+ *     s3: { // S3DestinationConfiguration
+ *       bucketName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   thumbnailConfiguration: { // ThumbnailConfiguration
+ *     recordingMode: "STRING_VALUE",
+ *     targetIntervalSeconds: Number("long"),
+ *   },
+ *   recordingReconnectWindowSeconds: Number("int"),
+ * };
  * const command = new CreateRecordingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRecordingConfigurationCommandInput - {@link CreateRecordingConfigurationCommandInput}
+ * @returns {@link CreateRecordingConfigurationCommandOutput}
  * @see {@link CreateRecordingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateRecordingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -100,6 +118,9 @@ export class CreateRecordingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRecordingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +149,8 @@ export class CreateRecordingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRecordingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRecordingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +160,21 @@ export class CreateRecordingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRecordingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRecordingConfigurationCommand(input, context);
+    return se_CreateRecordingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRecordingConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateRecordingConfigurationCommand(output, context);
+    return de_CreateRecordingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

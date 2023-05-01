@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateMedicalVocabularyRequest,
-  CreateMedicalVocabularyRequestFilterSensitiveLog,
-  CreateMedicalVocabularyResponse,
-  CreateMedicalVocabularyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateMedicalVocabularyCommand,
-  serializeAws_json1_1CreateMedicalVocabularyCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateMedicalVocabularyRequest, CreateMedicalVocabularyResponse } from "../models/models_0";
+import { de_CreateMedicalVocabularyCommand, se_CreateMedicalVocabularyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMedicalVocabularyCommand}.
  */
 export interface CreateMedicalVocabularyCommandInput extends CreateMedicalVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMedicalVocabularyCommand}.
  */
 export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom medical vocabulary.</p>
  *          <p>Before creating a new custom medical vocabulary, you must first upload a text file
  *             that contains your vocabulary table into an Amazon S3 bucket.
@@ -54,10 +51,23 @@ export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocab
  * import { TranscribeClient, CreateMedicalVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, CreateMedicalVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // CreateMedicalVocabularyRequest
+ *   VocabularyName: "STRING_VALUE", // required
+ *   LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE", // required
+ *   VocabularyFileUri: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMedicalVocabularyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMedicalVocabularyCommandInput - {@link CreateMedicalVocabularyCommandInput}
+ * @returns {@link CreateMedicalVocabularyCommandOutput}
  * @see {@link CreateMedicalVocabularyCommandInput} for command's `input` shape.
  * @see {@link CreateMedicalVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -99,6 +109,9 @@ export class CreateMedicalVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMedicalVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +140,8 @@ export class CreateMedicalVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMedicalVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMedicalVocabularyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +151,18 @@ export class CreateMedicalVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMedicalVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMedicalVocabularyCommand(input, context);
+    return se_CreateMedicalVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMedicalVocabularyCommandOutput> {
-    return deserializeAws_json1_1CreateMedicalVocabularyCommand(output, context);
+    return de_CreateMedicalVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

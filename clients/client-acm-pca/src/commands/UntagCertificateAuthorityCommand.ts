@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import {
-  UntagCertificateAuthorityRequest,
-  UntagCertificateAuthorityRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagCertificateAuthorityCommand,
-  serializeAws_json1_1UntagCertificateAuthorityCommand,
-} from "../protocols/Aws_json1_1";
+import { UntagCertificateAuthorityRequest } from "../models/models_0";
+import { de_UntagCertificateAuthorityCommand, se_UntagCertificateAuthorityCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagCertificateAuthorityCommand}.
  */
 export interface UntagCertificateAuthorityCommandInput extends UntagCertificateAuthorityRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagCertificateAuthorityCommand}.
  */
 export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove one or more tags from your private CA. A tag consists of a key-value pair. If
  * 			you do not specify the value portion of the tag when calling this action, the tag will
  * 			be removed regardless of value. If you specify a value, the tag is removed only if it is
@@ -44,10 +43,21 @@ export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer
  * import { ACMPCAClient, UntagCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, UntagCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = { // UntagCertificateAuthorityRequest
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UntagCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagCertificateAuthorityCommandInput - {@link UntagCertificateAuthorityCommandInput}
+ * @returns {@link UntagCertificateAuthorityCommandOutput}
  * @see {@link UntagCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link UntagCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
@@ -86,6 +96,9 @@ export class UntagCertificateAuthorityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +127,8 @@ export class UntagCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagCertificateAuthorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +138,21 @@ export class UntagCertificateAuthorityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagCertificateAuthorityCommand(input, context);
+    return se_UntagCertificateAuthorityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UntagCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1UntagCertificateAuthorityCommand(output, context);
+    return de_UntagCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateDimensionRequest,
-  CreateDimensionRequestFilterSensitiveLog,
-  CreateDimensionResponse,
-  CreateDimensionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDimensionCommand,
-  serializeAws_restJson1CreateDimensionCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDimensionRequest, CreateDimensionResponse } from "../models/models_0";
+import { de_CreateDimensionCommand, se_CreateDimensionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDimensionCommand}.
  */
 export interface CreateDimensionCommandInput extends CreateDimensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDimensionCommand}.
  */
 export interface CreateDimensionCommandOutput extends CreateDimensionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for IoT Device Defender.
  *       For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDimension</a> action.</p>
@@ -44,10 +41,26 @@ export interface CreateDimensionCommandOutput extends CreateDimensionResponse, _
  * import { IoTClient, CreateDimensionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateDimensionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // CreateDimensionRequest
+ *   name: "STRING_VALUE", // required
+ *   type: "TOPIC_FILTER", // required
+ *   stringValues: [ // DimensionStringValues // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   clientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateDimensionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDimensionCommandInput - {@link CreateDimensionCommandInput}
+ * @returns {@link CreateDimensionCommandOutput}
  * @see {@link CreateDimensionCommandInput} for command's `input` shape.
  * @see {@link CreateDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -86,6 +99,9 @@ export class CreateDimensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDimensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +130,8 @@ export class CreateDimensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDimensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDimensionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +141,18 @@ export class CreateDimensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDimensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDimensionCommand(input, context);
+    return se_CreateDimensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDimensionCommandOutput> {
-    return deserializeAws_restJson1CreateDimensionCommand(output, context);
+    return de_CreateDimensionCommand(output, context);
   }
 
   // Start section: command_body_extra

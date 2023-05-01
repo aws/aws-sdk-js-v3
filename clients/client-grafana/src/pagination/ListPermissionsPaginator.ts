@@ -10,7 +10,7 @@ import { GrafanaClient } from "../GrafanaClient";
 import { GrafanaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GrafanaClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListPermissionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListPermissions(
   config: GrafanaPaginationConfiguration,
   input: ListPermissionsCommandInput,

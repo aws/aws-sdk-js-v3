@@ -4,11 +4,13 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { QLDBSessionServiceException as __BaseException } from "./QLDBSessionServiceException";
 
 /**
+ * @public
  * <p>Contains the details of the transaction to abort.</p>
  */
 export interface AbortTransactionRequest {}
 
 /**
+ * @public
  * <p>Contains server-side performance information for a command. Amazon QLDB captures timing
  *          information between the times when it receives the request and when it sends the
  *          corresponding response.</p>
@@ -22,6 +24,7 @@ export interface TimingInformation {
 }
 
 /**
+ * @public
  * <p>Contains the details of the aborted transaction.</p>
  */
 export interface AbortTransactionResult {
@@ -32,6 +35,7 @@ export interface AbortTransactionResult {
 }
 
 /**
+ * @public
  * <p>Returned if the request is malformed or contains an error such as an invalid parameter
  *          value or a missing required parameter.</p>
  */
@@ -56,6 +60,7 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned when the request exceeds the processing capacity of the ledger.</p>
  */
 export class CapacityExceededException extends __BaseException {
@@ -77,6 +82,7 @@ export class CapacityExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains the details of the transaction to commit.</p>
  */
 export interface CommitTransactionRequest {
@@ -98,6 +104,7 @@ export interface CommitTransactionRequest {
 }
 
 /**
+ * @public
  * <p>Contains I/O usage metrics for a command that was invoked.</p>
  */
 export interface IOUsage {
@@ -113,6 +120,7 @@ export interface IOUsage {
 }
 
 /**
+ * @public
  * <p>Contains the details of the committed transaction.</p>
  */
 export interface CommitTransactionResult {
@@ -138,11 +146,13 @@ export interface CommitTransactionResult {
 }
 
 /**
+ * @public
  * <p>Specifies a request to end the session.</p>
  */
 export interface EndSessionRequest {}
 
 /**
+ * @public
  * <p>Contains the details of the ended session.</p>
  */
 export interface EndSessionResult {
@@ -153,6 +163,7 @@ export interface EndSessionResult {
 }
 
 /**
+ * @public
  * <p>A structure that can contain a value in multiple encoding formats.</p>
  */
 export interface ValueHolder {
@@ -168,6 +179,7 @@ export interface ValueHolder {
 }
 
 /**
+ * @public
  * <p>Specifies a request to execute a statement.</p>
  */
 export interface ExecuteStatementRequest {
@@ -188,6 +200,7 @@ export interface ExecuteStatementRequest {
 }
 
 /**
+ * @public
  * <p>Contains details of the fetched page.</p>
  */
 export interface Page {
@@ -203,6 +216,7 @@ export interface Page {
 }
 
 /**
+ * @public
  * <p>Contains the details of the executed statement.</p>
  */
 export interface ExecuteStatementResult {
@@ -223,6 +237,7 @@ export interface ExecuteStatementResult {
 }
 
 /**
+ * @public
  * <p>Specifies the details of the page to be fetched.</p>
  */
 export interface FetchPageRequest {
@@ -238,6 +253,7 @@ export interface FetchPageRequest {
 }
 
 /**
+ * @public
  * <p>Contains the page that was fetched.</p>
  */
 export interface FetchPageResult {
@@ -258,6 +274,7 @@ export interface FetchPageResult {
 }
 
 /**
+ * @public
  * <p>Returned if the session doesn't exist anymore because it timed out or expired.</p>
  */
 export class InvalidSessionException extends __BaseException {
@@ -281,6 +298,7 @@ export class InvalidSessionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned if a resource limit such as number of active sessions is exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -302,6 +320,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned when a transaction cannot be written to the journal due to a failure in the
  *          verification phase of <i>optimistic concurrency control</i> (OCC).</p>
  */
@@ -324,6 +343,7 @@ export class OccConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Returned when the rate of requests exceeds the allowed throughput.</p>
  */
 export class RateExceededException extends __BaseException {
@@ -345,6 +365,7 @@ export class RateExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies a request to start a new session.</p>
  */
 export interface StartSessionRequest {
@@ -355,10 +376,14 @@ export interface StartSessionRequest {
 }
 
 /**
+ * @public
  * <p>Specifies a request to start a transaction.</p>
  */
 export interface StartTransactionRequest {}
 
+/**
+ * @public
+ */
 export interface SendCommandRequest {
   /**
    * <p>Specifies the session token for the current command. A session token is constant
@@ -407,6 +432,7 @@ export interface SendCommandRequest {
 }
 
 /**
+ * @public
  * <p>Contains the details of the started session.</p>
  */
 export interface StartSessionResult {
@@ -423,6 +449,7 @@ export interface StartSessionResult {
 }
 
 /**
+ * @public
  * <p>Contains the details of the started transaction.</p>
  */
 export interface StartTransactionResult {
@@ -437,6 +464,9 @@ export interface StartTransactionResult {
   TimingInformation?: TimingInformation;
 }
 
+/**
+ * @public
+ */
 export interface SendCommandResult {
   /**
    * <p>Contains the details of the started session that includes a session token. This
@@ -475,143 +505,3 @@ export interface SendCommandResult {
    */
   FetchPage?: FetchPageResult;
 }
-
-/**
- * @internal
- */
-export const AbortTransactionRequestFilterSensitiveLog = (obj: AbortTransactionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimingInformationFilterSensitiveLog = (obj: TimingInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AbortTransactionResultFilterSensitiveLog = (obj: AbortTransactionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CommitTransactionRequestFilterSensitiveLog = (obj: CommitTransactionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IOUsageFilterSensitiveLog = (obj: IOUsage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CommitTransactionResultFilterSensitiveLog = (obj: CommitTransactionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndSessionRequestFilterSensitiveLog = (obj: EndSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndSessionResultFilterSensitiveLog = (obj: EndSessionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValueHolderFilterSensitiveLog = (obj: ValueHolder): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteStatementRequestFilterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PageFilterSensitiveLog = (obj: Page): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecuteStatementResultFilterSensitiveLog = (obj: ExecuteStatementResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FetchPageRequestFilterSensitiveLog = (obj: FetchPageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FetchPageResultFilterSensitiveLog = (obj: FetchPageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSessionRequestFilterSensitiveLog = (obj: StartSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTransactionRequestFilterSensitiveLog = (obj: StartTransactionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendCommandRequestFilterSensitiveLog = (obj: SendCommandRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSessionResultFilterSensitiveLog = (obj: StartSessionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartTransactionResultFilterSensitiveLog = (obj: StartTransactionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendCommandResultFilterSensitiveLog = (obj: SendCommandResult): any => ({
-  ...obj,
-});

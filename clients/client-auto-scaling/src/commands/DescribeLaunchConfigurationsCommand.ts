@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  LaunchConfigurationNamesType,
-  LaunchConfigurationNamesTypeFilterSensitiveLog,
-  LaunchConfigurationsType,
-  LaunchConfigurationsTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeLaunchConfigurationsCommand,
-  serializeAws_queryDescribeLaunchConfigurationsCommand,
-} from "../protocols/Aws_query";
+import { LaunchConfigurationNamesType, LaunchConfigurationsType } from "../models/models_0";
+import { de_DescribeLaunchConfigurationsCommand, se_DescribeLaunchConfigurationsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLaunchConfigurationsCommand}.
  */
 export interface DescribeLaunchConfigurationsCommandInput extends LaunchConfigurationNamesType {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLaunchConfigurationsCommand}.
  */
 export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigurationsType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the launch configurations in the account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  * import { AutoScalingClient, DescribeLaunchConfigurationsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeLaunchConfigurationsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // LaunchConfigurationNamesType
+ *   LaunchConfigurationNames: [ // LaunchConfigurationNames
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeLaunchConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLaunchConfigurationsCommandInput - {@link DescribeLaunchConfigurationsCommandInput}
+ * @returns {@link DescribeLaunchConfigurationsCommandOutput}
  * @see {@link DescribeLaunchConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeLaunchConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -111,6 +117,9 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLaunchConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +148,8 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LaunchConfigurationNamesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: LaunchConfigurationsTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,15 +159,21 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLaunchConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLaunchConfigurationsCommand(input, context);
+    return se_DescribeLaunchConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLaunchConfigurationsCommandOutput> {
-    return deserializeAws_queryDescribeLaunchConfigurationsCommand(output, context);
+    return de_DescribeLaunchConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

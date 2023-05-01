@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { UpdateInstanceStorageConfigRequest } from "../models/models_1";
 import {
-  UpdateInstanceStorageConfigRequest,
-  UpdateInstanceStorageConfigRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateInstanceStorageConfigCommand,
-  serializeAws_restJson1UpdateInstanceStorageConfigCommand,
+  de_UpdateInstanceStorageConfigCommand,
+  se_UpdateInstanceStorageConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInstanceStorageConfigCommand}.
  */
 export interface UpdateInstanceStorageConfigCommandInput extends UpdateInstanceStorageConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInstanceStorageConfigCommand}.
  */
 export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
  * @example
@@ -41,10 +43,43 @@ export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBear
  * import { ConnectClient, UpdateInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateInstanceStorageConfigRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   AssociationId: "STRING_VALUE", // required
+ *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS", // required
+ *   StorageConfig: { // InstanceStorageConfig
+ *     AssociationId: "STRING_VALUE",
+ *     StorageType: "S3" || "KINESIS_VIDEO_STREAM" || "KINESIS_STREAM" || "KINESIS_FIREHOSE", // required
+ *     S3Config: { // S3Config
+ *       BucketName: "STRING_VALUE", // required
+ *       BucketPrefix: "STRING_VALUE", // required
+ *       EncryptionConfig: { // EncryptionConfig
+ *         EncryptionType: "KMS", // required
+ *         KeyId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     KinesisVideoStreamConfig: { // KinesisVideoStreamConfig
+ *       Prefix: "STRING_VALUE", // required
+ *       RetentionPeriodHours: Number("int"), // required
+ *       EncryptionConfig: {
+ *         EncryptionType: "KMS", // required
+ *         KeyId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     KinesisStreamConfig: { // KinesisStreamConfig
+ *       StreamArn: "STRING_VALUE", // required
+ *     },
+ *     KinesisFirehoseConfig: { // KinesisFirehoseConfig
+ *       FirehoseArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInstanceStorageConfigCommandInput - {@link UpdateInstanceStorageConfigCommandInput}
+ * @returns {@link UpdateInstanceStorageConfigCommandOutput}
  * @see {@link UpdateInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -83,6 +118,9 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceStorageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +149,8 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceStorageConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,15 +160,21 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInstanceStorageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInstanceStorageConfigCommand(input, context);
+    return se_UpdateInstanceStorageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInstanceStorageConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateInstanceStorageConfigCommand(output, context);
+    return de_UpdateInstanceStorageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

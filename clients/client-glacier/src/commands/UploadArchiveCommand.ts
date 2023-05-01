@@ -14,21 +14,15 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  ArchiveCreationOutput,
-  ArchiveCreationOutputFilterSensitiveLog,
-  UploadArchiveInput,
-  UploadArchiveInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UploadArchiveCommand,
-  serializeAws_restJson1UploadArchiveCommand,
-} from "../protocols/Aws_restJson1";
+import { ArchiveCreationOutput, UploadArchiveInput, UploadArchiveInputFilterSensitiveLog } from "../models/models_0";
+import { de_UploadArchiveCommand, se_UploadArchiveCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UploadArchiveCommand}.
  */
-type UploadArchiveCommandInputType = Omit<UploadArchiveInput, "body"> & {
+export type UploadArchiveCommandInputType = Omit<UploadArchiveInput, "body"> & {
   /**
    * For *`UploadArchiveInput["body"]`*, see {@link UploadArchiveInput.body}.
    */
@@ -39,11 +33,14 @@ type UploadArchiveCommandInputType = Omit<UploadArchiveInput, "body"> & {
  */
 export interface UploadArchiveCommandInput extends UploadArchiveCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link UploadArchiveCommand}.
  */
 export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation adds an archive to a vault. This is a synchronous operation, and for a
  *          successful upload, your data is durably persisted. Amazon S3 Glacier returns the archive ID in
  *          the <code>x-amz-archive-id</code> header of the response. </p>
@@ -82,10 +79,19 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * import { GlacierClient, UploadArchiveCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, UploadArchiveCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // UploadArchiveInput
+ *   vaultName: "STRING_VALUE", // required
+ *   accountId: "STRING_VALUE", // required
+ *   archiveDescription: "STRING_VALUE",
+ *   checksum: "STRING_VALUE",
+ *   body: "STREAMING_BLOB_VALUE",
+ * };
  * const command = new UploadArchiveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UploadArchiveCommandInput - {@link UploadArchiveCommandInput}
+ * @returns {@link UploadArchiveCommandOutput}
  * @see {@link UploadArchiveCommandInput} for command's `input` shape.
  * @see {@link UploadArchiveCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -148,6 +154,9 @@ export class UploadArchiveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UploadArchiveCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,7 +184,7 @@ export class UploadArchiveCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UploadArchiveInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ArchiveCreationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -185,12 +194,18 @@ export class UploadArchiveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UploadArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UploadArchiveCommand(input, context);
+    return se_UploadArchiveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadArchiveCommandOutput> {
-    return deserializeAws_restJson1UploadArchiveCommand(output, context);
+    return de_UploadArchiveCommand(output, context);
   }
 
   // Start section: command_body_extra

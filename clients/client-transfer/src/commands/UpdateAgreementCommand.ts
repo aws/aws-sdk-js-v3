@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAgreementRequest,
-  UpdateAgreementRequestFilterSensitiveLog,
-  UpdateAgreementResponse,
-  UpdateAgreementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAgreementCommand,
-  serializeAws_json1_1UpdateAgreementCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateAgreementRequest, UpdateAgreementResponse } from "../models/models_0";
+import { de_UpdateAgreementCommand, se_UpdateAgreementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAgreementCommand}.
  */
 export interface UpdateAgreementCommandInput extends UpdateAgreementRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAgreementCommand}.
  */
 export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates some of the parameters for an existing agreement. Provide the
  *         <code>AgreementId</code> and the <code>ServerId</code> for the agreement that you want to
  *       update, along with the new values for the parameters to update.</p>
@@ -44,10 +41,22 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  * import { TransferClient, UpdateAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // UpdateAgreementRequest
+ *   AgreementId: "STRING_VALUE", // required
+ *   ServerId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Status: "ACTIVE" || "INACTIVE",
+ *   LocalProfileId: "STRING_VALUE",
+ *   PartnerProfileId: "STRING_VALUE",
+ *   BaseDirectory: "STRING_VALUE",
+ *   AccessRole: "STRING_VALUE",
+ * };
  * const command = new UpdateAgreementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAgreementCommandInput - {@link UpdateAgreementCommandInput}
+ * @returns {@link UpdateAgreementCommandOutput}
  * @see {@link UpdateAgreementCommandInput} for command's `input` shape.
  * @see {@link UpdateAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -90,6 +99,9 @@ export class UpdateAgreementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAgreementCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class UpdateAgreementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAgreementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAgreementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +141,18 @@ export class UpdateAgreementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAgreementCommand(input, context);
+    return se_UpdateAgreementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAgreementCommandOutput> {
-    return deserializeAws_json1_1UpdateAgreementCommand(output, context);
+    return de_UpdateAgreementCommand(output, context);
   }
 
   // Start section: command_body_extra

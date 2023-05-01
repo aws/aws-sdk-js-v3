@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSampledRequestsRequest,
-  GetSampledRequestsRequestFilterSensitiveLog,
-  GetSampledRequestsResponse,
-  GetSampledRequestsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSampledRequestsCommand,
-  serializeAws_json1_1GetSampledRequestsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetSampledRequestsRequest, GetSampledRequestsResponse } from "../models/models_0";
+import { de_GetSampledRequestsCommand, se_GetSampledRequestsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSampledRequestsCommand}.
  */
 export interface GetSampledRequestsCommandInput extends GetSampledRequestsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSampledRequestsCommand}.
  */
 export interface GetSampledRequestsCommandOutput extends GetSampledRequestsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -54,10 +51,21 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * import { WAFClient, GetSampledRequestsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetSampledRequestsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // GetSampledRequestsRequest
+ *   WebAclId: "STRING_VALUE", // required
+ *   RuleId: "STRING_VALUE", // required
+ *   TimeWindow: { // TimeWindow
+ *     StartTime: new Date("TIMESTAMP"), // required
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *   },
+ *   MaxItems: Number("long"), // required
+ * };
  * const command = new GetSampledRequestsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSampledRequestsCommandInput - {@link GetSampledRequestsCommandInput}
+ * @returns {@link GetSampledRequestsCommandOutput}
  * @see {@link GetSampledRequestsCommandInput} for command's `input` shape.
  * @see {@link GetSampledRequestsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -132,6 +140,9 @@ export class GetSampledRequestsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSampledRequestsCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,8 +171,8 @@ export class GetSampledRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSampledRequestsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSampledRequestsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -171,12 +182,18 @@ export class GetSampledRequestsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSampledRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSampledRequestsCommand(input, context);
+    return se_GetSampledRequestsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSampledRequestsCommandOutput> {
-    return deserializeAws_json1_1GetSampledRequestsCommand(output, context);
+    return de_GetSampledRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

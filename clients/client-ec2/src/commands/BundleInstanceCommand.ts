@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  BundleInstanceRequest,
-  BundleInstanceRequestFilterSensitiveLog,
-  BundleInstanceResult,
-  BundleInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_ec2BundleInstanceCommand, serializeAws_ec2BundleInstanceCommand } from "../protocols/Aws_ec2";
+import { BundleInstanceRequest, BundleInstanceResult } from "../models/models_0";
+import { de_BundleInstanceCommand, se_BundleInstanceCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link BundleInstanceCommand}.
  */
 export interface BundleInstanceCommandInput extends BundleInstanceRequest {}
 /**
+ * @public
+ *
  * The output of {@link BundleInstanceCommand}.
  */
 export interface BundleInstanceCommandOutput extends BundleInstanceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Bundles an Amazon instance store-backed Windows instance.</p>
  *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p>
  *          <note>
@@ -43,10 +43,25 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  * import { EC2Client, BundleInstanceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, BundleInstanceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // BundleInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Storage: { // Storage
+ *     S3: { // S3Storage
+ *       AWSAccessKeyId: "STRING_VALUE",
+ *       Bucket: "STRING_VALUE",
+ *       Prefix: "STRING_VALUE",
+ *       UploadPolicy: "BLOB_VALUE",
+ *       UploadPolicySignature: "STRING_VALUE",
+ *     },
+ *   },
+ *   DryRun: true || false,
+ * };
  * const command = new BundleInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BundleInstanceCommandInput - {@link BundleInstanceCommandInput}
+ * @returns {@link BundleInstanceCommandOutput}
  * @see {@link BundleInstanceCommandInput} for command's `input` shape.
  * @see {@link BundleInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -70,6 +85,9 @@ export class BundleInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BundleInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +116,8 @@ export class BundleInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BundleInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BundleInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +127,18 @@ export class BundleInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BundleInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2BundleInstanceCommand(input, context);
+    return se_BundleInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BundleInstanceCommandOutput> {
-    return deserializeAws_ec2BundleInstanceCommand(output, context);
+    return de_BundleInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

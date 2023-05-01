@@ -16,20 +16,22 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   GetEnrollmentStatusesForOrganizationRequest,
-  GetEnrollmentStatusesForOrganizationRequestFilterSensitiveLog,
   GetEnrollmentStatusesForOrganizationResponse,
-  GetEnrollmentStatusesForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand,
-  serializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand,
+  de_GetEnrollmentStatusesForOrganizationCommand,
+  se_GetEnrollmentStatusesForOrganizationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetEnrollmentStatusesForOrganizationCommand}.
  */
 export interface GetEnrollmentStatusesForOrganizationCommandInput extends GetEnrollmentStatusesForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEnrollmentStatusesForOrganizationCommand}.
  */
 export interface GetEnrollmentStatusesForOrganizationCommandOutput
@@ -37,6 +39,7 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the Compute Optimizer enrollment (opt-in) status of organization member
  *             accounts, if your account is an organization management account.</p>
  *          <p>To get the enrollment status of standalone accounts, use the <a>GetEnrollmentStatus</a> action.</p>
@@ -46,10 +49,24 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
  * import { ComputeOptimizerClient, GetEnrollmentStatusesForOrganizationCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEnrollmentStatusesForOrganizationCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetEnrollmentStatusesForOrganizationRequest
+ *   filters: [ // EnrollmentFilters
+ *     { // EnrollmentFilter
+ *       name: "Status",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetEnrollmentStatusesForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnrollmentStatusesForOrganizationCommandInput - {@link GetEnrollmentStatusesForOrganizationCommandInput}
+ * @returns {@link GetEnrollmentStatusesForOrganizationCommandOutput}
  * @see {@link GetEnrollmentStatusesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link GetEnrollmentStatusesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -92,6 +109,9 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnrollmentStatusesForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +140,8 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnrollmentStatusesForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEnrollmentStatusesForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +151,24 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetEnrollmentStatusesForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand(input, context);
+    return se_GetEnrollmentStatusesForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEnrollmentStatusesForOrganizationCommandOutput> {
-    return deserializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand(output, context);
+    return de_GetEnrollmentStatusesForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

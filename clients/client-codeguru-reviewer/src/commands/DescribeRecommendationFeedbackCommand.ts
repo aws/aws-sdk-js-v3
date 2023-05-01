@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
+import { DescribeRecommendationFeedbackRequest, DescribeRecommendationFeedbackResponse } from "../models/models_0";
 import {
-  DescribeRecommendationFeedbackRequest,
-  DescribeRecommendationFeedbackRequestFilterSensitiveLog,
-  DescribeRecommendationFeedbackResponse,
-  DescribeRecommendationFeedbackResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRecommendationFeedbackCommand,
-  serializeAws_restJson1DescribeRecommendationFeedbackCommand,
+  de_DescribeRecommendationFeedbackCommand,
+  se_DescribeRecommendationFeedbackCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRecommendationFeedbackCommand}.
  */
 export interface DescribeRecommendationFeedbackCommandInput extends DescribeRecommendationFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRecommendationFeedbackCommand}.
  */
 export interface DescribeRecommendationFeedbackCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeRecommendationFeedbackCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the customer feedback for a CodeGuru Reviewer recommendation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface DescribeRecommendationFeedbackCommandOutput
  * import { CodeGuruReviewerClient, DescribeRecommendationFeedbackCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, DescribeRecommendationFeedbackCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = { // DescribeRecommendationFeedbackRequest
+ *   CodeReviewArn: "STRING_VALUE", // required
+ *   RecommendationId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE",
+ * };
  * const command = new DescribeRecommendationFeedbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRecommendationFeedbackCommandInput - {@link DescribeRecommendationFeedbackCommandInput}
+ * @returns {@link DescribeRecommendationFeedbackCommandOutput}
  * @see {@link DescribeRecommendationFeedbackCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -86,6 +93,9 @@ export class DescribeRecommendationFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRecommendationFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +124,8 @@ export class DescribeRecommendationFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecommendationFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecommendationFeedbackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +135,24 @@ export class DescribeRecommendationFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeRecommendationFeedbackCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRecommendationFeedbackCommand(input, context);
+    return se_DescribeRecommendationFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRecommendationFeedbackCommandOutput> {
-    return deserializeAws_restJson1DescribeRecommendationFeedbackCommand(output, context);
+    return de_DescribeRecommendationFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

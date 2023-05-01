@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateDocumentRequest, UpdateDocumentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDocumentCommand,
-  serializeAws_restJson1UpdateDocumentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDocumentCommand, se_UpdateDocumentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDocumentCommand}.
  */
 export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDocumentCommand}.
  */
 export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified attributes of a document. The user must have access to both
  *             the document and its parent folder, if applicable.</p>
  * @example
@@ -38,10 +40,19 @@ export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, UpdateDocumentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, UpdateDocumentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // UpdateDocumentRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   DocumentId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   ParentFolderId: "STRING_VALUE",
+ *   ResourceState: "ACTIVE" || "RESTORING" || "RECYCLING" || "RECYCLED",
+ * };
  * const command = new UpdateDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDocumentCommandInput - {@link UpdateDocumentCommandInput}
+ * @returns {@link UpdateDocumentCommandOutput}
  * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -97,6 +108,9 @@ export class UpdateDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,7 +140,7 @@ export class UpdateDocumentCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +150,18 @@ export class UpdateDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDocumentCommand(input, context);
+    return se_UpdateDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentCommandOutput> {
-    return deserializeAws_restJson1UpdateDocumentCommand(output, context);
+    return de_UpdateDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

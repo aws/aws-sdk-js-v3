@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPackageVersionHistoryRequest,
-  GetPackageVersionHistoryRequestFilterSensitiveLog,
-  GetPackageVersionHistoryResponse,
-  GetPackageVersionHistoryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPackageVersionHistoryRequest, GetPackageVersionHistoryResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1GetPackageVersionHistoryCommand,
-  serializeAws_restJson1GetPackageVersionHistoryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPackageVersionHistoryCommand, se_GetPackageVersionHistoryCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPackageVersionHistoryCommand}.
  */
 export interface GetPackageVersionHistoryCommandInput extends GetPackageVersionHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPackageVersionHistoryCommand}.
  */
 export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersionHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of Amazon OpenSearch Service package versions, along with their creation time
  *    and commit message. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
  *     OpenSearch Service</a>.</p>
@@ -44,10 +41,17 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * import { OpenSearchClient, GetPackageVersionHistoryCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, GetPackageVersionHistoryCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // GetPackageVersionHistoryRequest
+ *   PackageID: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetPackageVersionHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPackageVersionHistoryCommandInput - {@link GetPackageVersionHistoryCommandInput}
+ * @returns {@link GetPackageVersionHistoryCommandOutput}
  * @see {@link GetPackageVersionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionHistoryCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -86,6 +90,9 @@ export class GetPackageVersionHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPackageVersionHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class GetPackageVersionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPackageVersionHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPackageVersionHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class GetPackageVersionHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPackageVersionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPackageVersionHistoryCommand(input, context);
+    return se_GetPackageVersionHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPackageVersionHistoryCommandOutput> {
-    return deserializeAws_restJson1GetPackageVersionHistoryCommand(output, context);
+    return de_GetPackageVersionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

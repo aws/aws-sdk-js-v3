@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { BatchDeleteRumMetricDefinitionsRequest, BatchDeleteRumMetricDefinitionsResponse } from "../models/models_0";
 import {
-  BatchDeleteRumMetricDefinitionsRequest,
-  BatchDeleteRumMetricDefinitionsRequestFilterSensitiveLog,
-  BatchDeleteRumMetricDefinitionsResponse,
-  BatchDeleteRumMetricDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand,
-  serializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand,
+  de_BatchDeleteRumMetricDefinitionsCommand,
+  se_BatchDeleteRumMetricDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchDeleteRumMetricDefinitionsCommand}.
  */
 export interface BatchDeleteRumMetricDefinitionsCommandInput extends BatchDeleteRumMetricDefinitionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchDeleteRumMetricDefinitionsCommand}.
  */
 export interface BatchDeleteRumMetricDefinitionsCommandOutput
@@ -37,6 +36,7 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified metrics from being sent to an extended metrics destination.</p>
  *          <p>If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code> operations are not valid,
  *          those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still
@@ -49,10 +49,20 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
  * import { RUMClient, BatchDeleteRumMetricDefinitionsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, BatchDeleteRumMetricDefinitionsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = { // BatchDeleteRumMetricDefinitionsRequest
+ *   AppMonitorName: "STRING_VALUE", // required
+ *   Destination: "STRING_VALUE", // required
+ *   DestinationArn: "STRING_VALUE",
+ *   MetricDefinitionIds: [ // MetricDefinitionIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDeleteRumMetricDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchDeleteRumMetricDefinitionsCommandInput - {@link BatchDeleteRumMetricDefinitionsCommandInput}
+ * @returns {@link BatchDeleteRumMetricDefinitionsCommandOutput}
  * @see {@link BatchDeleteRumMetricDefinitionsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteRumMetricDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -94,6 +104,9 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchDeleteRumMetricDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +135,8 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteRumMetricDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteRumMetricDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,18 +146,24 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchDeleteRumMetricDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand(input, context);
+    return se_BatchDeleteRumMetricDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteRumMetricDefinitionsCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand(output, context);
+    return de_BatchDeleteRumMetricDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

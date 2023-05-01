@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  GetResourceLogLevelRequest,
-  GetResourceLogLevelRequestFilterSensitiveLog,
-  GetResourceLogLevelResponse,
-  GetResourceLogLevelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceLogLevelCommand,
-  serializeAws_restJson1GetResourceLogLevelCommand,
-} from "../protocols/Aws_restJson1";
+import { GetResourceLogLevelRequest, GetResourceLogLevelResponse } from "../models/models_0";
+import { de_GetResourceLogLevelCommand, se_GetResourceLogLevelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceLogLevelCommand}.
  */
 export interface GetResourceLogLevelCommandInput extends GetResourceLogLevelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceLogLevelCommand}.
  */
 export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Fetches the log-level override, if any, for a given resource-ID and resource-type. It can be used for
  *             a wireless device or a wireless gateway.</p>
  * @example
@@ -43,10 +40,16 @@ export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelRes
  * import { IoTWirelessClient, GetResourceLogLevelCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetResourceLogLevelCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetResourceLogLevelRequest
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceLogLevelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceLogLevelCommandInput - {@link GetResourceLogLevelCommandInput}
+ * @returns {@link GetResourceLogLevelCommandOutput}
  * @see {@link GetResourceLogLevelCommandInput} for command's `input` shape.
  * @see {@link GetResourceLogLevelCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -85,6 +88,9 @@ export class GetResourceLogLevelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceLogLevelCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class GetResourceLogLevelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceLogLevelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceLogLevelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class GetResourceLogLevelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceLogLevelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceLogLevelCommand(input, context);
+    return se_GetResourceLogLevelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceLogLevelCommandOutput> {
-    return deserializeAws_restJson1GetResourceLogLevelCommand(output, context);
+    return de_GetResourceLogLevelCommand(output, context);
   }
 
   // Start section: command_body_extra

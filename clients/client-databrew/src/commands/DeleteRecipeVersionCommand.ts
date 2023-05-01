@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  DeleteRecipeVersionRequest,
-  DeleteRecipeVersionRequestFilterSensitiveLog,
-  DeleteRecipeVersionResponse,
-  DeleteRecipeVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRecipeVersionCommand,
-  serializeAws_restJson1DeleteRecipeVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRecipeVersionRequest, DeleteRecipeVersionResponse } from "../models/models_0";
+import { de_DeleteRecipeVersionCommand, se_DeleteRecipeVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecipeVersionCommand}.
  */
 export interface DeleteRecipeVersionCommandInput extends DeleteRecipeVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecipeVersionCommand}.
  */
 export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a single version of a DataBrew recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionRes
  * import { DataBrewClient, DeleteRecipeVersionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteRecipeVersionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // DeleteRecipeVersionRequest
+ *   Name: "STRING_VALUE", // required
+ *   RecipeVersion: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRecipeVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecipeVersionCommandInput - {@link DeleteRecipeVersionCommandInput}
+ * @returns {@link DeleteRecipeVersionCommandOutput}
  * @see {@link DeleteRecipeVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteRecipeVersionCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -78,6 +81,9 @@ export class DeleteRecipeVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecipeVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class DeleteRecipeVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecipeVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRecipeVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class DeleteRecipeVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecipeVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecipeVersionCommand(input, context);
+    return se_DeleteRecipeVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecipeVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteRecipeVersionCommand(output, context);
+    return de_DeleteRecipeVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

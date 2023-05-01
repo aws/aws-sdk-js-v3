@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetConnectionsRequest,
-  GetConnectionsRequestFilterSensitiveLog,
-  GetConnectionsResponse,
-  GetConnectionsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetConnectionsCommand,
-  serializeAws_json1_1GetConnectionsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetConnectionsRequest, GetConnectionsResponse } from "../models/models_1";
+import { de_GetConnectionsCommand, se_GetConnectionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectionsCommand}.
  */
 export interface GetConnectionsCommandInput extends GetConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectionsCommand}.
  */
 export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of connection definitions from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * import { GlueClient, GetConnectionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetConnectionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetConnectionsRequest
+ *   CatalogId: "STRING_VALUE",
+ *   Filter: { // GetConnectionsFilter
+ *     MatchCriteria: [ // MatchCriteria
+ *       "STRING_VALUE",
+ *     ],
+ *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM",
+ *   },
+ *   HidePassword: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectionsCommandInput - {@link GetConnectionsCommandInput}
+ * @returns {@link GetConnectionsCommandOutput}
  * @see {@link GetConnectionsCommandInput} for command's `input` shape.
  * @see {@link GetConnectionsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +92,9 @@ export class GetConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +123,8 @@ export class GetConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +134,18 @@ export class GetConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetConnectionsCommand(input, context);
+    return se_GetConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionsCommandOutput> {
-    return deserializeAws_json1_1GetConnectionsCommand(output, context);
+    return de_GetConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

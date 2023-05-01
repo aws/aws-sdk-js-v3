@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribeStackSetOperationInput,
-  DescribeStackSetOperationInputFilterSensitiveLog,
-  DescribeStackSetOperationOutput,
-  DescribeStackSetOperationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeStackSetOperationCommand,
-  serializeAws_queryDescribeStackSetOperationCommand,
-} from "../protocols/Aws_query";
+import { DescribeStackSetOperationInput, DescribeStackSetOperationOutput } from "../models/models_0";
+import { de_DescribeStackSetOperationCommand, se_DescribeStackSetOperationCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStackSetOperationCommand}.
  */
 export interface DescribeStackSetOperationCommandInput extends DescribeStackSetOperationInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStackSetOperationCommand}.
  */
 export interface DescribeStackSetOperationCommandOutput extends DescribeStackSetOperationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of the specified stack set operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
  * import { CloudFormationClient, DescribeStackSetOperationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackSetOperationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DescribeStackSetOperationInput
+ *   StackSetName: "STRING_VALUE", // required
+ *   OperationId: "STRING_VALUE", // required
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new DescribeStackSetOperationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStackSetOperationCommandInput - {@link DescribeStackSetOperationCommandInput}
+ * @returns {@link DescribeStackSetOperationCommandOutput}
  * @see {@link DescribeStackSetOperationCommandInput} for command's `input` shape.
  * @see {@link DescribeStackSetOperationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -75,6 +79,9 @@ export class DescribeStackSetOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStackSetOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +110,8 @@ export class DescribeStackSetOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStackSetOperationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStackSetOperationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +121,21 @@ export class DescribeStackSetOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStackSetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeStackSetOperationCommand(input, context);
+    return se_DescribeStackSetOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStackSetOperationCommandOutput> {
-    return deserializeAws_queryDescribeStackSetOperationCommand(output, context);
+    return de_DescribeStackSetOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -155,6 +155,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AbortDocumentVersionUploadCommandInput
   | ActivateUserCommandInput
@@ -201,6 +204,9 @@ export type ServiceInputTypes =
   | UpdateFolderCommandInput
   | UpdateUserCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AbortDocumentVersionUploadCommandOutput
   | ActivateUserCommandOutput
@@ -247,6 +253,9 @@ export type ServiceOutputTypes =
   | UpdateFolderCommandOutput
   | UpdateUserCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -254,7 +263,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -363,11 +372,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type WorkDocsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -378,10 +390,15 @@ type WorkDocsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of WorkDocsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of WorkDocsClient class constructor that set the region, credentials and other options.
  */
 export interface WorkDocsClientConfig extends WorkDocsClientConfigType {}
 
+/**
+ * @public
+ */
 type WorkDocsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -392,11 +409,14 @@ type WorkDocsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of WorkDocsClient class. This is resolved and normalized from the {@link WorkDocsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of WorkDocsClient class. This is resolved and normalized from the {@link WorkDocsClientConfig | constructor configuration interface}.
  */
 export interface WorkDocsClientResolvedConfig extends WorkDocsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>The Amazon WorkDocs API is designed for the following use cases:</p>
  *          <ul>
  *             <li>

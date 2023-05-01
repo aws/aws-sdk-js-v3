@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  Extension,
-  ExtensionFilterSensitiveLog,
-  UpdateExtensionRequest,
-  UpdateExtensionRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateExtensionCommand,
-  serializeAws_restJson1UpdateExtensionCommand,
-} from "../protocols/Aws_restJson1";
+import { Extension, UpdateExtensionRequest } from "../models/models_0";
+import { de_UpdateExtensionCommand, se_UpdateExtensionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateExtensionCommand}.
  */
 export interface UpdateExtensionCommandInput extends UpdateExtensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateExtensionCommand}.
  */
 export interface UpdateExtensionCommandOutput extends Extension, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an AppConfig extension. For more information about extensions, see
  *             <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
@@ -45,10 +42,33 @@ export interface UpdateExtensionCommandOutput extends Extension, __MetadataBeare
  * import { AppConfigClient, UpdateExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, UpdateExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // UpdateExtensionRequest
+ *   ExtensionIdentifier: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Actions: { // ActionsMap
+ *     "<keys>": [ // ActionList
+ *       { // Action
+ *         Name: "STRING_VALUE",
+ *         Description: "STRING_VALUE",
+ *         Uri: "STRING_VALUE",
+ *         RoleArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Parameters: { // ParameterMap
+ *     "<keys>": { // Parameter
+ *       Description: "STRING_VALUE",
+ *       Required: true || false,
+ *     },
+ *   },
+ *   VersionNumber: Number("int"),
+ * };
  * const command = new UpdateExtensionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateExtensionCommandInput - {@link UpdateExtensionCommandInput}
+ * @returns {@link UpdateExtensionCommandOutput}
  * @see {@link UpdateExtensionCommandInput} for command's `input` shape.
  * @see {@link UpdateExtensionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -85,6 +105,9 @@ export class UpdateExtensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateExtensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +136,8 @@ export class UpdateExtensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateExtensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtensionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +147,18 @@ export class UpdateExtensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateExtensionCommand(input, context);
+    return se_UpdateExtensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExtensionCommandOutput> {
-    return deserializeAws_restJson1UpdateExtensionCommand(output, context);
+    return de_UpdateExtensionCommand(output, context);
   }
 
   // Start section: command_body_extra

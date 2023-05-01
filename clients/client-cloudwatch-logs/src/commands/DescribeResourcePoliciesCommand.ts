@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DescribeResourcePoliciesRequest,
-  DescribeResourcePoliciesRequestFilterSensitiveLog,
-  DescribeResourcePoliciesResponse,
-  DescribeResourcePoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeResourcePoliciesCommand,
-  serializeAws_json1_1DescribeResourcePoliciesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeResourcePoliciesRequest, DescribeResourcePoliciesResponse } from "../models/models_0";
+import { de_DescribeResourcePoliciesCommand, se_DescribeResourcePoliciesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeResourcePoliciesCommand}.
  */
 export interface DescribeResourcePoliciesCommandInput extends DescribeResourcePoliciesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeResourcePoliciesCommand}.
  */
 export interface DescribeResourcePoliciesCommandOutput extends DescribeResourcePoliciesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resource policies in this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
  * import { CloudWatchLogsClient, DescribeResourcePoliciesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeResourcePoliciesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeResourcePoliciesRequest
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new DescribeResourcePoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeResourcePoliciesCommandInput - {@link DescribeResourcePoliciesCommandInput}
+ * @returns {@link DescribeResourcePoliciesCommandOutput}
  * @see {@link DescribeResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -75,6 +78,9 @@ export class DescribeResourcePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourcePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class DescribeResourcePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResourcePoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeResourcePoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class DescribeResourcePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeResourcePoliciesCommand(input, context);
+    return se_DescribeResourcePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePoliciesCommandOutput> {
-    return deserializeAws_json1_1DescribeResourcePoliciesCommand(output, context);
+    return de_DescribeResourcePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

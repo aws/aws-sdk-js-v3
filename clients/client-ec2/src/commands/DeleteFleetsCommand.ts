@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteFleetsRequest,
-  DeleteFleetsRequestFilterSensitiveLog,
-  DeleteFleetsResult,
-  DeleteFleetsResultFilterSensitiveLog,
-} from "../models/models_2";
-import { deserializeAws_ec2DeleteFleetsCommand, serializeAws_ec2DeleteFleetsCommand } from "../protocols/Aws_ec2";
+import { DeleteFleetsRequest, DeleteFleetsResult } from "../models/models_2";
+import { de_DeleteFleetsCommand, se_DeleteFleetsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFleetsCommand}.
  */
 export interface DeleteFleetsCommandInput extends DeleteFleetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFleetsCommand}.
  */
 export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified EC2 Fleets.</p>
  *          <p>After you delete an EC2 Fleet, it launches no new instances.</p>
  *          <p>You must also specify whether a deleted EC2 Fleet should terminate its instances. If you
@@ -64,10 +64,19 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  * import { EC2Client, DeleteFleetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteFleetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteFleetsRequest
+ *   DryRun: true || false,
+ *   FleetIds: [ // FleetIdSet // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TerminateInstances: true || false, // required
+ * };
  * const command = new DeleteFleetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFleetsCommandInput - {@link DeleteFleetsCommandInput}
+ * @returns {@link DeleteFleetsCommandOutput}
  * @see {@link DeleteFleetsCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -91,6 +100,9 @@ export class DeleteFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +129,8 @@ export class DeleteFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFleetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFleetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +140,18 @@ export class DeleteFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteFleetsCommand(input, context);
+    return se_DeleteFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetsCommandOutput> {
-    return deserializeAws_ec2DeleteFleetsCommand(output, context);
+    return de_DeleteFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

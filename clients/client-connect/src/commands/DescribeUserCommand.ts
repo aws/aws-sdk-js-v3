@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeUserRequest,
-  DescribeUserRequestFilterSensitiveLog,
-  DescribeUserResponse,
-  DescribeUserResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeUserCommand,
-  serializeAws_restJson1DescribeUserCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeUserRequest, DescribeUserResponse } from "../models/models_0";
+import { de_DescribeUserCommand, se_DescribeUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserCommand}.
  */
 export interface DescribeUserCommandInput extends DescribeUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserCommand}.
  */
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified user account. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID in the Amazon Connect console</a> (it’s the final part of the ARN). The console does not display the
  *    user IDs. Instead, list the users and note the IDs provided in the output.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * import { ConnectClient, DescribeUserCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeUserCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeUserRequest
+ *   UserId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
+ * @returns {@link DescribeUserCommandOutput}
  * @see {@link DescribeUserCommandInput} for command's `input` shape.
  * @see {@link DescribeUserCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +88,9 @@ export class DescribeUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class DescribeUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class DescribeUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeUserCommand(input, context);
+    return se_DescribeUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserCommandOutput> {
-    return deserializeAws_restJson1DescribeUserCommand(output, context);
+    return de_DescribeUserCommand(output, context);
   }
 
   // Start section: command_body_extra

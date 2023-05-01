@@ -10,7 +10,7 @@ import { VoiceIDClient } from "../VoiceIDClient";
 import { VoiceIDPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: VoiceIDClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListFraudsterRegistrationJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListFraudsterRegistrationJobs(
   config: VoiceIDPaginationConfiguration,
   input: ListFraudsterRegistrationJobsCommandInput,

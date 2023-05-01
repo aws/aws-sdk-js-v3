@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  CreatePlaceIndexRequest,
-  CreatePlaceIndexRequestFilterSensitiveLog,
-  CreatePlaceIndexResponse,
-  CreatePlaceIndexResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePlaceIndexCommand,
-  serializeAws_restJson1CreatePlaceIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { CreatePlaceIndexRequest, CreatePlaceIndexResponse } from "../models/models_0";
+import { de_CreatePlaceIndexCommand, se_CreatePlaceIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePlaceIndexCommand}.
  */
 export interface CreatePlaceIndexCommandInput extends CreatePlaceIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePlaceIndexCommand}.
  */
 export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to
  *             geocode addresses and other text queries by using the
  *                 <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by
@@ -52,10 +49,24 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  * import { LocationClient, CreatePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreatePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // CreatePlaceIndexRequest
+ *   IndexName: "STRING_VALUE", // required
+ *   DataSource: "STRING_VALUE", // required
+ *   PricingPlan: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DataSourceConfiguration: { // DataSourceConfiguration
+ *     IntendedUse: "STRING_VALUE",
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePlaceIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlaceIndexCommandInput - {@link CreatePlaceIndexCommandInput}
+ * @returns {@link CreatePlaceIndexCommandOutput}
  * @see {@link CreatePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link CreatePlaceIndexCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -99,6 +110,9 @@ export class CreatePlaceIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlaceIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +141,8 @@ export class CreatePlaceIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePlaceIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePlaceIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +152,18 @@ export class CreatePlaceIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlaceIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePlaceIndexCommand(input, context);
+    return se_CreatePlaceIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlaceIndexCommandOutput> {
-    return deserializeAws_restJson1CreatePlaceIndexCommand(output, context);
+    return de_CreatePlaceIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

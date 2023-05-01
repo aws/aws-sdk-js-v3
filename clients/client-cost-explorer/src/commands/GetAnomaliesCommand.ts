@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  GetAnomaliesRequest,
-  GetAnomaliesRequestFilterSensitiveLog,
-  GetAnomaliesResponse,
-  GetAnomaliesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAnomaliesCommand,
-  serializeAws_json1_1GetAnomaliesCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAnomaliesRequest, GetAnomaliesResponse } from "../models/models_0";
+import { de_GetAnomaliesCommand, se_GetAnomaliesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAnomaliesCommand}.
  */
 export interface GetAnomaliesCommandInput extends GetAnomaliesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAnomaliesCommand}.
  */
 export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all of the cost anomalies detected on your account during the time period that's
  *       specified by the <code>DateInterval</code> object. Anomalies are available for up to 90
  *       days.</p>
@@ -44,10 +41,27 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * import { CostExplorerClient, GetAnomaliesCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetAnomaliesCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // GetAnomaliesRequest
+ *   MonitorArn: "STRING_VALUE",
+ *   DateInterval: { // AnomalyDateInterval
+ *     StartDate: "STRING_VALUE", // required
+ *     EndDate: "STRING_VALUE",
+ *   },
+ *   Feedback: "YES" || "NO" || "PLANNED_ACTIVITY",
+ *   TotalImpact: { // TotalImpactFilter
+ *     NumericOperator: "EQUAL" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "GREATER_THAN" || "LESS_THAN" || "BETWEEN", // required
+ *     StartValue: Number("double"), // required
+ *     EndValue: Number("double"),
+ *   },
+ *   NextPageToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetAnomaliesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAnomaliesCommandInput - {@link GetAnomaliesCommandInput}
+ * @returns {@link GetAnomaliesCommandOutput}
  * @see {@link GetAnomaliesCommandInput} for command's `input` shape.
  * @see {@link GetAnomaliesCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -77,6 +91,9 @@ export class GetAnomaliesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAnomaliesCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +120,8 @@ export class GetAnomaliesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAnomaliesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAnomaliesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +131,18 @@ export class GetAnomaliesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAnomaliesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAnomaliesCommand(input, context);
+    return se_GetAnomaliesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomaliesCommandOutput> {
-    return deserializeAws_json1_1GetAnomaliesCommand(output, context);
+    return de_GetAnomaliesCommand(output, context);
   }
 
   // Start section: command_body_extra

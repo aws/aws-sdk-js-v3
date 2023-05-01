@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { UpdateSecurityHubConfigurationRequest, UpdateSecurityHubConfigurationResponse } from "../models/models_2";
 import {
-  UpdateSecurityHubConfigurationRequest,
-  UpdateSecurityHubConfigurationRequestFilterSensitiveLog,
-  UpdateSecurityHubConfigurationResponse,
-  UpdateSecurityHubConfigurationResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateSecurityHubConfigurationCommand,
-  serializeAws_restJson1UpdateSecurityHubConfigurationCommand,
+  de_UpdateSecurityHubConfigurationCommand,
+  se_UpdateSecurityHubConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecurityHubConfigurationCommand}.
  */
 export interface UpdateSecurityHubConfigurationCommandInput extends UpdateSecurityHubConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecurityHubConfigurationCommand}.
  */
 export interface UpdateSecurityHubConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface UpdateSecurityHubConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates configuration options for Security Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface UpdateSecurityHubConfigurationCommandOutput
  * import { SecurityHubClient, UpdateSecurityHubConfigurationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateSecurityHubConfigurationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // UpdateSecurityHubConfigurationRequest
+ *   AutoEnableControls: true || false,
+ *   ControlFindingGenerator: "STANDARD_CONTROL" || "SECURITY_CONTROL",
+ * };
  * const command = new UpdateSecurityHubConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecurityHubConfigurationCommandInput - {@link UpdateSecurityHubConfigurationCommandInput}
+ * @returns {@link UpdateSecurityHubConfigurationCommandOutput}
  * @see {@link UpdateSecurityHubConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityHubConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -70,6 +76,18 @@ export interface UpdateSecurityHubConfigurationCommandOutput
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To update Security Hub settings
+ * ```javascript
+ * // The following example updates Security Hub settings to turn on consolidated control findings, and to automatically enable new controls in enabled standards.
+ * const input = {
+ *   "AutoEnableControls": true,
+ *   "ControlFindingGenerator": "SECURITY_CONTROL"
+ * };
+ * const command = new UpdateSecurityHubConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: to-update-security-hub-settings-1678912194496
+ * ```
+ *
  */
 export class UpdateSecurityHubConfigurationCommand extends $Command<
   UpdateSecurityHubConfigurationCommandInput,
@@ -88,6 +106,9 @@ export class UpdateSecurityHubConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecurityHubConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +137,8 @@ export class UpdateSecurityHubConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecurityHubConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSecurityHubConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +148,24 @@ export class UpdateSecurityHubConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSecurityHubConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSecurityHubConfigurationCommand(input, context);
+    return se_UpdateSecurityHubConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSecurityHubConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateSecurityHubConfigurationCommand(output, context);
+    return de_UpdateSecurityHubConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

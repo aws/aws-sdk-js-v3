@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  CreateLoggingConfigurationRequest,
-  CreateLoggingConfigurationRequestFilterSensitiveLog,
-  CreateLoggingConfigurationResponse,
-  CreateLoggingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLoggingConfigurationCommand,
-  serializeAws_restJson1CreateLoggingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateLoggingConfigurationRequest, CreateLoggingConfigurationResponse } from "../models/models_0";
+import { de_CreateLoggingConfigurationCommand, se_CreateLoggingConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLoggingConfigurationCommand}.
  */
 export interface CreateLoggingConfigurationCommandInput extends CreateLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLoggingConfigurationCommand}.
  */
 export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a logging configuration that allows clients to store and record sent
  *          messages.</p>
  * @example
@@ -43,10 +40,29 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * import { IvschatClient, CreateLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, CreateLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = { // CreateLoggingConfigurationRequest
+ *   name: "STRING_VALUE",
+ *   destinationConfiguration: { // DestinationConfiguration Union: only one key present
+ *     s3: { // S3DestinationConfiguration
+ *       bucketName: "STRING_VALUE", // required
+ *     },
+ *     cloudWatchLogs: { // CloudWatchLogsDestinationConfiguration
+ *       logGroupName: "STRING_VALUE", // required
+ *     },
+ *     firehose: { // FirehoseDestinationConfiguration
+ *       deliveryStreamName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLoggingConfigurationCommandInput - {@link CreateLoggingConfigurationCommandInput}
+ * @returns {@link CreateLoggingConfigurationCommandOutput}
  * @see {@link CreateLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -88,6 +104,9 @@ export class CreateLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +135,8 @@ export class CreateLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +146,21 @@ export class CreateLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLoggingConfigurationCommand(input, context);
+    return se_CreateLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateLoggingConfigurationCommand(output, context);
+    return de_CreateLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import {
   DescribeClientAuthenticationSettingsRequest,
-  DescribeClientAuthenticationSettingsRequestFilterSensitiveLog,
   DescribeClientAuthenticationSettingsResult,
-  DescribeClientAuthenticationSettingsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeClientAuthenticationSettingsCommand,
-  serializeAws_json1_1DescribeClientAuthenticationSettingsCommand,
+  de_DescribeClientAuthenticationSettingsCommand,
+  se_DescribeClientAuthenticationSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClientAuthenticationSettingsCommand}.
  */
 export interface DescribeClientAuthenticationSettingsCommandInput extends DescribeClientAuthenticationSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClientAuthenticationSettingsCommand}.
  */
 export interface DescribeClientAuthenticationSettingsCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the type of client authentication for the specified directory, if the type is specified. If no type is specified, information about all client authentication types that are supported for the specified directory is retrieved. Currently, only <code>SmartCard</code> is supported.
  *     </p>
  * @example
@@ -45,10 +48,18 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
  * import { DirectoryServiceClient, DescribeClientAuthenticationSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeClientAuthenticationSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DescribeClientAuthenticationSettingsRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   Type: "SmartCard" || "SmartCardOrPassword",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeClientAuthenticationSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClientAuthenticationSettingsCommandInput - {@link DescribeClientAuthenticationSettingsCommandInput}
+ * @returns {@link DescribeClientAuthenticationSettingsCommandOutput}
  * @see {@link DescribeClientAuthenticationSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeClientAuthenticationSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -90,6 +101,9 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClientAuthenticationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +132,8 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClientAuthenticationSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClientAuthenticationSettingsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +143,24 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeClientAuthenticationSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeClientAuthenticationSettingsCommand(input, context);
+    return se_DescribeClientAuthenticationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClientAuthenticationSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeClientAuthenticationSettingsCommand(output, context);
+    return de_DescribeClientAuthenticationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

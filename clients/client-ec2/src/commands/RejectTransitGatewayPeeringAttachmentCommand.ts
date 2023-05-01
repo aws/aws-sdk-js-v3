@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   RejectTransitGatewayPeeringAttachmentRequest,
-  RejectTransitGatewayPeeringAttachmentRequestFilterSensitiveLog,
   RejectTransitGatewayPeeringAttachmentResult,
-  RejectTransitGatewayPeeringAttachmentResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand,
-  serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand,
+  de_RejectTransitGatewayPeeringAttachmentCommand,
+  se_RejectTransitGatewayPeeringAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RejectTransitGatewayPeeringAttachmentCommand}.
  */
 export interface RejectTransitGatewayPeeringAttachmentCommandInput
   extends RejectTransitGatewayPeeringAttachmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectTransitGatewayPeeringAttachmentCommand}.
  */
 export interface RejectTransitGatewayPeeringAttachmentCommandOutput
@@ -38,6 +40,7 @@ export interface RejectTransitGatewayPeeringAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects a transit gateway peering attachment request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,16 @@ export interface RejectTransitGatewayPeeringAttachmentCommandOutput
  * import { EC2Client, RejectTransitGatewayPeeringAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RejectTransitGatewayPeeringAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RejectTransitGatewayPeeringAttachmentRequest
+ *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new RejectTransitGatewayPeeringAttachmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectTransitGatewayPeeringAttachmentCommandInput - {@link RejectTransitGatewayPeeringAttachmentCommandInput}
+ * @returns {@link RejectTransitGatewayPeeringAttachmentCommandOutput}
  * @see {@link RejectTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
  * @see {@link RejectTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +81,9 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectTransitGatewayPeeringAttachmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +112,8 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectTransitGatewayPeeringAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectTransitGatewayPeeringAttachmentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +123,24 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RejectTransitGatewayPeeringAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand(input, context);
+    return se_RejectTransitGatewayPeeringAttachmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectTransitGatewayPeeringAttachmentCommandOutput> {
-    return deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand(output, context);
+    return de_RejectTransitGatewayPeeringAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

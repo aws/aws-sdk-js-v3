@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { WorkDocsServiceException as __BaseException } from "./WorkDocsServiceException";
 
+/**
+ * @public
+ */
 export interface AbortDocumentVersionUploadRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -21,6 +24,7 @@ export interface AbortDocumentVersionUploadRequest {
 }
 
 /**
+ * @public
  * <p>The resource hierarchy is changing.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -42,6 +46,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The resource does not exist.</p>
  */
 export class EntityNotExistsException extends __BaseException {
@@ -68,6 +73,7 @@ export class EntityNotExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The Directory Service cannot reach an on-premises instance. Or a dependency
  *             under the control of the organization is failing, such as a connected Active
  *             Directory.</p>
@@ -91,6 +97,7 @@ export class FailedDependencyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified document version is not in the INITIALIZED state.</p>
  */
 export class ProhibitedStateException extends __BaseException {
@@ -112,6 +119,7 @@ export class ProhibitedStateException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more of the dependencies is unavailable.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -133,6 +141,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The operation is not permitted.</p>
  */
 export class UnauthorizedOperationException extends __BaseException {
@@ -156,6 +165,7 @@ export class UnauthorizedOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The caller does not have access to perform the action on the resource.</p>
  */
 export class UnauthorizedResourceAccessException extends __BaseException {
@@ -176,6 +186,9 @@ export class UnauthorizedResourceAccessException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ActivateUserRequest {
   /**
    * <p>The ID of the user.</p>
@@ -188,32 +201,60 @@ export interface ActivateUserRequest {
   AuthenticationToken?: string;
 }
 
-export enum LocaleType {
-  DE = "de",
-  DEFAULT = "default",
-  EN = "en",
-  ES = "es",
-  FR = "fr",
-  JA = "ja",
-  KO = "ko",
-  PT_BR = "pt_BR",
-  RU = "ru",
-  ZH_CN = "zh_CN",
-  ZH_TW = "zh_TW",
-}
-
-export enum UserStatusType {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  PENDING = "PENDING",
-}
-
-export enum StorageType {
-  QUOTA = "QUOTA",
-  UNLIMITED = "UNLIMITED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LocaleType = {
+  DE: "de",
+  DEFAULT: "default",
+  EN: "en",
+  ES: "es",
+  FR: "fr",
+  JA: "ja",
+  KO: "ko",
+  PT_BR: "pt_BR",
+  RU: "ru",
+  ZH_CN: "zh_CN",
+  ZH_TW: "zh_TW",
+} as const;
 
 /**
+ * @public
+ */
+export type LocaleType = (typeof LocaleType)[keyof typeof LocaleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserStatusType = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type UserStatusType = (typeof UserStatusType)[keyof typeof UserStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageType = {
+  QUOTA: "QUOTA",
+  UNLIMITED: "UNLIMITED",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageType = (typeof StorageType)[keyof typeof StorageType];
+
+/**
+ * @public
  * <p>Describes the storage for a user.</p>
  */
 export interface StorageRuleType {
@@ -229,6 +270,7 @@ export interface StorageRuleType {
 }
 
 /**
+ * @public
  * <p>Describes the storage for a user.</p>
  */
 export interface UserStorageMetadata {
@@ -243,15 +285,25 @@ export interface UserStorageMetadata {
   StorageRule?: StorageRuleType;
 }
 
-export enum UserType {
-  ADMIN = "ADMIN",
-  MINIMALUSER = "MINIMALUSER",
-  POWERUSER = "POWERUSER",
-  USER = "USER",
-  WORKSPACESUSER = "WORKSPACESUSER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UserType = {
+  ADMIN: "ADMIN",
+  MINIMALUSER: "MINIMALUSER",
+  POWERUSER: "POWERUSER",
+  USER: "USER",
+  WORKSPACESUSER: "WORKSPACESUSER",
+} as const;
 
 /**
+ * @public
+ */
+export type UserType = (typeof UserType)[keyof typeof UserType];
+
+/**
+ * @public
  * <p>Describes a user.</p>
  */
 export interface User {
@@ -331,6 +383,9 @@ export interface User {
   Storage?: UserStorageMetadata;
 }
 
+/**
+ * @public
+ */
 export interface ActivateUserResponse {
   /**
    * <p>The user information.</p>
@@ -338,13 +393,23 @@ export interface ActivateUserResponse {
   User?: User;
 }
 
-export enum CommentStatusType {
-  DELETED = "DELETED",
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CommentStatusType = {
+  DELETED: "DELETED",
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+} as const;
 
 /**
+ * @public
+ */
+export type CommentStatusType = (typeof CommentStatusType)[keyof typeof CommentStatusType];
+
+/**
+ * @public
  * <p>Describes the metadata of a comment.</p>
  */
 export interface CommentMetadata {
@@ -380,6 +445,7 @@ export interface CommentMetadata {
 }
 
 /**
+ * @public
  * <p>Describes the metadata of the user.</p>
  */
 export interface UserMetadata {
@@ -409,12 +475,22 @@ export interface UserMetadata {
   EmailAddress?: string;
 }
 
-export enum ResourceType {
-  DOCUMENT = "DOCUMENT",
-  FOLDER = "FOLDER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  DOCUMENT: "DOCUMENT",
+  FOLDER: "FOLDER",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>Describes the metadata of a resource.</p>
  */
 export interface ResourceMetadata {
@@ -456,6 +532,7 @@ export interface ResourceMetadata {
 }
 
 /**
+ * @public
  * <p>Describes the metadata of a user group.</p>
  */
 export interface GroupMetadata {
@@ -471,6 +548,7 @@ export interface GroupMetadata {
 }
 
 /**
+ * @public
  * <p>Describes the users or user groups.</p>
  */
 export interface Participants {
@@ -485,43 +563,53 @@ export interface Participants {
   Groups?: GroupMetadata[];
 }
 
-export enum ActivityType {
-  DOCUMENT_ANNOTATION_ADDED = "DOCUMENT_ANNOTATION_ADDED",
-  DOCUMENT_ANNOTATION_DELETED = "DOCUMENT_ANNOTATION_DELETED",
-  DOCUMENT_CHECKED_IN = "DOCUMENT_CHECKED_IN",
-  DOCUMENT_CHECKED_OUT = "DOCUMENT_CHECKED_OUT",
-  DOCUMENT_COMMENT_ADDED = "DOCUMENT_COMMENT_ADDED",
-  DOCUMENT_COMMENT_DELETED = "DOCUMENT_COMMENT_DELETED",
-  DOCUMENT_MOVED = "DOCUMENT_MOVED",
-  DOCUMENT_RECYCLED = "DOCUMENT_RECYCLED",
-  DOCUMENT_RENAMED = "DOCUMENT_RENAMED",
-  DOCUMENT_RESTORED = "DOCUMENT_RESTORED",
-  DOCUMENT_REVERTED = "DOCUMENT_REVERTED",
-  DOCUMENT_SHAREABLE_LINK_CREATED = "DOCUMENT_SHAREABLE_LINK_CREATED",
-  DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED = "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED",
-  DOCUMENT_SHAREABLE_LINK_REMOVED = "DOCUMENT_SHAREABLE_LINK_REMOVED",
-  DOCUMENT_SHARED = "DOCUMENT_SHARED",
-  DOCUMENT_SHARE_PERMISSION_CHANGED = "DOCUMENT_SHARE_PERMISSION_CHANGED",
-  DOCUMENT_UNSHARED = "DOCUMENT_UNSHARED",
-  DOCUMENT_VERSION_DELETED = "DOCUMENT_VERSION_DELETED",
-  DOCUMENT_VERSION_DOWNLOADED = "DOCUMENT_VERSION_DOWNLOADED",
-  DOCUMENT_VERSION_UPLOADED = "DOCUMENT_VERSION_UPLOADED",
-  DOCUMENT_VERSION_VIEWED = "DOCUMENT_VERSION_VIEWED",
-  FOLDER_CREATED = "FOLDER_CREATED",
-  FOLDER_DELETED = "FOLDER_DELETED",
-  FOLDER_MOVED = "FOLDER_MOVED",
-  FOLDER_RECYCLED = "FOLDER_RECYCLED",
-  FOLDER_RENAMED = "FOLDER_RENAMED",
-  FOLDER_RESTORED = "FOLDER_RESTORED",
-  FOLDER_SHAREABLE_LINK_CREATED = "FOLDER_SHAREABLE_LINK_CREATED",
-  FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED = "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED",
-  FOLDER_SHAREABLE_LINK_REMOVED = "FOLDER_SHAREABLE_LINK_REMOVED",
-  FOLDER_SHARED = "FOLDER_SHARED",
-  FOLDER_SHARE_PERMISSION_CHANGED = "FOLDER_SHARE_PERMISSION_CHANGED",
-  FOLDER_UNSHARED = "FOLDER_UNSHARED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActivityType = {
+  DOCUMENT_ANNOTATION_ADDED: "DOCUMENT_ANNOTATION_ADDED",
+  DOCUMENT_ANNOTATION_DELETED: "DOCUMENT_ANNOTATION_DELETED",
+  DOCUMENT_CHECKED_IN: "DOCUMENT_CHECKED_IN",
+  DOCUMENT_CHECKED_OUT: "DOCUMENT_CHECKED_OUT",
+  DOCUMENT_COMMENT_ADDED: "DOCUMENT_COMMENT_ADDED",
+  DOCUMENT_COMMENT_DELETED: "DOCUMENT_COMMENT_DELETED",
+  DOCUMENT_MOVED: "DOCUMENT_MOVED",
+  DOCUMENT_RECYCLED: "DOCUMENT_RECYCLED",
+  DOCUMENT_RENAMED: "DOCUMENT_RENAMED",
+  DOCUMENT_RESTORED: "DOCUMENT_RESTORED",
+  DOCUMENT_REVERTED: "DOCUMENT_REVERTED",
+  DOCUMENT_SHAREABLE_LINK_CREATED: "DOCUMENT_SHAREABLE_LINK_CREATED",
+  DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED: "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED",
+  DOCUMENT_SHAREABLE_LINK_REMOVED: "DOCUMENT_SHAREABLE_LINK_REMOVED",
+  DOCUMENT_SHARED: "DOCUMENT_SHARED",
+  DOCUMENT_SHARE_PERMISSION_CHANGED: "DOCUMENT_SHARE_PERMISSION_CHANGED",
+  DOCUMENT_UNSHARED: "DOCUMENT_UNSHARED",
+  DOCUMENT_VERSION_DELETED: "DOCUMENT_VERSION_DELETED",
+  DOCUMENT_VERSION_DOWNLOADED: "DOCUMENT_VERSION_DOWNLOADED",
+  DOCUMENT_VERSION_UPLOADED: "DOCUMENT_VERSION_UPLOADED",
+  DOCUMENT_VERSION_VIEWED: "DOCUMENT_VERSION_VIEWED",
+  FOLDER_CREATED: "FOLDER_CREATED",
+  FOLDER_DELETED: "FOLDER_DELETED",
+  FOLDER_MOVED: "FOLDER_MOVED",
+  FOLDER_RECYCLED: "FOLDER_RECYCLED",
+  FOLDER_RENAMED: "FOLDER_RENAMED",
+  FOLDER_RESTORED: "FOLDER_RESTORED",
+  FOLDER_SHAREABLE_LINK_CREATED: "FOLDER_SHAREABLE_LINK_CREATED",
+  FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED: "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED",
+  FOLDER_SHAREABLE_LINK_REMOVED: "FOLDER_SHAREABLE_LINK_REMOVED",
+  FOLDER_SHARED: "FOLDER_SHARED",
+  FOLDER_SHARE_PERMISSION_CHANGED: "FOLDER_SHARE_PERMISSION_CHANGED",
+  FOLDER_UNSHARED: "FOLDER_UNSHARED",
+} as const;
 
 /**
+ * @public
+ */
+export type ActivityType = (typeof ActivityType)[keyof typeof ActivityType];
+
+/**
+ * @public
  * <p>Describes the activity information.</p>
  */
 export interface Activity {
@@ -578,11 +666,22 @@ export interface Activity {
   CommentMetadata?: CommentMetadata;
 }
 
-export enum AdditionalResponseFieldType {
-  WEBURL = "WEBURL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AdditionalResponseFieldType = {
+  WEBURL: "WEBURL",
+} as const;
 
 /**
+ * @public
+ */
+export type AdditionalResponseFieldType =
+  (typeof AdditionalResponseFieldType)[keyof typeof AdditionalResponseFieldType];
+
+/**
+ * @public
  * <p>Set of options which defines notification preferences of given action.</p>
  */
 export interface NotificationOptions {
@@ -598,22 +697,41 @@ export interface NotificationOptions {
   EmailMessage?: string;
 }
 
-export enum RoleType {
-  CONTRIBUTOR = "CONTRIBUTOR",
-  COOWNER = "COOWNER",
-  OWNER = "OWNER",
-  VIEWER = "VIEWER",
-}
-
-export enum PrincipalType {
-  ANONYMOUS = "ANONYMOUS",
-  GROUP = "GROUP",
-  INVITE = "INVITE",
-  ORGANIZATION = "ORGANIZATION",
-  USER = "USER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RoleType = {
+  CONTRIBUTOR: "CONTRIBUTOR",
+  COOWNER: "COOWNER",
+  OWNER: "OWNER",
+  VIEWER: "VIEWER",
+} as const;
 
 /**
+ * @public
+ */
+export type RoleType = (typeof RoleType)[keyof typeof RoleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalType = {
+  ANONYMOUS: "ANONYMOUS",
+  GROUP: "GROUP",
+  INVITE: "INVITE",
+  ORGANIZATION: "ORGANIZATION",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+/**
+ * @public
  * <p>Describes the recipient type and ID, if available.</p>
  */
 export interface SharePrincipal {
@@ -633,6 +751,9 @@ export interface SharePrincipal {
   Role: RoleType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AddResourcePermissionsRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -655,12 +776,22 @@ export interface AddResourcePermissionsRequest {
   NotificationOptions?: NotificationOptions;
 }
 
-export enum ShareStatusType {
-  FAILURE = "FAILURE",
-  SUCCESS = "SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ShareStatusType = {
+  FAILURE: "FAILURE",
+  SUCCESS: "SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type ShareStatusType = (typeof ShareStatusType)[keyof typeof ShareStatusType];
+
+/**
+ * @public
  * <p>Describes the share results of a resource.</p>
  */
 export interface ShareResult {
@@ -695,6 +826,9 @@ export interface ShareResult {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface AddResourcePermissionsResponse {
   /**
    * <p>The share results.</p>
@@ -702,11 +836,23 @@ export interface AddResourcePermissionsResponse {
   ShareResults?: ShareResult[];
 }
 
-export enum CommentVisibilityType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CommentVisibilityType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
 
+/**
+ * @public
+ */
+export type CommentVisibilityType = (typeof CommentVisibilityType)[keyof typeof CommentVisibilityType];
+
+/**
+ * @public
+ */
 export interface CreateCommentRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -753,6 +899,7 @@ export interface CreateCommentRequest {
 }
 
 /**
+ * @public
  * <p>Describes a comment.</p>
  */
 export interface Comment {
@@ -805,6 +952,9 @@ export interface Comment {
   RecipientId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateCommentResponse {
   /**
    * <p>The comment that has been created.</p>
@@ -813,6 +963,7 @@ export interface CreateCommentResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when the document is locked for comments and user tries to
  *             create or delete a comment on that document.</p>
  */
@@ -835,6 +986,7 @@ export class DocumentLockedForCommentsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested operation is not allowed on the specified comment object.</p>
  */
 export class InvalidCommentOperationException extends __BaseException {
@@ -855,6 +1007,9 @@ export class InvalidCommentOperationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomMetadataRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -878,9 +1033,13 @@ export interface CreateCustomMetadataRequest {
   CustomMetadata: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCustomMetadataResponse {}
 
 /**
+ * @public
  * <p>The limit has been reached on the number of custom properties for the specified
  *             resource.</p>
  */
@@ -903,6 +1062,7 @@ export class CustomMetadataLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
  */
 export class ConflictingOperationException extends __BaseException {
@@ -923,6 +1083,9 @@ export class ConflictingOperationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateFolderRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -940,14 +1103,24 @@ export interface CreateFolderRequest {
   ParentFolderId: string | undefined;
 }
 
-export enum ResourceStateType {
-  ACTIVE = "ACTIVE",
-  RECYCLED = "RECYCLED",
-  RECYCLING = "RECYCLING",
-  RESTORING = "RESTORING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceStateType = {
+  ACTIVE: "ACTIVE",
+  RECYCLED: "RECYCLED",
+  RECYCLING: "RECYCLING",
+  RESTORING: "RESTORING",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceStateType = (typeof ResourceStateType)[keyof typeof ResourceStateType];
+
+/**
+ * @public
  * <p>Describes a folder.</p>
  */
 export interface FolderMetadata {
@@ -1008,6 +1181,9 @@ export interface FolderMetadata {
   LatestVersionSize?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateFolderResponse {
   /**
    * <p>The metadata of the folder.</p>
@@ -1016,6 +1192,7 @@ export interface CreateFolderResponse {
 }
 
 /**
+ * @public
  * <p>The resource already exists.</p>
  */
 export class EntityAlreadyExistsException extends __BaseException {
@@ -1037,6 +1214,7 @@ export class EntityAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -1057,6 +1235,9 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateLabelsRequest {
   /**
    * <p>The ID of the resource.</p>
@@ -1074,9 +1255,13 @@ export interface CreateLabelsRequest {
   AuthenticationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateLabelsResponse {}
 
 /**
+ * @public
  * <p>The limit has been reached on the number of labels for the specified
  *             resource.</p>
  */
@@ -1098,15 +1283,36 @@ export class TooManyLabelsException extends __BaseException {
   }
 }
 
-export enum SubscriptionProtocolType {
-  HTTPS = "HTTPS",
-  SQS = "SQS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionProtocolType = {
+  HTTPS: "HTTPS",
+  SQS: "SQS",
+} as const;
 
-export enum SubscriptionType {
-  ALL = "ALL",
-}
+/**
+ * @public
+ */
+export type SubscriptionProtocolType = (typeof SubscriptionProtocolType)[keyof typeof SubscriptionProtocolType];
 
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionType = {
+  ALL: "ALL",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
+
+/**
+ * @public
+ */
 export interface CreateNotificationSubscriptionRequest {
   /**
    * <p>The ID of the organization.</p>
@@ -1132,6 +1338,7 @@ export interface CreateNotificationSubscriptionRequest {
 }
 
 /**
+ * @public
  * <p>Describes a subscription.</p>
  */
 export interface Subscription {
@@ -1151,6 +1358,9 @@ export interface Subscription {
   Protocol?: SubscriptionProtocolType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateNotificationSubscriptionResponse {
   /**
    * <p>The subscription.</p>
@@ -1159,6 +1369,7 @@ export interface CreateNotificationSubscriptionResponse {
 }
 
 /**
+ * @public
  * <p>The pagination marker or limit fields are not valid.</p>
  */
 export class InvalidArgumentException extends __BaseException {
@@ -1180,6 +1391,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of subscriptions for the WorkDocs
  *             instance.</p>
  */
@@ -1201,6 +1413,9 @@ export class TooManySubscriptionsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p>The ID of the organization.</p>
@@ -1248,6 +1463,9 @@ export interface CreateUserRequest {
   AuthenticationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResponse {
   /**
    * <p>The user information.</p>
@@ -1255,6 +1473,9 @@ export interface CreateUserResponse {
   User?: User;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateUserRequest {
   /**
    * <p>The ID of the user.</p>
@@ -1267,6 +1488,9 @@ export interface DeactivateUserRequest {
   AuthenticationToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCommentRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1289,6 +1513,9 @@ export interface DeleteCommentRequest {
   CommentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomMetadataRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1318,8 +1545,14 @@ export interface DeleteCustomMetadataRequest {
   DeleteAll?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCustomMetadataResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteDocumentRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1332,6 +1565,9 @@ export interface DeleteDocumentRequest {
   DocumentId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteDocumentVersionRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1355,6 +1591,7 @@ export interface DeleteDocumentVersionRequest {
 }
 
 /**
+ * @public
  * <p>The operation is invalid.</p>
  */
 export class InvalidOperationException extends __BaseException {
@@ -1375,6 +1612,9 @@ export class InvalidOperationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteFolderRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1387,6 +1627,9 @@ export interface DeleteFolderRequest {
   FolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFolderContentsRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1399,6 +1642,9 @@ export interface DeleteFolderContentsRequest {
   FolderId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLabelsRequest {
   /**
    * <p>The ID of the resource.</p>
@@ -1421,8 +1667,14 @@ export interface DeleteLabelsRequest {
   DeleteAll?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DeleteLabelsResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteNotificationSubscriptionRequest {
   /**
    * <p>The ID of the subscription.</p>
@@ -1435,6 +1687,9 @@ export interface DeleteNotificationSubscriptionRequest {
   OrganizationId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Do not set this field when using
@@ -1448,6 +1703,9 @@ export interface DeleteUserRequest {
   UserId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeActivitiesRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1509,6 +1767,9 @@ export interface DescribeActivitiesRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeActivitiesResponse {
   /**
    * <p>The list of activities for the specified user and time period.</p>
@@ -1521,6 +1782,9 @@ export interface DescribeActivitiesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCommentsRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1549,6 +1813,9 @@ export interface DescribeCommentsRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCommentsResponse {
   /**
    * <p>The list of comments for the specified document version.</p>
@@ -1562,6 +1829,9 @@ export interface DescribeCommentsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDocumentVersionsRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1597,23 +1867,51 @@ export interface DescribeDocumentVersionsRequest {
   Fields?: string;
 }
 
-export enum DocumentSourceType {
-  ORIGINAL = "ORIGINAL",
-  WITH_COMMENTS = "WITH_COMMENTS",
-}
-
-export enum DocumentStatusType {
-  ACTIVE = "ACTIVE",
-  INITIALIZED = "INITIALIZED",
-}
-
-export enum DocumentThumbnailType {
-  LARGE = "LARGE",
-  SMALL = "SMALL",
-  SMALL_HQ = "SMALL_HQ",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DocumentSourceType = {
+  ORIGINAL: "ORIGINAL",
+  WITH_COMMENTS: "WITH_COMMENTS",
+} as const;
 
 /**
+ * @public
+ */
+export type DocumentSourceType = (typeof DocumentSourceType)[keyof typeof DocumentSourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DocumentStatusType = {
+  ACTIVE: "ACTIVE",
+  INITIALIZED: "INITIALIZED",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentStatusType = (typeof DocumentStatusType)[keyof typeof DocumentStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DocumentThumbnailType = {
+  LARGE: "LARGE",
+  SMALL: "SMALL",
+  SMALL_HQ: "SMALL_HQ",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentThumbnailType = (typeof DocumentThumbnailType)[keyof typeof DocumentThumbnailType];
+
+/**
+ * @public
  * <p>Describes a version of a document.</p>
  */
 export interface DocumentVersionMetadata {
@@ -1683,6 +1981,9 @@ export interface DocumentVersionMetadata {
   Source?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDocumentVersionsResponse {
   /**
    * <p>The document versions.</p>
@@ -1697,6 +1998,7 @@ export interface DescribeDocumentVersionsResponse {
 }
 
 /**
+ * @public
  * <p>The password is invalid.</p>
  */
 export class InvalidPasswordException extends __BaseException {
@@ -1717,22 +2019,52 @@ export class InvalidPasswordException extends __BaseException {
   }
 }
 
-export enum OrderType {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OrderType = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
 
-export enum ResourceSortType {
-  DATE = "DATE",
-  NAME = "NAME",
-}
+/**
+ * @public
+ */
+export type OrderType = (typeof OrderType)[keyof typeof OrderType];
 
-export enum FolderContentType {
-  ALL = "ALL",
-  DOCUMENT = "DOCUMENT",
-  FOLDER = "FOLDER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceSortType = {
+  DATE: "DATE",
+  NAME: "NAME",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceSortType = (typeof ResourceSortType)[keyof typeof ResourceSortType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FolderContentType = {
+  ALL: "ALL",
+  DOCUMENT: "DOCUMENT",
+  FOLDER: "FOLDER",
+} as const;
+
+/**
+ * @public
+ */
+export type FolderContentType = (typeof FolderContentType)[keyof typeof FolderContentType];
+
+/**
+ * @public
+ */
 export interface DescribeFolderContentsRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1778,6 +2110,7 @@ export interface DescribeFolderContentsRequest {
 }
 
 /**
+ * @public
  * <p>Describes the document.</p>
  */
 export interface DocumentMetadata {
@@ -1822,6 +2155,9 @@ export interface DocumentMetadata {
   Labels?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFolderContentsResponse {
   /**
    * <p>The subfolders in the specified folder.</p>
@@ -1840,6 +2176,9 @@ export interface DescribeFolderContentsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupsRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1868,6 +2207,9 @@ export interface DescribeGroupsRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeGroupsResponse {
   /**
    * <p>The list of groups.</p>
@@ -1881,6 +2223,9 @@ export interface DescribeGroupsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotificationSubscriptionsRequest {
   /**
    * <p>The ID of the organization.</p>
@@ -1899,6 +2244,9 @@ export interface DescribeNotificationSubscriptionsRequest {
   Limit?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotificationSubscriptionsResponse {
   /**
    * <p>The subscriptions.</p>
@@ -1912,6 +2260,9 @@ export interface DescribeNotificationSubscriptionsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourcePermissionsRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -1940,12 +2291,22 @@ export interface DescribeResourcePermissionsRequest {
   Marker?: string;
 }
 
-export enum RolePermissionType {
-  DIRECT = "DIRECT",
-  INHERITED = "INHERITED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RolePermissionType = {
+  DIRECT: "DIRECT",
+  INHERITED: "INHERITED",
+} as const;
 
 /**
+ * @public
+ */
+export type RolePermissionType = (typeof RolePermissionType)[keyof typeof RolePermissionType];
+
+/**
+ * @public
  * <p>Describes the permissions.</p>
  */
 export interface PermissionInfo {
@@ -1961,6 +2322,7 @@ export interface PermissionInfo {
 }
 
 /**
+ * @public
  * <p>Describes a resource.</p>
  */
 export interface Principal {
@@ -1980,6 +2342,9 @@ export interface Principal {
   Roles?: PermissionInfo[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeResourcePermissionsResponse {
   /**
    * <p>The principals.</p>
@@ -1993,6 +2358,9 @@ export interface DescribeResourcePermissionsResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRootFoldersRequest {
   /**
    * <p>Amazon WorkDocs authentication token.</p>
@@ -2011,6 +2379,9 @@ export interface DescribeRootFoldersRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeRootFoldersResponse {
   /**
    * <p>The user's special folders.</p>
@@ -2023,19 +2394,40 @@ export interface DescribeRootFoldersResponse {
   Marker?: string;
 }
 
-export enum UserFilterType {
-  ACTIVE_PENDING = "ACTIVE_PENDING",
-  ALL = "ALL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UserFilterType = {
+  ACTIVE_PENDING: "ACTIVE_PENDING",
+  ALL: "ALL",
+} as const;
 
-export enum UserSortType {
-  FULL_NAME = "FULL_NAME",
-  STORAGE_LIMIT = "STORAGE_LIMIT",
-  STORAGE_USED = "STORAGE_USED",
-  USER_NAME = "USER_NAME",
-  USER_STATUS = "USER_STATUS",
-}
+/**
+ * @public
+ */
+export type UserFilterType = (typeof UserFilterType)[keyof typeof UserFilterType];
 
+/**
+ * @public
+ * @enum
+ */
+export const UserSortType = {
+  FULL_NAME: "FULL_NAME",
+  STORAGE_LIMIT: "STORAGE_LIMIT",
+  STORAGE_USED: "STORAGE_USED",
+  USER_NAME: "USER_NAME",
+  USER_STATUS: "USER_STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type UserSortType = (typeof UserSortType)[keyof typeof UserSortType];
+
+/**
+ * @public
+ */
 export interface DescribeUsersRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2107,6 +2499,9 @@ export interface DescribeUsersRequest {
   Fields?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsersResponse {
   /**
    * <p>The users.</p>
@@ -2128,6 +2523,7 @@ export interface DescribeUsersResponse {
 }
 
 /**
+ * @public
  * <p>The response is too large to return. The request must include a filter to reduce the size of the response.</p>
  */
 export class RequestedEntityTooLargeException extends __BaseException {
@@ -2148,6 +2544,9 @@ export class RequestedEntityTooLargeException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetCurrentUserRequest {
   /**
    * <p>Amazon WorkDocs authentication token.</p>
@@ -2155,6 +2554,9 @@ export interface GetCurrentUserRequest {
   AuthenticationToken: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCurrentUserResponse {
   /**
    * <p>Metadata of the user.</p>
@@ -2162,6 +2564,9 @@ export interface GetCurrentUserResponse {
   User?: User;
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2179,6 +2584,9 @@ export interface GetDocumentRequest {
   IncludeCustomMetadata?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentResponse {
   /**
    * <p>The metadata details of the document.</p>
@@ -2191,6 +2599,9 @@ export interface GetDocumentResponse {
   CustomMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentPathRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2220,6 +2631,7 @@ export interface GetDocumentPathRequest {
 }
 
 /**
+ * @public
  * <p>Describes the resource path.</p>
  */
 export interface ResourcePathComponent {
@@ -2235,6 +2647,7 @@ export interface ResourcePathComponent {
 }
 
 /**
+ * @public
  * <p>Describes the path information of a resource.</p>
  */
 export interface ResourcePath {
@@ -2244,6 +2657,9 @@ export interface ResourcePath {
   Components?: ResourcePathComponent[];
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentPathResponse {
   /**
    * <p>The path information.</p>
@@ -2251,6 +2667,9 @@ export interface GetDocumentPathResponse {
   Path?: ResourcePath;
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentVersionRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2279,6 +2698,9 @@ export interface GetDocumentVersionRequest {
   IncludeCustomMetadata?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetDocumentVersionResponse {
   /**
    * <p>The version metadata.</p>
@@ -2291,6 +2713,9 @@ export interface GetDocumentVersionResponse {
   CustomMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetFolderRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2308,6 +2733,9 @@ export interface GetFolderRequest {
   IncludeCustomMetadata?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface GetFolderResponse {
   /**
    * <p>The metadata of the folder.</p>
@@ -2320,6 +2748,9 @@ export interface GetFolderResponse {
   CustomMetadata?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetFolderPathRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2348,6 +2779,9 @@ export interface GetFolderPathRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetFolderPathResponse {
   /**
    * <p>The path information.</p>
@@ -2355,10 +2789,22 @@ export interface GetFolderPathResponse {
   Path?: ResourcePath;
 }
 
-export enum ResourceCollectionType {
-  SHARED_WITH_ME = "SHARED_WITH_ME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceCollectionType = {
+  SHARED_WITH_ME: "SHARED_WITH_ME",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceCollectionType = (typeof ResourceCollectionType)[keyof typeof ResourceCollectionType];
+
+/**
+ * @public
+ */
 export interface GetResourcesRequest {
   /**
    * <p>The Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2387,6 +2833,9 @@ export interface GetResourcesRequest {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetResourcesResponse {
   /**
    * <p>The folders in the specified folder.</p>
@@ -2405,6 +2854,7 @@ export interface GetResourcesResponse {
 }
 
 /**
+ * @public
  * <p>This exception is thrown when a valid checkout ID is not presented on document
  *             version upload calls for a document that has been checked out from Web client.</p>
  */
@@ -2426,6 +2876,9 @@ export class DraftUploadOutOfSyncException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface InitiateDocumentVersionUploadRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2469,6 +2922,7 @@ export interface InitiateDocumentVersionUploadRequest {
 }
 
 /**
+ * @public
  * <p>Describes the upload.</p>
  */
 export interface UploadMetadata {
@@ -2483,6 +2937,9 @@ export interface UploadMetadata {
   SignedHeaders?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface InitiateDocumentVersionUploadResponse {
   /**
    * <p>The document metadata.</p>
@@ -2496,6 +2953,7 @@ export interface InitiateDocumentVersionUploadResponse {
 }
 
 /**
+ * @public
  * <p>The resource is already checked out.</p>
  */
 export class ResourceAlreadyCheckedOutException extends __BaseException {
@@ -2517,6 +2975,7 @@ export class ResourceAlreadyCheckedOutException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The storage limit has been exceeded.</p>
  */
 export class StorageLimitExceededException extends __BaseException {
@@ -2538,6 +2997,7 @@ export class StorageLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The storage limit will be exceeded.</p>
  */
 export class StorageLimitWillExceedException extends __BaseException {
@@ -2558,6 +3018,9 @@ export class StorageLimitWillExceedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface RemoveAllResourcePermissionsRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2570,6 +3033,9 @@ export interface RemoveAllResourcePermissionsRequest {
   ResourceId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RemoveResourcePermissionRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2592,6 +3058,9 @@ export interface RemoveResourcePermissionRequest {
   PrincipalType?: PrincipalType | string;
 }
 
+/**
+ * @public
+ */
 export interface RestoreDocumentVersionsRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2604,19 +3073,29 @@ export interface RestoreDocumentVersionsRequest {
   DocumentId: string | undefined;
 }
 
-export enum ContentCategoryType {
-  AUDIO = "AUDIO",
-  DOCUMENT = "DOCUMENT",
-  IMAGE = "IMAGE",
-  OTHER = "OTHER",
-  PDF = "PDF",
-  PRESENTATION = "PRESENTATION",
-  SOURCE_CODE = "SOURCE_CODE",
-  SPREADSHEET = "SPREADSHEET",
-  VIDEO = "VIDEO",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContentCategoryType = {
+  AUDIO: "AUDIO",
+  DOCUMENT: "DOCUMENT",
+  IMAGE: "IMAGE",
+  OTHER: "OTHER",
+  PDF: "PDF",
+  PRESENTATION: "PRESENTATION",
+  SOURCE_CODE: "SOURCE_CODE",
+  SPREADSHEET: "SPREADSHEET",
+  VIDEO: "VIDEO",
+} as const;
 
 /**
+ * @public
+ */
+export type ContentCategoryType = (typeof ContentCategoryType)[keyof typeof ContentCategoryType];
+
+/**
+ * @public
  * <p>Filters results based on timestamp range (in epochs).</p>
  */
 export interface DateRangeType {
@@ -2631,14 +3110,24 @@ export interface DateRangeType {
   EndValue?: Date;
 }
 
-export enum PrincipalRoleType {
-  CONTRIBUTOR = "CONTRIBUTOR",
-  COOWNER = "COOWNER",
-  OWNER = "OWNER",
-  VIEWER = "VIEWER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalRoleType = {
+  CONTRIBUTOR: "CONTRIBUTOR",
+  COOWNER: "COOWNER",
+  OWNER: "OWNER",
+  VIEWER: "VIEWER",
+} as const;
 
 /**
+ * @public
+ */
+export type PrincipalRoleType = (typeof PrincipalRoleType)[keyof typeof PrincipalRoleType];
+
+/**
+ * @public
  * <p>Filter based on UserIds or GroupIds.</p>
  */
 export interface SearchPrincipalType {
@@ -2653,19 +3142,38 @@ export interface SearchPrincipalType {
   Roles?: (PrincipalRoleType | string)[];
 }
 
-export enum SearchResourceType {
-  COMMENT = "COMMENT",
-  DOCUMENT = "DOCUMENT",
-  DOCUMENT_VERSION = "DOCUMENT_VERSION",
-  FOLDER = "FOLDER",
-}
-
-export enum SearchCollectionType {
-  OWNED = "OWNED",
-  SHARED_WITH_ME = "SHARED_WITH_ME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SearchResourceType = {
+  COMMENT: "COMMENT",
+  DOCUMENT: "DOCUMENT",
+  DOCUMENT_VERSION: "DOCUMENT_VERSION",
+  FOLDER: "FOLDER",
+} as const;
 
 /**
+ * @public
+ */
+export type SearchResourceType = (typeof SearchResourceType)[keyof typeof SearchResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchCollectionType = {
+  OWNED: "OWNED",
+  SHARED_WITH_ME: "SHARED_WITH_ME",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchCollectionType = (typeof SearchCollectionType)[keyof typeof SearchCollectionType];
+
+/**
+ * @public
  * <p>Filter based on size (in bytes).</p>
  */
 export interface LongRangeType {
@@ -2680,41 +3188,51 @@ export interface LongRangeType {
   EndValue?: number;
 }
 
-export enum LanguageCodeType {
-  AR = "AR",
-  BG = "BG",
-  BN = "BN",
-  CS = "CS",
-  DA = "DA",
-  DE = "DE",
-  DEFAULT = "DEFAULT",
-  EL = "EL",
-  EN = "EN",
-  ES = "ES",
-  FA = "FA",
-  FI = "FI",
-  FR = "FR",
-  HI = "HI",
-  HU = "HU",
-  ID = "ID",
-  IT = "IT",
-  JA = "JA",
-  KO = "KO",
-  LT = "LT",
-  LV = "LV",
-  NL = "NL",
-  NO = "NO",
-  PT = "PT",
-  RO = "RO",
-  RU = "RU",
-  SV = "SV",
-  SW = "SW",
-  TH = "TH",
-  TR = "TR",
-  ZH = "ZH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LanguageCodeType = {
+  AR: "AR",
+  BG: "BG",
+  BN: "BN",
+  CS: "CS",
+  DA: "DA",
+  DE: "DE",
+  DEFAULT: "DEFAULT",
+  EL: "EL",
+  EN: "EN",
+  ES: "ES",
+  FA: "FA",
+  FI: "FI",
+  FR: "FR",
+  HI: "HI",
+  HU: "HU",
+  ID: "ID",
+  IT: "IT",
+  JA: "JA",
+  KO: "KO",
+  LT: "LT",
+  LV: "LV",
+  NL: "NL",
+  NO: "NO",
+  PT: "PT",
+  RO: "RO",
+  RU: "RU",
+  SV: "SV",
+  SW: "SW",
+  TH: "TH",
+  TR: "TR",
+  ZH: "ZH",
+} as const;
 
 /**
+ * @public
+ */
+export type LanguageCodeType = (typeof LanguageCodeType)[keyof typeof LanguageCodeType];
+
+/**
+ * @public
  * <p>Filters results based on entity metadata.</p>
  */
 export interface Filters {
@@ -2769,20 +3287,39 @@ export interface Filters {
   ModifiedRange?: DateRangeType;
 }
 
-export enum OrderByFieldType {
-  CREATED_TIMESTAMP = "CREATED_TIMESTAMP",
-  MODIFIED_TIMESTAMP = "MODIFIED_TIMESTAMP",
-  NAME = "NAME",
-  RELEVANCE = "RELEVANCE",
-  SIZE = "SIZE",
-}
-
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OrderByFieldType = {
+  CREATED_TIMESTAMP: "CREATED_TIMESTAMP",
+  MODIFIED_TIMESTAMP: "MODIFIED_TIMESTAMP",
+  NAME: "NAME",
+  RELEVANCE: "RELEVANCE",
+  SIZE: "SIZE",
+} as const;
 
 /**
+ * @public
+ */
+export type OrderByFieldType = (typeof OrderByFieldType)[keyof typeof OrderByFieldType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
  * <p>The result of the sort operation.</p>
  */
 export interface SearchSortResult {
@@ -2797,11 +3334,23 @@ export interface SearchSortResult {
   Order?: SortOrder | string;
 }
 
-export enum SearchQueryScopeType {
-  CONTENT = "CONTENT",
-  NAME = "NAME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SearchQueryScopeType = {
+  CONTENT: "CONTENT",
+  NAME: "NAME",
+} as const;
 
+/**
+ * @public
+ */
+export type SearchQueryScopeType = (typeof SearchQueryScopeType)[keyof typeof SearchQueryScopeType];
+
+/**
+ * @public
+ */
 export interface SearchResourcesRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2850,14 +3399,24 @@ export interface SearchResourcesRequest {
   Marker?: string;
 }
 
-export enum ResponseItemType {
-  COMMENT = "COMMENT",
-  DOCUMENT = "DOCUMENT",
-  DOCUMENT_VERSION = "DOCUMENT_VERSION",
-  FOLDER = "FOLDER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResponseItemType = {
+  COMMENT: "COMMENT",
+  DOCUMENT: "DOCUMENT",
+  DOCUMENT_VERSION: "DOCUMENT_VERSION",
+  FOLDER: "FOLDER",
+} as const;
 
 /**
+ * @public
+ */
+export type ResponseItemType = (typeof ResponseItemType)[keyof typeof ResponseItemType];
+
+/**
+ * @public
  * <p>List of Documents, Folders, Comments, and Document Versions matching the query.</p>
  */
 export interface ResponseItem {
@@ -2892,6 +3451,9 @@ export interface ResponseItem {
   DocumentVersionMetadata?: DocumentVersionMetadata;
 }
 
+/**
+ * @public
+ */
 export interface SearchResourcesResponse {
   /**
    * <p>List of Documents, Folders, Comments, and Document Versions matching the query.</p>
@@ -2904,6 +3466,9 @@ export interface SearchResourcesResponse {
   Marker?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateDocumentRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2932,10 +3497,22 @@ export interface UpdateDocumentRequest {
   ResourceState?: ResourceStateType | string;
 }
 
-export enum DocumentVersionStatus {
-  ACTIVE = "ACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DocumentVersionStatus = {
+  ACTIVE: "ACTIVE",
+} as const;
 
+/**
+ * @public
+ */
+export type DocumentVersionStatus = (typeof DocumentVersionStatus)[keyof typeof DocumentVersionStatus];
+
+/**
+ * @public
+ */
 export interface UpdateDocumentVersionRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2958,6 +3535,9 @@ export interface UpdateDocumentVersionRequest {
   VersionStatus?: DocumentVersionStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFolderRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2987,6 +3567,7 @@ export interface UpdateFolderRequest {
 }
 
 /**
+ * @public
  * <p>The last user in the organization is being deactivated.</p>
  */
 export class DeactivatingLastSystemUserException extends __BaseException {
@@ -3010,6 +3591,7 @@ export class DeactivatingLastSystemUserException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The user is undergoing transfer of ownership.</p>
  */
 export class IllegalUserStateException extends __BaseException {
@@ -3030,11 +3612,23 @@ export class IllegalUserStateException extends __BaseException {
   }
 }
 
-export enum BooleanEnumType {
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BooleanEnumType = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
 
+/**
+ * @public
+ */
+export type BooleanEnumType = (typeof BooleanEnumType)[keyof typeof BooleanEnumType];
+
+/**
+ * @public
+ */
 export interface UpdateUserRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -3082,6 +3676,9 @@ export interface UpdateUserRequest {
   GrantPoweruserPrivileges?: BooleanEnumType | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserResponse {
   /**
    * <p>The user information.</p>
@@ -3103,20 +3700,6 @@ export const AbortDocumentVersionUploadRequestFilterSensitiveLog = (obj: AbortDo
 export const ActivateUserRequestFilterSensitiveLog = (obj: ActivateUserRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StorageRuleTypeFilterSensitiveLog = (obj: StorageRuleType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserStorageMetadataFilterSensitiveLog = (obj: UserStorageMetadata): any => ({
-  ...obj,
 });
 
 /**
@@ -3170,13 +3753,6 @@ export const ResourceMetadataFilterSensitiveLog = (obj: ResourceMetadata): any =
 /**
  * @internal
  */
-export const GroupMetadataFilterSensitiveLog = (obj: GroupMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ParticipantsFilterSensitiveLog = (obj: Participants): any => ({
   ...obj,
   ...(obj.Users && { Users: obj.Users.map((item) => UserMetadataFilterSensitiveLog(item)) }),
@@ -3200,13 +3776,6 @@ export const ActivityFilterSensitiveLog = (obj: Activity): any => ({
 export const NotificationOptionsFilterSensitiveLog = (obj: NotificationOptions): any => ({
   ...obj,
   ...(obj.EmailMessage && { EmailMessage: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SharePrincipalFilterSensitiveLog = (obj: SharePrincipal): any => ({
-  ...obj,
 });
 
 /**
@@ -3273,13 +3842,6 @@ export const CreateCustomMetadataRequestFilterSensitiveLog = (obj: CreateCustomM
 /**
  * @internal
  */
-export const CreateCustomMetadataResponseFilterSensitiveLog = (obj: CreateCustomMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateFolderRequestFilterSensitiveLog = (obj: CreateFolderRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
@@ -3308,38 +3870,6 @@ export const CreateFolderResponseFilterSensitiveLog = (obj: CreateFolderResponse
 export const CreateLabelsRequestFilterSensitiveLog = (obj: CreateLabelsRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateLabelsResponseFilterSensitiveLog = (obj: CreateLabelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNotificationSubscriptionRequestFilterSensitiveLog = (
-  obj: CreateNotificationSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscriptionFilterSensitiveLog = (obj: Subscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNotificationSubscriptionResponseFilterSensitiveLog = (
-  obj: CreateNotificationSubscriptionResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3390,13 +3920,6 @@ export const DeleteCustomMetadataRequestFilterSensitiveLog = (obj: DeleteCustomM
 /**
  * @internal
  */
-export const DeleteCustomMetadataResponseFilterSensitiveLog = (obj: DeleteCustomMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteDocumentRequestFilterSensitiveLog = (obj: DeleteDocumentRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
@@ -3432,22 +3955,6 @@ export const DeleteFolderContentsRequestFilterSensitiveLog = (obj: DeleteFolderC
 export const DeleteLabelsRequestFilterSensitiveLog = (obj: DeleteLabelsRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteLabelsResponseFilterSensitiveLog = (obj: DeleteLabelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNotificationSubscriptionRequestFilterSensitiveLog = (
-  obj: DeleteNotificationSubscriptionRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3557,57 +4064,9 @@ export const DescribeGroupsRequestFilterSensitiveLog = (obj: DescribeGroupsReque
 /**
  * @internal
  */
-export const DescribeGroupsResponseFilterSensitiveLog = (obj: DescribeGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotificationSubscriptionsRequestFilterSensitiveLog = (
-  obj: DescribeNotificationSubscriptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotificationSubscriptionsResponseFilterSensitiveLog = (
-  obj: DescribeNotificationSubscriptionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeResourcePermissionsRequestFilterSensitiveLog = (obj: DescribeResourcePermissionsRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PermissionInfoFilterSensitiveLog = (obj: PermissionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrincipalFilterSensitiveLog = (obj: Principal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeResourcePermissionsResponseFilterSensitiveLog = (
-  obj: DescribeResourcePermissionsResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3826,41 +4285,6 @@ export const RemoveResourcePermissionRequestFilterSensitiveLog = (obj: RemoveRes
 export const RestoreDocumentVersionsRequestFilterSensitiveLog = (obj: RestoreDocumentVersionsRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DateRangeTypeFilterSensitiveLog = (obj: DateRangeType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchPrincipalTypeFilterSensitiveLog = (obj: SearchPrincipalType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LongRangeTypeFilterSensitiveLog = (obj: LongRangeType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FiltersFilterSensitiveLog = (obj: Filters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchSortResultFilterSensitiveLog = (obj: SearchSortResult): any => ({
-  ...obj,
 });
 
 /**

@@ -60,10 +60,19 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes = SearchCommandInput | SuggestCommandInput | UploadDocumentsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes = SearchCommandOutput | SuggestCommandOutput | UploadDocumentsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -71,7 +80,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -180,11 +189,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CloudSearchDomainClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -195,10 +207,15 @@ type CloudSearchDomainClientConfigType = Partial<__SmithyConfiguration<__HttpHan
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CloudSearchDomainClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CloudSearchDomainClient class constructor that set the region, credentials and other options.
  */
 export interface CloudSearchDomainClientConfig extends CloudSearchDomainClientConfigType {}
 
+/**
+ * @public
+ */
 type CloudSearchDomainClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -209,11 +226,14 @@ type CloudSearchDomainClientResolvedConfigType = __SmithyResolvedConfiguration<_
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CloudSearchDomainClient class. This is resolved and normalized from the {@link CloudSearchDomainClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CloudSearchDomainClient class. This is resolved and normalized from the {@link CloudSearchDomainClientConfig | constructor configuration interface}.
  */
 export interface CloudSearchDomainClientResolvedConfig extends CloudSearchDomainClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>You use the AmazonCloudSearch2013 API to upload documents to a search domain and search those documents. </p>
  *
  *          <p>The endpoints for submitting <code>UploadDocuments</code>, <code>Search</code>, and <code>Suggest</code> requests are domain-specific. To get the endpoints for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. The domain endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. You submit suggest requests to the search endpoint. </p>

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DeleteEntitlementRequest,
-  DeleteEntitlementRequestFilterSensitiveLog,
-  DeleteEntitlementResult,
-  DeleteEntitlementResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEntitlementCommand,
-  serializeAws_json1_1DeleteEntitlementCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEntitlementRequest, DeleteEntitlementResult } from "../models/models_0";
+import { de_DeleteEntitlementCommand, se_DeleteEntitlementCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEntitlementCommand}.
  */
 export interface DeleteEntitlementCommandInput extends DeleteEntitlementRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEntitlementCommand}.
  */
 export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified entitlement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult,
  * import { AppStreamClient, DeleteEntitlementCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteEntitlementCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DeleteEntitlementRequest
+ *   Name: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEntitlementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEntitlementCommandInput - {@link DeleteEntitlementCommandInput}
+ * @returns {@link DeleteEntitlementCommandOutput}
  * @see {@link DeleteEntitlementCommandInput} for command's `input` shape.
  * @see {@link DeleteEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -81,6 +84,9 @@ export class DeleteEntitlementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEntitlementCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class DeleteEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEntitlementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEntitlementResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class DeleteEntitlementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEntitlementCommand(input, context);
+    return se_DeleteEntitlementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEntitlementCommandOutput> {
-    return deserializeAws_json1_1DeleteEntitlementCommand(output, context);
+    return de_DeleteEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

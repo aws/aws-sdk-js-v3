@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  CreateSipRuleRequest,
-  CreateSipRuleRequestFilterSensitiveLog,
-  CreateSipRuleResponse,
-  CreateSipRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSipRuleCommand,
-  serializeAws_restJson1CreateSipRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateSipRuleRequest, CreateSipRuleResponse } from "../models/models_0";
+import { de_CreateSipRuleCommand, se_CreateSipRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSipRuleCommand}.
  */
 export interface CreateSipRuleCommandInput extends CreateSipRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSipRuleCommand}.
  */
 export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a SIP rule which can be used to run a SIP media application as a target for a specific trigger type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  * import { ChimeClient, CreateSipRuleCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateSipRuleCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateSipRuleRequest
+ *   Name: "STRING_VALUE", // required
+ *   TriggerType: "ToPhoneNumber" || "RequestUriHostname", // required
+ *   TriggerValue: "STRING_VALUE", // required
+ *   Disabled: true || false,
+ *   TargetApplications: [ // SipRuleTargetApplicationList // required
+ *     { // SipRuleTargetApplication
+ *       SipMediaApplicationId: "STRING_VALUE",
+ *       Priority: Number("int"),
+ *       AwsRegion: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateSipRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSipRuleCommandInput - {@link CreateSipRuleCommandInput}
+ * @returns {@link CreateSipRuleCommandOutput}
  * @see {@link CreateSipRuleCommandInput} for command's `input` shape.
  * @see {@link CreateSipRuleCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +109,9 @@ export class CreateSipRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSipRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +138,8 @@ export class CreateSipRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSipRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSipRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +149,18 @@ export class CreateSipRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSipRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSipRuleCommand(input, context);
+    return se_CreateSipRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSipRuleCommandOutput> {
-    return deserializeAws_restJson1CreateSipRuleCommand(output, context);
+    return de_CreateSipRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

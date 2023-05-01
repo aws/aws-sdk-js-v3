@@ -5,6 +5,9 @@ import { resolveParamsForS3 } from "../service-customizations";
 import { EndpointParameterInstructions } from "../types";
 import { createConfigValueProvider } from "./createConfigValueProvider";
 
+/**
+ * @internal
+ */
 export type EndpointParameterInstructionsSupplier = Partial<{
   getEndpointParameterInstructions(): EndpointParameterInstructions;
 }>;
@@ -15,7 +18,7 @@ export type EndpointParameterInstructionsSupplier = Partial<{
  * the V2 Endpoint associated to an instance of some api operation command
  * without needing to send it or resolve its middleware stack.
  *
- * @private
+ * @internal
  * @param commandInput         - the input of the Command in question.
  * @param instructionsSupplier - this is typically a Command constructor. A static function supplying the
  *                               endpoint parameter instructions will exist for commands in services
@@ -43,6 +46,9 @@ export const getEndpointFromInstructions = async <
   return endpoint;
 };
 
+/**
+ * @internal
+ */
 export const resolveParams = async <
   T extends EndpointParameters,
   CommandInput extends Record<string, unknown>,

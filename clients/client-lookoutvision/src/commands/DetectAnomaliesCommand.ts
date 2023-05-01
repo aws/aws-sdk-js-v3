@@ -18,17 +18,15 @@ import {
   DetectAnomaliesRequest,
   DetectAnomaliesRequestFilterSensitiveLog,
   DetectAnomaliesResponse,
-  DetectAnomaliesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DetectAnomaliesCommand,
-  serializeAws_restJson1DetectAnomaliesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DetectAnomaliesCommand, se_DetectAnomaliesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectAnomaliesCommand}.
  */
-type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body"> & {
+export type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body"> & {
   /**
    * For *`DetectAnomaliesRequest["Body"]`*, see {@link DetectAnomaliesRequest.Body}.
    */
@@ -39,11 +37,14 @@ type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body"> & {
  */
 export interface DetectAnomaliesCommandInput extends DetectAnomaliesCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link DetectAnomaliesCommand}.
  */
 export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects anomalies in an image that you supply. </p>
  *          <p>The response from <code>DetectAnomalies</code> includes a boolean prediction
  *          that the image contains one or more anomalies and a confidence value for the prediction.
@@ -65,10 +66,18 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  * import { LookoutVisionClient, DetectAnomaliesCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DetectAnomaliesCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = { // DetectAnomaliesRequest
+ *   ProjectName: "STRING_VALUE", // required
+ *   ModelVersion: "STRING_VALUE", // required
+ *   Body: "STREAMING_BLOB_VALUE", // required
+ *   ContentType: "STRING_VALUE", // required
+ * };
  * const command = new DetectAnomaliesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectAnomaliesCommandInput - {@link DetectAnomaliesCommandInput}
+ * @returns {@link DetectAnomaliesCommandOutput}
  * @see {@link DetectAnomaliesCommandInput} for command's `input` shape.
  * @see {@link DetectAnomaliesCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -111,6 +120,9 @@ export class DetectAnomaliesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectAnomaliesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,7 +152,7 @@ export class DetectAnomaliesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DetectAnomaliesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectAnomaliesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +162,18 @@ export class DetectAnomaliesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectAnomaliesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DetectAnomaliesCommand(input, context);
+    return se_DetectAnomaliesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectAnomaliesCommandOutput> {
-    return deserializeAws_restJson1DetectAnomaliesCommand(output, context);
+    return de_DetectAnomaliesCommand(output, context);
   }
 
   // Start section: command_body_extra

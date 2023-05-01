@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteChapCredentialsInput,
-  DeleteChapCredentialsInputFilterSensitiveLog,
-  DeleteChapCredentialsOutput,
-  DeleteChapCredentialsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteChapCredentialsCommand,
-  serializeAws_json1_1DeleteChapCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteChapCredentialsInput, DeleteChapCredentialsOutput } from "../models/models_0";
+import { de_DeleteChapCredentialsCommand, se_DeleteChapCredentialsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChapCredentialsCommand}.
  */
 export interface DeleteChapCredentialsCommandInput extends DeleteChapCredentialsInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChapCredentialsCommand}.
  */
 export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredentialsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified
  *          iSCSI target and initiator pair. This operation is supported in volume and tape gateway
  *          types.</p>
@@ -44,10 +41,16 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  * import { StorageGatewayClient, DeleteChapCredentialsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteChapCredentialsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DeleteChapCredentialsInput
+ *   TargetARN: "STRING_VALUE", // required
+ *   InitiatorName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteChapCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChapCredentialsCommandInput - {@link DeleteChapCredentialsCommandInput}
+ * @returns {@link DeleteChapCredentialsCommandOutput}
  * @see {@link DeleteChapCredentialsCommandInput} for command's `input` shape.
  * @see {@link DeleteChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -97,6 +100,9 @@ export class DeleteChapCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChapCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +131,8 @@ export class DeleteChapCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChapCredentialsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteChapCredentialsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +142,18 @@ export class DeleteChapCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChapCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteChapCredentialsCommand(input, context);
+    return se_DeleteChapCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChapCredentialsCommandOutput> {
-    return deserializeAws_json1_1DeleteChapCredentialsCommand(output, context);
+    return de_DeleteChapCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

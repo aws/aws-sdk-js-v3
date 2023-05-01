@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { CreateReplicationConfigurationRequest, ReplicationConfigurationDescription } from "../models/models_0";
 import {
-  CreateReplicationConfigurationRequest,
-  CreateReplicationConfigurationRequestFilterSensitiveLog,
-  ReplicationConfigurationDescription,
-  ReplicationConfigurationDescriptionFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateReplicationConfigurationCommand,
-  serializeAws_restJson1CreateReplicationConfigurationCommand,
+  de_CreateReplicationConfigurationCommand,
+  se_CreateReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReplicationConfigurationCommand}.
  */
 export interface CreateReplicationConfigurationCommandInput extends CreateReplicationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateReplicationConfigurationCommand}.
  */
 export interface CreateReplicationConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface CreateReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a replication configuration that replicates an existing EFS file system to a new,
  *       read-only file system. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
  *           <i>Amazon EFS User Guide</i>. The replication configuration
@@ -125,10 +125,22 @@ export interface CreateReplicationConfigurationCommandOutput
  * import { EFSClient, CreateReplicationConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateReplicationConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // CreateReplicationConfigurationRequest
+ *   SourceFileSystemId: "STRING_VALUE", // required
+ *   Destinations: [ // DestinationsToCreate // required
+ *     { // DestinationToCreate
+ *       Region: "STRING_VALUE",
+ *       AvailabilityZoneName: "STRING_VALUE",
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReplicationConfigurationCommandInput - {@link CreateReplicationConfigurationCommandInput}
+ * @returns {@link CreateReplicationConfigurationCommandOutput}
  * @see {@link CreateReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -191,6 +203,9 @@ export class CreateReplicationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReplicationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -219,8 +234,8 @@ export class CreateReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplicationConfigurationDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -230,18 +245,24 @@ export class CreateReplicationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateReplicationConfigurationCommand(input, context);
+    return se_CreateReplicationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateReplicationConfigurationCommand(output, context);
+    return de_CreateReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

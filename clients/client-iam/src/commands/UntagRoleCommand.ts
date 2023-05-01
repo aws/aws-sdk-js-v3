@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagRoleRequest, UntagRoleRequestFilterSensitiveLog } from "../models/models_1";
-import { deserializeAws_queryUntagRoleCommand, serializeAws_queryUntagRoleCommand } from "../protocols/Aws_query";
+import { UntagRoleRequest } from "../models/models_1";
+import { de_UntagRoleCommand, se_UntagRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UntagRoleCommand}.
  */
 export interface UntagRoleCommandInput extends UntagRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UntagRoleCommand}.
  */
 export interface UntagRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
  * @example
@@ -35,10 +40,18 @@ export interface UntagRoleCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UntagRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UntagRoleRequest
+ *   RoleName: "STRING_VALUE", // required
+ *   TagKeys: [ // tagKeyListType // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagRoleCommandInput - {@link UntagRoleCommandInput}
+ * @returns {@link UntagRoleCommandOutput}
  * @see {@link UntagRoleCommandInput} for command's `input` shape.
  * @see {@link UntagRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +97,9 @@ export class UntagRoleCommand extends $Command<UntagRoleCommandInput, UntagRoleC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +126,8 @@ export class UntagRoleCommand extends $Command<UntagRoleCommandInput, UntagRoleC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +137,18 @@ export class UntagRoleCommand extends $Command<UntagRoleCommandInput, UntagRoleC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagRoleCommand(input, context);
+    return se_UntagRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagRoleCommandOutput> {
-    return deserializeAws_queryUntagRoleCommand(output, context);
+    return de_UntagRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

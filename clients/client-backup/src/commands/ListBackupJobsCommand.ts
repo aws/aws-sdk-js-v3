@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListBackupJobsInput,
-  ListBackupJobsInputFilterSensitiveLog,
-  ListBackupJobsOutput,
-  ListBackupJobsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBackupJobsCommand,
-  serializeAws_restJson1ListBackupJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListBackupJobsInput, ListBackupJobsOutput } from "../models/models_0";
+import { de_ListBackupJobsCommand, se_ListBackupJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBackupJobsCommand}.
  */
 export interface ListBackupJobsCommandInput extends ListBackupJobsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBackupJobsCommand}.
  */
 export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of existing backup jobs for an authenticated account for the last 30
  *          days. For a longer period of time, consider using these <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">monitoring tools</a>.</p>
  * @example
@@ -43,10 +40,26 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
  * import { BackupClient, ListBackupJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListBackupJobsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ByResourceArn: "STRING_VALUE",
+ *   ByState: "CREATED" || "PENDING" || "RUNNING" || "ABORTING" || "ABORTED" || "COMPLETED" || "FAILED" || "EXPIRED" || "PARTIAL",
+ *   ByBackupVaultName: "STRING_VALUE",
+ *   ByCreatedBefore: new Date("TIMESTAMP"),
+ *   ByCreatedAfter: new Date("TIMESTAMP"),
+ *   ByResourceType: "STRING_VALUE",
+ *   ByAccountId: "STRING_VALUE",
+ *   ByCompleteAfter: new Date("TIMESTAMP"),
+ *   ByCompleteBefore: new Date("TIMESTAMP"),
+ *   ByParentJobId: "STRING_VALUE",
+ * };
  * const command = new ListBackupJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackupJobsCommandInput - {@link ListBackupJobsCommandInput}
+ * @returns {@link ListBackupJobsCommandOutput}
  * @see {@link ListBackupJobsCommandInput} for command's `input` shape.
  * @see {@link ListBackupJobsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -77,6 +90,9 @@ export class ListBackupJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackupJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +121,8 @@ export class ListBackupJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackupJobsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBackupJobsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +132,18 @@ export class ListBackupJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackupJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBackupJobsCommand(input, context);
+    return se_ListBackupJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupJobsCommandOutput> {
-    return deserializeAws_restJson1ListBackupJobsCommand(output, context);
+    return de_ListBackupJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

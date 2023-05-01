@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  AssociateVirtualInterfaceRequest,
-  AssociateVirtualInterfaceRequestFilterSensitiveLog,
-  VirtualInterface,
-  VirtualInterfaceFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateVirtualInterfaceCommand,
-  serializeAws_json1_1AssociateVirtualInterfaceCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
+import { de_AssociateVirtualInterfaceCommand, se_AssociateVirtualInterfaceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateVirtualInterfaceCommand}.
  */
 export interface AssociateVirtualInterfaceCommandInput extends AssociateVirtualInterfaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateVirtualInterfaceCommand}.
  */
 export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a virtual interface with a specified link aggregation group (LAG) or
  *       connection. Connectivity to Amazon Web Services is temporarily interrupted as the virtual interface is
  *       being migrated. If the target connection or LAG has an associated virtual interface with
@@ -51,10 +48,16 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  * import { DirectConnectClient, AssociateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AssociateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // AssociateVirtualInterfaceRequest
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ *   connectionId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateVirtualInterfaceCommandInput - {@link AssociateVirtualInterfaceCommandInput}
+ * @returns {@link AssociateVirtualInterfaceCommandOutput}
  * @see {@link AssociateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AssociateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -84,6 +87,9 @@ export class AssociateVirtualInterfaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class AssociateVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateVirtualInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VirtualInterfaceFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +129,21 @@ export class AssociateVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateVirtualInterfaceCommand(input, context);
+    return se_AssociateVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1AssociateVirtualInterfaceCommand(output, context);
+    return de_AssociateVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

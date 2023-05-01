@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { PutProvisionedConcurrencyConfigRequest, PutProvisionedConcurrencyConfigResponse } from "../models/models_0";
 import {
-  PutProvisionedConcurrencyConfigRequest,
-  PutProvisionedConcurrencyConfigRequestFilterSensitiveLog,
-  PutProvisionedConcurrencyConfigResponse,
-  PutProvisionedConcurrencyConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand,
-  serializeAws_restJson1PutProvisionedConcurrencyConfigCommand,
+  de_PutProvisionedConcurrencyConfigCommand,
+  se_PutProvisionedConcurrencyConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutProvisionedConcurrencyConfigCommand}.
  */
 export interface PutProvisionedConcurrencyConfigCommandInput extends PutProvisionedConcurrencyConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutProvisionedConcurrencyConfigCommand}.
  */
 export interface PutProvisionedConcurrencyConfigCommandOutput
@@ -37,6 +36,7 @@ export interface PutProvisionedConcurrencyConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a provisioned concurrency configuration to a function's alias or version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface PutProvisionedConcurrencyConfigCommandOutput
  * import { LambdaClient, PutProvisionedConcurrencyConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PutProvisionedConcurrencyConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // PutProvisionedConcurrencyConfigRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE", // required
+ *   ProvisionedConcurrentExecutions: Number("int"), // required
+ * };
  * const command = new PutProvisionedConcurrencyConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutProvisionedConcurrencyConfigCommandInput - {@link PutProvisionedConcurrencyConfigCommandInput}
+ * @returns {@link PutProvisionedConcurrencyConfigCommandOutput}
  * @see {@link PutProvisionedConcurrencyConfigCommandInput} for command's `input` shape.
  * @see {@link PutProvisionedConcurrencyConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
@@ -86,6 +93,9 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutProvisionedConcurrencyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +124,8 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutProvisionedConcurrencyConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutProvisionedConcurrencyConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +135,24 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutProvisionedConcurrencyConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutProvisionedConcurrencyConfigCommand(input, context);
+    return se_PutProvisionedConcurrencyConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutProvisionedConcurrencyConfigCommandOutput> {
-    return deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand(output, context);
+    return de_PutProvisionedConcurrencyConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

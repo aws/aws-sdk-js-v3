@@ -6,7 +6,7 @@ import { QuickSightClient } from "../QuickSightClient";
 import { QuickSightPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: QuickSightClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListThemesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListThemes(
   config: QuickSightPaginationConfiguration,
   input: ListThemesCommandInput,

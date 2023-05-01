@@ -21,22 +21,78 @@ import {
   AssociatePhoneNumbersWithVoiceConnectorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand,
-  serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand,
+  de_AssociatePhoneNumbersWithVoiceConnectorCommand,
+  se_AssociatePhoneNumbersWithVoiceConnectorCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociatePhoneNumbersWithVoiceConnectorCommand}.
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorCommandInput
   extends AssociatePhoneNumbersWithVoiceConnectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociatePhoneNumbersWithVoiceConnectorCommand}.
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput
   extends AssociatePhoneNumbersWithVoiceConnectorResponse,
     __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Associates phone numbers with the specified Amazon Chime SDK Voice Connector.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // AssociatePhoneNumbersWithVoiceConnectorRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   E164PhoneNumbers: [ // E164PhoneNumberList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ForceAssociate: true || false,
+ * };
+ * const command = new AssociatePhoneNumbersWithVoiceConnectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param AssociatePhoneNumbersWithVoiceConnectorCommandInput - {@link AssociatePhoneNumbersWithVoiceConnectorCommandInput}
+ * @returns {@link AssociatePhoneNumbersWithVoiceConnectorCommandOutput}
+ * @see {@link AssociatePhoneNumbersWithVoiceConnectorCommandInput} for command's `input` shape.
+ * @see {@link AssociatePhoneNumbersWithVoiceConnectorCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have the permissions needed to run this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
   AssociatePhoneNumbersWithVoiceConnectorCommandInput,
   AssociatePhoneNumbersWithVoiceConnectorCommandOutput,
@@ -54,6 +110,9 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociatePhoneNumbersWithVoiceConnectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,18 +158,24 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(input, context);
+    return se_AssociatePhoneNumbersWithVoiceConnectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand(output, context);
+    return de_AssociatePhoneNumbersWithVoiceConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

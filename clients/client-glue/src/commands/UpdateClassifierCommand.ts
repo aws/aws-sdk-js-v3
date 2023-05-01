@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateClassifierRequest,
-  UpdateClassifierRequestFilterSensitiveLog,
-  UpdateClassifierResponse,
-  UpdateClassifierResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateClassifierCommand,
-  serializeAws_json1_1UpdateClassifierCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateClassifierRequest, UpdateClassifierResponse } from "../models/models_2";
+import { de_UpdateClassifierCommand, se_UpdateClassifierCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateClassifierCommand}.
  */
 export interface UpdateClassifierCommandInput extends UpdateClassifierRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateClassifierCommand}.
  */
 export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing classifier (a <code>GrokClassifier</code>,
  *       an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>, depending on
  *       which field is present).</p>
@@ -44,10 +41,44 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * import { GlueClient, UpdateClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateClassifierRequest
+ *   GrokClassifier: { // UpdateGrokClassifierRequest
+ *     Name: "STRING_VALUE", // required
+ *     Classification: "STRING_VALUE",
+ *     GrokPattern: "STRING_VALUE",
+ *     CustomPatterns: "STRING_VALUE",
+ *   },
+ *   XMLClassifier: { // UpdateXMLClassifierRequest
+ *     Name: "STRING_VALUE", // required
+ *     Classification: "STRING_VALUE",
+ *     RowTag: "STRING_VALUE",
+ *   },
+ *   JsonClassifier: { // UpdateJsonClassifierRequest
+ *     Name: "STRING_VALUE", // required
+ *     JsonPath: "STRING_VALUE",
+ *   },
+ *   CsvClassifier: { // UpdateCsvClassifierRequest
+ *     Name: "STRING_VALUE", // required
+ *     Delimiter: "STRING_VALUE",
+ *     QuoteSymbol: "STRING_VALUE",
+ *     ContainsHeader: "UNKNOWN" || "PRESENT" || "ABSENT",
+ *     Header: [ // CsvHeader
+ *       "STRING_VALUE",
+ *     ],
+ *     DisableValueTrimming: true || false,
+ *     AllowSingleColumn: true || false,
+ *     CustomDatatypeConfigured: true || false,
+ *     CustomDatatypes: [ // CustomDatatypes
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateClassifierCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateClassifierCommandInput - {@link UpdateClassifierCommandInput}
+ * @returns {@link UpdateClassifierCommandOutput}
  * @see {@link UpdateClassifierCommandInput} for command's `input` shape.
  * @see {@link UpdateClassifierCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -83,6 +114,9 @@ export class UpdateClassifierCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateClassifierCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +145,8 @@ export class UpdateClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClassifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClassifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +156,18 @@ export class UpdateClassifierCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateClassifierCommand(input, context);
+    return se_UpdateClassifierCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClassifierCommandOutput> {
-    return deserializeAws_json1_1UpdateClassifierCommand(output, context);
+    return de_UpdateClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

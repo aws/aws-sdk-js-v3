@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListHubsRequest,
-  ListHubsRequestFilterSensitiveLog,
-  ListHubsResponse,
-  ListHubsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import { deserializeAws_json1_1ListHubsCommand, serializeAws_json1_1ListHubsCommand } from "../protocols/Aws_json1_1";
+import { ListHubsRequest, ListHubsResponse } from "../models/models_3";
+import { de_ListHubsCommand, se_ListHubsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListHubsCommand}.
  */
 export interface ListHubsCommandInput extends ListHubsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListHubsCommand}.
  */
 export interface ListHubsCommandOutput extends ListHubsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all existing hubs.</p>
  *          <note>
  *             <p>Hub APIs are only callable through SageMaker Studio.</p>
@@ -42,10 +42,23 @@ export interface ListHubsCommandOutput extends ListHubsResponse, __MetadataBeare
  * import { SageMakerClient, ListHubsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListHubsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListHubsRequest
+ *   NameContains: "STRING_VALUE",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   SortBy: "HubName" || "CreationTime" || "HubStatus" || "AccountIdOwner",
+ *   SortOrder: "Ascending" || "Descending",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListHubsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListHubsCommandInput - {@link ListHubsCommandInput}
+ * @returns {@link ListHubsCommandOutput}
  * @see {@link ListHubsCommandInput} for command's `input` shape.
  * @see {@link ListHubsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +82,9 @@ export class ListHubsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListHubsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +111,8 @@ export class ListHubsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHubsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHubsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +122,18 @@ export class ListHubsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListHubsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHubsCommand(input, context);
+    return se_ListHubsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHubsCommandOutput> {
-    return deserializeAws_json1_1ListHubsCommand(output, context);
+    return de_ListHubsCommand(output, context);
   }
 
   // Start section: command_body_extra

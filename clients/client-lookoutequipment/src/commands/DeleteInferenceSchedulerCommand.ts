@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { DeleteInferenceSchedulerRequest, DeleteInferenceSchedulerRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteInferenceSchedulerCommand,
-  serializeAws_json1_0DeleteInferenceSchedulerCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteInferenceSchedulerRequest } from "../models/models_0";
+import { de_DeleteInferenceSchedulerCommand, se_DeleteInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInferenceSchedulerCommand}.
  */
 export interface DeleteInferenceSchedulerCommandInput extends DeleteInferenceSchedulerRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInferenceSchedulerCommand}.
  */
 export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an inference scheduler that has been set up. Already processed output results
  *          are not affected. </p>
  * @example
@@ -38,10 +40,15 @@ export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer 
  * import { LookoutEquipmentClient, DeleteInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DeleteInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // DeleteInferenceSchedulerRequest
+ *   InferenceSchedulerName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInferenceSchedulerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInferenceSchedulerCommandInput - {@link DeleteInferenceSchedulerCommandInput}
+ * @returns {@link DeleteInferenceSchedulerCommandOutput}
  * @see {@link DeleteInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link DeleteInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -88,6 +95,9 @@ export class DeleteInferenceSchedulerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInferenceSchedulerCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +126,8 @@ export class DeleteInferenceSchedulerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInferenceSchedulerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +137,18 @@ export class DeleteInferenceSchedulerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteInferenceSchedulerCommand(input, context);
+    return se_DeleteInferenceSchedulerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInferenceSchedulerCommandOutput> {
-    return deserializeAws_json1_0DeleteInferenceSchedulerCommand(output, context);
+    return de_DeleteInferenceSchedulerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { UpdatePipelineRequest, UpdatePipelineRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePipelineCommand,
-  serializeAws_restJson1UpdatePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePipelineRequest } from "../models/models_0";
+import { de_UpdatePipelineCommand, se_UpdatePipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePipelineCommand}.
  */
 export interface UpdatePipelineCommandInput extends UpdatePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePipelineCommand}.
  */
 export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings of a pipeline. You must specify both a <code>channel</code> and a
  *         <code>datastore</code> activity and, optionally, as many as 23 additional activities in the
  *         <code>pipelineActivities</code> array.</p>
@@ -39,10 +41,80 @@ export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, UpdatePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, UpdatePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // UpdatePipelineRequest
+ *   pipelineName: "STRING_VALUE", // required
+ *   pipelineActivities: [ // PipelineActivities // required
+ *     { // PipelineActivity
+ *       channel: { // ChannelActivity
+ *         name: "STRING_VALUE", // required
+ *         channelName: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       lambda: { // LambdaActivity
+ *         name: "STRING_VALUE", // required
+ *         lambdaName: "STRING_VALUE", // required
+ *         batchSize: Number("int"), // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       datastore: { // DatastoreActivity
+ *         name: "STRING_VALUE", // required
+ *         datastoreName: "STRING_VALUE", // required
+ *       },
+ *       addAttributes: { // AddAttributesActivity
+ *         name: "STRING_VALUE", // required
+ *         attributes: { // AttributeNameMapping // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         next: "STRING_VALUE",
+ *       },
+ *       removeAttributes: { // RemoveAttributesActivity
+ *         name: "STRING_VALUE", // required
+ *         attributes: [ // AttributeNames // required
+ *           "STRING_VALUE",
+ *         ],
+ *         next: "STRING_VALUE",
+ *       },
+ *       selectAttributes: { // SelectAttributesActivity
+ *         name: "STRING_VALUE", // required
+ *         attributes: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         next: "STRING_VALUE",
+ *       },
+ *       filter: { // FilterActivity
+ *         name: "STRING_VALUE", // required
+ *         filter: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       math: { // MathActivity
+ *         name: "STRING_VALUE", // required
+ *         attribute: "STRING_VALUE", // required
+ *         math: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       deviceRegistryEnrich: { // DeviceRegistryEnrichActivity
+ *         name: "STRING_VALUE", // required
+ *         attribute: "STRING_VALUE", // required
+ *         thingName: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       deviceShadowEnrich: { // DeviceShadowEnrichActivity
+ *         name: "STRING_VALUE", // required
+ *         attribute: "STRING_VALUE", // required
+ *         thingName: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePipelineCommandInput - {@link UpdatePipelineCommandInput}
+ * @returns {@link UpdatePipelineCommandOutput}
  * @see {@link UpdatePipelineCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -84,6 +156,9 @@ export class UpdatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +187,8 @@ export class UpdatePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +198,18 @@ export class UpdatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePipelineCommand(input, context);
+    return se_UpdatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineCommandOutput> {
-    return deserializeAws_restJson1UpdatePipelineCommand(output, context);
+    return de_UpdatePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  DescribeRepositoriesRequest,
-  DescribeRepositoriesRequestFilterSensitiveLog,
-  DescribeRepositoriesResponse,
-  DescribeRepositoriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRepositoriesCommand,
-  serializeAws_json1_1DescribeRepositoriesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeRepositoriesRequest, DescribeRepositoriesResponse } from "../models/models_0";
+import { de_DescribeRepositoriesCommand, se_DescribeRepositoriesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRepositoriesCommand}.
  */
 export interface DescribeRepositoriesCommandInput extends DescribeRepositoriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRepositoriesCommand}.
  */
 export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes repositories that are in a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * import { ECRPUBLICClient, DescribeRepositoriesCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, DescribeRepositoriesCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // DescribeRepositoriesRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryNames: [ // RepositoryNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeRepositoriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRepositoriesCommandInput - {@link DescribeRepositoriesCommandInput}
+ * @returns {@link DescribeRepositoriesCommandOutput}
  * @see {@link DescribeRepositoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -83,6 +90,9 @@ export class DescribeRepositoriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +121,8 @@ export class DescribeRepositoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRepositoriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRepositoriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +132,18 @@ export class DescribeRepositoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRepositoriesCommand(input, context);
+    return se_DescribeRepositoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRepositoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeRepositoriesCommand(output, context);
+    return de_DescribeRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

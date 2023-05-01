@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import {
-  ListTagsRequest,
-  ListTagsRequestFilterSensitiveLog,
-  ListTagsResponse,
-  ListTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ListTagsCommand, serializeAws_json1_1ListTagsCommand } from "../protocols/Aws_json1_1";
+import { ListTagsRequest, ListTagsResponse } from "../models/models_0";
+import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsCommand}.
  */
 export interface ListTagsCommandInput extends ListTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsCommand}.
  */
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of tags for the specified AWS CloudHSM cluster.</p>
  *          <p>This is a paginated operation, which means that each response might contain only a
  *       subset of all the tags. When the response contains only a subset of tags, it includes a
@@ -44,10 +44,17 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * import { CloudHSMV2Client, ListTagsCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, ListTagsCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = { // ListTagsRequest
+ *   ResourceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsCommandInput - {@link ListTagsCommandInput}
+ * @returns {@link ListTagsCommandOutput}
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -92,6 +99,9 @@ export class ListTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class ListTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +139,18 @@ export class ListTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsCommand(input, context);
+    return se_ListTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsCommandOutput> {
-    return deserializeAws_json1_1ListTagsCommand(output, context);
+    return de_ListTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

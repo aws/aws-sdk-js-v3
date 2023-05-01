@@ -18,31 +18,28 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import {
-  UpdateChannelReadMarkerRequest,
-  UpdateChannelReadMarkerRequestFilterSensitiveLog,
-  UpdateChannelReadMarkerResponse,
-  UpdateChannelReadMarkerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateChannelReadMarkerCommand,
-  serializeAws_restJson1UpdateChannelReadMarkerCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateChannelReadMarkerRequest, UpdateChannelReadMarkerResponse } from "../models/models_0";
+import { de_UpdateChannelReadMarkerCommand, se_UpdateChannelReadMarkerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateChannelReadMarkerCommand}.
  */
 export interface UpdateChannelReadMarkerCommandInput extends UpdateChannelReadMarkerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateChannelReadMarkerCommand}.
  */
 export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadMarkerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The details of the time when a user last read messages in a channel.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -51,10 +48,16 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * import { ChimeSDKMessagingClient, UpdateChannelReadMarkerCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, UpdateChannelReadMarkerCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // UpdateChannelReadMarkerRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new UpdateChannelReadMarkerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateChannelReadMarkerCommandInput - {@link UpdateChannelReadMarkerCommandInput}
+ * @returns {@link UpdateChannelReadMarkerCommandOutput}
  * @see {@link UpdateChannelReadMarkerCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelReadMarkerCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -100,6 +103,9 @@ export class UpdateChannelReadMarkerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateChannelReadMarkerCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +134,8 @@ export class UpdateChannelReadMarkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateChannelReadMarkerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChannelReadMarkerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +145,18 @@ export class UpdateChannelReadMarkerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateChannelReadMarkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateChannelReadMarkerCommand(input, context);
+    return se_UpdateChannelReadMarkerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelReadMarkerCommandOutput> {
-    return deserializeAws_restJson1UpdateChannelReadMarkerCommand(output, context);
+    return de_UpdateChannelReadMarkerCommand(output, context);
   }
 
   // Start section: command_body_extra

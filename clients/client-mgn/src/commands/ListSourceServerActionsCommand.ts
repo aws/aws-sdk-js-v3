@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  ListSourceServerActionsRequest,
-  ListSourceServerActionsRequestFilterSensitiveLog,
-  ListSourceServerActionsResponse,
-  ListSourceServerActionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSourceServerActionsCommand,
-  serializeAws_restJson1ListSourceServerActionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSourceServerActionsRequest, ListSourceServerActionsResponse } from "../models/models_0";
+import { de_ListSourceServerActionsCommand, se_ListSourceServerActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSourceServerActionsCommand}.
  */
 export interface ListSourceServerActionsCommandInput extends ListSourceServerActionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSourceServerActionsCommand}.
  */
 export interface ListSourceServerActionsCommandOutput extends ListSourceServerActionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List source server post migration custom actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListSourceServerActionsCommandOutput extends ListSourceServerAc
  * import { MgnClient, ListSourceServerActionsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListSourceServerActionsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // ListSourceServerActionsRequest
+ *   sourceServerID: "STRING_VALUE", // required
+ *   filters: { // SourceServerActionsRequestFilters
+ *     actionIDs: [ // ActionIDs
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSourceServerActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSourceServerActionsCommandInput - {@link ListSourceServerActionsCommandInput}
+ * @returns {@link ListSourceServerActionsCommandOutput}
  * @see {@link ListSourceServerActionsCommandInput} for command's `input` shape.
  * @see {@link ListSourceServerActionsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -75,6 +84,9 @@ export class ListSourceServerActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSourceServerActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +115,8 @@ export class ListSourceServerActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSourceServerActionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSourceServerActionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +126,18 @@ export class ListSourceServerActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSourceServerActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSourceServerActionsCommand(input, context);
+    return se_ListSourceServerActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSourceServerActionsCommandOutput> {
-    return deserializeAws_restJson1ListSourceServerActionsCommand(output, context);
+    return de_ListSourceServerActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

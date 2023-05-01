@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetDeviceRequest,
-  GetDeviceRequestFilterSensitiveLog,
-  GetDeviceResponse,
-  GetDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetDeviceCommand, serializeAws_json1_1GetDeviceCommand } from "../protocols/Aws_json1_1";
+import { GetDeviceRequest, GetDeviceResponse } from "../models/models_0";
+import { de_GetDeviceCommand, se_GetDeviceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDeviceCommand}.
  */
 export interface GetDeviceCommandInput extends GetDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDeviceCommand}.
  */
 export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of a device by device ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,15 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * import { AlexaForBusinessClient, GetDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // GetDeviceRequest
+ *   DeviceArn: "STRING_VALUE",
+ * };
  * const command = new GetDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDeviceCommandInput - {@link GetDeviceCommandInput}
+ * @returns {@link GetDeviceCommandOutput}
  * @see {@link GetDeviceCommandInput} for command's `input` shape.
  * @see {@link GetDeviceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -69,6 +74,9 @@ export class GetDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +103,8 @@ export class GetDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +114,18 @@ export class GetDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDeviceCommand(input, context);
+    return se_GetDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceCommandOutput> {
-    return deserializeAws_json1_1GetDeviceCommand(output, context);
+    return de_GetDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

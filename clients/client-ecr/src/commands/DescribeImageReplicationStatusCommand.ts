@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { DescribeImageReplicationStatusRequest, DescribeImageReplicationStatusResponse } from "../models/models_0";
 import {
-  DescribeImageReplicationStatusRequest,
-  DescribeImageReplicationStatusRequestFilterSensitiveLog,
-  DescribeImageReplicationStatusResponse,
-  DescribeImageReplicationStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImageReplicationStatusCommand,
-  serializeAws_json1_1DescribeImageReplicationStatusCommand,
+  de_DescribeImageReplicationStatusCommand,
+  se_DescribeImageReplicationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeImageReplicationStatusCommand}.
  */
 export interface DescribeImageReplicationStatusCommandInput extends DescribeImageReplicationStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeImageReplicationStatusCommand}.
  */
 export interface DescribeImageReplicationStatusCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeImageReplicationStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the replication status for a specified image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,20 @@ export interface DescribeImageReplicationStatusCommandOutput
  * import { ECRClient, DescribeImageReplicationStatusCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribeImageReplicationStatusCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // DescribeImageReplicationStatusRequest
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageId: { // ImageIdentifier
+ *     imageDigest: "STRING_VALUE",
+ *     imageTag: "STRING_VALUE",
+ *   },
+ *   registryId: "STRING_VALUE",
+ * };
  * const command = new DescribeImageReplicationStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeImageReplicationStatusCommandInput - {@link DescribeImageReplicationStatusCommandInput}
+ * @returns {@link DescribeImageReplicationStatusCommandOutput}
  * @see {@link DescribeImageReplicationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeImageReplicationStatusCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -88,6 +98,9 @@ export class DescribeImageReplicationStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeImageReplicationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +129,8 @@ export class DescribeImageReplicationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageReplicationStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageReplicationStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +140,24 @@ export class DescribeImageReplicationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeImageReplicationStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageReplicationStatusCommand(input, context);
+    return se_DescribeImageReplicationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeImageReplicationStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeImageReplicationStatusCommand(output, context);
+    return de_DescribeImageReplicationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetSamplingStatisticSummariesRequest, GetSamplingStatisticSummariesResult } from "../models/models_0";
 import {
-  GetSamplingStatisticSummariesRequest,
-  GetSamplingStatisticSummariesRequestFilterSensitiveLog,
-  GetSamplingStatisticSummariesResult,
-  GetSamplingStatisticSummariesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSamplingStatisticSummariesCommand,
-  serializeAws_restJson1GetSamplingStatisticSummariesCommand,
+  de_GetSamplingStatisticSummariesCommand,
+  se_GetSamplingStatisticSummariesCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSamplingStatisticSummariesCommand}.
  */
 export interface GetSamplingStatisticSummariesCommandInput extends GetSamplingStatisticSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSamplingStatisticSummariesCommand}.
  */
 export interface GetSamplingStatisticSummariesCommandOutput
@@ -37,6 +36,7 @@ export interface GetSamplingStatisticSummariesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about recent sampling results for all sampling rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetSamplingStatisticSummariesCommandOutput
  * import { XRayClient, GetSamplingStatisticSummariesCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetSamplingStatisticSummariesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // GetSamplingStatisticSummariesRequest
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetSamplingStatisticSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSamplingStatisticSummariesCommandInput - {@link GetSamplingStatisticSummariesCommandInput}
+ * @returns {@link GetSamplingStatisticSummariesCommandOutput}
  * @see {@link GetSamplingStatisticSummariesCommandInput} for command's `input` shape.
  * @see {@link GetSamplingStatisticSummariesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -77,6 +82,9 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSamplingStatisticSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSamplingStatisticSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSamplingStatisticSummariesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +124,21 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSamplingStatisticSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSamplingStatisticSummariesCommand(input, context);
+    return se_GetSamplingStatisticSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSamplingStatisticSummariesCommandOutput> {
-    return deserializeAws_restJson1GetSamplingStatisticSummariesCommand(output, context);
+    return de_GetSamplingStatisticSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

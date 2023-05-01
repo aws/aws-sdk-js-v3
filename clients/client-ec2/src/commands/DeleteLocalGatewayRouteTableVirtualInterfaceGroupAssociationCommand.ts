@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
-  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestFilterSensitiveLog,
   DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
-  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
-  serializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
+  de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
+  se_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
 export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput
   extends DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
 export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput
@@ -38,6 +40,7 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a local gateway route table virtual interface group association.
  *       </p>
@@ -47,10 +50,16 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  * import { EC2Client, DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
+ *   LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput - {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput}
+ * @returns {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput}
  * @see {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -74,6 +83,9 @@ export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +120,8 @@ export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +131,24 @@ export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(input, context);
+    return se_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> {
-    return deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(output, context);
+    return de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

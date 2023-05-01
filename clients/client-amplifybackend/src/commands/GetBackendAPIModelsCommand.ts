@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  GetBackendAPIModelsRequest,
-  GetBackendAPIModelsRequestFilterSensitiveLog,
-  GetBackendAPIModelsResponse,
-  GetBackendAPIModelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBackendAPIModelsCommand,
-  serializeAws_restJson1GetBackendAPIModelsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBackendAPIModelsRequest, GetBackendAPIModelsResponse } from "../models/models_0";
+import { de_GetBackendAPIModelsCommand, se_GetBackendAPIModelsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBackendAPIModelsCommand}.
  */
 export interface GetBackendAPIModelsCommandInput extends GetBackendAPIModelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBackendAPIModelsCommand}.
  */
 export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a model introspection schema for an existing backend API resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  * import { AmplifyBackendClient, GetBackendAPIModelsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, GetBackendAPIModelsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // GetBackendAPIModelsRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   ResourceName: "STRING_VALUE", // required
+ * };
  * const command = new GetBackendAPIModelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBackendAPIModelsCommandInput - {@link GetBackendAPIModelsCommandInput}
+ * @returns {@link GetBackendAPIModelsCommandOutput}
  * @see {@link GetBackendAPIModelsCommandInput} for command's `input` shape.
  * @see {@link GetBackendAPIModelsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +85,9 @@ export class GetBackendAPIModelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackendAPIModelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class GetBackendAPIModelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackendAPIModelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBackendAPIModelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class GetBackendAPIModelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackendAPIModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackendAPIModelsCommand(input, context);
+    return se_GetBackendAPIModelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackendAPIModelsCommandOutput> {
-    return deserializeAws_restJson1GetBackendAPIModelsCommand(output, context);
+    return de_GetBackendAPIModelsCommand(output, context);
   }
 
   // Start section: command_body_extra

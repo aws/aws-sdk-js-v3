@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteScheduledActionMessage, DeleteScheduledActionMessageFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteScheduledActionCommand,
-  serializeAws_queryDeleteScheduledActionCommand,
-} from "../protocols/Aws_query";
+import { DeleteScheduledActionMessage } from "../models/models_0";
+import { de_DeleteScheduledActionCommand, se_DeleteScheduledActionCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteScheduledActionCommand}.
  */
 export interface DeleteScheduledActionCommandInput extends DeleteScheduledActionMessage {}
 /**
+ * @public
+ *
  * The output of {@link DeleteScheduledActionCommand}.
  */
 export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a scheduled action.
  *              </p>
  * @example
@@ -38,10 +40,15 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * import { RedshiftClient, DeleteScheduledActionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteScheduledActionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DeleteScheduledActionMessage
+ *   ScheduledActionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteScheduledActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteScheduledActionCommandInput - {@link DeleteScheduledActionCommandInput}
+ * @returns {@link DeleteScheduledActionCommandOutput}
  * @see {@link DeleteScheduledActionCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -71,6 +78,9 @@ export class DeleteScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +109,8 @@ export class DeleteScheduledActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduledActionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +120,18 @@ export class DeleteScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteScheduledActionCommand(input, context);
+    return se_DeleteScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScheduledActionCommandOutput> {
-    return deserializeAws_queryDeleteScheduledActionCommand(output, context);
+    return de_DeleteScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

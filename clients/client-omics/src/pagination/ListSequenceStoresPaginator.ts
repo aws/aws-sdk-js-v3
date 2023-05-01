@@ -10,7 +10,7 @@ import { OmicsClient } from "../OmicsClient";
 import { OmicsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OmicsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSequenceStoresCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSequenceStores(
   config: OmicsPaginationConfiguration,
   input: ListSequenceStoresCommandInput,

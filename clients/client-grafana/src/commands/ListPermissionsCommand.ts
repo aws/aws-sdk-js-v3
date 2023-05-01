@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import {
-  ListPermissionsRequest,
-  ListPermissionsRequestFilterSensitiveLog,
-  ListPermissionsResponse,
-  ListPermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPermissionsCommand,
-  serializeAws_restJson1ListPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0";
+import { de_ListPermissionsCommand, se_ListPermissionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPermissionsCommand}.
  */
 export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPermissionsCommand}.
  */
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the users and groups who have the Grafana <code>Admin</code> and
  *                 <code>Editor</code> roles in this workspace. If you use this operation without
  *             specifying <code>userId</code> or <code>groupId</code>, the operation returns the roles
@@ -47,10 +44,20 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * import { GrafanaClient, ListPermissionsCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, ListPermissionsCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // ListPermissionsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   userType: "STRING_VALUE",
+ *   userId: "STRING_VALUE",
+ *   groupId: "STRING_VALUE",
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionsCommandInput - {@link ListPermissionsCommandInput}
+ * @returns {@link ListPermissionsCommandOutput}
  * @see {@link ListPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionsCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -89,6 +96,9 @@ export class ListPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class ListPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +138,18 @@ export class ListPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPermissionsCommand(input, context);
+    return se_ListPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionsCommandOutput> {
-    return deserializeAws_restJson1ListPermissionsCommand(output, context);
+    return de_ListPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

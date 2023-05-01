@@ -13,39 +13,41 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PublishAppVersionRequest,
-  PublishAppVersionRequestFilterSensitiveLog,
-  PublishAppVersionResponse,
-  PublishAppVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PublishAppVersionCommand,
-  serializeAws_restJson1PublishAppVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { PublishAppVersionRequest, PublishAppVersionResponse } from "../models/models_0";
+import { de_PublishAppVersionCommand, se_PublishAppVersionCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link PublishAppVersionCommand}.
  */
 export interface PublishAppVersionCommandInput extends PublishAppVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link PublishAppVersionCommand}.
  */
 export interface PublishAppVersionCommandOutput extends PublishAppVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Publishes a new version of a specific AWS Resilience Hub application.</p>
+ * @public
+ * <p>Publishes a new version of a specific Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, PublishAppVersionCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, PublishAppVersionCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // PublishAppVersionRequest
+ *   appArn: "STRING_VALUE", // required
+ * };
  * const command = new PublishAppVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishAppVersionCommandInput - {@link PublishAppVersionCommandInput}
+ * @returns {@link PublishAppVersionCommandOutput}
  * @see {@link PublishAppVersionCommandInput} for command's `input` shape.
  * @see {@link PublishAppVersionCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -62,7 +64,7 @@ export interface PublishAppVersionCommandOutput extends PublishAppVersionRespons
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -93,6 +95,9 @@ export class PublishAppVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishAppVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class PublishAppVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishAppVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishAppVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +137,18 @@ export class PublishAppVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishAppVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishAppVersionCommand(input, context);
+    return se_PublishAppVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishAppVersionCommandOutput> {
-    return deserializeAws_restJson1PublishAppVersionCommand(output, context);
+    return de_PublishAppVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListSSHPublicKeysRequest,
-  ListSSHPublicKeysRequestFilterSensitiveLog,
-  ListSSHPublicKeysResponse,
-  ListSSHPublicKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListSSHPublicKeysCommand,
-  serializeAws_queryListSSHPublicKeysCommand,
-} from "../protocols/Aws_query";
+import { ListSSHPublicKeysRequest, ListSSHPublicKeysResponse } from "../models/models_0";
+import { de_ListSSHPublicKeysCommand, se_ListSSHPublicKeysCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListSSHPublicKeysCommand}.
  */
 export interface ListSSHPublicKeysCommandInput extends ListSSHPublicKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSSHPublicKeysCommand}.
  */
 export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the SSH public keys associated with the specified IAM
  *             user. If none exists, the operation returns an empty list.</p>
  *          <p>The SSH public keys returned by this operation are used only for authenticating the
@@ -49,10 +46,17 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  * import { IAMClient, ListSSHPublicKeysCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListSSHPublicKeysCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListSSHPublicKeysRequest
+ *   UserName: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListSSHPublicKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSSHPublicKeysCommandInput - {@link ListSSHPublicKeysCommandInput}
+ * @returns {@link ListSSHPublicKeysCommandOutput}
  * @see {@link ListSSHPublicKeysCommandInput} for command's `input` shape.
  * @see {@link ListSSHPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -80,6 +84,9 @@ export class ListSSHPublicKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSSHPublicKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class ListSSHPublicKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSSHPublicKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSSHPublicKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class ListSSHPublicKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSSHPublicKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListSSHPublicKeysCommand(input, context);
+    return se_ListSSHPublicKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSSHPublicKeysCommandOutput> {
-    return deserializeAws_queryListSSHPublicKeysCommand(output, context);
+    return de_ListSSHPublicKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

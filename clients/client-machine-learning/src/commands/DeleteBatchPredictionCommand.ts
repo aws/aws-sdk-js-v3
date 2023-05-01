@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DeleteBatchPredictionInput,
-  DeleteBatchPredictionInputFilterSensitiveLog,
-  DeleteBatchPredictionOutput,
-  DeleteBatchPredictionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBatchPredictionCommand,
-  serializeAws_json1_1DeleteBatchPredictionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteBatchPredictionInput, DeleteBatchPredictionOutput } from "../models/models_0";
+import { de_DeleteBatchPredictionCommand, se_DeleteBatchPredictionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBatchPredictionCommand}.
  */
 export interface DeleteBatchPredictionCommandInput extends DeleteBatchPredictionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBatchPredictionCommand}.
  */
 export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Assigns the DELETED status to a <code>BatchPrediction</code>, rendering it unusable.</p>
  *         <p>After using the <code>DeleteBatchPrediction</code> operation, you can use the <a>GetBatchPrediction</a>
  *             operation to verify that the status of the <code>BatchPrediction</code> changed to DELETED.</p>
@@ -47,10 +44,15 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  * import { MachineLearningClient, DeleteBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // DeleteBatchPredictionInput
+ *   BatchPredictionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBatchPredictionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBatchPredictionCommandInput - {@link DeleteBatchPredictionCommandInput}
+ * @returns {@link DeleteBatchPredictionCommandOutput}
  * @see {@link DeleteBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link DeleteBatchPredictionCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -83,6 +85,9 @@ export class DeleteBatchPredictionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBatchPredictionCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class DeleteBatchPredictionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBatchPredictionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBatchPredictionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class DeleteBatchPredictionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBatchPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBatchPredictionCommand(input, context);
+    return se_DeleteBatchPredictionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBatchPredictionCommandOutput> {
-    return deserializeAws_json1_1DeleteBatchPredictionCommand(output, context);
+    return de_DeleteBatchPredictionCommand(output, context);
   }
 
   // Start section: command_body_extra

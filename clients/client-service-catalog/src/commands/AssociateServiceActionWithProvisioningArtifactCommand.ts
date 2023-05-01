@@ -15,22 +15,24 @@ import {
 
 import {
   AssociateServiceActionWithProvisioningArtifactInput,
-  AssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog,
   AssociateServiceActionWithProvisioningArtifactOutput,
-  AssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand,
-  serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand,
+  de_AssociateServiceActionWithProvisioningArtifactCommand,
+  se_AssociateServiceActionWithProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateServiceActionWithProvisioningArtifactCommand}.
  */
 export interface AssociateServiceActionWithProvisioningArtifactCommandInput
   extends AssociateServiceActionWithProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link AssociateServiceActionWithProvisioningArtifactCommand}.
  */
 export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
@@ -38,6 +40,7 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a self-service action with a provisioning artifact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,16 +48,27 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
  * import { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // AssociateServiceActionWithProvisioningArtifactInput
+ *   ProductId: "STRING_VALUE", // required
+ *   ProvisioningArtifactId: "STRING_VALUE", // required
+ *   ServiceActionId: "STRING_VALUE", // required
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new AssociateServiceActionWithProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateServiceActionWithProvisioningArtifactCommandInput - {@link AssociateServiceActionWithProvisioningArtifactCommandInput}
+ * @returns {@link AssociateServiceActionWithProvisioningArtifactCommandOutput}
  * @see {@link AssociateServiceActionWithProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link AssociateServiceActionWithProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link DuplicateResourceException} (client fault)
  *  <p>The specified resource is a duplicate.</p>
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
@@ -82,6 +96,9 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateServiceActionWithProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +133,8 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +144,24 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AssociateServiceActionWithProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand(input, context);
+    return se_AssociateServiceActionWithProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand(output, context);
+    return de_AssociateServiceActionWithProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

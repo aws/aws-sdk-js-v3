@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  ListPackagesForDomainRequest,
-  ListPackagesForDomainRequestFilterSensitiveLog,
-  ListPackagesForDomainResponse,
-  ListPackagesForDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPackagesForDomainCommand,
-  serializeAws_restJson1ListPackagesForDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPackagesForDomainRequest, ListPackagesForDomainResponse } from "../models/models_0";
+import { de_ListPackagesForDomainCommand, se_ListPackagesForDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPackagesForDomainCommand}.
  */
 export interface ListPackagesForDomainCommandInput extends ListPackagesForDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPackagesForDomainCommand}.
  */
 export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all packages associated with the Amazon ES domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  * import { ElasticsearchServiceClient, ListPackagesForDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, ListPackagesForDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // ListPackagesForDomainRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPackagesForDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPackagesForDomainCommandInput - {@link ListPackagesForDomainCommandInput}
+ * @returns {@link ListPackagesForDomainCommandOutput}
  * @see {@link ListPackagesForDomainCommandInput} for command's `input` shape.
  * @see {@link ListPackagesForDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -88,6 +92,9 @@ export class ListPackagesForDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPackagesForDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class ListPackagesForDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPackagesForDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPackagesForDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class ListPackagesForDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPackagesForDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPackagesForDomainCommand(input, context);
+    return se_ListPackagesForDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackagesForDomainCommandOutput> {
-    return deserializeAws_restJson1ListPackagesForDomainCommand(output, context);
+    return de_ListPackagesForDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
+import { PutThirdPartyJobFailureResultInput } from "../models/models_0";
 import {
-  PutThirdPartyJobFailureResultInput,
-  PutThirdPartyJobFailureResultInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutThirdPartyJobFailureResultCommand,
-  serializeAws_json1_1PutThirdPartyJobFailureResultCommand,
+  de_PutThirdPartyJobFailureResultCommand,
+  se_PutThirdPartyJobFailureResultCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutThirdPartyJobFailureResultCommand}.
  */
 export interface PutThirdPartyJobFailureResultCommandInput extends PutThirdPartyJobFailureResultInput {}
 /**
+ * @public
+ *
  * The output of {@link PutThirdPartyJobFailureResultCommand}.
  */
 export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents the failure of a third party job as returned to the pipeline by a job
  *             worker. Used for partner actions only.</p>
  * @example
@@ -41,10 +43,21 @@ export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBe
  * import { CodePipelineClient, PutThirdPartyJobFailureResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutThirdPartyJobFailureResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // PutThirdPartyJobFailureResultInput
+ *   jobId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ *   failureDetails: { // FailureDetails
+ *     type: "STRING_VALUE", // required
+ *     message: "STRING_VALUE", // required
+ *     externalExecutionId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutThirdPartyJobFailureResultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutThirdPartyJobFailureResultCommandInput - {@link PutThirdPartyJobFailureResultCommandInput}
+ * @returns {@link PutThirdPartyJobFailureResultCommandOutput}
  * @see {@link PutThirdPartyJobFailureResultCommandInput} for command's `input` shape.
  * @see {@link PutThirdPartyJobFailureResultCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -80,6 +93,9 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutThirdPartyJobFailureResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +124,8 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutThirdPartyJobFailureResultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +135,21 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutThirdPartyJobFailureResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutThirdPartyJobFailureResultCommand(input, context);
+    return se_PutThirdPartyJobFailureResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutThirdPartyJobFailureResultCommandOutput> {
-    return deserializeAws_json1_1PutThirdPartyJobFailureResultCommand(output, context);
+    return de_PutThirdPartyJobFailureResultCommand(output, context);
   }
 
   // Start section: command_body_extra

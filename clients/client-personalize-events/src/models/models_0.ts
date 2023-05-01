@@ -8,6 +8,7 @@ import {
 import { PersonalizeEventsServiceException as __BaseException } from "./PersonalizeEventsServiceException";
 
 /**
+ * @public
  * <p>Provide a valid value for the field or parameter.</p>
  */
 export class InvalidInputException extends __BaseException {
@@ -27,6 +28,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about a metric attribution associated with an event. For more information about metric attributions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html">Measuring impact of recommendations</a>.</p>
  */
 export interface MetricAttribution {
@@ -37,6 +39,7 @@ export interface MetricAttribution {
 }
 
 /**
+ * @public
  * <p>Represents user interaction event information sent using the
  *       <code>PutEvents</code> API.</p>
  */
@@ -72,7 +75,7 @@ export interface Event {
    *          <p>Each item in the map consists of a key-value pair. For example,</p>
    *
    *          <p>
-   *             <code>{"numberOfRatings": "12"}</code>
+   *             <code>\{"numberOfRatings": "12"\}</code>
    *          </p>
    *          <p>The keys use camel case names that match the fields in the Interactions
    *       schema. In the above example, the <code>numberOfRatings</code> would match the
@@ -109,6 +112,9 @@ export interface Event {
   metricAttribution?: MetricAttribution;
 }
 
+/**
+ * @public
+ */
 export interface PutEventsRequest {
   /**
    * <p>The tracking ID for the event.
@@ -136,6 +142,7 @@ export interface PutEventsRequest {
 }
 
 /**
+ * @public
  * <p>Represents item metadata added to an Items dataset using the
  *       <code>PutItems</code> API. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing Items Incrementally</a>.
@@ -149,7 +156,7 @@ export interface Item {
 
   /**
    * <p>A string map of item-specific metadata. Each element in the map consists of a key-value pair.
-   *       For example, <code>{"numberOfRatings": "12"}</code>.</p>
+   *       For example, <code>\{"numberOfRatings": "12"\}</code>.</p>
    *          <p>The keys use camel case names that match the fields in the schema for the Items
    *       dataset. In the previous example, the <code>numberOfRatings</code> matches the
    *       'NUMBER_OF_RATINGS' field defined in the Items schema. For categorical string data, to include multiple categories for a single item,
@@ -158,6 +165,9 @@ export interface Item {
   properties?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface PutItemsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Items dataset you are adding the item or items to.</p>
@@ -171,6 +181,7 @@ export interface PutItemsRequest {
 }
 
 /**
+ * @public
  * <p>The specified resource is in use.</p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -190,6 +201,7 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Could not find the specified resource.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -209,6 +221,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Represents user metadata added to a Users dataset using the
  *       <code>PutUsers</code> API. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html">Importing Users Incrementally</a>.</p>
@@ -221,7 +234,7 @@ export interface User {
 
   /**
    * <p>A string map of user-specific metadata. Each element in the map consists of a key-value pair.
-   *       For example, <code>{"numberOfVideosWatched": "45"}</code>.</p>
+   *       For example, <code>\{"numberOfVideosWatched": "45"\}</code>.</p>
    *          <p>The keys use camel case names that match the fields in the schema for the Users
    *       dataset. In the previous example, the <code>numberOfVideosWatched</code> matches the
    *       'NUMBER_OF_VIDEOS_WATCHED' field defined in the Users schema. For categorical string data,
@@ -231,6 +244,9 @@ export interface User {
   properties?: __LazyJsonString | string;
 }
 
+/**
+ * @public
+ */
 export interface PutUsersRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Users dataset you are adding the user or users to.</p>
@@ -242,13 +258,6 @@ export interface PutUsersRequest {
    */
   users: User[] | undefined;
 }
-
-/**
- * @internal
- */
-export const MetricAttributionFilterSensitiveLog = (obj: MetricAttribution): any => ({
-  ...obj,
-});
 
 /**
  * @internal

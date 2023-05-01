@@ -10,7 +10,7 @@ import { KafkaConnectClient } from "../KafkaConnectClient";
 import { KafkaConnectPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KafkaConnectClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListCustomPluginsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListCustomPlugins(
   config: KafkaConnectPaginationConfiguration,
   input: ListCustomPluginsCommandInput,

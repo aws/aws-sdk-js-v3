@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteCanaryRequest,
-  DeleteCanaryRequestFilterSensitiveLog,
-  DeleteCanaryResponse,
-  DeleteCanaryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCanaryCommand,
-  serializeAws_restJson1DeleteCanaryCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteCanaryRequest, DeleteCanaryResponse } from "../models/models_0";
+import { de_DeleteCanaryCommand, se_DeleteCanaryCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCanaryCommand}.
  */
 export interface DeleteCanaryCommandInput extends DeleteCanaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCanaryCommand}.
  */
 export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes the specified canary.</p>
  *          <p>If you specify <code>DeleteLambda</code> to <code>true</code>, CloudWatch Synthetics also deletes
  *          the Lambda functions and layers that are used by the canary.</p>
@@ -74,10 +71,16 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  * import { SyntheticsClient, DeleteCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DeleteCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // DeleteCanaryRequest
+ *   Name: "STRING_VALUE", // required
+ *   DeleteLambda: true || false,
+ * };
  * const command = new DeleteCanaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCanaryCommandInput - {@link DeleteCanaryCommandInput}
+ * @returns {@link DeleteCanaryCommandOutput}
  * @see {@link DeleteCanaryCommandInput} for command's `input` shape.
  * @see {@link DeleteCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -113,6 +116,9 @@ export class DeleteCanaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCanaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +145,8 @@ export class DeleteCanaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCanaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCanaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +156,18 @@ export class DeleteCanaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCanaryCommand(input, context);
+    return se_DeleteCanaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCanaryCommandOutput> {
-    return deserializeAws_restJson1DeleteCanaryCommand(output, context);
+    return de_DeleteCanaryCommand(output, context);
   }
 
   // Start section: command_body_extra

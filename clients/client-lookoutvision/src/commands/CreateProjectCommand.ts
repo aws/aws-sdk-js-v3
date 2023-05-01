@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import {
-  CreateProjectRequest,
-  CreateProjectRequestFilterSensitiveLog,
-  CreateProjectResponse,
-  CreateProjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProjectCommand,
-  serializeAws_restJson1CreateProjectCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateProjectRequest, CreateProjectResponse } from "../models/models_0";
+import { de_CreateProjectCommand, se_CreateProjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProjectCommand}.
  */
 export interface CreateProjectCommandInput extends CreateProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProjectCommand}.
  */
 export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an empty Amazon Lookout for Vision project. After you create the project, add a dataset by calling
  *          <a>CreateDataset</a>.</p>
  *          <p>This operation requires permissions to perform the
@@ -45,10 +42,16 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * import { LookoutVisionClient, CreateProjectCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, CreateProjectCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = { // CreateProjectRequest
+ *   ProjectName: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
+ * @returns {@link CreateProjectCommandOutput}
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -95,6 +98,9 @@ export class CreateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class CreateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class CreateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProjectCommand(input, context);
+    return se_CreateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectCommandOutput> {
-    return deserializeAws_restJson1CreateProjectCommand(output, context);
+    return de_CreateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

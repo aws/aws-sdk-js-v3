@@ -10,7 +10,7 @@ import {
 import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudDirectoryClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListAttachedIndicesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListAttachedIndices(
   config: CloudDirectoryPaginationConfiguration,
   input: ListAttachedIndicesCommandInput,

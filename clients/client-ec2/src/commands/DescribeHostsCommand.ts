@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeHostsRequest,
-  DescribeHostsRequestFilterSensitiveLog,
-  DescribeHostsResult,
-  DescribeHostsResultFilterSensitiveLog,
-} from "../models/models_3";
-import { deserializeAws_ec2DescribeHostsCommand, serializeAws_ec2DescribeHostsCommand } from "../protocols/Aws_ec2";
+import { DescribeHostsRequest, DescribeHostsResult } from "../models/models_3";
+import { de_DescribeHostsCommand, se_DescribeHostsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeHostsCommand}.
  */
 export interface DescribeHostsCommandInput extends DescribeHostsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeHostsCommand}.
  */
 export interface DescribeHostsCommandOutput extends DescribeHostsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Dedicated Hosts or all your Dedicated Hosts.</p>
  *          <p>The results describe only the Dedicated Hosts in the Region you're currently using.
  *             All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have
@@ -42,10 +42,27 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * import { EC2Client, DescribeHostsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeHostsRequest
+ *   Filter: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   HostIds: [ // RequestHostIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeHostsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeHostsCommandInput - {@link DescribeHostsCommandInput}
+ * @returns {@link DescribeHostsCommandOutput}
  * @see {@link DescribeHostsCommandInput} for command's `input` shape.
  * @see {@link DescribeHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +86,9 @@ export class DescribeHostsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeHostsCommandInput) {
     // Start section: command_constructor
     super();
@@ -95,8 +115,8 @@ export class DescribeHostsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHostsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHostsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +126,18 @@ export class DescribeHostsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeHostsCommand(input, context);
+    return se_DescribeHostsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHostsCommandOutput> {
-    return deserializeAws_ec2DescribeHostsCommand(output, context);
+    return de_DescribeHostsCommand(output, context);
   }
 
   // Start section: command_body_extra

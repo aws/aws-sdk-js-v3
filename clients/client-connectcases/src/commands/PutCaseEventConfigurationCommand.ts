@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  PutCaseEventConfigurationRequest,
-  PutCaseEventConfigurationRequestFilterSensitiveLog,
-  PutCaseEventConfigurationResponse,
-  PutCaseEventConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutCaseEventConfigurationCommand,
-  serializeAws_restJson1PutCaseEventConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { PutCaseEventConfigurationRequest, PutCaseEventConfigurationResponse } from "../models/models_0";
+import { de_PutCaseEventConfigurationCommand, se_PutCaseEventConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutCaseEventConfigurationCommand}.
  */
 export interface PutCaseEventConfigurationCommandInput extends PutCaseEventConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutCaseEventConfigurationCommand}.
  */
 export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>API for adding case event publishing configuration</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,30 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * import { ConnectCasesClient, PutCaseEventConfigurationCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, PutCaseEventConfigurationCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // PutCaseEventConfigurationRequest
+ *   domainId: "STRING_VALUE", // required
+ *   eventBridge: { // EventBridgeConfiguration
+ *     enabled: true || false, // required
+ *     includedData: { // EventIncludedData
+ *       caseData: { // CaseEventIncludedData
+ *         fields: [ // FieldIdentifierList // required
+ *           { // FieldIdentifier
+ *             id: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       relatedItemData: { // RelatedItemEventIncludedData
+ *         includeContent: true || false, // required
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new PutCaseEventConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutCaseEventConfigurationCommandInput - {@link PutCaseEventConfigurationCommandInput}
+ * @returns {@link PutCaseEventConfigurationCommandOutput}
  * @see {@link PutCaseEventConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutCaseEventConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +103,9 @@ export class PutCaseEventConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutCaseEventConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +134,8 @@ export class PutCaseEventConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutCaseEventConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutCaseEventConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +145,21 @@ export class PutCaseEventConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutCaseEventConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutCaseEventConfigurationCommand(input, context);
+    return se_PutCaseEventConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutCaseEventConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutCaseEventConfigurationCommand(output, context);
+    return de_PutCaseEventConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

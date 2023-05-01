@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  ListBuildsInput,
-  ListBuildsInputFilterSensitiveLog,
-  ListBuildsOutput,
-  ListBuildsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListBuildsCommand,
-  serializeAws_json1_1ListBuildsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListBuildsInput, ListBuildsOutput } from "../models/models_0";
+import { de_ListBuildsCommand, se_ListBuildsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBuildsCommand}.
  */
 export interface ListBuildsCommandInput extends ListBuildsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBuildsCommand}.
  */
 export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of build IDs, with each build ID representing a single build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * import { CodeBuildClient, ListBuildsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListBuildsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // ListBuildsInput
+ *   sortOrder: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBuildsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBuildsCommandInput - {@link ListBuildsCommandInput}
+ * @returns {@link ListBuildsCommandOutput}
  * @see {@link ListBuildsCommandInput} for command's `input` shape.
  * @see {@link ListBuildsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -72,6 +75,9 @@ export class ListBuildsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBuildsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +104,8 @@ export class ListBuildsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBuildsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBuildsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +115,18 @@ export class ListBuildsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBuildsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBuildsCommand(input, context);
+    return se_ListBuildsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuildsCommandOutput> {
-    return deserializeAws_json1_1ListBuildsCommand(output, context);
+    return de_ListBuildsCommand(output, context);
   }
 
   // Start section: command_body_extra

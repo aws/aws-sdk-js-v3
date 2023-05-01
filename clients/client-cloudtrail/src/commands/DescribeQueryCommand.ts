@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  DescribeQueryRequest,
-  DescribeQueryRequestFilterSensitiveLog,
-  DescribeQueryResponse,
-  DescribeQueryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeQueryCommand,
-  serializeAws_json1_1DescribeQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeQueryRequest, DescribeQueryResponse } from "../models/models_0";
+import { de_DescribeQueryCommand, se_DescribeQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQueryCommand}.
  */
 export interface DescribeQueryCommandInput extends DescribeQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQueryCommand}.
  */
 export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about a query, including query run time in milliseconds, number of
  *          events scanned and matched, and query status. You must specify an ARN for
  *             <code>EventDataStore</code>, and a value for <code>QueryID</code>.</p>
@@ -44,10 +41,16 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  * import { CloudTrailClient, DescribeQueryCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DescribeQueryCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // DescribeQueryRequest
+ *   EventDataStore: "STRING_VALUE",
+ *   QueryId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQueryCommandInput - {@link DescribeQueryCommandInput}
+ * @returns {@link DescribeQueryCommandOutput}
  * @see {@link DescribeQueryCommandInput} for command's `input` shape.
  * @see {@link DescribeQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -97,6 +100,9 @@ export class DescribeQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +129,8 @@ export class DescribeQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQueryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +140,18 @@ export class DescribeQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQueryCommand(input, context);
+    return se_DescribeQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueryCommandOutput> {
-    return deserializeAws_json1_1DescribeQueryCommand(output, context);
+    return de_DescribeQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  DBSubnetGroupMessage,
-  DBSubnetGroupMessageFilterSensitiveLog,
-  DescribeDBSubnetGroupsMessage,
-  DescribeDBSubnetGroupsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBSubnetGroupsCommand,
-  serializeAws_queryDescribeDBSubnetGroupsCommand,
-} from "../protocols/Aws_query";
+import { DBSubnetGroupMessage, DescribeDBSubnetGroupsMessage } from "../models/models_0";
+import { de_DescribeDBSubnetGroupsCommand, se_DescribeDBSubnetGroupsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBSubnetGroupsCommand}.
  */
 export interface DescribeDBSubnetGroupsCommandInput extends DescribeDBSubnetGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBSubnetGroupsCommand}.
  */
 export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a
  *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the descriptions of the specified <code>DBSubnetGroup</code>.</p>
  * @example
@@ -43,10 +40,25 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * import { DocDBClient, DescribeDBSubnetGroupsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBSubnetGroupsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = { // DescribeDBSubnetGroupsMessage
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBSubnetGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBSubnetGroupsCommandInput - {@link DescribeDBSubnetGroupsCommandInput}
+ * @returns {@link DescribeDBSubnetGroupsCommandOutput}
  * @see {@link DescribeDBSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
@@ -74,6 +86,9 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBSubnetGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +117,8 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBSubnetGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBSubnetGroupMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +128,18 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBSubnetGroupsCommand(input, context);
+    return se_DescribeDBSubnetGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBSubnetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBSubnetGroupsCommand(output, context);
+    return de_DescribeDBSubnetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

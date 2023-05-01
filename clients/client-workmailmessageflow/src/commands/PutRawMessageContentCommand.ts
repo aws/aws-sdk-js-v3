@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutRawMessageContentRequest,
-  PutRawMessageContentRequestFilterSensitiveLog,
-  PutRawMessageContentResponse,
-  PutRawMessageContentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRawMessageContentCommand,
-  serializeAws_restJson1PutRawMessageContentCommand,
-} from "../protocols/Aws_restJson1";
+import { PutRawMessageContentRequest, PutRawMessageContentResponse } from "../models/models_0";
+import { de_PutRawMessageContentCommand, se_PutRawMessageContentCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../WorkMailMessageFlowClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutRawMessageContentCommand}.
  */
 export interface PutRawMessageContentCommandInput extends PutRawMessageContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRawMessageContentCommand}.
  */
 export interface PutRawMessageContentCommandOutput extends PutRawMessageContentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the raw content of an in-transit email message, in MIME format.</p>
  *          <p>This example describes how to update in-transit email message. For more information and examples for using this API, see
  *       <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html">
@@ -59,10 +56,22 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  * import { WorkMailMessageFlowClient, PutRawMessageContentCommand } from "@aws-sdk/client-workmailmessageflow"; // ES Modules import
  * // const { WorkMailMessageFlowClient, PutRawMessageContentCommand } = require("@aws-sdk/client-workmailmessageflow"); // CommonJS import
  * const client = new WorkMailMessageFlowClient(config);
+ * const input = { // PutRawMessageContentRequest
+ *   messageId: "STRING_VALUE", // required
+ *   content: { // RawMessageContent
+ *     s3Reference: { // S3Reference
+ *       bucket: "STRING_VALUE", // required
+ *       key: "STRING_VALUE", // required
+ *       objectVersion: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new PutRawMessageContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRawMessageContentCommandInput - {@link PutRawMessageContentCommandInput}
+ * @returns {@link PutRawMessageContentCommandOutput}
  * @see {@link PutRawMessageContentCommandInput} for command's `input` shape.
  * @see {@link PutRawMessageContentCommandOutput} for command's `response` shape.
  * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for WorkMailMessageFlowClient's `config` shape.
@@ -115,6 +124,9 @@ export class PutRawMessageContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRawMessageContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +155,8 @@ export class PutRawMessageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRawMessageContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRawMessageContentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +166,18 @@ export class PutRawMessageContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRawMessageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRawMessageContentCommand(input, context);
+    return se_PutRawMessageContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRawMessageContentCommandOutput> {
-    return deserializeAws_restJson1PutRawMessageContentCommand(output, context);
+    return de_PutRawMessageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

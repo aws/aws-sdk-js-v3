@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetGlobalSettingsResponse, GetGlobalSettingsResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGlobalSettingsCommand,
-  serializeAws_restJson1GetGlobalSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGlobalSettingsResponse } from "../models/models_0";
+import { de_GetGlobalSettingsCommand, se_GetGlobalSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGlobalSettingsCommand}.
  */
 export interface GetGlobalSettingsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetGlobalSettingsCommand}.
  */
 export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves global settings for the administrator's AWS account, such as Amazon Chime Business
  *             Calling and Amazon Chime Voice Connector settings.</p>
  * @example
@@ -38,10 +40,13 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  * import { ChimeClient, GetGlobalSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetGlobalSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {};
  * const command = new GetGlobalSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGlobalSettingsCommandInput - {@link GetGlobalSettingsCommandInput}
+ * @returns {@link GetGlobalSettingsCommandOutput}
  * @see {@link GetGlobalSettingsCommandInput} for command's `input` shape.
  * @see {@link GetGlobalSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -83,6 +88,9 @@ export class GetGlobalSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGlobalSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +119,8 @@ export class GetGlobalSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetGlobalSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +130,18 @@ export class GetGlobalSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGlobalSettingsCommand(input, context);
+    return se_GetGlobalSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGlobalSettingsCommandOutput> {
-    return deserializeAws_restJson1GetGlobalSettingsCommand(output, context);
+    return de_GetGlobalSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

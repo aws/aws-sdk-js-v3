@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  DeleteOpenIDConnectProviderRequest,
-  DeleteOpenIDConnectProviderRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteOpenIDConnectProviderCommand,
-  serializeAws_queryDeleteOpenIDConnectProviderCommand,
-} from "../protocols/Aws_query";
+import { DeleteOpenIDConnectProviderRequest } from "../models/models_0";
+import { de_DeleteOpenIDConnectProviderCommand, se_DeleteOpenIDConnectProviderCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOpenIDConnectProviderCommand}.
  */
 export interface DeleteOpenIDConnectProviderCommandInput extends DeleteOpenIDConnectProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOpenIDConnectProviderCommand}.
  */
 export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>
  *          <p>Deleting an IAM OIDC provider resource does not update any roles that reference the
  *             provider as a principal in their trust policies. Any attempt to assume a role that
@@ -45,10 +44,15 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  * import { IAMClient, DeleteOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteOpenIDConnectProviderRequest
+ *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOpenIDConnectProviderCommandInput - {@link DeleteOpenIDConnectProviderCommandInput}
+ * @returns {@link DeleteOpenIDConnectProviderCommandOutput}
  * @see {@link DeleteOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +88,9 @@ export class DeleteOpenIDConnectProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOpenIDConnectProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class DeleteOpenIDConnectProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOpenIDConnectProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +130,21 @@ export class DeleteOpenIDConnectProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteOpenIDConnectProviderCommand(input, context);
+    return se_DeleteOpenIDConnectProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryDeleteOpenIDConnectProviderCommand(output, context);
+    return de_DeleteOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

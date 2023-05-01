@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MemoryDBServiceException as __BaseException } from "./MemoryDBServiceException";
 
 /**
+ * @public
  * <p>Returns the updates being applied to the ACL.</p>
  */
 export interface ACLPendingChanges {
@@ -19,6 +20,7 @@ export interface ACLPendingChanges {
 }
 
 /**
+ * @public
  * <p>An Access Control List. You can authenticate users with Access Contol Lists.
  *
  *          ACLs enable you to control cluster access by grouping users. These Access control lists are designed as a way to organize access to clusters.</p>
@@ -61,6 +63,7 @@ export interface ACL {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ACLAlreadyExistsFault extends __BaseException {
@@ -80,6 +83,7 @@ export class ACLAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ACLNotFoundFault extends __BaseException {
@@ -99,6 +103,7 @@ export class ACLNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ACLQuotaExceededFault extends __BaseException {
@@ -118,6 +123,7 @@ export class ACLQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The status of the ACL update</p>
  */
 export interface ACLsUpdateStatus {
@@ -128,6 +134,7 @@ export interface ACLsUpdateStatus {
 }
 
 /**
+ * @public
  * <p>A request to apply a service update</p>
  */
 export interface ServiceUpdateRequest {
@@ -137,6 +144,9 @@ export interface ServiceUpdateRequest {
   ServiceUpdateNameToApply?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateClusterRequest {
   /**
    * <p>The cluster names to apply the updates.</p>
@@ -149,12 +159,22 @@ export interface BatchUpdateClusterRequest {
   ServiceUpdate?: ServiceUpdateRequest;
 }
 
-export enum AZStatus {
-  MultiAZ = "multiaz",
-  SingleAZ = "singleaz",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AZStatus = {
+  MultiAZ: "multiaz",
+  SingleAZ: "singleaz",
+} as const;
 
 /**
+ * @public
+ */
+export type AZStatus = (typeof AZStatus)[keyof typeof AZStatus];
+
+/**
+ * @public
  * <p>Represents the information required for client programs to connect to the cluster and its nodes.</p>
  */
 export interface Endpoint {
@@ -169,12 +189,22 @@ export interface Endpoint {
   Port?: number;
 }
 
-export enum DataTieringStatus {
-  FALSE = "false",
-  TRUE = "true",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataTieringStatus = {
+  FALSE: "false",
+  TRUE: "true",
+} as const;
 
 /**
+ * @public
+ */
+export type DataTieringStatus = (typeof DataTieringStatus)[keyof typeof DataTieringStatus];
+
+/**
+ * @public
  * <p>Represents the progress of an online resharding operation.</p>
  */
 export interface SlotMigration {
@@ -185,6 +215,7 @@ export interface SlotMigration {
 }
 
 /**
+ * @public
  * <p>The status of the online resharding</p>
  */
 export interface ReshardingStatus {
@@ -194,14 +225,24 @@ export interface ReshardingStatus {
   SlotMigration?: SlotMigration;
 }
 
-export enum ServiceUpdateStatus {
-  COMPLETE = "complete",
-  IN_PROGRESS = "in-progress",
-  NOT_APPLIED = "available",
-  SCHEDULED = "scheduled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceUpdateStatus = {
+  COMPLETE: "complete",
+  IN_PROGRESS: "in-progress",
+  NOT_APPLIED: "available",
+  SCHEDULED: "scheduled",
+} as const;
 
 /**
+ * @public
+ */
+export type ServiceUpdateStatus = (typeof ServiceUpdateStatus)[keyof typeof ServiceUpdateStatus];
+
+/**
+ * @public
  * <p>Update action that has yet to be processed for the corresponding apply/stop request</p>
  */
 export interface PendingModifiedServiceUpdate {
@@ -217,6 +258,7 @@ export interface PendingModifiedServiceUpdate {
 }
 
 /**
+ * @public
  * <p>A list of updates being applied to the cluster</p>
  */
 export interface ClusterPendingUpdates {
@@ -237,6 +279,7 @@ export interface ClusterPendingUpdates {
 }
 
 /**
+ * @public
  * <p>Represents a single security group and its status.</p>
  */
 export interface SecurityGroupMembership {
@@ -252,6 +295,7 @@ export interface SecurityGroupMembership {
 }
 
 /**
+ * @public
  * <p>Represents an individual node within a cluster. Each node runs its own instance of the cluster's protocol-compliant caching software.</p>
  */
 export interface Node {
@@ -282,6 +326,7 @@ export interface Node {
 }
 
 /**
+ * @public
  * <p>Represents a collection of nodes in a cluster. One node in the node group is the read/write primary node. All the other nodes are read-only Replica nodes.</p>
  */
 export interface Shard {
@@ -312,6 +357,7 @@ export interface Shard {
 }
 
 /**
+ * @public
  * <p>Contains all of the attributes of a specific cluster.</p>
  */
 export interface Cluster {
@@ -452,6 +498,7 @@ export interface Cluster {
 }
 
 /**
+ * @public
  * <p>A cluster whose updates have failed</p>
  */
 export interface UnprocessedCluster {
@@ -471,6 +518,9 @@ export interface UnprocessedCluster {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchUpdateClusterResponse {
   /**
    * <p>The list of clusters that have been updated.</p>
@@ -484,6 +534,7 @@ export interface BatchUpdateClusterResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -503,6 +554,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ServiceUpdateNotFoundFault extends __BaseException {
@@ -522,6 +574,7 @@ export class ServiceUpdateNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A tag that can be added to an MemoryDB resource. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your MemoryDB resources.
  *          When you add or remove tags on clusters, those actions will be replicated to all nodes in the cluster. A tag with a null Value is permitted. For more information, see
  *          <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging-resources.html">Tagging your MemoryDB resources</a>
@@ -539,6 +592,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CopySnapshotRequest {
   /**
    * <p>The name of an existing snapshot from which to make a copy.</p>
@@ -573,6 +629,7 @@ export interface CopySnapshotRequest {
 }
 
 /**
+ * @public
  * <p>Shard configuration options. Each shard configuration has the following: Slots and ReplicaCount.</p>
  */
 export interface ShardConfiguration {
@@ -588,6 +645,7 @@ export interface ShardConfiguration {
 }
 
 /**
+ * @public
  * <p>Provides details of a shard in a snapshot</p>
  */
 export interface ShardDetail {
@@ -613,6 +671,7 @@ export interface ShardDetail {
 }
 
 /**
+ * @public
  * <p>A list of cluster configuration options. </p>
  */
 export interface ClusterConfiguration {
@@ -688,6 +747,7 @@ export interface ClusterConfiguration {
 }
 
 /**
+ * @public
  * <p>Represents a copy of an entire cluster as of the time when the snapshot was taken.</p>
  */
 export interface Snapshot {
@@ -728,6 +788,9 @@ export interface Snapshot {
   DataTiering?: DataTieringStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface CopySnapshotResponse {
   /**
    * <p>Represents a copy of an entire cluster as of the time when the snapshot was taken.</p>
@@ -736,6 +799,7 @@ export interface CopySnapshotResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -755,6 +819,7 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidSnapshotStateFault extends __BaseException {
@@ -774,6 +839,7 @@ export class InvalidSnapshotStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ServiceLinkedRoleNotFoundFault extends __BaseException {
@@ -793,6 +859,7 @@ export class ServiceLinkedRoleNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class SnapshotAlreadyExistsFault extends __BaseException {
@@ -812,6 +879,7 @@ export class SnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class SnapshotNotFoundFault extends __BaseException {
@@ -831,6 +899,7 @@ export class SnapshotNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
@@ -850,6 +919,7 @@ export class SnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class TagQuotaPerResourceExceeded extends __BaseException {
@@ -868,6 +938,9 @@ export class TagQuotaPerResourceExceeded extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateACLRequest {
   /**
    * <p>The name of the Access Control List.</p>
@@ -885,6 +958,9 @@ export interface CreateACLRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateACLResponse {
   /**
    * <p>The newly-created Access Control List.</p>
@@ -893,6 +969,7 @@ export interface CreateACLResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class DefaultUserRequired extends __BaseException {
@@ -912,6 +989,7 @@ export class DefaultUserRequired extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class DuplicateUserNameFault extends __BaseException {
@@ -931,6 +1009,7 @@ export class DuplicateUserNameFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class UserNotFoundFault extends __BaseException {
@@ -950,6 +1029,7 @@ export class UserNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ClusterAlreadyExistsFault extends __BaseException {
@@ -969,6 +1049,7 @@ export class ClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ClusterQuotaForCustomerExceededFault extends __BaseException {
@@ -987,6 +1068,9 @@ export class ClusterQuotaForCustomerExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterRequest {
   /**
    * <p>The name of the cluster. This value must be unique as it also serves as the cluster identifier.</p>
@@ -1145,6 +1229,9 @@ export interface CreateClusterRequest {
   DataTiering?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterResponse {
   /**
    * <p>The newly-created cluster.</p>
@@ -1153,6 +1240,7 @@ export interface CreateClusterResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InsufficientClusterCapacityFault extends __BaseException {
@@ -1172,6 +1260,7 @@ export class InsufficientClusterCapacityFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidACLStateFault extends __BaseException {
@@ -1191,6 +1280,7 @@ export class InvalidACLStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidCredentialsException extends __BaseException {
@@ -1210,6 +1300,7 @@ export class InvalidCredentialsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
@@ -1229,6 +1320,7 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class NodeQuotaForClusterExceededFault extends __BaseException {
@@ -1248,6 +1340,7 @@ export class NodeQuotaForClusterExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class NodeQuotaForCustomerExceededFault extends __BaseException {
@@ -1267,6 +1360,7 @@ export class NodeQuotaForCustomerExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ParameterGroupNotFoundFault extends __BaseException {
@@ -1286,6 +1380,7 @@ export class ParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ShardsPerClusterQuotaExceededFault extends __BaseException {
@@ -1305,6 +1400,7 @@ export class ShardsPerClusterQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class SubnetGroupNotFoundFault extends __BaseException {
@@ -1323,6 +1419,9 @@ export class SubnetGroupNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateParameterGroupRequest {
   /**
    * <p>The name of the parameter group.</p>
@@ -1346,6 +1445,7 @@ export interface CreateParameterGroupRequest {
 }
 
 /**
+ * @public
  * <p>Represents the output of a CreateParameterGroup operation. A parameter group represents a combination of specific values for the parameters that are passed to the engine software during startup.</p>
  */
 export interface ParameterGroup {
@@ -1370,6 +1470,9 @@ export interface ParameterGroup {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateParameterGroupResponse {
   /**
    * <p>The newly-created parameter group.</p>
@@ -1378,6 +1481,7 @@ export interface CreateParameterGroupResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidParameterGroupStateFault extends __BaseException {
@@ -1397,6 +1501,7 @@ export class InvalidParameterGroupStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ParameterGroupAlreadyExistsFault extends __BaseException {
@@ -1416,6 +1521,7 @@ export class ParameterGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ParameterGroupQuotaExceededFault extends __BaseException {
@@ -1435,6 +1541,7 @@ export class ParameterGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ClusterNotFoundFault extends __BaseException {
@@ -1453,6 +1560,9 @@ export class ClusterNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotRequest {
   /**
    * <p>The snapshot is created from this cluster.</p>
@@ -1475,6 +1585,9 @@ export interface CreateSnapshotRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateSnapshotResponse {
   /**
    * <p>The newly-created snapshot.</p>
@@ -1483,6 +1596,7 @@ export interface CreateSnapshotResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidClusterStateFault extends __BaseException {
@@ -1501,6 +1615,9 @@ export class InvalidClusterStateFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateSubnetGroupRequest {
   /**
    * <p>The name of the subnet group.</p>
@@ -1524,6 +1641,7 @@ export interface CreateSubnetGroupRequest {
 }
 
 /**
+ * @public
  * <p>Indicates if the cluster has a Multi-AZ configuration (multiaz) or not (singleaz).</p>
  */
 export interface AvailabilityZone {
@@ -1534,6 +1652,7 @@ export interface AvailabilityZone {
 }
 
 /**
+ * @public
  * <p>Represents the subnet associated with a cluster. This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with MemoryDB.</p>
  */
 export interface Subnet {
@@ -1549,6 +1668,7 @@ export interface Subnet {
 }
 
 /**
+ * @public
  * <p>Represents the output of one of the following operations:</p>
  *          <ul>
  *             <li>
@@ -1587,6 +1707,9 @@ export interface SubnetGroup {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSubnetGroupResponse {
   /**
    * <p>The newly-created subnet group</p>
@@ -1595,6 +1718,7 @@ export interface CreateSubnetGroupResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidSubnet extends __BaseException {
@@ -1614,6 +1738,7 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class SubnetGroupAlreadyExistsFault extends __BaseException {
@@ -1633,6 +1758,7 @@ export class SubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class SubnetGroupQuotaExceededFault extends __BaseException {
@@ -1652,6 +1778,7 @@ export class SubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class SubnetNotAllowedFault extends __BaseException {
@@ -1671,6 +1798,7 @@ export class SubnetNotAllowedFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class SubnetQuotaExceededFault extends __BaseException {
@@ -1689,11 +1817,21 @@ export class SubnetQuotaExceededFault extends __BaseException {
   }
 }
 
-export enum InputAuthenticationType {
-  PASSWORD = "password",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InputAuthenticationType = {
+  PASSWORD: "password",
+} as const;
 
 /**
+ * @public
+ */
+export type InputAuthenticationType = (typeof InputAuthenticationType)[keyof typeof InputAuthenticationType];
+
+/**
+ * @public
  * <p>Denotes the user's authentication properties, such as whether it requires a password to authenticate. Used in output responses.</p>
  */
 export interface AuthenticationMode {
@@ -1708,6 +1846,9 @@ export interface AuthenticationMode {
   Passwords?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateUserRequest {
   /**
    * <p>The name of the user. This value must be unique as it also serves as the user identifier.</p>
@@ -1730,12 +1871,22 @@ export interface CreateUserRequest {
   Tags?: Tag[];
 }
 
-export enum AuthenticationType {
-  NO_PASSWORD = "no-password",
-  PASSWORD = "password",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticationType = {
+  NO_PASSWORD: "no-password",
+  PASSWORD: "password",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+/**
+ * @public
  * <p>Denotes the user's authentication properties, such as whether it requires a password to authenticate. Used in output responses.</p>
  */
 export interface Authentication {
@@ -1751,6 +1902,7 @@ export interface Authentication {
 }
 
 /**
+ * @public
  * <p>You create users and assign them specific permissions by using an access string. You assign the users to Access Control Lists aligned with a specific role (administrators, human resources) that are then deployed to one or more MemoryDB clusters.</p>
  */
 export interface User {
@@ -1792,6 +1944,9 @@ export interface User {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateUserResponse {
   /**
    * <p>The newly-created user.</p>
@@ -1800,6 +1955,7 @@ export interface CreateUserResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class UserAlreadyExistsFault extends __BaseException {
@@ -1819,6 +1975,7 @@ export class UserAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class UserQuotaExceededFault extends __BaseException {
@@ -1837,6 +1994,9 @@ export class UserQuotaExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteACLRequest {
   /**
    * <p>The name of the Access Control List to delete</p>
@@ -1844,6 +2004,9 @@ export interface DeleteACLRequest {
   ACLName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteACLResponse {
   /**
    * <p>The Access Control List object that has been deleted.</p>
@@ -1851,6 +2014,9 @@ export interface DeleteACLResponse {
   ACL?: ACL;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
    * <p>The name of the cluster to be deleted</p>
@@ -1863,6 +2029,9 @@ export interface DeleteClusterRequest {
   FinalSnapshotName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteClusterResponse {
   /**
    * <p>The cluster object that has been deleted</p>
@@ -1870,6 +2039,9 @@ export interface DeleteClusterResponse {
   Cluster?: Cluster;
 }
 
+/**
+ * @public
+ */
 export interface DeleteParameterGroupRequest {
   /**
    * <p>The name of the parameter group to delete.</p>
@@ -1877,6 +2049,9 @@ export interface DeleteParameterGroupRequest {
   ParameterGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteParameterGroupResponse {
   /**
    * <p>The parameter group that has been deleted.</p>
@@ -1884,6 +2059,9 @@ export interface DeleteParameterGroupResponse {
   ParameterGroup?: ParameterGroup;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSnapshotRequest {
   /**
    * <p>The name of the snapshot to delete</p>
@@ -1891,6 +2069,9 @@ export interface DeleteSnapshotRequest {
   SnapshotName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSnapshotResponse {
   /**
    * <p>The snapshot object that has been deleted.</p>
@@ -1898,6 +2079,9 @@ export interface DeleteSnapshotResponse {
   Snapshot?: Snapshot;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubnetGroupRequest {
   /**
    * <p>The name of the subnet group to delete</p>
@@ -1905,6 +2089,9 @@ export interface DeleteSubnetGroupRequest {
   SubnetGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSubnetGroupResponse {
   /**
    * <p>The subnet group object that has been deleted.</p>
@@ -1913,6 +2100,7 @@ export interface DeleteSubnetGroupResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class SubnetGroupInUseFault extends __BaseException {
@@ -1931,6 +2119,9 @@ export class SubnetGroupInUseFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The name of the user to delete</p>
@@ -1938,6 +2129,9 @@ export interface DeleteUserRequest {
   UserName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUserResponse {
   /**
    * <p>The user object that has been deleted.</p>
@@ -1946,6 +2140,7 @@ export interface DeleteUserResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidUserStateFault extends __BaseException {
@@ -1964,6 +2159,9 @@ export class InvalidUserStateFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeACLsRequest {
   /**
    * <p>The name of the ACL</p>
@@ -1981,6 +2179,9 @@ export interface DescribeACLsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeACLsResponse {
   /**
    * <p>The list of ACLs</p>
@@ -1993,6 +2194,9 @@ export interface DescribeACLsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClustersRequest {
   /**
    * <p>The name of the cluster</p>
@@ -2015,6 +2219,9 @@ export interface DescribeClustersRequest {
   ShowShardDetails?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeClustersResponse {
   /**
    * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
@@ -2027,6 +2234,9 @@ export interface DescribeClustersResponse {
   Clusters?: Cluster[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEngineVersionsRequest {
   /**
    * <p>The Redis engine version</p>
@@ -2055,6 +2265,7 @@ export interface DescribeEngineVersionsRequest {
 }
 
 /**
+ * @public
  * <p>Provides details of the Redis engine version</p>
  */
 export interface EngineVersionInfo {
@@ -2074,6 +2285,9 @@ export interface EngineVersionInfo {
   ParameterGroupFamily?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEngineVersionsResponse {
   /**
    * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
@@ -2086,15 +2300,27 @@ export interface DescribeEngineVersionsResponse {
   EngineVersions?: EngineVersionInfo[];
 }
 
-export enum SourceType {
-  acl = "acl",
-  cluster = "cluster",
-  node = "node",
-  parameter_group = "parameter-group",
-  subnet_group = "subnet-group",
-  user = "user",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  acl: "acl",
+  cluster: "cluster",
+  node: "node",
+  parameter_group: "parameter-group",
+  subnet_group: "subnet-group",
+  user: "user",
+} as const;
 
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
+ */
 export interface DescribeEventsRequest {
   /**
    * <p>The identifier of the event source for which events are returned. If not specified, all sources are included in the response.</p>
@@ -2137,6 +2363,7 @@ export interface DescribeEventsRequest {
 }
 
 /**
+ * @public
  * <p>Represents a single occurrence of something interesting within the system. Some examples of events are creating a cluster or adding or removing a
  *          node.</p>
  */
@@ -2162,6 +2389,9 @@ export interface Event {
   Date?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEventsResponse {
   /**
    * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
@@ -2174,6 +2404,9 @@ export interface DescribeEventsResponse {
   Events?: Event[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeParameterGroupsRequest {
   /**
    * <p>The name of a specific  parameter group to return details for.</p>
@@ -2191,6 +2424,9 @@ export interface DescribeParameterGroupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeParameterGroupsResponse {
   /**
    * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
@@ -2203,6 +2439,9 @@ export interface DescribeParameterGroupsResponse {
   ParameterGroups?: ParameterGroup[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeParametersRequest {
   /**
    * <p>he name of a specific  parameter group to return details for.</p>
@@ -2221,6 +2460,7 @@ export interface DescribeParametersRequest {
 }
 
 /**
+ * @public
  * <p>Describes an individual setting that controls some aspect of MemoryDB behavior.</p>
  */
 export interface Parameter {
@@ -2255,6 +2495,9 @@ export interface Parameter {
   MinimumEngineVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeParametersResponse {
   /**
    * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
@@ -2267,6 +2510,9 @@ export interface DescribeParametersResponse {
   Parameters?: Parameter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeReservedNodesRequest {
   /**
    * <p>The reserved node identifier filter value. Use this parameter to show only the reservation that matches the specified reservation ID.</p>
@@ -2306,6 +2552,7 @@ export interface DescribeReservedNodesRequest {
 }
 
 /**
+ * @public
  * <p>The recurring charge to run this reserved node.</p>
  */
 export interface RecurringCharge {
@@ -2321,6 +2568,7 @@ export interface RecurringCharge {
 }
 
 /**
+ * @public
  * <p>Represents the output of a <code>PurchaseReservedNodesOffering</code> operation.</p>
  */
 export interface ReservedNode {
@@ -2380,6 +2628,9 @@ export interface ReservedNode {
   ARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeReservedNodesResponse {
   /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
@@ -2393,6 +2644,7 @@ export interface DescribeReservedNodesResponse {
 }
 
 /**
+ * @public
  * <p>The requested node does not exist.</p>
  */
 export class ReservedNodeNotFoundFault extends __BaseException {
@@ -2411,6 +2663,9 @@ export class ReservedNodeNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeReservedNodesOfferingsRequest {
   /**
    * <p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>
@@ -2445,6 +2700,7 @@ export interface DescribeReservedNodesOfferingsRequest {
 }
 
 /**
+ * @public
  * <p>The offering type of this node.</p>
  */
 export interface ReservedNodesOffering {
@@ -2479,6 +2735,9 @@ export interface ReservedNodesOffering {
   RecurringCharges?: RecurringCharge[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeReservedNodesOfferingsResponse {
   /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
@@ -2492,6 +2751,7 @@ export interface DescribeReservedNodesOfferingsResponse {
 }
 
 /**
+ * @public
  * <p>The requested node offering does not exist.
  *
  *       </p>
@@ -2512,6 +2772,9 @@ export class ReservedNodesOfferingNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceUpdatesRequest {
   /**
    * <p>The unique ID of the service update to describe.</p>
@@ -2539,11 +2802,21 @@ export interface DescribeServiceUpdatesRequest {
   NextToken?: string;
 }
 
-export enum ServiceUpdateType {
-  SECURITY_UPDATE = "security-update",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceUpdateType = {
+  SECURITY_UPDATE: "security-update",
+} as const;
 
 /**
+ * @public
+ */
+export type ServiceUpdateType = (typeof ServiceUpdateType)[keyof typeof ServiceUpdateType];
+
+/**
+ * @public
  * <p>An update that you can apply to your MemoryDB clusters.</p>
  */
 export interface ServiceUpdate {
@@ -2588,6 +2861,9 @@ export interface ServiceUpdate {
   AutoUpdateStartDate?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServiceUpdatesResponse {
   /**
    * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
@@ -2600,6 +2876,9 @@ export interface DescribeServiceUpdatesResponse {
   ServiceUpdates?: ServiceUpdate[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotsRequest {
   /**
    * <p>A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cluster are described.</p>
@@ -2632,6 +2911,9 @@ export interface DescribeSnapshotsRequest {
   ShowDetail?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSnapshotsResponse {
   /**
    * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
@@ -2644,6 +2926,9 @@ export interface DescribeSnapshotsResponse {
   Snapshots?: Snapshot[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubnetGroupsRequest {
   /**
    * <p>The name of the subnet group to return details for.</p>
@@ -2661,6 +2946,9 @@ export interface DescribeSubnetGroupsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubnetGroupsResponse {
   /**
    * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
@@ -2674,6 +2962,7 @@ export interface DescribeSubnetGroupsResponse {
 }
 
 /**
+ * @public
  * <p>Used to streamline results of a search based on the property being filtered.</p>
  */
 export interface Filter {
@@ -2688,6 +2977,9 @@ export interface Filter {
   Values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsersRequest {
   /**
    * <p>The name of the user</p>
@@ -2710,6 +3002,9 @@ export interface DescribeUsersRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeUsersResponse {
   /**
    * <p>A list of users.</p>
@@ -2723,6 +3018,7 @@ export interface DescribeUsersResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class APICallRateForCustomerExceededFault extends __BaseException {
@@ -2741,6 +3037,9 @@ export class APICallRateForCustomerExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface FailoverShardRequest {
   /**
    * <p>The cluster being failed over</p>
@@ -2753,6 +3052,9 @@ export interface FailoverShardRequest {
   ShardName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface FailoverShardResponse {
   /**
    * <p>The cluster being failed over</p>
@@ -2761,6 +3063,7 @@ export interface FailoverShardResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidKMSKeyFault extends __BaseException {
@@ -2780,6 +3083,7 @@ export class InvalidKMSKeyFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ShardNotFoundFault extends __BaseException {
@@ -2799,6 +3103,7 @@ export class ShardNotFoundFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class TestFailoverNotAvailableFault extends __BaseException {
@@ -2817,6 +3122,9 @@ export class TestFailoverNotAvailableFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListAllowedNodeTypeUpdatesRequest {
   /**
    * <p>The name of the cluster you want to scale. MemoryDB uses the cluster name to identify the current node type being used by this cluster, and from that to create a list of node types
@@ -2825,6 +3133,9 @@ export interface ListAllowedNodeTypeUpdatesRequest {
   ClusterName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAllowedNodeTypeUpdatesResponse {
   /**
    * <p>A list node types which you can use to scale up your cluster.</p>
@@ -2838,6 +3149,7 @@ export interface ListAllowedNodeTypeUpdatesResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidARNFault extends __BaseException {
@@ -2856,6 +3168,9 @@ export class InvalidARNFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which you want the list of tags</p>
@@ -2863,6 +3178,9 @@ export interface ListTagsRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsResponse {
   /**
    * <p>A list of tags as key-value pairs.</p>
@@ -2870,6 +3188,9 @@ export interface ListTagsResponse {
   TagList?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PurchaseReservedNodesOfferingRequest {
   /**
    * <p>The ID of the reserved node offering to purchase.</p>
@@ -2892,6 +3213,9 @@ export interface PurchaseReservedNodesOfferingRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PurchaseReservedNodesOfferingResponse {
   /**
    * <p>Represents the output of a <code>PurchaseReservedNodesOffering</code> operation.</p>
@@ -2900,6 +3224,7 @@ export interface PurchaseReservedNodesOfferingResponse {
 }
 
 /**
+ * @public
  * <p>You already have a reservation with the given identifier.</p>
  */
 export class ReservedNodeAlreadyExistsFault extends __BaseException {
@@ -2919,6 +3244,7 @@ export class ReservedNodeAlreadyExistsFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request cannot be processed because it would exceed the user's node quota.</p>
  */
 export class ReservedNodeQuotaExceededFault extends __BaseException {
@@ -2937,6 +3263,9 @@ export class ReservedNodeQuotaExceededFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ResetParameterGroupRequest {
   /**
    * <p>The name of the parameter group to reset.</p>
@@ -2954,6 +3283,9 @@ export interface ResetParameterGroupRequest {
   ParameterNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ResetParameterGroupResponse {
   /**
    * <p>The parameter group being reset.</p>
@@ -2961,6 +3293,9 @@ export interface ResetParameterGroupResponse {
   ParameterGroup?: ParameterGroup;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be added</p>
@@ -2973,6 +3308,9 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {
   /**
    * <p>A list of tags as key-value pairs.</p>
@@ -2981,6 +3319,7 @@ export interface TagResourceResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class TagNotFoundFault extends __BaseException {
@@ -2999,6 +3338,9 @@ export class TagNotFoundFault extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be removed</p>
@@ -3011,6 +3353,9 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {
   /**
    * <p>The list of tags removed</p>
@@ -3018,6 +3363,9 @@ export interface UntagResourceResponse {
   TagList?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateACLRequest {
   /**
    * <p>The name of the Access Control List</p>
@@ -3035,6 +3383,9 @@ export interface UpdateACLRequest {
   UserNamesToRemove?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateACLResponse {
   /**
    * <p>The updated Access Control List</p>
@@ -3043,6 +3394,7 @@ export interface UpdateACLResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidNodeStateFault extends __BaseException {
@@ -3062,6 +3414,7 @@ export class InvalidNodeStateFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class NoOperationFault extends __BaseException {
@@ -3081,6 +3434,7 @@ export class NoOperationFault extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A request to configure the number of replicas in a shard</p>
  */
 export interface ReplicaConfigurationRequest {
@@ -3091,6 +3445,7 @@ export interface ReplicaConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>A request to configure the sharding properties of a cluster</p>
  */
 export interface ShardConfigurationRequest {
@@ -3100,6 +3455,9 @@ export interface ShardConfigurationRequest {
   ShardCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterRequest {
   /**
    * <p>The name of the cluster to update</p>
@@ -3215,6 +3573,9 @@ export interface UpdateClusterRequest {
   ACLName?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateClusterResponse {
   /**
    * <p>The updated cluster</p>
@@ -3223,6 +3584,7 @@ export interface UpdateClusterResponse {
 }
 
 /**
+ * @public
  * <p>Describes a name-value pair that is used to update the value of a parameter.</p>
  */
 export interface ParameterNameValue {
@@ -3237,6 +3599,9 @@ export interface ParameterNameValue {
   ParameterValue?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateParameterGroupRequest {
   /**
    * <p>The name of the parameter group to update.</p>
@@ -3249,6 +3614,9 @@ export interface UpdateParameterGroupRequest {
   ParameterNameValues: ParameterNameValue[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateParameterGroupResponse {
   /**
    * <p>The updated parameter group</p>
@@ -3257,6 +3625,7 @@ export interface UpdateParameterGroupResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class SubnetInUse extends __BaseException {
@@ -3275,6 +3644,9 @@ export class SubnetInUse extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubnetGroupRequest {
   /**
    * <p>The name of the subnet group</p>
@@ -3292,6 +3664,9 @@ export interface UpdateSubnetGroupRequest {
   SubnetIds?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubnetGroupResponse {
   /**
    * <p>The updated subnet group</p>
@@ -3299,6 +3674,9 @@ export interface UpdateSubnetGroupResponse {
   SubnetGroup?: SubnetGroup;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserRequest {
   /**
    * <p>The name of the user</p>
@@ -3316,808 +3694,12 @@ export interface UpdateUserRequest {
   AccessString?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateUserResponse {
   /**
    * <p>The updated user</p>
    */
   User?: User;
 }
-
-/**
- * @internal
- */
-export const ACLPendingChangesFilterSensitiveLog = (obj: ACLPendingChanges): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ACLFilterSensitiveLog = (obj: ACL): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ACLsUpdateStatusFilterSensitiveLog = (obj: ACLsUpdateStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceUpdateRequestFilterSensitiveLog = (obj: ServiceUpdateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateClusterRequestFilterSensitiveLog = (obj: BatchUpdateClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SlotMigrationFilterSensitiveLog = (obj: SlotMigration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReshardingStatusFilterSensitiveLog = (obj: ReshardingStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingModifiedServiceUpdateFilterSensitiveLog = (obj: PendingModifiedServiceUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterPendingUpdatesFilterSensitiveLog = (obj: ClusterPendingUpdates): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecurityGroupMembershipFilterSensitiveLog = (obj: SecurityGroupMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NodeFilterSensitiveLog = (obj: Node): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShardFilterSensitiveLog = (obj: Shard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnprocessedClusterFilterSensitiveLog = (obj: UnprocessedCluster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpdateClusterResponseFilterSensitiveLog = (obj: BatchUpdateClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopySnapshotRequestFilterSensitiveLog = (obj: CopySnapshotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShardConfigurationFilterSensitiveLog = (obj: ShardConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShardDetailFilterSensitiveLog = (obj: ShardDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterConfigurationFilterSensitiveLog = (obj: ClusterConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopySnapshotResponseFilterSensitiveLog = (obj: CopySnapshotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateACLRequestFilterSensitiveLog = (obj: CreateACLRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateACLResponseFilterSensitiveLog = (obj: CreateACLResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterRequestFilterSensitiveLog = (obj: CreateClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateClusterResponseFilterSensitiveLog = (obj: CreateClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateParameterGroupRequestFilterSensitiveLog = (obj: CreateParameterGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterGroupFilterSensitiveLog = (obj: ParameterGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateParameterGroupResponseFilterSensitiveLog = (obj: CreateParameterGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSnapshotRequestFilterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSnapshotResponseFilterSensitiveLog = (obj: CreateSnapshotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubnetGroupRequestFilterSensitiveLog = (obj: CreateSubnetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetGroupFilterSensitiveLog = (obj: SubnetGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubnetGroupResponseFilterSensitiveLog = (obj: CreateSubnetGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthenticationModeFilterSensitiveLog = (obj: AuthenticationMode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthenticationFilterSensitiveLog = (obj: Authentication): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserFilterSensitiveLog = (obj: User): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteACLRequestFilterSensitiveLog = (obj: DeleteACLRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteACLResponseFilterSensitiveLog = (obj: DeleteACLResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterRequestFilterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteClusterResponseFilterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteParameterGroupRequestFilterSensitiveLog = (obj: DeleteParameterGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteParameterGroupResponseFilterSensitiveLog = (obj: DeleteParameterGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSnapshotRequestFilterSensitiveLog = (obj: DeleteSnapshotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSnapshotResponseFilterSensitiveLog = (obj: DeleteSnapshotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubnetGroupRequestFilterSensitiveLog = (obj: DeleteSubnetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubnetGroupResponseFilterSensitiveLog = (obj: DeleteSubnetGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserResponseFilterSensitiveLog = (obj: DeleteUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeACLsRequestFilterSensitiveLog = (obj: DescribeACLsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeACLsResponseFilterSensitiveLog = (obj: DescribeACLsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClustersRequestFilterSensitiveLog = (obj: DescribeClustersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeClustersResponseFilterSensitiveLog = (obj: DescribeClustersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEngineVersionsRequestFilterSensitiveLog = (obj: DescribeEngineVersionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EngineVersionInfoFilterSensitiveLog = (obj: EngineVersionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEngineVersionsResponseFilterSensitiveLog = (obj: DescribeEngineVersionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsRequestFilterSensitiveLog = (obj: DescribeEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventFilterSensitiveLog = (obj: Event): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsResponseFilterSensitiveLog = (obj: DescribeEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeParameterGroupsRequestFilterSensitiveLog = (obj: DescribeParameterGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeParameterGroupsResponseFilterSensitiveLog = (obj: DescribeParameterGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeParametersRequestFilterSensitiveLog = (obj: DescribeParametersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeParametersResponseFilterSensitiveLog = (obj: DescribeParametersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedNodesRequestFilterSensitiveLog = (obj: DescribeReservedNodesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecurringChargeFilterSensitiveLog = (obj: RecurringCharge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedNodeFilterSensitiveLog = (obj: ReservedNode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedNodesResponseFilterSensitiveLog = (obj: DescribeReservedNodesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedNodesOfferingsRequestFilterSensitiveLog = (
-  obj: DescribeReservedNodesOfferingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReservedNodesOfferingFilterSensitiveLog = (obj: ReservedNodesOffering): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeReservedNodesOfferingsResponseFilterSensitiveLog = (
-  obj: DescribeReservedNodesOfferingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServiceUpdatesRequestFilterSensitiveLog = (obj: DescribeServiceUpdatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceUpdateFilterSensitiveLog = (obj: ServiceUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServiceUpdatesResponseFilterSensitiveLog = (obj: DescribeServiceUpdatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotsRequestFilterSensitiveLog = (obj: DescribeSnapshotsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSnapshotsResponseFilterSensitiveLog = (obj: DescribeSnapshotsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSubnetGroupsRequestFilterSensitiveLog = (obj: DescribeSubnetGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSubnetGroupsResponseFilterSensitiveLog = (obj: DescribeSubnetGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUsersRequestFilterSensitiveLog = (obj: DescribeUsersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUsersResponseFilterSensitiveLog = (obj: DescribeUsersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailoverShardRequestFilterSensitiveLog = (obj: FailoverShardRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailoverShardResponseFilterSensitiveLog = (obj: FailoverShardResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAllowedNodeTypeUpdatesRequestFilterSensitiveLog = (obj: ListAllowedNodeTypeUpdatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAllowedNodeTypeUpdatesResponseFilterSensitiveLog = (obj: ListAllowedNodeTypeUpdatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseReservedNodesOfferingRequestFilterSensitiveLog = (
-  obj: PurchaseReservedNodesOfferingRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PurchaseReservedNodesOfferingResponseFilterSensitiveLog = (
-  obj: PurchaseReservedNodesOfferingResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResetParameterGroupRequestFilterSensitiveLog = (obj: ResetParameterGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResetParameterGroupResponseFilterSensitiveLog = (obj: ResetParameterGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateACLRequestFilterSensitiveLog = (obj: UpdateACLRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateACLResponseFilterSensitiveLog = (obj: UpdateACLResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicaConfigurationRequestFilterSensitiveLog = (obj: ReplicaConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShardConfigurationRequestFilterSensitiveLog = (obj: ShardConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterRequestFilterSensitiveLog = (obj: UpdateClusterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateClusterResponseFilterSensitiveLog = (obj: UpdateClusterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterNameValueFilterSensitiveLog = (obj: ParameterNameValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateParameterGroupRequestFilterSensitiveLog = (obj: UpdateParameterGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateParameterGroupResponseFilterSensitiveLog = (obj: UpdateParameterGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSubnetGroupRequestFilterSensitiveLog = (obj: UpdateSubnetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSubnetGroupResponseFilterSensitiveLog = (obj: UpdateSubnetGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserResponseFilterSensitiveLog = (obj: UpdateUserResponse): any => ({
-  ...obj,
-});

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RebootDBClusterMessage,
-  RebootDBClusterMessageFilterSensitiveLog,
-  RebootDBClusterResult,
-  RebootDBClusterResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRebootDBClusterCommand,
-  serializeAws_queryRebootDBClusterCommand,
-} from "../protocols/Aws_query";
+import { RebootDBClusterMessage, RebootDBClusterResult } from "../models/models_1";
+import { de_RebootDBClusterCommand, se_RebootDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link RebootDBClusterCommand}.
  */
 export interface RebootDBClusterCommandInput extends RebootDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebootDBClusterCommand}.
  */
 export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You might need to reboot your DB cluster, usually for maintenance reasons.
  *           For example, if you make certain modifications,
  *           or if you change the DB cluster parameter group associated with the DB cluster,
@@ -52,10 +49,15 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * import { RDSClient, RebootDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RebootDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // RebootDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new RebootDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootDBClusterCommandInput - {@link RebootDBClusterCommandInput}
+ * @returns {@link RebootDBClusterCommandOutput}
  * @see {@link RebootDBClusterCommandInput} for command's `input` shape.
  * @see {@link RebootDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -89,6 +91,9 @@ export class RebootDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class RebootDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class RebootDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebootDBClusterCommand(input, context);
+    return se_RebootDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootDBClusterCommandOutput> {
-    return deserializeAws_queryRebootDBClusterCommand(output, context);
+    return de_RebootDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

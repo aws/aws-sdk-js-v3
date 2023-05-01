@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RemoveFromGlobalClusterMessage,
-  RemoveFromGlobalClusterMessageFilterSensitiveLog,
-  RemoveFromGlobalClusterResult,
-  RemoveFromGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryRemoveFromGlobalClusterCommand,
-  serializeAws_queryRemoveFromGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { de_RemoveFromGlobalClusterCommand, se_RemoveFromGlobalClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFromGlobalClusterCommand}.
  */
 export interface RemoveFromGlobalClusterCommandInput extends RemoveFromGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFromGlobalClusterCommand}.
  */
 export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a Neptune DB cluster from a Neptune global database. A secondary
  *       cluster becomes a normal standalone cluster with read-write capability
  *       instead of being read-only, and no longer receives data from a the
@@ -45,10 +42,16 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * import { NeptuneClient, RemoveFromGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RemoveFromGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // RemoveFromGlobalClusterMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ *   DbClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new RemoveFromGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFromGlobalClusterCommandInput - {@link RemoveFromGlobalClusterCommandInput}
+ * @returns {@link RemoveFromGlobalClusterCommandOutput}
  * @see {@link RemoveFromGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link RemoveFromGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -82,6 +85,9 @@ export class RemoveFromGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFromGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class RemoveFromGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveFromGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveFromGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class RemoveFromGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFromGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveFromGlobalClusterCommand(input, context);
+    return se_RemoveFromGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFromGlobalClusterCommandOutput> {
-    return deserializeAws_queryRemoveFromGlobalClusterCommand(output, context);
+    return de_RemoveFromGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

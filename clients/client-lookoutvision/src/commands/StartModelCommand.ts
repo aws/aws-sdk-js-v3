@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import {
-  StartModelRequest,
-  StartModelRequestFilterSensitiveLog,
-  StartModelResponse,
-  StartModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartModelCommand,
-  serializeAws_restJson1StartModelCommand,
-} from "../protocols/Aws_restJson1";
+import { StartModelRequest, StartModelResponse } from "../models/models_0";
+import { de_StartModelCommand, se_StartModelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartModelCommand}.
  */
 export interface StartModelCommandInput extends StartModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartModelCommand}.
  */
 export interface StartModelCommandOutput extends StartModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the running of the version of an Amazon Lookout for Vision model. Starting a model takes a while
  *          to complete. To check the current state of the model, use <a>DescribeModel</a>.</p>
  *          <p>A model is ready to use when its status is <code>HOSTED</code>.</p>
@@ -52,10 +49,19 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  * import { LookoutVisionClient, StartModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, StartModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = { // StartModelRequest
+ *   ProjectName: "STRING_VALUE", // required
+ *   ModelVersion: "STRING_VALUE", // required
+ *   MinInferenceUnits: Number("int"), // required
+ *   ClientToken: "STRING_VALUE",
+ *   MaxInferenceUnits: Number("int"),
+ * };
  * const command = new StartModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartModelCommandInput - {@link StartModelCommandInput}
+ * @returns {@link StartModelCommandOutput}
  * @see {@link StartModelCommandInput} for command's `input` shape.
  * @see {@link StartModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
@@ -102,6 +108,9 @@ export class StartModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +137,8 @@ export class StartModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +148,18 @@ export class StartModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartModelCommand(input, context);
+    return se_StartModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartModelCommandOutput> {
-    return deserializeAws_restJson1StartModelCommand(output, context);
+    return de_StartModelCommand(output, context);
   }
 
   // Start section: command_body_extra

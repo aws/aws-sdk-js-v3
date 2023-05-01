@@ -15,22 +15,24 @@ import {
 
 import {
   CreateSubscriptionNotificationConfigurationRequest,
-  CreateSubscriptionNotificationConfigurationRequestFilterSensitiveLog,
   CreateSubscriptionNotificationConfigurationResponse,
-  CreateSubscriptionNotificationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand,
-  serializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand,
+  de_CreateSubscriptionNotificationConfigurationCommand,
+  se_CreateSubscriptionNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSubscriptionNotificationConfigurationCommand}.
  */
 export interface CreateSubscriptionNotificationConfigurationCommandInput
   extends CreateSubscriptionNotificationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSubscriptionNotificationConfigurationCommand}.
  */
 export interface CreateSubscriptionNotificationConfigurationCommandOutput
@@ -38,6 +40,7 @@ export interface CreateSubscriptionNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Notifies the subscriber when new data is written to the data lake for the sources that
  *          the subscriber consumes in Security Lake. You can create only one subscriber notification per
  *          subscriber.</p>
@@ -47,10 +50,21 @@ export interface CreateSubscriptionNotificationConfigurationCommandOutput
  * import { SecurityLakeClient, CreateSubscriptionNotificationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateSubscriptionNotificationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // CreateSubscriptionNotificationConfigurationRequest
+ *   subscriptionId: "STRING_VALUE", // required
+ *   subscriptionEndpoint: "STRING_VALUE",
+ *   httpsApiKeyName: "STRING_VALUE",
+ *   httpsApiKeyValue: "STRING_VALUE",
+ *   httpsMethod: "STRING_VALUE",
+ *   createSqs: true || false,
+ *   roleArn: "STRING_VALUE",
+ * };
  * const command = new CreateSubscriptionNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSubscriptionNotificationConfigurationCommandInput - {@link CreateSubscriptionNotificationConfigurationCommandInput}
+ * @returns {@link CreateSubscriptionNotificationConfigurationCommandOutput}
  * @see {@link CreateSubscriptionNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateSubscriptionNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -102,6 +116,9 @@ export class CreateSubscriptionNotificationConfigurationCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSubscriptionNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +153,8 @@ export class CreateSubscriptionNotificationConfigurationCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSubscriptionNotificationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSubscriptionNotificationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,18 +164,24 @@ export class CreateSubscriptionNotificationConfigurationCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateSubscriptionNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand(input, context);
+    return se_CreateSubscriptionNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSubscriptionNotificationConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand(output, context);
+    return de_CreateSubscriptionNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

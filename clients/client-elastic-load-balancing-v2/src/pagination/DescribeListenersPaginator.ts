@@ -10,7 +10,7 @@ import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
 import { ElasticLoadBalancingV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticLoadBalancingV2Client,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeListenersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeListeners(
   config: ElasticLoadBalancingV2PaginationConfiguration,
   input: DescribeListenersCommandInput,

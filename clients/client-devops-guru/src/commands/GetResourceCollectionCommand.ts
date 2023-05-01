@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  GetResourceCollectionRequest,
-  GetResourceCollectionRequestFilterSensitiveLog,
-  GetResourceCollectionResponse,
-  GetResourceCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceCollectionCommand,
-  serializeAws_restJson1GetResourceCollectionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetResourceCollectionRequest, GetResourceCollectionResponse } from "../models/models_0";
+import { de_GetResourceCollectionCommand, se_GetResourceCollectionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetResourceCollectionCommand}.
  */
 export interface GetResourceCollectionCommandInput extends GetResourceCollectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetResourceCollectionCommand}.
  */
 export interface GetResourceCollectionCommandOutput extends GetResourceCollectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns lists Amazon Web Services resources that are of the specified resource collection type.
  * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
  *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -45,10 +42,16 @@ export interface GetResourceCollectionCommandOutput extends GetResourceCollectio
  * import { DevOpsGuruClient, GetResourceCollectionCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, GetResourceCollectionCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // GetResourceCollectionRequest
+ *   ResourceCollectionType: "AWS_CLOUD_FORMATION" || "AWS_SERVICE" || "AWS_TAGS", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetResourceCollectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetResourceCollectionCommandInput - {@link GetResourceCollectionCommandInput}
+ * @returns {@link GetResourceCollectionCommandOutput}
  * @see {@link GetResourceCollectionCommandInput} for command's `input` shape.
  * @see {@link GetResourceCollectionCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -91,6 +94,9 @@ export class GetResourceCollectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetResourceCollectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class GetResourceCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +136,18 @@ export class GetResourceCollectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetResourceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceCollectionCommand(input, context);
+    return se_GetResourceCollectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceCollectionCommandOutput> {
-    return deserializeAws_restJson1GetResourceCollectionCommand(output, context);
+    return de_GetResourceCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

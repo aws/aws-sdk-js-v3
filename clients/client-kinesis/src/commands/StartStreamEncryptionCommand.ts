@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { StartStreamEncryptionInput, StartStreamEncryptionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartStreamEncryptionCommand,
-  serializeAws_json1_1StartStreamEncryptionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartStreamEncryptionInput } from "../models/models_0";
+import { de_StartStreamEncryptionCommand, se_StartStreamEncryptionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartStreamEncryptionCommand}.
  */
 export interface StartStreamEncryptionCommandInput extends StartStreamEncryptionInput {}
 /**
+ * @public
+ *
  * The output of {@link StartStreamEncryptionCommand}.
  */
 export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or updates server-side encryption using an Amazon Web Services KMS key for a
  *             specified stream. </p>
  *          <p>Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis
@@ -56,10 +58,18 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, StartStreamEncryptionCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, StartStreamEncryptionCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // StartStreamEncryptionInput
+ *   StreamName: "STRING_VALUE",
+ *   EncryptionType: "NONE" || "KMS", // required
+ *   KeyId: "STRING_VALUE", // required
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new StartStreamEncryptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartStreamEncryptionCommandInput - {@link StartStreamEncryptionCommandInput}
+ * @returns {@link StartStreamEncryptionCommandOutput}
  * @see {@link StartStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StartStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -132,6 +142,9 @@ export class StartStreamEncryptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartStreamEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,8 +173,8 @@ export class StartStreamEncryptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartStreamEncryptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -171,12 +184,18 @@ export class StartStreamEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartStreamEncryptionCommand(input, context);
+    return se_StartStreamEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStreamEncryptionCommandOutput> {
-    return deserializeAws_json1_1StartStreamEncryptionCommand(output, context);
+    return de_StartStreamEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

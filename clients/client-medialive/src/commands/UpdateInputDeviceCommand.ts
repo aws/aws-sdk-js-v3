@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  UpdateInputDeviceRequest,
-  UpdateInputDeviceRequestFilterSensitiveLog,
-  UpdateInputDeviceResponse,
-  UpdateInputDeviceResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateInputDeviceCommand,
-  serializeAws_restJson1UpdateInputDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateInputDeviceRequest, UpdateInputDeviceResponse } from "../models/models_2";
+import { de_UpdateInputDeviceCommand, se_UpdateInputDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateInputDeviceCommand}.
  */
 export interface UpdateInputDeviceCommandInput extends UpdateInputDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateInputDeviceCommand}.
  */
 export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Updates the parameters for the input device.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * import { MediaLiveClient, UpdateInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // UpdateInputDeviceRequest
+ *   HdDeviceSettings: { // InputDeviceConfigurableSettings
+ *     ConfiguredInput: "AUTO" || "HDMI" || "SDI",
+ *     MaxBitrate: Number("int"),
+ *     LatencyMs: Number("int"),
+ *   },
+ *   InputDeviceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   UhdDeviceSettings: {
+ *     ConfiguredInput: "AUTO" || "HDMI" || "SDI",
+ *     MaxBitrate: Number("int"),
+ *     LatencyMs: Number("int"),
+ *   },
+ * };
  * const command = new UpdateInputDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateInputDeviceCommandInput - {@link UpdateInputDeviceCommandInput}
+ * @returns {@link UpdateInputDeviceCommandOutput}
  * @see {@link UpdateInputDeviceCommandInput} for command's `input` shape.
  * @see {@link UpdateInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +106,9 @@ export class UpdateInputDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInputDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +137,8 @@ export class UpdateInputDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInputDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInputDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +148,18 @@ export class UpdateInputDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInputDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInputDeviceCommand(input, context);
+    return se_UpdateInputDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInputDeviceCommandOutput> {
-    return deserializeAws_restJson1UpdateInputDeviceCommand(output, context);
+    return de_UpdateInputDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

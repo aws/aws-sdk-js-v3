@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  StartTopicsDetectionJobRequest,
-  StartTopicsDetectionJobRequestFilterSensitiveLog,
-  StartTopicsDetectionJobResponse,
-  StartTopicsDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartTopicsDetectionJobCommand,
-  serializeAws_json1_1StartTopicsDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StartTopicsDetectionJobRequest, StartTopicsDetectionJobResponse } from "../models/models_0";
+import { de_StartTopicsDetectionJobCommand, se_StartTopicsDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartTopicsDetectionJobCommand}.
  */
 export interface StartTopicsDetectionJobCommandInput extends StartTopicsDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartTopicsDetectionJobCommand}.
  */
 export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous topic detection job. Use the
  *         <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>
  * @example
@@ -43,10 +40,48 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
  * import { ComprehendClient, StartTopicsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartTopicsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // StartTopicsDetectionJobRequest
+ *   InputDataConfig: { // InputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ *     DocumentReaderConfig: { // DocumentReaderConfig
+ *       DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
+ *       DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ *       FeatureTypes: [ // ListOfDocumentReadFeatureTypes
+ *         "TABLES" || "FORMS",
+ *       ],
+ *     },
+ *   },
+ *   OutputDataConfig: { // OutputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   JobName: "STRING_VALUE",
+ *   NumberOfTopics: Number("int"),
+ *   ClientRequestToken: "STRING_VALUE",
+ *   VolumeKmsKeyId: "STRING_VALUE",
+ *   VpcConfig: { // VpcConfig
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // Subnets // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new StartTopicsDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartTopicsDetectionJobCommandInput - {@link StartTopicsDetectionJobCommandInput}
+ * @returns {@link StartTopicsDetectionJobCommandOutput}
  * @see {@link StartTopicsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartTopicsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -60,6 +95,10 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
  * @throws {@link KmsKeyValidationException} (client fault)
  *  <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
  *       re-enter it.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource name is already in use. Use a different name and try your request
+ *       again.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
@@ -88,6 +127,9 @@ export class StartTopicsDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartTopicsDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +158,8 @@ export class StartTopicsDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTopicsDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartTopicsDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +169,18 @@ export class StartTopicsDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartTopicsDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartTopicsDetectionJobCommand(input, context);
+    return se_StartTopicsDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTopicsDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StartTopicsDetectionJobCommand(output, context);
+    return de_StartTopicsDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

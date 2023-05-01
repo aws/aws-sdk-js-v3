@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  CreateStackInput,
-  CreateStackInputFilterSensitiveLog,
-  CreateStackOutput,
-  CreateStackOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryCreateStackCommand, serializeAws_queryCreateStackCommand } from "../protocols/Aws_query";
+import { CreateStackInput, CreateStackOutput } from "../models/models_0";
+import { de_CreateStackCommand, se_CreateStackCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateStackCommand}.
  */
 export interface CreateStackCommandInput extends CreateStackInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateStackCommand}.
  */
 export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a stack as specified in the template. After the call completes successfully, the
  *          stack creation starts. You can check the status of the stack through the <a>DescribeStacks</a>operation.</p>
  * @example
@@ -40,10 +40,57 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * import { CloudFormationClient, CreateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // CreateStackInput
+ *   StackName: "STRING_VALUE", // required
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   Parameters: [ // Parameters
+ *     { // Parameter
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DisableRollback: true || false,
+ *   RollbackConfiguration: { // RollbackConfiguration
+ *     RollbackTriggers: [ // RollbackTriggers
+ *       { // RollbackTrigger
+ *         Arn: "STRING_VALUE", // required
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     MonitoringTimeInMinutes: Number("int"),
+ *   },
+ *   TimeoutInMinutes: Number("int"),
+ *   NotificationARNs: [ // NotificationARNs
+ *     "STRING_VALUE",
+ *   ],
+ *   Capabilities: [ // Capabilities
+ *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *   ],
+ *   ResourceTypes: [ // ResourceTypes
+ *     "STRING_VALUE",
+ *   ],
+ *   RoleARN: "STRING_VALUE",
+ *   OnFailure: "DO_NOTHING" || "ROLLBACK" || "DELETE",
+ *   StackPolicyBody: "STRING_VALUE",
+ *   StackPolicyURL: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ *   EnableTerminationProtection: true || false,
+ * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateStackCommandInput - {@link CreateStackCommandInput}
+ * @returns {@link CreateStackCommandOutput}
  * @see {@link CreateStackCommandInput} for command's `input` shape.
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -82,6 +129,9 @@ export class CreateStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +158,8 @@ export class CreateStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStackInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStackOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +169,18 @@ export class CreateStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateStackCommand(input, context);
+    return se_CreateStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackCommandOutput> {
-    return deserializeAws_queryCreateStackCommand(output, context);
+    return de_CreateStackCommand(output, context);
   }
 
   // Start section: command_body_extra

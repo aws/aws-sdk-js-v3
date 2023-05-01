@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  ListDataSourcesRequest,
-  ListDataSourcesRequestFilterSensitiveLog,
-  ListDataSourcesResponse,
-  ListDataSourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDataSourcesCommand,
-  serializeAws_json1_1ListDataSourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDataSourcesRequest, ListDataSourcesResponse } from "../models/models_0";
+import { de_ListDataSourcesCommand, se_ListDataSourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDataSourcesCommand}.
  */
 export interface ListDataSourcesCommandInput extends ListDataSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDataSourcesCommand}.
  */
 export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the data source connectors that you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * import { KendraClient, ListDataSourcesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListDataSourcesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // ListDataSourcesRequest
+ *   IndexId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDataSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDataSourcesCommandInput - {@link ListDataSourcesCommandInput}
+ * @returns {@link ListDataSourcesCommandOutput}
  * @see {@link ListDataSourcesCommandInput} for command's `input` shape.
  * @see {@link ListDataSourcesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -56,7 +60,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -89,6 +93,9 @@ export class ListDataSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +124,8 @@ export class ListDataSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataSourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataSourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +135,18 @@ export class ListDataSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDataSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDataSourcesCommand(input, context);
+    return se_ListDataSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSourcesCommandOutput> {
-    return deserializeAws_json1_1ListDataSourcesCommand(output, context);
+    return de_ListDataSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

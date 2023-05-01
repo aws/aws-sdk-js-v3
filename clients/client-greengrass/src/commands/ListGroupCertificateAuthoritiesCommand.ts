@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { ListGroupCertificateAuthoritiesRequest, ListGroupCertificateAuthoritiesResponse } from "../models/models_0";
 import {
-  ListGroupCertificateAuthoritiesRequest,
-  ListGroupCertificateAuthoritiesRequestFilterSensitiveLog,
-  ListGroupCertificateAuthoritiesResponse,
-  ListGroupCertificateAuthoritiesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGroupCertificateAuthoritiesCommand,
-  serializeAws_restJson1ListGroupCertificateAuthoritiesCommand,
+  de_ListGroupCertificateAuthoritiesCommand,
+  se_ListGroupCertificateAuthoritiesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupCertificateAuthoritiesCommand}.
  */
 export interface ListGroupCertificateAuthoritiesCommandInput extends ListGroupCertificateAuthoritiesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupCertificateAuthoritiesCommand}.
  */
 export interface ListGroupCertificateAuthoritiesCommandOutput
@@ -37,6 +36,7 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Retrieves the current CAs for a group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
  * import { GreengrassClient, ListGroupCertificateAuthoritiesCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListGroupCertificateAuthoritiesCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListGroupCertificateAuthoritiesRequest
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new ListGroupCertificateAuthoritiesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupCertificateAuthoritiesCommandInput - {@link ListGroupCertificateAuthoritiesCommandInput}
+ * @returns {@link ListGroupCertificateAuthoritiesCommandOutput}
  * @see {@link ListGroupCertificateAuthoritiesCommandInput} for command's `input` shape.
  * @see {@link ListGroupCertificateAuthoritiesCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
@@ -77,6 +82,9 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupCertificateAuthoritiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupCertificateAuthoritiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupCertificateAuthoritiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,18 +124,24 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListGroupCertificateAuthoritiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGroupCertificateAuthoritiesCommand(input, context);
+    return se_ListGroupCertificateAuthoritiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGroupCertificateAuthoritiesCommandOutput> {
-    return deserializeAws_restJson1ListGroupCertificateAuthoritiesCommand(output, context);
+    return de_ListGroupCertificateAuthoritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DescribePoliciesType,
-  DescribePoliciesTypeFilterSensitiveLog,
-  PoliciesType,
-  PoliciesTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribePoliciesCommand,
-  serializeAws_queryDescribePoliciesCommand,
-} from "../protocols/Aws_query";
+import { DescribePoliciesType, PoliciesType } from "../models/models_0";
+import { de_DescribePoliciesCommand, se_DescribePoliciesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePoliciesCommand}.
  */
 export interface DescribePoliciesCommandInput extends DescribePoliciesType {}
 /**
+ * @public
+ *
  * The output of {@link DescribePoliciesCommand}.
  */
 export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the scaling policies in the account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * import { AutoScalingClient, DescribePoliciesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribePoliciesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // DescribePoliciesType
+ *   AutoScalingGroupName: "STRING_VALUE",
+ *   PolicyNames: [ // PolicyNames
+ *     "STRING_VALUE",
+ *   ],
+ *   PolicyTypes: [ // PolicyTypes
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribePoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePoliciesCommandInput - {@link DescribePoliciesCommandInput}
+ * @returns {@link DescribePoliciesCommandOutput}
  * @see {@link DescribePoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribePoliciesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -114,6 +124,9 @@ export class DescribePoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +155,8 @@ export class DescribePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePoliciesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: PoliciesTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +166,18 @@ export class DescribePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribePoliciesCommand(input, context);
+    return se_DescribePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePoliciesCommandOutput> {
-    return deserializeAws_queryDescribePoliciesCommand(output, context);
+    return de_DescribePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

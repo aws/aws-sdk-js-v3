@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  PutSchemaVersionMetadataInput,
-  PutSchemaVersionMetadataInputFilterSensitiveLog,
-  PutSchemaVersionMetadataResponse,
-  PutSchemaVersionMetadataResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1PutSchemaVersionMetadataCommand,
-  serializeAws_json1_1PutSchemaVersionMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { PutSchemaVersionMetadataInput, PutSchemaVersionMetadataResponse } from "../models/models_2";
+import { de_PutSchemaVersionMetadataCommand, se_PutSchemaVersionMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSchemaVersionMetadataCommand}.
  */
 export interface PutSchemaVersionMetadataCommandInput extends PutSchemaVersionMetadataInput {}
 /**
+ * @public
+ *
  * The output of {@link PutSchemaVersionMetadataCommand}.
  */
 export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Puts the metadata key value pair for a specified schema version ID. A maximum of 10 key value pairs will be allowed per schema version. They can be added over one or more calls.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionM
  * import { GlueClient, PutSchemaVersionMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, PutSchemaVersionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // PutSchemaVersionMetadataInput
+ *   SchemaId: { // SchemaId
+ *     SchemaArn: "STRING_VALUE",
+ *     SchemaName: "STRING_VALUE",
+ *     RegistryName: "STRING_VALUE",
+ *   },
+ *   SchemaVersionNumber: { // SchemaVersionNumber
+ *     LatestVersion: true || false,
+ *     VersionNumber: Number("long"),
+ *   },
+ *   SchemaVersionId: "STRING_VALUE",
+ *   MetadataKeyValue: { // MetadataKeyValuePair
+ *     MetadataKey: "STRING_VALUE",
+ *     MetadataValue: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutSchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSchemaVersionMetadataCommandInput - {@link PutSchemaVersionMetadataCommandInput}
+ * @returns {@link PutSchemaVersionMetadataCommandOutput}
  * @see {@link PutSchemaVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link PutSchemaVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -84,6 +99,9 @@ export class PutSchemaVersionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSchemaVersionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +130,8 @@ export class PutSchemaVersionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSchemaVersionMetadataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSchemaVersionMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +141,18 @@ export class PutSchemaVersionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSchemaVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutSchemaVersionMetadataCommand(input, context);
+    return se_PutSchemaVersionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSchemaVersionMetadataCommandOutput> {
-    return deserializeAws_json1_1PutSchemaVersionMetadataCommand(output, context);
+    return de_PutSchemaVersionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateProvisionedProductPlanInput, CreateProvisionedProductPlanOutput } from "../models/models_0";
 import {
-  CreateProvisionedProductPlanInput,
-  CreateProvisionedProductPlanInputFilterSensitiveLog,
-  CreateProvisionedProductPlanOutput,
-  CreateProvisionedProductPlanOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateProvisionedProductPlanCommand,
-  serializeAws_json1_1CreateProvisionedProductPlanCommand,
+  de_CreateProvisionedProductPlanCommand,
+  se_CreateProvisionedProductPlanCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProvisionedProductPlanCommand}.
  */
 export interface CreateProvisionedProductPlanCommandInput extends CreateProvisionedProductPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateProvisionedProductPlanCommand}.
  */
 export interface CreateProvisionedProductPlanCommandOutput
@@ -37,6 +36,7 @@ export interface CreateProvisionedProductPlanCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a plan.</p>
  *          <p>A plan includes the list of resources to be
  *          created (when provisioning a new product) or modified (when updating a provisioned product)
@@ -51,10 +51,38 @@ export interface CreateProvisionedProductPlanCommandOutput
  * import { ServiceCatalogClient, CreateProvisionedProductPlanCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateProvisionedProductPlanCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // CreateProvisionedProductPlanInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PlanName: "STRING_VALUE", // required
+ *   PlanType: "CLOUDFORMATION", // required
+ *   NotificationArns: [ // NotificationArns
+ *     "STRING_VALUE",
+ *   ],
+ *   PathId: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE", // required
+ *   ProvisionedProductName: "STRING_VALUE", // required
+ *   ProvisioningArtifactId: "STRING_VALUE", // required
+ *   ProvisioningParameters: [ // UpdateProvisioningParameters
+ *     { // UpdateProvisioningParameter
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *     },
+ *   ],
+ *   IdempotencyToken: "STRING_VALUE", // required
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProvisionedProductPlanCommandInput - {@link CreateProvisionedProductPlanCommandInput}
+ * @returns {@link CreateProvisionedProductPlanCommandOutput}
  * @see {@link CreateProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link CreateProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -88,6 +116,9 @@ export class CreateProvisionedProductPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProvisionedProductPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +147,8 @@ export class CreateProvisionedProductPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProvisionedProductPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProvisionedProductPlanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +158,21 @@ export class CreateProvisionedProductPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProvisionedProductPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProvisionedProductPlanCommand(input, context);
+    return se_CreateProvisionedProductPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProvisionedProductPlanCommandOutput> {
-    return deserializeAws_json1_1CreateProvisionedProductPlanCommand(output, context);
+    return de_CreateProvisionedProductPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

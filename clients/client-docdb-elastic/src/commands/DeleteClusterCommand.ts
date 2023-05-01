@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import {
-  DeleteClusterInput,
-  DeleteClusterInputFilterSensitiveLog,
-  DeleteClusterOutput,
-  DeleteClusterOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteClusterCommand,
-  serializeAws_restJson1DeleteClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteClusterInput, DeleteClusterOutput } from "../models/models_0";
+import { de_DeleteClusterCommand, se_DeleteClusterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandInput extends DeleteClusterInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteClusterCommand}.
  */
 export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a Elastic DocumentDB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
  * import { DocDBElasticClient, DeleteClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, DeleteClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
+ * const input = { // DeleteClusterInput
+ *   clusterArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
+ * @returns {@link DeleteClusterCommandOutput}
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClusterInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteClusterOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteClusterCommand(input, context);
+    return se_DeleteClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
-    return deserializeAws_restJson1DeleteClusterCommand(output, context);
+    return de_DeleteClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

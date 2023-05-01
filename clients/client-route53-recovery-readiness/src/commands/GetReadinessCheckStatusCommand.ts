@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetReadinessCheckStatusRequest,
-  GetReadinessCheckStatusRequestFilterSensitiveLog,
-  GetReadinessCheckStatusResponse,
-  GetReadinessCheckStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetReadinessCheckStatusCommand,
-  serializeAws_restJson1GetReadinessCheckStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { GetReadinessCheckStatusRequest, GetReadinessCheckStatusResponse } from "../models/models_0";
+import { de_GetReadinessCheckStatusCommand, se_GetReadinessCheckStatusCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetReadinessCheckStatusCommand}.
  */
 export interface GetReadinessCheckStatusCommandInput extends GetReadinessCheckStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReadinessCheckStatusCommand}.
  */
 export interface GetReadinessCheckStatusCommandOutput extends GetReadinessCheckStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the readiness status for an individual readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in a recovery group, use GetRecoveryGroupReadinessSummary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface GetReadinessCheckStatusCommandOutput extends GetReadinessCheckS
  * import { Route53RecoveryReadinessClient, GetReadinessCheckStatusCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetReadinessCheckStatusCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // GetReadinessCheckStatusRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ReadinessCheckName: "STRING_VALUE", // required
+ * };
  * const command = new GetReadinessCheckStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReadinessCheckStatusCommandInput - {@link GetReadinessCheckStatusCommandInput}
+ * @returns {@link GetReadinessCheckStatusCommandOutput}
  * @see {@link GetReadinessCheckStatusCommandInput} for command's `input` shape.
  * @see {@link GetReadinessCheckStatusCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +92,9 @@ export class GetReadinessCheckStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReadinessCheckStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class GetReadinessCheckStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReadinessCheckStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReadinessCheckStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +134,18 @@ export class GetReadinessCheckStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReadinessCheckStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReadinessCheckStatusCommand(input, context);
+    return se_GetReadinessCheckStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReadinessCheckStatusCommandOutput> {
-    return deserializeAws_restJson1GetReadinessCheckStatusCommand(output, context);
+    return de_GetReadinessCheckStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

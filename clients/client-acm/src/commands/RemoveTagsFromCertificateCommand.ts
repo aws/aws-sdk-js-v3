@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import {
-  RemoveTagsFromCertificateRequest,
-  RemoveTagsFromCertificateRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveTagsFromCertificateCommand,
-  serializeAws_json1_1RemoveTagsFromCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveTagsFromCertificateRequest } from "../models/models_0";
+import { de_RemoveTagsFromCertificateCommand, se_RemoveTagsFromCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTagsFromCertificateCommand}.
  */
 export interface RemoveTagsFromCertificateCommandInput extends RemoveTagsFromCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTagsFromCertificateCommand}.
  */
 export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove one or more tags from an ACM certificate. A tag consists of a key-value pair. If
  *       you do not specify the value portion of the tag when calling this function, the tag will be
  *       removed regardless of value. If you specify a value, the tag is removed only if it is
@@ -45,10 +44,21 @@ export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer
  * import { ACMClient, RemoveTagsFromCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, RemoveTagsFromCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = { // RemoveTagsFromCertificateRequest
+ *   CertificateArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new RemoveTagsFromCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsFromCertificateCommandInput - {@link RemoveTagsFromCertificateCommandInput}
+ * @returns {@link RemoveTagsFromCertificateCommandOutput}
  * @see {@link RemoveTagsFromCertificateCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
@@ -92,6 +102,9 @@ export class RemoveTagsFromCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsFromCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +133,8 @@ export class RemoveTagsFromCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +144,21 @@ export class RemoveTagsFromCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsFromCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTagsFromCertificateCommand(input, context);
+    return se_RemoveTagsFromCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveTagsFromCertificateCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsFromCertificateCommand(output, context);
+    return de_RemoveTagsFromCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  ListPackageVersionsRequest,
-  ListPackageVersionsRequestFilterSensitiveLog,
-  ListPackageVersionsResult,
-  ListPackageVersionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPackageVersionsCommand,
-  serializeAws_restJson1ListPackageVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPackageVersionsRequest, ListPackageVersionsResult } from "../models/models_0";
+import { de_ListPackageVersionsCommand, se_ListPackageVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPackageVersionsCommand}.
  */
 export interface ListPackageVersionsCommandInput extends ListPackageVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPackageVersionsCommand}.
  */
 export interface ListPackageVersionsCommandOutput extends ListPackageVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Returns a list of
  *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a>
@@ -46,10 +43,25 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  * import { CodeartifactClient, ListPackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, ListPackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // ListPackageVersionsRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ *   sortBy: "PUBLISHED_TIME",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   originType: "INTERNAL" || "EXTERNAL" || "UNKNOWN",
+ * };
  * const command = new ListPackageVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPackageVersionsCommandInput - {@link ListPackageVersionsCommandInput}
+ * @returns {@link ListPackageVersionsCommandOutput}
  * @see {@link ListPackageVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -96,6 +108,9 @@ export class ListPackageVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPackageVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +139,8 @@ export class ListPackageVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPackageVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPackageVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +150,18 @@ export class ListPackageVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPackageVersionsCommand(input, context);
+    return se_ListPackageVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackageVersionsCommandOutput> {
-    return deserializeAws_restJson1ListPackageVersionsCommand(output, context);
+    return de_ListPackageVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

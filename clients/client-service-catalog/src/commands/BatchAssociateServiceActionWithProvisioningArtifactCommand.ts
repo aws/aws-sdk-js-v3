@@ -15,22 +15,24 @@ import {
 
 import {
   BatchAssociateServiceActionWithProvisioningArtifactInput,
-  BatchAssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog,
   BatchAssociateServiceActionWithProvisioningArtifactOutput,
-  BatchAssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand,
-  serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand,
+  de_BatchAssociateServiceActionWithProvisioningArtifactCommand,
+  se_BatchAssociateServiceActionWithProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchAssociateServiceActionWithProvisioningArtifactCommand}.
  */
 export interface BatchAssociateServiceActionWithProvisioningArtifactCommandInput
   extends BatchAssociateServiceActionWithProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchAssociateServiceActionWithProvisioningArtifactCommand}.
  */
 export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
@@ -38,6 +40,7 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutpu
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates multiple self-service actions with provisioning artifacts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,22 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutpu
  * import { ServiceCatalogClient, BatchAssociateServiceActionWithProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, BatchAssociateServiceActionWithProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // BatchAssociateServiceActionWithProvisioningArtifactInput
+ *   ServiceActionAssociations: [ // ServiceActionAssociations // required
+ *     { // ServiceActionAssociation
+ *       ServiceActionId: "STRING_VALUE", // required
+ *       ProductId: "STRING_VALUE", // required
+ *       ProvisioningArtifactId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new BatchAssociateServiceActionWithProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchAssociateServiceActionWithProvisioningArtifactCommandInput - {@link BatchAssociateServiceActionWithProvisioningArtifactCommandInput}
+ * @returns {@link BatchAssociateServiceActionWithProvisioningArtifactCommandOutput}
  * @see {@link BatchAssociateServiceActionWithProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateServiceActionWithProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -75,6 +90,9 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchAssociateServiceActionWithProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +127,8 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchAssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchAssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,18 +138,24 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand(input, context);
+    return se_BatchAssociateServiceActionWithProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand(output, context);
+    return de_BatchAssociateServiceActionWithProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

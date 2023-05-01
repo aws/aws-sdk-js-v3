@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-ec2",
-  "version": "3.296.0",
+  "version": "3.321.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -9,7 +9,8 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "jest",
+    "test:integration": "jest --config jest.config.integ.js"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -23,6 +24,7 @@
     "@aws-sdk/middleware-endpoint": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4": "*",
+    "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
     "tslib": "^2.5.0"
@@ -38,7 +40,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-sdk-ec2",
   "repository": {

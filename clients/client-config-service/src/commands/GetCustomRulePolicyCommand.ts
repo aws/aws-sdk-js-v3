@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  GetCustomRulePolicyRequest,
-  GetCustomRulePolicyRequestFilterSensitiveLog,
-  GetCustomRulePolicyResponse,
-  GetCustomRulePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCustomRulePolicyCommand,
-  serializeAws_json1_1GetCustomRulePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCustomRulePolicyRequest, GetCustomRulePolicyResponse } from "../models/models_0";
+import { de_GetCustomRulePolicyCommand, se_GetCustomRulePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCustomRulePolicyCommand}.
  */
 export interface GetCustomRulePolicyCommandInput extends GetCustomRulePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCustomRulePolicyCommand}.
  */
 export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the policy definition containing the logic for your Config Custom Policy rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyRes
  * import { ConfigServiceClient, GetCustomRulePolicyCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetCustomRulePolicyCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // GetCustomRulePolicyRequest
+ *   ConfigRuleName: "STRING_VALUE",
+ * };
  * const command = new GetCustomRulePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCustomRulePolicyCommandInput - {@link GetCustomRulePolicyCommandInput}
+ * @returns {@link GetCustomRulePolicyCommandOutput}
  * @see {@link GetCustomRulePolicyCommandInput} for command's `input` shape.
  * @see {@link GetCustomRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -72,6 +74,9 @@ export class GetCustomRulePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCustomRulePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class GetCustomRulePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCustomRulePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCustomRulePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +116,18 @@ export class GetCustomRulePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCustomRulePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCustomRulePolicyCommand(input, context);
+    return se_GetCustomRulePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCustomRulePolicyCommandOutput> {
-    return deserializeAws_json1_1GetCustomRulePolicyCommand(output, context);
+    return de_GetCustomRulePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

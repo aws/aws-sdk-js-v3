@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSafetyRuleRequest,
-  DeleteSafetyRuleRequestFilterSensitiveLog,
-  DeleteSafetyRuleResponse,
-  DeleteSafetyRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSafetyRuleCommand,
-  serializeAws_restJson1DeleteSafetyRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSafetyRuleRequest, DeleteSafetyRuleResponse } from "../models/models_0";
+import { de_DeleteSafetyRuleCommand, se_DeleteSafetyRuleCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSafetyRuleCommand}.
  */
 export interface DeleteSafetyRuleCommandInput extends DeleteSafetyRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSafetyRuleCommand}.
  */
 export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a safety rule.</p>/&gt;
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse,
  * import { Route53RecoveryControlConfigClient, DeleteSafetyRuleCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DeleteSafetyRuleCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // DeleteSafetyRuleRequest
+ *   SafetyRuleArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSafetyRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSafetyRuleCommandInput - {@link DeleteSafetyRuleCommandInput}
+ * @returns {@link DeleteSafetyRuleCommandOutput}
  * @see {@link DeleteSafetyRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteSafetyRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -82,6 +84,9 @@ export class DeleteSafetyRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSafetyRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DeleteSafetyRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSafetyRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSafetyRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DeleteSafetyRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSafetyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSafetyRuleCommand(input, context);
+    return se_DeleteSafetyRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSafetyRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteSafetyRuleCommand(output, context);
+    return de_DeleteSafetyRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,23 +18,24 @@ import {
   BatchUpdateTableRowsRequest,
   BatchUpdateTableRowsRequestFilterSensitiveLog,
   BatchUpdateTableRowsResult,
-  BatchUpdateTableRowsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpdateTableRowsCommand,
-  serializeAws_restJson1BatchUpdateTableRowsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchUpdateTableRowsCommand, se_BatchUpdateTableRowsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchUpdateTableRowsCommand}.
  */
 export interface BatchUpdateTableRowsCommandInput extends BatchUpdateTableRowsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchUpdateTableRowsCommand}.
  */
 export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The BatchUpdateTableRows API allows you to update one or more rows in a table in a workbook.
  *         </p>
@@ -51,10 +52,30 @@ export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsR
  * import { HoneycodeClient, BatchUpdateTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, BatchUpdateTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = { // BatchUpdateTableRowsRequest
+ *   workbookId: "STRING_VALUE", // required
+ *   tableId: "STRING_VALUE", // required
+ *   rowsToUpdate: [ // UpdateRowDataList // required
+ *     { // UpdateRowData
+ *       rowId: "STRING_VALUE", // required
+ *       cellsToUpdate: { // RowDataInput // required
+ *         "<keys>": { // CellInput
+ *           fact: "STRING_VALUE",
+ *           facts: [ // FactList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new BatchUpdateTableRowsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchUpdateTableRowsCommandInput - {@link BatchUpdateTableRowsCommandInput}
+ * @returns {@link BatchUpdateTableRowsCommandOutput}
  * @see {@link BatchUpdateTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
@@ -104,6 +125,9 @@ export class BatchUpdateTableRowsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchUpdateTableRowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,7 +157,7 @@ export class BatchUpdateTableRowsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchUpdateTableRowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateTableRowsResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +167,18 @@ export class BatchUpdateTableRowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchUpdateTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateTableRowsCommand(input, context);
+    return se_BatchUpdateTableRowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateTableRowsCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateTableRowsCommand(output, context);
+    return de_BatchUpdateTableRowsCommand(output, context);
   }
 
   // Start section: command_body_extra

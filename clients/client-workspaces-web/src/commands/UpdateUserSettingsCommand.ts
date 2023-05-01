@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateUserSettingsRequest,
-  UpdateUserSettingsRequestFilterSensitiveLog,
-  UpdateUserSettingsResponse,
-  UpdateUserSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateUserSettingsCommand,
-  serializeAws_restJson1UpdateUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateUserSettingsRequest, UpdateUserSettingsResponse } from "../models/models_0";
+import { de_UpdateUserSettingsCommand, se_UpdateUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserSettingsCommand}.
  */
 export interface UpdateUserSettingsCommandInput extends UpdateUserSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserSettingsCommand}.
  */
 export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the user settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * import { WorkSpacesWebClient, UpdateUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // UpdateUserSettingsRequest
+ *   userSettingsArn: "STRING_VALUE", // required
+ *   copyAllowed: "STRING_VALUE",
+ *   pasteAllowed: "STRING_VALUE",
+ *   downloadAllowed: "STRING_VALUE",
+ *   uploadAllowed: "STRING_VALUE",
+ *   printAllowed: "STRING_VALUE",
+ *   disconnectTimeoutInMinutes: Number("int"),
+ *   idleDisconnectTimeoutInMinutes: Number("int"),
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateUserSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserSettingsCommandInput - {@link UpdateUserSettingsCommandInput}
+ * @returns {@link UpdateUserSettingsCommandOutput}
  * @see {@link UpdateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +94,9 @@ export class UpdateUserSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +125,8 @@ export class UpdateUserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +136,18 @@ export class UpdateUserSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserSettingsCommand(input, context);
+    return se_UpdateUserSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateUserSettingsCommand(output, context);
+    return de_UpdateUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

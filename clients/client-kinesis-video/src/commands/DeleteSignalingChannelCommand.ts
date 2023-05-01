@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  DeleteSignalingChannelInput,
-  DeleteSignalingChannelInputFilterSensitiveLog,
-  DeleteSignalingChannelOutput,
-  DeleteSignalingChannelOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSignalingChannelCommand,
-  serializeAws_restJson1DeleteSignalingChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSignalingChannelInput, DeleteSignalingChannelOutput } from "../models/models_0";
+import { de_DeleteSignalingChannelCommand, se_DeleteSignalingChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSignalingChannelCommand}.
  */
 export interface DeleteSignalingChannelCommandInput extends DeleteSignalingChannelInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSignalingChannelCommand}.
  */
 export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChannelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an
  *             asynchronous operation. If you don't specify the channel's current version, the most
  *             recent version is deleted.</p>
@@ -44,10 +41,16 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  * import { KinesisVideoClient, DeleteSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DeleteSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = { // DeleteSignalingChannelInput
+ *   ChannelARN: "STRING_VALUE", // required
+ *   CurrentVersion: "STRING_VALUE",
+ * };
  * const command = new DeleteSignalingChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSignalingChannelCommandInput - {@link DeleteSignalingChannelCommandInput}
+ * @returns {@link DeleteSignalingChannelCommandOutput}
  * @see {@link DeleteSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteSignalingChannelCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
@@ -109,6 +112,9 @@ export class DeleteSignalingChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSignalingChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +143,8 @@ export class DeleteSignalingChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSignalingChannelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSignalingChannelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +154,18 @@ export class DeleteSignalingChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSignalingChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSignalingChannelCommand(input, context);
+    return se_DeleteSignalingChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSignalingChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteSignalingChannelCommand(output, context);
+    return de_DeleteSignalingChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

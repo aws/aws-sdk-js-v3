@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { DescribePullThroughCacheRulesRequest, DescribePullThroughCacheRulesResponse } from "../models/models_0";
 import {
-  DescribePullThroughCacheRulesRequest,
-  DescribePullThroughCacheRulesRequestFilterSensitiveLog,
-  DescribePullThroughCacheRulesResponse,
-  DescribePullThroughCacheRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePullThroughCacheRulesCommand,
-  serializeAws_json1_1DescribePullThroughCacheRulesCommand,
+  de_DescribePullThroughCacheRulesCommand,
+  se_DescribePullThroughCacheRulesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePullThroughCacheRulesCommand}.
  */
 export interface DescribePullThroughCacheRulesCommandInput extends DescribePullThroughCacheRulesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePullThroughCacheRulesCommand}.
  */
 export interface DescribePullThroughCacheRulesCommandOutput
@@ -37,6 +36,7 @@ export interface DescribePullThroughCacheRulesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the pull through cache rules for a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,20 @@ export interface DescribePullThroughCacheRulesCommandOutput
  * import { ECRClient, DescribePullThroughCacheRulesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribePullThroughCacheRulesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // DescribePullThroughCacheRulesRequest
+ *   registryId: "STRING_VALUE",
+ *   ecrRepositoryPrefixes: [ // PullThroughCacheRuleRepositoryPrefixList
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribePullThroughCacheRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePullThroughCacheRulesCommandInput - {@link DescribePullThroughCacheRulesCommandInput}
+ * @returns {@link DescribePullThroughCacheRulesCommandOutput}
  * @see {@link DescribePullThroughCacheRulesCommandInput} for command's `input` shape.
  * @see {@link DescribePullThroughCacheRulesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -85,6 +95,9 @@ export class DescribePullThroughCacheRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePullThroughCacheRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +126,8 @@ export class DescribePullThroughCacheRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePullThroughCacheRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePullThroughCacheRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +137,21 @@ export class DescribePullThroughCacheRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePullThroughCacheRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePullThroughCacheRulesCommand(input, context);
+    return se_DescribePullThroughCacheRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePullThroughCacheRulesCommandOutput> {
-    return deserializeAws_json1_1DescribePullThroughCacheRulesCommand(output, context);
+    return de_DescribePullThroughCacheRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

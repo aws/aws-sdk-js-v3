@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  GetAdministratorAccountRequest,
-  GetAdministratorAccountRequestFilterSensitiveLog,
-  GetAdministratorAccountResponse,
-  GetAdministratorAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAdministratorAccountCommand,
-  serializeAws_restJson1GetAdministratorAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_0";
+import { de_GetAdministratorAccountCommand, se_GetAdministratorAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAdministratorAccountCommand}.
  */
 export interface GetAdministratorAccountCommandInput extends GetAdministratorAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAdministratorAccountCommand}.
  */
 export interface GetAdministratorAccountCommandOutput extends GetAdministratorAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the details for the GuardDuty administrator account associated with the current
  *       GuardDuty member account.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * import { GuardDutyClient, GetAdministratorAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetAdministratorAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // GetAdministratorAccountRequest
+ *   DetectorId: "STRING_VALUE", // required
+ * };
  * const command = new GetAdministratorAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAdministratorAccountCommandInput - {@link GetAdministratorAccountCommandInput}
+ * @returns {@link GetAdministratorAccountCommandOutput}
  * @see {@link GetAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link GetAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -76,6 +78,9 @@ export class GetAdministratorAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAdministratorAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class GetAdministratorAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAdministratorAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAdministratorAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class GetAdministratorAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAdministratorAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAdministratorAccountCommand(input, context);
+    return se_GetAdministratorAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdministratorAccountCommandOutput> {
-    return deserializeAws_restJson1GetAdministratorAccountCommand(output, context);
+    return de_GetAdministratorAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

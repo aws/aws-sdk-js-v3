@@ -18,27 +18,29 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { DeleteChannelRequest, DeleteChannelRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteChannelCommand,
-  serializeAws_restJson1DeleteChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteChannelRequest } from "../models/models_0";
+import { de_DeleteChannelCommand, se_DeleteChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChannelCommand}.
  */
 export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChannelCommand}.
  */
 export interface DeleteChannelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Immediately makes a channel and its memberships inaccessible and marks them for
  *          deletion. This is an irreversible process.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *                ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example
@@ -47,16 +49,26 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKMessagingClient, DeleteChannelCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DeleteChannelCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // DeleteChannelRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelCommandInput - {@link DeleteChannelCommandInput}
+ * @returns {@link DeleteChannelCommandOutput}
  * @see {@link DeleteChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
@@ -92,6 +104,9 @@ export class DeleteChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +133,8 @@ export class DeleteChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +144,18 @@ export class DeleteChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteChannelCommand(input, context);
+    return se_DeleteChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteChannelCommand(output, context);
+    return de_DeleteChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

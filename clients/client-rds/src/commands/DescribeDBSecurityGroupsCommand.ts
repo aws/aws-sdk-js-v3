@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBSecurityGroupMessage,
-  DBSecurityGroupMessageFilterSensitiveLog,
-  DescribeDBSecurityGroupsMessage,
-  DescribeDBSecurityGroupsMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBSecurityGroupsCommand,
-  serializeAws_queryDescribeDBSecurityGroupsCommand,
-} from "../protocols/Aws_query";
+import { DBSecurityGroupMessage, DescribeDBSecurityGroupsMessage } from "../models/models_1";
+import { de_DescribeDBSecurityGroupsCommand, se_DescribeDBSecurityGroupsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDBSecurityGroupsCommand}.
  */
 export interface DescribeDBSecurityGroupsCommandInput extends DescribeDBSecurityGroupsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDBSecurityGroupsCommand}.
  */
 export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <code>DBSecurityGroup</code> descriptions. If a <code>DBSecurityGroupName</code> is specified,
  *             the list will contain only the descriptions of the specified DB security group.</p>
  *          <note>
@@ -50,10 +47,25 @@ export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMe
  * import { RDSClient, DescribeDBSecurityGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBSecurityGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeDBSecurityGroupsMessage
+ *   DBSecurityGroupName: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDBSecurityGroupsCommandInput - {@link DescribeDBSecurityGroupsCommandInput}
+ * @returns {@link DescribeDBSecurityGroupsCommandOutput}
  * @see {@link DescribeDBSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -92,6 +104,9 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +135,8 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBSecurityGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBSecurityGroupMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +146,18 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBSecurityGroupsCommand(input, context);
+    return se_DescribeDBSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBSecurityGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBSecurityGroupsCommand(output, context);
+    return de_DescribeDBSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

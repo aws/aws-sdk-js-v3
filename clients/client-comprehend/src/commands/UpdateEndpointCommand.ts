@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  UpdateEndpointRequest,
-  UpdateEndpointRequestFilterSensitiveLog,
-  UpdateEndpointResponse,
-  UpdateEndpointResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateEndpointCommand,
-  serializeAws_json1_1UpdateEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateEndpointRequest, UpdateEndpointResponse } from "../models/models_1";
+import { de_UpdateEndpointCommand, se_UpdateEndpointCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEndpointCommand}.
  */
 export interface UpdateEndpointCommandInput extends UpdateEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEndpointCommand}.
  */
 export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates information about the specified endpoint.
  *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  * @example
@@ -43,10 +40,19 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * import { ComprehendClient, UpdateEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, UpdateEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // UpdateEndpointRequest
+ *   EndpointArn: "STRING_VALUE", // required
+ *   DesiredModelArn: "STRING_VALUE",
+ *   DesiredInferenceUnits: Number("int"),
+ *   DesiredDataAccessRoleArn: "STRING_VALUE",
+ *   FlywheelArn: "STRING_VALUE",
+ * };
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
+ * @returns {@link UpdateEndpointCommandOutput}
  * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -94,6 +100,9 @@ export class UpdateEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +131,8 @@ export class UpdateEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +142,18 @@ export class UpdateEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEndpointCommand(input, context);
+    return se_UpdateEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointCommandOutput> {
-    return deserializeAws_json1_1UpdateEndpointCommand(output, context);
+    return de_UpdateEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CacheEngineVersionMessage,
-  CacheEngineVersionMessageFilterSensitiveLog,
-  DescribeCacheEngineVersionsMessage,
-  DescribeCacheEngineVersionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeCacheEngineVersionsCommand,
-  serializeAws_queryDescribeCacheEngineVersionsCommand,
-} from "../protocols/Aws_query";
+import { CacheEngineVersionMessage, DescribeCacheEngineVersionsMessage } from "../models/models_0";
+import { de_DescribeCacheEngineVersionsCommand, se_DescribeCacheEngineVersionsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCacheEngineVersionsCommand}.
  */
 export interface DescribeCacheEngineVersionsCommandInput extends DescribeCacheEngineVersionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCacheEngineVersionsCommand}.
  */
 export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVersionMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the available cache
  *             engines and their versions.</p>
  * @example
@@ -43,10 +40,20 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * import { ElastiCacheClient, DescribeCacheEngineVersionsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheEngineVersionsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeCacheEngineVersionsMessage
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   CacheParameterGroupFamily: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   DefaultOnly: true || false,
+ * };
  * const command = new DescribeCacheEngineVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCacheEngineVersionsCommandInput - {@link DescribeCacheEngineVersionsCommandInput}
+ * @returns {@link DescribeCacheEngineVersionsCommandOutput}
  * @see {@link DescribeCacheEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -169,6 +176,9 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCacheEngineVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -197,8 +207,8 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCacheEngineVersionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CacheEngineVersionMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -208,15 +218,21 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCacheEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeCacheEngineVersionsCommand(input, context);
+    return se_DescribeCacheEngineVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCacheEngineVersionsCommandOutput> {
-    return deserializeAws_queryDescribeCacheEngineVersionsCommand(output, context);
+    return de_DescribeCacheEngineVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

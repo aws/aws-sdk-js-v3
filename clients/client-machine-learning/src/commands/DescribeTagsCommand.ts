@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DescribeTagsInput,
-  DescribeTagsInputFilterSensitiveLog,
-  DescribeTagsOutput,
-  DescribeTagsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTagsCommand,
-  serializeAws_json1_1DescribeTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTagsInput, DescribeTagsOutput } from "../models/models_0";
+import { de_DescribeTagsCommand, se_DescribeTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandInput extends DescribeTagsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTagsCommand}.
  */
 export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of the tags for your Amazon ML object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * import { MachineLearningClient, DescribeTagsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeTagsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // DescribeTagsInput
+ *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
+ * @returns {@link DescribeTagsCommandOutput}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -78,6 +81,9 @@ export class DescribeTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class DescribeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTagsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTagsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class DescribeTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTagsCommand(input, context);
+    return se_DescribeTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
-    return deserializeAws_json1_1DescribeTagsCommand(output, context);
+    return de_DescribeTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  GetNamedQueryInput,
-  GetNamedQueryInputFilterSensitiveLog,
-  GetNamedQueryOutput,
-  GetNamedQueryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNamedQueryCommand,
-  serializeAws_json1_1GetNamedQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { GetNamedQueryInput, GetNamedQueryOutput } from "../models/models_0";
+import { de_GetNamedQueryCommand, se_GetNamedQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetNamedQueryCommand}.
  */
 export interface GetNamedQueryCommandInput extends GetNamedQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link GetNamedQueryCommand}.
  */
 export interface GetNamedQueryCommandOutput extends GetNamedQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a single query. Requires that you have access to the
  *             workgroup in which the query was saved.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetNamedQueryCommandOutput extends GetNamedQueryOutput, __Metad
  * import { AthenaClient, GetNamedQueryCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetNamedQueryCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // GetNamedQueryInput
+ *   NamedQueryId: "STRING_VALUE", // required
+ * };
  * const command = new GetNamedQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetNamedQueryCommandInput - {@link GetNamedQueryCommandInput}
+ * @returns {@link GetNamedQueryCommandOutput}
  * @see {@link GetNamedQueryCommandInput} for command's `input` shape.
  * @see {@link GetNamedQueryCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -78,6 +80,9 @@ export class GetNamedQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetNamedQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class GetNamedQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNamedQueryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNamedQueryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class GetNamedQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetNamedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNamedQueryCommand(input, context);
+    return se_GetNamedQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNamedQueryCommandOutput> {
-    return deserializeAws_json1_1GetNamedQueryCommand(output, context);
+    return de_GetNamedQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

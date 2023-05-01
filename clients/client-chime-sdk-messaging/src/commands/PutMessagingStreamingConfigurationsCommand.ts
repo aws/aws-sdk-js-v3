@@ -20,20 +20,22 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   PutMessagingStreamingConfigurationsRequest,
-  PutMessagingStreamingConfigurationsRequestFilterSensitiveLog,
   PutMessagingStreamingConfigurationsResponse,
-  PutMessagingStreamingConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutMessagingStreamingConfigurationsCommand,
-  serializeAws_restJson1PutMessagingStreamingConfigurationsCommand,
+  de_PutMessagingStreamingConfigurationsCommand,
+  se_PutMessagingStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutMessagingStreamingConfigurationsCommand}.
  */
 export interface PutMessagingStreamingConfigurationsCommandInput extends PutMessagingStreamingConfigurationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutMessagingStreamingConfigurationsCommand}.
  */
 export interface PutMessagingStreamingConfigurationsCommandOutput
@@ -41,6 +43,7 @@ export interface PutMessagingStreamingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see
  *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
  * @example
@@ -49,10 +52,21 @@ export interface PutMessagingStreamingConfigurationsCommandOutput
  * import { ChimeSDKMessagingClient, PutMessagingStreamingConfigurationsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, PutMessagingStreamingConfigurationsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // PutMessagingStreamingConfigurationsRequest
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   StreamingConfigurations: [ // StreamingConfigurationList // required
+ *     { // StreamingConfiguration
+ *       DataType: "Channel" || "ChannelMessage", // required
+ *       ResourceArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutMessagingStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutMessagingStreamingConfigurationsCommandInput - {@link PutMessagingStreamingConfigurationsCommandInput}
+ * @returns {@link PutMessagingStreamingConfigurationsCommandOutput}
  * @see {@link PutMessagingStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link PutMessagingStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
@@ -101,6 +115,9 @@ export class PutMessagingStreamingConfigurationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutMessagingStreamingConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +146,8 @@ export class PutMessagingStreamingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMessagingStreamingConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutMessagingStreamingConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +157,24 @@ export class PutMessagingStreamingConfigurationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutMessagingStreamingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutMessagingStreamingConfigurationsCommand(input, context);
+    return se_PutMessagingStreamingConfigurationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutMessagingStreamingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1PutMessagingStreamingConfigurationsCommand(output, context);
+    return de_PutMessagingStreamingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

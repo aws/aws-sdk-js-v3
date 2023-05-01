@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTokenRequest,
-  CreateTokenRequestFilterSensitiveLog,
-  CreateTokenResponse,
-  CreateTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTokenCommand,
-  serializeAws_restJson1CreateTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateTokenRequest, CreateTokenResponse } from "../models/models_0";
+import { de_CreateTokenCommand, se_CreateTokenCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTokenCommand}.
  */
 export interface CreateTokenCommandInput extends CreateTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTokenCommand}.
  */
 export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates and returns an access token for the authorized client. The access token issued
  *       will be used to fetch short-term credentials for the assigned roles in the AWS
  *       account.</p>
@@ -44,10 +41,24 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * import { SSOOIDCClient, CreateTokenCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
  * // const { SSOOIDCClient, CreateTokenCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import
  * const client = new SSOOIDCClient(config);
+ * const input = { // CreateTokenRequest
+ *   clientId: "STRING_VALUE", // required
+ *   clientSecret: "STRING_VALUE", // required
+ *   grantType: "STRING_VALUE", // required
+ *   deviceCode: "STRING_VALUE",
+ *   code: "STRING_VALUE",
+ *   refreshToken: "STRING_VALUE",
+ *   scope: [ // Scopes
+ *     "STRING_VALUE",
+ *   ],
+ *   redirectUri: "STRING_VALUE",
+ * };
  * const command = new CreateTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTokenCommandInput - {@link CreateTokenCommandInput}
+ * @returns {@link CreateTokenCommandOutput}
  * @see {@link CreateTokenCommandInput} for command's `input` shape.
  * @see {@link CreateTokenCommandOutput} for command's `response` shape.
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
@@ -112,6 +123,9 @@ export class CreateTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +152,8 @@ export class CreateTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +163,18 @@ export class CreateTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTokenCommand(input, context);
+    return se_CreateTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTokenCommandOutput> {
-    return deserializeAws_restJson1CreateTokenCommand(output, context);
+    return de_CreateTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

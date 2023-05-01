@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  DeleteSceneRequest,
-  DeleteSceneRequestFilterSensitiveLog,
-  DeleteSceneResponse,
-  DeleteSceneResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSceneCommand,
-  serializeAws_restJson1DeleteSceneCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSceneRequest, DeleteSceneResponse } from "../models/models_0";
+import { de_DeleteSceneCommand, se_DeleteSceneCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSceneCommand}.
  */
 export interface DeleteSceneCommandInput extends DeleteSceneRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSceneCommand}.
  */
 export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a scene.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __Metadat
  * import { IoTTwinMakerClient, DeleteSceneCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, DeleteSceneCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // DeleteSceneRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   sceneId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSceneCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSceneCommandInput - {@link DeleteSceneCommandInput}
+ * @returns {@link DeleteSceneCommandOutput}
  * @see {@link DeleteSceneCommandInput} for command's `input` shape.
  * @see {@link DeleteSceneCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -84,6 +87,9 @@ export class DeleteSceneCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSceneCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class DeleteSceneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSceneRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSceneResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class DeleteSceneCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSceneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSceneCommand(input, context);
+    return se_DeleteSceneCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSceneCommandOutput> {
-    return deserializeAws_restJson1DeleteSceneCommand(output, context);
+    return de_DeleteSceneCommand(output, context);
   }
 
   // Start section: command_body_extra

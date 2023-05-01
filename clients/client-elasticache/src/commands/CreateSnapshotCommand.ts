@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CreateSnapshotMessage,
-  CreateSnapshotMessageFilterSensitiveLog,
-  CreateSnapshotResult,
-  CreateSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateSnapshotCommand,
-  serializeAws_queryCreateSnapshotCommand,
-} from "../protocols/Aws_query";
+import { CreateSnapshotMessage, CreateSnapshotResult } from "../models/models_0";
+import { de_CreateSnapshotCommand, se_CreateSnapshotCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSnapshotCommand}.
  */
 export interface CreateSnapshotCommandInput extends CreateSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link CreateSnapshotCommand}.
  */
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a copy of an entire cluster or replication group at a
  *             specific moment in time.</p>
  *          <note>
@@ -46,10 +43,24 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * import { ElastiCacheClient, CreateSnapshotCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateSnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // CreateSnapshotMessage
+ *   ReplicationGroupId: "STRING_VALUE",
+ *   CacheClusterId: "STRING_VALUE",
+ *   SnapshotName: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
+ * @returns {@link CreateSnapshotCommandOutput}
  * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -202,6 +213,9 @@ export class CreateSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -230,8 +244,8 @@ export class CreateSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -241,12 +255,18 @@ export class CreateSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateSnapshotCommand(input, context);
+    return se_CreateSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSnapshotCommandOutput> {
-    return deserializeAws_queryCreateSnapshotCommand(output, context);
+    return de_CreateSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

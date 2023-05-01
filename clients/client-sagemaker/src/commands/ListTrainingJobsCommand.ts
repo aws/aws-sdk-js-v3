@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTrainingJobsRequest,
-  ListTrainingJobsRequestFilterSensitiveLog,
-  ListTrainingJobsResponse,
-  ListTrainingJobsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListTrainingJobsCommand,
-  serializeAws_json1_1ListTrainingJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTrainingJobsRequest, ListTrainingJobsResponse } from "../models/models_3";
+import { de_ListTrainingJobsCommand, se_ListTrainingJobsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTrainingJobsCommand}.
  */
 export interface ListTrainingJobsCommandInput extends ListTrainingJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTrainingJobsCommand}.
  */
 export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists training jobs.</p>
  *          <note>
  *             <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same
@@ -44,7 +41,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  *             <p>For example, if <code>ListTrainingJobs</code> is invoked with the following
  *                 parameters:</p>
  *             <p>
- *                <code>{ ... MaxResults: 100, StatusEquals: InProgress ... }</code>
+ *                <code>\{ ... MaxResults: 100, StatusEquals: InProgress ... \}</code>
  *             </p>
  *             <p>First, 100 trainings jobs with any status, including those other than
  *                     <code>InProgress</code>, are selected (sorted according to the creation time,
@@ -63,10 +60,25 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * import { SageMakerClient, ListTrainingJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrainingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListTrainingJobsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   NameContains: "STRING_VALUE",
+ *   StatusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   WarmPoolStatusEquals: "Available" || "Terminated" || "Reused" || "InUse",
+ * };
  * const command = new ListTrainingJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTrainingJobsCommandInput - {@link ListTrainingJobsCommandInput}
+ * @returns {@link ListTrainingJobsCommandOutput}
  * @see {@link ListTrainingJobsCommandInput} for command's `input` shape.
  * @see {@link ListTrainingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -90,6 +102,9 @@ export class ListTrainingJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrainingJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +133,8 @@ export class ListTrainingJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrainingJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrainingJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +144,18 @@ export class ListTrainingJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrainingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTrainingJobsCommand(input, context);
+    return se_ListTrainingJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrainingJobsCommandOutput> {
-    return deserializeAws_json1_1ListTrainingJobsCommand(output, context);
+    return de_ListTrainingJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

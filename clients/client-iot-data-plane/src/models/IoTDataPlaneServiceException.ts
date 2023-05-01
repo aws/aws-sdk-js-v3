@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from IoTDataPlane service.
  */
 export class IoTDataPlaneServiceException extends __ServiceException {

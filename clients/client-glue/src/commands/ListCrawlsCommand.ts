@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListCrawlsRequest,
-  ListCrawlsRequestFilterSensitiveLog,
-  ListCrawlsResponse,
-  ListCrawlsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListCrawlsCommand,
-  serializeAws_json1_1ListCrawlsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCrawlsRequest, ListCrawlsResponse } from "../models/models_2";
+import { de_ListCrawlsCommand, se_ListCrawlsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCrawlsCommand}.
  */
 export interface ListCrawlsCommandInput extends ListCrawlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCrawlsCommand}.
  */
 export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.</p>
  *          <p>You may use this API to:</p>
  *          <ul>
@@ -57,10 +54,24 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
  * import { GlueClient, ListCrawlsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListCrawlsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListCrawlsRequest
+ *   CrawlerName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   Filters: [ // CrawlsFilterList
+ *     { // CrawlsFilter
+ *       FieldName: "CRAWL_ID" || "STATE" || "START_TIME" || "END_TIME" || "DPU_HOUR",
+ *       FilterOperator: "GT" || "GE" || "LT" || "LE" || "EQ" || "NE",
+ *       FieldValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCrawlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCrawlsCommandInput - {@link ListCrawlsCommandInput}
+ * @returns {@link ListCrawlsCommandOutput}
  * @see {@link ListCrawlsCommandInput} for command's `input` shape.
  * @see {@link ListCrawlsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -93,6 +104,9 @@ export class ListCrawlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCrawlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +133,8 @@ export class ListCrawlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCrawlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCrawlsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +144,18 @@ export class ListCrawlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCrawlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCrawlsCommand(input, context);
+    return se_ListCrawlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCrawlsCommandOutput> {
-    return deserializeAws_json1_1ListCrawlsCommand(output, context);
+    return de_ListCrawlsCommand(output, context);
   }
 
   // Start section: command_body_extra

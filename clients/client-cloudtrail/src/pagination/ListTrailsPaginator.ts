@@ -6,7 +6,7 @@ import { ListTrailsCommand, ListTrailsCommandInput, ListTrailsCommandOutput } fr
 import { CloudTrailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudTrailClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTrailsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTrails(
   config: CloudTrailPaginationConfiguration,
   input: ListTrailsCommandInput,

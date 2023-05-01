@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  GetPlaceRequest,
-  GetPlaceRequestFilterSensitiveLog,
-  GetPlaceResponse,
-  GetPlaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPlaceCommand,
-  serializeAws_restJson1GetPlaceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPlaceRequest, GetPlaceResponse, GetPlaceResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetPlaceCommand, se_GetPlaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPlaceCommand}.
  */
 export interface GetPlaceCommandInput extends GetPlaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPlaceCommand}.
  */
 export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search
  *             operations.</p>
  *          <note>
@@ -58,10 +55,17 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * import { LocationClient, GetPlaceCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetPlaceCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // GetPlaceRequest
+ *   IndexName: "STRING_VALUE", // required
+ *   PlaceId: "STRING_VALUE", // required
+ *   Language: "STRING_VALUE",
+ * };
  * const command = new GetPlaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPlaceCommandInput - {@link GetPlaceCommandInput}
+ * @returns {@link GetPlaceCommandOutput}
  * @see {@link GetPlaceCommandInput} for command's `input` shape.
  * @see {@link GetPlaceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -101,6 +105,9 @@ export class GetPlaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPlaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,7 +134,7 @@ export class GetPlaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPlaceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPlaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -138,12 +145,18 @@ export class GetPlaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPlaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPlaceCommand(input, context);
+    return se_GetPlaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlaceCommandOutput> {
-    return deserializeAws_restJson1GetPlaceCommand(output, context);
+    return de_GetPlaceCommand(output, context);
   }
 
   // Start section: command_body_extra

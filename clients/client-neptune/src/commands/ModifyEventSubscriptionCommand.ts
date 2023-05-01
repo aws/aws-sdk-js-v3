@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyEventSubscriptionMessage,
-  ModifyEventSubscriptionMessageFilterSensitiveLog,
-  ModifyEventSubscriptionResult,
-  ModifyEventSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryModifyEventSubscriptionCommand,
-  serializeAws_queryModifyEventSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyEventSubscriptionCommand, se_ModifyEventSubscriptionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyEventSubscriptionCommand}.
  */
 export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscriptionMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyEventSubscriptionCommand}.
  */
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing event notification subscription. Note that you can't modify the
  *       source identifiers using this call; to change source identifiers for a subscription, use the
  *       <a>AddSourceIdentifierToSubscription</a> and <a>RemoveSourceIdentifierFromSubscription</a> calls.</p>
@@ -46,10 +43,21 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * import { NeptuneClient, ModifyEventSubscriptionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyEventSubscriptionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // ModifyEventSubscriptionMessage
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SnsTopicArn: "STRING_VALUE",
+ *   SourceType: "STRING_VALUE",
+ *   EventCategories: [ // EventCategoriesList
+ *     "STRING_VALUE",
+ *   ],
+ *   Enabled: true || false,
+ * };
  * const command = new ModifyEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyEventSubscriptionCommandInput - {@link ModifyEventSubscriptionCommandInput}
+ * @returns {@link ModifyEventSubscriptionCommandOutput}
  * @see {@link ModifyEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -91,6 +99,9 @@ export class ModifyEventSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyEventSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +130,8 @@ export class ModifyEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyEventSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyEventSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +141,18 @@ export class ModifyEventSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyEventSubscriptionCommand(input, context);
+    return se_ModifyEventSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEventSubscriptionCommandOutput> {
-    return deserializeAws_queryModifyEventSubscriptionCommand(output, context);
+    return de_ModifyEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

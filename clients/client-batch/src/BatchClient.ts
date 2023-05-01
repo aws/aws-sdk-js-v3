@@ -120,6 +120,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CancelJobCommandInput
   | CreateComputeEnvironmentCommandInput
@@ -146,6 +149,9 @@ export type ServiceInputTypes =
   | UpdateJobQueueCommandInput
   | UpdateSchedulingPolicyCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CancelJobCommandOutput
   | CreateComputeEnvironmentCommandOutput
@@ -172,6 +178,9 @@ export type ServiceOutputTypes =
   | UpdateJobQueueCommandOutput
   | UpdateSchedulingPolicyCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -179,7 +188,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -288,11 +297,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type BatchClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -303,10 +315,15 @@ type BatchClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of BatchClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of BatchClient class constructor that set the region, credentials and other options.
  */
 export interface BatchClientConfig extends BatchClientConfigType {}
 
+/**
+ * @public
+ */
 type BatchClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -317,11 +334,14 @@ type BatchClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandler
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of BatchClient class. This is resolved and normalized from the {@link BatchClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of BatchClient class. This is resolved and normalized from the {@link BatchClientConfig | constructor configuration interface}.
  */
 export interface BatchClientResolvedConfig extends BatchClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Batch</fullname>
  *          <p>Using Batch, you can run batch computing workloads on the Amazon Web Services Cloud. Batch computing is a common means for
  *    developers, scientists, and engineers to access large amounts of compute resources. Batch uses the advantages of

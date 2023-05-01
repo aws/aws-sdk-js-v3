@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  MergeBranchesBySquashInput,
-  MergeBranchesBySquashInputFilterSensitiveLog,
-  MergeBranchesBySquashOutput,
-  MergeBranchesBySquashOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1MergeBranchesBySquashCommand,
-  serializeAws_json1_1MergeBranchesBySquashCommand,
-} from "../protocols/Aws_json1_1";
+import { MergeBranchesBySquashInput, MergeBranchesBySquashOutput } from "../models/models_1";
+import { de_MergeBranchesBySquashCommand, se_MergeBranchesBySquashCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergeBranchesBySquashCommand}.
  */
 export interface MergeBranchesBySquashCommandInput extends MergeBranchesBySquashInput {}
 /**
+ * @public
+ *
  * The output of {@link MergeBranchesBySquashCommand}.
  */
 export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquashOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Merges two branches using the squash merge strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,45 @@ export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquas
  * import { CodeCommitClient, MergeBranchesBySquashCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergeBranchesBySquashCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // MergeBranchesBySquashInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   sourceCommitSpecifier: "STRING_VALUE", // required
+ *   destinationCommitSpecifier: "STRING_VALUE", // required
+ *   targetBranch: "STRING_VALUE",
+ *   conflictDetailLevel: "STRING_VALUE",
+ *   conflictResolutionStrategy: "STRING_VALUE",
+ *   authorName: "STRING_VALUE",
+ *   email: "STRING_VALUE",
+ *   commitMessage: "STRING_VALUE",
+ *   keepEmptyFolders: true || false,
+ *   conflictResolution: { // ConflictResolution
+ *     replaceContents: [ // ReplaceContentEntries
+ *       { // ReplaceContentEntry
+ *         filePath: "STRING_VALUE", // required
+ *         replacementType: "STRING_VALUE", // required
+ *         content: "BLOB_VALUE",
+ *         fileMode: "STRING_VALUE",
+ *       },
+ *     ],
+ *     deleteFiles: [ // DeleteFileEntries
+ *       { // DeleteFileEntry
+ *         filePath: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     setFileModes: [ // SetFileModeEntries
+ *       { // SetFileModeEntry
+ *         filePath: "STRING_VALUE", // required
+ *         fileMode: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new MergeBranchesBySquashCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MergeBranchesBySquashCommandInput - {@link MergeBranchesBySquashCommandInput}
+ * @returns {@link MergeBranchesBySquashCommandOutput}
  * @see {@link MergeBranchesBySquashCommandInput} for command's `input` shape.
  * @see {@link MergeBranchesBySquashCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -200,6 +232,9 @@ export class MergeBranchesBySquashCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergeBranchesBySquashCommandInput) {
     // Start section: command_constructor
     super();
@@ -228,8 +263,8 @@ export class MergeBranchesBySquashCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergeBranchesBySquashInputFilterSensitiveLog,
-      outputFilterSensitiveLog: MergeBranchesBySquashOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -239,12 +274,18 @@ export class MergeBranchesBySquashCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergeBranchesBySquashCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergeBranchesBySquashCommand(input, context);
+    return se_MergeBranchesBySquashCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergeBranchesBySquashCommandOutput> {
-    return deserializeAws_json1_1MergeBranchesBySquashCommand(output, context);
+    return de_MergeBranchesBySquashCommand(output, context);
   }
 
   // Start section: command_body_extra

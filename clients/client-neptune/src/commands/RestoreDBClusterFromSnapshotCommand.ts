@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreDBClusterFromSnapshotMessage,
-  RestoreDBClusterFromSnapshotMessageFilterSensitiveLog,
-  RestoreDBClusterFromSnapshotResult,
-  RestoreDBClusterFromSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryRestoreDBClusterFromSnapshotCommand,
-  serializeAws_queryRestoreDBClusterFromSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_RestoreDBClusterFromSnapshotCommand, se_RestoreDBClusterFromSnapshotCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreDBClusterFromSnapshotCommand}.
  */
 export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClusterFromSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreDBClusterFromSnapshotCommand}.
  */
 export interface RestoreDBClusterFromSnapshotCommandOutput
@@ -37,6 +33,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
  *          <p>If a DB snapshot is specified, the target DB cluster is created from the source DB
  *       snapshot with a default configuration and default security group.</p>
@@ -49,10 +46,46 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * import { NeptuneClient, RestoreDBClusterFromSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RestoreDBClusterFromSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // RestoreDBClusterFromSnapshotMessage
+ *   AvailabilityZones: [ // AvailabilityZones
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   SnapshotIdentifier: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnableCloudwatchLogsExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   CopyTagsToSnapshot: true || false,
+ *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
+ * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreDBClusterFromSnapshotCommandInput - {@link RestoreDBClusterFromSnapshotCommandInput}
+ * @returns {@link RestoreDBClusterFromSnapshotCommandOutput}
  * @see {@link RestoreDBClusterFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -135,6 +168,9 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreDBClusterFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -163,8 +199,8 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBClusterFromSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBClusterFromSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -174,15 +210,21 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreDBClusterFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBClusterFromSnapshotCommand(input, context);
+    return se_RestoreDBClusterFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBClusterFromSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreDBClusterFromSnapshotCommand(output, context);
+    return de_RestoreDBClusterFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

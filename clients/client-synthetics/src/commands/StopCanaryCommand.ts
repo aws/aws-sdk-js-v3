@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopCanaryRequest,
-  StopCanaryRequestFilterSensitiveLog,
-  StopCanaryResponse,
-  StopCanaryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopCanaryCommand,
-  serializeAws_restJson1StopCanaryCommand,
-} from "../protocols/Aws_restJson1";
+import { StopCanaryRequest, StopCanaryResponse } from "../models/models_0";
+import { de_StopCanaryCommand, se_StopCanaryCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link StopCanaryCommand}.
  */
 export interface StopCanaryCommandInput extends StopCanaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopCanaryCommand}.
  */
 export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the canary to prevent all future runs. If the canary is currently running,the
  *         run that is in progress completes on its own, publishes metrics, and uploads artifacts, but
  *          it is not recorded in Synthetics as a completed run.</p>
@@ -46,10 +43,15 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  * import { SyntheticsClient, StopCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, StopCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // StopCanaryRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StopCanaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopCanaryCommandInput - {@link StopCanaryCommandInput}
+ * @returns {@link StopCanaryCommandOutput}
  * @see {@link StopCanaryCommandInput} for command's `input` shape.
  * @see {@link StopCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -85,6 +87,9 @@ export class StopCanaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopCanaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class StopCanaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopCanaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopCanaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class StopCanaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCanaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopCanaryCommand(input, context);
+    return se_StopCanaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCanaryCommandOutput> {
-    return deserializeAws_restJson1StopCanaryCommand(output, context);
+    return de_StopCanaryCommand(output, context);
   }
 
   // Start section: command_body_extra

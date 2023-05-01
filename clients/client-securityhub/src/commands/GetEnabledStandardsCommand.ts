@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEnabledStandardsRequest,
-  GetEnabledStandardsRequestFilterSensitiveLog,
-  GetEnabledStandardsResponse,
-  GetEnabledStandardsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1GetEnabledStandardsCommand,
-  serializeAws_restJson1GetEnabledStandardsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetEnabledStandardsRequest, GetEnabledStandardsResponse } from "../models/models_2";
+import { de_GetEnabledStandardsCommand, se_GetEnabledStandardsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetEnabledStandardsCommand}.
  */
 export interface GetEnabledStandardsCommandInput extends GetEnabledStandardsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEnabledStandardsCommand}.
  */
 export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the standards that are currently enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  * import { SecurityHubClient, GetEnabledStandardsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetEnabledStandardsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // GetEnabledStandardsRequest
+ *   StandardsSubscriptionArns: [ // StandardsSubscriptionArns
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetEnabledStandardsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEnabledStandardsCommandInput - {@link GetEnabledStandardsCommandInput}
+ * @returns {@link GetEnabledStandardsCommandOutput}
  * @see {@link GetEnabledStandardsCommandInput} for command's `input` shape.
  * @see {@link GetEnabledStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -65,6 +71,31 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To return a list of enabled standards
+ * ```javascript
+ * // The following example returns a list of Security Hub standards that are currently enabled in your account.
+ * const input = {
+ *   "StandardsSubscriptionArns": [
+ *     "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+ *   ]
+ * };
+ * const command = new GetEnabledStandardsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "StandardsSubscriptions": [
+ *     {
+ *       "StandardsArn": "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1",
+ *       "StandardsInput": {},
+ *       "StandardsStatus": "READY",
+ *       "StandardsSubscriptionArn": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-return-a-list-of-enabled-standards-1677090731129
+ * ```
+ *
  */
 export class GetEnabledStandardsCommand extends $Command<
   GetEnabledStandardsCommandInput,
@@ -83,6 +114,9 @@ export class GetEnabledStandardsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEnabledStandardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +145,8 @@ export class GetEnabledStandardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnabledStandardsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEnabledStandardsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +156,18 @@ export class GetEnabledStandardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEnabledStandardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEnabledStandardsCommand(input, context);
+    return se_GetEnabledStandardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEnabledStandardsCommandOutput> {
-    return deserializeAws_restJson1GetEnabledStandardsCommand(output, context);
+    return de_GetEnabledStandardsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -7,6 +7,7 @@ import {
 import { PricingServiceException as __BaseException } from "./PricingServiceException";
 
 /**
+ * @public
  * <p>General authentication failure. The request wasn't signed correctly.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The values of a given attribute, such as <code>Throughput Optimized HDD</code> or <code>Provisioned
  *           IOPS</code> for the <code>Amazon EC2</code>
  *             <code>volumeType</code> attribute.</p>
@@ -39,6 +41,9 @@ export interface AttributeValue {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeServicesRequest {
   /**
    * <p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>.
@@ -67,6 +72,7 @@ export interface DescribeServicesRequest {
 }
 
 /**
+ * @public
  * <p>The metadata for a service, such as the service code and available attribute names.</p>
  */
 export interface Service {
@@ -81,6 +87,9 @@ export interface Service {
   AttributeNames?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeServicesResponse {
   /**
    * <p>The service metadata for the service or services in the response.</p>
@@ -99,6 +108,7 @@ export interface DescribeServicesResponse {
 }
 
 /**
+ * @public
  * <p>The pagination token expired. Try again without a pagination token.</p>
  */
 export class ExpiredNextTokenException extends __BaseException {
@@ -120,6 +130,7 @@ export class ExpiredNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
 export class InternalErrorException extends __BaseException {
@@ -141,6 +152,7 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The pagination token is invalid. Try again without a pagination token.</p>
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -162,6 +174,7 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One or more parameters had an invalid value.</p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -183,6 +196,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The requested resource can't be found.</p>
  */
 export class NotFoundException extends __BaseException {
@@ -203,6 +217,9 @@ export class NotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetAttributeValuesRequest {
   /**
    * <p>The service code for the service whose attributes you want to retrieve. For example, if you want
@@ -226,6 +243,9 @@ export interface GetAttributeValuesRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetAttributeValuesResponse {
   /**
    * <p>The list of values for an attribute. For example, <code>Throughput Optimized HDD</code> and
@@ -240,6 +260,9 @@ export interface GetAttributeValuesResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetPriceListFileUrlRequest {
   /**
    * <p>The unique identifier that maps to where your Price List files are located.
@@ -258,6 +281,9 @@ export interface GetPriceListFileUrlRequest {
   FileFormat: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetPriceListFileUrlResponse {
   /**
    * <p>The URL to download your Price List file from. </p>
@@ -265,11 +291,21 @@ export interface GetPriceListFileUrlResponse {
   Url?: string;
 }
 
-export enum FilterType {
-  TERM_MATCH = "TERM_MATCH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FilterType = {
+  TERM_MATCH: "TERM_MATCH",
+} as const;
 
 /**
+ * @public
+ */
+export type FilterType = (typeof FilterType)[keyof typeof FilterType];
+
+/**
+ * @public
  * <p>The constraints that you want all returned products to match.</p>
  */
 export interface Filter {
@@ -300,6 +336,9 @@ export interface Filter {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProductsRequest {
   /**
    * <p>The code for the service whose products you want to retrieve. </p>
@@ -330,6 +369,9 @@ export interface GetProductsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetProductsResponse {
   /**
    * <p>The format version of the response. For example, aws_v1.</p>
@@ -348,6 +390,9 @@ export interface GetProductsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPriceListsRequest {
   /**
    * <p>The service code or the Savings Plan service code for the attributes that
@@ -395,6 +440,7 @@ export interface ListPriceListsRequest {
 }
 
 /**
+ * @public
  * <p>
  *             <i>
  *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
@@ -436,6 +482,9 @@ export interface PriceList {
   FileFormats?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListPriceListsResponse {
   /**
    * <p>The type of price list references that match your request. </p>
@@ -447,101 +496,3 @@ export interface ListPriceListsResponse {
    */
   NextToken?: string;
 }
-
-/**
- * @internal
- */
-export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServicesRequestFilterSensitiveLog = (obj: DescribeServicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceFilterSensitiveLog = (obj: Service): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeServicesResponseFilterSensitiveLog = (obj: DescribeServicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAttributeValuesRequestFilterSensitiveLog = (obj: GetAttributeValuesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAttributeValuesResponseFilterSensitiveLog = (obj: GetAttributeValuesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPriceListFileUrlRequestFilterSensitiveLog = (obj: GetPriceListFileUrlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPriceListFileUrlResponseFilterSensitiveLog = (obj: GetPriceListFileUrlResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProductsRequestFilterSensitiveLog = (obj: GetProductsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProductsResponseFilterSensitiveLog = (obj: GetProductsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPriceListsRequestFilterSensitiveLog = (obj: ListPriceListsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PriceListFilterSensitiveLog = (obj: PriceList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPriceListsResponseFilterSensitiveLog = (obj: ListPriceListsResponse): any => ({
-  ...obj,
-});

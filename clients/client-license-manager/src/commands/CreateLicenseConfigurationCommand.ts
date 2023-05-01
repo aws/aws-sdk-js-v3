@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  CreateLicenseConfigurationRequest,
-  CreateLicenseConfigurationRequestFilterSensitiveLog,
-  CreateLicenseConfigurationResponse,
-  CreateLicenseConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLicenseConfigurationCommand,
-  serializeAws_json1_1CreateLicenseConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateLicenseConfigurationRequest, CreateLicenseConfigurationResponse } from "../models/models_0";
+import { de_CreateLicenseConfigurationCommand, se_CreateLicenseConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLicenseConfigurationCommand}.
  */
 export interface CreateLicenseConfigurationCommandInput extends CreateLicenseConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLicenseConfigurationCommand}.
  */
 export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a license configuration.</p>
  *          <p>A license configuration is an abstraction of a customer license agreement that can be
  *          consumed and enforced by License Manager. Components include specifications for the license
@@ -47,10 +44,43 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * import { LicenseManagerClient, CreateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // CreateLicenseConfigurationRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   LicenseCountingType: "vCPU" || "Instance" || "Core" || "Socket", // required
+ *   LicenseCount: Number("long"),
+ *   LicenseCountHardLimit: true || false,
+ *   LicenseRules: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DisassociateWhenNotFound: true || false,
+ *   ProductInformationList: [ // ProductInformationList
+ *     { // ProductInformation
+ *       ResourceType: "STRING_VALUE", // required
+ *       ProductInformationFilterList: [ // ProductInformationFilterList // required
+ *         { // ProductInformationFilter
+ *           ProductInformationFilterName: "STRING_VALUE", // required
+ *           ProductInformationFilterValue: [
+ *             "STRING_VALUE",
+ *           ],
+ *           ProductInformationFilterComparator: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateLicenseConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLicenseConfigurationCommandInput - {@link CreateLicenseConfigurationCommandInput}
+ * @returns {@link CreateLicenseConfigurationCommandOutput}
  * @see {@link CreateLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -93,6 +123,9 @@ export class CreateLicenseConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLicenseConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +154,8 @@ export class CreateLicenseConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLicenseConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLicenseConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +165,21 @@ export class CreateLicenseConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLicenseConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLicenseConfigurationCommand(input, context);
+    return se_CreateLicenseConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateLicenseConfigurationCommand(output, context);
+    return de_CreateLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

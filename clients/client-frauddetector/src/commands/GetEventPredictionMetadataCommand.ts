@@ -16,25 +16,26 @@ import {
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import {
   GetEventPredictionMetadataRequest,
-  GetEventPredictionMetadataRequestFilterSensitiveLog,
   GetEventPredictionMetadataResult,
   GetEventPredictionMetadataResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetEventPredictionMetadataCommand,
-  serializeAws_json1_1GetEventPredictionMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetEventPredictionMetadataCommand, se_GetEventPredictionMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventPredictionMetadataCommand}.
  */
 export interface GetEventPredictionMetadataCommandInput extends GetEventPredictionMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventPredictionMetadataCommand}.
  */
 export interface GetEventPredictionMetadataCommandOutput extends GetEventPredictionMetadataResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Gets details of the past fraud predictions for the specified event ID, event type, detector ID, and detector version ID that was generated in the specified time period.
  * </p>
@@ -44,10 +45,19 @@ export interface GetEventPredictionMetadataCommandOutput extends GetEventPredict
  * import { FraudDetectorClient, GetEventPredictionMetadataCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetEventPredictionMetadataCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // GetEventPredictionMetadataRequest
+ *   eventId: "STRING_VALUE", // required
+ *   eventTypeName: "STRING_VALUE", // required
+ *   detectorId: "STRING_VALUE", // required
+ *   detectorVersionId: "STRING_VALUE", // required
+ *   predictionTimestamp: "STRING_VALUE", // required
+ * };
  * const command = new GetEventPredictionMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventPredictionMetadataCommandInput - {@link GetEventPredictionMetadataCommandInput}
+ * @returns {@link GetEventPredictionMetadataCommandOutput}
  * @see {@link GetEventPredictionMetadataCommandInput} for command's `input` shape.
  * @see {@link GetEventPredictionMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -86,6 +96,9 @@ export class GetEventPredictionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventPredictionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,7 +127,7 @@ export class GetEventPredictionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventPredictionMetadataRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEventPredictionMetadataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -125,15 +138,21 @@ export class GetEventPredictionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventPredictionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEventPredictionMetadataCommand(input, context);
+    return se_GetEventPredictionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEventPredictionMetadataCommandOutput> {
-    return deserializeAws_json1_1GetEventPredictionMetadataCommand(output, context);
+    return de_GetEventPredictionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

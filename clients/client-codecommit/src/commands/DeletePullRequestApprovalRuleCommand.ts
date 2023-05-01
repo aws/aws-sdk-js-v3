@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { DeletePullRequestApprovalRuleInput, DeletePullRequestApprovalRuleOutput } from "../models/models_0";
 import {
-  DeletePullRequestApprovalRuleInput,
-  DeletePullRequestApprovalRuleInputFilterSensitiveLog,
-  DeletePullRequestApprovalRuleOutput,
-  DeletePullRequestApprovalRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePullRequestApprovalRuleCommand,
-  serializeAws_json1_1DeletePullRequestApprovalRuleCommand,
+  de_DeletePullRequestApprovalRuleCommand,
+  se_DeletePullRequestApprovalRuleCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePullRequestApprovalRuleCommand}.
  */
 export interface DeletePullRequestApprovalRuleCommandInput extends DeletePullRequestApprovalRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link DeletePullRequestApprovalRuleCommand}.
  */
 export interface DeletePullRequestApprovalRuleCommandOutput
@@ -37,6 +36,7 @@ export interface DeletePullRequestApprovalRuleCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an approval rule from a specified pull request. Approval rules can be deleted from a pull request only if the pull request is open, and if the
  *             approval rule was created specifically for a pull request and not generated from an approval rule template associated with the repository where the
  *             pull request was created. You cannot delete an approval rule from a merged or closed pull request.</p>
@@ -46,10 +46,16 @@ export interface DeletePullRequestApprovalRuleCommandOutput
  * import { CodeCommitClient, DeletePullRequestApprovalRuleCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeletePullRequestApprovalRuleCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // DeletePullRequestApprovalRuleInput
+ *   pullRequestId: "STRING_VALUE", // required
+ *   approvalRuleName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePullRequestApprovalRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePullRequestApprovalRuleCommandInput - {@link DeletePullRequestApprovalRuleCommandInput}
+ * @returns {@link DeletePullRequestApprovalRuleCommandOutput}
  * @see {@link DeletePullRequestApprovalRuleCommandInput} for command's `input` shape.
  * @see {@link DeletePullRequestApprovalRuleCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -110,6 +116,9 @@ export class DeletePullRequestApprovalRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePullRequestApprovalRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +147,8 @@ export class DeletePullRequestApprovalRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePullRequestApprovalRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePullRequestApprovalRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,15 +158,21 @@ export class DeletePullRequestApprovalRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePullRequestApprovalRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePullRequestApprovalRuleCommand(input, context);
+    return se_DeletePullRequestApprovalRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePullRequestApprovalRuleCommandOutput> {
-    return deserializeAws_json1_1DeletePullRequestApprovalRuleCommand(output, context);
+    return de_DeletePullRequestApprovalRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

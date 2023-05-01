@@ -6,7 +6,7 @@ import { VoiceIDClient } from "../VoiceIDClient";
 import { VoiceIDPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: VoiceIDClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListDomainsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListDomains(
   config: VoiceIDPaginationConfiguration,
   input: ListDomainsCommandInput,

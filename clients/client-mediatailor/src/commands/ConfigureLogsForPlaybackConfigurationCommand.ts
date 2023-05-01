@@ -16,21 +16,23 @@ import {
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import {
   ConfigureLogsForPlaybackConfigurationRequest,
-  ConfigureLogsForPlaybackConfigurationRequestFilterSensitiveLog,
   ConfigureLogsForPlaybackConfigurationResponse,
-  ConfigureLogsForPlaybackConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand,
-  serializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand,
+  de_ConfigureLogsForPlaybackConfigurationCommand,
+  se_ConfigureLogsForPlaybackConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfigureLogsForPlaybackConfigurationCommand}.
  */
 export interface ConfigureLogsForPlaybackConfigurationCommandInput
   extends ConfigureLogsForPlaybackConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfigureLogsForPlaybackConfigurationCommand}.
  */
 export interface ConfigureLogsForPlaybackConfigurationCommandOutput
@@ -38,6 +40,7 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Amazon CloudWatch log settings for a playback configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,16 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
  * import { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ConfigureLogsForPlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // ConfigureLogsForPlaybackConfigurationRequest
+ *   PercentEnabled: Number("int"), // required
+ *   PlaybackConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new ConfigureLogsForPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfigureLogsForPlaybackConfigurationCommandInput - {@link ConfigureLogsForPlaybackConfigurationCommandInput}
+ * @returns {@link ConfigureLogsForPlaybackConfigurationCommandOutput}
  * @see {@link ConfigureLogsForPlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link ConfigureLogsForPlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -72,6 +81,9 @@ export class ConfigureLogsForPlaybackConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfigureLogsForPlaybackConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +112,8 @@ export class ConfigureLogsForPlaybackConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfigureLogsForPlaybackConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigureLogsForPlaybackConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +123,24 @@ export class ConfigureLogsForPlaybackConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ConfigureLogsForPlaybackConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand(input, context);
+    return se_ConfigureLogsForPlaybackConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfigureLogsForPlaybackConfigurationCommandOutput> {
-    return deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand(output, context);
+    return de_ConfigureLogsForPlaybackConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

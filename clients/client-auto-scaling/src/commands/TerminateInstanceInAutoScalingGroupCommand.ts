@@ -14,27 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { ActivityType, TerminateInstanceInAutoScalingGroupType } from "../models/models_0";
 import {
-  ActivityType,
-  ActivityTypeFilterSensitiveLog,
-  TerminateInstanceInAutoScalingGroupType,
-  TerminateInstanceInAutoScalingGroupTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand,
-  serializeAws_queryTerminateInstanceInAutoScalingGroupCommand,
+  de_TerminateInstanceInAutoScalingGroupCommand,
+  se_TerminateInstanceInAutoScalingGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TerminateInstanceInAutoScalingGroupCommand}.
  */
 export interface TerminateInstanceInAutoScalingGroupCommandInput extends TerminateInstanceInAutoScalingGroupType {}
 /**
+ * @public
+ *
  * The output of {@link TerminateInstanceInAutoScalingGroupCommand}.
  */
 export interface TerminateInstanceInAutoScalingGroupCommandOutput extends ActivityType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Terminates the specified instance and optionally adjusts the desired group size. This
  *             operation cannot be called on instances in a warm pool.</p>
  *          <p>This call simply makes a termination request. The instance is not terminated
@@ -53,10 +53,16 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * import { AutoScalingClient, TerminateInstanceInAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, TerminateInstanceInAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // TerminateInstanceInAutoScalingGroupType
+ *   InstanceId: "STRING_VALUE", // required
+ *   ShouldDecrementDesiredCapacity: true || false, // required
+ * };
  * const command = new TerminateInstanceInAutoScalingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TerminateInstanceInAutoScalingGroupCommandInput - {@link TerminateInstanceInAutoScalingGroupCommandInput}
+ * @returns {@link TerminateInstanceInAutoScalingGroupCommandOutput}
  * @see {@link TerminateInstanceInAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link TerminateInstanceInAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -100,6 +106,9 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TerminateInstanceInAutoScalingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +137,8 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateInstanceInAutoScalingGroupTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivityTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,18 +148,24 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: TerminateInstanceInAutoScalingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryTerminateInstanceInAutoScalingGroupCommand(input, context);
+    return se_TerminateInstanceInAutoScalingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> {
-    return deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand(output, context);
+    return de_TerminateInstanceInAutoScalingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

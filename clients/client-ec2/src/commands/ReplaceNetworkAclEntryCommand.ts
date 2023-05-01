@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReplaceNetworkAclEntryRequest, ReplaceNetworkAclEntryRequestFilterSensitiveLog } from "../models/models_6";
-import {
-  deserializeAws_ec2ReplaceNetworkAclEntryCommand,
-  serializeAws_ec2ReplaceNetworkAclEntryCommand,
-} from "../protocols/Aws_ec2";
+import { ReplaceNetworkAclEntryRequest } from "../models/models_6";
+import { de_ReplaceNetworkAclEntryCommand, se_ReplaceNetworkAclEntryCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReplaceNetworkAclEntryCommand}.
  */
 export interface ReplaceNetworkAclEntryCommandInput extends ReplaceNetworkAclEntryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplaceNetworkAclEntryCommand}.
  */
 export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
@@ -38,10 +40,30 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ReplaceNetworkAclEntryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReplaceNetworkAclEntryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ReplaceNetworkAclEntryRequest
+ *   CidrBlock: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   Egress: true || false, // required
+ *   IcmpTypeCode: { // IcmpTypeCode
+ *     Code: Number("int"),
+ *     Type: Number("int"),
+ *   },
+ *   Ipv6CidrBlock: "STRING_VALUE",
+ *   NetworkAclId: "STRING_VALUE", // required
+ *   PortRange: { // PortRange
+ *     From: Number("int"),
+ *     To: Number("int"),
+ *   },
+ *   Protocol: "STRING_VALUE", // required
+ *   RuleAction: "allow" || "deny", // required
+ *   RuleNumber: Number("int"), // required
+ * };
  * const command = new ReplaceNetworkAclEntryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplaceNetworkAclEntryCommandInput - {@link ReplaceNetworkAclEntryCommandInput}
+ * @returns {@link ReplaceNetworkAclEntryCommandOutput}
  * @see {@link ReplaceNetworkAclEntryCommandInput} for command's `input` shape.
  * @see {@link ReplaceNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -85,6 +107,9 @@ export class ReplaceNetworkAclEntryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplaceNetworkAclEntryCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +138,8 @@ export class ReplaceNetworkAclEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplaceNetworkAclEntryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +149,18 @@ export class ReplaceNetworkAclEntryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplaceNetworkAclEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceNetworkAclEntryCommand(input, context);
+    return se_ReplaceNetworkAclEntryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplaceNetworkAclEntryCommandOutput> {
-    return deserializeAws_ec2ReplaceNetworkAclEntryCommand(output, context);
+    return de_ReplaceNetworkAclEntryCommand(output, context);
   }
 
   // Start section: command_body_extra

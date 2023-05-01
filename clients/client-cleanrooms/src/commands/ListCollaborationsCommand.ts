@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  ListCollaborationsInput,
-  ListCollaborationsInputFilterSensitiveLog,
-  ListCollaborationsOutput,
-  ListCollaborationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCollaborationsCommand,
-  serializeAws_restJson1ListCollaborationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCollaborationsInput, ListCollaborationsOutput } from "../models/models_0";
+import { de_ListCollaborationsCommand, se_ListCollaborationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCollaborationsCommand}.
  */
 export interface ListCollaborationsCommandInput extends ListCollaborationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListCollaborationsCommand}.
  */
 export interface ListCollaborationsCommandOutput extends ListCollaborationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists collaborations the caller owns, is active in, or has been invited to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListCollaborationsCommandOutput extends ListCollaborationsOutpu
  * import { CleanRoomsClient, ListCollaborationsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListCollaborationsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // ListCollaborationsInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   memberStatus: "STRING_VALUE",
+ * };
  * const command = new ListCollaborationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCollaborationsCommandInput - {@link ListCollaborationsCommandInput}
+ * @returns {@link ListCollaborationsCommandOutput}
  * @see {@link ListCollaborationsCommandInput} for command's `input` shape.
  * @see {@link ListCollaborationsCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -81,6 +85,9 @@ export class ListCollaborationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCollaborationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class ListCollaborationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCollaborationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCollaborationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class ListCollaborationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCollaborationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCollaborationsCommand(input, context);
+    return se_ListCollaborationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCollaborationsCommandOutput> {
-    return deserializeAws_restJson1ListCollaborationsCommand(output, context);
+    return de_ListCollaborationsCommand(output, context);
   }
 
   // Start section: command_body_extra

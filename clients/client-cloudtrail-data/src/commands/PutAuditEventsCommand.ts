@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailDataClient";
-import {
-  PutAuditEventsRequest,
-  PutAuditEventsRequestFilterSensitiveLog,
-  PutAuditEventsResponse,
-  PutAuditEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAuditEventsCommand,
-  serializeAws_restJson1PutAuditEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { PutAuditEventsRequest, PutAuditEventsResponse } from "../models/models_0";
+import { de_PutAuditEventsCommand, se_PutAuditEventsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAuditEventsCommand}.
  */
 export interface PutAuditEventsCommandInput extends PutAuditEventsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAuditEventsCommand}.
  */
 export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ingests your application events into CloudTrail Lake. A required parameter,
  *             <code>auditEvents</code>, accepts the JSON records (also called
  *             <i>payload</i>) of events that you want CloudTrail to ingest. You
@@ -46,10 +43,23 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * import { CloudTrailDataClient, PutAuditEventsCommand } from "@aws-sdk/client-cloudtrail-data"; // ES Modules import
  * // const { CloudTrailDataClient, PutAuditEventsCommand } = require("@aws-sdk/client-cloudtrail-data"); // CommonJS import
  * const client = new CloudTrailDataClient(config);
+ * const input = { // PutAuditEventsRequest
+ *   auditEvents: [ // AuditEvents // required
+ *     { // AuditEvent
+ *       id: "STRING_VALUE", // required
+ *       eventData: "STRING_VALUE", // required
+ *       eventDataChecksum: "STRING_VALUE",
+ *     },
+ *   ],
+ *   channelArn: "STRING_VALUE", // required
+ *   externalId: "STRING_VALUE",
+ * };
  * const command = new PutAuditEventsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAuditEventsCommandInput - {@link PutAuditEventsCommandInput}
+ * @returns {@link PutAuditEventsCommandOutput}
  * @see {@link PutAuditEventsCommandInput} for command's `input` shape.
  * @see {@link PutAuditEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailDataClientResolvedConfig | config} for CloudTrailDataClient's `config` shape.
@@ -92,6 +102,9 @@ export class PutAuditEventsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAuditEventsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +133,8 @@ export class PutAuditEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAuditEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAuditEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +144,18 @@ export class PutAuditEventsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAuditEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAuditEventsCommand(input, context);
+    return se_PutAuditEventsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAuditEventsCommandOutput> {
-    return deserializeAws_restJson1PutAuditEventsCommand(output, context);
+    return de_PutAuditEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

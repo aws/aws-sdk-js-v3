@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyVolumeRequest,
-  ModifyVolumeRequestFilterSensitiveLog,
-  ModifyVolumeResult,
-  ModifyVolumeResultFilterSensitiveLog,
-} from "../models/models_6";
-import { deserializeAws_ec2ModifyVolumeCommand, serializeAws_ec2ModifyVolumeCommand } from "../protocols/Aws_ec2";
+import { ModifyVolumeRequest, ModifyVolumeResult } from "../models/models_6";
+import { de_ModifyVolumeCommand, se_ModifyVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVolumeCommand}.
  */
 export interface ModifyVolumeCommandInput extends ModifyVolumeRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVolumeCommand}.
  */
 export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can modify several parameters of an existing EBS volume, including volume size, volume
  *       type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance
  *       type, you might be able to apply these changes without stopping the instance or detaching the
@@ -55,10 +55,21 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  * import { EC2Client, ModifyVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVolumeRequest
+ *   DryRun: true || false,
+ *   VolumeId: "STRING_VALUE", // required
+ *   Size: Number("int"),
+ *   VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ *   Iops: Number("int"),
+ *   Throughput: Number("int"),
+ *   MultiAttachEnabled: true || false,
+ * };
  * const command = new ModifyVolumeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVolumeCommandInput - {@link ModifyVolumeCommandInput}
+ * @returns {@link ModifyVolumeCommandOutput}
  * @see {@link ModifyVolumeCommandInput} for command's `input` shape.
  * @see {@link ModifyVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -82,6 +93,9 @@ export class ModifyVolumeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +122,8 @@ export class ModifyVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVolumeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +133,18 @@ export class ModifyVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVolumeCommand(input, context);
+    return se_ModifyVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVolumeCommandOutput> {
-    return deserializeAws_ec2ModifyVolumeCommand(output, context);
+    return de_ModifyVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

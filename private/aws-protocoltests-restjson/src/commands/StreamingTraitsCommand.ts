@@ -16,16 +16,15 @@ import {
 } from "@aws-sdk/types";
 
 import { StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1StreamingTraitsCommand,
-  serializeAws_restJson1StreamingTraitsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StreamingTraitsCommand, se_StreamingTraitsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link StreamingTraitsCommand}.
  */
-type StreamingTraitsCommandInputType = Omit<StreamingTraitsInputOutput, "blob"> & {
+export type StreamingTraitsCommandInputType = Omit<StreamingTraitsInputOutput, "blob"> & {
   /**
    * For *`StreamingTraitsInputOutput["blob"]`*, see {@link StreamingTraitsInputOutput.blob}.
    */
@@ -36,6 +35,8 @@ type StreamingTraitsCommandInputType = Omit<StreamingTraitsInputOutput, "blob"> 
  */
 export interface StreamingTraitsCommandInput extends StreamingTraitsCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link StreamingTraitsCommand}.
  */
 export interface StreamingTraitsCommandOutput
@@ -43,6 +44,7 @@ export interface StreamingTraitsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * This examples serializes a streaming blob shape in the request body.
  *
  * In this example, no JSON document is synthesized because the payload is
@@ -53,10 +55,16 @@ export interface StreamingTraitsCommandOutput
  * import { RestJsonProtocolClient, StreamingTraitsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, StreamingTraitsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // StreamingTraitsInputOutput
+ *   foo: "STRING_VALUE",
+ *   blob: "STREAMING_BLOB_VALUE",
+ * };
  * const command = new StreamingTraitsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StreamingTraitsCommandInput - {@link StreamingTraitsCommandInput}
+ * @returns {@link StreamingTraitsCommandOutput}
  * @see {@link StreamingTraitsCommandInput} for command's `input` shape.
  * @see {@link StreamingTraitsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -71,6 +79,9 @@ export class StreamingTraitsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: StreamingTraitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,15 +118,21 @@ export class StreamingTraitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StreamingTraitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StreamingTraitsCommand(input, context);
+    return se_StreamingTraitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<StreamingTraitsCommandOutput> {
-    return deserializeAws_restJson1StreamingTraitsCommand(output, context);
+    return de_StreamingTraitsCommand(output, context);
   }
 
   // Start section: command_body_extra

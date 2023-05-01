@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { PutBackupVaultNotificationsInput } from "../models/models_0";
 import {
-  PutBackupVaultNotificationsInput,
-  PutBackupVaultNotificationsInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutBackupVaultNotificationsCommand,
-  serializeAws_restJson1PutBackupVaultNotificationsCommand,
+  de_PutBackupVaultNotificationsCommand,
+  se_PutBackupVaultNotificationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutBackupVaultNotificationsCommand}.
  */
 export interface PutBackupVaultNotificationsCommandInput extends PutBackupVaultNotificationsInput {}
 /**
+ * @public
+ *
  * The output of {@link PutBackupVaultNotificationsCommand}.
  */
 export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Turns on notifications on a backup vault for the specified topic and events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,19 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
  * import { BackupClient, PutBackupVaultNotificationsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, PutBackupVaultNotificationsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // PutBackupVaultNotificationsInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   SNSTopicArn: "STRING_VALUE", // required
+ *   BackupVaultEvents: [ // BackupVaultEvents // required
+ *     "BACKUP_JOB_STARTED" || "BACKUP_JOB_COMPLETED" || "BACKUP_JOB_SUCCESSFUL" || "BACKUP_JOB_FAILED" || "BACKUP_JOB_EXPIRED" || "RESTORE_JOB_STARTED" || "RESTORE_JOB_COMPLETED" || "RESTORE_JOB_SUCCESSFUL" || "RESTORE_JOB_FAILED" || "COPY_JOB_STARTED" || "COPY_JOB_SUCCESSFUL" || "COPY_JOB_FAILED" || "RECOVERY_POINT_MODIFIED" || "BACKUP_PLAN_CREATED" || "BACKUP_PLAN_MODIFIED" || "S3_BACKUP_OBJECT_FAILED" || "S3_RESTORE_OBJECT_FAILED",
+ *   ],
+ * };
  * const command = new PutBackupVaultNotificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBackupVaultNotificationsCommandInput - {@link PutBackupVaultNotificationsCommandInput}
+ * @returns {@link PutBackupVaultNotificationsCommandOutput}
  * @see {@link PutBackupVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link PutBackupVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -80,6 +91,9 @@ export class PutBackupVaultNotificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBackupVaultNotificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +122,8 @@ export class PutBackupVaultNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBackupVaultNotificationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +133,21 @@ export class PutBackupVaultNotificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutBackupVaultNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutBackupVaultNotificationsCommand(input, context);
+    return se_PutBackupVaultNotificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBackupVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1PutBackupVaultNotificationsCommand(output, context);
+    return de_PutBackupVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

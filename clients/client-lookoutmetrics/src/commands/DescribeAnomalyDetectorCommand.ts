@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  DescribeAnomalyDetectorRequest,
-  DescribeAnomalyDetectorRequestFilterSensitiveLog,
-  DescribeAnomalyDetectorResponse,
-  DescribeAnomalyDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAnomalyDetectorCommand,
-  serializeAws_restJson1DescribeAnomalyDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAnomalyDetectorRequest, DescribeAnomalyDetectorResponse } from "../models/models_0";
+import { de_DescribeAnomalyDetectorCommand, se_DescribeAnomalyDetectorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAnomalyDetectorCommand}.
  */
 export interface DescribeAnomalyDetectorCommandInput extends DescribeAnomalyDetectorRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAnomalyDetectorCommand}.
  */
 export interface DescribeAnomalyDetectorCommandOutput extends DescribeAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a detector.</p>
  *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
  *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -44,10 +41,15 @@ export interface DescribeAnomalyDetectorCommandOutput extends DescribeAnomalyDet
  * import { LookoutMetricsClient, DescribeAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DescribeAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // DescribeAnomalyDetectorRequest
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAnomalyDetectorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAnomalyDetectorCommandInput - {@link DescribeAnomalyDetectorCommandInput}
+ * @returns {@link DescribeAnomalyDetectorCommandOutput}
  * @see {@link DescribeAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
@@ -87,6 +89,9 @@ export class DescribeAnomalyDetectorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnomalyDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DescribeAnomalyDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAnomalyDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAnomalyDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DescribeAnomalyDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAnomalyDetectorCommand(input, context);
+    return se_DescribeAnomalyDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnomalyDetectorCommandOutput> {
-    return deserializeAws_restJson1DescribeAnomalyDetectorCommand(output, context);
+    return de_DescribeAnomalyDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import {
-  UpdateExperimentTemplateRequest,
-  UpdateExperimentTemplateRequestFilterSensitiveLog,
-  UpdateExperimentTemplateResponse,
-  UpdateExperimentTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateExperimentTemplateCommand,
-  serializeAws_restJson1UpdateExperimentTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateExperimentTemplateRequest, UpdateExperimentTemplateResponse } from "../models/models_0";
+import { de_UpdateExperimentTemplateCommand, se_UpdateExperimentTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateExperimentTemplateCommand}.
  */
 export interface UpdateExperimentTemplateCommandInput extends UpdateExperimentTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateExperimentTemplateCommand}.
  */
 export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified experiment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,71 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  * import { FisClient, UpdateExperimentTemplateCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, UpdateExperimentTemplateCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = { // UpdateExperimentTemplateRequest
+ *   id: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   stopConditions: [ // UpdateExperimentTemplateStopConditionInputList
+ *     { // UpdateExperimentTemplateStopConditionInput
+ *       source: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   targets: { // UpdateExperimentTemplateTargetInputMap
+ *     "<keys>": { // UpdateExperimentTemplateTargetInput
+ *       resourceType: "STRING_VALUE", // required
+ *       resourceArns: [ // ResourceArnList
+ *         "STRING_VALUE",
+ *       ],
+ *       resourceTags: { // TagMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       filters: [ // ExperimentTemplateTargetFilterInputList
+ *         { // ExperimentTemplateTargetInputFilter
+ *           path: "STRING_VALUE", // required
+ *           values: [ // ExperimentTemplateTargetFilterValues // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       selectionMode: "STRING_VALUE", // required
+ *       parameters: { // ExperimentTemplateTargetParameterMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   actions: { // UpdateExperimentTemplateActionInputMap
+ *     "<keys>": { // UpdateExperimentTemplateActionInputItem
+ *       actionId: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       parameters: { // ExperimentTemplateActionParameterMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       targets: { // ExperimentTemplateActionTargetMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       startAfter: [ // ExperimentTemplateActionStartAfterList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   roleArn: "STRING_VALUE",
+ *   logConfiguration: { // UpdateExperimentTemplateLogConfigurationInput
+ *     cloudWatchLogsConfiguration: { // ExperimentTemplateCloudWatchLogsLogConfigurationInput
+ *       logGroupArn: "STRING_VALUE", // required
+ *     },
+ *     s3Configuration: { // ExperimentTemplateS3LogConfigurationInput
+ *       bucketName: "STRING_VALUE", // required
+ *       prefix: "STRING_VALUE",
+ *     },
+ *     logSchemaVersion: Number("int"),
+ *   },
+ * };
  * const command = new UpdateExperimentTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateExperimentTemplateCommandInput - {@link UpdateExperimentTemplateCommandInput}
+ * @returns {@link UpdateExperimentTemplateCommandOutput}
  * @see {@link UpdateExperimentTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateExperimentTemplateCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
@@ -78,6 +136,9 @@ export class UpdateExperimentTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateExperimentTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +167,8 @@ export class UpdateExperimentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateExperimentTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateExperimentTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +178,18 @@ export class UpdateExperimentTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateExperimentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateExperimentTemplateCommand(input, context);
+    return se_UpdateExperimentTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExperimentTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateExperimentTemplateCommand(output, context);
+    return de_UpdateExperimentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  CreateGroupMembershipRequest,
-  CreateGroupMembershipRequestFilterSensitiveLog,
-  CreateGroupMembershipResponse,
-  CreateGroupMembershipResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateGroupMembershipCommand,
-  serializeAws_json1_1CreateGroupMembershipCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateGroupMembershipRequest, CreateGroupMembershipResponse } from "../models/models_0";
+import { de_CreateGroupMembershipCommand, se_CreateGroupMembershipCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGroupMembershipCommand}.
  */
 export interface CreateGroupMembershipCommandInput extends CreateGroupMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGroupMembershipCommand}.
  */
 export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a relationship between a member and a group. The following identifiers must be specified: <code>GroupId</code>, <code>IdentityStoreId</code>, and <code>MemberId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  * import { IdentitystoreClient, CreateGroupMembershipCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, CreateGroupMembershipCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // CreateGroupMembershipRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ *   MemberId: { // MemberId Union: only one key present
+ *     UserId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateGroupMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupMembershipCommandInput - {@link CreateGroupMembershipCommandInput}
+ * @returns {@link CreateGroupMembershipCommandOutput}
  * @see {@link CreateGroupMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateGroupMembershipCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -98,6 +104,9 @@ export class CreateGroupMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +135,8 @@ export class CreateGroupMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGroupMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGroupMembershipResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +146,18 @@ export class CreateGroupMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGroupMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGroupMembershipCommand(input, context);
+    return se_CreateGroupMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupMembershipCommandOutput> {
-    return deserializeAws_json1_1CreateGroupMembershipCommand(output, context);
+    return de_CreateGroupMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

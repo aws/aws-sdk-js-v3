@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  GetStudioSessionMappingInput,
-  GetStudioSessionMappingInputFilterSensitiveLog,
-  GetStudioSessionMappingOutput,
-  GetStudioSessionMappingOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetStudioSessionMappingCommand,
-  serializeAws_json1_1GetStudioSessionMappingCommand,
-} from "../protocols/Aws_json1_1";
+import { GetStudioSessionMappingInput, GetStudioSessionMappingOutput } from "../models/models_0";
+import { de_GetStudioSessionMappingCommand, se_GetStudioSessionMappingCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStudioSessionMappingCommand}.
  */
 export interface GetStudioSessionMappingCommandInput extends GetStudioSessionMappingInput {}
 /**
+ * @public
+ *
  * The output of {@link GetStudioSessionMappingCommand}.
  */
 export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMappingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Fetches mapping details for the specified Amazon EMR Studio and identity (user
  *          or group).</p>
  * @example
@@ -43,10 +40,18 @@ export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMa
  * import { EMRClient, GetStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, GetStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // GetStudioSessionMappingInput
+ *   StudioId: "STRING_VALUE", // required
+ *   IdentityId: "STRING_VALUE",
+ *   IdentityName: "STRING_VALUE",
+ *   IdentityType: "USER" || "GROUP", // required
+ * };
  * const command = new GetStudioSessionMappingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStudioSessionMappingCommandInput - {@link GetStudioSessionMappingCommandInput}
+ * @returns {@link GetStudioSessionMappingCommandOutput}
  * @see {@link GetStudioSessionMappingCommandInput} for command's `input` shape.
  * @see {@link GetStudioSessionMappingCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -77,6 +82,9 @@ export class GetStudioSessionMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStudioSessionMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class GetStudioSessionMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStudioSessionMappingInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStudioSessionMappingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +124,18 @@ export class GetStudioSessionMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStudioSessionMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetStudioSessionMappingCommand(input, context);
+    return se_GetStudioSessionMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStudioSessionMappingCommandOutput> {
-    return deserializeAws_json1_1GetStudioSessionMappingCommand(output, context);
+    return de_GetStudioSessionMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

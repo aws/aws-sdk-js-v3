@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteApiKeyRequest, DeleteApiKeyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteApiKeyCommand,
-  serializeAws_restJson1DeleteApiKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteApiKeyRequest } from "../models/models_0";
+import { de_DeleteApiKeyCommand, se_DeleteApiKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApiKeyCommand}.
  */
 export interface DeleteApiKeyCommandInput extends DeleteApiKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApiKeyCommand}.
  */
 export interface DeleteApiKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the ApiKey resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteApiKeyCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteApiKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteApiKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteApiKeyRequest
+ *   apiKey: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApiKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApiKeyCommandInput - {@link DeleteApiKeyCommandInput}
+ * @returns {@link DeleteApiKeyCommandOutput}
  * @see {@link DeleteApiKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteApiKeyCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteApiKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApiKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +115,8 @@ export class DeleteApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApiKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +126,18 @@ export class DeleteApiKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApiKeyCommand(input, context);
+    return se_DeleteApiKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApiKeyCommandOutput> {
-    return deserializeAws_restJson1DeleteApiKeyCommand(output, context);
+    return de_DeleteApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

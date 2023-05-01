@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTagOptionInput,
-  CreateTagOptionInputFilterSensitiveLog,
-  CreateTagOptionOutput,
-  CreateTagOptionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTagOptionCommand,
-  serializeAws_json1_1CreateTagOptionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTagOptionInput, CreateTagOptionOutput } from "../models/models_0";
+import { de_CreateTagOptionCommand, se_CreateTagOptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTagOptionCommand}.
  */
 export interface CreateTagOptionCommandInput extends CreateTagOptionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateTagOptionCommand}.
  */
 export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a TagOption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __M
  * import { ServiceCatalogClient, CreateTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // CreateTagOptionInput
+ *   Key: "STRING_VALUE", // required
+ *   Value: "STRING_VALUE", // required
+ * };
  * const command = new CreateTagOptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTagOptionCommandInput - {@link CreateTagOptionCommandInput}
+ * @returns {@link CreateTagOptionCommandOutput}
  * @see {@link CreateTagOptionCommandInput} for command's `input` shape.
  * @see {@link CreateTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +84,9 @@ export class CreateTagOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTagOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class CreateTagOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTagOptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTagOptionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class CreateTagOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTagOptionCommand(input, context);
+    return se_CreateTagOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTagOptionCommandOutput> {
-    return deserializeAws_json1_1CreateTagOptionCommand(output, context);
+    return de_CreateTagOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

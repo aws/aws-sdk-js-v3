@@ -13,23 +13,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateCallAnalyticsCategoryRequest,
-  UpdateCallAnalyticsCategoryRequestFilterSensitiveLog,
-  UpdateCallAnalyticsCategoryResponse,
-  UpdateCallAnalyticsCategoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCallAnalyticsCategoryCommand,
-  serializeAws_json1_1UpdateCallAnalyticsCategoryCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCallAnalyticsCategoryRequest, UpdateCallAnalyticsCategoryResponse } from "../models/models_0";
+import { de_UpdateCallAnalyticsCategoryCommand, se_UpdateCallAnalyticsCategoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateCallAnalyticsCategoryCommand}.
  */
 export interface UpdateCallAnalyticsCategoryCommandInput extends UpdateCallAnalyticsCategoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateCallAnalyticsCategoryCommand}.
  */
 export interface UpdateCallAnalyticsCategoryCommandOutput
@@ -37,6 +33,7 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified Call Analytics category with new rules. Note that the
  *                 <code>UpdateCallAnalyticsCategory</code> operation overwrites all existing rules
  *             contained in the specified category. You cannot append additional rules onto an existing
@@ -48,10 +45,92 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
  * import { TranscribeClient, UpdateCallAnalyticsCategoryCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, UpdateCallAnalyticsCategoryCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // UpdateCallAnalyticsCategoryRequest
+ *   CategoryName: "STRING_VALUE", // required
+ *   Rules: [ // RuleList // required
+ *     { // Rule Union: only one key present
+ *       NonTalkTimeFilter: { // NonTalkTimeFilter
+ *         Threshold: Number("long"),
+ *         AbsoluteTimeRange: { // AbsoluteTimeRange
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: { // RelativeTimeRange
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         Negate: true || false,
+ *       },
+ *       InterruptionFilter: { // InterruptionFilter
+ *         Threshold: Number("long"),
+ *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         AbsoluteTimeRange: {
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: {
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         Negate: true || false,
+ *       },
+ *       TranscriptFilter: { // TranscriptFilter
+ *         TranscriptFilterType: "EXACT", // required
+ *         AbsoluteTimeRange: {
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: {
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         Negate: true || false,
+ *         Targets: [ // StringTargetList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       SentimentFilter: { // SentimentFilter
+ *         Sentiments: [ // SentimentValueList // required
+ *           "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
+ *         ],
+ *         AbsoluteTimeRange: {
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: {
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         Negate: true || false,
+ *       },
+ *     },
+ *   ],
+ *   InputType: "REAL_TIME" || "POST_CALL",
+ * };
  * const command = new UpdateCallAnalyticsCategoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateCallAnalyticsCategoryCommandInput - {@link UpdateCallAnalyticsCategoryCommandInput}
+ * @returns {@link UpdateCallAnalyticsCategoryCommandOutput}
  * @see {@link UpdateCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link UpdateCallAnalyticsCategoryCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -97,6 +176,9 @@ export class UpdateCallAnalyticsCategoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCallAnalyticsCategoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +207,8 @@ export class UpdateCallAnalyticsCategoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCallAnalyticsCategoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCallAnalyticsCategoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +218,21 @@ export class UpdateCallAnalyticsCategoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCallAnalyticsCategoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCallAnalyticsCategoryCommand(input, context);
+    return se_UpdateCallAnalyticsCategoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCallAnalyticsCategoryCommandOutput> {
-    return deserializeAws_json1_1UpdateCallAnalyticsCategoryCommand(output, context);
+    return de_UpdateCallAnalyticsCategoryCommand(output, context);
   }
 
   // Start section: command_body_extra

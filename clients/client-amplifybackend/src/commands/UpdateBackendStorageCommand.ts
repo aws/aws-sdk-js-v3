@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  UpdateBackendStorageRequest,
-  UpdateBackendStorageRequestFilterSensitiveLog,
-  UpdateBackendStorageResponse,
-  UpdateBackendStorageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBackendStorageCommand,
-  serializeAws_restJson1UpdateBackendStorageCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateBackendStorageRequest, UpdateBackendStorageResponse } from "../models/models_0";
+import { de_UpdateBackendStorageCommand, se_UpdateBackendStorageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBackendStorageCommand}.
  */
 export interface UpdateBackendStorageCommandInput extends UpdateBackendStorageRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBackendStorageCommand}.
  */
 export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageR
  * import { AmplifyBackendClient, UpdateBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, UpdateBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // UpdateBackendStorageRequest
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   ResourceConfig: { // UpdateBackendStorageResourceConfig
+ *     Permissions: { // BackendStoragePermissions
+ *       Authenticated: [ // ListOfAuthenticatedElement // required
+ *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ *       ],
+ *       UnAuthenticated: [ // ListOfUnAuthenticatedElement
+ *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ *       ],
+ *     },
+ *     ServiceName: "S3", // required
+ *   },
+ *   ResourceName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateBackendStorageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBackendStorageCommandInput - {@link UpdateBackendStorageCommandInput}
+ * @returns {@link UpdateBackendStorageCommandOutput}
  * @see {@link UpdateBackendStorageCommandInput} for command's `input` shape.
  * @see {@link UpdateBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +96,9 @@ export class UpdateBackendStorageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBackendStorageCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +127,8 @@ export class UpdateBackendStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBackendStorageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBackendStorageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +138,18 @@ export class UpdateBackendStorageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBackendStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBackendStorageCommand(input, context);
+    return se_UpdateBackendStorageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBackendStorageCommandOutput> {
-    return deserializeAws_restJson1UpdateBackendStorageCommand(output, context);
+    return de_UpdateBackendStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

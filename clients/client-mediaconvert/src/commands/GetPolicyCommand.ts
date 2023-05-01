@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  GetPolicyRequest,
-  GetPolicyRequestFilterSensitiveLog,
-  GetPolicyResponse,
-  GetPolicyResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1GetPolicyCommand,
-  serializeAws_restJson1GetPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPolicyRequest, GetPolicyResponse } from "../models/models_2";
+import { de_GetPolicyCommand, se_GetPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPolicyCommand}.
  */
 export interface GetPolicyCommandInput extends GetPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPolicyCommand}.
  */
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Retrieve the JSON for your policy.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * import { MediaConvertClient, GetPolicyCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, GetPolicyCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = {};
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
+ * @returns {@link GetPolicyCommandOutput}
  * @see {@link GetPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
@@ -87,6 +87,9 @@ export class GetPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +116,8 @@ export class GetPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +127,18 @@ export class GetPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPolicyCommand(input, context);
+    return se_GetPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyCommandOutput> {
-    return deserializeAws_restJson1GetPolicyCommand(output, context);
+    return de_GetPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

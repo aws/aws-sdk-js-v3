@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  CreateReportPlanInput,
-  CreateReportPlanInputFilterSensitiveLog,
-  CreateReportPlanOutput,
-  CreateReportPlanOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateReportPlanCommand,
-  serializeAws_restJson1CreateReportPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateReportPlanInput, CreateReportPlanOutput } from "../models/models_0";
+import { de_CreateReportPlanCommand, se_CreateReportPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateReportPlanCommand}.
  */
 export interface CreateReportPlanCommandInput extends CreateReportPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateReportPlanCommand}.
  */
 export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a report plan. A report plan is a document that contains information about the
  *          contents of the report and where Backup will deliver it.</p>
  *          <p>If you call <code>CreateReportPlan</code> with a plan that already exists, you receive
@@ -45,10 +42,43 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  * import { BackupClient, CreateReportPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateReportPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // CreateReportPlanInput
+ *   ReportPlanName: "STRING_VALUE", // required
+ *   ReportPlanDescription: "STRING_VALUE",
+ *   ReportDeliveryChannel: { // ReportDeliveryChannel
+ *     S3BucketName: "STRING_VALUE", // required
+ *     S3KeyPrefix: "STRING_VALUE",
+ *     Formats: [ // FormatList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ReportSetting: { // ReportSetting
+ *     ReportTemplate: "STRING_VALUE", // required
+ *     FrameworkArns: [ // stringList
+ *       "STRING_VALUE",
+ *     ],
+ *     NumberOfFrameworks: Number("int"),
+ *     Accounts: [
+ *       "STRING_VALUE",
+ *     ],
+ *     OrganizationUnits: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Regions: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ReportPlanTags: { // stringMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   IdempotencyToken: "STRING_VALUE",
+ * };
  * const command = new CreateReportPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateReportPlanCommandInput - {@link CreateReportPlanCommandInput}
+ * @returns {@link CreateReportPlanCommandOutput}
  * @see {@link CreateReportPlanCommandInput} for command's `input` shape.
  * @see {@link CreateReportPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -89,6 +119,9 @@ export class CreateReportPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateReportPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +150,8 @@ export class CreateReportPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReportPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateReportPlanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +161,18 @@ export class CreateReportPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateReportPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateReportPlanCommand(input, context);
+    return se_CreateReportPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReportPlanCommandOutput> {
-    return deserializeAws_restJson1CreateReportPlanCommand(output, context);
+    return de_CreateReportPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

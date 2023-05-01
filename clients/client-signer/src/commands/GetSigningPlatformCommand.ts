@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSigningPlatformRequest,
-  GetSigningPlatformRequestFilterSensitiveLog,
-  GetSigningPlatformResponse,
-  GetSigningPlatformResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSigningPlatformCommand,
-  serializeAws_restJson1GetSigningPlatformCommand,
-} from "../protocols/Aws_restJson1";
+import { GetSigningPlatformRequest, GetSigningPlatformResponse } from "../models/models_0";
+import { de_GetSigningPlatformCommand, se_GetSigningPlatformCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSigningPlatformCommand}.
  */
 export interface GetSigningPlatformCommandInput extends GetSigningPlatformRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSigningPlatformCommand}.
  */
 export interface GetSigningPlatformCommandOutput extends GetSigningPlatformResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information on a specific signing platform.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
  * import { SignerClient, GetSigningPlatformCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, GetSigningPlatformCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // GetSigningPlatformRequest
+ *   platformId: "STRING_VALUE", // required
+ * };
  * const command = new GetSigningPlatformCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSigningPlatformCommandInput - {@link GetSigningPlatformCommandInput}
+ * @returns {@link GetSigningPlatformCommandOutput}
  * @see {@link GetSigningPlatformCommandInput} for command's `input` shape.
  * @see {@link GetSigningPlatformCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -82,6 +84,9 @@ export class GetSigningPlatformCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSigningPlatformCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetSigningPlatformCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSigningPlatformRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSigningPlatformResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetSigningPlatformCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSigningPlatformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSigningPlatformCommand(input, context);
+    return se_GetSigningPlatformCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSigningPlatformCommandOutput> {
-    return deserializeAws_restJson1GetSigningPlatformCommand(output, context);
+    return de_GetSigningPlatformCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,20 +16,22 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   GetDataQualityRuleRecommendationRunRequest,
-  GetDataQualityRuleRecommendationRunRequestFilterSensitiveLog,
   GetDataQualityRuleRecommendationRunResponse,
-  GetDataQualityRuleRecommendationRunResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetDataQualityRuleRecommendationRunCommand,
-  serializeAws_json1_1GetDataQualityRuleRecommendationRunCommand,
+  de_GetDataQualityRuleRecommendationRunCommand,
+  se_GetDataQualityRuleRecommendationRunCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataQualityRuleRecommendationRunCommand}.
  */
 export interface GetDataQualityRuleRecommendationRunCommandInput extends GetDataQualityRuleRecommendationRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataQualityRuleRecommendationRunCommand}.
  */
 export interface GetDataQualityRuleRecommendationRunCommandOutput
@@ -37,6 +39,7 @@ export interface GetDataQualityRuleRecommendationRunCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the specified recommendation run that was used to generate rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface GetDataQualityRuleRecommendationRunCommandOutput
  * import { GlueClient, GetDataQualityRuleRecommendationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataQualityRuleRecommendationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetDataQualityRuleRecommendationRunRequest
+ *   RunId: "STRING_VALUE", // required
+ * };
  * const command = new GetDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataQualityRuleRecommendationRunCommandInput - {@link GetDataQualityRuleRecommendationRunCommandInput}
+ * @returns {@link GetDataQualityRuleRecommendationRunCommandOutput}
  * @see {@link GetDataQualityRuleRecommendationRunCommandInput} for command's `input` shape.
  * @see {@link GetDataQualityRuleRecommendationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -83,6 +91,9 @@ export class GetDataQualityRuleRecommendationRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataQualityRuleRecommendationRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +122,8 @@ export class GetDataQualityRuleRecommendationRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataQualityRuleRecommendationRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataQualityRuleRecommendationRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +133,24 @@ export class GetDataQualityRuleRecommendationRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetDataQualityRuleRecommendationRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataQualityRuleRecommendationRunCommand(input, context);
+    return se_GetDataQualityRuleRecommendationRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDataQualityRuleRecommendationRunCommandOutput> {
-    return deserializeAws_json1_1GetDataQualityRuleRecommendationRunCommand(output, context);
+    return de_GetDataQualityRuleRecommendationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

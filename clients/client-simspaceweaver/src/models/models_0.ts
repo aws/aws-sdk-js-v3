@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SimSpaceWeaverServiceException as __BaseException } from "./SimSpaceWeaverServiceException";
 
 /**
+ * @public
  * <p/>
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,6 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A collection of TCP/UDP ports for a custom or service app.</p>
  */
 export interface SimulationAppPortMapping {
@@ -44,21 +46,40 @@ export interface SimulationAppPortMapping {
   Actual?: number;
 }
 
-export enum ClockStatus {
-  STARTED = "STARTED",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
-
-export enum ClockTargetStatus {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClockStatus = {
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
 /**
+ * @public
+ */
+export type ClockStatus = (typeof ClockStatus)[keyof typeof ClockStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClockTargetStatus = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type ClockTargetStatus = (typeof ClockTargetStatus)[keyof typeof ClockTargetStatus];
+
+/**
+ * @public
  * <p>The Amazon CloudWatch Logs log group for the simulation. For more information about log groups, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working with log
  *    groups and log streams</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
  */
@@ -73,6 +94,7 @@ export interface CloudWatchLogsLogGroup {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ConflictException extends __BaseException {
@@ -93,26 +115,48 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export interface DeleteAppInput {
+/**
+ * @public
+ * <p>An Amazon S3 bucket and optional folder (object key prefix) where SimSpace Weaver creates a file.</p>
+ */
+export interface S3Destination {
   /**
-   * <p>The name of the simulation of the app.</p>
+   * <p>The name of an Amazon S3 bucket. For more information about buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating,
+   *             configuring, and working with Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User
+   *             Guide</i>.</p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>A string prefix for an Amazon S3 object key. It's usually a folder name.
+   *          For more information about folders in Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-folders.html">Organizing objects in the Amazon S3 console using folders</a>
+   *    in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   */
+  ObjectKeyPrefix?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateSnapshotInput {
+  /**
+   * <p>The name of the simulation.</p>
    */
   Simulation: string | undefined;
 
   /**
-   * <p>The name of the domain of the app.</p>
+   * <p>The Amazon S3 bucket and optional folder (object key prefix) where SimSpace Weaver creates the snapshot file.</p>
    */
-  Domain: string | undefined;
-
-  /**
-   * <p>The name of the app.</p>
-   */
-  App: string | undefined;
+  Destination: S3Destination | undefined;
 }
 
-export interface DeleteAppOutput {}
+/**
+ * @public
+ */
+export interface CreateSnapshotOutput {}
 
 /**
+ * @public
  * <p/>
  */
 export class InternalServerException extends __BaseException {
@@ -134,6 +178,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -155,6 +200,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ValidationException extends __BaseException {
@@ -175,6 +221,34 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
+export interface DeleteAppInput {
+  /**
+   * <p>The name of the simulation of the app.</p>
+   */
+  Simulation: string | undefined;
+
+  /**
+   * <p>The name of the domain of the app.</p>
+   */
+  Domain: string | undefined;
+
+  /**
+   * <p>The name of the app.</p>
+   */
+  App: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAppOutput {}
+
+/**
+ * @public
+ */
 export interface DeleteSimulationInput {
   /**
    * <p>The name of the simulation.</p>
@@ -182,8 +256,14 @@ export interface DeleteSimulationInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSimulationOutput {}
 
+/**
+ * @public
+ */
 export interface DescribeAppInput {
   /**
    * <p>The name of the simulation of the app.</p>
@@ -202,8 +282,10 @@ export interface DescribeAppInput {
 }
 
 /**
+ * @public
  * <p>Information about the network endpoint that you can use to connect to your custom or
- *          service app.</p>
+ *          service app. For more information about SimSpace Weaver apps, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_apps">Key concepts: Apps</a>
+ *    in the <i>SimSpace Weaver User Guide</i>..</p>
  */
 export interface SimulationAppEndpointInfo {
   /**
@@ -220,7 +302,8 @@ export interface SimulationAppEndpointInfo {
 }
 
 /**
- * <p>Options that apply when the app starts. These optiAons override default behavior.</p>
+ * @public
+ * <p>Options that apply when the app starts. These options override default behavior.</p>
  */
 export interface LaunchOverrides {
   /**
@@ -230,21 +313,42 @@ export interface LaunchOverrides {
   LaunchCommands?: string[];
 }
 
-export enum SimulationAppStatus {
-  ERROR = "ERROR",
-  STARTED = "STARTED",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SimulationAppStatus = {
+  ERROR: "ERROR",
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
-export enum SimulationAppTargetStatus {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ */
+export type SimulationAppStatus = (typeof SimulationAppStatus)[keyof typeof SimulationAppStatus];
 
+/**
+ * @public
+ * @enum
+ */
+export const SimulationAppTargetStatus = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type SimulationAppTargetStatus = (typeof SimulationAppTargetStatus)[keyof typeof SimulationAppTargetStatus];
+
+/**
+ * @public
+ */
 export interface DescribeAppOutput {
   /**
    * <p>The name of the app.</p>
@@ -272,7 +376,7 @@ export interface DescribeAppOutput {
   TargetStatus?: SimulationAppTargetStatus | string;
 
   /**
-   * <p>Options that apply when the app starts. These optiAons override default behavior.</p>
+   * <p>Options that apply when the app starts. These options override default behavior.</p>
    */
   LaunchOverrides?: LaunchOverrides;
 
@@ -287,6 +391,9 @@ export interface DescribeAppOutput {
   EndpointInfo?: SimulationAppEndpointInfo;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSimulationInput {
   /**
    * <p>The name of the simulation.</p>
@@ -295,6 +402,7 @@ export interface DescribeSimulationInput {
 }
 
 /**
+ * @public
  * <p>Status information about the simulation clock.</p>
  */
 export interface SimulationClock {
@@ -309,18 +417,29 @@ export interface SimulationClock {
   TargetStatus?: ClockTargetStatus | string;
 }
 
-export enum LifecycleManagementStrategy {
-  ByRequest = "ByRequest",
-  BySpatialSubdivision = "BySpatialSubdivision",
-  PerWorker = "PerWorker",
-  Unknown = "Unknown",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LifecycleManagementStrategy = {
+  ByRequest: "ByRequest",
+  BySpatialSubdivision: "BySpatialSubdivision",
+  PerWorker: "PerWorker",
+  Unknown: "Unknown",
+} as const;
 
 /**
+ * @public
+ */
+export type LifecycleManagementStrategy =
+  (typeof LifecycleManagementStrategy)[keyof typeof LifecycleManagementStrategy];
+
+/**
+ * @public
  * <p>A collection of app instances that run the same executable app code and have the same
  *          launch options and commands.</p>
- *          <p>For more information about domains, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html">Key concepts</a>
- *    in the <i>Amazon Web Services SimSpace Weaver User Guide</i>.</p>
+ *          <p>For more information about domains, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains">Key concepts: Domains</a>
+ *    in the <i>SimSpace Weaver User Guide</i>.</p>
  */
 export interface Domain {
   /**
@@ -329,8 +448,8 @@ export interface Domain {
   Name?: string;
 
   /**
-   * <p>The type of lifecycle management for apps in the domain. This value indicates whether
-   *          apps in this domain are <i>managed</i> (SimSpace Weaver starts and stops the apps) or
+   * <p>The type of lifecycle management for apps in the domain. Indicates whether apps in this
+   *          domain are <i>managed</i> (SimSpace Weaver starts and stops the apps) or
    *             <i>unmanaged</i> (you must start and stop the apps).</p>
    *          <p class="title">
    *             <b>Lifecycle types</b>
@@ -338,33 +457,33 @@ export interface Domain {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PerWorker</code> – Managed: SimSpace Weaver starts 1 app on each worker</p>
+   *                   <code>PerWorker</code> – Managed: SimSpace Weaver starts one app on each
+   *                worker.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>BySpatialSubdivision</code> – Managed: SimSpace Weaver starts 1 app for each spatial partition</p>
+   *                   <code>BySpatialSubdivision</code> – Managed: SimSpace Weaver starts one app for
+   *                each spatial partition.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ByRequest</code> – Unmanaged: You use the <b>StartApp</b>
-   *                API to start the apps and use the <b>StopApp</b> API to stop the apps.</p>
+   *                   <code>ByRequest</code> – Unmanaged: You use the <code>StartApp</code>
+   *                API to start the apps and use the <code>StopApp</code> API to stop the apps.</p>
    *             </li>
    *          </ul>
-   *          <note>
-   *             <p>The lifecycle types will change when the service is released for general availability (GA).</p>
-   *          </note>
    */
   Lifecycle?: LifecycleManagementStrategy | string;
 }
 
 /**
+ * @public
  * <p>A collection of additional state information, such as
  * domain and clock configuration.</p>
  */
 export interface LiveSimulationState {
   /**
-   * <p>A list of domains for the simulation. For more information about domains, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html">Key concepts</a>
-   *    in the <i>Amazon Web Services SimSpace Weaver User Guide</i>.</p>
+   * <p>A list of domains for the simulation. For more information about domains, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains">Key concepts: Domains</a>
+   *    in the <i>SimSpace Weaver User Guide</i>.</p>
    */
   Domains?: Domain[];
 
@@ -378,6 +497,7 @@ export interface LiveSimulationState {
 }
 
 /**
+ * @public
  * <p>The location where SimSpace Weaver sends simulation log data.</p>
  */
 export interface LogDestination {
@@ -389,6 +509,7 @@ export interface LogDestination {
 }
 
 /**
+ * @public
  * <p>The logging configuration for a simulation.</p>
  */
 export interface LoggingConfiguration {
@@ -399,7 +520,8 @@ export interface LoggingConfiguration {
 }
 
 /**
- * <p>A location in Amazon Simple Storage Service (Amazon S3) where SimSpace Weaver stores simulation data, such as your app zip
+ * @public
+ * <p>A location in Amazon Simple Storage Service (Amazon S3) where SimSpace Weaver stores simulation data, such as your app .zip
  *          files and schema file. For more information about Amazon S3, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html">
  *                <i>Amazon Simple Storage Service User Guide</i>
  *             </a>.</p>
@@ -421,24 +543,46 @@ export interface S3Location {
   ObjectKey?: string;
 }
 
-export enum SimulationStatus {
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  STARTED = "STARTED",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SimulationStatus = {
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  SNAPSHOT_IN_PROGRESS: "SNAPSHOT_IN_PROGRESS",
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+} as const;
 
-export enum SimulationTargetStatus {
-  DELETED = "DELETED",
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-}
+/**
+ * @public
+ */
+export type SimulationStatus = (typeof SimulationStatus)[keyof typeof SimulationStatus];
 
+/**
+ * @public
+ * @enum
+ */
+export const SimulationTargetStatus = {
+  DELETED: "DELETED",
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type SimulationTargetStatus = (typeof SimulationTargetStatus)[keyof typeof SimulationTargetStatus];
+
+/**
+ * @public
+ */
 export interface DescribeSimulationOutput {
   /**
    * <p>The name of the simulation.</p>
@@ -495,6 +639,8 @@ export interface DescribeSimulationOutput {
   SchemaS3Location?: S3Location;
 
   /**
+   * @deprecated
+   *
    * <p>An error message that SimSpace Weaver returns only if there is a problem with the simulation
    *          schema.</p>
    */
@@ -513,12 +659,30 @@ export interface DescribeSimulationOutput {
 
   /**
    * <p>The maximum running time of the simulation,
-   *    specified as a number of months (m or M), hours (h or H), or days (d or D). The simulation
-   *    stops when it reaches this limit.</p>
+   *    specified as a number of minutes (m or M), hours (h or H), or days (d or D). The simulation
+   *    stops when it reaches this limit. The maximum value is <code>14D</code>, or its equivalent in the
+   *    other units. The default value is <code>14D</code>. A value equivalent to <code>0</code> makes the
+   *    simulation immediately transition to <code>Stopping</code> as soon as it reaches <code>Started</code>.</p>
    */
   MaximumDuration?: string;
+
+  /**
+   * <p>A location in Amazon Simple Storage Service (Amazon S3) where SimSpace Weaver stores simulation data, such as your app .zip
+   *          files and schema file. For more information about Amazon S3, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html">
+   *                <i>Amazon Simple Storage Service User Guide</i>
+   *             </a>.</p>
+   */
+  SnapshotS3Location?: S3Location;
+
+  /**
+   * <p>An error message that SimSpace Weaver returns only if a problem occurs when the simulation is in the <code>STARTING</code> state.</p>
+   */
+  StartError?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppsInput {
   /**
    * <p>The name of the simulation that you want to list apps for.</p>
@@ -536,17 +700,18 @@ export interface ListAppsInput {
   MaxResults?: number;
 
   /**
-   * <p>If SimSpace Weaver returns <code>nextToken</code>, there are more results available.
+   * <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available.
    *    The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page,
    *    call the operation again using the returned token. Keep all other arguments unchanged. If no results remain,
-   *    <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours.
-   *    If you provide a token that isn't valid, you receive an <i>HTTP 400 ValidationException</i> error.</p>
+   *    then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours.
+   *    If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
    */
   NextToken?: string;
 }
 
 /**
- * <p>A collection of metadata about an app.</p>
+ * @public
+ * <p>A collection of metadata about the app.</p>
  */
 export interface SimulationAppMetadata {
   /**
@@ -560,8 +725,8 @@ export interface SimulationAppMetadata {
   Simulation?: string;
 
   /**
-   * <p>The domain of the app. For more information about domains, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html">Key concepts</a>
-   *    in the <i>Amazon Web Services SimSpace Weaver User Guide</i>.</p>
+   * <p>The domain of the app. For more information about domains, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains">Key concepts: Domains</a>
+   *    in the <i>SimSpace Weaver User Guide</i>.</p>
    */
   Domain?: string;
 
@@ -576,6 +741,9 @@ export interface SimulationAppMetadata {
   TargetStatus?: SimulationAppTargetStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListAppsOutput {
   /**
    * <p>The list of apps for the given simulation and domain.</p>
@@ -583,15 +751,18 @@ export interface ListAppsOutput {
   Apps?: SimulationAppMetadata[];
 
   /**
-   * <p>If SimSpace Weaver returns <code>nextToken</code>, there are more results available.
+   * <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available.
    *    The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page,
    *    call the operation again using the returned token. Keep all other arguments unchanged. If no results remain,
-   *    <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours.
-   *    If you provide a token that isn't valid, you receive an <i>HTTP 400 ValidationException</i> error.</p>
+   *    then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours.
+   *    If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
    */
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationsInput {
   /**
    * <p>The maximum number of simulations to list.</p>
@@ -599,16 +770,17 @@ export interface ListSimulationsInput {
   MaxResults?: number;
 
   /**
-   * <p>If SimSpace Weaver returns <code>nextToken</code>, there are more results available.
+   * <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available.
    *    The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page,
    *    call the operation again using the returned token. Keep all other arguments unchanged. If no results remain,
-   *    <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours.
-   *    If you provide a token that isn't valid, you receive an <i>HTTP 400 ValidationException</i> error.</p>
+   *    then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours.
+   *    If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
    */
   NextToken?: string;
 }
 
 /**
+ * @public
  * <p>A collection of data about the simulation.</p>
  */
 export interface SimulationMetadata {
@@ -640,6 +812,9 @@ export interface SimulationMetadata {
   TargetStatus?: SimulationTargetStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSimulationsOutput {
   /**
    * <p>The list of simulations.</p>
@@ -647,15 +822,18 @@ export interface ListSimulationsOutput {
   Simulations?: SimulationMetadata[];
 
   /**
-   * <p>If SimSpace Weaver returns <code>nextToken</code>, there are more results available.
+   * <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available.
    *    The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page,
    *    call the operation again using the returned token. Keep all other arguments unchanged. If no results remain,
-   *    <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours.
-   *    If you provide a token that isn't valid, you receive an <i>HTTP 400 ValidationException</i> error.</p>
+   *    then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours.
+   *    If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
    */
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
@@ -664,6 +842,9 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tags for the resource.</p>
@@ -672,6 +853,7 @@ export interface ListTagsForResourceOutput {
 }
 
 /**
+ * @public
  * <p/>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -692,6 +874,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface StartAppInput {
   /**
    * <p>A value that you provide to ensure that repeated calls to this
@@ -721,11 +906,14 @@ export interface StartAppInput {
   Description?: string;
 
   /**
-   * <p>Options that apply when the app starts. These optiAons override default behavior.</p>
+   * <p>Options that apply when the app starts. These options override default behavior.</p>
    */
   LaunchOverrides?: LaunchOverrides;
 }
 
+/**
+ * @public
+ */
 export interface StartAppOutput {
   /**
    * <p>The name of the app.</p>
@@ -743,6 +931,9 @@ export interface StartAppOutput {
   Simulation?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartClockInput {
   /**
    * <p>The name of the simulation.</p>
@@ -750,8 +941,14 @@ export interface StartClockInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartClockOutput {}
 
+/**
+ * @public
+ */
 export interface StartSimulationInput {
   /**
    * <p>A value that you provide to ensure that repeated calls to this
@@ -784,13 +981,17 @@ export interface StartSimulationInput {
    *    For more information about Amazon S3, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html">
    *                <i>Amazon Simple Storage Service User Guide</i>
    *             </a>.</p>
+   *          <p>Provide a <code>SchemaS3Location</code> to start your simulation from a schema.</p>
+   *          <p>If you provide a <code>SchemaS3Location</code> then you can't provide a <code>SnapshotS3Location</code>.</p>
    */
-  SchemaS3Location: S3Location | undefined;
+  SchemaS3Location?: S3Location;
 
   /**
    * <p>The maximum running time of the simulation,
-   *    specified as a number of months (m or M), hours (h or H), or days (d or D). The simulation
-   *    stops when it reaches this limit.</p>
+   *    specified as a number of minutes (m or M), hours (h or H), or days (d or D). The simulation
+   *    stops when it reaches this limit. The maximum value is <code>14D</code>, or its equivalent in the
+   *    other units. The default value is <code>14D</code>. A value equivalent to <code>0</code> makes the
+   *    simulation immediately transition to <code>Stopping</code> as soon as it reaches <code>Started</code>.</p>
    */
   MaximumDuration?: string;
 
@@ -799,8 +1000,21 @@ export interface StartSimulationInput {
    *    <i>Amazon Web Services General Reference</i>.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The location of the snapshot .zip file in Amazon Simple Storage Service (Amazon S3).
+   *    For more information about Amazon S3, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html">
+   *                <i>Amazon Simple Storage Service User Guide</i>
+   *             </a>.</p>
+   *          <p>Provide a <code>SnapshotS3Location</code> to start your simulation from a snapshot.</p>
+   *          <p>If you provide a <code>SnapshotS3Location</code> then you can't provide a <code>SchemaS3Location</code>.</p>
+   */
+  SnapshotS3Location?: S3Location;
 }
 
+/**
+ * @public
+ */
 export interface StartSimulationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
@@ -820,6 +1034,9 @@ export interface StartSimulationOutput {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface StopAppInput {
   /**
    * <p>The name of the simulation of the app.</p>
@@ -837,8 +1054,14 @@ export interface StopAppInput {
   App: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopAppOutput {}
 
+/**
+ * @public
+ */
 export interface StopClockInput {
   /**
    * <p>The name of the simulation.</p>
@@ -846,8 +1069,14 @@ export interface StopClockInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopClockOutput {}
 
+/**
+ * @public
+ */
 export interface StopSimulationInput {
   /**
    * <p>The name of the simulation.</p>
@@ -855,8 +1084,14 @@ export interface StopSimulationInput {
   Simulation: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopSimulationOutput {}
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add tags to.
@@ -871,9 +1106,13 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
 /**
+ * @public
  * <p/>
  */
 export class TooManyTagsException extends __BaseException {
@@ -894,6 +1133,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.
@@ -908,189 +1150,10 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
-
-/**
- * @internal
- */
-export const SimulationAppPortMappingFilterSensitiveLog = (obj: SimulationAppPortMapping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogsLogGroupFilterSensitiveLog = (obj: CloudWatchLogsLogGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInputFilterSensitiveLog = (obj: DeleteAppInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppOutputFilterSensitiveLog = (obj: DeleteAppOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSimulationInputFilterSensitiveLog = (obj: DeleteSimulationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSimulationOutputFilterSensitiveLog = (obj: DeleteSimulationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppInputFilterSensitiveLog = (obj: DescribeAppInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationAppEndpointInfoFilterSensitiveLog = (obj: SimulationAppEndpointInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchOverridesFilterSensitiveLog = (obj: LaunchOverrides): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppOutputFilterSensitiveLog = (obj: DescribeAppOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSimulationInputFilterSensitiveLog = (obj: DescribeSimulationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationClockFilterSensitiveLog = (obj: SimulationClock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainFilterSensitiveLog = (obj: Domain): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LiveSimulationStateFilterSensitiveLog = (obj: LiveSimulationState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogDestinationFilterSensitiveLog = (obj: LogDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingConfigurationFilterSensitiveLog = (obj: LoggingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSimulationOutputFilterSensitiveLog = (obj: DescribeSimulationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsInputFilterSensitiveLog = (obj: ListAppsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationAppMetadataFilterSensitiveLog = (obj: SimulationAppMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsOutputFilterSensitiveLog = (obj: ListAppsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSimulationsInputFilterSensitiveLog = (obj: ListSimulationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SimulationMetadataFilterSensitiveLog = (obj: SimulationMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSimulationsOutputFilterSensitiveLog = (obj: ListSimulationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -1103,105 +1166,7 @@ export const StartAppInputFilterSensitiveLog = (obj: StartAppInput): any => ({
 /**
  * @internal
  */
-export const StartAppOutputFilterSensitiveLog = (obj: StartAppOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartClockInputFilterSensitiveLog = (obj: StartClockInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartClockOutputFilterSensitiveLog = (obj: StartClockOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartSimulationInputFilterSensitiveLog = (obj: StartSimulationInput): any => ({
   ...obj,
   ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartSimulationOutputFilterSensitiveLog = (obj: StartSimulationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopAppInputFilterSensitiveLog = (obj: StopAppInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopAppOutputFilterSensitiveLog = (obj: StopAppOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopClockInputFilterSensitiveLog = (obj: StopClockInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopClockOutputFilterSensitiveLog = (obj: StopClockOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopSimulationInputFilterSensitiveLog = (obj: StopSimulationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopSimulationOutputFilterSensitiveLog = (obj: StopSimulationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
 });

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportAppCatalogRequest,
-  ImportAppCatalogRequestFilterSensitiveLog,
-  ImportAppCatalogResponse,
-  ImportAppCatalogResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportAppCatalogCommand,
-  serializeAws_json1_1ImportAppCatalogCommand,
-} from "../protocols/Aws_json1_1";
+import { ImportAppCatalogRequest, ImportAppCatalogResponse } from "../models/models_0";
+import { de_ImportAppCatalogCommand, se_ImportAppCatalogCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ImportAppCatalogCommand}.
  */
 export interface ImportAppCatalogCommandInput extends ImportAppCatalogRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportAppCatalogCommand}.
  */
 export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Allows application import from Migration Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse,
  * import { SMSClient, ImportAppCatalogCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, ImportAppCatalogCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // ImportAppCatalogRequest
+ *   roleName: "STRING_VALUE",
+ * };
  * const command = new ImportAppCatalogCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportAppCatalogCommandInput - {@link ImportAppCatalogCommandInput}
+ * @returns {@link ImportAppCatalogCommandOutput}
  * @see {@link ImportAppCatalogCommandInput} for command's `input` shape.
  * @see {@link ImportAppCatalogCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -85,6 +87,9 @@ export class ImportAppCatalogCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportAppCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class ImportAppCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportAppCatalogRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportAppCatalogResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class ImportAppCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportAppCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportAppCatalogCommand(input, context);
+    return se_ImportAppCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportAppCatalogCommandOutput> {
-    return deserializeAws_json1_1ImportAppCatalogCommand(output, context);
+    return de_ImportAppCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

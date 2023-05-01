@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ClusterVersionsMessage,
-  ClusterVersionsMessageFilterSensitiveLog,
-  DescribeClusterVersionsMessage,
-  DescribeClusterVersionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterVersionsCommand,
-  serializeAws_queryDescribeClusterVersionsCommand,
-} from "../protocols/Aws_query";
+import { ClusterVersionsMessage, DescribeClusterVersionsMessage } from "../models/models_0";
+import { de_DescribeClusterVersionsCommand, se_DescribeClusterVersionsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterVersionsCommand}.
  */
 export interface DescribeClusterVersionsCommandInput extends DescribeClusterVersionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterVersionsCommand}.
  */
 export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns descriptions of the available Amazon Redshift cluster versions. You can call this
  *             operation even before creating any clusters to learn more about the Amazon Redshift versions.
  *
@@ -47,10 +44,18 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  * import { RedshiftClient, DescribeClusterVersionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterVersionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeClusterVersionsMessage
+ *   ClusterVersion: "STRING_VALUE",
+ *   ClusterParameterGroupFamily: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeClusterVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterVersionsCommandInput - {@link DescribeClusterVersionsCommandInput}
+ * @returns {@link DescribeClusterVersionsCommandOutput}
  * @see {@link DescribeClusterVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterVersionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -74,6 +79,9 @@ export class DescribeClusterVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +110,8 @@ export class DescribeClusterVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterVersionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ClusterVersionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +121,18 @@ export class DescribeClusterVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterVersionsCommand(input, context);
+    return se_DescribeClusterVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterVersionsCommandOutput> {
-    return deserializeAws_queryDescribeClusterVersionsCommand(output, context);
+    return de_DescribeClusterVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetAccessKeyLastUsedRequest,
-  GetAccessKeyLastUsedRequestFilterSensitiveLog,
-  GetAccessKeyLastUsedResponse,
-  GetAccessKeyLastUsedResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetAccessKeyLastUsedCommand,
-  serializeAws_queryGetAccessKeyLastUsedCommand,
-} from "../protocols/Aws_query";
+import { GetAccessKeyLastUsedRequest, GetAccessKeyLastUsedResponse } from "../models/models_0";
+import { de_GetAccessKeyLastUsedCommand, se_GetAccessKeyLastUsedCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccessKeyLastUsedCommand}.
  */
 export interface GetAccessKeyLastUsedCommandInput extends GetAccessKeyLastUsedRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccessKeyLastUsedCommand}.
  */
 export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about when the specified access key was last used. The
  *             information includes the date and time of last use, along with the Amazon Web Services service and
  *             Region that were specified in the last request made with that key.</p>
@@ -44,10 +41,15 @@ export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedR
  * import { IAMClient, GetAccessKeyLastUsedCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetAccessKeyLastUsedCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetAccessKeyLastUsedRequest
+ *   AccessKeyId: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessKeyLastUsedCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccessKeyLastUsedCommandInput - {@link GetAccessKeyLastUsedCommandInput}
+ * @returns {@link GetAccessKeyLastUsedCommandOutput}
  * @see {@link GetAccessKeyLastUsedCommandInput} for command's `input` shape.
  * @see {@link GetAccessKeyLastUsedCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -75,6 +77,9 @@ export class GetAccessKeyLastUsedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccessKeyLastUsedCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class GetAccessKeyLastUsedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessKeyLastUsedRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessKeyLastUsedResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class GetAccessKeyLastUsedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccessKeyLastUsedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccessKeyLastUsedCommand(input, context);
+    return se_GetAccessKeyLastUsedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessKeyLastUsedCommandOutput> {
-    return deserializeAws_queryGetAccessKeyLastUsedCommand(output, context);
+    return de_GetAccessKeyLastUsedCommand(output, context);
   }
 
   // Start section: command_body_extra

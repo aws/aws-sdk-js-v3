@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  ReleaseStaticIpRequest,
-  ReleaseStaticIpRequestFilterSensitiveLog,
-  ReleaseStaticIpResult,
-  ReleaseStaticIpResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1ReleaseStaticIpCommand,
-  serializeAws_json1_1ReleaseStaticIpCommand,
-} from "../protocols/Aws_json1_1";
+import { ReleaseStaticIpRequest, ReleaseStaticIpResult } from "../models/models_1";
+import { de_ReleaseStaticIpCommand, se_ReleaseStaticIpCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ReleaseStaticIpCommand}.
  */
 export interface ReleaseStaticIpCommandInput extends ReleaseStaticIpRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReleaseStaticIpCommand}.
  */
 export interface ReleaseStaticIpCommandOutput extends ReleaseStaticIpResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specific static IP from your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface ReleaseStaticIpCommandOutput extends ReleaseStaticIpResult, __M
  * import { LightsailClient, ReleaseStaticIpCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, ReleaseStaticIpCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // ReleaseStaticIpRequest
+ *   staticIpName: "STRING_VALUE", // required
+ * };
  * const command = new ReleaseStaticIpCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReleaseStaticIpCommandInput - {@link ReleaseStaticIpCommandInput}
+ * @returns {@link ReleaseStaticIpCommandOutput}
  * @see {@link ReleaseStaticIpCommandInput} for command's `input` shape.
  * @see {@link ReleaseStaticIpCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -99,6 +101,9 @@ export class ReleaseStaticIpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReleaseStaticIpCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +132,8 @@ export class ReleaseStaticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleaseStaticIpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReleaseStaticIpResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +143,18 @@ export class ReleaseStaticIpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReleaseStaticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReleaseStaticIpCommand(input, context);
+    return se_ReleaseStaticIpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleaseStaticIpCommandOutput> {
-    return deserializeAws_json1_1ReleaseStaticIpCommand(output, context);
+    return de_ReleaseStaticIpCommand(output, context);
   }
 
   // Start section: command_body_extra

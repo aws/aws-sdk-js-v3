@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSecurityPolicyRequest,
-  UpdateSecurityPolicyRequestFilterSensitiveLog,
-  UpdateSecurityPolicyResponse,
-  UpdateSecurityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSecurityPolicyRequest, UpdateSecurityPolicyResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0UpdateSecurityPolicyCommand,
-  serializeAws_json1_0UpdateSecurityPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateSecurityPolicyCommand, se_UpdateSecurityPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecurityPolicyCommand}.
  */
 export interface UpdateSecurityPolicyCommandInput extends UpdateSecurityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecurityPolicyCommand}.
  */
 export interface UpdateSecurityPolicyCommandOutput extends UpdateSecurityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an OpenSearch Serverless security policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access
  *             for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at
  *                 rest for Amazon OpenSearch Serverless</a>.</p>
@@ -48,17 +45,27 @@ export interface UpdateSecurityPolicyCommandOutput extends UpdateSecurityPolicyR
  * import { OpenSearchServerlessClient, UpdateSecurityPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateSecurityPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // UpdateSecurityPolicyRequest
+ *   type: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   policyVersion: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   policy: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateSecurityPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecurityPolicyCommandInput - {@link UpdateSecurityPolicyCommandInput}
+ * @returns {@link UpdateSecurityPolicyCommandOutput}
  * @see {@link UpdateSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a collection, thrown when a collection with the same name already exists
- *             or is being created. When deleting a collection, thrown when the collection is not in
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
  *             the ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
@@ -66,6 +73,9 @@ export interface UpdateSecurityPolicyCommandOutput extends UpdateSecurityPolicyR
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Thrown when you attempt to create more resources than the service allows based on service quotas.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
@@ -90,6 +100,9 @@ export class UpdateSecurityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecurityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +131,8 @@ export class UpdateSecurityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecurityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSecurityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +142,18 @@ export class UpdateSecurityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSecurityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateSecurityPolicyCommand(input, context);
+    return se_UpdateSecurityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityPolicyCommandOutput> {
-    return deserializeAws_json1_0UpdateSecurityPolicyCommand(output, context);
+    return de_UpdateSecurityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

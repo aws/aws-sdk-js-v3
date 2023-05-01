@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  StartFlowRequest,
-  StartFlowRequestFilterSensitiveLog,
-  StartFlowResponse,
-  StartFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartFlowCommand,
-  serializeAws_restJson1StartFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { StartFlowRequest, StartFlowResponse } from "../models/models_0";
+import { de_StartFlowCommand, se_StartFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartFlowCommand}.
  */
 export interface StartFlowCommandInput extends StartFlowRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartFlowCommand}.
  */
 export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Activates an existing flow. For on-demand flows, this operation runs the flow
  *       immediately. For schedule and event-triggered flows, this operation activates the flow. </p>
  * @example
@@ -43,10 +40,16 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * import { AppflowClient, StartFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, StartFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = { // StartFlowRequest
+ *   flowName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new StartFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartFlowCommandInput - {@link StartFlowCommandInput}
+ * @returns {@link StartFlowCommandOutput}
  * @see {@link StartFlowCommandInput} for command's `input` shape.
  * @see {@link StartFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -86,6 +89,9 @@ export class StartFlowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class StartFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class StartFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartFlowCommand(input, context);
+    return se_StartFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFlowCommandOutput> {
-    return deserializeAws_restJson1StartFlowCommand(output, context);
+    return de_StartFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

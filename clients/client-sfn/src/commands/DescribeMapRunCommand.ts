@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeMapRunInput,
-  DescribeMapRunInputFilterSensitiveLog,
-  DescribeMapRunOutput,
-  DescribeMapRunOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeMapRunCommand,
-  serializeAws_json1_0DescribeMapRunCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeMapRunInput, DescribeMapRunOutput } from "../models/models_0";
+import { de_DescribeMapRunCommand, se_DescribeMapRunCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMapRunCommand}.
  */
 export interface DescribeMapRunCommandInput extends DescribeMapRunInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMapRunCommand}.
  */
 export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a Map Run's configuration, progress, and results. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __Met
  * import { SFNClient, DescribeMapRunCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeMapRunCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // DescribeMapRunInput
+ *   mapRunArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMapRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMapRunCommandInput - {@link DescribeMapRunCommandInput}
+ * @returns {@link DescribeMapRunCommandOutput}
  * @see {@link DescribeMapRunCommandInput} for command's `input` shape.
  * @see {@link DescribeMapRunCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -76,6 +78,9 @@ export class DescribeMapRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMapRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class DescribeMapRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMapRunInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMapRunOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class DescribeMapRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeMapRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeMapRunCommand(input, context);
+    return se_DescribeMapRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMapRunCommandOutput> {
-    return deserializeAws_json1_0DescribeMapRunCommand(output, context);
+    return de_DescribeMapRunCommand(output, context);
   }
 
   // Start section: command_body_extra

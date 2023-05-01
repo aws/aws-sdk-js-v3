@@ -13,29 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAppRequest,
-  DeleteAppRequestFilterSensitiveLog,
-  DeleteAppResponse,
-  DeleteAppResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAppCommand,
-  serializeAws_restJson1DeleteAppCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAppRequest, DeleteAppResponse } from "../models/models_0";
+import { de_DeleteAppCommand, se_DeleteAppCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandInput extends DeleteAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an AWS Resilience Hub application. This is a destructive action that can't be
+ * @public
+ * <p>Deletes an Resilience Hub application. This is a destructive action that can't be
  *       undone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,10 +40,17 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * import { ResiliencehubClient, DeleteAppCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteAppCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // DeleteAppRequest
+ *   appArn: "STRING_VALUE", // required
+ *   forceDelete: true || false,
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
+ * @returns {@link DeleteAppCommandOutput}
  * @see {@link DeleteAppCommandInput} for command's `input` shape.
  * @see {@link DeleteAppCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -58,7 +62,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -89,6 +93,9 @@ export class DeleteAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class DeleteAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class DeleteAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppCommand(input, context);
+    return se_DeleteAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppCommandOutput> {
-    return deserializeAws_restJson1DeleteAppCommand(output, context);
+    return de_DeleteAppCommand(output, context);
   }
 
   // Start section: command_body_extra

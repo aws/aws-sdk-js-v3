@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import {
-  StopApplicationRequest,
-  StopApplicationRequestFilterSensitiveLog,
-  StopApplicationResponse,
-  StopApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopApplicationCommand,
-  serializeAws_json1_1StopApplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { StopApplicationRequest, StopApplicationResponse } from "../models/models_0";
+import { de_StopApplicationCommand, se_StopApplicationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopApplicationCommand}.
  */
 export interface StopApplicationCommandInput extends StopApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopApplicationCommand}.
  */
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the application from processing data. You can stop
  *       an application only if it is in the running status, unless you set the <code>Force</code>
  *         parameter to <code>true</code>.</p>
@@ -52,10 +49,16 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * import { KinesisAnalyticsV2Client, StopApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, StopApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // StopApplicationRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   Force: true || false,
+ * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
+ * @returns {@link StopApplicationCommandOutput}
  * @see {@link StopApplicationCommandInput} for command's `input` shape.
  * @see {@link StopApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -99,6 +102,9 @@ export class StopApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +133,8 @@ export class StopApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +144,18 @@ export class StopApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopApplicationCommand(input, context);
+    return se_StopApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopApplicationCommandOutput> {
-    return deserializeAws_json1_1StopApplicationCommand(output, context);
+    return de_StopApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

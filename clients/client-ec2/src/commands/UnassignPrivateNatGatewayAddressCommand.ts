@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { UnassignPrivateNatGatewayAddressRequest, UnassignPrivateNatGatewayAddressResult } from "../models/models_7";
 import {
-  UnassignPrivateNatGatewayAddressRequest,
-  UnassignPrivateNatGatewayAddressRequestFilterSensitiveLog,
-  UnassignPrivateNatGatewayAddressResult,
-  UnassignPrivateNatGatewayAddressResultFilterSensitiveLog,
-} from "../models/models_7";
-import {
-  deserializeAws_ec2UnassignPrivateNatGatewayAddressCommand,
-  serializeAws_ec2UnassignPrivateNatGatewayAddressCommand,
+  de_UnassignPrivateNatGatewayAddressCommand,
+  se_UnassignPrivateNatGatewayAddressCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link UnassignPrivateNatGatewayAddressCommand}.
  */
 export interface UnassignPrivateNatGatewayAddressCommandInput extends UnassignPrivateNatGatewayAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link UnassignPrivateNatGatewayAddressCommand}.
  */
 export interface UnassignPrivateNatGatewayAddressCommandOutput
@@ -37,6 +36,7 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *          <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
  *          <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The
@@ -52,10 +52,20 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
  * import { EC2Client, UnassignPrivateNatGatewayAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, UnassignPrivateNatGatewayAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // UnassignPrivateNatGatewayAddressRequest
+ *   NatGatewayId: "STRING_VALUE", // required
+ *   PrivateIpAddresses: [ // IpList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxDrainDurationSeconds: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new UnassignPrivateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UnassignPrivateNatGatewayAddressCommandInput - {@link UnassignPrivateNatGatewayAddressCommandInput}
+ * @returns {@link UnassignPrivateNatGatewayAddressCommandOutput}
  * @see {@link UnassignPrivateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link UnassignPrivateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -79,6 +89,9 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UnassignPrivateNatGatewayAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +120,8 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnassignPrivateNatGatewayAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UnassignPrivateNatGatewayAddressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +131,24 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UnassignPrivateNatGatewayAddressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2UnassignPrivateNatGatewayAddressCommand(input, context);
+    return se_UnassignPrivateNatGatewayAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UnassignPrivateNatGatewayAddressCommandOutput> {
-    return deserializeAws_ec2UnassignPrivateNatGatewayAddressCommand(output, context);
+    return de_UnassignPrivateNatGatewayAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeInstancePatchesRequest,
-  DescribeInstancePatchesRequestFilterSensitiveLog,
-  DescribeInstancePatchesResult,
-  DescribeInstancePatchesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInstancePatchesCommand,
-  serializeAws_json1_1DescribeInstancePatchesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeInstancePatchesRequest, DescribeInstancePatchesResult } from "../models/models_0";
+import { de_DescribeInstancePatchesCommand, se_DescribeInstancePatchesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstancePatchesCommand}.
  */
 export interface DescribeInstancePatchesCommandInput extends DescribeInstancePatchesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstancePatchesCommand}.
  */
 export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePatchesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the patches on the specified managed node and their state
  *    relative to the patch baseline being used for the node.</p>
  * @example
@@ -43,10 +40,25 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * import { SSMClient, DescribeInstancePatchesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstancePatchesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeInstancePatchesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Filters: [ // PatchOrchestratorFilterList
+ *     { // PatchOrchestratorFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // PatchOrchestratorFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeInstancePatchesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstancePatchesCommandInput - {@link DescribeInstancePatchesCommandInput}
+ * @returns {@link DescribeInstancePatchesCommandOutput}
  * @see {@link DescribeInstancePatchesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancePatchesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -99,6 +111,9 @@ export class DescribeInstancePatchesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstancePatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +142,8 @@ export class DescribeInstancePatchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancePatchesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstancePatchesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +153,18 @@ export class DescribeInstancePatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstancePatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstancePatchesCommand(input, context);
+    return se_DescribeInstancePatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancePatchesCommandOutput> {
-    return deserializeAws_json1_1DescribeInstancePatchesCommand(output, context);
+    return de_DescribeInstancePatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -65,10 +65,19 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes = GetLatestConfigurationCommandInput | StartConfigurationSessionCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes = GetLatestConfigurationCommandOutput | StartConfigurationSessionCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -76,7 +85,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -185,11 +194,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type AppConfigDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -200,10 +212,15 @@ type AppConfigDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of AppConfigDataClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of AppConfigDataClient class constructor that set the region, credentials and other options.
  */
 export interface AppConfigDataClientConfig extends AppConfigDataClientConfigType {}
 
+/**
+ * @public
+ */
 type AppConfigDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -214,11 +231,14 @@ type AppConfigDataClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of AppConfigDataClient class. This is resolved and normalized from the {@link AppConfigDataClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of AppConfigDataClient class. This is resolved and normalized from the {@link AppConfigDataClientConfig | constructor configuration interface}.
  */
 export interface AppConfigDataClientResolvedConfig extends AppConfigDataClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>AppConfig Data provides the data plane APIs your application uses to retrieve
  *          configuration data. Here's how it works:</p>
  *          <p>Your application retrieves configuration data by first establishing a configuration

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DeleteTrustRequest,
-  DeleteTrustRequestFilterSensitiveLog,
-  DeleteTrustResult,
-  DeleteTrustResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTrustCommand,
-  serializeAws_json1_1DeleteTrustCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTrustRequest, DeleteTrustResult } from "../models/models_0";
+import { de_DeleteTrustCommand, se_DeleteTrustCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTrustCommand}.
  */
 export interface DeleteTrustCommandInput extends DeleteTrustRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTrustCommand}.
  */
 export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing trust relationship between your Managed Microsoft AD directory and an external
  *       domain.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * import { DirectoryServiceClient, DeleteTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeleteTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DeleteTrustRequest
+ *   TrustId: "STRING_VALUE", // required
+ *   DeleteAssociatedConditionalForwarder: true || false,
+ * };
  * const command = new DeleteTrustCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTrustCommandInput - {@link DeleteTrustCommandInput}
+ * @returns {@link DeleteTrustCommandOutput}
  * @see {@link DeleteTrustCommandInput} for command's `input` shape.
  * @see {@link DeleteTrustCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -85,6 +88,9 @@ export class DeleteTrustCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTrustCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class DeleteTrustCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrustRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrustResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class DeleteTrustCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTrustCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTrustCommand(input, context);
+    return se_DeleteTrustCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrustCommandOutput> {
-    return deserializeAws_json1_1DeleteTrustCommand(output, context);
+    return de_DeleteTrustCommand(output, context);
   }
 
   // Start section: command_body_extra

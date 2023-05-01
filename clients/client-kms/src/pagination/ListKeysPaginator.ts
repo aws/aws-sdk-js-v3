@@ -6,7 +6,7 @@ import { KMSClient } from "../KMSClient";
 import { KMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KMSClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListKeysCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListKeys(
   config: KMSPaginationConfiguration,
   input: ListKeysCommandInput,

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetReferenceStoreRequest,
-  GetReferenceStoreRequestFilterSensitiveLog,
-  GetReferenceStoreResponse,
-  GetReferenceStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReferenceStoreRequest, GetReferenceStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetReferenceStoreCommand,
-  serializeAws_restJson1GetReferenceStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReferenceStoreCommand, se_GetReferenceStoreCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetReferenceStoreCommand}.
  */
 export interface GetReferenceStoreCommandInput extends GetReferenceStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReferenceStoreCommand}.
  */
 export interface GetReferenceStoreCommandOutput extends GetReferenceStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a reference store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetReferenceStoreCommandOutput extends GetReferenceStoreRespons
  * import { OmicsClient, GetReferenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReferenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // GetReferenceStoreRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetReferenceStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReferenceStoreCommandInput - {@link GetReferenceStoreCommandInput}
+ * @returns {@link GetReferenceStoreCommandOutput}
  * @see {@link GetReferenceStoreCommandInput} for command's `input` shape.
  * @see {@link GetReferenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +89,9 @@ export class GetReferenceStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReferenceStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class GetReferenceStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReferenceStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReferenceStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class GetReferenceStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetReferenceStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReferenceStoreCommand(input, context);
+    return se_GetReferenceStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReferenceStoreCommandOutput> {
-    return deserializeAws_restJson1GetReferenceStoreCommand(output, context);
+    return de_GetReferenceStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

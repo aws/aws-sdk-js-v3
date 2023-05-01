@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  GetDataSourceInput,
-  GetDataSourceInputFilterSensitiveLog,
-  GetDataSourceOutput,
-  GetDataSourceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDataSourceCommand,
-  serializeAws_json1_1GetDataSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDataSourceInput, GetDataSourceOutput } from "../models/models_0";
+import { de_GetDataSourceCommand, se_GetDataSourceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataSourceCommand}.
  */
 export interface GetDataSourceCommandInput extends GetDataSourceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetDataSourceCommand}.
  */
 export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a <code>DataSource</code> that includes metadata and data file information, as well as the current status of the <code>DataSource</code>.</p>
  *         <p>
  *             <code>GetDataSource</code> provides results in normal or verbose format. The verbose format
@@ -45,10 +42,16 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * import { MachineLearningClient, GetDataSourceCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, GetDataSourceCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // GetDataSourceInput
+ *   DataSourceId: "STRING_VALUE", // required
+ *   Verbose: true || false,
+ * };
  * const command = new GetDataSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataSourceCommandInput - {@link GetDataSourceCommandInput}
+ * @returns {@link GetDataSourceCommandOutput}
  * @see {@link GetDataSourceCommandInput} for command's `input` shape.
  * @see {@link GetDataSourceCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
@@ -81,6 +84,9 @@ export class GetDataSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class GetDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataSourceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataSourceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class GetDataSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataSourceCommand(input, context);
+    return se_GetDataSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSourceCommandOutput> {
-    return deserializeAws_json1_1GetDataSourceCommand(output, context);
+    return de_GetDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

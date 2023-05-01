@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  UpdateApiDestinationRequest,
-  UpdateApiDestinationRequestFilterSensitiveLog,
-  UpdateApiDestinationResponse,
-  UpdateApiDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateApiDestinationCommand,
-  serializeAws_json1_1UpdateApiDestinationCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateApiDestinationRequest, UpdateApiDestinationResponse } from "../models/models_0";
+import { de_UpdateApiDestinationCommand, se_UpdateApiDestinationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateApiDestinationCommand}.
  */
 export interface UpdateApiDestinationCommandInput extends UpdateApiDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateApiDestinationCommand}.
  */
 export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an API destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * import { EventBridgeClient, UpdateApiDestinationCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, UpdateApiDestinationCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // UpdateApiDestinationRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ConnectionArn: "STRING_VALUE",
+ *   InvocationEndpoint: "STRING_VALUE",
+ *   HttpMethod: "POST" || "GET" || "HEAD" || "OPTIONS" || "PUT" || "PATCH" || "DELETE",
+ *   InvocationRateLimitPerSecond: Number("int"),
+ * };
  * const command = new UpdateApiDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateApiDestinationCommandInput - {@link UpdateApiDestinationCommandInput}
+ * @returns {@link UpdateApiDestinationCommandOutput}
  * @see {@link UpdateApiDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateApiDestinationCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -82,6 +89,9 @@ export class UpdateApiDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApiDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class UpdateApiDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApiDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApiDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +131,18 @@ export class UpdateApiDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateApiDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApiDestinationCommand(input, context);
+    return se_UpdateApiDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApiDestinationCommandOutput> {
-    return deserializeAws_json1_1UpdateApiDestinationCommand(output, context);
+    return de_UpdateApiDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

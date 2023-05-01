@@ -14,27 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
+import { ListBillingGroupCostReportsInput, ListBillingGroupCostReportsOutput } from "../models/models_0";
 import {
-  ListBillingGroupCostReportsInput,
-  ListBillingGroupCostReportsInputFilterSensitiveLog,
-  ListBillingGroupCostReportsOutput,
-  ListBillingGroupCostReportsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBillingGroupCostReportsCommand,
-  serializeAws_restJson1ListBillingGroupCostReportsCommand,
+  de_ListBillingGroupCostReportsCommand,
+  se_ListBillingGroupCostReportsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListBillingGroupCostReportsCommand}.
  */
 export interface ListBillingGroupCostReportsCommandInput extends ListBillingGroupCostReportsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBillingGroupCostReportsCommand}.
  */
 export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGroupCostReportsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>A paginated call to retrieve a summary report of actual Amazon Web Services charges and the calculated
  *       Amazon Web Services charges based on the associated pricing plan of a billing group.</p>
  * @example
@@ -43,10 +43,22 @@ export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGro
  * import { BillingconductorClient, ListBillingGroupCostReportsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListBillingGroupCostReportsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // ListBillingGroupCostReportsInput
+ *   BillingPeriod: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: { // ListBillingGroupCostReportsFilter
+ *     BillingGroupArns: [ // BillingGroupArnList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListBillingGroupCostReportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBillingGroupCostReportsCommandInput - {@link ListBillingGroupCostReportsCommandInput}
+ * @returns {@link ListBillingGroupCostReportsCommandOutput}
  * @see {@link ListBillingGroupCostReportsCommandInput} for command's `input` shape.
  * @see {@link ListBillingGroupCostReportsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -89,6 +101,9 @@ export class ListBillingGroupCostReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBillingGroupCostReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +132,8 @@ export class ListBillingGroupCostReportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBillingGroupCostReportsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBillingGroupCostReportsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +143,21 @@ export class ListBillingGroupCostReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBillingGroupCostReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBillingGroupCostReportsCommand(input, context);
+    return se_ListBillingGroupCostReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBillingGroupCostReportsCommandOutput> {
-    return deserializeAws_restJson1ListBillingGroupCostReportsCommand(output, context);
+    return de_ListBillingGroupCostReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

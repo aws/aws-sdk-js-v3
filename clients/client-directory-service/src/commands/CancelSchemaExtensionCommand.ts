@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  CancelSchemaExtensionRequest,
-  CancelSchemaExtensionRequestFilterSensitiveLog,
-  CancelSchemaExtensionResult,
-  CancelSchemaExtensionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelSchemaExtensionCommand,
-  serializeAws_json1_1CancelSchemaExtensionCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelSchemaExtensionRequest, CancelSchemaExtensionResult } from "../models/models_0";
+import { de_CancelSchemaExtensionCommand, se_CancelSchemaExtensionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelSchemaExtensionCommand}.
  */
 export interface CancelSchemaExtensionCommandInput extends CancelSchemaExtensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelSchemaExtensionCommand}.
  */
 export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema
  *       extension has started replicating to all domain controllers, the task can no longer be
  *       canceled. A schema extension can be canceled during any of the following states;
@@ -46,10 +43,16 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * import { DirectoryServiceClient, CancelSchemaExtensionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CancelSchemaExtensionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // CancelSchemaExtensionRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   SchemaExtensionId: "STRING_VALUE", // required
+ * };
  * const command = new CancelSchemaExtensionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelSchemaExtensionCommandInput - {@link CancelSchemaExtensionCommandInput}
+ * @returns {@link CancelSchemaExtensionCommandOutput}
  * @see {@link CancelSchemaExtensionCommandInput} for command's `input` shape.
  * @see {@link CancelSchemaExtensionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -82,6 +85,9 @@ export class CancelSchemaExtensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelSchemaExtensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class CancelSchemaExtensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelSchemaExtensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelSchemaExtensionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class CancelSchemaExtensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelSchemaExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelSchemaExtensionCommand(input, context);
+    return se_CancelSchemaExtensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelSchemaExtensionCommandOutput> {
-    return deserializeAws_json1_1CancelSchemaExtensionCommand(output, context);
+    return de_CancelSchemaExtensionCommand(output, context);
   }
 
   // Start section: command_body_extra

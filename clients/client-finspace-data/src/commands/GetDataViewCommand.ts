@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  GetDataViewRequest,
-  GetDataViewRequestFilterSensitiveLog,
-  GetDataViewResponse,
-  GetDataViewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataViewCommand,
-  serializeAws_restJson1GetDataViewCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDataViewRequest, GetDataViewResponse } from "../models/models_0";
+import { de_GetDataViewCommand, se_GetDataViewCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataViewCommand}.
  */
 export interface GetDataViewCommandInput extends GetDataViewRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataViewCommand}.
  */
 export interface GetDataViewCommandOutput extends GetDataViewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a Dataview.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetDataViewCommandOutput extends GetDataViewResponse, __Metadat
  * import { FinspaceDataClient, GetDataViewCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetDataViewCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // GetDataViewRequest
+ *   dataViewId: "STRING_VALUE", // required
+ *   datasetId: "STRING_VALUE", // required
+ * };
  * const command = new GetDataViewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataViewCommandInput - {@link GetDataViewCommandInput}
+ * @returns {@link GetDataViewCommandOutput}
  * @see {@link GetDataViewCommandInput} for command's `input` shape.
  * @see {@link GetDataViewCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -85,6 +88,9 @@ export class GetDataViewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +117,8 @@ export class GetDataViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataViewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataViewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +128,18 @@ export class GetDataViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataViewCommand(input, context);
+    return se_GetDataViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataViewCommandOutput> {
-    return deserializeAws_restJson1GetDataViewCommand(output, context);
+    return de_GetDataViewCommand(output, context);
   }
 
   // Start section: command_body_extra

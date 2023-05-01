@@ -1,7 +1,8 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
-import { ChimeSDKVoiceClient } from "./ChimeSDKVoiceClient";
+import { ChimeSDKVoiceClient, ChimeSDKVoiceClientConfig } from "./ChimeSDKVoiceClient";
 import {
   AssociatePhoneNumbersWithVoiceConnectorCommand,
   AssociatePhoneNumbersWithVoiceConnectorCommandInput,
@@ -57,6 +58,16 @@ import {
   CreateVoiceConnectorGroupCommandInput,
   CreateVoiceConnectorGroupCommandOutput,
 } from "./commands/CreateVoiceConnectorGroupCommand";
+import {
+  CreateVoiceProfileCommand,
+  CreateVoiceProfileCommandInput,
+  CreateVoiceProfileCommandOutput,
+} from "./commands/CreateVoiceProfileCommand";
+import {
+  CreateVoiceProfileDomainCommand,
+  CreateVoiceProfileDomainCommandInput,
+  CreateVoiceProfileDomainCommandOutput,
+} from "./commands/CreateVoiceProfileDomainCommand";
 import {
   DeletePhoneNumberCommand,
   DeletePhoneNumberCommandInput,
@@ -118,6 +129,16 @@ import {
   DeleteVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCredentialsCommand";
 import {
+  DeleteVoiceProfileCommand,
+  DeleteVoiceProfileCommandInput,
+  DeleteVoiceProfileCommandOutput,
+} from "./commands/DeleteVoiceProfileCommand";
+import {
+  DeleteVoiceProfileDomainCommand,
+  DeleteVoiceProfileDomainCommandInput,
+  DeleteVoiceProfileDomainCommandOutput,
+} from "./commands/DeleteVoiceProfileDomainCommand";
+import {
   DisassociatePhoneNumbersFromVoiceConnectorCommand,
   DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
   DisassociatePhoneNumbersFromVoiceConnectorCommandOutput,
@@ -169,6 +190,11 @@ import {
 } from "./commands/GetSipMediaApplicationLoggingConfigurationCommand";
 import { GetSipRuleCommand, GetSipRuleCommandInput, GetSipRuleCommandOutput } from "./commands/GetSipRuleCommand";
 import {
+  GetSpeakerSearchTaskCommand,
+  GetSpeakerSearchTaskCommandInput,
+  GetSpeakerSearchTaskCommandOutput,
+} from "./commands/GetSpeakerSearchTaskCommand";
+import {
   GetVoiceConnectorCommand,
   GetVoiceConnectorCommandInput,
   GetVoiceConnectorCommandOutput,
@@ -214,6 +240,21 @@ import {
   GetVoiceConnectorTerminationHealthCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationHealthCommand";
 import {
+  GetVoiceProfileCommand,
+  GetVoiceProfileCommandInput,
+  GetVoiceProfileCommandOutput,
+} from "./commands/GetVoiceProfileCommand";
+import {
+  GetVoiceProfileDomainCommand,
+  GetVoiceProfileDomainCommandInput,
+  GetVoiceProfileDomainCommandOutput,
+} from "./commands/GetVoiceProfileDomainCommand";
+import {
+  GetVoiceToneAnalysisTaskCommand,
+  GetVoiceToneAnalysisTaskCommandInput,
+  GetVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/GetVoiceToneAnalysisTaskCommand";
+import {
   ListAvailableVoiceConnectorRegionsCommand,
   ListAvailableVoiceConnectorRegionsCommandInput,
   ListAvailableVoiceConnectorRegionsCommandOutput,
@@ -249,6 +290,11 @@ import {
   ListSupportedPhoneNumberCountriesCommandOutput,
 } from "./commands/ListSupportedPhoneNumberCountriesCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListVoiceConnectorGroupsCommand,
   ListVoiceConnectorGroupsCommandInput,
   ListVoiceConnectorGroupsCommandOutput,
@@ -263,6 +309,16 @@ import {
   ListVoiceConnectorTerminationCredentialsCommandInput,
   ListVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/ListVoiceConnectorTerminationCredentialsCommand";
+import {
+  ListVoiceProfileDomainsCommand,
+  ListVoiceProfileDomainsCommandInput,
+  ListVoiceProfileDomainsCommandOutput,
+} from "./commands/ListVoiceProfileDomainsCommand";
+import {
+  ListVoiceProfilesCommand,
+  ListVoiceProfilesCommandInput,
+  ListVoiceProfilesCommandOutput,
+} from "./commands/ListVoiceProfilesCommand";
 import {
   PutSipMediaApplicationAlexaSkillConfigurationCommand,
   PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
@@ -319,6 +375,32 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
+  StartSpeakerSearchTaskCommand,
+  StartSpeakerSearchTaskCommandInput,
+  StartSpeakerSearchTaskCommandOutput,
+} from "./commands/StartSpeakerSearchTaskCommand";
+import {
+  StartVoiceToneAnalysisTaskCommand,
+  StartVoiceToneAnalysisTaskCommandInput,
+  StartVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StartVoiceToneAnalysisTaskCommand";
+import {
+  StopSpeakerSearchTaskCommand,
+  StopSpeakerSearchTaskCommandInput,
+  StopSpeakerSearchTaskCommandOutput,
+} from "./commands/StopSpeakerSearchTaskCommand";
+import {
+  StopVoiceToneAnalysisTaskCommand,
+  StopVoiceToneAnalysisTaskCommandInput,
+  StopVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StopVoiceToneAnalysisTaskCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
+import {
   UpdateGlobalSettingsCommand,
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
@@ -364,2184 +446,1653 @@ import {
   UpdateVoiceConnectorGroupCommandOutput,
 } from "./commands/UpdateVoiceConnectorGroupCommand";
 import {
+  UpdateVoiceProfileCommand,
+  UpdateVoiceProfileCommandInput,
+  UpdateVoiceProfileCommandOutput,
+} from "./commands/UpdateVoiceProfileCommand";
+import {
+  UpdateVoiceProfileDomainCommand,
+  UpdateVoiceProfileDomainCommandInput,
+  UpdateVoiceProfileDomainCommandOutput,
+} from "./commands/UpdateVoiceProfileDomainCommand";
+import {
   ValidateE911AddressCommand,
   ValidateE911AddressCommandInput,
   ValidateE911AddressCommandOutput,
 } from "./commands/ValidateE911AddressCommand";
 
-export class ChimeSDKVoice extends ChimeSDKVoiceClient {
-  public associatePhoneNumbersWithVoiceConnector(
+const commands = {
+  AssociatePhoneNumbersWithVoiceConnectorCommand,
+  AssociatePhoneNumbersWithVoiceConnectorGroupCommand,
+  BatchDeletePhoneNumberCommand,
+  BatchUpdatePhoneNumberCommand,
+  CreatePhoneNumberOrderCommand,
+  CreateProxySessionCommand,
+  CreateSipMediaApplicationCommand,
+  CreateSipMediaApplicationCallCommand,
+  CreateSipRuleCommand,
+  CreateVoiceConnectorCommand,
+  CreateVoiceConnectorGroupCommand,
+  CreateVoiceProfileCommand,
+  CreateVoiceProfileDomainCommand,
+  DeletePhoneNumberCommand,
+  DeleteProxySessionCommand,
+  DeleteSipMediaApplicationCommand,
+  DeleteSipRuleCommand,
+  DeleteVoiceConnectorCommand,
+  DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
+  DeleteVoiceConnectorGroupCommand,
+  DeleteVoiceConnectorOriginationCommand,
+  DeleteVoiceConnectorProxyCommand,
+  DeleteVoiceConnectorStreamingConfigurationCommand,
+  DeleteVoiceConnectorTerminationCommand,
+  DeleteVoiceConnectorTerminationCredentialsCommand,
+  DeleteVoiceProfileCommand,
+  DeleteVoiceProfileDomainCommand,
+  DisassociatePhoneNumbersFromVoiceConnectorCommand,
+  DisassociatePhoneNumbersFromVoiceConnectorGroupCommand,
+  GetGlobalSettingsCommand,
+  GetPhoneNumberCommand,
+  GetPhoneNumberOrderCommand,
+  GetPhoneNumberSettingsCommand,
+  GetProxySessionCommand,
+  GetSipMediaApplicationCommand,
+  GetSipMediaApplicationAlexaSkillConfigurationCommand,
+  GetSipMediaApplicationLoggingConfigurationCommand,
+  GetSipRuleCommand,
+  GetSpeakerSearchTaskCommand,
+  GetVoiceConnectorCommand,
+  GetVoiceConnectorEmergencyCallingConfigurationCommand,
+  GetVoiceConnectorGroupCommand,
+  GetVoiceConnectorLoggingConfigurationCommand,
+  GetVoiceConnectorOriginationCommand,
+  GetVoiceConnectorProxyCommand,
+  GetVoiceConnectorStreamingConfigurationCommand,
+  GetVoiceConnectorTerminationCommand,
+  GetVoiceConnectorTerminationHealthCommand,
+  GetVoiceProfileCommand,
+  GetVoiceProfileDomainCommand,
+  GetVoiceToneAnalysisTaskCommand,
+  ListAvailableVoiceConnectorRegionsCommand,
+  ListPhoneNumberOrdersCommand,
+  ListPhoneNumbersCommand,
+  ListProxySessionsCommand,
+  ListSipMediaApplicationsCommand,
+  ListSipRulesCommand,
+  ListSupportedPhoneNumberCountriesCommand,
+  ListTagsForResourceCommand,
+  ListVoiceConnectorGroupsCommand,
+  ListVoiceConnectorsCommand,
+  ListVoiceConnectorTerminationCredentialsCommand,
+  ListVoiceProfileDomainsCommand,
+  ListVoiceProfilesCommand,
+  PutSipMediaApplicationAlexaSkillConfigurationCommand,
+  PutSipMediaApplicationLoggingConfigurationCommand,
+  PutVoiceConnectorEmergencyCallingConfigurationCommand,
+  PutVoiceConnectorLoggingConfigurationCommand,
+  PutVoiceConnectorOriginationCommand,
+  PutVoiceConnectorProxyCommand,
+  PutVoiceConnectorStreamingConfigurationCommand,
+  PutVoiceConnectorTerminationCommand,
+  PutVoiceConnectorTerminationCredentialsCommand,
+  RestorePhoneNumberCommand,
+  SearchAvailablePhoneNumbersCommand,
+  StartSpeakerSearchTaskCommand,
+  StartVoiceToneAnalysisTaskCommand,
+  StopSpeakerSearchTaskCommand,
+  StopVoiceToneAnalysisTaskCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateGlobalSettingsCommand,
+  UpdatePhoneNumberCommand,
+  UpdatePhoneNumberSettingsCommand,
+  UpdateProxySessionCommand,
+  UpdateSipMediaApplicationCommand,
+  UpdateSipMediaApplicationCallCommand,
+  UpdateSipRuleCommand,
+  UpdateVoiceConnectorCommand,
+  UpdateVoiceConnectorGroupCommand,
+  UpdateVoiceProfileCommand,
+  UpdateVoiceProfileDomainCommand,
+  ValidateE911AddressCommand,
+};
+
+export interface ChimeSDKVoice {
+  /**
+   * @see {@link AssociatePhoneNumbersWithVoiceConnectorCommand}
+   */
+  associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput>;
-  public associatePhoneNumbersWithVoiceConnector(
+  associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
   ): void;
-  public associatePhoneNumbersWithVoiceConnector(
+  associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
   ): void;
-  public associatePhoneNumbersWithVoiceConnector(
-    args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
-  ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput> | void {
-    const command = new AssociatePhoneNumbersWithVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public associatePhoneNumbersWithVoiceConnectorGroup(
+  /**
+   * @see {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommand}
+   */
+  associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput>;
-  public associatePhoneNumbersWithVoiceConnectorGroup(
+  associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
     cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public associatePhoneNumbersWithVoiceConnectorGroup(
+  associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public associatePhoneNumbersWithVoiceConnectorGroup(
-    args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
-  ): Promise<AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput> | void {
-    const command = new AssociatePhoneNumbersWithVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public batchDeletePhoneNumber(
+  /**
+   * @see {@link BatchDeletePhoneNumberCommand}
+   */
+  batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchDeletePhoneNumberCommandOutput>;
-  public batchDeletePhoneNumber(
+  batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
     cb: (err: any, data?: BatchDeletePhoneNumberCommandOutput) => void
   ): void;
-  public batchDeletePhoneNumber(
+  batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDeletePhoneNumberCommandOutput) => void
   ): void;
-  public batchDeletePhoneNumber(
-    args: BatchDeletePhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeletePhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: BatchDeletePhoneNumberCommandOutput) => void
-  ): Promise<BatchDeletePhoneNumberCommandOutput> | void {
-    const command = new BatchDeletePhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public batchUpdatePhoneNumber(
+  /**
+   * @see {@link BatchUpdatePhoneNumberCommand}
+   */
+  batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchUpdatePhoneNumberCommandOutput>;
-  public batchUpdatePhoneNumber(
+  batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
     cb: (err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void
   ): void;
-  public batchUpdatePhoneNumber(
+  batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void
   ): void;
-  public batchUpdatePhoneNumber(
-    args: BatchUpdatePhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void
-  ): Promise<BatchUpdatePhoneNumberCommandOutput> | void {
-    const command = new BatchUpdatePhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public createPhoneNumberOrder(
+  /**
+   * @see {@link CreatePhoneNumberOrderCommand}
+   */
+  createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreatePhoneNumberOrderCommandOutput>;
-  public createPhoneNumberOrder(
+  createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
     cb: (err: any, data?: CreatePhoneNumberOrderCommandOutput) => void
   ): void;
-  public createPhoneNumberOrder(
+  createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePhoneNumberOrderCommandOutput) => void
   ): void;
-  public createPhoneNumberOrder(
-    args: CreatePhoneNumberOrderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePhoneNumberOrderCommandOutput) => void),
-    cb?: (err: any, data?: CreatePhoneNumberOrderCommandOutput) => void
-  ): Promise<CreatePhoneNumberOrderCommandOutput> | void {
-    const command = new CreatePhoneNumberOrderCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public createProxySession(
+  /**
+   * @see {@link CreateProxySessionCommand}
+   */
+  createProxySession(
     args: CreateProxySessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateProxySessionCommandOutput>;
-  public createProxySession(
+  createProxySession(
     args: CreateProxySessionCommandInput,
     cb: (err: any, data?: CreateProxySessionCommandOutput) => void
   ): void;
-  public createProxySession(
+  createProxySession(
     args: CreateProxySessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateProxySessionCommandOutput) => void
   ): void;
-  public createProxySession(
-    args: CreateProxySessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProxySessionCommandOutput) => void),
-    cb?: (err: any, data?: CreateProxySessionCommandOutput) => void
-  ): Promise<CreateProxySessionCommandOutput> | void {
-    const command = new CreateProxySessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public createSipMediaApplication(
+  /**
+   * @see {@link CreateSipMediaApplicationCommand}
+   */
+  createSipMediaApplication(
     args: CreateSipMediaApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSipMediaApplicationCommandOutput>;
-  public createSipMediaApplication(
+  createSipMediaApplication(
     args: CreateSipMediaApplicationCommandInput,
     cb: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
   ): void;
-  public createSipMediaApplication(
+  createSipMediaApplication(
     args: CreateSipMediaApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
   ): void;
-  public createSipMediaApplication(
-    args: CreateSipMediaApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSipMediaApplicationCommandOutput) => void),
-    cb?: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
-  ): Promise<CreateSipMediaApplicationCommandOutput> | void {
-    const command = new CreateSipMediaApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public createSipMediaApplicationCall(
+  /**
+   * @see {@link CreateSipMediaApplicationCallCommand}
+   */
+  createSipMediaApplicationCall(
     args: CreateSipMediaApplicationCallCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSipMediaApplicationCallCommandOutput>;
-  public createSipMediaApplicationCall(
+  createSipMediaApplicationCall(
     args: CreateSipMediaApplicationCallCommandInput,
     cb: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
   ): void;
-  public createSipMediaApplicationCall(
+  createSipMediaApplicationCall(
     args: CreateSipMediaApplicationCallCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
   ): void;
-  public createSipMediaApplicationCall(
-    args: CreateSipMediaApplicationCallCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void),
-    cb?: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
-  ): Promise<CreateSipMediaApplicationCallCommandOutput> | void {
-    const command = new CreateSipMediaApplicationCallCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public createSipRule(
-    args: CreateSipRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSipRuleCommandOutput>;
-  public createSipRule(
-    args: CreateSipRuleCommandInput,
-    cb: (err: any, data?: CreateSipRuleCommandOutput) => void
-  ): void;
-  public createSipRule(
+  /**
+   * @see {@link CreateSipRuleCommand}
+   */
+  createSipRule(args: CreateSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateSipRuleCommandOutput>;
+  createSipRule(args: CreateSipRuleCommandInput, cb: (err: any, data?: CreateSipRuleCommandOutput) => void): void;
+  createSipRule(
     args: CreateSipRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSipRuleCommandOutput) => void
   ): void;
-  public createSipRule(
-    args: CreateSipRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSipRuleCommandOutput) => void),
-    cb?: (err: any, data?: CreateSipRuleCommandOutput) => void
-  ): Promise<CreateSipRuleCommandOutput> | void {
-    const command = new CreateSipRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public createVoiceConnector(
+  /**
+   * @see {@link CreateVoiceConnectorCommand}
+   */
+  createVoiceConnector(
     args: CreateVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateVoiceConnectorCommandOutput>;
-  public createVoiceConnector(
+  createVoiceConnector(
     args: CreateVoiceConnectorCommandInput,
     cb: (err: any, data?: CreateVoiceConnectorCommandOutput) => void
   ): void;
-  public createVoiceConnector(
+  createVoiceConnector(
     args: CreateVoiceConnectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVoiceConnectorCommandOutput) => void
   ): void;
-  public createVoiceConnector(
-    args: CreateVoiceConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: CreateVoiceConnectorCommandOutput) => void
-  ): Promise<CreateVoiceConnectorCommandOutput> | void {
-    const command = new CreateVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public createVoiceConnectorGroup(
+  /**
+   * @see {@link CreateVoiceConnectorGroupCommand}
+   */
+  createVoiceConnectorGroup(
     args: CreateVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateVoiceConnectorGroupCommandOutput>;
-  public createVoiceConnectorGroup(
+  createVoiceConnectorGroup(
     args: CreateVoiceConnectorGroupCommandInput,
     cb: (err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public createVoiceConnectorGroup(
+  createVoiceConnectorGroup(
     args: CreateVoiceConnectorGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public createVoiceConnectorGroup(
-    args: CreateVoiceConnectorGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void
-  ): Promise<CreateVoiceConnectorGroupCommandOutput> | void {
-    const command = new CreateVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deletePhoneNumber(
+  /**
+   * @see {@link CreateVoiceProfileCommand}
+   */
+  createVoiceProfile(
+    args: CreateVoiceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVoiceProfileCommandOutput>;
+  createVoiceProfile(
+    args: CreateVoiceProfileCommandInput,
+    cb: (err: any, data?: CreateVoiceProfileCommandOutput) => void
+  ): void;
+  createVoiceProfile(
+    args: CreateVoiceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVoiceProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateVoiceProfileDomainCommand}
+   */
+  createVoiceProfileDomain(
+    args: CreateVoiceProfileDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVoiceProfileDomainCommandOutput>;
+  createVoiceProfileDomain(
+    args: CreateVoiceProfileDomainCommandInput,
+    cb: (err: any, data?: CreateVoiceProfileDomainCommandOutput) => void
+  ): void;
+  createVoiceProfileDomain(
+    args: CreateVoiceProfileDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVoiceProfileDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePhoneNumberCommand}
+   */
+  deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeletePhoneNumberCommandOutput>;
-  public deletePhoneNumber(
+  deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
     cb: (err: any, data?: DeletePhoneNumberCommandOutput) => void
   ): void;
-  public deletePhoneNumber(
+  deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePhoneNumberCommandOutput) => void
   ): void;
-  public deletePhoneNumber(
-    args: DeletePhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: DeletePhoneNumberCommandOutput) => void
-  ): Promise<DeletePhoneNumberCommandOutput> | void {
-    const command = new DeletePhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deleteProxySession(
+  /**
+   * @see {@link DeleteProxySessionCommand}
+   */
+  deleteProxySession(
     args: DeleteProxySessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteProxySessionCommandOutput>;
-  public deleteProxySession(
+  deleteProxySession(
     args: DeleteProxySessionCommandInput,
     cb: (err: any, data?: DeleteProxySessionCommandOutput) => void
   ): void;
-  public deleteProxySession(
+  deleteProxySession(
     args: DeleteProxySessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteProxySessionCommandOutput) => void
   ): void;
-  public deleteProxySession(
-    args: DeleteProxySessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProxySessionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteProxySessionCommandOutput) => void
-  ): Promise<DeleteProxySessionCommandOutput> | void {
-    const command = new DeleteProxySessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deleteSipMediaApplication(
+  /**
+   * @see {@link DeleteSipMediaApplicationCommand}
+   */
+  deleteSipMediaApplication(
     args: DeleteSipMediaApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSipMediaApplicationCommandOutput>;
-  public deleteSipMediaApplication(
+  deleteSipMediaApplication(
     args: DeleteSipMediaApplicationCommandInput,
     cb: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
   ): void;
-  public deleteSipMediaApplication(
+  deleteSipMediaApplication(
     args: DeleteSipMediaApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
   ): void;
-  public deleteSipMediaApplication(
-    args: DeleteSipMediaApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSipMediaApplicationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
-  ): Promise<DeleteSipMediaApplicationCommandOutput> | void {
-    const command = new DeleteSipMediaApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deleteSipRule(
-    args: DeleteSipRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSipRuleCommandOutput>;
-  public deleteSipRule(
-    args: DeleteSipRuleCommandInput,
-    cb: (err: any, data?: DeleteSipRuleCommandOutput) => void
-  ): void;
-  public deleteSipRule(
+  /**
+   * @see {@link DeleteSipRuleCommand}
+   */
+  deleteSipRule(args: DeleteSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSipRuleCommandOutput>;
+  deleteSipRule(args: DeleteSipRuleCommandInput, cb: (err: any, data?: DeleteSipRuleCommandOutput) => void): void;
+  deleteSipRule(
     args: DeleteSipRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSipRuleCommandOutput) => void
   ): void;
-  public deleteSipRule(
-    args: DeleteSipRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSipRuleCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSipRuleCommandOutput) => void
-  ): Promise<DeleteSipRuleCommandOutput> | void {
-    const command = new DeleteSipRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deleteVoiceConnector(
+  /**
+   * @see {@link DeleteVoiceConnectorCommand}
+   */
+  deleteVoiceConnector(
     args: DeleteVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVoiceConnectorCommandOutput>;
-  public deleteVoiceConnector(
+  deleteVoiceConnector(
     args: DeleteVoiceConnectorCommandInput,
     cb: (err: any, data?: DeleteVoiceConnectorCommandOutput) => void
   ): void;
-  public deleteVoiceConnector(
+  deleteVoiceConnector(
     args: DeleteVoiceConnectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVoiceConnectorCommandOutput) => void
   ): void;
-  public deleteVoiceConnector(
-    args: DeleteVoiceConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorCommandOutput> | void {
-    const command = new DeleteVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deleteVoiceConnectorEmergencyCallingConfiguration(
+  /**
+   * @see {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommand}
+   */
+  deleteVoiceConnectorEmergencyCallingConfiguration(
     args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
-  public deleteVoiceConnectorEmergencyCallingConfiguration(
+  deleteVoiceConnectorEmergencyCallingConfiguration(
     args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
     cb: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorEmergencyCallingConfiguration(
+  deleteVoiceConnectorEmergencyCallingConfiguration(
     args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorEmergencyCallingConfiguration(
-    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput> | void {
-    const command = new DeleteVoiceConnectorEmergencyCallingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deleteVoiceConnectorGroup(
+  /**
+   * @see {@link DeleteVoiceConnectorGroupCommand}
+   */
+  deleteVoiceConnectorGroup(
     args: DeleteVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVoiceConnectorGroupCommandOutput>;
-  public deleteVoiceConnectorGroup(
+  deleteVoiceConnectorGroup(
     args: DeleteVoiceConnectorGroupCommandInput,
     cb: (err: any, data?: DeleteVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorGroup(
+  deleteVoiceConnectorGroup(
     args: DeleteVoiceConnectorGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorGroup(
-    args: DeleteVoiceConnectorGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorGroupCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorGroupCommandOutput> | void {
-    const command = new DeleteVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deleteVoiceConnectorOrigination(
+  /**
+   * @see {@link DeleteVoiceConnectorOriginationCommand}
+   */
+  deleteVoiceConnectorOrigination(
     args: DeleteVoiceConnectorOriginationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVoiceConnectorOriginationCommandOutput>;
-  public deleteVoiceConnectorOrigination(
+  deleteVoiceConnectorOrigination(
     args: DeleteVoiceConnectorOriginationCommandInput,
     cb: (err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorOrigination(
+  deleteVoiceConnectorOrigination(
     args: DeleteVoiceConnectorOriginationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorOrigination(
-    args: DeleteVoiceConnectorOriginationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorOriginationCommandOutput> | void {
-    const command = new DeleteVoiceConnectorOriginationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deleteVoiceConnectorProxy(
+  /**
+   * @see {@link DeleteVoiceConnectorProxyCommand}
+   */
+  deleteVoiceConnectorProxy(
     args: DeleteVoiceConnectorProxyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVoiceConnectorProxyCommandOutput>;
-  public deleteVoiceConnectorProxy(
+  deleteVoiceConnectorProxy(
     args: DeleteVoiceConnectorProxyCommandInput,
     cb: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorProxy(
+  deleteVoiceConnectorProxy(
     args: DeleteVoiceConnectorProxyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorProxy(
-    args: DeleteVoiceConnectorProxyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorProxyCommandOutput> | void {
-    const command = new DeleteVoiceConnectorProxyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deleteVoiceConnectorStreamingConfiguration(
+  /**
+   * @see {@link DeleteVoiceConnectorStreamingConfigurationCommand}
+   */
+  deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVoiceConnectorStreamingConfigurationCommandOutput>;
-  public deleteVoiceConnectorStreamingConfiguration(
+  deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
     cb: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorStreamingConfiguration(
+  deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorStreamingConfiguration(
-    args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorStreamingConfigurationCommandOutput> | void {
-    const command = new DeleteVoiceConnectorStreamingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deleteVoiceConnectorTermination(
+  /**
+   * @see {@link DeleteVoiceConnectorTerminationCommand}
+   */
+  deleteVoiceConnectorTermination(
     args: DeleteVoiceConnectorTerminationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVoiceConnectorTerminationCommandOutput>;
-  public deleteVoiceConnectorTermination(
+  deleteVoiceConnectorTermination(
     args: DeleteVoiceConnectorTerminationCommandInput,
     cb: (err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorTermination(
+  deleteVoiceConnectorTermination(
     args: DeleteVoiceConnectorTerminationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorTermination(
-    args: DeleteVoiceConnectorTerminationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorTerminationCommandOutput> | void {
-    const command = new DeleteVoiceConnectorTerminationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public deleteVoiceConnectorTerminationCredentials(
+  /**
+   * @see {@link DeleteVoiceConnectorTerminationCredentialsCommand}
+   */
+  deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput>;
-  public deleteVoiceConnectorTerminationCredentials(
+  deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
     cb: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorTerminationCredentials(
+  deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
-  public deleteVoiceConnectorTerminationCredentials(
-    args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput> | void {
-    const command = new DeleteVoiceConnectorTerminationCredentialsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public disassociatePhoneNumbersFromVoiceConnector(
+  /**
+   * @see {@link DeleteVoiceProfileCommand}
+   */
+  deleteVoiceProfile(
+    args: DeleteVoiceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceProfileCommandOutput>;
+  deleteVoiceProfile(
+    args: DeleteVoiceProfileCommandInput,
+    cb: (err: any, data?: DeleteVoiceProfileCommandOutput) => void
+  ): void;
+  deleteVoiceProfile(
+    args: DeleteVoiceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVoiceProfileDomainCommand}
+   */
+  deleteVoiceProfileDomain(
+    args: DeleteVoiceProfileDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceProfileDomainCommandOutput>;
+  deleteVoiceProfileDomain(
+    args: DeleteVoiceProfileDomainCommandInput,
+    cb: (err: any, data?: DeleteVoiceProfileDomainCommandOutput) => void
+  ): void;
+  deleteVoiceProfileDomain(
+    args: DeleteVoiceProfileDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceProfileDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociatePhoneNumbersFromVoiceConnectorCommand}
+   */
+  disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput>;
-  public disassociatePhoneNumbersFromVoiceConnector(
+  disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
     cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
   ): void;
-  public disassociatePhoneNumbersFromVoiceConnector(
+  disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
   ): void;
-  public disassociatePhoneNumbersFromVoiceConnector(
-    args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
-  ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput> | void {
-    const command = new DisassociatePhoneNumbersFromVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public disassociatePhoneNumbersFromVoiceConnectorGroup(
+  /**
+   * @see {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommand}
+   */
+  disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput>;
-  public disassociatePhoneNumbersFromVoiceConnectorGroup(
+  disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
     cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public disassociatePhoneNumbersFromVoiceConnectorGroup(
+  disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public disassociatePhoneNumbersFromVoiceConnectorGroup(
-    args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
-  ): Promise<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput> | void {
-    const command = new DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getGlobalSettings(
+  /**
+   * @see {@link GetGlobalSettingsCommand}
+   */
+  getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetGlobalSettingsCommandOutput>;
-  public getGlobalSettings(
+  getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
     cb: (err: any, data?: GetGlobalSettingsCommandOutput) => void
   ): void;
-  public getGlobalSettings(
+  getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetGlobalSettingsCommandOutput) => void
   ): void;
-  public getGlobalSettings(
-    args: GetGlobalSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGlobalSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetGlobalSettingsCommandOutput) => void
-  ): Promise<GetGlobalSettingsCommandOutput> | void {
-    const command = new GetGlobalSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getPhoneNumber(
+  /**
+   * @see {@link GetPhoneNumberCommand}
+   */
+  getPhoneNumber(
     args: GetPhoneNumberCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPhoneNumberCommandOutput>;
-  public getPhoneNumber(
-    args: GetPhoneNumberCommandInput,
-    cb: (err: any, data?: GetPhoneNumberCommandOutput) => void
-  ): void;
-  public getPhoneNumber(
+  getPhoneNumber(args: GetPhoneNumberCommandInput, cb: (err: any, data?: GetPhoneNumberCommandOutput) => void): void;
+  getPhoneNumber(
     args: GetPhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPhoneNumberCommandOutput) => void
   ): void;
-  public getPhoneNumber(
-    args: GetPhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: GetPhoneNumberCommandOutput) => void
-  ): Promise<GetPhoneNumberCommandOutput> | void {
-    const command = new GetPhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getPhoneNumberOrder(
+  /**
+   * @see {@link GetPhoneNumberOrderCommand}
+   */
+  getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPhoneNumberOrderCommandOutput>;
-  public getPhoneNumberOrder(
+  getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
     cb: (err: any, data?: GetPhoneNumberOrderCommandOutput) => void
   ): void;
-  public getPhoneNumberOrder(
+  getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPhoneNumberOrderCommandOutput) => void
   ): void;
-  public getPhoneNumberOrder(
-    args: GetPhoneNumberOrderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPhoneNumberOrderCommandOutput) => void),
-    cb?: (err: any, data?: GetPhoneNumberOrderCommandOutput) => void
-  ): Promise<GetPhoneNumberOrderCommandOutput> | void {
-    const command = new GetPhoneNumberOrderCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getPhoneNumberSettings(
+  /**
+   * @see {@link GetPhoneNumberSettingsCommand}
+   */
+  getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPhoneNumberSettingsCommandOutput>;
-  public getPhoneNumberSettings(
+  getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
     cb: (err: any, data?: GetPhoneNumberSettingsCommandOutput) => void
   ): void;
-  public getPhoneNumberSettings(
+  getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPhoneNumberSettingsCommandOutput) => void
   ): void;
-  public getPhoneNumberSettings(
-    args: GetPhoneNumberSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPhoneNumberSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetPhoneNumberSettingsCommandOutput) => void
-  ): Promise<GetPhoneNumberSettingsCommandOutput> | void {
-    const command = new GetPhoneNumberSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getProxySession(
+  /**
+   * @see {@link GetProxySessionCommand}
+   */
+  getProxySession(
     args: GetProxySessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetProxySessionCommandOutput>;
-  public getProxySession(
-    args: GetProxySessionCommandInput,
-    cb: (err: any, data?: GetProxySessionCommandOutput) => void
-  ): void;
-  public getProxySession(
+  getProxySession(args: GetProxySessionCommandInput, cb: (err: any, data?: GetProxySessionCommandOutput) => void): void;
+  getProxySession(
     args: GetProxySessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetProxySessionCommandOutput) => void
   ): void;
-  public getProxySession(
-    args: GetProxySessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProxySessionCommandOutput) => void),
-    cb?: (err: any, data?: GetProxySessionCommandOutput) => void
-  ): Promise<GetProxySessionCommandOutput> | void {
-    const command = new GetProxySessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getSipMediaApplication(
+  /**
+   * @see {@link GetSipMediaApplicationCommand}
+   */
+  getSipMediaApplication(
     args: GetSipMediaApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSipMediaApplicationCommandOutput>;
-  public getSipMediaApplication(
+  getSipMediaApplication(
     args: GetSipMediaApplicationCommandInput,
     cb: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
   ): void;
-  public getSipMediaApplication(
+  getSipMediaApplication(
     args: GetSipMediaApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
   ): void;
-  public getSipMediaApplication(
-    args: GetSipMediaApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSipMediaApplicationCommandOutput) => void),
-    cb?: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
-  ): Promise<GetSipMediaApplicationCommandOutput> | void {
-    const command = new GetSipMediaApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getSipMediaApplicationAlexaSkillConfiguration(
+  /**
+   * @see {@link GetSipMediaApplicationAlexaSkillConfigurationCommand}
+   */
+  getSipMediaApplicationAlexaSkillConfiguration(
     args: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSipMediaApplicationAlexaSkillConfigurationCommandOutput>;
-  public getSipMediaApplicationAlexaSkillConfiguration(
+  getSipMediaApplicationAlexaSkillConfiguration(
     args: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
     cb: (err: any, data?: GetSipMediaApplicationAlexaSkillConfigurationCommandOutput) => void
   ): void;
-  public getSipMediaApplicationAlexaSkillConfiguration(
+  getSipMediaApplicationAlexaSkillConfiguration(
     args: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSipMediaApplicationAlexaSkillConfigurationCommandOutput) => void
   ): void;
-  public getSipMediaApplicationAlexaSkillConfiguration(
-    args: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSipMediaApplicationAlexaSkillConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetSipMediaApplicationAlexaSkillConfigurationCommandOutput) => void
-  ): Promise<GetSipMediaApplicationAlexaSkillConfigurationCommandOutput> | void {
-    const command = new GetSipMediaApplicationAlexaSkillConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getSipMediaApplicationLoggingConfiguration(
+  /**
+   * @see {@link GetSipMediaApplicationLoggingConfigurationCommand}
+   */
+  getSipMediaApplicationLoggingConfiguration(
     args: GetSipMediaApplicationLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSipMediaApplicationLoggingConfigurationCommandOutput>;
-  public getSipMediaApplicationLoggingConfiguration(
+  getSipMediaApplicationLoggingConfiguration(
     args: GetSipMediaApplicationLoggingConfigurationCommandInput,
     cb: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
   ): void;
-  public getSipMediaApplicationLoggingConfiguration(
+  getSipMediaApplicationLoggingConfiguration(
     args: GetSipMediaApplicationLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
   ): void;
-  public getSipMediaApplicationLoggingConfiguration(
-    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
-  ): Promise<GetSipMediaApplicationLoggingConfigurationCommandOutput> | void {
-    const command = new GetSipMediaApplicationLoggingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getSipRule(args: GetSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetSipRuleCommandOutput>;
-  public getSipRule(args: GetSipRuleCommandInput, cb: (err: any, data?: GetSipRuleCommandOutput) => void): void;
-  public getSipRule(
+  /**
+   * @see {@link GetSipRuleCommand}
+   */
+  getSipRule(args: GetSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetSipRuleCommandOutput>;
+  getSipRule(args: GetSipRuleCommandInput, cb: (err: any, data?: GetSipRuleCommandOutput) => void): void;
+  getSipRule(
     args: GetSipRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSipRuleCommandOutput) => void
   ): void;
-  public getSipRule(
-    args: GetSipRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSipRuleCommandOutput) => void),
-    cb?: (err: any, data?: GetSipRuleCommandOutput) => void
-  ): Promise<GetSipRuleCommandOutput> | void {
-    const command = new GetSipRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getVoiceConnector(
+  /**
+   * @see {@link GetSpeakerSearchTaskCommand}
+   */
+  getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSpeakerSearchTaskCommandOutput>;
+  getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: GetSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSpeakerSearchTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceConnectorCommand}
+   */
+  getVoiceConnector(
     args: GetVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceConnectorCommandOutput>;
-  public getVoiceConnector(
+  getVoiceConnector(
     args: GetVoiceConnectorCommandInput,
     cb: (err: any, data?: GetVoiceConnectorCommandOutput) => void
   ): void;
-  public getVoiceConnector(
+  getVoiceConnector(
     args: GetVoiceConnectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceConnectorCommandOutput) => void
   ): void;
-  public getVoiceConnector(
-    args: GetVoiceConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorCommandOutput) => void
-  ): Promise<GetVoiceConnectorCommandOutput> | void {
-    const command = new GetVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getVoiceConnectorEmergencyCallingConfiguration(
+  /**
+   * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}
+   */
+  getVoiceConnectorEmergencyCallingConfiguration(
     args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
-  public getVoiceConnectorEmergencyCallingConfiguration(
+  getVoiceConnectorEmergencyCallingConfiguration(
     args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
     cb: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
   ): void;
-  public getVoiceConnectorEmergencyCallingConfiguration(
+  getVoiceConnectorEmergencyCallingConfiguration(
     args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
   ): void;
-  public getVoiceConnectorEmergencyCallingConfiguration(
-    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput> | void {
-    const command = new GetVoiceConnectorEmergencyCallingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getVoiceConnectorGroup(
+  /**
+   * @see {@link GetVoiceConnectorGroupCommand}
+   */
+  getVoiceConnectorGroup(
     args: GetVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceConnectorGroupCommandOutput>;
-  public getVoiceConnectorGroup(
+  getVoiceConnectorGroup(
     args: GetVoiceConnectorGroupCommandInput,
     cb: (err: any, data?: GetVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public getVoiceConnectorGroup(
+  getVoiceConnectorGroup(
     args: GetVoiceConnectorGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public getVoiceConnectorGroup(
-    args: GetVoiceConnectorGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorGroupCommandOutput) => void
-  ): Promise<GetVoiceConnectorGroupCommandOutput> | void {
-    const command = new GetVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getVoiceConnectorLoggingConfiguration(
+  /**
+   * @see {@link GetVoiceConnectorLoggingConfigurationCommand}
+   */
+  getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceConnectorLoggingConfigurationCommandOutput>;
-  public getVoiceConnectorLoggingConfiguration(
+  getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
     cb: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): void;
-  public getVoiceConnectorLoggingConfiguration(
+  getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): void;
-  public getVoiceConnectorLoggingConfiguration(
-    args: GetVoiceConnectorLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
-  ): Promise<GetVoiceConnectorLoggingConfigurationCommandOutput> | void {
-    const command = new GetVoiceConnectorLoggingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getVoiceConnectorOrigination(
+  /**
+   * @see {@link GetVoiceConnectorOriginationCommand}
+   */
+  getVoiceConnectorOrigination(
     args: GetVoiceConnectorOriginationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceConnectorOriginationCommandOutput>;
-  public getVoiceConnectorOrigination(
+  getVoiceConnectorOrigination(
     args: GetVoiceConnectorOriginationCommandInput,
     cb: (err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void
   ): void;
-  public getVoiceConnectorOrigination(
+  getVoiceConnectorOrigination(
     args: GetVoiceConnectorOriginationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void
   ): void;
-  public getVoiceConnectorOrigination(
-    args: GetVoiceConnectorOriginationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void
-  ): Promise<GetVoiceConnectorOriginationCommandOutput> | void {
-    const command = new GetVoiceConnectorOriginationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getVoiceConnectorProxy(
+  /**
+   * @see {@link GetVoiceConnectorProxyCommand}
+   */
+  getVoiceConnectorProxy(
     args: GetVoiceConnectorProxyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceConnectorProxyCommandOutput>;
-  public getVoiceConnectorProxy(
+  getVoiceConnectorProxy(
     args: GetVoiceConnectorProxyCommandInput,
     cb: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
   ): void;
-  public getVoiceConnectorProxy(
+  getVoiceConnectorProxy(
     args: GetVoiceConnectorProxyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
   ): void;
-  public getVoiceConnectorProxy(
-    args: GetVoiceConnectorProxyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorProxyCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
-  ): Promise<GetVoiceConnectorProxyCommandOutput> | void {
-    const command = new GetVoiceConnectorProxyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getVoiceConnectorStreamingConfiguration(
+  /**
+   * @see {@link GetVoiceConnectorStreamingConfigurationCommand}
+   */
+  getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceConnectorStreamingConfigurationCommandOutput>;
-  public getVoiceConnectorStreamingConfiguration(
+  getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
     cb: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
-  public getVoiceConnectorStreamingConfiguration(
+  getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
-  public getVoiceConnectorStreamingConfiguration(
-    args: GetVoiceConnectorStreamingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): Promise<GetVoiceConnectorStreamingConfigurationCommandOutput> | void {
-    const command = new GetVoiceConnectorStreamingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getVoiceConnectorTermination(
+  /**
+   * @see {@link GetVoiceConnectorTerminationCommand}
+   */
+  getVoiceConnectorTermination(
     args: GetVoiceConnectorTerminationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceConnectorTerminationCommandOutput>;
-  public getVoiceConnectorTermination(
+  getVoiceConnectorTermination(
     args: GetVoiceConnectorTerminationCommandInput,
     cb: (err: any, data?: GetVoiceConnectorTerminationCommandOutput) => void
   ): void;
-  public getVoiceConnectorTermination(
+  getVoiceConnectorTermination(
     args: GetVoiceConnectorTerminationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceConnectorTerminationCommandOutput) => void
   ): void;
-  public getVoiceConnectorTermination(
-    args: GetVoiceConnectorTerminationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorTerminationCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorTerminationCommandOutput) => void
-  ): Promise<GetVoiceConnectorTerminationCommandOutput> | void {
-    const command = new GetVoiceConnectorTerminationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public getVoiceConnectorTerminationHealth(
+  /**
+   * @see {@link GetVoiceConnectorTerminationHealthCommand}
+   */
+  getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceConnectorTerminationHealthCommandOutput>;
-  public getVoiceConnectorTerminationHealth(
+  getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
     cb: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
   ): void;
-  public getVoiceConnectorTerminationHealth(
+  getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
   ): void;
-  public getVoiceConnectorTerminationHealth(
-    args: GetVoiceConnectorTerminationHealthCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
-  ): Promise<GetVoiceConnectorTerminationHealthCommandOutput> | void {
-    const command = new GetVoiceConnectorTerminationHealthCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public listAvailableVoiceConnectorRegions(
+  /**
+   * @see {@link GetVoiceProfileCommand}
+   */
+  getVoiceProfile(
+    args: GetVoiceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceProfileCommandOutput>;
+  getVoiceProfile(args: GetVoiceProfileCommandInput, cb: (err: any, data?: GetVoiceProfileCommandOutput) => void): void;
+  getVoiceProfile(
+    args: GetVoiceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceProfileDomainCommand}
+   */
+  getVoiceProfileDomain(
+    args: GetVoiceProfileDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceProfileDomainCommandOutput>;
+  getVoiceProfileDomain(
+    args: GetVoiceProfileDomainCommandInput,
+    cb: (err: any, data?: GetVoiceProfileDomainCommandOutput) => void
+  ): void;
+  getVoiceProfileDomain(
+    args: GetVoiceProfileDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceProfileDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceToneAnalysisTaskCommand}
+   */
+  getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceToneAnalysisTaskCommandOutput>;
+  getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: GetVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAvailableVoiceConnectorRegionsCommand}
+   */
+  listAvailableVoiceConnectorRegions(
     args: ListAvailableVoiceConnectorRegionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAvailableVoiceConnectorRegionsCommandOutput>;
-  public listAvailableVoiceConnectorRegions(
+  listAvailableVoiceConnectorRegions(
     args: ListAvailableVoiceConnectorRegionsCommandInput,
     cb: (err: any, data?: ListAvailableVoiceConnectorRegionsCommandOutput) => void
   ): void;
-  public listAvailableVoiceConnectorRegions(
+  listAvailableVoiceConnectorRegions(
     args: ListAvailableVoiceConnectorRegionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAvailableVoiceConnectorRegionsCommandOutput) => void
   ): void;
-  public listAvailableVoiceConnectorRegions(
-    args: ListAvailableVoiceConnectorRegionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAvailableVoiceConnectorRegionsCommandOutput) => void),
-    cb?: (err: any, data?: ListAvailableVoiceConnectorRegionsCommandOutput) => void
-  ): Promise<ListAvailableVoiceConnectorRegionsCommandOutput> | void {
-    const command = new ListAvailableVoiceConnectorRegionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public listPhoneNumberOrders(
+  /**
+   * @see {@link ListPhoneNumberOrdersCommand}
+   */
+  listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPhoneNumberOrdersCommandOutput>;
-  public listPhoneNumberOrders(
+  listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
     cb: (err: any, data?: ListPhoneNumberOrdersCommandOutput) => void
   ): void;
-  public listPhoneNumberOrders(
+  listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPhoneNumberOrdersCommandOutput) => void
   ): void;
-  public listPhoneNumberOrders(
-    args: ListPhoneNumberOrdersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPhoneNumberOrdersCommandOutput) => void),
-    cb?: (err: any, data?: ListPhoneNumberOrdersCommandOutput) => void
-  ): Promise<ListPhoneNumberOrdersCommandOutput> | void {
-    const command = new ListPhoneNumberOrdersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public listPhoneNumbers(
+  /**
+   * @see {@link ListPhoneNumbersCommand}
+   */
+  listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPhoneNumbersCommandOutput>;
-  public listPhoneNumbers(
+  listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
     cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
   ): void;
-  public listPhoneNumbers(
+  listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
   ): void;
-  public listPhoneNumbers(
-    args: ListPhoneNumbersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPhoneNumbersCommandOutput) => void),
-    cb?: (err: any, data?: ListPhoneNumbersCommandOutput) => void
-  ): Promise<ListPhoneNumbersCommandOutput> | void {
-    const command = new ListPhoneNumbersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public listProxySessions(
+  /**
+   * @see {@link ListProxySessionsCommand}
+   */
+  listProxySessions(
     args: ListProxySessionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListProxySessionsCommandOutput>;
-  public listProxySessions(
+  listProxySessions(
     args: ListProxySessionsCommandInput,
     cb: (err: any, data?: ListProxySessionsCommandOutput) => void
   ): void;
-  public listProxySessions(
+  listProxySessions(
     args: ListProxySessionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListProxySessionsCommandOutput) => void
   ): void;
-  public listProxySessions(
-    args: ListProxySessionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProxySessionsCommandOutput) => void),
-    cb?: (err: any, data?: ListProxySessionsCommandOutput) => void
-  ): Promise<ListProxySessionsCommandOutput> | void {
-    const command = new ListProxySessionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public listSipMediaApplications(
+  /**
+   * @see {@link ListSipMediaApplicationsCommand}
+   */
+  listSipMediaApplications(
     args: ListSipMediaApplicationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListSipMediaApplicationsCommandOutput>;
-  public listSipMediaApplications(
+  listSipMediaApplications(
     args: ListSipMediaApplicationsCommandInput,
     cb: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
   ): void;
-  public listSipMediaApplications(
+  listSipMediaApplications(
     args: ListSipMediaApplicationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
   ): void;
-  public listSipMediaApplications(
-    args: ListSipMediaApplicationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSipMediaApplicationsCommandOutput) => void),
-    cb?: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
-  ): Promise<ListSipMediaApplicationsCommandOutput> | void {
-    const command = new ListSipMediaApplicationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public listSipRules(
-    args: ListSipRulesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSipRulesCommandOutput>;
-  public listSipRules(args: ListSipRulesCommandInput, cb: (err: any, data?: ListSipRulesCommandOutput) => void): void;
-  public listSipRules(
+  /**
+   * @see {@link ListSipRulesCommand}
+   */
+  listSipRules(args: ListSipRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListSipRulesCommandOutput>;
+  listSipRules(args: ListSipRulesCommandInput, cb: (err: any, data?: ListSipRulesCommandOutput) => void): void;
+  listSipRules(
     args: ListSipRulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSipRulesCommandOutput) => void
   ): void;
-  public listSipRules(
-    args: ListSipRulesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSipRulesCommandOutput) => void),
-    cb?: (err: any, data?: ListSipRulesCommandOutput) => void
-  ): Promise<ListSipRulesCommandOutput> | void {
-    const command = new ListSipRulesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public listSupportedPhoneNumberCountries(
+  /**
+   * @see {@link ListSupportedPhoneNumberCountriesCommand}
+   */
+  listSupportedPhoneNumberCountries(
     args: ListSupportedPhoneNumberCountriesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListSupportedPhoneNumberCountriesCommandOutput>;
-  public listSupportedPhoneNumberCountries(
+  listSupportedPhoneNumberCountries(
     args: ListSupportedPhoneNumberCountriesCommandInput,
     cb: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
   ): void;
-  public listSupportedPhoneNumberCountries(
+  listSupportedPhoneNumberCountries(
     args: ListSupportedPhoneNumberCountriesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
   ): void;
-  public listSupportedPhoneNumberCountries(
-    args: ListSupportedPhoneNumberCountriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void),
-    cb?: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
-  ): Promise<ListSupportedPhoneNumberCountriesCommandOutput> | void {
-    const command = new ListSupportedPhoneNumberCountriesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public listVoiceConnectorGroups(
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVoiceConnectorGroupsCommand}
+   */
+  listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListVoiceConnectorGroupsCommandOutput>;
-  public listVoiceConnectorGroups(
+  listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
     cb: (err: any, data?: ListVoiceConnectorGroupsCommandOutput) => void
   ): void;
-  public listVoiceConnectorGroups(
+  listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListVoiceConnectorGroupsCommandOutput) => void
   ): void;
-  public listVoiceConnectorGroups(
-    args: ListVoiceConnectorGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVoiceConnectorGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListVoiceConnectorGroupsCommandOutput) => void
-  ): Promise<ListVoiceConnectorGroupsCommandOutput> | void {
-    const command = new ListVoiceConnectorGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public listVoiceConnectors(
+  /**
+   * @see {@link ListVoiceConnectorsCommand}
+   */
+  listVoiceConnectors(
     args: ListVoiceConnectorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListVoiceConnectorsCommandOutput>;
-  public listVoiceConnectors(
+  listVoiceConnectors(
     args: ListVoiceConnectorsCommandInput,
     cb: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
   ): void;
-  public listVoiceConnectors(
+  listVoiceConnectors(
     args: ListVoiceConnectorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
   ): void;
-  public listVoiceConnectors(
-    args: ListVoiceConnectorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVoiceConnectorsCommandOutput) => void),
-    cb?: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
-  ): Promise<ListVoiceConnectorsCommandOutput> | void {
-    const command = new ListVoiceConnectorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public listVoiceConnectorTerminationCredentials(
+  /**
+   * @see {@link ListVoiceConnectorTerminationCredentialsCommand}
+   */
+  listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput>;
-  public listVoiceConnectorTerminationCredentials(
+  listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
     cb: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
-  public listVoiceConnectorTerminationCredentials(
+  listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
-  public listVoiceConnectorTerminationCredentials(
-    args: ListVoiceConnectorTerminationCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void),
-    cb?: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput> | void {
-    const command = new ListVoiceConnectorTerminationCredentialsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public putSipMediaApplicationAlexaSkillConfiguration(
+  /**
+   * @see {@link ListVoiceProfileDomainsCommand}
+   */
+  listVoiceProfileDomains(
+    args: ListVoiceProfileDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVoiceProfileDomainsCommandOutput>;
+  listVoiceProfileDomains(
+    args: ListVoiceProfileDomainsCommandInput,
+    cb: (err: any, data?: ListVoiceProfileDomainsCommandOutput) => void
+  ): void;
+  listVoiceProfileDomains(
+    args: ListVoiceProfileDomainsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVoiceProfileDomainsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVoiceProfilesCommand}
+   */
+  listVoiceProfiles(
+    args: ListVoiceProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVoiceProfilesCommandOutput>;
+  listVoiceProfiles(
+    args: ListVoiceProfilesCommandInput,
+    cb: (err: any, data?: ListVoiceProfilesCommandOutput) => void
+  ): void;
+  listVoiceProfiles(
+    args: ListVoiceProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVoiceProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutSipMediaApplicationAlexaSkillConfigurationCommand}
+   */
+  putSipMediaApplicationAlexaSkillConfiguration(
     args: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutSipMediaApplicationAlexaSkillConfigurationCommandOutput>;
-  public putSipMediaApplicationAlexaSkillConfiguration(
+  putSipMediaApplicationAlexaSkillConfiguration(
     args: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
     cb: (err: any, data?: PutSipMediaApplicationAlexaSkillConfigurationCommandOutput) => void
   ): void;
-  public putSipMediaApplicationAlexaSkillConfiguration(
+  putSipMediaApplicationAlexaSkillConfiguration(
     args: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutSipMediaApplicationAlexaSkillConfigurationCommandOutput) => void
   ): void;
-  public putSipMediaApplicationAlexaSkillConfiguration(
-    args: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSipMediaApplicationAlexaSkillConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutSipMediaApplicationAlexaSkillConfigurationCommandOutput) => void
-  ): Promise<PutSipMediaApplicationAlexaSkillConfigurationCommandOutput> | void {
-    const command = new PutSipMediaApplicationAlexaSkillConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public putSipMediaApplicationLoggingConfiguration(
+  /**
+   * @see {@link PutSipMediaApplicationLoggingConfigurationCommand}
+   */
+  putSipMediaApplicationLoggingConfiguration(
     args: PutSipMediaApplicationLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutSipMediaApplicationLoggingConfigurationCommandOutput>;
-  public putSipMediaApplicationLoggingConfiguration(
+  putSipMediaApplicationLoggingConfiguration(
     args: PutSipMediaApplicationLoggingConfigurationCommandInput,
     cb: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
   ): void;
-  public putSipMediaApplicationLoggingConfiguration(
+  putSipMediaApplicationLoggingConfiguration(
     args: PutSipMediaApplicationLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
   ): void;
-  public putSipMediaApplicationLoggingConfiguration(
-    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
-  ): Promise<PutSipMediaApplicationLoggingConfigurationCommandOutput> | void {
-    const command = new PutSipMediaApplicationLoggingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public putVoiceConnectorEmergencyCallingConfiguration(
+  /**
+   * @see {@link PutVoiceConnectorEmergencyCallingConfigurationCommand}
+   */
+  putVoiceConnectorEmergencyCallingConfiguration(
     args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
-  public putVoiceConnectorEmergencyCallingConfiguration(
+  putVoiceConnectorEmergencyCallingConfiguration(
     args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
     cb: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
   ): void;
-  public putVoiceConnectorEmergencyCallingConfiguration(
+  putVoiceConnectorEmergencyCallingConfiguration(
     args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
   ): void;
-  public putVoiceConnectorEmergencyCallingConfiguration(
-    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): Promise<PutVoiceConnectorEmergencyCallingConfigurationCommandOutput> | void {
-    const command = new PutVoiceConnectorEmergencyCallingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public putVoiceConnectorLoggingConfiguration(
+  /**
+   * @see {@link PutVoiceConnectorLoggingConfigurationCommand}
+   */
+  putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput>;
-  public putVoiceConnectorLoggingConfiguration(
+  putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
     cb: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): void;
-  public putVoiceConnectorLoggingConfiguration(
+  putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): void;
-  public putVoiceConnectorLoggingConfiguration(
-    args: PutVoiceConnectorLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
-  ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput> | void {
-    const command = new PutVoiceConnectorLoggingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public putVoiceConnectorOrigination(
+  /**
+   * @see {@link PutVoiceConnectorOriginationCommand}
+   */
+  putVoiceConnectorOrigination(
     args: PutVoiceConnectorOriginationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutVoiceConnectorOriginationCommandOutput>;
-  public putVoiceConnectorOrigination(
+  putVoiceConnectorOrigination(
     args: PutVoiceConnectorOriginationCommandInput,
     cb: (err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void
   ): void;
-  public putVoiceConnectorOrigination(
+  putVoiceConnectorOrigination(
     args: PutVoiceConnectorOriginationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void
   ): void;
-  public putVoiceConnectorOrigination(
-    args: PutVoiceConnectorOriginationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void
-  ): Promise<PutVoiceConnectorOriginationCommandOutput> | void {
-    const command = new PutVoiceConnectorOriginationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public putVoiceConnectorProxy(
+  /**
+   * @see {@link PutVoiceConnectorProxyCommand}
+   */
+  putVoiceConnectorProxy(
     args: PutVoiceConnectorProxyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutVoiceConnectorProxyCommandOutput>;
-  public putVoiceConnectorProxy(
+  putVoiceConnectorProxy(
     args: PutVoiceConnectorProxyCommandInput,
     cb: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
   ): void;
-  public putVoiceConnectorProxy(
+  putVoiceConnectorProxy(
     args: PutVoiceConnectorProxyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
   ): void;
-  public putVoiceConnectorProxy(
-    args: PutVoiceConnectorProxyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutVoiceConnectorProxyCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
-  ): Promise<PutVoiceConnectorProxyCommandOutput> | void {
-    const command = new PutVoiceConnectorProxyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public putVoiceConnectorStreamingConfiguration(
+  /**
+   * @see {@link PutVoiceConnectorStreamingConfigurationCommand}
+   */
+  putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutVoiceConnectorStreamingConfigurationCommandOutput>;
-  public putVoiceConnectorStreamingConfiguration(
+  putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
     cb: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
-  public putVoiceConnectorStreamingConfiguration(
+  putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
-  public putVoiceConnectorStreamingConfiguration(
-    args: PutVoiceConnectorStreamingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): Promise<PutVoiceConnectorStreamingConfigurationCommandOutput> | void {
-    const command = new PutVoiceConnectorStreamingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public putVoiceConnectorTermination(
+  /**
+   * @see {@link PutVoiceConnectorTerminationCommand}
+   */
+  putVoiceConnectorTermination(
     args: PutVoiceConnectorTerminationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutVoiceConnectorTerminationCommandOutput>;
-  public putVoiceConnectorTermination(
+  putVoiceConnectorTermination(
     args: PutVoiceConnectorTerminationCommandInput,
     cb: (err: any, data?: PutVoiceConnectorTerminationCommandOutput) => void
   ): void;
-  public putVoiceConnectorTermination(
+  putVoiceConnectorTermination(
     args: PutVoiceConnectorTerminationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutVoiceConnectorTerminationCommandOutput) => void
   ): void;
-  public putVoiceConnectorTermination(
-    args: PutVoiceConnectorTerminationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutVoiceConnectorTerminationCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorTerminationCommandOutput) => void
-  ): Promise<PutVoiceConnectorTerminationCommandOutput> | void {
-    const command = new PutVoiceConnectorTerminationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public putVoiceConnectorTerminationCredentials(
+  /**
+   * @see {@link PutVoiceConnectorTerminationCredentialsCommand}
+   */
+  putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput>;
-  public putVoiceConnectorTerminationCredentials(
+  putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
     cb: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
-  public putVoiceConnectorTerminationCredentials(
+  putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
-  public putVoiceConnectorTerminationCredentials(
-    args: PutVoiceConnectorTerminationCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput> | void {
-    const command = new PutVoiceConnectorTerminationCredentialsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public restorePhoneNumber(
+  /**
+   * @see {@link RestorePhoneNumberCommand}
+   */
+  restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RestorePhoneNumberCommandOutput>;
-  public restorePhoneNumber(
+  restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
     cb: (err: any, data?: RestorePhoneNumberCommandOutput) => void
   ): void;
-  public restorePhoneNumber(
+  restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RestorePhoneNumberCommandOutput) => void
   ): void;
-  public restorePhoneNumber(
-    args: RestorePhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestorePhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: RestorePhoneNumberCommandOutput) => void
-  ): Promise<RestorePhoneNumberCommandOutput> | void {
-    const command = new RestorePhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public searchAvailablePhoneNumbers(
+  /**
+   * @see {@link SearchAvailablePhoneNumbersCommand}
+   */
+  searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchAvailablePhoneNumbersCommandOutput>;
-  public searchAvailablePhoneNumbers(
+  searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
     cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
   ): void;
-  public searchAvailablePhoneNumbers(
+  searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
   ): void;
-  public searchAvailablePhoneNumbers(
-    args: SearchAvailablePhoneNumbersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void),
-    cb?: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
-  ): Promise<SearchAvailablePhoneNumbersCommandOutput> | void {
-    const command = new SearchAvailablePhoneNumbersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public updateGlobalSettings(
+  /**
+   * @see {@link StartSpeakerSearchTaskCommand}
+   */
+  startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSpeakerSearchTaskCommandOutput>;
+  startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: StartSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSpeakerSearchTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartVoiceToneAnalysisTaskCommand}
+   */
+  startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartVoiceToneAnalysisTaskCommandOutput>;
+  startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: StartVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopSpeakerSearchTaskCommand}
+   */
+  stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopSpeakerSearchTaskCommandOutput>;
+  stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: StopSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopSpeakerSearchTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopVoiceToneAnalysisTaskCommand}
+   */
+  stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopVoiceToneAnalysisTaskCommandOutput>;
+  stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: StopVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGlobalSettingsCommand}
+   */
+  updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateGlobalSettingsCommandOutput>;
-  public updateGlobalSettings(
+  updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
     cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
   ): void;
-  public updateGlobalSettings(
+  updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
   ): void;
-  public updateGlobalSettings(
-    args: UpdateGlobalSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGlobalSettingsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
-  ): Promise<UpdateGlobalSettingsCommandOutput> | void {
-    const command = new UpdateGlobalSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public updatePhoneNumber(
+  /**
+   * @see {@link UpdatePhoneNumberCommand}
+   */
+  updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdatePhoneNumberCommandOutput>;
-  public updatePhoneNumber(
+  updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
     cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
   ): void;
-  public updatePhoneNumber(
+  updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
   ): void;
-  public updatePhoneNumber(
-    args: UpdatePhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
-  ): Promise<UpdatePhoneNumberCommandOutput> | void {
-    const command = new UpdatePhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public updatePhoneNumberSettings(
+  /**
+   * @see {@link UpdatePhoneNumberSettingsCommand}
+   */
+  updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdatePhoneNumberSettingsCommandOutput>;
-  public updatePhoneNumberSettings(
+  updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
     cb: (err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void
   ): void;
-  public updatePhoneNumberSettings(
+  updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void
   ): void;
-  public updatePhoneNumberSettings(
-    args: UpdatePhoneNumberSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void
-  ): Promise<UpdatePhoneNumberSettingsCommandOutput> | void {
-    const command = new UpdatePhoneNumberSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public updateProxySession(
+  /**
+   * @see {@link UpdateProxySessionCommand}
+   */
+  updateProxySession(
     args: UpdateProxySessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateProxySessionCommandOutput>;
-  public updateProxySession(
+  updateProxySession(
     args: UpdateProxySessionCommandInput,
     cb: (err: any, data?: UpdateProxySessionCommandOutput) => void
   ): void;
-  public updateProxySession(
+  updateProxySession(
     args: UpdateProxySessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProxySessionCommandOutput) => void
   ): void;
-  public updateProxySession(
-    args: UpdateProxySessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProxySessionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateProxySessionCommandOutput) => void
-  ): Promise<UpdateProxySessionCommandOutput> | void {
-    const command = new UpdateProxySessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public updateSipMediaApplication(
+  /**
+   * @see {@link UpdateSipMediaApplicationCommand}
+   */
+  updateSipMediaApplication(
     args: UpdateSipMediaApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSipMediaApplicationCommandOutput>;
-  public updateSipMediaApplication(
+  updateSipMediaApplication(
     args: UpdateSipMediaApplicationCommandInput,
     cb: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
   ): void;
-  public updateSipMediaApplication(
+  updateSipMediaApplication(
     args: UpdateSipMediaApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
   ): void;
-  public updateSipMediaApplication(
-    args: UpdateSipMediaApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSipMediaApplicationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
-  ): Promise<UpdateSipMediaApplicationCommandOutput> | void {
-    const command = new UpdateSipMediaApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public updateSipMediaApplicationCall(
+  /**
+   * @see {@link UpdateSipMediaApplicationCallCommand}
+   */
+  updateSipMediaApplicationCall(
     args: UpdateSipMediaApplicationCallCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSipMediaApplicationCallCommandOutput>;
-  public updateSipMediaApplicationCall(
+  updateSipMediaApplicationCall(
     args: UpdateSipMediaApplicationCallCommandInput,
     cb: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
   ): void;
-  public updateSipMediaApplicationCall(
+  updateSipMediaApplicationCall(
     args: UpdateSipMediaApplicationCallCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
   ): void;
-  public updateSipMediaApplicationCall(
-    args: UpdateSipMediaApplicationCallCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
-  ): Promise<UpdateSipMediaApplicationCallCommandOutput> | void {
-    const command = new UpdateSipMediaApplicationCallCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public updateSipRule(
-    args: UpdateSipRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSipRuleCommandOutput>;
-  public updateSipRule(
-    args: UpdateSipRuleCommandInput,
-    cb: (err: any, data?: UpdateSipRuleCommandOutput) => void
-  ): void;
-  public updateSipRule(
+  /**
+   * @see {@link UpdateSipRuleCommand}
+   */
+  updateSipRule(args: UpdateSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSipRuleCommandOutput>;
+  updateSipRule(args: UpdateSipRuleCommandInput, cb: (err: any, data?: UpdateSipRuleCommandOutput) => void): void;
+  updateSipRule(
     args: UpdateSipRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSipRuleCommandOutput) => void
   ): void;
-  public updateSipRule(
-    args: UpdateSipRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSipRuleCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSipRuleCommandOutput) => void
-  ): Promise<UpdateSipRuleCommandOutput> | void {
-    const command = new UpdateSipRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public updateVoiceConnector(
+  /**
+   * @see {@link UpdateVoiceConnectorCommand}
+   */
+  updateVoiceConnector(
     args: UpdateVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateVoiceConnectorCommandOutput>;
-  public updateVoiceConnector(
+  updateVoiceConnector(
     args: UpdateVoiceConnectorCommandInput,
     cb: (err: any, data?: UpdateVoiceConnectorCommandOutput) => void
   ): void;
-  public updateVoiceConnector(
+  updateVoiceConnector(
     args: UpdateVoiceConnectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVoiceConnectorCommandOutput) => void
   ): void;
-  public updateVoiceConnector(
-    args: UpdateVoiceConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: UpdateVoiceConnectorCommandOutput) => void
-  ): Promise<UpdateVoiceConnectorCommandOutput> | void {
-    const command = new UpdateVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public updateVoiceConnectorGroup(
+  /**
+   * @see {@link UpdateVoiceConnectorGroupCommand}
+   */
+  updateVoiceConnectorGroup(
     args: UpdateVoiceConnectorGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateVoiceConnectorGroupCommandOutput>;
-  public updateVoiceConnectorGroup(
+  updateVoiceConnectorGroup(
     args: UpdateVoiceConnectorGroupCommandInput,
     cb: (err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public updateVoiceConnectorGroup(
+  updateVoiceConnectorGroup(
     args: UpdateVoiceConnectorGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void
   ): void;
-  public updateVoiceConnectorGroup(
-    args: UpdateVoiceConnectorGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void
-  ): Promise<UpdateVoiceConnectorGroupCommandOutput> | void {
-    const command = new UpdateVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public validateE911Address(
+  /**
+   * @see {@link UpdateVoiceProfileCommand}
+   */
+  updateVoiceProfile(
+    args: UpdateVoiceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVoiceProfileCommandOutput>;
+  updateVoiceProfile(
+    args: UpdateVoiceProfileCommandInput,
+    cb: (err: any, data?: UpdateVoiceProfileCommandOutput) => void
+  ): void;
+  updateVoiceProfile(
+    args: UpdateVoiceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVoiceProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateVoiceProfileDomainCommand}
+   */
+  updateVoiceProfileDomain(
+    args: UpdateVoiceProfileDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVoiceProfileDomainCommandOutput>;
+  updateVoiceProfileDomain(
+    args: UpdateVoiceProfileDomainCommandInput,
+    cb: (err: any, data?: UpdateVoiceProfileDomainCommandOutput) => void
+  ): void;
+  updateVoiceProfileDomain(
+    args: UpdateVoiceProfileDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVoiceProfileDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ValidateE911AddressCommand}
+   */
+  validateE911Address(
     args: ValidateE911AddressCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ValidateE911AddressCommandOutput>;
-  public validateE911Address(
+  validateE911Address(
     args: ValidateE911AddressCommandInput,
     cb: (err: any, data?: ValidateE911AddressCommandOutput) => void
   ): void;
-  public validateE911Address(
+  validateE911Address(
     args: ValidateE911AddressCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateE911AddressCommandOutput) => void
   ): void;
-  public validateE911Address(
-    args: ValidateE911AddressCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidateE911AddressCommandOutput) => void),
-    cb?: (err: any, data?: ValidateE911AddressCommandOutput) => void
-  ): Promise<ValidateE911AddressCommandOutput> | void {
-    const command = new ValidateE911AddressCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>The Amazon Chime SDK telephony APIs in this section enable developers to create PSTN calling solutions that use Amazon Chime SDK Voice Connectors, and Amazon Chime SDK SIP media applications. Developers can
+ *           also order and manage phone numbers, create and manage Voice Connectors and SIP media applications, and run voice analytics.</p>
+ */
+export class ChimeSDKVoice extends ChimeSDKVoiceClient implements ChimeSDKVoice {}
+createAggregatedClient(commands, ChimeSDKVoice);

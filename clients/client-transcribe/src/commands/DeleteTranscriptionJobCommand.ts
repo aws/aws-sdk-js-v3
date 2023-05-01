@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTranscriptionJobRequest, DeleteTranscriptionJobRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTranscriptionJobCommand,
-  serializeAws_json1_1DeleteTranscriptionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTranscriptionJobRequest } from "../models/models_0";
+import { de_DeleteTranscriptionJobCommand, se_DeleteTranscriptionJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTranscriptionJobCommand}.
  */
 export interface DeleteTranscriptionJobCommandInput extends DeleteTranscriptionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTranscriptionJobCommand}.
  */
 export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a transcription job. To use this operation, specify the name of the job you
  *             want to delete using <code>TranscriptionJobName</code>. Job names are case
  *             sensitive.</p>
@@ -39,10 +41,15 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  * import { TranscribeClient, DeleteTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DeleteTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // DeleteTranscriptionJobRequest
+ *   TranscriptionJobName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTranscriptionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTranscriptionJobCommandInput - {@link DeleteTranscriptionJobCommandInput}
+ * @returns {@link DeleteTranscriptionJobCommandOutput}
  * @see {@link DeleteTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link DeleteTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteTranscriptionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTranscriptionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class DeleteTranscriptionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTranscriptionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +129,18 @@ export class DeleteTranscriptionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTranscriptionJobCommand(input, context);
+    return se_DeleteTranscriptionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTranscriptionJobCommandOutput> {
-    return deserializeAws_json1_1DeleteTranscriptionJobCommand(output, context);
+    return de_DeleteTranscriptionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

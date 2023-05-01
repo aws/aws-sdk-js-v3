@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  ListContributorInsightsInput,
-  ListContributorInsightsInputFilterSensitiveLog,
-  ListContributorInsightsOutput,
-  ListContributorInsightsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListContributorInsightsCommand,
-  serializeAws_json1_0ListContributorInsightsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListContributorInsightsInput, ListContributorInsightsOutput } from "../models/models_0";
+import { de_ListContributorInsightsCommand, se_ListContributorInsightsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListContributorInsightsCommand}.
  */
 export interface ListContributorInsightsCommandInput extends ListContributorInsightsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListContributorInsightsCommand}.
  */
 export interface ListContributorInsightsCommandOutput extends ListContributorInsightsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary
  *             indexes.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListContributorInsightsCommandOutput extends ListContributorIns
  * import { DynamoDBClient, ListContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // ListContributorInsightsInput
+ *   TableName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListContributorInsightsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListContributorInsightsCommandInput - {@link ListContributorInsightsCommandInput}
+ * @returns {@link ListContributorInsightsCommandOutput}
  * @see {@link ListContributorInsightsCommandInput} for command's `input` shape.
  * @see {@link ListContributorInsightsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -77,6 +81,9 @@ export class ListContributorInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListContributorInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +112,8 @@ export class ListContributorInsightsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContributorInsightsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContributorInsightsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +123,18 @@ export class ListContributorInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContributorInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListContributorInsightsCommand(input, context);
+    return se_ListContributorInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContributorInsightsCommandOutput> {
-    return deserializeAws_json1_0ListContributorInsightsCommand(output, context);
+    return de_ListContributorInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

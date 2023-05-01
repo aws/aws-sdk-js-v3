@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetObjectTaggingOutput,
-  GetObjectTaggingOutputFilterSensitiveLog,
-  GetObjectTaggingRequest,
-  GetObjectTaggingRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectTaggingCommand,
-  serializeAws_restXmlGetObjectTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { GetObjectTaggingOutput, GetObjectTaggingRequest } from "../models/models_0";
+import { de_GetObjectTaggingCommand, se_GetObjectTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectTaggingCommand}.
  */
 export interface GetObjectTaggingCommandInput extends GetObjectTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectTaggingCommand}.
  */
 export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the tag-set of an object. You send the GET request against the tagging
  *          subresource associated with the object.</p>
  *          <p>To use this operation, you must have permission to perform the
@@ -70,10 +67,19 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * import { S3Client, GetObjectTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetObjectTaggingRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ * };
  * const command = new GetObjectTaggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectTaggingCommandInput - {@link GetObjectTaggingCommandInput}
+ * @returns {@link GetObjectTaggingCommandOutput}
  * @see {@link GetObjectTaggingCommandInput} for command's `input` shape.
  * @see {@link GetObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -154,6 +160,9 @@ export class GetObjectTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,8 +191,8 @@ export class GetObjectTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectTaggingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -193,12 +202,18 @@ export class GetObjectTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectTaggingCommand(input, context);
+    return se_GetObjectTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectTaggingCommandOutput> {
-    return deserializeAws_restXmlGetObjectTaggingCommand(output, context);
+    return de_GetObjectTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

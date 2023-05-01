@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyManagedPrefixListRequest,
-  ModifyManagedPrefixListRequestFilterSensitiveLog,
-  ModifyManagedPrefixListResult,
-  ModifyManagedPrefixListResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyManagedPrefixListCommand,
-  serializeAws_ec2ModifyManagedPrefixListCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyManagedPrefixListRequest, ModifyManagedPrefixListResult } from "../models/models_6";
+import { de_ModifyManagedPrefixListCommand, se_ModifyManagedPrefixListCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyManagedPrefixListCommand}.
  */
 export interface ModifyManagedPrefixListCommandInput extends ModifyManagedPrefixListRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyManagedPrefixListCommand}.
  */
 export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefixListResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified managed prefix list.</p>
  *          <p>Adding or removing entries in a prefix list creates a new version of the prefix list.
  *             Changing the name of the prefix list does not affect the version.</p>
@@ -46,10 +43,30 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  * import { EC2Client, ModifyManagedPrefixListCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyManagedPrefixListCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyManagedPrefixListRequest
+ *   DryRun: true || false,
+ *   PrefixListId: "STRING_VALUE", // required
+ *   CurrentVersion: Number("long"),
+ *   PrefixListName: "STRING_VALUE",
+ *   AddEntries: [ // AddPrefixListEntries
+ *     { // AddPrefixListEntry
+ *       Cidr: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ *   RemoveEntries: [ // RemovePrefixListEntries
+ *     { // RemovePrefixListEntry
+ *       Cidr: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   MaxEntries: Number("int"),
+ * };
  * const command = new ModifyManagedPrefixListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyManagedPrefixListCommandInput - {@link ModifyManagedPrefixListCommandInput}
+ * @returns {@link ModifyManagedPrefixListCommandOutput}
  * @see {@link ModifyManagedPrefixListCommandInput} for command's `input` shape.
  * @see {@link ModifyManagedPrefixListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +90,9 @@ export class ModifyManagedPrefixListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyManagedPrefixListCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +121,8 @@ export class ModifyManagedPrefixListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyManagedPrefixListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyManagedPrefixListResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +132,18 @@ export class ModifyManagedPrefixListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyManagedPrefixListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyManagedPrefixListCommand(input, context);
+    return se_ModifyManagedPrefixListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyManagedPrefixListCommandOutput> {
-    return deserializeAws_ec2ModifyManagedPrefixListCommand(output, context);
+    return de_ModifyManagedPrefixListCommand(output, context);
   }
 
   // Start section: command_body_extra

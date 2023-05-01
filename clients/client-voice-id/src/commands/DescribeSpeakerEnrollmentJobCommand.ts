@@ -15,21 +15,24 @@ import {
 
 import {
   DescribeSpeakerEnrollmentJobRequest,
-  DescribeSpeakerEnrollmentJobRequestFilterSensitiveLog,
   DescribeSpeakerEnrollmentJobResponse,
   DescribeSpeakerEnrollmentJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeSpeakerEnrollmentJobCommand,
-  serializeAws_json1_0DescribeSpeakerEnrollmentJobCommand,
+  de_DescribeSpeakerEnrollmentJobCommand,
+  se_DescribeSpeakerEnrollmentJobCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpeakerEnrollmentJobCommand}.
  */
 export interface DescribeSpeakerEnrollmentJobCommandInput extends DescribeSpeakerEnrollmentJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpeakerEnrollmentJobCommand}.
  */
 export interface DescribeSpeakerEnrollmentJobCommandOutput
@@ -37,6 +40,7 @@ export interface DescribeSpeakerEnrollmentJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified speaker enrollment job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +48,16 @@ export interface DescribeSpeakerEnrollmentJobCommandOutput
  * import { VoiceIDClient, DescribeSpeakerEnrollmentJobCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DescribeSpeakerEnrollmentJobCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = { // DescribeSpeakerEnrollmentJobRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSpeakerEnrollmentJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpeakerEnrollmentJobCommandInput - {@link DescribeSpeakerEnrollmentJobCommandInput}
+ * @returns {@link DescribeSpeakerEnrollmentJobCommandOutput}
  * @see {@link DescribeSpeakerEnrollmentJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSpeakerEnrollmentJobCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
@@ -92,6 +102,9 @@ export class DescribeSpeakerEnrollmentJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpeakerEnrollmentJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,7 +133,7 @@ export class DescribeSpeakerEnrollmentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpeakerEnrollmentJobRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeSpeakerEnrollmentJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -131,15 +144,21 @@ export class DescribeSpeakerEnrollmentJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSpeakerEnrollmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeSpeakerEnrollmentJobCommand(input, context);
+    return se_DescribeSpeakerEnrollmentJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSpeakerEnrollmentJobCommandOutput> {
-    return deserializeAws_json1_0DescribeSpeakerEnrollmentJobCommand(output, context);
+    return de_DescribeSpeakerEnrollmentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

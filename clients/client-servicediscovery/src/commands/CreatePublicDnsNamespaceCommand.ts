@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePublicDnsNamespaceRequest,
-  CreatePublicDnsNamespaceRequestFilterSensitiveLog,
-  CreatePublicDnsNamespaceResponse,
-  CreatePublicDnsNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePublicDnsNamespaceCommand,
-  serializeAws_json1_1CreatePublicDnsNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePublicDnsNamespaceRequest, CreatePublicDnsNamespaceResponse } from "../models/models_0";
+import { de_CreatePublicDnsNamespaceCommand, se_CreatePublicDnsNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePublicDnsNamespaceCommand}.
  */
 export interface CreatePublicDnsNamespaceCommandInput extends CreatePublicDnsNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePublicDnsNamespaceCommand}.
  */
 export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a public namespace based on DNS, which is visible on the internet. The namespace
  *    defines your service naming scheme. For example, if you name your namespace
  *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
@@ -51,10 +48,30 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  * import { ServiceDiscoveryClient, CreatePublicDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, CreatePublicDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // CreatePublicDnsNamespaceRequest
+ *   Name: "STRING_VALUE", // required
+ *   CreatorRequestId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Properties: { // PublicDnsNamespaceProperties
+ *     DnsProperties: { // PublicDnsPropertiesMutable
+ *       SOA: { // SOA
+ *         TTL: Number("long"), // required
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreatePublicDnsNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePublicDnsNamespaceCommandInput - {@link CreatePublicDnsNamespaceCommandInput}
+ * @returns {@link CreatePublicDnsNamespaceCommandOutput}
  * @see {@link CreatePublicDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreatePublicDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -69,11 +86,6 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  *
  * @throws {@link NamespaceAlreadyExists} (client fault)
  *  <p>The namespace that you're trying to create already exists.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
  *  <p>The resource can't be created because you've reached the quota on the number of
@@ -120,6 +132,9 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePublicDnsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +163,8 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePublicDnsNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePublicDnsNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +174,18 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePublicDnsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePublicDnsNamespaceCommand(input, context);
+    return se_CreatePublicDnsNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePublicDnsNamespaceCommandOutput> {
-    return deserializeAws_json1_1CreatePublicDnsNamespaceCommand(output, context);
+    return de_CreatePublicDnsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

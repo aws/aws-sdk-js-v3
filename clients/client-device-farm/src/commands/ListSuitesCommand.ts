@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListSuitesRequest,
-  ListSuitesRequestFilterSensitiveLog,
-  ListSuitesResult,
-  ListSuitesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSuitesCommand,
-  serializeAws_json1_1ListSuitesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSuitesRequest, ListSuitesResult } from "../models/models_0";
+import { de_ListSuitesCommand, se_ListSuitesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSuitesCommand}.
  */
 export interface ListSuitesCommandInput extends ListSuitesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSuitesCommand}.
  */
 export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about test suites for a given job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBea
  * import { DeviceFarmClient, ListSuitesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListSuitesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListSuitesRequest
+ *   arn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSuitesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSuitesCommandInput - {@link ListSuitesCommandInput}
+ * @returns {@link ListSuitesCommandOutput}
  * @see {@link ListSuitesCommandInput} for command's `input` shape.
  * @see {@link ListSuitesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -98,6 +101,9 @@ export class ListSuitesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSuitesCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +130,8 @@ export class ListSuitesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSuitesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSuitesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +141,18 @@ export class ListSuitesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSuitesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSuitesCommand(input, context);
+    return se_ListSuitesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSuitesCommandOutput> {
-    return deserializeAws_json1_1ListSuitesCommand(output, context);
+    return de_ListSuitesCommand(output, context);
   }
 
   // Start section: command_body_extra

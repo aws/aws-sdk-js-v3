@@ -13,19 +13,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlBlobsOutput, XmlBlobsOutputFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_ec2XmlBlobsCommand, serializeAws_ec2XmlBlobsCommand } from "../protocols/Aws_ec2";
+import { XmlBlobsOutput } from "../models/models_0";
+import { de_XmlBlobsCommand, se_XmlBlobsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link XmlBlobsCommand}.
  */
 export interface XmlBlobsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link XmlBlobsCommand}.
  */
 export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Blobs are base64 encoded
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,10 +38,13 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  * import { EC2ProtocolClient, XmlBlobsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, XmlBlobsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {};
  * const command = new XmlBlobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlBlobsCommandInput - {@link XmlBlobsCommandInput}
+ * @returns {@link XmlBlobsCommandOutput}
  * @see {@link XmlBlobsCommandInput} for command's `input` shape.
  * @see {@link XmlBlobsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
@@ -51,6 +59,9 @@ export class XmlBlobsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlBlobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,8 +87,8 @@ export class XmlBlobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlBlobsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +98,18 @@ export class XmlBlobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlBlobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2XmlBlobsCommand(input, context);
+    return se_XmlBlobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlBlobsCommandOutput> {
-    return deserializeAws_ec2XmlBlobsCommand(output, context);
+    return de_XmlBlobsCommand(output, context);
   }
 
   // Start section: command_body_extra

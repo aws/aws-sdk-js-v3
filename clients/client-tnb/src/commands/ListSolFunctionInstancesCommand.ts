@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSolFunctionInstancesInput,
-  ListSolFunctionInstancesInputFilterSensitiveLog,
-  ListSolFunctionInstancesOutput,
-  ListSolFunctionInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSolFunctionInstancesCommand,
-  serializeAws_restJson1ListSolFunctionInstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListSolFunctionInstancesInput, ListSolFunctionInstancesOutput } from "../models/models_0";
+import { de_ListSolFunctionInstancesCommand, se_ListSolFunctionInstancesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolFunctionInstancesCommand}.
  */
 export interface ListSolFunctionInstancesCommandInput extends ListSolFunctionInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSolFunctionInstancesCommand}.
  */
 export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists network function instances.</p>
  *          <p>A network function instance is a function in a function package .</p>
  * @example
@@ -43,10 +40,16 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  * import { TnbClient, ListSolFunctionInstancesCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ListSolFunctionInstancesCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // ListSolFunctionInstancesInput
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSolFunctionInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolFunctionInstancesCommandInput - {@link ListSolFunctionInstancesCommandInput}
+ * @returns {@link ListSolFunctionInstancesCommandOutput}
  * @see {@link ListSolFunctionInstancesCommandInput} for command's `input` shape.
  * @see {@link ListSolFunctionInstancesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListSolFunctionInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolFunctionInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class ListSolFunctionInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSolFunctionInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSolFunctionInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class ListSolFunctionInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolFunctionInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSolFunctionInstancesCommand(input, context);
+    return se_ListSolFunctionInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolFunctionInstancesCommandOutput> {
-    return deserializeAws_restJson1ListSolFunctionInstancesCommand(output, context);
+    return de_ListSolFunctionInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

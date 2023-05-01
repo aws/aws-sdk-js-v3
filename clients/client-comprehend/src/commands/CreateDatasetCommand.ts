@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  CreateDatasetRequest,
-  CreateDatasetRequestFilterSensitiveLog,
-  CreateDatasetResponse,
-  CreateDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDatasetCommand,
-  serializeAws_json1_1CreateDatasetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDatasetRequest, CreateDatasetResponse } from "../models/models_0";
+import { de_CreateDatasetCommand, se_CreateDatasetCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDatasetCommand}.
  */
 export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDatasetCommand}.
  */
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a dataset to upload training or test data for a model associated with a flywheel.
  *       For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -44,10 +41,55 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { ComprehendClient, CreateDatasetCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateDatasetCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // CreateDatasetRequest
+ *   FlywheelArn: "STRING_VALUE", // required
+ *   DatasetName: "STRING_VALUE", // required
+ *   DatasetType: "TRAIN" || "TEST",
+ *   Description: "STRING_VALUE",
+ *   InputDataConfig: { // DatasetInputDataConfig
+ *     AugmentedManifests: [ // DatasetAugmentedManifestsList
+ *       { // DatasetAugmentedManifestsListItem
+ *         AttributeNames: [ // AttributeNamesList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         S3Uri: "STRING_VALUE", // required
+ *         AnnotationDataS3Uri: "STRING_VALUE",
+ *         SourceDocumentsS3Uri: "STRING_VALUE",
+ *         DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *       },
+ *     ],
+ *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
+ *     DocumentClassifierInputDataConfig: { // DatasetDocumentClassifierInputDataConfig
+ *       S3Uri: "STRING_VALUE", // required
+ *       LabelDelimiter: "STRING_VALUE",
+ *     },
+ *     EntityRecognizerInputDataConfig: { // DatasetEntityRecognizerInputDataConfig
+ *       Annotations: { // DatasetEntityRecognizerAnnotations
+ *         S3Uri: "STRING_VALUE", // required
+ *       },
+ *       Documents: { // DatasetEntityRecognizerDocuments
+ *         S3Uri: "STRING_VALUE", // required
+ *         InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ *       },
+ *       EntityList: { // DatasetEntityRecognizerEntityList
+ *         S3Uri: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
+ * @returns {@link CreateDatasetCommandOutput}
  * @see {@link CreateDatasetCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -96,6 +138,9 @@ export class CreateDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +167,8 @@ export class CreateDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +178,18 @@ export class CreateDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDatasetCommand(input, context);
+    return se_CreateDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetCommandOutput> {
-    return deserializeAws_json1_1CreateDatasetCommand(output, context);
+    return de_CreateDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

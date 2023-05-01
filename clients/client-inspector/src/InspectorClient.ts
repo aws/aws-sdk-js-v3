@@ -172,6 +172,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddAttributesToFindingsCommandInput
   | CreateAssessmentTargetCommandInput
@@ -211,6 +214,9 @@ export type ServiceInputTypes =
   | UnsubscribeFromEventCommandInput
   | UpdateAssessmentTargetCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddAttributesToFindingsCommandOutput
   | CreateAssessmentTargetCommandOutput
@@ -250,6 +256,9 @@ export type ServiceOutputTypes =
   | UnsubscribeFromEventCommandOutput
   | UpdateAssessmentTargetCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -257,7 +266,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -366,11 +375,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type InspectorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -381,10 +393,15 @@ type InspectorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of InspectorClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of InspectorClient class constructor that set the region, credentials and other options.
  */
 export interface InspectorClientConfig extends InspectorClientConfigType {}
 
+/**
+ * @public
+ */
 type InspectorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -395,11 +412,14 @@ type InspectorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of InspectorClient class. This is resolved and normalized from the {@link InspectorClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of InspectorClient class. This is resolved and normalized from the {@link InspectorClientConfig | constructor configuration interface}.
  */
 export interface InspectorClientResolvedConfig extends InspectorClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Inspector</fullname>
  *          <p>Amazon Inspector enables you to analyze the behavior of your AWS resources and to
  *          identify potential security issues. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html"> Amazon Inspector User

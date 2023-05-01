@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAdministratorAccountRequest,
-  GetAdministratorAccountRequestFilterSensitiveLog,
-  GetAdministratorAccountResponse,
-  GetAdministratorAccountResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1GetAdministratorAccountCommand,
-  serializeAws_restJson1GetAdministratorAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_2";
+import { de_GetAdministratorAccountCommand, se_GetAdministratorAccountCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetAdministratorAccountCommand}.
  */
 export interface GetAdministratorAccountCommandInput extends GetAdministratorAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAdministratorAccountCommand}.
  */
 export interface GetAdministratorAccountCommandOutput extends GetAdministratorAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the details for the Security Hub administrator account for the current member account.</p>
  *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
  *          invited manually.</p>
@@ -44,10 +41,13 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * import { SecurityHubClient, GetAdministratorAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetAdministratorAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {};
  * const command = new GetAdministratorAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAdministratorAccountCommandInput - {@link GetAdministratorAccountCommandInput}
+ * @returns {@link GetAdministratorAccountCommandOutput}
  * @see {@link GetAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link GetAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -70,6 +70,25 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To get details about the Security Hub administrator account
+ * ```javascript
+ * // The following example provides details about the Security Hub administrator account for the requesting member account.
+ * const input = undefined;
+ * const command = new GetAdministratorAccountCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Administrator": {
+ *     "AccountId": "123456789012",
+ *     "InvitationId": "7ab938c5d52d7904ad09f9e7c20cc4eb",
+ *     "InvitedAt": "2020-06-01T20:21:18.042000+00:00",
+ *     "MemberStatus": "ASSOCIATED"
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-details-about-the-security-hub-administrator-account-1676998997182
+ * ```
+ *
  */
 export class GetAdministratorAccountCommand extends $Command<
   GetAdministratorAccountCommandInput,
@@ -88,6 +107,9 @@ export class GetAdministratorAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAdministratorAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +138,8 @@ export class GetAdministratorAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAdministratorAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAdministratorAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +149,18 @@ export class GetAdministratorAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAdministratorAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAdministratorAccountCommand(input, context);
+    return se_GetAdministratorAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdministratorAccountCommandOutput> {
-    return deserializeAws_restJson1GetAdministratorAccountCommand(output, context);
+    return de_GetAdministratorAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateGroupRequest,
-  CreateGroupRequestFilterSensitiveLog,
-  CreateGroupResult,
-  CreateGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateGroupCommand,
-  serializeAws_restJson1CreateGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateGroupRequest, CreateGroupResult } from "../models/models_0";
+import { de_CreateGroupCommand, se_CreateGroupCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGroupCommand}.
  */
 export interface CreateGroupCommandInput extends CreateGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGroupCommand}.
  */
 export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a group resource with a name and a filter expression. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  * import { XRayClient, CreateGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, CreateGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // CreateGroupRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   FilterExpression: "STRING_VALUE",
+ *   InsightsConfiguration: { // InsightsConfiguration
+ *     InsightsEnabled: true || false,
+ *     NotificationsEnabled: true || false,
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
+ * @returns {@link CreateGroupCommandOutput}
  * @see {@link CreateGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +88,9 @@ export class CreateGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +117,8 @@ export class CreateGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +128,18 @@ export class CreateGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGroupCommand(input, context);
+    return se_CreateGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupCommandOutput> {
-    return deserializeAws_restJson1CreateGroupCommand(output, context);
+    return de_CreateGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

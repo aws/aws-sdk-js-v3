@@ -3,9 +3,14 @@ import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 import { resolveProcessCredentials } from "./resolveProcessCredentials";
 
+/**
+ * @internal
+ */
 export interface FromProcessInit extends SourceProfileInit {}
 
 /**
+ * @internal
+ * 
  * Creates a credential provider that will read from a credential_process specified
  * in ini files.
  */

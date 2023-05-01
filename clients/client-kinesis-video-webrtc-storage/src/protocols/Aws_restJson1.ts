@@ -1,10 +1,12 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectString as __expectString,
-  map as __map,
-  throwDefaultError,
+  map,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -21,7 +23,10 @@ import {
   ResourceNotFoundException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1JoinStorageSessionCommand = async (
+/**
+ * serializeAws_restJson1JoinStorageSessionCommand
+ */
+export const se_JoinStorageSessionCommand = async (
   input: JoinStorageSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -31,9 +36,11 @@ export const serializeAws_restJson1JoinStorageSessionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/joinStorageSession";
   let body: any;
-  body = JSON.stringify({
-    ...(input.channelArn != null && { channelArn: input.channelArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      channelArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -45,12 +52,15 @@ export const serializeAws_restJson1JoinStorageSessionCommand = async (
   });
 };
 
-export const deserializeAws_restJson1JoinStorageSessionCommand = async (
+/**
+ * deserializeAws_restJson1JoinStorageSessionCommand
+ */
+export const de_JoinStorageSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JoinStorageSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1JoinStorageSessionCommandError(output, context);
+    return de_JoinStorageSessionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -59,7 +69,10 @@ export const deserializeAws_restJson1JoinStorageSessionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1JoinStorageSessionCommandError = async (
+/**
+ * deserializeAws_restJson1JoinStorageSessionCommandError
+ */
+const de_JoinStorageSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JoinStorageSessionCommandOutput> => {
@@ -71,37 +84,40 @@ const deserializeAws_restJson1JoinStorageSessionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kinesisvideowebrtcstorage#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideowebrtcstorage#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideowebrtcstorage#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideowebrtcstorage#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -109,15 +125,19 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ClientLimitExceededExceptionRes
+ */
+const de_ClientLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClientLimitExceededException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ClientLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -125,15 +145,19 @@ const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidArgumentExceptionRes
+ */
+const de_InvalidArgumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -141,15 +165,19 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,

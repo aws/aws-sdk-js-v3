@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  CreateKeyRequest,
-  CreateKeyRequestFilterSensitiveLog,
-  CreateKeyResponse,
-  CreateKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1CreateKeyCommand, serializeAws_json1_1CreateKeyCommand } from "../protocols/Aws_json1_1";
+import { CreateKeyRequest, CreateKeyResponse } from "../models/models_0";
+import { de_CreateKeyCommand, se_CreateKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateKeyCommand}.
  */
 export interface CreateKeyCommandInput extends CreateKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateKeyCommand}.
  */
 export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and Region.
  *       You can use a KMS key in cryptographic operations, such as encryption and signing. Some Amazon Web Services
  *       services let you use KMS keys that you create and manage to protect your service
@@ -205,10 +205,30 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * import { KMSClient, CreateKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CreateKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // CreateKeyRequest
+ *   Policy: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC",
+ *   CustomerMasterKeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
+ *   KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
+ *   Origin: "AWS_KMS" || "EXTERNAL" || "AWS_CLOUDHSM" || "EXTERNAL_KEY_STORE",
+ *   CustomKeyStoreId: "STRING_VALUE",
+ *   BypassPolicyLockoutSafetyCheck: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   MultiRegion: true || false,
+ *   XksKeyId: "STRING_VALUE",
+ * };
  * const command = new CreateKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateKeyCommandInput - {@link CreateKeyCommandInput}
+ * @returns {@link CreateKeyCommandOutput}
  * @see {@link CreateKeyCommandInput} for command's `input` shape.
  * @see {@link CreateKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -632,6 +652,9 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -658,8 +681,8 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -669,12 +692,18 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateKeyCommand(input, context);
+    return se_CreateKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyCommandOutput> {
-    return deserializeAws_json1_1CreateKeyCommand(output, context);
+    return de_CreateKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

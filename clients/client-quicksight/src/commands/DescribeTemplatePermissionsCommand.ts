@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeTemplatePermissionsRequest, DescribeTemplatePermissionsResponse } from "../models/models_2";
 import {
-  DescribeTemplatePermissionsRequest,
-  DescribeTemplatePermissionsRequestFilterSensitiveLog,
-  DescribeTemplatePermissionsResponse,
-  DescribeTemplatePermissionsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeTemplatePermissionsCommand,
-  serializeAws_restJson1DescribeTemplatePermissionsCommand,
+  de_DescribeTemplatePermissionsCommand,
+  se_DescribeTemplatePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTemplatePermissionsCommand}.
  */
 export interface DescribeTemplatePermissionsCommandInput extends DescribeTemplatePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTemplatePermissionsCommand}.
  */
 export interface DescribeTemplatePermissionsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeTemplatePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes read and write permissions on a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DescribeTemplatePermissionsCommandOutput
  * import { QuickSightClient, DescribeTemplatePermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeTemplatePermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeTemplatePermissionsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   TemplateId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTemplatePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTemplatePermissionsCommandInput - {@link DescribeTemplatePermissionsCommandInput}
+ * @returns {@link DescribeTemplatePermissionsCommandOutput}
  * @see {@link DescribeTemplatePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeTemplatePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -92,6 +98,9 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTemplatePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +129,8 @@ export class DescribeTemplatePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTemplatePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTemplatePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +140,21 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTemplatePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTemplatePermissionsCommand(input, context);
+    return se_DescribeTemplatePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTemplatePermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeTemplatePermissionsCommand(output, context);
+    return de_DescribeTemplatePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

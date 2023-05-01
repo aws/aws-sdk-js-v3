@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSchemaRequest, DeleteSchemaRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteSchemaRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteSchemaCommand,
-  serializeAws_json1_1DeleteSchemaCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSchemaCommand, se_DeleteSchemaCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSchemaCommand}.
  */
 export interface DeleteSchemaCommandInput extends DeleteSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSchemaCommand}.
  */
 export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a schema. Before deleting a schema, you must delete all
  *       datasets referencing the schema. For more information on schemas, see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
@@ -39,10 +41,15 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteSchemaCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteSchemaCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DeleteSchemaRequest
+ *   schemaArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSchemaCommandInput - {@link DeleteSchemaCommandInput}
+ * @returns {@link DeleteSchemaCommandOutput}
  * @see {@link DeleteSchemaCommandInput} for command's `input` shape.
  * @see {@link DeleteSchemaCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -75,6 +82,9 @@ export class DeleteSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +111,8 @@ export class DeleteSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +122,18 @@ export class DeleteSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSchemaCommand(input, context);
+    return se_DeleteSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSchemaCommandOutput> {
-    return deserializeAws_json1_1DeleteSchemaCommand(output, context);
+    return de_DeleteSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

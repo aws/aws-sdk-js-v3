@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisableHostedZoneDNSSECRequest,
-  DisableHostedZoneDNSSECRequestFilterSensitiveLog,
-  DisableHostedZoneDNSSECResponse,
-  DisableHostedZoneDNSSECResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDisableHostedZoneDNSSECCommand,
-  serializeAws_restXmlDisableHostedZoneDNSSECCommand,
-} from "../protocols/Aws_restXml";
+import { DisableHostedZoneDNSSECRequest, DisableHostedZoneDNSSECResponse } from "../models/models_0";
+import { de_DisableHostedZoneDNSSECCommand, se_DisableHostedZoneDNSSECCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DisableHostedZoneDNSSECCommand}.
  */
 export interface DisableHostedZoneDNSSECCommandInput extends DisableHostedZoneDNSSECRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableHostedZoneDNSSECCommand}.
  */
 export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneDNSSECResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables DNSSEC signing in a specific hosted zone. This action does not deactivate any
  * 			key-signing keys (KSKs) that are active in the hosted zone.</p>
  * @example
@@ -44,10 +41,15 @@ export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneD
  * import { Route53Client, DisableHostedZoneDNSSECCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DisableHostedZoneDNSSECCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // DisableHostedZoneDNSSECRequest
+ *   HostedZoneId: "STRING_VALUE", // required
+ * };
  * const command = new DisableHostedZoneDNSSECCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableHostedZoneDNSSECCommandInput - {@link DisableHostedZoneDNSSECCommandInput}
+ * @returns {@link DisableHostedZoneDNSSECCommandOutput}
  * @see {@link DisableHostedZoneDNSSECCommandInput} for command's `input` shape.
  * @see {@link DisableHostedZoneDNSSECCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -98,6 +100,9 @@ export class DisableHostedZoneDNSSECCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableHostedZoneDNSSECCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +132,8 @@ export class DisableHostedZoneDNSSECCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableHostedZoneDNSSECRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableHostedZoneDNSSECResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +143,18 @@ export class DisableHostedZoneDNSSECCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableHostedZoneDNSSECCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDisableHostedZoneDNSSECCommand(input, context);
+    return se_DisableHostedZoneDNSSECCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableHostedZoneDNSSECCommandOutput> {
-    return deserializeAws_restXmlDisableHostedZoneDNSSECCommand(output, context);
+    return de_DisableHostedZoneDNSSECCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetEndpointAttributesInput, SetEndpointAttributesInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_querySetEndpointAttributesCommand,
-  serializeAws_querySetEndpointAttributesCommand,
-} from "../protocols/Aws_query";
+import { SetEndpointAttributesInput } from "../models/models_0";
+import { de_SetEndpointAttributesCommand, se_SetEndpointAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetEndpointAttributesCommand}.
  */
 export interface SetEndpointAttributesCommandInput extends SetEndpointAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link SetEndpointAttributesCommand}.
  */
 export interface SetEndpointAttributesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the attributes for an endpoint for a device on one of the supported push
  *             notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -39,10 +41,18 @@ export interface SetEndpointAttributesCommandOutput extends __MetadataBearer {}
  * import { SNSClient, SetEndpointAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SetEndpointAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // SetEndpointAttributesInput
+ *   EndpointArn: "STRING_VALUE", // required
+ *   Attributes: { // MapStringToString // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SetEndpointAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetEndpointAttributesCommandInput - {@link SetEndpointAttributesCommandInput}
+ * @returns {@link SetEndpointAttributesCommandOutput}
  * @see {@link SetEndpointAttributesCommandInput} for command's `input` shape.
  * @see {@link SetEndpointAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -79,6 +89,9 @@ export class SetEndpointAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetEndpointAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +120,8 @@ export class SetEndpointAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetEndpointAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +131,18 @@ export class SetEndpointAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetEndpointAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetEndpointAttributesCommand(input, context);
+    return se_SetEndpointAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetEndpointAttributesCommandOutput> {
-    return deserializeAws_querySetEndpointAttributesCommand(output, context);
+    return de_SetEndpointAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTagsRequest, DeleteTagsRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteTagsRequest } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1DeleteTagsCommand,
-  serializeAws_restJson1DeleteTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTagsCommand}.
  */
 export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTagsCommand}.
  */
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a tag from a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,18 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * import { MqClient, DeleteTagsCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DeleteTagsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = { // DeleteTagsRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeys: [ // __listOf__string // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
+ * @returns {@link DeleteTagsCommandOutput}
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -76,6 +86,9 @@ export class DeleteTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +115,8 @@ export class DeleteTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +126,18 @@ export class DeleteTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTagsCommand(input, context);
+    return se_DeleteTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagsCommandOutput> {
-    return deserializeAws_restJson1DeleteTagsCommand(output, context);
+    return de_DeleteTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

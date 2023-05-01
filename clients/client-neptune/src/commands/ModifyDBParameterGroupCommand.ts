@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBParameterGroupNameMessage,
-  DBParameterGroupNameMessageFilterSensitiveLog,
-  ModifyDBParameterGroupMessage,
-  ModifyDBParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DBParameterGroupNameMessage, ModifyDBParameterGroupMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryModifyDBParameterGroupCommand,
-  serializeAws_queryModifyDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBParameterGroupCommand, se_ModifyDBParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBParameterGroupCommand}.
  */
 export interface ModifyDBParameterGroupCommandInput extends ModifyDBParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBParameterGroupCommand}.
  */
 export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a DB parameter group. To modify more than one parameter,
  *       submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and
  *       <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p>
@@ -61,10 +58,29 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * import { NeptuneClient, ModifyDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // ModifyDBParameterGroupMessage
+ *   DBParameterGroupName: "STRING_VALUE", // required
+ *   Parameters: [ // ParametersList // required
+ *     { // Parameter
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       ApplyType: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       ApplyMethod: "immediate" || "pending-reboot",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBParameterGroupCommandInput - {@link ModifyDBParameterGroupCommandInput}
+ * @returns {@link ModifyDBParameterGroupCommandOutput}
  * @see {@link ModifyDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -97,6 +113,9 @@ export class ModifyDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +144,8 @@ export class ModifyDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBParameterGroupNameMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +155,18 @@ export class ModifyDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBParameterGroupCommand(input, context);
+    return se_ModifyDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyDBParameterGroupCommand(output, context);
+    return de_ModifyDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

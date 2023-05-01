@@ -10,7 +10,7 @@ import { EKSClient } from "../EKSClient";
 import { EKSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EKSClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListIdentityProviderConfigsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListIdentityProviderConfigs(
   config: EKSPaginationConfiguration,
   input: ListIdentityProviderConfigsCommandInput,

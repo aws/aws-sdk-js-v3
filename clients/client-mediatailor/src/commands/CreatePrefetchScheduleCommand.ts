@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  CreatePrefetchScheduleRequest,
-  CreatePrefetchScheduleRequestFilterSensitiveLog,
-  CreatePrefetchScheduleResponse,
-  CreatePrefetchScheduleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePrefetchScheduleCommand,
-  serializeAws_restJson1CreatePrefetchScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { CreatePrefetchScheduleRequest, CreatePrefetchScheduleResponse } from "../models/models_0";
+import { de_CreatePrefetchScheduleCommand, se_CreatePrefetchScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePrefetchScheduleCommand}.
  */
 export interface CreatePrefetchScheduleCommandInput extends CreatePrefetchScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePrefetchScheduleCommand}.
  */
 export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a prefetch schedule for a playback configuration. A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain ads before an ad break happens. For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using ad prefetching</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,34 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  * import { MediaTailorClient, CreatePrefetchScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreatePrefetchScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // CreatePrefetchScheduleRequest
+ *   Consumption: { // PrefetchConsumption
+ *     AvailMatchingCriteria: [ // __listOfAvailMatchingCriteria
+ *       { // AvailMatchingCriteria
+ *         DynamicVariable: "STRING_VALUE", // required
+ *         Operator: "EQUALS", // required
+ *       },
+ *     ],
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *     StartTime: new Date("TIMESTAMP"),
+ *   },
+ *   Name: "STRING_VALUE", // required
+ *   PlaybackConfigurationName: "STRING_VALUE", // required
+ *   Retrieval: { // PrefetchRetrieval
+ *     DynamicVariables: { // __mapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *     StartTime: new Date("TIMESTAMP"),
+ *   },
+ *   StreamId: "STRING_VALUE",
+ * };
  * const command = new CreatePrefetchScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePrefetchScheduleCommandInput - {@link CreatePrefetchScheduleCommandInput}
+ * @returns {@link CreatePrefetchScheduleCommandOutput}
  * @see {@link CreatePrefetchScheduleCommandInput} for command's `input` shape.
  * @see {@link CreatePrefetchScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +90,9 @@ export class CreatePrefetchScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePrefetchScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +121,8 @@ export class CreatePrefetchScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePrefetchScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePrefetchScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +132,18 @@ export class CreatePrefetchScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePrefetchScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePrefetchScheduleCommand(input, context);
+    return se_CreatePrefetchScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePrefetchScheduleCommandOutput> {
-    return deserializeAws_restJson1CreatePrefetchScheduleCommand(output, context);
+    return de_CreatePrefetchScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

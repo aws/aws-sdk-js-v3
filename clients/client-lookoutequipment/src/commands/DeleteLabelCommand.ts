@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { DeleteLabelRequest, DeleteLabelRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteLabelCommand,
-  serializeAws_json1_0DeleteLabelCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteLabelRequest } from "../models/models_0";
+import { de_DeleteLabelCommand, se_DeleteLabelCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLabelCommand}.
  */
 export interface DeleteLabelCommandInput extends DeleteLabelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLabelCommand}.
  */
 export interface DeleteLabelCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Deletes a label.
  * </p>
@@ -39,10 +41,16 @@ export interface DeleteLabelCommandOutput extends __MetadataBearer {}
  * import { LookoutEquipmentClient, DeleteLabelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DeleteLabelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // DeleteLabelRequest
+ *   LabelGroupName: "STRING_VALUE", // required
+ *   LabelId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLabelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLabelCommandInput - {@link DeleteLabelCommandInput}
+ * @returns {@link DeleteLabelCommandOutput}
  * @see {@link DeleteLabelCommandInput} for command's `input` shape.
  * @see {@link DeleteLabelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -89,6 +97,9 @@ export class DeleteLabelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLabelCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class DeleteLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLabelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +137,18 @@ export class DeleteLabelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteLabelCommand(input, context);
+    return se_DeleteLabelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLabelCommandOutput> {
-    return deserializeAws_json1_0DeleteLabelCommand(output, context);
+    return de_DeleteLabelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  EvaluateFeatureRequest,
-  EvaluateFeatureRequestFilterSensitiveLog,
-  EvaluateFeatureResponse,
-  EvaluateFeatureResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1EvaluateFeatureCommand,
-  serializeAws_restJson1EvaluateFeatureCommand,
-} from "../protocols/Aws_restJson1";
+import { EvaluateFeatureRequest, EvaluateFeatureResponse } from "../models/models_0";
+import { de_EvaluateFeatureCommand, se_EvaluateFeatureCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link EvaluateFeatureCommand}.
  */
 export interface EvaluateFeatureCommandInput extends EvaluateFeatureRequest {}
 /**
+ * @public
+ *
  * The output of {@link EvaluateFeatureCommand}.
  */
 export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation assigns a feature variation to one given user session. You pass in an
  *         <code>entityID</code> that represents the user. Evidently then checks the evaluation rules
  *       and assigns the variation.</p>
@@ -66,10 +63,18 @@ export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, _
  * import { EvidentlyClient, EvaluateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, EvaluateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // EvaluateFeatureRequest
+ *   project: "STRING_VALUE", // required
+ *   feature: "STRING_VALUE", // required
+ *   entityId: "STRING_VALUE", // required
+ *   evaluationContext: "STRING_VALUE",
+ * };
  * const command = new EvaluateFeatureCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EvaluateFeatureCommandInput - {@link EvaluateFeatureCommandInput}
+ * @returns {@link EvaluateFeatureCommandOutput}
  * @see {@link EvaluateFeatureCommandInput} for command's `input` shape.
  * @see {@link EvaluateFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -105,6 +110,9 @@ export class EvaluateFeatureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EvaluateFeatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +141,8 @@ export class EvaluateFeatureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluateFeatureRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EvaluateFeatureResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +152,18 @@ export class EvaluateFeatureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EvaluateFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EvaluateFeatureCommand(input, context);
+    return se_EvaluateFeatureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateFeatureCommandOutput> {
-    return deserializeAws_restJson1EvaluateFeatureCommand(output, context);
+    return de_EvaluateFeatureCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,48 +14,77 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateGameSessionQueueInput,
-  UpdateGameSessionQueueInputFilterSensitiveLog,
-  UpdateGameSessionQueueOutput,
-  UpdateGameSessionQueueOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateGameSessionQueueCommand,
-  serializeAws_json1_1UpdateGameSessionQueueCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateGameSessionQueueInput, UpdateGameSessionQueueOutput } from "../models/models_1";
+import { de_UpdateGameSessionQueueCommand, se_UpdateGameSessionQueueCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGameSessionQueueCommand}.
  */
 export interface UpdateGameSessionQueueCommandInput extends UpdateGameSessionQueueInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGameSessionQueueCommand}.
  */
 export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQueueOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration of a game session queue, which determines how the queue
  *             processes new game session requests. To update settings, specify the queue name to be
  *             updated and provide the new settings. When updating destinations, provide a complete
  *             list of destinations. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
  *                 Using Multi-Region Queues</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GameLiftClient, UpdateGameSessionQueueCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateGameSessionQueueCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // UpdateGameSessionQueueInput
+ *   Name: "STRING_VALUE", // required
+ *   TimeoutInSeconds: Number("int"),
+ *   PlayerLatencyPolicies: [ // PlayerLatencyPolicyList
+ *     { // PlayerLatencyPolicy
+ *       MaximumIndividualPlayerLatencyMilliseconds: Number("int"),
+ *       PolicyDurationSeconds: Number("int"),
+ *     },
+ *   ],
+ *   Destinations: [ // GameSessionQueueDestinationList
+ *     { // GameSessionQueueDestination
+ *       DestinationArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   FilterConfiguration: { // FilterConfiguration
+ *     AllowedLocations: [ // LocationList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PriorityConfiguration: { // PriorityConfiguration
+ *     PriorityOrder: [ // PriorityTypeList
+ *       "LATENCY" || "COST" || "DESTINATION" || "LOCATION",
+ *     ],
+ *     LocationOrder: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   CustomEventData: "STRING_VALUE",
+ *   NotificationTarget: "STRING_VALUE",
+ * };
  * const command = new UpdateGameSessionQueueCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGameSessionQueueCommandInput - {@link UpdateGameSessionQueueCommandInput}
+ * @returns {@link UpdateGameSessionQueueCommandOutput}
  * @see {@link UpdateGameSessionQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateGameSessionQueueCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -93,6 +122,9 @@ export class UpdateGameSessionQueueCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGameSessionQueueCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +153,8 @@ export class UpdateGameSessionQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGameSessionQueueInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGameSessionQueueOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +164,18 @@ export class UpdateGameSessionQueueCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGameSessionQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGameSessionQueueCommand(input, context);
+    return se_UpdateGameSessionQueueCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGameSessionQueueCommandOutput> {
-    return deserializeAws_json1_1UpdateGameSessionQueueCommand(output, context);
+    return de_UpdateGameSessionQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

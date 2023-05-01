@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  GetAppliedSchemaVersionRequest,
-  GetAppliedSchemaVersionRequestFilterSensitiveLog,
-  GetAppliedSchemaVersionResponse,
-  GetAppliedSchemaVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAppliedSchemaVersionCommand,
-  serializeAws_restJson1GetAppliedSchemaVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAppliedSchemaVersionRequest, GetAppliedSchemaVersionResponse } from "../models/models_0";
+import { de_GetAppliedSchemaVersionCommand, se_GetAppliedSchemaVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAppliedSchemaVersionCommand}.
  */
 export interface GetAppliedSchemaVersionCommandInput extends GetAppliedSchemaVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAppliedSchemaVersionCommand}.
  */
 export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns current applied schema version ARN, including the minor version in use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  * import { CloudDirectoryClient, GetAppliedSchemaVersionCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetAppliedSchemaVersionCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // GetAppliedSchemaVersionRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ * };
  * const command = new GetAppliedSchemaVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAppliedSchemaVersionCommandInput - {@link GetAppliedSchemaVersionCommandInput}
+ * @returns {@link GetAppliedSchemaVersionCommandOutput}
  * @see {@link GetAppliedSchemaVersionCommandInput} for command's `input` shape.
  * @see {@link GetAppliedSchemaVersionCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -91,6 +93,9 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAppliedSchemaVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class GetAppliedSchemaVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppliedSchemaVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAppliedSchemaVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAppliedSchemaVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAppliedSchemaVersionCommand(input, context);
+    return se_GetAppliedSchemaVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppliedSchemaVersionCommandOutput> {
-    return deserializeAws_restJson1GetAppliedSchemaVersionCommand(output, context);
+    return de_GetAppliedSchemaVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

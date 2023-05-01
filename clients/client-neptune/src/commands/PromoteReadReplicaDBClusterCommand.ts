@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PromoteReadReplicaDBClusterMessage,
-  PromoteReadReplicaDBClusterMessageFilterSensitiveLog,
-  PromoteReadReplicaDBClusterResult,
-  PromoteReadReplicaDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { PromoteReadReplicaDBClusterMessage, PromoteReadReplicaDBClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryPromoteReadReplicaDBClusterCommand,
-  serializeAws_queryPromoteReadReplicaDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_PromoteReadReplicaDBClusterCommand, se_PromoteReadReplicaDBClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PromoteReadReplicaDBClusterCommand}.
  */
 export interface PromoteReadReplicaDBClusterCommandInput extends PromoteReadReplicaDBClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link PromoteReadReplicaDBClusterCommand}.
  */
 export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadReplicaDBClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Not supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * import { NeptuneClient, PromoteReadReplicaDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, PromoteReadReplicaDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // PromoteReadReplicaDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new PromoteReadReplicaDBClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PromoteReadReplicaDBClusterCommandInput - {@link PromoteReadReplicaDBClusterCommandInput}
+ * @returns {@link PromoteReadReplicaDBClusterCommandOutput}
  * @see {@link PromoteReadReplicaDBClusterCommandInput} for command's `input` shape.
  * @see {@link PromoteReadReplicaDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -76,6 +78,9 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PromoteReadReplicaDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PromoteReadReplicaDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PromoteReadReplicaDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,15 +120,21 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PromoteReadReplicaDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPromoteReadReplicaDBClusterCommand(input, context);
+    return se_PromoteReadReplicaDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PromoteReadReplicaDBClusterCommandOutput> {
-    return deserializeAws_queryPromoteReadReplicaDBClusterCommand(output, context);
+    return de_PromoteReadReplicaDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

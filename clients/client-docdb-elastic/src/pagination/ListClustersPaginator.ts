@@ -10,7 +10,7 @@ import { DocDBElasticClient } from "../DocDBElasticClient";
 import { DocDBElasticPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DocDBElasticClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListClustersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListClusters(
   config: DocDBElasticPaginationConfiguration,
   input: ListClustersCommandInput,

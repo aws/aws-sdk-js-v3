@@ -8,11 +8,22 @@ import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCre
 import { providerConfigFromInit, RemoteProviderInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
 
+/**
+ * @internal
+ */
 export const ENV_CMDS_FULL_URI = "AWS_CONTAINER_CREDENTIALS_FULL_URI";
+/**
+ * @internal
+ */
 export const ENV_CMDS_RELATIVE_URI = "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI";
+/**
+ * @internal
+ */
 export const ENV_CMDS_AUTH_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
 
 /**
+ * @internal
+ * 
  * Creates a credential provider that will source credentials from the ECS
  * Container Metadata Service
  */

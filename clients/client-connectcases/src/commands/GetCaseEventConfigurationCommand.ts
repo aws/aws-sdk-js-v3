@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  GetCaseEventConfigurationRequest,
-  GetCaseEventConfigurationRequestFilterSensitiveLog,
-  GetCaseEventConfigurationResponse,
-  GetCaseEventConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCaseEventConfigurationCommand,
-  serializeAws_restJson1GetCaseEventConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetCaseEventConfigurationRequest, GetCaseEventConfigurationResponse } from "../models/models_0";
+import { de_GetCaseEventConfigurationCommand, se_GetCaseEventConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCaseEventConfigurationCommand}.
  */
 export interface GetCaseEventConfigurationCommandInput extends GetCaseEventConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCaseEventConfigurationCommand}.
  */
 export interface GetCaseEventConfigurationCommandOutput extends GetCaseEventConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the case event publishing configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetCaseEventConfigurationCommandOutput extends GetCaseEventConf
  * import { ConnectCasesClient, GetCaseEventConfigurationCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, GetCaseEventConfigurationCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // GetCaseEventConfigurationRequest
+ *   domainId: "STRING_VALUE", // required
+ * };
  * const command = new GetCaseEventConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCaseEventConfigurationCommandInput - {@link GetCaseEventConfigurationCommandInput}
+ * @returns {@link GetCaseEventConfigurationCommandOutput}
  * @see {@link GetCaseEventConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetCaseEventConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -86,6 +88,9 @@ export class GetCaseEventConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCaseEventConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class GetCaseEventConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCaseEventConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCaseEventConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +130,21 @@ export class GetCaseEventConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCaseEventConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCaseEventConfigurationCommand(input, context);
+    return se_GetCaseEventConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCaseEventConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetCaseEventConfigurationCommand(output, context);
+    return de_GetCaseEventConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ListEntitiesDetectionJobsRequest,
-  ListEntitiesDetectionJobsRequestFilterSensitiveLog,
-  ListEntitiesDetectionJobsResponse,
-  ListEntitiesDetectionJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEntitiesDetectionJobsCommand,
-  serializeAws_json1_1ListEntitiesDetectionJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEntitiesDetectionJobsRequest, ListEntitiesDetectionJobsResponse } from "../models/models_0";
+import { de_ListEntitiesDetectionJobsCommand, se_ListEntitiesDetectionJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEntitiesDetectionJobsCommand}.
  */
 export interface ListEntitiesDetectionJobsCommandInput extends ListEntitiesDetectionJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEntitiesDetectionJobsCommand}.
  */
 export interface ListEntitiesDetectionJobsCommandOutput extends ListEntitiesDetectionJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the entity detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface ListEntitiesDetectionJobsCommandOutput extends ListEntitiesDete
  * import { ComprehendClient, ListEntitiesDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListEntitiesDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListEntitiesDetectionJobsRequest
+ *   Filter: { // EntitiesDetectionJobFilter
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEntitiesDetectionJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEntitiesDetectionJobsCommandInput - {@link ListEntitiesDetectionJobsCommandInput}
+ * @returns {@link ListEntitiesDetectionJobsCommandOutput}
  * @see {@link ListEntitiesDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +91,9 @@ export class ListEntitiesDetectionJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEntitiesDetectionJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +122,8 @@ export class ListEntitiesDetectionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntitiesDetectionJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEntitiesDetectionJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +133,21 @@ export class ListEntitiesDetectionJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEntitiesDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntitiesDetectionJobsCommand(input, context);
+    return se_ListEntitiesDetectionJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEntitiesDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListEntitiesDetectionJobsCommand(output, context);
+    return de_ListEntitiesDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

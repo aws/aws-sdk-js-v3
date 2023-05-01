@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ConfigurationOptionsDescription,
-  ConfigurationOptionsDescriptionFilterSensitiveLog,
-  DescribeConfigurationOptionsMessage,
-  DescribeConfigurationOptionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeConfigurationOptionsCommand,
-  serializeAws_queryDescribeConfigurationOptionsCommand,
-} from "../protocols/Aws_query";
+import { ConfigurationOptionsDescription, DescribeConfigurationOptionsMessage } from "../models/models_0";
+import { de_DescribeConfigurationOptionsCommand, se_DescribeConfigurationOptionsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeConfigurationOptionsCommand}.
  */
 export interface DescribeConfigurationOptionsCommandInput extends DescribeConfigurationOptionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeConfigurationOptionsCommand}.
  */
 export interface DescribeConfigurationOptionsCommandOutput extends ConfigurationOptionsDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the configuration options that are used in a particular configuration
  *       template or environment, or that a specified solution stack defines. The description includes
  *       the values the options, their default values, and an indication of the required action on a
@@ -45,10 +42,26 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * import { ElasticBeanstalkClient, DescribeConfigurationOptionsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeConfigurationOptionsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DescribeConfigurationOptionsMessage
+ *   ApplicationName: "STRING_VALUE",
+ *   TemplateName: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ *   SolutionStackName: "STRING_VALUE",
+ *   PlatformArn: "STRING_VALUE",
+ *   Options: [ // OptionsSpecifierList
+ *     { // OptionSpecification
+ *       ResourceName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       OptionName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DescribeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeConfigurationOptionsCommandInput - {@link DescribeConfigurationOptionsCommandInput}
+ * @returns {@link DescribeConfigurationOptionsCommandOutput}
  * @see {@link DescribeConfigurationOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationOptionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -112,6 +125,9 @@ export class DescribeConfigurationOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeConfigurationOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +156,8 @@ export class DescribeConfigurationOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationOptionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigurationOptionsDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,15 +167,21 @@ export class DescribeConfigurationOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeConfigurationOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeConfigurationOptionsCommand(input, context);
+    return se_DescribeConfigurationOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationOptionsCommandOutput> {
-    return deserializeAws_queryDescribeConfigurationOptionsCommand(output, context);
+    return de_DescribeConfigurationOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

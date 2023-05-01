@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  CreateResourceRequest,
-  CreateResourceRequestFilterSensitiveLog,
-  Resource,
-  ResourceFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateResourceCommand,
-  serializeAws_restJson1CreateResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateResourceRequest, Resource } from "../models/models_0";
+import { de_CreateResourceCommand, se_CreateResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourceCommand}.
  */
 export interface CreateResourceCommandInput extends CreateResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourceCommand}.
  */
 export interface CreateResourceCommandOutput extends Resource, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Resource resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface CreateResourceCommandOutput extends Resource, __MetadataBearer 
  * import { APIGatewayClient, CreateResourceCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateResourceCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // CreateResourceRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   parentId: "STRING_VALUE", // required
+ *   pathPart: "STRING_VALUE", // required
+ * };
  * const command = new CreateResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourceCommandInput - {@link CreateResourceCommandInput}
+ * @returns {@link CreateResourceCommandOutput}
  * @see {@link CreateResourceCommandInput} for command's `input` shape.
  * @see {@link CreateResourceCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +91,9 @@ export class CreateResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class CreateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResourceFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class CreateResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateResourceCommand(input, context);
+    return se_CreateResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceCommandOutput> {
-    return deserializeAws_restJson1CreateResourceCommand(output, context);
+    return de_CreateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

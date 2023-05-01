@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListVocabularyFiltersRequest,
-  ListVocabularyFiltersRequestFilterSensitiveLog,
-  ListVocabularyFiltersResponse,
-  ListVocabularyFiltersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListVocabularyFiltersCommand,
-  serializeAws_json1_1ListVocabularyFiltersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListVocabularyFiltersRequest, ListVocabularyFiltersResponse } from "../models/models_0";
+import { de_ListVocabularyFiltersCommand, se_ListVocabularyFiltersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListVocabularyFiltersCommand}.
  */
 export interface ListVocabularyFiltersCommandInput extends ListVocabularyFiltersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListVocabularyFiltersCommand}.
  */
 export interface ListVocabularyFiltersCommandOutput extends ListVocabularyFiltersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of custom vocabulary filters that match the specified criteria. If no
  *             criteria are specified, all custom vocabularies are returned.</p>
  *          <p>To get detailed information about a specific custom vocabulary filter, use the  operation.</p>
@@ -44,10 +41,17 @@ export interface ListVocabularyFiltersCommandOutput extends ListVocabularyFilter
  * import { TranscribeClient, ListVocabularyFiltersCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListVocabularyFiltersCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // ListVocabularyFiltersRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ * };
  * const command = new ListVocabularyFiltersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListVocabularyFiltersCommandInput - {@link ListVocabularyFiltersCommandInput}
+ * @returns {@link ListVocabularyFiltersCommandOutput}
  * @see {@link ListVocabularyFiltersCommandInput} for command's `input` shape.
  * @see {@link ListVocabularyFiltersCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListVocabularyFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListVocabularyFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class ListVocabularyFiltersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVocabularyFiltersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVocabularyFiltersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class ListVocabularyFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListVocabularyFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListVocabularyFiltersCommand(input, context);
+    return se_ListVocabularyFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVocabularyFiltersCommandOutput> {
-    return deserializeAws_json1_1ListVocabularyFiltersCommand(output, context);
+    return de_ListVocabularyFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

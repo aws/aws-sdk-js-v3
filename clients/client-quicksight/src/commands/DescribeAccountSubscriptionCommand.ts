@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeAccountSubscriptionRequest, DescribeAccountSubscriptionResponse } from "../models/models_2";
 import {
-  DescribeAccountSubscriptionRequest,
-  DescribeAccountSubscriptionRequestFilterSensitiveLog,
-  DescribeAccountSubscriptionResponse,
-  DescribeAccountSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeAccountSubscriptionCommand,
-  serializeAws_restJson1DescribeAccountSubscriptionCommand,
+  de_DescribeAccountSubscriptionCommand,
+  se_DescribeAccountSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountSubscriptionCommand}.
  */
 export interface DescribeAccountSubscriptionCommandInput extends DescribeAccountSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountSubscriptionCommand}.
  */
 export interface DescribeAccountSubscriptionCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeAccountSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the DescribeAccountSubscription operation to receive a description of an Amazon QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface DescribeAccountSubscriptionCommandOutput
  * import { QuickSightClient, DescribeAccountSubscriptionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAccountSubscriptionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeAccountSubscriptionRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAccountSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountSubscriptionCommandInput - {@link DescribeAccountSubscriptionCommandInput}
+ * @returns {@link DescribeAccountSubscriptionCommandOutput}
  * @see {@link DescribeAccountSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -92,6 +97,9 @@ export class DescribeAccountSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class DescribeAccountSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +139,21 @@ export class DescribeAccountSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccountSubscriptionCommand(input, context);
+    return se_DescribeAccountSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountSubscriptionCommandOutput> {
-    return deserializeAws_restJson1DescribeAccountSubscriptionCommand(output, context);
+    return de_DescribeAccountSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

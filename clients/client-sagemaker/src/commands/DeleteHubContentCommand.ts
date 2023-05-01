@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteHubContentRequest, DeleteHubContentRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteHubContentCommand,
-  serializeAws_json1_1DeleteHubContentCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteHubContentRequest } from "../models/models_1";
+import { de_DeleteHubContentCommand, se_DeleteHubContentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHubContentCommand}.
  */
 export interface DeleteHubContentCommandInput extends DeleteHubContentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHubContentCommand}.
  */
 export interface DeleteHubContentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the contents of a hub.</p>
  *          <note>
  *             <p>Hub APIs are only callable through SageMaker Studio.</p>
@@ -40,10 +42,18 @@ export interface DeleteHubContentCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteHubContentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteHubContentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteHubContentRequest
+ *   HubName: "STRING_VALUE", // required
+ *   HubContentType: "Model" || "Notebook", // required
+ *   HubContentName: "STRING_VALUE", // required
+ *   HubContentVersion: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHubContentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHubContentCommandInput - {@link DeleteHubContentCommandInput}
+ * @returns {@link DeleteHubContentCommandOutput}
  * @see {@link DeleteHubContentCommandInput} for command's `input` shape.
  * @see {@link DeleteHubContentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -73,6 +83,9 @@ export class DeleteHubContentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHubContentCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +114,8 @@ export class DeleteHubContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHubContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +125,18 @@ export class DeleteHubContentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHubContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteHubContentCommand(input, context);
+    return se_DeleteHubContentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHubContentCommandOutput> {
-    return deserializeAws_json1_1DeleteHubContentCommand(output, context);
+    return de_DeleteHubContentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteStudioMemberRequest,
-  DeleteStudioMemberRequestFilterSensitiveLog,
-  DeleteStudioMemberResponse,
-  DeleteStudioMemberResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteStudioMemberRequest, DeleteStudioMemberResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1DeleteStudioMemberCommand,
-  serializeAws_restJson1DeleteStudioMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteStudioMemberCommand, se_DeleteStudioMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteStudioMemberCommand}.
  */
 export interface DeleteStudioMemberCommandInput extends DeleteStudioMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteStudioMemberCommand}.
  */
 export interface DeleteStudioMemberCommandOutput extends DeleteStudioMemberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a user from studio membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DeleteStudioMemberCommandOutput extends DeleteStudioMemberRespo
  * import { NimbleClient, DeleteStudioMemberCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, DeleteStudioMemberCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // DeleteStudioMemberRequest
+ *   clientToken: "STRING_VALUE",
+ *   principalId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStudioMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteStudioMemberCommandInput - {@link DeleteStudioMemberCommandInput}
+ * @returns {@link DeleteStudioMemberCommandOutput}
  * @see {@link DeleteStudioMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioMemberCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +97,9 @@ export class DeleteStudioMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteStudioMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +128,8 @@ export class DeleteStudioMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStudioMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStudioMemberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +139,18 @@ export class DeleteStudioMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteStudioMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStudioMemberCommand(input, context);
+    return se_DeleteStudioMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStudioMemberCommandOutput> {
-    return deserializeAws_restJson1DeleteStudioMemberCommand(output, context);
+    return de_DeleteStudioMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

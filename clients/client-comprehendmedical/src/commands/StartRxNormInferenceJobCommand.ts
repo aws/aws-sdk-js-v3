@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  StartRxNormInferenceJobRequest,
-  StartRxNormInferenceJobRequestFilterSensitiveLog,
-  StartRxNormInferenceJobResponse,
-  StartRxNormInferenceJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartRxNormInferenceJobCommand,
-  serializeAws_json1_1StartRxNormInferenceJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StartRxNormInferenceJobRequest, StartRxNormInferenceJobResponse } from "../models/models_0";
+import { de_StartRxNormInferenceJobCommand, se_StartRxNormInferenceJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartRxNormInferenceJobCommand}.
  */
 export interface StartRxNormInferenceJobCommandInput extends StartRxNormInferenceJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartRxNormInferenceJobCommand}.
  */
 export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferenceJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous job to detect medication entities and link them to the RxNorm
  *       ontology. Use the <code>DescribeRxNormInferenceJob</code> operation to track the status of a
  *       job.</p>
@@ -48,10 +45,27 @@ export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferen
  * import { ComprehendMedicalClient, StartRxNormInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StartRxNormInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // StartRxNormInferenceJobRequest
+ *   InputDataConfig: { // InputDataConfig
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE",
+ *   },
+ *   OutputDataConfig: { // OutputDataConfig
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE",
+ *   },
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   JobName: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   KMSKey: "STRING_VALUE",
+ *   LanguageCode: "en", // required
+ * };
  * const command = new StartRxNormInferenceJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartRxNormInferenceJobCommandInput - {@link StartRxNormInferenceJobCommandInput}
+ * @returns {@link StartRxNormInferenceJobCommandOutput}
  * @see {@link StartRxNormInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StartRxNormInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -91,6 +105,9 @@ export class StartRxNormInferenceJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartRxNormInferenceJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +136,8 @@ export class StartRxNormInferenceJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRxNormInferenceJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRxNormInferenceJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +147,18 @@ export class StartRxNormInferenceJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartRxNormInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartRxNormInferenceJobCommand(input, context);
+    return se_StartRxNormInferenceJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRxNormInferenceJobCommandOutput> {
-    return deserializeAws_json1_1StartRxNormInferenceJobCommand(output, context);
+    return de_StartRxNormInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

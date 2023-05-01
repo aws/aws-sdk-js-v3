@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateFolderRequest,
-  UpdateFolderRequestFilterSensitiveLog,
-  UpdateFolderResponse,
-  UpdateFolderResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateFolderCommand,
-  serializeAws_restJson1UpdateFolderCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFolderRequest, UpdateFolderResponse } from "../models/models_3";
+import { de_UpdateFolderCommand, se_UpdateFolderCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFolderCommand}.
  */
 export interface UpdateFolderCommandInput extends UpdateFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFolderCommand}.
  */
 export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name of a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __Metad
  * import { QuickSightClient, UpdateFolderCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateFolderCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // UpdateFolderRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   FolderId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new UpdateFolderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFolderCommandInput - {@link UpdateFolderCommandInput}
+ * @returns {@link UpdateFolderCommandOutput}
  * @see {@link UpdateFolderCommandInput} for command's `input` shape.
  * @see {@link UpdateFolderCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -99,6 +103,9 @@ export class UpdateFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +132,8 @@ export class UpdateFolderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFolderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFolderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +143,18 @@ export class UpdateFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFolderCommand(input, context);
+    return se_UpdateFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFolderCommandOutput> {
-    return deserializeAws_restJson1UpdateFolderCommand(output, context);
+    return de_UpdateFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

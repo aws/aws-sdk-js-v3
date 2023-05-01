@@ -1,3 +1,6 @@
+/**
+ * @internal
+ */
 export function getChunkedStream(source: AsyncIterable<Uint8Array>): AsyncIterable<Uint8Array> {
   let currentMessageTotalLength = 0;
   let currentMessagePendingLength = 0;

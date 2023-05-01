@@ -15,26 +15,27 @@ import {
 
 import {
   ListServiceTemplateVersionsInput,
-  ListServiceTemplateVersionsInputFilterSensitiveLog,
   ListServiceTemplateVersionsOutput,
   ListServiceTemplateVersionsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListServiceTemplateVersionsCommand,
-  serializeAws_json1_0ListServiceTemplateVersionsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListServiceTemplateVersionsCommand, se_ListServiceTemplateVersionsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceTemplateVersionsCommand}.
  */
 export interface ListServiceTemplateVersionsCommandInput extends ListServiceTemplateVersionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceTemplateVersionsCommand}.
  */
 export interface ListServiceTemplateVersionsCommandOutput extends ListServiceTemplateVersionsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List major or minor versions of a service template with detail data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,18 @@ export interface ListServiceTemplateVersionsCommandOutput extends ListServiceTem
  * import { ProtonClient, ListServiceTemplateVersionsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServiceTemplateVersionsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListServiceTemplateVersionsInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   templateName: "STRING_VALUE", // required
+ *   majorVersion: "STRING_VALUE",
+ * };
  * const command = new ListServiceTemplateVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceTemplateVersionsCommandInput - {@link ListServiceTemplateVersionsCommandInput}
+ * @returns {@link ListServiceTemplateVersionsCommandOutput}
  * @see {@link ListServiceTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link ListServiceTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +93,9 @@ export class ListServiceTemplateVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceTemplateVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +124,7 @@ export class ListServiceTemplateVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceTemplateVersionsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListServiceTemplateVersionsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,15 +135,21 @@ export class ListServiceTemplateVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceTemplateVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListServiceTemplateVersionsCommand(input, context);
+    return se_ListServiceTemplateVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServiceTemplateVersionsCommandOutput> {
-    return deserializeAws_json1_0ListServiceTemplateVersionsCommand(output, context);
+    return de_ListServiceTemplateVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

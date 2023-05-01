@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  CreateVariableRequest,
-  CreateVariableRequestFilterSensitiveLog,
-  CreateVariableResult,
-  CreateVariableResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVariableCommand,
-  serializeAws_json1_1CreateVariableCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateVariableRequest, CreateVariableResult } from "../models/models_0";
+import { de_CreateVariableCommand, se_CreateVariableCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVariableCommand}.
  */
 export interface CreateVariableCommandInput extends CreateVariableRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVariableCommand}.
  */
 export interface CreateVariableCommandOutput extends CreateVariableResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a variable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  * import { FraudDetectorClient, CreateVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // CreateVariableRequest
+ *   name: "STRING_VALUE", // required
+ *   dataType: "STRING" || "INTEGER" || "FLOAT" || "BOOLEAN", // required
+ *   dataSource: "EVENT" || "MODEL_SCORE" || "EXTERNAL_MODEL_SCORE", // required
+ *   defaultValue: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   variableType: "STRING_VALUE",
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateVariableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVariableCommandInput - {@link CreateVariableCommandInput}
+ * @returns {@link CreateVariableCommandOutput}
  * @see {@link CreateVariableCommandInput} for command's `input` shape.
  * @see {@link CreateVariableCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -81,6 +94,9 @@ export class CreateVariableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVariableCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +125,8 @@ export class CreateVariableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVariableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVariableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +136,18 @@ export class CreateVariableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVariableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVariableCommand(input, context);
+    return se_CreateVariableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVariableCommandOutput> {
-    return deserializeAws_json1_1CreateVariableCommand(output, context);
+    return de_CreateVariableCommand(output, context);
   }
 
   // Start section: command_body_extra

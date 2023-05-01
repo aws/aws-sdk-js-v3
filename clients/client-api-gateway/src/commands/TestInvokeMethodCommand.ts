@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  TestInvokeMethodRequest,
-  TestInvokeMethodRequestFilterSensitiveLog,
-  TestInvokeMethodResponse,
-  TestInvokeMethodResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1TestInvokeMethodCommand,
-  serializeAws_restJson1TestInvokeMethodCommand,
-} from "../protocols/Aws_restJson1";
+import { TestInvokeMethodRequest, TestInvokeMethodResponse } from "../models/models_0";
+import { de_TestInvokeMethodCommand, se_TestInvokeMethodCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TestInvokeMethodCommand}.
  */
 export interface TestInvokeMethodCommandInput extends TestInvokeMethodRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestInvokeMethodCommand}.
  */
 export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulate the invocation of a Method in your RestApi with headers, parameters, and an incoming request body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,31 @@ export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse,
  * import { APIGatewayClient, TestInvokeMethodCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, TestInvokeMethodCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // TestInvokeMethodRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ *   pathWithQueryString: "STRING_VALUE",
+ *   body: "STRING_VALUE",
+ *   headers: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   multiValueHeaders: { // MapOfStringToList
+ *     "<keys>": [ // ListOfString
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   clientCertificateId: "STRING_VALUE",
+ *   stageVariables: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TestInvokeMethodCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestInvokeMethodCommandInput - {@link TestInvokeMethodCommandInput}
+ * @returns {@link TestInvokeMethodCommandOutput}
  * @see {@link TestInvokeMethodCommandInput} for command's `input` shape.
  * @see {@link TestInvokeMethodCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +99,9 @@ export class TestInvokeMethodCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestInvokeMethodCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +130,8 @@ export class TestInvokeMethodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestInvokeMethodRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestInvokeMethodResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +141,18 @@ export class TestInvokeMethodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestInvokeMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestInvokeMethodCommand(input, context);
+    return se_TestInvokeMethodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestInvokeMethodCommandOutput> {
-    return deserializeAws_restJson1TestInvokeMethodCommand(output, context);
+    return de_TestInvokeMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  GetMemberInput,
-  GetMemberInputFilterSensitiveLog,
-  GetMemberOutput,
-  GetMemberOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMemberCommand,
-  serializeAws_restJson1GetMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { GetMemberInput, GetMemberOutput } from "../models/models_0";
+import { de_GetMemberCommand, se_GetMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMemberCommand}.
  */
 export interface GetMemberCommandInput extends GetMemberInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMemberCommand}.
  */
 export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about a member.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -47,10 +44,16 @@ export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBeare
  * import { ManagedBlockchainClient, GetMemberCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, GetMemberCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = { // GetMemberInput
+ *   NetworkId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE", // required
+ * };
  * const command = new GetMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMemberCommandInput - {@link GetMemberCommandInput}
+ * @returns {@link GetMemberCommandOutput}
  * @see {@link GetMemberCommandInput} for command's `input` shape.
  * @see {@link GetMemberCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
@@ -92,6 +95,9 @@ export class GetMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class GetMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMemberInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMemberOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class GetMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMemberCommand(input, context);
+    return se_GetMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMemberCommandOutput> {
-    return deserializeAws_restJson1GetMemberCommand(output, context);
+    return de_GetMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

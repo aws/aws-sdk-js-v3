@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  GetFormRequest,
-  GetFormRequestFilterSensitiveLog,
-  GetFormResponse,
-  GetFormResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFormCommand,
-  serializeAws_restJson1GetFormCommand,
-} from "../protocols/Aws_restJson1";
+import { GetFormRequest, GetFormResponse } from "../models/models_0";
+import { de_GetFormCommand, se_GetFormCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetFormCommand}.
  */
 export interface GetFormCommandInput extends GetFormRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetFormCommand}.
  */
 export interface GetFormCommandOutput extends GetFormResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an existing form for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetFormCommandOutput extends GetFormResponse, __MetadataBearer 
  * import { AmplifyUIBuilderClient, GetFormCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, GetFormCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = { // GetFormRequest
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetFormCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetFormCommandInput - {@link GetFormCommandInput}
+ * @returns {@link GetFormCommandOutput}
  * @see {@link GetFormCommandInput} for command's `input` shape.
  * @see {@link GetFormCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
@@ -78,6 +82,9 @@ export class GetFormCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetFormCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +111,8 @@ export class GetFormCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFormRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFormResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +122,18 @@ export class GetFormCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFormCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFormCommand(input, context);
+    return se_GetFormCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFormCommandOutput> {
-    return deserializeAws_restJson1GetFormCommand(output, context);
+    return de_GetFormCommand(output, context);
   }
 
   // Start section: command_body_extra

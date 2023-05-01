@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  GetDirectoryLimitsRequest,
-  GetDirectoryLimitsRequestFilterSensitiveLog,
-  GetDirectoryLimitsResult,
-  GetDirectoryLimitsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDirectoryLimitsCommand,
-  serializeAws_json1_1GetDirectoryLimitsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDirectoryLimitsRequest, GetDirectoryLimitsResult } from "../models/models_0";
+import { de_GetDirectoryLimitsCommand, se_GetDirectoryLimitsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDirectoryLimitsCommand}.
  */
 export interface GetDirectoryLimitsCommandInput extends GetDirectoryLimitsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDirectoryLimitsCommand}.
  */
 export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtains directory limit information for the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResul
  * import { DirectoryServiceClient, GetDirectoryLimitsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, GetDirectoryLimitsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {};
  * const command = new GetDirectoryLimitsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDirectoryLimitsCommandInput - {@link GetDirectoryLimitsCommandInput}
+ * @returns {@link GetDirectoryLimitsCommandOutput}
  * @see {@link GetDirectoryLimitsCommandInput} for command's `input` shape.
  * @see {@link GetDirectoryLimitsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -78,6 +78,9 @@ export class GetDirectoryLimitsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDirectoryLimitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +109,8 @@ export class GetDirectoryLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDirectoryLimitsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDirectoryLimitsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +120,18 @@ export class GetDirectoryLimitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDirectoryLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDirectoryLimitsCommand(input, context);
+    return se_GetDirectoryLimitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDirectoryLimitsCommandOutput> {
-    return deserializeAws_json1_1GetDirectoryLimitsCommand(output, context);
+    return de_GetDirectoryLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

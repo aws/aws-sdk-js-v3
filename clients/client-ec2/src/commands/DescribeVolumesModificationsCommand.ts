@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVolumesModificationsRequest,
-  DescribeVolumesModificationsRequestFilterSensitiveLog,
-  DescribeVolumesModificationsResult,
-  DescribeVolumesModificationsResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2DescribeVolumesModificationsCommand,
-  serializeAws_ec2DescribeVolumesModificationsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeVolumesModificationsRequest, DescribeVolumesModificationsResult } from "../models/models_5";
+import { de_DescribeVolumesModificationsCommand, se_DescribeVolumesModificationsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVolumesModificationsCommand}.
  */
 export interface DescribeVolumesModificationsCommandInput extends DescribeVolumesModificationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVolumesModificationsCommand}.
  */
 export interface DescribeVolumesModificationsCommandOutput
@@ -37,6 +33,7 @@ export interface DescribeVolumesModificationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the most recent volume modification request for the specified EBS volumes.</p>
  *          <p>If a volume has never been modified, some information in the output will be null.
  *       If a volume has been modified more than once, the output includes only the most
@@ -50,10 +47,28 @@ export interface DescribeVolumesModificationsCommandOutput
  * import { EC2Client, DescribeVolumesModificationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVolumesModificationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVolumesModificationsRequest
+ *   DryRun: true || false,
+ *   VolumeIds: [ // VolumeIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeVolumesModificationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVolumesModificationsCommandInput - {@link DescribeVolumesModificationsCommandInput}
+ * @returns {@link DescribeVolumesModificationsCommandOutput}
  * @see {@link DescribeVolumesModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesModificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +92,9 @@ export class DescribeVolumesModificationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVolumesModificationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +123,8 @@ export class DescribeVolumesModificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVolumesModificationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVolumesModificationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +134,21 @@ export class DescribeVolumesModificationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVolumesModificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVolumesModificationsCommand(input, context);
+    return se_DescribeVolumesModificationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVolumesModificationsCommandOutput> {
-    return deserializeAws_ec2DescribeVolumesModificationsCommand(output, context);
+    return de_DescribeVolumesModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

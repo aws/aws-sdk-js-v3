@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  ListNodegroupsRequest,
-  ListNodegroupsRequestFilterSensitiveLog,
-  ListNodegroupsResponse,
-  ListNodegroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNodegroupsCommand,
-  serializeAws_restJson1ListNodegroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListNodegroupsRequest, ListNodegroupsResponse } from "../models/models_0";
+import { de_ListNodegroupsCommand, se_ListNodegroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListNodegroupsCommand}.
  */
 export interface ListNodegroupsCommandInput extends ListNodegroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListNodegroupsCommand}.
  */
 export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Amazon EKS managed node groups associated with the specified cluster
  *             in your Amazon Web Services account in the specified Region. Self-managed node groups are
  *             not listed.</p>
@@ -44,10 +41,17 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  * import { EKSClient, ListNodegroupsCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListNodegroupsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // ListNodegroupsRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListNodegroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListNodegroupsCommandInput - {@link ListNodegroupsCommandInput}
+ * @returns {@link ListNodegroupsCommandOutput}
  * @see {@link ListNodegroupsCommandInput} for command's `input` shape.
  * @see {@link ListNodegroupsCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -92,6 +96,9 @@ export class ListNodegroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListNodegroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +127,8 @@ export class ListNodegroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNodegroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNodegroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +138,18 @@ export class ListNodegroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNodegroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNodegroupsCommand(input, context);
+    return se_ListNodegroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNodegroupsCommandOutput> {
-    return deserializeAws_restJson1ListNodegroupsCommand(output, context);
+    return de_ListNodegroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

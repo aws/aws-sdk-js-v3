@@ -20,21 +20,23 @@ import {
   ConfigureAccessPointResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ConfigureAccessPointCommand,
-  serializeAws_restJson1ConfigureAccessPointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ConfigureAccessPointCommand, se_ConfigureAccessPointCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfigureAccessPointCommand}.
  */
 export interface ConfigureAccessPointCommandInput extends ConfigureAccessPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfigureAccessPointCommand}.
  */
 export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures the specified network resource.
  *         </p>
  *          <p>
@@ -49,10 +51,26 @@ export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointR
  * import { PrivateNetworksClient, ConfigureAccessPointCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ConfigureAccessPointCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // ConfigureAccessPointRequest
+ *   accessPointArn: "STRING_VALUE", // required
+ *   position: { // Position
+ *     latitude: Number("double"),
+ *     longitude: Number("double"),
+ *     elevation: Number("double"),
+ *     elevationUnit: "STRING_VALUE",
+ *     elevationReference: "STRING_VALUE",
+ *   },
+ *   cpiUsername: "STRING_VALUE",
+ *   cpiUserId: "STRING_VALUE",
+ *   cpiUserPassword: "STRING_VALUE",
+ *   cpiSecretKey: "STRING_VALUE",
+ * };
  * const command = new ConfigureAccessPointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfigureAccessPointCommandInput - {@link ConfigureAccessPointCommandInput}
+ * @returns {@link ConfigureAccessPointCommandOutput}
  * @see {@link ConfigureAccessPointCommandInput} for command's `input` shape.
  * @see {@link ConfigureAccessPointCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -85,6 +103,9 @@ export class ConfigureAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfigureAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,12 +145,18 @@ export class ConfigureAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfigureAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfigureAccessPointCommand(input, context);
+    return se_ConfigureAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureAccessPointCommandOutput> {
-    return deserializeAws_restJson1ConfigureAccessPointCommand(output, context);
+    return de_ConfigureAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

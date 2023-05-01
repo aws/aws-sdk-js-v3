@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  CreateInterconnectRequest,
-  CreateInterconnectRequestFilterSensitiveLog,
-  Interconnect,
-  InterconnectFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateInterconnectCommand,
-  serializeAws_json1_1CreateInterconnectCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateInterconnectRequest, Interconnect } from "../models/models_0";
+import { de_CreateInterconnectCommand, se_CreateInterconnectCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateInterconnectCommand}.
  */
 export interface CreateInterconnectCommandInput extends CreateInterconnectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateInterconnectCommand}.
  */
 export interface CreateInterconnectCommandOutput extends Interconnect, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an interconnect between an Direct Connect Partner's network and a specific Direct Connect location.</p>
  *          <p>An interconnect is a connection that is capable of hosting other connections. The
  *       Direct Connect Partner can use an interconnect to provide Direct Connect hosted
@@ -57,10 +54,25 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  * import { DirectConnectClient, CreateInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // CreateInterconnectRequest
+ *   interconnectName: "STRING_VALUE", // required
+ *   bandwidth: "STRING_VALUE", // required
+ *   location: "STRING_VALUE", // required
+ *   lagId: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   providerName: "STRING_VALUE",
+ * };
  * const command = new CreateInterconnectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateInterconnectCommandInput - {@link CreateInterconnectCommandInput}
+ * @returns {@link CreateInterconnectCommandOutput}
  * @see {@link CreateInterconnectCommandInput} for command's `input` shape.
  * @see {@link CreateInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -96,6 +108,9 @@ export class CreateInterconnectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInterconnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +139,8 @@ export class CreateInterconnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInterconnectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InterconnectFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +150,18 @@ export class CreateInterconnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInterconnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateInterconnectCommand(input, context);
+    return se_CreateInterconnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInterconnectCommandOutput> {
-    return deserializeAws_json1_1CreateInterconnectCommand(output, context);
+    return de_CreateInterconnectCommand(output, context);
   }
 
   // Start section: command_body_extra

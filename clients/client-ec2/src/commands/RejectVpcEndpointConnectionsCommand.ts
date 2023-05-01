@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RejectVpcEndpointConnectionsRequest,
-  RejectVpcEndpointConnectionsRequestFilterSensitiveLog,
-  RejectVpcEndpointConnectionsResult,
-  RejectVpcEndpointConnectionsResultFilterSensitiveLog,
-} from "../models/models_6";
-import {
-  deserializeAws_ec2RejectVpcEndpointConnectionsCommand,
-  serializeAws_ec2RejectVpcEndpointConnectionsCommand,
-} from "../protocols/Aws_ec2";
+import { RejectVpcEndpointConnectionsRequest, RejectVpcEndpointConnectionsResult } from "../models/models_6";
+import { de_RejectVpcEndpointConnectionsCommand, se_RejectVpcEndpointConnectionsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link RejectVpcEndpointConnectionsCommand}.
  */
 export interface RejectVpcEndpointConnectionsCommandInput extends RejectVpcEndpointConnectionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link RejectVpcEndpointConnectionsCommand}.
  */
 export interface RejectVpcEndpointConnectionsCommandOutput
@@ -37,6 +33,7 @@ export interface RejectVpcEndpointConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects VPC endpoint connection requests to your VPC endpoint service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,19 @@ export interface RejectVpcEndpointConnectionsCommandOutput
  * import { EC2Client, RejectVpcEndpointConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RejectVpcEndpointConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // RejectVpcEndpointConnectionsRequest
+ *   DryRun: true || false,
+ *   ServiceId: "STRING_VALUE", // required
+ *   VpcEndpointIds: [ // VpcEndpointIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RejectVpcEndpointConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RejectVpcEndpointConnectionsCommandInput - {@link RejectVpcEndpointConnectionsCommandInput}
+ * @returns {@link RejectVpcEndpointConnectionsCommandOutput}
  * @see {@link RejectVpcEndpointConnectionsCommandInput} for command's `input` shape.
  * @see {@link RejectVpcEndpointConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +77,9 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RejectVpcEndpointConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +108,8 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectVpcEndpointConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectVpcEndpointConnectionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +119,21 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectVpcEndpointConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RejectVpcEndpointConnectionsCommand(input, context);
+    return se_RejectVpcEndpointConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectVpcEndpointConnectionsCommandOutput> {
-    return deserializeAws_ec2RejectVpcEndpointConnectionsCommand(output, context);
+    return de_RejectVpcEndpointConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

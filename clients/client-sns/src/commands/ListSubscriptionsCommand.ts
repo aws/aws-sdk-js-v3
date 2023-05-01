@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSubscriptionsInput,
-  ListSubscriptionsInputFilterSensitiveLog,
-  ListSubscriptionsResponse,
-  ListSubscriptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListSubscriptionsCommand,
-  serializeAws_queryListSubscriptionsCommand,
-} from "../protocols/Aws_query";
+import { ListSubscriptionsInput, ListSubscriptionsResponse } from "../models/models_0";
+import { de_ListSubscriptionsCommand, se_ListSubscriptionsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSubscriptionsCommand}.
  */
 export interface ListSubscriptionsCommandInput extends ListSubscriptionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListSubscriptionsCommand}.
  */
 export interface ListSubscriptionsCommandOutput extends ListSubscriptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the requester's subscriptions. Each call returns a limited list of
  *             subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is
  *             also returned. Use the <code>NextToken</code> parameter in a new
@@ -46,10 +43,15 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  * import { SNSClient, ListSubscriptionsCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListSubscriptionsCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // ListSubscriptionsInput
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSubscriptionsCommandInput - {@link ListSubscriptionsCommandInput}
+ * @returns {@link ListSubscriptionsCommandOutput}
  * @see {@link ListSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -83,6 +85,9 @@ export class ListSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +116,8 @@ export class ListSubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSubscriptionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSubscriptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +127,18 @@ export class ListSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListSubscriptionsCommand(input, context);
+    return se_ListSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscriptionsCommandOutput> {
-    return deserializeAws_queryListSubscriptionsCommand(output, context);
+    return de_ListSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

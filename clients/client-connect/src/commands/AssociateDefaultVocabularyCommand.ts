@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  AssociateDefaultVocabularyRequest,
-  AssociateDefaultVocabularyRequestFilterSensitiveLog,
-  AssociateDefaultVocabularyResponse,
-  AssociateDefaultVocabularyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateDefaultVocabularyCommand,
-  serializeAws_restJson1AssociateDefaultVocabularyCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateDefaultVocabularyRequest, AssociateDefaultVocabularyResponse } from "../models/models_0";
+import { de_AssociateDefaultVocabularyCommand, se_AssociateDefaultVocabularyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateDefaultVocabularyCommand}.
  */
 export interface AssociateDefaultVocabularyCommandInput extends AssociateDefaultVocabularyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateDefaultVocabularyCommand}.
  */
 export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaultVocabularyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call
  *    and real-time analysis sessions for the given language.</p>
  * @example
@@ -43,10 +40,17 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  * import { ConnectClient, AssociateDefaultVocabularyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateDefaultVocabularyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // AssociateDefaultVocabularyRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA", // required
+ *   VocabularyId: "STRING_VALUE",
+ * };
  * const command = new AssociateDefaultVocabularyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateDefaultVocabularyCommandInput - {@link AssociateDefaultVocabularyCommandInput}
+ * @returns {@link AssociateDefaultVocabularyCommandOutput}
  * @see {@link AssociateDefaultVocabularyCommandInput} for command's `input` shape.
  * @see {@link AssociateDefaultVocabularyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -85,6 +89,9 @@ export class AssociateDefaultVocabularyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateDefaultVocabularyCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class AssociateDefaultVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDefaultVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDefaultVocabularyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +131,21 @@ export class AssociateDefaultVocabularyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateDefaultVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateDefaultVocabularyCommand(input, context);
+    return se_AssociateDefaultVocabularyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDefaultVocabularyCommandOutput> {
-    return deserializeAws_restJson1AssociateDefaultVocabularyCommand(output, context);
+    return de_AssociateDefaultVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListTargetsForPolicyRequest,
-  ListTargetsForPolicyRequestFilterSensitiveLog,
-  ListTargetsForPolicyResponse,
-  ListTargetsForPolicyResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListTargetsForPolicyCommand,
-  serializeAws_restJson1ListTargetsForPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTargetsForPolicyRequest, ListTargetsForPolicyResponse } from "../models/models_2";
+import { de_ListTargetsForPolicyCommand, se_ListTargetsForPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTargetsForPolicyCommand}.
  */
 export interface ListTargetsForPolicyCommandInput extends ListTargetsForPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTargetsForPolicyCommand}.
  */
 export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List targets for the specified policy.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTargetsForPolicy</a> action.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * import { IoTClient, ListTargetsForPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListTargetsForPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListTargetsForPolicyRequest
+ *   policyName: "STRING_VALUE", // required
+ *   marker: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListTargetsForPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetsForPolicyCommandInput - {@link ListTargetsForPolicyCommandInput}
+ * @returns {@link ListTargetsForPolicyCommandOutput}
  * @see {@link ListTargetsForPolicyCommandInput} for command's `input` shape.
  * @see {@link ListTargetsForPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -91,6 +95,9 @@ export class ListTargetsForPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetsForPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +126,8 @@ export class ListTargetsForPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTargetsForPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTargetsForPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +137,18 @@ export class ListTargetsForPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTargetsForPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTargetsForPolicyCommand(input, context);
+    return se_ListTargetsForPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsForPolicyCommandOutput> {
-    return deserializeAws_restJson1ListTargetsForPolicyCommand(output, context);
+    return de_ListTargetsForPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

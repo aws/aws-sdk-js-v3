@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  StartConfigurationRecorderRequest,
-  StartConfigurationRecorderRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1StartConfigurationRecorderCommand,
-  serializeAws_json1_1StartConfigurationRecorderCommand,
-} from "../protocols/Aws_json1_1";
+import { StartConfigurationRecorderRequest } from "../models/models_1";
+import { de_StartConfigurationRecorderCommand, se_StartConfigurationRecorderCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartConfigurationRecorderCommand}.
  */
 export interface StartConfigurationRecorderCommandInput extends StartConfigurationRecorderRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartConfigurationRecorderCommand}.
  */
 export interface StartConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts recording configurations of the Amazon Web Services resources you have
  * 			selected to record in your Amazon Web Services account.</p>
  *          <p>You must have created at least one delivery channel to
@@ -43,10 +42,15 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  * import { ConfigServiceClient, StartConfigurationRecorderCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, StartConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // StartConfigurationRecorderRequest
+ *   ConfigurationRecorderName: "STRING_VALUE", // required
+ * };
  * const command = new StartConfigurationRecorderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartConfigurationRecorderCommandInput - {@link StartConfigurationRecorderCommandInput}
+ * @returns {@link StartConfigurationRecorderCommandOutput}
  * @see {@link StartConfigurationRecorderCommandInput} for command's `input` shape.
  * @see {@link StartConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -78,6 +82,9 @@ export class StartConfigurationRecorderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartConfigurationRecorderCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class StartConfigurationRecorderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartConfigurationRecorderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +124,21 @@ export class StartConfigurationRecorderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartConfigurationRecorderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartConfigurationRecorderCommand(input, context);
+    return se_StartConfigurationRecorderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartConfigurationRecorderCommandOutput> {
-    return deserializeAws_json1_1StartConfigurationRecorderCommand(output, context);
+    return de_StartConfigurationRecorderCommand(output, context);
   }
 
   // Start section: command_body_extra

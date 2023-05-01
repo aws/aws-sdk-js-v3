@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteInferenceExperimentRequest,
-  DeleteInferenceExperimentRequestFilterSensitiveLog,
-  DeleteInferenceExperimentResponse,
-  DeleteInferenceExperimentResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteInferenceExperimentCommand,
-  serializeAws_json1_1DeleteInferenceExperimentCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteInferenceExperimentRequest, DeleteInferenceExperimentResponse } from "../models/models_1";
+import { de_DeleteInferenceExperimentCommand, se_DeleteInferenceExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInferenceExperimentCommand}.
  */
 export interface DeleteInferenceExperimentCommandInput extends DeleteInferenceExperimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInferenceExperimentCommand}.
  */
 export interface DeleteInferenceExperimentCommandOutput extends DeleteInferenceExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an inference experiment.</p>
  *          <note>
  *             <p>
@@ -48,10 +45,15 @@ export interface DeleteInferenceExperimentCommandOutput extends DeleteInferenceE
  * import { SageMakerClient, DeleteInferenceExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteInferenceExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteInferenceExperimentRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInferenceExperimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInferenceExperimentCommandInput - {@link DeleteInferenceExperimentCommandInput}
+ * @returns {@link DeleteInferenceExperimentCommandOutput}
  * @see {@link DeleteInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link DeleteInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -82,6 +84,9 @@ export class DeleteInferenceExperimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInferenceExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DeleteInferenceExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInferenceExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInferenceExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,15 +126,21 @@ export class DeleteInferenceExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInferenceExperimentCommand(input, context);
+    return se_DeleteInferenceExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInferenceExperimentCommandOutput> {
-    return deserializeAws_json1_1DeleteInferenceExperimentCommand(output, context);
+    return de_DeleteInferenceExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

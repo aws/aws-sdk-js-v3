@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateProjectRequest,
-  CreateProjectRequestFilterSensitiveLog,
-  CreateProjectResponse,
-  CreateProjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateProjectCommand,
-  serializeAws_json1_1CreateProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateProjectRequest, CreateProjectResponse } from "../models/models_0";
+import { de_CreateProjectCommand, se_CreateProjectCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateProjectCommand}.
  */
 export interface CreateProjectCommandInput extends CreateProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateProjectCommand}.
  */
 export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon Rekognition Custom Labels project. A project is a group of resources (datasets, model versions)
  *          that you use to create and manage Amazon Rekognition Custom Labels models.  </p>
  *          <p>This operation requires permissions to perform the <code>rekognition:CreateProject</code> action.</p>
@@ -44,10 +41,15 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * import { RekognitionClient, CreateProjectCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateProjectCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // CreateProjectRequest
+ *   ProjectName: "STRING_VALUE", // required
+ * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
+ * @returns {@link CreateProjectCommandOutput}
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -96,6 +98,9 @@ export class CreateProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +127,8 @@ export class CreateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +138,18 @@ export class CreateProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProjectCommand(input, context);
+    return se_CreateProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProjectCommandOutput> {
-    return deserializeAws_json1_1CreateProjectCommand(output, context);
+    return de_CreateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

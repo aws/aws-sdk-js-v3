@@ -10,7 +10,7 @@ import {
 import { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ApplicationInsightsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListComponentsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListComponents(
   config: ApplicationInsightsPaginationConfiguration,
   input: ListComponentsCommandInput,

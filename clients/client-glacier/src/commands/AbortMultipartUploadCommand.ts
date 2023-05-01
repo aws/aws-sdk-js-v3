@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { AbortMultipartUploadInput, AbortMultipartUploadInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1AbortMultipartUploadCommand,
-  serializeAws_restJson1AbortMultipartUploadCommand,
-} from "../protocols/Aws_restJson1";
+import { AbortMultipartUploadInput } from "../models/models_0";
+import { de_AbortMultipartUploadCommand, se_AbortMultipartUploadCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AbortMultipartUploadCommand}.
  */
 export interface AbortMultipartUploadCommandInput extends AbortMultipartUploadInput {}
 /**
+ * @public
+ *
  * The output of {@link AbortMultipartUploadCommand}.
  */
 export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation aborts a multipart upload identified by the upload ID.</p>
  *
  *
@@ -54,10 +56,17 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, AbortMultipartUploadCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, AbortMultipartUploadCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // AbortMultipartUploadInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   uploadId: "STRING_VALUE", // required
+ * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AbortMultipartUploadCommandInput - {@link AbortMultipartUploadCommandInput}
+ * @returns {@link AbortMultipartUploadCommandOutput}
  * @see {@link AbortMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link AbortMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -107,6 +116,9 @@ export class AbortMultipartUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AbortMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +147,8 @@ export class AbortMultipartUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AbortMultipartUploadInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +158,18 @@ export class AbortMultipartUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AbortMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AbortMultipartUploadCommand(input, context);
+    return se_AbortMultipartUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortMultipartUploadCommandOutput> {
-    return deserializeAws_restJson1AbortMultipartUploadCommand(output, context);
+    return de_AbortMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

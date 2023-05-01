@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSnapshotScheduleInput,
-  DescribeSnapshotScheduleInputFilterSensitiveLog,
-  DescribeSnapshotScheduleOutput,
-  DescribeSnapshotScheduleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSnapshotScheduleCommand,
-  serializeAws_json1_1DescribeSnapshotScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSnapshotScheduleInput, DescribeSnapshotScheduleOutput } from "../models/models_0";
+import { de_DescribeSnapshotScheduleCommand, se_DescribeSnapshotScheduleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSnapshotScheduleCommand}.
  */
 export interface DescribeSnapshotScheduleCommandInput extends DescribeSnapshotScheduleInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSnapshotScheduleCommand}.
  */
 export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the snapshot schedule for the specified gateway volume. The snapshot schedule
  *          information includes intervals at which snapshots are automatically initiated on the
  *          volume. This operation is only supported in the cached volume and stored volume
@@ -45,10 +42,15 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  * import { StorageGatewayClient, DescribeSnapshotScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeSnapshotScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeSnapshotScheduleInput
+ *   VolumeARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSnapshotScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSnapshotScheduleCommandInput - {@link DescribeSnapshotScheduleCommandInput}
+ * @returns {@link DescribeSnapshotScheduleCommandOutput}
  * @see {@link DescribeSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -100,6 +102,9 @@ export class DescribeSnapshotScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +133,8 @@ export class DescribeSnapshotScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotScheduleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSnapshotScheduleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +144,18 @@ export class DescribeSnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSnapshotScheduleCommand(input, context);
+    return se_DescribeSnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotScheduleCommandOutput> {
-    return deserializeAws_json1_1DescribeSnapshotScheduleCommand(output, context);
+    return de_DescribeSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

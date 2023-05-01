@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/models_1";
 import {
-  DescribeOrderableDBInstanceOptionsMessage,
-  DescribeOrderableDBInstanceOptionsMessageFilterSensitiveLog,
-  OrderableDBInstanceOptionsMessage,
-  OrderableDBInstanceOptionsMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
-  serializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
+  de_DescribeOrderableDBInstanceOptionsCommand,
+  se_DescribeOrderableDBInstanceOptionsCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeOrderableDBInstanceOptionsCommand}.
  */
 export interface DescribeOrderableDBInstanceOptionsCommandInput extends DescribeOrderableDBInstanceOptionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeOrderableDBInstanceOptionsCommand}.
  */
 export interface DescribeOrderableDBInstanceOptionsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of orderable DB instance options for the specified DB engine, DB engine version, and DB instance class.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,28 +44,81 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * import { RDSClient, DescribeOrderableDBInstanceOptionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeOrderableDBInstanceOptionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DescribeOrderableDBInstanceOptionsMessage
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   DBInstanceClass: "STRING_VALUE",
+ *   LicenseModel: "STRING_VALUE",
+ *   AvailabilityZoneGroup: "STRING_VALUE",
+ *   Vpc: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeOrderableDBInstanceOptionsCommandInput - {@link DescribeOrderableDBInstanceOptionsCommandInput}
+ * @returns {@link DescribeOrderableDBInstanceOptionsCommandOutput}
  * @see {@link DescribeOrderableDBInstanceOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOrderableDBInstanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  *
- * @example To list information about orderable DB instance options
+ * @example To describe orderable DB instance options
  * ```javascript
- * // This example lists information for all orderable DB instance options for the specified DB engine, engine version, DB instance class, license model, and VPC settings.
+ * // The following example retrieves details about the orderable options for a DB instances running the MySQL DB engine.
  * const input = {
- *   "DBInstanceClass": "db.t2.micro",
- *   "Engine": "mysql",
- *   "EngineVersion": "5.6.27",
- *   "LicenseModel": "general-public-license",
- *   "Vpc": true
+ *   "Engine": "mysql"
  * };
  * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
- * await client.send(command);
- * // example id: describe-orderable-db-instance-options-7444d3ed-82eb-42b9-9ed9-896b8c27a782
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OrderableDBInstanceOptions": [
+ *     {
+ *       "AvailabilityZones": [
+ *         {
+ *           "Name": "us-east-1a"
+ *         },
+ *         {
+ *           "Name": "us-east-1b"
+ *         },
+ *         {
+ *           "Name": "us-east-1c"
+ *         },
+ *         {
+ *           "Name": "us-east-1d"
+ *         },
+ *         {
+ *           "Name": "us-east-1e"
+ *         },
+ *         {
+ *           "Name": "us-east-1f"
+ *         }
+ *       ],
+ *       "DBInstanceClass": "db.m4.10xlarge",
+ *       "Engine": "mysql",
+ *       "EngineVersion": "5.7.33",
+ *       "LicenseModel": "general-public-license",
+ *       "MultiAZCapable": true,
+ *       "ReadReplicaCapable": true,
+ *       "StorageType": "gp2",
+ *       "SupportsStorageEncryption": true,
+ *       "Vpc": true
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-orderable-db-instance-options-1680283253165
  * ```
  *
  */
@@ -86,6 +139,9 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrderableDBInstanceOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +170,8 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrderableDBInstanceOptionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: OrderableDBInstanceOptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +181,24 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeOrderableDBInstanceOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeOrderableDBInstanceOptionsCommand(input, context);
+    return se_DescribeOrderableDBInstanceOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> {
-    return deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand(output, context);
+    return de_DescribeOrderableDBInstanceOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

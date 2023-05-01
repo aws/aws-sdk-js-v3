@@ -14,39 +14,61 @@ import {
 } from "@aws-sdk/types";
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
-import {
-  UpdateMonitorInput,
-  UpdateMonitorInputFilterSensitiveLog,
-  UpdateMonitorOutput,
-  UpdateMonitorOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMonitorCommand,
-  serializeAws_restJson1UpdateMonitorCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateMonitorInput, UpdateMonitorOutput } from "../models/models_0";
+import { de_UpdateMonitorCommand, se_UpdateMonitorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMonitorCommand}.
  */
 export interface UpdateMonitorCommandInput extends UpdateMonitorInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMonitorCommand}.
  */
 export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a monitor. You can update a monitor to add or remove resources, or to change the status of the monitor. You can't change the name of a
- * 			monitor.</p>
+ * @public
+ * <p>Updates a monitor. You can update a monitor to change the maximum number of city-networks (locations and ASNs or
+ * 			internet service providers), to add or remove resources,
+ * 			or to change the status of the monitor. Note that you can't change the name of a monitor.</p>
+ *          <p>The city-network maximum that you choose is the limit, but you only pay for the number of city-networks that are actually monitored.
+ * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InternetMonitorClient, UpdateMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, UpdateMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
+ * const input = { // UpdateMonitorInput
+ *   MonitorName: "STRING_VALUE", // required
+ *   ResourcesToAdd: [ // SetOfARNs
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourcesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Status: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   MaxCityNetworksToMonitor: Number("int"),
+ *   InternetMeasurementsLogDelivery: { // InternetMeasurementsLogDelivery
+ *     S3Config: { // S3Config
+ *       BucketName: "STRING_VALUE",
+ *       BucketPrefix: "STRING_VALUE",
+ *       LogDeliveryStatus: "STRING_VALUE",
+ *     },
+ *   },
+ *   TrafficPercentageToMonitor: Number("int"),
+ * };
  * const command = new UpdateMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMonitorCommandInput - {@link UpdateMonitorCommandInput}
+ * @returns {@link UpdateMonitorCommandOutput}
  * @see {@link UpdateMonitorCommandInput} for command's `input` shape.
  * @see {@link UpdateMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
@@ -87,6 +109,9 @@ export class UpdateMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +138,8 @@ export class UpdateMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMonitorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMonitorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +149,18 @@ export class UpdateMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMonitorCommand(input, context);
+    return se_UpdateMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMonitorCommandOutput> {
-    return deserializeAws_restJson1UpdateMonitorCommand(output, context);
+    return de_UpdateMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

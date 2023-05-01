@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePackageRequest,
-  DescribePackageRequestFilterSensitiveLog,
-  DescribePackageResponse,
-  DescribePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePackageRequest, DescribePackageResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1DescribePackageCommand,
-  serializeAws_restJson1DescribePackageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribePackageCommand, se_DescribePackageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePackageCommand}.
  */
 export interface DescribePackageCommandInput extends DescribePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePackageCommand}.
  */
 export interface DescribePackageCommandOutput extends DescribePackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a package.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribePackageCommandOutput extends DescribePackageResponse, _
  * import { PanoramaClient, DescribePackageCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribePackageCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // DescribePackageRequest
+ *   PackageId: "STRING_VALUE", // required
+ * };
  * const command = new DescribePackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackageCommandInput - {@link DescribePackageCommandInput}
+ * @returns {@link DescribePackageCommandOutput}
  * @see {@link DescribePackageCommandInput} for command's `input` shape.
  * @see {@link DescribePackageCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -84,6 +86,9 @@ export class DescribePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DescribePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DescribePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePackageCommand(input, context);
+    return se_DescribePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackageCommandOutput> {
-    return deserializeAws_restJson1DescribePackageCommand(output, context);
+    return de_DescribePackageCommand(output, context);
   }
 
   // Start section: command_body_extra

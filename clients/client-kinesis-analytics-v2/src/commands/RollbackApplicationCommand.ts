@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import {
-  RollbackApplicationRequest,
-  RollbackApplicationRequestFilterSensitiveLog,
-  RollbackApplicationResponse,
-  RollbackApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RollbackApplicationCommand,
-  serializeAws_json1_1RollbackApplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { RollbackApplicationRequest, RollbackApplicationResponse } from "../models/models_0";
+import { de_RollbackApplicationCommand, se_RollbackApplicationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RollbackApplicationCommand}.
  */
 export interface RollbackApplicationCommandInput extends RollbackApplicationRequest {}
 /**
+ * @public
+ *
  * The output of {@link RollbackApplicationCommand}.
  */
 export interface RollbackApplicationCommandOutput extends RollbackApplicationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reverts the application to the previous running version. You can
  *             roll back an application if you suspect it is stuck in a transient status. </p>
  *         <p>You can roll back an application only if it is in the <code>UPDATING</code>
@@ -52,10 +49,16 @@ export interface RollbackApplicationCommandOutput extends RollbackApplicationRes
  * import { KinesisAnalyticsV2Client, RollbackApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, RollbackApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // RollbackApplicationRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ * };
  * const command = new RollbackApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RollbackApplicationCommandInput - {@link RollbackApplicationCommandInput}
+ * @returns {@link RollbackApplicationCommandOutput}
  * @see {@link RollbackApplicationCommandInput} for command's `input` shape.
  * @see {@link RollbackApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -100,6 +103,9 @@ export class RollbackApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RollbackApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +134,8 @@ export class RollbackApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RollbackApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RollbackApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +145,18 @@ export class RollbackApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RollbackApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RollbackApplicationCommand(input, context);
+    return se_RollbackApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RollbackApplicationCommandOutput> {
-    return deserializeAws_json1_1RollbackApplicationCommand(output, context);
+    return de_RollbackApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

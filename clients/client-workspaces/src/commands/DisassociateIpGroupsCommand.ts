@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateIpGroupsRequest,
-  DisassociateIpGroupsRequestFilterSensitiveLog,
-  DisassociateIpGroupsResult,
-  DisassociateIpGroupsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateIpGroupsCommand,
-  serializeAws_json1_1DisassociateIpGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateIpGroupsRequest, DisassociateIpGroupsResult } from "../models/models_0";
+import { de_DisassociateIpGroupsCommand, se_DisassociateIpGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateIpGroupsCommand}.
  */
 export interface DisassociateIpGroupsCommandInput extends DisassociateIpGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateIpGroupsCommand}.
  */
 export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the specified IP access control group from the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  * import { WorkSpacesClient, DisassociateIpGroupsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DisassociateIpGroupsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DisassociateIpGroupsRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   GroupIds: [ // IpGroupIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateIpGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateIpGroupsCommandInput - {@link DisassociateIpGroupsCommandInput}
+ * @returns {@link DisassociateIpGroupsCommandOutput}
  * @see {@link DisassociateIpGroupsCommandInput} for command's `input` shape.
  * @see {@link DisassociateIpGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -81,6 +86,9 @@ export class DisassociateIpGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateIpGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +117,8 @@ export class DisassociateIpGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateIpGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateIpGroupsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +128,18 @@ export class DisassociateIpGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateIpGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateIpGroupsCommand(input, context);
+    return se_DisassociateIpGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateIpGroupsCommandOutput> {
-    return deserializeAws_json1_1DisassociateIpGroupsCommand(output, context);
+    return de_DisassociateIpGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

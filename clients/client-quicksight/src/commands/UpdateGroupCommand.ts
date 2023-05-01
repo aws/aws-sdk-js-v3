@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateGroupRequest,
-  UpdateGroupRequestFilterSensitiveLog,
-  UpdateGroupResponse,
-  UpdateGroupResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateGroupCommand,
-  serializeAws_restJson1UpdateGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_3";
+import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGroupCommand}.
  */
 export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGroupCommand}.
  */
 export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes a group description. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * import { QuickSightClient, UpdateGroupCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateGroupCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // UpdateGroupRequest
+ *   GroupName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
+ * @returns {@link UpdateGroupCommandOutput}
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -93,6 +98,9 @@ export class UpdateGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class UpdateGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +138,18 @@ export class UpdateGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGroupCommand(input, context);
+    return se_UpdateGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateGroupCommand(output, context);
+    return de_UpdateGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

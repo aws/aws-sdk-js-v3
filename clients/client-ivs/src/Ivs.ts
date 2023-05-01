@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -117,9 +118,435 @@ import {
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
-import { IvsClient } from "./IvsClient";
+import { IvsClient, IvsClientConfig } from "./IvsClient";
+
+const commands = {
+  BatchGetChannelCommand,
+  BatchGetStreamKeyCommand,
+  CreateChannelCommand,
+  CreateRecordingConfigurationCommand,
+  CreateStreamKeyCommand,
+  DeleteChannelCommand,
+  DeletePlaybackKeyPairCommand,
+  DeleteRecordingConfigurationCommand,
+  DeleteStreamKeyCommand,
+  GetChannelCommand,
+  GetPlaybackKeyPairCommand,
+  GetRecordingConfigurationCommand,
+  GetStreamCommand,
+  GetStreamKeyCommand,
+  GetStreamSessionCommand,
+  ImportPlaybackKeyPairCommand,
+  ListChannelsCommand,
+  ListPlaybackKeyPairsCommand,
+  ListRecordingConfigurationsCommand,
+  ListStreamKeysCommand,
+  ListStreamsCommand,
+  ListStreamSessionsCommand,
+  ListTagsForResourceCommand,
+  PutMetadataCommand,
+  StopStreamCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateChannelCommand,
+};
+
+export interface Ivs {
+  /**
+   * @see {@link BatchGetChannelCommand}
+   */
+  batchGetChannel(
+    args: BatchGetChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetChannelCommandOutput>;
+  batchGetChannel(args: BatchGetChannelCommandInput, cb: (err: any, data?: BatchGetChannelCommandOutput) => void): void;
+  batchGetChannel(
+    args: BatchGetChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetStreamKeyCommand}
+   */
+  batchGetStreamKey(
+    args: BatchGetStreamKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetStreamKeyCommandOutput>;
+  batchGetStreamKey(
+    args: BatchGetStreamKeyCommandInput,
+    cb: (err: any, data?: BatchGetStreamKeyCommandOutput) => void
+  ): void;
+  batchGetStreamKey(
+    args: BatchGetStreamKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetStreamKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelCommand}
+   */
+  createChannel(args: CreateChannelCommandInput, options?: __HttpHandlerOptions): Promise<CreateChannelCommandOutput>;
+  createChannel(args: CreateChannelCommandInput, cb: (err: any, data?: CreateChannelCommandOutput) => void): void;
+  createChannel(
+    args: CreateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRecordingConfigurationCommand}
+   */
+  createRecordingConfiguration(
+    args: CreateRecordingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRecordingConfigurationCommandOutput>;
+  createRecordingConfiguration(
+    args: CreateRecordingConfigurationCommandInput,
+    cb: (err: any, data?: CreateRecordingConfigurationCommandOutput) => void
+  ): void;
+  createRecordingConfiguration(
+    args: CreateRecordingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRecordingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateStreamKeyCommand}
+   */
+  createStreamKey(
+    args: CreateStreamKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStreamKeyCommandOutput>;
+  createStreamKey(args: CreateStreamKeyCommandInput, cb: (err: any, data?: CreateStreamKeyCommandOutput) => void): void;
+  createStreamKey(
+    args: CreateStreamKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStreamKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelCommand}
+   */
+  deleteChannel(args: DeleteChannelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteChannelCommandOutput>;
+  deleteChannel(args: DeleteChannelCommandInput, cb: (err: any, data?: DeleteChannelCommandOutput) => void): void;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePlaybackKeyPairCommand}
+   */
+  deletePlaybackKeyPair(
+    args: DeletePlaybackKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePlaybackKeyPairCommandOutput>;
+  deletePlaybackKeyPair(
+    args: DeletePlaybackKeyPairCommandInput,
+    cb: (err: any, data?: DeletePlaybackKeyPairCommandOutput) => void
+  ): void;
+  deletePlaybackKeyPair(
+    args: DeletePlaybackKeyPairCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePlaybackKeyPairCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRecordingConfigurationCommand}
+   */
+  deleteRecordingConfiguration(
+    args: DeleteRecordingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRecordingConfigurationCommandOutput>;
+  deleteRecordingConfiguration(
+    args: DeleteRecordingConfigurationCommandInput,
+    cb: (err: any, data?: DeleteRecordingConfigurationCommandOutput) => void
+  ): void;
+  deleteRecordingConfiguration(
+    args: DeleteRecordingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRecordingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteStreamKeyCommand}
+   */
+  deleteStreamKey(
+    args: DeleteStreamKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStreamKeyCommandOutput>;
+  deleteStreamKey(args: DeleteStreamKeyCommandInput, cb: (err: any, data?: DeleteStreamKeyCommandOutput) => void): void;
+  deleteStreamKey(
+    args: DeleteStreamKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStreamKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetChannelCommand}
+   */
+  getChannel(args: GetChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelCommandOutput>;
+  getChannel(args: GetChannelCommandInput, cb: (err: any, data?: GetChannelCommandOutput) => void): void;
+  getChannel(
+    args: GetChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPlaybackKeyPairCommand}
+   */
+  getPlaybackKeyPair(
+    args: GetPlaybackKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPlaybackKeyPairCommandOutput>;
+  getPlaybackKeyPair(
+    args: GetPlaybackKeyPairCommandInput,
+    cb: (err: any, data?: GetPlaybackKeyPairCommandOutput) => void
+  ): void;
+  getPlaybackKeyPair(
+    args: GetPlaybackKeyPairCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPlaybackKeyPairCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRecordingConfigurationCommand}
+   */
+  getRecordingConfiguration(
+    args: GetRecordingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecordingConfigurationCommandOutput>;
+  getRecordingConfiguration(
+    args: GetRecordingConfigurationCommandInput,
+    cb: (err: any, data?: GetRecordingConfigurationCommandOutput) => void
+  ): void;
+  getRecordingConfiguration(
+    args: GetRecordingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecordingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetStreamCommand}
+   */
+  getStream(args: GetStreamCommandInput, options?: __HttpHandlerOptions): Promise<GetStreamCommandOutput>;
+  getStream(args: GetStreamCommandInput, cb: (err: any, data?: GetStreamCommandOutput) => void): void;
+  getStream(
+    args: GetStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetStreamKeyCommand}
+   */
+  getStreamKey(args: GetStreamKeyCommandInput, options?: __HttpHandlerOptions): Promise<GetStreamKeyCommandOutput>;
+  getStreamKey(args: GetStreamKeyCommandInput, cb: (err: any, data?: GetStreamKeyCommandOutput) => void): void;
+  getStreamKey(
+    args: GetStreamKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStreamKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetStreamSessionCommand}
+   */
+  getStreamSession(
+    args: GetStreamSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStreamSessionCommandOutput>;
+  getStreamSession(
+    args: GetStreamSessionCommandInput,
+    cb: (err: any, data?: GetStreamSessionCommandOutput) => void
+  ): void;
+  getStreamSession(
+    args: GetStreamSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStreamSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportPlaybackKeyPairCommand}
+   */
+  importPlaybackKeyPair(
+    args: ImportPlaybackKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportPlaybackKeyPairCommandOutput>;
+  importPlaybackKeyPair(
+    args: ImportPlaybackKeyPairCommandInput,
+    cb: (err: any, data?: ImportPlaybackKeyPairCommandOutput) => void
+  ): void;
+  importPlaybackKeyPair(
+    args: ImportPlaybackKeyPairCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportPlaybackKeyPairCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   */
+  listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
+  listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
+  listChannels(
+    args: ListChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPlaybackKeyPairsCommand}
+   */
+  listPlaybackKeyPairs(
+    args: ListPlaybackKeyPairsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPlaybackKeyPairsCommandOutput>;
+  listPlaybackKeyPairs(
+    args: ListPlaybackKeyPairsCommandInput,
+    cb: (err: any, data?: ListPlaybackKeyPairsCommandOutput) => void
+  ): void;
+  listPlaybackKeyPairs(
+    args: ListPlaybackKeyPairsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPlaybackKeyPairsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRecordingConfigurationsCommand}
+   */
+  listRecordingConfigurations(
+    args: ListRecordingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecordingConfigurationsCommandOutput>;
+  listRecordingConfigurations(
+    args: ListRecordingConfigurationsCommandInput,
+    cb: (err: any, data?: ListRecordingConfigurationsCommandOutput) => void
+  ): void;
+  listRecordingConfigurations(
+    args: ListRecordingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecordingConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStreamKeysCommand}
+   */
+  listStreamKeys(
+    args: ListStreamKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamKeysCommandOutput>;
+  listStreamKeys(args: ListStreamKeysCommandInput, cb: (err: any, data?: ListStreamKeysCommandOutput) => void): void;
+  listStreamKeys(
+    args: ListStreamKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStreamKeysCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStreamsCommand}
+   */
+  listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
+  listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
+  listStreams(
+    args: ListStreamsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStreamSessionsCommand}
+   */
+  listStreamSessions(
+    args: ListStreamSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamSessionsCommandOutput>;
+  listStreamSessions(
+    args: ListStreamSessionsCommandInput,
+    cb: (err: any, data?: ListStreamSessionsCommandOutput) => void
+  ): void;
+  listStreamSessions(
+    args: ListStreamSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStreamSessionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutMetadataCommand}
+   */
+  putMetadata(args: PutMetadataCommandInput, options?: __HttpHandlerOptions): Promise<PutMetadataCommandOutput>;
+  putMetadata(args: PutMetadataCommandInput, cb: (err: any, data?: PutMetadataCommandOutput) => void): void;
+  putMetadata(
+    args: PutMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopStreamCommand}
+   */
+  stopStream(args: StopStreamCommandInput, options?: __HttpHandlerOptions): Promise<StopStreamCommandOutput>;
+  stopStream(args: StopStreamCommandInput, cb: (err: any, data?: StopStreamCommandOutput) => void): void;
+  stopStream(
+    args: StopStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelCommand}
+   */
+  updateChannel(args: UpdateChannelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateChannelCommandOutput>;
+  updateChannel(args: UpdateChannelCommandInput, cb: (err: any, data?: UpdateChannelCommandOutput) => void): void;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+}
 
 /**
+ * @public
  * <p>
  *             <b>Introduction</b>
  *          </p>
@@ -167,12 +594,14 @@ import { IvsClient } from "./IvsClient";
  *         Amazon IVS</a>):</p>
  *          <ul>
  *             <li>
- *                <p>Channel — Stores configuration data related to your live stream. You first create a
+ *                <p>
+ *                   <b>Channel</b> — Stores configuration data related to your live stream. You first create a
  *           channel and then use the channel’s stream key to start your live stream. See the Channel
  *           endpoints for more information. </p>
  *             </li>
  *             <li>
- *                <p>Stream key — An identifier assigned by Amazon IVS when you create a channel, which is
+ *                <p>
+ *                   <b>Stream key</b> — An identifier assigned by Amazon IVS when you create a channel, which is
  *           then used to authorize streaming. See the StreamKey endpoints for more information.
  *               <i>
  *                      <b>Treat the stream key like a secret, since it allows
@@ -181,13 +610,15 @@ import { IvsClient } from "./IvsClient";
  *                </p>
  *             </li>
  *             <li>
- *                <p>Playback key pair — Video playback may be restricted using playback-authorization
+ *                <p>
+ *                   <b>Playback key pair</b> — Video playback may be restricted using playback-authorization
  *           tokens, which use public-key encryption. A playback key pair is the public-private pair of
  *           keys used to sign and validate the playback-authorization token. See the PlaybackKeyPair
  *           endpoints for more information.</p>
  *             </li>
  *             <li>
- *                <p>Recording configuration — Stores configuration related to recording a live stream and
+ *                <p>
+ *                   <b>Recording configuration</b> — Stores configuration related to recording a live stream and
  *           where to store the recorded content. Multiple channels can reference the same recording
  *           configuration. See the Recording Configuration endpoints for more information.</p>
  *             </li>
@@ -444,911 +875,5 @@ import { IvsClient } from "./IvsClient";
  *             </li>
  *          </ul>
  */
-export class Ivs extends IvsClient {
-  /**
-   * <p>Performs <a>GetChannel</a> on multiple ARNs simultaneously.</p>
-   */
-  public batchGetChannel(
-    args: BatchGetChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetChannelCommandOutput>;
-  public batchGetChannel(
-    args: BatchGetChannelCommandInput,
-    cb: (err: any, data?: BatchGetChannelCommandOutput) => void
-  ): void;
-  public batchGetChannel(
-    args: BatchGetChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetChannelCommandOutput) => void
-  ): void;
-  public batchGetChannel(
-    args: BatchGetChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetChannelCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetChannelCommandOutput) => void
-  ): Promise<BatchGetChannelCommandOutput> | void {
-    const command = new BatchGetChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Performs <a>GetStreamKey</a> on multiple ARNs simultaneously.</p>
-   */
-  public batchGetStreamKey(
-    args: BatchGetStreamKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetStreamKeyCommandOutput>;
-  public batchGetStreamKey(
-    args: BatchGetStreamKeyCommandInput,
-    cb: (err: any, data?: BatchGetStreamKeyCommandOutput) => void
-  ): void;
-  public batchGetStreamKey(
-    args: BatchGetStreamKeyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetStreamKeyCommandOutput) => void
-  ): void;
-  public batchGetStreamKey(
-    args: BatchGetStreamKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetStreamKeyCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetStreamKeyCommandOutput) => void
-  ): Promise<BatchGetStreamKeyCommandOutput> | void {
-    const command = new BatchGetStreamKeyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a new channel and an associated stream key to start streaming.</p>
-   */
-  public createChannel(
-    args: CreateChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelCommandOutput>;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    cb: (err: any, data?: CreateChannelCommandOutput) => void
-  ): void;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelCommandOutput) => void
-  ): void;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelCommandOutput) => void
-  ): Promise<CreateChannelCommandOutput> | void {
-    const command = new CreateChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a new recording configuration, used to enable recording to Amazon S3.</p>
-   *          <p>
-   *             <b>Known issue:</b> In the us-east-1 region, if you use the
-   *         Amazon Web Services CLI to create a recording configuration, it returns success even if the
-   *       S3 bucket is in a different region. In this case, the <code>state</code> of the recording
-   *       configuration is <code>CREATE_FAILED</code> (instead of <code>ACTIVE</code>). (In other
-   *       regions, the CLI correctly returns failure if the bucket is in a different region.)</p>
-   *          <p>
-   *             <b>Workaround:</b> Ensure that your S3 bucket is in the same
-   *       region as the recording configuration. If you create a recording configuration in a different
-   *       region as your S3 bucket, delete that recording configuration and create a new one with an S3
-   *       bucket from the correct region.</p>
-   */
-  public createRecordingConfiguration(
-    args: CreateRecordingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateRecordingConfigurationCommandOutput>;
-  public createRecordingConfiguration(
-    args: CreateRecordingConfigurationCommandInput,
-    cb: (err: any, data?: CreateRecordingConfigurationCommandOutput) => void
-  ): void;
-  public createRecordingConfiguration(
-    args: CreateRecordingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateRecordingConfigurationCommandOutput) => void
-  ): void;
-  public createRecordingConfiguration(
-    args: CreateRecordingConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRecordingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: CreateRecordingConfigurationCommandOutput) => void
-  ): Promise<CreateRecordingConfigurationCommandOutput> | void {
-    const command = new CreateRecordingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a stream key, used to initiate a stream, for the specified channel ARN.</p>
-   *          <p>Note that <a>CreateChannel</a> creates a stream key. If you subsequently use
-   *       CreateStreamKey on the same channel, it will fail because a stream key already exists and
-   *       there is a limit of 1 stream key per channel. To reset the stream key on a channel, use <a>DeleteStreamKey</a> and then CreateStreamKey.</p>
-   */
-  public createStreamKey(
-    args: CreateStreamKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateStreamKeyCommandOutput>;
-  public createStreamKey(
-    args: CreateStreamKeyCommandInput,
-    cb: (err: any, data?: CreateStreamKeyCommandOutput) => void
-  ): void;
-  public createStreamKey(
-    args: CreateStreamKeyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateStreamKeyCommandOutput) => void
-  ): void;
-  public createStreamKey(
-    args: CreateStreamKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStreamKeyCommandOutput) => void),
-    cb?: (err: any, data?: CreateStreamKeyCommandOutput) => void
-  ): Promise<CreateStreamKeyCommandOutput> | void {
-    const command = new CreateStreamKeyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes the specified channel and its associated stream keys.</p>
-   *          <p>If you try to delete a live channel, you will get an error (409 ConflictException). To
-   *       delete a channel that is live, call <a>StopStream</a>, wait for the Amazon
-   *       EventBridge "Stream End" event (to verify that the stream's state is no longer Live), then
-   *       call DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html"> Using EventBridge with Amazon IVS</a>.) </p>
-   */
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelCommandOutput>;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    cb: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): void;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): void;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): Promise<DeleteChannelCommandOutput> | void {
-    const command = new DeleteChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a specified authorization key pair. This invalidates future viewer tokens
-   *       generated using the key pair’s <code>privateKey</code>. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private
-   *         Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
-   */
-  public deletePlaybackKeyPair(
-    args: DeletePlaybackKeyPairCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeletePlaybackKeyPairCommandOutput>;
-  public deletePlaybackKeyPair(
-    args: DeletePlaybackKeyPairCommandInput,
-    cb: (err: any, data?: DeletePlaybackKeyPairCommandOutput) => void
-  ): void;
-  public deletePlaybackKeyPair(
-    args: DeletePlaybackKeyPairCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePlaybackKeyPairCommandOutput) => void
-  ): void;
-  public deletePlaybackKeyPair(
-    args: DeletePlaybackKeyPairCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePlaybackKeyPairCommandOutput) => void),
-    cb?: (err: any, data?: DeletePlaybackKeyPairCommandOutput) => void
-  ): Promise<DeletePlaybackKeyPairCommandOutput> | void {
-    const command = new DeletePlaybackKeyPairCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes the recording configuration for the specified ARN.</p>
-   *          <p>If you try to delete a recording configuration that is associated with a channel, you will
-   *       get an error (409 ConflictException). To avoid this, for all channels that reference the
-   *       recording configuration, first use <a>UpdateChannel</a> to set the
-   *         <code>recordingConfigurationArn</code> field to an empty string, then use
-   *       DeleteRecordingConfiguration.</p>
-   */
-  public deleteRecordingConfiguration(
-    args: DeleteRecordingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRecordingConfigurationCommandOutput>;
-  public deleteRecordingConfiguration(
-    args: DeleteRecordingConfigurationCommandInput,
-    cb: (err: any, data?: DeleteRecordingConfigurationCommandOutput) => void
-  ): void;
-  public deleteRecordingConfiguration(
-    args: DeleteRecordingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteRecordingConfigurationCommandOutput) => void
-  ): void;
-  public deleteRecordingConfiguration(
-    args: DeleteRecordingConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRecordingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRecordingConfigurationCommandOutput) => void
-  ): Promise<DeleteRecordingConfigurationCommandOutput> | void {
-    const command = new DeleteRecordingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes the stream key for the specified ARN, so it can no longer be used to
-   *       stream.</p>
-   */
-  public deleteStreamKey(
-    args: DeleteStreamKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteStreamKeyCommandOutput>;
-  public deleteStreamKey(
-    args: DeleteStreamKeyCommandInput,
-    cb: (err: any, data?: DeleteStreamKeyCommandOutput) => void
-  ): void;
-  public deleteStreamKey(
-    args: DeleteStreamKeyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteStreamKeyCommandOutput) => void
-  ): void;
-  public deleteStreamKey(
-    args: DeleteStreamKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStreamKeyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteStreamKeyCommandOutput) => void
-  ): Promise<DeleteStreamKeyCommandOutput> | void {
-    const command = new DeleteStreamKeyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets the channel configuration for the specified channel ARN. See also <a>BatchGetChannel</a>.</p>
-   */
-  public getChannel(args: GetChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelCommandOutput>;
-  public getChannel(args: GetChannelCommandInput, cb: (err: any, data?: GetChannelCommandOutput) => void): void;
-  public getChannel(
-    args: GetChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetChannelCommandOutput) => void
-  ): void;
-  public getChannel(
-    args: GetChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelCommandOutput) => void),
-    cb?: (err: any, data?: GetChannelCommandOutput) => void
-  ): Promise<GetChannelCommandOutput> | void {
-    const command = new GetChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets a specified playback authorization key pair and returns the <code>arn</code> and
-   *         <code>fingerprint</code>. The <code>privateKey</code> held by the caller can be used to
-   *       generate viewer authorization tokens, to grant viewers access to private channels. For more
-   *       information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private Channels</a> in the <i>Amazon IVS User
-   *       Guide</i>.</p>
-   */
-  public getPlaybackKeyPair(
-    args: GetPlaybackKeyPairCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPlaybackKeyPairCommandOutput>;
-  public getPlaybackKeyPair(
-    args: GetPlaybackKeyPairCommandInput,
-    cb: (err: any, data?: GetPlaybackKeyPairCommandOutput) => void
-  ): void;
-  public getPlaybackKeyPair(
-    args: GetPlaybackKeyPairCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPlaybackKeyPairCommandOutput) => void
-  ): void;
-  public getPlaybackKeyPair(
-    args: GetPlaybackKeyPairCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPlaybackKeyPairCommandOutput) => void),
-    cb?: (err: any, data?: GetPlaybackKeyPairCommandOutput) => void
-  ): Promise<GetPlaybackKeyPairCommandOutput> | void {
-    const command = new GetPlaybackKeyPairCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets the recording configuration for the specified ARN.</p>
-   */
-  public getRecordingConfiguration(
-    args: GetRecordingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetRecordingConfigurationCommandOutput>;
-  public getRecordingConfiguration(
-    args: GetRecordingConfigurationCommandInput,
-    cb: (err: any, data?: GetRecordingConfigurationCommandOutput) => void
-  ): void;
-  public getRecordingConfiguration(
-    args: GetRecordingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetRecordingConfigurationCommandOutput) => void
-  ): void;
-  public getRecordingConfiguration(
-    args: GetRecordingConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecordingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetRecordingConfigurationCommandOutput) => void
-  ): Promise<GetRecordingConfigurationCommandOutput> | void {
-    const command = new GetRecordingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about the active (live) stream on a specified channel.</p>
-   */
-  public getStream(args: GetStreamCommandInput, options?: __HttpHandlerOptions): Promise<GetStreamCommandOutput>;
-  public getStream(args: GetStreamCommandInput, cb: (err: any, data?: GetStreamCommandOutput) => void): void;
-  public getStream(
-    args: GetStreamCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetStreamCommandOutput) => void
-  ): void;
-  public getStream(
-    args: GetStreamCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStreamCommandOutput) => void),
-    cb?: (err: any, data?: GetStreamCommandOutput) => void
-  ): Promise<GetStreamCommandOutput> | void {
-    const command = new GetStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets stream-key information for a specified ARN.</p>
-   */
-  public getStreamKey(
-    args: GetStreamKeyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetStreamKeyCommandOutput>;
-  public getStreamKey(args: GetStreamKeyCommandInput, cb: (err: any, data?: GetStreamKeyCommandOutput) => void): void;
-  public getStreamKey(
-    args: GetStreamKeyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetStreamKeyCommandOutput) => void
-  ): void;
-  public getStreamKey(
-    args: GetStreamKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStreamKeyCommandOutput) => void),
-    cb?: (err: any, data?: GetStreamKeyCommandOutput) => void
-  ): Promise<GetStreamKeyCommandOutput> | void {
-    const command = new GetStreamKeyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets metadata on a specified stream.</p>
-   */
-  public getStreamSession(
-    args: GetStreamSessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetStreamSessionCommandOutput>;
-  public getStreamSession(
-    args: GetStreamSessionCommandInput,
-    cb: (err: any, data?: GetStreamSessionCommandOutput) => void
-  ): void;
-  public getStreamSession(
-    args: GetStreamSessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetStreamSessionCommandOutput) => void
-  ): void;
-  public getStreamSession(
-    args: GetStreamSessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStreamSessionCommandOutput) => void),
-    cb?: (err: any, data?: GetStreamSessionCommandOutput) => void
-  ): Promise<GetStreamSessionCommandOutput> | void {
-    const command = new GetStreamSessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Imports the public portion of a new key pair and returns its <code>arn</code> and
-   *         <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate viewer
-   *       authorization tokens, to grant viewers access to private channels. For more information, see
-   *         <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up
-   *         Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
-   */
-  public importPlaybackKeyPair(
-    args: ImportPlaybackKeyPairCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ImportPlaybackKeyPairCommandOutput>;
-  public importPlaybackKeyPair(
-    args: ImportPlaybackKeyPairCommandInput,
-    cb: (err: any, data?: ImportPlaybackKeyPairCommandOutput) => void
-  ): void;
-  public importPlaybackKeyPair(
-    args: ImportPlaybackKeyPairCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ImportPlaybackKeyPairCommandOutput) => void
-  ): void;
-  public importPlaybackKeyPair(
-    args: ImportPlaybackKeyPairCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportPlaybackKeyPairCommandOutput) => void),
-    cb?: (err: any, data?: ImportPlaybackKeyPairCommandOutput) => void
-  ): Promise<ImportPlaybackKeyPairCommandOutput> | void {
-    const command = new ImportPlaybackKeyPairCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets summary information about all channels in your account, in the Amazon Web Services
-   *       region where the API request is processed. This list can be filtered to match a specified name
-   *       or recording-configuration ARN. Filters are mutually exclusive and cannot be used together. If
-   *       you try to use both filters, you will get an error (409 ConflictException).</p>
-   */
-  public listChannels(
-    args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelsCommandOutput>;
-  public listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelsCommandOutput) => void
-  ): void;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelsCommandOutput) => void
-  ): Promise<ListChannelsCommandOutput> | void {
-    const command = new ListChannelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets summary information about playback key pairs. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private
-   *         Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
-   */
-  public listPlaybackKeyPairs(
-    args: ListPlaybackKeyPairsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListPlaybackKeyPairsCommandOutput>;
-  public listPlaybackKeyPairs(
-    args: ListPlaybackKeyPairsCommandInput,
-    cb: (err: any, data?: ListPlaybackKeyPairsCommandOutput) => void
-  ): void;
-  public listPlaybackKeyPairs(
-    args: ListPlaybackKeyPairsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPlaybackKeyPairsCommandOutput) => void
-  ): void;
-  public listPlaybackKeyPairs(
-    args: ListPlaybackKeyPairsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPlaybackKeyPairsCommandOutput) => void),
-    cb?: (err: any, data?: ListPlaybackKeyPairsCommandOutput) => void
-  ): Promise<ListPlaybackKeyPairsCommandOutput> | void {
-    const command = new ListPlaybackKeyPairsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets summary information about all recording configurations in your account, in the
-   *         Amazon Web Services region where the API request is processed.</p>
-   */
-  public listRecordingConfigurations(
-    args: ListRecordingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRecordingConfigurationsCommandOutput>;
-  public listRecordingConfigurations(
-    args: ListRecordingConfigurationsCommandInput,
-    cb: (err: any, data?: ListRecordingConfigurationsCommandOutput) => void
-  ): void;
-  public listRecordingConfigurations(
-    args: ListRecordingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListRecordingConfigurationsCommandOutput) => void
-  ): void;
-  public listRecordingConfigurations(
-    args: ListRecordingConfigurationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecordingConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: ListRecordingConfigurationsCommandOutput) => void
-  ): Promise<ListRecordingConfigurationsCommandOutput> | void {
-    const command = new ListRecordingConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets summary information about stream keys for the specified channel.</p>
-   */
-  public listStreamKeys(
-    args: ListStreamKeysCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListStreamKeysCommandOutput>;
-  public listStreamKeys(
-    args: ListStreamKeysCommandInput,
-    cb: (err: any, data?: ListStreamKeysCommandOutput) => void
-  ): void;
-  public listStreamKeys(
-    args: ListStreamKeysCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListStreamKeysCommandOutput) => void
-  ): void;
-  public listStreamKeys(
-    args: ListStreamKeysCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamKeysCommandOutput) => void),
-    cb?: (err: any, data?: ListStreamKeysCommandOutput) => void
-  ): Promise<ListStreamKeysCommandOutput> | void {
-    const command = new ListStreamKeysCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets summary information about live streams in your account, in the Amazon Web Services
-   *       region where the API request is processed.</p>
-   */
-  public listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
-  public listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
-  public listStreams(
-    args: ListStreamsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListStreamsCommandOutput) => void
-  ): void;
-  public listStreams(
-    args: ListStreamsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamsCommandOutput) => void),
-    cb?: (err: any, data?: ListStreamsCommandOutput) => void
-  ): Promise<ListStreamsCommandOutput> | void {
-    const command = new ListStreamsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets a summary of current and previous streams for a specified channel in your account, in
-   *       the AWS region where the API request is processed.</p>
-   */
-  public listStreamSessions(
-    args: ListStreamSessionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListStreamSessionsCommandOutput>;
-  public listStreamSessions(
-    args: ListStreamSessionsCommandInput,
-    cb: (err: any, data?: ListStreamSessionsCommandOutput) => void
-  ): void;
-  public listStreamSessions(
-    args: ListStreamSessionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListStreamSessionsCommandOutput) => void
-  ): void;
-  public listStreamSessions(
-    args: ListStreamSessionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamSessionsCommandOutput) => void),
-    cb?: (err: any, data?: ListStreamSessionsCommandOutput) => void
-  ): Promise<ListStreamSessionsCommandOutput> | void {
-    const command = new ListStreamSessionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets information about Amazon Web Services tags for the specified ARN.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Inserts metadata into the active stream of the specified channel. At most 5 requests per
-   *       second per channel are allowed, each with a maximum 1 KB payload. (If 5 TPS is not sufficient
-   *       for your needs, we recommend batching your data into a single PutMetadata call.) At most 155
-   *       requests per second per account are allowed. Also see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/metadata.html">Embedding Metadata within a Video Stream</a> in
-   *       the <i>Amazon IVS User Guide</i>.</p>
-   */
-  public putMetadata(args: PutMetadataCommandInput, options?: __HttpHandlerOptions): Promise<PutMetadataCommandOutput>;
-  public putMetadata(args: PutMetadataCommandInput, cb: (err: any, data?: PutMetadataCommandOutput) => void): void;
-  public putMetadata(
-    args: PutMetadataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutMetadataCommandOutput) => void
-  ): void;
-  public putMetadata(
-    args: PutMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetadataCommandOutput) => void),
-    cb?: (err: any, data?: PutMetadataCommandOutput) => void
-  ): Promise<PutMetadataCommandOutput> | void {
-    const command = new PutMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Disconnects the incoming RTMPS stream for the specified channel. Can be used in
-   *       conjunction with <a>DeleteStreamKey</a> to prevent further streaming to a
-   *       channel.</p>
-   *          <note>
-   *             <p>Many streaming client-software libraries automatically reconnect a dropped RTMPS
-   *         session, so to stop the stream permanently, you may want to first revoke the
-   *           <code>streamKey</code> attached to the channel.</p>
-   *          </note>
-   */
-  public stopStream(args: StopStreamCommandInput, options?: __HttpHandlerOptions): Promise<StopStreamCommandOutput>;
-  public stopStream(args: StopStreamCommandInput, cb: (err: any, data?: StopStreamCommandOutput) => void): void;
-  public stopStream(
-    args: StopStreamCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopStreamCommandOutput) => void
-  ): void;
-  public stopStream(
-    args: StopStreamCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopStreamCommandOutput) => void),
-    cb?: (err: any, data?: StopStreamCommandOutput) => void
-  ): Promise<StopStreamCommandOutput> | void {
-    const command = new StopStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Adds or updates tags for the Amazon Web Services resource with the specified ARN.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Removes tags from the resource with the specified ARN.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a channel's configuration. This does not affect an ongoing stream of this channel.
-   *       You must stop and restart the stream for the changes to take effect.</p>
-   */
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateChannelCommandOutput>;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    cb: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): void;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): void;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): Promise<UpdateChannelCommandOutput> | void {
-    const command = new UpdateChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class Ivs extends IvsClient implements Ivs {}
+createAggregatedClient(commands, Ivs);

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CountOpenWorkflowExecutionsInput,
-  CountOpenWorkflowExecutionsInputFilterSensitiveLog,
-  WorkflowExecutionCount,
-  WorkflowExecutionCountFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CountOpenWorkflowExecutionsCommand,
-  serializeAws_json1_0CountOpenWorkflowExecutionsCommand,
-} from "../protocols/Aws_json1_0";
+import { CountOpenWorkflowExecutionsInput, WorkflowExecutionCount } from "../models/models_0";
+import { de_CountOpenWorkflowExecutionsCommand, se_CountOpenWorkflowExecutionsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link CountOpenWorkflowExecutionsCommand}.
  */
 export interface CountOpenWorkflowExecutionsCommandInput extends CountOpenWorkflowExecutionsInput {}
 /**
+ * @public
+ *
  * The output of {@link CountOpenWorkflowExecutionsCommand}.
  */
 export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecutionCount, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of open workflow executions within the given domain that meet the
  *       specified filtering criteria.</p>
  *          <note>
@@ -88,10 +85,29 @@ export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecut
  * import { SWFClient, CountOpenWorkflowExecutionsCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, CountOpenWorkflowExecutionsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // CountOpenWorkflowExecutionsInput
+ *   domain: "STRING_VALUE", // required
+ *   startTimeFilter: { // ExecutionTimeFilter
+ *     oldestDate: new Date("TIMESTAMP"), // required
+ *     latestDate: new Date("TIMESTAMP"),
+ *   },
+ *   typeFilter: { // WorkflowTypeFilter
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE",
+ *   },
+ *   tagFilter: { // TagFilter
+ *     tag: "STRING_VALUE", // required
+ *   },
+ *   executionFilter: { // WorkflowExecutionFilter
+ *     workflowId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CountOpenWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CountOpenWorkflowExecutionsCommandInput - {@link CountOpenWorkflowExecutionsCommandInput}
+ * @returns {@link CountOpenWorkflowExecutionsCommandOutput}
  * @see {@link CountOpenWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link CountOpenWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -121,6 +137,9 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CountOpenWorkflowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +168,8 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CountOpenWorkflowExecutionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: WorkflowExecutionCountFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,15 +179,21 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CountOpenWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CountOpenWorkflowExecutionsCommand(input, context);
+    return se_CountOpenWorkflowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CountOpenWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0CountOpenWorkflowExecutionsCommand(output, context);
+    return de_CountOpenWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

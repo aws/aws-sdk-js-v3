@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  OptInPhoneNumberInput,
-  OptInPhoneNumberInputFilterSensitiveLog,
-  OptInPhoneNumberResponse,
-  OptInPhoneNumberResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryOptInPhoneNumberCommand,
-  serializeAws_queryOptInPhoneNumberCommand,
-} from "../protocols/Aws_query";
+import { OptInPhoneNumberInput, OptInPhoneNumberResponse } from "../models/models_0";
+import { de_OptInPhoneNumberCommand, se_OptInPhoneNumberCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link OptInPhoneNumberCommand}.
  */
 export interface OptInPhoneNumberCommandInput extends OptInPhoneNumberInput {}
 /**
+ * @public
+ *
  * The output of {@link OptInPhoneNumberCommand}.
  */
 export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use this request to opt in a phone number that is opted out, which enables you to
  *             resume sending SMS messages to the number.</p>
  *          <p>You can opt in a phone number only once every 30 days.</p>
@@ -44,10 +41,15 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * import { SNSClient, OptInPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, OptInPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // OptInPhoneNumberInput
+ *   phoneNumber: "STRING_VALUE", // required
+ * };
  * const command = new OptInPhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param OptInPhoneNumberCommandInput - {@link OptInPhoneNumberCommandInput}
+ * @returns {@link OptInPhoneNumberCommandOutput}
  * @see {@link OptInPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link OptInPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -84,6 +86,9 @@ export class OptInPhoneNumberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: OptInPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class OptInPhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OptInPhoneNumberInputFilterSensitiveLog,
-      outputFilterSensitiveLog: OptInPhoneNumberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class OptInPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: OptInPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryOptInPhoneNumberCommand(input, context);
+    return se_OptInPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OptInPhoneNumberCommandOutput> {
-    return deserializeAws_queryOptInPhoneNumberCommand(output, context);
+    return de_OptInPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

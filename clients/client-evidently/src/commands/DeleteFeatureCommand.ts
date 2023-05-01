@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  DeleteFeatureRequest,
-  DeleteFeatureRequestFilterSensitiveLog,
-  DeleteFeatureResponse,
-  DeleteFeatureResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFeatureCommand,
-  serializeAws_restJson1DeleteFeatureCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteFeatureRequest, DeleteFeatureResponse } from "../models/models_0";
+import { de_DeleteFeatureCommand, se_DeleteFeatureCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFeatureCommand}.
  */
 export interface DeleteFeatureCommandInput extends DeleteFeatureRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFeatureCommand}.
  */
 export interface DeleteFeatureCommandOutput extends DeleteFeatureResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Evidently feature.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteFeatureCommandOutput extends DeleteFeatureResponse, __Met
  * import { EvidentlyClient, DeleteFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, DeleteFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // DeleteFeatureRequest
+ *   project: "STRING_VALUE", // required
+ *   feature: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFeatureCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFeatureCommandInput - {@link DeleteFeatureCommandInput}
+ * @returns {@link DeleteFeatureCommandOutput}
  * @see {@link DeleteFeatureCommandInput} for command's `input` shape.
  * @see {@link DeleteFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -84,6 +87,9 @@ export class DeleteFeatureCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFeatureCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class DeleteFeatureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFeatureRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFeatureResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class DeleteFeatureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFeatureCommand(input, context);
+    return se_DeleteFeatureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFeatureCommandOutput> {
-    return deserializeAws_restJson1DeleteFeatureCommand(output, context);
+    return de_DeleteFeatureCommand(output, context);
   }
 
   // Start section: command_body_extra

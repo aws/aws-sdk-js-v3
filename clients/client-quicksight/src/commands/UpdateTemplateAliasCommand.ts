@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTemplateAliasRequest,
-  UpdateTemplateAliasRequestFilterSensitiveLog,
-  UpdateTemplateAliasResponse,
-  UpdateTemplateAliasResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateTemplateAliasCommand,
-  serializeAws_restJson1UpdateTemplateAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateTemplateAliasRequest, UpdateTemplateAliasResponse } from "../models/models_3";
+import { de_UpdateTemplateAliasCommand, se_UpdateTemplateAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTemplateAliasCommand}.
  */
 export interface UpdateTemplateAliasCommandInput extends UpdateTemplateAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTemplateAliasCommand}.
  */
 export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the template alias of a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasRes
  * import { QuickSightClient, UpdateTemplateAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateTemplateAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // UpdateTemplateAliasRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   TemplateId: "STRING_VALUE", // required
+ *   AliasName: "STRING_VALUE", // required
+ *   TemplateVersionNumber: Number("long"), // required
+ * };
  * const command = new UpdateTemplateAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTemplateAliasCommandInput - {@link UpdateTemplateAliasCommandInput}
+ * @returns {@link UpdateTemplateAliasCommandOutput}
  * @see {@link UpdateTemplateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -87,6 +92,9 @@ export class UpdateTemplateAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTemplateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class UpdateTemplateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTemplateAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTemplateAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +134,18 @@ export class UpdateTemplateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTemplateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTemplateAliasCommand(input, context);
+    return se_UpdateTemplateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateAliasCommandOutput> {
-    return deserializeAws_restJson1UpdateTemplateAliasCommand(output, context);
+    return de_UpdateTemplateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

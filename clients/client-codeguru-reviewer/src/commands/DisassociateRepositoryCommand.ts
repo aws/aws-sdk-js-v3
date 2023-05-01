@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import {
-  DisassociateRepositoryRequest,
-  DisassociateRepositoryRequestFilterSensitiveLog,
-  DisassociateRepositoryResponse,
-  DisassociateRepositoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateRepositoryCommand,
-  serializeAws_restJson1DisassociateRepositoryCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateRepositoryRequest, DisassociateRepositoryResponse } from "../models/models_0";
+import { de_DisassociateRepositoryCommand, se_DisassociateRepositoryCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateRepositoryCommand}.
  */
 export interface DisassociateRepositoryCommandInput extends DisassociateRepositoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateRepositoryCommand}.
  */
 export interface DisassociateRepositoryCommandOutput extends DisassociateRepositoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association between Amazon CodeGuru Reviewer and a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DisassociateRepositoryCommandOutput extends DisassociateReposit
  * import { CodeGuruReviewerClient, DisassociateRepositoryCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, DisassociateRepositoryCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = { // DisassociateRepositoryRequest
+ *   AssociationArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateRepositoryCommandInput - {@link DisassociateRepositoryCommandInput}
+ * @returns {@link DisassociateRepositoryCommandOutput}
  * @see {@link DisassociateRepositoryCommandInput} for command's `input` shape.
  * @see {@link DisassociateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -89,6 +91,9 @@ export class DisassociateRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class DisassociateRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateRepositoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateRepositoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class DisassociateRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateRepositoryCommand(input, context);
+    return se_DisassociateRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateRepositoryCommandOutput> {
-    return deserializeAws_restJson1DisassociateRepositoryCommand(output, context);
+    return de_DisassociateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

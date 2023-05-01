@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetStudioRequest,
-  GetStudioRequestFilterSensitiveLog,
-  GetStudioResponse,
-  GetStudioResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetStudioRequest, GetStudioResponse, GetStudioResponseFilterSensitiveLog } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1GetStudioCommand,
-  serializeAws_restJson1GetStudioCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetStudioCommand, se_GetStudioCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetStudioCommand}.
  */
 export interface GetStudioCommandInput extends GetStudioRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetStudioCommand}.
  */
 export interface GetStudioCommandOutput extends GetStudioResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a studio resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetStudioCommandOutput extends GetStudioResponse, __MetadataBea
  * import { NimbleClient, GetStudioCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetStudioCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // GetStudioRequest
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetStudioCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetStudioCommandInput - {@link GetStudioCommandInput}
+ * @returns {@link GetStudioCommandOutput}
  * @see {@link GetStudioCommandInput} for command's `input` shape.
  * @see {@link GetStudioCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +95,9 @@ export class GetStudioCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetStudioCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,7 +124,7 @@ export class GetStudioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStudioRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetStudioResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -130,12 +135,18 @@ export class GetStudioCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStudioCommand(input, context);
+    return se_GetStudioCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStudioCommandOutput> {
-    return deserializeAws_restJson1GetStudioCommand(output, context);
+    return de_GetStudioCommand(output, context);
   }
 
   // Start section: command_body_extra

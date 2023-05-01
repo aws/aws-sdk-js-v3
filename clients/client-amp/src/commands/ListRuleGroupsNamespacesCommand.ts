@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import {
-  ListRuleGroupsNamespacesRequest,
-  ListRuleGroupsNamespacesRequestFilterSensitiveLog,
-  ListRuleGroupsNamespacesResponse,
-  ListRuleGroupsNamespacesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRuleGroupsNamespacesCommand,
-  serializeAws_restJson1ListRuleGroupsNamespacesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRuleGroupsNamespacesRequest, ListRuleGroupsNamespacesResponse } from "../models/models_0";
+import { de_ListRuleGroupsNamespacesCommand, se_ListRuleGroupsNamespacesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRuleGroupsNamespacesCommand}.
  */
 export interface ListRuleGroupsNamespacesCommandInput extends ListRuleGroupsNamespacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRuleGroupsNamespacesCommand}.
  */
 export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNamespacesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Lists rule groups namespaces.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNam
  * import { AmpClient, ListRuleGroupsNamespacesCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, ListRuleGroupsNamespacesCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // ListRuleGroupsNamespacesRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRuleGroupsNamespacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRuleGroupsNamespacesCommandInput - {@link ListRuleGroupsNamespacesCommandInput}
+ * @returns {@link ListRuleGroupsNamespacesCommandOutput}
  * @see {@link ListRuleGroupsNamespacesCommandInput} for command's `input` shape.
  * @see {@link ListRuleGroupsNamespacesCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -84,6 +89,9 @@ export class ListRuleGroupsNamespacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRuleGroupsNamespacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class ListRuleGroupsNamespacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRuleGroupsNamespacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRuleGroupsNamespacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class ListRuleGroupsNamespacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRuleGroupsNamespacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRuleGroupsNamespacesCommand(input, context);
+    return se_ListRuleGroupsNamespacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRuleGroupsNamespacesCommandOutput> {
-    return deserializeAws_restJson1ListRuleGroupsNamespacesCommand(output, context);
+    return de_ListRuleGroupsNamespacesCommand(output, context);
   }
 
   // Start section: command_body_extra

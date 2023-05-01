@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAccountCustomizationRequest,
-  CreateAccountCustomizationRequestFilterSensitiveLog,
-  CreateAccountCustomizationResponse,
-  CreateAccountCustomizationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateAccountCustomizationCommand,
-  serializeAws_restJson1CreateAccountCustomizationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAccountCustomizationRequest, CreateAccountCustomizationResponse } from "../models/models_1";
+import { de_CreateAccountCustomizationCommand, se_CreateAccountCustomizationCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAccountCustomizationCommand}.
  */
 export interface CreateAccountCustomizationCommandInput extends CreateAccountCustomizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAccountCustomizationCommand}.
  */
 export interface CreateAccountCustomizationCommandOutput extends CreateAccountCustomizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates Amazon QuickSight customizations for the current Amazon Web Services Region. Currently, you can add a custom default theme by using the
  *                 <code>CreateAccountCustomization</code> or <code>UpdateAccountCustomization</code>
  *             API operation. To further customize Amazon QuickSight by removing Amazon QuickSight
@@ -64,10 +61,26 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  * import { QuickSightClient, CreateAccountCustomizationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateAccountCustomizationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // CreateAccountCustomizationRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE",
+ *   AccountCustomization: { // AccountCustomization
+ *     DefaultTheme: "STRING_VALUE",
+ *     DefaultEmailCustomizationTemplate: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateAccountCustomizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAccountCustomizationCommandInput - {@link CreateAccountCustomizationCommandInput}
+ * @returns {@link CreateAccountCustomizationCommandOutput}
  * @see {@link CreateAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link CreateAccountCustomizationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -118,6 +131,9 @@ export class CreateAccountCustomizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAccountCustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +162,8 @@ export class CreateAccountCustomizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccountCustomizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccountCustomizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,15 +173,21 @@ export class CreateAccountCustomizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAccountCustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccountCustomizationCommand(input, context);
+    return se_CreateAccountCustomizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAccountCustomizationCommandOutput> {
-    return deserializeAws_restJson1CreateAccountCustomizationCommand(output, context);
+    return de_CreateAccountCustomizationCommand(output, context);
   }
 
   // Start section: command_body_extra

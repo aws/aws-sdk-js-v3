@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  DeleteWirelessGatewayRequest,
-  DeleteWirelessGatewayRequestFilterSensitiveLog,
-  DeleteWirelessGatewayResponse,
-  DeleteWirelessGatewayResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWirelessGatewayCommand,
-  serializeAws_restJson1DeleteWirelessGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteWirelessGatewayRequest, DeleteWirelessGatewayResponse } from "../models/models_0";
+import { de_DeleteWirelessGatewayCommand, se_DeleteWirelessGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWirelessGatewayCommand}.
  */
 export interface DeleteWirelessGatewayCommandInput extends DeleteWirelessGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWirelessGatewayCommand}.
  */
 export interface DeleteWirelessGatewayCommandOutput extends DeleteWirelessGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteWirelessGatewayCommandOutput extends DeleteWirelessGatewa
  * import { IoTWirelessClient, DeleteWirelessGatewayCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteWirelessGatewayCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DeleteWirelessGatewayRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWirelessGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWirelessGatewayCommandInput - {@link DeleteWirelessGatewayCommandInput}
+ * @returns {@link DeleteWirelessGatewayCommandOutput}
  * @see {@link DeleteWirelessGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeleteWirelessGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWirelessGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DeleteWirelessGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWirelessGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWirelessGatewayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DeleteWirelessGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWirelessGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWirelessGatewayCommand(input, context);
+    return se_DeleteWirelessGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWirelessGatewayCommandOutput> {
-    return deserializeAws_restJson1DeleteWirelessGatewayCommand(output, context);
+    return de_DeleteWirelessGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

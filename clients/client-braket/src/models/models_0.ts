@@ -7,6 +7,7 @@ import {
 import { BraketServiceException as __BaseException } from "./BraketServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,6 +27,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The container image used to create an Amazon Braket job.</p>
  */
 export interface ContainerImage {
@@ -35,12 +37,22 @@ export interface ContainerImage {
   uri: string | undefined;
 }
 
-export enum CompressionType {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CompressionType = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+} as const;
 
 /**
+ * @public
+ */
+export type CompressionType = (typeof CompressionType)[keyof typeof CompressionType];
+
+/**
+ * @public
  * <p>Contains information about the Python scripts used for entry and by an Amazon Braket
  *          job.</p>
  */
@@ -64,6 +76,7 @@ export interface ScriptModeConfig {
 }
 
 /**
+ * @public
  * <p>Defines the Amazon Braket job to be created. Specifies the container image the job uses
  *          and the paths to the Python scripts used for entry and training.</p>
  */
@@ -79,6 +92,9 @@ export interface AlgorithmSpecification {
   containerImage?: ContainerImage;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceRequest {
   /**
    * <p>The ARN of the device to retrieve.</p>
@@ -86,17 +102,38 @@ export interface GetDeviceRequest {
   deviceArn: string | undefined;
 }
 
-export enum DeviceStatus {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-  RETIRED = "RETIRED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceStatus = {
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+  RETIRED: "RETIRED",
+} as const;
 
-export enum DeviceType {
-  QPU = "QPU",
-  SIMULATOR = "SIMULATOR",
-}
+/**
+ * @public
+ */
+export type DeviceStatus = (typeof DeviceStatus)[keyof typeof DeviceStatus];
 
+/**
+ * @public
+ * @enum
+ */
+export const DeviceType = {
+  QPU: "QPU",
+  SIMULATOR: "SIMULATOR",
+} as const;
+
+/**
+ * @public
+ */
+export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
+
+/**
+ * @public
+ */
 export interface GetDeviceResponse {
   /**
    * <p>The ARN of the device.</p>
@@ -130,6 +167,7 @@ export interface GetDeviceResponse {
 }
 
 /**
+ * @public
  * <p>The request processing has failed because of an unknown error, exception, or
  *          failure.</p>
  */
@@ -150,6 +188,7 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -169,6 +208,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The throttling rate limit is met.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -188,6 +228,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -207,6 +248,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The filter to use for searching devices.</p>
  */
 export interface SearchDevicesFilter {
@@ -221,6 +263,9 @@ export interface SearchDevicesFilter {
   values: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchDevicesRequest {
   /**
    * <p>A token used for pagination of results returned in the response. Use the token returned
@@ -240,6 +285,7 @@ export interface SearchDevicesRequest {
 }
 
 /**
+ * @public
  * <p>Includes information about the device.</p>
  */
 export interface DeviceSummary {
@@ -269,6 +315,9 @@ export interface DeviceSummary {
   deviceStatus: DeviceStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchDevicesResponse {
   /**
    * <p>An array of <code>DeviceSummary</code> objects for devices that match the specified
@@ -284,6 +333,9 @@ export interface SearchDevicesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelJobRequest {
   /**
    * <p>The ARN of the Amazon Braket job to cancel.</p>
@@ -291,11 +343,23 @@ export interface CancelJobRequest {
   jobArn: string | undefined;
 }
 
-export enum CancellationStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CancellationStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+} as const;
 
+/**
+ * @public
+ */
+export type CancellationStatus = (typeof CancellationStatus)[keyof typeof CancellationStatus];
+
+/**
+ * @public
+ */
 export interface CancelJobResponse {
   /**
    * <p>The ARN of the Amazon Braket job.</p>
@@ -309,6 +373,7 @@ export interface CancelJobResponse {
 }
 
 /**
+ * @public
  * <p>An error occurred due to a conflict.</p>
  */
 export class ConflictException extends __BaseException {
@@ -328,6 +393,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contains information about the output locations for job checkpoint data.</p>
  */
 export interface JobCheckpointConfig {
@@ -345,6 +411,7 @@ export interface JobCheckpointConfig {
 }
 
 /**
+ * @public
  * <p>Configures the quantum processing units (QPUs) or simulator used to create and run an
  *          Amazon Braket job.</p>
  */
@@ -357,6 +424,7 @@ export interface DeviceConfig {
 }
 
 /**
+ * @public
  * <p>Information about the data stored in Amazon S3 used by the Amazon Braket job.</p>
  */
 export interface S3DataSource {
@@ -368,6 +436,7 @@ export interface S3DataSource {
 }
 
 /**
+ * @public
  * <p>Information about the source of the data used by the Amazon Braket job.</p>
  */
 export interface DataSource {
@@ -378,6 +447,7 @@ export interface DataSource {
 }
 
 /**
+ * @public
  * <p>A list of parameters that specify the input channels, type of input data, and where it
  *          is located.</p>
  */
@@ -398,49 +468,59 @@ export interface InputFileConfig {
   dataSource: DataSource | undefined;
 }
 
-export enum _InstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5N_18XLARGE = "ml.c5n.18xlarge",
-  ML_C5N_2XLARGE = "ml.c5n.2xlarge",
-  ML_C5N_4XLARGE = "ml.c5n.4xlarge",
-  ML_C5N_9XLARGE = "ml.c5n.9xlarge",
-  ML_C5N_XLARGE = "ml.c5n.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_P4D_24XLARGE = "ml.p4d.24xlarge",
-}
+/**
+ * @public
+ * @enum
+ */
+export const _InstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5N_18XLARGE: "ml.c5n.18xlarge",
+  ML_C5N_2XLARGE: "ml.c5n.2xlarge",
+  ML_C5N_4XLARGE: "ml.c5n.4xlarge",
+  ML_C5N_9XLARGE: "ml.c5n.9xlarge",
+  ML_C5N_XLARGE: "ml.c5n.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3DN_24XLARGE: "ml.p3dn.24xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+} as const;
 
 /**
+ * @public
+ */
+export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
+
+/**
+ * @public
  * <p>Configures the resource instances to use while running the Amazon Braket hybrid job on
  *          Amazon Braket.</p>
  */
@@ -464,6 +544,7 @@ export interface InstanceConfig {
 }
 
 /**
+ * @public
  * <p>Specifies the path to the S3 location where you want to store job artifacts and the
  *          encryption key used to store them.</p>
  */
@@ -482,6 +563,7 @@ export interface JobOutputDataConfig {
 }
 
 /**
+ * @public
  * <p>Specifies limits for how long an Amazon Braket job can run. </p>
  */
 export interface JobStoppingCondition {
@@ -491,6 +573,9 @@ export interface JobStoppingCondition {
   maxRuntimeInSeconds?: number;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobRequest {
   /**
    * <p>A unique token that guarantees that the call to this API is idempotent.</p>
@@ -563,6 +648,9 @@ export interface CreateJobRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateJobResponse {
   /**
    * <p>The ARN of the Amazon Braket job created.</p>
@@ -571,6 +659,7 @@ export interface CreateJobResponse {
 }
 
 /**
+ * @public
  * <p>The specified device has been retired.</p>
  */
 export class DeviceRetiredException extends __BaseException {
@@ -590,6 +679,7 @@ export class DeviceRetiredException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request failed because a service quota is exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -608,6 +698,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetJobRequest {
   /**
    * <p>The ARN of the job to retrieve.</p>
@@ -615,21 +708,31 @@ export interface GetJobRequest {
   jobArn: string | undefined;
 }
 
-export enum JobEventType {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  DEPRIORITIZED_DUE_TO_INACTIVITY = "DEPRIORITIZED_DUE_TO_INACTIVITY",
-  DOWNLOADING_DATA = "DOWNLOADING_DATA",
-  FAILED = "FAILED",
-  MAX_RUNTIME_EXCEEDED = "MAX_RUNTIME_EXCEEDED",
-  QUEUED_FOR_EXECUTION = "QUEUED_FOR_EXECUTION",
-  RUNNING = "RUNNING",
-  STARTING_INSTANCE = "STARTING_INSTANCE",
-  UPLOADING_RESULTS = "UPLOADING_RESULTS",
-  WAITING_FOR_PRIORITY = "WAITING_FOR_PRIORITY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobEventType = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  DEPRIORITIZED_DUE_TO_INACTIVITY: "DEPRIORITIZED_DUE_TO_INACTIVITY",
+  DOWNLOADING_DATA: "DOWNLOADING_DATA",
+  FAILED: "FAILED",
+  MAX_RUNTIME_EXCEEDED: "MAX_RUNTIME_EXCEEDED",
+  QUEUED_FOR_EXECUTION: "QUEUED_FOR_EXECUTION",
+  RUNNING: "RUNNING",
+  STARTING_INSTANCE: "STARTING_INSTANCE",
+  UPLOADING_RESULTS: "UPLOADING_RESULTS",
+  WAITING_FOR_PRIORITY: "WAITING_FOR_PRIORITY",
+} as const;
 
 /**
+ * @public
+ */
+export type JobEventType = (typeof JobEventType)[keyof typeof JobEventType];
+
+/**
+ * @public
  * <p>Details about the type and time events occurred related to the Amazon Braket job.</p>
  */
 export interface JobEventDetails {
@@ -649,15 +752,27 @@ export interface JobEventDetails {
   message?: string;
 }
 
-export enum JobPrimaryStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const JobPrimaryStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+} as const;
 
+/**
+ * @public
+ */
+export type JobPrimaryStatus = (typeof JobPrimaryStatus)[keyof typeof JobPrimaryStatus];
+
+/**
+ * @public
+ */
 export interface GetJobResponse {
   /**
    * <p>The status of the Amazon Braket job.</p>
@@ -764,17 +879,27 @@ export interface GetJobResponse {
   tags?: Record<string, string>;
 }
 
-export enum SearchJobsFilterOperator {
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EQUAL = "EQUAL",
-  GT = "GT",
-  GTE = "GTE",
-  LT = "LT",
-  LTE = "LTE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SearchJobsFilterOperator = {
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  EQUAL: "EQUAL",
+  GT: "GT",
+  GTE: "GTE",
+  LT: "LT",
+  LTE: "LTE",
+} as const;
 
 /**
+ * @public
+ */
+export type SearchJobsFilterOperator = (typeof SearchJobsFilterOperator)[keyof typeof SearchJobsFilterOperator];
+
+/**
+ * @public
  * <p>A filter used to search for Amazon Braket jobs.</p>
  */
 export interface SearchJobsFilter {
@@ -794,6 +919,9 @@ export interface SearchJobsFilter {
   operator: SearchJobsFilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchJobsRequest {
   /**
    * <p>A token used for pagination of results returned in the response. Use the token returned
@@ -813,6 +941,7 @@ export interface SearchJobsRequest {
 }
 
 /**
+ * @public
  * <p>Provides summary information about an Amazon Braket job.</p>
  */
 export interface JobSummary {
@@ -859,6 +988,9 @@ export interface JobSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SearchJobsResponse {
   /**
    * <p>An array of <code>JobSummary</code> objects for devices that match the specified filter
@@ -874,6 +1006,9 @@ export interface SearchJobsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>Specify the <code>resourceArn</code> for the resource whose tags to display.</p>
@@ -881,6 +1016,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>Displays the key, value pairs of tags associated with this resource.</p>
@@ -888,6 +1026,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CancelQuantumTaskRequest {
   /**
    * <p>The ARN of the task to cancel.</p>
@@ -900,6 +1041,9 @@ export interface CancelQuantumTaskRequest {
   clientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CancelQuantumTaskResponse {
   /**
    * <p>The ARN of the task.</p>
@@ -912,6 +1056,9 @@ export interface CancelQuantumTaskResponse {
   cancellationStatus: CancellationStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateQuantumTaskRequest {
   /**
    * <p>The client token associated with the request.</p>
@@ -959,6 +1106,9 @@ export interface CreateQuantumTaskRequest {
   jobToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateQuantumTaskResponse {
   /**
    * <p>The ARN of the task created by the request.</p>
@@ -967,6 +1117,7 @@ export interface CreateQuantumTaskResponse {
 }
 
 /**
+ * @public
  * <p>The specified device is currently offline.</p>
  */
 export class DeviceOfflineException extends __BaseException {
@@ -985,6 +1136,9 @@ export class DeviceOfflineException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface GetQuantumTaskRequest {
   /**
    * <p>the ARN of the task to retrieve.</p>
@@ -992,16 +1146,28 @@ export interface GetQuantumTaskRequest {
   quantumTaskArn: string | undefined;
 }
 
-export enum QuantumTaskStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const QuantumTaskStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+} as const;
 
+/**
+ * @public
+ */
+export type QuantumTaskStatus = (typeof QuantumTaskStatus)[keyof typeof QuantumTaskStatus];
+
+/**
+ * @public
+ */
 export interface GetQuantumTaskResponse {
   /**
    * <p>The ARN of the task.</p>
@@ -1064,16 +1230,27 @@ export interface GetQuantumTaskResponse {
   jobArn?: string;
 }
 
-export enum SearchQuantumTasksFilterOperator {
-  BETWEEN = "BETWEEN",
-  EQUAL = "EQUAL",
-  GT = "GT",
-  GTE = "GTE",
-  LT = "LT",
-  LTE = "LTE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SearchQuantumTasksFilterOperator = {
+  BETWEEN: "BETWEEN",
+  EQUAL: "EQUAL",
+  GT: "GT",
+  GTE: "GTE",
+  LT: "LT",
+  LTE: "LTE",
+} as const;
 
 /**
+ * @public
+ */
+export type SearchQuantumTasksFilterOperator =
+  (typeof SearchQuantumTasksFilterOperator)[keyof typeof SearchQuantumTasksFilterOperator];
+
+/**
+ * @public
  * <p>A filter to use to search for tasks.</p>
  */
 export interface SearchQuantumTasksFilter {
@@ -1093,6 +1270,9 @@ export interface SearchQuantumTasksFilter {
   operator: SearchQuantumTasksFilterOperator | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchQuantumTasksRequest {
   /**
    * <p>A token used for pagination of results returned in the response. Use the token returned
@@ -1112,6 +1292,7 @@ export interface SearchQuantumTasksRequest {
 }
 
 /**
+ * @public
  * <p>Includes information about a quantum task.</p>
  */
 export interface QuantumTaskSummary {
@@ -1161,6 +1342,9 @@ export interface QuantumTaskSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface SearchQuantumTasksResponse {
   /**
    * <p>An array of <code>QuantumTaskSummary</code> objects for tasks that match the specified
@@ -1176,6 +1360,9 @@ export interface SearchQuantumTasksResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>Specify the <code>resourceArn</code> of the resource to which a tag will be
@@ -1189,8 +1376,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>Specify the <code>resourceArn</code> for the resource from which to remove the
@@ -1204,312 +1397,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
-
-/**
- * @internal
- */
-export const ContainerImageFilterSensitiveLog = (obj: ContainerImage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScriptModeConfigFilterSensitiveLog = (obj: ScriptModeConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlgorithmSpecificationFilterSensitiveLog = (obj: AlgorithmSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceRequestFilterSensitiveLog = (obj: GetDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceResponseFilterSensitiveLog = (obj: GetDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchDevicesFilterFilterSensitiveLog = (obj: SearchDevicesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchDevicesRequestFilterSensitiveLog = (obj: SearchDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceSummaryFilterSensitiveLog = (obj: DeviceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchDevicesResponseFilterSensitiveLog = (obj: SearchDevicesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobRequestFilterSensitiveLog = (obj: CancelJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelJobResponseFilterSensitiveLog = (obj: CancelJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobCheckpointConfigFilterSensitiveLog = (obj: JobCheckpointConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceConfigFilterSensitiveLog = (obj: DeviceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DataSourceFilterSensitiveLog = (obj: S3DataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputFileConfigFilterSensitiveLog = (obj: InputFileConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceConfigFilterSensitiveLog = (obj: InstanceConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobOutputDataConfigFilterSensitiveLog = (obj: JobOutputDataConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobStoppingConditionFilterSensitiveLog = (obj: JobStoppingCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateJobResponseFilterSensitiveLog = (obj: CreateJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobRequestFilterSensitiveLog = (obj: GetJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobEventDetailsFilterSensitiveLog = (obj: JobEventDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobResponseFilterSensitiveLog = (obj: GetJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchJobsFilterFilterSensitiveLog = (obj: SearchJobsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchJobsRequestFilterSensitiveLog = (obj: SearchJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobSummaryFilterSensitiveLog = (obj: JobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchJobsResponseFilterSensitiveLog = (obj: SearchJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelQuantumTaskRequestFilterSensitiveLog = (obj: CancelQuantumTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelQuantumTaskResponseFilterSensitiveLog = (obj: CancelQuantumTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateQuantumTaskRequestFilterSensitiveLog = (obj: CreateQuantumTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateQuantumTaskResponseFilterSensitiveLog = (obj: CreateQuantumTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQuantumTaskRequestFilterSensitiveLog = (obj: GetQuantumTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQuantumTaskResponseFilterSensitiveLog = (obj: GetQuantumTaskResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchQuantumTasksFilterFilterSensitiveLog = (obj: SearchQuantumTasksFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchQuantumTasksRequestFilterSensitiveLog = (obj: SearchQuantumTasksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const QuantumTaskSummaryFilterSensitiveLog = (obj: QuantumTaskSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchQuantumTasksResponseFilterSensitiveLog = (obj: SearchQuantumTasksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  GetDataSetDetailsRequest,
-  GetDataSetDetailsRequestFilterSensitiveLog,
-  GetDataSetDetailsResponse,
-  GetDataSetDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataSetDetailsCommand,
-  serializeAws_restJson1GetDataSetDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDataSetDetailsRequest, GetDataSetDetailsResponse } from "../models/models_0";
+import { de_GetDataSetDetailsCommand, se_GetDataSetDetailsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDataSetDetailsCommand}.
  */
 export interface GetDataSetDetailsCommandInput extends GetDataSetDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDataSetDetailsCommand}.
  */
 export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of a specific data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsRespons
  * import { M2Client, GetDataSetDetailsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, GetDataSetDetailsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // GetDataSetDetailsRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   dataSetName: "STRING_VALUE", // required
+ * };
  * const command = new GetDataSetDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDataSetDetailsCommandInput - {@link GetDataSetDetailsCommandInput}
+ * @returns {@link GetDataSetDetailsCommandOutput}
  * @see {@link GetDataSetDetailsCommandInput} for command's `input` shape.
  * @see {@link GetDataSetDetailsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -84,6 +87,9 @@ export class GetDataSetDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDataSetDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class GetDataSetDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataSetDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataSetDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +129,18 @@ export class GetDataSetDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDataSetDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataSetDetailsCommand(input, context);
+    return se_GetDataSetDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSetDetailsCommandOutput> {
-    return deserializeAws_restJson1GetDataSetDetailsCommand(output, context);
+    return de_GetDataSetDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

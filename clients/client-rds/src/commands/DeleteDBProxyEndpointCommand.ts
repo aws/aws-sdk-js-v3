@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDBProxyEndpointRequest,
-  DeleteDBProxyEndpointRequestFilterSensitiveLog,
-  DeleteDBProxyEndpointResponse,
-  DeleteDBProxyEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBProxyEndpointCommand,
-  serializeAws_queryDeleteDBProxyEndpointCommand,
-} from "../protocols/Aws_query";
+import { DeleteDBProxyEndpointRequest, DeleteDBProxyEndpointResponse } from "../models/models_0";
+import { de_DeleteDBProxyEndpointCommand, se_DeleteDBProxyEndpointCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDBProxyEndpointCommand}.
  */
 export interface DeleteDBProxyEndpointCommandInput extends DeleteDBProxyEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDBProxyEndpointCommand}.
  */
 export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <code>DBProxyEndpoint</code>. Doing so removes the ability to access the DB proxy using the
  *         endpoint that you defined. The endpoint that you delete might have provided capabilities such as read/write
  *         or read-only operations, or using a different VPC than the DB proxy's default VPC.</p>
@@ -44,10 +41,15 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  * import { RDSClient, DeleteDBProxyEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBProxyEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteDBProxyEndpointRequest
+ *   DBProxyEndpointName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBProxyEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDBProxyEndpointCommandInput - {@link DeleteDBProxyEndpointCommandInput}
+ * @returns {@link DeleteDBProxyEndpointCommandOutput}
  * @see {@link DeleteDBProxyEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDBProxyEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -77,6 +79,9 @@ export class DeleteDBProxyEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDBProxyEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +110,8 @@ export class DeleteDBProxyEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBProxyEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBProxyEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +121,18 @@ export class DeleteDBProxyEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDBProxyEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBProxyEndpointCommand(input, context);
+    return se_DeleteDBProxyEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBProxyEndpointCommandOutput> {
-    return deserializeAws_queryDeleteDBProxyEndpointCommand(output, context);
+    return de_DeleteDBProxyEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

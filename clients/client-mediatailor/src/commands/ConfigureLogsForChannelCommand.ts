@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  ConfigureLogsForChannelRequest,
-  ConfigureLogsForChannelRequestFilterSensitiveLog,
-  ConfigureLogsForChannelResponse,
-  ConfigureLogsForChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ConfigureLogsForChannelCommand,
-  serializeAws_restJson1ConfigureLogsForChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { ConfigureLogsForChannelRequest, ConfigureLogsForChannelResponse } from "../models/models_0";
+import { de_ConfigureLogsForChannelCommand, se_ConfigureLogsForChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfigureLogsForChannelCommand}.
  */
 export interface ConfigureLogsForChannelCommandInput extends ConfigureLogsForChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfigureLogsForChannelCommand}.
  */
 export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configures Amazon CloudWatch log settings for a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForCh
  * import { MediaTailorClient, ConfigureLogsForChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ConfigureLogsForChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // ConfigureLogsForChannelRequest
+ *   ChannelName: "STRING_VALUE", // required
+ *   LogTypes: [ // LogTypes // required
+ *     "AS_RUN",
+ *   ],
+ * };
  * const command = new ConfigureLogsForChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfigureLogsForChannelCommandInput - {@link ConfigureLogsForChannelCommandInput}
+ * @returns {@link ConfigureLogsForChannelCommandOutput}
  * @see {@link ConfigureLogsForChannelCommandInput} for command's `input` shape.
  * @see {@link ConfigureLogsForChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +74,9 @@ export class ConfigureLogsForChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfigureLogsForChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +105,8 @@ export class ConfigureLogsForChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfigureLogsForChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigureLogsForChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +116,18 @@ export class ConfigureLogsForChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfigureLogsForChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfigureLogsForChannelCommand(input, context);
+    return se_ConfigureLogsForChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureLogsForChannelCommandOutput> {
-    return deserializeAws_restJson1ConfigureLogsForChannelCommand(output, context);
+    return de_ConfigureLogsForChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

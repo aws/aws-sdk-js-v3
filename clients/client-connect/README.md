@@ -36,16 +36,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ConnectClient` and
-the commands you need, for example `AssociateApprovedOriginCommand`:
+the commands you need, for example `ActivateEvaluationFormCommand`:
 
 ```js
 // ES5 example
-const { ConnectClient, AssociateApprovedOriginCommand } = require("@aws-sdk/client-connect");
+const { ConnectClient, ActivateEvaluationFormCommand } = require("@aws-sdk/client-connect");
 ```
 
 ```ts
 // ES6+ example
-import { ConnectClient, AssociateApprovedOriginCommand } from "@aws-sdk/client-connect";
+import { ConnectClient, ActivateEvaluationFormCommand } from "@aws-sdk/client-connect";
 ```
 
 ### Usage
@@ -64,7 +64,7 @@ const client = new ConnectClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateApprovedOriginCommand(params);
+const command = new ActivateEvaluationFormCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +143,7 @@ const client = new AWS.Connect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateApprovedOrigin(params);
+  const data = await client.activateEvaluationForm(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +151,7 @@ try {
 
 // Promises.
 client
-  .associateApprovedOrigin(params)
+  .activateEvaluationForm(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +160,7 @@ client
   });
 
 // callbacks.
-client.associateApprovedOrigin(params, (err, data) => {
+client.activateEvaluationForm(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -216,6 +216,14 @@ see LICENSE for more information.
 
 ## Client Commands (Operations List)
 
+<details>
+<summary>
+ActivateEvaluationForm
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/activateevaluationformcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/activateevaluationformcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/activateevaluationformcommandoutput.html)
+
+</details>
 <details>
 <summary>
 AssociateApprovedOrigin
@@ -330,6 +338,14 @@ CreateContactFlowModule
 </details>
 <details>
 <summary>
+CreateEvaluationForm
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/createevaluationformcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/createevaluationformcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/createevaluationformcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateHoursOfOperation
 </summary>
 
@@ -350,6 +366,14 @@ CreateIntegrationAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/createintegrationassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/createintegrationassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/createintegrationassociationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateParticipant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/createparticipantcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/createparticipantcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/createparticipantcommandoutput.html)
 
 </details>
 <details>
@@ -442,6 +466,22 @@ CreateVocabulary
 </details>
 <details>
 <summary>
+DeactivateEvaluationForm
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/deactivateevaluationformcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deactivateevaluationformcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deactivateevaluationformcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteContactEvaluation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/deletecontactevaluationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deletecontactevaluationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deletecontactevaluationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteContactFlow
 </summary>
 
@@ -454,6 +494,14 @@ DeleteContactFlowModule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/deletecontactflowmodulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deletecontactflowmodulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deletecontactflowmodulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteEvaluationForm
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/deleteevaluationformcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deleteevaluationformcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deleteevaluationformcommandoutput.html)
 
 </details>
 <details>
@@ -570,6 +618,14 @@ DescribeContact
 </details>
 <details>
 <summary>
+DescribeContactEvaluation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/describecontactevaluationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/describecontactevaluationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/describecontactevaluationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeContactFlow
 </summary>
 
@@ -582,6 +638,14 @@ DescribeContactFlowModule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/describecontactflowmodulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/describecontactflowmodulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/describecontactflowmodulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeEvaluationForm
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/describeevaluationformcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/describeevaluationformcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/describeevaluationformcommandoutput.html)
 
 </details>
 <details>
@@ -874,6 +938,14 @@ ListBots
 </details>
 <details>
 <summary>
+ListContactEvaluations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/listcontactevaluationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listcontactevaluationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listcontactevaluationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListContactFlowModules
 </summary>
 
@@ -902,6 +974,22 @@ ListDefaultVocabularies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/listdefaultvocabulariescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listdefaultvocabulariescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listdefaultvocabulariescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListEvaluationForms
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/listevaluationformscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listevaluationformscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listevaluationformscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListEvaluationFormVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/listevaluationformversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listevaluationformversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listevaluationformversionscommandoutput.html)
 
 </details>
 <details>
@@ -1202,6 +1290,14 @@ StartChatContact
 </details>
 <details>
 <summary>
+StartContactEvaluation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/startcontactevaluationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/startcontactevaluationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/startcontactevaluationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartContactRecording
 </summary>
 
@@ -1254,6 +1350,14 @@ StopContactStreaming
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/stopcontactstreamingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/stopcontactstreamingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/stopcontactstreamingcommandoutput.html)
+
+</details>
+<details>
+<summary>
+SubmitContactEvaluation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/submitcontactevaluationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/submitcontactevaluationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/submitcontactevaluationcommandoutput.html)
 
 </details>
 <details>
@@ -1314,6 +1418,14 @@ UpdateContactAttributes
 </details>
 <details>
 <summary>
+UpdateContactEvaluation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/updatecontactevaluationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updatecontactevaluationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updatecontactevaluationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 UpdateContactFlowContent
 </summary>
 
@@ -1358,6 +1470,14 @@ UpdateContactSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/updatecontactschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updatecontactschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updatecontactschedulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateEvaluationForm
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/updateevaluationformcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updateevaluationformcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updateevaluationformcommandoutput.html)
 
 </details>
 <details>

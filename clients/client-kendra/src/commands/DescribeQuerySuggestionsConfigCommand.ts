@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { DescribeQuerySuggestionsConfigRequest, DescribeQuerySuggestionsConfigResponse } from "../models/models_0";
 import {
-  DescribeQuerySuggestionsConfigRequest,
-  DescribeQuerySuggestionsConfigRequestFilterSensitiveLog,
-  DescribeQuerySuggestionsConfigResponse,
-  DescribeQuerySuggestionsConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeQuerySuggestionsConfigCommand,
-  serializeAws_json1_1DescribeQuerySuggestionsConfigCommand,
+  de_DescribeQuerySuggestionsConfigCommand,
+  se_DescribeQuerySuggestionsConfigCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeQuerySuggestionsConfigCommand}.
  */
 export interface DescribeQuerySuggestionsConfigCommandInput extends DescribeQuerySuggestionsConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeQuerySuggestionsConfigCommand}.
  */
 export interface DescribeQuerySuggestionsConfigCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information on the settings of query suggestions for an index.</p>
  *          <p>This is used to check the current settings applied
  *             to query suggestions.</p>
@@ -49,10 +49,15 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  * import { KendraClient, DescribeQuerySuggestionsConfigCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeQuerySuggestionsConfigCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DescribeQuerySuggestionsConfigRequest
+ *   IndexId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeQuerySuggestionsConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeQuerySuggestionsConfigCommandInput - {@link DescribeQuerySuggestionsConfigCommandInput}
+ * @returns {@link DescribeQuerySuggestionsConfigCommandOutput}
  * @see {@link DescribeQuerySuggestionsConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeQuerySuggestionsConfigCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -63,7 +68,7 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -96,6 +101,9 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQuerySuggestionsConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +132,8 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQuerySuggestionsConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQuerySuggestionsConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +143,24 @@ export class DescribeQuerySuggestionsConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeQuerySuggestionsConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQuerySuggestionsConfigCommand(input, context);
+    return se_DescribeQuerySuggestionsConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeQuerySuggestionsConfigCommandOutput> {
-    return deserializeAws_json1_1DescribeQuerySuggestionsConfigCommand(output, context);
+    return de_DescribeQuerySuggestionsConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

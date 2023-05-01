@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeprecateDomainInput, DeprecateDomainInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeprecateDomainCommand,
-  serializeAws_json1_0DeprecateDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { DeprecateDomainInput } from "../models/models_0";
+import { de_DeprecateDomainCommand, se_DeprecateDomainCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeprecateDomainCommand}.
  */
 export interface DeprecateDomainCommandInput extends DeprecateDomainInput {}
 /**
+ * @public
+ *
  * The output of {@link DeprecateDomainCommand}.
  */
 export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecates the specified domain. After a domain has been deprecated it cannot be used
  *       to create new workflow executions or register new types. However, you can still use visibility
  *       actions on this domain. Deprecating a domain also deprecates all activity and workflow types
@@ -68,10 +70,15 @@ export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
  * import { SWFClient, DeprecateDomainCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DeprecateDomainCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // DeprecateDomainInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeprecateDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprecateDomainCommandInput - {@link DeprecateDomainCommandInput}
+ * @returns {@link DeprecateDomainCommandOutput}
  * @see {@link DeprecateDomainCommandInput} for command's `input` shape.
  * @see {@link DeprecateDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -104,6 +111,9 @@ export class DeprecateDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +142,8 @@ export class DeprecateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprecateDomainInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +153,18 @@ export class DeprecateDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeprecateDomainCommand(input, context);
+    return se_DeprecateDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateDomainCommandOutput> {
-    return deserializeAws_json1_0DeprecateDomainCommand(output, context);
+    return de_DeprecateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

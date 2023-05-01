@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  DeleteReportInput,
-  DeleteReportInputFilterSensitiveLog,
-  DeleteReportOutput,
-  DeleteReportOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteReportCommand,
-  serializeAws_json1_1DeleteReportCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteReportInput, DeleteReportOutput } from "../models/models_0";
+import { de_DeleteReportCommand, se_DeleteReportCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteReportCommand}.
  */
 export interface DeleteReportCommandInput extends DeleteReportInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteReportCommand}.
  */
 export interface DeleteReportCommandOutput extends DeleteReportOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a report.
  *     </p>
@@ -44,10 +41,15 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  * import { CodeBuildClient, DeleteReportCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteReportCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // DeleteReportInput
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteReportCommandInput - {@link DeleteReportCommandInput}
+ * @returns {@link DeleteReportCommandOutput}
  * @see {@link DeleteReportCommandInput} for command's `input` shape.
  * @see {@link DeleteReportCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -74,6 +76,9 @@ export class DeleteReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +105,8 @@ export class DeleteReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReportInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReportOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +116,18 @@ export class DeleteReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteReportCommand(input, context);
+    return se_DeleteReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportCommandOutput> {
-    return deserializeAws_json1_1DeleteReportCommand(output, context);
+    return de_DeleteReportCommand(output, context);
   }
 
   // Start section: command_body_extra

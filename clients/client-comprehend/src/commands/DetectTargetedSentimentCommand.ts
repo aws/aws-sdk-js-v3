@@ -20,21 +20,23 @@ import {
   DetectTargetedSentimentResponse,
   DetectTargetedSentimentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectTargetedSentimentCommand,
-  serializeAws_json1_1DetectTargetedSentimentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectTargetedSentimentCommand, se_DetectTargetedSentimentCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DetectTargetedSentimentCommand}.
  */
 export interface DetectTargetedSentimentCommandInput extends DetectTargetedSentimentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectTargetedSentimentCommand}.
  */
 export interface DetectTargetedSentimentCommandOutput extends DetectTargetedSentimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p>
  *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
  * @example
@@ -43,10 +45,16 @@ export interface DetectTargetedSentimentCommandOutput extends DetectTargetedSent
  * import { ComprehendClient, DetectTargetedSentimentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectTargetedSentimentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DetectTargetedSentimentRequest
+ *   Text: "STRING_VALUE", // required
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ * };
  * const command = new DetectTargetedSentimentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectTargetedSentimentCommandInput - {@link DetectTargetedSentimentCommandInput}
+ * @returns {@link DetectTargetedSentimentCommandOutput}
  * @see {@link DetectTargetedSentimentCommandInput} for command's `input` shape.
  * @see {@link DetectTargetedSentimentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -86,6 +94,9 @@ export class DetectTargetedSentimentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectTargetedSentimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,12 +136,18 @@ export class DetectTargetedSentimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectTargetedSentimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectTargetedSentimentCommand(input, context);
+    return se_DetectTargetedSentimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectTargetedSentimentCommandOutput> {
-    return deserializeAws_json1_1DetectTargetedSentimentCommand(output, context);
+    return de_DetectTargetedSentimentCommand(output, context);
   }
 
   // Start section: command_body_extra

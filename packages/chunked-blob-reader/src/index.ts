@@ -1,3 +1,6 @@
+/**
+ * @internal
+ */
 export function blobReader(
   blob: Blob,
   onChunk: (chunk: Uint8Array) => void,

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListComponentsInput,
-  ListComponentsInputFilterSensitiveLog,
-  ListComponentsOutput,
-  ListComponentsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListComponentsCommand,
-  serializeAws_restJson1ListComponentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListComponentsInput, ListComponentsOutput } from "../models/models_0";
+import { de_ListComponentsCommand, se_ListComponentsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListComponentsCommand}.
  */
 export interface ListComponentsCommandInput extends ListComponentsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListComponentsCommand}.
  */
 export interface ListComponentsCommandOutput extends ListComponentsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the components registered with AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * import { SsmSapClient, ListComponentsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListComponentsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // ListComponentsInput
+ *   ApplicationId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
+ * @returns {@link ListComponentsCommandOutput}
  * @see {@link ListComponentsCommandInput} for command's `input` shape.
  * @see {@link ListComponentsCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class ListComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComponentsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListComponentsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class ListComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListComponentsCommand(input, context);
+    return se_ListComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComponentsCommandOutput> {
-    return deserializeAws_restJson1ListComponentsCommand(output, context);
+    return de_ListComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

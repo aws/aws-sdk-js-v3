@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  TestInvokeAuthorizerRequest,
-  TestInvokeAuthorizerRequestFilterSensitiveLog,
-  TestInvokeAuthorizerResponse,
-  TestInvokeAuthorizerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1TestInvokeAuthorizerCommand,
-  serializeAws_restJson1TestInvokeAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/models_0";
+import { de_TestInvokeAuthorizerCommand, se_TestInvokeAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link TestInvokeAuthorizerCommand}.
  */
 export interface TestInvokeAuthorizerCommandInput extends TestInvokeAuthorizerRequest {}
 /**
+ * @public
+ *
  * The output of {@link TestInvokeAuthorizerCommand}.
  */
 export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulate the execution of an Authorizer in your RestApi with headers, parameters, and an incoming request body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,32 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * import { APIGatewayClient, TestInvokeAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, TestInvokeAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // TestInvokeAuthorizerRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   authorizerId: "STRING_VALUE", // required
+ *   headers: { // MapOfStringToString
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   multiValueHeaders: { // MapOfStringToList
+ *     "<keys>": [ // ListOfString
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   pathWithQueryString: "STRING_VALUE",
+ *   body: "STRING_VALUE",
+ *   stageVariables: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   additionalContext: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TestInvokeAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TestInvokeAuthorizerCommandInput - {@link TestInvokeAuthorizerCommandInput}
+ * @returns {@link TestInvokeAuthorizerCommandOutput}
  * @see {@link TestInvokeAuthorizerCommandInput} for command's `input` shape.
  * @see {@link TestInvokeAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -81,6 +100,9 @@ export class TestInvokeAuthorizerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestInvokeAuthorizerCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +131,8 @@ export class TestInvokeAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestInvokeAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestInvokeAuthorizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +142,18 @@ export class TestInvokeAuthorizerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestInvokeAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestInvokeAuthorizerCommand(input, context);
+    return se_TestInvokeAuthorizerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestInvokeAuthorizerCommandOutput> {
-    return deserializeAws_restJson1TestInvokeAuthorizerCommand(output, context);
+    return de_TestInvokeAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

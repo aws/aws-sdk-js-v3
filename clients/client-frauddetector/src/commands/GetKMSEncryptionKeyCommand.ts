@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { GetKMSEncryptionKeyResult, GetKMSEncryptionKeyResultFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetKMSEncryptionKeyCommand,
-  serializeAws_json1_1GetKMSEncryptionKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetKMSEncryptionKeyResult } from "../models/models_0";
+import { de_GetKMSEncryptionKeyCommand, se_GetKMSEncryptionKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetKMSEncryptionKeyCommand}.
  */
 export interface GetKMSEncryptionKeyCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetKMSEncryptionKeyCommand}.
  */
 export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the encryption key if a KMS key has been specified to be used to encrypt content in Amazon Fraud Detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,13 @@ export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyRes
  * import { FraudDetectorClient, GetKMSEncryptionKeyCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetKMSEncryptionKeyCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {};
  * const command = new GetKMSEncryptionKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetKMSEncryptionKeyCommandInput - {@link GetKMSEncryptionKeyCommandInput}
+ * @returns {@link GetKMSEncryptionKeyCommandOutput}
  * @see {@link GetKMSEncryptionKeyCommandInput} for command's `input` shape.
  * @see {@link GetKMSEncryptionKeyCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -76,6 +81,9 @@ export class GetKMSEncryptionKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetKMSEncryptionKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +112,8 @@ export class GetKMSEncryptionKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetKMSEncryptionKeyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +123,18 @@ export class GetKMSEncryptionKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetKMSEncryptionKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetKMSEncryptionKeyCommand(input, context);
+    return se_GetKMSEncryptionKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKMSEncryptionKeyCommandOutput> {
-    return deserializeAws_json1_1GetKMSEncryptionKeyCommand(output, context);
+    return de_GetKMSEncryptionKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

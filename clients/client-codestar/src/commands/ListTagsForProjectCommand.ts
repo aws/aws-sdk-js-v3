@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  ListTagsForProjectRequest,
-  ListTagsForProjectRequestFilterSensitiveLog,
-  ListTagsForProjectResult,
-  ListTagsForProjectResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagsForProjectCommand,
-  serializeAws_json1_1ListTagsForProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTagsForProjectRequest, ListTagsForProjectResult } from "../models/models_0";
+import { de_ListTagsForProjectCommand, se_ListTagsForProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTagsForProjectCommand}.
  */
 export interface ListTagsForProjectCommandInput extends ListTagsForProjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTagsForProjectCommand}.
  */
 export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the tags for a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResul
  * import { CodeStarClient, ListTagsForProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, ListTagsForProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // ListTagsForProjectRequest
+ *   id: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListTagsForProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTagsForProjectCommandInput - {@link ListTagsForProjectCommandInput}
+ * @returns {@link ListTagsForProjectCommandOutput}
  * @see {@link ListTagsForProjectCommandInput} for command's `input` shape.
  * @see {@link ListTagsForProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
@@ -78,6 +82,9 @@ export class ListTagsForProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTagsForProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class ListTagsForProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +124,18 @@ export class ListTagsForProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTagsForProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsForProjectCommand(input, context);
+    return se_ListTagsForProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForProjectCommandOutput> {
-    return deserializeAws_json1_1ListTagsForProjectCommand(output, context);
+    return de_ListTagsForProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetAllowListRequest,
-  GetAllowListRequestFilterSensitiveLog,
-  GetAllowListResponse,
-  GetAllowListResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAllowListCommand,
-  serializeAws_restJson1GetAllowListCommand,
-} from "../protocols/Aws_restJson1";
+import { GetAllowListRequest, GetAllowListResponse } from "../models/models_0";
+import { de_GetAllowListCommand, se_GetAllowListCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAllowListCommand}.
  */
 export interface GetAllowListCommandInput extends GetAllowListRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAllowListCommand}.
  */
 export interface GetAllowListCommandOutput extends GetAllowListResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the settings and status of an allow list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetAllowListCommandOutput extends GetAllowListResponse, __Metad
  * import { Macie2Client, GetAllowListCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetAllowListCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = { // GetAllowListRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetAllowListCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAllowListCommandInput - {@link GetAllowListCommandInput}
+ * @returns {@link GetAllowListCommandOutput}
  * @see {@link GetAllowListCommandInput} for command's `input` shape.
  * @see {@link GetAllowListCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -84,6 +86,9 @@ export class GetAllowListCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAllowListCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetAllowListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAllowListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAllowListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetAllowListCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAllowListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAllowListCommand(input, context);
+    return se_GetAllowListCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAllowListCommandOutput> {
-    return deserializeAws_restJson1GetAllowListCommand(output, context);
+    return de_GetAllowListCommand(output, context);
   }
 
   // Start section: command_body_extra

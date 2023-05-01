@@ -20,21 +20,23 @@ import {
   ListChannelMessagesResponse,
   ListChannelMessagesResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListChannelMessagesCommand,
-  serializeAws_restJson1ListChannelMessagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChannelMessagesCommand, se_ListChannelMessagesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChannelMessagesCommand}.
  */
 export interface ListChannelMessagesCommandInput extends ListChannelMessagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChannelMessagesCommand}.
  */
 export interface ListChannelMessagesCommandOutput extends ListChannelMessagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all the messages in a channel. Returns a paginated list of
  *             <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending
  *          order.</p>
@@ -52,10 +54,21 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  * import { ChimeClient, ListChannelMessagesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListChannelMessagesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListChannelMessagesRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   NotBefore: new Date("TIMESTAMP"),
+ *   NotAfter: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new ListChannelMessagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelMessagesCommandInput - {@link ListChannelMessagesCommandInput}
+ * @returns {@link ListChannelMessagesCommandOutput}
  * @see {@link ListChannelMessagesCommandInput} for command's `input` shape.
  * @see {@link ListChannelMessagesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -97,6 +110,9 @@ export class ListChannelMessagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelMessagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,12 +152,18 @@ export class ListChannelMessagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelMessagesCommand(input, context);
+    return se_ListChannelMessagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelMessagesCommandOutput> {
-    return deserializeAws_restJson1ListChannelMessagesCommand(output, context);
+    return de_ListChannelMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

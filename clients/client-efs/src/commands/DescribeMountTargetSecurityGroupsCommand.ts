@@ -16,20 +16,22 @@ import {
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import {
   DescribeMountTargetSecurityGroupsRequest,
-  DescribeMountTargetSecurityGroupsRequestFilterSensitiveLog,
   DescribeMountTargetSecurityGroupsResponse,
-  DescribeMountTargetSecurityGroupsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand,
-  serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand,
+  de_DescribeMountTargetSecurityGroupsCommand,
+  se_DescribeMountTargetSecurityGroupsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMountTargetSecurityGroupsCommand}.
  */
 export interface DescribeMountTargetSecurityGroupsCommandInput extends DescribeMountTargetSecurityGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMountTargetSecurityGroupsCommand}.
  */
 export interface DescribeMountTargetSecurityGroupsCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the security groups currently in effect for a mount target. This operation
  *       requires that the network interface of the mount target has been created and the lifecycle
  *       state of the mount target is not <code>deleted</code>.</p>
@@ -59,10 +62,15 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * import { EFSClient, DescribeMountTargetSecurityGroupsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeMountTargetSecurityGroupsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = { // DescribeMountTargetSecurityGroupsRequest
+ *   MountTargetId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMountTargetSecurityGroupsCommandInput - {@link DescribeMountTargetSecurityGroupsCommandInput}
+ * @returns {@link DescribeMountTargetSecurityGroupsCommandOutput}
  * @see {@link DescribeMountTargetSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
@@ -119,6 +127,9 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMountTargetSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +158,8 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMountTargetSecurityGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMountTargetSecurityGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,18 +169,24 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMountTargetSecurityGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand(input, context);
+    return se_DescribeMountTargetSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand(output, context);
+    return de_DescribeMountTargetSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

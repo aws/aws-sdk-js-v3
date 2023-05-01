@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult } from "../models/models_0";
 import {
-  DescribeEngineDefaultParametersMessage,
-  DescribeEngineDefaultParametersMessageFilterSensitiveLog,
-  DescribeEngineDefaultParametersResult,
-  DescribeEngineDefaultParametersResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEngineDefaultParametersCommand,
-  serializeAws_queryDescribeEngineDefaultParametersCommand,
+  de_DescribeEngineDefaultParametersCommand,
+  se_DescribeEngineDefaultParametersCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEngineDefaultParametersCommand}.
  */
 export interface DescribeEngineDefaultParametersCommandInput extends DescribeEngineDefaultParametersMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEngineDefaultParametersCommand}.
  */
 export interface DescribeEngineDefaultParametersCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeEngineDefaultParametersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the default engine and
  *             system parameter information for the specified cache engine.</p>
  * @example
@@ -45,10 +45,17 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * import { ElastiCacheClient, DescribeEngineDefaultParametersCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeEngineDefaultParametersCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeEngineDefaultParametersMessage
+ *   CacheParameterGroupFamily: "STRING_VALUE", // required
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEngineDefaultParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEngineDefaultParametersCommandInput - {@link DescribeEngineDefaultParametersCommandInput}
+ * @returns {@link DescribeEngineDefaultParametersCommandOutput}
  * @see {@link DescribeEngineDefaultParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineDefaultParametersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -692,6 +699,9 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEngineDefaultParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -720,8 +730,8 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEngineDefaultParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEngineDefaultParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -731,18 +741,24 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeEngineDefaultParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEngineDefaultParametersCommand(input, context);
+    return se_DescribeEngineDefaultParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEngineDefaultParametersCommandOutput> {
-    return deserializeAws_queryDescribeEngineDefaultParametersCommand(output, context);
+    return de_DescribeEngineDefaultParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

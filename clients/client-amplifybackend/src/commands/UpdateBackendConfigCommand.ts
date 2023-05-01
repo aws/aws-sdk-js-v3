@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  UpdateBackendConfigRequest,
-  UpdateBackendConfigRequestFilterSensitiveLog,
-  UpdateBackendConfigResponse,
-  UpdateBackendConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBackendConfigCommand,
-  serializeAws_restJson1UpdateBackendConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateBackendConfigRequest, UpdateBackendConfigResponse } from "../models/models_0";
+import { de_UpdateBackendConfigCommand, se_UpdateBackendConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateBackendConfigCommand}.
  */
 export interface UpdateBackendConfigCommandInput extends UpdateBackendConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateBackendConfigCommand}.
  */
 export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the AWS resources required to access the Amplify Admin UI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigRes
  * import { AmplifyBackendClient, UpdateBackendConfigCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, UpdateBackendConfigCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // UpdateBackendConfigRequest
+ *   AppId: "STRING_VALUE", // required
+ *   LoginAuthConfig: { // LoginAuthConfigReqObj
+ *     AwsCognitoIdentityPoolId: "STRING_VALUE",
+ *     AwsCognitoRegion: "STRING_VALUE",
+ *     AwsUserPoolsId: "STRING_VALUE",
+ *     AwsUserPoolsWebClientId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateBackendConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateBackendConfigCommandInput - {@link UpdateBackendConfigCommandInput}
+ * @returns {@link UpdateBackendConfigCommandOutput}
  * @see {@link UpdateBackendConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateBackendConfigCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +89,9 @@ export class UpdateBackendConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateBackendConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +120,8 @@ export class UpdateBackendConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBackendConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBackendConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +131,18 @@ export class UpdateBackendConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateBackendConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBackendConfigCommand(input, context);
+    return se_UpdateBackendConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBackendConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateBackendConfigCommand(output, context);
+    return de_UpdateBackendConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

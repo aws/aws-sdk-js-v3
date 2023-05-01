@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteConnectClientAddInRequest,
-  DeleteConnectClientAddInRequestFilterSensitiveLog,
-  DeleteConnectClientAddInResult,
-  DeleteConnectClientAddInResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConnectClientAddInCommand,
-  serializeAws_json1_1DeleteConnectClientAddInCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteConnectClientAddInRequest, DeleteConnectClientAddInResult } from "../models/models_0";
+import { de_DeleteConnectClientAddInCommand, se_DeleteConnectClientAddInCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConnectClientAddInCommand}.
  */
 export interface DeleteConnectClientAddInCommandInput extends DeleteConnectClientAddInRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConnectClientAddInCommand}.
  */
 export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClientAddInResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a client-add-in for Amazon Connect that is configured within a
  *          directory.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClie
  * import { WorkSpacesClient, DeleteConnectClientAddInCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteConnectClientAddInCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DeleteConnectClientAddInRequest
+ *   AddInId: "STRING_VALUE", // required
+ *   ResourceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConnectClientAddInCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConnectClientAddInCommandInput - {@link DeleteConnectClientAddInCommandInput}
+ * @returns {@link DeleteConnectClientAddInCommandOutput}
  * @see {@link DeleteConnectClientAddInCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectClientAddInCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -79,6 +82,9 @@ export class DeleteConnectClientAddInCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConnectClientAddInCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class DeleteConnectClientAddInCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectClientAddInRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConnectClientAddInResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class DeleteConnectClientAddInCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConnectClientAddInCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConnectClientAddInCommand(input, context);
+    return se_DeleteConnectClientAddInCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectClientAddInCommandOutput> {
-    return deserializeAws_json1_1DeleteConnectClientAddInCommand(output, context);
+    return de_DeleteConnectClientAddInCommand(output, context);
   }
 
   // Start section: command_body_extra

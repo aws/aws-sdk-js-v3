@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  AddNotificationChannelRequest,
-  AddNotificationChannelRequestFilterSensitiveLog,
-  AddNotificationChannelResponse,
-  AddNotificationChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AddNotificationChannelCommand,
-  serializeAws_restJson1AddNotificationChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { AddNotificationChannelRequest, AddNotificationChannelResponse } from "../models/models_0";
+import { de_AddNotificationChannelCommand, se_AddNotificationChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AddNotificationChannelCommand}.
  */
 export interface AddNotificationChannelCommandInput extends AddNotificationChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddNotificationChannelCommand}.
  */
 export interface AddNotificationChannelCommandOutput extends AddNotificationChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Adds a notification channel to DevOps Guru. A notification channel is used to notify you
  * 			about important DevOps Guru events, such as when an insight is generated. </p>
  *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
@@ -51,10 +48,27 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  * import { DevOpsGuruClient, AddNotificationChannelCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, AddNotificationChannelCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // AddNotificationChannelRequest
+ *   Config: { // NotificationChannelConfig
+ *     Sns: { // SnsChannelConfig
+ *       TopicArn: "STRING_VALUE",
+ *     },
+ *     Filters: { // NotificationFilterConfig
+ *       Severities: [ // InsightSeverities
+ *         "LOW" || "MEDIUM" || "HIGH",
+ *       ],
+ *       MessageTypes: [ // NotificationMessageTypes
+ *         "NEW_INSIGHT" || "CLOSED_INSIGHT" || "NEW_ASSOCIATION" || "SEVERITY_UPGRADED" || "NEW_RECOMMENDATION",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new AddNotificationChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddNotificationChannelCommandInput - {@link AddNotificationChannelCommandInput}
+ * @returns {@link AddNotificationChannelCommandOutput}
  * @see {@link AddNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link AddNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -103,6 +117,9 @@ export class AddNotificationChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddNotificationChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +148,8 @@ export class AddNotificationChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddNotificationChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddNotificationChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +159,18 @@ export class AddNotificationChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddNotificationChannelCommand(input, context);
+    return se_AddNotificationChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddNotificationChannelCommandOutput> {
-    return deserializeAws_restJson1AddNotificationChannelCommand(output, context);
+    return de_AddNotificationChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

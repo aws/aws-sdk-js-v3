@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeWorkspacesRequest,
-  DescribeWorkspacesRequestFilterSensitiveLog,
-  DescribeWorkspacesResult,
-  DescribeWorkspacesResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkspacesCommand,
-  serializeAws_json1_1DescribeWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeWorkspacesRequest, DescribeWorkspacesResult } from "../models/models_0";
+import { de_DescribeWorkspacesCommand, se_DescribeWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspacesCommand}.
  */
 export interface DescribeWorkspacesCommandInput extends DescribeWorkspacesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspacesCommand}.
  */
 export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified WorkSpaces.</p>
  *          <p>You can filter the results by using the bundle identifier, directory identifier, or
  *          owner, but you can specify only one filter at a time.</p>
@@ -44,10 +41,22 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * import { WorkSpacesClient, DescribeWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeWorkspacesRequest
+ *   WorkspaceIds: [ // WorkspaceIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DirectoryId: "STRING_VALUE",
+ *   UserName: "STRING_VALUE",
+ *   BundleId: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspacesCommandInput - {@link DescribeWorkspacesCommandInput}
+ * @returns {@link DescribeWorkspacesCommandOutput}
  * @see {@link DescribeWorkspacesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -77,6 +86,9 @@ export class DescribeWorkspacesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspacesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +117,8 @@ export class DescribeWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspacesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +128,18 @@ export class DescribeWorkspacesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspacesCommand(input, context);
+    return se_DescribeWorkspacesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspacesCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspacesCommand(output, context);
+    return de_DescribeWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

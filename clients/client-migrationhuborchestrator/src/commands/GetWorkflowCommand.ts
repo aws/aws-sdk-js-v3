@@ -20,25 +20,26 @@ import {
 } from "../MigrationHubOrchestratorClient";
 import {
   GetMigrationWorkflowRequest,
-  GetMigrationWorkflowRequestFilterSensitiveLog,
   GetMigrationWorkflowResponse,
   GetMigrationWorkflowResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkflowCommand,
-  serializeAws_restJson1GetWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetWorkflowCommand, se_GetWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkflowCommand}.
  */
 export interface GetWorkflowCommandInput extends GetMigrationWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkflowCommand}.
  */
 export interface GetWorkflowCommandOutput extends GetMigrationWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +47,15 @@ export interface GetWorkflowCommandOutput extends GetMigrationWorkflowResponse, 
  * import { MigrationHubOrchestratorClient, GetWorkflowCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, GetWorkflowCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = { // GetMigrationWorkflowRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkflowCommandInput - {@link GetWorkflowCommandInput}
+ * @returns {@link GetWorkflowCommandOutput}
  * @see {@link GetWorkflowCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
@@ -88,6 +94,9 @@ export class GetWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,7 +123,7 @@ export class GetWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMigrationWorkflowRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMigrationWorkflowResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -125,12 +134,18 @@ export class GetWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkflowCommand(input, context);
+    return se_GetWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowCommandOutput> {
-    return deserializeAws_restJson1GetWorkflowCommand(output, context);
+    return de_GetWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

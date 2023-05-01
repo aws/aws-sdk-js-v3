@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  CreateRequestValidatorRequest,
-  CreateRequestValidatorRequestFilterSensitiveLog,
-  RequestValidator,
-  RequestValidatorFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRequestValidatorCommand,
-  serializeAws_restJson1CreateRequestValidatorCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRequestValidatorRequest, RequestValidator } from "../models/models_0";
+import { de_CreateRequestValidatorCommand, se_CreateRequestValidatorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRequestValidatorCommand}.
  */
 export interface CreateRequestValidatorCommandInput extends CreateRequestValidatorRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRequestValidatorCommand}.
  */
 export interface CreateRequestValidatorCommandOutput extends RequestValidator, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a RequestValidator of a given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface CreateRequestValidatorCommandOutput extends RequestValidator, _
  * import { APIGatewayClient, CreateRequestValidatorCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateRequestValidatorCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // CreateRequestValidatorRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   validateRequestBody: true || false,
+ *   validateRequestParameters: true || false,
+ * };
  * const command = new CreateRequestValidatorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRequestValidatorCommandInput - {@link CreateRequestValidatorCommandInput}
+ * @returns {@link CreateRequestValidatorCommandOutput}
  * @see {@link CreateRequestValidatorCommandInput} for command's `input` shape.
  * @see {@link CreateRequestValidatorCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -87,6 +92,9 @@ export class CreateRequestValidatorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRequestValidatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class CreateRequestValidatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRequestValidatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RequestValidatorFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +134,18 @@ export class CreateRequestValidatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRequestValidatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRequestValidatorCommand(input, context);
+    return se_CreateRequestValidatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRequestValidatorCommandOutput> {
-    return deserializeAws_restJson1CreateRequestValidatorCommand(output, context);
+    return de_CreateRequestValidatorCommand(output, context);
   }
 
   // Start section: command_body_extra

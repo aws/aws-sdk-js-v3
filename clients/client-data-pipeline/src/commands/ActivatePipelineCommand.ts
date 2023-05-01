@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import {
-  ActivatePipelineInput,
-  ActivatePipelineInputFilterSensitiveLog,
-  ActivatePipelineOutput,
-  ActivatePipelineOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ActivatePipelineCommand,
-  serializeAws_json1_1ActivatePipelineCommand,
-} from "../protocols/Aws_json1_1";
+import { ActivatePipelineInput, ActivatePipelineOutput } from "../models/models_0";
+import { de_ActivatePipelineCommand, se_ActivatePipelineCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ActivatePipelineCommand}.
  */
 export interface ActivatePipelineCommandInput extends ActivatePipelineInput {}
 /**
+ * @public
+ *
  * The output of {@link ActivatePipelineCommand}.
  */
 export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation,
  *            activation fails.</p>
  *         <p>If you need to pause the pipeline to investigate an issue with a component, such as a data source or script,
@@ -51,7 +48,7 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * X-Amz-Date: Mon, 12 Nov 2012 17:49:52 GMT
  * Authorization: AuthParams
  *
- * {"pipelineId": "df-06372391ZG65EXAMPLE"}
+ * \{"pipelineId": "df-06372391ZG65EXAMPLE"\}
  *
  *             </request>
  *             <response>
@@ -62,7 +59,7 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * Content-Length: 2
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  *
- * {}
+ * \{\}
  *
  *             </response>
  *         </examples>
@@ -72,10 +69,22 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * import { DataPipelineClient, ActivatePipelineCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ActivatePipelineCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = { // ActivatePipelineInput
+ *   pipelineId: "STRING_VALUE", // required
+ *   parameterValues: [ // ParameterValueList
+ *     { // ParameterValue
+ *       id: "STRING_VALUE", // required
+ *       stringValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   startTimestamp: new Date("TIMESTAMP"),
+ * };
  * const command = new ActivatePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivatePipelineCommandInput - {@link ActivatePipelineCommandInput}
+ * @returns {@link ActivatePipelineCommandOutput}
  * @see {@link ActivatePipelineCommandInput} for command's `input` shape.
  * @see {@link ActivatePipelineCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
@@ -111,6 +120,9 @@ export class ActivatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +151,8 @@ export class ActivatePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ActivatePipelineInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivatePipelineOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +162,18 @@ export class ActivatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ActivatePipelineCommand(input, context);
+    return se_ActivatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivatePipelineCommandOutput> {
-    return deserializeAws_json1_1ActivatePipelineCommand(output, context);
+    return de_ActivatePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

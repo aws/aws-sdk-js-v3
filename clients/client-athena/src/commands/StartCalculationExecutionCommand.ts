@@ -14,39 +14,47 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  StartCalculationExecutionRequest,
-  StartCalculationExecutionRequestFilterSensitiveLog,
-  StartCalculationExecutionResponse,
-  StartCalculationExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartCalculationExecutionCommand,
-  serializeAws_json1_1StartCalculationExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartCalculationExecutionRequest, StartCalculationExecutionResponse } from "../models/models_0";
+import { de_StartCalculationExecutionCommand, se_StartCalculationExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartCalculationExecutionCommand}.
  */
 export interface StartCalculationExecutionCommandInput extends StartCalculationExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCalculationExecutionCommand}.
  */
 export interface StartCalculationExecutionCommandOutput extends StartCalculationExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits calculations for execution within a session. You can supply the code to run as
- *             an inline code block within the request or as an Amazon S3 URL.</p>
+ *             an inline code block within the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, StartCalculationExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StartCalculationExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // StartCalculationExecutionRequest
+ *   SessionId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   CalculationConfiguration: { // CalculationConfiguration
+ *     CodeBlock: "STRING_VALUE",
+ *   },
+ *   CodeBlock: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new StartCalculationExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCalculationExecutionCommandInput - {@link StartCalculationExecutionCommandInput}
+ * @returns {@link StartCalculationExecutionCommandOutput}
  * @see {@link StartCalculationExecutionCommandInput} for command's `input` shape.
  * @see {@link StartCalculationExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +89,9 @@ export class StartCalculationExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCalculationExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +120,8 @@ export class StartCalculationExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartCalculationExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartCalculationExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +131,21 @@ export class StartCalculationExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCalculationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartCalculationExecutionCommand(input, context);
+    return se_StartCalculationExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartCalculationExecutionCommandOutput> {
-    return deserializeAws_json1_1StartCalculationExecutionCommand(output, context);
+    return de_StartCalculationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

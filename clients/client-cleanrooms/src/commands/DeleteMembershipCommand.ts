@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  DeleteMembershipInput,
-  DeleteMembershipInputFilterSensitiveLog,
-  DeleteMembershipOutput,
-  DeleteMembershipOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMembershipCommand,
-  serializeAws_restJson1DeleteMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMembershipInput, DeleteMembershipOutput } from "../models/models_0";
+import { de_DeleteMembershipCommand, se_DeleteMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMembershipCommand}.
  */
 export interface DeleteMembershipCommandInput extends DeleteMembershipInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMembershipCommand}.
  */
 export interface DeleteMembershipCommandOutput extends DeleteMembershipOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified membership. All resources under a membership must be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteMembershipCommandOutput extends DeleteMembershipOutput, _
  * import { CleanRoomsClient, DeleteMembershipCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, DeleteMembershipCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = { // DeleteMembershipInput
+ *   membershipIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMembershipCommandInput - {@link DeleteMembershipCommandInput}
+ * @returns {@link DeleteMembershipCommandOutput}
  * @see {@link DeleteMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteMembershipCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DeleteMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMembershipInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMembershipOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DeleteMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMembershipCommand(input, context);
+    return se_DeleteMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMembershipCommandOutput> {
-    return deserializeAws_restJson1DeleteMembershipCommand(output, context);
+    return de_DeleteMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

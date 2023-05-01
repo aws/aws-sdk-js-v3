@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { VirtualGateways, VirtualGatewaysFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeVirtualGatewaysCommand,
-  serializeAws_json1_1DescribeVirtualGatewaysCommand,
-} from "../protocols/Aws_json1_1";
+import { VirtualGateways } from "../models/models_0";
+import { de_DescribeVirtualGatewaysCommand, se_DescribeVirtualGatewaysCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVirtualGatewaysCommand}.
  */
 export interface DescribeVirtualGatewaysCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVirtualGatewaysCommand}.
  */
 export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the virtual private gateways owned by the Amazon Web Services account.</p>
  *          <p>You can create one or more Direct Connect private virtual interfaces linked to a virtual private gateway.</p>
  * @example
@@ -38,10 +40,13 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  * import { DirectConnectClient, DescribeVirtualGatewaysCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeVirtualGatewaysCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {};
  * const command = new DescribeVirtualGatewaysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVirtualGatewaysCommandInput - {@link DescribeVirtualGatewaysCommandInput}
+ * @returns {@link DescribeVirtualGatewaysCommandOutput}
  * @see {@link DescribeVirtualGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualGatewaysCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -71,6 +76,9 @@ export class DescribeVirtualGatewaysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVirtualGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +107,8 @@ export class DescribeVirtualGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: VirtualGatewaysFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +118,18 @@ export class DescribeVirtualGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVirtualGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVirtualGatewaysCommand(input, context);
+    return se_DescribeVirtualGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVirtualGatewaysCommandOutput> {
-    return deserializeAws_json1_1DescribeVirtualGatewaysCommand(output, context);
+    return de_DescribeVirtualGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

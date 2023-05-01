@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  DeleteDevicePoolRequest,
-  DeleteDevicePoolRequestFilterSensitiveLog,
-  DeleteDevicePoolResult,
-  DeleteDevicePoolResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDevicePoolCommand,
-  serializeAws_json1_1DeleteDevicePoolCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDevicePoolRequest, DeleteDevicePoolResult } from "../models/models_0";
+import { de_DeleteDevicePoolCommand, se_DeleteDevicePoolCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDevicePoolCommand}.
  */
 export interface DeleteDevicePoolCommandInput extends DeleteDevicePoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDevicePoolCommand}.
  */
 export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a device pool given the pool ARN. Does not allow deletion of curated pools
  *             owned by the system.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  * import { DeviceFarmClient, DeleteDevicePoolCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteDevicePoolCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // DeleteDevicePoolRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDevicePoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDevicePoolCommandInput - {@link DeleteDevicePoolCommandInput}
+ * @returns {@link DeleteDevicePoolCommandOutput}
  * @see {@link DeleteDevicePoolCommandInput} for command's `input` shape.
  * @see {@link DeleteDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -93,6 +95,9 @@ export class DeleteDevicePoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDevicePoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class DeleteDevicePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDevicePoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDevicePoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +137,18 @@ export class DeleteDevicePoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDevicePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDevicePoolCommand(input, context);
+    return se_DeleteDevicePoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDevicePoolCommandOutput> {
-    return deserializeAws_json1_1DeleteDevicePoolCommand(output, context);
+    return de_DeleteDevicePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

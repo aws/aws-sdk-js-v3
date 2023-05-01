@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  StartKeyPhrasesDetectionJobRequest,
-  StartKeyPhrasesDetectionJobRequestFilterSensitiveLog,
-  StartKeyPhrasesDetectionJobResponse,
-  StartKeyPhrasesDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand,
-  serializeAws_json1_1StartKeyPhrasesDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StartKeyPhrasesDetectionJobRequest, StartKeyPhrasesDetectionJobResponse } from "../models/models_0";
+import { de_StartKeyPhrasesDetectionJobCommand, se_StartKeyPhrasesDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartKeyPhrasesDetectionJobCommand}.
  */
 export interface StartKeyPhrasesDetectionJobCommandInput extends StartKeyPhrasesDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartKeyPhrasesDetectionJobCommand}.
  */
 export interface StartKeyPhrasesDetectionJobCommandOutput
@@ -37,6 +33,7 @@ export interface StartKeyPhrasesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the
  *          operation to track the status of a
  *       job.</p>
@@ -46,10 +43,48 @@ export interface StartKeyPhrasesDetectionJobCommandOutput
  * import { ComprehendClient, StartKeyPhrasesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartKeyPhrasesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // StartKeyPhrasesDetectionJobRequest
+ *   InputDataConfig: { // InputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ *     DocumentReaderConfig: { // DocumentReaderConfig
+ *       DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
+ *       DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ *       FeatureTypes: [ // ListOfDocumentReadFeatureTypes
+ *         "TABLES" || "FORMS",
+ *       ],
+ *     },
+ *   },
+ *   OutputDataConfig: { // OutputDataConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   JobName: "STRING_VALUE",
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   VolumeKmsKeyId: "STRING_VALUE",
+ *   VpcConfig: { // VpcConfig
+ *     SecurityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // Subnets // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new StartKeyPhrasesDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartKeyPhrasesDetectionJobCommandInput - {@link StartKeyPhrasesDetectionJobCommandInput}
+ * @returns {@link StartKeyPhrasesDetectionJobCommandOutput}
  * @see {@link StartKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -63,6 +98,10 @@ export interface StartKeyPhrasesDetectionJobCommandOutput
  * @throws {@link KmsKeyValidationException} (client fault)
  *  <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
  *       re-enter it.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource name is already in use. Use a different name and try your request
+ *       again.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
@@ -91,6 +130,9 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartKeyPhrasesDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +161,8 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartKeyPhrasesDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartKeyPhrasesDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +172,21 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartKeyPhrasesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartKeyPhrasesDetectionJobCommand(input, context);
+    return se_StartKeyPhrasesDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartKeyPhrasesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand(output, context);
+    return de_StartKeyPhrasesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

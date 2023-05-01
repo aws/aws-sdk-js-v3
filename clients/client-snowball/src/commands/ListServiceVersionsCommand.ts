@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListServiceVersionsRequest,
-  ListServiceVersionsRequestFilterSensitiveLog,
-  ListServiceVersionsResult,
-  ListServiceVersionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServiceVersionsCommand,
-  serializeAws_json1_1ListServiceVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListServiceVersionsRequest, ListServiceVersionsResult } from "../models/models_0";
+import { de_ListServiceVersionsCommand, se_ListServiceVersionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceVersionsCommand}.
  */
 export interface ListServiceVersionsCommandInput extends ListServiceVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceVersionsCommand}.
  */
 export interface ListServiceVersionsCommandOutput extends ListServiceVersionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all supported versions for Snow on-device services. Returns an
  *       array of <code>ServiceVersion</code> object containing the supported versions for a particular service.</p>
  * @example
@@ -43,10 +40,25 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  * import { SnowballClient, ListServiceVersionsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListServiceVersionsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = { // ListServiceVersionsRequest
+ *   ServiceName: "KUBERNETES" || "EKS_ANYWHERE", // required
+ *   DependentServices: [ // DependentServiceList
+ *     { // DependentService
+ *       ServiceName: "KUBERNETES" || "EKS_ANYWHERE",
+ *       ServiceVersion: { // ServiceVersion
+ *         Version: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListServiceVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceVersionsCommandInput - {@link ListServiceVersionsCommandInput}
+ * @returns {@link ListServiceVersionsCommandOutput}
  * @see {@link ListServiceVersionsCommandInput} for command's `input` shape.
  * @see {@link ListServiceVersionsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
@@ -79,6 +91,9 @@ export class ListServiceVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +122,8 @@ export class ListServiceVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServiceVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +133,18 @@ export class ListServiceVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServiceVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServiceVersionsCommand(input, context);
+    return se_ListServiceVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceVersionsCommandOutput> {
-    return deserializeAws_json1_1ListServiceVersionsCommand(output, context);
+    return de_ListServiceVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

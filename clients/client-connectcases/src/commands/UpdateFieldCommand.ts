@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  UpdateFieldRequest,
-  UpdateFieldRequestFilterSensitiveLog,
-  UpdateFieldResponse,
-  UpdateFieldResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFieldCommand,
-  serializeAws_restJson1UpdateFieldCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFieldRequest, UpdateFieldResponse } from "../models/models_0";
+import { de_UpdateFieldCommand, se_UpdateFieldCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFieldCommand}.
  */
 export interface UpdateFieldCommandInput extends UpdateFieldRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFieldCommand}.
  */
 export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the properties of an existing field. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __Metadat
  * import { ConnectCasesClient, UpdateFieldCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, UpdateFieldCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // UpdateFieldRequest
+ *   domainId: "STRING_VALUE", // required
+ *   fieldId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateFieldCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFieldCommandInput - {@link UpdateFieldCommandInput}
+ * @returns {@link UpdateFieldCommandOutput}
  * @see {@link UpdateFieldCommandInput} for command's `input` shape.
  * @see {@link UpdateFieldCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -91,6 +96,9 @@ export class UpdateFieldCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFieldCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class UpdateFieldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFieldRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFieldResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class UpdateFieldCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFieldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFieldCommand(input, context);
+    return se_UpdateFieldCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFieldCommandOutput> {
-    return deserializeAws_restJson1UpdateFieldCommand(output, context);
+    return de_UpdateFieldCommand(output, context);
   }
 
   // Start section: command_body_extra

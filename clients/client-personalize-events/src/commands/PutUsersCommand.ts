@@ -19,21 +19,23 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeEventsClient";
-import {
-  deserializeAws_restJson1PutUsersCommand,
-  serializeAws_restJson1PutUsersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutUsersCommand, se_PutUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutUsersCommand}.
  */
 export interface PutUsersCommandInput extends PutUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutUsersCommand}.
  */
 export interface PutUsersCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more users to a Users dataset. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html">Importing Users Incrementally</a>.</p>
  * @example
@@ -42,10 +44,21 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  * import { PersonalizeEventsClient, PutUsersCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
  * // const { PersonalizeEventsClient, PutUsersCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
  * const client = new PersonalizeEventsClient(config);
+ * const input = { // PutUsersRequest
+ *   datasetArn: "STRING_VALUE", // required
+ *   users: [ // UserList // required
+ *     { // User
+ *       userId: "STRING_VALUE", // required
+ *       properties: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutUsersCommandInput - {@link PutUsersCommandInput}
+ * @returns {@link PutUsersCommandOutput}
  * @see {@link PutUsersCommandInput} for command's `input` shape.
  * @see {@link PutUsersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
@@ -78,6 +91,9 @@ export class PutUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,7 +121,7 @@ export class PutUsersCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutUsersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +131,18 @@ export class PutUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutUsersCommand(input, context);
+    return se_PutUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutUsersCommandOutput> {
-    return deserializeAws_restJson1PutUsersCommand(output, context);
+    return de_PutUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

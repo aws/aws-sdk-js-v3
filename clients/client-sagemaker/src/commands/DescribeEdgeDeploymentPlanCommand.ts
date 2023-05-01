@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEdgeDeploymentPlanRequest,
-  DescribeEdgeDeploymentPlanRequestFilterSensitiveLog,
-  DescribeEdgeDeploymentPlanResponse,
-  DescribeEdgeDeploymentPlanResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeEdgeDeploymentPlanCommand,
-  serializeAws_json1_1DescribeEdgeDeploymentPlanCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEdgeDeploymentPlanRequest, DescribeEdgeDeploymentPlanResponse } from "../models/models_2";
+import { de_DescribeEdgeDeploymentPlanCommand, se_DescribeEdgeDeploymentPlanCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEdgeDeploymentPlanCommand}.
  */
 export interface DescribeEdgeDeploymentPlanCommandInput extends DescribeEdgeDeploymentPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEdgeDeploymentPlanCommand}.
  */
 export interface DescribeEdgeDeploymentPlanCommandOutput extends DescribeEdgeDeploymentPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an edge deployment plan with deployment status per stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeEdgeDeploymentPlanCommandOutput extends DescribeEdgeDep
  * import { SageMakerClient, DescribeEdgeDeploymentPlanCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeEdgeDeploymentPlanCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeEdgeDeploymentPlanRequest
+ *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeEdgeDeploymentPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEdgeDeploymentPlanCommandInput - {@link DescribeEdgeDeploymentPlanCommandInput}
+ * @returns {@link DescribeEdgeDeploymentPlanCommandOutput}
  * @see {@link DescribeEdgeDeploymentPlanCommandInput} for command's `input` shape.
  * @see {@link DescribeEdgeDeploymentPlanCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +76,9 @@ export class DescribeEdgeDeploymentPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEdgeDeploymentPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +107,8 @@ export class DescribeEdgeDeploymentPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEdgeDeploymentPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEdgeDeploymentPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,15 +118,21 @@ export class DescribeEdgeDeploymentPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEdgeDeploymentPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEdgeDeploymentPlanCommand(input, context);
+    return se_DescribeEdgeDeploymentPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEdgeDeploymentPlanCommandOutput> {
-    return deserializeAws_json1_1DescribeEdgeDeploymentPlanCommand(output, context);
+    return de_DescribeEdgeDeploymentPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,17 +18,15 @@ import {
   PutSnapshotBlockRequest,
   PutSnapshotBlockRequestFilterSensitiveLog,
   PutSnapshotBlockResponse,
-  PutSnapshotBlockResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSnapshotBlockCommand,
-  serializeAws_restJson1PutSnapshotBlockCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutSnapshotBlockCommand, se_PutSnapshotBlockCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutSnapshotBlockCommand}.
  */
-type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "BlockData"> & {
+export type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "BlockData"> & {
   /**
    * For *`PutSnapshotBlockRequest["BlockData"]`*, see {@link PutSnapshotBlockRequest.BlockData}.
    */
@@ -39,11 +37,14 @@ type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "BlockData
  */
 export interface PutSnapshotBlockCommandInput extends PutSnapshotBlockCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link PutSnapshotBlockCommand}.
  */
 export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Writes a block of data to a snapshot. If the specified block contains
  *             data, the existing data is overwritten. The target snapshot must be in the
  *                 <code>pending</code> state.</p>
@@ -54,10 +55,21 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * import { EBSClient, PutSnapshotBlockCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, PutSnapshotBlockCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
  * const client = new EBSClient(config);
+ * const input = { // PutSnapshotBlockRequest
+ *   SnapshotId: "STRING_VALUE", // required
+ *   BlockIndex: Number("int"), // required
+ *   BlockData: "STREAMING_BLOB_VALUE", // required
+ *   DataLength: Number("int"), // required
+ *   Progress: Number("int"),
+ *   Checksum: "STRING_VALUE", // required
+ *   ChecksumAlgorithm: "STRING_VALUE", // required
+ * };
  * const command = new PutSnapshotBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutSnapshotBlockCommandInput - {@link PutSnapshotBlockCommandInput}
+ * @returns {@link PutSnapshotBlockCommandOutput}
  * @see {@link PutSnapshotBlockCommandInput} for command's `input` shape.
  * @see {@link PutSnapshotBlockCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
@@ -100,6 +112,9 @@ export class PutSnapshotBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutSnapshotBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,7 +144,7 @@ export class PutSnapshotBlockCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutSnapshotBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSnapshotBlockResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +154,18 @@ export class PutSnapshotBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutSnapshotBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSnapshotBlockCommand(input, context);
+    return se_PutSnapshotBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSnapshotBlockCommandOutput> {
-    return deserializeAws_restJson1PutSnapshotBlockCommand(output, context);
+    return de_PutSnapshotBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

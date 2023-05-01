@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  MergeBranchesByFastForwardInput,
-  MergeBranchesByFastForwardInputFilterSensitiveLog,
-  MergeBranchesByFastForwardOutput,
-  MergeBranchesByFastForwardOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1MergeBranchesByFastForwardCommand,
-  serializeAws_json1_1MergeBranchesByFastForwardCommand,
-} from "../protocols/Aws_json1_1";
+import { MergeBranchesByFastForwardInput, MergeBranchesByFastForwardOutput } from "../models/models_1";
+import { de_MergeBranchesByFastForwardCommand, se_MergeBranchesByFastForwardCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MergeBranchesByFastForwardCommand}.
  */
 export interface MergeBranchesByFastForwardCommandInput extends MergeBranchesByFastForwardInput {}
 /**
+ * @public
+ *
  * The output of {@link MergeBranchesByFastForwardCommand}.
  */
 export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesByFastForwardOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Merges two branches using the fast-forward merge strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  * import { CodeCommitClient, MergeBranchesByFastForwardCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergeBranchesByFastForwardCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // MergeBranchesByFastForwardInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   sourceCommitSpecifier: "STRING_VALUE", // required
+ *   destinationCommitSpecifier: "STRING_VALUE", // required
+ *   targetBranch: "STRING_VALUE",
+ * };
  * const command = new MergeBranchesByFastForwardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MergeBranchesByFastForwardCommandInput - {@link MergeBranchesByFastForwardCommandInput}
+ * @returns {@link MergeBranchesByFastForwardCommandOutput}
  * @see {@link MergeBranchesByFastForwardCommandInput} for command's `input` shape.
  * @see {@link MergeBranchesByFastForwardCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -134,6 +139,9 @@ export class MergeBranchesByFastForwardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MergeBranchesByFastForwardCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,8 +170,8 @@ export class MergeBranchesByFastForwardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergeBranchesByFastForwardInputFilterSensitiveLog,
-      outputFilterSensitiveLog: MergeBranchesByFastForwardOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -173,15 +181,21 @@ export class MergeBranchesByFastForwardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MergeBranchesByFastForwardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergeBranchesByFastForwardCommand(input, context);
+    return se_MergeBranchesByFastForwardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MergeBranchesByFastForwardCommandOutput> {
-    return deserializeAws_json1_1MergeBranchesByFastForwardCommand(output, context);
+    return de_MergeBranchesByFastForwardCommand(output, context);
   }
 
   // Start section: command_body_extra

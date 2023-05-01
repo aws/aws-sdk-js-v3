@@ -21,15 +21,19 @@ import {
   DescribeUserStackAssociationsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeUserStackAssociationsCommand,
-  serializeAws_json1_1DescribeUserStackAssociationsCommand,
+  de_DescribeUserStackAssociationsCommand,
+  se_DescribeUserStackAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserStackAssociationsCommand}.
  */
 export interface DescribeUserStackAssociationsCommandInput extends DescribeUserStackAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserStackAssociationsCommand}.
  */
 export interface DescribeUserStackAssociationsCommandOutput
@@ -37,6 +41,7 @@ export interface DescribeUserStackAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
  *          <ul>
  *             <li>
@@ -52,10 +57,19 @@ export interface DescribeUserStackAssociationsCommandOutput
  * import { AppStreamClient, DescribeUserStackAssociationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeUserStackAssociationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeUserStackAssociationsRequest
+ *   StackName: "STRING_VALUE",
+ *   UserName: "STRING_VALUE",
+ *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeUserStackAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserStackAssociationsCommandInput - {@link DescribeUserStackAssociationsCommandInput}
+ * @returns {@link DescribeUserStackAssociationsCommandOutput}
  * @see {@link DescribeUserStackAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeUserStackAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -85,6 +99,9 @@ export class DescribeUserStackAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserStackAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,15 +141,21 @@ export class DescribeUserStackAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserStackAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserStackAssociationsCommand(input, context);
+    return se_DescribeUserStackAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUserStackAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeUserStackAssociationsCommand(output, context);
+    return de_DescribeUserStackAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

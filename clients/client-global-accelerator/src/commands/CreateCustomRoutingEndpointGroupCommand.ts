@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
+import { CreateCustomRoutingEndpointGroupRequest, CreateCustomRoutingEndpointGroupResponse } from "../models/models_0";
 import {
-  CreateCustomRoutingEndpointGroupRequest,
-  CreateCustomRoutingEndpointGroupRequestFilterSensitiveLog,
-  CreateCustomRoutingEndpointGroupResponse,
-  CreateCustomRoutingEndpointGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommand,
-  serializeAws_json1_1CreateCustomRoutingEndpointGroupCommand,
+  de_CreateCustomRoutingEndpointGroupCommand,
+  se_CreateCustomRoutingEndpointGroupCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCustomRoutingEndpointGroupCommand}.
  */
 export interface CreateCustomRoutingEndpointGroupCommandInput extends CreateCustomRoutingEndpointGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCustomRoutingEndpointGroupCommand}.
  */
 export interface CreateCustomRoutingEndpointGroupCommandOutput
@@ -41,6 +40,7 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create an endpoint group for the specified listener for a custom routing accelerator.
  * 	    An endpoint group is a collection of endpoints in one Amazon Web Services
  * 		Region. </p>
@@ -50,10 +50,26 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
  * import { GlobalAcceleratorClient, CreateCustomRoutingEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, CreateCustomRoutingEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // CreateCustomRoutingEndpointGroupRequest
+ *   ListenerArn: "STRING_VALUE", // required
+ *   EndpointGroupRegion: "STRING_VALUE", // required
+ *   DestinationConfigurations: [ // CustomRoutingDestinationConfigurations // required
+ *     { // CustomRoutingDestinationConfiguration
+ *       FromPort: Number("int"), // required
+ *       ToPort: Number("int"), // required
+ *       Protocols: [ // CustomRoutingProtocols // required
+ *         "TCP" || "UDP",
+ *       ],
+ *     },
+ *   ],
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateCustomRoutingEndpointGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCustomRoutingEndpointGroupCommandInput - {@link CreateCustomRoutingEndpointGroupCommandInput}
+ * @returns {@link CreateCustomRoutingEndpointGroupCommandOutput}
  * @see {@link CreateCustomRoutingEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCustomRoutingEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -101,6 +117,9 @@ export class CreateCustomRoutingEndpointGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomRoutingEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +148,8 @@ export class CreateCustomRoutingEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomRoutingEndpointGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomRoutingEndpointGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,18 +159,24 @@ export class CreateCustomRoutingEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateCustomRoutingEndpointGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCustomRoutingEndpointGroupCommand(input, context);
+    return se_CreateCustomRoutingEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCustomRoutingEndpointGroupCommandOutput> {
-    return deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommand(output, context);
+    return de_CreateCustomRoutingEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

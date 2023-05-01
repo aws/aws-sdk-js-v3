@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { ListTypedLinkFacetAttributesRequest, ListTypedLinkFacetAttributesResponse } from "../models/models_0";
 import {
-  ListTypedLinkFacetAttributesRequest,
-  ListTypedLinkFacetAttributesRequestFilterSensitiveLog,
-  ListTypedLinkFacetAttributesResponse,
-  ListTypedLinkFacetAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTypedLinkFacetAttributesCommand,
-  serializeAws_restJson1ListTypedLinkFacetAttributesCommand,
+  de_ListTypedLinkFacetAttributesCommand,
+  se_ListTypedLinkFacetAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTypedLinkFacetAttributesCommand}.
  */
 export interface ListTypedLinkFacetAttributesCommandInput extends ListTypedLinkFacetAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTypedLinkFacetAttributesCommand}.
  */
 export interface ListTypedLinkFacetAttributesCommandOutput
@@ -37,6 +36,7 @@ export interface ListTypedLinkFacetAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of all attribute definitions for a particular <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,18 @@ export interface ListTypedLinkFacetAttributesCommandOutput
  * import { CloudDirectoryClient, ListTypedLinkFacetAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListTypedLinkFacetAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListTypedLinkFacetAttributesRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTypedLinkFacetAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTypedLinkFacetAttributesCommandInput - {@link ListTypedLinkFacetAttributesCommandInput}
+ * @returns {@link ListTypedLinkFacetAttributesCommandOutput}
  * @see {@link ListTypedLinkFacetAttributesCommandInput} for command's `input` shape.
  * @see {@link ListTypedLinkFacetAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -99,6 +107,9 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTypedLinkFacetAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +138,8 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTypedLinkFacetAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTypedLinkFacetAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +149,21 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTypedLinkFacetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTypedLinkFacetAttributesCommand(input, context);
+    return se_ListTypedLinkFacetAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTypedLinkFacetAttributesCommandOutput> {
-    return deserializeAws_restJson1ListTypedLinkFacetAttributesCommand(output, context);
+    return de_ListTypedLinkFacetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

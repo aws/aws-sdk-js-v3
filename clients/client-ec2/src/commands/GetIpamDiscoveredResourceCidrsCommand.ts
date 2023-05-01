@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { GetIpamDiscoveredResourceCidrsRequest, GetIpamDiscoveredResourceCidrsResult } from "../models/models_5";
 import {
-  GetIpamDiscoveredResourceCidrsRequest,
-  GetIpamDiscoveredResourceCidrsRequestFilterSensitiveLog,
-  GetIpamDiscoveredResourceCidrsResult,
-  GetIpamDiscoveredResourceCidrsResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2GetIpamDiscoveredResourceCidrsCommand,
-  serializeAws_ec2GetIpamDiscoveredResourceCidrsCommand,
+  de_GetIpamDiscoveredResourceCidrsCommand,
+  se_GetIpamDiscoveredResourceCidrsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetIpamDiscoveredResourceCidrsCommand}.
  */
 export interface GetIpamDiscoveredResourceCidrsCommandInput extends GetIpamDiscoveredResourceCidrsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetIpamDiscoveredResourceCidrsCommand}.
  */
 export interface GetIpamDiscoveredResourceCidrsCommandOutput
@@ -37,6 +36,7 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,27 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * import { EC2Client, GetIpamDiscoveredResourceCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetIpamDiscoveredResourceCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetIpamDiscoveredResourceCidrsRequest
+ *   DryRun: true || false,
+ *   IpamResourceDiscoveryId: "STRING_VALUE", // required
+ *   ResourceRegion: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetIpamDiscoveredResourceCidrsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetIpamDiscoveredResourceCidrsCommandInput - {@link GetIpamDiscoveredResourceCidrsCommandInput}
+ * @returns {@link GetIpamDiscoveredResourceCidrsCommandOutput}
  * @see {@link GetIpamDiscoveredResourceCidrsCommandInput} for command's `input` shape.
  * @see {@link GetIpamDiscoveredResourceCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +88,9 @@ export class GetIpamDiscoveredResourceCidrsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetIpamDiscoveredResourceCidrsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +119,8 @@ export class GetIpamDiscoveredResourceCidrsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIpamDiscoveredResourceCidrsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIpamDiscoveredResourceCidrsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +130,24 @@ export class GetIpamDiscoveredResourceCidrsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetIpamDiscoveredResourceCidrsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetIpamDiscoveredResourceCidrsCommand(input, context);
+    return se_GetIpamDiscoveredResourceCidrsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIpamDiscoveredResourceCidrsCommandOutput> {
-    return deserializeAws_ec2GetIpamDiscoveredResourceCidrsCommand(output, context);
+    return de_GetIpamDiscoveredResourceCidrsCommand(output, context);
   }
 
   // Start section: command_body_extra

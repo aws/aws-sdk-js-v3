@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeSpotFleetRequestHistoryRequest, DescribeSpotFleetRequestHistoryResponse } from "../models/models_4";
 import {
-  DescribeSpotFleetRequestHistoryRequest,
-  DescribeSpotFleetRequestHistoryRequestFilterSensitiveLog,
-  DescribeSpotFleetRequestHistoryResponse,
-  DescribeSpotFleetRequestHistoryResponseFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSpotFleetRequestHistoryCommand,
-  serializeAws_ec2DescribeSpotFleetRequestHistoryCommand,
+  de_DescribeSpotFleetRequestHistoryCommand,
+  se_DescribeSpotFleetRequestHistoryCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSpotFleetRequestHistoryCommand}.
  */
 export interface DescribeSpotFleetRequestHistoryCommandInput extends DescribeSpotFleetRequestHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSpotFleetRequestHistoryCommand}.
  */
 export interface DescribeSpotFleetRequestHistoryCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the events for the specified Spot Fleet request during the specified
  *             time.</p>
  *          <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This
@@ -50,10 +50,20 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  * import { EC2Client, DescribeSpotFleetRequestHistoryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSpotFleetRequestHistoryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSpotFleetRequestHistoryRequest
+ *   DryRun: true || false,
+ *   EventType: "instanceChange" || "fleetRequestChange" || "error" || "information",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SpotFleetRequestId: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new DescribeSpotFleetRequestHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSpotFleetRequestHistoryCommandInput - {@link DescribeSpotFleetRequestHistoryCommandInput}
+ * @returns {@link DescribeSpotFleetRequestHistoryCommandOutput}
  * @see {@link DescribeSpotFleetRequestHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotFleetRequestHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -128,6 +138,9 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSpotFleetRequestHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -156,8 +169,8 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpotFleetRequestHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSpotFleetRequestHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -167,18 +180,24 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeSpotFleetRequestHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSpotFleetRequestHistoryCommand(input, context);
+    return se_DescribeSpotFleetRequestHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSpotFleetRequestHistoryCommandOutput> {
-    return deserializeAws_ec2DescribeSpotFleetRequestHistoryCommand(output, context);
+    return de_DescribeSpotFleetRequestHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

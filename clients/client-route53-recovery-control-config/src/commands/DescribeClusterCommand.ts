@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeClusterRequest,
-  DescribeClusterRequestFilterSensitiveLog,
-  DescribeClusterResponse,
-  DescribeClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeClusterCommand,
-  serializeAws_restJson1DescribeClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeClusterRequest, DescribeClusterResponse } from "../models/models_0";
+import { de_DescribeClusterCommand, se_DescribeClusterCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryControlConfigClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeClusterCommand}.
  */
 export interface DescribeClusterCommandInput extends DescribeClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeClusterCommand}.
  */
 export interface DescribeClusterCommandOutput extends DescribeClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Display the details about a cluster. The response includes the cluster name, endpoints, status, and Amazon Resource Name (ARN).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * import { Route53RecoveryControlConfigClient, DescribeClusterCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DescribeClusterCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // DescribeClusterRequest
+ *   ClusterArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeClusterCommandInput - {@link DescribeClusterCommandInput}
+ * @returns {@link DescribeClusterCommandOutput}
  * @see {@link DescribeClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
@@ -91,6 +93,9 @@ export class DescribeClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class DescribeClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class DescribeClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeClusterCommand(input, context);
+    return se_DescribeClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterCommandOutput> {
-    return deserializeAws_restJson1DescribeClusterCommand(output, context);
+    return de_DescribeClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

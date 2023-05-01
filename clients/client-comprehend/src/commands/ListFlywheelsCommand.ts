@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ListFlywheelsRequest,
-  ListFlywheelsRequestFilterSensitiveLog,
-  ListFlywheelsResponse,
-  ListFlywheelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFlywheelsCommand,
-  serializeAws_json1_1ListFlywheelsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListFlywheelsRequest, ListFlywheelsResponse } from "../models/models_0";
+import { de_ListFlywheelsCommand, se_ListFlywheelsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFlywheelsCommand}.
  */
 export interface ListFlywheelsCommandInput extends ListFlywheelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFlywheelsCommand}.
  */
 export interface ListFlywheelsCommandOutput extends ListFlywheelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of the flywheels that you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface ListFlywheelsCommandOutput extends ListFlywheelsResponse, __Met
  * import { ComprehendClient, ListFlywheelsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListFlywheelsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // ListFlywheelsRequest
+ *   Filter: { // FlywheelFilter
+ *     Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED",
+ *     CreationTimeAfter: new Date("TIMESTAMP"),
+ *     CreationTimeBefore: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFlywheelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFlywheelsCommandInput - {@link ListFlywheelsCommandInput}
+ * @returns {@link ListFlywheelsCommandOutput}
  * @see {@link ListFlywheelsCommandInput} for command's `input` shape.
  * @see {@link ListFlywheelsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
@@ -82,6 +90,9 @@ export class ListFlywheelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFlywheelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +119,8 @@ export class ListFlywheelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFlywheelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFlywheelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +130,18 @@ export class ListFlywheelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFlywheelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFlywheelsCommand(input, context);
+    return se_ListFlywheelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFlywheelsCommandOutput> {
-    return deserializeAws_json1_1ListFlywheelsCommand(output, context);
+    return de_ListFlywheelsCommand(output, context);
   }
 
   // Start section: command_body_extra

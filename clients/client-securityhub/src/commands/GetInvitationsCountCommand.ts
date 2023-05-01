@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetInvitationsCountRequest,
-  GetInvitationsCountRequestFilterSensitiveLog,
-  GetInvitationsCountResponse,
-  GetInvitationsCountResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1GetInvitationsCountCommand,
-  serializeAws_restJson1GetInvitationsCountCommand,
-} from "../protocols/Aws_restJson1";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_2";
+import { de_GetInvitationsCountCommand, se_GetInvitationsCountCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetInvitationsCountCommand}.
  */
 export interface GetInvitationsCountCommandInput extends GetInvitationsCountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInvitationsCountCommand}.
  */
 export interface GetInvitationsCountCommandOutput extends GetInvitationsCountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the count of all Security Hub membership invitations that were sent to the
  *          current member account, not including the currently accepted invitation. </p>
  * @example
@@ -43,10 +40,13 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * import { SecurityHubClient, GetInvitationsCountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetInvitationsCountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {};
  * const command = new GetInvitationsCountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInvitationsCountCommandInput - {@link GetInvitationsCountCommandInput}
+ * @returns {@link GetInvitationsCountCommandOutput}
  * @see {@link GetInvitationsCountCommandInput} for command's `input` shape.
  * @see {@link GetInvitationsCountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -66,6 +66,22 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To get a count of membership invitations
+ * ```javascript
+ * // The following example returns a count of invitations that the Security Hub administrator sent to the current member account, not including the currently accepted invitation.
+ * //
+ * //
+ * const input = undefined;
+ * const command = new GetInvitationsCountCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InvitationsCount": 3
+ * }
+ * *\/
+ * // example id: to-get-a-count-of-membership-invitations-1677774568793
+ * ```
+ *
  */
 export class GetInvitationsCountCommand extends $Command<
   GetInvitationsCountCommandInput,
@@ -84,6 +100,9 @@ export class GetInvitationsCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInvitationsCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +131,8 @@ export class GetInvitationsCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInvitationsCountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInvitationsCountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +142,18 @@ export class GetInvitationsCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInvitationsCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInvitationsCountCommand(input, context);
+    return se_GetInvitationsCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInvitationsCountCommandOutput> {
-    return deserializeAws_restJson1GetInvitationsCountCommand(output, context);
+    return de_GetInvitationsCountCommand(output, context);
   }
 
   // Start section: command_body_extra

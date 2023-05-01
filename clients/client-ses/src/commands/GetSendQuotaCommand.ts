@@ -13,20 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSendQuotaResponse, GetSendQuotaResponseFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryGetSendQuotaCommand, serializeAws_queryGetSendQuotaCommand } from "../protocols/Aws_query";
+import { GetSendQuotaResponse } from "../models/models_0";
+import { de_GetSendQuotaCommand, se_GetSendQuotaCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSendQuotaCommand}.
  */
 export interface GetSendQuotaCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSendQuotaCommand}.
  */
 export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides the sending limits for the Amazon SES account. </p>
  *         <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -35,10 +40,13 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  * import { SESClient, GetSendQuotaCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetSendQuotaCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new GetSendQuotaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSendQuotaCommandInput - {@link GetSendQuotaCommandInput}
+ * @returns {@link GetSendQuotaCommandOutput}
  * @see {@link GetSendQuotaCommandInput} for command's `input` shape.
  * @see {@link GetSendQuotaCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -78,6 +86,9 @@ export class GetSendQuotaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSendQuotaCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +115,8 @@ export class GetSendQuotaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetSendQuotaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +126,18 @@ export class GetSendQuotaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSendQuotaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSendQuotaCommand(input, context);
+    return se_GetSendQuotaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSendQuotaCommandOutput> {
-    return deserializeAws_queryGetSendQuotaCommand(output, context);
+    return de_GetSendQuotaCommand(output, context);
   }
 
   // Start section: command_body_extra

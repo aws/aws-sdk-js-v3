@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  CreateDirectoryRequest,
-  CreateDirectoryRequestFilterSensitiveLog,
-  CreateDirectoryResponse,
-  CreateDirectoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDirectoryCommand,
-  serializeAws_restJson1CreateDirectoryCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateDirectoryRequest, CreateDirectoryResponse } from "../models/models_0";
+import { de_CreateDirectoryCommand, se_CreateDirectoryCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDirectoryCommand}.
  */
 export interface CreateDirectoryCommandInput extends CreateDirectoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDirectoryCommand}.
  */
 export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <a>Directory</a> by copying the published schema into the
  *       directory. A directory cannot be created without a schema.</p>
  *          <p>You can also quickly create a directory using a managed schema, called the
@@ -45,10 +42,16 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, _
  * import { CloudDirectoryClient, CreateDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // CreateDirectoryRequest
+ *   Name: "STRING_VALUE", // required
+ *   SchemaArn: "STRING_VALUE", // required
+ * };
  * const command = new CreateDirectoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDirectoryCommandInput - {@link CreateDirectoryCommandInput}
+ * @returns {@link CreateDirectoryCommandOutput}
  * @see {@link CreateDirectoryCommandInput} for command's `input` shape.
  * @see {@link CreateDirectoryCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -98,6 +101,9 @@ export class CreateDirectoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +132,8 @@ export class CreateDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDirectoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +143,18 @@ export class CreateDirectoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDirectoryCommand(input, context);
+    return se_CreateDirectoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDirectoryCommandOutput> {
-    return deserializeAws_restJson1CreateDirectoryCommand(output, context);
+    return de_CreateDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  InitiateJobInput,
-  InitiateJobInputFilterSensitiveLog,
-  InitiateJobOutput,
-  InitiateJobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1InitiateJobCommand,
-  serializeAws_restJson1InitiateJobCommand,
-} from "../protocols/Aws_restJson1";
+import { InitiateJobInput, InitiateJobOutput } from "../models/models_0";
+import { de_InitiateJobCommand, se_InitiateJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link InitiateJobCommand}.
  */
 export interface InitiateJobCommandInput extends InitiateJobInput {}
 /**
+ * @public
+ *
  * The output of {@link InitiateJobCommand}.
  */
 export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation initiates a job of the specified type, which can be a select, an archival retrieval,
  *          or a vault retrieval. For more information about using this operation,
  *          see the documentation for the underlying REST API <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html">Initiate
@@ -46,10 +43,85 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * import { GlacierClient, InitiateJobCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, InitiateJobCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // InitiateJobInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   jobParameters: { // JobParameters
+ *     Format: "STRING_VALUE",
+ *     Type: "STRING_VALUE",
+ *     ArchiveId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     SNSTopic: "STRING_VALUE",
+ *     RetrievalByteRange: "STRING_VALUE",
+ *     Tier: "STRING_VALUE",
+ *     InventoryRetrievalParameters: { // InventoryRetrievalJobInput
+ *       StartDate: "STRING_VALUE",
+ *       EndDate: "STRING_VALUE",
+ *       Limit: "STRING_VALUE",
+ *       Marker: "STRING_VALUE",
+ *     },
+ *     SelectParameters: { // SelectParameters
+ *       InputSerialization: { // InputSerialization
+ *         csv: { // CSVInput
+ *           FileHeaderInfo: "USE" || "IGNORE" || "NONE",
+ *           Comments: "STRING_VALUE",
+ *           QuoteEscapeCharacter: "STRING_VALUE",
+ *           RecordDelimiter: "STRING_VALUE",
+ *           FieldDelimiter: "STRING_VALUE",
+ *           QuoteCharacter: "STRING_VALUE",
+ *         },
+ *       },
+ *       ExpressionType: "SQL",
+ *       Expression: "STRING_VALUE",
+ *       OutputSerialization: { // OutputSerialization
+ *         csv: { // CSVOutput
+ *           QuoteFields: "ALWAYS" || "ASNEEDED",
+ *           QuoteEscapeCharacter: "STRING_VALUE",
+ *           RecordDelimiter: "STRING_VALUE",
+ *           FieldDelimiter: "STRING_VALUE",
+ *           QuoteCharacter: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     OutputLocation: { // OutputLocation
+ *       S3: { // S3Location
+ *         BucketName: "STRING_VALUE",
+ *         Prefix: "STRING_VALUE",
+ *         Encryption: { // Encryption
+ *           EncryptionType: "aws:kms" || "AES256",
+ *           KMSKeyId: "STRING_VALUE",
+ *           KMSContext: "STRING_VALUE",
+ *         },
+ *         CannedACL: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *         AccessControlList: [ // AccessControlPolicyList
+ *           { // Grant
+ *             Grantee: { // Grantee
+ *               Type: "AmazonCustomerByEmail" || "CanonicalUser" || "Group", // required
+ *               DisplayName: "STRING_VALUE",
+ *               URI: "STRING_VALUE",
+ *               ID: "STRING_VALUE",
+ *               EmailAddress: "STRING_VALUE",
+ *             },
+ *             Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *           },
+ *         ],
+ *         Tagging: { // hashmap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         UserMetadata: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new InitiateJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InitiateJobCommandInput - {@link InitiateJobCommandInput}
+ * @returns {@link InitiateJobCommandOutput}
  * @see {@link InitiateJobCommandInput} for command's `input` shape.
  * @see {@link InitiateJobCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -119,6 +191,9 @@ export class InitiateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InitiateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +220,8 @@ export class InitiateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InitiateJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: InitiateJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,12 +231,18 @@ export class InitiateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InitiateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InitiateJobCommand(input, context);
+    return se_InitiateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateJobCommandOutput> {
-    return deserializeAws_restJson1InitiateJobCommand(output, context);
+    return de_InitiateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

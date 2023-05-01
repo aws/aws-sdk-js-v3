@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  CreateGraphqlApiRequest,
-  CreateGraphqlApiRequestFilterSensitiveLog,
-  CreateGraphqlApiResponse,
-  CreateGraphqlApiResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateGraphqlApiCommand,
-  serializeAws_restJson1CreateGraphqlApiCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateGraphqlApiRequest, CreateGraphqlApiResponse } from "../models/models_0";
+import { de_CreateGraphqlApiCommand, se_CreateGraphqlApiCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGraphqlApiCommand}.
  */
 export interface CreateGraphqlApiCommandInput extends CreateGraphqlApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGraphqlApiCommand}.
  */
 export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a <code>GraphqlApi</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,63 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
  * import { AppSyncClient, CreateGraphqlApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateGraphqlApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // CreateGraphqlApiRequest
+ *   name: "STRING_VALUE", // required
+ *   logConfig: { // LogConfig
+ *     fieldLogLevel: "NONE" || "ERROR" || "ALL", // required
+ *     cloudWatchLogsRoleArn: "STRING_VALUE", // required
+ *     excludeVerboseContent: true || false,
+ *   },
+ *   authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA", // required
+ *   userPoolConfig: { // UserPoolConfig
+ *     userPoolId: "STRING_VALUE", // required
+ *     awsRegion: "STRING_VALUE", // required
+ *     defaultAction: "ALLOW" || "DENY", // required
+ *     appIdClientRegex: "STRING_VALUE",
+ *   },
+ *   openIDConnectConfig: { // OpenIDConnectConfig
+ *     issuer: "STRING_VALUE", // required
+ *     clientId: "STRING_VALUE",
+ *     iatTTL: Number("long"),
+ *     authTTL: Number("long"),
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   additionalAuthenticationProviders: [ // AdditionalAuthenticationProviders
+ *     { // AdditionalAuthenticationProvider
+ *       authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
+ *       openIDConnectConfig: {
+ *         issuer: "STRING_VALUE", // required
+ *         clientId: "STRING_VALUE",
+ *         iatTTL: Number("long"),
+ *         authTTL: Number("long"),
+ *       },
+ *       userPoolConfig: { // CognitoUserPoolConfig
+ *         userPoolId: "STRING_VALUE", // required
+ *         awsRegion: "STRING_VALUE", // required
+ *         appIdClientRegex: "STRING_VALUE",
+ *       },
+ *       lambdaAuthorizerConfig: { // LambdaAuthorizerConfig
+ *         authorizerResultTtlInSeconds: Number("int"),
+ *         authorizerUri: "STRING_VALUE", // required
+ *         identityValidationExpression: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   xrayEnabled: true || false,
+ *   lambdaAuthorizerConfig: {
+ *     authorizerResultTtlInSeconds: Number("int"),
+ *     authorizerUri: "STRING_VALUE", // required
+ *     identityValidationExpression: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateGraphqlApiCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGraphqlApiCommandInput - {@link CreateGraphqlApiCommandInput}
+ * @returns {@link CreateGraphqlApiCommandOutput}
  * @see {@link CreateGraphqlApiCommandInput} for command's `input` shape.
  * @see {@link CreateGraphqlApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -89,6 +139,9 @@ export class CreateGraphqlApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGraphqlApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +170,8 @@ export class CreateGraphqlApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGraphqlApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGraphqlApiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +181,18 @@ export class CreateGraphqlApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGraphqlApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGraphqlApiCommand(input, context);
+    return se_CreateGraphqlApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGraphqlApiCommandOutput> {
-    return deserializeAws_restJson1CreateGraphqlApiCommand(output, context);
+    return de_CreateGraphqlApiCommand(output, context);
   }
 
   // Start section: command_body_extra

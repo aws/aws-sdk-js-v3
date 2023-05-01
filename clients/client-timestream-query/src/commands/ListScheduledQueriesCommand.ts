@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListScheduledQueriesRequest,
-  ListScheduledQueriesRequestFilterSensitiveLog,
-  ListScheduledQueriesResponse,
-  ListScheduledQueriesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListScheduledQueriesCommand,
-  serializeAws_json1_0ListScheduledQueriesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListScheduledQueriesRequest, ListScheduledQueriesResponse } from "../models/models_0";
+import { de_ListScheduledQueriesCommand, se_ListScheduledQueriesCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListScheduledQueriesCommand}.
  */
 export interface ListScheduledQueriesCommandInput extends ListScheduledQueriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListScheduledQueriesCommand}.
  */
 export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of all scheduled queries in the caller's Amazon account and Region. <code>ListScheduledQueries</code> is eventually consistent. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,10 +40,16 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * import { TimestreamQueryClient, ListScheduledQueriesCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, ListScheduledQueriesCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
+ * const input = { // ListScheduledQueriesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListScheduledQueriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListScheduledQueriesCommandInput - {@link ListScheduledQueriesCommandInput}
+ * @returns {@link ListScheduledQueriesCommandOutput}
  * @see {@link ListScheduledQueriesCommandInput} for command's `input` shape.
  * @see {@link ListScheduledQueriesCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -87,6 +90,9 @@ export class ListScheduledQueriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListScheduledQueriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class ListScheduledQueriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListScheduledQueriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListScheduledQueriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class ListScheduledQueriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListScheduledQueriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListScheduledQueriesCommand(input, context);
+    return se_ListScheduledQueriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScheduledQueriesCommandOutput> {
-    return deserializeAws_json1_0ListScheduledQueriesCommand(output, context);
+    return de_ListScheduledQueriesCommand(output, context);
   }
 
   // Start section: command_body_extra

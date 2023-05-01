@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTableRequest,
-  UpdateTableRequestFilterSensitiveLog,
-  UpdateTableResponse,
-  UpdateTableResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateTableCommand,
-  serializeAws_json1_0UpdateTableCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateTableRequest, UpdateTableResponse } from "../models/models_0";
+import { de_UpdateTableCommand, se_UpdateTableCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandInput extends UpdateTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandOutput extends UpdateTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the retention duration of the memory store and magnetic store for your Timestream table. Note that the change in retention duration takes effect immediately.
  *          For example, if the retention period of the memory store was initially set to 2 hours and
  *          then changed to 24 hours, the memory store will be capable of holding 24 hours of data, but
@@ -48,10 +45,31 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * import { TimestreamWriteClient, UpdateTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, UpdateTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = { // UpdateTableRequest
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   RetentionProperties: { // RetentionProperties
+ *     MemoryStoreRetentionPeriodInHours: Number("long"), // required
+ *     MagneticStoreRetentionPeriodInDays: Number("long"), // required
+ *   },
+ *   MagneticStoreWriteProperties: { // MagneticStoreWriteProperties
+ *     EnableMagneticStoreWrites: true || false, // required
+ *     MagneticStoreRejectedDataLocation: { // MagneticStoreRejectedDataLocation
+ *       S3Configuration: { // S3Configuration
+ *         BucketName: "STRING_VALUE",
+ *         ObjectKeyPrefix: "STRING_VALUE",
+ *         EncryptionOption: "SSE_S3" || "SSE_KMS",
+ *         KmsKeyId: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTableCommandInput - {@link UpdateTableCommandInput}
+ * @returns {@link UpdateTableCommandOutput}
  * @see {@link UpdateTableCommandInput} for command's `input` shape.
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -97,6 +115,9 @@ export class UpdateTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +147,8 @@ export class UpdateTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +158,18 @@ export class UpdateTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateTableCommand(input, context);
+    return se_UpdateTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTableCommandOutput> {
-    return deserializeAws_json1_0UpdateTableCommand(output, context);
+    return de_UpdateTableCommand(output, context);
   }
 
   // Start section: command_body_extra

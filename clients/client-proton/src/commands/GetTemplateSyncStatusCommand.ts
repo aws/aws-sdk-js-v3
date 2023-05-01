@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTemplateSyncStatusInput,
-  GetTemplateSyncStatusInputFilterSensitiveLog,
-  GetTemplateSyncStatusOutput,
-  GetTemplateSyncStatusOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetTemplateSyncStatusCommand,
-  serializeAws_json1_0GetTemplateSyncStatusCommand,
-} from "../protocols/Aws_json1_0";
+import { GetTemplateSyncStatusInput, GetTemplateSyncStatusOutput } from "../models/models_0";
+import { de_GetTemplateSyncStatusCommand, se_GetTemplateSyncStatusCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetTemplateSyncStatusCommand}.
  */
 export interface GetTemplateSyncStatusCommandInput extends GetTemplateSyncStatusInput {}
 /**
+ * @public
+ *
  * The output of {@link GetTemplateSyncStatusCommand}.
  */
 export interface GetTemplateSyncStatusCommandOutput extends GetTemplateSyncStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the status of a template sync.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetTemplateSyncStatusCommandOutput extends GetTemplateSyncStatu
  * import { ProtonClient, GetTemplateSyncStatusCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetTemplateSyncStatusCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // GetTemplateSyncStatusInput
+ *   templateName: "STRING_VALUE", // required
+ *   templateType: "STRING_VALUE", // required
+ *   templateVersion: "STRING_VALUE", // required
+ * };
  * const command = new GetTemplateSyncStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTemplateSyncStatusCommandInput - {@link GetTemplateSyncStatusCommandInput}
+ * @returns {@link GetTemplateSyncStatusCommandOutput}
  * @see {@link GetTemplateSyncStatusCommandInput} for command's `input` shape.
  * @see {@link GetTemplateSyncStatusCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +88,9 @@ export class GetTemplateSyncStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateSyncStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class GetTemplateSyncStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateSyncStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateSyncStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class GetTemplateSyncStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateSyncStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetTemplateSyncStatusCommand(input, context);
+    return se_GetTemplateSyncStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateSyncStatusCommandOutput> {
-    return deserializeAws_json1_0GetTemplateSyncStatusCommand(output, context);
+    return de_GetTemplateSyncStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

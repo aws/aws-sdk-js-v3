@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  ListEndpointsRequest,
-  ListEndpointsRequestFilterSensitiveLog,
-  ListEndpointsResponse,
-  ListEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEndpointsCommand,
-  serializeAws_json1_1ListEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEndpointsRequest, ListEndpointsResponse } from "../models/models_0";
+import { de_ListEndpointsCommand, se_ListEndpointsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEndpointsCommand}.
  */
 export interface ListEndpointsCommandInput extends ListEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEndpointsCommand}.
  */
 export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the global endpoints associated with this account. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide..</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * import { EventBridgeClient, ListEndpointsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListEndpointsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // ListEndpointsRequest
+ *   NamePrefix: "STRING_VALUE",
+ *   HomeRegion: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEndpointsCommandInput - {@link ListEndpointsCommandInput}
+ * @returns {@link ListEndpointsCommandOutput}
  * @see {@link ListEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -72,6 +77,9 @@ export class ListEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +106,8 @@ export class ListEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +117,18 @@ export class ListEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEndpointsCommand(input, context);
+    return se_ListEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointsCommandOutput> {
-    return deserializeAws_json1_1ListEndpointsCommand(output, context);
+    return de_ListEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

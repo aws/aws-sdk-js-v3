@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaConnectClient` and
-the commands you need, for example `AddFlowMediaStreamsCommand`:
+the commands you need, for example `AddBridgeOutputsCommand`:
 
 ```js
 // ES5 example
-const { MediaConnectClient, AddFlowMediaStreamsCommand } = require("@aws-sdk/client-mediaconnect");
+const { MediaConnectClient, AddBridgeOutputsCommand } = require("@aws-sdk/client-mediaconnect");
 ```
 
 ```ts
 // ES6+ example
-import { MediaConnectClient, AddFlowMediaStreamsCommand } from "@aws-sdk/client-mediaconnect";
+import { MediaConnectClient, AddBridgeOutputsCommand } from "@aws-sdk/client-mediaconnect";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new MediaConnectClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddFlowMediaStreamsCommand(params);
+const command = new AddBridgeOutputsCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.MediaConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addFlowMediaStreams(params);
+  const data = await client.addBridgeOutputs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .addFlowMediaStreams(params)
+  .addBridgeOutputs(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.addFlowMediaStreams(params, (err, data) => {
+client.addBridgeOutputs(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -208,6 +208,22 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AddBridgeOutputs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/addbridgeoutputscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/addbridgeoutputscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/addbridgeoutputscommandoutput.html)
+
+</details>
+<details>
+<summary>
+AddBridgeSources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/addbridgesourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/addbridgesourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/addbridgesourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
 AddFlowMediaStreams
 </summary>
 
@@ -240,10 +256,34 @@ AddFlowVpcInterfaces
 </details>
 <details>
 <summary>
+CreateBridge
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/createbridgecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/createbridgecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/createbridgecommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/createflowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/createflowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/createflowcommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/creategatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/creategatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/creategatewaycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteBridge
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/deletebridgecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/deletebridgecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/deletebridgecommandoutput.html)
 
 </details>
 <details>
@@ -256,10 +296,50 @@ DeleteFlow
 </details>
 <details>
 <summary>
+DeleteGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/deletegatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/deletegatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/deletegatewaycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeregisterGatewayInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/deregistergatewayinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/deregistergatewayinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/deregistergatewayinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeBridge
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/describebridgecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/describebridgecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/describebridgecommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeFlow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/describeflowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/describeflowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/describeflowcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeGateway
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/describegatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/describegatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/describegatewaycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeGatewayInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/describegatewayinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/describegatewayinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/describegatewayinstancecommandoutput.html)
 
 </details>
 <details>
@@ -288,6 +368,14 @@ GrantFlowEntitlements
 </details>
 <details>
 <summary>
+ListBridges
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/listbridgescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/listbridgescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/listbridgescommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListEntitlements
 </summary>
 
@@ -300,6 +388,22 @@ ListFlows
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/listflowscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/listflowscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/listflowscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListGatewayInstances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/listgatewayinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/listgatewayinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/listgatewayinstancescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListGateways
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/listgatewayscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/listgatewayscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/listgatewayscommandoutput.html)
 
 </details>
 <details>
@@ -332,6 +436,22 @@ PurchaseOffering
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/purchaseofferingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/purchaseofferingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/purchaseofferingcommandoutput.html)
+
+</details>
+<details>
+<summary>
+RemoveBridgeOutput
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/removebridgeoutputcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/removebridgeoutputcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/removebridgeoutputcommandoutput.html)
+
+</details>
+<details>
+<summary>
+RemoveBridgeSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/removebridgesourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/removebridgesourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/removebridgesourcecommandoutput.html)
 
 </details>
 <details>
@@ -408,6 +528,38 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdateBridge
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/updatebridgecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updatebridgecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updatebridgecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBridgeOutput
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/updatebridgeoutputcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updatebridgeoutputcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updatebridgeoutputcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBridgeSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/updatebridgesourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updatebridgesourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updatebridgesourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateBridgeState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/updatebridgestatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updatebridgestatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updatebridgestatecommandoutput.html)
+
+</details>
+<details>
+<summary>
 UpdateFlow
 </summary>
 
@@ -444,5 +596,13 @@ UpdateFlowSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/updateflowsourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updateflowsourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updateflowsourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateGatewayInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/classes/updategatewayinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updategatewayinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediaconnect/interfaces/updategatewayinstancecommandoutput.html)
 
 </details>

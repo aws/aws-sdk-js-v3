@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { KendraRankingServiceException as __BaseException } from "./KendraRankingServiceException";
 
 /**
+ * @public
  * <p>You don’t have sufficient access to perform this action.
  *             Please ensure you have the required permission policies
  *             and user accounts and try again.</p>
@@ -27,6 +28,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A conflict occurred with the request. Please fix any
  *             inconsistencies with your resources and try again.</p>
  */
@@ -49,6 +51,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Sets additional capacity units configured for your
  *             rescore execution plan. A rescore execution plan is an
  *             Amazon Kendra Intelligent Ranking resource used for
@@ -67,6 +70,7 @@ export interface CapacityUnitsConfiguration {
 }
 
 /**
+ * @public
  * <p>A key-value pair that identifies or categorizes a rescore
  *             execution plan. A rescore execution plan is an
  *             Amazon Kendra Intelligent Ranking resource used for
@@ -89,6 +93,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateRescoreExecutionPlanRequest {
   /**
    * <p>A name for the rescore execution plan.</p>
@@ -129,6 +136,9 @@ export interface CreateRescoreExecutionPlanRequest {
   ClientToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateRescoreExecutionPlanResponse {
   /**
    * <p>The identifier of the rescore execution plan.</p>
@@ -143,6 +153,7 @@ export interface CreateRescoreExecutionPlanResponse {
 }
 
 /**
+ * @public
  * <p>An issue occurred with the internal server used for
  *             your Amazon Kendra Intelligent Ranking service.
  *             Please wait a few minutes and try again, or contact
@@ -168,6 +179,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded the set limits for your
  *             Amazon Kendra Intelligent Ranking service. Please
  *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>
@@ -193,6 +205,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.
  *             Please reduce the number of requests and try again.</p>
  */
@@ -215,6 +228,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints set by
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
@@ -237,6 +251,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteRescoreExecutionPlanRequest {
   /**
    * <p>The identifier of the rescore execution plan that you
@@ -246,6 +263,7 @@ export interface DeleteRescoreExecutionPlanRequest {
 }
 
 /**
+ * @public
  * <p>The resource you want to use doesn't exist. Please
  *             check you have provided the correct resource and try
  *             again.</p>
@@ -268,6 +286,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeRescoreExecutionPlanRequest {
   /**
    * <p>The identifier of the rescore execution plan that you want
@@ -276,14 +297,26 @@ export interface DescribeRescoreExecutionPlanRequest {
   Id: string | undefined;
 }
 
-export enum RescoreExecutionPlanStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RescoreExecutionPlanStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type RescoreExecutionPlanStatus = (typeof RescoreExecutionPlanStatus)[keyof typeof RescoreExecutionPlanStatus];
+
+/**
+ * @public
+ */
 export interface DescribeRescoreExecutionPlanResponse {
   /**
    * <p>The identifier of the rescore execution plan.</p>
@@ -344,6 +377,9 @@ export interface DescribeRescoreExecutionPlanResponse {
   ErrorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListRescoreExecutionPlansRequest {
   /**
    * <p>If the response is truncated, Amazon Kendra Intelligent
@@ -360,6 +396,7 @@ export interface ListRescoreExecutionPlansRequest {
 }
 
 /**
+ * @public
  * <p>Summary information for a rescore execution plan. A rescore
  *             execution plan is an Amazon Kendra Intelligent Ranking
  *             resource used for provisioning the <code>Rescore</code> API.</p>
@@ -395,6 +432,9 @@ export interface RescoreExecutionPlanSummary {
   Status?: RescoreExecutionPlanStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface ListRescoreExecutionPlansResponse {
   /**
    * <p>An array of summary information for one or more rescore
@@ -410,6 +450,7 @@ export interface ListRescoreExecutionPlansResponse {
 }
 
 /**
+ * @public
  * <p>The request information for listing tags associated with
  *             a rescore execution plan. A rescore execution plan is an
  *             Amazon Kendra Intelligent Ranking resource used for
@@ -424,6 +465,7 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an
  *             HTTP 200 response.</p>
  */
@@ -436,6 +478,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The resource you want to use is unavailable. Please
  *             check you have provided the correct resource
  *             information and try again.</p>
@@ -459,6 +502,7 @@ export class ResourceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Information about a document from a search service such
  *             as OpenSearch (self managed). Amazon Kendra Intelligent
  *             Ranking uses this information to rank and score on.</p>
@@ -510,6 +554,9 @@ export interface Document {
   OriginalScore: number | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RescoreRequest {
   /**
    * <p>The identifier of the rescore execution plan. A rescore
@@ -531,6 +578,7 @@ export interface RescoreRequest {
 }
 
 /**
+ * @public
  * <p>A result item for a document with a new relevancy score.</p>
  */
 export interface RescoreResultItem {
@@ -546,6 +594,9 @@ export interface RescoreResultItem {
   Score?: number;
 }
 
+/**
+ * @public
+ */
 export interface RescoreResult {
   /**
    * <p>The identifier associated with the scores that
@@ -563,6 +614,7 @@ export interface RescoreResult {
 }
 
 /**
+ * @public
  * <p>The request information for tagging a rescore execution
  *             plan. A rescore execution plan is an Amazon Kendra
  *             Intelligent Ranking resource used for provisioning the
@@ -584,12 +636,14 @@ export interface TagResourceRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an
  *             HTTP 200 response with an empty HTTP body.</p>
  */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>The request information to remove a tag from a rescore
  *             execution plan. A rescore execution plan is an
  *             Amazon Kendra Intelligent Ranking resource used for
@@ -611,11 +665,15 @@ export interface UntagResourceRequest {
 }
 
 /**
+ * @public
  * <p>If the action is successful, the service sends back an
  *             HTTP 200 response with an empty HTTP body.</p>
  */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateRescoreExecutionPlanRequest {
   /**
    * <p>The identifier of the rescore execution plan that you want
@@ -643,154 +701,3 @@ export interface UpdateRescoreExecutionPlanRequest {
    */
   CapacityUnits?: CapacityUnitsConfiguration;
 }
-
-/**
- * @internal
- */
-export const CapacityUnitsConfigurationFilterSensitiveLog = (obj: CapacityUnitsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRescoreExecutionPlanRequestFilterSensitiveLog = (obj: CreateRescoreExecutionPlanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRescoreExecutionPlanResponseFilterSensitiveLog = (obj: CreateRescoreExecutionPlanResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRescoreExecutionPlanRequestFilterSensitiveLog = (obj: DeleteRescoreExecutionPlanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRescoreExecutionPlanRequestFilterSensitiveLog = (
-  obj: DescribeRescoreExecutionPlanRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeRescoreExecutionPlanResponseFilterSensitiveLog = (
-  obj: DescribeRescoreExecutionPlanResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRescoreExecutionPlansRequestFilterSensitiveLog = (obj: ListRescoreExecutionPlansRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RescoreExecutionPlanSummaryFilterSensitiveLog = (obj: RescoreExecutionPlanSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRescoreExecutionPlansResponseFilterSensitiveLog = (obj: ListRescoreExecutionPlansResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentFilterSensitiveLog = (obj: Document): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RescoreRequestFilterSensitiveLog = (obj: RescoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RescoreResultItemFilterSensitiveLog = (obj: RescoreResultItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RescoreResultFilterSensitiveLog = (obj: RescoreResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRescoreExecutionPlanRequestFilterSensitiveLog = (obj: UpdateRescoreExecutionPlanRequest): any => ({
-  ...obj,
-});

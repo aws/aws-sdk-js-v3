@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CopyDBParameterGroupMessage,
-  CopyDBParameterGroupMessageFilterSensitiveLog,
-  CopyDBParameterGroupResult,
-  CopyDBParameterGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCopyDBParameterGroupCommand,
-  serializeAws_queryCopyDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { CopyDBParameterGroupMessage, CopyDBParameterGroupResult } from "../models/models_0";
+import { de_CopyDBParameterGroupCommand, se_CopyDBParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link CopyDBParameterGroupCommand}.
  */
 export interface CopyDBParameterGroupCommandInput extends CopyDBParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link CopyDBParameterGroupCommand}.
  */
 export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the specified DB parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * import { RDSClient, CopyDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // CopyDBParameterGroupMessage
+ *   SourceDBParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBParameterGroupDescription: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyDBParameterGroupCommandInput - {@link CopyDBParameterGroupCommandInput}
+ * @returns {@link CopyDBParameterGroupCommandOutput}
  * @see {@link CopyDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CopyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -65,20 +75,25 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  *
  * @example To copy a DB parameter group
  * ```javascript
- * // This example copies a DB parameter group.
+ * // The following example makes a copy of a DB parameter group.
  * const input = {
- *   "SourceDBParameterGroupIdentifier": "mymysqlparametergroup",
- *   "TargetDBParameterGroupDescription": "My MySQL parameter group copy",
- *   "TargetDBParameterGroupIdentifier": "mymysqlparametergroup-copy"
+ *   "SourceDBParameterGroupIdentifier": "mydbpg",
+ *   "TargetDBParameterGroupDescription": "Copy of mydbpg parameter group",
+ *   "TargetDBParameterGroupIdentifier": "mydbpgcopy"
  * };
  * const command = new CopyDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBParameterGroup": {}
+ *   "DBParameterGroup": {
+ *     "DBParameterGroupArn": "arn:aws:rds:us-east-1:814387698303:pg:mydbpgcopy",
+ *     "DBParameterGroupFamily": "mysql5.7",
+ *     "DBParameterGroupName": "mydbpgcopy",
+ *     "Description": "Copy of mydbpg parameter group"
+ *   }
  * }
  * *\/
- * // example id: copy-db-parameter-group-610d4dba-2c87-467f-ae5d-edd7f8e47349
+ * // example id: to-copy-a-db-parameter-group-1679695426993
  * ```
  *
  */
@@ -99,6 +114,9 @@ export class CopyDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +145,8 @@ export class CopyDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDBParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyDBParameterGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +156,18 @@ export class CopyDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBParameterGroupCommand(input, context);
+    return se_CopyDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBParameterGroupCommandOutput> {
-    return deserializeAws_queryCopyDBParameterGroupCommand(output, context);
+    return de_CopyDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

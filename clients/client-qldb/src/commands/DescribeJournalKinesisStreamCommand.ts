@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeJournalKinesisStreamRequest, DescribeJournalKinesisStreamResponse } from "../models/models_0";
 import {
-  DescribeJournalKinesisStreamRequest,
-  DescribeJournalKinesisStreamRequestFilterSensitiveLog,
-  DescribeJournalKinesisStreamResponse,
-  DescribeJournalKinesisStreamResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJournalKinesisStreamCommand,
-  serializeAws_restJson1DescribeJournalKinesisStreamCommand,
+  de_DescribeJournalKinesisStreamCommand,
+  se_DescribeJournalKinesisStreamCommand,
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJournalKinesisStreamCommand}.
  */
 export interface DescribeJournalKinesisStreamCommandInput extends DescribeJournalKinesisStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJournalKinesisStreamCommand}.
  */
 export interface DescribeJournalKinesisStreamCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeJournalKinesisStreamCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed information about a given Amazon QLDB journal stream. The output
  *          includes the Amazon Resource Name (ARN), stream name, current status, creation time, and
  *          the parameters of the original stream creation request.</p>
@@ -49,10 +49,16 @@ export interface DescribeJournalKinesisStreamCommandOutput
  * import { QLDBClient, DescribeJournalKinesisStreamCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, DescribeJournalKinesisStreamCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // DescribeJournalKinesisStreamRequest
+ *   LedgerName: "STRING_VALUE", // required
+ *   StreamId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJournalKinesisStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJournalKinesisStreamCommandInput - {@link DescribeJournalKinesisStreamCommandInput}
+ * @returns {@link DescribeJournalKinesisStreamCommandOutput}
  * @see {@link DescribeJournalKinesisStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeJournalKinesisStreamCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
@@ -85,6 +91,9 @@ export class DescribeJournalKinesisStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJournalKinesisStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class DescribeJournalKinesisStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJournalKinesisStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJournalKinesisStreamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +133,21 @@ export class DescribeJournalKinesisStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJournalKinesisStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJournalKinesisStreamCommand(input, context);
+    return se_DescribeJournalKinesisStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeJournalKinesisStreamCommandOutput> {
-    return deserializeAws_restJson1DescribeJournalKinesisStreamCommand(output, context);
+    return de_DescribeJournalKinesisStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

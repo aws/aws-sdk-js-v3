@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  RemoveTagsFromResourceMessage,
-  RemoveTagsFromResourceMessageFilterSensitiveLog,
-  RemoveTagsFromResourceResponse,
-  RemoveTagsFromResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveTagsFromResourceCommand,
-  serializeAws_json1_1RemoveTagsFromResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { RemoveTagsFromResourceMessage, RemoveTagsFromResourceResponse } from "../models/models_0";
+import { de_RemoveTagsFromResourceCommand, se_RemoveTagsFromResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveTagsFromResourceCommand}.
  */
 export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResourceMessage {}
 /**
+ * @public
+ *
  * The output of {@link RemoveTagsFromResourceCommand}.
  */
 export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes metadata tags from an DMS resource, including replication instance,
  *          endpoint, subnet group, and migration task. For more information, see
  *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
@@ -51,10 +48,18 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * import { DatabaseMigrationServiceClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // RemoveTagsFromResourceMessage
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeys: [ // KeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
+ * @returns {@link RemoveTagsFromResourceCommandOutput}
  * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -93,6 +98,9 @@ export class RemoveTagsFromResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveTagsFromResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +129,8 @@ export class RemoveTagsFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromResourceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTagsFromResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +140,18 @@ export class RemoveTagsFromResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveTagsFromResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTagsFromResourceCommand(input, context);
+    return se_RemoveTagsFromResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsFromResourceCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsFromResourceCommand(output, context);
+    return de_RemoveTagsFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

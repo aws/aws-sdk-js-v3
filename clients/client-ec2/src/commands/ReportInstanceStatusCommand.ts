@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReportInstanceStatusRequest, ReportInstanceStatusRequestFilterSensitiveLog } from "../models/models_6";
-import {
-  deserializeAws_ec2ReportInstanceStatusCommand,
-  serializeAws_ec2ReportInstanceStatusCommand,
-} from "../protocols/Aws_ec2";
+import { ReportInstanceStatusRequest } from "../models/models_6";
+import { de_ReportInstanceStatusCommand, se_ReportInstanceStatusCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReportInstanceStatusCommand}.
  */
 export interface ReportInstanceStatusCommandInput extends ReportInstanceStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReportInstanceStatusCommand}.
  */
 export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Submits feedback about the status of an instance. The instance must be in the
  *                 <code>running</code> state. If your experience with the instance differs from the
  *             instance status returned by <a>DescribeInstanceStatus</a>, use <a>ReportInstanceStatus</a> to report your experience with the instance. Amazon
@@ -41,10 +43,25 @@ export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ReportInstanceStatusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReportInstanceStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ReportInstanceStatusRequest
+ *   Description: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Instances: [ // InstanceIdStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ReasonCodes: [ // ReasonCodesList // required
+ *     "instance-stuck-in-state" || "unresponsive" || "not-accepting-credentials" || "password-not-available" || "performance-network" || "performance-instance-store" || "performance-ebs-volume" || "performance-other" || "other",
+ *   ],
+ *   StartTime: new Date("TIMESTAMP"),
+ *   Status: "ok" || "impaired", // required
+ * };
  * const command = new ReportInstanceStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReportInstanceStatusCommandInput - {@link ReportInstanceStatusCommandInput}
+ * @returns {@link ReportInstanceStatusCommandOutput}
  * @see {@link ReportInstanceStatusCommandInput} for command's `input` shape.
  * @see {@link ReportInstanceStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -68,6 +85,9 @@ export class ReportInstanceStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReportInstanceStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,8 +116,8 @@ export class ReportInstanceStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReportInstanceStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +127,18 @@ export class ReportInstanceStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReportInstanceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReportInstanceStatusCommand(input, context);
+    return se_ReportInstanceStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReportInstanceStatusCommandOutput> {
-    return deserializeAws_ec2ReportInstanceStatusCommand(output, context);
+    return de_ReportInstanceStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

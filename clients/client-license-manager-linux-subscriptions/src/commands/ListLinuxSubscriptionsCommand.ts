@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerLinuxSubscriptionsClient";
-import {
-  ListLinuxSubscriptionsRequest,
-  ListLinuxSubscriptionsRequestFilterSensitiveLog,
-  ListLinuxSubscriptionsResponse,
-  ListLinuxSubscriptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLinuxSubscriptionsCommand,
-  serializeAws_restJson1ListLinuxSubscriptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListLinuxSubscriptionsRequest, ListLinuxSubscriptionsResponse } from "../models/models_0";
+import { de_ListLinuxSubscriptionsCommand, se_ListLinuxSubscriptionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListLinuxSubscriptionsCommand}.
  */
 export interface ListLinuxSubscriptionsCommandInput extends ListLinuxSubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLinuxSubscriptionsCommand}.
  */
 export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscriptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Linux subscriptions that have been discovered. If you have linked your
  *       organization, the returned results will include data aggregated across your accounts in
  *       Organizations.</p>
@@ -48,10 +45,25 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  * import { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionsCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
  * // const { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionsCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
+ * const input = { // ListLinuxSubscriptionsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // StringList
+ *         "STRING_VALUE",
+ *       ],
+ *       Operator: "STRING_VALUE",
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLinuxSubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLinuxSubscriptionsCommandInput - {@link ListLinuxSubscriptionsCommandInput}
+ * @returns {@link ListLinuxSubscriptionsCommandOutput}
  * @see {@link ListLinuxSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListLinuxSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerLinuxSubscriptionsClientResolvedConfig | config} for LicenseManagerLinuxSubscriptionsClient's `config` shape.
@@ -84,6 +96,9 @@ export class ListLinuxSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLinuxSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +127,8 @@ export class ListLinuxSubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLinuxSubscriptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLinuxSubscriptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +138,18 @@ export class ListLinuxSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLinuxSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLinuxSubscriptionsCommand(input, context);
+    return se_ListLinuxSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLinuxSubscriptionsCommandOutput> {
-    return deserializeAws_restJson1ListLinuxSubscriptionsCommand(output, context);
+    return de_ListLinuxSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

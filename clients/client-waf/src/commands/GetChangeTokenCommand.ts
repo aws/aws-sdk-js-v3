@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetChangeTokenRequest,
-  GetChangeTokenRequestFilterSensitiveLog,
-  GetChangeTokenResponse,
-  GetChangeTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetChangeTokenCommand,
-  serializeAws_json1_1GetChangeTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { GetChangeTokenRequest, GetChangeTokenResponse } from "../models/models_0";
+import { de_GetChangeTokenCommand, se_GetChangeTokenCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetChangeTokenCommand}.
  */
 export interface GetChangeTokenCommandInput extends GetChangeTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetChangeTokenCommand}.
  */
 export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -56,10 +53,13 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * import { WAFClient, GetChangeTokenCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetChangeTokenCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {};
  * const command = new GetChangeTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetChangeTokenCommandInput - {@link GetChangeTokenCommandInput}
+ * @returns {@link GetChangeTokenCommandOutput}
  * @see {@link GetChangeTokenCommandInput} for command's `input` shape.
  * @see {@link GetChangeTokenCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -100,6 +100,9 @@ export class GetChangeTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetChangeTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +131,8 @@ export class GetChangeTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChangeTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetChangeTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +142,18 @@ export class GetChangeTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChangeTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetChangeTokenCommand(input, context);
+    return se_GetChangeTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeTokenCommandOutput> {
-    return deserializeAws_json1_1GetChangeTokenCommand(output, context);
+    return de_GetChangeTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

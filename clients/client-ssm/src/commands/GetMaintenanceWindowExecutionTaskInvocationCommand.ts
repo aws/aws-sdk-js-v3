@@ -15,22 +15,25 @@ import {
 
 import {
   GetMaintenanceWindowExecutionTaskInvocationRequest,
-  GetMaintenanceWindowExecutionTaskInvocationRequestFilterSensitiveLog,
   GetMaintenanceWindowExecutionTaskInvocationResult,
   GetMaintenanceWindowExecutionTaskInvocationResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand,
-  serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand,
+  de_GetMaintenanceWindowExecutionTaskInvocationCommand,
+  se_GetMaintenanceWindowExecutionTaskInvocationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMaintenanceWindowExecutionTaskInvocationCommand}.
  */
 export interface GetMaintenanceWindowExecutionTaskInvocationCommandInput
   extends GetMaintenanceWindowExecutionTaskInvocationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMaintenanceWindowExecutionTaskInvocationCommand}.
  */
 export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput
@@ -38,6 +41,7 @@ export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a specific task running on a specific target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +49,17 @@ export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput
  * import { SSMClient, GetMaintenanceWindowExecutionTaskInvocationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetMaintenanceWindowExecutionTaskInvocationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetMaintenanceWindowExecutionTaskInvocationRequest
+ *   WindowExecutionId: "STRING_VALUE", // required
+ *   TaskId: "STRING_VALUE", // required
+ *   InvocationId: "STRING_VALUE", // required
+ * };
  * const command = new GetMaintenanceWindowExecutionTaskInvocationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMaintenanceWindowExecutionTaskInvocationCommandInput - {@link GetMaintenanceWindowExecutionTaskInvocationCommandInput}
+ * @returns {@link GetMaintenanceWindowExecutionTaskInvocationCommandOutput}
  * @see {@link GetMaintenanceWindowExecutionTaskInvocationCommandInput} for command's `input` shape.
  * @see {@link GetMaintenanceWindowExecutionTaskInvocationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -81,6 +92,9 @@ export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMaintenanceWindowExecutionTaskInvocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +129,7 @@ export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMaintenanceWindowExecutionTaskInvocationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMaintenanceWindowExecutionTaskInvocationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,18 +140,24 @@ export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand(input, context);
+    return se_GetMaintenanceWindowExecutionTaskInvocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput> {
-    return deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand(output, context);
+    return de_GetMaintenanceWindowExecutionTaskInvocationCommand(output, context);
   }
 
   // Start section: command_body_extra

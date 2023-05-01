@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import {
-  RestoreClusterFromSnapshotInput,
-  RestoreClusterFromSnapshotInputFilterSensitiveLog,
-  RestoreClusterFromSnapshotOutput,
-  RestoreClusterFromSnapshotOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RestoreClusterFromSnapshotCommand,
-  serializeAws_restJson1RestoreClusterFromSnapshotCommand,
-} from "../protocols/Aws_restJson1";
+import { RestoreClusterFromSnapshotInput, RestoreClusterFromSnapshotOutput } from "../models/models_0";
+import { de_RestoreClusterFromSnapshotCommand, se_RestoreClusterFromSnapshotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreClusterFromSnapshotCommand}.
  */
 export interface RestoreClusterFromSnapshotCommandInput extends RestoreClusterFromSnapshotInput {}
 /**
+ * @public
+ *
  * The output of {@link RestoreClusterFromSnapshotCommand}.
  */
 export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterFromSnapshotOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a Elastic DocumentDB cluster from a snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterF
  * import { DocDBElasticClient, RestoreClusterFromSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, RestoreClusterFromSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
+ * const input = { // RestoreClusterFromSnapshotInput
+ *   clusterName: "STRING_VALUE", // required
+ *   snapshotArn: "STRING_VALUE", // required
+ *   vpcSecurityGroupIds: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   subnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   kmsKeyId: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new RestoreClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreClusterFromSnapshotCommandInput - {@link RestoreClusterFromSnapshotCommandInput}
+ * @returns {@link RestoreClusterFromSnapshotCommandOutput}
  * @see {@link RestoreClusterFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreClusterFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
@@ -90,6 +103,9 @@ export class RestoreClusterFromSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreClusterFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +134,8 @@ export class RestoreClusterFromSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreClusterFromSnapshotInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreClusterFromSnapshotOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +145,21 @@ export class RestoreClusterFromSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreClusterFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RestoreClusterFromSnapshotCommand(input, context);
+    return se_RestoreClusterFromSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreClusterFromSnapshotCommandOutput> {
-    return deserializeAws_restJson1RestoreClusterFromSnapshotCommand(output, context);
+    return de_RestoreClusterFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

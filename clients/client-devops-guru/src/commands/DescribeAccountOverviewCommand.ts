@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  DescribeAccountOverviewRequest,
-  DescribeAccountOverviewRequestFilterSensitiveLog,
-  DescribeAccountOverviewResponse,
-  DescribeAccountOverviewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAccountOverviewCommand,
-  serializeAws_restJson1DescribeAccountOverviewCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAccountOverviewRequest, DescribeAccountOverviewResponse } from "../models/models_0";
+import { de_DescribeAccountOverviewCommand, se_DescribeAccountOverviewCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountOverviewCommand}.
  */
 export interface DescribeAccountOverviewCommandInput extends DescribeAccountOverviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountOverviewCommand}.
  */
 export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOverviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> For the time range passed in, returns the number of open reactive insight that were
  * 			created, the number of open proactive insights that were created, and the Mean Time to Recover (MTTR) for all
  * 			closed reactive insights. </p>
@@ -44,10 +41,16 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  * import { DevOpsGuruClient, DescribeAccountOverviewCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeAccountOverviewCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // DescribeAccountOverviewRequest
+ *   FromTime: new Date("TIMESTAMP"), // required
+ *   ToTime: new Date("TIMESTAMP"),
+ * };
  * const command = new DescribeAccountOverviewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountOverviewCommandInput - {@link DescribeAccountOverviewCommandInput}
+ * @returns {@link DescribeAccountOverviewCommandOutput}
  * @see {@link DescribeAccountOverviewCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountOverviewCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -87,6 +90,9 @@ export class DescribeAccountOverviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountOverviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class DescribeAccountOverviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountOverviewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountOverviewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class DescribeAccountOverviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountOverviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccountOverviewCommand(input, context);
+    return se_DescribeAccountOverviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountOverviewCommandOutput> {
-    return deserializeAws_restJson1DescribeAccountOverviewCommand(output, context);
+    return de_DescribeAccountOverviewCommand(output, context);
   }
 
   // Start section: command_body_extra

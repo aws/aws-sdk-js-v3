@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  CreateRouteResponseRequest,
-  CreateRouteResponseRequestFilterSensitiveLog,
-  CreateRouteResponseResponse,
-  CreateRouteResponseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRouteResponseCommand,
-  serializeAws_restJson1CreateRouteResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRouteResponseRequest, CreateRouteResponseResponse } from "../models/models_0";
+import { de_CreateRouteResponseCommand, se_CreateRouteResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRouteResponseCommand}.
  */
 export interface CreateRouteResponseCommandInput extends CreateRouteResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRouteResponseCommand}.
  */
 export interface CreateRouteResponseCommandOutput extends CreateRouteResponseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a RouteResponse for a Route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
  * import { ApiGatewayV2Client, CreateRouteResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateRouteResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // CreateRouteResponseRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   ModelSelectionExpression: "STRING_VALUE",
+ *   ResponseModels: { // RouteModels
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ResponseParameters: { // RouteParameters
+ *     "<keys>": { // ParameterConstraints
+ *       Required: true || false,
+ *     },
+ *   },
+ *   RouteId: "STRING_VALUE", // required
+ *   RouteResponseKey: "STRING_VALUE", // required
+ * };
  * const command = new CreateRouteResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRouteResponseCommandInput - {@link CreateRouteResponseCommandInput}
+ * @returns {@link CreateRouteResponseCommandOutput}
  * @see {@link CreateRouteResponseCommandInput} for command's `input` shape.
  * @see {@link CreateRouteResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
@@ -81,6 +94,9 @@ export class CreateRouteResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRouteResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +125,8 @@ export class CreateRouteResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRouteResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRouteResponseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +136,18 @@ export class CreateRouteResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRouteResponseCommand(input, context);
+    return se_CreateRouteResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteResponseCommandOutput> {
-    return deserializeAws_restJson1CreateRouteResponseCommand(output, context);
+    return de_CreateRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

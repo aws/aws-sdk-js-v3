@@ -15,23 +15,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateMultiRegionAccessPointRequest, CreateMultiRegionAccessPointResult } from "../models/models_0";
 import {
-  CreateMultiRegionAccessPointRequest,
-  CreateMultiRegionAccessPointRequestFilterSensitiveLog,
-  CreateMultiRegionAccessPointResult,
-  CreateMultiRegionAccessPointResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateMultiRegionAccessPointCommand,
-  serializeAws_restXmlCreateMultiRegionAccessPointCommand,
+  de_CreateMultiRegionAccessPointCommand,
+  se_CreateMultiRegionAccessPointCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMultiRegionAccessPointCommand}.
  */
 export interface CreateMultiRegionAccessPointCommandInput extends CreateMultiRegionAccessPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateMultiRegionAccessPointCommand}.
  */
 export interface CreateMultiRegionAccessPointCommandOutput
@@ -39,6 +38,7 @@ export interface CreateMultiRegionAccessPointCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Multi-Region Access Point and associates it with the specified buckets. For more information
  *          about creating Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html">Creating
  *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -78,10 +78,31 @@ export interface CreateMultiRegionAccessPointCommandOutput
  * import { S3ControlClient, CreateMultiRegionAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateMultiRegionAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // CreateMultiRegionAccessPointRequest
+ *   AccountId: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ *   Details: { // CreateMultiRegionAccessPointInput
+ *     Name: "STRING_VALUE", // required
+ *     PublicAccessBlock: { // PublicAccessBlockConfiguration
+ *       BlockPublicAcls: true || false,
+ *       IgnorePublicAcls: true || false,
+ *       BlockPublicPolicy: true || false,
+ *       RestrictPublicBuckets: true || false,
+ *     },
+ *     Regions: [ // RegionCreationList // required
+ *       { // Region
+ *         Bucket: "STRING_VALUE", // required
+ *         BucketAccountId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateMultiRegionAccessPointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMultiRegionAccessPointCommandInput - {@link CreateMultiRegionAccessPointCommandInput}
+ * @returns {@link CreateMultiRegionAccessPointCommandOutput}
  * @see {@link CreateMultiRegionAccessPointCommandInput} for command's `input` shape.
  * @see {@link CreateMultiRegionAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -108,6 +129,9 @@ export class CreateMultiRegionAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMultiRegionAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +162,8 @@ export class CreateMultiRegionAccessPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMultiRegionAccessPointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMultiRegionAccessPointResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,15 +173,21 @@ export class CreateMultiRegionAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMultiRegionAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateMultiRegionAccessPointCommand(input, context);
+    return se_CreateMultiRegionAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMultiRegionAccessPointCommandOutput> {
-    return deserializeAws_restXmlCreateMultiRegionAccessPointCommand(output, context);
+    return de_CreateMultiRegionAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

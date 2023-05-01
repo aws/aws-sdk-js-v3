@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { GetInfrastructureConfigurationRequest, GetInfrastructureConfigurationResponse } from "../models/models_0";
 import {
-  GetInfrastructureConfigurationRequest,
-  GetInfrastructureConfigurationRequestFilterSensitiveLog,
-  GetInfrastructureConfigurationResponse,
-  GetInfrastructureConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetInfrastructureConfigurationCommand,
-  serializeAws_restJson1GetInfrastructureConfigurationCommand,
+  de_GetInfrastructureConfigurationCommand,
+  se_GetInfrastructureConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInfrastructureConfigurationCommand}.
  */
 export interface GetInfrastructureConfigurationCommandInput extends GetInfrastructureConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInfrastructureConfigurationCommand}.
  */
 export interface GetInfrastructureConfigurationCommandOutput
@@ -37,17 +36,23 @@ export interface GetInfrastructureConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p> Gets an infrastructure configuration.</p>
+ * @public
+ * <p>Gets an infrastructure configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, GetInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // GetInfrastructureConfigurationRequest
+ *   infrastructureConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new GetInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInfrastructureConfigurationCommandInput - {@link GetInfrastructureConfigurationCommandInput}
+ * @returns {@link GetInfrastructureConfigurationCommandOutput}
  * @see {@link GetInfrastructureConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetInfrastructureConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -56,18 +61,19 @@ export interface GetInfrastructureConfigurationCommandOutput
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -91,6 +97,9 @@ export class GetInfrastructureConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInfrastructureConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +128,8 @@ export class GetInfrastructureConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInfrastructureConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInfrastructureConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +139,24 @@ export class GetInfrastructureConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetInfrastructureConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInfrastructureConfigurationCommand(input, context);
+    return se_GetInfrastructureConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInfrastructureConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetInfrastructureConfigurationCommand(output, context);
+    return de_GetInfrastructureConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

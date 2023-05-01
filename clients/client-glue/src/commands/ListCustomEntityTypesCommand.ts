@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListCustomEntityTypesRequest,
-  ListCustomEntityTypesRequestFilterSensitiveLog,
-  ListCustomEntityTypesResponse,
-  ListCustomEntityTypesResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1ListCustomEntityTypesCommand,
-  serializeAws_json1_1ListCustomEntityTypesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCustomEntityTypesRequest, ListCustomEntityTypesResponse } from "../models/models_2";
+import { de_ListCustomEntityTypesCommand, se_ListCustomEntityTypesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomEntityTypesCommand}.
  */
 export interface ListCustomEntityTypesCommandInput extends ListCustomEntityTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomEntityTypesCommand}.
  */
 export interface ListCustomEntityTypesCommandOutput extends ListCustomEntityTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the custom patterns that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListCustomEntityTypesCommandOutput extends ListCustomEntityType
  * import { GlueClient, ListCustomEntityTypesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListCustomEntityTypesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // ListCustomEntityTypesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCustomEntityTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomEntityTypesCommandInput - {@link ListCustomEntityTypesCommandInput}
+ * @returns {@link ListCustomEntityTypesCommandOutput}
  * @see {@link ListCustomEntityTypesCommandInput} for command's `input` shape.
  * @see {@link ListCustomEntityTypesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +81,9 @@ export class ListCustomEntityTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomEntityTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +112,8 @@ export class ListCustomEntityTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomEntityTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomEntityTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +123,18 @@ export class ListCustomEntityTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomEntityTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCustomEntityTypesCommand(input, context);
+    return se_ListCustomEntityTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCustomEntityTypesCommandOutput> {
-    return deserializeAws_json1_1ListCustomEntityTypesCommand(output, context);
+    return de_ListCustomEntityTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  DeleteTokenRequest,
-  DeleteTokenRequestFilterSensitiveLog,
-  DeleteTokenResponse,
-  DeleteTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTokenCommand,
-  serializeAws_restJson1DeleteTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteTokenRequest, DeleteTokenResponse } from "../models/models_0";
+import { de_DeleteTokenCommand, se_DeleteTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTokenCommand}.
  */
 export interface DeleteTokenCommandInput extends DeleteTokenRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTokenCommand}.
  */
 export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the challenge token based on the given appId and sessionId.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * import { AmplifyBackendClient, DeleteTokenCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, DeleteTokenCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = { // DeleteTokenRequest
+ *   AppId: "STRING_VALUE", // required
+ *   SessionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTokenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTokenCommandInput - {@link DeleteTokenCommandInput}
+ * @returns {@link DeleteTokenCommandOutput}
  * @see {@link DeleteTokenCommandInput} for command's `input` shape.
  * @see {@link DeleteTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
@@ -81,6 +84,9 @@ export class DeleteTokenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class DeleteTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class DeleteTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTokenCommand(input, context);
+    return se_DeleteTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTokenCommandOutput> {
-    return deserializeAws_restJson1DeleteTokenCommand(output, context);
+    return de_DeleteTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

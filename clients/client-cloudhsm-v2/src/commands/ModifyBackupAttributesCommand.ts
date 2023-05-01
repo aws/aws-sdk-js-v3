@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import {
-  ModifyBackupAttributesRequest,
-  ModifyBackupAttributesRequestFilterSensitiveLog,
-  ModifyBackupAttributesResponse,
-  ModifyBackupAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyBackupAttributesCommand,
-  serializeAws_json1_1ModifyBackupAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { ModifyBackupAttributesRequest, ModifyBackupAttributesResponse } from "../models/models_0";
+import { de_ModifyBackupAttributesCommand, se_ModifyBackupAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyBackupAttributesCommand}.
  */
 export interface ModifyBackupAttributesCommandInput extends ModifyBackupAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyBackupAttributesCommand}.
  */
 export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies attributes for AWS CloudHSM backup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  * import { CloudHSMV2Client, ModifyBackupAttributesCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, ModifyBackupAttributesCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = { // ModifyBackupAttributesRequest
+ *   BackupId: "STRING_VALUE", // required
+ *   NeverExpires: true || false, // required
+ * };
  * const command = new ModifyBackupAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyBackupAttributesCommandInput - {@link ModifyBackupAttributesCommandInput}
+ * @returns {@link ModifyBackupAttributesCommandOutput}
  * @see {@link ModifyBackupAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyBackupAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -87,6 +90,9 @@ export class ModifyBackupAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyBackupAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class ModifyBackupAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyBackupAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyBackupAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class ModifyBackupAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyBackupAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyBackupAttributesCommand(input, context);
+    return se_ModifyBackupAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyBackupAttributesCommandOutput> {
-    return deserializeAws_json1_1ModifyBackupAttributesCommand(output, context);
+    return de_ModifyBackupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

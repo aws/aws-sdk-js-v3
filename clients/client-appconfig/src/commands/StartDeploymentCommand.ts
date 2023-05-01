@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  Deployment,
-  DeploymentFilterSensitiveLog,
-  StartDeploymentRequest,
-  StartDeploymentRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StartDeploymentCommand,
-  serializeAws_restJson1StartDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { Deployment, StartDeploymentRequest } from "../models/models_0";
+import { de_StartDeploymentCommand, se_StartDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartDeploymentCommand}.
  */
 export interface StartDeploymentCommandInput extends StartDeploymentRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDeploymentCommand}.
  */
 export interface StartDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  * import { AppConfigClient, StartDeploymentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, StartDeploymentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // StartDeploymentRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EnvironmentId: "STRING_VALUE", // required
+ *   DeploymentStrategyId: "STRING_VALUE", // required
+ *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   ConfigurationVersion: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KmsKeyIdentifier: "STRING_VALUE",
+ * };
  * const command = new StartDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDeploymentCommandInput - {@link StartDeploymentCommandInput}
+ * @returns {@link StartDeploymentCommandOutput}
  * @see {@link StartDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -126,6 +137,9 @@ export class StartDeploymentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDeploymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +168,8 @@ export class StartDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeploymentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +179,18 @@ export class StartDeploymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartDeploymentCommand(input, context);
+    return se_StartDeploymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeploymentCommandOutput> {
-    return deserializeAws_restJson1StartDeploymentCommand(output, context);
+    return de_StartDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

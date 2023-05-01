@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { PutRecommendationPreferencesRequest, PutRecommendationPreferencesResponse } from "../models/models_0";
 import {
-  PutRecommendationPreferencesRequest,
-  PutRecommendationPreferencesRequestFilterSensitiveLog,
-  PutRecommendationPreferencesResponse,
-  PutRecommendationPreferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0PutRecommendationPreferencesCommand,
-  serializeAws_json1_0PutRecommendationPreferencesCommand,
+  de_PutRecommendationPreferencesCommand,
+  se_PutRecommendationPreferencesCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link PutRecommendationPreferencesCommand}.
  */
 export interface PutRecommendationPreferencesCommandInput extends PutRecommendationPreferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRecommendationPreferencesCommand}.
  */
 export interface PutRecommendationPreferencesCommandOutput
@@ -37,6 +36,7 @@ export interface PutRecommendationPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new recommendation preference or updates an existing recommendation
  *             preference, such as enhanced infrastructure metrics.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
@@ -48,10 +48,24 @@ export interface PutRecommendationPreferencesCommandOutput
  * import { ComputeOptimizerClient, PutRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, PutRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // PutRecommendationPreferencesRequest
+ *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService", // required
+ *   scope: { // Scope
+ *     name: "Organization" || "AccountId" || "ResourceArn",
+ *     value: "STRING_VALUE",
+ *   },
+ *   enhancedInfrastructureMetrics: "Active" || "Inactive",
+ *   inferredWorkloadTypes: "Active" || "Inactive",
+ *   externalMetricsPreference: { // ExternalMetricsPreference
+ *     source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
+ *   },
+ * };
  * const command = new PutRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRecommendationPreferencesCommandInput - {@link PutRecommendationPreferencesCommandInput}
+ * @returns {@link PutRecommendationPreferencesCommandOutput}
  * @see {@link PutRecommendationPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutRecommendationPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -100,6 +114,9 @@ export class PutRecommendationPreferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRecommendationPreferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +145,8 @@ export class PutRecommendationPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecommendationPreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRecommendationPreferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +156,21 @@ export class PutRecommendationPreferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRecommendationPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutRecommendationPreferencesCommand(input, context);
+    return se_PutRecommendationPreferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRecommendationPreferencesCommandOutput> {
-    return deserializeAws_json1_0PutRecommendationPreferencesCommand(output, context);
+    return de_PutRecommendationPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

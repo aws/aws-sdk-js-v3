@@ -3,11 +3,22 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { CleanRoomsServiceException as __BaseException } from "./CleanRoomsServiceException";
 
-export enum AccessDeniedExceptionReason {
-  INSUFFICIENT_PERMISSIONS = "INSUFFICIENT_PERMISSIONS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessDeniedExceptionReason = {
+  INSUFFICIENT_PERMISSIONS: "INSUFFICIENT_PERMISSIONS",
+} as const;
 
 /**
+ * @public
+ */
+export type AccessDeniedExceptionReason =
+  (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
+
+/**
+ * @public
  * <p>Caller does not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -32,15 +43,25 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum AggregateFunctionName {
-  AVG = "AVG",
-  COUNT = "COUNT",
-  COUNT_DISTINCT = "COUNT_DISTINCT",
-  SUM = "SUM",
-  SUM_DISTINCT = "SUM_DISTINCT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AggregateFunctionName = {
+  AVG: "AVG",
+  COUNT: "COUNT",
+  COUNT_DISTINCT: "COUNT_DISTINCT",
+  SUM: "SUM",
+  SUM_DISTINCT: "SUM_DISTINCT",
+} as const;
 
 /**
+ * @public
+ */
+export type AggregateFunctionName = (typeof AggregateFunctionName)[keyof typeof AggregateFunctionName];
+
+/**
+ * @public
  * <p>Column in configured table that can be used in aggregate function in query.</p>
  */
 export interface AggregateColumn {
@@ -55,11 +76,21 @@ export interface AggregateColumn {
   function: AggregateFunctionName | string | undefined;
 }
 
-export enum AggregationType {
-  COUNT_DISTINCT = "COUNT_DISTINCT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AggregationType = {
+  COUNT_DISTINCT: "COUNT_DISTINCT",
+} as const;
 
 /**
+ * @public
+ */
+export type AggregationType = (typeof AggregationType)[keyof typeof AggregationType];
+
+/**
+ * @public
  * <p>Constraint on query output removing output rows that do not meet a minimum number of distinct values of a specified column.</p>
  */
 export interface AggregationConstraint {
@@ -82,31 +113,59 @@ export interface AggregationConstraint {
   type: AggregationType | string | undefined;
 }
 
-export enum AnalysisMethod {
-  DIRECT_QUERY = "DIRECT_QUERY",
-}
-
-export enum JoinRequiredOption {
-  QUERY_RUNNER = "QUERY_RUNNER",
-}
-
-export enum ScalarFunctions {
-  ABS = "ABS",
-  CAST = "CAST",
-  CEILING = "CEILING",
-  COALESCE = "COALESCE",
-  FLOOR = "FLOOR",
-  LN = "LN",
-  LOG = "LOG",
-  LOWER = "LOWER",
-  ROUND = "ROUND",
-  RTRIM = "RTRIM",
-  SQRT = "SQRT",
-  TRUNC = "TRUNC",
-  UPPER = "UPPER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisMethod = {
+  DIRECT_QUERY: "DIRECT_QUERY",
+} as const;
 
 /**
+ * @public
+ */
+export type AnalysisMethod = (typeof AnalysisMethod)[keyof typeof AnalysisMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const JoinRequiredOption = {
+  QUERY_RUNNER: "QUERY_RUNNER",
+} as const;
+
+/**
+ * @public
+ */
+export type JoinRequiredOption = (typeof JoinRequiredOption)[keyof typeof JoinRequiredOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScalarFunctions = {
+  ABS: "ABS",
+  CAST: "CAST",
+  CEILING: "CEILING",
+  COALESCE: "COALESCE",
+  FLOOR: "FLOOR",
+  LN: "LN",
+  LOG: "LOG",
+  LOWER: "LOWER",
+  ROUND: "ROUND",
+  RTRIM: "RTRIM",
+  SQRT: "SQRT",
+  TRUNC: "TRUNC",
+  UPPER: "UPPER",
+} as const;
+
+/**
+ * @public
+ */
+export type ScalarFunctions = (typeof ScalarFunctions)[keyof typeof ScalarFunctions];
+
+/**
+ * @public
  * <p>Enables query structure and specified queries that product aggregate statistics.</p>
  */
 export interface AnalysisRuleAggregation {
@@ -144,6 +203,7 @@ export interface AnalysisRuleAggregation {
 }
 
 /**
+ * @public
  * <p>A type of analysis rule that enables row-level analysis.</p>
  */
 export interface AnalysisRuleList {
@@ -159,6 +219,7 @@ export interface AnalysisRuleList {
 }
 
 /**
+ * @public
  * <p>Controls on the query specifications that can be run on configured table..</p>
  */
 export type AnalysisRulePolicyV1 =
@@ -166,6 +227,9 @@ export type AnalysisRulePolicyV1 =
   | AnalysisRulePolicyV1.ListMember
   | AnalysisRulePolicyV1.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AnalysisRulePolicyV1 {
   /**
    * <p>Analysis rule type that enables only list queries on a configured table.</p>
@@ -205,10 +269,14 @@ export namespace AnalysisRulePolicyV1 {
 }
 
 /**
+ * @public
  * <p>Controls on the query specifications that can be run on configured table..</p>
  */
 export type AnalysisRulePolicy = AnalysisRulePolicy.V1Member | AnalysisRulePolicy.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AnalysisRulePolicy {
   /**
    * <p>Controls on the query specifications that can be run on configured table..</p>
@@ -234,12 +302,22 @@ export namespace AnalysisRulePolicy {
   };
 }
 
-export enum AnalysisRuleType {
-  AGGREGATION = "AGGREGATION",
-  LIST = "LIST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisRuleType = {
+  AGGREGATION: "AGGREGATION",
+  LIST: "LIST",
+} as const;
 
 /**
+ * @public
+ */
+export type AnalysisRuleType = (typeof AnalysisRuleType)[keyof typeof AnalysisRuleType];
+
+/**
+ * @public
  * <p>A specification about how data from the configured table can be used in a query.</p>
  */
 export interface AnalysisRule {
@@ -274,6 +352,9 @@ export interface AnalysisRule {
   policy: AnalysisRulePolicy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetSchemaInput {
   /**
    * <p>A unique identifier for the collaboration that the schemas belong to. Currently accepts
@@ -288,6 +369,7 @@ export interface BatchGetSchemaInput {
 }
 
 /**
+ * @public
  * <p>An error describing why a schema could not be fetched.</p>
  */
 export interface BatchGetSchemaError {
@@ -308,6 +390,7 @@ export interface BatchGetSchemaError {
 }
 
 /**
+ * @public
  * <p>A column within a schema relation, derived from the underlying AWS Glue table.</p>
  */
 export interface Column {
@@ -322,11 +405,21 @@ export interface Column {
   type: string | undefined;
 }
 
-export enum SchemaType {
-  TABLE = "TABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SchemaType = {
+  TABLE: "TABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
+
+/**
+ * @public
  * <p>A schema is a relation within a collaboration.</p>
  */
 export interface Schema {
@@ -393,6 +486,9 @@ export interface Schema {
   type: SchemaType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetSchemaOutput {
   /**
    * <p>The retrieved list of schemas.</p>
@@ -407,6 +503,7 @@ export interface BatchGetSchemaOutput {
 }
 
 /**
+ * @public
  * <p>Unexpected error during processing of request.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -425,14 +522,24 @@ export class InternalServerException extends __BaseException {
   }
 }
 
-export enum ResourceType {
-  COLLABORATION = "COLLABORATION",
-  CONFIGURED_TABLE = "CONFIGURED_TABLE",
-  CONFIGURED_TABLE_ASSOCIATION = "CONFIGURED_TABLE_ASSOCIATION",
-  MEMBERSHIP = "MEMBERSHIP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  COLLABORATION: "COLLABORATION",
+  CONFIGURED_TABLE: "CONFIGURED_TABLE",
+  CONFIGURED_TABLE_ASSOCIATION: "CONFIGURED_TABLE_ASSOCIATION",
+  MEMBERSHIP: "MEMBERSHIP",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>Request references a resource which does not exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -464,6 +571,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -483,6 +591,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Describes validation errors for specific input parameters.</p>
  */
 export interface ValidationExceptionField {
@@ -497,13 +606,23 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  INVALID_CONFIGURATION = "INVALID_CONFIGURATION",
-  INVALID_QUERY = "INVALID_QUERY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  INVALID_CONFIGURATION: "INVALID_CONFIGURATION",
+  INVALID_QUERY: "INVALID_QUERY",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The input fails to satisfy the specified constraints.</p>
  */
 export class ValidationException extends __BaseException {
@@ -534,12 +653,22 @@ export class ValidationException extends __BaseException {
   }
 }
 
-export enum MemberAbility {
-  CAN_QUERY = "CAN_QUERY",
-  CAN_RECEIVE_RESULTS = "CAN_RECEIVE_RESULTS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MemberAbility = {
+  CAN_QUERY: "CAN_QUERY",
+  CAN_RECEIVE_RESULTS: "CAN_RECEIVE_RESULTS",
+} as const;
 
 /**
+ * @public
+ */
+export type MemberAbility = (typeof MemberAbility)[keyof typeof MemberAbility];
+
+/**
+ * @public
  * <p>The settings for client-side encryption for cryptographic computing.</p>
  */
 export interface DataEncryptionMetadata {
@@ -565,6 +694,7 @@ export interface DataEncryptionMetadata {
 }
 
 /**
+ * @public
  * <p>Basic metadata used to construct a new member.</p>
  */
 export interface MemberSpecification {
@@ -584,11 +714,24 @@ export interface MemberSpecification {
   displayName: string | undefined;
 }
 
-export enum CollaborationQueryLogStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CollaborationQueryLogStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
+/**
+ * @public
+ */
+export type CollaborationQueryLogStatus =
+  (typeof CollaborationQueryLogStatus)[keyof typeof CollaborationQueryLogStatus];
+
+/**
+ * @public
+ */
 export interface CreateCollaborationInput {
   /**
    * <p>A list of initial members, not including the creator. This list is immutable.</p>
@@ -635,14 +778,24 @@ export interface CreateCollaborationInput {
   tags?: Record<string, string>;
 }
 
-export enum MemberStatus {
-  ACTIVE = "ACTIVE",
-  INVITED = "INVITED",
-  LEFT = "LEFT",
-  REMOVED = "REMOVED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MemberStatus = {
+  ACTIVE: "ACTIVE",
+  INVITED: "INVITED",
+  LEFT: "LEFT",
+  REMOVED: "REMOVED",
+} as const;
 
 /**
+ * @public
+ */
+export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
+
+/**
+ * @public
  * <p>The multi-party data share environment. The collaboration contains metadata about its purpose and participants.</p>
  */
 export interface Collaboration {
@@ -713,6 +866,9 @@ export interface Collaboration {
   queryLogStatus: CollaborationQueryLogStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateCollaborationOutput {
   /**
    * <p>The entire created collaboration object.</p>
@@ -721,6 +877,7 @@ export interface CreateCollaborationOutput {
 }
 
 /**
+ * @public
  * <p>Request denied because service quota has been exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -751,6 +908,9 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteCollaborationInput {
   /**
    * <p>The identifier for the collaboration.</p>
@@ -758,15 +918,28 @@ export interface DeleteCollaborationInput {
   collaborationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteCollaborationOutput {}
 
-export enum ConflictExceptionReason {
-  ALREADY_EXISTS = "ALREADY_EXISTS",
-  INVALID_STATE = "INVALID_STATE",
-  SUBRESOURCES_EXIST = "SUBRESOURCES_EXIST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConflictExceptionReason = {
+  ALREADY_EXISTS: "ALREADY_EXISTS",
+  INVALID_STATE: "INVALID_STATE",
+  SUBRESOURCES_EXIST: "SUBRESOURCES_EXIST",
+} as const;
 
 /**
+ * @public
+ */
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
+
+/**
+ * @public
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -803,6 +976,9 @@ export class ConflictException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteMemberInput {
   /**
    * <p>The unique identifier for the associated collaboration.</p>
@@ -815,8 +991,14 @@ export interface DeleteMemberInput {
   accountId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMemberOutput {}
 
+/**
+ * @public
+ */
 export interface GetCollaborationInput {
   /**
    * <p>The identifier for the collaboration.</p>
@@ -824,6 +1006,9 @@ export interface GetCollaborationInput {
   collaborationIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetCollaborationOutput {
   /**
    * <p>The entire collaboration for this identifier.</p>
@@ -831,6 +1016,9 @@ export interface GetCollaborationOutput {
   collaboration: Collaboration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaInput {
   /**
    * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts
@@ -844,6 +1032,9 @@ export interface GetSchemaInput {
   name: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaOutput {
   /**
    * <p>The entire schema object.</p>
@@ -851,6 +1042,9 @@ export interface GetSchemaOutput {
   schema: Schema | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaAnalysisRuleInput {
   /**
    * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts
@@ -869,6 +1063,9 @@ export interface GetSchemaAnalysisRuleInput {
   type: AnalysisRuleType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSchemaAnalysisRuleOutput {
   /**
    * <p>A specification about how data from the configured table can be used.</p>
@@ -876,11 +1073,23 @@ export interface GetSchemaAnalysisRuleOutput {
   analysisRule: AnalysisRule | undefined;
 }
 
-export enum FilterableMemberStatus {
-  ACTIVE = "ACTIVE",
-  INVITED = "INVITED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FilterableMemberStatus = {
+  ACTIVE: "ACTIVE",
+  INVITED: "INVITED",
+} as const;
 
+/**
+ * @public
+ */
+export type FilterableMemberStatus = (typeof FilterableMemberStatus)[keyof typeof FilterableMemberStatus];
+
+/**
+ * @public
+ */
 export interface ListCollaborationsInput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -901,6 +1110,7 @@ export interface ListCollaborationsInput {
 }
 
 /**
+ * @public
  * <p>The metadata of the collaboration.</p>
  */
 export interface CollaborationSummary {
@@ -955,6 +1165,9 @@ export interface CollaborationSummary {
   membershipArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListCollaborationsOutput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -967,6 +1180,9 @@ export interface ListCollaborationsOutput {
   collaborationList: CollaborationSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersInput {
   /**
    * <p>The identifier of the collaboration in which the members are listed.</p>
@@ -985,6 +1201,7 @@ export interface ListMembersInput {
 }
 
 /**
+ * @public
  * <p>The member object listed by the request.</p>
  */
 export interface MemberSummary {
@@ -1029,6 +1246,9 @@ export interface MemberSummary {
   membershipArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMembersOutput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -1041,6 +1261,9 @@ export interface ListMembersOutput {
   memberSummaries: MemberSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasInput {
   /**
    * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts
@@ -1065,6 +1288,7 @@ export interface ListSchemasInput {
 }
 
 /**
+ * @public
  * <p>The schema summary for the objects listed by the request.</p>
  */
 export interface SchemaSummary {
@@ -1114,6 +1338,9 @@ export interface SchemaSummary {
   analysisMethod?: AnalysisMethod | string;
 }
 
+/**
+ * @public
+ */
 export interface ListSchemasOutput {
   /**
    * <p>The retrieved list of schemas.</p>
@@ -1126,6 +1353,9 @@ export interface ListSchemasOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCollaborationInput {
   /**
    * <p>The identifier for the collaboration.</p>
@@ -1143,6 +1373,9 @@ export interface UpdateCollaborationInput {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateCollaborationOutput {
   /**
    * <p>The entire collaboration that has been updated.</p>
@@ -1150,6 +1383,9 @@ export interface UpdateCollaborationOutput {
   collaboration: Collaboration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableAssociationInput {
   /**
    * <p>The name of the configured table association. This name is used to query the underlying
@@ -1190,6 +1426,7 @@ export interface CreateConfiguredTableAssociationInput {
 }
 
 /**
+ * @public
  * <p>A configured table association links a configured table to a collaboration.</p>
  */
 export interface ConfiguredTableAssociation {
@@ -1249,6 +1486,9 @@ export interface ConfiguredTableAssociation {
   updateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableAssociationOutput {
   /**
    * <p>The entire configured table association object.</p>
@@ -1256,6 +1496,9 @@ export interface CreateConfiguredTableAssociationOutput {
   configuredTableAssociation: ConfiguredTableAssociation | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfiguredTableAssociationInput {
   /**
    * <p>The unique ID for the configured table association to be deleted. Currently accepts the configured table ID.</p>
@@ -1269,8 +1512,14 @@ export interface DeleteConfiguredTableAssociationInput {
   membershipIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfiguredTableAssociationOutput {}
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableAssociationInput {
   /**
    * <p>The unique ID for the configured table association to retrieve. Currently accepts the configured table ID.</p>
@@ -1284,6 +1533,9 @@ export interface GetConfiguredTableAssociationInput {
   membershipIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableAssociationOutput {
   /**
    * <p>The entire configured table association object.</p>
@@ -1291,6 +1543,9 @@ export interface GetConfiguredTableAssociationOutput {
   configuredTableAssociation: ConfiguredTableAssociation | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListConfiguredTableAssociationsInput {
   /**
    * <p>A unique identifier for the membership to list configured table associations for. Currently accepts the membership ID.</p>
@@ -1309,6 +1564,7 @@ export interface ListConfiguredTableAssociationsInput {
 }
 
 /**
+ * @public
  * <p>The configured table association summary for the objects listed by the request.</p>
  */
 export interface ConfiguredTableAssociationSummary {
@@ -1355,6 +1611,9 @@ export interface ConfiguredTableAssociationSummary {
   arn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListConfiguredTableAssociationsOutput {
   /**
    * <p>The retrieved list of configured table associations.</p>
@@ -1367,6 +1626,9 @@ export interface ListConfiguredTableAssociationsOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableAssociationInput {
   /**
    * <p>The unique identifier for the configured table association to update. Currently accepts the configured table association ID.</p>
@@ -1390,6 +1652,9 @@ export interface UpdateConfiguredTableAssociationInput {
   roleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableAssociationOutput {
   /**
    * <p>The entire updated configured table association.</p>
@@ -1398,6 +1663,7 @@ export interface UpdateConfiguredTableAssociationOutput {
 }
 
 /**
+ * @public
  * <p>A reference to a table within an AWS Glue data catalog.</p>
  */
 export interface GlueTableReference {
@@ -1413,11 +1679,15 @@ export interface GlueTableReference {
 }
 
 /**
+ * @public
  * <p>A pointer to the dataset that underlies this table. Currently, this can only be an AWS
  *          Glue table.</p>
  */
 export type TableReference = TableReference.GlueMember | TableReference.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace TableReference {
   /**
    * <p>If present, a reference to the AWS Glue table referred to by this table
@@ -1444,6 +1714,9 @@ export namespace TableReference {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableInput {
   /**
    * <p>The name of the configured table.</p>
@@ -1479,12 +1752,23 @@ export interface CreateConfiguredTableInput {
   tags?: Record<string, string>;
 }
 
-export enum ConfiguredTableAnalysisRuleType {
-  AGGREGATION = "AGGREGATION",
-  LIST = "LIST",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConfiguredTableAnalysisRuleType = {
+  AGGREGATION: "AGGREGATION",
+  LIST: "LIST",
+} as const;
 
 /**
+ * @public
+ */
+export type ConfiguredTableAnalysisRuleType =
+  (typeof ConfiguredTableAnalysisRuleType)[keyof typeof ConfiguredTableAnalysisRuleType];
+
+/**
+ * @public
  * <p>A table that has been configured for use in a collaboration.</p>
  */
 export interface ConfiguredTable {
@@ -1540,6 +1824,9 @@ export interface ConfiguredTable {
   allowedColumns: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableOutput {
   /**
    * <p>The created configured table.</p>
@@ -1548,6 +1835,7 @@ export interface CreateConfiguredTableOutput {
 }
 
 /**
+ * @public
  * <p>Controls on the query specifications that can be run on a configured table.</p>
  */
 export type ConfiguredTableAnalysisRulePolicyV1 =
@@ -1555,6 +1843,9 @@ export type ConfiguredTableAnalysisRulePolicyV1 =
   | ConfiguredTableAnalysisRulePolicyV1.ListMember
   | ConfiguredTableAnalysisRulePolicyV1.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ConfiguredTableAnalysisRulePolicyV1 {
   /**
    * <p>Analysis rule type that enables only list queries on a configured table.</p>
@@ -1594,12 +1885,16 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
 }
 
 /**
+ * @public
  * <p>Controls on the query specifications that can be run on a configured table.</p>
  */
 export type ConfiguredTableAnalysisRulePolicy =
   | ConfiguredTableAnalysisRulePolicy.V1Member
   | ConfiguredTableAnalysisRulePolicy.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ConfiguredTableAnalysisRulePolicy {
   /**
    * <p>Controls on the query specifications that can be run on a configured table.</p>
@@ -1625,6 +1920,9 @@ export namespace ConfiguredTableAnalysisRulePolicy {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableAnalysisRuleInput {
   /**
    * <p>The identifier for the configured table to create the analysis rule for. Currently accepts the configured table ID. </p>
@@ -1643,6 +1941,7 @@ export interface CreateConfiguredTableAnalysisRuleInput {
 }
 
 /**
+ * @public
  * <p>A configured table analysis rule, which limits how data for this table can be used.</p>
  */
 export interface ConfiguredTableAnalysisRule {
@@ -1677,6 +1976,9 @@ export interface ConfiguredTableAnalysisRule {
   updateTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateConfiguredTableAnalysisRuleOutput {
   /**
    * <p>The entire created analysis rule.</p>
@@ -1684,6 +1986,9 @@ export interface CreateConfiguredTableAnalysisRuleOutput {
   analysisRule: ConfiguredTableAnalysisRule | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteConfiguredTableInput {
   /**
    * <p>The unique ID for the configured table to delete.</p>
@@ -1692,10 +1997,14 @@ export interface DeleteConfiguredTableInput {
 }
 
 /**
+ * @public
  * <p>The empty output for a successful deletion.</p>
  */
 export interface DeleteConfiguredTableOutput {}
 
+/**
+ * @public
+ */
 export interface DeleteConfiguredTableAnalysisRuleInput {
   /**
    * <p>The unique identifier for the configured table that the analysis rule applies to.
@@ -1710,10 +2019,14 @@ export interface DeleteConfiguredTableAnalysisRuleInput {
 }
 
 /**
+ * @public
  * <p>An empty response that indicates a successful delete.</p>
  */
 export interface DeleteConfiguredTableAnalysisRuleOutput {}
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableInput {
   /**
    * <p>The unique ID for the configured table to retrieve.</p>
@@ -1721,6 +2034,9 @@ export interface GetConfiguredTableInput {
   configuredTableIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableOutput {
   /**
    * <p>The retrieved configured table.</p>
@@ -1728,6 +2044,9 @@ export interface GetConfiguredTableOutput {
   configuredTable: ConfiguredTable | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableAnalysisRuleInput {
   /**
    * <p>The unique identifier for the configured table to retrieve. Currently accepts the configured table ID.</p>
@@ -1740,6 +2059,9 @@ export interface GetConfiguredTableAnalysisRuleInput {
   analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetConfiguredTableAnalysisRuleOutput {
   /**
    * <p>The entire analysis rule output.</p>
@@ -1747,6 +2069,9 @@ export interface GetConfiguredTableAnalysisRuleOutput {
   analysisRule: ConfiguredTableAnalysisRule | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListConfiguredTablesInput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -1760,6 +2085,7 @@ export interface ListConfiguredTablesInput {
 }
 
 /**
+ * @public
  * <p>The configured table summary for the objects listed by the request.</p>
  */
 export interface ConfiguredTableSummary {
@@ -1799,6 +2125,9 @@ export interface ConfiguredTableSummary {
   analysisMethod: AnalysisMethod | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListConfiguredTablesOutput {
   /**
    * <p>The configured tables listed by the request.</p>
@@ -1811,6 +2140,9 @@ export interface ListConfiguredTablesOutput {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableInput {
   /**
    * <p>The identifier for the configured table to update. Currently accepts the configured table ID.</p>
@@ -1828,6 +2160,9 @@ export interface UpdateConfiguredTableInput {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableOutput {
   /**
    * <p>The updated configured table.</p>
@@ -1835,6 +2170,9 @@ export interface UpdateConfiguredTableOutput {
   configuredTable: ConfiguredTable | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableAnalysisRuleInput {
   /**
    * <p>The unique identifier for the configured table that the analysis rule applies to.
@@ -1853,6 +2191,9 @@ export interface UpdateConfiguredTableAnalysisRuleInput {
   analysisRulePolicy: ConfiguredTableAnalysisRulePolicy | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateConfiguredTableAnalysisRuleOutput {
   /**
    * <p>The entire updated analysis rule.</p>
@@ -1860,6 +2201,9 @@ export interface UpdateConfiguredTableAnalysisRuleOutput {
   analysisRule: ConfiguredTableAnalysisRule | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the resource you want to list tags on.</p>
@@ -1867,6 +2211,9 @@ export interface ListTagsForResourceInput {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
    * <p>A map of objects specifying each key name and value.</p>
@@ -1874,11 +2221,23 @@ export interface ListTagsForResourceOutput {
   tags: Record<string, string> | undefined;
 }
 
-export enum MembershipQueryLogStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MembershipQueryLogStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
+/**
+ * @public
+ */
+export type MembershipQueryLogStatus = (typeof MembershipQueryLogStatus)[keyof typeof MembershipQueryLogStatus];
+
+/**
+ * @public
+ */
 export interface CreateMembershipInput {
   /**
    * <p>The unique ID for the associated collaboration.</p>
@@ -1900,13 +2259,23 @@ export interface CreateMembershipInput {
   tags?: Record<string, string>;
 }
 
-export enum MembershipStatus {
-  ACTIVE = "ACTIVE",
-  COLLABORATION_DELETED = "COLLABORATION_DELETED",
-  REMOVED = "REMOVED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MembershipStatus = {
+  ACTIVE: "ACTIVE",
+  COLLABORATION_DELETED: "COLLABORATION_DELETED",
+  REMOVED: "REMOVED",
+} as const;
 
 /**
+ * @public
+ */
+export type MembershipStatus = (typeof MembershipStatus)[keyof typeof MembershipStatus];
+
+/**
+ * @public
  * <p>The membership object.</p>
  */
 export interface Membership {
@@ -1972,6 +2341,9 @@ export interface Membership {
   queryLogStatus: MembershipQueryLogStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateMembershipOutput {
   /**
    * <p>The membership that was created.</p>
@@ -1979,6 +2351,9 @@ export interface CreateMembershipOutput {
   membership: Membership | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMembershipInput {
   /**
    * <p>The identifier for a membership resource.</p>
@@ -1986,8 +2361,14 @@ export interface DeleteMembershipInput {
   membershipIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMembershipOutput {}
 
+/**
+ * @public
+ */
 export interface GetMembershipInput {
   /**
    * <p>The identifier for a membership resource.</p>
@@ -1995,6 +2376,9 @@ export interface GetMembershipInput {
   membershipIdentifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetMembershipOutput {
   /**
    * <p>The membership retrieved for the provided identifier.</p>
@@ -2002,6 +2386,9 @@ export interface GetMembershipOutput {
   membership: Membership | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetProtectedQueryInput {
   /**
    * <p>The identifier for a membership in a protected query instance.</p>
@@ -2015,6 +2402,7 @@ export interface GetProtectedQueryInput {
 }
 
 /**
+ * @public
  * <p>Details of errors thrown by the protected query.</p>
  */
 export interface ProtectedQueryError {
@@ -2030,6 +2418,7 @@ export interface ProtectedQueryError {
 }
 
 /**
+ * @public
  * <p>Contains output information for protected queries with an S3 output type.</p>
  */
 export interface ProtectedQueryS3Output {
@@ -2040,10 +2429,14 @@ export interface ProtectedQueryS3Output {
 }
 
 /**
+ * @public
  * <p>Contains details about the protected query output.</p>
  */
 export type ProtectedQueryOutput = ProtectedQueryOutput.S3Member | ProtectedQueryOutput.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ProtectedQueryOutput {
   /**
    * <p>If present, the output for a protected query with an `S3` output type.</p>
@@ -2070,6 +2463,7 @@ export namespace ProtectedQueryOutput {
 }
 
 /**
+ * @public
  * <p>Details about the query results.</p>
  */
 export interface ProtectedQueryResult {
@@ -2079,12 +2473,22 @@ export interface ProtectedQueryResult {
   output: ProtectedQueryOutput | undefined;
 }
 
-export enum ResultFormat {
-  CSV = "CSV",
-  PARQUET = "PARQUET",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResultFormat = {
+  CSV: "CSV",
+  PARQUET: "PARQUET",
+} as const;
 
 /**
+ * @public
+ */
+export type ResultFormat = (typeof ResultFormat)[keyof typeof ResultFormat];
+
+/**
+ * @public
  * <p>Contains the configuration to write the query results to S3.</p>
  */
 export interface ProtectedQueryS3OutputConfiguration {
@@ -2105,12 +2509,16 @@ export interface ProtectedQueryS3OutputConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains configuration details for protected query output.</p>
  */
 export type ProtectedQueryOutputConfiguration =
   | ProtectedQueryOutputConfiguration.S3Member
   | ProtectedQueryOutputConfiguration.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace ProtectedQueryOutputConfiguration {
   /**
    * <p>Required configuration for a protected query with an `S3` output type.</p>
@@ -2137,6 +2545,7 @@ export namespace ProtectedQueryOutputConfiguration {
 }
 
 /**
+ * @public
  * <p>Contains configurations for protected query results.</p>
  */
 export interface ProtectedQueryResultConfiguration {
@@ -2147,6 +2556,7 @@ export interface ProtectedQueryResultConfiguration {
 }
 
 /**
+ * @public
  * <p>The parameters for the SQL type Protected Query.</p>
  */
 export interface ProtectedQuerySQLParameters {
@@ -2157,6 +2567,7 @@ export interface ProtectedQuerySQLParameters {
 }
 
 /**
+ * @public
  * <p>Contains statistics about the execution of the protected query.</p>
  */
 export interface ProtectedQueryStatistics {
@@ -2166,17 +2577,27 @@ export interface ProtectedQueryStatistics {
   totalDurationInMillis?: number;
 }
 
-export enum ProtectedQueryStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  FAILED = "FAILED",
-  STARTED = "STARTED",
-  SUBMITTED = "SUBMITTED",
-  SUCCESS = "SUCCESS",
-  TIMED_OUT = "TIMED_OUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProtectedQueryStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  STARTED: "STARTED",
+  SUBMITTED: "SUBMITTED",
+  SUCCESS: "SUCCESS",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
 
 /**
+ * @public
+ */
+export type ProtectedQueryStatus = (typeof ProtectedQueryStatus)[keyof typeof ProtectedQueryStatus];
+
+/**
+ * @public
  * <p>The parameters for an AWS Clean Rooms protected query.</p>
  */
 export interface ProtectedQuery {
@@ -2231,6 +2652,9 @@ export interface ProtectedQuery {
   error?: ProtectedQueryError;
 }
 
+/**
+ * @public
+ */
 export interface GetProtectedQueryOutput {
   /**
    * <p>The query processing metadata.</p>
@@ -2238,6 +2662,9 @@ export interface GetProtectedQueryOutput {
   protectedQuery: ProtectedQuery | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMembershipsInput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -2256,6 +2683,7 @@ export interface ListMembershipsInput {
 }
 
 /**
+ * @public
  * <p>The membership object listed by the request.</p>
  */
 export interface MembershipSummary {
@@ -2315,6 +2743,9 @@ export interface MembershipSummary {
   memberAbilities: (MemberAbility | string)[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListMembershipsOutput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -2327,6 +2758,9 @@ export interface ListMembershipsOutput {
   membershipSummaries: MembershipSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProtectedQueriesInput {
   /**
    * <p>The identifier for the membership in the collaboration.</p>
@@ -2352,6 +2786,7 @@ export interface ListProtectedQueriesInput {
 }
 
 /**
+ * @public
  * <p>The protected query summary for the objects listed by the request.</p>
  */
 export interface ProtectedQuerySummary {
@@ -2381,6 +2816,9 @@ export interface ProtectedQuerySummary {
   status: ProtectedQueryStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListProtectedQueriesOutput {
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -2393,10 +2831,22 @@ export interface ListProtectedQueriesOutput {
   protectedQueries: ProtectedQuerySummary[] | undefined;
 }
 
-export enum ProtectedQueryType {
-  SQL = "SQL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProtectedQueryType = {
+  SQL: "SQL",
+} as const;
 
+/**
+ * @public
+ */
+export type ProtectedQueryType = (typeof ProtectedQueryType)[keyof typeof ProtectedQueryType];
+
+/**
+ * @public
+ */
 export interface StartProtectedQueryInput {
   /**
    * <p>The type of the protected query to be started.</p>
@@ -2419,6 +2869,9 @@ export interface StartProtectedQueryInput {
   resultConfiguration: ProtectedQueryResultConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartProtectedQueryOutput {
   /**
    * <p>The protected query.</p>
@@ -2426,6 +2879,9 @@ export interface StartProtectedQueryOutput {
   protectedQuery: ProtectedQuery | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMembershipInput {
   /**
    * <p>The unique identifier of the membership.</p>
@@ -2439,6 +2895,9 @@ export interface UpdateMembershipInput {
   queryLogStatus?: MembershipQueryLogStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMembershipOutput {
   /**
    * <p>The membership object.</p>
@@ -2446,10 +2905,22 @@ export interface UpdateMembershipOutput {
   membership: Membership | undefined;
 }
 
-export enum TargetProtectedQueryStatus {
-  CANCELLED = "CANCELLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetProtectedQueryStatus = {
+  CANCELLED: "CANCELLED",
+} as const;
 
+/**
+ * @public
+ */
+export type TargetProtectedQueryStatus = (typeof TargetProtectedQueryStatus)[keyof typeof TargetProtectedQueryStatus];
+
+/**
+ * @public
+ */
 export interface UpdateProtectedQueryInput {
   /**
    * <p>The identifier for a member of a protected query instance.</p>
@@ -2467,6 +2938,9 @@ export interface UpdateProtectedQueryInput {
   targetStatus: TargetProtectedQueryStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProtectedQueryOutput {
   /**
    * <p>The protected query output.</p>
@@ -2474,6 +2948,9 @@ export interface UpdateProtectedQueryOutput {
   protectedQuery: ProtectedQuery | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the resource you want to tag.</p>
@@ -2486,8 +2963,14 @@ export interface TagResourceInput {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceOutput {}
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.</p>
@@ -2500,726 +2983,10 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceOutput {}
-
-/**
- * @internal
- */
-export const AggregateColumnFilterSensitiveLog = (obj: AggregateColumn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AggregationConstraintFilterSensitiveLog = (obj: AggregationConstraint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisRuleAggregationFilterSensitiveLog = (obj: AnalysisRuleAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisRuleListFilterSensitiveLog = (obj: AnalysisRuleList): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisRulePolicyV1FilterSensitiveLog = (obj: AnalysisRulePolicyV1): any => {
-  if (obj.list !== undefined) return { list: AnalysisRuleListFilterSensitiveLog(obj.list) };
-  if (obj.aggregation !== undefined) return { aggregation: AnalysisRuleAggregationFilterSensitiveLog(obj.aggregation) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const AnalysisRulePolicyFilterSensitiveLog = (obj: AnalysisRulePolicy): any => {
-  if (obj.v1 !== undefined) return { v1: AnalysisRulePolicyV1FilterSensitiveLog(obj.v1) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const AnalysisRuleFilterSensitiveLog = (obj: AnalysisRule): any => ({
-  ...obj,
-  ...(obj.policy && { policy: AnalysisRulePolicyFilterSensitiveLog(obj.policy) }),
-});
-
-/**
- * @internal
- */
-export const BatchGetSchemaInputFilterSensitiveLog = (obj: BatchGetSchemaInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetSchemaErrorFilterSensitiveLog = (obj: BatchGetSchemaError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnFilterSensitiveLog = (obj: Column): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaFilterSensitiveLog = (obj: Schema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetSchemaOutputFilterSensitiveLog = (obj: BatchGetSchemaOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataEncryptionMetadataFilterSensitiveLog = (obj: DataEncryptionMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberSpecificationFilterSensitiveLog = (obj: MemberSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCollaborationInputFilterSensitiveLog = (obj: CreateCollaborationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollaborationFilterSensitiveLog = (obj: Collaboration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCollaborationOutputFilterSensitiveLog = (obj: CreateCollaborationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCollaborationInputFilterSensitiveLog = (obj: DeleteCollaborationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCollaborationOutputFilterSensitiveLog = (obj: DeleteCollaborationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMemberInputFilterSensitiveLog = (obj: DeleteMemberInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMemberOutputFilterSensitiveLog = (obj: DeleteMemberOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCollaborationInputFilterSensitiveLog = (obj: GetCollaborationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCollaborationOutputFilterSensitiveLog = (obj: GetCollaborationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaInputFilterSensitiveLog = (obj: GetSchemaInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaOutputFilterSensitiveLog = (obj: GetSchemaOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaAnalysisRuleInputFilterSensitiveLog = (obj: GetSchemaAnalysisRuleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSchemaAnalysisRuleOutputFilterSensitiveLog = (obj: GetSchemaAnalysisRuleOutput): any => ({
-  ...obj,
-  ...(obj.analysisRule && { analysisRule: AnalysisRuleFilterSensitiveLog(obj.analysisRule) }),
-});
-
-/**
- * @internal
- */
-export const ListCollaborationsInputFilterSensitiveLog = (obj: ListCollaborationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CollaborationSummaryFilterSensitiveLog = (obj: CollaborationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCollaborationsOutputFilterSensitiveLog = (obj: ListCollaborationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersInputFilterSensitiveLog = (obj: ListMembersInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberSummaryFilterSensitiveLog = (obj: MemberSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembersOutputFilterSensitiveLog = (obj: ListMembersOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchemasInputFilterSensitiveLog = (obj: ListSchemasInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaSummaryFilterSensitiveLog = (obj: SchemaSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSchemasOutputFilterSensitiveLog = (obj: ListSchemasOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCollaborationInputFilterSensitiveLog = (obj: UpdateCollaborationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCollaborationOutputFilterSensitiveLog = (obj: UpdateCollaborationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfiguredTableAssociationInputFilterSensitiveLog = (
-  obj: CreateConfiguredTableAssociationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfiguredTableAssociationFilterSensitiveLog = (obj: ConfiguredTableAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateConfiguredTableAssociationOutputFilterSensitiveLog = (
-  obj: CreateConfiguredTableAssociationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfiguredTableAssociationInputFilterSensitiveLog = (
-  obj: DeleteConfiguredTableAssociationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfiguredTableAssociationOutputFilterSensitiveLog = (
-  obj: DeleteConfiguredTableAssociationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfiguredTableAssociationInputFilterSensitiveLog = (obj: GetConfiguredTableAssociationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfiguredTableAssociationOutputFilterSensitiveLog = (
-  obj: GetConfiguredTableAssociationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfiguredTableAssociationsInputFilterSensitiveLog = (
-  obj: ListConfiguredTableAssociationsInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfiguredTableAssociationSummaryFilterSensitiveLog = (obj: ConfiguredTableAssociationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfiguredTableAssociationsOutputFilterSensitiveLog = (
-  obj: ListConfiguredTableAssociationsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfiguredTableAssociationInputFilterSensitiveLog = (
-  obj: UpdateConfiguredTableAssociationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfiguredTableAssociationOutputFilterSensitiveLog = (
-  obj: UpdateConfiguredTableAssociationOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlueTableReferenceFilterSensitiveLog = (obj: GlueTableReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableReferenceFilterSensitiveLog = (obj: TableReference): any => {
-  if (obj.glue !== undefined) return { glue: GlueTableReferenceFilterSensitiveLog(obj.glue) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateConfiguredTableInputFilterSensitiveLog = (obj: CreateConfiguredTableInput): any => ({
-  ...obj,
-  ...(obj.tableReference && { tableReference: TableReferenceFilterSensitiveLog(obj.tableReference) }),
-});
-
-/**
- * @internal
- */
-export const ConfiguredTableFilterSensitiveLog = (obj: ConfiguredTable): any => ({
-  ...obj,
-  ...(obj.tableReference && { tableReference: TableReferenceFilterSensitiveLog(obj.tableReference) }),
-});
-
-/**
- * @internal
- */
-export const CreateConfiguredTableOutputFilterSensitiveLog = (obj: CreateConfiguredTableOutput): any => ({
-  ...obj,
-  ...(obj.configuredTable && { configuredTable: ConfiguredTableFilterSensitiveLog(obj.configuredTable) }),
-});
-
-/**
- * @internal
- */
-export const ConfiguredTableAnalysisRulePolicyV1FilterSensitiveLog = (
-  obj: ConfiguredTableAnalysisRulePolicyV1
-): any => {
-  if (obj.list !== undefined) return { list: AnalysisRuleListFilterSensitiveLog(obj.list) };
-  if (obj.aggregation !== undefined) return { aggregation: AnalysisRuleAggregationFilterSensitiveLog(obj.aggregation) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ConfiguredTableAnalysisRulePolicyFilterSensitiveLog = (obj: ConfiguredTableAnalysisRulePolicy): any => {
-  if (obj.v1 !== undefined) return { v1: ConfiguredTableAnalysisRulePolicyV1FilterSensitiveLog(obj.v1) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const CreateConfiguredTableAnalysisRuleInputFilterSensitiveLog = (
-  obj: CreateConfiguredTableAnalysisRuleInput
-): any => ({
-  ...obj,
-  ...(obj.analysisRulePolicy && {
-    analysisRulePolicy: ConfiguredTableAnalysisRulePolicyFilterSensitiveLog(obj.analysisRulePolicy),
-  }),
-});
-
-/**
- * @internal
- */
-export const ConfiguredTableAnalysisRuleFilterSensitiveLog = (obj: ConfiguredTableAnalysisRule): any => ({
-  ...obj,
-  ...(obj.policy && { policy: ConfiguredTableAnalysisRulePolicyFilterSensitiveLog(obj.policy) }),
-});
-
-/**
- * @internal
- */
-export const CreateConfiguredTableAnalysisRuleOutputFilterSensitiveLog = (
-  obj: CreateConfiguredTableAnalysisRuleOutput
-): any => ({
-  ...obj,
-  ...(obj.analysisRule && { analysisRule: ConfiguredTableAnalysisRuleFilterSensitiveLog(obj.analysisRule) }),
-});
-
-/**
- * @internal
- */
-export const DeleteConfiguredTableInputFilterSensitiveLog = (obj: DeleteConfiguredTableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfiguredTableOutputFilterSensitiveLog = (obj: DeleteConfiguredTableOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfiguredTableAnalysisRuleInputFilterSensitiveLog = (
-  obj: DeleteConfiguredTableAnalysisRuleInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteConfiguredTableAnalysisRuleOutputFilterSensitiveLog = (
-  obj: DeleteConfiguredTableAnalysisRuleOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfiguredTableInputFilterSensitiveLog = (obj: GetConfiguredTableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfiguredTableOutputFilterSensitiveLog = (obj: GetConfiguredTableOutput): any => ({
-  ...obj,
-  ...(obj.configuredTable && { configuredTable: ConfiguredTableFilterSensitiveLog(obj.configuredTable) }),
-});
-
-/**
- * @internal
- */
-export const GetConfiguredTableAnalysisRuleInputFilterSensitiveLog = (
-  obj: GetConfiguredTableAnalysisRuleInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConfiguredTableAnalysisRuleOutputFilterSensitiveLog = (
-  obj: GetConfiguredTableAnalysisRuleOutput
-): any => ({
-  ...obj,
-  ...(obj.analysisRule && { analysisRule: ConfiguredTableAnalysisRuleFilterSensitiveLog(obj.analysisRule) }),
-});
-
-/**
- * @internal
- */
-export const ListConfiguredTablesInputFilterSensitiveLog = (obj: ListConfiguredTablesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfiguredTableSummaryFilterSensitiveLog = (obj: ConfiguredTableSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListConfiguredTablesOutputFilterSensitiveLog = (obj: ListConfiguredTablesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfiguredTableInputFilterSensitiveLog = (obj: UpdateConfiguredTableInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateConfiguredTableOutputFilterSensitiveLog = (obj: UpdateConfiguredTableOutput): any => ({
-  ...obj,
-  ...(obj.configuredTable && { configuredTable: ConfiguredTableFilterSensitiveLog(obj.configuredTable) }),
-});
-
-/**
- * @internal
- */
-export const UpdateConfiguredTableAnalysisRuleInputFilterSensitiveLog = (
-  obj: UpdateConfiguredTableAnalysisRuleInput
-): any => ({
-  ...obj,
-  ...(obj.analysisRulePolicy && {
-    analysisRulePolicy: ConfiguredTableAnalysisRulePolicyFilterSensitiveLog(obj.analysisRulePolicy),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateConfiguredTableAnalysisRuleOutputFilterSensitiveLog = (
-  obj: UpdateConfiguredTableAnalysisRuleOutput
-): any => ({
-  ...obj,
-  ...(obj.analysisRule && { analysisRule: ConfiguredTableAnalysisRuleFilterSensitiveLog(obj.analysisRule) }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMembershipInputFilterSensitiveLog = (obj: CreateMembershipInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MembershipFilterSensitiveLog = (obj: Membership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateMembershipOutputFilterSensitiveLog = (obj: CreateMembershipOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMembershipInputFilterSensitiveLog = (obj: DeleteMembershipInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMembershipOutputFilterSensitiveLog = (obj: DeleteMembershipOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMembershipInputFilterSensitiveLog = (obj: GetMembershipInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMembershipOutputFilterSensitiveLog = (obj: GetMembershipOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProtectedQueryInputFilterSensitiveLog = (obj: GetProtectedQueryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectedQueryErrorFilterSensitiveLog = (obj: ProtectedQueryError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectedQueryS3OutputFilterSensitiveLog = (obj: ProtectedQueryS3Output): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectedQueryOutputFilterSensitiveLog = (obj: ProtectedQueryOutput): any => {
-  if (obj.s3 !== undefined) return { s3: ProtectedQueryS3OutputFilterSensitiveLog(obj.s3) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ProtectedQueryResultFilterSensitiveLog = (obj: ProtectedQueryResult): any => ({
-  ...obj,
-  ...(obj.output && { output: ProtectedQueryOutputFilterSensitiveLog(obj.output) }),
-});
-
-/**
- * @internal
- */
-export const ProtectedQueryS3OutputConfigurationFilterSensitiveLog = (
-  obj: ProtectedQueryS3OutputConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectedQueryOutputConfigurationFilterSensitiveLog = (obj: ProtectedQueryOutputConfiguration): any => {
-  if (obj.s3 !== undefined) return { s3: ProtectedQueryS3OutputConfigurationFilterSensitiveLog(obj.s3) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ProtectedQueryResultConfigurationFilterSensitiveLog = (obj: ProtectedQueryResultConfiguration): any => ({
-  ...obj,
-  ...(obj.outputConfiguration && {
-    outputConfiguration: ProtectedQueryOutputConfigurationFilterSensitiveLog(obj.outputConfiguration),
-  }),
-});
 
 /**
  * @internal
@@ -3231,20 +2998,11 @@ export const ProtectedQuerySQLParametersFilterSensitiveLog = (obj: ProtectedQuer
 /**
  * @internal
  */
-export const ProtectedQueryStatisticsFilterSensitiveLog = (obj: ProtectedQueryStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ProtectedQueryFilterSensitiveLog = (obj: ProtectedQuery): any => ({
   ...obj,
   ...(obj.sqlParameters && { sqlParameters: SENSITIVE_STRING }),
-  ...(obj.resultConfiguration && {
-    resultConfiguration: ProtectedQueryResultConfigurationFilterSensitiveLog(obj.resultConfiguration),
-  }),
-  ...(obj.result && { result: ProtectedQueryResultFilterSensitiveLog(obj.result) }),
+  ...(obj.resultConfiguration && { resultConfiguration: obj.resultConfiguration }),
+  ...(obj.result && { result: obj.result }),
 });
 
 /**
@@ -3258,54 +3016,10 @@ export const GetProtectedQueryOutputFilterSensitiveLog = (obj: GetProtectedQuery
 /**
  * @internal
  */
-export const ListMembershipsInputFilterSensitiveLog = (obj: ListMembershipsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MembershipSummaryFilterSensitiveLog = (obj: MembershipSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMembershipsOutputFilterSensitiveLog = (obj: ListMembershipsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProtectedQueriesInputFilterSensitiveLog = (obj: ListProtectedQueriesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectedQuerySummaryFilterSensitiveLog = (obj: ProtectedQuerySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProtectedQueriesOutputFilterSensitiveLog = (obj: ListProtectedQueriesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartProtectedQueryInputFilterSensitiveLog = (obj: StartProtectedQueryInput): any => ({
   ...obj,
   ...(obj.sqlParameters && { sqlParameters: SENSITIVE_STRING }),
-  ...(obj.resultConfiguration && {
-    resultConfiguration: ProtectedQueryResultConfigurationFilterSensitiveLog(obj.resultConfiguration),
-  }),
+  ...(obj.resultConfiguration && { resultConfiguration: obj.resultConfiguration }),
 });
 
 /**
@@ -3319,56 +3033,7 @@ export const StartProtectedQueryOutputFilterSensitiveLog = (obj: StartProtectedQ
 /**
  * @internal
  */
-export const UpdateMembershipInputFilterSensitiveLog = (obj: UpdateMembershipInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMembershipOutputFilterSensitiveLog = (obj: UpdateMembershipOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProtectedQueryInputFilterSensitiveLog = (obj: UpdateProtectedQueryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateProtectedQueryOutputFilterSensitiveLog = (obj: UpdateProtectedQueryOutput): any => ({
   ...obj,
   ...(obj.protectedQuery && { protectedQuery: ProtectedQueryFilterSensitiveLog(obj.protectedQuery) }),
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
 });

@@ -10,7 +10,7 @@ import { EFSClient } from "../EFSClient";
 import { EFSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EFSClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeTagsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeTags(
   config: EFSPaginationConfiguration,
   input: DescribeTagsCommandInput,

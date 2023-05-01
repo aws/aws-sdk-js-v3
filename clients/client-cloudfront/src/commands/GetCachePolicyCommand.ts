@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetCachePolicyRequest,
-  GetCachePolicyRequestFilterSensitiveLog,
-  GetCachePolicyResult,
-  GetCachePolicyResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetCachePolicyCommand,
-  serializeAws_restXmlGetCachePolicyCommand,
-} from "../protocols/Aws_restXml";
+import { GetCachePolicyRequest, GetCachePolicyResult } from "../models/models_1";
+import { de_GetCachePolicyCommand, se_GetCachePolicyCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetCachePolicyCommand}.
  */
 export interface GetCachePolicyCommandInput extends GetCachePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCachePolicyCommand}.
  */
 export interface GetCachePolicyCommandOutput extends GetCachePolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a cache policy, including the following metadata:</p>
  *          <ul>
  *             <li>
@@ -55,10 +52,15 @@ export interface GetCachePolicyCommandOutput extends GetCachePolicyResult, __Met
  * import { CloudFrontClient, GetCachePolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetCachePolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetCachePolicyRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetCachePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCachePolicyCommandInput - {@link GetCachePolicyCommandInput}
+ * @returns {@link GetCachePolicyCommandOutput}
  * @see {@link GetCachePolicyCommandInput} for command's `input` shape.
  * @see {@link GetCachePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -88,6 +90,9 @@ export class GetCachePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCachePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class GetCachePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCachePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCachePolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class GetCachePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCachePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetCachePolicyCommand(input, context);
+    return se_GetCachePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCachePolicyCommandOutput> {
-    return deserializeAws_restXmlGetCachePolicyCommand(output, context);
+    return de_GetCachePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

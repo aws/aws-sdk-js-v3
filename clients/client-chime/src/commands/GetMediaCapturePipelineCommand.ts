@@ -16,25 +16,26 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetMediaCapturePipelineRequest,
-  GetMediaCapturePipelineRequestFilterSensitiveLog,
   GetMediaCapturePipelineResponse,
   GetMediaCapturePipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMediaCapturePipelineCommand,
-  serializeAws_restJson1GetMediaCapturePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMediaCapturePipelineCommand, se_GetMediaCapturePipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMediaCapturePipelineCommand}.
  */
 export interface GetMediaCapturePipelineCommandInput extends GetMediaCapturePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMediaCapturePipelineCommand}.
  */
 export interface GetMediaCapturePipelineCommandOutput extends GetMediaCapturePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets an existing media capture pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface GetMediaCapturePipelineCommandOutput extends GetMediaCapturePip
  * import { ChimeClient, GetMediaCapturePipelineCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetMediaCapturePipelineCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // GetMediaCapturePipelineRequest
+ *   MediaPipelineId: "STRING_VALUE", // required
+ * };
  * const command = new GetMediaCapturePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMediaCapturePipelineCommandInput - {@link GetMediaCapturePipelineCommandInput}
+ * @returns {@link GetMediaCapturePipelineCommandOutput}
  * @see {@link GetMediaCapturePipelineCommandInput} for command's `input` shape.
  * @see {@link GetMediaCapturePipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +96,9 @@ export class GetMediaCapturePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMediaCapturePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +127,7 @@ export class GetMediaCapturePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMediaCapturePipelineRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMediaCapturePipelineResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -129,12 +138,18 @@ export class GetMediaCapturePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMediaCapturePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMediaCapturePipelineCommand(input, context);
+    return se_GetMediaCapturePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMediaCapturePipelineCommandOutput> {
-    return deserializeAws_restJson1GetMediaCapturePipelineCommand(output, context);
+    return de_GetMediaCapturePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

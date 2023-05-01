@@ -14,45 +14,78 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  CreateLocationS3Request,
-  CreateLocationS3RequestFilterSensitiveLog,
-  CreateLocationS3Response,
-  CreateLocationS3ResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationS3Command,
-  serializeAws_json1_1CreateLocationS3Command,
-} from "../protocols/Aws_json1_1";
+import { CreateLocationS3Request, CreateLocationS3Response } from "../models/models_0";
+import { de_CreateLocationS3Command, se_CreateLocationS3Command } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocationS3Command}.
  */
 export interface CreateLocationS3CommandInput extends CreateLocationS3Request {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocationS3Command}.
  */
 export interface CreateLocationS3CommandOutput extends CreateLocationS3Response, __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can
- *       access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>.</p>
+ * @public
+ * <p>A <i>location</i> is an endpoint for an Amazon S3 bucket. DataSync can use the location as a source or destination for copying data.</p>
+ *          <important>
+ *             <p>Before you create your location, make sure that you read the following sections:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
+ *               class considerations with Amazon S3 locations</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests">Evaluating S3 request costs when using DataSync</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </important>
+ *          <p> For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Creating an Amazon S3 location</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, CreateLocationS3Command } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationS3Command } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateLocationS3Request
+ *   Subdirectory: "STRING_VALUE",
+ *   S3BucketArn: "STRING_VALUE", // required
+ *   S3StorageClass: "STANDARD" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_INSTANT_RETRIEVAL",
+ *   S3Config: { // S3Config
+ *     BucketAccessRoleArn: "STRING_VALUE", // required
+ *   },
+ *   AgentArns: [ // AgentArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationS3Command(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocationS3CommandInput - {@link CreateLocationS3CommandInput}
+ * @returns {@link CreateLocationS3CommandOutput}
  * @see {@link CreateLocationS3CommandInput} for command's `input` shape.
  * @see {@link CreateLocationS3CommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
@@ -76,6 +109,9 @@ export class CreateLocationS3Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationS3CommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +140,8 @@ export class CreateLocationS3Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationS3RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationS3ResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +151,18 @@ export class CreateLocationS3Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationS3Command(input, context);
+    return se_CreateLocationS3Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationS3CommandOutput> {
-    return deserializeAws_json1_1CreateLocationS3Command(output, context);
+    return de_CreateLocationS3Command(output, context);
   }
 
   // Start section: command_body_extra

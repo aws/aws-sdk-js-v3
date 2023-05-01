@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePackagesRequest,
-  DescribePackagesRequestFilterSensitiveLog,
-  DescribePackagesResponse,
-  DescribePackagesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePackagesRequest, DescribePackagesResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DescribePackagesCommand,
-  serializeAws_restJson1DescribePackagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribePackagesCommand, se_DescribePackagesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePackagesCommand}.
  */
 export interface DescribePackagesCommandInput extends DescribePackagesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePackagesCommand}.
  */
 export interface DescribePackagesCommandOutput extends DescribePackagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes all packages available to OpenSearch Service. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
  *     packages for Amazon OpenSearch Service</a>.</p>
  * @example
@@ -43,10 +40,24 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  * import { OpenSearchClient, DescribePackagesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribePackagesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DescribePackagesRequest
+ *   Filters: [ // DescribePackagesFilterList
+ *     { // DescribePackagesFilter
+ *       Name: "PackageID" || "PackageName" || "PackageStatus",
+ *       Value: [ // DescribePackagesFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribePackagesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePackagesCommandInput - {@link DescribePackagesCommandInput}
+ * @returns {@link DescribePackagesCommandOutput}
  * @see {@link DescribePackagesCommandInput} for command's `input` shape.
  * @see {@link DescribePackagesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -85,6 +96,9 @@ export class DescribePackagesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +127,8 @@ export class DescribePackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePackagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePackagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +138,18 @@ export class DescribePackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePackagesCommand(input, context);
+    return se_DescribePackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackagesCommandOutput> {
-    return deserializeAws_restJson1DescribePackagesCommand(output, context);
+    return de_DescribePackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

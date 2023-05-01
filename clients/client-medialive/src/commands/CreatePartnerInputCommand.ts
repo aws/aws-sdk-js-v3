@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  CreatePartnerInputRequest,
-  CreatePartnerInputRequestFilterSensitiveLog,
-  CreatePartnerInputResponse,
-  CreatePartnerInputResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1CreatePartnerInputCommand,
-  serializeAws_restJson1CreatePartnerInputCommand,
-} from "../protocols/Aws_restJson1";
+import { CreatePartnerInputRequest, CreatePartnerInputResponse } from "../models/models_1";
+import { de_CreatePartnerInputCommand, se_CreatePartnerInputCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePartnerInputCommand}.
  */
 export interface CreatePartnerInputCommandInput extends CreatePartnerInputRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePartnerInputCommand}.
  */
 export interface CreatePartnerInputCommandOutput extends CreatePartnerInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Create a partner input
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * import { MediaLiveClient, CreatePartnerInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreatePartnerInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // CreatePartnerInputRequest
+ *   InputId: "STRING_VALUE", // required
+ *   RequestId: "STRING_VALUE",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePartnerInputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePartnerInputCommandInput - {@link CreatePartnerInputCommandInput}
+ * @returns {@link CreatePartnerInputCommandOutput}
  * @see {@link CreatePartnerInputCommandInput} for command's `input` shape.
  * @see {@link CreatePartnerInputCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -87,6 +93,9 @@ export class CreatePartnerInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePartnerInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class CreatePartnerInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePartnerInputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePartnerInputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +135,18 @@ export class CreatePartnerInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePartnerInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePartnerInputCommand(input, context);
+    return se_CreatePartnerInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePartnerInputCommandOutput> {
-    return deserializeAws_restJson1CreatePartnerInputCommand(output, context);
+    return de_CreatePartnerInputCommand(output, context);
   }
 
   // Start section: command_body_extra

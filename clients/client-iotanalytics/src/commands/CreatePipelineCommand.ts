@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  CreatePipelineRequest,
-  CreatePipelineRequestFilterSensitiveLog,
-  CreatePipelineResponse,
-  CreatePipelineResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePipelineCommand,
-  serializeAws_restJson1CreatePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { CreatePipelineRequest, CreatePipelineResponse } from "../models/models_0";
+import { de_CreatePipelineCommand, se_CreatePipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePipelineCommand}.
  */
 export interface CreatePipelineCommandInput extends CreatePipelineRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePipelineCommand}.
  */
 export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a pipeline. A pipeline consumes messages from a channel and allows you to process
  *       the messages before storing them in a data store. You must specify both a <code>channel</code>
  *       and a <code>datastore</code> activity and, optionally, as many as 23 additional activities in
@@ -45,10 +42,86 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * import { IoTAnalyticsClient, CreatePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CreatePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // CreatePipelineRequest
+ *   pipelineName: "STRING_VALUE", // required
+ *   pipelineActivities: [ // PipelineActivities // required
+ *     { // PipelineActivity
+ *       channel: { // ChannelActivity
+ *         name: "STRING_VALUE", // required
+ *         channelName: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       lambda: { // LambdaActivity
+ *         name: "STRING_VALUE", // required
+ *         lambdaName: "STRING_VALUE", // required
+ *         batchSize: Number("int"), // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       datastore: { // DatastoreActivity
+ *         name: "STRING_VALUE", // required
+ *         datastoreName: "STRING_VALUE", // required
+ *       },
+ *       addAttributes: { // AddAttributesActivity
+ *         name: "STRING_VALUE", // required
+ *         attributes: { // AttributeNameMapping // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         next: "STRING_VALUE",
+ *       },
+ *       removeAttributes: { // RemoveAttributesActivity
+ *         name: "STRING_VALUE", // required
+ *         attributes: [ // AttributeNames // required
+ *           "STRING_VALUE",
+ *         ],
+ *         next: "STRING_VALUE",
+ *       },
+ *       selectAttributes: { // SelectAttributesActivity
+ *         name: "STRING_VALUE", // required
+ *         attributes: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         next: "STRING_VALUE",
+ *       },
+ *       filter: { // FilterActivity
+ *         name: "STRING_VALUE", // required
+ *         filter: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       math: { // MathActivity
+ *         name: "STRING_VALUE", // required
+ *         attribute: "STRING_VALUE", // required
+ *         math: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       deviceRegistryEnrich: { // DeviceRegistryEnrichActivity
+ *         name: "STRING_VALUE", // required
+ *         attribute: "STRING_VALUE", // required
+ *         thingName: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       deviceShadowEnrich: { // DeviceShadowEnrichActivity
+ *         name: "STRING_VALUE", // required
+ *         attribute: "STRING_VALUE", // required
+ *         thingName: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePipelineCommandInput - {@link CreatePipelineCommandInput}
+ * @returns {@link CreatePipelineCommandOutput}
  * @see {@link CreatePipelineCommandInput} for command's `input` shape.
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -90,6 +163,9 @@ export class CreatePipelineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePipelineCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +194,8 @@ export class CreatePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePipelineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +205,18 @@ export class CreatePipelineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePipelineCommand(input, context);
+    return se_CreatePipelineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePipelineCommandOutput> {
-    return deserializeAws_restJson1CreatePipelineCommand(output, context);
+    return de_CreatePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

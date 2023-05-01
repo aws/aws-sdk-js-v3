@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DescribeBotRequest,
-  DescribeBotRequestFilterSensitiveLog,
-  DescribeBotResponse,
-  DescribeBotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBotCommand,
-  serializeAws_restJson1DescribeBotCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeBotRequest, DescribeBotResponse } from "../models/models_0";
+import { de_DescribeBotCommand, se_DescribeBotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBotCommand}.
  */
 export interface DescribeBotCommandInput extends DescribeBotRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBotCommand}.
  */
 export interface DescribeBotCommandOutput extends DescribeBotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides metadata information about a bot. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeBotCommandOutput extends DescribeBotResponse, __Metadat
  * import { LexModelsV2Client, DescribeBotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeBotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // DescribeBotRequest
+ *   botId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBotCommandInput - {@link DescribeBotCommandInput}
+ * @returns {@link DescribeBotCommandOutput}
  * @see {@link DescribeBotCommandInput} for command's `input` shape.
  * @see {@link DescribeBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -88,6 +90,9 @@ export class DescribeBotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBotCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class DescribeBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class DescribeBotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBotCommand(input, context);
+    return se_DescribeBotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBotCommandOutput> {
-    return deserializeAws_restJson1DescribeBotCommand(output, context);
+    return de_DescribeBotCommand(output, context);
   }
 
   // Start section: command_body_extra

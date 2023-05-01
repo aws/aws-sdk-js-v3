@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  CreateCaseRequest,
-  CreateCaseRequestFilterSensitiveLog,
-  CreateCaseResponse,
-  CreateCaseResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCaseCommand,
-  serializeAws_restJson1CreateCaseCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateCaseRequest, CreateCaseResponse } from "../models/models_0";
+import { de_CreateCaseCommand, se_CreateCaseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCaseCommand}.
  */
 export interface CreateCaseCommandInput extends CreateCaseRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateCaseCommand}.
  */
 export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
  *       as an array id/value pairs with a declared data types.</p>
  *          <note>
@@ -62,10 +59,27 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * import { ConnectCasesClient, CreateCaseCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateCaseCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // CreateCaseRequest
+ *   domainId: "STRING_VALUE", // required
+ *   templateId: "STRING_VALUE", // required
+ *   fields: [ // FieldValueList // required
+ *     { // FieldValue
+ *       id: "STRING_VALUE", // required
+ *       value: { // FieldValueUnion Union: only one key present
+ *         stringValue: "STRING_VALUE",
+ *         doubleValue: Number("double"),
+ *         booleanValue: true || false,
+ *       },
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateCaseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCaseCommandInput - {@link CreateCaseCommandInput}
+ * @returns {@link CreateCaseCommandOutput}
  * @see {@link CreateCaseCommandInput} for command's `input` shape.
  * @see {@link CreateCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -111,6 +125,9 @@ export class CreateCaseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCaseCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +154,8 @@ export class CreateCaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +165,18 @@ export class CreateCaseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCaseCommand(input, context);
+    return se_CreateCaseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCaseCommandOutput> {
-    return deserializeAws_restJson1CreateCaseCommand(output, context);
+    return de_CreateCaseCommand(output, context);
   }
 
   // Start section: command_body_extra

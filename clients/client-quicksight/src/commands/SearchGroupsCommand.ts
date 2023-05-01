@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchGroupsRequest,
-  SearchGroupsRequestFilterSensitiveLog,
-  SearchGroupsResponse,
-  SearchGroupsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_restJson1SearchGroupsCommand,
-  serializeAws_restJson1SearchGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchGroupsRequest, SearchGroupsResponse } from "../models/models_3";
+import { de_SearchGroupsCommand, se_SearchGroupsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link SearchGroupsCommand}.
  */
 export interface SearchGroupsCommandInput extends SearchGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchGroupsCommand}.
  */
 export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the <code>SearchGroups</code> operation to search groups in a specified Amazon QuickSight namespace using the supplied filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,25 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __Metad
  * import { QuickSightClient, SearchGroupsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchGroupsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // SearchGroupsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Namespace: "STRING_VALUE", // required
+ *   Filters: [ // GroupSearchFilterList // required
+ *     { // GroupSearchFilter
+ *       Operator: "StartsWith", // required
+ *       Name: "GROUP_NAME", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SearchGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchGroupsCommandInput - {@link SearchGroupsCommandInput}
+ * @returns {@link SearchGroupsCommandOutput}
  * @see {@link SearchGroupsCommandInput} for command's `input` shape.
  * @see {@link SearchGroupsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -96,6 +108,9 @@ export class SearchGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +137,8 @@ export class SearchGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +148,18 @@ export class SearchGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchGroupsCommand(input, context);
+    return se_SearchGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchGroupsCommandOutput> {
-    return deserializeAws_restJson1SearchGroupsCommand(output, context);
+    return de_SearchGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

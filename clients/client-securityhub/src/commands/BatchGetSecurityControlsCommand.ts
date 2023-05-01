@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchGetSecurityControlsRequest,
-  BatchGetSecurityControlsRequestFilterSensitiveLog,
-  BatchGetSecurityControlsResponse,
-  BatchGetSecurityControlsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchGetSecurityControlsCommand,
-  serializeAws_restJson1BatchGetSecurityControlsCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchGetSecurityControlsRequest, BatchGetSecurityControlsResponse } from "../models/models_1";
+import { de_BatchGetSecurityControlsCommand, se_BatchGetSecurityControlsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetSecurityControlsCommand}.
  */
 export interface BatchGetSecurityControlsCommandInput extends BatchGetSecurityControlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetSecurityControlsCommand}.
  */
 export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityControlsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Provides details about a batch of security controls for the current Amazon Web Services account and Amazon Web Services Region.
  *       </p>
@@ -44,10 +41,17 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * import { SecurityHubClient, BatchGetSecurityControlsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchGetSecurityControlsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // BatchGetSecurityControlsRequest
+ *   SecurityControlIds: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetSecurityControlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetSecurityControlsCommandInput - {@link BatchGetSecurityControlsCommandInput}
+ * @returns {@link BatchGetSecurityControlsCommandOutput}
  * @see {@link BatchGetSecurityControlsCommandInput} for command's `input` shape.
  * @see {@link BatchGetSecurityControlsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -85,6 +89,9 @@ export class BatchGetSecurityControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetSecurityControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class BatchGetSecurityControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetSecurityControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetSecurityControlsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +131,18 @@ export class BatchGetSecurityControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetSecurityControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetSecurityControlsCommand(input, context);
+    return se_BatchGetSecurityControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetSecurityControlsCommandOutput> {
-    return deserializeAws_restJson1BatchGetSecurityControlsCommand(output, context);
+    return de_BatchGetSecurityControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

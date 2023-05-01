@@ -14,23 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAccessPointRequest, DeleteAccessPointRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteAccessPointCommand,
-  serializeAws_restXmlDeleteAccessPointCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteAccessPointRequest } from "../models/models_0";
+import { de_DeleteAccessPointCommand, se_DeleteAccessPointCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAccessPointCommand}.
  */
 export interface DeleteAccessPointCommandInput extends DeleteAccessPointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAccessPointCommand}.
  */
 export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified access point.</p>
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html#API_control_DeleteAccessPoint_Examples">Examples</a> section.</p>
  *          <p>The following actions are related to <code>DeleteAccessPoint</code>:</p>
@@ -57,10 +59,16 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * import { S3ControlClient, DeleteAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // DeleteAccessPointRequest
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessPointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAccessPointCommandInput - {@link DeleteAccessPointCommandInput}
+ * @returns {@link DeleteAccessPointCommandOutput}
  * @see {@link DeleteAccessPointCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -88,6 +96,9 @@ export class DeleteAccessPointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAccessPointCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +128,8 @@ export class DeleteAccessPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessPointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +139,18 @@ export class DeleteAccessPointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteAccessPointCommand(input, context);
+    return se_DeleteAccessPointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessPointCommandOutput> {
-    return deserializeAws_restXmlDeleteAccessPointCommand(output, context);
+    return de_DeleteAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  DetachObjectRequest,
-  DetachObjectRequestFilterSensitiveLog,
-  DetachObjectResponse,
-  DetachObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DetachObjectCommand,
-  serializeAws_restJson1DetachObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { DetachObjectRequest, DetachObjectResponse } from "../models/models_0";
+import { de_DetachObjectCommand, se_DetachObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DetachObjectCommand}.
  */
 export interface DetachObjectCommandInput extends DetachObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetachObjectCommand}.
  */
 export interface DetachObjectCommandOutput extends DetachObjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches a given object from the parent object. The object that is to be detached from the
  *       parent is specified by the link name.</p>
  * @example
@@ -43,10 +40,19 @@ export interface DetachObjectCommandOutput extends DetachObjectResponse, __Metad
  * import { CloudDirectoryClient, DetachObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DetachObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // DetachObjectRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ParentReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   LinkName: "STRING_VALUE", // required
+ * };
  * const command = new DetachObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetachObjectCommandInput - {@link DetachObjectCommandInput}
+ * @returns {@link DetachObjectCommandOutput}
  * @see {@link DetachObjectCommandInput} for command's `input` shape.
  * @see {@link DetachObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -99,6 +105,9 @@ export class DetachObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetachObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +134,8 @@ export class DetachObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachObjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +145,18 @@ export class DetachObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DetachObjectCommand(input, context);
+    return se_DetachObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachObjectCommandOutput> {
-    return deserializeAws_restJson1DetachObjectCommand(output, context);
+    return de_DetachObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

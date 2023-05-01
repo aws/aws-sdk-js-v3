@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { ListSkillsStoreSkillsByCategoryRequest, ListSkillsStoreSkillsByCategoryResponse } from "../models/models_0";
 import {
-  ListSkillsStoreSkillsByCategoryRequest,
-  ListSkillsStoreSkillsByCategoryRequestFilterSensitiveLog,
-  ListSkillsStoreSkillsByCategoryResponse,
-  ListSkillsStoreSkillsByCategoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand,
-  serializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand,
+  de_ListSkillsStoreSkillsByCategoryCommand,
+  se_ListSkillsStoreSkillsByCategoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSkillsStoreSkillsByCategoryCommand}.
  */
 export interface ListSkillsStoreSkillsByCategoryCommandInput extends ListSkillsStoreSkillsByCategoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSkillsStoreSkillsByCategoryCommand}.
  */
 export interface ListSkillsStoreSkillsByCategoryCommandOutput
@@ -37,6 +36,7 @@ export interface ListSkillsStoreSkillsByCategoryCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all skills in the Alexa skill store by category.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,17 @@ export interface ListSkillsStoreSkillsByCategoryCommandOutput
  * import { AlexaForBusinessClient, ListSkillsStoreSkillsByCategoryCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListSkillsStoreSkillsByCategoryCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // ListSkillsStoreSkillsByCategoryRequest
+ *   CategoryId: Number("long"), // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSkillsStoreSkillsByCategoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSkillsStoreSkillsByCategoryCommandInput - {@link ListSkillsStoreSkillsByCategoryCommandInput}
+ * @returns {@link ListSkillsStoreSkillsByCategoryCommandOutput}
  * @see {@link ListSkillsStoreSkillsByCategoryCommandInput} for command's `input` shape.
  * @see {@link ListSkillsStoreSkillsByCategoryCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -71,6 +78,9 @@ export class ListSkillsStoreSkillsByCategoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSkillsStoreSkillsByCategoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +109,8 @@ export class ListSkillsStoreSkillsByCategoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSkillsStoreSkillsByCategoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSkillsStoreSkillsByCategoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,18 +120,24 @@ export class ListSkillsStoreSkillsByCategoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSkillsStoreSkillsByCategoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand(input, context);
+    return se_ListSkillsStoreSkillsByCategoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSkillsStoreSkillsByCategoryCommandOutput> {
-    return deserializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand(output, context);
+    return de_ListSkillsStoreSkillsByCategoryCommand(output, context);
   }
 
   // Start section: command_body_extra

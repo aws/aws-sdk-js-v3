@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSinkInput,
-  DeleteSinkInputFilterSensitiveLog,
-  DeleteSinkOutput,
-  DeleteSinkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSinkInput, DeleteSinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1DeleteSinkCommand,
-  serializeAws_restJson1DeleteSinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSinkCommand, se_DeleteSinkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSinkCommand}.
  */
 export interface DeleteSinkCommandInput extends DeleteSinkInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSinkCommand}.
  */
 export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a sink. You must delete all links to a sink before you can delete that sink.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  * import { OAMClient, DeleteSinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, DeleteSinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = { // DeleteSinkInput
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSinkCommandInput - {@link DeleteSinkCommandInput}
+ * @returns {@link DeleteSinkCommandOutput}
  * @see {@link DeleteSinkCommandInput} for command's `input` shape.
  * @see {@link DeleteSinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeleteSinkCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DeleteSinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSinkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSinkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DeleteSinkCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSinkCommand(input, context);
+    return se_DeleteSinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSinkCommandOutput> {
-    return deserializeAws_restJson1DeleteSinkCommand(output, context);
+    return de_DeleteSinkCommand(output, context);
   }
 
   // Start section: command_body_extra

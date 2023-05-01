@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -291,2054 +292,1082 @@ import {
   UpdateWorkflowCommandInput,
   UpdateWorkflowCommandOutput,
 } from "./commands/UpdateWorkflowCommand";
-import { OmicsClient } from "./OmicsClient";
+import { OmicsClient, OmicsClientConfig } from "./OmicsClient";
 
-/**
- * <p>This is the <i>Amazon Omics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is Amazon Omics?</a> in the
- *       <i>Amazon Omics Developer Guide</i>.</p>
- */
-export class Omics extends OmicsClient {
+const commands = {
+  BatchDeleteReadSetCommand,
+  CancelAnnotationImportJobCommand,
+  CancelRunCommand,
+  CancelVariantImportJobCommand,
+  CreateAnnotationStoreCommand,
+  CreateReferenceStoreCommand,
+  CreateRunGroupCommand,
+  CreateSequenceStoreCommand,
+  CreateVariantStoreCommand,
+  CreateWorkflowCommand,
+  DeleteAnnotationStoreCommand,
+  DeleteReferenceCommand,
+  DeleteReferenceStoreCommand,
+  DeleteRunCommand,
+  DeleteRunGroupCommand,
+  DeleteSequenceStoreCommand,
+  DeleteVariantStoreCommand,
+  DeleteWorkflowCommand,
+  GetAnnotationImportJobCommand,
+  GetAnnotationStoreCommand,
+  GetReadSetCommand,
+  GetReadSetActivationJobCommand,
+  GetReadSetExportJobCommand,
+  GetReadSetImportJobCommand,
+  GetReadSetMetadataCommand,
+  GetReferenceCommand,
+  GetReferenceImportJobCommand,
+  GetReferenceMetadataCommand,
+  GetReferenceStoreCommand,
+  GetRunCommand,
+  GetRunGroupCommand,
+  GetRunTaskCommand,
+  GetSequenceStoreCommand,
+  GetVariantImportJobCommand,
+  GetVariantStoreCommand,
+  GetWorkflowCommand,
+  ListAnnotationImportJobsCommand,
+  ListAnnotationStoresCommand,
+  ListReadSetActivationJobsCommand,
+  ListReadSetExportJobsCommand,
+  ListReadSetImportJobsCommand,
+  ListReadSetsCommand,
+  ListReferenceImportJobsCommand,
+  ListReferencesCommand,
+  ListReferenceStoresCommand,
+  ListRunGroupsCommand,
+  ListRunsCommand,
+  ListRunTasksCommand,
+  ListSequenceStoresCommand,
+  ListTagsForResourceCommand,
+  ListVariantImportJobsCommand,
+  ListVariantStoresCommand,
+  ListWorkflowsCommand,
+  StartAnnotationImportJobCommand,
+  StartReadSetActivationJobCommand,
+  StartReadSetExportJobCommand,
+  StartReadSetImportJobCommand,
+  StartReferenceImportJobCommand,
+  StartRunCommand,
+  StartVariantImportJobCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateAnnotationStoreCommand,
+  UpdateRunGroupCommand,
+  UpdateVariantStoreCommand,
+  UpdateWorkflowCommand,
+};
+
+export interface Omics {
   /**
-   * <p>Deletes one or more read sets.</p>
+   * @see {@link BatchDeleteReadSetCommand}
    */
-  public batchDeleteReadSet(
+  batchDeleteReadSet(
     args: BatchDeleteReadSetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchDeleteReadSetCommandOutput>;
-  public batchDeleteReadSet(
+  batchDeleteReadSet(
     args: BatchDeleteReadSetCommandInput,
     cb: (err: any, data?: BatchDeleteReadSetCommandOutput) => void
   ): void;
-  public batchDeleteReadSet(
+  batchDeleteReadSet(
     args: BatchDeleteReadSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDeleteReadSetCommandOutput) => void
   ): void;
-  public batchDeleteReadSet(
-    args: BatchDeleteReadSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteReadSetCommandOutput) => void),
-    cb?: (err: any, data?: BatchDeleteReadSetCommandOutput) => void
-  ): Promise<BatchDeleteReadSetCommandOutput> | void {
-    const command = new BatchDeleteReadSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Cancels an annotation import job.</p>
+   * @see {@link CancelAnnotationImportJobCommand}
    */
-  public cancelAnnotationImportJob(
+  cancelAnnotationImportJob(
     args: CancelAnnotationImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelAnnotationImportJobCommandOutput>;
-  public cancelAnnotationImportJob(
+  cancelAnnotationImportJob(
     args: CancelAnnotationImportJobCommandInput,
     cb: (err: any, data?: CancelAnnotationImportJobCommandOutput) => void
   ): void;
-  public cancelAnnotationImportJob(
+  cancelAnnotationImportJob(
     args: CancelAnnotationImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelAnnotationImportJobCommandOutput) => void
   ): void;
-  public cancelAnnotationImportJob(
-    args: CancelAnnotationImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelAnnotationImportJobCommandOutput) => void),
-    cb?: (err: any, data?: CancelAnnotationImportJobCommandOutput) => void
-  ): Promise<CancelAnnotationImportJobCommandOutput> | void {
-    const command = new CancelAnnotationImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Cancels a run.</p>
+   * @see {@link CancelRunCommand}
    */
-  public cancelRun(args: CancelRunCommandInput, options?: __HttpHandlerOptions): Promise<CancelRunCommandOutput>;
-  public cancelRun(args: CancelRunCommandInput, cb: (err: any, data?: CancelRunCommandOutput) => void): void;
-  public cancelRun(
+  cancelRun(args: CancelRunCommandInput, options?: __HttpHandlerOptions): Promise<CancelRunCommandOutput>;
+  cancelRun(args: CancelRunCommandInput, cb: (err: any, data?: CancelRunCommandOutput) => void): void;
+  cancelRun(
     args: CancelRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelRunCommandOutput) => void
   ): void;
-  public cancelRun(
-    args: CancelRunCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelRunCommandOutput) => void),
-    cb?: (err: any, data?: CancelRunCommandOutput) => void
-  ): Promise<CancelRunCommandOutput> | void {
-    const command = new CancelRunCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Cancels a variant import job.</p>
+   * @see {@link CancelVariantImportJobCommand}
    */
-  public cancelVariantImportJob(
+  cancelVariantImportJob(
     args: CancelVariantImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelVariantImportJobCommandOutput>;
-  public cancelVariantImportJob(
+  cancelVariantImportJob(
     args: CancelVariantImportJobCommandInput,
     cb: (err: any, data?: CancelVariantImportJobCommandOutput) => void
   ): void;
-  public cancelVariantImportJob(
+  cancelVariantImportJob(
     args: CancelVariantImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelVariantImportJobCommandOutput) => void
   ): void;
-  public cancelVariantImportJob(
-    args: CancelVariantImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelVariantImportJobCommandOutput) => void),
-    cb?: (err: any, data?: CancelVariantImportJobCommandOutput) => void
-  ): Promise<CancelVariantImportJobCommandOutput> | void {
-    const command = new CancelVariantImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates an annotation store.</p>
+   * @see {@link CreateAnnotationStoreCommand}
    */
-  public createAnnotationStore(
+  createAnnotationStore(
     args: CreateAnnotationStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAnnotationStoreCommandOutput>;
-  public createAnnotationStore(
+  createAnnotationStore(
     args: CreateAnnotationStoreCommandInput,
     cb: (err: any, data?: CreateAnnotationStoreCommandOutput) => void
   ): void;
-  public createAnnotationStore(
+  createAnnotationStore(
     args: CreateAnnotationStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAnnotationStoreCommandOutput) => void
   ): void;
-  public createAnnotationStore(
-    args: CreateAnnotationStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAnnotationStoreCommandOutput) => void),
-    cb?: (err: any, data?: CreateAnnotationStoreCommandOutput) => void
-  ): Promise<CreateAnnotationStoreCommandOutput> | void {
-    const command = new CreateAnnotationStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a reference store.</p>
+   * @see {@link CreateReferenceStoreCommand}
    */
-  public createReferenceStore(
+  createReferenceStore(
     args: CreateReferenceStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateReferenceStoreCommandOutput>;
-  public createReferenceStore(
+  createReferenceStore(
     args: CreateReferenceStoreCommandInput,
     cb: (err: any, data?: CreateReferenceStoreCommandOutput) => void
   ): void;
-  public createReferenceStore(
+  createReferenceStore(
     args: CreateReferenceStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateReferenceStoreCommandOutput) => void
   ): void;
-  public createReferenceStore(
-    args: CreateReferenceStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReferenceStoreCommandOutput) => void),
-    cb?: (err: any, data?: CreateReferenceStoreCommandOutput) => void
-  ): Promise<CreateReferenceStoreCommandOutput> | void {
-    const command = new CreateReferenceStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a run group.</p>
+   * @see {@link CreateRunGroupCommand}
    */
-  public createRunGroup(
+  createRunGroup(
     args: CreateRunGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateRunGroupCommandOutput>;
-  public createRunGroup(
-    args: CreateRunGroupCommandInput,
-    cb: (err: any, data?: CreateRunGroupCommandOutput) => void
-  ): void;
-  public createRunGroup(
+  createRunGroup(args: CreateRunGroupCommandInput, cb: (err: any, data?: CreateRunGroupCommandOutput) => void): void;
+  createRunGroup(
     args: CreateRunGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateRunGroupCommandOutput) => void
   ): void;
-  public createRunGroup(
-    args: CreateRunGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRunGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateRunGroupCommandOutput) => void
-  ): Promise<CreateRunGroupCommandOutput> | void {
-    const command = new CreateRunGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a sequence store.</p>
+   * @see {@link CreateSequenceStoreCommand}
    */
-  public createSequenceStore(
+  createSequenceStore(
     args: CreateSequenceStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSequenceStoreCommandOutput>;
-  public createSequenceStore(
+  createSequenceStore(
     args: CreateSequenceStoreCommandInput,
     cb: (err: any, data?: CreateSequenceStoreCommandOutput) => void
   ): void;
-  public createSequenceStore(
+  createSequenceStore(
     args: CreateSequenceStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSequenceStoreCommandOutput) => void
   ): void;
-  public createSequenceStore(
-    args: CreateSequenceStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSequenceStoreCommandOutput) => void),
-    cb?: (err: any, data?: CreateSequenceStoreCommandOutput) => void
-  ): Promise<CreateSequenceStoreCommandOutput> | void {
-    const command = new CreateSequenceStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a variant store.</p>
+   * @see {@link CreateVariantStoreCommand}
    */
-  public createVariantStore(
+  createVariantStore(
     args: CreateVariantStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateVariantStoreCommandOutput>;
-  public createVariantStore(
+  createVariantStore(
     args: CreateVariantStoreCommandInput,
     cb: (err: any, data?: CreateVariantStoreCommandOutput) => void
   ): void;
-  public createVariantStore(
+  createVariantStore(
     args: CreateVariantStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVariantStoreCommandOutput) => void
   ): void;
-  public createVariantStore(
-    args: CreateVariantStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVariantStoreCommandOutput) => void),
-    cb?: (err: any, data?: CreateVariantStoreCommandOutput) => void
-  ): Promise<CreateVariantStoreCommandOutput> | void {
-    const command = new CreateVariantStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a workflow.</p>
+   * @see {@link CreateWorkflowCommand}
    */
-  public createWorkflow(
+  createWorkflow(
     args: CreateWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkflowCommandOutput>;
-  public createWorkflow(
-    args: CreateWorkflowCommandInput,
-    cb: (err: any, data?: CreateWorkflowCommandOutput) => void
-  ): void;
-  public createWorkflow(
+  createWorkflow(args: CreateWorkflowCommandInput, cb: (err: any, data?: CreateWorkflowCommandOutput) => void): void;
+  createWorkflow(
     args: CreateWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateWorkflowCommandOutput) => void
   ): void;
-  public createWorkflow(
-    args: CreateWorkflowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkflowCommandOutput) => void),
-    cb?: (err: any, data?: CreateWorkflowCommandOutput) => void
-  ): Promise<CreateWorkflowCommandOutput> | void {
-    const command = new CreateWorkflowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes an annotation store.</p>
+   * @see {@link DeleteAnnotationStoreCommand}
    */
-  public deleteAnnotationStore(
+  deleteAnnotationStore(
     args: DeleteAnnotationStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAnnotationStoreCommandOutput>;
-  public deleteAnnotationStore(
+  deleteAnnotationStore(
     args: DeleteAnnotationStoreCommandInput,
     cb: (err: any, data?: DeleteAnnotationStoreCommandOutput) => void
   ): void;
-  public deleteAnnotationStore(
+  deleteAnnotationStore(
     args: DeleteAnnotationStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAnnotationStoreCommandOutput) => void
   ): void;
-  public deleteAnnotationStore(
-    args: DeleteAnnotationStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAnnotationStoreCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAnnotationStoreCommandOutput) => void
-  ): Promise<DeleteAnnotationStoreCommandOutput> | void {
-    const command = new DeleteAnnotationStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a genome reference.</p>
+   * @see {@link DeleteReferenceCommand}
    */
-  public deleteReference(
+  deleteReference(
     args: DeleteReferenceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteReferenceCommandOutput>;
-  public deleteReference(
-    args: DeleteReferenceCommandInput,
-    cb: (err: any, data?: DeleteReferenceCommandOutput) => void
-  ): void;
-  public deleteReference(
+  deleteReference(args: DeleteReferenceCommandInput, cb: (err: any, data?: DeleteReferenceCommandOutput) => void): void;
+  deleteReference(
     args: DeleteReferenceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteReferenceCommandOutput) => void
   ): void;
-  public deleteReference(
-    args: DeleteReferenceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReferenceCommandOutput) => void),
-    cb?: (err: any, data?: DeleteReferenceCommandOutput) => void
-  ): Promise<DeleteReferenceCommandOutput> | void {
-    const command = new DeleteReferenceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a genome reference store.</p>
+   * @see {@link DeleteReferenceStoreCommand}
    */
-  public deleteReferenceStore(
+  deleteReferenceStore(
     args: DeleteReferenceStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteReferenceStoreCommandOutput>;
-  public deleteReferenceStore(
+  deleteReferenceStore(
     args: DeleteReferenceStoreCommandInput,
     cb: (err: any, data?: DeleteReferenceStoreCommandOutput) => void
   ): void;
-  public deleteReferenceStore(
+  deleteReferenceStore(
     args: DeleteReferenceStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteReferenceStoreCommandOutput) => void
   ): void;
-  public deleteReferenceStore(
-    args: DeleteReferenceStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReferenceStoreCommandOutput) => void),
-    cb?: (err: any, data?: DeleteReferenceStoreCommandOutput) => void
-  ): Promise<DeleteReferenceStoreCommandOutput> | void {
-    const command = new DeleteReferenceStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a workflow run.</p>
+   * @see {@link DeleteRunCommand}
    */
-  public deleteRun(args: DeleteRunCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRunCommandOutput>;
-  public deleteRun(args: DeleteRunCommandInput, cb: (err: any, data?: DeleteRunCommandOutput) => void): void;
-  public deleteRun(
+  deleteRun(args: DeleteRunCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRunCommandOutput>;
+  deleteRun(args: DeleteRunCommandInput, cb: (err: any, data?: DeleteRunCommandOutput) => void): void;
+  deleteRun(
     args: DeleteRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRunCommandOutput) => void
   ): void;
-  public deleteRun(
-    args: DeleteRunCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRunCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRunCommandOutput) => void
-  ): Promise<DeleteRunCommandOutput> | void {
-    const command = new DeleteRunCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a workflow run group.</p>
+   * @see {@link DeleteRunGroupCommand}
    */
-  public deleteRunGroup(
+  deleteRunGroup(
     args: DeleteRunGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRunGroupCommandOutput>;
-  public deleteRunGroup(
-    args: DeleteRunGroupCommandInput,
-    cb: (err: any, data?: DeleteRunGroupCommandOutput) => void
-  ): void;
-  public deleteRunGroup(
+  deleteRunGroup(args: DeleteRunGroupCommandInput, cb: (err: any, data?: DeleteRunGroupCommandOutput) => void): void;
+  deleteRunGroup(
     args: DeleteRunGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRunGroupCommandOutput) => void
   ): void;
-  public deleteRunGroup(
-    args: DeleteRunGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRunGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRunGroupCommandOutput) => void
-  ): Promise<DeleteRunGroupCommandOutput> | void {
-    const command = new DeleteRunGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a sequence store.</p>
+   * @see {@link DeleteSequenceStoreCommand}
    */
-  public deleteSequenceStore(
+  deleteSequenceStore(
     args: DeleteSequenceStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSequenceStoreCommandOutput>;
-  public deleteSequenceStore(
+  deleteSequenceStore(
     args: DeleteSequenceStoreCommandInput,
     cb: (err: any, data?: DeleteSequenceStoreCommandOutput) => void
   ): void;
-  public deleteSequenceStore(
+  deleteSequenceStore(
     args: DeleteSequenceStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSequenceStoreCommandOutput) => void
   ): void;
-  public deleteSequenceStore(
-    args: DeleteSequenceStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSequenceStoreCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSequenceStoreCommandOutput) => void
-  ): Promise<DeleteSequenceStoreCommandOutput> | void {
-    const command = new DeleteSequenceStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a variant store.</p>
+   * @see {@link DeleteVariantStoreCommand}
    */
-  public deleteVariantStore(
+  deleteVariantStore(
     args: DeleteVariantStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVariantStoreCommandOutput>;
-  public deleteVariantStore(
+  deleteVariantStore(
     args: DeleteVariantStoreCommandInput,
     cb: (err: any, data?: DeleteVariantStoreCommandOutput) => void
   ): void;
-  public deleteVariantStore(
+  deleteVariantStore(
     args: DeleteVariantStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVariantStoreCommandOutput) => void
   ): void;
-  public deleteVariantStore(
-    args: DeleteVariantStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVariantStoreCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVariantStoreCommandOutput) => void
-  ): Promise<DeleteVariantStoreCommandOutput> | void {
-    const command = new DeleteVariantStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a workflow.</p>
+   * @see {@link DeleteWorkflowCommand}
    */
-  public deleteWorkflow(
+  deleteWorkflow(
     args: DeleteWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkflowCommandOutput>;
-  public deleteWorkflow(
-    args: DeleteWorkflowCommandInput,
-    cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
-  ): void;
-  public deleteWorkflow(
+  deleteWorkflow(args: DeleteWorkflowCommandInput, cb: (err: any, data?: DeleteWorkflowCommandOutput) => void): void;
+  deleteWorkflow(
     args: DeleteWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
   ): void;
-  public deleteWorkflow(
-    args: DeleteWorkflowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkflowCommandOutput) => void),
-    cb?: (err: any, data?: DeleteWorkflowCommandOutput) => void
-  ): Promise<DeleteWorkflowCommandOutput> | void {
-    const command = new DeleteWorkflowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about an annotation import job.</p>
+   * @see {@link GetAnnotationImportJobCommand}
    */
-  public getAnnotationImportJob(
+  getAnnotationImportJob(
     args: GetAnnotationImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAnnotationImportJobCommandOutput>;
-  public getAnnotationImportJob(
+  getAnnotationImportJob(
     args: GetAnnotationImportJobCommandInput,
     cb: (err: any, data?: GetAnnotationImportJobCommandOutput) => void
   ): void;
-  public getAnnotationImportJob(
+  getAnnotationImportJob(
     args: GetAnnotationImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAnnotationImportJobCommandOutput) => void
   ): void;
-  public getAnnotationImportJob(
-    args: GetAnnotationImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAnnotationImportJobCommandOutput) => void),
-    cb?: (err: any, data?: GetAnnotationImportJobCommandOutput) => void
-  ): Promise<GetAnnotationImportJobCommandOutput> | void {
-    const command = new GetAnnotationImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about an annotation store.</p>
+   * @see {@link GetAnnotationStoreCommand}
    */
-  public getAnnotationStore(
+  getAnnotationStore(
     args: GetAnnotationStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAnnotationStoreCommandOutput>;
-  public getAnnotationStore(
+  getAnnotationStore(
     args: GetAnnotationStoreCommandInput,
     cb: (err: any, data?: GetAnnotationStoreCommandOutput) => void
   ): void;
-  public getAnnotationStore(
+  getAnnotationStore(
     args: GetAnnotationStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAnnotationStoreCommandOutput) => void
   ): void;
-  public getAnnotationStore(
-    args: GetAnnotationStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAnnotationStoreCommandOutput) => void),
-    cb?: (err: any, data?: GetAnnotationStoreCommandOutput) => void
-  ): Promise<GetAnnotationStoreCommandOutput> | void {
-    const command = new GetAnnotationStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a file from a read set.</p>
+   * @see {@link GetReadSetCommand}
    */
-  public getReadSet(args: GetReadSetCommandInput, options?: __HttpHandlerOptions): Promise<GetReadSetCommandOutput>;
-  public getReadSet(args: GetReadSetCommandInput, cb: (err: any, data?: GetReadSetCommandOutput) => void): void;
-  public getReadSet(
+  getReadSet(args: GetReadSetCommandInput, options?: __HttpHandlerOptions): Promise<GetReadSetCommandOutput>;
+  getReadSet(args: GetReadSetCommandInput, cb: (err: any, data?: GetReadSetCommandOutput) => void): void;
+  getReadSet(
     args: GetReadSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReadSetCommandOutput) => void
   ): void;
-  public getReadSet(
-    args: GetReadSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReadSetCommandOutput) => void),
-    cb?: (err: any, data?: GetReadSetCommandOutput) => void
-  ): Promise<GetReadSetCommandOutput> | void {
-    const command = new GetReadSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a read set activation job.</p>
+   * @see {@link GetReadSetActivationJobCommand}
    */
-  public getReadSetActivationJob(
+  getReadSetActivationJob(
     args: GetReadSetActivationJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetReadSetActivationJobCommandOutput>;
-  public getReadSetActivationJob(
+  getReadSetActivationJob(
     args: GetReadSetActivationJobCommandInput,
     cb: (err: any, data?: GetReadSetActivationJobCommandOutput) => void
   ): void;
-  public getReadSetActivationJob(
+  getReadSetActivationJob(
     args: GetReadSetActivationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReadSetActivationJobCommandOutput) => void
   ): void;
-  public getReadSetActivationJob(
-    args: GetReadSetActivationJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReadSetActivationJobCommandOutput) => void),
-    cb?: (err: any, data?: GetReadSetActivationJobCommandOutput) => void
-  ): Promise<GetReadSetActivationJobCommandOutput> | void {
-    const command = new GetReadSetActivationJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a read set export job.</p>
+   * @see {@link GetReadSetExportJobCommand}
    */
-  public getReadSetExportJob(
+  getReadSetExportJob(
     args: GetReadSetExportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetReadSetExportJobCommandOutput>;
-  public getReadSetExportJob(
+  getReadSetExportJob(
     args: GetReadSetExportJobCommandInput,
     cb: (err: any, data?: GetReadSetExportJobCommandOutput) => void
   ): void;
-  public getReadSetExportJob(
+  getReadSetExportJob(
     args: GetReadSetExportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReadSetExportJobCommandOutput) => void
   ): void;
-  public getReadSetExportJob(
-    args: GetReadSetExportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReadSetExportJobCommandOutput) => void),
-    cb?: (err: any, data?: GetReadSetExportJobCommandOutput) => void
-  ): Promise<GetReadSetExportJobCommandOutput> | void {
-    const command = new GetReadSetExportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a read set import job.</p>
+   * @see {@link GetReadSetImportJobCommand}
    */
-  public getReadSetImportJob(
+  getReadSetImportJob(
     args: GetReadSetImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetReadSetImportJobCommandOutput>;
-  public getReadSetImportJob(
+  getReadSetImportJob(
     args: GetReadSetImportJobCommandInput,
     cb: (err: any, data?: GetReadSetImportJobCommandOutput) => void
   ): void;
-  public getReadSetImportJob(
+  getReadSetImportJob(
     args: GetReadSetImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReadSetImportJobCommandOutput) => void
   ): void;
-  public getReadSetImportJob(
-    args: GetReadSetImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReadSetImportJobCommandOutput) => void),
-    cb?: (err: any, data?: GetReadSetImportJobCommandOutput) => void
-  ): Promise<GetReadSetImportJobCommandOutput> | void {
-    const command = new GetReadSetImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets details about a read set.</p>
+   * @see {@link GetReadSetMetadataCommand}
    */
-  public getReadSetMetadata(
+  getReadSetMetadata(
     args: GetReadSetMetadataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetReadSetMetadataCommandOutput>;
-  public getReadSetMetadata(
+  getReadSetMetadata(
     args: GetReadSetMetadataCommandInput,
     cb: (err: any, data?: GetReadSetMetadataCommandOutput) => void
   ): void;
-  public getReadSetMetadata(
+  getReadSetMetadata(
     args: GetReadSetMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReadSetMetadataCommandOutput) => void
   ): void;
-  public getReadSetMetadata(
-    args: GetReadSetMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReadSetMetadataCommandOutput) => void),
-    cb?: (err: any, data?: GetReadSetMetadataCommandOutput) => void
-  ): Promise<GetReadSetMetadataCommandOutput> | void {
-    const command = new GetReadSetMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a reference file.</p>
+   * @see {@link GetReferenceCommand}
    */
-  public getReference(
-    args: GetReferenceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetReferenceCommandOutput>;
-  public getReference(args: GetReferenceCommandInput, cb: (err: any, data?: GetReferenceCommandOutput) => void): void;
-  public getReference(
+  getReference(args: GetReferenceCommandInput, options?: __HttpHandlerOptions): Promise<GetReferenceCommandOutput>;
+  getReference(args: GetReferenceCommandInput, cb: (err: any, data?: GetReferenceCommandOutput) => void): void;
+  getReference(
     args: GetReferenceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReferenceCommandOutput) => void
   ): void;
-  public getReference(
-    args: GetReferenceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReferenceCommandOutput) => void),
-    cb?: (err: any, data?: GetReferenceCommandOutput) => void
-  ): Promise<GetReferenceCommandOutput> | void {
-    const command = new GetReferenceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a reference import job.</p>
+   * @see {@link GetReferenceImportJobCommand}
    */
-  public getReferenceImportJob(
+  getReferenceImportJob(
     args: GetReferenceImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetReferenceImportJobCommandOutput>;
-  public getReferenceImportJob(
+  getReferenceImportJob(
     args: GetReferenceImportJobCommandInput,
     cb: (err: any, data?: GetReferenceImportJobCommandOutput) => void
   ): void;
-  public getReferenceImportJob(
+  getReferenceImportJob(
     args: GetReferenceImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReferenceImportJobCommandOutput) => void
   ): void;
-  public getReferenceImportJob(
-    args: GetReferenceImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReferenceImportJobCommandOutput) => void),
-    cb?: (err: any, data?: GetReferenceImportJobCommandOutput) => void
-  ): Promise<GetReferenceImportJobCommandOutput> | void {
-    const command = new GetReferenceImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a genome reference's metadata.</p>
+   * @see {@link GetReferenceMetadataCommand}
    */
-  public getReferenceMetadata(
+  getReferenceMetadata(
     args: GetReferenceMetadataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetReferenceMetadataCommandOutput>;
-  public getReferenceMetadata(
+  getReferenceMetadata(
     args: GetReferenceMetadataCommandInput,
     cb: (err: any, data?: GetReferenceMetadataCommandOutput) => void
   ): void;
-  public getReferenceMetadata(
+  getReferenceMetadata(
     args: GetReferenceMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReferenceMetadataCommandOutput) => void
   ): void;
-  public getReferenceMetadata(
-    args: GetReferenceMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReferenceMetadataCommandOutput) => void),
-    cb?: (err: any, data?: GetReferenceMetadataCommandOutput) => void
-  ): Promise<GetReferenceMetadataCommandOutput> | void {
-    const command = new GetReferenceMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a reference store.</p>
+   * @see {@link GetReferenceStoreCommand}
    */
-  public getReferenceStore(
+  getReferenceStore(
     args: GetReferenceStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetReferenceStoreCommandOutput>;
-  public getReferenceStore(
+  getReferenceStore(
     args: GetReferenceStoreCommandInput,
     cb: (err: any, data?: GetReferenceStoreCommandOutput) => void
   ): void;
-  public getReferenceStore(
+  getReferenceStore(
     args: GetReferenceStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReferenceStoreCommandOutput) => void
   ): void;
-  public getReferenceStore(
-    args: GetReferenceStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReferenceStoreCommandOutput) => void),
-    cb?: (err: any, data?: GetReferenceStoreCommandOutput) => void
-  ): Promise<GetReferenceStoreCommandOutput> | void {
-    const command = new GetReferenceStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a workflow run.</p>
+   * @see {@link GetRunCommand}
    */
-  public getRun(args: GetRunCommandInput, options?: __HttpHandlerOptions): Promise<GetRunCommandOutput>;
-  public getRun(args: GetRunCommandInput, cb: (err: any, data?: GetRunCommandOutput) => void): void;
-  public getRun(
+  getRun(args: GetRunCommandInput, options?: __HttpHandlerOptions): Promise<GetRunCommandOutput>;
+  getRun(args: GetRunCommandInput, cb: (err: any, data?: GetRunCommandOutput) => void): void;
+  getRun(
     args: GetRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRunCommandOutput) => void
   ): void;
-  public getRun(
-    args: GetRunCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRunCommandOutput) => void),
-    cb?: (err: any, data?: GetRunCommandOutput) => void
-  ): Promise<GetRunCommandOutput> | void {
-    const command = new GetRunCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a workflow run group.</p>
+   * @see {@link GetRunGroupCommand}
    */
-  public getRunGroup(args: GetRunGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetRunGroupCommandOutput>;
-  public getRunGroup(args: GetRunGroupCommandInput, cb: (err: any, data?: GetRunGroupCommandOutput) => void): void;
-  public getRunGroup(
+  getRunGroup(args: GetRunGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetRunGroupCommandOutput>;
+  getRunGroup(args: GetRunGroupCommandInput, cb: (err: any, data?: GetRunGroupCommandOutput) => void): void;
+  getRunGroup(
     args: GetRunGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRunGroupCommandOutput) => void
   ): void;
-  public getRunGroup(
-    args: GetRunGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRunGroupCommandOutput) => void),
-    cb?: (err: any, data?: GetRunGroupCommandOutput) => void
-  ): Promise<GetRunGroupCommandOutput> | void {
-    const command = new GetRunGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a workflow run task.</p>
+   * @see {@link GetRunTaskCommand}
    */
-  public getRunTask(args: GetRunTaskCommandInput, options?: __HttpHandlerOptions): Promise<GetRunTaskCommandOutput>;
-  public getRunTask(args: GetRunTaskCommandInput, cb: (err: any, data?: GetRunTaskCommandOutput) => void): void;
-  public getRunTask(
+  getRunTask(args: GetRunTaskCommandInput, options?: __HttpHandlerOptions): Promise<GetRunTaskCommandOutput>;
+  getRunTask(args: GetRunTaskCommandInput, cb: (err: any, data?: GetRunTaskCommandOutput) => void): void;
+  getRunTask(
     args: GetRunTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRunTaskCommandOutput) => void
   ): void;
-  public getRunTask(
-    args: GetRunTaskCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRunTaskCommandOutput) => void),
-    cb?: (err: any, data?: GetRunTaskCommandOutput) => void
-  ): Promise<GetRunTaskCommandOutput> | void {
-    const command = new GetRunTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a sequence store.</p>
+   * @see {@link GetSequenceStoreCommand}
    */
-  public getSequenceStore(
+  getSequenceStore(
     args: GetSequenceStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSequenceStoreCommandOutput>;
-  public getSequenceStore(
+  getSequenceStore(
     args: GetSequenceStoreCommandInput,
     cb: (err: any, data?: GetSequenceStoreCommandOutput) => void
   ): void;
-  public getSequenceStore(
+  getSequenceStore(
     args: GetSequenceStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSequenceStoreCommandOutput) => void
   ): void;
-  public getSequenceStore(
-    args: GetSequenceStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSequenceStoreCommandOutput) => void),
-    cb?: (err: any, data?: GetSequenceStoreCommandOutput) => void
-  ): Promise<GetSequenceStoreCommandOutput> | void {
-    const command = new GetSequenceStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a variant import job.</p>
+   * @see {@link GetVariantImportJobCommand}
    */
-  public getVariantImportJob(
+  getVariantImportJob(
     args: GetVariantImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVariantImportJobCommandOutput>;
-  public getVariantImportJob(
+  getVariantImportJob(
     args: GetVariantImportJobCommandInput,
     cb: (err: any, data?: GetVariantImportJobCommandOutput) => void
   ): void;
-  public getVariantImportJob(
+  getVariantImportJob(
     args: GetVariantImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVariantImportJobCommandOutput) => void
   ): void;
-  public getVariantImportJob(
-    args: GetVariantImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVariantImportJobCommandOutput) => void),
-    cb?: (err: any, data?: GetVariantImportJobCommandOutput) => void
-  ): Promise<GetVariantImportJobCommandOutput> | void {
-    const command = new GetVariantImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a variant store.</p>
+   * @see {@link GetVariantStoreCommand}
    */
-  public getVariantStore(
+  getVariantStore(
     args: GetVariantStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVariantStoreCommandOutput>;
-  public getVariantStore(
-    args: GetVariantStoreCommandInput,
-    cb: (err: any, data?: GetVariantStoreCommandOutput) => void
-  ): void;
-  public getVariantStore(
+  getVariantStore(args: GetVariantStoreCommandInput, cb: (err: any, data?: GetVariantStoreCommandOutput) => void): void;
+  getVariantStore(
     args: GetVariantStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVariantStoreCommandOutput) => void
   ): void;
-  public getVariantStore(
-    args: GetVariantStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVariantStoreCommandOutput) => void),
-    cb?: (err: any, data?: GetVariantStoreCommandOutput) => void
-  ): Promise<GetVariantStoreCommandOutput> | void {
-    const command = new GetVariantStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about a workflow.</p>
+   * @see {@link GetWorkflowCommand}
    */
-  public getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
-  public getWorkflow(args: GetWorkflowCommandInput, cb: (err: any, data?: GetWorkflowCommandOutput) => void): void;
-  public getWorkflow(
+  getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
+  getWorkflow(args: GetWorkflowCommandInput, cb: (err: any, data?: GetWorkflowCommandOutput) => void): void;
+  getWorkflow(
     args: GetWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetWorkflowCommandOutput) => void
   ): void;
-  public getWorkflow(
-    args: GetWorkflowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowCommandOutput) => void),
-    cb?: (err: any, data?: GetWorkflowCommandOutput) => void
-  ): Promise<GetWorkflowCommandOutput> | void {
-    const command = new GetWorkflowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of annotation import jobs.</p>
+   * @see {@link ListAnnotationImportJobsCommand}
    */
-  public listAnnotationImportJobs(
+  listAnnotationImportJobs(
     args: ListAnnotationImportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAnnotationImportJobsCommandOutput>;
-  public listAnnotationImportJobs(
+  listAnnotationImportJobs(
     args: ListAnnotationImportJobsCommandInput,
     cb: (err: any, data?: ListAnnotationImportJobsCommandOutput) => void
   ): void;
-  public listAnnotationImportJobs(
+  listAnnotationImportJobs(
     args: ListAnnotationImportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAnnotationImportJobsCommandOutput) => void
   ): void;
-  public listAnnotationImportJobs(
-    args: ListAnnotationImportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAnnotationImportJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListAnnotationImportJobsCommandOutput) => void
-  ): Promise<ListAnnotationImportJobsCommandOutput> | void {
-    const command = new ListAnnotationImportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of annotation stores.</p>
+   * @see {@link ListAnnotationStoresCommand}
    */
-  public listAnnotationStores(
+  listAnnotationStores(
     args: ListAnnotationStoresCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAnnotationStoresCommandOutput>;
-  public listAnnotationStores(
+  listAnnotationStores(
     args: ListAnnotationStoresCommandInput,
     cb: (err: any, data?: ListAnnotationStoresCommandOutput) => void
   ): void;
-  public listAnnotationStores(
+  listAnnotationStores(
     args: ListAnnotationStoresCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAnnotationStoresCommandOutput) => void
   ): void;
-  public listAnnotationStores(
-    args: ListAnnotationStoresCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAnnotationStoresCommandOutput) => void),
-    cb?: (err: any, data?: ListAnnotationStoresCommandOutput) => void
-  ): Promise<ListAnnotationStoresCommandOutput> | void {
-    const command = new ListAnnotationStoresCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of read set activation jobs.</p>
+   * @see {@link ListReadSetActivationJobsCommand}
    */
-  public listReadSetActivationJobs(
+  listReadSetActivationJobs(
     args: ListReadSetActivationJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReadSetActivationJobsCommandOutput>;
-  public listReadSetActivationJobs(
+  listReadSetActivationJobs(
     args: ListReadSetActivationJobsCommandInput,
     cb: (err: any, data?: ListReadSetActivationJobsCommandOutput) => void
   ): void;
-  public listReadSetActivationJobs(
+  listReadSetActivationJobs(
     args: ListReadSetActivationJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReadSetActivationJobsCommandOutput) => void
   ): void;
-  public listReadSetActivationJobs(
-    args: ListReadSetActivationJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReadSetActivationJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListReadSetActivationJobsCommandOutput) => void
-  ): Promise<ListReadSetActivationJobsCommandOutput> | void {
-    const command = new ListReadSetActivationJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of read set export jobs.</p>
+   * @see {@link ListReadSetExportJobsCommand}
    */
-  public listReadSetExportJobs(
+  listReadSetExportJobs(
     args: ListReadSetExportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReadSetExportJobsCommandOutput>;
-  public listReadSetExportJobs(
+  listReadSetExportJobs(
     args: ListReadSetExportJobsCommandInput,
     cb: (err: any, data?: ListReadSetExportJobsCommandOutput) => void
   ): void;
-  public listReadSetExportJobs(
+  listReadSetExportJobs(
     args: ListReadSetExportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReadSetExportJobsCommandOutput) => void
   ): void;
-  public listReadSetExportJobs(
-    args: ListReadSetExportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReadSetExportJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListReadSetExportJobsCommandOutput) => void
-  ): Promise<ListReadSetExportJobsCommandOutput> | void {
-    const command = new ListReadSetExportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of read set import jobs.</p>
+   * @see {@link ListReadSetImportJobsCommand}
    */
-  public listReadSetImportJobs(
+  listReadSetImportJobs(
     args: ListReadSetImportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReadSetImportJobsCommandOutput>;
-  public listReadSetImportJobs(
+  listReadSetImportJobs(
     args: ListReadSetImportJobsCommandInput,
     cb: (err: any, data?: ListReadSetImportJobsCommandOutput) => void
   ): void;
-  public listReadSetImportJobs(
+  listReadSetImportJobs(
     args: ListReadSetImportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReadSetImportJobsCommandOutput) => void
   ): void;
-  public listReadSetImportJobs(
-    args: ListReadSetImportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReadSetImportJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListReadSetImportJobsCommandOutput) => void
-  ): Promise<ListReadSetImportJobsCommandOutput> | void {
-    const command = new ListReadSetImportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of read sets.</p>
+   * @see {@link ListReadSetsCommand}
    */
-  public listReadSets(
-    args: ListReadSetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListReadSetsCommandOutput>;
-  public listReadSets(args: ListReadSetsCommandInput, cb: (err: any, data?: ListReadSetsCommandOutput) => void): void;
-  public listReadSets(
+  listReadSets(args: ListReadSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListReadSetsCommandOutput>;
+  listReadSets(args: ListReadSetsCommandInput, cb: (err: any, data?: ListReadSetsCommandOutput) => void): void;
+  listReadSets(
     args: ListReadSetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReadSetsCommandOutput) => void
   ): void;
-  public listReadSets(
-    args: ListReadSetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReadSetsCommandOutput) => void),
-    cb?: (err: any, data?: ListReadSetsCommandOutput) => void
-  ): Promise<ListReadSetsCommandOutput> | void {
-    const command = new ListReadSetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of reference import jobs.</p>
+   * @see {@link ListReferenceImportJobsCommand}
    */
-  public listReferenceImportJobs(
+  listReferenceImportJobs(
     args: ListReferenceImportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReferenceImportJobsCommandOutput>;
-  public listReferenceImportJobs(
+  listReferenceImportJobs(
     args: ListReferenceImportJobsCommandInput,
     cb: (err: any, data?: ListReferenceImportJobsCommandOutput) => void
   ): void;
-  public listReferenceImportJobs(
+  listReferenceImportJobs(
     args: ListReferenceImportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReferenceImportJobsCommandOutput) => void
   ): void;
-  public listReferenceImportJobs(
-    args: ListReferenceImportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReferenceImportJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListReferenceImportJobsCommandOutput) => void
-  ): Promise<ListReferenceImportJobsCommandOutput> | void {
-    const command = new ListReferenceImportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of references.</p>
+   * @see {@link ListReferencesCommand}
    */
-  public listReferences(
+  listReferences(
     args: ListReferencesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReferencesCommandOutput>;
-  public listReferences(
-    args: ListReferencesCommandInput,
-    cb: (err: any, data?: ListReferencesCommandOutput) => void
-  ): void;
-  public listReferences(
+  listReferences(args: ListReferencesCommandInput, cb: (err: any, data?: ListReferencesCommandOutput) => void): void;
+  listReferences(
     args: ListReferencesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReferencesCommandOutput) => void
   ): void;
-  public listReferences(
-    args: ListReferencesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReferencesCommandOutput) => void),
-    cb?: (err: any, data?: ListReferencesCommandOutput) => void
-  ): Promise<ListReferencesCommandOutput> | void {
-    const command = new ListReferencesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of reference stores.</p>
+   * @see {@link ListReferenceStoresCommand}
    */
-  public listReferenceStores(
+  listReferenceStores(
     args: ListReferenceStoresCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReferenceStoresCommandOutput>;
-  public listReferenceStores(
+  listReferenceStores(
     args: ListReferenceStoresCommandInput,
     cb: (err: any, data?: ListReferenceStoresCommandOutput) => void
   ): void;
-  public listReferenceStores(
+  listReferenceStores(
     args: ListReferenceStoresCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReferenceStoresCommandOutput) => void
   ): void;
-  public listReferenceStores(
-    args: ListReferenceStoresCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReferenceStoresCommandOutput) => void),
-    cb?: (err: any, data?: ListReferenceStoresCommandOutput) => void
-  ): Promise<ListReferenceStoresCommandOutput> | void {
-    const command = new ListReferenceStoresCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of run groups.</p>
+   * @see {@link ListRunGroupsCommand}
    */
-  public listRunGroups(
-    args: ListRunGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRunGroupsCommandOutput>;
-  public listRunGroups(
-    args: ListRunGroupsCommandInput,
-    cb: (err: any, data?: ListRunGroupsCommandOutput) => void
-  ): void;
-  public listRunGroups(
+  listRunGroups(args: ListRunGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListRunGroupsCommandOutput>;
+  listRunGroups(args: ListRunGroupsCommandInput, cb: (err: any, data?: ListRunGroupsCommandOutput) => void): void;
+  listRunGroups(
     args: ListRunGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRunGroupsCommandOutput) => void
   ): void;
-  public listRunGroups(
-    args: ListRunGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRunGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListRunGroupsCommandOutput) => void
-  ): Promise<ListRunGroupsCommandOutput> | void {
-    const command = new ListRunGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of runs.</p>
+   * @see {@link ListRunsCommand}
    */
-  public listRuns(args: ListRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListRunsCommandOutput>;
-  public listRuns(args: ListRunsCommandInput, cb: (err: any, data?: ListRunsCommandOutput) => void): void;
-  public listRuns(
+  listRuns(args: ListRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListRunsCommandOutput>;
+  listRuns(args: ListRunsCommandInput, cb: (err: any, data?: ListRunsCommandOutput) => void): void;
+  listRuns(
     args: ListRunsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRunsCommandOutput) => void
   ): void;
-  public listRuns(
-    args: ListRunsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRunsCommandOutput) => void),
-    cb?: (err: any, data?: ListRunsCommandOutput) => void
-  ): Promise<ListRunsCommandOutput> | void {
-    const command = new ListRunsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of tasks for a run.</p>
+   * @see {@link ListRunTasksCommand}
    */
-  public listRunTasks(
-    args: ListRunTasksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRunTasksCommandOutput>;
-  public listRunTasks(args: ListRunTasksCommandInput, cb: (err: any, data?: ListRunTasksCommandOutput) => void): void;
-  public listRunTasks(
+  listRunTasks(args: ListRunTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListRunTasksCommandOutput>;
+  listRunTasks(args: ListRunTasksCommandInput, cb: (err: any, data?: ListRunTasksCommandOutput) => void): void;
+  listRunTasks(
     args: ListRunTasksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRunTasksCommandOutput) => void
   ): void;
-  public listRunTasks(
-    args: ListRunTasksCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRunTasksCommandOutput) => void),
-    cb?: (err: any, data?: ListRunTasksCommandOutput) => void
-  ): Promise<ListRunTasksCommandOutput> | void {
-    const command = new ListRunTasksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of sequence stores.</p>
+   * @see {@link ListSequenceStoresCommand}
    */
-  public listSequenceStores(
+  listSequenceStores(
     args: ListSequenceStoresCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListSequenceStoresCommandOutput>;
-  public listSequenceStores(
+  listSequenceStores(
     args: ListSequenceStoresCommandInput,
     cb: (err: any, data?: ListSequenceStoresCommandOutput) => void
   ): void;
-  public listSequenceStores(
+  listSequenceStores(
     args: ListSequenceStoresCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSequenceStoresCommandOutput) => void
   ): void;
-  public listSequenceStores(
-    args: ListSequenceStoresCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSequenceStoresCommandOutput) => void),
-    cb?: (err: any, data?: ListSequenceStoresCommandOutput) => void
-  ): Promise<ListSequenceStoresCommandOutput> | void {
-    const command = new ListSequenceStoresCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of tags for a resource.</p>
+   * @see {@link ListTagsForResourceCommand}
    */
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of variant import jobs.</p>
+   * @see {@link ListVariantImportJobsCommand}
    */
-  public listVariantImportJobs(
+  listVariantImportJobs(
     args: ListVariantImportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListVariantImportJobsCommandOutput>;
-  public listVariantImportJobs(
+  listVariantImportJobs(
     args: ListVariantImportJobsCommandInput,
     cb: (err: any, data?: ListVariantImportJobsCommandOutput) => void
   ): void;
-  public listVariantImportJobs(
+  listVariantImportJobs(
     args: ListVariantImportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListVariantImportJobsCommandOutput) => void
   ): void;
-  public listVariantImportJobs(
-    args: ListVariantImportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVariantImportJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListVariantImportJobsCommandOutput) => void
-  ): Promise<ListVariantImportJobsCommandOutput> | void {
-    const command = new ListVariantImportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of variant stores.</p>
+   * @see {@link ListVariantStoresCommand}
    */
-  public listVariantStores(
+  listVariantStores(
     args: ListVariantStoresCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListVariantStoresCommandOutput>;
-  public listVariantStores(
+  listVariantStores(
     args: ListVariantStoresCommandInput,
     cb: (err: any, data?: ListVariantStoresCommandOutput) => void
   ): void;
-  public listVariantStores(
+  listVariantStores(
     args: ListVariantStoresCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListVariantStoresCommandOutput) => void
   ): void;
-  public listVariantStores(
-    args: ListVariantStoresCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVariantStoresCommandOutput) => void),
-    cb?: (err: any, data?: ListVariantStoresCommandOutput) => void
-  ): Promise<ListVariantStoresCommandOutput> | void {
-    const command = new ListVariantStoresCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves a list of workflows.</p>
+   * @see {@link ListWorkflowsCommand}
    */
-  public listWorkflows(
-    args: ListWorkflowsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListWorkflowsCommandOutput>;
-  public listWorkflows(
-    args: ListWorkflowsCommandInput,
-    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
-  ): void;
-  public listWorkflows(
+  listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
+  listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
+  listWorkflows(
     args: ListWorkflowsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListWorkflowsCommandOutput) => void
   ): void;
-  public listWorkflows(
-    args: ListWorkflowsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkflowsCommandOutput) => void),
-    cb?: (err: any, data?: ListWorkflowsCommandOutput) => void
-  ): Promise<ListWorkflowsCommandOutput> | void {
-    const command = new ListWorkflowsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts an annotation import job.</p>
+   * @see {@link StartAnnotationImportJobCommand}
    */
-  public startAnnotationImportJob(
+  startAnnotationImportJob(
     args: StartAnnotationImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartAnnotationImportJobCommandOutput>;
-  public startAnnotationImportJob(
+  startAnnotationImportJob(
     args: StartAnnotationImportJobCommandInput,
     cb: (err: any, data?: StartAnnotationImportJobCommandOutput) => void
   ): void;
-  public startAnnotationImportJob(
+  startAnnotationImportJob(
     args: StartAnnotationImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartAnnotationImportJobCommandOutput) => void
   ): void;
-  public startAnnotationImportJob(
-    args: StartAnnotationImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartAnnotationImportJobCommandOutput) => void),
-    cb?: (err: any, data?: StartAnnotationImportJobCommandOutput) => void
-  ): Promise<StartAnnotationImportJobCommandOutput> | void {
-    const command = new StartAnnotationImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Activates an archived read set. To reduce storage charges, Amazon Omics archives unused read
-   *        sets after 30 days.</p>
+   * @see {@link StartReadSetActivationJobCommand}
    */
-  public startReadSetActivationJob(
+  startReadSetActivationJob(
     args: StartReadSetActivationJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartReadSetActivationJobCommandOutput>;
-  public startReadSetActivationJob(
+  startReadSetActivationJob(
     args: StartReadSetActivationJobCommandInput,
     cb: (err: any, data?: StartReadSetActivationJobCommandOutput) => void
   ): void;
-  public startReadSetActivationJob(
+  startReadSetActivationJob(
     args: StartReadSetActivationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartReadSetActivationJobCommandOutput) => void
   ): void;
-  public startReadSetActivationJob(
-    args: StartReadSetActivationJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReadSetActivationJobCommandOutput) => void),
-    cb?: (err: any, data?: StartReadSetActivationJobCommandOutput) => void
-  ): Promise<StartReadSetActivationJobCommandOutput> | void {
-    const command = new StartReadSetActivationJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Exports a read set to Amazon S3.</p>
+   * @see {@link StartReadSetExportJobCommand}
    */
-  public startReadSetExportJob(
+  startReadSetExportJob(
     args: StartReadSetExportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartReadSetExportJobCommandOutput>;
-  public startReadSetExportJob(
+  startReadSetExportJob(
     args: StartReadSetExportJobCommandInput,
     cb: (err: any, data?: StartReadSetExportJobCommandOutput) => void
   ): void;
-  public startReadSetExportJob(
+  startReadSetExportJob(
     args: StartReadSetExportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartReadSetExportJobCommandOutput) => void
   ): void;
-  public startReadSetExportJob(
-    args: StartReadSetExportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReadSetExportJobCommandOutput) => void),
-    cb?: (err: any, data?: StartReadSetExportJobCommandOutput) => void
-  ): Promise<StartReadSetExportJobCommandOutput> | void {
-    const command = new StartReadSetExportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts a read set import job.</p>
+   * @see {@link StartReadSetImportJobCommand}
    */
-  public startReadSetImportJob(
+  startReadSetImportJob(
     args: StartReadSetImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartReadSetImportJobCommandOutput>;
-  public startReadSetImportJob(
+  startReadSetImportJob(
     args: StartReadSetImportJobCommandInput,
     cb: (err: any, data?: StartReadSetImportJobCommandOutput) => void
   ): void;
-  public startReadSetImportJob(
+  startReadSetImportJob(
     args: StartReadSetImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartReadSetImportJobCommandOutput) => void
   ): void;
-  public startReadSetImportJob(
-    args: StartReadSetImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReadSetImportJobCommandOutput) => void),
-    cb?: (err: any, data?: StartReadSetImportJobCommandOutput) => void
-  ): Promise<StartReadSetImportJobCommandOutput> | void {
-    const command = new StartReadSetImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts a reference import job.</p>
+   * @see {@link StartReferenceImportJobCommand}
    */
-  public startReferenceImportJob(
+  startReferenceImportJob(
     args: StartReferenceImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartReferenceImportJobCommandOutput>;
-  public startReferenceImportJob(
+  startReferenceImportJob(
     args: StartReferenceImportJobCommandInput,
     cb: (err: any, data?: StartReferenceImportJobCommandOutput) => void
   ): void;
-  public startReferenceImportJob(
+  startReferenceImportJob(
     args: StartReferenceImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartReferenceImportJobCommandOutput) => void
   ): void;
-  public startReferenceImportJob(
-    args: StartReferenceImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReferenceImportJobCommandOutput) => void),
-    cb?: (err: any, data?: StartReferenceImportJobCommandOutput) => void
-  ): Promise<StartReferenceImportJobCommandOutput> | void {
-    const command = new StartReferenceImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts a run.</p>
+   * @see {@link StartRunCommand}
    */
-  public startRun(args: StartRunCommandInput, options?: __HttpHandlerOptions): Promise<StartRunCommandOutput>;
-  public startRun(args: StartRunCommandInput, cb: (err: any, data?: StartRunCommandOutput) => void): void;
-  public startRun(
+  startRun(args: StartRunCommandInput, options?: __HttpHandlerOptions): Promise<StartRunCommandOutput>;
+  startRun(args: StartRunCommandInput, cb: (err: any, data?: StartRunCommandOutput) => void): void;
+  startRun(
     args: StartRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartRunCommandOutput) => void
   ): void;
-  public startRun(
-    args: StartRunCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartRunCommandOutput) => void),
-    cb?: (err: any, data?: StartRunCommandOutput) => void
-  ): Promise<StartRunCommandOutput> | void {
-    const command = new StartRunCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts a variant import job.</p>
+   * @see {@link StartVariantImportJobCommand}
    */
-  public startVariantImportJob(
+  startVariantImportJob(
     args: StartVariantImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartVariantImportJobCommandOutput>;
-  public startVariantImportJob(
+  startVariantImportJob(
     args: StartVariantImportJobCommandInput,
     cb: (err: any, data?: StartVariantImportJobCommandOutput) => void
   ): void;
-  public startVariantImportJob(
+  startVariantImportJob(
     args: StartVariantImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartVariantImportJobCommandOutput) => void
   ): void;
-  public startVariantImportJob(
-    args: StartVariantImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartVariantImportJobCommandOutput) => void),
-    cb?: (err: any, data?: StartVariantImportJobCommandOutput) => void
-  ): Promise<StartVariantImportJobCommandOutput> | void {
-    const command = new StartVariantImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Tags a resource.</p>
+   * @see {@link TagResourceCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes tags from a resource.</p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates an annotation store.</p>
+   * @see {@link UpdateAnnotationStoreCommand}
    */
-  public updateAnnotationStore(
+  updateAnnotationStore(
     args: UpdateAnnotationStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateAnnotationStoreCommandOutput>;
-  public updateAnnotationStore(
+  updateAnnotationStore(
     args: UpdateAnnotationStoreCommandInput,
     cb: (err: any, data?: UpdateAnnotationStoreCommandOutput) => void
   ): void;
-  public updateAnnotationStore(
+  updateAnnotationStore(
     args: UpdateAnnotationStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAnnotationStoreCommandOutput) => void
   ): void;
-  public updateAnnotationStore(
-    args: UpdateAnnotationStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAnnotationStoreCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAnnotationStoreCommandOutput) => void
-  ): Promise<UpdateAnnotationStoreCommandOutput> | void {
-    const command = new UpdateAnnotationStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a run group.</p>
+   * @see {@link UpdateRunGroupCommand}
    */
-  public updateRunGroup(
+  updateRunGroup(
     args: UpdateRunGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRunGroupCommandOutput>;
-  public updateRunGroup(
-    args: UpdateRunGroupCommandInput,
-    cb: (err: any, data?: UpdateRunGroupCommandOutput) => void
-  ): void;
-  public updateRunGroup(
+  updateRunGroup(args: UpdateRunGroupCommandInput, cb: (err: any, data?: UpdateRunGroupCommandOutput) => void): void;
+  updateRunGroup(
     args: UpdateRunGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRunGroupCommandOutput) => void
   ): void;
-  public updateRunGroup(
-    args: UpdateRunGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRunGroupCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRunGroupCommandOutput) => void
-  ): Promise<UpdateRunGroupCommandOutput> | void {
-    const command = new UpdateRunGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a variant store.</p>
+   * @see {@link UpdateVariantStoreCommand}
    */
-  public updateVariantStore(
+  updateVariantStore(
     args: UpdateVariantStoreCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateVariantStoreCommandOutput>;
-  public updateVariantStore(
+  updateVariantStore(
     args: UpdateVariantStoreCommandInput,
     cb: (err: any, data?: UpdateVariantStoreCommandOutput) => void
   ): void;
-  public updateVariantStore(
+  updateVariantStore(
     args: UpdateVariantStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVariantStoreCommandOutput) => void
   ): void;
-  public updateVariantStore(
-    args: UpdateVariantStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVariantStoreCommandOutput) => void),
-    cb?: (err: any, data?: UpdateVariantStoreCommandOutput) => void
-  ): Promise<UpdateVariantStoreCommandOutput> | void {
-    const command = new UpdateVariantStoreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a workflow.</p>
+   * @see {@link UpdateWorkflowCommand}
    */
-  public updateWorkflow(
+  updateWorkflow(
     args: UpdateWorkflowCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWorkflowCommandOutput>;
-  public updateWorkflow(
-    args: UpdateWorkflowCommandInput,
-    cb: (err: any, data?: UpdateWorkflowCommandOutput) => void
-  ): void;
-  public updateWorkflow(
+  updateWorkflow(args: UpdateWorkflowCommandInput, cb: (err: any, data?: UpdateWorkflowCommandOutput) => void): void;
+  updateWorkflow(
     args: UpdateWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkflowCommandOutput) => void
   ): void;
-  public updateWorkflow(
-    args: UpdateWorkflowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkflowCommandOutput) => void),
-    cb?: (err: any, data?: UpdateWorkflowCommandOutput) => void
-  ): Promise<UpdateWorkflowCommandOutput> | void {
-    const command = new UpdateWorkflowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>This is the <i>Amazon Omics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is Amazon Omics?</a> in the
+ *       <i>Amazon Omics Developer Guide</i>.</p>
+ */
+export class Omics extends OmicsClient implements Omics {}
+createAggregatedClient(commands, Omics);

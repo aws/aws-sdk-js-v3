@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import {
-  ListRepositoryAssociationsRequest,
-  ListRepositoryAssociationsRequestFilterSensitiveLog,
-  ListRepositoryAssociationsResponse,
-  ListRepositoryAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRepositoryAssociationsCommand,
-  serializeAws_restJson1ListRepositoryAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRepositoryAssociationsRequest, ListRepositoryAssociationsResponse } from "../models/models_0";
+import { de_ListRepositoryAssociationsCommand, se_ListRepositoryAssociationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRepositoryAssociationsCommand}.
  */
 export interface ListRepositoryAssociationsCommandInput extends ListRepositoryAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRepositoryAssociationsCommand}.
  */
 export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryAssociationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html">RepositoryAssociationSummary</a> objects that contain summary information about a
  *          repository association. You can filter the returned list by <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType">ProviderType</a>, <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name">Name</a>, <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State">State</a>, and <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner">Owner</a>.</p>
  * @example
@@ -43,10 +40,28 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  * import { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = { // ListRepositoryAssociationsRequest
+ *   ProviderTypes: [ // ProviderTypes
+ *     "CodeCommit" || "GitHub" || "Bitbucket" || "GitHubEnterpriseServer" || "S3Bucket",
+ *   ],
+ *   States: [ // RepositoryAssociationStates
+ *     "Associated" || "Associating" || "Failed" || "Disassociating" || "Disassociated",
+ *   ],
+ *   Names: [ // Names
+ *     "STRING_VALUE",
+ *   ],
+ *   Owners: [ // Owners
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListRepositoryAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRepositoryAssociationsCommandInput - {@link ListRepositoryAssociationsCommandInput}
+ * @returns {@link ListRepositoryAssociationsCommandOutput}
  * @see {@link ListRepositoryAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListRepositoryAssociationsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -79,6 +94,9 @@ export class ListRepositoryAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRepositoryAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +125,8 @@ export class ListRepositoryAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRepositoryAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRepositoryAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +136,21 @@ export class ListRepositoryAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRepositoryAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRepositoryAssociationsCommand(input, context);
+    return se_ListRepositoryAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRepositoryAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListRepositoryAssociationsCommand(output, context);
+    return de_ListRepositoryAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

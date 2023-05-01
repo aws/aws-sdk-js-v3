@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDocumentRequest,
-  DeleteDocumentRequestFilterSensitiveLog,
-  DeleteDocumentResult,
-  DeleteDocumentResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDocumentCommand,
-  serializeAws_json1_1DeleteDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDocumentRequest, DeleteDocumentResult } from "../models/models_0";
+import { de_DeleteDocumentCommand, se_DeleteDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDocumentCommand}.
  */
 export interface DeleteDocumentCommandInput extends DeleteDocumentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDocumentCommand}.
  */
 export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the Amazon Web Services Systems Manager document (SSM document) and all managed node associations to the
  *    document.</p>
  *          <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all managed nodes that are associated with the document.</p>
@@ -44,10 +41,18 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
  * import { SSMClient, DeleteDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DeleteDocumentRequest
+ *   Name: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE",
+ *   VersionName: "STRING_VALUE",
+ *   Force: true || false,
+ * };
  * const command = new DeleteDocumentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDocumentCommandInput - {@link DeleteDocumentCommandInput}
+ * @returns {@link DeleteDocumentCommandOutput}
  * @see {@link DeleteDocumentCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -84,6 +89,9 @@ export class DeleteDocumentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDocumentCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class DeleteDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDocumentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class DeleteDocumentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDocumentCommand(input, context);
+    return se_DeleteDocumentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDocumentCommandOutput> {
-    return deserializeAws_json1_1DeleteDocumentCommand(output, context);
+    return de_DeleteDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

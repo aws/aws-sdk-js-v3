@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { GetDistributionConfigurationRequest, GetDistributionConfigurationResponse } from "../models/models_0";
 import {
-  GetDistributionConfigurationRequest,
-  GetDistributionConfigurationRequestFilterSensitiveLog,
-  GetDistributionConfigurationResponse,
-  GetDistributionConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDistributionConfigurationCommand,
-  serializeAws_restJson1GetDistributionConfigurationCommand,
+  de_GetDistributionConfigurationCommand,
+  se_GetDistributionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDistributionConfigurationCommand}.
  */
 export interface GetDistributionConfigurationCommandInput extends GetDistributionConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDistributionConfigurationCommand}.
  */
 export interface GetDistributionConfigurationCommandOutput
@@ -37,17 +36,23 @@ export interface GetDistributionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p> Gets a distribution configuration.</p>
+ * @public
+ * <p>Gets a distribution configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, GetDistributionConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetDistributionConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // GetDistributionConfigurationRequest
+ *   distributionConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new GetDistributionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDistributionConfigurationCommandInput - {@link GetDistributionConfigurationCommandInput}
+ * @returns {@link GetDistributionConfigurationCommandOutput}
  * @see {@link GetDistributionConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetDistributionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -56,18 +61,19 @@ export interface GetDistributionConfigurationCommandOutput
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -91,6 +97,9 @@ export class GetDistributionConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDistributionConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +128,8 @@ export class GetDistributionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDistributionConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDistributionConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +139,21 @@ export class GetDistributionConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDistributionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDistributionConfigurationCommand(input, context);
+    return se_GetDistributionConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDistributionConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetDistributionConfigurationCommand(output, context);
+    return de_GetDistributionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

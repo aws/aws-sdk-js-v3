@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeEntitlementsRequest,
-  DescribeEntitlementsRequestFilterSensitiveLog,
-  DescribeEntitlementsResult,
-  DescribeEntitlementsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEntitlementsCommand,
-  serializeAws_json1_1DescribeEntitlementsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeEntitlementsRequest, DescribeEntitlementsResult } from "../models/models_0";
+import { de_DescribeEntitlementsCommand, se_DescribeEntitlementsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEntitlementsCommand}.
  */
 export interface DescribeEntitlementsCommandInput extends DescribeEntitlementsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEntitlementsCommand}.
  */
 export interface DescribeEntitlementsCommandOutput extends DescribeEntitlementsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one of more entitlements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DescribeEntitlementsCommandOutput extends DescribeEntitlementsR
  * import { AppStreamClient, DescribeEntitlementsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeEntitlementsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeEntitlementsRequest
+ *   Name: "STRING_VALUE",
+ *   StackName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeEntitlementsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEntitlementsCommandInput - {@link DescribeEntitlementsCommandInput}
+ * @returns {@link DescribeEntitlementsCommandOutput}
  * @see {@link DescribeEntitlementsCommandInput} for command's `input` shape.
  * @see {@link DescribeEntitlementsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -78,6 +83,9 @@ export class DescribeEntitlementsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEntitlementsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +114,8 @@ export class DescribeEntitlementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEntitlementsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEntitlementsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +125,18 @@ export class DescribeEntitlementsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEntitlementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEntitlementsCommand(input, context);
+    return se_DescribeEntitlementsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntitlementsCommandOutput> {
-    return deserializeAws_json1_1DescribeEntitlementsCommand(output, context);
+    return de_DescribeEntitlementsCommand(output, context);
   }
 
   // Start section: command_body_extra

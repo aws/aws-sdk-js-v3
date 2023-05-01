@@ -19,22 +19,24 @@ import {
   UpdatePortalResponse,
   UpdatePortalResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePortalCommand,
-  serializeAws_restJson1UpdatePortalCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePortalCommand, se_UpdatePortalCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePortalCommand}.
  */
 export interface UpdatePortalCommandInput extends UpdatePortalRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePortalCommand}.
  */
 export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,17 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * import { WorkSpacesWebClient, UpdatePortalCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdatePortalCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // UpdatePortalRequest
+ *   portalArn: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   authenticationType: "STRING_VALUE",
+ * };
  * const command = new UpdatePortalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePortalCommandInput - {@link UpdatePortalCommandInput}
+ * @returns {@link UpdatePortalCommandOutput}
  * @see {@link UpdatePortalCommandInput} for command's `input` shape.
  * @see {@link UpdatePortalCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -84,6 +93,9 @@ export class UpdatePortalCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePortalCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,12 +133,18 @@ export class UpdatePortalCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePortalCommand(input, context);
+    return se_UpdatePortalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePortalCommandOutput> {
-    return deserializeAws_restJson1UpdatePortalCommand(output, context);
+    return de_UpdatePortalCommand(output, context);
   }
 
   // Start section: command_body_extra

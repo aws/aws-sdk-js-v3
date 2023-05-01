@@ -16,20 +16,22 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyVpcEndpointServicePermissionsRequest,
-  ModifyVpcEndpointServicePermissionsRequestFilterSensitiveLog,
   ModifyVpcEndpointServicePermissionsResult,
-  ModifyVpcEndpointServicePermissionsResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommand,
-  serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand,
+  de_ModifyVpcEndpointServicePermissionsCommand,
+  se_ModifyVpcEndpointServicePermissionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcEndpointServicePermissionsCommand}.
  */
 export interface ModifyVpcEndpointServicePermissionsCommandInput extends ModifyVpcEndpointServicePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcEndpointServicePermissionsCommand}.
  */
 export interface ModifyVpcEndpointServicePermissionsCommandOutput
@@ -37,6 +39,7 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions
  *             for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to
  *             your endpoint service.</p>
@@ -49,10 +52,22 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
  * import { EC2Client, ModifyVpcEndpointServicePermissionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcEndpointServicePermissionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVpcEndpointServicePermissionsRequest
+ *   DryRun: true || false,
+ *   ServiceId: "STRING_VALUE", // required
+ *   AddAllowedPrincipals: [ // ValueStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveAllowedPrincipals: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyVpcEndpointServicePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcEndpointServicePermissionsCommandInput - {@link ModifyVpcEndpointServicePermissionsCommandInput}
+ * @returns {@link ModifyVpcEndpointServicePermissionsCommandOutput}
  * @see {@link ModifyVpcEndpointServicePermissionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointServicePermissionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -76,6 +91,9 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcEndpointServicePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +122,8 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpcEndpointServicePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpcEndpointServicePermissionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,18 +133,24 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVpcEndpointServicePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand(input, context);
+    return se_ModifyVpcEndpointServicePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcEndpointServicePermissionsCommandOutput> {
-    return deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommand(output, context);
+    return de_ModifyVpcEndpointServicePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  UpdateACLRequest,
-  UpdateACLRequestFilterSensitiveLog,
-  UpdateACLResponse,
-  UpdateACLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1UpdateACLCommand, serializeAws_json1_1UpdateACLCommand } from "../protocols/Aws_json1_1";
+import { UpdateACLRequest, UpdateACLResponse } from "../models/models_0";
+import { de_UpdateACLCommand, se_UpdateACLCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateACLCommand}.
  */
 export interface UpdateACLCommandInput extends UpdateACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateACLCommand}.
  */
 export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the list of users that belong to the Access Control List.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,21 @@ export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBea
  * import { MemoryDBClient, UpdateACLCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, UpdateACLCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // UpdateACLRequest
+ *   ACLName: "STRING_VALUE", // required
+ *   UserNamesToAdd: [ // UserNameListInput
+ *     "STRING_VALUE",
+ *   ],
+ *   UserNamesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateACLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateACLCommandInput - {@link UpdateACLCommandInput}
+ * @returns {@link UpdateACLCommandOutput}
  * @see {@link UpdateACLCommandInput} for command's `input` shape.
  * @see {@link UpdateACLCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -87,6 +98,9 @@ export class UpdateACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +127,8 @@ export class UpdateACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +138,18 @@ export class UpdateACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateACLCommand(input, context);
+    return se_UpdateACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateACLCommandOutput> {
-    return deserializeAws_json1_1UpdateACLCommand(output, context);
+    return de_UpdateACLCommand(output, context);
   }
 
   // Start section: command_body_extra

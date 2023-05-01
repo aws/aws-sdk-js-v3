@@ -10,7 +10,7 @@ import { SSMIncidentsClient } from "../SSMIncidentsClient";
 import { SSMIncidentsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSMIncidentsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTimelineEventsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTimelineEvents(
   config: SSMIncidentsPaginationConfiguration,
   input: ListTimelineEventsCommandInput,

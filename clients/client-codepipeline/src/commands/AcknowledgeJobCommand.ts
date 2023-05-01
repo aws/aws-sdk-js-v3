@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  AcknowledgeJobInput,
-  AcknowledgeJobInputFilterSensitiveLog,
-  AcknowledgeJobOutput,
-  AcknowledgeJobOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AcknowledgeJobCommand,
-  serializeAws_json1_1AcknowledgeJobCommand,
-} from "../protocols/Aws_json1_1";
+import { AcknowledgeJobInput, AcknowledgeJobOutput } from "../models/models_0";
+import { de_AcknowledgeJobCommand, se_AcknowledgeJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AcknowledgeJobCommand}.
  */
 export interface AcknowledgeJobCommandInput extends AcknowledgeJobInput {}
 /**
+ * @public
+ *
  * The output of {@link AcknowledgeJobCommand}.
  */
 export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specified job and whether that job has been received by
  *             the job worker. Used for custom actions only.</p>
  * @example
@@ -43,10 +40,16 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  * import { CodePipelineClient, AcknowledgeJobCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, AcknowledgeJobCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // AcknowledgeJobInput
+ *   jobId: "STRING_VALUE", // required
+ *   nonce: "STRING_VALUE", // required
+ * };
  * const command = new AcknowledgeJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcknowledgeJobCommandInput - {@link AcknowledgeJobCommandInput}
+ * @returns {@link AcknowledgeJobCommandOutput}
  * @see {@link AcknowledgeJobCommandInput} for command's `input` shape.
  * @see {@link AcknowledgeJobCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
@@ -79,6 +82,9 @@ export class AcknowledgeJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcknowledgeJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class AcknowledgeJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcknowledgeJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AcknowledgeJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class AcknowledgeJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcknowledgeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcknowledgeJobCommand(input, context);
+    return se_AcknowledgeJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcknowledgeJobCommandOutput> {
-    return deserializeAws_json1_1AcknowledgeJobCommand(output, context);
+    return de_AcknowledgeJobCommand(output, context);
   }
 
   // Start section: command_body_extra

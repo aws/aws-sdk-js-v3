@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  PutResourcePolicyInput,
-  PutResourcePolicyInputFilterSensitiveLog,
-  PutResourcePolicyOutput,
-  PutResourcePolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutResourcePolicyCommand,
-  serializeAws_json1_1PutResourcePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutResourcePolicyInput, PutResourcePolicyOutput } from "../models/models_0";
+import { de_PutResourcePolicyCommand, se_PutResourcePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandInput extends PutResourcePolicyInput {}
 /**
+ * @public
+ *
  * The output of {@link PutResourcePolicyCommand}.
  */
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Stores a resource policy for the ARN of a <code>Project</code> or
  *                 <code>ReportGroup</code> object. </p>
  * @example
@@ -43,10 +40,16 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * import { CodeBuildClient, PutResourcePolicyCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, PutResourcePolicyCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // PutResourcePolicyInput
+ *   policy: "STRING_VALUE", // required
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
+ * @returns {@link PutResourcePolicyCommandOutput}
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -76,6 +79,9 @@ export class PutResourcePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +110,8 @@ export class PutResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourcePolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutResourcePolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +121,18 @@ export class PutResourcePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutResourcePolicyCommand(input, context);
+    return se_PutResourcePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
-    return deserializeAws_json1_1PutResourcePolicyCommand(output, context);
+    return de_PutResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

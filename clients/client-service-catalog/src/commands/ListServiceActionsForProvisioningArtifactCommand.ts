@@ -15,22 +15,24 @@ import {
 
 import {
   ListServiceActionsForProvisioningArtifactInput,
-  ListServiceActionsForProvisioningArtifactInputFilterSensitiveLog,
   ListServiceActionsForProvisioningArtifactOutput,
-  ListServiceActionsForProvisioningArtifactOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand,
-  serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand,
+  de_ListServiceActionsForProvisioningArtifactCommand,
+  se_ListServiceActionsForProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServiceActionsForProvisioningArtifactCommand}.
  */
 export interface ListServiceActionsForProvisioningArtifactCommandInput
   extends ListServiceActionsForProvisioningArtifactInput {}
 /**
+ * @public
+ *
  * The output of {@link ListServiceActionsForProvisioningArtifactCommand}.
  */
 export interface ListServiceActionsForProvisioningArtifactCommandOutput
@@ -38,6 +40,7 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,19 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
  * import { ServiceCatalogClient, ListServiceActionsForProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListServiceActionsForProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListServiceActionsForProvisioningArtifactInput
+ *   ProductId: "STRING_VALUE", // required
+ *   ProvisioningArtifactId: "STRING_VALUE", // required
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new ListServiceActionsForProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServiceActionsForProvisioningArtifactCommandInput - {@link ListServiceActionsForProvisioningArtifactCommandInput}
+ * @returns {@link ListServiceActionsForProvisioningArtifactCommandOutput}
  * @see {@link ListServiceActionsForProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link ListServiceActionsForProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -78,6 +90,9 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceActionsForProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +127,8 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceActionsForProvisioningArtifactInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServiceActionsForProvisioningArtifactOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,18 +138,24 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListServiceActionsForProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(input, context);
+    return se_ListServiceActionsForProvisioningArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(output, context);
+    return de_ListServiceActionsForProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

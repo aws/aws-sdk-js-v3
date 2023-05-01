@@ -10,7 +10,7 @@ import { HoneycodeClient } from "../HoneycodeClient";
 import { HoneycodePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: HoneycodeClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTableRowsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTableRows(
   config: HoneycodePaginationConfiguration,
   input: ListTableRowsCommandInput,

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRecommenderConfigurationRequest,
-  CreateRecommenderConfigurationRequestFilterSensitiveLog,
-  CreateRecommenderConfigurationResponse,
-  CreateRecommenderConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRecommenderConfigurationRequest, CreateRecommenderConfigurationResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1CreateRecommenderConfigurationCommand,
-  serializeAws_restJson1CreateRecommenderConfigurationCommand,
+  de_CreateRecommenderConfigurationCommand,
+  se_CreateRecommenderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRecommenderConfigurationCommand}.
  */
 export interface CreateRecommenderConfigurationCommandInput extends CreateRecommenderConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRecommenderConfigurationCommand}.
  */
 export interface CreateRecommenderConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface CreateRecommenderConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Pinpoint configuration for a recommender model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,27 @@ export interface CreateRecommenderConfigurationCommandOutput
  * import { PinpointClient, CreateRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // CreateRecommenderConfigurationRequest
+ *   CreateRecommenderConfiguration: { // CreateRecommenderConfigurationShape
+ *     Attributes: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Description: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     RecommendationProviderIdType: "STRING_VALUE",
+ *     RecommendationProviderRoleArn: "STRING_VALUE", // required
+ *     RecommendationProviderUri: "STRING_VALUE", // required
+ *     RecommendationTransformerUri: "STRING_VALUE",
+ *     RecommendationsDisplayName: "STRING_VALUE",
+ *     RecommendationsPerMessage: Number("int"),
+ *   },
+ * };
  * const command = new CreateRecommenderConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRecommenderConfigurationCommandInput - {@link CreateRecommenderConfigurationCommandInput}
+ * @returns {@link CreateRecommenderConfigurationCommandOutput}
  * @see {@link CreateRecommenderConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateRecommenderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -92,6 +109,9 @@ export class CreateRecommenderConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRecommenderConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +140,8 @@ export class CreateRecommenderConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRecommenderConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRecommenderConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +151,24 @@ export class CreateRecommenderConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateRecommenderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRecommenderConfigurationCommand(input, context);
+    return se_CreateRecommenderConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRecommenderConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateRecommenderConfigurationCommand(output, context);
+    return de_CreateRecommenderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

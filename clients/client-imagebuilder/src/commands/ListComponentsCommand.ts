@@ -14,30 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  ListComponentsRequest,
-  ListComponentsRequestFilterSensitiveLog,
-  ListComponentsResponse,
-  ListComponentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListComponentsCommand,
-  serializeAws_restJson1ListComponentsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListComponentsRequest, ListComponentsResponse } from "../models/models_0";
+import { de_ListComponentsCommand, se_ListComponentsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListComponentsCommand}.
  */
 export interface ListComponentsCommandInput extends ListComponentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListComponentsCommand}.
  */
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the list of components that can be filtered by name, or by using
- * 			the listed <code>filters</code> to streamline results. Newly created components
- * 			can take up to two minutes to appear in the ListComponents API Results.</p>
+ * @public
+ * <p>Returns the list of components that can be filtered by name, or by using the listed
+ * 				<code>filters</code> to streamline results. Newly created components can take up to
+ * 			two minutes to appear in the ListComponents API Results.</p>
  *          <note>
  *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
  * 	You can assign values for the first three, and can filter on all of them.</p>
@@ -53,10 +50,26 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * import { ImagebuilderClient, ListComponentsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListComponentsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // ListComponentsRequest
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   filters: [ // FilterList
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   byName: true || false,
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
+ * @returns {@link ListComponentsCommandOutput}
  * @see {@link ListComponentsCommandInput} for command's `input` shape.
  * @see {@link ListComponentsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
@@ -65,9 +78,9 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  *  <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or resource on
- * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
- * 			invalid resource identifier.</p>
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -76,10 +89,11 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have made a request for an action that is not supported by the service.</p>
+ *  <p>You have requested an action that that the service doesn't support.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -103,6 +117,9 @@ export class ListComponentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComponentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +148,8 @@ export class ListComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComponentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListComponentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +159,18 @@ export class ListComponentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListComponentsCommand(input, context);
+    return se_ListComponentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComponentsCommandOutput> {
-    return deserializeAws_restJson1ListComponentsCommand(output, context);
+    return de_ListComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

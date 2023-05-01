@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  DescribeThesaurusRequest,
-  DescribeThesaurusRequestFilterSensitiveLog,
-  DescribeThesaurusResponse,
-  DescribeThesaurusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeThesaurusCommand,
-  serializeAws_json1_1DescribeThesaurusCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeThesaurusRequest, DescribeThesaurusResponse } from "../models/models_0";
+import { de_DescribeThesaurusCommand, se_DescribeThesaurusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeThesaurusCommand}.
  */
 export interface DescribeThesaurusCommandInput extends DescribeThesaurusRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeThesaurusCommand}.
  */
 export interface DescribeThesaurusCommandOutput extends DescribeThesaurusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about an existing Amazon Kendra thesaurus.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeThesaurusCommandOutput extends DescribeThesaurusRespons
  * import { KendraClient, DescribeThesaurusCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeThesaurusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DescribeThesaurusRequest
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeThesaurusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeThesaurusCommandInput - {@link DescribeThesaurusCommandInput}
+ * @returns {@link DescribeThesaurusCommandOutput}
  * @see {@link DescribeThesaurusCommandInput} for command's `input` shape.
  * @see {@link DescribeThesaurusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -56,7 +59,7 @@ export interface DescribeThesaurusCommandOutput extends DescribeThesaurusRespons
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -89,6 +92,9 @@ export class DescribeThesaurusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeThesaurusCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +123,8 @@ export class DescribeThesaurusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeThesaurusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeThesaurusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +134,18 @@ export class DescribeThesaurusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeThesaurusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeThesaurusCommand(input, context);
+    return se_DescribeThesaurusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeThesaurusCommandOutput> {
-    return deserializeAws_json1_1DescribeThesaurusCommand(output, context);
+    return de_DescribeThesaurusCommand(output, context);
   }
 
   // Start section: command_body_extra

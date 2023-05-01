@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateLocalGatewayRouteRequest,
-  CreateLocalGatewayRouteRequestFilterSensitiveLog,
-  CreateLocalGatewayRouteResult,
-  CreateLocalGatewayRouteResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_ec2CreateLocalGatewayRouteCommand,
-  serializeAws_ec2CreateLocalGatewayRouteCommand,
-} from "../protocols/Aws_ec2";
+import { CreateLocalGatewayRouteRequest, CreateLocalGatewayRouteResult } from "../models/models_1";
+import { de_CreateLocalGatewayRouteCommand, se_CreateLocalGatewayRouteCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLocalGatewayRouteCommand}.
  */
 export interface CreateLocalGatewayRouteCommandInput extends CreateLocalGatewayRouteRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateLocalGatewayRouteCommand}.
  */
 export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a static route for the specified local gateway route table. You must specify one of the
  *          following targets: </p>
  *          <ul>
@@ -55,10 +52,20 @@ export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGateway
  * import { EC2Client, CreateLocalGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateLocalGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // CreateLocalGatewayRouteRequest
+ *   DestinationCidrBlock: "STRING_VALUE",
+ *   LocalGatewayRouteTableId: "STRING_VALUE", // required
+ *   LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   NetworkInterfaceId: "STRING_VALUE",
+ *   DestinationPrefixListId: "STRING_VALUE",
+ * };
  * const command = new CreateLocalGatewayRouteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLocalGatewayRouteCommandInput - {@link CreateLocalGatewayRouteCommandInput}
+ * @returns {@link CreateLocalGatewayRouteCommandOutput}
  * @see {@link CreateLocalGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link CreateLocalGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -82,6 +89,9 @@ export class CreateLocalGatewayRouteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocalGatewayRouteCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +120,8 @@ export class CreateLocalGatewayRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocalGatewayRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocalGatewayRouteResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +131,18 @@ export class CreateLocalGatewayRouteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocalGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateLocalGatewayRouteCommand(input, context);
+    return se_CreateLocalGatewayRouteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocalGatewayRouteCommandOutput> {
-    return deserializeAws_ec2CreateLocalGatewayRouteCommand(output, context);
+    return de_CreateLocalGatewayRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

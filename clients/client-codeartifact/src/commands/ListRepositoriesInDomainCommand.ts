@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  ListRepositoriesInDomainRequest,
-  ListRepositoriesInDomainRequestFilterSensitiveLog,
-  ListRepositoriesInDomainResult,
-  ListRepositoriesInDomainResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRepositoriesInDomainCommand,
-  serializeAws_restJson1ListRepositoriesInDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRepositoriesInDomainRequest, ListRepositoriesInDomainResult } from "../models/models_0";
+import { de_ListRepositoriesInDomainCommand, se_ListRepositoriesInDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRepositoriesInDomainCommand}.
  */
 export interface ListRepositoriesInDomainCommandInput extends ListRepositoriesInDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRepositoriesInDomainCommand}.
  */
 export interface ListRepositoriesInDomainCommandOutput extends ListRepositoriesInDomainResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *        Returns a list of
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
@@ -47,10 +44,20 @@ export interface ListRepositoriesInDomainCommandOutput extends ListRepositoriesI
  * import { CodeartifactClient, ListRepositoriesInDomainCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, ListRepositoriesInDomainCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // ListRepositoriesInDomainRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   administratorAccount: "STRING_VALUE",
+ *   repositoryPrefix: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListRepositoriesInDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRepositoriesInDomainCommandInput - {@link ListRepositoriesInDomainCommandInput}
+ * @returns {@link ListRepositoriesInDomainCommandOutput}
  * @see {@link ListRepositoriesInDomainCommandInput} for command's `input` shape.
  * @see {@link ListRepositoriesInDomainCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -97,6 +104,9 @@ export class ListRepositoriesInDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRepositoriesInDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +135,8 @@ export class ListRepositoriesInDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRepositoriesInDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRepositoriesInDomainResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +146,18 @@ export class ListRepositoriesInDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRepositoriesInDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRepositoriesInDomainCommand(input, context);
+    return se_ListRepositoriesInDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRepositoriesInDomainCommandOutput> {
-    return deserializeAws_restJson1ListRepositoriesInDomainCommand(output, context);
+    return de_ListRepositoriesInDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,21 +16,23 @@ import {
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import {
   ListSavingsPlansPurchaseRecommendationGenerationRequest,
-  ListSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog,
   ListSavingsPlansPurchaseRecommendationGenerationResponse,
-  ListSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand,
-  serializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand,
+  de_ListSavingsPlansPurchaseRecommendationGenerationCommand,
+  se_ListSavingsPlansPurchaseRecommendationGenerationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
 export interface ListSavingsPlansPurchaseRecommendationGenerationCommandInput
   extends ListSavingsPlansPurchaseRecommendationGenerationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
 export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
@@ -38,6 +40,7 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of your historical recommendation generations within the past 30
  *       days.</p>
  * @example
@@ -46,10 +49,20 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * import { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // ListSavingsPlansPurchaseRecommendationGenerationRequest
+ *   GenerationStatus: "SUCCEEDED" || "PROCESSING" || "FAILED",
+ *   RecommendationIds: [ // RecommendationIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   PageSize: Number("int"),
+ *   NextPageToken: "STRING_VALUE",
+ * };
  * const command = new ListSavingsPlansPurchaseRecommendationGenerationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSavingsPlansPurchaseRecommendationGenerationCommandInput - {@link ListSavingsPlansPurchaseRecommendationGenerationCommandInput}
+ * @returns {@link ListSavingsPlansPurchaseRecommendationGenerationCommandOutput}
  * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommandInput} for command's `input` shape.
  * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
@@ -79,6 +92,9 @@ export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Co
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSavingsPlansPurchaseRecommendationGenerationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +129,8 @@ export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Co
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +140,24 @@ export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Co
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand(input, context);
+    return se_ListSavingsPlansPurchaseRecommendationGenerationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput> {
-    return deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand(output, context);
+    return de_ListSavingsPlansPurchaseRecommendationGenerationCommand(output, context);
   }
 
   // Start section: command_body_extra

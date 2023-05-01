@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateDevEndpointRequest,
-  CreateDevEndpointRequestFilterSensitiveLog,
-  CreateDevEndpointResponse,
-  CreateDevEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDevEndpointCommand,
-  serializeAws_json1_1CreateDevEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateDevEndpointRequest, CreateDevEndpointResponse } from "../models/models_0";
+import { de_CreateDevEndpointCommand, se_CreateDevEndpointCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDevEndpointCommand}.
  */
 export interface CreateDevEndpointCommandInput extends CreateDevEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDevEndpointCommand}.
  */
 export interface CreateDevEndpointCommandOutput extends CreateDevEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new development endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,37 @@ export interface CreateDevEndpointCommandOutput extends CreateDevEndpointRespons
  * import { GlueClient, CreateDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // CreateDevEndpointRequest
+ *   EndpointName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   SecurityGroupIds: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   SubnetId: "STRING_VALUE",
+ *   PublicKey: "STRING_VALUE",
+ *   PublicKeys: [ // PublicKeysList
+ *     "STRING_VALUE",
+ *   ],
+ *   NumberOfNodes: Number("int"),
+ *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ *   GlueVersion: "STRING_VALUE",
+ *   NumberOfWorkers: Number("int"),
+ *   ExtraPythonLibsS3Path: "STRING_VALUE",
+ *   ExtraJarsS3Path: "STRING_VALUE",
+ *   SecurityConfiguration: "STRING_VALUE",
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Arguments: { // MapValue
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDevEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDevEndpointCommandInput - {@link CreateDevEndpointCommandInput}
+ * @returns {@link CreateDevEndpointCommandOutput}
  * @see {@link CreateDevEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateDevEndpointCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -93,6 +117,9 @@ export class CreateDevEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDevEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +148,8 @@ export class CreateDevEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDevEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDevEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +159,18 @@ export class CreateDevEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDevEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDevEndpointCommand(input, context);
+    return se_CreateDevEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDevEndpointCommandOutput> {
-    return deserializeAws_json1_1CreateDevEndpointCommand(output, context);
+    return de_CreateDevEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

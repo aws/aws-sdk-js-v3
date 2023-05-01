@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DisableAddOnRequest,
-  DisableAddOnRequestFilterSensitiveLog,
-  DisableAddOnResult,
-  DisableAddOnResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableAddOnCommand,
-  serializeAws_json1_1DisableAddOnCommand,
-} from "../protocols/Aws_json1_1";
+import { DisableAddOnRequest, DisableAddOnResult } from "../models/models_0";
+import { de_DisableAddOnCommand, se_DisableAddOnCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableAddOnCommand}.
  */
 export interface DisableAddOnCommandInput extends DisableAddOnRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisableAddOnCommand}.
  */
 export interface DisableAddOnCommandOutput extends DisableAddOnResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables an add-on for an Amazon Lightsail resource. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DisableAddOnCommandOutput extends DisableAddOnResult, __Metadat
  * import { LightsailClient, DisableAddOnCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DisableAddOnCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DisableAddOnRequest
+ *   addOnType: "AutoSnapshot" || "StopInstanceOnIdle", // required
+ *   resourceName: "STRING_VALUE", // required
+ * };
  * const command = new DisableAddOnCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableAddOnCommandInput - {@link DisableAddOnCommandInput}
+ * @returns {@link DisableAddOnCommandOutput}
  * @see {@link DisableAddOnCommandInput} for command's `input` shape.
  * @see {@link DisableAddOnCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -95,6 +98,9 @@ export class DisableAddOnCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableAddOnCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class DisableAddOnCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableAddOnRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableAddOnResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +138,18 @@ export class DisableAddOnCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableAddOnCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableAddOnCommand(input, context);
+    return se_DisableAddOnCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableAddOnCommandOutput> {
-    return deserializeAws_json1_1DisableAddOnCommand(output, context);
+    return de_DisableAddOnCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeTrafficMirrorSessionsRequest,
-  DescribeTrafficMirrorSessionsRequestFilterSensitiveLog,
-  DescribeTrafficMirrorSessionsResult,
-  DescribeTrafficMirrorSessionsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeTrafficMirrorSessionsCommand,
-  serializeAws_ec2DescribeTrafficMirrorSessionsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeTrafficMirrorSessionsRequest, DescribeTrafficMirrorSessionsResult } from "../models/models_4";
+import { de_DescribeTrafficMirrorSessionsCommand, se_DescribeTrafficMirrorSessionsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTrafficMirrorSessionsCommand}.
  */
 export interface DescribeTrafficMirrorSessionsCommandInput extends DescribeTrafficMirrorSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTrafficMirrorSessionsCommand}.
  */
 export interface DescribeTrafficMirrorSessionsCommandOutput
@@ -37,6 +33,7 @@ export interface DescribeTrafficMirrorSessionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,28 @@ export interface DescribeTrafficMirrorSessionsCommandOutput
  * import { EC2Client, DescribeTrafficMirrorSessionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTrafficMirrorSessionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeTrafficMirrorSessionsRequest
+ *   TrafficMirrorSessionIds: [ // TrafficMirrorSessionIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeTrafficMirrorSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTrafficMirrorSessionsCommandInput - {@link DescribeTrafficMirrorSessionsCommandInput}
+ * @returns {@link DescribeTrafficMirrorSessionsCommandOutput}
  * @see {@link DescribeTrafficMirrorSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficMirrorSessionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +86,9 @@ export class DescribeTrafficMirrorSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTrafficMirrorSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +117,8 @@ export class DescribeTrafficMirrorSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrafficMirrorSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrafficMirrorSessionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +128,21 @@ export class DescribeTrafficMirrorSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTrafficMirrorSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTrafficMirrorSessionsCommand(input, context);
+    return se_DescribeTrafficMirrorSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrafficMirrorSessionsCommandOutput> {
-    return deserializeAws_ec2DescribeTrafficMirrorSessionsCommand(output, context);
+    return de_DescribeTrafficMirrorSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateDomainConfigurationRequest,
-  UpdateDomainConfigurationRequestFilterSensitiveLog,
-  UpdateDomainConfigurationResponse,
-  UpdateDomainConfigurationResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateDomainConfigurationCommand,
-  serializeAws_restJson1UpdateDomainConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDomainConfigurationRequest, UpdateDomainConfigurationResponse } from "../models/models_2";
+import { de_UpdateDomainConfigurationCommand, se_UpdateDomainConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainConfigurationCommand}.
  */
 export interface UpdateDomainConfigurationCommandInput extends UpdateDomainConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainConfigurationCommand}.
  */
 export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates values stored in the domain configuration. Domain configurations for default
  *          endpoints can't be updated.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDomainConfiguration</a> action.</p>
@@ -44,10 +41,24 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  * import { IoTClient, UpdateDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateDomainConfigurationRequest
+ *   domainConfigurationName: "STRING_VALUE", // required
+ *   authorizerConfig: { // AuthorizerConfig
+ *     defaultAuthorizerName: "STRING_VALUE",
+ *     allowAuthorizerOverride: true || false,
+ *   },
+ *   domainConfigurationStatus: "ENABLED" || "DISABLED",
+ *   removeAuthorizerConfig: true || false,
+ *   tlsConfig: { // TlsConfig
+ *     securityPolicy: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateDomainConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainConfigurationCommandInput - {@link UpdateDomainConfigurationCommandInput}
+ * @returns {@link UpdateDomainConfigurationCommandOutput}
  * @see {@link UpdateDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -92,6 +103,9 @@ export class UpdateDomainConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +134,8 @@ export class UpdateDomainConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +145,21 @@ export class UpdateDomainConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDomainConfigurationCommand(input, context);
+    return se_UpdateDomainConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateDomainConfigurationCommand(output, context);
+    return de_UpdateDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

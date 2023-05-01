@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAcceptedPortfolioSharesInput,
-  ListAcceptedPortfolioSharesInputFilterSensitiveLog,
-  ListAcceptedPortfolioSharesOutput,
-  ListAcceptedPortfolioSharesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAcceptedPortfolioSharesCommand,
-  serializeAws_json1_1ListAcceptedPortfolioSharesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAcceptedPortfolioSharesInput, ListAcceptedPortfolioSharesOutput } from "../models/models_0";
+import { de_ListAcceptedPortfolioSharesCommand, se_ListAcceptedPortfolioSharesCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAcceptedPortfolioSharesCommand}.
  */
 export interface ListAcceptedPortfolioSharesCommandInput extends ListAcceptedPortfolioSharesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListAcceptedPortfolioSharesCommand}.
  */
 export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPortfolioSharesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all imported portfolios for which account-to-account shares were accepted by
  *          this account. By specifying the <code>PortfolioShareType</code>, you can list portfolios for which
  *          organizational shares were accepted by this account.</p>
@@ -44,10 +41,18 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  * import { ServiceCatalogClient, ListAcceptedPortfolioSharesCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListAcceptedPortfolioSharesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ListAcceptedPortfolioSharesInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PageToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ *   PortfolioShareType: "IMPORTED" || "AWS_SERVICECATALOG" || "AWS_ORGANIZATIONS",
+ * };
  * const command = new ListAcceptedPortfolioSharesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAcceptedPortfolioSharesCommandInput - {@link ListAcceptedPortfolioSharesCommandInput}
+ * @returns {@link ListAcceptedPortfolioSharesCommandOutput}
  * @see {@link ListAcceptedPortfolioSharesCommandInput} for command's `input` shape.
  * @see {@link ListAcceptedPortfolioSharesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -77,6 +82,9 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAcceptedPortfolioSharesCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAcceptedPortfolioSharesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAcceptedPortfolioSharesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +124,21 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAcceptedPortfolioSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAcceptedPortfolioSharesCommand(input, context);
+    return se_ListAcceptedPortfolioSharesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAcceptedPortfolioSharesCommandOutput> {
-    return deserializeAws_json1_1ListAcceptedPortfolioSharesCommand(output, context);
+    return de_ListAcceptedPortfolioSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

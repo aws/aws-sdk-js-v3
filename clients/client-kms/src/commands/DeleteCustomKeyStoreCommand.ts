@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  DeleteCustomKeyStoreRequest,
-  DeleteCustomKeyStoreRequestFilterSensitiveLog,
-  DeleteCustomKeyStoreResponse,
-  DeleteCustomKeyStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCustomKeyStoreCommand,
-  serializeAws_json1_1DeleteCustomKeyStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCustomKeyStoreRequest, DeleteCustomKeyStoreResponse } from "../models/models_0";
+import { de_DeleteCustomKeyStoreCommand, se_DeleteCustomKeyStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCustomKeyStoreCommand}.
  */
 export interface DeleteCustomKeyStoreCommandInput extends DeleteCustomKeyStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCustomKeyStoreCommand}.
  */
 export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. This operation does not affect any backing elements of the
  *       custom key store. It does not delete the CloudHSM cluster that is associated with an CloudHSM key
  *       store, or affect any users or keys in the cluster. For an external key store, it does not
@@ -100,10 +97,15 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  * import { KMSClient, DeleteCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DeleteCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // DeleteCustomKeyStoreRequest
+ *   CustomKeyStoreId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomKeyStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCustomKeyStoreCommandInput - {@link DeleteCustomKeyStoreCommandInput}
+ * @returns {@link DeleteCustomKeyStoreCommandOutput}
  * @see {@link DeleteCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -188,6 +190,9 @@ export class DeleteCustomKeyStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomKeyStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -216,8 +221,8 @@ export class DeleteCustomKeyStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomKeyStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomKeyStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -227,12 +232,18 @@ export class DeleteCustomKeyStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCustomKeyStoreCommand(input, context);
+    return se_DeleteCustomKeyStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomKeyStoreCommandOutput> {
-    return deserializeAws_json1_1DeleteCustomKeyStoreCommand(output, context);
+    return de_DeleteCustomKeyStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

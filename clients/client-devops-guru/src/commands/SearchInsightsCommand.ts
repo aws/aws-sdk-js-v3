@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  SearchInsightsRequest,
-  SearchInsightsRequestFilterSensitiveLog,
-  SearchInsightsResponse,
-  SearchInsightsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchInsightsCommand,
-  serializeAws_restJson1SearchInsightsCommand,
-} from "../protocols/Aws_restJson1";
+import { SearchInsightsRequest, SearchInsightsResponse } from "../models/models_0";
+import { de_SearchInsightsCommand, se_SearchInsightsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SearchInsightsCommand}.
  */
 export interface SearchInsightsCommandInput extends SearchInsightsRequest {}
 /**
+ * @public
+ *
  * The output of {@link SearchInsightsCommand}.
  */
 export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns a list of insights in your Amazon Web Services account. You can specify which insights are
  * 			returned by their start time, one or more statuses (<code>ONGOING</code> or <code>CLOSED</code>), one or more severities
  * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
@@ -48,10 +45,49 @@ export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __M
  * import { DevOpsGuruClient, SearchInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, SearchInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = { // SearchInsightsRequest
+ *   StartTimeRange: { // StartTimeRange
+ *     FromTime: new Date("TIMESTAMP"),
+ *     ToTime: new Date("TIMESTAMP"),
+ *   },
+ *   Filters: { // SearchInsightsFilters
+ *     Severities: [ // InsightSeverities
+ *       "LOW" || "MEDIUM" || "HIGH",
+ *     ],
+ *     Statuses: [ // InsightStatuses
+ *       "ONGOING" || "CLOSED",
+ *     ],
+ *     ResourceCollection: { // ResourceCollection
+ *       CloudFormation: { // CloudFormationCollection
+ *         StackNames: [ // StackNames
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Tags: [ // TagCollections
+ *         { // TagCollection
+ *           AppBoundaryKey: "STRING_VALUE", // required
+ *           TagValues: [ // TagValues // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     ServiceCollection: { // ServiceCollection
+ *       ServiceNames: [ // ServiceNames
+ *         "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ *       ],
+ *     },
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Type: "REACTIVE" || "PROACTIVE", // required
+ * };
  * const command = new SearchInsightsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SearchInsightsCommandInput - {@link SearchInsightsCommandInput}
+ * @returns {@link SearchInsightsCommandOutput}
  * @see {@link SearchInsightsCommandInput} for command's `input` shape.
  * @see {@link SearchInsightsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
@@ -91,6 +127,9 @@ export class SearchInsightsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SearchInsightsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +158,8 @@ export class SearchInsightsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchInsightsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchInsightsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +169,18 @@ export class SearchInsightsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SearchInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchInsightsCommand(input, context);
+    return se_SearchInsightsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchInsightsCommandOutput> {
-    return deserializeAws_restJson1SearchInsightsCommand(output, context);
+    return de_SearchInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

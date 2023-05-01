@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartVariantImportRequest,
-  StartVariantImportRequestFilterSensitiveLog,
-  StartVariantImportResponse,
-  StartVariantImportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartVariantImportRequest, StartVariantImportResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1StartVariantImportJobCommand,
-  serializeAws_restJson1StartVariantImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartVariantImportJobCommand, se_StartVariantImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartVariantImportJobCommand}.
  */
 export interface StartVariantImportJobCommandInput extends StartVariantImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartVariantImportJobCommand}.
  */
 export interface StartVariantImportJobCommandOutput extends StartVariantImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a variant import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  * import { OmicsClient, StartVariantImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartVariantImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // StartVariantImportRequest
+ *   destinationName: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   items: [ // VariantImportItemSources // required
+ *     { // VariantImportItemSource
+ *       source: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   runLeftNormalization: true || false,
+ * };
  * const command = new StartVariantImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartVariantImportJobCommandInput - {@link StartVariantImportJobCommandInput}
+ * @returns {@link StartVariantImportJobCommandOutput}
  * @see {@link StartVariantImportJobCommandInput} for command's `input` shape.
  * @see {@link StartVariantImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +96,9 @@ export class StartVariantImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartVariantImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +127,8 @@ export class StartVariantImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartVariantImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartVariantImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +138,18 @@ export class StartVariantImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartVariantImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartVariantImportJobCommand(input, context);
+    return se_StartVariantImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartVariantImportJobCommandOutput> {
-    return deserializeAws_restJson1StartVariantImportJobCommand(output, context);
+    return de_StartVariantImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

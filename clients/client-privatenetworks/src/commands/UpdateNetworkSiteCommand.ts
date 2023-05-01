@@ -15,26 +15,27 @@ import {
 
 import {
   UpdateNetworkSiteRequest,
-  UpdateNetworkSiteRequestFilterSensitiveLog,
   UpdateNetworkSiteResponse,
   UpdateNetworkSiteResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1UpdateNetworkSiteCommand,
-  serializeAws_restJson1UpdateNetworkSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateNetworkSiteCommand, se_UpdateNetworkSiteCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNetworkSiteCommand}.
  */
 export interface UpdateNetworkSiteCommandInput extends UpdateNetworkSiteRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNetworkSiteCommand}.
  */
 export interface UpdateNetworkSiteCommandOutput extends UpdateNetworkSiteResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified network site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,17 @@ export interface UpdateNetworkSiteCommandOutput extends UpdateNetworkSiteRespons
  * import { PrivateNetworksClient, UpdateNetworkSiteCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, UpdateNetworkSiteCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = { // UpdateNetworkSiteRequest
+ *   networkSiteArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateNetworkSiteCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNetworkSiteCommandInput - {@link UpdateNetworkSiteCommandInput}
+ * @returns {@link UpdateNetworkSiteCommandOutput}
  * @see {@link UpdateNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
@@ -78,6 +86,9 @@ export class UpdateNetworkSiteCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNetworkSiteCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,7 +117,7 @@ export class UpdateNetworkSiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNetworkSiteRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateNetworkSiteResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -117,12 +128,18 @@ export class UpdateNetworkSiteCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNetworkSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNetworkSiteCommand(input, context);
+    return se_UpdateNetworkSiteCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNetworkSiteCommandOutput> {
-    return deserializeAws_restJson1UpdateNetworkSiteCommand(output, context);
+    return de_UpdateNetworkSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

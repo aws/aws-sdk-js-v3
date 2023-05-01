@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateFleetRequest,
-  CreateFleetRequestFilterSensitiveLog,
-  CreateFleetResponse,
-  CreateFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFleetCommand,
-  serializeAws_restJson1CreateFleetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateFleetRequest, CreateFleetResponse } from "../models/models_0";
+import { de_CreateFleetCommand, se_CreateFleetCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFleetCommand}.
  */
 export interface CreateFleetCommandInput extends CreateFleetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFleetCommand}.
  */
 export interface CreateFleetCommandOutput extends CreateFleetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Creates a fleet. A fleet consists of resources and the configuration that delivers
@@ -45,10 +42,20 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * import { WorkLinkClient, CreateFleetCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, CreateFleetCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // CreateFleetRequest
+ *   FleetName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   OptimizeForEndUserLocation: true || false,
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
+ * @returns {@link CreateFleetCommandOutput}
  * @see {@link CreateFleetCommandInput} for command's `input` shape.
  * @see {@link CreateFleetCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateFleetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +126,8 @@ export class CreateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +137,18 @@ export class CreateFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFleetCommand(input, context);
+    return se_CreateFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFleetCommandOutput> {
-    return deserializeAws_restJson1CreateFleetCommand(output, context);
+    return de_CreateFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPriceListsRequest,
-  ListPriceListsRequestFilterSensitiveLog,
-  ListPriceListsResponse,
-  ListPriceListsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPriceListsRequest, ListPriceListsResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import {
-  deserializeAws_json1_1ListPriceListsCommand,
-  serializeAws_json1_1ListPriceListsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPriceListsCommand, se_ListPriceListsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPriceListsCommand}.
  */
 export interface ListPriceListsCommandInput extends ListPriceListsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPriceListsCommand}.
  */
 export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <i>
  *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
@@ -54,10 +51,20 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * import { PricingClient, ListPriceListsCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, ListPriceListsCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
  * const client = new PricingClient(config);
+ * const input = { // ListPriceListsRequest
+ *   ServiceCode: "STRING_VALUE", // required
+ *   EffectiveDate: new Date("TIMESTAMP"), // required
+ *   RegionCode: "STRING_VALUE",
+ *   CurrencyCode: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPriceListsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPriceListsCommandInput - {@link ListPriceListsCommandInput}
+ * @returns {@link ListPriceListsCommandOutput}
  * @see {@link ListPriceListsCommandInput} for command's `input` shape.
  * @see {@link ListPriceListsCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
@@ -99,6 +106,9 @@ export class ListPriceListsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPriceListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +137,8 @@ export class ListPriceListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPriceListsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPriceListsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +148,18 @@ export class ListPriceListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPriceListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPriceListsCommand(input, context);
+    return se_ListPriceListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPriceListsCommandOutput> {
-    return deserializeAws_json1_1ListPriceListsCommand(output, context);
+    return de_ListPriceListsCommand(output, context);
   }
 
   // Start section: command_body_extra

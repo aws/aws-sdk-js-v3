@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { CognitoSyncServiceException as __BaseException } from "./CognitoSyncServiceException";
 
 /**
+ * @public
  * An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.
  */
 export class AlreadyStreamedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AlreadyStreamedException extends __BaseException {
 }
 
 /**
+ * @public
  * The input for the BulkPublish operation.
  */
 export interface BulkPublishRequest {
@@ -35,6 +37,7 @@ export interface BulkPublishRequest {
 }
 
 /**
+ * @public
  * The output for the BulkPublish operation.
  */
 export interface BulkPublishResponse {
@@ -47,6 +50,7 @@ export interface BulkPublishResponse {
 }
 
 /**
+ * @public
  * An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.
  */
 export class DuplicateRequestException extends __BaseException {
@@ -66,6 +70,7 @@ export class DuplicateRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * Indicates an internal service
  *       error.
  */
@@ -86,6 +91,7 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * Thrown when a request parameter does not comply
  *       with the associated constraints.
  */
@@ -106,6 +112,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * Thrown when a user is not authorized to access the
  *       requested resource.
  */
@@ -126,6 +133,7 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
+ * @public
  * Thrown if the resource doesn't
  *       exist.
  */
@@ -146,6 +154,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * A request to delete the specific
  *       dataset.
  */
@@ -173,6 +182,7 @@ export interface DeleteDatasetRequest {
 }
 
 /**
+ * @public
  * A collection of data for an identity pool. An identity pool can
  *       have multiple datasets. A dataset is per identity and can be general or associated with a
  *       particular entity in an application (like a saved game). Datasets are automatically created if
@@ -224,6 +234,7 @@ export interface Dataset {
 }
 
 /**
+ * @public
  * Response to a successful DeleteDataset
  *       request.
  */
@@ -239,6 +250,7 @@ export interface DeleteDatasetResponse {
 }
 
 /**
+ * @public
  * Thrown if an update can't be applied because
  *       the resource was changed by another call and this would result in a conflict.
  */
@@ -259,6 +271,7 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * Thrown if the request is
  *       throttled.
  */
@@ -279,6 +292,7 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * @public
  * A request for meta data about a dataset (creation
  *       date, number of records, size) by owner and dataset name.
  */
@@ -306,6 +320,7 @@ export interface DescribeDatasetRequest {
 }
 
 /**
+ * @public
  * Response to a successful DescribeDataset
  *       request.
  */
@@ -321,6 +336,7 @@ export interface DescribeDatasetResponse {
 }
 
 /**
+ * @public
  * A request for usage information about
  *       the identity pool.
  */
@@ -334,6 +350,7 @@ export interface DescribeIdentityPoolUsageRequest {
 }
 
 /**
+ * @public
  * Usage information for the identity
  *       pool.
  */
@@ -365,6 +382,7 @@ export interface IdentityPoolUsage {
 }
 
 /**
+ * @public
  * Response to a successful
  *       DescribeIdentityPoolUsage request.
  */
@@ -377,6 +395,7 @@ export interface DescribeIdentityPoolUsageResponse {
 }
 
 /**
+ * @public
  * A request for information about the usage of
  *       an identity pool.
  */
@@ -397,6 +416,7 @@ export interface DescribeIdentityUsageRequest {
 }
 
 /**
+ * @public
  * Usage information for the identity.
  */
 export interface IdentityUsage {
@@ -434,6 +454,7 @@ export interface IdentityUsage {
 }
 
 /**
+ * @public
  * The response to a successful
  *       DescribeIdentityUsage request.
  */
@@ -446,6 +467,7 @@ export interface DescribeIdentityUsageResponse {
 }
 
 /**
+ * @public
  * The input for the GetBulkPublishDetails operation.
  */
 export interface GetBulkPublishDetailsRequest {
@@ -457,14 +479,24 @@ export interface GetBulkPublishDetailsRequest {
   IdentityPoolId: string | undefined;
 }
 
-export enum BulkPublishStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BulkPublishStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type BulkPublishStatus = (typeof BulkPublishStatus)[keyof typeof BulkPublishStatus];
+
+/**
+ * @public
  * The output for the GetBulkPublishDetails operation.
  */
 export interface GetBulkPublishDetailsResponse {
@@ -501,6 +533,7 @@ export interface GetBulkPublishDetailsResponse {
 }
 
 /**
+ * @public
  * <p>A request for a list of the configured Cognito Events</p>
  */
 export interface GetCognitoEventsRequest {
@@ -511,6 +544,7 @@ export interface GetCognitoEventsRequest {
 }
 
 /**
+ * @public
  * <p>The response from the GetCognitoEvents request</p>
  */
 export interface GetCognitoEventsResponse {
@@ -521,6 +555,7 @@ export interface GetCognitoEventsResponse {
 }
 
 /**
+ * @public
  * <p>The input for the GetIdentityPoolConfiguration operation.</p>
  */
 export interface GetIdentityPoolConfigurationRequest {
@@ -531,9 +566,13 @@ export interface GetIdentityPoolConfigurationRequest {
   IdentityPoolId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export type StreamingStatus = "DISABLED" | "ENABLED";
 
 /**
+ * @public
  * Configuration options for configure Cognito streams.
  */
 export interface CognitoStreams {
@@ -556,6 +595,7 @@ export interface CognitoStreams {
 }
 
 /**
+ * @public
  * <p>Configuration options to be applied to the identity pool.</p>
  */
 export interface PushSync {
@@ -571,6 +611,7 @@ export interface PushSync {
 }
 
 /**
+ * @public
  * <p>The output for the GetIdentityPoolConfiguration operation.</p>
  */
 export interface GetIdentityPoolConfigurationResponse {
@@ -592,6 +633,7 @@ export interface GetIdentityPoolConfigurationResponse {
 }
 
 /**
+ * @public
  * Request for a list of datasets for an
  *       identity.
  */
@@ -624,6 +666,7 @@ export interface ListDatasetsRequest {
 }
 
 /**
+ * @public
  * Returned for a successful ListDatasets
  *       request.
  */
@@ -646,6 +689,7 @@ export interface ListDatasetsResponse {
 }
 
 /**
+ * @public
  * A request for usage information on an
  *       identity pool.
  */
@@ -664,6 +708,7 @@ export interface ListIdentityPoolUsageRequest {
 }
 
 /**
+ * @public
  * Returned for a successful
  *       ListIdentityPoolUsage request.
  */
@@ -694,6 +739,7 @@ export interface ListIdentityPoolUsageResponse {
 }
 
 /**
+ * @public
  * A request for a list of records.
  */
 export interface ListRecordsRequest {
@@ -743,6 +789,7 @@ export interface ListRecordsRequest {
 }
 
 /**
+ * @public
  * The basic data structure of a dataset.
  */
 export interface _Record {
@@ -781,6 +828,7 @@ export interface _Record {
 }
 
 /**
+ * @public
  * Returned for a successful
  *       ListRecordsRequest.
  */
@@ -838,6 +886,9 @@ export interface ListRecordsResponse {
   SyncSessionToken?: string;
 }
 
+/**
+ * @public
+ */
 export class InvalidConfigurationException extends __BaseException {
   readonly name: "InvalidConfigurationException" = "InvalidConfigurationException";
   readonly $fault: "client" = "client";
@@ -854,9 +905,13 @@ export class InvalidConfigurationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type Platform = "ADM" | "APNS" | "APNS_SANDBOX" | "GCM";
 
 /**
+ * @public
  * <p>A request to RegisterDevice.</p>
  */
 export interface RegisterDeviceRequest {
@@ -883,6 +938,7 @@ export interface RegisterDeviceRequest {
 }
 
 /**
+ * @public
  * <p>Response to a RegisterDevice request.</p>
  */
 export interface RegisterDeviceResponse {
@@ -893,6 +949,7 @@ export interface RegisterDeviceResponse {
 }
 
 /**
+ * @public
  * <p>A request to configure Cognito Events"</p>"
  */
 export interface SetCognitoEventsRequest {
@@ -908,6 +965,7 @@ export interface SetCognitoEventsRequest {
 }
 
 /**
+ * @public
  * <p>Thrown if there are parallel requests to modify a resource.</p>
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -927,6 +985,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input for the SetIdentityPoolConfiguration operation.</p>
  */
 export interface SetIdentityPoolConfigurationRequest {
@@ -948,6 +1007,7 @@ export interface SetIdentityPoolConfigurationRequest {
 }
 
 /**
+ * @public
  * <p>The output for the SetIdentityPoolConfiguration operation</p>
  */
 export interface SetIdentityPoolConfigurationResponse {
@@ -969,6 +1029,7 @@ export interface SetIdentityPoolConfigurationResponse {
 }
 
 /**
+ * @public
  * <p>A request to SubscribeToDatasetRequest.</p>
  */
 export interface SubscribeToDatasetRequest {
@@ -995,11 +1056,13 @@ export interface SubscribeToDatasetRequest {
 }
 
 /**
+ * @public
  * <p>Response to a SubscribeToDataset request.</p>
  */
 export interface SubscribeToDatasetResponse {}
 
 /**
+ * @public
  * <p>A request to UnsubscribeFromDataset.</p>
  */
 export interface UnsubscribeFromDatasetRequest {
@@ -1026,11 +1089,13 @@ export interface UnsubscribeFromDatasetRequest {
 }
 
 /**
+ * @public
  * <p>Response to an UnsubscribeFromDataset request.</p>
  */
 export interface UnsubscribeFromDatasetResponse {}
 
 /**
+ * @public
  * <p>The AWS Lambda function returned invalid output or an exception.</p>
  */
 export class InvalidLambdaFunctionOutputException extends __BaseException {
@@ -1050,6 +1115,7 @@ export class InvalidLambdaFunctionOutputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>AWS Lambda throttled your account, please contact AWS Support</p>
  */
 export class LambdaThrottledException extends __BaseException {
@@ -1069,6 +1135,7 @@ export class LambdaThrottledException extends __BaseException {
 }
 
 /**
+ * @public
  * Thrown when the limit on the number of objects or
  *       operations has been exceeded.
  */
@@ -1088,9 +1155,13 @@ export class LimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export type Operation = "remove" | "replace";
 
 /**
+ * @public
  * An update operation for a record.
  */
 export interface RecordPatch {
@@ -1124,6 +1195,7 @@ export interface RecordPatch {
 }
 
 /**
+ * @public
  * A request to post updates to records or add and
  *       delete records for a dataset and user.
  */
@@ -1175,6 +1247,7 @@ export interface UpdateRecordsRequest {
 }
 
 /**
+ * @public
  * Returned for a successful
  *       UpdateRecordsRequest.
  */
@@ -1185,291 +1258,3 @@ export interface UpdateRecordsResponse {
    */
   Records?: _Record[];
 }
-
-/**
- * @internal
- */
-export const BulkPublishRequestFilterSensitiveLog = (obj: BulkPublishRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BulkPublishResponseFilterSensitiveLog = (obj: BulkPublishResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DatasetFilterSensitiveLog = (obj: Dataset): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetResponseFilterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetRequestFilterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDatasetResponseFilterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIdentityPoolUsageRequestFilterSensitiveLog = (obj: DescribeIdentityPoolUsageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityPoolUsageFilterSensitiveLog = (obj: IdentityPoolUsage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIdentityPoolUsageResponseFilterSensitiveLog = (obj: DescribeIdentityPoolUsageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIdentityUsageRequestFilterSensitiveLog = (obj: DescribeIdentityUsageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityUsageFilterSensitiveLog = (obj: IdentityUsage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIdentityUsageResponseFilterSensitiveLog = (obj: DescribeIdentityUsageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBulkPublishDetailsRequestFilterSensitiveLog = (obj: GetBulkPublishDetailsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBulkPublishDetailsResponseFilterSensitiveLog = (obj: GetBulkPublishDetailsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCognitoEventsRequestFilterSensitiveLog = (obj: GetCognitoEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetCognitoEventsResponseFilterSensitiveLog = (obj: GetCognitoEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityPoolConfigurationRequestFilterSensitiveLog = (
-  obj: GetIdentityPoolConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CognitoStreamsFilterSensitiveLog = (obj: CognitoStreams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PushSyncFilterSensitiveLog = (obj: PushSync): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIdentityPoolConfigurationResponseFilterSensitiveLog = (
-  obj: GetIdentityPoolConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetsRequestFilterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetsResponseFilterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentityPoolUsageRequestFilterSensitiveLog = (obj: ListIdentityPoolUsageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentityPoolUsageResponseFilterSensitiveLog = (obj: ListIdentityPoolUsageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecordsRequestFilterSensitiveLog = (obj: ListRecordsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRecordsResponseFilterSensitiveLog = (obj: ListRecordsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterDeviceRequestFilterSensitiveLog = (obj: RegisterDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegisterDeviceResponseFilterSensitiveLog = (obj: RegisterDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetCognitoEventsRequestFilterSensitiveLog = (obj: SetCognitoEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityPoolConfigurationRequestFilterSensitiveLog = (
-  obj: SetIdentityPoolConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SetIdentityPoolConfigurationResponseFilterSensitiveLog = (
-  obj: SetIdentityPoolConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscribeToDatasetRequestFilterSensitiveLog = (obj: SubscribeToDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscribeToDatasetResponseFilterSensitiveLog = (obj: SubscribeToDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnsubscribeFromDatasetRequestFilterSensitiveLog = (obj: UnsubscribeFromDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnsubscribeFromDatasetResponseFilterSensitiveLog = (obj: UnsubscribeFromDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordPatchFilterSensitiveLog = (obj: RecordPatch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRecordsRequestFilterSensitiveLog = (obj: UpdateRecordsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRecordsResponseFilterSensitiveLog = (obj: UpdateRecordsResponse): any => ({
-  ...obj,
-});

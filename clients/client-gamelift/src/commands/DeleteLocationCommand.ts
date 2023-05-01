@@ -14,29 +14,26 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DeleteLocationInput,
-  DeleteLocationInputFilterSensitiveLog,
-  DeleteLocationOutput,
-  DeleteLocationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLocationCommand,
-  serializeAws_json1_1DeleteLocationCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteLocationInput, DeleteLocationOutput } from "../models/models_0";
+import { de_DeleteLocationCommand, se_DeleteLocationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLocationCommand}.
  */
 export interface DeleteLocationCommandInput extends DeleteLocationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLocationCommand}.
  */
 export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom location.</p>
- *         <p>Before deleting a custom location, review any fleets currently using the custom
+ *          <p>Before deleting a custom location, review any fleets currently using the custom
  *             location and deregister the location if it is in use. For more information see, <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterCompute.html">DeregisterCompute</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,15 @@ export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __Met
  * import { GameLiftClient, DeleteLocationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteLocationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DeleteLocationInput
+ *   LocationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLocationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLocationCommandInput - {@link DeleteLocationCommandInput}
+ * @returns {@link DeleteLocationCommandOutput}
  * @see {@link DeleteLocationCommandInput} for command's `input` shape.
  * @see {@link DeleteLocationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -85,6 +87,9 @@ export class DeleteLocationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLocationCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLocationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLocationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteLocationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLocationCommand(input, context);
+    return se_DeleteLocationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLocationCommandOutput> {
-    return deserializeAws_json1_1DeleteLocationCommand(output, context);
+    return de_DeleteLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

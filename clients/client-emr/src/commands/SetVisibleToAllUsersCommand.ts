@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { SetVisibleToAllUsersInput, SetVisibleToAllUsersInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetVisibleToAllUsersCommand,
-  serializeAws_json1_1SetVisibleToAllUsersCommand,
-} from "../protocols/Aws_json1_1";
+import { SetVisibleToAllUsersInput } from "../models/models_0";
+import { de_SetVisibleToAllUsersCommand, se_SetVisibleToAllUsersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SetVisibleToAllUsersCommand}.
  */
 export interface SetVisibleToAllUsersCommandInput extends SetVisibleToAllUsersInput {}
 /**
+ * @public
+ *
  * The output of {@link SetVisibleToAllUsersCommand}.
  */
 export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <important>
  *             <p>The SetVisibleToAllUsers parameter is no longer supported. Your cluster may be
  *             visible to all users in your account. To restrict cluster access using an IAM policy, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-iam.html">Identity and Access
@@ -50,10 +52,18 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  * import { EMRClient, SetVisibleToAllUsersCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, SetVisibleToAllUsersCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // SetVisibleToAllUsersInput
+ *   JobFlowIds: [ // XmlStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   VisibleToAllUsers: true || false, // required
+ * };
  * const command = new SetVisibleToAllUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetVisibleToAllUsersCommandInput - {@link SetVisibleToAllUsersCommandInput}
+ * @returns {@link SetVisibleToAllUsersCommandOutput}
  * @see {@link SetVisibleToAllUsersCommandInput} for command's `input` shape.
  * @see {@link SetVisibleToAllUsersCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -81,6 +91,9 @@ export class SetVisibleToAllUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetVisibleToAllUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +122,8 @@ export class SetVisibleToAllUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetVisibleToAllUsersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +133,18 @@ export class SetVisibleToAllUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetVisibleToAllUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetVisibleToAllUsersCommand(input, context);
+    return se_SetVisibleToAllUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetVisibleToAllUsersCommandOutput> {
-    return deserializeAws_json1_1SetVisibleToAllUsersCommand(output, context);
+    return de_SetVisibleToAllUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

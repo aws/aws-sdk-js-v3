@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReadSetsRequest,
-  ListReadSetsRequestFilterSensitiveLog,
-  ListReadSetsResponse,
-  ListReadSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListReadSetsRequest, ListReadSetsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListReadSetsCommand,
-  serializeAws_restJson1ListReadSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListReadSetsCommand, se_ListReadSetsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReadSetsCommand}.
  */
 export interface ListReadSetsCommandInput extends ListReadSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListReadSetsCommand}.
  */
 export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of read sets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  * import { OmicsClient, ListReadSetsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReadSetsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // ListReadSetsRequest
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filter: { // ReadSetFilter
+ *     name: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *     referenceArn: "STRING_VALUE",
+ *     createdAfter: new Date("TIMESTAMP"),
+ *     createdBefore: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new ListReadSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReadSetsCommandInput - {@link ListReadSetsCommandInput}
+ * @returns {@link ListReadSetsCommandOutput}
  * @see {@link ListReadSetsCommandInput} for command's `input` shape.
  * @see {@link ListReadSetsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -87,6 +98,9 @@ export class ListReadSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReadSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +127,8 @@ export class ListReadSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReadSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReadSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +138,18 @@ export class ListReadSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReadSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReadSetsCommand(input, context);
+    return se_ListReadSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReadSetsCommandOutput> {
-    return deserializeAws_restJson1ListReadSetsCommand(output, context);
+    return de_ListReadSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

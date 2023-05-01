@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  UpdateConferenceProviderRequest,
-  UpdateConferenceProviderRequestFilterSensitiveLog,
-  UpdateConferenceProviderResponse,
-  UpdateConferenceProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateConferenceProviderCommand,
-  serializeAws_json1_1UpdateConferenceProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateConferenceProviderRequest, UpdateConferenceProviderResponse } from "../models/models_0";
+import { de_UpdateConferenceProviderCommand, se_UpdateConferenceProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConferenceProviderCommand}.
  */
 export interface UpdateConferenceProviderCommandInput extends UpdateConferenceProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConferenceProviderCommand}.
  */
 export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing conference provider's settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,29 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  * import { AlexaForBusinessClient, UpdateConferenceProviderCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateConferenceProviderCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // UpdateConferenceProviderRequest
+ *   ConferenceProviderArn: "STRING_VALUE", // required
+ *   ConferenceProviderType: "STRING_VALUE", // required
+ *   IPDialIn: { // IPDialIn
+ *     Endpoint: "STRING_VALUE", // required
+ *     CommsProtocol: "STRING_VALUE", // required
+ *   },
+ *   PSTNDialIn: { // PSTNDialIn
+ *     CountryCode: "STRING_VALUE", // required
+ *     PhoneNumber: "STRING_VALUE", // required
+ *     OneClickIdDelay: "STRING_VALUE", // required
+ *     OneClickPinDelay: "STRING_VALUE", // required
+ *   },
+ *   MeetingSetting: { // MeetingSetting
+ *     RequirePin: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateConferenceProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConferenceProviderCommandInput - {@link UpdateConferenceProviderCommandInput}
+ * @returns {@link UpdateConferenceProviderCommandOutput}
  * @see {@link UpdateConferenceProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateConferenceProviderCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -72,6 +88,9 @@ export class UpdateConferenceProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConferenceProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +119,8 @@ export class UpdateConferenceProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConferenceProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConferenceProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +130,18 @@ export class UpdateConferenceProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConferenceProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConferenceProviderCommand(input, context);
+    return se_UpdateConferenceProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConferenceProviderCommandOutput> {
-    return deserializeAws_json1_1UpdateConferenceProviderCommand(output, context);
+    return de_UpdateConferenceProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

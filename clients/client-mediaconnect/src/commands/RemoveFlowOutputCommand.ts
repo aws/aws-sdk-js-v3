@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  RemoveFlowOutputRequest,
-  RemoveFlowOutputRequestFilterSensitiveLog,
-  RemoveFlowOutputResponse,
-  RemoveFlowOutputResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveFlowOutputCommand,
-  serializeAws_restJson1RemoveFlowOutputCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveFlowOutputRequest, RemoveFlowOutputResponse } from "../models/models_0";
+import { de_RemoveFlowOutputCommand, se_RemoveFlowOutputCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RemoveFlowOutputCommand}.
  */
 export interface RemoveFlowOutputCommandInput extends RemoveFlowOutputRequest {}
 /**
+ * @public
+ *
  * The output of {@link RemoveFlowOutputCommand}.
  */
 export interface RemoveFlowOutputCommandOutput extends RemoveFlowOutputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Removes an output from an existing flow. This request can be made only on an output that does not have an entitlement associated with it. If the output has an entitlement, you must revoke the entitlement instead. When an entitlement is revoked from a flow, the service automatically removes the associated output.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface RemoveFlowOutputCommandOutput extends RemoveFlowOutputResponse,
  * import { MediaConnectClient, RemoveFlowOutputCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, RemoveFlowOutputCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = { // RemoveFlowOutputRequest
+ *   FlowArn: "STRING_VALUE", // required
+ *   OutputArn: "STRING_VALUE", // required
+ * };
  * const command = new RemoveFlowOutputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RemoveFlowOutputCommandInput - {@link RemoveFlowOutputCommandInput}
+ * @returns {@link RemoveFlowOutputCommandOutput}
  * @see {@link RemoveFlowOutputCommandInput} for command's `input` shape.
  * @see {@link RemoveFlowOutputCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
@@ -87,6 +90,9 @@ export class RemoveFlowOutputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveFlowOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class RemoveFlowOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveFlowOutputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveFlowOutputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class RemoveFlowOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveFlowOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveFlowOutputCommand(input, context);
+    return se_RemoveFlowOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFlowOutputCommandOutput> {
-    return deserializeAws_restJson1RemoveFlowOutputCommand(output, context);
+    return de_RemoveFlowOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

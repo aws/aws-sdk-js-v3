@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  ListDecoderManifestSignalsRequest,
-  ListDecoderManifestSignalsRequestFilterSensitiveLog,
-  ListDecoderManifestSignalsResponse,
-  ListDecoderManifestSignalsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListDecoderManifestSignalsCommand,
-  serializeAws_json1_0ListDecoderManifestSignalsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListDecoderManifestSignalsRequest, ListDecoderManifestSignalsResponse } from "../models/models_0";
+import { de_ListDecoderManifestSignalsCommand, se_ListDecoderManifestSignalsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListDecoderManifestSignalsCommand}.
  */
 export interface ListDecoderManifestSignalsCommandInput extends ListDecoderManifestSignalsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDecoderManifestSignalsCommand}.
  */
 export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderManifestSignalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> A list of information about signal decoders specified in a decoder manifest. </p>
  *         <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -45,10 +42,17 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * import { IoTFleetWiseClient, ListDecoderManifestSignalsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListDecoderManifestSignalsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // ListDecoderManifestSignalsRequest
+ *   name: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDecoderManifestSignalsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDecoderManifestSignalsCommandInput - {@link ListDecoderManifestSignalsCommandInput}
+ * @returns {@link ListDecoderManifestSignalsCommandOutput}
  * @see {@link ListDecoderManifestSignalsCommandInput} for command's `input` shape.
  * @see {@link ListDecoderManifestSignalsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -87,6 +91,9 @@ export class ListDecoderManifestSignalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDecoderManifestSignalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class ListDecoderManifestSignalsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDecoderManifestSignalsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDecoderManifestSignalsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +133,21 @@ export class ListDecoderManifestSignalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDecoderManifestSignalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListDecoderManifestSignalsCommand(input, context);
+    return se_ListDecoderManifestSignalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDecoderManifestSignalsCommandOutput> {
-    return deserializeAws_json1_0ListDecoderManifestSignalsCommand(output, context);
+    return de_ListDecoderManifestSignalsCommand(output, context);
   }
 
   // Start section: command_body_extra

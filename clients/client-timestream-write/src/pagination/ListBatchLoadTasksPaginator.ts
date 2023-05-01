@@ -10,7 +10,7 @@ import { TimestreamWriteClient } from "../TimestreamWriteClient";
 import { TimestreamWritePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TimestreamWriteClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBatchLoadTasksCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListBatchLoadTasks(
   config: TimestreamWritePaginationConfiguration,
   input: ListBatchLoadTasksCommandInput,

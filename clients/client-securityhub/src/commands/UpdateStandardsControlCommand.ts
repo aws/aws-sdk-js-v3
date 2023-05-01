@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateStandardsControlRequest,
-  UpdateStandardsControlRequestFilterSensitiveLog,
-  UpdateStandardsControlResponse,
-  UpdateStandardsControlResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateStandardsControlCommand,
-  serializeAws_restJson1UpdateStandardsControlCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateStandardsControlRequest, UpdateStandardsControlResponse } from "../models/models_2";
+import { de_UpdateStandardsControlCommand, se_UpdateStandardsControlCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateStandardsControlCommand}.
  */
 export interface UpdateStandardsControlCommandInput extends UpdateStandardsControlRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateStandardsControlCommand}.
  */
 export interface UpdateStandardsControlCommandOutput extends UpdateStandardsControlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used to control whether an individual security standard control is enabled or
  *          disabled.</p>
  * @example
@@ -43,10 +40,17 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  * import { SecurityHubClient, UpdateStandardsControlCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateStandardsControlCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // UpdateStandardsControlRequest
+ *   StandardsControlArn: "STRING_VALUE", // required
+ *   ControlStatus: "ENABLED" || "DISABLED",
+ *   DisabledReason: "STRING_VALUE",
+ * };
  * const command = new UpdateStandardsControlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateStandardsControlCommandInput - {@link UpdateStandardsControlCommandInput}
+ * @returns {@link UpdateStandardsControlCommandOutput}
  * @see {@link UpdateStandardsControlCommandInput} for command's `input` shape.
  * @see {@link UpdateStandardsControlCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -64,6 +68,19 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ *
+ * @example To update the enablement status of a standard control
+ * ```javascript
+ * // The following example disables the specified control in the specified security standard.
+ * const input = {
+ *   "ControlStatus": "DISABLED",
+ *   "DisabledReason": "Not applicable to my service",
+ *   "StandardsControlArn": "arn:aws:securityhub:us-west-1:123456789012:control/pci-dss/v/3.2.1/PCI.AutoScaling.1"
+ * };
+ * const command = new UpdateStandardsControlCommand(input);
+ * await client.send(command);
+ * // example id: to-update-the-enablement-status-of-a-standard-control-1678912506444
+ * ```
  *
  */
 export class UpdateStandardsControlCommand extends $Command<
@@ -83,6 +100,9 @@ export class UpdateStandardsControlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateStandardsControlCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +131,8 @@ export class UpdateStandardsControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStandardsControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStandardsControlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +142,18 @@ export class UpdateStandardsControlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateStandardsControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateStandardsControlCommand(input, context);
+    return se_UpdateStandardsControlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStandardsControlCommandOutput> {
-    return deserializeAws_restJson1UpdateStandardsControlCommand(output, context);
+    return de_UpdateStandardsControlCommand(output, context);
   }
 
   // Start section: command_body_extra

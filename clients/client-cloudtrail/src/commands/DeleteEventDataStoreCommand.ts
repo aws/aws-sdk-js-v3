@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  DeleteEventDataStoreRequest,
-  DeleteEventDataStoreRequestFilterSensitiveLog,
-  DeleteEventDataStoreResponse,
-  DeleteEventDataStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEventDataStoreCommand,
-  serializeAws_json1_1DeleteEventDataStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEventDataStoreRequest, DeleteEventDataStoreResponse } from "../models/models_0";
+import { de_DeleteEventDataStoreCommand, se_DeleteEventDataStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEventDataStoreCommand}.
  */
 export interface DeleteEventDataStoreCommandInput extends DeleteEventDataStoreRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEventDataStoreCommand}.
  */
 export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an
  *          event data store ARN. After you run <code>DeleteEventDataStore</code>, the event data store
  *          enters a <code>PENDING_DELETION</code> state, and is automatically deleted after a wait
@@ -51,10 +48,15 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * import { CloudTrailClient, DeleteEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeleteEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = { // DeleteEventDataStoreRequest
+ *   EventDataStore: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventDataStoreCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEventDataStoreCommandInput - {@link DeleteEventDataStoreCommandInput}
+ * @returns {@link DeleteEventDataStoreCommandOutput}
  * @see {@link DeleteEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
@@ -123,6 +125,9 @@ export class DeleteEventDataStoreCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventDataStoreCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,8 +156,8 @@ export class DeleteEventDataStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventDataStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEventDataStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,12 +167,18 @@ export class DeleteEventDataStoreCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEventDataStoreCommand(input, context);
+    return se_DeleteEventDataStoreCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventDataStoreCommandOutput> {
-    return deserializeAws_json1_1DeleteEventDataStoreCommand(output, context);
+    return de_DeleteEventDataStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

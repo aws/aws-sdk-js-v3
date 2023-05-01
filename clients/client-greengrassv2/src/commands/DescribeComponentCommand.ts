@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  DescribeComponentRequest,
-  DescribeComponentRequestFilterSensitiveLog,
-  DescribeComponentResponse,
-  DescribeComponentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeComponentCommand,
-  serializeAws_restJson1DescribeComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeComponentRequest, DescribeComponentResponse } from "../models/models_0";
+import { de_DescribeComponentCommand, se_DescribeComponentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeComponentCommand}.
  */
 export interface DescribeComponentCommandInput extends DescribeComponentRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeComponentCommand}.
  */
 export interface DescribeComponentCommandOutput extends DescribeComponentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves metadata for a version of a component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  * import { GreengrassV2Client, DescribeComponentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, DescribeComponentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = { // DescribeComponentRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeComponentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComponentCommandInput - {@link DescribeComponentCommandInput}
+ * @returns {@link DescribeComponentCommandOutput}
  * @see {@link DescribeComponentCommandInput} for command's `input` shape.
  * @see {@link DescribeComponentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
@@ -86,6 +88,9 @@ export class DescribeComponentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComponentCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class DescribeComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class DescribeComponentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeComponentCommand(input, context);
+    return se_DescribeComponentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeComponentCommandOutput> {
-    return deserializeAws_restJson1DescribeComponentCommand(output, context);
+    return de_DescribeComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

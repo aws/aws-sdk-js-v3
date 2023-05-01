@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { CreateFieldLevelEncryptionProfileRequest, CreateFieldLevelEncryptionProfileResult } from "../models/models_0";
 import {
-  CreateFieldLevelEncryptionProfileRequest,
-  CreateFieldLevelEncryptionProfileRequestFilterSensitiveLog,
-  CreateFieldLevelEncryptionProfileResult,
-  CreateFieldLevelEncryptionProfileResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand,
-  serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand,
+  de_CreateFieldLevelEncryptionProfileCommand,
+  se_CreateFieldLevelEncryptionProfileCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFieldLevelEncryptionProfileCommand}.
  */
 export interface CreateFieldLevelEncryptionProfileCommandInput extends CreateFieldLevelEncryptionProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFieldLevelEncryptionProfileCommand}.
  */
 export interface CreateFieldLevelEncryptionProfileCommandOutput
@@ -37,6 +36,7 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a field-level encryption profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,34 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput
  * import { CloudFrontClient, CreateFieldLevelEncryptionProfileCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateFieldLevelEncryptionProfileCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // CreateFieldLevelEncryptionProfileRequest
+ *   FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig
+ *     Name: "STRING_VALUE", // required
+ *     CallerReference: "STRING_VALUE", // required
+ *     Comment: "STRING_VALUE",
+ *     EncryptionEntities: { // EncryptionEntities
+ *       Quantity: Number("int"), // required
+ *       Items: [ // EncryptionEntityList
+ *         { // EncryptionEntity
+ *           PublicKeyId: "STRING_VALUE", // required
+ *           ProviderId: "STRING_VALUE", // required
+ *           FieldPatterns: { // FieldPatterns
+ *             Quantity: Number("int"), // required
+ *             Items: [ // FieldPatternList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFieldLevelEncryptionProfileCommandInput - {@link CreateFieldLevelEncryptionProfileCommandInput}
+ * @returns {@link CreateFieldLevelEncryptionProfileCommandOutput}
  * @see {@link CreateFieldLevelEncryptionProfileCommandInput} for command's `input` shape.
  * @see {@link CreateFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -98,6 +122,9 @@ export class CreateFieldLevelEncryptionProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFieldLevelEncryptionProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +153,8 @@ export class CreateFieldLevelEncryptionProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFieldLevelEncryptionProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFieldLevelEncryptionProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,18 +164,24 @@ export class CreateFieldLevelEncryptionProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateFieldLevelEncryptionProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand(input, context);
+    return se_CreateFieldLevelEncryptionProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFieldLevelEncryptionProfileCommandOutput> {
-    return deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand(output, context);
+    return de_CreateFieldLevelEncryptionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

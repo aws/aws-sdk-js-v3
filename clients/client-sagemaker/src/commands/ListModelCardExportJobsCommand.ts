@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListModelCardExportJobsRequest,
-  ListModelCardExportJobsRequestFilterSensitiveLog,
-  ListModelCardExportJobsResponse,
-  ListModelCardExportJobsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListModelCardExportJobsCommand,
-  serializeAws_json1_1ListModelCardExportJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListModelCardExportJobsRequest, ListModelCardExportJobsResponse } from "../models/models_3";
+import { de_ListModelCardExportJobsCommand, se_ListModelCardExportJobsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListModelCardExportJobsCommand}.
  */
 export interface ListModelCardExportJobsCommandInput extends ListModelCardExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListModelCardExportJobsCommand}.
  */
 export interface ListModelCardExportJobsCommandOutput extends ListModelCardExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the export jobs for the Amazon SageMaker Model Card.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  * import { SageMakerClient, ListModelCardExportJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelCardExportJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListModelCardExportJobsRequest
+ *   ModelCardName: "STRING_VALUE", // required
+ *   ModelCardVersion: Number("int"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   ModelCardExportJobNameContains: "STRING_VALUE",
+ *   StatusEquals: "InProgress" || "Completed" || "Failed",
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListModelCardExportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListModelCardExportJobsCommandInput - {@link ListModelCardExportJobsCommandInput}
+ * @returns {@link ListModelCardExportJobsCommandOutput}
  * @see {@link ListModelCardExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListModelCardExportJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +80,9 @@ export class ListModelCardExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListModelCardExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +111,8 @@ export class ListModelCardExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelCardExportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelCardExportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +122,18 @@ export class ListModelCardExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListModelCardExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListModelCardExportJobsCommand(input, context);
+    return se_ListModelCardExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelCardExportJobsCommandOutput> {
-    return deserializeAws_json1_1ListModelCardExportJobsCommand(output, context);
+    return de_ListModelCardExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

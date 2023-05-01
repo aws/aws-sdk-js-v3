@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  CreateNamedQueryInput,
-  CreateNamedQueryInputFilterSensitiveLog,
-  CreateNamedQueryOutput,
-  CreateNamedQueryOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateNamedQueryCommand,
-  serializeAws_json1_1CreateNamedQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateNamedQueryInput, CreateNamedQueryOutput } from "../models/models_0";
+import { de_CreateNamedQueryCommand, se_CreateNamedQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNamedQueryCommand}.
  */
 export interface CreateNamedQueryCommandInput extends CreateNamedQueryInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateNamedQueryCommand}.
  */
 export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a named query in the specified workgroup. Requires that you have access to the
  *             workgroup.</p>
  *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
@@ -46,10 +43,20 @@ export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, _
  * import { AthenaClient, CreateNamedQueryCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreateNamedQueryCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // CreateNamedQueryInput
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Database: "STRING_VALUE", // required
+ *   QueryString: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   WorkGroup: "STRING_VALUE",
+ * };
  * const command = new CreateNamedQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNamedQueryCommandInput - {@link CreateNamedQueryCommandInput}
+ * @returns {@link CreateNamedQueryCommandOutput}
  * @see {@link CreateNamedQueryCommandInput} for command's `input` shape.
  * @see {@link CreateNamedQueryCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -81,6 +88,9 @@ export class CreateNamedQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNamedQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class CreateNamedQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNamedQueryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNamedQueryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class CreateNamedQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNamedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateNamedQueryCommand(input, context);
+    return se_CreateNamedQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNamedQueryCommandOutput> {
-    return deserializeAws_json1_1CreateNamedQueryCommand(output, context);
+    return de_CreateNamedQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

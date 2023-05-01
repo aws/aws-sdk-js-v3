@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { MigrationHubOrchestratorServiceException as __BaseException } from "./MigrationHubOrchestratorServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,9 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -30,6 +34,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags added to a resource.</p>
@@ -38,6 +45,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The resource is not available.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -57,6 +65,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
 export class ValidationException extends __BaseException {
@@ -77,6 +86,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>A map of key value pairs that is generated when you create a migration workflow. The
  *             key value pairs will differ based on your selection of the template.</p>
  */
@@ -87,6 +97,9 @@ export type StepInput =
   | StepInput.StringValueMember
   | StepInput.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace StepInput {
   /**
    * <p>The value of the integer.</p>
@@ -157,6 +170,9 @@ export namespace StepInput {
   };
 }
 
+/**
+ * @public
+ */
 export interface CreateMigrationWorkflowRequest {
   /**
    * <p>The name of the migration workflow.</p>
@@ -194,23 +210,36 @@ export interface CreateMigrationWorkflowRequest {
   tags?: Record<string, string>;
 }
 
-export enum MigrationWorkflowStatusEnum {
-  COMPLETED = "COMPLETED",
-  CREATING = "CREATING",
-  CREATION_FAILED = "CREATION_FAILED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  DELETION_FAILED = "DELETION_FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  PAUSED = "PAUSED",
-  PAUSING = "PAUSING",
-  PAUSING_FAILED = "PAUSING_FAILED",
-  STARTING = "STARTING",
-  USER_ATTENTION_REQUIRED = "USER_ATTENTION_REQUIRED",
-  WORKFLOW_FAILED = "WORKFLOW_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const MigrationWorkflowStatusEnum = {
+  COMPLETED: "COMPLETED",
+  CREATING: "CREATING",
+  CREATION_FAILED: "CREATION_FAILED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  DELETION_FAILED: "DELETION_FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  PAUSED: "PAUSED",
+  PAUSING: "PAUSING",
+  PAUSING_FAILED: "PAUSING_FAILED",
+  STARTING: "STARTING",
+  USER_ATTENTION_REQUIRED: "USER_ATTENTION_REQUIRED",
+  WORKFLOW_FAILED: "WORKFLOW_FAILED",
+} as const;
 
+/**
+ * @public
+ */
+export type MigrationWorkflowStatusEnum =
+  (typeof MigrationWorkflowStatusEnum)[keyof typeof MigrationWorkflowStatusEnum];
+
+/**
+ * @public
+ */
 export interface CreateMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -269,6 +298,7 @@ export interface CreateMigrationWorkflowResponse {
 }
 
 /**
+ * @public
  * <p>An internal error has occurred.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -288,6 +318,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -306,6 +337,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteMigrationWorkflowRequest {
   /**
    * <p>The ID of the migration workflow you want to delete.</p>
@@ -313,6 +347,9 @@ export interface DeleteMigrationWorkflowRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -330,6 +367,9 @@ export interface DeleteMigrationWorkflowResponse {
   status?: MigrationWorkflowStatusEnum | string;
 }
 
+/**
+ * @public
+ */
 export interface GetMigrationWorkflowRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -338,6 +378,7 @@ export interface GetMigrationWorkflowRequest {
 }
 
 /**
+ * @public
  * <p>List of AWS services utilized in a migration workflow.</p>
  */
 export interface Tool {
@@ -352,6 +393,9 @@ export interface Tool {
   url?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -454,6 +498,9 @@ export interface GetMigrationWorkflowResponse {
   workflowBucket?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationWorkflowsRequest {
   /**
    * <p>The maximum number of results that can be returned.</p>
@@ -487,6 +534,7 @@ export interface ListMigrationWorkflowsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of a migration workflow.</p>
  */
 export interface MigrationWorkflowSummary {
@@ -541,6 +589,9 @@ export interface MigrationWorkflowSummary {
   totalSteps?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationWorkflowsResponse {
   /**
    * <p>The pagination token.</p>
@@ -553,6 +604,9 @@ export interface ListMigrationWorkflowsResponse {
   migrationWorkflowSummary: MigrationWorkflowSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMigrationWorkflowRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -560,6 +614,9 @@ export interface StartMigrationWorkflowRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StartMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -587,6 +644,9 @@ export interface StartMigrationWorkflowResponse {
   lastStartTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface StopMigrationWorkflowRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -594,6 +654,9 @@ export interface StopMigrationWorkflowRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -621,6 +684,9 @@ export interface StopMigrationWorkflowResponse {
   lastStopTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface UpdateMigrationWorkflowRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -648,6 +714,9 @@ export interface UpdateMigrationWorkflowRequest {
   stepTargets?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateMigrationWorkflowResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -710,6 +779,9 @@ export interface UpdateMigrationWorkflowResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetMigrationWorkflowTemplateRequest {
   /**
    * <p>The ID of the template.</p>
@@ -717,14 +789,24 @@ export interface GetMigrationWorkflowTemplateRequest {
   id: string | undefined;
 }
 
-export enum DataType {
-  INTEGER = "INTEGER",
-  STRING = "STRING",
-  STRINGLIST = "STRINGLIST",
-  STRINGMAP = "STRINGMAP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DataType = {
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+  STRINGLIST: "STRINGLIST",
+  STRINGMAP: "STRINGMAP",
+} as const;
 
 /**
+ * @public
+ */
+export type DataType = (typeof DataType)[keyof typeof DataType];
+
+/**
+ * @public
  * <p>The input parameters of a template.</p>
  */
 export interface TemplateInput {
@@ -744,10 +826,22 @@ export interface TemplateInput {
   required?: boolean;
 }
 
-export enum TemplateStatus {
-  CREATED = "CREATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TemplateStatus = {
+  CREATED: "CREATED",
+} as const;
 
+/**
+ * @public
+ */
+export type TemplateStatus = (typeof TemplateStatus)[keyof typeof TemplateStatus];
+
+/**
+ * @public
+ */
 export interface GetMigrationWorkflowTemplateResponse {
   /**
    * <p>The ID of the template.</p>
@@ -785,6 +879,9 @@ export interface GetMigrationWorkflowTemplateResponse {
   creationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationWorkflowTemplatesRequest {
   /**
    * <p>The maximum number of results that can be returned.</p>
@@ -803,6 +900,7 @@ export interface ListMigrationWorkflowTemplatesRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the template.</p>
  */
 export interface TemplateSummary {
@@ -827,6 +925,9 @@ export interface TemplateSummary {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListMigrationWorkflowTemplatesResponse {
   /**
    * <p>The pagination token.</p>
@@ -839,6 +940,9 @@ export interface ListMigrationWorkflowTemplatesResponse {
   templateSummary: TemplateSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPluginsRequest {
   /**
    * <p>The maximum number of plugins that can be returned.</p>
@@ -851,12 +955,22 @@ export interface ListPluginsRequest {
   nextToken?: string;
 }
 
-export enum PluginHealth {
-  PLUGIN_HEALTHY = "HEALTHY",
-  PLUGIN_UNHEALTHY = "UNHEALTHY",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PluginHealth = {
+  PLUGIN_HEALTHY: "HEALTHY",
+  PLUGIN_UNHEALTHY: "UNHEALTHY",
+} as const;
 
 /**
+ * @public
+ */
+export type PluginHealth = (typeof PluginHealth)[keyof typeof PluginHealth];
+
+/**
+ * @public
  * <p>The summary of the Migration Hub Orchestrator plugin.</p>
  */
 export interface PluginSummary {
@@ -891,6 +1005,9 @@ export interface PluginSummary {
   registeredTime?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListPluginsResponse {
   /**
    * <p>The pagination token.</p>
@@ -903,6 +1020,9 @@ export interface ListPluginsResponse {
   plugins?: PluginSummary[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to add tags.</p>
@@ -916,8 +1036,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface GetTemplateStepRequest {
   /**
    * <p>The ID of the step.</p>
@@ -936,6 +1062,7 @@ export interface GetTemplateStepRequest {
 }
 
 /**
+ * @public
  * <p>The output of the step.</p>
  */
 export interface StepOutput {
@@ -955,12 +1082,22 @@ export interface StepOutput {
   required?: boolean;
 }
 
-export enum StepActionType {
-  AUTOMATED = "AUTOMATED",
-  MANUAL = "MANUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StepActionType = {
+  AUTOMATED: "AUTOMATED",
+  MANUAL: "MANUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type StepActionType = (typeof StepActionType)[keyof typeof StepActionType];
+
+/**
+ * @public
  * <p>Command to be run on a particular operating system.</p>
  */
 export interface PlatformCommand {
@@ -975,12 +1112,22 @@ export interface PlatformCommand {
   windows?: string;
 }
 
-export enum RunEnvironment {
-  AWS = "AWS",
-  ONPREMISE = "ONPREMISE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RunEnvironment = {
+  AWS: "AWS",
+  ONPREMISE: "ONPREMISE",
+} as const;
 
 /**
+ * @public
+ */
+export type RunEnvironment = (typeof RunEnvironment)[keyof typeof RunEnvironment];
+
+/**
+ * @public
  * <p>The script location for a particular operating system.</p>
  */
 export interface PlatformScriptKey {
@@ -995,13 +1142,23 @@ export interface PlatformScriptKey {
   windows?: string;
 }
 
-export enum TargetType {
-  ALL = "ALL",
-  NONE = "NONE",
-  SINGLE = "SINGLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetType = {
+  ALL: "ALL",
+  NONE: "NONE",
+  SINGLE: "SINGLE",
+} as const;
 
 /**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
+
+/**
+ * @public
  * <p>The custom script to run tests on source or target environments.</p>
  */
 export interface StepAutomationConfiguration {
@@ -1031,6 +1188,9 @@ export interface StepAutomationConfiguration {
   targetType?: TargetType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateStepResponse {
   /**
    * <p>The ID of the step.</p>
@@ -1089,6 +1249,9 @@ export interface GetTemplateStepResponse {
   stepAutomationConfiguration?: StepAutomationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateStepsRequest {
   /**
    * <p>The maximum number of results that can be returned.</p>
@@ -1111,12 +1274,22 @@ export interface ListTemplateStepsRequest {
   stepGroupId: string | undefined;
 }
 
-export enum Owner {
-  AWSManaged = "AWS_MANAGED",
-  CUSTOM = "CUSTOM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Owner = {
+  AWSManaged: "AWS_MANAGED",
+  CUSTOM: "CUSTOM",
+} as const;
 
 /**
+ * @public
+ */
+export type Owner = (typeof Owner)[keyof typeof Owner];
+
+/**
+ * @public
  * <p>The summary of the step.</p>
  */
 export interface TemplateStepSummary {
@@ -1167,6 +1340,9 @@ export interface TemplateStepSummary {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateStepsResponse {
   /**
    * <p>The pagination token.</p>
@@ -1179,6 +1355,9 @@ export interface ListTemplateStepsResponse {
   templateStepSummaryList?: TemplateStepSummary[];
 }
 
+/**
+ * @public
+ */
 export interface GetTemplateStepGroupRequest {
   /**
    * <p>The ID of the template.</p>
@@ -1191,17 +1370,29 @@ export interface GetTemplateStepGroupRequest {
   id: string | undefined;
 }
 
-export enum StepGroupStatus {
-  AWAITING_DEPENDENCIES = "AWAITING_DEPENDENCIES",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PAUSED = "PAUSED",
-  PAUSING = "PAUSING",
-  READY = "READY",
-  USER_ATTENTION_REQUIRED = "USER_ATTENTION_REQUIRED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StepGroupStatus = {
+  AWAITING_DEPENDENCIES: "AWAITING_DEPENDENCIES",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PAUSED: "PAUSED",
+  PAUSING: "PAUSING",
+  READY: "READY",
+  USER_ATTENTION_REQUIRED: "USER_ATTENTION_REQUIRED",
+} as const;
 
+/**
+ * @public
+ */
+export type StepGroupStatus = (typeof StepGroupStatus)[keyof typeof StepGroupStatus];
+
+/**
+ * @public
+ */
 export interface GetTemplateStepGroupResponse {
   /**
    * <p>The ID of the template.</p>
@@ -1254,6 +1445,9 @@ export interface GetTemplateStepGroupResponse {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateStepGroupsRequest {
   /**
    * <p>The maximum number of results that can be returned.</p>
@@ -1272,6 +1466,7 @@ export interface ListTemplateStepGroupsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the step group in the template.</p>
  */
 export interface TemplateStepGroupSummary {
@@ -1296,6 +1491,9 @@ export interface TemplateStepGroupSummary {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListTemplateStepGroupsResponse {
   /**
    * <p>The pagination token.</p>
@@ -1308,6 +1506,9 @@ export interface ListTemplateStepGroupsResponse {
   templateStepGroupSummary: TemplateStepGroupSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove
@@ -1321,9 +1522,13 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>A structure to hold multiple values of an output.</p>
  */
 export type WorkflowStepOutputUnion =
@@ -1332,6 +1537,9 @@ export type WorkflowStepOutputUnion =
   | WorkflowStepOutputUnion.StringValueMember
   | WorkflowStepOutputUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace WorkflowStepOutputUnion {
   /**
    * <p>The integer value. </p>
@@ -1386,6 +1594,7 @@ export namespace WorkflowStepOutputUnion {
 }
 
 /**
+ * @public
  * <p>The output of a step.</p>
  */
 export interface WorkflowStepOutput {
@@ -1411,6 +1620,7 @@ export interface WorkflowStepOutput {
 }
 
 /**
+ * @public
  * <p>The custom script to run tests on source or target environments.</p>
  */
 export interface WorkflowStepAutomationConfiguration {
@@ -1440,6 +1650,9 @@ export interface WorkflowStepAutomationConfiguration {
   targetType?: TargetType | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowStepRequest {
   /**
    * <p>The name of the step.</p>
@@ -1493,6 +1706,9 @@ export interface CreateWorkflowStepRequest {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowStepResponse {
   /**
    * <p>The ID of the step.</p>
@@ -1515,6 +1731,9 @@ export interface CreateWorkflowStepResponse {
   name?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowStepRequest {
   /**
    * <p>The ID of the step you want to delete.</p>
@@ -1532,8 +1751,14 @@ export interface DeleteWorkflowStepRequest {
   workflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowStepResponse {}
 
+/**
+ * @public
+ */
 export interface GetWorkflowStepRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -1551,16 +1776,28 @@ export interface GetWorkflowStepRequest {
   id: string | undefined;
 }
 
-export enum StepStatus {
-  AWAITING_DEPENDENCIES = "AWAITING_DEPENDENCIES",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PAUSED = "PAUSED",
-  READY = "READY",
-  USER_ATTENTION_REQUIRED = "USER_ATTENTION_REQUIRED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StepStatus = {
+  AWAITING_DEPENDENCIES: "AWAITING_DEPENDENCIES",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PAUSED: "PAUSED",
+  READY: "READY",
+  USER_ATTENTION_REQUIRED: "USER_ATTENTION_REQUIRED",
+} as const;
 
+/**
+ * @public
+ */
+export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
+
+/**
+ * @public
+ */
 export interface GetWorkflowStepResponse {
   /**
    * <p>The name of the step.</p>
@@ -1669,6 +1906,9 @@ export interface GetWorkflowStepResponse {
   totalNoOfSrv?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowStepsRequest {
   /**
    * <p>The pagination token.</p>
@@ -1692,6 +1932,7 @@ export interface ListWorkflowStepsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of the step in a migration workflow.</p>
  */
 export interface WorkflowStepSummary {
@@ -1762,6 +2003,9 @@ export interface WorkflowStepSummary {
   scriptLocation?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowStepsResponse {
   /**
    * <p>The pagination token.</p>
@@ -1774,6 +2018,9 @@ export interface ListWorkflowStepsResponse {
   workflowStepsSummary: WorkflowStepSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RetryWorkflowStepRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -1791,6 +2038,9 @@ export interface RetryWorkflowStepRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface RetryWorkflowStepResponse {
   /**
    * <p>The ID of the step group.</p>
@@ -1813,6 +2063,9 @@ export interface RetryWorkflowStepResponse {
   status?: StepStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowStepRequest {
   /**
    * <p>The ID of the step.</p>
@@ -1876,6 +2129,9 @@ export interface UpdateWorkflowStepRequest {
   status?: StepStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowStepResponse {
   /**
    * <p>The ID of the step.</p>
@@ -1898,6 +2154,9 @@ export interface UpdateWorkflowStepResponse {
   name?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowStepGroupRequest {
   /**
    * <p>The ID of the migration workflow that will contain the step group.</p>
@@ -1925,6 +2184,9 @@ export interface CreateWorkflowStepGroupRequest {
   previous?: string[];
 }
 
+/**
+ * @public
+ */
 export interface CreateWorkflowStepGroupResponse {
   /**
    * <p>The ID of the migration workflow that contains the step group.</p>
@@ -1967,6 +2229,9 @@ export interface CreateWorkflowStepGroupResponse {
   creationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowStepGroupRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -1979,8 +2244,14 @@ export interface DeleteWorkflowStepGroupRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkflowStepGroupResponse {}
 
+/**
+ * @public
+ */
 export interface GetWorkflowStepGroupRequest {
   /**
    * <p>The ID of the step group.</p>
@@ -1993,6 +2264,9 @@ export interface GetWorkflowStepGroupRequest {
   workflowId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetWorkflowStepGroupResponse {
   /**
    * <p>The ID of the step group.</p>
@@ -2055,6 +2329,9 @@ export interface GetWorkflowStepGroupResponse {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowStepGroupsRequest {
   /**
    * <p>The pagination token.</p>
@@ -2073,6 +2350,7 @@ export interface ListWorkflowStepGroupsRequest {
 }
 
 /**
+ * @public
  * <p>The summary of a step group in a workflow.</p>
  */
 export interface WorkflowStepGroupSummary {
@@ -2107,6 +2385,9 @@ export interface WorkflowStepGroupSummary {
   next?: string[];
 }
 
+/**
+ * @public
+ */
 export interface ListWorkflowStepGroupsResponse {
   /**
    * <p>The pagination token.</p>
@@ -2119,6 +2400,9 @@ export interface ListWorkflowStepGroupsResponse {
   workflowStepGroupsSummary: WorkflowStepGroupSummary[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowStepGroupRequest {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -2151,6 +2435,9 @@ export interface UpdateWorkflowStepGroupRequest {
   previous?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateWorkflowStepGroupResponse {
   /**
    * <p>The ID of the migration workflow.</p>
@@ -2196,31 +2483,6 @@ export interface UpdateWorkflowStepGroupResponse {
 /**
  * @internal
  */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepInputFilterSensitiveLog = (obj: StepInput): any => {
-  if (obj.integerValue !== undefined) return { integerValue: obj.integerValue };
-  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-  if (obj.listOfStringsValue !== undefined) return { listOfStringsValue: obj.listOfStringsValue };
-  if (obj.mapOfStringValue !== undefined) return { mapOfStringValue: obj.mapOfStringValue };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
 export const CreateMigrationWorkflowRequestFilterSensitiveLog = (obj: CreateMigrationWorkflowRequest): any => ({
   ...obj,
   ...(obj.inputParameters && { inputParameters: SENSITIVE_STRING }),
@@ -2237,86 +2499,9 @@ export const CreateMigrationWorkflowResponseFilterSensitiveLog = (obj: CreateMig
 /**
  * @internal
  */
-export const DeleteMigrationWorkflowRequestFilterSensitiveLog = (obj: DeleteMigrationWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMigrationWorkflowResponseFilterSensitiveLog = (obj: DeleteMigrationWorkflowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMigrationWorkflowRequestFilterSensitiveLog = (obj: GetMigrationWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ToolFilterSensitiveLog = (obj: Tool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetMigrationWorkflowResponseFilterSensitiveLog = (obj: GetMigrationWorkflowResponse): any => ({
   ...obj,
   ...(obj.workflowInputs && { workflowInputs: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListMigrationWorkflowsRequestFilterSensitiveLog = (obj: ListMigrationWorkflowsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MigrationWorkflowSummaryFilterSensitiveLog = (obj: MigrationWorkflowSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMigrationWorkflowsResponseFilterSensitiveLog = (obj: ListMigrationWorkflowsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMigrationWorkflowRequestFilterSensitiveLog = (obj: StartMigrationWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMigrationWorkflowResponseFilterSensitiveLog = (obj: StartMigrationWorkflowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMigrationWorkflowRequestFilterSensitiveLog = (obj: StopMigrationWorkflowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMigrationWorkflowResponseFilterSensitiveLog = (obj: StopMigrationWorkflowResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -2333,399 +2518,4 @@ export const UpdateMigrationWorkflowRequestFilterSensitiveLog = (obj: UpdateMigr
 export const UpdateMigrationWorkflowResponseFilterSensitiveLog = (obj: UpdateMigrationWorkflowResponse): any => ({
   ...obj,
   ...(obj.workflowInputs && { workflowInputs: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetMigrationWorkflowTemplateRequestFilterSensitiveLog = (
-  obj: GetMigrationWorkflowTemplateRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateInputFilterSensitiveLog = (obj: TemplateInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMigrationWorkflowTemplateResponseFilterSensitiveLog = (
-  obj: GetMigrationWorkflowTemplateResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMigrationWorkflowTemplatesRequestFilterSensitiveLog = (
-  obj: ListMigrationWorkflowTemplatesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateSummaryFilterSensitiveLog = (obj: TemplateSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMigrationWorkflowTemplatesResponseFilterSensitiveLog = (
-  obj: ListMigrationWorkflowTemplatesResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPluginsRequestFilterSensitiveLog = (obj: ListPluginsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PluginSummaryFilterSensitiveLog = (obj: PluginSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPluginsResponseFilterSensitiveLog = (obj: ListPluginsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateStepRequestFilterSensitiveLog = (obj: GetTemplateStepRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepOutputFilterSensitiveLog = (obj: StepOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlatformCommandFilterSensitiveLog = (obj: PlatformCommand): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlatformScriptKeyFilterSensitiveLog = (obj: PlatformScriptKey): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepAutomationConfigurationFilterSensitiveLog = (obj: StepAutomationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateStepResponseFilterSensitiveLog = (obj: GetTemplateStepResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTemplateStepsRequestFilterSensitiveLog = (obj: ListTemplateStepsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateStepSummaryFilterSensitiveLog = (obj: TemplateStepSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTemplateStepsResponseFilterSensitiveLog = (obj: ListTemplateStepsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateStepGroupRequestFilterSensitiveLog = (obj: GetTemplateStepGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateStepGroupResponseFilterSensitiveLog = (obj: GetTemplateStepGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTemplateStepGroupsRequestFilterSensitiveLog = (obj: ListTemplateStepGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateStepGroupSummaryFilterSensitiveLog = (obj: TemplateStepGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTemplateStepGroupsResponseFilterSensitiveLog = (obj: ListTemplateStepGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkflowStepOutputUnionFilterSensitiveLog = (obj: WorkflowStepOutputUnion): any => {
-  if (obj.integerValue !== undefined) return { integerValue: obj.integerValue };
-  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-  if (obj.listOfStringValue !== undefined) return { listOfStringValue: obj.listOfStringValue };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const WorkflowStepOutputFilterSensitiveLog = (obj: WorkflowStepOutput): any => ({
-  ...obj,
-  ...(obj.value && { value: WorkflowStepOutputUnionFilterSensitiveLog(obj.value) }),
-});
-
-/**
- * @internal
- */
-export const WorkflowStepAutomationConfigurationFilterSensitiveLog = (
-  obj: WorkflowStepAutomationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkflowStepRequestFilterSensitiveLog = (obj: CreateWorkflowStepRequest): any => ({
-  ...obj,
-  ...(obj.outputs && { outputs: obj.outputs.map((item) => WorkflowStepOutputFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateWorkflowStepResponseFilterSensitiveLog = (obj: CreateWorkflowStepResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkflowStepRequestFilterSensitiveLog = (obj: DeleteWorkflowStepRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkflowStepResponseFilterSensitiveLog = (obj: DeleteWorkflowStepResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowStepRequestFilterSensitiveLog = (obj: GetWorkflowStepRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowStepResponseFilterSensitiveLog = (obj: GetWorkflowStepResponse): any => ({
-  ...obj,
-  ...(obj.outputs && { outputs: obj.outputs.map((item) => WorkflowStepOutputFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListWorkflowStepsRequestFilterSensitiveLog = (obj: ListWorkflowStepsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkflowStepSummaryFilterSensitiveLog = (obj: WorkflowStepSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkflowStepsResponseFilterSensitiveLog = (obj: ListWorkflowStepsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetryWorkflowStepRequestFilterSensitiveLog = (obj: RetryWorkflowStepRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetryWorkflowStepResponseFilterSensitiveLog = (obj: RetryWorkflowStepResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkflowStepRequestFilterSensitiveLog = (obj: UpdateWorkflowStepRequest): any => ({
-  ...obj,
-  ...(obj.outputs && { outputs: obj.outputs.map((item) => WorkflowStepOutputFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateWorkflowStepResponseFilterSensitiveLog = (obj: UpdateWorkflowStepResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkflowStepGroupRequestFilterSensitiveLog = (obj: CreateWorkflowStepGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkflowStepGroupResponseFilterSensitiveLog = (obj: CreateWorkflowStepGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkflowStepGroupRequestFilterSensitiveLog = (obj: DeleteWorkflowStepGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkflowStepGroupResponseFilterSensitiveLog = (obj: DeleteWorkflowStepGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowStepGroupRequestFilterSensitiveLog = (obj: GetWorkflowStepGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkflowStepGroupResponseFilterSensitiveLog = (obj: GetWorkflowStepGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkflowStepGroupsRequestFilterSensitiveLog = (obj: ListWorkflowStepGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkflowStepGroupSummaryFilterSensitiveLog = (obj: WorkflowStepGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWorkflowStepGroupsResponseFilterSensitiveLog = (obj: ListWorkflowStepGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkflowStepGroupRequestFilterSensitiveLog = (obj: UpdateWorkflowStepGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkflowStepGroupResponseFilterSensitiveLog = (obj: UpdateWorkflowStepGroupResponse): any => ({
-  ...obj,
 });

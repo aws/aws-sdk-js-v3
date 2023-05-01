@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  UpdateEnvironmentRequest,
-  UpdateEnvironmentRequestFilterSensitiveLog,
-  UpdateEnvironmentResponse,
-  UpdateEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEnvironmentCommand,
-  serializeAws_restJson1UpdateEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateEnvironmentRequest, UpdateEnvironmentResponse } from "../models/models_0";
+import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEnvironmentCommand}.
  */
 export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEnvironmentCommand}.
  */
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configuration details for a specific runtime environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * import { M2Client, UpdateEnvironmentCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, UpdateEnvironmentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // UpdateEnvironmentRequest
+ *   environmentId: "STRING_VALUE", // required
+ *   desiredCapacity: Number("int"),
+ *   instanceType: "STRING_VALUE",
+ *   engineVersion: "STRING_VALUE",
+ *   preferredMaintenanceWindow: "STRING_VALUE",
+ *   applyDuringMaintenanceWindow: true || false,
+ * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
+ * @returns {@link UpdateEnvironmentCommandOutput}
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -90,6 +97,9 @@ export class UpdateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +128,8 @@ export class UpdateEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +139,18 @@ export class UpdateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEnvironmentCommand(input, context);
+    return se_UpdateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
-    return deserializeAws_restJson1UpdateEnvironmentCommand(output, context);
+    return de_UpdateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

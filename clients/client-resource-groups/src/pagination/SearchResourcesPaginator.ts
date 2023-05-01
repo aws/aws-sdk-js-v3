@@ -10,7 +10,7 @@ import { ResourceGroupsClient } from "../ResourceGroupsClient";
 import { ResourceGroupsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResourceGroupsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new SearchResourcesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateSearchResources(
   config: ResourceGroupsPaginationConfiguration,
   input: SearchResourcesCommandInput,

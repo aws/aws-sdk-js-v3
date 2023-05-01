@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRunGroupRequest,
-  CreateRunGroupRequestFilterSensitiveLog,
-  CreateRunGroupResponse,
-  CreateRunGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRunGroupRequest, CreateRunGroupResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1CreateRunGroupCommand,
-  serializeAws_restJson1CreateRunGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRunGroupCommand, se_CreateRunGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRunGroupCommand}.
  */
 export interface CreateRunGroupCommandInput extends CreateRunGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRunGroupCommand}.
  */
 export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a run group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __M
  * import { OmicsClient, CreateRunGroupCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CreateRunGroupCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // CreateRunGroupRequest
+ *   name: "STRING_VALUE",
+ *   maxCpus: Number("int"),
+ *   maxRuns: Number("int"),
+ *   maxDuration: Number("int"),
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   requestId: "STRING_VALUE", // required
+ * };
  * const command = new CreateRunGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRunGroupCommandInput - {@link CreateRunGroupCommandInput}
+ * @returns {@link CreateRunGroupCommandOutput}
  * @see {@link CreateRunGroupCommandInput} for command's `input` shape.
  * @see {@link CreateRunGroupCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -93,6 +102,9 @@ export class CreateRunGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRunGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +133,8 @@ export class CreateRunGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRunGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRunGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +144,18 @@ export class CreateRunGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRunGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRunGroupCommand(input, context);
+    return se_CreateRunGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRunGroupCommandOutput> {
-    return deserializeAws_restJson1CreateRunGroupCommand(output, context);
+    return de_CreateRunGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

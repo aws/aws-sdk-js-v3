@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPermissionsRequest,
-  ListPermissionsRequestFilterSensitiveLog,
-  ListPermissionsResponse,
-  ListPermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPermissionsCommand,
-  serializeAws_restJson1ListPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0";
+import { de_ListPermissionsCommand, se_ListPermissionsCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListPermissionsCommand}.
  */
 export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPermissionsCommand}.
  */
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of available RAM permissions that you can use for the supported
  *             resource types. </p>
  * @example
@@ -43,28 +40,39 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * import { RAMClient, ListPermissionsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListPermissionsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // ListPermissionsRequest
+ *   resourceType: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   permissionType: "ALL" || "AWS_MANAGED" || "CUSTOMER_MANAGED",
+ * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPermissionsCommandInput - {@link ListPermissionsCommandInput}
+ * @returns {@link ListPermissionsCommandOutput}
  * @see {@link ListPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *  <p>The operation failed because the specified value for <code>NextToken</code> isn't
+ *             valid. You must specify a value you received in the <code>NextToken</code> response of a
+ *             previous call to this operation.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The requested operation is not permitted.</p>
+ *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  *
  */
@@ -85,6 +93,9 @@ export class ListPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +124,8 @@ export class ListPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +135,18 @@ export class ListPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPermissionsCommand(input, context);
+    return se_ListPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionsCommandOutput> {
-    return deserializeAws_restJson1ListPermissionsCommand(output, context);
+    return de_ListPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

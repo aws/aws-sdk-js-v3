@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import {
-  SubscribeToDatasetRequest,
-  SubscribeToDatasetRequestFilterSensitiveLog,
-  SubscribeToDatasetResponse,
-  SubscribeToDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SubscribeToDatasetCommand,
-  serializeAws_restJson1SubscribeToDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { SubscribeToDatasetRequest, SubscribeToDatasetResponse } from "../models/models_0";
+import { de_SubscribeToDatasetCommand, se_SubscribeToDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SubscribeToDatasetCommand}.
  */
 export interface SubscribeToDatasetCommandInput extends SubscribeToDatasetRequest {}
 /**
+ * @public
+ *
  * The output of {@link SubscribeToDatasetCommand}.
  */
 export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Subscribes to receive notifications when a dataset is modified by another device.</p><p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
  *       <examples>
  *          <example>
@@ -50,17 +47,17 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  * X-AMZ-SECURITY-TOKEN: <securitytoken>
  * AUTHORIZATION: AWS4-HMAC-SHA256 Credential=<credential>, SignedHeaders=content-type;content-length;host;x-amz-date;x-amz-target, Signature=<signature>
  *
- * {
+ * \{
  *     "Operation": "com.amazonaws.cognito.sync.model#SubscribeToDataset",
  *     "Service": "com.amazonaws.cognito.sync.model#AWSCognitoSyncService",
  *     "Input":
- *     {
+ *     \{
  *         "IdentityPoolId": "ID_POOL_ID",
  *         "IdentityId": "IDENTITY_ID",
  *         "DatasetName": "Rufus",
  *         "DeviceId": "5cd28fbe-dd83-47ab-9f83-19093a5fb014"
- *     }
- * }
+ *     \}
+ * \}
  *                </request>
  *             <response>
  * 1.1 200 OK
@@ -69,13 +66,13 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  * content-type: application/json
  * content-length: 99
  *
- * {
+ * \{
  *     "Output":
- *     {
+ *     \{
  *         "__type": "com.amazonaws.cognito.sync.model#SubscribeToDatasetResponse"
- *     },
+ *     \},
  *     "Version": "1.0"
- * }
+ * \}
  *                </response>
  *          </example>
  *       </examples>
@@ -85,10 +82,18 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  * import { CognitoSyncClient, SubscribeToDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, SubscribeToDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
+ * const input = { // SubscribeToDatasetRequest
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityId: "STRING_VALUE", // required
+ *   DatasetName: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new SubscribeToDatasetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SubscribeToDatasetCommandInput - {@link SubscribeToDatasetCommandInput}
+ * @returns {@link SubscribeToDatasetCommandOutput}
  * @see {@link SubscribeToDatasetCommandInput} for command's `input` shape.
  * @see {@link SubscribeToDatasetCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
@@ -134,6 +139,9 @@ export class SubscribeToDatasetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SubscribeToDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,8 +170,8 @@ export class SubscribeToDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubscribeToDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubscribeToDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -173,12 +181,18 @@ export class SubscribeToDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SubscribeToDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SubscribeToDatasetCommand(input, context);
+    return se_SubscribeToDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeToDatasetCommandOutput> {
-    return deserializeAws_restJson1SubscribeToDatasetCommand(output, context);
+    return de_SubscribeToDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

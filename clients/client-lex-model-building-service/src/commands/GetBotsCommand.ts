@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBotsRequest,
-  GetBotsRequestFilterSensitiveLog,
-  GetBotsResponse,
-  GetBotsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBotsCommand,
-  serializeAws_restJson1GetBotsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetBotsRequest, GetBotsResponse } from "../models/models_0";
+import { de_GetBotsCommand, se_GetBotsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetBotsCommand}.
  */
 export interface GetBotsCommandInput extends GetBotsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBotsCommand}.
  */
 export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns bot information as follows: </p>
  *          <ul>
  *             <li>
@@ -60,10 +57,17 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  * import { LexModelBuildingServiceClient, GetBotsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBotsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetBotsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nameContains: "STRING_VALUE",
+ * };
  * const command = new GetBotsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBotsCommandInput - {@link GetBotsCommandInput}
+ * @returns {@link GetBotsCommandOutput}
  * @see {@link GetBotsCommandInput} for command's `input` shape.
  * @see {@link GetBotsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
@@ -128,6 +132,9 @@ export class GetBotsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +161,8 @@ export class GetBotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBotsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +172,18 @@ export class GetBotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBotsCommand(input, context);
+    return se_GetBotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotsCommandOutput> {
-    return deserializeAws_restJson1GetBotsCommand(output, context);
+    return de_GetBotsCommand(output, context);
   }
 
   // Start section: command_body_extra

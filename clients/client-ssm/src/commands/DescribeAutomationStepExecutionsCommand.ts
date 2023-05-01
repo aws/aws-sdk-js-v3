@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeAutomationStepExecutionsRequest, DescribeAutomationStepExecutionsResult } from "../models/models_0";
 import {
-  DescribeAutomationStepExecutionsRequest,
-  DescribeAutomationStepExecutionsRequestFilterSensitiveLog,
-  DescribeAutomationStepExecutionsResult,
-  DescribeAutomationStepExecutionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAutomationStepExecutionsCommand,
-  serializeAws_json1_1DescribeAutomationStepExecutionsCommand,
+  de_DescribeAutomationStepExecutionsCommand,
+  se_DescribeAutomationStepExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAutomationStepExecutionsCommand}.
  */
 export interface DescribeAutomationStepExecutionsCommandInput extends DescribeAutomationStepExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAutomationStepExecutionsCommand}.
  */
 export interface DescribeAutomationStepExecutionsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeAutomationStepExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information about all active and terminated step executions in an Automation
  *    workflow.</p>
  * @example
@@ -45,10 +45,26 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  * import { SSMClient, DescribeAutomationStepExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAutomationStepExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeAutomationStepExecutionsRequest
+ *   AutomationExecutionId: "STRING_VALUE", // required
+ *   Filters: [ // StepExecutionFilterList
+ *     { // StepExecutionFilter
+ *       Key: "StartTimeBefore" || "StartTimeAfter" || "StepExecutionStatus" || "StepExecutionId" || "StepName" || "Action", // required
+ *       Values: [ // StepExecutionFilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ReverseOrder: true || false,
+ * };
  * const command = new DescribeAutomationStepExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAutomationStepExecutionsCommandInput - {@link DescribeAutomationStepExecutionsCommandInput}
+ * @returns {@link DescribeAutomationStepExecutionsCommandOutput}
  * @see {@link DescribeAutomationStepExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutomationStepExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -88,6 +104,9 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAutomationStepExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +135,8 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAutomationStepExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAutomationStepExecutionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +146,24 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAutomationStepExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAutomationStepExecutionsCommand(input, context);
+    return se_DescribeAutomationStepExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutomationStepExecutionsCommandOutput> {
-    return deserializeAws_json1_1DescribeAutomationStepExecutionsCommand(output, context);
+    return de_DescribeAutomationStepExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

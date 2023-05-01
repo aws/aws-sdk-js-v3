@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  UpdateSettingsRequest,
-  UpdateSettingsRequestFilterSensitiveLog,
-  UpdateSettingsResult,
-  UpdateSettingsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSettingsCommand,
-  serializeAws_json1_1UpdateSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateSettingsRequest, UpdateSettingsResult } from "../models/models_0";
+import { de_UpdateSettingsCommand, se_UpdateSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSettingsCommand}.
  */
 export interface UpdateSettingsCommandInput extends UpdateSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSettingsCommand}.
  */
 export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the configurable settings for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  * import { DirectoryServiceClient, UpdateSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UpdateSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // UpdateSettingsRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   Settings: [ // Settings // required
+ *     { // Setting
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSettingsCommandInput - {@link UpdateSettingsCommandInput}
+ * @returns {@link UpdateSettingsCommandOutput}
  * @see {@link UpdateSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -93,6 +101,9 @@ export class UpdateSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +132,8 @@ export class UpdateSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSettingsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +143,18 @@ export class UpdateSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSettingsCommand(input, context);
+    return se_UpdateSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateSettingsCommand(output, context);
+    return de_UpdateSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

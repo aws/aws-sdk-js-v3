@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  PutTargetsRequest,
-  PutTargetsRequestFilterSensitiveLog,
-  PutTargetsResponse,
-  PutTargetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutTargetsCommand,
-  serializeAws_json1_1PutTargetsCommand,
-} from "../protocols/Aws_json1_1";
+import { PutTargetsRequest, PutTargetsRequestFilterSensitiveLog, PutTargetsResponse } from "../models/models_0";
+import { de_PutTargetsCommand, se_PutTargetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutTargetsCommand}.
  */
 export interface PutTargetsCommandInput extends PutTargetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutTargetsCommand}.
  */
 export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the specified targets to the specified rule, or updates the targets if they are
  *       already associated with the rule.</p>
  *          <p>Targets are the resources that are invoked when a rule is triggered.</p>
@@ -219,10 +216,141 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * import { EventBridgeClient, PutTargetsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutTargetsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // PutTargetsRequest
+ *   Rule: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ *   Targets: [ // TargetList // required
+ *     { // Target
+ *       Id: "STRING_VALUE", // required
+ *       Arn: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE",
+ *       Input: "STRING_VALUE",
+ *       InputPath: "STRING_VALUE",
+ *       InputTransformer: { // InputTransformer
+ *         InputPathsMap: { // TransformerPaths
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         InputTemplate: "STRING_VALUE", // required
+ *       },
+ *       KinesisParameters: { // KinesisParameters
+ *         PartitionKeyPath: "STRING_VALUE", // required
+ *       },
+ *       RunCommandParameters: { // RunCommandParameters
+ *         RunCommandTargets: [ // RunCommandTargets // required
+ *           { // RunCommandTarget
+ *             Key: "STRING_VALUE", // required
+ *             Values: [ // RunCommandTargetValues // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       EcsParameters: { // EcsParameters
+ *         TaskDefinitionArn: "STRING_VALUE", // required
+ *         TaskCount: Number("int"),
+ *         LaunchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *         NetworkConfiguration: { // NetworkConfiguration
+ *           awsvpcConfiguration: { // AwsVpcConfiguration
+ *             Subnets: [ // StringList // required
+ *               "STRING_VALUE",
+ *             ],
+ *             SecurityGroups: [
+ *               "STRING_VALUE",
+ *             ],
+ *             AssignPublicIp: "ENABLED" || "DISABLED",
+ *           },
+ *         },
+ *         PlatformVersion: "STRING_VALUE",
+ *         Group: "STRING_VALUE",
+ *         CapacityProviderStrategy: [ // CapacityProviderStrategy
+ *           { // CapacityProviderStrategyItem
+ *             capacityProvider: "STRING_VALUE", // required
+ *             weight: Number("int"),
+ *             base: Number("int"),
+ *           },
+ *         ],
+ *         EnableECSManagedTags: true || false,
+ *         EnableExecuteCommand: true || false,
+ *         PlacementConstraints: [ // PlacementConstraints
+ *           { // PlacementConstraint
+ *             type: "distinctInstance" || "memberOf",
+ *             expression: "STRING_VALUE",
+ *           },
+ *         ],
+ *         PlacementStrategy: [ // PlacementStrategies
+ *           { // PlacementStrategy
+ *             type: "random" || "spread" || "binpack",
+ *             field: "STRING_VALUE",
+ *           },
+ *         ],
+ *         PropagateTags: "TASK_DEFINITION",
+ *         ReferenceId: "STRING_VALUE",
+ *         Tags: [ // TagList
+ *           { // Tag
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       BatchParameters: { // BatchParameters
+ *         JobDefinition: "STRING_VALUE", // required
+ *         JobName: "STRING_VALUE", // required
+ *         ArrayProperties: { // BatchArrayProperties
+ *           Size: Number("int"),
+ *         },
+ *         RetryStrategy: { // BatchRetryStrategy
+ *           Attempts: Number("int"),
+ *         },
+ *       },
+ *       SqsParameters: { // SqsParameters
+ *         MessageGroupId: "STRING_VALUE",
+ *       },
+ *       HttpParameters: { // HttpParameters
+ *         PathParameterValues: [ // PathParameterList
+ *           "STRING_VALUE",
+ *         ],
+ *         HeaderParameters: { // HeaderParametersMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         QueryStringParameters: { // QueryStringParametersMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       RedshiftDataParameters: { // RedshiftDataParameters
+ *         SecretManagerArn: "STRING_VALUE",
+ *         Database: "STRING_VALUE", // required
+ *         DbUser: "STRING_VALUE",
+ *         Sql: "STRING_VALUE",
+ *         StatementName: "STRING_VALUE",
+ *         WithEvent: true || false,
+ *         Sqls: [ // Sqls
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       SageMakerPipelineParameters: { // SageMakerPipelineParameters
+ *         PipelineParameterList: [ // SageMakerPipelineParameterList
+ *           { // SageMakerPipelineParameter
+ *             Name: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       DeadLetterConfig: { // DeadLetterConfig
+ *         Arn: "STRING_VALUE",
+ *       },
+ *       RetryPolicy: { // RetryPolicy
+ *         MaximumRetryAttempts: Number("int"),
+ *         MaximumEventAgeInSeconds: Number("int"),
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutTargetsCommandInput - {@link PutTargetsCommandInput}
+ * @returns {@link PutTargetsCommandOutput}
  * @see {@link PutTargetsCommandInput} for command's `input` shape.
  * @see {@link PutTargetsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -267,6 +395,9 @@ export class PutTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -294,7 +425,7 @@ export class PutTargetsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutTargetsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -304,12 +435,18 @@ export class PutTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutTargetsCommand(input, context);
+    return se_PutTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTargetsCommandOutput> {
-    return deserializeAws_json1_1PutTargetsCommand(output, context);
+    return de_PutTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

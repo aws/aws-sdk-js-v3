@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  CopyImageRequest,
-  CopyImageRequestFilterSensitiveLog,
-  CopyImageResponse,
-  CopyImageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1CopyImageCommand, serializeAws_json1_1CopyImageCommand } from "../protocols/Aws_json1_1";
+import { CopyImageRequest, CopyImageResponse } from "../models/models_0";
+import { de_CopyImageCommand, se_CopyImageCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CopyImageCommand}.
  */
 export interface CopyImageCommandInput extends CopyImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyImageCommand}.
  */
 export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,18 @@ export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBea
  * import { AppStreamClient, CopyImageCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CopyImageCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // CopyImageRequest
+ *   SourceImageName: "STRING_VALUE", // required
+ *   DestinationImageName: "STRING_VALUE", // required
+ *   DestinationRegion: "STRING_VALUE", // required
+ *   DestinationImageDescription: "STRING_VALUE",
+ * };
  * const command = new CopyImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyImageCommandInput - {@link CopyImageCommandInput}
+ * @returns {@link CopyImageCommandOutput}
  * @see {@link CopyImageCommandInput} for command's `input` shape.
  * @see {@link CopyImageCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -84,6 +92,9 @@ export class CopyImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class CopyImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class CopyImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopyImageCommand(input, context);
+    return se_CopyImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyImageCommandOutput> {
-    return deserializeAws_json1_1CopyImageCommand(output, context);
+    return de_CopyImageCommand(output, context);
   }
 
   // Start section: command_body_extra

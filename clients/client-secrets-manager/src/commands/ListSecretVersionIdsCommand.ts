@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSecretVersionIdsRequest,
-  ListSecretVersionIdsRequestFilterSensitiveLog,
-  ListSecretVersionIdsResponse,
-  ListSecretVersionIdsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSecretVersionIdsCommand,
-  serializeAws_json1_1ListSecretVersionIdsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListSecretVersionIdsRequest, ListSecretVersionIdsResponse } from "../models/models_0";
+import { de_ListSecretVersionIdsCommand, se_ListSecretVersionIdsCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecretVersionIdsCommand}.
  */
 export interface ListSecretVersionIdsCommandInput extends ListSecretVersionIdsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecretVersionIdsCommand}.
  */
 export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the versions of a secret. Secrets Manager uses staging labels to indicate the different versions
  *     of a secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">
  *     Secrets Manager concepts: Versions</a>.</p>
@@ -52,10 +49,18 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  * import { SecretsManagerClient, ListSecretVersionIdsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ListSecretVersionIdsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // ListSecretVersionIdsRequest
+ *   SecretId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   IncludeDeprecated: true || false,
+ * };
  * const command = new ListSecretVersionIdsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecretVersionIdsCommandInput - {@link ListSecretVersionIdsCommandInput}
+ * @returns {@link ListSecretVersionIdsCommandOutput}
  * @see {@link ListSecretVersionIdsCommandInput} for command's `input` shape.
  * @see {@link ListSecretVersionIdsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -129,6 +134,9 @@ export class ListSecretVersionIdsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecretVersionIdsCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,8 +165,8 @@ export class ListSecretVersionIdsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecretVersionIdsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSecretVersionIdsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -168,12 +176,18 @@ export class ListSecretVersionIdsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSecretVersionIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSecretVersionIdsCommand(input, context);
+    return se_ListSecretVersionIdsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecretVersionIdsCommandOutput> {
-    return deserializeAws_json1_1ListSecretVersionIdsCommand(output, context);
+    return de_ListSecretVersionIdsCommand(output, context);
   }
 
   // Start section: command_body_extra

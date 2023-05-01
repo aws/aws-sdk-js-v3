@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeThingGroupRequest,
-  DescribeThingGroupRequestFilterSensitiveLog,
-  DescribeThingGroupResponse,
-  DescribeThingGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeThingGroupCommand,
-  serializeAws_restJson1DescribeThingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeThingGroupRequest, DescribeThingGroupResponse } from "../models/models_1";
+import { de_DescribeThingGroupCommand, se_DescribeThingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeThingGroupCommand}.
  */
 export interface DescribeThingGroupCommandInput extends DescribeThingGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeThingGroupCommand}.
  */
 export interface DescribeThingGroupCommandOutput extends DescribeThingGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe a thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingGroup</a> action.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeThingGroupCommandOutput extends DescribeThingGroupRespo
  * import { IoTClient, DescribeThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeThingGroupRequest
+ *   thingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeThingGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeThingGroupCommandInput - {@link DescribeThingGroupCommandInput}
+ * @returns {@link DescribeThingGroupCommandOutput}
  * @see {@link DescribeThingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -82,6 +84,9 @@ export class DescribeThingGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeThingGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeThingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeThingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeThingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DescribeThingGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeThingGroupCommand(input, context);
+    return se_DescribeThingGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeThingGroupCommandOutput> {
-    return deserializeAws_restJson1DescribeThingGroupCommand(output, context);
+    return de_DescribeThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

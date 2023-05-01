@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMailboxExportJobsRequest,
-  ListMailboxExportJobsRequestFilterSensitiveLog,
-  ListMailboxExportJobsResponse,
-  ListMailboxExportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMailboxExportJobsCommand,
-  serializeAws_json1_1ListMailboxExportJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMailboxExportJobsRequest, ListMailboxExportJobsResponse } from "../models/models_0";
+import { de_ListMailboxExportJobsCommand, se_ListMailboxExportJobsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMailboxExportJobsCommand}.
  */
 export interface ListMailboxExportJobsCommandInput extends ListMailboxExportJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMailboxExportJobsCommand}.
  */
 export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the mailbox export jobs started for the specified organization within the last
  *          seven days.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
  * import { WorkMailClient, ListMailboxExportJobsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListMailboxExportJobsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListMailboxExportJobsRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMailboxExportJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMailboxExportJobsCommandInput - {@link ListMailboxExportJobsCommandInput}
+ * @returns {@link ListMailboxExportJobsCommandOutput}
  * @see {@link ListMailboxExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListMailboxExportJobsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -81,6 +85,9 @@ export class ListMailboxExportJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMailboxExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class ListMailboxExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMailboxExportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMailboxExportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +127,18 @@ export class ListMailboxExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMailboxExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMailboxExportJobsCommand(input, context);
+    return se_ListMailboxExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMailboxExportJobsCommandOutput> {
-    return deserializeAws_json1_1ListMailboxExportJobsCommand(output, context);
+    return de_ListMailboxExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

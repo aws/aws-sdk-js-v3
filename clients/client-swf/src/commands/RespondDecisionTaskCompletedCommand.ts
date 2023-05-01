@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { RespondDecisionTaskCompletedInput } from "../models/models_0";
 import {
-  RespondDecisionTaskCompletedInput,
-  RespondDecisionTaskCompletedInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0RespondDecisionTaskCompletedCommand,
-  serializeAws_json1_0RespondDecisionTaskCompletedCommand,
+  de_RespondDecisionTaskCompletedCommand,
+  se_RespondDecisionTaskCompletedCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RespondDecisionTaskCompletedCommand}.
  */
 export interface RespondDecisionTaskCompletedCommandInput extends RespondDecisionTaskCompletedInput {}
 /**
+ * @public
+ *
  * The output of {@link RespondDecisionTaskCompletedCommand}.
  */
 export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by deciders to tell the service that the <a>DecisionTask</a> identified
  *       by the <code>taskToken</code> has successfully completed. The <code>decisions</code> argument
  *       specifies the list of decisions made while processing the task.</p>
@@ -59,10 +61,117 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  * import { SWFClient, RespondDecisionTaskCompletedCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RespondDecisionTaskCompletedCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // RespondDecisionTaskCompletedInput
+ *   taskToken: "STRING_VALUE", // required
+ *   decisions: [ // DecisionList
+ *     { // Decision
+ *       decisionType: "ScheduleActivityTask" || "RequestCancelActivityTask" || "CompleteWorkflowExecution" || "FailWorkflowExecution" || "CancelWorkflowExecution" || "ContinueAsNewWorkflowExecution" || "RecordMarker" || "StartTimer" || "CancelTimer" || "SignalExternalWorkflowExecution" || "RequestCancelExternalWorkflowExecution" || "StartChildWorkflowExecution" || "ScheduleLambdaFunction", // required
+ *       scheduleActivityTaskDecisionAttributes: { // ScheduleActivityTaskDecisionAttributes
+ *         activityType: { // ActivityType
+ *           name: "STRING_VALUE", // required
+ *           version: "STRING_VALUE", // required
+ *         },
+ *         activityId: "STRING_VALUE", // required
+ *         control: "STRING_VALUE",
+ *         input: "STRING_VALUE",
+ *         scheduleToCloseTimeout: "STRING_VALUE",
+ *         taskList: { // TaskList
+ *           name: "STRING_VALUE", // required
+ *         },
+ *         taskPriority: "STRING_VALUE",
+ *         scheduleToStartTimeout: "STRING_VALUE",
+ *         startToCloseTimeout: "STRING_VALUE",
+ *         heartbeatTimeout: "STRING_VALUE",
+ *       },
+ *       requestCancelActivityTaskDecisionAttributes: { // RequestCancelActivityTaskDecisionAttributes
+ *         activityId: "STRING_VALUE", // required
+ *       },
+ *       completeWorkflowExecutionDecisionAttributes: { // CompleteWorkflowExecutionDecisionAttributes
+ *         result: "STRING_VALUE",
+ *       },
+ *       failWorkflowExecutionDecisionAttributes: { // FailWorkflowExecutionDecisionAttributes
+ *         reason: "STRING_VALUE",
+ *         details: "STRING_VALUE",
+ *       },
+ *       cancelWorkflowExecutionDecisionAttributes: { // CancelWorkflowExecutionDecisionAttributes
+ *         details: "STRING_VALUE",
+ *       },
+ *       continueAsNewWorkflowExecutionDecisionAttributes: { // ContinueAsNewWorkflowExecutionDecisionAttributes
+ *         input: "STRING_VALUE",
+ *         executionStartToCloseTimeout: "STRING_VALUE",
+ *         taskList: {
+ *           name: "STRING_VALUE", // required
+ *         },
+ *         taskPriority: "STRING_VALUE",
+ *         taskStartToCloseTimeout: "STRING_VALUE",
+ *         childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
+ *         tagList: [ // TagList
+ *           "STRING_VALUE",
+ *         ],
+ *         workflowTypeVersion: "STRING_VALUE",
+ *         lambdaRole: "STRING_VALUE",
+ *       },
+ *       recordMarkerDecisionAttributes: { // RecordMarkerDecisionAttributes
+ *         markerName: "STRING_VALUE", // required
+ *         details: "STRING_VALUE",
+ *       },
+ *       startTimerDecisionAttributes: { // StartTimerDecisionAttributes
+ *         timerId: "STRING_VALUE", // required
+ *         control: "STRING_VALUE",
+ *         startToFireTimeout: "STRING_VALUE", // required
+ *       },
+ *       cancelTimerDecisionAttributes: { // CancelTimerDecisionAttributes
+ *         timerId: "STRING_VALUE", // required
+ *       },
+ *       signalExternalWorkflowExecutionDecisionAttributes: { // SignalExternalWorkflowExecutionDecisionAttributes
+ *         workflowId: "STRING_VALUE", // required
+ *         runId: "STRING_VALUE",
+ *         signalName: "STRING_VALUE", // required
+ *         input: "STRING_VALUE",
+ *         control: "STRING_VALUE",
+ *       },
+ *       requestCancelExternalWorkflowExecutionDecisionAttributes: { // RequestCancelExternalWorkflowExecutionDecisionAttributes
+ *         workflowId: "STRING_VALUE", // required
+ *         runId: "STRING_VALUE",
+ *         control: "STRING_VALUE",
+ *       },
+ *       startChildWorkflowExecutionDecisionAttributes: { // StartChildWorkflowExecutionDecisionAttributes
+ *         workflowType: { // WorkflowType
+ *           name: "STRING_VALUE", // required
+ *           version: "STRING_VALUE", // required
+ *         },
+ *         workflowId: "STRING_VALUE", // required
+ *         control: "STRING_VALUE",
+ *         input: "STRING_VALUE",
+ *         executionStartToCloseTimeout: "STRING_VALUE",
+ *         taskList: {
+ *           name: "STRING_VALUE", // required
+ *         },
+ *         taskPriority: "STRING_VALUE",
+ *         taskStartToCloseTimeout: "STRING_VALUE",
+ *         childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
+ *         tagList: [
+ *           "STRING_VALUE",
+ *         ],
+ *         lambdaRole: "STRING_VALUE",
+ *       },
+ *       scheduleLambdaFunctionDecisionAttributes: { // ScheduleLambdaFunctionDecisionAttributes
+ *         id: "STRING_VALUE", // required
+ *         name: "STRING_VALUE", // required
+ *         control: "STRING_VALUE",
+ *         input: "STRING_VALUE",
+ *         startToCloseTimeout: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   executionContext: "STRING_VALUE",
+ * };
  * const command = new RespondDecisionTaskCompletedCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RespondDecisionTaskCompletedCommandInput - {@link RespondDecisionTaskCompletedCommandInput}
+ * @returns {@link RespondDecisionTaskCompletedCommandOutput}
  * @see {@link RespondDecisionTaskCompletedCommandInput} for command's `input` shape.
  * @see {@link RespondDecisionTaskCompletedCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -92,6 +201,9 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RespondDecisionTaskCompletedCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +232,8 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RespondDecisionTaskCompletedInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +243,21 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RespondDecisionTaskCompletedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RespondDecisionTaskCompletedCommand(input, context);
+    return se_RespondDecisionTaskCompletedCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RespondDecisionTaskCompletedCommandOutput> {
-    return deserializeAws_json1_0RespondDecisionTaskCompletedCommand(output, context);
+    return de_RespondDecisionTaskCompletedCommand(output, context);
   }
 
   // Start section: command_body_extra

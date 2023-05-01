@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdateDefaultBranchInput, UpdateDefaultBranchInputFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateDefaultBranchCommand,
-  serializeAws_json1_1UpdateDefaultBranchCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDefaultBranchInput } from "../models/models_1";
+import { de_UpdateDefaultBranchCommand, se_UpdateDefaultBranchCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDefaultBranchCommand}.
  */
 export interface UpdateDefaultBranchCommandInput extends UpdateDefaultBranchInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDefaultBranchCommand}.
  */
 export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets or changes the default branch name for the specified repository.</p>
  *         <note>
  *             <p>If you use this operation to change the default branch name to the current default branch name, a success message is returned even though the default branch did not change.</p>
@@ -40,10 +42,16 @@ export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
  * import { CodeCommitClient, UpdateDefaultBranchCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateDefaultBranchCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // UpdateDefaultBranchInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   defaultBranchName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateDefaultBranchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDefaultBranchCommandInput - {@link UpdateDefaultBranchCommandInput}
+ * @returns {@link UpdateDefaultBranchCommandOutput}
  * @see {@link UpdateDefaultBranchCommandInput} for command's `input` shape.
  * @see {@link UpdateDefaultBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -106,6 +114,9 @@ export class UpdateDefaultBranchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDefaultBranchCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +145,8 @@ export class UpdateDefaultBranchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDefaultBranchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +156,18 @@ export class UpdateDefaultBranchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDefaultBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDefaultBranchCommand(input, context);
+    return se_UpdateDefaultBranchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDefaultBranchCommandOutput> {
-    return deserializeAws_json1_1UpdateDefaultBranchCommand(output, context);
+    return de_UpdateDefaultBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

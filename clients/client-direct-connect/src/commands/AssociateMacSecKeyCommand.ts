@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  AssociateMacSecKeyRequest,
-  AssociateMacSecKeyRequestFilterSensitiveLog,
-  AssociateMacSecKeyResponse,
-  AssociateMacSecKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateMacSecKeyCommand,
-  serializeAws_json1_1AssociateMacSecKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { AssociateMacSecKeyRequest, AssociateMacSecKeyResponse } from "../models/models_0";
+import { de_AssociateMacSecKeyCommand, se_AssociateMacSecKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateMacSecKeyCommand}.
  */
 export interface AssociateMacSecKeyCommandInput extends AssociateMacSecKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateMacSecKeyCommand}.
  */
 export interface AssociateMacSecKeyCommandOutput extends AssociateMacSecKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association Key (CAK) pair with an Direct Connect dedicated connection.</p>
  *          <p>You must supply either the <code>secretARN,</code> or the CKN/CAK (<code>ckn</code> and <code>cak</code>) pair in the request.</p>
  *          <p>For information about MAC Security (MACsec) key considerations, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-key-consideration">MACsec pre-shared CKN/CAK key considerations </a> in the <i>Direct Connect User Guide</i>.</p>
@@ -44,10 +41,18 @@ export interface AssociateMacSecKeyCommandOutput extends AssociateMacSecKeyRespo
  * import { DirectConnectClient, AssociateMacSecKeyCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AssociateMacSecKeyCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // AssociateMacSecKeyRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   secretARN: "STRING_VALUE",
+ *   ckn: "STRING_VALUE",
+ *   cak: "STRING_VALUE",
+ * };
  * const command = new AssociateMacSecKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateMacSecKeyCommandInput - {@link AssociateMacSecKeyCommandInput}
+ * @returns {@link AssociateMacSecKeyCommandOutput}
  * @see {@link AssociateMacSecKeyCommandInput} for command's `input` shape.
  * @see {@link AssociateMacSecKeyCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -77,6 +82,9 @@ export class AssociateMacSecKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateMacSecKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +113,8 @@ export class AssociateMacSecKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateMacSecKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateMacSecKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +124,18 @@ export class AssociateMacSecKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateMacSecKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateMacSecKeyCommand(input, context);
+    return se_AssociateMacSecKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMacSecKeyCommandOutput> {
-    return deserializeAws_json1_1AssociateMacSecKeyCommand(output, context);
+    return de_AssociateMacSecKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

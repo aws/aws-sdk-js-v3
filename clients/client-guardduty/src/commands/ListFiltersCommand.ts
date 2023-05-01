@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  ListFiltersRequest,
-  ListFiltersRequestFilterSensitiveLog,
-  ListFiltersResponse,
-  ListFiltersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFiltersCommand,
-  serializeAws_restJson1ListFiltersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFiltersRequest, ListFiltersResponse } from "../models/models_0";
+import { de_ListFiltersCommand, se_ListFiltersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFiltersCommand}.
  */
 export interface ListFiltersCommandInput extends ListFiltersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFiltersCommand}.
  */
 export interface ListFiltersCommandOutput extends ListFiltersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of the current filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * import { GuardDutyClient, ListFiltersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListFiltersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // ListFiltersRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFiltersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFiltersCommandInput - {@link ListFiltersCommandInput}
+ * @returns {@link ListFiltersCommandOutput}
  * @see {@link ListFiltersCommandInput} for command's `input` shape.
  * @see {@link ListFiltersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +79,9 @@ export class ListFiltersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFiltersCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +108,8 @@ export class ListFiltersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFiltersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFiltersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +119,18 @@ export class ListFiltersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFiltersCommand(input, context);
+    return se_ListFiltersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFiltersCommandOutput> {
-    return deserializeAws_restJson1ListFiltersCommand(output, context);
+    return de_ListFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

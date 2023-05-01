@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteBucketRequest,
-  DeleteBucketRequestFilterSensitiveLog,
-  DeleteBucketResult,
-  DeleteBucketResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBucketCommand,
-  serializeAws_json1_1DeleteBucketCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteBucketRequest, DeleteBucketResult } from "../models/models_0";
+import { de_DeleteBucketCommand, se_DeleteBucketCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBucketCommand}.
  */
 export interface DeleteBucketCommandInput extends DeleteBucketRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBucketCommand}.
  */
 export interface DeleteBucketCommandOutput extends DeleteBucketResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a Amazon Lightsail bucket.</p>
  *          <note>
  *             <p>When you delete your bucket, the bucket name is released and can be reused for a new
@@ -46,10 +43,16 @@ export interface DeleteBucketCommandOutput extends DeleteBucketResult, __Metadat
  * import { LightsailClient, DeleteBucketCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteBucketCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // DeleteBucketRequest
+ *   bucketName: "STRING_VALUE", // required
+ *   forceDelete: true || false,
+ * };
  * const command = new DeleteBucketCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBucketCommandInput - {@link DeleteBucketCommandInput}
+ * @returns {@link DeleteBucketCommandOutput}
  * @see {@link DeleteBucketCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -96,6 +99,9 @@ export class DeleteBucketCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +128,8 @@ export class DeleteBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBucketResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +139,18 @@ export class DeleteBucketCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBucketCommand(input, context);
+    return se_DeleteBucketCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketCommandOutput> {
-    return deserializeAws_json1_1DeleteBucketCommand(output, context);
+    return de_DeleteBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

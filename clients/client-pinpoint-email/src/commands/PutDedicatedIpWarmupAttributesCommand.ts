@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutDedicatedIpWarmupAttributesRequest,
-  PutDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
-  PutDedicatedIpWarmupAttributesResponse,
-  PutDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutDedicatedIpWarmupAttributesRequest, PutDedicatedIpWarmupAttributesResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand,
-  serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand,
+  de_PutDedicatedIpWarmupAttributesCommand,
+  se_PutDedicatedIpWarmupAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDedicatedIpWarmupAttributesCommand}.
  */
 export interface PutDedicatedIpWarmupAttributesCommandInput extends PutDedicatedIpWarmupAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDedicatedIpWarmupAttributesCommand}.
  */
 export interface PutDedicatedIpWarmupAttributesCommandOutput
@@ -37,6 +36,7 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
  * import { PinpointEmailClient, PutDedicatedIpWarmupAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutDedicatedIpWarmupAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = { // PutDedicatedIpWarmupAttributesRequest
+ *   Ip: "STRING_VALUE", // required
+ *   WarmupPercentage: Number("int"), // required
+ * };
  * const command = new PutDedicatedIpWarmupAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDedicatedIpWarmupAttributesCommandInput - {@link PutDedicatedIpWarmupAttributesCommandInput}
+ * @returns {@link PutDedicatedIpWarmupAttributesCommandOutput}
  * @see {@link PutDedicatedIpWarmupAttributesCommandInput} for command's `input` shape.
  * @see {@link PutDedicatedIpWarmupAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
@@ -80,6 +86,9 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDedicatedIpWarmupAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +117,8 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +128,24 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutDedicatedIpWarmupAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand(input, context);
+    return se_PutDedicatedIpWarmupAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> {
-    return deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand(output, context);
+    return de_PutDedicatedIpWarmupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

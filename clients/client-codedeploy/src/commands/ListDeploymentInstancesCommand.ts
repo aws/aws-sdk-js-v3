@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  ListDeploymentInstancesInput,
-  ListDeploymentInstancesInputFilterSensitiveLog,
-  ListDeploymentInstancesOutput,
-  ListDeploymentInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeploymentInstancesCommand,
-  serializeAws_json1_1ListDeploymentInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDeploymentInstancesInput, ListDeploymentInstancesOutput } from "../models/models_0";
+import { de_ListDeploymentInstancesCommand, se_ListDeploymentInstancesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDeploymentInstancesCommand}.
  */
 export interface ListDeploymentInstancesCommandInput extends ListDeploymentInstancesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListDeploymentInstancesCommand}.
  */
 export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInstancesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <note>
@@ -51,10 +48,22 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * import { CodeDeployClient, ListDeploymentInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // ListDeploymentInstancesInput
+ *   deploymentId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   instanceStatusFilter: [ // InstanceStatusList
+ *     "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown" || "Ready",
+ *   ],
+ *   instanceTypeFilter: [ // InstanceTypeList
+ *     "Blue" || "Green",
+ *   ],
+ * };
  * const command = new ListDeploymentInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDeploymentInstancesCommandInput - {@link ListDeploymentInstancesCommandInput}
+ * @returns {@link ListDeploymentInstancesCommandOutput}
  * @see {@link ListDeploymentInstancesCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -112,6 +121,9 @@ export class ListDeploymentInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeploymentInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +152,8 @@ export class ListDeploymentInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeploymentInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeploymentInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,12 +163,18 @@ export class ListDeploymentInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeploymentInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeploymentInstancesCommand(input, context);
+    return se_ListDeploymentInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentInstancesCommandOutput> {
-    return deserializeAws_json1_1ListDeploymentInstancesCommand(output, context);
+    return de_ListDeploymentInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

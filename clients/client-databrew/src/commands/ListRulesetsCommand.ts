@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  ListRulesetsRequest,
-  ListRulesetsRequestFilterSensitiveLog,
-  ListRulesetsResponse,
-  ListRulesetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRulesetsCommand,
-  serializeAws_restJson1ListRulesetsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRulesetsRequest, ListRulesetsResponse } from "../models/models_0";
+import { de_ListRulesetsCommand, se_ListRulesetsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRulesetsCommand}.
  */
 export interface ListRulesetsCommandInput extends ListRulesetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRulesetsCommand}.
  */
 export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List all rulesets available in the current account or rulesets associated
  *             with a specific resource (dataset).</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __Metad
  * import { DataBrewClient, ListRulesetsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListRulesetsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // ListRulesetsRequest
+ *   TargetArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListRulesetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRulesetsCommandInput - {@link ListRulesetsCommandInput}
+ * @returns {@link ListRulesetsCommandOutput}
  * @see {@link ListRulesetsCommandInput} for command's `input` shape.
  * @see {@link ListRulesetsCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -76,6 +80,9 @@ export class ListRulesetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRulesetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +109,8 @@ export class ListRulesetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRulesetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRulesetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +120,18 @@ export class ListRulesetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRulesetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRulesetsCommand(input, context);
+    return se_ListRulesetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesetsCommandOutput> {
-    return deserializeAws_restJson1ListRulesetsCommand(output, context);
+    return de_ListRulesetsCommand(output, context);
   }
 
   // Start section: command_body_extra

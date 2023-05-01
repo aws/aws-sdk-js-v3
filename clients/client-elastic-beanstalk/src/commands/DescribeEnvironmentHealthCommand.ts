@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  DescribeEnvironmentHealthRequest,
-  DescribeEnvironmentHealthRequestFilterSensitiveLog,
-  DescribeEnvironmentHealthResult,
-  DescribeEnvironmentHealthResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEnvironmentHealthCommand,
-  serializeAws_queryDescribeEnvironmentHealthCommand,
-} from "../protocols/Aws_query";
+import { DescribeEnvironmentHealthRequest, DescribeEnvironmentHealthResult } from "../models/models_0";
+import { de_DescribeEnvironmentHealthCommand, se_DescribeEnvironmentHealthCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeEnvironmentHealthCommand}.
  */
 export interface DescribeEnvironmentHealthCommandInput extends DescribeEnvironmentHealthRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeEnvironmentHealthCommand}.
  */
 export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironmentHealthResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the overall health of the specified environment. The
  *         <b>DescribeEnvironmentHealth</b> operation is only available with
  *       AWS Elastic Beanstalk Enhanced Health.</p>
@@ -44,10 +41,19 @@ export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironm
  * import { ElasticBeanstalkClient, DescribeEnvironmentHealthCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentHealthCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DescribeEnvironmentHealthRequest
+ *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   AttributeNames: [ // EnvironmentHealthAttributes
+ *     "Status" || "Color" || "Causes" || "ApplicationMetrics" || "InstancesHealth" || "All" || "HealthStatus" || "RefreshedAt",
+ *   ],
+ * };
  * const command = new DescribeEnvironmentHealthCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeEnvironmentHealthCommandInput - {@link DescribeEnvironmentHealthCommandInput}
+ * @returns {@link DescribeEnvironmentHealthCommandOutput}
  * @see {@link DescribeEnvironmentHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -131,6 +137,9 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEnvironmentHealthCommandInput) {
     // Start section: command_constructor
     super();
@@ -159,8 +168,8 @@ export class DescribeEnvironmentHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentHealthRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEnvironmentHealthResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -170,15 +179,21 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEnvironmentHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentHealthCommand(input, context);
+    return se_DescribeEnvironmentHealthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentHealthCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentHealthCommand(output, context);
+    return de_DescribeEnvironmentHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

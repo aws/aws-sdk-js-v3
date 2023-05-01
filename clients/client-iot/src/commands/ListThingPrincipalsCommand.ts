@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListThingPrincipalsRequest,
-  ListThingPrincipalsRequestFilterSensitiveLog,
-  ListThingPrincipalsResponse,
-  ListThingPrincipalsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListThingPrincipalsCommand,
-  serializeAws_restJson1ListThingPrincipalsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListThingPrincipalsRequest, ListThingPrincipalsResponse } from "../models/models_2";
+import { de_ListThingPrincipalsCommand, se_ListThingPrincipalsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListThingPrincipalsCommand}.
  */
 export interface ListThingPrincipalsCommandInput extends ListThingPrincipalsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListThingPrincipalsCommand}.
  */
 export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the principals associated with the specified thing. A principal can be X.509
  * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * 			identities.</p>
@@ -45,10 +42,17 @@ export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsRes
  * import { IoTClient, ListThingPrincipalsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingPrincipalsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListThingPrincipalsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   thingName: "STRING_VALUE", // required
+ * };
  * const command = new ListThingPrincipalsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListThingPrincipalsCommandInput - {@link ListThingPrincipalsCommandInput}
+ * @returns {@link ListThingPrincipalsCommandOutput}
  * @see {@link ListThingPrincipalsCommandInput} for command's `input` shape.
  * @see {@link ListThingPrincipalsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -90,6 +94,9 @@ export class ListThingPrincipalsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListThingPrincipalsCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class ListThingPrincipalsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListThingPrincipalsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListThingPrincipalsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class ListThingPrincipalsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListThingPrincipalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListThingPrincipalsCommand(input, context);
+    return se_ListThingPrincipalsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingPrincipalsCommandOutput> {
-    return deserializeAws_restJson1ListThingPrincipalsCommand(output, context);
+    return de_ListThingPrincipalsCommand(output, context);
   }
 
   // Start section: command_body_extra

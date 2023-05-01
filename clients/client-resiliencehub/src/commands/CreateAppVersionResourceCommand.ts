@@ -13,39 +13,36 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAppVersionResourceRequest,
-  CreateAppVersionResourceRequestFilterSensitiveLog,
-  CreateAppVersionResourceResponse,
-  CreateAppVersionResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAppVersionResourceCommand,
-  serializeAws_restJson1CreateAppVersionResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAppVersionResourceRequest, CreateAppVersionResourceResponse } from "../models/models_0";
+import { de_CreateAppVersionResourceCommand, se_CreateAppVersionResourceCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppVersionResourceCommand}.
  */
 export interface CreateAppVersionResourceCommandInput extends CreateAppVersionResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppVersionResourceCommand}.
  */
 export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a resource to the AWS Resilience Hub applicationand assigns it to the specified
- *       Application Components. If you specify a new Application Component, AWS Resilience Hub will automatically
+ * @public
+ * <p>Adds a resource to the Resilience Hub application and assigns it to the specified
+ *       Application Components. If you specify a new Application Component, Resilience Hub will automatically
  *       create the Application Component.</p>
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>This action has no effect outside AWS Resilience Hub.</p>
+ *                   <p>This action has no effect outside Resilience Hub.</p>
  *                </li>
  *                <li>
- *                   <p>This API updates the AWS Resilience Hub application draft version. To use this resource
- *             for running resiliency assessments, you must publish the AWS Resilience Hub application using
+ *                   <p>This API updates the Resilience Hub application draft version. To use this resource
+ *             for running resiliency assessments, you must publish the Resilience Hub application using
  *             the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *                <li>
@@ -60,10 +57,36 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * import { ResiliencehubClient, CreateAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, CreateAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // CreateAppVersionResourceRequest
+ *   appArn: "STRING_VALUE", // required
+ *   resourceName: "STRING_VALUE", // required
+ *   logicalResourceId: { // LogicalResourceId
+ *     identifier: "STRING_VALUE", // required
+ *     logicalStackName: "STRING_VALUE",
+ *     resourceGroupName: "STRING_VALUE",
+ *     terraformSourceName: "STRING_VALUE",
+ *     eksSourceName: "STRING_VALUE",
+ *   },
+ *   physicalResourceId: "STRING_VALUE", // required
+ *   awsRegion: "STRING_VALUE",
+ *   awsAccountId: "STRING_VALUE",
+ *   resourceType: "STRING_VALUE", // required
+ *   appComponents: [ // AppComponentNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   additionalInfo: { // AdditionalInfoMap
+ *     "<keys>": [ // AdditionalInfoValueList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateAppVersionResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppVersionResourceCommandInput - {@link CreateAppVersionResourceCommandInput}
+ * @returns {@link CreateAppVersionResourceCommandOutput}
  * @see {@link CreateAppVersionResourceCommandInput} for command's `input` shape.
  * @see {@link CreateAppVersionResourceCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -80,7 +103,7 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -115,6 +138,9 @@ export class CreateAppVersionResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppVersionResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +169,8 @@ export class CreateAppVersionResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppVersionResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppVersionResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +180,18 @@ export class CreateAppVersionResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppVersionResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAppVersionResourceCommand(input, context);
+    return se_CreateAppVersionResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppVersionResourceCommandOutput> {
-    return deserializeAws_restJson1CreateAppVersionResourceCommand(output, context);
+    return de_CreateAppVersionResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

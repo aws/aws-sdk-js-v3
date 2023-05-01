@@ -15,20 +15,25 @@ import {
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
-  deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand,
-  serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand,
+  de_DisableHealthServiceAccessForOrganizationCommand,
+  se_DisableHealthServiceAccessForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisableHealthServiceAccessForOrganizationCommand}.
  */
 export interface DisableHealthServiceAccessForOrganizationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DisableHealthServiceAccessForOrganizationCommand}.
  */
 export interface DisableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables Health from working with Organizations. To call this operation, you must sign
  *          in as an Identity and Access Management (IAM) user, assume an IAM role, or sign in as the root user (not
  *          recommended) in the organization's management account. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
@@ -50,10 +55,13 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  * import { HealthClient, DisableHealthServiceAccessForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DisableHealthServiceAccessForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {};
  * const command = new DisableHealthServiceAccessForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisableHealthServiceAccessForOrganizationCommandInput - {@link DisableHealthServiceAccessForOrganizationCommandInput}
+ * @returns {@link DisableHealthServiceAccessForOrganizationCommandOutput}
  * @see {@link DisableHealthServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DisableHealthServiceAccessForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -82,6 +90,9 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisableHealthServiceAccessForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +127,8 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +138,24 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableHealthServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(input, context);
+    return se_DisableHealthServiceAccessForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(output, context);
+    return de_DisableHealthServiceAccessForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

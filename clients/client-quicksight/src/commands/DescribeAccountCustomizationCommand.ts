@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeAccountCustomizationRequest, DescribeAccountCustomizationResponse } from "../models/models_2";
 import {
-  DescribeAccountCustomizationRequest,
-  DescribeAccountCustomizationRequestFilterSensitiveLog,
-  DescribeAccountCustomizationResponse,
-  DescribeAccountCustomizationResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeAccountCustomizationCommand,
-  serializeAws_restJson1DescribeAccountCustomizationCommand,
+  de_DescribeAccountCustomizationCommand,
+  se_DescribeAccountCustomizationCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAccountCustomizationCommand}.
  */
 export interface DescribeAccountCustomizationCommandInput extends DescribeAccountCustomizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAccountCustomizationCommand}.
  */
 export interface DescribeAccountCustomizationCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeAccountCustomizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the customizations associated with the provided Amazon Web Services account and Amazon
  *             Amazon QuickSight namespace in an Amazon Web Services Region. The Amazon QuickSight console evaluates which
  *             customizations to apply by running this API operation with the <code>Resolved</code> flag
@@ -100,10 +100,17 @@ export interface DescribeAccountCustomizationCommandOutput
  * import { QuickSightClient, DescribeAccountCustomizationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAccountCustomizationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeAccountCustomizationRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE",
+ *   Resolved: true || false,
+ * };
  * const command = new DescribeAccountCustomizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAccountCustomizationCommandInput - {@link DescribeAccountCustomizationCommandInput}
+ * @returns {@link DescribeAccountCustomizationCommandOutput}
  * @see {@link DescribeAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountCustomizationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -148,6 +155,9 @@ export class DescribeAccountCustomizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAccountCustomizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,8 +186,8 @@ export class DescribeAccountCustomizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountCustomizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountCustomizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -187,15 +197,21 @@ export class DescribeAccountCustomizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAccountCustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccountCustomizationCommand(input, context);
+    return se_DescribeAccountCustomizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountCustomizationCommandOutput> {
-    return deserializeAws_restJson1DescribeAccountCustomizationCommand(output, context);
+    return de_DescribeAccountCustomizationCommand(output, context);
   }
 
   // Start section: command_body_extra

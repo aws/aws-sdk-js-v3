@@ -16,25 +16,26 @@ import {
 import { AppConfigDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigDataClient";
 import {
   GetLatestConfigurationRequest,
-  GetLatestConfigurationRequestFilterSensitiveLog,
   GetLatestConfigurationResponse,
   GetLatestConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLatestConfigurationCommand,
-  serializeAws_restJson1GetLatestConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLatestConfigurationCommand, se_GetLatestConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLatestConfigurationCommand}.
  */
 export interface GetLatestConfigurationCommandInput extends GetLatestConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLatestConfigurationCommand}.
  */
 export interface GetLatestConfigurationCommandOutput extends GetLatestConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the latest deployed configuration. This API may return empty configuration
  *          data if the client already has the latest version. For more information about this API
  *          action and to view example CLI commands that show how to use it with the <a>StartConfigurationSession</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
@@ -62,10 +63,15 @@ export interface GetLatestConfigurationCommandOutput extends GetLatestConfigurat
  * import { AppConfigDataClient, GetLatestConfigurationCommand } from "@aws-sdk/client-appconfigdata"; // ES Modules import
  * // const { AppConfigDataClient, GetLatestConfigurationCommand } = require("@aws-sdk/client-appconfigdata"); // CommonJS import
  * const client = new AppConfigDataClient(config);
+ * const input = { // GetLatestConfigurationRequest
+ *   ConfigurationToken: "STRING_VALUE", // required
+ * };
  * const command = new GetLatestConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLatestConfigurationCommandInput - {@link GetLatestConfigurationCommandInput}
+ * @returns {@link GetLatestConfigurationCommandOutput}
  * @see {@link GetLatestConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLatestConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigDataClientResolvedConfig | config} for AppConfigDataClient's `config` shape.
@@ -101,6 +107,9 @@ export class GetLatestConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLatestConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,7 +138,7 @@ export class GetLatestConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLatestConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetLatestConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -140,12 +149,18 @@ export class GetLatestConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLatestConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLatestConfigurationCommand(input, context);
+    return se_GetLatestConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLatestConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetLatestConfigurationCommand(output, context);
+    return de_GetLatestConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

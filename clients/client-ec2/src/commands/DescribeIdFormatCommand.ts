@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeIdFormatRequest,
-  DescribeIdFormatRequestFilterSensitiveLog,
-  DescribeIdFormatResult,
-  DescribeIdFormatResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeIdFormatCommand,
-  serializeAws_ec2DescribeIdFormatCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeIdFormatRequest, DescribeIdFormatResult } from "../models/models_3";
+import { de_DescribeIdFormatCommand, se_DescribeIdFormatCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeIdFormatCommand}.
  */
 export interface DescribeIdFormatCommandInput extends DescribeIdFormatRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeIdFormatCommand}.
  */
 export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the ID format settings for your resources on a per-Region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.</p>
  *          <p>The following resource types support longer IDs: <code>bundle</code> |
  *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
@@ -61,10 +58,15 @@ export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, _
  * import { EC2Client, DescribeIdFormatCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeIdFormatRequest
+ *   Resource: "STRING_VALUE",
+ * };
  * const command = new DescribeIdFormatCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeIdFormatCommandInput - {@link DescribeIdFormatCommandInput}
+ * @returns {@link DescribeIdFormatCommandOutput}
  * @see {@link DescribeIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribeIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -88,6 +90,9 @@ export class DescribeIdFormatCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeIdFormatCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +121,8 @@ export class DescribeIdFormatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIdFormatRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIdFormatResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +132,18 @@ export class DescribeIdFormatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeIdFormatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIdFormatCommand(input, context);
+    return se_DescribeIdFormatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdFormatCommandOutput> {
-    return deserializeAws_ec2DescribeIdFormatCommand(output, context);
+    return de_DescribeIdFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -54,10 +54,18 @@ import {
   CreateExtendedSourceServerCommandOutput,
 } from "./commands/CreateExtendedSourceServerCommand";
 import {
+  CreateLaunchConfigurationTemplateCommandInput,
+  CreateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/CreateLaunchConfigurationTemplateCommand";
+import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import {
+  DeleteLaunchConfigurationTemplateCommandInput,
+  DeleteLaunchConfigurationTemplateCommandOutput,
+} from "./commands/DeleteLaunchConfigurationTemplateCommand";
 import {
   DeleteRecoveryInstanceCommandInput,
   DeleteRecoveryInstanceCommandOutput,
@@ -72,6 +80,10 @@ import {
   DescribeJobLogItemsCommandOutput,
 } from "./commands/DescribeJobLogItemsCommand";
 import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "./commands/DescribeJobsCommand";
+import {
+  DescribeLaunchConfigurationTemplatesCommandInput,
+  DescribeLaunchConfigurationTemplatesCommandOutput,
+} from "./commands/DescribeLaunchConfigurationTemplatesCommand";
 import {
   DescribeRecoveryInstancesCommandInput,
   DescribeRecoveryInstancesCommandOutput,
@@ -149,6 +161,10 @@ import {
   UpdateLaunchConfigurationCommandOutput,
 } from "./commands/UpdateLaunchConfigurationCommand";
 import {
+  UpdateLaunchConfigurationTemplateCommandInput,
+  UpdateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/UpdateLaunchConfigurationTemplateCommand";
+import {
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
 } from "./commands/UpdateReplicationConfigurationCommand";
@@ -164,15 +180,21 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateExtendedSourceServerCommandInput
+  | CreateLaunchConfigurationTemplateCommandInput
   | CreateReplicationConfigurationTemplateCommandInput
   | DeleteJobCommandInput
+  | DeleteLaunchConfigurationTemplateCommandInput
   | DeleteRecoveryInstanceCommandInput
   | DeleteReplicationConfigurationTemplateCommandInput
   | DeleteSourceServerCommandInput
   | DescribeJobLogItemsCommandInput
   | DescribeJobsCommandInput
+  | DescribeLaunchConfigurationTemplatesCommandInput
   | DescribeRecoveryInstancesCommandInput
   | DescribeRecoverySnapshotsCommandInput
   | DescribeReplicationConfigurationTemplatesCommandInput
@@ -198,18 +220,25 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateFailbackReplicationConfigurationCommandInput
   | UpdateLaunchConfigurationCommandInput
+  | UpdateLaunchConfigurationTemplateCommandInput
   | UpdateReplicationConfigurationCommandInput
   | UpdateReplicationConfigurationTemplateCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateExtendedSourceServerCommandOutput
+  | CreateLaunchConfigurationTemplateCommandOutput
   | CreateReplicationConfigurationTemplateCommandOutput
   | DeleteJobCommandOutput
+  | DeleteLaunchConfigurationTemplateCommandOutput
   | DeleteRecoveryInstanceCommandOutput
   | DeleteReplicationConfigurationTemplateCommandOutput
   | DeleteSourceServerCommandOutput
   | DescribeJobLogItemsCommandOutput
   | DescribeJobsCommandOutput
+  | DescribeLaunchConfigurationTemplatesCommandOutput
   | DescribeRecoveryInstancesCommandOutput
   | DescribeRecoverySnapshotsCommandOutput
   | DescribeReplicationConfigurationTemplatesCommandOutput
@@ -235,9 +264,13 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateFailbackReplicationConfigurationCommandOutput
   | UpdateLaunchConfigurationCommandOutput
+  | UpdateLaunchConfigurationTemplateCommandOutput
   | UpdateReplicationConfigurationCommandOutput
   | UpdateReplicationConfigurationTemplateCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -245,7 +278,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -354,11 +387,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type DrsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -369,10 +405,15 @@ type DrsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> 
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of DrsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of DrsClient class constructor that set the region, credentials and other options.
  */
 export interface DrsClientConfig extends DrsClientConfigType {}
 
+/**
+ * @public
+ */
 type DrsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -383,11 +424,14 @@ type DrsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of DrsClient class. This is resolved and normalized from the {@link DrsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of DrsClient class. This is resolved and normalized from the {@link DrsClientConfig | constructor configuration interface}.
  */
 export interface DrsClientResolvedConfig extends DrsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>AWS Elastic Disaster Recovery Service.</p>
  */
 export class DrsClient extends __Client<

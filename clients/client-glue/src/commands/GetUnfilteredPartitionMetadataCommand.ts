@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { GetUnfilteredPartitionMetadataRequest, GetUnfilteredPartitionMetadataResponse } from "../models/models_1";
 import {
-  GetUnfilteredPartitionMetadataRequest,
-  GetUnfilteredPartitionMetadataRequestFilterSensitiveLog,
-  GetUnfilteredPartitionMetadataResponse,
-  GetUnfilteredPartitionMetadataResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetUnfilteredPartitionMetadataCommand,
-  serializeAws_json1_1GetUnfilteredPartitionMetadataCommand,
+  de_GetUnfilteredPartitionMetadataCommand,
+  se_GetUnfilteredPartitionMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUnfilteredPartitionMetadataCommand}.
  */
 export interface GetUnfilteredPartitionMetadataCommandInput extends GetUnfilteredPartitionMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUnfilteredPartitionMetadataCommand}.
  */
 export interface GetUnfilteredPartitionMetadataCommandOutput
@@ -37,6 +36,7 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
  *           metadata.</p>
  *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartition</code>.</p>
@@ -46,16 +46,41 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
  * import { GlueClient, GetUnfilteredPartitionMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetUnfilteredPartitionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetUnfilteredPartitionMetadataRequest
+ *   CatalogId: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   PartitionValues: [ // ValueStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AuditContext: { // AuditContext
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *     RequestedColumns: [ // AuditColumnNamesList
+ *       "STRING_VALUE",
+ *     ],
+ *     AllColumnsRequested: true || false,
+ *   },
+ *   SupportedPermissionTypes: [ // PermissionTypeList // required
+ *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
+ *   ],
+ * };
  * const command = new GetUnfilteredPartitionMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUnfilteredPartitionMetadataCommandInput - {@link GetUnfilteredPartitionMetadataCommandInput}
+ * @returns {@link GetUnfilteredPartitionMetadataCommandOutput}
  * @see {@link GetUnfilteredPartitionMetadataCommandInput} for command's `input` shape.
  * @see {@link GetUnfilteredPartitionMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
@@ -70,6 +95,7 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
  *  <p>The operation timed out.</p>
  *
  * @throws {@link PermissionTypeMismatchException} (client fault)
+ *  <p>The operation timed out.</p>
  *
  *
  */
@@ -90,6 +116,9 @@ export class GetUnfilteredPartitionMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUnfilteredPartitionMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +147,8 @@ export class GetUnfilteredPartitionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUnfilteredPartitionMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUnfilteredPartitionMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +158,24 @@ export class GetUnfilteredPartitionMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetUnfilteredPartitionMetadataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUnfilteredPartitionMetadataCommand(input, context);
+    return se_GetUnfilteredPartitionMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUnfilteredPartitionMetadataCommandOutput> {
-    return deserializeAws_json1_1GetUnfilteredPartitionMetadataCommand(output, context);
+    return de_GetUnfilteredPartitionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetPolicyVersionRequest,
-  GetPolicyVersionRequestFilterSensitiveLog,
-  GetPolicyVersionResponse,
-  GetPolicyVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetPolicyVersionCommand,
-  serializeAws_queryGetPolicyVersionCommand,
-} from "../protocols/Aws_query";
+import { GetPolicyVersionRequest, GetPolicyVersionResponse } from "../models/models_0";
+import { de_GetPolicyVersionCommand, se_GetPolicyVersionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetPolicyVersionCommand}.
  */
 export interface GetPolicyVersionCommandInput extends GetPolicyVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPolicyVersionCommand}.
  */
 export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the specified version of the specified managed policy,
  *             including the policy document.</p>
  *          <note>
@@ -57,10 +54,16 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * import { IAMClient, GetPolicyVersionCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetPolicyVersionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GetPolicyVersionRequest
+ *   PolicyArn: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE", // required
+ * };
  * const command = new GetPolicyVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPolicyVersionCommandInput - {@link GetPolicyVersionCommandInput}
+ * @returns {@link GetPolicyVersionCommandOutput}
  * @see {@link GetPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link GetPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -96,6 +99,9 @@ export class GetPolicyVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +130,8 @@ export class GetPolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPolicyVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPolicyVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +141,18 @@ export class GetPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetPolicyVersionCommand(input, context);
+    return se_GetPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyVersionCommandOutput> {
-    return deserializeAws_queryGetPolicyVersionCommand(output, context);
+    return de_GetPolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

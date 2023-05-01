@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ReorderReceiptRuleSetRequest,
-  ReorderReceiptRuleSetRequestFilterSensitiveLog,
-  ReorderReceiptRuleSetResponse,
-  ReorderReceiptRuleSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryReorderReceiptRuleSetCommand,
-  serializeAws_queryReorderReceiptRuleSetCommand,
-} from "../protocols/Aws_query";
+import { ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse } from "../models/models_0";
+import { de_ReorderReceiptRuleSetCommand, se_ReorderReceiptRuleSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link ReorderReceiptRuleSetCommand}.
  */
 export interface ReorderReceiptRuleSetCommandInput extends ReorderReceiptRuleSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReorderReceiptRuleSetCommand}.
  */
 export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reorders the receipt rules within a receipt rule set.</p>
  *         <note>
  *             <p>All of the rules in the rule set must be represented in this request. That is,
@@ -49,10 +46,18 @@ export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSe
  * import { SESClient, ReorderReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ReorderReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // ReorderReceiptRuleSetRequest
+ *   RuleSetName: "STRING_VALUE", // required
+ *   RuleNames: [ // ReceiptRuleNamesList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ReorderReceiptRuleSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReorderReceiptRuleSetCommandInput - {@link ReorderReceiptRuleSetCommandInput}
+ * @returns {@link ReorderReceiptRuleSetCommandOutput}
  * @see {@link ReorderReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link ReorderReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -97,6 +102,9 @@ export class ReorderReceiptRuleSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReorderReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +133,8 @@ export class ReorderReceiptRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReorderReceiptRuleSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReorderReceiptRuleSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +144,18 @@ export class ReorderReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReorderReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryReorderReceiptRuleSetCommand(input, context);
+    return se_ReorderReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReorderReceiptRuleSetCommandOutput> {
-    return deserializeAws_queryReorderReceiptRuleSetCommand(output, context);
+    return de_ReorderReceiptRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

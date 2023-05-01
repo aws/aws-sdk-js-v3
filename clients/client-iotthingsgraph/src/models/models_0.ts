@@ -3,6 +3,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { IoTThingsGraphServiceException as __BaseException } from "./IoTThingsGraphServiceException";
 
+/**
+ * @public
+ */
 export interface AssociateEntityToThingRequest {
   /**
    * <p>The name of the thing to which the entity is to be associated.</p>
@@ -24,9 +27,13 @@ export interface AssociateEntityToThingRequest {
   namespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface AssociateEntityToThingResponse {}
 
 /**
+ * @public
  * <p></p>
  */
 export class InternalFailureException extends __BaseException {
@@ -46,6 +53,7 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -65,6 +73,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -84,6 +93,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ThrottlingException extends __BaseException {
@@ -102,11 +112,21 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
-export enum DefinitionLanguage {
-  GRAPHQL = "GRAPHQL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DefinitionLanguage = {
+  GRAPHQL: "GRAPHQL",
+} as const;
 
 /**
+ * @public
+ */
+export type DefinitionLanguage = (typeof DefinitionLanguage)[keyof typeof DefinitionLanguage];
+
+/**
+ * @public
  * <p>A document that defines an entity. </p>
  */
 export interface DefinitionDocument {
@@ -121,6 +141,9 @@ export interface DefinitionDocument {
   text: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateFlowTemplateRequest {
   /**
    * <p>The workflow <code>DefinitionDocument</code>.</p>
@@ -135,6 +158,7 @@ export interface CreateFlowTemplateRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains summary information about a workflow.</p>
  */
 export interface FlowTemplateSummary {
@@ -159,6 +183,9 @@ export interface FlowTemplateSummary {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateFlowTemplateResponse {
   /**
    * <p>The summary object that describes the created workflow.</p>
@@ -167,6 +194,7 @@ export interface CreateFlowTemplateResponse {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class LimitExceededException extends __BaseException {
@@ -186,6 +214,7 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -205,6 +234,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
  */
 export interface MetricsConfiguration {
@@ -220,6 +250,7 @@ export interface MetricsConfiguration {
 }
 
 /**
+ * @public
  * <p>Metadata assigned to an AWS IoT Things Graph resource consisting of a key-value pair.</p>
  */
 export interface Tag {
@@ -234,11 +265,23 @@ export interface Tag {
   value: string | undefined;
 }
 
-export enum DeploymentTarget {
-  CLOUD = "CLOUD",
-  GREENGRASS = "GREENGRASS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentTarget = {
+  CLOUD: "CLOUD",
+  GREENGRASS: "GREENGRASS",
+} as const;
 
+/**
+ * @public
+ */
+export type DeploymentTarget = (typeof DeploymentTarget)[keyof typeof DeploymentTarget];
+
+/**
+ * @public
+ */
 export interface CreateSystemInstanceRequest {
   /**
    * <p>Metadata, consisting of key-value pairs, that can be used to categorize your system instances.</p>
@@ -280,18 +323,29 @@ export interface CreateSystemInstanceRequest {
   flowActionsRoleArn?: string;
 }
 
-export enum SystemInstanceDeploymentStatus {
-  BOOTSTRAP = "BOOTSTRAP",
-  DELETED_IN_TARGET = "DELETED_IN_TARGET",
-  DEPLOYED_IN_TARGET = "DEPLOYED_IN_TARGET",
-  DEPLOY_IN_PROGRESS = "DEPLOY_IN_PROGRESS",
-  FAILED = "FAILED",
-  NOT_DEPLOYED = "NOT_DEPLOYED",
-  PENDING_DELETE = "PENDING_DELETE",
-  UNDEPLOY_IN_PROGRESS = "UNDEPLOY_IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SystemInstanceDeploymentStatus = {
+  BOOTSTRAP: "BOOTSTRAP",
+  DELETED_IN_TARGET: "DELETED_IN_TARGET",
+  DEPLOYED_IN_TARGET: "DEPLOYED_IN_TARGET",
+  DEPLOY_IN_PROGRESS: "DEPLOY_IN_PROGRESS",
+  FAILED: "FAILED",
+  NOT_DEPLOYED: "NOT_DEPLOYED",
+  PENDING_DELETE: "PENDING_DELETE",
+  UNDEPLOY_IN_PROGRESS: "UNDEPLOY_IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type SystemInstanceDeploymentStatus =
+  (typeof SystemInstanceDeploymentStatus)[keyof typeof SystemInstanceDeploymentStatus];
+
+/**
+ * @public
  * <p>An object that contains summary information about a system instance.</p>
  */
 export interface SystemInstanceSummary {
@@ -343,6 +397,9 @@ export interface SystemInstanceSummary {
   greengrassGroupVersionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateSystemInstanceResponse {
   /**
    * <p>The summary object that describes the new system instance.</p>
@@ -350,6 +407,9 @@ export interface CreateSystemInstanceResponse {
   summary?: SystemInstanceSummary;
 }
 
+/**
+ * @public
+ */
 export interface CreateSystemTemplateRequest {
   /**
    * <p>The <code>DefinitionDocument</code> used to create the system.</p>
@@ -364,6 +424,7 @@ export interface CreateSystemTemplateRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains information about a system.</p>
  */
 export interface SystemTemplateSummary {
@@ -388,6 +449,9 @@ export interface SystemTemplateSummary {
   createdAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateSystemTemplateResponse {
   /**
    * <p>The summary object that describes the created system.</p>
@@ -395,6 +459,9 @@ export interface CreateSystemTemplateResponse {
   summary?: SystemTemplateSummary;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFlowTemplateRequest {
   /**
    * <p>The ID of the workflow to be deleted.</p>
@@ -406,9 +473,13 @@ export interface DeleteFlowTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteFlowTemplateResponse {}
 
 /**
+ * @public
  * <p></p>
  */
 export class ResourceInUseException extends __BaseException {
@@ -427,8 +498,14 @@ export class ResourceInUseException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteNamespaceResponse {
   /**
    * <p>The ARN of the namespace to be deleted.</p>
@@ -441,6 +518,9 @@ export interface DeleteNamespaceResponse {
   namespaceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSystemInstanceRequest {
   /**
    * <p>The ID of the system instance to be deleted.</p>
@@ -448,8 +528,14 @@ export interface DeleteSystemInstanceRequest {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSystemInstanceResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSystemTemplateRequest {
   /**
    * <p>The ID of the system to be deleted.</p>
@@ -461,9 +547,13 @@ export interface DeleteSystemTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSystemTemplateResponse {}
 
 /**
+ * @public
  * <p>An object that contains the ID and revision number of a workflow or system that is part of a deployment.</p>
  */
 export interface DependencyRevision {
@@ -478,6 +568,9 @@ export interface DependencyRevision {
   revisionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface DeploySystemInstanceRequest {
   /**
    * <p>The ID of the system instance. This value is returned by the <code>CreateSystemInstance</code> action.</p>
@@ -489,6 +582,9 @@ export interface DeploySystemInstanceRequest {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeploySystemInstanceResponse {
   /**
    * <p>An object that contains summary information about a system instance that was deployed. </p>
@@ -501,6 +597,9 @@ export interface DeploySystemInstanceResponse {
   greengrassDeploymentId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeprecateFlowTemplateRequest {
   /**
    * <p>The ID of the workflow to be deleted.</p>
@@ -512,8 +611,14 @@ export interface DeprecateFlowTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeprecateFlowTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DeprecateSystemTemplateRequest {
   /**
    * <p>The ID of the system to delete.</p>
@@ -525,8 +630,14 @@ export interface DeprecateSystemTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeprecateSystemTemplateResponse {}
 
+/**
+ * @public
+ */
 export interface DescribeNamespaceRequest {
   /**
    * <p>The name of the user's namespace. Set this to <code>aws</code> to get the public namespace.</p>
@@ -534,6 +645,9 @@ export interface DescribeNamespaceRequest {
   namespaceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNamespaceResponse {
   /**
    * <p>The ARN of the namespace.</p>
@@ -561,19 +675,31 @@ export interface DescribeNamespaceResponse {
   namespaceVersion?: number;
 }
 
-export enum EntityType {
-  ACTION = "ACTION",
-  CAPABILITY = "CAPABILITY",
-  DEVICE = "DEVICE",
-  DEVICE_MODEL = "DEVICE_MODEL",
-  ENUM = "ENUM",
-  EVENT = "EVENT",
-  MAPPING = "MAPPING",
-  PROPERTY = "PROPERTY",
-  SERVICE = "SERVICE",
-  STATE = "STATE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EntityType = {
+  ACTION: "ACTION",
+  CAPABILITY: "CAPABILITY",
+  DEVICE: "DEVICE",
+  DEVICE_MODEL: "DEVICE_MODEL",
+  ENUM: "ENUM",
+  EVENT: "EVENT",
+  MAPPING: "MAPPING",
+  PROPERTY: "PROPERTY",
+  SERVICE: "SERVICE",
+  STATE: "STATE",
+} as const;
 
+/**
+ * @public
+ */
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
+
+/**
+ * @public
+ */
 export interface DissociateEntityFromThingRequest {
   /**
    * <p>The name of the thing to disassociate.</p>
@@ -586,9 +712,13 @@ export interface DissociateEntityFromThingRequest {
   entityType: EntityType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DissociateEntityFromThingResponse {}
 
 /**
+ * @public
  * <p>Describes the properties of an entity.</p>
  */
 export interface EntityDescription {
@@ -618,14 +748,24 @@ export interface EntityDescription {
   definition?: DefinitionDocument;
 }
 
-export enum EntityFilterName {
-  NAME = "NAME",
-  NAMESPACE = "NAMESPACE",
-  REFERENCED_ENTITY_ID = "REFERENCED_ENTITY_ID",
-  SEMANTIC_TYPE_PATH = "SEMANTIC_TYPE_PATH",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EntityFilterName = {
+  NAME: "NAME",
+  NAMESPACE: "NAMESPACE",
+  REFERENCED_ENTITY_ID: "REFERENCED_ENTITY_ID",
+  SEMANTIC_TYPE_PATH: "SEMANTIC_TYPE_PATH",
+} as const;
 
 /**
+ * @public
+ */
+export type EntityFilterName = (typeof EntityFilterName)[keyof typeof EntityFilterName];
+
+/**
+ * @public
  * <p>An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes
  *       a <code>NAMESPACE</code> and a <code>REFERENCED_ENTITY_ID</code> filter searches for entities in the specified namespace that use the entity specified by
  *       the value of <code>REFERENCED_ENTITY_ID</code>.</p>
@@ -643,27 +783,37 @@ export interface EntityFilter {
   value?: string[];
 }
 
-export enum FlowExecutionEventType {
-  ACKNOWLEDGE_TASK_MESSAGE = "ACKNOWLEDGE_TASK_MESSAGE",
-  ACTIVITY_FAILED = "ACTIVITY_FAILED",
-  ACTIVITY_SCHEDULED = "ACTIVITY_SCHEDULED",
-  ACTIVITY_STARTED = "ACTIVITY_STARTED",
-  ACTIVITY_SUCCEEDED = "ACTIVITY_SUCCEEDED",
-  EXECUTION_ABORTED = "EXECUTION_ABORTED",
-  EXECUTION_FAILED = "EXECUTION_FAILED",
-  EXECUTION_STARTED = "EXECUTION_STARTED",
-  EXECUTION_SUCCEEDED = "EXECUTION_SUCCEEDED",
-  SCHEDULE_NEXT_READY_STEPS_TASK = "SCHEDULE_NEXT_READY_STEPS_TASK",
-  START_FLOW_EXECUTION_TASK = "START_FLOW_EXECUTION_TASK",
-  STEP_FAILED = "STEP_FAILED",
-  STEP_STARTED = "STEP_STARTED",
-  STEP_SUCCEEDED = "STEP_SUCCEEDED",
-  THING_ACTION_TASK = "THING_ACTION_TASK",
-  THING_ACTION_TASK_FAILED = "THING_ACTION_TASK_FAILED",
-  THING_ACTION_TASK_SUCCEEDED = "THING_ACTION_TASK_SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FlowExecutionEventType = {
+  ACKNOWLEDGE_TASK_MESSAGE: "ACKNOWLEDGE_TASK_MESSAGE",
+  ACTIVITY_FAILED: "ACTIVITY_FAILED",
+  ACTIVITY_SCHEDULED: "ACTIVITY_SCHEDULED",
+  ACTIVITY_STARTED: "ACTIVITY_STARTED",
+  ACTIVITY_SUCCEEDED: "ACTIVITY_SUCCEEDED",
+  EXECUTION_ABORTED: "EXECUTION_ABORTED",
+  EXECUTION_FAILED: "EXECUTION_FAILED",
+  EXECUTION_STARTED: "EXECUTION_STARTED",
+  EXECUTION_SUCCEEDED: "EXECUTION_SUCCEEDED",
+  SCHEDULE_NEXT_READY_STEPS_TASK: "SCHEDULE_NEXT_READY_STEPS_TASK",
+  START_FLOW_EXECUTION_TASK: "START_FLOW_EXECUTION_TASK",
+  STEP_FAILED: "STEP_FAILED",
+  STEP_STARTED: "STEP_STARTED",
+  STEP_SUCCEEDED: "STEP_SUCCEEDED",
+  THING_ACTION_TASK: "THING_ACTION_TASK",
+  THING_ACTION_TASK_FAILED: "THING_ACTION_TASK_FAILED",
+  THING_ACTION_TASK_SUCCEEDED: "THING_ACTION_TASK_SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type FlowExecutionEventType = (typeof FlowExecutionEventType)[keyof typeof FlowExecutionEventType];
+
+/**
+ * @public
  * <p>An object that contains information about a flow event.</p>
  */
 export interface FlowExecutionMessage {
@@ -688,14 +838,24 @@ export interface FlowExecutionMessage {
   payload?: string;
 }
 
-export enum FlowExecutionStatus {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FlowExecutionStatus = {
+  ABORTED: "ABORTED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type FlowExecutionStatus = (typeof FlowExecutionStatus)[keyof typeof FlowExecutionStatus];
+
+/**
+ * @public
  * <p>An object that contains summary information about a flow execution.</p>
  */
 export interface FlowExecutionSummary {
@@ -731,6 +891,7 @@ export interface FlowExecutionSummary {
 }
 
 /**
+ * @public
  * <p>An object that contains a workflow's definition and summary information.</p>
  */
 export interface FlowTemplateDescription {
@@ -750,11 +911,21 @@ export interface FlowTemplateDescription {
   validatedNamespaceVersion?: number;
 }
 
-export enum FlowTemplateFilterName {
-  DEVICE_MODEL_ID = "DEVICE_MODEL_ID",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FlowTemplateFilterName = {
+  DEVICE_MODEL_ID: "DEVICE_MODEL_ID",
+} as const;
 
 /**
+ * @public
+ */
+export type FlowTemplateFilterName = (typeof FlowTemplateFilterName)[keyof typeof FlowTemplateFilterName];
+
+/**
+ * @public
  * <p>An object that filters a workflow search.</p>
  */
 export interface FlowTemplateFilter {
@@ -769,6 +940,9 @@ export interface FlowTemplateFilter {
   value: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetEntitiesRequest {
   /**
    * <p>An array of entity IDs.</p>
@@ -785,6 +959,9 @@ export interface GetEntitiesRequest {
   namespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetEntitiesResponse {
   /**
    * <p>An array of descriptions for the specified entities.</p>
@@ -792,6 +969,9 @@ export interface GetEntitiesResponse {
   descriptions?: EntityDescription[];
 }
 
+/**
+ * @public
+ */
 export interface GetFlowTemplateRequest {
   /**
    * <p>The ID of the workflow.</p>
@@ -808,6 +988,9 @@ export interface GetFlowTemplateRequest {
   revisionNumber?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetFlowTemplateResponse {
   /**
    * <p>The object that describes the specified workflow.</p>
@@ -815,6 +998,9 @@ export interface GetFlowTemplateResponse {
   description?: FlowTemplateDescription;
 }
 
+/**
+ * @public
+ */
 export interface GetFlowTemplateRevisionsRequest {
   /**
    * <p>The ID of the workflow.</p>
@@ -836,6 +1022,9 @@ export interface GetFlowTemplateRevisionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetFlowTemplateRevisionsResponse {
   /**
    * <p>An array of objects that provide summary data about each revision.</p>
@@ -848,18 +1037,43 @@ export interface GetFlowTemplateRevisionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetNamespaceDeletionStatusRequest {}
 
-export enum NamespaceDeletionStatusErrorCodes {
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NamespaceDeletionStatusErrorCodes = {
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+} as const;
 
-export enum NamespaceDeletionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ */
+export type NamespaceDeletionStatusErrorCodes =
+  (typeof NamespaceDeletionStatusErrorCodes)[keyof typeof NamespaceDeletionStatusErrorCodes];
 
+/**
+ * @public
+ * @enum
+ */
+export const NamespaceDeletionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type NamespaceDeletionStatus = (typeof NamespaceDeletionStatus)[keyof typeof NamespaceDeletionStatus];
+
+/**
+ * @public
+ */
 export interface GetNamespaceDeletionStatusResponse {
   /**
    * <p>The ARN of the namespace that is being deleted.</p>
@@ -887,6 +1101,9 @@ export interface GetNamespaceDeletionStatusResponse {
   errorMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemInstanceRequest {
   /**
    * <p>The ID of the system deployment instance. This value is returned by <code>CreateSystemInstance</code>.</p>
@@ -899,6 +1116,7 @@ export interface GetSystemInstanceRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains a system instance definition and summary information.</p>
  */
 export interface SystemInstanceDescription {
@@ -940,6 +1158,9 @@ export interface SystemInstanceDescription {
   flowActionsRoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemInstanceResponse {
   /**
    * <p>An object that describes the system instance.</p>
@@ -947,6 +1168,9 @@ export interface GetSystemInstanceResponse {
   description?: SystemInstanceDescription;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemTemplateRequest {
   /**
    * <p>The ID of the system to get. This ID must be in the user's namespace.</p>
@@ -964,6 +1188,7 @@ export interface GetSystemTemplateRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains a system's definition document and summary information.</p>
  */
 export interface SystemTemplateDescription {
@@ -983,6 +1208,9 @@ export interface SystemTemplateDescription {
   validatedNamespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemTemplateResponse {
   /**
    * <p>An object that contains summary data about the system.</p>
@@ -990,6 +1218,9 @@ export interface GetSystemTemplateResponse {
   description?: SystemTemplateDescription;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemTemplateRevisionsRequest {
   /**
    * <p>The ID of the system template.</p>
@@ -1011,6 +1242,9 @@ export interface GetSystemTemplateRevisionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSystemTemplateRevisionsResponse {
   /**
    * <p>An array of objects that contain summary data about the system template revisions.</p>
@@ -1023,6 +1257,9 @@ export interface GetSystemTemplateRevisionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetUploadStatusRequest {
   /**
    * <p>The ID of the upload. This value is returned by the <code>UploadEntityDefinitions</code> action.</p>
@@ -1030,12 +1267,24 @@ export interface GetUploadStatusRequest {
   uploadId: string | undefined;
 }
 
-export enum UploadStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UploadStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
+/**
+ * @public
+ */
+export type UploadStatus = (typeof UploadStatus)[keyof typeof UploadStatus];
+
+/**
+ * @public
+ */
 export interface GetUploadStatusResponse {
   /**
    * <p>The ID of the upload.</p>
@@ -1073,6 +1322,9 @@ export interface GetUploadStatusResponse {
   createdDate: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowExecutionMessagesRequest {
   /**
    * <p>The ID of the flow execution.</p>
@@ -1090,6 +1342,9 @@ export interface ListFlowExecutionMessagesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListFlowExecutionMessagesResponse {
   /**
    * <p>A list of objects that contain information about events in the specified flow execution.</p>
@@ -1102,6 +1357,9 @@ export interface ListFlowExecutionMessagesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The maximum number of tags to return.</p>
@@ -1119,6 +1377,9 @@ export interface ListTagsForResourceRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>List of tags returned by the <code>ListTagsForResource</code> operation.</p>
@@ -1131,6 +1392,9 @@ export interface ListTagsForResourceResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchEntitiesRequest {
   /**
    * <p>The entity types for which to search.</p>
@@ -1162,6 +1426,9 @@ export interface SearchEntitiesRequest {
   namespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchEntitiesResponse {
   /**
    * <p>An array of descriptions for each entity returned in the search result.</p>
@@ -1174,6 +1441,9 @@ export interface SearchEntitiesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchFlowExecutionsRequest {
   /**
    * <p>The ID of the system instance that contains the flow.</p>
@@ -1206,6 +1476,9 @@ export interface SearchFlowExecutionsRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchFlowExecutionsResponse {
   /**
    * <p>An array of objects that contain summary information about each workflow execution in the result set.</p>
@@ -1218,6 +1491,9 @@ export interface SearchFlowExecutionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchFlowTemplatesRequest {
   /**
    * <p>An array of objects that limit the result set. The only valid filter is <code>DEVICE_MODEL_ID</code>.</p>
@@ -1235,6 +1511,9 @@ export interface SearchFlowTemplatesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchFlowTemplatesResponse {
   /**
    * <p>An array of objects that contain summary information about each workflow in the result set.</p>
@@ -1247,13 +1526,23 @@ export interface SearchFlowTemplatesResponse {
   nextToken?: string;
 }
 
-export enum SystemInstanceFilterName {
-  GREENGRASS_GROUP_NAME = "GREENGRASS_GROUP_NAME",
-  STATUS = "STATUS",
-  SYSTEM_TEMPLATE_ID = "SYSTEM_TEMPLATE_ID",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SystemInstanceFilterName = {
+  GREENGRASS_GROUP_NAME: "GREENGRASS_GROUP_NAME",
+  STATUS: "STATUS",
+  SYSTEM_TEMPLATE_ID: "SYSTEM_TEMPLATE_ID",
+} as const;
 
 /**
+ * @public
+ */
+export type SystemInstanceFilterName = (typeof SystemInstanceFilterName)[keyof typeof SystemInstanceFilterName];
+
+/**
+ * @public
  * <p>An object that filters a system instance search.
  *          Multiple filters function as OR criteria in the search. For example a search that includes a GREENGRASS_GROUP_NAME and a
  *          STATUS filter searches for system instances in the specified Greengrass group that have the specified status.</p>
@@ -1270,6 +1559,9 @@ export interface SystemInstanceFilter {
   value?: string[];
 }
 
+/**
+ * @public
+ */
 export interface SearchSystemInstancesRequest {
   /**
    * <p>Optional filter to apply to the search. Valid filters are <code>SYSTEM_TEMPLATE_ID</code>, <code>STATUS</code>, and
@@ -1289,6 +1581,9 @@ export interface SearchSystemInstancesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchSystemInstancesResponse {
   /**
    * <p>An array of objects that contain summary data abour the system instances in the result set.</p>
@@ -1301,11 +1596,21 @@ export interface SearchSystemInstancesResponse {
   nextToken?: string;
 }
 
-export enum SystemTemplateFilterName {
-  FLOW_TEMPLATE_ID = "FLOW_TEMPLATE_ID",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SystemTemplateFilterName = {
+  FLOW_TEMPLATE_ID: "FLOW_TEMPLATE_ID",
+} as const;
 
 /**
+ * @public
+ */
+export type SystemTemplateFilterName = (typeof SystemTemplateFilterName)[keyof typeof SystemTemplateFilterName];
+
+/**
+ * @public
  * <p>An object that filters a system search.</p>
  */
 export interface SystemTemplateFilter {
@@ -1320,6 +1625,9 @@ export interface SystemTemplateFilter {
   value: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SearchSystemTemplatesRequest {
   /**
    * <p>An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>.</p>
@@ -1337,6 +1645,9 @@ export interface SearchSystemTemplatesRequest {
   maxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface SearchSystemTemplatesResponse {
   /**
    * <p>An array of objects that contain summary information about each system deployment in the result set.</p>
@@ -1349,6 +1660,9 @@ export interface SearchSystemTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchThingsRequest {
   /**
    * <p>The ID of the entity to which the things are associated.</p>
@@ -1376,6 +1690,7 @@ export interface SearchThingsRequest {
 }
 
 /**
+ * @public
  * <p>An AWS IoT thing.</p>
  */
 export interface Thing {
@@ -1390,6 +1705,9 @@ export interface Thing {
   thingName?: string;
 }
 
+/**
+ * @public
+ */
 export interface SearchThingsResponse {
   /**
    * <p>An array of things in the result set.</p>
@@ -1402,6 +1720,9 @@ export interface SearchThingsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags are returned.</p>
@@ -1414,8 +1735,14 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UndeploySystemInstanceRequest {
   /**
    * <p>The ID of the system instance to remove from its target.</p>
@@ -1423,6 +1750,9 @@ export interface UndeploySystemInstanceRequest {
   id?: string;
 }
 
+/**
+ * @public
+ */
 export interface UndeploySystemInstanceResponse {
   /**
    * <p>An object that contains summary information about the system instance that was removed from its target.</p>
@@ -1430,6 +1760,9 @@ export interface UndeploySystemInstanceResponse {
   summary?: SystemInstanceSummary;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags are to be removed.</p>
@@ -1443,8 +1776,14 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateFlowTemplateRequest {
   /**
    * <p>The ID of the workflow to be updated.</p>
@@ -1468,6 +1807,9 @@ export interface UpdateFlowTemplateRequest {
   compatibleNamespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateFlowTemplateResponse {
   /**
    * <p>An object containing summary information about the updated workflow.</p>
@@ -1475,6 +1817,9 @@ export interface UpdateFlowTemplateResponse {
   summary?: FlowTemplateSummary;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSystemTemplateRequest {
   /**
    * <p>The ID of the system to be updated.</p>
@@ -1497,6 +1842,9 @@ export interface UpdateSystemTemplateRequest {
   compatibleNamespaceVersion?: number;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSystemTemplateResponse {
   /**
    * <p>An object containing summary information about the updated system.</p>
@@ -1504,6 +1852,9 @@ export interface UpdateSystemTemplateResponse {
   summary?: SystemTemplateSummary;
 }
 
+/**
+ * @public
+ */
 export interface UploadEntityDefinitionsRequest {
   /**
    * <p>The <code>DefinitionDocument</code> that defines the updated entities.</p>
@@ -1522,625 +1873,12 @@ export interface UploadEntityDefinitionsRequest {
   deprecateExistingEntities?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UploadEntityDefinitionsResponse {
   /**
    * <p>The ID that specifies the upload action. You can use this to track the status of the upload.</p>
    */
   uploadId: string | undefined;
 }
-
-/**
- * @internal
- */
-export const AssociateEntityToThingRequestFilterSensitiveLog = (obj: AssociateEntityToThingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateEntityToThingResponseFilterSensitiveLog = (obj: AssociateEntityToThingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefinitionDocumentFilterSensitiveLog = (obj: DefinitionDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFlowTemplateRequestFilterSensitiveLog = (obj: CreateFlowTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlowTemplateSummaryFilterSensitiveLog = (obj: FlowTemplateSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateFlowTemplateResponseFilterSensitiveLog = (obj: CreateFlowTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricsConfigurationFilterSensitiveLog = (obj: MetricsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSystemInstanceRequestFilterSensitiveLog = (obj: CreateSystemInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SystemInstanceSummaryFilterSensitiveLog = (obj: SystemInstanceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSystemInstanceResponseFilterSensitiveLog = (obj: CreateSystemInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSystemTemplateRequestFilterSensitiveLog = (obj: CreateSystemTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SystemTemplateSummaryFilterSensitiveLog = (obj: SystemTemplateSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSystemTemplateResponseFilterSensitiveLog = (obj: CreateSystemTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFlowTemplateRequestFilterSensitiveLog = (obj: DeleteFlowTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteFlowTemplateResponseFilterSensitiveLog = (obj: DeleteFlowTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNamespaceRequestFilterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNamespaceResponseFilterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSystemInstanceRequestFilterSensitiveLog = (obj: DeleteSystemInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSystemInstanceResponseFilterSensitiveLog = (obj: DeleteSystemInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSystemTemplateRequestFilterSensitiveLog = (obj: DeleteSystemTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSystemTemplateResponseFilterSensitiveLog = (obj: DeleteSystemTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DependencyRevisionFilterSensitiveLog = (obj: DependencyRevision): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploySystemInstanceRequestFilterSensitiveLog = (obj: DeploySystemInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploySystemInstanceResponseFilterSensitiveLog = (obj: DeploySystemInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprecateFlowTemplateRequestFilterSensitiveLog = (obj: DeprecateFlowTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprecateFlowTemplateResponseFilterSensitiveLog = (obj: DeprecateFlowTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprecateSystemTemplateRequestFilterSensitiveLog = (obj: DeprecateSystemTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprecateSystemTemplateResponseFilterSensitiveLog = (obj: DeprecateSystemTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNamespaceRequestFilterSensitiveLog = (obj: DescribeNamespaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNamespaceResponseFilterSensitiveLog = (obj: DescribeNamespaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DissociateEntityFromThingRequestFilterSensitiveLog = (obj: DissociateEntityFromThingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DissociateEntityFromThingResponseFilterSensitiveLog = (obj: DissociateEntityFromThingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EntityDescriptionFilterSensitiveLog = (obj: EntityDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EntityFilterFilterSensitiveLog = (obj: EntityFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlowExecutionMessageFilterSensitiveLog = (obj: FlowExecutionMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlowExecutionSummaryFilterSensitiveLog = (obj: FlowExecutionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlowTemplateDescriptionFilterSensitiveLog = (obj: FlowTemplateDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlowTemplateFilterFilterSensitiveLog = (obj: FlowTemplateFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEntitiesRequestFilterSensitiveLog = (obj: GetEntitiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEntitiesResponseFilterSensitiveLog = (obj: GetEntitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFlowTemplateRequestFilterSensitiveLog = (obj: GetFlowTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFlowTemplateResponseFilterSensitiveLog = (obj: GetFlowTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFlowTemplateRevisionsRequestFilterSensitiveLog = (obj: GetFlowTemplateRevisionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFlowTemplateRevisionsResponseFilterSensitiveLog = (obj: GetFlowTemplateRevisionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNamespaceDeletionStatusRequestFilterSensitiveLog = (obj: GetNamespaceDeletionStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNamespaceDeletionStatusResponseFilterSensitiveLog = (obj: GetNamespaceDeletionStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSystemInstanceRequestFilterSensitiveLog = (obj: GetSystemInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SystemInstanceDescriptionFilterSensitiveLog = (obj: SystemInstanceDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSystemInstanceResponseFilterSensitiveLog = (obj: GetSystemInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSystemTemplateRequestFilterSensitiveLog = (obj: GetSystemTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SystemTemplateDescriptionFilterSensitiveLog = (obj: SystemTemplateDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSystemTemplateResponseFilterSensitiveLog = (obj: GetSystemTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSystemTemplateRevisionsRequestFilterSensitiveLog = (obj: GetSystemTemplateRevisionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSystemTemplateRevisionsResponseFilterSensitiveLog = (obj: GetSystemTemplateRevisionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUploadStatusRequestFilterSensitiveLog = (obj: GetUploadStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUploadStatusResponseFilterSensitiveLog = (obj: GetUploadStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFlowExecutionMessagesRequestFilterSensitiveLog = (obj: ListFlowExecutionMessagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListFlowExecutionMessagesResponseFilterSensitiveLog = (obj: ListFlowExecutionMessagesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchEntitiesRequestFilterSensitiveLog = (obj: SearchEntitiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchEntitiesResponseFilterSensitiveLog = (obj: SearchEntitiesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchFlowExecutionsRequestFilterSensitiveLog = (obj: SearchFlowExecutionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchFlowExecutionsResponseFilterSensitiveLog = (obj: SearchFlowExecutionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchFlowTemplatesRequestFilterSensitiveLog = (obj: SearchFlowTemplatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchFlowTemplatesResponseFilterSensitiveLog = (obj: SearchFlowTemplatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SystemInstanceFilterFilterSensitiveLog = (obj: SystemInstanceFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchSystemInstancesRequestFilterSensitiveLog = (obj: SearchSystemInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchSystemInstancesResponseFilterSensitiveLog = (obj: SearchSystemInstancesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SystemTemplateFilterFilterSensitiveLog = (obj: SystemTemplateFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchSystemTemplatesRequestFilterSensitiveLog = (obj: SearchSystemTemplatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchSystemTemplatesResponseFilterSensitiveLog = (obj: SearchSystemTemplatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchThingsRequestFilterSensitiveLog = (obj: SearchThingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThingFilterSensitiveLog = (obj: Thing): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchThingsResponseFilterSensitiveLog = (obj: SearchThingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UndeploySystemInstanceRequestFilterSensitiveLog = (obj: UndeploySystemInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UndeploySystemInstanceResponseFilterSensitiveLog = (obj: UndeploySystemInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFlowTemplateRequestFilterSensitiveLog = (obj: UpdateFlowTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFlowTemplateResponseFilterSensitiveLog = (obj: UpdateFlowTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSystemTemplateRequestFilterSensitiveLog = (obj: UpdateSystemTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSystemTemplateResponseFilterSensitiveLog = (obj: UpdateSystemTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadEntityDefinitionsRequestFilterSensitiveLog = (obj: UploadEntityDefinitionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UploadEntityDefinitionsResponseFilterSensitiveLog = (obj: UploadEntityDefinitionsResponse): any => ({
-  ...obj,
-});

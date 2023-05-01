@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DescribeTaskSetsRequest,
-  DescribeTaskSetsRequestFilterSensitiveLog,
-  DescribeTaskSetsResponse,
-  DescribeTaskSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTaskSetsCommand,
-  serializeAws_json1_1DescribeTaskSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTaskSetsRequest, DescribeTaskSetsResponse } from "../models/models_0";
+import { de_DescribeTaskSetsCommand, se_DescribeTaskSetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTaskSetsCommand}.
  */
 export interface DescribeTaskSetsCommandInput extends DescribeTaskSetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTaskSetsCommand}.
  */
 export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the task sets in the specified cluster and service. This is used when a
  * 			service uses the <code>EXTERNAL</code> deployment controller type. For more information,
  * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
@@ -45,10 +42,22 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  * import { ECSClient, DescribeTaskSetsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeTaskSetsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DescribeTaskSetsRequest
+ *   cluster: "STRING_VALUE", // required
+ *   service: "STRING_VALUE", // required
+ *   taskSets: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   include: [ // TaskSetFieldList
+ *     "TAGS",
+ *   ],
+ * };
  * const command = new DescribeTaskSetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTaskSetsCommandInput - {@link DescribeTaskSetsCommandInput}
+ * @returns {@link DescribeTaskSetsCommandOutput}
  * @see {@link DescribeTaskSetsCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskSetsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -101,6 +110,9 @@ export class DescribeTaskSetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTaskSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +141,8 @@ export class DescribeTaskSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTaskSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTaskSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +152,18 @@ export class DescribeTaskSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTaskSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTaskSetsCommand(input, context);
+    return se_DescribeTaskSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskSetsCommandOutput> {
-    return deserializeAws_json1_1DescribeTaskSetsCommand(output, context);
+    return de_DescribeTaskSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

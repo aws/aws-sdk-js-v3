@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from PrivateNetworks service.
  */
 export class PrivateNetworksServiceException extends __ServiceException {

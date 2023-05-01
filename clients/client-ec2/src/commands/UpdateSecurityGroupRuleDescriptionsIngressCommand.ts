@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
-  UpdateSecurityGroupRuleDescriptionsIngressRequestFilterSensitiveLog,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
-  UpdateSecurityGroupRuleDescriptionsIngressResultFilterSensitiveLog,
 } from "../models/models_7";
 import {
-  deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand,
-  serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand,
+  de_UpdateSecurityGroupRuleDescriptionsIngressCommand,
+  se_UpdateSecurityGroupRuleDescriptionsIngressCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecurityGroupRuleDescriptionsIngressCommand}.
  */
 export interface UpdateSecurityGroupRuleDescriptionsIngressCommandInput
   extends UpdateSecurityGroupRuleDescriptionsIngressRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecurityGroupRuleDescriptionsIngressCommand}.
  */
 export interface UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
@@ -38,6 +40,7 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the description of an ingress (inbound) security group rule. You can replace an
  * 			existing description, or add a description to a rule that did not have one previously.
  * 		    You can remove a description for a security group rule by omitting the description
@@ -48,10 +51,59 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
  * import { EC2Client, UpdateSecurityGroupRuleDescriptionsIngressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, UpdateSecurityGroupRuleDescriptionsIngressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // UpdateSecurityGroupRuleDescriptionsIngressRequest
+ *   DryRun: true || false,
+ *   GroupId: "STRING_VALUE",
+ *   GroupName: "STRING_VALUE",
+ *   IpPermissions: [ // IpPermissionList
+ *     { // IpPermission
+ *       FromPort: Number("int"),
+ *       IpProtocol: "STRING_VALUE",
+ *       IpRanges: [ // IpRangeList
+ *         { // IpRange
+ *           CidrIp: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       Ipv6Ranges: [ // Ipv6RangeList
+ *         { // Ipv6Range
+ *           CidrIpv6: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PrefixListIds: [ // PrefixListIdList
+ *         { // PrefixListId
+ *           Description: "STRING_VALUE",
+ *           PrefixListId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       ToPort: Number("int"),
+ *       UserIdGroupPairs: [ // UserIdGroupPairList
+ *         { // UserIdGroupPair
+ *           Description: "STRING_VALUE",
+ *           GroupId: "STRING_VALUE",
+ *           GroupName: "STRING_VALUE",
+ *           PeeringStatus: "STRING_VALUE",
+ *           UserId: "STRING_VALUE",
+ *           VpcId: "STRING_VALUE",
+ *           VpcPeeringConnectionId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   SecurityGroupRuleDescriptions: [ // SecurityGroupRuleDescriptionList
+ *     { // SecurityGroupRuleDescription
+ *       SecurityGroupRuleId: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateSecurityGroupRuleDescriptionsIngressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecurityGroupRuleDescriptionsIngressCommandInput - {@link UpdateSecurityGroupRuleDescriptionsIngressCommandInput}
+ * @returns {@link UpdateSecurityGroupRuleDescriptionsIngressCommandOutput}
  * @see {@link UpdateSecurityGroupRuleDescriptionsIngressCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityGroupRuleDescriptionsIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -99,6 +151,9 @@ export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecurityGroupRuleDescriptionsIngressCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +188,8 @@ export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsIngressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,18 +199,24 @@ export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand(input, context);
+    return se_UpdateSecurityGroupRuleDescriptionsIngressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSecurityGroupRuleDescriptionsIngressCommandOutput> {
-    return deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand(output, context);
+    return de_UpdateSecurityGroupRuleDescriptionsIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

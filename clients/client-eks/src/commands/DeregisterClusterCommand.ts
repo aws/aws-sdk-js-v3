@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  DeregisterClusterRequest,
-  DeregisterClusterRequestFilterSensitiveLog,
-  DeregisterClusterResponse,
-  DeregisterClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterClusterCommand,
-  serializeAws_restJson1DeregisterClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { DeregisterClusterRequest, DeregisterClusterResponse } from "../models/models_0";
+import { de_DeregisterClusterCommand, se_DeregisterClusterCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterClusterCommand}.
  */
 export interface DeregisterClusterCommandInput extends DeregisterClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterClusterCommand}.
  */
 export interface DeregisterClusterCommandOutput extends DeregisterClusterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters a connected cluster to remove it from the Amazon EKS control
  *             plane.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * import { EKSClient, DeregisterClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DeregisterClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // DeregisterClusterRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterClusterCommandInput - {@link DeregisterClusterCommandInput}
+ * @returns {@link DeregisterClusterCommandOutput}
  * @see {@link DeregisterClusterCommandInput} for command's `input` shape.
  * @see {@link DeregisterClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -96,6 +98,9 @@ export class DeregisterClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +129,8 @@ export class DeregisterClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +140,18 @@ export class DeregisterClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterClusterCommand(input, context);
+    return se_DeregisterClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterClusterCommandOutput> {
-    return deserializeAws_restJson1DeregisterClusterCommand(output, context);
+    return de_DeregisterClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

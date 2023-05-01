@@ -14,48 +14,54 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeGameSessionQueuesInput,
-  DescribeGameSessionQueuesInputFilterSensitiveLog,
-  DescribeGameSessionQueuesOutput,
-  DescribeGameSessionQueuesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGameSessionQueuesCommand,
-  serializeAws_json1_1DescribeGameSessionQueuesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeGameSessionQueuesInput, DescribeGameSessionQueuesOutput } from "../models/models_0";
+import { de_DescribeGameSessionQueuesCommand, se_DescribeGameSessionQueuesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGameSessionQueuesCommand}.
  */
 export interface DescribeGameSessionQueuesCommandInput extends DescribeGameSessionQueuesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGameSessionQueuesCommand}.
  */
 export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSessionQueuesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the properties for one or more game session queues. When requesting multiple
  *             queues, use the pagination parameters to retrieve results as a set of sequential pages.
  *             When specifying a list of queues, objects are returned only for queues that currently
  *             exist in the Region.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html">
  *                 View Your Queues</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GameLiftClient, DescribeGameSessionQueuesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameSessionQueuesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeGameSessionQueuesInput
+ *   Names: [ // GameSessionQueueNameOrArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeGameSessionQueuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGameSessionQueuesCommandInput - {@link DescribeGameSessionQueuesCommandInput}
+ * @returns {@link DescribeGameSessionQueuesCommandOutput}
  * @see {@link DescribeGameSessionQueuesCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionQueuesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -93,6 +99,9 @@ export class DescribeGameSessionQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGameSessionQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +130,8 @@ export class DescribeGameSessionQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGameSessionQueuesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGameSessionQueuesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +141,21 @@ export class DescribeGameSessionQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGameSessionQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameSessionQueuesCommand(input, context);
+    return se_DescribeGameSessionQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGameSessionQueuesCommandOutput> {
-    return deserializeAws_json1_1DescribeGameSessionQueuesCommand(output, context);
+    return de_DescribeGameSessionQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

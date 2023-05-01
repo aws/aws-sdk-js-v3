@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DeleteMultiplexRequest,
-  DeleteMultiplexRequestFilterSensitiveLog,
-  DeleteMultiplexResponse,
-  DeleteMultiplexResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteMultiplexCommand,
-  serializeAws_restJson1DeleteMultiplexCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMultiplexRequest, DeleteMultiplexResponse } from "../models/models_1";
+import { de_DeleteMultiplexCommand, se_DeleteMultiplexCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMultiplexCommand}.
  */
 export interface DeleteMultiplexCommandInput extends DeleteMultiplexRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMultiplexCommand}.
  */
 export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Delete a multiplex. The multiplex must be idle.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, _
  * import { MediaLiveClient, DeleteMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // DeleteMultiplexRequest
+ *   MultiplexId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMultiplexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMultiplexCommandInput - {@link DeleteMultiplexCommandInput}
+ * @returns {@link DeleteMultiplexCommandOutput}
  * @see {@link DeleteMultiplexCommandInput} for command's `input` shape.
  * @see {@link DeleteMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -93,6 +95,9 @@ export class DeleteMultiplexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMultiplexCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class DeleteMultiplexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMultiplexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMultiplexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +137,18 @@ export class DeleteMultiplexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMultiplexCommand(input, context);
+    return se_DeleteMultiplexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMultiplexCommandOutput> {
-    return deserializeAws_restJson1DeleteMultiplexCommand(output, context);
+    return de_DeleteMultiplexCommand(output, context);
   }
 
   // Start section: command_body_extra

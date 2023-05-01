@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCustomerGatewayAssociationsRequest,
-  GetCustomerGatewayAssociationsRequestFilterSensitiveLog,
-  GetCustomerGatewayAssociationsResponse,
-  GetCustomerGatewayAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCustomerGatewayAssociationsRequest, GetCustomerGatewayAssociationsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1GetCustomerGatewayAssociationsCommand,
-  serializeAws_restJson1GetCustomerGatewayAssociationsCommand,
+  de_GetCustomerGatewayAssociationsCommand,
+  se_GetCustomerGatewayAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCustomerGatewayAssociationsCommand}.
  */
 export interface GetCustomerGatewayAssociationsCommandInput extends GetCustomerGatewayAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCustomerGatewayAssociationsCommand}.
  */
 export interface GetCustomerGatewayAssociationsCommandOutput
@@ -37,6 +36,7 @@ export interface GetCustomerGatewayAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the association information for customer gateways that are associated with
  *             devices and links in your global network.</p>
  * @example
@@ -45,10 +45,20 @@ export interface GetCustomerGatewayAssociationsCommandOutput
  * import { NetworkManagerClient, GetCustomerGatewayAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetCustomerGatewayAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetCustomerGatewayAssociationsRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   CustomerGatewayArns: [ // CustomerGatewayArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetCustomerGatewayAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCustomerGatewayAssociationsCommandInput - {@link GetCustomerGatewayAssociationsCommandInput}
+ * @returns {@link GetCustomerGatewayAssociationsCommandOutput}
  * @see {@link GetCustomerGatewayAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetCustomerGatewayAssociationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -91,6 +101,9 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCustomerGatewayAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +132,8 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCustomerGatewayAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCustomerGatewayAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,18 +143,24 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetCustomerGatewayAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCustomerGatewayAssociationsCommand(input, context);
+    return se_GetCustomerGatewayAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCustomerGatewayAssociationsCommandOutput> {
-    return deserializeAws_restJson1GetCustomerGatewayAssociationsCommand(output, context);
+    return de_GetCustomerGatewayAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

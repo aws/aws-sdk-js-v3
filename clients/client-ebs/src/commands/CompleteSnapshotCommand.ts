@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
-import {
-  CompleteSnapshotRequest,
-  CompleteSnapshotRequestFilterSensitiveLog,
-  CompleteSnapshotResponse,
-  CompleteSnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CompleteSnapshotCommand,
-  serializeAws_restJson1CompleteSnapshotCommand,
-} from "../protocols/Aws_restJson1";
+import { CompleteSnapshotRequest, CompleteSnapshotResponse } from "../models/models_0";
+import { de_CompleteSnapshotCommand, se_CompleteSnapshotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CompleteSnapshotCommand}.
  */
 export interface CompleteSnapshotCommandInput extends CompleteSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CompleteSnapshotCommand}.
  */
 export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Seals and completes the snapshot after all of the required blocks of data have been
  *             written to it. Completing the snapshot changes the status to <code>completed</code>. You
  *             cannot write new blocks to a snapshot after it has been completed.</p>
@@ -44,10 +41,19 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  * import { EBSClient, CompleteSnapshotCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, CompleteSnapshotCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
  * const client = new EBSClient(config);
+ * const input = { // CompleteSnapshotRequest
+ *   SnapshotId: "STRING_VALUE", // required
+ *   ChangedBlocksCount: Number("int"), // required
+ *   Checksum: "STRING_VALUE",
+ *   ChecksumAlgorithm: "STRING_VALUE",
+ *   ChecksumAggregationMethod: "STRING_VALUE",
+ * };
  * const command = new CompleteSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CompleteSnapshotCommandInput - {@link CompleteSnapshotCommandInput}
+ * @returns {@link CompleteSnapshotCommandOutput}
  * @see {@link CompleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link CompleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
@@ -90,6 +96,9 @@ export class CompleteSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class CompleteSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompleteSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CompleteSnapshotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +138,18 @@ export class CompleteSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CompleteSnapshotCommand(input, context);
+    return se_CompleteSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteSnapshotCommandOutput> {
-    return deserializeAws_restJson1CompleteSnapshotCommand(output, context);
+    return de_CompleteSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

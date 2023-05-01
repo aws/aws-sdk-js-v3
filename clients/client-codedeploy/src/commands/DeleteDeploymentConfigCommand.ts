@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { DeleteDeploymentConfigInput, DeleteDeploymentConfigInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDeploymentConfigCommand,
-  serializeAws_json1_1DeleteDeploymentConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteDeploymentConfigInput } from "../models/models_0";
+import { de_DeleteDeploymentConfigCommand, se_DeleteDeploymentConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDeploymentConfigCommand}.
  */
 export interface DeleteDeploymentConfigCommandInput extends DeleteDeploymentConfigInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDeploymentConfigCommand}.
  */
 export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a deployment configuration.</p>
  *         <note>
  *             <p>A deployment configuration cannot be deleted if it is currently in use. Predefined
@@ -41,10 +43,15 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * import { CodeDeployClient, DeleteDeploymentConfigCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeleteDeploymentConfigCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = { // DeleteDeploymentConfigInput
+ *   deploymentConfigName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeploymentConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDeploymentConfigCommandInput - {@link DeleteDeploymentConfigCommandInput}
+ * @returns {@link DeleteDeploymentConfigCommandOutput}
  * @see {@link DeleteDeploymentConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
@@ -80,6 +87,9 @@ export class DeleteDeploymentConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDeploymentConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +118,8 @@ export class DeleteDeploymentConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeploymentConfigInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +129,18 @@ export class DeleteDeploymentConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDeploymentConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeploymentConfigCommand(input, context);
+    return se_DeleteDeploymentConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeploymentConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteDeploymentConfigCommand(output, context);
+    return de_DeleteDeploymentConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

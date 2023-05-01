@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { EnableVpcClassicLinkDnsSupportRequest, EnableVpcClassicLinkDnsSupportResult } from "../models/models_5";
 import {
-  EnableVpcClassicLinkDnsSupportRequest,
-  EnableVpcClassicLinkDnsSupportRequestFilterSensitiveLog,
-  EnableVpcClassicLinkDnsSupportResult,
-  EnableVpcClassicLinkDnsSupportResultFilterSensitiveLog,
-} from "../models/models_5";
-import {
-  deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommand,
-  serializeAws_ec2EnableVpcClassicLinkDnsSupportCommand,
+  de_EnableVpcClassicLinkDnsSupportCommand,
+  se_EnableVpcClassicLinkDnsSupportCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EnableVpcClassicLinkDnsSupportCommand}.
  */
 export interface EnableVpcClassicLinkDnsSupportCommandInput extends EnableVpcClassicLinkDnsSupportRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableVpcClassicLinkDnsSupportCommand}.
  */
 export interface EnableVpcClassicLinkDnsSupportCommandOutput
@@ -37,6 +36,7 @@ export interface EnableVpcClassicLinkDnsSupportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
@@ -53,10 +53,15 @@ export interface EnableVpcClassicLinkDnsSupportCommandOutput
  * import { EC2Client, EnableVpcClassicLinkDnsSupportCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableVpcClassicLinkDnsSupportCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableVpcClassicLinkDnsSupportRequest
+ *   VpcId: "STRING_VALUE",
+ * };
  * const command = new EnableVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableVpcClassicLinkDnsSupportCommandInput - {@link EnableVpcClassicLinkDnsSupportCommandInput}
+ * @returns {@link EnableVpcClassicLinkDnsSupportCommandOutput}
  * @see {@link EnableVpcClassicLinkDnsSupportCommandInput} for command's `input` shape.
  * @see {@link EnableVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -80,6 +85,9 @@ export class EnableVpcClassicLinkDnsSupportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableVpcClassicLinkDnsSupportCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class EnableVpcClassicLinkDnsSupportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableVpcClassicLinkDnsSupportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableVpcClassicLinkDnsSupportResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +127,24 @@ export class EnableVpcClassicLinkDnsSupportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EnableVpcClassicLinkDnsSupportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableVpcClassicLinkDnsSupportCommand(input, context);
+    return se_EnableVpcClassicLinkDnsSupportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableVpcClassicLinkDnsSupportCommandOutput> {
-    return deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommand(output, context);
+    return de_EnableVpcClassicLinkDnsSupportCommand(output, context);
   }
 
   // Start section: command_body_extra

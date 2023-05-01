@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAppRequest,
-  CreateAppRequestFilterSensitiveLog,
-  CreateAppResponse,
-  CreateAppResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAppRequest, CreateAppResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateAppCommand,
-  serializeAws_restJson1CreateAppCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAppCommand, se_CreateAppCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateAppCommand}.
  */
 export interface CreateAppCommandInput extends CreateAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateAppCommand}.
  */
 export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * import { PinpointClient, CreateAppCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateAppCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // CreateAppRequest
+ *   CreateApplicationRequest: { // CreateApplicationRequest
+ *     Name: "STRING_VALUE", // required
+ *     tags: { // MapOf__string
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateAppCommandInput - {@link CreateAppCommandInput}
+ * @returns {@link CreateAppCommandOutput}
  * @see {@link CreateAppCommandInput} for command's `input` shape.
  * @see {@link CreateAppCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +97,9 @@ export class CreateAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +126,8 @@ export class CreateAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +137,18 @@ export class CreateAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAppCommand(input, context);
+    return se_CreateAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppCommandOutput> {
-    return deserializeAws_restJson1CreateAppCommand(output, context);
+    return de_CreateAppCommand(output, context);
   }
 
   // Start section: command_body_extra

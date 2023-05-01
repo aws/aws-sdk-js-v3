@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DetectStackSetDriftInput,
-  DetectStackSetDriftInputFilterSensitiveLog,
-  DetectStackSetDriftOutput,
-  DetectStackSetDriftOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDetectStackSetDriftCommand,
-  serializeAws_queryDetectStackSetDriftCommand,
-} from "../protocols/Aws_query";
+import { DetectStackSetDriftInput, DetectStackSetDriftOutput } from "../models/models_0";
+import { de_DetectStackSetDriftCommand, se_DetectStackSetDriftCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DetectStackSetDriftCommand}.
  */
 export interface DetectStackSetDriftCommandInput extends DetectStackSetDriftInput {}
 /**
+ * @public
+ *
  * The output of {@link DetectStackSetDriftCommand}.
  */
 export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detect drift on a stack set. When CloudFormation performs drift detection on a
  *          stack set, it performs drift detection on the stack associated with each stack instance in
  *          the stack set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">How CloudFormation performs drift detection on a stack set</a>.</p>
@@ -86,10 +83,27 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  * import { CloudFormationClient, DetectStackSetDriftCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DetectStackSetDriftCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // DetectStackSetDriftInput
+ *   StackSetName: "STRING_VALUE", // required
+ *   OperationPreferences: { // StackSetOperationPreferences
+ *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *     RegionOrder: [ // RegionList
+ *       "STRING_VALUE",
+ *     ],
+ *     FailureToleranceCount: Number("int"),
+ *     FailureTolerancePercentage: Number("int"),
+ *     MaxConcurrentCount: Number("int"),
+ *     MaxConcurrentPercentage: Number("int"),
+ *   },
+ *   OperationId: "STRING_VALUE",
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new DetectStackSetDriftCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectStackSetDriftCommandInput - {@link DetectStackSetDriftCommandInput}
+ * @returns {@link DetectStackSetDriftCommandOutput}
  * @see {@link DetectStackSetDriftCommandInput} for command's `input` shape.
  * @see {@link DetectStackSetDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -123,6 +137,9 @@ export class DetectStackSetDriftCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectStackSetDriftCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,8 +168,8 @@ export class DetectStackSetDriftCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectStackSetDriftInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectStackSetDriftOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,12 +179,18 @@ export class DetectStackSetDriftCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectStackSetDriftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetectStackSetDriftCommand(input, context);
+    return se_DetectStackSetDriftCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectStackSetDriftCommandOutput> {
-    return deserializeAws_queryDetectStackSetDriftCommand(output, context);
+    return de_DetectStackSetDriftCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateNFSFileShareInput,
-  CreateNFSFileShareInputFilterSensitiveLog,
-  CreateNFSFileShareOutput,
-  CreateNFSFileShareOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateNFSFileShareCommand,
-  serializeAws_json1_1CreateNFSFileShareCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateNFSFileShareInput, CreateNFSFileShareOutput } from "../models/models_0";
+import { de_CreateNFSFileShareCommand, se_CreateNFSFileShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNFSFileShareCommand}.
  */
 export interface CreateNFSFileShareCommandInput extends CreateNFSFileShareInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateNFSFileShareCommand}.
  */
 export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Network File System (NFS) file share on an existing S3 File Gateway. In
  *          Storage Gateway, a file share is a file system mount point backed by Amazon S3
  *          cloud storage. Storage Gateway exposes file shares using an NFS interface. This operation
@@ -58,10 +55,49 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  * import { StorageGatewayClient, CreateNFSFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateNFSFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // CreateNFSFileShareInput
+ *   ClientToken: "STRING_VALUE", // required
+ *   NFSFileShareDefaults: { // NFSFileShareDefaults
+ *     FileMode: "STRING_VALUE",
+ *     DirectoryMode: "STRING_VALUE",
+ *     GroupId: Number("long"),
+ *     OwnerId: Number("long"),
+ *   },
+ *   GatewayARN: "STRING_VALUE", // required
+ *   KMSEncrypted: true || false,
+ *   KMSKey: "STRING_VALUE",
+ *   Role: "STRING_VALUE", // required
+ *   LocationARN: "STRING_VALUE", // required
+ *   DefaultStorageClass: "STRING_VALUE",
+ *   ObjectACL: "STRING_VALUE",
+ *   ClientList: [ // FileShareClientList
+ *     "STRING_VALUE",
+ *   ],
+ *   Squash: "STRING_VALUE",
+ *   ReadOnly: true || false,
+ *   GuessMIMETypeEnabled: true || false,
+ *   RequesterPays: true || false,
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   FileShareName: "STRING_VALUE",
+ *   CacheAttributes: { // CacheAttributes
+ *     CacheStaleTimeoutInSeconds: Number("int"),
+ *   },
+ *   NotificationPolicy: "STRING_VALUE",
+ *   VPCEndpointDNSName: "STRING_VALUE",
+ *   BucketRegion: "STRING_VALUE",
+ *   AuditDestinationARN: "STRING_VALUE",
+ * };
  * const command = new CreateNFSFileShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNFSFileShareCommandInput - {@link CreateNFSFileShareCommandInput}
+ * @returns {@link CreateNFSFileShareCommandOutput}
  * @see {@link CreateNFSFileShareCommandInput} for command's `input` shape.
  * @see {@link CreateNFSFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -93,6 +129,9 @@ export class CreateNFSFileShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNFSFileShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +160,8 @@ export class CreateNFSFileShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNFSFileShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNFSFileShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +171,18 @@ export class CreateNFSFileShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNFSFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateNFSFileShareCommand(input, context);
+    return se_CreateNFSFileShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNFSFileShareCommandOutput> {
-    return deserializeAws_json1_1CreateNFSFileShareCommand(output, context);
+    return de_CreateNFSFileShareCommand(output, context);
   }
 
   // Start section: command_body_extra

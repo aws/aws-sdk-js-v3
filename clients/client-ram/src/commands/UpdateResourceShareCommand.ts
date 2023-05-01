@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateResourceShareRequest,
-  UpdateResourceShareRequestFilterSensitiveLog,
-  UpdateResourceShareResponse,
-  UpdateResourceShareResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateResourceShareCommand,
-  serializeAws_restJson1UpdateResourceShareCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateResourceShareRequest, UpdateResourceShareResponse } from "../models/models_0";
+import { de_UpdateResourceShareCommand, se_UpdateResourceShareCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateResourceShareCommand}.
  */
 export interface UpdateResourceShareCommandInput extends UpdateResourceShareRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateResourceShareCommand}.
  */
 export interface UpdateResourceShareCommandOutput extends UpdateResourceShareResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies some of the properties of the specified resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,42 +39,52 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * import { RAMClient, UpdateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, UpdateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = { // UpdateResourceShareRequest
+ *   resourceShareArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   allowExternalPrincipals: true || false,
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateResourceShareCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateResourceShareCommandInput - {@link UpdateResourceShareCommandInput}
+ * @returns {@link UpdateResourceShareCommandOutput}
  * @see {@link UpdateResourceShareCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>The client token input parameter was matched one used with a previous call to the
- *             operation, but at least one of the other input parameters is different from the previous
- *             call.</p>
+ *  <p>The operation failed because the client token input parameter matched one that was
+ *             used with a previous call to the operation, but at least one of the other input
+ *             parameters is different from the previous call.</p>
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The client token is not valid.</p>
+ *  <p>The operation failed because the specified client token isn't valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
+ *             valid.</p>
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>A required input parameter is missing.</p>
+ *  <p>The operation failed because a required input parameter is missing.</p>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The requested operation is not permitted.</p>
+ *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *  <p>The operation failed because the service could not respond to the request due to an
+ *             internal problem. Try again later.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is not available.</p>
+ *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>A specified resource was not found.</p>
+ *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
  *
  */
@@ -98,6 +105,9 @@ export class UpdateResourceShareCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateResourceShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +136,8 @@ export class UpdateResourceShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourceShareRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourceShareResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +147,18 @@ export class UpdateResourceShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateResourceShareCommand(input, context);
+    return se_UpdateResourceShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceShareCommandOutput> {
-    return deserializeAws_restJson1UpdateResourceShareCommand(output, context);
+    return de_UpdateResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

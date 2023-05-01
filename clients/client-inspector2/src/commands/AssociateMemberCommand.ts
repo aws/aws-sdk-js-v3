@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  AssociateMemberRequest,
-  AssociateMemberRequestFilterSensitiveLog,
-  AssociateMemberResponse,
-  AssociateMemberResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateMemberCommand,
-  serializeAws_restJson1AssociateMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { AssociateMemberRequest, AssociateMemberResponse } from "../models/models_0";
+import { de_AssociateMemberCommand, se_AssociateMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateMemberCommand}.
  */
 export interface AssociateMemberCommandInput extends AssociateMemberRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateMemberCommand}.
  */
 export interface AssociateMemberCommandOutput extends AssociateMemberResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Amazon Web Services account with an Amazon Inspector delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  * import { Inspector2Client, AssociateMemberCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, AssociateMemberCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = { // AssociateMemberRequest
+ *   accountId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateMemberCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateMemberCommandInput - {@link AssociateMemberCommandInput}
+ * @returns {@link AssociateMemberCommandOutput}
  * @see {@link AssociateMemberCommandInput} for command's `input` shape.
  * @see {@link AssociateMemberCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
@@ -82,6 +84,9 @@ export class AssociateMemberCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateMemberCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class AssociateMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateMemberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class AssociateMemberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateMemberCommand(input, context);
+    return se_AssociateMemberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMemberCommandOutput> {
-    return deserializeAws_restJson1AssociateMemberCommand(output, context);
+    return de_AssociateMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

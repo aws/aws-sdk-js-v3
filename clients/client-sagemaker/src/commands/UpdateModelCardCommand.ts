@@ -17,24 +17,25 @@ import {
   UpdateModelCardRequest,
   UpdateModelCardRequestFilterSensitiveLog,
   UpdateModelCardResponse,
-  UpdateModelCardResponseFilterSensitiveLog,
 } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateModelCardCommand,
-  serializeAws_json1_1UpdateModelCardCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateModelCardCommand, se_UpdateModelCardCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateModelCardCommand}.
  */
 export interface UpdateModelCardCommandInput extends UpdateModelCardRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateModelCardCommand}.
  */
 export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update an Amazon SageMaker Model Card.</p>
  *          <important>
  *             <p>You cannot update both model card content and model card status in a single call.</p>
@@ -45,10 +46,17 @@ export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, _
  * import { SageMakerClient, UpdateModelCardCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateModelCardCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateModelCardRequest
+ *   ModelCardName: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE",
+ *   ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
+ * };
  * const command = new UpdateModelCardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateModelCardCommandInput - {@link UpdateModelCardCommandInput}
+ * @returns {@link UpdateModelCardCommandOutput}
  * @see {@link UpdateModelCardCommandInput} for command's `input` shape.
  * @see {@link UpdateModelCardCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -83,6 +91,9 @@ export class UpdateModelCardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateModelCardCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +123,7 @@ export class UpdateModelCardCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateModelCardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateModelCardResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +133,18 @@ export class UpdateModelCardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateModelCardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateModelCardCommand(input, context);
+    return se_UpdateModelCardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelCardCommandOutput> {
-    return deserializeAws_json1_1UpdateModelCardCommand(output, context);
+    return de_UpdateModelCardCommand(output, context);
   }
 
   // Start section: command_body_extra

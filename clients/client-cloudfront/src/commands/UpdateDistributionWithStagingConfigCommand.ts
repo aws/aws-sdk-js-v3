@@ -16,20 +16,23 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   UpdateDistributionWithStagingConfigRequest,
-  UpdateDistributionWithStagingConfigRequestFilterSensitiveLog,
   UpdateDistributionWithStagingConfigResult,
   UpdateDistributionWithStagingConfigResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlUpdateDistributionWithStagingConfigCommand,
-  serializeAws_restXmlUpdateDistributionWithStagingConfigCommand,
+  de_UpdateDistributionWithStagingConfigCommand,
+  se_UpdateDistributionWithStagingConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDistributionWithStagingConfigCommand}.
  */
 export interface UpdateDistributionWithStagingConfigCommandInput extends UpdateDistributionWithStagingConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDistributionWithStagingConfigCommand}.
  */
 export interface UpdateDistributionWithStagingConfigCommandOutput
@@ -37,6 +40,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies the staging distribution's configuration to its corresponding primary
  * 			distribution. The primary distribution retains its <code>Aliases</code> (also known as
  * 			alternate domain names or CNAMEs) and <code>ContinuousDeploymentPolicyId</code> value,
@@ -53,10 +57,17 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * import { CloudFrontClient, UpdateDistributionWithStagingConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateDistributionWithStagingConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // UpdateDistributionWithStagingConfigRequest
+ *   Id: "STRING_VALUE", // required
+ *   StagingDistributionId: "STRING_VALUE",
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new UpdateDistributionWithStagingConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDistributionWithStagingConfigCommandInput - {@link UpdateDistributionWithStagingConfigCommandInput}
+ * @returns {@link UpdateDistributionWithStagingConfigCommandOutput}
  * @see {@link UpdateDistributionWithStagingConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionWithStagingConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -294,6 +305,9 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDistributionWithStagingConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -322,7 +336,7 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDistributionWithStagingConfigRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateDistributionWithStagingConfigResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -333,18 +347,24 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateDistributionWithStagingConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateDistributionWithStagingConfigCommand(input, context);
+    return se_UpdateDistributionWithStagingConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDistributionWithStagingConfigCommandOutput> {
-    return deserializeAws_restXmlUpdateDistributionWithStagingConfigCommand(output, context);
+    return de_UpdateDistributionWithStagingConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

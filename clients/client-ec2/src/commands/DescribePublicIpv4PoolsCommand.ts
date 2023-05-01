@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribePublicIpv4PoolsRequest,
-  DescribePublicIpv4PoolsRequestFilterSensitiveLog,
-  DescribePublicIpv4PoolsResult,
-  DescribePublicIpv4PoolsResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribePublicIpv4PoolsCommand,
-  serializeAws_ec2DescribePublicIpv4PoolsCommand,
-} from "../protocols/Aws_ec2";
+import { DescribePublicIpv4PoolsRequest, DescribePublicIpv4PoolsResult } from "../models/models_4";
+import { de_DescribePublicIpv4PoolsCommand, se_DescribePublicIpv4PoolsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePublicIpv4PoolsCommand}.
  */
 export interface DescribePublicIpv4PoolsCommandInput extends DescribePublicIpv4PoolsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePublicIpv4PoolsCommand}.
  */
 export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4PoolsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified IPv4 address pools.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4
  * import { EC2Client, DescribePublicIpv4PoolsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribePublicIpv4PoolsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribePublicIpv4PoolsRequest
+ *   PoolIds: [ // PublicIpv4PoolIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribePublicIpv4PoolsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePublicIpv4PoolsCommandInput - {@link DescribePublicIpv4PoolsCommandInput}
+ * @returns {@link DescribePublicIpv4PoolsCommandOutput}
  * @see {@link DescribePublicIpv4PoolsCommandInput} for command's `input` shape.
  * @see {@link DescribePublicIpv4PoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -69,6 +83,9 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePublicIpv4PoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +114,8 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePublicIpv4PoolsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePublicIpv4PoolsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +125,18 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePublicIpv4PoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribePublicIpv4PoolsCommand(input, context);
+    return se_DescribePublicIpv4PoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePublicIpv4PoolsCommandOutput> {
-    return deserializeAws_ec2DescribePublicIpv4PoolsCommand(output, context);
+    return de_DescribePublicIpv4PoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

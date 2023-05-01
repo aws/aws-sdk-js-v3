@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  GetTelemetryMetadataRequest,
-  GetTelemetryMetadataRequestFilterSensitiveLog,
-  GetTelemetryMetadataResponse,
-  GetTelemetryMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTelemetryMetadataCommand,
-  serializeAws_json1_1GetTelemetryMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { GetTelemetryMetadataRequest, GetTelemetryMetadataResponse } from "../models/models_0";
+import { de_GetTelemetryMetadataCommand, se_GetTelemetryMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTelemetryMetadataCommand}.
  */
 export interface GetTelemetryMetadataCommandInput extends GetTelemetryMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTelemetryMetadataCommand}.
  */
 export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Information about the data that is collected for the specified assessment
  *          run.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  * import { InspectorClient, GetTelemetryMetadataCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, GetTelemetryMetadataCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // GetTelemetryMetadataRequest
+ *   assessmentRunArn: "STRING_VALUE", // required
+ * };
  * const command = new GetTelemetryMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTelemetryMetadataCommandInput - {@link GetTelemetryMetadataCommandInput}
+ * @returns {@link GetTelemetryMetadataCommandOutput}
  * @see {@link GetTelemetryMetadataCommandInput} for command's `input` shape.
  * @see {@link GetTelemetryMetadataCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -246,6 +248,9 @@ export class GetTelemetryMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTelemetryMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -274,8 +279,8 @@ export class GetTelemetryMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTelemetryMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTelemetryMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -285,12 +290,18 @@ export class GetTelemetryMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTelemetryMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTelemetryMetadataCommand(input, context);
+    return se_GetTelemetryMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTelemetryMetadataCommandOutput> {
-    return deserializeAws_json1_1GetTelemetryMetadataCommand(output, context);
+    return de_GetTelemetryMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

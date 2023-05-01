@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePresignedDomainUrlRequest,
-  CreatePresignedDomainUrlRequestFilterSensitiveLog,
-  CreatePresignedDomainUrlResponse,
-  CreatePresignedDomainUrlResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreatePresignedDomainUrlCommand,
-  serializeAws_json1_1CreatePresignedDomainUrlCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePresignedDomainUrlRequest, CreatePresignedDomainUrlResponse } from "../models/models_1";
+import { de_CreatePresignedDomainUrlCommand, se_CreatePresignedDomainUrlCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePresignedDomainUrlCommand}.
  */
 export interface CreatePresignedDomainUrlCommandInput extends CreatePresignedDomainUrlRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePresignedDomainUrlCommand}.
  */
 export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDomainUrlResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a URL for a specified UserProfile in a Domain.  When accessed in a web browser,
  *        the user will be automatically signed in to Amazon SageMaker Studio, and granted access to all of
  *        the Apps and files associated with the Domain's Amazon Elastic File System (EFS) volume.
@@ -58,10 +55,19 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  * import { SageMakerClient, CreatePresignedDomainUrlCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreatePresignedDomainUrlCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreatePresignedDomainUrlRequest
+ *   DomainId: "STRING_VALUE", // required
+ *   UserProfileName: "STRING_VALUE", // required
+ *   SessionExpirationDurationInSeconds: Number("int"),
+ *   ExpiresInSeconds: Number("int"),
+ *   SpaceName: "STRING_VALUE",
+ * };
  * const command = new CreatePresignedDomainUrlCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePresignedDomainUrlCommandInput - {@link CreatePresignedDomainUrlCommandInput}
+ * @returns {@link CreatePresignedDomainUrlCommandOutput}
  * @see {@link CreatePresignedDomainUrlCommandInput} for command's `input` shape.
  * @see {@link CreatePresignedDomainUrlCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -88,6 +94,9 @@ export class CreatePresignedDomainUrlCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePresignedDomainUrlCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +125,8 @@ export class CreatePresignedDomainUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePresignedDomainUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePresignedDomainUrlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +136,18 @@ export class CreatePresignedDomainUrlCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePresignedDomainUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePresignedDomainUrlCommand(input, context);
+    return se_CreatePresignedDomainUrlCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePresignedDomainUrlCommandOutput> {
-    return deserializeAws_json1_1CreatePresignedDomainUrlCommand(output, context);
+    return de_CreatePresignedDomainUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

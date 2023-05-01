@@ -15,21 +15,23 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ChangePasswordRequest, ChangePasswordRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryChangePasswordCommand,
-  serializeAws_queryChangePasswordCommand,
-} from "../protocols/Aws_query";
+import { de_ChangePasswordCommand, se_ChangePasswordCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ChangePasswordCommand}.
  */
 export interface ChangePasswordCommandInput extends ChangePasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ChangePasswordCommand}.
  */
 export interface ChangePasswordCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the password of the IAM user who is calling this operation. This operation
  *             can be performed using the CLI, the Amazon Web Services API, or the <b>My
  *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user password is
@@ -44,10 +46,16 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  * import { IAMClient, ChangePasswordCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ChangePasswordCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ChangePasswordRequest
+ *   OldPassword: "STRING_VALUE", // required
+ *   NewPassword: "STRING_VALUE", // required
+ * };
  * const command = new ChangePasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ChangePasswordCommandInput - {@link ChangePasswordCommandInput}
+ * @returns {@link ChangePasswordCommandOutput}
  * @see {@link ChangePasswordCommandInput} for command's `input` shape.
  * @see {@link ChangePasswordCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -109,6 +117,9 @@ export class ChangePasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ChangePasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,7 +149,7 @@ export class ChangePasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ChangePasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +159,18 @@ export class ChangePasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ChangePasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryChangePasswordCommand(input, context);
+    return se_ChangePasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangePasswordCommandOutput> {
-    return deserializeAws_queryChangePasswordCommand(output, context);
+    return de_ChangePasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

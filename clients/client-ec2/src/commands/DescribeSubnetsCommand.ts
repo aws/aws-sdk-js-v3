@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeSubnetsRequest,
-  DescribeSubnetsRequestFilterSensitiveLog,
-  DescribeSubnetsResult,
-  DescribeSubnetsResultFilterSensitiveLog,
-} from "../models/models_4";
-import { deserializeAws_ec2DescribeSubnetsCommand, serializeAws_ec2DescribeSubnetsCommand } from "../protocols/Aws_ec2";
+import { DescribeSubnetsRequest, DescribeSubnetsResult } from "../models/models_4";
+import { de_DescribeSubnetsCommand, se_DescribeSubnetsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSubnetsCommand}.
  */
 export interface DescribeSubnetsCommandInput extends DescribeSubnetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSubnetsCommand}.
  */
 export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your subnets.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -41,10 +41,28 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * import { EC2Client, DescribeSubnetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSubnetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeSubnetsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   SubnetIds: [ // SubnetIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeSubnetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSubnetsCommandInput - {@link DescribeSubnetsCommandInput}
+ * @returns {@link DescribeSubnetsCommandOutput}
  * @see {@link DescribeSubnetsCommandInput} for command's `input` shape.
  * @see {@link DescribeSubnetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -102,6 +120,9 @@ export class DescribeSubnetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubnetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +151,8 @@ export class DescribeSubnetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSubnetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSubnetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +162,18 @@ export class DescribeSubnetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSubnetsCommand(input, context);
+    return se_DescribeSubnetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSubnetsCommandOutput> {
-    return deserializeAws_ec2DescribeSubnetsCommand(output, context);
+    return de_DescribeSubnetsCommand(output, context);
   }
 
   // Start section: command_body_extra

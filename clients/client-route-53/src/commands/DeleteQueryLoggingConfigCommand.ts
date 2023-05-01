@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteQueryLoggingConfigRequest,
-  DeleteQueryLoggingConfigRequestFilterSensitiveLog,
-  DeleteQueryLoggingConfigResponse,
-  DeleteQueryLoggingConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteQueryLoggingConfigCommand,
-  serializeAws_restXmlDeleteQueryLoggingConfigCommand,
-} from "../protocols/Aws_restXml";
+import { DeleteQueryLoggingConfigRequest, DeleteQueryLoggingConfigResponse } from "../models/models_0";
+import { de_DeleteQueryLoggingConfigCommand, se_DeleteQueryLoggingConfigCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteQueryLoggingConfigCommand}.
  */
 export interface DeleteQueryLoggingConfigCommandInput extends DeleteQueryLoggingConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteQueryLoggingConfigCommand}.
  */
 export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon
  * 			Route 53 stops sending query logs to CloudWatch Logs. Route 53 doesn't delete any logs
  * 			that are already in CloudWatch Logs.</p>
@@ -46,10 +43,15 @@ export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggin
  * import { Route53Client, DeleteQueryLoggingConfigCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteQueryLoggingConfigCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // DeleteQueryLoggingConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteQueryLoggingConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteQueryLoggingConfigCommandInput - {@link DeleteQueryLoggingConfigCommandInput}
+ * @returns {@link DeleteQueryLoggingConfigCommandOutput}
  * @see {@link DeleteQueryLoggingConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteQueryLoggingConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -83,6 +85,9 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteQueryLoggingConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQueryLoggingConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteQueryLoggingConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteQueryLoggingConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteQueryLoggingConfigCommand(input, context);
+    return se_DeleteQueryLoggingConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueryLoggingConfigCommandOutput> {
-    return deserializeAws_restXmlDeleteQueryLoggingConfigCommand(output, context);
+    return de_DeleteQueryLoggingConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

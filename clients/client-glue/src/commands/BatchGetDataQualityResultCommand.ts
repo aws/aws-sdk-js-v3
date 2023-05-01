@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchGetDataQualityResultRequest,
-  BatchGetDataQualityResultRequestFilterSensitiveLog,
-  BatchGetDataQualityResultResponse,
-  BatchGetDataQualityResultResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetDataQualityResultCommand,
-  serializeAws_json1_1BatchGetDataQualityResultCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetDataQualityResultRequest, BatchGetDataQualityResultResponse } from "../models/models_0";
+import { de_BatchGetDataQualityResultCommand, se_BatchGetDataQualityResultCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetDataQualityResultCommand}.
  */
 export interface BatchGetDataQualityResultCommandInput extends BatchGetDataQualityResultRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetDataQualityResultCommand}.
  */
 export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQualityResultResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of data quality results for the specified result IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * import { GlueClient, BatchGetDataQualityResultCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetDataQualityResultCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // BatchGetDataQualityResultRequest
+ *   ResultIds: [ // DataQualityResultIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetDataQualityResultCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetDataQualityResultCommandInput - {@link BatchGetDataQualityResultCommandInput}
+ * @returns {@link BatchGetDataQualityResultCommandOutput}
  * @see {@link BatchGetDataQualityResultCommandInput} for command's `input` shape.
  * @see {@link BatchGetDataQualityResultCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -78,6 +82,9 @@ export class BatchGetDataQualityResultCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetDataQualityResultCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class BatchGetDataQualityResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetDataQualityResultRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetDataQualityResultResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +124,21 @@ export class BatchGetDataQualityResultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetDataQualityResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetDataQualityResultCommand(input, context);
+    return se_BatchGetDataQualityResultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetDataQualityResultCommandOutput> {
-    return deserializeAws_json1_1BatchGetDataQualityResultCommand(output, context);
+    return de_BatchGetDataQualityResultCommand(output, context);
   }
 
   // Start section: command_body_extra

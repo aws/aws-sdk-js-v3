@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBProxyTargetGroupRequest,
-  ModifyDBProxyTargetGroupRequestFilterSensitiveLog,
-  ModifyDBProxyTargetGroupResponse,
-  ModifyDBProxyTargetGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBProxyTargetGroupCommand,
-  serializeAws_queryModifyDBProxyTargetGroupCommand,
-} from "../protocols/Aws_query";
+import { ModifyDBProxyTargetGroupRequest, ModifyDBProxyTargetGroupResponse } from "../models/models_1";
+import { de_ModifyDBProxyTargetGroupCommand, se_ModifyDBProxyTargetGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBProxyTargetGroupCommand}.
  */
 export interface ModifyDBProxyTargetGroupCommandInput extends ModifyDBProxyTargetGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBProxyTargetGroupCommand}.
  */
 export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTargetGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTarg
  * import { RDSClient, ModifyDBProxyTargetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBProxyTargetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyDBProxyTargetGroupRequest
+ *   TargetGroupName: "STRING_VALUE", // required
+ *   DBProxyName: "STRING_VALUE", // required
+ *   ConnectionPoolConfig: { // ConnectionPoolConfiguration
+ *     MaxConnectionsPercent: Number("int"),
+ *     MaxIdleConnectionsPercent: Number("int"),
+ *     ConnectionBorrowTimeout: Number("int"),
+ *     SessionPinningFilters: [ // StringList
+ *       "STRING_VALUE",
+ *     ],
+ *     InitQuery: "STRING_VALUE",
+ *   },
+ *   NewName: "STRING_VALUE",
+ * };
  * const command = new ModifyDBProxyTargetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBProxyTargetGroupCommandInput - {@link ModifyDBProxyTargetGroupCommandInput}
+ * @returns {@link ModifyDBProxyTargetGroupCommandOutput}
  * @see {@link ModifyDBProxyTargetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBProxyTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -78,6 +91,9 @@ export class ModifyDBProxyTargetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBProxyTargetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +122,8 @@ export class ModifyDBProxyTargetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBProxyTargetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBProxyTargetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +133,18 @@ export class ModifyDBProxyTargetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBProxyTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBProxyTargetGroupCommand(input, context);
+    return se_ModifyDBProxyTargetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBProxyTargetGroupCommandOutput> {
-    return deserializeAws_queryModifyDBProxyTargetGroupCommand(output, context);
+    return de_ModifyDBProxyTargetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

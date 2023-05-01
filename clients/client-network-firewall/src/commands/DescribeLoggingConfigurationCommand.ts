@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeLoggingConfigurationRequest,
-  DescribeLoggingConfigurationRequestFilterSensitiveLog,
-  DescribeLoggingConfigurationResponse,
-  DescribeLoggingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeLoggingConfigurationRequest, DescribeLoggingConfigurationResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0DescribeLoggingConfigurationCommand,
-  serializeAws_json1_0DescribeLoggingConfigurationCommand,
+  de_DescribeLoggingConfigurationCommand,
+  se_DescribeLoggingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoggingConfigurationCommand}.
  */
 export interface DescribeLoggingConfigurationCommandInput extends DescribeLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoggingConfigurationCommand}.
  */
 export interface DescribeLoggingConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the logging configuration for the specified firewall. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface DescribeLoggingConfigurationCommandOutput
  * import { NetworkFirewallClient, DescribeLoggingConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeLoggingConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = { // DescribeLoggingConfigurationRequest
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ * };
  * const command = new DescribeLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoggingConfigurationCommandInput - {@link DescribeLoggingConfigurationCommandInput}
+ * @returns {@link DescribeLoggingConfigurationCommandOutput}
  * @see {@link DescribeLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
@@ -97,6 +103,9 @@ export class DescribeLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +134,8 @@ export class DescribeLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +145,21 @@ export class DescribeLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeLoggingConfigurationCommand(input, context);
+    return se_DescribeLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_0DescribeLoggingConfigurationCommand(output, context);
+    return de_DescribeLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

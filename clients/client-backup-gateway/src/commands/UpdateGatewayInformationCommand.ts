@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  UpdateGatewayInformationInput,
-  UpdateGatewayInformationInputFilterSensitiveLog,
-  UpdateGatewayInformationOutput,
-  UpdateGatewayInformationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateGatewayInformationCommand,
-  serializeAws_json1_0UpdateGatewayInformationCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateGatewayInformationInput, UpdateGatewayInformationOutput } from "../models/models_0";
+import { de_UpdateGatewayInformationCommand, se_UpdateGatewayInformationCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGatewayInformationCommand}.
  */
 export interface UpdateGatewayInformationCommandInput extends UpdateGatewayInformationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGatewayInformationCommand}.
  */
 export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInformationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a gateway's name. Specify which gateway to update using the Amazon Resource Name
  *       (ARN) of the gateway in your request.</p>
  * @example
@@ -43,10 +40,16 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * import { BackupGatewayClient, UpdateGatewayInformationCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, UpdateGatewayInformationCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // UpdateGatewayInformationInput
+ *   GatewayArn: "STRING_VALUE", // required
+ *   GatewayDisplayName: "STRING_VALUE",
+ * };
  * const command = new UpdateGatewayInformationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGatewayInformationCommandInput - {@link UpdateGatewayInformationCommandInput}
+ * @returns {@link UpdateGatewayInformationCommandOutput}
  * @see {@link UpdateGatewayInformationCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -86,6 +89,9 @@ export class UpdateGatewayInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGatewayInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class UpdateGatewayInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewayInformationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewayInformationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class UpdateGatewayInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGatewayInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateGatewayInformationCommand(input, context);
+    return se_UpdateGatewayInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayInformationCommandOutput> {
-    return deserializeAws_json1_0UpdateGatewayInformationCommand(output, context);
+    return de_UpdateGatewayInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

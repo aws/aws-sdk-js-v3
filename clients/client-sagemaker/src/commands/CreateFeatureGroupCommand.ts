@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateFeatureGroupRequest,
-  CreateFeatureGroupRequestFilterSensitiveLog,
-  CreateFeatureGroupResponse,
-  CreateFeatureGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateFeatureGroupCommand,
-  serializeAws_json1_1CreateFeatureGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateFeatureGroupRequest, CreateFeatureGroupResponse } from "../models/models_1";
+import { de_CreateFeatureGroupCommand, se_CreateFeatureGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateFeatureGroupCommand}.
  */
 export interface CreateFeatureGroupCommandInput extends CreateFeatureGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateFeatureGroupCommand}.
  */
 export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new <code>FeatureGroup</code>. A <code>FeatureGroup</code> is a group of
  *             <code>Features</code> defined in the <code>FeatureStore</code> to describe a
  *             <code>Record</code>. </p>
@@ -54,10 +51,51 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  * import { SageMakerClient, CreateFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateFeatureGroupRequest
+ *   FeatureGroupName: "STRING_VALUE", // required
+ *   RecordIdentifierFeatureName: "STRING_VALUE", // required
+ *   EventTimeFeatureName: "STRING_VALUE", // required
+ *   FeatureDefinitions: [ // FeatureDefinitions // required
+ *     { // FeatureDefinition
+ *       FeatureName: "STRING_VALUE",
+ *       FeatureType: "Integral" || "Fractional" || "String",
+ *     },
+ *   ],
+ *   OnlineStoreConfig: { // OnlineStoreConfig
+ *     SecurityConfig: { // OnlineStoreSecurityConfig
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *     EnableOnlineStore: true || false,
+ *   },
+ *   OfflineStoreConfig: { // OfflineStoreConfig
+ *     S3StorageConfig: { // S3StorageConfig
+ *       S3Uri: "STRING_VALUE", // required
+ *       KmsKeyId: "STRING_VALUE",
+ *       ResolvedOutputS3Uri: "STRING_VALUE",
+ *     },
+ *     DisableGlueTableCreation: true || false,
+ *     DataCatalogConfig: { // DataCatalogConfig
+ *       TableName: "STRING_VALUE", // required
+ *       Catalog: "STRING_VALUE", // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     TableFormat: "Glue" || "Iceberg",
+ *   },
+ *   RoleArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFeatureGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateFeatureGroupCommandInput - {@link CreateFeatureGroupCommandInput}
+ * @returns {@link CreateFeatureGroupCommandOutput}
  * @see {@link CreateFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link CreateFeatureGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -88,6 +126,9 @@ export class CreateFeatureGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateFeatureGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +157,8 @@ export class CreateFeatureGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFeatureGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFeatureGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +168,18 @@ export class CreateFeatureGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateFeatureGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFeatureGroupCommand(input, context);
+    return se_CreateFeatureGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFeatureGroupCommandOutput> {
-    return deserializeAws_json1_1CreateFeatureGroupCommand(output, context);
+    return de_CreateFeatureGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  ListRouteCalculatorsRequest,
-  ListRouteCalculatorsRequestFilterSensitiveLog,
-  ListRouteCalculatorsResponse,
-  ListRouteCalculatorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRouteCalculatorsCommand,
-  serializeAws_restJson1ListRouteCalculatorsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRouteCalculatorsRequest, ListRouteCalculatorsResponse } from "../models/models_0";
+import { de_ListRouteCalculatorsCommand, se_ListRouteCalculatorsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRouteCalculatorsCommand}.
  */
 export interface ListRouteCalculatorsCommandInput extends ListRouteCalculatorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRouteCalculatorsCommand}.
  */
 export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists route calculator resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsR
  * import { LocationClient, ListRouteCalculatorsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListRouteCalculatorsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = { // ListRouteCalculatorsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListRouteCalculatorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRouteCalculatorsCommandInput - {@link ListRouteCalculatorsCommandInput}
+ * @returns {@link ListRouteCalculatorsCommandOutput}
  * @see {@link ListRouteCalculatorsCommandInput} for command's `input` shape.
  * @see {@link ListRouteCalculatorsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
@@ -82,6 +85,9 @@ export class ListRouteCalculatorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRouteCalculatorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class ListRouteCalculatorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRouteCalculatorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRouteCalculatorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class ListRouteCalculatorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRouteCalculatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRouteCalculatorsCommand(input, context);
+    return se_ListRouteCalculatorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRouteCalculatorsCommandOutput> {
-    return deserializeAws_restJson1ListRouteCalculatorsCommand(output, context);
+    return de_ListRouteCalculatorsCommand(output, context);
   }
 
   // Start section: command_body_extra

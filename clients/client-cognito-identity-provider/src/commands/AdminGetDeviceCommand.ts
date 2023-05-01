@@ -25,21 +25,23 @@ import {
   AdminGetDeviceResponse,
   AdminGetDeviceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminGetDeviceCommand,
-  serializeAws_json1_1AdminGetDeviceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminGetDeviceCommand, se_AdminGetDeviceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminGetDeviceCommand}.
  */
 export interface AdminGetDeviceCommandInput extends AdminGetDeviceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminGetDeviceCommand}.
  */
 export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the device, as an administrator.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -48,10 +50,17 @@ export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __M
  * import { CognitoIdentityProviderClient, AdminGetDeviceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminGetDeviceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminGetDeviceRequest
+ *   DeviceKey: "STRING_VALUE", // required
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ * };
  * const command = new AdminGetDeviceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminGetDeviceCommandInput - {@link AdminGetDeviceCommandInput}
+ * @returns {@link AdminGetDeviceCommandOutput}
  * @see {@link AdminGetDeviceCommandInput} for command's `input` shape.
  * @see {@link AdminGetDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -96,6 +105,9 @@ export class AdminGetDeviceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminGetDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,12 +148,18 @@ export class AdminGetDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminGetDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminGetDeviceCommand(input, context);
+    return se_AdminGetDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminGetDeviceCommandOutput> {
-    return deserializeAws_json1_1AdminGetDeviceCommand(output, context);
+    return de_AdminGetDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

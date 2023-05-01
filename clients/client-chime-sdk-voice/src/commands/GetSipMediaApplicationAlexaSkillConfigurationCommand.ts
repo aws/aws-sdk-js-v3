@@ -16,27 +16,75 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   GetSipMediaApplicationAlexaSkillConfigurationRequest,
-  GetSipMediaApplicationAlexaSkillConfigurationRequestFilterSensitiveLog,
   GetSipMediaApplicationAlexaSkillConfigurationResponse,
   GetSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetSipMediaApplicationAlexaSkillConfigurationCommand,
-  serializeAws_restJson1GetSipMediaApplicationAlexaSkillConfigurationCommand,
+  de_GetSipMediaApplicationAlexaSkillConfigurationCommand,
+  se_GetSipMediaApplicationAlexaSkillConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSipMediaApplicationAlexaSkillConfigurationCommand}.
  */
 export interface GetSipMediaApplicationAlexaSkillConfigurationCommandInput
   extends GetSipMediaApplicationAlexaSkillConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetSipMediaApplicationAlexaSkillConfigurationCommand}.
  */
 export interface GetSipMediaApplicationAlexaSkillConfigurationCommandOutput
   extends GetSipMediaApplicationAlexaSkillConfigurationResponse,
     __MetadataBearer {}
 
+/**
+ * @public
+ * <p>Gets the Alexa Skill configuration for the SIP media application.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeSDKVoiceClient, GetSipMediaApplicationAlexaSkillConfigurationCommand } from "@aws-sdk/client-chime-sdk-voice"; // ES Modules import
+ * // const { ChimeSDKVoiceClient, GetSipMediaApplicationAlexaSkillConfigurationCommand } = require("@aws-sdk/client-chime-sdk-voice"); // CommonJS import
+ * const client = new ChimeSDKVoiceClient(config);
+ * const input = { // GetSipMediaApplicationAlexaSkillConfigurationRequest
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ * };
+ * const command = new GetSipMediaApplicationAlexaSkillConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @param GetSipMediaApplicationAlexaSkillConfigurationCommandInput - {@link GetSipMediaApplicationAlexaSkillConfigurationCommandInput}
+ * @returns {@link GetSipMediaApplicationAlexaSkillConfigurationCommandOutput}
+ * @see {@link GetSipMediaApplicationAlexaSkillConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetSipMediaApplicationAlexaSkillConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client isn't authorized to request a resource.</p>
+ *
+ *
+ */
 export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Command<
   GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
   GetSipMediaApplicationAlexaSkillConfigurationCommandOutput,
@@ -54,6 +102,9 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSipMediaApplicationAlexaSkillConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,7 +139,7 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSipMediaApplicationAlexaSkillConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -99,18 +150,24 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSipMediaApplicationAlexaSkillConfigurationCommand(input, context);
+    return se_GetSipMediaApplicationAlexaSkillConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSipMediaApplicationAlexaSkillConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetSipMediaApplicationAlexaSkillConfigurationCommand(output, context);
+    return de_GetSipMediaApplicationAlexaSkillConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

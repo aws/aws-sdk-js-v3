@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  CancelInstanceRefreshAnswer,
-  CancelInstanceRefreshAnswerFilterSensitiveLog,
-  CancelInstanceRefreshType,
-  CancelInstanceRefreshTypeFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCancelInstanceRefreshCommand,
-  serializeAws_queryCancelInstanceRefreshCommand,
-} from "../protocols/Aws_query";
+import { CancelInstanceRefreshAnswer, CancelInstanceRefreshType } from "../models/models_0";
+import { de_CancelInstanceRefreshCommand, se_CancelInstanceRefreshCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CancelInstanceRefreshCommand}.
  */
 export interface CancelInstanceRefreshCommandInput extends CancelInstanceRefreshType {}
 /**
+ * @public
+ *
  * The output of {@link CancelInstanceRefreshCommand}.
  */
 export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels an instance refresh or rollback that is in progress. If an instance refresh or
  *             rollback is not in progress, an <code>ActiveInstanceRefreshNotFound</code> error
  *             occurs.</p>
@@ -49,10 +46,15 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  * import { AutoScalingClient, CancelInstanceRefreshCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CancelInstanceRefreshCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // CancelInstanceRefreshType
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new CancelInstanceRefreshCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelInstanceRefreshCommandInput - {@link CancelInstanceRefreshCommandInput}
+ * @returns {@link CancelInstanceRefreshCommandOutput}
  * @see {@link CancelInstanceRefreshCommandInput} for command's `input` shape.
  * @see {@link CancelInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -106,6 +108,9 @@ export class CancelInstanceRefreshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelInstanceRefreshCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +139,8 @@ export class CancelInstanceRefreshCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelInstanceRefreshTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelInstanceRefreshAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +150,18 @@ export class CancelInstanceRefreshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelInstanceRefreshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCancelInstanceRefreshCommand(input, context);
+    return se_CancelInstanceRefreshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelInstanceRefreshCommandOutput> {
-    return deserializeAws_queryCancelInstanceRefreshCommand(output, context);
+    return de_CancelInstanceRefreshCommand(output, context);
   }
 
   // Start section: command_body_extra

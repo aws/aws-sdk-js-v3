@@ -14,27 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { Connection, DisassociateConnectionFromLagRequest } from "../models/models_0";
 import {
-  Connection,
-  ConnectionFilterSensitiveLog,
-  DisassociateConnectionFromLagRequest,
-  DisassociateConnectionFromLagRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateConnectionFromLagCommand,
-  serializeAws_json1_1DisassociateConnectionFromLagCommand,
+  de_DisassociateConnectionFromLagCommand,
+  se_DisassociateConnectionFromLagCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateConnectionFromLagCommand}.
  */
 export interface DisassociateConnectionFromLagCommandInput extends DisassociateConnectionFromLagRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateConnectionFromLagCommand}.
  */
 export interface DisassociateConnectionFromLagCommandOutput extends Connection, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a connection from a link aggregation group (LAG). The connection is
  *       interrupted and re-established as a standalone connection (the connection is not
  *       deleted; to delete the connection, use the <a>DeleteConnection</a> request).
@@ -51,10 +51,16 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  * import { DirectConnectClient, DisassociateConnectionFromLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DisassociateConnectionFromLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DisassociateConnectionFromLagRequest
+ *   connectionId: "STRING_VALUE", // required
+ *   lagId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateConnectionFromLagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateConnectionFromLagCommandInput - {@link DisassociateConnectionFromLagCommandInput}
+ * @returns {@link DisassociateConnectionFromLagCommandOutput}
  * @see {@link DisassociateConnectionFromLagCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectionFromLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -84,6 +90,9 @@ export class DisassociateConnectionFromLagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateConnectionFromLagCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +121,8 @@ export class DisassociateConnectionFromLagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateConnectionFromLagRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +132,21 @@ export class DisassociateConnectionFromLagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateConnectionFromLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateConnectionFromLagCommand(input, context);
+    return se_DisassociateConnectionFromLagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateConnectionFromLagCommandOutput> {
-    return deserializeAws_json1_1DisassociateConnectionFromLagCommand(output, context);
+    return de_DisassociateConnectionFromLagCommand(output, context);
   }
 
   // Start section: command_body_extra

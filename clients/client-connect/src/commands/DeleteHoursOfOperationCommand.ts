@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteHoursOfOperationRequest, DeleteHoursOfOperationRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteHoursOfOperationCommand,
-  serializeAws_restJson1DeleteHoursOfOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteHoursOfOperationRequest } from "../models/models_0";
+import { de_DeleteHoursOfOperationCommand, se_DeleteHoursOfOperationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteHoursOfOperationCommand}.
  */
 export interface DeleteHoursOfOperationCommandInput extends DeleteHoursOfOperationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteHoursOfOperationCommand}.
  */
 export interface DeleteHoursOfOperationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Deletes an hours of operation.</p>
  * @example
@@ -38,10 +40,16 @@ export interface DeleteHoursOfOperationCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DeleteHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DeleteHoursOfOperationRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   HoursOfOperationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHoursOfOperationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteHoursOfOperationCommandInput - {@link DeleteHoursOfOperationCommandInput}
+ * @returns {@link DeleteHoursOfOperationCommandOutput}
  * @see {@link DeleteHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link DeleteHoursOfOperationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -80,6 +88,9 @@ export class DeleteHoursOfOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteHoursOfOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +119,8 @@ export class DeleteHoursOfOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHoursOfOperationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +130,18 @@ export class DeleteHoursOfOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteHoursOfOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteHoursOfOperationCommand(input, context);
+    return se_DeleteHoursOfOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHoursOfOperationCommandOutput> {
-    return deserializeAws_restJson1DeleteHoursOfOperationCommand(output, context);
+    return de_DeleteHoursOfOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

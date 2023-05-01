@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  GetPositionRequest,
-  GetPositionRequestFilterSensitiveLog,
-  GetPositionResponse,
-  GetPositionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPositionCommand,
-  serializeAws_restJson1GetPositionCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPositionRequest, GetPositionResponse } from "../models/models_0";
+import { de_GetPositionCommand, se_GetPositionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPositionCommand}.
  */
 export interface GetPositionCommandInput extends GetPositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPositionCommand}.
  */
 export interface GetPositionCommandOutput extends GetPositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Get the position information for a given resource.</p>
@@ -49,10 +46,16 @@ export interface GetPositionCommandOutput extends GetPositionResponse, __Metadat
  * import { IoTWirelessClient, GetPositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetPositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetPositionRequest
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
+ * };
  * const command = new GetPositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPositionCommandInput - {@link GetPositionCommandInput}
+ * @returns {@link GetPositionCommandOutput}
  * @see {@link GetPositionCommandInput} for command's `input` shape.
  * @see {@link GetPositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -91,6 +94,9 @@ export class GetPositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +123,8 @@ export class GetPositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPositionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPositionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +134,18 @@ export class GetPositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPositionCommand(input, context);
+    return se_GetPositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPositionCommandOutput> {
-    return deserializeAws_restJson1GetPositionCommand(output, context);
+    return de_GetPositionCommand(output, context);
   }
 
   // Start section: command_body_extra

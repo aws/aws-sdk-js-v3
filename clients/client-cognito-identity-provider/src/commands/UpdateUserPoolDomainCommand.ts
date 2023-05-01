@@ -19,27 +19,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  UpdateUserPoolDomainRequest,
-  UpdateUserPoolDomainRequestFilterSensitiveLog,
-  UpdateUserPoolDomainResponse,
-  UpdateUserPoolDomainResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateUserPoolDomainCommand,
-  serializeAws_json1_1UpdateUserPoolDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateUserPoolDomainRequest, UpdateUserPoolDomainResponse } from "../models/models_1";
+import { de_UpdateUserPoolDomainCommand, se_UpdateUserPoolDomainCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateUserPoolDomainCommand}.
  */
 export interface UpdateUserPoolDomainCommandInput extends UpdateUserPoolDomainRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateUserPoolDomainCommand}.
  */
 export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your user
  *             pool.</p>
  *         <p>You can use this operation to provide the Amazon Resource Name (ARN) of a new
@@ -65,10 +62,19 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  * import { CognitoIdentityProviderClient, UpdateUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // UpdateUserPoolDomainRequest
+ *   Domain: "STRING_VALUE", // required
+ *   UserPoolId: "STRING_VALUE", // required
+ *   CustomDomainConfig: { // CustomDomainConfigType
+ *     CertificateArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateUserPoolDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateUserPoolDomainCommandInput - {@link UpdateUserPoolDomainCommandInput}
+ * @returns {@link UpdateUserPoolDomainCommandOutput}
  * @see {@link UpdateUserPoolDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateUserPoolDomainCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -110,6 +116,9 @@ export class UpdateUserPoolDomainCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateUserPoolDomainCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +148,8 @@ export class UpdateUserPoolDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserPoolDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserPoolDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,12 +159,18 @@ export class UpdateUserPoolDomainCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateUserPoolDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateUserPoolDomainCommand(input, context);
+    return se_UpdateUserPoolDomainCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserPoolDomainCommandOutput> {
-    return deserializeAws_json1_1UpdateUserPoolDomainCommand(output, context);
+    return de_UpdateUserPoolDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

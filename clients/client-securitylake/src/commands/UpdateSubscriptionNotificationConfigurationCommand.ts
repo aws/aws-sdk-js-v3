@@ -15,22 +15,24 @@ import {
 
 import {
   UpdateSubscriptionNotificationConfigurationRequest,
-  UpdateSubscriptionNotificationConfigurationRequestFilterSensitiveLog,
   UpdateSubscriptionNotificationConfigurationResponse,
-  UpdateSubscriptionNotificationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand,
-  serializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand,
+  de_UpdateSubscriptionNotificationConfigurationCommand,
+  se_UpdateSubscriptionNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSubscriptionNotificationConfigurationCommand}.
  */
 export interface UpdateSubscriptionNotificationConfigurationCommandInput
   extends UpdateSubscriptionNotificationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSubscriptionNotificationConfigurationCommand}.
  */
 export interface UpdateSubscriptionNotificationConfigurationCommandOutput
@@ -38,6 +40,7 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing notification method for the subscription (SQS or HTTPs endpoint) or
  *          switches the notification subscription endpoint for a subscriber.</p>
  * @example
@@ -46,10 +49,21 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
  * import { SecurityLakeClient, UpdateSubscriptionNotificationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, UpdateSubscriptionNotificationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = { // UpdateSubscriptionNotificationConfigurationRequest
+ *   subscriptionId: "STRING_VALUE", // required
+ *   subscriptionEndpoint: "STRING_VALUE",
+ *   httpsApiKeyName: "STRING_VALUE",
+ *   httpsApiKeyValue: "STRING_VALUE",
+ *   httpsMethod: "STRING_VALUE",
+ *   createSqs: true || false,
+ *   roleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateSubscriptionNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSubscriptionNotificationConfigurationCommandInput - {@link UpdateSubscriptionNotificationConfigurationCommandInput}
+ * @returns {@link UpdateSubscriptionNotificationConfigurationCommandOutput}
  * @see {@link UpdateSubscriptionNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriptionNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -101,6 +115,9 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSubscriptionNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +152,8 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSubscriptionNotificationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubscriptionNotificationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,18 +163,24 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateSubscriptionNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand(input, context);
+    return se_UpdateSubscriptionNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSubscriptionNotificationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand(output, context);
+    return de_UpdateSubscriptionNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

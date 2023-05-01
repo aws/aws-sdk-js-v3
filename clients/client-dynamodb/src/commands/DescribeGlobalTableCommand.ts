@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DescribeGlobalTableInput,
-  DescribeGlobalTableInputFilterSensitiveLog,
-  DescribeGlobalTableOutput,
-  DescribeGlobalTableOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeGlobalTableCommand,
-  serializeAws_json1_0DescribeGlobalTableCommand,
-} from "../protocols/Aws_json1_0";
+import { DescribeGlobalTableInput, DescribeGlobalTableOutput } from "../models/models_0";
+import { de_DescribeGlobalTableCommand, se_DescribeGlobalTableCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeGlobalTableCommand}.
  */
 export interface DescribeGlobalTableCommandInput extends DescribeGlobalTableInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeGlobalTableCommand}.
  */
 export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified global table.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -54,10 +51,15 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  * import { DynamoDBClient, DescribeGlobalTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeGlobalTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // DescribeGlobalTableInput
+ *   GlobalTableName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGlobalTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeGlobalTableCommandInput - {@link DescribeGlobalTableCommandInput}
+ * @returns {@link DescribeGlobalTableCommandOutput}
  * @see {@link DescribeGlobalTableCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -89,6 +91,9 @@ export class DescribeGlobalTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeGlobalTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class DescribeGlobalTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGlobalTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGlobalTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class DescribeGlobalTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeGlobalTableCommand(input, context);
+    return se_DescribeGlobalTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalTableCommandOutput> {
-    return deserializeAws_json1_0DescribeGlobalTableCommand(output, context);
+    return de_DescribeGlobalTableCommand(output, context);
   }
 
   // Start section: command_body_extra

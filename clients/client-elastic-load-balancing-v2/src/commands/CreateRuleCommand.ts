@@ -18,24 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  CreateRuleInput,
-  CreateRuleInputFilterSensitiveLog,
-  CreateRuleOutput,
-  CreateRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryCreateRuleCommand, serializeAws_queryCreateRuleCommand } from "../protocols/Aws_query";
+import { CreateRuleInput, CreateRuleOutput } from "../models/models_0";
+import { de_CreateRuleCommand, se_CreateRuleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRuleCommand}.
  */
 export interface CreateRuleCommandInput extends CreateRuleInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateRuleCommand}.
  */
 export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a rule for the specified listener. The listener must be associated with an
  *       Application Load Balancer.</p>
  *          <p>Each rule consists of a priority, one or more actions, and one or more conditions. Rules
@@ -48,10 +48,122 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * import { ElasticLoadBalancingV2Client, CreateRuleCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, CreateRuleCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // CreateRuleInput
+ *   ListenerArn: "STRING_VALUE", // required
+ *   Conditions: [ // RuleConditionList // required
+ *     { // RuleCondition
+ *       Field: "STRING_VALUE",
+ *       Values: [ // ListOfString
+ *         "STRING_VALUE",
+ *       ],
+ *       HostHeaderConfig: { // HostHeaderConditionConfig
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       PathPatternConfig: { // PathPatternConditionConfig
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       HttpHeaderConfig: { // HttpHeaderConditionConfig
+ *         HttpHeaderName: "STRING_VALUE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       QueryStringConfig: { // QueryStringConditionConfig
+ *         Values: [ // QueryStringKeyValuePairList
+ *           { // QueryStringKeyValuePair
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       HttpRequestMethodConfig: { // HttpRequestMethodConditionConfig
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       SourceIpConfig: { // SourceIpConditionConfig
+ *         Values: "<ListOfString>",
+ *       },
+ *     },
+ *   ],
+ *   Priority: Number("int"), // required
+ *   Actions: [ // Actions // required
+ *     { // Action
+ *       Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response", // required
+ *       TargetGroupArn: "STRING_VALUE",
+ *       AuthenticateOidcConfig: { // AuthenticateOidcActionConfig
+ *         Issuer: "STRING_VALUE", // required
+ *         AuthorizationEndpoint: "STRING_VALUE", // required
+ *         TokenEndpoint: "STRING_VALUE", // required
+ *         UserInfoEndpoint: "STRING_VALUE", // required
+ *         ClientId: "STRING_VALUE", // required
+ *         ClientSecret: "STRING_VALUE",
+ *         SessionCookieName: "STRING_VALUE",
+ *         Scope: "STRING_VALUE",
+ *         SessionTimeout: Number("long"),
+ *         AuthenticationRequestExtraParams: { // AuthenticateOidcActionAuthenticationRequestExtraParams
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *         UseExistingClientSecret: true || false,
+ *       },
+ *       AuthenticateCognitoConfig: { // AuthenticateCognitoActionConfig
+ *         UserPoolArn: "STRING_VALUE", // required
+ *         UserPoolClientId: "STRING_VALUE", // required
+ *         UserPoolDomain: "STRING_VALUE", // required
+ *         SessionCookieName: "STRING_VALUE",
+ *         Scope: "STRING_VALUE",
+ *         SessionTimeout: Number("long"),
+ *         AuthenticationRequestExtraParams: { // AuthenticateCognitoActionAuthenticationRequestExtraParams
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *       },
+ *       Order: Number("int"),
+ *       RedirectConfig: { // RedirectActionConfig
+ *         Protocol: "STRING_VALUE",
+ *         Port: "STRING_VALUE",
+ *         Host: "STRING_VALUE",
+ *         Path: "STRING_VALUE",
+ *         Query: "STRING_VALUE",
+ *         StatusCode: "HTTP_301" || "HTTP_302", // required
+ *       },
+ *       FixedResponseConfig: { // FixedResponseActionConfig
+ *         MessageBody: "STRING_VALUE",
+ *         StatusCode: "STRING_VALUE", // required
+ *         ContentType: "STRING_VALUE",
+ *       },
+ *       ForwardConfig: { // ForwardActionConfig
+ *         TargetGroups: [ // TargetGroupList
+ *           { // TargetGroupTuple
+ *             TargetGroupArn: "STRING_VALUE",
+ *             Weight: Number("int"),
+ *           },
+ *         ],
+ *         TargetGroupStickinessConfig: { // TargetGroupStickinessConfig
+ *           Enabled: true || false,
+ *           DurationSeconds: Number("int"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
+ * @returns {@link CreateRuleCommandOutput}
  * @see {@link CreateRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -175,6 +287,9 @@ export class CreateRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -201,8 +316,8 @@ export class CreateRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -212,12 +327,18 @@ export class CreateRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateRuleCommand(input, context);
+    return se_CreateRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleCommandOutput> {
-    return deserializeAws_queryCreateRuleCommand(output, context);
+    return de_CreateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListRepositorySyncDefinitionsInput, ListRepositorySyncDefinitionsOutput } from "../models/models_0";
 import {
-  ListRepositorySyncDefinitionsInput,
-  ListRepositorySyncDefinitionsInputFilterSensitiveLog,
-  ListRepositorySyncDefinitionsOutput,
-  ListRepositorySyncDefinitionsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListRepositorySyncDefinitionsCommand,
-  serializeAws_json1_0ListRepositorySyncDefinitionsCommand,
+  de_ListRepositorySyncDefinitionsCommand,
+  se_ListRepositorySyncDefinitionsCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListRepositorySyncDefinitionsCommand}.
  */
 export interface ListRepositorySyncDefinitionsCommandInput extends ListRepositorySyncDefinitionsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListRepositorySyncDefinitionsCommand}.
  */
 export interface ListRepositorySyncDefinitionsCommandOutput
@@ -37,6 +36,7 @@ export interface ListRepositorySyncDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>List repository sync definitions with detail data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,18 @@ export interface ListRepositorySyncDefinitionsCommandOutput
  * import { ProtonClient, ListRepositorySyncDefinitionsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListRepositorySyncDefinitionsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListRepositorySyncDefinitionsInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   repositoryProvider: "STRING_VALUE", // required
+ *   syncType: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListRepositorySyncDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRepositorySyncDefinitionsCommandInput - {@link ListRepositorySyncDefinitionsCommandInput}
+ * @returns {@link ListRepositorySyncDefinitionsCommandOutput}
  * @see {@link ListRepositorySyncDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListRepositorySyncDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -83,6 +91,9 @@ export class ListRepositorySyncDefinitionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRepositorySyncDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +122,8 @@ export class ListRepositorySyncDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRepositorySyncDefinitionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRepositorySyncDefinitionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,15 +133,21 @@ export class ListRepositorySyncDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRepositorySyncDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListRepositorySyncDefinitionsCommand(input, context);
+    return se_ListRepositorySyncDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRepositorySyncDefinitionsCommandOutput> {
-    return deserializeAws_json1_0ListRepositorySyncDefinitionsCommand(output, context);
+    return de_ListRepositorySyncDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

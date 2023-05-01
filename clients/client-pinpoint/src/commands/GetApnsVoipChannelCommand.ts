@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetApnsVoipChannelRequest,
-  GetApnsVoipChannelRequestFilterSensitiveLog,
-  GetApnsVoipChannelResponse,
-  GetApnsVoipChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetApnsVoipChannelRequest, GetApnsVoipChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetApnsVoipChannelCommand,
-  serializeAws_restJson1GetApnsVoipChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetApnsVoipChannelCommand, se_GetApnsVoipChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetApnsVoipChannelCommand}.
  */
 export interface GetApnsVoipChannelCommandInput extends GetApnsVoipChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetApnsVoipChannelCommand}.
  */
 export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the status and settings of the APNs VoIP channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelRespo
  * import { PinpointClient, GetApnsVoipChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetApnsVoipChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetApnsVoipChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetApnsVoipChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetApnsVoipChannelCommandInput - {@link GetApnsVoipChannelCommandInput}
+ * @returns {@link GetApnsVoipChannelCommandOutput}
  * @see {@link GetApnsVoipChannelCommandInput} for command's `input` shape.
  * @see {@link GetApnsVoipChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +92,9 @@ export class GetApnsVoipChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetApnsVoipChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class GetApnsVoipChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApnsVoipChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApnsVoipChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class GetApnsVoipChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetApnsVoipChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApnsVoipChannelCommand(input, context);
+    return se_GetApnsVoipChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApnsVoipChannelCommandOutput> {
-    return deserializeAws_restJson1GetApnsVoipChannelCommand(output, context);
+    return de_GetApnsVoipChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

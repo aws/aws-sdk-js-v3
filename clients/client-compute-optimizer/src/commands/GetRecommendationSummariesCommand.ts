@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import {
-  GetRecommendationSummariesRequest,
-  GetRecommendationSummariesRequestFilterSensitiveLog,
-  GetRecommendationSummariesResponse,
-  GetRecommendationSummariesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetRecommendationSummariesCommand,
-  serializeAws_json1_0GetRecommendationSummariesCommand,
-} from "../protocols/Aws_json1_0";
+import { GetRecommendationSummariesRequest, GetRecommendationSummariesResponse } from "../models/models_0";
+import { de_GetRecommendationSummariesCommand, se_GetRecommendationSummariesCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecommendationSummariesCommand}.
  */
 export interface GetRecommendationSummariesCommandInput extends GetRecommendationSummariesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRecommendationSummariesCommand}.
  */
 export interface GetRecommendationSummariesCommandOutput extends GetRecommendationSummariesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the optimization findings for an account.</p>
  *          <p>It returns the number of:</p>
  *          <ul>
@@ -66,10 +63,19 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * import { ComputeOptimizerClient, GetRecommendationSummariesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetRecommendationSummariesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = { // GetRecommendationSummariesRequest
+ *   accountIds: [ // AccountIds
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetRecommendationSummariesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecommendationSummariesCommandInput - {@link GetRecommendationSummariesCommandInput}
+ * @returns {@link GetRecommendationSummariesCommandOutput}
  * @see {@link GetRecommendationSummariesCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationSummariesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
@@ -115,6 +121,9 @@ export class GetRecommendationSummariesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecommendationSummariesCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +152,8 @@ export class GetRecommendationSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommendationSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommendationSummariesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,15 +163,21 @@ export class GetRecommendationSummariesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecommendationSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRecommendationSummariesCommand(input, context);
+    return se_GetRecommendationSummariesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecommendationSummariesCommandOutput> {
-    return deserializeAws_json1_0GetRecommendationSummariesCommand(output, context);
+    return de_GetRecommendationSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

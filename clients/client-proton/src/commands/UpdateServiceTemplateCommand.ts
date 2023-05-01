@@ -19,22 +19,24 @@ import {
   UpdateServiceTemplateOutput,
   UpdateServiceTemplateOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateServiceTemplateCommand,
-  serializeAws_json1_0UpdateServiceTemplateCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateServiceTemplateCommand, se_UpdateServiceTemplateCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateServiceTemplateCommand}.
  */
 export interface UpdateServiceTemplateCommandInput extends UpdateServiceTemplateInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateServiceTemplateCommand}.
  */
 export interface UpdateServiceTemplateCommandOutput extends UpdateServiceTemplateOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a service template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,17 @@ export interface UpdateServiceTemplateCommandOutput extends UpdateServiceTemplat
  * import { ProtonClient, UpdateServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // UpdateServiceTemplateInput
+ *   name: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateServiceTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateServiceTemplateCommandInput - {@link UpdateServiceTemplateCommandInput}
+ * @returns {@link UpdateServiceTemplateCommandOutput}
  * @see {@link UpdateServiceTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -87,6 +96,9 @@ export class UpdateServiceTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,12 +138,18 @@ export class UpdateServiceTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateServiceTemplateCommand(input, context);
+    return se_UpdateServiceTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceTemplateCommandOutput> {
-    return deserializeAws_json1_0UpdateServiceTemplateCommand(output, context);
+    return de_UpdateServiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

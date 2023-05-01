@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  BatchCreateRoomMembershipRequest,
-  BatchCreateRoomMembershipRequestFilterSensitiveLog,
-  BatchCreateRoomMembershipResponse,
-  BatchCreateRoomMembershipResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchCreateRoomMembershipCommand,
-  serializeAws_restJson1BatchCreateRoomMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { BatchCreateRoomMembershipRequest, BatchCreateRoomMembershipResponse } from "../models/models_0";
+import { de_BatchCreateRoomMembershipCommand, se_BatchCreateRoomMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchCreateRoomMembershipCommand}.
  */
 export interface BatchCreateRoomMembershipCommandInput extends BatchCreateRoomMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchCreateRoomMembershipCommand}.
  */
 export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomMembershipResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds up to 50 members to a chat room in an Amazon Chime Enterprise account. Members can be users or bots. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomM
  * import { ChimeClient, BatchCreateRoomMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, BatchCreateRoomMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // BatchCreateRoomMembershipRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   RoomId: "STRING_VALUE", // required
+ *   MembershipItemList: [ // MembershipItemList // required
+ *     { // MembershipItem
+ *       MemberId: "STRING_VALUE",
+ *       Role: "Administrator" || "Member",
+ *     },
+ *   ],
+ * };
  * const command = new BatchCreateRoomMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchCreateRoomMembershipCommandInput - {@link BatchCreateRoomMembershipCommandInput}
+ * @returns {@link BatchCreateRoomMembershipCommandOutput}
  * @see {@link BatchCreateRoomMembershipCommandInput} for command's `input` shape.
  * @see {@link BatchCreateRoomMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +99,9 @@ export class BatchCreateRoomMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchCreateRoomMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class BatchCreateRoomMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateRoomMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateRoomMembershipResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +141,21 @@ export class BatchCreateRoomMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchCreateRoomMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchCreateRoomMembershipCommand(input, context);
+    return se_BatchCreateRoomMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchCreateRoomMembershipCommandOutput> {
-    return deserializeAws_restJson1BatchCreateRoomMembershipCommand(output, context);
+    return de_BatchCreateRoomMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

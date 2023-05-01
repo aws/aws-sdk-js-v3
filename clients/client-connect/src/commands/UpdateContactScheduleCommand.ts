@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateContactScheduleRequest,
-  UpdateContactScheduleRequestFilterSensitiveLog,
-  UpdateContactScheduleResponse,
-  UpdateContactScheduleResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateContactScheduleCommand,
-  serializeAws_restJson1UpdateContactScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateContactScheduleRequest, UpdateContactScheduleResponse } from "../models/models_1";
+import { de_UpdateContactScheduleCommand, se_UpdateContactScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateContactScheduleCommand}.
  */
 export interface UpdateContactScheduleCommandInput extends UpdateContactScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateContactScheduleCommand}.
  */
 export interface UpdateContactScheduleCommandOutput extends UpdateContactScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the scheduled time of a task contact that is already scheduled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface UpdateContactScheduleCommandOutput extends UpdateContactSchedul
  * import { ConnectClient, UpdateContactScheduleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactScheduleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateContactScheduleRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   ScheduledTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new UpdateContactScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateContactScheduleCommandInput - {@link UpdateContactScheduleCommandInput}
+ * @returns {@link UpdateContactScheduleCommandOutput}
  * @see {@link UpdateContactScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateContactScheduleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +91,9 @@ export class UpdateContactScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class UpdateContactScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContactScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContactScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class UpdateContactScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateContactScheduleCommand(input, context);
+    return se_UpdateContactScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactScheduleCommandOutput> {
-    return deserializeAws_restJson1UpdateContactScheduleCommand(output, context);
+    return de_UpdateContactScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

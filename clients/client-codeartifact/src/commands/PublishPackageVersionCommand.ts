@@ -18,17 +18,15 @@ import {
   PublishPackageVersionRequest,
   PublishPackageVersionRequestFilterSensitiveLog,
   PublishPackageVersionResult,
-  PublishPackageVersionResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1PublishPackageVersionCommand,
-  serializeAws_restJson1PublishPackageVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PublishPackageVersionCommand, se_PublishPackageVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PublishPackageVersionCommand}.
  */
-type PublishPackageVersionCommandInputType = Omit<PublishPackageVersionRequest, "assetContent"> & {
+export type PublishPackageVersionCommandInputType = Omit<PublishPackageVersionRequest, "assetContent"> & {
   /**
    * For *`PublishPackageVersionRequest["assetContent"]`*, see {@link PublishPackageVersionRequest.assetContent}.
    */
@@ -39,15 +37,23 @@ type PublishPackageVersionCommandInputType = Omit<PublishPackageVersionRequest, 
  */
 export interface PublishPackageVersionCommandInput extends PublishPackageVersionCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link PublishPackageVersionCommand}.
  */
 export interface PublishPackageVersionCommandOutput extends PublishPackageVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new package version containing one or more assets (or files).</p>
- *          <p>The <code>unfinished</code> flag can be used to keep the package version in the <code>Unfinished</code> state until all of it’s assets have been uploaded (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact user guide</i>). To set the package version’s status to <code>Published</code>, omit the <code>unfinished</code> flag when uploading the final asset, or set the status using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionStatus</a>. Once a package version’s status is set to <code>Published</code>, it cannot change back to <code>Unfinished</code>.</p>
+ *          <p>The <code>unfinished</code> flag can be used to keep the package version in the
+ *         <code>Unfinished</code> state until all of its assets have been uploaded (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact user guide</i>). To set
+ *       the package version’s status to <code>Published</code>, omit the <code>unfinished</code> flag
+ *       when uploading the final asset, or set the status using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionStatus</a>. Once a package version’s status is set to
+ *         <code>Published</code>, it cannot change back to <code>Unfinished</code>.</p>
  *          <note>
- *             <p>Only generic packages can be published using this API.</p>
+ *             <p>Only generic packages can be published using this API. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html">Using generic
+ *           packages</a> in the <i>CodeArtifact User Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,10 +61,25 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * import { CodeartifactClient, PublishPackageVersionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, PublishPackageVersionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // PublishPackageVersionRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   packageVersion: "STRING_VALUE", // required
+ *   assetContent: "STREAMING_BLOB_VALUE", // required
+ *   assetName: "STRING_VALUE", // required
+ *   assetSHA256: "STRING_VALUE", // required
+ *   unfinished: true || false,
+ * };
  * const command = new PublishPackageVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishPackageVersionCommandInput - {@link PublishPackageVersionCommandInput}
+ * @returns {@link PublishPackageVersionCommandOutput}
  * @see {@link PublishPackageVersionCommandInput} for command's `input` shape.
  * @see {@link PublishPackageVersionCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -115,6 +136,9 @@ export class PublishPackageVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishPackageVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,7 +168,7 @@ export class PublishPackageVersionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PublishPackageVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishPackageVersionResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +178,18 @@ export class PublishPackageVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishPackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishPackageVersionCommand(input, context);
+    return se_PublishPackageVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishPackageVersionCommandOutput> {
-    return deserializeAws_restJson1PublishPackageVersionCommand(output, context);
+    return de_PublishPackageVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListIncomingTypedLinksRequest,
-  ListIncomingTypedLinksRequestFilterSensitiveLog,
-  ListIncomingTypedLinksResponse,
-  ListIncomingTypedLinksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListIncomingTypedLinksCommand,
-  serializeAws_restJson1ListIncomingTypedLinksCommand,
-} from "../protocols/Aws_restJson1";
+import { ListIncomingTypedLinksRequest, ListIncomingTypedLinksResponse } from "../models/models_0";
+import { de_ListIncomingTypedLinksCommand, se_ListIncomingTypedLinksCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListIncomingTypedLinksCommand}.
  */
 export interface ListIncomingTypedLinksCommandInput extends ListIncomingTypedLinksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListIncomingTypedLinksCommand}.
  */
 export interface ListIncomingTypedLinksCommandOutput extends ListIncomingTypedLinksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>
  *       information for an object. It also supports filtering by typed link facet and identity
  *       attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
@@ -44,10 +41,48 @@ export interface ListIncomingTypedLinksCommandOutput extends ListIncomingTypedLi
  * import { CloudDirectoryClient, ListIncomingTypedLinksCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListIncomingTypedLinksCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListIncomingTypedLinksRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ObjectReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   FilterAttributeRanges: [ // TypedLinkAttributeRangeList
+ *     { // TypedLinkAttributeRange
+ *       AttributeName: "STRING_VALUE",
+ *       Range: { // TypedAttributeValueRange
+ *         StartMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *         StartValue: { // TypedAttributeValue Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *         EndMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *         EndValue: {//  Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   FilterTypedLink: { // TypedLinkSchemaAndFacetName
+ *     SchemaArn: "STRING_VALUE", // required
+ *     TypedLinkName: "STRING_VALUE", // required
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ * };
  * const command = new ListIncomingTypedLinksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListIncomingTypedLinksCommandInput - {@link ListIncomingTypedLinksCommandInput}
+ * @returns {@link ListIncomingTypedLinksCommandOutput}
  * @see {@link ListIncomingTypedLinksCommandInput} for command's `input` shape.
  * @see {@link ListIncomingTypedLinksCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -103,6 +138,9 @@ export class ListIncomingTypedLinksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListIncomingTypedLinksCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +169,8 @@ export class ListIncomingTypedLinksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIncomingTypedLinksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIncomingTypedLinksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +180,18 @@ export class ListIncomingTypedLinksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListIncomingTypedLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIncomingTypedLinksCommand(input, context);
+    return se_ListIncomingTypedLinksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIncomingTypedLinksCommandOutput> {
-    return deserializeAws_restJson1ListIncomingTypedLinksCommand(output, context);
+    return de_ListIncomingTypedLinksCommand(output, context);
   }
 
   // Start section: command_body_extra

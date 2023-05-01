@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  DescribeJobRunRequest,
-  DescribeJobRunRequestFilterSensitiveLog,
-  DescribeJobRunResponse,
-  DescribeJobRunResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobRunCommand,
-  serializeAws_restJson1DescribeJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeJobRunRequest, DescribeJobRunResponse } from "../models/models_0";
+import { de_DescribeJobRunCommand, se_DescribeJobRunCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobRunCommand}.
  */
 export interface DescribeJobRunCommandInput extends DescribeJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobRunCommand}.
  */
 export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Represents one run of a DataBrew job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __M
  * import { DataBrewClient, DescribeJobRunCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeJobRunCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // DescribeJobRunRequest
+ *   Name: "STRING_VALUE", // required
+ *   RunId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJobRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobRunCommandInput - {@link DescribeJobRunCommandInput}
+ * @returns {@link DescribeJobRunCommandOutput}
  * @see {@link DescribeJobRunCommandInput} for command's `input` shape.
  * @see {@link DescribeJobRunCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -75,6 +78,9 @@ export class DescribeJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class DescribeJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJobRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +120,18 @@ export class DescribeJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobRunCommand(input, context);
+    return se_DescribeJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobRunCommandOutput> {
-    return deserializeAws_restJson1DescribeJobRunCommand(output, context);
+    return de_DescribeJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

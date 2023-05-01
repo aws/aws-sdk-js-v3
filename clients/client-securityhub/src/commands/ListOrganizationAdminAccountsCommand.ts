@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/models_2";
 import {
-  ListOrganizationAdminAccountsRequest,
-  ListOrganizationAdminAccountsRequestFilterSensitiveLog,
-  ListOrganizationAdminAccountsResponse,
-  ListOrganizationAdminAccountsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListOrganizationAdminAccountsCommand,
-  serializeAws_restJson1ListOrganizationAdminAccountsCommand,
+  de_ListOrganizationAdminAccountsCommand,
+  se_ListOrganizationAdminAccountsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOrganizationAdminAccountsCommand}.
  */
 export interface ListOrganizationAdminAccountsCommandInput extends ListOrganizationAdminAccountsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOrganizationAdminAccountsCommand}.
  */
 export interface ListOrganizationAdminAccountsCommandOutput
@@ -37,6 +36,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the Security Hub administrator accounts. Can only be called by the organization
  *          management account.</p>
  * @example
@@ -45,10 +45,16 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * import { SecurityHubClient, ListOrganizationAdminAccountsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListOrganizationAdminAccountsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // ListOrganizationAdminAccountsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOrganizationAdminAccountsCommandInput - {@link ListOrganizationAdminAccountsCommandInput}
+ * @returns {@link ListOrganizationAdminAccountsCommandOutput}
  * @see {@link ListOrganizationAdminAccountsCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationAdminAccountsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -68,6 +74,27 @@ export interface ListOrganizationAdminAccountsCommandOutput
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To list administrator acccounts for an organization
+ * ```javascript
+ * // The following example lists the Security  Hub administrator accounts for an organization. Only the organization management account can call this operation.
+ * const input = undefined;
+ * const command = new ListOrganizationAdminAccountsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AdminAccounts": [
+ *     {
+ *       "AccountId": "777788889999"
+ *     },
+ *     {
+ *       "Status": "ENABLED"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-administrator-acccounts-for-an-organization-1678386548110
+ * ```
+ *
  */
 export class ListOrganizationAdminAccountsCommand extends $Command<
   ListOrganizationAdminAccountsCommandInput,
@@ -86,6 +113,9 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOrganizationAdminAccountsCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +144,8 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOrganizationAdminAccountsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOrganizationAdminAccountsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,15 +155,21 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOrganizationAdminAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOrganizationAdminAccountsCommand(input, context);
+    return se_ListOrganizationAdminAccountsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOrganizationAdminAccountsCommandOutput> {
-    return deserializeAws_restJson1ListOrganizationAdminAccountsCommand(output, context);
+    return de_ListOrganizationAdminAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

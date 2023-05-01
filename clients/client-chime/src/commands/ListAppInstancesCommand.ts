@@ -20,21 +20,23 @@ import {
   ListAppInstancesResponse,
   ListAppInstancesResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListAppInstancesCommand,
-  serializeAws_restJson1ListAppInstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAppInstancesCommand, se_ListAppInstancesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppInstancesCommand}.
  */
 export interface ListAppInstancesCommandInput extends ListAppInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppInstancesCommand}.
  */
 export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,16 @@ export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse,
  * import { ChimeClient, ListAppInstancesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListAppInstancesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListAppInstancesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAppInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppInstancesCommandInput - {@link ListAppInstancesCommandInput}
+ * @returns {@link ListAppInstancesCommandOutput}
  * @see {@link ListAppInstancesCommandInput} for command's `input` shape.
  * @see {@link ListAppInstancesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -87,6 +95,9 @@ export class ListAppInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,12 +137,18 @@ export class ListAppInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppInstancesCommand(input, context);
+    return se_ListAppInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppInstancesCommandOutput> {
-    return deserializeAws_restJson1ListAppInstancesCommand(output, context);
+    return de_ListAppInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

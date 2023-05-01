@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { ScanInput, ScanInputFilterSensitiveLog, ScanOutput, ScanOutputFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_json1_0ScanCommand, serializeAws_json1_0ScanCommand } from "../protocols/Aws_json1_0";
+import { ScanInput, ScanOutput } from "../models/models_0";
+import { de_ScanCommand, se_ScanCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ScanCommand}.
  */
 export interface ScanCommandInput extends ScanInput {}
 /**
+ * @public
+ *
  * The output of {@link ScanCommand}.
  */
 export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>Scan</code> operation returns one or more items and item attributes by
  *             accessing every item in a table or a secondary index. To have DynamoDB return fewer
  *             items, you can provide a <code>FilterExpression</code> operation.</p>
@@ -59,10 +64,87 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  * import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ScanCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // ScanInput
+ *   TableName: "STRING_VALUE", // required
+ *   IndexName: "STRING_VALUE",
+ *   AttributesToGet: [ // AttributeNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   Select: "ALL_ATTRIBUTES" || "ALL_PROJECTED_ATTRIBUTES" || "SPECIFIC_ATTRIBUTES" || "COUNT",
+ *   ScanFilter: { // FilterConditionMap
+ *     "<keys>": { // Condition
+ *       AttributeValueList: [ // AttributeValueList
+ *         { // AttributeValue Union: only one key present
+ *           S: "STRING_VALUE",
+ *           N: "STRING_VALUE",
+ *           B: "BLOB_VALUE",
+ *           SS: [ // StringSetAttributeValue
+ *             "STRING_VALUE",
+ *           ],
+ *           NS: [ // NumberSetAttributeValue
+ *             "STRING_VALUE",
+ *           ],
+ *           BS: [ // BinarySetAttributeValue
+ *             "BLOB_VALUE",
+ *           ],
+ *           M: { // MapAttributeValue
+ *             "<keys>": {//  Union: only one key present
+ *               S: "STRING_VALUE",
+ *               N: "STRING_VALUE",
+ *               B: "BLOB_VALUE",
+ *               SS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               NS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               BS: [
+ *                 "BLOB_VALUE",
+ *               ],
+ *               M: {
+ *                 "<keys>": "<AttributeValue>",
+ *               },
+ *               L: [ // ListAttributeValue
+ *                 "<AttributeValue>",
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
+ *             },
+ *           },
+ *           L: [
+ *             "<AttributeValue>",
+ *           ],
+ *           NULL: true || false,
+ *           BOOL: true || false,
+ *         },
+ *       ],
+ *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH", // required
+ *     },
+ *   },
+ *   ConditionalOperator: "AND" || "OR",
+ *   ExclusiveStartKey: { // Key
+ *     "<keys>": "<AttributeValue>",
+ *   },
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   TotalSegments: Number("int"),
+ *   Segment: Number("int"),
+ *   ProjectionExpression: "STRING_VALUE",
+ *   FilterExpression: "STRING_VALUE",
+ *   ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ExpressionAttributeValues: { // ExpressionAttributeValueMap
+ *     "<keys>": "<AttributeValue>",
+ *   },
+ *   ConsistentRead: true || false,
+ * };
  * const command = new ScanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ScanCommandInput - {@link ScanCommandInput}
+ * @returns {@link ScanCommandOutput}
  * @see {@link ScanCommandInput} for command's `input` shape.
  * @see {@link ScanCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -149,6 +231,9 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ScanCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,8 +260,8 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ScanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -186,12 +271,18 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ScanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ScanCommand(input, context);
+    return se_ScanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScanCommandOutput> {
-    return deserializeAws_json1_0ScanCommand(output, context);
+    return de_ScanCommand(output, context);
   }
 
   // Start section: command_body_extra

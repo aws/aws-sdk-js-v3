@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import {
-  MeterUsageRequest,
-  MeterUsageRequestFilterSensitiveLog,
-  MeterUsageResult,
-  MeterUsageResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1MeterUsageCommand,
-  serializeAws_json1_1MeterUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { MeterUsageRequest, MeterUsageResult } from "../models/models_0";
+import { de_MeterUsageCommand, se_MeterUsageCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link MeterUsageCommand}.
  */
 export interface MeterUsageCommandInput extends MeterUsageRequest {}
 /**
+ * @public
+ *
  * The output of {@link MeterUsageCommand}.
  */
 export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>API to emit metering records. For identical requests, the API is idempotent. It simply
  *             returns the metering record ID.</p>
  *         <p>
@@ -56,10 +53,30 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * import { MarketplaceMeteringClient, MeterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, MeterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
+ * const input = { // MeterUsageRequest
+ *   ProductCode: "STRING_VALUE", // required
+ *   Timestamp: new Date("TIMESTAMP"), // required
+ *   UsageDimension: "STRING_VALUE", // required
+ *   UsageQuantity: Number("int"),
+ *   DryRun: true || false,
+ *   UsageAllocations: [ // UsageAllocations
+ *     { // UsageAllocation
+ *       AllocatedUsageQuantity: Number("int"), // required
+ *       Tags: [ // TagList
+ *         { // Tag
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new MeterUsageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param MeterUsageCommandInput - {@link MeterUsageCommandInput}
+ * @returns {@link MeterUsageCommandOutput}
  * @see {@link MeterUsageCommandInput} for command's `input` shape.
  * @see {@link MeterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
@@ -126,6 +143,9 @@ export class MeterUsageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: MeterUsageCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,8 +172,8 @@ export class MeterUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MeterUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MeterUsageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -163,12 +183,18 @@ export class MeterUsageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MeterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MeterUsageCommand(input, context);
+    return se_MeterUsageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MeterUsageCommandOutput> {
-    return deserializeAws_json1_1MeterUsageCommand(output, context);
+    return de_MeterUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

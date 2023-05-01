@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DeregisterEventTopicRequest,
-  DeregisterEventTopicRequestFilterSensitiveLog,
-  DeregisterEventTopicResult,
-  DeregisterEventTopicResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterEventTopicCommand,
-  serializeAws_json1_1DeregisterEventTopicCommand,
-} from "../protocols/Aws_json1_1";
+import { DeregisterEventTopicRequest, DeregisterEventTopicResult } from "../models/models_0";
+import { de_DeregisterEventTopicCommand, se_DeregisterEventTopicCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterEventTopicCommand}.
  */
 export interface DeregisterEventTopicCommandInput extends DeregisterEventTopicRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterEventTopicCommand}.
  */
 export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified directory as a publisher to the specified Amazon SNS topic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  * import { DirectoryServiceClient, DeregisterEventTopicCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeregisterEventTopicCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DeregisterEventTopicRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   TopicName: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterEventTopicCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterEventTopicCommandInput - {@link DeregisterEventTopicCommandInput}
+ * @returns {@link DeregisterEventTopicCommandOutput}
  * @see {@link DeregisterEventTopicCommandInput} for command's `input` shape.
  * @see {@link DeregisterEventTopicCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -81,6 +84,9 @@ export class DeregisterEventTopicCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterEventTopicCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +115,8 @@ export class DeregisterEventTopicCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterEventTopicRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterEventTopicResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +126,18 @@ export class DeregisterEventTopicCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterEventTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterEventTopicCommand(input, context);
+    return se_DeregisterEventTopicCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterEventTopicCommandOutput> {
-    return deserializeAws_json1_1DeregisterEventTopicCommand(output, context);
+    return de_DeregisterEventTopicCommand(output, context);
   }
 
   // Start section: command_body_extra

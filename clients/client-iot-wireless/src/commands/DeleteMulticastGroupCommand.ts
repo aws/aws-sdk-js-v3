@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  DeleteMulticastGroupRequest,
-  DeleteMulticastGroupRequestFilterSensitiveLog,
-  DeleteMulticastGroupResponse,
-  DeleteMulticastGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMulticastGroupCommand,
-  serializeAws_restJson1DeleteMulticastGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteMulticastGroupRequest, DeleteMulticastGroupResponse } from "../models/models_0";
+import { de_DeleteMulticastGroupCommand, se_DeleteMulticastGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteMulticastGroupCommand}.
  */
 export interface DeleteMulticastGroupCommandInput extends DeleteMulticastGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteMulticastGroupCommand}.
  */
 export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a multicast group if it is not in use by a fuota task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupR
  * import { IoTWirelessClient, DeleteMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // DeleteMulticastGroupRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMulticastGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteMulticastGroupCommandInput - {@link DeleteMulticastGroupCommandInput}
+ * @returns {@link DeleteMulticastGroupCommandOutput}
  * @see {@link DeleteMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteMulticastGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteMulticastGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DeleteMulticastGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMulticastGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMulticastGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DeleteMulticastGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteMulticastGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMulticastGroupCommand(input, context);
+    return se_DeleteMulticastGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMulticastGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteMulticastGroupCommand(output, context);
+    return de_DeleteMulticastGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

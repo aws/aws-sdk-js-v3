@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { CreateResourcePolicyStatementRequest, CreateResourcePolicyStatementResponse } from "../models/models_0";
 import {
-  CreateResourcePolicyStatementRequest,
-  CreateResourcePolicyStatementRequestFilterSensitiveLog,
-  CreateResourcePolicyStatementResponse,
-  CreateResourcePolicyStatementResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateResourcePolicyStatementCommand,
-  serializeAws_restJson1CreateResourcePolicyStatementCommand,
+  de_CreateResourcePolicyStatementCommand,
+  se_CreateResourcePolicyStatementCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateResourcePolicyStatementCommand}.
  */
 export interface CreateResourcePolicyStatementCommandInput extends CreateResourcePolicyStatementRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateResourcePolicyStatementCommand}.
  */
 export interface CreateResourcePolicyStatementCommandOutput
@@ -37,6 +36,7 @@ export interface CreateResourcePolicyStatementCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a new resource policy statement to a bot or bot alias. If a
  *          resource policy exists, the statement is added to the current resource
  *          policy. If a policy doesn't exist, a new policy is created.</p>
@@ -48,10 +48,32 @@ export interface CreateResourcePolicyStatementCommandOutput
  * import { LexModelsV2Client, CreateResourcePolicyStatementCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateResourcePolicyStatementCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = { // CreateResourcePolicyStatementRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   statementId: "STRING_VALUE", // required
+ *   effect: "Allow" || "Deny", // required
+ *   principal: [ // PrincipalList // required
+ *     { // Principal
+ *       service: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   action: [ // OperationList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   condition: { // ConditionMap
+ *     "<keys>": { // ConditionKeyValueMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   expectedRevisionId: "STRING_VALUE",
+ * };
  * const command = new CreateResourcePolicyStatementCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateResourcePolicyStatementCommandInput - {@link CreateResourcePolicyStatementCommandInput}
+ * @returns {@link CreateResourcePolicyStatementCommandOutput}
  * @see {@link CreateResourcePolicyStatementCommandInput} for command's `input` shape.
  * @see {@link CreateResourcePolicyStatementCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
@@ -104,6 +126,9 @@ export class CreateResourcePolicyStatementCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateResourcePolicyStatementCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +157,8 @@ export class CreateResourcePolicyStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResourcePolicyStatementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateResourcePolicyStatementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,15 +168,21 @@ export class CreateResourcePolicyStatementCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateResourcePolicyStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateResourcePolicyStatementCommand(input, context);
+    return se_CreateResourcePolicyStatementCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateResourcePolicyStatementCommandOutput> {
-    return deserializeAws_restJson1CreateResourcePolicyStatementCommand(output, context);
+    return de_CreateResourcePolicyStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

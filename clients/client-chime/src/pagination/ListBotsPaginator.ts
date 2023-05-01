@@ -6,7 +6,7 @@ import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "..
 import { ChimePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ChimeClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListBotsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListBots(
   config: ChimePaginationConfiguration,
   input: ListBotsCommandInput,

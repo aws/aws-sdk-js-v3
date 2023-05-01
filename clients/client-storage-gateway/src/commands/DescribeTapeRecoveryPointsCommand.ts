@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTapeRecoveryPointsInput,
-  DescribeTapeRecoveryPointsInputFilterSensitiveLog,
-  DescribeTapeRecoveryPointsOutput,
-  DescribeTapeRecoveryPointsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTapeRecoveryPointsCommand,
-  serializeAws_json1_1DescribeTapeRecoveryPointsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTapeRecoveryPointsInput, DescribeTapeRecoveryPointsOutput } from "../models/models_0";
+import { de_DescribeTapeRecoveryPointsCommand, se_DescribeTapeRecoveryPointsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTapeRecoveryPointsCommand}.
  */
 export interface DescribeTapeRecoveryPointsCommandInput extends DescribeTapeRecoveryPointsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTapeRecoveryPointsCommand}.
  */
 export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRecoveryPointsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of virtual tape recovery points that are available for the specified tape
  *          gateway.</p>
  *
@@ -48,10 +45,17 @@ export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRec
  * import { StorageGatewayClient, DescribeTapeRecoveryPointsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeTapeRecoveryPointsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // DescribeTapeRecoveryPointsInput
+ *   GatewayARN: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeTapeRecoveryPointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTapeRecoveryPointsCommandInput - {@link DescribeTapeRecoveryPointsCommandInput}
+ * @returns {@link DescribeTapeRecoveryPointsCommandOutput}
  * @see {@link DescribeTapeRecoveryPointsCommandInput} for command's `input` shape.
  * @see {@link DescribeTapeRecoveryPointsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -110,6 +114,9 @@ export class DescribeTapeRecoveryPointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTapeRecoveryPointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +145,8 @@ export class DescribeTapeRecoveryPointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTapeRecoveryPointsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTapeRecoveryPointsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,15 +156,21 @@ export class DescribeTapeRecoveryPointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTapeRecoveryPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTapeRecoveryPointsCommand(input, context);
+    return se_DescribeTapeRecoveryPointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTapeRecoveryPointsCommandOutput> {
-    return deserializeAws_json1_1DescribeTapeRecoveryPointsCommand(output, context);
+    return de_DescribeTapeRecoveryPointsCommand(output, context);
   }
 
   // Start section: command_body_extra

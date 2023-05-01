@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  CreateRemoteAccessSessionRequest,
-  CreateRemoteAccessSessionRequestFilterSensitiveLog,
-  CreateRemoteAccessSessionResult,
-  CreateRemoteAccessSessionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRemoteAccessSessionCommand,
-  serializeAws_json1_1CreateRemoteAccessSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateRemoteAccessSessionRequest, CreateRemoteAccessSessionResult } from "../models/models_0";
+import { de_CreateRemoteAccessSessionCommand, se_CreateRemoteAccessSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRemoteAccessSessionCommand}.
  */
 export interface CreateRemoteAccessSessionCommandInput extends CreateRemoteAccessSessionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRemoteAccessSessionCommand}.
  */
 export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies and starts a remote access session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,31 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * import { DeviceFarmClient, CreateRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // CreateRemoteAccessSessionRequest
+ *   projectArn: "STRING_VALUE", // required
+ *   deviceArn: "STRING_VALUE", // required
+ *   instanceArn: "STRING_VALUE",
+ *   sshPublicKey: "STRING_VALUE",
+ *   remoteDebugEnabled: true || false,
+ *   remoteRecordEnabled: true || false,
+ *   remoteRecordAppArn: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   clientId: "STRING_VALUE",
+ *   configuration: { // CreateRemoteAccessSessionConfiguration
+ *     billingMethod: "METERED" || "UNMETERED",
+ *     vpceConfigurationArns: [ // AmazonResourceNames
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   interactionMode: "INTERACTIVE" || "NO_VIDEO" || "VIDEO_ONLY",
+ *   skipAppResign: true || false,
+ * };
  * const command = new CreateRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRemoteAccessSessionCommandInput - {@link CreateRemoteAccessSessionCommandInput}
+ * @returns {@link CreateRemoteAccessSessionCommandOutput}
  * @see {@link CreateRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link CreateRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -102,6 +120,9 @@ export class CreateRemoteAccessSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRemoteAccessSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +151,8 @@ export class CreateRemoteAccessSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRemoteAccessSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRemoteAccessSessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,15 +162,21 @@ export class CreateRemoteAccessSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRemoteAccessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRemoteAccessSessionCommand(input, context);
+    return se_CreateRemoteAccessSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRemoteAccessSessionCommandOutput> {
-    return deserializeAws_json1_1CreateRemoteAccessSessionCommand(output, context);
+    return de_CreateRemoteAccessSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

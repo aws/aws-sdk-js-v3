@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeFleetsRequest,
-  DescribeFleetsRequestFilterSensitiveLog,
-  DescribeFleetsResult,
-  DescribeFleetsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetsCommand,
-  serializeAws_json1_1DescribeFleetsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeFleetsRequest, DescribeFleetsResult } from "../models/models_0";
+import { de_DescribeFleetsCommand, se_DescribeFleetsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeFleetsCommand}.
  */
 export interface DescribeFleetsCommandInput extends DescribeFleetsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeFleetsCommand}.
  */
 export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * import { AppStreamClient, DescribeFleetsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeFleetsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeFleetsRequest
+ *   Names: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeFleetsCommandInput - {@link DescribeFleetsCommandInput}
+ * @returns {@link DescribeFleetsCommandOutput}
  * @see {@link DescribeFleetsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
@@ -72,6 +77,9 @@ export class DescribeFleetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeFleetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +108,8 @@ export class DescribeFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +119,18 @@ export class DescribeFleetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetsCommand(input, context);
+    return se_DescribeFleetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetsCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetsCommand(output, context);
+    return de_DescribeFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

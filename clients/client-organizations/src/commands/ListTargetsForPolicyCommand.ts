@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTargetsForPolicyRequest,
-  ListTargetsForPolicyRequestFilterSensitiveLog,
-  ListTargetsForPolicyResponse,
-  ListTargetsForPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTargetsForPolicyRequest, ListTargetsForPolicyResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListTargetsForPolicyCommand,
-  serializeAws_json1_1ListTargetsForPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTargetsForPolicyCommand, se_ListTargetsForPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTargetsForPolicyCommand}.
  */
 export interface ListTargetsForPolicyCommandInput extends ListTargetsForPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTargetsForPolicyCommand}.
  */
 export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the roots, organizational units (OUs), and accounts that the specified
  *             policy is attached to.</p>
  *          <note>
@@ -53,10 +50,17 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * import { OrganizationsClient, ListTargetsForPolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListTargetsForPolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // ListTargetsForPolicyRequest
+ *   PolicyId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTargetsForPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTargetsForPolicyCommandInput - {@link ListTargetsForPolicyCommandInput}
+ * @returns {@link ListTargetsForPolicyCommandOutput}
  * @see {@link ListTargetsForPolicyCommandInput} for command's `input` shape.
  * @see {@link ListTargetsForPolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -247,6 +251,9 @@ export class ListTargetsForPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTargetsForPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -275,8 +282,8 @@ export class ListTargetsForPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTargetsForPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTargetsForPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -286,12 +293,18 @@ export class ListTargetsForPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTargetsForPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTargetsForPolicyCommand(input, context);
+    return se_ListTargetsForPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsForPolicyCommandOutput> {
-    return deserializeAws_json1_1ListTargetsForPolicyCommand(output, context);
+    return de_ListTargetsForPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

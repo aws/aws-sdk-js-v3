@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteEmailIdentityPolicyRequest,
-  DeleteEmailIdentityPolicyRequestFilterSensitiveLog,
-  DeleteEmailIdentityPolicyResponse,
-  DeleteEmailIdentityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEmailIdentityPolicyCommand,
-  serializeAws_restJson1DeleteEmailIdentityPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteEmailIdentityPolicyRequest, DeleteEmailIdentityPolicyResponse } from "../models/models_0";
+import { de_DeleteEmailIdentityPolicyCommand, se_DeleteEmailIdentityPolicyCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEmailIdentityPolicyCommand}.
  */
 export interface DeleteEmailIdentityPolicyCommandInput extends DeleteEmailIdentityPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEmailIdentityPolicyCommand}.
  */
 export interface DeleteEmailIdentityPolicyCommandOutput extends DeleteEmailIdentityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified sending authorization policy for the given identity (an email
  *             address or a domain). This API returns successfully even if a policy with the specified
  *             name does not exist.</p>
@@ -53,10 +50,16 @@ export interface DeleteEmailIdentityPolicyCommandOutput extends DeleteEmailIdent
  * import { SESv2Client, DeleteEmailIdentityPolicyCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteEmailIdentityPolicyCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // DeleteEmailIdentityPolicyRequest
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEmailIdentityPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEmailIdentityPolicyCommandInput - {@link DeleteEmailIdentityPolicyCommandInput}
+ * @returns {@link DeleteEmailIdentityPolicyCommandOutput}
  * @see {@link DeleteEmailIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -89,6 +92,9 @@ export class DeleteEmailIdentityPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEmailIdentityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +123,8 @@ export class DeleteEmailIdentityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEmailIdentityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEmailIdentityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,15 +134,21 @@ export class DeleteEmailIdentityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEmailIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEmailIdentityPolicyCommand(input, context);
+    return se_DeleteEmailIdentityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEmailIdentityPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteEmailIdentityPolicyCommand(output, context);
+    return de_DeleteEmailIdentityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

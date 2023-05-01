@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListOriginAccessControlsRequest,
-  ListOriginAccessControlsRequestFilterSensitiveLog,
-  ListOriginAccessControlsResult,
-  ListOriginAccessControlsResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListOriginAccessControlsCommand,
-  serializeAws_restXmlListOriginAccessControlsCommand,
-} from "../protocols/Aws_restXml";
+import { ListOriginAccessControlsRequest, ListOriginAccessControlsResult } from "../models/models_1";
+import { de_ListOriginAccessControlsCommand, se_ListOriginAccessControlsCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListOriginAccessControlsCommand}.
  */
 export interface ListOriginAccessControlsCommandInput extends ListOriginAccessControlsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOriginAccessControlsCommand}.
  */
 export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessControlsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the list of CloudFront origin access controls in this Amazon Web Services account.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -47,10 +44,16 @@ export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessC
  * import { CloudFrontClient, ListOriginAccessControlsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListOriginAccessControlsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListOriginAccessControlsRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListOriginAccessControlsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOriginAccessControlsCommandInput - {@link ListOriginAccessControlsCommandInput}
+ * @returns {@link ListOriginAccessControlsCommandOutput}
  * @see {@link ListOriginAccessControlsCommandInput} for command's `input` shape.
  * @see {@link ListOriginAccessControlsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -77,6 +80,9 @@ export class ListOriginAccessControlsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOriginAccessControlsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +111,8 @@ export class ListOriginAccessControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOriginAccessControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOriginAccessControlsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +122,18 @@ export class ListOriginAccessControlsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOriginAccessControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListOriginAccessControlsCommand(input, context);
+    return se_ListOriginAccessControlsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOriginAccessControlsCommandOutput> {
-    return deserializeAws_restXmlListOriginAccessControlsCommand(output, context);
+    return de_ListOriginAccessControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeScheduledInstancesRequest,
-  DescribeScheduledInstancesRequestFilterSensitiveLog,
-  DescribeScheduledInstancesResult,
-  DescribeScheduledInstancesResultFilterSensitiveLog,
-} from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeScheduledInstancesCommand,
-  serializeAws_ec2DescribeScheduledInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { DescribeScheduledInstancesRequest, DescribeScheduledInstancesResult } from "../models/models_4";
+import { de_DescribeScheduledInstancesCommand, se_DescribeScheduledInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScheduledInstancesCommand}.
  */
 export interface DescribeScheduledInstancesCommandInput extends DescribeScheduledInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScheduledInstancesCommand}.
  */
 export interface DescribeScheduledInstancesCommandOutput extends DescribeScheduledInstancesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,32 @@ export interface DescribeScheduledInstancesCommandOutput extends DescribeSchedul
  * import { EC2Client, DescribeScheduledInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeScheduledInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeScheduledInstancesRequest
+ *   DryRun: true || false,
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ScheduledInstanceIds: [ // ScheduledInstanceIdRequestSet
+ *     "STRING_VALUE",
+ *   ],
+ *   SlotStartTimeRange: { // SlotStartTimeRangeRequest
+ *     EarliestTime: new Date("TIMESTAMP"),
+ *     LatestTime: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new DescribeScheduledInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScheduledInstancesCommandInput - {@link DescribeScheduledInstancesCommandInput}
+ * @returns {@link DescribeScheduledInstancesCommandOutput}
  * @see {@link DescribeScheduledInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -112,6 +131,9 @@ export class DescribeScheduledInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScheduledInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +162,8 @@ export class DescribeScheduledInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduledInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScheduledInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,15 +173,21 @@ export class DescribeScheduledInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScheduledInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeScheduledInstancesCommand(input, context);
+    return se_DescribeScheduledInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScheduledInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeScheduledInstancesCommand(output, context);
+    return de_DescribeScheduledInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

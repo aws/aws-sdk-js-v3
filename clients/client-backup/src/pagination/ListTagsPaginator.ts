@@ -6,7 +6,7 @@ import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "..
 import { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BackupClient,
@@ -16,6 +16,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTagsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTags(
   config: BackupPaginationConfiguration,
   input: ListTagsCommandInput,

@@ -12,26 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  HttpPayloadWithXmlNameInputOutput,
-  HttpPayloadWithXmlNameInputOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlHttpPayloadWithXmlNameCommand,
-  serializeAws_restXmlHttpPayloadWithXmlNameCommand,
-} from "../protocols/Aws_restXml";
+import { HttpPayloadWithXmlNameInputOutput } from "../models/models_0";
+import { de_HttpPayloadWithXmlNameCommand, se_HttpPayloadWithXmlNameCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpPayloadWithXmlNameCommand}.
  */
 export interface HttpPayloadWithXmlNameCommandInput extends HttpPayloadWithXmlNameInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link HttpPayloadWithXmlNameCommand}.
  */
 export interface HttpPayloadWithXmlNameCommandOutput extends HttpPayloadWithXmlNameInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * The following example serializes a payload that uses an XML name,
  * changing the wrapper name.
  * @example
@@ -40,10 +39,17 @@ export interface HttpPayloadWithXmlNameCommandOutput extends HttpPayloadWithXmlN
  * import { RestXmlProtocolClient, HttpPayloadWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = { // HttpPayloadWithXmlNameInputOutput
+ *   nested: { // PayloadWithXmlName
+ *     name: "STRING_VALUE",
+ *   },
+ * };
  * const command = new HttpPayloadWithXmlNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpPayloadWithXmlNameCommandInput - {@link HttpPayloadWithXmlNameCommandInput}
+ * @returns {@link HttpPayloadWithXmlNameCommandOutput}
  * @see {@link HttpPayloadWithXmlNameCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -58,6 +64,9 @@ export class HttpPayloadWithXmlNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpPayloadWithXmlNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,8 +92,8 @@ export class HttpPayloadWithXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadWithXmlNameInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadWithXmlNameInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +103,18 @@ export class HttpPayloadWithXmlNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpPayloadWithXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpPayloadWithXmlNameCommand(input, context);
+    return se_HttpPayloadWithXmlNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPayloadWithXmlNameCommandOutput> {
-    return deserializeAws_restXmlHttpPayloadWithXmlNameCommand(output, context);
+    return de_HttpPayloadWithXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

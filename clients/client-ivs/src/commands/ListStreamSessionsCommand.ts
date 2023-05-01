@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  ListStreamSessionsRequest,
-  ListStreamSessionsRequestFilterSensitiveLog,
-  ListStreamSessionsResponse,
-  ListStreamSessionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListStreamSessionsCommand,
-  serializeAws_restJson1ListStreamSessionsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListStreamSessionsRequest, ListStreamSessionsResponse } from "../models/models_0";
+import { de_ListStreamSessionsCommand, se_ListStreamSessionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamSessionsCommand}.
  */
 export interface ListStreamSessionsCommandInput extends ListStreamSessionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamSessionsCommand}.
  */
 export interface ListStreamSessionsCommandOutput extends ListStreamSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a summary of current and previous streams for a specified channel in your account, in
  *       the AWS region where the API request is processed.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsRespo
  * import { IvsClient, ListStreamSessionsCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, ListStreamSessionsCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // ListStreamSessionsRequest
+ *   channelArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListStreamSessionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamSessionsCommandInput - {@link ListStreamSessionsCommandInput}
+ * @returns {@link ListStreamSessionsCommandOutput}
  * @see {@link ListStreamSessionsCommandInput} for command's `input` shape.
  * @see {@link ListStreamSessionsCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -79,6 +83,9 @@ export class ListStreamSessionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class ListStreamSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamSessionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class ListStreamSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStreamSessionsCommand(input, context);
+    return se_ListStreamSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamSessionsCommandOutput> {
-    return deserializeAws_restJson1ListStreamSessionsCommand(output, context);
+    return de_ListStreamSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

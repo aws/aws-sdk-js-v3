@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribeDashboardRequest,
-  DescribeDashboardRequestFilterSensitiveLog,
-  DescribeDashboardResponse,
-  DescribeDashboardResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDashboardCommand,
-  serializeAws_restJson1DescribeDashboardCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDashboardRequest, DescribeDashboardResponse } from "../models/models_0";
+import { de_DescribeDashboardCommand, se_DescribeDashboardCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDashboardCommand}.
  */
 export interface DescribeDashboardCommandInput extends DescribeDashboardRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDashboardCommand}.
  */
 export interface DescribeDashboardCommandOutput extends DescribeDashboardResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about a dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * import { IoTSiteWiseClient, DescribeDashboardCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeDashboardCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DescribeDashboardRequest
+ *   dashboardId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDashboardCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDashboardCommandInput - {@link DescribeDashboardCommandInput}
+ * @returns {@link DescribeDashboardCommandOutput}
  * @see {@link DescribeDashboardCommandInput} for command's `input` shape.
  * @see {@link DescribeDashboardCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -85,6 +87,9 @@ export class DescribeDashboardCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDashboardCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DescribeDashboardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDashboardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDashboardResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DescribeDashboardCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDashboardCommand(input, context);
+    return se_DescribeDashboardCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDashboardCommandOutput> {
-    return deserializeAws_restJson1DescribeDashboardCommand(output, context);
+    return de_DescribeDashboardCommand(output, context);
   }
 
   // Start section: command_body_extra

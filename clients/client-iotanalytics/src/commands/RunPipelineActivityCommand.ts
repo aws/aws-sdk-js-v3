@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  RunPipelineActivityRequest,
-  RunPipelineActivityRequestFilterSensitiveLog,
-  RunPipelineActivityResponse,
-  RunPipelineActivityResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RunPipelineActivityCommand,
-  serializeAws_restJson1RunPipelineActivityCommand,
-} from "../protocols/Aws_restJson1";
+import { RunPipelineActivityRequest, RunPipelineActivityResponse } from "../models/models_0";
+import { de_RunPipelineActivityCommand, se_RunPipelineActivityCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RunPipelineActivityCommand}.
  */
 export interface RunPipelineActivityCommandInput extends RunPipelineActivityRequest {}
 /**
+ * @public
+ *
  * The output of {@link RunPipelineActivityCommand}.
  */
 export interface RunPipelineActivityCommandOutput extends RunPipelineActivityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Simulates the results of running a pipeline activity on a message payload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,80 @@ export interface RunPipelineActivityCommandOutput extends RunPipelineActivityRes
  * import { IoTAnalyticsClient, RunPipelineActivityCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, RunPipelineActivityCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = { // RunPipelineActivityRequest
+ *   pipelineActivity: { // PipelineActivity
+ *     channel: { // ChannelActivity
+ *       name: "STRING_VALUE", // required
+ *       channelName: "STRING_VALUE", // required
+ *       next: "STRING_VALUE",
+ *     },
+ *     lambda: { // LambdaActivity
+ *       name: "STRING_VALUE", // required
+ *       lambdaName: "STRING_VALUE", // required
+ *       batchSize: Number("int"), // required
+ *       next: "STRING_VALUE",
+ *     },
+ *     datastore: { // DatastoreActivity
+ *       name: "STRING_VALUE", // required
+ *       datastoreName: "STRING_VALUE", // required
+ *     },
+ *     addAttributes: { // AddAttributesActivity
+ *       name: "STRING_VALUE", // required
+ *       attributes: { // AttributeNameMapping // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       next: "STRING_VALUE",
+ *     },
+ *     removeAttributes: { // RemoveAttributesActivity
+ *       name: "STRING_VALUE", // required
+ *       attributes: [ // AttributeNames // required
+ *         "STRING_VALUE",
+ *       ],
+ *       next: "STRING_VALUE",
+ *     },
+ *     selectAttributes: { // SelectAttributesActivity
+ *       name: "STRING_VALUE", // required
+ *       attributes: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       next: "STRING_VALUE",
+ *     },
+ *     filter: { // FilterActivity
+ *       name: "STRING_VALUE", // required
+ *       filter: "STRING_VALUE", // required
+ *       next: "STRING_VALUE",
+ *     },
+ *     math: { // MathActivity
+ *       name: "STRING_VALUE", // required
+ *       attribute: "STRING_VALUE", // required
+ *       math: "STRING_VALUE", // required
+ *       next: "STRING_VALUE",
+ *     },
+ *     deviceRegistryEnrich: { // DeviceRegistryEnrichActivity
+ *       name: "STRING_VALUE", // required
+ *       attribute: "STRING_VALUE", // required
+ *       thingName: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *       next: "STRING_VALUE",
+ *     },
+ *     deviceShadowEnrich: { // DeviceShadowEnrichActivity
+ *       name: "STRING_VALUE", // required
+ *       attribute: "STRING_VALUE", // required
+ *       thingName: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *       next: "STRING_VALUE",
+ *     },
+ *   },
+ *   payloads: [ // MessagePayloads // required
+ *     "BLOB_VALUE",
+ *   ],
+ * };
  * const command = new RunPipelineActivityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RunPipelineActivityCommandInput - {@link RunPipelineActivityCommandInput}
+ * @returns {@link RunPipelineActivityCommandOutput}
  * @see {@link RunPipelineActivityCommandInput} for command's `input` shape.
  * @see {@link RunPipelineActivityCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -81,6 +148,9 @@ export class RunPipelineActivityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RunPipelineActivityCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +179,8 @@ export class RunPipelineActivityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RunPipelineActivityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RunPipelineActivityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +190,18 @@ export class RunPipelineActivityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RunPipelineActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RunPipelineActivityCommand(input, context);
+    return se_RunPipelineActivityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunPipelineActivityCommandOutput> {
-    return deserializeAws_restJson1RunPipelineActivityCommand(output, context);
+    return de_RunPipelineActivityCommand(output, context);
   }
 
   // Start section: command_body_extra

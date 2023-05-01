@@ -13,31 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteServiceInput,
-  DeleteServiceInputFilterSensitiveLog,
-  DeleteServiceOutput,
-  DeleteServiceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteServiceCommand,
-  serializeAws_json1_0DeleteServiceCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteServiceInput, DeleteServiceOutput, DeleteServiceOutputFilterSensitiveLog } from "../models/models_0";
+import { de_DeleteServiceCommand, se_DeleteServiceCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServiceCommand}.
  */
 export interface DeleteServiceCommandInput extends DeleteServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServiceCommand}.
  */
 export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a service, with its instances and pipeline.</p>
  *          <note>
- *             <p>You can't delete a service if it has any service instances that have components attached to them.</p>
+ *             <p>You can't delete a service if it has any service instances that have components attached
+ *         to them.</p>
  *             <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
  *   <i>Proton User Guide</i>.</p>
@@ -48,10 +46,15 @@ export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __Metad
  * import { ProtonClient, DeleteServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // DeleteServiceInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServiceCommandInput - {@link DeleteServiceCommandInput}
+ * @returns {@link DeleteServiceCommandOutput}
  * @see {@link DeleteServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -93,6 +96,9 @@ export class DeleteServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,7 +125,7 @@ export class DeleteServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteServiceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -130,12 +136,18 @@ export class DeleteServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteServiceCommand(input, context);
+    return se_DeleteServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceCommandOutput> {
-    return deserializeAws_json1_0DeleteServiceCommand(output, context);
+    return de_DeleteServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { MediaTailorClient } from "../MediaTailorClient";
 import { MediaTailorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaTailorClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListSourceLocationsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListSourceLocations(
   config: MediaTailorPaginationConfiguration,
   input: ListSourceLocationsCommandInput,

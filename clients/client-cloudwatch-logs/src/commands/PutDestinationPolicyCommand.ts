@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { PutDestinationPolicyRequest, PutDestinationPolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutDestinationPolicyCommand,
-  serializeAws_json1_1PutDestinationPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutDestinationPolicyRequest } from "../models/models_0";
+import { de_PutDestinationPolicyCommand, se_PutDestinationPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDestinationPolicyCommand}.
  */
 export interface PutDestinationPolicyCommandInput extends PutDestinationPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDestinationPolicyCommand}.
  */
 export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates an access policy associated with an existing
  *       destination. An access policy is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used
  *       to authorize claims to register a subscription filter against a given destination.</p>
@@ -39,10 +41,17 @@ export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, PutDestinationPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutDestinationPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // PutDestinationPolicyRequest
+ *   destinationName: "STRING_VALUE", // required
+ *   accessPolicy: "STRING_VALUE", // required
+ *   forceUpdate: true || false,
+ * };
  * const command = new PutDestinationPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDestinationPolicyCommandInput - {@link PutDestinationPolicyCommandInput}
+ * @returns {@link PutDestinationPolicyCommandOutput}
  * @see {@link PutDestinationPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDestinationPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -75,6 +84,9 @@ export class PutDestinationPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDestinationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +115,8 @@ export class PutDestinationPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDestinationPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +126,18 @@ export class PutDestinationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDestinationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutDestinationPolicyCommand(input, context);
+    return se_PutDestinationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDestinationPolicyCommandOutput> {
-    return deserializeAws_json1_1PutDestinationPolicyCommand(output, context);
+    return de_PutDestinationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

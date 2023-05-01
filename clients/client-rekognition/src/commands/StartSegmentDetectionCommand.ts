@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartSegmentDetectionRequest,
-  StartSegmentDetectionRequestFilterSensitiveLog,
-  StartSegmentDetectionResponse,
-  StartSegmentDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartSegmentDetectionCommand,
-  serializeAws_json1_1StartSegmentDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { StartSegmentDetectionRequest, StartSegmentDetectionResponse } from "../models/models_0";
+import { de_StartSegmentDetectionCommand, se_StartSegmentDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartSegmentDetectionCommand}.
  */
 export interface StartSegmentDetectionCommandInput extends StartSegmentDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSegmentDetectionCommand}.
  */
 export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts asynchronous detection of segment detection in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect segments in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and
  *       the filename of the video. <code>StartSegmentDetection</code> returns a job identifier (<code>JobId</code>) which you use to get
@@ -55,10 +52,42 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  * import { RekognitionClient, StartSegmentDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartSegmentDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // StartSegmentDetectionRequest
+ *   Video: { // Video
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ *   Filters: { // StartSegmentDetectionFilters
+ *     TechnicalCueFilter: { // StartTechnicalCueDetectionFilter
+ *       MinSegmentConfidence: Number("float"),
+ *       BlackFrame: { // BlackFrame
+ *         MaxPixelThreshold: Number("float"),
+ *         MinCoveragePercentage: Number("float"),
+ *       },
+ *     },
+ *     ShotFilter: { // StartShotDetectionFilter
+ *       MinSegmentConfidence: Number("float"),
+ *     },
+ *   },
+ *   SegmentTypes: [ // SegmentTypes // required
+ *     "TECHNICAL_CUE" || "SHOT",
+ *   ],
+ * };
  * const command = new StartSegmentDetectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSegmentDetectionCommandInput - {@link StartSegmentDetectionCommandInput}
+ * @returns {@link StartSegmentDetectionCommandOutput}
  * @see {@link StartSegmentDetectionCommandInput} for command's `input` shape.
  * @see {@link StartSegmentDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -115,6 +144,9 @@ export class StartSegmentDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSegmentDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +175,8 @@ export class StartSegmentDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSegmentDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSegmentDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +186,18 @@ export class StartSegmentDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSegmentDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartSegmentDetectionCommand(input, context);
+    return se_StartSegmentDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSegmentDetectionCommandOutput> {
-    return deserializeAws_json1_1StartSegmentDetectionCommand(output, context);
+    return de_StartSegmentDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

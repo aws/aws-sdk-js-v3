@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DeleteCapacityProviderRequest,
-  DeleteCapacityProviderRequestFilterSensitiveLog,
-  DeleteCapacityProviderResponse,
-  DeleteCapacityProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCapacityProviderCommand,
-  serializeAws_json1_1DeleteCapacityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteCapacityProviderRequest, DeleteCapacityProviderResponse } from "../models/models_0";
+import { de_DeleteCapacityProviderCommand, se_DeleteCapacityProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteCapacityProviderCommand}.
  */
 export interface DeleteCapacityProviderCommandInput extends DeleteCapacityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteCapacityProviderCommand}.
  */
 export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified capacity provider.</p>
  *          <note>
  *             <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are
@@ -56,10 +53,15 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * import { ECSClient, DeleteCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DeleteCapacityProviderRequest
+ *   capacityProvider: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCapacityProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteCapacityProviderCommandInput - {@link DeleteCapacityProviderCommandInput}
+ * @returns {@link DeleteCapacityProviderCommandOutput}
  * @see {@link DeleteCapacityProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteCapacityProviderCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -95,6 +97,9 @@ export class DeleteCapacityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCapacityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +128,8 @@ export class DeleteCapacityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCapacityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCapacityProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +139,18 @@ export class DeleteCapacityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCapacityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCapacityProviderCommand(input, context);
+    return se_DeleteCapacityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCapacityProviderCommandOutput> {
-    return deserializeAws_json1_1DeleteCapacityProviderCommand(output, context);
+    return de_DeleteCapacityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

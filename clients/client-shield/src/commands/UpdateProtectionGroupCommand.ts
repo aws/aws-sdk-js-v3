@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateProtectionGroupRequest,
-  UpdateProtectionGroupRequestFilterSensitiveLog,
-  UpdateProtectionGroupResponse,
-  UpdateProtectionGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProtectionGroupCommand,
-  serializeAws_json1_1UpdateProtectionGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateProtectionGroupRequest, UpdateProtectionGroupResponse } from "../models/models_0";
+import { de_UpdateProtectionGroupCommand, se_UpdateProtectionGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateProtectionGroupCommand}.
  */
 export interface UpdateProtectionGroupCommandInput extends UpdateProtectionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateProtectionGroupCommand}.
  */
 export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing protection group. A protection group is a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,21 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
  * import { ShieldClient, UpdateProtectionGroupCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, UpdateProtectionGroupCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // UpdateProtectionGroupRequest
+ *   ProtectionGroupId: "STRING_VALUE", // required
+ *   Aggregation: "STRING_VALUE", // required
+ *   Pattern: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE",
+ *   Members: [ // ProtectionGroupMembers
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateProtectionGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateProtectionGroupCommandInput - {@link UpdateProtectionGroupCommandInput}
+ * @returns {@link UpdateProtectionGroupCommandOutput}
  * @see {@link UpdateProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -82,6 +90,9 @@ export class UpdateProtectionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateProtectionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class UpdateProtectionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProtectionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProtectionGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class UpdateProtectionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateProtectionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProtectionGroupCommand(input, context);
+    return se_UpdateProtectionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProtectionGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateProtectionGroupCommand(output, context);
+    return de_UpdateProtectionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

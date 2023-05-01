@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  DescribeWhatIfForecastRequest,
-  DescribeWhatIfForecastRequestFilterSensitiveLog,
-  DescribeWhatIfForecastResponse,
-  DescribeWhatIfForecastResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWhatIfForecastCommand,
-  serializeAws_json1_1DescribeWhatIfForecastCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeWhatIfForecastRequest, DescribeWhatIfForecastResponse } from "../models/models_0";
+import { de_DescribeWhatIfForecastCommand, se_DescribeWhatIfForecastCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWhatIfForecastCommand}.
  */
 export interface DescribeWhatIfForecastCommandInput extends DescribeWhatIfForecastRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWhatIfForecastCommand}.
  */
 export interface DescribeWhatIfForecastCommandOutput extends DescribeWhatIfForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the what-if forecast created using the <a>CreateWhatIfForecast</a> operation.</p>
  *          <p>In addition to listing the properties provided in the <code>CreateWhatIfForecast</code> request, this operation lists the following properties:</p>
  *          <ul>
@@ -64,10 +61,15 @@ export interface DescribeWhatIfForecastCommandOutput extends DescribeWhatIfForec
  * import { ForecastClient, DescribeWhatIfForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeWhatIfForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DescribeWhatIfForecastRequest
+ *   WhatIfForecastArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWhatIfForecastCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWhatIfForecastCommandInput - {@link DescribeWhatIfForecastCommandInput}
+ * @returns {@link DescribeWhatIfForecastCommandOutput}
  * @see {@link DescribeWhatIfForecastCommandInput} for command's `input` shape.
  * @see {@link DescribeWhatIfForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -99,6 +101,9 @@ export class DescribeWhatIfForecastCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWhatIfForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +132,8 @@ export class DescribeWhatIfForecastCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWhatIfForecastRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWhatIfForecastResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +143,18 @@ export class DescribeWhatIfForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWhatIfForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWhatIfForecastCommand(input, context);
+    return se_DescribeWhatIfForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWhatIfForecastCommandOutput> {
-    return deserializeAws_json1_1DescribeWhatIfForecastCommand(output, context);
+    return de_DescribeWhatIfForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

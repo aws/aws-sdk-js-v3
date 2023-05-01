@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  UpdateSettingsRequest,
-  UpdateSettingsRequestFilterSensitiveLog,
-  UpdateSettingsResponse,
-  UpdateSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSettingsCommand,
-  serializeAws_restJson1UpdateSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateSettingsRequest, UpdateSettingsResponse } from "../models/models_0";
+import { de_UpdateSettingsCommand, se_UpdateSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSettingsCommand}.
  */
 export interface UpdateSettingsCommandInput extends UpdateSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSettingsCommand}.
  */
 export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates Audit Manager settings for the current account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,30 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  * import { AuditManagerClient, UpdateSettingsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, UpdateSettingsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // UpdateSettingsRequest
+ *   snsTopic: "STRING_VALUE",
+ *   defaultAssessmentReportsDestination: { // AssessmentReportsDestination
+ *     destinationType: "S3",
+ *     destination: "STRING_VALUE",
+ *   },
+ *   defaultProcessOwners: [ // Roles
+ *     { // Role
+ *       roleType: "PROCESS_OWNER" || "RESOURCE_OWNER", // required
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   kmsKey: "STRING_VALUE",
+ *   evidenceFinderEnabled: true || false,
+ *   deregistrationPolicy: { // DeregistrationPolicy
+ *     deleteResources: "ALL" || "DEFAULT",
+ *   },
+ * };
  * const command = new UpdateSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSettingsCommandInput - {@link UpdateSettingsCommandInput}
+ * @returns {@link UpdateSettingsCommandOutput}
  * @see {@link UpdateSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateSettingsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -80,6 +97,9 @@ export class UpdateSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +128,8 @@ export class UpdateSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +139,18 @@ export class UpdateSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSettingsCommand(input, context);
+    return se_UpdateSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateSettingsCommand(output, context);
+    return de_UpdateSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

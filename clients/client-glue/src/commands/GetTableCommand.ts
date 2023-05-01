@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetTableRequest,
-  GetTableRequestFilterSensitiveLog,
-  GetTableResponse,
-  GetTableResponseFilterSensitiveLog,
-} from "../models/models_1";
-import { deserializeAws_json1_1GetTableCommand, serializeAws_json1_1GetTableCommand } from "../protocols/Aws_json1_1";
+import { GetTableRequest, GetTableResponse } from "../models/models_1";
+import { de_GetTableCommand, se_GetTableCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTableCommand}.
  */
 export interface GetTableCommandInput extends GetTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTableCommand}.
  */
 export interface GetTableCommandOutput extends GetTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the <code>Table</code> definition in a Data Catalog for
  *       a specified table.</p>
  * @example
@@ -40,16 +40,30 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * import { GlueClient, GetTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetTableRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   TransactionId: "STRING_VALUE",
+ *   QueryAsOfTime: new Date("TIMESTAMP"),
+ * };
  * const command = new GetTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTableCommandInput - {@link GetTableCommandInput}
+ * @returns {@link GetTableCommandOutput}
  * @see {@link GetTableCommandInput} for command's `input` shape.
  * @see {@link GetTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
@@ -81,6 +95,9 @@ export class GetTableCommand extends $Command<GetTableCommandInput, GetTableComm
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +124,8 @@ export class GetTableCommand extends $Command<GetTableCommandInput, GetTableComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +135,18 @@ export class GetTableCommand extends $Command<GetTableCommandInput, GetTableComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTableCommand(input, context);
+    return se_GetTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableCommandOutput> {
-    return deserializeAws_json1_1GetTableCommand(output, context);
+    return de_GetTableCommand(output, context);
   }
 
   // Start section: command_body_extra

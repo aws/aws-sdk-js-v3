@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { GetTypedLinkFacetInformationRequest, GetTypedLinkFacetInformationResponse } from "../models/models_0";
 import {
-  GetTypedLinkFacetInformationRequest,
-  GetTypedLinkFacetInformationRequestFilterSensitiveLog,
-  GetTypedLinkFacetInformationResponse,
-  GetTypedLinkFacetInformationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTypedLinkFacetInformationCommand,
-  serializeAws_restJson1GetTypedLinkFacetInformationCommand,
+  de_GetTypedLinkFacetInformationCommand,
+  se_GetTypedLinkFacetInformationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTypedLinkFacetInformationCommand}.
  */
 export interface GetTypedLinkFacetInformationCommandInput extends GetTypedLinkFacetInformationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTypedLinkFacetInformationCommand}.
  */
 export interface GetTypedLinkFacetInformationCommandOutput
@@ -37,6 +36,7 @@ export interface GetTypedLinkFacetInformationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the identity attribute order for a specific <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,16 @@ export interface GetTypedLinkFacetInformationCommandOutput
  * import { CloudDirectoryClient, GetTypedLinkFacetInformationCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetTypedLinkFacetInformationCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // GetTypedLinkFacetInformationRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetTypedLinkFacetInformationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTypedLinkFacetInformationCommandInput - {@link GetTypedLinkFacetInformationCommandInput}
+ * @returns {@link GetTypedLinkFacetInformationCommandOutput}
  * @see {@link GetTypedLinkFacetInformationCommandInput} for command's `input` shape.
  * @see {@link GetTypedLinkFacetInformationCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -99,6 +105,9 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTypedLinkFacetInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +136,8 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTypedLinkFacetInformationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTypedLinkFacetInformationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,15 +147,21 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTypedLinkFacetInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTypedLinkFacetInformationCommand(input, context);
+    return se_GetTypedLinkFacetInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTypedLinkFacetInformationCommandOutput> {
-    return deserializeAws_restJson1GetTypedLinkFacetInformationCommand(output, context);
+    return de_GetTypedLinkFacetInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

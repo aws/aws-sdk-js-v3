@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -178,9 +179,651 @@ import {
   UpdateCostCategoryDefinitionCommandInput,
   UpdateCostCategoryDefinitionCommandOutput,
 } from "./commands/UpdateCostCategoryDefinitionCommand";
-import { CostExplorerClient } from "./CostExplorerClient";
+import { CostExplorerClient, CostExplorerClientConfig } from "./CostExplorerClient";
+
+const commands = {
+  CreateAnomalyMonitorCommand,
+  CreateAnomalySubscriptionCommand,
+  CreateCostCategoryDefinitionCommand,
+  DeleteAnomalyMonitorCommand,
+  DeleteAnomalySubscriptionCommand,
+  DeleteCostCategoryDefinitionCommand,
+  DescribeCostCategoryDefinitionCommand,
+  GetAnomaliesCommand,
+  GetAnomalyMonitorsCommand,
+  GetAnomalySubscriptionsCommand,
+  GetCostAndUsageCommand,
+  GetCostAndUsageWithResourcesCommand,
+  GetCostCategoriesCommand,
+  GetCostForecastCommand,
+  GetDimensionValuesCommand,
+  GetReservationCoverageCommand,
+  GetReservationPurchaseRecommendationCommand,
+  GetReservationUtilizationCommand,
+  GetRightsizingRecommendationCommand,
+  GetSavingsPlansCoverageCommand,
+  GetSavingsPlansPurchaseRecommendationCommand,
+  GetSavingsPlansUtilizationCommand,
+  GetSavingsPlansUtilizationDetailsCommand,
+  GetTagsCommand,
+  GetUsageForecastCommand,
+  ListCostAllocationTagsCommand,
+  ListCostCategoryDefinitionsCommand,
+  ListSavingsPlansPurchaseRecommendationGenerationCommand,
+  ListTagsForResourceCommand,
+  ProvideAnomalyFeedbackCommand,
+  StartSavingsPlansPurchaseRecommendationGenerationCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateAnomalyMonitorCommand,
+  UpdateAnomalySubscriptionCommand,
+  UpdateCostAllocationTagsStatusCommand,
+  UpdateCostCategoryDefinitionCommand,
+};
+
+export interface CostExplorer {
+  /**
+   * @see {@link CreateAnomalyMonitorCommand}
+   */
+  createAnomalyMonitor(
+    args: CreateAnomalyMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnomalyMonitorCommandOutput>;
+  createAnomalyMonitor(
+    args: CreateAnomalyMonitorCommandInput,
+    cb: (err: any, data?: CreateAnomalyMonitorCommandOutput) => void
+  ): void;
+  createAnomalyMonitor(
+    args: CreateAnomalyMonitorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnomalyMonitorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAnomalySubscriptionCommand}
+   */
+  createAnomalySubscription(
+    args: CreateAnomalySubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnomalySubscriptionCommandOutput>;
+  createAnomalySubscription(
+    args: CreateAnomalySubscriptionCommandInput,
+    cb: (err: any, data?: CreateAnomalySubscriptionCommandOutput) => void
+  ): void;
+  createAnomalySubscription(
+    args: CreateAnomalySubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnomalySubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCostCategoryDefinitionCommand}
+   */
+  createCostCategoryDefinition(
+    args: CreateCostCategoryDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCostCategoryDefinitionCommandOutput>;
+  createCostCategoryDefinition(
+    args: CreateCostCategoryDefinitionCommandInput,
+    cb: (err: any, data?: CreateCostCategoryDefinitionCommandOutput) => void
+  ): void;
+  createCostCategoryDefinition(
+    args: CreateCostCategoryDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCostCategoryDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAnomalyMonitorCommand}
+   */
+  deleteAnomalyMonitor(
+    args: DeleteAnomalyMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAnomalyMonitorCommandOutput>;
+  deleteAnomalyMonitor(
+    args: DeleteAnomalyMonitorCommandInput,
+    cb: (err: any, data?: DeleteAnomalyMonitorCommandOutput) => void
+  ): void;
+  deleteAnomalyMonitor(
+    args: DeleteAnomalyMonitorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAnomalyMonitorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAnomalySubscriptionCommand}
+   */
+  deleteAnomalySubscription(
+    args: DeleteAnomalySubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAnomalySubscriptionCommandOutput>;
+  deleteAnomalySubscription(
+    args: DeleteAnomalySubscriptionCommandInput,
+    cb: (err: any, data?: DeleteAnomalySubscriptionCommandOutput) => void
+  ): void;
+  deleteAnomalySubscription(
+    args: DeleteAnomalySubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAnomalySubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCostCategoryDefinitionCommand}
+   */
+  deleteCostCategoryDefinition(
+    args: DeleteCostCategoryDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCostCategoryDefinitionCommandOutput>;
+  deleteCostCategoryDefinition(
+    args: DeleteCostCategoryDefinitionCommandInput,
+    cb: (err: any, data?: DeleteCostCategoryDefinitionCommandOutput) => void
+  ): void;
+  deleteCostCategoryDefinition(
+    args: DeleteCostCategoryDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCostCategoryDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCostCategoryDefinitionCommand}
+   */
+  describeCostCategoryDefinition(
+    args: DescribeCostCategoryDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCostCategoryDefinitionCommandOutput>;
+  describeCostCategoryDefinition(
+    args: DescribeCostCategoryDefinitionCommandInput,
+    cb: (err: any, data?: DescribeCostCategoryDefinitionCommandOutput) => void
+  ): void;
+  describeCostCategoryDefinition(
+    args: DescribeCostCategoryDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCostCategoryDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAnomaliesCommand}
+   */
+  getAnomalies(args: GetAnomaliesCommandInput, options?: __HttpHandlerOptions): Promise<GetAnomaliesCommandOutput>;
+  getAnomalies(args: GetAnomaliesCommandInput, cb: (err: any, data?: GetAnomaliesCommandOutput) => void): void;
+  getAnomalies(
+    args: GetAnomaliesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnomaliesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAnomalyMonitorsCommand}
+   */
+  getAnomalyMonitors(
+    args: GetAnomalyMonitorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnomalyMonitorsCommandOutput>;
+  getAnomalyMonitors(
+    args: GetAnomalyMonitorsCommandInput,
+    cb: (err: any, data?: GetAnomalyMonitorsCommandOutput) => void
+  ): void;
+  getAnomalyMonitors(
+    args: GetAnomalyMonitorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnomalyMonitorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAnomalySubscriptionsCommand}
+   */
+  getAnomalySubscriptions(
+    args: GetAnomalySubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnomalySubscriptionsCommandOutput>;
+  getAnomalySubscriptions(
+    args: GetAnomalySubscriptionsCommandInput,
+    cb: (err: any, data?: GetAnomalySubscriptionsCommandOutput) => void
+  ): void;
+  getAnomalySubscriptions(
+    args: GetAnomalySubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnomalySubscriptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCostAndUsageCommand}
+   */
+  getCostAndUsage(
+    args: GetCostAndUsageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostAndUsageCommandOutput>;
+  getCostAndUsage(args: GetCostAndUsageCommandInput, cb: (err: any, data?: GetCostAndUsageCommandOutput) => void): void;
+  getCostAndUsage(
+    args: GetCostAndUsageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostAndUsageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCostAndUsageWithResourcesCommand}
+   */
+  getCostAndUsageWithResources(
+    args: GetCostAndUsageWithResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostAndUsageWithResourcesCommandOutput>;
+  getCostAndUsageWithResources(
+    args: GetCostAndUsageWithResourcesCommandInput,
+    cb: (err: any, data?: GetCostAndUsageWithResourcesCommandOutput) => void
+  ): void;
+  getCostAndUsageWithResources(
+    args: GetCostAndUsageWithResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostAndUsageWithResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCostCategoriesCommand}
+   */
+  getCostCategories(
+    args: GetCostCategoriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostCategoriesCommandOutput>;
+  getCostCategories(
+    args: GetCostCategoriesCommandInput,
+    cb: (err: any, data?: GetCostCategoriesCommandOutput) => void
+  ): void;
+  getCostCategories(
+    args: GetCostCategoriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostCategoriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCostForecastCommand}
+   */
+  getCostForecast(
+    args: GetCostForecastCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostForecastCommandOutput>;
+  getCostForecast(args: GetCostForecastCommandInput, cb: (err: any, data?: GetCostForecastCommandOutput) => void): void;
+  getCostForecast(
+    args: GetCostForecastCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostForecastCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDimensionValuesCommand}
+   */
+  getDimensionValues(
+    args: GetDimensionValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDimensionValuesCommandOutput>;
+  getDimensionValues(
+    args: GetDimensionValuesCommandInput,
+    cb: (err: any, data?: GetDimensionValuesCommandOutput) => void
+  ): void;
+  getDimensionValues(
+    args: GetDimensionValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDimensionValuesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetReservationCoverageCommand}
+   */
+  getReservationCoverage(
+    args: GetReservationCoverageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReservationCoverageCommandOutput>;
+  getReservationCoverage(
+    args: GetReservationCoverageCommandInput,
+    cb: (err: any, data?: GetReservationCoverageCommandOutput) => void
+  ): void;
+  getReservationCoverage(
+    args: GetReservationCoverageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReservationCoverageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetReservationPurchaseRecommendationCommand}
+   */
+  getReservationPurchaseRecommendation(
+    args: GetReservationPurchaseRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReservationPurchaseRecommendationCommandOutput>;
+  getReservationPurchaseRecommendation(
+    args: GetReservationPurchaseRecommendationCommandInput,
+    cb: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
+  ): void;
+  getReservationPurchaseRecommendation(
+    args: GetReservationPurchaseRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetReservationUtilizationCommand}
+   */
+  getReservationUtilization(
+    args: GetReservationUtilizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReservationUtilizationCommandOutput>;
+  getReservationUtilization(
+    args: GetReservationUtilizationCommandInput,
+    cb: (err: any, data?: GetReservationUtilizationCommandOutput) => void
+  ): void;
+  getReservationUtilization(
+    args: GetReservationUtilizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReservationUtilizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRightsizingRecommendationCommand}
+   */
+  getRightsizingRecommendation(
+    args: GetRightsizingRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRightsizingRecommendationCommandOutput>;
+  getRightsizingRecommendation(
+    args: GetRightsizingRecommendationCommandInput,
+    cb: (err: any, data?: GetRightsizingRecommendationCommandOutput) => void
+  ): void;
+  getRightsizingRecommendation(
+    args: GetRightsizingRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRightsizingRecommendationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSavingsPlansCoverageCommand}
+   */
+  getSavingsPlansCoverage(
+    args: GetSavingsPlansCoverageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSavingsPlansCoverageCommandOutput>;
+  getSavingsPlansCoverage(
+    args: GetSavingsPlansCoverageCommandInput,
+    cb: (err: any, data?: GetSavingsPlansCoverageCommandOutput) => void
+  ): void;
+  getSavingsPlansCoverage(
+    args: GetSavingsPlansCoverageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSavingsPlansCoverageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSavingsPlansPurchaseRecommendationCommand}
+   */
+  getSavingsPlansPurchaseRecommendation(
+    args: GetSavingsPlansPurchaseRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput>;
+  getSavingsPlansPurchaseRecommendation(
+    args: GetSavingsPlansPurchaseRecommendationCommandInput,
+    cb: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
+  ): void;
+  getSavingsPlansPurchaseRecommendation(
+    args: GetSavingsPlansPurchaseRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSavingsPlansUtilizationCommand}
+   */
+  getSavingsPlansUtilization(
+    args: GetSavingsPlansUtilizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSavingsPlansUtilizationCommandOutput>;
+  getSavingsPlansUtilization(
+    args: GetSavingsPlansUtilizationCommandInput,
+    cb: (err: any, data?: GetSavingsPlansUtilizationCommandOutput) => void
+  ): void;
+  getSavingsPlansUtilization(
+    args: GetSavingsPlansUtilizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSavingsPlansUtilizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSavingsPlansUtilizationDetailsCommand}
+   */
+  getSavingsPlansUtilizationDetails(
+    args: GetSavingsPlansUtilizationDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput>;
+  getSavingsPlansUtilizationDetails(
+    args: GetSavingsPlansUtilizationDetailsCommandInput,
+    cb: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
+  ): void;
+  getSavingsPlansUtilizationDetails(
+    args: GetSavingsPlansUtilizationDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTagsCommand}
+   */
+  getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
+  getTags(args: GetTagsCommandInput, cb: (err: any, data?: GetTagsCommandOutput) => void): void;
+  getTags(
+    args: GetTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetUsageForecastCommand}
+   */
+  getUsageForecast(
+    args: GetUsageForecastCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUsageForecastCommandOutput>;
+  getUsageForecast(
+    args: GetUsageForecastCommandInput,
+    cb: (err: any, data?: GetUsageForecastCommandOutput) => void
+  ): void;
+  getUsageForecast(
+    args: GetUsageForecastCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUsageForecastCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCostAllocationTagsCommand}
+   */
+  listCostAllocationTags(
+    args: ListCostAllocationTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCostAllocationTagsCommandOutput>;
+  listCostAllocationTags(
+    args: ListCostAllocationTagsCommandInput,
+    cb: (err: any, data?: ListCostAllocationTagsCommandOutput) => void
+  ): void;
+  listCostAllocationTags(
+    args: ListCostAllocationTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCostAllocationTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCostCategoryDefinitionsCommand}
+   */
+  listCostCategoryDefinitions(
+    args: ListCostCategoryDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCostCategoryDefinitionsCommandOutput>;
+  listCostCategoryDefinitions(
+    args: ListCostCategoryDefinitionsCommandInput,
+    cb: (err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void
+  ): void;
+  listCostCategoryDefinitions(
+    args: ListCostCategoryDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommand}
+   */
+  listSavingsPlansPurchaseRecommendationGeneration(
+    args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
+  listSavingsPlansPurchaseRecommendationGeneration(
+    args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    cb: (err: any, data?: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
+  ): void;
+  listSavingsPlansPurchaseRecommendationGeneration(
+    args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ProvideAnomalyFeedbackCommand}
+   */
+  provideAnomalyFeedback(
+    args: ProvideAnomalyFeedbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ProvideAnomalyFeedbackCommandOutput>;
+  provideAnomalyFeedback(
+    args: ProvideAnomalyFeedbackCommandInput,
+    cb: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
+  ): void;
+  provideAnomalyFeedback(
+    args: ProvideAnomalyFeedbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}
+   */
+  startSavingsPlansPurchaseRecommendationGeneration(
+    args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
+  startSavingsPlansPurchaseRecommendationGeneration(
+    args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    cb: (err: any, data?: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
+  ): void;
+  startSavingsPlansPurchaseRecommendationGeneration(
+    args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAnomalyMonitorCommand}
+   */
+  updateAnomalyMonitor(
+    args: UpdateAnomalyMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnomalyMonitorCommandOutput>;
+  updateAnomalyMonitor(
+    args: UpdateAnomalyMonitorCommandInput,
+    cb: (err: any, data?: UpdateAnomalyMonitorCommandOutput) => void
+  ): void;
+  updateAnomalyMonitor(
+    args: UpdateAnomalyMonitorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnomalyMonitorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAnomalySubscriptionCommand}
+   */
+  updateAnomalySubscription(
+    args: UpdateAnomalySubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnomalySubscriptionCommandOutput>;
+  updateAnomalySubscription(
+    args: UpdateAnomalySubscriptionCommandInput,
+    cb: (err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void
+  ): void;
+  updateAnomalySubscription(
+    args: UpdateAnomalySubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCostAllocationTagsStatusCommand}
+   */
+  updateCostAllocationTagsStatus(
+    args: UpdateCostAllocationTagsStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCostAllocationTagsStatusCommandOutput>;
+  updateCostAllocationTagsStatus(
+    args: UpdateCostAllocationTagsStatusCommandInput,
+    cb: (err: any, data?: UpdateCostAllocationTagsStatusCommandOutput) => void
+  ): void;
+  updateCostAllocationTagsStatus(
+    args: UpdateCostAllocationTagsStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCostAllocationTagsStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCostCategoryDefinitionCommand}
+   */
+  updateCostCategoryDefinition(
+    args: UpdateCostCategoryDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCostCategoryDefinitionCommandOutput>;
+  updateCostCategoryDefinition(
+    args: UpdateCostCategoryDefinitionCommandInput,
+    cb: (err: any, data?: UpdateCostCategoryDefinitionCommandOutput) => void
+  ): void;
+  updateCostCategoryDefinition(
+    args: UpdateCostCategoryDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCostCategoryDefinitionCommandOutput) => void
+  ): void;
+}
 
 /**
+ * @public
  * <p>You can use the Cost Explorer API to programmatically query your cost and usage data.
  *       You can query for aggregated data such as total monthly costs or total daily usage. You can
  *       also query for granular data. This might include the number of daily write operations for
@@ -198,1363 +841,5 @@ import { CostExplorerClient } from "./CostExplorerClient";
  *         <a href="http://aws.amazon.com/aws-cost-management/pricing/">Amazon Web Services Cost
  *         Management Pricing</a>.</p>
  */
-export class CostExplorer extends CostExplorerClient {
-  /**
-   * <p>Creates a new cost anomaly detection monitor with the requested type and monitor
-   *       specification. </p>
-   */
-  public createAnomalyMonitor(
-    args: CreateAnomalyMonitorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAnomalyMonitorCommandOutput>;
-  public createAnomalyMonitor(
-    args: CreateAnomalyMonitorCommandInput,
-    cb: (err: any, data?: CreateAnomalyMonitorCommandOutput) => void
-  ): void;
-  public createAnomalyMonitor(
-    args: CreateAnomalyMonitorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAnomalyMonitorCommandOutput) => void
-  ): void;
-  public createAnomalyMonitor(
-    args: CreateAnomalyMonitorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAnomalyMonitorCommandOutput) => void),
-    cb?: (err: any, data?: CreateAnomalyMonitorCommandOutput) => void
-  ): Promise<CreateAnomalyMonitorCommandOutput> | void {
-    const command = new CreateAnomalyMonitorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Adds an alert subscription to a cost anomaly detection monitor. You can use each
-   *       subscription to define subscribers with email or SNS notifications. Email subscribers can set
-   *       an absolute or percentage threshold and a time frequency for receiving notifications. </p>
-   */
-  public createAnomalySubscription(
-    args: CreateAnomalySubscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAnomalySubscriptionCommandOutput>;
-  public createAnomalySubscription(
-    args: CreateAnomalySubscriptionCommandInput,
-    cb: (err: any, data?: CreateAnomalySubscriptionCommandOutput) => void
-  ): void;
-  public createAnomalySubscription(
-    args: CreateAnomalySubscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAnomalySubscriptionCommandOutput) => void
-  ): void;
-  public createAnomalySubscription(
-    args: CreateAnomalySubscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAnomalySubscriptionCommandOutput) => void),
-    cb?: (err: any, data?: CreateAnomalySubscriptionCommandOutput) => void
-  ): Promise<CreateAnomalySubscriptionCommandOutput> | void {
-    const command = new CreateAnomalySubscriptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a new Cost Category with the requested name and rules.</p>
-   */
-  public createCostCategoryDefinition(
-    args: CreateCostCategoryDefinitionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateCostCategoryDefinitionCommandOutput>;
-  public createCostCategoryDefinition(
-    args: CreateCostCategoryDefinitionCommandInput,
-    cb: (err: any, data?: CreateCostCategoryDefinitionCommandOutput) => void
-  ): void;
-  public createCostCategoryDefinition(
-    args: CreateCostCategoryDefinitionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateCostCategoryDefinitionCommandOutput) => void
-  ): void;
-  public createCostCategoryDefinition(
-    args: CreateCostCategoryDefinitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCostCategoryDefinitionCommandOutput) => void),
-    cb?: (err: any, data?: CreateCostCategoryDefinitionCommandOutput) => void
-  ): Promise<CreateCostCategoryDefinitionCommandOutput> | void {
-    const command = new CreateCostCategoryDefinitionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a cost anomaly monitor. </p>
-   */
-  public deleteAnomalyMonitor(
-    args: DeleteAnomalyMonitorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAnomalyMonitorCommandOutput>;
-  public deleteAnomalyMonitor(
-    args: DeleteAnomalyMonitorCommandInput,
-    cb: (err: any, data?: DeleteAnomalyMonitorCommandOutput) => void
-  ): void;
-  public deleteAnomalyMonitor(
-    args: DeleteAnomalyMonitorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAnomalyMonitorCommandOutput) => void
-  ): void;
-  public deleteAnomalyMonitor(
-    args: DeleteAnomalyMonitorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAnomalyMonitorCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAnomalyMonitorCommandOutput) => void
-  ): Promise<DeleteAnomalyMonitorCommandOutput> | void {
-    const command = new DeleteAnomalyMonitorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a cost anomaly subscription. </p>
-   */
-  public deleteAnomalySubscription(
-    args: DeleteAnomalySubscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAnomalySubscriptionCommandOutput>;
-  public deleteAnomalySubscription(
-    args: DeleteAnomalySubscriptionCommandInput,
-    cb: (err: any, data?: DeleteAnomalySubscriptionCommandOutput) => void
-  ): void;
-  public deleteAnomalySubscription(
-    args: DeleteAnomalySubscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAnomalySubscriptionCommandOutput) => void
-  ): void;
-  public deleteAnomalySubscription(
-    args: DeleteAnomalySubscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAnomalySubscriptionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAnomalySubscriptionCommandOutput) => void
-  ): Promise<DeleteAnomalySubscriptionCommandOutput> | void {
-    const command = new DeleteAnomalySubscriptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be
-   *       categorized with this Cost Category.</p>
-   */
-  public deleteCostCategoryDefinition(
-    args: DeleteCostCategoryDefinitionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteCostCategoryDefinitionCommandOutput>;
-  public deleteCostCategoryDefinition(
-    args: DeleteCostCategoryDefinitionCommandInput,
-    cb: (err: any, data?: DeleteCostCategoryDefinitionCommandOutput) => void
-  ): void;
-  public deleteCostCategoryDefinition(
-    args: DeleteCostCategoryDefinitionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteCostCategoryDefinitionCommandOutput) => void
-  ): void;
-  public deleteCostCategoryDefinition(
-    args: DeleteCostCategoryDefinitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCostCategoryDefinitionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteCostCategoryDefinitionCommandOutput) => void
-  ): Promise<DeleteCostCategoryDefinitionCommandOutput> | void {
-    const command = new DeleteCostCategoryDefinitionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a
-   *       Cost Category that's defined in the account.</p>
-   *          <p>You have the option to use <code>EffectiveOn</code> to return a Cost Category that's
-   *       active on a specific date. If there's no <code>EffectiveOn</code> specified, you see a Cost
-   *       Category that's effective on the current date. If Cost Category is still effective,
-   *         <code>EffectiveEnd</code> is omitted in the response. </p>
-   */
-  public describeCostCategoryDefinition(
-    args: DescribeCostCategoryDefinitionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeCostCategoryDefinitionCommandOutput>;
-  public describeCostCategoryDefinition(
-    args: DescribeCostCategoryDefinitionCommandInput,
-    cb: (err: any, data?: DescribeCostCategoryDefinitionCommandOutput) => void
-  ): void;
-  public describeCostCategoryDefinition(
-    args: DescribeCostCategoryDefinitionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeCostCategoryDefinitionCommandOutput) => void
-  ): void;
-  public describeCostCategoryDefinition(
-    args: DescribeCostCategoryDefinitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCostCategoryDefinitionCommandOutput) => void),
-    cb?: (err: any, data?: DescribeCostCategoryDefinitionCommandOutput) => void
-  ): Promise<DescribeCostCategoryDefinitionCommandOutput> | void {
-    const command = new DescribeCostCategoryDefinitionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves all of the cost anomalies detected on your account during the time period that's
-   *       specified by the <code>DateInterval</code> object. Anomalies are available for up to 90
-   *       days.</p>
-   */
-  public getAnomalies(
-    args: GetAnomaliesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAnomaliesCommandOutput>;
-  public getAnomalies(args: GetAnomaliesCommandInput, cb: (err: any, data?: GetAnomaliesCommandOutput) => void): void;
-  public getAnomalies(
-    args: GetAnomaliesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAnomaliesCommandOutput) => void
-  ): void;
-  public getAnomalies(
-    args: GetAnomaliesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAnomaliesCommandOutput) => void),
-    cb?: (err: any, data?: GetAnomaliesCommandOutput) => void
-  ): Promise<GetAnomaliesCommandOutput> | void {
-    const command = new GetAnomaliesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves the cost anomaly monitor definitions for your account. You can filter using a
-   *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
-   */
-  public getAnomalyMonitors(
-    args: GetAnomalyMonitorsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAnomalyMonitorsCommandOutput>;
-  public getAnomalyMonitors(
-    args: GetAnomalyMonitorsCommandInput,
-    cb: (err: any, data?: GetAnomalyMonitorsCommandOutput) => void
-  ): void;
-  public getAnomalyMonitors(
-    args: GetAnomalyMonitorsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAnomalyMonitorsCommandOutput) => void
-  ): void;
-  public getAnomalyMonitors(
-    args: GetAnomalyMonitorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAnomalyMonitorsCommandOutput) => void),
-    cb?: (err: any, data?: GetAnomalyMonitorsCommandOutput) => void
-  ): Promise<GetAnomalyMonitorsCommandOutput> | void {
-    const command = new GetAnomalyMonitorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves the cost anomaly subscription objects for your account. You can filter using a
-   *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
-   */
-  public getAnomalySubscriptions(
-    args: GetAnomalySubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAnomalySubscriptionsCommandOutput>;
-  public getAnomalySubscriptions(
-    args: GetAnomalySubscriptionsCommandInput,
-    cb: (err: any, data?: GetAnomalySubscriptionsCommandOutput) => void
-  ): void;
-  public getAnomalySubscriptions(
-    args: GetAnomalySubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAnomalySubscriptionsCommandOutput) => void
-  ): void;
-  public getAnomalySubscriptions(
-    args: GetAnomalySubscriptionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAnomalySubscriptionsCommandOutput) => void),
-    cb?: (err: any, data?: GetAnomalySubscriptionsCommandOutput) => void
-  ): Promise<GetAnomalySubscriptionsCommandOutput> | void {
-    const command = new GetAnomalySubscriptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves cost and usage metrics for your account. You can specify which cost and
-   *       usage-related metric that you want the request to return. For example, you can specify
-   *         <code>BlendedCosts</code> or <code>UsageQuantity</code>. You can also filter and group your
-   *       data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific
-   *       time range. For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Management account in an organization in Organizations have access to all member accounts.</p>
-   *          <p>For information about filter limitations, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html">Quotas and restrictions</a>
-   *       in the <i>Billing and Cost Management User Guide</i>.</p>
-   */
-  public getCostAndUsage(
-    args: GetCostAndUsageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCostAndUsageCommandOutput>;
-  public getCostAndUsage(
-    args: GetCostAndUsageCommandInput,
-    cb: (err: any, data?: GetCostAndUsageCommandOutput) => void
-  ): void;
-  public getCostAndUsage(
-    args: GetCostAndUsageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCostAndUsageCommandOutput) => void
-  ): void;
-  public getCostAndUsage(
-    args: GetCostAndUsageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostAndUsageCommandOutput) => void),
-    cb?: (err: any, data?: GetCostAndUsageCommandOutput) => void
-  ): Promise<GetCostAndUsageCommandOutput> | void {
-    const command = new GetCostAndUsageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves cost and usage metrics with resources for your account. You can specify which
-   *       cost and usage-related metric, such as <code>BlendedCosts</code> or
-   *       <code>UsageQuantity</code>, that you want the request to return. You can also filter and group
-   *       your data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a
-   *       specific time range. For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Management account in an organization in Organizations have access to all member accounts. This API is currently available for the
-   *       Amazon Elastic Compute Cloud – Compute service only.</p>
-   *          <note>
-   *             <p>This is an opt-in only feature. You can enable this feature from the Cost Explorer
-   *         Settings page. For information about how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling
-   *           Access for Cost Explorer</a> in the <i>Billing and Cost Management User
-   *           Guide</i>.</p>
-   *          </note>
-   */
-  public getCostAndUsageWithResources(
-    args: GetCostAndUsageWithResourcesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCostAndUsageWithResourcesCommandOutput>;
-  public getCostAndUsageWithResources(
-    args: GetCostAndUsageWithResourcesCommandInput,
-    cb: (err: any, data?: GetCostAndUsageWithResourcesCommandOutput) => void
-  ): void;
-  public getCostAndUsageWithResources(
-    args: GetCostAndUsageWithResourcesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCostAndUsageWithResourcesCommandOutput) => void
-  ): void;
-  public getCostAndUsageWithResources(
-    args: GetCostAndUsageWithResourcesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostAndUsageWithResourcesCommandOutput) => void),
-    cb?: (err: any, data?: GetCostAndUsageWithResourcesCommandOutput) => void
-  ): Promise<GetCostAndUsageWithResourcesCommandOutput> | void {
-    const command = new GetCostAndUsageWithResourcesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves an array of Cost Category names and values incurred cost.</p>
-   *          <note>
-   *             <p>If some Cost Category names and values are not associated with any cost, they will not
-   *         be returned by this API.</p>
-   *          </note>
-   */
-  public getCostCategories(
-    args: GetCostCategoriesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCostCategoriesCommandOutput>;
-  public getCostCategories(
-    args: GetCostCategoriesCommandInput,
-    cb: (err: any, data?: GetCostCategoriesCommandOutput) => void
-  ): void;
-  public getCostCategories(
-    args: GetCostCategoriesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCostCategoriesCommandOutput) => void
-  ): void;
-  public getCostCategories(
-    args: GetCostCategoriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostCategoriesCommandOutput) => void),
-    cb?: (err: any, data?: GetCostCategoriesCommandOutput) => void
-  ): Promise<GetCostCategoriesCommandOutput> | void {
-    const command = new GetCostCategoriesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will spend over
-   *       the forecast time period that you select, based on your past costs. </p>
-   */
-  public getCostForecast(
-    args: GetCostForecastCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCostForecastCommandOutput>;
-  public getCostForecast(
-    args: GetCostForecastCommandInput,
-    cb: (err: any, data?: GetCostForecastCommandOutput) => void
-  ): void;
-  public getCostForecast(
-    args: GetCostForecastCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCostForecastCommandOutput) => void
-  ): void;
-  public getCostForecast(
-    args: GetCostForecastCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostForecastCommandOutput) => void),
-    cb?: (err: any, data?: GetCostForecastCommandOutput) => void
-  ): Promise<GetCostForecastCommandOutput> | void {
-    const command = new GetCostForecastCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves all available filter values for a specified filter over a period of time. You
-   *       can search the dimension values for an arbitrary string. </p>
-   */
-  public getDimensionValues(
-    args: GetDimensionValuesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDimensionValuesCommandOutput>;
-  public getDimensionValues(
-    args: GetDimensionValuesCommandInput,
-    cb: (err: any, data?: GetDimensionValuesCommandOutput) => void
-  ): void;
-  public getDimensionValues(
-    args: GetDimensionValuesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDimensionValuesCommandOutput) => void
-  ): void;
-  public getDimensionValues(
-    args: GetDimensionValuesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDimensionValuesCommandOutput) => void),
-    cb?: (err: any, data?: GetDimensionValuesCommandOutput) => void
-  ): Promise<GetDimensionValuesCommandOutput> | void {
-    const command = new GetDimensionValuesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves the reservation coverage for your account, which you can use to see how much
-   *       of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service,
-   *       or Amazon Redshift usage is covered by a reservation. An organization's management account can
-   *       see the coverage of the associated member accounts. This supports dimensions, Cost Categories,
-   *       and nested expressions. For any time period, you can filter data about reservation usage by
-   *       the following dimensions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>AZ</p>
-   *             </li>
-   *             <li>
-   *                <p>CACHE_ENGINE</p>
-   *             </li>
-   *             <li>
-   *                <p>DATABASE_ENGINE</p>
-   *             </li>
-   *             <li>
-   *                <p>DEPLOYMENT_OPTION</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTANCE_TYPE</p>
-   *             </li>
-   *             <li>
-   *                <p>LINKED_ACCOUNT</p>
-   *             </li>
-   *             <li>
-   *                <p>OPERATING_SYSTEM</p>
-   *             </li>
-   *             <li>
-   *                <p>PLATFORM</p>
-   *             </li>
-   *             <li>
-   *                <p>REGION</p>
-   *             </li>
-   *             <li>
-   *                <p>SERVICE</p>
-   *             </li>
-   *             <li>
-   *                <p>TAG</p>
-   *             </li>
-   *             <li>
-   *                <p>TENANCY</p>
-   *             </li>
-   *          </ul>
-   *          <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code>
-   *       operation. </p>
-   */
-  public getReservationCoverage(
-    args: GetReservationCoverageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetReservationCoverageCommandOutput>;
-  public getReservationCoverage(
-    args: GetReservationCoverageCommandInput,
-    cb: (err: any, data?: GetReservationCoverageCommandOutput) => void
-  ): void;
-  public getReservationCoverage(
-    args: GetReservationCoverageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetReservationCoverageCommandOutput) => void
-  ): void;
-  public getReservationCoverage(
-    args: GetReservationCoverageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReservationCoverageCommandOutput) => void),
-    cb?: (err: any, data?: GetReservationCoverageCommandOutput) => void
-  ): Promise<GetReservationCoverageCommandOutput> | void {
-    const command = new GetReservationCoverageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Gets recommendations for reservation purchases. These recommendations might help you to
-   *       reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to
-   *       On-Demand pricing.</p>
-   *          <p>Amazon Web Services generates your recommendations by identifying your On-Demand usage
-   *       during a specific time period and collecting your usage into categories that are eligible for
-   *       a reservation. After Amazon Web Services has these categories, it simulates every combination
-   *       of reservations in each category of usage to identify the best number of each type of Reserved
-   *       Instance (RI) to purchase to maximize your estimated savings. </p>
-   *          <p>For example, Amazon Web Services automatically aggregates your Amazon EC2 Linux, shared
-   *       tenancy, and c4 family usage in the US West (Oregon) Region and recommends that you buy
-   *       size-flexible regional reservations to apply to the c4 family usage. Amazon Web Services
-   *       recommends the smallest size instance in an instance family. This makes it easier to purchase
-   *       a size-flexible Reserved Instance (RI). Amazon Web Services also shows the equal number of
-   *       normalized units. This way, you can purchase any instance size that you want. For this
-   *       example, your RI recommendation is for <code>c4.large</code> because that is the smallest size
-   *       instance in the c4 instance family.</p>
-   */
-  public getReservationPurchaseRecommendation(
-    args: GetReservationPurchaseRecommendationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetReservationPurchaseRecommendationCommandOutput>;
-  public getReservationPurchaseRecommendation(
-    args: GetReservationPurchaseRecommendationCommandInput,
-    cb: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
-  ): void;
-  public getReservationPurchaseRecommendation(
-    args: GetReservationPurchaseRecommendationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
-  ): void;
-  public getReservationPurchaseRecommendation(
-    args: GetReservationPurchaseRecommendationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void),
-    cb?: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
-  ): Promise<GetReservationPurchaseRecommendationCommandOutput> | void {
-    const command = new GetReservationPurchaseRecommendationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves the reservation utilization for your account. Management account in an
-   *       organization have access to member accounts. You can filter data by dimensions in a time
-   *       period. You can use <code>GetDimensionValues</code> to determine the possible dimension
-   *       values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>. </p>
-   */
-  public getReservationUtilization(
-    args: GetReservationUtilizationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetReservationUtilizationCommandOutput>;
-  public getReservationUtilization(
-    args: GetReservationUtilizationCommandInput,
-    cb: (err: any, data?: GetReservationUtilizationCommandOutput) => void
-  ): void;
-  public getReservationUtilization(
-    args: GetReservationUtilizationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetReservationUtilizationCommandOutput) => void
-  ): void;
-  public getReservationUtilization(
-    args: GetReservationUtilizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReservationUtilizationCommandOutput) => void),
-    cb?: (err: any, data?: GetReservationUtilizationCommandOutput) => void
-  ): Promise<GetReservationUtilizationCommandOutput> | void {
-    const command = new GetReservationUtilizationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates recommendations that help you save cost by identifying idle and underutilized
-   *       Amazon EC2 instances.</p>
-   *          <p>Recommendations are generated to either downsize or terminate instances, along with
-   *       providing savings detail and metrics. For more information about calculation and function, see
-   *         <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html">Optimizing Your Cost with Rightsizing Recommendations</a> in the <i>Billing and Cost Management User Guide</i>.</p>
-   */
-  public getRightsizingRecommendation(
-    args: GetRightsizingRecommendationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetRightsizingRecommendationCommandOutput>;
-  public getRightsizingRecommendation(
-    args: GetRightsizingRecommendationCommandInput,
-    cb: (err: any, data?: GetRightsizingRecommendationCommandOutput) => void
-  ): void;
-  public getRightsizingRecommendation(
-    args: GetRightsizingRecommendationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetRightsizingRecommendationCommandOutput) => void
-  ): void;
-  public getRightsizingRecommendation(
-    args: GetRightsizingRecommendationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRightsizingRecommendationCommandOutput) => void),
-    cb?: (err: any, data?: GetRightsizingRecommendationCommandOutput) => void
-  ): Promise<GetRightsizingRecommendationCommandOutput> | void {
-    const command = new GetRightsizingRecommendationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of
-   *       your cost is covered by a Savings Plan. An organization’s management account can see the
-   *       coverage of the associated member accounts. This supports dimensions, Cost Categories, and
-   *       nested expressions. For any time period, you can filter data for Savings Plans usage with the
-   *       following dimensions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LINKED_ACCOUNT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REGION</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SERVICE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INSTANCE_FAMILY</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code>
-   *       operation.</p>
-   */
-  public getSavingsPlansCoverage(
-    args: GetSavingsPlansCoverageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSavingsPlansCoverageCommandOutput>;
-  public getSavingsPlansCoverage(
-    args: GetSavingsPlansCoverageCommandInput,
-    cb: (err: any, data?: GetSavingsPlansCoverageCommandOutput) => void
-  ): void;
-  public getSavingsPlansCoverage(
-    args: GetSavingsPlansCoverageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSavingsPlansCoverageCommandOutput) => void
-  ): void;
-  public getSavingsPlansCoverage(
-    args: GetSavingsPlansCoverageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSavingsPlansCoverageCommandOutput) => void),
-    cb?: (err: any, data?: GetSavingsPlansCoverageCommandOutput) => void
-  ): Promise<GetSavingsPlansCoverageCommandOutput> | void {
-    const command = new GetSavingsPlansCoverageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves the Savings Plans recommendations for your account. First use
-   *         <code>StartSavingsPlansPurchaseRecommendationGeneration</code> to generate a new set of
-   *       recommendations, and then use <code>GetSavingsPlansPurchaseRecommendation</code> to retrieve
-   *       them.</p>
-   */
-  public getSavingsPlansPurchaseRecommendation(
-    args: GetSavingsPlansPurchaseRecommendationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput>;
-  public getSavingsPlansPurchaseRecommendation(
-    args: GetSavingsPlansPurchaseRecommendationCommandInput,
-    cb: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
-  ): void;
-  public getSavingsPlansPurchaseRecommendation(
-    args: GetSavingsPlansPurchaseRecommendationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
-  ): void;
-  public getSavingsPlansPurchaseRecommendation(
-    args: GetSavingsPlansPurchaseRecommendationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void),
-    cb?: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
-  ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> | void {
-    const command = new GetSavingsPlansPurchaseRecommendationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or
-   *       monthly granularity. Management account in an organization have access to member accounts. You
-   *       can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the
-   *       possible dimension values.</p>
-   *          <note>
-   *             <p>You can't group by any dimension values for
-   *         <code>GetSavingsPlansUtilization</code>.</p>
-   *          </note>
-   */
-  public getSavingsPlansUtilization(
-    args: GetSavingsPlansUtilizationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSavingsPlansUtilizationCommandOutput>;
-  public getSavingsPlansUtilization(
-    args: GetSavingsPlansUtilizationCommandInput,
-    cb: (err: any, data?: GetSavingsPlansUtilizationCommandOutput) => void
-  ): void;
-  public getSavingsPlansUtilization(
-    args: GetSavingsPlansUtilizationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSavingsPlansUtilizationCommandOutput) => void
-  ): void;
-  public getSavingsPlansUtilization(
-    args: GetSavingsPlansUtilizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSavingsPlansUtilizationCommandOutput) => void),
-    cb?: (err: any, data?: GetSavingsPlansUtilizationCommandOutput) => void
-  ): Promise<GetSavingsPlansUtilizationCommandOutput> | void {
-    const command = new GetSavingsPlansUtilizationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves attribute data along with aggregate utilization and savings data for a given
-   *       time period. This doesn't support granular or grouped data (daily/monthly) in response. You
-   *       can't retrieve data by dates in a single response similar to
-   *         <code>GetSavingsPlanUtilization</code>, but you have the option to make multiple calls to
-   *         <code>GetSavingsPlanUtilizationDetails</code> by providing individual dates. You can use
-   *         <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible
-   *       dimension values.</p>
-   *          <note>
-   *             <p>
-   *                <code>GetSavingsPlanUtilizationDetails</code> internally groups data by
-   *           <code>SavingsPlansArn</code>.</p>
-   *          </note>
-   */
-  public getSavingsPlansUtilizationDetails(
-    args: GetSavingsPlansUtilizationDetailsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput>;
-  public getSavingsPlansUtilizationDetails(
-    args: GetSavingsPlansUtilizationDetailsCommandInput,
-    cb: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
-  ): void;
-  public getSavingsPlansUtilizationDetails(
-    args: GetSavingsPlansUtilizationDetailsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
-  ): void;
-  public getSavingsPlansUtilizationDetails(
-    args: GetSavingsPlansUtilizationDetailsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void),
-    cb?: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
-  ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> | void {
-    const command = new GetSavingsPlansUtilizationDetailsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Queries for available tag keys and tag values for a specified period. You can search
-   *       the tag values for an arbitrary string. </p>
-   */
-  public getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
-  public getTags(args: GetTagsCommandInput, cb: (err: any, data?: GetTagsCommandOutput) => void): void;
-  public getTags(
-    args: GetTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetTagsCommandOutput) => void
-  ): void;
-  public getTags(
-    args: GetTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagsCommandOutput) => void),
-    cb?: (err: any, data?: GetTagsCommandOutput) => void
-  ): Promise<GetTagsCommandOutput> | void {
-    const command = new GetTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will use
-   *       over the forecast time period that you select, based on your past usage. </p>
-   */
-  public getUsageForecast(
-    args: GetUsageForecastCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetUsageForecastCommandOutput>;
-  public getUsageForecast(
-    args: GetUsageForecastCommandInput,
-    cb: (err: any, data?: GetUsageForecastCommandOutput) => void
-  ): void;
-  public getUsageForecast(
-    args: GetUsageForecastCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetUsageForecastCommandOutput) => void
-  ): void;
-  public getUsageForecast(
-    args: GetUsageForecastCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUsageForecastCommandOutput) => void),
-    cb?: (err: any, data?: GetUsageForecastCommandOutput) => void
-  ): Promise<GetUsageForecastCommandOutput> | void {
-    const command = new GetUsageForecastCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Get a list of cost allocation tags. All inputs in the API are optional and serve as
-   *       filters. By default, all cost allocation tags are returned. </p>
-   */
-  public listCostAllocationTags(
-    args: ListCostAllocationTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListCostAllocationTagsCommandOutput>;
-  public listCostAllocationTags(
-    args: ListCostAllocationTagsCommandInput,
-    cb: (err: any, data?: ListCostAllocationTagsCommandOutput) => void
-  ): void;
-  public listCostAllocationTags(
-    args: ListCostAllocationTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListCostAllocationTagsCommandOutput) => void
-  ): void;
-  public listCostAllocationTags(
-    args: ListCostAllocationTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCostAllocationTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListCostAllocationTagsCommandOutput) => void
-  ): Promise<ListCostAllocationTagsCommandOutput> | void {
-    const command = new ListCostAllocationTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns the name, Amazon Resource Name (ARN), <code>NumberOfRules</code> and effective
-   *       dates of all Cost Categories defined in the account. You have the option to use
-   *         <code>EffectiveOn</code> to return a list of Cost Categories that were active on a specific
-   *       date. If there is no <code>EffectiveOn</code> specified, you’ll see Cost Categories that are
-   *       effective on the current date. If Cost Category is still effective, <code>EffectiveEnd</code>
-   *       is omitted in the response. <code>ListCostCategoryDefinitions</code> supports pagination. The
-   *       request can have a <code>MaxResults</code> range up to 100.</p>
-   */
-  public listCostCategoryDefinitions(
-    args: ListCostCategoryDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListCostCategoryDefinitionsCommandOutput>;
-  public listCostCategoryDefinitions(
-    args: ListCostCategoryDefinitionsCommandInput,
-    cb: (err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void
-  ): void;
-  public listCostCategoryDefinitions(
-    args: ListCostCategoryDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void
-  ): void;
-  public listCostCategoryDefinitions(
-    args: ListCostCategoryDefinitionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void),
-    cb?: (err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void
-  ): Promise<ListCostCategoryDefinitionsCommandOutput> | void {
-    const command = new ListCostCategoryDefinitionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Retrieves a list of your historical recommendation generations within the past 30
-   *       days.</p>
-   */
-  public listSavingsPlansPurchaseRecommendationGeneration(
-    args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
-  public listSavingsPlansPurchaseRecommendationGeneration(
-    args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    cb: (err: any, data?: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
-  ): void;
-  public listSavingsPlansPurchaseRecommendationGeneration(
-    args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
-  ): void;
-  public listSavingsPlansPurchaseRecommendationGeneration(
-    args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void),
-    cb?: (err: any, data?: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
-  ): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput> | void {
-    const command = new ListSavingsPlansPurchaseRecommendationGenerationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns a list of resource tags associated with the resource specified by the Amazon
-   *       Resource Name (ARN). </p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Modifies the feedback property of a given cost anomaly. </p>
-   */
-  public provideAnomalyFeedback(
-    args: ProvideAnomalyFeedbackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ProvideAnomalyFeedbackCommandOutput>;
-  public provideAnomalyFeedback(
-    args: ProvideAnomalyFeedbackCommandInput,
-    cb: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
-  ): void;
-  public provideAnomalyFeedback(
-    args: ProvideAnomalyFeedbackCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
-  ): void;
-  public provideAnomalyFeedback(
-    args: ProvideAnomalyFeedbackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void),
-    cb?: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
-  ): Promise<ProvideAnomalyFeedbackCommandOutput> | void {
-    const command = new ProvideAnomalyFeedbackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Requests a Savings Plans recommendation generation. This enables you to calculate a fresh
-   *       set of Savings Plans recommendations that takes your latest usage data and current Savings
-   *       Plans inventory into account. You can refresh Savings Plans recommendations up to three times
-   *       daily for a consolidated billing family.</p>
-   *          <note>
-   *             <p>
-   *                <code>StartSavingsPlansPurchaseRecommendationGeneration</code> has no request syntax
-   *         because no input parameters are needed to support this operation.</p>
-   *          </note>
-   */
-  public startSavingsPlansPurchaseRecommendationGeneration(
-    args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
-  public startSavingsPlansPurchaseRecommendationGeneration(
-    args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    cb: (err: any, data?: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
-  ): void;
-  public startSavingsPlansPurchaseRecommendationGeneration(
-    args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
-  ): void;
-  public startSavingsPlansPurchaseRecommendationGeneration(
-    args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void),
-    cb?: (err: any, data?: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
-  ): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput> | void {
-    const command = new StartSavingsPlansPurchaseRecommendationGenerationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>An API operation for adding one or more tags (key-value pairs) to a resource.</p>
-   *          <p>You can use the <code>TagResource</code> operation with a resource that already has tags.
-   *       If you specify a new tag key for the resource, this tag is appended to the list of tags
-   *       associated with the resource. If you specify a tag key that is already associated with the
-   *       resource, the new tag value you specify replaces the previous value for that tag.</p>
-   *          <p>Although the maximum number of array members is 200, user-tag maximum is 50. The remaining
-   *       are reserved for Amazon Web Services use.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Removes one or more tags from a resource. Specify only tag keys in your request. Don't
-   *       specify the value. </p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates an existing cost anomaly monitor. The changes made are applied going forward, and
-   *       doesn't change anomalies detected in the past. </p>
-   */
-  public updateAnomalyMonitor(
-    args: UpdateAnomalyMonitorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAnomalyMonitorCommandOutput>;
-  public updateAnomalyMonitor(
-    args: UpdateAnomalyMonitorCommandInput,
-    cb: (err: any, data?: UpdateAnomalyMonitorCommandOutput) => void
-  ): void;
-  public updateAnomalyMonitor(
-    args: UpdateAnomalyMonitorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAnomalyMonitorCommandOutput) => void
-  ): void;
-  public updateAnomalyMonitor(
-    args: UpdateAnomalyMonitorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAnomalyMonitorCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAnomalyMonitorCommandOutput) => void
-  ): Promise<UpdateAnomalyMonitorCommandOutput> | void {
-    const command = new UpdateAnomalyMonitorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates an existing cost anomaly monitor subscription. </p>
-   */
-  public updateAnomalySubscription(
-    args: UpdateAnomalySubscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAnomalySubscriptionCommandOutput>;
-  public updateAnomalySubscription(
-    args: UpdateAnomalySubscriptionCommandInput,
-    cb: (err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void
-  ): void;
-  public updateAnomalySubscription(
-    args: UpdateAnomalySubscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void
-  ): void;
-  public updateAnomalySubscription(
-    args: UpdateAnomalySubscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void
-  ): Promise<UpdateAnomalySubscriptionCommandOutput> | void {
-    const command = new UpdateAnomalySubscriptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag
-   *       status that's updated is the same as the existing tag status, the request doesn't fail.
-   *       Instead, it doesn't have any effect on the tag status (for example, activating the active
-   *       tag). </p>
-   */
-  public updateCostAllocationTagsStatus(
-    args: UpdateCostAllocationTagsStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateCostAllocationTagsStatusCommandOutput>;
-  public updateCostAllocationTagsStatus(
-    args: UpdateCostAllocationTagsStatusCommandInput,
-    cb: (err: any, data?: UpdateCostAllocationTagsStatusCommandOutput) => void
-  ): void;
-  public updateCostAllocationTagsStatus(
-    args: UpdateCostAllocationTagsStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateCostAllocationTagsStatusCommandOutput) => void
-  ): void;
-  public updateCostAllocationTagsStatus(
-    args: UpdateCostAllocationTagsStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCostAllocationTagsStatusCommandOutput) => void),
-    cb?: (err: any, data?: UpdateCostAllocationTagsStatusCommandOutput) => void
-  ): Promise<UpdateCostAllocationTagsStatusCommandOutput> | void {
-    const command = new UpdateCostAllocationTagsStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to
-   *       categorize the current month’s expenses and future expenses. This won’t change categorization
-   *       for the previous months.</p>
-   */
-  public updateCostCategoryDefinition(
-    args: UpdateCostCategoryDefinitionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateCostCategoryDefinitionCommandOutput>;
-  public updateCostCategoryDefinition(
-    args: UpdateCostCategoryDefinitionCommandInput,
-    cb: (err: any, data?: UpdateCostCategoryDefinitionCommandOutput) => void
-  ): void;
-  public updateCostCategoryDefinition(
-    args: UpdateCostCategoryDefinitionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateCostCategoryDefinitionCommandOutput) => void
-  ): void;
-  public updateCostCategoryDefinition(
-    args: UpdateCostCategoryDefinitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCostCategoryDefinitionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateCostCategoryDefinitionCommandOutput) => void
-  ): Promise<UpdateCostCategoryDefinitionCommandOutput> | void {
-    const command = new UpdateCostCategoryDefinitionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class CostExplorer extends CostExplorerClient implements CostExplorer {}
+createAggregatedClient(commands, CostExplorer);

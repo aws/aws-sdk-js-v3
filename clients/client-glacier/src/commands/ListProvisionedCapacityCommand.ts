@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  ListProvisionedCapacityInput,
-  ListProvisionedCapacityInputFilterSensitiveLog,
-  ListProvisionedCapacityOutput,
-  ListProvisionedCapacityOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProvisionedCapacityCommand,
-  serializeAws_restJson1ListProvisionedCapacityCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProvisionedCapacityInput, ListProvisionedCapacityOutput } from "../models/models_0";
+import { de_ListProvisionedCapacityCommand, se_ListProvisionedCapacityCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProvisionedCapacityCommand}.
  */
 export interface ListProvisionedCapacityCommandInput extends ListProvisionedCapacityInput {}
 /**
+ * @public
+ *
  * The output of {@link ListProvisionedCapacityCommand}.
  */
 export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCapacityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation lists the provisioned capacity units for the specified AWS
  *          account.</p>
  * @example
@@ -43,10 +40,15 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * import { GlacierClient, ListProvisionedCapacityCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListProvisionedCapacityCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // ListProvisionedCapacityInput
+ *   accountId: "STRING_VALUE", // required
+ * };
  * const command = new ListProvisionedCapacityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProvisionedCapacityCommandInput - {@link ListProvisionedCapacityCommandInput}
+ * @returns {@link ListProvisionedCapacityCommandOutput}
  * @see {@link ListProvisionedCapacityCommandInput} for command's `input` shape.
  * @see {@link ListProvisionedCapacityCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
@@ -106,6 +108,9 @@ export class ListProvisionedCapacityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProvisionedCapacityCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +139,8 @@ export class ListProvisionedCapacityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProvisionedCapacityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProvisionedCapacityOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +150,18 @@ export class ListProvisionedCapacityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProvisionedCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProvisionedCapacityCommand(input, context);
+    return se_ListProvisionedCapacityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProvisionedCapacityCommandOutput> {
-    return deserializeAws_restJson1ListProvisionedCapacityCommand(output, context);
+    return de_ListProvisionedCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

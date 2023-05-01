@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAccountSettingsInput,
-  UpdateAccountSettingsInputFilterSensitiveLog,
-  UpdateAccountSettingsOutput,
-  UpdateAccountSettingsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateAccountSettingsCommand,
-  serializeAws_json1_0UpdateAccountSettingsCommand,
-} from "../protocols/Aws_json1_0";
+import { UpdateAccountSettingsInput, UpdateAccountSettingsOutput } from "../models/models_0";
+import { de_UpdateAccountSettingsCommand, se_UpdateAccountSettingsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountSettingsCommand}.
  */
 export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettingsInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountSettingsCommand}.
  */
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update Proton settings that are used for multiple services in the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * import { ProtonClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // UpdateAccountSettingsInput
+ *   pipelineServiceRoleArn: "STRING_VALUE",
+ *   pipelineProvisioningRepository: { // RepositoryBranchInput
+ *     provider: "STRING_VALUE", // required
+ *     name: "STRING_VALUE", // required
+ *     branch: "STRING_VALUE", // required
+ *   },
+ *   deletePipelineProvisioningRepository: true || false,
+ *   pipelineCodebuildRoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
+ * @returns {@link UpdateAccountSettingsCommandOutput}
  * @see {@link UpdateAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +93,9 @@ export class UpdateAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +124,8 @@ export class UpdateAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccountSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAccountSettingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +135,18 @@ export class UpdateAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateAccountSettingsCommand(input, context);
+    return se_UpdateAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountSettingsCommandOutput> {
-    return deserializeAws_json1_0UpdateAccountSettingsCommand(output, context);
+    return de_UpdateAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,26 +15,27 @@ import {
 
 import {
   DescribeCertificateRequest,
-  DescribeCertificateRequestFilterSensitiveLog,
   DescribeCertificateResponse,
   DescribeCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCertificateCommand,
-  serializeAws_json1_1DescribeCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCertificateCommand, se_DescribeCertificateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCertificateCommand}.
  */
 export interface DescribeCertificateCommandInput extends DescribeCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCertificateCommand}.
  */
 export interface DescribeCertificateCommandOutput extends DescribeCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the certificate that's identified by the <code>CertificateId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * import { TransferClient, DescribeCertificateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // DescribeCertificateRequest
+ *   CertificateId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCertificateCommandInput - {@link DescribeCertificateCommandInput}
+ * @returns {@link DescribeCertificateCommandOutput}
  * @see {@link DescribeCertificateCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
@@ -82,6 +88,9 @@ export class DescribeCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +119,7 @@ export class DescribeCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCertificateRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -121,12 +130,18 @@ export class DescribeCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCertificateCommand(input, context);
+    return se_DescribeCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificateCommandOutput> {
-    return deserializeAws_json1_1DescribeCertificateCommand(output, context);
+    return de_DescribeCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

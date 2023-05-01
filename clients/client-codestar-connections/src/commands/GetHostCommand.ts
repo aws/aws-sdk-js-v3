@@ -18,24 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import {
-  GetHostInput,
-  GetHostInputFilterSensitiveLog,
-  GetHostOutput,
-  GetHostOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_0GetHostCommand, serializeAws_json1_0GetHostCommand } from "../protocols/Aws_json1_0";
+import { GetHostInput, GetHostOutput } from "../models/models_0";
+import { de_GetHostCommand, se_GetHostCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetHostCommand}.
  */
 export interface GetHostCommandInput extends GetHostInput {}
 /**
+ * @public
+ *
  * The output of {@link GetHostCommand}.
  */
 export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the host ARN and details such as status, provider type, endpoint, and, if
  *       applicable, the VPC configuration.</p>
  * @example
@@ -44,10 +44,15 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  * import { CodeStarConnectionsClient, GetHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, GetHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = { // GetHostInput
+ *   HostArn: "STRING_VALUE", // required
+ * };
  * const command = new GetHostCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetHostCommandInput - {@link GetHostCommandInput}
+ * @returns {@link GetHostCommandOutput}
  * @see {@link GetHostCommandInput} for command's `input` shape.
  * @see {@link GetHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
@@ -77,6 +82,9 @@ export class GetHostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +111,8 @@ export class GetHostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +122,18 @@ export class GetHostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetHostCommand(input, context);
+    return se_GetHostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostCommandOutput> {
-    return deserializeAws_json1_0GetHostCommand(output, context);
+    return de_GetHostCommand(output, context);
   }
 
   // Start section: command_body_extra

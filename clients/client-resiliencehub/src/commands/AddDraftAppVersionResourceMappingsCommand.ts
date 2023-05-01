@@ -15,21 +15,23 @@ import {
 
 import {
   AddDraftAppVersionResourceMappingsRequest,
-  AddDraftAppVersionResourceMappingsRequestFilterSensitiveLog,
   AddDraftAppVersionResourceMappingsResponse,
-  AddDraftAppVersionResourceMappingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AddDraftAppVersionResourceMappingsCommand,
-  serializeAws_restJson1AddDraftAppVersionResourceMappingsCommand,
+  de_AddDraftAppVersionResourceMappingsCommand,
+  se_AddDraftAppVersionResourceMappingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddDraftAppVersionResourceMappingsCommand}.
  */
 export interface AddDraftAppVersionResourceMappingsCommandInput extends AddDraftAppVersionResourceMappingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddDraftAppVersionResourceMappingsCommand}.
  */
 export interface AddDraftAppVersionResourceMappingsCommandOutput
@@ -37,6 +39,7 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds the resource mapping for the draft application version. You can also update an existing resource mapping to a new physical resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,32 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  * import { ResiliencehubClient, AddDraftAppVersionResourceMappingsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, AddDraftAppVersionResourceMappingsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // AddDraftAppVersionResourceMappingsRequest
+ *   appArn: "STRING_VALUE", // required
+ *   resourceMappings: [ // ResourceMappingList // required
+ *     { // ResourceMapping
+ *       resourceName: "STRING_VALUE",
+ *       logicalStackName: "STRING_VALUE",
+ *       appRegistryAppName: "STRING_VALUE",
+ *       resourceGroupName: "STRING_VALUE",
+ *       mappingType: "STRING_VALUE", // required
+ *       physicalResourceId: { // PhysicalResourceId
+ *         identifier: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *         awsRegion: "STRING_VALUE",
+ *         awsAccountId: "STRING_VALUE",
+ *       },
+ *       terraformSourceName: "STRING_VALUE",
+ *       eksSourceName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddDraftAppVersionResourceMappingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddDraftAppVersionResourceMappingsCommandInput - {@link AddDraftAppVersionResourceMappingsCommandInput}
+ * @returns {@link AddDraftAppVersionResourceMappingsCommandOutput}
  * @see {@link AddDraftAppVersionResourceMappingsCommandInput} for command's `input` shape.
  * @see {@link AddDraftAppVersionResourceMappingsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -64,7 +89,7 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -95,6 +120,9 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddDraftAppVersionResourceMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +151,8 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddDraftAppVersionResourceMappingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddDraftAppVersionResourceMappingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +162,24 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddDraftAppVersionResourceMappingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddDraftAppVersionResourceMappingsCommand(input, context);
+    return se_AddDraftAppVersionResourceMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddDraftAppVersionResourceMappingsCommandOutput> {
-    return deserializeAws_restJson1AddDraftAppVersionResourceMappingsCommand(output, context);
+    return de_AddDraftAppVersionResourceMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

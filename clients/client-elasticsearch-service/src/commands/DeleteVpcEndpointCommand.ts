@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  DeleteVpcEndpointRequest,
-  DeleteVpcEndpointRequestFilterSensitiveLog,
-  DeleteVpcEndpointResponse,
-  DeleteVpcEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVpcEndpointCommand,
-  serializeAws_restJson1DeleteVpcEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVpcEndpointRequest, DeleteVpcEndpointResponse } from "../models/models_0";
+import { de_DeleteVpcEndpointCommand, se_DeleteVpcEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcEndpointCommand}.
  */
 export interface DeleteVpcEndpointCommandInput extends DeleteVpcEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcEndpointCommand}.
  */
 export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * import { ElasticsearchServiceClient, DeleteVpcEndpointCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DeleteVpcEndpointCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = { // DeleteVpcEndpointRequest
+ *   VpcEndpointId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcEndpointCommandInput - {@link DeleteVpcEndpointCommandInput}
+ * @returns {@link DeleteVpcEndpointCommandOutput}
  * @see {@link DeleteVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
@@ -85,6 +87,9 @@ export class DeleteVpcEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteVpcEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteVpcEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVpcEndpointCommand(input, context);
+    return se_DeleteVpcEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcEndpointCommandOutput> {
-    return deserializeAws_restJson1DeleteVpcEndpointCommand(output, context);
+    return de_DeleteVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

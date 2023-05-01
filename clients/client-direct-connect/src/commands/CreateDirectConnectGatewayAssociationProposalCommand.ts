@@ -16,21 +16,23 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
   CreateDirectConnectGatewayAssociationProposalRequest,
-  CreateDirectConnectGatewayAssociationProposalRequestFilterSensitiveLog,
   CreateDirectConnectGatewayAssociationProposalResult,
-  CreateDirectConnectGatewayAssociationProposalResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand,
-  serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand,
+  de_CreateDirectConnectGatewayAssociationProposalCommand,
+  se_CreateDirectConnectGatewayAssociationProposalCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateDirectConnectGatewayAssociationProposalCommand}.
  */
 export interface CreateDirectConnectGatewayAssociationProposalCommandInput
   extends CreateDirectConnectGatewayAssociationProposalRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateDirectConnectGatewayAssociationProposalCommand}.
  */
 export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
@@ -38,6 +40,7 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.</p>
  *          <p>You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any Amazon Web Services account. </p>
  * @example
@@ -46,10 +49,27 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
  * import { DirectConnectClient, CreateDirectConnectGatewayAssociationProposalCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateDirectConnectGatewayAssociationProposalCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // CreateDirectConnectGatewayAssociationProposalRequest
+ *   directConnectGatewayId: "STRING_VALUE", // required
+ *   directConnectGatewayOwnerAccount: "STRING_VALUE", // required
+ *   gatewayId: "STRING_VALUE", // required
+ *   addAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
+ *     { // RouteFilterPrefix
+ *       cidr: "STRING_VALUE",
+ *     },
+ *   ],
+ *   removeAllowedPrefixesToDirectConnectGateway: [
+ *     {
+ *       cidr: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDirectConnectGatewayAssociationProposalCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateDirectConnectGatewayAssociationProposalCommandInput - {@link CreateDirectConnectGatewayAssociationProposalCommandInput}
+ * @returns {@link CreateDirectConnectGatewayAssociationProposalCommandOutput}
  * @see {@link CreateDirectConnectGatewayAssociationProposalCommandInput} for command's `input` shape.
  * @see {@link CreateDirectConnectGatewayAssociationProposalCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -79,6 +99,9 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectConnectGatewayAssociationProposalCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +136,8 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDirectConnectGatewayAssociationProposalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDirectConnectGatewayAssociationProposalResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +147,24 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateDirectConnectGatewayAssociationProposalCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand(input, context);
+    return se_CreateDirectConnectGatewayAssociationProposalCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> {
-    return deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand(output, context);
+    return de_CreateDirectConnectGatewayAssociationProposalCommand(output, context);
   }
 
   // Start section: command_body_extra

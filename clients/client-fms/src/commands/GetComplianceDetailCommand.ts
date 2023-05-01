@@ -14,48 +14,45 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetComplianceDetailRequest,
-  GetComplianceDetailRequestFilterSensitiveLog,
-  GetComplianceDetailResponse,
-  GetComplianceDetailResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetComplianceDetailCommand,
-  serializeAws_json1_1GetComplianceDetailCommand,
-} from "../protocols/Aws_json1_1";
+import { GetComplianceDetailRequest, GetComplianceDetailResponse } from "../models/models_0";
+import { de_GetComplianceDetailCommand, se_GetComplianceDetailCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetComplianceDetailCommand}.
  */
 export interface GetComplianceDetailCommandInput extends GetComplianceDetailRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetComplianceDetailCommand}.
  */
 export interface GetComplianceDetailCommandOutput extends GetComplianceDetailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns detailed compliance information about the specified member account. Details
  *       include resources that are in and out of compliance with the specified policy. </p>
  *          <ul>
  *             <li>
- *               <p>Resources are
+ *                <p>Resources are
  *               considered noncompliant for WAF and Shield Advanced policies if the specified policy has
  *               not been applied to them.</p>
  *             </li>
  *             <li>
- *               <p>Resources are considered noncompliant for security group policies if
+ *                <p>Resources are considered noncompliant for security group policies if
  *               they are in scope of the policy, they violate one or more of the policy rules, and remediation
  *               is disabled or not possible.</p>
  *             </li>
  *             <li>
- *               <p>Resources are considered noncompliant for Network Firewall policies
+ *                <p>Resources are considered noncompliant for Network Firewall policies
  *                 if a firewall is missing in the VPC, if the firewall endpoint isn't set up in an expected Availability Zone and subnet,
  *                 if a subnet created by the Firewall Manager doesn't have the expected route table,
  *                 and for modifications to a firewall policy that violate the Firewall Manager policy's rules.</p>
  *             </li>
  *             <li>
- *               <p>Resources are considered noncompliant for DNS Firewall policies
+ *                <p>Resources are considered noncompliant for DNS Firewall policies
  *               if a DNS Firewall rule group is missing from the rule group associations for the VPC. </p>
  *             </li>
  *          </ul>
@@ -65,10 +62,16 @@ export interface GetComplianceDetailCommandOutput extends GetComplianceDetailRes
  * import { FMSClient, GetComplianceDetailCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetComplianceDetailCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = { // GetComplianceDetailRequest
+ *   PolicyId: "STRING_VALUE", // required
+ *   MemberAccount: "STRING_VALUE", // required
+ * };
  * const command = new GetComplianceDetailCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetComplianceDetailCommandInput - {@link GetComplianceDetailCommandInput}
+ * @returns {@link GetComplianceDetailCommandOutput}
  * @see {@link GetComplianceDetailCommandInput} for command's `input` shape.
  * @see {@link GetComplianceDetailCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
@@ -109,6 +112,9 @@ export class GetComplianceDetailCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetComplianceDetailCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +143,8 @@ export class GetComplianceDetailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComplianceDetailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComplianceDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,12 +154,18 @@ export class GetComplianceDetailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetComplianceDetailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceDetailCommand(input, context);
+    return se_GetComplianceDetailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComplianceDetailCommandOutput> {
-    return deserializeAws_json1_1GetComplianceDetailCommand(output, context);
+    return de_GetComplianceDetailCommand(output, context);
   }
 
   // Start section: command_body_extra

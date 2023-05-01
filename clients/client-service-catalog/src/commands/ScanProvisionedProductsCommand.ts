@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ScanProvisionedProductsInput,
-  ScanProvisionedProductsInputFilterSensitiveLog,
-  ScanProvisionedProductsOutput,
-  ScanProvisionedProductsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ScanProvisionedProductsCommand,
-  serializeAws_json1_1ScanProvisionedProductsCommand,
-} from "../protocols/Aws_json1_1";
+import { ScanProvisionedProductsInput, ScanProvisionedProductsOutput } from "../models/models_0";
+import { de_ScanProvisionedProductsCommand, se_ScanProvisionedProductsCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link ScanProvisionedProductsCommand}.
  */
 export interface ScanProvisionedProductsCommandInput extends ScanProvisionedProductsInput {}
 /**
+ * @public
+ *
  * The output of {@link ScanProvisionedProductsCommand}.
  */
 export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedProductsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the provisioned products that are available (not terminated).</p>
  *          <p>To use additional filtering, see <a>SearchProvisionedProducts</a>.</p>
  * @example
@@ -43,10 +40,21 @@ export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedPro
  * import { ServiceCatalogClient, ScanProvisionedProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ScanProvisionedProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // ScanProvisionedProductsInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   AccessLevelFilter: { // AccessLevelFilter
+ *     Key: "Account" || "Role" || "User",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new ScanProvisionedProductsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ScanProvisionedProductsCommandInput - {@link ScanProvisionedProductsCommandInput}
+ * @returns {@link ScanProvisionedProductsCommandOutput}
  * @see {@link ScanProvisionedProductsCommandInput} for command's `input` shape.
  * @see {@link ScanProvisionedProductsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -73,6 +81,9 @@ export class ScanProvisionedProductsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ScanProvisionedProductsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +112,8 @@ export class ScanProvisionedProductsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScanProvisionedProductsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ScanProvisionedProductsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +123,18 @@ export class ScanProvisionedProductsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ScanProvisionedProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ScanProvisionedProductsCommand(input, context);
+    return se_ScanProvisionedProductsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScanProvisionedProductsCommandOutput> {
-    return deserializeAws_json1_1ScanProvisionedProductsCommand(output, context);
+    return de_ScanProvisionedProductsCommand(output, context);
   }
 
   // Start section: command_body_extra

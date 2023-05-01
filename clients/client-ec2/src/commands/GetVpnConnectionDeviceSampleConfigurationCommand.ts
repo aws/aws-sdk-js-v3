@@ -16,21 +16,24 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetVpnConnectionDeviceSampleConfigurationRequest,
-  GetVpnConnectionDeviceSampleConfigurationRequestFilterSensitiveLog,
   GetVpnConnectionDeviceSampleConfigurationResult,
   GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand,
-  serializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand,
+  de_GetVpnConnectionDeviceSampleConfigurationCommand,
+  se_GetVpnConnectionDeviceSampleConfigurationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetVpnConnectionDeviceSampleConfigurationCommand}.
  */
 export interface GetVpnConnectionDeviceSampleConfigurationCommandInput
   extends GetVpnConnectionDeviceSampleConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVpnConnectionDeviceSampleConfigurationCommand}.
  */
 export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
@@ -38,6 +41,7 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer
  *             gateway device specified for your Site-to-Site VPN connection.</p>
  * @example
@@ -46,10 +50,18 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
  * import { EC2Client, GetVpnConnectionDeviceSampleConfigurationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetVpnConnectionDeviceSampleConfigurationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetVpnConnectionDeviceSampleConfigurationRequest
+ *   VpnConnectionId: "STRING_VALUE", // required
+ *   VpnConnectionDeviceTypeId: "STRING_VALUE", // required
+ *   InternetKeyExchangeVersion: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new GetVpnConnectionDeviceSampleConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVpnConnectionDeviceSampleConfigurationCommandInput - {@link GetVpnConnectionDeviceSampleConfigurationCommandInput}
+ * @returns {@link GetVpnConnectionDeviceSampleConfigurationCommandOutput}
  * @see {@link GetVpnConnectionDeviceSampleConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetVpnConnectionDeviceSampleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +85,9 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVpnConnectionDeviceSampleConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +122,7 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVpnConnectionDeviceSampleConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -118,18 +133,24 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetVpnConnectionDeviceSampleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand(input, context);
+    return se_GetVpnConnectionDeviceSampleConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVpnConnectionDeviceSampleConfigurationCommandOutput> {
-    return deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand(output, context);
+    return de_GetVpnConnectionDeviceSampleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

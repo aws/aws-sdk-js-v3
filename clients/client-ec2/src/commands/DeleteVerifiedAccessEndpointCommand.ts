@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteVerifiedAccessEndpointRequest,
-  DeleteVerifiedAccessEndpointRequestFilterSensitiveLog,
-  DeleteVerifiedAccessEndpointResult,
-  DeleteVerifiedAccessEndpointResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteVerifiedAccessEndpointCommand,
-  serializeAws_ec2DeleteVerifiedAccessEndpointCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteVerifiedAccessEndpointRequest, DeleteVerifiedAccessEndpointResult } from "../models/models_3";
+import { de_DeleteVerifiedAccessEndpointCommand, se_DeleteVerifiedAccessEndpointCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVerifiedAccessEndpointCommand}.
  */
 export interface DeleteVerifiedAccessEndpointCommandInput extends DeleteVerifiedAccessEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVerifiedAccessEndpointCommand}.
  */
 export interface DeleteVerifiedAccessEndpointCommandOutput
@@ -37,6 +33,7 @@ export interface DeleteVerifiedAccessEndpointCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an Amazon Web Services Verified Access endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,17 @@ export interface DeleteVerifiedAccessEndpointCommandOutput
  * import { EC2Client, DeleteVerifiedAccessEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVerifiedAccessEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteVerifiedAccessEndpointRequest
+ *   VerifiedAccessEndpointId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteVerifiedAccessEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVerifiedAccessEndpointCommandInput - {@link DeleteVerifiedAccessEndpointCommandInput}
+ * @returns {@link DeleteVerifiedAccessEndpointCommandOutput}
  * @see {@link DeleteVerifiedAccessEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -71,6 +75,9 @@ export class DeleteVerifiedAccessEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVerifiedAccessEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +106,8 @@ export class DeleteVerifiedAccessEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVerifiedAccessEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVerifiedAccessEndpointResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,15 +117,21 @@ export class DeleteVerifiedAccessEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVerifiedAccessEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVerifiedAccessEndpointCommand(input, context);
+    return se_DeleteVerifiedAccessEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVerifiedAccessEndpointCommandOutput> {
-    return deserializeAws_ec2DeleteVerifiedAccessEndpointCommand(output, context);
+    return de_DeleteVerifiedAccessEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

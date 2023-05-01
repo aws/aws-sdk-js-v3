@@ -10,7 +10,7 @@ import { MachineLearningClient } from "../MachineLearningClient";
 import { MachineLearningPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MachineLearningClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeDataSourcesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeDataSources(
   config: MachineLearningPaginationConfiguration,
   input: DescribeDataSourcesCommandInput,

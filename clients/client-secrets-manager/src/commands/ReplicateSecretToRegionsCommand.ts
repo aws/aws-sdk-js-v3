@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ReplicateSecretToRegionsRequest,
-  ReplicateSecretToRegionsRequestFilterSensitiveLog,
-  ReplicateSecretToRegionsResponse,
-  ReplicateSecretToRegionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ReplicateSecretToRegionsCommand,
-  serializeAws_json1_1ReplicateSecretToRegionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ReplicateSecretToRegionsRequest, ReplicateSecretToRegionsResponse } from "../models/models_0";
+import { de_ReplicateSecretToRegionsCommand, se_ReplicateSecretToRegionsCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ReplicateSecretToRegionsCommand}.
  */
 export interface ReplicateSecretToRegionsCommandInput extends ReplicateSecretToRegionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReplicateSecretToRegionsCommand}.
  */
 export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretToRegionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replicates the secret to a new Regions. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html">Multi-Region secrets</a>.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
@@ -49,10 +46,22 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * import { SecretsManagerClient, ReplicateSecretToRegionsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ReplicateSecretToRegionsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // ReplicateSecretToRegionsRequest
+ *   SecretId: "STRING_VALUE", // required
+ *   AddReplicaRegions: [ // AddReplicaRegionListType // required
+ *     { // ReplicaRegionType
+ *       Region: "STRING_VALUE",
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ForceOverwriteReplicaSecret: true || false,
+ * };
  * const command = new ReplicateSecretToRegionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReplicateSecretToRegionsCommandInput - {@link ReplicateSecretToRegionsCommandInput}
+ * @returns {@link ReplicateSecretToRegionsCommandOutput}
  * @see {@link ReplicateSecretToRegionsCommandInput} for command's `input` shape.
  * @see {@link ReplicateSecretToRegionsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -85,6 +94,35 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
  *
+ * @example Example
+ * ```javascript
+ * // The following example replicates a secret to eu-west-3. The replica is encrypted with the AWS managed key aws/secretsmanager.
+ * const input = {
+ *   "AddReplicaRegions": [
+ *     {
+ *       "Region": "eu-west-3"
+ *     }
+ *   ],
+ *   "ForceOverwriteReplicaSecret": true,
+ *   "SecretId": "MyTestSecret"
+ * };
+ * const command = new ReplicateSecretToRegionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestSecret-1a2b3c",
+ *   "ReplicationStatus": [
+ *     {
+ *       "KmsKeyId": "alias/aws/secretsmanager",
+ *       "Region": "eu-west-3",
+ *       "Status": "InProgress"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1679591984774
+ * ```
+ *
  */
 export class ReplicateSecretToRegionsCommand extends $Command<
   ReplicateSecretToRegionsCommandInput,
@@ -103,6 +141,9 @@ export class ReplicateSecretToRegionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReplicateSecretToRegionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +172,8 @@ export class ReplicateSecretToRegionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplicateSecretToRegionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplicateSecretToRegionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +183,18 @@ export class ReplicateSecretToRegionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReplicateSecretToRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReplicateSecretToRegionsCommand(input, context);
+    return se_ReplicateSecretToRegionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplicateSecretToRegionsCommandOutput> {
-    return deserializeAws_json1_1ReplicateSecretToRegionsCommand(output, context);
+    return de_ReplicateSecretToRegionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,21 +15,23 @@ import {
 
 import {
   ListWebsiteAuthorizationProvidersRequest,
-  ListWebsiteAuthorizationProvidersRequestFilterSensitiveLog,
   ListWebsiteAuthorizationProvidersResponse,
-  ListWebsiteAuthorizationProvidersResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListWebsiteAuthorizationProvidersCommand,
-  serializeAws_restJson1ListWebsiteAuthorizationProvidersCommand,
+  de_ListWebsiteAuthorizationProvidersCommand,
+  se_ListWebsiteAuthorizationProvidersCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWebsiteAuthorizationProvidersCommand}.
  */
 export interface ListWebsiteAuthorizationProvidersCommandInput extends ListWebsiteAuthorizationProvidersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWebsiteAuthorizationProvidersCommand}.
  */
 export interface ListWebsiteAuthorizationProvidersCommandOutput
@@ -37,6 +39,7 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>
@@ -46,10 +49,17 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
  * import { WorkLinkClient, ListWebsiteAuthorizationProvidersCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, ListWebsiteAuthorizationProvidersCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // ListWebsiteAuthorizationProvidersRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListWebsiteAuthorizationProvidersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWebsiteAuthorizationProvidersCommandInput - {@link ListWebsiteAuthorizationProvidersCommandInput}
+ * @returns {@link ListWebsiteAuthorizationProvidersCommandOutput}
  * @see {@link ListWebsiteAuthorizationProvidersCommandInput} for command's `input` shape.
  * @see {@link ListWebsiteAuthorizationProvidersCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -88,6 +98,9 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWebsiteAuthorizationProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +129,8 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWebsiteAuthorizationProvidersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWebsiteAuthorizationProvidersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,18 +140,24 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListWebsiteAuthorizationProvidersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWebsiteAuthorizationProvidersCommand(input, context);
+    return se_ListWebsiteAuthorizationProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListWebsiteAuthorizationProvidersCommandOutput> {
-    return deserializeAws_restJson1ListWebsiteAuthorizationProvidersCommand(output, context);
+    return de_ListWebsiteAuthorizationProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

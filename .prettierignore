@@ -4,3 +4,4 @@ CHANGELOG.md
 **/*.hbs
 **/*/report.md
 clients/*/src/endpoint/ruleset.ts
+**/*.java

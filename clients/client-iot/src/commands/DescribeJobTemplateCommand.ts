@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeJobTemplateRequest,
-  DescribeJobTemplateRequestFilterSensitiveLog,
-  DescribeJobTemplateResponse,
-  DescribeJobTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeJobTemplateCommand,
-  serializeAws_restJson1DescribeJobTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeJobTemplateRequest, DescribeJobTemplateResponse } from "../models/models_1";
+import { de_DescribeJobTemplateCommand, se_DescribeJobTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeJobTemplateCommand}.
  */
 export interface DescribeJobTemplateCommandInput extends DescribeJobTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeJobTemplateCommand}.
  */
 export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a job template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * import { IoTClient, DescribeJobTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeJobTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DescribeJobTemplateRequest
+ *   jobTemplateId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeJobTemplateCommandInput - {@link DescribeJobTemplateCommandInput}
+ * @returns {@link DescribeJobTemplateCommandOutput}
  * @see {@link DescribeJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -81,6 +83,9 @@ export class DescribeJobTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DescribeJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJobTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DescribeJobTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobTemplateCommand(input, context);
+    return se_DescribeJobTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobTemplateCommandOutput> {
-    return deserializeAws_restJson1DescribeJobTemplateCommand(output, context);
+    return de_DescribeJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

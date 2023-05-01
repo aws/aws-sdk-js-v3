@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  UpdateDetectorVersionStatusRequest,
-  UpdateDetectorVersionStatusRequestFilterSensitiveLog,
-  UpdateDetectorVersionStatusResult,
-  UpdateDetectorVersionStatusResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDetectorVersionStatusCommand,
-  serializeAws_json1_1UpdateDetectorVersionStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateDetectorVersionStatusRequest, UpdateDetectorVersionStatusResult } from "../models/models_0";
+import { de_UpdateDetectorVersionStatusCommand, se_UpdateDetectorVersionStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDetectorVersionStatusCommand}.
  */
 export interface UpdateDetectorVersionStatusCommandInput extends UpdateDetectorVersionStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDetectorVersionStatusCommand}.
  */
 export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetectorVersionStatusResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the detector version’s status. You can perform the following promotions or
  *             demotions using <code>UpdateDetectorVersionStatus</code>: <code>DRAFT</code> to <code>ACTIVE</code>, <code>ACTIVE</code> to <code>INACTIVE</code>, and <code>INACTIVE</code> to <code>ACTIVE</code>.</p>
  * @example
@@ -43,10 +40,17 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  * import { FraudDetectorClient, UpdateDetectorVersionStatusCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateDetectorVersionStatusCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // UpdateDetectorVersionStatusRequest
+ *   detectorId: "STRING_VALUE", // required
+ *   detectorVersionId: "STRING_VALUE", // required
+ *   status: "DRAFT" || "ACTIVE" || "INACTIVE", // required
+ * };
  * const command = new UpdateDetectorVersionStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDetectorVersionStatusCommandInput - {@link UpdateDetectorVersionStatusCommandInput}
+ * @returns {@link UpdateDetectorVersionStatusCommandOutput}
  * @see {@link UpdateDetectorVersionStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorVersionStatusCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -88,6 +92,9 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDetectorVersionStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +123,8 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDetectorVersionStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDetectorVersionStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +134,21 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDetectorVersionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDetectorVersionStatusCommand(input, context);
+    return se_UpdateDetectorVersionStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDetectorVersionStatusCommandOutput> {
-    return deserializeAws_json1_1UpdateDetectorVersionStatusCommand(output, context);
+    return de_UpdateDetectorVersionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

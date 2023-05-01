@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  CreateEnvironmentRequest,
-  CreateEnvironmentRequestFilterSensitiveLog,
-  CreateEnvironmentResponse,
-  CreateEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEnvironmentCommand,
-  serializeAws_restJson1CreateEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateEnvironmentRequest, CreateEnvironmentResponse } from "../models/models_0";
+import { de_CreateEnvironmentCommand, se_CreateEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a runtime environment for a given runtime engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,47 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * import { M2Client, CreateEnvironmentCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CreateEnvironmentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = { // CreateEnvironmentRequest
+ *   name: "STRING_VALUE", // required
+ *   instanceType: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   engineType: "STRING_VALUE", // required
+ *   engineVersion: "STRING_VALUE",
+ *   subnetIds: [ // String50List
+ *     "STRING_VALUE",
+ *   ],
+ *   securityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   storageConfigurations: [ // StorageConfigurationList
+ *     { // StorageConfiguration Union: only one key present
+ *       efs: { // EfsStorageConfiguration
+ *         fileSystemId: "STRING_VALUE", // required
+ *         mountPoint: "STRING_VALUE", // required
+ *       },
+ *       fsx: { // FsxStorageConfiguration
+ *         fileSystemId: "STRING_VALUE", // required
+ *         mountPoint: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   publiclyAccessible: true || false,
+ *   highAvailabilityConfig: { // HighAvailabilityConfig
+ *     desiredCapacity: Number("int"), // required
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   preferredMaintenanceWindow: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   kmsKeyId: "STRING_VALUE",
+ * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
+ * @returns {@link CreateEnvironmentCommandOutput}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
@@ -87,6 +121,9 @@ export class CreateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +152,8 @@ export class CreateEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +163,18 @@ export class CreateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEnvironmentCommand(input, context);
+    return se_CreateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateEnvironmentCommand(output, context);
+    return de_CreateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

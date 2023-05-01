@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { PutRolePolicyRequest, PutRolePolicyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryPutRolePolicyCommand,
-  serializeAws_queryPutRolePolicyCommand,
-} from "../protocols/Aws_query";
+import { PutRolePolicyRequest } from "../models/models_0";
+import { de_PutRolePolicyCommand, se_PutRolePolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link PutRolePolicyCommand}.
  */
 export interface PutRolePolicyCommandInput extends PutRolePolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRolePolicyCommand}.
  */
 export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates an inline policy document that is embedded in the specified IAM
  *             role.</p>
  *          <p>When you embed an inline policy in a role, the inline policy is used as part of the
@@ -56,10 +58,17 @@ export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, PutRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, PutRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // PutRolePolicyRequest
+ *   RoleName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   PolicyDocument: "STRING_VALUE", // required
+ * };
  * const command = new PutRolePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRolePolicyCommandInput - {@link PutRolePolicyCommandInput}
+ * @returns {@link PutRolePolicyCommandOutput}
  * @see {@link PutRolePolicyCommandInput} for command's `input` shape.
  * @see {@link PutRolePolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -81,10 +90,10 @@ export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
  *       failure.</p>
  *
  * @throws {@link UnmodifiableEntityException} (client fault)
- *  <p>The request was rejected because only the service that depends on the service-linked role
- *       can modify or delete the role on your behalf. The error message includes the name of the
- *       service that depends on this service-linked role. You must request the change through that
- *       service.</p>
+ *  <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
+ *       the service that depends on the service-linked role can modify or delete the role on your
+ *       behalf. The error message includes the name of the service that depends on this service-linked
+ *       role. You must request the change through that service.</p>
  *
  *
  * @example To attach a permissions policy to an IAM role
@@ -118,6 +127,9 @@ export class PutRolePolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRolePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +156,8 @@ export class PutRolePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRolePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,12 +167,18 @@ export class PutRolePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutRolePolicyCommand(input, context);
+    return se_PutRolePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRolePolicyCommandOutput> {
-    return deserializeAws_queryPutRolePolicyCommand(output, context);
+    return de_PutRolePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

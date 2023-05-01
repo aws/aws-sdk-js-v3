@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteUsageLimitRequest,
-  DeleteUsageLimitRequestFilterSensitiveLog,
-  DeleteUsageLimitResponse,
-  DeleteUsageLimitResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteUsageLimitCommand,
-  serializeAws_json1_1DeleteUsageLimitCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteUsageLimitRequest, DeleteUsageLimitResponse } from "../models/models_0";
+import { de_DeleteUsageLimitCommand, se_DeleteUsageLimitCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../RedshiftServerlessClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteUsageLimitCommand}.
  */
 export interface DeleteUsageLimitCommandInput extends DeleteUsageLimitRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteUsageLimitCommand}.
  */
 export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a usage limit from Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  * import { RedshiftServerlessClient, DeleteUsageLimitCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, DeleteUsageLimitCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = { // DeleteUsageLimitRequest
+ *   usageLimitId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUsageLimitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteUsageLimitCommandInput - {@link DeleteUsageLimitCommandInput}
+ * @returns {@link DeleteUsageLimitCommandOutput}
  * @see {@link DeleteUsageLimitCommandInput} for command's `input` shape.
  * @see {@link DeleteUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
@@ -85,6 +87,9 @@ export class DeleteUsageLimitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUsageLimitCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +118,8 @@ export class DeleteUsageLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUsageLimitRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUsageLimitResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +129,18 @@ export class DeleteUsageLimitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUsageLimitCommand(input, context);
+    return se_DeleteUsageLimitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUsageLimitCommandOutput> {
-    return deserializeAws_json1_1DeleteUsageLimitCommand(output, context);
+    return de_DeleteUsageLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

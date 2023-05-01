@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateContainerServiceRequest,
-  CreateContainerServiceRequestFilterSensitiveLog,
-  CreateContainerServiceResult,
-  CreateContainerServiceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateContainerServiceCommand,
-  serializeAws_json1_1CreateContainerServiceCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateContainerServiceRequest, CreateContainerServiceResult } from "../models/models_0";
+import { de_CreateContainerServiceCommand, se_CreateContainerServiceCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateContainerServiceCommand}.
  */
 export interface CreateContainerServiceCommandInput extends CreateContainerServiceRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateContainerServiceCommand}.
  */
 export interface CreateContainerServiceCommandOutput extends CreateContainerServiceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Lightsail container service.</p>
  *          <p>A Lightsail container service is a compute resource to which you can deploy containers.
  *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev
@@ -45,10 +42,61 @@ export interface CreateContainerServiceCommandOutput extends CreateContainerServ
  * import { LightsailClient, CreateContainerServiceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateContainerServiceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CreateContainerServiceRequest
+ *   serviceName: "STRING_VALUE", // required
+ *   power: "nano" || "micro" || "small" || "medium" || "large" || "xlarge", // required
+ *   scale: Number("int"), // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   publicDomainNames: { // ContainerServicePublicDomains
+ *     "<keys>": [ // ContainerServicePublicDomainsList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   deployment: { // ContainerServiceDeploymentRequest
+ *     containers: { // ContainerMap
+ *       "<keys>": { // Container
+ *         image: "STRING_VALUE",
+ *         command: [ // StringList
+ *           "STRING_VALUE",
+ *         ],
+ *         environment: { // Environment
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         ports: { // PortMap
+ *           "<keys>": "HTTP" || "HTTPS" || "TCP" || "UDP",
+ *         },
+ *       },
+ *     },
+ *     publicEndpoint: { // EndpointRequest
+ *       containerName: "STRING_VALUE", // required
+ *       containerPort: Number("int"), // required
+ *       healthCheck: { // ContainerServiceHealthCheckConfig
+ *         healthyThreshold: Number("int"),
+ *         unhealthyThreshold: Number("int"),
+ *         timeoutSeconds: Number("int"),
+ *         intervalSeconds: Number("int"),
+ *         path: "STRING_VALUE",
+ *         successCodes: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   privateRegistryAccess: { // PrivateRegistryAccessRequest
+ *     ecrImagePullerRole: { // ContainerServiceECRImagePullerRoleRequest
+ *       isActive: true || false,
+ *     },
+ *   },
+ * };
  * const command = new CreateContainerServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateContainerServiceCommandInput - {@link CreateContainerServiceCommandInput}
+ * @returns {@link CreateContainerServiceCommandOutput}
  * @see {@link CreateContainerServiceCommandInput} for command's `input` shape.
  * @see {@link CreateContainerServiceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -95,6 +143,9 @@ export class CreateContainerServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateContainerServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +174,8 @@ export class CreateContainerServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateContainerServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateContainerServiceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +185,18 @@ export class CreateContainerServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateContainerServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContainerServiceCommand(input, context);
+    return se_CreateContainerServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContainerServiceCommandOutput> {
-    return deserializeAws_json1_1CreateContainerServiceCommand(output, context);
+    return de_CreateContainerServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

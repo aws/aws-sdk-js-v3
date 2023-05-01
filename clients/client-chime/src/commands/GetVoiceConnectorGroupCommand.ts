@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  GetVoiceConnectorGroupRequest,
-  GetVoiceConnectorGroupRequestFilterSensitiveLog,
-  GetVoiceConnectorGroupResponse,
-  GetVoiceConnectorGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetVoiceConnectorGroupCommand,
-  serializeAws_restJson1GetVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { GetVoiceConnectorGroupRequest, GetVoiceConnectorGroupResponse } from "../models/models_1";
+import { de_GetVoiceConnectorGroupCommand, se_GetVoiceConnectorGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetVoiceConnectorGroupCommand}.
  */
 export interface GetVoiceConnectorGroupCommandInput extends GetVoiceConnectorGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVoiceConnectorGroupCommand}.
  */
 export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name, and associated <code>VoiceConnectorItems</code>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  * import { ChimeClient, GetVoiceConnectorGroupCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // GetVoiceConnectorGroupRequest
+ *   VoiceConnectorGroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVoiceConnectorGroupCommandInput - {@link GetVoiceConnectorGroupCommandInput}
+ * @returns {@link GetVoiceConnectorGroupCommandOutput}
  * @see {@link GetVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -91,6 +93,9 @@ export class GetVoiceConnectorGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +124,8 @@ export class GetVoiceConnectorGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceConnectorGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVoiceConnectorGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +135,18 @@ export class GetVoiceConnectorGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorGroupCommand(input, context);
+    return se_GetVoiceConnectorGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorGroupCommand(output, context);
+    return de_GetVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

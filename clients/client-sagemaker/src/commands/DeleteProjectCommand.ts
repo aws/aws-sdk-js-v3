@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteProjectInput, DeleteProjectInputFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteProjectCommand,
-  serializeAws_json1_1DeleteProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteProjectInput } from "../models/models_1";
+import { de_DeleteProjectCommand, se_DeleteProjectCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteProjectCommand}.
  */
 export interface DeleteProjectCommandInput extends DeleteProjectInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteProjectCommand}.
  */
 export interface DeleteProjectCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete the specified project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteProjectCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteProjectCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteProjectCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteProjectInput
+ *   ProjectName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
+ * @returns {@link DeleteProjectCommandOutput}
  * @see {@link DeleteProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -68,6 +75,9 @@ export class DeleteProjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +104,8 @@ export class DeleteProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProjectInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +115,18 @@ export class DeleteProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProjectCommand(input, context);
+    return se_DeleteProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectCommandOutput> {
-    return deserializeAws_json1_1DeleteProjectCommand(output, context);
+    return de_DeleteProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

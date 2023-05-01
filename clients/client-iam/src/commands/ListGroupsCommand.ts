@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListGroupsRequest,
-  ListGroupsRequestFilterSensitiveLog,
-  ListGroupsResponse,
-  ListGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryListGroupsCommand, serializeAws_queryListGroupsCommand } from "../protocols/Aws_query";
+import { ListGroupsRequest, ListGroupsResponse } from "../models/models_0";
+import { de_ListGroupsCommand, se_ListGroupsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupsCommand}.
  */
 export interface ListGroupsCommandInput extends ListGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupsCommand}.
  */
 export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the IAM groups that have the specified path prefix.</p>
  *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
@@ -41,10 +41,17 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * import { IAMClient, ListGroupsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListGroupsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListGroupsRequest
+ *   PathPrefix: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
+ * @returns {@link ListGroupsCommandOutput}
  * @see {@link ListGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -108,6 +115,9 @@ export class ListGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +144,8 @@ export class ListGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +155,18 @@ export class ListGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListGroupsCommand(input, context);
+    return se_ListGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupsCommandOutput> {
-    return deserializeAws_queryListGroupsCommand(output, context);
+    return de_ListGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

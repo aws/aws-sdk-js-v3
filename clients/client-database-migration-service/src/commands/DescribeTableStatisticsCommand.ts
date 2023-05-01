@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeTableStatisticsMessage,
-  DescribeTableStatisticsMessageFilterSensitiveLog,
-  DescribeTableStatisticsResponse,
-  DescribeTableStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTableStatisticsCommand,
-  serializeAws_json1_1DescribeTableStatisticsCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeTableStatisticsMessage, DescribeTableStatisticsResponse } from "../models/models_0";
+import { de_DescribeTableStatisticsCommand, se_DescribeTableStatisticsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeTableStatisticsCommand}.
  */
 export interface DescribeTableStatisticsCommandInput extends DescribeTableStatisticsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeTableStatisticsCommand}.
  */
 export interface DescribeTableStatisticsCommandOutput extends DescribeTableStatisticsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns table statistics on the database migration task, including table name, rows
  *          inserted, rows updated, and rows deleted.</p>
  *          <p>Note that the "last updated" column the DMS console only indicates the time that DMS
@@ -50,10 +47,25 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * import { DatabaseMigrationServiceClient, DescribeTableStatisticsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeTableStatisticsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeTableStatisticsMessage
+ *   ReplicationTaskArn: "STRING_VALUE", // required
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DescribeTableStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeTableStatisticsCommandInput - {@link DescribeTableStatisticsCommandInput}
+ * @returns {@link DescribeTableStatisticsCommandOutput}
  * @see {@link DescribeTableStatisticsCommandInput} for command's `input` shape.
  * @see {@link DescribeTableStatisticsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
@@ -103,6 +115,9 @@ export class DescribeTableStatisticsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTableStatisticsCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +146,8 @@ export class DescribeTableStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTableStatisticsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTableStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +157,18 @@ export class DescribeTableStatisticsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTableStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTableStatisticsCommand(input, context);
+    return se_DescribeTableStatisticsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTableStatisticsCommandOutput> {
-    return deserializeAws_json1_1DescribeTableStatisticsCommand(output, context);
+    return de_DescribeTableStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

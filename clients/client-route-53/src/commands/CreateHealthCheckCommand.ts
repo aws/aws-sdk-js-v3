@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateHealthCheckRequest,
-  CreateHealthCheckRequestFilterSensitiveLog,
-  CreateHealthCheckResponse,
-  CreateHealthCheckResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateHealthCheckCommand,
-  serializeAws_restXmlCreateHealthCheckCommand,
-} from "../protocols/Aws_restXml";
+import { CreateHealthCheckRequest, CreateHealthCheckResponse } from "../models/models_0";
+import { de_CreateHealthCheckCommand, se_CreateHealthCheckCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
+ * @public
+ *
  * The input for {@link CreateHealthCheckCommand}.
  */
 export interface CreateHealthCheckCommandInput extends CreateHealthCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateHealthCheckCommand}.
  */
 export interface CreateHealthCheckCommandOutput extends CreateHealthCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new health check.</p>
  *          <p>For information about adding health checks to resource record sets, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId">HealthCheckId</a> in <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>. </p>
  *          <p>
@@ -76,10 +73,42 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  * import { Route53Client, CreateHealthCheckCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateHealthCheckCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // CreateHealthCheckRequest
+ *   CallerReference: "STRING_VALUE", // required
+ *   HealthCheckConfig: { // HealthCheckConfig
+ *     IPAddress: "STRING_VALUE",
+ *     Port: Number("int"),
+ *     Type: "HTTP" || "HTTPS" || "HTTP_STR_MATCH" || "HTTPS_STR_MATCH" || "TCP" || "CALCULATED" || "CLOUDWATCH_METRIC" || "RECOVERY_CONTROL", // required
+ *     ResourcePath: "STRING_VALUE",
+ *     FullyQualifiedDomainName: "STRING_VALUE",
+ *     SearchString: "STRING_VALUE",
+ *     RequestInterval: Number("int"),
+ *     FailureThreshold: Number("int"),
+ *     MeasureLatency: true || false,
+ *     Inverted: true || false,
+ *     Disabled: true || false,
+ *     HealthThreshold: Number("int"),
+ *     ChildHealthChecks: [ // ChildHealthCheckList
+ *       "STRING_VALUE",
+ *     ],
+ *     EnableSNI: true || false,
+ *     Regions: [ // HealthCheckRegionList
+ *       "us-east-1" || "us-west-1" || "us-west-2" || "eu-west-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "sa-east-1",
+ *     ],
+ *     AlarmIdentifier: { // AlarmIdentifier
+ *       Region: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "ca-central-1" || "eu-central-1" || "eu-central-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "ap-east-1" || "me-south-1" || "me-central-1" || "ap-south-1" || "ap-south-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "eu-north-1" || "sa-east-1" || "cn-northwest-1" || "cn-north-1" || "af-south-1" || "eu-south-1" || "eu-south-2" || "us-gov-west-1" || "us-gov-east-1" || "us-iso-east-1" || "us-iso-west-1" || "us-isob-east-1" || "ap-southeast-4", // required
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     InsufficientDataHealthStatus: "Healthy" || "Unhealthy" || "LastKnownStatus",
+ *     RoutingControlArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateHealthCheckCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateHealthCheckCommandInput - {@link CreateHealthCheckCommandInput}
+ * @returns {@link CreateHealthCheckCommandOutput}
  * @see {@link CreateHealthCheckCommandInput} for command's `input` shape.
  * @see {@link CreateHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
@@ -132,6 +161,9 @@ export class CreateHealthCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHealthCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,8 +192,8 @@ export class CreateHealthCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHealthCheckRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHealthCheckResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -171,12 +203,18 @@ export class CreateHealthCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateHealthCheckCommand(input, context);
+    return se_CreateHealthCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHealthCheckCommandOutput> {
-    return deserializeAws_restXmlCreateHealthCheckCommand(output, context);
+    return de_CreateHealthCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  UpdateTerminationProtectionInput,
-  UpdateTerminationProtectionInputFilterSensitiveLog,
-  UpdateTerminationProtectionOutput,
-  UpdateTerminationProtectionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryUpdateTerminationProtectionCommand,
-  serializeAws_queryUpdateTerminationProtectionCommand,
-} from "../protocols/Aws_query";
+import { UpdateTerminationProtectionInput, UpdateTerminationProtectionOutput } from "../models/models_0";
+import { de_UpdateTerminationProtectionCommand, se_UpdateTerminationProtectionCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTerminationProtectionCommand}.
  */
 export interface UpdateTerminationProtectionCommandInput extends UpdateTerminationProtectionInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTerminationProtectionCommand}.
  */
 export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminationProtectionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates termination protection for the specified stack. If a user attempts to delete a
  *          stack with termination protection enabled, the operation fails and the stack remains
  *          unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a
@@ -48,10 +45,16 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  * import { CloudFormationClient, UpdateTerminationProtectionCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, UpdateTerminationProtectionCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // UpdateTerminationProtectionInput
+ *   EnableTerminationProtection: true || false, // required
+ *   StackName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateTerminationProtectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTerminationProtectionCommandInput - {@link UpdateTerminationProtectionCommandInput}
+ * @returns {@link UpdateTerminationProtectionCommandOutput}
  * @see {@link UpdateTerminationProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateTerminationProtectionCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -75,6 +78,9 @@ export class UpdateTerminationProtectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTerminationProtectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +109,8 @@ export class UpdateTerminationProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTerminationProtectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTerminationProtectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,15 +120,21 @@ export class UpdateTerminationProtectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTerminationProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateTerminationProtectionCommand(input, context);
+    return se_UpdateTerminationProtectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTerminationProtectionCommandOutput> {
-    return deserializeAws_queryUpdateTerminationProtectionCommand(output, context);
+    return de_UpdateTerminationProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

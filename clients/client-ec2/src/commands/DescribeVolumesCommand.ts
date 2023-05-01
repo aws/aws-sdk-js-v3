@@ -14,20 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVolumesRequest, DescribeVolumesRequestFilterSensitiveLog } from "../models/models_4";
-import { DescribeVolumesResult, DescribeVolumesResultFilterSensitiveLog } from "../models/models_5";
-import { deserializeAws_ec2DescribeVolumesCommand, serializeAws_ec2DescribeVolumesCommand } from "../protocols/Aws_ec2";
+import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/models_5";
+import { de_DescribeVolumesCommand, se_DescribeVolumesCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeVolumesCommand}.
  */
 export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeVolumesCommand}.
  */
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified EBS volumes or all of your EBS volumes.</p>
  *          <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list
  *       more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
@@ -38,10 +42,28 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * import { EC2Client, DescribeVolumesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVolumesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeVolumesRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   VolumeIds: [ // VolumeIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeVolumesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeVolumesCommandInput - {@link DescribeVolumesCommandInput}
+ * @returns {@link DescribeVolumesCommandOutput}
  * @see {@link DescribeVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -149,6 +171,9 @@ export class DescribeVolumesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVolumesCommandInput) {
     // Start section: command_constructor
     super();
@@ -177,8 +202,8 @@ export class DescribeVolumesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVolumesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVolumesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -188,12 +213,18 @@ export class DescribeVolumesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVolumesCommand(input, context);
+    return se_DescribeVolumesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumesCommandOutput> {
-    return deserializeAws_ec2DescribeVolumesCommand(output, context);
+    return de_DescribeVolumesCommand(output, context);
   }
 
   // Start section: command_body_extra

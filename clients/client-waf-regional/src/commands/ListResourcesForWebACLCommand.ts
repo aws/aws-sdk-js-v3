@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResourcesForWebACLRequest,
-  ListResourcesForWebACLRequestFilterSensitiveLog,
-  ListResourcesForWebACLResponse,
-  ListResourcesForWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourcesForWebACLCommand,
-  serializeAws_json1_1ListResourcesForWebACLCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourcesForWebACLRequest, ListResourcesForWebACLResponse } from "../models/models_0";
+import { de_ListResourcesForWebACLCommand, se_ListResourcesForWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourcesForWebACLCommand}.
  */
 export interface ListResourcesForWebACLCommandInput extends ListResourcesForWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourcesForWebACLCommand}.
  */
 export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic Regional</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -50,10 +47,16 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * import { WAFRegionalClient, ListResourcesForWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListResourcesForWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // ListResourcesForWebACLRequest
+ *   WebACLId: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE",
+ * };
  * const command = new ListResourcesForWebACLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourcesForWebACLCommandInput - {@link ListResourcesForWebACLCommandInput}
+ * @returns {@link ListResourcesForWebACLCommandOutput}
  * @see {@link ListResourcesForWebACLCommandInput} for command's `input` shape.
  * @see {@link ListResourcesForWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -126,6 +129,9 @@ export class ListResourcesForWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourcesForWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -154,8 +160,8 @@ export class ListResourcesForWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourcesForWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourcesForWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -165,12 +171,18 @@ export class ListResourcesForWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourcesForWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourcesForWebACLCommand(input, context);
+    return se_ListResourcesForWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesForWebACLCommandOutput> {
-    return deserializeAws_json1_1ListResourcesForWebACLCommand(output, context);
+    return de_ListResourcesForWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

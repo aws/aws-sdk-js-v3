@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  UpdateVirtualServiceInput,
-  UpdateVirtualServiceInputFilterSensitiveLog,
-  UpdateVirtualServiceOutput,
-  UpdateVirtualServiceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateVirtualServiceCommand,
-  serializeAws_restJson1UpdateVirtualServiceCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateVirtualServiceInput, UpdateVirtualServiceOutput } from "../models/models_0";
+import { de_UpdateVirtualServiceCommand, se_UpdateVirtualServiceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVirtualServiceCommand}.
  */
 export interface UpdateVirtualServiceCommandInput extends UpdateVirtualServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVirtualServiceCommand}.
  */
 export interface UpdateVirtualServiceCommandOutput extends UpdateVirtualServiceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing virtual service in a specified service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface UpdateVirtualServiceCommandOutput extends UpdateVirtualServiceO
  * import { AppMeshClient, UpdateVirtualServiceCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateVirtualServiceCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // UpdateVirtualServiceInput
+ *   virtualServiceName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   spec: { // VirtualServiceSpec
+ *     provider: { // VirtualServiceProvider Union: only one key present
+ *       virtualNode: { // VirtualNodeServiceProvider
+ *         virtualNodeName: "STRING_VALUE", // required
+ *       },
+ *       virtualRouter: { // VirtualRouterServiceProvider
+ *         virtualRouterName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new UpdateVirtualServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVirtualServiceCommandInput - {@link UpdateVirtualServiceCommandInput}
+ * @returns {@link UpdateVirtualServiceCommandOutput}
  * @see {@link UpdateVirtualServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualServiceCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -98,6 +113,9 @@ export class UpdateVirtualServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVirtualServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +144,8 @@ export class UpdateVirtualServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVirtualServiceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVirtualServiceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +155,18 @@ export class UpdateVirtualServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVirtualServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVirtualServiceCommand(input, context);
+    return se_UpdateVirtualServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualServiceCommandOutput> {
-    return deserializeAws_restJson1UpdateVirtualServiceCommand(output, context);
+    return de_UpdateVirtualServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

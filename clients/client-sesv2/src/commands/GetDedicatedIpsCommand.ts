@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDedicatedIpsRequest,
-  GetDedicatedIpsRequestFilterSensitiveLog,
-  GetDedicatedIpsResponse,
-  GetDedicatedIpsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDedicatedIpsCommand,
-  serializeAws_restJson1GetDedicatedIpsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetDedicatedIpsRequest, GetDedicatedIpsResponse } from "../models/models_0";
+import { de_GetDedicatedIpsCommand, se_GetDedicatedIpsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetDedicatedIpsCommand}.
  */
 export interface GetDedicatedIpsCommandInput extends GetDedicatedIpsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDedicatedIpsCommand}.
  */
 export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the dedicated IP addresses that are associated with your Amazon Web Services
  *             account.</p>
  * @example
@@ -43,10 +40,17 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
  * import { SESv2Client, GetDedicatedIpsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetDedicatedIpsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // GetDedicatedIpsRequest
+ *   PoolName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new GetDedicatedIpsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDedicatedIpsCommandInput - {@link GetDedicatedIpsCommandInput}
+ * @returns {@link GetDedicatedIpsCommandOutput}
  * @see {@link GetDedicatedIpsCommandInput} for command's `input` shape.
  * @see {@link GetDedicatedIpsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
@@ -79,6 +83,9 @@ export class GetDedicatedIpsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDedicatedIpsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +114,8 @@ export class GetDedicatedIpsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDedicatedIpsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDedicatedIpsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +125,18 @@ export class GetDedicatedIpsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDedicatedIpsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDedicatedIpsCommand(input, context);
+    return se_GetDedicatedIpsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDedicatedIpsCommandOutput> {
-    return deserializeAws_restJson1GetDedicatedIpsCommand(output, context);
+    return de_GetDedicatedIpsCommand(output, context);
   }
 
   // Start section: command_body_extra

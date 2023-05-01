@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { UpdateWorkspaceAliasRequest, UpdateWorkspaceAliasRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkspaceAliasCommand,
-  serializeAws_restJson1UpdateWorkspaceAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateWorkspaceAliasRequest } from "../models/models_0";
+import { de_UpdateWorkspaceAliasCommand, se_UpdateWorkspaceAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceAliasCommand}.
  */
 export interface UpdateWorkspaceAliasCommandInput extends UpdateWorkspaceAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceAliasCommand}.
  */
 export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Updates an AMP workspace alias.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,17 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  * import { AmpClient, UpdateWorkspaceAliasCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, UpdateWorkspaceAliasCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = { // UpdateWorkspaceAliasRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   alias: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateWorkspaceAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceAliasCommandInput - {@link UpdateWorkspaceAliasCommandInput}
+ * @returns {@link UpdateWorkspaceAliasCommandOutput}
  * @see {@link UpdateWorkspaceAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceAliasCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
@@ -85,6 +94,9 @@ export class UpdateWorkspaceAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +125,8 @@ export class UpdateWorkspaceAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkspaceAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +136,18 @@ export class UpdateWorkspaceAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkspaceAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkspaceAliasCommand(input, context);
+    return se_UpdateWorkspaceAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkspaceAliasCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkspaceAliasCommand(output, context);
+    return de_UpdateWorkspaceAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

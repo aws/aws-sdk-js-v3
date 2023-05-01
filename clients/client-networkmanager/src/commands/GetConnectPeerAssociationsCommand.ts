@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetConnectPeerAssociationsRequest,
-  GetConnectPeerAssociationsRequestFilterSensitiveLog,
-  GetConnectPeerAssociationsResponse,
-  GetConnectPeerAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetConnectPeerAssociationsRequest, GetConnectPeerAssociationsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetConnectPeerAssociationsCommand,
-  serializeAws_restJson1GetConnectPeerAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectPeerAssociationsCommand, se_GetConnectPeerAssociationsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConnectPeerAssociationsCommand}.
  */
 export interface GetConnectPeerAssociationsCommandInput extends GetConnectPeerAssociationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConnectPeerAssociationsCommand}.
  */
 export interface GetConnectPeerAssociationsCommandOutput extends GetConnectPeerAssociationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a core network Connect peer associations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface GetConnectPeerAssociationsCommandOutput extends GetConnectPeerA
  * import { NetworkManagerClient, GetConnectPeerAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetConnectPeerAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // GetConnectPeerAssociationsRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   ConnectPeerIds: [ // ConnectPeerIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetConnectPeerAssociationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConnectPeerAssociationsCommandInput - {@link GetConnectPeerAssociationsCommandInput}
+ * @returns {@link GetConnectPeerAssociationsCommandOutput}
  * @see {@link GetConnectPeerAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetConnectPeerAssociationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -88,6 +95,9 @@ export class GetConnectPeerAssociationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConnectPeerAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +126,8 @@ export class GetConnectPeerAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectPeerAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectPeerAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +137,21 @@ export class GetConnectPeerAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetConnectPeerAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectPeerAssociationsCommand(input, context);
+    return se_GetConnectPeerAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConnectPeerAssociationsCommandOutput> {
-    return deserializeAws_restJson1GetConnectPeerAssociationsCommand(output, context);
+    return de_GetConnectPeerAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  ListResolversRequest,
-  ListResolversRequestFilterSensitiveLog,
-  ListResolversResponse,
-  ListResolversResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResolversCommand,
-  serializeAws_restJson1ListResolversCommand,
-} from "../protocols/Aws_restJson1";
+import { ListResolversRequest, ListResolversResponse } from "../models/models_0";
+import { de_ListResolversCommand, se_ListResolversCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResolversCommand}.
  */
 export interface ListResolversCommandInput extends ListResolversRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResolversCommand}.
  */
 export interface ListResolversCommandOutput extends ListResolversResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the resolvers for a given API and type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListResolversCommandOutput extends ListResolversResponse, __Met
  * import { AppSyncClient, ListResolversCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListResolversCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = { // ListResolversRequest
+ *   apiId: "STRING_VALUE", // required
+ *   typeName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListResolversCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResolversCommandInput - {@link ListResolversCommandInput}
+ * @returns {@link ListResolversCommandOutput}
  * @see {@link ListResolversCommandInput} for command's `input` shape.
  * @see {@link ListResolversCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
@@ -82,6 +87,9 @@ export class ListResolversCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResolversCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class ListResolversCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResolversRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResolversResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +127,18 @@ export class ListResolversCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResolversCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResolversCommand(input, context);
+    return se_ListResolversCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResolversCommandOutput> {
-    return deserializeAws_restJson1ListResolversCommand(output, context);
+    return de_ListResolversCommand(output, context);
   }
 
   // Start section: command_body_extra

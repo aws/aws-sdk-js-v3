@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetJobTaggingRequest,
-  GetJobTaggingRequestFilterSensitiveLog,
-  GetJobTaggingResult,
-  GetJobTaggingResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetJobTaggingCommand,
-  serializeAws_restXmlGetJobTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { GetJobTaggingRequest, GetJobTaggingResult } from "../models/models_0";
+import { de_GetJobTaggingCommand, se_GetJobTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobTaggingCommand}.
  */
 export interface GetJobTaggingCommandInput extends GetJobTaggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobTaggingCommand}.
  */
 export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the tags on an S3 Batch Operations job. To use
  *          the
  *             <code>GetJobTagging</code> operation, you must have permission to
@@ -67,10 +64,16 @@ export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __Metad
  * import { S3ControlClient, GetJobTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetJobTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // GetJobTaggingRequest
+ *   AccountId: "STRING_VALUE",
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetJobTaggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobTaggingCommandInput - {@link GetJobTaggingCommandInput}
+ * @returns {@link GetJobTaggingCommandOutput}
  * @see {@link GetJobTaggingCommandInput} for command's `input` shape.
  * @see {@link GetJobTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -106,6 +109,9 @@ export class GetJobTaggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobTaggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +139,8 @@ export class GetJobTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobTaggingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +150,18 @@ export class GetJobTaggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetJobTaggingCommand(input, context);
+    return se_GetJobTaggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobTaggingCommandOutput> {
-    return deserializeAws_restXmlGetJobTaggingCommand(output, context);
+    return de_GetJobTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

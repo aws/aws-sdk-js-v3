@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAttributeValuesRequest,
-  GetAttributeValuesRequestFilterSensitiveLog,
-  GetAttributeValuesResponse,
-  GetAttributeValuesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAttributeValuesRequest, GetAttributeValuesResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import {
-  deserializeAws_json1_1GetAttributeValuesCommand,
-  serializeAws_json1_1GetAttributeValuesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAttributeValuesCommand, se_GetAttributeValuesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAttributeValuesCommand}.
  */
 export interface GetAttributeValuesCommandInput extends GetAttributeValuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAttributeValuesCommand}.
  */
 export interface GetAttributeValuesCommandOutput extends GetAttributeValuesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of attribute values. Attributes are similar to the details
  *           in a Price List API offer file. For a list of available attributes, see
  *          <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs">Offer File Definitions</a>
@@ -45,10 +42,18 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * import { PricingClient, GetAttributeValuesCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, GetAttributeValuesCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
  * const client = new PricingClient(config);
+ * const input = { // GetAttributeValuesRequest
+ *   ServiceCode: "STRING_VALUE", // required
+ *   AttributeName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetAttributeValuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAttributeValuesCommandInput - {@link GetAttributeValuesCommandInput}
+ * @returns {@link GetAttributeValuesCommandOutput}
  * @see {@link GetAttributeValuesCommandInput} for command's `input` shape.
  * @see {@link GetAttributeValuesCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
@@ -113,6 +118,9 @@ export class GetAttributeValuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAttributeValuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +149,8 @@ export class GetAttributeValuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAttributeValuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAttributeValuesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +160,18 @@ export class GetAttributeValuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAttributeValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAttributeValuesCommand(input, context);
+    return se_GetAttributeValuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAttributeValuesCommandOutput> {
-    return deserializeAws_json1_1GetAttributeValuesCommand(output, context);
+    return de_GetAttributeValuesCommand(output, context);
   }
 
   // Start section: command_body_extra

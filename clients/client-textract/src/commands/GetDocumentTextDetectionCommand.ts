@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDocumentTextDetectionRequest,
-  GetDocumentTextDetectionRequestFilterSensitiveLog,
-  GetDocumentTextDetectionResponse,
-  GetDocumentTextDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDocumentTextDetectionCommand,
-  serializeAws_json1_1GetDocumentTextDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDocumentTextDetectionRequest, GetDocumentTextDetectionResponse } from "../models/models_0";
+import { de_GetDocumentTextDetectionCommand, se_GetDocumentTextDetectionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetDocumentTextDetectionCommand}.
  */
 export interface GetDocumentTextDetectionCommandInput extends GetDocumentTextDetectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDocumentTextDetectionCommand}.
  */
 export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that detects text in a document.
  *      Amazon Textract can detect lines of text and the words that make up a line of text.</p>
  *          <p>You start asynchronous text detection by calling <a>StartDocumentTextDetection</a>, which returns a job identifier
@@ -51,7 +48,6 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  *          <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object
  *         is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is
  *         a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p>
- *
  *          <p>Use the MaxResults parameter to limit the number of blocks that are returned. If there
  *          are more results than specified in <code>MaxResults</code>, the value of
  *             <code>NextToken</code> in the operation response contains a pagination token for getting
@@ -66,10 +62,17 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  * import { TextractClient, GetDocumentTextDetectionCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, GetDocumentTextDetectionCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // GetDocumentTextDetectionRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetDocumentTextDetectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDocumentTextDetectionCommandInput - {@link GetDocumentTextDetectionCommandInput}
+ * @returns {@link GetDocumentTextDetectionCommandOutput}
  * @see {@link GetDocumentTextDetectionCommandInput} for command's `input` shape.
  * @see {@link GetDocumentTextDetectionCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -127,6 +130,9 @@ export class GetDocumentTextDetectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDocumentTextDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -155,8 +161,8 @@ export class GetDocumentTextDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDocumentTextDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDocumentTextDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -166,12 +172,18 @@ export class GetDocumentTextDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDocumentTextDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDocumentTextDetectionCommand(input, context);
+    return se_GetDocumentTextDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentTextDetectionCommandOutput> {
-    return deserializeAws_json1_1GetDocumentTextDetectionCommand(output, context);
+    return de_GetDocumentTextDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

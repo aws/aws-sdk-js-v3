@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteDimensionRequest,
-  DeleteDimensionRequestFilterSensitiveLog,
-  DeleteDimensionResponse,
-  DeleteDimensionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDimensionCommand,
-  serializeAws_restJson1DeleteDimensionCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteDimensionRequest, DeleteDimensionResponse } from "../models/models_0";
+import { de_DeleteDimensionCommand, se_DeleteDimensionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDimensionCommand}.
  */
 export interface DeleteDimensionCommandInput extends DeleteDimensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDimensionCommand}.
  */
 export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified dimension from your Amazon Web Services accounts.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDimension</a> action.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, _
  * import { IoTClient, DeleteDimensionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteDimensionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteDimensionRequest
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDimensionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDimensionCommandInput - {@link DeleteDimensionCommandInput}
+ * @returns {@link DeleteDimensionCommandOutput}
  * @see {@link DeleteDimensionCommandInput} for command's `input` shape.
  * @see {@link DeleteDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -79,6 +81,9 @@ export class DeleteDimensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDimensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +112,8 @@ export class DeleteDimensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDimensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDimensionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +123,18 @@ export class DeleteDimensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDimensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDimensionCommand(input, context);
+    return se_DeleteDimensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDimensionCommandOutput> {
-    return deserializeAws_restJson1DeleteDimensionCommand(output, context);
+    return de_DeleteDimensionCommand(output, context);
   }
 
   // Start section: command_body_extra

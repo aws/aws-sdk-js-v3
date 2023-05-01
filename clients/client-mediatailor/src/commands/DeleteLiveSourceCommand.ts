@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  DeleteLiveSourceRequest,
-  DeleteLiveSourceRequestFilterSensitiveLog,
-  DeleteLiveSourceResponse,
-  DeleteLiveSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLiveSourceCommand,
-  serializeAws_restJson1DeleteLiveSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteLiveSourceRequest, DeleteLiveSourceResponse } from "../models/models_0";
+import { de_DeleteLiveSourceCommand, se_DeleteLiveSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLiveSourceCommand}.
  */
 export interface DeleteLiveSourceCommandInput extends DeleteLiveSourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLiveSourceCommand}.
  */
 export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The live source to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse,
  * import { MediaTailorClient, DeleteLiveSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeleteLiveSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // DeleteLiveSourceRequest
+ *   LiveSourceName: "STRING_VALUE", // required
+ *   SourceLocationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLiveSourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLiveSourceCommandInput - {@link DeleteLiveSourceCommandInput}
+ * @returns {@link DeleteLiveSourceCommandOutput}
  * @see {@link DeleteLiveSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteLiveSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +72,9 @@ export class DeleteLiveSourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLiveSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +103,8 @@ export class DeleteLiveSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLiveSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLiveSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +114,18 @@ export class DeleteLiveSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLiveSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLiveSourceCommand(input, context);
+    return se_DeleteLiveSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLiveSourceCommandOutput> {
-    return deserializeAws_restJson1DeleteLiveSourceCommand(output, context);
+    return de_DeleteLiveSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

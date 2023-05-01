@@ -2,7 +2,7 @@ import { Endpoint, EndpointV2 } from "@aws-sdk/types";
 
 /**
  * Normalize some key of the client config to an async provider.
- * @private
+ * @internal
  *
  * @param configKey - the key to look up in config.
  * @param canonicalEndpointParamKey - this is the name the EndpointRuleSet uses.

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateWorkspaceBundleRequest,
-  UpdateWorkspaceBundleRequestFilterSensitiveLog,
-  UpdateWorkspaceBundleResult,
-  UpdateWorkspaceBundleResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateWorkspaceBundleCommand,
-  serializeAws_json1_1UpdateWorkspaceBundleCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateWorkspaceBundleRequest, UpdateWorkspaceBundleResult } from "../models/models_0";
+import { de_UpdateWorkspaceBundleCommand, se_UpdateWorkspaceBundleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceBundleCommand}.
  */
 export interface UpdateWorkspaceBundleCommandInput extends UpdateWorkspaceBundleRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceBundleCommand}.
  */
 export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundleResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html">
  *             Update a Custom WorkSpaces Bundle</a>.</p>
@@ -49,10 +46,16 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * import { WorkSpacesClient, UpdateWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, UpdateWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // UpdateWorkspaceBundleRequest
+ *   BundleId: "STRING_VALUE",
+ *   ImageId: "STRING_VALUE",
+ * };
  * const command = new UpdateWorkspaceBundleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceBundleCommandInput - {@link UpdateWorkspaceBundleCommandInput}
+ * @returns {@link UpdateWorkspaceBundleCommandOutput}
  * @see {@link UpdateWorkspaceBundleCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceBundleCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
@@ -91,6 +94,9 @@ export class UpdateWorkspaceBundleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceBundleCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +125,8 @@ export class UpdateWorkspaceBundleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkspaceBundleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkspaceBundleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +136,18 @@ export class UpdateWorkspaceBundleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkspaceBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWorkspaceBundleCommand(input, context);
+    return se_UpdateWorkspaceBundleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkspaceBundleCommandOutput> {
-    return deserializeAws_json1_1UpdateWorkspaceBundleCommand(output, context);
+    return de_UpdateWorkspaceBundleCommand(output, context);
   }
 
   // Start section: command_body_extra

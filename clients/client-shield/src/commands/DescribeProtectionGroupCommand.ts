@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeProtectionGroupRequest,
-  DescribeProtectionGroupRequestFilterSensitiveLog,
-  DescribeProtectionGroupResponse,
-  DescribeProtectionGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProtectionGroupCommand,
-  serializeAws_json1_1DescribeProtectionGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeProtectionGroupRequest, DescribeProtectionGroupResponse } from "../models/models_0";
+import { de_DescribeProtectionGroupCommand, se_DescribeProtectionGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProtectionGroupCommand}.
  */
 export interface DescribeProtectionGroupCommandInput extends DescribeProtectionGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProtectionGroupCommand}.
  */
 export interface DescribeProtectionGroupCommandOutput extends DescribeProtectionGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the specification for the specified protection group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeProtectionGroupCommandOutput extends DescribeProtection
  * import { ShieldClient, DescribeProtectionGroupCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DescribeProtectionGroupCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = { // DescribeProtectionGroupRequest
+ *   ProtectionGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProtectionGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProtectionGroupCommandInput - {@link DescribeProtectionGroupCommandInput}
+ * @returns {@link DescribeProtectionGroupCommandOutput}
  * @see {@link DescribeProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
@@ -75,6 +77,9 @@ export class DescribeProtectionGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProtectionGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DescribeProtectionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProtectionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProtectionGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DescribeProtectionGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProtectionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProtectionGroupCommand(input, context);
+    return se_DescribeProtectionGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProtectionGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeProtectionGroupCommand(output, context);
+    return de_DescribeProtectionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

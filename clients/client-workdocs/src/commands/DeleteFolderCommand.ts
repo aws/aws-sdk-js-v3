@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteFolderRequest, DeleteFolderRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFolderCommand,
-  serializeAws_restJson1DeleteFolderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFolderCommand, se_DeleteFolderCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFolderCommand}.
  */
 export interface DeleteFolderCommandInput extends DeleteFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFolderCommand}.
  */
 export interface DeleteFolderCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Permanently deletes the specified folder and its contents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteFolderCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, DeleteFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DeleteFolderRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   FolderId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFolderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFolderCommandInput - {@link DeleteFolderCommandInput}
+ * @returns {@link DeleteFolderCommandOutput}
  * @see {@link DeleteFolderCommandInput} for command's `input` shape.
  * @see {@link DeleteFolderCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -93,6 +101,9 @@ export class DeleteFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,7 +131,7 @@ export class DeleteFolderCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteFolderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +141,18 @@ export class DeleteFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFolderCommand(input, context);
+    return se_DeleteFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFolderCommandOutput> {
-    return deserializeAws_restJson1DeleteFolderCommand(output, context);
+    return de_DeleteFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

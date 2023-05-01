@@ -10,7 +10,7 @@ import { LicenseManagerLinuxSubscriptionsClient } from "../LicenseManagerLinuxSu
 import { LicenseManagerLinuxSubscriptionsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LicenseManagerLinuxSubscriptionsClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListLinuxSubscriptionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListLinuxSubscriptions(
   config: LicenseManagerLinuxSubscriptionsPaginationConfiguration,
   input: ListLinuxSubscriptionsCommandInput,

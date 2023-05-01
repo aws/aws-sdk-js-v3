@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTablesRequest,
-  ListTablesRequestFilterSensitiveLog,
-  ListTablesResponse,
-  ListTablesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListTablesCommand,
-  serializeAws_json1_0ListTablesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListTablesRequest, ListTablesResponse } from "../models/models_0";
+import { de_ListTablesCommand, se_ListTablesCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTablesCommand}.
  */
 export interface ListTablesCommandInput extends ListTablesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTablesCommand}.
  */
 export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of tables, along with the name, status, and retention properties of each
  *          table. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html">code sample</a>
  *          for details. </p>
@@ -45,10 +42,17 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * import { TimestreamWriteClient, ListTablesCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, ListTablesCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = { // ListTablesRequest
+ *   DatabaseName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTablesCommandInput - {@link ListTablesCommandInput}
+ * @returns {@link ListTablesCommandOutput}
  * @see {@link ListTablesCommandInput} for command's `input` shape.
  * @see {@link ListTablesCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
@@ -94,6 +98,9 @@ export class ListTablesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTablesCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +130,8 @@ export class ListTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTablesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTablesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +141,18 @@ export class ListTablesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListTablesCommand(input, context);
+    return se_ListTablesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTablesCommandOutput> {
-    return deserializeAws_json1_0ListTablesCommand(output, context);
+    return de_ListTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

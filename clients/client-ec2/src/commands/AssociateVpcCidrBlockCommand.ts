@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateVpcCidrBlockRequest,
-  AssociateVpcCidrBlockRequestFilterSensitiveLog,
-  AssociateVpcCidrBlockResult,
-  AssociateVpcCidrBlockResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateVpcCidrBlockCommand,
-  serializeAws_ec2AssociateVpcCidrBlockCommand,
-} from "../protocols/Aws_ec2";
+import { AssociateVpcCidrBlockRequest, AssociateVpcCidrBlockResult } from "../models/models_0";
+import { de_AssociateVpcCidrBlockCommand, se_AssociateVpcCidrBlockCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link AssociateVpcCidrBlockCommand}.
  */
 export interface AssociateVpcCidrBlockCommandInput extends AssociateVpcCidrBlockRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssociateVpcCidrBlockCommand}.
  */
 export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBlockResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block,
  *             an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that
  *             you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>). The IPv6 CIDR block size is fixed
@@ -50,10 +47,24 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  * import { EC2Client, AssociateVpcCidrBlockCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateVpcCidrBlockCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AssociateVpcCidrBlockRequest
+ *   AmazonProvidedIpv6CidrBlock: true || false,
+ *   CidrBlock: "STRING_VALUE",
+ *   VpcId: "STRING_VALUE", // required
+ *   Ipv6CidrBlockNetworkBorderGroup: "STRING_VALUE",
+ *   Ipv6Pool: "STRING_VALUE",
+ *   Ipv6CidrBlock: "STRING_VALUE",
+ *   Ipv4IpamPoolId: "STRING_VALUE",
+ *   Ipv4NetmaskLength: Number("int"),
+ *   Ipv6IpamPoolId: "STRING_VALUE",
+ *   Ipv6NetmaskLength: Number("int"),
+ * };
  * const command = new AssociateVpcCidrBlockCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssociateVpcCidrBlockCommandInput - {@link AssociateVpcCidrBlockCommandInput}
+ * @returns {@link AssociateVpcCidrBlockCommandOutput}
  * @see {@link AssociateVpcCidrBlockCommandInput} for command's `input` shape.
  * @see {@link AssociateVpcCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -77,6 +88,9 @@ export class AssociateVpcCidrBlockCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateVpcCidrBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +119,8 @@ export class AssociateVpcCidrBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateVpcCidrBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateVpcCidrBlockResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +130,18 @@ export class AssociateVpcCidrBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateVpcCidrBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateVpcCidrBlockCommand(input, context);
+    return se_AssociateVpcCidrBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateVpcCidrBlockCommandOutput> {
-    return deserializeAws_ec2AssociateVpcCidrBlockCommand(output, context);
+    return de_AssociateVpcCidrBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

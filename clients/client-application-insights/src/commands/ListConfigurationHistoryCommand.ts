@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  ListConfigurationHistoryRequest,
-  ListConfigurationHistoryRequestFilterSensitiveLog,
-  ListConfigurationHistoryResponse,
-  ListConfigurationHistoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListConfigurationHistoryCommand,
-  serializeAws_json1_1ListConfigurationHistoryCommand,
-} from "../protocols/Aws_json1_1";
+import { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/models_0";
+import { de_ListConfigurationHistoryCommand, se_ListConfigurationHistoryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfigurationHistoryCommand}.
  */
 export interface ListConfigurationHistoryCommandInput extends ListConfigurationHistoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConfigurationHistoryCommand}.
  */
 export interface ListConfigurationHistoryCommandOutput extends ListConfigurationHistoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by
  *          Application Insights. Examples of events represented are: </p>
  *          <ul>
@@ -59,10 +56,20 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  * import { ApplicationInsightsClient, ListConfigurationHistoryCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, ListConfigurationHistoryCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // ListConfigurationHistoryRequest
+ *   ResourceGroupName: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   EventStatus: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConfigurationHistoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigurationHistoryCommandInput - {@link ListConfigurationHistoryCommandInput}
+ * @returns {@link ListConfigurationHistoryCommandOutput}
  * @see {@link ListConfigurationHistoryCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationHistoryCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -95,6 +102,9 @@ export class ListConfigurationHistoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationHistoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +133,8 @@ export class ListConfigurationHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfigurationHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +144,18 @@ export class ListConfigurationHistoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListConfigurationHistoryCommand(input, context);
+    return se_ListConfigurationHistoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationHistoryCommandOutput> {
-    return deserializeAws_json1_1ListConfigurationHistoryCommand(output, context);
+    return de_ListConfigurationHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

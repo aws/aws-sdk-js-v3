@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  ListBackupsInput,
-  ListBackupsInputFilterSensitiveLog,
-  ListBackupsOutput,
-  ListBackupsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListBackupsCommand,
-  serializeAws_json1_0ListBackupsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListBackupsInput, ListBackupsOutput } from "../models/models_0";
+import { de_ListBackupsCommand, se_ListBackupsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListBackupsCommand}.
  */
 export interface ListBackupsCommandInput extends ListBackupsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListBackupsCommand}.
  */
 export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List backups associated with an Amazon Web Services account. To list backups for a
  *             given table, specify <code>TableName</code>. <code>ListBackups</code> returns a
  *             paginated list of results with at most 1 MB worth of items in a page. You can also
@@ -48,10 +45,20 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  * import { DynamoDBClient, ListBackupsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListBackupsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // ListBackupsInput
+ *   TableName: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   TimeRangeLowerBound: new Date("TIMESTAMP"),
+ *   TimeRangeUpperBound: new Date("TIMESTAMP"),
+ *   ExclusiveStartBackupArn: "STRING_VALUE",
+ *   BackupType: "USER" || "SYSTEM" || "AWS_BACKUP" || "ALL",
+ * };
  * const command = new ListBackupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListBackupsCommandInput - {@link ListBackupsCommandInput}
+ * @returns {@link ListBackupsCommandOutput}
  * @see {@link ListBackupsCommandInput} for command's `input` shape.
  * @see {@link ListBackupsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -80,6 +87,9 @@ export class ListBackupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListBackupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +116,8 @@ export class ListBackupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBackupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +127,18 @@ export class ListBackupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListBackupsCommand(input, context);
+    return se_ListBackupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupsCommandOutput> {
-    return deserializeAws_json1_0ListBackupsCommand(output, context);
+    return de_ListBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

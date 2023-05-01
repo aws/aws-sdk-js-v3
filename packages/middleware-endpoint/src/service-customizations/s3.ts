@@ -1,5 +1,8 @@
 import { EndpointParameters } from "@aws-sdk/types";
 
+/**
+ * @internal
+ */
 export const resolveParamsForS3 = async (endpointParams: EndpointParameters) => {
   const bucket = (endpointParams?.Bucket as string) || "";
 
@@ -32,7 +35,13 @@ export const resolveParamsForS3 = async (endpointParams: EndpointParameters) => 
 const DOMAIN_PATTERN = /^[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]$/;
 const IP_ADDRESS_PATTERN = /(\d+\.){3}\d+/;
 const DOTS_PATTERN = /\.\./;
+/**
+ * @internal
+ */
 export const DOT_PATTERN = /\./;
+/**
+ * @internal
+ */
 export const S3_HOSTNAME_PATTERN = /^(.+\.)?s3(-fips)?(\.dualstack)?[.-]([a-z0-9-]+)\./;
 
 /**
@@ -46,6 +55,9 @@ export const S3_HOSTNAME_PATTERN = /^(.+\.)?s3(-fips)?(\.dualstack)?[.-]([a-z0-9
 export const isDnsCompatibleBucketName = (bucketName: string): boolean =>
   DOMAIN_PATTERN.test(bucketName) && !IP_ADDRESS_PATTERN.test(bucketName) && !DOTS_PATTERN.test(bucketName);
 
+/**
+ * @internal
+ */
 export const isArnBucketName = (bucketName: string): boolean => {
   const [arn, partition, service, region, account, typeOrId] = bucketName.split(":");
   const isArn = arn === "arn" && bucketName.split(":").length >= 6;

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MigrationHubConfigServiceException as __BaseException } from "./MigrationHubConfigServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,11 +25,21 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export enum TargetType {
-  ACCOUNT = "ACCOUNT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetType = {
+  ACCOUNT: "ACCOUNT",
+} as const;
 
 /**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
+
+/**
+ * @public
  * <p>The target parameter specifies the identifier to which the home region is applied, which
  *       is always an <code>ACCOUNT</code>. It applies the home region to the current
  *         <code>ACCOUNT</code>.</p>
@@ -46,6 +57,9 @@ export interface Target {
   Id?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateHomeRegionControlRequest {
   /**
    * <p>The name of the home region of the calling account.</p>
@@ -66,6 +80,7 @@ export interface CreateHomeRegionControlRequest {
 }
 
 /**
+ * @public
  * <p>A home region control is an object that specifies the home region for an account, with
  *       some additional information. It contains a target (always of type <code>ACCOUNT</code>), an
  *       ID, and a time at which the home region was set.</p>
@@ -97,6 +112,9 @@ export interface HomeRegionControl {
   RequestedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateHomeRegionControlResult {
   /**
    * <p>This object is the <code>HomeRegionControl</code> object that's returned by a successful
@@ -106,6 +124,7 @@ export interface CreateHomeRegionControlResult {
 }
 
 /**
+ * @public
  * <p>Exception raised to indicate that authorization of an action was successful, when the
  *         <code>DryRun</code> flag is set to true.</p>
  */
@@ -128,6 +147,7 @@ export class DryRunOperation extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised when an internal, configuration, or dependency error is
  *       encountered.</p>
  */
@@ -150,6 +170,7 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised when the provided input violates a policy constraint or is entered in the
  *       wrong format or data type.</p>
  */
@@ -172,6 +193,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception raised when a request fails due to temporary unavailability of the
  *       service.</p>
  */
@@ -194,6 +216,7 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -219,6 +242,9 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeHomeRegionControlsRequest {
   /**
    * <p>The <code>ControlID</code> is a unique identifier string of your
@@ -251,6 +277,9 @@ export interface DescribeHomeRegionControlsRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHomeRegionControlsResult {
   /**
    * <p>An array that contains your <code>HomeRegionControl</code> objects.</p>
@@ -265,67 +294,17 @@ export interface DescribeHomeRegionControlsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetHomeRegionRequest {}
 
+/**
+ * @public
+ */
 export interface GetHomeRegionResult {
   /**
    * <p>The name of the home region of the calling account.</p>
    */
   HomeRegion?: string;
 }
-
-/**
- * @internal
- */
-export const TargetFilterSensitiveLog = (obj: Target): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHomeRegionControlRequestFilterSensitiveLog = (obj: CreateHomeRegionControlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HomeRegionControlFilterSensitiveLog = (obj: HomeRegionControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateHomeRegionControlResultFilterSensitiveLog = (obj: CreateHomeRegionControlResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHomeRegionControlsRequestFilterSensitiveLog = (obj: DescribeHomeRegionControlsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHomeRegionControlsResultFilterSensitiveLog = (obj: DescribeHomeRegionControlsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHomeRegionRequestFilterSensitiveLog = (obj: GetHomeRegionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetHomeRegionResultFilterSensitiveLog = (obj: GetHomeRegionResult): any => ({
-  ...obj,
-});

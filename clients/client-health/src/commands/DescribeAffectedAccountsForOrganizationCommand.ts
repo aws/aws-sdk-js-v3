@@ -16,21 +16,23 @@ import {
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
   DescribeAffectedAccountsForOrganizationRequest,
-  DescribeAffectedAccountsForOrganizationRequestFilterSensitiveLog,
   DescribeAffectedAccountsForOrganizationResponse,
-  DescribeAffectedAccountsForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand,
-  serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand,
+  de_DescribeAffectedAccountsForOrganizationCommand,
+  se_DescribeAffectedAccountsForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAffectedAccountsForOrganizationCommand}.
  */
 export interface DescribeAffectedAccountsForOrganizationCommandInput
   extends DescribeAffectedAccountsForOrganizationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAffectedAccountsForOrganizationCommand}.
  */
 export interface DescribeAffectedAccountsForOrganizationCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of accounts in the organization from Organizations that are affected by the
  *          provided event. For more information about the different types of Health events, see
  *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>. </p>
@@ -53,10 +56,17 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  * import { HealthClient, DescribeAffectedAccountsForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeAffectedAccountsForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeAffectedAccountsForOrganizationRequest
+ *   eventArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeAffectedAccountsForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAffectedAccountsForOrganizationCommandInput - {@link DescribeAffectedAccountsForOrganizationCommandInput}
+ * @returns {@link DescribeAffectedAccountsForOrganizationCommandOutput}
  * @see {@link DescribeAffectedAccountsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAffectedAccountsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
@@ -83,6 +93,9 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAffectedAccountsForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +130,8 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAffectedAccountsForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAffectedAccountsForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +141,24 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeAffectedAccountsForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand(input, context);
+    return se_DescribeAffectedAccountsForOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand(output, context);
+    return de_DescribeAffectedAccountsForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

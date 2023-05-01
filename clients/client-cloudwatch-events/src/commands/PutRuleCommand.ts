@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  PutRuleRequest,
-  PutRuleRequestFilterSensitiveLog,
-  PutRuleResponse,
-  PutRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1PutRuleCommand, serializeAws_json1_1PutRuleCommand } from "../protocols/Aws_json1_1";
+import { PutRuleRequest, PutRuleResponse } from "../models/models_0";
+import { de_PutRuleCommand, se_PutRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRuleCommand}.
  */
 export interface PutRuleCommandInput extends PutRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutRuleCommand}.
  */
 export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates the specified rule. Rules are enabled by default, or based on value of
  *       the state. You can disable a rule using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html">DisableRule</a>.</p>
  *
@@ -85,10 +85,27 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  * import { CloudWatchEventsClient, PutRuleCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutRuleCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // PutRuleRequest
+ *   Name: "STRING_VALUE", // required
+ *   ScheduleExpression: "STRING_VALUE",
+ *   EventPattern: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   EventBusName: "STRING_VALUE",
+ * };
  * const command = new PutRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRuleCommandInput - {@link PutRuleCommandInput}
+ * @returns {@link PutRuleCommandOutput}
  * @see {@link PutRuleCommandInput} for command's `input` shape.
  * @see {@link PutRuleCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
@@ -136,6 +153,9 @@ export class PutRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,8 +182,8 @@ export class PutRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -173,12 +193,18 @@ export class PutRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRuleCommand(input, context);
+    return se_PutRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRuleCommandOutput> {
-    return deserializeAws_json1_1PutRuleCommand(output, context);
+    return de_PutRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

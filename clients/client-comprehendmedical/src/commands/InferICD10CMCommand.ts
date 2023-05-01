@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  InferICD10CMRequest,
-  InferICD10CMRequestFilterSensitiveLog,
-  InferICD10CMResponse,
-  InferICD10CMResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1InferICD10CMCommand,
-  serializeAws_json1_1InferICD10CMCommand,
-} from "../protocols/Aws_json1_1";
+import { InferICD10CMRequest, InferICD10CMResponse } from "../models/models_0";
+import { de_InferICD10CMCommand, se_InferICD10CMCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link InferICD10CMCommand}.
  */
 export interface InferICD10CMCommandInput extends InferICD10CMRequest {}
 /**
+ * @public
+ *
  * The output of {@link InferICD10CMCommand}.
  */
 export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>InferICD10CM detects medical conditions as entities listed in a patient record and links
  *       those entities to normalized concept identifiers in the ICD-10-CM knowledge base from the
  *       Centers for Disease Control. Amazon Comprehend Medical only detects medical entities in
@@ -49,10 +46,15 @@ export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __Metad
  * import { ComprehendMedicalClient, InferICD10CMCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, InferICD10CMCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // InferICD10CMRequest
+ *   Text: "STRING_VALUE", // required
+ * };
  * const command = new InferICD10CMCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param InferICD10CMCommandInput - {@link InferICD10CMCommandInput}
+ * @returns {@link InferICD10CMCommandOutput}
  * @see {@link InferICD10CMCommandInput} for command's `input` shape.
  * @see {@link InferICD10CMCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -100,6 +102,9 @@ export class InferICD10CMCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: InferICD10CMCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +131,8 @@ export class InferICD10CMCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InferICD10CMRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InferICD10CMResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +142,18 @@ export class InferICD10CMCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InferICD10CMCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InferICD10CMCommand(input, context);
+    return se_InferICD10CMCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InferICD10CMCommandOutput> {
-    return deserializeAws_json1_1InferICD10CMCommand(output, context);
+    return de_InferICD10CMCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,26 +15,27 @@ import {
 
 import {
   GetRandomPasswordRequest,
-  GetRandomPasswordRequestFilterSensitiveLog,
   GetRandomPasswordResponse,
   GetRandomPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRandomPasswordCommand,
-  serializeAws_json1_1GetRandomPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRandomPasswordCommand, se_GetRandomPasswordCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetRandomPasswordCommand}.
  */
 export interface GetRandomPasswordCommandInput extends GetRandomPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRandomPasswordCommand}.
  */
 export interface GetRandomPasswordCommandOutput extends GetRandomPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a random password. We recommend that you specify the
  *       maximum length and include every character type that the system you are generating a password
  *       for can support.</p>
@@ -51,10 +52,22 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  * import { SecretsManagerClient, GetRandomPasswordCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, GetRandomPasswordCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // GetRandomPasswordRequest
+ *   PasswordLength: Number("long"),
+ *   ExcludeCharacters: "STRING_VALUE",
+ *   ExcludeNumbers: true || false,
+ *   ExcludePunctuation: true || false,
+ *   ExcludeUppercase: true || false,
+ *   ExcludeLowercase: true || false,
+ *   IncludeSpace: true || false,
+ *   RequireEachIncludedType: true || false,
+ * };
  * const command = new GetRandomPasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRandomPasswordCommandInput - {@link GetRandomPasswordCommandInput}
+ * @returns {@link GetRandomPasswordCommandOutput}
  * @see {@link GetRandomPasswordCommandInput} for command's `input` shape.
  * @see {@link GetRandomPasswordCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -120,6 +133,9 @@ export class GetRandomPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRandomPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,7 +164,7 @@ export class GetRandomPasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRandomPasswordRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRandomPasswordResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -159,12 +175,18 @@ export class GetRandomPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRandomPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRandomPasswordCommand(input, context);
+    return se_GetRandomPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRandomPasswordCommandOutput> {
-    return deserializeAws_json1_1GetRandomPasswordCommand(output, context);
+    return de_GetRandomPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

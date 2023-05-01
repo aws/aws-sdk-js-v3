@@ -22,23 +22,24 @@ import {
   ForgotPasswordRequest,
   ForgotPasswordRequestFilterSensitiveLog,
   ForgotPasswordResponse,
-  ForgotPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ForgotPasswordCommand,
-  serializeAws_json1_1ForgotPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ForgotPasswordCommand, se_ForgotPasswordCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ForgotPasswordCommand}.
  */
 export interface ForgotPasswordCommandInput extends ForgotPasswordRequest {}
 /**
+ * @public
+ *
  * The output of {@link ForgotPasswordCommand}.
  */
 export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Calling this API causes a message to be sent to the end user with a confirmation code
  *             that is required to change the user's password. For the <code>Username</code> parameter,
  *             you can use the username or user alias. The method used to send the confirmation code is
@@ -71,10 +72,27 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  * import { CognitoIdentityProviderClient, ForgotPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ForgotPasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ForgotPasswordRequest
+ *   ClientId: "STRING_VALUE", // required
+ *   SecretHash: "STRING_VALUE",
+ *   UserContextData: { // UserContextDataType
+ *     IpAddress: "STRING_VALUE",
+ *     EncodedData: "STRING_VALUE",
+ *   },
+ *   Username: "STRING_VALUE", // required
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
+ *     AnalyticsEndpointId: "STRING_VALUE",
+ *   },
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ForgotPasswordCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ForgotPasswordCommandInput - {@link ForgotPasswordCommandInput}
+ * @returns {@link ForgotPasswordCommandOutput}
  * @see {@link ForgotPasswordCommandInput} for command's `input` shape.
  * @see {@link ForgotPasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -155,6 +173,9 @@ export class ForgotPasswordCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ForgotPasswordCommandInput) {
     // Start section: command_constructor
     super();
@@ -184,7 +205,7 @@ export class ForgotPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ForgotPasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ForgotPasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -194,12 +215,18 @@ export class ForgotPasswordCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ForgotPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ForgotPasswordCommand(input, context);
+    return se_ForgotPasswordCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ForgotPasswordCommandOutput> {
-    return deserializeAws_json1_1ForgotPasswordCommand(output, context);
+    return de_ForgotPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

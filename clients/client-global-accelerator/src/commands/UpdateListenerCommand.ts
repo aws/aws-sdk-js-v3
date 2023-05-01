@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  UpdateListenerRequest,
-  UpdateListenerRequestFilterSensitiveLog,
-  UpdateListenerResponse,
-  UpdateListenerResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateListenerCommand,
-  serializeAws_json1_1UpdateListenerCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateListenerRequest, UpdateListenerResponse } from "../models/models_0";
+import { de_UpdateListenerCommand, se_UpdateListenerCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateListenerCommand}.
  */
 export interface UpdateListenerCommandInput extends UpdateListenerRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateListenerCommand}.
  */
 export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update a listener. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,23 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * import { GlobalAcceleratorClient, UpdateListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // UpdateListenerRequest
+ *   ListenerArn: "STRING_VALUE", // required
+ *   PortRanges: [ // PortRanges
+ *     { // PortRange
+ *       FromPort: Number("int"),
+ *       ToPort: Number("int"),
+ *     },
+ *   ],
+ *   Protocol: "TCP" || "UDP",
+ *   ClientAffinity: "NONE" || "SOURCE_IP",
+ * };
  * const command = new UpdateListenerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateListenerCommandInput - {@link UpdateListenerCommandInput}
+ * @returns {@link UpdateListenerCommandOutput}
  * @see {@link UpdateListenerCommandInput} for command's `input` shape.
  * @see {@link UpdateListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -88,6 +98,9 @@ export class UpdateListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +129,8 @@ export class UpdateListenerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateListenerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateListenerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +140,18 @@ export class UpdateListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateListenerCommand(input, context);
+    return se_UpdateListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateListenerCommandOutput> {
-    return deserializeAws_json1_1UpdateListenerCommand(output, context);
+    return de_UpdateListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

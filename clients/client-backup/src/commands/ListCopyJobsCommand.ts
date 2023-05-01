@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListCopyJobsInput,
-  ListCopyJobsInputFilterSensitiveLog,
-  ListCopyJobsOutput,
-  ListCopyJobsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCopyJobsCommand,
-  serializeAws_restJson1ListCopyJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListCopyJobsInput, ListCopyJobsOutput } from "../models/models_0";
+import { de_ListCopyJobsCommand, se_ListCopyJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCopyJobsCommand}.
  */
 export interface ListCopyJobsCommandInput extends ListCopyJobsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListCopyJobsCommand}.
  */
 export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns metadata about your copy jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,26 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  * import { BackupClient, ListCopyJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListCopyJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // ListCopyJobsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ByResourceArn: "STRING_VALUE",
+ *   ByState: "CREATED" || "RUNNING" || "COMPLETED" || "FAILED" || "PARTIAL",
+ *   ByCreatedBefore: new Date("TIMESTAMP"),
+ *   ByCreatedAfter: new Date("TIMESTAMP"),
+ *   ByResourceType: "STRING_VALUE",
+ *   ByDestinationVaultArn: "STRING_VALUE",
+ *   ByAccountId: "STRING_VALUE",
+ *   ByCompleteBefore: new Date("TIMESTAMP"),
+ *   ByCompleteAfter: new Date("TIMESTAMP"),
+ *   ByParentJobId: "STRING_VALUE",
+ * };
  * const command = new ListCopyJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCopyJobsCommandInput - {@link ListCopyJobsCommandInput}
+ * @returns {@link ListCopyJobsCommandOutput}
  * @see {@link ListCopyJobsCommandInput} for command's `input` shape.
  * @see {@link ListCopyJobsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -76,6 +89,9 @@ export class ListCopyJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCopyJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +118,8 @@ export class ListCopyJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCopyJobsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCopyJobsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +129,18 @@ export class ListCopyJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCopyJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCopyJobsCommand(input, context);
+    return se_ListCopyJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCopyJobsCommandOutput> {
-    return deserializeAws_restJson1ListCopyJobsCommand(output, context);
+    return de_ListCopyJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

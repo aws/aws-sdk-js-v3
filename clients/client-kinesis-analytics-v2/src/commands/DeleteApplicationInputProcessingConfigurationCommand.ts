@@ -20,21 +20,23 @@ import {
 } from "../KinesisAnalyticsV2Client";
 import {
   DeleteApplicationInputProcessingConfigurationRequest,
-  DeleteApplicationInputProcessingConfigurationRequestFilterSensitiveLog,
   DeleteApplicationInputProcessingConfigurationResponse,
-  DeleteApplicationInputProcessingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand,
-  serializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand,
+  de_DeleteApplicationInputProcessingConfigurationCommand,
+  se_DeleteApplicationInputProcessingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApplicationInputProcessingConfigurationCommand}.
  */
 export interface DeleteApplicationInputProcessingConfigurationCommandInput
   extends DeleteApplicationInputProcessingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApplicationInputProcessingConfigurationCommand}.
  */
 export interface DeleteApplicationInputProcessingConfigurationCommandOutput
@@ -42,6 +44,7 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an <a>InputProcessingConfiguration</a> from an input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +52,17 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
  * import { KinesisAnalyticsV2Client, DeleteApplicationInputProcessingConfigurationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DeleteApplicationInputProcessingConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // DeleteApplicationInputProcessingConfigurationRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   InputId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApplicationInputProcessingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApplicationInputProcessingConfigurationCommandInput - {@link DeleteApplicationInputProcessingConfigurationCommandInput}
+ * @returns {@link DeleteApplicationInputProcessingConfigurationCommandOutput}
  * @see {@link DeleteApplicationInputProcessingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationInputProcessingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
@@ -93,6 +103,9 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApplicationInputProcessingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +140,8 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationInputProcessingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationInputProcessingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,18 +151,24 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteApplicationInputProcessingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand(input, context);
+    return se_DeleteApplicationInputProcessingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationInputProcessingConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand(output, context);
+    return de_DeleteApplicationInputProcessingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

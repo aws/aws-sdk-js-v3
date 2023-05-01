@@ -22,23 +22,24 @@ import {
   ConfirmSignUpRequest,
   ConfirmSignUpRequestFilterSensitiveLog,
   ConfirmSignUpResponse,
-  ConfirmSignUpResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ConfirmSignUpCommand,
-  serializeAws_json1_1ConfirmSignUpCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ConfirmSignUpCommand, se_ConfirmSignUpCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ConfirmSignUpCommand}.
  */
 export interface ConfirmSignUpCommandInput extends ConfirmSignUpRequest {}
 /**
+ * @public
+ *
  * The output of {@link ConfirmSignUpCommand}.
  */
 export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Confirms registration of a new user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +47,29 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * import { CognitoIdentityProviderClient, ConfirmSignUpCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ConfirmSignUpCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // ConfirmSignUpRequest
+ *   ClientId: "STRING_VALUE", // required
+ *   SecretHash: "STRING_VALUE",
+ *   Username: "STRING_VALUE", // required
+ *   ConfirmationCode: "STRING_VALUE", // required
+ *   ForceAliasCreation: true || false,
+ *   AnalyticsMetadata: { // AnalyticsMetadataType
+ *     AnalyticsEndpointId: "STRING_VALUE",
+ *   },
+ *   UserContextData: { // UserContextDataType
+ *     IpAddress: "STRING_VALUE",
+ *     EncodedData: "STRING_VALUE",
+ *   },
+ *   ClientMetadata: { // ClientMetadataType
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ConfirmSignUpCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ConfirmSignUpCommandInput - {@link ConfirmSignUpCommandInput}
+ * @returns {@link ConfirmSignUpCommandOutput}
  * @see {@link ConfirmSignUpCommandInput} for command's `input` shape.
  * @see {@link ConfirmSignUpCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -130,6 +150,9 @@ export class ConfirmSignUpCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmSignUpCommandInput) {
     // Start section: command_constructor
     super();
@@ -157,7 +180,7 @@ export class ConfirmSignUpCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ConfirmSignUpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmSignUpResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -167,12 +190,18 @@ export class ConfirmSignUpCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfirmSignUpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmSignUpCommand(input, context);
+    return se_ConfirmSignUpCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmSignUpCommandOutput> {
-    return deserializeAws_json1_1ConfirmSignUpCommand(output, context);
+    return de_ConfirmSignUpCommand(output, context);
   }
 
   // Start section: command_body_extra

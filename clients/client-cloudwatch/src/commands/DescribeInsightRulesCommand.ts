@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  DescribeInsightRulesInput,
-  DescribeInsightRulesInputFilterSensitiveLog,
-  DescribeInsightRulesOutput,
-  DescribeInsightRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeInsightRulesCommand,
-  serializeAws_queryDescribeInsightRulesCommand,
-} from "../protocols/Aws_query";
+import { DescribeInsightRulesInput, DescribeInsightRulesOutput } from "../models/models_0";
+import { de_DescribeInsightRulesCommand, se_DescribeInsightRulesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInsightRulesCommand}.
  */
 export interface DescribeInsightRulesCommandInput extends DescribeInsightRulesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInsightRulesCommand}.
  */
 export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of all the Contributor Insights rules in your account.</p>
  *          <p>For more information about Contributor Insights, see
  * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
@@ -44,10 +41,16 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  * import { CloudWatchClient, DescribeInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DescribeInsightRulesInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeInsightRulesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInsightRulesCommandInput - {@link DescribeInsightRulesCommandInput}
+ * @returns {@link DescribeInsightRulesCommandOutput}
  * @see {@link DescribeInsightRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -74,6 +77,9 @@ export class DescribeInsightRulesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInsightRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +108,8 @@ export class DescribeInsightRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInsightRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInsightRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +119,18 @@ export class DescribeInsightRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeInsightRulesCommand(input, context);
+    return se_DescribeInsightRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInsightRulesCommandOutput> {
-    return deserializeAws_queryDescribeInsightRulesCommand(output, context);
+    return de_DescribeInsightRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateEmailChannelRequest,
-  UpdateEmailChannelRequestFilterSensitiveLog,
-  UpdateEmailChannelResponse,
-  UpdateEmailChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateEmailChannelRequest, UpdateEmailChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateEmailChannelCommand,
-  serializeAws_restJson1UpdateEmailChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateEmailChannelCommand, se_UpdateEmailChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateEmailChannelCommand}.
  */
 export interface UpdateEmailChannelCommandInput extends UpdateEmailChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateEmailChannelCommand}.
  */
 export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the email channel for an application or updates the status and settings of the email channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelRespo
  * import { PinpointClient, UpdateEmailChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateEmailChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // UpdateEmailChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EmailChannelRequest: { // EmailChannelRequest
+ *     ConfigurationSet: "STRING_VALUE",
+ *     Enabled: true || false,
+ *     FromAddress: "STRING_VALUE", // required
+ *     Identity: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateEmailChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateEmailChannelCommandInput - {@link UpdateEmailChannelCommandInput}
+ * @returns {@link UpdateEmailChannelCommandOutput}
  * @see {@link UpdateEmailChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateEmailChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +99,9 @@ export class UpdateEmailChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateEmailChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +130,8 @@ export class UpdateEmailChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEmailChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEmailChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +141,18 @@ export class UpdateEmailChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateEmailChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEmailChannelCommand(input, context);
+    return se_UpdateEmailChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEmailChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateEmailChannelCommand(output, context);
+    return de_UpdateEmailChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

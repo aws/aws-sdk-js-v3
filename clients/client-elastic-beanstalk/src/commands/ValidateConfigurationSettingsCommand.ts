@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { ConfigurationSettingsValidationMessages, ValidateConfigurationSettingsMessage } from "../models/models_0";
 import {
-  ConfigurationSettingsValidationMessages,
-  ConfigurationSettingsValidationMessagesFilterSensitiveLog,
-  ValidateConfigurationSettingsMessage,
-  ValidateConfigurationSettingsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryValidateConfigurationSettingsCommand,
-  serializeAws_queryValidateConfigurationSettingsCommand,
+  de_ValidateConfigurationSettingsCommand,
+  se_ValidateConfigurationSettingsCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateConfigurationSettingsCommand}.
  */
 export interface ValidateConfigurationSettingsCommandInput extends ValidateConfigurationSettingsMessage {}
 /**
+ * @public
+ *
  * The output of {@link ValidateConfigurationSettingsCommand}.
  */
 export interface ValidateConfigurationSettingsCommandOutput
@@ -37,6 +36,7 @@ export interface ValidateConfigurationSettingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Takes a set of configuration settings and either a configuration template or
  *       environment, and determines whether those values are valid.</p>
  *          <p>This action returns a list of messages indicating any errors or warnings associated
@@ -47,10 +47,25 @@ export interface ValidateConfigurationSettingsCommandOutput
  * import { ElasticBeanstalkClient, ValidateConfigurationSettingsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ValidateConfigurationSettingsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // ValidateConfigurationSettingsMessage
+ *   ApplicationName: "STRING_VALUE", // required
+ *   TemplateName: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ *   OptionSettings: [ // ConfigurationOptionSettingsList // required
+ *     { // ConfigurationOptionSetting
+ *       ResourceName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       OptionName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ValidateConfigurationSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateConfigurationSettingsCommandInput - {@link ValidateConfigurationSettingsCommandInput}
+ * @returns {@link ValidateConfigurationSettingsCommandOutput}
  * @see {@link ValidateConfigurationSettingsCommandInput} for command's `input` shape.
  * @see {@link ValidateConfigurationSettingsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -105,6 +120,9 @@ export class ValidateConfigurationSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateConfigurationSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +151,8 @@ export class ValidateConfigurationSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateConfigurationSettingsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigurationSettingsValidationMessagesFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,15 +162,21 @@ export class ValidateConfigurationSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ValidateConfigurationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryValidateConfigurationSettingsCommand(input, context);
+    return se_ValidateConfigurationSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateConfigurationSettingsCommandOutput> {
-    return deserializeAws_queryValidateConfigurationSettingsCommand(output, context);
+    return de_ValidateConfigurationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

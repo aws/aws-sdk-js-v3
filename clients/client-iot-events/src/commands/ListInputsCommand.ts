@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  ListInputsRequest,
-  ListInputsRequestFilterSensitiveLog,
-  ListInputsResponse,
-  ListInputsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListInputsCommand,
-  serializeAws_restJson1ListInputsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInputsRequest, ListInputsResponse } from "../models/models_0";
+import { de_ListInputsCommand, se_ListInputsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInputsCommand}.
  */
 export interface ListInputsCommandInput extends ListInputsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInputsCommand}.
  */
 export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the inputs you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * import { IoTEventsClient, ListInputsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListInputsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // ListInputsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListInputsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInputsCommandInput - {@link ListInputsCommandInput}
+ * @returns {@link ListInputsCommandOutput}
  * @see {@link ListInputsCommandInput} for command's `input` shape.
  * @see {@link ListInputsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListInputsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInputsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class ListInputsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInputsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInputsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +124,18 @@ export class ListInputsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInputsCommand(input, context);
+    return se_ListInputsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputsCommandOutput> {
-    return deserializeAws_restJson1ListInputsCommand(output, context);
+    return de_ListInputsCommand(output, context);
   }
 
   // Start section: command_body_extra

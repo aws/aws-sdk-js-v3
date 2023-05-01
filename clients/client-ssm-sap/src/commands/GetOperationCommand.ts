@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetOperationInput,
-  GetOperationInputFilterSensitiveLog,
-  GetOperationOutput,
-  GetOperationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetOperationCommand,
-  serializeAws_restJson1GetOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetOperationInput, GetOperationOutput } from "../models/models_0";
+import { de_GetOperationCommand, se_GetOperationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetOperationCommand}.
  */
 export interface GetOperationCommandInput extends GetOperationInput {}
 /**
+ * @public
+ *
  * The output of {@link GetOperationCommand}.
  */
 export interface GetOperationCommandOutput extends GetOperationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of an operation by specifying the operation ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetOperationCommandOutput extends GetOperationOutput, __Metadat
  * import { SsmSapClient, GetOperationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, GetOperationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // GetOperationInput
+ *   OperationId: "STRING_VALUE", // required
+ * };
  * const command = new GetOperationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetOperationCommandInput - {@link GetOperationCommandInput}
+ * @returns {@link GetOperationCommandOutput}
  * @see {@link GetOperationCommandInput} for command's `input` shape.
  * @see {@link GetOperationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -75,6 +77,9 @@ export class GetOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +106,8 @@ export class GetOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOperationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOperationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +117,18 @@ export class GetOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetOperationCommand(input, context);
+    return se_GetOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationCommandOutput> {
-    return deserializeAws_restJson1GetOperationCommand(output, context);
+    return de_GetOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRuleRequest,
-  CreateRuleRequestFilterSensitiveLog,
-  CreateRuleResponse,
-  CreateRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRuleCommand,
-  serializeAws_restJson1CreateRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateRuleRequest, CreateRuleResponse } from "../models/models_0";
+import { de_CreateRuleCommand, se_CreateRuleCommand } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRuleCommand}.
  */
 export interface CreateRuleCommandInput extends CreateRuleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRuleCommand}.
  */
 export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-create-rule">
  *       Create Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -43,10 +40,38 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * import { RbinClient, CreateRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, CreateRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
+ * const input = { // CreateRuleRequest
+ *   RetentionPeriod: { // RetentionPeriod
+ *     RetentionPeriodValue: Number("int"), // required
+ *     RetentionPeriodUnit: "DAYS", // required
+ *   },
+ *   Description: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE", // required
+ *   ResourceTags: [ // ResourceTags
+ *     { // ResourceTag
+ *       ResourceTagKey: "STRING_VALUE", // required
+ *       ResourceTagValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   LockConfiguration: { // LockConfiguration
+ *     UnlockDelay: { // UnlockDelay
+ *       UnlockDelayValue: Number("int"), // required
+ *       UnlockDelayUnit: "DAYS", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
+ * @returns {@link CreateRuleCommandOutput}
  * @see {@link CreateRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
@@ -79,6 +104,9 @@ export class CreateRuleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +133,8 @@ export class CreateRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +144,18 @@ export class CreateRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRuleCommand(input, context);
+    return se_CreateRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleCommandOutput> {
-    return deserializeAws_restJson1CreateRuleCommand(output, context);
+    return de_CreateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { KendraClient } from "../KendraClient";
 import { KendraPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KendraClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListExperiencesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListExperiences(
   config: KendraPaginationConfiguration,
   input: ListExperiencesCommandInput,

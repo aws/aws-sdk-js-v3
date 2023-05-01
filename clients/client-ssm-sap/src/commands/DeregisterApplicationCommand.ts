@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeregisterApplicationInput,
-  DeregisterApplicationInputFilterSensitiveLog,
-  DeregisterApplicationOutput,
-  DeregisterApplicationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterApplicationCommand,
-  serializeAws_restJson1DeregisterApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeregisterApplicationInput, DeregisterApplicationOutput } from "../models/models_0";
+import { de_DeregisterApplicationCommand, se_DeregisterApplicationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeregisterApplicationCommand}.
  */
 export interface DeregisterApplicationCommandInput extends DeregisterApplicationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeregisterApplicationCommand}.
  */
 export interface DeregisterApplicationCommandOutput extends DeregisterApplicationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregister an SAP application with AWS Systems Manager for SAP. This action does not
  *          aﬀect the existing setup of your SAP workloads on Amazon EC2.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  * import { SsmSapClient, DeregisterApplicationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, DeregisterApplicationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // DeregisterApplicationInput
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeregisterApplicationCommandInput - {@link DeregisterApplicationCommandInput}
+ * @returns {@link DeregisterApplicationCommandOutput}
  * @see {@link DeregisterApplicationCommandInput} for command's `input` shape.
  * @see {@link DeregisterApplicationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -76,6 +78,9 @@ export class DeregisterApplicationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class DeregisterApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterApplicationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterApplicationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class DeregisterApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterApplicationCommand(input, context);
+    return se_DeregisterApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterApplicationCommandOutput> {
-    return deserializeAws_restJson1DeregisterApplicationCommand(output, context);
+    return de_DeregisterApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

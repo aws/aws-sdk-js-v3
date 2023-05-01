@@ -5,6 +5,8 @@ import {
 } from "@aws-sdk/smithy-client";
 
 /**
+ * @public
+ *
  * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  */
 export class ElasticLoadBalancingV2ServiceException extends __ServiceException {

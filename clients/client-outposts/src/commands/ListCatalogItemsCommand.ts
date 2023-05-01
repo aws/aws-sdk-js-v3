@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCatalogItemsInput,
-  ListCatalogItemsInputFilterSensitiveLog,
-  ListCatalogItemsOutput,
-  ListCatalogItemsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCatalogItemsInput, ListCatalogItemsOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1ListCatalogItemsCommand,
-  serializeAws_restJson1ListCatalogItemsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCatalogItemsCommand, se_ListCatalogItemsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCatalogItemsCommand}.
  */
 export interface ListCatalogItemsCommandInput extends ListCatalogItemsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListCatalogItemsCommand}.
  */
 export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the items in the catalog.</p>
  *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  *  all of the specified filters. For a filter where you can specify multiple values, the results include
@@ -45,10 +42,25 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  * import { OutpostsClient, ListCatalogItemsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListCatalogItemsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // ListCatalogItemsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ItemClassFilter: [ // CatalogItemClassList
+ *     "RACK" || "SERVER",
+ *   ],
+ *   SupportedStorageFilter: [ // SupportedStorageList
+ *     "EBS" || "S3",
+ *   ],
+ *   EC2FamilyFilter: [ // EC2FamilyList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListCatalogItemsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCatalogItemsCommandInput - {@link ListCatalogItemsCommandInput}
+ * @returns {@link ListCatalogItemsCommandOutput}
  * @see {@link ListCatalogItemsCommandInput} for command's `input` shape.
  * @see {@link ListCatalogItemsCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -81,6 +93,9 @@ export class ListCatalogItemsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCatalogItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +124,8 @@ export class ListCatalogItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCatalogItemsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCatalogItemsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +135,18 @@ export class ListCatalogItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCatalogItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCatalogItemsCommand(input, context);
+    return se_ListCatalogItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCatalogItemsCommandOutput> {
-    return deserializeAws_restJson1ListCatalogItemsCommand(output, context);
+    return de_ListCatalogItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

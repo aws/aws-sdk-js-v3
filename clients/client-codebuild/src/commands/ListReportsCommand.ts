@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  ListReportsInput,
-  ListReportsInputFilterSensitiveLog,
-  ListReportsOutput,
-  ListReportsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListReportsCommand,
-  serializeAws_json1_1ListReportsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListReportsInput, ListReportsOutput } from "../models/models_0";
+import { de_ListReportsCommand, se_ListReportsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListReportsCommand}.
  */
 export interface ListReportsCommandInput extends ListReportsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListReportsCommand}.
  */
 export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns a list of ARNs for the reports in the current Amazon Web Services account.
  *     </p>
@@ -44,10 +41,20 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * import { CodeBuildClient, ListReportsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListReportsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // ListReportsInput
+ *   sortOrder: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: { // ReportFilter
+ *     status: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListReportsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListReportsCommandInput - {@link ListReportsCommandInput}
+ * @returns {@link ListReportsCommandOutput}
  * @see {@link ListReportsCommandInput} for command's `input` shape.
  * @see {@link ListReportsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
@@ -74,6 +81,9 @@ export class ListReportsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListReportsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +110,8 @@ export class ListReportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReportsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReportsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +121,18 @@ export class ListReportsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReportsCommand(input, context);
+    return se_ListReportsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReportsCommandOutput> {
-    return deserializeAws_json1_1ListReportsCommand(output, context);
+    return de_ListReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

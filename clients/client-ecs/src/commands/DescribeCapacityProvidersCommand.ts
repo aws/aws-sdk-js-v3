@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DescribeCapacityProvidersRequest,
-  DescribeCapacityProvidersRequestFilterSensitiveLog,
-  DescribeCapacityProvidersResponse,
-  DescribeCapacityProvidersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCapacityProvidersCommand,
-  serializeAws_json1_1DescribeCapacityProvidersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeCapacityProvidersRequest, DescribeCapacityProvidersResponse } from "../models/models_0";
+import { de_DescribeCapacityProvidersCommand, se_DescribeCapacityProvidersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCapacityProvidersCommand}.
  */
 export interface DescribeCapacityProvidersCommandInput extends DescribeCapacityProvidersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCapacityProvidersCommand}.
  */
 export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacityProvidersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your capacity providers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * import { ECSClient, DescribeCapacityProvidersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeCapacityProvidersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DescribeCapacityProvidersRequest
+ *   capacityProviders: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   include: [ // CapacityProviderFieldList
+ *     "TAGS",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeCapacityProvidersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCapacityProvidersCommandInput - {@link DescribeCapacityProvidersCommandInput}
+ * @returns {@link DescribeCapacityProvidersCommandOutput}
  * @see {@link DescribeCapacityProvidersCommandInput} for command's `input` shape.
  * @see {@link DescribeCapacityProvidersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -81,6 +90,9 @@ export class DescribeCapacityProvidersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCapacityProvidersCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +121,8 @@ export class DescribeCapacityProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCapacityProvidersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCapacityProvidersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +132,21 @@ export class DescribeCapacityProvidersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCapacityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCapacityProvidersCommand(input, context);
+    return se_DescribeCapacityProvidersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCapacityProvidersCommandOutput> {
-    return deserializeAws_json1_1DescribeCapacityProvidersCommand(output, context);
+    return de_DescribeCapacityProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

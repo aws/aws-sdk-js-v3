@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutAppValidationConfigurationRequest, PutAppValidationConfigurationResponse } from "../models/models_0";
 import {
-  PutAppValidationConfigurationRequest,
-  PutAppValidationConfigurationRequestFilterSensitiveLog,
-  PutAppValidationConfigurationResponse,
-  PutAppValidationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAppValidationConfigurationCommand,
-  serializeAws_json1_1PutAppValidationConfigurationCommand,
+  de_PutAppValidationConfigurationCommand,
+  se_PutAppValidationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutAppValidationConfigurationCommand}.
  */
 export interface PutAppValidationConfigurationCommandInput extends PutAppValidationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutAppValidationConfigurationCommand}.
  */
 export interface PutAppValidationConfigurationCommandOutput
@@ -37,6 +36,7 @@ export interface PutAppValidationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or updates a validation configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,72 @@ export interface PutAppValidationConfigurationCommandOutput
  * import { SMSClient, PutAppValidationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, PutAppValidationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = { // PutAppValidationConfigurationRequest
+ *   appId: "STRING_VALUE", // required
+ *   appValidationConfigurations: [ // AppValidationConfigurations
+ *     { // AppValidationConfiguration
+ *       validationId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       appValidationStrategy: "SSM",
+ *       ssmValidationParameters: { // SSMValidationParameters
+ *         source: { // Source
+ *           s3Location: { // S3Location
+ *             bucket: "STRING_VALUE",
+ *             key: "STRING_VALUE",
+ *           },
+ *         },
+ *         instanceId: "STRING_VALUE",
+ *         scriptType: "SHELL_SCRIPT" || "POWERSHELL_SCRIPT",
+ *         command: "STRING_VALUE",
+ *         executionTimeoutSeconds: Number("int"),
+ *         outputS3BucketName: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   serverGroupValidationConfigurations: [ // ServerGroupValidationConfigurations
+ *     { // ServerGroupValidationConfiguration
+ *       serverGroupId: "STRING_VALUE",
+ *       serverValidationConfigurations: [ // ServerValidationConfigurations
+ *         { // ServerValidationConfiguration
+ *           server: { // Server
+ *             serverId: "STRING_VALUE",
+ *             serverType: "VIRTUAL_MACHINE",
+ *             vmServer: { // VmServer
+ *               vmServerAddress: { // VmServerAddress
+ *                 vmManagerId: "STRING_VALUE",
+ *                 vmId: "STRING_VALUE",
+ *               },
+ *               vmName: "STRING_VALUE",
+ *               vmManagerName: "STRING_VALUE",
+ *               vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
+ *               vmPath: "STRING_VALUE",
+ *             },
+ *             replicationJobId: "STRING_VALUE",
+ *             replicationJobTerminated: true || false,
+ *           },
+ *           validationId: "STRING_VALUE",
+ *           name: "STRING_VALUE",
+ *           serverValidationStrategy: "USERDATA",
+ *           userDataValidationParameters: { // UserDataValidationParameters
+ *             source: {
+ *               s3Location: {
+ *                 bucket: "STRING_VALUE",
+ *                 key: "STRING_VALUE",
+ *               },
+ *             },
+ *             scriptType: "SHELL_SCRIPT" || "POWERSHELL_SCRIPT",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutAppValidationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAppValidationConfigurationCommandInput - {@link PutAppValidationConfigurationCommandInput}
+ * @returns {@link PutAppValidationConfigurationCommandOutput}
  * @see {@link PutAppValidationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAppValidationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
@@ -87,6 +149,9 @@ export class PutAppValidationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAppValidationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +180,8 @@ export class PutAppValidationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAppValidationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAppValidationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +191,21 @@ export class PutAppValidationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAppValidationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAppValidationConfigurationCommand(input, context);
+    return se_PutAppValidationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAppValidationConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutAppValidationConfigurationCommand(output, context);
+    return de_PutAppValidationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { DeleteLagRequest, DeleteLagRequestFilterSensitiveLog, Lag, LagFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_json1_1DeleteLagCommand, serializeAws_json1_1DeleteLagCommand } from "../protocols/Aws_json1_1";
+import { DeleteLagRequest, Lag } from "../models/models_0";
+import { de_DeleteLagCommand, se_DeleteLagCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteLagCommand}.
  */
 export interface DeleteLagCommandInput extends DeleteLagRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteLagCommand}.
  */
 export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active
  *       virtual interfaces or hosted connections.</p>
  * @example
@@ -35,10 +40,15 @@ export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
  * import { DirectConnectClient, DeleteLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // DeleteLagRequest
+ *   lagId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLagCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteLagCommandInput - {@link DeleteLagCommandInput}
+ * @returns {@link DeleteLagCommandOutput}
  * @see {@link DeleteLagCommandInput} for command's `input` shape.
  * @see {@link DeleteLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
@@ -68,6 +78,9 @@ export class DeleteLagCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLagCommandInput) {
     // Start section: command_constructor
     super();
@@ -94,8 +107,8 @@ export class DeleteLagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLagRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LagFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +118,18 @@ export class DeleteLagCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLagCommand(input, context);
+    return se_DeleteLagCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLagCommandOutput> {
-    return deserializeAws_json1_1DeleteLagCommand(output, context);
+    return de_DeleteLagCommand(output, context);
   }
 
   // Start section: command_body_extra

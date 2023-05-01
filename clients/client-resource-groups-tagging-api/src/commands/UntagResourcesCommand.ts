@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UntagResourcesInput,
-  UntagResourcesInputFilterSensitiveLog,
-  UntagResourcesOutput,
-  UntagResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagResourcesCommand,
-  serializeAws_json1_1UntagResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { UntagResourcesInput, UntagResourcesOutput } from "../models/models_0";
+import { de_UntagResourcesCommand, se_UntagResourcesCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../ResourceGroupsTaggingAPIClient";
 
 /**
+ * @public
+ *
  * The input for {@link UntagResourcesCommand}.
  */
 export interface UntagResourcesCommandInput extends UntagResourcesInput {}
 /**
+ * @public
+ *
  * The output of {@link UntagResourcesCommand}.
  */
 export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the specified tags from the specified resources. When you specify a tag key,
  *             the action removes both that key and its associated value. The operation succeeds even
  *             if you attempt to remove tags from a resource that were already removed. Note the
@@ -82,10 +79,20 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  * import { ResourceGroupsTaggingAPIClient, UntagResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, UntagResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const input = { // UntagResourcesInput
+ *   ResourceARNList: [ // ResourceARNListForTagUntag // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TagKeys: [ // TagKeyListForUntag // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagResourcesCommandInput - {@link UntagResourcesCommandInput}
+ * @returns {@link UntagResourcesCommandOutput}
  * @see {@link UntagResourcesCommandInput} for command's `input` shape.
  * @see {@link UntagResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
@@ -139,6 +146,9 @@ export class UntagResourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagResourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -167,8 +177,8 @@ export class UntagResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -178,12 +188,18 @@ export class UntagResourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagResourcesCommand(input, context);
+    return se_UntagResourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourcesCommandOutput> {
-    return deserializeAws_json1_1UntagResourcesCommand(output, context);
+    return de_UntagResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

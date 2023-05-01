@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  DeleteSchedulingPolicyRequest,
-  DeleteSchedulingPolicyRequestFilterSensitiveLog,
-  DeleteSchedulingPolicyResponse,
-  DeleteSchedulingPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSchedulingPolicyCommand,
-  serializeAws_restJson1DeleteSchedulingPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteSchedulingPolicyRequest, DeleteSchedulingPolicyResponse } from "../models/models_0";
+import { de_DeleteSchedulingPolicyCommand, se_DeleteSchedulingPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSchedulingPolicyCommand}.
  */
 export interface DeleteSchedulingPolicyCommandInput extends DeleteSchedulingPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSchedulingPolicyCommand}.
  */
 export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified scheduling policy.</p>
  *          <p>You can't delete a scheduling policy that's used in any job queues.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPol
  * import { BatchClient, DeleteSchedulingPolicyCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DeleteSchedulingPolicyCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = { // DeleteSchedulingPolicyRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSchedulingPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSchedulingPolicyCommandInput - {@link DeleteSchedulingPolicyCommandInput}
+ * @returns {@link DeleteSchedulingPolicyCommandOutput}
  * @see {@link DeleteSchedulingPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteSchedulingPolicyCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
@@ -78,6 +80,9 @@ export class DeleteSchedulingPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSchedulingPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class DeleteSchedulingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSchedulingPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSchedulingPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class DeleteSchedulingPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSchedulingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSchedulingPolicyCommand(input, context);
+    return se_DeleteSchedulingPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSchedulingPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteSchedulingPolicyCommand(output, context);
+    return de_DeleteSchedulingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

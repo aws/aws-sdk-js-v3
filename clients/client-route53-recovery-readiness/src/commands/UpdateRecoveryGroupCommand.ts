@@ -13,16 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRecoveryGroupRequest,
-  UpdateRecoveryGroupRequestFilterSensitiveLog,
-  UpdateRecoveryGroupResponse,
-  UpdateRecoveryGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRecoveryGroupCommand,
-  serializeAws_restJson1UpdateRecoveryGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRecoveryGroupRequest, UpdateRecoveryGroupResponse } from "../models/models_0";
+import { de_UpdateRecoveryGroupCommand, se_UpdateRecoveryGroupCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -30,15 +22,20 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRecoveryGroupCommand}.
  */
 export interface UpdateRecoveryGroupCommandInput extends UpdateRecoveryGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRecoveryGroupCommand}.
  */
 export interface UpdateRecoveryGroupCommandOutput extends UpdateRecoveryGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a recovery group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,18 @@ export interface UpdateRecoveryGroupCommandOutput extends UpdateRecoveryGroupRes
  * import { Route53RecoveryReadinessClient, UpdateRecoveryGroupCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, UpdateRecoveryGroupCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // UpdateRecoveryGroupRequest
+ *   Cells: [ // __listOf__string // required
+ *     "STRING_VALUE",
+ *   ],
+ *   RecoveryGroupName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRecoveryGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRecoveryGroupCommandInput - {@link UpdateRecoveryGroupCommandInput}
+ * @returns {@link UpdateRecoveryGroupCommandOutput}
  * @see {@link UpdateRecoveryGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRecoveryGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -88,6 +93,9 @@ export class UpdateRecoveryGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRecoveryGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +124,8 @@ export class UpdateRecoveryGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRecoveryGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRecoveryGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +135,18 @@ export class UpdateRecoveryGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRecoveryGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRecoveryGroupCommand(input, context);
+    return se_UpdateRecoveryGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRecoveryGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateRecoveryGroupCommand(output, context);
+    return de_UpdateRecoveryGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

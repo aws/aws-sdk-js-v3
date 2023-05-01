@@ -15,21 +15,23 @@ import {
 
 import {
   GetConfigurationSetEventDestinationsRequest,
-  GetConfigurationSetEventDestinationsRequestFilterSensitiveLog,
   GetConfigurationSetEventDestinationsResponse,
-  GetConfigurationSetEventDestinationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
 import {
-  deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand,
-  serializeAws_restJson1GetConfigurationSetEventDestinationsCommand,
+  de_GetConfigurationSetEventDestinationsCommand,
+  se_GetConfigurationSetEventDestinationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetConfigurationSetEventDestinationsCommand}.
  */
 export interface GetConfigurationSetEventDestinationsCommandInput extends GetConfigurationSetEventDestinationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetConfigurationSetEventDestinationsCommand}.
  */
 export interface GetConfigurationSetEventDestinationsCommandOutput
@@ -37,6 +39,7 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * import { PinpointSMSVoiceClient, GetConfigurationSetEventDestinationsCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
  * // const { PinpointSMSVoiceClient, GetConfigurationSetEventDestinationsCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
+ * const input = { // GetConfigurationSetEventDestinationsRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ * };
  * const command = new GetConfigurationSetEventDestinationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetConfigurationSetEventDestinationsCommandInput - {@link GetConfigurationSetEventDestinationsCommandInput}
+ * @returns {@link GetConfigurationSetEventDestinationsCommandOutput}
  * @see {@link GetConfigurationSetEventDestinationsCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationSetEventDestinationsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
@@ -83,6 +91,9 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetConfigurationSetEventDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +122,8 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfigurationSetEventDestinationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConfigurationSetEventDestinationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,18 +133,24 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetConfigurationSetEventDestinationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConfigurationSetEventDestinationsCommand(input, context);
+    return se_GetConfigurationSetEventDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput> {
-    return deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand(output, context);
+    return de_GetConfigurationSetEventDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  ConfigurationProfiles,
-  ConfigurationProfilesFilterSensitiveLog,
-  ListConfigurationProfilesRequest,
-  ListConfigurationProfilesRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListConfigurationProfilesCommand,
-  serializeAws_restJson1ListConfigurationProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { ConfigurationProfiles, ListConfigurationProfilesRequest } from "../models/models_0";
+import { de_ListConfigurationProfilesCommand, se_ListConfigurationProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListConfigurationProfilesCommand}.
  */
 export interface ListConfigurationProfilesCommandInput extends ListConfigurationProfilesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListConfigurationProfilesCommand}.
  */
 export interface ListConfigurationProfilesCommandOutput extends ConfigurationProfiles, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the configuration profiles for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListConfigurationProfilesCommandOutput extends ConfigurationPro
  * import { AppConfigClient, ListConfigurationProfilesCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListConfigurationProfilesCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = { // ListConfigurationProfilesRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Type: "STRING_VALUE",
+ * };
  * const command = new ListConfigurationProfilesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListConfigurationProfilesCommandInput - {@link ListConfigurationProfilesCommandInput}
+ * @returns {@link ListConfigurationProfilesCommandOutput}
  * @see {@link ListConfigurationProfilesCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationProfilesCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
@@ -101,6 +106,9 @@ export class ListConfigurationProfilesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListConfigurationProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +137,8 @@ export class ListConfigurationProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigurationProfilesFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,15 +148,21 @@ export class ListConfigurationProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListConfigurationProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfigurationProfilesCommand(input, context);
+    return se_ListConfigurationProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConfigurationProfilesCommandOutput> {
-    return deserializeAws_restJson1ListConfigurationProfilesCommand(output, context);
+    return de_ListConfigurationProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

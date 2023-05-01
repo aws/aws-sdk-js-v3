@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { PutBucketNotificationConfigurationRequest } from "../models/models_0";
 import {
-  PutBucketNotificationConfigurationRequest,
-  PutBucketNotificationConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketNotificationConfigurationCommand,
-  serializeAws_restXmlPutBucketNotificationConfigurationCommand,
+  de_PutBucketNotificationConfigurationCommand,
+  se_PutBucketNotificationConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link PutBucketNotificationConfigurationCommand}.
  */
 export interface PutBucketNotificationConfigurationCommandInput extends PutBucketNotificationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutBucketNotificationConfigurationCommand}.
  */
 export interface PutBucketNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables notifications of specified events for a bucket. For more information about event
  *          notifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event
  *             Notifications</a>.</p>
@@ -94,10 +96,77 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * import { S3Client, PutBucketNotificationConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketNotificationConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutBucketNotificationConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   NotificationConfiguration: { // NotificationConfiguration
+ *     TopicConfigurations: [ // TopicConfigurationList
+ *       { // TopicConfiguration
+ *         Id: "STRING_VALUE",
+ *         TopicArn: "STRING_VALUE", // required
+ *         Events: [ // EventList // required
+ *           "s3:ReducedRedundancyLostObject" || "s3:ObjectCreated:*" || "s3:ObjectCreated:Put" || "s3:ObjectCreated:Post" || "s3:ObjectCreated:Copy" || "s3:ObjectCreated:CompleteMultipartUpload" || "s3:ObjectRemoved:*" || "s3:ObjectRemoved:Delete" || "s3:ObjectRemoved:DeleteMarkerCreated" || "s3:ObjectRestore:*" || "s3:ObjectRestore:Post" || "s3:ObjectRestore:Completed" || "s3:Replication:*" || "s3:Replication:OperationFailedReplication" || "s3:Replication:OperationNotTracked" || "s3:Replication:OperationMissedThreshold" || "s3:Replication:OperationReplicatedAfterThreshold" || "s3:ObjectRestore:Delete" || "s3:LifecycleTransition" || "s3:IntelligentTiering" || "s3:ObjectAcl:Put" || "s3:LifecycleExpiration:*" || "s3:LifecycleExpiration:Delete" || "s3:LifecycleExpiration:DeleteMarkerCreated" || "s3:ObjectTagging:*" || "s3:ObjectTagging:Put" || "s3:ObjectTagging:Delete",
+ *         ],
+ *         Filter: { // NotificationConfigurationFilter
+ *           Key: { // S3KeyFilter
+ *             FilterRules: [ // FilterRuleList
+ *               { // FilterRule
+ *                 Name: "prefix" || "suffix",
+ *                 Value: "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     QueueConfigurations: [ // QueueConfigurationList
+ *       { // QueueConfiguration
+ *         Id: "STRING_VALUE",
+ *         QueueArn: "STRING_VALUE", // required
+ *         Events: [ // required
+ *           "s3:ReducedRedundancyLostObject" || "s3:ObjectCreated:*" || "s3:ObjectCreated:Put" || "s3:ObjectCreated:Post" || "s3:ObjectCreated:Copy" || "s3:ObjectCreated:CompleteMultipartUpload" || "s3:ObjectRemoved:*" || "s3:ObjectRemoved:Delete" || "s3:ObjectRemoved:DeleteMarkerCreated" || "s3:ObjectRestore:*" || "s3:ObjectRestore:Post" || "s3:ObjectRestore:Completed" || "s3:Replication:*" || "s3:Replication:OperationFailedReplication" || "s3:Replication:OperationNotTracked" || "s3:Replication:OperationMissedThreshold" || "s3:Replication:OperationReplicatedAfterThreshold" || "s3:ObjectRestore:Delete" || "s3:LifecycleTransition" || "s3:IntelligentTiering" || "s3:ObjectAcl:Put" || "s3:LifecycleExpiration:*" || "s3:LifecycleExpiration:Delete" || "s3:LifecycleExpiration:DeleteMarkerCreated" || "s3:ObjectTagging:*" || "s3:ObjectTagging:Put" || "s3:ObjectTagging:Delete",
+ *         ],
+ *         Filter: {
+ *           Key: {
+ *             FilterRules: [
+ *               {
+ *                 Name: "prefix" || "suffix",
+ *                 Value: "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     LambdaFunctionConfigurations: [ // LambdaFunctionConfigurationList
+ *       { // LambdaFunctionConfiguration
+ *         Id: "STRING_VALUE",
+ *         LambdaFunctionArn: "STRING_VALUE", // required
+ *         Events: [ // required
+ *           "s3:ReducedRedundancyLostObject" || "s3:ObjectCreated:*" || "s3:ObjectCreated:Put" || "s3:ObjectCreated:Post" || "s3:ObjectCreated:Copy" || "s3:ObjectCreated:CompleteMultipartUpload" || "s3:ObjectRemoved:*" || "s3:ObjectRemoved:Delete" || "s3:ObjectRemoved:DeleteMarkerCreated" || "s3:ObjectRestore:*" || "s3:ObjectRestore:Post" || "s3:ObjectRestore:Completed" || "s3:Replication:*" || "s3:Replication:OperationFailedReplication" || "s3:Replication:OperationNotTracked" || "s3:Replication:OperationMissedThreshold" || "s3:Replication:OperationReplicatedAfterThreshold" || "s3:ObjectRestore:Delete" || "s3:LifecycleTransition" || "s3:IntelligentTiering" || "s3:ObjectAcl:Put" || "s3:LifecycleExpiration:*" || "s3:LifecycleExpiration:Delete" || "s3:LifecycleExpiration:DeleteMarkerCreated" || "s3:ObjectTagging:*" || "s3:ObjectTagging:Put" || "s3:ObjectTagging:Delete",
+ *         ],
+ *         Filter: {
+ *           Key: {
+ *             FilterRules: [
+ *               {
+ *                 Name: "prefix" || "suffix",
+ *                 Value: "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     EventBridgeConfiguration: {},
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   SkipDestinationValidation: true || false,
+ * };
  * const command = new PutBucketNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutBucketNotificationConfigurationCommandInput - {@link PutBucketNotificationConfigurationCommandInput}
+ * @returns {@link PutBucketNotificationConfigurationCommandOutput}
  * @see {@link PutBucketNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -148,6 +217,9 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutBucketNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -176,8 +248,8 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketNotificationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -187,18 +259,24 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutBucketNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketNotificationConfigurationCommand(input, context);
+    return se_PutBucketNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketNotificationConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketNotificationConfigurationCommand(output, context);
+    return de_PutBucketNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

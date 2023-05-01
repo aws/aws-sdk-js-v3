@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  BatchWriteItemInput,
-  BatchWriteItemInputFilterSensitiveLog,
-  BatchWriteItemOutput,
-  BatchWriteItemOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0BatchWriteItemCommand,
-  serializeAws_json1_0BatchWriteItemCommand,
-} from "../protocols/Aws_json1_0";
+import { BatchWriteItemInput, BatchWriteItemOutput } from "../models/models_0";
+import { de_BatchWriteItemCommand, se_BatchWriteItemCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link BatchWriteItemCommand}.
  */
 export interface BatchWriteItemCommandInput extends BatchWriteItemInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchWriteItemCommand}.
  */
 export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or
  *             more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB of
  *             data over the network, consisting of up to 25 item put or delete operations. While
@@ -123,10 +120,74 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  * import { DynamoDBClient, BatchWriteItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, BatchWriteItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = { // BatchWriteItemInput
+ *   RequestItems: { // BatchWriteItemRequestMap // required
+ *     "<keys>": [ // WriteRequests
+ *       { // WriteRequest
+ *         PutRequest: { // PutRequest
+ *           Item: { // PutItemInputAttributeMap // required
+ *             "<keys>": { // AttributeValue Union: only one key present
+ *               S: "STRING_VALUE",
+ *               N: "STRING_VALUE",
+ *               B: "BLOB_VALUE",
+ *               SS: [ // StringSetAttributeValue
+ *                 "STRING_VALUE",
+ *               ],
+ *               NS: [ // NumberSetAttributeValue
+ *                 "STRING_VALUE",
+ *               ],
+ *               BS: [ // BinarySetAttributeValue
+ *                 "BLOB_VALUE",
+ *               ],
+ *               M: { // MapAttributeValue
+ *                 "<keys>": {//  Union: only one key present
+ *                   S: "STRING_VALUE",
+ *                   N: "STRING_VALUE",
+ *                   B: "BLOB_VALUE",
+ *                   SS: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   NS: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   BS: [
+ *                     "BLOB_VALUE",
+ *                   ],
+ *                   M: {
+ *                     "<keys>": "<AttributeValue>",
+ *                   },
+ *                   L: [ // ListAttributeValue
+ *                     "<AttributeValue>",
+ *                   ],
+ *                   NULL: true || false,
+ *                   BOOL: true || false,
+ *                 },
+ *               },
+ *               L: [
+ *                 "<AttributeValue>",
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
+ *             },
+ *           },
+ *         },
+ *         DeleteRequest: { // DeleteRequest
+ *           Key: { // Key // required
+ *             "<keys>": "<AttributeValue>",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   ReturnItemCollectionMetrics: "SIZE" || "NONE",
+ * };
  * const command = new BatchWriteItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchWriteItemCommandInput - {@link BatchWriteItemCommandInput}
+ * @returns {@link BatchWriteItemCommandOutput}
  * @see {@link BatchWriteItemCommandInput} for command's `input` shape.
  * @see {@link BatchWriteItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
@@ -233,6 +294,9 @@ export class BatchWriteItemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchWriteItemCommandInput) {
     // Start section: command_constructor
     super();
@@ -261,8 +325,8 @@ export class BatchWriteItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchWriteItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchWriteItemOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -272,12 +336,18 @@ export class BatchWriteItemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchWriteItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0BatchWriteItemCommand(input, context);
+    return se_BatchWriteItemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchWriteItemCommandOutput> {
-    return deserializeAws_json1_0BatchWriteItemCommand(output, context);
+    return de_BatchWriteItemCommand(output, context);
   }
 
   // Start section: command_body_extra

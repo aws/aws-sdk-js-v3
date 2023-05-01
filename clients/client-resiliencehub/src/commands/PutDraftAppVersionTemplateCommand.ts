@@ -13,39 +13,42 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutDraftAppVersionTemplateRequest,
-  PutDraftAppVersionTemplateRequestFilterSensitiveLog,
-  PutDraftAppVersionTemplateResponse,
-  PutDraftAppVersionTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutDraftAppVersionTemplateCommand,
-  serializeAws_restJson1PutDraftAppVersionTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { PutDraftAppVersionTemplateRequest, PutDraftAppVersionTemplateResponse } from "../models/models_0";
+import { de_PutDraftAppVersionTemplateCommand, se_PutDraftAppVersionTemplateCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutDraftAppVersionTemplateCommand}.
  */
 export interface PutDraftAppVersionTemplateCommandInput extends PutDraftAppVersionTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDraftAppVersionTemplateCommand}.
  */
 export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVersionTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates the app template for an AWS Resilience Hub application draft version.</p>
+ * @public
+ * <p>Adds or updates the app template for an Resilience Hub application draft version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, PutDraftAppVersionTemplateCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, PutDraftAppVersionTemplateCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // PutDraftAppVersionTemplateRequest
+ *   appArn: "STRING_VALUE", // required
+ *   appTemplateBody: "STRING_VALUE", // required
+ * };
  * const command = new PutDraftAppVersionTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDraftAppVersionTemplateCommandInput - {@link PutDraftAppVersionTemplateCommandInput}
+ * @returns {@link PutDraftAppVersionTemplateCommandOutput}
  * @see {@link PutDraftAppVersionTemplateCommandInput} for command's `input` shape.
  * @see {@link PutDraftAppVersionTemplateCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -62,7 +65,7 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -93,6 +96,9 @@ export class PutDraftAppVersionTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDraftAppVersionTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +127,8 @@ export class PutDraftAppVersionTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDraftAppVersionTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDraftAppVersionTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +138,21 @@ export class PutDraftAppVersionTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDraftAppVersionTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDraftAppVersionTemplateCommand(input, context);
+    return se_PutDraftAppVersionTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDraftAppVersionTemplateCommandOutput> {
-    return deserializeAws_restJson1PutDraftAppVersionTemplateCommand(output, context);
+    return de_PutDraftAppVersionTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

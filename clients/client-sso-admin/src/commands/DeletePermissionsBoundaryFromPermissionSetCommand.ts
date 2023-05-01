@@ -15,22 +15,24 @@ import {
 
 import {
   DeletePermissionsBoundaryFromPermissionSetRequest,
-  DeletePermissionsBoundaryFromPermissionSetRequestFilterSensitiveLog,
   DeletePermissionsBoundaryFromPermissionSetResponse,
-  DeletePermissionsBoundaryFromPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand,
-  serializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand,
+  de_DeletePermissionsBoundaryFromPermissionSetCommand,
+  se_DeletePermissionsBoundaryFromPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
  */
 export interface DeletePermissionsBoundaryFromPermissionSetCommandInput
   extends DeletePermissionsBoundaryFromPermissionSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePermissionsBoundaryFromPermissionSetCommand}.
  */
 export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
@@ -38,6 +40,7 @@ export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the permissions boundary from a specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,16 @@ export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
  * import { SSOAdminClient, DeletePermissionsBoundaryFromPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DeletePermissionsBoundaryFromPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = { // DeletePermissionsBoundaryFromPermissionSetRequest
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ * };
  * const command = new DeletePermissionsBoundaryFromPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePermissionsBoundaryFromPermissionSetCommandInput - {@link DeletePermissionsBoundaryFromPermissionSetCommandInput}
+ * @returns {@link DeletePermissionsBoundaryFromPermissionSetCommandOutput}
  * @see {@link DeletePermissionsBoundaryFromPermissionSetCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionsBoundaryFromPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
@@ -89,6 +98,9 @@ export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePermissionsBoundaryFromPermissionSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +135,8 @@ export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePermissionsBoundaryFromPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePermissionsBoundaryFromPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +146,24 @@ export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeletePermissionsBoundaryFromPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand(input, context);
+    return se_DeletePermissionsBoundaryFromPermissionSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePermissionsBoundaryFromPermissionSetCommandOutput> {
-    return deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand(output, context);
+    return de_DeletePermissionsBoundaryFromPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  CreateNodegroupRequest,
-  CreateNodegroupRequestFilterSensitiveLog,
-  CreateNodegroupResponse,
-  CreateNodegroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateNodegroupCommand,
-  serializeAws_restJson1CreateNodegroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateNodegroupRequest, CreateNodegroupResponse } from "../models/models_0";
+import { de_CreateNodegroupCommand, se_CreateNodegroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNodegroupCommand}.
  */
 export interface CreateNodegroupCommandInput extends CreateNodegroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNodegroupCommand}.
  */
 export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a managed node group for an Amazon EKS cluster. You can only create a
  *             node group for your cluster that is equal to the current Kubernetes version for the
  *             cluster. All node groups are created with the latest AMI release version for the
@@ -55,10 +52,62 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * import { EKSClient, CreateNodegroupCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateNodegroupCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // CreateNodegroupRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   nodegroupName: "STRING_VALUE", // required
+ *   scalingConfig: { // NodegroupScalingConfig
+ *     minSize: Number("int"),
+ *     maxSize: Number("int"),
+ *     desiredSize: Number("int"),
+ *   },
+ *   diskSize: Number("int"),
+ *   subnets: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   instanceTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64",
+ *   remoteAccess: { // RemoteAccessConfig
+ *     ec2SshKey: "STRING_VALUE",
+ *     sourceSecurityGroups: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   nodeRole: "STRING_VALUE", // required
+ *   labels: { // labelsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   taints: [ // taintsList
+ *     { // Taint
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       effect: "NO_SCHEDULE" || "NO_EXECUTE" || "PREFER_NO_SCHEDULE",
+ *     },
+ *   ],
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ *   launchTemplate: { // LaunchTemplateSpecification
+ *     name: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *     id: "STRING_VALUE",
+ *   },
+ *   updateConfig: { // NodegroupUpdateConfig
+ *     maxUnavailable: Number("int"),
+ *     maxUnavailablePercentage: Number("int"),
+ *   },
+ *   capacityType: "ON_DEMAND" || "SPOT",
+ *   version: "STRING_VALUE",
+ *   releaseVersion: "STRING_VALUE",
+ * };
  * const command = new CreateNodegroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNodegroupCommandInput - {@link CreateNodegroupCommandInput}
+ * @returns {@link CreateNodegroupCommandOutput}
  * @see {@link CreateNodegroupCommandInput} for command's `input` shape.
  * @see {@link CreateNodegroupCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -107,6 +156,9 @@ export class CreateNodegroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNodegroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +187,8 @@ export class CreateNodegroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNodegroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNodegroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,12 +198,18 @@ export class CreateNodegroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateNodegroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNodegroupCommand(input, context);
+    return se_CreateNodegroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNodegroupCommandOutput> {
-    return deserializeAws_restJson1CreateNodegroupCommand(output, context);
+    return de_CreateNodegroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  ListProfileTimesRequest,
-  ListProfileTimesRequestFilterSensitiveLog,
-  ListProfileTimesResponse,
-  ListProfileTimesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProfileTimesCommand,
-  serializeAws_restJson1ListProfileTimesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListProfileTimesRequest, ListProfileTimesResponse } from "../models/models_0";
+import { de_ListProfileTimesCommand, se_ListProfileTimesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListProfileTimesCommand}.
  */
 export interface ListProfileTimesCommandInput extends ListProfileTimesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListProfileTimesCommand}.
  */
 export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the start times of the available aggregated profiles of a profiling group
  *         for an aggregation period within the specified time range.</p>
  * @example
@@ -43,10 +40,21 @@ export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse,
  * import { CodeGuruProfilerClient, ListProfileTimesCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, ListProfileTimesCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // ListProfileTimesRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   period: "STRING_VALUE", // required
+ *   orderBy: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListProfileTimesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListProfileTimesCommandInput - {@link ListProfileTimesCommandInput}
+ * @returns {@link ListProfileTimesCommandOutput}
  * @see {@link ListProfileTimesCommandInput} for command's `input` shape.
  * @see {@link ListProfileTimesCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
@@ -82,6 +90,9 @@ export class ListProfileTimesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListProfileTimesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +121,8 @@ export class ListProfileTimesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProfileTimesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProfileTimesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +132,18 @@ export class ListProfileTimesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListProfileTimesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProfileTimesCommand(input, context);
+    return se_ListProfileTimesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfileTimesCommandOutput> {
-    return deserializeAws_restJson1ListProfileTimesCommand(output, context);
+    return de_ListProfileTimesCommand(output, context);
   }
 
   // Start section: command_body_extra

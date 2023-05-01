@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  CancelStepsInput,
-  CancelStepsInputFilterSensitiveLog,
-  CancelStepsOutput,
-  CancelStepsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelStepsCommand,
-  serializeAws_json1_1CancelStepsCommand,
-} from "../protocols/Aws_json1_1";
+import { CancelStepsInput, CancelStepsOutput } from "../models/models_0";
+import { de_CancelStepsCommand, se_CancelStepsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelStepsCommand}.
  */
 export interface CancelStepsCommandInput extends CancelStepsInput {}
 /**
+ * @public
+ *
  * The output of {@link CancelStepsCommand}.
  */
 export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a pending step or steps in a running cluster. Available only in Amazon EMR versions 4.8.0 and later, excluding version 5.0.0. A maximum of 256 steps are allowed in
  *          each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not guarantee
  *          that a step will be canceled, even if the request is successfully submitted. When you use
@@ -46,10 +43,19 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  * import { EMRClient, CancelStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, CancelStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // CancelStepsInput
+ *   ClusterId: "STRING_VALUE", // required
+ *   StepIds: [ // StepIdsList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   StepCancellationOption: "SEND_INTERRUPT" || "TERMINATE_PROCESS",
+ * };
  * const command = new CancelStepsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelStepsCommandInput - {@link CancelStepsCommandInput}
+ * @returns {@link CancelStepsCommandOutput}
  * @see {@link CancelStepsCommandInput} for command's `input` shape.
  * @see {@link CancelStepsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -80,6 +86,9 @@ export class CancelStepsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelStepsCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +115,8 @@ export class CancelStepsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelStepsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelStepsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +126,18 @@ export class CancelStepsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelStepsCommand(input, context);
+    return se_CancelStepsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelStepsCommandOutput> {
-    return deserializeAws_json1_1CancelStepsCommand(output, context);
+    return de_CancelStepsCommand(output, context);
   }
 
   // Start section: command_body_extra

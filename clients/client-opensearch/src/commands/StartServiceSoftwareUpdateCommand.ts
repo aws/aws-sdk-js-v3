@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartServiceSoftwareUpdateRequest,
-  StartServiceSoftwareUpdateRequestFilterSensitiveLog,
-  StartServiceSoftwareUpdateResponse,
-  StartServiceSoftwareUpdateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartServiceSoftwareUpdateRequest, StartServiceSoftwareUpdateResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1StartServiceSoftwareUpdateCommand,
-  serializeAws_restJson1StartServiceSoftwareUpdateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartServiceSoftwareUpdateCommand, se_StartServiceSoftwareUpdateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartServiceSoftwareUpdateCommand}.
  */
 export interface StartServiceSoftwareUpdateCommandInput extends StartServiceSoftwareUpdateRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartServiceSoftwareUpdateCommand}.
  */
 export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSoftwareUpdateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Schedules a service software update for an Amazon OpenSearch Service domain. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in
  *     Amazon OpenSearch Service</a>.</p>
@@ -44,10 +41,17 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
  * import { OpenSearchClient, StartServiceSoftwareUpdateCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, StartServiceSoftwareUpdateCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // StartServiceSoftwareUpdateRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   ScheduleAt: "NOW" || "TIMESTAMP" || "OFF_PEAK_WINDOW",
+ *   DesiredStartTime: Number("long"),
+ * };
  * const command = new StartServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartServiceSoftwareUpdateCommandInput - {@link StartServiceSoftwareUpdateCommandInput}
+ * @returns {@link StartServiceSoftwareUpdateCommandOutput}
  * @see {@link StartServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link StartServiceSoftwareUpdateCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -83,6 +87,9 @@ export class StartServiceSoftwareUpdateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartServiceSoftwareUpdateCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class StartServiceSoftwareUpdateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartServiceSoftwareUpdateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartServiceSoftwareUpdateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,15 +129,21 @@ export class StartServiceSoftwareUpdateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartServiceSoftwareUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartServiceSoftwareUpdateCommand(input, context);
+    return se_StartServiceSoftwareUpdateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartServiceSoftwareUpdateCommandOutput> {
-    return deserializeAws_restJson1StartServiceSoftwareUpdateCommand(output, context);
+    return de_StartServiceSoftwareUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

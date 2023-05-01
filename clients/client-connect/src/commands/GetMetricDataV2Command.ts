@@ -14,38 +14,34 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  GetMetricDataV2Request,
-  GetMetricDataV2RequestFilterSensitiveLog,
-  GetMetricDataV2Response,
-  GetMetricDataV2ResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMetricDataV2Command,
-  serializeAws_restJson1GetMetricDataV2Command,
-} from "../protocols/Aws_restJson1";
+import { GetMetricDataV2Request, GetMetricDataV2Response } from "../models/models_1";
+import { de_GetMetricDataV2Command, se_GetMetricDataV2Command } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetMetricDataV2Command}.
  */
 export interface GetMetricDataV2CommandInput extends GetMetricDataV2Request {}
 /**
+ * @public
+ *
  * The output of {@link GetMetricDataV2Command}.
  */
 export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets metric data from the specified Amazon Connect instance. </p>
  *          <p>
  *             <code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous
  *    version of this API. It has new metrics, offers filtering at a metric level, and offers the
  *    ability to filter and group data by channels, queues, routing profiles, agents, and agent
- *    hierarchy levels. It can retrieve historical data for last the 14 days, in 24-hour
+ *    hierarchy levels. It can retrieve historical data for the last 14 days, in 24-hour
  *    intervals.</p>
  *          <p>For a description of the historical metrics that are supported by
  *     <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics
- *     definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.
- *   </p>
+ *     definitions</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
  *          <p>This API is not available in the Amazon Web Services GovCloud (US) Regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,10 +49,49 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  * import { ConnectClient, GetMetricDataV2Command } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetMetricDataV2Command } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // GetMetricDataV2Request
+ *   ResourceArn: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   Filters: [ // FiltersV2List // required
+ *     { // FilterV2
+ *       FilterKey: "STRING_VALUE",
+ *       FilterValues: [ // FilterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Groupings: [ // GroupingsV2
+ *     "STRING_VALUE",
+ *   ],
+ *   Metrics: [ // MetricsV2 // required
+ *     { // MetricV2
+ *       Name: "STRING_VALUE",
+ *       Threshold: [ // ThresholdCollections
+ *         { // ThresholdV2
+ *           Comparison: "STRING_VALUE",
+ *           ThresholdValue: Number("double"),
+ *         },
+ *       ],
+ *       MetricFilters: [ // MetricFiltersV2List
+ *         { // MetricFilterV2
+ *           MetricFilterKey: "STRING_VALUE",
+ *           MetricFilterValues: [ // MetricFilterValueList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetMetricDataV2Command(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricDataV2CommandInput - {@link GetMetricDataV2CommandInput}
+ * @returns {@link GetMetricDataV2CommandOutput}
  * @see {@link GetMetricDataV2CommandInput} for command's `input` shape.
  * @see {@link GetMetricDataV2CommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -95,6 +130,9 @@ export class GetMetricDataV2Command extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricDataV2CommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +161,8 @@ export class GetMetricDataV2Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetricDataV2RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMetricDataV2ResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +172,18 @@ export class GetMetricDataV2Command extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricDataV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMetricDataV2Command(input, context);
+    return se_GetMetricDataV2Command(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricDataV2CommandOutput> {
-    return deserializeAws_restJson1GetMetricDataV2Command(output, context);
+    return de_GetMetricDataV2Command(output, context);
   }
 
   // Start section: command_body_extra

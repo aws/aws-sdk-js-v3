@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateConnectionRequest,
-  UpdateConnectionRequestFilterSensitiveLog,
-  UpdateConnectionResponse,
-  UpdateConnectionResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateConnectionCommand,
-  serializeAws_json1_1UpdateConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateConnectionRequest, UpdateConnectionResponse } from "../models/models_2";
+import { de_UpdateConnectionCommand, se_UpdateConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConnectionCommand}.
  */
 export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConnectionCommand}.
  */
 export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a connection definition in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,34 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * import { GlueClient, UpdateConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateConnectionRequest
+ *   CatalogId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   ConnectionInput: { // ConnectionInput
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM", // required
+ *     MatchCriteria: [ // MatchCriteria
+ *       "STRING_VALUE",
+ *     ],
+ *     ConnectionProperties: { // ConnectionProperties // required
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     PhysicalConnectionRequirements: { // PhysicalConnectionRequirements
+ *       SubnetId: "STRING_VALUE",
+ *       SecurityGroupIdList: [ // SecurityGroupIdList
+ *         "STRING_VALUE",
+ *       ],
+ *       AvailabilityZone: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConnectionCommandInput - {@link UpdateConnectionCommandInput}
+ * @returns {@link UpdateConnectionCommandOutput}
  * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -81,6 +102,9 @@ export class UpdateConnectionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConnectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +133,8 @@ export class UpdateConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +144,18 @@ export class UpdateConnectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConnectionCommand(input, context);
+    return se_UpdateConnectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectionCommandOutput> {
-    return deserializeAws_json1_1UpdateConnectionCommand(output, context);
+    return de_UpdateConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  DescribeLoggingOptionsRequest,
-  DescribeLoggingOptionsRequestFilterSensitiveLog,
-  DescribeLoggingOptionsResponse,
-  DescribeLoggingOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeLoggingOptionsCommand,
-  serializeAws_restJson1DescribeLoggingOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse } from "../models/models_0";
+import { de_DescribeLoggingOptionsCommand, se_DescribeLoggingOptionsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeLoggingOptionsCommand}.
  */
 export interface DescribeLoggingOptionsCommandInput extends DescribeLoggingOptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeLoggingOptionsCommand}.
  */
 export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the current settings of the IoT Analytics logging options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * import { IoTAnalyticsClient, DescribeLoggingOptionsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DescribeLoggingOptionsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {};
  * const command = new DescribeLoggingOptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeLoggingOptionsCommandInput - {@link DescribeLoggingOptionsCommandInput}
+ * @returns {@link DescribeLoggingOptionsCommandOutput}
  * @see {@link DescribeLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
@@ -84,6 +84,9 @@ export class DescribeLoggingOptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeLoggingOptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +115,8 @@ export class DescribeLoggingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoggingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoggingOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +126,18 @@ export class DescribeLoggingOptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeLoggingOptionsCommand(input, context);
+    return se_DescribeLoggingOptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1DescribeLoggingOptionsCommand(output, context);
+    return de_DescribeLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

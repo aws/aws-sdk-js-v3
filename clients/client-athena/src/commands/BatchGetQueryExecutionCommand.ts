@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  BatchGetQueryExecutionInput,
-  BatchGetQueryExecutionInputFilterSensitiveLog,
-  BatchGetQueryExecutionOutput,
-  BatchGetQueryExecutionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetQueryExecutionCommand,
-  serializeAws_json1_1BatchGetQueryExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetQueryExecutionInput, BatchGetQueryExecutionOutput } from "../models/models_0";
+import { de_BatchGetQueryExecutionCommand, se_BatchGetQueryExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetQueryExecutionCommand}.
  */
 export interface BatchGetQueryExecutionCommandInput extends BatchGetQueryExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetQueryExecutionCommand}.
  */
 export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecutionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details of a single query execution or a list of up to 50 query
  *             executions, which you provide as an array of query execution ID strings. Requires you to
  *             have access to the workgroup in which the queries ran. To get a list of query execution
@@ -47,10 +44,17 @@ export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecut
  * import { AthenaClient, BatchGetQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, BatchGetQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // BatchGetQueryExecutionInput
+ *   QueryExecutionIds: [ // QueryExecutionIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetQueryExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetQueryExecutionCommandInput - {@link BatchGetQueryExecutionCommandInput}
+ * @returns {@link BatchGetQueryExecutionCommandOutput}
  * @see {@link BatchGetQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link BatchGetQueryExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -82,6 +86,9 @@ export class BatchGetQueryExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetQueryExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class BatchGetQueryExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetQueryExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetQueryExecutionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class BatchGetQueryExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetQueryExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetQueryExecutionCommand(input, context);
+    return se_BatchGetQueryExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetQueryExecutionCommandOutput> {
-    return deserializeAws_json1_1BatchGetQueryExecutionCommand(output, context);
+    return de_BatchGetQueryExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RebootClusterMessage,
-  RebootClusterMessageFilterSensitiveLog,
-  RebootClusterResult,
-  RebootClusterResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRebootClusterCommand,
-  serializeAws_queryRebootClusterCommand,
-} from "../protocols/Aws_query";
+import { RebootClusterMessage, RebootClusterResult } from "../models/models_1";
+import { de_RebootClusterCommand, se_RebootClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link RebootClusterCommand}.
  */
 export interface RebootClusterCommandInput extends RebootClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link RebootClusterCommand}.
  */
 export interface RebootClusterCommandOutput extends RebootClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reboots a cluster. This action is taken as soon as possible. It results in a
  *             momentary outage to the cluster, during which the cluster status is set to
  *                 <code>rebooting</code>. A cluster event is created when the reboot is completed. Any
@@ -49,10 +46,15 @@ export interface RebootClusterCommandOutput extends RebootClusterResult, __Metad
  * import { RedshiftClient, RebootClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RebootClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // RebootClusterMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new RebootClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RebootClusterCommandInput - {@link RebootClusterCommandInput}
+ * @returns {@link RebootClusterCommandOutput}
  * @see {@link RebootClusterCommandInput} for command's `input` shape.
  * @see {@link RebootClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -83,6 +85,9 @@ export class RebootClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RebootClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class RebootClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class RebootClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebootClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebootClusterCommand(input, context);
+    return se_RebootClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootClusterCommandOutput> {
-    return deserializeAws_queryRebootClusterCommand(output, context);
+    return de_RebootClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

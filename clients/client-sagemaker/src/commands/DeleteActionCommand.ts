@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteActionRequest,
-  DeleteActionRequestFilterSensitiveLog,
-  DeleteActionResponse,
-  DeleteActionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteActionCommand,
-  serializeAws_json1_1DeleteActionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteActionRequest, DeleteActionResponse } from "../models/models_1";
+import { de_DeleteActionCommand, se_DeleteActionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteActionCommand}.
  */
 export interface DeleteActionCommandInput extends DeleteActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteActionCommand}.
  */
 export interface DeleteActionCommandOutput extends DeleteActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteActionCommandOutput extends DeleteActionResponse, __Metad
  * import { SageMakerClient, DeleteActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteActionRequest
+ *   ActionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteActionCommandInput - {@link DeleteActionCommandInput}
+ * @returns {@link DeleteActionCommandOutput}
  * @see {@link DeleteActionCommandInput} for command's `input` shape.
  * @see {@link DeleteActionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +74,9 @@ export class DeleteActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +103,8 @@ export class DeleteActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +114,18 @@ export class DeleteActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteActionCommand(input, context);
+    return se_DeleteActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteActionCommandOutput> {
-    return deserializeAws_json1_1DeleteActionCommand(output, context);
+    return de_DeleteActionCommand(output, context);
   }
 
   // Start section: command_body_extra

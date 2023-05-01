@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeletePackageRequest,
-  DeletePackageRequestFilterSensitiveLog,
-  DeletePackageResponse,
-  DeletePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePackageRequest, DeletePackageResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DeletePackageCommand,
-  serializeAws_restJson1DeletePackageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePackageCommand, se_DeletePackageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeletePackageCommand}.
  */
 export interface DeletePackageCommandInput extends DeletePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeletePackageCommand}.
  */
 export interface DeletePackageCommandOutput extends DeletePackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon OpenSearch Service package. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
  *     packages for Amazon OpenSearch Service</a>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * import { OpenSearchClient, DeletePackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DeletePackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DeletePackageRequest
+ *   PackageID: "STRING_VALUE", // required
+ * };
  * const command = new DeletePackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeletePackageCommandInput - {@link DeletePackageCommandInput}
+ * @returns {@link DeletePackageCommandOutput}
  * @see {@link DeletePackageCommandInput} for command's `input` shape.
  * @see {@link DeletePackageCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -88,6 +90,9 @@ export class DeletePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class DeletePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class DeletePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePackageCommand(input, context);
+    return se_DeletePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePackageCommandOutput> {
-    return deserializeAws_restJson1DeletePackageCommand(output, context);
+    return de_DeletePackageCommand(output, context);
   }
 
   // Start section: command_body_extra

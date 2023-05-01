@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateGeoMatchSetRequest,
-  CreateGeoMatchSetRequestFilterSensitiveLog,
-  CreateGeoMatchSetResponse,
-  CreateGeoMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateGeoMatchSetCommand,
-  serializeAws_json1_1CreateGeoMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateGeoMatchSetRequest, CreateGeoMatchSetResponse } from "../models/models_0";
+import { de_CreateGeoMatchSetCommand, se_CreateGeoMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGeoMatchSetCommand}.
  */
 export interface CreateGeoMatchSetCommandInput extends CreateGeoMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGeoMatchSetCommand}.
  */
 export interface CreateGeoMatchSetCommandOutput extends CreateGeoMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -70,10 +67,16 @@ export interface CreateGeoMatchSetCommandOutput extends CreateGeoMatchSetRespons
  * import { WAFClient, CreateGeoMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateGeoMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // CreateGeoMatchSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateGeoMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGeoMatchSetCommandInput - {@link CreateGeoMatchSetCommandInput}
+ * @returns {@link CreateGeoMatchSetCommandOutput}
  * @see {@link CreateGeoMatchSetCommandInput} for command's `input` shape.
  * @see {@link CreateGeoMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -154,6 +157,9 @@ export class CreateGeoMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGeoMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,8 +188,8 @@ export class CreateGeoMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGeoMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGeoMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -193,12 +199,18 @@ export class CreateGeoMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGeoMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGeoMatchSetCommand(input, context);
+    return se_CreateGeoMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGeoMatchSetCommandOutput> {
-    return deserializeAws_json1_1CreateGeoMatchSetCommand(output, context);
+    return de_CreateGeoMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

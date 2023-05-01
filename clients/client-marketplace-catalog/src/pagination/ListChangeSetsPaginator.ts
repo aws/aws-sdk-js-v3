@@ -10,7 +10,7 @@ import { MarketplaceCatalogClient } from "../MarketplaceCatalogClient";
 import { MarketplaceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MarketplaceCatalogClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListChangeSetsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListChangeSets(
   config: MarketplaceCatalogPaginationConfiguration,
   input: ListChangeSetsCommandInput,

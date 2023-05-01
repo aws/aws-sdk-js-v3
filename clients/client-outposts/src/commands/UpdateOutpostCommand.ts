@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateOutpostInput,
-  UpdateOutpostInputFilterSensitiveLog,
-  UpdateOutpostOutput,
-  UpdateOutpostOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateOutpostInput, UpdateOutpostOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1UpdateOutpostCommand,
-  serializeAws_restJson1UpdateOutpostCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateOutpostCommand, se_UpdateOutpostCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateOutpostCommand}.
  */
 export interface UpdateOutpostCommandInput extends UpdateOutpostInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateOutpostCommand}.
  */
 export interface UpdateOutpostCommandOutput extends UpdateOutpostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates an Outpost. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface UpdateOutpostCommandOutput extends UpdateOutpostOutput, __Metad
  * import { OutpostsClient, UpdateOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, UpdateOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // UpdateOutpostInput
+ *   OutpostId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   SupportedHardwareType: "RACK" || "SERVER",
+ * };
  * const command = new UpdateOutpostCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateOutpostCommandInput - {@link UpdateOutpostCommandInput}
+ * @returns {@link UpdateOutpostCommandOutput}
  * @see {@link UpdateOutpostCommandInput} for command's `input` shape.
  * @see {@link UpdateOutpostCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
@@ -84,6 +89,9 @@ export class UpdateOutpostCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateOutpostCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +118,8 @@ export class UpdateOutpostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOutpostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOutpostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +129,18 @@ export class UpdateOutpostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateOutpostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateOutpostCommand(input, context);
+    return se_UpdateOutpostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOutpostCommandOutput> {
-    return deserializeAws_restJson1UpdateOutpostCommand(output, context);
+    return de_UpdateOutpostCommand(output, context);
   }
 
   // Start section: command_body_extra

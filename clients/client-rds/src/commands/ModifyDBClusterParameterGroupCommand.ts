@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DBClusterParameterGroupNameMessage, ModifyDBClusterParameterGroupMessage } from "../models/models_1";
 import {
-  DBClusterParameterGroupNameMessage,
-  DBClusterParameterGroupNameMessageFilterSensitiveLog,
-  ModifyDBClusterParameterGroupMessage,
-  ModifyDBClusterParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBClusterParameterGroupCommand,
-  serializeAws_queryModifyDBClusterParameterGroupCommand,
+  de_ModifyDBClusterParameterGroupCommand,
+  se_ModifyDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBClusterParameterGroupCommand}.
  */
 export interface ModifyDBClusterParameterGroupCommandInput extends ModifyDBClusterParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBClusterParameterGroupCommand}.
  */
 export interface ModifyDBClusterParameterGroupCommandOutput
@@ -37,6 +36,7 @@ export interface ModifyDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a DB cluster parameter group. To modify more than one parameter,
  *             submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>,
  *             and <code>ApplyMethod</code>. A maximum of 20
@@ -69,10 +69,32 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * import { RDSClient, ModifyDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyDBClusterParameterGroupMessage
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   Parameters: [ // ParametersList // required
+ *     { // Parameter
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       ApplyType: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       ApplyMethod: "immediate" || "pending-reboot",
+ *       SupportedEngineModes: [ // EngineModeList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ModifyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBClusterParameterGroupCommandInput - {@link ModifyDBClusterParameterGroupCommandInput}
+ * @returns {@link ModifyDBClusterParameterGroupCommandOutput}
  * @see {@link ModifyDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -88,22 +110,32 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *             this state.</p>
  *
  *
- * @example To change DB cluster parameter group settings
+ * @example To modify parameters in a DB cluster parameter group
  * ```javascript
- * // This example immediately changes the specified setting for the specified DB cluster parameter group.
+ * // The following example modifies the values of parameters in a DB cluster parameter group.
  * const input = {
- *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
+ *   "DBClusterParameterGroupName": "mydbclusterpg",
  *   "Parameters": [
  *     {
  *       "ApplyMethod": "immediate",
- *       "ParameterName": "time_zone",
- *       "ParameterValue": "America/Phoenix"
+ *       "ParameterName": "server_audit_logging",
+ *       "ParameterValue": "1"
+ *     },
+ *     {
+ *       "ApplyMethod": "immediate",
+ *       "ParameterName": "server_audit_logs_upload",
+ *       "ParameterValue": "1"
  *     }
  *   ]
  * };
  * const command = new ModifyDBClusterParameterGroupCommand(input);
- * await client.send(command);
- * // example id: modify-db-cluster-parameter-group-f9156bc9-082a-442e-8d12-239542c1a113
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterParameterGroupName": "mydbclusterpg"
+ * }
+ * *\/
+ * // example id: to-modify-parameters-in-a-db-cluster-parameter-group-1680377584537
  * ```
  *
  */
@@ -124,6 +156,9 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBClusterParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -152,8 +187,8 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupNameMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -163,15 +198,21 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterParameterGroupCommand(input, context);
+    return se_ModifyDBClusterParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyDBClusterParameterGroupCommand(output, context);
+    return de_ModifyDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

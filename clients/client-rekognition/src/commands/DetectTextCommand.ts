@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetectTextRequest,
-  DetectTextRequestFilterSensitiveLog,
-  DetectTextResponse,
-  DetectTextResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectTextCommand,
-  serializeAws_json1_1DetectTextCommand,
-} from "../protocols/Aws_json1_1";
+import { DetectTextRequest, DetectTextResponse } from "../models/models_0";
+import { de_DetectTextCommand, se_DetectTextCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link DetectTextCommand}.
  */
 export interface DetectTextCommandInput extends DetectTextRequest {}
 /**
+ * @public
+ *
  * The output of {@link DetectTextCommand}.
  */
 export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detects text in the input image and converts it into machine-readable text.</p>
  *          <p>Pass the input image as base64-encoded image bytes or as a reference to an image in an
  *       Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, you must pass it as a
@@ -64,10 +61,45 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * import { RekognitionClient, DetectTextCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectTextCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DetectTextRequest
+ *   Image: { // Image
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   Filters: { // DetectTextFilters
+ *     WordFilter: { // DetectionFilter
+ *       MinConfidence: Number("float"),
+ *       MinBoundingBoxHeight: Number("float"),
+ *       MinBoundingBoxWidth: Number("float"),
+ *     },
+ *     RegionsOfInterest: [ // RegionsOfInterest
+ *       { // RegionOfInterest
+ *         BoundingBox: { // BoundingBox
+ *           Width: Number("float"),
+ *           Height: Number("float"),
+ *           Left: Number("float"),
+ *           Top: Number("float"),
+ *         },
+ *         Polygon: [ // Polygon
+ *           { // Point
+ *             X: Number("float"),
+ *             Y: Number("float"),
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new DetectTextCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DetectTextCommandInput - {@link DetectTextCommandInput}
+ * @returns {@link DetectTextCommandOutput}
  * @see {@link DetectTextCommandInput} for command's `input` shape.
  * @see {@link DetectTextCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -120,6 +152,9 @@ export class DetectTextCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DetectTextCommandInput) {
     // Start section: command_constructor
     super();
@@ -146,8 +181,8 @@ export class DetectTextCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectTextRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectTextResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +192,18 @@ export class DetectTextCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetectTextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectTextCommand(input, context);
+    return se_DetectTextCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectTextCommandOutput> {
-    return deserializeAws_json1_1DetectTextCommand(output, context);
+    return de_DetectTextCommand(output, context);
   }
 
   // Start section: command_body_extra

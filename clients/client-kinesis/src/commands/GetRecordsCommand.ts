@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  GetRecordsInput,
-  GetRecordsInputFilterSensitiveLog,
-  GetRecordsOutput,
-  GetRecordsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRecordsCommand,
-  serializeAws_json1_1GetRecordsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetRecordsInput, GetRecordsOutput } from "../models/models_0";
+import { de_GetRecordsCommand, se_GetRecordsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRecordsCommand}.
  */
 export interface GetRecordsCommandInput extends GetRecordsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetRecordsCommand}.
  */
 export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets data records from a Kinesis data stream's shard.</p>
  *          <note>
  *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
@@ -93,10 +90,17 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * import { KinesisClient, GetRecordsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, GetRecordsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = { // GetRecordsInput
+ *   ShardIterator: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new GetRecordsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRecordsCommandInput - {@link GetRecordsCommandInput}
+ * @returns {@link GetRecordsCommandOutput}
  * @see {@link GetRecordsCommandInput} for command's `input` shape.
  * @see {@link GetRecordsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
@@ -171,6 +175,9 @@ export class GetRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -197,8 +204,8 @@ export class GetRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecordsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecordsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -208,12 +215,18 @@ export class GetRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRecordsCommand(input, context);
+    return se_GetRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecordsCommandOutput> {
-    return deserializeAws_json1_1GetRecordsCommand(output, context);
+    return de_GetRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

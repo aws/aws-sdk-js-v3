@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DescribeUpdateActionsMessage,
-  DescribeUpdateActionsMessageFilterSensitiveLog,
-  UpdateActionsMessage,
-  UpdateActionsMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeUpdateActionsCommand,
-  serializeAws_queryDescribeUpdateActionsCommand,
-} from "../protocols/Aws_query";
+import { DescribeUpdateActionsMessage, UpdateActionsMessage } from "../models/models_0";
+import { de_DescribeUpdateActionsCommand, se_DescribeUpdateActionsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUpdateActionsCommand}.
  */
 export interface DescribeUpdateActionsCommandInput extends DescribeUpdateActionsMessage {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUpdateActionsCommand}.
  */
 export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns details of the update actions </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,35 @@ export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage
  * import { ElastiCacheClient, DescribeUpdateActionsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeUpdateActionsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // DescribeUpdateActionsMessage
+ *   ServiceUpdateName: "STRING_VALUE",
+ *   ReplicationGroupIds: [ // ReplicationGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   CacheClusterIds: [ // CacheClusterIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   Engine: "STRING_VALUE",
+ *   ServiceUpdateStatus: [ // ServiceUpdateStatusList
+ *     "available" || "cancelled" || "expired",
+ *   ],
+ *   ServiceUpdateTimeRange: { // TimeRangeFilter
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"),
+ *   },
+ *   UpdateActionStatus: [ // UpdateActionStatusList
+ *     "not-applied" || "waiting-to-start" || "in-progress" || "stopping" || "stopped" || "complete" || "scheduling" || "scheduled" || "not-applicable",
+ *   ],
+ *   ShowNodeLevelUpdateStatus: true || false,
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeUpdateActionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUpdateActionsCommandInput - {@link DescribeUpdateActionsCommandInput}
+ * @returns {@link DescribeUpdateActionsCommandOutput}
  * @see {@link DescribeUpdateActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeUpdateActionsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -75,6 +97,9 @@ export class DescribeUpdateActionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUpdateActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +128,8 @@ export class DescribeUpdateActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUpdateActionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateActionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +139,18 @@ export class DescribeUpdateActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUpdateActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeUpdateActionsCommand(input, context);
+    return se_DescribeUpdateActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUpdateActionsCommandOutput> {
-    return deserializeAws_queryDescribeUpdateActionsCommand(output, context);
+    return de_DescribeUpdateActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

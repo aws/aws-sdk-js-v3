@@ -17,22 +17,24 @@ import {
 
 import {
   DescribeMultiRegionAccessPointOperationRequest,
-  DescribeMultiRegionAccessPointOperationRequestFilterSensitiveLog,
   DescribeMultiRegionAccessPointOperationResult,
-  DescribeMultiRegionAccessPointOperationResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlDescribeMultiRegionAccessPointOperationCommand,
-  serializeAws_restXmlDescribeMultiRegionAccessPointOperationCommand,
+  de_DescribeMultiRegionAccessPointOperationCommand,
+  se_DescribeMultiRegionAccessPointOperationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeMultiRegionAccessPointOperationCommand}.
  */
 export interface DescribeMultiRegionAccessPointOperationCommandInput
   extends DescribeMultiRegionAccessPointOperationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeMultiRegionAccessPointOperationCommand}.
  */
 export interface DescribeMultiRegionAccessPointOperationCommandOutput
@@ -40,6 +42,7 @@ export interface DescribeMultiRegionAccessPointOperationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the status of an asynchronous request to manage a Multi-Region Access Point. For more information
  *          about managing Multi-Region Access Points and how asynchronous requests work, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
  *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -72,10 +75,16 @@ export interface DescribeMultiRegionAccessPointOperationCommandOutput
  * import { S3ControlClient, DescribeMultiRegionAccessPointOperationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DescribeMultiRegionAccessPointOperationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = { // DescribeMultiRegionAccessPointOperationRequest
+ *   AccountId: "STRING_VALUE",
+ *   RequestTokenARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMultiRegionAccessPointOperationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeMultiRegionAccessPointOperationCommandInput - {@link DescribeMultiRegionAccessPointOperationCommandInput}
+ * @returns {@link DescribeMultiRegionAccessPointOperationCommandOutput}
  * @see {@link DescribeMultiRegionAccessPointOperationCommandInput} for command's `input` shape.
  * @see {@link DescribeMultiRegionAccessPointOperationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
@@ -102,6 +111,9 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMultiRegionAccessPointOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +150,8 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMultiRegionAccessPointOperationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMultiRegionAccessPointOperationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,18 +161,24 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMultiRegionAccessPointOperationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDescribeMultiRegionAccessPointOperationCommand(input, context);
+    return se_DescribeMultiRegionAccessPointOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMultiRegionAccessPointOperationCommandOutput> {
-    return deserializeAws_restXmlDescribeMultiRegionAccessPointOperationCommand(output, context);
+    return de_DescribeMultiRegionAccessPointOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

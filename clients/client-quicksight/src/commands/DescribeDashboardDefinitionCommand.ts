@@ -15,21 +15,24 @@ import {
 
 import {
   DescribeDashboardDefinitionRequest,
-  DescribeDashboardDefinitionRequestFilterSensitiveLog,
   DescribeDashboardDefinitionResponse,
   DescribeDashboardDefinitionResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_restJson1DescribeDashboardDefinitionCommand,
-  serializeAws_restJson1DescribeDashboardDefinitionCommand,
+  de_DescribeDashboardDefinitionCommand,
+  se_DescribeDashboardDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDashboardDefinitionCommand}.
  */
 export interface DescribeDashboardDefinitionCommandInput extends DescribeDashboardDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDashboardDefinitionCommand}.
  */
 export interface DescribeDashboardDefinitionCommandOutput
@@ -37,6 +40,7 @@ export interface DescribeDashboardDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a detailed description of the definition of a dashboard.</p>
  *          <note>
  *             <p>If you do not need to know details about the content of a dashboard, for instance if you
@@ -52,10 +56,18 @@ export interface DescribeDashboardDefinitionCommandOutput
  * import { QuickSightClient, DescribeDashboardDefinitionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeDashboardDefinitionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeDashboardDefinitionRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DashboardId: "STRING_VALUE", // required
+ *   VersionNumber: Number("long"),
+ *   AliasName: "STRING_VALUE",
+ * };
  * const command = new DescribeDashboardDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDashboardDefinitionCommandInput - {@link DescribeDashboardDefinitionCommandInput}
+ * @returns {@link DescribeDashboardDefinitionCommandOutput}
  * @see {@link DescribeDashboardDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeDashboardDefinitionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -109,6 +121,9 @@ export class DescribeDashboardDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDashboardDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,7 +152,7 @@ export class DescribeDashboardDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDashboardDefinitionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeDashboardDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -148,15 +163,21 @@ export class DescribeDashboardDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDashboardDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDashboardDefinitionCommand(input, context);
+    return se_DescribeDashboardDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDashboardDefinitionCommandOutput> {
-    return deserializeAws_restJson1DescribeDashboardDefinitionCommand(output, context);
+    return de_DescribeDashboardDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

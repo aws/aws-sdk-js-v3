@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  GetAccuracyMetricsRequest,
-  GetAccuracyMetricsRequestFilterSensitiveLog,
-  GetAccuracyMetricsResponse,
-  GetAccuracyMetricsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAccuracyMetricsCommand,
-  serializeAws_json1_1GetAccuracyMetricsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetAccuracyMetricsRequest, GetAccuracyMetricsResponse } from "../models/models_0";
+import { de_GetAccuracyMetricsCommand, se_GetAccuracyMetricsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetAccuracyMetricsCommand}.
  */
 export interface GetAccuracyMetricsCommandInput extends GetAccuracyMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetAccuracyMetricsCommand}.
  */
 export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides metrics on the accuracy of the models that were trained by the <a>CreatePredictor</a> operation. Use metrics to see how well the model performed and
  *       to decide whether to use the predictor to generate a forecast. For more information, see
  *         <a href="https://docs.aws.amazon.com/forecast/latest/dg/metrics.html">Predictor
@@ -58,10 +55,15 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  * import { ForecastClient, GetAccuracyMetricsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, GetAccuracyMetricsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // GetAccuracyMetricsRequest
+ *   PredictorArn: "STRING_VALUE", // required
+ * };
  * const command = new GetAccuracyMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetAccuracyMetricsCommandInput - {@link GetAccuracyMetricsCommandInput}
+ * @returns {@link GetAccuracyMetricsCommandOutput}
  * @see {@link GetAccuracyMetricsCommandInput} for command's `input` shape.
  * @see {@link GetAccuracyMetricsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -96,6 +98,9 @@ export class GetAccuracyMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetAccuracyMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +129,8 @@ export class GetAccuracyMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccuracyMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccuracyMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +140,18 @@ export class GetAccuracyMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAccuracyMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccuracyMetricsCommand(input, context);
+    return se_GetAccuracyMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccuracyMetricsCommandOutput> {
-    return deserializeAws_json1_1GetAccuracyMetricsCommand(output, context);
+    return de_GetAccuracyMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReleaseAddressRequest, ReleaseAddressRequestFilterSensitiveLog } from "../models/models_6";
-import { deserializeAws_ec2ReleaseAddressCommand, serializeAws_ec2ReleaseAddressCommand } from "../protocols/Aws_ec2";
+import { ReleaseAddressRequest } from "../models/models_6";
+import { de_ReleaseAddressCommand, se_ReleaseAddressCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ReleaseAddressCommand}.
  */
 export interface ReleaseAddressCommandInput extends ReleaseAddressRequest {}
 /**
+ * @public
+ *
  * The output of {@link ReleaseAddressCommand}.
  */
 export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Releases the specified Elastic IP address.</p>
  *          <p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it
  * 				from any instance that it's associated with. To disassociate an Elastic IP address without
@@ -51,10 +56,18 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ReleaseAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReleaseAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ReleaseAddressRequest
+ *   AllocationId: "STRING_VALUE",
+ *   PublicIp: "STRING_VALUE",
+ *   NetworkBorderGroup: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new ReleaseAddressCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ReleaseAddressCommandInput - {@link ReleaseAddressCommandInput}
+ * @returns {@link ReleaseAddressCommandOutput}
  * @see {@link ReleaseAddressCommandInput} for command's `input` shape.
  * @see {@link ReleaseAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -100,6 +113,9 @@ export class ReleaseAddressCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ReleaseAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -128,8 +144,8 @@ export class ReleaseAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleaseAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +155,18 @@ export class ReleaseAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ReleaseAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReleaseAddressCommand(input, context);
+    return se_ReleaseAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleaseAddressCommandOutput> {
-    return deserializeAws_ec2ReleaseAddressCommand(output, context);
+    return de_ReleaseAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

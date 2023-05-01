@@ -14,38 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  ExecuteQueryRequest,
-  ExecuteQueryRequestFilterSensitiveLog,
-  ExecuteQueryResponse,
-  ExecuteQueryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ExecuteQueryCommand,
-  serializeAws_restJson1ExecuteQueryCommand,
-} from "../protocols/Aws_restJson1";
+import { ExecuteQueryRequest, ExecuteQueryResponse } from "../models/models_0";
+import { de_ExecuteQueryCommand, se_ExecuteQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ExecuteQueryCommand}.
  */
 export interface ExecuteQueryCommandInput extends ExecuteQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ExecuteQueryCommand}.
  */
 export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Run queries to access information from your knowledge graph of entities within individual workspaces.</p>
+ * @public
+ * <p>Run queries to access information from your knowledge graph of entities within
+ *          individual workspaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTTwinMakerClient, ExecuteQueryCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ExecuteQueryCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = { // ExecuteQueryRequest
+ *   workspaceId: "STRING_VALUE", // required
+ *   queryStatement: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ExecuteQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ExecuteQueryCommandInput - {@link ExecuteQueryCommandInput}
+ * @returns {@link ExecuteQueryCommandOutput}
  * @see {@link ExecuteQueryCommandInput} for command's `input` shape.
  * @see {@link ExecuteQueryCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
@@ -87,6 +93,9 @@ export class ExecuteQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ExecuteQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +122,8 @@ export class ExecuteQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteQueryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +133,18 @@ export class ExecuteQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExecuteQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExecuteQueryCommand(input, context);
+    return se_ExecuteQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteQueryCommandOutput> {
-    return deserializeAws_restJson1ExecuteQueryCommand(output, context);
+    return de_ExecuteQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

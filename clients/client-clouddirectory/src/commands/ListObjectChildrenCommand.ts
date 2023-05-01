@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListObjectChildrenRequest,
-  ListObjectChildrenRequestFilterSensitiveLog,
-  ListObjectChildrenResponse,
-  ListObjectChildrenResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListObjectChildrenCommand,
-  serializeAws_restJson1ListObjectChildrenCommand,
-} from "../protocols/Aws_restJson1";
+import { ListObjectChildrenRequest, ListObjectChildrenResponse } from "../models/models_0";
+import { de_ListObjectChildrenCommand, se_ListObjectChildrenCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListObjectChildrenCommand}.
  */
 export interface ListObjectChildrenCommandInput extends ListObjectChildrenRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListObjectChildrenCommand}.
  */
 export interface ListObjectChildrenCommandOutput extends ListObjectChildrenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of child objects that are associated with a given
  *       object.</p>
  * @example
@@ -43,10 +40,21 @@ export interface ListObjectChildrenCommandOutput extends ListObjectChildrenRespo
  * import { CloudDirectoryClient, ListObjectChildrenCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListObjectChildrenCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListObjectChildrenRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ObjectReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ * };
  * const command = new ListObjectChildrenCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListObjectChildrenCommandInput - {@link ListObjectChildrenCommandInput}
+ * @returns {@link ListObjectChildrenCommandOutput}
  * @see {@link ListObjectChildrenCommandInput} for command's `input` shape.
  * @see {@link ListObjectChildrenCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +110,9 @@ export class ListObjectChildrenCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListObjectChildrenCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +141,8 @@ export class ListObjectChildrenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObjectChildrenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListObjectChildrenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +152,18 @@ export class ListObjectChildrenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListObjectChildrenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListObjectChildrenCommand(input, context);
+    return se_ListObjectChildrenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectChildrenCommandOutput> {
-    return deserializeAws_restJson1ListObjectChildrenCommand(output, context);
+    return de_ListObjectChildrenCommand(output, context);
   }
 
   // Start section: command_body_extra

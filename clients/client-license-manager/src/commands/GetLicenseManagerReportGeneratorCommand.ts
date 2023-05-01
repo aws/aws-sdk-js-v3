@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
+import { GetLicenseManagerReportGeneratorRequest, GetLicenseManagerReportGeneratorResponse } from "../models/models_0";
 import {
-  GetLicenseManagerReportGeneratorRequest,
-  GetLicenseManagerReportGeneratorRequestFilterSensitiveLog,
-  GetLicenseManagerReportGeneratorResponse,
-  GetLicenseManagerReportGeneratorResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLicenseManagerReportGeneratorCommand,
-  serializeAws_json1_1GetLicenseManagerReportGeneratorCommand,
+  de_GetLicenseManagerReportGeneratorCommand,
+  se_GetLicenseManagerReportGeneratorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetLicenseManagerReportGeneratorCommand}.
  */
 export interface GetLicenseManagerReportGeneratorCommandInput extends GetLicenseManagerReportGeneratorRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetLicenseManagerReportGeneratorCommand}.
  */
 export interface GetLicenseManagerReportGeneratorCommandOutput
@@ -37,6 +36,7 @@ export interface GetLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the specified report generator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetLicenseManagerReportGeneratorCommandOutput
  * import { LicenseManagerClient, GetLicenseManagerReportGeneratorCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, GetLicenseManagerReportGeneratorCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // GetLicenseManagerReportGeneratorRequest
+ *   LicenseManagerReportGeneratorArn: "STRING_VALUE", // required
+ * };
  * const command = new GetLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLicenseManagerReportGeneratorCommandInput - {@link GetLicenseManagerReportGeneratorCommandInput}
+ * @returns {@link GetLicenseManagerReportGeneratorCommandOutput}
  * @see {@link GetLicenseManagerReportGeneratorCommandInput} for command's `input` shape.
  * @see {@link GetLicenseManagerReportGeneratorCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -96,6 +101,9 @@ export class GetLicenseManagerReportGeneratorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLicenseManagerReportGeneratorCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +132,8 @@ export class GetLicenseManagerReportGeneratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLicenseManagerReportGeneratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLicenseManagerReportGeneratorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,18 +143,24 @@ export class GetLicenseManagerReportGeneratorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetLicenseManagerReportGeneratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLicenseManagerReportGeneratorCommand(input, context);
+    return se_GetLicenseManagerReportGeneratorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLicenseManagerReportGeneratorCommandOutput> {
-    return deserializeAws_json1_1GetLicenseManagerReportGeneratorCommand(output, context);
+    return de_GetLicenseManagerReportGeneratorCommand(output, context);
   }
 
   // Start section: command_body_extra

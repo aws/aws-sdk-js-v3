@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAliasRequest,
-  DeleteAliasRequestFilterSensitiveLog,
-  DeleteAliasResponse,
-  DeleteAliasResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAliasCommand,
-  serializeAws_json1_1DeleteAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteAliasRequest, DeleteAliasResponse } from "../models/models_0";
+import { de_DeleteAliasCommand, se_DeleteAliasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAliasCommand}.
  */
 export interface DeleteAliasCommandInput extends DeleteAliasRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAliasCommand}.
  */
 export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove one or more specified aliases from a set of aliases for a given
  *          user.</p>
  * @example
@@ -43,10 +40,17 @@ export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __Metadat
  * import { WorkMailClient, DeleteAliasCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteAliasCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // DeleteAliasRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ *   Alias: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAliasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
+ * @returns {@link DeleteAliasCommandOutput}
  * @see {@link DeleteAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -89,6 +93,9 @@ export class DeleteAliasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +122,8 @@ export class DeleteAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +133,18 @@ export class DeleteAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAliasCommand(input, context);
+    return se_DeleteAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAliasCommandOutput> {
-    return deserializeAws_json1_1DeleteAliasCommand(output, context);
+    return de_DeleteAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

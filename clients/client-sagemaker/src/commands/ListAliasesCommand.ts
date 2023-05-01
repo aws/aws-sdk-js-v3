@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAliasesRequest,
-  ListAliasesRequestFilterSensitiveLog,
-  ListAliasesResponse,
-  ListAliasesResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListAliasesCommand,
-  serializeAws_json1_1ListAliasesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAliasesRequest, ListAliasesResponse } from "../models/models_3";
+import { de_ListAliasesCommand, se_ListAliasesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAliasesCommand}.
  */
 export interface ListAliasesCommandInput extends ListAliasesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAliasesCommand}.
  */
 export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the aliases of a specified image or image version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * import { SageMakerClient, ListAliasesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAliasesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListAliasesRequest
+ *   ImageName: "STRING_VALUE", // required
+ *   Alias: "STRING_VALUE",
+ *   Version: Number("int"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAliasesCommandInput - {@link ListAliasesCommandInput}
+ * @returns {@link ListAliasesCommandOutput}
  * @see {@link ListAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAliasesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -72,6 +78,9 @@ export class ListAliasesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAliasesCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,8 +107,8 @@ export class ListAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAliasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAliasesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +118,18 @@ export class ListAliasesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAliasesCommand(input, context);
+    return se_ListAliasesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAliasesCommandOutput> {
-    return deserializeAws_json1_1ListAliasesCommand(output, context);
+    return de_ListAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

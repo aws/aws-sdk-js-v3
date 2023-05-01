@@ -13,25 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetWebACLRequest,
-  GetWebACLRequestFilterSensitiveLog,
-  GetWebACLResponse,
-  GetWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetWebACLCommand, serializeAws_json1_1GetWebACLCommand } from "../protocols/Aws_json1_1";
+import { GetWebACLRequest, GetWebACLResponse } from "../models/models_0";
+import { de_GetWebACLCommand, se_GetWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetWebACLCommand}.
  */
 export interface GetWebACLCommandInput extends GetWebACLRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWebACLCommand}.
  */
 export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the specified <a>WebACL</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,17 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * import { WAFV2Client, GetWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // GetWebACLRequest
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetWebACLCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWebACLCommandInput - {@link GetWebACLCommandInput}
+ * @returns {@link GetWebACLCommandOutput}
  * @see {@link GetWebACLCommandInput} for command's `input` shape.
  * @see {@link GetWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -100,6 +107,9 @@ export class GetWebACLCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWebACLCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +136,8 @@ export class GetWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +147,18 @@ export class GetWebACLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetWebACLCommand(input, context);
+    return se_GetWebACLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWebACLCommandOutput> {
-    return deserializeAws_json1_1GetWebACLCommand(output, context);
+    return de_GetWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

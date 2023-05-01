@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  UpdateAccountSettingsRequest,
-  UpdateAccountSettingsRequestFilterSensitiveLog,
-  UpdateAccountSettingsResponse,
-  UpdateAccountSettingsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateAccountSettingsCommand,
-  serializeAws_restJson1UpdateAccountSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/models_1";
+import { de_UpdateAccountSettingsCommand, se_UpdateAccountSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountSettingsCommand}.
  */
 export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettingsRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountSettingsCommand}.
  */
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the settings for the specified Amazon Chime account. You can update settings for
  *             remote control of shared screens, or for the dial-out option. For more information about
  *             these settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use
@@ -46,10 +43,19 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * import { ChimeClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // UpdateAccountSettingsRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   AccountSettings: { // AccountSettings
+ *     DisableRemoteControl: true || false,
+ *     EnableDialOut: true || false,
+ *   },
+ * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
+ * @returns {@link UpdateAccountSettingsCommandOutput}
  * @see {@link UpdateAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -98,6 +104,9 @@ export class UpdateAccountSettingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +135,8 @@ export class UpdateAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccountSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAccountSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +146,18 @@ export class UpdateAccountSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAccountSettingsCommand(input, context);
+    return se_UpdateAccountSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateAccountSettingsCommand(output, context);
+    return de_UpdateAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

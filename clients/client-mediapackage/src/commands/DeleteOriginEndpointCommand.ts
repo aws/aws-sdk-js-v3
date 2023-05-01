@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import {
-  DeleteOriginEndpointRequest,
-  DeleteOriginEndpointRequestFilterSensitiveLog,
-  DeleteOriginEndpointResponse,
-  DeleteOriginEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteOriginEndpointCommand,
-  serializeAws_restJson1DeleteOriginEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteOriginEndpointRequest, DeleteOriginEndpointResponse } from "../models/models_0";
+import { de_DeleteOriginEndpointCommand, se_DeleteOriginEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteOriginEndpointCommand}.
  */
 export interface DeleteOriginEndpointCommandInput extends DeleteOriginEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteOriginEndpointCommand}.
  */
 export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Deletes an existing OriginEndpoint.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  * import { MediaPackageClient, DeleteOriginEndpointCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, DeleteOriginEndpointCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
+ * const input = { // DeleteOriginEndpointRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOriginEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteOriginEndpointCommandInput - {@link DeleteOriginEndpointCommandInput}
+ * @returns {@link DeleteOriginEndpointCommandOutput}
  * @see {@link DeleteOriginEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteOriginEndpointCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
@@ -87,6 +89,9 @@ export class DeleteOriginEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteOriginEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class DeleteOriginEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOriginEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteOriginEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class DeleteOriginEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteOriginEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteOriginEndpointCommand(input, context);
+    return se_DeleteOriginEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOriginEndpointCommandOutput> {
-    return deserializeAws_restJson1DeleteOriginEndpointCommand(output, context);
+    return de_DeleteOriginEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

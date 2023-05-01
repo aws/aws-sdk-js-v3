@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { ProcessesType, ProcessesTypeFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeScalingProcessTypesCommand,
-  serializeAws_queryDescribeScalingProcessTypesCommand,
-} from "../protocols/Aws_query";
+import { ProcessesType } from "../models/models_0";
+import { de_DescribeScalingProcessTypesCommand, se_DescribeScalingProcessTypesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalingProcessTypesCommand}.
  */
 export interface DescribeScalingProcessTypesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalingProcessTypesCommand}.
  */
 export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the scaling process types for use with the <a>ResumeProcesses</a>
  *             and <a>SuspendProcesses</a> APIs.</p>
  * @example
@@ -38,10 +40,13 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  * import { AutoScalingClient, DescribeScalingProcessTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeScalingProcessTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {};
  * const command = new DescribeScalingProcessTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingProcessTypesCommandInput - {@link DescribeScalingProcessTypesCommandInput}
+ * @returns {@link DescribeScalingProcessTypesCommandOutput}
  * @see {@link DescribeScalingProcessTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingProcessTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -108,6 +113,9 @@ export class DescribeScalingProcessTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingProcessTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,8 +144,8 @@ export class DescribeScalingProcessTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: ProcessesTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -147,15 +155,21 @@ export class DescribeScalingProcessTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingProcessTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeScalingProcessTypesCommand(input, context);
+    return se_DescribeScalingProcessTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingProcessTypesCommandOutput> {
-    return deserializeAws_queryDescribeScalingProcessTypesCommand(output, context);
+    return de_DescribeScalingProcessTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

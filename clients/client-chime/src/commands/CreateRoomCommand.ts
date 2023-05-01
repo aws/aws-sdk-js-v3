@@ -20,21 +20,23 @@ import {
   CreateRoomResponse,
   CreateRoomResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRoomCommand,
-  serializeAws_restJson1CreateRoomCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRoomCommand, se_CreateRoomCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRoomCommand}.
  */
 export interface CreateRoomCommandInput extends CreateRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRoomCommand}.
  */
 export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a chat room for the specified Amazon Chime Enterprise account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +44,17 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * import { ChimeClient, CreateRoomCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateRoomCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // CreateRoomRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new CreateRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRoomCommandInput - {@link CreateRoomCommandInput}
+ * @returns {@link CreateRoomCommandOutput}
  * @see {@link CreateRoomCommandInput} for command's `input` shape.
  * @see {@link CreateRoomCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -93,6 +102,9 @@ export class CreateRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,12 +142,18 @@ export class CreateRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRoomCommand(input, context);
+    return se_CreateRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoomCommandOutput> {
-    return deserializeAws_restJson1CreateRoomCommand(output, context);
+    return de_CreateRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

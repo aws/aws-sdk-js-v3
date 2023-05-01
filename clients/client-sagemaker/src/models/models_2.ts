@@ -4,14 +4,11 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import {
   ActionSource,
   ActionStatus,
-  ActionSummary,
   AdditionalInferenceSpecificationDefinition,
   AgentVersion,
-  AlgorithmSortBy,
   AlgorithmSpecification,
   AlgorithmStatus,
   AlgorithmStatusDetails,
-  AlgorithmSummary,
   AlgorithmValidationSpecification,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
@@ -24,7 +21,9 @@ import {
   AuthMode,
   AutoMLCandidate,
   AutoMLChannel,
+  AutoMLDataSplitConfig,
   AutoMLJobArtifacts,
+  AutoMLJobChannel,
   AutoMLJobCompletionCriteria,
   AutoMLJobConfig,
   AutoMLJobObjective,
@@ -32,6 +31,8 @@ import {
   AutoMLJobStatus,
   AutoMLOutputDataConfig,
   AutoMLPartialFailureReason,
+  AutoMLProblemTypeConfig,
+  AutoMLSecurityConfig,
   BatchDataCaptureConfig,
   BatchStrategy,
   Channel,
@@ -40,12 +41,10 @@ import {
   CompilationJobStatus,
   ContainerDefinition,
   ContextSource,
-  DataCaptureConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DefaultSpaceSettings,
-  DeploymentConfig,
   DeviceSelectionConfig,
   DomainSettings,
   EdgeDeploymentConfig,
@@ -53,7 +52,6 @@ import {
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   ExecutionRoleIdentityConfig,
-  ExplainerConfig,
   GitConfig,
   HyperParameterTuningJobObjectiveType,
   InferenceSpecification,
@@ -71,11 +69,8 @@ import {
   ObjectiveStatus,
   OutputConfig,
   OutputDataConfig,
-  OutputParameter,
   ProblemType,
-  ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
-  ProductionVariantServerlessConfig,
   ResourceConfig,
   ResourceSpec,
   StoppingCondition,
@@ -90,15 +85,18 @@ import {
 } from "./models_0";
 import {
   _InstanceType,
+  DataCaptureConfig,
   DataCaptureConfigSummary,
   DataProcessing,
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
+  DeploymentConfig,
   DirectInternetAccess,
   DriftCheckBaselines,
   EndpointInfo,
   ExperimentConfig,
+  ExplainerConfig,
   FeatureDefinition,
   FeatureType,
   FlowDefinitionOutputConfig,
@@ -154,6 +152,8 @@ import {
   ProcessingStoppingCondition,
   Processor,
   ProductionVariant,
+  ProductionVariantAcceleratorType,
+  ProductionVariantServerlessConfig,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   RecommendationJobInputConfig,
@@ -172,11 +172,104 @@ import {
   TensorBoardOutputConfig,
   TrialComponentArtifact,
   TrialComponentParameterValue,
-  TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
   VendorGuidance,
 } from "./models_1";
 
+/**
+ * @public
+ */
+export interface DeleteTagsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to
+   *             delete.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>An array or one or more tag keys to delete.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTagsOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteTrialRequest {
+  /**
+   * <p>The name of the trial to delete.</p>
+   */
+  TrialName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrialResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial that is being deleted.</p>
+   */
+  TrialArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrialComponentRequest {
+  /**
+   * <p>The name of the component to delete.</p>
+   */
+  TrialComponentName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrialComponentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component is being deleted.</p>
+   */
+  TrialComponentArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserProfileRequest {
+  /**
+   * <p>The domain ID.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The user profile name.</p>
+   */
+  UserProfileName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkforceRequest {
+  /**
+   * <p>The name of the workforce.</p>
+   */
+  WorkforceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkforceResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteWorkteamRequest {
   /**
    * <p>The name of the work team to delete.</p>
@@ -184,6 +277,9 @@ export interface DeleteWorkteamRequest {
   WorkteamName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteWorkteamResponse {
   /**
    * <p>Returns <code>true</code> if the work team was successfully deleted; otherwise,
@@ -193,7 +289,8 @@ export interface DeleteWorkteamResponse {
 }
 
 /**
- * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a>ProductionVariant</a>.</p>
+ * @public
+ * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html">ProductionVariant</a>.</p>
  *          <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
  *             of the primary container when you created the model hosted in this
  *                 <code>ProductionVariant</code>, the path resolves to a path of the form
@@ -220,18 +317,28 @@ export interface DeployedImage {
   ResolutionTime?: Date;
 }
 
-export enum StageStatus {
-  Creating = "CREATING",
-  Deployed = "DEPLOYED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  ReadyToDeploy = "READYTODEPLOY",
-  Starting = "STARTING",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StageStatus = {
+  Creating: "CREATING",
+  Deployed: "DEPLOYED",
+  Failed: "FAILED",
+  InProgress: "INPROGRESS",
+  ReadyToDeploy: "READYTODEPLOY",
+  Starting: "STARTING",
+  Stopped: "STOPPED",
+  Stopping: "STOPPING",
+} as const;
 
 /**
+ * @public
+ */
+export type StageStatus = (typeof StageStatus)[keyof typeof StageStatus];
+
+/**
+ * @public
  * <p>Contains information summarizing the deployment stage results.</p>
  */
 export interface EdgeDeploymentStatus {
@@ -267,6 +374,7 @@ export interface EdgeDeploymentStatus {
 }
 
 /**
+ * @public
  * <p>Contains information summarizing the deployment stage results.</p>
  */
 export interface DeploymentStageStatusSummary {
@@ -291,6 +399,9 @@ export interface DeploymentStageStatusSummary {
   DeploymentStatus: EdgeDeploymentStatus | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeregisterDevicesRequest {
   /**
    * <p>The name of the fleet the devices belong to.</p>
@@ -303,6 +414,9 @@ export interface DeregisterDevicesRequest {
   DeviceNames: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeActionRequest {
   /**
    * <p>The name of the action to describe.</p>
@@ -310,6 +424,9 @@ export interface DescribeActionRequest {
   ActionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeActionResponse {
   /**
    * <p>The name of the action.</p>
@@ -379,6 +496,9 @@ export interface DescribeActionResponse {
   LineageGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlgorithmInput {
   /**
    * <p>The name of the algorithm to describe.</p>
@@ -386,6 +506,9 @@ export interface DescribeAlgorithmInput {
   AlgorithmName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAlgorithmOutput {
   /**
    * <p>The name of the algorithm being described.</p>
@@ -445,6 +568,9 @@ export interface DescribeAlgorithmOutput {
   CertifyForMarketplace?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppRequest {
   /**
    * <p>The domain ID.</p>
@@ -472,6 +598,9 @@ export interface DescribeAppRequest {
   SpaceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the app.</p>
@@ -534,6 +663,9 @@ export interface DescribeAppResponse {
   SpaceName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppImageConfigRequest {
   /**
    * <p>The name of the AppImageConfig to describe.</p>
@@ -541,6 +673,9 @@ export interface DescribeAppImageConfigRequest {
   AppImageConfigName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAppImageConfigResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the AppImageConfig.</p>
@@ -568,6 +703,9 @@ export interface DescribeAppImageConfigResponse {
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeArtifactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the artifact to describe.</p>
@@ -575,6 +713,9 @@ export interface DescribeArtifactRequest {
   ArtifactArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeArtifactResponse {
   /**
    * <p>The name of the artifact.</p>
@@ -634,6 +775,9 @@ export interface DescribeArtifactResponse {
   LineageGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoMLJobRequest {
   /**
    * <p>Requests information about an AutoML job using its unique name.</p>
@@ -642,6 +786,7 @@ export interface DescribeAutoMLJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the endpoint of the model deployment.</p>
  */
 export interface ModelDeployResult {
@@ -655,11 +800,14 @@ export interface ModelDeployResult {
 }
 
 /**
+ * @public
  * <p>The resolved attributes.</p>
  */
 export interface ResolvedAttributes {
   /**
-   * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
+   * <p>Specifies a metric to minimize or maximize as the objective of a job. V2 API jobs (for
+   *          example jobs created by calling <code>CreateAutoMLJobV2</code>), support
+   *             <code>Accuracy</code> only.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -675,6 +823,9 @@ export interface ResolvedAttributes {
   CompletionCriteria?: AutoMLJobCompletionCriteria;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAutoMLJobResponse {
   /**
    * <p>Returns the name of the AutoML job.</p>
@@ -697,9 +848,8 @@ export interface DescribeAutoMLJobResponse {
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that
-   *          has read permission to the input data location and write permission to the output data
-   *          location in Amazon S3.</p>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that has read permission to the input data
+   *          location and write permission to the output data location in Amazon S3.</p>
    */
   RoleArn: string | undefined;
 
@@ -791,6 +941,123 @@ export interface DescribeAutoMLJobResponse {
   ModelDeployResult?: ModelDeployResult;
 }
 
+/**
+ * @public
+ */
+export interface DescribeAutoMLJobV2Request {
+  /**
+   * <p>Requests information about an AutoML V2 job using its unique name.</p>
+   */
+  AutoMLJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAutoMLJobV2Response {
+  /**
+   * <p>Returns the name of the AutoML V2 job.</p>
+   */
+  AutoMLJobName: string | undefined;
+
+  /**
+   * <p>Returns the Amazon Resource Name (ARN) of the AutoML V2 job.</p>
+   */
+  AutoMLJobArn: string | undefined;
+
+  /**
+   * <p>Returns an array of channel objects describing the input data and their location.</p>
+   */
+  AutoMLJobInputDataConfig: AutoMLJobChannel[] | undefined;
+
+  /**
+   * <p>Returns the job's output data config.</p>
+   */
+  OutputDataConfig: AutoMLOutputDataConfig | undefined;
+
+  /**
+   * <p>The ARN of the Identity and Access Management role that has read permission to the input data location and
+   *          write permission to the output data location in Amazon S3.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Returns the job's objective.</p>
+   */
+  AutoMLJobObjective?: AutoMLJobObjective;
+
+  /**
+   * <p>Returns the configuration settings of the problem type set for the AutoML V2 job.</p>
+   */
+  AutoMLProblemTypeConfig?: AutoMLProblemTypeConfig;
+
+  /**
+   * <p>Returns the creation time of the AutoML V2 job.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Returns the end time of the AutoML V2 job.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>Returns the job's last modified time.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Returns the reason for the failure of the AutoML V2 job, when applicable.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>Returns a list of reasons for partial failures within an AutoML V2 job.</p>
+   */
+  PartialFailureReasons?: AutoMLPartialFailureReason[];
+
+  /**
+   * <p>Information about the candidate produced by an AutoML training job V2, including its
+   *          status, steps, and other properties.</p>
+   */
+  BestCandidate?: AutoMLCandidate;
+
+  /**
+   * <p>Returns the status of the AutoML V2 job.</p>
+   */
+  AutoMLJobStatus: AutoMLJobStatus | string | undefined;
+
+  /**
+   * <p>Returns the secondary status of the AutoML V2 job.</p>
+   */
+  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
+
+  /**
+   * <p>Indicates whether the model was deployed automatically to an endpoint and the name of
+   *          that endpoint if deployed automatically.</p>
+   */
+  ModelDeployConfig?: ModelDeployConfig;
+
+  /**
+   * <p>Provides information about endpoint for the model deployment.</p>
+   */
+  ModelDeployResult?: ModelDeployResult;
+
+  /**
+   * <p>Returns the configuration settings of how the data are split into train and validation
+   *          datasets.</p>
+   */
+  DataSplitConfig?: AutoMLDataSplitConfig;
+
+  /**
+   * <p>Returns the security configuration for traffic encryption or Amazon VPC settings.</p>
+   */
+  SecurityConfig?: AutoMLSecurityConfig;
+}
+
+/**
+ * @public
+ */
 export interface DescribeCodeRepositoryInput {
   /**
    * <p>The name of the Git repository to describe.</p>
@@ -798,6 +1065,9 @@ export interface DescribeCodeRepositoryInput {
   CodeRepositoryName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCodeRepositoryOutput {
   /**
    * <p>The name of the Git repository.</p>
@@ -827,6 +1097,9 @@ export interface DescribeCodeRepositoryOutput {
   GitConfig?: GitConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCompilationJobRequest {
   /**
    * <p>The name of the model compilation job that you want information about.</p>
@@ -835,6 +1108,7 @@ export interface DescribeCompilationJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides information about the location that is configured for storing model
  *             artifacts. </p>
  *          <p>Model artifacts are the output that results from training a model, and typically
@@ -850,6 +1124,7 @@ export interface ModelArtifacts {
 }
 
 /**
+ * @public
  * <p>Provides information to verify the integrity of stored model artifacts. </p>
  */
 export interface ModelDigests {
@@ -860,6 +1135,9 @@ export interface ModelDigests {
   ArtifactDigest?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeCompilationJobResponse {
   /**
    * <p>The name of the model compilation job.</p>
@@ -879,7 +1157,7 @@ export interface DescribeCompilationJobResponse {
   /**
    * <p>The time when the model compilation job started the <code>CompilationJob</code>
    *             instances. </p>
-   *          <p>You are billed for the time between this timestamp and the timestamp in the <a>DescribeCompilationJobResponse$CompilationEndTime</a> field. In Amazon CloudWatch Logs,
+   *          <p>You are billed for the time between this timestamp and the timestamp in the <code>CompilationEndTime</code> field. In Amazon CloudWatch Logs,
    *             the start time might be later than this time. That's because it takes time to download
    *             the compilation job, which depends on the size of the compilation job container. </p>
    */
@@ -959,7 +1237,7 @@ export interface DescribeCompilationJobResponse {
   OutputConfig: OutputConfig | undefined;
 
   /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your
    *             compilation job to connect to. Control access to your models by
    *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon
    *                 Virtual Private Cloud</a>.</p>
@@ -967,6 +1245,9 @@ export interface DescribeCompilationJobResponse {
   VpcConfig?: NeoVpcConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContextRequest {
   /**
    * <p>The name of the context to describe.</p>
@@ -974,6 +1255,9 @@ export interface DescribeContextRequest {
   ContextName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeContextResponse {
   /**
    * <p>The name of the context.</p>
@@ -1033,6 +1317,9 @@ export interface DescribeContextResponse {
   LineageGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataQualityJobDefinitionRequest {
   /**
    * <p>The name of the data quality monitoring job definition to describe.</p>
@@ -1040,6 +1327,9 @@ export interface DescribeDataQualityJobDefinitionRequest {
   JobDefinitionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDataQualityJobDefinitionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data quality monitoring job definition.</p>
@@ -1099,6 +1389,9 @@ export interface DescribeDataQualityJobDefinitionResponse {
   StoppingCondition?: MonitoringStoppingCondition;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceRequest {
   /**
    * <p>Next token of device description.</p>
@@ -1117,6 +1410,7 @@ export interface DescribeDeviceRequest {
 }
 
 /**
+ * @public
  * <p>The model on the edge device.</p>
  */
 export interface EdgeModel {
@@ -1141,6 +1435,9 @@ export interface EdgeModel {
   LatestInference?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the device.</p>
@@ -1198,6 +1495,9 @@ export interface DescribeDeviceResponse {
   AgentVersion?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -1205,6 +1505,9 @@ export interface DescribeDeviceFleetRequest {
   DeviceFleetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceFleetResponse {
   /**
    * <p>The name of the fleet.</p>
@@ -1247,6 +1550,9 @@ export interface DescribeDeviceFleetResponse {
   IotRoleAlias?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDomainRequest {
   /**
    * <p>The domain ID.</p>
@@ -1254,16 +1560,28 @@ export interface DescribeDomainRequest {
   DomainId: string | undefined;
 }
 
-export enum DomainStatus {
-  Delete_Failed = "Delete_Failed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Update_Failed = "Update_Failed",
-  Updating = "Updating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DomainStatus = {
+  Delete_Failed: "Delete_Failed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Update_Failed: "Update_Failed",
+  Updating: "Updating",
+} as const;
 
+/**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
+
+/**
+ * @public
+ */
 export interface DescribeDomainResponse {
   /**
    * <p>The domain's Amazon Resource Name (ARN).</p>
@@ -1393,6 +1711,9 @@ export interface DescribeDomainResponse {
   DefaultSpaceSettings?: DefaultSpaceSettings;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEdgeDeploymentPlanRequest {
   /**
    * <p>The name of the deployment plan to describe.</p>
@@ -1410,6 +1731,9 @@ export interface DescribeEdgeDeploymentPlanRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEdgeDeploymentPlanResponse {
   /**
    * <p>The ARN of edge deployment plan.</p>
@@ -1467,6 +1791,9 @@ export interface DescribeEdgeDeploymentPlanResponse {
   LastModifiedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEdgePackagingJobRequest {
   /**
    * <p>The name of the edge packaging job.</p>
@@ -1474,21 +1801,40 @@ export interface DescribeEdgePackagingJobRequest {
   EdgePackagingJobName: string | undefined;
 }
 
-export enum EdgePackagingJobStatus {
-  Completed = "COMPLETED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  Starting = "STARTING",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
-
-export enum EdgePresetDeploymentStatus {
-  Completed = "COMPLETED",
-  Failed = "FAILED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EdgePackagingJobStatus = {
+  Completed: "COMPLETED",
+  Failed: "FAILED",
+  InProgress: "INPROGRESS",
+  Starting: "STARTING",
+  Stopped: "STOPPED",
+  Stopping: "STOPPING",
+} as const;
 
 /**
+ * @public
+ */
+export type EdgePackagingJobStatus = (typeof EdgePackagingJobStatus)[keyof typeof EdgePackagingJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EdgePresetDeploymentStatus = {
+  Completed: "COMPLETED",
+  Failed: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type EdgePresetDeploymentStatus = (typeof EdgePresetDeploymentStatus)[keyof typeof EdgePresetDeploymentStatus];
+
+/**
+ * @public
  * <p>The output of a SageMaker Edge Manager deployable resource.</p>
  */
 export interface EdgePresetDeploymentOutput {
@@ -1514,6 +1860,9 @@ export interface EdgePresetDeploymentOutput {
   StatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEdgePackagingJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the edge packaging job.</p>
@@ -1591,6 +1940,9 @@ export interface DescribeEdgePackagingJobResponse {
   PresetDeploymentOutput?: EdgePresetDeploymentOutput;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointInput {
   /**
    * <p>The name of the endpoint.</p>
@@ -1598,26 +1950,45 @@ export interface DescribeEndpointInput {
   EndpointName: string | undefined;
 }
 
-export enum EndpointStatus {
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_SERVICE = "InService",
-  OUT_OF_SERVICE = "OutOfService",
-  ROLLING_BACK = "RollingBack",
-  SYSTEM_UPDATING = "SystemUpdating",
-  UPDATING = "Updating",
-}
-
-export enum VariantStatus {
-  ACTIVATING_TRAFFIC = "ActivatingTraffic",
-  BAKING = "Baking",
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  UPDATING = "Updating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndpointStatus = {
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_SERVICE: "InService",
+  OUT_OF_SERVICE: "OutOfService",
+  ROLLING_BACK: "RollingBack",
+  SYSTEM_UPDATING: "SystemUpdating",
+  UPDATING: "Updating",
+} as const;
 
 /**
+ * @public
+ */
+export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VariantStatus = {
+  ACTIVATING_TRAFFIC: "ActivatingTraffic",
+  BAKING: "Baking",
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type VariantStatus = (typeof VariantStatus)[keyof typeof VariantStatus];
+
+/**
+ * @public
  * <p>Describes the status of the production variant.</p>
  */
 export interface ProductionVariantStatus {
@@ -1665,12 +2036,9 @@ export interface ProductionVariantStatus {
 }
 
 /**
+ * @public
  * <p>The production variant summary for a deployment when an endpoint is creating or
- *             updating with the <code>
- *                <a>CreateEndpoint</a>
- *             </code> or <code>
- *                <a>UpdateEndpoint</a>
- *             </code> operations. Describes the <code>VariantStatus
+ *             updating with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> operations. Describes the <code>VariantStatus
  *             </code>, weight and capacity for a production variant associated with an endpoint.
  *         </p>
  */
@@ -1694,9 +2062,7 @@ export interface PendingProductionVariantSummary {
 
   /**
    * <p>The requested weight for the variant in this deployment, as specified in the endpoint
-   *             configuration for the endpoint. The value is taken from the request to the <code>
-   *                <a>CreateEndpointConfig</a>
-   *             </code> operation.</p>
+   *             configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
    */
   DesiredWeight?: number;
 
@@ -1707,9 +2073,7 @@ export interface PendingProductionVariantSummary {
 
   /**
    * <p>The number of instances requested in this deployment, as specified in the endpoint
-   *             configuration for the endpoint. The value is taken from the request to the <code>
-   *                <a>CreateEndpointConfig</a>
-   *             </code> operation.</p>
+   *             configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
    */
   DesiredInstanceCount?: number;
 
@@ -1744,6 +2108,7 @@ export interface PendingProductionVariantSummary {
 }
 
 /**
+ * @public
  * <p>The summary of an in-progress deployment when an endpoint is creating or updating with
  *             a new endpoint configuration.</p>
  */
@@ -1754,7 +2119,7 @@ export interface PendingDeploymentSummary {
   EndpointConfigName: string | undefined;
 
   /**
-   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each
    *             model hosted behind this endpoint for the in-progress deployment.</p>
    */
   ProductionVariants?: PendingProductionVariantSummary[];
@@ -1765,7 +2130,7 @@ export interface PendingDeploymentSummary {
   StartTime?: Date;
 
   /**
-   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each
    *             model hosted behind this endpoint in shadow mode with production traffic replicated from
    *             the model specified on <code>ProductionVariants</code> for the in-progress
    *             deployment.</p>
@@ -1774,6 +2139,7 @@ export interface PendingDeploymentSummary {
 }
 
 /**
+ * @public
  * <p>Describes weight and capacities for a production variant associated with an
  *             endpoint. If you sent a request to the <code>UpdateEndpointWeightsAndCapacities</code>
  *             API and the endpoint status is <code>Updating</code>, you get different desired and
@@ -1830,6 +2196,9 @@ export interface ProductionVariantSummary {
   DesiredServerlessConfig?: ProductionVariantServerlessConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointOutput {
   /**
    * <p>Name of the endpoint.</p>
@@ -1847,7 +2216,7 @@ export interface DescribeEndpointOutput {
   EndpointConfigName: string | undefined;
 
   /**
-   * <p>An array of <a>ProductionVariantSummary</a> objects, one for each model
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model
    *             hosted behind this endpoint.</p>
    */
   ProductionVariants?: ProductionVariantSummary[];
@@ -1867,11 +2236,11 @@ export interface DescribeEndpointOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
+   *                   <code>Creating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
+   *                   <code>Updating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1887,7 +2256,7 @@ export interface DescribeEndpointOutput {
    *                     configuration. Once the rollback completes, endpoint returns to an
    *                         <code>InService</code> status. This transitional status only applies to an
    *                     endpoint that has autoscaling enabled and is undergoing variant weight or
-   *                     capacity changes as part of an <a>UpdateEndpointWeightsAndCapacities</a> call or when the <a>UpdateEndpointWeightsAndCapacities</a> operation is called
+   *                     capacity changes as part of an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> call or when the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> operation is called
    *                     explicitly.</p>
    *             </li>
    *             <li>
@@ -1897,13 +2266,13 @@ export interface DescribeEndpointOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
+   *                   <code>Deleting</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
-   *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
-   *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
+   *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use the
+   *                     <code>FailureReason</code> value returned by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> for information about
+   *                     the failure. <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is the only operation that can be
    *                     performed on a failed endpoint.</p>
    *             </li>
    *          </ul>
@@ -1950,13 +2319,16 @@ export interface DescribeEndpointOutput {
   ExplainerConfig?: ExplainerConfig;
 
   /**
-   * <p>An array of <a>ProductionVariantSummary</a> objects, one for each model
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model
    *             that you want to host at this endpoint in shadow mode with production traffic replicated
    *             from the model specified on <code>ProductionVariants</code>.</p>
    */
   ShadowProductionVariants?: ProductionVariantSummary[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointConfigInput {
   /**
    * <p>The name of the endpoint configuration.</p>
@@ -1964,6 +2336,9 @@ export interface DescribeEndpointConfigInput {
   EndpointConfigName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEndpointConfigOutput {
   /**
    * <p>Name of the SageMaker endpoint configuration.</p>
@@ -2017,6 +2392,9 @@ export interface DescribeEndpointConfigOutput {
   ShadowProductionVariants?: ProductionVariant[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeExperimentRequest {
   /**
    * <p>The name of the experiment to describe.</p>
@@ -2025,6 +2403,7 @@ export interface DescribeExperimentRequest {
 }
 
 /**
+ * @public
  * <p>The source of the experiment.</p>
  */
 export interface ExperimentSource {
@@ -2039,6 +2418,9 @@ export interface ExperimentSource {
   SourceType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeExperimentResponse {
   /**
    * <p>The name of the experiment.</p>
@@ -2087,6 +2469,9 @@ export interface DescribeExperimentResponse {
   LastModifiedBy?: UserContext;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeatureGroupRequest {
   /**
    * <p>The name of the <code>FeatureGroup</code> you want described. </p>
@@ -2101,21 +2486,40 @@ export interface DescribeFeatureGroupRequest {
   NextToken?: string;
 }
 
-export enum FeatureGroupStatus {
-  CREATED = "Created",
-  CREATE_FAILED = "CreateFailed",
-  CREATING = "Creating",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-}
-
-export enum LastUpdateStatusValue {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCESSFUL = "Successful",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FeatureGroupStatus = {
+  CREATED: "Created",
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+} as const;
 
 /**
+ * @public
+ */
+export type FeatureGroupStatus = (typeof FeatureGroupStatus)[keyof typeof FeatureGroupStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LastUpdateStatusValue = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+} as const;
+
+/**
+ * @public
+ */
+export type LastUpdateStatusValue = (typeof LastUpdateStatusValue)[keyof typeof LastUpdateStatusValue];
+
+/**
+ * @public
  * <p>A value that indicates whether the update was successful.</p>
  */
 export interface LastUpdateStatus {
@@ -2130,13 +2534,23 @@ export interface LastUpdateStatus {
   FailureReason?: string;
 }
 
-export enum OfflineStoreStatusValue {
-  ACTIVE = "Active",
-  BLOCKED = "Blocked",
-  DISABLED = "Disabled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OfflineStoreStatusValue = {
+  ACTIVE: "Active",
+  BLOCKED: "Blocked",
+  DISABLED: "Disabled",
+} as const;
 
 /**
+ * @public
+ */
+export type OfflineStoreStatusValue = (typeof OfflineStoreStatusValue)[keyof typeof OfflineStoreStatusValue];
+
+/**
+ * @public
  * <p>The status of <code>OfflineStore</code>.</p>
  */
 export interface OfflineStoreStatus {
@@ -2151,6 +2565,9 @@ export interface OfflineStoreStatus {
   BlockedReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeatureGroupResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>.  </p>
@@ -2277,6 +2694,9 @@ export interface DescribeFeatureGroupResponse {
   OnlineStoreTotalSizeBytes?: number;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeatureMetadataRequest {
   /**
    * <p>The name of the feature group containing the feature.</p>
@@ -2290,6 +2710,7 @@ export interface DescribeFeatureMetadataRequest {
 }
 
 /**
+ * @public
  * <p>A key-value pair that you specify to describe the feature.</p>
  */
 export interface FeatureParameter {
@@ -2304,6 +2725,9 @@ export interface FeatureParameter {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeFeatureMetadataResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the feature group that contains the feature.</p>
@@ -2346,6 +2770,9 @@ export interface DescribeFeatureMetadataResponse {
   Parameters?: FeatureParameter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeFlowDefinitionRequest {
   /**
    * <p>The name of the flow definition.</p>
@@ -2353,13 +2780,25 @@ export interface DescribeFlowDefinitionRequest {
   FlowDefinitionName: string | undefined;
 }
 
-export enum FlowDefinitionStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FlowDefinitionStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+} as const;
 
+/**
+ * @public
+ */
+export type FlowDefinitionStatus = (typeof FlowDefinitionStatus)[keyof typeof FlowDefinitionStatus];
+
+/**
+ * @public
+ */
 export interface DescribeFlowDefinitionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the flow defintion.</p>
@@ -2413,6 +2852,9 @@ export interface DescribeFlowDefinitionResponse {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHubRequest {
   /**
    * <p>The name of the hub to describe.</p>
@@ -2420,16 +2862,28 @@ export interface DescribeHubRequest {
   HubName: string | undefined;
 }
 
-export enum HubStatus {
-  CREATE_FAILED = "CreateFailed",
-  CREATING = "Creating",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-  IN_SERVICE = "InService",
-  UPDATE_FAILED = "UpdateFailed",
-  UPDATING = "Updating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HubStatus = {
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  IN_SERVICE: "InService",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+} as const;
 
+/**
+ * @public
+ */
+export type HubStatus = (typeof HubStatus)[keyof typeof HubStatus];
+
+/**
+ * @public
+ */
 export interface DescribeHubResponse {
   /**
    * <p>The name of the hub.</p>
@@ -2482,6 +2936,9 @@ export interface DescribeHubResponse {
   LastModifiedTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHubContentRequest {
   /**
    * <p>The name of the hub that contains the content to describe.</p>
@@ -2505,6 +2962,7 @@ export interface DescribeHubContentRequest {
 }
 
 /**
+ * @public
  * <p>Any dependencies related to hub content, such as scripts, model artifacts, datasets, or notebooks.</p>
  */
 export interface HubContentDependency {
@@ -2519,14 +2977,26 @@ export interface HubContentDependency {
   DependencyCopyPath?: string;
 }
 
-export enum HubContentStatus {
-  AVAILABLE = "Available",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-  IMPORTING = "Importing",
-  IMPORT_FAILED = "ImportFailed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HubContentStatus = {
+  AVAILABLE: "Available",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  IMPORTING: "Importing",
+  IMPORT_FAILED: "ImportFailed",
+} as const;
 
+/**
+ * @public
+ */
+export type HubContentStatus = (typeof HubContentStatus)[keyof typeof HubContentStatus];
+
+/**
+ * @public
+ */
 export interface DescribeHubContentResponse {
   /**
    * <p>The name of the hub content.</p>
@@ -2609,6 +3079,9 @@ export interface DescribeHubContentResponse {
   CreationTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHumanTaskUiRequest {
   /**
    * <p>The name of the human task user interface
@@ -2617,12 +3090,22 @@ export interface DescribeHumanTaskUiRequest {
   HumanTaskUiName: string | undefined;
 }
 
-export enum HumanTaskUiStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HumanTaskUiStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+} as const;
 
 /**
+ * @public
+ */
+export type HumanTaskUiStatus = (typeof HumanTaskUiStatus)[keyof typeof HumanTaskUiStatus];
+
+/**
+ * @public
  * <p>Container for user interface template information.</p>
  */
 export interface UiTemplateInfo {
@@ -2637,6 +3120,9 @@ export interface UiTemplateInfo {
   ContentSha256?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHumanTaskUiResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the human task user interface (worker task template).</p>
@@ -2664,6 +3150,9 @@ export interface DescribeHumanTaskUiResponse {
   UiTemplate: UiTemplateInfo | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHyperParameterTuningJobRequest {
   /**
    * <p>The name of the tuning job.</p>
@@ -2672,9 +3161,10 @@ export interface DescribeHyperParameterTuningJobRequest {
 }
 
 /**
+ * @public
  * <p>Shows the latest objective metric emitted by a training job that was launched by a
  *             hyperparameter tuning job. You define the objective metric in the
- *                 <code>HyperParameterTuningJobObjective</code> parameter of <a>HyperParameterTuningJobConfig</a>.</p>
+ *             <code>HyperParameterTuningJobObjective</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a>.</p>
  */
 export interface FinalHyperParameterTuningJobObjectiveMetric {
   /**
@@ -2697,15 +3187,25 @@ export interface FinalHyperParameterTuningJobObjectiveMetric {
   Value: number | undefined;
 }
 
-export enum TrainingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TrainingJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
 
 /**
+ * @public
+ */
+export type TrainingJobStatus = (typeof TrainingJobStatus)[keyof typeof TrainingJobStatus];
+
+/**
+ * @public
  * <p>The container for the summary information about a training job.</p>
  */
 export interface HyperParameterTrainingJobSummary {
@@ -2769,7 +3269,7 @@ export interface HyperParameterTrainingJobSummary {
   FailureReason?: string;
 
   /**
-   * <p>The <a>FinalHyperParameterTuningJobObjectiveMetric</a> object that
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_FinalHyperParameterTuningJobObjectiveMetric.html">FinalHyperParameterTuningJobObjectiveMetric</a> object that
    *             specifies the
    *             value
    *             of the
@@ -2810,6 +3310,7 @@ export interface HyperParameterTrainingJobSummary {
 }
 
 /**
+ * @public
  * <p>The total resources consumed by your hyperparameter tuning job.</p>
  */
 export interface HyperParameterTuningJobConsumedResources {
@@ -2819,15 +3320,26 @@ export interface HyperParameterTuningJobConsumedResources {
   RuntimeInSeconds?: number;
 }
 
-export enum HyperParameterTuningJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HyperParameterTuningJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
 
 /**
+ * @public
+ */
+export type HyperParameterTuningJobStatus =
+  (typeof HyperParameterTuningJobStatus)[keyof typeof HyperParameterTuningJobStatus];
+
+/**
+ * @public
  * <p>Specifies the number of training jobs that this hyperparameter tuning job launched,
  *             categorized by the status of their objective metric. The objective metric status shows
  *             whether the
@@ -2857,6 +3369,7 @@ export interface ObjectiveStatusCounters {
 }
 
 /**
+ * @public
  * <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by
  *             status.</p>
  */
@@ -2894,6 +3407,7 @@ export interface TrainingJobStatusCounters {
 }
 
 /**
+ * @public
  * <p>A structure that contains runtime information about both current and completed
  *             hyperparameter tuning jobs.</p>
  */
@@ -2912,6 +3426,9 @@ export interface HyperParameterTuningJobCompletionDetails {
   ConvergenceDetectedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeHyperParameterTuningJobResponse {
   /**
    * <p>The name of the tuning job.</p>
@@ -2924,19 +3441,19 @@ export interface DescribeHyperParameterTuningJobResponse {
   HyperParameterTuningJobArn: string | undefined;
 
   /**
-   * <p>The <a>HyperParameterTuningJobConfig</a> object that specifies the
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a> object that specifies the
    *             configuration of the tuning job.</p>
    */
   HyperParameterTuningJobConfig: HyperParameterTuningJobConfig | undefined;
 
   /**
-   * <p>The <a>HyperParameterTrainingJobDefinition</a> object that specifies the
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> object that specifies the
    *             definition of the training jobs that this tuning job launches.</p>
    */
   TrainingJobDefinition?: HyperParameterTrainingJobDefinition;
 
   /**
-   * <p>A list of the <a>HyperParameterTrainingJobDefinition</a> objects launched
+   * <p>A list of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> objects launched
    *             for this tuning job.</p>
    */
   TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
@@ -2963,28 +3480,28 @@ export interface DescribeHyperParameterTuningJobResponse {
   LastModifiedTime?: Date;
 
   /**
-   * <p>The <a>TrainingJobStatusCounters</a> object that specifies the number of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html">TrainingJobStatusCounters</a> object that specifies the number of
    *             training jobs, categorized by status, that this tuning job launched.</p>
    */
   TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
 
   /**
-   * <p>The <a>ObjectiveStatusCounters</a> object that specifies the number of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html">ObjectiveStatusCounters</a> object that specifies the number of
    *             training jobs, categorized by the status of their final objective metric, that this
    *             tuning job launched.</p>
    */
   ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
 
   /**
-   * <p>A <a>TrainingJobSummary</a> object that describes the training job that
-   *             completed with the best current <a>HyperParameterTuningJobObjective</a>.</p>
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> object that describes the training job that
+   *             completed with the best current <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html">HyperParameterTuningJobObjective</a>.</p>
    */
   BestTrainingJob?: HyperParameterTrainingJobSummary;
 
   /**
    * <p>If the hyperparameter tuning job is an warm start tuning job with a
    *                 <code>WarmStartType</code> of <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the
-   *                 <a>TrainingJobSummary</a> for the training job with the best objective
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> for the training job with the best objective
    *             metric value of all training jobs launched by this tuning job and all parent jobs
    *             specified for the warm start tuning job.</p>
    */
@@ -3017,6 +3534,9 @@ export interface DescribeHyperParameterTuningJobResponse {
   ConsumedResources?: HyperParameterTuningJobConsumedResources;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageRequest {
   /**
    * <p>The name of the image to describe.</p>
@@ -3024,16 +3544,28 @@ export interface DescribeImageRequest {
   ImageName: string | undefined;
 }
 
-export enum ImageStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImageStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
+/**
+ * @public
+ */
+export type ImageStatus = (typeof ImageStatus)[keyof typeof ImageStatus];
+
+/**
+ * @public
+ */
 export interface DescribeImageResponse {
   /**
    * <p>When the image was created.</p>
@@ -3081,6 +3613,9 @@ export interface DescribeImageResponse {
   RoleArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImageVersionRequest {
   /**
    * <p>The name of the image.</p>
@@ -3098,14 +3633,26 @@ export interface DescribeImageVersionRequest {
   Alias?: string;
 }
 
-export enum ImageVersionStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImageVersionStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
 
+/**
+ * @public
+ */
+export type ImageVersionStatus = (typeof ImageVersionStatus)[keyof typeof ImageVersionStatus];
+
+/**
+ * @public
+ */
 export interface DescribeImageVersionResponse {
   /**
    * <p>The registry path of the container image on which this image version is based.</p>
@@ -3230,6 +3777,9 @@ export interface DescribeImageVersionResponse {
   ReleaseNotes?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInferenceExperimentRequest {
   /**
    * <p>The name of the inference experiment to describe.</p>
@@ -3238,6 +3788,7 @@ export interface DescribeInferenceExperimentRequest {
 }
 
 /**
+ * @public
  * <p>The metadata of the endpoint.</p>
  */
 export interface EndpointMetadata {
@@ -3253,7 +3804,7 @@ export interface EndpointMetadata {
 
   /**
    * <p>
-   *            The status of the endpoint. For possible values of the status of an endpoint, see <a>EndpointSummary$EndpointStatus</a>.
+   *            The status of the endpoint. For possible values of the status of an endpoint, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_EndpointSummary.html">EndpointSummary</a>.
    *        </p>
    */
   EndpointStatus?: EndpointStatus | string;
@@ -3267,15 +3818,25 @@ export interface EndpointMetadata {
   FailureReason?: string;
 }
 
-export enum ModelVariantStatus {
-  CREATING = "Creating",
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  IN_SERVICE = "InService",
-  UPDATING = "Updating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelVariantStatus = {
+  CREATING: "Creating",
+  DELETED: "Deleted",
+  DELETING: "Deleting",
+  IN_SERVICE: "InService",
+  UPDATING: "Updating",
+} as const;
 
 /**
+ * @public
+ */
+export type ModelVariantStatus = (typeof ModelVariantStatus)[keyof typeof ModelVariantStatus];
+
+/**
+ * @public
  * <p>Summary of the deployment configuration of a model.</p>
  */
 export interface ModelVariantConfigSummary {
@@ -3328,17 +3889,29 @@ export interface ModelVariantConfigSummary {
   Status: ModelVariantStatus | string | undefined;
 }
 
-export enum InferenceExperimentStatus {
-  CANCELLED = "Cancelled",
-  COMPLETED = "Completed",
-  CREATED = "Created",
-  CREATING = "Creating",
-  RUNNING = "Running",
-  STARTING = "Starting",
-  STOPPING = "Stopping",
-  UPDATING = "Updating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InferenceExperimentStatus = {
+  CANCELLED: "Cancelled",
+  COMPLETED: "Completed",
+  CREATED: "Created",
+  CREATING: "Creating",
+  RUNNING: "Running",
+  STARTING: "Starting",
+  STOPPING: "Stopping",
+  UPDATING: "Updating",
+} as const;
 
+/**
+ * @public
+ */
+export type InferenceExperimentStatus = (typeof InferenceExperimentStatus)[keyof typeof InferenceExperimentStatus];
+
+/**
+ * @public
+ */
 export interface DescribeInferenceExperimentResponse {
   /**
    * <p>The ARN of the inference experiment being described.</p>
@@ -3404,7 +3977,7 @@ export interface DescribeInferenceExperimentResponse {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Cancelled</code> - When you conclude your experiment early using the <a>StopInferenceExperiment</a> API, or if any operation fails with an unexpected error, it shows
+   *                   <code>Cancelled</code> - When you conclude your experiment early using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html">StopInferenceExperiment</a> API, or if any operation fails with an unexpected error, it shows
    *                    as cancelled.
    *                </p>
    *             </li>
@@ -3414,7 +3987,7 @@ export interface DescribeInferenceExperimentResponse {
 
   /**
    * <p>
-   *            The error message or client-specified <code>Reason</code> from the <a>StopInferenceExperiment</a>
+   *            The error message or client-specified <code>Reason</code> from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html">StopInferenceExperiment</a>
    *            API, that explains the status of the inference experiment.
    *        </p>
    */
@@ -3482,12 +4055,15 @@ export interface DescribeInferenceExperimentResponse {
    * <p>
    *            The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on
    *            the storage volume attached to the ML compute instance that hosts the endpoint. For more information, see
-   *            <a>CreateInferenceExperimentRequest$KmsKey</a>.
+   *            <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html">CreateInferenceExperiment</a>.
    *        </p>
    */
   KmsKey?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeInferenceRecommendationsJobRequest {
   /**
    * <p>The name of the job. The name must be unique within an
@@ -3497,6 +4073,7 @@ export interface DescribeInferenceRecommendationsJobRequest {
 }
 
 /**
+ * @public
  * <p>The metrics for an existing endpoint compared in an Inference Recommender job.</p>
  */
 export interface InferenceMetrics {
@@ -3512,6 +4089,7 @@ export interface InferenceMetrics {
 }
 
 /**
+ * @public
  * <p>The performance results from running an Inference Recommender job on an existing endpoint.</p>
  */
 export interface EndpointPerformance {
@@ -3527,6 +4105,7 @@ export interface EndpointPerformance {
 }
 
 /**
+ * @public
  * <p>The endpoint configuration made by Inference Recommender during a recommendation job.</p>
  */
 export interface EndpointOutputConfiguration {
@@ -3552,6 +4131,7 @@ export interface EndpointOutputConfiguration {
 }
 
 /**
+ * @public
  * <p>The metrics of recommendations.</p>
  */
 export interface RecommendationMetrics {
@@ -3591,6 +4171,7 @@ export interface RecommendationMetrics {
 }
 
 /**
+ * @public
  * <p>A list of environment parameters suggested by the Amazon SageMaker Inference Recommender.</p>
  */
 export interface EnvironmentParameter {
@@ -3611,6 +4192,7 @@ export interface EnvironmentParameter {
 }
 
 /**
+ * @public
  * <p>Defines the model configuration. Includes the specification name and environment parameters.</p>
  */
 export interface ModelConfiguration {
@@ -3631,6 +4213,7 @@ export interface ModelConfiguration {
 }
 
 /**
+ * @public
  * <p>A list of recommendations made by Amazon SageMaker Inference Recommender.</p>
  */
 export interface InferenceRecommendation {
@@ -3655,15 +4238,27 @@ export interface InferenceRecommendation {
   RecommendationId?: string;
 }
 
-export enum RecommendationJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
 
+/**
+ * @public
+ */
+export type RecommendationJobStatus = (typeof RecommendationJobStatus)[keyof typeof RecommendationJobStatus];
+
+/**
+ * @public
+ */
 export interface DescribeInferenceRecommendationsJobResponse {
   /**
    * <p>The name of the job. The name must be unique within an
@@ -3739,6 +4334,9 @@ export interface DescribeInferenceRecommendationsJobResponse {
   EndpointPerformances?: EndpointPerformance[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeLabelingJobRequest {
   /**
    * <p>The name of the labeling job to return information for.</p>
@@ -3747,6 +4345,7 @@ export interface DescribeLabelingJobRequest {
 }
 
 /**
+ * @public
  * <p>Provides a breakdown of the number of objects labeled.</p>
  */
 export interface LabelCounters {
@@ -3777,6 +4376,7 @@ export interface LabelCounters {
 }
 
 /**
+ * @public
  * <p>Specifies the location of the output produced by the labeling job. </p>
  */
 export interface LabelingJobOutput {
@@ -3792,15 +4392,27 @@ export interface LabelingJobOutput {
   FinalActiveLearningModelArn?: string;
 }
 
-export enum LabelingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LabelingJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
 
+/**
+ * @public
+ */
+export type LabelingJobStatus = (typeof LabelingJobStatus)[keyof typeof LabelingJobStatus];
+
+/**
+ * @public
+ */
 export interface DescribeLabelingJobResponse {
   /**
    * <p>The processing status of the labeling job. </p>
@@ -3881,7 +4493,7 @@ export interface DescribeLabelingJobResponse {
    *          </ul>
    *          <p>The file is a JSON structure in the following format:</p>
    *          <p>
-   *             <code>{</code>
+   *             <code>\{</code>
    *          </p>
    *          <p>
    *             <code> "document-version": "2018-11-28"</code>
@@ -3890,40 +4502,40 @@ export interface DescribeLabelingJobResponse {
    *             <code> "labels": [</code>
    *          </p>
    *          <p>
-   *             <code> {</code>
+   *             <code> \{</code>
    *          </p>
    *          <p>
    *             <code> "label": "<i>label 1</i>"</code>
    *          </p>
    *          <p>
-   *             <code> },</code>
+   *             <code> \},</code>
    *          </p>
    *          <p>
-   *             <code> {</code>
+   *             <code> \{</code>
    *          </p>
    *          <p>
    *             <code> "label": "<i>label 2</i>"</code>
    *          </p>
    *          <p>
-   *             <code> },</code>
+   *             <code> \},</code>
    *          </p>
    *          <p>
    *             <code> ...</code>
    *          </p>
    *          <p>
-   *             <code> {</code>
+   *             <code> \{</code>
    *          </p>
    *          <p>
    *             <code> "label": "<i>label n</i>"</code>
    *          </p>
    *          <p>
-   *             <code> }</code>
+   *             <code> \}</code>
    *          </p>
    *          <p>
    *             <code> ]</code>
    *          </p>
    *          <p>
-   *             <code>}</code>
+   *             <code>\}</code>
    *          </p>
    */
   LabelCategoryConfigS3Uri?: string;
@@ -3958,6 +4570,9 @@ export interface DescribeLabelingJobResponse {
   LabelingJobOutput?: LabelingJobOutput;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLineageGroupRequest {
   /**
    * <p>The name of the lineage group.</p>
@@ -3965,6 +4580,9 @@ export interface DescribeLineageGroupRequest {
   LineageGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeLineageGroupResponse {
   /**
    * <p>The name of the lineage group.</p>
@@ -4009,6 +4627,9 @@ export interface DescribeLineageGroupResponse {
   LastModifiedBy?: UserContext;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelInput {
   /**
    * <p>The name of the model.</p>
@@ -4016,6 +4637,9 @@ export interface DescribeModelInput {
   ModelName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelOutput {
   /**
    * <p>Name of the SageMaker model.</p>
@@ -4046,7 +4670,7 @@ export interface DescribeModelOutput {
   ExecutionRoleArn: string | undefined;
 
   /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that this model has access
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this model has access
    *             to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual
    *                 Private Cloud</a>
    *          </p>
@@ -4070,6 +4694,9 @@ export interface DescribeModelOutput {
   EnableNetworkIsolation?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelBiasJobDefinitionRequest {
   /**
    * <p>The name of the model bias job definition. The name must be unique within an Amazon Web Services Region
@@ -4078,6 +4705,9 @@ export interface DescribeModelBiasJobDefinitionRequest {
   JobDefinitionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelBiasJobDefinitionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the model bias job.</p>
@@ -4138,6 +4768,9 @@ export interface DescribeModelBiasJobDefinitionResponse {
   StoppingCondition?: MonitoringStoppingCondition;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelCardRequest {
   /**
    * <p>The name of the model card to describe.</p>
@@ -4150,15 +4783,27 @@ export interface DescribeModelCardRequest {
   ModelCardVersion?: number;
 }
 
-export enum ModelCardProcessingStatus {
-  CONTENT_DELETED = "ContentDeleted",
-  DELETE_COMPLETED = "DeleteCompleted",
-  DELETE_FAILED = "DeleteFailed",
-  DELETE_INPROGRESS = "DeleteInProgress",
-  DELETE_PENDING = "DeletePending",
-  EXPORTJOBS_DELETED = "ExportJobsDeleted",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardProcessingStatus = {
+  CONTENT_DELETED: "ContentDeleted",
+  DELETE_COMPLETED: "DeleteCompleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_INPROGRESS: "DeleteInProgress",
+  DELETE_PENDING: "DeletePending",
+  EXPORTJOBS_DELETED: "ExportJobsDeleted",
+} as const;
 
+/**
+ * @public
+ */
+export type ModelCardProcessingStatus = (typeof ModelCardProcessingStatus)[keyof typeof ModelCardProcessingStatus];
+
+/**
+ * @public
+ */
 export interface DescribeModelCardResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the model card.</p>
@@ -4263,6 +4908,9 @@ export interface DescribeModelCardResponse {
   ModelCardProcessingStatus?: ModelCardProcessingStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelCardExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the model card export job to describe.</p>
@@ -4271,6 +4919,7 @@ export interface DescribeModelCardExportJobRequest {
 }
 
 /**
+ * @public
  * <p>The artifacts of the model card export job.</p>
  */
 export interface ModelCardExportArtifacts {
@@ -4280,12 +4929,24 @@ export interface ModelCardExportArtifacts {
   S3ExportArtifacts: string | undefined;
 }
 
-export enum ModelCardExportJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardExportJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+} as const;
 
+/**
+ * @public
+ */
+export type ModelCardExportJobStatus = (typeof ModelCardExportJobStatus)[keyof typeof ModelCardExportJobStatus];
+
+/**
+ * @public
+ */
 export interface DescribeModelCardExportJobResponse {
   /**
    * <p>The name of the model card export job to describe.</p>
@@ -4354,6 +5015,9 @@ export interface DescribeModelCardExportJobResponse {
   ExportArtifacts?: ModelCardExportArtifacts;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelExplainabilityJobDefinitionRequest {
   /**
    * <p>The name of the model explainability job definition. The name must be unique within an
@@ -4362,6 +5026,9 @@ export interface DescribeModelExplainabilityJobDefinitionRequest {
   JobDefinitionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelExplainabilityJobDefinitionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
@@ -4423,6 +5090,9 @@ export interface DescribeModelExplainabilityJobDefinitionResponse {
   StoppingCondition?: MonitoringStoppingCondition;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelPackageInput {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the model package to describe.</p>
@@ -4432,14 +5102,24 @@ export interface DescribeModelPackageInput {
   ModelPackageName: string | undefined;
 }
 
-export enum DetailedModelPackageStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  NOT_STARTED = "NotStarted",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DetailedModelPackageStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  NOT_STARTED: "NotStarted",
+} as const;
 
 /**
+ * @public
+ */
+export type DetailedModelPackageStatus = (typeof DetailedModelPackageStatus)[keyof typeof DetailedModelPackageStatus];
+
+/**
+ * @public
  * <p>Represents the overall status of a model package.</p>
  */
 export interface ModelPackageStatusItem {
@@ -4460,6 +5140,7 @@ export interface ModelPackageStatusItem {
 }
 
 /**
+ * @public
  * <p>Specifies the validation and image scan statuses of the model package.</p>
  */
 export interface ModelPackageStatusDetails {
@@ -4474,6 +5155,9 @@ export interface ModelPackageStatusDetails {
   ImageScanStatuses?: ModelPackageStatusItem[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelPackageOutput {
   /**
    * <p>The name of the model package being described.</p>
@@ -4613,6 +5297,9 @@ export interface DescribeModelPackageOutput {
   AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelPackageGroupInput {
   /**
    * <p>The name of gthe model group to describe.</p>
@@ -4620,15 +5307,27 @@ export interface DescribeModelPackageGroupInput {
   ModelPackageGroupName: string | undefined;
 }
 
-export enum ModelPackageGroupStatus {
-  COMPLETED = "Completed",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ModelPackageGroupStatus = {
+  COMPLETED: "Completed",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+} as const;
 
+/**
+ * @public
+ */
+export type ModelPackageGroupStatus = (typeof ModelPackageGroupStatus)[keyof typeof ModelPackageGroupStatus];
+
+/**
+ * @public
+ */
 export interface DescribeModelPackageGroupOutput {
   /**
    * <p>The name of the model group.</p>
@@ -4662,6 +5361,9 @@ export interface DescribeModelPackageGroupOutput {
   ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelQualityJobDefinitionRequest {
   /**
    * <p>The name of the model quality job. The name must be unique within an Amazon Web Services Region in the
@@ -4670,6 +5372,9 @@ export interface DescribeModelQualityJobDefinitionRequest {
   JobDefinitionName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeModelQualityJobDefinitionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the model quality job.</p>
@@ -4729,6 +5434,9 @@ export interface DescribeModelQualityJobDefinitionResponse {
   StoppingCondition?: MonitoringStoppingCondition;
 }
 
+/**
+ * @public
+ */
 export interface DescribeMonitoringScheduleRequest {
   /**
    * <p>Name of a previously created monitoring schedule.</p>
@@ -4736,17 +5444,27 @@ export interface DescribeMonitoringScheduleRequest {
   MonitoringScheduleName: string | undefined;
 }
 
-export enum ExecutionStatus {
-  COMPLETED = "Completed",
-  COMPLETED_WITH_VIOLATIONS = "CompletedWithViolations",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  COMPLETED: "Completed",
+  COMPLETED_WITH_VIOLATIONS: "CompletedWithViolations",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
 
 /**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
+
+/**
+ * @public
  * <p>Summary of information about the last monitoring job to run.</p>
  */
 export interface MonitoringExecutionSummary {
@@ -4801,13 +5519,25 @@ export interface MonitoringExecutionSummary {
   MonitoringType?: MonitoringType | string;
 }
 
-export enum ScheduleStatus {
-  FAILED = "Failed",
-  PENDING = "Pending",
-  SCHEDULED = "Scheduled",
-  STOPPED = "Stopped",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ScheduleStatus = {
+  FAILED: "Failed",
+  PENDING: "Pending",
+  SCHEDULED: "Scheduled",
+  STOPPED: "Stopped",
+} as const;
 
+/**
+ * @public
+ */
+export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus];
+
+/**
+ * @public
+ */
 export interface DescribeMonitoringScheduleResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
@@ -4884,6 +5614,9 @@ export interface DescribeMonitoringScheduleResponse {
   LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotebookInstanceInput {
   /**
    * <p>The name of the notebook instance that you want information about.</p>
@@ -4891,16 +5624,28 @@ export interface DescribeNotebookInstanceInput {
   NotebookInstanceName: string | undefined;
 }
 
-export enum NotebookInstanceStatus {
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Updating = "Updating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NotebookInstanceStatus = {
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Updating: "Updating",
+} as const;
 
+/**
+ * @public
+ */
+export type NotebookInstanceStatus = (typeof NotebookInstanceStatus)[keyof typeof NotebookInstanceStatus];
+
+/**
+ * @public
+ */
 export interface DescribeNotebookInstanceOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the notebook instance.</p>
@@ -4997,8 +5742,7 @@ export interface DescribeNotebookInstanceOutput {
   /**
    * <p>A list of the Elastic Inference (EI) instance types associated with this notebook
    *             instance. Currently only one EI instance type can be associated with a notebook
-   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
-   *                 SageMaker</a>.</p>
+   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
    */
   AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
 
@@ -5044,6 +5788,9 @@ export interface DescribeNotebookInstanceOutput {
   InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotebookInstanceLifecycleConfigInput {
   /**
    * <p>The name of the lifecycle configuration to describe.</p>
@@ -5051,6 +5798,9 @@ export interface DescribeNotebookInstanceLifecycleConfigInput {
   NotebookInstanceLifecycleConfigName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeNotebookInstanceLifecycleConfigOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
@@ -5084,6 +5834,9 @@ export interface DescribeNotebookInstanceLifecycleConfigOutput {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineRequest {
   /**
    * <p>The name of the pipeline to describe.</p>
@@ -5091,10 +5844,22 @@ export interface DescribePipelineRequest {
   PipelineName: string | undefined;
 }
 
-export enum PipelineStatus {
-  ACTIVE = "Active",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PipelineStatus = {
+  ACTIVE: "Active",
+} as const;
 
+/**
+ * @public
+ */
+export type PipelineStatus = (typeof PipelineStatus)[keyof typeof PipelineStatus];
+
+/**
+ * @public
+ */
 export interface DescribePipelineResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
@@ -5164,6 +5929,9 @@ export interface DescribePipelineResponse {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineDefinitionForExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -5171,6 +5939,9 @@ export interface DescribePipelineDefinitionForExecutionRequest {
   PipelineExecutionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineDefinitionForExecutionResponse {
   /**
    * <p>The JSON pipeline definition.</p>
@@ -5183,6 +5954,9 @@ export interface DescribePipelineDefinitionForExecutionResponse {
   CreationTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
@@ -5190,15 +5964,25 @@ export interface DescribePipelineExecutionRequest {
   PipelineExecutionArn: string | undefined;
 }
 
-export enum PipelineExecutionStatus {
-  EXECUTING = "Executing",
-  FAILED = "Failed",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  SUCCEEDED = "Succeeded",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PipelineExecutionStatus = {
+  EXECUTING: "Executing",
+  FAILED: "Failed",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  SUCCEEDED: "Succeeded",
+} as const;
 
 /**
+ * @public
+ */
+export type PipelineExecutionStatus = (typeof PipelineExecutionStatus)[keyof typeof PipelineExecutionStatus];
+
+/**
+ * @public
  * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
  */
 export interface PipelineExperimentConfig {
@@ -5213,6 +5997,9 @@ export interface PipelineExperimentConfig {
   TrialName?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribePipelineExecutionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
@@ -5277,6 +6064,9 @@ export interface DescribePipelineExecutionResponse {
   ParallelismConfiguration?: ParallelismConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProcessingJobRequest {
   /**
    * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
@@ -5285,14 +6075,26 @@ export interface DescribeProcessingJobRequest {
   ProcessingJobName: string | undefined;
 }
 
-export enum ProcessingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProcessingJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
 
+/**
+ * @public
+ */
+export type ProcessingJobStatus = (typeof ProcessingJobStatus)[keyof typeof ProcessingJobStatus];
+
+/**
+ * @public
+ */
 export interface DescribeProcessingJobResponse {
   /**
    * <p>The inputs for a processing job.</p>
@@ -5406,6 +6208,9 @@ export interface DescribeProcessingJobResponse {
   TrainingJobArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectInput {
   /**
    * <p>The name of the project to describe.</p>
@@ -5413,20 +6218,30 @@ export interface DescribeProjectInput {
   ProjectName: string | undefined;
 }
 
-export enum ProjectStatus {
-  CREATE_COMPLETED = "CreateCompleted",
-  CREATE_FAILED = "CreateFailed",
-  CREATE_IN_PROGRESS = "CreateInProgress",
-  DELETE_COMPLETED = "DeleteCompleted",
-  DELETE_FAILED = "DeleteFailed",
-  DELETE_IN_PROGRESS = "DeleteInProgress",
-  PENDING = "Pending",
-  UPDATE_COMPLETED = "UpdateCompleted",
-  UPDATE_FAILED = "UpdateFailed",
-  UPDATE_IN_PROGRESS = "UpdateInProgress",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProjectStatus = {
+  CREATE_COMPLETED: "CreateCompleted",
+  CREATE_FAILED: "CreateFailed",
+  CREATE_IN_PROGRESS: "CreateInProgress",
+  DELETE_COMPLETED: "DeleteCompleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_IN_PROGRESS: "DeleteInProgress",
+  PENDING: "Pending",
+  UPDATE_COMPLETED: "UpdateCompleted",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATE_IN_PROGRESS: "UpdateInProgress",
+} as const;
 
 /**
+ * @public
+ */
+export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
+
+/**
+ * @public
  * <p>Details of a provisioned service catalog product. For information about service catalog,
  *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
  *                 Catalog</a>.</p>
@@ -5465,6 +6280,9 @@ export interface ServiceCatalogProvisionedProductDetails {
   ProvisionedProductStatusMessage?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProjectOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the project.</p>
@@ -5525,6 +6343,9 @@ export interface DescribeProjectOutput {
   LastModifiedBy?: UserContext;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSpaceRequest {
   /**
    * <p>The ID of the associated Domain.</p>
@@ -5537,16 +6358,28 @@ export interface DescribeSpaceRequest {
   SpaceName: string | undefined;
 }
 
-export enum SpaceStatus {
-  Delete_Failed = "Delete_Failed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Update_Failed = "Update_Failed",
-  Updating = "Updating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SpaceStatus = {
+  Delete_Failed: "Delete_Failed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Update_Failed: "Update_Failed",
+  Updating: "Updating",
+} as const;
 
+/**
+ * @public
+ */
+export type SpaceStatus = (typeof SpaceStatus)[keyof typeof SpaceStatus];
+
+/**
+ * @public
+ */
 export interface DescribeSpaceResponse {
   /**
    * <p>The ID of the associated Domain.</p>
@@ -5594,6 +6427,9 @@ export interface DescribeSpaceResponse {
   SpaceSettings?: SpaceSettings;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStudioLifecycleConfigRequest {
   /**
    * <p>The name of the Studio Lifecycle Configuration to describe.</p>
@@ -5601,6 +6437,9 @@ export interface DescribeStudioLifecycleConfigRequest {
   StudioLifecycleConfigName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeStudioLifecycleConfigResponse {
   /**
    * <p>The ARN of the Lifecycle Configuration to describe.</p>
@@ -5633,6 +6472,9 @@ export interface DescribeStudioLifecycleConfigResponse {
   StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubscribedWorkteamRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the subscribed work team to describe.</p>
@@ -5641,6 +6483,7 @@ export interface DescribeSubscribedWorkteamRequest {
 }
 
 /**
+ * @public
  * <p>Describes a work team of a vendor that does the a labelling job.</p>
  */
 export interface SubscribedWorkteam {
@@ -5670,6 +6513,9 @@ export interface SubscribedWorkteam {
   ListingId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubscribedWorkteamResponse {
   /**
    * <p>A <code>Workteam</code> instance that contains information about the work team.</p>
@@ -5677,6 +6523,9 @@ export interface DescribeSubscribedWorkteamResponse {
   SubscribedWorkteam: SubscribedWorkteam | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrainingJobRequest {
   /**
    * <p>The name of the training job.</p>
@@ -5685,6 +6534,7 @@ export interface DescribeTrainingJobRequest {
 }
 
 /**
+ * @public
  * <p>The name, value, and date and time of a metric that was emitted to Amazon CloudWatch.</p>
  */
 export interface MetricData {
@@ -5705,6 +6555,7 @@ export interface MetricData {
 }
 
 /**
+ * @public
  * <p>Information about the status of the rule evaluation.</p>
  */
 export interface ProfilerRuleEvaluationStatus {
@@ -5734,32 +6585,51 @@ export interface ProfilerRuleEvaluationStatus {
   LastModifiedTime?: Date;
 }
 
-export enum ProfilingStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
-
-export enum SecondaryStatus {
-  COMPLETED = "Completed",
-  DOWNLOADING = "Downloading",
-  DOWNLOADING_TRAINING_IMAGE = "DownloadingTrainingImage",
-  FAILED = "Failed",
-  INTERRUPTED = "Interrupted",
-  LAUNCHING_ML_INSTANCES = "LaunchingMLInstances",
-  MAX_RUNTIME_EXCEEDED = "MaxRuntimeExceeded",
-  MAX_WAIT_TIME_EXCEEDED = "MaxWaitTimeExceeded",
-  PREPARING_TRAINING_STACK = "PreparingTrainingStack",
-  RESTARTING = "Restarting",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  TRAINING = "Training",
-  UPDATING = "Updating",
-  UPLOADING = "Uploading",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProfilingStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
 
 /**
- * <p>An array element of <a>DescribeTrainingJobResponse$SecondaryStatusTransitions</a>. It provides
+ * @public
+ */
+export type ProfilingStatus = (typeof ProfilingStatus)[keyof typeof ProfilingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SecondaryStatus = {
+  COMPLETED: "Completed",
+  DOWNLOADING: "Downloading",
+  DOWNLOADING_TRAINING_IMAGE: "DownloadingTrainingImage",
+  FAILED: "Failed",
+  INTERRUPTED: "Interrupted",
+  LAUNCHING_ML_INSTANCES: "LaunchingMLInstances",
+  MAX_RUNTIME_EXCEEDED: "MaxRuntimeExceeded",
+  MAX_WAIT_TIME_EXCEEDED: "MaxWaitTimeExceeded",
+  PREPARING_TRAINING_STACK: "PreparingTrainingStack",
+  RESTARTING: "Restarting",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  TRAINING: "Training",
+  UPDATING: "Updating",
+  UPLOADING: "Uploading",
+} as const;
+
+/**
+ * @public
+ */
+export type SecondaryStatus = (typeof SecondaryStatus)[keyof typeof SecondaryStatus];
+
+/**
+ * @public
+ * <p>An array element of <code>SecondaryStatusTransitions</code> for <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a>. It provides
  *             additional details about a status that the training job has transitioned through. A
  *             training job can be in one of several states, for example, starting, downloading,
  *             training, or uploading. Within each state, there are a number of intermediate states.
@@ -5928,7 +6798,7 @@ export interface SecondaryStatusTransition {
    *                 messages in if statements.</p>
    *          </important>
    *          <p>To have an overview of your training job's progress, view
-   *                 <code>TrainingJobStatus</code> and <code>SecondaryStatus</code> in <a>DescribeTrainingJob</a>, and <code>StatusMessage</code> together. For
+   *             <code>TrainingJobStatus</code> and <code>SecondaryStatus</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a>, and <code>StatusMessage</code> together. For
    *             example, at the start of a training job, you might see the following:</p>
    *          <ul>
    *             <li>
@@ -5948,14 +6818,24 @@ export interface SecondaryStatusTransition {
   StatusMessage?: string;
 }
 
-export enum WarmPoolResourceStatus {
-  AVAILABLE = "Available",
-  INUSE = "InUse",
-  REUSED = "Reused",
-  TERMINATED = "Terminated",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WarmPoolResourceStatus = {
+  AVAILABLE: "Available",
+  INUSE: "InUse",
+  REUSED: "Reused",
+  TERMINATED: "Terminated",
+} as const;
 
 /**
+ * @public
+ */
+export type WarmPoolResourceStatus = (typeof WarmPoolResourceStatus)[keyof typeof WarmPoolResourceStatus];
+
+/**
+ * @public
  * <p>Status and billing information about the warm pool.</p>
  */
 export interface WarmPoolStatus {
@@ -6003,6 +6883,9 @@ export interface WarmPoolStatus {
   ReusedByJob?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrainingJobResponse {
   /**
    * <p> Name of the model training job. </p>
@@ -6071,7 +6954,7 @@ export interface DescribeTrainingJobResponse {
   /**
    * <p> Provides detailed information about the state of the training job. For detailed
    *             information on the secondary status of the training job, see <code>StatusMessage</code>
-   *             under <a>SecondaryStatusTransition</a>.</p>
+   *             under <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html">SecondaryStatusTransition</a>.</p>
    *          <p>SageMaker provides primary statuses and secondary statuses that apply to each of
    *             them:</p>
    *          <dl>
@@ -6219,7 +7102,7 @@ export interface DescribeTrainingJobResponse {
   ResourceConfig: ResourceConfig | undefined;
 
   /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that this training job has
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this training job has
    *             access to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
    *                 Virtual Private Cloud</a>.</p>
    */
@@ -6338,17 +7221,17 @@ export interface DescribeTrainingJobResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateProcessingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTrainingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTransformJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -6409,6 +7292,9 @@ export interface DescribeTrainingJobResponse {
   WarmPoolStatus?: WarmPoolStatus;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTransformJobRequest {
   /**
    * <p>The name of the transform job that you want to view details of.</p>
@@ -6416,14 +7302,26 @@ export interface DescribeTransformJobRequest {
   TransformJobName: string | undefined;
 }
 
-export enum TransformJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TransformJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
 
+/**
+ * @public
+ */
+export type TransformJobStatus = (typeof TransformJobStatus)[keyof typeof TransformJobStatus];
+
+/**
+ * @public
+ */
 export interface DescribeTransformJobResponse {
   /**
    * <p>The name of the transform job.</p>
@@ -6574,17 +7472,17 @@ export interface DescribeTransformJobResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateProcessingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTrainingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTransformJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -6592,6 +7490,9 @@ export interface DescribeTransformJobResponse {
   ExperimentConfig?: ExperimentConfig;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrialRequest {
   /**
    * <p>The name of the trial to describe.</p>
@@ -6600,6 +7501,7 @@ export interface DescribeTrialRequest {
 }
 
 /**
+ * @public
  * <p>The source of the trial.</p>
  */
 export interface TrialSource {
@@ -6614,6 +7516,9 @@ export interface TrialSource {
   SourceType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrialResponse {
   /**
    * <p>The name of the trial.</p>
@@ -6667,6 +7572,9 @@ export interface DescribeTrialResponse {
   MetadataProperties?: MetadataProperties;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrialComponentRequest {
   /**
    * <p>The name of the trial component to describe.</p>
@@ -6675,6 +7583,7 @@ export interface DescribeTrialComponentRequest {
 }
 
 /**
+ * @public
  * <p>A summary of the metrics of a trial component.</p>
  */
 export interface TrialComponentMetricSummary {
@@ -6725,6 +7634,7 @@ export interface TrialComponentMetricSummary {
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
  */
 export interface TrialComponentSource {
@@ -6739,6 +7649,9 @@ export interface TrialComponentSource {
   SourceType?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeTrialComponentResponse {
   /**
    * <p>The name of the trial component.</p>
@@ -6844,6 +7757,9 @@ export interface DescribeTrialComponentResponse {
   Sources?: TrialComponentSource[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeUserProfileRequest {
   /**
    * <p>The domain ID.</p>
@@ -6856,16 +7772,28 @@ export interface DescribeUserProfileRequest {
   UserProfileName: string | undefined;
 }
 
-export enum UserProfileStatus {
-  Delete_Failed = "Delete_Failed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Update_Failed = "Update_Failed",
-  Updating = "Updating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UserProfileStatus = {
+  Delete_Failed: "Delete_Failed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Update_Failed: "Update_Failed",
+  Updating: "Updating",
+} as const;
 
+/**
+ * @public
+ */
+export type UserProfileStatus = (typeof UserProfileStatus)[keyof typeof UserProfileStatus];
+
+/**
+ * @public
+ */
 export interface DescribeUserProfileResponse {
   /**
    * <p>The ID of the domain that contains the profile.</p>
@@ -6923,6 +7851,9 @@ export interface DescribeUserProfileResponse {
   UserSettings?: UserSettings;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkforceRequest {
   /**
    * <p>The name of the private workforce whose access you want to restrict.
@@ -6933,6 +7864,7 @@ export interface DescribeWorkforceRequest {
 }
 
 /**
+ * @public
  * <p>Your OIDC IdP workforce configuration.</p>
  */
 export interface OidcConfigForResponse {
@@ -6972,15 +7904,25 @@ export interface OidcConfigForResponse {
   JwksUri?: string;
 }
 
-export enum WorkforceStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-  UPDATING = "Updating",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WorkforceStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+  UPDATING: "Updating",
+} as const;
 
 /**
+ * @public
+ */
+export type WorkforceStatus = (typeof WorkforceStatus)[keyof typeof WorkforceStatus];
+
+/**
+ * @public
  * <p>A VpcConfig object that specifies the VPC that you want your workforce to connect to.</p>
  */
 export interface WorkforceVpcConfigResponse {
@@ -7006,6 +7948,7 @@ export interface WorkforceVpcConfigResponse {
 }
 
 /**
+ * @public
  * <p>A single private workforce, which is automatically created when you create your first
  *             private work team. You can create one private work force in each Amazon Web Services Region. By default,
  *             any workforce-related API operation used in a specific region will apply to the
@@ -7023,7 +7966,7 @@ export interface Workforce {
   WorkforceArn: string | undefined;
 
   /**
-   * <p>The most recent date that  was used to
+   * <p>The most recent date that <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateWorkforce.html">UpdateWorkforce</a> was used to
    *             successfully add one or more IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to a private workforce's
    *             allow list.</p>
    */
@@ -7074,6 +8017,9 @@ export interface Workforce {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkforceResponse {
   /**
    * <p>A single private workforce, which is automatically created when you create your first
@@ -7084,6 +8030,9 @@ export interface DescribeWorkforceResponse {
   Workforce: Workforce | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkteamRequest {
   /**
    * <p>The name of the work team to return a description of.</p>
@@ -7092,6 +8041,7 @@ export interface DescribeWorkteamRequest {
 }
 
 /**
+ * @public
  * <p>Provides details about a labeling work team.</p>
  */
 export interface Workteam {
@@ -7153,6 +8103,9 @@ export interface Workteam {
   NotificationConfiguration?: NotificationConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeWorkteamResponse {
   /**
    * <p>A <code>Workteam</code> instance that contains information about the work team.
@@ -7162,6 +8115,7 @@ export interface DescribeWorkteamResponse {
 }
 
 /**
+ * @public
  * <p>Specifies weight and capacity values for a production variant.</p>
  */
 export interface DesiredWeightAndCapacity {
@@ -7182,6 +8136,7 @@ export interface DesiredWeightAndCapacity {
 }
 
 /**
+ * @public
  * <p>Information of a particular device.</p>
  */
 export interface Device {
@@ -7201,16 +8156,26 @@ export interface Device {
   IotThingName?: string;
 }
 
-export enum DeviceDeploymentStatus {
-  Deployed = "DEPLOYED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  ReadyToDeploy = "READYTODEPLOY",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceDeploymentStatus = {
+  Deployed: "DEPLOYED",
+  Failed: "FAILED",
+  InProgress: "INPROGRESS",
+  ReadyToDeploy: "READYTODEPLOY",
+  Stopped: "STOPPED",
+  Stopping: "STOPPING",
+} as const;
 
 /**
+ * @public
+ */
+export type DeviceDeploymentStatus = (typeof DeviceDeploymentStatus)[keyof typeof DeviceDeploymentStatus];
+
+/**
+ * @public
  * <p>Contains information summarizing device details and deployment status.</p>
  */
 export interface DeviceDeploymentSummary {
@@ -7271,6 +8236,7 @@ export interface DeviceDeploymentSummary {
 }
 
 /**
+ * @public
  * <p>Summary of the device fleet.</p>
  */
 export interface DeviceFleetSummary {
@@ -7296,6 +8262,7 @@ export interface DeviceFleetSummary {
 }
 
 /**
+ * @public
  * <p>Status of devices.</p>
  */
 export interface DeviceStats {
@@ -7311,6 +8278,7 @@ export interface DeviceStats {
 }
 
 /**
+ * @public
  * <p>Summary of model on edge device.</p>
  */
 export interface EdgeModelSummary {
@@ -7326,6 +8294,7 @@ export interface EdgeModelSummary {
 }
 
 /**
+ * @public
  * <p>Summary of the device.</p>
  */
 export interface DeviceSummary {
@@ -7375,16 +8344,34 @@ export interface DeviceSummary {
   AgentVersion?: string;
 }
 
-export enum Direction {
-  ASCENDANTS = "Ascendants",
-  BOTH = "Both",
-  DESCENDANTS = "Descendants",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Direction = {
+  ASCENDANTS: "Ascendants",
+  BOTH: "Both",
+  DESCENDANTS: "Descendants",
+} as const;
 
+/**
+ * @public
+ */
+export type Direction = (typeof Direction)[keyof typeof Direction];
+
+/**
+ * @public
+ */
 export interface DisableSagemakerServicecatalogPortfolioInput {}
 
+/**
+ * @public
+ */
 export interface DisableSagemakerServicecatalogPortfolioOutput {}
 
+/**
+ * @public
+ */
 export interface DisassociateTrialComponentRequest {
   /**
    * <p>The name of the component to disassociate from the trial.</p>
@@ -7397,6 +8384,9 @@ export interface DisassociateTrialComponentRequest {
   TrialName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateTrialComponentResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
@@ -7410,6 +8400,7 @@ export interface DisassociateTrialComponentResponse {
 }
 
 /**
+ * @public
  * <p>The domain's details.</p>
  */
 export interface DomainDetails {
@@ -7450,6 +8441,7 @@ export interface DomainDetails {
 }
 
 /**
+ * @public
  * <p>A collection of settings that update the current configuration for the
  *                 <code>RStudioServerPro</code> Domain-level app.</p>
  */
@@ -7477,6 +8469,7 @@ export interface RStudioServerProDomainSettingsForUpdate {
 }
 
 /**
+ * @public
  * <p>A collection of <code>Domain</code> configuration settings to update.</p>
  */
 export interface DomainSettingsForUpdate {
@@ -7501,6 +8494,7 @@ export interface DomainSettingsForUpdate {
 }
 
 /**
+ * @public
  * <p>A directed edge connecting two lineage entities.</p>
  */
 export interface Edge {
@@ -7522,6 +8516,7 @@ export interface Edge {
 }
 
 /**
+ * @public
  * <p>Contains information summarizing an edge deployment plan.</p>
  */
 export interface EdgeDeploymentPlanSummary {
@@ -7567,6 +8562,7 @@ export interface EdgeDeploymentPlanSummary {
 }
 
 /**
+ * @public
  * <p>Status of edge devices with this model.</p>
  */
 export interface EdgeModelStat {
@@ -7602,6 +8598,7 @@ export interface EdgeModelStat {
 }
 
 /**
+ * @public
  * <p>Summary of edge packaging job.</p>
  */
 export interface EdgePackagingJobSummary {
@@ -7647,6 +8644,7 @@ export interface EdgePackagingJobSummary {
 }
 
 /**
+ * @public
  * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
  */
 export interface EMRStepMetadata {
@@ -7672,11 +8670,18 @@ export interface EMRStepMetadata {
   LogFilePath?: string;
 }
 
+/**
+ * @public
+ */
 export interface EnableSagemakerServicecatalogPortfolioInput {}
 
+/**
+ * @public
+ */
 export interface EnableSagemakerServicecatalogPortfolioOutput {}
 
 /**
+ * @public
  * <p>A schedule for a model monitoring job. For information about model monitor, see
  *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model
  *                 Monitor</a>.</p>
@@ -7758,6 +8763,7 @@ export interface MonitoringSchedule {
 }
 
 /**
+ * @public
  * <p>A hosted endpoint for real-time inference.</p>
  */
 export interface Endpoint {
@@ -7826,12 +8832,22 @@ export interface Endpoint {
   ShadowProductionVariants?: ProductionVariantSummary[];
 }
 
-export enum EndpointConfigSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndpointConfigSortKey = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+} as const;
 
 /**
+ * @public
+ */
+export type EndpointConfigSortKey = (typeof EndpointConfigSortKey)[keyof typeof EndpointConfigSortKey];
+
+/**
+ * @public
  * <p>Provides summary information for an endpoint configuration.</p>
  */
 export interface EndpointConfigSummary {
@@ -7851,13 +8867,23 @@ export interface EndpointConfigSummary {
   CreationTime: Date | undefined;
 }
 
-export enum EndpointSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-  Status = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EndpointSortKey = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+  Status: "Status",
+} as const;
 
 /**
+ * @public
+ */
+export type EndpointSortKey = (typeof EndpointSortKey)[keyof typeof EndpointSortKey];
+
+/**
+ * @public
  * <p>Provides summary information for an endpoint.</p>
  */
 export interface EndpointSummary {
@@ -7891,11 +8917,11 @@ export interface EndpointSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
+   *                   <code>Creating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
+   *                   <code>Updating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7911,7 +8937,7 @@ export interface EndpointSummary {
    *                     configuration. Once the rollback completes, endpoint returns to an
    *                         <code>InService</code> status. This transitional status only applies to an
    *                     endpoint that has autoscaling enabled and is undergoing variant weight or
-   *                     capacity changes as part of an <a>UpdateEndpointWeightsAndCapacities</a> call or when the <a>UpdateEndpointWeightsAndCapacities</a> operation is called
+   *                     capacity changes as part of an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> call or when the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> operation is called
    *                     explicitly.</p>
    *             </li>
    *             <li>
@@ -7921,23 +8947,25 @@ export interface EndpointSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
+   *                   <code>Deleting</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
-   *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
-   *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
+   *                     <code>DescribeEndpointOutput$FailureReason</code> for information about
+   *                     the failure. <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is the only operation that can be
    *                     performed on a failed endpoint.</p>
    *             </li>
    *          </ul>
-   *          <p>To get a list of endpoints with a specified status, use the <a>ListEndpointsInput$StatusEquals</a> filter.</p>
+   *          <p>To get a list of endpoints with a specified status, use the <code>StatusEquals</code>
+   *             filter with a call to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListEndpoints.html">ListEndpoints</a>.</p>
    */
   EndpointStatus: EndpointStatus | string | undefined;
 }
 
 /**
- * <p>The properties of an experiment as returned by the <a>Search</a> API.</p>
+ * @public
+ * <p>The properties of an experiment as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
  */
 export interface Experiment {
   /**
@@ -7988,14 +9016,15 @@ export interface Experiment {
   LastModifiedBy?: UserContext;
 
   /**
-   * <p>The list of tags that are associated with the experiment. You can use <a>Search</a> API to search on the tags.</p>
+   * <p>The list of tags that are associated with the experiment. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
    */
   Tags?: Tag[];
 }
 
 /**
+ * @public
  * <p>A summary of the properties of an experiment. To get the complete set of properties, call
- *       the <a>DescribeExperiment</a> API and provide the
+ *       the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeExperiment.html">DescribeExperiment</a> API and provide the
  *       <code>ExperimentName</code>.</p>
  */
 export interface ExperimentSummary {
@@ -8032,6 +9061,7 @@ export interface ExperimentSummary {
 }
 
 /**
+ * @public
  * <p>The container for the metadata for Fail step.</p>
  */
 export interface FailStepMetadata {
@@ -8043,6 +9073,7 @@ export interface FailStepMetadata {
 }
 
 /**
+ * @public
  * <p>Amazon SageMaker Feature Store stores features in a collection called Feature Group.
  *          A Feature Group can be visualized as a table which has rows,
  *          with a unique identifier for each row where each column in the table is a feature.
@@ -8103,7 +9134,8 @@ export interface FeatureGroup {
    * <p>Use this to specify the Amazon Web Services Key Management Service (KMS) Key ID, or
    *             <code>KMSKeyId</code>, for at rest data encryption. You can turn
    *             <code>OnlineStore</code> on or off by specifying the <code>EnableOnlineStore</code> flag
-   *          at General Assembly; the default value is <code>False</code>.</p>
+   *          at General Assembly.</p>
+   *          <p>The default value is <code>False</code>.</p>
    */
   OnlineStoreConfig?: OnlineStoreConfig;
 
@@ -8157,19 +9189,38 @@ export interface FeatureGroup {
   Tags?: Tag[];
 }
 
-export enum FeatureGroupSortBy {
-  CREATION_TIME = "CreationTime",
-  FEATURE_GROUP_STATUS = "FeatureGroupStatus",
-  NAME = "Name",
-  OFFLINE_STORE_STATUS = "OfflineStoreStatus",
-}
-
-export enum FeatureGroupSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FeatureGroupSortBy = {
+  CREATION_TIME: "CreationTime",
+  FEATURE_GROUP_STATUS: "FeatureGroupStatus",
+  NAME: "Name",
+  OFFLINE_STORE_STATUS: "OfflineStoreStatus",
+} as const;
 
 /**
+ * @public
+ */
+export type FeatureGroupSortBy = (typeof FeatureGroupSortBy)[keyof typeof FeatureGroupSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureGroupSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureGroupSortOrder = (typeof FeatureGroupSortOrder)[keyof typeof FeatureGroupSortOrder];
+
+/**
+ * @public
  * <p>The name, Arn, <code>CreationTime</code>, <code>FeatureGroup</code> values,
  *             <code>LastUpdatedTime</code> and <code>EnableOnlineStorage</code> status of a
  *             <code>FeatureGroup</code>.</p>
@@ -8205,6 +9256,7 @@ export interface FeatureGroupSummary {
 }
 
 /**
+ * @public
  * <p>The metadata for a feature. It can either be metadata that you specify, or metadata that is updated automatically.</p>
  */
 export interface FeatureMetadata {
@@ -8249,23 +9301,33 @@ export interface FeatureMetadata {
   Parameters?: FeatureParameter[];
 }
 
-export enum Operator {
-  CONTAINS = "Contains",
-  EQUALS = "Equals",
-  EXISTS = "Exists",
-  GREATER_THAN = "GreaterThan",
-  GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo",
-  IN = "In",
-  LESS_THAN = "LessThan",
-  LESS_THAN_OR_EQUAL_TO = "LessThanOrEqualTo",
-  NOT_EQUALS = "NotEquals",
-  NOT_EXISTS = "NotExists",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Operator = {
+  CONTAINS: "Contains",
+  EQUALS: "Equals",
+  EXISTS: "Exists",
+  GREATER_THAN: "GreaterThan",
+  GREATER_THAN_OR_EQUAL_TO: "GreaterThanOrEqualTo",
+  IN: "In",
+  LESS_THAN: "LessThan",
+  LESS_THAN_OR_EQUAL_TO: "LessThanOrEqualTo",
+  NOT_EQUALS: "NotEquals",
+  NOT_EXISTS: "NotExists",
+} as const;
 
 /**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
+
+/**
+ * @public
  * <p>A conditional statement for a search expression that includes a resource property, a
  *       Boolean operator, and a value. Resources that match the statement are returned in the
- *       results from the <a>Search</a> API.</p>
+ *       results from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
  *          <p>If you specify a <code>Value</code>, but not an <code>Operator</code>, SageMaker uses the
  *       equals operator.</p>
  *          <p>In search, there are several property types:</p>
@@ -8278,7 +9340,7 @@ export enum Operator {
  *             with an <code>"accuracy"</code> metric greater than
  *             <code>"0.9"</code>:</p>
  *                <p>
- *                   <code>{</code>
+ *                   <code>\{</code>
  *                </p>
  *                <p>
  *                   <code>"Name": "Metrics.accuracy",</code>
@@ -8290,7 +9352,7 @@ export enum Operator {
  *                   <code>"Value": "0.9"</code>
  *                </p>
  *                <p>
- *                   <code>}</code>
+ *                   <code>\}</code>
  *                </p>
  *             </dd>
  *             <dt>HyperParameters</dt>
@@ -8304,7 +9366,7 @@ export enum Operator {
  *             training jobs with a <code>"learning_rate"</code> hyperparameter that is
  *             less than <code>"0.5"</code>:</p>
  *                <p>
- *                   <code> {</code>
+ *                   <code> \{</code>
  *                </p>
  *                <p>
  *                   <code> "Name": "HyperParameters.learning_rate",</code>
@@ -8316,7 +9378,7 @@ export enum Operator {
  *                   <code> "Value": "0.5"</code>
  *                </p>
  *                <p>
- *                   <code> }</code>
+ *                   <code> \}</code>
  *                </p>
  *             </dd>
  *             <dt>Tags</dt>
@@ -8329,7 +9391,7 @@ export enum Operator {
 export interface Filter {
   /**
    * <p>A resource property name. For example, <code>TrainingJobName</code>. For
-   *       valid property names, see <a>SearchRecord</a>.
+   *       valid property names, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a>.
    *       You must specify a valid property for the resource.</p>
    */
   Name: string | undefined;
@@ -8463,6 +9525,7 @@ export interface Filter {
 }
 
 /**
+ * @public
  * <p>Contains summary information about the flow definition.</p>
  */
 export interface FlowDefinitionSummary {
@@ -8492,6 +9555,9 @@ export interface FlowDefinitionSummary {
   FailureReason?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceFleetReportRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -8499,6 +9565,9 @@ export interface GetDeviceFleetReportRequest {
   DeviceFleetName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceFleetReportResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the device.</p>
@@ -8541,6 +9610,9 @@ export interface GetDeviceFleetReportResponse {
   ModelStats?: EdgeModelStat[];
 }
 
+/**
+ * @public
+ */
 export interface GetLineageGroupPolicyRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the lineage group.</p>
@@ -8548,6 +9620,9 @@ export interface GetLineageGroupPolicyRequest {
   LineageGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetLineageGroupPolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
@@ -8560,6 +9635,9 @@ export interface GetLineageGroupPolicyResponse {
   ResourcePolicy?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetModelPackageGroupPolicyInput {
   /**
    * <p>The name of the model group for which to get the resource policy.</p>
@@ -8567,6 +9645,9 @@ export interface GetModelPackageGroupPolicyInput {
   ModelPackageGroupName: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetModelPackageGroupPolicyOutput {
   /**
    * <p>The resource policy for the model group.</p>
@@ -8574,13 +9655,29 @@ export interface GetModelPackageGroupPolicyOutput {
   ResourcePolicy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetSagemakerServicecatalogPortfolioStatusInput {}
 
-export enum SagemakerServicecatalogStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SagemakerServicecatalogStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
 
+/**
+ * @public
+ */
+export type SagemakerServicecatalogStatus =
+  (typeof SagemakerServicecatalogStatus)[keyof typeof SagemakerServicecatalogStatus];
+
+/**
+ * @public
+ */
 export interface GetSagemakerServicecatalogPortfolioStatusOutput {
   /**
    * <p>Whether Service Catalog is enabled or disabled in SageMaker.</p>
@@ -8588,25 +9685,35 @@ export interface GetSagemakerServicecatalogPortfolioStatusOutput {
   Status?: SagemakerServicecatalogStatus | string;
 }
 
-export enum ResourceType {
-  ENDPOINT = "Endpoint",
-  EXPERIMENT = "Experiment",
-  EXPERIMENT_TRIAL = "ExperimentTrial",
-  EXPERIMENT_TRIAL_COMPONENT = "ExperimentTrialComponent",
-  FEATURE_GROUP = "FeatureGroup",
-  FEATURE_METADATA = "FeatureMetadata",
-  HYPER_PARAMETER_TUNING_JOB = "HyperParameterTuningJob",
-  MODEL = "Model",
-  MODEL_CARD = "ModelCard",
-  MODEL_PACKAGE = "ModelPackage",
-  MODEL_PACKAGE_GROUP = "ModelPackageGroup",
-  PIPELINE = "Pipeline",
-  PIPELINE_EXECUTION = "PipelineExecution",
-  PROJECT = "Project",
-  TRAINING_JOB = "TrainingJob",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  ENDPOINT: "Endpoint",
+  EXPERIMENT: "Experiment",
+  EXPERIMENT_TRIAL: "ExperimentTrial",
+  EXPERIMENT_TRIAL_COMPONENT: "ExperimentTrialComponent",
+  FEATURE_GROUP: "FeatureGroup",
+  FEATURE_METADATA: "FeatureMetadata",
+  HYPER_PARAMETER_TUNING_JOB: "HyperParameterTuningJob",
+  MODEL: "Model",
+  MODEL_CARD: "ModelCard",
+  MODEL_PACKAGE: "ModelPackage",
+  MODEL_PACKAGE_GROUP: "ModelPackageGroup",
+  PIPELINE: "Pipeline",
+  PIPELINE_EXECUTION: "PipelineExecution",
+  PROJECT: "Project",
+  TRAINING_JOB: "TrainingJob",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
  * <p>Part of the <code>SuggestionQuery</code> type. Specifies a hint for retrieving property
  *       names that begin with the specified text.</p>
  */
@@ -8618,7 +9725,8 @@ export interface PropertyNameQuery {
 }
 
 /**
- * <p>Specified in the <a>GetSearchSuggestions</a> request.
+ * @public
+ * <p>Specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetSearchSuggestions.html">GetSearchSuggestions</a> request.
  *       Limits the property names that are included in the response.</p>
  */
 export interface SuggestionQuery {
@@ -8629,6 +9737,9 @@ export interface SuggestionQuery {
   PropertyNameQuery?: PropertyNameQuery;
 }
 
+/**
+ * @public
+ */
 export interface GetSearchSuggestionsRequest {
   /**
    * <p>The name of the SageMaker resource to search for.</p>
@@ -8642,6 +9753,7 @@ export interface GetSearchSuggestionsRequest {
 }
 
 /**
+ * @public
  * <p>A property name returned from a <code>GetSearchSuggestions</code> call that specifies
  *       a value in the <code>PropertyNameQuery</code> field.</p>
  */
@@ -8653,6 +9765,9 @@ export interface PropertyNameSuggestion {
   PropertyName?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSearchSuggestionsResponse {
   /**
    * <p>A list of property names for a <code>Resource</code> that match a
@@ -8662,6 +9777,7 @@ export interface GetSearchSuggestionsResponse {
 }
 
 /**
+ * @public
  * <p>Specifies configuration details for a Git repository when the repository is
  *             updated.</p>
  */
@@ -8671,14 +9787,15 @@ export interface GitConfigForUpdate {
    *             contains the credentials used to access the git repository. The secret must have a
    *             staging label of <code>AWSCURRENT</code> and must be in the following format:</p>
    *          <p>
-   *             <code>{"username": <i>UserName</i>, "password":
-   *                     <i>Password</i>}</code>
+   *             <code>\{"username": <i>UserName</i>, "password":
+   *                     <i>Password</i>\}</code>
    *          </p>
    */
   SecretArn?: string;
 }
 
 /**
+ * @public
  * <p>Information about hub content.</p>
  */
 export interface HubContentInfo {
@@ -8733,13 +9850,23 @@ export interface HubContentInfo {
   CreationTime: Date | undefined;
 }
 
-export enum HubContentSortBy {
-  CREATION_TIME = "CreationTime",
-  HUB_CONTENT_NAME = "HubContentName",
-  HUB_CONTENT_STATUS = "HubContentStatus",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HubContentSortBy = {
+  CREATION_TIME: "CreationTime",
+  HUB_CONTENT_NAME: "HubContentName",
+  HUB_CONTENT_STATUS: "HubContentStatus",
+} as const;
 
 /**
+ * @public
+ */
+export type HubContentSortBy = (typeof HubContentSortBy)[keyof typeof HubContentSortBy];
+
+/**
+ * @public
  * <p>Information about a hub.</p>
  */
 export interface HubInfo {
@@ -8784,14 +9911,24 @@ export interface HubInfo {
   LastModifiedTime: Date | undefined;
 }
 
-export enum HubSortBy {
-  ACCOUNT_ID_OWNER = "AccountIdOwner",
-  CREATION_TIME = "CreationTime",
-  HUB_NAME = "HubName",
-  HUB_STATUS = "HubStatus",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HubSortBy = {
+  ACCOUNT_ID_OWNER: "AccountIdOwner",
+  CREATION_TIME: "CreationTime",
+  HUB_NAME: "HubName",
+  HUB_STATUS: "HubStatus",
+} as const;
 
 /**
+ * @public
+ */
+export type HubSortBy = (typeof HubSortBy)[keyof typeof HubSortBy];
+
+/**
+ * @public
  * <p>Container for human task user interface information.</p>
  */
 export interface HumanTaskUiSummary {
@@ -8812,6 +9949,7 @@ export interface HumanTaskUiSummary {
 }
 
 /**
+ * @public
  * <p>An entity returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a> API
  *             containing the properties of a hyperparameter tuning job.</p>
  */
@@ -8927,13 +10065,24 @@ export interface HyperParameterTuningJobSearchEntity {
   ConsumedResources?: HyperParameterTuningJobConsumedResources;
 }
 
-export enum HyperParameterTuningJobSortByOptions {
-  CreationTime = "CreationTime",
-  Name = "Name",
-  Status = "Status",
-}
+/**
+ * @public
+ * @enum
+ */
+export const HyperParameterTuningJobSortByOptions = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+  Status: "Status",
+} as const;
 
 /**
+ * @public
+ */
+export type HyperParameterTuningJobSortByOptions =
+  (typeof HyperParameterTuningJobSortByOptions)[keyof typeof HyperParameterTuningJobSortByOptions];
+
+/**
+ * @public
  * <p>Provides summary information about a hyperparameter tuning job.</p>
  */
 export interface HyperParameterTuningJobSummary {
@@ -8981,26 +10130,27 @@ export interface HyperParameterTuningJobSummary {
   LastModifiedTime?: Date;
 
   /**
-   * <p>The <a>TrainingJobStatusCounters</a> object that specifies the numbers of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html">TrainingJobStatusCounters</a> object that specifies the numbers of
    *             training jobs, categorized by status, that this tuning job launched.</p>
    */
   TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
 
   /**
-   * <p>The <a>ObjectiveStatusCounters</a> object that specifies the numbers of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html">ObjectiveStatusCounters</a> object that specifies the numbers of
    *             training jobs, categorized by objective metric status, that this tuning job
    *             launched.</p>
    */
   ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
 
   /**
-   * <p>The <a>ResourceLimits</a> object that specifies the maximum number of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a> object that specifies the maximum number of
    *             training jobs and parallel training jobs allowed for this tuning job.</p>
    */
   ResourceLimits?: ResourceLimits;
 }
 
 /**
+ * @public
  * <p>A SageMaker image. A SageMaker image represents a set of container images that are derived from
  *         a common base container image. Each of these container images is represented by a SageMaker
  *         <code>ImageVersion</code>.</p>
@@ -9047,18 +10197,37 @@ export interface Image {
   LastModifiedTime: Date | undefined;
 }
 
-export enum ImageSortBy {
-  CREATION_TIME = "CREATION_TIME",
-  IMAGE_NAME = "IMAGE_NAME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-}
-
-export enum ImageSortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImageSortBy = {
+  CREATION_TIME: "CREATION_TIME",
+  IMAGE_NAME: "IMAGE_NAME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+} as const;
 
 /**
+ * @public
+ */
+export type ImageSortBy = (typeof ImageSortBy)[keyof typeof ImageSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageSortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageSortOrder = (typeof ImageSortOrder)[keyof typeof ImageSortOrder];
+
+/**
+ * @public
  * <p>A version of a SageMaker <code>Image</code>. A version represents an existing container
  *         image.</p>
  */
@@ -9099,17 +10268,38 @@ export interface ImageVersion {
   Version: number | undefined;
 }
 
-export enum ImageVersionSortBy {
-  CREATION_TIME = "CREATION_TIME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-  VERSION = "VERSION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImageVersionSortBy = {
+  CREATION_TIME: "CREATION_TIME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+  VERSION: "VERSION",
+} as const;
 
-export enum ImageVersionSortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ */
+export type ImageVersionSortBy = (typeof ImageVersionSortBy)[keyof typeof ImageVersionSortBy];
 
+/**
+ * @public
+ * @enum
+ */
+export const ImageVersionSortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageVersionSortOrder = (typeof ImageVersionSortOrder)[keyof typeof ImageVersionSortOrder];
+
+/**
+ * @public
+ */
 export interface ImportHubContentRequest {
   /**
    * <p>The name of the hub content to import.</p>
@@ -9167,6 +10357,9 @@ export interface ImportHubContentRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface ImportHubContentResponse {
   /**
    * <p>The ARN of the hub that the content was imported into.</p>
@@ -9180,6 +10373,7 @@ export interface ImportHubContentResponse {
 }
 
 /**
+ * @public
  * <p>Lists a summary of properties of an inference experiment.</p>
  */
 export interface InferenceExperimentSummary {
@@ -9238,12 +10432,23 @@ export interface InferenceExperimentSummary {
   RoleArn?: string;
 }
 
-export enum InferenceExperimentStopDesiredState {
-  CANCELLED = "Cancelled",
-  COMPLETED = "Completed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InferenceExperimentStopDesiredState = {
+  CANCELLED: "Cancelled",
+  COMPLETED: "Completed",
+} as const;
 
 /**
+ * @public
+ */
+export type InferenceExperimentStopDesiredState =
+  (typeof InferenceExperimentStopDesiredState)[keyof typeof InferenceExperimentStopDesiredState];
+
+/**
+ * @public
  * <p>A structure that contains a list of recommendation jobs.</p>
  */
 export interface InferenceRecommendationsJob {
@@ -9300,6 +10505,7 @@ export interface InferenceRecommendationsJob {
 }
 
 /**
+ * @public
  * <p>The details for a specific benchmark from an Inference Recommender job.</p>
  */
 export interface RecommendationJobInferenceBenchmark {
@@ -9329,11 +10535,21 @@ export interface RecommendationJobInferenceBenchmark {
   EndpointMetrics?: InferenceMetrics;
 }
 
-export enum RecommendationStepType {
-  BENCHMARK = "BENCHMARK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationStepType = {
+  BENCHMARK: "BENCHMARK",
+} as const;
 
 /**
+ * @public
+ */
+export type RecommendationStepType = (typeof RecommendationStepType)[keyof typeof RecommendationStepType];
+
+/**
+ * @public
  * <p>A returned array object for the <code>Steps</code> response field in the
  *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobSteps.html">ListInferenceRecommendationsJobSteps</a> API command.</p>
  */
@@ -9362,6 +10578,7 @@ export interface InferenceRecommendationsJobStep {
 }
 
 /**
+ * @public
  * <p>Provides counts for human-labeled tasks in the labeling job.</p>
  */
 export interface LabelCountersForWorkteam {
@@ -9382,2037 +10599,9 @@ export interface LabelCountersForWorkteam {
 }
 
 /**
- * <p>Provides summary information for a work team.</p>
- */
-export interface LabelingJobForWorkteamSummary {
-  /**
-   * <p>The name of the labeling job that the work team is assigned to.</p>
-   */
-  LabelingJobName?: string;
-
-  /**
-   * <p>A unique identifier for a labeling job. You can use this to refer to a specific
-   *             labeling job.</p>
-   */
-  JobReferenceCode: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the account used to start the labeling
-   *             job.</p>
-   */
-  WorkRequesterAccountId: string | undefined;
-
-  /**
-   * <p>The date and time that the labeling job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Provides information about the progress of a labeling job.</p>
-   */
-  LabelCounters?: LabelCountersForWorkteam;
-
-  /**
-   * <p>The configured number of workers per data object.</p>
-   */
-  NumberOfHumanWorkersPerDataObject?: number;
-}
-
-/**
- * <p>Provides summary information about a labeling job.</p>
- */
-export interface LabelingJobSummary {
-  /**
-   * <p>The name of the labeling job.</p>
-   */
-  LabelingJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) assigned to the labeling job when it was
-   *             created.</p>
-   */
-  LabelingJobArn: string | undefined;
-
-  /**
-   * <p>The date and time that the job was created (timestamp).</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the job was last modified (timestamp).</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The current status of the labeling job. </p>
-   */
-  LabelingJobStatus: LabelingJobStatus | string | undefined;
-
-  /**
-   * <p>Counts showing the progress of the labeling job.</p>
-   */
-  LabelCounters: LabelCounters | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the work team assigned to the job.</p>
-   */
-  WorkteamArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a Lambda function. The function is run before each
-   *             data object is sent to a worker.</p>
-   */
-  PreHumanTaskLambdaArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function used to consolidate the
-   *             annotations from individual workers into a label for a data object. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
-   *                 Consolidation</a>.</p>
-   */
-  AnnotationConsolidationLambdaArn?: string;
-
-  /**
-   * <p>If the <code>LabelingJobStatus</code> field is <code>Failed</code>, this field
-   *             contains a description of the error.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The location of the output produced by the labeling job.</p>
-   */
-  LabelingJobOutput?: LabelingJobOutput;
-
-  /**
-   * <p>Input configuration for the labeling job.</p>
-   */
-  InputConfig?: LabelingJobInputConfig;
-}
-
-/**
- * <p>Metadata for a Lambda step.</p>
- */
-export interface LambdaStepMetadata {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>A list of the output parameters of the Lambda step.</p>
-   */
-  OutputParameters?: OutputParameter[];
-}
-
-/**
- * <p>Lists a summary of the properties of a lineage group. A lineage group provides a group of shareable lineage entity
- *          resources.</p>
- */
-export interface LineageGroupSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group resource.</p>
-   */
-  LineageGroupArn?: string;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the lineage group.</p>
-   */
-  LineageGroupName?: string;
-
-  /**
-   * <p>The display name of the lineage group summary.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The creation time of the lineage group summary.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The last modified time of the lineage group summary.</p>
-   */
-  LastModifiedTime?: Date;
-}
-
-export enum LineageType {
-  ACTION = "Action",
-  ARTIFACT = "Artifact",
-  CONTEXT = "Context",
-  TRIAL_COMPONENT = "TrialComponent",
-}
-
-export enum SortActionsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
-
-export enum SortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
-
-export interface ListActionsRequest {
-  /**
-   * <p>A filter that returns only actions with the specified source URI.</p>
-   */
-  SourceUri?: string;
-
-  /**
-   * <p>A filter that returns only actions of the specified type.</p>
-   */
-  ActionType?: string;
-
-  /**
-   * <p>A filter that returns only actions created on or after the specified time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns only actions created on or before the specified time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortActionsBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the previous call to <code>ListActions</code> didn't return the full set of actions,
-   *         the call returns a token for getting the next set of actions.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of actions to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface ListActionsResponse {
-  /**
-   * <p>A list of actions and their properties.</p>
-   */
-  ActionSummaries?: ActionSummary[];
-
-  /**
-   * <p>A token for getting the next set of actions, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListAlgorithmsInput {
-  /**
-   * <p>A filter that returns only algorithms created after the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only algorithms created before the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of algorithms to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the algorithm name. This filter returns only algorithms whose name
-   *             contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>If the response to a previous <code>ListAlgorithms</code> request was truncated, the
-   *             response includes a <code>NextToken</code>. To retrieve the next set of algorithms, use
-   *             the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is
-   *             <code>CreationTime</code>.</p>
-   */
-  SortBy?: AlgorithmSortBy | string;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-export interface ListAlgorithmsOutput {
-  /**
-   * <p>>An array of <code>AlgorithmSummary</code> objects, each of which lists an
-   *             algorithm.</p>
-   */
-  AlgorithmSummaryList: AlgorithmSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *             algorithms, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @internal
- */
-export const DeleteWorkteamRequestFilterSensitiveLog = (obj: DeleteWorkteamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkteamResponseFilterSensitiveLog = (obj: DeleteWorkteamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeployedImageFilterSensitiveLog = (obj: DeployedImage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeDeploymentStatusFilterSensitiveLog = (obj: EdgeDeploymentStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeploymentStageStatusSummaryFilterSensitiveLog = (obj: DeploymentStageStatusSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterDevicesRequestFilterSensitiveLog = (obj: DeregisterDevicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActionRequestFilterSensitiveLog = (obj: DescribeActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActionResponseFilterSensitiveLog = (obj: DescribeActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlgorithmInputFilterSensitiveLog = (obj: DescribeAlgorithmInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlgorithmOutputFilterSensitiveLog = (obj: DescribeAlgorithmOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppRequestFilterSensitiveLog = (obj: DescribeAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppResponseFilterSensitiveLog = (obj: DescribeAppResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppImageConfigRequestFilterSensitiveLog = (obj: DescribeAppImageConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppImageConfigResponseFilterSensitiveLog = (obj: DescribeAppImageConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeArtifactRequestFilterSensitiveLog = (obj: DescribeArtifactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeArtifactResponseFilterSensitiveLog = (obj: DescribeArtifactResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAutoMLJobRequestFilterSensitiveLog = (obj: DescribeAutoMLJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelDeployResultFilterSensitiveLog = (obj: ModelDeployResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResolvedAttributesFilterSensitiveLog = (obj: ResolvedAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAutoMLJobResponseFilterSensitiveLog = (obj: DescribeAutoMLJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCodeRepositoryInputFilterSensitiveLog = (obj: DescribeCodeRepositoryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCodeRepositoryOutputFilterSensitiveLog = (obj: DescribeCodeRepositoryOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCompilationJobRequestFilterSensitiveLog = (obj: DescribeCompilationJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelArtifactsFilterSensitiveLog = (obj: ModelArtifacts): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelDigestsFilterSensitiveLog = (obj: ModelDigests): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCompilationJobResponseFilterSensitiveLog = (obj: DescribeCompilationJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeContextRequestFilterSensitiveLog = (obj: DescribeContextRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeContextResponseFilterSensitiveLog = (obj: DescribeContextResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataQualityJobDefinitionRequestFilterSensitiveLog = (
-  obj: DescribeDataQualityJobDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDataQualityJobDefinitionResponseFilterSensitiveLog = (
-  obj: DescribeDataQualityJobDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeviceRequestFilterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeModelFilterSensitiveLog = (obj: EdgeModel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeviceResponseFilterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeviceFleetRequestFilterSensitiveLog = (obj: DescribeDeviceFleetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDeviceFleetResponseFilterSensitiveLog = (obj: DescribeDeviceFleetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainRequestFilterSensitiveLog = (obj: DescribeDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDomainResponseFilterSensitiveLog = (obj: DescribeDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEdgeDeploymentPlanRequestFilterSensitiveLog = (obj: DescribeEdgeDeploymentPlanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEdgeDeploymentPlanResponseFilterSensitiveLog = (obj: DescribeEdgeDeploymentPlanResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEdgePackagingJobRequestFilterSensitiveLog = (obj: DescribeEdgePackagingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgePresetDeploymentOutputFilterSensitiveLog = (obj: EdgePresetDeploymentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEdgePackagingJobResponseFilterSensitiveLog = (obj: DescribeEdgePackagingJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointInputFilterSensitiveLog = (obj: DescribeEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductionVariantStatusFilterSensitiveLog = (obj: ProductionVariantStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingProductionVariantSummaryFilterSensitiveLog = (obj: PendingProductionVariantSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingDeploymentSummaryFilterSensitiveLog = (obj: PendingDeploymentSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProductionVariantSummaryFilterSensitiveLog = (obj: ProductionVariantSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointOutputFilterSensitiveLog = (obj: DescribeEndpointOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointConfigInputFilterSensitiveLog = (obj: DescribeEndpointConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEndpointConfigOutputFilterSensitiveLog = (obj: DescribeEndpointConfigOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExperimentRequestFilterSensitiveLog = (obj: DescribeExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentSourceFilterSensitiveLog = (obj: ExperimentSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExperimentResponseFilterSensitiveLog = (obj: DescribeExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeatureGroupRequestFilterSensitiveLog = (obj: DescribeFeatureGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LastUpdateStatusFilterSensitiveLog = (obj: LastUpdateStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OfflineStoreStatusFilterSensitiveLog = (obj: OfflineStoreStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeatureGroupResponseFilterSensitiveLog = (obj: DescribeFeatureGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeatureMetadataRequestFilterSensitiveLog = (obj: DescribeFeatureMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureParameterFilterSensitiveLog = (obj: FeatureParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFeatureMetadataResponseFilterSensitiveLog = (obj: DescribeFeatureMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFlowDefinitionRequestFilterSensitiveLog = (obj: DescribeFlowDefinitionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFlowDefinitionResponseFilterSensitiveLog = (obj: DescribeFlowDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHubRequestFilterSensitiveLog = (obj: DescribeHubRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHubResponseFilterSensitiveLog = (obj: DescribeHubResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHubContentRequestFilterSensitiveLog = (obj: DescribeHubContentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HubContentDependencyFilterSensitiveLog = (obj: HubContentDependency): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHubContentResponseFilterSensitiveLog = (obj: DescribeHubContentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHumanTaskUiRequestFilterSensitiveLog = (obj: DescribeHumanTaskUiRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UiTemplateInfoFilterSensitiveLog = (obj: UiTemplateInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHumanTaskUiResponseFilterSensitiveLog = (obj: DescribeHumanTaskUiResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHyperParameterTuningJobRequestFilterSensitiveLog = (
-  obj: DescribeHyperParameterTuningJobRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FinalHyperParameterTuningJobObjectiveMetricFilterSensitiveLog = (
-  obj: FinalHyperParameterTuningJobObjectiveMetric
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HyperParameterTrainingJobSummaryFilterSensitiveLog = (obj: HyperParameterTrainingJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HyperParameterTuningJobConsumedResourcesFilterSensitiveLog = (
-  obj: HyperParameterTuningJobConsumedResources
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ObjectiveStatusCountersFilterSensitiveLog = (obj: ObjectiveStatusCounters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrainingJobStatusCountersFilterSensitiveLog = (obj: TrainingJobStatusCounters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HyperParameterTuningJobCompletionDetailsFilterSensitiveLog = (
-  obj: HyperParameterTuningJobCompletionDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeHyperParameterTuningJobResponseFilterSensitiveLog = (
-  obj: DescribeHyperParameterTuningJobResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImageRequestFilterSensitiveLog = (obj: DescribeImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImageResponseFilterSensitiveLog = (obj: DescribeImageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImageVersionRequestFilterSensitiveLog = (obj: DescribeImageVersionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeImageVersionResponseFilterSensitiveLog = (obj: DescribeImageVersionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInferenceExperimentRequestFilterSensitiveLog = (obj: DescribeInferenceExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointMetadataFilterSensitiveLog = (obj: EndpointMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelVariantConfigSummaryFilterSensitiveLog = (obj: ModelVariantConfigSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInferenceExperimentResponseFilterSensitiveLog = (
-  obj: DescribeInferenceExperimentResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInferenceRecommendationsJobRequestFilterSensitiveLog = (
-  obj: DescribeInferenceRecommendationsJobRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceMetricsFilterSensitiveLog = (obj: InferenceMetrics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointPerformanceFilterSensitiveLog = (obj: EndpointPerformance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointOutputConfigurationFilterSensitiveLog = (obj: EndpointOutputConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationMetricsFilterSensitiveLog = (obj: RecommendationMetrics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentParameterFilterSensitiveLog = (obj: EnvironmentParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelConfigurationFilterSensitiveLog = (obj: ModelConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceRecommendationFilterSensitiveLog = (obj: InferenceRecommendation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInferenceRecommendationsJobResponseFilterSensitiveLog = (
-  obj: DescribeInferenceRecommendationsJobResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLabelingJobRequestFilterSensitiveLog = (obj: DescribeLabelingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LabelCountersFilterSensitiveLog = (obj: LabelCounters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LabelingJobOutputFilterSensitiveLog = (obj: LabelingJobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLabelingJobResponseFilterSensitiveLog = (obj: DescribeLabelingJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLineageGroupRequestFilterSensitiveLog = (obj: DescribeLineageGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLineageGroupResponseFilterSensitiveLog = (obj: DescribeLineageGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelInputFilterSensitiveLog = (obj: DescribeModelInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelOutputFilterSensitiveLog = (obj: DescribeModelOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelBiasJobDefinitionRequestFilterSensitiveLog = (
-  obj: DescribeModelBiasJobDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelBiasJobDefinitionResponseFilterSensitiveLog = (
-  obj: DescribeModelBiasJobDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelCardRequestFilterSensitiveLog = (obj: DescribeModelCardRequest): any => ({
-  ...obj,
-});
-
-/**
  * @internal
  */
 export const DescribeModelCardResponseFilterSensitiveLog = (obj: DescribeModelCardResponse): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeModelCardExportJobRequestFilterSensitiveLog = (obj: DescribeModelCardExportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelCardExportArtifactsFilterSensitiveLog = (obj: ModelCardExportArtifacts): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelCardExportJobResponseFilterSensitiveLog = (obj: DescribeModelCardExportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelExplainabilityJobDefinitionRequestFilterSensitiveLog = (
-  obj: DescribeModelExplainabilityJobDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelExplainabilityJobDefinitionResponseFilterSensitiveLog = (
-  obj: DescribeModelExplainabilityJobDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelPackageInputFilterSensitiveLog = (obj: DescribeModelPackageInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackageStatusItemFilterSensitiveLog = (obj: ModelPackageStatusItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModelPackageStatusDetailsFilterSensitiveLog = (obj: ModelPackageStatusDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelPackageOutputFilterSensitiveLog = (obj: DescribeModelPackageOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelPackageGroupInputFilterSensitiveLog = (obj: DescribeModelPackageGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelPackageGroupOutputFilterSensitiveLog = (obj: DescribeModelPackageGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelQualityJobDefinitionRequestFilterSensitiveLog = (
-  obj: DescribeModelQualityJobDefinitionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeModelQualityJobDefinitionResponseFilterSensitiveLog = (
-  obj: DescribeModelQualityJobDefinitionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMonitoringScheduleRequestFilterSensitiveLog = (obj: DescribeMonitoringScheduleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringExecutionSummaryFilterSensitiveLog = (obj: MonitoringExecutionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMonitoringScheduleResponseFilterSensitiveLog = (obj: DescribeMonitoringScheduleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotebookInstanceInputFilterSensitiveLog = (obj: DescribeNotebookInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotebookInstanceOutputFilterSensitiveLog = (obj: DescribeNotebookInstanceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotebookInstanceLifecycleConfigInputFilterSensitiveLog = (
-  obj: DescribeNotebookInstanceLifecycleConfigInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotebookInstanceLifecycleConfigOutputFilterSensitiveLog = (
-  obj: DescribeNotebookInstanceLifecycleConfigOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePipelineRequestFilterSensitiveLog = (obj: DescribePipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePipelineResponseFilterSensitiveLog = (obj: DescribePipelineResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePipelineDefinitionForExecutionRequestFilterSensitiveLog = (
-  obj: DescribePipelineDefinitionForExecutionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePipelineDefinitionForExecutionResponseFilterSensitiveLog = (
-  obj: DescribePipelineDefinitionForExecutionResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePipelineExecutionRequestFilterSensitiveLog = (obj: DescribePipelineExecutionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipelineExperimentConfigFilterSensitiveLog = (obj: PipelineExperimentConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePipelineExecutionResponseFilterSensitiveLog = (obj: DescribePipelineExecutionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProcessingJobRequestFilterSensitiveLog = (obj: DescribeProcessingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProcessingJobResponseFilterSensitiveLog = (obj: DescribeProcessingJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProjectInputFilterSensitiveLog = (obj: DescribeProjectInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceCatalogProvisionedProductDetailsFilterSensitiveLog = (
-  obj: ServiceCatalogProvisionedProductDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProjectOutputFilterSensitiveLog = (obj: DescribeProjectOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSpaceRequestFilterSensitiveLog = (obj: DescribeSpaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSpaceResponseFilterSensitiveLog = (obj: DescribeSpaceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStudioLifecycleConfigRequestFilterSensitiveLog = (
-  obj: DescribeStudioLifecycleConfigRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStudioLifecycleConfigResponseFilterSensitiveLog = (
-  obj: DescribeStudioLifecycleConfigResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSubscribedWorkteamRequestFilterSensitiveLog = (obj: DescribeSubscribedWorkteamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscribedWorkteamFilterSensitiveLog = (obj: SubscribedWorkteam): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSubscribedWorkteamResponseFilterSensitiveLog = (obj: DescribeSubscribedWorkteamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrainingJobRequestFilterSensitiveLog = (obj: DescribeTrainingJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDataFilterSensitiveLog = (obj: MetricData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProfilerRuleEvaluationStatusFilterSensitiveLog = (obj: ProfilerRuleEvaluationStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecondaryStatusTransitionFilterSensitiveLog = (obj: SecondaryStatusTransition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WarmPoolStatusFilterSensitiveLog = (obj: WarmPoolStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrainingJobResponseFilterSensitiveLog = (obj: DescribeTrainingJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransformJobRequestFilterSensitiveLog = (obj: DescribeTransformJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTransformJobResponseFilterSensitiveLog = (obj: DescribeTransformJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrialRequestFilterSensitiveLog = (obj: DescribeTrialRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrialSourceFilterSensitiveLog = (obj: TrialSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrialResponseFilterSensitiveLog = (obj: DescribeTrialResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrialComponentRequestFilterSensitiveLog = (obj: DescribeTrialComponentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrialComponentMetricSummaryFilterSensitiveLog = (obj: TrialComponentMetricSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrialComponentSourceFilterSensitiveLog = (obj: TrialComponentSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTrialComponentResponseFilterSensitiveLog = (obj: DescribeTrialComponentResponse): any => ({
-  ...obj,
-  ...(obj.Parameters && {
-    Parameters: Object.entries(obj.Parameters).reduce(
-      (acc: any, [key, value]: [string, TrialComponentParameterValue]) => (
-        (acc[key] = TrialComponentParameterValueFilterSensitiveLog(value)), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const DescribeUserProfileRequestFilterSensitiveLog = (obj: DescribeUserProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserProfileResponseFilterSensitiveLog = (obj: DescribeUserProfileResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkforceRequestFilterSensitiveLog = (obj: DescribeWorkforceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OidcConfigForResponseFilterSensitiveLog = (obj: OidcConfigForResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkforceVpcConfigResponseFilterSensitiveLog = (obj: WorkforceVpcConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkforceFilterSensitiveLog = (obj: Workforce): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkforceResponseFilterSensitiveLog = (obj: DescribeWorkforceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkteamRequestFilterSensitiveLog = (obj: DescribeWorkteamRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WorkteamFilterSensitiveLog = (obj: Workteam): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkteamResponseFilterSensitiveLog = (obj: DescribeWorkteamResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DesiredWeightAndCapacityFilterSensitiveLog = (obj: DesiredWeightAndCapacity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceFilterSensitiveLog = (obj: Device): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceDeploymentSummaryFilterSensitiveLog = (obj: DeviceDeploymentSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceFleetSummaryFilterSensitiveLog = (obj: DeviceFleetSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceStatsFilterSensitiveLog = (obj: DeviceStats): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeModelSummaryFilterSensitiveLog = (obj: EdgeModelSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeviceSummaryFilterSensitiveLog = (obj: DeviceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableSagemakerServicecatalogPortfolioInputFilterSensitiveLog = (
-  obj: DisableSagemakerServicecatalogPortfolioInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableSagemakerServicecatalogPortfolioOutputFilterSensitiveLog = (
-  obj: DisableSagemakerServicecatalogPortfolioOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTrialComponentRequestFilterSensitiveLog = (obj: DisassociateTrialComponentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTrialComponentResponseFilterSensitiveLog = (obj: DisassociateTrialComponentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainDetailsFilterSensitiveLog = (obj: DomainDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RStudioServerProDomainSettingsForUpdateFilterSensitiveLog = (
-  obj: RStudioServerProDomainSettingsForUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainSettingsForUpdateFilterSensitiveLog = (obj: DomainSettingsForUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeFilterSensitiveLog = (obj: Edge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeDeploymentPlanSummaryFilterSensitiveLog = (obj: EdgeDeploymentPlanSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeModelStatFilterSensitiveLog = (obj: EdgeModelStat): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgePackagingJobSummaryFilterSensitiveLog = (obj: EdgePackagingJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EMRStepMetadataFilterSensitiveLog = (obj: EMRStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSagemakerServicecatalogPortfolioInputFilterSensitiveLog = (
-  obj: EnableSagemakerServicecatalogPortfolioInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSagemakerServicecatalogPortfolioOutputFilterSensitiveLog = (
-  obj: EnableSagemakerServicecatalogPortfolioOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringScheduleFilterSensitiveLog = (obj: MonitoringSchedule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointConfigSummaryFilterSensitiveLog = (obj: EndpointConfigSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndpointSummaryFilterSensitiveLog = (obj: EndpointSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentFilterSensitiveLog = (obj: Experiment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentSummaryFilterSensitiveLog = (obj: ExperimentSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailStepMetadataFilterSensitiveLog = (obj: FailStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureGroupFilterSensitiveLog = (obj: FeatureGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureGroupSummaryFilterSensitiveLog = (obj: FeatureGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureMetadataFilterSensitiveLog = (obj: FeatureMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FlowDefinitionSummaryFilterSensitiveLog = (obj: FlowDefinitionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceFleetReportRequestFilterSensitiveLog = (obj: GetDeviceFleetReportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceFleetReportResponseFilterSensitiveLog = (obj: GetDeviceFleetReportResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLineageGroupPolicyRequestFilterSensitiveLog = (obj: GetLineageGroupPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLineageGroupPolicyResponseFilterSensitiveLog = (obj: GetLineageGroupPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetModelPackageGroupPolicyInputFilterSensitiveLog = (obj: GetModelPackageGroupPolicyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetModelPackageGroupPolicyOutputFilterSensitiveLog = (obj: GetModelPackageGroupPolicyOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSagemakerServicecatalogPortfolioStatusInputFilterSensitiveLog = (
-  obj: GetSagemakerServicecatalogPortfolioStatusInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSagemakerServicecatalogPortfolioStatusOutputFilterSensitiveLog = (
-  obj: GetSagemakerServicecatalogPortfolioStatusOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PropertyNameQueryFilterSensitiveLog = (obj: PropertyNameQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SuggestionQueryFilterSensitiveLog = (obj: SuggestionQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSearchSuggestionsRequestFilterSensitiveLog = (obj: GetSearchSuggestionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PropertyNameSuggestionFilterSensitiveLog = (obj: PropertyNameSuggestion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSearchSuggestionsResponseFilterSensitiveLog = (obj: GetSearchSuggestionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GitConfigForUpdateFilterSensitiveLog = (obj: GitConfigForUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HubContentInfoFilterSensitiveLog = (obj: HubContentInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HubInfoFilterSensitiveLog = (obj: HubInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HumanTaskUiSummaryFilterSensitiveLog = (obj: HumanTaskUiSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HyperParameterTuningJobSearchEntityFilterSensitiveLog = (
-  obj: HyperParameterTuningJobSearchEntity
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HyperParameterTuningJobSummaryFilterSensitiveLog = (obj: HyperParameterTuningJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageFilterSensitiveLog = (obj: Image): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageVersionFilterSensitiveLog = (obj: ImageVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportHubContentRequestFilterSensitiveLog = (obj: ImportHubContentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportHubContentResponseFilterSensitiveLog = (obj: ImportHubContentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceExperimentSummaryFilterSensitiveLog = (obj: InferenceExperimentSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceRecommendationsJobFilterSensitiveLog = (obj: InferenceRecommendationsJob): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecommendationJobInferenceBenchmarkFilterSensitiveLog = (
-  obj: RecommendationJobInferenceBenchmark
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceRecommendationsJobStepFilterSensitiveLog = (obj: InferenceRecommendationsJobStep): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LabelCountersForWorkteamFilterSensitiveLog = (obj: LabelCountersForWorkteam): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LabelingJobForWorkteamSummaryFilterSensitiveLog = (obj: LabelingJobForWorkteamSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LabelingJobSummaryFilterSensitiveLog = (obj: LabelingJobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaStepMetadataFilterSensitiveLog = (obj: LambdaStepMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineageGroupSummaryFilterSensitiveLog = (obj: LineageGroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListActionsRequestFilterSensitiveLog = (obj: ListActionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListActionsResponseFilterSensitiveLog = (obj: ListActionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAlgorithmsInputFilterSensitiveLog = (obj: ListAlgorithmsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAlgorithmsOutputFilterSensitiveLog = (obj: ListAlgorithmsOutput): any => ({
-  ...obj,
 });

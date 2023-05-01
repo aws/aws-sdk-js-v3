@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
+import { GetEvidenceByEvidenceFolderRequest, GetEvidenceByEvidenceFolderResponse } from "../models/models_0";
 import {
-  GetEvidenceByEvidenceFolderRequest,
-  GetEvidenceByEvidenceFolderRequestFilterSensitiveLog,
-  GetEvidenceByEvidenceFolderResponse,
-  GetEvidenceByEvidenceFolderResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEvidenceByEvidenceFolderCommand,
-  serializeAws_restJson1GetEvidenceByEvidenceFolderCommand,
+  de_GetEvidenceByEvidenceFolderCommand,
+  se_GetEvidenceByEvidenceFolderCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEvidenceByEvidenceFolderCommand}.
  */
 export interface GetEvidenceByEvidenceFolderCommandInput extends GetEvidenceByEvidenceFolderRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEvidenceByEvidenceFolderCommand}.
  */
 export interface GetEvidenceByEvidenceFolderCommandOutput
@@ -37,6 +36,7 @@ export interface GetEvidenceByEvidenceFolderCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Returns all evidence from a specified evidence folder in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,19 @@ export interface GetEvidenceByEvidenceFolderCommandOutput
  * import { AuditManagerClient, GetEvidenceByEvidenceFolderCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetEvidenceByEvidenceFolderCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // GetEvidenceByEvidenceFolderRequest
+ *   assessmentId: "STRING_VALUE", // required
+ *   controlSetId: "STRING_VALUE", // required
+ *   evidenceFolderId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetEvidenceByEvidenceFolderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEvidenceByEvidenceFolderCommandInput - {@link GetEvidenceByEvidenceFolderCommandInput}
+ * @returns {@link GetEvidenceByEvidenceFolderCommandOutput}
  * @see {@link GetEvidenceByEvidenceFolderCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceByEvidenceFolderCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -85,6 +94,9 @@ export class GetEvidenceByEvidenceFolderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEvidenceByEvidenceFolderCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +125,8 @@ export class GetEvidenceByEvidenceFolderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEvidenceByEvidenceFolderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEvidenceByEvidenceFolderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +136,21 @@ export class GetEvidenceByEvidenceFolderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEvidenceByEvidenceFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEvidenceByEvidenceFolderCommand(input, context);
+    return se_GetEvidenceByEvidenceFolderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEvidenceByEvidenceFolderCommandOutput> {
-    return deserializeAws_restJson1GetEvidenceByEvidenceFolderCommand(output, context);
+    return de_GetEvidenceByEvidenceFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

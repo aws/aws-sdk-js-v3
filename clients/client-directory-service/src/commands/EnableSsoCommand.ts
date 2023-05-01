@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  EnableSsoRequest,
-  EnableSsoRequestFilterSensitiveLog,
-  EnableSsoResult,
-  EnableSsoResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1EnableSsoCommand, serializeAws_json1_1EnableSsoCommand } from "../protocols/Aws_json1_1";
+import { EnableSsoRequest, EnableSsoRequestFilterSensitiveLog, EnableSsoResult } from "../models/models_0";
+import { de_EnableSsoCommand, se_EnableSsoCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableSsoCommand}.
  */
 export interface EnableSsoCommandInput extends EnableSsoRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableSsoCommand}.
  */
 export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables single sign-on for a directory. Single sign-on allows users in your directory to
  *       access certain Amazon Web Services services from a computer joined to the directory without having to enter
  *       their credentials separately.</p>
@@ -41,10 +41,17 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  * import { DirectoryServiceClient, EnableSsoCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, EnableSsoCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // EnableSsoRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE",
+ *   Password: "STRING_VALUE",
+ * };
  * const command = new EnableSsoCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableSsoCommandInput - {@link EnableSsoCommandInput}
+ * @returns {@link EnableSsoCommandOutput}
  * @see {@link EnableSsoCommandInput} for command's `input` shape.
  * @see {@link EnableSsoCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -83,6 +90,9 @@ export class EnableSsoCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableSsoCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +120,7 @@ export class EnableSsoCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: EnableSsoRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableSsoResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class EnableSsoCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableSsoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableSsoCommand(input, context);
+    return se_EnableSsoCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableSsoCommandOutput> {
-    return deserializeAws_json1_1EnableSsoCommand(output, context);
+    return de_EnableSsoCommand(output, context);
   }
 
   // Start section: command_body_extra

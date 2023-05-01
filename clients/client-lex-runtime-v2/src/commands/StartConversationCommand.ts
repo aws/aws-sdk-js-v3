@@ -22,21 +22,23 @@ import {
   StartConversationResponse,
   StartConversationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartConversationCommand,
-  serializeAws_restJson1StartConversationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartConversationCommand, se_StartConversationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartConversationCommand}.
  */
 export interface StartConversationCommandInput extends StartConversationRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartConversationCommand}.
  */
 export interface StartConversationCommandOutput extends StartConversationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts an HTTP/2 bidirectional event stream that enables you to send
  *          audio, text, or DTMF input in real time. After your application starts
  *          a conversation, users send input to Amazon Lex V2 as a stream of events. Amazon Lex V2
@@ -103,10 +105,160 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * import { LexRuntimeV2Client, StartConversationCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
  * // const { LexRuntimeV2Client, StartConversationCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
  * const client = new LexRuntimeV2Client(config);
+ * const input = { // StartConversationRequest
+ *   botId: "STRING_VALUE", // required
+ *   botAliasId: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   sessionId: "STRING_VALUE", // required
+ *   conversationMode: "AUDIO" || "TEXT",
+ *   requestEventStream: { // StartConversationRequestEventStream Union: only one key present
+ *     ConfigurationEvent: { // ConfigurationEvent
+ *       requestAttributes: { // StringMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       responseContentType: "STRING_VALUE", // required
+ *       sessionState: { // SessionState
+ *         dialogAction: { // DialogAction
+ *           type: "Close" || "ConfirmIntent" || "Delegate" || "ElicitIntent" || "ElicitSlot" || "None", // required
+ *           slotToElicit: "STRING_VALUE",
+ *           slotElicitationStyle: "Default" || "SpellByLetter" || "SpellByWord",
+ *           subSlotToElicit: { // ElicitSubSlot
+ *             name: "STRING_VALUE", // required
+ *             subSlotToElicit: {
+ *               name: "STRING_VALUE", // required
+ *               subSlotToElicit: "<ElicitSubSlot>",
+ *             },
+ *           },
+ *         },
+ *         intent: { // Intent
+ *           name: "STRING_VALUE", // required
+ *           slots: { // Slots
+ *             "<keys>": { // Slot
+ *               value: { // Value
+ *                 originalValue: "STRING_VALUE",
+ *                 interpretedValue: "STRING_VALUE", // required
+ *                 resolvedValues: [ // StringList
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               shape: "Scalar" || "List" || "Composite",
+ *               values: [ // Values
+ *                 {
+ *                   value: {
+ *                     originalValue: "STRING_VALUE",
+ *                     interpretedValue: "STRING_VALUE", // required
+ *                     resolvedValues: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                   shape: "Scalar" || "List" || "Composite",
+ *                   values: [
+ *                     "<Slot>",
+ *                   ],
+ *                   subSlots: {
+ *                     "<keys>": "<Slot>",
+ *                   },
+ *                 },
+ *               ],
+ *               subSlots: "<Slots>",
+ *             },
+ *           },
+ *           state: "Failed" || "Fulfilled" || "InProgress" || "ReadyForFulfillment" || "Waiting" || "FulfillmentInProgress",
+ *           confirmationState: "Confirmed" || "Denied" || "None",
+ *         },
+ *         activeContexts: [ // ActiveContextsList
+ *           { // ActiveContext
+ *             name: "STRING_VALUE", // required
+ *             timeToLive: { // ActiveContextTimeToLive
+ *               timeToLiveInSeconds: Number("int"), // required
+ *               turnsToLive: Number("int"), // required
+ *             },
+ *             contextAttributes: { // ActiveContextParametersMap // required
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         sessionAttributes: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         originatingRequestId: "STRING_VALUE",
+ *         runtimeHints: { // RuntimeHints
+ *           slotHints: { // SlotHintsIntentMap
+ *             "<keys>": { // SlotHintsSlotMap
+ *               "<keys>": { // RuntimeHintDetails
+ *                 runtimeHintValues: [ // RuntimeHintValuesList
+ *                   { // RuntimeHintValue
+ *                     phrase: "STRING_VALUE", // required
+ *                   },
+ *                 ],
+ *                 subSlotHints: {
+ *                   "<keys>": {
+ *                     runtimeHintValues: [
+ *                       {
+ *                         phrase: "STRING_VALUE", // required
+ *                       },
+ *                     ],
+ *                     subSlotHints: "<SlotHintsSlotMap>",
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *       welcomeMessages: [ // Messages
+ *         { // Message
+ *           content: "STRING_VALUE",
+ *           contentType: "CustomPayload" || "ImageResponseCard" || "PlainText" || "SSML", // required
+ *           imageResponseCard: { // ImageResponseCard
+ *             title: "STRING_VALUE", // required
+ *             subtitle: "STRING_VALUE",
+ *             imageUrl: "STRING_VALUE",
+ *             buttons: [ // ButtonsList
+ *               { // Button
+ *                 text: "STRING_VALUE", // required
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       disablePlayback: true || false,
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *     AudioInputEvent: { // AudioInputEvent
+ *       audioChunk: "BLOB_VALUE",
+ *       contentType: "STRING_VALUE", // required
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *     DTMFInputEvent: { // DTMFInputEvent
+ *       inputCharacter: "STRING_VALUE", // required
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *     TextInputEvent: { // TextInputEvent
+ *       text: "STRING_VALUE", // required
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *     PlaybackCompletionEvent: { // PlaybackCompletionEvent
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *     DisconnectionEvent: { // DisconnectionEvent
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *   },
+ * };
  * const command = new StartConversationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartConversationCommandInput - {@link StartConversationCommandInput}
+ * @returns {@link StartConversationCommandOutput}
  * @see {@link StartConversationCommandInput} for command's `input` shape.
  * @see {@link StartConversationCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
@@ -142,6 +294,9 @@ export class StartConversationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartConversationCommandInput) {
     // Start section: command_constructor
     super();
@@ -182,18 +337,24 @@ export class StartConversationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: StartConversationCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartConversationCommand(input, context);
+    return se_StartConversationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<StartConversationCommandOutput> {
-    return deserializeAws_restJson1StartConversationCommand(output, context);
+    return de_StartConversationCommand(output, context);
   }
 
   // Start section: command_body_extra

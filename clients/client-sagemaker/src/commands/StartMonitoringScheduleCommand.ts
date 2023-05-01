@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartMonitoringScheduleRequest, StartMonitoringScheduleRequestFilterSensitiveLog } from "../models/models_3";
-import {
-  deserializeAws_json1_1StartMonitoringScheduleCommand,
-  serializeAws_json1_1StartMonitoringScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { StartMonitoringScheduleRequest } from "../models/models_3";
+import { de_StartMonitoringScheduleCommand, se_StartMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartMonitoringScheduleCommand}.
  */
 export interface StartMonitoringScheduleCommandInput extends StartMonitoringScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartMonitoringScheduleCommand}.
  */
 export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a previously stopped monitoring schedule.</p>
  *          <note>
  *             <p>By default, when you successfully create a new schedule, the status of a monitoring
@@ -41,10 +43,15 @@ export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {
  * import { SageMakerClient, StartMonitoringScheduleCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StartMonitoringScheduleCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StartMonitoringScheduleRequest
+ *   MonitoringScheduleName: "STRING_VALUE", // required
+ * };
  * const command = new StartMonitoringScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartMonitoringScheduleCommandInput - {@link StartMonitoringScheduleCommandInput}
+ * @returns {@link StartMonitoringScheduleCommandOutput}
  * @see {@link StartMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link StartMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +78,9 @@ export class StartMonitoringScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartMonitoringScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +109,8 @@ export class StartMonitoringScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMonitoringScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +120,18 @@ export class StartMonitoringScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMonitoringScheduleCommand(input, context);
+    return se_StartMonitoringScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMonitoringScheduleCommandOutput> {
-    return deserializeAws_json1_1StartMonitoringScheduleCommand(output, context);
+    return de_StartMonitoringScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetCachePolicyConfigRequest,
-  GetCachePolicyConfigRequestFilterSensitiveLog,
-  GetCachePolicyConfigResult,
-  GetCachePolicyConfigResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlGetCachePolicyConfigCommand,
-  serializeAws_restXmlGetCachePolicyConfigCommand,
-} from "../protocols/Aws_restXml";
+import { GetCachePolicyConfigRequest, GetCachePolicyConfigResult } from "../models/models_1";
+import { de_GetCachePolicyConfigCommand, se_GetCachePolicyConfigCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link GetCachePolicyConfigCommand}.
  */
 export interface GetCachePolicyConfigCommandInput extends GetCachePolicyConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCachePolicyConfigCommand}.
  */
 export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a cache policy configuration.</p>
  *          <p>To get a cache policy configuration, you must provide the policy's identifier. If the
  * 			cache policy is attached to a distribution's cache behavior, you can get the policy's
@@ -47,10 +44,15 @@ export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigR
  * import { CloudFrontClient, GetCachePolicyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetCachePolicyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetCachePolicyConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetCachePolicyConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCachePolicyConfigCommandInput - {@link GetCachePolicyConfigCommandInput}
+ * @returns {@link GetCachePolicyConfigCommandOutput}
  * @see {@link GetCachePolicyConfigCommandInput} for command's `input` shape.
  * @see {@link GetCachePolicyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -80,6 +82,9 @@ export class GetCachePolicyConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCachePolicyConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +113,8 @@ export class GetCachePolicyConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCachePolicyConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCachePolicyConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +124,18 @@ export class GetCachePolicyConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCachePolicyConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetCachePolicyConfigCommand(input, context);
+    return se_GetCachePolicyConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCachePolicyConfigCommandOutput> {
-    return deserializeAws_restXmlGetCachePolicyConfigCommand(output, context);
+    return de_GetCachePolicyConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

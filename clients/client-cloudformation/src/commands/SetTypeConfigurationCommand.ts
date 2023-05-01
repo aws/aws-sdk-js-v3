@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  SetTypeConfigurationInput,
-  SetTypeConfigurationInputFilterSensitiveLog,
-  SetTypeConfigurationOutput,
-  SetTypeConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetTypeConfigurationCommand,
-  serializeAws_querySetTypeConfigurationCommand,
-} from "../protocols/Aws_query";
+import { SetTypeConfigurationInput, SetTypeConfigurationOutput } from "../models/models_0";
+import { de_SetTypeConfigurationCommand, se_SetTypeConfigurationCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetTypeConfigurationCommand}.
  */
 export interface SetTypeConfigurationCommandInput extends SetTypeConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link SetTypeConfigurationCommand}.
  */
 export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies the configuration data for a registered CloudFormation extension, in
  *          the given account and region.</p>
  *          <p>To view the current configuration data for an extension, refer to the
@@ -54,10 +51,19 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  * import { CloudFormationClient, SetTypeConfigurationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, SetTypeConfigurationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // SetTypeConfigurationInput
+ *   TypeArn: "STRING_VALUE",
+ *   Configuration: "STRING_VALUE", // required
+ *   ConfigurationAlias: "STRING_VALUE",
+ *   TypeName: "STRING_VALUE",
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ * };
  * const command = new SetTypeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetTypeConfigurationCommandInput - {@link SetTypeConfigurationCommandInput}
+ * @returns {@link SetTypeConfigurationCommandOutput}
  * @see {@link SetTypeConfigurationCommandInput} for command's `input` shape.
  * @see {@link SetTypeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
@@ -87,6 +93,9 @@ export class SetTypeConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetTypeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +124,8 @@ export class SetTypeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTypeConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetTypeConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +135,18 @@ export class SetTypeConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetTypeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetTypeConfigurationCommand(input, context);
+    return se_SetTypeConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTypeConfigurationCommandOutput> {
-    return deserializeAws_querySetTypeConfigurationCommand(output, context);
+    return de_SetTypeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

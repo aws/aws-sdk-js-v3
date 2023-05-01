@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  CreateGrantRequest,
-  CreateGrantRequestFilterSensitiveLog,
-  CreateGrantResponse,
-  CreateGrantResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateGrantCommand,
-  serializeAws_json1_1CreateGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateGrantRequest, CreateGrantResponse } from "../models/models_0";
+import { de_CreateGrantCommand, se_CreateGrantCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGrantCommand}.
  */
 export interface CreateGrantCommandInput extends CreateGrantRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGrantCommand}.
  */
 export interface CreateGrantCommandOutput extends CreateGrantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a grant to a KMS key. </p>
  *          <p>A <i>grant</i> is a policy instrument that allows Amazon Web Services principals to use
  *       KMS keys in cryptographic operations. It also can allow them to view a KMS key (<a>DescribeKey</a>) and create and manage grants. When authorizing access to a KMS key,
@@ -103,10 +100,32 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * import { KMSClient, CreateGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CreateGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // CreateGrantRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   GranteePrincipal: "STRING_VALUE", // required
+ *   RetiringPrincipal: "STRING_VALUE",
+ *   Operations: [ // GrantOperationList // required
+ *     "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac",
+ *   ],
+ *   Constraints: { // GrantConstraints
+ *     EncryptionContextSubset: { // EncryptionContextType
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     EncryptionContextEquals: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGrantCommandInput - {@link CreateGrantCommandInput}
+ * @returns {@link CreateGrantCommandOutput}
  * @see {@link CreateGrantCommandInput} for command's `input` shape.
  * @see {@link CreateGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -196,6 +215,9 @@ export class CreateGrantCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGrantCommandInput) {
     // Start section: command_constructor
     super();
@@ -222,8 +244,8 @@ export class CreateGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGrantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGrantResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -233,12 +255,18 @@ export class CreateGrantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGrantCommand(input, context);
+    return se_CreateGrantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGrantCommandOutput> {
-    return deserializeAws_json1_1CreateGrantCommand(output, context);
+    return de_CreateGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

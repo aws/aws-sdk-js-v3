@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import {
-  SendMessageRequest,
-  SendMessageRequestFilterSensitiveLog,
-  SendMessageResponse,
-  SendMessageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1SendMessageCommand,
-  serializeAws_restJson1SendMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { SendMessageRequest, SendMessageResponse } from "../models/models_0";
+import { de_SendMessageCommand, se_SendMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link SendMessageCommand}.
  */
 export interface SendMessageCommandInput extends SendMessageRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendMessageCommand}.
  */
 export interface SendMessageCommandOutput extends SendMessageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sends a message.</p>
  *          <note>
  *             <p>
@@ -53,10 +50,18 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * import { ConnectParticipantClient, SendMessageCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, SendMessageCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
+ * const input = { // SendMessageRequest
+ *   ContentType: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   ConnectionToken: "STRING_VALUE", // required
+ * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendMessageCommandInput - {@link SendMessageCommandInput}
+ * @returns {@link SendMessageCommandOutput}
  * @see {@link SendMessageCommandInput} for command's `input` shape.
  * @see {@link SendMessageCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
@@ -92,6 +97,9 @@ export class SendMessageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +126,8 @@ export class SendMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendMessageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +137,18 @@ export class SendMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendMessageCommand(input, context);
+    return se_SendMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendMessageCommandOutput> {
-    return deserializeAws_restJson1SendMessageCommand(output, context);
+    return de_SendMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

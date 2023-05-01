@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { SetAlarmStateInput, SetAlarmStateInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_querySetAlarmStateCommand,
-  serializeAws_querySetAlarmStateCommand,
-} from "../protocols/Aws_query";
+import { SetAlarmStateInput } from "../models/models_0";
+import { de_SetAlarmStateCommand, se_SetAlarmStateCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link SetAlarmStateCommand}.
  */
 export interface SetAlarmStateCommandInput extends SetAlarmStateInput {}
 /**
+ * @public
+ *
  * The output of {@link SetAlarmStateCommand}.
  */
 export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Temporarily sets the state of an alarm for testing purposes. When the updated
  * 			state differs from the previous value, the action configured for
  * 			the appropriate state is invoked. For example, if your alarm is configured to send an
@@ -52,10 +54,18 @@ export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, SetAlarmStateCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, SetAlarmStateCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // SetAlarmStateInput
+ *   AlarmName: "STRING_VALUE", // required
+ *   StateValue: "OK" || "ALARM" || "INSUFFICIENT_DATA", // required
+ *   StateReason: "STRING_VALUE", // required
+ *   StateReasonData: "STRING_VALUE",
+ * };
  * const command = new SetAlarmStateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetAlarmStateCommandInput - {@link SetAlarmStateCommandInput}
+ * @returns {@link SetAlarmStateCommandOutput}
  * @see {@link SetAlarmStateCommandInput} for command's `input` shape.
  * @see {@link SetAlarmStateCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -85,6 +95,9 @@ export class SetAlarmStateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetAlarmStateCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +124,8 @@ export class SetAlarmStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetAlarmStateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +135,18 @@ export class SetAlarmStateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetAlarmStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetAlarmStateCommand(input, context);
+    return se_SetAlarmStateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetAlarmStateCommandOutput> {
-    return deserializeAws_querySetAlarmStateCommand(output, context);
+    return de_SetAlarmStateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DescribeAssociationExecutionsRequest, DescribeAssociationExecutionsResult } from "../models/models_0";
 import {
-  DescribeAssociationExecutionsRequest,
-  DescribeAssociationExecutionsRequestFilterSensitiveLog,
-  DescribeAssociationExecutionsResult,
-  DescribeAssociationExecutionsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAssociationExecutionsCommand,
-  serializeAws_json1_1DescribeAssociationExecutionsCommand,
+  de_DescribeAssociationExecutionsCommand,
+  se_DescribeAssociationExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAssociationExecutionsCommand}.
  */
 export interface DescribeAssociationExecutionsCommandInput extends DescribeAssociationExecutionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAssociationExecutionsCommand}.
  */
 export interface DescribeAssociationExecutionsCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeAssociationExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Views all executions for a specific association ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,24 @@ export interface DescribeAssociationExecutionsCommandOutput
  * import { SSMClient, DescribeAssociationExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAssociationExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeAssociationExecutionsRequest
+ *   AssociationId: "STRING_VALUE", // required
+ *   Filters: [ // AssociationExecutionFilterList
+ *     { // AssociationExecutionFilter
+ *       Key: "ExecutionId" || "Status" || "CreatedTime", // required
+ *       Value: "STRING_VALUE", // required
+ *       Type: "EQUAL" || "LESS_THAN" || "GREATER_THAN", // required
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAssociationExecutionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAssociationExecutionsCommandInput - {@link DescribeAssociationExecutionsCommandInput}
+ * @returns {@link DescribeAssociationExecutionsCommandOutput}
  * @see {@link DescribeAssociationExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAssociationExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -80,6 +94,9 @@ export class DescribeAssociationExecutionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAssociationExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +125,8 @@ export class DescribeAssociationExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAssociationExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAssociationExecutionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +136,21 @@ export class DescribeAssociationExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAssociationExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAssociationExecutionsCommand(input, context);
+    return se_DescribeAssociationExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAssociationExecutionsCommandOutput> {
-    return deserializeAws_json1_1DescribeAssociationExecutionsCommand(output, context);
+    return de_DescribeAssociationExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

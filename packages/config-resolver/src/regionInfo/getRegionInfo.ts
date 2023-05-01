@@ -7,6 +7,9 @@ import { getResolvedSigningRegion } from "./getResolvedSigningRegion";
 import { PartitionHash } from "./PartitionHash";
 import { RegionHash } from "./RegionHash";
 
+/**
+ * @internal
+ */
 export interface GetRegionInfoOptions {
   useFipsEndpoint?: boolean;
   useDualstackEndpoint?: boolean;
@@ -15,6 +18,9 @@ export interface GetRegionInfoOptions {
   partitionHash: PartitionHash;
 }
 
+/**
+ * @internal
+ */
 export const getRegionInfo = (
   region: string,
   {

@@ -13,15 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetReadinessCheckResourceStatusRequest, GetReadinessCheckResourceStatusResponse } from "../models/models_0";
 import {
-  GetReadinessCheckResourceStatusRequest,
-  GetReadinessCheckResourceStatusRequestFilterSensitiveLog,
-  GetReadinessCheckResourceStatusResponse,
-  GetReadinessCheckResourceStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetReadinessCheckResourceStatusCommand,
-  serializeAws_restJson1GetReadinessCheckResourceStatusCommand,
+  de_GetReadinessCheckResourceStatusCommand,
+  se_GetReadinessCheckResourceStatusCommand,
 } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
@@ -30,10 +25,14 @@ import {
 } from "../Route53RecoveryReadinessClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetReadinessCheckResourceStatusCommand}.
  */
 export interface GetReadinessCheckResourceStatusCommandInput extends GetReadinessCheckResourceStatusRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetReadinessCheckResourceStatusCommand}.
  */
 export interface GetReadinessCheckResourceStatusCommandOutput
@@ -41,6 +40,7 @@ export interface GetReadinessCheckResourceStatusCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets individual readiness status for a readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in the recovery group, use GetRecoveryGroupReadinessSummary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +48,18 @@ export interface GetReadinessCheckResourceStatusCommandOutput
  * import { Route53RecoveryReadinessClient, GetReadinessCheckResourceStatusCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetReadinessCheckResourceStatusCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = { // GetReadinessCheckResourceStatusRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ReadinessCheckName: "STRING_VALUE", // required
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetReadinessCheckResourceStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetReadinessCheckResourceStatusCommandInput - {@link GetReadinessCheckResourceStatusCommandInput}
+ * @returns {@link GetReadinessCheckResourceStatusCommandOutput}
  * @see {@link GetReadinessCheckResourceStatusCommandInput} for command's `input` shape.
  * @see {@link GetReadinessCheckResourceStatusCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
@@ -90,6 +98,9 @@ export class GetReadinessCheckResourceStatusCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetReadinessCheckResourceStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +129,8 @@ export class GetReadinessCheckResourceStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReadinessCheckResourceStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReadinessCheckResourceStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +140,24 @@ export class GetReadinessCheckResourceStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetReadinessCheckResourceStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReadinessCheckResourceStatusCommand(input, context);
+    return se_GetReadinessCheckResourceStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReadinessCheckResourceStatusCommandOutput> {
-    return deserializeAws_restJson1GetReadinessCheckResourceStatusCommand(output, context);
+    return de_GetReadinessCheckResourceStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  ListInputSecurityGroupsRequest,
-  ListInputSecurityGroupsRequestFilterSensitiveLog,
-  ListInputSecurityGroupsResponse,
-  ListInputSecurityGroupsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListInputSecurityGroupsCommand,
-  serializeAws_restJson1ListInputSecurityGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInputSecurityGroupsRequest, ListInputSecurityGroupsResponse } from "../models/models_1";
+import { de_ListInputSecurityGroupsCommand, se_ListInputSecurityGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInputSecurityGroupsCommand}.
  */
 export interface ListInputSecurityGroupsCommandInput extends ListInputSecurityGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInputSecurityGroupsCommand}.
  */
 export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Produces a list of Input Security Groups for an account
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
  * import { MediaLiveClient, ListInputSecurityGroupsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListInputSecurityGroupsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // ListInputSecurityGroupsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInputSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInputSecurityGroupsCommandInput - {@link ListInputSecurityGroupsCommandInput}
+ * @returns {@link ListInputSecurityGroupsCommandOutput}
  * @see {@link ListInputSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link ListInputSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -87,6 +90,9 @@ export class ListInputSecurityGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInputSecurityGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +121,8 @@ export class ListInputSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInputSecurityGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInputSecurityGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +132,18 @@ export class ListInputSecurityGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInputSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInputSecurityGroupsCommand(input, context);
+    return se_ListInputSecurityGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1ListInputSecurityGroupsCommand(output, context);
+    return de_ListInputSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

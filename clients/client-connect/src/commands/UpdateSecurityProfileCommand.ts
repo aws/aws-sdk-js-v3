@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateSecurityProfileRequest, UpdateSecurityProfileRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateSecurityProfileCommand,
-  serializeAws_restJson1UpdateSecurityProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateSecurityProfileRequest } from "../models/models_1";
+import { de_UpdateSecurityProfileCommand, se_UpdateSecurityProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateSecurityProfileCommand}.
  */
 export interface UpdateSecurityProfileCommandInput extends UpdateSecurityProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateSecurityProfileCommand}.
  */
 export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates a security profile.</p>
  * @example
@@ -38,10 +40,26 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateSecurityProfileRequest
+ *   Description: "STRING_VALUE",
+ *   Permissions: [ // PermissionsList
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityProfileId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   AllowedAccessControlTags: { // AllowedAccessControlTags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TagRestrictedResources: [ // TagRestrictedResourceList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateSecurityProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateSecurityProfileCommandInput - {@link UpdateSecurityProfileCommandInput}
+ * @returns {@link UpdateSecurityProfileCommandOutput}
  * @see {@link UpdateSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -80,6 +98,9 @@ export class UpdateSecurityProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSecurityProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +129,8 @@ export class UpdateSecurityProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecurityProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +140,18 @@ export class UpdateSecurityProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSecurityProfileCommand(input, context);
+    return se_UpdateSecurityProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateSecurityProfileCommand(output, context);
+    return de_UpdateSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

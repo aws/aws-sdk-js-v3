@@ -3,16 +3,37 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { SSMContactsServiceException as __BaseException } from "./SSMContactsServiceException";
 
-export enum AcceptCodeValidation {
-  ENFORCE = "ENFORCE",
-  IGNORE = "IGNORE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AcceptCodeValidation = {
+  ENFORCE: "ENFORCE",
+  IGNORE: "IGNORE",
+} as const;
 
-export enum AcceptType {
-  DELIVERED = "DELIVERED",
-  READ = "READ",
-}
+/**
+ * @public
+ */
+export type AcceptCodeValidation = (typeof AcceptCodeValidation)[keyof typeof AcceptCodeValidation];
 
+/**
+ * @public
+ * @enum
+ */
+export const AcceptType = {
+  DELIVERED: "DELIVERED",
+  READ: "READ",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceptType = (typeof AcceptType)[keyof typeof AcceptType];
+
+/**
+ * @public
+ */
 export interface AcceptPageRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement to a contact channel.</p>
@@ -35,7 +56,7 @@ export interface AcceptPageRequest {
   Note?: string;
 
   /**
-   * <p>The accept code is a 6-digit code used to acknowledge the page.</p>
+   * <p>A 6-digit code used to acknowledge the page.</p>
    */
   AcceptCode: string | undefined;
 
@@ -52,9 +73,13 @@ export interface AcceptPageRequest {
   AcceptCodeValidation?: AcceptCodeValidation | string;
 }
 
+/**
+ * @public
+ */
 export interface AcceptPageResult {}
 
 /**
+ * @public
  * <p>You don't have sufficient access to perform this operation.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -76,8 +101,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Unexpected error occurred while
- *          processing the request.</p>
+ * @public
+ * <p>Unexpected error occurred while processing the request.</p>
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -103,6 +128,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request references a resource that doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -135,6 +161,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -173,6 +200,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about which field caused the exception.</p>
  */
 export interface ValidationExceptionField {
@@ -187,14 +215,24 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  */
@@ -227,6 +265,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface ActivateContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel.</p>
@@ -234,19 +275,32 @@ export interface ActivateContactChannelRequest {
   ContactChannelId: string | undefined;
 
   /**
-   * <p>The code sent to the contact channel when it was created in the contact. </p>
+   * <p>The code sent to the contact channel when it was created in the contact.</p>
    */
   ActivationCode: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ActivateContactChannelResult {}
 
-export enum ActivationStatus {
-  ACTIVATED = "ACTIVATED",
-  NOT_ACTIVATED = "NOT_ACTIVATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActivationStatus = {
+  ACTIVATED: "ACTIVATED",
+  NOT_ACTIVATED: "NOT_ACTIVATED",
+} as const;
 
 /**
+ * @public
+ */
+export type ActivationStatus = (typeof ActivationStatus)[keyof typeof ActivationStatus];
+
+/**
+ * @public
  * <p>Information about the contact channel that Incident Manager uses to engage the
  *          contact.</p>
  */
@@ -263,13 +317,42 @@ export interface ChannelTargetInfo {
   RetryIntervalInMinutes?: number;
 }
 
-export enum ChannelType {
-  EMAIL = "EMAIL",
-  SMS = "SMS",
-  VOICE = "VOICE",
+/**
+ * @public
+ * @enum
+ */
+export const ChannelType = {
+  EMAIL: "EMAIL",
+  SMS: "SMS",
+  VOICE: "VOICE",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
+
+/**
+ * @public
+ * <p>Information about a resource that another resource is related to or depends on.</p>
+ *          <p>For example, if a contact is a member of a rotation, the rotation is a dependent entity
+ *          of the contact.</p>
+ */
+export interface DependentEntity {
+  /**
+   * <p>The type of relationship between one resource and the other resource that it is related
+   *          to or depends on.</p>
+   */
+  RelationType: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the dependent resources.</p>
+   */
+  DependentResourceIds: string[] | undefined;
 }
 
 /**
+ * @public
  * <p>Updating or deleting a resource causes an inconsistent state.</p>
  */
 export class ConflictException extends __BaseException {
@@ -282,9 +365,14 @@ export class ConflictException extends __BaseException {
   ResourceId: string | undefined;
 
   /**
-   * ype of the resource in use
+   * Type of the resource in use
    */
   ResourceType: string | undefined;
+
+  /**
+   * List of dependent entities containing information on relation type and resourceArns linked to the resource in use
+   */
+  DependentEntities?: DependentEntity[];
   /**
    * @internal
    */
@@ -298,15 +386,27 @@ export class ConflictException extends __BaseException {
     this.Message = opts.Message;
     this.ResourceId = opts.ResourceId;
     this.ResourceType = opts.ResourceType;
+    this.DependentEntities = opts.DependentEntities;
   }
 }
 
-export enum ContactType {
-  ESCALATION = "ESCALATION",
-  PERSONAL = "PERSONAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ContactType = {
+  ESCALATION: "ESCALATION",
+  ONCALL_SCHEDULE: "ONCALL_SCHEDULE",
+  PERSONAL: "PERSONAL",
+} as const;
 
 /**
+ * @public
+ */
+export type ContactType = (typeof ContactType)[keyof typeof ContactType];
+
+/**
+ * @public
  * <p>A personal contact or escalation plan that Incident Manager engages during an
  *          incident.</p>
  */
@@ -334,7 +434,8 @@ export interface Contact {
 }
 
 /**
- * <p>The details that Incident Manager uses when trying to engage the contact channel. </p>
+ * @public
+ * <p>The details that Incident Manager uses when trying to engage the contact channel.</p>
  */
 export interface ContactChannelAddress {
   /**
@@ -356,6 +457,7 @@ export interface ContactChannelAddress {
 }
 
 /**
+ * @public
  * <p>The method that Incident Manager uses to engage a contact.</p>
  */
 export interface ContactChannel {
@@ -397,12 +499,13 @@ export interface ContactChannel {
 
   /**
    * <p>A Boolean value describing if the contact channel has been activated or not. If the
-   *          contact channel isn't activated, Incident Manager can't engage the contact through it. </p>
+   *          contact channel isn't activated, Incident Manager can't engage the contact through it.</p>
    */
   ActivationStatus: ActivationStatus | string | undefined;
 }
 
 /**
+ * @public
  * <p>The contact that Incident Manager is engaging during an incident.</p>
  */
 export interface ContactTargetInfo {
@@ -419,6 +522,39 @@ export interface ContactTargetInfo {
 }
 
 /**
+ * @public
+ * <p>Details about when an on-call rotation shift begins or ends.</p>
+ */
+export interface HandOffTime {
+  /**
+   * <p>The hour when an on-call rotation shift begins or ends.</p>
+   */
+  HourOfDay: number | undefined;
+
+  /**
+   * <p>The minute when an on-call rotation shift begins or ends.</p>
+   */
+  MinuteOfHour: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about when an on-call shift begins and ends.</p>
+ */
+export interface CoverageTime {
+  /**
+   * <p>Information about when the on-call rotation shift begins.</p>
+   */
+  Start?: HandOffTime;
+
+  /**
+   * <p>Information about when the on-call rotation shift ends.</p>
+   */
+  End?: HandOffTime;
+}
+
+/**
+ * @public
  * <p>The contact or contact channel that's being engaged.</p>
  */
 export interface Target {
@@ -434,6 +570,7 @@ export interface Target {
 }
 
 /**
+ * @public
  * <p>A set amount of time that an escalation plan or engagement plan engages the specified
  *          contacts or contact methods.</p>
  */
@@ -452,25 +589,32 @@ export interface Stage {
 }
 
 /**
- * <p>The stages that an escalation plan or engagement plan engages contacts and contact
- *          methods in.</p>
+ * @public
+ * <p>Information about the stages and on-call rotation teams associated with an escalation
+ *          plan or engagement plan.
+ *          </p>
  */
 export interface Plan {
   /**
    * <p>A list of stages that the escalation plan or engagement plan uses to engage contacts and
    *          contact methods.</p>
    */
-  Stages: Stage[] | undefined;
+  Stages?: Stage[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the on-call rotations associated with the plan.
+   *       </p>
+   */
+  RotationIds?: string[];
 }
 
 /**
+ * @public
  * <p>A container of a key-value name pair.</p>
  */
 export interface Tag {
   /**
-   * <p>Name of the
-   *          object
-   *          key.</p>
+   * <p>Name of the object key.</p>
    */
   Key?: string;
 
@@ -480,15 +624,18 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactRequest {
   /**
    * <p>The short name to quickly identify a contact or escalation plan. The contact alias must
-   *          be unique and identifiable. </p>
+   *          be unique and identifiable.</p>
    */
   Alias: string | undefined;
 
   /**
-   * <p>The full name of the contact or escalation plan.  </p>
+   * <p>The full name of the contact or escalation plan.</p>
    */
   DisplayName?: string;
 
@@ -500,13 +647,13 @@ export interface CreateContactRequest {
 
   /**
    * <p>A list of stages. A contact has an engagement plan with stages that contact specified
-   *          contact channels. An escalation plan uses stages that contact specified contacts. </p>
+   *          contact channels. An escalation plan uses stages that contact specified contacts.</p>
    */
   Plan: Plan | undefined;
 
   /**
    * <p>Adds a tag to the target. You can only tag resources created in the first Region of your
-   *          replication set. </p>
+   *          replication set.</p>
    */
   Tags?: Tag[];
 
@@ -517,6 +664,9 @@ export interface CreateContactRequest {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the created contact or escalation plan.</p>
@@ -525,6 +675,7 @@ export interface CreateContactResult {
 }
 
 /**
+ * @public
  * <p>The operation failed to due an encryption key error.</p>
  */
 export class DataEncryptionException extends __BaseException {
@@ -546,6 +697,7 @@ export class DataEncryptionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Request would cause a service quota to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -589,9 +741,13 @@ export class ServiceQuotaExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface CreateContactChannelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the contact you are adding the contact channel to.</p>
+   * <p>The Amazon Resource Name (ARN) of the contact you are adding the contact channel
+   *          to.</p>
    */
   ContactId: string | undefined;
 
@@ -653,6 +809,9 @@ export interface CreateContactChannelRequest {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateContactChannelResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel.</p>
@@ -660,6 +819,207 @@ export interface CreateContactChannelResult {
   ContactChannelArn: string | undefined;
 }
 
+/**
+ * @public
+ * <p>Information about on-call rotations that recur monthly.</p>
+ */
+export interface MonthlySetting {
+  /**
+   * <p>The day of the month when monthly recurring on-call rotations begin.</p>
+   */
+  DayOfMonth: number | undefined;
+
+  /**
+   * <p>The time of day when a monthly recurring on-call shift rotation begins.</p>
+   */
+  HandOffTime: HandOffTime | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DayOfWeek = {
+  FRI: "FRI",
+  MON: "MON",
+  SAT: "SAT",
+  SUN: "SUN",
+  THU: "THU",
+  TUE: "TUE",
+  WED: "WED",
+} as const;
+
+/**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+/**
+ * @public
+ * <p>Information about rotations that recur weekly.</p>
+ */
+export interface WeeklySetting {
+  /**
+   * <p>The day of the week when weekly recurring on-call shift rotations begins.</p>
+   */
+  DayOfWeek: DayOfWeek | string | undefined;
+
+  /**
+   * <p>The time of day when a weekly recurring on-call shift rotation begins.</p>
+   */
+  HandOffTime: HandOffTime | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about when an on-call rotation is in effect and how long the rotation period
+ *          lasts.</p>
+ */
+export interface RecurrenceSettings {
+  /**
+   * <p>Information about on-call rotations that recur monthly.</p>
+   */
+  MonthlySettings?: MonthlySetting[];
+
+  /**
+   * <p>Information about on-call rotations that recur weekly.</p>
+   */
+  WeeklySettings?: WeeklySetting[];
+
+  /**
+   * <p>Information about on-call rotations that recur daily.</p>
+   */
+  DailySettings?: HandOffTime[];
+
+  /**
+   * <p>The number of contacts, or shift team members designated to be on call concurrently
+   *          during a shift. For example, in an on-call schedule containing ten contacts, a value of
+   *             <code>2</code> designates that two of them are on call at any given time.</p>
+   */
+  NumberOfOnCalls: number | undefined;
+
+  /**
+   * <p>Information about the days of the week included in on-call rotation coverage.</p>
+   */
+  ShiftCoverages?: Record<string, CoverageTime[]>;
+
+  /**
+   * <p>The number of days, weeks, or months a single rotation lasts.</p>
+   */
+  RecurrenceMultiplier: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRotationRequest {
+  /**
+   * <p>The name of the rotation.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the contacts to add to the rotation.</p>
+   *          <p>The order that you list the contacts in is their shift order in the rotation schedule.
+   *          To change the order of the contact's shifts, use the <a>UpdateRotation</a>
+   *          operation.</p>
+   */
+  ContactIds: string[] | undefined;
+
+  /**
+   * <p>The date and time that the rotation goes into effect.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority
+   *          (IANA) format. For example: "America/Los_Angeles", "UTC", or "Asia/Seoul". For more
+   *          information, see the <a href="https://www.iana.org/time-zones">Time Zone
+   *             Database</a> on the IANA website.</p>
+   *          <note>
+   *             <p>Designators for time zones that don’t support Daylight Savings Time rules, such as
+   *             Pacific Standard Time (PST) and Pacific Daylight Time (PDT), are not supported.</p>
+   *          </note>
+   */
+  TimeZoneId: string | undefined;
+
+  /**
+   * <p>Information about the rule that specifies when a shift's team members rotate.</p>
+   */
+  Recurrence: RecurrenceSettings | undefined;
+
+  /**
+   * <p>Optional metadata to assign to the rotation. Tags enable you to categorize a resource in
+   *          different ways, such as by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html">Tagging
+   *             Incident Manager resources</a> in the <i>Incident Manager User
+   *             Guide</i>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A token that ensures that the operation is called only once with the specified
+   *          details.</p>
+   */
+  IdempotencyToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateRotationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created rotation.</p>
+   */
+  RotationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRotationOverrideRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rotation to create an override for.</p>
+   */
+  RotationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the contacts to replace those in the current on-call
+   *          rotation with.</p>
+   *          <p>If you want to include any current team members in the override shift, you must include
+   *          their ARNs in the new contact ID list.</p>
+   */
+  NewContactIds: string[] | undefined;
+
+  /**
+   * <p>The date and time when the override goes into effect.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The date and time when the override ends.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>A token that ensures that the operation is called only once with the specified
+   *          details.</p>
+   */
+  IdempotencyToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateRotationOverrideResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created rotation override.</p>
+   */
+  RotationOverrideId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeactivateContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel you're deactivating.</p>
@@ -667,8 +1027,14 @@ export interface DeactivateContactChannelRequest {
   ContactChannelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeactivateContactChannelResult {}
 
+/**
+ * @public
+ */
 export interface DeleteContactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact that you're deleting.</p>
@@ -676,8 +1042,14 @@ export interface DeleteContactRequest {
   ContactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactResult {}
 
+/**
+ * @public
+ */
 export interface DeleteContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel.</p>
@@ -685,8 +1057,49 @@ export interface DeleteContactChannelRequest {
   ContactChannelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteContactChannelResult {}
 
+/**
+ * @public
+ */
+export interface DeleteRotationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the on-call rotation to delete.</p>
+   */
+  RotationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRotationResult {}
+
+/**
+ * @public
+ */
+export interface DeleteRotationOverrideRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rotation that was overridden.</p>
+   */
+  RotationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the on-call rotation override to delete.</p>
+   */
+  RotationOverrideId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRotationOverrideResult {}
+
+/**
+ * @public
+ */
 export interface DescribeEngagementRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement you want the details of.</p>
@@ -694,6 +1107,9 @@ export interface DescribeEngagementRequest {
   EngagementId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeEngagementResult {
   /**
    * <p>The ARN of the escalation plan or contacts involved in the engagement.</p>
@@ -750,6 +1166,9 @@ export interface DescribeEngagementResult {
   StopTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribePageRequest {
   /**
    * <p>The ID of the engagement to a contact channel.</p>
@@ -757,6 +1176,9 @@ export interface DescribePageRequest {
   PageId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribePageResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement to a contact channel.</p>
@@ -824,6 +1246,7 @@ export interface DescribePageResult {
 }
 
 /**
+ * @public
  * <p>Incident Manager reaching out to a contact or escalation plan to engage contact during an
  *          incident.</p>
  */
@@ -859,6 +1282,9 @@ export interface Engagement {
   StopTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetContactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -866,6 +1292,9 @@ export interface GetContactRequest {
   ContactId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactResult {
   /**
    * <p>The ARN of the contact or escalation plan.</p>
@@ -884,7 +1313,7 @@ export interface GetContactResult {
   DisplayName?: string;
 
   /**
-   * <p>The type of contact, either <code>PERSONAL</code> or <code>ESCALATION</code>. </p>
+   * <p>The type of contact, either <code>PERSONAL</code> or <code>ESCALATION</code>.</p>
    */
   Type: ContactType | string | undefined;
 
@@ -895,6 +1324,9 @@ export interface GetContactResult {
   Plan: Plan | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel you want information about.</p>
@@ -902,6 +1334,9 @@ export interface GetContactChannelRequest {
   ContactChannelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactChannelResult {
   /**
    * <p>The ARN of the contact that the channel belongs to.</p>
@@ -925,7 +1360,7 @@ export interface GetContactChannelResult {
   Type: ChannelType | string | undefined;
 
   /**
-   * <p>The details that Incident Manager uses when trying to engage the contact channel. </p>
+   * <p>The details that Incident Manager uses when trying to engage the contact channel.</p>
    */
   DeliveryAddress: ContactChannelAddress | undefined;
 
@@ -935,6 +1370,9 @@ export interface GetContactChannelResult {
   ActivationStatus?: ActivationStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetContactPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -942,6 +1380,9 @@ export interface GetContactPolicyRequest {
   ContactArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetContactPolicyResult {
   /**
    * <p>The ARN of the contact or escalation plan.</p>
@@ -954,9 +1395,114 @@ export interface GetContactPolicyResult {
   Policy?: string;
 }
 
+/**
+ * @public
+ */
+export interface GetRotationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the on-call rotation to retrieve information
+   *          about.</p>
+   */
+  RotationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRotationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the on-call rotation.</p>
+   */
+  RotationArn: string | undefined;
+
+  /**
+   * <p>The name of the on-call rotation.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the contacts assigned to the on-call rotation
+   *          team.</p>
+   */
+  ContactIds: string[] | undefined;
+
+  /**
+   * <p>The specified start time for the on-call rotation.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The time zone that the rotation’s activity is based on, in Internet Assigned Numbers
+   *          Authority (IANA) format.</p>
+   */
+  TimeZoneId: string | undefined;
+
+  /**
+   * <p>Specifies how long a rotation lasts before restarting at the beginning of the shift
+   *          order.</p>
+   */
+  Recurrence: RecurrenceSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRotationOverrideRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the overridden rotation to retrieve information
+   *          about.</p>
+   */
+  RotationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the on-call rotation override to retrieve information
+   *          about.</p>
+   */
+  RotationOverrideId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRotationOverrideResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the override to an on-call rotation.</p>
+   */
+  RotationOverrideId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the on-call rotation that was overridden.</p>
+   */
+  RotationArn?: string;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the contacts assigned to the override of the on-call
+   *          rotation.</p>
+   */
+  NewContactIds?: string[];
+
+  /**
+   * <p>The date and time when the override goes into effect.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The date and time when the override ends.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The date and time when the override was created.</p>
+   */
+  CreateTime?: Date;
+}
+
+/**
+ * @public
+ */
 export interface ListContactChannelsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the contact. </p>
+   * <p>The Amazon Resource Name (ARN) of the contact.</p>
    */
   ContactId: string | undefined;
 
@@ -971,6 +1517,9 @@ export interface ListContactChannelsRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListContactChannelsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -983,6 +1532,9 @@ export interface ListContactChannelsResult {
   ContactChannels: ContactChannel[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListContactsRequest {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1006,6 +1558,9 @@ export interface ListContactsRequest {
   Type?: ContactType | string;
 }
 
+/**
+ * @public
+ */
 export interface ListContactsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1019,6 +1574,7 @@ export interface ListContactsResult {
 }
 
 /**
+ * @public
  * <p>A range of between two set times</p>
  */
 export interface TimeRange {
@@ -1033,6 +1589,9 @@ export interface TimeRange {
   EndTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListEngagementsRequest {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1055,6 +1614,9 @@ export interface ListEngagementsRequest {
   TimeRangeValue?: TimeRange;
 }
 
+/**
+ * @public
+ */
 export interface ListEngagementsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1068,6 +1630,9 @@ export interface ListEngagementsResult {
   Engagements: Engagement[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPageReceiptsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement to a specific contact channel.</p>
@@ -1085,15 +1650,25 @@ export interface ListPageReceiptsRequest {
   MaxResults?: number;
 }
 
-export enum ReceiptType {
-  DELIVERED = "DELIVERED",
-  ERROR = "ERROR",
-  READ = "READ",
-  SENT = "SENT",
-  STOP = "STOP",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ReceiptType = {
+  DELIVERED: "DELIVERED",
+  ERROR: "ERROR",
+  READ: "READ",
+  SENT: "SENT",
+  STOP: "STOP",
+} as const;
 
 /**
+ * @public
+ */
+export type ReceiptType = (typeof ReceiptType)[keyof typeof ReceiptType];
+
+/**
+ * @public
  * <p>Records events during an engagement.</p>
  */
 export interface Receipt {
@@ -1120,6 +1695,9 @@ export interface Receipt {
   ReceiptTime: Date | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPageReceiptsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1132,6 +1710,67 @@ export interface ListPageReceiptsResult {
   Receipts?: Receipt[];
 }
 
+/**
+ * @public
+ */
+export interface ListPageResolutionsRequest {
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contact engaged for the incident.</p>
+   */
+  PageId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about the engagement resolution steps. The resolution starts from the first
+ *          contact, which can be an escalation plan, then resolves to an on-call rotation, and finally
+ *          to a personal contact.</p>
+ *          <p>The <code>ResolutionContact</code> structure describes the information for each node or
+ *          step in that process. It contains information about different contact types, such as the
+ *          escalation, rotation, and personal contacts.</p>
+ */
+export interface ResolutionContact {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a contact in the engagement resolution process.
+   *       </p>
+   */
+  ContactArn: string | undefined;
+
+  /**
+   * <p>The type of contact for a resolution step.</p>
+   */
+  Type: ContactType | string | undefined;
+
+  /**
+   * <p>The stage in the escalation plan that resolves to this contact.</p>
+   */
+  StageIndex?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListPageResolutionsResult {
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *          results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the resolution for an engagement.</p>
+   */
+  PageResolutions: ResolutionContact[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListPagesByContactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact you are retrieving engagements for.</p>
@@ -1144,12 +1783,14 @@ export interface ListPagesByContactRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of engagements to contact channels to list per page of results. </p>
+   * <p>The maximum number of engagements to contact channels to list per page of results.
+   *       </p>
    */
   MaxResults?: number;
 }
 
 /**
+ * @public
  * <p>Incident Manager engaging a contact's contact channel.</p>
  */
 export interface Page {
@@ -1194,6 +1835,9 @@ export interface Page {
   ReadTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListPagesByContactResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1206,6 +1850,9 @@ export interface ListPagesByContactResult {
   Pages: Page[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListPagesByEngagementRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement.</p>
@@ -1224,6 +1871,9 @@ export interface ListPagesByEngagementRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListPagesByEngagementResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1236,6 +1886,366 @@ export interface ListPagesByEngagementResult {
   Pages: Page[] | undefined;
 }
 
+/**
+ * @public
+ * <p>Information about contacts and times that an on-call override replaces.</p>
+ */
+export interface PreviewOverride {
+  /**
+   * <p>Information about contacts to add to an on-call rotation override.</p>
+   */
+  NewMembers?: string[];
+
+  /**
+   * <p>Information about the time a rotation override would begin.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>Information about the time a rotation override would end.</p>
+   */
+  EndTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListPreviewRotationShiftsRequest {
+  /**
+   * <p>The date and time a rotation would begin. The first shift is calculated from this date
+   *          and time.</p>
+   */
+  RotationStartTime?: Date;
+
+  /**
+   * <p>Used to filter the range of calculated shifts before sending the response back to the
+   *          user. </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The date and time a rotation shift would end.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The contacts that would be assigned to a rotation.</p>
+   */
+  Members: string[] | undefined;
+
+  /**
+   * <p>The time zone the rotation’s activity would be based on, in Internet Assigned Numbers
+   *          Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or "Asia/Seoul".
+   *       </p>
+   */
+  TimeZoneId: string | undefined;
+
+  /**
+   * <p>Information about how long a rotation would last before restarting at the beginning of
+   *          the shift order.</p>
+   */
+  Recurrence: RecurrenceSettings | undefined;
+
+  /**
+   * <p>Information about changes that would be made in a rotation override.</p>
+   */
+  Overrides?: PreviewOverride[];
+
+  /**
+   * <p>A token to start the list. This token is used to get the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          can be specified in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Information about overrides to an on-call rotation shift.</p>
+ */
+export interface ShiftDetails {
+  /**
+   * <p>The Amazon Resources Names (ARNs) of the contacts who were replaced in a shift when an
+   *          override was created. If the override is deleted, these contacts are restored to the
+   *          shift.</p>
+   */
+  OverriddenContactIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ShiftType = {
+  OVERRIDDEN: "OVERRIDDEN",
+  REGULAR: "REGULAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ShiftType = (typeof ShiftType)[keyof typeof ShiftType];
+
+/**
+ * @public
+ * <p>Information about a shift that belongs to an on-call rotation.</p>
+ */
+export interface RotationShift {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the contacts who are part of the shift rotation.
+   *       </p>
+   */
+  ContactIds?: string[];
+
+  /**
+   * <p>The time a shift rotation begins.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The time a shift rotation ends.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The type of shift rotation.</p>
+   */
+  Type?: ShiftType | string;
+
+  /**
+   * <p>Additional information about an on-call rotation shift.</p>
+   */
+  ShiftDetails?: ShiftDetails;
+}
+
+/**
+ * @public
+ */
+export interface ListPreviewRotationShiftsResult {
+  /**
+   * <p>Details about a rotation shift, including times, types, and contacts.</p>
+   */
+  RotationShifts?: RotationShift[];
+
+  /**
+   * <p>The token for the next set of items to return. This token is used to get the next set of
+   *          results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListRotationOverridesRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rotation to retrieve information about.</p>
+   */
+  RotationId: string | undefined;
+
+  /**
+   * <p>The date and time for the beginning of a time range for listing overrides.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The date and time for the end of a time range for listing overrides.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          you can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Information about an override specified for an on-call rotation.</p>
+ */
+export interface RotationOverride {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the override to an on-call rotation.</p>
+   */
+  RotationOverrideId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the contacts assigned to the override of the on-call
+   *          rotation.</p>
+   */
+  NewContactIds: string[] | undefined;
+
+  /**
+   * <p>The time a rotation override begins.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The time a rotation override ends.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The time a rotation override was created.</p>
+   */
+  CreateTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRotationOverridesResult {
+  /**
+   * <p>A list of rotation overrides in the specified time range.</p>
+   */
+  RotationOverrides?: RotationOverride[];
+
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *          results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListRotationsRequest {
+  /**
+   * <p>A filter to include rotations in list results based on their common prefix. For example,
+   *          entering prod returns a list of all rotation names that begin with <code>prod</code>, such
+   *          as <code>production</code> and <code>prod-1</code>.</p>
+   */
+  RotationNamePrefix?: string;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          you can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Information about a rotation in an on-call schedule.</p>
+ */
+export interface Rotation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rotation.</p>
+   */
+  RotationArn: string | undefined;
+
+  /**
+   * <p>The name of the rotation.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the contacts assigned to the rotation team.</p>
+   */
+  ContactIds?: string[];
+
+  /**
+   * <p>The date and time the rotation becomes active.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The time zone the rotation’s activity is based on, in Internet Assigned Numbers
+   *          Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or "Asia/Seoul".
+   *       </p>
+   */
+  TimeZoneId?: string;
+
+  /**
+   * <p>Information about when an on-call rotation is in effect and how long the rotation period
+   *          lasts.</p>
+   */
+  Recurrence?: RecurrenceSettings;
+}
+
+/**
+ * @public
+ */
+export interface ListRotationsResult {
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *          results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about rotations that meet the filter criteria.</p>
+   */
+  Rotations: Rotation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRotationShiftsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rotation to retrieve shift information about.
+   *       </p>
+   */
+  RotationId: string | undefined;
+
+  /**
+   * <p>The date and time for the beginning of the time range to list shifts for.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The date and time for the end of the time range to list shifts for.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that
+   *          you can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListRotationShiftsResult {
+  /**
+   * <p>Information about shifts that meet the filter criteria.</p>
+   */
+  RotationShifts?: RotationShift[];
+
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *          results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -1243,6 +2253,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResult {
   /**
    * <p>The tags related to the contact or escalation plan.</p>
@@ -1250,6 +2263,9 @@ export interface ListTagsForResourceResult {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface PutContactPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -1262,8 +2278,14 @@ export interface PutContactPolicyRequest {
   Policy: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutContactPolicyResult {}
 
+/**
+ * @public
+ */
 export interface SendActivationCodeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel.</p>
@@ -1271,8 +2293,14 @@ export interface SendActivationCodeRequest {
   ContactChannelId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SendActivationCodeResult {}
 
+/**
+ * @public
+ */
 export interface StartEngagementRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact being engaged.</p>
@@ -1320,6 +2348,9 @@ export interface StartEngagementRequest {
   IdempotencyToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartEngagementResult {
   /**
    * <p>The ARN of the engagement.</p>
@@ -1327,6 +2358,9 @@ export interface StartEngagementResult {
   EngagementArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopEngagementRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement.</p>
@@ -1334,13 +2368,19 @@ export interface StopEngagementRequest {
   EngagementId: string | undefined;
 
   /**
-   * <p>The reason that you're stopping the engagement. </p>
+   * <p>The reason that you're stopping the engagement.</p>
    */
   Reason?: string;
 }
 
+/**
+ * @public
+ */
 export interface StopEngagementResult {}
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -1353,8 +2393,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -1367,8 +2413,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResult {}
 
+/**
+ * @public
+ */
 export interface UpdateContactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan you're updating.</p>
@@ -1382,13 +2434,19 @@ export interface UpdateContactRequest {
 
   /**
    * <p>A list of stages. A contact has an engagement plan with stages for specified contact
-   *          channels. An escalation plan uses these stages to contact specified contacts. </p>
+   *          channels. An escalation plan uses these stages to contact specified contacts.</p>
    */
   Plan?: Plan;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactResult {}
 
+/**
+ * @public
+ */
 export interface UpdateContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel you want to update.</p>
@@ -1401,485 +2459,57 @@ export interface UpdateContactChannelRequest {
   Name?: string;
 
   /**
-   * <p>The details that Incident Manager uses when trying to engage the contact channel. </p>
+   * <p>The details that Incident Manager uses when trying to engage the contact channel.</p>
    */
   DeliveryAddress?: ContactChannelAddress;
 }
 
+/**
+ * @public
+ */
 export interface UpdateContactChannelResult {}
 
 /**
- * @internal
- */
-export const AcceptPageRequestFilterSensitiveLog = (obj: AcceptPageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptPageResultFilterSensitiveLog = (obj: AcceptPageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateContactChannelRequestFilterSensitiveLog = (obj: ActivateContactChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateContactChannelResultFilterSensitiveLog = (obj: ActivateContactChannelResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelTargetInfoFilterSensitiveLog = (obj: ChannelTargetInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContactFilterSensitiveLog = (obj: Contact): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContactChannelAddressFilterSensitiveLog = (obj: ContactChannelAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContactChannelFilterSensitiveLog = (obj: ContactChannel): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContactTargetInfoFilterSensitiveLog = (obj: ContactTargetInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetFilterSensitiveLog = (obj: Target): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StageFilterSensitiveLog = (obj: Stage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlanFilterSensitiveLog = (obj: Plan): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateContactRequestFilterSensitiveLog = (obj: CreateContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateContactResultFilterSensitiveLog = (obj: CreateContactResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateContactChannelRequestFilterSensitiveLog = (obj: CreateContactChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateContactChannelResultFilterSensitiveLog = (obj: CreateContactChannelResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeactivateContactChannelRequestFilterSensitiveLog = (obj: DeactivateContactChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeactivateContactChannelResultFilterSensitiveLog = (obj: DeactivateContactChannelResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteContactRequestFilterSensitiveLog = (obj: DeleteContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteContactResultFilterSensitiveLog = (obj: DeleteContactResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteContactChannelRequestFilterSensitiveLog = (obj: DeleteContactChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteContactChannelResultFilterSensitiveLog = (obj: DeleteContactChannelResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEngagementRequestFilterSensitiveLog = (obj: DescribeEngagementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEngagementResultFilterSensitiveLog = (obj: DescribeEngagementResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePageRequestFilterSensitiveLog = (obj: DescribePageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePageResultFilterSensitiveLog = (obj: DescribePageResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EngagementFilterSensitiveLog = (obj: Engagement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContactRequestFilterSensitiveLog = (obj: GetContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContactResultFilterSensitiveLog = (obj: GetContactResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContactChannelRequestFilterSensitiveLog = (obj: GetContactChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContactChannelResultFilterSensitiveLog = (obj: GetContactChannelResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContactPolicyRequestFilterSensitiveLog = (obj: GetContactPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetContactPolicyResultFilterSensitiveLog = (obj: GetContactPolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContactChannelsRequestFilterSensitiveLog = (obj: ListContactChannelsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContactChannelsResultFilterSensitiveLog = (obj: ListContactChannelsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContactsRequestFilterSensitiveLog = (obj: ListContactsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListContactsResultFilterSensitiveLog = (obj: ListContactsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEngagementsRequestFilterSensitiveLog = (obj: ListEngagementsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEngagementsResultFilterSensitiveLog = (obj: ListEngagementsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPageReceiptsRequestFilterSensitiveLog = (obj: ListPageReceiptsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReceiptFilterSensitiveLog = (obj: Receipt): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPageReceiptsResultFilterSensitiveLog = (obj: ListPageReceiptsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPagesByContactRequestFilterSensitiveLog = (obj: ListPagesByContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PageFilterSensitiveLog = (obj: Page): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPagesByContactResultFilterSensitiveLog = (obj: ListPagesByContactResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPagesByEngagementRequestFilterSensitiveLog = (obj: ListPagesByEngagementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPagesByEngagementResultFilterSensitiveLog = (obj: ListPagesByEngagementResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutContactPolicyRequestFilterSensitiveLog = (obj: PutContactPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutContactPolicyResultFilterSensitiveLog = (obj: PutContactPolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendActivationCodeRequestFilterSensitiveLog = (obj: SendActivationCodeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendActivationCodeResultFilterSensitiveLog = (obj: SendActivationCodeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartEngagementRequestFilterSensitiveLog = (obj: StartEngagementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartEngagementResultFilterSensitiveLog = (obj: StartEngagementResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopEngagementRequestFilterSensitiveLog = (obj: StopEngagementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopEngagementResultFilterSensitiveLog = (obj: StopEngagementResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContactRequestFilterSensitiveLog = (obj: UpdateContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContactResultFilterSensitiveLog = (obj: UpdateContactResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContactChannelRequestFilterSensitiveLog = (obj: UpdateContactChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateContactChannelResultFilterSensitiveLog = (obj: UpdateContactChannelResult): any => ({
-  ...obj,
-});
+ * @public
+ */
+export interface UpdateRotationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rotation to update.</p>
+   */
+  RotationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the contacts to include in the updated rotation. </p>
+   *          <p>The order in which you list the contacts is their shift order in the rotation
+   *          schedule.</p>
+   */
+  ContactIds?: string[];
+
+  /**
+   * <p>The date and time the rotation goes into effect.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The time zone to base the updated rotation’s activity on, in Internet Assigned Numbers
+   *          Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or "Asia/Seoul". For
+   *          more information, see the <a href="https://www.iana.org/time-zones">Time Zone
+   *             Database</a> on the IANA website.</p>
+   *          <note>
+   *             <p>Designators for time zones that don’t support Daylight Savings Time Rules, such as
+   *             Pacific Standard Time (PST) and Pacific Daylight Time (PDT), aren't supported.</p>
+   *          </note>
+   */
+  TimeZoneId?: string;
+
+  /**
+   * <p>Information about how long the updated rotation lasts before restarting at the beginning
+   *          of the shift order.</p>
+   */
+  Recurrence: RecurrenceSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRotationResult {}

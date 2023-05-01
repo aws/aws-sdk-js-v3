@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateGroupRequest,
-  CreateGroupRequestFilterSensitiveLog,
-  CreateGroupResponse,
-  CreateGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateGroupCommand,
-  serializeAws_restJson1CreateGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateGroupRequest, CreateGroupResponse } from "../models/models_0";
+import { de_CreateGroupCommand, se_CreateGroupCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateGroupCommand}.
  */
 export interface CreateGroupCommandInput extends CreateGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateGroupCommand}.
  */
 export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a group which you can use to associate canaries with each other, including cross-Region
  *          canaries. Using groups can help you with
  *          managing and automating your canaries, and you can also view aggregated run results and statistics
@@ -54,10 +51,18 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * import { SyntheticsClient, CreateGroupCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, CreateGroupCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = { // CreateGroupRequest
+ *   Name: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
+ * @returns {@link CreateGroupCommandOutput}
  * @see {@link CreateGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
@@ -93,6 +98,9 @@ export class CreateGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +127,8 @@ export class CreateGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +138,18 @@ export class CreateGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGroupCommand(input, context);
+    return se_CreateGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGroupCommandOutput> {
-    return deserializeAws_restJson1CreateGroupCommand(output, context);
+    return de_CreateGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  PutDomainPermissionsPolicyRequest,
-  PutDomainPermissionsPolicyRequestFilterSensitiveLog,
-  PutDomainPermissionsPolicyResult,
-  PutDomainPermissionsPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutDomainPermissionsPolicyCommand,
-  serializeAws_restJson1PutDomainPermissionsPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { PutDomainPermissionsPolicyRequest, PutDomainPermissionsPolicyResult } from "../models/models_0";
+import { de_PutDomainPermissionsPolicyCommand, se_PutDomainPermissionsPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDomainPermissionsPolicyCommand}.
  */
 export interface PutDomainPermissionsPolicyCommandInput extends PutDomainPermissionsPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDomainPermissionsPolicyCommand}.
  */
 export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermissionsPolicyResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *         Sets a resource policy on a domain that specifies permissions to access it.
  *       </p>
@@ -49,10 +46,18 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  * import { CodeartifactClient, PutDomainPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, PutDomainPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // PutDomainPermissionsPolicyRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   policyRevision: "STRING_VALUE",
+ *   policyDocument: "STRING_VALUE", // required
+ * };
  * const command = new PutDomainPermissionsPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDomainPermissionsPolicyCommandInput - {@link PutDomainPermissionsPolicyCommandInput}
+ * @returns {@link PutDomainPermissionsPolicyCommandOutput}
  * @see {@link PutDomainPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDomainPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -109,6 +114,9 @@ export class PutDomainPermissionsPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDomainPermissionsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,8 +145,8 @@ export class PutDomainPermissionsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDomainPermissionsPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDomainPermissionsPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -148,15 +156,21 @@ export class PutDomainPermissionsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDomainPermissionsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDomainPermissionsPolicyCommand(input, context);
+    return se_PutDomainPermissionsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDomainPermissionsPolicyCommandOutput> {
-    return deserializeAws_restJson1PutDomainPermissionsPolicyCommand(output, context);
+    return de_PutDomainPermissionsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

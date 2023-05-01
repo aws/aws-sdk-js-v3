@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  UpdateTemplateRequest,
-  UpdateTemplateRequestFilterSensitiveLog,
-  UpdateTemplateResponse,
-  UpdateTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateTemplateCommand,
-  serializeAws_restJson1UpdateTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateTemplateRequest, UpdateTemplateResponse } from "../models/models_0";
+import { de_UpdateTemplateCommand, se_UpdateTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTemplateCommand}.
  */
 export interface UpdateTemplateCommandInput extends UpdateTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTemplateCommand}.
  */
 export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the attributes of an existing template. The template attributes that can be
  *       modified include <code>name</code>, <code>description</code>,
  *       <code>layoutConfiguration</code>, <code>requiredFields</code>, and <code>status</code>. At
@@ -46,10 +43,27 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * import { ConnectCasesClient, UpdateTemplateCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, UpdateTemplateCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = { // UpdateTemplateRequest
+ *   domainId: "STRING_VALUE", // required
+ *   templateId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   layoutConfiguration: { // LayoutConfiguration
+ *     defaultLayout: "STRING_VALUE",
+ *   },
+ *   requiredFields: [ // RequiredFieldList
+ *     { // RequiredField
+ *       fieldId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   status: "STRING_VALUE",
+ * };
  * const command = new UpdateTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTemplateCommandInput - {@link UpdateTemplateCommandInput}
+ * @returns {@link UpdateTemplateCommandOutput}
  * @see {@link UpdateTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
@@ -95,6 +109,9 @@ export class UpdateTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +140,8 @@ export class UpdateTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +151,18 @@ export class UpdateTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTemplateCommand(input, context);
+    return se_UpdateTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateTemplateCommand(output, context);
+    return de_UpdateTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

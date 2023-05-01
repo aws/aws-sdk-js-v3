@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  StopCalculationExecutionRequest,
-  StopCalculationExecutionRequestFilterSensitiveLog,
-  StopCalculationExecutionResponse,
-  StopCalculationExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopCalculationExecutionCommand,
-  serializeAws_json1_1StopCalculationExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { StopCalculationExecutionRequest, StopCalculationExecutionResponse } from "../models/models_0";
+import { de_StopCalculationExecutionCommand, se_StopCalculationExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopCalculationExecutionCommand}.
  */
 export interface StopCalculationExecutionCommandInput extends StopCalculationExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopCalculationExecutionCommand}.
  */
 export interface StopCalculationExecutionCommandOutput extends StopCalculationExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests the cancellation of a calculation. A <code>StopCalculationExecution</code>
  *             call on a calculation that is already in a terminal state (for example,
  *                 <code>STOPPED</code>, <code>FAILED</code>, or <code>COMPLETED</code>) succeeds but
@@ -51,10 +48,15 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  * import { AthenaClient, StopCalculationExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StopCalculationExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // StopCalculationExecutionRequest
+ *   CalculationExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new StopCalculationExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopCalculationExecutionCommandInput - {@link StopCalculationExecutionCommandInput}
+ * @returns {@link StopCalculationExecutionCommandOutput}
  * @see {@link StopCalculationExecutionCommandInput} for command's `input` shape.
  * @see {@link StopCalculationExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
@@ -89,6 +91,9 @@ export class StopCalculationExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopCalculationExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +122,8 @@ export class StopCalculationExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopCalculationExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopCalculationExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +133,18 @@ export class StopCalculationExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopCalculationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopCalculationExecutionCommand(input, context);
+    return se_StopCalculationExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCalculationExecutionCommandOutput> {
-    return deserializeAws_json1_1StopCalculationExecutionCommand(output, context);
+    return de_StopCalculationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

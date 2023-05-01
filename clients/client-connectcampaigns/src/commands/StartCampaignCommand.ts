@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { StartCampaignRequest, StartCampaignRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartCampaignCommand,
-  serializeAws_restJson1StartCampaignCommand,
-} from "../protocols/Aws_restJson1";
+import { StartCampaignRequest } from "../models/models_0";
+import { de_StartCampaignCommand, se_StartCampaignCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartCampaignCommand}.
  */
 export interface StartCampaignCommandInput extends StartCampaignRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartCampaignCommand}.
  */
 export interface StartCampaignCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Starts a campaign for the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface StartCampaignCommandOutput extends __MetadataBearer {}
  * import { ConnectCampaignsClient, StartCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, StartCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = { // StartCampaignRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new StartCampaignCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartCampaignCommandInput - {@link StartCampaignCommandInput}
+ * @returns {@link StartCampaignCommandOutput}
  * @see {@link StartCampaignCommandInput} for command's `input` shape.
  * @see {@link StartCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.
@@ -85,6 +92,9 @@ export class StartCampaignCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartCampaignCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +121,8 @@ export class StartCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +132,18 @@ export class StartCampaignCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartCampaignCommand(input, context);
+    return se_StartCampaignCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCampaignCommandOutput> {
-    return deserializeAws_restJson1StartCampaignCommand(output, context);
+    return de_StartCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

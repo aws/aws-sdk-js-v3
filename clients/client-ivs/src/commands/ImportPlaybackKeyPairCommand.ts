@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  ImportPlaybackKeyPairRequest,
-  ImportPlaybackKeyPairRequestFilterSensitiveLog,
-  ImportPlaybackKeyPairResponse,
-  ImportPlaybackKeyPairResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportPlaybackKeyPairCommand,
-  serializeAws_restJson1ImportPlaybackKeyPairCommand,
-} from "../protocols/Aws_restJson1";
+import { ImportPlaybackKeyPairRequest, ImportPlaybackKeyPairResponse } from "../models/models_0";
+import { de_ImportPlaybackKeyPairCommand, se_ImportPlaybackKeyPairCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ImportPlaybackKeyPairCommand}.
  */
 export interface ImportPlaybackKeyPairCommandInput extends ImportPlaybackKeyPairRequest {}
 /**
+ * @public
+ *
  * The output of {@link ImportPlaybackKeyPairCommand}.
  */
 export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Imports the public portion of a new key pair and returns its <code>arn</code> and
  *         <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate viewer
  *       authorization tokens, to grant viewers access to private channels. For more information, see
@@ -46,10 +43,19 @@ export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPai
  * import { IvsClient, ImportPlaybackKeyPairCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, ImportPlaybackKeyPairCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // ImportPlaybackKeyPairRequest
+ *   publicKeyMaterial: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ImportPlaybackKeyPairCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ImportPlaybackKeyPairCommandInput - {@link ImportPlaybackKeyPairCommandInput}
+ * @returns {@link ImportPlaybackKeyPairCommandOutput}
  * @see {@link ImportPlaybackKeyPairCommandInput} for command's `input` shape.
  * @see {@link ImportPlaybackKeyPairCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -88,6 +94,9 @@ export class ImportPlaybackKeyPairCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ImportPlaybackKeyPairCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +125,8 @@ export class ImportPlaybackKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportPlaybackKeyPairRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportPlaybackKeyPairResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +136,18 @@ export class ImportPlaybackKeyPairCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ImportPlaybackKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportPlaybackKeyPairCommand(input, context);
+    return se_ImportPlaybackKeyPairCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportPlaybackKeyPairCommandOutput> {
-    return deserializeAws_restJson1ImportPlaybackKeyPairCommand(output, context);
+    return de_ImportPlaybackKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

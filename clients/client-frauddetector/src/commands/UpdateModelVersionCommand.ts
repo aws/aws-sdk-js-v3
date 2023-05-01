@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  UpdateModelVersionRequest,
-  UpdateModelVersionRequestFilterSensitiveLog,
-  UpdateModelVersionResult,
-  UpdateModelVersionResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateModelVersionCommand,
-  serializeAws_json1_1UpdateModelVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateModelVersionRequest, UpdateModelVersionResult } from "../models/models_0";
+import { de_UpdateModelVersionCommand, se_UpdateModelVersionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateModelVersionCommand}.
  */
 export interface UpdateModelVersionCommandInput extends UpdateModelVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateModelVersionCommand}.
  */
 export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a model version. Updating a model version retrains an existing model version using updated training data and produces a new minor version of the model. You can update the training data set location and data access role attributes using this action. This action creates and trains a new minor version of the model, for example version 1.01, 1.02, 1.03.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,33 @@ export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResul
  * import { FraudDetectorClient, UpdateModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = { // UpdateModelVersionRequest
+ *   modelId: "STRING_VALUE", // required
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ *   majorVersionNumber: "STRING_VALUE", // required
+ *   externalEventsDetail: { // ExternalEventsDetail
+ *     dataLocation: "STRING_VALUE", // required
+ *     dataAccessRoleArn: "STRING_VALUE", // required
+ *   },
+ *   ingestedEventsDetail: { // IngestedEventsDetail
+ *     ingestedEventsTimeWindow: { // IngestedEventsTimeWindow
+ *       startTime: "STRING_VALUE", // required
+ *       endTime: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   tags: [ // tagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateModelVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateModelVersionCommandInput - {@link UpdateModelVersionCommandInput}
+ * @returns {@link UpdateModelVersionCommandOutput}
  * @see {@link UpdateModelVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateModelVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
@@ -87,6 +107,9 @@ export class UpdateModelVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateModelVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +138,8 @@ export class UpdateModelVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateModelVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateModelVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +149,18 @@ export class UpdateModelVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateModelVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateModelVersionCommand(input, context);
+    return se_UpdateModelVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelVersionCommandOutput> {
-    return deserializeAws_json1_1UpdateModelVersionCommand(output, context);
+    return de_UpdateModelVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

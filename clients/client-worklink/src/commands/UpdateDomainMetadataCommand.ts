@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDomainMetadataRequest,
-  UpdateDomainMetadataRequestFilterSensitiveLog,
-  UpdateDomainMetadataResponse,
-  UpdateDomainMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDomainMetadataCommand,
-  serializeAws_restJson1UpdateDomainMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDomainMetadataRequest, UpdateDomainMetadataResponse } from "../models/models_0";
+import { de_UpdateDomainMetadataCommand, se_UpdateDomainMetadataCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDomainMetadataCommand}.
  */
 export interface UpdateDomainMetadataCommandInput extends UpdateDomainMetadataRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDomainMetadataCommand}.
  */
 export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Updates domain metadata, such as DisplayName.</p>
@@ -44,10 +41,17 @@ export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataR
  * import { WorkLinkClient, UpdateDomainMetadataCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UpdateDomainMetadataCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = { // UpdateDomainMetadataRequest
+ *   FleetArn: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ * };
  * const command = new UpdateDomainMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDomainMetadataCommandInput - {@link UpdateDomainMetadataCommandInput}
+ * @returns {@link UpdateDomainMetadataCommandOutput}
  * @see {@link UpdateDomainMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
@@ -86,6 +90,9 @@ export class UpdateDomainMetadataCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDomainMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +121,8 @@ export class UpdateDomainMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +132,18 @@ export class UpdateDomainMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDomainMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDomainMetadataCommand(input, context);
+    return se_UpdateDomainMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainMetadataCommandOutput> {
-    return deserializeAws_restJson1UpdateDomainMetadataCommand(output, context);
+    return de_UpdateDomainMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

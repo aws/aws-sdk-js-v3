@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAutoMLJobsRequest,
-  ListAutoMLJobsRequestFilterSensitiveLog,
-  ListAutoMLJobsResponse,
-  ListAutoMLJobsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListAutoMLJobsCommand,
-  serializeAws_json1_1ListAutoMLJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListAutoMLJobsRequest, ListAutoMLJobsResponse } from "../models/models_3";
+import { de_ListAutoMLJobsCommand, se_ListAutoMLJobsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAutoMLJobsCommand}.
  */
 export interface ListAutoMLJobsCommandInput extends ListAutoMLJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAutoMLJobsCommand}.
  */
 export interface ListAutoMLJobsCommandOutput extends ListAutoMLJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Request a list of jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListAutoMLJobsCommandOutput extends ListAutoMLJobsResponse, __M
  * import { SageMakerClient, ListAutoMLJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAutoMLJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListAutoMLJobsRequest
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   NameContains: "STRING_VALUE",
+ *   StatusEquals: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping",
+ *   SortOrder: "Ascending" || "Descending",
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAutoMLJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAutoMLJobsCommandInput - {@link ListAutoMLJobsCommandInput}
+ * @returns {@link ListAutoMLJobsCommandOutput}
  * @see {@link ListAutoMLJobsCommandInput} for command's `input` shape.
  * @see {@link ListAutoMLJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -69,6 +80,9 @@ export class ListAutoMLJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAutoMLJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +111,8 @@ export class ListAutoMLJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAutoMLJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAutoMLJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +122,18 @@ export class ListAutoMLJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAutoMLJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAutoMLJobsCommand(input, context);
+    return se_ListAutoMLJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAutoMLJobsCommandOutput> {
-    return deserializeAws_json1_1ListAutoMLJobsCommand(output, context);
+    return de_ListAutoMLJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

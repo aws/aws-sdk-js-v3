@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  ListPredictorsRequest,
-  ListPredictorsRequestFilterSensitiveLog,
-  ListPredictorsResponse,
-  ListPredictorsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPredictorsCommand,
-  serializeAws_json1_1ListPredictorsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListPredictorsRequest, ListPredictorsResponse } from "../models/models_0";
+import { de_ListPredictorsCommand, se_ListPredictorsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListPredictorsCommand}.
  */
 export interface ListPredictorsCommandInput extends ListPredictorsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListPredictorsCommand}.
  */
 export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of predictors created using the <a>CreateAutoPredictor</a> or
  *         <a>CreatePredictor</a> operations. For each predictor, this operation returns a
  *       summary of its properties, including its Amazon Resource Name (ARN). </p>
@@ -46,10 +43,23 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  * import { ForecastClient, ListPredictorsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListPredictorsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // ListPredictorsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Condition: "IS" || "IS_NOT", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListPredictorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListPredictorsCommandInput - {@link ListPredictorsCommandInput}
+ * @returns {@link ListPredictorsCommandOutput}
  * @see {@link ListPredictorsCommandInput} for command's `input` shape.
  * @see {@link ListPredictorsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -80,6 +90,9 @@ export class ListPredictorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListPredictorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +121,8 @@ export class ListPredictorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPredictorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPredictorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +132,18 @@ export class ListPredictorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPredictorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPredictorsCommand(input, context);
+    return se_ListPredictorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPredictorsCommandOutput> {
-    return deserializeAws_json1_1ListPredictorsCommand(output, context);
+    return de_ListPredictorsCommand(output, context);
   }
 
   // Start section: command_body_extra

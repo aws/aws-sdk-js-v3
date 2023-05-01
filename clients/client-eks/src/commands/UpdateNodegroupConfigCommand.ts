@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  UpdateNodegroupConfigRequest,
-  UpdateNodegroupConfigRequestFilterSensitiveLog,
-  UpdateNodegroupConfigResponse,
-  UpdateNodegroupConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateNodegroupConfigCommand,
-  serializeAws_restJson1UpdateNodegroupConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateNodegroupConfigRequest, UpdateNodegroupConfigResponse } from "../models/models_0";
+import { de_UpdateNodegroupConfigCommand, se_UpdateNodegroupConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateNodegroupConfigCommand}.
  */
 export interface UpdateNodegroupConfigCommandInput extends UpdateNodegroupConfigRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateNodegroupConfigCommand}.
  */
 export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an Amazon EKS managed node group configuration. Your node group
  *             continues to function during the update. The response output includes an update ID that
  *             you can use to track the status of your node group update with the <a>DescribeUpdate</a> API operation. Currently you can update the Kubernetes
@@ -45,10 +42,50 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  * import { EKSClient, UpdateNodegroupConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateNodegroupConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = { // UpdateNodegroupConfigRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   nodegroupName: "STRING_VALUE", // required
+ *   labels: { // UpdateLabelsPayload
+ *     addOrUpdateLabels: { // labelsMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     removeLabels: [ // labelsKeyList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   taints: { // UpdateTaintsPayload
+ *     addOrUpdateTaints: [ // taintsList
+ *       { // Taint
+ *         key: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *         effect: "NO_SCHEDULE" || "NO_EXECUTE" || "PREFER_NO_SCHEDULE",
+ *       },
+ *     ],
+ *     removeTaints: [
+ *       {
+ *         key: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *         effect: "NO_SCHEDULE" || "NO_EXECUTE" || "PREFER_NO_SCHEDULE",
+ *       },
+ *     ],
+ *   },
+ *   scalingConfig: { // NodegroupScalingConfig
+ *     minSize: Number("int"),
+ *     maxSize: Number("int"),
+ *     desiredSize: Number("int"),
+ *   },
+ *   updateConfig: { // NodegroupUpdateConfig
+ *     maxUnavailable: Number("int"),
+ *     maxUnavailablePercentage: Number("int"),
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new UpdateNodegroupConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateNodegroupConfigCommandInput - {@link UpdateNodegroupConfigCommandInput}
+ * @returns {@link UpdateNodegroupConfigCommandOutput}
  * @see {@link UpdateNodegroupConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateNodegroupConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
@@ -97,6 +134,9 @@ export class UpdateNodegroupConfigCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateNodegroupConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +165,8 @@ export class UpdateNodegroupConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNodegroupConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNodegroupConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +176,18 @@ export class UpdateNodegroupConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateNodegroupConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNodegroupConfigCommand(input, context);
+    return se_UpdateNodegroupConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNodegroupConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateNodegroupConfigCommand(output, context);
+    return de_UpdateNodegroupConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

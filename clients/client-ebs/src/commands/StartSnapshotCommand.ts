@@ -20,21 +20,23 @@ import {
   StartSnapshotResponse,
   StartSnapshotResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartSnapshotCommand,
-  serializeAws_restJson1StartSnapshotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartSnapshotCommand, se_StartSnapshotCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartSnapshotCommand}.
  */
 export interface StartSnapshotCommandInput extends StartSnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartSnapshotCommand}.
  */
 export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code> state
  *             after the request completes. </p>
  *         <p>After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html"> PutSnapshotBlock</a> to
@@ -45,10 +47,27 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * import { EBSClient, StartSnapshotCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, StartSnapshotCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
  * const client = new EBSClient(config);
+ * const input = { // StartSnapshotRequest
+ *   VolumeSize: Number("long"), // required
+ *   ParentSnapshotId: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   Encrypted: true || false,
+ *   KmsKeyArn: "STRING_VALUE",
+ *   Timeout: Number("int"),
+ * };
  * const command = new StartSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartSnapshotCommandInput - {@link StartSnapshotCommandInput}
+ * @returns {@link StartSnapshotCommandOutput}
  * @see {@link StartSnapshotCommandInput} for command's `input` shape.
  * @see {@link StartSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
@@ -100,6 +119,9 @@ export class StartSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -137,12 +159,18 @@ export class StartSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartSnapshotCommand(input, context);
+    return se_StartSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSnapshotCommandOutput> {
-    return deserializeAws_restJson1StartSnapshotCommand(output, context);
+    return de_StartSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  CreateChangesetRequest,
-  CreateChangesetRequestFilterSensitiveLog,
-  CreateChangesetResponse,
-  CreateChangesetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateChangesetCommand,
-  serializeAws_restJson1CreateChangesetCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateChangesetRequest, CreateChangesetResponse } from "../models/models_0";
+import { de_CreateChangesetCommand, se_CreateChangesetCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateChangesetCommand}.
  */
 export interface CreateChangesetCommandInput extends CreateChangesetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateChangesetCommand}.
  */
 export interface CreateChangesetCommandOutput extends CreateChangesetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new Changeset in a FinSpace Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
  * import { FinspaceDataClient, CreateChangesetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreateChangesetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = { // CreateChangesetRequest
+ *   clientToken: "STRING_VALUE",
+ *   datasetId: "STRING_VALUE", // required
+ *   changeType: "STRING_VALUE", // required
+ *   sourceParams: { // SourceParams // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   formatParams: { // FormatParams // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateChangesetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateChangesetCommandInput - {@link CreateChangesetCommandInput}
+ * @returns {@link CreateChangesetCommandOutput}
  * @see {@link CreateChangesetCommandInput} for command's `input` shape.
  * @see {@link CreateChangesetCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.
@@ -91,6 +101,9 @@ export class CreateChangesetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateChangesetCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +132,8 @@ export class CreateChangesetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChangesetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateChangesetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +143,18 @@ export class CreateChangesetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateChangesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateChangesetCommand(input, context);
+    return se_CreateChangesetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChangesetCommandOutput> {
-    return deserializeAws_restJson1CreateChangesetCommand(output, context);
+    return de_CreateChangesetCommand(output, context);
   }
 
   // Start section: command_body_extra

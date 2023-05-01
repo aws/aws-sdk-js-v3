@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetServiceInput,
-  GetServiceInputFilterSensitiveLog,
-  GetServiceOutput,
-  GetServiceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetServiceCommand,
-  serializeAws_json1_0GetServiceCommand,
-} from "../protocols/Aws_json1_0";
+import { GetServiceInput, GetServiceOutput, GetServiceOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetServiceCommand, se_GetServiceCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetServiceCommand}.
  */
 export interface GetServiceCommandInput extends GetServiceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetServiceCommand}.
  */
 export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get detailed data for a service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * import { ProtonClient, GetServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // GetServiceInput
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetServiceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetServiceCommandInput - {@link GetServiceCommandInput}
+ * @returns {@link GetServiceCommandOutput}
  * @see {@link GetServiceCommandInput} for command's `input` shape.
  * @see {@link GetServiceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetServiceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +115,7 @@ export class GetServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetServiceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -121,12 +126,18 @@ export class GetServiceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetServiceCommand(input, context);
+    return se_GetServiceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceCommandOutput> {
-    return deserializeAws_json1_0GetServiceCommand(output, context);
+    return de_GetServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { XRayServiceException as __BaseException } from "./XRayServiceException";
 
 /**
+ * @public
  * <p>An alias for an edge.</p>
  */
 export interface Alias {
@@ -24,6 +25,7 @@ export interface Alias {
 }
 
 /**
+ * @public
  * <p>Value of a segment annotation. Has one of three value types: Number, Boolean, or String.</p>
  */
 export type AnnotationValue =
@@ -32,6 +34,9 @@ export type AnnotationValue =
   | AnnotationValue.StringValueMember
   | AnnotationValue.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace AnnotationValue {
   /**
    * <p>Value for a Number annotation.</p>
@@ -86,6 +91,7 @@ export namespace AnnotationValue {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface ServiceId {
@@ -111,6 +117,7 @@ export interface ServiceId {
 }
 
 /**
+ * @public
  * <p>Information about a segment annotation.</p>
  */
 export interface ValueWithServiceIds {
@@ -126,6 +133,7 @@ export interface ValueWithServiceIds {
 }
 
 /**
+ * @public
  * <p>The service within the service graph that has anomalously high fault rates. </p>
  */
 export interface AnomalousService {
@@ -136,6 +144,7 @@ export interface AnomalousService {
 }
 
 /**
+ * @public
  * <p>A list of Availability Zones corresponding to the segments in a trace.</p>
  */
 export interface AvailabilityZoneDetail {
@@ -145,6 +154,9 @@ export interface AvailabilityZoneDetail {
   Name?: string;
 }
 
+/**
+ * @public
+ */
 export interface BatchGetTracesRequest {
   /**
    * <p>Specify the trace IDs of requests for which to retrieve segments.</p>
@@ -158,6 +170,7 @@ export interface BatchGetTracesRequest {
 }
 
 /**
+ * @public
  * <p>A segment from a trace that has been ingested by the X-Ray service. The segment can be
  *       compiled from documents uploaded with <a href="https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html">PutTraceSegments</a>, or an
  *         <code>inferred</code> segment for a downstream service, generated from a subsegment sent by
@@ -178,6 +191,7 @@ export interface Segment {
 }
 
 /**
+ * @public
  * <p>A collection of segment documents with matching trace IDs.</p>
  */
 export interface Trace {
@@ -205,6 +219,9 @@ export interface Trace {
   Segments?: Segment[];
 }
 
+/**
+ * @public
+ */
 export interface BatchGetTracesResult {
   /**
    * <p>Full traces for the specified requests.</p>
@@ -223,6 +240,7 @@ export interface BatchGetTracesResult {
 }
 
 /**
+ * @public
  * <p>The request is missing required parameters or has invalid parameters.</p>
  */
 export class InvalidRequestException extends __BaseException {
@@ -244,6 +262,7 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The request exceeds the maximum number of requests per second.</p>
  */
 export class ThrottledException extends __BaseException {
@@ -265,6 +284,7 @@ export class ThrottledException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The structure containing configurations related to insights.</p>
  */
 export interface InsightsConfiguration {
@@ -282,6 +302,7 @@ export interface InsightsConfiguration {
 }
 
 /**
+ * @public
  * <p>A map that contains tag keys and tag values to attach to an Amazon Web Services X-Ray group or sampling
  *       rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
  *       in the <i>Amazon Web Services General Reference</i>.</p>
@@ -317,6 +338,9 @@ export interface Tag {
   Value: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupRequest {
   /**
    * <p>The case-sensitive name of the new group. Default is a reserved name and names must
@@ -331,16 +355,16 @@ export interface CreateGroupRequest {
 
   /**
    * <p>The structure containing configurations related to insights.</p>
-   *             <ul>
+   *          <ul>
    *             <li>
-   *                     <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
    *                     new group or false to disable insights for the new group.</p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                     <p>The NotificationsEnabled boolean can be set to true to enable insights
+   *                <p>The NotificationsEnabled boolean can be set to true to enable insights
    *                     notifications for the new group. Notifications may only be enabled on a group
    *                     with InsightsEnabled set to true.</p>
-   *                 </li>
+   *             </li>
    *          </ul>
    */
   InsightsConfiguration?: InsightsConfiguration;
@@ -349,26 +373,26 @@ export interface CreateGroupRequest {
    * <p>A map that contains one or more tag keys and tag values to attach to an X-Ray group.
    *             For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *         <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Maximum number of user-applied tags per resource: 50</p>
+   *                <p>Maximum number of user-applied tags per resource: 50</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum tag key length: 128 Unicode characters</p>
+   *                <p>Maximum tag key length: 128 Unicode characters</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum tag value length: 256 Unicode characters</p>
+   *                <p>Maximum tag value length: 256 Unicode characters</p>
    *             </li>
    *             <li>
-   *                 <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . :
+   *                <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . :
    *                     / = + - and @</p>
    *             </li>
    *             <li>
-   *                 <p>Tag keys and values are case sensitive.</p>
+   *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                 <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services
+   *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services
    *                     use.</p>
    *             </li>
    *          </ul>
@@ -377,6 +401,7 @@ export interface CreateGroupRequest {
 }
 
 /**
+ * @public
  * <p>Details and metadata for a group.</p>
  */
 export interface Group {
@@ -397,13 +422,13 @@ export interface Group {
 
   /**
    * <p>The structure containing configurations related to insights.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
    *                     group or false to disable insights for the group.</p>
    *             </li>
    *             <li>
-   *                 <p>The NotificationsEnabled boolean can be set to true to enable insights
+   *                <p>The NotificationsEnabled boolean can be set to true to enable insights
    *                     notifications through Amazon EventBridge for the group.</p>
    *             </li>
    *          </ul>
@@ -411,6 +436,9 @@ export interface Group {
   InsightsConfiguration?: InsightsConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateGroupResult {
   /**
    * <p>The group that was created. Contains the name of the group that was created, the Amazon Resource Name
@@ -421,6 +449,7 @@ export interface CreateGroupResult {
 }
 
 /**
+ * @public
  * <p>A sampling rule that services use to decide whether to instrument a request. Rule
  *       fields can match properties of the service, or properties of a request. The service can ignore
  *       rules that don't match its properties.</p>
@@ -494,6 +523,9 @@ export interface SamplingRule {
   Attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateSamplingRuleRequest {
   /**
    * <p>The rule definition.</p>
@@ -532,6 +564,7 @@ export interface CreateSamplingRuleRequest {
 }
 
 /**
+ * @public
  * <p>A <a href="https://docs.aws.amazon.com/xray/latest/api/API_SamplingRule.html">SamplingRule</a> and its metadata.</p>
  */
 export interface SamplingRuleRecord {
@@ -551,6 +584,9 @@ export interface SamplingRuleRecord {
   ModifiedAt?: Date;
 }
 
+/**
+ * @public
+ */
 export interface CreateSamplingRuleResult {
   /**
    * <p>The saved rule definition and metadata.</p>
@@ -559,6 +595,7 @@ export interface CreateSamplingRuleResult {
 }
 
 /**
+ * @public
  * <p>You have reached the maximum number of sampling rules.</p>
  */
 export class RuleLimitExceededException extends __BaseException {
@@ -579,6 +616,9 @@ export class RuleLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupRequest {
   /**
    * <p>The case-sensitive name of the group.</p>
@@ -591,8 +631,14 @@ export interface DeleteGroupRequest {
   GroupARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteGroupResult {}
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The name of the resource policy to delete.</p>
@@ -607,9 +653,13 @@ export interface DeleteResourcePolicyRequest {
   PolicyRevisionId?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResult {}
 
 /**
+ * @public
  * <p>A policy revision id was provided which does not match the latest policy revision. This exception is also
  *     if a policy revision id of 0 is provided via <code>PutResourcePolicy</code> and a policy with the same name already exists.</p>
  */
@@ -631,6 +681,9 @@ export class InvalidPolicyRevisionIdException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteSamplingRuleRequest {
   /**
    * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
@@ -643,6 +696,9 @@ export interface DeleteSamplingRuleRequest {
   RuleARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface DeleteSamplingRuleResult {
   /**
    * <p>The deleted rule definition and metadata.</p>
@@ -650,19 +706,41 @@ export interface DeleteSamplingRuleResult {
   SamplingRuleRecord?: SamplingRuleRecord;
 }
 
+/**
+ * @public
+ */
 export interface GetEncryptionConfigRequest {}
 
-export enum EncryptionStatus {
-  ACTIVE = "ACTIVE",
-  UPDATING = "UPDATING",
-}
-
-export enum EncryptionType {
-  KMS = "KMS",
-  NONE = "NONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionStatus = {
+  ACTIVE: "ACTIVE",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  KMS: "KMS",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * @public
  * <p>A configuration document that specifies encryption configuration settings.</p>
  */
 export interface EncryptionConfig {
@@ -683,6 +761,9 @@ export interface EncryptionConfig {
   Type?: EncryptionType | string;
 }
 
+/**
+ * @public
+ */
 export interface GetEncryptionConfigResult {
   /**
    * <p>The encryption configuration document.</p>
@@ -690,6 +771,9 @@ export interface GetEncryptionConfigResult {
   EncryptionConfig?: EncryptionConfig;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupRequest {
   /**
    * <p>The case-sensitive name of the group.</p>
@@ -702,6 +786,9 @@ export interface GetGroupRequest {
   GroupARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupResult {
   /**
    * <p>The group that was requested. Contains the name of the group, the ARN of the group,
@@ -710,6 +797,9 @@ export interface GetGroupResult {
   Group?: Group;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupsRequest {
   /**
    * <p>Pagination token.</p>
@@ -718,6 +808,7 @@ export interface GetGroupsRequest {
 }
 
 /**
+ * @public
  * <p>Details for a group without metadata.</p>
  */
 export interface GroupSummary {
@@ -738,13 +829,13 @@ export interface GroupSummary {
 
   /**
    * <p>The structure containing configurations related to insights.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
    *                     group or false to disable insights for the group.</p>
    *             </li>
    *             <li>
-   *                 <p>The NotificationsEnabled boolean can be set to true to enable insights notifications.
+   *                <p>The NotificationsEnabled boolean can be set to true to enable insights notifications.
    *                     Notifications can only be enabled on a group with InsightsEnabled set to true.</p>
    *             </li>
    *          </ul>
@@ -752,6 +843,9 @@ export interface GroupSummary {
   InsightsConfiguration?: InsightsConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface GetGroupsResult {
   /**
    * <p>The collection of all active groups.</p>
@@ -764,6 +858,9 @@ export interface GetGroupsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightRequest {
   /**
    * <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
@@ -771,11 +868,21 @@ export interface GetInsightRequest {
   InsightId: string | undefined;
 }
 
-export enum InsightCategory {
-  FAULT = "FAULT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InsightCategory = {
+  FAULT: "FAULT",
+} as const;
 
 /**
+ * @public
+ */
+export type InsightCategory = (typeof InsightCategory)[keyof typeof InsightCategory];
+
+/**
+ * @public
  * <p>Statistics that describe how the incident has impacted a service.</p>
  */
 export interface RequestImpactStatistics {
@@ -795,12 +902,22 @@ export interface RequestImpactStatistics {
   TotalCount?: number;
 }
 
-export enum InsightState {
-  ACTIVE = "ACTIVE",
-  CLOSED = "CLOSED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InsightState = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+} as const;
 
 /**
+ * @public
+ */
+export type InsightState = (typeof InsightState)[keyof typeof InsightState];
+
+/**
+ * @public
  * <p>When fault rates go outside of the expected range, X-Ray creates an insight. Insights
  *          tracks emergent issues within your applications.</p>
  */
@@ -868,6 +985,9 @@ export interface Insight {
   TopAnomalousServices?: AnomalousService[];
 }
 
+/**
+ * @public
+ */
 export interface GetInsightResult {
   /**
    * <p>The summary information of an insight.</p>
@@ -875,6 +995,9 @@ export interface GetInsightResult {
   Insight?: Insight;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightEventsRequest {
   /**
    * <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
@@ -893,6 +1016,7 @@ export interface GetInsightEventsRequest {
 }
 
 /**
+ * @public
  * <p>X-Ray reevaluates insights periodically until they are resolved, and records each intermediate state in an
  *          event. You can review incident events in the Impact Timeline on the Inspect page in the X-Ray console.</p>
  */
@@ -925,6 +1049,9 @@ export interface InsightEvent {
   TopAnomalousServices?: AnomalousService[];
 }
 
+/**
+ * @public
+ */
 export interface GetInsightEventsResult {
   /**
    * <p>A detailed description of the event. This includes the time of the event, client and
@@ -939,6 +1066,9 @@ export interface GetInsightEventsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightImpactGraphRequest {
   /**
    * <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
@@ -964,6 +1094,7 @@ export interface GetInsightImpactGraphRequest {
 }
 
 /**
+ * @public
  * <p>The connection between two service in an insight impact graph.</p>
  */
 export interface InsightImpactGraphEdge {
@@ -974,6 +1105,7 @@ export interface InsightImpactGraphEdge {
 }
 
 /**
+ * @public
  * <p>Information about an application that processed requests, users that made requests, or downstream services,
  *          resources, and applications that an application used. </p>
  */
@@ -1026,6 +1158,9 @@ export interface InsightImpactGraphService {
   Edges?: InsightImpactGraphEdge[];
 }
 
+/**
+ * @public
+ */
 export interface GetInsightImpactGraphResult {
   /**
    * <p>The insight's unique identifier.</p>
@@ -1063,6 +1198,9 @@ export interface GetInsightImpactGraphResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightSummariesRequest {
   /**
    * <p>The list of insight states. </p>
@@ -1102,6 +1240,7 @@ export interface GetInsightSummariesRequest {
 }
 
 /**
+ * @public
  * <p>Information that describes an insight.</p>
  */
 export interface InsightSummary {
@@ -1173,6 +1312,9 @@ export interface InsightSummary {
   LastUpdateTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetInsightSummariesResult {
   /**
    * <p>The summary of each insight within the group matching the provided filters. The summary
@@ -1187,6 +1329,9 @@ export interface GetInsightSummariesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSamplingRulesRequest {
   /**
    * <p>Pagination token.</p>
@@ -1194,6 +1339,9 @@ export interface GetSamplingRulesRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSamplingRulesResult {
   /**
    * <p>Rule definitions and metadata.</p>
@@ -1206,6 +1354,9 @@ export interface GetSamplingRulesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSamplingStatisticSummariesRequest {
   /**
    * <p>Pagination token.</p>
@@ -1214,6 +1365,7 @@ export interface GetSamplingStatisticSummariesRequest {
 }
 
 /**
+ * @public
  * <p>Aggregated request sampling data for a sampling rule across all services for a 10-second window.</p>
  */
 export interface SamplingStatisticSummary {
@@ -1243,6 +1395,9 @@ export interface SamplingStatisticSummary {
   SampledCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSamplingStatisticSummariesResult {
   /**
    * <p>Information about the number of requests instrumented for each sampling
@@ -1257,6 +1412,7 @@ export interface GetSamplingStatisticSummariesResult {
 }
 
 /**
+ * @public
  * <p>Request sampling results for a single rule from a service. Results are for the last 10
  *       seconds unless the service has been assigned a longer reporting interval after a previous call
  *       to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
@@ -1293,6 +1449,9 @@ export interface SamplingStatisticsDocument {
   BorrowCount?: number;
 }
 
+/**
+ * @public
+ */
 export interface GetSamplingTargetsRequest {
   /**
    * <p>Information about rules that the service is using to sample requests.</p>
@@ -1301,6 +1460,7 @@ export interface GetSamplingTargetsRequest {
 }
 
 /**
+ * @public
  * <p>Temporary changes to a sampling rule configuration. To meet the global sampling target for a rule, X-Ray
  *       calculates a new reservoir for each service based on the recent sampling results of all services that called
  *       <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
@@ -1335,6 +1495,7 @@ export interface SamplingTargetDocument {
 }
 
 /**
+ * @public
  * <p>Sampling statistics from a call to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a> that X-Ray
  *       could not process.</p>
  */
@@ -1355,6 +1516,9 @@ export interface UnprocessedStatistics {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetSamplingTargetsResult {
   /**
    * <p>Updated rules that the service should use to sample requests.</p>
@@ -1375,6 +1539,9 @@ export interface GetSamplingTargetsResult {
   UnprocessedStatistics?: UnprocessedStatistics[];
 }
 
+/**
+ * @public
+ */
 export interface GetServiceGraphRequest {
   /**
    * <p>The start of the time frame for which to generate a graph.</p>
@@ -1403,6 +1570,7 @@ export interface GetServiceGraphRequest {
 }
 
 /**
+ * @public
  * <p>An entry in a histogram for a statistic. A histogram maps the range of observed values
  *       on the X axis, and the prevalence of each value on the Y axis.</p>
  */
@@ -1419,6 +1587,7 @@ export interface HistogramEntry {
 }
 
 /**
+ * @public
  * <p>Information about requests that failed with a 4xx Client Error status code.</p>
  */
 export interface ErrorStatistics {
@@ -1440,6 +1609,7 @@ export interface ErrorStatistics {
 }
 
 /**
+ * @public
  * <p>Information about requests that failed with a 5xx Server Error status code.</p>
  */
 export interface FaultStatistics {
@@ -1456,6 +1626,7 @@ export interface FaultStatistics {
 }
 
 /**
+ * @public
  * <p>Response statistics for an edge.</p>
  */
 export interface EdgeStatistics {
@@ -1486,6 +1657,7 @@ export interface EdgeStatistics {
 }
 
 /**
+ * @public
  * <p>Information about a connection between two services. An edge can be a synchronous connection, such as typical
  *     call between client and service, or an asynchronous link, such as a Lambda function which retrieves an event from an
  *     SNS queue.</p>
@@ -1536,6 +1708,7 @@ export interface Edge {
 }
 
 /**
+ * @public
  * <p>Response statistics for a service.</p>
  */
 export interface ServiceStatistics {
@@ -1566,6 +1739,7 @@ export interface ServiceStatistics {
 }
 
 /**
+ * @public
  * <p>Information about an application that processed requests, users that made requests, or downstream services,
  *       resources, and applications that an application used.</p>
  */
@@ -1656,6 +1830,9 @@ export interface Service {
   ResponseTimeHistogram?: HistogramEntry[];
 }
 
+/**
+ * @public
+ */
 export interface GetServiceGraphResult {
   /**
    * <p>The start of the time frame for which the graph was generated.</p>
@@ -1686,6 +1863,9 @@ export interface GetServiceGraphResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTimeSeriesServiceStatisticsRequest {
   /**
    * <p>The start of the time frame for which to aggregate statistics.</p>
@@ -1732,6 +1912,7 @@ export interface GetTimeSeriesServiceStatisticsRequest {
 }
 
 /**
+ * @public
  * <p>The predicted high and low fault count. This is used to determine if a service has
  *          become anomalous and if an insight should be created.</p>
  */
@@ -1748,6 +1929,7 @@ export interface ForecastStatistics {
 }
 
 /**
+ * @public
  * <p>A list of TimeSeriesStatistic structures.</p>
  */
 export interface TimeSeriesServiceStatistics {
@@ -1777,6 +1959,9 @@ export interface TimeSeriesServiceStatistics {
   ResponseTimeHistogram?: HistogramEntry[];
 }
 
+/**
+ * @public
+ */
 export interface GetTimeSeriesServiceStatisticsResult {
   /**
    * <p>The collection of statistics.</p>
@@ -1795,6 +1980,9 @@ export interface GetTimeSeriesServiceStatisticsResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTraceGraphRequest {
   /**
    * <p>Trace IDs of requests for which to generate a service graph.</p>
@@ -1807,6 +1995,9 @@ export interface GetTraceGraphRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface GetTraceGraphResult {
   /**
    * <p>The services that have processed one of the specified requests.</p>
@@ -1819,12 +2010,22 @@ export interface GetTraceGraphResult {
   NextToken?: string;
 }
 
-export enum SamplingStrategyName {
-  FixedRate = "FixedRate",
-  PartialScan = "PartialScan",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SamplingStrategyName = {
+  FixedRate: "FixedRate",
+  PartialScan: "PartialScan",
+} as const;
 
 /**
+ * @public
+ */
+export type SamplingStrategyName = (typeof SamplingStrategyName)[keyof typeof SamplingStrategyName];
+
+/**
+ * @public
  * <p>The name and value of a sampling rule to apply to a trace summary.</p>
  */
 export interface SamplingStrategy {
@@ -1839,11 +2040,23 @@ export interface SamplingStrategy {
   Value?: number;
 }
 
-export enum TimeRangeType {
-  Event = "Event",
-  TraceId = "TraceId",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TimeRangeType = {
+  Event: "Event",
+  TraceId: "TraceId",
+} as const;
 
+/**
+ * @public
+ */
+export type TimeRangeType = (typeof TimeRangeType)[keyof typeof TimeRangeType];
+
+/**
+ * @public
+ */
 export interface GetTraceSummariesRequest {
   /**
    * <p>The start of the time frame for which to retrieve traces.</p>
@@ -1886,6 +2099,7 @@ export interface GetTraceSummariesRequest {
 }
 
 /**
+ * @public
  * <p>The exception associated with a root cause.</p>
  */
 export interface RootCauseException {
@@ -1901,6 +2115,7 @@ export interface RootCauseException {
 }
 
 /**
+ * @public
  * <p>A collection of segments and corresponding subsegments associated to a trace summary
  *       error.</p>
  */
@@ -1922,6 +2137,7 @@ export interface ErrorRootCauseEntity {
 }
 
 /**
+ * @public
  * <p>A collection of fields identifying the services in a trace summary error.</p>
  */
 export interface ErrorRootCauseService {
@@ -1957,6 +2173,7 @@ export interface ErrorRootCauseService {
 }
 
 /**
+ * @public
  * <p>The root cause of a trace summary error.</p>
  */
 export interface ErrorRootCause {
@@ -1973,6 +2190,7 @@ export interface ErrorRootCause {
 }
 
 /**
+ * @public
  * <p>A collection of segments and corresponding subsegments associated to a trace summary
  *       fault error.</p>
  */
@@ -1994,6 +2212,7 @@ export interface FaultRootCauseEntity {
 }
 
 /**
+ * @public
  * <p>A collection of fields identifying the services in a trace summary fault.</p>
  */
 export interface FaultRootCauseService {
@@ -2029,6 +2248,7 @@ export interface FaultRootCauseService {
 }
 
 /**
+ * @public
  * <p>The root cause information for a trace summary fault.</p>
  */
 export interface FaultRootCause {
@@ -2045,6 +2265,7 @@ export interface FaultRootCause {
 }
 
 /**
+ * @public
  * <p>Information about an HTTP request.</p>
  */
 export interface Http {
@@ -2075,6 +2296,7 @@ export interface Http {
 }
 
 /**
+ * @public
  * <p>A list of EC2 instance IDs corresponding to the segments in a trace. </p>
  */
 export interface InstanceIdDetail {
@@ -2085,6 +2307,7 @@ export interface InstanceIdDetail {
 }
 
 /**
+ * @public
  * <p>A list of resources ARNs corresponding to the segments in a trace.</p>
  */
 export interface ResourceARNDetail {
@@ -2095,6 +2318,7 @@ export interface ResourceARNDetail {
 }
 
 /**
+ * @public
  * <p>A collection of segments and corresponding subsegments associated to a response time
  *       warning.</p>
  */
@@ -2116,6 +2340,7 @@ export interface ResponseTimeRootCauseEntity {
 }
 
 /**
+ * @public
  * <p>A collection of fields identifying the service in a response time warning.</p>
  */
 export interface ResponseTimeRootCauseService {
@@ -2151,6 +2376,7 @@ export interface ResponseTimeRootCauseService {
 }
 
 /**
+ * @public
  * <p>The root cause information for a response time warning.</p>
  */
 export interface ResponseTimeRootCause {
@@ -2167,6 +2393,7 @@ export interface ResponseTimeRootCause {
 }
 
 /**
+ * @public
  * <p>Information about a user recorded in segment documents.</p>
  */
 export interface TraceUser {
@@ -2182,6 +2409,7 @@ export interface TraceUser {
 }
 
 /**
+ * @public
  * <p>Metadata generated from the segment documents in a trace.</p>
  */
 export interface TraceSummary {
@@ -2294,6 +2522,9 @@ export interface TraceSummary {
   MatchedEventTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface GetTraceSummariesResult {
   /**
    * <p>Trace IDs and annotations for traces that were found in the specified time
@@ -2319,6 +2550,9 @@ export interface GetTraceSummariesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcePoliciesRequest {
   /**
    * <p>Not currently supported.</p>
@@ -2327,6 +2561,7 @@ export interface ListResourcePoliciesRequest {
 }
 
 /**
+ * @public
  * <p>A resource policy grants one or more Amazon Web Services services and accounts permissions
  *             to access X-Ray. Each resource policy is associated with a
  *             specific Amazon Web Services account.</p>
@@ -2353,6 +2588,9 @@ export interface ResourcePolicy {
   LastUpdatedTime?: Date;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcePoliciesResult {
   /**
    * <p>The list of resource policies in the target Amazon Web Services account.</p>
@@ -2365,6 +2603,9 @@ export interface ListResourcePoliciesResult {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
@@ -2378,6 +2619,9 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags, as key and value pairs, that is associated with the specified X-Ray group or sampling rule.</p>
@@ -2392,6 +2636,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @public
  * <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is
  *       correct.</p>
  */
@@ -2415,6 +2660,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutEncryptionConfigRequest {
   /**
    * <p>An Amazon Web Services KMS key in one of the following formats:</p>
@@ -2448,6 +2696,9 @@ export interface PutEncryptionConfigRequest {
   Type: EncryptionType | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutEncryptionConfigResult {
   /**
    * <p>The new encryption configuration.</p>
@@ -2456,6 +2707,7 @@ export interface PutEncryptionConfigResult {
 }
 
 /**
+ * @public
  * <p>The provided resource policy would prevent the caller of this request from calling PutResourcePolicy in the future.</p>
  */
 export class LockoutPreventionException extends __BaseException {
@@ -2477,6 +2729,7 @@ export class LockoutPreventionException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Invalid policy document provided in request.</p>
  */
 export class MalformedPolicyDocumentException extends __BaseException {
@@ -2498,6 +2751,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exceeded the maximum number of resource policies for a target Amazon Web Services account.</p>
  */
 export class PolicyCountLimitExceededException extends __BaseException {
@@ -2519,6 +2773,7 @@ export class PolicyCountLimitExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exceeded the maximum size for a resource policy.</p>
  */
 export class PolicySizeLimitExceededException extends __BaseException {
@@ -2539,6 +2794,9 @@ export class PolicySizeLimitExceededException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyRequest {
   /**
    * <p>The name of the resource policy. Must be unique within a specific Amazon Web Services account.</p>
@@ -2553,7 +2811,7 @@ export interface PutResourcePolicyRequest {
   /**
    * <p>Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id.
    *             The revision id is unique to each policy in the account.</p>
-   *         <p>If the policy revision id does not match the latest revision id, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception. You can also provide a
+   *          <p>If the policy revision id does not match the latest revision id, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception. You can also provide a
    *             <code>PolicyRevisionId</code> of 0. In this case, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception if a resource policy with the same name already exists.
    *         </p>
    */
@@ -2561,15 +2819,18 @@ export interface PutResourcePolicyRequest {
 
   /**
    * <p>A flag to indicate whether to bypass the resource policy lockout safety check.</p>
-   *         <important>
+   *          <important>
    *             <p>Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately.</p>
-   *         </important>
-   *         <p>Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent <code>PutResourcePolicy</code> request.</p>
-   *         <p>The default value is false.</p>
+   *          </important>
+   *          <p>Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent <code>PutResourcePolicy</code> request.</p>
+   *          <p>The default value is false.</p>
    */
   BypassPolicyLockoutCheck?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface PutResourcePolicyResult {
   /**
    * <p>The resource policy document, as provided in the <code>PutResourcePolicyRequest</code>.</p>
@@ -2578,6 +2839,7 @@ export interface PutResourcePolicyResult {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface BackendConnectionErrors {
@@ -2613,6 +2875,7 @@ export interface BackendConnectionErrors {
 }
 
 /**
+ * @public
  * <p></p>
  */
 export interface TelemetryRecord {
@@ -2647,6 +2910,9 @@ export interface TelemetryRecord {
   BackendConnectionErrors?: BackendConnectionErrors;
 }
 
+/**
+ * @public
+ */
 export interface PutTelemetryRecordsRequest {
   /**
    * <p></p>
@@ -2669,8 +2935,14 @@ export interface PutTelemetryRecordsRequest {
   ResourceARN?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutTelemetryRecordsResult {}
 
+/**
+ * @public
+ */
 export interface PutTraceSegmentsRequest {
   /**
    * <p>A string containing a JSON document defining one or more segments or
@@ -2680,6 +2952,7 @@ export interface PutTraceSegmentsRequest {
 }
 
 /**
+ * @public
  * <p>Information about a segment that failed processing.</p>
  */
 export interface UnprocessedTraceSegment {
@@ -2699,6 +2972,9 @@ export interface UnprocessedTraceSegment {
   Message?: string;
 }
 
+/**
+ * @public
+ */
 export interface PutTraceSegmentsResult {
   /**
    * <p>Segments that failed processing.</p>
@@ -2706,6 +2982,9 @@ export interface PutTraceSegmentsResult {
   UnprocessedTraceSegments?: UnprocessedTraceSegment[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
@@ -2743,9 +3022,13 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
 /**
+ * @public
  * <p>You have exceeded the maximum number of tags you can apply to this resource.</p>
  */
 export class TooManyTagsException extends __BaseException {
@@ -2768,6 +3051,9 @@ export class TooManyTagsException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
@@ -2780,8 +3066,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateGroupRequest {
   /**
    * <p>The case-sensitive name of the group.</p>
@@ -2800,13 +3092,13 @@ export interface UpdateGroupRequest {
 
   /**
    * <p>The structure containing configurations related to insights.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
    *                     group or false to disable insights for the group.</p>
    *             </li>
    *             <li>
-   *                 <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group.
+   *                <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group.
    *                     Notifications can only be enabled on a group with InsightsEnabled set to true.</p>
    *             </li>
    *          </ul>
@@ -2814,6 +3106,9 @@ export interface UpdateGroupRequest {
   InsightsConfiguration?: InsightsConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface UpdateGroupResult {
   /**
    * <p>The group that was updated. Contains the name of the group that was updated, the
@@ -2824,6 +3119,7 @@ export interface UpdateGroupResult {
 }
 
 /**
+ * @public
  * <p>A document specifying changes to a sampling rule's configuration.</p>
  */
 export interface SamplingRuleUpdate {
@@ -2890,6 +3186,9 @@ export interface SamplingRuleUpdate {
   Attributes?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSamplingRuleRequest {
   /**
    * <p>The rule and fields to change.</p>
@@ -2897,834 +3196,12 @@ export interface UpdateSamplingRuleRequest {
   SamplingRuleUpdate: SamplingRuleUpdate | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSamplingRuleResult {
   /**
    * <p>The updated rule definition and metadata.</p>
    */
   SamplingRuleRecord?: SamplingRuleRecord;
 }
-
-/**
- * @internal
- */
-export const AliasFilterSensitiveLog = (obj: Alias): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnnotationValueFilterSensitiveLog = (obj: AnnotationValue): any => {
-  if (obj.NumberValue !== undefined) return { NumberValue: obj.NumberValue };
-  if (obj.BooleanValue !== undefined) return { BooleanValue: obj.BooleanValue };
-  if (obj.StringValue !== undefined) return { StringValue: obj.StringValue };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const ServiceIdFilterSensitiveLog = (obj: ServiceId): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValueWithServiceIdsFilterSensitiveLog = (obj: ValueWithServiceIds): any => ({
-  ...obj,
-  ...(obj.AnnotationValue && { AnnotationValue: AnnotationValueFilterSensitiveLog(obj.AnnotationValue) }),
-});
-
-/**
- * @internal
- */
-export const AnomalousServiceFilterSensitiveLog = (obj: AnomalousService): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AvailabilityZoneDetailFilterSensitiveLog = (obj: AvailabilityZoneDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetTracesRequestFilterSensitiveLog = (obj: BatchGetTracesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SegmentFilterSensitiveLog = (obj: Segment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TraceFilterSensitiveLog = (obj: Trace): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetTracesResultFilterSensitiveLog = (obj: BatchGetTracesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightsConfigurationFilterSensitiveLog = (obj: InsightsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGroupRequestFilterSensitiveLog = (obj: CreateGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GroupFilterSensitiveLog = (obj: Group): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGroupResultFilterSensitiveLog = (obj: CreateGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SamplingRuleFilterSensitiveLog = (obj: SamplingRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSamplingRuleRequestFilterSensitiveLog = (obj: CreateSamplingRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SamplingRuleRecordFilterSensitiveLog = (obj: SamplingRuleRecord): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSamplingRuleResultFilterSensitiveLog = (obj: CreateSamplingRuleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGroupResultFilterSensitiveLog = (obj: DeleteGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyResultFilterSensitiveLog = (obj: DeleteResourcePolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSamplingRuleRequestFilterSensitiveLog = (obj: DeleteSamplingRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSamplingRuleResultFilterSensitiveLog = (obj: DeleteSamplingRuleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEncryptionConfigRequestFilterSensitiveLog = (obj: GetEncryptionConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionConfigFilterSensitiveLog = (obj: EncryptionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEncryptionConfigResultFilterSensitiveLog = (obj: GetEncryptionConfigResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGroupRequestFilterSensitiveLog = (obj: GetGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGroupResultFilterSensitiveLog = (obj: GetGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGroupsRequestFilterSensitiveLog = (obj: GetGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GroupSummaryFilterSensitiveLog = (obj: GroupSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGroupsResultFilterSensitiveLog = (obj: GetGroupsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightRequestFilterSensitiveLog = (obj: GetInsightRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RequestImpactStatisticsFilterSensitiveLog = (obj: RequestImpactStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightFilterSensitiveLog = (obj: Insight): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightResultFilterSensitiveLog = (obj: GetInsightResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightEventsRequestFilterSensitiveLog = (obj: GetInsightEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightEventFilterSensitiveLog = (obj: InsightEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightEventsResultFilterSensitiveLog = (obj: GetInsightEventsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightImpactGraphRequestFilterSensitiveLog = (obj: GetInsightImpactGraphRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightImpactGraphEdgeFilterSensitiveLog = (obj: InsightImpactGraphEdge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightImpactGraphServiceFilterSensitiveLog = (obj: InsightImpactGraphService): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightImpactGraphResultFilterSensitiveLog = (obj: GetInsightImpactGraphResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightSummariesRequestFilterSensitiveLog = (obj: GetInsightSummariesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightSummaryFilterSensitiveLog = (obj: InsightSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightSummariesResultFilterSensitiveLog = (obj: GetInsightSummariesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSamplingRulesRequestFilterSensitiveLog = (obj: GetSamplingRulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSamplingRulesResultFilterSensitiveLog = (obj: GetSamplingRulesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSamplingStatisticSummariesRequestFilterSensitiveLog = (
-  obj: GetSamplingStatisticSummariesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SamplingStatisticSummaryFilterSensitiveLog = (obj: SamplingStatisticSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSamplingStatisticSummariesResultFilterSensitiveLog = (
-  obj: GetSamplingStatisticSummariesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SamplingStatisticsDocumentFilterSensitiveLog = (obj: SamplingStatisticsDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSamplingTargetsRequestFilterSensitiveLog = (obj: GetSamplingTargetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SamplingTargetDocumentFilterSensitiveLog = (obj: SamplingTargetDocument): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnprocessedStatisticsFilterSensitiveLog = (obj: UnprocessedStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSamplingTargetsResultFilterSensitiveLog = (obj: GetSamplingTargetsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetServiceGraphRequestFilterSensitiveLog = (obj: GetServiceGraphRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HistogramEntryFilterSensitiveLog = (obj: HistogramEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorStatisticsFilterSensitiveLog = (obj: ErrorStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FaultStatisticsFilterSensitiveLog = (obj: FaultStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeStatisticsFilterSensitiveLog = (obj: EdgeStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EdgeFilterSensitiveLog = (obj: Edge): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceStatisticsFilterSensitiveLog = (obj: ServiceStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServiceFilterSensitiveLog = (obj: Service): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetServiceGraphResultFilterSensitiveLog = (obj: GetServiceGraphResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTimeSeriesServiceStatisticsRequestFilterSensitiveLog = (
-  obj: GetTimeSeriesServiceStatisticsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForecastStatisticsFilterSensitiveLog = (obj: ForecastStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeSeriesServiceStatisticsFilterSensitiveLog = (obj: TimeSeriesServiceStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTimeSeriesServiceStatisticsResultFilterSensitiveLog = (
-  obj: GetTimeSeriesServiceStatisticsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTraceGraphRequestFilterSensitiveLog = (obj: GetTraceGraphRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTraceGraphResultFilterSensitiveLog = (obj: GetTraceGraphResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SamplingStrategyFilterSensitiveLog = (obj: SamplingStrategy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTraceSummariesRequestFilterSensitiveLog = (obj: GetTraceSummariesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RootCauseExceptionFilterSensitiveLog = (obj: RootCauseException): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorRootCauseEntityFilterSensitiveLog = (obj: ErrorRootCauseEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorRootCauseServiceFilterSensitiveLog = (obj: ErrorRootCauseService): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorRootCauseFilterSensitiveLog = (obj: ErrorRootCause): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FaultRootCauseEntityFilterSensitiveLog = (obj: FaultRootCauseEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FaultRootCauseServiceFilterSensitiveLog = (obj: FaultRootCauseService): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FaultRootCauseFilterSensitiveLog = (obj: FaultRootCause): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpFilterSensitiveLog = (obj: Http): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceIdDetailFilterSensitiveLog = (obj: InstanceIdDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceARNDetailFilterSensitiveLog = (obj: ResourceARNDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponseTimeRootCauseEntityFilterSensitiveLog = (obj: ResponseTimeRootCauseEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponseTimeRootCauseServiceFilterSensitiveLog = (obj: ResponseTimeRootCauseService): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponseTimeRootCauseFilterSensitiveLog = (obj: ResponseTimeRootCause): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TraceUserFilterSensitiveLog = (obj: TraceUser): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TraceSummaryFilterSensitiveLog = (obj: TraceSummary): any => ({
-  ...obj,
-  ...(obj.Annotations && {
-    Annotations: Object.entries(obj.Annotations).reduce(
-      (acc: any, [key, value]: [string, ValueWithServiceIds[]]) => (
-        (acc[key] = value.map((item) => ValueWithServiceIdsFilterSensitiveLog(item))), acc
-      ),
-      {}
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const GetTraceSummariesResultFilterSensitiveLog = (obj: GetTraceSummariesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcePoliciesRequestFilterSensitiveLog = (obj: ListResourcePoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourcePolicyFilterSensitiveLog = (obj: ResourcePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcePoliciesResultFilterSensitiveLog = (obj: ListResourcePoliciesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEncryptionConfigRequestFilterSensitiveLog = (obj: PutEncryptionConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEncryptionConfigResultFilterSensitiveLog = (obj: PutEncryptionConfigResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyResultFilterSensitiveLog = (obj: PutResourcePolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackendConnectionErrorsFilterSensitiveLog = (obj: BackendConnectionErrors): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TelemetryRecordFilterSensitiveLog = (obj: TelemetryRecord): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutTelemetryRecordsRequestFilterSensitiveLog = (obj: PutTelemetryRecordsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutTelemetryRecordsResultFilterSensitiveLog = (obj: PutTelemetryRecordsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutTraceSegmentsRequestFilterSensitiveLog = (obj: PutTraceSegmentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UnprocessedTraceSegmentFilterSensitiveLog = (obj: UnprocessedTraceSegment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutTraceSegmentsResultFilterSensitiveLog = (obj: PutTraceSegmentsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGroupRequestFilterSensitiveLog = (obj: UpdateGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGroupResultFilterSensitiveLog = (obj: UpdateGroupResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SamplingRuleUpdateFilterSensitiveLog = (obj: SamplingRuleUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSamplingRuleRequestFilterSensitiveLog = (obj: UpdateSamplingRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSamplingRuleResultFilterSensitiveLog = (obj: UpdateSamplingRuleResult): any => ({
-  ...obj,
-});

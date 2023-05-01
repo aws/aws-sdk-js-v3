@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DeleteConditionalForwarderRequest,
-  DeleteConditionalForwarderRequestFilterSensitiveLog,
-  DeleteConditionalForwarderResult,
-  DeleteConditionalForwarderResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConditionalForwarderCommand,
-  serializeAws_json1_1DeleteConditionalForwarderCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteConditionalForwarderRequest, DeleteConditionalForwarderResult } from "../models/models_0";
+import { de_DeleteConditionalForwarderCommand, se_DeleteConditionalForwarderCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConditionalForwarderCommand}.
  */
 export interface DeleteConditionalForwarderCommandInput extends DeleteConditionalForwarderRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConditionalForwarderCommand}.
  */
 export interface DeleteConditionalForwarderCommandOutput extends DeleteConditionalForwarderResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a conditional forwarder that has been set up for your Amazon Web Services
  *       directory.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  * import { DirectoryServiceClient, DeleteConditionalForwarderCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeleteConditionalForwarderCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DeleteConditionalForwarderRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   RemoteDomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConditionalForwarderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConditionalForwarderCommandInput - {@link DeleteConditionalForwarderCommandInput}
+ * @returns {@link DeleteConditionalForwarderCommandOutput}
  * @see {@link DeleteConditionalForwarderCommandInput} for command's `input` shape.
  * @see {@link DeleteConditionalForwarderCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
@@ -88,6 +91,9 @@ export class DeleteConditionalForwarderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConditionalForwarderCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DeleteConditionalForwarderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConditionalForwarderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConditionalForwarderResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +133,21 @@ export class DeleteConditionalForwarderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConditionalForwarderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConditionalForwarderCommand(input, context);
+    return se_DeleteConditionalForwarderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConditionalForwarderCommandOutput> {
-    return deserializeAws_json1_1DeleteConditionalForwarderCommand(output, context);
+    return de_DeleteConditionalForwarderCommand(output, context);
   }
 
   // Start section: command_body_extra

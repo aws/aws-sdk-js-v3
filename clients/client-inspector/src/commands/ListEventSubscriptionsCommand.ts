@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  ListEventSubscriptionsRequest,
-  ListEventSubscriptionsRequestFilterSensitiveLog,
-  ListEventSubscriptionsResponse,
-  ListEventSubscriptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEventSubscriptionsCommand,
-  serializeAws_json1_1ListEventSubscriptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListEventSubscriptionsRequest, ListEventSubscriptionsResponse } from "../models/models_0";
+import { de_ListEventSubscriptionsCommand, se_ListEventSubscriptionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListEventSubscriptionsCommand}.
  */
 export interface ListEventSubscriptionsCommandInput extends ListEventSubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListEventSubscriptionsCommand}.
  */
 export interface ListEventSubscriptionsCommandOutput extends ListEventSubscriptionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the event subscriptions for the assessment template that is specified by
  *          the ARN of the assessment template. For more information, see <a>SubscribeToEvent</a> and <a>UnsubscribeFromEvent</a>.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  * import { InspectorClient, ListEventSubscriptionsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListEventSubscriptionsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // ListEventSubscriptionsRequest
+ *   resourceArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListEventSubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListEventSubscriptionsCommandInput - {@link ListEventSubscriptionsCommandInput}
+ * @returns {@link ListEventSubscriptionsCommandOutput}
  * @see {@link ListEventSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
@@ -113,6 +117,9 @@ export class ListEventSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListEventSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +148,8 @@ export class ListEventSubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventSubscriptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventSubscriptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +159,18 @@ export class ListEventSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListEventSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEventSubscriptionsCommand(input, context);
+    return se_ListEventSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventSubscriptionsCommandOutput> {
-    return deserializeAws_json1_1ListEventSubscriptionsCommand(output, context);
+    return de_ListEventSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

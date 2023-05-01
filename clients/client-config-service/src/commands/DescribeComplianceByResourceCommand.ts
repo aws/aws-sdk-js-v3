@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DescribeComplianceByResourceRequest, DescribeComplianceByResourceResponse } from "../models/models_0";
 import {
-  DescribeComplianceByResourceRequest,
-  DescribeComplianceByResourceRequestFilterSensitiveLog,
-  DescribeComplianceByResourceResponse,
-  DescribeComplianceByResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeComplianceByResourceCommand,
-  serializeAws_json1_1DescribeComplianceByResourceCommand,
+  de_DescribeComplianceByResourceCommand,
+  se_DescribeComplianceByResourceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeComplianceByResourceCommand}.
  */
 export interface DescribeComplianceByResourceCommandInput extends DescribeComplianceByResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeComplianceByResourceCommand}.
  */
 export interface DescribeComplianceByResourceCommandOutput
@@ -37,6 +36,7 @@ export interface DescribeComplianceByResourceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Indicates whether the specified Amazon Web Services resources are compliant. If
  * 			a resource is noncompliant, this action returns the number of Config rules that the resource does not comply with.</p>
  *          <p>A resource is compliant if it complies with all the Config
@@ -76,10 +76,21 @@ export interface DescribeComplianceByResourceCommandOutput
  * import { ConfigServiceClient, DescribeComplianceByResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeComplianceByResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DescribeComplianceByResourceRequest
+ *   ResourceType: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE",
+ *   ComplianceTypes: [ // ComplianceTypes
+ *     "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeComplianceByResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeComplianceByResourceCommandInput - {@link DescribeComplianceByResourceCommandInput}
+ * @returns {@link DescribeComplianceByResourceCommandOutput}
  * @see {@link DescribeComplianceByResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeComplianceByResourceCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
@@ -112,6 +123,9 @@ export class DescribeComplianceByResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeComplianceByResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +154,8 @@ export class DescribeComplianceByResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeComplianceByResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeComplianceByResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,15 +165,21 @@ export class DescribeComplianceByResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeComplianceByResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeComplianceByResourceCommand(input, context);
+    return se_DescribeComplianceByResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeComplianceByResourceCommandOutput> {
-    return deserializeAws_json1_1DescribeComplianceByResourceCommand(output, context);
+    return de_DescribeComplianceByResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

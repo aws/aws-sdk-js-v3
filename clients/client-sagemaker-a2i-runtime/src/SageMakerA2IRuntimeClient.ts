@@ -62,6 +62,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DeleteHumanLoopCommandInput
   | DescribeHumanLoopCommandInput
@@ -69,6 +72,9 @@ export type ServiceInputTypes =
   | StartHumanLoopCommandInput
   | StopHumanLoopCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DeleteHumanLoopCommandOutput
   | DescribeHumanLoopCommandOutput
@@ -76,6 +82,9 @@ export type ServiceOutputTypes =
   | StartHumanLoopCommandOutput
   | StopHumanLoopCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -83,7 +92,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -192,11 +201,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type SageMakerA2IRuntimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -207,10 +219,15 @@ type SageMakerA2IRuntimeClientConfigType = Partial<__SmithyConfiguration<__HttpH
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SageMakerA2IRuntimeClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SageMakerA2IRuntimeClient class constructor that set the region, credentials and other options.
  */
 export interface SageMakerA2IRuntimeClientConfig extends SageMakerA2IRuntimeClientConfigType {}
 
+/**
+ * @public
+ */
 type SageMakerA2IRuntimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -221,11 +238,14 @@ type SageMakerA2IRuntimeClientResolvedConfigType = __SmithyResolvedConfiguration
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SageMakerA2IRuntimeClient class. This is resolved and normalized from the {@link SageMakerA2IRuntimeClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SageMakerA2IRuntimeClient class. This is resolved and normalized from the {@link SageMakerA2IRuntimeClientConfig | constructor configuration interface}.
  */
 export interface SageMakerA2IRuntimeClientResolvedConfig extends SageMakerA2IRuntimeClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon Augmented AI (Amazon A2I) adds the benefit of human judgment to any machine learning
  *       application. When an AI application can't evaluate data with a high degree of confidence,
  *       human reviewers can take over. This human review is called a human review workflow. To create

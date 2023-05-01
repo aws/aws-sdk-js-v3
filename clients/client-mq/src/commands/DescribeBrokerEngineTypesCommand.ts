@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeBrokerEngineTypesRequest,
-  DescribeBrokerEngineTypesRequestFilterSensitiveLog,
-  DescribeBrokerEngineTypesResponse,
-  DescribeBrokerEngineTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeBrokerEngineTypesRequest, DescribeBrokerEngineTypesResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1DescribeBrokerEngineTypesCommand,
-  serializeAws_restJson1DescribeBrokerEngineTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeBrokerEngineTypesCommand, se_DescribeBrokerEngineTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBrokerEngineTypesCommand}.
  */
 export interface DescribeBrokerEngineTypesCommandInput extends DescribeBrokerEngineTypesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBrokerEngineTypesCommand}.
  */
 export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEngineTypesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe available engine types and versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEn
  * import { MqClient, DescribeBrokerEngineTypesCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DescribeBrokerEngineTypesCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = { // DescribeBrokerEngineTypesRequest
+ *   EngineType: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeBrokerEngineTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBrokerEngineTypesCommandInput - {@link DescribeBrokerEngineTypesCommandInput}
+ * @returns {@link DescribeBrokerEngineTypesCommandOutput}
  * @see {@link DescribeBrokerEngineTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeBrokerEngineTypesCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
@@ -78,6 +82,9 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBrokerEngineTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +113,8 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBrokerEngineTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBrokerEngineTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,15 +124,21 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeBrokerEngineTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBrokerEngineTypesCommand(input, context);
+    return se_DescribeBrokerEngineTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBrokerEngineTypesCommandOutput> {
-    return deserializeAws_restJson1DescribeBrokerEngineTypesCommand(output, context);
+    return de_DescribeBrokerEngineTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

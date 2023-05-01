@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  ListRxNormInferenceJobsRequest,
-  ListRxNormInferenceJobsRequestFilterSensitiveLog,
-  ListRxNormInferenceJobsResponse,
-  ListRxNormInferenceJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRxNormInferenceJobsCommand,
-  serializeAws_json1_1ListRxNormInferenceJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListRxNormInferenceJobsRequest, ListRxNormInferenceJobsResponse } from "../models/models_0";
+import { de_ListRxNormInferenceJobsCommand, se_ListRxNormInferenceJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRxNormInferenceJobsCommand}.
  */
 export interface ListRxNormInferenceJobsCommandInput extends ListRxNormInferenceJobsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRxNormInferenceJobsCommand}.
  */
 export interface ListRxNormInferenceJobsCommandOutput extends ListRxNormInferenceJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of InferRxNorm jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,22 @@ export interface ListRxNormInferenceJobsCommandOutput extends ListRxNormInferenc
  * import { ComprehendMedicalClient, ListRxNormInferenceJobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, ListRxNormInferenceJobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // ListRxNormInferenceJobsRequest
+ *   Filter: { // ComprehendMedicalAsyncJobFilter
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "PARTIAL_SUCCESS" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmitTimeBefore: new Date("TIMESTAMP"),
+ *     SubmitTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRxNormInferenceJobsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRxNormInferenceJobsCommandInput - {@link ListRxNormInferenceJobsCommandInput}
+ * @returns {@link ListRxNormInferenceJobsCommandOutput}
  * @see {@link ListRxNormInferenceJobsCommandInput} for command's `input` shape.
  * @see {@link ListRxNormInferenceJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -89,6 +98,9 @@ export class ListRxNormInferenceJobsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRxNormInferenceJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +129,8 @@ export class ListRxNormInferenceJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRxNormInferenceJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRxNormInferenceJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +140,18 @@ export class ListRxNormInferenceJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRxNormInferenceJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRxNormInferenceJobsCommand(input, context);
+    return se_ListRxNormInferenceJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRxNormInferenceJobsCommandOutput> {
-    return deserializeAws_json1_1ListRxNormInferenceJobsCommand(output, context);
+    return de_ListRxNormInferenceJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

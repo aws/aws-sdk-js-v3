@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListDistributionsByKeyGroupRequest,
-  ListDistributionsByKeyGroupRequestFilterSensitiveLog,
-  ListDistributionsByKeyGroupResult,
-  ListDistributionsByKeyGroupResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restXmlListDistributionsByKeyGroupCommand,
-  serializeAws_restXmlListDistributionsByKeyGroupCommand,
-} from "../protocols/Aws_restXml";
+import { ListDistributionsByKeyGroupRequest, ListDistributionsByKeyGroupResult } from "../models/models_1";
+import { de_ListDistributionsByKeyGroupCommand, se_ListDistributionsByKeyGroupCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributionsByKeyGroupCommand}.
  */
 export interface ListDistributionsByKeyGroupCommandInput extends ListDistributionsByKeyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributionsByKeyGroupCommand}.
  */
 export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributionsByKeyGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that
  * 			references the specified key group.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -48,10 +45,17 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  * import { CloudFrontClient, ListDistributionsByKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListDistributionsByKeyGroupRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   KeyGroupId: "STRING_VALUE", // required
+ * };
  * const command = new ListDistributionsByKeyGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsByKeyGroupCommandInput - {@link ListDistributionsByKeyGroupCommandInput}
+ * @returns {@link ListDistributionsByKeyGroupCommandOutput}
  * @see {@link ListDistributionsByKeyGroupCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -81,6 +85,9 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsByKeyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +116,8 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsByKeyGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDistributionsByKeyGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,15 +127,21 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDistributionsByKeyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByKeyGroupCommand(input, context);
+    return se_ListDistributionsByKeyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByKeyGroupCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByKeyGroupCommand(output, context);
+    return de_ListDistributionsByKeyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

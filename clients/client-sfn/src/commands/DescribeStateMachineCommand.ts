@@ -15,26 +15,27 @@ import {
 
 import {
   DescribeStateMachineInput,
-  DescribeStateMachineInputFilterSensitiveLog,
   DescribeStateMachineOutput,
   DescribeStateMachineOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeStateMachineCommand,
-  serializeAws_json1_0DescribeStateMachineCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeStateMachineCommand, se_DescribeStateMachineCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStateMachineCommand}.
  */
 export interface DescribeStateMachineCommandInput extends DescribeStateMachineInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStateMachineCommand}.
  */
 export interface DescribeStateMachineCommandOutput extends DescribeStateMachineOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides information about a state machine's definition, its IAM role Amazon Resource Name (ARN), and configuration. If the state machine ARN is a qualified state machine ARN, the response returned includes the <code>Map</code> state's label.</p>
  *
  *          <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>
@@ -48,10 +49,15 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * import { SFNClient, DescribeStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // DescribeStateMachineInput
+ *   stateMachineArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStateMachineCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStateMachineCommandInput - {@link DescribeStateMachineCommandInput}
+ * @returns {@link DescribeStateMachineCommandOutput}
  * @see {@link DescribeStateMachineCommandInput} for command's `input` shape.
  * @see {@link DescribeStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
@@ -81,6 +87,9 @@ export class DescribeStateMachineCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStateMachineCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,7 +118,7 @@ export class DescribeStateMachineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStateMachineInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeStateMachineOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -120,12 +129,18 @@ export class DescribeStateMachineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStateMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeStateMachineCommand(input, context);
+    return se_DescribeStateMachineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStateMachineCommandOutput> {
-    return deserializeAws_json1_0DescribeStateMachineCommand(output, context);
+    return de_DescribeStateMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

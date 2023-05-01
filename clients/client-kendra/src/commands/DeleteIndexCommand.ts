@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeleteIndexRequest, DeleteIndexRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteIndexCommand,
-  serializeAws_json1_1DeleteIndexCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteIndexRequest } from "../models/models_0";
+import { de_DeleteIndexCommand, se_DeleteIndexCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIndexCommand}.
  */
 export interface DeleteIndexCommandInput extends DeleteIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIndexCommand}.
  */
 export interface DeleteIndexCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if the index is
  *       already being deleted. While the index is being deleted, the <code>Status</code> field
  *       returned by a call to the <code>DescribeIndex</code> API is set to
@@ -40,10 +42,15 @@ export interface DeleteIndexCommandOutput extends __MetadataBearer {}
  * import { KendraClient, DeleteIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = { // DeleteIndexRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIndexCommandInput - {@link DeleteIndexCommandInput}
+ * @returns {@link DeleteIndexCommandOutput}
  * @see {@link DeleteIndexCommandInput} for command's `input` shape.
  * @see {@link DeleteIndexCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
@@ -58,7 +65,7 @@ export interface DeleteIndexCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/aws.amazon.com/contact-us"> Support</a> for help.</p>
+ *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
@@ -91,6 +98,9 @@ export class DeleteIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class DeleteIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +138,18 @@ export class DeleteIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteIndexCommand(input, context);
+    return se_DeleteIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIndexCommandOutput> {
-    return deserializeAws_json1_1DeleteIndexCommand(output, context);
+    return de_DeleteIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

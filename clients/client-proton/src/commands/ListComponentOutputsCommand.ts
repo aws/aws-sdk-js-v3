@@ -15,26 +15,27 @@ import {
 
 import {
   ListComponentOutputsInput,
-  ListComponentOutputsInputFilterSensitiveLog,
   ListComponentOutputsOutput,
   ListComponentOutputsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListComponentOutputsCommand,
-  serializeAws_json1_0ListComponentOutputsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListComponentOutputsCommand, se_ListComponentOutputsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListComponentOutputsCommand}.
  */
 export interface ListComponentOutputsCommandInput extends ListComponentOutputsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListComponentOutputsCommand}.
  */
 export interface ListComponentOutputsCommandOutput extends ListComponentOutputsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get a list of component Infrastructure as Code (IaC) outputs.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -45,10 +46,16 @@ export interface ListComponentOutputsCommandOutput extends ListComponentOutputsO
  * import { ProtonClient, ListComponentOutputsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListComponentOutputsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListComponentOutputsInput
+ *   componentName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListComponentOutputsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListComponentOutputsCommandInput - {@link ListComponentOutputsCommandInput}
+ * @returns {@link ListComponentOutputsCommandOutput}
  * @see {@link ListComponentOutputsCommandInput} for command's `input` shape.
  * @see {@link ListComponentOutputsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListComponentOutputsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListComponentOutputsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,7 +125,7 @@ export class ListComponentOutputsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComponentOutputsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListComponentOutputsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -126,12 +136,18 @@ export class ListComponentOutputsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListComponentOutputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListComponentOutputsCommand(input, context);
+    return se_ListComponentOutputsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComponentOutputsCommandOutput> {
-    return deserializeAws_json1_0ListComponentOutputsCommand(output, context);
+    return de_ListComponentOutputsCommand(output, context);
   }
 
   // Start section: command_body_extra

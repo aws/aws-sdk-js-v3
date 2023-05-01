@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  CreateModelRequest,
-  CreateModelRequestFilterSensitiveLog,
-  CreateModelResponse,
-  CreateModelResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateModelCommand,
-  serializeAws_json1_0CreateModelCommand,
-} from "../protocols/Aws_json1_0";
+import { CreateModelRequest, CreateModelResponse } from "../models/models_0";
+import { de_CreateModelCommand, se_CreateModelCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link CreateModelCommand}.
  */
 export interface CreateModelCommandInput extends CreateModelRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateModelCommand}.
  */
 export interface CreateModelCommandOutput extends CreateModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an ML model for data inference. </p>
  *          <p>A machine-learning (ML) model is a mathematical model that finds patterns in your data.
  *          In Amazon Lookout for Equipment, the model learns the patterns of normal behavior and
@@ -50,10 +47,43 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * import { LookoutEquipmentClient, CreateModelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateModelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // CreateModelRequest
+ *   ModelName: "STRING_VALUE", // required
+ *   DatasetName: "STRING_VALUE", // required
+ *   DatasetSchema: { // DatasetSchema
+ *     InlineDataSchema: "STRING_VALUE",
+ *   },
+ *   LabelsInputConfiguration: { // LabelsInputConfiguration
+ *     S3InputConfiguration: { // LabelsS3InputConfiguration
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *     LabelGroupName: "STRING_VALUE",
+ *   },
+ *   ClientToken: "STRING_VALUE", // required
+ *   TrainingDataStartTime: new Date("TIMESTAMP"),
+ *   TrainingDataEndTime: new Date("TIMESTAMP"),
+ *   EvaluationDataStartTime: new Date("TIMESTAMP"),
+ *   EvaluationDataEndTime: new Date("TIMESTAMP"),
+ *   RoleArn: "STRING_VALUE",
+ *   DataPreProcessingConfiguration: { // DataPreProcessingConfiguration
+ *     TargetSamplingRate: "PT1S" || "PT5S" || "PT10S" || "PT15S" || "PT30S" || "PT1M" || "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H",
+ *   },
+ *   ServerSideKmsKeyId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   OffCondition: "STRING_VALUE",
+ * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateModelCommandInput - {@link CreateModelCommandInput}
+ * @returns {@link CreateModelCommandOutput}
  * @see {@link CreateModelCommandInput} for command's `input` shape.
  * @see {@link CreateModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -103,6 +133,9 @@ export class CreateModelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,8 +162,8 @@ export class CreateModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -140,12 +173,18 @@ export class CreateModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateModelCommand(input, context);
+    return se_CreateModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelCommandOutput> {
-    return deserializeAws_json1_0CreateModelCommand(output, context);
+    return de_CreateModelCommand(output, context);
   }
 
   // Start section: command_body_extra

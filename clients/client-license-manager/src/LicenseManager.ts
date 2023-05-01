@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { AcceptGrantCommand, AcceptGrantCommandInput, AcceptGrantCommandOutput } from "./commands/AcceptGrantCommand";
@@ -211,1580 +212,821 @@ import {
   UpdateServiceSettingsCommandInput,
   UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
-import { LicenseManagerClient } from "./LicenseManagerClient";
+import { LicenseManagerClient, LicenseManagerClientConfig } from "./LicenseManagerClient";
 
-/**
- * <p>License Manager makes it easier to manage licenses from software vendors across multiple
- *          Amazon Web Services accounts and on-premises servers.</p>
- */
-export class LicenseManager extends LicenseManagerClient {
+const commands = {
+  AcceptGrantCommand,
+  CheckInLicenseCommand,
+  CheckoutBorrowLicenseCommand,
+  CheckoutLicenseCommand,
+  CreateGrantCommand,
+  CreateGrantVersionCommand,
+  CreateLicenseCommand,
+  CreateLicenseConfigurationCommand,
+  CreateLicenseConversionTaskForResourceCommand,
+  CreateLicenseManagerReportGeneratorCommand,
+  CreateLicenseVersionCommand,
+  CreateTokenCommand,
+  DeleteGrantCommand,
+  DeleteLicenseCommand,
+  DeleteLicenseConfigurationCommand,
+  DeleteLicenseManagerReportGeneratorCommand,
+  DeleteTokenCommand,
+  ExtendLicenseConsumptionCommand,
+  GetAccessTokenCommand,
+  GetGrantCommand,
+  GetLicenseCommand,
+  GetLicenseConfigurationCommand,
+  GetLicenseConversionTaskCommand,
+  GetLicenseManagerReportGeneratorCommand,
+  GetLicenseUsageCommand,
+  GetServiceSettingsCommand,
+  ListAssociationsForLicenseConfigurationCommand,
+  ListDistributedGrantsCommand,
+  ListFailuresForLicenseConfigurationOperationsCommand,
+  ListLicenseConfigurationsCommand,
+  ListLicenseConversionTasksCommand,
+  ListLicenseManagerReportGeneratorsCommand,
+  ListLicensesCommand,
+  ListLicenseSpecificationsForResourceCommand,
+  ListLicenseVersionsCommand,
+  ListReceivedGrantsCommand,
+  ListReceivedGrantsForOrganizationCommand,
+  ListReceivedLicensesCommand,
+  ListReceivedLicensesForOrganizationCommand,
+  ListResourceInventoryCommand,
+  ListTagsForResourceCommand,
+  ListTokensCommand,
+  ListUsageForLicenseConfigurationCommand,
+  RejectGrantCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateLicenseConfigurationCommand,
+  UpdateLicenseManagerReportGeneratorCommand,
+  UpdateLicenseSpecificationsForResourceCommand,
+  UpdateServiceSettingsCommand,
+};
+
+export interface LicenseManager {
   /**
-   * <p>Accepts the specified grant.</p>
+   * @see {@link AcceptGrantCommand}
    */
-  public acceptGrant(args: AcceptGrantCommandInput, options?: __HttpHandlerOptions): Promise<AcceptGrantCommandOutput>;
-  public acceptGrant(args: AcceptGrantCommandInput, cb: (err: any, data?: AcceptGrantCommandOutput) => void): void;
-  public acceptGrant(
+  acceptGrant(args: AcceptGrantCommandInput, options?: __HttpHandlerOptions): Promise<AcceptGrantCommandOutput>;
+  acceptGrant(args: AcceptGrantCommandInput, cb: (err: any, data?: AcceptGrantCommandOutput) => void): void;
+  acceptGrant(
     args: AcceptGrantCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptGrantCommandOutput) => void
   ): void;
-  public acceptGrant(
-    args: AcceptGrantCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptGrantCommandOutput) => void),
-    cb?: (err: any, data?: AcceptGrantCommandOutput) => void
-  ): Promise<AcceptGrantCommandOutput> | void {
-    const command = new AcceptGrantCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Checks in the specified license. Check in a license when it is no longer in use.</p>
+   * @see {@link CheckInLicenseCommand}
    */
-  public checkInLicense(
+  checkInLicense(
     args: CheckInLicenseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CheckInLicenseCommandOutput>;
-  public checkInLicense(
-    args: CheckInLicenseCommandInput,
-    cb: (err: any, data?: CheckInLicenseCommandOutput) => void
-  ): void;
-  public checkInLicense(
+  checkInLicense(args: CheckInLicenseCommandInput, cb: (err: any, data?: CheckInLicenseCommandOutput) => void): void;
+  checkInLicense(
     args: CheckInLicenseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CheckInLicenseCommandOutput) => void
   ): void;
-  public checkInLicense(
-    args: CheckInLicenseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CheckInLicenseCommandOutput) => void),
-    cb?: (err: any, data?: CheckInLicenseCommandOutput) => void
-  ): Promise<CheckInLicenseCommandOutput> | void {
-    const command = new CheckInLicenseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Checks out the specified license for offline use.</p>
+   * @see {@link CheckoutBorrowLicenseCommand}
    */
-  public checkoutBorrowLicense(
+  checkoutBorrowLicense(
     args: CheckoutBorrowLicenseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CheckoutBorrowLicenseCommandOutput>;
-  public checkoutBorrowLicense(
+  checkoutBorrowLicense(
     args: CheckoutBorrowLicenseCommandInput,
     cb: (err: any, data?: CheckoutBorrowLicenseCommandOutput) => void
   ): void;
-  public checkoutBorrowLicense(
+  checkoutBorrowLicense(
     args: CheckoutBorrowLicenseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CheckoutBorrowLicenseCommandOutput) => void
   ): void;
-  public checkoutBorrowLicense(
-    args: CheckoutBorrowLicenseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CheckoutBorrowLicenseCommandOutput) => void),
-    cb?: (err: any, data?: CheckoutBorrowLicenseCommandOutput) => void
-  ): Promise<CheckoutBorrowLicenseCommandOutput> | void {
-    const command = new CheckoutBorrowLicenseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Checks out the specified license.</p>
-   *          <note>
-   *             <p>If the account that created the license is the same that is performing the check out, you must
-   *             specify the account as the beneficiary.</p>
-   *          </note>
+   * @see {@link CheckoutLicenseCommand}
    */
-  public checkoutLicense(
+  checkoutLicense(
     args: CheckoutLicenseCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CheckoutLicenseCommandOutput>;
-  public checkoutLicense(
-    args: CheckoutLicenseCommandInput,
-    cb: (err: any, data?: CheckoutLicenseCommandOutput) => void
-  ): void;
-  public checkoutLicense(
+  checkoutLicense(args: CheckoutLicenseCommandInput, cb: (err: any, data?: CheckoutLicenseCommandOutput) => void): void;
+  checkoutLicense(
     args: CheckoutLicenseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CheckoutLicenseCommandOutput) => void
   ): void;
-  public checkoutLicense(
-    args: CheckoutLicenseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CheckoutLicenseCommandOutput) => void),
-    cb?: (err: any, data?: CheckoutLicenseCommandOutput) => void
-  ): Promise<CheckoutLicenseCommandOutput> | void {
-    const command = new CheckoutLicenseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific Amazon Web Services accounts.</p>
+   * @see {@link CreateGrantCommand}
    */
-  public createGrant(args: CreateGrantCommandInput, options?: __HttpHandlerOptions): Promise<CreateGrantCommandOutput>;
-  public createGrant(args: CreateGrantCommandInput, cb: (err: any, data?: CreateGrantCommandOutput) => void): void;
-  public createGrant(
+  createGrant(args: CreateGrantCommandInput, options?: __HttpHandlerOptions): Promise<CreateGrantCommandOutput>;
+  createGrant(args: CreateGrantCommandInput, cb: (err: any, data?: CreateGrantCommandOutput) => void): void;
+  createGrant(
     args: CreateGrantCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateGrantCommandOutput) => void
   ): void;
-  public createGrant(
-    args: CreateGrantCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGrantCommandOutput) => void),
-    cb?: (err: any, data?: CreateGrantCommandOutput) => void
-  ): Promise<CreateGrantCommandOutput> | void {
-    const command = new CreateGrantCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new version of the specified grant.</p>
+   * @see {@link CreateGrantVersionCommand}
    */
-  public createGrantVersion(
+  createGrantVersion(
     args: CreateGrantVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateGrantVersionCommandOutput>;
-  public createGrantVersion(
+  createGrantVersion(
     args: CreateGrantVersionCommandInput,
     cb: (err: any, data?: CreateGrantVersionCommandOutput) => void
   ): void;
-  public createGrantVersion(
+  createGrantVersion(
     args: CreateGrantVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateGrantVersionCommandOutput) => void
   ): void;
-  public createGrantVersion(
-    args: CreateGrantVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGrantVersionCommandOutput) => void),
-    cb?: (err: any, data?: CreateGrantVersionCommandOutput) => void
-  ): Promise<CreateGrantVersionCommandOutput> | void {
-    const command = new CreateGrantVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a license.</p>
+   * @see {@link CreateLicenseCommand}
    */
-  public createLicense(
-    args: CreateLicenseCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLicenseCommandOutput>;
-  public createLicense(
-    args: CreateLicenseCommandInput,
-    cb: (err: any, data?: CreateLicenseCommandOutput) => void
-  ): void;
-  public createLicense(
+  createLicense(args: CreateLicenseCommandInput, options?: __HttpHandlerOptions): Promise<CreateLicenseCommandOutput>;
+  createLicense(args: CreateLicenseCommandInput, cb: (err: any, data?: CreateLicenseCommandOutput) => void): void;
+  createLicense(
     args: CreateLicenseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLicenseCommandOutput) => void
   ): void;
-  public createLicense(
-    args: CreateLicenseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLicenseCommandOutput) => void),
-    cb?: (err: any, data?: CreateLicenseCommandOutput) => void
-  ): Promise<CreateLicenseCommandOutput> | void {
-    const command = new CreateLicenseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a license configuration.</p>
-   *          <p>A license configuration is an abstraction of a customer license agreement that can be
-   *          consumed and enforced by License Manager. Components include specifications for the license
-   *          type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy,
-   *          Dedicated Instance, Dedicated Host, or all of these), license affinity  to host (how long a
-   *          license must be associated with a host), and the number of licenses purchased and used.</p>
+   * @see {@link CreateLicenseConfigurationCommand}
    */
-  public createLicenseConfiguration(
+  createLicenseConfiguration(
     args: CreateLicenseConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateLicenseConfigurationCommandOutput>;
-  public createLicenseConfiguration(
+  createLicenseConfiguration(
     args: CreateLicenseConfigurationCommandInput,
     cb: (err: any, data?: CreateLicenseConfigurationCommandOutput) => void
   ): void;
-  public createLicenseConfiguration(
+  createLicenseConfiguration(
     args: CreateLicenseConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLicenseConfigurationCommandOutput) => void
   ): void;
-  public createLicenseConfiguration(
-    args: CreateLicenseConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLicenseConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: CreateLicenseConfigurationCommandOutput) => void
-  ): Promise<CreateLicenseConfigurationCommandOutput> | void {
-    const command = new CreateLicenseConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new license conversion task.</p>
+   * @see {@link CreateLicenseConversionTaskForResourceCommand}
    */
-  public createLicenseConversionTaskForResource(
+  createLicenseConversionTaskForResource(
     args: CreateLicenseConversionTaskForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateLicenseConversionTaskForResourceCommandOutput>;
-  public createLicenseConversionTaskForResource(
+  createLicenseConversionTaskForResource(
     args: CreateLicenseConversionTaskForResourceCommandInput,
     cb: (err: any, data?: CreateLicenseConversionTaskForResourceCommandOutput) => void
   ): void;
-  public createLicenseConversionTaskForResource(
+  createLicenseConversionTaskForResource(
     args: CreateLicenseConversionTaskForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLicenseConversionTaskForResourceCommandOutput) => void
   ): void;
-  public createLicenseConversionTaskForResource(
-    args: CreateLicenseConversionTaskForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLicenseConversionTaskForResourceCommandOutput) => void),
-    cb?: (err: any, data?: CreateLicenseConversionTaskForResourceCommandOutput) => void
-  ): Promise<CreateLicenseConversionTaskForResourceCommandOutput> | void {
-    const command = new CreateLicenseConversionTaskForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a report generator.</p>
+   * @see {@link CreateLicenseManagerReportGeneratorCommand}
    */
-  public createLicenseManagerReportGenerator(
+  createLicenseManagerReportGenerator(
     args: CreateLicenseManagerReportGeneratorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateLicenseManagerReportGeneratorCommandOutput>;
-  public createLicenseManagerReportGenerator(
+  createLicenseManagerReportGenerator(
     args: CreateLicenseManagerReportGeneratorCommandInput,
     cb: (err: any, data?: CreateLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
-  public createLicenseManagerReportGenerator(
+  createLicenseManagerReportGenerator(
     args: CreateLicenseManagerReportGeneratorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
-  public createLicenseManagerReportGenerator(
-    args: CreateLicenseManagerReportGeneratorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLicenseManagerReportGeneratorCommandOutput) => void),
-    cb?: (err: any, data?: CreateLicenseManagerReportGeneratorCommandOutput) => void
-  ): Promise<CreateLicenseManagerReportGeneratorCommandOutput> | void {
-    const command = new CreateLicenseManagerReportGeneratorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new version of the specified license.</p>
+   * @see {@link CreateLicenseVersionCommand}
    */
-  public createLicenseVersion(
+  createLicenseVersion(
     args: CreateLicenseVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateLicenseVersionCommandOutput>;
-  public createLicenseVersion(
+  createLicenseVersion(
     args: CreateLicenseVersionCommandInput,
     cb: (err: any, data?: CreateLicenseVersionCommandOutput) => void
   ): void;
-  public createLicenseVersion(
+  createLicenseVersion(
     args: CreateLicenseVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLicenseVersionCommandOutput) => void
   ): void;
-  public createLicenseVersion(
-    args: CreateLicenseVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLicenseVersionCommandOutput) => void),
-    cb?: (err: any, data?: CreateLicenseVersionCommandOutput) => void
-  ): Promise<CreateLicenseVersionCommandOutput> | void {
-    const command = new CreateLicenseVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a long-lived token.</p>
-   *          <p>A refresh token is a JWT token used to get an access token. With an access token,
-   *           you can call AssumeRoleWithWebIdentity to get role credentials that you can use to
-   *           call License Manager to manage the specified license.</p>
+   * @see {@link CreateTokenCommand}
    */
-  public createToken(args: CreateTokenCommandInput, options?: __HttpHandlerOptions): Promise<CreateTokenCommandOutput>;
-  public createToken(args: CreateTokenCommandInput, cb: (err: any, data?: CreateTokenCommandOutput) => void): void;
-  public createToken(
+  createToken(args: CreateTokenCommandInput, options?: __HttpHandlerOptions): Promise<CreateTokenCommandOutput>;
+  createToken(args: CreateTokenCommandInput, cb: (err: any, data?: CreateTokenCommandOutput) => void): void;
+  createToken(
     args: CreateTokenCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateTokenCommandOutput) => void
   ): void;
-  public createToken(
-    args: CreateTokenCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTokenCommandOutput) => void),
-    cb?: (err: any, data?: CreateTokenCommandOutput) => void
-  ): Promise<CreateTokenCommandOutput> | void {
-    const command = new CreateTokenCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the specified grant.</p>
+   * @see {@link DeleteGrantCommand}
    */
-  public deleteGrant(args: DeleteGrantCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGrantCommandOutput>;
-  public deleteGrant(args: DeleteGrantCommandInput, cb: (err: any, data?: DeleteGrantCommandOutput) => void): void;
-  public deleteGrant(
+  deleteGrant(args: DeleteGrantCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGrantCommandOutput>;
+  deleteGrant(args: DeleteGrantCommandInput, cb: (err: any, data?: DeleteGrantCommandOutput) => void): void;
+  deleteGrant(
     args: DeleteGrantCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteGrantCommandOutput) => void
   ): void;
-  public deleteGrant(
-    args: DeleteGrantCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGrantCommandOutput) => void),
-    cb?: (err: any, data?: DeleteGrantCommandOutput) => void
-  ): Promise<DeleteGrantCommandOutput> | void {
-    const command = new DeleteGrantCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the specified license.</p>
+   * @see {@link DeleteLicenseCommand}
    */
-  public deleteLicense(
-    args: DeleteLicenseCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteLicenseCommandOutput>;
-  public deleteLicense(
-    args: DeleteLicenseCommandInput,
-    cb: (err: any, data?: DeleteLicenseCommandOutput) => void
-  ): void;
-  public deleteLicense(
+  deleteLicense(args: DeleteLicenseCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLicenseCommandOutput>;
+  deleteLicense(args: DeleteLicenseCommandInput, cb: (err: any, data?: DeleteLicenseCommandOutput) => void): void;
+  deleteLicense(
     args: DeleteLicenseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteLicenseCommandOutput) => void
   ): void;
-  public deleteLicense(
-    args: DeleteLicenseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLicenseCommandOutput) => void),
-    cb?: (err: any, data?: DeleteLicenseCommandOutput) => void
-  ): Promise<DeleteLicenseCommandOutput> | void {
-    const command = new DeleteLicenseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the specified license configuration.</p>
-   *          <p>You cannot delete a license configuration that is in use.</p>
+   * @see {@link DeleteLicenseConfigurationCommand}
    */
-  public deleteLicenseConfiguration(
+  deleteLicenseConfiguration(
     args: DeleteLicenseConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteLicenseConfigurationCommandOutput>;
-  public deleteLicenseConfiguration(
+  deleteLicenseConfiguration(
     args: DeleteLicenseConfigurationCommandInput,
     cb: (err: any, data?: DeleteLicenseConfigurationCommandOutput) => void
   ): void;
-  public deleteLicenseConfiguration(
+  deleteLicenseConfiguration(
     args: DeleteLicenseConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteLicenseConfigurationCommandOutput) => void
   ): void;
-  public deleteLicenseConfiguration(
-    args: DeleteLicenseConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLicenseConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteLicenseConfigurationCommandOutput) => void
-  ): Promise<DeleteLicenseConfigurationCommandOutput> | void {
-    const command = new DeleteLicenseConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the specified report generator.</p>
-   *          <p>This action deletes the report generator, which stops it from generating future reports.
-   *          The action cannot be reversed. It has no effect on the previous reports from this generator.</p>
+   * @see {@link DeleteLicenseManagerReportGeneratorCommand}
    */
-  public deleteLicenseManagerReportGenerator(
+  deleteLicenseManagerReportGenerator(
     args: DeleteLicenseManagerReportGeneratorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteLicenseManagerReportGeneratorCommandOutput>;
-  public deleteLicenseManagerReportGenerator(
+  deleteLicenseManagerReportGenerator(
     args: DeleteLicenseManagerReportGeneratorCommandInput,
     cb: (err: any, data?: DeleteLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
-  public deleteLicenseManagerReportGenerator(
+  deleteLicenseManagerReportGenerator(
     args: DeleteLicenseManagerReportGeneratorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
-  public deleteLicenseManagerReportGenerator(
-    args: DeleteLicenseManagerReportGeneratorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLicenseManagerReportGeneratorCommandOutput) => void),
-    cb?: (err: any, data?: DeleteLicenseManagerReportGeneratorCommandOutput) => void
-  ): Promise<DeleteLicenseManagerReportGeneratorCommandOutput> | void {
-    const command = new DeleteLicenseManagerReportGeneratorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the specified token. Must be called in the license home Region.</p>
+   * @see {@link DeleteTokenCommand}
    */
-  public deleteToken(args: DeleteTokenCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTokenCommandOutput>;
-  public deleteToken(args: DeleteTokenCommandInput, cb: (err: any, data?: DeleteTokenCommandOutput) => void): void;
-  public deleteToken(
+  deleteToken(args: DeleteTokenCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTokenCommandOutput>;
+  deleteToken(args: DeleteTokenCommandInput, cb: (err: any, data?: DeleteTokenCommandOutput) => void): void;
+  deleteToken(
     args: DeleteTokenCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTokenCommandOutput) => void
   ): void;
-  public deleteToken(
-    args: DeleteTokenCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTokenCommandOutput) => void),
-    cb?: (err: any, data?: DeleteTokenCommandOutput) => void
-  ): Promise<DeleteTokenCommandOutput> | void {
-    const command = new DeleteTokenCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Extends the expiration date for license consumption.</p>
+   * @see {@link ExtendLicenseConsumptionCommand}
    */
-  public extendLicenseConsumption(
+  extendLicenseConsumption(
     args: ExtendLicenseConsumptionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ExtendLicenseConsumptionCommandOutput>;
-  public extendLicenseConsumption(
+  extendLicenseConsumption(
     args: ExtendLicenseConsumptionCommandInput,
     cb: (err: any, data?: ExtendLicenseConsumptionCommandOutput) => void
   ): void;
-  public extendLicenseConsumption(
+  extendLicenseConsumption(
     args: ExtendLicenseConsumptionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ExtendLicenseConsumptionCommandOutput) => void
   ): void;
-  public extendLicenseConsumption(
-    args: ExtendLicenseConsumptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExtendLicenseConsumptionCommandOutput) => void),
-    cb?: (err: any, data?: ExtendLicenseConsumptionCommandOutput) => void
-  ): Promise<ExtendLicenseConsumptionCommandOutput> | void {
-    const command = new ExtendLicenseConsumptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a temporary access token to use with AssumeRoleWithWebIdentity. Access tokens
-   *           are valid for one hour.</p>
+   * @see {@link GetAccessTokenCommand}
    */
-  public getAccessToken(
+  getAccessToken(
     args: GetAccessTokenCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAccessTokenCommandOutput>;
-  public getAccessToken(
-    args: GetAccessTokenCommandInput,
-    cb: (err: any, data?: GetAccessTokenCommandOutput) => void
-  ): void;
-  public getAccessToken(
+  getAccessToken(args: GetAccessTokenCommandInput, cb: (err: any, data?: GetAccessTokenCommandOutput) => void): void;
+  getAccessToken(
     args: GetAccessTokenCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAccessTokenCommandOutput) => void
   ): void;
-  public getAccessToken(
-    args: GetAccessTokenCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessTokenCommandOutput) => void),
-    cb?: (err: any, data?: GetAccessTokenCommandOutput) => void
-  ): Promise<GetAccessTokenCommandOutput> | void {
-    const command = new GetAccessTokenCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets detailed information about the specified grant.</p>
+   * @see {@link GetGrantCommand}
    */
-  public getGrant(args: GetGrantCommandInput, options?: __HttpHandlerOptions): Promise<GetGrantCommandOutput>;
-  public getGrant(args: GetGrantCommandInput, cb: (err: any, data?: GetGrantCommandOutput) => void): void;
-  public getGrant(
+  getGrant(args: GetGrantCommandInput, options?: __HttpHandlerOptions): Promise<GetGrantCommandOutput>;
+  getGrant(args: GetGrantCommandInput, cb: (err: any, data?: GetGrantCommandOutput) => void): void;
+  getGrant(
     args: GetGrantCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetGrantCommandOutput) => void
   ): void;
-  public getGrant(
-    args: GetGrantCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGrantCommandOutput) => void),
-    cb?: (err: any, data?: GetGrantCommandOutput) => void
-  ): Promise<GetGrantCommandOutput> | void {
-    const command = new GetGrantCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets detailed information about the specified license.</p>
+   * @see {@link GetLicenseCommand}
    */
-  public getLicense(args: GetLicenseCommandInput, options?: __HttpHandlerOptions): Promise<GetLicenseCommandOutput>;
-  public getLicense(args: GetLicenseCommandInput, cb: (err: any, data?: GetLicenseCommandOutput) => void): void;
-  public getLicense(
+  getLicense(args: GetLicenseCommandInput, options?: __HttpHandlerOptions): Promise<GetLicenseCommandOutput>;
+  getLicense(args: GetLicenseCommandInput, cb: (err: any, data?: GetLicenseCommandOutput) => void): void;
+  getLicense(
     args: GetLicenseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLicenseCommandOutput) => void
   ): void;
-  public getLicense(
-    args: GetLicenseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLicenseCommandOutput) => void),
-    cb?: (err: any, data?: GetLicenseCommandOutput) => void
-  ): Promise<GetLicenseCommandOutput> | void {
-    const command = new GetLicenseCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets detailed information about the specified license configuration.</p>
+   * @see {@link GetLicenseConfigurationCommand}
    */
-  public getLicenseConfiguration(
+  getLicenseConfiguration(
     args: GetLicenseConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLicenseConfigurationCommandOutput>;
-  public getLicenseConfiguration(
+  getLicenseConfiguration(
     args: GetLicenseConfigurationCommandInput,
     cb: (err: any, data?: GetLicenseConfigurationCommandOutput) => void
   ): void;
-  public getLicenseConfiguration(
+  getLicenseConfiguration(
     args: GetLicenseConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLicenseConfigurationCommandOutput) => void
   ): void;
-  public getLicenseConfiguration(
-    args: GetLicenseConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLicenseConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetLicenseConfigurationCommandOutput) => void
-  ): Promise<GetLicenseConfigurationCommandOutput> | void {
-    const command = new GetLicenseConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about the specified license type conversion task.</p>
+   * @see {@link GetLicenseConversionTaskCommand}
    */
-  public getLicenseConversionTask(
+  getLicenseConversionTask(
     args: GetLicenseConversionTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLicenseConversionTaskCommandOutput>;
-  public getLicenseConversionTask(
+  getLicenseConversionTask(
     args: GetLicenseConversionTaskCommandInput,
     cb: (err: any, data?: GetLicenseConversionTaskCommandOutput) => void
   ): void;
-  public getLicenseConversionTask(
+  getLicenseConversionTask(
     args: GetLicenseConversionTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLicenseConversionTaskCommandOutput) => void
   ): void;
-  public getLicenseConversionTask(
-    args: GetLicenseConversionTaskCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLicenseConversionTaskCommandOutput) => void),
-    cb?: (err: any, data?: GetLicenseConversionTaskCommandOutput) => void
-  ): Promise<GetLicenseConversionTaskCommandOutput> | void {
-    const command = new GetLicenseConversionTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets information about the specified report generator.</p>
+   * @see {@link GetLicenseManagerReportGeneratorCommand}
    */
-  public getLicenseManagerReportGenerator(
+  getLicenseManagerReportGenerator(
     args: GetLicenseManagerReportGeneratorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLicenseManagerReportGeneratorCommandOutput>;
-  public getLicenseManagerReportGenerator(
+  getLicenseManagerReportGenerator(
     args: GetLicenseManagerReportGeneratorCommandInput,
     cb: (err: any, data?: GetLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
-  public getLicenseManagerReportGenerator(
+  getLicenseManagerReportGenerator(
     args: GetLicenseManagerReportGeneratorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
-  public getLicenseManagerReportGenerator(
-    args: GetLicenseManagerReportGeneratorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLicenseManagerReportGeneratorCommandOutput) => void),
-    cb?: (err: any, data?: GetLicenseManagerReportGeneratorCommandOutput) => void
-  ): Promise<GetLicenseManagerReportGeneratorCommandOutput> | void {
-    const command = new GetLicenseManagerReportGeneratorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets detailed information about the usage of the specified license.</p>
+   * @see {@link GetLicenseUsageCommand}
    */
-  public getLicenseUsage(
+  getLicenseUsage(
     args: GetLicenseUsageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLicenseUsageCommandOutput>;
-  public getLicenseUsage(
-    args: GetLicenseUsageCommandInput,
-    cb: (err: any, data?: GetLicenseUsageCommandOutput) => void
-  ): void;
-  public getLicenseUsage(
+  getLicenseUsage(args: GetLicenseUsageCommandInput, cb: (err: any, data?: GetLicenseUsageCommandOutput) => void): void;
+  getLicenseUsage(
     args: GetLicenseUsageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLicenseUsageCommandOutput) => void
   ): void;
-  public getLicenseUsage(
-    args: GetLicenseUsageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLicenseUsageCommandOutput) => void),
-    cb?: (err: any, data?: GetLicenseUsageCommandOutput) => void
-  ): Promise<GetLicenseUsageCommandOutput> | void {
-    const command = new GetLicenseUsageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the License Manager settings for the current Region.</p>
+   * @see {@link GetServiceSettingsCommand}
    */
-  public getServiceSettings(
+  getServiceSettings(
     args: GetServiceSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetServiceSettingsCommandOutput>;
-  public getServiceSettings(
+  getServiceSettings(
     args: GetServiceSettingsCommandInput,
     cb: (err: any, data?: GetServiceSettingsCommandOutput) => void
   ): void;
-  public getServiceSettings(
+  getServiceSettings(
     args: GetServiceSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetServiceSettingsCommandOutput) => void
   ): void;
-  public getServiceSettings(
-    args: GetServiceSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetServiceSettingsCommandOutput) => void
-  ): Promise<GetServiceSettingsCommandOutput> | void {
-    const command = new GetServiceSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the resource associations for the specified license configuration.</p>
-   *          <p>Resource associations need not consume licenses from a license configuration.
-   *          For example, an AMI or a stopped instance might not consume a license (depending on
-   *          the license rules).</p>
+   * @see {@link ListAssociationsForLicenseConfigurationCommand}
    */
-  public listAssociationsForLicenseConfiguration(
+  listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAssociationsForLicenseConfigurationCommandOutput>;
-  public listAssociationsForLicenseConfiguration(
+  listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
     cb: (err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void
   ): void;
-  public listAssociationsForLicenseConfiguration(
+  listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void
   ): void;
-  public listAssociationsForLicenseConfiguration(
-    args: ListAssociationsForLicenseConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void
-  ): Promise<ListAssociationsForLicenseConfigurationCommandOutput> | void {
-    const command = new ListAssociationsForLicenseConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the grants distributed for the specified license.</p>
+   * @see {@link ListDistributedGrantsCommand}
    */
-  public listDistributedGrants(
+  listDistributedGrants(
     args: ListDistributedGrantsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDistributedGrantsCommandOutput>;
-  public listDistributedGrants(
+  listDistributedGrants(
     args: ListDistributedGrantsCommandInput,
     cb: (err: any, data?: ListDistributedGrantsCommandOutput) => void
   ): void;
-  public listDistributedGrants(
+  listDistributedGrants(
     args: ListDistributedGrantsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDistributedGrantsCommandOutput) => void
   ): void;
-  public listDistributedGrants(
-    args: ListDistributedGrantsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDistributedGrantsCommandOutput) => void),
-    cb?: (err: any, data?: ListDistributedGrantsCommandOutput) => void
-  ): Promise<ListDistributedGrantsCommandOutput> | void {
-    const command = new ListDistributedGrantsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the license configuration operations that failed.</p>
+   * @see {@link ListFailuresForLicenseConfigurationOperationsCommand}
    */
-  public listFailuresForLicenseConfigurationOperations(
+  listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput>;
-  public listFailuresForLicenseConfigurationOperations(
+  listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
     cb: (err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void
   ): void;
-  public listFailuresForLicenseConfigurationOperations(
+  listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void
   ): void;
-  public listFailuresForLicenseConfigurationOperations(
-    args: ListFailuresForLicenseConfigurationOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void),
-    cb?: (err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void
-  ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> | void {
-    const command = new ListFailuresForLicenseConfigurationOperationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the license configurations for your account.</p>
+   * @see {@link ListLicenseConfigurationsCommand}
    */
-  public listLicenseConfigurations(
+  listLicenseConfigurations(
     args: ListLicenseConfigurationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLicenseConfigurationsCommandOutput>;
-  public listLicenseConfigurations(
+  listLicenseConfigurations(
     args: ListLicenseConfigurationsCommandInput,
     cb: (err: any, data?: ListLicenseConfigurationsCommandOutput) => void
   ): void;
-  public listLicenseConfigurations(
+  listLicenseConfigurations(
     args: ListLicenseConfigurationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLicenseConfigurationsCommandOutput) => void
   ): void;
-  public listLicenseConfigurations(
-    args: ListLicenseConfigurationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLicenseConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: ListLicenseConfigurationsCommandOutput) => void
-  ): Promise<ListLicenseConfigurationsCommandOutput> | void {
-    const command = new ListLicenseConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the license type conversion tasks for your account.</p>
+   * @see {@link ListLicenseConversionTasksCommand}
    */
-  public listLicenseConversionTasks(
+  listLicenseConversionTasks(
     args: ListLicenseConversionTasksCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLicenseConversionTasksCommandOutput>;
-  public listLicenseConversionTasks(
+  listLicenseConversionTasks(
     args: ListLicenseConversionTasksCommandInput,
     cb: (err: any, data?: ListLicenseConversionTasksCommandOutput) => void
   ): void;
-  public listLicenseConversionTasks(
+  listLicenseConversionTasks(
     args: ListLicenseConversionTasksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLicenseConversionTasksCommandOutput) => void
   ): void;
-  public listLicenseConversionTasks(
-    args: ListLicenseConversionTasksCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLicenseConversionTasksCommandOutput) => void),
-    cb?: (err: any, data?: ListLicenseConversionTasksCommandOutput) => void
-  ): Promise<ListLicenseConversionTasksCommandOutput> | void {
-    const command = new ListLicenseConversionTasksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the report generators for your account.</p>
+   * @see {@link ListLicenseManagerReportGeneratorsCommand}
    */
-  public listLicenseManagerReportGenerators(
+  listLicenseManagerReportGenerators(
     args: ListLicenseManagerReportGeneratorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLicenseManagerReportGeneratorsCommandOutput>;
-  public listLicenseManagerReportGenerators(
+  listLicenseManagerReportGenerators(
     args: ListLicenseManagerReportGeneratorsCommandInput,
     cb: (err: any, data?: ListLicenseManagerReportGeneratorsCommandOutput) => void
   ): void;
-  public listLicenseManagerReportGenerators(
+  listLicenseManagerReportGenerators(
     args: ListLicenseManagerReportGeneratorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLicenseManagerReportGeneratorsCommandOutput) => void
   ): void;
-  public listLicenseManagerReportGenerators(
-    args: ListLicenseManagerReportGeneratorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLicenseManagerReportGeneratorsCommandOutput) => void),
-    cb?: (err: any, data?: ListLicenseManagerReportGeneratorsCommandOutput) => void
-  ): Promise<ListLicenseManagerReportGeneratorsCommandOutput> | void {
-    const command = new ListLicenseManagerReportGeneratorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the licenses for your account.</p>
+   * @see {@link ListLicensesCommand}
    */
-  public listLicenses(
-    args: ListLicensesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListLicensesCommandOutput>;
-  public listLicenses(args: ListLicensesCommandInput, cb: (err: any, data?: ListLicensesCommandOutput) => void): void;
-  public listLicenses(
+  listLicenses(args: ListLicensesCommandInput, options?: __HttpHandlerOptions): Promise<ListLicensesCommandOutput>;
+  listLicenses(args: ListLicensesCommandInput, cb: (err: any, data?: ListLicensesCommandOutput) => void): void;
+  listLicenses(
     args: ListLicensesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLicensesCommandOutput) => void
   ): void;
-  public listLicenses(
-    args: ListLicensesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLicensesCommandOutput) => void),
-    cb?: (err: any, data?: ListLicensesCommandOutput) => void
-  ): Promise<ListLicensesCommandOutput> | void {
-    const command = new ListLicensesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Describes the license configurations for the specified resource.</p>
+   * @see {@link ListLicenseSpecificationsForResourceCommand}
    */
-  public listLicenseSpecificationsForResource(
+  listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLicenseSpecificationsForResourceCommandOutput>;
-  public listLicenseSpecificationsForResource(
+  listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
     cb: (err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
-  public listLicenseSpecificationsForResource(
+  listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
-  public listLicenseSpecificationsForResource(
-    args: ListLicenseSpecificationsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void
-  ): Promise<ListLicenseSpecificationsForResourceCommandOutput> | void {
-    const command = new ListLicenseSpecificationsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all versions of the specified license.</p>
+   * @see {@link ListLicenseVersionsCommand}
    */
-  public listLicenseVersions(
+  listLicenseVersions(
     args: ListLicenseVersionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLicenseVersionsCommandOutput>;
-  public listLicenseVersions(
+  listLicenseVersions(
     args: ListLicenseVersionsCommandInput,
     cb: (err: any, data?: ListLicenseVersionsCommandOutput) => void
   ): void;
-  public listLicenseVersions(
+  listLicenseVersions(
     args: ListLicenseVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLicenseVersionsCommandOutput) => void
   ): void;
-  public listLicenseVersions(
-    args: ListLicenseVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLicenseVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListLicenseVersionsCommandOutput) => void
-  ): Promise<ListLicenseVersionsCommandOutput> | void {
-    const command = new ListLicenseVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists grants that are received but not accepted.</p>
+   * @see {@link ListReceivedGrantsCommand}
    */
-  public listReceivedGrants(
+  listReceivedGrants(
     args: ListReceivedGrantsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReceivedGrantsCommandOutput>;
-  public listReceivedGrants(
+  listReceivedGrants(
     args: ListReceivedGrantsCommandInput,
     cb: (err: any, data?: ListReceivedGrantsCommandOutput) => void
   ): void;
-  public listReceivedGrants(
+  listReceivedGrants(
     args: ListReceivedGrantsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReceivedGrantsCommandOutput) => void
   ): void;
-  public listReceivedGrants(
-    args: ListReceivedGrantsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReceivedGrantsCommandOutput) => void),
-    cb?: (err: any, data?: ListReceivedGrantsCommandOutput) => void
-  ): Promise<ListReceivedGrantsCommandOutput> | void {
-    const command = new ListReceivedGrantsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the grants received for all accounts in the organization.</p>
+   * @see {@link ListReceivedGrantsForOrganizationCommand}
    */
-  public listReceivedGrantsForOrganization(
+  listReceivedGrantsForOrganization(
     args: ListReceivedGrantsForOrganizationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReceivedGrantsForOrganizationCommandOutput>;
-  public listReceivedGrantsForOrganization(
+  listReceivedGrantsForOrganization(
     args: ListReceivedGrantsForOrganizationCommandInput,
     cb: (err: any, data?: ListReceivedGrantsForOrganizationCommandOutput) => void
   ): void;
-  public listReceivedGrantsForOrganization(
+  listReceivedGrantsForOrganization(
     args: ListReceivedGrantsForOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReceivedGrantsForOrganizationCommandOutput) => void
   ): void;
-  public listReceivedGrantsForOrganization(
-    args: ListReceivedGrantsForOrganizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReceivedGrantsForOrganizationCommandOutput) => void),
-    cb?: (err: any, data?: ListReceivedGrantsForOrganizationCommandOutput) => void
-  ): Promise<ListReceivedGrantsForOrganizationCommandOutput> | void {
-    const command = new ListReceivedGrantsForOrganizationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists received licenses.</p>
+   * @see {@link ListReceivedLicensesCommand}
    */
-  public listReceivedLicenses(
+  listReceivedLicenses(
     args: ListReceivedLicensesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReceivedLicensesCommandOutput>;
-  public listReceivedLicenses(
+  listReceivedLicenses(
     args: ListReceivedLicensesCommandInput,
     cb: (err: any, data?: ListReceivedLicensesCommandOutput) => void
   ): void;
-  public listReceivedLicenses(
+  listReceivedLicenses(
     args: ListReceivedLicensesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReceivedLicensesCommandOutput) => void
   ): void;
-  public listReceivedLicenses(
-    args: ListReceivedLicensesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReceivedLicensesCommandOutput) => void),
-    cb?: (err: any, data?: ListReceivedLicensesCommandOutput) => void
-  ): Promise<ListReceivedLicensesCommandOutput> | void {
-    const command = new ListReceivedLicensesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the licenses received for all accounts in the organization.</p>
+   * @see {@link ListReceivedLicensesForOrganizationCommand}
    */
-  public listReceivedLicensesForOrganization(
+  listReceivedLicensesForOrganization(
     args: ListReceivedLicensesForOrganizationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListReceivedLicensesForOrganizationCommandOutput>;
-  public listReceivedLicensesForOrganization(
+  listReceivedLicensesForOrganization(
     args: ListReceivedLicensesForOrganizationCommandInput,
     cb: (err: any, data?: ListReceivedLicensesForOrganizationCommandOutput) => void
   ): void;
-  public listReceivedLicensesForOrganization(
+  listReceivedLicensesForOrganization(
     args: ListReceivedLicensesForOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReceivedLicensesForOrganizationCommandOutput) => void
   ): void;
-  public listReceivedLicensesForOrganization(
-    args: ListReceivedLicensesForOrganizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReceivedLicensesForOrganizationCommandOutput) => void),
-    cb?: (err: any, data?: ListReceivedLicensesForOrganizationCommandOutput) => void
-  ): Promise<ListReceivedLicensesForOrganizationCommandOutput> | void {
-    const command = new ListReceivedLicensesForOrganizationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists resources managed using Systems Manager inventory.</p>
+   * @see {@link ListResourceInventoryCommand}
    */
-  public listResourceInventory(
+  listResourceInventory(
     args: ListResourceInventoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListResourceInventoryCommandOutput>;
-  public listResourceInventory(
+  listResourceInventory(
     args: ListResourceInventoryCommandInput,
     cb: (err: any, data?: ListResourceInventoryCommandOutput) => void
   ): void;
-  public listResourceInventory(
+  listResourceInventory(
     args: ListResourceInventoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListResourceInventoryCommandOutput) => void
   ): void;
-  public listResourceInventory(
-    args: ListResourceInventoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceInventoryCommandOutput) => void),
-    cb?: (err: any, data?: ListResourceInventoryCommandOutput) => void
-  ): Promise<ListResourceInventoryCommandOutput> | void {
-    const command = new ListResourceInventoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists the tags for the specified license configuration.</p>
+   * @see {@link ListTagsForResourceCommand}
    */
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists your tokens.</p>
+   * @see {@link ListTokensCommand}
    */
-  public listTokens(args: ListTokensCommandInput, options?: __HttpHandlerOptions): Promise<ListTokensCommandOutput>;
-  public listTokens(args: ListTokensCommandInput, cb: (err: any, data?: ListTokensCommandOutput) => void): void;
-  public listTokens(
+  listTokens(args: ListTokensCommandInput, options?: __HttpHandlerOptions): Promise<ListTokensCommandOutput>;
+  listTokens(args: ListTokensCommandInput, cb: (err: any, data?: ListTokensCommandOutput) => void): void;
+  listTokens(
     args: ListTokensCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTokensCommandOutput) => void
   ): void;
-  public listTokens(
-    args: ListTokensCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTokensCommandOutput) => void),
-    cb?: (err: any, data?: ListTokensCommandOutput) => void
-  ): Promise<ListTokensCommandOutput> | void {
-    const command = new ListTokensCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all license usage records for a license configuration, displaying license
-   *          consumption details by resource at a selected point in time. Use this action to audit the
-   *          current license consumption for any license inventory and configuration.</p>
+   * @see {@link ListUsageForLicenseConfigurationCommand}
    */
-  public listUsageForLicenseConfiguration(
+  listUsageForLicenseConfiguration(
     args: ListUsageForLicenseConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListUsageForLicenseConfigurationCommandOutput>;
-  public listUsageForLicenseConfiguration(
+  listUsageForLicenseConfiguration(
     args: ListUsageForLicenseConfigurationCommandInput,
     cb: (err: any, data?: ListUsageForLicenseConfigurationCommandOutput) => void
   ): void;
-  public listUsageForLicenseConfiguration(
+  listUsageForLicenseConfiguration(
     args: ListUsageForLicenseConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListUsageForLicenseConfigurationCommandOutput) => void
   ): void;
-  public listUsageForLicenseConfiguration(
-    args: ListUsageForLicenseConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsageForLicenseConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: ListUsageForLicenseConfigurationCommandOutput) => void
-  ): Promise<ListUsageForLicenseConfigurationCommandOutput> | void {
-    const command = new ListUsageForLicenseConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Rejects the specified grant.</p>
+   * @see {@link RejectGrantCommand}
    */
-  public rejectGrant(args: RejectGrantCommandInput, options?: __HttpHandlerOptions): Promise<RejectGrantCommandOutput>;
-  public rejectGrant(args: RejectGrantCommandInput, cb: (err: any, data?: RejectGrantCommandOutput) => void): void;
-  public rejectGrant(
+  rejectGrant(args: RejectGrantCommandInput, options?: __HttpHandlerOptions): Promise<RejectGrantCommandOutput>;
+  rejectGrant(args: RejectGrantCommandInput, cb: (err: any, data?: RejectGrantCommandOutput) => void): void;
+  rejectGrant(
     args: RejectGrantCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RejectGrantCommandOutput) => void
   ): void;
-  public rejectGrant(
-    args: RejectGrantCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectGrantCommandOutput) => void),
-    cb?: (err: any, data?: RejectGrantCommandOutput) => void
-  ): Promise<RejectGrantCommandOutput> | void {
-    const command = new RejectGrantCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Adds the specified tags to the specified license configuration.</p>
+   * @see {@link TagResourceCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes the specified tags from the specified license configuration.</p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Modifies the attributes of an existing license configuration.</p>
+   * @see {@link UpdateLicenseConfigurationCommand}
    */
-  public updateLicenseConfiguration(
+  updateLicenseConfiguration(
     args: UpdateLicenseConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateLicenseConfigurationCommandOutput>;
-  public updateLicenseConfiguration(
+  updateLicenseConfiguration(
     args: UpdateLicenseConfigurationCommandInput,
     cb: (err: any, data?: UpdateLicenseConfigurationCommandOutput) => void
   ): void;
-  public updateLicenseConfiguration(
+  updateLicenseConfiguration(
     args: UpdateLicenseConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLicenseConfigurationCommandOutput) => void
   ): void;
-  public updateLicenseConfiguration(
-    args: UpdateLicenseConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLicenseConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateLicenseConfigurationCommandOutput) => void
-  ): Promise<UpdateLicenseConfigurationCommandOutput> | void {
-    const command = new UpdateLicenseConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a report generator.</p>
-   *          <p>After you make changes to a report generator, it starts generating new reports within 60 minutes of being updated.</p>
+   * @see {@link UpdateLicenseManagerReportGeneratorCommand}
    */
-  public updateLicenseManagerReportGenerator(
+  updateLicenseManagerReportGenerator(
     args: UpdateLicenseManagerReportGeneratorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateLicenseManagerReportGeneratorCommandOutput>;
-  public updateLicenseManagerReportGenerator(
+  updateLicenseManagerReportGenerator(
     args: UpdateLicenseManagerReportGeneratorCommandInput,
     cb: (err: any, data?: UpdateLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
-  public updateLicenseManagerReportGenerator(
+  updateLicenseManagerReportGenerator(
     args: UpdateLicenseManagerReportGeneratorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
-  public updateLicenseManagerReportGenerator(
-    args: UpdateLicenseManagerReportGeneratorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLicenseManagerReportGeneratorCommandOutput) => void),
-    cb?: (err: any, data?: UpdateLicenseManagerReportGeneratorCommandOutput) => void
-  ): Promise<UpdateLicenseManagerReportGeneratorCommandOutput> | void {
-    const command = new UpdateLicenseManagerReportGeneratorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Adds or removes the specified license configurations for the specified Amazon Web Services resource.</p>
-   *          <p>You can update the license specifications of AMIs, instances, and hosts.
-   *          You cannot update the license specifications for launch templates and CloudFormation templates,
-   *          as they send license configurations to the operation that creates the resource.</p>
+   * @see {@link UpdateLicenseSpecificationsForResourceCommand}
    */
-  public updateLicenseSpecificationsForResource(
+  updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput>;
-  public updateLicenseSpecificationsForResource(
+  updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
     cb: (err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
-  public updateLicenseSpecificationsForResource(
+  updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
-  public updateLicenseSpecificationsForResource(
-    args: UpdateLicenseSpecificationsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void
-  ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> | void {
-    const command = new UpdateLicenseSpecificationsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates License Manager settings for the current Region.</p>
+   * @see {@link UpdateServiceSettingsCommand}
    */
-  public updateServiceSettings(
+  updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateServiceSettingsCommandOutput>;
-  public updateServiceSettings(
+  updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
     cb: (err: any, data?: UpdateServiceSettingsCommandOutput) => void
   ): void;
-  public updateServiceSettings(
+  updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceSettingsCommandOutput) => void
   ): void;
-  public updateServiceSettings(
-    args: UpdateServiceSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceSettingsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateServiceSettingsCommandOutput) => void
-  ): Promise<UpdateServiceSettingsCommandOutput> | void {
-    const command = new UpdateServiceSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>License Manager makes it easier to manage licenses from software vendors across multiple
+ *          Amazon Web Services accounts and on-premises servers.</p>
+ */
+export class LicenseManager extends LicenseManagerClient implements LicenseManager {}
+createAggregatedClient(commands, LicenseManager);

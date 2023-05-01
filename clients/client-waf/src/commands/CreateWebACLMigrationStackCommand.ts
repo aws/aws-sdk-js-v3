@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWebACLMigrationStackRequest,
-  CreateWebACLMigrationStackRequestFilterSensitiveLog,
-  CreateWebACLMigrationStackResponse,
-  CreateWebACLMigrationStackResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWebACLMigrationStackCommand,
-  serializeAws_json1_1CreateWebACLMigrationStackCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateWebACLMigrationStackRequest, CreateWebACLMigrationStackResponse } from "../models/models_0";
+import { de_CreateWebACLMigrationStackCommand, se_CreateWebACLMigrationStackCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateWebACLMigrationStackCommand}.
  */
 export interface CreateWebACLMigrationStackCommandInput extends CreateWebACLMigrationStackRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateWebACLMigrationStackCommand}.
  */
 export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMigrationStackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an AWS CloudFormation WAFV2 template for the specified web ACL in the specified Amazon S3 bucket.
  *            Then, in CloudFormation, you create a stack from the template, to create the web ACL and its resources in AWS WAFV2.
  *            Use this to migrate your AWS WAF Classic web ACL to the latest version of AWS WAF.</p>
@@ -49,10 +46,17 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  * import { WAFClient, CreateWebACLMigrationStackCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateWebACLMigrationStackCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // CreateWebACLMigrationStackRequest
+ *   WebACLId: "STRING_VALUE", // required
+ *   S3BucketName: "STRING_VALUE", // required
+ *   IgnoreUnsupportedType: true || false, // required
+ * };
  * const command = new CreateWebACLMigrationStackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateWebACLMigrationStackCommandInput - {@link CreateWebACLMigrationStackCommandInput}
+ * @returns {@link CreateWebACLMigrationStackCommandOutput}
  * @see {@link CreateWebACLMigrationStackCommandInput} for command's `input` shape.
  * @see {@link CreateWebACLMigrationStackCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -178,6 +182,9 @@ export class CreateWebACLMigrationStackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateWebACLMigrationStackCommandInput) {
     // Start section: command_constructor
     super();
@@ -206,8 +213,8 @@ export class CreateWebACLMigrationStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWebACLMigrationStackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWebACLMigrationStackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -217,15 +224,21 @@ export class CreateWebACLMigrationStackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateWebACLMigrationStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWebACLMigrationStackCommand(input, context);
+    return se_CreateWebACLMigrationStackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateWebACLMigrationStackCommandOutput> {
-    return deserializeAws_json1_1CreateWebACLMigrationStackCommand(output, context);
+    return de_CreateWebACLMigrationStackCommand(output, context);
   }
 
   // Start section: command_body_extra

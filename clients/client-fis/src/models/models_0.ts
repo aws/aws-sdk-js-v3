@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { FisServiceException as __BaseException } from "./FisServiceException";
 
 /**
+ * @public
  * <p>Describes a parameter for an action.</p>
  */
 export interface ActionParameter {
@@ -19,6 +20,7 @@ export interface ActionParameter {
 }
 
 /**
+ * @public
  * <p>Describes a target for an action.</p>
  */
 export interface ActionTarget {
@@ -29,6 +31,7 @@ export interface ActionTarget {
 }
 
 /**
+ * @public
  * <p>Describes an action. For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html">FIS actions</a>
  *          in the <i>Fault Injection Simulator User Guide</i>.</p>
  */
@@ -60,6 +63,7 @@ export interface Action {
 }
 
 /**
+ * @public
  * <p>Provides a summary of an action.</p>
  */
 export interface ActionSummary {
@@ -85,6 +89,7 @@ export interface ActionSummary {
 }
 
 /**
+ * @public
  * <p>The request could not be processed because of a conflict.</p>
  */
 export class ConflictException extends __BaseException {
@@ -104,6 +109,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies an action for an experiment template.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/actions.html">Actions</a>
  *          in the <i>Fault Injection Simulator User Guide</i>.</p>
@@ -136,6 +142,7 @@ export interface CreateExperimentTemplateActionInput {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration for experiment logging to Amazon CloudWatch Logs.</p>
  */
 export interface ExperimentTemplateCloudWatchLogsLogConfigurationInput {
@@ -146,6 +153,7 @@ export interface ExperimentTemplateCloudWatchLogsLogConfigurationInput {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration for experiment logging to Amazon S3.</p>
  */
 export interface ExperimentTemplateS3LogConfigurationInput {
@@ -161,6 +169,7 @@ export interface ExperimentTemplateS3LogConfigurationInput {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration for experiment logging.</p>
  */
 export interface CreateExperimentTemplateLogConfigurationInput {
@@ -181,6 +190,7 @@ export interface CreateExperimentTemplateLogConfigurationInput {
 }
 
 /**
+ * @public
  * <p>Specifies a stop condition for an experiment template.</p>
  */
 export interface CreateExperimentTemplateStopConditionInput {
@@ -199,6 +209,7 @@ export interface CreateExperimentTemplateStopConditionInput {
 }
 
 /**
+ * @public
  * <p>Specifies a filter used for the target resource input in an experiment template.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters">Resource filters</a>
  *          in the <i>Fault Injection Simulator User Guide</i>.</p>
@@ -216,6 +227,7 @@ export interface ExperimentTemplateTargetInputFilter {
 }
 
 /**
+ * @public
  * <p>Specifies a target for an experiment. You must specify at least one Amazon Resource Name (ARN) or
  *          at least one resource tag. You cannot specify both ARNs and tags.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/targets.html">Targets</a>
@@ -266,6 +278,9 @@ export interface CreateExperimentTemplateTargetInput {
   parameters?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface CreateExperimentTemplateRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -309,6 +324,7 @@ export interface CreateExperimentTemplateRequest {
 }
 
 /**
+ * @public
  * <p>Describes an action for an experiment template.</p>
  */
 export interface ExperimentTemplateAction {
@@ -339,6 +355,7 @@ export interface ExperimentTemplateAction {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for experiment logging to Amazon CloudWatch Logs.</p>
  */
 export interface ExperimentTemplateCloudWatchLogsLogConfiguration {
@@ -349,6 +366,7 @@ export interface ExperimentTemplateCloudWatchLogsLogConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for experiment logging to Amazon S3.</p>
  */
 export interface ExperimentTemplateS3LogConfiguration {
@@ -364,6 +382,7 @@ export interface ExperimentTemplateS3LogConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for experiment logging.</p>
  */
 export interface ExperimentTemplateLogConfiguration {
@@ -384,6 +403,7 @@ export interface ExperimentTemplateLogConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes a stop condition for an experiment template.</p>
  */
 export interface ExperimentTemplateStopCondition {
@@ -399,6 +419,7 @@ export interface ExperimentTemplateStopCondition {
 }
 
 /**
+ * @public
  * <p>Describes a filter used for the target resources in an experiment template.</p>
  */
 export interface ExperimentTemplateTargetFilter {
@@ -414,6 +435,7 @@ export interface ExperimentTemplateTargetFilter {
 }
 
 /**
+ * @public
  * <p>Describes a target for an experiment template.</p>
  */
 export interface ExperimentTemplateTarget {
@@ -449,6 +471,7 @@ export interface ExperimentTemplateTarget {
 }
 
 /**
+ * @public
  * <p>Describes an experiment template.</p>
  */
 export interface ExperimentTemplate {
@@ -503,6 +526,9 @@ export interface ExperimentTemplate {
   logConfiguration?: ExperimentTemplateLogConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface CreateExperimentTemplateResponse {
   /**
    * <p>Information about the experiment template.</p>
@@ -511,6 +537,7 @@ export interface CreateExperimentTemplateResponse {
 }
 
 /**
+ * @public
  * <p>The specified resource cannot be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -530,6 +557,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>You have exceeded your service quota.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -549,6 +577,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  */
 export class ValidationException extends __BaseException {
@@ -567,6 +596,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DeleteExperimentTemplateRequest {
   /**
    * <p>The ID of the experiment template.</p>
@@ -574,6 +606,9 @@ export interface DeleteExperimentTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteExperimentTemplateResponse {
   /**
    * <p>Information about the experiment template.</p>
@@ -581,18 +616,28 @@ export interface DeleteExperimentTemplateResponse {
   experimentTemplate?: ExperimentTemplate;
 }
 
-export enum ExperimentActionStatus {
-  cancelled = "cancelled",
-  completed = "completed",
-  failed = "failed",
-  initiating = "initiating",
-  pending = "pending",
-  running = "running",
-  stopped = "stopped",
-  stopping = "stopping",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentActionStatus = {
+  cancelled: "cancelled",
+  completed: "completed",
+  failed: "failed",
+  initiating: "initiating",
+  pending: "pending",
+  running: "running",
+  stopped: "stopped",
+  stopping: "stopping",
+} as const;
 
 /**
+ * @public
+ */
+export type ExperimentActionStatus = (typeof ExperimentActionStatus)[keyof typeof ExperimentActionStatus];
+
+/**
+ * @public
  * <p>Describes the state of an action.</p>
  */
 export interface ExperimentActionState {
@@ -608,6 +653,7 @@ export interface ExperimentActionState {
 }
 
 /**
+ * @public
  * <p>Describes the action for an experiment.</p>
  */
 export interface ExperimentAction {
@@ -653,6 +699,7 @@ export interface ExperimentAction {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for experiment logging to Amazon CloudWatch Logs.</p>
  */
 export interface ExperimentCloudWatchLogsLogConfiguration {
@@ -663,6 +710,7 @@ export interface ExperimentCloudWatchLogsLogConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for experiment logging to Amazon S3.</p>
  */
 export interface ExperimentS3LogConfiguration {
@@ -678,6 +726,7 @@ export interface ExperimentS3LogConfiguration {
 }
 
 /**
+ * @public
  * <p>Describes the configuration for experiment logging.</p>
  */
 export interface ExperimentLogConfiguration {
@@ -697,17 +746,27 @@ export interface ExperimentLogConfiguration {
   logSchemaVersion?: number;
 }
 
-export enum ExperimentStatus {
-  completed = "completed",
-  failed = "failed",
-  initiating = "initiating",
-  pending = "pending",
-  running = "running",
-  stopped = "stopped",
-  stopping = "stopping",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExperimentStatus = {
+  completed: "completed",
+  failed: "failed",
+  initiating: "initiating",
+  pending: "pending",
+  running: "running",
+  stopped: "stopped",
+  stopping: "stopping",
+} as const;
 
 /**
+ * @public
+ */
+export type ExperimentStatus = (typeof ExperimentStatus)[keyof typeof ExperimentStatus];
+
+/**
+ * @public
  * <p>Describes the state of an experiment.</p>
  */
 export interface ExperimentState {
@@ -723,6 +782,7 @@ export interface ExperimentState {
 }
 
 /**
+ * @public
  * <p>Describes the stop condition for an experiment.</p>
  */
 export interface ExperimentStopCondition {
@@ -738,6 +798,7 @@ export interface ExperimentStopCondition {
 }
 
 /**
+ * @public
  * <p>Describes a filter used for the target resources in an experiment.</p>
  */
 export interface ExperimentTargetFilter {
@@ -753,6 +814,7 @@ export interface ExperimentTargetFilter {
 }
 
 /**
+ * @public
  * <p>Describes a target for an experiment.</p>
  */
 export interface ExperimentTarget {
@@ -788,6 +850,7 @@ export interface ExperimentTarget {
 }
 
 /**
+ * @public
  * <p>Describes an experiment.</p>
  */
 export interface Experiment {
@@ -853,6 +916,7 @@ export interface Experiment {
 }
 
 /**
+ * @public
  * <p>Provides a summary of an experiment.</p>
  */
 export interface ExperimentSummary {
@@ -883,6 +947,7 @@ export interface ExperimentSummary {
 }
 
 /**
+ * @public
  * <p>Provides a summary of an experiment template.</p>
  */
 export interface ExperimentTemplateSummary {
@@ -912,6 +977,9 @@ export interface ExperimentTemplateSummary {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface GetActionRequest {
   /**
    * <p>The ID of the action.</p>
@@ -919,6 +987,9 @@ export interface GetActionRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetActionResponse {
   /**
    * <p>Information about the action.</p>
@@ -926,6 +997,9 @@ export interface GetActionResponse {
   action?: Action;
 }
 
+/**
+ * @public
+ */
 export interface GetExperimentRequest {
   /**
    * <p>The ID of the experiment.</p>
@@ -933,6 +1007,9 @@ export interface GetExperimentRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetExperimentResponse {
   /**
    * <p>Information about the experiment.</p>
@@ -940,6 +1017,9 @@ export interface GetExperimentResponse {
   experiment?: Experiment;
 }
 
+/**
+ * @public
+ */
 export interface GetExperimentTemplateRequest {
   /**
    * <p>The ID of the experiment template.</p>
@@ -947,6 +1027,9 @@ export interface GetExperimentTemplateRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetExperimentTemplateResponse {
   /**
    * <p>Information about the experiment template.</p>
@@ -954,6 +1037,9 @@ export interface GetExperimentTemplateResponse {
   experimentTemplate?: ExperimentTemplate;
 }
 
+/**
+ * @public
+ */
 export interface GetTargetResourceTypeRequest {
   /**
    * <p>The resource type.</p>
@@ -962,6 +1048,7 @@ export interface GetTargetResourceTypeRequest {
 }
 
 /**
+ * @public
  * <p>Describes the parameters for a resource type. Use parameters to determine which tasks are
  *           identified during target resolution.</p>
  */
@@ -978,6 +1065,7 @@ export interface TargetResourceTypeParameter {
 }
 
 /**
+ * @public
  * <p>Describes a resource type.</p>
  */
 export interface TargetResourceType {
@@ -997,6 +1085,9 @@ export interface TargetResourceType {
   parameters?: Record<string, TargetResourceTypeParameter>;
 }
 
+/**
+ * @public
+ */
 export interface GetTargetResourceTypeResponse {
   /**
    * <p>Information about the resource type.</p>
@@ -1004,6 +1095,9 @@ export interface GetTargetResourceTypeResponse {
   targetResourceType?: TargetResourceType;
 }
 
+/**
+ * @public
+ */
 export interface ListActionsRequest {
   /**
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -1016,6 +1110,9 @@ export interface ListActionsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListActionsResponse {
   /**
    * <p>The actions.</p>
@@ -1028,6 +1125,9 @@ export interface ListActionsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExperimentsRequest {
   /**
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -1040,6 +1140,9 @@ export interface ListExperimentsRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExperimentsResponse {
   /**
    * <p>The experiments.</p>
@@ -1052,6 +1155,9 @@ export interface ListExperimentsResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExperimentTemplatesRequest {
   /**
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -1064,6 +1170,9 @@ export interface ListExperimentTemplatesRequest {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListExperimentTemplatesResponse {
   /**
    * <p>The experiment templates.</p>
@@ -1076,6 +1185,9 @@ export interface ListExperimentTemplatesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1083,6 +1195,9 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
@@ -1090,6 +1205,9 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetResourceTypesRequest {
   /**
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -1103,6 +1221,7 @@ export interface ListTargetResourceTypesRequest {
 }
 
 /**
+ * @public
  * <p>Describes a resource type.</p>
  */
 export interface TargetResourceTypeSummary {
@@ -1117,6 +1236,9 @@ export interface TargetResourceTypeSummary {
   description?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTargetResourceTypesResponse {
   /**
    * <p>The target resource types.</p>
@@ -1129,6 +1251,9 @@ export interface ListTargetResourceTypesResponse {
   nextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface StartExperimentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -1146,6 +1271,9 @@ export interface StartExperimentRequest {
   tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface StartExperimentResponse {
   /**
    * <p>Information about the experiment.</p>
@@ -1153,6 +1281,9 @@ export interface StartExperimentResponse {
   experiment?: Experiment;
 }
 
+/**
+ * @public
+ */
 export interface StopExperimentRequest {
   /**
    * <p>The ID of the experiment.</p>
@@ -1160,6 +1291,9 @@ export interface StopExperimentRequest {
   id: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface StopExperimentResponse {
   /**
    * <p>Information about the experiment.</p>
@@ -1167,6 +1301,9 @@ export interface StopExperimentResponse {
   experiment?: Experiment;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1179,8 +1316,14 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1193,9 +1336,13 @@ export interface UntagResourceRequest {
   tagKeys?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**
+ * @public
  * <p>Specifies an action for an experiment template.</p>
  */
 export interface UpdateExperimentTemplateActionInputItem {
@@ -1226,6 +1373,7 @@ export interface UpdateExperimentTemplateActionInputItem {
 }
 
 /**
+ * @public
  * <p>Specifies the configuration for experiment logging.</p>
  */
 export interface UpdateExperimentTemplateLogConfigurationInput {
@@ -1246,6 +1394,7 @@ export interface UpdateExperimentTemplateLogConfigurationInput {
 }
 
 /**
+ * @public
  * <p>Specifies a stop condition for an experiment. You can define a stop condition as a CloudWatch alarm.</p>
  */
 export interface UpdateExperimentTemplateStopConditionInput {
@@ -1263,6 +1412,7 @@ export interface UpdateExperimentTemplateStopConditionInput {
 }
 
 /**
+ * @public
  * <p>Specifies a target for an experiment. You must specify at least one Amazon Resource Name (ARN) or at least one resource tag. You cannot specify both.</p>
  */
 export interface UpdateExperimentTemplateTargetInput {
@@ -1297,6 +1447,9 @@ export interface UpdateExperimentTemplateTargetInput {
   parameters?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExperimentTemplateRequest {
   /**
    * <p>The ID of the experiment template.</p>
@@ -1334,527 +1487,12 @@ export interface UpdateExperimentTemplateRequest {
   logConfiguration?: UpdateExperimentTemplateLogConfigurationInput;
 }
 
+/**
+ * @public
+ */
 export interface UpdateExperimentTemplateResponse {
   /**
    * <p>Information about the experiment template.</p>
    */
   experimentTemplate?: ExperimentTemplate;
 }
-
-/**
- * @internal
- */
-export const ActionParameterFilterSensitiveLog = (obj: ActionParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionTargetFilterSensitiveLog = (obj: ActionTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionFilterSensitiveLog = (obj: Action): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActionSummaryFilterSensitiveLog = (obj: ActionSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentTemplateActionInputFilterSensitiveLog = (
-  obj: CreateExperimentTemplateActionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateCloudWatchLogsLogConfigurationInputFilterSensitiveLog = (
-  obj: ExperimentTemplateCloudWatchLogsLogConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateS3LogConfigurationInputFilterSensitiveLog = (
-  obj: ExperimentTemplateS3LogConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentTemplateLogConfigurationInputFilterSensitiveLog = (
-  obj: CreateExperimentTemplateLogConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentTemplateStopConditionInputFilterSensitiveLog = (
-  obj: CreateExperimentTemplateStopConditionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateTargetInputFilterFilterSensitiveLog = (
-  obj: ExperimentTemplateTargetInputFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentTemplateTargetInputFilterSensitiveLog = (
-  obj: CreateExperimentTemplateTargetInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentTemplateRequestFilterSensitiveLog = (obj: CreateExperimentTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateActionFilterSensitiveLog = (obj: ExperimentTemplateAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateCloudWatchLogsLogConfigurationFilterSensitiveLog = (
-  obj: ExperimentTemplateCloudWatchLogsLogConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateS3LogConfigurationFilterSensitiveLog = (
-  obj: ExperimentTemplateS3LogConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateLogConfigurationFilterSensitiveLog = (obj: ExperimentTemplateLogConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateStopConditionFilterSensitiveLog = (obj: ExperimentTemplateStopCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateTargetFilterFilterSensitiveLog = (obj: ExperimentTemplateTargetFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateTargetFilterSensitiveLog = (obj: ExperimentTemplateTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateFilterSensitiveLog = (obj: ExperimentTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateExperimentTemplateResponseFilterSensitiveLog = (obj: CreateExperimentTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteExperimentTemplateRequestFilterSensitiveLog = (obj: DeleteExperimentTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteExperimentTemplateResponseFilterSensitiveLog = (obj: DeleteExperimentTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentActionStateFilterSensitiveLog = (obj: ExperimentActionState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentActionFilterSensitiveLog = (obj: ExperimentAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentCloudWatchLogsLogConfigurationFilterSensitiveLog = (
-  obj: ExperimentCloudWatchLogsLogConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentS3LogConfigurationFilterSensitiveLog = (obj: ExperimentS3LogConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentLogConfigurationFilterSensitiveLog = (obj: ExperimentLogConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentStateFilterSensitiveLog = (obj: ExperimentState): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentStopConditionFilterSensitiveLog = (obj: ExperimentStopCondition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTargetFilterFilterSensitiveLog = (obj: ExperimentTargetFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTargetFilterSensitiveLog = (obj: ExperimentTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentFilterSensitiveLog = (obj: Experiment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentSummaryFilterSensitiveLog = (obj: ExperimentSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExperimentTemplateSummaryFilterSensitiveLog = (obj: ExperimentTemplateSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetActionRequestFilterSensitiveLog = (obj: GetActionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetActionResponseFilterSensitiveLog = (obj: GetActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExperimentRequestFilterSensitiveLog = (obj: GetExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExperimentResponseFilterSensitiveLog = (obj: GetExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExperimentTemplateRequestFilterSensitiveLog = (obj: GetExperimentTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExperimentTemplateResponseFilterSensitiveLog = (obj: GetExperimentTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTargetResourceTypeRequestFilterSensitiveLog = (obj: GetTargetResourceTypeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetResourceTypeParameterFilterSensitiveLog = (obj: TargetResourceTypeParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetResourceTypeFilterSensitiveLog = (obj: TargetResourceType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTargetResourceTypeResponseFilterSensitiveLog = (obj: GetTargetResourceTypeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListActionsRequestFilterSensitiveLog = (obj: ListActionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListActionsResponseFilterSensitiveLog = (obj: ListActionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExperimentsRequestFilterSensitiveLog = (obj: ListExperimentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExperimentsResponseFilterSensitiveLog = (obj: ListExperimentsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExperimentTemplatesRequestFilterSensitiveLog = (obj: ListExperimentTemplatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExperimentTemplatesResponseFilterSensitiveLog = (obj: ListExperimentTemplatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetResourceTypesRequestFilterSensitiveLog = (obj: ListTargetResourceTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetResourceTypeSummaryFilterSensitiveLog = (obj: TargetResourceTypeSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetResourceTypesResponseFilterSensitiveLog = (obj: ListTargetResourceTypesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartExperimentRequestFilterSensitiveLog = (obj: StartExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartExperimentResponseFilterSensitiveLog = (obj: StartExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopExperimentRequestFilterSensitiveLog = (obj: StopExperimentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopExperimentResponseFilterSensitiveLog = (obj: StopExperimentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentTemplateActionInputItemFilterSensitiveLog = (
-  obj: UpdateExperimentTemplateActionInputItem
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentTemplateLogConfigurationInputFilterSensitiveLog = (
-  obj: UpdateExperimentTemplateLogConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentTemplateStopConditionInputFilterSensitiveLog = (
-  obj: UpdateExperimentTemplateStopConditionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentTemplateTargetInputFilterSensitiveLog = (
-  obj: UpdateExperimentTemplateTargetInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentTemplateRequestFilterSensitiveLog = (obj: UpdateExperimentTemplateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateExperimentTemplateResponseFilterSensitiveLog = (obj: UpdateExperimentTemplateResponse): any => ({
-  ...obj,
-});

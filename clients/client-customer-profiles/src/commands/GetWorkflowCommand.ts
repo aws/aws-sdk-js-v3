@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  GetWorkflowRequest,
-  GetWorkflowRequestFilterSensitiveLog,
-  GetWorkflowResponse,
-  GetWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkflowCommand,
-  serializeAws_restJson1GetWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { GetWorkflowRequest, GetWorkflowResponse } from "../models/models_0";
+import { de_GetWorkflowCommand, se_GetWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetWorkflowCommand}.
  */
 export interface GetWorkflowCommandInput extends GetWorkflowRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetWorkflowCommand}.
  */
 export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get details of specified workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * import { CustomerProfilesClient, GetWorkflowCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetWorkflowCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // GetWorkflowRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   WorkflowId: "STRING_VALUE", // required
+ * };
  * const command = new GetWorkflowCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetWorkflowCommandInput - {@link GetWorkflowCommandInput}
+ * @returns {@link GetWorkflowCommandOutput}
  * @see {@link GetWorkflowCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -84,6 +87,9 @@ export class GetWorkflowCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetWorkflowCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +116,8 @@ export class GetWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +127,18 @@ export class GetWorkflowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkflowCommand(input, context);
+    return se_GetWorkflowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowCommandOutput> {
-    return deserializeAws_restJson1GetWorkflowCommand(output, context);
+    return de_GetWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

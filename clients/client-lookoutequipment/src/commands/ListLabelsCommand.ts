@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  ListLabelsRequest,
-  ListLabelsRequestFilterSensitiveLog,
-  ListLabelsResponse,
-  ListLabelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListLabelsCommand,
-  serializeAws_json1_0ListLabelsCommand,
-} from "../protocols/Aws_json1_0";
+import { ListLabelsRequest, ListLabelsResponse } from "../models/models_0";
+import { de_ListLabelsCommand, se_ListLabelsCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link ListLabelsCommand}.
  */
 export interface ListLabelsCommandInput extends ListLabelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListLabelsCommand}.
  */
 export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Provides a list of labels.
  * </p>
@@ -44,10 +41,21 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  * import { LookoutEquipmentClient, ListLabelsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListLabelsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = { // ListLabelsRequest
+ *   LabelGroupName: "STRING_VALUE", // required
+ *   IntervalStartTime: new Date("TIMESTAMP"),
+ *   IntervalEndTime: new Date("TIMESTAMP"),
+ *   FaultCode: "STRING_VALUE",
+ *   Equipment: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLabelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListLabelsCommandInput - {@link ListLabelsCommandInput}
+ * @returns {@link ListLabelsCommandOutput}
  * @see {@link ListLabelsCommandInput} for command's `input` shape.
  * @see {@link ListLabelsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
@@ -86,6 +94,9 @@ export class ListLabelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +123,8 @@ export class ListLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLabelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLabelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +134,18 @@ export class ListLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListLabelsCommand(input, context);
+    return se_ListLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLabelsCommandOutput> {
-    return deserializeAws_json1_0ListLabelsCommand(output, context);
+    return de_ListLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

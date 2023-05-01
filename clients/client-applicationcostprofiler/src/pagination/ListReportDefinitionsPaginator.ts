@@ -10,7 +10,7 @@ import {
 import { ApplicationCostProfilerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ApplicationCostProfilerClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListReportDefinitionsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListReportDefinitions(
   config: ApplicationCostProfilerPaginationConfiguration,
   input: ListReportDefinitionsCommandInput,

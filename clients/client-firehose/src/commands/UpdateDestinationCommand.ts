@@ -18,23 +18,24 @@ import {
   UpdateDestinationInput,
   UpdateDestinationInputFilterSensitiveLog,
   UpdateDestinationOutput,
-  UpdateDestinationOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDestinationCommand,
-  serializeAws_json1_1UpdateDestinationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDestinationCommand, se_UpdateDestinationCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDestinationCommand}.
  */
 export interface UpdateDestinationCommandInput extends UpdateDestinationInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDestinationCommand}.
  */
 export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified destination of the specified delivery stream.</p>
  *
  *          <p>Use this operation to change the destination type (for example, to replace the Amazon
@@ -65,10 +66,371 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  * import { FirehoseClient, UpdateDestinationCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, UpdateDestinationCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // UpdateDestinationInput
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   CurrentDeliveryStreamVersionId: "STRING_VALUE", // required
+ *   DestinationId: "STRING_VALUE", // required
+ *   S3DestinationUpdate: { // S3DestinationUpdate
+ *     RoleARN: "STRING_VALUE",
+ *     BucketARN: "STRING_VALUE",
+ *     Prefix: "STRING_VALUE",
+ *     ErrorOutputPrefix: "STRING_VALUE",
+ *     BufferingHints: { // BufferingHints
+ *       SizeInMBs: Number("int"),
+ *       IntervalInSeconds: Number("int"),
+ *     },
+ *     CompressionFormat: "UNCOMPRESSED" || "GZIP" || "ZIP" || "Snappy" || "HADOOP_SNAPPY",
+ *     EncryptionConfiguration: { // EncryptionConfiguration
+ *       NoEncryptionConfig: "NoEncryption",
+ *       KMSEncryptionConfig: { // KMSEncryptionConfig
+ *         AWSKMSKeyARN: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     CloudWatchLoggingOptions: { // CloudWatchLoggingOptions
+ *       Enabled: true || false,
+ *       LogGroupName: "STRING_VALUE",
+ *       LogStreamName: "STRING_VALUE",
+ *     },
+ *   },
+ *   ExtendedS3DestinationUpdate: { // ExtendedS3DestinationUpdate
+ *     RoleARN: "STRING_VALUE",
+ *     BucketARN: "STRING_VALUE",
+ *     Prefix: "STRING_VALUE",
+ *     ErrorOutputPrefix: "STRING_VALUE",
+ *     BufferingHints: {
+ *       SizeInMBs: Number("int"),
+ *       IntervalInSeconds: Number("int"),
+ *     },
+ *     CompressionFormat: "UNCOMPRESSED" || "GZIP" || "ZIP" || "Snappy" || "HADOOP_SNAPPY",
+ *     EncryptionConfiguration: {
+ *       NoEncryptionConfig: "NoEncryption",
+ *       KMSEncryptionConfig: {
+ *         AWSKMSKeyARN: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     CloudWatchLoggingOptions: {
+ *       Enabled: true || false,
+ *       LogGroupName: "STRING_VALUE",
+ *       LogStreamName: "STRING_VALUE",
+ *     },
+ *     ProcessingConfiguration: { // ProcessingConfiguration
+ *       Enabled: true || false,
+ *       Processors: [ // ProcessorList
+ *         { // Processor
+ *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Parameters: [ // ProcessorParameterList
+ *             { // ProcessorParameter
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterValue: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     S3BackupMode: "Disabled" || "Enabled",
+ *     S3BackupUpdate: {
+ *       RoleARN: "STRING_VALUE",
+ *       BucketARN: "STRING_VALUE",
+ *       Prefix: "STRING_VALUE",
+ *       ErrorOutputPrefix: "STRING_VALUE",
+ *       BufferingHints: {
+ *         SizeInMBs: Number("int"),
+ *         IntervalInSeconds: Number("int"),
+ *       },
+ *       CompressionFormat: "UNCOMPRESSED" || "GZIP" || "ZIP" || "Snappy" || "HADOOP_SNAPPY",
+ *       EncryptionConfiguration: {
+ *         NoEncryptionConfig: "NoEncryption",
+ *         KMSEncryptionConfig: {
+ *           AWSKMSKeyARN: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       CloudWatchLoggingOptions: {
+ *         Enabled: true || false,
+ *         LogGroupName: "STRING_VALUE",
+ *         LogStreamName: "STRING_VALUE",
+ *       },
+ *     },
+ *     DataFormatConversionConfiguration: { // DataFormatConversionConfiguration
+ *       SchemaConfiguration: { // SchemaConfiguration
+ *         RoleARN: "STRING_VALUE",
+ *         CatalogId: "STRING_VALUE",
+ *         DatabaseName: "STRING_VALUE",
+ *         TableName: "STRING_VALUE",
+ *         Region: "STRING_VALUE",
+ *         VersionId: "STRING_VALUE",
+ *       },
+ *       InputFormatConfiguration: { // InputFormatConfiguration
+ *         Deserializer: { // Deserializer
+ *           OpenXJsonSerDe: { // OpenXJsonSerDe
+ *             ConvertDotsInJsonKeysToUnderscores: true || false,
+ *             CaseInsensitive: true || false,
+ *             ColumnToJsonKeyMappings: { // ColumnToJsonKeyMappings
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *           HiveJsonSerDe: { // HiveJsonSerDe
+ *             TimestampFormats: [ // ListOfNonEmptyStrings
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       },
+ *       OutputFormatConfiguration: { // OutputFormatConfiguration
+ *         Serializer: { // Serializer
+ *           ParquetSerDe: { // ParquetSerDe
+ *             BlockSizeBytes: Number("int"),
+ *             PageSizeBytes: Number("int"),
+ *             Compression: "UNCOMPRESSED" || "GZIP" || "SNAPPY",
+ *             EnableDictionaryCompression: true || false,
+ *             MaxPaddingBytes: Number("int"),
+ *             WriterVersion: "V1" || "V2",
+ *           },
+ *           OrcSerDe: { // OrcSerDe
+ *             StripeSizeBytes: Number("int"),
+ *             BlockSizeBytes: Number("int"),
+ *             RowIndexStride: Number("int"),
+ *             EnablePadding: true || false,
+ *             PaddingTolerance: Number("double"),
+ *             Compression: "NONE" || "ZLIB" || "SNAPPY",
+ *             BloomFilterColumns: [ // ListOfNonEmptyStringsWithoutWhitespace
+ *               "STRING_VALUE",
+ *             ],
+ *             BloomFilterFalsePositiveProbability: Number("double"),
+ *             DictionaryKeyThreshold: Number("double"),
+ *             FormatVersion: "V0_11" || "V0_12",
+ *           },
+ *         },
+ *       },
+ *       Enabled: true || false,
+ *     },
+ *     DynamicPartitioningConfiguration: { // DynamicPartitioningConfiguration
+ *       RetryOptions: { // RetryOptions
+ *         DurationInSeconds: Number("int"),
+ *       },
+ *       Enabled: true || false,
+ *     },
+ *   },
+ *   RedshiftDestinationUpdate: { // RedshiftDestinationUpdate
+ *     RoleARN: "STRING_VALUE",
+ *     ClusterJDBCURL: "STRING_VALUE",
+ *     CopyCommand: { // CopyCommand
+ *       DataTableName: "STRING_VALUE", // required
+ *       DataTableColumns: "STRING_VALUE",
+ *       CopyOptions: "STRING_VALUE",
+ *     },
+ *     Username: "STRING_VALUE",
+ *     Password: "STRING_VALUE",
+ *     RetryOptions: { // RedshiftRetryOptions
+ *       DurationInSeconds: Number("int"),
+ *     },
+ *     S3Update: {
+ *       RoleARN: "STRING_VALUE",
+ *       BucketARN: "STRING_VALUE",
+ *       Prefix: "STRING_VALUE",
+ *       ErrorOutputPrefix: "STRING_VALUE",
+ *       BufferingHints: {
+ *         SizeInMBs: Number("int"),
+ *         IntervalInSeconds: Number("int"),
+ *       },
+ *       CompressionFormat: "UNCOMPRESSED" || "GZIP" || "ZIP" || "Snappy" || "HADOOP_SNAPPY",
+ *       EncryptionConfiguration: {
+ *         NoEncryptionConfig: "NoEncryption",
+ *         KMSEncryptionConfig: {
+ *           AWSKMSKeyARN: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       CloudWatchLoggingOptions: {
+ *         Enabled: true || false,
+ *         LogGroupName: "STRING_VALUE",
+ *         LogStreamName: "STRING_VALUE",
+ *       },
+ *     },
+ *     ProcessingConfiguration: {
+ *       Enabled: true || false,
+ *       Processors: [
+ *         {
+ *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Parameters: [
+ *             {
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterValue: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     S3BackupMode: "Disabled" || "Enabled",
+ *     S3BackupUpdate: {
+ *       RoleARN: "STRING_VALUE",
+ *       BucketARN: "STRING_VALUE",
+ *       Prefix: "STRING_VALUE",
+ *       ErrorOutputPrefix: "STRING_VALUE",
+ *       BufferingHints: {
+ *         SizeInMBs: Number("int"),
+ *         IntervalInSeconds: Number("int"),
+ *       },
+ *       CompressionFormat: "UNCOMPRESSED" || "GZIP" || "ZIP" || "Snappy" || "HADOOP_SNAPPY",
+ *       EncryptionConfiguration: {
+ *         NoEncryptionConfig: "NoEncryption",
+ *         KMSEncryptionConfig: {
+ *           AWSKMSKeyARN: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       CloudWatchLoggingOptions: {
+ *         Enabled: true || false,
+ *         LogGroupName: "STRING_VALUE",
+ *         LogStreamName: "STRING_VALUE",
+ *       },
+ *     },
+ *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *   },
+ *   ElasticsearchDestinationUpdate: { // ElasticsearchDestinationUpdate
+ *     RoleARN: "STRING_VALUE",
+ *     DomainARN: "STRING_VALUE",
+ *     ClusterEndpoint: "STRING_VALUE",
+ *     IndexName: "STRING_VALUE",
+ *     TypeName: "STRING_VALUE",
+ *     IndexRotationPeriod: "NoRotation" || "OneHour" || "OneDay" || "OneWeek" || "OneMonth",
+ *     BufferingHints: { // ElasticsearchBufferingHints
+ *       IntervalInSeconds: Number("int"),
+ *       SizeInMBs: Number("int"),
+ *     },
+ *     RetryOptions: { // ElasticsearchRetryOptions
+ *       DurationInSeconds: Number("int"),
+ *     },
+ *     S3Update: {
+ *       RoleARN: "STRING_VALUE",
+ *       BucketARN: "STRING_VALUE",
+ *       Prefix: "STRING_VALUE",
+ *       ErrorOutputPrefix: "STRING_VALUE",
+ *       BufferingHints: "<BufferingHints>",
+ *       CompressionFormat: "UNCOMPRESSED" || "GZIP" || "ZIP" || "Snappy" || "HADOOP_SNAPPY",
+ *       EncryptionConfiguration: "<EncryptionConfiguration>",
+ *       CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     },
+ *     ProcessingConfiguration: {
+ *       Enabled: true || false,
+ *       Processors: [
+ *         {
+ *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Parameters: [
+ *             {
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterValue: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *   },
+ *   AmazonopensearchserviceDestinationUpdate: { // AmazonopensearchserviceDestinationUpdate
+ *     RoleARN: "STRING_VALUE",
+ *     DomainARN: "STRING_VALUE",
+ *     ClusterEndpoint: "STRING_VALUE",
+ *     IndexName: "STRING_VALUE",
+ *     TypeName: "STRING_VALUE",
+ *     IndexRotationPeriod: "NoRotation" || "OneHour" || "OneDay" || "OneWeek" || "OneMonth",
+ *     BufferingHints: { // AmazonopensearchserviceBufferingHints
+ *       IntervalInSeconds: Number("int"),
+ *       SizeInMBs: Number("int"),
+ *     },
+ *     RetryOptions: { // AmazonopensearchserviceRetryOptions
+ *       DurationInSeconds: Number("int"),
+ *     },
+ *     S3Update: "<S3DestinationUpdate>",
+ *     ProcessingConfiguration: {
+ *       Enabled: true || false,
+ *       Processors: [
+ *         {
+ *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Parameters: [
+ *             {
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterValue: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *   },
+ *   SplunkDestinationUpdate: { // SplunkDestinationUpdate
+ *     HECEndpoint: "STRING_VALUE",
+ *     HECEndpointType: "Raw" || "Event",
+ *     HECToken: "STRING_VALUE",
+ *     HECAcknowledgmentTimeoutInSeconds: Number("int"),
+ *     RetryOptions: { // SplunkRetryOptions
+ *       DurationInSeconds: Number("int"),
+ *     },
+ *     S3BackupMode: "FailedEventsOnly" || "AllEvents",
+ *     S3Update: "<S3DestinationUpdate>",
+ *     ProcessingConfiguration: {
+ *       Enabled: true || false,
+ *       Processors: [
+ *         {
+ *           Type: "RecordDeAggregation" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Parameters: [
+ *             {
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter", // required
+ *               ParameterValue: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *   },
+ *   HttpEndpointDestinationUpdate: { // HttpEndpointDestinationUpdate
+ *     EndpointConfiguration: { // HttpEndpointConfiguration
+ *       Url: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE",
+ *       AccessKey: "STRING_VALUE",
+ *     },
+ *     BufferingHints: { // HttpEndpointBufferingHints
+ *       SizeInMBs: Number("int"),
+ *       IntervalInSeconds: Number("int"),
+ *     },
+ *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     RequestConfiguration: { // HttpEndpointRequestConfiguration
+ *       ContentEncoding: "NONE" || "GZIP",
+ *       CommonAttributes: [ // HttpEndpointCommonAttributesList
+ *         { // HttpEndpointCommonAttribute
+ *           AttributeName: "STRING_VALUE", // required
+ *           AttributeValue: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     ProcessingConfiguration: "<ProcessingConfiguration>",
+ *     RoleARN: "STRING_VALUE",
+ *     RetryOptions: { // HttpEndpointRetryOptions
+ *       DurationInSeconds: Number("int"),
+ *     },
+ *     S3BackupMode: "FailedDataOnly" || "AllData",
+ *     S3Update: "<S3DestinationUpdate>",
+ *   },
+ *   AmazonOpenSearchServerlessDestinationUpdate: { // AmazonOpenSearchServerlessDestinationUpdate
+ *     RoleARN: "STRING_VALUE",
+ *     CollectionEndpoint: "STRING_VALUE",
+ *     IndexName: "STRING_VALUE",
+ *     BufferingHints: { // AmazonOpenSearchServerlessBufferingHints
+ *       IntervalInSeconds: Number("int"),
+ *       SizeInMBs: Number("int"),
+ *     },
+ *     RetryOptions: { // AmazonOpenSearchServerlessRetryOptions
+ *       DurationInSeconds: Number("int"),
+ *     },
+ *     S3Update: "<S3DestinationUpdate>",
+ *     ProcessingConfiguration: "<ProcessingConfiguration>",
+ *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *   },
+ * };
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDestinationCommandInput - {@link UpdateDestinationCommandInput}
+ * @returns {@link UpdateDestinationCommandOutput}
  * @see {@link UpdateDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateDestinationCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -105,6 +467,9 @@ export class UpdateDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,7 +499,7 @@ export class UpdateDestinationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateDestinationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDestinationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +509,18 @@ export class UpdateDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDestinationCommand(input, context);
+    return se_UpdateDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDestinationCommandOutput> {
-    return deserializeAws_json1_1UpdateDestinationCommand(output, context);
+    return de_UpdateDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

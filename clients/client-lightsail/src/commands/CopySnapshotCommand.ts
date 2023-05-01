@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CopySnapshotRequest,
-  CopySnapshotRequestFilterSensitiveLog,
-  CopySnapshotResult,
-  CopySnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CopySnapshotCommand,
-  serializeAws_json1_1CopySnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { CopySnapshotRequest, CopySnapshotResult } from "../models/models_0";
+import { de_CopySnapshotCommand, se_CopySnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CopySnapshotCommand}.
  */
 export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopySnapshotCommand}.
  */
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an
  *       automatic snapshot of an instance or disk as a manual snapshot. This operation can also be
  *       used to copy a manual or automatic snapshot of an instance or a disk from one Amazon Web Services Region to another in Amazon Lightsail.</p>
@@ -51,10 +48,20 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * import { LightsailClient, CopySnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CopySnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = { // CopySnapshotRequest
+ *   sourceSnapshotName: "STRING_VALUE",
+ *   sourceResourceName: "STRING_VALUE",
+ *   restoreDate: "STRING_VALUE",
+ *   useLatestRestorableAutoSnapshot: true || false,
+ *   targetSnapshotName: "STRING_VALUE", // required
+ *   sourceRegion: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1", // required
+ * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
+ * @returns {@link CopySnapshotCommandOutput}
  * @see {@link CopySnapshotCommandInput} for command's `input` shape.
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
@@ -108,6 +115,9 @@ export class CopySnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopySnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +144,8 @@ export class CopySnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopySnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopySnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +155,18 @@ export class CopySnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopySnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopySnapshotCommand(input, context);
+    return se_CopySnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopySnapshotCommandOutput> {
-    return deserializeAws_json1_1CopySnapshotCommand(output, context);
+    return de_CopySnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

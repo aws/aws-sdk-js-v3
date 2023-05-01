@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  UpdateGroupRequest,
-  UpdateGroupRequestFilterSensitiveLog,
-  UpdateGroupResponse,
-  UpdateGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateGroupCommand,
-  serializeAws_json1_1UpdateGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_0";
+import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateGroupCommand}.
  */
 export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateGroupCommand}.
  */
 export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>For the specified group in the specified identity store, updates the group metadata and attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,22 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * import { IdentitystoreClient, UpdateGroupCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, UpdateGroupCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = { // UpdateGroupRequest
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ *   Operations: [ // AttributeOperations // required
+ *     { // AttributeOperation
+ *       AttributePath: "STRING_VALUE", // required
+ *       AttributeValue: "DOCUMENT_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
+ * @returns {@link UpdateGroupCommandOutput}
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
@@ -98,6 +107,9 @@ export class UpdateGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +136,8 @@ export class UpdateGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +147,18 @@ export class UpdateGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGroupCommand(input, context);
+    return se_UpdateGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateGroupCommand(output, context);
+    return de_UpdateGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

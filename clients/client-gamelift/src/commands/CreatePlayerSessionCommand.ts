@@ -14,44 +14,41 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreatePlayerSessionInput,
-  CreatePlayerSessionInputFilterSensitiveLog,
-  CreatePlayerSessionOutput,
-  CreatePlayerSessionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePlayerSessionCommand,
-  serializeAws_json1_1CreatePlayerSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { CreatePlayerSessionInput, CreatePlayerSessionOutput } from "../models/models_0";
+import { de_CreatePlayerSessionCommand, se_CreatePlayerSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePlayerSessionCommand}.
  */
 export interface CreatePlayerSessionCommandInput extends CreatePlayerSessionInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePlayerSessionCommand}.
  */
 export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reserves an open player slot in a game session for a player. New player sessions can
  *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
  *             and has a player creation policy of <code>ACCEPT_ALL</code>. You can add a group of
  *             players to a game session with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSessions.html">CreatePlayerSessions</a> . </p>
- *         <p>To create a player session, specify a game session ID, player ID, and optionally a set
+ *          <p>To create a player session, specify a game session ID, player ID, and optionally a set
  *             of player data. </p>
- *         <p>If successful, a slot is reserved in the game session for the player and a new
+ *          <p>If successful, a slot is reserved in the game session for the player and a new
  *                 <code>PlayerSessions</code> object is returned with a player session ID. The player
  *             references the player session ID when sending a connection request to the game session,
- *             and the game server can use it to validate the player reservation with the GameLift
+ *             and the game server can use it to validate the player reservation with the Amazon GameLift
  *             service. Player sessions cannot be updated. </p>
- *         <p>The maximum number of players per game session is 200. It is not adjustable. </p>
- *         <p>
+ *          <p>The maximum number of players per game session is 200. It is not adjustable. </p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,10 +56,17 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  * import { GameLiftClient, CreatePlayerSessionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreatePlayerSessionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // CreatePlayerSessionInput
+ *   GameSessionId: "STRING_VALUE", // required
+ *   PlayerId: "STRING_VALUE", // required
+ *   PlayerData: "STRING_VALUE",
+ * };
  * const command = new CreatePlayerSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePlayerSessionCommandInput - {@link CreatePlayerSessionCommandInput}
+ * @returns {@link CreatePlayerSessionCommandOutput}
  * @see {@link CreatePlayerSessionCommandInput} for command's `input` shape.
  * @see {@link CreatePlayerSessionCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -115,6 +119,9 @@ export class CreatePlayerSessionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePlayerSessionCommandInput) {
     // Start section: command_constructor
     super();
@@ -143,8 +150,8 @@ export class CreatePlayerSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePlayerSessionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePlayerSessionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -154,12 +161,18 @@ export class CreatePlayerSessionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePlayerSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePlayerSessionCommand(input, context);
+    return se_CreatePlayerSessionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlayerSessionCommandOutput> {
-    return deserializeAws_json1_1CreatePlayerSessionCommand(output, context);
+    return de_CreatePlayerSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

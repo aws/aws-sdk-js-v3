@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  ListResourceInventoryRequest,
-  ListResourceInventoryRequestFilterSensitiveLog,
-  ListResourceInventoryResponse,
-  ListResourceInventoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourceInventoryCommand,
-  serializeAws_json1_1ListResourceInventoryCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourceInventoryRequest, ListResourceInventoryResponse } from "../models/models_0";
+import { de_ListResourceInventoryCommand, se_ListResourceInventoryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListResourceInventoryCommand}.
  */
 export interface ListResourceInventoryCommandInput extends ListResourceInventoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListResourceInventoryCommand}.
  */
 export interface ListResourceInventoryCommandOutput extends ListResourceInventoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists resources managed using Systems Manager inventory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,23 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
  * import { LicenseManagerClient, ListResourceInventoryCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListResourceInventoryCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListResourceInventoryRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // InventoryFilterList
+ *     { // InventoryFilter
+ *       Name: "STRING_VALUE", // required
+ *       Condition: "EQUALS" || "NOT_EQUALS" || "BEGINS_WITH" || "CONTAINS", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ListResourceInventoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListResourceInventoryCommandInput - {@link ListResourceInventoryCommandInput}
+ * @returns {@link ListResourceInventoryCommandOutput}
  * @see {@link ListResourceInventoryCommandInput} for command's `input` shape.
  * @see {@link ListResourceInventoryCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
@@ -91,6 +101,9 @@ export class ListResourceInventoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListResourceInventoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +132,8 @@ export class ListResourceInventoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceInventoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceInventoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +143,18 @@ export class ListResourceInventoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListResourceInventoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceInventoryCommand(input, context);
+    return se_ListResourceInventoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceInventoryCommandOutput> {
-    return deserializeAws_json1_1ListResourceInventoryCommand(output, context);
+    return de_ListResourceInventoryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetTestRequest,
-  GetTestRequestFilterSensitiveLog,
-  GetTestResult,
-  GetTestResultFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1GetTestCommand, serializeAws_json1_1GetTestCommand } from "../protocols/Aws_json1_1";
+import { GetTestRequest, GetTestResult } from "../models/models_0";
+import { de_GetTestCommand, se_GetTestCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetTestCommand}.
  */
 export interface GetTestCommandInput extends GetTestRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTestCommand}.
  */
 export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a test.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,10 +39,15 @@ export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
  * import { DeviceFarmClient, GetTestCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetTestCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // GetTestRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetTestCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTestCommandInput - {@link GetTestCommandInput}
+ * @returns {@link GetTestCommandOutput}
  * @see {@link GetTestCommandInput} for command's `input` shape.
  * @see {@link GetTestCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -94,6 +99,9 @@ export class GetTestCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTestCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class GetTestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTestResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +139,18 @@ export class GetTestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTestCommand(input, context);
+    return se_GetTestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTestCommandOutput> {
-    return deserializeAws_json1_1GetTestCommand(output, context);
+    return de_GetTestCommand(output, context);
   }
 
   // Start section: command_body_extra

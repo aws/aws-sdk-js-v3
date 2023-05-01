@@ -14,21 +14,15 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import {
-  PutObjectInput,
-  PutObjectInputFilterSensitiveLog,
-  PutObjectOutput,
-  PutObjectOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutObjectCommand,
-  serializeAws_restJson1PutObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { PutObjectInput, PutObjectInputFilterSensitiveLog, PutObjectOutput } from "../models/models_0";
+import { de_PutObjectCommand, se_PutObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutObjectCommand}.
  */
-type PutObjectCommandInputType = Omit<PutObjectInput, "InlineChunk"> & {
+export type PutObjectCommandInputType = Omit<PutObjectInput, "InlineChunk"> & {
   /**
    * For *`PutObjectInput["InlineChunk"]`*, see {@link PutObjectInput.InlineChunk}.
    */
@@ -39,11 +33,14 @@ type PutObjectCommandInputType = Omit<PutObjectInput, "InlineChunk"> & {
  */
 export interface PutObjectCommandInput extends PutObjectCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link PutObjectCommand}.
  */
 export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Upload object that can store object metadata String and data blob in single API call using inline chunk field.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,10 +48,24 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * import { BackupStorageClient, PutObjectCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, PutObjectCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
+ * const input = { // PutObjectInput
+ *   BackupJobId: "STRING_VALUE", // required
+ *   ObjectName: "STRING_VALUE", // required
+ *   MetadataString: "STRING_VALUE",
+ *   InlineChunk: "STREAMING_BLOB_VALUE",
+ *   InlineChunkLength: Number("long"),
+ *   InlineChunkChecksum: "STRING_VALUE",
+ *   InlineChunkChecksumAlgorithm: "STRING_VALUE",
+ *   ObjectChecksum: "STRING_VALUE",
+ *   ObjectChecksumAlgorithm: "STRING_VALUE",
+ *   ThrowOnDuplicate: true || false,
+ * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutObjectCommandInput - {@link PutObjectCommandInput}
+ * @returns {@link PutObjectCommandOutput}
  * @see {@link PutObjectCommandInput} for command's `input` shape.
  * @see {@link PutObjectCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
@@ -102,6 +113,9 @@ export class PutObjectCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -129,7 +143,7 @@ export class PutObjectCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutObjectInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +153,18 @@ export class PutObjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutObjectCommand(input, context);
+    return se_PutObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectCommandOutput> {
-    return deserializeAws_restJson1PutObjectCommand(output, context);
+    return de_PutObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import {
-  UntagDeliveryStreamInput,
-  UntagDeliveryStreamInputFilterSensitiveLog,
-  UntagDeliveryStreamOutput,
-  UntagDeliveryStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagDeliveryStreamCommand,
-  serializeAws_json1_1UntagDeliveryStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { UntagDeliveryStreamInput, UntagDeliveryStreamOutput } from "../models/models_0";
+import { de_UntagDeliveryStreamCommand, se_UntagDeliveryStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UntagDeliveryStreamCommand}.
  */
 export interface UntagDeliveryStreamCommandInput extends UntagDeliveryStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link UntagDeliveryStreamCommand}.
  */
 export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you
  *          can't recover them after this operation successfully completes.</p>
  *          <p>If you specify a tag that doesn't exist, the operation ignores it.</p>
@@ -45,10 +42,18 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * import { FirehoseClient, UntagDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, UntagDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // UntagDeliveryStreamInput
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   TagKeys: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagDeliveryStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UntagDeliveryStreamCommandInput - {@link UntagDeliveryStreamCommandInput}
+ * @returns {@link UntagDeliveryStreamCommandOutput}
  * @see {@link UntagDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link UntagDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
@@ -84,6 +89,9 @@ export class UntagDeliveryStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UntagDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class UntagDeliveryStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagDeliveryStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UntagDeliveryStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class UntagDeliveryStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagDeliveryStreamCommand(input, context);
+    return se_UntagDeliveryStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1UntagDeliveryStreamCommand(output, context);
+    return de_UntagDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

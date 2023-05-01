@@ -15,21 +15,23 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateLoginProfileRequest, UpdateLoginProfileRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateLoginProfileCommand,
-  serializeAws_queryUpdateLoginProfileCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateLoginProfileCommand, se_UpdateLoginProfileCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLoginProfileCommand}.
  */
 export interface UpdateLoginProfileCommandInput extends UpdateLoginProfileRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLoginProfileCommand}.
  */
 export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the password for the specified IAM user. You can use the CLI, the Amazon Web Services
  *             API, or the <b>Users</b> page in the IAM console to change
  *             the password for any IAM user. Use <a>ChangePassword</a> to change your own
@@ -43,10 +45,17 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UpdateLoginProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UpdateLoginProfileRequest
+ *   UserName: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE",
+ *   PasswordResetRequired: true || false,
+ * };
  * const command = new UpdateLoginProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLoginProfileCommandInput - {@link UpdateLoginProfileCommandInput}
+ * @returns {@link UpdateLoginProfileCommandOutput}
  * @see {@link UpdateLoginProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -104,6 +113,9 @@ export class UpdateLoginProfileCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLoginProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,7 +145,7 @@ export class UpdateLoginProfileCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateLoginProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +155,18 @@ export class UpdateLoginProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLoginProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateLoginProfileCommand(input, context);
+    return se_UpdateLoginProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLoginProfileCommandOutput> {
-    return deserializeAws_queryUpdateLoginProfileCommand(output, context);
+    return de_UpdateLoginProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

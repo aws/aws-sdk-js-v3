@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetCrawlerMetricsRequest,
-  GetCrawlerMetricsRequestFilterSensitiveLog,
-  GetCrawlerMetricsResponse,
-  GetCrawlerMetricsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetCrawlerMetricsCommand,
-  serializeAws_json1_1GetCrawlerMetricsCommand,
-} from "../protocols/Aws_json1_1";
+import { GetCrawlerMetricsRequest, GetCrawlerMetricsResponse } from "../models/models_1";
+import { de_GetCrawlerMetricsCommand, se_GetCrawlerMetricsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetCrawlerMetricsCommand}.
  */
 export interface GetCrawlerMetricsCommandInput extends GetCrawlerMetricsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetCrawlerMetricsCommand}.
  */
 export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves metrics about specified crawlers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * import { GlueClient, GetCrawlerMetricsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetCrawlerMetricsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetCrawlerMetricsRequest
+ *   CrawlerNameList: [ // CrawlerNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetCrawlerMetricsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetCrawlerMetricsCommandInput - {@link GetCrawlerMetricsCommandInput}
+ * @returns {@link GetCrawlerMetricsCommandOutput}
  * @see {@link GetCrawlerMetricsCommandInput} for command's `input` shape.
  * @see {@link GetCrawlerMetricsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -72,6 +78,9 @@ export class GetCrawlerMetricsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetCrawlerMetricsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +109,8 @@ export class GetCrawlerMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCrawlerMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCrawlerMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +120,18 @@ export class GetCrawlerMetricsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCrawlerMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCrawlerMetricsCommand(input, context);
+    return se_GetCrawlerMetricsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCrawlerMetricsCommandOutput> {
-    return deserializeAws_json1_1GetCrawlerMetricsCommand(output, context);
+    return de_GetCrawlerMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

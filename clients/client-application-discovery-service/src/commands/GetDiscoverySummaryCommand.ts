@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  GetDiscoverySummaryRequest,
-  GetDiscoverySummaryRequestFilterSensitiveLog,
-  GetDiscoverySummaryResponse,
-  GetDiscoverySummaryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDiscoverySummaryCommand,
-  serializeAws_json1_1GetDiscoverySummaryCommand,
-} from "../protocols/Aws_json1_1";
+import { GetDiscoverySummaryRequest, GetDiscoverySummaryResponse } from "../models/models_0";
+import { de_GetDiscoverySummaryCommand, se_GetDiscoverySummaryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetDiscoverySummaryCommand}.
  */
 export interface GetDiscoverySummaryCommandInput extends GetDiscoverySummaryRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetDiscoverySummaryCommand}.
  */
 export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a short summary of discovered assets.</p>
  *          <p>This API operation takes no request parameters and is called as is at the command
  *       prompt as shown in the example.</p>
@@ -48,10 +45,13 @@ export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryRes
  * import { ApplicationDiscoveryServiceClient, GetDiscoverySummaryCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, GetDiscoverySummaryCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {};
  * const command = new GetDiscoverySummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetDiscoverySummaryCommandInput - {@link GetDiscoverySummaryCommandInput}
+ * @returns {@link GetDiscoverySummaryCommandOutput}
  * @see {@link GetDiscoverySummaryCommandInput} for command's `input` shape.
  * @see {@link GetDiscoverySummaryCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
@@ -92,6 +92,9 @@ export class GetDiscoverySummaryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetDiscoverySummaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +123,8 @@ export class GetDiscoverySummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDiscoverySummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDiscoverySummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +134,18 @@ export class GetDiscoverySummaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDiscoverySummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDiscoverySummaryCommand(input, context);
+    return se_GetDiscoverySummaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiscoverySummaryCommandOutput> {
-    return deserializeAws_json1_1GetDiscoverySummaryCommand(output, context);
+    return de_GetDiscoverySummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

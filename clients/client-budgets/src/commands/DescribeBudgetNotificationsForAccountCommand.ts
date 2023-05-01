@@ -16,21 +16,23 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import {
   DescribeBudgetNotificationsForAccountRequest,
-  DescribeBudgetNotificationsForAccountRequestFilterSensitiveLog,
   DescribeBudgetNotificationsForAccountResponse,
-  DescribeBudgetNotificationsForAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeBudgetNotificationsForAccountCommand,
-  serializeAws_json1_1DescribeBudgetNotificationsForAccountCommand,
+  de_DescribeBudgetNotificationsForAccountCommand,
+  se_DescribeBudgetNotificationsForAccountCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeBudgetNotificationsForAccountCommand}.
  */
 export interface DescribeBudgetNotificationsForAccountCommandInput
   extends DescribeBudgetNotificationsForAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeBudgetNotificationsForAccountCommand}.
  */
 export interface DescribeBudgetNotificationsForAccountCommandOutput
@@ -38,6 +40,7 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * 			Lists the budget names and notifications that are associated with an account.
  * 		</p>
@@ -47,10 +50,17 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
  * import { BudgetsClient, DescribeBudgetNotificationsForAccountCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetNotificationsForAccountCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // DescribeBudgetNotificationsForAccountRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeBudgetNotificationsForAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeBudgetNotificationsForAccountCommandInput - {@link DescribeBudgetNotificationsForAccountCommandInput}
+ * @returns {@link DescribeBudgetNotificationsForAccountCommandOutput}
  * @see {@link DescribeBudgetNotificationsForAccountCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetNotificationsForAccountCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
@@ -97,6 +107,9 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeBudgetNotificationsForAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +138,8 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBudgetNotificationsForAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBudgetNotificationsForAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,18 +149,24 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeBudgetNotificationsForAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBudgetNotificationsForAccountCommand(input, context);
+    return se_DescribeBudgetNotificationsForAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBudgetNotificationsForAccountCommandOutput> {
-    return deserializeAws_json1_1DescribeBudgetNotificationsForAccountCommand(output, context);
+    return de_DescribeBudgetNotificationsForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

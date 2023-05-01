@@ -13,26 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ModifyClusterSnapshotScheduleMessage } from "../models/models_1";
 import {
-  ModifyClusterSnapshotScheduleMessage,
-  ModifyClusterSnapshotScheduleMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyClusterSnapshotScheduleCommand,
-  serializeAws_queryModifyClusterSnapshotScheduleCommand,
+  de_ModifyClusterSnapshotScheduleCommand,
+  se_ModifyClusterSnapshotScheduleCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterSnapshotScheduleCommand}.
  */
 export interface ModifyClusterSnapshotScheduleCommandInput extends ModifyClusterSnapshotScheduleMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterSnapshotScheduleCommand}.
  */
 export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a snapshot schedule for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,17 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  * import { RedshiftClient, ModifyClusterSnapshotScheduleCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterSnapshotScheduleCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifyClusterSnapshotScheduleMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ScheduleIdentifier: "STRING_VALUE",
+ *   DisassociateSchedule: true || false,
+ * };
  * const command = new ModifyClusterSnapshotScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterSnapshotScheduleCommandInput - {@link ModifyClusterSnapshotScheduleCommandInput}
+ * @returns {@link ModifyClusterSnapshotScheduleCommandOutput}
  * @see {@link ModifyClusterSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -77,6 +86,9 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterSnapshotScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +117,8 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterSnapshotScheduleMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,15 +128,21 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterSnapshotScheduleCommand(input, context);
+    return se_ModifyClusterSnapshotScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyClusterSnapshotScheduleCommandOutput> {
-    return deserializeAws_queryModifyClusterSnapshotScheduleCommand(output, context);
+    return de_ModifyClusterSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

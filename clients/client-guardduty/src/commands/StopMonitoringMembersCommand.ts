@@ -14,40 +14,48 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  StopMonitoringMembersRequest,
-  StopMonitoringMembersRequestFilterSensitiveLog,
-  StopMonitoringMembersResponse,
-  StopMonitoringMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1StopMonitoringMembersCommand,
-  serializeAws_restJson1StopMonitoringMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { StopMonitoringMembersRequest, StopMonitoringMembersResponse } from "../models/models_1";
+import { de_StopMonitoringMembersCommand, se_StopMonitoringMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StopMonitoringMembersCommand}.
  */
 export interface StopMonitoringMembersCommandInput extends StopMonitoringMembersRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopMonitoringMembersCommand}.
  */
 export interface StopMonitoringMembersCommandOutput extends StopMonitoringMembersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops GuardDuty monitoring for the specified member accounts. Use the
  *         <code>StartMonitoringMembers</code> operation to restart monitoring for those
  *       accounts.</p>
+ *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
+ *         <code>ALL</code>, you'll receive an error if you attempt to stop monitoring the member
+ *       accounts in your organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, StopMonitoringMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, StopMonitoringMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // StopMonitoringMembersRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   AccountIds: [ // AccountIds // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StopMonitoringMembersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopMonitoringMembersCommandInput - {@link StopMonitoringMembersCommandInput}
+ * @returns {@link StopMonitoringMembersCommandOutput}
  * @see {@link StopMonitoringMembersCommandInput} for command's `input` shape.
  * @see {@link StopMonitoringMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -77,6 +85,9 @@ export class StopMonitoringMembersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopMonitoringMembersCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +116,8 @@ export class StopMonitoringMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMonitoringMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopMonitoringMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +127,18 @@ export class StopMonitoringMembersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopMonitoringMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopMonitoringMembersCommand(input, context);
+    return se_StopMonitoringMembersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMonitoringMembersCommandOutput> {
-    return deserializeAws_restJson1StopMonitoringMembersCommand(output, context);
+    return de_StopMonitoringMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

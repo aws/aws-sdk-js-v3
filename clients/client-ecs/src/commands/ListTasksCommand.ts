@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListTasksRequest,
-  ListTasksRequestFilterSensitiveLog,
-  ListTasksResponse,
-  ListTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_json1_1ListTasksCommand, serializeAws_json1_1ListTasksCommand } from "../protocols/Aws_json1_1";
+import { ListTasksRequest, ListTasksResponse } from "../models/models_0";
+import { de_ListTasksCommand, se_ListTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTasksCommand}.
  */
 export interface ListTasksCommandInput extends ListTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTasksCommand}.
  */
 export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of tasks. You can filter the results by cluster, task definition
  * 			family, container instance, launch type, what IAM principal started the task, or by the
  * 			desired status of the task.</p>
@@ -43,10 +43,23 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * import { ECSClient, ListTasksCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListTasksCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // ListTasksRequest
+ *   cluster: "STRING_VALUE",
+ *   containerInstance: "STRING_VALUE",
+ *   family: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   startedBy: "STRING_VALUE",
+ *   serviceName: "STRING_VALUE",
+ *   desiredStatus: "RUNNING" || "PENDING" || "STOPPED",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTasksCommandInput - {@link ListTasksCommandInput}
+ * @returns {@link ListTasksCommandOutput}
  * @see {@link ListTasksCommandInput} for command's `input` shape.
  * @see {@link ListTasksCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -123,6 +136,9 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -149,8 +165,8 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,12 +176,18 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTasksCommand(input, context);
+    return se_ListTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTasksCommandOutput> {
-    return deserializeAws_json1_1ListTasksCommand(output, context);
+    return de_ListTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

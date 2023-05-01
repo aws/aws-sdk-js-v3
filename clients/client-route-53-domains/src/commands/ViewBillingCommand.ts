@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ViewBillingRequest,
-  ViewBillingRequestFilterSensitiveLog,
-  ViewBillingResponse,
-  ViewBillingResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ViewBillingCommand,
-  serializeAws_json1_1ViewBillingCommand,
-} from "../protocols/Aws_json1_1";
+import { ViewBillingRequest, ViewBillingResponse } from "../models/models_0";
+import { de_ViewBillingCommand, se_ViewBillingCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ViewBillingCommand}.
  */
 export interface ViewBillingCommandInput extends ViewBillingRequest {}
 /**
+ * @public
+ *
  * The output of {@link ViewBillingCommand}.
  */
 export interface ViewBillingCommandOutput extends ViewBillingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns all the domain-related billing records for the current Amazon Web Services account for a specified period</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
  * import { Route53DomainsClient, ViewBillingCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ViewBillingCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // ViewBillingRequest
+ *   Start: new Date("TIMESTAMP"),
+ *   End: new Date("TIMESTAMP"),
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ViewBillingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ViewBillingCommandInput - {@link ViewBillingCommandInput}
+ * @returns {@link ViewBillingCommandOutput}
  * @see {@link ViewBillingCommandInput} for command's `input` shape.
  * @see {@link ViewBillingCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -75,6 +80,9 @@ export class ViewBillingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ViewBillingCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +109,8 @@ export class ViewBillingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ViewBillingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ViewBillingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +120,18 @@ export class ViewBillingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ViewBillingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ViewBillingCommand(input, context);
+    return se_ViewBillingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ViewBillingCommandOutput> {
-    return deserializeAws_json1_1ViewBillingCommand(output, context);
+    return de_ViewBillingCommand(output, context);
   }
 
   // Start section: command_body_extra

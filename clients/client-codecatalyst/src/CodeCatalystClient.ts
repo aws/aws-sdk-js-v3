@@ -109,6 +109,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateAccessTokenCommandInput
   | CreateDevEnvironmentCommandInput
@@ -136,6 +139,9 @@ export type ServiceInputTypes =
   | UpdateDevEnvironmentCommandInput
   | VerifySessionCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateAccessTokenCommandOutput
   | CreateDevEnvironmentCommandOutput
@@ -163,6 +169,9 @@ export type ServiceOutputTypes =
   | UpdateDevEnvironmentCommandOutput
   | VerifySessionCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -170,7 +179,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -268,11 +277,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type CodeCatalystClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -283,10 +295,15 @@ type CodeCatalystClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerO
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of CodeCatalystClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of CodeCatalystClient class constructor that set the region, credentials and other options.
  */
 export interface CodeCatalystClientConfig extends CodeCatalystClientConfigType {}
 
+/**
+ * @public
+ */
 type CodeCatalystClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -297,17 +314,15 @@ type CodeCatalystClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of CodeCatalystClient class. This is resolved and normalized from the {@link CodeCatalystClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of CodeCatalystClient class. This is resolved and normalized from the {@link CodeCatalystClientConfig | constructor configuration interface}.
  */
 export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientResolvedConfigType {}
 
 /**
- * <note>
- *             <p>
- *                <b>Amazon CodeCatalyst is in preview release and subject to change.</b>
- *             </p>
- *          </note>
- *          <p>Welcome to the Amazon CodeCatalyst API reference. This reference provides descriptions of operations and data types for Amazon CodeCatalyst. You can use the Amazon CodeCatalyst
+ * @public
+ * <p>Welcome to the Amazon CodeCatalyst API reference. This reference provides descriptions of operations and data types for Amazon CodeCatalyst. You can use the Amazon CodeCatalyst
  *       API to work with the following objects. </p>
  *          <p>Dev Environments and the Amazon Web Services Toolkits, by calling the following:</p>
  *          <ul>
@@ -347,6 +362,10 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>GetSpace</a>, which returns information about a space.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>GetSubscription</a>, which returns information about the Amazon Web Services account used for billing purposes
  *        and the billing plan for the space.</p>
  *             </li>
@@ -356,7 +375,7 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ListDevEnvironments</a>, which retrives a list of Dev Environments in a project.</p>
+ *                   <a>ListDevEnvironments</a>, which retrieves a list of Dev Environments in a project.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -414,6 +433,11 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *                   <a>ListEventLogs</a>, which retrieves a list of events that occurred during a specified time period in a space.</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>If you are using the Amazon CodeCatalyst APIs with an SDK or the CLI, you must configure your computer to work with Amazon CodeCatalyst and single sign-on (SSO).
+ *         For more information, see <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/set-up-cli.html">Setting up to use the CLI with Amazon CodeCatalyst</a>
+ *       and the SSO documentation for your SDK.</p>
+ *          </note>
  */
 export class CodeCatalystClient extends __Client<
   __HttpHandlerOptions,

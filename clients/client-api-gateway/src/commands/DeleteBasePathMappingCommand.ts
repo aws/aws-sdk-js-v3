@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteBasePathMappingRequest, DeleteBasePathMappingRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBasePathMappingCommand,
-  serializeAws_restJson1DeleteBasePathMappingCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteBasePathMappingRequest } from "../models/models_0";
+import { de_DeleteBasePathMappingCommand, se_DeleteBasePathMappingCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBasePathMappingCommand}.
  */
 export interface DeleteBasePathMappingCommandInput extends DeleteBasePathMappingRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBasePathMappingCommand}.
  */
 export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the BasePathMapping resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteBasePathMappingCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteBasePathMappingCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteBasePathMappingRequest
+ *   domainName: "STRING_VALUE", // required
+ *   basePath: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBasePathMappingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBasePathMappingCommandInput - {@link DeleteBasePathMappingCommandInput}
+ * @returns {@link DeleteBasePathMappingCommandOutput}
  * @see {@link DeleteBasePathMappingCommandInput} for command's `input` shape.
  * @see {@link DeleteBasePathMappingCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +87,9 @@ export class DeleteBasePathMappingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBasePathMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +118,8 @@ export class DeleteBasePathMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBasePathMappingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +129,18 @@ export class DeleteBasePathMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBasePathMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBasePathMappingCommand(input, context);
+    return se_DeleteBasePathMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBasePathMappingCommandOutput> {
-    return deserializeAws_restJson1DeleteBasePathMappingCommand(output, context);
+    return de_DeleteBasePathMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

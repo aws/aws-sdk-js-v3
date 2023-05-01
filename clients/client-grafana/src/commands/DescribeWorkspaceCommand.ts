@@ -16,25 +16,26 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import {
   DescribeWorkspaceRequest,
-  DescribeWorkspaceRequestFilterSensitiveLog,
   DescribeWorkspaceResponse,
   DescribeWorkspaceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeWorkspaceCommand,
-  serializeAws_restJson1DescribeWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeWorkspaceCommand, se_DescribeWorkspaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeWorkspaceCommand}.
  */
 export interface DescribeWorkspaceCommandInput extends DescribeWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeWorkspaceCommand}.
  */
 export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays information about one Amazon Managed Grafana workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,15 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * import { GrafanaClient, DescribeWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DescribeWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // DescribeWorkspaceRequest
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorkspaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeWorkspaceCommandInput - {@link DescribeWorkspaceCommandInput}
+ * @returns {@link DescribeWorkspaceCommandOutput}
  * @see {@link DescribeWorkspaceCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -84,6 +90,9 @@ export class DescribeWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +121,7 @@ export class DescribeWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeWorkspaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,12 +132,18 @@ export class DescribeWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorkspaceCommand(input, context);
+    return se_DescribeWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspaceCommandOutput> {
-    return deserializeAws_restJson1DescribeWorkspaceCommand(output, context);
+    return de_DescribeWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

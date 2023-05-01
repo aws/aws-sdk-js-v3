@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterTransitGatewayRequest,
-  RegisterTransitGatewayRequestFilterSensitiveLog,
-  RegisterTransitGatewayResponse,
-  RegisterTransitGatewayResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterTransitGatewayRequest, RegisterTransitGatewayResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1RegisterTransitGatewayCommand,
-  serializeAws_restJson1RegisterTransitGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RegisterTransitGatewayCommand, se_RegisterTransitGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterTransitGatewayCommand}.
  */
 export interface RegisterTransitGatewayCommandInput extends RegisterTransitGatewayRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterTransitGatewayCommand}.
  */
 export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGatewayResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a transit gateway in your global network. Not all Regions support transit
  *             gateways for global networks. For a list of the supported Regions, see <a href="https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions">Region Availability</a> in the <i>Amazon Web Services Transit Gateways for Global
  *                 Networks User Guide</i>. The transit gateway can be in any of the supported
@@ -46,10 +43,16 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  * import { NetworkManagerClient, RegisterTransitGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, RegisterTransitGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // RegisterTransitGatewayRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   TransitGatewayArn: "STRING_VALUE", // required
+ * };
  * const command = new RegisterTransitGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterTransitGatewayCommandInput - {@link RegisterTransitGatewayCommandInput}
+ * @returns {@link RegisterTransitGatewayCommandOutput}
  * @see {@link RegisterTransitGatewayCommandInput} for command's `input` shape.
  * @see {@link RegisterTransitGatewayCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
@@ -92,6 +95,9 @@ export class RegisterTransitGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterTransitGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +126,8 @@ export class RegisterTransitGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterTransitGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterTransitGatewayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +137,18 @@ export class RegisterTransitGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterTransitGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterTransitGatewayCommand(input, context);
+    return se_RegisterTransitGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTransitGatewayCommandOutput> {
-    return deserializeAws_restJson1RegisterTransitGatewayCommand(output, context);
+    return de_RegisterTransitGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

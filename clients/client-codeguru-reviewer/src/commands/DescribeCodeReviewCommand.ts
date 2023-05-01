@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import {
-  DescribeCodeReviewRequest,
-  DescribeCodeReviewRequestFilterSensitiveLog,
-  DescribeCodeReviewResponse,
-  DescribeCodeReviewResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCodeReviewCommand,
-  serializeAws_restJson1DescribeCodeReviewCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeCodeReviewRequest, DescribeCodeReviewResponse } from "../models/models_0";
+import { de_DescribeCodeReviewCommand, se_DescribeCodeReviewCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeCodeReviewCommand}.
  */
 export interface DescribeCodeReviewCommandInput extends DescribeCodeReviewRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeCodeReviewCommand}.
  */
 export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the metadata associated with the code review along with its status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewRespo
  * import { CodeGuruReviewerClient, DescribeCodeReviewCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, DescribeCodeReviewCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = { // DescribeCodeReviewRequest
+ *   CodeReviewArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCodeReviewCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeCodeReviewCommandInput - {@link DescribeCodeReviewCommandInput}
+ * @returns {@link DescribeCodeReviewCommandOutput}
  * @see {@link DescribeCodeReviewCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeReviewCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
@@ -84,6 +86,9 @@ export class DescribeCodeReviewCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCodeReviewCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DescribeCodeReviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCodeReviewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCodeReviewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DescribeCodeReviewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCodeReviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCodeReviewCommand(input, context);
+    return se_DescribeCodeReviewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCodeReviewCommandOutput> {
-    return deserializeAws_restJson1DescribeCodeReviewCommand(output, context);
+    return de_DescribeCodeReviewCommand(output, context);
   }
 
   // Start section: command_body_extra

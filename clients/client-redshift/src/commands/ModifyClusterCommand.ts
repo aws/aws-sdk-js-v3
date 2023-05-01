@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyClusterMessage,
-  ModifyClusterMessageFilterSensitiveLog,
-  ModifyClusterResult,
-  ModifyClusterResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyClusterCommand,
-  serializeAws_queryModifyClusterCommand,
-} from "../protocols/Aws_query";
+import { ModifyClusterMessage, ModifyClusterResult } from "../models/models_1";
+import { de_ModifyClusterCommand, se_ModifyClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyClusterCommand}.
  */
 export interface ModifyClusterCommandInput extends ModifyClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyClusterCommand}.
  */
 export interface ModifyClusterCommandOutput extends ModifyClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the settings for a cluster.</p>
  *          <p>You can also change node type and the number of nodes to scale up or down the
  *             cluster. When resizing a cluster, you must specify both the number of nodes and the node
@@ -50,10 +47,43 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * import { RedshiftClient, ModifyClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // ModifyClusterMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ClusterType: "STRING_VALUE",
+ *   NodeType: "STRING_VALUE",
+ *   NumberOfNodes: Number("int"),
+ *   ClusterSecurityGroups: [ // ClusterSecurityGroupNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   MasterUserPassword: "STRING_VALUE",
+ *   ClusterParameterGroupName: "STRING_VALUE",
+ *   AutomatedSnapshotRetentionPeriod: Number("int"),
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   ClusterVersion: "STRING_VALUE",
+ *   AllowVersionUpgrade: true || false,
+ *   HsmClientCertificateIdentifier: "STRING_VALUE",
+ *   HsmConfigurationIdentifier: "STRING_VALUE",
+ *   NewClusterIdentifier: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   ElasticIp: "STRING_VALUE",
+ *   EnhancedVpcRouting: true || false,
+ *   MaintenanceTrackName: "STRING_VALUE",
+ *   Encrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   AvailabilityZoneRelocation: true || false,
+ *   AvailabilityZone: "STRING_VALUE",
+ *   Port: Number("int"),
+ * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyClusterCommandInput - {@link ModifyClusterCommandInput}
+ * @returns {@link ModifyClusterCommandOutput}
  * @see {@link ModifyClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -145,6 +175,9 @@ export class ModifyClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -171,8 +204,8 @@ export class ModifyClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -182,12 +215,18 @@ export class ModifyClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterCommand(input, context);
+    return se_ModifyClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterCommandOutput> {
-    return deserializeAws_queryModifyClusterCommand(output, context);
+    return de_ModifyClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

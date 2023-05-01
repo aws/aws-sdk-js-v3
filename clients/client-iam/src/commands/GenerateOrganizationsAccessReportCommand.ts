@@ -16,20 +16,22 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GenerateOrganizationsAccessReportRequest,
-  GenerateOrganizationsAccessReportRequestFilterSensitiveLog,
   GenerateOrganizationsAccessReportResponse,
-  GenerateOrganizationsAccessReportResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGenerateOrganizationsAccessReportCommand,
-  serializeAws_queryGenerateOrganizationsAccessReportCommand,
+  de_GenerateOrganizationsAccessReportCommand,
+  se_GenerateOrganizationsAccessReportCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GenerateOrganizationsAccessReportCommand}.
  */
 export interface GenerateOrganizationsAccessReportCommandInput extends GenerateOrganizationsAccessReportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GenerateOrganizationsAccessReportCommand}.
  */
 export interface GenerateOrganizationsAccessReportCommandOutput
@@ -37,6 +39,7 @@ export interface GenerateOrganizationsAccessReportCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a report for service last accessed data for Organizations. You can generate a
  *             report for any entities (organization root, organizational unit, or account) or policies
  *             in your organization.</p>
@@ -174,10 +177,16 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  * import { IAMClient, GenerateOrganizationsAccessReportCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GenerateOrganizationsAccessReportCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // GenerateOrganizationsAccessReportRequest
+ *   EntityPath: "STRING_VALUE", // required
+ *   OrganizationsPolicyId: "STRING_VALUE",
+ * };
  * const command = new GenerateOrganizationsAccessReportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GenerateOrganizationsAccessReportCommandInput - {@link GenerateOrganizationsAccessReportCommandInput}
+ * @returns {@link GenerateOrganizationsAccessReportCommandOutput}
  * @see {@link GenerateOrganizationsAccessReportCommandInput} for command's `input` shape.
  * @see {@link GenerateOrganizationsAccessReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -221,6 +230,9 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GenerateOrganizationsAccessReportCommandInput) {
     // Start section: command_constructor
     super();
@@ -249,8 +261,8 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateOrganizationsAccessReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateOrganizationsAccessReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -260,18 +272,24 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GenerateOrganizationsAccessReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGenerateOrganizationsAccessReportCommand(input, context);
+    return se_GenerateOrganizationsAccessReportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateOrganizationsAccessReportCommandOutput> {
-    return deserializeAws_queryGenerateOrganizationsAccessReportCommand(output, context);
+    return de_GenerateOrganizationsAccessReportCommand(output, context);
   }
 
   // Start section: command_body_extra

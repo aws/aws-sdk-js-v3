@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEndpointAttributesInput,
-  GetEndpointAttributesInputFilterSensitiveLog,
-  GetEndpointAttributesResponse,
-  GetEndpointAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetEndpointAttributesCommand,
-  serializeAws_queryGetEndpointAttributesCommand,
-} from "../protocols/Aws_query";
+import { GetEndpointAttributesInput, GetEndpointAttributesResponse } from "../models/models_0";
+import { de_GetEndpointAttributesCommand, se_GetEndpointAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetEndpointAttributesCommand}.
  */
 export interface GetEndpointAttributesCommandInput extends GetEndpointAttributesInput {}
 /**
+ * @public
+ *
  * The output of {@link GetEndpointAttributesCommand}.
  */
 export interface GetEndpointAttributesCommandOutput extends GetEndpointAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the endpoint attributes for a device on one of the supported push
  *             notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -44,10 +41,15 @@ export interface GetEndpointAttributesCommandOutput extends GetEndpointAttribute
  * import { SNSClient, GetEndpointAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetEndpointAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // GetEndpointAttributesInput
+ *   EndpointArn: "STRING_VALUE", // required
+ * };
  * const command = new GetEndpointAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEndpointAttributesCommandInput - {@link GetEndpointAttributesCommandInput}
+ * @returns {@link GetEndpointAttributesCommandOutput}
  * @see {@link GetEndpointAttributesCommandInput} for command's `input` shape.
  * @see {@link GetEndpointAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetEndpointAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEndpointAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetEndpointAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEndpointAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEndpointAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetEndpointAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEndpointAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetEndpointAttributesCommand(input, context);
+    return se_GetEndpointAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEndpointAttributesCommandOutput> {
-    return deserializeAws_queryGetEndpointAttributesCommand(output, context);
+    return de_GetEndpointAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

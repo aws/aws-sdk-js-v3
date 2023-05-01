@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  UpdateRoomRequest,
-  UpdateRoomRequestFilterSensitiveLog,
-  UpdateRoomResponse,
-  UpdateRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRoomCommand,
-  serializeAws_json1_1UpdateRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateRoomRequest, UpdateRoomResponse } from "../models/models_0";
+import { de_UpdateRoomCommand, se_UpdateRoomCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRoomCommand}.
  */
 export interface UpdateRoomCommandInput extends UpdateRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRoomCommand}.
  */
 export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates room details by room ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * import { AlexaForBusinessClient, UpdateRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // UpdateRoomRequest
+ *   RoomArn: "STRING_VALUE",
+ *   RoomName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ProviderCalendarId: "STRING_VALUE",
+ *   ProfileArn: "STRING_VALUE",
+ * };
  * const command = new UpdateRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRoomCommandInput - {@link UpdateRoomCommandInput}
+ * @returns {@link UpdateRoomCommandOutput}
  * @see {@link UpdateRoomCommandInput} for command's `input` shape.
  * @see {@link UpdateRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -75,6 +81,9 @@ export class UpdateRoomCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +110,8 @@ export class UpdateRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +121,18 @@ export class UpdateRoomCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRoomCommand(input, context);
+    return se_UpdateRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoomCommandOutput> {
-    return deserializeAws_json1_1UpdateRoomCommand(output, context);
+    return de_UpdateRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,21 +15,23 @@ import {
 
 import {
   DescribeNotificationSubscriptionsRequest,
-  DescribeNotificationSubscriptionsRequestFilterSensitiveLog,
   DescribeNotificationSubscriptionsResponse,
-  DescribeNotificationSubscriptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeNotificationSubscriptionsCommand,
-  serializeAws_restJson1DescribeNotificationSubscriptionsCommand,
+  de_DescribeNotificationSubscriptionsCommand,
+  se_DescribeNotificationSubscriptionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeNotificationSubscriptionsCommand}.
  */
 export interface DescribeNotificationSubscriptionsCommandInput extends DescribeNotificationSubscriptionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeNotificationSubscriptionsCommand}.
  */
 export interface DescribeNotificationSubscriptionsCommandOutput
@@ -37,6 +39,7 @@ export interface DescribeNotificationSubscriptionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the specified notification subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,17 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  * import { WorkDocsClient, DescribeNotificationSubscriptionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeNotificationSubscriptionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // DescribeNotificationSubscriptionsRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeNotificationSubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeNotificationSubscriptionsCommandInput - {@link DescribeNotificationSubscriptionsCommandInput}
+ * @returns {@link DescribeNotificationSubscriptionsCommandOutput}
  * @see {@link DescribeNotificationSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -80,6 +90,9 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotificationSubscriptionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +121,8 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNotificationSubscriptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNotificationSubscriptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,18 +132,24 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNotificationSubscriptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeNotificationSubscriptionsCommand(input, context);
+    return se_DescribeNotificationSubscriptionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotificationSubscriptionsCommandOutput> {
-    return deserializeAws_restJson1DescribeNotificationSubscriptionsCommand(output, context);
+    return de_DescribeNotificationSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

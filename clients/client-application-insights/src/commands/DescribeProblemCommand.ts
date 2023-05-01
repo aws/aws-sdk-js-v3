@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  DescribeProblemRequest,
-  DescribeProblemRequestFilterSensitiveLog,
-  DescribeProblemResponse,
-  DescribeProblemResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProblemCommand,
-  serializeAws_json1_1DescribeProblemCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeProblemRequest, DescribeProblemResponse } from "../models/models_0";
+import { de_DescribeProblemCommand, se_DescribeProblemCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeProblemCommand}.
  */
 export interface DescribeProblemCommandInput extends DescribeProblemRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeProblemCommand}.
  */
 export interface DescribeProblemCommandOutput extends DescribeProblemResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an application problem.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * import { ApplicationInsightsClient, DescribeProblemCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeProblemCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = { // DescribeProblemRequest
+ *   ProblemId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProblemCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeProblemCommandInput - {@link DescribeProblemCommandInput}
+ * @returns {@link DescribeProblemCommandOutput}
  * @see {@link DescribeProblemCommandInput} for command's `input` shape.
  * @see {@link DescribeProblemCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
@@ -82,6 +84,9 @@ export class DescribeProblemCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProblemCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class DescribeProblemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProblemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProblemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class DescribeProblemCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProblemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProblemCommand(input, context);
+    return se_DescribeProblemCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProblemCommandOutput> {
-    return deserializeAws_json1_1DescribeProblemCommand(output, context);
+    return de_DescribeProblemCommand(output, context);
   }
 
   // Start section: command_body_extra

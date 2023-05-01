@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePrivateDnsNamespaceRequest,
-  UpdatePrivateDnsNamespaceRequestFilterSensitiveLog,
-  UpdatePrivateDnsNamespaceResponse,
-  UpdatePrivateDnsNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePrivateDnsNamespaceCommand,
-  serializeAws_json1_1UpdatePrivateDnsNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdatePrivateDnsNamespaceRequest, UpdatePrivateDnsNamespaceResponse } from "../models/models_0";
+import { de_UpdatePrivateDnsNamespaceCommand, se_UpdatePrivateDnsNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePrivateDnsNamespaceCommand}.
  */
 export interface UpdatePrivateDnsNamespaceCommandInput extends UpdatePrivateDnsNamespaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePrivateDnsNamespaceCommand}.
  */
 export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDnsNamespaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a private DNS
  *    namespace.</p>
  * @example
@@ -43,10 +40,26 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * import { ServiceDiscoveryClient, UpdatePrivateDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UpdatePrivateDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = { // UpdatePrivateDnsNamespaceRequest
+ *   Id: "STRING_VALUE", // required
+ *   UpdaterRequestId: "STRING_VALUE",
+ *   Namespace: { // PrivateDnsNamespaceChange
+ *     Description: "STRING_VALUE",
+ *     Properties: { // PrivateDnsNamespacePropertiesChange
+ *       DnsProperties: { // PrivateDnsPropertiesMutableChange
+ *         SOA: { // SOAChange
+ *           TTL: Number("long"), // required
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdatePrivateDnsNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePrivateDnsNamespaceCommandInput - {@link UpdatePrivateDnsNamespaceCommandInput}
+ * @returns {@link UpdatePrivateDnsNamespaceCommandOutput}
  * @see {@link UpdatePrivateDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link UpdatePrivateDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
@@ -61,11 +74,6 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  *
  * @throws {@link NamespaceNotFound} (client fault)
  *  <p>No namespace exists with the specified ID.</p>
- *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
  *
  * @throws {@link ResourceInUse} (client fault)
  *  <p>The specified resource can't be deleted because it contains other resources. For example,
@@ -90,6 +98,9 @@ export class UpdatePrivateDnsNamespaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePrivateDnsNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +129,8 @@ export class UpdatePrivateDnsNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePrivateDnsNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePrivateDnsNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +140,21 @@ export class UpdatePrivateDnsNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePrivateDnsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePrivateDnsNamespaceCommand(input, context);
+    return se_UpdatePrivateDnsNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePrivateDnsNamespaceCommandOutput> {
-    return deserializeAws_json1_1UpdatePrivateDnsNamespaceCommand(output, context);
+    return de_UpdatePrivateDnsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

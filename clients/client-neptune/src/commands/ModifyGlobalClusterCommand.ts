@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyGlobalClusterMessage,
-  ModifyGlobalClusterMessageFilterSensitiveLog,
-  ModifyGlobalClusterResult,
-  ModifyGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyGlobalClusterMessage, ModifyGlobalClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryModifyGlobalClusterCommand,
-  serializeAws_queryModifyGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyGlobalClusterCommand, se_ModifyGlobalClusterCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyGlobalClusterCommand}.
  */
 export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyGlobalClusterCommand}.
  */
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modify a setting for an Amazon Neptune global cluster. You can change one
  *       or more database configuration parameters by specifying these parameters
  *       and their new values in the request.</p>
@@ -44,10 +41,19 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * import { NeptuneClient, ModifyGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // ModifyGlobalClusterMessage
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ *   NewGlobalClusterIdentifier: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AllowMajorVersionUpgrade: true || false,
+ * };
  * const command = new ModifyGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyGlobalClusterCommandInput - {@link ModifyGlobalClusterCommandInput}
+ * @returns {@link ModifyGlobalClusterCommandOutput}
  * @see {@link ModifyGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
@@ -77,6 +83,9 @@ export class ModifyGlobalClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyGlobalClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +114,8 @@ export class ModifyGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +125,18 @@ export class ModifyGlobalClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyGlobalClusterCommand(input, context);
+    return se_ModifyGlobalClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyGlobalClusterCommandOutput> {
-    return deserializeAws_queryModifyGlobalClusterCommand(output, context);
+    return de_ModifyGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

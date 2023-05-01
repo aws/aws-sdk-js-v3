@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  PutDataProtectionPolicyRequest,
-  PutDataProtectionPolicyRequestFilterSensitiveLog,
-  PutDataProtectionPolicyResponse,
-  PutDataProtectionPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1PutDataProtectionPolicyCommand,
-  serializeAws_json1_1PutDataProtectionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { PutDataProtectionPolicyRequest, PutDataProtectionPolicyResponse } from "../models/models_0";
+import { de_PutDataProtectionPolicyCommand, se_PutDataProtectionPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutDataProtectionPolicyCommand}.
  */
 export interface PutDataProtectionPolicyCommandInput extends PutDataProtectionPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutDataProtectionPolicyCommand}.
  */
 export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a data protection policy for the specified log group. A data protection policy can help safeguard sensitive
  *       data that's ingested by the log group by auditing and masking the sensitive log data.</p>
  *          <important>
@@ -56,10 +53,16 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  * import { CloudWatchLogsClient, PutDataProtectionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutDataProtectionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // PutDataProtectionPolicyRequest
+ *   logGroupIdentifier: "STRING_VALUE", // required
+ *   policyDocument: "STRING_VALUE", // required
+ * };
  * const command = new PutDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutDataProtectionPolicyCommandInput - {@link PutDataProtectionPolicyCommandInput}
+ * @returns {@link PutDataProtectionPolicyCommandOutput}
  * @see {@link PutDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -98,6 +101,9 @@ export class PutDataProtectionPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +132,8 @@ export class PutDataProtectionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDataProtectionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDataProtectionPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +143,18 @@ export class PutDataProtectionPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutDataProtectionPolicyCommand(input, context);
+    return se_PutDataProtectionPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDataProtectionPolicyCommandOutput> {
-    return deserializeAws_json1_1PutDataProtectionPolicyCommand(output, context);
+    return de_PutDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

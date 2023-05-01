@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  UpdatePositionRequest,
-  UpdatePositionRequestFilterSensitiveLog,
-  UpdatePositionResponse,
-  UpdatePositionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdatePositionCommand,
-  serializeAws_restJson1UpdatePositionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdatePositionRequest, UpdatePositionResponse } from "../models/models_1";
+import { de_UpdatePositionCommand, se_UpdatePositionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdatePositionCommand}.
  */
 export interface UpdatePositionCommandInput extends UpdatePositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdatePositionCommand}.
  */
 export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Update the position information of a resource.</p>
@@ -48,10 +45,19 @@ export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __M
  * import { IoTWirelessClient, UpdatePositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdatePositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // UpdatePositionRequest
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
+ *   Position: [ // PositionCoordinate // required
+ *     Number("float"),
+ *   ],
+ * };
  * const command = new UpdatePositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdatePositionCommandInput - {@link UpdatePositionCommandInput}
+ * @returns {@link UpdatePositionCommandOutput}
  * @see {@link UpdatePositionCommandInput} for command's `input` shape.
  * @see {@link UpdatePositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -90,6 +96,9 @@ export class UpdatePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class UpdatePositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePositionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePositionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +138,18 @@ export class UpdatePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePositionCommand(input, context);
+    return se_UpdatePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePositionCommandOutput> {
-    return deserializeAws_restJson1UpdatePositionCommand(output, context);
+    return de_UpdatePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

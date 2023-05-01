@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DescribeContainerInstancesRequest,
-  DescribeContainerInstancesRequestFilterSensitiveLog,
-  DescribeContainerInstancesResponse,
-  DescribeContainerInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeContainerInstancesCommand,
-  serializeAws_json1_1DescribeContainerInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeContainerInstancesRequest, DescribeContainerInstancesResponse } from "../models/models_0";
+import { de_DescribeContainerInstancesCommand, se_DescribeContainerInstancesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeContainerInstancesCommand}.
  */
 export interface DescribeContainerInstancesCommandInput extends DescribeContainerInstancesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeContainerInstancesCommand}.
  */
 export interface DescribeContainerInstancesCommandOutput extends DescribeContainerInstancesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more container instances. Returns metadata about each container
  * 			instance requested.</p>
  * @example
@@ -43,10 +40,21 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  * import { ECSClient, DescribeContainerInstancesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeContainerInstancesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = { // DescribeContainerInstancesRequest
+ *   cluster: "STRING_VALUE",
+ *   containerInstances: [ // StringList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   include: [ // ContainerInstanceFieldList
+ *     "TAGS" || "CONTAINER_INSTANCE_HEALTH",
+ *   ],
+ * };
  * const command = new DescribeContainerInstancesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeContainerInstancesCommandInput - {@link DescribeContainerInstancesCommandInput}
+ * @returns {@link DescribeContainerInstancesCommandOutput}
  * @see {@link DescribeContainerInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeContainerInstancesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
@@ -173,6 +181,9 @@ export class DescribeContainerInstancesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeContainerInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -201,8 +212,8 @@ export class DescribeContainerInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeContainerInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeContainerInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -212,15 +223,21 @@ export class DescribeContainerInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeContainerInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeContainerInstancesCommand(input, context);
+    return se_DescribeContainerInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeContainerInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeContainerInstancesCommand(output, context);
+    return de_DescribeContainerInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

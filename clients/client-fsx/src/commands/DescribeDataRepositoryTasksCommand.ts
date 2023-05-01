@@ -14,22 +14,18 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DescribeDataRepositoryTasksRequest,
-  DescribeDataRepositoryTasksRequestFilterSensitiveLog,
-  DescribeDataRepositoryTasksResponse,
-  DescribeDataRepositoryTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDataRepositoryTasksCommand,
-  serializeAws_json1_1DescribeDataRepositoryTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDataRepositoryTasksRequest, DescribeDataRepositoryTasksResponse } from "../models/models_0";
+import { de_DescribeDataRepositoryTasksCommand, se_DescribeDataRepositoryTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataRepositoryTasksCommand}.
  */
 export interface DescribeDataRepositoryTasksCommandInput extends DescribeDataRepositoryTasksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataRepositoryTasksCommand}.
  */
 export interface DescribeDataRepositoryTasksCommandOutput
@@ -37,6 +33,7 @@ export interface DescribeDataRepositoryTasksCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data repository tasks, if
  *             one or more <code>TaskIds</code> values are provided in the request, or if filters are used in the request.
  *             You can use filters to narrow the response to include just tasks for specific file systems or caches,
@@ -53,10 +50,27 @@ export interface DescribeDataRepositoryTasksCommandOutput
  * import { FSxClient, DescribeDataRepositoryTasksCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeDataRepositoryTasksCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = { // DescribeDataRepositoryTasksRequest
+ *   TaskIds: [ // TaskIds
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // DataRepositoryTaskFilters
+ *     { // DataRepositoryTaskFilter
+ *       Name: "file-system-id" || "task-lifecycle" || "data-repository-association-id" || "file-cache-id",
+ *       Values: [ // DataRepositoryTaskFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeDataRepositoryTasksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataRepositoryTasksCommandInput - {@link DescribeDataRepositoryTasksCommandInput}
+ * @returns {@link DescribeDataRepositoryTasksCommandOutput}
  * @see {@link DescribeDataRepositoryTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeDataRepositoryTasksCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
@@ -92,6 +106,9 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataRepositoryTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +137,8 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataRepositoryTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataRepositoryTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +148,21 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataRepositoryTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDataRepositoryTasksCommand(input, context);
+    return se_DescribeDataRepositoryTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataRepositoryTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeDataRepositoryTasksCommand(output, context);
+    return de_DescribeDataRepositoryTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

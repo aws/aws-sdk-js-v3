@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DisassociateSkillFromUsersRequest,
-  DisassociateSkillFromUsersRequestFilterSensitiveLog,
-  DisassociateSkillFromUsersResponse,
-  DisassociateSkillFromUsersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateSkillFromUsersCommand,
-  serializeAws_json1_1DisassociateSkillFromUsersCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateSkillFromUsersRequest, DisassociateSkillFromUsersResponse } from "../models/models_0";
+import { de_DisassociateSkillFromUsersCommand, se_DisassociateSkillFromUsersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateSkillFromUsersCommand}.
  */
 export interface DisassociateSkillFromUsersCommandInput extends DisassociateSkillFromUsersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateSkillFromUsersCommand}.
  */
 export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSkillFromUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Makes a private skill unavailable for enrolled users and prevents them from enabling it
  *          on their devices.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
  * import { AlexaForBusinessClient, DisassociateSkillFromUsersCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DisassociateSkillFromUsersCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DisassociateSkillFromUsersRequest
+ *   SkillId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateSkillFromUsersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateSkillFromUsersCommandInput - {@link DisassociateSkillFromUsersCommandInput}
+ * @returns {@link DisassociateSkillFromUsersCommandOutput}
  * @see {@link DisassociateSkillFromUsersCommandInput} for command's `input` shape.
  * @see {@link DisassociateSkillFromUsersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
@@ -76,6 +78,9 @@ export class DisassociateSkillFromUsersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSkillFromUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class DisassociateSkillFromUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSkillFromUsersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateSkillFromUsersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,15 +120,21 @@ export class DisassociateSkillFromUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateSkillFromUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateSkillFromUsersCommand(input, context);
+    return se_DisassociateSkillFromUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSkillFromUsersCommandOutput> {
-    return deserializeAws_json1_1DisassociateSkillFromUsersCommand(output, context);
+    return de_DisassociateSkillFromUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

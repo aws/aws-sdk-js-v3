@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOperationsInput,
-  ListOperationsInputFilterSensitiveLog,
-  ListOperationsOutput,
-  ListOperationsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListOperationsCommand,
-  serializeAws_restJson1ListOperationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListOperationsInput, ListOperationsOutput } from "../models/models_0";
+import { de_ListOperationsCommand, se_ListOperationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOperationsCommand}.
  */
 export interface ListOperationsCommandInput extends ListOperationsInput {}
 /**
+ * @public
+ *
  * The output of {@link ListOperationsCommand}.
  */
 export interface ListOperationsCommandOutput extends ListOperationsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the operations performed by AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface ListOperationsCommandOutput extends ListOperationsOutput, __Met
  * import { SsmSapClient, ListOperationsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListOperationsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = { // ListOperationsInput
+ *   ApplicationId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Operator: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
+ * @returns {@link ListOperationsCommandOutput}
  * @see {@link ListOperationsCommandInput} for command's `input` shape.
  * @see {@link ListOperationsCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
@@ -75,6 +86,9 @@ export class ListOperationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +117,8 @@ export class ListOperationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOperationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOperationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +128,18 @@ export class ListOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOperationsCommand(input, context);
+    return se_ListOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOperationsCommandOutput> {
-    return deserializeAws_restJson1ListOperationsCommand(output, context);
+    return de_ListOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

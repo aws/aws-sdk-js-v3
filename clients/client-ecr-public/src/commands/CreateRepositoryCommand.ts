@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  CreateRepositoryRequest,
-  CreateRepositoryRequestFilterSensitiveLog,
-  CreateRepositoryResponse,
-  CreateRepositoryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRepositoryCommand,
-  serializeAws_json1_1CreateRepositoryCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateRepositoryRequest, CreateRepositoryResponse } from "../models/models_0";
+import { de_CreateRepositoryCommand, se_CreateRepositoryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRepositoryCommand}.
  */
 export interface CreateRepositoryCommandInput extends CreateRepositoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRepositoryCommand}.
  */
 export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a repository in a public registry. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon ECR
  *             repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
  * @example
@@ -43,10 +40,33 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * import { ECRPUBLICClient, CreateRepositoryCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, CreateRepositoryCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = { // CreateRepositoryRequest
+ *   repositoryName: "STRING_VALUE", // required
+ *   catalogData: { // RepositoryCatalogDataInput
+ *     description: "STRING_VALUE",
+ *     architectures: [ // ArchitectureList
+ *       "STRING_VALUE",
+ *     ],
+ *     operatingSystems: [ // OperatingSystemList
+ *       "STRING_VALUE",
+ *     ],
+ *     logoImageBlob: "BLOB_VALUE",
+ *     aboutText: "STRING_VALUE",
+ *     usageText: "STRING_VALUE",
+ *   },
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
+ * @returns {@link CreateRepositoryCommandOutput}
  * @see {@link CreateRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
@@ -95,6 +115,9 @@ export class CreateRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +146,8 @@ export class CreateRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRepositoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRepositoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +157,18 @@ export class CreateRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRepositoryCommand(input, context);
+    return se_CreateRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRepositoryCommandOutput> {
-    return deserializeAws_json1_1CreateRepositoryCommand(output, context);
+    return de_CreateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

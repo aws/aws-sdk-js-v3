@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  ModifyListenerInput,
-  ModifyListenerInputFilterSensitiveLog,
-  ModifyListenerOutput,
-  ModifyListenerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyListenerCommand,
-  serializeAws_queryModifyListenerCommand,
-} from "../protocols/Aws_query";
+import { ModifyListenerInput, ModifyListenerOutput } from "../models/models_0";
+import { de_ModifyListenerCommand, se_ModifyListenerCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyListenerCommand}.
  */
 export interface ModifyListenerCommandInput extends ModifyListenerInput {}
 /**
+ * @public
+ *
  * The output of {@link ModifyListenerCommand}.
  */
 export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces the specified properties of the specified listener. Any properties that you do
  *       not specify remain unchanged.</p>
  *          <p>Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy
@@ -53,10 +50,87 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * import { ElasticLoadBalancingV2Client, ModifyListenerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyListenerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // ModifyListenerInput
+ *   ListenerArn: "STRING_VALUE", // required
+ *   Port: Number("int"),
+ *   Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ *   SslPolicy: "STRING_VALUE",
+ *   Certificates: [ // CertificateList
+ *     { // Certificate
+ *       CertificateArn: "STRING_VALUE",
+ *       IsDefault: true || false,
+ *     },
+ *   ],
+ *   DefaultActions: [ // Actions
+ *     { // Action
+ *       Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response", // required
+ *       TargetGroupArn: "STRING_VALUE",
+ *       AuthenticateOidcConfig: { // AuthenticateOidcActionConfig
+ *         Issuer: "STRING_VALUE", // required
+ *         AuthorizationEndpoint: "STRING_VALUE", // required
+ *         TokenEndpoint: "STRING_VALUE", // required
+ *         UserInfoEndpoint: "STRING_VALUE", // required
+ *         ClientId: "STRING_VALUE", // required
+ *         ClientSecret: "STRING_VALUE",
+ *         SessionCookieName: "STRING_VALUE",
+ *         Scope: "STRING_VALUE",
+ *         SessionTimeout: Number("long"),
+ *         AuthenticationRequestExtraParams: { // AuthenticateOidcActionAuthenticationRequestExtraParams
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *         UseExistingClientSecret: true || false,
+ *       },
+ *       AuthenticateCognitoConfig: { // AuthenticateCognitoActionConfig
+ *         UserPoolArn: "STRING_VALUE", // required
+ *         UserPoolClientId: "STRING_VALUE", // required
+ *         UserPoolDomain: "STRING_VALUE", // required
+ *         SessionCookieName: "STRING_VALUE",
+ *         Scope: "STRING_VALUE",
+ *         SessionTimeout: Number("long"),
+ *         AuthenticationRequestExtraParams: { // AuthenticateCognitoActionAuthenticationRequestExtraParams
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *       },
+ *       Order: Number("int"),
+ *       RedirectConfig: { // RedirectActionConfig
+ *         Protocol: "STRING_VALUE",
+ *         Port: "STRING_VALUE",
+ *         Host: "STRING_VALUE",
+ *         Path: "STRING_VALUE",
+ *         Query: "STRING_VALUE",
+ *         StatusCode: "HTTP_301" || "HTTP_302", // required
+ *       },
+ *       FixedResponseConfig: { // FixedResponseActionConfig
+ *         MessageBody: "STRING_VALUE",
+ *         StatusCode: "STRING_VALUE", // required
+ *         ContentType: "STRING_VALUE",
+ *       },
+ *       ForwardConfig: { // ForwardActionConfig
+ *         TargetGroups: [ // TargetGroupList
+ *           { // TargetGroupTuple
+ *             TargetGroupArn: "STRING_VALUE",
+ *             Weight: Number("int"),
+ *           },
+ *         ],
+ *         TargetGroupStickinessConfig: { // TargetGroupStickinessConfig
+ *           Enabled: true || false,
+ *           DurationSeconds: Number("int"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   AlpnPolicy: [ // AlpnPolicyName
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyListenerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyListenerCommandInput - {@link ModifyListenerCommandInput}
+ * @returns {@link ModifyListenerCommandOutput}
  * @see {@link ModifyListenerCommandInput} for command's `input` shape.
  * @see {@link ModifyListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -209,6 +283,9 @@ export class ModifyListenerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyListenerCommandInput) {
     // Start section: command_constructor
     super();
@@ -237,8 +314,8 @@ export class ModifyListenerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyListenerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyListenerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -248,12 +325,18 @@ export class ModifyListenerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyListenerCommand(input, context);
+    return se_ModifyListenerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyListenerCommandOutput> {
-    return deserializeAws_queryModifyListenerCommand(output, context);
+    return de_ModifyListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

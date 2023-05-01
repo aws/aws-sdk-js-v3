@@ -15,26 +15,27 @@ import {
 
 import {
   GetSolFunctionInstanceInput,
-  GetSolFunctionInstanceInputFilterSensitiveLog,
   GetSolFunctionInstanceOutput,
   GetSolFunctionInstanceOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSolFunctionInstanceCommand,
-  serializeAws_restJson1GetSolFunctionInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSolFunctionInstanceCommand, se_GetSolFunctionInstanceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetSolFunctionInstanceCommand}.
  */
 export interface GetSolFunctionInstanceCommandInput extends GetSolFunctionInstanceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSolFunctionInstanceCommand}.
  */
 export interface GetSolFunctionInstanceCommandOutput extends GetSolFunctionInstanceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the details of a network function instance, including the instantation state and metadata from the function package descriptor in the network function package.</p>
  *          <p>A network function instance is a function in a function package .</p>
  * @example
@@ -43,10 +44,15 @@ export interface GetSolFunctionInstanceCommandOutput extends GetSolFunctionInsta
  * import { TnbClient, GetSolFunctionInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolFunctionInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = { // GetSolFunctionInstanceInput
+ *   vnfInstanceId: "STRING_VALUE", // required
+ * };
  * const command = new GetSolFunctionInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSolFunctionInstanceCommandInput - {@link GetSolFunctionInstanceCommandInput}
+ * @returns {@link GetSolFunctionInstanceCommandOutput}
  * @see {@link GetSolFunctionInstanceCommandInput} for command's `input` shape.
  * @see {@link GetSolFunctionInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.
@@ -85,6 +91,9 @@ export class GetSolFunctionInstanceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSolFunctionInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,7 +122,7 @@ export class GetSolFunctionInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSolFunctionInstanceInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSolFunctionInstanceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -124,12 +133,18 @@ export class GetSolFunctionInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSolFunctionInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSolFunctionInstanceCommand(input, context);
+    return se_GetSolFunctionInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSolFunctionInstanceCommandOutput> {
-    return deserializeAws_restJson1GetSolFunctionInstanceCommand(output, context);
+    return de_GetSolFunctionInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

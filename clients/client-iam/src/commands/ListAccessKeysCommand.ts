@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListAccessKeysRequest,
-  ListAccessKeysRequestFilterSensitiveLog,
-  ListAccessKeysResponse,
-  ListAccessKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListAccessKeysCommand,
-  serializeAws_queryListAccessKeysCommand,
-} from "../protocols/Aws_query";
+import { ListAccessKeysRequest, ListAccessKeysResponse } from "../models/models_0";
+import { de_ListAccessKeysCommand, se_ListAccessKeysCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListAccessKeysCommand}.
  */
 export interface ListAccessKeysCommandInput extends ListAccessKeysRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAccessKeysCommand}.
  */
 export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the access key IDs associated with the specified IAM user.
  *             If there is none, the operation returns an empty list.</p>
  *          <p>Although each user is limited to a small number of keys, you can still paginate the
@@ -55,10 +52,17 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  * import { IAMClient, ListAccessKeysCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListAccessKeysCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListAccessKeysRequest
+ *   UserName: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListAccessKeysCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAccessKeysCommandInput - {@link ListAccessKeysCommandInput}
+ * @returns {@link ListAccessKeysCommandOutput}
  * @see {@link ListAccessKeysCommandInput} for command's `input` shape.
  * @see {@link ListAccessKeysCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -119,6 +123,9 @@ export class ListAccessKeysCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAccessKeysCommandInput) {
     // Start section: command_constructor
     super();
@@ -147,8 +154,8 @@ export class ListAccessKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -158,12 +165,18 @@ export class ListAccessKeysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAccessKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListAccessKeysCommand(input, context);
+    return se_ListAccessKeysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessKeysCommandOutput> {
-    return deserializeAws_queryListAccessKeysCommand(output, context);
+    return de_ListAccessKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

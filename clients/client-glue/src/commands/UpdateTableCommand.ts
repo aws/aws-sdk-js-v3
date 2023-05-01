@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateTableRequest,
-  UpdateTableRequestFilterSensitiveLog,
-  UpdateTableResponse,
-  UpdateTableResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateTableCommand,
-  serializeAws_json1_1UpdateTableCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTableRequest, UpdateTableResponse } from "../models/models_2";
+import { de_UpdateTableCommand, se_UpdateTableCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandInput extends UpdateTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateTableCommand}.
  */
 export interface UpdateTableCommandOutput extends UpdateTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a metadata table in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,102 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * import { GlueClient, UpdateTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateTableRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableInput: { // TableInput
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     Owner: "STRING_VALUE",
+ *     LastAccessTime: new Date("TIMESTAMP"),
+ *     LastAnalyzedTime: new Date("TIMESTAMP"),
+ *     Retention: Number("int"),
+ *     StorageDescriptor: { // StorageDescriptor
+ *       Columns: [ // ColumnList
+ *         { // Column
+ *           Name: "STRING_VALUE", // required
+ *           Type: "STRING_VALUE",
+ *           Comment: "STRING_VALUE",
+ *           Parameters: { // ParametersMap
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *       Location: "STRING_VALUE",
+ *       AdditionalLocations: [ // LocationStringList
+ *         "STRING_VALUE",
+ *       ],
+ *       InputFormat: "STRING_VALUE",
+ *       OutputFormat: "STRING_VALUE",
+ *       Compressed: true || false,
+ *       NumberOfBuckets: Number("int"),
+ *       SerdeInfo: { // SerDeInfo
+ *         Name: "STRING_VALUE",
+ *         SerializationLibrary: "STRING_VALUE",
+ *         Parameters: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       BucketColumns: [ // NameStringList
+ *         "STRING_VALUE",
+ *       ],
+ *       SortColumns: [ // OrderList
+ *         { // Order
+ *           Column: "STRING_VALUE", // required
+ *           SortOrder: Number("int"), // required
+ *         },
+ *       ],
+ *       Parameters: "<ParametersMap>",
+ *       SkewedInfo: { // SkewedInfo
+ *         SkewedColumnNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *         SkewedColumnValues: [ // ColumnValueStringList
+ *           "STRING_VALUE",
+ *         ],
+ *         SkewedColumnValueLocationMaps: { // LocationMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       StoredAsSubDirectories: true || false,
+ *       SchemaReference: { // SchemaReference
+ *         SchemaId: { // SchemaId
+ *           SchemaArn: "STRING_VALUE",
+ *           SchemaName: "STRING_VALUE",
+ *           RegistryName: "STRING_VALUE",
+ *         },
+ *         SchemaVersionId: "STRING_VALUE",
+ *         SchemaVersionNumber: Number("long"),
+ *       },
+ *     },
+ *     PartitionKeys: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Type: "STRING_VALUE",
+ *         Comment: "STRING_VALUE",
+ *         Parameters: "<ParametersMap>",
+ *       },
+ *     ],
+ *     ViewOriginalText: "STRING_VALUE",
+ *     ViewExpandedText: "STRING_VALUE",
+ *     TableType: "STRING_VALUE",
+ *     Parameters: "<ParametersMap>",
+ *     TargetTable: { // TableIdentifier
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   },
+ *   SkipArchive: true || false,
+ *   TransactionId: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateTableCommandInput - {@link UpdateTableCommandInput}
+ * @returns {@link UpdateTableCommandOutput}
  * @see {@link UpdateTableCommandInput} for command's `input` shape.
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -93,6 +182,9 @@ export class UpdateTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +211,8 @@ export class UpdateTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +222,18 @@ export class UpdateTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTableCommand(input, context);
+    return se_UpdateTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTableCommandOutput> {
-    return deserializeAws_json1_1UpdateTableCommand(output, context);
+    return de_UpdateTableCommand(output, context);
   }
 
   // Start section: command_body_extra

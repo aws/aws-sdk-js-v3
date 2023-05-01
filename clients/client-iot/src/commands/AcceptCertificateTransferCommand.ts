@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  AcceptCertificateTransferRequest,
-  AcceptCertificateTransferRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1AcceptCertificateTransferCommand,
-  serializeAws_restJson1AcceptCertificateTransferCommand,
-} from "../protocols/Aws_restJson1";
+import { AcceptCertificateTransferRequest } from "../models/models_0";
+import { de_AcceptCertificateTransferCommand, se_AcceptCertificateTransferCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptCertificateTransferCommand}.
  */
 export interface AcceptCertificateTransferCommandInput extends AcceptCertificateTransferRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptCertificateTransferCommand}.
  */
 export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts a pending certificate transfer. The default state of the certificate is
  *          INACTIVE.</p>
  *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
@@ -44,10 +43,16 @@ export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer
  * import { IoTClient, AcceptCertificateTransferCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AcceptCertificateTransferCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // AcceptCertificateTransferRequest
+ *   certificateId: "STRING_VALUE", // required
+ *   setAsActive: true || false,
+ * };
  * const command = new AcceptCertificateTransferCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptCertificateTransferCommandInput - {@link AcceptCertificateTransferCommandInput}
+ * @returns {@link AcceptCertificateTransferCommandOutput}
  * @see {@link AcceptCertificateTransferCommandInput} for command's `input` shape.
  * @see {@link AcceptCertificateTransferCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -93,6 +98,9 @@ export class AcceptCertificateTransferCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptCertificateTransferCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +129,8 @@ export class AcceptCertificateTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptCertificateTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +140,21 @@ export class AcceptCertificateTransferCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptCertificateTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptCertificateTransferCommand(input, context);
+    return se_AcceptCertificateTransferCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptCertificateTransferCommandOutput> {
-    return deserializeAws_restJson1AcceptCertificateTransferCommand(output, context);
+    return de_AcceptCertificateTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

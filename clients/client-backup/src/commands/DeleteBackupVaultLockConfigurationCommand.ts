@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { DeleteBackupVaultLockConfigurationInput } from "../models/models_0";
 import {
-  DeleteBackupVaultLockConfigurationInput,
-  DeleteBackupVaultLockConfigurationInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommand,
-  serializeAws_restJson1DeleteBackupVaultLockConfigurationCommand,
+  de_DeleteBackupVaultLockConfigurationCommand,
+  se_DeleteBackupVaultLockConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteBackupVaultLockConfigurationCommand}.
  */
 export interface DeleteBackupVaultLockConfigurationCommandInput extends DeleteBackupVaultLockConfigurationInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteBackupVaultLockConfigurationCommand}.
  */
 export interface DeleteBackupVaultLockConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes Backup Vault Lock from a backup vault specified by a backup vault
  *          name.</p>
  *          <p>If the Vault Lock configuration is immutable, then you cannot delete Vault Lock using
@@ -45,10 +47,15 @@ export interface DeleteBackupVaultLockConfigurationCommandOutput extends __Metad
  * import { BackupClient, DeleteBackupVaultLockConfigurationCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupVaultLockConfigurationCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DeleteBackupVaultLockConfigurationInput
+ *   BackupVaultName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBackupVaultLockConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteBackupVaultLockConfigurationCommandInput - {@link DeleteBackupVaultLockConfigurationCommandInput}
+ * @returns {@link DeleteBackupVaultLockConfigurationCommandOutput}
  * @see {@link DeleteBackupVaultLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
@@ -89,6 +96,9 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBackupVaultLockConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupVaultLockConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,18 +138,24 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteBackupVaultLockConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackupVaultLockConfigurationCommand(input, context);
+    return se_DeleteBackupVaultLockConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBackupVaultLockConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommand(output, context);
+    return de_DeleteBackupVaultLockConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

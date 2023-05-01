@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateByteMatchSetRequest,
-  UpdateByteMatchSetRequestFilterSensitiveLog,
-  UpdateByteMatchSetResponse,
-  UpdateByteMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateByteMatchSetCommand,
-  serializeAws_json1_1UpdateByteMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateByteMatchSetRequest, UpdateByteMatchSetResponse } from "../models/models_0";
+import { de_UpdateByteMatchSetCommand, se_UpdateByteMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateByteMatchSetCommand}.
  */
 export interface UpdateByteMatchSetCommandInput extends UpdateByteMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateByteMatchSetCommand}.
  */
 export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -88,10 +85,30 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * import { WAFClient, UpdateByteMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateByteMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // UpdateByteMatchSetRequest
+ *   ByteMatchSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // ByteMatchSetUpdates // required
+ *     { // ByteMatchSetUpdate
+ *       Action: "STRING_VALUE", // required
+ *       ByteMatchTuple: { // ByteMatchTuple
+ *         FieldToMatch: { // FieldToMatch
+ *           Type: "STRING_VALUE", // required
+ *           Data: "STRING_VALUE",
+ *         },
+ *         TargetString: "BLOB_VALUE", // required
+ *         TextTransformation: "STRING_VALUE", // required
+ *         PositionalConstraint: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateByteMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateByteMatchSetCommandInput - {@link UpdateByteMatchSetCommandInput}
+ * @returns {@link UpdateByteMatchSetCommandOutput}
  * @see {@link UpdateByteMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateByteMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
@@ -244,6 +261,9 @@ export class UpdateByteMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateByteMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -272,8 +292,8 @@ export class UpdateByteMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateByteMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateByteMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -283,12 +303,18 @@ export class UpdateByteMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateByteMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateByteMatchSetCommand(input, context);
+    return se_UpdateByteMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateByteMatchSetCommandOutput> {
-    return deserializeAws_json1_1UpdateByteMatchSetCommand(output, context);
+    return de_UpdateByteMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

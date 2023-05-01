@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  UpdateLoggingConfigurationRequest,
-  UpdateLoggingConfigurationRequestFilterSensitiveLog,
-  UpdateLoggingConfigurationResponse,
-  UpdateLoggingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLoggingConfigurationCommand,
-  serializeAws_restJson1UpdateLoggingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateLoggingConfigurationRequest, UpdateLoggingConfigurationResponse } from "../models/models_0";
+import { de_UpdateLoggingConfigurationCommand, se_UpdateLoggingConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLoggingConfigurationCommand}.
  */
 export interface UpdateLoggingConfigurationCommandInput extends UpdateLoggingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLoggingConfigurationCommand}.
  */
 export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified logging configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * import { IvschatClient, UpdateLoggingConfigurationCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, UpdateLoggingConfigurationCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = { // UpdateLoggingConfigurationRequest
+ *   identifier: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   destinationConfiguration: { // DestinationConfiguration Union: only one key present
+ *     s3: { // S3DestinationConfiguration
+ *       bucketName: "STRING_VALUE", // required
+ *     },
+ *     cloudWatchLogs: { // CloudWatchLogsDestinationConfiguration
+ *       logGroupName: "STRING_VALUE", // required
+ *     },
+ *     firehose: { // FirehoseDestinationConfiguration
+ *       deliveryStreamName: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLoggingConfigurationCommandInput - {@link UpdateLoggingConfigurationCommandInput}
+ * @returns {@link UpdateLoggingConfigurationCommandOutput}
  * @see {@link UpdateLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
@@ -84,6 +98,9 @@ export class UpdateLoggingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +129,8 @@ export class UpdateLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +140,21 @@ export class UpdateLoggingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLoggingConfigurationCommand(input, context);
+    return se_UpdateLoggingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateLoggingConfigurationCommand(output, context);
+    return de_UpdateLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeUserHierarchyGroupRequest,
-  DescribeUserHierarchyGroupRequestFilterSensitiveLog,
-  DescribeUserHierarchyGroupResponse,
-  DescribeUserHierarchyGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeUserHierarchyGroupCommand,
-  serializeAws_restJson1DescribeUserHierarchyGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeUserHierarchyGroupRequest, DescribeUserHierarchyGroupResponse } from "../models/models_0";
+import { de_DescribeUserHierarchyGroupCommand, se_DescribeUserHierarchyGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeUserHierarchyGroupCommand}.
  */
 export interface DescribeUserHierarchyGroupCommandInput extends DescribeUserHierarchyGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeUserHierarchyGroupCommand}.
  */
 export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHierarchyGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified hierarchy group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHie
  * import { ConnectClient, DescribeUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeUserHierarchyGroupRequest
+ *   HierarchyGroupId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeUserHierarchyGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeUserHierarchyGroupCommandInput - {@link DescribeUserHierarchyGroupCommandInput}
+ * @returns {@link DescribeUserHierarchyGroupCommandOutput}
  * @see {@link DescribeUserHierarchyGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeUserHierarchyGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -84,6 +87,9 @@ export class DescribeUserHierarchyGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserHierarchyGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +118,8 @@ export class DescribeUserHierarchyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserHierarchyGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserHierarchyGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +129,21 @@ export class DescribeUserHierarchyGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserHierarchyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeUserHierarchyGroupCommand(input, context);
+    return se_DescribeUserHierarchyGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUserHierarchyGroupCommandOutput> {
-    return deserializeAws_restJson1DescribeUserHierarchyGroupCommand(output, context);
+    return de_DescribeUserHierarchyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

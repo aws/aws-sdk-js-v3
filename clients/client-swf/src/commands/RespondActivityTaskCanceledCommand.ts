@@ -13,26 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RespondActivityTaskCanceledInput,
-  RespondActivityTaskCanceledInputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0RespondActivityTaskCanceledCommand,
-  serializeAws_json1_0RespondActivityTaskCanceledCommand,
-} from "../protocols/Aws_json1_0";
+import { RespondActivityTaskCanceledInput } from "../models/models_0";
+import { de_RespondActivityTaskCanceledCommand, se_RespondActivityTaskCanceledCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RespondActivityTaskCanceledCommand}.
  */
 export interface RespondActivityTaskCanceledCommandInput extends RespondActivityTaskCanceledInput {}
 /**
+ * @public
+ *
  * The output of {@link RespondActivityTaskCanceledCommand}.
  */
 export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
  *       by the <code>taskToken</code> was successfully canceled. Additional <code>details</code> can
  *       be provided using the <code>details</code> argument.</p>
@@ -81,10 +80,16 @@ export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBear
  * import { SWFClient, RespondActivityTaskCanceledCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RespondActivityTaskCanceledCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // RespondActivityTaskCanceledInput
+ *   taskToken: "STRING_VALUE", // required
+ *   details: "STRING_VALUE",
+ * };
  * const command = new RespondActivityTaskCanceledCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RespondActivityTaskCanceledCommandInput - {@link RespondActivityTaskCanceledCommandInput}
+ * @returns {@link RespondActivityTaskCanceledCommandOutput}
  * @see {@link RespondActivityTaskCanceledCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskCanceledCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -114,6 +119,9 @@ export class RespondActivityTaskCanceledCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RespondActivityTaskCanceledCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +150,8 @@ export class RespondActivityTaskCanceledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RespondActivityTaskCanceledInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,15 +161,21 @@ export class RespondActivityTaskCanceledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RespondActivityTaskCanceledCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RespondActivityTaskCanceledCommand(input, context);
+    return se_RespondActivityTaskCanceledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RespondActivityTaskCanceledCommandOutput> {
-    return deserializeAws_json1_0RespondActivityTaskCanceledCommand(output, context);
+    return de_RespondActivityTaskCanceledCommand(output, context);
   }
 
   // Start section: command_body_extra

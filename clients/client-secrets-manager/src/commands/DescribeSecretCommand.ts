@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSecretRequest,
-  DescribeSecretRequestFilterSensitiveLog,
-  DescribeSecretResponse,
-  DescribeSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSecretCommand,
-  serializeAws_json1_1DescribeSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSecretRequest, DescribeSecretResponse } from "../models/models_0";
+import { de_DescribeSecretCommand, se_DescribeSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSecretCommand}.
  */
 export interface DescribeSecretCommandInput extends DescribeSecretRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSecretCommand}.
  */
 export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the details of a secret. It does not include the encrypted secret value. Secrets Manager
  *       only returns fields that have a value in the response. </p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
@@ -50,10 +47,15 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * import { SecretsManagerClient, DescribeSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, DescribeSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // DescribeSecretRequest
+ *   SecretId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSecretCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSecretCommandInput - {@link DescribeSecretCommandInput}
+ * @returns {@link DescribeSecretCommandOutput}
  * @see {@link DescribeSecretCommandInput} for command's `input` shape.
  * @see {@link DescribeSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
@@ -134,6 +136,9 @@ export class DescribeSecretCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSecretCommandInput) {
     // Start section: command_constructor
     super();
@@ -162,8 +167,8 @@ export class DescribeSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSecretResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -173,12 +178,18 @@ export class DescribeSecretCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSecretCommand(input, context);
+    return se_DescribeSecretCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecretCommandOutput> {
-    return deserializeAws_json1_1DescribeSecretCommand(output, context);
+    return de_DescribeSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

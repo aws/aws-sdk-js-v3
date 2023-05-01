@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RefreshTrustedAdvisorCheckRequest,
-  RefreshTrustedAdvisorCheckRequestFilterSensitiveLog,
-  RefreshTrustedAdvisorCheckResponse,
-  RefreshTrustedAdvisorCheckResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand,
-  serializeAws_json1_1RefreshTrustedAdvisorCheckCommand,
-} from "../protocols/Aws_json1_1";
+import { RefreshTrustedAdvisorCheckRequest, RefreshTrustedAdvisorCheckResponse } from "../models/models_0";
+import { de_RefreshTrustedAdvisorCheckCommand, se_RefreshTrustedAdvisorCheckCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
+ * @public
+ *
  * The input for {@link RefreshTrustedAdvisorCheckCommand}.
  */
 export interface RefreshTrustedAdvisorCheckCommandInput extends RefreshTrustedAdvisorCheckRequest {}
 /**
+ * @public
+ *
  * The output of {@link RefreshTrustedAdvisorCheckCommand}.
  */
 export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedAdvisorCheckResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Refreshes the Trusted Advisor check that you specify using the check ID. You can get the
  *             check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
  *             operation.</p>
@@ -67,10 +64,15 @@ export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedA
  * import { SupportClient, RefreshTrustedAdvisorCheckCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, RefreshTrustedAdvisorCheckCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = { // RefreshTrustedAdvisorCheckRequest
+ *   checkId: "STRING_VALUE", // required
+ * };
  * const command = new RefreshTrustedAdvisorCheckCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RefreshTrustedAdvisorCheckCommandInput - {@link RefreshTrustedAdvisorCheckCommandInput}
+ * @returns {@link RefreshTrustedAdvisorCheckCommandOutput}
  * @see {@link RefreshTrustedAdvisorCheckCommandInput} for command's `input` shape.
  * @see {@link RefreshTrustedAdvisorCheckCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
@@ -97,6 +99,9 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RefreshTrustedAdvisorCheckCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +130,8 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RefreshTrustedAdvisorCheckRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RefreshTrustedAdvisorCheckResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,15 +141,21 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RefreshTrustedAdvisorCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RefreshTrustedAdvisorCheckCommand(input, context);
+    return se_RefreshTrustedAdvisorCheckCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RefreshTrustedAdvisorCheckCommandOutput> {
-    return deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand(output, context);
+    return de_RefreshTrustedAdvisorCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

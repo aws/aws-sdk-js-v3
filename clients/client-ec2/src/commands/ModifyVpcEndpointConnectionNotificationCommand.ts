@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyVpcEndpointConnectionNotificationRequest,
-  ModifyVpcEndpointConnectionNotificationRequestFilterSensitiveLog,
   ModifyVpcEndpointConnectionNotificationResult,
-  ModifyVpcEndpointConnectionNotificationResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand,
-  serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand,
+  de_ModifyVpcEndpointConnectionNotificationCommand,
+  se_ModifyVpcEndpointConnectionNotificationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyVpcEndpointConnectionNotificationCommand}.
  */
 export interface ModifyVpcEndpointConnectionNotificationCommandInput
   extends ModifyVpcEndpointConnectionNotificationRequest {}
 /**
+ * @public
+ *
  * The output of {@link ModifyVpcEndpointConnectionNotificationCommand}.
  */
 export interface ModifyVpcEndpointConnectionNotificationCommandOutput
@@ -38,6 +40,7 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies a connection notification for VPC endpoint or VPC endpoint service. You
  *             can change the SNS topic for the notification, or the events for which to be notified. </p>
  * @example
@@ -46,10 +49,20 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
  * import { EC2Client, ModifyVpcEndpointConnectionNotificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcEndpointConnectionNotificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVpcEndpointConnectionNotificationRequest
+ *   DryRun: true || false,
+ *   ConnectionNotificationId: "STRING_VALUE", // required
+ *   ConnectionNotificationArn: "STRING_VALUE",
+ *   ConnectionEvents: [ // ValueStringList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyVpcEndpointConnectionNotificationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyVpcEndpointConnectionNotificationCommandInput - {@link ModifyVpcEndpointConnectionNotificationCommandInput}
+ * @returns {@link ModifyVpcEndpointConnectionNotificationCommandOutput}
  * @see {@link ModifyVpcEndpointConnectionNotificationCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointConnectionNotificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +86,9 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVpcEndpointConnectionNotificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +123,8 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpcEndpointConnectionNotificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpcEndpointConnectionNotificationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,18 +134,24 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ModifyVpcEndpointConnectionNotificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(input, context);
+    return se_ModifyVpcEndpointConnectionNotificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput> {
-    return deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(output, context);
+    return de_ModifyVpcEndpointConnectionNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

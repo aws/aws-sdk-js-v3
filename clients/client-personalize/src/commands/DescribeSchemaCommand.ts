@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSchemaRequest,
-  DescribeSchemaRequestFilterSensitiveLog,
-  DescribeSchemaResponse,
-  DescribeSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSchemaRequest, DescribeSchemaResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeSchemaCommand,
-  serializeAws_json1_1DescribeSchemaCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSchemaCommand, se_DescribeSchemaCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSchemaCommand}.
  */
 export interface DescribeSchemaCommandInput extends DescribeSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSchemaCommand}.
  */
 export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a schema. For more information on schemas, see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * import { PersonalizeClient, DescribeSchemaCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeSchemaCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // DescribeSchemaRequest
+ *   schemaArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSchemaCommandInput - {@link DescribeSchemaCommandInput}
+ * @returns {@link DescribeSchemaCommandOutput}
  * @see {@link DescribeSchemaCommandInput} for command's `input` shape.
  * @see {@link DescribeSchemaCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +78,9 @@ export class DescribeSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class DescribeSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class DescribeSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSchemaCommand(input, context);
+    return se_DescribeSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSchemaCommandOutput> {
-    return deserializeAws_json1_1DescribeSchemaCommand(output, context);
+    return de_DescribeSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

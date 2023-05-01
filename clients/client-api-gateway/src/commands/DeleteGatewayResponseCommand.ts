@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteGatewayResponseRequest, DeleteGatewayResponseRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteGatewayResponseCommand,
-  serializeAws_restJson1DeleteGatewayResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteGatewayResponseRequest } from "../models/models_0";
+import { de_DeleteGatewayResponseCommand, se_DeleteGatewayResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteGatewayResponseCommand}.
  */
 export interface DeleteGatewayResponseCommandInput extends DeleteGatewayResponseRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteGatewayResponseCommand}.
  */
 export interface DeleteGatewayResponseCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Clears any customization of a GatewayResponse of a specified response type on the given RestApi and resets it with the default settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,16 @@ export interface DeleteGatewayResponseCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteGatewayResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteGatewayResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteGatewayResponseRequest
+ *   restApiId: "STRING_VALUE", // required
+ *   responseType: "DEFAULT_4XX" || "DEFAULT_5XX" || "RESOURCE_NOT_FOUND" || "UNAUTHORIZED" || "INVALID_API_KEY" || "ACCESS_DENIED" || "AUTHORIZER_FAILURE" || "AUTHORIZER_CONFIGURATION_ERROR" || "INVALID_SIGNATURE" || "EXPIRED_TOKEN" || "MISSING_AUTHENTICATION_TOKEN" || "INTEGRATION_FAILURE" || "INTEGRATION_TIMEOUT" || "API_CONFIGURATION_ERROR" || "UNSUPPORTED_MEDIA_TYPE" || "BAD_REQUEST_PARAMETERS" || "BAD_REQUEST_BODY" || "REQUEST_TOO_LARGE" || "THROTTLED" || "QUOTA_EXCEEDED" || "WAF_FILTERED", // required
+ * };
  * const command = new DeleteGatewayResponseCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteGatewayResponseCommandInput - {@link DeleteGatewayResponseCommandInput}
+ * @returns {@link DeleteGatewayResponseCommandOutput}
  * @see {@link DeleteGatewayResponseCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +87,9 @@ export class DeleteGatewayResponseCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteGatewayResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +118,8 @@ export class DeleteGatewayResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGatewayResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +129,18 @@ export class DeleteGatewayResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteGatewayResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGatewayResponseCommand(input, context);
+    return se_DeleteGatewayResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGatewayResponseCommandOutput> {
-    return deserializeAws_restJson1DeleteGatewayResponseCommand(output, context);
+    return de_DeleteGatewayResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

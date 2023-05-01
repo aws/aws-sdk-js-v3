@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEventStreamRequest,
-  GetEventStreamRequestFilterSensitiveLog,
-  GetEventStreamResponse,
-  GetEventStreamResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetEventStreamRequest, GetEventStreamResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetEventStreamCommand,
-  serializeAws_restJson1GetEventStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEventStreamCommand, se_GetEventStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetEventStreamCommand}.
  */
 export interface GetEventStreamCommandInput extends GetEventStreamRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetEventStreamCommand}.
  */
 export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about the event stream settings for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __M
  * import { PinpointClient, GetEventStreamCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetEventStreamCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetEventStreamRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetEventStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetEventStreamCommandInput - {@link GetEventStreamCommandInput}
+ * @returns {@link GetEventStreamCommandOutput}
  * @see {@link GetEventStreamCommandInput} for command's `input` shape.
  * @see {@link GetEventStreamCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +92,9 @@ export class GetEventStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetEventStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class GetEventStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEventStreamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class GetEventStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetEventStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEventStreamCommand(input, context);
+    return se_GetEventStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventStreamCommandOutput> {
-    return deserializeAws_restJson1GetEventStreamCommand(output, context);
+    return de_GetEventStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

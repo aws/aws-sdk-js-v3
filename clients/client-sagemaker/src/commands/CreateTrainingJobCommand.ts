@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTrainingJobRequest,
-  CreateTrainingJobRequestFilterSensitiveLog,
-  CreateTrainingJobResponse,
-  CreateTrainingJobResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateTrainingJobCommand,
-  serializeAws_json1_1CreateTrainingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateTrainingJobRequest, CreateTrainingJobResponse } from "../models/models_1";
+import { de_CreateTrainingJobCommand, se_CreateTrainingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateTrainingJobCommand}.
  */
 export interface CreateTrainingJobCommandInput extends CreateTrainingJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateTrainingJobCommand}.
  */
 export interface CreateTrainingJobCommandOutput extends CreateTrainingJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts a model training job. After training completes, SageMaker saves the resulting
  *             model artifacts to an Amazon S3 location that you specify. </p>
  *          <p>If you choose to host your model using SageMaker hosting services, you can use the
@@ -119,10 +116,182 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  * import { SageMakerClient, CreateTrainingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateTrainingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateTrainingJobRequest
+ *   TrainingJobName: "STRING_VALUE", // required
+ *   HyperParameters: { // HyperParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AlgorithmSpecification: { // AlgorithmSpecification
+ *     TrainingImage: "STRING_VALUE",
+ *     AlgorithmName: "STRING_VALUE",
+ *     TrainingInputMode: "Pipe" || "File" || "FastFile", // required
+ *     MetricDefinitions: [ // MetricDefinitionList
+ *       { // MetricDefinition
+ *         Name: "STRING_VALUE", // required
+ *         Regex: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     EnableSageMakerMetricsTimeSeries: true || false,
+ *     ContainerEntrypoint: [ // TrainingContainerEntrypoint
+ *       "STRING_VALUE",
+ *     ],
+ *     ContainerArguments: [ // TrainingContainerArguments
+ *       "STRING_VALUE",
+ *     ],
+ *     TrainingImageConfig: { // TrainingImageConfig
+ *       TrainingRepositoryAccessMode: "Platform" || "Vpc", // required
+ *       TrainingRepositoryAuthConfig: { // TrainingRepositoryAuthConfig
+ *         TrainingRepositoryCredentialsProviderArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   InputDataConfig: [ // InputDataConfig
+ *     { // Channel
+ *       ChannelName: "STRING_VALUE", // required
+ *       DataSource: { // DataSource
+ *         S3DataSource: { // S3DataSource
+ *           S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
+ *           S3Uri: "STRING_VALUE", // required
+ *           S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ *           AttributeNames: [ // AttributeNames
+ *             "STRING_VALUE",
+ *           ],
+ *           InstanceGroupNames: [ // InstanceGroupNames
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         FileSystemDataSource: { // FileSystemDataSource
+ *           FileSystemId: "STRING_VALUE", // required
+ *           FileSystemAccessMode: "rw" || "ro", // required
+ *           FileSystemType: "EFS" || "FSxLustre", // required
+ *           DirectoryPath: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       ContentType: "STRING_VALUE",
+ *       CompressionType: "None" || "Gzip",
+ *       RecordWrapperType: "None" || "RecordIO",
+ *       InputMode: "Pipe" || "File" || "FastFile",
+ *       ShuffleConfig: { // ShuffleConfig
+ *         Seed: Number("long"), // required
+ *       },
+ *     },
+ *   ],
+ *   OutputDataConfig: { // OutputDataConfig
+ *     KmsKeyId: "STRING_VALUE",
+ *     S3OutputPath: "STRING_VALUE", // required
+ *   },
+ *   ResourceConfig: { // ResourceConfig
+ *     InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge",
+ *     InstanceCount: Number("int"),
+ *     VolumeSizeInGB: Number("int"), // required
+ *     VolumeKmsKeyId: "STRING_VALUE",
+ *     InstanceGroups: [ // InstanceGroups
+ *       { // InstanceGroup
+ *         InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge", // required
+ *         InstanceCount: Number("int"), // required
+ *         InstanceGroupName: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     KeepAlivePeriodInSeconds: Number("int"),
+ *   },
+ *   VpcConfig: { // VpcConfig
+ *     SecurityGroupIds: [ // VpcSecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // Subnets // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   StoppingCondition: { // StoppingCondition
+ *     MaxRuntimeInSeconds: Number("int"),
+ *     MaxWaitTimeInSeconds: Number("int"),
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   EnableNetworkIsolation: true || false,
+ *   EnableInterContainerTrafficEncryption: true || false,
+ *   EnableManagedSpotTraining: true || false,
+ *   CheckpointConfig: { // CheckpointConfig
+ *     S3Uri: "STRING_VALUE", // required
+ *     LocalPath: "STRING_VALUE",
+ *   },
+ *   DebugHookConfig: { // DebugHookConfig
+ *     LocalPath: "STRING_VALUE",
+ *     S3OutputPath: "STRING_VALUE", // required
+ *     HookParameters: { // HookParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     CollectionConfigurations: [ // CollectionConfigurations
+ *       { // CollectionConfiguration
+ *         CollectionName: "STRING_VALUE",
+ *         CollectionParameters: { // CollectionParameters
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   DebugRuleConfigurations: [ // DebugRuleConfigurations
+ *     { // DebugRuleConfiguration
+ *       RuleConfigurationName: "STRING_VALUE", // required
+ *       LocalPath: "STRING_VALUE",
+ *       S3OutputPath: "STRING_VALUE",
+ *       RuleEvaluatorImage: "STRING_VALUE", // required
+ *       InstanceType: "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge",
+ *       VolumeSizeInGB: Number("int"),
+ *       RuleParameters: { // RuleParameters
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   TensorBoardOutputConfig: { // TensorBoardOutputConfig
+ *     LocalPath: "STRING_VALUE",
+ *     S3OutputPath: "STRING_VALUE", // required
+ *   },
+ *   ExperimentConfig: { // ExperimentConfig
+ *     ExperimentName: "STRING_VALUE",
+ *     TrialName: "STRING_VALUE",
+ *     TrialComponentDisplayName: "STRING_VALUE",
+ *     RunName: "STRING_VALUE",
+ *   },
+ *   ProfilerConfig: { // ProfilerConfig
+ *     S3OutputPath: "STRING_VALUE",
+ *     ProfilingIntervalInMilliseconds: Number("long"),
+ *     ProfilingParameters: { // ProfilingParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     DisableProfiler: true || false,
+ *   },
+ *   ProfilerRuleConfigurations: [ // ProfilerRuleConfigurations
+ *     { // ProfilerRuleConfiguration
+ *       RuleConfigurationName: "STRING_VALUE", // required
+ *       LocalPath: "STRING_VALUE",
+ *       S3OutputPath: "STRING_VALUE",
+ *       RuleEvaluatorImage: "STRING_VALUE", // required
+ *       InstanceType: "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge",
+ *       VolumeSizeInGB: Number("int"),
+ *       RuleParameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   Environment: { // TrainingEnvironmentMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   RetryStrategy: { // RetryStrategy
+ *     MaximumRetryAttempts: Number("int"), // required
+ *   },
+ * };
  * const command = new CreateTrainingJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateTrainingJobCommandInput - {@link CreateTrainingJobCommandInput}
+ * @returns {@link CreateTrainingJobCommandOutput}
  * @see {@link CreateTrainingJobCommandInput} for command's `input` shape.
  * @see {@link CreateTrainingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -156,6 +325,9 @@ export class CreateTrainingJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateTrainingJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -184,8 +356,8 @@ export class CreateTrainingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrainingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrainingJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -195,12 +367,18 @@ export class CreateTrainingJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateTrainingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTrainingJobCommand(input, context);
+    return se_CreateTrainingJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrainingJobCommandOutput> {
-    return deserializeAws_json1_1CreateTrainingJobCommand(output, context);
+    return de_CreateTrainingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

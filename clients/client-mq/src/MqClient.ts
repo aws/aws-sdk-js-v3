@@ -100,6 +100,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | CreateBrokerCommandInput
   | CreateConfigurationCommandInput
@@ -124,6 +127,9 @@ export type ServiceInputTypes =
   | UpdateConfigurationCommandInput
   | UpdateUserCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | CreateBrokerCommandOutput
   | CreateConfigurationCommandOutput
@@ -148,6 +154,9 @@ export type ServiceOutputTypes =
   | UpdateConfigurationCommandOutput
   | UpdateUserCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -155,7 +164,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -264,11 +273,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type MqClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -279,10 +291,15 @@ type MqClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of MqClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of MqClient class constructor that set the region, credentials and other options.
  */
 export interface MqClientConfig extends MqClientConfigType {}
 
+/**
+ * @public
+ */
 type MqClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -293,11 +310,14 @@ type MqClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOpt
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of MqClient class. This is resolved and normalized from the {@link MqClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of MqClient class. This is resolved and normalized from the {@link MqClientConfig | constructor configuration interface}.
  */
 export interface MqClientResolvedConfig extends MqClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.</p>
  */
 export class MqClient extends __Client<

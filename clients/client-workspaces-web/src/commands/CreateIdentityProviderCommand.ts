@@ -17,24 +17,25 @@ import {
   CreateIdentityProviderRequest,
   CreateIdentityProviderRequestFilterSensitiveLog,
   CreateIdentityProviderResponse,
-  CreateIdentityProviderResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateIdentityProviderCommand,
-  serializeAws_restJson1CreateIdentityProviderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateIdentityProviderCommand, se_CreateIdentityProviderCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIdentityProviderCommand}.
  */
 export interface CreateIdentityProviderCommandInput extends CreateIdentityProviderRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIdentityProviderCommand}.
  */
 export interface CreateIdentityProviderCommandOutput extends CreateIdentityProviderResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an identity provider resource that is then associated with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,21 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * import { WorkSpacesWebClient, CreateIdentityProviderCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateIdentityProviderCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = { // CreateIdentityProviderRequest
+ *   portalArn: "STRING_VALUE", // required
+ *   identityProviderName: "STRING_VALUE", // required
+ *   identityProviderType: "STRING_VALUE", // required
+ *   identityProviderDetails: { // IdentityProviderDetails // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateIdentityProviderCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIdentityProviderCommandInput - {@link CreateIdentityProviderCommandInput}
+ * @returns {@link CreateIdentityProviderCommandOutput}
  * @see {@link CreateIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link CreateIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
@@ -90,6 +102,9 @@ export class CreateIdentityProviderCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIdentityProviderCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,7 +134,7 @@ export class CreateIdentityProviderCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateIdentityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIdentityProviderResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +144,18 @@ export class CreateIdentityProviderCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIdentityProviderCommand(input, context);
+    return se_CreateIdentityProviderCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIdentityProviderCommandOutput> {
-    return deserializeAws_restJson1CreateIdentityProviderCommand(output, context);
+    return de_CreateIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

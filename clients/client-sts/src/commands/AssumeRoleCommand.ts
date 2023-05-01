@@ -14,25 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssumeRoleRequest,
-  AssumeRoleRequestFilterSensitiveLog,
-  AssumeRoleResponse,
-  AssumeRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import { deserializeAws_queryAssumeRoleCommand, serializeAws_queryAssumeRoleCommand } from "../protocols/Aws_query";
+import { AssumeRoleRequest, AssumeRoleResponse } from "../models/models_0";
+import { de_AssumeRoleCommand, se_AssumeRoleCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
+ * @public
+ *
  * The input for {@link AssumeRoleCommand}.
  */
 export interface AssumeRoleCommandInput extends AssumeRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link AssumeRoleCommand}.
  */
 export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
  *          resources. These temporary credentials consist of an access key ID, a secret access key,
  *          and a security token. Typically, you use <code>AssumeRole</code> within your account or for
@@ -112,7 +112,7 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          assume the role is denied. The condition in a trust policy that tests for MFA
  *          authentication might look like the following example.</p>
  *          <p>
- *             <code>"Condition": {"Bool": {"aws:MultiFactorAuthPresent": true}}</code>
+ *             <code>"Condition": \{"Bool": \{"aws:MultiFactorAuthPresent": true\}\}</code>
  *          </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html">Configuring MFA-Protected API Access</a>
  *          in the <i>IAM User Guide</i> guide.</p>
@@ -127,10 +127,36 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * import { STSClient, AssumeRoleCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = { // AssumeRoleRequest
+ *   RoleArn: "STRING_VALUE", // required
+ *   RoleSessionName: "STRING_VALUE", // required
+ *   PolicyArns: [ // policyDescriptorListType
+ *     { // PolicyDescriptorType
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Policy: "STRING_VALUE",
+ *   DurationSeconds: Number("int"),
+ *   Tags: [ // tagListType
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TransitiveTagKeys: [ // tagKeyListType
+ *     "STRING_VALUE",
+ *   ],
+ *   ExternalId: "STRING_VALUE",
+ *   SerialNumber: "STRING_VALUE",
+ *   TokenCode: "STRING_VALUE",
+ *   SourceIdentity: "STRING_VALUE",
+ * };
  * const command = new AssumeRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AssumeRoleCommandInput - {@link AssumeRoleCommandInput}
+ * @returns {@link AssumeRoleCommandOutput}
  * @see {@link AssumeRoleCommandInput} for command's `input` shape.
  * @see {@link AssumeRoleCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
@@ -228,6 +254,9 @@ export class AssumeRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AssumeRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -255,8 +284,8 @@ export class AssumeRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssumeRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -266,12 +295,18 @@ export class AssumeRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssumeRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAssumeRoleCommand(input, context);
+    return se_AssumeRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeRoleCommandOutput> {
-    return deserializeAws_queryAssumeRoleCommand(output, context);
+    return de_AssumeRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

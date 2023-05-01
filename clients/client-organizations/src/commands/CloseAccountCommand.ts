@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CloseAccountRequest, CloseAccountRequestFilterSensitiveLog } from "../models/models_0";
+import { CloseAccountRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1CloseAccountCommand,
-  serializeAws_json1_1CloseAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CloseAccountCommand, se_CloseAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CloseAccountCommand}.
  */
 export interface CloseAccountCommandInput extends CloseAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link CloseAccountCommand}.
  */
 export interface CloseAccountCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Closes an Amazon Web Services member account within an organization. You can close an account when
  *                 <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
  *                 features are enabled </a>. You can't close the management account with this API.
@@ -87,10 +89,15 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, CloseAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CloseAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = { // CloseAccountRequest
+ *   AccountId: "STRING_VALUE", // required
+ * };
  * const command = new CloseAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CloseAccountCommandInput - {@link CloseAccountCommandInput}
+ * @returns {@link CloseAccountCommandOutput}
  * @see {@link CloseAccountCommandInput} for command's `input` shape.
  * @see {@link CloseAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -456,6 +463,9 @@ export class CloseAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CloseAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -482,8 +492,8 @@ export class CloseAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CloseAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -493,12 +503,18 @@ export class CloseAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CloseAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CloseAccountCommand(input, context);
+    return se_CloseAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseAccountCommandOutput> {
-    return deserializeAws_json1_1CloseAccountCommand(output, context);
+    return de_CloseAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

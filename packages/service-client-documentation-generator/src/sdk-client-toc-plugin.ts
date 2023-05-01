@@ -19,6 +19,8 @@ import {
 import { isClientModel } from "./utils";
 
 /**
+ * @internal
+ * 
  * Group the ToC for easier observability.
  */
 export class SdkClientTocPlugin {

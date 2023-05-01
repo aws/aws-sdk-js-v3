@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterEcsClusterRequest,
-  RegisterEcsClusterRequestFilterSensitiveLog,
-  RegisterEcsClusterResult,
-  RegisterEcsClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterEcsClusterRequest, RegisterEcsClusterResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1RegisterEcsClusterCommand,
-  serializeAws_json1_1RegisterEcsClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterEcsClusterCommand, se_RegisterEcsClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterEcsClusterCommand}.
  */
 export interface RegisterEcsClusterCommandInput extends RegisterEcsClusterRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterEcsClusterCommand}.
  */
 export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a specified Amazon ECS cluster with a stack. You can register only one
  *       cluster with a stack. A cluster can be registered with only one stack.
  *       For more information, see
@@ -52,10 +49,16 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  * import { OpsWorksClient, RegisterEcsClusterCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, RegisterEcsClusterCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // RegisterEcsClusterRequest
+ *   EcsClusterArn: "STRING_VALUE", // required
+ *   StackId: "STRING_VALUE", // required
+ * };
  * const command = new RegisterEcsClusterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterEcsClusterCommandInput - {@link RegisterEcsClusterCommandInput}
+ * @returns {@link RegisterEcsClusterCommandOutput}
  * @see {@link RegisterEcsClusterCommandInput} for command's `input` shape.
  * @see {@link RegisterEcsClusterCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -85,6 +88,9 @@ export class RegisterEcsClusterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterEcsClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class RegisterEcsClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterEcsClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterEcsClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class RegisterEcsClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterEcsClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterEcsClusterCommand(input, context);
+    return se_RegisterEcsClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterEcsClusterCommandOutput> {
-    return deserializeAws_json1_1RegisterEcsClusterCommand(output, context);
+    return de_RegisterEcsClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

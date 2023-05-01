@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteWhatIfAnalysisRequest, DeleteWhatIfAnalysisRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWhatIfAnalysisCommand,
-  serializeAws_json1_1DeleteWhatIfAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteWhatIfAnalysisRequest } from "../models/models_0";
+import { de_DeleteWhatIfAnalysisCommand, se_DeleteWhatIfAnalysisCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWhatIfAnalysisCommand}.
  */
 export interface DeleteWhatIfAnalysisCommandInput extends DeleteWhatIfAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWhatIfAnalysisCommand}.
  */
 export interface DeleteWhatIfAnalysisCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a what-if analysis created using the <a>CreateWhatIfAnalysis</a>
  *       operation. You can delete only what-if analyses that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeWhatIfAnalysis</a> operation. </p>
  *          <p>You can't delete a what-if analysis while any of its forecasts are being exported.</p>
@@ -39,10 +41,15 @@ export interface DeleteWhatIfAnalysisCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, DeleteWhatIfAnalysisCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteWhatIfAnalysisCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // DeleteWhatIfAnalysisRequest
+ *   WhatIfAnalysisArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWhatIfAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWhatIfAnalysisCommandInput - {@link DeleteWhatIfAnalysisCommandInput}
+ * @returns {@link DeleteWhatIfAnalysisCommandOutput}
  * @see {@link DeleteWhatIfAnalysisCommandInput} for command's `input` shape.
  * @see {@link DeleteWhatIfAnalysisCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
@@ -77,6 +84,9 @@ export class DeleteWhatIfAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWhatIfAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +115,8 @@ export class DeleteWhatIfAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWhatIfAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +126,18 @@ export class DeleteWhatIfAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWhatIfAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWhatIfAnalysisCommand(input, context);
+    return se_DeleteWhatIfAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWhatIfAnalysisCommandOutput> {
-    return deserializeAws_json1_1DeleteWhatIfAnalysisCommand(output, context);
+    return de_DeleteWhatIfAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

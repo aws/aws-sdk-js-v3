@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DisassociateKmsKeyRequest, DisassociateKmsKeyRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateKmsKeyCommand,
-  serializeAws_json1_1DisassociateKmsKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { DisassociateKmsKeyRequest } from "../models/models_0";
+import { de_DisassociateKmsKeyCommand, se_DisassociateKmsKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateKmsKeyCommand}.
  */
 export interface DisassociateKmsKeyCommandInput extends DisassociateKmsKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateKmsKeyCommand}.
  */
 export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the associated KMS key from the specified log
  *       group.</p>
  *          <p>After the KMS key is disassociated from the log group, CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data
@@ -42,10 +44,15 @@ export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DisassociateKmsKeyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DisassociateKmsKeyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DisassociateKmsKeyRequest
+ *   logGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateKmsKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateKmsKeyCommandInput - {@link DisassociateKmsKeyCommandInput}
+ * @returns {@link DisassociateKmsKeyCommandOutput}
  * @see {@link DisassociateKmsKeyCommandInput} for command's `input` shape.
  * @see {@link DisassociateKmsKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
@@ -81,6 +88,9 @@ export class DisassociateKmsKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateKmsKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +119,8 @@ export class DisassociateKmsKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateKmsKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +130,18 @@ export class DisassociateKmsKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateKmsKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateKmsKeyCommand(input, context);
+    return se_DisassociateKmsKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateKmsKeyCommandOutput> {
-    return deserializeAws_json1_1DisassociateKmsKeyCommand(output, context);
+    return de_DisassociateKmsKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

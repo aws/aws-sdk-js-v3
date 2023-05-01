@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateScheduledActionRequest,
-  UpdateScheduledActionRequestFilterSensitiveLog,
-  UpdateScheduledActionResponse,
-  UpdateScheduledActionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateScheduledActionRequest, UpdateScheduledActionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1UpdateScheduledActionCommand,
-  serializeAws_restJson1UpdateScheduledActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateScheduledActionCommand, se_UpdateScheduledActionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateScheduledActionCommand}.
  */
 export interface UpdateScheduledActionCommandInput extends UpdateScheduledActionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateScheduledActionCommand}.
  */
 export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Reschedules a planned domain configuration change for a later time. This change can be a
  *    scheduled <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
  *     update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
@@ -45,10 +42,19 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  * import { OpenSearchClient, UpdateScheduledActionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, UpdateScheduledActionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // UpdateScheduledActionRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   ActionID: "STRING_VALUE", // required
+ *   ActionType: "SERVICE_SOFTWARE_UPDATE" || "JVM_HEAP_SIZE_TUNING" || "JVM_YOUNG_GEN_TUNING", // required
+ *   ScheduleAt: "NOW" || "TIMESTAMP" || "OFF_PEAK_WINDOW", // required
+ *   DesiredStartTime: Number("long"),
+ * };
  * const command = new UpdateScheduledActionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateScheduledActionCommandInput - {@link UpdateScheduledActionCommandInput}
+ * @returns {@link UpdateScheduledActionCommandOutput}
  * @see {@link UpdateScheduledActionCommandInput} for command's `input` shape.
  * @see {@link UpdateScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -93,6 +99,9 @@ export class UpdateScheduledActionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateScheduledActionCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +130,8 @@ export class UpdateScheduledActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateScheduledActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateScheduledActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +141,18 @@ export class UpdateScheduledActionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateScheduledActionCommand(input, context);
+    return se_UpdateScheduledActionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScheduledActionCommandOutput> {
-    return deserializeAws_restJson1UpdateScheduledActionCommand(output, context);
+    return de_UpdateScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

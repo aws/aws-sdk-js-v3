@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CopyProjectVersionRequest,
-  CopyProjectVersionRequestFilterSensitiveLog,
-  CopyProjectVersionResponse,
-  CopyProjectVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CopyProjectVersionCommand,
-  serializeAws_json1_1CopyProjectVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { CopyProjectVersionRequest, CopyProjectVersionResponse } from "../models/models_0";
+import { de_CopyProjectVersionCommand, se_CopyProjectVersionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
+ * @public
+ *
  * The input for {@link CopyProjectVersionCommand}.
  */
 export interface CopyProjectVersionCommandInput extends CopyProjectVersionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CopyProjectVersionCommand}.
  */
 export interface CopyProjectVersionCommandOutput extends CopyProjectVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project. The source and
  *          destination projects can be in different AWS accounts but must be in the same AWS Region.
  *          You can't copy a model to another AWS service.
@@ -54,16 +51,33 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  *          <p>Copying a model version takes a while to complete. To get the current status, call <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the
  *             <a>ProjectVersionDescription</a> object. The copy operation has finished when
  *          the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.</p>
+ *          <p>This operation requires permissions to perform the <code>rekognition:CopyProjectVersion</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, CopyProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CopyProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // CopyProjectVersionRequest
+ *   SourceProjectArn: "STRING_VALUE", // required
+ *   SourceProjectVersionArn: "STRING_VALUE", // required
+ *   DestinationProjectArn: "STRING_VALUE", // required
+ *   VersionName: "STRING_VALUE", // required
+ *   OutputConfig: { // OutputConfig
+ *     S3Bucket: "STRING_VALUE",
+ *     S3KeyPrefix: "STRING_VALUE",
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KmsKeyId: "STRING_VALUE",
+ * };
  * const command = new CopyProjectVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CopyProjectVersionCommandInput - {@link CopyProjectVersionCommandInput}
+ * @returns {@link CopyProjectVersionCommandOutput}
  * @see {@link CopyProjectVersionCommandInput} for command's `input` shape.
  * @see {@link CopyProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
@@ -147,6 +161,9 @@ export class CopyProjectVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CopyProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -175,8 +192,8 @@ export class CopyProjectVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyProjectVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyProjectVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -186,12 +203,18 @@ export class CopyProjectVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CopyProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopyProjectVersionCommand(input, context);
+    return se_CopyProjectVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyProjectVersionCommandOutput> {
-    return deserializeAws_json1_1CopyProjectVersionCommand(output, context);
+    return de_CopyProjectVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

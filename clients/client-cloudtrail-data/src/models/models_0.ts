@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { CloudTrailDataServiceException as __BaseException } from "./CloudTrailDataServiceException";
 
 /**
+ * @public
  * <p>An event from a source outside of Amazon Web Services that you want CloudTrail
  *       to log.</p>
  */
@@ -30,6 +31,7 @@ export interface AuditEvent {
 }
 
 /**
+ * @public
  * <p>A response that includes successful and failed event results.</p>
  */
 export interface AuditEventResultEntry {
@@ -45,6 +47,7 @@ export interface AuditEventResultEntry {
 }
 
 /**
+ * @public
  * <p>The caller's account ID must be the same as the channel owner's account ID.</p>
  */
 export class ChannelInsufficientPermission extends __BaseException {
@@ -64,6 +67,7 @@ export class ChannelInsufficientPermission extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The channel could not be found.</p>
  */
 export class ChannelNotFound extends __BaseException {
@@ -83,6 +87,7 @@ export class ChannelNotFound extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The schema type of the event is not supported.</p>
  */
 export class ChannelUnsupportedSchema extends __BaseException {
@@ -102,6 +107,7 @@ export class ChannelUnsupportedSchema extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Two or more entries in the request have the same event ID.</p>
  */
 export class DuplicatedAuditEventId extends __BaseException {
@@ -121,6 +127,7 @@ export class DuplicatedAuditEventId extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The specified channel ARN is not a valid
  *          channel ARN.</p>
  */
@@ -140,6 +147,9 @@ export class InvalidChannelARN extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface PutAuditEventsRequest {
   /**
    * <p>The JSON payload of events that you want to ingest. You can also point to the JSON event
@@ -161,6 +171,7 @@ export interface PutAuditEventsRequest {
 }
 
 /**
+ * @public
  * <p>Includes the error code and error message for events that could not be ingested by CloudTrail.</p>
  */
 export interface ResultErrorEntry {
@@ -182,6 +193,9 @@ export interface ResultErrorEntry {
   errorMessage: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface PutAuditEventsResponse {
   /**
    * <p>Lists events in the provided event payload that were successfully ingested
@@ -198,6 +212,7 @@ export interface PutAuditEventsResponse {
 }
 
 /**
+ * @public
  * <p>The operation requested is not supported in this region or account.</p>
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -215,38 +230,3 @@ export class UnsupportedOperationException extends __BaseException {
     Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
   }
 }
-
-/**
- * @internal
- */
-export const AuditEventFilterSensitiveLog = (obj: AuditEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditEventResultEntryFilterSensitiveLog = (obj: AuditEventResultEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAuditEventsRequestFilterSensitiveLog = (obj: PutAuditEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResultErrorEntryFilterSensitiveLog = (obj: ResultErrorEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAuditEventsResponseFilterSensitiveLog = (obj: PutAuditEventsResponse): any => ({
-  ...obj,
-});

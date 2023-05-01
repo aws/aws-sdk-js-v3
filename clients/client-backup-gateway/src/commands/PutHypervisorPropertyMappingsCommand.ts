@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
+import { PutHypervisorPropertyMappingsInput, PutHypervisorPropertyMappingsOutput } from "../models/models_0";
 import {
-  PutHypervisorPropertyMappingsInput,
-  PutHypervisorPropertyMappingsInputFilterSensitiveLog,
-  PutHypervisorPropertyMappingsOutput,
-  PutHypervisorPropertyMappingsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0PutHypervisorPropertyMappingsCommand,
-  serializeAws_json1_0PutHypervisorPropertyMappingsCommand,
+  de_PutHypervisorPropertyMappingsCommand,
+  se_PutHypervisorPropertyMappingsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link PutHypervisorPropertyMappingsCommand}.
  */
 export interface PutHypervisorPropertyMappingsCommandInput extends PutHypervisorPropertyMappingsInput {}
 /**
+ * @public
+ *
  * The output of {@link PutHypervisorPropertyMappingsCommand}.
  */
 export interface PutHypervisorPropertyMappingsCommandOutput
@@ -37,6 +36,7 @@ export interface PutHypervisorPropertyMappingsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This action sets the property mappings for the specified hypervisor.
  *       A hypervisor property mapping displays the relationship of entity properties
  *       available from the on-premises hypervisor to the properties available in Amazon Web Services.</p>
@@ -46,10 +46,24 @@ export interface PutHypervisorPropertyMappingsCommandOutput
  * import { BackupGatewayClient, PutHypervisorPropertyMappingsCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, PutHypervisorPropertyMappingsCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = { // PutHypervisorPropertyMappingsInput
+ *   HypervisorArn: "STRING_VALUE", // required
+ *   VmwareToAwsTagMappings: [ // VmwareToAwsTagMappings // required
+ *     { // VmwareToAwsTagMapping
+ *       VmwareCategory: "STRING_VALUE", // required
+ *       VmwareTagName: "STRING_VALUE", // required
+ *       AwsTagKey: "STRING_VALUE", // required
+ *       AwsTagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   IamRoleArn: "STRING_VALUE", // required
+ * };
  * const command = new PutHypervisorPropertyMappingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutHypervisorPropertyMappingsCommandInput - {@link PutHypervisorPropertyMappingsCommandInput}
+ * @returns {@link PutHypervisorPropertyMappingsCommandOutput}
  * @see {@link PutHypervisorPropertyMappingsCommandInput} for command's `input` shape.
  * @see {@link PutHypervisorPropertyMappingsCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
@@ -92,6 +106,9 @@ export class PutHypervisorPropertyMappingsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutHypervisorPropertyMappingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +137,8 @@ export class PutHypervisorPropertyMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutHypervisorPropertyMappingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutHypervisorPropertyMappingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,15 +148,21 @@ export class PutHypervisorPropertyMappingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutHypervisorPropertyMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutHypervisorPropertyMappingsCommand(input, context);
+    return se_PutHypervisorPropertyMappingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutHypervisorPropertyMappingsCommandOutput> {
-    return deserializeAws_json1_0PutHypervisorPropertyMappingsCommand(output, context);
+    return de_PutHypervisorPropertyMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

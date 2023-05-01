@@ -16,25 +16,26 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   ListDistributionsRequest,
-  ListDistributionsRequestFilterSensitiveLog,
   ListDistributionsResult,
   ListDistributionsResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlListDistributionsCommand,
-  serializeAws_restXmlListDistributionsCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListDistributionsCommand, se_ListDistributionsCommand } from "../protocols/Aws_restXml";
 
 /**
+ * @public
+ *
  * The input for {@link ListDistributionsCommand}.
  */
 export interface ListDistributionsCommandInput extends ListDistributionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDistributionsCommand}.
  */
 export interface ListDistributionsCommandOutput extends ListDistributionsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List CloudFront distributions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,16 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * import { CloudFrontClient, ListDistributionsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListDistributionsRequest
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListDistributionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDistributionsCommandInput - {@link ListDistributionsCommandInput}
+ * @returns {@link ListDistributionsCommandOutput}
  * @see {@link ListDistributionsCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
@@ -72,6 +79,9 @@ export class ListDistributionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDistributionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,7 +110,7 @@ export class ListDistributionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListDistributionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -111,12 +121,18 @@ export class ListDistributionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDistributionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsCommand(input, context);
+    return se_ListDistributionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDistributionsCommandOutput> {
-    return deserializeAws_restXmlListDistributionsCommand(output, context);
+    return de_ListDistributionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  RegisterAccountRequest,
-  RegisterAccountRequestFilterSensitiveLog,
-  RegisterAccountResponse,
-  RegisterAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterAccountCommand,
-  serializeAws_restJson1RegisterAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { RegisterAccountRequest, RegisterAccountResponse } from "../models/models_0";
+import { de_RegisterAccountCommand, se_RegisterAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterAccountCommand}.
  */
 export interface RegisterAccountCommandInput extends RegisterAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link RegisterAccountCommand}.
  */
 export interface RegisterAccountCommandOutput extends RegisterAccountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Enables Audit Manager for the specified Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * import { AuditManagerClient, RegisterAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, RegisterAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // RegisterAccountRequest
+ *   kmsKey: "STRING_VALUE",
+ *   delegatedAdminAccount: "STRING_VALUE",
+ * };
  * const command = new RegisterAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterAccountCommandInput - {@link RegisterAccountCommandInput}
+ * @returns {@link RegisterAccountCommandOutput}
  * @see {@link RegisterAccountCommandInput} for command's `input` shape.
  * @see {@link RegisterAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -86,6 +89,9 @@ export class RegisterAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +120,8 @@ export class RegisterAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +131,18 @@ export class RegisterAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterAccountCommand(input, context);
+    return se_RegisterAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterAccountCommandOutput> {
-    return deserializeAws_restJson1RegisterAccountCommand(output, context);
+    return de_RegisterAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

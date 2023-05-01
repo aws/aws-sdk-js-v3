@@ -10,7 +10,7 @@ import { FSxClient } from "../FSxClient";
 import { FSxPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FSxClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTagsForResourceCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTagsForResource(
   config: FSxPaginationConfiguration,
   input: ListTagsForResourceCommandInput,

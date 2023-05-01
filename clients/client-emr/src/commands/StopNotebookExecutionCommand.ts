@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { StopNotebookExecutionInput, StopNotebookExecutionInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopNotebookExecutionCommand,
-  serializeAws_json1_1StopNotebookExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { StopNotebookExecutionInput } from "../models/models_0";
+import { de_StopNotebookExecutionCommand, se_StopNotebookExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopNotebookExecutionCommand}.
  */
 export interface StopNotebookExecutionCommandInput extends StopNotebookExecutionInput {}
 /**
+ * @public
+ *
  * The output of {@link StopNotebookExecutionCommand}.
  */
 export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a notebook execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
  * import { EMRClient, StopNotebookExecutionCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, StopNotebookExecutionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // StopNotebookExecutionInput
+ *   NotebookExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new StopNotebookExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopNotebookExecutionCommandInput - {@link StopNotebookExecutionCommandInput}
+ * @returns {@link StopNotebookExecutionCommandOutput}
  * @see {@link StopNotebookExecutionCommandInput} for command's `input` shape.
  * @see {@link StopNotebookExecutionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -71,6 +78,9 @@ export class StopNotebookExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopNotebookExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,8 +109,8 @@ export class StopNotebookExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopNotebookExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +120,18 @@ export class StopNotebookExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopNotebookExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopNotebookExecutionCommand(input, context);
+    return se_StopNotebookExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopNotebookExecutionCommandOutput> {
-    return deserializeAws_json1_1StopNotebookExecutionCommand(output, context);
+    return de_StopNotebookExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

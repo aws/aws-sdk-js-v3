@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  ModifyCacheSubnetGroupMessage,
-  ModifyCacheSubnetGroupMessageFilterSensitiveLog,
-  ModifyCacheSubnetGroupResult,
-  ModifyCacheSubnetGroupResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryModifyCacheSubnetGroupCommand,
-  serializeAws_queryModifyCacheSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { ModifyCacheSubnetGroupMessage, ModifyCacheSubnetGroupResult } from "../models/models_0";
+import { de_ModifyCacheSubnetGroupCommand, se_ModifyCacheSubnetGroupCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCacheSubnetGroupCommand}.
  */
 export interface ModifyCacheSubnetGroupCommandInput extends ModifyCacheSubnetGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCacheSubnetGroupCommand}.
  */
 export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGroupResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing cache subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * import { ElastiCacheClient, ModifyCacheSubnetGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyCacheSubnetGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = { // ModifyCacheSubnetGroupMessage
+ *   CacheSubnetGroupName: "STRING_VALUE", // required
+ *   CacheSubnetGroupDescription: "STRING_VALUE",
+ *   SubnetIds: [ // SubnetIdentifierList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyCacheSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCacheSubnetGroupCommandInput - {@link ModifyCacheSubnetGroupCommandInput}
+ * @returns {@link ModifyCacheSubnetGroupCommandOutput}
  * @see {@link ModifyCacheSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
@@ -140,6 +146,9 @@ export class ModifyCacheSubnetGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCacheSubnetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,8 +177,8 @@ export class ModifyCacheSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCacheSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyCacheSubnetGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -179,12 +188,18 @@ export class ModifyCacheSubnetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyCacheSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyCacheSubnetGroupCommand(input, context);
+    return se_ModifyCacheSubnetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyCacheSubnetGroupCommandOutput> {
-    return deserializeAws_queryModifyCacheSubnetGroupCommand(output, context);
+    return de_ModifyCacheSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

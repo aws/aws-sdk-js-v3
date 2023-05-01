@@ -14,25 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  UpdateAccountPasswordPolicyRequest,
-  UpdateAccountPasswordPolicyRequestFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryUpdateAccountPasswordPolicyCommand,
-  serializeAws_queryUpdateAccountPasswordPolicyCommand,
-} from "../protocols/Aws_query";
+import { UpdateAccountPasswordPolicyRequest } from "../models/models_1";
+import { de_UpdateAccountPasswordPolicyCommand, se_UpdateAccountPasswordPolicyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccountPasswordPolicyCommand}.
  */
 export interface UpdateAccountPasswordPolicyCommandInput extends UpdateAccountPasswordPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccountPasswordPolicyCommand}.
  */
 export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the password policy settings for the Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation does not support partial updates. No parameters are required, but
@@ -50,10 +49,23 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  * import { IAMClient, UpdateAccountPasswordPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateAccountPasswordPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UpdateAccountPasswordPolicyRequest
+ *   MinimumPasswordLength: Number("int"),
+ *   RequireSymbols: true || false,
+ *   RequireNumbers: true || false,
+ *   RequireUppercaseCharacters: true || false,
+ *   RequireLowercaseCharacters: true || false,
+ *   AllowUsersToChangePassword: true || false,
+ *   MaxPasswordAge: Number("int"),
+ *   PasswordReusePrevention: Number("int"),
+ *   HardExpiry: true || false,
+ * };
  * const command = new UpdateAccountPasswordPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccountPasswordPolicyCommandInput - {@link UpdateAccountPasswordPolicyCommandInput}
+ * @returns {@link UpdateAccountPasswordPolicyCommandOutput}
  * @see {@link UpdateAccountPasswordPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountPasswordPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -105,6 +117,9 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountPasswordPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +148,8 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccountPasswordPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,15 +159,21 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountPasswordPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateAccountPasswordPolicyCommand(input, context);
+    return se_UpdateAccountPasswordPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccountPasswordPolicyCommandOutput> {
-    return deserializeAws_queryUpdateAccountPasswordPolicyCommand(output, context);
+    return de_UpdateAccountPasswordPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

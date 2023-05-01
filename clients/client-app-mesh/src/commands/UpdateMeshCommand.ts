@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  UpdateMeshInput,
-  UpdateMeshInputFilterSensitiveLog,
-  UpdateMeshOutput,
-  UpdateMeshOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMeshCommand,
-  serializeAws_restJson1UpdateMeshCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateMeshInput, UpdateMeshOutput } from "../models/models_0";
+import { de_UpdateMeshCommand, se_UpdateMeshCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateMeshCommand}.
  */
 export interface UpdateMeshCommandInput extends UpdateMeshInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateMeshCommand}.
  */
 export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBea
  * import { AppMeshClient, UpdateMeshCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateMeshCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // UpdateMeshInput
+ *   meshName: "STRING_VALUE", // required
+ *   spec: { // MeshSpec
+ *     egressFilter: { // EgressFilter
+ *       type: "STRING_VALUE", // required
+ *     },
+ *     serviceDiscovery: { // MeshServiceDiscovery
+ *       ipPreference: "STRING_VALUE",
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateMeshCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateMeshCommandInput - {@link UpdateMeshCommandInput}
+ * @returns {@link UpdateMeshCommandOutput}
  * @see {@link UpdateMeshCommandInput} for command's `input` shape.
  * @see {@link UpdateMeshCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -94,6 +105,9 @@ export class UpdateMeshCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMeshCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +134,8 @@ export class UpdateMeshCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMeshInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMeshOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +145,18 @@ export class UpdateMeshCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMeshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMeshCommand(input, context);
+    return se_UpdateMeshCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMeshCommandOutput> {
-    return deserializeAws_restJson1UpdateMeshCommand(output, context);
+    return de_UpdateMeshCommand(output, context);
   }
 
   // Start section: command_body_extra

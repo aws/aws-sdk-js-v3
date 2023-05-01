@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { ListSecurityProfilePermissionsRequest, ListSecurityProfilePermissionsResponse } from "../models/models_1";
 import {
-  ListSecurityProfilePermissionsRequest,
-  ListSecurityProfilePermissionsRequestFilterSensitiveLog,
-  ListSecurityProfilePermissionsResponse,
-  ListSecurityProfilePermissionsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListSecurityProfilePermissionsCommand,
-  serializeAws_restJson1ListSecurityProfilePermissionsCommand,
+  de_ListSecurityProfilePermissionsCommand,
+  se_ListSecurityProfilePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSecurityProfilePermissionsCommand}.
  */
 export interface ListSecurityProfilePermissionsCommandInput extends ListSecurityProfilePermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSecurityProfilePermissionsCommand}.
  */
 export interface ListSecurityProfilePermissionsCommandOutput
@@ -37,6 +36,7 @@ export interface ListSecurityProfilePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Lists the permissions granted to a security profile.</p>
  * @example
@@ -45,10 +45,18 @@ export interface ListSecurityProfilePermissionsCommandOutput
  * import { ConnectClient, ListSecurityProfilePermissionsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListSecurityProfilePermissionsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // ListSecurityProfilePermissionsRequest
+ *   SecurityProfileId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSecurityProfilePermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSecurityProfilePermissionsCommandInput - {@link ListSecurityProfilePermissionsCommandInput}
+ * @returns {@link ListSecurityProfilePermissionsCommandOutput}
  * @see {@link ListSecurityProfilePermissionsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityProfilePermissionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -87,6 +95,9 @@ export class ListSecurityProfilePermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSecurityProfilePermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class ListSecurityProfilePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecurityProfilePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSecurityProfilePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +137,24 @@ export class ListSecurityProfilePermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListSecurityProfilePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSecurityProfilePermissionsCommand(input, context);
+    return se_ListSecurityProfilePermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSecurityProfilePermissionsCommandOutput> {
-    return deserializeAws_restJson1ListSecurityProfilePermissionsCommand(output, context);
+    return de_ListSecurityProfilePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

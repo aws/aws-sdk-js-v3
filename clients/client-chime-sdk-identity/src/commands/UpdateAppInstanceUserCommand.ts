@@ -18,23 +18,24 @@ import {
   UpdateAppInstanceUserRequest,
   UpdateAppInstanceUserRequestFilterSensitiveLog,
   UpdateAppInstanceUserResponse,
-  UpdateAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAppInstanceUserCommand,
-  serializeAws_restJson1UpdateAppInstanceUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAppInstanceUserCommand, se_UpdateAppInstanceUserCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAppInstanceUserCommand}.
  */
 export interface UpdateAppInstanceUserCommandInput extends UpdateAppInstanceUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAppInstanceUserCommand}.
  */
 export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and
  *          metadata.</p>
  * @example
@@ -43,10 +44,17 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
  * import { ChimeSDKIdentityClient, UpdateAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, UpdateAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = { // UpdateAppInstanceUserRequest
+ *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Metadata: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAppInstanceUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAppInstanceUserCommandInput - {@link UpdateAppInstanceUserCommandInput}
+ * @returns {@link UpdateAppInstanceUserCommandOutput}
  * @see {@link UpdateAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link UpdateAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
@@ -95,6 +103,9 @@ export class UpdateAppInstanceUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAppInstanceUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,7 +135,7 @@ export class UpdateAppInstanceUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateAppInstanceUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppInstanceUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +145,18 @@ export class UpdateAppInstanceUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAppInstanceUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAppInstanceUserCommand(input, context);
+    return se_UpdateAppInstanceUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppInstanceUserCommandOutput> {
-    return deserializeAws_restJson1UpdateAppInstanceUserCommand(output, context);
+    return de_UpdateAppInstanceUserCommand(output, context);
   }
 
   // Start section: command_body_extra

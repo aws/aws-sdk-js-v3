@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateVocabularyFilterRequest,
-  CreateVocabularyFilterRequestFilterSensitiveLog,
-  CreateVocabularyFilterResponse,
-  CreateVocabularyFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVocabularyFilterCommand,
-  serializeAws_json1_1CreateVocabularyFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateVocabularyFilterRequest, CreateVocabularyFilterResponse } from "../models/models_0";
+import { de_CreateVocabularyFilterCommand, se_CreateVocabularyFilterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateVocabularyFilterCommand}.
  */
 export interface CreateVocabularyFilterCommandInput extends CreateVocabularyFilterRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateVocabularyFilterCommand}.
  */
 export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new custom vocabulary filter.</p>
  *          <p>You can use custom vocabulary filters to mask, delete, or flag specific words from
  *             your transcript. Custom vocabulary filters are commonly used to mask profanity in
@@ -51,10 +48,27 @@ export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFil
  * import { TranscribeClient, CreateVocabularyFilterCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, CreateVocabularyFilterCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = { // CreateVocabularyFilterRequest
+ *   VocabularyFilterName: "STRING_VALUE", // required
+ *   LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE", // required
+ *   Words: [ // Words
+ *     "STRING_VALUE",
+ *   ],
+ *   VocabularyFilterFileUri: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DataAccessRoleArn: "STRING_VALUE",
+ * };
  * const command = new CreateVocabularyFilterCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateVocabularyFilterCommandInput - {@link CreateVocabularyFilterCommandInput}
+ * @returns {@link CreateVocabularyFilterCommandOutput}
  * @see {@link CreateVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link CreateVocabularyFilterCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
@@ -96,6 +110,9 @@ export class CreateVocabularyFilterCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateVocabularyFilterCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,8 +141,8 @@ export class CreateVocabularyFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVocabularyFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVocabularyFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -135,12 +152,18 @@ export class CreateVocabularyFilterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateVocabularyFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVocabularyFilterCommand(input, context);
+    return se_CreateVocabularyFilterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVocabularyFilterCommandOutput> {
-    return deserializeAws_json1_1CreateVocabularyFilterCommand(output, context);
+    return de_CreateVocabularyFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

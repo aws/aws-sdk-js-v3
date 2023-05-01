@@ -14,28 +14,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelQueryRequest,
-  CancelQueryRequestFilterSensitiveLog,
-  CancelQueryResponse,
-  CancelQueryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0CancelQueryCommand,
-  serializeAws_json1_0CancelQueryCommand,
-} from "../protocols/Aws_json1_0";
+import { CancelQueryRequest, CancelQueryResponse } from "../models/models_0";
+import { de_CancelQueryCommand, se_CancelQueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
+ * @public
+ *
  * The input for {@link CancelQueryCommand}.
  */
 export interface CancelQueryCommandInput extends CancelQueryRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelQueryCommand}.
  */
 export interface CancelQueryCommandOutput extends CancelQueryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Cancels a query that has been issued. Cancellation is provided only if the query has
  *             not completed running before the cancellation request was issued. Because cancellation
  *             is an idempotent operation, subsequent cancellation requests will return a
@@ -48,10 +45,15 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * import { TimestreamQueryClient, CancelQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, CancelQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
+ * const input = { // CancelQueryRequest
+ *   QueryId: "STRING_VALUE", // required
+ * };
  * const command = new CancelQueryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelQueryCommandInput - {@link CancelQueryCommandInput}
+ * @returns {@link CancelQueryCommandOutput}
  * @see {@link CancelQueryCommandInput} for command's `input` shape.
  * @see {@link CancelQueryCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
@@ -92,6 +94,9 @@ export class CancelQueryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelQueryCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +126,8 @@ export class CancelQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelQueryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +137,18 @@ export class CancelQueryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CancelQueryCommand(input, context);
+    return se_CancelQueryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelQueryCommandOutput> {
-    return deserializeAws_json1_0CancelQueryCommand(output, context);
+    return de_CancelQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

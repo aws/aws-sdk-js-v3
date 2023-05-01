@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ShieldServiceException as __BaseException } from "./ShieldServiceException";
 
 /**
+ * @public
  * <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
  */
 export class AccessDeniedForDependencyException extends __BaseException {
@@ -42,22 +44,25 @@ export class AccessDeniedForDependencyException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Block</code> action. </p>
  *             <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
- *          <p>JSON specification: <code>"Block": {}</code>
+ *          <p>JSON specification: <code>"Block": \{\}</code>
  *          </p>
  */
 export interface BlockAction {}
 
 /**
+ * @public
  * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Count</code> action. </p>
  *             <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
- *          <p>JSON specification: <code>"Count": {}</code>
+ *          <p>JSON specification: <code>"Count": \{\}</code>
  *          </p>
  */
 export interface CountAction {}
 
 /**
+ * @public
  * <p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the
  *    protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature,
  *    when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p>
@@ -76,12 +81,23 @@ export interface ResponseAction {
   Count?: CountAction;
 }
 
-export enum ApplicationLayerAutomaticResponseStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationLayerAutomaticResponseStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type ApplicationLayerAutomaticResponseStatus =
+  (typeof ApplicationLayerAutomaticResponseStatus)[keyof typeof ApplicationLayerAutomaticResponseStatus];
+
+/**
+ * @public
  * <p>The automatic application layer DDoS mitigation settings for a <a>Protection</a>.
  *        This configuration determines whether Shield Advanced automatically
  *        manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks. </p>
@@ -100,6 +116,9 @@ export interface ApplicationLayerAutomaticResponseConfiguration {
   Action: ResponseAction | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDRTLogBucketRequest {
   /**
    * <p>The Amazon S3 bucket that contains the logs that you want to share.</p>
@@ -107,9 +126,13 @@ export interface AssociateDRTLogBucketRequest {
   LogBucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDRTLogBucketResponse {}
 
 /**
+ * @public
  * <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
  */
 export class InternalErrorException extends __BaseException {
@@ -129,6 +152,7 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception that indicates that the operation would not cause any change to occur.</p>
  */
 export class InvalidOperationException extends __BaseException {
@@ -148,6 +172,7 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Provides information about a particular parameter passed inside a request that resulted in an exception.</p>
  */
 export interface ValidationExceptionField {
@@ -162,12 +187,22 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export enum ValidationExceptionReason {
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
  */
 export class InvalidParameterException extends __BaseException {
@@ -199,6 +234,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception that indicates that the operation would exceed a limit.</p>
  */
 export class LimitsExceededException extends __BaseException {
@@ -230,6 +266,7 @@ export class LimitsExceededException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The ARN of the role that you specified does not exist.</p>
  */
 export class NoAssociatedRoleException extends __BaseException {
@@ -249,6 +286,7 @@ export class NoAssociatedRoleException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception that indicates that the resource state has been modified by another
  *          client. Retrieve the resource and then retry your request.</p>
  */
@@ -269,6 +307,7 @@ export class OptimisticLockException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -293,6 +332,9 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface AssociateDRTRoleRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the role the SRT will use to access your Amazon Web Services account.</p>
@@ -301,8 +343,14 @@ export interface AssociateDRTRoleRequest {
   RoleArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateDRTRoleResponse {}
 
+/**
+ * @public
+ */
 export interface AssociateHealthCheckRequest {
   /**
    * <p>The unique identifier (ID) for the <a>Protection</a> object to add the health check association to. </p>
@@ -315,9 +363,13 @@ export interface AssociateHealthCheckRequest {
   HealthCheckArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateHealthCheckResponse {}
 
 /**
+ * @public
  * <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
  */
 export class InvalidResourceException extends __BaseException {
@@ -337,6 +389,7 @@ export class InvalidResourceException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Contact information that the SRT can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
  */
 export interface EmergencyContact {
@@ -356,6 +409,9 @@ export interface EmergencyContact {
   ContactNotes?: string;
 }
 
+/**
+ * @public
+ */
 export interface AssociateProactiveEngagementDetailsRequest {
   /**
    * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support. </p>
@@ -367,9 +423,13 @@ export interface AssociateProactiveEngagementDetailsRequest {
   EmergencyContactList: EmergencyContact[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface AssociateProactiveEngagementDetailsResponse {}
 
 /**
+ * @public
  * <p>The counter that describes a DDoS attack.</p>
  */
 export interface SummarizedCounter {
@@ -404,23 +464,42 @@ export interface SummarizedCounter {
   Unit?: string;
 }
 
-export enum AttackLayer {
-  APPLICATION = "APPLICATION",
-  NETWORK = "NETWORK",
-}
-
-export enum AttackPropertyIdentifier {
-  DESTINATION_URL = "DESTINATION_URL",
-  REFERRER = "REFERRER",
-  SOURCE_ASN = "SOURCE_ASN",
-  SOURCE_COUNTRY = "SOURCE_COUNTRY",
-  SOURCE_IP_ADDRESS = "SOURCE_IP_ADDRESS",
-  SOURCE_USER_AGENT = "SOURCE_USER_AGENT",
-  WORDPRESS_PINGBACK_REFLECTOR = "WORDPRESS_PINGBACK_REFLECTOR",
-  WORDPRESS_PINGBACK_SOURCE = "WORDPRESS_PINGBACK_SOURCE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AttackLayer = {
+  APPLICATION: "APPLICATION",
+  NETWORK: "NETWORK",
+} as const;
 
 /**
+ * @public
+ */
+export type AttackLayer = (typeof AttackLayer)[keyof typeof AttackLayer];
+
+/**
+ * @public
+ * @enum
+ */
+export const AttackPropertyIdentifier = {
+  DESTINATION_URL: "DESTINATION_URL",
+  REFERRER: "REFERRER",
+  SOURCE_ASN: "SOURCE_ASN",
+  SOURCE_COUNTRY: "SOURCE_COUNTRY",
+  SOURCE_IP_ADDRESS: "SOURCE_IP_ADDRESS",
+  SOURCE_USER_AGENT: "SOURCE_USER_AGENT",
+  WORDPRESS_PINGBACK_REFLECTOR: "WORDPRESS_PINGBACK_REFLECTOR",
+  WORDPRESS_PINGBACK_SOURCE: "WORDPRESS_PINGBACK_SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type AttackPropertyIdentifier = (typeof AttackPropertyIdentifier)[keyof typeof AttackPropertyIdentifier];
+
+/**
+ * @public
  * <p>A contributor to the attack and their contribution. </p>
  */
 export interface Contributor {
@@ -435,14 +514,24 @@ export interface Contributor {
   Value?: number;
 }
 
-export enum Unit {
-  BITS = "BITS",
-  BYTES = "BYTES",
-  PACKETS = "PACKETS",
-  REQUESTS = "REQUESTS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Unit = {
+  BITS: "BITS",
+  BYTES: "BYTES",
+  PACKETS: "PACKETS",
+  REQUESTS: "REQUESTS",
+} as const;
 
 /**
+ * @public
+ */
+export type Unit = (typeof Unit)[keyof typeof Unit];
+
+/**
+ * @public
  * <p>Details of a Shield event. This is provided as part of an <a>AttackDetail</a>.</p>
  */
 export interface AttackProperty {
@@ -481,6 +570,7 @@ export interface AttackProperty {
 }
 
 /**
+ * @public
  * <p>The mitigation applied to a DDoS attack.</p>
  */
 export interface Mitigation {
@@ -491,6 +581,7 @@ export interface Mitigation {
 }
 
 /**
+ * @public
  * <p>A summary of information about the attack.</p>
  */
 export interface SummarizedAttackVector {
@@ -505,12 +596,22 @@ export interface SummarizedAttackVector {
   VectorCounters?: SummarizedCounter[];
 }
 
-export enum SubResourceType {
-  IP = "IP",
-  URL = "URL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SubResourceType = {
+  IP: "IP",
+  URL: "URL",
+} as const;
 
 /**
+ * @public
+ */
+export type SubResourceType = (typeof SubResourceType)[keyof typeof SubResourceType];
+
+/**
+ * @public
  * <p>The attack information for the specified SubResource.</p>
  */
 export interface SubResourceSummary {
@@ -536,6 +637,7 @@ export interface SubResourceSummary {
 }
 
 /**
+ * @public
  * <p>The details of a DDoS attack.</p>
  */
 export interface AttackDetail {
@@ -585,6 +687,7 @@ export interface AttackDetail {
 }
 
 /**
+ * @public
  * <p>Statistics objects for the various data types in <a>AttackVolume</a>. </p>
  */
 export interface AttackVolumeStatistics {
@@ -595,6 +698,7 @@ export interface AttackVolumeStatistics {
 }
 
 /**
+ * @public
  * <p>Information about the volume of attacks during the time period, included in an <a>AttackStatisticsDataItem</a>. If the accompanying <code>AttackCount</code> in the statistics object is zero, this setting might be empty.</p>
  */
 export interface AttackVolume {
@@ -615,6 +719,7 @@ export interface AttackVolume {
 }
 
 /**
+ * @public
  * <p>A single attack statistics data record. This is returned by <a>DescribeAttackStatistics</a> along with a time range indicating the time period that the attack statistics apply to.  </p>
  */
 export interface AttackStatisticsDataItem {
@@ -630,6 +735,7 @@ export interface AttackStatisticsDataItem {
 }
 
 /**
+ * @public
  * <p>Describes the attack.</p>
  */
 export interface AttackVectorDescription {
@@ -696,6 +802,7 @@ export interface AttackVectorDescription {
 }
 
 /**
+ * @public
  * <p>Summarizes all DDoS attacks for a specified time period.</p>
  */
 export interface AttackSummary {
@@ -725,12 +832,22 @@ export interface AttackSummary {
   AttackVectors?: AttackVectorDescription[];
 }
 
-export enum AutoRenew {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AutoRenew = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type AutoRenew = (typeof AutoRenew)[keyof typeof AutoRenew];
+
+/**
+ * @public
  * <p>A tag associated with an Amazon Web Services resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a resource.</p>
  */
 export interface Tag {
@@ -745,6 +862,9 @@ export interface Tag {
   Value?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProtectionRequest {
   /**
    * <p>Friendly name for the <code>Protection</code> you are creating.</p>
@@ -795,6 +915,9 @@ export interface CreateProtectionRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateProtectionResponse {
   /**
    * <p>The unique identifier (ID) for the <a>Protection</a> object that is created.</p>
@@ -803,6 +926,7 @@ export interface CreateProtectionResponse {
 }
 
 /**
+ * @public
  * <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -827,27 +951,57 @@ export class ResourceAlreadyExistsException extends __BaseException {
   }
 }
 
-export enum ProtectionGroupAggregation {
-  MAX = "MAX",
-  MEAN = "MEAN",
-  SUM = "SUM",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProtectionGroupAggregation = {
+  MAX: "MAX",
+  MEAN: "MEAN",
+  SUM: "SUM",
+} as const;
 
-export enum ProtectionGroupPattern {
-  ALL = "ALL",
-  ARBITRARY = "ARBITRARY",
-  BY_RESOURCE_TYPE = "BY_RESOURCE_TYPE",
-}
+/**
+ * @public
+ */
+export type ProtectionGroupAggregation = (typeof ProtectionGroupAggregation)[keyof typeof ProtectionGroupAggregation];
 
-export enum ProtectedResourceType {
-  APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER",
-  CLASSIC_LOAD_BALANCER = "CLASSIC_LOAD_BALANCER",
-  CLOUDFRONT_DISTRIBUTION = "CLOUDFRONT_DISTRIBUTION",
-  ELASTIC_IP_ALLOCATION = "ELASTIC_IP_ALLOCATION",
-  GLOBAL_ACCELERATOR = "GLOBAL_ACCELERATOR",
-  ROUTE_53_HOSTED_ZONE = "ROUTE_53_HOSTED_ZONE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProtectionGroupPattern = {
+  ALL: "ALL",
+  ARBITRARY: "ARBITRARY",
+  BY_RESOURCE_TYPE: "BY_RESOURCE_TYPE",
+} as const;
 
+/**
+ * @public
+ */
+export type ProtectionGroupPattern = (typeof ProtectionGroupPattern)[keyof typeof ProtectionGroupPattern];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtectedResourceType = {
+  APPLICATION_LOAD_BALANCER: "APPLICATION_LOAD_BALANCER",
+  CLASSIC_LOAD_BALANCER: "CLASSIC_LOAD_BALANCER",
+  CLOUDFRONT_DISTRIBUTION: "CLOUDFRONT_DISTRIBUTION",
+  ELASTIC_IP_ALLOCATION: "ELASTIC_IP_ALLOCATION",
+  GLOBAL_ACCELERATOR: "GLOBAL_ACCELERATOR",
+  ROUTE_53_HOSTED_ZONE: "ROUTE_53_HOSTED_ZONE",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectedResourceType = (typeof ProtectedResourceType)[keyof typeof ProtectedResourceType];
+
+/**
+ * @public
+ */
 export interface CreateProtectionGroupRequest {
   /**
    * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
@@ -892,12 +1046,24 @@ export interface CreateProtectionGroupRequest {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface CreateProtectionGroupResponse {}
 
+/**
+ * @public
+ */
 export interface CreateSubscriptionRequest {}
 
+/**
+ * @public
+ */
 export interface CreateSubscriptionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteProtectionRequest {
   /**
    * <p>The unique identifier (ID) for the <a>Protection</a> object to be
@@ -906,8 +1072,14 @@ export interface DeleteProtectionRequest {
   ProtectionId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProtectionResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteProtectionGroupRequest {
   /**
    * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
@@ -915,13 +1087,23 @@ export interface DeleteProtectionGroupRequest {
   ProtectionGroupId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteProtectionGroupResponse {}
 
+/**
+ * @public
+ */
 export interface DeleteSubscriptionRequest {}
 
+/**
+ * @public
+ */
 export interface DeleteSubscriptionResponse {}
 
 /**
+ * @public
  * <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
  */
 export class LockedSubscriptionException extends __BaseException {
@@ -940,6 +1122,9 @@ export class LockedSubscriptionException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DescribeAttackRequest {
   /**
    * <p>The unique identifier (ID) for the attack.</p>
@@ -947,6 +1132,9 @@ export interface DescribeAttackRequest {
   AttackId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAttackResponse {
   /**
    * <p>The attack that you requested. </p>
@@ -954,9 +1142,13 @@ export interface DescribeAttackResponse {
   Attack?: AttackDetail;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAttackStatisticsRequest {}
 
 /**
+ * @public
  * <p>The time range. </p>
  */
 export interface TimeRange {
@@ -971,6 +1163,9 @@ export interface TimeRange {
   ToExclusive?: Date;
 }
 
+/**
+ * @public
+ */
 export interface DescribeAttackStatisticsResponse {
   /**
    * <p>The time range of the attack.</p>
@@ -983,8 +1178,14 @@ export interface DescribeAttackStatisticsResponse {
   DataItems: AttackStatisticsDataItem[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDRTAccessRequest {}
 
+/**
+ * @public
+ */
 export interface DescribeDRTAccessResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the role the SRT used to access your Amazon Web Services account.</p>
@@ -997,8 +1198,14 @@ export interface DescribeDRTAccessResponse {
   LogBucketList?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeEmergencyContactSettingsRequest {}
 
+/**
+ * @public
+ */
 export interface DescribeEmergencyContactSettingsResponse {
   /**
    * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
@@ -1006,6 +1213,9 @@ export interface DescribeEmergencyContactSettingsResponse {
   EmergencyContactList?: EmergencyContact[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProtectionRequest {
   /**
    * <p>The unique identifier (ID) for the <a>Protection</a> object to describe.
@@ -1021,6 +1231,7 @@ export interface DescribeProtectionRequest {
 }
 
 /**
+ * @public
  * <p>An object that represents a resource that is under DDoS protection.</p>
  */
 export interface Protection {
@@ -1057,6 +1268,9 @@ export interface Protection {
   ApplicationLayerAutomaticResponseConfiguration?: ApplicationLayerAutomaticResponseConfiguration;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProtectionResponse {
   /**
    * <p>The <a>Protection</a> that you requested. </p>
@@ -1064,6 +1278,9 @@ export interface DescribeProtectionResponse {
   Protection?: Protection;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProtectionGroupRequest {
   /**
    * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
@@ -1072,6 +1289,7 @@ export interface DescribeProtectionGroupRequest {
 }
 
 /**
+ * @public
  * <p>A grouping of protected resources that you and Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
  */
 export interface ProtectionGroup {
@@ -1118,6 +1336,9 @@ export interface ProtectionGroup {
   ProtectionGroupArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeProtectionGroupResponse {
   /**
    * <p>A grouping of protected resources that you and Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
@@ -1125,9 +1346,13 @@ export interface DescribeProtectionGroupResponse {
   ProtectionGroup: ProtectionGroup | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubscriptionRequest {}
 
 /**
+ * @public
  * <p>Specifies how many protections of a given type you can create.</p>
  */
 export interface Limit {
@@ -1142,13 +1367,23 @@ export interface Limit {
   Max?: number;
 }
 
-export enum ProactiveEngagementStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  PENDING = "PENDING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProactiveEngagementStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  PENDING: "PENDING",
+} as const;
 
 /**
+ * @public
+ */
+export type ProactiveEngagementStatus = (typeof ProactiveEngagementStatus)[keyof typeof ProactiveEngagementStatus];
+
+/**
+ * @public
  * <p>Limits settings on protection groups with arbitrary pattern type. </p>
  */
 export interface ProtectionGroupArbitraryPatternLimits {
@@ -1159,6 +1394,7 @@ export interface ProtectionGroupArbitraryPatternLimits {
 }
 
 /**
+ * @public
  * <p>Limits settings by pattern type in the protection groups for your subscription. </p>
  */
 export interface ProtectionGroupPatternTypeLimits {
@@ -1169,6 +1405,7 @@ export interface ProtectionGroupPatternTypeLimits {
 }
 
 /**
+ * @public
  * <p>Limits settings on protection groups for your subscription. </p>
  */
 export interface ProtectionGroupLimits {
@@ -1184,6 +1421,7 @@ export interface ProtectionGroupLimits {
 }
 
 /**
+ * @public
  * <p>Limits settings on protections for your subscription. </p>
  */
 export interface ProtectionLimits {
@@ -1194,6 +1432,7 @@ export interface ProtectionLimits {
 }
 
 /**
+ * @public
  * <p>Limits settings for your subscription. </p>
  */
 export interface SubscriptionLimits {
@@ -1209,6 +1448,7 @@ export interface SubscriptionLimits {
 }
 
 /**
+ * @public
  * <p>Information about the Shield Advanced subscription for an account.</p>
  */
 export interface Subscription {
@@ -1256,6 +1496,9 @@ export interface Subscription {
   SubscriptionArn?: string;
 }
 
+/**
+ * @public
+ */
 export interface DescribeSubscriptionResponse {
   /**
    * <p>The Shield Advanced subscription details for an account.</p>
@@ -1263,6 +1506,9 @@ export interface DescribeSubscriptionResponse {
   Subscription?: Subscription;
 }
 
+/**
+ * @public
+ */
 export interface DisableApplicationLayerAutomaticResponseRequest {
   /**
    * <p>The ARN (Amazon Resource Name) of the protected resource.</p>
@@ -1270,12 +1516,24 @@ export interface DisableApplicationLayerAutomaticResponseRequest {
   ResourceArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisableApplicationLayerAutomaticResponseResponse {}
 
+/**
+ * @public
+ */
 export interface DisableProactiveEngagementRequest {}
 
+/**
+ * @public
+ */
 export interface DisableProactiveEngagementResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateDRTLogBucketRequest {
   /**
    * <p>The Amazon S3 bucket that contains the logs that you want to share.</p>
@@ -1283,12 +1541,24 @@ export interface DisassociateDRTLogBucketRequest {
   LogBucket: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateDRTLogBucketResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateDRTRoleRequest {}
 
+/**
+ * @public
+ */
 export interface DisassociateDRTRoleResponse {}
 
+/**
+ * @public
+ */
 export interface DisassociateHealthCheckRequest {
   /**
    * <p>The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. </p>
@@ -1301,8 +1571,14 @@ export interface DisassociateHealthCheckRequest {
   HealthCheckArn: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DisassociateHealthCheckResponse {}
 
+/**
+ * @public
+ */
 export interface EnableApplicationLayerAutomaticResponseRequest {
   /**
    * <p>The ARN (Amazon Resource Name) of the protected resource.</p>
@@ -1317,19 +1593,43 @@ export interface EnableApplicationLayerAutomaticResponseRequest {
   Action: ResponseAction | undefined;
 }
 
+/**
+ * @public
+ */
 export interface EnableApplicationLayerAutomaticResponseResponse {}
 
+/**
+ * @public
+ */
 export interface EnableProactiveEngagementRequest {}
 
+/**
+ * @public
+ */
 export interface EnableProactiveEngagementResponse {}
 
+/**
+ * @public
+ */
 export interface GetSubscriptionStateRequest {}
 
-export enum SubscriptionState {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
 
+/**
+ * @public
+ */
+export type SubscriptionState = (typeof SubscriptionState)[keyof typeof SubscriptionState];
+
+/**
+ * @public
+ */
 export interface GetSubscriptionStateResponse {
   /**
    * <p>The status of the subscription.</p>
@@ -1337,6 +1637,9 @@ export interface GetSubscriptionStateResponse {
   SubscriptionState: SubscriptionState | string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListAttacksRequest {
   /**
    * <p>The ARNs (Amazon Resource Names) of the resources that were attacked. If you leave this
@@ -1376,6 +1679,9 @@ export interface ListAttacksRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListAttacksResponse {
   /**
    * <p>The attack information for the specified time range.</p>
@@ -1394,6 +1700,7 @@ export interface ListAttacksResponse {
 }
 
 /**
+ * @public
  * <p>Exception that indicates that the <code>NextToken</code> specified in the request is invalid. Submit the request using the <code>NextToken</code> value that was returned in the prior response.</p>
  */
 export class InvalidPaginationTokenException extends __BaseException {
@@ -1413,6 +1720,7 @@ export class InvalidPaginationTokenException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>Narrows the set of protection groups that the call retrieves. You can retrieve a single protection group by its name and you can retrieve all protection groups that are configured with a specific pattern, aggregation, or resource type. You can provide up to one criteria per filter type. Shield Advanced returns the protection groups that exactly match all of the search criteria that you provide.</p>
  */
 export interface InclusionProtectionGroupFilters {
@@ -1437,6 +1745,9 @@ export interface InclusionProtectionGroupFilters {
   Aggregations?: (ProtectionGroupAggregation | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListProtectionGroupsRequest {
   /**
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
@@ -1463,6 +1774,9 @@ export interface ListProtectionGroupsRequest {
   InclusionFilters?: InclusionProtectionGroupFilters;
 }
 
+/**
+ * @public
+ */
 export interface ListProtectionGroupsResponse {
   /**
    * <p></p>
@@ -1481,6 +1795,7 @@ export interface ListProtectionGroupsResponse {
 }
 
 /**
+ * @public
  * <p>Narrows the set of protections that the call retrieves. You can retrieve a single protection by providing its name or the ARN (Amazon Resource Name) of its protected resource. You can also retrieve all protections for a specific resource type. You can provide up to one criteria per filter type. Shield Advanced returns protections that exactly match all of the filter criteria that you provide.</p>
  */
 export interface InclusionProtectionFilters {
@@ -1500,6 +1815,9 @@ export interface InclusionProtectionFilters {
   ResourceTypes?: (ProtectedResourceType | string)[];
 }
 
+/**
+ * @public
+ */
 export interface ListProtectionsRequest {
   /**
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
@@ -1526,6 +1844,9 @@ export interface ListProtectionsRequest {
   InclusionFilters?: InclusionProtectionFilters;
 }
 
+/**
+ * @public
+ */
 export interface ListProtectionsResponse {
   /**
    * <p>The array of enabled <a>Protection</a> objects.</p>
@@ -1543,6 +1864,9 @@ export interface ListProtectionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesInProtectionGroupRequest {
   /**
    * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
@@ -1569,6 +1893,9 @@ export interface ListResourcesInProtectionGroupRequest {
   MaxResults?: number;
 }
 
+/**
+ * @public
+ */
 export interface ListResourcesInProtectionGroupResponse {
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources that are included in the protection group.</p>
@@ -1586,6 +1913,9 @@ export interface ListResourcesInProtectionGroupResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
@@ -1593,6 +1923,9 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
@@ -1600,6 +1933,9 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add or update tags for.</p>
@@ -1612,8 +1948,14 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
@@ -1626,8 +1968,14 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateApplicationLayerAutomaticResponseRequest {
   /**
    * <p>The ARN (Amazon Resource Name) of the resource.</p>
@@ -1642,8 +1990,14 @@ export interface UpdateApplicationLayerAutomaticResponseRequest {
   Action: ResponseAction | undefined;
 }
 
+/**
+ * @public
+ */
 export interface UpdateApplicationLayerAutomaticResponseResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateEmergencyContactSettingsRequest {
   /**
    * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
@@ -1652,8 +2006,14 @@ export interface UpdateEmergencyContactSettingsRequest {
   EmergencyContactList?: EmergencyContact[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateEmergencyContactSettingsResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateProtectionGroupRequest {
   /**
    * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
@@ -1693,8 +2053,14 @@ export interface UpdateProtectionGroupRequest {
   Members?: string[];
 }
 
+/**
+ * @public
+ */
 export interface UpdateProtectionGroupResponse {}
 
+/**
+ * @public
+ */
 export interface UpdateSubscriptionRequest {
   /**
    * <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
@@ -1702,757 +2068,7 @@ export interface UpdateSubscriptionRequest {
   AutoRenew?: AutoRenew | string;
 }
 
+/**
+ * @public
+ */
 export interface UpdateSubscriptionResponse {}
-
-/**
- * @internal
- */
-export const BlockActionFilterSensitiveLog = (obj: BlockAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CountActionFilterSensitiveLog = (obj: CountAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponseActionFilterSensitiveLog = (obj: ResponseAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApplicationLayerAutomaticResponseConfigurationFilterSensitiveLog = (
-  obj: ApplicationLayerAutomaticResponseConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDRTLogBucketRequestFilterSensitiveLog = (obj: AssociateDRTLogBucketRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDRTLogBucketResponseFilterSensitiveLog = (obj: AssociateDRTLogBucketResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDRTRoleRequestFilterSensitiveLog = (obj: AssociateDRTRoleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDRTRoleResponseFilterSensitiveLog = (obj: AssociateDRTRoleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateHealthCheckRequestFilterSensitiveLog = (obj: AssociateHealthCheckRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateHealthCheckResponseFilterSensitiveLog = (obj: AssociateHealthCheckResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EmergencyContactFilterSensitiveLog = (obj: EmergencyContact): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateProactiveEngagementDetailsRequestFilterSensitiveLog = (
-  obj: AssociateProactiveEngagementDetailsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateProactiveEngagementDetailsResponseFilterSensitiveLog = (
-  obj: AssociateProactiveEngagementDetailsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SummarizedCounterFilterSensitiveLog = (obj: SummarizedCounter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContributorFilterSensitiveLog = (obj: Contributor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttackPropertyFilterSensitiveLog = (obj: AttackProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MitigationFilterSensitiveLog = (obj: Mitigation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SummarizedAttackVectorFilterSensitiveLog = (obj: SummarizedAttackVector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubResourceSummaryFilterSensitiveLog = (obj: SubResourceSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttackDetailFilterSensitiveLog = (obj: AttackDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttackVolumeStatisticsFilterSensitiveLog = (obj: AttackVolumeStatistics): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttackVolumeFilterSensitiveLog = (obj: AttackVolume): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttackStatisticsDataItemFilterSensitiveLog = (obj: AttackStatisticsDataItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttackVectorDescriptionFilterSensitiveLog = (obj: AttackVectorDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AttackSummaryFilterSensitiveLog = (obj: AttackSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProtectionRequestFilterSensitiveLog = (obj: CreateProtectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProtectionResponseFilterSensitiveLog = (obj: CreateProtectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProtectionGroupRequestFilterSensitiveLog = (obj: CreateProtectionGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateProtectionGroupResponseFilterSensitiveLog = (obj: CreateProtectionGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubscriptionRequestFilterSensitiveLog = (obj: CreateSubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubscriptionResponseFilterSensitiveLog = (obj: CreateSubscriptionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProtectionRequestFilterSensitiveLog = (obj: DeleteProtectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProtectionResponseFilterSensitiveLog = (obj: DeleteProtectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProtectionGroupRequestFilterSensitiveLog = (obj: DeleteProtectionGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProtectionGroupResponseFilterSensitiveLog = (obj: DeleteProtectionGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubscriptionRequestFilterSensitiveLog = (obj: DeleteSubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubscriptionResponseFilterSensitiveLog = (obj: DeleteSubscriptionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAttackRequestFilterSensitiveLog = (obj: DescribeAttackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAttackResponseFilterSensitiveLog = (obj: DescribeAttackResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAttackStatisticsRequestFilterSensitiveLog = (obj: DescribeAttackStatisticsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAttackStatisticsResponseFilterSensitiveLog = (obj: DescribeAttackStatisticsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDRTAccessRequestFilterSensitiveLog = (obj: DescribeDRTAccessRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDRTAccessResponseFilterSensitiveLog = (obj: DescribeDRTAccessResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEmergencyContactSettingsRequestFilterSensitiveLog = (
-  obj: DescribeEmergencyContactSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEmergencyContactSettingsResponseFilterSensitiveLog = (
-  obj: DescribeEmergencyContactSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProtectionRequestFilterSensitiveLog = (obj: DescribeProtectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectionFilterSensitiveLog = (obj: Protection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProtectionResponseFilterSensitiveLog = (obj: DescribeProtectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProtectionGroupRequestFilterSensitiveLog = (obj: DescribeProtectionGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectionGroupFilterSensitiveLog = (obj: ProtectionGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProtectionGroupResponseFilterSensitiveLog = (obj: DescribeProtectionGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSubscriptionRequestFilterSensitiveLog = (obj: DescribeSubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LimitFilterSensitiveLog = (obj: Limit): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectionGroupArbitraryPatternLimitsFilterSensitiveLog = (
-  obj: ProtectionGroupArbitraryPatternLimits
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectionGroupPatternTypeLimitsFilterSensitiveLog = (obj: ProtectionGroupPatternTypeLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectionGroupLimitsFilterSensitiveLog = (obj: ProtectionGroupLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProtectionLimitsFilterSensitiveLog = (obj: ProtectionLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscriptionLimitsFilterSensitiveLog = (obj: SubscriptionLimits): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscriptionFilterSensitiveLog = (obj: Subscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeSubscriptionResponseFilterSensitiveLog = (obj: DescribeSubscriptionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableApplicationLayerAutomaticResponseRequestFilterSensitiveLog = (
-  obj: DisableApplicationLayerAutomaticResponseRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableApplicationLayerAutomaticResponseResponseFilterSensitiveLog = (
-  obj: DisableApplicationLayerAutomaticResponseResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableProactiveEngagementRequestFilterSensitiveLog = (obj: DisableProactiveEngagementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableProactiveEngagementResponseFilterSensitiveLog = (obj: DisableProactiveEngagementResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateDRTLogBucketRequestFilterSensitiveLog = (obj: DisassociateDRTLogBucketRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateDRTLogBucketResponseFilterSensitiveLog = (obj: DisassociateDRTLogBucketResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateDRTRoleRequestFilterSensitiveLog = (obj: DisassociateDRTRoleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateDRTRoleResponseFilterSensitiveLog = (obj: DisassociateDRTRoleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateHealthCheckRequestFilterSensitiveLog = (obj: DisassociateHealthCheckRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateHealthCheckResponseFilterSensitiveLog = (obj: DisassociateHealthCheckResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableApplicationLayerAutomaticResponseRequestFilterSensitiveLog = (
-  obj: EnableApplicationLayerAutomaticResponseRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableApplicationLayerAutomaticResponseResponseFilterSensitiveLog = (
-  obj: EnableApplicationLayerAutomaticResponseResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableProactiveEngagementRequestFilterSensitiveLog = (obj: EnableProactiveEngagementRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableProactiveEngagementResponseFilterSensitiveLog = (obj: EnableProactiveEngagementResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSubscriptionStateRequestFilterSensitiveLog = (obj: GetSubscriptionStateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSubscriptionStateResponseFilterSensitiveLog = (obj: GetSubscriptionStateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAttacksRequestFilterSensitiveLog = (obj: ListAttacksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAttacksResponseFilterSensitiveLog = (obj: ListAttacksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InclusionProtectionGroupFiltersFilterSensitiveLog = (obj: InclusionProtectionGroupFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProtectionGroupsRequestFilterSensitiveLog = (obj: ListProtectionGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProtectionGroupsResponseFilterSensitiveLog = (obj: ListProtectionGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InclusionProtectionFiltersFilterSensitiveLog = (obj: InclusionProtectionFilters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProtectionsRequestFilterSensitiveLog = (obj: ListProtectionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProtectionsResponseFilterSensitiveLog = (obj: ListProtectionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesInProtectionGroupRequestFilterSensitiveLog = (
-  obj: ListResourcesInProtectionGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesInProtectionGroupResponseFilterSensitiveLog = (
-  obj: ListResourcesInProtectionGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationLayerAutomaticResponseRequestFilterSensitiveLog = (
-  obj: UpdateApplicationLayerAutomaticResponseRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationLayerAutomaticResponseResponseFilterSensitiveLog = (
-  obj: UpdateApplicationLayerAutomaticResponseResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEmergencyContactSettingsRequestFilterSensitiveLog = (
-  obj: UpdateEmergencyContactSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEmergencyContactSettingsResponseFilterSensitiveLog = (
-  obj: UpdateEmergencyContactSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProtectionGroupRequestFilterSensitiveLog = (obj: UpdateProtectionGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateProtectionGroupResponseFilterSensitiveLog = (obj: UpdateProtectionGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriptionRequestFilterSensitiveLog = (obj: UpdateSubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSubscriptionResponseFilterSensitiveLog = (obj: UpdateSubscriptionResponse): any => ({
-  ...obj,
-});

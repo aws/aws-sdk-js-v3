@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SetReceiptRulePositionRequest,
-  SetReceiptRulePositionRequestFilterSensitiveLog,
-  SetReceiptRulePositionResponse,
-  SetReceiptRulePositionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_querySetReceiptRulePositionCommand,
-  serializeAws_querySetReceiptRulePositionCommand,
-} from "../protocols/Aws_query";
+import { SetReceiptRulePositionRequest, SetReceiptRulePositionResponse } from "../models/models_0";
+import { de_SetReceiptRulePositionCommand, se_SetReceiptRulePositionCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
+ * @public
+ *
  * The input for {@link SetReceiptRulePositionCommand}.
  */
 export interface SetReceiptRulePositionCommandInput extends SetReceiptRulePositionRequest {}
 /**
+ * @public
+ *
  * The output of {@link SetReceiptRulePositionCommand}.
  */
 export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePositionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the position of the specified receipt rule in the receipt rule set.</p>
  *         <p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -45,10 +42,17 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  * import { SESClient, SetReceiptRulePositionCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetReceiptRulePositionCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SetReceiptRulePositionRequest
+ *   RuleSetName: "STRING_VALUE", // required
+ *   RuleName: "STRING_VALUE", // required
+ *   After: "STRING_VALUE",
+ * };
  * const command = new SetReceiptRulePositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SetReceiptRulePositionCommandInput - {@link SetReceiptRulePositionCommandInput}
+ * @returns {@link SetReceiptRulePositionCommandOutput}
  * @see {@link SetReceiptRulePositionCommandInput} for command's `input` shape.
  * @see {@link SetReceiptRulePositionCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
@@ -91,6 +95,9 @@ export class SetReceiptRulePositionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SetReceiptRulePositionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +126,8 @@ export class SetReceiptRulePositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetReceiptRulePositionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetReceiptRulePositionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +137,18 @@ export class SetReceiptRulePositionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetReceiptRulePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetReceiptRulePositionCommand(input, context);
+    return se_SetReceiptRulePositionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetReceiptRulePositionCommandOutput> {
-    return deserializeAws_querySetReceiptRulePositionCommand(output, context);
+    return de_SetReceiptRulePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

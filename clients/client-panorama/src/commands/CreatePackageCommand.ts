@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePackageRequest,
-  CreatePackageRequestFilterSensitiveLog,
-  CreatePackageResponse,
-  CreatePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreatePackageRequest, CreatePackageResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1CreatePackageCommand,
-  serializeAws_restJson1CreatePackageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePackageCommand, se_CreatePackageCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePackageCommand}.
  */
 export interface CreatePackageCommandInput extends CreatePackageRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreatePackageCommand}.
  */
 export interface CreatePackageCommandOutput extends CreatePackageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a package and storage location in an Amazon S3 access point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * import { PanoramaClient, CreatePackageCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, CreatePackageCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = { // CreatePackageRequest
+ *   PackageName: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePackageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePackageCommandInput - {@link CreatePackageCommandInput}
+ * @returns {@link CreatePackageCommandOutput}
  * @see {@link CreatePackageCommandInput} for command's `input` shape.
  * @see {@link CreatePackageCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
@@ -81,6 +86,9 @@ export class CreatePackageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePackageCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +115,8 @@ export class CreatePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +126,18 @@ export class CreatePackageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePackageCommand(input, context);
+    return se_CreatePackageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePackageCommandOutput> {
-    return deserializeAws_restJson1CreatePackageCommand(output, context);
+    return de_CreatePackageCommand(output, context);
   }
 
   // Start section: command_body_extra

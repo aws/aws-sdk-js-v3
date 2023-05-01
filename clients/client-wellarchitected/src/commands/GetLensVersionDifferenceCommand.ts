@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLensVersionDifferenceInput,
-  GetLensVersionDifferenceInputFilterSensitiveLog,
-  GetLensVersionDifferenceOutput,
-  GetLensVersionDifferenceOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLensVersionDifferenceCommand,
-  serializeAws_restJson1GetLensVersionDifferenceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetLensVersionDifferenceInput, GetLensVersionDifferenceOutput } from "../models/models_0";
+import { de_GetLensVersionDifferenceCommand, se_GetLensVersionDifferenceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetLensVersionDifferenceCommand}.
  */
 export interface GetLensVersionDifferenceCommandInput extends GetLensVersionDifferenceInput {}
 /**
+ * @public
+ *
  * The output of {@link GetLensVersionDifferenceCommand}.
  */
 export interface GetLensVersionDifferenceCommandOutput extends GetLensVersionDifferenceOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get lens version differences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface GetLensVersionDifferenceCommandOutput extends GetLensVersionDif
  * import { WellArchitectedClient, GetLensVersionDifferenceCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, GetLensVersionDifferenceCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = { // GetLensVersionDifferenceInput
+ *   LensAlias: "STRING_VALUE", // required
+ *   BaseLensVersion: "STRING_VALUE",
+ *   TargetLensVersion: "STRING_VALUE",
+ * };
  * const command = new GetLensVersionDifferenceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetLensVersionDifferenceCommandInput - {@link GetLensVersionDifferenceCommandInput}
+ * @returns {@link GetLensVersionDifferenceCommandOutput}
  * @see {@link GetLensVersionDifferenceCommandInput} for command's `input` shape.
  * @see {@link GetLensVersionDifferenceCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
@@ -84,6 +88,9 @@ export class GetLensVersionDifferenceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetLensVersionDifferenceCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class GetLensVersionDifferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLensVersionDifferenceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLensVersionDifferenceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class GetLensVersionDifferenceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetLensVersionDifferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLensVersionDifferenceCommand(input, context);
+    return se_GetLensVersionDifferenceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLensVersionDifferenceCommandOutput> {
-    return deserializeAws_restJson1GetLensVersionDifferenceCommand(output, context);
+    return de_GetLensVersionDifferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

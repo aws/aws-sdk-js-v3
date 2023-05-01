@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateNotificationSubscriptionRequest, CreateNotificationSubscriptionResponse } from "../models/models_0";
 import {
-  CreateNotificationSubscriptionRequest,
-  CreateNotificationSubscriptionRequestFilterSensitiveLog,
-  CreateNotificationSubscriptionResponse,
-  CreateNotificationSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateNotificationSubscriptionCommand,
-  serializeAws_restJson1CreateNotificationSubscriptionCommand,
+  de_CreateNotificationSubscriptionCommand,
+  se_CreateNotificationSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateNotificationSubscriptionCommand}.
  */
 export interface CreateNotificationSubscriptionCommandInput extends CreateNotificationSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateNotificationSubscriptionCommand}.
  */
 export interface CreateNotificationSubscriptionCommandOutput
@@ -37,6 +36,7 @@ export interface CreateNotificationSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
  *             confirmation message, and must confirm the subscription.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html">Setting up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer
@@ -47,10 +47,18 @@ export interface CreateNotificationSubscriptionCommandOutput
  * import { WorkDocsClient, CreateNotificationSubscriptionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateNotificationSubscriptionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // CreateNotificationSubscriptionRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   Endpoint: "STRING_VALUE", // required
+ *   Protocol: "HTTPS" || "SQS", // required
+ *   SubscriptionType: "ALL", // required
+ * };
  * const command = new CreateNotificationSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateNotificationSubscriptionCommandInput - {@link CreateNotificationSubscriptionCommandInput}
+ * @returns {@link CreateNotificationSubscriptionCommandOutput}
  * @see {@link CreateNotificationSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateNotificationSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -87,6 +95,9 @@ export class CreateNotificationSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateNotificationSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +126,8 @@ export class CreateNotificationSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNotificationSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNotificationSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,18 +137,24 @@ export class CreateNotificationSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateNotificationSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNotificationSubscriptionCommand(input, context);
+    return se_CreateNotificationSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateNotificationSubscriptionCommandOutput> {
-    return deserializeAws_restJson1CreateNotificationSubscriptionCommand(output, context);
+    return de_CreateNotificationSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

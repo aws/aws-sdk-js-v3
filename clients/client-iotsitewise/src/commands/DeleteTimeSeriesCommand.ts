@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DeleteTimeSeriesRequest, DeleteTimeSeriesRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTimeSeriesCommand,
-  serializeAws_restJson1DeleteTimeSeriesCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteTimeSeriesRequest } from "../models/models_0";
+import { de_DeleteTimeSeriesCommand, se_DeleteTimeSeriesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTimeSeriesCommand}.
  */
 export interface DeleteTimeSeriesCommandInput extends DeleteTimeSeriesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTimeSeriesCommand}.
  */
 export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a time series (data stream). If you delete a time series that's associated with an
  *       asset property, the asset property still exists, but the time series will no longer be
  *       associated with this asset property.</p>
@@ -58,10 +60,18 @@ export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
  * import { IoTSiteWiseClient, DeleteTimeSeriesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteTimeSeriesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // DeleteTimeSeriesRequest
+ *   alias: "STRING_VALUE",
+ *   assetId: "STRING_VALUE",
+ *   propertyId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteTimeSeriesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTimeSeriesCommandInput - {@link DeleteTimeSeriesCommandInput}
+ * @returns {@link DeleteTimeSeriesCommandOutput}
  * @see {@link DeleteTimeSeriesCommandInput} for command's `input` shape.
  * @see {@link DeleteTimeSeriesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
@@ -105,6 +115,9 @@ export class DeleteTimeSeriesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTimeSeriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +146,8 @@ export class DeleteTimeSeriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTimeSeriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +157,18 @@ export class DeleteTimeSeriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTimeSeriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTimeSeriesCommand(input, context);
+    return se_DeleteTimeSeriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTimeSeriesCommandOutput> {
-    return deserializeAws_restJson1DeleteTimeSeriesCommand(output, context);
+    return de_DeleteTimeSeriesCommand(output, context);
   }
 
   // Start section: command_body_extra

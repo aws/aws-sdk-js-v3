@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteApnsChannelRequest,
-  DeleteApnsChannelRequestFilterSensitiveLog,
-  DeleteApnsChannelResponse,
-  DeleteApnsChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteApnsChannelRequest, DeleteApnsChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteApnsChannelCommand,
-  serializeAws_restJson1DeleteApnsChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteApnsChannelCommand, se_DeleteApnsChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteApnsChannelCommand}.
  */
 export interface DeleteApnsChannelCommandInput extends DeleteApnsChannelRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteApnsChannelCommand}.
  */
 export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the APNs channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelRespons
  * import { PinpointClient, DeleteApnsChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteApnsChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeleteApnsChannelRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApnsChannelCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteApnsChannelCommandInput - {@link DeleteApnsChannelCommandInput}
+ * @returns {@link DeleteApnsChannelCommandOutput}
  * @see {@link DeleteApnsChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteApnsChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +92,9 @@ export class DeleteApnsChannelCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteApnsChannelCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +123,8 @@ export class DeleteApnsChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApnsChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApnsChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +134,18 @@ export class DeleteApnsChannelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteApnsChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApnsChannelCommand(input, context);
+    return se_DeleteApnsChannelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApnsChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteApnsChannelCommand(output, context);
+    return de_DeleteApnsChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

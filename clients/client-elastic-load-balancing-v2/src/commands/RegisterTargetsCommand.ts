@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  RegisterTargetsInput,
-  RegisterTargetsInputFilterSensitiveLog,
-  RegisterTargetsOutput,
-  RegisterTargetsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryRegisterTargetsCommand,
-  serializeAws_queryRegisterTargetsCommand,
-} from "../protocols/Aws_query";
+import { RegisterTargetsInput, RegisterTargetsOutput } from "../models/models_0";
+import { de_RegisterTargetsCommand, se_RegisterTargetsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterTargetsCommand}.
  */
 export interface RegisterTargetsCommandInput extends RegisterTargetsInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterTargetsCommand}.
  */
 export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers the specified targets with the specified target group.</p>
  *          <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you
  *       register it.</p>
@@ -55,10 +52,22 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * import { ElasticLoadBalancingV2Client, RegisterTargetsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, RegisterTargetsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // RegisterTargetsInput
+ *   TargetGroupArn: "STRING_VALUE", // required
+ *   Targets: [ // TargetDescriptions // required
+ *     { // TargetDescription
+ *       Id: "STRING_VALUE", // required
+ *       Port: Number("int"),
+ *       AvailabilityZone: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new RegisterTargetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterTargetsCommandInput - {@link RegisterTargetsCommandInput}
+ * @returns {@link RegisterTargetsCommandOutput}
  * @see {@link RegisterTargetsCommandInput} for command's `input` shape.
  * @see {@link RegisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
@@ -136,6 +145,9 @@ export class RegisterTargetsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterTargetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -164,8 +176,8 @@ export class RegisterTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterTargetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterTargetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -175,12 +187,18 @@ export class RegisterTargetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRegisterTargetsCommand(input, context);
+    return se_RegisterTargetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTargetsCommandOutput> {
-    return deserializeAws_queryRegisterTargetsCommand(output, context);
+    return de_RegisterTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import {
 import { BackupGatewayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: BackupGatewayClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListHypervisorsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListHypervisors(
   config: BackupGatewayPaginationConfiguration,
   input: ListHypervisorsCommandInput,

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import {
-  AddApplicationInputRequest,
-  AddApplicationInputRequestFilterSensitiveLog,
-  AddApplicationInputResponse,
-  AddApplicationInputResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddApplicationInputCommand,
-  serializeAws_json1_1AddApplicationInputCommand,
-} from "../protocols/Aws_json1_1";
+import { AddApplicationInputRequest, AddApplicationInputResponse } from "../models/models_0";
+import { de_AddApplicationInputCommand, se_AddApplicationInputCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AddApplicationInputCommand}.
  */
 export interface AddApplicationInputCommandInput extends AddApplicationInputRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddApplicationInputCommand}.
  */
 export interface AddApplicationInputCommandOutput extends AddApplicationInputResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -58,10 +55,58 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * import { KinesisAnalyticsClient, AddApplicationInputCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, AddApplicationInputCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = { // AddApplicationInputRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   Input: { // Input
+ *     NamePrefix: "STRING_VALUE", // required
+ *     InputProcessingConfiguration: { // InputProcessingConfiguration
+ *       InputLambdaProcessor: { // InputLambdaProcessor
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     KinesisStreamsInput: { // KinesisStreamsInput
+ *       ResourceARN: "STRING_VALUE", // required
+ *       RoleARN: "STRING_VALUE", // required
+ *     },
+ *     KinesisFirehoseInput: { // KinesisFirehoseInput
+ *       ResourceARN: "STRING_VALUE", // required
+ *       RoleARN: "STRING_VALUE", // required
+ *     },
+ *     InputParallelism: { // InputParallelism
+ *       Count: Number("int"),
+ *     },
+ *     InputSchema: { // SourceSchema
+ *       RecordFormat: { // RecordFormat
+ *         RecordFormatType: "STRING_VALUE", // required
+ *         MappingParameters: { // MappingParameters
+ *           JSONMappingParameters: { // JSONMappingParameters
+ *             RecordRowPath: "STRING_VALUE", // required
+ *           },
+ *           CSVMappingParameters: { // CSVMappingParameters
+ *             RecordRowDelimiter: "STRING_VALUE", // required
+ *             RecordColumnDelimiter: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *       RecordEncoding: "STRING_VALUE",
+ *       RecordColumns: [ // RecordColumns // required
+ *         { // RecordColumn
+ *           Name: "STRING_VALUE", // required
+ *           Mapping: "STRING_VALUE",
+ *           SqlType: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new AddApplicationInputCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddApplicationInputCommandInput - {@link AddApplicationInputCommandInput}
+ * @returns {@link AddApplicationInputCommandOutput}
  * @see {@link AddApplicationInputCommandInput} for command's `input` shape.
  * @see {@link AddApplicationInputCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
@@ -103,6 +148,9 @@ export class AddApplicationInputCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationInputCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +179,8 @@ export class AddApplicationInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationInputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationInputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +190,18 @@ export class AddApplicationInputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddApplicationInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationInputCommand(input, context);
+    return se_AddApplicationInputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddApplicationInputCommandOutput> {
-    return deserializeAws_json1_1AddApplicationInputCommand(output, context);
+    return de_AddApplicationInputCommand(output, context);
   }
 
   // Start section: command_body_extra

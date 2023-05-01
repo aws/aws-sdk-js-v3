@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  CreateJobRequest,
-  CreateJobRequestFilterSensitiveLog,
-  CreateJobResponse,
-  CreateJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateJobCommand,
-  serializeAws_restJson1CreateJobCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateJobRequest, CreateJobResponse } from "../models/models_0";
+import { de_CreateJobCommand, se_CreateJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateJobCommand}.
  */
 export interface CreateJobCommandInput extends CreateJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateJobCommand}.
  */
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation creates a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,137 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * import { DataExchangeClient, CreateJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, CreateJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = { // CreateJobRequest
+ *   Details: { // RequestDetails
+ *     ExportAssetToSignedUrl: { // ExportAssetToSignedUrlRequestDetails
+ *       AssetId: "STRING_VALUE", // required
+ *       DataSetId: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ExportAssetsToS3: { // ExportAssetsToS3RequestDetails
+ *       AssetDestinations: [ // ListOfAssetDestinationEntry // required
+ *         { // AssetDestinationEntry
+ *           AssetId: "STRING_VALUE", // required
+ *           Bucket: "STRING_VALUE", // required
+ *           Key: "STRING_VALUE",
+ *         },
+ *       ],
+ *       DataSetId: "STRING_VALUE", // required
+ *       Encryption: { // ExportServerSideEncryption
+ *         KmsKeyArn: "STRING_VALUE",
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ExportRevisionsToS3: { // ExportRevisionsToS3RequestDetails
+ *       DataSetId: "STRING_VALUE", // required
+ *       Encryption: {
+ *         KmsKeyArn: "STRING_VALUE",
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *       RevisionDestinations: [ // ListOfRevisionDestinationEntry // required
+ *         { // RevisionDestinationEntry
+ *           Bucket: "STRING_VALUE", // required
+ *           KeyPattern: "STRING_VALUE",
+ *           RevisionId: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     ImportAssetFromSignedUrl: { // ImportAssetFromSignedUrlRequestDetails
+ *       AssetName: "STRING_VALUE", // required
+ *       DataSetId: "STRING_VALUE", // required
+ *       Md5Hash: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ImportAssetsFromS3: { // ImportAssetsFromS3RequestDetails
+ *       AssetSources: [ // ListOfAssetSourceEntry // required
+ *         { // AssetSourceEntry
+ *           Bucket: "STRING_VALUE", // required
+ *           Key: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       DataSetId: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ImportAssetsFromRedshiftDataShares: { // ImportAssetsFromRedshiftDataSharesRequestDetails
+ *       AssetSources: [ // ListOfRedshiftDataShareAssetSourceEntry // required
+ *         { // RedshiftDataShareAssetSourceEntry
+ *           DataShareArn: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       DataSetId: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ImportAssetFromApiGatewayApi: { // ImportAssetFromApiGatewayApiRequestDetails
+ *       ApiDescription: "STRING_VALUE",
+ *       ApiId: "STRING_VALUE", // required
+ *       ApiKey: "STRING_VALUE",
+ *       ApiName: "STRING_VALUE", // required
+ *       ApiSpecificationMd5Hash: "STRING_VALUE", // required
+ *       DataSetId: "STRING_VALUE", // required
+ *       ProtocolType: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *       Stage: "STRING_VALUE", // required
+ *     },
+ *     CreateS3DataAccessFromS3Bucket: { // CreateS3DataAccessFromS3BucketRequestDetails
+ *       AssetSource: { // S3DataAccessAssetSourceEntry
+ *         Bucket: "STRING_VALUE", // required
+ *         KeyPrefixes: [ // ListOf__string
+ *           "STRING_VALUE",
+ *         ],
+ *         Keys: [
+ *           "STRING_VALUE",
+ *         ],
+ *         KmsKeysToGrant: [ // ListOfKmsKeysToGrant
+ *           { // KmsKeyToGrant
+ *             KmsKeyArn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       DataSetId: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ImportAssetsFromLakeFormationTagPolicy: { // ImportAssetsFromLakeFormationTagPolicyRequestDetails
+ *       CatalogId: "STRING_VALUE", // required
+ *       Database: { // DatabaseLFTagPolicyAndPermissions
+ *         Expression: [ // ListOfLFTags // required
+ *           { // LFTag
+ *             TagKey: "STRING_VALUE", // required
+ *             TagValues: [ // ListOfLFTagValues // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *         Permissions: [ // ListOfDatabaseLFTagPolicyPermissions // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Table: { // TableLFTagPolicyAndPermissions
+ *         Expression: [ // required
+ *           {
+ *             TagKey: "STRING_VALUE", // required
+ *             TagValues: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *         Permissions: [ // ListOfTableTagPolicyLFPermissions // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       RoleArn: "STRING_VALUE", // required
+ *       DataSetId: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Type: "STRING_VALUE", // required
+ * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateJobCommandInput - {@link CreateJobCommandInput}
+ * @returns {@link CreateJobCommandOutput}
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
@@ -87,6 +211,9 @@ export class CreateJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +240,8 @@ export class CreateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +251,18 @@ export class CreateJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateJobCommand(input, context);
+    return se_CreateJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobCommandOutput> {
-    return deserializeAws_restJson1CreateJobCommand(output, context);
+    return de_CreateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

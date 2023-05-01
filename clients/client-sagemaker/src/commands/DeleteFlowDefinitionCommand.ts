@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteFlowDefinitionRequest,
-  DeleteFlowDefinitionRequestFilterSensitiveLog,
-  DeleteFlowDefinitionResponse,
-  DeleteFlowDefinitionResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteFlowDefinitionCommand,
-  serializeAws_json1_1DeleteFlowDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteFlowDefinitionRequest, DeleteFlowDefinitionResponse } from "../models/models_1";
+import { de_DeleteFlowDefinitionCommand, se_DeleteFlowDefinitionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFlowDefinitionCommand}.
  */
 export interface DeleteFlowDefinitionCommandInput extends DeleteFlowDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFlowDefinitionCommand}.
  */
 export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified flow definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionR
  * import { SageMakerClient, DeleteFlowDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteFlowDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeleteFlowDefinitionRequest
+ *   FlowDefinitionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFlowDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFlowDefinitionCommandInput - {@link DeleteFlowDefinitionCommandInput}
+ * @returns {@link DeleteFlowDefinitionCommandOutput}
  * @see {@link DeleteFlowDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -75,6 +77,9 @@ export class DeleteFlowDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFlowDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +108,8 @@ export class DeleteFlowDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFlowDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFlowDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +119,18 @@ export class DeleteFlowDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteFlowDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFlowDefinitionCommand(input, context);
+    return se_DeleteFlowDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteFlowDefinitionCommand(output, context);
+    return de_DeleteFlowDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePatchBaselinesRequest,
-  DescribePatchBaselinesRequestFilterSensitiveLog,
-  DescribePatchBaselinesResult,
-  DescribePatchBaselinesResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribePatchBaselinesCommand,
-  serializeAws_json1_1DescribePatchBaselinesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribePatchBaselinesRequest, DescribePatchBaselinesResult } from "../models/models_1";
+import { de_DescribePatchBaselinesCommand, se_DescribePatchBaselinesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribePatchBaselinesCommand}.
  */
 export interface DescribePatchBaselinesCommandInput extends DescribePatchBaselinesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribePatchBaselinesCommand}.
  */
 export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaselinesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the patch baselines in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,24 @@ export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaseli
  * import { SSMClient, DescribePatchBaselinesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribePatchBaselinesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribePatchBaselinesRequest
+ *   Filters: [ // PatchOrchestratorFilterList
+ *     { // PatchOrchestratorFilter
+ *       Key: "STRING_VALUE",
+ *       Values: [ // PatchOrchestratorFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribePatchBaselinesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribePatchBaselinesCommandInput - {@link DescribePatchBaselinesCommandInput}
+ * @returns {@link DescribePatchBaselinesCommandOutput}
  * @see {@link DescribePatchBaselinesCommandInput} for command's `input` shape.
  * @see {@link DescribePatchBaselinesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -72,6 +83,9 @@ export class DescribePatchBaselinesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribePatchBaselinesCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +114,8 @@ export class DescribePatchBaselinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePatchBaselinesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePatchBaselinesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +125,18 @@ export class DescribePatchBaselinesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribePatchBaselinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePatchBaselinesCommand(input, context);
+    return se_DescribePatchBaselinesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePatchBaselinesCommandOutput> {
-    return deserializeAws_json1_1DescribePatchBaselinesCommand(output, context);
+    return de_DescribePatchBaselinesCommand(output, context);
   }
 
   // Start section: command_body_extra

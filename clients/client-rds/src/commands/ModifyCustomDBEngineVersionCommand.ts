@@ -13,27 +13,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBEngineVersion, DBEngineVersionFilterSensitiveLog } from "../models/models_0";
-import {
-  ModifyCustomDBEngineVersionMessage,
-  ModifyCustomDBEngineVersionMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyCustomDBEngineVersionCommand,
-  serializeAws_queryModifyCustomDBEngineVersionCommand,
-} from "../protocols/Aws_query";
+import { DBEngineVersion } from "../models/models_0";
+import { ModifyCustomDBEngineVersionMessage } from "../models/models_1";
+import { de_ModifyCustomDBEngineVersionCommand, se_ModifyCustomDBEngineVersionCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyCustomDBEngineVersionCommand}.
  */
 export interface ModifyCustomDBEngineVersionCommandInput extends ModifyCustomDBEngineVersionMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyCustomDBEngineVersionCommand}.
  */
 export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the status of a custom engine version (CEV). You can find CEVs to modify by calling
  *             <code>DescribeDBEngineVersions</code>.</p>
  *          <note>
@@ -51,10 +50,18 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * import { RDSClient, ModifyCustomDBEngineVersionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyCustomDBEngineVersionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyCustomDBEngineVersionMessage
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Status: "available" || "inactive" || "inactive-except-restore",
+ * };
  * const command = new ModifyCustomDBEngineVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyCustomDBEngineVersionCommandInput - {@link ModifyCustomDBEngineVersionCommandInput}
+ * @returns {@link ModifyCustomDBEngineVersionCommandOutput}
  * @see {@link ModifyCustomDBEngineVersionCommandInput} for command's `input` shape.
  * @see {@link ModifyCustomDBEngineVersionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -84,6 +91,9 @@ export class ModifyCustomDBEngineVersionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyCustomDBEngineVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +122,8 @@ export class ModifyCustomDBEngineVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCustomDBEngineVersionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBEngineVersionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,15 +133,21 @@ export class ModifyCustomDBEngineVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyCustomDBEngineVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyCustomDBEngineVersionCommand(input, context);
+    return se_ModifyCustomDBEngineVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCustomDBEngineVersionCommandOutput> {
-    return deserializeAws_queryModifyCustomDBEngineVersionCommand(output, context);
+    return de_ModifyCustomDBEngineVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

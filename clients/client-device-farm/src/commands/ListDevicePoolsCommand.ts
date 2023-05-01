@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListDevicePoolsRequest,
-  ListDevicePoolsRequestFilterSensitiveLog,
-  ListDevicePoolsResult,
-  ListDevicePoolsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDevicePoolsCommand,
-  serializeAws_json1_1ListDevicePoolsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListDevicePoolsRequest, ListDevicePoolsResult } from "../models/models_0";
+import { de_ListDevicePoolsCommand, se_ListDevicePoolsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListDevicePoolsCommand}.
  */
 export interface ListDevicePoolsCommandInput extends ListDevicePoolsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListDevicePoolsCommand}.
  */
 export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about device pools.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
  * import { DeviceFarmClient, ListDevicePoolsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListDevicePoolsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListDevicePoolsRequest
+ *   arn: "STRING_VALUE", // required
+ *   type: "CURATED" || "PRIVATE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDevicePoolsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListDevicePoolsCommandInput - {@link ListDevicePoolsCommandInput}
+ * @returns {@link ListDevicePoolsCommandOutput}
  * @see {@link ListDevicePoolsCommandInput} for command's `input` shape.
  * @see {@link ListDevicePoolsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -123,6 +127,9 @@ export class ListDevicePoolsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListDevicePoolsCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,8 +158,8 @@ export class ListDevicePoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevicePoolsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDevicePoolsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,12 +169,18 @@ export class ListDevicePoolsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDevicePoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDevicePoolsCommand(input, context);
+    return se_ListDevicePoolsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicePoolsCommandOutput> {
-    return deserializeAws_json1_1ListDevicePoolsCommand(output, context);
+    return de_ListDevicePoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

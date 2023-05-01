@@ -18,22 +18,21 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
+import { ApplySecurityGroupsToLoadBalancerInput, ApplySecurityGroupsToLoadBalancerOutput } from "../models/models_0";
 import {
-  ApplySecurityGroupsToLoadBalancerInput,
-  ApplySecurityGroupsToLoadBalancerInputFilterSensitiveLog,
-  ApplySecurityGroupsToLoadBalancerOutput,
-  ApplySecurityGroupsToLoadBalancerOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand,
-  serializeAws_queryApplySecurityGroupsToLoadBalancerCommand,
+  de_ApplySecurityGroupsToLoadBalancerCommand,
+  se_ApplySecurityGroupsToLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ApplySecurityGroupsToLoadBalancerCommand}.
  */
 export interface ApplySecurityGroupsToLoadBalancerCommandInput extends ApplySecurityGroupsToLoadBalancerInput {}
 /**
+ * @public
+ *
  * The output of {@link ApplySecurityGroupsToLoadBalancerCommand}.
  */
 export interface ApplySecurityGroupsToLoadBalancerCommandOutput
@@ -41,6 +40,7 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups">Security Groups for Load Balancers in a VPC</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -50,10 +50,18 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  * import { ElasticLoadBalancingClient, ApplySecurityGroupsToLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, ApplySecurityGroupsToLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // ApplySecurityGroupsToLoadBalancerInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   SecurityGroups: [ // SecurityGroups // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ApplySecurityGroupsToLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ApplySecurityGroupsToLoadBalancerCommandInput - {@link ApplySecurityGroupsToLoadBalancerCommandInput}
+ * @returns {@link ApplySecurityGroupsToLoadBalancerCommandOutput}
  * @see {@link ApplySecurityGroupsToLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link ApplySecurityGroupsToLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
@@ -107,6 +115,9 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ApplySecurityGroupsToLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -135,8 +146,8 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApplySecurityGroupsToLoadBalancerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplySecurityGroupsToLoadBalancerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -146,18 +157,24 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ApplySecurityGroupsToLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryApplySecurityGroupsToLoadBalancerCommand(input, context);
+    return se_ApplySecurityGroupsToLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> {
-    return deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand(output, context);
+    return de_ApplySecurityGroupsToLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AddTagsToResourceRequest,
-  AddTagsToResourceRequestFilterSensitiveLog,
-  AddTagsToResourceResult,
-  AddTagsToResourceResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1AddTagsToResourceCommand,
-  serializeAws_json1_1AddTagsToResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { AddTagsToResourceRequest, AddTagsToResourceResult } from "../models/models_0";
+import { de_AddTagsToResourceCommand, se_AddTagsToResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandInput extends AddTagsToResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link AddTagsToResourceCommand}.
  */
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or overwrites one or more tags for the specified resource. <i>Tags</i>
  *    are metadata that you can assign to your automations, documents, managed nodes, maintenance
  *    windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your
@@ -88,10 +85,22 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * import { SSMClient, AddTagsToResourceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, AddTagsToResourceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // AddTagsToResourceRequest
+ *   ResourceType: "Document" || "ManagedInstance" || "MaintenanceWindow" || "Parameter" || "PatchBaseline" || "OpsItem" || "OpsMetadata" || "Automation" || "Association", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   Tags: [ // TagList // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
+ * @returns {@link AddTagsToResourceCommandOutput}
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -132,6 +141,9 @@ export class AddTagsToResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AddTagsToResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -160,8 +172,8 @@ export class AddTagsToResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsToResourceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -171,12 +183,18 @@ export class AddTagsToResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddTagsToResourceCommand(input, context);
+    return se_AddTagsToResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToResourceCommandOutput> {
-    return deserializeAws_json1_1AddTagsToResourceCommand(output, context);
+    return de_AddTagsToResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

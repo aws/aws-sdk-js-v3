@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRumMetricDefinitionRequest,
-  UpdateRumMetricDefinitionRequestFilterSensitiveLog,
-  UpdateRumMetricDefinitionResponse,
-  UpdateRumMetricDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRumMetricDefinitionCommand,
-  serializeAws_restJson1UpdateRumMetricDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRumMetricDefinitionRequest, UpdateRumMetricDefinitionResponse } from "../models/models_0";
+import { de_UpdateRumMetricDefinitionCommand, se_UpdateRumMetricDefinitionCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRumMetricDefinitionCommand}.
  */
 export interface UpdateRumMetricDefinitionCommandInput extends UpdateRumMetricDefinitionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRumMetricDefinitionCommand}.
  */
 export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricDefinitionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies one existing metric definition for CloudWatch RUM extended metrics. For
  *          more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html">BatchCreateRumMetricsDefinitions</a>.</p>
  * @example
@@ -43,10 +40,28 @@ export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricD
  * import { RUMClient, UpdateRumMetricDefinitionCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, UpdateRumMetricDefinitionCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = { // UpdateRumMetricDefinitionRequest
+ *   AppMonitorName: "STRING_VALUE", // required
+ *   Destination: "STRING_VALUE", // required
+ *   DestinationArn: "STRING_VALUE",
+ *   MetricDefinition: { // MetricDefinitionRequest
+ *     Name: "STRING_VALUE", // required
+ *     ValueKey: "STRING_VALUE",
+ *     UnitLabel: "STRING_VALUE",
+ *     DimensionKeys: { // DimensionKeysMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     EventPattern: "STRING_VALUE",
+ *     Namespace: "STRING_VALUE",
+ *   },
+ *   MetricDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRumMetricDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRumMetricDefinitionCommandInput - {@link UpdateRumMetricDefinitionCommandInput}
+ * @returns {@link UpdateRumMetricDefinitionCommandOutput}
  * @see {@link UpdateRumMetricDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateRumMetricDefinitionCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
@@ -91,6 +106,9 @@ export class UpdateRumMetricDefinitionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRumMetricDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +137,8 @@ export class UpdateRumMetricDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRumMetricDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRumMetricDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,15 +148,21 @@ export class UpdateRumMetricDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRumMetricDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRumMetricDefinitionCommand(input, context);
+    return se_UpdateRumMetricDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRumMetricDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateRumMetricDefinitionCommand(output, context);
+    return de_UpdateRumMetricDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

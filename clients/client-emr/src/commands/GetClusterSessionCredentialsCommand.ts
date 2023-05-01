@@ -16,20 +16,23 @@ import {
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import {
   GetClusterSessionCredentialsInput,
-  GetClusterSessionCredentialsInputFilterSensitiveLog,
   GetClusterSessionCredentialsOutput,
   GetClusterSessionCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetClusterSessionCredentialsCommand,
-  serializeAws_json1_1GetClusterSessionCredentialsCommand,
+  de_GetClusterSessionCredentialsCommand,
+  se_GetClusterSessionCredentialsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetClusterSessionCredentialsCommand}.
  */
 export interface GetClusterSessionCredentialsCommandInput extends GetClusterSessionCredentialsInput {}
 /**
+ * @public
+ *
  * The output of {@link GetClusterSessionCredentialsCommand}.
  */
 export interface GetClusterSessionCredentialsCommandOutput
@@ -37,6 +40,7 @@ export interface GetClusterSessionCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides temporary, HTTP basic credentials that are associated with a given runtime IAM role
  *          and used by a cluster with fine-grained access control activated. You can use these credentials to connect to cluster endpoints that support username and password authentication.</p>
  * @example
@@ -45,10 +49,16 @@ export interface GetClusterSessionCredentialsCommandOutput
  * import { EMRClient, GetClusterSessionCredentialsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, GetClusterSessionCredentialsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // GetClusterSessionCredentialsInput
+ *   ClusterId: "STRING_VALUE", // required
+ *   ExecutionRoleArn: "STRING_VALUE", // required
+ * };
  * const command = new GetClusterSessionCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetClusterSessionCredentialsCommandInput - {@link GetClusterSessionCredentialsCommandInput}
+ * @returns {@link GetClusterSessionCredentialsCommandOutput}
  * @see {@link GetClusterSessionCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetClusterSessionCredentialsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
@@ -79,6 +89,9 @@ export class GetClusterSessionCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetClusterSessionCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +120,7 @@ export class GetClusterSessionCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClusterSessionCredentialsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetClusterSessionCredentialsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -118,15 +131,21 @@ export class GetClusterSessionCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetClusterSessionCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetClusterSessionCredentialsCommand(input, context);
+    return se_GetClusterSessionCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetClusterSessionCredentialsCommandOutput> {
-    return deserializeAws_json1_1GetClusterSessionCredentialsCommand(output, context);
+    return de_GetClusterSessionCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

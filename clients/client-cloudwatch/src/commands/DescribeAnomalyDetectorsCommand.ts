@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  DescribeAnomalyDetectorsInput,
-  DescribeAnomalyDetectorsInputFilterSensitiveLog,
-  DescribeAnomalyDetectorsOutput,
-  DescribeAnomalyDetectorsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAnomalyDetectorsCommand,
-  serializeAws_queryDescribeAnomalyDetectorsCommand,
-} from "../protocols/Aws_query";
+import { DescribeAnomalyDetectorsInput, DescribeAnomalyDetectorsOutput } from "../models/models_0";
+import { de_DescribeAnomalyDetectorsCommand, se_DescribeAnomalyDetectorsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeAnomalyDetectorsCommand}.
  */
 export interface DescribeAnomalyDetectorsCommandInput extends DescribeAnomalyDetectorsInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeAnomalyDetectorsCommand}.
  */
 export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDetectorsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the anomaly detection models that you have created in your account.
  * 			For single metric anomaly detectors,
  * 			you can list all of the models in your account or filter the results
@@ -48,10 +45,27 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * import { CloudWatchClient, DescribeAnomalyDetectorsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAnomalyDetectorsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DescribeAnomalyDetectorsInput
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Namespace: "STRING_VALUE",
+ *   MetricName: "STRING_VALUE",
+ *   Dimensions: [ // Dimensions
+ *     { // Dimension
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AnomalyDetectorTypes: [ // AnomalyDetectorTypes
+ *     "SINGLE_METRIC" || "METRIC_MATH",
+ *   ],
+ * };
  * const command = new DescribeAnomalyDetectorsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeAnomalyDetectorsCommandInput - {@link DescribeAnomalyDetectorsCommandInput}
+ * @returns {@link DescribeAnomalyDetectorsCommandOutput}
  * @see {@link DescribeAnomalyDetectorsCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyDetectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -87,6 +101,9 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnomalyDetectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +132,8 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAnomalyDetectorsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAnomalyDetectorsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +143,18 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAnomalyDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAnomalyDetectorsCommand(input, context);
+    return se_DescribeAnomalyDetectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnomalyDetectorsCommandOutput> {
-    return deserializeAws_queryDescribeAnomalyDetectorsCommand(output, context);
+    return de_DescribeAnomalyDetectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import { MigrationHubOrchestratorClient } from "../MigrationHubOrchestratorClien
 import { MigrationHubOrchestratorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MigrationHubOrchestratorClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListTemplatesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListTemplates(
   config: MigrationHubOrchestratorPaginationConfiguration,
   input: ListTemplatesCommandInput,

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  DescribeDefaultParametersRequest,
-  DescribeDefaultParametersRequestFilterSensitiveLog,
-  DescribeDefaultParametersResponse,
-  DescribeDefaultParametersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDefaultParametersCommand,
-  serializeAws_json1_1DescribeDefaultParametersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeDefaultParametersRequest, DescribeDefaultParametersResponse } from "../models/models_0";
+import { de_DescribeDefaultParametersCommand, se_DescribeDefaultParametersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDefaultParametersCommand}.
  */
 export interface DescribeDefaultParametersCommandInput extends DescribeDefaultParametersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDefaultParametersCommand}.
  */
 export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultParametersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the default system parameter information for the DAX caching
  *             software.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * import { DAXClient, DescribeDefaultParametersCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeDefaultParametersCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = { // DescribeDefaultParametersRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeDefaultParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDefaultParametersCommandInput - {@link DescribeDefaultParametersCommandInput}
+ * @returns {@link DescribeDefaultParametersCommandOutput}
  * @see {@link DescribeDefaultParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDefaultParametersCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
@@ -79,6 +82,9 @@ export class DescribeDefaultParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDefaultParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +113,8 @@ export class DescribeDefaultParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDefaultParametersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDefaultParametersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,15 +124,21 @@ export class DescribeDefaultParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDefaultParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDefaultParametersCommand(input, context);
+    return se_DescribeDefaultParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDefaultParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeDefaultParametersCommand(output, context);
+    return de_DescribeDefaultParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

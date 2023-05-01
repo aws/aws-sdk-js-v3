@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import {
-  GetManagedResourceRequest,
-  GetManagedResourceRequestFilterSensitiveLog,
-  GetManagedResourceResponse,
-  GetManagedResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetManagedResourceCommand,
-  serializeAws_restJson1GetManagedResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { GetManagedResourceRequest, GetManagedResourceResponse } from "../models/models_0";
+import { de_GetManagedResourceCommand, se_GetManagedResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetManagedResourceCommand}.
  */
 export interface GetManagedResourceCommandInput extends GetManagedResourceRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetManagedResourceCommand}.
  */
 export interface GetManagedResourceCommandOutput extends GetManagedResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about a resource that's been registered for zonal shifts with Amazon Route 53 Application Recovery Controller in this AWS Region. Resources that are registered for
  *    		zonal shifts are managed resources in Route 53 ARC.</p>
  *    	     <p>At this time, you can only start a zonal shift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
@@ -44,10 +41,15 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * import { ARCZonalShiftClient, GetManagedResourceCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, GetManagedResourceCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
+ * const input = { // GetManagedResourceRequest
+ *   resourceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetManagedResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetManagedResourceCommandInput - {@link GetManagedResourceCommandInput}
+ * @returns {@link GetManagedResourceCommandOutput}
  * @see {@link GetManagedResourceCommandInput} for command's `input` shape.
  * @see {@link GetManagedResourceCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.
@@ -86,6 +88,9 @@ export class GetManagedResourceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetManagedResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +119,8 @@ export class GetManagedResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetManagedResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetManagedResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +130,18 @@ export class GetManagedResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetManagedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetManagedResourceCommand(input, context);
+    return se_GetManagedResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetManagedResourceCommandOutput> {
-    return deserializeAws_restJson1GetManagedResourceCommand(output, context);
+    return de_GetManagedResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

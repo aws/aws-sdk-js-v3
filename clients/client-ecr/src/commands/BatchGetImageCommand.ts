@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  BatchGetImageRequest,
-  BatchGetImageRequestFilterSensitiveLog,
-  BatchGetImageResponse,
-  BatchGetImageResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetImageCommand,
-  serializeAws_json1_1BatchGetImageCommand,
-} from "../protocols/Aws_json1_1";
+import { BatchGetImageRequest, BatchGetImageResponse } from "../models/models_0";
+import { de_BatchGetImageCommand, se_BatchGetImageCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link BatchGetImageCommand}.
  */
 export interface BatchGetImageCommandInput extends BatchGetImageRequest {}
 /**
+ * @public
+ *
  * The output of {@link BatchGetImageCommand}.
  */
 export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets detailed information for an image. Images are specified with either an
  *                 <code>imageTag</code> or <code>imageDigest</code>.</p>
  *         <p>When an image is pulled, the BatchGetImage API is called once to retrieve the image
@@ -45,10 +42,25 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * import { ECRClient, BatchGetImageCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, BatchGetImageCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // BatchGetImageRequest
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageIds: [ // ImageIdentifierList // required
+ *     { // ImageIdentifier
+ *       imageDigest: "STRING_VALUE",
+ *       imageTag: "STRING_VALUE",
+ *     },
+ *   ],
+ *   acceptedMediaTypes: [ // MediaTypeList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetImageCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param BatchGetImageCommandInput - {@link BatchGetImageCommandInput}
+ * @returns {@link BatchGetImageCommandOutput}
  * @see {@link BatchGetImageCommandInput} for command's `input` shape.
  * @see {@link BatchGetImageCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -115,6 +127,9 @@ export class BatchGetImageCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: BatchGetImageCommandInput) {
     // Start section: command_constructor
     super();
@@ -141,8 +156,8 @@ export class BatchGetImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -152,12 +167,18 @@ export class BatchGetImageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchGetImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetImageCommand(input, context);
+    return se_BatchGetImageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetImageCommandOutput> {
-    return deserializeAws_json1_1BatchGetImageCommand(output, context);
+    return de_BatchGetImageCommand(output, context);
   }
 
   // Start section: command_body_extra

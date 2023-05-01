@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeInstanceInformationRequest,
-  DescribeInstanceInformationRequestFilterSensitiveLog,
-  DescribeInstanceInformationResult,
-  DescribeInstanceInformationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInstanceInformationCommand,
-  serializeAws_json1_1DescribeInstanceInformationCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeInstanceInformationRequest, DescribeInstanceInformationResult } from "../models/models_0";
+import { de_DescribeInstanceInformationCommand, se_DescribeInstanceInformationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeInstanceInformationCommand}.
  */
 export interface DescribeInstanceInformationCommandInput extends DescribeInstanceInformationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeInstanceInformationCommand}.
  */
 export interface DescribeInstanceInformationCommandOutput extends DescribeInstanceInformationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes one or more of your managed nodes, including information about the operating
  *    system platform, the version of SSM Agent installed on the managed node, node status, and so
  *    on.</p>
@@ -52,10 +49,32 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * import { SSMClient, DescribeInstanceInformationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstanceInformationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeInstanceInformationRequest
+ *   InstanceInformationFilterList: [ // InstanceInformationFilterList
+ *     { // InstanceInformationFilter
+ *       key: "InstanceIds" || "AgentVersion" || "PingStatus" || "PlatformTypes" || "ActivationIds" || "IamRole" || "ResourceType" || "AssociationStatus", // required
+ *       valueSet: [ // InstanceInformationFilterValueSet // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Filters: [ // InstanceInformationStringFilterList
+ *     { // InstanceInformationStringFilter
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeInstanceInformationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeInstanceInformationCommandInput - {@link DescribeInstanceInformationCommandInput}
+ * @returns {@link DescribeInstanceInformationCommandOutput}
  * @see {@link DescribeInstanceInformationCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceInformationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -111,6 +130,9 @@ export class DescribeInstanceInformationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceInformationCommandInput) {
     // Start section: command_constructor
     super();
@@ -139,8 +161,8 @@ export class DescribeInstanceInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceInformationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceInformationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -150,15 +172,21 @@ export class DescribeInstanceInformationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstanceInformationCommand(input, context);
+    return se_DescribeInstanceInformationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceInformationCommandOutput> {
-    return deserializeAws_json1_1DescribeInstanceInformationCommand(output, context);
+    return de_DescribeInstanceInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

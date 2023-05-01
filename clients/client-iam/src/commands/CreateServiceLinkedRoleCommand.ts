@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  CreateServiceLinkedRoleRequest,
-  CreateServiceLinkedRoleRequestFilterSensitiveLog,
-  CreateServiceLinkedRoleResponse,
-  CreateServiceLinkedRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryCreateServiceLinkedRoleCommand,
-  serializeAws_queryCreateServiceLinkedRoleCommand,
-} from "../protocols/Aws_query";
+import { CreateServiceLinkedRoleRequest, CreateServiceLinkedRoleResponse } from "../models/models_0";
+import { de_CreateServiceLinkedRoleCommand, se_CreateServiceLinkedRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateServiceLinkedRoleCommand}.
  */
 export interface CreateServiceLinkedRoleCommandInput extends CreateServiceLinkedRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateServiceLinkedRoleCommand}.
  */
 export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinkedRoleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an IAM role that is linked to a specific Amazon Web Services service. The service controls
  *             the attached policies and when the role can be deleted. This helps ensure that the
  *             service is not broken by an unexpectedly changed or deleted role, which could put your
@@ -50,10 +47,17 @@ export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinke
  * import { IAMClient, CreateServiceLinkedRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateServiceLinkedRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // CreateServiceLinkedRoleRequest
+ *   AWSServiceName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   CustomSuffix: "STRING_VALUE",
+ * };
  * const command = new CreateServiceLinkedRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateServiceLinkedRoleCommandInput - {@link CreateServiceLinkedRoleCommandInput}
+ * @returns {@link CreateServiceLinkedRoleCommandOutput}
  * @see {@link CreateServiceLinkedRoleCommandInput} for command's `input` shape.
  * @see {@link CreateServiceLinkedRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -93,6 +97,9 @@ export class CreateServiceLinkedRoleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServiceLinkedRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +128,8 @@ export class CreateServiceLinkedRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateServiceLinkedRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateServiceLinkedRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +139,18 @@ export class CreateServiceLinkedRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServiceLinkedRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateServiceLinkedRoleCommand(input, context);
+    return se_CreateServiceLinkedRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceLinkedRoleCommandOutput> {
-    return deserializeAws_queryCreateServiceLinkedRoleCommand(output, context);
+    return de_CreateServiceLinkedRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateAccessKeyRequest, UpdateAccessKeyRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateAccessKeyCommand,
-  serializeAws_queryUpdateAccessKeyCommand,
-} from "../protocols/Aws_query";
+import { UpdateAccessKeyRequest } from "../models/models_1";
+import { de_UpdateAccessKeyCommand, se_UpdateAccessKeyCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccessKeyCommand}.
  */
 export interface UpdateAccessKeyCommandInput extends UpdateAccessKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccessKeyCommand}.
  */
 export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the status of the specified access key from Active to Inactive, or vice versa.
  *             This operation can be used to disable a user's key as part of a key rotation
  *             workflow.</p>
@@ -47,10 +49,17 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UpdateAccessKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateAccessKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UpdateAccessKeyRequest
+ *   UserName: "STRING_VALUE",
+ *   AccessKeyId: "STRING_VALUE", // required
+ *   Status: "Active" || "Inactive", // required
+ * };
  * const command = new UpdateAccessKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccessKeyCommandInput - {@link UpdateAccessKeyCommandInput}
+ * @returns {@link UpdateAccessKeyCommandOutput}
  * @see {@link UpdateAccessKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -99,6 +108,9 @@ export class UpdateAccessKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccessKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -127,8 +139,8 @@ export class UpdateAccessKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccessKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -138,12 +150,18 @@ export class UpdateAccessKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateAccessKeyCommand(input, context);
+    return se_UpdateAccessKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccessKeyCommandOutput> {
-    return deserializeAws_queryUpdateAccessKeyCommand(output, context);
+    return de_UpdateAccessKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

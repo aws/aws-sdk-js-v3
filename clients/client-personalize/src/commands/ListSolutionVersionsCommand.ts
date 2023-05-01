@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSolutionVersionsRequest,
-  ListSolutionVersionsRequestFilterSensitiveLog,
-  ListSolutionVersionsResponse,
-  ListSolutionVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSolutionVersionsRequest, ListSolutionVersionsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListSolutionVersionsCommand,
-  serializeAws_json1_1ListSolutionVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSolutionVersionsCommand, se_ListSolutionVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListSolutionVersionsCommand}.
  */
 export interface ListSolutionVersionsCommandInput extends ListSolutionVersionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListSolutionVersionsCommand}.
  */
 export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of solution versions for the given solution. When a solution is not
  *       specified, all the solution versions associated with the account are listed. The response
  *       provides the properties for each solution version, including the Amazon Resource Name (ARN).</p>
@@ -44,10 +41,17 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * import { PersonalizeClient, ListSolutionVersionsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListSolutionVersionsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListSolutionVersionsRequest
+ *   solutionArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSolutionVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListSolutionVersionsCommandInput - {@link ListSolutionVersionsCommandInput}
+ * @returns {@link ListSolutionVersionsCommandOutput}
  * @see {@link ListSolutionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListSolutionVersionsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -80,6 +84,9 @@ export class ListSolutionVersionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListSolutionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class ListSolutionVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSolutionVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSolutionVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class ListSolutionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSolutionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSolutionVersionsCommand(input, context);
+    return se_ListSolutionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolutionVersionsCommandOutput> {
-    return deserializeAws_json1_1ListSolutionVersionsCommand(output, context);
+    return de_ListSolutionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

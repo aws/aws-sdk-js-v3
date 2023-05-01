@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListStreamsRequest,
-  ListStreamsRequestFilterSensitiveLog,
-  ListStreamsResponse,
-  ListStreamsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1ListStreamsCommand,
-  serializeAws_restJson1ListStreamsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListStreamsRequest, ListStreamsResponse } from "../models/models_2";
+import { de_ListStreamsCommand, se_ListStreamsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListStreamsCommand}.
  */
 export interface ListStreamsCommandInput extends ListStreamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListStreamsCommand}.
  */
 export interface ListStreamsCommandOutput extends ListStreamsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the streams in your Amazon Web Services account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListStreams</a> action.</p>
  * @example
@@ -43,10 +40,17 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * import { IoTClient, ListStreamsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListStreamsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListStreamsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   ascendingOrder: true || false,
+ * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
+ * @returns {@link ListStreamsCommandOutput}
  * @see {@link ListStreamsCommandInput} for command's `input` shape.
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListStreamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +118,8 @@ export class ListStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +129,18 @@ export class ListStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStreamsCommand(input, context);
+    return se_ListStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamsCommandOutput> {
-    return deserializeAws_restJson1ListStreamsCommand(output, context);
+    return de_ListStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

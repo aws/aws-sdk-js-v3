@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../EC2InstanceConnectClient";
-import {
-  SendSSHPublicKeyRequest,
-  SendSSHPublicKeyRequestFilterSensitiveLog,
-  SendSSHPublicKeyResponse,
-  SendSSHPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1SendSSHPublicKeyCommand,
-  serializeAws_json1_1SendSSHPublicKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { SendSSHPublicKeyRequest, SendSSHPublicKeyResponse } from "../models/models_0";
+import { de_SendSSHPublicKeyCommand, se_SendSSHPublicKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link SendSSHPublicKeyCommand}.
  */
 export interface SendSSHPublicKeyCommandInput extends SendSSHPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link SendSSHPublicKeyCommand}.
  */
 export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Pushes an SSH public key to the specified EC2 instance for use by the specified user.
  *             The key remains for 60 seconds. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html">Connect to
  *                 your Linux instance using EC2 Instance Connect</a> in the <i>Amazon EC2
@@ -49,10 +46,18 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  * import { EC2InstanceConnectClient, SendSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect"; // ES Modules import
  * // const { EC2InstanceConnectClient, SendSSHPublicKeyCommand } = require("@aws-sdk/client-ec2-instance-connect"); // CommonJS import
  * const client = new EC2InstanceConnectClient(config);
+ * const input = { // SendSSHPublicKeyRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   InstanceOSUser: "STRING_VALUE", // required
+ *   SSHPublicKey: "STRING_VALUE", // required
+ *   AvailabilityZone: "STRING_VALUE",
+ * };
  * const command = new SendSSHPublicKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param SendSSHPublicKeyCommandInput - {@link SendSSHPublicKeyCommandInput}
+ * @returns {@link SendSSHPublicKeyCommandOutput}
  * @see {@link SendSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link SendSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link EC2InstanceConnectClientResolvedConfig | config} for EC2InstanceConnectClient's `config` shape.
@@ -120,6 +125,9 @@ export class SendSSHPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: SendSSHPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -148,8 +156,8 @@ export class SendSSHPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendSSHPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendSSHPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -159,12 +167,18 @@ export class SendSSHPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendSSHPublicKeyCommand(input, context);
+    return se_SendSSHPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendSSHPublicKeyCommandOutput> {
-    return deserializeAws_json1_1SendSSHPublicKeyCommand(output, context);
+    return de_SendSSHPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

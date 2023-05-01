@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSmsTemplateRequest,
-  DeleteSmsTemplateRequestFilterSensitiveLog,
-  DeleteSmsTemplateResponse,
-  DeleteSmsTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSmsTemplateRequest, DeleteSmsTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteSmsTemplateCommand,
-  serializeAws_restJson1DeleteSmsTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSmsTemplateCommand, se_DeleteSmsTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteSmsTemplateCommand}.
  */
 export interface DeleteSmsTemplateCommandInput extends DeleteSmsTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteSmsTemplateCommand}.
  */
 export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a message template for messages that were sent through the SMS channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateRespons
  * import { PinpointClient, DeleteSmsTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteSmsTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // DeleteSmsTemplateRequest
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new DeleteSmsTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteSmsTemplateCommandInput - {@link DeleteSmsTemplateCommandInput}
+ * @returns {@link DeleteSmsTemplateCommandOutput}
  * @see {@link DeleteSmsTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteSmsTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
@@ -90,6 +93,9 @@ export class DeleteSmsTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteSmsTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +124,8 @@ export class DeleteSmsTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSmsTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSmsTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +135,18 @@ export class DeleteSmsTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteSmsTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSmsTemplateCommand(input, context);
+    return se_DeleteSmsTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSmsTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteSmsTemplateCommand(output, context);
+    return de_DeleteSmsTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

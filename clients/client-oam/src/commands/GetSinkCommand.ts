@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSinkInput,
-  GetSinkInputFilterSensitiveLog,
-  GetSinkOutput,
-  GetSinkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSinkInput, GetSinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1GetSinkCommand,
-  serializeAws_restJson1GetSinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSinkCommand, se_GetSinkCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetSinkCommand}.
  */
 export interface GetSinkCommandInput extends GetSinkInput {}
 /**
+ * @public
+ *
  * The output of {@link GetSinkCommand}.
  */
 export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns complete information about one monitoring account sink.</p>
  *         <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p>
  * @example
@@ -43,10 +40,15 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  * import { OAMClient, GetSinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, GetSinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = { // GetSinkInput
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetSinkCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetSinkCommandInput - {@link GetSinkCommandInput}
+ * @returns {@link GetSinkCommandOutput}
  * @see {@link GetSinkCommandInput} for command's `input` shape.
  * @see {@link GetSinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
@@ -78,6 +80,9 @@ export class GetSinkCommand extends $Command<GetSinkCommandInput, GetSinkCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetSinkCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class GetSinkCommand extends $Command<GetSinkCommandInput, GetSinkCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSinkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSinkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class GetSinkCommand extends $Command<GetSinkCommandInput, GetSinkCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSinkCommand(input, context);
+    return se_GetSinkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSinkCommandOutput> {
-    return deserializeAws_restJson1GetSinkCommand(output, context);
+    return de_GetSinkCommand(output, context);
   }
 
   // Start section: command_body_extra

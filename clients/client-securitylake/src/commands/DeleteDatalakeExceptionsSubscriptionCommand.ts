@@ -15,21 +15,23 @@ import {
 
 import {
   DeleteDatalakeExceptionsSubscriptionRequest,
-  DeleteDatalakeExceptionsSubscriptionRequestFilterSensitiveLog,
   DeleteDatalakeExceptionsSubscriptionResponse,
-  DeleteDatalakeExceptionsSubscriptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand,
-  serializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand,
+  de_DeleteDatalakeExceptionsSubscriptionCommand,
+  se_DeleteDatalakeExceptionsSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteDatalakeExceptionsSubscriptionCommand}.
  */
 export interface DeleteDatalakeExceptionsSubscriptionCommandInput extends DeleteDatalakeExceptionsSubscriptionRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteDatalakeExceptionsSubscriptionCommand}.
  */
 export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
@@ -37,6 +39,7 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
  *          you specify.</p>
  * @example
@@ -45,10 +48,13 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
  * import { SecurityLakeClient, DeleteDatalakeExceptionsSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteDatalakeExceptionsSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {};
  * const command = new DeleteDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteDatalakeExceptionsSubscriptionCommandInput - {@link DeleteDatalakeExceptionsSubscriptionCommandInput}
+ * @returns {@link DeleteDatalakeExceptionsSubscriptionCommandOutput}
  * @see {@link DeleteDatalakeExceptionsSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteDatalakeExceptionsSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
@@ -90,6 +96,9 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDatalakeExceptionsSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +127,8 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatalakeExceptionsSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDatalakeExceptionsSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,18 +138,24 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteDatalakeExceptionsSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand(input, context);
+    return se_DeleteDatalakeExceptionsSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDatalakeExceptionsSubscriptionCommandOutput> {
-    return deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand(output, context);
+    return de_DeleteDatalakeExceptionsSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

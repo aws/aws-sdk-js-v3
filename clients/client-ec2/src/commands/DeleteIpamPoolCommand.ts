@@ -14,24 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteIpamPoolRequest,
-  DeleteIpamPoolRequestFilterSensitiveLog,
-  DeleteIpamPoolResult,
-  DeleteIpamPoolResultFilterSensitiveLog,
-} from "../models/models_2";
-import { deserializeAws_ec2DeleteIpamPoolCommand, serializeAws_ec2DeleteIpamPoolCommand } from "../protocols/Aws_ec2";
+import { DeleteIpamPoolRequest, DeleteIpamPoolResult } from "../models/models_2";
+import { de_DeleteIpamPoolCommand, se_DeleteIpamPoolCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteIpamPoolCommand}.
  */
 export interface DeleteIpamPoolCommandInput extends DeleteIpamPoolRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteIpamPoolCommand}.
  */
 export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an IPAM pool.</p>
  *          <note>
  *             <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release
@@ -46,10 +46,16 @@ export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __Met
  * import { EC2Client, DeleteIpamPoolCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteIpamPoolCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteIpamPoolRequest
+ *   DryRun: true || false,
+ *   IpamPoolId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIpamPoolCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteIpamPoolCommandInput - {@link DeleteIpamPoolCommandInput}
+ * @returns {@link DeleteIpamPoolCommandOutput}
  * @see {@link DeleteIpamPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +79,9 @@ export class DeleteIpamPoolCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIpamPoolCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +110,8 @@ export class DeleteIpamPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIpamPoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIpamPoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +121,18 @@ export class DeleteIpamPoolCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIpamPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteIpamPoolCommand(input, context);
+    return se_DeleteIpamPoolCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIpamPoolCommandOutput> {
-    return deserializeAws_ec2DeleteIpamPoolCommand(output, context);
+    return de_DeleteIpamPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

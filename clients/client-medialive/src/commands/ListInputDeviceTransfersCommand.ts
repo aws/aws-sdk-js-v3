@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  ListInputDeviceTransfersRequest,
-  ListInputDeviceTransfersRequestFilterSensitiveLog,
-  ListInputDeviceTransfersResponse,
-  ListInputDeviceTransfersResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListInputDeviceTransfersCommand,
-  serializeAws_restJson1ListInputDeviceTransfersCommand,
-} from "../protocols/Aws_restJson1";
+import { ListInputDeviceTransfersRequest, ListInputDeviceTransfersResponse } from "../models/models_1";
+import { de_ListInputDeviceTransfersCommand, se_ListInputDeviceTransfersCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInputDeviceTransfersCommand}.
  */
 export interface ListInputDeviceTransfersCommandInput extends ListInputDeviceTransfersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInputDeviceTransfersCommand}.
  */
 export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTransfersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * List input devices that are currently being transferred. List input devices that you are transferring from your AWS account or input devices that another AWS account is transferring to you.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTr
  * import { MediaLiveClient, ListInputDeviceTransfersCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListInputDeviceTransfersCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // ListInputDeviceTransfersRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   TransferType: "STRING_VALUE", // required
+ * };
  * const command = new ListInputDeviceTransfersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInputDeviceTransfersCommandInput - {@link ListInputDeviceTransfersCommandInput}
+ * @returns {@link ListInputDeviceTransfersCommandOutput}
  * @see {@link ListInputDeviceTransfersCommandInput} for command's `input` shape.
  * @see {@link ListInputDeviceTransfersCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -90,6 +94,9 @@ export class ListInputDeviceTransfersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInputDeviceTransfersCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +125,8 @@ export class ListInputDeviceTransfersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInputDeviceTransfersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInputDeviceTransfersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +136,18 @@ export class ListInputDeviceTransfersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInputDeviceTransfersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInputDeviceTransfersCommand(input, context);
+    return se_ListInputDeviceTransfersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputDeviceTransfersCommandOutput> {
-    return deserializeAws_restJson1ListInputDeviceTransfersCommand(output, context);
+    return de_ListInputDeviceTransfersCommand(output, context);
   }
 
   // Start section: command_body_extra

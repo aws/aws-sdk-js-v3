@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  CreateCommitInput,
-  CreateCommitInputFilterSensitiveLog,
-  CreateCommitOutput,
-  CreateCommitOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCommitCommand,
-  serializeAws_json1_1CreateCommitCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateCommitInput, CreateCommitOutput } from "../models/models_0";
+import { de_CreateCommitCommand, se_CreateCommitCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateCommitCommand}.
  */
 export interface CreateCommitCommandInput extends CreateCommitInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateCommitCommand}.
  */
 export interface CreateCommitCommandOutput extends CreateCommitOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a commit for a repository on the tip of a specified branch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,43 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  * import { CodeCommitClient, CreateCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // CreateCommitInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ *   parentCommitId: "STRING_VALUE",
+ *   authorName: "STRING_VALUE",
+ *   email: "STRING_VALUE",
+ *   commitMessage: "STRING_VALUE",
+ *   keepEmptyFolders: true || false,
+ *   putFiles: [ // PutFileEntries
+ *     { // PutFileEntry
+ *       filePath: "STRING_VALUE", // required
+ *       fileMode: "STRING_VALUE",
+ *       fileContent: "BLOB_VALUE",
+ *       sourceFile: { // SourceFileSpecifier
+ *         filePath: "STRING_VALUE", // required
+ *         isMove: true || false,
+ *       },
+ *     },
+ *   ],
+ *   deleteFiles: [ // DeleteFileEntries
+ *     { // DeleteFileEntry
+ *       filePath: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   setFileModes: [ // SetFileModeEntries
+ *     { // SetFileModeEntry
+ *       filePath: "STRING_VALUE", // required
+ *       fileMode: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCommitCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateCommitCommandInput - {@link CreateCommitCommandInput}
+ * @returns {@link CreateCommitCommandOutput}
  * @see {@link CreateCommitCommandInput} for command's `input` shape.
  * @see {@link CreateCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -208,6 +238,9 @@ export class CreateCommitCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCommitCommandInput) {
     // Start section: command_constructor
     super();
@@ -234,8 +267,8 @@ export class CreateCommitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCommitInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCommitOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -245,12 +278,18 @@ export class CreateCommitCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCommitCommand(input, context);
+    return se_CreateCommitCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCommitCommandOutput> {
-    return deserializeAws_json1_1CreateCommitCommand(output, context);
+    return de_CreateCommitCommand(output, context);
   }
 
   // Start section: command_body_extra

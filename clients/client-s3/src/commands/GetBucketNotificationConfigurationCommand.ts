@@ -13,28 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetBucketNotificationConfigurationRequest, NotificationConfiguration } from "../models/models_0";
 import {
-  GetBucketNotificationConfigurationRequest,
-  GetBucketNotificationConfigurationRequestFilterSensitiveLog,
-  NotificationConfiguration,
-  NotificationConfigurationFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketNotificationConfigurationCommand,
-  serializeAws_restXmlGetBucketNotificationConfigurationCommand,
+  de_GetBucketNotificationConfigurationCommand,
+  se_GetBucketNotificationConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketNotificationConfigurationCommand}.
  */
 export interface GetBucketNotificationConfigurationCommandInput extends GetBucketNotificationConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketNotificationConfigurationCommand}.
  */
 export interface GetBucketNotificationConfigurationCommandOutput extends NotificationConfiguration, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the notification configuration of a bucket.</p>
  *          <p>If notifications are not enabled on the bucket, the action returns an empty
  *             <code>NotificationConfiguration</code> element.</p>
@@ -59,10 +59,16 @@ export interface GetBucketNotificationConfigurationCommandOutput extends Notific
  * import { S3Client, GetBucketNotificationConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketNotificationConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketNotificationConfigurationRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketNotificationConfigurationCommandInput - {@link GetBucketNotificationConfigurationCommandInput}
+ * @returns {@link GetBucketNotificationConfigurationCommandOutput}
  * @see {@link GetBucketNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -92,6 +98,9 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketNotificationConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +129,8 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketNotificationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: NotificationConfigurationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +140,24 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetBucketNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketNotificationConfigurationCommand(input, context);
+    return se_GetBucketNotificationConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketNotificationConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketNotificationConfigurationCommand(output, context);
+    return de_GetBucketNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -17,22 +17,24 @@ import {
   AbortDocumentVersionUploadRequest,
   AbortDocumentVersionUploadRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1AbortDocumentVersionUploadCommand,
-  serializeAws_restJson1AbortDocumentVersionUploadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AbortDocumentVersionUploadCommand, se_AbortDocumentVersionUploadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
+ * @public
+ *
  * The input for {@link AbortDocumentVersionUploadCommand}.
  */
 export interface AbortDocumentVersionUploadCommandInput extends AbortDocumentVersionUploadRequest {}
 /**
+ * @public
+ *
  * The output of {@link AbortDocumentVersionUploadCommand}.
  */
 export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Aborts the upload of the specified document version that was previously initiated
  *             by <a>InitiateDocumentVersionUpload</a>. The client should make this call
  *             only when it no longer intends to upload the document version, or fails to do
@@ -43,10 +45,17 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * import { WorkDocsClient, AbortDocumentVersionUploadCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, AbortDocumentVersionUploadCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // AbortDocumentVersionUploadRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   DocumentId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE", // required
+ * };
  * const command = new AbortDocumentVersionUploadCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AbortDocumentVersionUploadCommandInput - {@link AbortDocumentVersionUploadCommandInput}
+ * @returns {@link AbortDocumentVersionUploadCommandOutput}
  * @see {@link AbortDocumentVersionUploadCommandInput} for command's `input` shape.
  * @see {@link AbortDocumentVersionUploadCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
@@ -93,6 +102,9 @@ export class AbortDocumentVersionUploadCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AbortDocumentVersionUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,7 +134,7 @@ export class AbortDocumentVersionUploadCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AbortDocumentVersionUploadRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,15 +144,21 @@ export class AbortDocumentVersionUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AbortDocumentVersionUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AbortDocumentVersionUploadCommand(input, context);
+    return se_AbortDocumentVersionUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AbortDocumentVersionUploadCommandOutput> {
-    return deserializeAws_restJson1AbortDocumentVersionUploadCommand(output, context);
+    return de_AbortDocumentVersionUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  ListChannelsRequest,
-  ListChannelsRequestFilterSensitiveLog,
-  ListChannelsResponse,
-  ListChannelsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListChannelsCommand,
-  serializeAws_restJson1ListChannelsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListChannelsRequest, ListChannelsResponse } from "../models/models_1";
+import { de_ListChannelsCommand, se_ListChannelsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListChannelsCommand}.
  */
 export interface ListChannelsCommandInput extends ListChannelsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListChannelsCommand}.
  */
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Produces list of channels that have been created
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * import { MediaLiveClient, ListChannelsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListChannelsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = { // ListChannelsRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListChannelsCommandInput - {@link ListChannelsCommandInput}
+ * @returns {@link ListChannelsCommandOutput}
  * @see {@link ListChannelsCommandInput} for command's `input` shape.
  * @see {@link ListChannelsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
@@ -87,6 +90,9 @@ export class ListChannelsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +119,8 @@ export class ListChannelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChannelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListChannelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +130,18 @@ export class ListChannelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelsCommand(input, context);
+    return se_ListChannelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelsCommandOutput> {
-    return deserializeAws_restJson1ListChannelsCommand(output, context);
+    return de_ListChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

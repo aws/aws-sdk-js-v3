@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { PIServiceException as __BaseException } from "./PIServiceException";
 
 /**
+ * @public
  * <p>A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.</p>
  */
 export interface DataPoint {
@@ -19,6 +20,7 @@ export interface DataPoint {
 }
 
 /**
+ * @public
  * <p>A logical grouping of Performance Insights metrics for a related subject area. For example, the
  *         <code>db.sql</code> dimension group consists of the following dimensions:</p>
  *          <ul>
@@ -290,11 +292,23 @@ export interface DimensionGroup {
   Limit?: number;
 }
 
-export enum ServiceType {
-  DOCDB = "DOCDB",
-  RDS = "RDS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceType = {
+  DOCDB: "DOCDB",
+  RDS: "RDS",
+} as const;
 
+/**
+ * @public
+ */
+export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
+
+/**
+ * @public
+ */
 export interface DescribeDimensionKeysRequest {
   /**
    * <p>The Amazon Web Services service for which Performance Insights will return metrics. Valid values are as follows:</p>
@@ -405,7 +419,7 @@ export interface DescribeDimensionKeysRequest {
   /**
    * <p>Additional metrics for the top <code>N</code> dimension keys. If the specified dimension group in the <code>GroupBy</code> parameter is
    *                 <code>db.sql_tokenized</code>, you can specify per-SQL metrics to get the values for the top <code>N</code> SQL digests. The response
-   *             syntax is as follows: <code>"AdditionalMetrics" : { "<i>string</i>" : "<i>string</i>" }</code>. </p>
+   *             syntax is as follows: <code>"AdditionalMetrics" : \{ "<i>string</i>" : "<i>string</i>" \}</code>. </p>
    */
   AdditionalMetrics?: string[];
 
@@ -444,6 +458,7 @@ export interface DescribeDimensionKeysRequest {
 }
 
 /**
+ * @public
  * <p>An object that includes the requested dimension key values and aggregated metric values
  *           within a dimension group.</p>
  */
@@ -470,6 +485,7 @@ export interface DimensionKeyDescription {
 }
 
 /**
+ * @public
  * <p>If <code>PartitionBy</code> was specified in a <code>DescribeDimensionKeys</code>
  *       request, the dimensions are returned in an array. Each element in the array specifies one
  *       dimension. </p>
@@ -481,6 +497,9 @@ export interface ResponsePartitionKey {
   Dimensions: Record<string, string> | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeDimensionKeysResponse {
   /**
    * <p>The start time for the returned dimension keys, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).
@@ -513,6 +532,7 @@ export interface DescribeDimensionKeysResponse {
 }
 
 /**
+ * @public
  * <p>The request failed due to an unknown error.</p>
  */
 export class InternalServiceError extends __BaseException {
@@ -534,6 +554,7 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
+ * @public
  * <p>One of the arguments provided is invalid for this request.</p>
  */
 export class InvalidArgumentException extends __BaseException {
@@ -555,6 +576,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
+ * @public
  * <p>The user is not authorized to perform this request.</p>
  */
 export class NotAuthorizedException extends __BaseException {
@@ -575,13 +597,23 @@ export class NotAuthorizedException extends __BaseException {
   }
 }
 
-export enum DetailStatus {
-  AVAILABLE = "AVAILABLE",
-  PROCESSING = "PROCESSING",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DetailStatus = {
+  AVAILABLE: "AVAILABLE",
+  PROCESSING: "PROCESSING",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
 
 /**
+ * @public
+ */
+export type DetailStatus = (typeof DetailStatus)[keyof typeof DetailStatus];
+
+/**
+ * @public
  * <p>The information about a dimension.</p>
  */
 export interface DimensionDetail {
@@ -592,6 +624,7 @@ export interface DimensionDetail {
 }
 
 /**
+ * @public
  * <p>Information about dimensions within a dimension group.</p>
  */
 export interface DimensionGroupDetail {
@@ -607,6 +640,7 @@ export interface DimensionGroupDetail {
 }
 
 /**
+ * @public
  * <p>An object that describes the details for a specified dimension.</p>
  */
 export interface DimensionKeyDetail {
@@ -662,16 +696,26 @@ export interface DimensionKeyDetail {
   Status?: DetailStatus | string;
 }
 
-export enum FeatureStatus {
-  DISABLED = "DISABLED",
-  DISABLED_PENDING_REBOOT = "DISABLED_PENDING_REBOOT",
-  ENABLED = "ENABLED",
-  ENABLED_PENDING_REBOOT = "ENABLED_PENDING_REBOOT",
-  UNKNOWN = "UNKNOWN",
-  UNSUPPORTED = "UNSUPPORTED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const FeatureStatus = {
+  DISABLED: "DISABLED",
+  DISABLED_PENDING_REBOOT: "DISABLED_PENDING_REBOOT",
+  ENABLED: "ENABLED",
+  ENABLED_PENDING_REBOOT: "ENABLED_PENDING_REBOOT",
+  UNKNOWN: "UNKNOWN",
+  UNSUPPORTED: "UNSUPPORTED",
+} as const;
 
 /**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
+
+/**
+ * @public
  * <p>The metadata for a feature. For example, the metadata might indicate that a feature is
  *           turned on or off on a specific DB instance.</p>
  */
@@ -708,6 +752,9 @@ export interface FeatureMetadata {
   Status?: FeatureStatus | string;
 }
 
+/**
+ * @public
+ */
 export interface GetDimensionKeyDetailsRequest {
   /**
    * <p>The Amazon Web Services service for which Performance Insights returns data. The only valid value is <code>RDS</code>.</p>
@@ -773,6 +820,9 @@ export interface GetDimensionKeyDetailsRequest {
   RequestedDimensions?: string[];
 }
 
+/**
+ * @public
+ */
 export interface GetDimensionKeyDetailsResponse {
   /**
    * <p>The details for the requested dimensions.</p>
@@ -780,6 +830,9 @@ export interface GetDimensionKeyDetailsResponse {
   Dimensions?: DimensionKeyDetail[];
 }
 
+/**
+ * @public
+ */
 export interface GetResourceMetadataRequest {
   /**
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
@@ -795,6 +848,9 @@ export interface GetResourceMetadataRequest {
   Identifier: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface GetResourceMetadataResponse {
   /**
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region.
@@ -813,6 +869,7 @@ export interface GetResourceMetadataResponse {
 }
 
 /**
+ * @public
  * <p>A single query to be processed. You must provide the metric to query. If no other
  *       parameters are specified, Performance Insights returns all data points for the specified metric. Optionally, you can
  *       request that the data points be aggregated by dimension group (<code>GroupBy</code>), and return only
@@ -866,11 +923,23 @@ export interface MetricQuery {
   Filter?: Record<string, string>;
 }
 
-export enum PeriodAlignment {
-  END_TIME = "END_TIME",
-  START_TIME = "START_TIME",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PeriodAlignment = {
+  END_TIME: "END_TIME",
+  START_TIME: "START_TIME",
+} as const;
 
+/**
+ * @public
+ */
+export type PeriodAlignment = (typeof PeriodAlignment)[keyof typeof PeriodAlignment];
+
+/**
+ * @public
+ */
 export interface GetResourceMetricsRequest {
   /**
    * <p>The Amazon Web Services service for which Performance Insights returns metrics. Valid values are as follows:</p>
@@ -971,6 +1040,7 @@ export interface GetResourceMetricsRequest {
 }
 
 /**
+ * @public
  * <p>An object describing a Performance Insights metric and one or more dimensions for that metric.</p>
  */
 export interface ResponseResourceMetricKey {
@@ -1007,6 +1077,7 @@ export interface ResponseResourceMetricKey {
 }
 
 /**
+ * @public
  * <p>A time-ordered series of data points, corresponding to a dimension of a Performance Insights
  *       metric.</p>
  */
@@ -1022,6 +1093,9 @@ export interface MetricKeyDataPoints {
   DataPoints?: DataPoint[];
 }
 
+/**
+ * @public
+ */
 export interface GetResourceMetricsResponse {
   /**
    * <p>The start time for the returned metrics, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).
@@ -1056,6 +1130,9 @@ export interface GetResourceMetricsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAvailableResourceDimensionsRequest {
   /**
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
@@ -1090,6 +1167,7 @@ export interface ListAvailableResourceDimensionsRequest {
 }
 
 /**
+ * @public
  * <p>The available dimension information for a metric type.</p>
  */
 export interface MetricDimensionGroups {
@@ -1104,6 +1182,9 @@ export interface MetricDimensionGroups {
   Groups?: DimensionGroupDetail[];
 }
 
+/**
+ * @public
+ */
 export interface ListAvailableResourceDimensionsResponse {
   /**
    * <p>The dimension information returned for requested metric types.</p>
@@ -1117,6 +1198,9 @@ export interface ListAvailableResourceDimensionsResponse {
   NextToken?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAvailableResourceMetricsRequest {
   /**
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
@@ -1168,6 +1252,7 @@ export interface ListAvailableResourceMetricsRequest {
 }
 
 /**
+ * @public
  * <p>An object that contains the full name, description, and unit of a metric.
  *       </p>
  */
@@ -1188,6 +1273,9 @@ export interface ResponseResourceMetric {
   Unit?: string;
 }
 
+/**
+ * @public
+ */
 export interface ListAvailableResourceMetricsResponse {
   /**
    * <p>An array of metrics available to query. Each array element contains the full name,
@@ -1202,186 +1290,3 @@ export interface ListAvailableResourceMetricsResponse {
    */
   NextToken?: string;
 }
-
-/**
- * @internal
- */
-export const DataPointFilterSensitiveLog = (obj: DataPoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionGroupFilterSensitiveLog = (obj: DimensionGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDimensionKeysRequestFilterSensitiveLog = (obj: DescribeDimensionKeysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionKeyDescriptionFilterSensitiveLog = (obj: DimensionKeyDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponsePartitionKeyFilterSensitiveLog = (obj: ResponsePartitionKey): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDimensionKeysResponseFilterSensitiveLog = (obj: DescribeDimensionKeysResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionDetailFilterSensitiveLog = (obj: DimensionDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionGroupDetailFilterSensitiveLog = (obj: DimensionGroupDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionKeyDetailFilterSensitiveLog = (obj: DimensionKeyDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FeatureMetadataFilterSensitiveLog = (obj: FeatureMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDimensionKeyDetailsRequestFilterSensitiveLog = (obj: GetDimensionKeyDetailsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDimensionKeyDetailsResponseFilterSensitiveLog = (obj: GetDimensionKeyDetailsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceMetadataRequestFilterSensitiveLog = (obj: GetResourceMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceMetadataResponseFilterSensitiveLog = (obj: GetResourceMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricQueryFilterSensitiveLog = (obj: MetricQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceMetricsRequestFilterSensitiveLog = (obj: GetResourceMetricsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponseResourceMetricKeyFilterSensitiveLog = (obj: ResponseResourceMetricKey): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricKeyDataPointsFilterSensitiveLog = (obj: MetricKeyDataPoints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourceMetricsResponseFilterSensitiveLog = (obj: GetResourceMetricsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAvailableResourceDimensionsRequestFilterSensitiveLog = (
-  obj: ListAvailableResourceDimensionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDimensionGroupsFilterSensitiveLog = (obj: MetricDimensionGroups): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAvailableResourceDimensionsResponseFilterSensitiveLog = (
-  obj: ListAvailableResourceDimensionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAvailableResourceMetricsRequestFilterSensitiveLog = (
-  obj: ListAvailableResourceMetricsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponseResourceMetricFilterSensitiveLog = (obj: ResponseResourceMetric): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAvailableResourceMetricsResponseFilterSensitiveLog = (
-  obj: ListAvailableResourceMetricsResponse
-): any => ({
-  ...obj,
-});

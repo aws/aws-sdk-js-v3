@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetInvitationsCountRequest,
-  GetInvitationsCountRequestFilterSensitiveLog,
-  GetInvitationsCountResponse,
-  GetInvitationsCountResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetInvitationsCountCommand,
-  serializeAws_restJson1GetInvitationsCountCommand,
-} from "../protocols/Aws_restJson1";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_0";
+import { de_GetInvitationsCountCommand, se_GetInvitationsCountCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetInvitationsCountCommand}.
  */
 export interface GetInvitationsCountCommandInput extends GetInvitationsCountRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetInvitationsCountCommand}.
  */
 export interface GetInvitationsCountCommandOutput extends GetInvitationsCountResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the count of Amazon Macie membership invitations that were received by an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,13 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * import { Macie2Client, GetInvitationsCountCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetInvitationsCountCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new GetInvitationsCountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetInvitationsCountCommandInput - {@link GetInvitationsCountCommandInput}
+ * @returns {@link GetInvitationsCountCommandOutput}
  * @see {@link GetInvitationsCountCommandInput} for command's `input` shape.
  * @see {@link GetInvitationsCountCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
@@ -90,6 +90,9 @@ export class GetInvitationsCountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetInvitationsCountCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,8 +121,8 @@ export class GetInvitationsCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInvitationsCountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInvitationsCountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,12 +132,18 @@ export class GetInvitationsCountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetInvitationsCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInvitationsCountCommand(input, context);
+    return se_GetInvitationsCountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInvitationsCountCommandOutput> {
-    return deserializeAws_restJson1GetInvitationsCountCommand(output, context);
+    return de_GetInvitationsCountCommand(output, context);
   }
 
   // Start section: command_body_extra

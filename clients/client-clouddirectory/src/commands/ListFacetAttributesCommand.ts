@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListFacetAttributesRequest,
-  ListFacetAttributesRequestFilterSensitiveLog,
-  ListFacetAttributesResponse,
-  ListFacetAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFacetAttributesCommand,
-  serializeAws_restJson1ListFacetAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListFacetAttributesRequest, ListFacetAttributesResponse } from "../models/models_0";
+import { de_ListFacetAttributesCommand, se_ListFacetAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListFacetAttributesCommand}.
  */
 export interface ListFacetAttributesCommandInput extends ListFacetAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListFacetAttributesCommand}.
  */
 export interface ListFacetAttributesCommandOutput extends ListFacetAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves attributes attached to the facet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
  * import { CloudDirectoryClient, ListFacetAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListFacetAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // ListFacetAttributesRequest
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFacetAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListFacetAttributesCommandInput - {@link ListFacetAttributesCommandInput}
+ * @returns {@link ListFacetAttributesCommandOutput}
  * @see {@link ListFacetAttributesCommandInput} for command's `input` shape.
  * @see {@link ListFacetAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -97,6 +102,9 @@ export class ListFacetAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListFacetAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +133,8 @@ export class ListFacetAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFacetAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFacetAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +144,18 @@ export class ListFacetAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListFacetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFacetAttributesCommand(input, context);
+    return se_ListFacetAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFacetAttributesCommandOutput> {
-    return deserializeAws_restJson1ListFacetAttributesCommand(output, context);
+    return de_ListFacetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

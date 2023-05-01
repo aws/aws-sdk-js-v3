@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListGroupsRequest,
-  ListGroupsRequestFilterSensitiveLog,
-  ListGroupsResponse,
-  ListGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGroupsCommand,
-  serializeAws_json1_1ListGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListGroupsRequest, ListGroupsResponse } from "../models/models_0";
+import { de_ListGroupsCommand, se_ListGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListGroupsCommand}.
  */
 export interface ListGroupsCommandInput extends ListGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListGroupsCommand}.
  */
 export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns summaries of the organization's groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,17 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * import { WorkMailClient, ListGroupsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListGroupsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListGroupsRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
+ * @returns {@link ListGroupsCommandOutput}
  * @see {@link ListGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +117,8 @@ export class ListGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +128,18 @@ export class ListGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGroupsCommand(input, context);
+    return se_ListGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupsCommandOutput> {
-    return deserializeAws_json1_1ListGroupsCommand(output, context);
+    return de_ListGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

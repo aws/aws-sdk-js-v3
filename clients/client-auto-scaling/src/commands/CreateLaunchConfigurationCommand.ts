@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { CreateLaunchConfigurationType, CreateLaunchConfigurationTypeFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryCreateLaunchConfigurationCommand,
-  serializeAws_queryCreateLaunchConfigurationCommand,
-} from "../protocols/Aws_query";
+import { CreateLaunchConfigurationType } from "../models/models_0";
+import { de_CreateLaunchConfigurationCommand, se_CreateLaunchConfigurationCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link CreateLaunchConfigurationCommand}.
  */
 export interface CreateLaunchConfigurationCommandInput extends CreateLaunchConfigurationType {}
 /**
+ * @public
+ *
  * The output of {@link CreateLaunchConfigurationCommand}.
  */
 export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a launch configuration.</p>
  *          <p>If you exceed your maximum limit of launch configurations, the call fails. To query
  *             this limit, call the <a>DescribeAccountLimits</a> API. For information about
@@ -49,10 +51,58 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * import { AutoScalingClient, CreateLaunchConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CreateLaunchConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // CreateLaunchConfigurationType
+ *   LaunchConfigurationName: "STRING_VALUE", // required
+ *   ImageId: "STRING_VALUE",
+ *   KeyName: "STRING_VALUE",
+ *   SecurityGroups: [ // SecurityGroups
+ *     "STRING_VALUE",
+ *   ],
+ *   ClassicLinkVPCId: "STRING_VALUE",
+ *   ClassicLinkVPCSecurityGroups: [ // ClassicLinkVPCSecurityGroups
+ *     "STRING_VALUE",
+ *   ],
+ *   UserData: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   InstanceType: "STRING_VALUE",
+ *   KernelId: "STRING_VALUE",
+ *   RamdiskId: "STRING_VALUE",
+ *   BlockDeviceMappings: [ // BlockDeviceMappings
+ *     { // BlockDeviceMapping
+ *       VirtualName: "STRING_VALUE",
+ *       DeviceName: "STRING_VALUE", // required
+ *       Ebs: { // Ebs
+ *         SnapshotId: "STRING_VALUE",
+ *         VolumeSize: Number("int"),
+ *         VolumeType: "STRING_VALUE",
+ *         DeleteOnTermination: true || false,
+ *         Iops: Number("int"),
+ *         Encrypted: true || false,
+ *         Throughput: Number("int"),
+ *       },
+ *       NoDevice: true || false,
+ *     },
+ *   ],
+ *   InstanceMonitoring: { // InstanceMonitoring
+ *     Enabled: true || false,
+ *   },
+ *   SpotPrice: "STRING_VALUE",
+ *   IamInstanceProfile: "STRING_VALUE",
+ *   EbsOptimized: true || false,
+ *   AssociatePublicIpAddress: true || false,
+ *   PlacementTenancy: "STRING_VALUE",
+ *   MetadataOptions: { // InstanceMetadataOptions
+ *     HttpTokens: "optional" || "required",
+ *     HttpPutResponseHopLimit: Number("int"),
+ *     HttpEndpoint: "disabled" || "enabled",
+ *   },
+ * };
  * const command = new CreateLaunchConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateLaunchConfigurationCommandInput - {@link CreateLaunchConfigurationCommandInput}
+ * @returns {@link CreateLaunchConfigurationCommandOutput}
  * @see {@link CreateLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
@@ -106,6 +156,9 @@ export class CreateLaunchConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +187,8 @@ export class CreateLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLaunchConfigurationTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,15 +198,21 @@ export class CreateLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateLaunchConfigurationCommand(input, context);
+    return se_CreateLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLaunchConfigurationCommandOutput> {
-    return deserializeAws_queryCreateLaunchConfigurationCommand(output, context);
+    return de_CreateLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

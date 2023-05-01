@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  DescribeRegistryRequest,
-  DescribeRegistryRequestFilterSensitiveLog,
-  DescribeRegistryResponse,
-  DescribeRegistryResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRegistryCommand,
-  serializeAws_json1_1DescribeRegistryCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeRegistryRequest, DescribeRegistryResponse } from "../models/models_0";
+import { de_DescribeRegistryCommand, se_DescribeRegistryCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeRegistryCommand}.
  */
 export interface DescribeRegistryCommandInput extends DescribeRegistryRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeRegistryCommand}.
  */
 export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the settings for a registry. The replication configuration for a repository
  *             can be created or updated with the <a>PutReplicationConfiguration</a> API
  *             action.</p>
@@ -44,10 +41,13 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * import { ECRClient, DescribeRegistryCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribeRegistryCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {};
  * const command = new DescribeRegistryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeRegistryCommandInput - {@link DescribeRegistryCommandInput}
+ * @returns {@link DescribeRegistryCommandOutput}
  * @see {@link DescribeRegistryCommandInput} for command's `input` shape.
  * @see {@link DescribeRegistryCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
@@ -81,6 +81,9 @@ export class DescribeRegistryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRegistryCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +112,8 @@ export class DescribeRegistryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRegistryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRegistryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +123,18 @@ export class DescribeRegistryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRegistryCommand(input, context);
+    return se_DescribeRegistryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegistryCommandOutput> {
-    return deserializeAws_json1_1DescribeRegistryCommand(output, context);
+    return de_DescribeRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

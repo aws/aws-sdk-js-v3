@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
@@ -11,7 +12,8 @@ import {
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -114,7 +116,6 @@ import { CodeBuildServiceException as __BaseException } from "../models/CodeBuil
 import {
   AccountLimitExceededException,
   BatchDeleteBuildsInput,
-  BatchDeleteBuildsOutput,
   BatchGetBuildBatchesInput,
   BatchGetBuildBatchesOutput,
   BatchGetBuildsInput,
@@ -127,12 +128,10 @@ import {
   BatchGetReportsOutput,
   BatchRestrictions,
   Build,
-  BuildArtifacts,
   BuildBatch,
   BuildBatchFilter,
   BuildBatchPhase,
   BuildGroup,
-  BuildNotDeleted,
   BuildPhase,
   BuildStatusConfig,
   BuildSummary,
@@ -146,72 +145,40 @@ import {
   CreateReportGroupOutput,
   CreateWebhookInput,
   CreateWebhookOutput,
-  DebugSession,
   DeleteBuildBatchInput,
-  DeleteBuildBatchOutput,
   DeleteProjectInput,
-  DeleteProjectOutput,
   DeleteReportGroupInput,
-  DeleteReportGroupOutput,
   DeleteReportInput,
-  DeleteReportOutput,
   DeleteResourcePolicyInput,
-  DeleteResourcePolicyOutput,
   DeleteSourceCredentialsInput,
-  DeleteSourceCredentialsOutput,
   DeleteWebhookInput,
-  DeleteWebhookOutput,
   DescribeCodeCoveragesInput,
   DescribeCodeCoveragesOutput,
   DescribeTestCasesInput,
   DescribeTestCasesOutput,
-  EnvironmentImage,
-  EnvironmentLanguage,
-  EnvironmentPlatform,
   EnvironmentVariable,
-  ExportedEnvironmentVariable,
   GetReportGroupTrendInput,
-  GetReportGroupTrendOutput,
   GetResourcePolicyInput,
-  GetResourcePolicyOutput,
   GitSubmodulesConfig,
   ImportSourceCredentialsInput,
-  ImportSourceCredentialsOutput,
   InvalidateProjectCacheInput,
-  InvalidateProjectCacheOutput,
   InvalidInputException,
   ListBuildBatchesForProjectInput,
-  ListBuildBatchesForProjectOutput,
   ListBuildBatchesInput,
-  ListBuildBatchesOutput,
   ListBuildsForProjectInput,
-  ListBuildsForProjectOutput,
   ListBuildsInput,
-  ListBuildsOutput,
   ListCuratedEnvironmentImagesInput,
-  ListCuratedEnvironmentImagesOutput,
   ListProjectsInput,
-  ListProjectsOutput,
   ListReportGroupsInput,
-  ListReportGroupsOutput,
   ListReportsForReportGroupInput,
-  ListReportsForReportGroupOutput,
   ListReportsInput,
-  ListReportsOutput,
   ListSharedProjectsInput,
-  ListSharedProjectsOutput,
   ListSharedReportGroupsInput,
-  ListSharedReportGroupsOutput,
   ListSourceCredentialsInput,
-  ListSourceCredentialsOutput,
   LogsConfig,
-  LogsLocation,
-  NetworkInterface,
   OAuthProviderException,
-  PhaseContext,
   Project,
   ProjectArtifacts,
-  ProjectBadge,
   ProjectBuildBatchConfig,
   ProjectCache,
   ProjectEnvironment,
@@ -219,15 +186,11 @@ import {
   ProjectSource,
   ProjectSourceVersion,
   PutResourcePolicyInput,
-  PutResourcePolicyOutput,
   RegistryCredential,
   Report,
   ReportExportConfig,
   ReportFilter,
   ReportGroup,
-  ReportGroupTrendStats,
-  ReportWithRawData,
-  ResolvedArtifact,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
   RetryBuildBatchInput,
@@ -237,7 +200,6 @@ import {
   S3LogsConfig,
   S3ReportExportConfig,
   SourceAuth,
-  SourceCredentialsInfo,
   StartBuildBatchInput,
   StartBuildBatchOutput,
   StartBuildInput,
@@ -249,11 +211,9 @@ import {
   Tag,
   TestCase,
   TestCaseFilter,
-  TestReportSummary,
   UpdateProjectInput,
   UpdateProjectOutput,
   UpdateProjectVisibilityInput,
-  UpdateProjectVisibilityOutput,
   UpdateReportGroupInput,
   UpdateReportGroupOutput,
   UpdateWebhookInput,
@@ -263,609 +223,615 @@ import {
   WebhookFilter,
 } from "../models/models_0";
 
-export const serializeAws_json1_1BatchDeleteBuildsCommand = async (
+/**
+ * serializeAws_json1_1BatchDeleteBuildsCommand
+ */
+export const se_BatchDeleteBuildsCommand = async (
   input: BatchDeleteBuildsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.BatchDeleteBuilds",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteBuilds");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchDeleteBuildsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetBuildBatchesCommand = async (
+/**
+ * serializeAws_json1_1BatchGetBuildBatchesCommand
+ */
+export const se_BatchGetBuildBatchesCommand = async (
   input: BatchGetBuildBatchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.BatchGetBuildBatches",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetBuildBatches");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetBuildBatchesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetBuildsCommand = async (
+/**
+ * serializeAws_json1_1BatchGetBuildsCommand
+ */
+export const se_BatchGetBuildsCommand = async (
   input: BatchGetBuildsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.BatchGetBuilds",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetBuilds");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetBuildsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetProjectsCommand = async (
+/**
+ * serializeAws_json1_1BatchGetProjectsCommand
+ */
+export const se_BatchGetProjectsCommand = async (
   input: BatchGetProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.BatchGetProjects",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetProjects");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetProjectsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetReportGroupsCommand = async (
+/**
+ * serializeAws_json1_1BatchGetReportGroupsCommand
+ */
+export const se_BatchGetReportGroupsCommand = async (
   input: BatchGetReportGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.BatchGetReportGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetReportGroups");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetReportGroupsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetReportsCommand = async (
+/**
+ * serializeAws_json1_1BatchGetReportsCommand
+ */
+export const se_BatchGetReportsCommand = async (
   input: BatchGetReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.BatchGetReports",
-  };
+  const headers: __HeaderBag = sharedHeaders("BatchGetReports");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetReportsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateProjectCommand = async (
+/**
+ * serializeAws_json1_1CreateProjectCommand
+ */
+export const se_CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.CreateProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateProjectInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateReportGroupCommand = async (
+/**
+ * serializeAws_json1_1CreateReportGroupCommand
+ */
+export const se_CreateReportGroupCommand = async (
   input: CreateReportGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.CreateReportGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateReportGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateReportGroupInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateWebhookCommand = async (
+/**
+ * serializeAws_json1_1CreateWebhookCommand
+ */
+export const se_CreateWebhookCommand = async (
   input: CreateWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.CreateWebhook",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateWebhook");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateWebhookInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteBuildBatchCommand = async (
+/**
+ * serializeAws_json1_1DeleteBuildBatchCommand
+ */
+export const se_DeleteBuildBatchCommand = async (
   input: DeleteBuildBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.DeleteBuildBatch",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteBuildBatch");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteBuildBatchInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteProjectCommand = async (
+/**
+ * serializeAws_json1_1DeleteProjectCommand
+ */
+export const se_DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.DeleteProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteProjectInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteReportCommand = async (
+/**
+ * serializeAws_json1_1DeleteReportCommand
+ */
+export const se_DeleteReportCommand = async (
   input: DeleteReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.DeleteReport",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteReport");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteReportInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteReportGroupCommand = async (
+/**
+ * serializeAws_json1_1DeleteReportGroupCommand
+ */
+export const se_DeleteReportGroupCommand = async (
   input: DeleteReportGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.DeleteReportGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteReportGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteReportGroupInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.DeleteResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteSourceCredentialsCommand = async (
+/**
+ * serializeAws_json1_1DeleteSourceCredentialsCommand
+ */
+export const se_DeleteSourceCredentialsCommand = async (
   input: DeleteSourceCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.DeleteSourceCredentials",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSourceCredentials");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteSourceCredentialsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteWebhookCommand = async (
+/**
+ * serializeAws_json1_1DeleteWebhookCommand
+ */
+export const se_DeleteWebhookCommand = async (
   input: DeleteWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.DeleteWebhook",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteWebhook");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteWebhookInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCodeCoveragesCommand = async (
+/**
+ * serializeAws_json1_1DescribeCodeCoveragesCommand
+ */
+export const se_DescribeCodeCoveragesCommand = async (
   input: DescribeCodeCoveragesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.DescribeCodeCoverages",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCodeCoverages");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCodeCoveragesInput(input, context));
+  body = JSON.stringify(se_DescribeCodeCoveragesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTestCasesCommand = async (
+/**
+ * serializeAws_json1_1DescribeTestCasesCommand
+ */
+export const se_DescribeTestCasesCommand = async (
   input: DescribeTestCasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.DescribeTestCases",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeTestCases");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTestCasesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetReportGroupTrendCommand = async (
+/**
+ * serializeAws_json1_1GetReportGroupTrendCommand
+ */
+export const se_GetReportGroupTrendCommand = async (
   input: GetReportGroupTrendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.GetReportGroupTrend",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetReportGroupTrend");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetReportGroupTrendInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.GetResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResourcePolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ImportSourceCredentialsCommand = async (
+/**
+ * serializeAws_json1_1ImportSourceCredentialsCommand
+ */
+export const se_ImportSourceCredentialsCommand = async (
   input: ImportSourceCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ImportSourceCredentials",
-  };
+  const headers: __HeaderBag = sharedHeaders("ImportSourceCredentials");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ImportSourceCredentialsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1InvalidateProjectCacheCommand = async (
+/**
+ * serializeAws_json1_1InvalidateProjectCacheCommand
+ */
+export const se_InvalidateProjectCacheCommand = async (
   input: InvalidateProjectCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.InvalidateProjectCache",
-  };
+  const headers: __HeaderBag = sharedHeaders("InvalidateProjectCache");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1InvalidateProjectCacheInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListBuildBatchesCommand = async (
+/**
+ * serializeAws_json1_1ListBuildBatchesCommand
+ */
+export const se_ListBuildBatchesCommand = async (
   input: ListBuildBatchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListBuildBatches",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBuildBatches");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListBuildBatchesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListBuildBatchesForProjectCommand = async (
+/**
+ * serializeAws_json1_1ListBuildBatchesForProjectCommand
+ */
+export const se_ListBuildBatchesForProjectCommand = async (
   input: ListBuildBatchesForProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListBuildBatchesForProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBuildBatchesForProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListBuildBatchesForProjectInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListBuildsCommand = async (
+/**
+ * serializeAws_json1_1ListBuildsCommand
+ */
+export const se_ListBuildsCommand = async (
   input: ListBuildsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListBuilds",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBuilds");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListBuildsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListBuildsForProjectCommand = async (
+/**
+ * serializeAws_json1_1ListBuildsForProjectCommand
+ */
+export const se_ListBuildsForProjectCommand = async (
   input: ListBuildsForProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListBuildsForProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBuildsForProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListBuildsForProjectInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListCuratedEnvironmentImagesCommand = async (
+/**
+ * serializeAws_json1_1ListCuratedEnvironmentImagesCommand
+ */
+export const se_ListCuratedEnvironmentImagesCommand = async (
   input: ListCuratedEnvironmentImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListCuratedEnvironmentImages",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCuratedEnvironmentImages");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListCuratedEnvironmentImagesInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListProjectsCommand = async (
+/**
+ * serializeAws_json1_1ListProjectsCommand
+ */
+export const se_ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListProjects",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListProjects");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListProjectsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListReportGroupsCommand = async (
+/**
+ * serializeAws_json1_1ListReportGroupsCommand
+ */
+export const se_ListReportGroupsCommand = async (
   input: ListReportGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListReportGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReportGroups");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListReportGroupsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListReportsCommand = async (
+/**
+ * serializeAws_json1_1ListReportsCommand
+ */
+export const se_ListReportsCommand = async (
   input: ListReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListReports",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReports");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListReportsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListReportsForReportGroupCommand = async (
+/**
+ * serializeAws_json1_1ListReportsForReportGroupCommand
+ */
+export const se_ListReportsForReportGroupCommand = async (
   input: ListReportsForReportGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListReportsForReportGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListReportsForReportGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListReportsForReportGroupInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSharedProjectsCommand = async (
+/**
+ * serializeAws_json1_1ListSharedProjectsCommand
+ */
+export const se_ListSharedProjectsCommand = async (
   input: ListSharedProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListSharedProjects",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSharedProjects");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSharedProjectsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSharedReportGroupsCommand = async (
+/**
+ * serializeAws_json1_1ListSharedReportGroupsCommand
+ */
+export const se_ListSharedReportGroupsCommand = async (
   input: ListSharedReportGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListSharedReportGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSharedReportGroups");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSharedReportGroupsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSourceCredentialsCommand = async (
+/**
+ * serializeAws_json1_1ListSourceCredentialsCommand
+ */
+export const se_ListSourceCredentialsCommand = async (
   input: ListSourceCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.ListSourceCredentials",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSourceCredentials");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSourceCredentialsInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.PutResourcePolicy",
-  };
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutResourcePolicyInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RetryBuildCommand = async (
+/**
+ * serializeAws_json1_1RetryBuildCommand
+ */
+export const se_RetryBuildCommand = async (
   input: RetryBuildCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.RetryBuild",
-  };
+  const headers: __HeaderBag = sharedHeaders("RetryBuild");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RetryBuildInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RetryBuildBatchCommand = async (
+/**
+ * serializeAws_json1_1RetryBuildBatchCommand
+ */
+export const se_RetryBuildBatchCommand = async (
   input: RetryBuildBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.RetryBuildBatch",
-  };
+  const headers: __HeaderBag = sharedHeaders("RetryBuildBatch");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RetryBuildBatchInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartBuildCommand = async (
+/**
+ * serializeAws_json1_1StartBuildCommand
+ */
+export const se_StartBuildCommand = async (
   input: StartBuildCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.StartBuild",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartBuild");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartBuildInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartBuildBatchCommand = async (
+/**
+ * serializeAws_json1_1StartBuildBatchCommand
+ */
+export const se_StartBuildBatchCommand = async (
   input: StartBuildBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.StartBuildBatch",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartBuildBatch");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartBuildBatchInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopBuildCommand = async (
+/**
+ * serializeAws_json1_1StopBuildCommand
+ */
+export const se_StopBuildCommand = async (
   input: StopBuildCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.StopBuild",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopBuild");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopBuildInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopBuildBatchCommand = async (
+/**
+ * serializeAws_json1_1StopBuildBatchCommand
+ */
+export const se_StopBuildBatchCommand = async (
   input: StopBuildBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.StopBuildBatch",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopBuildBatch");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopBuildBatchInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateProjectCommand = async (
+/**
+ * serializeAws_json1_1UpdateProjectCommand
+ */
+export const se_UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.UpdateProject",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateProject");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateProjectInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateProjectVisibilityCommand = async (
+/**
+ * serializeAws_json1_1UpdateProjectVisibilityCommand
+ */
+export const se_UpdateProjectVisibilityCommand = async (
   input: UpdateProjectVisibilityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.UpdateProjectVisibility",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateProjectVisibility");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateProjectVisibilityInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateReportGroupCommand = async (
+/**
+ * serializeAws_json1_1UpdateReportGroupCommand
+ */
+export const se_UpdateReportGroupCommand = async (
   input: UpdateReportGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.UpdateReportGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateReportGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateReportGroupInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateWebhookCommand = async (
+/**
+ * serializeAws_json1_1UpdateWebhookCommand
+ */
+export const se_UpdateWebhookCommand = async (
   input: UpdateWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "CodeBuild_20161006.UpdateWebhook",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateWebhook");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateWebhookInput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1BatchDeleteBuildsCommand = async (
+/**
+ * deserializeAws_json1_1BatchDeleteBuildsCommand
+ */
+export const de_BatchDeleteBuildsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteBuildsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchDeleteBuildsCommandError(output, context);
+    return de_BatchDeleteBuildsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeleteBuildsOutput(data, context);
+  contents = _json(data);
   const response: BatchDeleteBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchDeleteBuildsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchDeleteBuildsCommandError
+ */
+const de_BatchDeleteBuildsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteBuildsCommandOutput> => {
@@ -877,36 +843,41 @@ const deserializeAws_json1_1BatchDeleteBuildsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1BatchGetBuildBatchesCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetBuildBatchesCommand
+ */
+export const de_BatchGetBuildBatchesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetBuildBatchesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetBuildBatchesCommandError(output, context);
+    return de_BatchGetBuildBatchesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetBuildBatchesOutput(data, context);
+  contents = de_BatchGetBuildBatchesOutput(data, context);
   const response: BatchGetBuildBatchesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchGetBuildBatchesCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetBuildBatchesCommandError
+ */
+const de_BatchGetBuildBatchesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetBuildBatchesCommandOutput> => {
@@ -918,36 +889,41 @@ const deserializeAws_json1_1BatchGetBuildBatchesCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1BatchGetBuildsCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetBuildsCommand
+ */
+export const de_BatchGetBuildsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetBuildsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetBuildsCommandError(output, context);
+    return de_BatchGetBuildsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetBuildsOutput(data, context);
+  contents = de_BatchGetBuildsOutput(data, context);
   const response: BatchGetBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchGetBuildsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetBuildsCommandError
+ */
+const de_BatchGetBuildsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetBuildsCommandOutput> => {
@@ -959,36 +935,41 @@ const deserializeAws_json1_1BatchGetBuildsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1BatchGetProjectsCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetProjectsCommand
+ */
+export const de_BatchGetProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetProjectsCommandError(output, context);
+    return de_BatchGetProjectsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetProjectsOutput(data, context);
+  contents = de_BatchGetProjectsOutput(data, context);
   const response: BatchGetProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchGetProjectsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetProjectsCommandError
+ */
+const de_BatchGetProjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetProjectsCommandOutput> => {
@@ -1000,36 +981,41 @@ const deserializeAws_json1_1BatchGetProjectsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1BatchGetReportGroupsCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetReportGroupsCommand
+ */
+export const de_BatchGetReportGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetReportGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetReportGroupsCommandError(output, context);
+    return de_BatchGetReportGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetReportGroupsOutput(data, context);
+  contents = de_BatchGetReportGroupsOutput(data, context);
   const response: BatchGetReportGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchGetReportGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetReportGroupsCommandError
+ */
+const de_BatchGetReportGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetReportGroupsCommandOutput> => {
@@ -1041,36 +1027,41 @@ const deserializeAws_json1_1BatchGetReportGroupsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1BatchGetReportsCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetReportsCommand
+ */
+export const de_BatchGetReportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetReportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetReportsCommandError(output, context);
+    return de_BatchGetReportsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetReportsOutput(data, context);
+  contents = de_BatchGetReportsOutput(data, context);
   const response: BatchGetReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1BatchGetReportsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetReportsCommandError
+ */
+const de_BatchGetReportsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetReportsCommandOutput> => {
@@ -1082,36 +1073,41 @@ const deserializeAws_json1_1BatchGetReportsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateProjectCommand = async (
+/**
+ * deserializeAws_json1_1CreateProjectCommand
+ */
+export const de_CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateProjectCommandError(output, context);
+    return de_CreateProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProjectOutput(data, context);
+  contents = de_CreateProjectOutput(data, context);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateProjectCommandError = async (
+/**
+ * deserializeAws_json1_1CreateProjectCommandError
+ */
+const de_CreateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
@@ -1123,42 +1119,47 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
   switch (errorCode) {
     case "AccountLimitExceededException":
     case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await deserializeAws_json1_1AccountLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateReportGroupCommand = async (
+/**
+ * deserializeAws_json1_1CreateReportGroupCommand
+ */
+export const de_CreateReportGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReportGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateReportGroupCommandError(output, context);
+    return de_CreateReportGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateReportGroupOutput(data, context);
+  contents = de_CreateReportGroupOutput(data, context);
   const response: CreateReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateReportGroupCommandError = async (
+/**
+ * deserializeAws_json1_1CreateReportGroupCommandError
+ */
+const de_CreateReportGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReportGroupCommandOutput> => {
@@ -1170,42 +1171,47 @@ const deserializeAws_json1_1CreateReportGroupCommandError = async (
   switch (errorCode) {
     case "AccountLimitExceededException":
     case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await deserializeAws_json1_1AccountLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1CreateWebhookCommand = async (
+/**
+ * deserializeAws_json1_1CreateWebhookCommand
+ */
+export const de_CreateWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWebhookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateWebhookCommandError(output, context);
+    return de_CreateWebhookCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWebhookOutput(data, context);
+  contents = de_CreateWebhookOutput(data, context);
   const response: CreateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateWebhookCommandError = async (
+/**
+ * deserializeAws_json1_1CreateWebhookCommandError
+ */
+const de_CreateWebhookCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWebhookCommandOutput> => {
@@ -1217,45 +1223,50 @@ const deserializeAws_json1_1CreateWebhookCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "OAuthProviderException":
     case "com.amazonaws.codebuild#OAuthProviderException":
-      throw await deserializeAws_json1_1OAuthProviderExceptionResponse(parsedOutput, context);
+      throw await de_OAuthProviderExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteBuildBatchCommand = async (
+/**
+ * deserializeAws_json1_1DeleteBuildBatchCommand
+ */
+export const de_DeleteBuildBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBuildBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteBuildBatchCommandError(output, context);
+    return de_DeleteBuildBatchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBuildBatchOutput(data, context);
+  contents = _json(data);
   const response: DeleteBuildBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteBuildBatchCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteBuildBatchCommandError
+ */
+const de_DeleteBuildBatchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBuildBatchCommandOutput> => {
@@ -1267,36 +1278,41 @@ const deserializeAws_json1_1DeleteBuildBatchCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteProjectCommand = async (
+/**
+ * deserializeAws_json1_1DeleteProjectCommand
+ */
+export const de_DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteProjectCommandError(output, context);
+    return de_DeleteProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProjectOutput(data, context);
+  contents = _json(data);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteProjectCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteProjectCommandError
+ */
+const de_DeleteProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
@@ -1308,36 +1324,41 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteReportCommand = async (
+/**
+ * deserializeAws_json1_1DeleteReportCommand
+ */
+export const de_DeleteReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteReportCommandError(output, context);
+    return de_DeleteReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteReportOutput(data, context);
+  contents = _json(data);
   const response: DeleteReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteReportCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteReportCommandError
+ */
+const de_DeleteReportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReportCommandOutput> => {
@@ -1349,36 +1370,41 @@ const deserializeAws_json1_1DeleteReportCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteReportGroupCommand = async (
+/**
+ * deserializeAws_json1_1DeleteReportGroupCommand
+ */
+export const de_DeleteReportGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReportGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteReportGroupCommandError(output, context);
+    return de_DeleteReportGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteReportGroupOutput(data, context);
+  contents = _json(data);
   const response: DeleteReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteReportGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteReportGroupCommandError
+ */
+const de_DeleteReportGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReportGroupCommandOutput> => {
@@ -1390,36 +1416,41 @@ const deserializeAws_json1_1DeleteReportGroupCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
+    return de_DeleteResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteResourcePolicyOutput(data, context);
+  contents = _json(data);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommandError
+ */
+const de_DeleteResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
@@ -1431,36 +1462,41 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteSourceCredentialsCommand = async (
+/**
+ * deserializeAws_json1_1DeleteSourceCredentialsCommand
+ */
+export const de_DeleteSourceCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSourceCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteSourceCredentialsCommandError(output, context);
+    return de_DeleteSourceCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSourceCredentialsOutput(data, context);
+  contents = _json(data);
   const response: DeleteSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteSourceCredentialsCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteSourceCredentialsCommandError
+ */
+const de_DeleteSourceCredentialsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSourceCredentialsCommandOutput> => {
@@ -1472,39 +1508,44 @@ const deserializeAws_json1_1DeleteSourceCredentialsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DeleteWebhookCommand = async (
+/**
+ * deserializeAws_json1_1DeleteWebhookCommand
+ */
+export const de_DeleteWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWebhookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteWebhookCommandError(output, context);
+    return de_DeleteWebhookCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWebhookOutput(data, context);
+  contents = _json(data);
   const response: DeleteWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteWebhookCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteWebhookCommandError
+ */
+const de_DeleteWebhookCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWebhookCommandOutput> => {
@@ -1516,42 +1557,47 @@ const deserializeAws_json1_1DeleteWebhookCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "OAuthProviderException":
     case "com.amazonaws.codebuild#OAuthProviderException":
-      throw await deserializeAws_json1_1OAuthProviderExceptionResponse(parsedOutput, context);
+      throw await de_OAuthProviderExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeCodeCoveragesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCodeCoveragesCommand
+ */
+export const de_DescribeCodeCoveragesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCodeCoveragesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCodeCoveragesCommandError(output, context);
+    return de_DescribeCodeCoveragesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCodeCoveragesOutput(data, context);
+  contents = de_DescribeCodeCoveragesOutput(data, context);
   const response: DescribeCodeCoveragesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeCodeCoveragesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCodeCoveragesCommandError
+ */
+const de_DescribeCodeCoveragesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCodeCoveragesCommandOutput> => {
@@ -1563,36 +1609,41 @@ const deserializeAws_json1_1DescribeCodeCoveragesCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1DescribeTestCasesCommand = async (
+/**
+ * deserializeAws_json1_1DescribeTestCasesCommand
+ */
+export const de_DescribeTestCasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTestCasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTestCasesCommandError(output, context);
+    return de_DescribeTestCasesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTestCasesOutput(data, context);
+  contents = de_DescribeTestCasesOutput(data, context);
   const response: DescribeTestCasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeTestCasesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTestCasesCommandError
+ */
+const de_DescribeTestCasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTestCasesCommandOutput> => {
@@ -1604,39 +1655,44 @@ const deserializeAws_json1_1DescribeTestCasesCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetReportGroupTrendCommand = async (
+/**
+ * deserializeAws_json1_1GetReportGroupTrendCommand
+ */
+export const de_GetReportGroupTrendCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetReportGroupTrendCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetReportGroupTrendCommandError(output, context);
+    return de_GetReportGroupTrendCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetReportGroupTrendOutput(data, context);
+  contents = _json(data);
   const response: GetReportGroupTrendCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetReportGroupTrendCommandError = async (
+/**
+ * deserializeAws_json1_1GetReportGroupTrendCommandError
+ */
+const de_GetReportGroupTrendCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetReportGroupTrendCommandOutput> => {
@@ -1648,39 +1704,44 @@ const deserializeAws_json1_1GetReportGroupTrendCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1GetResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResourcePolicyCommandError(output, context);
+    return de_GetResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResourcePolicyOutput(data, context);
+  contents = _json(data);
   const response: GetResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetResourcePolicyCommandError
+ */
+const de_GetResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
@@ -1692,39 +1753,44 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ImportSourceCredentialsCommand = async (
+/**
+ * deserializeAws_json1_1ImportSourceCredentialsCommand
+ */
+export const de_ImportSourceCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportSourceCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ImportSourceCredentialsCommandError(output, context);
+    return de_ImportSourceCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportSourceCredentialsOutput(data, context);
+  contents = _json(data);
   const response: ImportSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ImportSourceCredentialsCommandError = async (
+/**
+ * deserializeAws_json1_1ImportSourceCredentialsCommandError
+ */
+const de_ImportSourceCredentialsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportSourceCredentialsCommandOutput> => {
@@ -1736,42 +1802,47 @@ const deserializeAws_json1_1ImportSourceCredentialsCommandError = async (
   switch (errorCode) {
     case "AccountLimitExceededException":
     case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await deserializeAws_json1_1AccountLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1InvalidateProjectCacheCommand = async (
+/**
+ * deserializeAws_json1_1InvalidateProjectCacheCommand
+ */
+export const de_InvalidateProjectCacheCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvalidateProjectCacheCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1InvalidateProjectCacheCommandError(output, context);
+    return de_InvalidateProjectCacheCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1InvalidateProjectCacheOutput(data, context);
+  contents = _json(data);
   const response: InvalidateProjectCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1InvalidateProjectCacheCommandError = async (
+/**
+ * deserializeAws_json1_1InvalidateProjectCacheCommandError
+ */
+const de_InvalidateProjectCacheCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvalidateProjectCacheCommandOutput> => {
@@ -1783,39 +1854,44 @@ const deserializeAws_json1_1InvalidateProjectCacheCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListBuildBatchesCommand = async (
+/**
+ * deserializeAws_json1_1ListBuildBatchesCommand
+ */
+export const de_ListBuildBatchesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuildBatchesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListBuildBatchesCommandError(output, context);
+    return de_ListBuildBatchesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBuildBatchesOutput(data, context);
+  contents = _json(data);
   const response: ListBuildBatchesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListBuildBatchesCommandError = async (
+/**
+ * deserializeAws_json1_1ListBuildBatchesCommandError
+ */
+const de_ListBuildBatchesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuildBatchesCommandOutput> => {
@@ -1827,36 +1903,41 @@ const deserializeAws_json1_1ListBuildBatchesCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListBuildBatchesForProjectCommand = async (
+/**
+ * deserializeAws_json1_1ListBuildBatchesForProjectCommand
+ */
+export const de_ListBuildBatchesForProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuildBatchesForProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListBuildBatchesForProjectCommandError(output, context);
+    return de_ListBuildBatchesForProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBuildBatchesForProjectOutput(data, context);
+  contents = _json(data);
   const response: ListBuildBatchesForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListBuildBatchesForProjectCommandError = async (
+/**
+ * deserializeAws_json1_1ListBuildBatchesForProjectCommandError
+ */
+const de_ListBuildBatchesForProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuildBatchesForProjectCommandOutput> => {
@@ -1868,39 +1949,44 @@ const deserializeAws_json1_1ListBuildBatchesForProjectCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListBuildsCommand = async (
+/**
+ * deserializeAws_json1_1ListBuildsCommand
+ */
+export const de_ListBuildsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuildsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListBuildsCommandError(output, context);
+    return de_ListBuildsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBuildsOutput(data, context);
+  contents = _json(data);
   const response: ListBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListBuildsCommandError = async (
+/**
+ * deserializeAws_json1_1ListBuildsCommandError
+ */
+const de_ListBuildsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuildsCommandOutput> => {
@@ -1912,36 +1998,41 @@ const deserializeAws_json1_1ListBuildsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListBuildsForProjectCommand = async (
+/**
+ * deserializeAws_json1_1ListBuildsForProjectCommand
+ */
+export const de_ListBuildsForProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuildsForProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListBuildsForProjectCommandError(output, context);
+    return de_ListBuildsForProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBuildsForProjectOutput(data, context);
+  contents = _json(data);
   const response: ListBuildsForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListBuildsForProjectCommandError = async (
+/**
+ * deserializeAws_json1_1ListBuildsForProjectCommandError
+ */
+const de_ListBuildsForProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuildsForProjectCommandOutput> => {
@@ -1953,39 +2044,44 @@ const deserializeAws_json1_1ListBuildsForProjectCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListCuratedEnvironmentImagesCommand = async (
+/**
+ * deserializeAws_json1_1ListCuratedEnvironmentImagesCommand
+ */
+export const de_ListCuratedEnvironmentImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCuratedEnvironmentImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListCuratedEnvironmentImagesCommandError(output, context);
+    return de_ListCuratedEnvironmentImagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCuratedEnvironmentImagesOutput(data, context);
+  contents = _json(data);
   const response: ListCuratedEnvironmentImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListCuratedEnvironmentImagesCommandError = async (
+/**
+ * deserializeAws_json1_1ListCuratedEnvironmentImagesCommandError
+ */
+const de_ListCuratedEnvironmentImagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCuratedEnvironmentImagesCommandOutput> => {
@@ -1995,32 +2091,37 @@ const deserializeAws_json1_1ListCuratedEnvironmentImagesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
-  throwDefaultError({
+  return throwDefaultError({
     output,
     parsedBody,
-    exceptionCtor: __BaseException,
     errorCode,
   });
 };
 
-export const deserializeAws_json1_1ListProjectsCommand = async (
+/**
+ * deserializeAws_json1_1ListProjectsCommand
+ */
+export const de_ListProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListProjectsCommandError(output, context);
+    return de_ListProjectsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProjectsOutput(data, context);
+  contents = _json(data);
   const response: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListProjectsCommandError = async (
+/**
+ * deserializeAws_json1_1ListProjectsCommandError
+ */
+const de_ListProjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
@@ -2032,36 +2133,41 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListReportGroupsCommand = async (
+/**
+ * deserializeAws_json1_1ListReportGroupsCommand
+ */
+export const de_ListReportGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListReportGroupsCommandError(output, context);
+    return de_ListReportGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReportGroupsOutput(data, context);
+  contents = _json(data);
   const response: ListReportGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListReportGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ListReportGroupsCommandError
+ */
+const de_ListReportGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportGroupsCommandOutput> => {
@@ -2073,36 +2179,41 @@ const deserializeAws_json1_1ListReportGroupsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListReportsCommand = async (
+/**
+ * deserializeAws_json1_1ListReportsCommand
+ */
+export const de_ListReportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListReportsCommandError(output, context);
+    return de_ListReportsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReportsOutput(data, context);
+  contents = _json(data);
   const response: ListReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListReportsCommandError = async (
+/**
+ * deserializeAws_json1_1ListReportsCommandError
+ */
+const de_ListReportsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportsCommandOutput> => {
@@ -2114,36 +2225,41 @@ const deserializeAws_json1_1ListReportsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListReportsForReportGroupCommand = async (
+/**
+ * deserializeAws_json1_1ListReportsForReportGroupCommand
+ */
+export const de_ListReportsForReportGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportsForReportGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListReportsForReportGroupCommandError(output, context);
+    return de_ListReportsForReportGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReportsForReportGroupOutput(data, context);
+  contents = _json(data);
   const response: ListReportsForReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListReportsForReportGroupCommandError = async (
+/**
+ * deserializeAws_json1_1ListReportsForReportGroupCommandError
+ */
+const de_ListReportsForReportGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportsForReportGroupCommandOutput> => {
@@ -2155,39 +2271,44 @@ const deserializeAws_json1_1ListReportsForReportGroupCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListSharedProjectsCommand = async (
+/**
+ * deserializeAws_json1_1ListSharedProjectsCommand
+ */
+export const de_ListSharedProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSharedProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSharedProjectsCommandError(output, context);
+    return de_ListSharedProjectsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSharedProjectsOutput(data, context);
+  contents = _json(data);
   const response: ListSharedProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListSharedProjectsCommandError = async (
+/**
+ * deserializeAws_json1_1ListSharedProjectsCommandError
+ */
+const de_ListSharedProjectsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSharedProjectsCommandOutput> => {
@@ -2199,36 +2320,41 @@ const deserializeAws_json1_1ListSharedProjectsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListSharedReportGroupsCommand = async (
+/**
+ * deserializeAws_json1_1ListSharedReportGroupsCommand
+ */
+export const de_ListSharedReportGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSharedReportGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSharedReportGroupsCommandError(output, context);
+    return de_ListSharedReportGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSharedReportGroupsOutput(data, context);
+  contents = _json(data);
   const response: ListSharedReportGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListSharedReportGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ListSharedReportGroupsCommandError
+ */
+const de_ListSharedReportGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSharedReportGroupsCommandOutput> => {
@@ -2240,36 +2366,41 @@ const deserializeAws_json1_1ListSharedReportGroupsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1ListSourceCredentialsCommand = async (
+/**
+ * deserializeAws_json1_1ListSourceCredentialsCommand
+ */
+export const de_ListSourceCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSourceCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSourceCredentialsCommandError(output, context);
+    return de_ListSourceCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSourceCredentialsOutput(data, context);
+  contents = _json(data);
   const response: ListSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListSourceCredentialsCommandError = async (
+/**
+ * deserializeAws_json1_1ListSourceCredentialsCommandError
+ */
+const de_ListSourceCredentialsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSourceCredentialsCommandOutput> => {
@@ -2281,36 +2412,41 @@ const deserializeAws_json1_1ListSourceCredentialsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1PutResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
+    return de_PutResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutResourcePolicyOutput(data, context);
+  contents = _json(data);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1PutResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommandError
+ */
+const de_PutResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
@@ -2322,39 +2458,44 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RetryBuildCommand = async (
+/**
+ * deserializeAws_json1_1RetryBuildCommand
+ */
+export const de_RetryBuildCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetryBuildCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RetryBuildCommandError(output, context);
+    return de_RetryBuildCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RetryBuildOutput(data, context);
+  contents = de_RetryBuildOutput(data, context);
   const response: RetryBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RetryBuildCommandError = async (
+/**
+ * deserializeAws_json1_1RetryBuildCommandError
+ */
+const de_RetryBuildCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetryBuildCommandOutput> => {
@@ -2366,42 +2507,47 @@ const deserializeAws_json1_1RetryBuildCommandError = async (
   switch (errorCode) {
     case "AccountLimitExceededException":
     case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await deserializeAws_json1_1AccountLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1RetryBuildBatchCommand = async (
+/**
+ * deserializeAws_json1_1RetryBuildBatchCommand
+ */
+export const de_RetryBuildBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetryBuildBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RetryBuildBatchCommandError(output, context);
+    return de_RetryBuildBatchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RetryBuildBatchOutput(data, context);
+  contents = de_RetryBuildBatchOutput(data, context);
   const response: RetryBuildBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1RetryBuildBatchCommandError = async (
+/**
+ * deserializeAws_json1_1RetryBuildBatchCommandError
+ */
+const de_RetryBuildBatchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetryBuildBatchCommandOutput> => {
@@ -2413,39 +2559,44 @@ const deserializeAws_json1_1RetryBuildBatchCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StartBuildCommand = async (
+/**
+ * deserializeAws_json1_1StartBuildCommand
+ */
+export const de_StartBuildCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBuildCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartBuildCommandError(output, context);
+    return de_StartBuildCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartBuildOutput(data, context);
+  contents = de_StartBuildOutput(data, context);
   const response: StartBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StartBuildCommandError = async (
+/**
+ * deserializeAws_json1_1StartBuildCommandError
+ */
+const de_StartBuildCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBuildCommandOutput> => {
@@ -2457,42 +2608,47 @@ const deserializeAws_json1_1StartBuildCommandError = async (
   switch (errorCode) {
     case "AccountLimitExceededException":
     case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await deserializeAws_json1_1AccountLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StartBuildBatchCommand = async (
+/**
+ * deserializeAws_json1_1StartBuildBatchCommand
+ */
+export const de_StartBuildBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBuildBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartBuildBatchCommandError(output, context);
+    return de_StartBuildBatchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartBuildBatchOutput(data, context);
+  contents = de_StartBuildBatchOutput(data, context);
   const response: StartBuildBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StartBuildBatchCommandError = async (
+/**
+ * deserializeAws_json1_1StartBuildBatchCommandError
+ */
+const de_StartBuildBatchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBuildBatchCommandOutput> => {
@@ -2504,39 +2660,44 @@ const deserializeAws_json1_1StartBuildBatchCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StopBuildCommand = async (
+/**
+ * deserializeAws_json1_1StopBuildCommand
+ */
+export const de_StopBuildCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBuildCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopBuildCommandError(output, context);
+    return de_StopBuildCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopBuildOutput(data, context);
+  contents = de_StopBuildOutput(data, context);
   const response: StopBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StopBuildCommandError = async (
+/**
+ * deserializeAws_json1_1StopBuildCommandError
+ */
+const de_StopBuildCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBuildCommandOutput> => {
@@ -2548,39 +2709,44 @@ const deserializeAws_json1_1StopBuildCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1StopBuildBatchCommand = async (
+/**
+ * deserializeAws_json1_1StopBuildBatchCommand
+ */
+export const de_StopBuildBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBuildBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopBuildBatchCommandError(output, context);
+    return de_StopBuildBatchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopBuildBatchOutput(data, context);
+  contents = de_StopBuildBatchOutput(data, context);
   const response: StopBuildBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StopBuildBatchCommandError = async (
+/**
+ * deserializeAws_json1_1StopBuildBatchCommandError
+ */
+const de_StopBuildBatchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBuildBatchCommandOutput> => {
@@ -2592,39 +2758,44 @@ const deserializeAws_json1_1StopBuildBatchCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateProjectCommand = async (
+/**
+ * deserializeAws_json1_1UpdateProjectCommand
+ */
+export const de_UpdateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateProjectCommandError(output, context);
+    return de_UpdateProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProjectOutput(data, context);
+  contents = de_UpdateProjectOutput(data, context);
   const response: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateProjectCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateProjectCommandError
+ */
+const de_UpdateProjectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
@@ -2636,39 +2807,44 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateProjectVisibilityCommand = async (
+/**
+ * deserializeAws_json1_1UpdateProjectVisibilityCommand
+ */
+export const de_UpdateProjectVisibilityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectVisibilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateProjectVisibilityCommandError(output, context);
+    return de_UpdateProjectVisibilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProjectVisibilityOutput(data, context);
+  contents = _json(data);
   const response: UpdateProjectVisibilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateProjectVisibilityCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateProjectVisibilityCommandError
+ */
+const de_UpdateProjectVisibilityCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectVisibilityCommandOutput> => {
@@ -2680,39 +2856,44 @@ const deserializeAws_json1_1UpdateProjectVisibilityCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateReportGroupCommand = async (
+/**
+ * deserializeAws_json1_1UpdateReportGroupCommand
+ */
+export const de_UpdateReportGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateReportGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateReportGroupCommandError(output, context);
+    return de_UpdateReportGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateReportGroupOutput(data, context);
+  contents = de_UpdateReportGroupOutput(data, context);
   const response: UpdateReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateReportGroupCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateReportGroupCommandError
+ */
+const de_UpdateReportGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateReportGroupCommandOutput> => {
@@ -2724,39 +2905,44 @@ const deserializeAws_json1_1UpdateReportGroupCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_1UpdateWebhookCommand = async (
+/**
+ * deserializeAws_json1_1UpdateWebhookCommand
+ */
+export const de_UpdateWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWebhookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateWebhookCommandError(output, context);
+    return de_UpdateWebhookCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateWebhookOutput(data, context);
+  contents = de_UpdateWebhookOutput(data, context);
   const response: UpdateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateWebhookCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateWebhookCommandError
+ */
+const de_UpdateWebhookCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWebhookCommandOutput> => {
@@ -2768,30 +2954,32 @@ const deserializeAws_json1_1UpdateWebhookCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "OAuthProviderException":
     case "com.amazonaws.codebuild#OAuthProviderException":
-      throw await deserializeAws_json1_1OAuthProviderExceptionResponse(parsedOutput, context);
+      throw await de_OAuthProviderExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_1AccountLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccountLimitExceededExceptionRes
+ */
+const de_AccountLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccountLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccountLimitExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccountLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2799,12 +2987,15 @@ const deserializeAws_json1_1AccountLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2812,12 +3003,15 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OAuthProviderExceptionResponse = async (
+/**
+ * deserializeAws_json1_1OAuthProviderExceptionRes
+ */
+const de_OAuthProviderExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OAuthProviderException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OAuthProviderException(body, context);
+  const deserialized: any = _json(body);
   const exception = new OAuthProviderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2825,12 +3019,15 @@ const deserializeAws_json1_1OAuthProviderExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceAlreadyExistsExceptionRes
+ */
+const de_ResourceAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2838,12 +3035,15 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2851,2584 +3051,967 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1BatchDeleteBuildsInput = (input: BatchDeleteBuildsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ids != null && { ids: serializeAws_json1_1BuildIds(input.ids, context) }),
-  };
-};
+// se_BatchDeleteBuildsInput omitted.
 
-const serializeAws_json1_1BatchGetBuildBatchesInput = (
-  input: BatchGetBuildBatchesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ids != null && { ids: serializeAws_json1_1BuildBatchIds(input.ids, context) }),
-  };
-};
+// se_BatchGetBuildBatchesInput omitted.
 
-const serializeAws_json1_1BatchGetBuildsInput = (input: BatchGetBuildsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.ids != null && { ids: serializeAws_json1_1BuildIds(input.ids, context) }),
-  };
-};
+// se_BatchGetBuildsInput omitted.
 
-const serializeAws_json1_1BatchGetProjectsInput = (input: BatchGetProjectsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.names != null && { names: serializeAws_json1_1ProjectNames(input.names, context) }),
-  };
-};
+// se_BatchGetProjectsInput omitted.
 
-const serializeAws_json1_1BatchGetReportGroupsInput = (
-  input: BatchGetReportGroupsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.reportGroupArns != null && {
-      reportGroupArns: serializeAws_json1_1ReportGroupArns(input.reportGroupArns, context),
-    }),
-  };
-};
+// se_BatchGetReportGroupsInput omitted.
 
-const serializeAws_json1_1BatchGetReportsInput = (input: BatchGetReportsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.reportArns != null && { reportArns: serializeAws_json1_1ReportArns(input.reportArns, context) }),
-  };
-};
+// se_BatchGetReportsInput omitted.
 
-const serializeAws_json1_1BatchRestrictions = (input: BatchRestrictions, context: __SerdeContext): any => {
-  return {
-    ...(input.computeTypesAllowed != null && {
-      computeTypesAllowed: serializeAws_json1_1ComputeTypesAllowed(input.computeTypesAllowed, context),
-    }),
-    ...(input.maximumBuildsAllowed != null && { maximumBuildsAllowed: input.maximumBuildsAllowed }),
-  };
-};
+// se_BatchRestrictions omitted.
 
-const serializeAws_json1_1BuildBatchFilter = (input: BuildBatchFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_BuildBatchFilter omitted.
 
-const serializeAws_json1_1BuildBatchIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BuildBatchIds omitted.
 
-const serializeAws_json1_1BuildIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_BuildIds omitted.
 
-const serializeAws_json1_1BuildStatusConfig = (input: BuildStatusConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.context != null && { context: input.context }),
-    ...(input.targetUrl != null && { targetUrl: input.targetUrl }),
-  };
-};
+// se_BuildStatusConfig omitted.
 
-const serializeAws_json1_1CloudWatchLogsConfig = (input: CloudWatchLogsConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.groupName != null && { groupName: input.groupName }),
-    ...(input.status != null && { status: input.status }),
-    ...(input.streamName != null && { streamName: input.streamName }),
-  };
-};
+// se_CloudWatchLogsConfig omitted.
 
-const serializeAws_json1_1ComputeTypesAllowed = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ComputeTypesAllowed omitted.
 
-const serializeAws_json1_1CreateProjectInput = (input: CreateProjectInput, context: __SerdeContext): any => {
-  return {
-    ...(input.artifacts != null && { artifacts: serializeAws_json1_1ProjectArtifacts(input.artifacts, context) }),
-    ...(input.badgeEnabled != null && { badgeEnabled: input.badgeEnabled }),
-    ...(input.buildBatchConfig != null && {
-      buildBatchConfig: serializeAws_json1_1ProjectBuildBatchConfig(input.buildBatchConfig, context),
-    }),
-    ...(input.cache != null && { cache: serializeAws_json1_1ProjectCache(input.cache, context) }),
-    ...(input.concurrentBuildLimit != null && { concurrentBuildLimit: input.concurrentBuildLimit }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
-    ...(input.environment != null && {
-      environment: serializeAws_json1_1ProjectEnvironment(input.environment, context),
-    }),
-    ...(input.fileSystemLocations != null && {
-      fileSystemLocations: serializeAws_json1_1ProjectFileSystemLocations(input.fileSystemLocations, context),
-    }),
-    ...(input.logsConfig != null && { logsConfig: serializeAws_json1_1LogsConfig(input.logsConfig, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.queuedTimeoutInMinutes != null && { queuedTimeoutInMinutes: input.queuedTimeoutInMinutes }),
-    ...(input.secondaryArtifacts != null && {
-      secondaryArtifacts: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifacts, context),
-    }),
-    ...(input.secondarySourceVersions != null && {
-      secondarySourceVersions: serializeAws_json1_1ProjectSecondarySourceVersions(
-        input.secondarySourceVersions,
-        context
-      ),
-    }),
-    ...(input.secondarySources != null && {
-      secondarySources: serializeAws_json1_1ProjectSources(input.secondarySources, context),
-    }),
-    ...(input.serviceRole != null && { serviceRole: input.serviceRole }),
-    ...(input.source != null && { source: serializeAws_json1_1ProjectSource(input.source, context) }),
-    ...(input.sourceVersion != null && { sourceVersion: input.sourceVersion }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.timeoutInMinutes != null && { timeoutInMinutes: input.timeoutInMinutes }),
-    ...(input.vpcConfig != null && { vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context) }),
-  };
-};
+// se_CreateProjectInput omitted.
 
-const serializeAws_json1_1CreateReportGroupInput = (input: CreateReportGroupInput, context: __SerdeContext): any => {
-  return {
-    ...(input.exportConfig != null && {
-      exportConfig: serializeAws_json1_1ReportExportConfig(input.exportConfig, context),
-    }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_CreateReportGroupInput omitted.
 
-const serializeAws_json1_1CreateWebhookInput = (input: CreateWebhookInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branchFilter != null && { branchFilter: input.branchFilter }),
-    ...(input.buildType != null && { buildType: input.buildType }),
-    ...(input.filterGroups != null && { filterGroups: serializeAws_json1_1FilterGroups(input.filterGroups, context) }),
-    ...(input.projectName != null && { projectName: input.projectName }),
-  };
-};
+// se_CreateWebhookInput omitted.
 
-const serializeAws_json1_1DeleteBuildBatchInput = (input: DeleteBuildBatchInput, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_DeleteBuildBatchInput omitted.
 
-const serializeAws_json1_1DeleteProjectInput = (input: DeleteProjectInput, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-  };
-};
+// se_DeleteProjectInput omitted.
 
-const serializeAws_json1_1DeleteReportGroupInput = (input: DeleteReportGroupInput, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.deleteReports != null && { deleteReports: input.deleteReports }),
-  };
-};
+// se_DeleteReportGroupInput omitted.
 
-const serializeAws_json1_1DeleteReportInput = (input: DeleteReportInput, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_DeleteReportInput omitted.
 
-const serializeAws_json1_1DeleteResourcePolicyInput = (
-  input: DeleteResourcePolicyInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_DeleteResourcePolicyInput omitted.
 
-const serializeAws_json1_1DeleteSourceCredentialsInput = (
-  input: DeleteSourceCredentialsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-  };
-};
+// se_DeleteSourceCredentialsInput omitted.
 
-const serializeAws_json1_1DeleteWebhookInput = (input: DeleteWebhookInput, context: __SerdeContext): any => {
-  return {
-    ...(input.projectName != null && { projectName: input.projectName }),
-  };
-};
+// se_DeleteWebhookInput omitted.
 
-const serializeAws_json1_1DescribeCodeCoveragesInput = (
-  input: DescribeCodeCoveragesInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxLineCoveragePercentage != null && {
-      maxLineCoveragePercentage: __serializeFloat(input.maxLineCoveragePercentage),
-    }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.minLineCoveragePercentage != null && {
-      minLineCoveragePercentage: __serializeFloat(input.minLineCoveragePercentage),
-    }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.reportArn != null && { reportArn: input.reportArn }),
-    ...(input.sortBy != null && { sortBy: input.sortBy }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
+/**
+ * serializeAws_json1_1DescribeCodeCoveragesInput
+ */
+const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, context: __SerdeContext): any => {
+  return take(input, {
+    maxLineCoveragePercentage: __serializeFloat,
+    maxResults: [],
+    minLineCoveragePercentage: __serializeFloat,
+    nextToken: [],
+    reportArn: [],
+    sortBy: [],
+    sortOrder: [],
+  });
 };
 
-const serializeAws_json1_1DescribeTestCasesInput = (input: DescribeTestCasesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.filter != null && { filter: serializeAws_json1_1TestCaseFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.reportArn != null && { reportArn: input.reportArn }),
-  };
-};
+// se_DescribeTestCasesInput omitted.
 
-const serializeAws_json1_1EnvironmentVariable = (input: EnvironmentVariable, context: __SerdeContext): any => {
-  return {
-    ...(input.name != null && { name: input.name }),
-    ...(input.type != null && { type: input.type }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_EnvironmentVariable omitted.
 
-const serializeAws_json1_1EnvironmentVariables = (input: EnvironmentVariable[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1EnvironmentVariable(entry, context);
-    });
-};
+// se_EnvironmentVariables omitted.
 
-const serializeAws_json1_1FilterGroup = (input: WebhookFilter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1WebhookFilter(entry, context);
-    });
-};
+// se_FilterGroup omitted.
 
-const serializeAws_json1_1FilterGroups = (input: WebhookFilter[][], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1FilterGroup(entry, context);
-    });
-};
+// se_FilterGroups omitted.
 
-const serializeAws_json1_1GetReportGroupTrendInput = (
-  input: GetReportGroupTrendInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.numOfReports != null && { numOfReports: input.numOfReports }),
-    ...(input.reportGroupArn != null && { reportGroupArn: input.reportGroupArn }),
-    ...(input.trendField != null && { trendField: input.trendField }),
-  };
-};
+// se_GetReportGroupTrendInput omitted.
 
-const serializeAws_json1_1GetResourcePolicyInput = (input: GetResourcePolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_GetResourcePolicyInput omitted.
 
-const serializeAws_json1_1GitSubmodulesConfig = (input: GitSubmodulesConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.fetchSubmodules != null && { fetchSubmodules: input.fetchSubmodules }),
-  };
-};
+// se_GitSubmodulesConfig omitted.
 
-const serializeAws_json1_1ImportSourceCredentialsInput = (
-  input: ImportSourceCredentialsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.authType != null && { authType: input.authType }),
-    ...(input.serverType != null && { serverType: input.serverType }),
-    ...(input.shouldOverwrite != null && { shouldOverwrite: input.shouldOverwrite }),
-    ...(input.token != null && { token: input.token }),
-    ...(input.username != null && { username: input.username }),
-  };
-};
+// se_ImportSourceCredentialsInput omitted.
 
-const serializeAws_json1_1InvalidateProjectCacheInput = (
-  input: InvalidateProjectCacheInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.projectName != null && { projectName: input.projectName }),
-  };
-};
+// se_InvalidateProjectCacheInput omitted.
 
-const serializeAws_json1_1ListBuildBatchesForProjectInput = (
-  input: ListBuildBatchesForProjectInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.filter != null && { filter: serializeAws_json1_1BuildBatchFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.projectName != null && { projectName: input.projectName }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
+// se_ListBuildBatchesForProjectInput omitted.
 
-const serializeAws_json1_1ListBuildBatchesInput = (input: ListBuildBatchesInput, context: __SerdeContext): any => {
-  return {
-    ...(input.filter != null && { filter: serializeAws_json1_1BuildBatchFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
+// se_ListBuildBatchesInput omitted.
 
-const serializeAws_json1_1ListBuildsForProjectInput = (
-  input: ListBuildsForProjectInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.projectName != null && { projectName: input.projectName }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
+// se_ListBuildsForProjectInput omitted.
 
-const serializeAws_json1_1ListBuildsInput = (input: ListBuildsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
+// se_ListBuildsInput omitted.
 
-const serializeAws_json1_1ListCuratedEnvironmentImagesInput = (
-  input: ListCuratedEnvironmentImagesInput,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_ListCuratedEnvironmentImagesInput omitted.
 
-const serializeAws_json1_1ListProjectsInput = (input: ListProjectsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: input.sortBy }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
+// se_ListProjectsInput omitted.
 
-const serializeAws_json1_1ListReportGroupsInput = (input: ListReportGroupsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: input.sortBy }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
+// se_ListReportGroupsInput omitted.
 
-const serializeAws_json1_1ListReportsForReportGroupInput = (
-  input: ListReportsForReportGroupInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.filter != null && { filter: serializeAws_json1_1ReportFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.reportGroupArn != null && { reportGroupArn: input.reportGroupArn }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
+// se_ListReportsForReportGroupInput omitted.
 
-const serializeAws_json1_1ListReportsInput = (input: ListReportsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.filter != null && { filter: serializeAws_json1_1ReportFilter(input.filter, context) }),
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
+// se_ListReportsInput omitted.
 
-const serializeAws_json1_1ListSharedProjectsInput = (input: ListSharedProjectsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: input.sortBy }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
+// se_ListSharedProjectsInput omitted.
 
-const serializeAws_json1_1ListSharedReportGroupsInput = (
-  input: ListSharedReportGroupsInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults != null && { maxResults: input.maxResults }),
-    ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.sortBy != null && { sortBy: input.sortBy }),
-    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
-  };
-};
+// se_ListSharedReportGroupsInput omitted.
 
-const serializeAws_json1_1ListSourceCredentialsInput = (
-  input: ListSourceCredentialsInput,
-  context: __SerdeContext
-): any => {
-  return {};
-};
+// se_ListSourceCredentialsInput omitted.
 
-const serializeAws_json1_1LogsConfig = (input: LogsConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.cloudWatchLogs != null && {
-      cloudWatchLogs: serializeAws_json1_1CloudWatchLogsConfig(input.cloudWatchLogs, context),
-    }),
-    ...(input.s3Logs != null && { s3Logs: serializeAws_json1_1S3LogsConfig(input.s3Logs, context) }),
-  };
-};
+// se_LogsConfig omitted.
 
-const serializeAws_json1_1ProjectArtifacts = (input: ProjectArtifacts, context: __SerdeContext): any => {
-  return {
-    ...(input.artifactIdentifier != null && { artifactIdentifier: input.artifactIdentifier }),
-    ...(input.bucketOwnerAccess != null && { bucketOwnerAccess: input.bucketOwnerAccess }),
-    ...(input.encryptionDisabled != null && { encryptionDisabled: input.encryptionDisabled }),
-    ...(input.location != null && { location: input.location }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.namespaceType != null && { namespaceType: input.namespaceType }),
-    ...(input.overrideArtifactName != null && { overrideArtifactName: input.overrideArtifactName }),
-    ...(input.packaging != null && { packaging: input.packaging }),
-    ...(input.path != null && { path: input.path }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ProjectArtifacts omitted.
 
-const serializeAws_json1_1ProjectArtifactsList = (input: ProjectArtifacts[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ProjectArtifacts(entry, context);
-    });
-};
+// se_ProjectArtifactsList omitted.
 
-const serializeAws_json1_1ProjectBuildBatchConfig = (input: ProjectBuildBatchConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.batchReportMode != null && { batchReportMode: input.batchReportMode }),
-    ...(input.combineArtifacts != null && { combineArtifacts: input.combineArtifacts }),
-    ...(input.restrictions != null && {
-      restrictions: serializeAws_json1_1BatchRestrictions(input.restrictions, context),
-    }),
-    ...(input.serviceRole != null && { serviceRole: input.serviceRole }),
-    ...(input.timeoutInMins != null && { timeoutInMins: input.timeoutInMins }),
-  };
-};
+// se_ProjectBuildBatchConfig omitted.
 
-const serializeAws_json1_1ProjectCache = (input: ProjectCache, context: __SerdeContext): any => {
-  return {
-    ...(input.location != null && { location: input.location }),
-    ...(input.modes != null && { modes: serializeAws_json1_1ProjectCacheModes(input.modes, context) }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ProjectCache omitted.
 
-const serializeAws_json1_1ProjectCacheModes = (input: (CacheMode | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ProjectCacheModes omitted.
 
-const serializeAws_json1_1ProjectEnvironment = (input: ProjectEnvironment, context: __SerdeContext): any => {
-  return {
-    ...(input.certificate != null && { certificate: input.certificate }),
-    ...(input.computeType != null && { computeType: input.computeType }),
-    ...(input.environmentVariables != null && {
-      environmentVariables: serializeAws_json1_1EnvironmentVariables(input.environmentVariables, context),
-    }),
-    ...(input.image != null && { image: input.image }),
-    ...(input.imagePullCredentialsType != null && { imagePullCredentialsType: input.imagePullCredentialsType }),
-    ...(input.privilegedMode != null && { privilegedMode: input.privilegedMode }),
-    ...(input.registryCredential != null && {
-      registryCredential: serializeAws_json1_1RegistryCredential(input.registryCredential, context),
-    }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ProjectEnvironment omitted.
 
-const serializeAws_json1_1ProjectFileSystemLocation = (
-  input: ProjectFileSystemLocation,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.identifier != null && { identifier: input.identifier }),
-    ...(input.location != null && { location: input.location }),
-    ...(input.mountOptions != null && { mountOptions: input.mountOptions }),
-    ...(input.mountPoint != null && { mountPoint: input.mountPoint }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ProjectFileSystemLocation omitted.
 
-const serializeAws_json1_1ProjectFileSystemLocations = (
-  input: ProjectFileSystemLocation[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ProjectFileSystemLocation(entry, context);
-    });
-};
+// se_ProjectFileSystemLocations omitted.
 
-const serializeAws_json1_1ProjectNames = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ProjectNames omitted.
 
-const serializeAws_json1_1ProjectSecondarySourceVersions = (
-  input: ProjectSourceVersion[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ProjectSourceVersion(entry, context);
-    });
-};
+// se_ProjectSecondarySourceVersions omitted.
 
-const serializeAws_json1_1ProjectSource = (input: ProjectSource, context: __SerdeContext): any => {
-  return {
-    ...(input.auth != null && { auth: serializeAws_json1_1SourceAuth(input.auth, context) }),
-    ...(input.buildStatusConfig != null && {
-      buildStatusConfig: serializeAws_json1_1BuildStatusConfig(input.buildStatusConfig, context),
-    }),
-    ...(input.buildspec != null && { buildspec: input.buildspec }),
-    ...(input.gitCloneDepth != null && { gitCloneDepth: input.gitCloneDepth }),
-    ...(input.gitSubmodulesConfig != null && {
-      gitSubmodulesConfig: serializeAws_json1_1GitSubmodulesConfig(input.gitSubmodulesConfig, context),
-    }),
-    ...(input.insecureSsl != null && { insecureSsl: input.insecureSsl }),
-    ...(input.location != null && { location: input.location }),
-    ...(input.reportBuildStatus != null && { reportBuildStatus: input.reportBuildStatus }),
-    ...(input.sourceIdentifier != null && { sourceIdentifier: input.sourceIdentifier }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_ProjectSource omitted.
 
-const serializeAws_json1_1ProjectSources = (input: ProjectSource[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1ProjectSource(entry, context);
-    });
-};
+// se_ProjectSources omitted.
 
-const serializeAws_json1_1ProjectSourceVersion = (input: ProjectSourceVersion, context: __SerdeContext): any => {
-  return {
-    ...(input.sourceIdentifier != null && { sourceIdentifier: input.sourceIdentifier }),
-    ...(input.sourceVersion != null && { sourceVersion: input.sourceVersion }),
-  };
-};
+// se_ProjectSourceVersion omitted.
 
-const serializeAws_json1_1PutResourcePolicyInput = (input: PutResourcePolicyInput, context: __SerdeContext): any => {
-  return {
-    ...(input.policy != null && { policy: input.policy }),
-    ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-  };
-};
+// se_PutResourcePolicyInput omitted.
 
-const serializeAws_json1_1RegistryCredential = (input: RegistryCredential, context: __SerdeContext): any => {
-  return {
-    ...(input.credential != null && { credential: input.credential }),
-    ...(input.credentialProvider != null && { credentialProvider: input.credentialProvider }),
-  };
-};
+// se_RegistryCredential omitted.
 
-const serializeAws_json1_1ReportArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ReportArns omitted.
 
-const serializeAws_json1_1ReportExportConfig = (input: ReportExportConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.exportConfigType != null && { exportConfigType: input.exportConfigType }),
-    ...(input.s3Destination != null && {
-      s3Destination: serializeAws_json1_1S3ReportExportConfig(input.s3Destination, context),
-    }),
-  };
-};
+// se_ReportExportConfig omitted.
 
-const serializeAws_json1_1ReportFilter = (input: ReportFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_ReportFilter omitted.
 
-const serializeAws_json1_1ReportGroupArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_ReportGroupArns omitted.
 
-const serializeAws_json1_1RetryBuildBatchInput = (input: RetryBuildBatchInput, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.idempotencyToken != null && { idempotencyToken: input.idempotencyToken }),
-    ...(input.retryType != null && { retryType: input.retryType }),
-  };
-};
+// se_RetryBuildBatchInput omitted.
 
-const serializeAws_json1_1RetryBuildInput = (input: RetryBuildInput, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-    ...(input.idempotencyToken != null && { idempotencyToken: input.idempotencyToken }),
-  };
-};
+// se_RetryBuildInput omitted.
 
-const serializeAws_json1_1S3LogsConfig = (input: S3LogsConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.bucketOwnerAccess != null && { bucketOwnerAccess: input.bucketOwnerAccess }),
-    ...(input.encryptionDisabled != null && { encryptionDisabled: input.encryptionDisabled }),
-    ...(input.location != null && { location: input.location }),
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_S3LogsConfig omitted.
 
-const serializeAws_json1_1S3ReportExportConfig = (input: S3ReportExportConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.bucket != null && { bucket: input.bucket }),
-    ...(input.bucketOwner != null && { bucketOwner: input.bucketOwner }),
-    ...(input.encryptionDisabled != null && { encryptionDisabled: input.encryptionDisabled }),
-    ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
-    ...(input.packaging != null && { packaging: input.packaging }),
-    ...(input.path != null && { path: input.path }),
-  };
-};
+// se_S3ReportExportConfig omitted.
 
-const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_SecurityGroupIds omitted.
 
-const serializeAws_json1_1SourceAuth = (input: SourceAuth, context: __SerdeContext): any => {
-  return {
-    ...(input.resource != null && { resource: input.resource }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_SourceAuth omitted.
 
-const serializeAws_json1_1StartBuildBatchInput = (input: StartBuildBatchInput, context: __SerdeContext): any => {
-  return {
-    ...(input.artifactsOverride != null && {
-      artifactsOverride: serializeAws_json1_1ProjectArtifacts(input.artifactsOverride, context),
-    }),
-    ...(input.buildBatchConfigOverride != null && {
-      buildBatchConfigOverride: serializeAws_json1_1ProjectBuildBatchConfig(input.buildBatchConfigOverride, context),
-    }),
-    ...(input.buildTimeoutInMinutesOverride != null && {
-      buildTimeoutInMinutesOverride: input.buildTimeoutInMinutesOverride,
-    }),
-    ...(input.buildspecOverride != null && { buildspecOverride: input.buildspecOverride }),
-    ...(input.cacheOverride != null && {
-      cacheOverride: serializeAws_json1_1ProjectCache(input.cacheOverride, context),
-    }),
-    ...(input.certificateOverride != null && { certificateOverride: input.certificateOverride }),
-    ...(input.computeTypeOverride != null && { computeTypeOverride: input.computeTypeOverride }),
-    ...(input.debugSessionEnabled != null && { debugSessionEnabled: input.debugSessionEnabled }),
-    ...(input.encryptionKeyOverride != null && { encryptionKeyOverride: input.encryptionKeyOverride }),
-    ...(input.environmentTypeOverride != null && { environmentTypeOverride: input.environmentTypeOverride }),
-    ...(input.environmentVariablesOverride != null && {
-      environmentVariablesOverride: serializeAws_json1_1EnvironmentVariables(
-        input.environmentVariablesOverride,
-        context
-      ),
-    }),
-    ...(input.gitCloneDepthOverride != null && { gitCloneDepthOverride: input.gitCloneDepthOverride }),
-    ...(input.gitSubmodulesConfigOverride != null && {
-      gitSubmodulesConfigOverride: serializeAws_json1_1GitSubmodulesConfig(input.gitSubmodulesConfigOverride, context),
-    }),
-    ...(input.idempotencyToken != null && { idempotencyToken: input.idempotencyToken }),
-    ...(input.imageOverride != null && { imageOverride: input.imageOverride }),
-    ...(input.imagePullCredentialsTypeOverride != null && {
-      imagePullCredentialsTypeOverride: input.imagePullCredentialsTypeOverride,
-    }),
-    ...(input.insecureSslOverride != null && { insecureSslOverride: input.insecureSslOverride }),
-    ...(input.logsConfigOverride != null && {
-      logsConfigOverride: serializeAws_json1_1LogsConfig(input.logsConfigOverride, context),
-    }),
-    ...(input.privilegedModeOverride != null && { privilegedModeOverride: input.privilegedModeOverride }),
-    ...(input.projectName != null && { projectName: input.projectName }),
-    ...(input.queuedTimeoutInMinutesOverride != null && {
-      queuedTimeoutInMinutesOverride: input.queuedTimeoutInMinutesOverride,
-    }),
-    ...(input.registryCredentialOverride != null && {
-      registryCredentialOverride: serializeAws_json1_1RegistryCredential(input.registryCredentialOverride, context),
-    }),
-    ...(input.reportBuildBatchStatusOverride != null && {
-      reportBuildBatchStatusOverride: input.reportBuildBatchStatusOverride,
-    }),
-    ...(input.secondaryArtifactsOverride != null && {
-      secondaryArtifactsOverride: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifactsOverride, context),
-    }),
-    ...(input.secondarySourcesOverride != null && {
-      secondarySourcesOverride: serializeAws_json1_1ProjectSources(input.secondarySourcesOverride, context),
-    }),
-    ...(input.secondarySourcesVersionOverride != null && {
-      secondarySourcesVersionOverride: serializeAws_json1_1ProjectSecondarySourceVersions(
-        input.secondarySourcesVersionOverride,
-        context
-      ),
-    }),
-    ...(input.serviceRoleOverride != null && { serviceRoleOverride: input.serviceRoleOverride }),
-    ...(input.sourceAuthOverride != null && {
-      sourceAuthOverride: serializeAws_json1_1SourceAuth(input.sourceAuthOverride, context),
-    }),
-    ...(input.sourceLocationOverride != null && { sourceLocationOverride: input.sourceLocationOverride }),
-    ...(input.sourceTypeOverride != null && { sourceTypeOverride: input.sourceTypeOverride }),
-    ...(input.sourceVersion != null && { sourceVersion: input.sourceVersion }),
-  };
-};
+// se_StartBuildBatchInput omitted.
 
-const serializeAws_json1_1StartBuildInput = (input: StartBuildInput, context: __SerdeContext): any => {
-  return {
-    ...(input.artifactsOverride != null && {
-      artifactsOverride: serializeAws_json1_1ProjectArtifacts(input.artifactsOverride, context),
-    }),
-    ...(input.buildStatusConfigOverride != null && {
-      buildStatusConfigOverride: serializeAws_json1_1BuildStatusConfig(input.buildStatusConfigOverride, context),
-    }),
-    ...(input.buildspecOverride != null && { buildspecOverride: input.buildspecOverride }),
-    ...(input.cacheOverride != null && {
-      cacheOverride: serializeAws_json1_1ProjectCache(input.cacheOverride, context),
-    }),
-    ...(input.certificateOverride != null && { certificateOverride: input.certificateOverride }),
-    ...(input.computeTypeOverride != null && { computeTypeOverride: input.computeTypeOverride }),
-    ...(input.debugSessionEnabled != null && { debugSessionEnabled: input.debugSessionEnabled }),
-    ...(input.encryptionKeyOverride != null && { encryptionKeyOverride: input.encryptionKeyOverride }),
-    ...(input.environmentTypeOverride != null && { environmentTypeOverride: input.environmentTypeOverride }),
-    ...(input.environmentVariablesOverride != null && {
-      environmentVariablesOverride: serializeAws_json1_1EnvironmentVariables(
-        input.environmentVariablesOverride,
-        context
-      ),
-    }),
-    ...(input.gitCloneDepthOverride != null && { gitCloneDepthOverride: input.gitCloneDepthOverride }),
-    ...(input.gitSubmodulesConfigOverride != null && {
-      gitSubmodulesConfigOverride: serializeAws_json1_1GitSubmodulesConfig(input.gitSubmodulesConfigOverride, context),
-    }),
-    ...(input.idempotencyToken != null && { idempotencyToken: input.idempotencyToken }),
-    ...(input.imageOverride != null && { imageOverride: input.imageOverride }),
-    ...(input.imagePullCredentialsTypeOverride != null && {
-      imagePullCredentialsTypeOverride: input.imagePullCredentialsTypeOverride,
-    }),
-    ...(input.insecureSslOverride != null && { insecureSslOverride: input.insecureSslOverride }),
-    ...(input.logsConfigOverride != null && {
-      logsConfigOverride: serializeAws_json1_1LogsConfig(input.logsConfigOverride, context),
-    }),
-    ...(input.privilegedModeOverride != null && { privilegedModeOverride: input.privilegedModeOverride }),
-    ...(input.projectName != null && { projectName: input.projectName }),
-    ...(input.queuedTimeoutInMinutesOverride != null && {
-      queuedTimeoutInMinutesOverride: input.queuedTimeoutInMinutesOverride,
-    }),
-    ...(input.registryCredentialOverride != null && {
-      registryCredentialOverride: serializeAws_json1_1RegistryCredential(input.registryCredentialOverride, context),
-    }),
-    ...(input.reportBuildStatusOverride != null && { reportBuildStatusOverride: input.reportBuildStatusOverride }),
-    ...(input.secondaryArtifactsOverride != null && {
-      secondaryArtifactsOverride: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifactsOverride, context),
-    }),
-    ...(input.secondarySourcesOverride != null && {
-      secondarySourcesOverride: serializeAws_json1_1ProjectSources(input.secondarySourcesOverride, context),
-    }),
-    ...(input.secondarySourcesVersionOverride != null && {
-      secondarySourcesVersionOverride: serializeAws_json1_1ProjectSecondarySourceVersions(
-        input.secondarySourcesVersionOverride,
-        context
-      ),
-    }),
-    ...(input.serviceRoleOverride != null && { serviceRoleOverride: input.serviceRoleOverride }),
-    ...(input.sourceAuthOverride != null && {
-      sourceAuthOverride: serializeAws_json1_1SourceAuth(input.sourceAuthOverride, context),
-    }),
-    ...(input.sourceLocationOverride != null && { sourceLocationOverride: input.sourceLocationOverride }),
-    ...(input.sourceTypeOverride != null && { sourceTypeOverride: input.sourceTypeOverride }),
-    ...(input.sourceVersion != null && { sourceVersion: input.sourceVersion }),
-    ...(input.timeoutInMinutesOverride != null && { timeoutInMinutesOverride: input.timeoutInMinutesOverride }),
-  };
-};
+// se_StartBuildInput omitted.
 
-const serializeAws_json1_1StopBuildBatchInput = (input: StopBuildBatchInput, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_StopBuildBatchInput omitted.
 
-const serializeAws_json1_1StopBuildInput = (input: StopBuildInput, context: __SerdeContext): any => {
-  return {
-    ...(input.id != null && { id: input.id }),
-  };
-};
+// se_StopBuildInput omitted.
 
-const serializeAws_json1_1Subnets = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
-};
+// se_Subnets omitted.
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key != null && { key: input.key }),
-    ...(input.value != null && { value: input.value }),
-  };
-};
+// se_Tag omitted.
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
+// se_TagList omitted.
 
-const serializeAws_json1_1TestCaseFilter = (input: TestCaseFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.keyword != null && { keyword: input.keyword }),
-    ...(input.status != null && { status: input.status }),
-  };
-};
+// se_TestCaseFilter omitted.
 
-const serializeAws_json1_1UpdateProjectInput = (input: UpdateProjectInput, context: __SerdeContext): any => {
-  return {
-    ...(input.artifacts != null && { artifacts: serializeAws_json1_1ProjectArtifacts(input.artifacts, context) }),
-    ...(input.badgeEnabled != null && { badgeEnabled: input.badgeEnabled }),
-    ...(input.buildBatchConfig != null && {
-      buildBatchConfig: serializeAws_json1_1ProjectBuildBatchConfig(input.buildBatchConfig, context),
-    }),
-    ...(input.cache != null && { cache: serializeAws_json1_1ProjectCache(input.cache, context) }),
-    ...(input.concurrentBuildLimit != null && { concurrentBuildLimit: input.concurrentBuildLimit }),
-    ...(input.description != null && { description: input.description }),
-    ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
-    ...(input.environment != null && {
-      environment: serializeAws_json1_1ProjectEnvironment(input.environment, context),
-    }),
-    ...(input.fileSystemLocations != null && {
-      fileSystemLocations: serializeAws_json1_1ProjectFileSystemLocations(input.fileSystemLocations, context),
-    }),
-    ...(input.logsConfig != null && { logsConfig: serializeAws_json1_1LogsConfig(input.logsConfig, context) }),
-    ...(input.name != null && { name: input.name }),
-    ...(input.queuedTimeoutInMinutes != null && { queuedTimeoutInMinutes: input.queuedTimeoutInMinutes }),
-    ...(input.secondaryArtifacts != null && {
-      secondaryArtifacts: serializeAws_json1_1ProjectArtifactsList(input.secondaryArtifacts, context),
-    }),
-    ...(input.secondarySourceVersions != null && {
-      secondarySourceVersions: serializeAws_json1_1ProjectSecondarySourceVersions(
-        input.secondarySourceVersions,
-        context
-      ),
-    }),
-    ...(input.secondarySources != null && {
-      secondarySources: serializeAws_json1_1ProjectSources(input.secondarySources, context),
-    }),
-    ...(input.serviceRole != null && { serviceRole: input.serviceRole }),
-    ...(input.source != null && { source: serializeAws_json1_1ProjectSource(input.source, context) }),
-    ...(input.sourceVersion != null && { sourceVersion: input.sourceVersion }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-    ...(input.timeoutInMinutes != null && { timeoutInMinutes: input.timeoutInMinutes }),
-    ...(input.vpcConfig != null && { vpcConfig: serializeAws_json1_1VpcConfig(input.vpcConfig, context) }),
-  };
-};
+// se_UpdateProjectInput omitted.
 
-const serializeAws_json1_1UpdateProjectVisibilityInput = (
-  input: UpdateProjectVisibilityInput,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.projectArn != null && { projectArn: input.projectArn }),
-    ...(input.projectVisibility != null && { projectVisibility: input.projectVisibility }),
-    ...(input.resourceAccessRole != null && { resourceAccessRole: input.resourceAccessRole }),
-  };
-};
+// se_UpdateProjectVisibilityInput omitted.
 
-const serializeAws_json1_1UpdateReportGroupInput = (input: UpdateReportGroupInput, context: __SerdeContext): any => {
-  return {
-    ...(input.arn != null && { arn: input.arn }),
-    ...(input.exportConfig != null && {
-      exportConfig: serializeAws_json1_1ReportExportConfig(input.exportConfig, context),
-    }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
-  };
-};
+// se_UpdateReportGroupInput omitted.
 
-const serializeAws_json1_1UpdateWebhookInput = (input: UpdateWebhookInput, context: __SerdeContext): any => {
-  return {
-    ...(input.branchFilter != null && { branchFilter: input.branchFilter }),
-    ...(input.buildType != null && { buildType: input.buildType }),
-    ...(input.filterGroups != null && { filterGroups: serializeAws_json1_1FilterGroups(input.filterGroups, context) }),
-    ...(input.projectName != null && { projectName: input.projectName }),
-    ...(input.rotateSecret != null && { rotateSecret: input.rotateSecret }),
-  };
-};
+// se_UpdateWebhookInput omitted.
 
-const serializeAws_json1_1VpcConfig = (input: VpcConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.securityGroupIds != null && {
-      securityGroupIds: serializeAws_json1_1SecurityGroupIds(input.securityGroupIds, context),
-    }),
-    ...(input.subnets != null && { subnets: serializeAws_json1_1Subnets(input.subnets, context) }),
-    ...(input.vpcId != null && { vpcId: input.vpcId }),
-  };
-};
+// se_VpcConfig omitted.
 
-const serializeAws_json1_1WebhookFilter = (input: WebhookFilter, context: __SerdeContext): any => {
-  return {
-    ...(input.excludeMatchedPattern != null && { excludeMatchedPattern: input.excludeMatchedPattern }),
-    ...(input.pattern != null && { pattern: input.pattern }),
-    ...(input.type != null && { type: input.type }),
-  };
-};
+// se_WebhookFilter omitted.
 
-const deserializeAws_json1_1AccountLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): AccountLimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_AccountLimitExceededException omitted.
 
-const deserializeAws_json1_1BatchDeleteBuildsOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchDeleteBuildsOutput => {
-  return {
-    buildsDeleted:
-      output.buildsDeleted != null ? deserializeAws_json1_1BuildIds(output.buildsDeleted, context) : undefined,
-    buildsNotDeleted:
-      output.buildsNotDeleted != null
-        ? deserializeAws_json1_1BuildsNotDeleted(output.buildsNotDeleted, context)
-        : undefined,
-  } as any;
-};
+// de_BatchDeleteBuildsOutput omitted.
 
-const deserializeAws_json1_1BatchGetBuildBatchesOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchGetBuildBatchesOutput => {
-  return {
-    buildBatches:
-      output.buildBatches != null ? deserializeAws_json1_1BuildBatches(output.buildBatches, context) : undefined,
-    buildBatchesNotFound:
-      output.buildBatchesNotFound != null
-        ? deserializeAws_json1_1BuildBatchIds(output.buildBatchesNotFound, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1BatchGetBuildBatchesOutput
+ */
+const de_BatchGetBuildBatchesOutput = (output: any, context: __SerdeContext): BatchGetBuildBatchesOutput => {
+  return take(output, {
+    buildBatches: (_: any) => de_BuildBatches(_, context),
+    buildBatchesNotFound: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1BatchGetBuildsOutput = (output: any, context: __SerdeContext): BatchGetBuildsOutput => {
-  return {
-    builds: output.builds != null ? deserializeAws_json1_1Builds(output.builds, context) : undefined,
-    buildsNotFound:
-      output.buildsNotFound != null ? deserializeAws_json1_1BuildIds(output.buildsNotFound, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1BatchGetBuildsOutput
+ */
+const de_BatchGetBuildsOutput = (output: any, context: __SerdeContext): BatchGetBuildsOutput => {
+  return take(output, {
+    builds: (_: any) => de_Builds(_, context),
+    buildsNotFound: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1BatchGetProjectsOutput = (output: any, context: __SerdeContext): BatchGetProjectsOutput => {
-  return {
-    projects: output.projects != null ? deserializeAws_json1_1Projects(output.projects, context) : undefined,
-    projectsNotFound:
-      output.projectsNotFound != null
-        ? deserializeAws_json1_1ProjectNames(output.projectsNotFound, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1BatchGetProjectsOutput
+ */
+const de_BatchGetProjectsOutput = (output: any, context: __SerdeContext): BatchGetProjectsOutput => {
+  return take(output, {
+    projects: (_: any) => de_Projects(_, context),
+    projectsNotFound: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1BatchGetReportGroupsOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchGetReportGroupsOutput => {
-  return {
-    reportGroups:
-      output.reportGroups != null ? deserializeAws_json1_1ReportGroups(output.reportGroups, context) : undefined,
-    reportGroupsNotFound:
-      output.reportGroupsNotFound != null
-        ? deserializeAws_json1_1ReportGroupArns(output.reportGroupsNotFound, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1BatchGetReportGroupsOutput
+ */
+const de_BatchGetReportGroupsOutput = (output: any, context: __SerdeContext): BatchGetReportGroupsOutput => {
+  return take(output, {
+    reportGroups: (_: any) => de_ReportGroups(_, context),
+    reportGroupsNotFound: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1BatchGetReportsOutput = (output: any, context: __SerdeContext): BatchGetReportsOutput => {
-  return {
-    reports: output.reports != null ? deserializeAws_json1_1Reports(output.reports, context) : undefined,
-    reportsNotFound:
-      output.reportsNotFound != null ? deserializeAws_json1_1ReportArns(output.reportsNotFound, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1BatchGetReportsOutput
+ */
+const de_BatchGetReportsOutput = (output: any, context: __SerdeContext): BatchGetReportsOutput => {
+  return take(output, {
+    reports: (_: any) => de_Reports(_, context),
+    reportsNotFound: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1BatchRestrictions = (output: any, context: __SerdeContext): BatchRestrictions => {
-  return {
-    computeTypesAllowed:
-      output.computeTypesAllowed != null
-        ? deserializeAws_json1_1ComputeTypesAllowed(output.computeTypesAllowed, context)
-        : undefined,
-    maximumBuildsAllowed: __expectInt32(output.maximumBuildsAllowed),
-  } as any;
-};
+// de_BatchRestrictions omitted.
 
-const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Build => {
-  return {
-    arn: __expectString(output.arn),
-    artifacts: output.artifacts != null ? deserializeAws_json1_1BuildArtifacts(output.artifacts, context) : undefined,
-    buildBatchArn: __expectString(output.buildBatchArn),
-    buildComplete: __expectBoolean(output.buildComplete),
-    buildNumber: __expectLong(output.buildNumber),
-    buildStatus: __expectString(output.buildStatus),
-    cache: output.cache != null ? deserializeAws_json1_1ProjectCache(output.cache, context) : undefined,
-    currentPhase: __expectString(output.currentPhase),
-    debugSession:
-      output.debugSession != null ? deserializeAws_json1_1DebugSession(output.debugSession, context) : undefined,
-    encryptionKey: __expectString(output.encryptionKey),
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    environment:
-      output.environment != null ? deserializeAws_json1_1ProjectEnvironment(output.environment, context) : undefined,
-    exportedEnvironmentVariables:
-      output.exportedEnvironmentVariables != null
-        ? deserializeAws_json1_1ExportedEnvironmentVariables(output.exportedEnvironmentVariables, context)
-        : undefined,
-    fileSystemLocations:
-      output.fileSystemLocations != null
-        ? deserializeAws_json1_1ProjectFileSystemLocations(output.fileSystemLocations, context)
-        : undefined,
-    id: __expectString(output.id),
-    initiator: __expectString(output.initiator),
-    logs: output.logs != null ? deserializeAws_json1_1LogsLocation(output.logs, context) : undefined,
-    networkInterface:
-      output.networkInterface != null
-        ? deserializeAws_json1_1NetworkInterface(output.networkInterface, context)
-        : undefined,
-    phases: output.phases != null ? deserializeAws_json1_1BuildPhases(output.phases, context) : undefined,
-    projectName: __expectString(output.projectName),
-    queuedTimeoutInMinutes: __expectInt32(output.queuedTimeoutInMinutes),
-    reportArns:
-      output.reportArns != null ? deserializeAws_json1_1BuildReportArns(output.reportArns, context) : undefined,
-    resolvedSourceVersion: __expectString(output.resolvedSourceVersion),
-    secondaryArtifacts:
-      output.secondaryArtifacts != null
-        ? deserializeAws_json1_1BuildArtifactsList(output.secondaryArtifacts, context)
-        : undefined,
-    secondarySourceVersions:
-      output.secondarySourceVersions != null
-        ? deserializeAws_json1_1ProjectSecondarySourceVersions(output.secondarySourceVersions, context)
-        : undefined,
-    secondarySources:
-      output.secondarySources != null
-        ? deserializeAws_json1_1ProjectSources(output.secondarySources, context)
-        : undefined,
-    serviceRole: __expectString(output.serviceRole),
-    source: output.source != null ? deserializeAws_json1_1ProjectSource(output.source, context) : undefined,
-    sourceVersion: __expectString(output.sourceVersion),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    timeoutInMinutes: __expectInt32(output.timeoutInMinutes),
-    vpcConfig: output.vpcConfig != null ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1Build
+ */
+const de_Build = (output: any, context: __SerdeContext): Build => {
+  return take(output, {
+    arn: __expectString,
+    artifacts: _json,
+    buildBatchArn: __expectString,
+    buildComplete: __expectBoolean,
+    buildNumber: __expectLong,
+    buildStatus: __expectString,
+    cache: _json,
+    currentPhase: __expectString,
+    debugSession: _json,
+    encryptionKey: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    environment: _json,
+    exportedEnvironmentVariables: _json,
+    fileSystemLocations: _json,
+    id: __expectString,
+    initiator: __expectString,
+    logs: _json,
+    networkInterface: _json,
+    phases: (_: any) => de_BuildPhases(_, context),
+    projectName: __expectString,
+    queuedTimeoutInMinutes: __expectInt32,
+    reportArns: _json,
+    resolvedSourceVersion: __expectString,
+    secondaryArtifacts: _json,
+    secondarySourceVersions: _json,
+    secondarySources: _json,
+    serviceRole: __expectString,
+    source: _json,
+    sourceVersion: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    timeoutInMinutes: __expectInt32,
+    vpcConfig: _json,
+  }) as any;
 };
+
+// de_BuildArtifacts omitted.
+
+// de_BuildArtifactsList omitted.
 
-const deserializeAws_json1_1BuildArtifacts = (output: any, context: __SerdeContext): BuildArtifacts => {
-  return {
-    artifactIdentifier: __expectString(output.artifactIdentifier),
-    bucketOwnerAccess: __expectString(output.bucketOwnerAccess),
-    encryptionDisabled: __expectBoolean(output.encryptionDisabled),
-    location: __expectString(output.location),
-    md5sum: __expectString(output.md5sum),
-    overrideArtifactName: __expectBoolean(output.overrideArtifactName),
-    sha256sum: __expectString(output.sha256sum),
-  } as any;
+/**
+ * deserializeAws_json1_1BuildBatch
+ */
+const de_BuildBatch = (output: any, context: __SerdeContext): BuildBatch => {
+  return take(output, {
+    arn: __expectString,
+    artifacts: _json,
+    buildBatchConfig: _json,
+    buildBatchNumber: __expectLong,
+    buildBatchStatus: __expectString,
+    buildGroups: (_: any) => de_BuildGroups(_, context),
+    buildTimeoutInMinutes: __expectInt32,
+    cache: _json,
+    complete: __expectBoolean,
+    currentPhase: __expectString,
+    debugSessionEnabled: __expectBoolean,
+    encryptionKey: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    environment: _json,
+    fileSystemLocations: _json,
+    id: __expectString,
+    initiator: __expectString,
+    logConfig: _json,
+    phases: (_: any) => de_BuildBatchPhases(_, context),
+    projectName: __expectString,
+    queuedTimeoutInMinutes: __expectInt32,
+    resolvedSourceVersion: __expectString,
+    secondaryArtifacts: _json,
+    secondarySourceVersions: _json,
+    secondarySources: _json,
+    serviceRole: __expectString,
+    source: _json,
+    sourceVersion: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    vpcConfig: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1BuildArtifactsList = (output: any, context: __SerdeContext): BuildArtifacts[] => {
+/**
+ * deserializeAws_json1_1BuildBatches
+ */
+const de_BuildBatches = (output: any, context: __SerdeContext): BuildBatch[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1BuildArtifacts(entry, context);
+      return de_BuildBatch(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BuildBatch = (output: any, context: __SerdeContext): BuildBatch => {
-  return {
-    arn: __expectString(output.arn),
-    artifacts: output.artifacts != null ? deserializeAws_json1_1BuildArtifacts(output.artifacts, context) : undefined,
-    buildBatchConfig:
-      output.buildBatchConfig != null
-        ? deserializeAws_json1_1ProjectBuildBatchConfig(output.buildBatchConfig, context)
-        : undefined,
-    buildBatchNumber: __expectLong(output.buildBatchNumber),
-    buildBatchStatus: __expectString(output.buildBatchStatus),
-    buildGroups:
-      output.buildGroups != null ? deserializeAws_json1_1BuildGroups(output.buildGroups, context) : undefined,
-    buildTimeoutInMinutes: __expectInt32(output.buildTimeoutInMinutes),
-    cache: output.cache != null ? deserializeAws_json1_1ProjectCache(output.cache, context) : undefined,
-    complete: __expectBoolean(output.complete),
-    currentPhase: __expectString(output.currentPhase),
-    debugSessionEnabled: __expectBoolean(output.debugSessionEnabled),
-    encryptionKey: __expectString(output.encryptionKey),
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    environment:
-      output.environment != null ? deserializeAws_json1_1ProjectEnvironment(output.environment, context) : undefined,
-    fileSystemLocations:
-      output.fileSystemLocations != null
-        ? deserializeAws_json1_1ProjectFileSystemLocations(output.fileSystemLocations, context)
-        : undefined,
-    id: __expectString(output.id),
-    initiator: __expectString(output.initiator),
-    logConfig: output.logConfig != null ? deserializeAws_json1_1LogsConfig(output.logConfig, context) : undefined,
-    phases: output.phases != null ? deserializeAws_json1_1BuildBatchPhases(output.phases, context) : undefined,
-    projectName: __expectString(output.projectName),
-    queuedTimeoutInMinutes: __expectInt32(output.queuedTimeoutInMinutes),
-    resolvedSourceVersion: __expectString(output.resolvedSourceVersion),
-    secondaryArtifacts:
-      output.secondaryArtifacts != null
-        ? deserializeAws_json1_1BuildArtifactsList(output.secondaryArtifacts, context)
-        : undefined,
-    secondarySourceVersions:
-      output.secondarySourceVersions != null
-        ? deserializeAws_json1_1ProjectSecondarySourceVersions(output.secondarySourceVersions, context)
-        : undefined,
-    secondarySources:
-      output.secondarySources != null
-        ? deserializeAws_json1_1ProjectSources(output.secondarySources, context)
-        : undefined,
-    serviceRole: __expectString(output.serviceRole),
-    source: output.source != null ? deserializeAws_json1_1ProjectSource(output.source, context) : undefined,
-    sourceVersion: __expectString(output.sourceVersion),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-    vpcConfig: output.vpcConfig != null ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context) : undefined,
-  } as any;
+// de_BuildBatchIds omitted.
+
+/**
+ * deserializeAws_json1_1BuildBatchPhase
+ */
+const de_BuildBatchPhase = (output: any, context: __SerdeContext): BuildBatchPhase => {
+  return take(output, {
+    contexts: _json,
+    durationInSeconds: __expectLong,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    phaseStatus: __expectString,
+    phaseType: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1BuildBatches = (output: any, context: __SerdeContext): BuildBatch[] => {
+/**
+ * deserializeAws_json1_1BuildBatchPhases
+ */
+const de_BuildBatchPhases = (output: any, context: __SerdeContext): BuildBatchPhase[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1BuildBatch(entry, context);
+      return de_BuildBatchPhase(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BuildBatchIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1BuildGroup
+ */
+const de_BuildGroup = (output: any, context: __SerdeContext): BuildGroup => {
+  return take(output, {
+    currentBuildSummary: (_: any) => de_BuildSummary(_, context),
+    dependsOn: _json,
+    identifier: __expectString,
+    ignoreFailure: __expectBoolean,
+    priorBuildSummaryList: (_: any) => de_BuildSummaries(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1BuildGroups
+ */
+const de_BuildGroups = (output: any, context: __SerdeContext): BuildGroup[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_BuildGroup(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BuildBatchPhase = (output: any, context: __SerdeContext): BuildBatchPhase => {
-  return {
-    contexts: output.contexts != null ? deserializeAws_json1_1PhaseContexts(output.contexts, context) : undefined,
-    durationInSeconds: __expectLong(output.durationInSeconds),
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    phaseStatus: __expectString(output.phaseStatus),
-    phaseType: __expectString(output.phaseType),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-  } as any;
+// de_BuildIds omitted.
+
+// de_BuildNotDeleted omitted.
+
+/**
+ * deserializeAws_json1_1BuildPhase
+ */
+const de_BuildPhase = (output: any, context: __SerdeContext): BuildPhase => {
+  return take(output, {
+    contexts: _json,
+    durationInSeconds: __expectLong,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    phaseStatus: __expectString,
+    phaseType: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1BuildBatchPhases = (output: any, context: __SerdeContext): BuildBatchPhase[] => {
+/**
+ * deserializeAws_json1_1BuildPhases
+ */
+const de_BuildPhases = (output: any, context: __SerdeContext): BuildPhase[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1BuildBatchPhase(entry, context);
+      return de_BuildPhase(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BuildGroup = (output: any, context: __SerdeContext): BuildGroup => {
-  return {
-    currentBuildSummary:
-      output.currentBuildSummary != null
-        ? deserializeAws_json1_1BuildSummary(output.currentBuildSummary, context)
-        : undefined,
-    dependsOn: output.dependsOn != null ? deserializeAws_json1_1Identifiers(output.dependsOn, context) : undefined,
-    identifier: __expectString(output.identifier),
-    ignoreFailure: __expectBoolean(output.ignoreFailure),
-    priorBuildSummaryList:
-      output.priorBuildSummaryList != null
-        ? deserializeAws_json1_1BuildSummaries(output.priorBuildSummaryList, context)
-        : undefined,
-  } as any;
-};
+// de_BuildReportArns omitted.
 
-const deserializeAws_json1_1BuildGroups = (output: any, context: __SerdeContext): BuildGroup[] => {
+/**
+ * deserializeAws_json1_1Builds
+ */
+const de_Builds = (output: any, context: __SerdeContext): Build[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1BuildGroup(entry, context);
+      return de_Build(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BuildIds = (output: any, context: __SerdeContext): string[] => {
+// de_BuildsNotDeleted omitted.
+
+// de_BuildStatusConfig omitted.
+
+/**
+ * deserializeAws_json1_1BuildSummaries
+ */
+const de_BuildSummaries = (output: any, context: __SerdeContext): BuildSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_BuildSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BuildNotDeleted = (output: any, context: __SerdeContext): BuildNotDeleted => {
-  return {
-    id: __expectString(output.id),
-    statusCode: __expectString(output.statusCode),
-  } as any;
+/**
+ * deserializeAws_json1_1BuildSummary
+ */
+const de_BuildSummary = (output: any, context: __SerdeContext): BuildSummary => {
+  return take(output, {
+    arn: __expectString,
+    buildStatus: __expectString,
+    primaryArtifact: _json,
+    requestedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    secondaryArtifacts: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1BuildPhase = (output: any, context: __SerdeContext): BuildPhase => {
-  return {
-    contexts: output.contexts != null ? deserializeAws_json1_1PhaseContexts(output.contexts, context) : undefined,
-    durationInSeconds: __expectLong(output.durationInSeconds),
-    endTime:
-      output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
-    phaseStatus: __expectString(output.phaseStatus),
-    phaseType: __expectString(output.phaseType),
-    startTime:
-      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
-  } as any;
+// de_CloudWatchLogsConfig omitted.
+
+/**
+ * deserializeAws_json1_1CodeCoverage
+ */
+const de_CodeCoverage = (output: any, context: __SerdeContext): CodeCoverage => {
+  return take(output, {
+    branchCoveragePercentage: __limitedParseDouble,
+    branchesCovered: __expectInt32,
+    branchesMissed: __expectInt32,
+    expired: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    filePath: __expectString,
+    id: __expectString,
+    lineCoveragePercentage: __limitedParseDouble,
+    linesCovered: __expectInt32,
+    linesMissed: __expectInt32,
+    reportARN: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1BuildPhases = (output: any, context: __SerdeContext): BuildPhase[] => {
+/**
+ * deserializeAws_json1_1CodeCoverageReportSummary
+ */
+const de_CodeCoverageReportSummary = (output: any, context: __SerdeContext): CodeCoverageReportSummary => {
+  return take(output, {
+    branchCoveragePercentage: __limitedParseDouble,
+    branchesCovered: __expectInt32,
+    branchesMissed: __expectInt32,
+    lineCoveragePercentage: __limitedParseDouble,
+    linesCovered: __expectInt32,
+    linesMissed: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CodeCoverages
+ */
+const de_CodeCoverages = (output: any, context: __SerdeContext): CodeCoverage[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1BuildPhase(entry, context);
+      return de_CodeCoverage(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BuildReportArns = (output: any, context: __SerdeContext): string[] => {
+// de_ComputeTypesAllowed omitted.
+
+/**
+ * deserializeAws_json1_1CreateProjectOutput
+ */
+const de_CreateProjectOutput = (output: any, context: __SerdeContext): CreateProjectOutput => {
+  return take(output, {
+    project: (_: any) => de_Project(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateReportGroupOutput
+ */
+const de_CreateReportGroupOutput = (output: any, context: __SerdeContext): CreateReportGroupOutput => {
+  return take(output, {
+    reportGroup: (_: any) => de_ReportGroup(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateWebhookOutput
+ */
+const de_CreateWebhookOutput = (output: any, context: __SerdeContext): CreateWebhookOutput => {
+  return take(output, {
+    webhook: (_: any) => de_Webhook(_, context),
+  }) as any;
+};
+
+// de_DebugSession omitted.
+
+// de_DeleteBuildBatchOutput omitted.
+
+// de_DeleteProjectOutput omitted.
+
+// de_DeleteReportGroupOutput omitted.
+
+// de_DeleteReportOutput omitted.
+
+// de_DeleteResourcePolicyOutput omitted.
+
+// de_DeleteSourceCredentialsOutput omitted.
+
+// de_DeleteWebhookOutput omitted.
+
+/**
+ * deserializeAws_json1_1DescribeCodeCoveragesOutput
+ */
+const de_DescribeCodeCoveragesOutput = (output: any, context: __SerdeContext): DescribeCodeCoveragesOutput => {
+  return take(output, {
+    codeCoverages: (_: any) => de_CodeCoverages(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTestCasesOutput
+ */
+const de_DescribeTestCasesOutput = (output: any, context: __SerdeContext): DescribeTestCasesOutput => {
+  return take(output, {
+    nextToken: __expectString,
+    testCases: (_: any) => de_TestCases(_, context),
+  }) as any;
+};
+
+// de_EnvironmentImage omitted.
+
+// de_EnvironmentImages omitted.
+
+// de_EnvironmentLanguage omitted.
+
+// de_EnvironmentLanguages omitted.
+
+// de_EnvironmentPlatform omitted.
+
+// de_EnvironmentPlatforms omitted.
+
+// de_EnvironmentVariable omitted.
+
+// de_EnvironmentVariables omitted.
+
+// de_ExportedEnvironmentVariable omitted.
+
+// de_ExportedEnvironmentVariables omitted.
+
+// de_FilterGroup omitted.
+
+// de_FilterGroups omitted.
+
+// de_GetReportGroupTrendOutput omitted.
+
+// de_GetResourcePolicyOutput omitted.
+
+// de_GitSubmodulesConfig omitted.
+
+// de_Identifiers omitted.
+
+// de_ImageVersions omitted.
+
+// de_ImportSourceCredentialsOutput omitted.
+
+// de_InvalidateProjectCacheOutput omitted.
+
+// de_InvalidInputException omitted.
+
+// de_ListBuildBatchesForProjectOutput omitted.
+
+// de_ListBuildBatchesOutput omitted.
+
+// de_ListBuildsForProjectOutput omitted.
+
+// de_ListBuildsOutput omitted.
+
+// de_ListCuratedEnvironmentImagesOutput omitted.
+
+// de_ListProjectsOutput omitted.
+
+// de_ListReportGroupsOutput omitted.
+
+// de_ListReportsForReportGroupOutput omitted.
+
+// de_ListReportsOutput omitted.
+
+// de_ListSharedProjectsOutput omitted.
+
+// de_ListSharedReportGroupsOutput omitted.
+
+// de_ListSourceCredentialsOutput omitted.
+
+// de_LogsConfig omitted.
+
+// de_LogsLocation omitted.
+
+// de_NetworkInterface omitted.
+
+// de_OAuthProviderException omitted.
+
+// de_PhaseContext omitted.
+
+// de_PhaseContexts omitted.
+
+/**
+ * deserializeAws_json1_1Project
+ */
+const de_Project = (output: any, context: __SerdeContext): Project => {
+  return take(output, {
+    arn: __expectString,
+    artifacts: _json,
+    badge: _json,
+    buildBatchConfig: _json,
+    cache: _json,
+    concurrentBuildLimit: __expectInt32,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    encryptionKey: __expectString,
+    environment: _json,
+    fileSystemLocations: _json,
+    lastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    logsConfig: _json,
+    name: __expectString,
+    projectVisibility: __expectString,
+    publicProjectAlias: __expectString,
+    queuedTimeoutInMinutes: __expectInt32,
+    resourceAccessRole: __expectString,
+    secondaryArtifacts: _json,
+    secondarySourceVersions: _json,
+    secondarySources: _json,
+    serviceRole: __expectString,
+    source: _json,
+    sourceVersion: __expectString,
+    tags: _json,
+    timeoutInMinutes: __expectInt32,
+    vpcConfig: _json,
+    webhook: (_: any) => de_Webhook(_, context),
+  }) as any;
+};
+
+// de_ProjectArns omitted.
+
+// de_ProjectArtifacts omitted.
+
+// de_ProjectArtifactsList omitted.
+
+// de_ProjectBadge omitted.
+
+// de_ProjectBuildBatchConfig omitted.
+
+// de_ProjectCache omitted.
+
+// de_ProjectCacheModes omitted.
+
+// de_ProjectEnvironment omitted.
+
+// de_ProjectFileSystemLocation omitted.
+
+// de_ProjectFileSystemLocations omitted.
+
+// de_ProjectNames omitted.
+
+/**
+ * deserializeAws_json1_1Projects
+ */
+const de_Projects = (output: any, context: __SerdeContext): Project[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_Project(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Builds = (output: any, context: __SerdeContext): Build[] => {
+// de_ProjectSecondarySourceVersions omitted.
+
+// de_ProjectSource omitted.
+
+// de_ProjectSources omitted.
+
+// de_ProjectSourceVersion omitted.
+
+// de_PutResourcePolicyOutput omitted.
+
+// de_RegistryCredential omitted.
+
+/**
+ * deserializeAws_json1_1Report
+ */
+const de_Report = (output: any, context: __SerdeContext): Report => {
+  return take(output, {
+    arn: __expectString,
+    codeCoverageSummary: (_: any) => de_CodeCoverageReportSummary(_, context),
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    executionId: __expectString,
+    expired: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    exportConfig: _json,
+    name: __expectString,
+    reportGroupArn: __expectString,
+    status: __expectString,
+    testSummary: _json,
+    truncated: __expectBoolean,
+    type: __expectString,
+  }) as any;
+};
+
+// de_ReportArns omitted.
+
+// de_ReportExportConfig omitted.
+
+/**
+ * deserializeAws_json1_1ReportGroup
+ */
+const de_ReportGroup = (output: any, context: __SerdeContext): ReportGroup => {
+  return take(output, {
+    arn: __expectString,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    exportConfig: _json,
+    lastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    tags: _json,
+    type: __expectString,
+  }) as any;
+};
+
+// de_ReportGroupArns omitted.
+
+/**
+ * deserializeAws_json1_1ReportGroups
+ */
+const de_ReportGroups = (output: any, context: __SerdeContext): ReportGroup[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Build(entry, context);
+      return de_ReportGroup(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BuildsNotDeleted = (output: any, context: __SerdeContext): BuildNotDeleted[] => {
+// de_ReportGroupTrendRawDataList omitted.
+
+// de_ReportGroupTrendStats omitted.
+
+/**
+ * deserializeAws_json1_1Reports
+ */
+const de_Reports = (output: any, context: __SerdeContext): Report[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1BuildNotDeleted(entry, context);
+      return de_Report(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BuildStatusConfig = (output: any, context: __SerdeContext): BuildStatusConfig => {
-  return {
-    context: __expectString(output.context),
-    targetUrl: __expectString(output.targetUrl),
-  } as any;
+// de_ReportStatusCounts omitted.
+
+// de_ReportWithRawData omitted.
+
+// de_ResolvedArtifact omitted.
+
+// de_ResolvedSecondaryArtifacts omitted.
+
+// de_ResourceAlreadyExistsException omitted.
+
+// de_ResourceNotFoundException omitted.
+
+/**
+ * deserializeAws_json1_1RetryBuildBatchOutput
+ */
+const de_RetryBuildBatchOutput = (output: any, context: __SerdeContext): RetryBuildBatchOutput => {
+  return take(output, {
+    buildBatch: (_: any) => de_BuildBatch(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1BuildSummaries = (output: any, context: __SerdeContext): BuildSummary[] => {
+/**
+ * deserializeAws_json1_1RetryBuildOutput
+ */
+const de_RetryBuildOutput = (output: any, context: __SerdeContext): RetryBuildOutput => {
+  return take(output, {
+    build: (_: any) => de_Build(_, context),
+  }) as any;
+};
+
+// de_S3LogsConfig omitted.
+
+// de_S3ReportExportConfig omitted.
+
+// de_SecurityGroupIds omitted.
+
+// de_SourceAuth omitted.
+
+// de_SourceCredentialsInfo omitted.
+
+// de_SourceCredentialsInfos omitted.
+
+/**
+ * deserializeAws_json1_1StartBuildBatchOutput
+ */
+const de_StartBuildBatchOutput = (output: any, context: __SerdeContext): StartBuildBatchOutput => {
+  return take(output, {
+    buildBatch: (_: any) => de_BuildBatch(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StartBuildOutput
+ */
+const de_StartBuildOutput = (output: any, context: __SerdeContext): StartBuildOutput => {
+  return take(output, {
+    build: (_: any) => de_Build(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StopBuildBatchOutput
+ */
+const de_StopBuildBatchOutput = (output: any, context: __SerdeContext): StopBuildBatchOutput => {
+  return take(output, {
+    buildBatch: (_: any) => de_BuildBatch(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StopBuildOutput
+ */
+const de_StopBuildOutput = (output: any, context: __SerdeContext): StopBuildOutput => {
+  return take(output, {
+    build: (_: any) => de_Build(_, context),
+  }) as any;
+};
+
+// de_Subnets omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+/**
+ * deserializeAws_json1_1TestCase
+ */
+const de_TestCase = (output: any, context: __SerdeContext): TestCase => {
+  return take(output, {
+    durationInNanoSeconds: __expectLong,
+    expired: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    message: __expectString,
+    name: __expectString,
+    prefix: __expectString,
+    reportArn: __expectString,
+    status: __expectString,
+    testRawDataPath: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1TestCases
+ */
+const de_TestCases = (output: any, context: __SerdeContext): TestCase[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1BuildSummary(entry, context);
+      return de_TestCase(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BuildSummary = (output: any, context: __SerdeContext): BuildSummary => {
-  return {
-    arn: __expectString(output.arn),
-    buildStatus: __expectString(output.buildStatus),
-    primaryArtifact:
-      output.primaryArtifact != null
-        ? deserializeAws_json1_1ResolvedArtifact(output.primaryArtifact, context)
-        : undefined,
-    requestedOn:
-      output.requestedOn != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.requestedOn)))
-        : undefined,
-    secondaryArtifacts:
-      output.secondaryArtifacts != null
-        ? deserializeAws_json1_1ResolvedSecondaryArtifacts(output.secondaryArtifacts, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CloudWatchLogsConfig = (output: any, context: __SerdeContext): CloudWatchLogsConfig => {
-  return {
-    groupName: __expectString(output.groupName),
-    status: __expectString(output.status),
-    streamName: __expectString(output.streamName),
-  } as any;
-};
-
-const deserializeAws_json1_1CodeCoverage = (output: any, context: __SerdeContext): CodeCoverage => {
-  return {
-    branchCoveragePercentage: __limitedParseDouble(output.branchCoveragePercentage),
-    branchesCovered: __expectInt32(output.branchesCovered),
-    branchesMissed: __expectInt32(output.branchesMissed),
-    expired:
-      output.expired != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired))) : undefined,
-    filePath: __expectString(output.filePath),
-    id: __expectString(output.id),
-    lineCoveragePercentage: __limitedParseDouble(output.lineCoveragePercentage),
-    linesCovered: __expectInt32(output.linesCovered),
-    linesMissed: __expectInt32(output.linesMissed),
-    reportARN: __expectString(output.reportARN),
-  } as any;
-};
-
-const deserializeAws_json1_1CodeCoverageReportSummary = (
-  output: any,
-  context: __SerdeContext
-): CodeCoverageReportSummary => {
-  return {
-    branchCoveragePercentage: __limitedParseDouble(output.branchCoveragePercentage),
-    branchesCovered: __expectInt32(output.branchesCovered),
-    branchesMissed: __expectInt32(output.branchesMissed),
-    lineCoveragePercentage: __limitedParseDouble(output.lineCoveragePercentage),
-    linesCovered: __expectInt32(output.linesCovered),
-    linesMissed: __expectInt32(output.linesMissed),
-  } as any;
-};
-
-const deserializeAws_json1_1CodeCoverages = (output: any, context: __SerdeContext): CodeCoverage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CodeCoverage(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ComputeTypesAllowed = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1CreateProjectOutput = (output: any, context: __SerdeContext): CreateProjectOutput => {
-  return {
-    project: output.project != null ? deserializeAws_json1_1Project(output.project, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CreateReportGroupOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateReportGroupOutput => {
-  return {
-    reportGroup:
-      output.reportGroup != null ? deserializeAws_json1_1ReportGroup(output.reportGroup, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CreateWebhookOutput = (output: any, context: __SerdeContext): CreateWebhookOutput => {
-  return {
-    webhook: output.webhook != null ? deserializeAws_json1_1Webhook(output.webhook, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DebugSession = (output: any, context: __SerdeContext): DebugSession => {
-  return {
-    sessionEnabled: __expectBoolean(output.sessionEnabled),
-    sessionTarget: __expectString(output.sessionTarget),
-  } as any;
-};
-
-const deserializeAws_json1_1DeleteBuildBatchOutput = (output: any, context: __SerdeContext): DeleteBuildBatchOutput => {
-  return {
-    buildsDeleted:
-      output.buildsDeleted != null ? deserializeAws_json1_1BuildIds(output.buildsDeleted, context) : undefined,
-    buildsNotDeleted:
-      output.buildsNotDeleted != null
-        ? deserializeAws_json1_1BuildsNotDeleted(output.buildsNotDeleted, context)
-        : undefined,
-    statusCode: __expectString(output.statusCode),
-  } as any;
-};
-
-const deserializeAws_json1_1DeleteProjectOutput = (output: any, context: __SerdeContext): DeleteProjectOutput => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteReportGroupOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteReportGroupOutput => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteReportOutput = (output: any, context: __SerdeContext): DeleteReportOutput => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteResourcePolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteResourcePolicyOutput => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteSourceCredentialsOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteSourceCredentialsOutput => {
-  return {
-    arn: __expectString(output.arn),
-  } as any;
-};
-
-const deserializeAws_json1_1DeleteWebhookOutput = (output: any, context: __SerdeContext): DeleteWebhookOutput => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DescribeCodeCoveragesOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeCodeCoveragesOutput => {
-  return {
-    codeCoverages:
-      output.codeCoverages != null ? deserializeAws_json1_1CodeCoverages(output.codeCoverages, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeTestCasesOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeTestCasesOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    testCases: output.testCases != null ? deserializeAws_json1_1TestCases(output.testCases, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1EnvironmentImage = (output: any, context: __SerdeContext): EnvironmentImage => {
-  return {
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    versions: output.versions != null ? deserializeAws_json1_1ImageVersions(output.versions, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1EnvironmentImages = (output: any, context: __SerdeContext): EnvironmentImage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1EnvironmentImage(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1EnvironmentLanguage = (output: any, context: __SerdeContext): EnvironmentLanguage => {
-  return {
-    images: output.images != null ? deserializeAws_json1_1EnvironmentImages(output.images, context) : undefined,
-    language: __expectString(output.language),
-  } as any;
-};
-
-const deserializeAws_json1_1EnvironmentLanguages = (output: any, context: __SerdeContext): EnvironmentLanguage[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1EnvironmentLanguage(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1EnvironmentPlatform = (output: any, context: __SerdeContext): EnvironmentPlatform => {
-  return {
-    languages:
-      output.languages != null ? deserializeAws_json1_1EnvironmentLanguages(output.languages, context) : undefined,
-    platform: __expectString(output.platform),
-  } as any;
-};
-
-const deserializeAws_json1_1EnvironmentPlatforms = (output: any, context: __SerdeContext): EnvironmentPlatform[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1EnvironmentPlatform(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1EnvironmentVariable = (output: any, context: __SerdeContext): EnvironmentVariable => {
-  return {
-    name: __expectString(output.name),
-    type: __expectString(output.type),
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_json1_1EnvironmentVariables = (output: any, context: __SerdeContext): EnvironmentVariable[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1EnvironmentVariable(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ExportedEnvironmentVariable = (
-  output: any,
-  context: __SerdeContext
-): ExportedEnvironmentVariable => {
-  return {
-    name: __expectString(output.name),
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_json1_1ExportedEnvironmentVariables = (
-  output: any,
-  context: __SerdeContext
-): ExportedEnvironmentVariable[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ExportedEnvironmentVariable(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1FilterGroup = (output: any, context: __SerdeContext): WebhookFilter[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1WebhookFilter(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1FilterGroups = (output: any, context: __SerdeContext): WebhookFilter[][] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1FilterGroup(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1GetReportGroupTrendOutput = (
-  output: any,
-  context: __SerdeContext
-): GetReportGroupTrendOutput => {
-  return {
-    rawData:
-      output.rawData != null ? deserializeAws_json1_1ReportGroupTrendRawDataList(output.rawData, context) : undefined,
-    stats: output.stats != null ? deserializeAws_json1_1ReportGroupTrendStats(output.stats, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1GetResourcePolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): GetResourcePolicyOutput => {
-  return {
-    policy: __expectString(output.policy),
-  } as any;
-};
-
-const deserializeAws_json1_1GitSubmodulesConfig = (output: any, context: __SerdeContext): GitSubmodulesConfig => {
-  return {
-    fetchSubmodules: __expectBoolean(output.fetchSubmodules),
-  } as any;
-};
-
-const deserializeAws_json1_1Identifiers = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ImageVersions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ImportSourceCredentialsOutput = (
-  output: any,
-  context: __SerdeContext
-): ImportSourceCredentialsOutput => {
-  return {
-    arn: __expectString(output.arn),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidateProjectCacheOutput = (
-  output: any,
-  context: __SerdeContext
-): InvalidateProjectCacheOutput => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ListBuildBatchesForProjectOutput = (
-  output: any,
-  context: __SerdeContext
-): ListBuildBatchesForProjectOutput => {
-  return {
-    ids: output.ids != null ? deserializeAws_json1_1BuildBatchIds(output.ids, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListBuildBatchesOutput = (output: any, context: __SerdeContext): ListBuildBatchesOutput => {
-  return {
-    ids: output.ids != null ? deserializeAws_json1_1BuildBatchIds(output.ids, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListBuildsForProjectOutput = (
-  output: any,
-  context: __SerdeContext
-): ListBuildsForProjectOutput => {
-  return {
-    ids: output.ids != null ? deserializeAws_json1_1BuildIds(output.ids, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListBuildsOutput = (output: any, context: __SerdeContext): ListBuildsOutput => {
-  return {
-    ids: output.ids != null ? deserializeAws_json1_1BuildIds(output.ids, context) : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListCuratedEnvironmentImagesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListCuratedEnvironmentImagesOutput => {
-  return {
-    platforms:
-      output.platforms != null ? deserializeAws_json1_1EnvironmentPlatforms(output.platforms, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListProjectsOutput = (output: any, context: __SerdeContext): ListProjectsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    projects: output.projects != null ? deserializeAws_json1_1ProjectNames(output.projects, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListReportGroupsOutput = (output: any, context: __SerdeContext): ListReportGroupsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    reportGroups:
-      output.reportGroups != null ? deserializeAws_json1_1ReportGroupArns(output.reportGroups, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListReportsForReportGroupOutput = (
-  output: any,
-  context: __SerdeContext
-): ListReportsForReportGroupOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    reports: output.reports != null ? deserializeAws_json1_1ReportArns(output.reports, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListReportsOutput = (output: any, context: __SerdeContext): ListReportsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    reports: output.reports != null ? deserializeAws_json1_1ReportArns(output.reports, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListSharedProjectsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListSharedProjectsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    projects: output.projects != null ? deserializeAws_json1_1ProjectArns(output.projects, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListSharedReportGroupsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListSharedReportGroupsOutput => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    reportGroups:
-      output.reportGroups != null ? deserializeAws_json1_1ReportGroupArns(output.reportGroups, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListSourceCredentialsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListSourceCredentialsOutput => {
-  return {
-    sourceCredentialsInfos:
-      output.sourceCredentialsInfos != null
-        ? deserializeAws_json1_1SourceCredentialsInfos(output.sourceCredentialsInfos, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1LogsConfig = (output: any, context: __SerdeContext): LogsConfig => {
-  return {
-    cloudWatchLogs:
-      output.cloudWatchLogs != null
-        ? deserializeAws_json1_1CloudWatchLogsConfig(output.cloudWatchLogs, context)
-        : undefined,
-    s3Logs: output.s3Logs != null ? deserializeAws_json1_1S3LogsConfig(output.s3Logs, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1LogsLocation = (output: any, context: __SerdeContext): LogsLocation => {
-  return {
-    cloudWatchLogs:
-      output.cloudWatchLogs != null
-        ? deserializeAws_json1_1CloudWatchLogsConfig(output.cloudWatchLogs, context)
-        : undefined,
-    cloudWatchLogsArn: __expectString(output.cloudWatchLogsArn),
-    deepLink: __expectString(output.deepLink),
-    groupName: __expectString(output.groupName),
-    s3DeepLink: __expectString(output.s3DeepLink),
-    s3Logs: output.s3Logs != null ? deserializeAws_json1_1S3LogsConfig(output.s3Logs, context) : undefined,
-    s3LogsArn: __expectString(output.s3LogsArn),
-    streamName: __expectString(output.streamName),
-  } as any;
-};
-
-const deserializeAws_json1_1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
-  return {
-    networkInterfaceId: __expectString(output.networkInterfaceId),
-    subnetId: __expectString(output.subnetId),
-  } as any;
-};
-
-const deserializeAws_json1_1OAuthProviderException = (output: any, context: __SerdeContext): OAuthProviderException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1PhaseContext = (output: any, context: __SerdeContext): PhaseContext => {
-  return {
-    message: __expectString(output.message),
-    statusCode: __expectString(output.statusCode),
-  } as any;
-};
-
-const deserializeAws_json1_1PhaseContexts = (output: any, context: __SerdeContext): PhaseContext[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1PhaseContext(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Project => {
-  return {
-    arn: __expectString(output.arn),
-    artifacts: output.artifacts != null ? deserializeAws_json1_1ProjectArtifacts(output.artifacts, context) : undefined,
-    badge: output.badge != null ? deserializeAws_json1_1ProjectBadge(output.badge, context) : undefined,
-    buildBatchConfig:
-      output.buildBatchConfig != null
-        ? deserializeAws_json1_1ProjectBuildBatchConfig(output.buildBatchConfig, context)
-        : undefined,
-    cache: output.cache != null ? deserializeAws_json1_1ProjectCache(output.cache, context) : undefined,
-    concurrentBuildLimit: __expectInt32(output.concurrentBuildLimit),
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    description: __expectString(output.description),
-    encryptionKey: __expectString(output.encryptionKey),
-    environment:
-      output.environment != null ? deserializeAws_json1_1ProjectEnvironment(output.environment, context) : undefined,
-    fileSystemLocations:
-      output.fileSystemLocations != null
-        ? deserializeAws_json1_1ProjectFileSystemLocations(output.fileSystemLocations, context)
-        : undefined,
-    lastModified:
-      output.lastModified != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModified)))
-        : undefined,
-    logsConfig: output.logsConfig != null ? deserializeAws_json1_1LogsConfig(output.logsConfig, context) : undefined,
-    name: __expectString(output.name),
-    projectVisibility: __expectString(output.projectVisibility),
-    publicProjectAlias: __expectString(output.publicProjectAlias),
-    queuedTimeoutInMinutes: __expectInt32(output.queuedTimeoutInMinutes),
-    resourceAccessRole: __expectString(output.resourceAccessRole),
-    secondaryArtifacts:
-      output.secondaryArtifacts != null
-        ? deserializeAws_json1_1ProjectArtifactsList(output.secondaryArtifacts, context)
-        : undefined,
-    secondarySourceVersions:
-      output.secondarySourceVersions != null
-        ? deserializeAws_json1_1ProjectSecondarySourceVersions(output.secondarySourceVersions, context)
-        : undefined,
-    secondarySources:
-      output.secondarySources != null
-        ? deserializeAws_json1_1ProjectSources(output.secondarySources, context)
-        : undefined,
-    serviceRole: __expectString(output.serviceRole),
-    source: output.source != null ? deserializeAws_json1_1ProjectSource(output.source, context) : undefined,
-    sourceVersion: __expectString(output.sourceVersion),
-    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
-    timeoutInMinutes: __expectInt32(output.timeoutInMinutes),
-    vpcConfig: output.vpcConfig != null ? deserializeAws_json1_1VpcConfig(output.vpcConfig, context) : undefined,
-    webhook: output.webhook != null ? deserializeAws_json1_1Webhook(output.webhook, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ProjectArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ProjectArtifacts = (output: any, context: __SerdeContext): ProjectArtifacts => {
-  return {
-    artifactIdentifier: __expectString(output.artifactIdentifier),
-    bucketOwnerAccess: __expectString(output.bucketOwnerAccess),
-    encryptionDisabled: __expectBoolean(output.encryptionDisabled),
-    location: __expectString(output.location),
-    name: __expectString(output.name),
-    namespaceType: __expectString(output.namespaceType),
-    overrideArtifactName: __expectBoolean(output.overrideArtifactName),
-    packaging: __expectString(output.packaging),
-    path: __expectString(output.path),
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1ProjectArtifactsList = (output: any, context: __SerdeContext): ProjectArtifacts[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ProjectArtifacts(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ProjectBadge = (output: any, context: __SerdeContext): ProjectBadge => {
-  return {
-    badgeEnabled: __expectBoolean(output.badgeEnabled),
-    badgeRequestUrl: __expectString(output.badgeRequestUrl),
-  } as any;
-};
-
-const deserializeAws_json1_1ProjectBuildBatchConfig = (
-  output: any,
-  context: __SerdeContext
-): ProjectBuildBatchConfig => {
-  return {
-    batchReportMode: __expectString(output.batchReportMode),
-    combineArtifacts: __expectBoolean(output.combineArtifacts),
-    restrictions:
-      output.restrictions != null ? deserializeAws_json1_1BatchRestrictions(output.restrictions, context) : undefined,
-    serviceRole: __expectString(output.serviceRole),
-    timeoutInMins: __expectInt32(output.timeoutInMins),
-  } as any;
-};
-
-const deserializeAws_json1_1ProjectCache = (output: any, context: __SerdeContext): ProjectCache => {
-  return {
-    location: __expectString(output.location),
-    modes: output.modes != null ? deserializeAws_json1_1ProjectCacheModes(output.modes, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1ProjectCacheModes = (output: any, context: __SerdeContext): (CacheMode | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ProjectEnvironment = (output: any, context: __SerdeContext): ProjectEnvironment => {
-  return {
-    certificate: __expectString(output.certificate),
-    computeType: __expectString(output.computeType),
-    environmentVariables:
-      output.environmentVariables != null
-        ? deserializeAws_json1_1EnvironmentVariables(output.environmentVariables, context)
-        : undefined,
-    image: __expectString(output.image),
-    imagePullCredentialsType: __expectString(output.imagePullCredentialsType),
-    privilegedMode: __expectBoolean(output.privilegedMode),
-    registryCredential:
-      output.registryCredential != null
-        ? deserializeAws_json1_1RegistryCredential(output.registryCredential, context)
-        : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1ProjectFileSystemLocation = (
-  output: any,
-  context: __SerdeContext
-): ProjectFileSystemLocation => {
-  return {
-    identifier: __expectString(output.identifier),
-    location: __expectString(output.location),
-    mountOptions: __expectString(output.mountOptions),
-    mountPoint: __expectString(output.mountPoint),
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1ProjectFileSystemLocations = (
-  output: any,
-  context: __SerdeContext
-): ProjectFileSystemLocation[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ProjectFileSystemLocation(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ProjectNames = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Projects = (output: any, context: __SerdeContext): Project[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Project(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ProjectSecondarySourceVersions = (
-  output: any,
-  context: __SerdeContext
-): ProjectSourceVersion[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ProjectSourceVersion(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ProjectSource = (output: any, context: __SerdeContext): ProjectSource => {
-  return {
-    auth: output.auth != null ? deserializeAws_json1_1SourceAuth(output.auth, context) : undefined,
-    buildStatusConfig:
-      output.buildStatusConfig != null
-        ? deserializeAws_json1_1BuildStatusConfig(output.buildStatusConfig, context)
-        : undefined,
-    buildspec: __expectString(output.buildspec),
-    gitCloneDepth: __expectInt32(output.gitCloneDepth),
-    gitSubmodulesConfig:
-      output.gitSubmodulesConfig != null
-        ? deserializeAws_json1_1GitSubmodulesConfig(output.gitSubmodulesConfig, context)
-        : undefined,
-    insecureSsl: __expectBoolean(output.insecureSsl),
-    location: __expectString(output.location),
-    reportBuildStatus: __expectBoolean(output.reportBuildStatus),
-    sourceIdentifier: __expectString(output.sourceIdentifier),
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1ProjectSources = (output: any, context: __SerdeContext): ProjectSource[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ProjectSource(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ProjectSourceVersion = (output: any, context: __SerdeContext): ProjectSourceVersion => {
-  return {
-    sourceIdentifier: __expectString(output.sourceIdentifier),
-    sourceVersion: __expectString(output.sourceVersion),
-  } as any;
-};
-
-const deserializeAws_json1_1PutResourcePolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): PutResourcePolicyOutput => {
-  return {
-    resourceArn: __expectString(output.resourceArn),
-  } as any;
-};
-
-const deserializeAws_json1_1RegistryCredential = (output: any, context: __SerdeContext): RegistryCredential => {
-  return {
-    credential: __expectString(output.credential),
-    credentialProvider: __expectString(output.credentialProvider),
-  } as any;
-};
-
-const deserializeAws_json1_1Report = (output: any, context: __SerdeContext): Report => {
-  return {
-    arn: __expectString(output.arn),
-    codeCoverageSummary:
-      output.codeCoverageSummary != null
-        ? deserializeAws_json1_1CodeCoverageReportSummary(output.codeCoverageSummary, context)
-        : undefined,
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    executionId: __expectString(output.executionId),
-    expired:
-      output.expired != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired))) : undefined,
-    exportConfig:
-      output.exportConfig != null ? deserializeAws_json1_1ReportExportConfig(output.exportConfig, context) : undefined,
-    name: __expectString(output.name),
-    reportGroupArn: __expectString(output.reportGroupArn),
-    status: __expectString(output.status),
-    testSummary:
-      output.testSummary != null ? deserializeAws_json1_1TestReportSummary(output.testSummary, context) : undefined,
-    truncated: __expectBoolean(output.truncated),
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1ReportArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ReportExportConfig = (output: any, context: __SerdeContext): ReportExportConfig => {
-  return {
-    exportConfigType: __expectString(output.exportConfigType),
-    s3Destination:
-      output.s3Destination != null
-        ? deserializeAws_json1_1S3ReportExportConfig(output.s3Destination, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ReportGroup = (output: any, context: __SerdeContext): ReportGroup => {
-  return {
-    arn: __expectString(output.arn),
-    created:
-      output.created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.created))) : undefined,
-    exportConfig:
-      output.exportConfig != null ? deserializeAws_json1_1ReportExportConfig(output.exportConfig, context) : undefined,
-    lastModified:
-      output.lastModified != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModified)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1ReportGroupArns = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ReportGroups = (output: any, context: __SerdeContext): ReportGroup[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ReportGroup(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ReportGroupTrendRawDataList = (
-  output: any,
-  context: __SerdeContext
-): ReportWithRawData[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ReportWithRawData(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ReportGroupTrendStats = (output: any, context: __SerdeContext): ReportGroupTrendStats => {
-  return {
-    average: __expectString(output.average),
-    max: __expectString(output.max),
-    min: __expectString(output.min),
-  } as any;
-};
-
-const deserializeAws_json1_1Reports = (output: any, context: __SerdeContext): Report[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Report(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ReportStatusCounts = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
-};
-
-const deserializeAws_json1_1ReportWithRawData = (output: any, context: __SerdeContext): ReportWithRawData => {
-  return {
-    data: __expectString(output.data),
-    reportArn: __expectString(output.reportArn),
-  } as any;
-};
-
-const deserializeAws_json1_1ResolvedArtifact = (output: any, context: __SerdeContext): ResolvedArtifact => {
-  return {
-    identifier: __expectString(output.identifier),
-    location: __expectString(output.location),
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1ResolvedSecondaryArtifacts = (output: any, context: __SerdeContext): ResolvedArtifact[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ResolvedArtifact(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1ResourceAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ResourceAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1RetryBuildBatchOutput = (output: any, context: __SerdeContext): RetryBuildBatchOutput => {
-  return {
-    buildBatch: output.buildBatch != null ? deserializeAws_json1_1BuildBatch(output.buildBatch, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1RetryBuildOutput = (output: any, context: __SerdeContext): RetryBuildOutput => {
-  return {
-    build: output.build != null ? deserializeAws_json1_1Build(output.build, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1S3LogsConfig = (output: any, context: __SerdeContext): S3LogsConfig => {
-  return {
-    bucketOwnerAccess: __expectString(output.bucketOwnerAccess),
-    encryptionDisabled: __expectBoolean(output.encryptionDisabled),
-    location: __expectString(output.location),
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_json1_1S3ReportExportConfig = (output: any, context: __SerdeContext): S3ReportExportConfig => {
-  return {
-    bucket: __expectString(output.bucket),
-    bucketOwner: __expectString(output.bucketOwner),
-    encryptionDisabled: __expectBoolean(output.encryptionDisabled),
-    encryptionKey: __expectString(output.encryptionKey),
-    packaging: __expectString(output.packaging),
-    path: __expectString(output.path),
-  } as any;
-};
-
-const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1SourceAuth = (output: any, context: __SerdeContext): SourceAuth => {
-  return {
-    resource: __expectString(output.resource),
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1SourceCredentialsInfo = (output: any, context: __SerdeContext): SourceCredentialsInfo => {
-  return {
-    arn: __expectString(output.arn),
-    authType: __expectString(output.authType),
-    serverType: __expectString(output.serverType),
-  } as any;
-};
-
-const deserializeAws_json1_1SourceCredentialsInfos = (
-  output: any,
-  context: __SerdeContext
-): SourceCredentialsInfo[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1SourceCredentialsInfo(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1StartBuildBatchOutput = (output: any, context: __SerdeContext): StartBuildBatchOutput => {
-  return {
-    buildBatch: output.buildBatch != null ? deserializeAws_json1_1BuildBatch(output.buildBatch, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1StartBuildOutput = (output: any, context: __SerdeContext): StartBuildOutput => {
-  return {
-    build: output.build != null ? deserializeAws_json1_1Build(output.build, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1StopBuildBatchOutput = (output: any, context: __SerdeContext): StopBuildBatchOutput => {
-  return {
-    buildBatch: output.buildBatch != null ? deserializeAws_json1_1BuildBatch(output.buildBatch, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1StopBuildOutput = (output: any, context: __SerdeContext): StopBuildOutput => {
-  return {
-    build: output.build != null ? deserializeAws_json1_1Build(output.build, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1Subnets = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TestCase = (output: any, context: __SerdeContext): TestCase => {
-  return {
-    durationInNanoSeconds: __expectLong(output.durationInNanoSeconds),
-    expired:
-      output.expired != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expired))) : undefined,
-    message: __expectString(output.message),
-    name: __expectString(output.name),
-    prefix: __expectString(output.prefix),
-    reportArn: __expectString(output.reportArn),
-    status: __expectString(output.status),
-    testRawDataPath: __expectString(output.testRawDataPath),
-  } as any;
-};
-
-const deserializeAws_json1_1TestCases = (output: any, context: __SerdeContext): TestCase[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TestCase(entry, context);
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1TestReportSummary = (output: any, context: __SerdeContext): TestReportSummary => {
-  return {
-    durationInNanoSeconds: __expectLong(output.durationInNanoSeconds),
-    statusCounts:
-      output.statusCounts != null ? deserializeAws_json1_1ReportStatusCounts(output.statusCounts, context) : undefined,
-    total: __expectInt32(output.total),
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateProjectOutput = (output: any, context: __SerdeContext): UpdateProjectOutput => {
-  return {
-    project: output.project != null ? deserializeAws_json1_1Project(output.project, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateProjectVisibilityOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateProjectVisibilityOutput => {
-  return {
-    projectArn: __expectString(output.projectArn),
-    projectVisibility: __expectString(output.projectVisibility),
-    publicProjectAlias: __expectString(output.publicProjectAlias),
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateReportGroupOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateReportGroupOutput => {
-  return {
-    reportGroup:
-      output.reportGroup != null ? deserializeAws_json1_1ReportGroup(output.reportGroup, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1UpdateWebhookOutput = (output: any, context: __SerdeContext): UpdateWebhookOutput => {
-  return {
-    webhook: output.webhook != null ? deserializeAws_json1_1Webhook(output.webhook, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
-  return {
-    securityGroupIds:
-      output.securityGroupIds != null
-        ? deserializeAws_json1_1SecurityGroupIds(output.securityGroupIds, context)
-        : undefined,
-    subnets: output.subnets != null ? deserializeAws_json1_1Subnets(output.subnets, context) : undefined,
-    vpcId: __expectString(output.vpcId),
-  } as any;
-};
-
-const deserializeAws_json1_1Webhook = (output: any, context: __SerdeContext): Webhook => {
-  return {
-    branchFilter: __expectString(output.branchFilter),
-    buildType: __expectString(output.buildType),
-    filterGroups:
-      output.filterGroups != null ? deserializeAws_json1_1FilterGroups(output.filterGroups, context) : undefined,
-    lastModifiedSecret:
-      output.lastModifiedSecret != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastModifiedSecret)))
-        : undefined,
-    payloadUrl: __expectString(output.payloadUrl),
-    secret: __expectString(output.secret),
-    url: __expectString(output.url),
-  } as any;
-};
-
-const deserializeAws_json1_1WebhookFilter = (output: any, context: __SerdeContext): WebhookFilter => {
-  return {
-    excludeMatchedPattern: __expectBoolean(output.excludeMatchedPattern),
-    pattern: __expectString(output.pattern),
-    type: __expectString(output.type),
-  } as any;
-};
+// de_TestReportSummary omitted.
+
+/**
+ * deserializeAws_json1_1UpdateProjectOutput
+ */
+const de_UpdateProjectOutput = (output: any, context: __SerdeContext): UpdateProjectOutput => {
+  return take(output, {
+    project: (_: any) => de_Project(_, context),
+  }) as any;
+};
+
+// de_UpdateProjectVisibilityOutput omitted.
+
+/**
+ * deserializeAws_json1_1UpdateReportGroupOutput
+ */
+const de_UpdateReportGroupOutput = (output: any, context: __SerdeContext): UpdateReportGroupOutput => {
+  return take(output, {
+    reportGroup: (_: any) => de_ReportGroup(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateWebhookOutput
+ */
+const de_UpdateWebhookOutput = (output: any, context: __SerdeContext): UpdateWebhookOutput => {
+  return take(output, {
+    webhook: (_: any) => de_Webhook(_, context),
+  }) as any;
+};
+
+// de_VpcConfig omitted.
+
+/**
+ * deserializeAws_json1_1Webhook
+ */
+const de_Webhook = (output: any, context: __SerdeContext): Webhook => {
+  return take(output, {
+    branchFilter: __expectString,
+    buildType: __expectString,
+    filterGroups: _json,
+    lastModifiedSecret: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    payloadUrl: __expectString,
+    secret: __expectString,
+    url: __expectString,
+  }) as any;
+};
+
+// de_WebhookFilter omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -5450,6 +4033,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -5474,6 +4058,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `CodeBuild_20161006.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

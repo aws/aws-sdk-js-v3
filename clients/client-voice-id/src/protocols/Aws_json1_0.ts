@@ -1,13 +1,16 @@
 // smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  _json,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
-  throwDefaultError,
+  take,
+  withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -17,10 +20,13 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { AssociateFraudsterCommandInput, AssociateFraudsterCommandOutput } from "../commands/AssociateFraudsterCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
+import { CreateWatchlistCommandInput, CreateWatchlistCommandOutput } from "../commands/CreateWatchlistCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import { DeleteFraudsterCommandInput, DeleteFraudsterCommandOutput } from "../commands/DeleteFraudsterCommand";
 import { DeleteSpeakerCommandInput, DeleteSpeakerCommandOutput } from "../commands/DeleteSpeakerCommand";
+import { DeleteWatchlistCommandInput, DeleteWatchlistCommandOutput } from "../commands/DeleteWatchlistCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "../commands/DescribeDomainCommand";
 import { DescribeFraudsterCommandInput, DescribeFraudsterCommandOutput } from "../commands/DescribeFraudsterCommand";
 import {
@@ -32,12 +38,18 @@ import {
   DescribeSpeakerEnrollmentJobCommandInput,
   DescribeSpeakerEnrollmentJobCommandOutput,
 } from "../commands/DescribeSpeakerEnrollmentJobCommand";
+import { DescribeWatchlistCommandInput, DescribeWatchlistCommandOutput } from "../commands/DescribeWatchlistCommand";
+import {
+  DisassociateFraudsterCommandInput,
+  DisassociateFraudsterCommandOutput,
+} from "../commands/DisassociateFraudsterCommand";
 import { EvaluateSessionCommandInput, EvaluateSessionCommandOutput } from "../commands/EvaluateSessionCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import {
   ListFraudsterRegistrationJobsCommandInput,
   ListFraudsterRegistrationJobsCommandOutput,
 } from "../commands/ListFraudsterRegistrationJobsCommand";
+import { ListFraudstersCommandInput, ListFraudstersCommandOutput } from "../commands/ListFraudstersCommand";
 import {
   ListSpeakerEnrollmentJobsCommandInput,
   ListSpeakerEnrollmentJobsCommandOutput,
@@ -47,6 +59,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListWatchlistsCommandInput, ListWatchlistsCommandOutput } from "../commands/ListWatchlistsCommand";
 import { OptOutSpeakerCommandInput, OptOutSpeakerCommandOutput } from "../commands/OptOutSpeakerCommand";
 import {
   StartFraudsterRegistrationJobCommandInput,
@@ -59,16 +72,21 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "../commands/UpdateDomainCommand";
+import { UpdateWatchlistCommandInput, UpdateWatchlistCommandOutput } from "../commands/UpdateWatchlistCommand";
 import {
   AccessDeniedException,
-  AuthenticationConfiguration,
+  AssociateFraudsterRequest,
+  AssociateFraudsterResponse,
   AuthenticationResult,
   ConflictException,
   CreateDomainRequest,
   CreateDomainResponse,
+  CreateWatchlistRequest,
+  CreateWatchlistResponse,
   DeleteDomainRequest,
   DeleteFraudsterRequest,
   DeleteSpeakerRequest,
+  DeleteWatchlistRequest,
   DescribeDomainRequest,
   DescribeDomainResponse,
   DescribeFraudsterRegistrationJobRequest,
@@ -79,41 +97,42 @@ import {
   DescribeSpeakerEnrollmentJobResponse,
   DescribeSpeakerRequest,
   DescribeSpeakerResponse,
+  DescribeWatchlistRequest,
+  DescribeWatchlistResponse,
+  DisassociateFraudsterRequest,
+  DisassociateFraudsterResponse,
   Domain,
   DomainSummary,
   EnrollmentConfig,
   EnrollmentJobFraudDetectionConfig,
   EvaluateSessionRequest,
   EvaluateSessionResponse,
-  FailureDetails,
-  FraudDetectionConfiguration,
-  FraudDetectionReason,
   FraudDetectionResult,
-  FraudRiskDetails,
   Fraudster,
   FraudsterRegistrationJob,
   FraudsterRegistrationJobSummary,
+  FraudsterSummary,
   InputDataConfig,
   InternalServerException,
-  JobProgress,
-  KnownFraudsterRisk,
   ListDomainsRequest,
   ListDomainsResponse,
   ListFraudsterRegistrationJobsRequest,
   ListFraudsterRegistrationJobsResponse,
+  ListFraudstersRequest,
+  ListFraudstersResponse,
   ListSpeakerEnrollmentJobsRequest,
   ListSpeakerEnrollmentJobsResponse,
   ListSpeakersRequest,
   ListSpeakersResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
+  ListWatchlistsRequest,
+  ListWatchlistsResponse,
   OptOutSpeakerRequest,
   OptOutSpeakerResponse,
   OutputDataConfig,
   RegistrationConfig,
   ResourceNotFoundException,
   ServerSideEncryptionConfiguration,
-  ServerSideEncryptionUpdateDetails,
   ServiceQuotaExceededException,
   Speaker,
   SpeakerEnrollmentJob,
@@ -125,308 +144,483 @@ import {
   StartSpeakerEnrollmentJobResponse,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   ThrottlingException,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateDomainRequest,
   UpdateDomainResponse,
+  UpdateWatchlistRequest,
+  UpdateWatchlistResponse,
   ValidationException,
-  VoiceSpoofingRisk,
+  Watchlist,
+  WatchlistSummary,
 } from "../models/models_0";
 import { VoiceIDServiceException as __BaseException } from "../models/VoiceIDServiceException";
 
-export const serializeAws_json1_0CreateDomainCommand = async (
+/**
+ * serializeAws_json1_0AssociateFraudsterCommand
+ */
+export const se_AssociateFraudsterCommand = async (
+  input: AssociateFraudsterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AssociateFraudster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateDomainCommand
+ */
+export const se_CreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.CreateDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDomain");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateDomainRequest(input, context));
+  body = JSON.stringify(se_CreateDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteDomainCommand = async (
+/**
+ * serializeAws_json1_0CreateWatchlistCommand
+ */
+export const se_CreateWatchlistCommand = async (
+  input: CreateWatchlistCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateWatchlist");
+  let body: any;
+  body = JSON.stringify(se_CreateWatchlistRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteDomainCommand
+ */
+export const se_DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DeleteDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDomain");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteFraudsterCommand = async (
+/**
+ * serializeAws_json1_0DeleteFraudsterCommand
+ */
+export const se_DeleteFraudsterCommand = async (
   input: DeleteFraudsterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DeleteFraudster",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFraudster");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteFraudsterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteSpeakerCommand = async (
+/**
+ * serializeAws_json1_0DeleteSpeakerCommand
+ */
+export const se_DeleteSpeakerCommand = async (
   input: DeleteSpeakerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DeleteSpeaker",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSpeaker");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteSpeakerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeDomainCommand = async (
+/**
+ * serializeAws_json1_0DeleteWatchlistCommand
+ */
+export const se_DeleteWatchlistCommand = async (
+  input: DeleteWatchlistCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteWatchlist");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeDomainCommand
+ */
+export const se_DescribeDomainCommand = async (
   input: DescribeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DescribeDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDomain");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeFraudsterCommand = async (
+/**
+ * serializeAws_json1_0DescribeFraudsterCommand
+ */
+export const se_DescribeFraudsterCommand = async (
   input: DescribeFraudsterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DescribeFraudster",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFraudster");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeFraudsterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeFraudsterRegistrationJobCommand = async (
+/**
+ * serializeAws_json1_0DescribeFraudsterRegistrationJobCommand
+ */
+export const se_DescribeFraudsterRegistrationJobCommand = async (
   input: DescribeFraudsterRegistrationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DescribeFraudsterRegistrationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFraudsterRegistrationJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeFraudsterRegistrationJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeSpeakerCommand = async (
+/**
+ * serializeAws_json1_0DescribeSpeakerCommand
+ */
+export const se_DescribeSpeakerCommand = async (
   input: DescribeSpeakerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DescribeSpeaker",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSpeaker");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeSpeakerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeSpeakerEnrollmentJobCommand = async (
+/**
+ * serializeAws_json1_0DescribeSpeakerEnrollmentJobCommand
+ */
+export const se_DescribeSpeakerEnrollmentJobCommand = async (
   input: DescribeSpeakerEnrollmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.DescribeSpeakerEnrollmentJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSpeakerEnrollmentJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeSpeakerEnrollmentJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0EvaluateSessionCommand = async (
+/**
+ * serializeAws_json1_0DescribeWatchlistCommand
+ */
+export const se_DescribeWatchlistCommand = async (
+  input: DescribeWatchlistCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeWatchlist");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DisassociateFraudsterCommand
+ */
+export const se_DisassociateFraudsterCommand = async (
+  input: DisassociateFraudsterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisassociateFraudster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0EvaluateSessionCommand
+ */
+export const se_EvaluateSessionCommand = async (
   input: EvaluateSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.EvaluateSession",
-  };
+  const headers: __HeaderBag = sharedHeaders("EvaluateSession");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0EvaluateSessionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListDomainsCommand = async (
+/**
+ * serializeAws_json1_0ListDomainsCommand
+ */
+export const se_ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListDomains",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDomains");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListDomainsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListFraudsterRegistrationJobsCommand = async (
+/**
+ * serializeAws_json1_0ListFraudsterRegistrationJobsCommand
+ */
+export const se_ListFraudsterRegistrationJobsCommand = async (
   input: ListFraudsterRegistrationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListFraudsterRegistrationJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFraudsterRegistrationJobs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListFraudsterRegistrationJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListSpeakerEnrollmentJobsCommand = async (
+/**
+ * serializeAws_json1_0ListFraudstersCommand
+ */
+export const se_ListFraudstersCommand = async (
+  input: ListFraudstersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListFraudsters");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListSpeakerEnrollmentJobsCommand
+ */
+export const se_ListSpeakerEnrollmentJobsCommand = async (
   input: ListSpeakerEnrollmentJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListSpeakerEnrollmentJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSpeakerEnrollmentJobs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListSpeakerEnrollmentJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListSpeakersCommand = async (
+/**
+ * serializeAws_json1_0ListSpeakersCommand
+ */
+export const se_ListSpeakersCommand = async (
   input: ListSpeakersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListSpeakers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSpeakers");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListSpeakersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0OptOutSpeakerCommand = async (
+/**
+ * serializeAws_json1_0ListWatchlistsCommand
+ */
+export const se_ListWatchlistsCommand = async (
+  input: ListWatchlistsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListWatchlists");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0OptOutSpeakerCommand
+ */
+export const se_OptOutSpeakerCommand = async (
   input: OptOutSpeakerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.OptOutSpeaker",
-  };
+  const headers: __HeaderBag = sharedHeaders("OptOutSpeaker");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0OptOutSpeakerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0StartFraudsterRegistrationJobCommand = async (
+/**
+ * serializeAws_json1_0StartFraudsterRegistrationJobCommand
+ */
+export const se_StartFraudsterRegistrationJobCommand = async (
   input: StartFraudsterRegistrationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.StartFraudsterRegistrationJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartFraudsterRegistrationJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0StartFraudsterRegistrationJobRequest(input, context));
+  body = JSON.stringify(se_StartFraudsterRegistrationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0StartSpeakerEnrollmentJobCommand = async (
+/**
+ * serializeAws_json1_0StartSpeakerEnrollmentJobCommand
+ */
+export const se_StartSpeakerEnrollmentJobCommand = async (
   input: StartSpeakerEnrollmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.StartSpeakerEnrollmentJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("StartSpeakerEnrollmentJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0StartSpeakerEnrollmentJobRequest(input, context));
+  body = JSON.stringify(se_StartSpeakerEnrollmentJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0TagResourceCommand = async (
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UntagResourceCommand = async (
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateDomainCommand = async (
+/**
+ * serializeAws_json1_0UpdateDomainCommand
+ */
+export const se_UpdateDomainCommand = async (
   input: UpdateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.0",
-    "x-amz-target": "VoiceID.UpdateDomain",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDomain");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateDomainRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0CreateDomainCommand = async (
+/**
+ * serializeAws_json1_0UpdateWatchlistCommand
+ */
+export const se_UpdateWatchlistCommand = async (
+  input: UpdateWatchlistCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateWatchlist");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_0AssociateFraudsterCommand
+ */
+export const de_AssociateFraudsterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateFraudsterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_AssociateFraudsterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AssociateFraudsterResponse(data, context);
+  const response: AssociateFraudsterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0AssociateFraudsterCommandError
+ */
+const de_AssociateFraudsterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateFraudsterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.voiceid#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0CreateDomainCommand
+ */
+export const de_CreateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateDomainCommandError(output, context);
+    return de_CreateDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateDomainResponse(data, context);
+  contents = de_CreateDomainResponse(data, context);
   const response: CreateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0CreateDomainCommandError = async (
+/**
+ * deserializeAws_json1_0CreateDomainCommandError
+ */
+const de_CreateDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
@@ -438,51 +632,120 @@ const deserializeAws_json1_0CreateDomainCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.voiceid#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.voiceid#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DeleteDomainCommand = async (
+/**
+ * deserializeAws_json1_0CreateWatchlistCommand
+ */
+export const de_CreateWatchlistCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWatchlistCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateWatchlistCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateWatchlistResponse(data, context);
+  const response: CreateWatchlistCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateWatchlistCommandError
+ */
+const de_CreateWatchlistCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWatchlistCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.voiceid#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DeleteDomainCommand
+ */
+export const de_DeleteDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteDomainCommandError(output, context);
+    return de_DeleteDomainCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DeleteDomainCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteDomainCommandError
+ */
+const de_DeleteDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
@@ -494,48 +757,53 @@ const deserializeAws_json1_0DeleteDomainCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.voiceid#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DeleteFraudsterCommand = async (
+/**
+ * deserializeAws_json1_0DeleteFraudsterCommand
+ */
+export const de_DeleteFraudsterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFraudsterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteFraudsterCommandError(output, context);
+    return de_DeleteFraudsterCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteFraudsterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DeleteFraudsterCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteFraudsterCommandError
+ */
+const de_DeleteFraudsterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFraudsterCommandOutput> => {
@@ -547,48 +815,53 @@ const deserializeAws_json1_0DeleteFraudsterCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.voiceid#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DeleteSpeakerCommand = async (
+/**
+ * deserializeAws_json1_0DeleteSpeakerCommand
+ */
+export const de_DeleteSpeakerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSpeakerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteSpeakerCommandError(output, context);
+    return de_DeleteSpeakerCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSpeakerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DeleteSpeakerCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteSpeakerCommandError
+ */
+const de_DeleteSpeakerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSpeakerCommandOutput> => {
@@ -600,51 +873,114 @@ const deserializeAws_json1_0DeleteSpeakerCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.voiceid#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DescribeDomainCommand = async (
+/**
+ * deserializeAws_json1_0DeleteWatchlistCommand
+ */
+export const de_DeleteWatchlistCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWatchlistCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteWatchlistCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteWatchlistCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteWatchlistCommandError
+ */
+const de_DeleteWatchlistCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWatchlistCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeDomainCommand
+ */
+export const de_DescribeDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeDomainCommandError(output, context);
+    return de_DescribeDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeDomainResponse(data, context);
+  contents = de_DescribeDomainResponse(data, context);
   const response: DescribeDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeDomainCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeDomainCommandError
+ */
+const de_DescribeDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
@@ -656,48 +992,53 @@ const deserializeAws_json1_0DescribeDomainCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DescribeFraudsterCommand = async (
+/**
+ * deserializeAws_json1_0DescribeFraudsterCommand
+ */
+export const de_DescribeFraudsterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFraudsterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeFraudsterCommandError(output, context);
+    return de_DescribeFraudsterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeFraudsterResponse(data, context);
+  contents = de_DescribeFraudsterResponse(data, context);
   const response: DescribeFraudsterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeFraudsterCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeFraudsterCommandError
+ */
+const de_DescribeFraudsterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFraudsterCommandOutput> => {
@@ -709,48 +1050,53 @@ const deserializeAws_json1_0DescribeFraudsterCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DescribeFraudsterRegistrationJobCommand = async (
+/**
+ * deserializeAws_json1_0DescribeFraudsterRegistrationJobCommand
+ */
+export const de_DescribeFraudsterRegistrationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFraudsterRegistrationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeFraudsterRegistrationJobCommandError(output, context);
+    return de_DescribeFraudsterRegistrationJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeFraudsterRegistrationJobResponse(data, context);
+  contents = de_DescribeFraudsterRegistrationJobResponse(data, context);
   const response: DescribeFraudsterRegistrationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeFraudsterRegistrationJobCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeFraudsterRegistrationJobCommandError
+ */
+const de_DescribeFraudsterRegistrationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFraudsterRegistrationJobCommandOutput> => {
@@ -762,48 +1108,53 @@ const deserializeAws_json1_0DescribeFraudsterRegistrationJobCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DescribeSpeakerCommand = async (
+/**
+ * deserializeAws_json1_0DescribeSpeakerCommand
+ */
+export const de_DescribeSpeakerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSpeakerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeSpeakerCommandError(output, context);
+    return de_DescribeSpeakerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeSpeakerResponse(data, context);
+  contents = de_DescribeSpeakerResponse(data, context);
   const response: DescribeSpeakerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeSpeakerCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeSpeakerCommandError
+ */
+const de_DescribeSpeakerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSpeakerCommandOutput> => {
@@ -815,48 +1166,53 @@ const deserializeAws_json1_0DescribeSpeakerCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0DescribeSpeakerEnrollmentJobCommand = async (
+/**
+ * deserializeAws_json1_0DescribeSpeakerEnrollmentJobCommand
+ */
+export const de_DescribeSpeakerEnrollmentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSpeakerEnrollmentJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeSpeakerEnrollmentJobCommandError(output, context);
+    return de_DescribeSpeakerEnrollmentJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeSpeakerEnrollmentJobResponse(data, context);
+  contents = de_DescribeSpeakerEnrollmentJobResponse(data, context);
   const response: DescribeSpeakerEnrollmentJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0DescribeSpeakerEnrollmentJobCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeSpeakerEnrollmentJobCommandError
+ */
+const de_DescribeSpeakerEnrollmentJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSpeakerEnrollmentJobCommandOutput> => {
@@ -868,48 +1224,172 @@ const deserializeAws_json1_0DescribeSpeakerEnrollmentJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0EvaluateSessionCommand = async (
+/**
+ * deserializeAws_json1_0DescribeWatchlistCommand
+ */
+export const de_DescribeWatchlistCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWatchlistCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeWatchlistCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeWatchlistResponse(data, context);
+  const response: DescribeWatchlistCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeWatchlistCommandError
+ */
+const de_DescribeWatchlistCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWatchlistCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DisassociateFraudsterCommand
+ */
+export const de_DisassociateFraudsterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFraudsterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DisassociateFraudsterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisassociateFraudsterResponse(data, context);
+  const response: DisassociateFraudsterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DisassociateFraudsterCommandError
+ */
+const de_DisassociateFraudsterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFraudsterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0EvaluateSessionCommand
+ */
+export const de_EvaluateSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EvaluateSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0EvaluateSessionCommandError(output, context);
+    return de_EvaluateSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0EvaluateSessionResponse(data, context);
+  contents = de_EvaluateSessionResponse(data, context);
   const response: EvaluateSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0EvaluateSessionCommandError = async (
+/**
+ * deserializeAws_json1_0EvaluateSessionCommandError
+ */
+const de_EvaluateSessionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EvaluateSessionCommandOutput> => {
@@ -921,51 +1401,56 @@ const deserializeAws_json1_0EvaluateSessionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.voiceid#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0ListDomainsCommand = async (
+/**
+ * deserializeAws_json1_0ListDomainsCommand
+ */
+export const de_ListDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListDomainsCommandError(output, context);
+    return de_ListDomainsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListDomainsResponse(data, context);
+  contents = de_ListDomainsResponse(data, context);
   const response: ListDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListDomainsCommandError = async (
+/**
+ * deserializeAws_json1_0ListDomainsCommandError
+ */
+const de_ListDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> => {
@@ -977,45 +1462,50 @@ const deserializeAws_json1_0ListDomainsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0ListFraudsterRegistrationJobsCommand = async (
+/**
+ * deserializeAws_json1_0ListFraudsterRegistrationJobsCommand
+ */
+export const de_ListFraudsterRegistrationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFraudsterRegistrationJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListFraudsterRegistrationJobsCommandError(output, context);
+    return de_ListFraudsterRegistrationJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListFraudsterRegistrationJobsResponse(data, context);
+  contents = de_ListFraudsterRegistrationJobsResponse(data, context);
   const response: ListFraudsterRegistrationJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListFraudsterRegistrationJobsCommandError = async (
+/**
+ * deserializeAws_json1_0ListFraudsterRegistrationJobsCommandError
+ */
+const de_ListFraudsterRegistrationJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFraudsterRegistrationJobsCommandOutput> => {
@@ -1027,48 +1517,111 @@ const deserializeAws_json1_0ListFraudsterRegistrationJobsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0ListSpeakerEnrollmentJobsCommand = async (
+/**
+ * deserializeAws_json1_0ListFraudstersCommand
+ */
+export const de_ListFraudstersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFraudstersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListFraudstersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListFraudstersResponse(data, context);
+  const response: ListFraudstersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListFraudstersCommandError
+ */
+const de_ListFraudstersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFraudstersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0ListSpeakerEnrollmentJobsCommand
+ */
+export const de_ListSpeakerEnrollmentJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSpeakerEnrollmentJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListSpeakerEnrollmentJobsCommandError(output, context);
+    return de_ListSpeakerEnrollmentJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListSpeakerEnrollmentJobsResponse(data, context);
+  contents = de_ListSpeakerEnrollmentJobsResponse(data, context);
   const response: ListSpeakerEnrollmentJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListSpeakerEnrollmentJobsCommandError = async (
+/**
+ * deserializeAws_json1_0ListSpeakerEnrollmentJobsCommandError
+ */
+const de_ListSpeakerEnrollmentJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSpeakerEnrollmentJobsCommandOutput> => {
@@ -1080,48 +1633,53 @@ const deserializeAws_json1_0ListSpeakerEnrollmentJobsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0ListSpeakersCommand = async (
+/**
+ * deserializeAws_json1_0ListSpeakersCommand
+ */
+export const de_ListSpeakersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSpeakersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListSpeakersCommandError(output, context);
+    return de_ListSpeakersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListSpeakersResponse(data, context);
+  contents = de_ListSpeakersResponse(data, context);
   const response: ListSpeakersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListSpeakersCommandError = async (
+/**
+ * deserializeAws_json1_0ListSpeakersCommandError
+ */
+const de_ListSpeakersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSpeakersCommandOutput> => {
@@ -1133,48 +1691,53 @@ const deserializeAws_json1_0ListSpeakersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1186,48 +1749,111 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0OptOutSpeakerCommand = async (
+/**
+ * deserializeAws_json1_0ListWatchlistsCommand
+ */
+export const de_ListWatchlistsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWatchlistsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListWatchlistsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListWatchlistsResponse(data, context);
+  const response: ListWatchlistsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListWatchlistsCommandError
+ */
+const de_ListWatchlistsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWatchlistsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0OptOutSpeakerCommand
+ */
+export const de_OptOutSpeakerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OptOutSpeakerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0OptOutSpeakerCommandError(output, context);
+    return de_OptOutSpeakerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0OptOutSpeakerResponse(data, context);
+  contents = de_OptOutSpeakerResponse(data, context);
   const response: OptOutSpeakerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0OptOutSpeakerCommandError = async (
+/**
+ * deserializeAws_json1_0OptOutSpeakerCommandError
+ */
+const de_OptOutSpeakerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OptOutSpeakerCommandOutput> => {
@@ -1239,54 +1865,59 @@ const deserializeAws_json1_0OptOutSpeakerCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.voiceid#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.voiceid#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0StartFraudsterRegistrationJobCommand = async (
+/**
+ * deserializeAws_json1_0StartFraudsterRegistrationJobCommand
+ */
+export const de_StartFraudsterRegistrationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFraudsterRegistrationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0StartFraudsterRegistrationJobCommandError(output, context);
+    return de_StartFraudsterRegistrationJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StartFraudsterRegistrationJobResponse(data, context);
+  contents = de_StartFraudsterRegistrationJobResponse(data, context);
   const response: StartFraudsterRegistrationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0StartFraudsterRegistrationJobCommandError = async (
+/**
+ * deserializeAws_json1_0StartFraudsterRegistrationJobCommandError
+ */
+const de_StartFraudsterRegistrationJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFraudsterRegistrationJobCommandOutput> => {
@@ -1298,54 +1929,59 @@ const deserializeAws_json1_0StartFraudsterRegistrationJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.voiceid#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.voiceid#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0StartSpeakerEnrollmentJobCommand = async (
+/**
+ * deserializeAws_json1_0StartSpeakerEnrollmentJobCommand
+ */
+export const de_StartSpeakerEnrollmentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSpeakerEnrollmentJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0StartSpeakerEnrollmentJobCommandError(output, context);
+    return de_StartSpeakerEnrollmentJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StartSpeakerEnrollmentJobResponse(data, context);
+  contents = de_StartSpeakerEnrollmentJobResponse(data, context);
   const response: StartSpeakerEnrollmentJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0StartSpeakerEnrollmentJobCommandError = async (
+/**
+ * deserializeAws_json1_0StartSpeakerEnrollmentJobCommandError
+ */
+const de_StartSpeakerEnrollmentJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSpeakerEnrollmentJobCommandOutput> => {
@@ -1357,54 +1993,59 @@ const deserializeAws_json1_0StartSpeakerEnrollmentJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.voiceid#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.voiceid#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0TagResourceCommand = async (
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1416,51 +2057,56 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.voiceid#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1472,51 +2118,56 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.voiceid#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-export const deserializeAws_json1_0UpdateDomainCommand = async (
+/**
+ * deserializeAws_json1_0UpdateDomainCommand
+ */
+export const de_UpdateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateDomainCommandError(output, context);
+    return de_UpdateDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateDomainResponse(data, context);
+  contents = de_UpdateDomainResponse(data, context);
   const response: UpdateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_0UpdateDomainCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateDomainCommandError
+ */
+const de_UpdateDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainCommandOutput> => {
@@ -1528,39 +2179,102 @@ const deserializeAws_json1_0UpdateDomainCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.voiceid#AccessDeniedException":
-      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.voiceid#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.voiceid#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.voiceid#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.voiceid#ThrottlingException":
-      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.voiceid#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      throwDefaultError({
+      return throwDefaultError({
         output,
         parsedBody,
-        exceptionCtor: __BaseException,
         errorCode,
       });
   }
 };
 
-const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_0UpdateWatchlistCommand
+ */
+export const de_UpdateWatchlistCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWatchlistCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateWatchlistCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateWatchlistResponse(data, context);
+  const response: UpdateWatchlistCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateWatchlistCommandError
+ */
+const de_UpdateWatchlistCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWatchlistCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.voiceid#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.voiceid#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.voiceid#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.voiceid#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.voiceid#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.voiceid#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0AccessDeniedException(body, context);
+  const deserialized: any = _json(body);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1568,12 +2282,12 @@ const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_0ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ConflictException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1581,12 +2295,15 @@ const deserializeAws_json1_0ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServerException(body, context);
+  const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1594,12 +2311,15 @@ const deserializeAws_json1_0InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1607,12 +2327,15 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ServiceQuotaExceededException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1620,12 +2343,12 @@ const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_0ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ThrottlingException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1633,12 +2356,12 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_0ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ValidationException(body, context);
+  const deserialized: any = _json(body);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1646,942 +2369,721 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ServerSideEncryptionConfiguration != null && {
-      ServerSideEncryptionConfiguration: serializeAws_json1_0ServerSideEncryptionConfiguration(
-        input.ServerSideEncryptionConfiguration,
-        context
-      ),
-    }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
-  };
+// se_AssociateFraudsterRequest omitted.
+
+/**
+ * serializeAws_json1_0CreateDomainRequest
+ */
+const se_CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    Description: [],
+    Name: [],
+    ServerSideEncryptionConfiguration: _json,
+    Tags: _json,
+  });
 };
 
-const serializeAws_json1_0DeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-  };
+/**
+ * serializeAws_json1_0CreateWatchlistRequest
+ */
+const se_CreateWatchlistRequest = (input: CreateWatchlistRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    Description: [],
+    DomainId: [],
+    Name: [],
+  });
 };
 
-const serializeAws_json1_0DeleteFraudsterRequest = (input: DeleteFraudsterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.FraudsterId != null && { FraudsterId: input.FraudsterId }),
-  };
-};
+// se_DeleteDomainRequest omitted.
 
-const serializeAws_json1_0DeleteSpeakerRequest = (input: DeleteSpeakerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.SpeakerId != null && { SpeakerId: input.SpeakerId }),
-  };
-};
+// se_DeleteFraudsterRequest omitted.
 
-const serializeAws_json1_0DescribeDomainRequest = (input: DescribeDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-  };
-};
+// se_DeleteSpeakerRequest omitted.
 
-const serializeAws_json1_0DescribeFraudsterRegistrationJobRequest = (
-  input: DescribeFraudsterRegistrationJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DeleteWatchlistRequest omitted.
 
-const serializeAws_json1_0DescribeFraudsterRequest = (
-  input: DescribeFraudsterRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.FraudsterId != null && { FraudsterId: input.FraudsterId }),
-  };
-};
+// se_DescribeDomainRequest omitted.
 
-const serializeAws_json1_0DescribeSpeakerEnrollmentJobRequest = (
-  input: DescribeSpeakerEnrollmentJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.JobId != null && { JobId: input.JobId }),
-  };
-};
+// se_DescribeFraudsterRegistrationJobRequest omitted.
 
-const serializeAws_json1_0DescribeSpeakerRequest = (input: DescribeSpeakerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.SpeakerId != null && { SpeakerId: input.SpeakerId }),
-  };
-};
+// se_DescribeFraudsterRequest omitted.
 
-const serializeAws_json1_0EnrollmentConfig = (input: EnrollmentConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.ExistingEnrollmentAction != null && { ExistingEnrollmentAction: input.ExistingEnrollmentAction }),
-    ...(input.FraudDetectionConfig != null && {
-      FraudDetectionConfig: serializeAws_json1_0EnrollmentJobFraudDetectionConfig(input.FraudDetectionConfig, context),
-    }),
-  };
-};
+// se_DescribeSpeakerEnrollmentJobRequest omitted.
 
-const serializeAws_json1_0EnrollmentJobFraudDetectionConfig = (
-  input: EnrollmentJobFraudDetectionConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.FraudDetectionAction != null && { FraudDetectionAction: input.FraudDetectionAction }),
-    ...(input.RiskThreshold != null && { RiskThreshold: input.RiskThreshold }),
-  };
-};
+// se_DescribeSpeakerRequest omitted.
 
-const serializeAws_json1_0EvaluateSessionRequest = (input: EvaluateSessionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.SessionNameOrId != null && { SessionNameOrId: input.SessionNameOrId }),
-  };
-};
+// se_DescribeWatchlistRequest omitted.
 
-const serializeAws_json1_0InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_DisassociateFraudsterRequest omitted.
 
-const serializeAws_json1_0ListDomainsRequest = (input: ListDomainsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_EnrollmentConfig omitted.
 
-const serializeAws_json1_0ListFraudsterRegistrationJobsRequest = (
-  input: ListFraudsterRegistrationJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_EnrollmentJobFraudDetectionConfig omitted.
 
-const serializeAws_json1_0ListSpeakerEnrollmentJobsRequest = (
-  input: ListSpeakerEnrollmentJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.JobStatus != null && { JobStatus: input.JobStatus }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_EnrollmentJobFraudDetectionConfigWatchlistIds omitted.
 
-const serializeAws_json1_0ListSpeakersRequest = (input: ListSpeakersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-  };
-};
+// se_EvaluateSessionRequest omitted.
 
-const serializeAws_json1_0ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_InputDataConfig omitted.
 
-const serializeAws_json1_0OptOutSpeakerRequest = (input: OptOutSpeakerRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.SpeakerId != null && { SpeakerId: input.SpeakerId }),
-  };
-};
+// se_ListDomainsRequest omitted.
 
-const serializeAws_json1_0OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-    ...(input.S3Uri != null && { S3Uri: input.S3Uri }),
-  };
-};
+// se_ListFraudsterRegistrationJobsRequest omitted.
 
-const serializeAws_json1_0RegistrationConfig = (input: RegistrationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DuplicateRegistrationAction != null && {
-      DuplicateRegistrationAction: input.DuplicateRegistrationAction,
-    }),
-    ...(input.FraudsterSimilarityThreshold != null && {
-      FraudsterSimilarityThreshold: input.FraudsterSimilarityThreshold,
-    }),
-  };
-};
+// se_ListFraudstersRequest omitted.
 
-const serializeAws_json1_0ServerSideEncryptionConfiguration = (
-  input: ServerSideEncryptionConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
-  };
-};
+// se_ListSpeakerEnrollmentJobsRequest omitted.
 
-const serializeAws_json1_0StartFraudsterRegistrationJobRequest = (
+// se_ListSpeakersRequest omitted.
+
+// se_ListTagsForResourceRequest omitted.
+
+// se_ListWatchlistsRequest omitted.
+
+// se_OptOutSpeakerRequest omitted.
+
+// se_OutputDataConfig omitted.
+
+// se_RegistrationConfig omitted.
+
+// se_RegistrationConfigWatchlistIds omitted.
+
+// se_ServerSideEncryptionConfiguration omitted.
+
+/**
+ * serializeAws_json1_0StartFraudsterRegistrationJobRequest
+ */
+const se_StartFraudsterRegistrationJobRequest = (
   input: StartFraudsterRegistrationJobRequest,
   context: __SerdeContext
 ): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.InputDataConfig != null && {
-      InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
-    }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig != null && {
-      OutputDataConfig: serializeAws_json1_0OutputDataConfig(input.OutputDataConfig, context),
-    }),
-    ...(input.RegistrationConfig != null && {
-      RegistrationConfig: serializeAws_json1_0RegistrationConfig(input.RegistrationConfig, context),
-    }),
-  };
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    DataAccessRoleArn: [],
+    DomainId: [],
+    InputDataConfig: _json,
+    JobName: [],
+    OutputDataConfig: _json,
+    RegistrationConfig: _json,
+  });
 };
 
-const serializeAws_json1_0StartSpeakerEnrollmentJobRequest = (
-  input: StartSpeakerEnrollmentJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.EnrollmentConfig != null && {
-      EnrollmentConfig: serializeAws_json1_0EnrollmentConfig(input.EnrollmentConfig, context),
-    }),
-    ...(input.InputDataConfig != null && {
-      InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
-    }),
-    ...(input.JobName != null && { JobName: input.JobName }),
-    ...(input.OutputDataConfig != null && {
-      OutputDataConfig: serializeAws_json1_0OutputDataConfig(input.OutputDataConfig, context),
-    }),
-  };
+/**
+ * serializeAws_json1_0StartSpeakerEnrollmentJobRequest
+ */
+const se_StartSpeakerEnrollmentJobRequest = (input: StartSpeakerEnrollmentJobRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    DataAccessRoleArn: [],
+    DomainId: [],
+    EnrollmentConfig: _json,
+    InputDataConfig: _json,
+    JobName: [],
+    OutputDataConfig: _json,
+  });
 };
 
-const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key != null && { Key: input.Key }),
-    ...(input.Value != null && { Value: input.Value }),
-  };
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_UntagResourceRequest omitted.
+
+// se_UpdateDomainRequest omitted.
+
+// se_UpdateWatchlistRequest omitted.
+
+// de_AccessDeniedException omitted.
+
+/**
+ * deserializeAws_json1_0AssociateFraudsterResponse
+ */
+const de_AssociateFraudsterResponse = (output: any, context: __SerdeContext): AssociateFraudsterResponse => {
+  return take(output, {
+    Fraudster: (_: any) => de_Fraudster(_, context),
+  }) as any;
 };
 
-const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+// de_AuthenticationConfiguration omitted.
+
+/**
+ * deserializeAws_json1_0AuthenticationResult
+ */
+const de_AuthenticationResult = (output: any, context: __SerdeContext): AuthenticationResult => {
+  return take(output, {
+    AudioAggregationEndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AudioAggregationStartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AuthenticationResultId: __expectString,
+    Configuration: _json,
+    CustomerSpeakerId: __expectString,
+    Decision: __expectString,
+    GeneratedSpeakerId: __expectString,
+    Score: __expectInt32,
+  }) as any;
 };
 
-const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return serializeAws_json1_0Tag(entry, context);
-    });
+// de_ConflictException omitted.
+
+/**
+ * deserializeAws_json1_0CreateDomainResponse
+ */
+const de_CreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
+  return take(output, {
+    Domain: (_: any) => de_Domain(_, context),
+  }) as any;
 };
 
-const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
-  };
+/**
+ * deserializeAws_json1_0CreateWatchlistResponse
+ */
+const de_CreateWatchlistResponse = (output: any, context: __SerdeContext): CreateWatchlistResponse => {
+  return take(output, {
+    Watchlist: (_: any) => de_Watchlist(_, context),
+  }) as any;
 };
 
-const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
-  };
+/**
+ * deserializeAws_json1_0DescribeDomainResponse
+ */
+const de_DescribeDomainResponse = (output: any, context: __SerdeContext): DescribeDomainResponse => {
+  return take(output, {
+    Domain: (_: any) => de_Domain(_, context),
+  }) as any;
 };
 
-const serializeAws_json1_0UpdateDomainRequest = (input: UpdateDomainRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Description != null && { Description: input.Description }),
-    ...(input.DomainId != null && { DomainId: input.DomainId }),
-    ...(input.Name != null && { Name: input.Name }),
-    ...(input.ServerSideEncryptionConfiguration != null && {
-      ServerSideEncryptionConfiguration: serializeAws_json1_0ServerSideEncryptionConfiguration(
-        input.ServerSideEncryptionConfiguration,
-        context
-      ),
-    }),
-  };
-};
-
-const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0AuthenticationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AuthenticationConfiguration => {
-  return {
-    AcceptanceThreshold: __expectInt32(output.AcceptanceThreshold),
-  } as any;
-};
-
-const deserializeAws_json1_0AuthenticationResult = (output: any, context: __SerdeContext): AuthenticationResult => {
-  return {
-    AudioAggregationEndedAt:
-      output.AudioAggregationEndedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationEndedAt)))
-        : undefined,
-    AudioAggregationStartedAt:
-      output.AudioAggregationStartedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationStartedAt)))
-        : undefined,
-    AuthenticationResultId: __expectString(output.AuthenticationResultId),
-    Configuration:
-      output.Configuration != null
-        ? deserializeAws_json1_0AuthenticationConfiguration(output.Configuration, context)
-        : undefined,
-    CustomerSpeakerId: __expectString(output.CustomerSpeakerId),
-    Decision: __expectString(output.Decision),
-    GeneratedSpeakerId: __expectString(output.GeneratedSpeakerId),
-    Score: __expectInt32(output.Score),
-  } as any;
-};
-
-const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
-  return {
-    ConflictType: __expectString(output.ConflictType),
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0CreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
-  return {
-    Domain: output.Domain != null ? deserializeAws_json1_0Domain(output.Domain, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0DescribeDomainResponse = (output: any, context: __SerdeContext): DescribeDomainResponse => {
-  return {
-    Domain: output.Domain != null ? deserializeAws_json1_0Domain(output.Domain, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0DescribeFraudsterRegistrationJobResponse = (
+/**
+ * deserializeAws_json1_0DescribeFraudsterRegistrationJobResponse
+ */
+const de_DescribeFraudsterRegistrationJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeFraudsterRegistrationJobResponse => {
-  return {
-    Job: output.Job != null ? deserializeAws_json1_0FraudsterRegistrationJob(output.Job, context) : undefined,
-  } as any;
+  return take(output, {
+    Job: (_: any) => de_FraudsterRegistrationJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0DescribeFraudsterResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeFraudsterResponse => {
-  return {
-    Fraudster: output.Fraudster != null ? deserializeAws_json1_0Fraudster(output.Fraudster, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_0DescribeFraudsterResponse
+ */
+const de_DescribeFraudsterResponse = (output: any, context: __SerdeContext): DescribeFraudsterResponse => {
+  return take(output, {
+    Fraudster: (_: any) => de_Fraudster(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0DescribeSpeakerEnrollmentJobResponse = (
+/**
+ * deserializeAws_json1_0DescribeSpeakerEnrollmentJobResponse
+ */
+const de_DescribeSpeakerEnrollmentJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSpeakerEnrollmentJobResponse => {
-  return {
-    Job: output.Job != null ? deserializeAws_json1_0SpeakerEnrollmentJob(output.Job, context) : undefined,
-  } as any;
+  return take(output, {
+    Job: (_: any) => de_SpeakerEnrollmentJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0DescribeSpeakerResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeSpeakerResponse => {
-  return {
-    Speaker: output.Speaker != null ? deserializeAws_json1_0Speaker(output.Speaker, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_0DescribeSpeakerResponse
+ */
+const de_DescribeSpeakerResponse = (output: any, context: __SerdeContext): DescribeSpeakerResponse => {
+  return take(output, {
+    Speaker: (_: any) => de_Speaker(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0Domain = (output: any, context: __SerdeContext): Domain => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Description: __expectString(output.Description),
-    DomainId: __expectString(output.DomainId),
-    DomainStatus: __expectString(output.DomainStatus),
-    Name: __expectString(output.Name),
-    ServerSideEncryptionConfiguration:
-      output.ServerSideEncryptionConfiguration != null
-        ? deserializeAws_json1_0ServerSideEncryptionConfiguration(output.ServerSideEncryptionConfiguration, context)
-        : undefined,
-    ServerSideEncryptionUpdateDetails:
-      output.ServerSideEncryptionUpdateDetails != null
-        ? deserializeAws_json1_0ServerSideEncryptionUpdateDetails(output.ServerSideEncryptionUpdateDetails, context)
-        : undefined,
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_0DescribeWatchlistResponse
+ */
+const de_DescribeWatchlistResponse = (output: any, context: __SerdeContext): DescribeWatchlistResponse => {
+  return take(output, {
+    Watchlist: (_: any) => de_Watchlist(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0DomainSummaries = (output: any, context: __SerdeContext): DomainSummary[] => {
+/**
+ * deserializeAws_json1_0DisassociateFraudsterResponse
+ */
+const de_DisassociateFraudsterResponse = (output: any, context: __SerdeContext): DisassociateFraudsterResponse => {
+  return take(output, {
+    Fraudster: (_: any) => de_Fraudster(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0Domain
+ */
+const de_Domain = (output: any, context: __SerdeContext): Domain => {
+  return take(output, {
+    Arn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DomainId: __expectString,
+    DomainStatus: __expectString,
+    Name: __expectString,
+    ServerSideEncryptionConfiguration: _json,
+    ServerSideEncryptionUpdateDetails: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WatchlistDetails: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0DomainSummaries
+ */
+const de_DomainSummaries = (output: any, context: __SerdeContext): DomainSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0DomainSummary(entry, context);
+      return de_DomainSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    Description: __expectString(output.Description),
-    DomainId: __expectString(output.DomainId),
-    DomainStatus: __expectString(output.DomainStatus),
-    Name: __expectString(output.Name),
-    ServerSideEncryptionConfiguration:
-      output.ServerSideEncryptionConfiguration != null
-        ? deserializeAws_json1_0ServerSideEncryptionConfiguration(output.ServerSideEncryptionConfiguration, context)
-        : undefined,
-    ServerSideEncryptionUpdateDetails:
-      output.ServerSideEncryptionUpdateDetails != null
-        ? deserializeAws_json1_0ServerSideEncryptionUpdateDetails(output.ServerSideEncryptionUpdateDetails, context)
-        : undefined,
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_0DomainSummary
+ */
+const de_DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
+  return take(output, {
+    Arn: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DomainId: __expectString,
+    DomainStatus: __expectString,
+    Name: __expectString,
+    ServerSideEncryptionConfiguration: _json,
+    ServerSideEncryptionUpdateDetails: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WatchlistDetails: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_0EnrollmentConfig = (output: any, context: __SerdeContext): EnrollmentConfig => {
-  return {
-    ExistingEnrollmentAction: __expectString(output.ExistingEnrollmentAction),
-    FraudDetectionConfig:
-      output.FraudDetectionConfig != null
-        ? deserializeAws_json1_0EnrollmentJobFraudDetectionConfig(output.FraudDetectionConfig, context)
-        : undefined,
-  } as any;
+// de_EnrollmentConfig omitted.
+
+// de_EnrollmentJobFraudDetectionConfig omitted.
+
+// de_EnrollmentJobFraudDetectionConfigWatchlistIds omitted.
+
+/**
+ * deserializeAws_json1_0EvaluateSessionResponse
+ */
+const de_EvaluateSessionResponse = (output: any, context: __SerdeContext): EvaluateSessionResponse => {
+  return take(output, {
+    AuthenticationResult: (_: any) => de_AuthenticationResult(_, context),
+    DomainId: __expectString,
+    FraudDetectionResult: (_: any) => de_FraudDetectionResult(_, context),
+    SessionId: __expectString,
+    SessionName: __expectString,
+    StreamingStatus: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0EnrollmentJobFraudDetectionConfig = (
-  output: any,
-  context: __SerdeContext
-): EnrollmentJobFraudDetectionConfig => {
-  return {
-    FraudDetectionAction: __expectString(output.FraudDetectionAction),
-    RiskThreshold: __expectInt32(output.RiskThreshold),
-  } as any;
+// de_FailureDetails omitted.
+
+// de_FraudDetectionConfiguration omitted.
+
+// de_FraudDetectionReasons omitted.
+
+/**
+ * deserializeAws_json1_0FraudDetectionResult
+ */
+const de_FraudDetectionResult = (output: any, context: __SerdeContext): FraudDetectionResult => {
+  return take(output, {
+    AudioAggregationEndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AudioAggregationStartedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Configuration: _json,
+    Decision: __expectString,
+    FraudDetectionResultId: __expectString,
+    Reasons: _json,
+    RiskDetails: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_0EvaluateSessionResponse = (
-  output: any,
-  context: __SerdeContext
-): EvaluateSessionResponse => {
-  return {
-    AuthenticationResult:
-      output.AuthenticationResult != null
-        ? deserializeAws_json1_0AuthenticationResult(output.AuthenticationResult, context)
-        : undefined,
-    DomainId: __expectString(output.DomainId),
-    FraudDetectionResult:
-      output.FraudDetectionResult != null
-        ? deserializeAws_json1_0FraudDetectionResult(output.FraudDetectionResult, context)
-        : undefined,
-    SessionId: __expectString(output.SessionId),
-    SessionName: __expectString(output.SessionName),
-    StreamingStatus: __expectString(output.StreamingStatus),
-  } as any;
+// de_FraudRiskDetails omitted.
+
+/**
+ * deserializeAws_json1_0Fraudster
+ */
+const de_Fraudster = (output: any, context: __SerdeContext): Fraudster => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainId: __expectString,
+    GeneratedFraudsterId: __expectString,
+    WatchlistIds: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_0FailureDetails = (output: any, context: __SerdeContext): FailureDetails => {
-  return {
-    Message: __expectString(output.Message),
-    StatusCode: __expectInt32(output.StatusCode),
-  } as any;
+/**
+ * deserializeAws_json1_0FraudsterRegistrationJob
+ */
+const de_FraudsterRegistrationJob = (output: any, context: __SerdeContext): FraudsterRegistrationJob => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataAccessRoleArn: __expectString,
+    DomainId: __expectString,
+    EndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureDetails: _json,
+    InputDataConfig: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobProgress: _json,
+    JobStatus: __expectString,
+    OutputDataConfig: _json,
+    RegistrationConfig: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_0FraudDetectionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): FraudDetectionConfiguration => {
-  return {
-    RiskThreshold: __expectInt32(output.RiskThreshold),
-  } as any;
-};
-
-const deserializeAws_json1_0FraudDetectionReasons = (
-  output: any,
-  context: __SerdeContext
-): (FraudDetectionReason | string)[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_0FraudDetectionResult = (output: any, context: __SerdeContext): FraudDetectionResult => {
-  return {
-    AudioAggregationEndedAt:
-      output.AudioAggregationEndedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationEndedAt)))
-        : undefined,
-    AudioAggregationStartedAt:
-      output.AudioAggregationStartedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.AudioAggregationStartedAt)))
-        : undefined,
-    Configuration:
-      output.Configuration != null
-        ? deserializeAws_json1_0FraudDetectionConfiguration(output.Configuration, context)
-        : undefined,
-    Decision: __expectString(output.Decision),
-    FraudDetectionResultId: __expectString(output.FraudDetectionResultId),
-    Reasons: output.Reasons != null ? deserializeAws_json1_0FraudDetectionReasons(output.Reasons, context) : undefined,
-    RiskDetails:
-      output.RiskDetails != null ? deserializeAws_json1_0FraudRiskDetails(output.RiskDetails, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0FraudRiskDetails = (output: any, context: __SerdeContext): FraudRiskDetails => {
-  return {
-    KnownFraudsterRisk:
-      output.KnownFraudsterRisk != null
-        ? deserializeAws_json1_0KnownFraudsterRisk(output.KnownFraudsterRisk, context)
-        : undefined,
-    VoiceSpoofingRisk:
-      output.VoiceSpoofingRisk != null
-        ? deserializeAws_json1_0VoiceSpoofingRisk(output.VoiceSpoofingRisk, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0Fraudster = (output: any, context: __SerdeContext): Fraudster => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DomainId: __expectString(output.DomainId),
-    GeneratedFraudsterId: __expectString(output.GeneratedFraudsterId),
-  } as any;
-};
-
-const deserializeAws_json1_0FraudsterRegistrationJob = (
-  output: any,
-  context: __SerdeContext
-): FraudsterRegistrationJob => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    DomainId: __expectString(output.DomainId),
-    EndedAt:
-      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
-    FailureDetails:
-      output.FailureDetails != null ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context) : undefined,
-    InputDataConfig:
-      output.InputDataConfig != null
-        ? deserializeAws_json1_0InputDataConfig(output.InputDataConfig, context)
-        : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobProgress:
-      output.JobProgress != null ? deserializeAws_json1_0JobProgress(output.JobProgress, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    OutputDataConfig:
-      output.OutputDataConfig != null
-        ? deserializeAws_json1_0OutputDataConfig(output.OutputDataConfig, context)
-        : undefined,
-    RegistrationConfig:
-      output.RegistrationConfig != null
-        ? deserializeAws_json1_0RegistrationConfig(output.RegistrationConfig, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0FraudsterRegistrationJobSummaries = (
+/**
+ * deserializeAws_json1_0FraudsterRegistrationJobSummaries
+ */
+const de_FraudsterRegistrationJobSummaries = (
   output: any,
   context: __SerdeContext
 ): FraudsterRegistrationJobSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0FraudsterRegistrationJobSummary(entry, context);
+      return de_FraudsterRegistrationJobSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0FraudsterRegistrationJobSummary = (
-  output: any,
-  context: __SerdeContext
-): FraudsterRegistrationJobSummary => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DomainId: __expectString(output.DomainId),
-    EndedAt:
-      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
-    FailureDetails:
-      output.FailureDetails != null ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context) : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobProgress:
-      output.JobProgress != null ? deserializeAws_json1_0JobProgress(output.JobProgress, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
+/**
+ * deserializeAws_json1_0FraudsterRegistrationJobSummary
+ */
+const de_FraudsterRegistrationJobSummary = (output: any, context: __SerdeContext): FraudsterRegistrationJobSummary => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainId: __expectString,
+    EndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureDetails: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobProgress: _json,
+    JobStatus: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
-  return {
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
+/**
+ * deserializeAws_json1_0FraudsterSummaries
+ */
+const de_FraudsterSummaries = (output: any, context: __SerdeContext): FraudsterSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FraudsterSummary(entry, context);
+    });
+  return retVal;
 };
 
-const deserializeAws_json1_0InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
+/**
+ * deserializeAws_json1_0FraudsterSummary
+ */
+const de_FraudsterSummary = (output: any, context: __SerdeContext): FraudsterSummary => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainId: __expectString,
+    GeneratedFraudsterId: __expectString,
+    WatchlistIds: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_0JobProgress = (output: any, context: __SerdeContext): JobProgress => {
-  return {
-    PercentComplete: __expectInt32(output.PercentComplete),
-  } as any;
+// de_InputDataConfig omitted.
+
+// de_InternalServerException omitted.
+
+// de_JobProgress omitted.
+
+// de_KnownFraudsterRisk omitted.
+
+/**
+ * deserializeAws_json1_0ListDomainsResponse
+ */
+const de_ListDomainsResponse = (output: any, context: __SerdeContext): ListDomainsResponse => {
+  return take(output, {
+    DomainSummaries: (_: any) => de_DomainSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0KnownFraudsterRisk = (output: any, context: __SerdeContext): KnownFraudsterRisk => {
-  return {
-    GeneratedFraudsterId: __expectString(output.GeneratedFraudsterId),
-    RiskScore: __expectInt32(output.RiskScore),
-  } as any;
-};
-
-const deserializeAws_json1_0ListDomainsResponse = (output: any, context: __SerdeContext): ListDomainsResponse => {
-  return {
-    DomainSummaries:
-      output.DomainSummaries != null
-        ? deserializeAws_json1_0DomainSummaries(output.DomainSummaries, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_0ListFraudsterRegistrationJobsResponse = (
+/**
+ * deserializeAws_json1_0ListFraudsterRegistrationJobsResponse
+ */
+const de_ListFraudsterRegistrationJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListFraudsterRegistrationJobsResponse => {
-  return {
-    JobSummaries:
-      output.JobSummaries != null
-        ? deserializeAws_json1_0FraudsterRegistrationJobSummaries(output.JobSummaries, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    JobSummaries: (_: any) => de_FraudsterRegistrationJobSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0ListSpeakerEnrollmentJobsResponse = (
+/**
+ * deserializeAws_json1_0ListFraudstersResponse
+ */
+const de_ListFraudstersResponse = (output: any, context: __SerdeContext): ListFraudstersResponse => {
+  return take(output, {
+    FraudsterSummaries: (_: any) => de_FraudsterSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ListSpeakerEnrollmentJobsResponse
+ */
+const de_ListSpeakerEnrollmentJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSpeakerEnrollmentJobsResponse => {
-  return {
-    JobSummaries:
-      output.JobSummaries != null
-        ? deserializeAws_json1_0SpeakerEnrollmentJobSummaries(output.JobSummaries, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
+  return take(output, {
+    JobSummaries: (_: any) => de_SpeakerEnrollmentJobSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0ListSpeakersResponse = (output: any, context: __SerdeContext): ListSpeakersResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    SpeakerSummaries:
-      output.SpeakerSummaries != null
-        ? deserializeAws_json1_0SpeakerSummaries(output.SpeakerSummaries, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_0ListSpeakersResponse
+ */
+const de_ListSpeakersResponse = (output: any, context: __SerdeContext): ListSpeakersResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    SpeakerSummaries: (_: any) => de_SpeakerSummaries(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
-  } as any;
+// de_ListTagsForResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_0ListWatchlistsResponse
+ */
+const de_ListWatchlistsResponse = (output: any, context: __SerdeContext): ListWatchlistsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    WatchlistSummaries: (_: any) => de_WatchlistSummaries(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0OptOutSpeakerResponse = (output: any, context: __SerdeContext): OptOutSpeakerResponse => {
-  return {
-    Speaker: output.Speaker != null ? deserializeAws_json1_0Speaker(output.Speaker, context) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_0OptOutSpeakerResponse
+ */
+const de_OptOutSpeakerResponse = (output: any, context: __SerdeContext): OptOutSpeakerResponse => {
+  return take(output, {
+    Speaker: (_: any) => de_Speaker(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
-  return {
-    KmsKeyId: __expectString(output.KmsKeyId),
-    S3Uri: __expectString(output.S3Uri),
-  } as any;
+// de_OutputDataConfig omitted.
+
+// de_RegistrationConfig omitted.
+
+// de_RegistrationConfigWatchlistIds omitted.
+
+// de_ResourceNotFoundException omitted.
+
+// de_ResponseWatchlistIds omitted.
+
+// de_ServerSideEncryptionConfiguration omitted.
+
+// de_ServerSideEncryptionUpdateDetails omitted.
+
+// de_ServiceQuotaExceededException omitted.
+
+/**
+ * deserializeAws_json1_0Speaker
+ */
+const de_Speaker = (output: any, context: __SerdeContext): Speaker => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CustomerSpeakerId: __expectString,
+    DomainId: __expectString,
+    GeneratedSpeakerId: __expectString,
+    LastAccessedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_0RegistrationConfig = (output: any, context: __SerdeContext): RegistrationConfig => {
-  return {
-    DuplicateRegistrationAction: __expectString(output.DuplicateRegistrationAction),
-    FraudsterSimilarityThreshold: __expectInt32(output.FraudsterSimilarityThreshold),
-  } as any;
+/**
+ * deserializeAws_json1_0SpeakerEnrollmentJob
+ */
+const de_SpeakerEnrollmentJob = (output: any, context: __SerdeContext): SpeakerEnrollmentJob => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataAccessRoleArn: __expectString,
+    DomainId: __expectString,
+    EndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EnrollmentConfig: _json,
+    FailureDetails: _json,
+    InputDataConfig: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobProgress: _json,
+    JobStatus: __expectString,
+    OutputDataConfig: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
-
-const deserializeAws_json1_0ServerSideEncryptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ServerSideEncryptionConfiguration => {
-  return {
-    KmsKeyId: __expectString(output.KmsKeyId),
-  } as any;
-};
-
-const deserializeAws_json1_0ServerSideEncryptionUpdateDetails = (
-  output: any,
-  context: __SerdeContext
-): ServerSideEncryptionUpdateDetails => {
-  return {
-    Message: __expectString(output.Message),
-    OldKmsKeyId: __expectString(output.OldKmsKeyId),
-    UpdateStatus: __expectString(output.UpdateStatus),
-  } as any;
-};
-
-const deserializeAws_json1_0ServiceQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0Speaker = (output: any, context: __SerdeContext): Speaker => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CustomerSpeakerId: __expectString(output.CustomerSpeakerId),
-    DomainId: __expectString(output.DomainId),
-    GeneratedSpeakerId: __expectString(output.GeneratedSpeakerId),
-    LastAccessedAt:
-      output.LastAccessedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedAt)))
-        : undefined,
-    Status: __expectString(output.Status),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0SpeakerEnrollmentJob = (output: any, context: __SerdeContext): SpeakerEnrollmentJob => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
-    DomainId: __expectString(output.DomainId),
-    EndedAt:
-      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
-    EnrollmentConfig:
-      output.EnrollmentConfig != null
-        ? deserializeAws_json1_0EnrollmentConfig(output.EnrollmentConfig, context)
-        : undefined,
-    FailureDetails:
-      output.FailureDetails != null ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context) : undefined,
-    InputDataConfig:
-      output.InputDataConfig != null
-        ? deserializeAws_json1_0InputDataConfig(output.InputDataConfig, context)
-        : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobProgress:
-      output.JobProgress != null ? deserializeAws_json1_0JobProgress(output.JobProgress, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-    OutputDataConfig:
-      output.OutputDataConfig != null
-        ? deserializeAws_json1_0OutputDataConfig(output.OutputDataConfig, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0SpeakerEnrollmentJobSummaries = (
-  output: any,
-  context: __SerdeContext
-): SpeakerEnrollmentJobSummary[] => {
+/**
+ * deserializeAws_json1_0SpeakerEnrollmentJobSummaries
+ */
+const de_SpeakerEnrollmentJobSummaries = (output: any, context: __SerdeContext): SpeakerEnrollmentJobSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0SpeakerEnrollmentJobSummary(entry, context);
+      return de_SpeakerEnrollmentJobSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0SpeakerEnrollmentJobSummary = (
-  output: any,
-  context: __SerdeContext
-): SpeakerEnrollmentJobSummary => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    DomainId: __expectString(output.DomainId),
-    EndedAt:
-      output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
-    FailureDetails:
-      output.FailureDetails != null ? deserializeAws_json1_0FailureDetails(output.FailureDetails, context) : undefined,
-    JobId: __expectString(output.JobId),
-    JobName: __expectString(output.JobName),
-    JobProgress:
-      output.JobProgress != null ? deserializeAws_json1_0JobProgress(output.JobProgress, context) : undefined,
-    JobStatus: __expectString(output.JobStatus),
-  } as any;
+/**
+ * deserializeAws_json1_0SpeakerEnrollmentJobSummary
+ */
+const de_SpeakerEnrollmentJobSummary = (output: any, context: __SerdeContext): SpeakerEnrollmentJobSummary => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DomainId: __expectString,
+    EndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureDetails: _json,
+    JobId: __expectString,
+    JobName: __expectString,
+    JobProgress: _json,
+    JobStatus: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_0SpeakerSummaries = (output: any, context: __SerdeContext): SpeakerSummary[] => {
+/**
+ * deserializeAws_json1_0SpeakerSummaries
+ */
+const de_SpeakerSummaries = (output: any, context: __SerdeContext): SpeakerSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0SpeakerSummary(entry, context);
+      return de_SpeakerSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0SpeakerSummary = (output: any, context: __SerdeContext): SpeakerSummary => {
-  return {
-    CreatedAt:
-      output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
-    CustomerSpeakerId: __expectString(output.CustomerSpeakerId),
-    DomainId: __expectString(output.DomainId),
-    GeneratedSpeakerId: __expectString(output.GeneratedSpeakerId),
-    LastAccessedAt:
-      output.LastAccessedAt != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAccessedAt)))
-        : undefined,
-    Status: __expectString(output.Status),
-    UpdatedAt:
-      output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_0SpeakerSummary
+ */
+const de_SpeakerSummary = (output: any, context: __SerdeContext): SpeakerSummary => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CustomerSpeakerId: __expectString,
+    DomainId: __expectString,
+    GeneratedSpeakerId: __expectString,
+    LastAccessedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_0StartFraudsterRegistrationJobResponse = (
+/**
+ * deserializeAws_json1_0StartFraudsterRegistrationJobResponse
+ */
+const de_StartFraudsterRegistrationJobResponse = (
   output: any,
   context: __SerdeContext
 ): StartFraudsterRegistrationJobResponse => {
-  return {
-    Job: output.Job != null ? deserializeAws_json1_0FraudsterRegistrationJob(output.Job, context) : undefined,
-  } as any;
+  return take(output, {
+    Job: (_: any) => de_FraudsterRegistrationJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0StartSpeakerEnrollmentJobResponse = (
+/**
+ * deserializeAws_json1_0StartSpeakerEnrollmentJobResponse
+ */
+const de_StartSpeakerEnrollmentJobResponse = (
   output: any,
   context: __SerdeContext
 ): StartSpeakerEnrollmentJobResponse => {
-  return {
-    Job: output.Job != null ? deserializeAws_json1_0SpeakerEnrollmentJob(output.Job, context) : undefined,
-  } as any;
+  return take(output, {
+    Job: (_: any) => de_SpeakerEnrollmentJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+// de_TagResourceResponse omitted.
+
+// de_ThrottlingException omitted.
+
+// de_UntagResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_0UpdateDomainResponse
+ */
+const de_UpdateDomainResponse = (output: any, context: __SerdeContext): UpdateDomainResponse => {
+  return take(output, {
+    Domain: (_: any) => de_Domain(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_0UpdateWatchlistResponse
+ */
+const de_UpdateWatchlistResponse = (output: any, context: __SerdeContext): UpdateWatchlistResponse => {
+  return take(output, {
+    Watchlist: (_: any) => de_Watchlist(_, context),
+  }) as any;
+};
+
+// de_ValidationException omitted.
+
+// de_VoiceSpoofingRisk omitted.
+
+/**
+ * deserializeAws_json1_0Watchlist
+ */
+const de_Watchlist = (output: any, context: __SerdeContext): Watchlist => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultWatchlist: __expectBoolean,
+    Description: __expectString,
+    DomainId: __expectString,
+    Name: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WatchlistId: __expectString,
+  }) as any;
+};
+
+// de_WatchlistDetails omitted.
+
+/**
+ * deserializeAws_json1_0WatchlistSummaries
+ */
+const de_WatchlistSummaries = (output: any, context: __SerdeContext): WatchlistSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_0Tag(entry, context);
+      return de_WatchlistSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_0UpdateDomainResponse = (output: any, context: __SerdeContext): UpdateDomainResponse => {
-  return {
-    Domain: output.Domain != null ? deserializeAws_json1_0Domain(output.Domain, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_0VoiceSpoofingRisk = (output: any, context: __SerdeContext): VoiceSpoofingRisk => {
-  return {
-    RiskScore: __expectInt32(output.RiskScore),
-  } as any;
+/**
+ * deserializeAws_json1_0WatchlistSummary
+ */
+const de_WatchlistSummary = (output: any, context: __SerdeContext): WatchlistSummary => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultWatchlist: __expectBoolean,
+    Description: __expectString,
+    DomainId: __expectString,
+    Name: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WatchlistId: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2604,6 +3106,7 @@ const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -2628,6 +3131,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": `VoiceID.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

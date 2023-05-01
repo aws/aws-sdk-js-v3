@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetMaintenanceWindowExecutionRequest, GetMaintenanceWindowExecutionResult } from "../models/models_1";
 import {
-  GetMaintenanceWindowExecutionRequest,
-  GetMaintenanceWindowExecutionRequestFilterSensitiveLog,
-  GetMaintenanceWindowExecutionResult,
-  GetMaintenanceWindowExecutionResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1GetMaintenanceWindowExecutionCommand,
-  serializeAws_json1_1GetMaintenanceWindowExecutionCommand,
+  de_GetMaintenanceWindowExecutionCommand,
+  se_GetMaintenanceWindowExecutionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link GetMaintenanceWindowExecutionCommand}.
  */
 export interface GetMaintenanceWindowExecutionCommandInput extends GetMaintenanceWindowExecutionRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetMaintenanceWindowExecutionCommand}.
  */
 export interface GetMaintenanceWindowExecutionCommandOutput
@@ -37,6 +36,7 @@ export interface GetMaintenanceWindowExecutionCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves details about a specific a maintenance window execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +44,15 @@ export interface GetMaintenanceWindowExecutionCommandOutput
  * import { SSMClient, GetMaintenanceWindowExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetMaintenanceWindowExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetMaintenanceWindowExecutionRequest
+ *   WindowExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new GetMaintenanceWindowExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMaintenanceWindowExecutionCommandInput - {@link GetMaintenanceWindowExecutionCommandInput}
+ * @returns {@link GetMaintenanceWindowExecutionCommandOutput}
  * @see {@link GetMaintenanceWindowExecutionCommandInput} for command's `input` shape.
  * @see {@link GetMaintenanceWindowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -80,6 +85,9 @@ export class GetMaintenanceWindowExecutionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMaintenanceWindowExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +116,8 @@ export class GetMaintenanceWindowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMaintenanceWindowExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMaintenanceWindowExecutionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +127,21 @@ export class GetMaintenanceWindowExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMaintenanceWindowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMaintenanceWindowExecutionCommand(input, context);
+    return se_GetMaintenanceWindowExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMaintenanceWindowExecutionCommandOutput> {
-    return deserializeAws_json1_1GetMaintenanceWindowExecutionCommand(output, context);
+    return de_GetMaintenanceWindowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

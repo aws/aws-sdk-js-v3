@@ -18,23 +18,24 @@ import {
   CreateEnvironmentRequest,
   CreateEnvironmentRequestFilterSensitiveLog,
   CreateEnvironmentResponse,
-  CreateEnvironmentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEnvironmentCommand,
-  serializeAws_restJson1CreateEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateEnvironmentCommand, se_CreateEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateEnvironmentCommand}.
  */
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Create a new FinSpace environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +43,39 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * import { FinspaceClient, CreateEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, CreateEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
+ * const input = { // CreateEnvironmentRequest
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   kmsKeyId: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   federationMode: "STRING_VALUE",
+ *   federationParameters: { // FederationParameters
+ *     samlMetadataDocument: "STRING_VALUE",
+ *     samlMetadataURL: "STRING_VALUE",
+ *     applicationCallBackURL: "STRING_VALUE",
+ *     federationURN: "STRING_VALUE",
+ *     federationProviderName: "STRING_VALUE",
+ *     attributeMap: { // AttributeMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   superuserParameters: { // SuperuserParameters
+ *     emailAddress: "STRING_VALUE", // required
+ *     firstName: "STRING_VALUE", // required
+ *     lastName: "STRING_VALUE", // required
+ *   },
+ *   dataBundles: [ // DataBundleArns
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
+ * @returns {@link CreateEnvironmentCommandOutput}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
@@ -89,6 +119,9 @@ export class CreateEnvironmentCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,7 +151,7 @@ export class CreateEnvironmentCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEnvironmentResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +161,18 @@ export class CreateEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEnvironmentCommand(input, context);
+    return se_CreateEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateEnvironmentCommand(output, context);
+    return de_CreateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

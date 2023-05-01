@@ -10,7 +10,7 @@ import { ComprehendClient } from "../ComprehendClient";
 import { ComprehendPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ComprehendClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListEventsDetectionJobsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListEventsDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListEventsDetectionJobsCommandInput,

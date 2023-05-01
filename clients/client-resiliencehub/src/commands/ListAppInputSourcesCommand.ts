@@ -13,30 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAppInputSourcesRequest,
-  ListAppInputSourcesRequestFilterSensitiveLog,
-  ListAppInputSourcesResponse,
-  ListAppInputSourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppInputSourcesCommand,
-  serializeAws_restJson1ListAppInputSourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { ListAppInputSourcesRequest, ListAppInputSourcesResponse } from "../models/models_0";
+import { de_ListAppInputSourcesCommand, se_ListAppInputSourcesCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListAppInputSourcesCommand}.
  */
 export interface ListAppInputSourcesCommandInput extends ListAppInputSourcesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListAppInputSourcesCommand}.
  */
 export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the input sources of the AWS Resilience Hub application. For more information about the
- *       input sources supported by AWS Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
+ * @public
+ * <p>Lists all the input sources of the Resilience Hub application. For more information about the
+ *       input sources supported by Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
  *         the structure and describe your Resilience Hub application</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +41,18 @@ export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesRes
  * import { ResiliencehubClient, ListAppInputSourcesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppInputSourcesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListAppInputSourcesRequest
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAppInputSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListAppInputSourcesCommandInput - {@link ListAppInputSourcesCommandInput}
+ * @returns {@link ListAppInputSourcesCommandOutput}
  * @see {@link ListAppInputSourcesCommandInput} for command's `input` shape.
  * @see {@link ListAppInputSourcesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -58,7 +63,7 @@ export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesRes
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -89,6 +94,9 @@ export class ListAppInputSourcesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListAppInputSourcesCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +125,8 @@ export class ListAppInputSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppInputSourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppInputSourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +136,18 @@ export class ListAppInputSourcesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAppInputSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppInputSourcesCommand(input, context);
+    return se_ListAppInputSourcesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppInputSourcesCommandOutput> {
-    return deserializeAws_restJson1ListAppInputSourcesCommand(output, context);
+    return de_ListAppInputSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

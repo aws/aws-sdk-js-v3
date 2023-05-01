@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import {
-  DeleteTableRequest,
-  DeleteTableRequestFilterSensitiveLog,
-  DeleteTableResponse,
-  DeleteTableResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteTableCommand,
-  serializeAws_json1_0DeleteTableCommand,
-} from "../protocols/Aws_json1_0";
+import { DeleteTableRequest, DeleteTableResponse } from "../models/models_0";
+import { de_DeleteTableCommand, se_DeleteTableCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTableCommand}.
  */
 export interface DeleteTableCommandInput extends DeleteTableRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTableCommand}.
  */
 export interface DeleteTableCommandOutput extends DeleteTableResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>DeleteTable</code> operation deletes a table and all of its data. After a <code>DeleteTable</code> request is received,
  *          the specified table is in the <code>DELETING</code> state until Amazon Keyspaces completes the deletion. If the table
  *          is in the <code>ACTIVE</code> state, you can delete it. If a table is either in the <code>CREATING</code> or <code>UPDATING</code> states, then
@@ -46,10 +43,16 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * import { KeyspacesClient, DeleteTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, DeleteTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = { // DeleteTableRequest
+ *   keyspaceName: "STRING_VALUE", // required
+ *   tableName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTableCommandInput - {@link DeleteTableCommandInput}
+ * @returns {@link DeleteTableCommandOutput}
  * @see {@link DeleteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteTableCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
@@ -94,6 +97,9 @@ export class DeleteTableCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTableCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +126,8 @@ export class DeleteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +137,18 @@ export class DeleteTableCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteTableCommand(input, context);
+    return se_DeleteTableCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTableCommandOutput> {
-    return deserializeAws_json1_0DeleteTableCommand(output, context);
+    return de_DeleteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

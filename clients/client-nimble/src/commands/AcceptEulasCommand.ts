@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AcceptEulasRequest,
-  AcceptEulasRequestFilterSensitiveLog,
-  AcceptEulasResponse,
-  AcceptEulasResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AcceptEulasRequest, AcceptEulasResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1AcceptEulasCommand,
-  serializeAws_restJson1AcceptEulasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AcceptEulasCommand, se_AcceptEulasCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link AcceptEulasCommand}.
  */
 export interface AcceptEulasCommandInput extends AcceptEulasRequest {}
 /**
+ * @public
+ *
  * The output of {@link AcceptEulasCommand}.
  */
 export interface AcceptEulasCommandOutput extends AcceptEulasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accept EULAs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface AcceptEulasCommandOutput extends AcceptEulasResponse, __Metadat
  * import { NimbleClient, AcceptEulasCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, AcceptEulasCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = { // AcceptEulasRequest
+ *   clientToken: "STRING_VALUE",
+ *   eulaIds: [ // EulaIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptEulasCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AcceptEulasCommandInput - {@link AcceptEulasCommandInput}
+ * @returns {@link AcceptEulasCommandOutput}
  * @see {@link AcceptEulasCommandInput} for command's `input` shape.
  * @see {@link AcceptEulasCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
@@ -93,6 +99,9 @@ export class AcceptEulasCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AcceptEulasCommandInput) {
     // Start section: command_constructor
     super();
@@ -119,8 +128,8 @@ export class AcceptEulasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptEulasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptEulasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +139,18 @@ export class AcceptEulasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AcceptEulasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptEulasCommand(input, context);
+    return se_AcceptEulasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptEulasCommandOutput> {
-    return deserializeAws_restJson1AcceptEulasCommand(output, context);
+    return de_AcceptEulasCommand(output, context);
   }
 
   // Start section: command_body_extra

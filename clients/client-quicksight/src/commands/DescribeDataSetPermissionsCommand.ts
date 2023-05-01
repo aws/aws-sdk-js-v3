@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDataSetPermissionsRequest,
-  DescribeDataSetPermissionsRequestFilterSensitiveLog,
-  DescribeDataSetPermissionsResponse,
-  DescribeDataSetPermissionsResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeDataSetPermissionsCommand,
-  serializeAws_restJson1DescribeDataSetPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeDataSetPermissionsRequest, DescribeDataSetPermissionsResponse } from "../models/models_2";
+import { de_DescribeDataSetPermissionsCommand, se_DescribeDataSetPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeDataSetPermissionsCommand}.
  */
 export interface DescribeDataSetPermissionsCommandInput extends DescribeDataSetPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeDataSetPermissionsCommand}.
  */
 export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSetPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the permissions on a dataset.</p>
  *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
  * @example
@@ -43,10 +40,16 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  * import { QuickSightClient, DescribeDataSetPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeDataSetPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeDataSetPermissionsRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDataSetPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeDataSetPermissionsCommandInput - {@link DescribeDataSetPermissionsCommandInput}
+ * @returns {@link DescribeDataSetPermissionsCommandOutput}
  * @see {@link DescribeDataSetPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSetPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
@@ -88,6 +91,9 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDataSetPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class DescribeDataSetPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataSetPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataSetPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,15 +133,21 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDataSetPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDataSetPermissionsCommand(input, context);
+    return se_DescribeDataSetPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataSetPermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeDataSetPermissionsCommand(output, context);
+    return de_DescribeDataSetPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOperationsRequest,
-  ListOperationsRequestFilterSensitiveLog,
-  ListOperationsResponse,
-  ListOperationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListOperationsCommand,
-  serializeAws_json1_1ListOperationsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListOperationsRequest, ListOperationsResponse } from "../models/models_0";
+import { de_ListOperationsCommand, se_ListOperationsCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListOperationsCommand}.
  */
 export interface ListOperationsCommandInput extends ListOperationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOperationsCommand}.
  */
 export interface ListOperationsCommandOutput extends ListOperationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all of the operations that return an operation ID and that
  * 			have ever been performed on domains that were registered by the current account. </p>
  *          <p>This command runs only in the us-east-1 Region.</p>
@@ -44,10 +41,25 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * import { Route53DomainsClient, ListOperationsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ListOperationsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // ListOperationsRequest
+ *   SubmittedSince: new Date("TIMESTAMP"),
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   Status: [ // OperationStatusList
+ *     "SUBMITTED" || "IN_PROGRESS" || "ERROR" || "SUCCESSFUL" || "FAILED",
+ *   ],
+ *   Type: [ // OperationTypeList
+ *     "REGISTER_DOMAIN" || "DELETE_DOMAIN" || "TRANSFER_IN_DOMAIN" || "UPDATE_DOMAIN_CONTACT" || "UPDATE_NAMESERVER" || "CHANGE_PRIVACY_PROTECTION" || "DOMAIN_LOCK" || "ENABLE_AUTORENEW" || "DISABLE_AUTORENEW" || "ADD_DNSSEC" || "REMOVE_DNSSEC" || "EXPIRE_DOMAIN" || "TRANSFER_OUT_DOMAIN" || "CHANGE_DOMAIN_OWNER" || "RENEW_DOMAIN" || "PUSH_DOMAIN" || "INTERNAL_TRANSFER_OUT_DOMAIN" || "INTERNAL_TRANSFER_IN_DOMAIN",
+ *   ],
+ *   SortBy: "SubmittedDate",
+ *   SortOrder: "ASC" || "DESC",
+ * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
+ * @returns {@link ListOperationsCommandOutput}
  * @see {@link ListOperationsCommandInput} for command's `input` shape.
  * @see {@link ListOperationsCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
@@ -77,6 +89,9 @@ export class ListOperationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOperationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +120,8 @@ export class ListOperationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOperationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOperationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +131,18 @@ export class ListOperationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOperationsCommand(input, context);
+    return se_ListOperationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOperationsCommandOutput> {
-    return deserializeAws_json1_1ListOperationsCommand(output, context);
+    return de_ListOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  DeleteWaveRequest,
-  DeleteWaveRequestFilterSensitiveLog,
-  DeleteWaveResponse,
-  DeleteWaveResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWaveCommand,
-  serializeAws_restJson1DeleteWaveCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteWaveRequest, DeleteWaveResponse } from "../models/models_0";
+import { de_DeleteWaveCommand, se_DeleteWaveCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteWaveCommand}.
  */
 export interface DeleteWaveCommandInput extends DeleteWaveRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteWaveCommand}.
  */
 export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataB
  * import { MgnClient, DeleteWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DeleteWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // DeleteWaveRequest
+ *   waveID: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWaveCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteWaveCommandInput - {@link DeleteWaveCommandInput}
+ * @returns {@link DeleteWaveCommandOutput}
  * @see {@link DeleteWaveCommandInput} for command's `input` shape.
  * @see {@link DeleteWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -78,6 +80,9 @@ export class DeleteWaveCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteWaveCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class DeleteWaveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWaveRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWaveResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class DeleteWaveCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteWaveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWaveCommand(input, context);
+    return se_DeleteWaveCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWaveCommandOutput> {
-    return deserializeAws_restJson1DeleteWaveCommand(output, context);
+    return de_DeleteWaveCommand(output, context);
   }
 
   // Start section: command_body_extra

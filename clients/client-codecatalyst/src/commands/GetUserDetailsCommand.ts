@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  GetUserDetailsRequest,
-  GetUserDetailsRequestFilterSensitiveLog,
-  GetUserDetailsResponse,
-  GetUserDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUserDetailsCommand,
-  serializeAws_restJson1GetUserDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { GetUserDetailsRequest, GetUserDetailsResponse } from "../models/models_0";
+import { de_GetUserDetailsCommand, se_GetUserDetailsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetUserDetailsCommand}.
  */
 export interface GetUserDetailsCommandInput extends GetUserDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetUserDetailsCommand}.
  */
 export interface GetUserDetailsCommandOutput extends GetUserDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a user. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetUserDetailsCommandOutput extends GetUserDetailsResponse, __M
  * import { CodeCatalystClient, GetUserDetailsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetUserDetailsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = { // GetUserDetailsRequest
+ *   id: "STRING_VALUE",
+ *   userName: "STRING_VALUE",
+ * };
  * const command = new GetUserDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetUserDetailsCommandInput - {@link GetUserDetailsCommandInput}
+ * @returns {@link GetUserDetailsCommandOutput}
  * @see {@link GetUserDetailsCommandInput} for command's `input` shape.
  * @see {@link GetUserDetailsCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
@@ -88,6 +91,9 @@ export class GetUserDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,8 +122,8 @@ export class GetUserDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -127,12 +133,18 @@ export class GetUserDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUserDetailsCommand(input, context);
+    return se_GetUserDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserDetailsCommandOutput> {
-    return deserializeAws_restJson1GetUserDetailsCommand(output, context);
+    return de_GetUserDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

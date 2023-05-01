@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  UpdateRepositoryRequest,
-  UpdateRepositoryRequestFilterSensitiveLog,
-  UpdateRepositoryResult,
-  UpdateRepositoryResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRepositoryCommand,
-  serializeAws_restJson1UpdateRepositoryCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateRepositoryRequest, UpdateRepositoryResult } from "../models/models_0";
+import { de_UpdateRepositoryCommand, se_UpdateRepositoryCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateRepositoryCommand}.
  */
 export interface UpdateRepositoryCommandInput extends UpdateRepositoryRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateRepositoryCommand}.
  */
 export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *          Update the properties of a repository.
  *        </p>
@@ -44,10 +41,23 @@ export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, _
  * import { CodeartifactClient, UpdateRepositoryCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, UpdateRepositoryCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = { // UpdateRepositoryRequest
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   upstreams: [ // UpstreamRepositoryList
+ *     { // UpstreamRepository
+ *       repositoryName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRepositoryCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateRepositoryCommandInput - {@link UpdateRepositoryCommandInput}
+ * @returns {@link UpdateRepositoryCommandOutput}
  * @see {@link UpdateRepositoryCommandInput} for command's `input` shape.
  * @see {@link UpdateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
@@ -104,6 +114,9 @@ export class UpdateRepositoryCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +145,8 @@ export class UpdateRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRepositoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRepositoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +156,18 @@ export class UpdateRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRepositoryCommand(input, context);
+    return se_UpdateRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRepositoryCommandOutput> {
-    return deserializeAws_restJson1UpdateRepositoryCommand(output, context);
+    return de_UpdateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

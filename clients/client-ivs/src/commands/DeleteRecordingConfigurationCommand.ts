@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { DeleteRecordingConfigurationRequest } from "../models/models_0";
 import {
-  DeleteRecordingConfigurationRequest,
-  DeleteRecordingConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRecordingConfigurationCommand,
-  serializeAws_restJson1DeleteRecordingConfigurationCommand,
+  de_DeleteRecordingConfigurationCommand,
+  se_DeleteRecordingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRecordingConfigurationCommand}.
  */
 export interface DeleteRecordingConfigurationCommandInput extends DeleteRecordingConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRecordingConfigurationCommand}.
  */
 export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the recording configuration for the specified ARN.</p>
  *          <p>If you try to delete a recording configuration that is associated with a channel, you will
  *       get an error (409 ConflictException). To avoid this, for all channels that reference the
@@ -45,10 +47,15 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  * import { IvsClient, DeleteRecordingConfigurationCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, DeleteRecordingConfigurationCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // DeleteRecordingConfigurationRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRecordingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRecordingConfigurationCommandInput - {@link DeleteRecordingConfigurationCommandInput}
+ * @returns {@link DeleteRecordingConfigurationCommandOutput}
  * @see {@link DeleteRecordingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRecordingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
@@ -87,6 +94,9 @@ export class DeleteRecordingConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRecordingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +125,8 @@ export class DeleteRecordingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecordingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +136,21 @@ export class DeleteRecordingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRecordingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecordingConfigurationCommand(input, context);
+    return se_DeleteRecordingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRecordingConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteRecordingConfigurationCommand(output, context);
+    return de_DeleteRecordingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

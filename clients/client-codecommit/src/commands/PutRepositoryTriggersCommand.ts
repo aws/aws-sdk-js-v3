@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  PutRepositoryTriggersInput,
-  PutRepositoryTriggersInputFilterSensitiveLog,
-  PutRepositoryTriggersOutput,
-  PutRepositoryTriggersOutputFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1PutRepositoryTriggersCommand,
-  serializeAws_json1_1PutRepositoryTriggersCommand,
-} from "../protocols/Aws_json1_1";
+import { PutRepositoryTriggersInput, PutRepositoryTriggersOutput } from "../models/models_1";
+import { de_PutRepositoryTriggersCommand, se_PutRepositoryTriggersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutRepositoryTriggersCommand}.
  */
 export interface PutRepositoryTriggersCommandInput extends PutRepositoryTriggersInput {}
 /**
+ * @public
+ *
  * The output of {@link PutRepositoryTriggersCommand}.
  */
 export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTriggersOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Replaces all triggers for a repository. Used to create or delete triggers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,28 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  * import { CodeCommitClient, PutRepositoryTriggersCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PutRepositoryTriggersCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // PutRepositoryTriggersInput
+ *   repositoryName: "STRING_VALUE", // required
+ *   triggers: [ // RepositoryTriggersList // required
+ *     { // RepositoryTrigger
+ *       name: "STRING_VALUE", // required
+ *       destinationArn: "STRING_VALUE", // required
+ *       customData: "STRING_VALUE",
+ *       branches: [ // BranchNameList
+ *         "STRING_VALUE",
+ *       ],
+ *       events: [ // RepositoryTriggerEventList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutRepositoryTriggersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutRepositoryTriggersCommandInput - {@link PutRepositoryTriggersCommandInput}
+ * @returns {@link PutRepositoryTriggersCommandOutput}
  * @see {@link PutRepositoryTriggersCommandInput} for command's `input` shape.
  * @see {@link PutRepositoryTriggersCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
@@ -142,6 +157,9 @@ export class PutRepositoryTriggersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutRepositoryTriggersCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,8 +188,8 @@ export class PutRepositoryTriggersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRepositoryTriggersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRepositoryTriggersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -181,12 +199,18 @@ export class PutRepositoryTriggersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutRepositoryTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRepositoryTriggersCommand(input, context);
+    return se_PutRepositoryTriggersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRepositoryTriggersCommandOutput> {
-    return deserializeAws_json1_1PutRepositoryTriggersCommand(output, context);
+    return de_PutRepositoryTriggersCommand(output, context);
   }
 
   // Start section: command_body_extra

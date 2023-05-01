@@ -10,7 +10,7 @@ import { OpsWorksCMClient } from "../OpsWorksCMClient";
 import { OpsWorksCMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpsWorksCMClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new DescribeServersCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateDescribeServers(
   config: OpsWorksCMPaginationConfiguration,
   input: DescribeServersCommandInput,

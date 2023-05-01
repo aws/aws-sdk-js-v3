@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  ListCustomRoutingListenersRequest,
-  ListCustomRoutingListenersRequestFilterSensitiveLog,
-  ListCustomRoutingListenersResponse,
-  ListCustomRoutingListenersResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCustomRoutingListenersCommand,
-  serializeAws_json1_1ListCustomRoutingListenersCommand,
-} from "../protocols/Aws_json1_1";
+import { ListCustomRoutingListenersRequest, ListCustomRoutingListenersResponse } from "../models/models_0";
+import { de_ListCustomRoutingListenersCommand, se_ListCustomRoutingListenersCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListCustomRoutingListenersCommand}.
  */
 export interface ListCustomRoutingListenersCommandInput extends ListCustomRoutingListenersRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListCustomRoutingListenersCommand}.
  */
 export interface ListCustomRoutingListenersCommandOutput extends ListCustomRoutingListenersResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List the listeners for a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,17 @@ export interface ListCustomRoutingListenersCommandOutput extends ListCustomRouti
  * import { GlobalAcceleratorClient, ListCustomRoutingListenersCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListCustomRoutingListenersCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // ListCustomRoutingListenersRequest
+ *   AcceleratorArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCustomRoutingListenersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListCustomRoutingListenersCommandInput - {@link ListCustomRoutingListenersCommandInput}
+ * @returns {@link ListCustomRoutingListenersCommandOutput}
  * @see {@link ListCustomRoutingListenersCommandInput} for command's `input` shape.
  * @see {@link ListCustomRoutingListenersCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -85,6 +89,9 @@ export class ListCustomRoutingListenersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListCustomRoutingListenersCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +120,8 @@ export class ListCustomRoutingListenersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomRoutingListenersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomRoutingListenersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,15 +131,21 @@ export class ListCustomRoutingListenersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCustomRoutingListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCustomRoutingListenersCommand(input, context);
+    return se_ListCustomRoutingListenersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomRoutingListenersCommandOutput> {
-    return deserializeAws_json1_1ListCustomRoutingListenersCommand(output, context);
+    return de_ListCustomRoutingListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

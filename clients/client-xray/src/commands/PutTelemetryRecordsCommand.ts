@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutTelemetryRecordsRequest,
-  PutTelemetryRecordsRequestFilterSensitiveLog,
-  PutTelemetryRecordsResult,
-  PutTelemetryRecordsResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutTelemetryRecordsCommand,
-  serializeAws_restJson1PutTelemetryRecordsCommand,
-} from "../protocols/Aws_restJson1";
+import { PutTelemetryRecordsRequest, PutTelemetryRecordsResult } from "../models/models_0";
+import { de_PutTelemetryRecordsCommand, se_PutTelemetryRecordsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
+ * @public
+ *
  * The input for {@link PutTelemetryRecordsCommand}.
  */
 export interface PutTelemetryRecordsCommandInput extends PutTelemetryRecordsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutTelemetryRecordsCommand}.
  */
 export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Used by the Amazon Web Services X-Ray daemon to upload telemetry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,34 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
  * import { XRayClient, PutTelemetryRecordsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, PutTelemetryRecordsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // PutTelemetryRecordsRequest
+ *   TelemetryRecords: [ // TelemetryRecordList // required
+ *     { // TelemetryRecord
+ *       Timestamp: new Date("TIMESTAMP"), // required
+ *       SegmentsReceivedCount: Number("int"),
+ *       SegmentsSentCount: Number("int"),
+ *       SegmentsSpilloverCount: Number("int"),
+ *       SegmentsRejectedCount: Number("int"),
+ *       BackendConnectionErrors: { // BackendConnectionErrors
+ *         TimeoutCount: Number("int"),
+ *         ConnectionRefusedCount: Number("int"),
+ *         HTTPCode4XXCount: Number("int"),
+ *         HTTPCode5XXCount: Number("int"),
+ *         UnknownHostCount: Number("int"),
+ *         OtherCount: Number("int"),
+ *       },
+ *     },
+ *   ],
+ *   EC2InstanceId: "STRING_VALUE",
+ *   Hostname: "STRING_VALUE",
+ *   ResourceARN: "STRING_VALUE",
+ * };
  * const command = new PutTelemetryRecordsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutTelemetryRecordsCommandInput - {@link PutTelemetryRecordsCommandInput}
+ * @returns {@link PutTelemetryRecordsCommandOutput}
  * @see {@link PutTelemetryRecordsCommandInput} for command's `input` shape.
  * @see {@link PutTelemetryRecordsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
@@ -75,6 +96,9 @@ export class PutTelemetryRecordsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutTelemetryRecordsCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +127,8 @@ export class PutTelemetryRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutTelemetryRecordsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutTelemetryRecordsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +138,18 @@ export class PutTelemetryRecordsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutTelemetryRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutTelemetryRecordsCommand(input, context);
+    return se_PutTelemetryRecordsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTelemetryRecordsCommandOutput> {
-    return deserializeAws_restJson1PutTelemetryRecordsCommand(output, context);
+    return de_PutTelemetryRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

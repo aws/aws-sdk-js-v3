@@ -14,22 +14,21 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { ListOpenIDConnectProviderTagsRequest, ListOpenIDConnectProviderTagsResponse } from "../models/models_0";
 import {
-  ListOpenIDConnectProviderTagsRequest,
-  ListOpenIDConnectProviderTagsRequestFilterSensitiveLog,
-  ListOpenIDConnectProviderTagsResponse,
-  ListOpenIDConnectProviderTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListOpenIDConnectProviderTagsCommand,
-  serializeAws_queryListOpenIDConnectProviderTagsCommand,
+  de_ListOpenIDConnectProviderTagsCommand,
+  se_ListOpenIDConnectProviderTagsCommand,
 } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListOpenIDConnectProviderTagsCommand}.
  */
 export interface ListOpenIDConnectProviderTagsCommandInput extends ListOpenIDConnectProviderTagsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListOpenIDConnectProviderTagsCommand}.
  */
 export interface ListOpenIDConnectProviderTagsCommandOutput
@@ -37,6 +36,7 @@ export interface ListOpenIDConnectProviderTagsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the tags that are attached to the specified OpenID Connect (OIDC)-compatible
  *       identity provider. The returned list of tags is sorted by tag key. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity
  *       federation</a>.</p>
@@ -48,10 +48,17 @@ export interface ListOpenIDConnectProviderTagsCommandOutput
  * import { IAMClient, ListOpenIDConnectProviderTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListOpenIDConnectProviderTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListOpenIDConnectProviderTagsRequest
+ *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListOpenIDConnectProviderTagsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListOpenIDConnectProviderTagsCommandInput - {@link ListOpenIDConnectProviderTagsCommandInput}
+ * @returns {@link ListOpenIDConnectProviderTagsCommandOutput}
  * @see {@link ListOpenIDConnectProviderTagsCommandInput} for command's `input` shape.
  * @see {@link ListOpenIDConnectProviderTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -87,6 +94,9 @@ export class ListOpenIDConnectProviderTagsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListOpenIDConnectProviderTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +125,8 @@ export class ListOpenIDConnectProviderTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOpenIDConnectProviderTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOpenIDConnectProviderTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,15 +136,21 @@ export class ListOpenIDConnectProviderTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListOpenIDConnectProviderTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListOpenIDConnectProviderTagsCommand(input, context);
+    return se_ListOpenIDConnectProviderTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOpenIDConnectProviderTagsCommandOutput> {
-    return deserializeAws_queryListOpenIDConnectProviderTagsCommand(output, context);
+    return de_ListOpenIDConnectProviderTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

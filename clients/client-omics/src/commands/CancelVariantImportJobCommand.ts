@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelVariantImportRequest,
-  CancelVariantImportRequestFilterSensitiveLog,
-  CancelVariantImportResponse,
-  CancelVariantImportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelVariantImportRequest, CancelVariantImportResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1CancelVariantImportJobCommand,
-  serializeAws_restJson1CancelVariantImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelVariantImportJobCommand, se_CancelVariantImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CancelVariantImportJobCommand}.
  */
 export interface CancelVariantImportJobCommandInput extends CancelVariantImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link CancelVariantImportJobCommand}.
  */
 export interface CancelVariantImportJobCommandOutput extends CancelVariantImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Cancels a variant import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface CancelVariantImportJobCommandOutput extends CancelVariantImport
  * import { OmicsClient, CancelVariantImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CancelVariantImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = { // CancelVariantImportRequest
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new CancelVariantImportJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CancelVariantImportJobCommandInput - {@link CancelVariantImportJobCommandInput}
+ * @returns {@link CancelVariantImportJobCommandOutput}
  * @see {@link CancelVariantImportJobCommandInput} for command's `input` shape.
  * @see {@link CancelVariantImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
@@ -84,6 +86,9 @@ export class CancelVariantImportJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CancelVariantImportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class CancelVariantImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelVariantImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelVariantImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class CancelVariantImportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelVariantImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelVariantImportJobCommand(input, context);
+    return se_CancelVariantImportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelVariantImportJobCommandOutput> {
-    return deserializeAws_restJson1CancelVariantImportJobCommand(output, context);
+    return de_CancelVariantImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

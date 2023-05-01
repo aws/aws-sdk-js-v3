@@ -13,39 +13,43 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTestRecommendationsRequest,
-  ListTestRecommendationsRequestFilterSensitiveLog,
-  ListTestRecommendationsResponse,
-  ListTestRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTestRecommendationsCommand,
-  serializeAws_restJson1ListTestRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTestRecommendationsRequest, ListTestRecommendationsResponse } from "../models/models_0";
+import { de_ListTestRecommendationsCommand, se_ListTestRecommendationsCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListTestRecommendationsCommand}.
  */
 export interface ListTestRecommendationsCommandInput extends ListTestRecommendationsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTestRecommendationsCommand}.
  */
 export interface ListTestRecommendationsCommandOutput extends ListTestRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the test recommendations for the AWS Resilience Hub application.</p>
+ * @public
+ * <p>Lists the test recommendations for the Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResiliencehubClient, ListTestRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListTestRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = { // ListTestRecommendationsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   assessmentArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTestRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTestRecommendationsCommandInput - {@link ListTestRecommendationsCommandInput}
+ * @returns {@link ListTestRecommendationsCommandOutput}
  * @see {@link ListTestRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListTestRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
@@ -62,7 +66,7 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -93,6 +97,9 @@ export class ListTestRecommendationsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTestRecommendationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -121,8 +128,8 @@ export class ListTestRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTestRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTestRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -132,12 +139,18 @@ export class ListTestRecommendationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTestRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTestRecommendationsCommand(input, context);
+    return se_ListTestRecommendationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTestRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListTestRecommendationsCommand(output, context);
+    return de_ListTestRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

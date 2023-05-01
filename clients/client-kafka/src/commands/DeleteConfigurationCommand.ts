@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  DeleteConfigurationRequest,
-  DeleteConfigurationRequestFilterSensitiveLog,
-  DeleteConfigurationResponse,
-  DeleteConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteConfigurationCommand,
-  serializeAws_restJson1DeleteConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteConfigurationRequest, DeleteConfigurationResponse } from "../models/models_0";
+import { de_DeleteConfigurationCommand, se_DeleteConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteConfigurationCommand}.
  */
 export interface DeleteConfigurationCommandInput extends DeleteConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteConfigurationCommand}.
  */
 export interface DeleteConfigurationCommandOutput extends DeleteConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an MSK Configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
  * import { KafkaClient, DeleteConfigurationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DeleteConfigurationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = { // DeleteConfigurationRequest
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteConfigurationCommandInput - {@link DeleteConfigurationCommandInput}
+ * @returns {@link DeleteConfigurationCommandOutput}
  * @see {@link DeleteConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfigurationCommand(input, context);
+    return se_DeleteConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteConfigurationCommand(output, context);
+    return de_DeleteConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

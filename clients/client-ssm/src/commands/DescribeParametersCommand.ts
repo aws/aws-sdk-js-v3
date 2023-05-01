@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeParametersRequest,
-  DescribeParametersRequestFilterSensitiveLog,
-  DescribeParametersResult,
-  DescribeParametersResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribeParametersCommand,
-  serializeAws_json1_1DescribeParametersCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeParametersRequest, DescribeParametersResult } from "../models/models_1";
+import { de_DescribeParametersCommand, se_DescribeParametersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeParametersCommand}.
  */
 export interface DescribeParametersCommandInput extends DescribeParametersRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeParametersCommand}.
  */
 export interface DescribeParametersCommandOutput extends DescribeParametersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get information about a parameter.</p>
  *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
  *    in the request, the response includes information up to the limit specified. The number of items
@@ -54,10 +51,33 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * import { SSMClient, DescribeParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeParametersRequest
+ *   Filters: [ // ParametersFilterList
+ *     { // ParametersFilter
+ *       Key: "Name" || "Type" || "KeyId", // required
+ *       Values: [ // ParametersFilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ParameterFilters: [ // ParameterStringFilterList
+ *     { // ParameterStringFilter
+ *       Key: "STRING_VALUE", // required
+ *       Option: "STRING_VALUE",
+ *       Values: [ // ParameterStringFilterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeParametersCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
+ * @returns {@link DescribeParametersCommandOutput}
  * @see {@link DescribeParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
@@ -97,6 +117,9 @@ export class DescribeParametersCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -125,8 +148,8 @@ export class DescribeParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeParametersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +159,18 @@ export class DescribeParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeParametersCommand(input, context);
+    return se_DescribeParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeParametersCommand(output, context);
+    return de_DescribeParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

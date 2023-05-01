@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  DeleteAppRequest,
-  DeleteAppRequestFilterSensitiveLog,
-  DeleteAppResult,
-  DeleteAppResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAppCommand,
-  serializeAws_restJson1DeleteAppCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteAppRequest, DeleteAppResult, DeleteAppResultFilterSensitiveLog } from "../models/models_0";
+import { de_DeleteAppCommand, se_DeleteAppCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandInput extends DeleteAppRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteAppCommand}.
  */
 export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Deletes an existing Amplify app specified by an app ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBeare
  * import { AmplifyClient, DeleteAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = { // DeleteAppRequest
+ *   appId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAppCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
+ * @returns {@link DeleteAppCommandOutput}
  * @see {@link DeleteAppCommandInput} for command's `input` shape.
  * @see {@link DeleteAppCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
@@ -84,6 +86,9 @@ export class DeleteAppCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAppCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,7 +115,7 @@ export class DeleteAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteAppResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -121,12 +126,18 @@ export class DeleteAppCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppCommand(input, context);
+    return se_DeleteAppCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppCommandOutput> {
-    return deserializeAws_restJson1DeleteAppCommand(output, context);
+    return de_DeleteAppCommand(output, context);
   }
 
   // Start section: command_body_extra

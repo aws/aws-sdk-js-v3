@@ -14,19 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagRoleRequest, TagRoleRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_queryTagRoleCommand, serializeAws_queryTagRoleCommand } from "../protocols/Aws_query";
+import { TagRoleRequest } from "../models/models_0";
+import { de_TagRoleCommand, se_TagRoleCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link TagRoleCommand}.
  */
 export interface TagRoleCommandInput extends TagRoleRequest {}
 /**
+ * @public
+ *
  * The output of {@link TagRoleCommand}.
  */
 export interface TagRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more tags to an IAM role. The role can be a regular role or a
  *       service-linked role. If a tag with the same key name already exists, then that tag is
  *       overwritten with the new value.</p>
@@ -78,10 +83,21 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  * import { IAMClient, TagRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // TagRoleRequest
+ *   RoleName: "STRING_VALUE", // required
+ *   Tags: [ // tagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagRoleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param TagRoleCommandInput - {@link TagRoleCommandInput}
+ * @returns {@link TagRoleCommandOutput}
  * @see {@link TagRoleCommandInput} for command's `input` shape.
  * @see {@link TagRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -142,6 +158,9 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: TagRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -168,8 +187,8 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -179,12 +198,18 @@ export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagRoleCommand(input, context);
+    return se_TagRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagRoleCommandOutput> {
-    return deserializeAws_queryTagRoleCommand(output, context);
+    return de_TagRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

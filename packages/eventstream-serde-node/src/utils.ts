@@ -8,6 +8,9 @@ import { Readable } from "stream";
  * Reference: https://nodejs.org/docs/latest-v11.x/api/stream.html#stream_readable_symbol_asynciterator
  */
 
+/**
+ * @internal
+ */
 export async function* readabletoIterable<T>(readStream: Readable): AsyncIterable<T> {
   let streamEnded = false;
   let generationEnded = false;

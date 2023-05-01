@@ -24,19 +24,24 @@ import {
   GetObjectRequest,
   GetObjectRequestFilterSensitiveLog,
 } from "../models/models_0";
-import { deserializeAws_restXmlGetObjectCommand, serializeAws_restXmlGetObjectCommand } from "../protocols/Aws_restXml";
+import { de_GetObjectCommand, se_GetObjectCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetObjectCommand}.
  */
 export interface GetObjectCommandInput extends GetObjectRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetObjectCommand}.
  */
 export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOutput, "Body">, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves objects from Amazon S3. To use <code>GET</code>, you must have <code>READ</code>
  *          access to the object. If you grant <code>READ</code> access to the anonymous user, you can
  *          return the object without using an authorization header.</p>
@@ -205,10 +210,35 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetObjectRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ *   IfModifiedSince: new Date("TIMESTAMP"),
+ *   IfNoneMatch: "STRING_VALUE",
+ *   IfUnmodifiedSince: new Date("TIMESTAMP"),
+ *   Key: "STRING_VALUE", // required
+ *   Range: "STRING_VALUE",
+ *   ResponseCacheControl: "STRING_VALUE",
+ *   ResponseContentDisposition: "STRING_VALUE",
+ *   ResponseContentEncoding: "STRING_VALUE",
+ *   ResponseContentLanguage: "STRING_VALUE",
+ *   ResponseContentType: "STRING_VALUE",
+ *   ResponseExpires: new Date("TIMESTAMP"),
+ *   VersionId: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   PartNumber: Number("int"),
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ChecksumMode: "ENABLED",
+ * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetObjectCommandInput - {@link GetObjectCommandInput}
+ * @returns {@link GetObjectCommandOutput}
  * @see {@link GetObjectCommandInput} for command's `input` shape.
  * @see {@link GetObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -219,6 +249,30 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * @throws {@link NoSuchKey} (client fault)
  *  <p>The specified key does not exist.</p>
  *
+ *
+ * @example To retrieve an object
+ * ```javascript
+ * // The following example retrieves an object for an S3 bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new GetObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AcceptRanges": "bytes",
+ *   "ContentLength": "3191",
+ *   "ContentType": "image/jpeg",
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
+ *   "Metadata": {},
+ *   "TagCount": 2,
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * // example id: to-retrieve-an-object-1481827837012
+ * ```
  *
  * @example To retrieve a byte range of an object
  * ```javascript
@@ -245,30 +299,6 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * // example id: to-retrieve-a-byte-range-of-an-object--1481832674603
  * ```
  *
- * @example To retrieve an object
- * ```javascript
- * // The following example retrieves an object for an S3 bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new GetObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AcceptRanges": "bytes",
- *   "ContentLength": "3191",
- *   "ContentType": "image/jpeg",
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
- *   "Metadata": {},
- *   "TagCount": 2,
- *   "VersionId": "null"
- * }
- * *\/
- * // example id: to-retrieve-an-object-1481827837012
- * ```
- *
  */
 export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectCommandOutput, S3ClientResolvedConfig> {
   // Start section: command_properties
@@ -289,6 +319,9 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetObjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -335,15 +368,21 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectCommand(input, context);
+    return se_GetObjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetObjectCommandOutput> {
-    return deserializeAws_restXmlGetObjectCommand(output, context);
+    return de_GetObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

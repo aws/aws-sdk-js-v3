@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteServerCertificateRequest, DeleteServerCertificateRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteServerCertificateCommand,
-  serializeAws_queryDeleteServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { DeleteServerCertificateRequest } from "../models/models_0";
+import { de_DeleteServerCertificateCommand, se_DeleteServerCertificateCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteServerCertificateCommand}.
  */
 export interface DeleteServerCertificateCommandInput extends DeleteServerCertificateRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteServerCertificateCommand}.
  */
 export interface DeleteServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified server certificate.</p>
  *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
@@ -51,10 +53,15 @@ export interface DeleteServerCertificateCommandOutput extends __MetadataBearer {
  * import { IAMClient, DeleteServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteServerCertificateRequest
+ *   ServerCertificateName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServerCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteServerCertificateCommandInput - {@link DeleteServerCertificateCommandInput}
+ * @returns {@link DeleteServerCertificateCommandOutput}
  * @see {@link DeleteServerCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -94,6 +101,9 @@ export class DeleteServerCertificateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteServerCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -122,8 +132,8 @@ export class DeleteServerCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServerCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -133,12 +143,18 @@ export class DeleteServerCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteServerCertificateCommand(input, context);
+    return se_DeleteServerCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServerCertificateCommandOutput> {
-    return deserializeAws_queryDeleteServerCertificateCommand(output, context);
+    return de_DeleteServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

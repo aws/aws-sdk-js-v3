@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListServicesInput,
-  ListServicesInputFilterSensitiveLog,
-  ListServicesOutput,
-  ListServicesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0ListServicesCommand,
-  serializeAws_json1_0ListServicesCommand,
-} from "../protocols/Aws_json1_0";
+import { ListServicesInput, ListServicesOutput, ListServicesOutputFilterSensitiveLog } from "../models/models_0";
+import { de_ListServicesCommand, se_ListServicesCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListServicesCommand}.
  */
 export interface ListServicesCommandInput extends ListServicesInput {}
 /**
+ * @public
+ *
  * The output of {@link ListServicesCommand}.
  */
 export interface ListServicesCommandOutput extends ListServicesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>List services with summaries of detail data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * import { ProtonClient, ListServicesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServicesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = { // ListServicesInput
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServicesCommandInput - {@link ListServicesCommandInput}
+ * @returns {@link ListServicesCommandOutput}
  * @see {@link ListServicesCommandInput} for command's `input` shape.
  * @see {@link ListServicesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
@@ -81,6 +84,9 @@ export class ListServicesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,7 +113,7 @@ export class ListServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServicesInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListServicesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -118,12 +124,18 @@ export class ListServicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListServicesCommand(input, context);
+    return se_ListServicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServicesCommandOutput> {
-    return deserializeAws_json1_0ListServicesCommand(output, context);
+    return de_ListServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

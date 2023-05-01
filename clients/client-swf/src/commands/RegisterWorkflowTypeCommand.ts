@@ -13,23 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterWorkflowTypeInput, RegisterWorkflowTypeInputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0RegisterWorkflowTypeCommand,
-  serializeAws_json1_0RegisterWorkflowTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { RegisterWorkflowTypeInput } from "../models/models_0";
+import { de_RegisterWorkflowTypeCommand, se_RegisterWorkflowTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
+ * @public
+ *
  * The input for {@link RegisterWorkflowTypeCommand}.
  */
 export interface RegisterWorkflowTypeCommandInput extends RegisterWorkflowTypeInput {}
 /**
+ * @public
+ *
  * The output of {@link RegisterWorkflowTypeCommand}.
  */
 export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a new <i>workflow type</i> and its configuration settings in
  *       the specified domain.</p>
  *          <p>The retention period for the workflow history is set by the <a>RegisterDomain</a> action.</p>
@@ -84,10 +86,26 @@ export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
  * import { SWFClient, RegisterWorkflowTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RegisterWorkflowTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // RegisterWorkflowTypeInput
+ *   domain: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   defaultTaskStartToCloseTimeout: "STRING_VALUE",
+ *   defaultExecutionStartToCloseTimeout: "STRING_VALUE",
+ *   defaultTaskList: { // TaskList
+ *     name: "STRING_VALUE", // required
+ *   },
+ *   defaultTaskPriority: "STRING_VALUE",
+ *   defaultChildPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
+ *   defaultLambdaRole: "STRING_VALUE",
+ * };
  * const command = new RegisterWorkflowTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RegisterWorkflowTypeCommandInput - {@link RegisterWorkflowTypeCommandInput}
+ * @returns {@link RegisterWorkflowTypeCommandOutput}
  * @see {@link RegisterWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link RegisterWorkflowTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
@@ -123,6 +141,9 @@ export class RegisterWorkflowTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterWorkflowTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -151,8 +172,8 @@ export class RegisterWorkflowTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterWorkflowTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -162,12 +183,18 @@ export class RegisterWorkflowTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RegisterWorkflowTypeCommand(input, context);
+    return se_RegisterWorkflowTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterWorkflowTypeCommandOutput> {
-    return deserializeAws_json1_0RegisterWorkflowTypeCommand(output, context);
+    return de_RegisterWorkflowTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

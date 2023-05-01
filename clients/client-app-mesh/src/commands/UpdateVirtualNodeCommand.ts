@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  UpdateVirtualNodeInput,
-  UpdateVirtualNodeInputFilterSensitiveLog,
-  UpdateVirtualNodeOutput,
-  UpdateVirtualNodeOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateVirtualNodeCommand,
-  serializeAws_restJson1UpdateVirtualNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateVirtualNodeInput, UpdateVirtualNodeOutput } from "../models/models_0";
+import { de_UpdateVirtualNodeCommand, se_UpdateVirtualNodeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateVirtualNodeCommand}.
  */
 export interface UpdateVirtualNodeCommandInput extends UpdateVirtualNodeInput {}
 /**
+ * @public
+ *
  * The output of {@link UpdateVirtualNodeCommand}.
  */
 export interface UpdateVirtualNodeCommandOutput extends UpdateVirtualNodeOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an existing virtual node in a specified service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,243 @@ export interface UpdateVirtualNodeCommandOutput extends UpdateVirtualNodeOutput,
  * import { AppMeshClient, UpdateVirtualNodeCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateVirtualNodeCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = { // UpdateVirtualNodeInput
+ *   virtualNodeName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   spec: { // VirtualNodeSpec
+ *     serviceDiscovery: { // ServiceDiscovery Union: only one key present
+ *       dns: { // DnsServiceDiscovery
+ *         hostname: "STRING_VALUE", // required
+ *         responseType: "STRING_VALUE",
+ *         ipPreference: "STRING_VALUE",
+ *       },
+ *       awsCloudMap: { // AwsCloudMapServiceDiscovery
+ *         namespaceName: "STRING_VALUE", // required
+ *         serviceName: "STRING_VALUE", // required
+ *         attributes: [ // AwsCloudMapInstanceAttributes
+ *           { // AwsCloudMapInstanceAttribute
+ *             key: "STRING_VALUE", // required
+ *             value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         ipPreference: "STRING_VALUE",
+ *       },
+ *     },
+ *     listeners: [ // Listeners
+ *       { // Listener
+ *         portMapping: { // PortMapping
+ *           port: Number("int"), // required
+ *           protocol: "STRING_VALUE", // required
+ *         },
+ *         tls: { // ListenerTls
+ *           mode: "STRING_VALUE", // required
+ *           certificate: { // ListenerTlsCertificate Union: only one key present
+ *             acm: { // ListenerTlsAcmCertificate
+ *               certificateArn: "STRING_VALUE", // required
+ *             },
+ *             file: { // ListenerTlsFileCertificate
+ *               certificateChain: "STRING_VALUE", // required
+ *               privateKey: "STRING_VALUE", // required
+ *             },
+ *             sds: { // ListenerTlsSdsCertificate
+ *               secretName: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           validation: { // ListenerTlsValidationContext
+ *             trust: { // ListenerTlsValidationContextTrust Union: only one key present
+ *               file: { // TlsValidationContextFileTrust
+ *                 certificateChain: "STRING_VALUE", // required
+ *               },
+ *               sds: { // TlsValidationContextSdsTrust
+ *                 secretName: "STRING_VALUE", // required
+ *               },
+ *             },
+ *             subjectAlternativeNames: { // SubjectAlternativeNames
+ *               match: { // SubjectAlternativeNameMatchers
+ *                 exact: [ // SubjectAlternativeNameList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *         },
+ *         healthCheck: { // HealthCheckPolicy
+ *           timeoutMillis: Number("long"), // required
+ *           intervalMillis: Number("long"), // required
+ *           protocol: "STRING_VALUE", // required
+ *           port: Number("int"),
+ *           path: "STRING_VALUE",
+ *           healthyThreshold: Number("int"), // required
+ *           unhealthyThreshold: Number("int"), // required
+ *         },
+ *         timeout: { // ListenerTimeout Union: only one key present
+ *           tcp: { // TcpTimeout
+ *             idle: { // Duration
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *           },
+ *           http: { // HttpTimeout
+ *             perRequest: {
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *             idle: {
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *           },
+ *           http2: {
+ *             perRequest: {
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *             idle: {
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *           },
+ *           grpc: { // GrpcTimeout
+ *             perRequest: "<Duration>",
+ *             idle: "<Duration>",
+ *           },
+ *         },
+ *         outlierDetection: { // OutlierDetection
+ *           maxServerErrors: Number("long"), // required
+ *           interval: "<Duration>", // required
+ *           baseEjectionDuration: "<Duration>", // required
+ *           maxEjectionPercent: Number("int"), // required
+ *         },
+ *         connectionPool: { // VirtualNodeConnectionPool Union: only one key present
+ *           tcp: { // VirtualNodeTcpConnectionPool
+ *             maxConnections: Number("int"), // required
+ *           },
+ *           http: { // VirtualNodeHttpConnectionPool
+ *             maxConnections: Number("int"), // required
+ *             maxPendingRequests: Number("int"),
+ *           },
+ *           http2: { // VirtualNodeHttp2ConnectionPool
+ *             maxRequests: Number("int"), // required
+ *           },
+ *           grpc: { // VirtualNodeGrpcConnectionPool
+ *             maxRequests: Number("int"), // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     backends: [ // Backends
+ *       { // Backend Union: only one key present
+ *         virtualService: { // VirtualServiceBackend
+ *           virtualServiceName: "STRING_VALUE", // required
+ *           clientPolicy: { // ClientPolicy
+ *             tls: { // ClientPolicyTls
+ *               enforce: true || false,
+ *               ports: [ // PortSet
+ *                 Number("int"),
+ *               ],
+ *               certificate: { // ClientTlsCertificate Union: only one key present
+ *                 file: {
+ *                   certificateChain: "STRING_VALUE", // required
+ *                   privateKey: "STRING_VALUE", // required
+ *                 },
+ *                 sds: {
+ *                   secretName: "STRING_VALUE", // required
+ *                 },
+ *               },
+ *               validation: { // TlsValidationContext
+ *                 trust: { // TlsValidationContextTrust Union: only one key present
+ *                   acm: { // TlsValidationContextAcmTrust
+ *                     certificateAuthorityArns: [ // CertificateAuthorityArns // required
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                   file: {
+ *                     certificateChain: "STRING_VALUE", // required
+ *                   },
+ *                   sds: {
+ *                     secretName: "STRING_VALUE", // required
+ *                   },
+ *                 },
+ *                 subjectAlternativeNames: {
+ *                   match: {
+ *                     exact: [ // required
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     backendDefaults: { // BackendDefaults
+ *       clientPolicy: {
+ *         tls: {
+ *           enforce: true || false,
+ *           ports: [
+ *             Number("int"),
+ *           ],
+ *           certificate: {//  Union: only one key present
+ *             file: {
+ *               certificateChain: "STRING_VALUE", // required
+ *               privateKey: "STRING_VALUE", // required
+ *             },
+ *             sds: {
+ *               secretName: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           validation: {
+ *             trust: {//  Union: only one key present
+ *               acm: {
+ *                 certificateAuthorityArns: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               file: {
+ *                 certificateChain: "STRING_VALUE", // required
+ *               },
+ *               sds: {
+ *                 secretName: "STRING_VALUE", // required
+ *               },
+ *             },
+ *             subjectAlternativeNames: {
+ *               match: {
+ *                 exact: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *     },
+ *     logging: { // Logging
+ *       accessLog: { // AccessLog Union: only one key present
+ *         file: { // FileAccessLog
+ *           path: "STRING_VALUE", // required
+ *           format: { // LoggingFormat Union: only one key present
+ *             text: "STRING_VALUE",
+ *             json: [ // JsonFormat
+ *               { // JsonFormatRef
+ *                 key: "STRING_VALUE", // required
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new UpdateVirtualNodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateVirtualNodeCommandInput - {@link UpdateVirtualNodeCommandInput}
+ * @returns {@link UpdateVirtualNodeCommandOutput}
  * @see {@link UpdateVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualNodeCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
@@ -98,6 +328,9 @@ export class UpdateVirtualNodeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateVirtualNodeCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,8 +359,8 @@ export class UpdateVirtualNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVirtualNodeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVirtualNodeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +370,18 @@ export class UpdateVirtualNodeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVirtualNodeCommand(input, context);
+    return se_UpdateVirtualNodeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualNodeCommandOutput> {
-    return deserializeAws_restJson1UpdateVirtualNodeCommand(output, context);
+    return de_UpdateVirtualNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

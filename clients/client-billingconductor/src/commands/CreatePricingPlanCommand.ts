@@ -18,23 +18,24 @@ import {
   CreatePricingPlanInput,
   CreatePricingPlanInputFilterSensitiveLog,
   CreatePricingPlanOutput,
-  CreatePricingPlanOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePricingPlanCommand,
-  serializeAws_restJson1CreatePricingPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePricingPlanCommand, se_CreatePricingPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreatePricingPlanCommand}.
  */
 export interface CreatePricingPlanCommandInput extends CreatePricingPlanInput {}
 /**
+ * @public
+ *
  * The output of {@link CreatePricingPlanCommand}.
  */
 export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a pricing plan that is used for computing Amazon Web Services charges for billing groups.
  *     </p>
  * @example
@@ -43,10 +44,23 @@ export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput,
  * import { BillingconductorClient, CreatePricingPlanCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, CreatePricingPlanCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = { // CreatePricingPlanInput
+ *   ClientToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   PricingRuleArns: [ // PricingRuleArnsInput
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePricingPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreatePricingPlanCommandInput - {@link CreatePricingPlanCommandInput}
+ * @returns {@link CreatePricingPlanCommandOutput}
  * @see {@link CreatePricingPlanCommandInput} for command's `input` shape.
  * @see {@link CreatePricingPlanCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
@@ -97,6 +111,9 @@ export class CreatePricingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePricingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,7 +143,7 @@ export class CreatePricingPlanCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreatePricingPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePricingPlanOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +153,18 @@ export class CreatePricingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePricingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePricingPlanCommand(input, context);
+    return se_CreatePricingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePricingPlanCommandOutput> {
-    return deserializeAws_restJson1CreatePricingPlanCommand(output, context);
+    return de_CreatePricingPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

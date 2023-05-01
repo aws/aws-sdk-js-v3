@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ConfigurationSettingsDescription,
-  ConfigurationSettingsDescriptionFilterSensitiveLog,
-  UpdateConfigurationTemplateMessage,
-  UpdateConfigurationTemplateMessageFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryUpdateConfigurationTemplateCommand,
-  serializeAws_queryUpdateConfigurationTemplateCommand,
-} from "../protocols/Aws_query";
+import { ConfigurationSettingsDescription, UpdateConfigurationTemplateMessage } from "../models/models_0";
+import { de_UpdateConfigurationTemplateCommand, se_UpdateConfigurationTemplateCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateConfigurationTemplateCommand}.
  */
 export interface UpdateConfigurationTemplateCommandInput extends UpdateConfigurationTemplateMessage {}
 /**
+ * @public
+ *
  * The output of {@link UpdateConfigurationTemplateCommand}.
  */
 export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified configuration template to have the specified properties or
  *       configuration option values.</p>
  *          <note>
@@ -55,10 +52,32 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * import { ElasticBeanstalkClient, UpdateConfigurationTemplateCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateConfigurationTemplateCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // UpdateConfigurationTemplateMessage
+ *   ApplicationName: "STRING_VALUE", // required
+ *   TemplateName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   OptionSettings: [ // ConfigurationOptionSettingsList
+ *     { // ConfigurationOptionSetting
+ *       ResourceName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       OptionName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   OptionsToRemove: [ // OptionsSpecifierList
+ *     { // OptionSpecification
+ *       ResourceName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       OptionName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateConfigurationTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateConfigurationTemplateCommandInput - {@link UpdateConfigurationTemplateCommandInput}
+ * @returns {@link UpdateConfigurationTemplateCommandOutput}
  * @see {@link UpdateConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
@@ -116,6 +135,9 @@ export class UpdateConfigurationTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -144,8 +166,8 @@ export class UpdateConfigurationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationTemplateMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigurationSettingsDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,15 +177,21 @@ export class UpdateConfigurationTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateConfigurationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationTemplateCommand(input, context);
+    return se_UpdateConfigurationTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationTemplateCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationTemplateCommand(output, context);
+    return de_UpdateConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

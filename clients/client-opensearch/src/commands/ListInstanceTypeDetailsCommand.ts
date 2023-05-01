@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListInstanceTypeDetailsRequest,
-  ListInstanceTypeDetailsRequestFilterSensitiveLog,
-  ListInstanceTypeDetailsResponse,
-  ListInstanceTypeDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListInstanceTypeDetailsRequest, ListInstanceTypeDetailsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1ListInstanceTypeDetailsCommand,
-  serializeAws_restJson1ListInstanceTypeDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListInstanceTypeDetailsCommand, se_ListInstanceTypeDetailsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListInstanceTypeDetailsCommand}.
  */
 export interface ListInstanceTypeDetailsCommandInput extends ListInstanceTypeDetailsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListInstanceTypeDetailsCommand}.
  */
 export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDetailsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
  *    version.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDe
  * import { OpenSearchClient, ListInstanceTypeDetailsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListInstanceTypeDetailsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // ListInstanceTypeDetailsRequest
+ *   EngineVersion: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInstanceTypeDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListInstanceTypeDetailsCommandInput - {@link ListInstanceTypeDetailsCommandInput}
+ * @returns {@link ListInstanceTypeDetailsCommandOutput}
  * @see {@link ListInstanceTypeDetailsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceTypeDetailsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
@@ -82,6 +87,9 @@ export class ListInstanceTypeDetailsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListInstanceTypeDetailsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +118,8 @@ export class ListInstanceTypeDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstanceTypeDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInstanceTypeDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +129,18 @@ export class ListInstanceTypeDetailsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListInstanceTypeDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInstanceTypeDetailsCommand(input, context);
+    return se_ListInstanceTypeDetailsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceTypeDetailsCommandOutput> {
-    return deserializeAws_restJson1ListInstanceTypeDetailsCommand(output, context);
+    return de_ListInstanceTypeDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

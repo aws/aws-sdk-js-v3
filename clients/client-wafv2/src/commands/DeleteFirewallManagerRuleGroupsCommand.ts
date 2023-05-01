@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteFirewallManagerRuleGroupsRequest, DeleteFirewallManagerRuleGroupsResponse } from "../models/models_0";
 import {
-  DeleteFirewallManagerRuleGroupsRequest,
-  DeleteFirewallManagerRuleGroupsRequestFilterSensitiveLog,
-  DeleteFirewallManagerRuleGroupsResponse,
-  DeleteFirewallManagerRuleGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand,
-  serializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand,
+  de_DeleteFirewallManagerRuleGroupsCommand,
+  se_DeleteFirewallManagerRuleGroupsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteFirewallManagerRuleGroupsCommand}.
  */
 export interface DeleteFirewallManagerRuleGroupsCommandInput extends DeleteFirewallManagerRuleGroupsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteFirewallManagerRuleGroupsCommand}.
  */
 export interface DeleteFirewallManagerRuleGroupsCommandOutput
@@ -37,6 +36,7 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes all rule groups that are managed by Firewall Manager for the specified web ACL. </p>
  *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
  *             <a>WebACL</a>. </p>
@@ -46,10 +46,16 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
  * import { WAFV2Client, DeleteFirewallManagerRuleGroupsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DeleteFirewallManagerRuleGroupsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // DeleteFirewallManagerRuleGroupsRequest
+ *   WebACLArn: "STRING_VALUE", // required
+ *   WebACLLockToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFirewallManagerRuleGroupsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteFirewallManagerRuleGroupsCommandInput - {@link DeleteFirewallManagerRuleGroupsCommandInput}
+ * @returns {@link DeleteFirewallManagerRuleGroupsCommandOutput}
  * @see {@link DeleteFirewallManagerRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallManagerRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -112,6 +118,9 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteFirewallManagerRuleGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -140,8 +149,8 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFirewallManagerRuleGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFirewallManagerRuleGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -151,18 +160,24 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteFirewallManagerRuleGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand(input, context);
+    return se_DeleteFirewallManagerRuleGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFirewallManagerRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand(output, context);
+    return de_DeleteFirewallManagerRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

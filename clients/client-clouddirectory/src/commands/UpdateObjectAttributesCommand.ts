@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  UpdateObjectAttributesRequest,
-  UpdateObjectAttributesRequestFilterSensitiveLog,
-  UpdateObjectAttributesResponse,
-  UpdateObjectAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateObjectAttributesCommand,
-  serializeAws_restJson1UpdateObjectAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateObjectAttributesRequest, UpdateObjectAttributesResponse } from "../models/models_0";
+import { de_UpdateObjectAttributesCommand, se_UpdateObjectAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateObjectAttributesCommand}.
  */
 export interface UpdateObjectAttributesCommandInput extends UpdateObjectAttributesRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateObjectAttributesCommand}.
  */
 export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttributesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a given object's attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,37 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  * import { CloudDirectoryClient, UpdateObjectAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateObjectAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // UpdateObjectAttributesRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ObjectReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   AttributeUpdates: [ // ObjectAttributeUpdateList // required
+ *     { // ObjectAttributeUpdate
+ *       ObjectAttributeKey: { // AttributeKey
+ *         SchemaArn: "STRING_VALUE", // required
+ *         FacetName: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       ObjectAttributeAction: { // ObjectAttributeAction
+ *         ObjectAttributeActionType: "CREATE_OR_UPDATE" || "DELETE",
+ *         ObjectAttributeUpdateValue: { // TypedAttributeValue Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateObjectAttributesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateObjectAttributesCommandInput - {@link UpdateObjectAttributesCommandInput}
+ * @returns {@link UpdateObjectAttributesCommandOutput}
  * @see {@link UpdateObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateObjectAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -102,6 +126,9 @@ export class UpdateObjectAttributesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateObjectAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -130,8 +157,8 @@ export class UpdateObjectAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateObjectAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateObjectAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -141,12 +168,18 @@ export class UpdateObjectAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateObjectAttributesCommand(input, context);
+    return se_UpdateObjectAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateObjectAttributesCommandOutput> {
-    return deserializeAws_restJson1UpdateObjectAttributesCommand(output, context);
+    return de_UpdateObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

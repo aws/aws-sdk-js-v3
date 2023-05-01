@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  UpdateLaunchRequest,
-  UpdateLaunchRequestFilterSensitiveLog,
-  UpdateLaunchResponse,
-  UpdateLaunchResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLaunchCommand,
-  serializeAws_restJson1UpdateLaunchCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateLaunchRequest, UpdateLaunchResponse } from "../models/models_0";
+import { de_UpdateLaunchCommand, se_UpdateLaunchCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateLaunchCommand}.
  */
 export interface UpdateLaunchCommandInput extends UpdateLaunchRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateLaunchCommand}.
  */
 export interface UpdateLaunchCommandOutput extends UpdateLaunchResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a launch of a given feature. </p>
  *          <p>Don't use this operation to update the tags of an existing launch. Instead, use
  *       <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
@@ -44,10 +41,56 @@ export interface UpdateLaunchCommandOutput extends UpdateLaunchResponse, __Metad
  * import { EvidentlyClient, UpdateLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, UpdateLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = { // UpdateLaunchRequest
+ *   project: "STRING_VALUE", // required
+ *   launch: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   groups: [ // LaunchGroupConfigList
+ *     { // LaunchGroupConfig
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       feature: "STRING_VALUE", // required
+ *       variation: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   metricMonitors: [ // MetricMonitorConfigList
+ *     { // MetricMonitorConfig
+ *       metricDefinition: { // MetricDefinitionConfig
+ *         name: "STRING_VALUE", // required
+ *         entityIdKey: "STRING_VALUE", // required
+ *         valueKey: "STRING_VALUE", // required
+ *         eventPattern: "STRING_VALUE",
+ *         unitLabel: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   randomizationSalt: "STRING_VALUE",
+ *   scheduledSplitsConfig: { // ScheduledSplitsLaunchConfig
+ *     steps: [ // ScheduledSplitConfigList // required
+ *       { // ScheduledSplitConfig
+ *         startTime: new Date("TIMESTAMP"), // required
+ *         groupWeights: { // GroupToWeightMap // required
+ *           "<keys>": Number("long"),
+ *         },
+ *         segmentOverrides: [ // SegmentOverridesList
+ *           { // SegmentOverride
+ *             segment: "STRING_VALUE", // required
+ *             evaluationOrder: Number("long"), // required
+ *             weights: { // required
+ *               "<keys>": Number("long"),
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateLaunchCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateLaunchCommandInput - {@link UpdateLaunchCommandInput}
+ * @returns {@link UpdateLaunchCommandOutput}
  * @see {@link UpdateLaunchCommandInput} for command's `input` shape.
  * @see {@link UpdateLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.
@@ -83,6 +126,9 @@ export class UpdateLaunchCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLaunchCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +155,8 @@ export class UpdateLaunchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLaunchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLaunchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +166,18 @@ export class UpdateLaunchCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLaunchCommand(input, context);
+    return se_UpdateLaunchCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLaunchCommandOutput> {
-    return deserializeAws_restJson1UpdateLaunchCommand(output, context);
+    return de_UpdateLaunchCommand(output, context);
   }
 
   // Start section: command_body_extra

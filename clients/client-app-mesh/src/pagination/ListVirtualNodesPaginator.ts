@@ -10,7 +10,7 @@ import {
 import { AppMeshPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppMeshClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListVirtualNodesCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListVirtualNodes(
   config: AppMeshPaginationConfiguration,
   input: ListVirtualNodesCommandInput,

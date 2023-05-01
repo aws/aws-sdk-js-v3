@@ -124,6 +124,13 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       // wait for container to exist
       waitForElm('.container-main')
         .then(elm => {
+          elm.role = "main"
+          elm.tabIndex = "-1"
+
+          document.querySelector('.container-main').id = 'jump-to-content'
+          
+          document.querySelector('.tsd-navigation.secondary')['ariaLabel'] = "Secondary"
+
           if (document.querySelectorAll('img[alt~="NPM"]').length > 0) {
             const versionEl = document.querySelector('img[alt="NPM version"]')
             const downloadsEl = document.querySelector('img[alt="NPM downloads"]')
@@ -136,7 +143,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
                 return res.json()
               })
               .then(({ version }) => {
-                versionEl.alt += ' ' + version
+                versionEl.alt = "npm@latest v" + version
               })
               .catch(err => {
                 console.error(err)
@@ -148,7 +155,12 @@ class SdkThemeContext extends DefaultThemeRenderContext {
                 return res.json()
               })
               .then(({ downloads }) => {
-                downloadsEl.alt += ' ' + downloads.toString() + ' per month'
+                function formatDownloads(num) {
+                  if (num < 1000) return num.toString()
+                  if (num < 1000000) return (num.toPrecision(2) / 1000).toString() + 'k'
+                  if (num < 1000000000) return (num.toPrecision(2) / 1000000).toString() + 'M'
+                }
+                downloadsEl.alt = 'downloads ' + formatDownloads(downloads) + '/month'
               })
               .catch(err => {
                 console.error(err)
@@ -250,13 +262,37 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       footer {
 
       }
+
+      .documentation-developer-preview {
+        background-color: var(--color-background-secondary);
+        border: 1px solid var(--color-link);
+        padding: 1em;
+        border-radius: .8em;
+        margin-bottom: 1em;
+      }
+
+      .documentation-developer-preview h2 {
+        font-size: 1.5rem;
+      }
+
+      .documentation-developer-preview {
+        font-size: 1rem;
+      }
     `;
 
       return (
         <>
           <style>{style}</style>
+          <div class="documentation-developer-preview">
+            <h2>New API Documentation - Developer Preview Available</h2>
+            <p>
+              We are excited to announce the{" "}
+              <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/preview/">developer preview</a> of our new
+              API documentation for AWS SDK for JavaScript v3. Please follow instructions on the landing page to leave
+              us your feedback.
+            </p>
+          </div>
           {oldHeader(props)}
-          <div id="jump-to-content" tabIndex={-1} />
         </>
       );
     };
@@ -331,6 +367,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       return (
         <div>
           {categories.map((category: ReflectionCategory) => {
+            if (category.children.length === 0) return "";
             return (
               <nav class="tsd-navigation" aria-label={category.title}>
                 <details class="tsd-index-accordion" open={true}>

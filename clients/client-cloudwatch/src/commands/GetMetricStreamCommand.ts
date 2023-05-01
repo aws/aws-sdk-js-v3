@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  GetMetricStreamInput,
-  GetMetricStreamInputFilterSensitiveLog,
-  GetMetricStreamOutput,
-  GetMetricStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryGetMetricStreamCommand,
-  serializeAws_queryGetMetricStreamCommand,
-} from "../protocols/Aws_query";
+import { GetMetricStreamInput, GetMetricStreamOutput } from "../models/models_0";
+import { de_GetMetricStreamCommand, se_GetMetricStreamCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link GetMetricStreamCommand}.
  */
 export interface GetMetricStreamCommandInput extends GetMetricStreamInput {}
 /**
+ * @public
+ *
  * The output of {@link GetMetricStreamCommand}.
  */
 export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the metric stream that you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  * import { CloudWatchClient, GetMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // GetMetricStreamInput
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetMetricStreamCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetMetricStreamCommandInput - {@link GetMetricStreamCommandInput}
+ * @returns {@link GetMetricStreamCommandOutput}
  * @see {@link GetMetricStreamCommandInput} for command's `input` shape.
  * @see {@link GetMetricStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetMetricStreamCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetMetricStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class GetMetricStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetricStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMetricStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class GetMetricStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetMetricStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetMetricStreamCommand(input, context);
+    return se_GetMetricStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetricStreamCommandOutput> {
-    return deserializeAws_queryGetMetricStreamCommand(output, context);
+    return de_GetMetricStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

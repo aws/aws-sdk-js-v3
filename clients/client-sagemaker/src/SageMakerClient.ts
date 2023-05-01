@@ -68,6 +68,7 @@ import {
 } from "./commands/CreateAppImageConfigCommand";
 import { CreateArtifactCommandInput, CreateArtifactCommandOutput } from "./commands/CreateArtifactCommand";
 import { CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput } from "./commands/CreateAutoMLJobCommand";
+import { CreateAutoMLJobV2CommandInput, CreateAutoMLJobV2CommandOutput } from "./commands/CreateAutoMLJobV2Command";
 import {
   CreateCodeRepositoryCommandInput,
   CreateCodeRepositoryCommandOutput,
@@ -296,6 +297,10 @@ import {
 } from "./commands/DescribeAppImageConfigCommand";
 import { DescribeArtifactCommandInput, DescribeArtifactCommandOutput } from "./commands/DescribeArtifactCommand";
 import { DescribeAutoMLJobCommandInput, DescribeAutoMLJobCommandOutput } from "./commands/DescribeAutoMLJobCommand";
+import {
+  DescribeAutoMLJobV2CommandInput,
+  DescribeAutoMLJobV2CommandOutput,
+} from "./commands/DescribeAutoMLJobV2Command";
 import {
   DescribeCodeRepositoryCommandInput,
   DescribeCodeRepositoryCommandOutput,
@@ -810,6 +815,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddAssociationCommandInput
   | AddTagsCommandInput
@@ -821,6 +829,7 @@ export type ServiceInputTypes =
   | CreateAppImageConfigCommandInput
   | CreateArtifactCommandInput
   | CreateAutoMLJobCommandInput
+  | CreateAutoMLJobV2CommandInput
   | CreateCodeRepositoryCommandInput
   | CreateCompilationJobCommandInput
   | CreateContextCommandInput
@@ -920,6 +929,7 @@ export type ServiceInputTypes =
   | DescribeAppImageConfigCommandInput
   | DescribeArtifactCommandInput
   | DescribeAutoMLJobCommandInput
+  | DescribeAutoMLJobV2CommandInput
   | DescribeCodeRepositoryCommandInput
   | DescribeCompilationJobCommandInput
   | DescribeContextCommandInput
@@ -1112,6 +1122,9 @@ export type ServiceInputTypes =
   | UpdateWorkforceCommandInput
   | UpdateWorkteamCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddAssociationCommandOutput
   | AddTagsCommandOutput
@@ -1123,6 +1136,7 @@ export type ServiceOutputTypes =
   | CreateAppImageConfigCommandOutput
   | CreateArtifactCommandOutput
   | CreateAutoMLJobCommandOutput
+  | CreateAutoMLJobV2CommandOutput
   | CreateCodeRepositoryCommandOutput
   | CreateCompilationJobCommandOutput
   | CreateContextCommandOutput
@@ -1222,6 +1236,7 @@ export type ServiceOutputTypes =
   | DescribeAppImageConfigCommandOutput
   | DescribeArtifactCommandOutput
   | DescribeAutoMLJobCommandOutput
+  | DescribeAutoMLJobV2CommandOutput
   | DescribeCodeRepositoryCommandOutput
   | DescribeCompilationJobCommandOutput
   | DescribeContextCommandOutput
@@ -1414,6 +1429,9 @@ export type ServiceOutputTypes =
   | UpdateWorkforceCommandOutput
   | UpdateWorkteamCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -1421,7 +1439,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -1530,11 +1548,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type SageMakerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -1545,10 +1566,15 @@ type SageMakerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of SageMakerClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of SageMakerClient class constructor that set the region, credentials and other options.
  */
 export interface SageMakerClientConfig extends SageMakerClientConfigType {}
 
+/**
+ * @public
+ */
 type SageMakerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -1559,11 +1585,14 @@ type SageMakerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of SageMakerClient class. This is resolved and normalized from the {@link SageMakerClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of SageMakerClient class. This is resolved and normalized from the {@link SageMakerClientConfig | constructor configuration interface}.
  */
 export interface SageMakerClientResolvedConfig extends SageMakerClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>Provides APIs for creating and managing SageMaker resources. </p>
  *          <p>Other Resources:</p>
  *          <ul>

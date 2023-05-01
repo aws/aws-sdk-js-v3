@@ -14,25 +14,27 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { DisassociateRoutingProfileQueuesRequest } from "../models/models_0";
 import {
-  DisassociateRoutingProfileQueuesRequest,
-  DisassociateRoutingProfileQueuesRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateRoutingProfileQueuesCommand,
-  serializeAws_restJson1DisassociateRoutingProfileQueuesCommand,
+  de_DisassociateRoutingProfileQueuesCommand,
+  se_DisassociateRoutingProfileQueuesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateRoutingProfileQueuesCommand}.
  */
 export interface DisassociateRoutingProfileQueuesCommandInput extends DisassociateRoutingProfileQueuesRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateRoutingProfileQueuesCommand}.
  */
 export interface DisassociateRoutingProfileQueuesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a set of queues from a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,10 +42,22 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  * import { ConnectClient, DisassociateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DisassociateRoutingProfileQueuesRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   RoutingProfileId: "STRING_VALUE", // required
+ *   QueueReferences: [ // RoutingProfileQueueReferenceList // required
+ *     { // RoutingProfileQueueReference
+ *       QueueId: "STRING_VALUE", // required
+ *       Channel: "VOICE" || "CHAT" || "TASK", // required
+ *     },
+ *   ],
+ * };
  * const command = new DisassociateRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateRoutingProfileQueuesCommandInput - {@link DisassociateRoutingProfileQueuesCommandInput}
+ * @returns {@link DisassociateRoutingProfileQueuesCommandOutput}
  * @see {@link DisassociateRoutingProfileQueuesCommandInput} for command's `input` shape.
  * @see {@link DisassociateRoutingProfileQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -82,6 +96,9 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateRoutingProfileQueuesCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +127,8 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateRoutingProfileQueuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,18 +138,24 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateRoutingProfileQueuesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateRoutingProfileQueuesCommand(input, context);
+    return se_DisassociateRoutingProfileQueuesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateRoutingProfileQueuesCommandOutput> {
-    return deserializeAws_restJson1DisassociateRoutingProfileQueuesCommand(output, context);
+    return de_DisassociateRoutingProfileQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

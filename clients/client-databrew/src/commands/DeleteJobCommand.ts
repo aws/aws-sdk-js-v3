@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  DeleteJobRequest,
-  DeleteJobRequestFilterSensitiveLog,
-  DeleteJobResponse,
-  DeleteJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteJobCommand,
-  serializeAws_restJson1DeleteJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteJobRequest, DeleteJobResponse } from "../models/models_0";
+import { de_DeleteJobCommand, se_DeleteJobCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteJobCommand}.
  */
 export interface DeleteJobCommandInput extends DeleteJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteJobCommand}.
  */
 export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified DataBrew job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * import { DataBrewClient, DeleteJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = { // DeleteJobRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
+ * @returns {@link DeleteJobCommandOutput}
  * @see {@link DeleteJobCommandInput} for command's `input` shape.
  * @see {@link DeleteJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
@@ -78,6 +80,9 @@ export class DeleteJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,8 +109,8 @@ export class DeleteJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +120,18 @@ export class DeleteJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteJobCommand(input, context);
+    return se_DeleteJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobCommandOutput> {
-    return deserializeAws_restJson1DeleteJobCommand(output, context);
+    return de_DeleteJobCommand(output, context);
   }
 
   // Start section: command_body_extra

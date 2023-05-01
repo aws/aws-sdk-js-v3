@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeStacksRequest,
-  DescribeStacksRequestFilterSensitiveLog,
-  DescribeStacksResult,
-  DescribeStacksResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeStacksRequest, DescribeStacksResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeStacksCommand,
-  serializeAws_json1_1DescribeStacksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeStacksCommand, se_DescribeStacksCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeStacksCommand}.
  */
 export interface DescribeStacksCommandInput extends DescribeStacksRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeStacksCommand}.
  */
 export interface DescribeStacksCommandOutput extends DescribeStacksResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Requests a description of one or more stacks.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
@@ -47,10 +44,17 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * import { OpsWorksClient, DescribeStacksCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeStacksCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeStacksRequest
+ *   StackIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeStacksCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeStacksCommandInput - {@link DescribeStacksCommandInput}
+ * @returns {@link DescribeStacksCommandOutput}
  * @see {@link DescribeStacksCommandInput} for command's `input` shape.
  * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
@@ -80,6 +84,9 @@ export class DescribeStacksCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeStacksCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,8 +115,8 @@ export class DescribeStacksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStacksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStacksResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,12 +126,18 @@ export class DescribeStacksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeStacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStacksCommand(input, context);
+    return se_DescribeStacksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStacksCommandOutput> {
-    return deserializeAws_json1_1DescribeStacksCommand(output, context);
+    return de_DescribeStacksCommand(output, context);
   }
 
   // Start section: command_body_extra

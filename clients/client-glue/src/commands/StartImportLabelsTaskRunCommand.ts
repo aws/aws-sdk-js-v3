@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StartImportLabelsTaskRunRequest,
-  StartImportLabelsTaskRunRequestFilterSensitiveLog,
-  StartImportLabelsTaskRunResponse,
-  StartImportLabelsTaskRunResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_json1_1StartImportLabelsTaskRunCommand,
-  serializeAws_json1_1StartImportLabelsTaskRunCommand,
-} from "../protocols/Aws_json1_1";
+import { StartImportLabelsTaskRunRequest, StartImportLabelsTaskRunResponse } from "../models/models_2";
+import { de_StartImportLabelsTaskRunCommand, se_StartImportLabelsTaskRunCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StartImportLabelsTaskRunCommand}.
  */
 export interface StartImportLabelsTaskRunCommandInput extends StartImportLabelsTaskRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartImportLabelsTaskRunCommand}.
  */
 export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabelsTaskRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables you to provide additional labels (examples of truth) to be used to teach the
  *       machine learning transform and improve its quality. This API operation is generally used as
  *       part of the active learning workflow that starts with the
@@ -63,10 +60,17 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  * import { GlueClient, StartImportLabelsTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartImportLabelsTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // StartImportLabelsTaskRunRequest
+ *   TransformId: "STRING_VALUE", // required
+ *   InputS3Path: "STRING_VALUE", // required
+ *   ReplaceAllLabels: true || false,
+ * };
  * const command = new StartImportLabelsTaskRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartImportLabelsTaskRunCommandInput - {@link StartImportLabelsTaskRunCommandInput}
+ * @returns {@link StartImportLabelsTaskRunCommandOutput}
  * @see {@link StartImportLabelsTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartImportLabelsTaskRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
@@ -105,6 +109,9 @@ export class StartImportLabelsTaskRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartImportLabelsTaskRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -133,8 +140,8 @@ export class StartImportLabelsTaskRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartImportLabelsTaskRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartImportLabelsTaskRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +151,18 @@ export class StartImportLabelsTaskRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartImportLabelsTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartImportLabelsTaskRunCommand(input, context);
+    return se_StartImportLabelsTaskRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportLabelsTaskRunCommandOutput> {
-    return deserializeAws_json1_1StartImportLabelsTaskRunCommand(output, context);
+    return de_StartImportLabelsTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

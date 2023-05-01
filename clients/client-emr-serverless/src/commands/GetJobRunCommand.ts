@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import {
-  GetJobRunRequest,
-  GetJobRunRequestFilterSensitiveLog,
-  GetJobRunResponse,
-  GetJobRunResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetJobRunCommand,
-  serializeAws_restJson1GetJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { GetJobRunRequest, GetJobRunResponse, GetJobRunResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetJobRunCommand, se_GetJobRunCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetJobRunCommand}.
  */
 export interface GetJobRunCommandInput extends GetJobRunRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetJobRunCommand}.
  */
 export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Displays detailed information about a job run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * import { EMRServerlessClient, GetJobRunCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, GetJobRunCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
+ * const input = { // GetJobRunRequest
+ *   applicationId: "STRING_VALUE", // required
+ *   jobRunId: "STRING_VALUE", // required
+ * };
  * const command = new GetJobRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetJobRunCommandInput - {@link GetJobRunCommandInput}
+ * @returns {@link GetJobRunCommandOutput}
  * @see {@link GetJobRunCommandInput} for command's `input` shape.
  * @see {@link GetJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
@@ -57,7 +60,8 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *          service.</p>
  *
  *
  */
@@ -78,6 +82,9 @@ export class GetJobRunCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobRunCommandInput) {
     // Start section: command_constructor
     super();
@@ -104,7 +111,7 @@ export class GetJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobRunRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetJobRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -115,12 +122,18 @@ export class GetJobRunCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJobRunCommand(input, context);
+    return se_GetJobRunCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobRunCommandOutput> {
-    return deserializeAws_restJson1GetJobRunCommand(output, context);
+    return de_GetJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

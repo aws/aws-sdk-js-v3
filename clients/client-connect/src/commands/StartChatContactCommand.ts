@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  StartChatContactRequest,
-  StartChatContactRequestFilterSensitiveLog,
-  StartChatContactResponse,
-  StartChatContactResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1StartChatContactCommand,
-  serializeAws_restJson1StartChatContactCommand,
-} from "../protocols/Aws_restJson1";
+import { StartChatContactRequest, StartChatContactResponse } from "../models/models_1";
+import { de_StartChatContactCommand, se_StartChatContactCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link StartChatContactCommand}.
  */
 export interface StartChatContactCommandInput extends StartChatContactRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartChatContactCommand}.
  */
 export interface StartChatContactCommandOutput extends StartChatContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Initiates a flow to start a new chat for the customer. Response of this API provides a token
  *    required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
  *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s
@@ -62,10 +59,36 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  * import { ConnectClient, StartChatContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StartChatContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // StartChatContactRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactFlowId: "STRING_VALUE", // required
+ *   Attributes: { // Attributes
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ParticipantDetails: { // ParticipantDetails
+ *     DisplayName: "STRING_VALUE", // required
+ *   },
+ *   InitialMessage: { // ChatMessage
+ *     ContentType: "STRING_VALUE", // required
+ *     Content: "STRING_VALUE", // required
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ *   ChatDurationInMinutes: Number("int"),
+ *   SupportedMessagingContentTypes: [ // SupportedMessagingContentTypes
+ *     "STRING_VALUE",
+ *   ],
+ *   PersistentChat: { // PersistentChat
+ *     RehydrationType: "ENTIRE_PAST_SESSION" || "FROM_SEGMENT",
+ *     SourceContactId: "STRING_VALUE",
+ *   },
+ *   RelatedContactId: "STRING_VALUE",
+ * };
  * const command = new StartChatContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartChatContactCommandInput - {@link StartChatContactCommandInput}
+ * @returns {@link StartChatContactCommandOutput}
  * @see {@link StartChatContactCommandInput} for command's `input` shape.
  * @see {@link StartChatContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
@@ -104,6 +127,9 @@ export class StartChatContactCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartChatContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,8 +158,8 @@ export class StartChatContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartChatContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartChatContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -143,12 +169,18 @@ export class StartChatContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartChatContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartChatContactCommand(input, context);
+    return se_StartChatContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartChatContactCommandOutput> {
-    return deserializeAws_restJson1StartChatContactCommand(output, context);
+    return de_StartChatContactCommand(output, context);
   }
 
   // Start section: command_body_extra

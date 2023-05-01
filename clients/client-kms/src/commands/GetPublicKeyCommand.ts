@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  GetPublicKeyRequest,
-  GetPublicKeyRequestFilterSensitiveLog,
-  GetPublicKeyResponse,
-  GetPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPublicKeyCommand,
-  serializeAws_json1_1GetPublicKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { GetPublicKeyRequest, GetPublicKeyResponse } from "../models/models_0";
+import { de_GetPublicKeyCommand, se_GetPublicKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPublicKeyCommand}.
  */
 export interface GetPublicKeyCommandInput extends GetPublicKeyRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPublicKeyCommand}.
  */
 export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the public key of an asymmetric KMS key. Unlike the private key of a asymmetric
  *       KMS key, which never leaves KMS unencrypted, callers with <code>kms:GetPublicKey</code>
  *       permission can download the public key of an asymmetric KMS key. You can share the public key
@@ -90,10 +87,18 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  * import { KMSClient, GetPublicKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GetPublicKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // GetPublicKeyRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   GrantTokens: [ // GrantTokenList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetPublicKeyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPublicKeyCommandInput - {@link GetPublicKeyCommandInput}
+ * @returns {@link GetPublicKeyCommandOutput}
  * @see {@link GetPublicKeyCommandInput} for command's `input` shape.
  * @see {@link GetPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -209,6 +214,9 @@ export class GetPublicKeyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPublicKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -235,8 +243,8 @@ export class GetPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -246,12 +254,18 @@ export class GetPublicKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPublicKeyCommand(input, context);
+    return se_GetPublicKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicKeyCommandOutput> {
-    return deserializeAws_json1_1GetPublicKeyCommand(output, context);
+    return de_GetPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

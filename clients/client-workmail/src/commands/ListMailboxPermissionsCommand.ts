@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMailboxPermissionsRequest,
-  ListMailboxPermissionsRequestFilterSensitiveLog,
-  ListMailboxPermissionsResponse,
-  ListMailboxPermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMailboxPermissionsCommand,
-  serializeAws_json1_1ListMailboxPermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListMailboxPermissionsRequest, ListMailboxPermissionsResponse } from "../models/models_0";
+import { de_ListMailboxPermissionsCommand, se_ListMailboxPermissionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListMailboxPermissionsCommand}.
  */
 export interface ListMailboxPermissionsCommandInput extends ListMailboxPermissionsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListMailboxPermissionsCommand}.
  */
 export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the mailbox permissions associated with a user, group, or resource
  *          mailbox.</p>
  * @example
@@ -43,10 +40,18 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  * import { WorkMailClient, ListMailboxPermissionsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListMailboxPermissionsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // ListMailboxPermissionsRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMailboxPermissionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListMailboxPermissionsCommandInput - {@link ListMailboxPermissionsCommandInput}
+ * @returns {@link ListMailboxPermissionsCommandOutput}
  * @see {@link ListMailboxPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListMailboxPermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
@@ -85,6 +90,9 @@ export class ListMailboxPermissionsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListMailboxPermissionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +121,8 @@ export class ListMailboxPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMailboxPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMailboxPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +132,18 @@ export class ListMailboxPermissionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListMailboxPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMailboxPermissionsCommand(input, context);
+    return se_ListMailboxPermissionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMailboxPermissionsCommandOutput> {
-    return deserializeAws_json1_1ListMailboxPermissionsCommand(output, context);
+    return de_ListMailboxPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

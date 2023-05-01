@@ -13,23 +13,22 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { RestoreTableFromClusterSnapshotMessage, RestoreTableFromClusterSnapshotResult } from "../models/models_1";
 import {
-  RestoreTableFromClusterSnapshotMessage,
-  RestoreTableFromClusterSnapshotMessageFilterSensitiveLog,
-  RestoreTableFromClusterSnapshotResult,
-  RestoreTableFromClusterSnapshotResultFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryRestoreTableFromClusterSnapshotCommand,
-  serializeAws_queryRestoreTableFromClusterSnapshotCommand,
+  de_RestoreTableFromClusterSnapshotCommand,
+  se_RestoreTableFromClusterSnapshotCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreTableFromClusterSnapshotCommand}.
  */
 export interface RestoreTableFromClusterSnapshotCommandInput extends RestoreTableFromClusterSnapshotMessage {}
 /**
+ * @public
+ *
  * The output of {@link RestoreTableFromClusterSnapshotCommand}.
  */
 export interface RestoreTableFromClusterSnapshotCommandOutput
@@ -37,6 +36,7 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new table from a table in an Amazon Redshift cluster snapshot. You must
  *             create the new table within the Amazon Redshift cluster that the snapshot was taken
  *             from.</p>
@@ -57,10 +57,23 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  * import { RedshiftClient, RestoreTableFromClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RestoreTableFromClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // RestoreTableFromClusterSnapshotMessage
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   SnapshotIdentifier: "STRING_VALUE", // required
+ *   SourceDatabaseName: "STRING_VALUE", // required
+ *   SourceSchemaName: "STRING_VALUE",
+ *   SourceTableName: "STRING_VALUE", // required
+ *   TargetDatabaseName: "STRING_VALUE",
+ *   TargetSchemaName: "STRING_VALUE",
+ *   NewTableName: "STRING_VALUE", // required
+ *   EnableCaseSensitiveIdentifier: true || false,
+ * };
  * const command = new RestoreTableFromClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreTableFromClusterSnapshotCommandInput - {@link RestoreTableFromClusterSnapshotCommandInput}
+ * @returns {@link RestoreTableFromClusterSnapshotCommandOutput}
  * @see {@link RestoreTableFromClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreTableFromClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
@@ -110,6 +123,9 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreTableFromClusterSnapshotCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +154,8 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreTableFromClusterSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreTableFromClusterSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,18 +165,24 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: RestoreTableFromClusterSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreTableFromClusterSnapshotCommand(input, context);
+    return se_RestoreTableFromClusterSnapshotCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreTableFromClusterSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreTableFromClusterSnapshotCommand(output, context);
+    return de_RestoreTableFromClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTagOptionInput,
-  DeleteTagOptionInputFilterSensitiveLog,
-  DeleteTagOptionOutput,
-  DeleteTagOptionOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTagOptionCommand,
-  serializeAws_json1_1DeleteTagOptionCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteTagOptionInput, DeleteTagOptionOutput } from "../models/models_0";
+import { de_DeleteTagOptionCommand, se_DeleteTagOptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteTagOptionCommand}.
  */
 export interface DeleteTagOptionCommandInput extends DeleteTagOptionInput {}
 /**
+ * @public
+ *
  * The output of {@link DeleteTagOptionCommand}.
  */
 export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified TagOption.</p>
  *          <p>You cannot delete a TagOption if it is associated with a product or portfolio.</p>
  * @example
@@ -43,10 +40,15 @@ export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __M
  * import { ServiceCatalogClient, DeleteTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DeleteTagOptionInput
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTagOptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteTagOptionCommandInput - {@link DeleteTagOptionCommandInput}
+ * @returns {@link DeleteTagOptionCommandOutput}
  * @see {@link DeleteTagOptionCommandInput} for command's `input` shape.
  * @see {@link DeleteTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
@@ -81,6 +83,9 @@ export class DeleteTagOptionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteTagOptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,8 +114,8 @@ export class DeleteTagOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTagOptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTagOptionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +125,18 @@ export class DeleteTagOptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTagOptionCommand(input, context);
+    return se_DeleteTagOptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagOptionCommandOutput> {
-    return deserializeAws_json1_1DeleteTagOptionCommand(output, context);
+    return de_DeleteTagOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -113,6 +113,9 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AddApplicationCloudWatchLoggingOptionCommandInput
   | AddApplicationInputCommandInput
@@ -135,6 +138,9 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AddApplicationCloudWatchLoggingOptionCommandOutput
   | AddApplicationInputCommandOutput
@@ -157,6 +163,9 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -164,7 +173,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -273,11 +282,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type KinesisAnalyticsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -288,10 +300,15 @@ type KinesisAnalyticsClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   UserAgentInputConfig &
   ClientInputEndpointParameters;
 /**
- * The configuration interface of KinesisAnalyticsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of KinesisAnalyticsClient class constructor that set the region, credentials and other options.
  */
 export interface KinesisAnalyticsClientConfig extends KinesisAnalyticsClientConfigType {}
 
+/**
+ * @public
+ */
 type KinesisAnalyticsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -302,11 +319,14 @@ type KinesisAnalyticsClientResolvedConfigType = __SmithyResolvedConfiguration<__
   UserAgentResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of KinesisAnalyticsClient class. This is resolved and normalized from the {@link KinesisAnalyticsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of KinesisAnalyticsClient class. This is resolved and normalized from the {@link KinesisAnalyticsClientConfig | constructor configuration interface}.
  */
 export interface KinesisAnalyticsClientResolvedConfig extends KinesisAnalyticsClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Kinesis Analytics</fullname>
  *         <p>
  *             <b>Overview</b>

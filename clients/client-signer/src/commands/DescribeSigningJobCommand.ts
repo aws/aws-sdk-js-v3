@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSigningJobRequest,
-  DescribeSigningJobRequestFilterSensitiveLog,
-  DescribeSigningJobResponse,
-  DescribeSigningJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSigningJobCommand,
-  serializeAws_restJson1DescribeSigningJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeSigningJobRequest, DescribeSigningJobResponse } from "../models/models_0";
+import { de_DescribeSigningJobCommand, se_DescribeSigningJobCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeSigningJobCommand}.
  */
 export interface DescribeSigningJobCommandInput extends DescribeSigningJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link DescribeSigningJobCommand}.
  */
 export interface DescribeSigningJobCommandOutput extends DescribeSigningJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a specific code signing job. You specify the job by using
  * 			the <code>jobId</code> value that is returned by the <a>StartSigningJob</a>
  * 			operation. </p>
@@ -44,10 +41,15 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  * import { SignerClient, DescribeSigningJobCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, DescribeSigningJobCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // DescribeSigningJobRequest
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSigningJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeSigningJobCommandInput - {@link DescribeSigningJobCommandInput}
+ * @returns {@link DescribeSigningJobCommandOutput}
  * @see {@link DescribeSigningJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSigningJobCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
@@ -84,6 +86,9 @@ export class DescribeSigningJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSigningJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class DescribeSigningJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSigningJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSigningJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class DescribeSigningJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSigningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSigningJobCommand(input, context);
+    return se_DescribeSigningJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSigningJobCommandOutput> {
-    return deserializeAws_restJson1DescribeSigningJobCommand(output, context);
+    return de_DescribeSigningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

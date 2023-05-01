@@ -13,31 +13,27 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartDocumentAnalysisRequest,
-  StartDocumentAnalysisRequestFilterSensitiveLog,
-  StartDocumentAnalysisResponse,
-  StartDocumentAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StartDocumentAnalysisCommand,
-  serializeAws_json1_1StartDocumentAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { StartDocumentAnalysisRequest, StartDocumentAnalysisResponse } from "../models/models_0";
+import { de_StartDocumentAnalysisCommand, se_StartDocumentAnalysisCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
+ * @public
+ *
  * The input for {@link StartDocumentAnalysisCommand}.
  */
 export interface StartDocumentAnalysisCommandInput extends StartDocumentAnalysisRequest {}
 /**
+ * @public
+ *
  * The output of {@link StartDocumentAnalysisCommand}.
  */
 export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysisResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Starts the asynchronous analysis of an input document for relationships between detected
  *          items such as key-value pairs, tables, and selection elements.</p>
- *
  *          <p>
  *             <code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The
  *          documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name
@@ -59,10 +55,46 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  * import { TextractClient, StartDocumentAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, StartDocumentAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = { // StartDocumentAnalysisRequest
+ *   DocumentLocation: { // DocumentLocation
+ *     S3Object: { // S3Object
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   FeatureTypes: [ // FeatureTypes // required
+ *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES",
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ *   JobTag: "STRING_VALUE",
+ *   NotificationChannel: { // NotificationChannel
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   OutputConfig: { // OutputConfig
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Prefix: "STRING_VALUE",
+ *   },
+ *   KMSKeyId: "STRING_VALUE",
+ *   QueriesConfig: { // QueriesConfig
+ *     Queries: [ // Queries // required
+ *       { // Query
+ *         Text: "STRING_VALUE", // required
+ *         Alias: "STRING_VALUE",
+ *         Pages: [ // QueryPages
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new StartDocumentAnalysisCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StartDocumentAnalysisCommandInput - {@link StartDocumentAnalysisCommandInput}
+ * @returns {@link StartDocumentAnalysisCommandOutput}
  * @see {@link StartDocumentAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartDocumentAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
@@ -142,6 +174,9 @@ export class StartDocumentAnalysisCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StartDocumentAnalysisCommandInput) {
     // Start section: command_constructor
     super();
@@ -170,8 +205,8 @@ export class StartDocumentAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDocumentAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDocumentAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -181,12 +216,18 @@ export class StartDocumentAnalysisCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDocumentAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDocumentAnalysisCommand(input, context);
+    return se_StartDocumentAnalysisCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDocumentAnalysisCommandOutput> {
-    return deserializeAws_json1_1StartDocumentAnalysisCommand(output, context);
+    return de_StartDocumentAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

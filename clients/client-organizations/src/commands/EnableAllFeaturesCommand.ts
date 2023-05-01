@@ -15,26 +15,27 @@ import {
 
 import {
   EnableAllFeaturesRequest,
-  EnableAllFeaturesRequestFilterSensitiveLog,
   EnableAllFeaturesResponse,
   EnableAllFeaturesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1EnableAllFeaturesCommand,
-  serializeAws_json1_1EnableAllFeaturesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnableAllFeaturesCommand, se_EnableAllFeaturesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link EnableAllFeaturesCommand}.
  */
 export interface EnableAllFeaturesCommandInput extends EnableAllFeaturesRequest {}
 /**
+ * @public
+ *
  * The output of {@link EnableAllFeaturesCommand}.
  */
 export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables all features in an organization. This enables the use of organization policies
  *             that can restrict the services and actions that can be called in each account. Until you
  *             enable all features, you have access only to consolidated billing, and you can't use any
@@ -67,10 +68,13 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  * import { OrganizationsClient, EnableAllFeaturesCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, EnableAllFeaturesCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {};
  * const command = new EnableAllFeaturesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param EnableAllFeaturesCommandInput - {@link EnableAllFeaturesCommandInput}
+ * @returns {@link EnableAllFeaturesCommandOutput}
  * @see {@link EnableAllFeaturesCommandInput} for command's `input` shape.
  * @see {@link EnableAllFeaturesCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
@@ -316,6 +320,9 @@ export class EnableAllFeaturesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAllFeaturesCommandInput) {
     // Start section: command_constructor
     super();
@@ -344,7 +351,7 @@ export class EnableAllFeaturesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableAllFeaturesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: EnableAllFeaturesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -355,12 +362,18 @@ export class EnableAllFeaturesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableAllFeaturesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableAllFeaturesCommand(input, context);
+    return se_EnableAllFeaturesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAllFeaturesCommandOutput> {
-    return deserializeAws_json1_1EnableAllFeaturesCommand(output, context);
+    return de_EnableAllFeaturesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,7 +10,7 @@ import {
 import { ARCZonalShiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ARCZonalShiftClient,
@@ -20,6 +20,9 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ListZonalShiftsCommand(input), ...args);
 };
+/**
+ * @public
+ */
 export async function* paginateListZonalShifts(
   config: ARCZonalShiftPaginationConfiguration,
   input: ListZonalShiftsCommandInput,

@@ -15,21 +15,23 @@ import {
 
 import {
   DisassociateFromAdministratorAccountRequest,
-  DisassociateFromAdministratorAccountRequestFilterSensitiveLog,
   DisassociateFromAdministratorAccountResponse,
-  DisassociateFromAdministratorAccountResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_restJson1DisassociateFromAdministratorAccountCommand,
-  serializeAws_restJson1DisassociateFromAdministratorAccountCommand,
+  de_DisassociateFromAdministratorAccountCommand,
+  se_DisassociateFromAdministratorAccountCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DisassociateFromAdministratorAccountCommand}.
  */
 export interface DisassociateFromAdministratorAccountCommandInput extends DisassociateFromAdministratorAccountRequest {}
 /**
+ * @public
+ *
  * The output of {@link DisassociateFromAdministratorAccountCommand}.
  */
 export interface DisassociateFromAdministratorAccountCommandOutput
@@ -37,6 +39,7 @@ export interface DisassociateFromAdministratorAccountCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates the current Security Hub member account from the associated administrator
  *          account.</p>
  *          <p>This operation is only used by accounts that are not part of an organization. For
@@ -48,10 +51,13 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * import { SecurityHubClient, DisassociateFromAdministratorAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisassociateFromAdministratorAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {};
  * const command = new DisassociateFromAdministratorAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DisassociateFromAdministratorAccountCommandInput - {@link DisassociateFromAdministratorAccountCommandInput}
+ * @returns {@link DisassociateFromAdministratorAccountCommandOutput}
  * @see {@link DisassociateFromAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateFromAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -74,6 +80,15 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To disassociate requesting account from administrator account
+ * ```javascript
+ * // The following example dissociates the requesting account from its associated administrator account.
+ * const input = undefined;
+ * const command = new DisassociateFromAdministratorAccountCommand(input);
+ * await client.send(command);
+ * // example id: to-disassociate-requesting-account-from-administrator-account-1676584168509
+ * ```
+ *
  */
 export class DisassociateFromAdministratorAccountCommand extends $Command<
   DisassociateFromAdministratorAccountCommandInput,
@@ -92,6 +107,9 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateFromAdministratorAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +138,8 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFromAdministratorAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFromAdministratorAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,18 +149,24 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateFromAdministratorAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateFromAdministratorAccountCommand(input, context);
+    return se_DisassociateFromAdministratorAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateFromAdministratorAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateFromAdministratorAccountCommand(output, context);
+    return de_DisassociateFromAdministratorAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

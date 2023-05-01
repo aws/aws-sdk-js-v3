@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRegexMatchSetRequest,
-  CreateRegexMatchSetRequestFilterSensitiveLog,
-  CreateRegexMatchSetResponse,
-  CreateRegexMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRegexMatchSetCommand,
-  serializeAws_json1_1CreateRegexMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateRegexMatchSetRequest, CreateRegexMatchSetResponse } from "../models/models_0";
+import { de_CreateRegexMatchSetCommand, se_CreateRegexMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
+ * @public
+ *
  * The input for {@link CreateRegexMatchSetCommand}.
  */
 export interface CreateRegexMatchSetCommandInput extends CreateRegexMatchSetRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateRegexMatchSetCommand}.
  */
 export interface CreateRegexMatchSetCommandOutput extends CreateRegexMatchSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -73,10 +70,16 @@ export interface CreateRegexMatchSetCommandOutput extends CreateRegexMatchSetRes
  * import { WAFRegionalClient, CreateRegexMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateRegexMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // CreateRegexMatchSetRequest
+ *   Name: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateRegexMatchSetCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateRegexMatchSetCommandInput - {@link CreateRegexMatchSetCommandInput}
+ * @returns {@link CreateRegexMatchSetCommandOutput}
  * @see {@link CreateRegexMatchSetCommandInput} for command's `input` shape.
  * @see {@link CreateRegexMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
@@ -114,6 +117,9 @@ export class CreateRegexMatchSetCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateRegexMatchSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -142,8 +148,8 @@ export class CreateRegexMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRegexMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRegexMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +159,18 @@ export class CreateRegexMatchSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateRegexMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRegexMatchSetCommand(input, context);
+    return se_CreateRegexMatchSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRegexMatchSetCommandOutput> {
-    return deserializeAws_json1_1CreateRegexMatchSetCommand(output, context);
+    return de_CreateRegexMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

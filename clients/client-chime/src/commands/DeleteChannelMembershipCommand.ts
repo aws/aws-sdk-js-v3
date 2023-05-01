@@ -14,24 +14,25 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteChannelMembershipRequest, DeleteChannelMembershipRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteChannelMembershipCommand,
-  serializeAws_restJson1DeleteChannelMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteChannelMembershipRequest } from "../models/models_0";
+import { de_DeleteChannelMembershipCommand, se_DeleteChannelMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteChannelMembershipCommand}.
  */
 export interface DeleteChannelMembershipCommandInput extends DeleteChannelMembershipRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteChannelMembershipCommand}.
  */
 export interface DeleteChannelMembershipCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a member from a channel.</p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
@@ -43,10 +44,17 @@ export interface DeleteChannelMembershipCommandOutput extends __MetadataBearer {
  * import { ChimeClient, DeleteChannelMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteChannelMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // DeleteChannelMembershipRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MemberArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new DeleteChannelMembershipCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteChannelMembershipCommandInput - {@link DeleteChannelMembershipCommandInput}
+ * @returns {@link DeleteChannelMembershipCommandOutput}
  * @see {@link DeleteChannelMembershipCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -92,6 +100,9 @@ export class DeleteChannelMembershipCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteChannelMembershipCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +131,8 @@ export class DeleteChannelMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +142,18 @@ export class DeleteChannelMembershipCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteChannelMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteChannelMembershipCommand(input, context);
+    return se_DeleteChannelMembershipCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelMembershipCommandOutput> {
-    return deserializeAws_restJson1DeleteChannelMembershipCommand(output, context);
+    return de_DeleteChannelMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

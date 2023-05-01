@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  UpdateFindingsFeedbackRequest,
-  UpdateFindingsFeedbackRequestFilterSensitiveLog,
-  UpdateFindingsFeedbackResponse,
-  UpdateFindingsFeedbackResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFindingsFeedbackCommand,
-  serializeAws_restJson1UpdateFindingsFeedbackCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateFindingsFeedbackRequest, UpdateFindingsFeedbackResponse } from "../models/models_1";
+import { de_UpdateFindingsFeedbackCommand, se_UpdateFindingsFeedbackCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateFindingsFeedbackCommand}.
  */
 export interface UpdateFindingsFeedbackCommandInput extends UpdateFindingsFeedbackRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateFindingsFeedbackCommand}.
  */
 export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedbackResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Marks the specified GuardDuty findings as useful or not useful.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,20 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  * import { GuardDutyClient, UpdateFindingsFeedbackCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateFindingsFeedbackCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = { // UpdateFindingsFeedbackRequest
+ *   DetectorId: "STRING_VALUE", // required
+ *   FindingIds: [ // FindingIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Feedback: "USEFUL" || "NOT_USEFUL", // required
+ *   Comments: "STRING_VALUE",
+ * };
  * const command = new UpdateFindingsFeedbackCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateFindingsFeedbackCommandInput - {@link UpdateFindingsFeedbackCommandInput}
+ * @returns {@link UpdateFindingsFeedbackCommandOutput}
  * @see {@link UpdateFindingsFeedbackCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsFeedbackCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
@@ -75,6 +82,9 @@ export class UpdateFindingsFeedbackCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateFindingsFeedbackCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,8 +113,8 @@ export class UpdateFindingsFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFindingsFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFindingsFeedbackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -114,12 +124,18 @@ export class UpdateFindingsFeedbackCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateFindingsFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFindingsFeedbackCommand(input, context);
+    return se_UpdateFindingsFeedbackCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFindingsFeedbackCommandOutput> {
-    return deserializeAws_restJson1UpdateFindingsFeedbackCommand(output, context);
+    return de_UpdateFindingsFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

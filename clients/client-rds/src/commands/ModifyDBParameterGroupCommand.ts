@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DBParameterGroupNameMessage,
-  DBParameterGroupNameMessageFilterSensitiveLog,
-  ModifyDBParameterGroupMessage,
-  ModifyDBParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBParameterGroupCommand,
-  serializeAws_queryModifyDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { DBParameterGroupNameMessage, ModifyDBParameterGroupMessage } from "../models/models_1";
+import { de_ModifyDBParameterGroupCommand, se_ModifyDBParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
+ * @public
+ *
  * The input for {@link ModifyDBParameterGroupCommand}.
  */
 export interface ModifyDBParameterGroupCommandInput extends ModifyDBParameterGroupMessage {}
 /**
+ * @public
+ *
  * The output of {@link ModifyDBParameterGroupCommand}.
  */
 export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a DB parameter group. To modify more than one parameter,
  *         submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and
  *         <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p>
@@ -55,10 +52,32 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * import { RDSClient, ModifyDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // ModifyDBParameterGroupMessage
+ *   DBParameterGroupName: "STRING_VALUE", // required
+ *   Parameters: [ // ParametersList // required
+ *     { // Parameter
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       ApplyType: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       ApplyMethod: "immediate" || "pending-reboot",
+ *       SupportedEngineModes: [ // EngineModeList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ModifyDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ModifyDBParameterGroupCommandInput - {@link ModifyDBParameterGroupCommandInput}
+ * @returns {@link ModifyDBParameterGroupCommandOutput}
  * @see {@link ModifyDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
@@ -74,22 +93,27 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  *             this state.</p>
  *
  *
- * @example To change DB parameter group settings
+ * @example To modify a DB parameter group
  * ```javascript
- * // This example immediately changes the specified setting for the specified DB parameter group.
+ * // The following example changes the value of the clr enabled parameter in a DB parameter group. The value of the ApplyMethod parameter causes the DB parameter group to be modified immediately, instead of waiting until the next maintenance window.
  * const input = {
- *   "DBParameterGroupName": "mymysqlparametergroup",
+ *   "DBParameterGroupName": "test-sqlserver-se-2017",
  *   "Parameters": [
  *     {
  *       "ApplyMethod": "immediate",
- *       "ParameterName": "time_zone",
- *       "ParameterValue": "America/Phoenix"
+ *       "ParameterName": "clr enabled",
+ *       "ParameterValue": "1"
  *     }
  *   ]
  * };
  * const command = new ModifyDBParameterGroupCommand(input);
- * await client.send(command);
- * // example id: modify-db-parameter-group-f3a4e52a-68e4-4b88-b559-f912d34c457a
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBParameterGroupName": "test-sqlserver-se-2017"
+ * }
+ * *\/
+ * // example id: to-modify-a-db-parameter-group-1680382937235
  * ```
  *
  */
@@ -110,6 +134,9 @@ export class ModifyDBParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyDBParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -138,8 +165,8 @@ export class ModifyDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBParameterGroupNameMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -149,12 +176,18 @@ export class ModifyDBParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBParameterGroupCommand(input, context);
+    return se_ModifyDBParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyDBParameterGroupCommand(output, context);
+    return de_ModifyDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

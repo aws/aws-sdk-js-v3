@@ -16,21 +16,23 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetTransitGatewayPrefixListReferencesRequest,
-  GetTransitGatewayPrefixListReferencesRequestFilterSensitiveLog,
   GetTransitGatewayPrefixListReferencesResult,
-  GetTransitGatewayPrefixListReferencesResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetTransitGatewayPrefixListReferencesCommand,
-  serializeAws_ec2GetTransitGatewayPrefixListReferencesCommand,
+  de_GetTransitGatewayPrefixListReferencesCommand,
+  se_GetTransitGatewayPrefixListReferencesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link GetTransitGatewayPrefixListReferencesCommand}.
  */
 export interface GetTransitGatewayPrefixListReferencesCommandInput
   extends GetTransitGatewayPrefixListReferencesRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetTransitGatewayPrefixListReferencesCommand}.
  */
 export interface GetTransitGatewayPrefixListReferencesCommandOutput
@@ -38,6 +40,7 @@ export interface GetTransitGatewayPrefixListReferencesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the prefix list references in a specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,10 +48,26 @@ export interface GetTransitGatewayPrefixListReferencesCommandOutput
  * import { EC2Client, GetTransitGatewayPrefixListReferencesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetTransitGatewayPrefixListReferencesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetTransitGatewayPrefixListReferencesRequest
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new GetTransitGatewayPrefixListReferencesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetTransitGatewayPrefixListReferencesCommandInput - {@link GetTransitGatewayPrefixListReferencesCommandInput}
+ * @returns {@link GetTransitGatewayPrefixListReferencesCommandOutput}
  * @see {@link GetTransitGatewayPrefixListReferencesCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayPrefixListReferencesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -72,6 +91,9 @@ export class GetTransitGatewayPrefixListReferencesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetTransitGatewayPrefixListReferencesCommandInput) {
     // Start section: command_constructor
     super();
@@ -100,8 +122,8 @@ export class GetTransitGatewayPrefixListReferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTransitGatewayPrefixListReferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTransitGatewayPrefixListReferencesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,18 +133,24 @@ export class GetTransitGatewayPrefixListReferencesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetTransitGatewayPrefixListReferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetTransitGatewayPrefixListReferencesCommand(input, context);
+    return se_GetTransitGatewayPrefixListReferencesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayPrefixListReferencesCommandOutput> {
-    return deserializeAws_ec2GetTransitGatewayPrefixListReferencesCommand(output, context);
+    return de_GetTransitGatewayPrefixListReferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

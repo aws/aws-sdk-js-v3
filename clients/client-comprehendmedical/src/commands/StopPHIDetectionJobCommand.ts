@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  StopPHIDetectionJobRequest,
-  StopPHIDetectionJobRequestFilterSensitiveLog,
-  StopPHIDetectionJobResponse,
-  StopPHIDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1StopPHIDetectionJobCommand,
-  serializeAws_json1_1StopPHIDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { StopPHIDetectionJobRequest, StopPHIDetectionJobResponse } from "../models/models_0";
+import { de_StopPHIDetectionJobCommand, se_StopPHIDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link StopPHIDetectionJobCommand}.
  */
 export interface StopPHIDetectionJobCommandInput extends StopPHIDetectionJobRequest {}
 /**
+ * @public
+ *
  * The output of {@link StopPHIDetectionJobCommand}.
  */
 export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops a protected health information (PHI) detection job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,10 +43,15 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
  * import { ComprehendMedicalClient, StopPHIDetectionJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StopPHIDetectionJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = { // StopPHIDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopPHIDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param StopPHIDetectionJobCommandInput - {@link StopPHIDetectionJobCommandInput}
+ * @returns {@link StopPHIDetectionJobCommandOutput}
  * @see {@link StopPHIDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopPHIDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
@@ -84,6 +86,9 @@ export class StopPHIDetectionJobCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: StopPHIDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +117,8 @@ export class StopPHIDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopPHIDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopPHIDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +128,18 @@ export class StopPHIDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopPHIDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopPHIDetectionJobCommand(input, context);
+    return se_StopPHIDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopPHIDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopPHIDetectionJobCommand(output, context);
+    return de_StopPHIDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

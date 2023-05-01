@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  UpdateDestinationRequest,
-  UpdateDestinationRequestFilterSensitiveLog,
-  UpdateDestinationResponse,
-  UpdateDestinationResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateDestinationCommand,
-  serializeAws_restJson1UpdateDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDestinationRequest, UpdateDestinationResponse } from "../models/models_1";
+import { de_UpdateDestinationCommand, se_UpdateDestinationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDestinationCommand}.
  */
 export interface UpdateDestinationCommandInput extends UpdateDestinationRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDestinationCommand}.
  */
 export interface UpdateDestinationCommandOutput extends UpdateDestinationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates properties of a destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * import { IoTWirelessClient, UpdateDestinationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateDestinationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // UpdateDestinationRequest
+ *   Name: "STRING_VALUE", // required
+ *   ExpressionType: "RuleName" || "MqttTopic",
+ *   Expression: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDestinationCommandInput - {@link UpdateDestinationCommandInput}
+ * @returns {@link UpdateDestinationCommandOutput}
  * @see {@link UpdateDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
@@ -84,6 +90,9 @@ export class UpdateDestinationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDestinationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +121,8 @@ export class UpdateDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +132,18 @@ export class UpdateDestinationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDestinationCommand(input, context);
+    return se_UpdateDestinationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDestinationCommandOutput> {
-    return deserializeAws_restJson1UpdateDestinationCommand(output, context);
+    return de_UpdateDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

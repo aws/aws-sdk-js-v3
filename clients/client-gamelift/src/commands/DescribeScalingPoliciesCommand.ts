@@ -14,33 +14,30 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeScalingPoliciesInput,
-  DescribeScalingPoliciesInputFilterSensitiveLog,
-  DescribeScalingPoliciesOutput,
-  DescribeScalingPoliciesOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeScalingPoliciesCommand,
-  serializeAws_json1_1DescribeScalingPoliciesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeScalingPoliciesInput, DescribeScalingPoliciesOutput } from "../models/models_0";
+import { de_DescribeScalingPoliciesCommand, se_DescribeScalingPoliciesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DescribeScalingPoliciesCommand}.
  */
 export interface DescribeScalingPoliciesCommandInput extends DescribeScalingPoliciesInput {}
 /**
+ * @public
+ *
  * The output of {@link DescribeScalingPoliciesCommand}.
  */
 export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPoliciesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves all scaling policies applied to a fleet.</p>
- *         <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this request
+ *          <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this request
  *             by policy status, such as to retrieve only active scaling policies. Use the pagination
  *             parameters to retrieve results as a set of sequential pages. If successful, set of
  *                 <code>ScalingPolicy</code> objects is returned for the fleet.</p>
- *         <p>A fleet may have all of its scaling policies suspended. This operation does not affect
+ *          <p>A fleet may have all of its scaling policies suspended. This operation does not affect
  *             the status of the scaling policies, which remains ACTIVE.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,10 +45,19 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * import { GameLiftClient, DescribeScalingPoliciesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeScalingPoliciesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = { // DescribeScalingPoliciesInput
+ *   FleetId: "STRING_VALUE", // required
+ *   StatusFilter: "ACTIVE" || "UPDATE_REQUESTED" || "UPDATING" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "ERROR",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new DescribeScalingPoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DescribeScalingPoliciesCommandInput - {@link DescribeScalingPoliciesCommandInput}
+ * @returns {@link DescribeScalingPoliciesCommandOutput}
  * @see {@link DescribeScalingPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
@@ -92,6 +98,9 @@ export class DescribeScalingPoliciesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeScalingPoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +129,8 @@ export class DescribeScalingPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScalingPoliciesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScalingPoliciesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +140,18 @@ export class DescribeScalingPoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeScalingPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeScalingPoliciesCommand(input, context);
+    return se_DescribeScalingPoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScalingPoliciesCommandOutput> {
-    return deserializeAws_json1_1DescribeScalingPoliciesCommand(output, context);
+    return de_DescribeScalingPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

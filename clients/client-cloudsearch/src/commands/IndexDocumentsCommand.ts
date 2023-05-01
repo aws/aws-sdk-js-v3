@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  IndexDocumentsRequest,
-  IndexDocumentsRequestFilterSensitiveLog,
-  IndexDocumentsResponse,
-  IndexDocumentsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryIndexDocumentsCommand,
-  serializeAws_queryIndexDocumentsCommand,
-} from "../protocols/Aws_query";
+import { IndexDocumentsRequest, IndexDocumentsResponse } from "../models/models_0";
+import { de_IndexDocumentsCommand, se_IndexDocumentsCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link IndexDocumentsCommand}.
  */
 export interface IndexDocumentsCommandInput extends IndexDocumentsRequest {}
 /**
+ * @public
+ *
  * The output of {@link IndexDocumentsCommand}.
  */
 export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose <a>OptionStatus</a> is  <code>RequiresIndexDocuments</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
  * import { CloudSearchClient, IndexDocumentsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, IndexDocumentsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = { // IndexDocumentsRequest
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new IndexDocumentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param IndexDocumentsCommandInput - {@link IndexDocumentsCommandInput}
+ * @returns {@link IndexDocumentsCommandOutput}
  * @see {@link IndexDocumentsCommandInput} for command's `input` shape.
  * @see {@link IndexDocumentsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
@@ -82,6 +84,9 @@ export class IndexDocumentsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: IndexDocumentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class IndexDocumentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IndexDocumentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: IndexDocumentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class IndexDocumentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IndexDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryIndexDocumentsCommand(input, context);
+    return se_IndexDocumentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IndexDocumentsCommandOutput> {
-    return deserializeAws_queryIndexDocumentsCommand(output, context);
+    return de_IndexDocumentsCommand(output, context);
   }
 
   // Start section: command_body_extra

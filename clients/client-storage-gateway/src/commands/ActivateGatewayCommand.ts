@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ActivateGatewayInput,
-  ActivateGatewayInputFilterSensitiveLog,
-  ActivateGatewayOutput,
-  ActivateGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ActivateGatewayCommand,
-  serializeAws_json1_1ActivateGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { ActivateGatewayInput, ActivateGatewayOutput } from "../models/models_0";
+import { de_ActivateGatewayCommand, se_ActivateGatewayCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
+ * @public
+ *
  * The input for {@link ActivateGatewayCommand}.
  */
 export interface ActivateGatewayCommandInput extends ActivateGatewayInput {}
 /**
+ * @public
+ *
  * The output of {@link ActivateGatewayCommand}.
  */
 export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Activates the gateway you previously deployed on your host. In the activation process,
  *          you specify information such as the Amazon Web Services Region that you want to use for
  *          storing snapshots or tapes, the time zone for scheduled snapshots the gateway snapshot
@@ -49,10 +46,27 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * import { StorageGatewayClient, ActivateGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ActivateGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // ActivateGatewayInput
+ *   ActivationKey: "STRING_VALUE", // required
+ *   GatewayName: "STRING_VALUE", // required
+ *   GatewayTimezone: "STRING_VALUE", // required
+ *   GatewayRegion: "STRING_VALUE", // required
+ *   GatewayType: "STRING_VALUE",
+ *   TapeDriveType: "STRING_VALUE",
+ *   MediumChangerType: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ActivateGatewayCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ActivateGatewayCommandInput - {@link ActivateGatewayCommandInput}
+ * @returns {@link ActivateGatewayCommandOutput}
  * @see {@link ActivateGatewayCommandInput} for command's `input` shape.
  * @see {@link ActivateGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
@@ -106,6 +120,9 @@ export class ActivateGatewayCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ActivateGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -134,8 +151,8 @@ export class ActivateGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ActivateGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivateGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -145,12 +162,18 @@ export class ActivateGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ActivateGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ActivateGatewayCommand(input, context);
+    return se_ActivateGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateGatewayCommandOutput> {
-    return deserializeAws_json1_1ActivateGatewayCommand(output, context);
+    return de_ActivateGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

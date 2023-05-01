@@ -19,21 +19,26 @@ import {
   PutVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
-  serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
+  de_PutVoiceConnectorTerminationCredentialsCommand,
+  se_PutVoiceConnectorTerminationCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutVoiceConnectorTerminationCredentialsCommand}.
  */
 export interface PutVoiceConnectorTerminationCredentialsCommandInput
   extends PutVoiceConnectorTerminationCredentialsRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutVoiceConnectorTerminationCredentialsCommand}.
  */
 export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds termination SIP credentials for the specified Amazon Chime Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,10 +46,21 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
  * import { ChimeClient, PutVoiceConnectorTerminationCredentialsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorTerminationCredentialsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // PutVoiceConnectorTerminationCredentialsRequest
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   Credentials: [ // CredentialList
+ *     { // Credential
+ *       Username: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutVoiceConnectorTerminationCredentialsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutVoiceConnectorTerminationCredentialsCommandInput - {@link PutVoiceConnectorTerminationCredentialsCommandInput}
+ * @returns {@link PutVoiceConnectorTerminationCredentialsCommandOutput}
  * @see {@link PutVoiceConnectorTerminationCredentialsCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorTerminationCredentialsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -89,6 +105,9 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutVoiceConnectorTerminationCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -124,7 +143,7 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,18 +153,24 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(input, context);
+    return se_PutVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand(output, context);
+    return de_PutVoiceConnectorTerminationCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

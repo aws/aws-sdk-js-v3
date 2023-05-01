@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteVpcEndpointsRequest,
-  DeleteVpcEndpointsRequestFilterSensitiveLog,
-  DeleteVpcEndpointsResult,
-  DeleteVpcEndpointsResultFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteVpcEndpointsCommand,
-  serializeAws_ec2DeleteVpcEndpointsCommand,
-} from "../protocols/Aws_ec2";
+import { DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult } from "../models/models_3";
+import { de_DeleteVpcEndpointsCommand, se_DeleteVpcEndpointsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVpcEndpointsCommand}.
  */
 export interface DeleteVpcEndpointsCommandInput extends DeleteVpcEndpointsRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVpcEndpointsCommand}.
  */
 export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified VPC endpoints.</p>
  *          <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p>
  *          <p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
@@ -46,10 +43,18 @@ export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResul
  * import { EC2Client, DeleteVpcEndpointsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpcEndpointsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteVpcEndpointsRequest
+ *   DryRun: true || false,
+ *   VpcEndpointIds: [ // VpcEndpointIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteVpcEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVpcEndpointsCommandInput - {@link DeleteVpcEndpointsCommandInput}
+ * @returns {@link DeleteVpcEndpointsCommandOutput}
  * @see {@link DeleteVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
@@ -73,6 +78,9 @@ export class DeleteVpcEndpointsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVpcEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +109,8 @@ export class DeleteVpcEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcEndpointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +120,18 @@ export class DeleteVpcEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpcEndpointsCommand(input, context);
+    return se_DeleteVpcEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcEndpointsCommandOutput> {
-    return deserializeAws_ec2DeleteVpcEndpointsCommand(output, context);
+    return de_DeleteVpcEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

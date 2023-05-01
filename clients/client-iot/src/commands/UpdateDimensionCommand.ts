@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateDimensionRequest,
-  UpdateDimensionRequestFilterSensitiveLog,
-  UpdateDimensionResponse,
-  UpdateDimensionResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateDimensionCommand,
-  serializeAws_restJson1UpdateDimensionCommand,
-} from "../protocols/Aws_restJson1";
+import { UpdateDimensionRequest, UpdateDimensionResponse } from "../models/models_2";
+import { de_UpdateDimensionCommand, se_UpdateDimensionCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateDimensionCommand}.
  */
 export interface UpdateDimensionCommandInput extends UpdateDimensionRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateDimensionCommand}.
  */
 export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the definition for a dimension. You
  *       cannot
  *       change the type of a dimension after
@@ -48,10 +45,18 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * import { IoTClient, UpdateDimensionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateDimensionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateDimensionRequest
+ *   name: "STRING_VALUE", // required
+ *   stringValues: [ // DimensionStringValues // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateDimensionCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateDimensionCommandInput - {@link UpdateDimensionCommandInput}
+ * @returns {@link UpdateDimensionCommandOutput}
  * @see {@link UpdateDimensionCommandInput} for command's `input` shape.
  * @see {@link UpdateDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
@@ -87,6 +92,9 @@ export class UpdateDimensionCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDimensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +123,8 @@ export class UpdateDimensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDimensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDimensionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +134,18 @@ export class UpdateDimensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDimensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDimensionCommand(input, context);
+    return se_UpdateDimensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDimensionCommandOutput> {
-    return deserializeAws_restJson1UpdateDimensionCommand(output, context);
+    return de_UpdateDimensionCommand(output, context);
   }
 
   // Start section: command_body_extra

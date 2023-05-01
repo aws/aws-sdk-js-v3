@@ -16,20 +16,23 @@ import {
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import {
   ListTestGridSessionArtifactsRequest,
-  ListTestGridSessionArtifactsRequestFilterSensitiveLog,
   ListTestGridSessionArtifactsResult,
   ListTestGridSessionArtifactsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListTestGridSessionArtifactsCommand,
-  serializeAws_json1_1ListTestGridSessionArtifactsCommand,
+  de_ListTestGridSessionArtifactsCommand,
+  se_ListTestGridSessionArtifactsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListTestGridSessionArtifactsCommand}.
  */
 export interface ListTestGridSessionArtifactsCommandInput extends ListTestGridSessionArtifactsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListTestGridSessionArtifactsCommand}.
  */
 export interface ListTestGridSessionArtifactsCommandOutput
@@ -37,6 +40,7 @@ export interface ListTestGridSessionArtifactsCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of artifacts created during the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +48,18 @@ export interface ListTestGridSessionArtifactsCommandOutput
  * import { DeviceFarmClient, ListTestGridSessionArtifactsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListTestGridSessionArtifactsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListTestGridSessionArtifactsRequest
+ *   sessionArn: "STRING_VALUE", // required
+ *   type: "VIDEO" || "LOG",
+ *   maxResult: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTestGridSessionArtifactsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListTestGridSessionArtifactsCommandInput - {@link ListTestGridSessionArtifactsCommandInput}
+ * @returns {@link ListTestGridSessionArtifactsCommandOutput}
  * @see {@link ListTestGridSessionArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListTestGridSessionArtifactsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
@@ -81,6 +93,9 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListTestGridSessionArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -109,7 +124,7 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTestGridSessionArtifactsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListTestGridSessionArtifactsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -120,15 +135,21 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTestGridSessionArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTestGridSessionArtifactsCommand(input, context);
+    return se_ListTestGridSessionArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTestGridSessionArtifactsCommandOutput> {
-    return deserializeAws_json1_1ListTestGridSessionArtifactsCommand(output, context);
+    return de_ListTestGridSessionArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

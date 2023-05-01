@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  GetGameConfigurationRequest,
-  GetGameConfigurationRequestFilterSensitiveLog,
-  GetGameConfigurationResult,
-  GetGameConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGameConfigurationCommand,
-  serializeAws_restJson1GetGameConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { GetGameConfigurationRequest, GetGameConfigurationResult } from "../models/models_0";
+import { de_GetGameConfigurationCommand, se_GetGameConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetGameConfigurationCommand}.
  */
 export interface GetGameConfigurationCommandInput extends GetGameConfigurationRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetGameConfigurationCommand}.
  */
 export interface GetGameConfigurationCommandOutput extends GetGameConfigurationResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the configuration of the game.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface GetGameConfigurationCommandOutput extends GetGameConfigurationR
  * import { GameSparksClient, GetGameConfigurationCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetGameConfigurationCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = { // GetGameConfigurationRequest
+ *   GameName: "STRING_VALUE", // required
+ *   Sections: [ // SectionList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetGameConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetGameConfigurationCommandInput - {@link GetGameConfigurationCommandInput}
+ * @returns {@link GetGameConfigurationCommandOutput}
  * @see {@link GetGameConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetGameConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
@@ -84,6 +89,9 @@ export class GetGameConfigurationCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetGameConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +120,8 @@ export class GetGameConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGameConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGameConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +131,18 @@ export class GetGameConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetGameConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGameConfigurationCommand(input, context);
+    return se_GetGameConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGameConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetGameConfigurationCommand(output, context);
+    return de_GetGameConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

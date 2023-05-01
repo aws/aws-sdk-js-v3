@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import {
-  RestoreBackupRequest,
-  RestoreBackupRequestFilterSensitiveLog,
-  RestoreBackupResponse,
-  RestoreBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreBackupCommand,
-  serializeAws_json1_1RestoreBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { RestoreBackupRequest, RestoreBackupResponse } from "../models/models_0";
+import { de_RestoreBackupCommand, se_RestoreBackupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link RestoreBackupCommand}.
  */
 export interface RestoreBackupCommandInput extends RestoreBackupRequest {}
 /**
+ * @public
+ *
  * The output of {@link RestoreBackupCommand}.
  */
 export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Restores a specified AWS CloudHSM backup that is in the
  *                 <code>PENDING_DELETION</code> state. For mor information on deleting a backup, see
  *                 <a>DeleteBackup</a>.</p>
@@ -44,10 +41,15 @@ export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __Met
  * import { CloudHSMV2Client, RestoreBackupCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, RestoreBackupCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = { // RestoreBackupRequest
+ *   BackupId: "STRING_VALUE", // required
+ * };
  * const command = new RestoreBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param RestoreBackupCommandInput - {@link RestoreBackupCommandInput}
+ * @returns {@link RestoreBackupCommandOutput}
  * @see {@link RestoreBackupCommandInput} for command's `input` shape.
  * @see {@link RestoreBackupCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
@@ -89,6 +91,9 @@ export class RestoreBackupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: RestoreBackupCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +120,8 @@ export class RestoreBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +131,18 @@ export class RestoreBackupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RestoreBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreBackupCommand(input, context);
+    return se_RestoreBackupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreBackupCommandOutput> {
-    return deserializeAws_json1_1RestoreBackupCommand(output, context);
+    return de_RestoreBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

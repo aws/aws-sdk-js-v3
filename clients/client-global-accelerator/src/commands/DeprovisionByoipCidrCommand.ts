@@ -18,27 +18,24 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  DeprovisionByoipCidrRequest,
-  DeprovisionByoipCidrRequestFilterSensitiveLog,
-  DeprovisionByoipCidrResponse,
-  DeprovisionByoipCidrResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeprovisionByoipCidrCommand,
-  serializeAws_json1_1DeprovisionByoipCidrCommand,
-} from "../protocols/Aws_json1_1";
+import { DeprovisionByoipCidrRequest, DeprovisionByoipCidrResponse } from "../models/models_0";
+import { de_DeprovisionByoipCidrCommand, se_DeprovisionByoipCidrCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeprovisionByoipCidrCommand}.
  */
 export interface DeprovisionByoipCidrCommandInput extends DeprovisionByoipCidrRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeprovisionByoipCidrCommand}.
  */
 export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Releases the specified address range that you provisioned to use with your Amazon Web Services resources
  * 			through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. </p>
  * 		       <p>Before you can release an address range, you must stop advertising it by using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html">WithdrawByoipCidr</a> and you must not have
@@ -52,10 +49,15 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * import { GlobalAcceleratorClient, DeprovisionByoipCidrCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DeprovisionByoipCidrCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // DeprovisionByoipCidrRequest
+ *   Cidr: "STRING_VALUE", // required
+ * };
  * const command = new DeprovisionByoipCidrCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeprovisionByoipCidrCommandInput - {@link DeprovisionByoipCidrCommandInput}
+ * @returns {@link DeprovisionByoipCidrCommandOutput}
  * @see {@link DeprovisionByoipCidrCommandInput} for command's `input` shape.
  * @see {@link DeprovisionByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
@@ -95,6 +97,9 @@ export class DeprovisionByoipCidrCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeprovisionByoipCidrCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,8 +128,8 @@ export class DeprovisionByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprovisionByoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeprovisionByoipCidrResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,12 +139,18 @@ export class DeprovisionByoipCidrCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprovisionByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeprovisionByoipCidrCommand(input, context);
+    return se_DeprovisionByoipCidrCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprovisionByoipCidrCommandOutput> {
-    return deserializeAws_json1_1DeprovisionByoipCidrCommand(output, context);
+    return de_DeprovisionByoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

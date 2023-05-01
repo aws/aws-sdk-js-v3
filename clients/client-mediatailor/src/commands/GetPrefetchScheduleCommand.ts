@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  GetPrefetchScheduleRequest,
-  GetPrefetchScheduleRequestFilterSensitiveLog,
-  GetPrefetchScheduleResponse,
-  GetPrefetchScheduleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPrefetchScheduleCommand,
-  serializeAws_restJson1GetPrefetchScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { GetPrefetchScheduleRequest, GetPrefetchScheduleResponse } from "../models/models_0";
+import { de_GetPrefetchScheduleCommand, se_GetPrefetchScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetPrefetchScheduleCommand}.
  */
 export interface GetPrefetchScheduleCommandInput extends GetPrefetchScheduleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetPrefetchScheduleCommand}.
  */
 export interface GetPrefetchScheduleCommandOutput extends GetPrefetchScheduleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a prefetch schedule for a playback configuration. A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain ads before an ad break happens. For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using ad prefetching</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetPrefetchScheduleCommandOutput extends GetPrefetchScheduleRes
  * import { MediaTailorClient, GetPrefetchScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, GetPrefetchScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = { // GetPrefetchScheduleRequest
+ *   Name: "STRING_VALUE", // required
+ *   PlaybackConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new GetPrefetchScheduleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetPrefetchScheduleCommandInput - {@link GetPrefetchScheduleCommandInput}
+ * @returns {@link GetPrefetchScheduleCommandOutput}
  * @see {@link GetPrefetchScheduleCommandInput} for command's `input` shape.
  * @see {@link GetPrefetchScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
@@ -69,6 +72,9 @@ export class GetPrefetchScheduleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetPrefetchScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +103,8 @@ export class GetPrefetchScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPrefetchScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPrefetchScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +114,18 @@ export class GetPrefetchScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetPrefetchScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPrefetchScheduleCommand(input, context);
+    return se_GetPrefetchScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPrefetchScheduleCommandOutput> {
-    return deserializeAws_restJson1GetPrefetchScheduleCommand(output, context);
+    return de_GetPrefetchScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

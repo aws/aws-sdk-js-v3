@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteRestApiRequest, DeleteRestApiRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRestApiCommand,
-  serializeAws_restJson1DeleteRestApiCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteRestApiRequest } from "../models/models_0";
+import { de_DeleteRestApiCommand, se_DeleteRestApiCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteRestApiCommand}.
  */
 export interface DeleteRestApiCommandInput extends DeleteRestApiRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteRestApiCommand}.
  */
 export interface DeleteRestApiCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteRestApiCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // DeleteRestApiRequest
+ *   restApiId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRestApiCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteRestApiCommandInput - {@link DeleteRestApiCommandInput}
+ * @returns {@link DeleteRestApiCommandOutput}
  * @see {@link DeleteRestApiCommandInput} for command's `input` shape.
  * @see {@link DeleteRestApiCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
@@ -79,6 +86,9 @@ export class DeleteRestApiCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRestApiCommandInput) {
     // Start section: command_constructor
     super();
@@ -105,8 +115,8 @@ export class DeleteRestApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRestApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -116,12 +126,18 @@ export class DeleteRestApiCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRestApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRestApiCommand(input, context);
+    return se_DeleteRestApiCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRestApiCommandOutput> {
-    return deserializeAws_restJson1DeleteRestApiCommand(output, context);
+    return de_DeleteRestApiCommand(output, context);
   }
 
   // Start section: command_body_extra

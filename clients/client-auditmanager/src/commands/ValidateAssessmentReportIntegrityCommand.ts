@@ -16,20 +16,22 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   ValidateAssessmentReportIntegrityRequest,
-  ValidateAssessmentReportIntegrityRequestFilterSensitiveLog,
   ValidateAssessmentReportIntegrityResponse,
-  ValidateAssessmentReportIntegrityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ValidateAssessmentReportIntegrityCommand,
-  serializeAws_restJson1ValidateAssessmentReportIntegrityCommand,
+  de_ValidateAssessmentReportIntegrityCommand,
+  se_ValidateAssessmentReportIntegrityCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ValidateAssessmentReportIntegrityCommand}.
  */
 export interface ValidateAssessmentReportIntegrityCommandInput extends ValidateAssessmentReportIntegrityRequest {}
 /**
+ * @public
+ *
  * The output of {@link ValidateAssessmentReportIntegrityCommand}.
  */
 export interface ValidateAssessmentReportIntegrityCommandOutput
@@ -37,6 +39,7 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p> Validates the integrity of an assessment report in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,10 +47,15 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  * import { AuditManagerClient, ValidateAssessmentReportIntegrityCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ValidateAssessmentReportIntegrityCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = { // ValidateAssessmentReportIntegrityRequest
+ *   s3RelativePath: "STRING_VALUE", // required
+ * };
  * const command = new ValidateAssessmentReportIntegrityCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ValidateAssessmentReportIntegrityCommandInput - {@link ValidateAssessmentReportIntegrityCommandInput}
+ * @returns {@link ValidateAssessmentReportIntegrityCommandOutput}
  * @see {@link ValidateAssessmentReportIntegrityCommandInput} for command's `input` shape.
  * @see {@link ValidateAssessmentReportIntegrityCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
@@ -85,6 +93,9 @@ export class ValidateAssessmentReportIntegrityCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ValidateAssessmentReportIntegrityCommandInput) {
     // Start section: command_constructor
     super();
@@ -113,8 +124,8 @@ export class ValidateAssessmentReportIntegrityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateAssessmentReportIntegrityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateAssessmentReportIntegrityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,18 +135,24 @@ export class ValidateAssessmentReportIntegrityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ValidateAssessmentReportIntegrityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ValidateAssessmentReportIntegrityCommand(input, context);
+    return se_ValidateAssessmentReportIntegrityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateAssessmentReportIntegrityCommandOutput> {
-    return deserializeAws_restJson1ValidateAssessmentReportIntegrityCommand(output, context);
+    return de_ValidateAssessmentReportIntegrityCommand(output, context);
   }
 
   // Start section: command_body_extra

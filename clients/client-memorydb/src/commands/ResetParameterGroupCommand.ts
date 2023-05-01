@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  ResetParameterGroupRequest,
-  ResetParameterGroupRequestFilterSensitiveLog,
-  ResetParameterGroupResponse,
-  ResetParameterGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1ResetParameterGroupCommand,
-  serializeAws_json1_1ResetParameterGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { ResetParameterGroupRequest, ResetParameterGroupResponse } from "../models/models_0";
+import { de_ResetParameterGroupCommand, se_ResetParameterGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ResetParameterGroupCommand}.
  */
 export interface ResetParameterGroupCommandInput extends ResetParameterGroupRequest {}
 /**
+ * @public
+ *
  * The output of {@link ResetParameterGroupCommand}.
  */
 export interface ResetParameterGroupCommandOutput extends ResetParameterGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the parameters of a parameter group to the engine or system default value. You can reset specific parameters by submitting a list of parameter names. To reset the entire parameter group, specify the AllParameters and ParameterGroupName parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,19 @@ export interface ResetParameterGroupCommandOutput extends ResetParameterGroupRes
  * import { MemoryDBClient, ResetParameterGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, ResetParameterGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // ResetParameterGroupRequest
+ *   ParameterGroupName: "STRING_VALUE", // required
+ *   AllParameters: true || false,
+ *   ParameterNames: [ // ParameterNameList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ResetParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ResetParameterGroupCommandInput - {@link ResetParameterGroupCommandInput}
+ * @returns {@link ResetParameterGroupCommandOutput}
  * @see {@link ResetParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
@@ -84,6 +90,9 @@ export class ResetParameterGroupCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ResetParameterGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +121,8 @@ export class ResetParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetParameterGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResetParameterGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +132,18 @@ export class ResetParameterGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResetParameterGroupCommand(input, context);
+    return se_ResetParameterGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetParameterGroupCommandOutput> {
-    return deserializeAws_json1_1ResetParameterGroupCommand(output, context);
+    return de_ResetParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

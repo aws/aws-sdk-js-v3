@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRecipesRequest,
-  ListRecipesRequestFilterSensitiveLog,
-  ListRecipesResponse,
-  ListRecipesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRecipesRequest, ListRecipesResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListRecipesCommand,
-  serializeAws_json1_1ListRecipesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRecipesCommand, se_ListRecipesCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRecipesCommand}.
  */
 export interface ListRecipesCommandInput extends ListRecipesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRecipesCommand}.
  */
 export interface ListRecipesCommandOutput extends ListRecipesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of available recipes. The response provides the properties
  *        for each recipe, including the recipe's Amazon Resource Name (ARN).</p>
  * @example
@@ -43,10 +40,18 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * import { PersonalizeClient, ListRecipesCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListRecipesCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListRecipesRequest
+ *   recipeProvider: "SERVICE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * };
  * const command = new ListRecipesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRecipesCommandInput - {@link ListRecipesCommandInput}
+ * @returns {@link ListRecipesCommandOutput}
  * @see {@link ListRecipesCommandInput} for command's `input` shape.
  * @see {@link ListRecipesCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
@@ -76,6 +81,9 @@ export class ListRecipesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecipesCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,8 +110,8 @@ export class ListRecipesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecipesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecipesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -113,12 +121,18 @@ export class ListRecipesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecipesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRecipesCommand(input, context);
+    return se_ListRecipesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecipesCommandOutput> {
-    return deserializeAws_json1_1ListRecipesCommand(output, context);
+    return de_ListRecipesCommand(output, context);
   }
 
   // Start section: command_body_extra

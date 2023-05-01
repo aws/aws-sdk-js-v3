@@ -13,32 +13,29 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAccessPolicyRequest,
-  UpdateAccessPolicyRequestFilterSensitiveLog,
-  UpdateAccessPolicyResponse,
-  UpdateAccessPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAccessPolicyRequest, UpdateAccessPolicyResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0UpdateAccessPolicyCommand,
-  serializeAws_json1_0UpdateAccessPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateAccessPolicyCommand, se_UpdateAccessPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateAccessPolicyCommand}.
  */
 export interface UpdateAccessPolicyCommandInput extends UpdateAccessPolicyRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateAccessPolicyCommand}.
  */
 export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
  *             access control for Amazon OpenSearch Serverless</a>.</p>
  * @example
@@ -47,17 +44,27 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  * import { OpenSearchServerlessClient, UpdateAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = { // UpdateAccessPolicyRequest
+ *   type: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   policyVersion: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   policy: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateAccessPolicyCommandInput - {@link UpdateAccessPolicyCommandInput}
+ * @returns {@link UpdateAccessPolicyCommandOutput}
  * @see {@link UpdateAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a collection, thrown when a collection with the same name already exists
- *             or is being created. When deleting a collection, thrown when the collection is not in
+ *  <p>When creating a resource, thrown when a resource with the same name already exists
+ *             or is being created. When deleting a resource, thrown when the resource is not in
  *             the ACTIVE or FAILED state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
@@ -89,6 +96,9 @@ export class UpdateAccessPolicyCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +127,8 @@ export class UpdateAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccessPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAccessPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +138,18 @@ export class UpdateAccessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateAccessPolicyCommand(input, context);
+    return se_UpdateAccessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccessPolicyCommandOutput> {
-    return deserializeAws_json1_0UpdateAccessPolicyCommand(output, context);
+    return de_UpdateAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

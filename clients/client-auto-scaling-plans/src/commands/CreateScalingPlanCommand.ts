@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
-import {
-  CreateScalingPlanRequest,
-  CreateScalingPlanRequestFilterSensitiveLog,
-  CreateScalingPlanResponse,
-  CreateScalingPlanResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateScalingPlanCommand,
-  serializeAws_json1_1CreateScalingPlanCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateScalingPlanRequest, CreateScalingPlanResponse } from "../models/models_0";
+import { de_CreateScalingPlanCommand, se_CreateScalingPlanCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateScalingPlanCommand}.
  */
 export interface CreateScalingPlanCommandInput extends CreateScalingPlanRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateScalingPlanCommand}.
  */
 export interface CreateScalingPlanCommandOutput extends CreateScalingPlanResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a scaling plan. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,82 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  * import { AutoScalingPlansClient, CreateScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, CreateScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
+ * const input = { // CreateScalingPlanRequest
+ *   ScalingPlanName: "STRING_VALUE", // required
+ *   ApplicationSource: { // ApplicationSource
+ *     CloudFormationStackARN: "STRING_VALUE",
+ *     TagFilters: [ // TagFilters
+ *       { // TagFilter
+ *         Key: "STRING_VALUE",
+ *         Values: [ // TagValues
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   ScalingInstructions: [ // ScalingInstructions // required
+ *     { // ScalingInstruction
+ *       ServiceNamespace: "STRING_VALUE", // required
+ *       ResourceId: "STRING_VALUE", // required
+ *       ScalableDimension: "STRING_VALUE", // required
+ *       MinCapacity: Number("int"), // required
+ *       MaxCapacity: Number("int"), // required
+ *       TargetTrackingConfigurations: [ // TargetTrackingConfigurations // required
+ *         { // TargetTrackingConfiguration
+ *           PredefinedScalingMetricSpecification: { // PredefinedScalingMetricSpecification
+ *             PredefinedScalingMetricType: "STRING_VALUE", // required
+ *             ResourceLabel: "STRING_VALUE",
+ *           },
+ *           CustomizedScalingMetricSpecification: { // CustomizedScalingMetricSpecification
+ *             MetricName: "STRING_VALUE", // required
+ *             Namespace: "STRING_VALUE", // required
+ *             Dimensions: [ // MetricDimensions
+ *               { // MetricDimension
+ *                 Name: "STRING_VALUE", // required
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             Statistic: "STRING_VALUE", // required
+ *             Unit: "STRING_VALUE",
+ *           },
+ *           TargetValue: Number("double"), // required
+ *           DisableScaleIn: true || false,
+ *           ScaleOutCooldown: Number("int"),
+ *           ScaleInCooldown: Number("int"),
+ *           EstimatedInstanceWarmup: Number("int"),
+ *         },
+ *       ],
+ *       PredefinedLoadMetricSpecification: { // PredefinedLoadMetricSpecification
+ *         PredefinedLoadMetricType: "STRING_VALUE", // required
+ *         ResourceLabel: "STRING_VALUE",
+ *       },
+ *       CustomizedLoadMetricSpecification: { // CustomizedLoadMetricSpecification
+ *         MetricName: "STRING_VALUE", // required
+ *         Namespace: "STRING_VALUE", // required
+ *         Dimensions: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         Statistic: "STRING_VALUE", // required
+ *         Unit: "STRING_VALUE",
+ *       },
+ *       ScheduledActionBufferTime: Number("int"),
+ *       PredictiveScalingMaxCapacityBehavior: "STRING_VALUE",
+ *       PredictiveScalingMaxCapacityBuffer: Number("int"),
+ *       PredictiveScalingMode: "STRING_VALUE",
+ *       ScalingPolicyUpdateBehavior: "STRING_VALUE",
+ *       DisableDynamicScaling: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new CreateScalingPlanCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateScalingPlanCommandInput - {@link CreateScalingPlanCommandInput}
+ * @returns {@link CreateScalingPlanCommandOutput}
  * @see {@link CreateScalingPlanCommandInput} for command's `input` shape.
  * @see {@link CreateScalingPlanCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
@@ -83,6 +152,9 @@ export class CreateScalingPlanCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateScalingPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -111,8 +183,8 @@ export class CreateScalingPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateScalingPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateScalingPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -122,12 +194,18 @@ export class CreateScalingPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateScalingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateScalingPlanCommand(input, context);
+    return se_CreateScalingPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScalingPlanCommandOutput> {
-    return deserializeAws_json1_1CreateScalingPlanCommand(output, context);
+    return de_CreateScalingPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

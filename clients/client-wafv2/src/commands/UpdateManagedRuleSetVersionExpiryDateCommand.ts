@@ -15,22 +15,24 @@ import {
 
 import {
   UpdateManagedRuleSetVersionExpiryDateRequest,
-  UpdateManagedRuleSetVersionExpiryDateRequestFilterSensitiveLog,
   UpdateManagedRuleSetVersionExpiryDateResponse,
-  UpdateManagedRuleSetVersionExpiryDateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand,
-  serializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand,
+  de_UpdateManagedRuleSetVersionExpiryDateCommand,
+  se_UpdateManagedRuleSetVersionExpiryDateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
  */
 export interface UpdateManagedRuleSetVersionExpiryDateCommandInput
   extends UpdateManagedRuleSetVersionExpiryDateRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateManagedRuleSetVersionExpiryDateCommand}.
  */
 export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
@@ -38,6 +40,7 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the expiration information for your managed rule set. Use this to initiate the
  *          expiration of a managed rule group version. After you initiate expiration for a version,
  *          WAF excludes it from the response to <a>ListAvailableManagedRuleGroupVersions</a> for the managed rule group. </p>
@@ -51,10 +54,20 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
  * import { WAFV2Client, UpdateManagedRuleSetVersionExpiryDateCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, UpdateManagedRuleSetVersionExpiryDateCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = { // UpdateManagedRuleSetVersionExpiryDateRequest
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Id: "STRING_VALUE", // required
+ *   LockToken: "STRING_VALUE", // required
+ *   VersionToExpire: "STRING_VALUE", // required
+ *   ExpiryTimestamp: new Date("TIMESTAMP"), // required
+ * };
  * const command = new UpdateManagedRuleSetVersionExpiryDateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateManagedRuleSetVersionExpiryDateCommandInput - {@link UpdateManagedRuleSetVersionExpiryDateCommandInput}
+ * @returns {@link UpdateManagedRuleSetVersionExpiryDateCommandOutput}
  * @see {@link UpdateManagedRuleSetVersionExpiryDateCommandInput} for command's `input` shape.
  * @see {@link UpdateManagedRuleSetVersionExpiryDateCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
@@ -117,6 +130,9 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateManagedRuleSetVersionExpiryDateCommandInput) {
     // Start section: command_constructor
     super();
@@ -145,8 +161,8 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateManagedRuleSetVersionExpiryDateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateManagedRuleSetVersionExpiryDateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -156,18 +172,24 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateManagedRuleSetVersionExpiryDateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand(input, context);
+    return se_UpdateManagedRuleSetVersionExpiryDateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateManagedRuleSetVersionExpiryDateCommandOutput> {
-    return deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand(output, context);
+    return de_UpdateManagedRuleSetVersionExpiryDateCommand(output, context);
   }
 
   // Start section: command_body_extra

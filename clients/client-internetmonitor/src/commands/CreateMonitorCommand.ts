@@ -14,41 +14,62 @@ import {
 } from "@aws-sdk/types";
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
-import {
-  CreateMonitorInput,
-  CreateMonitorInputFilterSensitiveLog,
-  CreateMonitorOutput,
-  CreateMonitorOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMonitorCommand,
-  serializeAws_restJson1CreateMonitorCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateMonitorInput, CreateMonitorOutput } from "../models/models_0";
+import { de_CreateMonitorCommand, se_CreateMonitorCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateMonitorCommand}.
  */
 export interface CreateMonitorCommandInput extends CreateMonitorInput {}
 /**
+ * @public
+ *
  * The output of {@link CreateMonitorCommand}.
  */
 export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: Virtual Private Clouds (VPCs),
- * 			Amazon CloudFront distributions, and WorkSpaces directories. </p>
- *          <p>After you create a monitor, you can view the internet performance for your application, scoped to a location, as well as any health events that are
- * 			impairing traffic. Internet Monitor can also diagnose whether the impairment is on the Amazon Web Services network or is an issue with an internet service provider (ISP).</p>
+ * @public
+ * <p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: Amazon Virtual Private Clouds (VPCs),
+ * 			Amazon CloudFront distributions, and WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services that are specific to
+ * 			the <i>city-networks</i>, that is, the locations and ASNs (typically internet service providers or ISPs),
+ * 			where clients access your application. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ *          <p>When you create a monitor, you set a maximum limit for the number of city-networks where client traffic is monitored. The city-network maximum
+ * 			that you choose is the limit, but you only pay for the number of city-networks that are actually monitored. You can change the maximum at any time
+ * 			by updating your monitor. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InternetMonitorClient, CreateMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, CreateMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
+ * const input = { // CreateMonitorInput
+ *   MonitorName: "STRING_VALUE", // required
+ *   Resources: [ // SetOfARNs
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   MaxCityNetworksToMonitor: Number("int"),
+ *   InternetMeasurementsLogDelivery: { // InternetMeasurementsLogDelivery
+ *     S3Config: { // S3Config
+ *       BucketName: "STRING_VALUE",
+ *       BucketPrefix: "STRING_VALUE",
+ *       LogDeliveryStatus: "STRING_VALUE",
+ *     },
+ *   },
+ *   TrafficPercentageToMonitor: Number("int"),
+ * };
  * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateMonitorCommandInput - {@link CreateMonitorCommandInput}
+ * @returns {@link CreateMonitorCommandOutput}
  * @see {@link CreateMonitorCommandInput} for command's `input` shape.
  * @see {@link CreateMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
@@ -89,6 +110,9 @@ export class CreateMonitorCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMonitorCommandInput) {
     // Start section: command_constructor
     super();
@@ -115,8 +139,8 @@ export class CreateMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMonitorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMonitorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -126,12 +150,18 @@ export class CreateMonitorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMonitorCommand(input, context);
+    return se_CreateMonitorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMonitorCommandOutput> {
-    return deserializeAws_restJson1CreateMonitorCommand(output, context);
+    return de_CreateMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

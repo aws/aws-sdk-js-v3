@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketLoggingOutput,
-  GetBucketLoggingOutputFilterSensitiveLog,
-  GetBucketLoggingRequest,
-  GetBucketLoggingRequestFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketLoggingCommand,
-  serializeAws_restXmlGetBucketLoggingCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketLoggingOutput, GetBucketLoggingRequest } from "../models/models_0";
+import { de_GetBucketLoggingCommand, se_GetBucketLoggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
+ * @public
+ *
  * The input for {@link GetBucketLoggingCommand}.
  */
 export interface GetBucketLoggingCommandInput extends GetBucketLoggingRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetBucketLoggingCommand}.
  */
 export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the logging status of a bucket and the permissions users have to view and modify
  *          that status. To use GET, you must be the bucket owner.</p>
  *          <p>The following operations are related to <code>GetBucketLogging</code>:</p>
@@ -56,10 +53,16 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  * import { S3Client, GetBucketLoggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketLoggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketLoggingRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketLoggingCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetBucketLoggingCommandInput - {@link GetBucketLoggingCommandInput}
+ * @returns {@link GetBucketLoggingCommandOutput}
  * @see {@link GetBucketLoggingCommandInput} for command's `input` shape.
  * @see {@link GetBucketLoggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
@@ -89,6 +92,9 @@ export class GetBucketLoggingCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketLoggingCommandInput) {
     // Start section: command_constructor
     super();
@@ -117,8 +123,8 @@ export class GetBucketLoggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketLoggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketLoggingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -128,12 +134,18 @@ export class GetBucketLoggingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketLoggingCommand(input, context);
+    return se_GetBucketLoggingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketLoggingCommandOutput> {
-    return deserializeAws_restXmlGetBucketLoggingCommand(output, context);
+    return de_GetBucketLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

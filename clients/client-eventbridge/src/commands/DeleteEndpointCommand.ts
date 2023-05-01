@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  DeleteEndpointRequest,
-  DeleteEndpointRequestFilterSensitiveLog,
-  DeleteEndpointResponse,
-  DeleteEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEndpointCommand,
-  serializeAws_json1_1DeleteEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { DeleteEndpointRequest, DeleteEndpointResponse } from "../models/models_0";
+import { de_DeleteEndpointCommand, se_DeleteEndpointCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteEndpointCommand}.
  */
 export interface DeleteEndpointCommandInput extends DeleteEndpointRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteEndpointCommand}.
  */
 export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an existing global endpoint. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * import { EventBridgeClient, DeleteEndpointCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeleteEndpointCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // DeleteEndpointRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteEndpointCommandInput - {@link DeleteEndpointCommandInput}
+ * @returns {@link DeleteEndpointCommandOutput}
  * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
@@ -78,6 +80,9 @@ export class DeleteEndpointCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEndpointCommandInput) {
     // Start section: command_constructor
     super();
@@ -106,8 +111,8 @@ export class DeleteEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -117,12 +122,18 @@ export class DeleteEndpointCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEndpointCommand(input, context);
+    return se_DeleteEndpointCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointCommandOutput> {
-    return deserializeAws_json1_1DeleteEndpointCommand(output, context);
+    return de_DeleteEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

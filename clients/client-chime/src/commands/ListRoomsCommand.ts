@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  ListRoomsRequest,
-  ListRoomsRequestFilterSensitiveLog,
-  ListRoomsResponse,
-  ListRoomsResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1ListRoomsCommand,
-  serializeAws_restJson1ListRoomsCommand,
-} from "../protocols/Aws_restJson1";
+import { ListRoomsRequest, ListRoomsResponse, ListRoomsResponseFilterSensitiveLog } from "../models/models_1";
+import { de_ListRoomsCommand, se_ListRoomsCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link ListRoomsCommand}.
  */
 export interface ListRoomsCommandInput extends ListRoomsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListRoomsCommand}.
  */
 export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the room details for the specified Amazon Chime Enterprise account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * import { ChimeClient, ListRoomsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListRoomsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // ListRoomsRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListRoomsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListRoomsCommandInput - {@link ListRoomsCommandInput}
+ * @returns {@link ListRoomsCommandOutput}
  * @see {@link ListRoomsCommandInput} for command's `input` shape.
  * @see {@link ListRoomsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -90,6 +95,9 @@ export class ListRoomsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListRoomsCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,7 +124,7 @@ export class ListRoomsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRoomsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListRoomsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -127,12 +135,18 @@ export class ListRoomsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRoomsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRoomsCommand(input, context);
+    return se_ListRoomsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoomsCommandOutput> {
-    return deserializeAws_restJson1ListRoomsCommand(output, context);
+    return de_ListRoomsCommand(output, context);
   }
 
   // Start section: command_body_extra

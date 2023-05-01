@@ -16,25 +16,26 @@ import {
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   GetParametersForImportRequest,
-  GetParametersForImportRequestFilterSensitiveLog,
   GetParametersForImportResponse,
   GetParametersForImportResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetParametersForImportCommand,
-  serializeAws_json1_1GetParametersForImportCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetParametersForImportCommand, se_GetParametersForImportCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link GetParametersForImportCommand}.
  */
 export interface GetParametersForImportCommandInput extends GetParametersForImportRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetParametersForImportCommand}.
  */
 export interface GetParametersForImportCommandOutput extends GetParametersForImportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the items you need to import key material into a symmetric encryption KMS key. For
  *       more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing key material</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
@@ -75,10 +76,17 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * import { KMSClient, GetParametersForImportCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GetParametersForImportCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // GetParametersForImportRequest
+ *   KeyId: "STRING_VALUE", // required
+ *   WrappingAlgorithm: "RSAES_PKCS1_V1_5" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256", // required
+ *   WrappingKeySpec: "RSA_2048", // required
+ * };
  * const command = new GetParametersForImportCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetParametersForImportCommandInput - {@link GetParametersForImportCommandInput}
+ * @returns {@link GetParametersForImportCommandOutput}
  * @see {@link GetParametersForImportCommandInput} for command's `input` shape.
  * @see {@link GetParametersForImportCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
@@ -161,6 +169,9 @@ export class GetParametersForImportCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetParametersForImportCommandInput) {
     // Start section: command_constructor
     super();
@@ -189,7 +200,7 @@ export class GetParametersForImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetParametersForImportRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetParametersForImportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -200,12 +211,18 @@ export class GetParametersForImportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetParametersForImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetParametersForImportCommand(input, context);
+    return se_GetParametersForImportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParametersForImportCommandOutput> {
-    return deserializeAws_json1_1GetParametersForImportCommand(output, context);
+    return de_GetParametersForImportCommand(output, context);
   }
 
   // Start section: command_body_extra

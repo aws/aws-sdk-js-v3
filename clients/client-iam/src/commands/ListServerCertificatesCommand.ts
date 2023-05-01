@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListServerCertificatesRequest,
-  ListServerCertificatesRequestFilterSensitiveLog,
-  ListServerCertificatesResponse,
-  ListServerCertificatesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_queryListServerCertificatesCommand,
-  serializeAws_queryListServerCertificatesCommand,
-} from "../protocols/Aws_query";
+import { ListServerCertificatesRequest, ListServerCertificatesResponse } from "../models/models_0";
+import { de_ListServerCertificatesCommand, se_ListServerCertificatesCommand } from "../protocols/Aws_query";
 
 /**
+ * @public
+ *
  * The input for {@link ListServerCertificatesCommand}.
  */
 export interface ListServerCertificatesCommandInput extends ListServerCertificatesRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListServerCertificatesCommand}.
  */
 export interface ListServerCertificatesCommandOutput extends ListServerCertificatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the server certificates stored in IAM that have the specified path prefix. If
  *             none exist, the operation returns an empty list.</p>
  *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
@@ -53,10 +50,17 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  * import { IAMClient, ListServerCertificatesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListServerCertificatesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListServerCertificatesRequest
+ *   PathPrefix: "STRING_VALUE",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListServerCertificatesCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListServerCertificatesCommandInput - {@link ListServerCertificatesCommandInput}
+ * @returns {@link ListServerCertificatesCommandOutput}
  * @see {@link ListServerCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListServerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
@@ -84,6 +88,9 @@ export class ListServerCertificatesCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListServerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +119,8 @@ export class ListServerCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServerCertificatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServerCertificatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +130,18 @@ export class ListServerCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListServerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListServerCertificatesCommand(input, context);
+    return se_ListServerCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServerCertificatesCommandOutput> {
-    return deserializeAws_queryListServerCertificatesCommand(output, context);
+    return de_ListServerCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

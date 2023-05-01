@@ -23,23 +23,24 @@ import {
   AdminEnableUserRequest,
   AdminEnableUserRequestFilterSensitiveLog,
   AdminEnableUserResponse,
-  AdminEnableUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminEnableUserCommand,
-  serializeAws_json1_1AdminEnableUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminEnableUserCommand, se_AdminEnableUserCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link AdminEnableUserCommand}.
  */
 export interface AdminEnableUserCommandInput extends AdminEnableUserRequest {}
 /**
+ * @public
+ *
  * The output of {@link AdminEnableUserCommand}.
  */
 export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the specified user as an administrator. Works on any user.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
@@ -48,10 +49,16 @@ export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, _
  * import { CognitoIdentityProviderClient, AdminEnableUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminEnableUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AdminEnableUserRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ * };
  * const command = new AdminEnableUserCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param AdminEnableUserCommandInput - {@link AdminEnableUserCommandInput}
+ * @returns {@link AdminEnableUserCommandOutput}
  * @see {@link AdminEnableUserCommandInput} for command's `input` shape.
  * @see {@link AdminEnableUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
@@ -96,6 +103,9 @@ export class AdminEnableUserCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: AdminEnableUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -126,7 +136,7 @@ export class AdminEnableUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminEnableUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminEnableUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -136,12 +146,18 @@ export class AdminEnableUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AdminEnableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminEnableUserCommand(input, context);
+    return se_AdminEnableUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminEnableUserCommandOutput> {
-    return deserializeAws_json1_1AdminEnableUserCommand(output, context);
+    return de_AdminEnableUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  PutProfileObjectTypeRequest,
-  PutProfileObjectTypeRequestFilterSensitiveLog,
-  PutProfileObjectTypeResponse,
-  PutProfileObjectTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PutProfileObjectTypeCommand,
-  serializeAws_restJson1PutProfileObjectTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { PutProfileObjectTypeRequest, PutProfileObjectTypeResponse } from "../models/models_0";
+import { de_PutProfileObjectTypeCommand, se_PutProfileObjectTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PutProfileObjectTypeCommand}.
  */
 export interface PutProfileObjectTypeCommandInput extends PutProfileObjectTypeRequest {}
 /**
+ * @public
+ *
  * The output of {@link PutProfileObjectTypeCommand}.
  */
 export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Defines a ProfileObjectType.</p>
  *          <p>To add or remove tags on an existing ObjectType, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">
  *          TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
@@ -44,10 +41,44 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * import { CustomerProfilesClient, PutProfileObjectTypeCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, PutProfileObjectTypeCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = { // PutProfileObjectTypeRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   ObjectTypeName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   TemplateId: "STRING_VALUE",
+ *   ExpirationDays: Number("int"),
+ *   EncryptionKey: "STRING_VALUE",
+ *   AllowProfileCreation: true || false,
+ *   SourceLastUpdatedTimestampFormat: "STRING_VALUE",
+ *   Fields: { // FieldMap
+ *     "<keys>": { // ObjectTypeField
+ *       Source: "STRING_VALUE",
+ *       Target: "STRING_VALUE",
+ *       ContentType: "STRING" || "NUMBER" || "PHONE_NUMBER" || "EMAIL_ADDRESS" || "NAME",
+ *     },
+ *   },
+ *   Keys: { // KeyMap
+ *     "<keys>": [ // ObjectTypeKeyList
+ *       { // ObjectTypeKey
+ *         StandardIdentifiers: [ // StandardIdentifierList
+ *           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ *         ],
+ *         FieldNames: [ // FieldNameList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutProfileObjectTypeCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PutProfileObjectTypeCommandInput - {@link PutProfileObjectTypeCommandInput}
+ * @returns {@link PutProfileObjectTypeCommandOutput}
  * @see {@link PutProfileObjectTypeCommandInput} for command's `input` shape.
  * @see {@link PutProfileObjectTypeCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
@@ -86,6 +117,9 @@ export class PutProfileObjectTypeCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutProfileObjectTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -114,8 +148,8 @@ export class PutProfileObjectTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutProfileObjectTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutProfileObjectTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +159,18 @@ export class PutProfileObjectTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutProfileObjectTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutProfileObjectTypeCommand(input, context);
+    return se_PutProfileObjectTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutProfileObjectTypeCommandOutput> {
-    return deserializeAws_restJson1PutProfileObjectTypeCommand(output, context);
+    return de_PutProfileObjectTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { DeleteVcenterClientRequest, DeleteVcenterClientRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVcenterClientCommand,
-  serializeAws_restJson1DeleteVcenterClientCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteVcenterClientRequest } from "../models/models_0";
+import { de_DeleteVcenterClientCommand, se_DeleteVcenterClientCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteVcenterClientCommand}.
  */
 export interface DeleteVcenterClientCommandInput extends DeleteVcenterClientRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteVcenterClientCommand}.
  */
 export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a given vCenter client by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,10 +39,15 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  * import { MgnClient, DeleteVcenterClientCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DeleteVcenterClientCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = { // DeleteVcenterClientRequest
+ *   vcenterClientID: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVcenterClientCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteVcenterClientCommandInput - {@link DeleteVcenterClientCommandInput}
+ * @returns {@link DeleteVcenterClientCommandOutput}
  * @see {@link DeleteVcenterClientCommandInput} for command's `input` shape.
  * @see {@link DeleteVcenterClientCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
@@ -73,6 +80,9 @@ export class DeleteVcenterClientCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteVcenterClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +111,8 @@ export class DeleteVcenterClientCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVcenterClientRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,12 +122,18 @@ export class DeleteVcenterClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteVcenterClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVcenterClientCommand(input, context);
+    return se_DeleteVcenterClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVcenterClientCommandOutput> {
-    return deserializeAws_restJson1DeleteVcenterClientCommand(output, context);
+    return de_DeleteVcenterClientCommand(output, context);
   }
 
   // Start section: command_body_extra

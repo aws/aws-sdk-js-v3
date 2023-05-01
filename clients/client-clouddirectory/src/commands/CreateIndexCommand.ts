@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  CreateIndexRequest,
-  CreateIndexRequestFilterSensitiveLog,
-  CreateIndexResponse,
-  CreateIndexResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateIndexCommand,
-  serializeAws_restJson1CreateIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateIndexRequest, CreateIndexResponse } from "../models/models_0";
+import { de_CreateIndexCommand, se_CreateIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateIndexCommand}.
  */
 export interface CreateIndexCommandInput extends CreateIndexRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateIndexCommand}.
  */
 export interface CreateIndexCommandOutput extends CreateIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html">Indexing and search</a> for more information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,27 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * import { CloudDirectoryClient, CreateIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // CreateIndexRequest
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   OrderedIndexedAttributeList: [ // AttributeKeyList // required
+ *     { // AttributeKey
+ *       SchemaArn: "STRING_VALUE", // required
+ *       FacetName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   IsUnique: true || false, // required
+ *   ParentReference: { // ObjectReference
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   LinkName: "STRING_VALUE",
+ * };
  * const command = new CreateIndexCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateIndexCommandInput - {@link CreateIndexCommandInput}
+ * @returns {@link CreateIndexCommandOutput}
  * @see {@link CreateIndexCommandInput} for command's `input` shape.
  * @see {@link CreateIndexCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -105,6 +119,9 @@ export class CreateIndexCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,8 +148,8 @@ export class CreateIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,12 +159,18 @@ export class CreateIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIndexCommand(input, context);
+    return se_CreateIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIndexCommandOutput> {
-    return deserializeAws_restJson1CreateIndexCommand(output, context);
+    return de_CreateIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

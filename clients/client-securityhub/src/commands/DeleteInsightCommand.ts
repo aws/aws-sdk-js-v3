@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteInsightRequest,
-  DeleteInsightRequestFilterSensitiveLog,
-  DeleteInsightResponse,
-  DeleteInsightResponseFilterSensitiveLog,
-} from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteInsightCommand,
-  serializeAws_restJson1DeleteInsightCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteInsightRequest, DeleteInsightResponse } from "../models/models_2";
+import { de_DeleteInsightCommand, se_DeleteInsightCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
+ * @public
+ *
  * The input for {@link DeleteInsightCommand}.
  */
 export interface DeleteInsightCommandInput extends DeleteInsightRequest {}
 /**
+ * @public
+ *
  * The output of {@link DeleteInsightCommand}.
  */
 export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the insight specified by the <code>InsightArn</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  * import { SecurityHubClient, DeleteInsightCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteInsightCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DeleteInsightRequest
+ *   InsightArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInsightCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param DeleteInsightCommandInput - {@link DeleteInsightCommandInput}
+ * @returns {@link DeleteInsightCommandOutput}
  * @see {@link DeleteInsightCommandInput} for command's `input` shape.
  * @see {@link DeleteInsightCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
@@ -68,6 +70,22 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To delete a custom insight
+ * ```javascript
+ * // The following example deletes a custom insight in Security Hub.
+ * const input = {
+ *   "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ * };
+ * const command = new DeleteInsightCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InsightArn": "arn:aws:securityhub:eu-central-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ * }
+ * *\/
+ * // example id: to-delete-a-custom-insight-1675702697204
+ * ```
+ *
  */
 export class DeleteInsightCommand extends $Command<
   DeleteInsightCommandInput,
@@ -86,6 +104,9 @@ export class DeleteInsightCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteInsightCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +133,8 @@ export class DeleteInsightCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInsightRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInsightResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +144,18 @@ export class DeleteInsightCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInsightCommand(input, context);
+    return se_DeleteInsightCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInsightCommandOutput> {
-    return deserializeAws_restJson1DeleteInsightCommand(output, context);
+    return de_DeleteInsightCommand(output, context);
   }
 
   // Start section: command_body_extra

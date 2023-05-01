@@ -13,28 +13,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorkteamsRequest,
-  ListWorkteamsRequestFilterSensitiveLog,
-  ListWorkteamsResponse,
-  ListWorkteamsResponseFilterSensitiveLog,
-} from "../models/models_3";
-import {
-  deserializeAws_json1_1ListWorkteamsCommand,
-  serializeAws_json1_1ListWorkteamsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListWorkteamsRequest, ListWorkteamsResponse } from "../models/models_3";
+import { de_ListWorkteamsCommand, se_ListWorkteamsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
+ * @public
+ *
  * The input for {@link ListWorkteamsCommand}.
  */
 export interface ListWorkteamsCommandInput extends ListWorkteamsRequest {}
 /**
+ * @public
+ *
  * The output of {@link ListWorkteamsCommand}.
  */
 export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if
  *             no work team satisfies the filter specified in the <code>NameContains</code>
  *             parameter.</p>
@@ -44,10 +41,19 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  * import { SageMakerClient, ListWorkteamsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListWorkteamsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListWorkteamsRequest
+ *   SortBy: "Name" || "CreateDate",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListWorkteamsCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param ListWorkteamsCommandInput - {@link ListWorkteamsCommandInput}
+ * @returns {@link ListWorkteamsCommandOutput}
  * @see {@link ListWorkteamsCommandInput} for command's `input` shape.
  * @see {@link ListWorkteamsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
@@ -71,6 +77,9 @@ export class ListWorkteamsCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorkteamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,8 +106,8 @@ export class ListWorkteamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkteamsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkteamsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +117,18 @@ export class ListWorkteamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorkteamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWorkteamsCommand(input, context);
+    return se_ListWorkteamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkteamsCommandOutput> {
-    return deserializeAws_json1_1ListWorkteamsCommand(output, context);
+    return de_ListWorkteamsCommand(output, context);
   }
 
   // Start section: command_body_extra

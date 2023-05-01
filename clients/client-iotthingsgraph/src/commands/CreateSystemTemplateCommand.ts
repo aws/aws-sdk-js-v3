@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  CreateSystemTemplateRequest,
-  CreateSystemTemplateRequestFilterSensitiveLog,
-  CreateSystemTemplateResponse,
-  CreateSystemTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateSystemTemplateCommand,
-  serializeAws_json1_1CreateSystemTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { CreateSystemTemplateRequest, CreateSystemTemplateResponse } from "../models/models_0";
+import { de_CreateSystemTemplateCommand, se_CreateSystemTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link CreateSystemTemplateCommand}.
  */
 export interface CreateSystemTemplateCommandInput extends CreateSystemTemplateRequest {}
 /**
+ * @public
+ *
  * The output of {@link CreateSystemTemplateCommand}.
  */
 export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * @deprecated
  *
  * <p>Creates a system. The system is validated against the entities in the
@@ -45,10 +42,19 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * import { IoTThingsGraphClient, CreateSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, CreateSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = { // CreateSystemTemplateRequest
+ *   definition: { // DefinitionDocument
+ *     language: "STRING_VALUE", // required
+ *     text: "STRING_VALUE", // required
+ *   },
+ *   compatibleNamespaceVersion: Number("long"),
+ * };
  * const command = new CreateSystemTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param CreateSystemTemplateCommandInput - {@link CreateSystemTemplateCommandInput}
+ * @returns {@link CreateSystemTemplateCommandOutput}
  * @see {@link CreateSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
@@ -84,6 +90,9 @@ export class CreateSystemTemplateCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSystemTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,8 +121,8 @@ export class CreateSystemTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSystemTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSystemTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +132,18 @@ export class CreateSystemTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSystemTemplateCommand(input, context);
+    return se_CreateSystemTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSystemTemplateCommandOutput> {
-    return deserializeAws_json1_1CreateSystemTemplateCommand(output, context);
+    return de_CreateSystemTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

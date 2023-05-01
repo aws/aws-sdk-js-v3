@@ -20,21 +20,23 @@ import {
   UpdateWorkspaceResponse,
   UpdateWorkspaceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkspaceCommand,
-  serializeAws_restJson1UpdateWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateWorkspaceCommand, se_UpdateWorkspaceCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link UpdateWorkspaceCommand}.
  */
 export interface UpdateWorkspaceCommandInput extends UpdateWorkspaceRequest {}
 /**
+ * @public
+ *
  * The output of {@link UpdateWorkspaceCommand}.
  */
 export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit
  *             any optional parameters, the existing values of those parameters are not changed.</p>
  *          <p>To modify the user authentication methods that the workspace uses, such as SAML or
@@ -47,10 +49,49 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * import { GrafanaClient, UpdateWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdateWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = { // UpdateWorkspaceRequest
+ *   accountAccessType: "STRING_VALUE",
+ *   organizationRoleName: "STRING_VALUE",
+ *   permissionType: "STRING_VALUE",
+ *   stackSetName: "STRING_VALUE",
+ *   workspaceDataSources: [ // DataSourceTypesList
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceDescription: "STRING_VALUE",
+ *   workspaceId: "STRING_VALUE", // required
+ *   workspaceName: "STRING_VALUE",
+ *   workspaceNotificationDestinations: [ // NotificationDestinationsList
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceOrganizationalUnits: [ // OrganizationalUnitList
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceRoleArn: "STRING_VALUE",
+ *   vpcConfiguration: { // VpcConfiguration
+ *     securityGroupIds: [ // SecurityGroupIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // SubnetIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   removeVpcConfiguration: true || false,
+ *   networkAccessControl: { // NetworkAccessConfiguration
+ *     prefixListIds: [ // PrefixListIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpceIds: [ // VpceIds // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   removeNetworkAccessConfiguration: true || false,
+ * };
  * const command = new UpdateWorkspaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param UpdateWorkspaceCommandInput - {@link UpdateWorkspaceCommandInput}
+ * @returns {@link UpdateWorkspaceCommandOutput}
  * @see {@link UpdateWorkspaceCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
@@ -92,6 +133,9 @@ export class UpdateWorkspaceCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateWorkspaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -131,12 +175,18 @@ export class UpdateWorkspaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkspaceCommand(input, context);
+    return se_UpdateWorkspaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkspaceCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkspaceCommand(output, context);
+    return de_UpdateWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

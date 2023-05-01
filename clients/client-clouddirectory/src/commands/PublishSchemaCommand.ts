@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  PublishSchemaRequest,
-  PublishSchemaRequestFilterSensitiveLog,
-  PublishSchemaResponse,
-  PublishSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1PublishSchemaCommand,
-  serializeAws_restJson1PublishSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { PublishSchemaRequest, PublishSchemaResponse } from "../models/models_0";
+import { de_PublishSchemaCommand, se_PublishSchemaCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link PublishSchemaCommand}.
  */
 export interface PublishSchemaCommandInput extends PublishSchemaRequest {}
 /**
+ * @public
+ *
  * The output of {@link PublishSchemaCommand}.
  */
 export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes a development schema with a major version and a recommended minor version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,18 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
  * import { CloudDirectoryClient, PublishSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, PublishSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = { // PublishSchemaRequest
+ *   DevelopmentSchemaArn: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE", // required
+ *   MinorVersion: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new PublishSchemaCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param PublishSchemaCommandInput - {@link PublishSchemaCommandInput}
+ * @returns {@link PublishSchemaCommandOutput}
  * @see {@link PublishSchemaCommandInput} for command's `input` shape.
  * @see {@link PublishSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
@@ -94,6 +99,9 @@ export class PublishSchemaCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: PublishSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -120,8 +128,8 @@ export class PublishSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -131,12 +139,18 @@ export class PublishSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishSchemaCommand(input, context);
+    return se_PublishSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishSchemaCommandOutput> {
-    return deserializeAws_restJson1PublishSchemaCommand(output, context);
+    return de_PublishSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

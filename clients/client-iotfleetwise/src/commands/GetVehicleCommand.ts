@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetVehicleRequest,
-  GetVehicleRequestFilterSensitiveLog,
-  GetVehicleResponse,
-  GetVehicleResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0GetVehicleCommand,
-  serializeAws_json1_0GetVehicleCommand,
-} from "../protocols/Aws_json1_0";
+import { GetVehicleRequest, GetVehicleResponse } from "../models/models_0";
+import { de_GetVehicleCommand, se_GetVehicleCommand } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GetVehicleCommand}.
  */
 export interface GetVehicleCommandInput extends GetVehicleRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetVehicleCommand}.
  */
 export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves information about a vehicle. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,15 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * import { IoTFleetWiseClient, GetVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = { // GetVehicleRequest
+ *   vehicleName: "STRING_VALUE", // required
+ * };
  * const command = new GetVehicleCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetVehicleCommandInput - {@link GetVehicleCommandInput}
+ * @returns {@link GetVehicleCommandOutput}
  * @see {@link GetVehicleCommandInput} for command's `input` shape.
  * @see {@link GetVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
@@ -84,6 +86,9 @@ export class GetVehicleCommand extends $Command<
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetVehicleCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,8 +115,8 @@ export class GetVehicleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVehicleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVehicleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -121,12 +126,18 @@ export class GetVehicleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVehicleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetVehicleCommand(input, context);
+    return se_GetVehicleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVehicleCommandOutput> {
-    return deserializeAws_json1_0GetVehicleCommand(output, context);
+    return de_GetVehicleCommand(output, context);
   }
 
   // Start section: command_body_extra

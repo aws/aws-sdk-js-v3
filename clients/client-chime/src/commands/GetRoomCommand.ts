@@ -14,27 +14,24 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  GetRoomRequest,
-  GetRoomRequestFilterSensitiveLog,
-  GetRoomResponse,
-  GetRoomResponseFilterSensitiveLog,
-} from "../models/models_1";
-import {
-  deserializeAws_restJson1GetRoomCommand,
-  serializeAws_restJson1GetRoomCommand,
-} from "../protocols/Aws_restJson1";
+import { GetRoomRequest, GetRoomResponse, GetRoomResponseFilterSensitiveLog } from "../models/models_1";
+import { de_GetRoomCommand, se_GetRoomCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ *
  * The input for {@link GetRoomCommand}.
  */
 export interface GetRoomCommandInput extends GetRoomRequest {}
 /**
+ * @public
+ *
  * The output of {@link GetRoomCommand}.
  */
 export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,10 +39,16 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * import { ChimeClient, GetRoomCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetRoomCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = { // GetRoomRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   RoomId: "STRING_VALUE", // required
+ * };
  * const command = new GetRoomCommand(input);
  * const response = await client.send(command);
  * ```
  *
+ * @param GetRoomCommandInput - {@link GetRoomCommandInput}
+ * @returns {@link GetRoomCommandOutput}
  * @see {@link GetRoomCommandInput} for command's `input` shape.
  * @see {@link GetRoomCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
@@ -86,6 +89,9 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
     };
   }
 
+  /**
+   * @public
+   */
   constructor(readonly input: GetRoomCommandInput) {
     // Start section: command_constructor
     super();
@@ -112,7 +118,7 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoomRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRoomResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
@@ -123,12 +129,18 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRoomCommand(input, context);
+    return se_GetRoomCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoomCommandOutput> {
-    return deserializeAws_restJson1GetRoomCommand(output, context);
+    return de_GetRoomCommand(output, context);
   }
 
   // Start section: command_body_extra
